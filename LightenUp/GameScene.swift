@@ -9,29 +9,28 @@
 import SpriteKit
 
 class GameScene: SKScene {
-    var gridNode: Grid!
-    
-    override func didMove(to view: SKView) {
-        let offset:CGFloat = 0.5
-        scaleMode = .resizeFill
-        gridNode = Grid(blockSize: 60, rows:5, cols:5)
-        gridNode.position = CGPoint(x: view.frame.midX - gridNode.blockSize * CGFloat(gridNode.cols) / 2 - offset, y: view.frame.midY + gridNode.blockSize * CGFloat(gridNode.rows) / 2 + offset)
-        addChild(gridNode)
-        gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
-    }
-    
-    func removeWalls() {
-        gridNode.enumerateChildNodes(withName: "wall") { (node, pointer) in
-            node.removeFromParent()
-        }
-    }
+    var gridNode: GridNode!
     
     func coloredRectSize() -> CGSize {
         let sz = gridNode.blockSize - 4
         return CGSize(width: sz, height: sz)
     }
     
+    func addGrid(to view: SKView) {
+        let offset:CGFloat = 0.5
+        scaleMode = .resizeFill
+        gridNode = GridNode(blockSize: 60, rows:5, cols:5)
+        gridNode.position = CGPoint(x: view.frame.midX - gridNode.blockSize * CGFloat(gridNode.cols) / 2 - offset, y: view.frame.midY + gridNode.blockSize * CGFloat(gridNode.rows) / 2 + offset)
+        addChild(gridNode)
+        gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
+    }
+    
     func addWalls(game: Game) {
+        // remove all wall nodes
+        gridNode.enumerateChildNodes(withName: "wall") { (node, pointer) in
+            node.removeFromParent()
+        }
+        // add wall nodes
         for (p, n) in game.walls {
             let point = gridNode.gridPosition(p: p)
             let wallNode = SKSpriteNode(color: SKColor.white, size: coloredRectSize())

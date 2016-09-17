@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,12 +18,34 @@
                     <view key="view" contentMode="scaleToFill" id="Tod-e8-lx2" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Solved" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Zk-Zs-gcP">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9oO-dn-c3c">
+                                <state key="normal" title="1"/>
+                                <connections>
+                                    <action selector="startGame:" destination="BV1-FR-VrT" eventType="touchUpInside" id="4Kp-HX-Qac"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="6Zk-Zs-gcP" firstAttribute="centerX" secondItem="Tod-e8-lx2" secondAttribute="centerX" id="1ZF-Jz-1UQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9oO-dn-c3c" secondAttribute="trailing" constant="71" id="KSi-Mf-VDP"/>
+                            <constraint firstItem="JhU-Y5-5ce" firstAttribute="top" secondItem="9oO-dn-c3c" secondAttribute="bottom" constant="26" id="Q8Z-u5-mRb"/>
+                            <constraint firstItem="JhU-Y5-5ce" firstAttribute="top" secondItem="6Zk-Zs-gcP" secondAttribute="bottom" constant="30" id="qVI-MX-boV"/>
+                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="jgE-OH-Rll" appends="YES" id="RmU-or-Sl2"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="lblSolved" destination="6Zk-Zs-gcP" id="esq-IU-Tej"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="jgE-OH-Rll">

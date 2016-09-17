@@ -9,16 +9,19 @@
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, GameDelegate {
 
     var scene: GameScene!
     var game: Game!
+    var skView: SKView!
 
+    @IBOutlet weak var lblSolved: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Configure the view.
-        let skView = view as! SKView
+        skView = view as! SKView
         skView.isMultipleTouchEnabled = false
         
         // Create and configure the scene.
@@ -29,8 +32,7 @@ class GameViewController: UIViewController {
         // Present the scene.
         skView.presentScene(scene)
         
-        game = Game()
-        scene.addWalls(game: game)
+        startGame(self)
     }
     
     override var prefersStatusBarHidden : Bool {
@@ -38,18 +40,28 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func didTap(_ sender: UITapGestureRecognizer) {
+        guard !game.isSolved else {return}
         let touchLocation = sender.location(in: sender.view)
         let touchLocationInScene = scene.convertPoint(fromView: touchLocation)
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        let instruction = game.state.toggleObject(p: p)
+        let instruction = game.toggleObject(p: p)
         scene.process(instruction: instruction)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
+    
+    @IBAction func startGame(_ sender: AnyObject) {
+        lblSolved.textColor = SKColor.black
+        
+        game = Game()
+        game.delegate = self
+        scene.removeAllChildren()
+        scene.addGrid(to: skView)
+        scene.addWalls(game: game)
+    }
+    
+    func gameSolved(_ sender: Game) {
+        lblSolved.textColor = SKColor.white
     }
 
 }

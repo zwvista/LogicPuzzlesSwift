@@ -56,7 +56,7 @@ struct GameState {
         }
     }
     
-    func isValid(_ p: Position) -> Bool {
+    func isValid(p: Position) -> Bool {
         return isValid(p.row, p.col)
     }
     func isValid(_ row: Int, _ col: Int) -> Bool {
@@ -81,7 +81,7 @@ struct GameState {
         func adjustLightness(tolighten: Bool) {
             for os in offset {
                 var p2 = p + os
-                loop: while isValid(p2) {
+                loop: while isValid(p: p2) {
                     switch self[p2] {
                     case .wall:
                         break loop
@@ -128,11 +128,22 @@ struct GameState {
     var isSolved: Bool {
         for r in 0..<size.row {
             for c in 0..<size.col {
+                let p = Position(r, c)
                 switch self[r, c] {
                 case .empty(let lightness) where lightness == 0:
                     return false
                 case .lightBulb(let lightness) where lightness > 1:
                     return false
+                case .wall(let lightbulbs) where lightbulbs >= 0:
+                    var n = 0
+                    for os in offset {
+                        let p2 = p + os
+                        guard isValid(p: p2) else {continue}
+                        if case .lightBulb = self[p2] {
+                            n += 1
+                        }
+                    }
+                    if n != lightbulbs {return false}
                 default:
                     break
                 }
@@ -142,13 +153,26 @@ struct GameState {
     }
 }
 
+protocol GameDelegate {
+    func gameSolved(_ sender: Game)
+}
+
 class Game {
-    var state: GameState
+    private var state: GameState
+    var isSolved = false
     var walls = [Position : Int]()
+    var delegate: GameDelegate?
     
     func addWall(row: Int, col: Int, lightbulbs: Int){
         state[row, col] = .wall(lightbulbs: lightbulbs)
         walls[Position(row, col)] = lightbulbs
+    }
+    
+    func toggleObject(p: Position) -> GameInstruction {
+        let instruction = state.toggleObject(p: p)
+        isSolved = state.isSolved
+        if isSolved { delegate?.gameSolved(self) }
+        return instruction
     }
     
     init() {
