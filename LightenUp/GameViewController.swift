@@ -40,7 +40,11 @@ class GameViewController: UIViewController {
     @IBAction func didTap(_ sender: UITapGestureRecognizer) {
         let touchLocation = sender.location(in: sender.view)
         let touchLocationInScene = scene.convertPoint(fromView: touchLocation)
-        let touchLocationInNode = scene.convert(touchLocationInScene, to: scene.grid)
+        guard scene.gridNode.contains(touchLocationInScene) else {return}
+        let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
+        let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
+        let instruction = game.state.toggleObject(p: p)
+        scene.process(instruction: instruction)
     }
 
     override func didReceiveMemoryWarning() {

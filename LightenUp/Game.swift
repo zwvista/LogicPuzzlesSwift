@@ -24,6 +24,12 @@ let offset: [Position] = [
     Position(0, -1),
 ];
 
+struct GameInstruction {
+    var toadd = true
+    var lightCells = Set<Position>()
+    var lightbulbs = [Position]()
+}
+
 struct GameState {
     let size: Position
     var objArray: [GameObject]
@@ -57,48 +63,65 @@ struct GameState {
         return row >= 0 && col >= 0 && row < size.row && col < size.col
     }
     
-    mutating func setObject(_ p: Position, obj: GameObject) {
-        func adjustedLightness(_ isLit: Bool, lightness: Int) -> Int {
-            return isLit ? lightness + 1 : max(lightness - 1, 0)
+    mutating func setObject(p: Position, obj: GameObject) -> GameInstruction {
+        var instruction = GameInstruction()
+        
+        func adjustedLightness(p: Position, tolighten: Bool, lightness: Int) -> Int {
+            if tolighten {
+                if lightness == 0 { instruction.lightCells.insert(p) }
+                return lightness + 1
+            } else if lightness > 0 {
+                if lightness == 1 { instruction.lightCells.insert(p) }
+                return lightness - 1
+            } else {
+                return lightness
+            }
         }
-        func adjustLightness(_ isLit: Bool) {
+        
+        func adjustLightness(tolighten: Bool) {
             for os in offset {
                 var p2 = p + os
                 loop: while isValid(p2) {
                     switch self[p2] {
                     case .wall:
                         break loop
-                    case .empty(var lightness):
-                        lightness = adjustedLightness(isLit, lightness: lightness)
-                    case .lightBulb(var lightness):
-                        lightness = adjustedLightness(isLit, lightness: lightness)
+                    case .empty(let lightness):
+                        self[p2] = .empty(lightness: adjustedLightness(p: p2, tolighten: tolighten, lightness: lightness))
+                    case .lightBulb(let lightness):
+                        self[p2] = .lightBulb(lightness: adjustedLightness(p: p2, tolighten: tolighten, lightness: lightness))
                     }
                     p2 += os
                 }
             }
         }
+        
         switch obj {
         case .wall:
             self[p] = obj
         case .empty:
             guard case .lightBulb(let lightness) = self[p] else {break}
-            self[p] = .empty(lightness: adjustedLightness(false, lightness: lightness))
-            adjustLightness(false)
+            instruction.toadd = false
+            instruction.lightbulbs.append(p)
+            self[p] = .empty(lightness: adjustedLightness(p: p, tolighten: false, lightness: lightness))
+            adjustLightness(tolighten: false)
         case .lightBulb:
             guard case .empty(let lightness) = self[p] else {break}
-            self[p] = .lightBulb(lightness: adjustedLightness(true, lightness: lightness))
-            adjustLightness(true)
+            instruction.lightbulbs.append(p)
+            self[p] = .lightBulb(lightness: adjustedLightness(p: p, tolighten: true, lightness: lightness))
+            adjustLightness(tolighten: true)
         }
+
+        return instruction
     }
     
-    mutating func toggleObject(_ p: Position) {
+    mutating func toggleObject(p: Position) -> GameInstruction {
         switch self[p] {
         case .empty:
-            setObject(p, obj: .lightBulb(lightness: 0))
+            return setObject(p: p, obj: .lightBulb(lightness: 0))
         case .lightBulb:
-            setObject(p, obj: .empty(lightness: 0))
+            return setObject(p: p, obj: .empty(lightness: 0))
         default:
-            break
+            return GameInstruction()
         }
     }
     

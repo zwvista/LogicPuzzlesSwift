@@ -9,35 +9,35 @@
 import SpriteKit
 
 class GameScene: SKScene {
-    var grid: Grid!
+    var gridNode: Grid!
     
     override func didMove(to view: SKView) {
         let offset:CGFloat = 0.5
         scaleMode = .resizeFill
-        grid = Grid(blockSize: 60, rows:5, cols:5)
-        grid.position = CGPoint(x: view.frame.midX - grid.blockSize * CGFloat(grid.cols) / 2 - offset, y: view.frame.midY + grid.blockSize * CGFloat(grid.rows) / 2 + offset)
-        addChild(grid)
-        grid.anchorPoint = CGPoint(x: 0, y: 1.0)
-        
-        let gamePiece = SKSpriteNode(imageNamed: "Spaceship")
-        gamePiece.setScale(0.0625)
-        gamePiece.position = grid.gridPosition(row: 2, col: 0)
-        grid.addChild(gamePiece)
+        gridNode = Grid(blockSize: 60, rows:5, cols:5)
+        gridNode.position = CGPoint(x: view.frame.midX - gridNode.blockSize * CGFloat(gridNode.cols) / 2 - offset, y: view.frame.midY + gridNode.blockSize * CGFloat(gridNode.rows) / 2 + offset)
+        addChild(gridNode)
+        gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
     }
     
     func removeWalls() {
-        grid.enumerateChildNodes(withName: "wall") { (node, pointer) in
+        gridNode.enumerateChildNodes(withName: "wall") { (node, pointer) in
             node.removeFromParent()
         }
     }
     
+    func coloredRectSize() -> CGSize {
+        let sz = gridNode.blockSize - 4
+        return CGSize(width: sz, height: sz)
+    }
+    
     func addWalls(game: Game) {
         for (p, n) in game.walls {
-            let point = grid.gridPosition(row: p.row, col: p.col)
-            let wall = SKSpriteNode(color: SKColor.white, size: CGSize(width: 56, height: 56))
-            wall.position = point
-            wall.name = "wall"
-            grid.addChild(wall)
+            let point = gridNode.gridPosition(p: p)
+            let wallNode = SKSpriteNode(color: SKColor.white, size: coloredRectSize())
+            wallNode.position = point
+            wallNode.name = "wall"
+            gridNode.addChild(wallNode)
             guard n >= 0 else {continue}
             let lbl = SKLabelNode(text: String(n))
             lbl.fontColor = SKColor.black
@@ -45,11 +45,43 @@ class GameScene: SKScene {
             lbl.verticalAlignmentMode = .center
             lbl.position = point
             lbl.name = "wall"
-            grid.addChild(lbl)
+            gridNode.addChild(lbl)
         }
     }
     
-    func didTap(_ point: CGPoint) {
-        
+    func process(instruction: GameInstruction) {
+        func lightCellNodeName(p: Position) -> String {
+            return "lightCell-\(p.row)-\(p.col)"
+        }
+        func lightbulbNodeName(p: Position) -> String {
+            return "lightbulb-\(p.row)-\(p.col)"
+        }
+        if instruction.toadd {
+            for p in instruction.lightCells {
+                let point = gridNode.gridPosition(p: p)
+                let lightCellNode = SKSpriteNode(color: SKColor.yellow, size: coloredRectSize())
+                lightCellNode.position = point
+                lightCellNode.name = lightCellNodeName(p: p)
+                gridNode.addChild(lightCellNode)
+            }
+            for p in instruction.lightbulbs {
+                let lightbulbNode = SKSpriteNode(imageNamed: "lightbulb.jpeg")
+                lightbulbNode.setScale(0.2)
+                lightbulbNode.position = gridNode.gridPosition(p: p)
+                lightbulbNode.name = lightbulbNodeName(p: p)
+                gridNode.addChild(lightbulbNode)
+            }
+        } else {
+            for p in instruction.lightCells {
+                gridNode.enumerateChildNodes(withName: lightCellNodeName(p: p)) { (node, pointer) in
+                    node.removeFromParent()
+                }
+            }
+            for p in instruction.lightbulbs {
+                gridNode.enumerateChildNodes(withName: lightbulbNodeName(p: p)) { (node, pointer) in
+                    node.removeFromParent()
+                }
+            }
+        }
     }
 }
