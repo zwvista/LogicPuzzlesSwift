@@ -8,57 +8,132 @@
 
 import Foundation
 
-enum CellObject {
-    case Empty
-    case LightBulb
-    case Wall(Int)
+enum GameObject {
+    case empty(lightness: Int)
+    case lightBulb(lightness: Int)
+    case wall(lightbulbs: Int)
+    init() {
+        self = .empty(lightness: 0)
+    }
 }
 
-enum CellState {
-    case Dark
-    case Light
-    case Wall
-}
+let offset: [Position] = [
+    Position(-1, 0),
+    Position(0, 1),
+    Position(1, 0),
+    Position(0, -1),
+];
 
-struct Cell {
-    var obj: CellObject = .Empty
-    var state: CellState = .Dark
-}
-
-class GameState {
-    let rows: Int
-    let cols: Int
-    var cellArray: [Cell]
+struct GameState {
+    let size: Position
+    var objArray: [GameObject]
     
-    init(rows: Int, cols: Int) {
-        self.rows = rows
-        self.cols = cols
-        cellArray = Array<Cell>(count: rows * cols, repeatedValue: Cell())
+    init(size: Position) {
+        self.size = size
+        objArray = Array<GameObject>(repeating: GameObject(), count: size.row * size.col)
     }
     
-    subscript(row: Int, col: Int) -> Cell {
+    subscript(p: Position) -> GameObject {
         get {
-            return cellArray[row * cols + col]
+            return objArray[p.row * size.col + p.col]
         }
         set(newValue) {
-            cellArray[row * cols + col] = newValue
+            self[p.row, p.col] = newValue
+        }
+    }
+    subscript(row: Int, col: Int) -> GameObject {
+        get {
+            return objArray[row * size.col + col]
+        }
+        set(newValue) {
+            objArray[row * size.col + col] = newValue
         }
     }
     
-    func setWall(row: Int, col: Int, n: Int) {
-        self[row, col] = Cell(obj: .Wall(n), state: .Wall)
+    func isValid(_ p: Position) -> Bool {
+        return isValid(p.row, p.col)
+    }
+    func isValid(_ row: Int, _ col: Int) -> Bool {
+        return row >= 0 && col >= 0 && row < size.row && col < size.col
+    }
+    
+    mutating func setObject(_ p: Position, obj: GameObject) {
+        func adjustedLightness(_ isLit: Bool, lightness: Int) -> Int {
+            return isLit ? lightness + 1 : max(lightness - 1, 0)
+        }
+        func adjustLightness(_ isLit: Bool) {
+            for os in offset {
+                var p2 = p + os
+                loop: while isValid(p2) {
+                    switch self[p2] {
+                    case .wall:
+                        break loop
+                    case .empty(var lightness):
+                        lightness = adjustedLightness(isLit, lightness: lightness)
+                    case .lightBulb(var lightness):
+                        lightness = adjustedLightness(isLit, lightness: lightness)
+                    }
+                    p2 += os
+                }
+            }
+        }
+        switch obj {
+        case .wall:
+            self[p] = obj
+        case .empty:
+            guard case .lightBulb(let lightness) = self[p] else {break}
+            self[p] = .empty(lightness: adjustedLightness(false, lightness: lightness))
+            adjustLightness(false)
+        case .lightBulb:
+            guard case .empty(let lightness) = self[p] else {break}
+            self[p] = .lightBulb(lightness: adjustedLightness(true, lightness: lightness))
+            adjustLightness(true)
+        }
+    }
+    
+    mutating func toggleObject(_ p: Position) {
+        switch self[p] {
+        case .empty:
+            setObject(p, obj: .lightBulb(lightness: 0))
+        case .lightBulb:
+            setObject(p, obj: .empty(lightness: 0))
+        default:
+            break
+        }
+    }
+    
+    var isSolved: Bool {
+        for r in 0..<size.row {
+            for c in 0..<size.col {
+                switch self[r, c] {
+                case .empty(let lightness) where lightness == 0:
+                    return false
+                case .lightBulb(let lightness) where lightness > 1:
+                    return false
+                default:
+                    break
+                }
+            }
+        }
+        return true
     }
 }
 
 class Game {
     var state: GameState
+    var walls = [Position : Int]()
+    
+    func addWall(row: Int, col: Int, lightbulbs: Int){
+        state[row, col] = .wall(lightbulbs: lightbulbs)
+        walls[Position(row, col)] = lightbulbs
+    }
     
     init() {
-        state = GameState(rows: 5, cols: 5)
-        state.setWall(0, col: 2, n: -1)
-        state.setWall(0, col: 4, n: -1)
-        state.setWall(1, col: 3, n: 4)
-        state.setWall(2, col: 2, n: 4)
-        state.setWall(4, col: 1, n: 0)
+        state = GameState(size: Position(5, 5))
+        addWall(row: 0, col: 2, lightbulbs: -1);
+        addWall(row: 0, col: 4, lightbulbs: -1);
+        addWall(row: 1, col: 3, lightbulbs: 4);
+        addWall(row: 2, col: 2, lightbulbs: 4);
+        addWall(row: 4, col: 1, lightbulbs: 0);
     }
 }

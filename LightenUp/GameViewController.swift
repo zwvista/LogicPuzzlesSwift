@@ -12,28 +12,35 @@ import SpriteKit
 class GameViewController: UIViewController {
 
     var scene: GameScene!
+    var game: Game!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Configure the view.
         let skView = view as! SKView
-        skView.multipleTouchEnabled = false
+        skView.isMultipleTouchEnabled = false
         
         // Create and configure the scene.
         scene = GameScene(size: skView.bounds.size)
-        scene.scaleMode = .AspectFill
-        scene.backgroundColor = UIColor.whiteColor()
+        scene.scaleMode = .aspectFill
+        scene.backgroundColor = UIColor.black
         
         // Present the scene.
         skView.presentScene(scene)
+        
+        game = Game()
+        scene.addWalls(game: game)
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
     
-    @IBAction func didTap(sender: UITapGestureRecognizer) {
+    @IBAction func didTap(_ sender: UITapGestureRecognizer) {
+        let touchLocation = sender.location(in: sender.view)
+        let touchLocationInScene = scene.convertPoint(fromView: touchLocation)
+        let touchLocationInNode = scene.convert(touchLocationInScene, to: scene.grid)
     }
 
     override func didReceiveMemoryWarning() {

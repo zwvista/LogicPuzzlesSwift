@@ -8,14 +8,16 @@
 
 import SpriteKit
 
+// http://stackoverflow.com/questions/33464925/draw-a-grid-with-spritekit
+
 class Grid:SKSpriteNode {
     var rows:Int!
     var cols:Int!
     var blockSize:CGFloat!
     
-    convenience init(blockSize:CGFloat,rows:Int,cols:Int) {
-        let texture = Grid.gridTexture(blockSize,rows: rows, cols:cols)
-        self.init(texture: texture, color:SKColor.clearColor(), size: texture.size())
+    convenience init(blockSize: CGFloat, rows: Int, cols: Int) {
+        let texture = Grid.gridTexture(blockSize, rows: rows, cols:cols)
+        self.init(texture: texture, color: SKColor.clear, size: texture.size())
         self.blockSize = blockSize
         self.rows = rows
         self.cols = cols
@@ -29,9 +31,9 @@ class Grid:SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    class func gridTexture(blockSize:CGFloat,rows:Int,cols:Int) -> SKTexture {
+    class func gridTexture(_ blockSize: CGFloat,rows: Int, cols: Int) -> SKTexture {
         // Add 1 to the height and width to ensure the borders are within the sprite
-        let size = CGSize(width: CGFloat(cols)*blockSize+1.0, height: CGFloat(rows)*blockSize+1.0)
+        let size = CGSize(width: CGFloat(cols) * blockSize + 1.0, height: CGFloat(rows) * blockSize + 1.0)
         UIGraphicsBeginImageContext(size)
         
         let context = UIGraphicsGetCurrentContext()
@@ -40,29 +42,29 @@ class Grid:SKSpriteNode {
         // Draw vertical lines
         for i in 0...cols {
             let x = CGFloat(i)*blockSize + offset
-            bezierPath.moveToPoint(CGPoint(x: x, y: 0))
-            bezierPath.addLineToPoint(CGPoint(x: x, y: size.height))
+            bezierPath.move(to: CGPoint(x: x, y: 0))
+            bezierPath.addLine(to: CGPoint(x: x, y: size.height))
         }
         // Draw horizontal lines
         for i in 0...rows {
-            let y = CGFloat(i)*blockSize + offset
-            bezierPath.moveToPoint(CGPoint(x: 0, y: y))
-            bezierPath.addLineToPoint(CGPoint(x: size.width, y: y))
+            let y = CGFloat(i) * blockSize + offset
+            bezierPath.move(to: CGPoint(x: 0, y: y))
+            bezierPath.addLine(to: CGPoint(x: size.width, y: y))
         }
-        SKColor.blackColor().setStroke()
+        SKColor.white.setStroke()
         bezierPath.lineWidth = 1.0
         bezierPath.stroke()
-        CGContextAddPath(context, bezierPath.CGPath)
+        context?.addPath(bezierPath.cgPath)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return SKTexture(image: image)
+        return SKTexture(image: image!)
     }
     
-    func gridPosition(row:Int, col:Int) -> CGPoint {
-        let offset = blockSize / 2.0 + 0.5
-        let x = CGFloat(col) * blockSize - (blockSize * CGFloat(cols)) / 2.0 + offset
-        let y = CGFloat(rows - row - 1) * blockSize - (blockSize * CGFloat(rows)) / 2.0 + offset
-        return CGPoint(x:x, y:y)
+    func gridPosition(row: Int, col: Int) -> CGPoint {
+        let offset: CGFloat = 0.5
+        let x = (CGFloat(col) + CGFloat(0.5)) * blockSize + offset
+        let y = -(CGFloat(row) + CGFloat(0.5)) * blockSize - offset
+        return CGPoint(x: x, y: y)
     }
 }
