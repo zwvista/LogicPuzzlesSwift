@@ -25,12 +25,7 @@ class GameScene: SKScene {
         gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
     }
     
-    func addWalls(game: Game) {
-        // remove all wall nodes
-        gridNode.enumerateChildNodes(withName: "wall") { (node, pointer) in
-            node.removeFromParent()
-        }
-        // add wall nodes
+    func addWalls(from game: Game) {
         for (p, n) in game.walls {
             let point = gridNode.gridPosition(p: p)
             let wallNode = SKSpriteNode(color: SKColor.white, size: coloredRectSize())
@@ -64,7 +59,7 @@ class GameScene: SKScene {
                 gridNode.addChild(lightCellNode)
             }
             for p in instruction.lightbulbs {
-                let lightbulbNode = SKSpriteNode(imageNamed: "lightbulb.jpeg")
+                let lightbulbNode = SKSpriteNode(imageNamed: "lightbulb")
                 lightbulbNode.setScale(0.2)
                 lightbulbNode.position = gridNode.gridPosition(p: p)
                 lightbulbNode.name = lightbulbNodeName(p: p)

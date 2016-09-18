@@ -17,7 +17,7 @@ enum GameObject {
     }
 }
 
-let offset: [Position] = [
+let offset = [
     Position(-1, 0),
     Position(0, 1),
     Position(1, 0),
@@ -34,9 +34,9 @@ struct GameState {
     let size: Position
     var objArray: [GameObject]
     
-    init(size: Position) {
-        self.size = size
-        objArray = Array<GameObject>(repeating: GameObject(), count: size.row * size.col)
+    init(rows: Int, cols: Int) {
+        self.size = Position(rows, cols)
+        objArray = Array<GameObject>(repeating: GameObject(), count: rows * cols)
     }
     
     subscript(p: Position) -> GameObject {
@@ -57,9 +57,9 @@ struct GameState {
     }
     
     func isValid(p: Position) -> Bool {
-        return isValid(p.row, p.col)
+        return isValid(row: p.row, col: p.col)
     }
-    func isValid(_ row: Int, _ col: Int) -> Bool {
+    func isValid(row: Int, col: Int) -> Bool {
         return row >= 0 && col >= 0 && row < size.row && col < size.col
     }
     
@@ -160,13 +160,8 @@ protocol GameDelegate {
 class Game {
     private var state: GameState
     var isSolved = false
-    var walls = [Position : Int]()
+    var walls = [Position: Int]()
     var delegate: GameDelegate?
-    
-    func addWall(row: Int, col: Int, lightbulbs: Int){
-        state[row, col] = .wall(lightbulbs: lightbulbs)
-        walls[Position(row, col)] = lightbulbs
-    }
     
     func toggleObject(p: Position) -> GameInstruction {
         let instruction = state.toggleObject(p: p)
@@ -175,12 +170,27 @@ class Game {
         return instruction
     }
     
-    init() {
-        state = GameState(size: Position(5, 5))
-        addWall(row: 0, col: 2, lightbulbs: -1);
-        addWall(row: 0, col: 4, lightbulbs: -1);
-        addWall(row: 1, col: 3, lightbulbs: 4);
-        addWall(row: 2, col: 2, lightbulbs: 4);
-        addWall(row: 4, col: 1, lightbulbs: 0);
+    init(strs: [String]) {
+        func addWall(row: Int, col: Int, lightbulbs: Int) {
+            state[row, col] = .wall(lightbulbs: lightbulbs)
+            walls[Position(row, col)] = lightbulbs
+        }
+        
+        state = GameState(rows: strs.count, cols: strs[0].characters.count)
+        
+        for r in 0..<state.size.row {
+            let str = strs[r]
+            for c in 0..<state.size.col {
+                let ch = str[str.index(str.startIndex, offsetBy: c)]
+                switch ch {
+                case "W":
+                    addWall(row: r, col: c, lightbulbs: -1)
+                case "0"..."9":
+                    addWall(row: r, col: c, lightbulbs: Int(String(ch))!)
+                default:
+                    break
+                }
+            }
+        }
     }
 }

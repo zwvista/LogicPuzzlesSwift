@@ -14,6 +14,7 @@ class GameViewController: UIViewController, GameDelegate {
     var scene: GameScene!
     var game: Game!
     var skView: SKView!
+    var loader: GameLoader!
 
     @IBOutlet weak var lblSolved: UILabel!
     
@@ -32,11 +33,18 @@ class GameViewController: UIViewController, GameDelegate {
         // Present the scene.
         skView.presentScene(scene)
         
+        loader = GameLoader()
+        loader.load()
+        
         startGame(self)
     }
     
     override var prefersStatusBarHidden : Bool {
         return true
+    }
+    
+    override var shouldAutorotate: Bool {
+        return false
     }
     
     @IBAction func didTap(_ sender: UITapGestureRecognizer) {
@@ -53,11 +61,17 @@ class GameViewController: UIViewController, GameDelegate {
     @IBAction func startGame(_ sender: AnyObject) {
         lblSolved.textColor = SKColor.black
         
-        game = Game()
+        let btn = sender as? UIButton
+        let idx = { () -> String in
+            if btn == nil {return "1"}
+            let t = btn!.titleLabel!.text!
+            return t.substring(from: t.index(before: t.endIndex))
+        }()
+        game = Game(strs: loader.levels[idx]!)
         game.delegate = self
         scene.removeAllChildren()
         scene.addGrid(to: skView)
-        scene.addWalls(game: game)
+        scene.addWalls(from: game)
     }
     
     func gameSolved(_ sender: Game) {
