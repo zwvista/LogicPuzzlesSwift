@@ -17,6 +17,8 @@ class GameViewController: UIViewController, GameDelegate {
     var loader: GameLoader!
 
     @IBOutlet weak var lblSolved: UILabel!
+    @IBOutlet weak var lblLevel: UILabel!
+    @IBOutlet weak var btnLevel1: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +38,9 @@ class GameViewController: UIViewController, GameDelegate {
         loader = GameLoader()
         loader.load()
         
-        startGame(self)
+        lblLevel.textColor = SKColor.white
+        
+        startGame(btnLevel1)
     }
     
     override var prefersStatusBarHidden : Bool {
@@ -61,16 +65,15 @@ class GameViewController: UIViewController, GameDelegate {
     @IBAction func startGame(_ sender: AnyObject) {
         lblSolved.textColor = SKColor.black
         
-        let btn = sender as? UIButton
-        let idx = { () -> String in
-            if btn == nil {return "1"}
-            let t = btn!.titleLabel!.text!
-            return t.substring(from: t.index(before: t.endIndex))
-        }()
+        let btn = sender as! UIButton
+        let t = btn.titleLabel!.text!
+        lblLevel.text = t
+        let idx = t.substring(from: t.index(t.startIndex, offsetBy: String("level ")!.characters.count))
         game = Game(strs: loader.levels[idx]!)
         game.delegate = self
         scene.removeAllChildren()
-        scene.addGrid(to: skView)
+        let blockSize = CGFloat(skView.bounds.size.width - 80) / CGFloat(game.size.col)
+        scene.addGrid(to: skView, rows: game.size.row, cols: game.size.col, blockSize: blockSize)
         scene.addWalls(from: game)
     }
     

@@ -162,6 +162,7 @@ class Game {
     var isSolved = false
     var walls = [Position: Int]()
     var delegate: GameDelegate?
+    var size: Position {return state.size}
     
     func toggleObject(p: Position) -> GameInstruction {
         let instruction = state.toggleObject(p: p)

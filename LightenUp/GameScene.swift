@@ -16,10 +16,10 @@ class GameScene: SKScene {
         return CGSize(width: sz, height: sz)
     }
     
-    func addGrid(to view: SKView) {
+    func addGrid(to view: SKView, rows: Int, cols: Int, blockSize: CGFloat) {
         let offset:CGFloat = 0.5
         scaleMode = .resizeFill
-        gridNode = GridNode(blockSize: 60, rows:5, cols:5)
+        gridNode = GridNode(blockSize: blockSize, rows: rows, cols: cols)
         gridNode.position = CGPoint(x: view.frame.midX - gridNode.blockSize * CGFloat(gridNode.cols) / 2 - offset, y: view.frame.midY + gridNode.blockSize * CGFloat(gridNode.rows) / 2 + offset)
         addChild(gridNode)
         gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
