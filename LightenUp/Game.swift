@@ -53,6 +53,11 @@ class Game {
     }
     
     func toggleObject(p: Position) -> GameInstruction {
+        if canRedo {
+            states.removeSubrange((currentIndex + 1) ..< states.count)
+            instructions.removeSubrange(currentIndex ..< instructions.count)
+        }
+        
         // copy a state
         var state = self.state
         let instruction = state.toggleObject(p: p)
@@ -65,11 +70,17 @@ class Game {
         return instruction
     }
     
-    func undo() {
-        
+    func undo() -> GameInstruction {
+        guard canUndo else {return GameInstruction()}
+        var instruction = self.instruction
+        instruction.toadd = !instruction.toadd
+        currentIndex -= 1
+        return instruction
     }
     
-    func redo() {
-        
+    func redo() -> GameInstruction {
+        guard canRedo else {return GameInstruction()}
+        currentIndex += 1
+        return instruction
     }
 }

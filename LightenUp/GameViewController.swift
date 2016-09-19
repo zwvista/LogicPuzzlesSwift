@@ -15,6 +15,7 @@ class GameViewController: UIViewController, GameDelegate {
     var game: Game!
     var skView: SKView!
     var loader: GameLoader!
+    weak var selectedButton: UIButton!
 
     @IBOutlet weak var lblSolved: UILabel!
     @IBOutlet weak var lblLevel: UILabel!
@@ -65,8 +66,8 @@ class GameViewController: UIViewController, GameDelegate {
     @IBAction func startGame(_ sender: AnyObject) {
         lblSolved.textColor = SKColor.black
         
-        let btn = sender as! UIButton
-        let t = btn.titleLabel!.text!
+        selectedButton = sender as! UIButton
+        let t = selectedButton.titleLabel!.text!
         lblLevel.text = t
         let idx = t.substring(from: t.index(t.startIndex, offsetBy: String("level ")!.characters.count))
         game = Game(strs: loader.levels[idx]!)
@@ -79,6 +80,22 @@ class GameViewController: UIViewController, GameDelegate {
     
     func gameSolved(_ sender: Game) {
         lblSolved.textColor = SKColor.white
+    }
+    
+    @IBAction func undoGame(_ sender: AnyObject) {
+        guard game.canUndo else {return}
+        let instruction = game.undo()
+        scene.process(instruction: instruction)
+    }
+    
+    @IBAction func redoGame(_ sender: AnyObject) {
+        guard game.canRedo else {return}
+        let instruction = game.redo()
+        scene.process(instruction: instruction)
+    }
+    
+    @IBAction func clearGame(_ sender: AnyObject) {
+        startGame(selectedButton)
     }
 
 }

@@ -24,7 +24,7 @@ let offset = [
     Position(0, -1),
 ];
 
-class GameInstruction {
+struct GameInstruction {
     var toadd = true
     var lightCells = Set<Position>()
     var lightbulbs = [Position]()
@@ -130,8 +130,8 @@ struct GameState {
     
     mutating func updateIsSolved() {
         isSolved = {
-            for r in 0..<size.row {
-                for c in 0..<size.col {
+            for r in 0 ..< size.row {
+                for c in 0 ..< size.col {
                     let p = Position(r, c)
                     switch self[r, c] {
                     case .empty(let lightness) where lightness == 0:
