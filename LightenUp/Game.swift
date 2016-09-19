@@ -10,7 +10,7 @@ import Foundation
 
 // http://stackoverflow.com/questions/24066304/how-can-i-make-a-weak-protocol-reference-in-pure-swift-w-o-objc
 protocol GameDelegate: class {
-    func gameStateUpdated(_ sender: Game)
+    func gameUpdated(_ sender: Game)
     func gameSolved(_ sender: Game)
 }
 
@@ -18,8 +18,8 @@ class Game {
     private var stateIndex = 0
     private var states = [GameState]()
     private var state: GameState {return states[stateIndex]}
-    private var instructions = [GameInstruction]()
-    private var instruction: GameInstruction {return instructions[stateIndex - 1]}
+    private var moves = [GameMove]()
+    private var move: GameMove  {return moves[stateIndex - 1]}
     
     var walls = [Position: Int]()
     weak var delegate: GameDelegate?
@@ -29,6 +29,14 @@ class Game {
     var canRedo: Bool {return stateIndex < states.count - 1}
     var moveIndex: Int {return stateIndex}
     var moveCount: Int {return states.count - 1}
+    var movesString: String {
+        return moves.map({m in "\(m.p)"}).joined(separator: "\n")
+    }
+    
+    private func gameUpdated() {
+        delegate?.gameUpdated(self)
+        if isSolved { delegate?.gameSolved(self) }
+    }
     
     init(strs: [String], delegate: GameDelegate? = nil) {
         self.delegate = delegate
@@ -56,41 +64,42 @@ class Game {
         }
         
         states.append(state)
-        delegate?.gameStateUpdated(self)
+        gameUpdated()
     }
     
-    func toggleObject(p: Position) -> GameInstruction {
+    func toggleObject(p: Position) -> (Bool, GameMove) {
         if canRedo {
             states.removeSubrange((stateIndex + 1) ..< states.count)
-            instructions.removeSubrange(stateIndex ..< instructions.count)
+            moves.removeSubrange(stateIndex ..< moves.count)
         }
         
         // copy a state
         var state = self.state
-        let instruction = state.toggleObject(p: p)
+        let (changed, move) = state.toggleObject(p: p)
         
-        states.append(state)
-        stateIndex += 1
-        delegate?.gameStateUpdated(self)
-        if isSolved { delegate?.gameSolved(self) }
-        
-        instructions.append(instruction)
-        return instruction
+        if changed {
+            states.append(state)
+            stateIndex += 1
+            moves.append(move)
+            gameUpdated()
+        }
+
+        return (changed, move)
     }
     
-    func undo() -> GameInstruction {
-        guard canUndo else {return GameInstruction()}
-        var instruction = self.instruction
-        instruction.toadd = !instruction.toadd
+    func undo() -> GameMove {
+        guard canUndo else {return GameMove()}
+        var move = self.move
+        move.toadd = !move.toadd
         stateIndex -= 1
-        delegate?.gameStateUpdated(self)
-        return instruction
+        gameUpdated()
+        return move
     }
     
-    func redo() -> GameInstruction {
-        guard canRedo else {return GameInstruction()}
+    func redo() -> GameMove {
+        guard canRedo else {return GameMove()}
         stateIndex += 1
-        delegate?.gameStateUpdated(self)
-        return instruction
+        gameUpdated()
+        return move
     }
 }

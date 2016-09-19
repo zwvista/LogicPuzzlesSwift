@@ -13,7 +13,7 @@ class GameViewController: UIViewController, GameDelegate {
 
     var scene: GameScene!
     var game: Game!
-    var skView: SKView!
+    weak var skView: SKView!
     var loader: GameLoader!
     weak var selectedButton: UIButton!
 
@@ -61,8 +61,9 @@ class GameViewController: UIViewController, GameDelegate {
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        let instruction = game.toggleObject(p: p)
-        scene.process(instruction: instruction)
+        let (changed, move) = game.toggleObject(p: p)
+        guard changed else {return}
+        scene.process(move: move)
     }
     
     @IBAction func startGame(_ sender: AnyObject) {
@@ -77,7 +78,7 @@ class GameViewController: UIViewController, GameDelegate {
         scene.addWalls(from: game)
     }
     
-    func gameStateUpdated(_ sender: Game) {
+    func gameUpdated(_ sender: Game) {
         lblMoves.text = "Moves: \(sender.moveIndex)(\(sender.moveCount))"
         lblSolved.textColor = sender.isSolved ? SKColor.white : SKColor.black
     }
@@ -87,14 +88,14 @@ class GameViewController: UIViewController, GameDelegate {
     
     @IBAction func undoGame(_ sender: AnyObject) {
         guard game.canUndo else {return}
-        let instruction = game.undo()
-        scene.process(instruction: instruction)
+        let move = game.undo()
+        scene.process(move: move)
     }
     
     @IBAction func redoGame(_ sender: AnyObject) {
         guard game.canRedo else {return}
-        let instruction = game.redo()
-        scene.process(instruction: instruction)
+        let move = game.redo()
+        scene.process(move: move)
     }
     
     @IBAction func clearGame(_ sender: AnyObject) {

@@ -24,7 +24,9 @@ let offset = [
     Position(0, -1),
 ];
 
-struct GameInstruction {
+struct GameMove {
+    var p = Position()
+    var obj = GameObject()
     var toadd = true
     var lightCells = Set<Position>()
     var lightbulbs = [Position]()
@@ -63,15 +65,16 @@ struct GameState {
         return row >= 0 && col >= 0 && row < size.row && col < size.col
     }
     
-    mutating func setObject(p: Position, obj: GameObject) -> GameInstruction {
-        var instruction = GameInstruction()
+    mutating func setObject(p: Position, obj: GameObject) -> (Bool, GameMove) {
+        var changed = false
+        var move = GameMove()
         
         func adjustedLightness(p: Position, tolighten: Bool, lightness: Int) -> Int {
             if tolighten {
-                if lightness == 0 { instruction.lightCells.insert(p) }
+                if lightness == 0 { move.lightCells.insert(p) }
                 return lightness + 1
             } else if lightness > 0 {
-                if lightness == 1 { instruction.lightCells.insert(p) }
+                if lightness == 1 { move.lightCells.insert(p) }
                 return lightness - 1
             } else {
                 return lightness
@@ -100,21 +103,25 @@ struct GameState {
             self[p] = obj
         case .empty:
             guard case .lightBulb(let lightness) = self[p] else {break}
-            instruction.toadd = false
-            instruction.lightbulbs.append(p)
+            changed = true
+            move.p = p; move.obj = obj
+            move.toadd = false
+            move.lightbulbs.append(p)
             self[p] = .empty(lightness: adjustedLightness(p: p, tolighten: false, lightness: lightness))
             adjustLightness(tolighten: false)
         case .lightBulb:
             guard case .empty(let lightness) = self[p] else {break}
-            instruction.lightbulbs.append(p)
+            changed = true
+            move.p = p; move.obj = obj
+            move.lightbulbs.append(p)
             self[p] = .lightBulb(lightness: adjustedLightness(p: p, tolighten: true, lightness: lightness))
             adjustLightness(tolighten: true)
         }
         
-        return instruction
+        return (changed, move)
     }
     
-    mutating func toggleObject(p: Position) -> GameInstruction {
+    mutating func toggleObject(p: Position) -> (Bool, GameMove) {
         defer { updateIsSolved() }
         switch self[p] {
         case .empty:
@@ -122,7 +129,7 @@ struct GameState {
         case .lightBulb:
             return setObject(p: p, obj: .empty(lightness: 0))
         default:
-            return GameInstruction()
+            return (false, GameMove())
         }
     }
     

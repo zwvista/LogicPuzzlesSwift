@@ -44,22 +44,22 @@ class GameScene: SKScene {
         }
     }
     
-    func process(instruction: GameInstruction) {
+    func process(move: GameMove) {
         func lightCellNodeName(p: Position) -> String {
             return "lightCell-\(p.row)-\(p.col)"
         }
         func lightbulbNodeName(p: Position) -> String {
             return "lightbulb-\(p.row)-\(p.col)"
         }
-        if instruction.toadd {
-            for p in instruction.lightCells {
+        if move.toadd {
+            for p in move.lightCells {
                 let point = gridNode.gridPosition(p: p)
                 let lightCellNode = SKSpriteNode(color: SKColor.yellow, size: coloredRectSize())
                 lightCellNode.position = point
                 lightCellNode.name = lightCellNodeName(p: p)
                 gridNode.addChild(lightCellNode)
             }
-            for p in instruction.lightbulbs {
+            for p in move.lightbulbs {
                 let lightbulbNode = SKSpriteNode(imageNamed: "lightbulb")
                 lightbulbNode.setScale(CGFloat(gridNode.blockSize) / 300.0)
                 lightbulbNode.position = gridNode.gridPosition(p: p)
@@ -67,12 +67,12 @@ class GameScene: SKScene {
                 gridNode.addChild(lightbulbNode)
             }
         } else {
-            for p in instruction.lightCells {
+            for p in move.lightCells {
                 gridNode.enumerateChildNodes(withName: lightCellNodeName(p: p)) { (node, pointer) in
                     node.removeFromParent()
                 }
             }
-            for p in instruction.lightbulbs {
+            for p in move.lightbulbs {
                 gridNode.enumerateChildNodes(withName: lightbulbNodeName(p: p)) { (node, pointer) in
                     node.removeFromParent()
                 }

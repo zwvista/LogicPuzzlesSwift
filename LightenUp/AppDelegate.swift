@@ -7,15 +7,28 @@
 //
 
 import UIKit
+import SharkORM
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, SRKDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let fileManager = FileManager.default
+        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        let documentsDirectory = paths[0]
+        let dbPath = (documentsDirectory as NSString).appendingPathComponent("Game.db")
+        if !fileManager.fileExists(atPath: dbPath) {
+            let resourcePath = Bundle.main.path(forResource: "Game", ofType: "db")!
+            try! fileManager.copyItem(atPath: resourcePath, toPath: dbPath)
+        }
+        
+        SharkORM.openDatabaseNamed("Game")
+        
         return true
     }
 

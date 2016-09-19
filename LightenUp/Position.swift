@@ -8,14 +8,24 @@
 
 import Foundation
 
-struct Position: Equatable, Comparable, Hashable {
+struct Position: Equatable, Comparable, Hashable, CustomStringConvertible {
     var row = 0
     var col = 0
+    
     init(_ r: Int, _ c: Int) {
         row = r; col = c
     }
+    
+    init() {
+        self.init(0, 0)
+    }
+    
     var hashValue: Int {
         return row * 100 + col
+    }
+    
+    var description: String {
+        return "(\(row),\(col))"
     }
     
     static func + (left: Position, right: Position) -> Position {
