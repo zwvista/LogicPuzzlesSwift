@@ -20,6 +20,7 @@ class GameViewController: UIViewController, GameDelegate {
     @IBOutlet weak var lblSolved: UILabel!
     @IBOutlet weak var lblLevel: UILabel!
     @IBOutlet weak var btnLevel1: UIButton!
+    @IBOutlet weak var lblMoves: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,7 @@ class GameViewController: UIViewController, GameDelegate {
         loader.load()
         
         lblLevel.textColor = SKColor.white
+        lblMoves.textColor = SKColor.white
         
         startGame(btnLevel1)
     }
@@ -64,22 +66,23 @@ class GameViewController: UIViewController, GameDelegate {
     }
     
     @IBAction func startGame(_ sender: AnyObject) {
-        lblSolved.textColor = SKColor.black
-        
         selectedButton = sender as! UIButton
         let t = selectedButton.titleLabel!.text!
         lblLevel.text = t
         let idx = t.substring(from: t.index(t.startIndex, offsetBy: String("level ")!.characters.count))
-        game = Game(strs: loader.levels[idx]!)
-        game.delegate = self
+        game = Game(strs: loader.levels[idx]!, delegate: self)
         scene.removeAllChildren()
         let blockSize = CGFloat(skView.bounds.size.width - 80) / CGFloat(game.size.col)
         scene.addGrid(to: skView, rows: game.size.row, cols: game.size.col, blockSize: blockSize)
         scene.addWalls(from: game)
     }
     
+    func gameStateUpdated(_ sender: Game) {
+        lblMoves.text = "Moves: \(sender.moveIndex)(\(sender.moveCount))"
+        lblSolved.textColor = sender.isSolved ? SKColor.white : SKColor.black
+    }
+    
     func gameSolved(_ sender: Game) {
-        lblSolved.textColor = SKColor.white
     }
     
     @IBAction func undoGame(_ sender: AnyObject) {

@@ -8,25 +8,31 @@
 
 import Foundation
 
-protocol GameDelegate {
+// http://stackoverflow.com/questions/24066304/how-can-i-make-a-weak-protocol-reference-in-pure-swift-w-o-objc
+protocol GameDelegate: class {
+    func gameStateUpdated(_ sender: Game)
     func gameSolved(_ sender: Game)
 }
 
 class Game {
-    private var currentIndex = 0
+    private var stateIndex = 0
     private var states = [GameState]()
-    private var state: GameState {return states[currentIndex]}
+    private var state: GameState {return states[stateIndex]}
     private var instructions = [GameInstruction]()
-    private var instruction: GameInstruction {return instructions[currentIndex - 1]}
+    private var instruction: GameInstruction {return instructions[stateIndex - 1]}
     
     var walls = [Position: Int]()
-    var delegate: GameDelegate?
+    weak var delegate: GameDelegate?
     var size: Position {return state.size}
     var isSolved: Bool {return state.isSolved}
-    var canUndo: Bool {return currentIndex > 0}
-    var canRedo: Bool {return currentIndex < states.count - 1}
+    var canUndo: Bool {return stateIndex > 0}
+    var canRedo: Bool {return stateIndex < states.count - 1}
+    var moveIndex: Int {return stateIndex}
+    var moveCount: Int {return states.count - 1}
     
-    init(strs: [String]) {
+    init(strs: [String], delegate: GameDelegate? = nil) {
+        self.delegate = delegate
+        
         var state = GameState(rows: strs.count, cols: strs[0].characters.count)
         
         func addWall(row: Int, col: Int, lightbulbs: Int) {
@@ -50,12 +56,13 @@ class Game {
         }
         
         states.append(state)
+        delegate?.gameStateUpdated(self)
     }
     
     func toggleObject(p: Position) -> GameInstruction {
         if canRedo {
-            states.removeSubrange((currentIndex + 1) ..< states.count)
-            instructions.removeSubrange(currentIndex ..< instructions.count)
+            states.removeSubrange((stateIndex + 1) ..< states.count)
+            instructions.removeSubrange(stateIndex ..< instructions.count)
         }
         
         // copy a state
@@ -63,7 +70,8 @@ class Game {
         let instruction = state.toggleObject(p: p)
         
         states.append(state)
-        currentIndex += 1
+        stateIndex += 1
+        delegate?.gameStateUpdated(self)
         if isSolved { delegate?.gameSolved(self) }
         
         instructions.append(instruction)
@@ -74,13 +82,15 @@ class Game {
         guard canUndo else {return GameInstruction()}
         var instruction = self.instruction
         instruction.toadd = !instruction.toadd
-        currentIndex -= 1
+        stateIndex -= 1
+        delegate?.gameStateUpdated(self)
         return instruction
     }
     
     func redo() -> GameInstruction {
         guard canRedo else {return GameInstruction()}
-        currentIndex += 1
+        stateIndex += 1
+        delegate?.gameStateUpdated(self)
         return instruction
     }
 }
