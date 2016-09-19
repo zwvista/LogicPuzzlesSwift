@@ -33,13 +33,14 @@ class GameScene: SKScene {
             wallNode.name = "wall"
             gridNode.addChild(wallNode)
             guard n >= 0 else {continue}
-            let lbl = SKLabelNode(text: String(n))
-            lbl.fontColor = SKColor.black
-            lbl.fontName = lbl.fontName! + "-Bold"
-            lbl.verticalAlignmentMode = .center
-            lbl.position = point
-            lbl.name = "wall"
-            gridNode.addChild(lbl)
+            let numberNode = SKLabelNode(text: String(n))
+            numberNode.fontColor = SKColor.black
+            numberNode.fontName = numberNode.fontName! + "-Bold"
+            numberNode.fontSize *= CGFloat(gridNode.blockSize) / 60.0
+            numberNode.verticalAlignmentMode = .center
+            numberNode.position = point
+            numberNode.name = "wall"
+            gridNode.addChild(numberNode)
         }
     }
     
@@ -60,7 +61,7 @@ class GameScene: SKScene {
             }
             for p in instruction.lightbulbs {
                 let lightbulbNode = SKSpriteNode(imageNamed: "lightbulb")
-                lightbulbNode.setScale(0.2)
+                lightbulbNode.setScale(CGFloat(gridNode.blockSize) / 300.0)
                 lightbulbNode.position = gridNode.gridPosition(p: p)
                 lightbulbNode.name = lightbulbNodeName(p: p)
                 gridNode.addChild(lightbulbNode)

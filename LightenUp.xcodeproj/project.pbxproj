@@ -29,6 +29,7 @@
 		8CCF1BFE1D8DAB6700AB6594 /* Levels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF1BFD1D8DAB6700AB6594 /* Levels.xml */; };
 		8CCF1C001D8DAF7B00AB6594 /* GameLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF1BFF1D8DAF7B00AB6594 /* GameLoader.swift */; };
 		8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF1C011D8E1DB000AB6594 /* lightbulb.png */; };
+		8CCF1C041D8F6C7300AB6594 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF1C031D8F6C7300AB6594 /* GameState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		8CCF1BFD1D8DAB6700AB6594 /* Levels.xml */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = text.xml; path = Levels.xml; sourceTree = "<group>"; tabWidth = 2; };
 		8CCF1BFF1D8DAF7B00AB6594 /* GameLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameLoader.swift; sourceTree = "<group>"; };
 		8CCF1C011D8E1DB000AB6594 /* lightbulb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightbulb.png; sourceTree = "<group>"; };
+		8CCF1C031D8F6C7300AB6594 /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,18 +132,19 @@
 			isa = PBXGroup;
 			children = (
 				8C9F43DA1D771915000139FC /* AppDelegate.swift */,
-				8C9F43DE1D771915000139FC /* GameViewController.swift */,
-				8C9F43E01D771915000139FC /* Main.storyboard */,
 				8C9F43E31D771915000139FC /* Assets.xcassets */,
-				8CCF1C011D8E1DB000AB6594 /* lightbulb.png */,
-				8C9F43E51D771915000139FC /* LaunchScreen.storyboard */,
-				8C9F43E81D771915000139FC /* Info.plist */,
-				8C6FAFCA1D82E6AC009F0C90 /* GridNode.swift */,
-				8C6FAFCC1D82E6F6009F0C90 /* GameScene.swift */,
 				8C292EC81D83A75F0032B39A /* Game.swift */,
-				8C835D641D84BCDC0067BC3E /* Position.swift */,
-				8CCF1BFD1D8DAB6700AB6594 /* Levels.xml */,
 				8CCF1BFF1D8DAF7B00AB6594 /* GameLoader.swift */,
+				8C6FAFCC1D82E6F6009F0C90 /* GameScene.swift */,
+				8CCF1C031D8F6C7300AB6594 /* GameState.swift */,
+				8C9F43DE1D771915000139FC /* GameViewController.swift */,
+				8C6FAFCA1D82E6AC009F0C90 /* GridNode.swift */,
+				8C9F43E81D771915000139FC /* Info.plist */,
+				8C9F43E51D771915000139FC /* LaunchScreen.storyboard */,
+				8CCF1BFD1D8DAB6700AB6594 /* Levels.xml */,
+				8CCF1C011D8E1DB000AB6594 /* lightbulb.png */,
+				8C9F43E01D771915000139FC /* Main.storyboard */,
+				8C835D641D84BCDC0067BC3E /* Position.swift */,
 			);
 			path = LightenUp;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				8C6FAFCD1D82E6F6009F0C90 /* GameScene.swift in Sources */,
 				8CCF1BEF1D8DA6BA00AB6594 /* Document.swift in Sources */,
 				8CCF1BF61D8DA6BA00AB6594 /* Queryable.swift in Sources */,
+				8CCF1C041D8F6C7300AB6594 /* GameState.swift in Sources */,
 				8CCF1BF11D8DA6BA00AB6594 /* Error.swift in Sources */,
 				8C6FAFCB1D82E6AC009F0C90 /* GridNode.swift in Sources */,
 			);

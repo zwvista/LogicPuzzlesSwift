@@ -16,7 +16,7 @@ class GridNode : SKSpriteNode {
     var blockSize: CGFloat!
     
     convenience init(blockSize: CGFloat, rows: Int, cols: Int) {
-        let texture = GridNode.gridTexture(blockSize, rows: rows, cols:cols)
+        let texture = GridNode.gridTexture(blockSize: blockSize, rows: rows, cols: cols)
         self.init(texture: texture, color: SKColor.clear, size: texture.size())
         self.blockSize = blockSize
         self.rows = rows
@@ -31,7 +31,7 @@ class GridNode : SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    class func gridTexture(_ blockSize: CGFloat,rows: Int, cols: Int) -> SKTexture {
+    class func gridTexture(blockSize: CGFloat, rows: Int, cols: Int) -> SKTexture {
         // Add 1 to the height and width to ensure the borders are within the sprite
         let size = CGSize(width: CGFloat(cols) * blockSize + 1.0, height: CGFloat(rows) * blockSize + 1.0)
         UIGraphicsBeginImageContext(size)
