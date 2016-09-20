@@ -9,7 +9,7 @@
 import SpriteKit
 
 class GameScene: SKScene {
-    var gridNode: GridNode!
+    private(set) var gridNode: GridNode!
     
     func coloredRectSize() -> CGSize {
         let sz = gridNode.blockSize - 4

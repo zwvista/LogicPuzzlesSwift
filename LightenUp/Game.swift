@@ -19,10 +19,10 @@ class Game {
     private var states = [GameState]()
     private var state: GameState {return states[stateIndex]}
     private var moves = [GameMove]()
-    private var move: GameMove  {return moves[stateIndex - 1]}
+    private var move: GameMove {return moves[stateIndex - 1]}
     
-    var walls = [Position: Int]()
-    weak var delegate: GameDelegate?
+    private(set) var walls = [Position: Int]()
+    private(set) weak var delegate: GameDelegate?
     var size: Position {return state.size}
     var isSolved: Bool {return state.isSolved}
     var canUndo: Bool {return stateIndex > 0}
@@ -55,7 +55,7 @@ class Game {
                 switch ch {
                 case "W":
                     addWall(row: r, col: c, lightbulbs: -1)
-                case "0"..."9":
+                case "0" ... "9":
                     addWall(row: r, col: c, lightbulbs: Int(String(ch))!)
                 default:
                     break

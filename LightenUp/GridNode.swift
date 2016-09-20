@@ -11,9 +11,9 @@ import SpriteKit
 // http://stackoverflow.com/questions/33464925/draw-a-grid-with-spritekit
 
 class GridNode : SKSpriteNode {
-    var rows: Int!
-    var cols: Int!
-    var blockSize: CGFloat!
+    private(set) var rows: Int!
+    private(set) var cols: Int!
+    private(set) var blockSize: CGFloat!
     
     convenience init(blockSize: CGFloat, rows: Int, cols: Int) {
         let texture = GridNode.gridTexture(blockSize: blockSize, rows: rows, cols: cols)
@@ -31,7 +31,7 @@ class GridNode : SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    class func gridTexture(blockSize: CGFloat, rows: Int, cols: Int) -> SKTexture {
+    private class func gridTexture(blockSize: CGFloat, rows: Int, cols: Int) -> SKTexture {
         // Add 1 to the height and width to ensure the borders are within the sprite
         let size = CGSize(width: CGFloat(cols) * blockSize + 1.0, height: CGFloat(rows) * blockSize + 1.0)
         UIGraphicsBeginImageContext(size)
@@ -40,13 +40,13 @@ class GridNode : SKSpriteNode {
         let bezierPath = UIBezierPath()
         let offset:CGFloat = 0.5
         // Draw vertical lines
-        for i in 0...cols {
+        for i in 0 ... cols {
             let x = CGFloat(i)*blockSize + offset
             bezierPath.move(to: CGPoint(x: x, y: 0))
             bezierPath.addLine(to: CGPoint(x: x, y: size.height))
         }
         // Draw horizontal lines
-        for i in 0...rows {
+        for i in 0 ... rows {
             let y = CGFloat(i) * blockSize + offset
             bezierPath.move(to: CGPoint(x: 0, y: y))
             bezierPath.addLine(to: CGPoint(x: size.width, y: y))

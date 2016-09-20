@@ -9,8 +9,8 @@
 import Foundation
 
 struct Position: Equatable, Comparable, Hashable, CustomStringConvertible {
-    var row = 0
-    var col = 0
+    private(set) var row = 0
+    private(set) var col = 0
     
     init(_ r: Int, _ c: Int) {
         row = r; col = c
