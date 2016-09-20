@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C2164151D8FB32600A39B47 /* SharkORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2164141D8FB32600A39B47 /* SharkORM.framework */; };
 		8C2164171D8FB39300A39B47 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2164161D8FB39300A39B47 /* UserData.swift */; };
-		8C21641E1D8FBE9F00A39B47 /* SharkORM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2164141D8FB32600A39B47 /* SharkORM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8C2164231D8FC89200A39B47 /* Game.db in Resources */ = {isa = PBXBuildFile; fileRef = 8C2164221D8FC88E00A39B47 /* Game.db */; };
 		8C292EC91D83A75F0032B39A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C292EC81D83A75F0032B39A /* Game.swift */; };
+		8C31FE6E1D90E415008793BF /* SharkORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; };
+		8C31FE6F1D90E415008793BF /* SharkORM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8C6FAFCB1D82E6AC009F0C90 /* GridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6FAFCA1D82E6AC009F0C90 /* GridNode.swift */; };
 		8C6FAFCD1D82E6F6009F0C90 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6FAFCC1D82E6F6009F0C90 /* GameScene.swift */; };
 		8C835D651D84BCDC0067BC3E /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C835D641D84BCDC0067BC3E /* Position.swift */; };
@@ -60,7 +59,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8C21641E1D8FBE9F00A39B47 /* SharkORM.framework in Embed Frameworks */,
+				8C31FE6F1D90E415008793BF /* SharkORM.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,10 +67,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8C2164141D8FB32600A39B47 /* SharkORM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SharkORM.framework; path = ../../OSS/SharkBooksSample/SharkBooksSample/Frameworks/SharkORM.framework; sourceTree = "<group>"; };
 		8C2164161D8FB39300A39B47 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		8C2164221D8FC88E00A39B47 /* Game.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Game.db; sourceTree = "<group>"; };
 		8C292EC81D83A75F0032B39A /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		8C31FE6D1D90E415008793BF /* SharkORM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SharkORM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C6FAFCA1D82E6AC009F0C90 /* GridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridNode.swift; sourceTree = "<group>"; };
 		8C6FAFCC1D82E6F6009F0C90 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		8C835D641D84BCDC0067BC3E /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
@@ -108,7 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C2164151D8FB32600A39B47 /* SharkORM.framework in Frameworks */,
+				8C31FE6E1D90E415008793BF /* SharkORM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +130,7 @@
 		8C2164131D8FB32600A39B47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8C2164141D8FB32600A39B47 /* SharkORM.framework */,
+				8C31FE6D1D90E415008793BF /* SharkORM.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -165,7 +163,6 @@
 				8C9F43DA1D771915000139FC /* AppDelegate.swift */,
 				8C9F43E31D771915000139FC /* Assets.xcassets */,
 				8C292EC81D83A75F0032B39A /* Game.swift */,
-				8C2164221D8FC88E00A39B47 /* Game.db */,
 				8CCF1BFF1D8DAF7B00AB6594 /* GameLoader.swift */,
 				8C6FAFCC1D82E6F6009F0C90 /* GameScene.swift */,
 				8CCF1C031D8F6C7300AB6594 /* GameState.swift */,
@@ -329,7 +326,6 @@
 				8CCF1BFE1D8DAB6700AB6594 /* Levels.xml in Resources */,
 				8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */,
 				8C9F43E41D771915000139FC /* Assets.xcassets in Resources */,
-				8C2164231D8FC89200A39B47 /* Game.db in Resources */,
 				8CCF1BF31D8DA6BA00AB6594 /* Info.plist in Resources */,
 				8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */,
 				8C9F43E21D771915000139FC /* Main.storyboard in Resources */,
@@ -527,6 +523,7 @@
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = LightenUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zwstudio.LightenUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

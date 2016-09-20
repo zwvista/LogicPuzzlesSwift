@@ -18,16 +18,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SRKDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let fileManager = FileManager.default
-        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        let documentsDirectory = paths[0]
-        let dbPath = (documentsDirectory as NSString).appendingPathComponent("Game.db")
-        if !fileManager.fileExists(atPath: dbPath) {
-            let resourcePath = Bundle.main.path(forResource: "Game", ofType: "db")!
-            try! fileManager.copyItem(atPath: resourcePath, toPath: dbPath)
-        }
+//        let fileManager = FileManager.default
+//        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+//        let documentsDirectory = paths[0]
+//        let dbPath = (documentsDirectory as NSString).appendingPathComponent("Game.db")
+//        if !fileManager.fileExists(atPath: dbPath) {
+//            let resourcePath = Bundle.main.path(forResource: "Game", ofType: "db")!
+//        try! fileManager.removeItem(atPath: dbPath)
+//            try! fileManager.copyItem(atPath: resourcePath, toPath: dbPath)
+//        }
         
+        SharkORM.setDelegate(self)
         SharkORM.openDatabaseNamed("Game")
+        
         
         return true
     }
@@ -52,6 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SRKDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        SharkORM.closeDatabaseNamed("Game")
     }
 
 

@@ -29,7 +29,7 @@ class Game {
     var canRedo: Bool {return stateIndex < states.count - 1}
     var moveIndex: Int {return stateIndex}
     var moveCount: Int {return states.count - 1}
-    var movesString: String {
+    var movesAsString: String {
         return moves.map({m in "\(m.p)"}).joined(separator: "\n")
     }
     
@@ -38,19 +38,19 @@ class Game {
         if isSolved { delegate?.gameSolved(self) }
     }
     
-    init(strs: [String], delegate: GameDelegate? = nil) {
+    init(layout: [String], delegate: GameDelegate? = nil) {
         self.delegate = delegate
         
-        var state = GameState(rows: strs.count, cols: strs[0].characters.count)
+        var state = GameState(rows: layout.count, cols: layout[0].characters.count)
         
         func addWall(row: Int, col: Int, lightbulbs: Int) {
             state[row, col] = .wall(lightbulbs: lightbulbs)
             walls[Position(row, col)] = lightbulbs
         }
         
-        for r in 0..<state.size.row {
-            let str = strs[r]
-            for c in 0..<state.size.col {
+        for r in 0 ..< state.size.row {
+            let str = layout[r]
+            for c in 0 ..< state.size.col {
                 let ch = str[str.index(str.startIndex, offsetBy: c)]
                 switch ch {
                 case "W":
@@ -65,7 +65,7 @@ class Game {
         
         states.append(state)
         gameUpdated()
-    }
+   }
     
     func toggleObject(p: Position) -> (Bool, GameMove) {
         if canRedo {
@@ -102,4 +102,14 @@ class Game {
         gameUpdated()
         return move
     }
+    
+    static func movesFrom(str: String) -> [Position] {
+        guard str != "" else {return [Position]()}
+        return str.components(separatedBy: "\n").map { m in
+            let row = Int(String(m[m.index(m.startIndex, offsetBy: 1)]))!
+            let col = Int(String(m[m.index(m.startIndex, offsetBy: 3)]))!
+            return Position(row, col)
+        }
+    }
+
 }

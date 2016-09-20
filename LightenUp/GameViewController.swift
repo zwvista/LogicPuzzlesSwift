@@ -16,6 +16,14 @@ class GameViewController: UIViewController, GameDelegate {
     weak var skView: SKView!
     var loader: GameLoader!
     weak var selectedButton: UIButton!
+    var levelID: String {
+        return selectedButton.titleLabel!.text!;
+    }
+    var levelData: UserData {
+        let result = UserData.query().where(withFormat: "levelID = %@", withParameters: [levelID]).fetch()!
+        return result.count == 0 ? UserData() : (result[0] as! UserData)
+    }
+    var gameInitilizing = false
 
     @IBOutlet weak var lblSolved: UILabel!
     @IBOutlet weak var lblLevel: UILabel!
@@ -54,6 +62,12 @@ class GameViewController: UIViewController, GameDelegate {
         return false
     }
     
+    func toggleObject(p: Position) {
+        let (changed, move) = game.toggleObject(p: p)
+        guard changed else {return}
+        scene.process(move: move)
+    }
+    
     @IBAction func didTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}
         let touchLocation = sender.location(in: sender.view)
@@ -61,26 +75,40 @@ class GameViewController: UIViewController, GameDelegate {
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        let (changed, move) = game.toggleObject(p: p)
-        guard changed else {return}
-        scene.process(move: move)
+        toggleObject(p: p)
     }
     
     @IBAction func startGame(_ sender: AnyObject) {
         selectedButton = sender as! UIButton
-        let t = selectedButton.titleLabel!.text!
+        let t = levelID
         lblLevel.text = t
         let idx = t.substring(from: t.index(t.startIndex, offsetBy: String("level ")!.characters.count))
-        game = Game(strs: loader.levels[idx]!, delegate: self)
+        let layout = loader.levels[idx]!
+        
+        gameInitilizing = true
+        defer {gameInitilizing = false}
+        game = Game(layout: layout, delegate: self)
+        
         scene.removeAllChildren()
         let blockSize = CGFloat(skView.bounds.size.width - 80) / CGFloat(game.size.col)
         scene.addGrid(to: skView, rows: game.size.row, cols: game.size.col, blockSize: blockSize)
         scene.addWalls(from: game)
+        
+        guard let moves = levelData.moves else {return}
+        for p in Game.movesFrom(str: moves) {
+            toggleObject(p: p)
+        }
     }
     
     func gameUpdated(_ sender: Game) {
         lblMoves.text = "Moves: \(sender.moveIndex)(\(sender.moveCount))"
         lblSolved.textColor = sender.isSolved ? SKColor.white : SKColor.black
+        
+        guard !gameInitilizing else {return}
+        let rec = levelData
+        rec.levelID = levelID
+        rec.moves = sender.movesAsString
+        rec.commit()
     }
     
     func gameSolved(_ sender: Game) {
@@ -99,6 +127,9 @@ class GameViewController: UIViewController, GameDelegate {
     }
     
     @IBAction func clearGame(_ sender: AnyObject) {
+        let rec = levelData
+        rec.moves = nil
+        rec.commit()
         startGame(selectedButton)
     }
 
