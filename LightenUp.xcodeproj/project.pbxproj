@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C2164171D8FB39300A39B47 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2164161D8FB39300A39B47 /* UserData.swift */; };
+		8C2164171D8FB39300A39B47 /* GameProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2164161D8FB39300A39B47 /* GameProgress.swift */; };
 		8C292EC91D83A75F0032B39A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C292EC81D83A75F0032B39A /* Game.swift */; };
 		8C31FE6E1D90E415008793BF /* SharkORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; };
 		8C31FE6F1D90E415008793BF /* SharkORM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -67,7 +67,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8C2164161D8FB39300A39B47 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		8C2164161D8FB39300A39B47 /* GameProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameProgress.swift; sourceTree = "<group>"; };
 		8C292EC81D83A75F0032B39A /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		8C31FE6D1D90E415008793BF /* SharkORM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SharkORM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C6FAFCA1D82E6AC009F0C90 /* GridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridNode.swift; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 				8CCF1C011D8E1DB000AB6594 /* lightbulb.png */,
 				8C9F43E01D771915000139FC /* Main.storyboard */,
 				8C835D641D84BCDC0067BC3E /* Position.swift */,
-				8C2164161D8FB39300A39B47 /* UserData.swift */,
+				8C2164161D8FB39300A39B47 /* GameProgress.swift */,
 			);
 			path = LightenUp;
 			sourceTree = "<group>";
@@ -355,7 +355,7 @@
 			files = (
 				8C292EC91D83A75F0032B39A /* Game.swift in Sources */,
 				8C9F43DF1D771915000139FC /* GameViewController.swift in Sources */,
-				8C2164171D8FB39300A39B47 /* UserData.swift in Sources */,
+				8C2164171D8FB39300A39B47 /* GameProgress.swift in Sources */,
 				8CCF1C001D8DAF7B00AB6594 /* GameLoader.swift in Sources */,
 				8CCF1BF51D8DA6BA00AB6594 /* NodeSet.swift in Sources */,
 				8CCF1BF01D8DA6BA00AB6594 /* Element.swift in Sources */,

@@ -15,13 +15,14 @@ class GameViewController: UIViewController, GameDelegate {
     var game: Game!
     weak var skView: SKView!
     var loader: GameLoader!
-    weak var selectedButton: UIButton!
-    var levelID: String {
-        return selectedButton.titleLabel!.text!;
+    var selectedLevelID: String!
+    var levelProgress: LevelProgress {
+        let result = LevelProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).fetch()!
+        return result.count == 0 ? LevelProgress() : (result[0] as! LevelProgress)
     }
-    var levelData: UserData {
-        let result = UserData.query().where(withFormat: "levelID = %@", withParameters: [levelID]).fetch()!
-        return result.count == 0 ? UserData() : (result[0] as! UserData)
+    var gameProgress: GameProgress {
+        let result = GameProgress.query().fetch()!
+        return result.count == 0 ? GameProgress() : (result[0] as! GameProgress)
     }
     var gameInitilizing = false
 
@@ -51,7 +52,8 @@ class GameViewController: UIViewController, GameDelegate {
         lblLevel.textColor = SKColor.white
         lblMoves.textColor = SKColor.white
         
-        startGame(btnLevel1)
+        selectedLevelID = gameProgress.levelID
+        startGame()
     }
     
     override var prefersStatusBarHidden : Bool {
@@ -79,11 +81,18 @@ class GameViewController: UIViewController, GameDelegate {
     }
     
     @IBAction func startGame(_ sender: AnyObject) {
-        selectedButton = sender as! UIButton
-        let t = levelID
-        lblLevel.text = t
-        let idx = t.substring(from: t.index(t.startIndex, offsetBy: String("level ")!.characters.count))
+        selectedLevelID = (sender as! UIButton).titleLabel!.text!
+        startGame()
+    }
+    
+    func startGame() {
+        lblLevel.text = selectedLevelID
+        let idx = selectedLevelID.substring(from: selectedLevelID.index(selectedLevelID.startIndex, offsetBy: String("level ")!.characters.count))
         let layout = loader.levels[idx]!
+        
+        let rec = gameProgress
+        rec.levelID = selectedLevelID
+        rec.commit()
         
         gameInitilizing = true
         defer {gameInitilizing = false}
@@ -94,10 +103,15 @@ class GameViewController: UIViewController, GameDelegate {
         scene.addGrid(to: skView, rows: game.size.row, cols: game.size.col, blockSize: blockSize)
         scene.addWalls(from: game)
         
-        guard let moves = levelData.moves else {return}
-        for p in Game.movesFrom(str: moves) {
+        // restore game state
+        let rec2 = levelProgress
+        guard let movesAsString = rec2.movesAsString else {return}
+        for p in Game.movesFrom(str: movesAsString) {
             toggleObject(p: p)
         }
+        let moveIndex = Int(rec2.moveIndex!)
+        guard case 0 ..< game.moveCount = moveIndex else {return}
+        while moveIndex != game.moveIndex { undoGame(self) }
     }
     
     func gameUpdated(_ sender: Game) {
@@ -105,9 +119,10 @@ class GameViewController: UIViewController, GameDelegate {
         lblSolved.textColor = sender.isSolved ? SKColor.white : SKColor.black
         
         guard !gameInitilizing else {return}
-        let rec = levelData
-        rec.levelID = levelID
-        rec.moves = sender.movesAsString
+        let rec = levelProgress
+        rec.levelID = selectedLevelID
+        rec.movesAsString = sender.movesAsString
+        rec.moveIndex = sender.moveIndex as NSNumber?
         rec.commit()
     }
     
@@ -127,10 +142,11 @@ class GameViewController: UIViewController, GameDelegate {
     }
     
     @IBAction func clearGame(_ sender: AnyObject) {
-        let rec = levelData
-        rec.moves = nil
+        let rec = levelProgress
+        rec.movesAsString = nil
+        rec.moveIndex = 0
         rec.commit()
-        startGame(selectedButton)
+        startGame()
     }
 
 }

@@ -29,8 +29,8 @@ class Game {
     var canRedo: Bool {return stateIndex < states.count - 1}
     var moveIndex: Int {return stateIndex}
     var moveCount: Int {return states.count - 1}
-    var movesAsString: String {
-        return moves.map({m in "\(m.p)"}).joined(separator: "\n")
+    var movesAsString: String? {
+        return moves.isEmpty ? nil : moves.map({m in "\(m.p)"}).joined(separator: "\n")
     }
     
     private func gameUpdated() {
@@ -104,12 +104,12 @@ class Game {
     }
     
     static func movesFrom(str: String) -> [Position] {
-        guard str != "" else {return [Position]()}
-        return str.components(separatedBy: "\n").map { m in
-            let row = Int(String(m[m.index(m.startIndex, offsetBy: 1)]))!
-            let col = Int(String(m[m.index(m.startIndex, offsetBy: 3)]))!
-            return Position(row, col)
-        }
+        return str == "" ? [Position]() :
+            str.components(separatedBy: "\n").map { m in
+                let row = Int(String(m[m.index(m.startIndex, offsetBy: 1)]))!
+                let col = Int(String(m[m.index(m.startIndex, offsetBy: 3)]))!
+                return Position(row, col)
+            }
     }
 
 }
