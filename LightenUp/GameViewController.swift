@@ -20,11 +20,7 @@ class GameViewController: UIViewController, GameDelegate {
         let result = LevelProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).fetch()!
         return result.count == 0 ? LevelProgress() : (result[0] as! LevelProgress)
     }
-    var gameProgress: GameProgress {
-        let result = GameProgress.query().fetch()!
-        return result.count == 0 ? GameProgress() : (result[0] as! GameProgress)
-    }
-    var gameInitilizing = false
+    var levelInitilizing = false
 
     @IBOutlet weak var lblSolved: UILabel!
     @IBOutlet weak var lblLevel: UILabel!
@@ -47,15 +43,14 @@ class GameViewController: UIViewController, GameDelegate {
         skView.presentScene(scene)
         
         loader = GameLoader()
-        loader.load()
         
         lblLevel.textColor = SKColor.white
         lblMoves.textColor = SKColor.white
         
-        selectedLevelID = gameProgress.levelID
         startGame()
     }
     
+    // http://stackoverflow.com/questions/18979837/how-to-hide-ios-status-bar
     override var prefersStatusBarHidden : Bool {
         return true
     }
@@ -80,22 +75,12 @@ class GameViewController: UIViewController, GameDelegate {
         toggleObject(p: p)
     }
     
-    @IBAction func startGame(_ sender: AnyObject) {
-        selectedLevelID = (sender as! UIButton).titleLabel!.text!
-        startGame()
-    }
-    
     func startGame() {
         lblLevel.text = selectedLevelID
-        let idx = selectedLevelID.substring(from: selectedLevelID.index(selectedLevelID.startIndex, offsetBy: String("level ")!.characters.count))
-        let layout = loader.levels[idx]!
+        let layout = loader.levels[selectedLevelID]!
         
-        let rec = gameProgress
-        rec.levelID = selectedLevelID
-        rec.commit()
-        
-        gameInitilizing = true
-        defer {gameInitilizing = false}
+        levelInitilizing = true
+        defer {levelInitilizing = false}
         game = Game(layout: layout, delegate: self)
         
         scene.removeAllChildren()
@@ -118,7 +103,7 @@ class GameViewController: UIViewController, GameDelegate {
         lblMoves.text = "Moves: \(sender.moveIndex)(\(sender.moveCount))"
         lblSolved.textColor = sender.isSolved ? SKColor.white : SKColor.black
         
-        guard !gameInitilizing else {return}
+        guard !levelInitilizing else {return}
         let rec = levelProgress
         rec.levelID = selectedLevelID
         rec.movesAsString = sender.movesAsString
@@ -147,6 +132,10 @@ class GameViewController: UIViewController, GameDelegate {
         rec.moveIndex = 0
         rec.commit()
         startGame()
+    }
+    
+    @IBAction func backToMain(_ sender: AnyObject) {
+        navigationController!.popViewController(animated: true)
     }
 
 }

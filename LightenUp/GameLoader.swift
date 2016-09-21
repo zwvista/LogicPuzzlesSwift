@@ -10,7 +10,7 @@ import UIKit
 
 class GameLoader {
     private(set) var levels = [String: [String]]()
-    func load() {
+    init() {
         let path = Bundle.main.path(forResource: "Levels", ofType: "xml")!
         let xml = try! String(contentsOfFile: path)
         let doc = try! XMLDocument(string: xml)
@@ -19,7 +19,7 @@ class GameLoader {
             var arr = elem.stringValue.components(separatedBy: "\n")
             arr = Array(arr[2 ..< (arr.count - 2)])
             arr = arr.map { s in s.substring(to: s.index(before: s.endIndex)) }
-            levels[key] = arr
+            levels["level " + key] = arr
         }
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C09B7861D92079700AB6B64 /* OptonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09B7851D92079700AB6B64 /* OptonsViewController.swift */; };
+		8C09B7881D9207DC00AB6B64 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09B7871D9207DC00AB6B64 /* MainViewController.swift */; };
 		8C2164171D8FB39300A39B47 /* GameProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2164161D8FB39300A39B47 /* GameProgress.swift */; };
 		8C292EC91D83A75F0032B39A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C292EC81D83A75F0032B39A /* Game.swift */; };
 		8C31FE6E1D90E415008793BF /* SharkORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; };
@@ -67,6 +69,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8C09B7851D92079700AB6B64 /* OptonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptonsViewController.swift; sourceTree = "<group>"; };
+		8C09B7871D9207DC00AB6B64 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8C2164161D8FB39300A39B47 /* GameProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameProgress.swift; sourceTree = "<group>"; };
 		8C292EC81D83A75F0032B39A /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		8C31FE6D1D90E415008793BF /* SharkORM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SharkORM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +168,7 @@
 				8C9F43E31D771915000139FC /* Assets.xcassets */,
 				8C292EC81D83A75F0032B39A /* Game.swift */,
 				8CCF1BFF1D8DAF7B00AB6594 /* GameLoader.swift */,
+				8C2164161D8FB39300A39B47 /* GameProgress.swift */,
 				8C6FAFCC1D82E6F6009F0C90 /* GameScene.swift */,
 				8CCF1C031D8F6C7300AB6594 /* GameState.swift */,
 				8C9F43DE1D771915000139FC /* GameViewController.swift */,
@@ -173,8 +178,9 @@
 				8CCF1BFD1D8DAB6700AB6594 /* Levels.xml */,
 				8CCF1C011D8E1DB000AB6594 /* lightbulb.png */,
 				8C9F43E01D771915000139FC /* Main.storyboard */,
+				8C09B7871D9207DC00AB6B64 /* MainViewController.swift */,
+				8C09B7851D92079700AB6B64 /* OptonsViewController.swift */,
 				8C835D641D84BCDC0067BC3E /* Position.swift */,
-				8C2164161D8FB39300A39B47 /* GameProgress.swift */,
 			);
 			path = LightenUp;
 			sourceTree = "<group>";
@@ -364,9 +370,11 @@
 				8C835D651D84BCDC0067BC3E /* Position.swift in Sources */,
 				8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */,
 				8C6FAFCD1D82E6F6009F0C90 /* GameScene.swift in Sources */,
+				8C09B7861D92079700AB6B64 /* OptonsViewController.swift in Sources */,
 				8CCF1BEF1D8DA6BA00AB6594 /* Document.swift in Sources */,
 				8CCF1BF61D8DA6BA00AB6594 /* Queryable.swift in Sources */,
 				8CCF1C041D8F6C7300AB6594 /* GameState.swift in Sources */,
+				8C09B7881D9207DC00AB6B64 /* MainViewController.swift in Sources */,
 				8CCF1BF11D8DA6BA00AB6594 /* Error.swift in Sources */,
 				8C6FAFCB1D82E6AC009F0C90 /* GridNode.swift in Sources */,
 			);
