@@ -10,9 +10,9 @@ import Foundation
 
 // http://stackoverflow.com/questions/24066304/how-can-i-make-a-weak-protocol-reference-in-pure-swift-w-o-objc
 protocol GameDelegate: class {
-    func moveAdded(_ sender: Game, move: GameMove)
-    func levelUpdated(_ sender: Game, move: GameMove)
-    func gameSolved(_ sender: Game)
+    func moveAdded(_ game: Game, move: GameMove)
+    func levelUpdated(_ game: Game, move: GameMove)
+    func gameSolved(_ game: Game)
 }
 
 class Game {

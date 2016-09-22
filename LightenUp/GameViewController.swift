@@ -14,18 +14,7 @@ class GameViewController: UIViewController, GameDelegate {
     var scene: GameScene!
     var game: Game!
     weak var skView: SKView!
-    var loader: GameLoader!
-    var selectedLevelID: String!
-    var levelProgress: LevelProgress {
-        let result = LevelProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).fetch()!
-        if result.count == 0 {
-            let rec = LevelProgress()
-            rec.levelID = selectedLevelID
-            return rec
-        } else {
-            return result[0] as! LevelProgress
-        }
-    }
+    var doc = GameDocument()
     var levelInitilizing = false
 
     @IBOutlet weak var lblSolved: UILabel!
@@ -47,8 +36,6 @@ class GameViewController: UIViewController, GameDelegate {
         
         // Present the scene.
         skView.presentScene(scene)
-        
-        loader = GameLoader()
         
         lblLevel.textColor = SKColor.white
         lblMoves.textColor = SKColor.white
@@ -76,8 +63,8 @@ class GameViewController: UIViewController, GameDelegate {
     }
     
     func startGame() {
-        lblLevel.text = selectedLevelID
-        let layout = loader.levels[selectedLevelID]!
+        lblLevel.text = doc.selectedLevelID
+        let layout = doc.levels[doc.selectedLevelID]!
         
         levelInitilizing = true
         defer {levelInitilizing = false}
@@ -89,42 +76,30 @@ class GameViewController: UIViewController, GameDelegate {
         scene.addWalls(from: game)
         
         // restore game state
-        let result = MoveProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).order(by: "moveIndex").fetch()!
-        for case let rec as MoveProgress in result {
+        for case let rec as MoveProgress in doc.moveProgress {
             game.toggleObject(p: Position(Int(rec.row!), Int(rec.col!)))
         }
-        let moveIndex = Int(levelProgress.moveIndex!)
+        let moveIndex = Int(doc.levelProgress.moveIndex!)
         guard case 0 ..< game.moveCount = moveIndex else {return}
         while moveIndex != game.moveIndex {
             game.undo()
         }
     }
     
-    func moveAdded(_ sender: Game, move: GameMove) {
+    func moveAdded(_ game: Game, move: GameMove) {
         guard !levelInitilizing else {return}
-        
-        MoveProgress.query().where(withFormat: "levelID = %@ AND moveIndex >= %@", withParameters: [selectedLevelID, sender.moveIndex]).fetch().removeAll()
-
-        let rec = MoveProgress()
-        rec.levelID = selectedLevelID
-        rec.moveIndex = sender.moveIndex as NSNumber
-        rec.row = move.p.row as NSNumber
-        rec.col = move.p.col as NSNumber
-        rec.commit()
+        doc.moveAdded(game: game, move: move)
     }
     
-    func levelUpdated(_ sender: Game, move: GameMove) {
-        lblMoves.text = "Moves: \(sender.moveIndex)(\(sender.moveCount))"
-        lblSolved.textColor = sender.isSolved ? SKColor.white : SKColor.black
+    func levelUpdated(_ game: Game, move: GameMove) {
+        lblMoves.text = "Moves: \(game.moveIndex)(\(game.moveCount))"
+        lblSolved.textColor = game.isSolved ? SKColor.white : SKColor.black
         scene.process(move: move)
-        
         guard !levelInitilizing else {return}
-        let rec = levelProgress
-        rec.moveIndex = sender.moveIndex as NSNumber
-        rec.commit()
+        doc.levelUpdated(game: game)
     }
     
-    func gameSolved(_ sender: Game) {
+    func gameSolved(_ game: Game) {
     }
     
     @IBAction func undoGame(_ sender: AnyObject) {
@@ -136,12 +111,7 @@ class GameViewController: UIViewController, GameDelegate {
     }
     
     @IBAction func clearGame(_ sender: AnyObject) {
-        let rec = levelProgress
-        rec.moveIndex = 0
-        rec.commit()
-        
-        MoveProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).fetch().removeAll()
-        
+        doc.clearGame()
         startGame()
     }
     

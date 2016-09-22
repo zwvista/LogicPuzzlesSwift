@@ -47,7 +47,7 @@ class MainViewController: UIViewController {
         rec.commit()
         
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
-        gameViewController.selectedLevelID = selectedLevelID
+        gameViewController.doc.selectedLevelID = selectedLevelID
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
 
