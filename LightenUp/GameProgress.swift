@@ -9,9 +9,16 @@
 import Foundation
 import SharkORM
 
+class GameProgress: SRKObject {
+    dynamic var levelID: String?
+    
+    override open class func defaultValuesForEntity() -> [AnyHashable : Any]! {
+        return ["levelID" : "level 1"]
+    }
+}
+
 class LevelProgress: SRKObject {
     dynamic var levelID: String?
-    dynamic var movesAsString: String?
     dynamic var moveIndex: NSNumber?
     
     override open class func defaultValuesForEntity() -> [AnyHashable : Any]! {
@@ -19,10 +26,13 @@ class LevelProgress: SRKObject {
     }
 }
 
-class GameProgress: SRKObject {
+class MoveProgress: SRKObject {
     dynamic var levelID: String?
+    dynamic var moveIndex: NSNumber?
+    dynamic var row: NSNumber?
+    dynamic var col: NSNumber?
     
     override open class func defaultValuesForEntity() -> [AnyHashable : Any]! {
-        return ["levelID" : "level 1"]
+        return ["moveIndex" : 0]
     }
 }

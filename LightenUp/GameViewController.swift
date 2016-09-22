@@ -18,7 +18,13 @@ class GameViewController: UIViewController, GameDelegate {
     var selectedLevelID: String!
     var levelProgress: LevelProgress {
         let result = LevelProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).fetch()!
-        return result.count == 0 ? LevelProgress() : (result[0] as! LevelProgress)
+        if result.count == 0 {
+            let rec = LevelProgress()
+            rec.levelID = selectedLevelID
+            return rec
+        } else {
+            return result[0] as! LevelProgress
+        }
     }
     var levelInitilizing = false
 
@@ -59,12 +65,6 @@ class GameViewController: UIViewController, GameDelegate {
         return false
     }
     
-    func toggleObject(p: Position) {
-        let (changed, move) = game.toggleObject(p: p)
-        guard changed else {return}
-        scene.process(move: move)
-    }
-    
     @IBAction func didTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}
         let touchLocation = sender.location(in: sender.view)
@@ -72,7 +72,7 @@ class GameViewController: UIViewController, GameDelegate {
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        toggleObject(p: p)
+        game.toggleObject(p: p)
     }
     
     func startGame() {
@@ -89,25 +89,38 @@ class GameViewController: UIViewController, GameDelegate {
         scene.addWalls(from: game)
         
         // restore game state
-        let rec2 = levelProgress
-        guard let movesAsString = rec2.movesAsString else {return}
-        for p in Game.movesFrom(str: movesAsString) {
-            toggleObject(p: p)
+        let result = MoveProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).order(by: "moveIndex").fetch()!
+        for case let rec as MoveProgress in result {
+            game.toggleObject(p: Position(Int(rec.row!), Int(rec.col!)))
         }
-        let moveIndex = Int(rec2.moveIndex!)
+        let moveIndex = Int(levelProgress.moveIndex!)
         guard case 0 ..< game.moveCount = moveIndex else {return}
-        while moveIndex != game.moveIndex { undoGame(self) }
+        while moveIndex != game.moveIndex {
+            game.undo()
+        }
     }
     
-    func gameUpdated(_ sender: Game) {
+    func moveAdded(_ sender: Game, move: GameMove) {
+        guard !levelInitilizing else {return}
+        
+        MoveProgress.query().where(withFormat: "levelID = %@ AND moveIndex >= %@", withParameters: [selectedLevelID, sender.moveIndex]).fetch().removeAll()
+
+        let rec = MoveProgress()
+        rec.levelID = selectedLevelID
+        rec.moveIndex = sender.moveIndex as NSNumber
+        rec.row = move.p.row as NSNumber
+        rec.col = move.p.col as NSNumber
+        rec.commit()
+    }
+    
+    func levelUpdated(_ sender: Game, move: GameMove) {
         lblMoves.text = "Moves: \(sender.moveIndex)(\(sender.moveCount))"
         lblSolved.textColor = sender.isSolved ? SKColor.white : SKColor.black
+        scene.process(move: move)
         
         guard !levelInitilizing else {return}
         let rec = levelProgress
-        rec.levelID = selectedLevelID
-        rec.movesAsString = sender.movesAsString
-        rec.moveIndex = sender.moveIndex as NSNumber?
+        rec.moveIndex = sender.moveIndex as NSNumber
         rec.commit()
     }
     
@@ -115,22 +128,20 @@ class GameViewController: UIViewController, GameDelegate {
     }
     
     @IBAction func undoGame(_ sender: AnyObject) {
-        guard game.canUndo else {return}
-        let move = game.undo()
-        scene.process(move: move)
+        game.undo()
     }
     
     @IBAction func redoGame(_ sender: AnyObject) {
-        guard game.canRedo else {return}
-        let move = game.redo()
-        scene.process(move: move)
+        game.redo()
     }
     
     @IBAction func clearGame(_ sender: AnyObject) {
         let rec = levelProgress
-        rec.movesAsString = nil
         rec.moveIndex = 0
         rec.commit()
+        
+        MoveProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).fetch().removeAll()
+        
         startGame()
     }
     

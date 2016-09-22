@@ -133,9 +133,9 @@ struct GameState {
         }
     }
     
-    var isSolved = false
+    private(set) var isSolved = false
     
-    mutating func updateIsSolved() {
+    private mutating func updateIsSolved() {
         isSolved = {
             for r in 0 ..< size.row {
                 for c in 0 ..< size.col {
