@@ -25,22 +25,26 @@ class GameScene: SKScene {
         gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
     }
     
-    func addWalls(from game: Game) {
-        for (p, n) in game.walls {
-            let point = gridNode.gridPosition(p: p)
-            let wallNode = SKSpriteNode(color: SKColor.white, size: coloredRectSize())
-            wallNode.position = point
-            wallNode.name = "wall"
-            gridNode.addChild(wallNode)
-            guard n >= 0 else {continue}
-            let numberNode = SKLabelNode(text: String(n))
-            numberNode.fontColor = SKColor.black
-            numberNode.fontName = numberNode.fontName! + "-Bold"
-            numberNode.fontSize *= CGFloat(gridNode.blockSize) / 60.0
-            numberNode.verticalAlignmentMode = .center
-            numberNode.position = point
-            numberNode.name = "wall"
-            gridNode.addChild(numberNode)
+    func addWalls(from state: GameState) {
+        for row in 0 ..< state.size.row {
+            for col in 0 ..< state.size.col {
+                let p = Position(row, col)
+                guard case .wall(let n) = state[p].objType else {continue}
+                let point = gridNode.gridPosition(p: p)
+                let wallNode = SKSpriteNode(color: SKColor.white, size: coloredRectSize())
+                wallNode.position = point
+                wallNode.name = "wall"
+                gridNode.addChild(wallNode)
+                guard n >= 0 else {continue}
+                let numberNode = SKLabelNode(text: String(n))
+                numberNode.fontColor = SKColor.black
+                numberNode.fontName = numberNode.fontName! + "-Bold"
+                numberNode.fontSize *= CGFloat(gridNode.blockSize) / 60.0
+                numberNode.verticalAlignmentMode = .center
+                numberNode.position = point
+                numberNode.name = "wall"
+                gridNode.addChild(numberNode)
+            }
         }
     }
     

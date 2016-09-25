@@ -89,9 +89,10 @@ struct GameState {
                     p2 += os
                 }
             }
+            updateIsSolved()
         }
         
-        func f() {
+        func objChanged() {
             changed = true
             move.p = p
             move.objType = objType
@@ -102,12 +103,12 @@ struct GameState {
         case (_, .wall):
             self[p] = GameObject(objType: objType, lightness: 0)
         case (.empty, .marker), (.marker, .empty):
-            f()
+            objChanged()
         case (.empty, .lightbulb), (.marker, .lightbulb):
-            f()
+            objChanged()
             adjustLightness(tolighten: true)
         case (.lightbulb, .empty), (.lightbulb, .marker):
-            f()
+            objChanged()
             adjustLightness(tolighten: false)
         default:
             break
@@ -117,7 +118,6 @@ struct GameState {
     }
     
     mutating func switchObject(p: Position) -> (Bool, GameMove) {
-        defer { updateIsSolved() }
         switch self[p].objType {
         case .empty:
             return setObject(p: p, objType: .marker)

@@ -23,7 +23,6 @@ class Game {
     private var moves = [GameMove]()
     private var move: GameMove {return moves[stateIndex - 1]}
     
-    private(set) var walls = [Position: Int]()
     private(set) weak var delegate: GameDelegate?
     var size: Position {return state.size}
     var isSolved: Bool {return state.isSolved}
@@ -53,7 +52,6 @@ class Game {
         
         func addWall(row: Int, col: Int, lightbulbs: Int) {
             state[row, col].objType = .wall(lightbulbs: lightbulbs)
-            walls[Position(row, col)] = lightbulbs
         }
         
         for r in 0 ..< state.size.row {

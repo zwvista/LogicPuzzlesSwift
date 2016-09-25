@@ -96,7 +96,7 @@ class GameViewController: UIViewController, GameDelegate {
         scene.removeAllChildren()
         let blockSize = CGFloat(skView.bounds.size.width - 80) / CGFloat(game.size.col)
         scene.addGrid(to: skView, rows: game.size.row, cols: game.size.col, blockSize: blockSize)
-        scene.addWalls(from: game)
+        scene.addWalls(from: state)
     }
     
     func levelUpdated(_ game: Game, from stateFrom: GameState, to stateTo: GameState) {
