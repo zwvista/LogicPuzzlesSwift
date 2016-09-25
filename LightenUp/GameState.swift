@@ -16,6 +16,26 @@ enum GameObjectType {
     init() {
         self = .empty
     }
+    func toString() -> String {
+        switch self {
+        case .lightbulb:
+            return "lightbulb"
+        case .marker:
+            return "marker"
+        default:
+            return "empty"
+        }
+    }
+    static func fromString(str: String) -> GameObjectType {
+        switch str {
+        case "lightbulb":
+            return .lightbulb
+        case "marker":
+            return .marker
+        default:
+            return .empty
+        }
+    }
 }
 
 struct GameObject {
@@ -38,6 +58,7 @@ struct GameMove {
 struct GameState {
     let size: Position
     var objArray: [GameObject]
+    var options: GameProgress { return GameDocument.sharedInstance.gameProgress }
     
     init(rows: Int, cols: Int) {
         self.size = Position(rows, cols)
@@ -120,7 +141,7 @@ struct GameState {
     mutating func switchObject(p: Position) -> (Bool, GameMove) {
         switch self[p].objType {
         case .empty:
-            return setObject(p: p, objType: .marker)
+            return setObject(p: p, objType: options.useMarker ? .marker : .lightbulb)
         case .lightbulb:
             return setObject(p: p, objType: .empty)
         case .marker:

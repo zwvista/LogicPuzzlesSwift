@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C09B7861D92079700AB6B64 /* OptonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09B7851D92079700AB6B64 /* OptonsViewController.swift */; };
 		8C09B7881D9207DC00AB6B64 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09B7871D9207DC00AB6B64 /* MainViewController.swift */; };
 		8C2164171D8FB39300A39B47 /* GameProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2164161D8FB39300A39B47 /* GameProgress.swift */; };
 		8C292EC91D83A75F0032B39A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C292EC81D83A75F0032B39A /* Game.swift */; };
@@ -35,7 +34,7 @@
 		8CCF1C001D8DAF7B00AB6594 /* GameDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF1BFF1D8DAF7B00AB6594 /* GameDocument.swift */; };
 		8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF1C011D8E1DB000AB6594 /* lightbulb.png */; };
 		8CCF1C041D8F6C7300AB6594 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF1C031D8F6C7300AB6594 /* GameState.swift */; };
-		8CD84EC81D978B3300DF155E /* GameOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD84EC71D978B3300DF155E /* GameOptions.swift */; };
+		8CD84ECA1D97A17300DF155E /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD84EC91D97A17300DF155E /* OptionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +69,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8C09B7851D92079700AB6B64 /* OptonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptonsViewController.swift; sourceTree = "<group>"; };
 		8C09B7871D9207DC00AB6B64 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8C2164161D8FB39300A39B47 /* GameProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameProgress.swift; sourceTree = "<group>"; };
 		8C292EC81D83A75F0032B39A /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -104,7 +102,7 @@
 		8CCF1BFF1D8DAF7B00AB6594 /* GameDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDocument.swift; sourceTree = "<group>"; };
 		8CCF1C011D8E1DB000AB6594 /* lightbulb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightbulb.png; sourceTree = "<group>"; };
 		8CCF1C031D8F6C7300AB6594 /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
-		8CD84EC71D978B3300DF155E /* GameOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOptions.swift; sourceTree = "<group>"; };
+		8CD84EC91D97A17300DF155E /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,9 +179,8 @@
 				8CCF1C011D8E1DB000AB6594 /* lightbulb.png */,
 				8C9F43E01D771915000139FC /* Main.storyboard */,
 				8C09B7871D9207DC00AB6B64 /* MainViewController.swift */,
-				8C09B7851D92079700AB6B64 /* OptonsViewController.swift */,
+				8CD84EC91D97A17300DF155E /* OptionsViewController.swift */,
 				8C835D641D84BCDC0067BC3E /* Position.swift */,
-				8CD84EC71D978B3300DF155E /* GameOptions.swift */,
 			);
 			path = LightenUp;
 			sourceTree = "<group>";
@@ -372,10 +369,9 @@
 				8CCF1BF21D8DA6BA00AB6594 /* Helpers.swift in Sources */,
 				8C835D651D84BCDC0067BC3E /* Position.swift in Sources */,
 				8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */,
-				8CD84EC81D978B3300DF155E /* GameOptions.swift in Sources */,
 				8C6FAFCD1D82E6F6009F0C90 /* GameScene.swift in Sources */,
-				8C09B7861D92079700AB6B64 /* OptonsViewController.swift in Sources */,
 				8CCF1BEF1D8DA6BA00AB6594 /* Document.swift in Sources */,
+				8CD84ECA1D97A17300DF155E /* OptionsViewController.swift in Sources */,
 				8CCF1BF61D8DA6BA00AB6594 /* Queryable.swift in Sources */,
 				8CCF1C041D8F6C7300AB6594 /* GameState.swift in Sources */,
 				8C09B7881D9207DC00AB6B64 /* MainViewController.swift in Sources */,

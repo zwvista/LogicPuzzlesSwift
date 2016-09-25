@@ -60,6 +60,7 @@ class GameDocument {
         rec.moveIndex = game.moveIndex as NSNumber
         rec.row = move.p.row as NSNumber
         rec.col = move.p.col as NSNumber
+        rec.objTypeAsString = move.objType.toString() as NSString
         rec.commit()
     }
     

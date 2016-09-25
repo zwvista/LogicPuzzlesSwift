@@ -73,7 +73,7 @@ class Game {
         levelInitilized(state: state)
     }
     
-    func switchObject(p: Position) {
+    private func changeObject(p: Position, f: (inout GameState) -> (Bool, GameMove)) {
         if canRedo {
             states.removeSubrange((stateIndex + 1) ..< states.count)
             moves.removeSubrange(stateIndex ..< moves.count)
@@ -81,7 +81,7 @@ class Game {
         
         // copy a state
         var state = self.state
-        let (changed, move) = state.switchObject(p: p)
+        let (changed, move) = f(&state)
         
         guard changed else {return}
         
@@ -90,6 +90,14 @@ class Game {
         moves.append(move)
         moveAdded(move: move)
         levelUpdated(from: states[stateIndex - 1], to: state)
+    }
+    
+    func switchObject(p: Position) {
+        changeObject(p: p, f: {state in state.switchObject(p: p)})
+    }
+    
+    func setObject(p: Position, objType: GameObjectType) {
+        changeObject(p: p, f: {state in state.setObject(p: p, objType: objType)})
     }
     
     func undo() {

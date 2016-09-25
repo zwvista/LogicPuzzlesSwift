@@ -19,7 +19,6 @@ class GameViewController: UIViewController, GameDelegate {
 
     @IBOutlet weak var lblSolved: UILabel!
     @IBOutlet weak var lblLevel: UILabel!
-    @IBOutlet weak var btnLevel1: UIButton!
     @IBOutlet weak var lblMoves: UILabel!
     
     override func viewDidLoad() {
@@ -72,7 +71,7 @@ class GameViewController: UIViewController, GameDelegate {
         
         // restore game state
         for case let rec as MoveProgress in doc.moveProgress {
-            game.switchObject(p: Position(Int(rec.row!), Int(rec.col!)))
+            game.setObject(p: Position(Int(rec.row!), Int(rec.col!)), objType: GameObjectType.fromString(str: String(rec.objTypeAsString!)))
         }
         let moveIndex = Int(doc.levelProgress.moveIndex!)
         guard case 0 ..< game.moveCount = moveIndex else {return}
