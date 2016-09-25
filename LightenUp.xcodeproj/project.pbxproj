@@ -35,6 +35,7 @@
 		8CCF1C001D8DAF7B00AB6594 /* GameDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF1BFF1D8DAF7B00AB6594 /* GameDocument.swift */; };
 		8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF1C011D8E1DB000AB6594 /* lightbulb.png */; };
 		8CCF1C041D8F6C7300AB6594 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF1C031D8F6C7300AB6594 /* GameState.swift */; };
+		8CD84EC81D978B3300DF155E /* GameOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD84EC71D978B3300DF155E /* GameOptions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		8CCF1BFF1D8DAF7B00AB6594 /* GameDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDocument.swift; sourceTree = "<group>"; };
 		8CCF1C011D8E1DB000AB6594 /* lightbulb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightbulb.png; sourceTree = "<group>"; };
 		8CCF1C031D8F6C7300AB6594 /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		8CD84EC71D978B3300DF155E /* GameOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOptions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				8C09B7871D9207DC00AB6B64 /* MainViewController.swift */,
 				8C09B7851D92079700AB6B64 /* OptonsViewController.swift */,
 				8C835D641D84BCDC0067BC3E /* Position.swift */,
+				8CD84EC71D978B3300DF155E /* GameOptions.swift */,
 			);
 			path = LightenUp;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				8CCF1BF21D8DA6BA00AB6594 /* Helpers.swift in Sources */,
 				8C835D651D84BCDC0067BC3E /* Position.swift in Sources */,
 				8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */,
+				8CD84EC81D978B3300DF155E /* GameOptions.swift in Sources */,
 				8C6FAFCD1D82E6F6009F0C90 /* GameScene.swift in Sources */,
 				8C09B7861D92079700AB6B64 /* OptonsViewController.swift in Sources */,
 				8CCF1BEF1D8DA6BA00AB6594 /* Document.swift in Sources */,

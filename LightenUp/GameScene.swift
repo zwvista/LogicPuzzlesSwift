@@ -86,27 +86,27 @@ class GameScene: SKScene {
                     gridNode.addChild(markerNode)
                 }
                 func removeMarker() { removeNode(withName: markerNodeName) }
-                let x = stateFrom[row, col].lightness, y = stateTo[row, col].lightness
+                let (x, y) = (stateFrom[row, col].lightness, stateTo[row, col].lightness)
                 if x > 0 && y == 0 {
                     removeLightCell()
                 } else if x == 0 && y > 0 {
                     addLightCell()
                 }
-                switch (stateFrom[row, col].objType, stateTo[row, col].objType) {
-                case (.empty, .lightbulb):
-                    addLightbulb()
-                case (.empty, .marker):
-                    addMarker()
-                case (.lightbulb, .empty):
+                let (ot1, ot2) = (stateFrom[row, col].objType, stateTo[row, col].objType)
+                guard String(describing: ot1) != String(describing: ot2) else {continue}
+                switch ot1 {
+                case .lightbulb:
                     removeLightbulb()
-                case (.lightbulb, .marker):
-                    removeLightbulb()
-                    addMarker()
-                case (.marker, .empty):
+                case .marker:
                     removeMarker()
-                case (.marker, .lightbulb):
-                    removeMarker()
+                default:
+                    break
+                }
+                switch ot2 {
+                case .lightbulb:
                     addLightbulb()
+                case .marker:
+                    addMarker()
                 default:
                     break
                 }

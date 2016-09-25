@@ -10,6 +10,7 @@ import UIKit
 import SharkORM
 
 class GameDocument {
+    static var sharedInstance = GameDocument()
     private(set) var levels = [String: [String]]()
     var selectedLevelID: String!
     var gameProgress: GameProgress {

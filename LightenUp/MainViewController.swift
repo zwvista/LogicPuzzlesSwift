@@ -10,7 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    var doc: GameDocument!
+    var doc: GameDocument { return GameDocument.sharedInstance }
     
     override var prefersStatusBarHidden : Bool {
         return true
@@ -22,7 +22,6 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        doc = GameDocument()
     }
     
     // http://stackoverflow.com/questions/845583/iphone-hide-navigation-bar-only-on-first-page
@@ -39,7 +38,6 @@ class MainViewController: UIViewController {
         doc.resumeGame()
         
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
-        gameViewController.doc = doc
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
 

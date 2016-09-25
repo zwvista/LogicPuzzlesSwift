@@ -14,7 +14,7 @@ class GameViewController: UIViewController, GameDelegate {
     var scene: GameScene!
     var game: Game!
     weak var skView: SKView!
-    var doc: GameDocument!
+    var doc: GameDocument { return GameDocument.sharedInstance }
     var levelInitilizing = false
 
     @IBOutlet weak var lblSolved: UILabel!
