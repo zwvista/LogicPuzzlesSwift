@@ -8,13 +8,19 @@
 
 import Foundation
 
-enum GameObject {
-    case empty(lightness: Int)
-    case lightBulb(lightness: Int)
+enum GameObjectType {
+    case empty
+    case lightbulb
+    case marker
     case wall(lightbulbs: Int)
     init() {
-        self = .empty(lightness: 0)
+        self = .empty
     }
+}
+
+struct GameObject {
+    var objType = GameObjectType()
+    var lightness = 0
 }
 
 let offset = [
@@ -26,10 +32,7 @@ let offset = [
 
 struct GameMove {
     var p = Position()
-    var obj = GameObject()
-    var toadd = true
-    var lightCells = Set<Position>()
-    var lightbulbs = [Position]()
+    var objType = GameObjectType()
 }
 
 struct GameState {
@@ -65,69 +68,63 @@ struct GameState {
         return row >= 0 && col >= 0 && row < size.row && col < size.col
     }
     
-    mutating func setObject(p: Position, obj: GameObject) -> (Bool, GameMove) {
+    mutating func setObject(p: Position, objType: GameObjectType) -> (Bool, GameMove) {
         var changed = false
         var move = GameMove()
         
-        func adjustedLightness(p: Position, tolighten: Bool, lightness: Int) -> Int {
-            if tolighten {
-                if lightness == 0 { move.lightCells.insert(p) }
-                return lightness + 1
-            } else if lightness > 0 {
-                if lightness == 1 { move.lightCells.insert(p) }
-                return lightness - 1
-            } else {
-                return lightness
-            }
-        }
-        
         func adjustLightness(tolighten: Bool) {
+            let f = { lightness in
+                tolighten ? lightness + 1 : lightness > 0 ? lightness - 1 : lightness;
+            }
+            
+            self[p].lightness = f(self[p].lightness)
             for os in offset {
                 var p2 = p + os
-                loop: while isValid(p: p2) {
-                    switch self[p2] {
-                    case .wall:
-                        break loop
-                    case .empty(let lightness):
-                        self[p2] = .empty(lightness: adjustedLightness(p: p2, tolighten: tolighten, lightness: lightness))
-                    case .lightBulb(let lightness):
-                        self[p2] = .lightBulb(lightness: adjustedLightness(p: p2, tolighten: tolighten, lightness: lightness))
+                while isValid(p: p2) {
+                    if case .wall = self[p2].objType {
+                        break
+                    } else {
+                        self[p2].lightness = f(self[p2].lightness)
                     }
                     p2 += os
                 }
             }
         }
         
-        switch obj {
-        case .wall:
-            self[p] = obj
-        case .empty:
-            guard case .lightBulb(let lightness) = self[p] else {break}
+        func f() {
             changed = true
-            move.p = p; move.obj = obj
-            move.toadd = false
-            move.lightbulbs.append(p)
-            self[p] = .empty(lightness: adjustedLightness(p: p, tolighten: false, lightness: lightness))
-            adjustLightness(tolighten: false)
-        case .lightBulb:
-            guard case .empty(let lightness) = self[p] else {break}
-            changed = true
-            move.p = p; move.obj = obj
-            move.lightbulbs.append(p)
-            self[p] = .lightBulb(lightness: adjustedLightness(p: p, tolighten: true, lightness: lightness))
+            move.p = p
+            move.objType = objType
+            self[p].objType = objType
+        }
+        
+        switch (self[p].objType, objType) {
+        case (_, .wall):
+            self[p] = GameObject(objType: objType, lightness: 0)
+        case (.empty, .marker), (.marker, .empty):
+            f()
+        case (.empty, .lightbulb), (.marker, .lightbulb):
+            f()
             adjustLightness(tolighten: true)
+        case (.lightbulb, .empty), (.lightbulb, .marker):
+            f()
+            adjustLightness(tolighten: false)
+        default:
+            break
         }
         
         return (changed, move)
     }
     
-    mutating func toggleObject(p: Position) -> (Bool, GameMove) {
+    mutating func switchObject(p: Position) -> (Bool, GameMove) {
         defer { updateIsSolved() }
-        switch self[p] {
+        switch self[p].objType {
         case .empty:
-            return setObject(p: p, obj: .lightBulb(lightness: 0))
-        case .lightBulb:
-            return setObject(p: p, obj: .empty(lightness: 0))
+            return setObject(p: p, objType: .marker)
+        case .lightbulb:
+            return setObject(p: p, objType: .empty)
+        case .marker:
+            return setObject(p: p, objType: .lightbulb)
         default:
             return (false, GameMove())
         }
@@ -140,17 +137,18 @@ struct GameState {
             for r in 0 ..< size.row {
                 for c in 0 ..< size.col {
                     let p = Position(r, c)
-                    switch self[r, c] {
-                    case .empty(let lightness) where lightness == 0:
+                    let o = self[r, c]
+                    switch o.objType {
+                    case .empty where o.lightness == 0, .marker where o.lightness == 0:
                         return false
-                    case .lightBulb(let lightness) where lightness > 1:
+                    case .lightbulb where o.lightness > 1:
                         return false
                     case .wall(let lightbulbs) where lightbulbs >= 0:
                         var n = 0
                         for os in offset {
                             let p2 = p + os
                             guard isValid(p: p2) else {continue}
-                            if case .lightBulb = self[p2] {
+                            if case .lightbulb = self[p2].objType {
                                 n += 1
                             }
                         }

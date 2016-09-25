@@ -11,7 +11,8 @@ import Foundation
 // http://stackoverflow.com/questions/24066304/how-can-i-make-a-weak-protocol-reference-in-pure-swift-w-o-objc
 protocol GameDelegate: class {
     func moveAdded(_ game: Game, move: GameMove)
-    func levelUpdated(_ game: Game, move: GameMove)
+    func levelInitilized(_ game: Game, state: GameState)
+    func levelUpdated(_ game: Game, from stateFrom: GameState, to stateTo: GameState)
     func gameSolved(_ game: Game)
 }
 
@@ -33,11 +34,15 @@ class Game {
     
     private func moveAdded(move: GameMove) {
         delegate?.moveAdded(self, move: move)
-        levelUpdated(move: move)
     }
     
-    private func levelUpdated(move: GameMove) {
-        delegate?.levelUpdated(self, move: move)
+    private func levelInitilized(state: GameState) {
+        delegate?.levelInitilized(self, state: state)
+        if isSolved { delegate?.gameSolved(self) }
+    }
+    
+    private func levelUpdated(from stateFrom: GameState, to stateTo: GameState) {
+        delegate?.levelUpdated(self, from: stateFrom, to: stateTo)
         if isSolved { delegate?.gameSolved(self) }
     }
     
@@ -47,7 +52,7 @@ class Game {
         var state = GameState(rows: layout.count, cols: layout[0].characters.count)
         
         func addWall(row: Int, col: Int, lightbulbs: Int) {
-            state[row, col] = .wall(lightbulbs: lightbulbs)
+            state[row, col].objType = .wall(lightbulbs: lightbulbs)
             walls[Position(row, col)] = lightbulbs
         }
         
@@ -67,10 +72,10 @@ class Game {
         }
         
         states.append(state)
-        levelUpdated(move: GameMove())
-   }
+        levelInitilized(state: state)
+    }
     
-    func toggleObject(p: Position) {
+    func switchObject(p: Position) {
         if canRedo {
             states.removeSubrange((stateIndex + 1) ..< states.count)
             moves.removeSubrange(stateIndex ..< moves.count)
@@ -78,7 +83,7 @@ class Game {
         
         // copy a state
         var state = self.state
-        let (changed, move) = state.toggleObject(p: p)
+        let (changed, move) = state.switchObject(p: p)
         
         guard changed else {return}
         
@@ -86,20 +91,19 @@ class Game {
         stateIndex += 1
         moves.append(move)
         moveAdded(move: move)
+        levelUpdated(from: states[stateIndex - 1], to: state)
     }
     
     func undo() {
         guard canUndo else {return}
-        var move = self.move
-        move.toadd = !move.toadd
         stateIndex -= 1
-        levelUpdated(move: move)
+        levelUpdated(from: states[stateIndex + 1], to: state)
     }
     
     func redo() {
         guard canRedo else {return}
         stateIndex += 1
-        levelUpdated(move: move)
+        levelUpdated(from: states[stateIndex - 1], to: state)
     }
     
 }

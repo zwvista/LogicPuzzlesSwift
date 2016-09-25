@@ -14,7 +14,7 @@ class GameViewController: UIViewController, GameDelegate {
     var scene: GameScene!
     var game: Game!
     weak var skView: SKView!
-    var doc = GameDocument()
+    var doc: GameDocument!
     var levelInitilizing = false
 
     @IBOutlet weak var lblSolved: UILabel!
@@ -59,7 +59,7 @@ class GameViewController: UIViewController, GameDelegate {
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        game.toggleObject(p: p)
+        game.switchObject(p: p)
     }
     
     func startGame() {
@@ -70,14 +70,9 @@ class GameViewController: UIViewController, GameDelegate {
         defer {levelInitilizing = false}
         game = Game(layout: layout, delegate: self)
         
-        scene.removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width - 80) / CGFloat(game.size.col)
-        scene.addGrid(to: skView, rows: game.size.row, cols: game.size.col, blockSize: blockSize)
-        scene.addWalls(from: game)
-        
         // restore game state
         for case let rec as MoveProgress in doc.moveProgress {
-            game.toggleObject(p: Position(Int(rec.row!), Int(rec.col!)))
+            game.switchObject(p: Position(Int(rec.row!), Int(rec.col!)))
         }
         let moveIndex = Int(doc.levelProgress.moveIndex!)
         guard case 0 ..< game.moveCount = moveIndex else {return}
@@ -91,10 +86,22 @@ class GameViewController: UIViewController, GameDelegate {
         doc.moveAdded(game: game, move: move)
     }
     
-    func levelUpdated(_ game: Game, move: GameMove) {
+    func updateLabels(_ game: Game) {
         lblMoves.text = "Moves: \(game.moveIndex)(\(game.moveCount))"
         lblSolved.textColor = game.isSolved ? SKColor.white : SKColor.black
-        scene.process(move: move)
+    }
+    
+    func levelInitilized(_ game: Game, state: GameState) {
+        updateLabels(game)
+        scene.removeAllChildren()
+        let blockSize = CGFloat(skView.bounds.size.width - 80) / CGFloat(game.size.col)
+        scene.addGrid(to: skView, rows: game.size.row, cols: game.size.col, blockSize: blockSize)
+        scene.addWalls(from: game)
+    }
+    
+    func levelUpdated(_ game: Game, from stateFrom: GameState, to stateTo: GameState) {
+        updateLabels(game)
+        scene.process(from: stateFrom, to: stateTo)
         guard !levelInitilizing else {return}
         doc.levelUpdated(game: game)
     }

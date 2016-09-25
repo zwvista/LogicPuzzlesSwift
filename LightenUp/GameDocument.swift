@@ -12,6 +12,10 @@ import SharkORM
 class GameDocument {
     private(set) var levels = [String: [String]]()
     var selectedLevelID: String!
+    var gameProgress: GameProgress {
+        let result = GameProgress.query().fetch()!
+        return result.count == 0 ? GameProgress() : (result[0] as! GameProgress)
+    }
     var levelProgress: LevelProgress {
         let result = LevelProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).fetch()!
         if result.count == 0 {
@@ -37,6 +41,8 @@ class GameDocument {
             arr = arr.map { s in s.substring(to: s.index(before: s.endIndex)) }
             levels["level " + key] = arr
         }
+        
+        selectedLevelID = gameProgress.levelID
     }
     
     func levelUpdated(game: Game) {
@@ -53,6 +59,12 @@ class GameDocument {
         rec.moveIndex = game.moveIndex as NSNumber
         rec.row = move.p.row as NSNumber
         rec.col = move.p.col as NSNumber
+        rec.commit()
+    }
+    
+    func resumeGame() {
+        let rec = gameProgress
+        rec.levelID = selectedLevelID
         rec.commit()
     }
     

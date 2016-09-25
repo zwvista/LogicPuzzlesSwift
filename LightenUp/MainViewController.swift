@@ -10,11 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    var selectedLevelID: String!
-    var gameProgress: GameProgress {
-        let result = GameProgress.query().fetch()!
-        return result.count == 0 ? GameProgress() : (result[0] as! GameProgress)
-    }
+    var doc: GameDocument!
     
     override var prefersStatusBarHidden : Bool {
         return true
@@ -26,28 +22,24 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        selectedLevelID = gameProgress.levelID
+        doc = GameDocument()
     }
     
     // http://stackoverflow.com/questions/845583/iphone-hide-navigation-bar-only-on-first-page
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: animated)
-        //UIApplication.shared.setStatusBarHidden(true, with: .none)
     }
     
     @IBAction func startGame(_ sender: AnyObject) {
-        selectedLevelID = (sender as! UIButton).titleLabel!.text!
+        doc.selectedLevelID = (sender as! UIButton).titleLabel!.text!
         resumeGame(self)
     }
     
     @IBAction func resumeGame(_ sender: AnyObject) {
-        let rec = gameProgress
-        rec.levelID = selectedLevelID
-        rec.commit()
+        doc.resumeGame()
         
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
-        gameViewController.doc.selectedLevelID = selectedLevelID
+        gameViewController.doc = doc
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
 

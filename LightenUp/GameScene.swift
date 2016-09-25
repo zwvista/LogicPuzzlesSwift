@@ -44,37 +44,67 @@ class GameScene: SKScene {
         }
     }
     
-    func process(move: GameMove) {
-        func lightCellNodeName(p: Position) -> String {
-            return "lightCell-\(p.row)-\(p.col)"
-        }
-        func lightbulbNodeName(p: Position) -> String {
-            return "lightbulb-\(p.row)-\(p.col)"
-        }
-        if move.toadd {
-            for p in move.lightCells {
-                let point = gridNode.gridPosition(p: p)
-                let lightCellNode = SKSpriteNode(color: SKColor.yellow, size: coloredRectSize())
-                lightCellNode.position = point
-                lightCellNode.name = lightCellNodeName(p: p)
-                gridNode.addChild(lightCellNode)
-            }
-            for p in move.lightbulbs {
-                let lightbulbNode = SKSpriteNode(imageNamed: "lightbulb")
-                lightbulbNode.setScale(CGFloat(gridNode.blockSize) / 300.0)
-                lightbulbNode.position = gridNode.gridPosition(p: p)
-                lightbulbNode.name = lightbulbNodeName(p: p)
-                gridNode.addChild(lightbulbNode)
-            }
-        } else {
-            for p in move.lightCells {
-                gridNode.enumerateChildNodes(withName: lightCellNodeName(p: p)) { (node, pointer) in
-                    node.removeFromParent()
+    func process(from stateFrom: GameState, to stateTo: GameState) {
+        for row in 0 ..< stateFrom.size.row {
+            for col in 0 ..< stateFrom.size.col {
+                let point = gridNode.gridPosition(p: Position(row, col))
+                let nodeNameSuffix = "-\(row)-\(col)"
+                let lightCellNodeName = "lightCell" + nodeNameSuffix
+                let lightbulbNodeName = "lightbulb" + nodeNameSuffix
+                let markerNodeName = "marker" + nodeNameSuffix
+                func removeNode(withName: String) {
+                    gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
+                        node.removeFromParent()
+                    }
                 }
-            }
-            for p in move.lightbulbs {
-                gridNode.enumerateChildNodes(withName: lightbulbNodeName(p: p)) { (node, pointer) in
-                    node.removeFromParent()
+                func addLightCell() {
+                    let lightCellNode = SKSpriteNode(color: SKColor.yellow, size: coloredRectSize())
+                    lightCellNode.position = point
+                    lightCellNode.name = lightCellNodeName
+                    gridNode.addChild(lightCellNode)
+                }
+                func removeLightCell() { removeNode(withName: lightCellNodeName) }
+                func addLightbulb() {
+                    let lightbulbNode = SKSpriteNode(imageNamed: "lightbulb")
+                    lightbulbNode.setScale(CGFloat(gridNode.blockSize) / 300.0)
+                    lightbulbNode.position = point
+                    lightbulbNode.name = lightbulbNodeName
+                    gridNode.addChild(lightbulbNode)
+                }
+                func removeLightbulb() { removeNode(withName: lightbulbNodeName) }
+                func addMarker() {
+                    let markerNode = SKShapeNode(circleOfRadius: 5)
+                    markerNode.position = point
+                    markerNode.name = markerNodeName
+                    markerNode.strokeColor = SKColor.white
+                    markerNode.glowWidth = 1.0
+                    markerNode.fillColor = SKColor.white
+                    gridNode.addChild(markerNode)
+                }
+                func removeMarker() { removeNode(withName: markerNodeName) }
+                let x = stateFrom[row, col].lightness, y = stateTo[row, col].lightness
+                if x > 0 && y == 0 {
+                    removeLightCell()
+                } else if x == 0 && y > 0 {
+                    addLightCell()
+                }
+                switch (stateFrom[row, col].objType, stateTo[row, col].objType) {
+                case (.empty, .lightbulb):
+                    addLightbulb()
+                case (.empty, .marker):
+                    addMarker()
+                case (.lightbulb, .empty):
+                    removeLightbulb()
+                case (.lightbulb, .marker):
+                    removeLightbulb()
+                    addMarker()
+                case (.marker, .empty):
+                    removeMarker()
+                case (.marker, .lightbulb):
+                    removeMarker()
+                    addLightbulb()
+                default:
+                    break
                 }
             }
         }
