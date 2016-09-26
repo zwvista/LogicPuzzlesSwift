@@ -8,53 +8,6 @@
 
 import Foundation
 
-enum GameObjectType {
-    case empty
-    case lightbulb
-    case marker
-    case wall(lightbulbs: Int)
-    init() {
-        self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .lightbulb:
-            return "lightbulb"
-        case .marker:
-            return "marker"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> GameObjectType {
-        switch str {
-        case "lightbulb":
-            return .lightbulb
-        case "marker":
-            return .marker
-        default:
-            return .empty
-        }
-    }
-}
-
-struct GameObject {
-    var objType = GameObjectType()
-    var lightness = 0
-}
-
-let offset = [
-    Position(-1, 0),
-    Position(0, 1),
-    Position(1, 0),
-    Position(0, -1),
-];
-
-struct GameMove {
-    var p = Position()
-    var objType = GameObjectType()
-}
-
 struct GameState {
     let size: Position
     var objArray: [GameObject]
@@ -141,11 +94,11 @@ struct GameState {
     mutating func switchObject(p: Position) -> (Bool, GameMove) {
         switch self[p].objType {
         case .empty:
-            return setObject(p: p, objType: options.useMarker ? .marker : .lightbulb)
+            return setObject(p: p, objType: options.useMarker ? .marker : .lightbulb(state: .normal))
         case .lightbulb:
             return setObject(p: p, objType: .empty)
         case .marker:
-            return setObject(p: p, objType: .lightbulb)
+            return setObject(p: p, objType: .lightbulb(state: .normal))
         default:
             return (false, GameMove())
         }
@@ -154,32 +107,34 @@ struct GameState {
     private(set) var isSolved = false
     
     private mutating func updateIsSolved() {
-        isSolved = {
-            for r in 0 ..< size.row {
-                for c in 0 ..< size.col {
-                    let p = Position(r, c)
-                    let o = self[r, c]
-                    switch o.objType {
-                    case .empty where o.lightness == 0, .marker where o.lightness == 0:
-                        return false
-                    case .lightbulb where o.lightness > 1:
-                        return false
-                    case .wall(let lightbulbs) where lightbulbs >= 0:
-                        var n = 0
-                        for os in offset {
-                            let p2 = p + os
-                            guard isValid(p: p2) else {continue}
-                            if case .lightbulb = self[p2].objType {
-                                n += 1
-                            }
+        isSolved = true
+        for r in 0 ..< size.row {
+            for c in 0 ..< size.col {
+                let p = Position(r, c)
+                let o = self[r, c]
+                switch o.objType {
+                case .empty where o.lightness == 0, .marker where o.lightness == 0:
+                    isSolved = false
+                case .lightbulb:
+                    let state: LightbulbState = o.lightness == 1 ? .normal : .error
+                    self[r, c].objType = .lightbulb(state: state)
+                    if o.lightness > 1 {isSolved = false}
+                case let .wall(lightbulbs, _) where lightbulbs >= 0:
+                    var n = 0
+                    for os in offset {
+                        let p2 = p + os
+                        guard isValid(p: p2) else {continue}
+                        if case .lightbulb = self[p2].objType {
+                            n += 1
                         }
-                        if n != lightbulbs {return false}
-                    default:
-                        break
                     }
+                    let state: WallState = n < lightbulbs ? .normal : n == lightbulbs ? .complete : .error
+                    self[r, c].objType = .wall(lightbulbs: lightbulbs, state: state)
+                    if n != lightbulbs {isSolved = false}
+                default:
+                    break
                 }
             }
-            return true
-        }()
+        }
     }
 }

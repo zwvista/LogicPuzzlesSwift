@@ -10,18 +10,18 @@ import UIKit
 
 class OptionsViewController: UITableViewController {
     
-    var doc: GameDocument { return GameDocument.sharedInstance }
+    var options: GameProgress { return GameDocument.sharedInstance.gameProgress }
     @IBOutlet weak var swUseMarker: UISwitch!
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let rec = doc.gameProgress
+        let rec = options
         swUseMarker.isOn = rec.useMarker
     }
 
-    override var prefersStatusBarHidden : Bool {
+    override var prefersStatusBarHidden: Bool {
         return true
     }
     
@@ -34,7 +34,7 @@ class OptionsViewController: UITableViewController {
     }
     
     @IBAction func onDone(_ sender: AnyObject) {
-        let rec = doc.gameProgress
+        let rec = options
         rec.useMarker = swUseMarker.isOn
         rec.commit()
         

@@ -29,23 +29,29 @@ class GameScene: SKScene {
         for row in 0 ..< state.size.row {
             for col in 0 ..< state.size.col {
                 let p = Position(row, col)
-                guard case .wall(let n) = state[p].objType else {continue}
+                guard case let .wall(n, s) = state[p].objType else {continue}
                 let point = gridNode.gridPosition(p: p)
                 let wallNode = SKSpriteNode(color: SKColor.white, size: coloredRectSize())
                 wallNode.position = point
                 wallNode.name = "wall"
                 gridNode.addChild(wallNode)
                 guard n >= 0 else {continue}
-                let numberNode = SKLabelNode(text: String(n))
-                numberNode.fontColor = SKColor.black
-                numberNode.fontName = numberNode.fontName! + "-Bold"
-                numberNode.fontSize *= CGFloat(gridNode.blockSize) / 60.0
-                numberNode.verticalAlignmentMode = .center
-                numberNode.position = point
-                numberNode.name = "wall"
-                gridNode.addChild(numberNode)
+                let nodeNameSuffix = "-\(row)-\(col)"
+                let wallNumberNodeName = "wallNumber" + nodeNameSuffix
+                addWallNumber(n: n, s: s, point: point, nodeName: wallNumberNodeName)
             }
         }
+    }
+    
+    func addWallNumber(n: Int, s: WallState, point: CGPoint, nodeName: String) {
+        let numberNode = SKLabelNode(text: String(n))
+        numberNode.fontColor = s == .normal ? SKColor.black : s == .complete ? SKColor.green : SKColor.red
+        numberNode.fontName = numberNode.fontName! + "-Bold"
+        numberNode.fontSize *= CGFloat(gridNode.blockSize) / 60.0
+        numberNode.verticalAlignmentMode = .center
+        numberNode.position = point
+        numberNode.name = nodeName
+        gridNode.addChild(numberNode)
     }
     
     func process(from stateFrom: GameState, to stateTo: GameState) {
@@ -56,11 +62,13 @@ class GameScene: SKScene {
                 let lightCellNodeName = "lightCell" + nodeNameSuffix
                 let lightbulbNodeName = "lightbulb" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
+                let wallNumberNodeName = "wallNumber" + nodeNameSuffix
                 func removeNode(withName: String) {
                     gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
                         node.removeFromParent()
                     }
                 }
+                func removeWallNumber() { removeNode(withName: wallNumberNodeName) }
                 func addLightCell() {
                     let lightCellNode = SKSpriteNode(color: SKColor.yellow, size: coloredRectSize())
                     lightCellNode.position = point
@@ -68,11 +76,13 @@ class GameScene: SKScene {
                     gridNode.addChild(lightCellNode)
                 }
                 func removeLightCell() { removeNode(withName: lightCellNodeName) }
-                func addLightbulb() {
+                func addLightbulb(s: LightbulbState) {
                     let lightbulbNode = SKSpriteNode(imageNamed: "lightbulb")
                     lightbulbNode.setScale(CGFloat(gridNode.blockSize) / 300.0)
                     lightbulbNode.position = point
                     lightbulbNode.name = lightbulbNodeName
+                    lightbulbNode.color = SKColor.red
+                    lightbulbNode.colorBlendFactor = s == .normal ? 0.0 : 0.2
                     gridNode.addChild(lightbulbNode)
                 }
                 func removeLightbulb() { removeNode(withName: lightbulbNodeName) }
@@ -99,14 +109,18 @@ class GameScene: SKScene {
                     removeLightbulb()
                 case .marker:
                     removeMarker()
+                case .wall:
+                    removeWallNumber()
                 default:
                     break
                 }
                 switch ot2 {
-                case .lightbulb:
-                    addLightbulb()
+                case let .lightbulb(s):
+                    addLightbulb(s: s)
                 case .marker:
                     addMarker()
+                case let .wall(n, s):
+                    addWallNumber(n: n, s: s, point: point, nodeName: wallNumberNodeName)
                 default:
                     break
                 }

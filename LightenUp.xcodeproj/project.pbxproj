@@ -35,6 +35,7 @@
 		8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF1C011D8E1DB000AB6594 /* lightbulb.png */; };
 		8CCF1C041D8F6C7300AB6594 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF1C031D8F6C7300AB6594 /* GameState.swift */; };
 		8CD84ECA1D97A17300DF155E /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD84EC91D97A17300DF155E /* OptionsViewController.swift */; };
+		8CF2ADAA1D98B2290040DB59 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF2ADA91D98B2290040DB59 /* GameObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		8CCF1C011D8E1DB000AB6594 /* lightbulb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightbulb.png; sourceTree = "<group>"; };
 		8CCF1C031D8F6C7300AB6594 /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		8CD84EC91D97A17300DF155E /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		8CF2ADA91D98B2290040DB59 /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 				8C9F43E31D771915000139FC /* Assets.xcassets */,
 				8C292EC81D83A75F0032B39A /* Game.swift */,
 				8CCF1BFF1D8DAF7B00AB6594 /* GameDocument.swift */,
+				8CF2ADA91D98B2290040DB59 /* GameObject.swift */,
 				8C2164161D8FB39300A39B47 /* GameProgress.swift */,
 				8C6FAFCC1D82E6F6009F0C90 /* GameScene.swift */,
 				8CCF1C031D8F6C7300AB6594 /* GameState.swift */,
@@ -362,6 +365,7 @@
 				8C292EC91D83A75F0032B39A /* Game.swift in Sources */,
 				8C9F43DF1D771915000139FC /* GameViewController.swift in Sources */,
 				8C2164171D8FB39300A39B47 /* GameProgress.swift in Sources */,
+				8CF2ADAA1D98B2290040DB59 /* GameObject.swift in Sources */,
 				8CCF1C001D8DAF7B00AB6594 /* GameDocument.swift in Sources */,
 				8CCF1BF51D8DA6BA00AB6594 /* NodeSet.swift in Sources */,
 				8CCF1BF01D8DA6BA00AB6594 /* Element.swift in Sources */,

@@ -43,7 +43,7 @@ class GameViewController: UIViewController, GameDelegate {
     }
     
     // http://stackoverflow.com/questions/18979837/how-to-hide-ios-status-bar
-    override var prefersStatusBarHidden : Bool {
+    override var prefersStatusBarHidden: Bool {
         return true
     }
     

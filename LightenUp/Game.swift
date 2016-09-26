@@ -51,7 +51,7 @@ class Game {
         var state = GameState(rows: layout.count, cols: layout[0].characters.count)
         
         func addWall(row: Int, col: Int, lightbulbs: Int) {
-            state[row, col].objType = .wall(lightbulbs: lightbulbs)
+            state[row, col].objType = .wall(lightbulbs: lightbulbs, state: lightbulbs <= 0 ? .complete : .normal)
         }
         
         for r in 0 ..< state.size.row {
