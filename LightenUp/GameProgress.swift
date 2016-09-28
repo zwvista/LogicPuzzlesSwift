@@ -14,7 +14,7 @@ class GameProgress: SRKObject {
     dynamic var useMarker = false
     
     override open class func defaultValuesForEntity() -> [AnyHashable : Any]! {
-        return ["levelID" : "level 1", "useMarker" : false]
+        return ["levelID" : "Level 1", "useMarker" : false]
     }
 }
 

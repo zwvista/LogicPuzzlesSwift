@@ -40,7 +40,7 @@ class GameDocument {
             var arr = elem.stringValue.components(separatedBy: "\n")
             arr = Array(arr[2 ..< (arr.count - 2)])
             arr = arr.map { s in s.substring(to: s.index(before: s.endIndex)) }
-            levels["level " + key] = arr
+            levels["Level " + key] = arr
         }
         
         selectedLevelID = gameProgress.levelID
