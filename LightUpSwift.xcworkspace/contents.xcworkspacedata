@@ -5,6 +5,6 @@
       location = "group:../../OSS/sharkorm/SharkORM.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:LightenUp.xcodeproj">
+      location = "group:LightUpSwift.xcodeproj">
    </FileRef>
 </Workspace>

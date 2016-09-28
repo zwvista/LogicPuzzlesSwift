@@ -1,15 +1,15 @@
 //
-//  LightenUpTests.swift
-//  LightenUpTests
+//  LightUpSwiftTests.swift
+//  LightUpSwiftTests
 //
 //  Created by 趙偉 on 2016/08/31.
 //  Copyright © 2016年 趙偉. All rights reserved.
 //
 
 import XCTest
-@testable import LightenUp
+@testable import LightUpSwift
 
-class LightenUpTests: XCTestCase {
+class LightUpSwiftTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

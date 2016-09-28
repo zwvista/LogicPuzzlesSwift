@@ -1,6 +1,6 @@
 //
 //  GameViewController.swift
-//  LightenUp
+//  LightUpSwift
 //
 //  Created by 趙偉 on 2016/08/31.
 //  Copyright (c) 2016年 趙偉. All rights reserved.

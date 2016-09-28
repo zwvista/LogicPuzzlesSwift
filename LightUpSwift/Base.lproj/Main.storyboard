@@ -26,7 +26,7 @@
         <!--Main View Controller-->
         <scene sceneID="tFF-GO-VYL">
             <objects>
-                <viewController id="AeD-bF-k0G" customClass="MainViewController" customModule="LightenUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="AeD-bF-k0G" customClass="MainViewController" customModule="LightUpSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QNf-Ma-8u8"/>
                         <viewControllerLayoutGuide type="bottom" id="hRc-kf-dB5"/>
@@ -161,8 +161,8 @@
                                     <segue destination="ORe-b4-YC9" kind="presentation" id="B34-9U-Fv0"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lighten Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGx-Ts-pBn">
-                                <frame key="frameInset" minX="98" minY="170" width="180" height="43"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Light Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGx-Ts-pBn">
+                                <frame key="frameInset" minX="118" minY="170" width="138" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -180,7 +180,7 @@
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController storyboardIdentifier="GameViewController" id="BV1-FR-VrT" customClass="GameViewController" customModule="LightenUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" id="BV1-FR-VrT" customClass="GameViewController" customModule="LightUpSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="f81-xw-eyq"/>
                         <viewControllerLayoutGuide type="bottom" id="JhU-Y5-5ce"/>
@@ -283,7 +283,7 @@
         <!--Options View Controller-->
         <scene sceneID="bgb-8z-Yxe">
             <objects>
-                <tableViewController id="NOj-7d-poE" customClass="OptionsViewController" customModule="LightenUp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="NOj-7d-poE" customClass="OptionsViewController" customModule="LightUpSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="6Or-kc-7fi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

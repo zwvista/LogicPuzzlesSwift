@@ -1,6 +1,6 @@
 //
 //  GameDocument.swift
-//  LightenUp
+//  LightUpSwift
 //
 //  Created by 趙偉 on 2016/09/18.
 //  Copyright © 2016年 趙偉. All rights reserved.

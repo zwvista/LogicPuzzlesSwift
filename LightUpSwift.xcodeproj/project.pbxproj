@@ -20,8 +20,8 @@
 		8C9F43E21D771915000139FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E01D771915000139FC /* Main.storyboard */; };
 		8C9F43E41D771915000139FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E31D771915000139FC /* Assets.xcassets */; };
 		8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E51D771915000139FC /* LaunchScreen.storyboard */; };
-		8C9F43F21D771915000139FC /* LightenUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43F11D771915000139FC /* LightenUpTests.swift */; };
-		8C9F43FD1D771915000139FC /* LightenUpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43FC1D771915000139FC /* LightenUpUITests.swift */; };
+		8C9F43F21D771915000139FC /* LightUpSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43F11D771915000139FC /* LightUpSwiftTests.swift */; };
+		8C9F43FD1D771915000139FC /* LightUpSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43FC1D771915000139FC /* LightUpSwiftUITests.swift */; };
 		8CCF1BEF1D8DA6BA00AB6594 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF1BE61D8DA6BA00AB6594 /* Document.swift */; };
 		8CCF1BF01D8DA6BA00AB6594 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF1BE71D8DA6BA00AB6594 /* Element.swift */; };
 		8CCF1BF11D8DA6BA00AB6594 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF1BE81D8DA6BA00AB6594 /* Error.swift */; };
@@ -44,14 +44,14 @@
 			containerPortal = 8C9F43CF1D771915000139FC /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8C9F43D61D771915000139FC;
-			remoteInfo = LightenUp;
+			remoteInfo = LightUpSwift;
 		};
 		8C9F43F91D771915000139FC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8C9F43CF1D771915000139FC /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8C9F43D61D771915000139FC;
-			remoteInfo = LightenUp;
+			remoteInfo = LightUpSwift;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -77,18 +77,18 @@
 		8C6FAFCA1D82E6AC009F0C90 /* GridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridNode.swift; sourceTree = "<group>"; };
 		8C6FAFCC1D82E6F6009F0C90 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		8C835D641D84BCDC0067BC3E /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
-		8C9F43D71D771915000139FC /* LightenUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightenUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C9F43D71D771915000139FC /* LightUpSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightUpSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9F43DA1D771915000139FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C9F43DE1D771915000139FC /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		8C9F43E11D771915000139FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8C9F43E31D771915000139FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C9F43E61D771915000139FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C9F43E81D771915000139FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8C9F43ED1D771915000139FC /* LightenUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LightenUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C9F43F11D771915000139FC /* LightenUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightenUpTests.swift; sourceTree = "<group>"; };
+		8C9F43ED1D771915000139FC /* LightUpSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LightUpSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C9F43F11D771915000139FC /* LightUpSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightUpSwiftTests.swift; sourceTree = "<group>"; };
 		8C9F43F31D771915000139FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8C9F43F81D771915000139FC /* LightenUpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LightenUpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C9F43FC1D771915000139FC /* LightenUpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightenUpUITests.swift; sourceTree = "<group>"; };
+		8C9F43F81D771915000139FC /* LightUpSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LightUpSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C9F43FC1D771915000139FC /* LightUpSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightUpSwiftUITests.swift; sourceTree = "<group>"; };
 		8C9F43FE1D771915000139FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CCF1BE61D8DA6BA00AB6594 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		8CCF1BE71D8DA6BA00AB6594 /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
@@ -145,9 +145,9 @@
 			isa = PBXGroup;
 			children = (
 				8CCF1BE51D8DA6BA00AB6594 /* Fuzi */,
-				8C9F43D91D771915000139FC /* LightenUp */,
-				8C9F43F01D771915000139FC /* LightenUpTests */,
-				8C9F43FB1D771915000139FC /* LightenUpUITests */,
+				8C9F43D91D771915000139FC /* LightUpSwift */,
+				8C9F43F01D771915000139FC /* LightUpSwiftTests */,
+				8C9F43FB1D771915000139FC /* LightUpSwiftUITests */,
 				8C9F43D81D771915000139FC /* Products */,
 				8C2164131D8FB32600A39B47 /* Frameworks */,
 			);
@@ -156,14 +156,14 @@
 		8C9F43D81D771915000139FC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C9F43D71D771915000139FC /* LightenUp.app */,
-				8C9F43ED1D771915000139FC /* LightenUpTests.xctest */,
-				8C9F43F81D771915000139FC /* LightenUpUITests.xctest */,
+				8C9F43D71D771915000139FC /* LightUpSwift.app */,
+				8C9F43ED1D771915000139FC /* LightUpSwiftTests.xctest */,
+				8C9F43F81D771915000139FC /* LightUpSwiftUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8C9F43D91D771915000139FC /* LightenUp */ = {
+		8C9F43D91D771915000139FC /* LightUpSwift */ = {
 			isa = PBXGroup;
 			children = (
 				8C9F43DA1D771915000139FC /* AppDelegate.swift */,
@@ -185,25 +185,25 @@
 				8CD84EC91D97A17300DF155E /* OptionsViewController.swift */,
 				8C835D641D84BCDC0067BC3E /* Position.swift */,
 			);
-			path = LightenUp;
+			path = LightUpSwift;
 			sourceTree = "<group>";
 		};
-		8C9F43F01D771915000139FC /* LightenUpTests */ = {
+		8C9F43F01D771915000139FC /* LightUpSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				8C9F43F11D771915000139FC /* LightenUpTests.swift */,
+				8C9F43F11D771915000139FC /* LightUpSwiftTests.swift */,
 				8C9F43F31D771915000139FC /* Info.plist */,
 			);
-			path = LightenUpTests;
+			path = LightUpSwiftTests;
 			sourceTree = "<group>";
 		};
-		8C9F43FB1D771915000139FC /* LightenUpUITests */ = {
+		8C9F43FB1D771915000139FC /* LightUpSwiftUITests */ = {
 			isa = PBXGroup;
 			children = (
-				8C9F43FC1D771915000139FC /* LightenUpUITests.swift */,
+				8C9F43FC1D771915000139FC /* LightUpSwiftUITests.swift */,
 				8C9F43FE1D771915000139FC /* Info.plist */,
 			);
-			path = LightenUpUITests;
+			path = LightUpSwiftUITests;
 			sourceTree = "<group>";
 		};
 		8CCF1BE51D8DA6BA00AB6594 /* Fuzi */ = {
@@ -226,9 +226,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8C9F43D61D771915000139FC /* LightenUp */ = {
+		8C9F43D61D771915000139FC /* LightUpSwift */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C9F44011D771915000139FC /* Build configuration list for PBXNativeTarget "LightenUp" */;
+			buildConfigurationList = 8C9F44011D771915000139FC /* Build configuration list for PBXNativeTarget "LightUpSwift" */;
 			buildPhases = (
 				8C9F43D31D771915000139FC /* Sources */,
 				8C9F43D41D771915000139FC /* Frameworks */,
@@ -239,14 +239,14 @@
 			);
 			dependencies = (
 			);
-			name = LightenUp;
-			productName = LightenUp;
-			productReference = 8C9F43D71D771915000139FC /* LightenUp.app */;
+			name = LightUpSwift;
+			productName = LightUpSwift;
+			productReference = 8C9F43D71D771915000139FC /* LightUpSwift.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8C9F43EC1D771915000139FC /* LightenUpTests */ = {
+		8C9F43EC1D771915000139FC /* LightUpSwiftTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C9F44041D771915000139FC /* Build configuration list for PBXNativeTarget "LightenUpTests" */;
+			buildConfigurationList = 8C9F44041D771915000139FC /* Build configuration list for PBXNativeTarget "LightUpSwiftTests" */;
 			buildPhases = (
 				8C9F43E91D771915000139FC /* Sources */,
 				8C9F43EA1D771915000139FC /* Frameworks */,
@@ -257,14 +257,14 @@
 			dependencies = (
 				8C9F43EF1D771915000139FC /* PBXTargetDependency */,
 			);
-			name = LightenUpTests;
-			productName = LightenUpTests;
-			productReference = 8C9F43ED1D771915000139FC /* LightenUpTests.xctest */;
+			name = LightUpSwiftTests;
+			productName = LightUpSwiftTests;
+			productReference = 8C9F43ED1D771915000139FC /* LightUpSwiftTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8C9F43F71D771915000139FC /* LightenUpUITests */ = {
+		8C9F43F71D771915000139FC /* LightUpSwiftUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C9F44071D771915000139FC /* Build configuration list for PBXNativeTarget "LightenUpUITests" */;
+			buildConfigurationList = 8C9F44071D771915000139FC /* Build configuration list for PBXNativeTarget "LightUpSwiftUITests" */;
 			buildPhases = (
 				8C9F43F41D771915000139FC /* Sources */,
 				8C9F43F51D771915000139FC /* Frameworks */,
@@ -275,9 +275,9 @@
 			dependencies = (
 				8C9F43FA1D771915000139FC /* PBXTargetDependency */,
 			);
-			name = LightenUpUITests;
-			productName = LightenUpUITests;
-			productReference = 8C9F43F81D771915000139FC /* LightenUpUITests.xctest */;
+			name = LightUpSwiftUITests;
+			productName = LightUpSwiftUITests;
+			productReference = 8C9F43F81D771915000139FC /* LightUpSwiftUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -307,7 +307,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8C9F43D21D771915000139FC /* Build configuration list for PBXProject "LightenUp" */;
+			buildConfigurationList = 8C9F43D21D771915000139FC /* Build configuration list for PBXProject "LightUpSwift" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -320,9 +320,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8C9F43D61D771915000139FC /* LightenUp */,
-				8C9F43EC1D771915000139FC /* LightenUpTests */,
-				8C9F43F71D771915000139FC /* LightenUpUITests */,
+				8C9F43D61D771915000139FC /* LightUpSwift */,
+				8C9F43EC1D771915000139FC /* LightUpSwiftTests */,
+				8C9F43F71D771915000139FC /* LightUpSwiftUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -388,7 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C9F43F21D771915000139FC /* LightenUpTests.swift in Sources */,
+				8C9F43F21D771915000139FC /* LightUpSwiftTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,7 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C9F43FD1D771915000139FC /* LightenUpUITests.swift in Sources */,
+				8C9F43FD1D771915000139FC /* LightUpSwiftUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,12 +405,12 @@
 /* Begin PBXTargetDependency section */
 		8C9F43EF1D771915000139FC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8C9F43D61D771915000139FC /* LightenUp */;
+			target = 8C9F43D61D771915000139FC /* LightUpSwift */;
 			targetProxy = 8C9F43EE1D771915000139FC /* PBXContainerItemProxy */;
 		};
 		8C9F43FA1D771915000139FC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8C9F43D61D771915000139FC /* LightenUp */;
+			target = 8C9F43D61D771915000139FC /* LightUpSwift */;
 			targetProxy = 8C9F43F91D771915000139FC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -533,11 +533,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = ../../OSS/SharkBooksSample/SharkBooksSample/Frameworks;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
-				INFOPLIST_FILE = LightenUp/Info.plist;
+				INFOPLIST_FILE = LightUpSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zwstudio.LightenUp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zwstudio.LightUpSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_INCLUDE_PATHS = ../../OSS/Fuzi/libxml2;
@@ -554,10 +554,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = ../../OSS/SharkBooksSample/SharkBooksSample/Frameworks;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
-				INFOPLIST_FILE = LightenUp/Info.plist;
+				INFOPLIST_FILE = LightUpSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zwstudio.LightenUp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zwstudio.LightUpSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_INCLUDE_PATHS = ../../OSS/Fuzi/libxml2;
@@ -571,12 +571,12 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				INFOPLIST_FILE = LightenUpTests/Info.plist;
+				INFOPLIST_FILE = LightUpSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zwstudio.LightenUpTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zwstudio.LightUpSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LightenUp.app/LightenUp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LightUpSwift.app/LightUpSwift";
 			};
 			name = Debug;
 		};
@@ -584,12 +584,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = LightenUpTests/Info.plist;
+				INFOPLIST_FILE = LightUpSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zwstudio.LightenUpTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zwstudio.LightUpSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LightenUp.app/LightenUp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LightUpSwift.app/LightUpSwift";
 			};
 			name = Release;
 		};
@@ -598,12 +598,12 @@
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = LightenUpUITests/Info.plist;
+				INFOPLIST_FILE = LightUpSwiftUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zwstudio.LightenUpUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zwstudio.LightUpSwiftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = LightenUp;
+				TEST_TARGET_NAME = LightUpSwift;
 			};
 			name = Debug;
 		};
@@ -611,19 +611,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = LightenUpUITests/Info.plist;
+				INFOPLIST_FILE = LightUpSwiftUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.zwstudio.LightenUpUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zwstudio.LightUpSwiftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = LightenUp;
+				TEST_TARGET_NAME = LightUpSwift;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8C9F43D21D771915000139FC /* Build configuration list for PBXProject "LightenUp" */ = {
+		8C9F43D21D771915000139FC /* Build configuration list for PBXProject "LightUpSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C9F43FF1D771915000139FC /* Debug */,
@@ -632,7 +632,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C9F44011D771915000139FC /* Build configuration list for PBXNativeTarget "LightenUp" */ = {
+		8C9F44011D771915000139FC /* Build configuration list for PBXNativeTarget "LightUpSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C9F44021D771915000139FC /* Debug */,
@@ -641,7 +641,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C9F44041D771915000139FC /* Build configuration list for PBXNativeTarget "LightenUpTests" */ = {
+		8C9F44041D771915000139FC /* Build configuration list for PBXNativeTarget "LightUpSwiftTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C9F44051D771915000139FC /* Debug */,
@@ -650,7 +650,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C9F44071D771915000139FC /* Build configuration list for PBXNativeTarget "LightenUpUITests" */ = {
+		8C9F44071D771915000139FC /* Build configuration list for PBXNativeTarget "LightUpSwiftUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C9F44081D771915000139FC /* Debug */,

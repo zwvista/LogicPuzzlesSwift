@@ -8,18 +8,18 @@
     "96D86864D576B39C72B29A1CB8017AF09F0454C5" : 9223372036854775807,
     "0B2E5EC0AFF41DD2E9A85F532BCA66ECF209844B" : 9223372036854775807
   },
-  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "A7372CD7-C4B8-4CCE-A81D-E2C7F997C1B1",
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "93800D48-D563-42F2-B9B8-624EFB75196C",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "A7FB94794D37B7728F6B46975BE5E9D999585A35" : "..\/OSS\/Fuzi",
     "96D86864D576B39C72B29A1CB8017AF09F0454C5" : "..\/OSS\/sharkorm",
-    "0B2E5EC0AFF41DD2E9A85F532BCA66ECF209844B" : "LightenUp\/"
+    "0B2E5EC0AFF41DD2E9A85F532BCA66ECF209844B" : "LightUpSwift\/"
   },
-  "DVTSourceControlWorkspaceBlueprintNameKey" : "LightenUp",
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "LightUpSwift",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
-  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "LightenUp.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "LightUpSwift.xcworkspace",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
     {
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/zwvista\/LightenUp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/zwvista\/LightUpSwift.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0B2E5EC0AFF41DD2E9A85F532BCA66ECF209844B"
     },
