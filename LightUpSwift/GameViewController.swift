@@ -71,9 +71,9 @@ class GameViewController: UIViewController, GameDelegate {
         
         // restore game state
         for case let rec as MoveProgress in doc.moveProgress {
-            game.setObject(p: Position(Int(rec.row!), Int(rec.col!)), objType: GameObjectType.fromString(str: String(rec.objTypeAsString!)))
+            game.setObject(p: Position(rec.row, rec.col), objType: GameObjectType.fromString(str: rec.objTypeAsString!))
         }
-        let moveIndex = Int(doc.levelProgress.moveIndex!)
+        let moveIndex = doc.levelProgress.moveIndex
         guard case 0 ..< game.moveCount = moveIndex else {return}
         while moveIndex != game.moveIndex {
             game.undo()

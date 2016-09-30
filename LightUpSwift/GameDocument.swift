@@ -48,7 +48,7 @@ class GameDocument {
     
     func levelUpdated(game: Game) {
         let rec = levelProgress
-        rec.moveIndex = game.moveIndex as NSNumber
+        rec.moveIndex = game.moveIndex
         rec.commit()
     }
     
@@ -57,10 +57,10 @@ class GameDocument {
         
         let rec = MoveProgress()
         rec.levelID = selectedLevelID
-        rec.moveIndex = game.moveIndex as NSNumber
-        rec.row = move.p.row as NSNumber
-        rec.col = move.p.col as NSNumber
-        rec.objTypeAsString = move.objType.toString() as NSString
+        rec.moveIndex = game.moveIndex
+        rec.row = move.p.row
+        rec.col = move.p.col
+        rec.objTypeAsString = move.objType.toString()
         rec.commit()
     }
     

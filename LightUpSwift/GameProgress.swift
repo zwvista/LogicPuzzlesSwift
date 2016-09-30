@@ -11,30 +11,30 @@ import SharkORM
 
 class GameProgress: SRKObject {
     dynamic var levelID: String?
-    dynamic var useMarker = false
+    dynamic var markerOption = 0
     
-    override open class func defaultValuesForEntity() -> [AnyHashable : Any]! {
-        return ["levelID" : "Level 1", "useMarker" : false]
+    override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
+        return ["levelID" : "Level 1", "markerOption" : 0]
     }
 }
 
 class LevelProgress: SRKObject {
     dynamic var levelID: String?
-    dynamic var moveIndex: NSNumber?
+    dynamic var moveIndex = 0
     
-    override open class func defaultValuesForEntity() -> [AnyHashable : Any]! {
+    override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
         return ["moveIndex" : 0]
     }
 }
 
 class MoveProgress: SRKObject {
     dynamic var levelID: String?
-    dynamic var moveIndex: NSNumber?
-    dynamic var row: NSNumber?
-    dynamic var col: NSNumber?
-    dynamic var objTypeAsString: NSString?
+    dynamic var moveIndex = 0
+    dynamic var row = 0
+    dynamic var col = 0
+    dynamic var objTypeAsString: String?
     
-    override open class func defaultValuesForEntity() -> [AnyHashable : Any]! {
+    override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
         return ["moveIndex" : 0]
     }
 }

@@ -92,13 +92,14 @@ struct GameState {
     }
     
     mutating func switchObject(p: Position) -> (Bool, GameMove) {
+        let markerOption = MarkerOptions(rawValue: options.markerOption)
         switch self[p].objType {
         case .empty:
-            return setObject(p: p, objType: options.useMarker ? .marker : .lightbulb(state: .normal))
+            return setObject(p: p, objType: markerOption == .markerBeforeLightbulb ? .marker : .lightbulb(state: .normal))
         case .lightbulb:
-            return setObject(p: p, objType: .empty)
+            return setObject(p: p, objType: markerOption == .markerAfterLightbulb ? .marker : .empty)
         case .marker:
-            return setObject(p: p, objType: .lightbulb(state: .normal))
+            return setObject(p: p, objType: markerOption == .markerBeforeLightbulb ? .lightbulb(state: .normal) : .empty)
         default:
             return (false, GameMove())
         }

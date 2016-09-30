@@ -16,6 +16,12 @@ enum LightbulbState {
     case normal, error
 }
 
+enum MarkerOptions: Int {
+    case noMarker, markerAfterLightbulb, markerBeforeLightbulb
+    
+    static let optionStrings = ["No Marker", "Marker After Lightbulb", "Marker Before Lightbulb"]
+}
+
 enum GameObjectType {
     case empty
     case lightbulb(state: LightbulbState)

@@ -15,6 +15,15 @@
 		8C6FAFCB1D82E6AC009F0C90 /* GridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6FAFCA1D82E6AC009F0C90 /* GridNode.swift */; };
 		8C6FAFCD1D82E6F6009F0C90 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6FAFCC1D82E6F6009F0C90 /* GameScene.swift */; };
 		8C835D651D84BCDC0067BC3E /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C835D641D84BCDC0067BC3E /* Position.swift */; };
+		8C886C3C1D9E8AF1004A42BF /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C291D9E8AF0004A42BF /* AbstractActionSheetPicker.m */; };
+		8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C2B1D9E8AF0004A42BF /* ActionSheetCustomPicker.m */; };
+		8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C2E1D9E8AF0004A42BF /* ActionSheetDatePicker.m */; };
+		8C886C3F1D9E8AF1004A42BF /* ActionSheetDistancePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C301D9E8AF0004A42BF /* ActionSheetDistancePicker.m */; };
+		8C886C401D9E8AF1004A42BF /* ActionSheetLocalePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C321D9E8AF0004A42BF /* ActionSheetLocalePicker.m */; };
+		8C886C411D9E8AF1004A42BF /* ActionSheetMultipleStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C341D9E8AF0004A42BF /* ActionSheetMultipleStringPicker.m */; };
+		8C886C421D9E8AF1004A42BF /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C371D9E8AF1004A42BF /* ActionSheetStringPicker.m */; };
+		8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C391D9E8AF1004A42BF /* DistancePickerView.m */; };
+		8C886C441D9E8AF1004A42BF /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C3B1D9E8AF1004A42BF /* SWActionSheet.m */; };
 		8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43DA1D771915000139FC /* AppDelegate.swift */; };
 		8C9F43DF1D771915000139FC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43DE1D771915000139FC /* GameViewController.swift */; };
 		8C9F43E21D771915000139FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E01D771915000139FC /* Main.storyboard */; };
@@ -77,6 +86,27 @@
 		8C6FAFCA1D82E6AC009F0C90 /* GridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridNode.swift; sourceTree = "<group>"; };
 		8C6FAFCC1D82E6F6009F0C90 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		8C835D641D84BCDC0067BC3E /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		8C886C281D9E8AF0004A42BF /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
+		8C886C291D9E8AF0004A42BF /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
+		8C886C2A1D9E8AF0004A42BF /* ActionSheetCustomPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPicker.h; sourceTree = "<group>"; };
+		8C886C2B1D9E8AF0004A42BF /* ActionSheetCustomPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetCustomPicker.m; sourceTree = "<group>"; };
+		8C886C2C1D9E8AF0004A42BF /* ActionSheetCustomPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPickerDelegate.h; sourceTree = "<group>"; };
+		8C886C2D1D9E8AF0004A42BF /* ActionSheetDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDatePicker.h; sourceTree = "<group>"; };
+		8C886C2E1D9E8AF0004A42BF /* ActionSheetDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDatePicker.m; sourceTree = "<group>"; };
+		8C886C2F1D9E8AF0004A42BF /* ActionSheetDistancePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDistancePicker.h; sourceTree = "<group>"; };
+		8C886C301D9E8AF0004A42BF /* ActionSheetDistancePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDistancePicker.m; sourceTree = "<group>"; };
+		8C886C311D9E8AF0004A42BF /* ActionSheetLocalePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetLocalePicker.h; sourceTree = "<group>"; };
+		8C886C321D9E8AF0004A42BF /* ActionSheetLocalePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetLocalePicker.m; sourceTree = "<group>"; };
+		8C886C331D9E8AF0004A42BF /* ActionSheetMultipleStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetMultipleStringPicker.h; sourceTree = "<group>"; };
+		8C886C341D9E8AF0004A42BF /* ActionSheetMultipleStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetMultipleStringPicker.m; sourceTree = "<group>"; };
+		8C886C351D9E8AF1004A42BF /* ActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetPicker.h; sourceTree = "<group>"; };
+		8C886C361D9E8AF1004A42BF /* ActionSheetStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetStringPicker.h; sourceTree = "<group>"; };
+		8C886C371D9E8AF1004A42BF /* ActionSheetStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetStringPicker.m; sourceTree = "<group>"; };
+		8C886C381D9E8AF1004A42BF /* DistancePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistancePickerView.h; sourceTree = "<group>"; };
+		8C886C391D9E8AF1004A42BF /* DistancePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePickerView.m; sourceTree = "<group>"; };
+		8C886C3A1D9E8AF1004A42BF /* SWActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWActionSheet.h; sourceTree = "<group>"; };
+		8C886C3B1D9E8AF1004A42BF /* SWActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWActionSheet.m; sourceTree = "<group>"; };
+		8C886C451D9E8B72004A42BF /* LightUpSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LightUpSwift-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		8C9F43D71D771915000139FC /* LightUpSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightUpSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9F43DA1D771915000139FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C9F43DE1D771915000139FC /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -141,10 +171,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8C886C271D9E8AF0004A42BF /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				8C886C281D9E8AF0004A42BF /* AbstractActionSheetPicker.h */,
+				8C886C291D9E8AF0004A42BF /* AbstractActionSheetPicker.m */,
+				8C886C2A1D9E8AF0004A42BF /* ActionSheetCustomPicker.h */,
+				8C886C2B1D9E8AF0004A42BF /* ActionSheetCustomPicker.m */,
+				8C886C2C1D9E8AF0004A42BF /* ActionSheetCustomPickerDelegate.h */,
+				8C886C2D1D9E8AF0004A42BF /* ActionSheetDatePicker.h */,
+				8C886C2E1D9E8AF0004A42BF /* ActionSheetDatePicker.m */,
+				8C886C2F1D9E8AF0004A42BF /* ActionSheetDistancePicker.h */,
+				8C886C301D9E8AF0004A42BF /* ActionSheetDistancePicker.m */,
+				8C886C311D9E8AF0004A42BF /* ActionSheetLocalePicker.h */,
+				8C886C321D9E8AF0004A42BF /* ActionSheetLocalePicker.m */,
+				8C886C331D9E8AF0004A42BF /* ActionSheetMultipleStringPicker.h */,
+				8C886C341D9E8AF0004A42BF /* ActionSheetMultipleStringPicker.m */,
+				8C886C351D9E8AF1004A42BF /* ActionSheetPicker.h */,
+				8C886C361D9E8AF1004A42BF /* ActionSheetStringPicker.h */,
+				8C886C371D9E8AF1004A42BF /* ActionSheetStringPicker.m */,
+				8C886C381D9E8AF1004A42BF /* DistancePickerView.h */,
+				8C886C391D9E8AF1004A42BF /* DistancePickerView.m */,
+				8C886C3A1D9E8AF1004A42BF /* SWActionSheet.h */,
+				8C886C3B1D9E8AF1004A42BF /* SWActionSheet.m */,
+			);
+			name = Pickers;
+			path = "../../OSS/ActionSheetPicker-3.0/Pickers";
+			sourceTree = "<group>";
+		};
 		8C9F43CE1D771915000139FC = {
 			isa = PBXGroup;
 			children = (
 				8CCF1BE51D8DA6BA00AB6594 /* Fuzi */,
+				8C886C271D9E8AF0004A42BF /* Pickers */,
 				8C9F43D91D771915000139FC /* LightUpSwift */,
 				8C9F43F01D771915000139FC /* LightUpSwiftTests */,
 				8C9F43FB1D771915000139FC /* LightUpSwiftUITests */,
@@ -180,6 +239,7 @@
 				8C9F43E51D771915000139FC /* LaunchScreen.storyboard */,
 				8CCF1BFD1D8DAB6700AB6594 /* Levels.xml */,
 				8CCF1C011D8E1DB000AB6594 /* lightbulb.png */,
+				8C886C451D9E8B72004A42BF /* LightUpSwift-Bridging-Header.h */,
 				8C9F43E01D771915000139FC /* Main.storyboard */,
 				8C09B7871D9207DC00AB6B64 /* MainViewController.swift */,
 				8CD84EC91D97A17300DF155E /* OptionsViewController.swift */,
@@ -369,18 +429,27 @@
 				8CCF1C001D8DAF7B00AB6594 /* GameDocument.swift in Sources */,
 				8CCF1BF51D8DA6BA00AB6594 /* NodeSet.swift in Sources */,
 				8CCF1BF01D8DA6BA00AB6594 /* Element.swift in Sources */,
+				8C886C441D9E8AF1004A42BF /* SWActionSheet.m in Sources */,
 				8CCF1BF41D8DA6BA00AB6594 /* Node.swift in Sources */,
 				8CCF1BF21D8DA6BA00AB6594 /* Helpers.swift in Sources */,
+				8C886C401D9E8AF1004A42BF /* ActionSheetLocalePicker.m in Sources */,
 				8C835D651D84BCDC0067BC3E /* Position.swift in Sources */,
 				8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */,
+				8C886C3C1D9E8AF1004A42BF /* AbstractActionSheetPicker.m in Sources */,
 				8C6FAFCD1D82E6F6009F0C90 /* GameScene.swift in Sources */,
 				8CCF1BEF1D8DA6BA00AB6594 /* Document.swift in Sources */,
 				8CD84ECA1D97A17300DF155E /* OptionsViewController.swift in Sources */,
+				8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */,
 				8CCF1BF61D8DA6BA00AB6594 /* Queryable.swift in Sources */,
+				8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */,
+				8C886C421D9E8AF1004A42BF /* ActionSheetStringPicker.m in Sources */,
 				8CCF1C041D8F6C7300AB6594 /* GameState.swift in Sources */,
 				8C09B7881D9207DC00AB6B64 /* MainViewController.swift in Sources */,
 				8CCF1BF11D8DA6BA00AB6594 /* Error.swift in Sources */,
+				8C886C3F1D9E8AF1004A42BF /* ActionSheetDistancePicker.m in Sources */,
 				8C6FAFCB1D82E6AC009F0C90 /* GridNode.swift in Sources */,
+				8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */,
+				8C886C411D9E8AF1004A42BF /* ActionSheetMultipleStringPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,7 +600,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = ../../OSS/SharkBooksSample/SharkBooksSample/Frameworks;
+				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = LightUpSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -541,7 +610,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_INCLUDE_PATHS = ../../OSS/Fuzi/libxml2;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "LightUpSwift-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -552,7 +621,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = ../../OSS/SharkBooksSample/SharkBooksSample/Frameworks;
+				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = LightUpSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -561,7 +630,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_INCLUDE_PATHS = ../../OSS/Fuzi/libxml2;
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "LightUpSwift-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

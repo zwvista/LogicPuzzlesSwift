@@ -4,14 +4,16 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "A7FB94794D37B7728F6B46975BE5E9D999585A35" : 9223372036854775807,
     "96D86864D576B39C72B29A1CB8017AF09F0454C5" : 9223372036854775807,
+    "FF65A8AFC255E5913A7BCDE7153CC9C006153EAE" : 9223372036854775807,
+    "A7FB94794D37B7728F6B46975BE5E9D999585A35" : 9223372036854775807,
     "0B2E5EC0AFF41DD2E9A85F532BCA66ECF209844B" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "93800D48-D563-42F2-B9B8-624EFB75196C",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "A7FB94794D37B7728F6B46975BE5E9D999585A35" : "..\/OSS\/Fuzi",
     "96D86864D576B39C72B29A1CB8017AF09F0454C5" : "..\/OSS\/sharkorm",
+    "FF65A8AFC255E5913A7BCDE7153CC9C006153EAE" : "..\/OSS\/ActionSheetPicker-3.0",
+    "A7FB94794D37B7728F6B46975BE5E9D999585A35" : "..\/OSS\/Fuzi",
     "0B2E5EC0AFF41DD2E9A85F532BCA66ECF209844B" : "LightUpSwift\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "LightUpSwift",
@@ -32,6 +34,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/cezheng\/Fuzi",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A7FB94794D37B7728F6B46975BE5E9D999585A35"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/skywinder\/ActionSheetPicker-3.0",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FF65A8AFC255E5913A7BCDE7153CC9C006153EAE"
     }
   ]
 }
