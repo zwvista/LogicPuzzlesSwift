@@ -15,15 +15,13 @@ class OptionsViewController: UITableViewController {
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!
     
-    func updateMarkerOption(markerOption: Int) {
-        lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]
+    func updateMarkerOption() {
+        lblMarkerOption.text = MarkerOptions.optionStrings[options.markerOption]
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let rec = options
-        updateMarkerOption(markerOption: rec.markerOption)
+        updateMarkerOption()
     }
 
     override var prefersStatusBarHidden: Bool {
@@ -34,8 +32,22 @@ class OptionsViewController: UITableViewController {
         return false
     }
     
+    @IBAction func onDefault(_ sender: AnyObject) {
+        let alertController = UIAlertController(title: "Default Options", message: "Do you really want to reset the options?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            let rec = self.options
+            rec.markerOption = MarkerOptions.noMarker.rawValue
+            rec.commit()
+            self.updateMarkerOption()
+        }
+        alertController.addAction(OKAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     @IBAction func onDone(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -43,9 +55,8 @@ class OptionsViewController: UITableViewController {
         ActionSheetStringPicker.show(withTitle: "Marker Options", rows: MarkerOptions.optionStrings, initialSelection: rec.markerOption, doneBlock: { (picker, selectedIndex, selectedValue) in
             rec.markerOption = selectedIndex
             rec.commit()
-            self.updateMarkerOption(markerOption: rec.markerOption)
+            self.updateMarkerOption()
         }, cancel: nil, origin: lblMarker)
-
     }
 
 }

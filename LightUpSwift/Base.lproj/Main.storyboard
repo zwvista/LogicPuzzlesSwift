@@ -325,7 +325,7 @@
                     <navigationItem key="navigationItem" title="Options" id="UbN-lQ-bP4">
                         <barButtonItem key="leftBarButtonItem" title="Default" id="tFX-26-pW5">
                             <connections>
-                                <action selector="onDone:" destination="NOj-7d-poE" id="h4c-TE-4sI"/>
+                                <action selector="onDefault:" destination="NOj-7d-poE" id="qAk-1m-7Ha"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Done" id="PiH-dw-iIL">

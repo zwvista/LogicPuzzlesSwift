@@ -71,10 +71,10 @@ class GameDocument {
     }
     
     func clearGame() {
+        MoveProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).fetch().removeAll()
+
         let rec = levelProgress
         rec.moveIndex = 0
         rec.commit()
-        
-        MoveProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).fetch().removeAll()
     }
 }
