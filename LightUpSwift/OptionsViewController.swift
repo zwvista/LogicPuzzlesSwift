@@ -14,9 +14,16 @@ class OptionsViewController: UITableViewController {
 
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!
+    @IBOutlet weak var swNormalLightbulbsOnly: UISwitch!
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[options.markerOption]
+    }
+    
+    @IBAction func normalLightbulbsOnlyChanged(_ sender: AnyObject) {
+        let rec = options
+        rec.normalLightbulbsOnly = swNormalLightbulbsOnly.isOn
+        rec.commit()
     }
     
     override func viewDidLoad() {
@@ -39,6 +46,7 @@ class OptionsViewController: UITableViewController {
         let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
             let rec = self.options
             rec.markerOption = MarkerOptions.noMarker.rawValue
+            rec.normalLightbulbsOnly = false
             rec.commit()
             self.updateMarkerOption()
         }

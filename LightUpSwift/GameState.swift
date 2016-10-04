@@ -79,6 +79,7 @@ struct GameState {
         case (.empty, .marker), (.marker, .empty):
             objChanged()
         case (.empty, .lightbulb), (.marker, .lightbulb):
+            if options.normalLightbulbsOnly && self[p].lightness > 0 {break}
             objChanged()
             adjustLightness(tolighten: true)
         case (.lightbulb, .empty), (.lightbulb, .marker):
@@ -93,14 +94,25 @@ struct GameState {
     
     mutating func switchObject(p: Position) -> (Bool, GameMove) {
         let markerOption = MarkerOptions(rawValue: options.markerOption)
-        switch self[p].objType {
-        case .empty:
-            return setObject(p: p, objType: markerOption == .markerBeforeLightbulb ? .marker : .lightbulb(state: .normal))
+        func f(o: GameObjectType) -> GameObjectType {
+            switch o {
+            case .empty:
+                return markerOption == .markerBeforeLightbulb ? .marker : .lightbulb(state: .normal)
+            case .lightbulb:
+                return markerOption == .markerAfterLightbulb ? .marker : .empty
+            case .marker:
+                return markerOption == .markerBeforeLightbulb ? .lightbulb(state: .normal) : .empty
+            case .wall:
+                return o
+            }
+        }
+        let o = f(o: self[p].objType)
+        switch o {
+        case .empty, .marker:
+            return setObject(p: p, objType: o)
         case .lightbulb:
-            return setObject(p: p, objType: markerOption == .markerAfterLightbulb ? .marker : .empty)
-        case .marker:
-            return setObject(p: p, objType: markerOption == .markerBeforeLightbulb ? .lightbulb(state: .normal) : .empty)
-        default:
+            return setObject(p: p, objType: options.normalLightbulbsOnly && self[p].lightness > 0 ? f(o: o) : o)
+        case .wall:
             return (false, GameMove())
         }
     }
