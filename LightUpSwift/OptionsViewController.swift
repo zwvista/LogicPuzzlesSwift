@@ -20,6 +20,10 @@ class OptionsViewController: UITableViewController {
         lblMarkerOption.text = MarkerOptions.optionStrings[options.markerOption]
     }
     
+    func updateNormalLightbulbsOnly() {
+        swNormalLightbulbsOnly.isOn = options.normalLightbulbsOnly;
+    }
+    
     @IBAction func normalLightbulbsOnlyChanged(_ sender: AnyObject) {
         let rec = options
         rec.normalLightbulbsOnly = swNormalLightbulbsOnly.isOn
@@ -29,6 +33,7 @@ class OptionsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateMarkerOption()
+        updateNormalLightbulbsOnly()
     }
 
     override var prefersStatusBarHidden: Bool {
@@ -41,16 +46,17 @@ class OptionsViewController: UITableViewController {
     
     @IBAction func onDefault(_ sender: AnyObject) {
         let alertController = UIAlertController(title: "Default Options", message: "Do you really want to reset the options?", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+        let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+        alertController.addAction(noAction)
+        let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
             let rec = self.options
             rec.markerOption = MarkerOptions.noMarker.rawValue
             rec.normalLightbulbsOnly = false
             rec.commit()
             self.updateMarkerOption()
+            self.updateNormalLightbulbsOnly()
         }
-        alertController.addAction(OKAction)
+        alertController.addAction(yesAction)
         self.present(alertController, animated: true, completion: nil)
     }
     

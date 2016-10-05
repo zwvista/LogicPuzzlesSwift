@@ -118,13 +118,13 @@ class GameViewController: UIViewController, GameDelegate {
     
     @IBAction func clearGame(_ sender: AnyObject) {
         let alertController = UIAlertController(title: "Clear", message: "Do you really want to reset the level?", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+        let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+        alertController.addAction(noAction)
+        let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
             self.doc.clearGame()
             self.startGame()
         }
-        alertController.addAction(OKAction)
+        alertController.addAction(yesAction)
         self.present(alertController, animated: true, completion: nil)
     }
     
