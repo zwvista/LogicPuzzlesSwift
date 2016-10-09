@@ -24,6 +24,14 @@
 		8C886C421D9E8AF1004A42BF /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C371D9E8AF1004A42BF /* ActionSheetStringPicker.m */; };
 		8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C391D9E8AF1004A42BF /* DistancePickerView.m */; };
 		8C886C441D9E8AF1004A42BF /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C3B1D9E8AF1004A42BF /* SWActionSheet.m */; };
+		8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C916CB21DAA5E9500D9E62B /* Document.swift */; };
+		8C916CBC1DAA5E9500D9E62B /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C916CB31DAA5E9500D9E62B /* Element.swift */; };
+		8C916CBD1DAA5E9500D9E62B /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C916CB41DAA5E9500D9E62B /* Error.swift */; };
+		8C916CBE1DAA5E9500D9E62B /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C916CB61DAA5E9500D9E62B /* Helpers.swift */; };
+		8C916CC01DAA5E9500D9E62B /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C916CB81DAA5E9500D9E62B /* Node.swift */; };
+		8C916CC11DAA5E9500D9E62B /* NodeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C916CB91DAA5E9500D9E62B /* NodeSet.swift */; };
+		8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C916CBA1DAA5E9500D9E62B /* Queryable.swift */; };
+		8C916CC41DAA5FEB00D9E62B /* USA_P.WAV in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CC31DAA5FEB00D9E62B /* USA_P.WAV */; };
 		8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43DA1D771915000139FC /* AppDelegate.swift */; };
 		8C9F43DF1D771915000139FC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43DE1D771915000139FC /* GameViewController.swift */; };
 		8C9F43E21D771915000139FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E01D771915000139FC /* Main.storyboard */; };
@@ -31,14 +39,6 @@
 		8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E51D771915000139FC /* LaunchScreen.storyboard */; };
 		8C9F43F21D771915000139FC /* LightUpSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43F11D771915000139FC /* LightUpSwiftTests.swift */; };
 		8C9F43FD1D771915000139FC /* LightUpSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43FC1D771915000139FC /* LightUpSwiftUITests.swift */; };
-		8CCF1BEF1D8DA6BA00AB6594 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF1BE61D8DA6BA00AB6594 /* Document.swift */; };
-		8CCF1BF01D8DA6BA00AB6594 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF1BE71D8DA6BA00AB6594 /* Element.swift */; };
-		8CCF1BF11D8DA6BA00AB6594 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF1BE81D8DA6BA00AB6594 /* Error.swift */; };
-		8CCF1BF21D8DA6BA00AB6594 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF1BEA1D8DA6BA00AB6594 /* Helpers.swift */; };
-		8CCF1BF31D8DA6BA00AB6594 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF1BEB1D8DA6BA00AB6594 /* Info.plist */; };
-		8CCF1BF41D8DA6BA00AB6594 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF1BEC1D8DA6BA00AB6594 /* Node.swift */; };
-		8CCF1BF51D8DA6BA00AB6594 /* NodeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF1BED1D8DA6BA00AB6594 /* NodeSet.swift */; };
-		8CCF1BF61D8DA6BA00AB6594 /* Queryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF1BEE1D8DA6BA00AB6594 /* Queryable.swift */; };
 		8CCF1BFE1D8DAB6700AB6594 /* Levels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF1BFD1D8DAB6700AB6594 /* Levels.xml */; };
 		8CCF1C001D8DAF7B00AB6594 /* GameDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF1BFF1D8DAF7B00AB6594 /* GameDocument.swift */; };
 		8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF1C011D8E1DB000AB6594 /* lightbulb.png */; };
@@ -107,6 +107,16 @@
 		8C886C3A1D9E8AF1004A42BF /* SWActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWActionSheet.h; sourceTree = "<group>"; };
 		8C886C3B1D9E8AF1004A42BF /* SWActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWActionSheet.m; sourceTree = "<group>"; };
 		8C886C451D9E8B72004A42BF /* LightUpSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LightUpSwift-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		8C916CB21DAA5E9500D9E62B /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		8C916CB31DAA5E9500D9E62B /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
+		8C916CB41DAA5E9500D9E62B /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		8C916CB51DAA5E9500D9E62B /* Fuzi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fuzi.h; sourceTree = "<group>"; };
+		8C916CB61DAA5E9500D9E62B /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		8C916CB71DAA5E9500D9E62B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C916CB81DAA5E9500D9E62B /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		8C916CB91DAA5E9500D9E62B /* NodeSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeSet.swift; sourceTree = "<group>"; };
+		8C916CBA1DAA5E9500D9E62B /* Queryable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queryable.swift; sourceTree = "<group>"; };
+		8C916CC31DAA5FEB00D9E62B /* USA_P.WAV */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = USA_P.WAV; sourceTree = "<group>"; };
 		8C9F43D71D771915000139FC /* LightUpSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightUpSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9F43DA1D771915000139FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C9F43DE1D771915000139FC /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -120,15 +130,6 @@
 		8C9F43F81D771915000139FC /* LightUpSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LightUpSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9F43FC1D771915000139FC /* LightUpSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightUpSwiftUITests.swift; sourceTree = "<group>"; };
 		8C9F43FE1D771915000139FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8CCF1BE61D8DA6BA00AB6594 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
-		8CCF1BE71D8DA6BA00AB6594 /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
-		8CCF1BE81D8DA6BA00AB6594 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		8CCF1BE91D8DA6BA00AB6594 /* Fuzi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fuzi.h; sourceTree = "<group>"; };
-		8CCF1BEA1D8DA6BA00AB6594 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
-		8CCF1BEB1D8DA6BA00AB6594 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8CCF1BEC1D8DA6BA00AB6594 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
-		8CCF1BED1D8DA6BA00AB6594 /* NodeSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeSet.swift; sourceTree = "<group>"; };
-		8CCF1BEE1D8DA6BA00AB6594 /* Queryable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queryable.swift; sourceTree = "<group>"; };
 		8CCF1BFD1D8DAB6700AB6594 /* Levels.xml */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = text.xml; path = Levels.xml; sourceTree = "<group>"; tabWidth = 2; };
 		8CCF1BFF1D8DAF7B00AB6594 /* GameDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDocument.swift; sourceTree = "<group>"; };
 		8CCF1C011D8E1DB000AB6594 /* lightbulb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightbulb.png; sourceTree = "<group>"; };
@@ -199,10 +200,27 @@
 			path = "../../OSS/ActionSheetPicker-3.0/Pickers";
 			sourceTree = "<group>";
 		};
+		8C916CB11DAA5E9500D9E62B /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				8C916CB21DAA5E9500D9E62B /* Document.swift */,
+				8C916CB31DAA5E9500D9E62B /* Element.swift */,
+				8C916CB41DAA5E9500D9E62B /* Error.swift */,
+				8C916CB51DAA5E9500D9E62B /* Fuzi.h */,
+				8C916CB61DAA5E9500D9E62B /* Helpers.swift */,
+				8C916CB71DAA5E9500D9E62B /* Info.plist */,
+				8C916CB81DAA5E9500D9E62B /* Node.swift */,
+				8C916CB91DAA5E9500D9E62B /* NodeSet.swift */,
+				8C916CBA1DAA5E9500D9E62B /* Queryable.swift */,
+			);
+			name = Sources;
+			path = ../../OSS/Fuzi/Sources;
+			sourceTree = "<group>";
+		};
 		8C9F43CE1D771915000139FC = {
 			isa = PBXGroup;
 			children = (
-				8CCF1BE51D8DA6BA00AB6594 /* Fuzi */,
+				8C916CB11DAA5E9500D9E62B /* Sources */,
 				8C886C271D9E8AF0004A42BF /* Pickers */,
 				8C9F43D91D771915000139FC /* LightUpSwift */,
 				8C9F43F01D771915000139FC /* LightUpSwiftTests */,
@@ -244,6 +262,7 @@
 				8C09B7871D9207DC00AB6B64 /* MainViewController.swift */,
 				8CD84EC91D97A17300DF155E /* OptionsViewController.swift */,
 				8C835D641D84BCDC0067BC3E /* Position.swift */,
+				8C916CC31DAA5FEB00D9E62B /* USA_P.WAV */,
 			);
 			path = LightUpSwift;
 			sourceTree = "<group>";
@@ -264,23 +283,6 @@
 				8C9F43FE1D771915000139FC /* Info.plist */,
 			);
 			path = LightUpSwiftUITests;
-			sourceTree = "<group>";
-		};
-		8CCF1BE51D8DA6BA00AB6594 /* Fuzi */ = {
-			isa = PBXGroup;
-			children = (
-				8CCF1BE61D8DA6BA00AB6594 /* Document.swift */,
-				8CCF1BE71D8DA6BA00AB6594 /* Element.swift */,
-				8CCF1BE81D8DA6BA00AB6594 /* Error.swift */,
-				8CCF1BE91D8DA6BA00AB6594 /* Fuzi.h */,
-				8CCF1BEA1D8DA6BA00AB6594 /* Helpers.swift */,
-				8CCF1BEB1D8DA6BA00AB6594 /* Info.plist */,
-				8CCF1BEC1D8DA6BA00AB6594 /* Node.swift */,
-				8CCF1BED1D8DA6BA00AB6594 /* NodeSet.swift */,
-				8CCF1BEE1D8DA6BA00AB6594 /* Queryable.swift */,
-			);
-			name = Fuzi;
-			path = ../../OSS/Fuzi/Fuzi;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,9 +397,9 @@
 				8CCF1BFE1D8DAB6700AB6594 /* Levels.xml in Resources */,
 				8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */,
 				8C9F43E41D771915000139FC /* Assets.xcassets in Resources */,
-				8CCF1BF31D8DA6BA00AB6594 /* Info.plist in Resources */,
 				8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */,
 				8C9F43E21D771915000139FC /* Main.storyboard in Resources */,
+				8C916CC41DAA5FEB00D9E62B /* USA_P.WAV in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,29 +428,29 @@
 				8C9F43DF1D771915000139FC /* GameViewController.swift in Sources */,
 				8C2164171D8FB39300A39B47 /* GameProgress.swift in Sources */,
 				8CF2ADAA1D98B2290040DB59 /* GameObject.swift in Sources */,
+				8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */,
+				8C916CC01DAA5E9500D9E62B /* Node.swift in Sources */,
 				8CCF1C001D8DAF7B00AB6594 /* GameDocument.swift in Sources */,
-				8CCF1BF51D8DA6BA00AB6594 /* NodeSet.swift in Sources */,
-				8CCF1BF01D8DA6BA00AB6594 /* Element.swift in Sources */,
 				8C886C441D9E8AF1004A42BF /* SWActionSheet.m in Sources */,
-				8CCF1BF41D8DA6BA00AB6594 /* Node.swift in Sources */,
-				8CCF1BF21D8DA6BA00AB6594 /* Helpers.swift in Sources */,
 				8C886C401D9E8AF1004A42BF /* ActionSheetLocalePicker.m in Sources */,
 				8C835D651D84BCDC0067BC3E /* Position.swift in Sources */,
 				8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */,
 				8C886C3C1D9E8AF1004A42BF /* AbstractActionSheetPicker.m in Sources */,
 				8C6FAFCD1D82E6F6009F0C90 /* GameScene.swift in Sources */,
-				8CCF1BEF1D8DA6BA00AB6594 /* Document.swift in Sources */,
 				8CD84ECA1D97A17300DF155E /* OptionsViewController.swift in Sources */,
+				8C916CBE1DAA5E9500D9E62B /* Helpers.swift in Sources */,
 				8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */,
-				8CCF1BF61D8DA6BA00AB6594 /* Queryable.swift in Sources */,
 				8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */,
 				8C886C421D9E8AF1004A42BF /* ActionSheetStringPicker.m in Sources */,
+				8C916CBD1DAA5E9500D9E62B /* Error.swift in Sources */,
 				8CCF1C041D8F6C7300AB6594 /* GameState.swift in Sources */,
+				8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */,
+				8C916CC11DAA5E9500D9E62B /* NodeSet.swift in Sources */,
 				8C09B7881D9207DC00AB6B64 /* MainViewController.swift in Sources */,
-				8CCF1BF11D8DA6BA00AB6594 /* Error.swift in Sources */,
 				8C886C3F1D9E8AF1004A42BF /* ActionSheetDistancePicker.m in Sources */,
 				8C6FAFCB1D82E6AC009F0C90 /* GridNode.swift in Sources */,
 				8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */,
+				8C916CBC1DAA5E9500D9E62B /* Element.swift in Sources */,
 				8C886C411D9E8AF1004A42BF /* ActionSheetMultipleStringPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

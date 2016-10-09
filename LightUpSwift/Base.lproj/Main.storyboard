@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dL8-yL-2cc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dL8-yL-2cc">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -295,18 +295,18 @@
                                         <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jVV-il-BlP" id="vUC-Zg-Q8r">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <frame key="frameInset" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Marker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wWw-9L-o5x">
-                                                    <frame key="frameInset" minX="15" minY="11" width="54" height="21"/>
+                                                    <frame key="frameInset" minX="15" minY="12" width="53.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Marker After Lightbulb" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DOw-4i-6ht">
-                                                    <frame key="frameInset" minX="188" minY="11" width="172" height="21"/>
+                                                    <frame key="frameInset" minX="188" minY="12" width="172" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -319,7 +319,7 @@
                                         <rect key="frame" x="0.0" y="108" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xfs-mt-z74" id="Ndm-k5-m9r">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <frame key="frameInset" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Normal Lightbulbs Only" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDP-sf-Elx">
@@ -338,6 +338,60 @@
                                                 <constraint firstItem="sDP-sf-Elx" firstAttribute="leading" secondItem="Ndm-k5-m9r" secondAttribute="leadingMargin" constant="7" id="aJH-5l-pIk"/>
                                                 <constraint firstItem="5vs-u1-bcs" firstAttribute="centerY" secondItem="sDP-sf-Elx" secondAttribute="centerY" id="cgj-iL-yHI"/>
                                                 <constraint firstItem="5vs-u1-bcs" firstAttribute="centerY" secondItem="Ndm-k5-m9r" secondAttribute="centerY" id="kZR-ut-dhK"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="i69-gX-NkB">
+                                        <rect key="frame" x="0.0" y="152" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i69-gX-NkB" id="RP3-hS-OXI">
+                                            <frame key="frameInset" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfY-9V-8Ab">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="right" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fCx-VM-Yxs">
+                                                    <connections>
+                                                        <action selector="normalLightbulbsOnlyChanged:" destination="NOj-7d-poE" eventType="valueChanged" id="cjh-G3-QHg"/>
+                                                        <action selector="playMusicChanged:" destination="NOj-7d-poE" eventType="valueChanged" id="3Mc-OH-ZZB"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fCx-VM-Yxs" firstAttribute="centerY" secondItem="gfY-9V-8Ab" secondAttribute="centerY" id="P7B-C3-mOc"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="fCx-VM-Yxs" secondAttribute="trailing" constant="7" id="QIC-iq-M7q"/>
+                                                <constraint firstItem="fCx-VM-Yxs" firstAttribute="centerY" secondItem="RP3-hS-OXI" secondAttribute="centerY" id="hpH-1z-ssj"/>
+                                                <constraint firstItem="gfY-9V-8Ab" firstAttribute="leading" secondItem="RP3-hS-OXI" secondAttribute="leadingMargin" constant="7" id="rBi-aV-bKu"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Lbr-eC-beW">
+                                        <rect key="frame" x="0.0" y="196" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lbr-eC-beW" id="fcl-tX-m3y">
+                                            <frame key="frameInset" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sound" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="my6-qf-7vu">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="right" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Fe8-Wm-L6T">
+                                                    <connections>
+                                                        <action selector="normalLightbulbsOnlyChanged:" destination="NOj-7d-poE" eventType="valueChanged" id="dAZ-P7-OaP"/>
+                                                        <action selector="playSoundChanged:" destination="NOj-7d-poE" eventType="valueChanged" id="pMa-aI-cXt"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Fe8-Wm-L6T" secondAttribute="trailing" constant="7" id="6hr-Mn-AZN"/>
+                                                <constraint firstItem="Fe8-Wm-L6T" firstAttribute="centerY" secondItem="my6-qf-7vu" secondAttribute="centerY" id="GGF-pL-AAj"/>
+                                                <constraint firstItem="my6-qf-7vu" firstAttribute="leading" secondItem="fcl-tX-m3y" secondAttribute="leadingMargin" constant="7" id="MBH-Mw-uQ7"/>
+                                                <constraint firstItem="Fe8-Wm-L6T" firstAttribute="centerY" secondItem="fcl-tX-m3y" secondAttribute="centerY" id="uJe-zL-y76"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -365,6 +419,8 @@
                         <outlet property="lblMarker" destination="wWw-9L-o5x" id="8VX-G5-JXd"/>
                         <outlet property="lblMarkerOption" destination="DOw-4i-6ht" id="ZVl-mA-Kox"/>
                         <outlet property="swNormalLightbulbsOnly" destination="5vs-u1-bcs" id="cWu-f1-o0A"/>
+                        <outlet property="swPlayMusic" destination="fCx-VM-Yxs" id="uWe-Po-pX3"/>
+                        <outlet property="swPlaySound" destination="Fe8-Wm-L6T" id="Z9Q-ZL-9Yy"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPv-81-tuD" userLabel="First Responder" sceneMemberID="firstResponder"/>

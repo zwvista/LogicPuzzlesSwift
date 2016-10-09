@@ -9,7 +9,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    
+       
     var doc: GameDocument { return GameDocument.sharedInstance }
     
     override var prefersStatusBarHidden: Bool {

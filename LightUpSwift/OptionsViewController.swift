@@ -11,10 +11,13 @@ import UIKit
 class OptionsViewController: UITableViewController {
     
     var options: GameProgress { return GameDocument.sharedInstance.gameProgress }
+    var appDelegate: AppDelegate { return UIApplication.shared.delegate as! AppDelegate }
 
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!
     @IBOutlet weak var swNormalLightbulbsOnly: UISwitch!
+    @IBOutlet weak var swPlayMusic: UISwitch!
+    @IBOutlet weak var swPlaySound: UISwitch!
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[options.markerOption]
@@ -24,9 +27,30 @@ class OptionsViewController: UITableViewController {
         swNormalLightbulbsOnly.isOn = options.normalLightbulbsOnly;
     }
     
+    func updatePlayMusic() {
+        swPlayMusic.isOn = options.playMusic;
+    }
+    
+    func updatePlaySound() {
+        swPlaySound.isOn = options.playSound;
+    }
+    
     @IBAction func normalLightbulbsOnlyChanged(_ sender: AnyObject) {
         let rec = options
         rec.normalLightbulbsOnly = swNormalLightbulbsOnly.isOn
+        rec.commit()
+    }
+    
+    @IBAction func playMusicChanged(_ sender: AnyObject) {
+        let rec = options
+        rec.playMusic = swPlayMusic.isOn
+        rec.commit()
+        appDelegate.playOrPauseMusic()
+    }
+    
+    @IBAction func playSoundChanged(_ sender: AnyObject) {
+        let rec = options
+        rec.playSound = swPlaySound.isOn
         rec.commit()
     }
     
@@ -34,6 +58,8 @@ class OptionsViewController: UITableViewController {
         super.viewDidLoad()
         updateMarkerOption()
         updateNormalLightbulbsOnly()
+        updatePlayMusic()
+        updatePlaySound()
     }
 
     override var prefersStatusBarHidden: Bool {
@@ -55,6 +81,8 @@ class OptionsViewController: UITableViewController {
             rec.commit()
             self.updateMarkerOption()
             self.updateNormalLightbulbsOnly()
+            self.updatePlayMusic()
+            self.updatePlaySound()
         }
         alertController.addAction(yesAction)
         self.present(alertController, animated: true, completion: nil)
@@ -65,6 +93,7 @@ class OptionsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.row == 0 else { return }
         let rec = options
         ActionSheetStringPicker.show(withTitle: "Marker Options", rows: MarkerOptions.optionStrings, initialSelection: rec.markerOption, doneBlock: { (picker, selectedIndex, selectedValue) in
             rec.markerOption = selectedIndex

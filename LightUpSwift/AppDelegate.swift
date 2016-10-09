@@ -8,12 +8,18 @@
 
 import UIKit
 import SharkORM
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, SRKDelegate {
 
     var window: UIWindow?
+    var doc: GameDocument { return GameDocument.sharedInstance }
 
+    // http://stackoverflow.com/questions/24043904/creating-and-playing-a-sound-in-swift
+    // Grab the path, make sure to add it to your project!
+    var backgroundMusic = NSURL(fileURLWithPath: Bundle.main.path(forResource: "USA_P", ofType: "WAV")!)
+    var audioPlayer = AVAudioPlayer()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -31,7 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SRKDelegate {
         SharkORM.setDelegate(self)
         SharkORM.openDatabaseNamed("Game")
         
-        
+        audioPlayer = try! AVAudioPlayer(contentsOf: backgroundMusic as URL)
+        audioPlayer.numberOfLoops = -1
+        audioPlayer.prepareToPlay()
+        playOrPauseMusic()
+
         return true
     }
 
@@ -58,6 +68,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SRKDelegate {
         SharkORM.closeDatabaseNamed("Game")
     }
 
+    func playOrPauseMusic() {
+        if doc.gameProgress.playMusic {
+            audioPlayer.play()
+        } else {
+            audioPlayer.pause()
+        }
+    }
 
 }
 
