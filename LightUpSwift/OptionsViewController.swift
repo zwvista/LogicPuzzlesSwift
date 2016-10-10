@@ -75,10 +75,13 @@ class OptionsViewController: UITableViewController, GameManagers {
             let rec = self.gameOptions
             rec.markerOption = MarkerOptions.noMarker.rawValue
             rec.normalLightbulbsOnly = false
+            rec.playMusic = true
+            rec.playSound = true
             rec.commit()
             self.updateMarkerOption()
             self.updateNormalLightbulbsOnly()
             self.updatePlayMusic()
+            self.soundManager.playOrPauseMusic()
             self.updatePlaySound()
         }
         alertController.addAction(yesAction)
