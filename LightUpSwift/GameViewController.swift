@@ -9,12 +9,11 @@
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController, GameDelegate {
+class GameViewController: UIViewController, GameDelegate, GameManagers {
 
     var scene: GameScene!
     var game: Game!
     weak var skView: SKView!
-    var doc: GameDocument { return GameDocument.sharedInstance }
     var levelInitilizing = false
 
     @IBOutlet weak var lblSolved: UILabel!
@@ -58,22 +57,22 @@ class GameViewController: UIViewController, GameDelegate {
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        game.switchObject(p: p)
+        if game.switchObject(p: p) { soundManager.playSoundTap() }
     }
     
     func startGame() {
-        lblLevel.text = doc.selectedLevelID
-        let layout = doc.levels[doc.selectedLevelID]!
+        lblLevel.text = documentManager.selectedLevelID
+        let layout = documentManager.levels[documentManager.selectedLevelID]!
         
         levelInitilizing = true
         defer {levelInitilizing = false}
         game = Game(layout: layout, delegate: self)
         
         // restore game state
-        for case let rec as MoveProgress in doc.moveProgress {
-            game.setObject(p: Position(rec.row, rec.col), objType: GameObjectType.fromString(str: rec.objTypeAsString!))
+        for case let rec as MoveProgress in documentManager.moveProgress {
+            _ = game.setObject(p: Position(rec.row, rec.col), objType: GameObjectType.fromString(str: rec.objTypeAsString!))
         }
-        let moveIndex = doc.levelProgress.moveIndex
+        let moveIndex = documentManager.levelProgress.moveIndex
         guard case 0 ..< game.moveCount = moveIndex else {return}
         while moveIndex != game.moveIndex {
             game.undo()
@@ -82,7 +81,7 @@ class GameViewController: UIViewController, GameDelegate {
     
     func moveAdded(_ game: Game, move: GameMove) {
         guard !levelInitilizing else {return}
-        doc.moveAdded(game: game, move: move)
+        documentManager.moveAdded(game: game, move: move)
     }
     
     func updateLabels(_ game: Game) {
@@ -102,10 +101,13 @@ class GameViewController: UIViewController, GameDelegate {
         updateLabels(game)
         scene.process(from: stateFrom, to: stateTo)
         guard !levelInitilizing else {return}
-        doc.levelUpdated(game: game)
+        documentManager.levelUpdated(game: game)
     }
     
     func gameSolved(_ game: Game) {
+        if !levelInitilizing {
+            soundManager.playSoundSolved()
+        }
     }
     
     @IBAction func undoGame(_ sender: AnyObject) {
@@ -121,7 +123,7 @@ class GameViewController: UIViewController, GameDelegate {
         let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
         alertController.addAction(noAction)
         let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
-            self.doc.clearGame()
+            self.documentManager.clearGame()
             self.startGame()
         }
         alertController.addAction(yesAction)

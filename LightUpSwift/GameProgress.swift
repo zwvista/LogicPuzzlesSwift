@@ -17,7 +17,7 @@ class GameProgress: SRKObject {
     dynamic var playSound = true
     
     override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
-        return ["levelID" : "Level 1", "markerOption" : 0, "normalLightbulbsOnly" : false, "musicOn" : false, "soundOn" : false]
+        return ["levelID" : "Level 1", "markerOption" : 0, "normalLightbulbsOnly" : false, "playMusic" : true, "playSound" : true]
     }
 }
 

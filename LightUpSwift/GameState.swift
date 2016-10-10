@@ -11,7 +11,7 @@ import Foundation
 struct GameState {
     let size: Position
     var objArray: [GameObject]
-    var options: GameProgress { return GameDocument.sharedInstance.gameProgress }
+    var options: GameProgress { return DocumentManager.sharedInstance.gameProgress }
     
     init(rows: Int, cols: Int) {
         self.size = Position(rows, cols)

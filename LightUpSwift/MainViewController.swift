@@ -8,9 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
-       
-    var doc: GameDocument { return GameDocument.sharedInstance }
+class MainViewController: UIViewController, GameManagers {
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -30,13 +28,12 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func startGame(_ sender: AnyObject) {
-        doc.selectedLevelID = (sender as! UIButton).titleLabel!.text!
+        documentManager.selectedLevelID = (sender as! UIButton).titleLabel!.text!
         resumeGame(self)
     }
     
     @IBAction func resumeGame(_ sender: AnyObject) {
-        doc.resumeGame()
-        
+        documentManager.resumeGame()
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }

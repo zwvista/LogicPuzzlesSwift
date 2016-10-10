@@ -8,11 +8,8 @@
 
 import UIKit
 
-class OptionsViewController: UITableViewController {
+class OptionsViewController: UITableViewController, GameManagers {
     
-    var options: GameProgress { return GameDocument.sharedInstance.gameProgress }
-    var appDelegate: AppDelegate { return UIApplication.shared.delegate as! AppDelegate }
-
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!
     @IBOutlet weak var swNormalLightbulbsOnly: UISwitch!
@@ -20,36 +17,36 @@ class OptionsViewController: UITableViewController {
     @IBOutlet weak var swPlaySound: UISwitch!
     
     func updateMarkerOption() {
-        lblMarkerOption.text = MarkerOptions.optionStrings[options.markerOption]
+        lblMarkerOption.text = MarkerOptions.optionStrings[gameOptions.markerOption]
     }
     
     func updateNormalLightbulbsOnly() {
-        swNormalLightbulbsOnly.isOn = options.normalLightbulbsOnly;
+        swNormalLightbulbsOnly.isOn = gameOptions.normalLightbulbsOnly;
     }
     
     func updatePlayMusic() {
-        swPlayMusic.isOn = options.playMusic;
+        swPlayMusic.isOn = gameOptions.playMusic;
     }
     
     func updatePlaySound() {
-        swPlaySound.isOn = options.playSound;
+        swPlaySound.isOn = gameOptions.playSound;
     }
     
     @IBAction func normalLightbulbsOnlyChanged(_ sender: AnyObject) {
-        let rec = options
+        let rec = gameOptions
         rec.normalLightbulbsOnly = swNormalLightbulbsOnly.isOn
         rec.commit()
     }
     
     @IBAction func playMusicChanged(_ sender: AnyObject) {
-        let rec = options
+        let rec = gameOptions
         rec.playMusic = swPlayMusic.isOn
         rec.commit()
-        appDelegate.playOrPauseMusic()
+        soundManager.playOrPauseMusic()
     }
     
     @IBAction func playSoundChanged(_ sender: AnyObject) {
-        let rec = options
+        let rec = gameOptions
         rec.playSound = swPlaySound.isOn
         rec.commit()
     }
@@ -75,7 +72,7 @@ class OptionsViewController: UITableViewController {
         let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
         alertController.addAction(noAction)
         let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
-            let rec = self.options
+            let rec = self.gameOptions
             rec.markerOption = MarkerOptions.noMarker.rawValue
             rec.normalLightbulbsOnly = false
             rec.commit()
@@ -94,7 +91,7 @@ class OptionsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row == 0 else { return }
-        let rec = options
+        let rec = gameOptions
         ActionSheetStringPicker.show(withTitle: "Marker Options", rows: MarkerOptions.optionStrings, initialSelection: rec.markerOption, doneBlock: { (picker, selectedIndex, selectedValue) in
             rec.markerOption = selectedIndex
             rec.commit()
