@@ -47,7 +47,9 @@ class GameScene: SKScene {
         let numberNode = SKLabelNode(text: String(n))
         numberNode.fontColor = s == .normal ? SKColor.black : s == .complete ? SKColor.green : SKColor.red
         numberNode.fontName = numberNode.fontName! + "-Bold"
-        numberNode.fontSize *= CGFloat(gridNode.blockSize) / 60.0
+        // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
+        let scalingFactor = min(gridNode.blockSize / numberNode.frame.width, gridNode.blockSize / numberNode.frame.height)
+        numberNode.fontSize *= scalingFactor
         numberNode.verticalAlignmentMode = .center
         numberNode.position = point
         numberNode.name = nodeName
@@ -78,7 +80,8 @@ class GameScene: SKScene {
                 func removeLightCell() { removeNode(withName: lightCellNodeName) }
                 func addLightbulb(s: LightbulbState) {
                     let lightbulbNode = SKSpriteNode(imageNamed: "lightbulb")
-                    lightbulbNode.setScale(CGFloat(gridNode.blockSize) / 300.0)
+                    let scalingFactor = min(gridNode.blockSize / lightbulbNode.frame.width, gridNode.blockSize / lightbulbNode.frame.height)
+                    lightbulbNode.setScale(scalingFactor)
                     lightbulbNode.position = point
                     lightbulbNode.name = lightbulbNodeName
                     lightbulbNode.color = SKColor.red
