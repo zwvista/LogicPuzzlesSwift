@@ -1,5 +1,5 @@
 //
-//  GameScene.swift
+//  LightUpGameScene.swift
 //  LogicGamesSwift
 //
 //  Created by 趙偉 on 2016/09/09.
@@ -8,8 +8,8 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
-    private(set) var gridNode: GridNode!
+class LightUpGameScene: SKScene {
+    private(set) var gridNode: LightUpGridNode!
     
     func coloredRectSize() -> CGSize {
         let sz = gridNode.blockSize - 4
@@ -19,13 +19,13 @@ class GameScene: SKScene {
     func addGrid(to view: SKView, rows: Int, cols: Int, blockSize: CGFloat) {
         let offset:CGFloat = 0.5
         scaleMode = .resizeFill
-        gridNode = GridNode(blockSize: blockSize, rows: rows, cols: cols)
+        gridNode = LightUpGridNode(blockSize: blockSize, rows: rows, cols: cols)
         gridNode.position = CGPoint(x: view.frame.midX - gridNode.blockSize * CGFloat(gridNode.cols) / 2 - offset, y: view.frame.midY + gridNode.blockSize * CGFloat(gridNode.rows) / 2 + offset)
         addChild(gridNode)
         gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
     }
     
-    func addWalls(from state: GameState) {
+    func addWalls(from state: LightUpGameState) {
         for row in 0 ..< state.size.row {
             for col in 0 ..< state.size.col {
                 let p = Position(row, col)
@@ -43,7 +43,7 @@ class GameScene: SKScene {
         }
     }
     
-    func addWallNumber(n: Int, s: WallState, point: CGPoint, nodeName: String) {
+    func addWallNumber(n: Int, s: LightUpWallState, point: CGPoint, nodeName: String) {
         let numberNode = SKLabelNode(text: String(n))
         numberNode.fontColor = s == .normal ? SKColor.black : s == .complete ? SKColor.green : SKColor.red
         numberNode.fontName = numberNode.fontName! + "-Bold"
@@ -56,7 +56,7 @@ class GameScene: SKScene {
         gridNode.addChild(numberNode)
     }
     
-    func process(from stateFrom: GameState, to stateTo: GameState) {
+    func process(from stateFrom: LightUpGameState, to stateTo: LightUpGameState) {
         for row in 0 ..< stateFrom.size.row {
             for col in 0 ..< stateFrom.size.col {
                 let point = gridNode.gridPosition(p: Position(row, col))
@@ -78,7 +78,7 @@ class GameScene: SKScene {
                     gridNode.addChild(lightCellNode)
                 }
                 func removeLightCell() { removeNode(withName: lightCellNodeName) }
-                func addLightbulb(s: LightbulbState) {
+                func addLightbulb(s: LightUpLightbulbState) {
                     let lightbulbNode = SKSpriteNode(imageNamed: "lightbulb")
                     let scalingFactor = min(gridNode.blockSize / lightbulbNode.frame.width, gridNode.blockSize / lightbulbNode.frame.height)
                     lightbulbNode.setScale(scalingFactor)

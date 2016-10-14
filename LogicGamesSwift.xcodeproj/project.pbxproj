@@ -7,13 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C09B7881D9207DC00AB6B64 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09B7871D9207DC00AB6B64 /* MainViewController.swift */; };
-		8C2164171D8FB39300A39B47 /* GameProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2164161D8FB39300A39B47 /* GameProgress.swift */; };
-		8C292EC91D83A75F0032B39A /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C292EC81D83A75F0032B39A /* Game.swift */; };
 		8C31FE6E1D90E415008793BF /* SharkORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; };
 		8C31FE6F1D90E415008793BF /* SharkORM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8C6FAFCB1D82E6AC009F0C90 /* GridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6FAFCA1D82E6AC009F0C90 /* GridNode.swift */; };
-		8C6FAFCD1D82E6F6009F0C90 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6FAFCC1D82E6F6009F0C90 /* GameScene.swift */; };
 		8C835D651D84BCDC0067BC3E /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C835D641D84BCDC0067BC3E /* Position.swift */; };
 		8C886C3C1D9E8AF1004A42BF /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C291D9E8AF0004A42BF /* AbstractActionSheetPicker.m */; };
 		8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C2B1D9E8AF0004A42BF /* ActionSheetCustomPicker.m */; };
@@ -34,21 +29,32 @@
 		8C916CC41DAA5FEB00D9E62B /* music.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CC31DAA5FEB00D9E62B /* music.wav */; };
 		8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CC51DAB1E6000D9E62B /* tap.wav */; };
 		8C916CCA1DAB2E8E00D9E62B /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C916CC91DAB2E8E00D9E62B /* SoundManager.swift */; };
-		8C916CCC1DAB310700D9E62B /* GameManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C916CCB1DAB310700D9E62B /* GameManagers.swift */; };
 		8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CCD1DAB35FC00D9E62B /* solved.wav */; };
 		8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43DA1D771915000139FC /* AppDelegate.swift */; };
-		8C9F43DF1D771915000139FC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43DE1D771915000139FC /* GameViewController.swift */; };
 		8C9F43E21D771915000139FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E01D771915000139FC /* Main.storyboard */; };
 		8C9F43E41D771915000139FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E31D771915000139FC /* Assets.xcassets */; };
 		8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E51D771915000139FC /* LaunchScreen.storyboard */; };
 		8C9F43F21D771915000139FC /* LogicGamesSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43F11D771915000139FC /* LogicGamesSwiftTests.swift */; };
 		8C9F43FD1D771915000139FC /* LogicGamesSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43FC1D771915000139FC /* LogicGamesSwiftUITests.swift */; };
-		8CCF1BFE1D8DAB6700AB6594 /* Levels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF1BFD1D8DAB6700AB6594 /* Levels.xml */; };
-		8CCF1C001D8DAF7B00AB6594 /* DocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF1BFF1D8DAF7B00AB6594 /* DocumentManager.swift */; };
 		8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF1C011D8E1DB000AB6594 /* lightbulb.png */; };
-		8CCF1C041D8F6C7300AB6594 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF1C031D8F6C7300AB6594 /* GameState.swift */; };
-		8CD84ECA1D97A17300DF155E /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD84EC91D97A17300DF155E /* OptionsViewController.swift */; };
-		8CF2ADAA1D98B2290040DB59 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF2ADA91D98B2290040DB59 /* GameObject.swift */; };
+		8CE6BC9C1DB110D50087BC15 /* LightUpDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE6BC921DB110D50087BC15 /* LightUpDocument.swift */; };
+		8CE6BC9D1DB110D50087BC15 /* LightUpGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE6BC931DB110D50087BC15 /* LightUpGame.swift */; };
+		8CE6BC9E1DB110D50087BC15 /* LightUpMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE6BC941DB110D50087BC15 /* LightUpMixin.swift */; };
+		8CE6BC9F1DB110D50087BC15 /* LightUpObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE6BC951DB110D50087BC15 /* LightUpObject.swift */; };
+		8CE6BCA01DB110D50087BC15 /* LightUpTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE6BC961DB110D50087BC15 /* LightUpTables.swift */; };
+		8CE6BCA11DB110D50087BC15 /* LightUpGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE6BC971DB110D50087BC15 /* LightUpGameScene.swift */; };
+		8CE6BCA21DB110D50087BC15 /* LightUpGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE6BC981DB110D50087BC15 /* LightUpGameState.swift */; };
+		8CE6BCA31DB110D50087BC15 /* LightUpGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE6BC991DB110D50087BC15 /* LightUpGameViewController.swift */; };
+		8CE6BCA41DB110D50087BC15 /* LightUpGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE6BC9A1DB110D50087BC15 /* LightUpGridNode.swift */; };
+		8CE6BCA51DB110D50087BC15 /* LightUpLevels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CE6BC9B1DB110D50087BC15 /* LightUpLevels.xml */; };
+		8CE6BCA71DB110F30087BC15 /* LightUpMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE6BCA61DB110F30087BC15 /* LightUpMainViewController.swift */; };
+		8CFD4B561DB1205500DEBBAF /* LightUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CFD4B541DB1205500DEBBAF /* LightUp.storyboard */; };
+		8CFD4B581DB1213200DEBBAF /* LightUpOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B571DB1213200DEBBAF /* LightUpOptionsViewController.swift */; };
+		8CFD4B671DB12F3C00DEBBAF /* LogicGamesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B621DB12F3C00DEBBAF /* LogicGamesDocument.swift */; };
+		8CFD4B681DB12F3C00DEBBAF /* LogicGamesMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B631DB12F3C00DEBBAF /* LogicGamesMixin.swift */; };
+		8CFD4B691DB12F3C00DEBBAF /* LogicGamesTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B641DB12F3C00DEBBAF /* LogicGamesTables.swift */; };
+		8CFD4B6A1DB12F3C00DEBBAF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B651DB12F3C00DEBBAF /* MainViewController.swift */; };
+		8CFD4B6B1DB12F3C00DEBBAF /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B661DB12F3C00DEBBAF /* OptionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,12 +89,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8C09B7871D9207DC00AB6B64 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		8C2164161D8FB39300A39B47 /* GameProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameProgress.swift; sourceTree = "<group>"; };
-		8C292EC81D83A75F0032B39A /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		8C31FE6D1D90E415008793BF /* SharkORM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SharkORM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C6FAFCA1D82E6AC009F0C90 /* GridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridNode.swift; sourceTree = "<group>"; };
-		8C6FAFCC1D82E6F6009F0C90 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		8C835D641D84BCDC0067BC3E /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		8C886C281D9E8AF0004A42BF /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
 		8C886C291D9E8AF0004A42BF /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
@@ -123,11 +124,9 @@
 		8C916CC31DAA5FEB00D9E62B /* music.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music.wav; sourceTree = "<group>"; };
 		8C916CC51DAB1E6000D9E62B /* tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tap.wav; sourceTree = "<group>"; };
 		8C916CC91DAB2E8E00D9E62B /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
-		8C916CCB1DAB310700D9E62B /* GameManagers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameManagers.swift; sourceTree = "<group>"; };
 		8C916CCD1DAB35FC00D9E62B /* solved.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = solved.wav; sourceTree = "<group>"; };
 		8C9F43D71D771915000139FC /* LogicGamesSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogicGamesSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9F43DA1D771915000139FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8C9F43DE1D771915000139FC /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		8C9F43E11D771915000139FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8C9F43E31D771915000139FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C9F43E61D771915000139FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -138,12 +137,25 @@
 		8C9F43F81D771915000139FC /* LogicGamesSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogicGamesSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9F43FC1D771915000139FC /* LogicGamesSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicGamesSwiftUITests.swift; sourceTree = "<group>"; };
 		8C9F43FE1D771915000139FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8CCF1BFD1D8DAB6700AB6594 /* Levels.xml */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = text.xml; path = Levels.xml; sourceTree = "<group>"; tabWidth = 2; };
-		8CCF1BFF1D8DAF7B00AB6594 /* DocumentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentManager.swift; sourceTree = "<group>"; };
 		8CCF1C011D8E1DB000AB6594 /* lightbulb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightbulb.png; sourceTree = "<group>"; };
-		8CCF1C031D8F6C7300AB6594 /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
-		8CD84EC91D97A17300DF155E /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
-		8CF2ADA91D98B2290040DB59 /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
+		8CE6BC921DB110D50087BC15 /* LightUpDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpDocument.swift; sourceTree = "<group>"; };
+		8CE6BC931DB110D50087BC15 /* LightUpGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpGame.swift; sourceTree = "<group>"; };
+		8CE6BC941DB110D50087BC15 /* LightUpMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpMixin.swift; sourceTree = "<group>"; };
+		8CE6BC951DB110D50087BC15 /* LightUpObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpObject.swift; sourceTree = "<group>"; };
+		8CE6BC961DB110D50087BC15 /* LightUpTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpTables.swift; sourceTree = "<group>"; };
+		8CE6BC971DB110D50087BC15 /* LightUpGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpGameScene.swift; sourceTree = "<group>"; };
+		8CE6BC981DB110D50087BC15 /* LightUpGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpGameState.swift; sourceTree = "<group>"; };
+		8CE6BC991DB110D50087BC15 /* LightUpGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpGameViewController.swift; sourceTree = "<group>"; };
+		8CE6BC9A1DB110D50087BC15 /* LightUpGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpGridNode.swift; sourceTree = "<group>"; };
+		8CE6BC9B1DB110D50087BC15 /* LightUpLevels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = LightUpLevels.xml; path = LightUp/LightUpLevels.xml; sourceTree = "<group>"; };
+		8CE6BCA61DB110F30087BC15 /* LightUpMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpMainViewController.swift; sourceTree = "<group>"; };
+		8CFD4B551DB1205500DEBBAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicGamesSwift/Base.lproj/LightUp.storyboard; sourceTree = SOURCE_ROOT; };
+		8CFD4B571DB1213200DEBBAF /* LightUpOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpOptionsViewController.swift; sourceTree = "<group>"; };
+		8CFD4B621DB12F3C00DEBBAF /* LogicGamesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicGamesDocument.swift; sourceTree = "<group>"; };
+		8CFD4B631DB12F3C00DEBBAF /* LogicGamesMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicGamesMixin.swift; sourceTree = "<group>"; };
+		8CFD4B641DB12F3C00DEBBAF /* LogicGamesTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicGamesTables.swift; sourceTree = "<group>"; };
+		8CFD4B651DB12F3C00DEBBAF /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8CFD4B661DB12F3C00DEBBAF /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,12 +241,12 @@
 			isa = PBXGroup;
 			children = (
 				8C886C451D9E8B72004A42BF /* LogicGamesSwift-Bridging-Header.h */,
+				8CE6BC9B1DB110D50087BC15 /* LightUpLevels.xml */,
 				8C9F43E81D771915000139FC /* Info.plist */,
 				8CCF1C011D8E1DB000AB6594 /* lightbulb.png */,
 				8C916CC51DAB1E6000D9E62B /* tap.wav */,
 				8C916CCD1DAB35FC00D9E62B /* solved.wav */,
 				8C916CC31DAA5FEB00D9E62B /* music.wav */,
-				8CCF1BFD1D8DAB6700AB6594 /* Levels.xml */,
 				8C9F43E51D771915000139FC /* LaunchScreen.storyboard */,
 			);
 			name = "Supporting Files";
@@ -267,21 +279,11 @@
 			isa = PBXGroup;
 			children = (
 				8C9F43DA1D771915000139FC /* AppDelegate.swift */,
-				8CCF1BFF1D8DAF7B00AB6594 /* DocumentManager.swift */,
-				8C292EC81D83A75F0032B39A /* Game.swift */,
-				8C916CCB1DAB310700D9E62B /* GameManagers.swift */,
-				8CF2ADA91D98B2290040DB59 /* GameObject.swift */,
-				8C2164161D8FB39300A39B47 /* GameProgress.swift */,
-				8C6FAFCC1D82E6F6009F0C90 /* GameScene.swift */,
-				8CCF1C031D8F6C7300AB6594 /* GameState.swift */,
-				8C9F43DE1D771915000139FC /* GameViewController.swift */,
-				8C6FAFCA1D82E6AC009F0C90 /* GridNode.swift */,
-				8C09B7871D9207DC00AB6B64 /* MainViewController.swift */,
-				8CD84EC91D97A17300DF155E /* OptionsViewController.swift */,
+				8CE6BC911DB110D50087BC15 /* LightUp */,
+				8CFD4B611DB12F3C00DEBBAF /* LogicGames */,
 				8C835D641D84BCDC0067BC3E /* Position.swift */,
 				8C916CC91DAB2E8E00D9E62B /* SoundManager.swift */,
 				8C9F43E31D771915000139FC /* Assets.xcassets */,
-				8C9F43E01D771915000139FC /* Main.storyboard */,
 				8C916CC81DAB297A00D9E62B /* Supporting Files */,
 			);
 			path = LogicGamesSwift;
@@ -304,6 +306,39 @@
 			);
 			path = LogicGamesSwiftUITests;
 			sourceTree = "<group>";
+		};
+		8CE6BC911DB110D50087BC15 /* LightUp */ = {
+			isa = PBXGroup;
+			children = (
+				8CFD4B541DB1205500DEBBAF /* LightUp.storyboard */,
+				8CE6BC921DB110D50087BC15 /* LightUpDocument.swift */,
+				8CE6BC931DB110D50087BC15 /* LightUpGame.swift */,
+				8CE6BC971DB110D50087BC15 /* LightUpGameScene.swift */,
+				8CE6BC981DB110D50087BC15 /* LightUpGameState.swift */,
+				8CE6BC991DB110D50087BC15 /* LightUpGameViewController.swift */,
+				8CE6BC9A1DB110D50087BC15 /* LightUpGridNode.swift */,
+				8CE6BCA61DB110F30087BC15 /* LightUpMainViewController.swift */,
+				8CE6BC941DB110D50087BC15 /* LightUpMixin.swift */,
+				8CE6BC951DB110D50087BC15 /* LightUpObject.swift */,
+				8CFD4B571DB1213200DEBBAF /* LightUpOptionsViewController.swift */,
+				8CE6BC961DB110D50087BC15 /* LightUpTables.swift */,
+			);
+			path = LightUp;
+			sourceTree = "<group>";
+		};
+		8CFD4B611DB12F3C00DEBBAF /* LogicGames */ = {
+			isa = PBXGroup;
+			children = (
+				8CFD4B621DB12F3C00DEBBAF /* LogicGamesDocument.swift */,
+				8CFD4B631DB12F3C00DEBBAF /* LogicGamesMixin.swift */,
+				8CFD4B641DB12F3C00DEBBAF /* LogicGamesTables.swift */,
+				8C9F43E01D771915000139FC /* Main.storyboard */,
+				8CFD4B651DB12F3C00DEBBAF /* MainViewController.swift */,
+				8CFD4B661DB12F3C00DEBBAF /* OptionsViewController.swift */,
+			);
+			name = LogicGames;
+			path = LogicGamesSwift/LogicGames;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -415,10 +450,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */,
-				8CCF1BFE1D8DAB6700AB6594 /* Levels.xml in Resources */,
 				8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */,
 				8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */,
+				8CFD4B561DB1205500DEBBAF /* LightUp.storyboard in Resources */,
 				8C9F43E41D771915000139FC /* Assets.xcassets in Resources */,
+				8CE6BCA51DB110D50087BC15 /* LightUpLevels.xml in Resources */,
 				8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */,
 				8C9F43E21D771915000139FC /* Main.storyboard in Resources */,
 				8C916CC41DAA5FEB00D9E62B /* music.wav in Resources */,
@@ -446,36 +482,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C292EC91D83A75F0032B39A /* Game.swift in Sources */,
-				8C9F43DF1D771915000139FC /* GameViewController.swift in Sources */,
-				8C2164171D8FB39300A39B47 /* GameProgress.swift in Sources */,
 				8C916CCA1DAB2E8E00D9E62B /* SoundManager.swift in Sources */,
-				8CF2ADAA1D98B2290040DB59 /* GameObject.swift in Sources */,
 				8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */,
 				8C916CC01DAA5E9500D9E62B /* Node.swift in Sources */,
-				8CCF1C001D8DAF7B00AB6594 /* DocumentManager.swift in Sources */,
+				8CE6BCA11DB110D50087BC15 /* LightUpGameScene.swift in Sources */,
 				8C886C441D9E8AF1004A42BF /* SWActionSheet.m in Sources */,
+				8CE6BC9F1DB110D50087BC15 /* LightUpObject.swift in Sources */,
+				8CE6BC9C1DB110D50087BC15 /* LightUpDocument.swift in Sources */,
+				8CFD4B6A1DB12F3C00DEBBAF /* MainViewController.swift in Sources */,
+				8CE6BCA41DB110D50087BC15 /* LightUpGridNode.swift in Sources */,
 				8C886C401D9E8AF1004A42BF /* ActionSheetLocalePicker.m in Sources */,
+				8CE6BCA71DB110F30087BC15 /* LightUpMainViewController.swift in Sources */,
+				8CE6BCA31DB110D50087BC15 /* LightUpGameViewController.swift in Sources */,
 				8C835D651D84BCDC0067BC3E /* Position.swift in Sources */,
+				8CE6BCA01DB110D50087BC15 /* LightUpTables.swift in Sources */,
+				8CFD4B671DB12F3C00DEBBAF /* LogicGamesDocument.swift in Sources */,
 				8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */,
 				8C886C3C1D9E8AF1004A42BF /* AbstractActionSheetPicker.m in Sources */,
-				8C6FAFCD1D82E6F6009F0C90 /* GameScene.swift in Sources */,
-				8CD84ECA1D97A17300DF155E /* OptionsViewController.swift in Sources */,
+				8CFD4B681DB12F3C00DEBBAF /* LogicGamesMixin.swift in Sources */,
+				8CFD4B581DB1213200DEBBAF /* LightUpOptionsViewController.swift in Sources */,
 				8C916CBE1DAA5E9500D9E62B /* Helpers.swift in Sources */,
 				8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */,
 				8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */,
+				8CE6BC9E1DB110D50087BC15 /* LightUpMixin.swift in Sources */,
 				8C886C421D9E8AF1004A42BF /* ActionSheetStringPicker.m in Sources */,
+				8CFD4B6B1DB12F3C00DEBBAF /* OptionsViewController.swift in Sources */,
 				8C916CBD1DAA5E9500D9E62B /* Error.swift in Sources */,
-				8CCF1C041D8F6C7300AB6594 /* GameState.swift in Sources */,
+				8CFD4B691DB12F3C00DEBBAF /* LogicGamesTables.swift in Sources */,
 				8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */,
 				8C916CC11DAA5E9500D9E62B /* NodeSet.swift in Sources */,
-				8C09B7881D9207DC00AB6B64 /* MainViewController.swift in Sources */,
-				8C916CCC1DAB310700D9E62B /* GameManagers.swift in Sources */,
+				8CE6BCA21DB110D50087BC15 /* LightUpGameState.swift in Sources */,
 				8C886C3F1D9E8AF1004A42BF /* ActionSheetDistancePicker.m in Sources */,
-				8C6FAFCB1D82E6AC009F0C90 /* GridNode.swift in Sources */,
 				8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */,
 				8C916CBC1DAA5E9500D9E62B /* Element.swift in Sources */,
 				8C886C411D9E8AF1004A42BF /* ActionSheetMultipleStringPicker.m in Sources */,
+				8CE6BC9D1DB110D50087BC15 /* LightUpGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +558,7 @@
 				8C9F43E11D771915000139FC /* Base */,
 			);
 			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		8C9F43E51D771915000139FC /* LaunchScreen.storyboard */ = {
@@ -525,6 +567,14 @@
 				8C9F43E61D771915000139FC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8CFD4B541DB1205500DEBBAF /* LightUp.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8CFD4B551DB1205500DEBBAF /* Base */,
+			);
+			name = LightUp.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

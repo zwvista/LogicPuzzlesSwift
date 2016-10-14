@@ -1,5 +1,5 @@
 //
-//  Game.swift
+//  LightUpGame.swift
 //  LogicGamesSwift
 //
 //  Created by 趙偉 on 2016/09/10.
@@ -9,21 +9,21 @@
 import Foundation
 
 // http://stackoverflow.com/questions/24066304/how-can-i-make-a-weak-protocol-reference-in-pure-swift-w-o-objc
-protocol GameDelegate: class {
-    func moveAdded(_ game: Game, move: GameMove)
-    func levelInitilized(_ game: Game, state: GameState)
-    func levelUpdated(_ game: Game, from stateFrom: GameState, to stateTo: GameState)
-    func gameSolved(_ game: Game)
+protocol LightUpGameDelegate: class {
+    func moveAdded(_ game: LightUpGame, move: LightUpGameMove)
+    func levelInitilized(_ game: LightUpGame, state: LightUpGameState)
+    func levelUpdated(_ game: LightUpGame, from stateFrom: LightUpGameState, to stateTo: LightUpGameState)
+    func gameSolved(_ game: LightUpGame)
 }
 
-class Game {
+class LightUpGame {
     private var stateIndex = 0
-    private var states = [GameState]()
-    private var state: GameState {return states[stateIndex]}
-    private var moves = [GameMove]()
-    private var move: GameMove {return moves[stateIndex - 1]}
+    private var states = [LightUpGameState]()
+    private var state: LightUpGameState {return states[stateIndex]}
+    private var moves = [LightUpGameMove]()
+    private var move: LightUpGameMove {return moves[stateIndex - 1]}
     
-    private(set) weak var delegate: GameDelegate?
+    private(set) weak var delegate: LightUpGameDelegate?
     var size: Position {return state.size}
     var isSolved: Bool {return state.isSolved}
     var canUndo: Bool {return stateIndex > 0}
@@ -31,24 +31,24 @@ class Game {
     var moveIndex: Int {return stateIndex}
     var moveCount: Int {return states.count - 1}
     
-    private func moveAdded(move: GameMove) {
+    private func moveAdded(move: LightUpGameMove) {
         delegate?.moveAdded(self, move: move)
     }
     
-    private func levelInitilized(state: GameState) {
+    private func levelInitilized(state: LightUpGameState) {
         delegate?.levelInitilized(self, state: state)
         if isSolved { delegate?.gameSolved(self) }
     }
     
-    private func levelUpdated(from stateFrom: GameState, to stateTo: GameState) {
+    private func levelUpdated(from stateFrom: LightUpGameState, to stateTo: LightUpGameState) {
         delegate?.levelUpdated(self, from: stateFrom, to: stateTo)
         if isSolved { delegate?.gameSolved(self) }
     }
     
-    init(layout: [String], delegate: GameDelegate? = nil) {
+    init(layout: [String], delegate: LightUpGameDelegate? = nil) {
         self.delegate = delegate
         
-        var state = GameState(rows: layout.count, cols: layout[0].characters.count)
+        var state = LightUpGameState(rows: layout.count, cols: layout[0].characters.count)
         
         func addWall(row: Int, col: Int, lightbulbs: Int) {
             state[row, col].objType = .wall(lightbulbs: lightbulbs, state: lightbulbs <= 0 ? .complete : .normal)
@@ -73,7 +73,7 @@ class Game {
         levelInitilized(state: state)
     }
     
-    private func changeObject(p: Position, f: (inout GameState) -> (Bool, GameMove)) -> Bool {
+    private func changeObject(p: Position, f: (inout LightUpGameState) -> (Bool, LightUpGameMove)) -> Bool {
         if canRedo {
             states.removeSubrange((stateIndex + 1) ..< states.count)
             moves.removeSubrange(stateIndex ..< moves.count)
@@ -95,7 +95,7 @@ class Game {
         return changeObject(p: p, f: {state in state.switchObject(p: p)})
     }
     
-    func setObject(p: Position, objType: GameObjectType) -> Bool {
+    func setObject(p: Position, objType: LightUpObjectType) -> Bool {
         return changeObject(p: p, f: {state in state.setObject(p: p, objType: objType)})
     }
     

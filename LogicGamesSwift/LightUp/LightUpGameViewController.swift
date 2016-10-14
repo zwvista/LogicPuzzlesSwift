@@ -1,5 +1,5 @@
 //
-//  GameViewController.swift
+//  LightUpGameViewController.swift
 //  LogicGamesSwift
 //
 //  Created by 趙偉 on 2016/08/31.
@@ -9,10 +9,10 @@
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController, GameDelegate, GameManagers {
+class LightUpGameViewController: UIViewController, LightUpGameDelegate, LightUpMixin {
 
-    var scene: GameScene!
-    var game: Game!
+    var scene: LightUpGameScene!
+    var game: LightUpGame!
     weak var skView: SKView!
     var levelInitilizing = false
 
@@ -28,7 +28,7 @@ class GameViewController: UIViewController, GameDelegate, GameManagers {
         skView.isMultipleTouchEnabled = false
         
         // Create and configure the scene.
-        scene = GameScene(size: skView.bounds.size)
+        scene = LightUpGameScene(size: skView.bounds.size)
         scene.scaleMode = .aspectFill
         scene.backgroundColor = UIColor.black
         
@@ -61,35 +61,35 @@ class GameViewController: UIViewController, GameDelegate, GameManagers {
     }
     
     func startGame() {
-        lblLevel.text = documentManager.selectedLevelID
-        let layout = documentManager.levels[documentManager.selectedLevelID]!
+        lblLevel.text = gameDocument.selectedLevelID
+        let layout = gameDocument.levels[gameDocument.selectedLevelID]!
         
         levelInitilizing = true
         defer {levelInitilizing = false}
-        game = Game(layout: layout, delegate: self)
+        game = LightUpGame(layout: layout, delegate: self)
         
         // restore game state
-        for case let rec as MoveProgress in documentManager.moveProgress {
-            _ = game.setObject(p: Position(rec.row, rec.col), objType: GameObjectType.fromString(str: rec.objTypeAsString!))
+        for case let rec as LightUpMoveProgress in gameDocument.moveProgress {
+            _ = game.setObject(p: Position(rec.row, rec.col), objType: LightUpObjectType.fromString(str: rec.objTypeAsString!))
         }
-        let moveIndex = documentManager.levelProgress.moveIndex
+        let moveIndex = gameDocument.levelProgress.moveIndex
         guard case 0 ..< game.moveCount = moveIndex else {return}
         while moveIndex != game.moveIndex {
             game.undo()
         }
     }
     
-    func moveAdded(_ game: Game, move: GameMove) {
+    func moveAdded(_ game: LightUpGame, move: LightUpGameMove) {
         guard !levelInitilizing else {return}
-        documentManager.moveAdded(game: game, move: move)
+        gameDocument.moveAdded(game: game, move: move)
     }
     
-    func updateLabels(_ game: Game) {
+    func updateLabels(_ game: LightUpGame) {
         lblMoves.text = "Moves: \(game.moveIndex)(\(game.moveCount))"
         lblSolved.textColor = game.isSolved ? SKColor.white : SKColor.black
     }
     
-    func levelInitilized(_ game: Game, state: GameState) {
+    func levelInitilized(_ game: LightUpGame, state: LightUpGameState) {
         updateLabels(game)
         scene.removeAllChildren()
         let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.size.col)
@@ -97,14 +97,14 @@ class GameViewController: UIViewController, GameDelegate, GameManagers {
         scene.addWalls(from: state)
     }
     
-    func levelUpdated(_ game: Game, from stateFrom: GameState, to stateTo: GameState) {
+    func levelUpdated(_ game: LightUpGame, from stateFrom: LightUpGameState, to stateTo: LightUpGameState) {
         updateLabels(game)
         scene.process(from: stateFrom, to: stateTo)
         guard !levelInitilizing else {return}
-        documentManager.levelUpdated(game: game)
+        gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: Game) {
+    func gameSolved(_ game: LightUpGame) {
         if !levelInitilizing {
             soundManager.playSoundSolved()
         }
@@ -123,7 +123,7 @@ class GameViewController: UIViewController, GameDelegate, GameManagers {
         let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
         alertController.addAction(noAction)
         let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
-            self.documentManager.clearGame()
+            self.gameDocument.clearGame()
             self.startGame()
         }
         alertController.addAction(yesAction)

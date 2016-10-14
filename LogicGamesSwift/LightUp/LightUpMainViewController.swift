@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  LightUpMainViewController.swift
 //  LogicGamesSwift
 //
 //  Created by 趙偉 on 2016/09/21.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, GameManagers {
+class LightUpMainViewController: UIViewController, LightUpMixin {
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -24,18 +24,22 @@ class MainViewController: UIViewController, GameManagers {
     
     // http://stackoverflow.com/questions/845583/iphone-hide-navigation-bar-only-on-first-page
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     @IBAction func startGame(_ sender: AnyObject) {
-        documentManager.selectedLevelID = (sender as! UIButton).titleLabel!.text!
-        resumeGame(self)
+        gameDocument.selectedLevelID = (sender as! UIButton).titleLabel!.text!
+        resumGame(self)
     }
     
-    @IBAction func resumeGame(_ sender: AnyObject) {
-        documentManager.resumeGame()
-        let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+    @IBAction func resumGame(_ sender: AnyObject) {
+        gameDocument.resumGame()
+        let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "LightUpGameViewController") as! LightUpGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-
+    
+    @IBAction func backToMain(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

@@ -1,5 +1,5 @@
 //
-//  GameState.swift
+//  LightUpGameState.swift
 //  LogicGamesSwift
 //
 //  Created by 趙偉 on 2016/09/19.
@@ -8,17 +8,17 @@
 
 import Foundation
 
-struct GameState {
+struct LightUpGameState {
     let size: Position
-    var objArray: [GameObject]
-    var options: GameProgress { return DocumentManager.sharedInstance.gameProgress }
+    var objArray: [LightUpObject]
+    var options: LightUpGameProgress { return LightUpDocument.sharedInstance.gameProgress }
     
     init(rows: Int, cols: Int) {
         self.size = Position(rows, cols)
-        objArray = Array<GameObject>(repeating: GameObject(), count: rows * cols)
+        objArray = Array<LightUpObject>(repeating: LightUpObject(), count: rows * cols)
     }
     
-    subscript(p: Position) -> GameObject {
+    subscript(p: Position) -> LightUpObject {
         get {
             return objArray[p.row * size.col + p.col]
         }
@@ -26,7 +26,7 @@ struct GameState {
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> GameObject {
+    subscript(row: Int, col: Int) -> LightUpObject {
         get {
             return objArray[row * size.col + col]
         }
@@ -42,9 +42,9 @@ struct GameState {
         return row >= 0 && col >= 0 && row < size.row && col < size.col
     }
     
-    mutating func setObject(p: Position, objType: GameObjectType) -> (Bool, GameMove) {
+    mutating func setObject(p: Position, objType: LightUpObjectType) -> (Bool, LightUpGameMove) {
         var changed = false
-        var move = GameMove()
+        var move = LightUpGameMove()
         
         func adjustLightness(tolighten: Bool) {
             let f = { lightness in
@@ -75,7 +75,7 @@ struct GameState {
         
         switch (self[p].objType, objType) {
         case (_, .wall):
-            self[p] = GameObject(objType: objType, lightness: 0)
+            self[p] = LightUpObject(objType: objType, lightness: 0)
         case (.empty, .marker), (.marker, .empty):
             objChanged()
         case (.empty, .lightbulb), (.marker, .lightbulb):
@@ -92,9 +92,9 @@ struct GameState {
         return (changed, move)
     }
     
-    mutating func switchObject(p: Position) -> (Bool, GameMove) {
-        let markerOption = MarkerOptions(rawValue: options.markerOption)
-        func f(o: GameObjectType) -> GameObjectType {
+    mutating func switchObject(p: Position) -> (Bool, LightUpGameMove) {
+        let markerOption = LightUpMarkerOptions(rawValue: options.markerOption)
+        func f(o: LightUpObjectType) -> LightUpObjectType {
             switch o {
             case .empty:
                 return markerOption == .markerBeforeLightbulb ? .marker : .lightbulb(state: .normal)
@@ -113,7 +113,7 @@ struct GameState {
         case .lightbulb:
             return setObject(p: p, objType: options.normalLightbulbsOnly && self[p].lightness > 0 ? f(o: o) : o)
         case .wall:
-            return (false, GameMove())
+            return (false, LightUpGameMove())
         }
     }
     
@@ -129,7 +129,7 @@ struct GameState {
                 case .empty where o.lightness == 0, .marker where o.lightness == 0:
                     isSolved = false
                 case .lightbulb:
-                    let state: LightbulbState = o.lightness == 1 ? .normal : .error
+                    let state: LightUpLightbulbState = o.lightness == 1 ? .normal : .error
                     self[r, c].objType = .lightbulb(state: state)
                     if o.lightness > 1 {isSolved = false}
                 case let .wall(lightbulbs, _) where lightbulbs >= 0:
@@ -141,7 +141,7 @@ struct GameState {
                             n += 1
                         }
                     }
-                    let state: WallState = n < lightbulbs ? .normal : n == lightbulbs ? .complete : .error
+                    let state: LightUpWallState = n < lightbulbs ? .normal : n == lightbulbs ? .complete : .error
                     self[r, c].objType = .wall(lightbulbs: lightbulbs, state: state)
                     if n != lightbulbs {isSolved = false}
                 default:

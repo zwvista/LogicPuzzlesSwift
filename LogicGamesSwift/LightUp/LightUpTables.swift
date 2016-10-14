@@ -1,5 +1,5 @@
 //
-//  LevelProgress.swift
+//  LightUpTables.swift
 //  LogicGamesSwift
 //
 //  Created by 趙偉 on 2016/09/19.
@@ -9,28 +9,26 @@
 import Foundation
 import SharkORM
 
-class GameProgress: SRKObject {
+class LightUpGameProgress: SRKObject {
     dynamic var levelID: String?
     dynamic var markerOption = 0
     dynamic var normalLightbulbsOnly = false
-    dynamic var playMusic = true
-    dynamic var playSound = true
     
     override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
-        return ["levelID" : "Level 1", "markerOption" : 0, "normalLightbulbsOnly" : false, "playMusic" : true, "playSound" : true]
+        return ["levelID": "Level 1", "markerOption": 0, "normalLightbulbsOnly": false]
     }
 }
 
-class LevelProgress: SRKObject {
+class LightUpLevelProgress: SRKObject {
     dynamic var levelID: String?
     dynamic var moveIndex = 0
     
     override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
-        return ["moveIndex" : 0]
+        return ["moveIndex": 0]
     }
 }
 
-class MoveProgress: SRKObject {
+class LightUpMoveProgress: SRKObject {
     dynamic var levelID: String?
     dynamic var moveIndex = 0
     dynamic var row = 0
@@ -38,6 +36,6 @@ class MoveProgress: SRKObject {
     dynamic var objTypeAsString: String?
     
     override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
-        return ["moveIndex" : 0]
+        return ["moveIndex": 0]
     }
 }

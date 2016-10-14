@@ -1,5 +1,5 @@
 //
-//  GameObject.swift
+//  LightUpObject.swift
 //  LogicGamesSwift
 //
 //  Created by 趙偉 on 2016/09/26.
@@ -8,25 +8,25 @@
 
 import Foundation
 
-enum WallState {
+enum LightUpWallState {
     case normal, complete, error
 }
 
-enum LightbulbState {
+enum LightUpLightbulbState {
     case normal, error
 }
 
-enum MarkerOptions: Int {
+enum LightUpMarkerOptions: Int {
     case noMarker, markerAfterLightbulb, markerBeforeLightbulb
     
     static let optionStrings = ["No Marker", "Marker After Lightbulb", "Marker Before Lightbulb"]
 }
 
-enum GameObjectType {
+enum LightUpObjectType {
     case empty
-    case lightbulb(state: LightbulbState)
+    case lightbulb(state: LightUpLightbulbState)
     case marker
-    case wall(lightbulbs: Int, state: WallState)
+    case wall(lightbulbs: Int, state: LightUpWallState)
     init() {
         self = .empty
     }
@@ -40,7 +40,7 @@ enum GameObjectType {
             return "empty"
         }
     }
-    static func fromString(str: String) -> GameObjectType {
+    static func fromString(str: String) -> LightUpObjectType {
         switch str {
         case "lightbulb":
             return .lightbulb(state: .normal)
@@ -52,8 +52,8 @@ enum GameObjectType {
     }
 }
 
-struct GameObject {
-    var objType = GameObjectType()
+struct LightUpObject {
+    var objType = LightUpObjectType()
     var lightness = 0
 }
 
@@ -64,8 +64,8 @@ let offset = [
     Position(0, -1),
 ];
 
-struct GameMove {
+struct LightUpGameMove {
     var p = Position()
-    var objType = GameObjectType()
+    var objType = LightUpObjectType()
 }
 
