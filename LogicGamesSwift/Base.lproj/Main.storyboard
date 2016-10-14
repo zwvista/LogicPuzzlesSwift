@@ -123,7 +123,6 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="right" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fCx-VM-Yxs">
                                                     <connections>
-                                                        <action selector="normalLightbulbsOnlyChanged:" destination="NOj-7d-poE" eventType="valueChanged" id="cjh-G3-QHg"/>
                                                         <action selector="playMusicChanged:" destination="NOj-7d-poE" eventType="valueChanged" id="3Mc-OH-ZZB"/>
                                                     </connections>
                                                 </switch>
@@ -150,7 +149,6 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="right" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Fe8-Wm-L6T">
                                                     <connections>
-                                                        <action selector="normalLightbulbsOnlyChanged:" destination="NOj-7d-poE" eventType="valueChanged" id="dAZ-P7-OaP"/>
                                                         <action selector="playSoundChanged:" destination="NOj-7d-poE" eventType="valueChanged" id="pMa-aI-cXt"/>
                                                     </connections>
                                                 </switch>
