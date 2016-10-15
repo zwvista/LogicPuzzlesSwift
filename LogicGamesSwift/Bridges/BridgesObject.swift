@@ -22,7 +22,7 @@ enum BridgesObject {
 }
 
 struct BridgesGameMove {
-    var p1 = Position()
-    var p2 = Position()
+    var pFrom = Position()
+    var pTo = Position()
 }
 

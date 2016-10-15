@@ -15,6 +15,7 @@ class BridgesGameViewController: UIViewController, BridgesGameDelegate, BridgesM
     var game: BridgesGame!
     weak var skView: SKView!
     var levelInitilizing = false
+    var pFrom, pTo: Position?
 
     @IBOutlet weak var lblSolved: UILabel!
     @IBOutlet weak var lblLevel: UILabel!
@@ -57,7 +58,29 @@ class BridgesGameViewController: UIViewController, BridgesGameDelegate, BridgesM
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        //if game.switchObject(p: p) { soundManager.playSoundTap() }
+        let isI = game.isIsland(p: p)
+        let f = { self.soundManager.playSoundTap() }
+        switch sender.state {
+        case .began:
+            guard isI else {break}
+            pFrom = p; pTo = p; f()
+        case .changed:
+            guard pFrom != nil else {break}
+            if isI {
+                if pTo != p {
+                    pTo = p; f()
+                }
+            } else {
+                pTo = nil
+            }
+        case .ended:
+            guard pFrom != nil else {break}
+            defer { pFrom = nil; pTo = nil }
+            guard isI && pTo != pFrom else {break}
+            _ = game.switchBridges(pFrom: pFrom!, pTo: pTo!)
+        default:
+            break
+        }
     }
     
     func startGame() {
@@ -70,7 +93,7 @@ class BridgesGameViewController: UIViewController, BridgesGameDelegate, BridgesM
         
         // restore game state
         for case let rec as BridgesMoveProgress in gameDocument.moveProgress {
-        //    _ = game.setObject(p: Position(rec.row, rec.col), objType: BridgesObjectType.fromString(str: rec.objTypeAsString!))
+            _ = game.switchBridges(pFrom: Position(rec.rowFrom, rec.colFrom), pTo: Position(rec.rowTo, rec.colTo))
         }
         let moveIndex = gameDocument.levelProgress.moveIndex
         guard case 0 ..< game.moveCount = moveIndex else {return}
@@ -92,9 +115,9 @@ class BridgesGameViewController: UIViewController, BridgesGameDelegate, BridgesM
     func levelInitilized(_ game: BridgesGame, state: BridgesGameState) {
         updateLabels(game)
         scene.removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.size.col)
-        scene.addGrid(to: skView, rows: game.size.row, cols: game.size.col, blockSize: blockSize)
-        //scene.addWalls(from: state)
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
+        scene.addGrid(to: skView, rows: game.rows, cols: game.cols, blockSize: blockSize)
+        scene.addIslands(from: state)
     }
     
     func levelUpdated(_ game: BridgesGame, from stateFrom: BridgesGameState, to stateTo: BridgesGameState) {

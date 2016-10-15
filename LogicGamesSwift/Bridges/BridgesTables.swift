@@ -29,10 +29,10 @@ class BridgesLevelProgress: SRKObject {
 class BridgesMoveProgress: SRKObject {
     dynamic var levelID: String?
     dynamic var moveIndex = 0
-    dynamic var row1 = 0
-    dynamic var col1 = 0
-    dynamic var row2 = 0
-    dynamic var col2 = 0
+    dynamic var rowFrom = 0
+    dynamic var colFrom = 0
+    dynamic var rowTo = 0
+    dynamic var colTo = 0
     
     override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
         return ["moveIndex": 0]

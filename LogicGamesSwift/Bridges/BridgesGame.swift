@@ -18,7 +18,7 @@ protocol BridgesGameDelegate: class {
 
 class IslandInfo {
     var bridges = 0
-    var neighbors = [Position]()
+    var neighbors: [Position?] = [nil, nil, nil, nil]
 }
 
 class BridgesGame {
@@ -74,6 +74,8 @@ class BridgesGame {
         self.delegate = delegate
         
         size = Position(layout.count, layout[0].characters.count)
+        var state = BridgesGameState(game: self)
+        
         for r in 0 ..< rows {
             let str = layout[r]
             for c in 0 ..< cols {
@@ -84,6 +86,7 @@ class BridgesGame {
                     let info = IslandInfo()
                     info.bridges = Int(String(ch))!
                     islandsInfo[p] = info
+                    state[r, c] = .island(state: .normal, bridges: [0, 0, 0, 0])
                 default:
                     break
                 }
@@ -103,14 +106,13 @@ class BridgesGame {
             }
         }
         
-        let state = BridgesGameState(game: self)
         states.append(state)
         levelInitilized(state: state)
     }
     
-    private func switchBridges(p1: Position, p2: Position) -> Bool {
-        guard let o = islandsInfo[p1] else {return false}
-        guard o.neighbors.contains(p2) else {return false}
+    func switchBridges(pFrom: Position, pTo: Position) -> Bool {
+        guard let o = islandsInfo[pFrom] else {return false}
+        guard let _ = o.neighbors.filter({$0 == pTo}).first else {return false}
         
         if canRedo {
             states.removeSubrange((stateIndex + 1) ..< states.count)
@@ -118,7 +120,7 @@ class BridgesGame {
         }
         // copy a state
         var state = self.state
-        let move = BridgesGameMove(p1: p1, p2: p2)
+        let move = BridgesGameMove(pFrom: pFrom, pTo: pTo)
         guard state.switchBridges(move: move) else {return false}
         
         states.append(state)
