@@ -9,18 +9,27 @@
 import Foundation
 
 struct LightUpGameState {
-    let size: Position
-    var objArray: [LightUpObject]
+    let game: LightUpGame
+    var size: Position { return game.size }
+    var rows: Int { return size.row }
+    var cols: Int { return size.col }    
+    func isValid(p: Position) -> Bool {
+        return game.isValid(p: p)
+    }
+    func isValid(row: Int, col: Int) -> Bool {
+        return game.isValid(row: row, col: col)
+    }
+    var objArray = [LightUpObject]()
     var options: LightUpGameProgress { return LightUpDocument.sharedInstance.gameProgress }
     
-    init(rows: Int, cols: Int) {
-        self.size = Position(rows, cols)
+    init(game: LightUpGame) {
+        self.game = game
         objArray = Array<LightUpObject>(repeating: LightUpObject(), count: rows * cols)
     }
     
     subscript(p: Position) -> LightUpObject {
         get {
-            return objArray[p.row * size.col + p.col]
+            return objArray[p.row * cols + p.col]
         }
         set(newValue) {
             self[p.row, p.col] = newValue
@@ -28,23 +37,16 @@ struct LightUpGameState {
     }
     subscript(row: Int, col: Int) -> LightUpObject {
         get {
-            return objArray[row * size.col + col]
+            return objArray[row * cols + col]
         }
         set(newValue) {
-            objArray[row * size.col + col] = newValue
+            objArray[row * cols + col] = newValue
         }
     }
     
-    func isValid(p: Position) -> Bool {
-        return isValid(row: p.row, col: p.col)
-    }
-    func isValid(row: Int, col: Int) -> Bool {
-        return row >= 0 && col >= 0 && row < size.row && col < size.col
-    }
-    
-    mutating func setObject(p: Position, objType: LightUpObjectType) -> (Bool, LightUpGameMove) {
+    mutating func setObject(move: inout LightUpGameMove) -> Bool {
         var changed = false
-        var move = LightUpGameMove()
+        let p = move.p
         
         func adjustLightness(tolighten: Bool) {
             let f = { lightness in
@@ -52,7 +54,7 @@ struct LightUpGameState {
             }
             
             self[p].lightness = f(self[p].lightness)
-            for os in offset {
+            for os in LightUpGame.offset {
                 var p2 = p + os
                 while isValid(p: p2) {
                     if case .wall = self[p2].objType {
@@ -68,14 +70,12 @@ struct LightUpGameState {
         
         func objChanged() {
             changed = true
-            move.p = p
-            move.objType = objType
-            self[p].objType = objType
+            self[p].objType = move.objType
         }
         
-        switch (self[p].objType, objType) {
+        switch (self[p].objType, move.objType) {
         case (_, .wall):
-            self[p] = LightUpObject(objType: objType, lightness: 0)
+            self[p] = LightUpObject(objType: move.objType, lightness: 0)
         case (.empty, .marker), (.marker, .empty):
             objChanged()
         case (.empty, .lightbulb), (.marker, .lightbulb):
@@ -89,10 +89,10 @@ struct LightUpGameState {
             break
         }
         
-        return (changed, move)
+        return changed
     }
     
-    mutating func switchObject(p: Position) -> (Bool, LightUpGameMove) {
+    mutating func switchObject(move: inout LightUpGameMove) -> Bool {
         let markerOption = LightUpMarkerOptions(rawValue: options.markerOption)
         func f(o: LightUpObjectType) -> LightUpObjectType {
             switch o {
@@ -106,14 +106,17 @@ struct LightUpGameState {
                 return o
             }
         }
+        let p = move.p
         let o = f(o: self[p].objType)
         switch o {
         case .empty, .marker:
-            return setObject(p: p, objType: o)
+            move.objType = o
+            return setObject(move: &move)
         case .lightbulb:
-            return setObject(p: p, objType: options.normalLightbulbsOnly && self[p].lightness > 0 ? f(o: o) : o)
+            move.objType = options.normalLightbulbsOnly && self[p].lightness > 0 ? f(o: o) : o
+            return setObject(move: &move)
         case .wall:
-            return (false, LightUpGameMove())
+            return false
         }
     }
     
@@ -121,8 +124,8 @@ struct LightUpGameState {
     
     private mutating func updateIsSolved() {
         isSolved = true
-        for r in 0 ..< size.row {
-            for c in 0 ..< size.col {
+        for r in 0 ..< rows {
+            for c in 0 ..< cols {
                 let p = Position(r, c)
                 let o = self[r, c]
                 switch o.objType {
@@ -134,7 +137,7 @@ struct LightUpGameState {
                     if o.lightness > 1 {isSolved = false}
                 case let .wall(lightbulbs, _) where lightbulbs >= 0:
                     var n = 0
-                    for os in offset {
+                    for os in LightUpGame.offset {
                         let p2 = p + os
                         guard isValid(p: p2) else {continue}
                         if case .lightbulb = self[p2].objType {

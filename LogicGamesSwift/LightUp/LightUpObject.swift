@@ -57,13 +57,6 @@ struct LightUpObject {
     var lightness = 0
 }
 
-let offset = [
-    Position(-1, 0),
-    Position(0, 1),
-    Position(1, 0),
-    Position(0, -1),
-];
-
 struct LightUpGameMove {
     var p = Position()
     var objType = LightUpObjectType()

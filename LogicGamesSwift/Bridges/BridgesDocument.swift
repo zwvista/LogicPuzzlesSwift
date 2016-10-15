@@ -1,5 +1,5 @@
 //
-//  LightUpDocument.swift
+//  BridgesDocument.swift
 //  LogicGamesSwift
 //
 //  Created by 趙偉 on 2016/09/18.
@@ -9,30 +9,30 @@
 import UIKit
 import SharkORM
 
-class LightUpDocument {
-    static var sharedInstance = LightUpDocument()
+class BridgesDocument {
+    static var sharedInstance = BridgesDocument()
     private(set) var levels = [String: [String]]()
     var selectedLevelID: String!
-    var gameProgress: LightUpGameProgress {
-        let result = LightUpGameProgress.query().fetch()!
-        return result.count == 0 ? LightUpGameProgress() : (result[0] as! LightUpGameProgress)
+    var gameProgress: BridgesGameProgress {
+        let result = BridgesGameProgress.query().fetch()!
+        return result.count == 0 ? BridgesGameProgress() : (result[0] as! BridgesGameProgress)
     }
-    var levelProgress: LightUpLevelProgress {
-        let result = LightUpLevelProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).fetch()!
+    var levelProgress: BridgesLevelProgress {
+        let result = BridgesLevelProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).fetch()!
         if result.count == 0 {
-            let rec = LightUpLevelProgress()
+            let rec = BridgesLevelProgress()
             rec.levelID = selectedLevelID
             return rec
         } else {
-            return result[0] as! LightUpLevelProgress
+            return result[0] as! BridgesLevelProgress
         }
     }
     var moveProgress: SRKResultSet {
-        return LightUpMoveProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).order(by: "moveIndex").fetch()!
+        return BridgesMoveProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).order(by: "moveIndex").fetch()!
     }
 
     init() {
-        let path = Bundle.main.path(forResource: "LightUpLevels", ofType: "xml")!
+        let path = Bundle.main.path(forResource: "BridgesLevels", ofType: "xml")!
         let xml = try! String(contentsOfFile: path)
         let doc = try! XMLDocument(string: xml)
         for elem in doc.root!.children {
@@ -46,20 +46,20 @@ class LightUpDocument {
         selectedLevelID = gameProgress.levelID
     }
     
-    func levelUpdated(game: LightUpGame) {
+    func levelUpdated(game: BridgesGame) {
         let rec = levelProgress
         rec.moveIndex = game.moveIndex
         rec.commit()
     }
     
-    func moveAdded(game: LightUpGame, move: LightUpGameMove) {
-        LightUpMoveProgress.query().where(withFormat: "levelID = %@ AND moveIndex >= %@", withParameters: [selectedLevelID, game.moveIndex]).fetch().removeAll()
+    func moveAdded(game: BridgesGame, move: BridgesGameMove) {
+        BridgesMoveProgress.query().where(withFormat: "levelID = %@ AND moveIndex >= %@", withParameters: [selectedLevelID, game.moveIndex]).fetch().removeAll()
         
-        let rec = LightUpMoveProgress()
+        let rec = BridgesMoveProgress()
         rec.levelID = selectedLevelID
         rec.moveIndex = game.moveIndex
-        (rec.row, rec.col) = move.p.unapply()
-        rec.objTypeAsString = move.objType.toString()
+        (rec.row1, rec.col1) = move.p1.unapply()
+        (rec.row2, rec.col2) = move.p2.unapply()
         rec.commit()
     }
     
@@ -70,7 +70,7 @@ class LightUpDocument {
     }
     
     func clearGame() {
-        LightUpMoveProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).fetch().removeAll()
+        BridgesMoveProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).fetch().removeAll()
 
         let rec = levelProgress
         rec.moveIndex = 0

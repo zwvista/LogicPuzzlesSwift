@@ -20,6 +20,10 @@ struct Position: Equatable, Comparable, Hashable, CustomStringConvertible {
         self.init(0, 0)
     }
     
+    func unapply() -> (Int, Int) {
+        return (row, col)
+    }
+
     var hashValue: Int {
         return row * 100 + col
     }

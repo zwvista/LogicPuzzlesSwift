@@ -55,6 +55,19 @@
 		8CFD4B691DB12F3C00DEBBAF /* LogicGamesTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B641DB12F3C00DEBBAF /* LogicGamesTables.swift */; };
 		8CFD4B6A1DB12F3C00DEBBAF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B651DB12F3C00DEBBAF /* MainViewController.swift */; };
 		8CFD4B6B1DB12F3C00DEBBAF /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B661DB12F3C00DEBBAF /* OptionsViewController.swift */; };
+		8CFD4B791DB1A0CC00DEBBAF /* BridgesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B6D1DB1A0CC00DEBBAF /* BridgesDocument.swift */; };
+		8CFD4B7A1DB1A0CC00DEBBAF /* BridgesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B6E1DB1A0CC00DEBBAF /* BridgesGame.swift */; };
+		8CFD4B7B1DB1A0CC00DEBBAF /* BridgesGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B6F1DB1A0CC00DEBBAF /* BridgesGameScene.swift */; };
+		8CFD4B7C1DB1A0CC00DEBBAF /* BridgesGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B701DB1A0CC00DEBBAF /* BridgesGameState.swift */; };
+		8CFD4B7D1DB1A0CC00DEBBAF /* BridgesGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B711DB1A0CC00DEBBAF /* BridgesGameViewController.swift */; };
+		8CFD4B7E1DB1A0CC00DEBBAF /* BridgesGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B721DB1A0CC00DEBBAF /* BridgesGridNode.swift */; };
+		8CFD4B7F1DB1A0CC00DEBBAF /* BridgesLevels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CFD4B731DB1A0CC00DEBBAF /* BridgesLevels.xml */; };
+		8CFD4B801DB1A0CC00DEBBAF /* BridgesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B741DB1A0CC00DEBBAF /* BridgesMainViewController.swift */; };
+		8CFD4B811DB1A0CC00DEBBAF /* BridgesMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B751DB1A0CC00DEBBAF /* BridgesMixin.swift */; };
+		8CFD4B821DB1A0CC00DEBBAF /* BridgesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B761DB1A0CC00DEBBAF /* BridgesObject.swift */; };
+		8CFD4B831DB1A0CC00DEBBAF /* BridgesOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B771DB1A0CC00DEBBAF /* BridgesOptionsViewController.swift */; };
+		8CFD4B841DB1A0CC00DEBBAF /* BridgesTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B781DB1A0CC00DEBBAF /* BridgesTables.swift */; };
+		8CFD4B871DB1A10200DEBBAF /* Bridges.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CFD4B851DB1A10200DEBBAF /* Bridges.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +169,19 @@
 		8CFD4B641DB12F3C00DEBBAF /* LogicGamesTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicGamesTables.swift; sourceTree = "<group>"; };
 		8CFD4B651DB12F3C00DEBBAF /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8CFD4B661DB12F3C00DEBBAF /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		8CFD4B6D1DB1A0CC00DEBBAF /* BridgesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesDocument.swift; sourceTree = "<group>"; };
+		8CFD4B6E1DB1A0CC00DEBBAF /* BridgesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesGame.swift; sourceTree = "<group>"; };
+		8CFD4B6F1DB1A0CC00DEBBAF /* BridgesGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesGameScene.swift; sourceTree = "<group>"; };
+		8CFD4B701DB1A0CC00DEBBAF /* BridgesGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesGameState.swift; sourceTree = "<group>"; };
+		8CFD4B711DB1A0CC00DEBBAF /* BridgesGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesGameViewController.swift; sourceTree = "<group>"; };
+		8CFD4B721DB1A0CC00DEBBAF /* BridgesGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesGridNode.swift; sourceTree = "<group>"; };
+		8CFD4B731DB1A0CC00DEBBAF /* BridgesLevels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BridgesLevels.xml; sourceTree = "<group>"; };
+		8CFD4B741DB1A0CC00DEBBAF /* BridgesMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesMainViewController.swift; sourceTree = "<group>"; };
+		8CFD4B751DB1A0CC00DEBBAF /* BridgesMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesMixin.swift; sourceTree = "<group>"; };
+		8CFD4B761DB1A0CC00DEBBAF /* BridgesObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesObject.swift; sourceTree = "<group>"; };
+		8CFD4B771DB1A0CC00DEBBAF /* BridgesOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesOptionsViewController.swift; sourceTree = "<group>"; };
+		8CFD4B781DB1A0CC00DEBBAF /* BridgesTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesTables.swift; sourceTree = "<group>"; };
+		8CFD4B861DB1A10200DEBBAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicGamesSwift/Base.lproj/Bridges.storyboard; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +305,7 @@
 			isa = PBXGroup;
 			children = (
 				8C9F43DA1D771915000139FC /* AppDelegate.swift */,
+				8CFD4B6C1DB1A0CC00DEBBAF /* Bridges */,
 				8CE6BC911DB110D50087BC15 /* LightUp */,
 				8CFD4B611DB12F3C00DEBBAF /* LogicGames */,
 				8C835D641D84BCDC0067BC3E /* Position.swift */,
@@ -339,6 +366,26 @@
 			name = LogicGames;
 			path = LogicGamesSwift/LogicGames;
 			sourceTree = SOURCE_ROOT;
+		};
+		8CFD4B6C1DB1A0CC00DEBBAF /* Bridges */ = {
+			isa = PBXGroup;
+			children = (
+				8CFD4B851DB1A10200DEBBAF /* Bridges.storyboard */,
+				8CFD4B6D1DB1A0CC00DEBBAF /* BridgesDocument.swift */,
+				8CFD4B6E1DB1A0CC00DEBBAF /* BridgesGame.swift */,
+				8CFD4B6F1DB1A0CC00DEBBAF /* BridgesGameScene.swift */,
+				8CFD4B701DB1A0CC00DEBBAF /* BridgesGameState.swift */,
+				8CFD4B711DB1A0CC00DEBBAF /* BridgesGameViewController.swift */,
+				8CFD4B721DB1A0CC00DEBBAF /* BridgesGridNode.swift */,
+				8CFD4B731DB1A0CC00DEBBAF /* BridgesLevels.xml */,
+				8CFD4B741DB1A0CC00DEBBAF /* BridgesMainViewController.swift */,
+				8CFD4B751DB1A0CC00DEBBAF /* BridgesMixin.swift */,
+				8CFD4B761DB1A0CC00DEBBAF /* BridgesObject.swift */,
+				8CFD4B771DB1A0CC00DEBBAF /* BridgesOptionsViewController.swift */,
+				8CFD4B781DB1A0CC00DEBBAF /* BridgesTables.swift */,
+			);
+			path = Bridges;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -454,9 +501,11 @@
 				8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */,
 				8CFD4B561DB1205500DEBBAF /* LightUp.storyboard in Resources */,
 				8C9F43E41D771915000139FC /* Assets.xcassets in Resources */,
+				8CFD4B7F1DB1A0CC00DEBBAF /* BridgesLevels.xml in Resources */,
 				8CE6BCA51DB110D50087BC15 /* LightUpLevels.xml in Resources */,
 				8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */,
 				8C9F43E21D771915000139FC /* Main.storyboard in Resources */,
+				8CFD4B871DB1A10200DEBBAF /* Bridges.storyboard in Resources */,
 				8C916CC41DAA5FEB00D9E62B /* music.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,12 +532,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C916CCA1DAB2E8E00D9E62B /* SoundManager.swift in Sources */,
+				8CFD4B841DB1A0CC00DEBBAF /* BridgesTables.swift in Sources */,
 				8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */,
 				8C916CC01DAA5E9500D9E62B /* Node.swift in Sources */,
 				8CE6BCA11DB110D50087BC15 /* LightUpGameScene.swift in Sources */,
+				8CFD4B811DB1A0CC00DEBBAF /* BridgesMixin.swift in Sources */,
 				8C886C441D9E8AF1004A42BF /* SWActionSheet.m in Sources */,
 				8CE6BC9F1DB110D50087BC15 /* LightUpObject.swift in Sources */,
 				8CE6BC9C1DB110D50087BC15 /* LightUpDocument.swift in Sources */,
+				8CFD4B791DB1A0CC00DEBBAF /* BridgesDocument.swift in Sources */,
+				8CFD4B7E1DB1A0CC00DEBBAF /* BridgesGridNode.swift in Sources */,
+				8CFD4B831DB1A0CC00DEBBAF /* BridgesOptionsViewController.swift in Sources */,
 				8CFD4B6A1DB12F3C00DEBBAF /* MainViewController.swift in Sources */,
 				8CE6BCA41DB110D50087BC15 /* LightUpGridNode.swift in Sources */,
 				8C886C401D9E8AF1004A42BF /* ActionSheetLocalePicker.m in Sources */,
@@ -496,10 +550,12 @@
 				8CE6BCA31DB110D50087BC15 /* LightUpGameViewController.swift in Sources */,
 				8C835D651D84BCDC0067BC3E /* Position.swift in Sources */,
 				8CE6BCA01DB110D50087BC15 /* LightUpTables.swift in Sources */,
+				8CFD4B821DB1A0CC00DEBBAF /* BridgesObject.swift in Sources */,
 				8CFD4B671DB12F3C00DEBBAF /* LogicGamesDocument.swift in Sources */,
 				8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */,
 				8C886C3C1D9E8AF1004A42BF /* AbstractActionSheetPicker.m in Sources */,
 				8CFD4B681DB12F3C00DEBBAF /* LogicGamesMixin.swift in Sources */,
+				8CFD4B801DB1A0CC00DEBBAF /* BridgesMainViewController.swift in Sources */,
 				8CFD4B581DB1213200DEBBAF /* LightUpOptionsViewController.swift in Sources */,
 				8C916CBE1DAA5E9500D9E62B /* Helpers.swift in Sources */,
 				8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */,
@@ -510,9 +566,13 @@
 				8C916CBD1DAA5E9500D9E62B /* Error.swift in Sources */,
 				8CFD4B691DB12F3C00DEBBAF /* LogicGamesTables.swift in Sources */,
 				8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */,
+				8CFD4B7A1DB1A0CC00DEBBAF /* BridgesGame.swift in Sources */,
 				8C916CC11DAA5E9500D9E62B /* NodeSet.swift in Sources */,
+				8CFD4B7C1DB1A0CC00DEBBAF /* BridgesGameState.swift in Sources */,
 				8CE6BCA21DB110D50087BC15 /* LightUpGameState.swift in Sources */,
 				8C886C3F1D9E8AF1004A42BF /* ActionSheetDistancePicker.m in Sources */,
+				8CFD4B7B1DB1A0CC00DEBBAF /* BridgesGameScene.swift in Sources */,
+				8CFD4B7D1DB1A0CC00DEBBAF /* BridgesGameViewController.swift in Sources */,
 				8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */,
 				8C916CBC1DAA5E9500D9E62B /* Element.swift in Sources */,
 				8C886C411D9E8AF1004A42BF /* ActionSheetMultipleStringPicker.m in Sources */,
@@ -575,6 +635,14 @@
 				8CFD4B551DB1205500DEBBAF /* Base */,
 			);
 			name = LightUp.storyboard;
+			sourceTree = "<group>";
+		};
+		8CFD4B851DB1A10200DEBBAF /* Bridges.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8CFD4B861DB1A10200DEBBAF /* Base */,
+			);
+			name = Bridges.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

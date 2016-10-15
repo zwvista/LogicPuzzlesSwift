@@ -1,5 +1,5 @@
 //
-//  LightUpGameViewController.swift
+//  BridgesGameViewController.swift
 //  LogicGamesSwift
 //
 //  Created by 趙偉 on 2016/08/31.
@@ -9,10 +9,10 @@
 import UIKit
 import SpriteKit
 
-class LightUpGameViewController: UIViewController, LightUpGameDelegate, LightUpMixin {
+class BridgesGameViewController: UIViewController, BridgesGameDelegate, BridgesMixin {
 
-    var scene: LightUpGameScene!
-    var game: LightUpGame!
+    var scene: BridgesGameScene!
+    var game: BridgesGame!
     weak var skView: SKView!
     var levelInitilizing = false
 
@@ -28,7 +28,7 @@ class LightUpGameViewController: UIViewController, LightUpGameDelegate, LightUpM
         skView.isMultipleTouchEnabled = false
         
         // Create and configure the scene.
-        scene = LightUpGameScene(size: skView.bounds.size)
+        scene = BridgesGameScene(size: skView.bounds.size)
         scene.scaleMode = .aspectFill
         scene.backgroundColor = UIColor.black
         
@@ -57,8 +57,7 @@ class LightUpGameViewController: UIViewController, LightUpGameDelegate, LightUpM
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = LightUpGameMove(p: p, objType: .empty)
-        if game.switchObject(move: &move) { soundManager.playSoundTap() }
+        //if game.switchObject(p: p) { soundManager.playSoundTap() }
     }
     
     func startGame() {
@@ -67,12 +66,11 @@ class LightUpGameViewController: UIViewController, LightUpGameDelegate, LightUpM
         
         levelInitilizing = true
         defer {levelInitilizing = false}
-        game = LightUpGame(layout: layout, delegate: self)
+        game = BridgesGame(layout: layout, delegate: self)
         
         // restore game state
-        for case let rec as LightUpMoveProgress in gameDocument.moveProgress {
-            var move = LightUpGameMove(p: Position(rec.row, rec.col), objType: LightUpObjectType.fromString(str: rec.objTypeAsString!))
-                _ = game.setObject(move: &move)
+        for case let rec as BridgesMoveProgress in gameDocument.moveProgress {
+        //    _ = game.setObject(p: Position(rec.row, rec.col), objType: BridgesObjectType.fromString(str: rec.objTypeAsString!))
         }
         let moveIndex = gameDocument.levelProgress.moveIndex
         guard case 0 ..< game.moveCount = moveIndex else {return}
@@ -81,32 +79,32 @@ class LightUpGameViewController: UIViewController, LightUpGameDelegate, LightUpM
         }
     }
     
-    func moveAdded(_ game: LightUpGame, move: LightUpGameMove) {
+    func moveAdded(_ game: BridgesGame, move: BridgesGameMove) {
         guard !levelInitilizing else {return}
         gameDocument.moveAdded(game: game, move: move)
     }
     
-    func updateLabels(_ game: LightUpGame) {
+    func updateLabels(_ game: BridgesGame) {
         lblMoves.text = "Moves: \(game.moveIndex)(\(game.moveCount))"
         lblSolved.textColor = game.isSolved ? SKColor.white : SKColor.black
     }
     
-    func levelInitilized(_ game: LightUpGame, state: LightUpGameState) {
+    func levelInitilized(_ game: BridgesGame, state: BridgesGameState) {
         updateLabels(game)
         scene.removeAllChildren()
         let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.size.col)
         scene.addGrid(to: skView, rows: game.size.row, cols: game.size.col, blockSize: blockSize)
-        scene.addWalls(from: state)
+        //scene.addWalls(from: state)
     }
     
-    func levelUpdated(_ game: LightUpGame, from stateFrom: LightUpGameState, to stateTo: LightUpGameState) {
+    func levelUpdated(_ game: BridgesGame, from stateFrom: BridgesGameState, to stateTo: BridgesGameState) {
         updateLabels(game)
-        scene.process(from: stateFrom, to: stateTo)
+        //scene.process(from: stateFrom, to: stateTo)
         guard !levelInitilizing else {return}
         gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: LightUpGame) {
+    func gameSolved(_ game: BridgesGame) {
         if !levelInitilizing {
             soundManager.playSoundSolved()
         }
