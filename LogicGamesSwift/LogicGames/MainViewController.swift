@@ -28,9 +28,21 @@ class MainViewController: UIViewController, LightUpMixin {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    // http://www.newventuresoftware.com/blog/organizing-xcode-projects-using-multiple-storyboards
     @IBAction func resumGame(_ sender: AnyObject) {
-        let storyboard = UIStoryboard(name: "LightUp", bundle: nil)
+        startGame(name: "LightUp")
+    }
+    
+    @IBAction func startGameLightUp(_ sender: AnyObject) {
+        startGame(name: "LightUp")
+    }
+    
+    @IBAction func startGameBridges(_ sender: AnyObject) {
+        startGame(name: "Bridges")
+    }
+    
+    // http://www.newventuresoftware.com/blog/organizing-xcode-projects-using-multiple-storyboards
+    private func startGame(name: String) {
+        let storyboard = UIStoryboard(name: name, bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "InitialController") as UIViewController
         self.present(controller, animated: true, completion: nil)
     }

@@ -50,7 +50,7 @@ class LightUpGameViewController: UIViewController, LightUpGameDelegate, LightUpM
         return false
     }
     
-    @IBAction func didTap(_ sender: UITapGestureRecognizer) {
+    @IBAction func handTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}
         let touchLocation = sender.location(in: sender.view)
         let touchLocationInScene = scene.convertPoint(fromView: touchLocation)

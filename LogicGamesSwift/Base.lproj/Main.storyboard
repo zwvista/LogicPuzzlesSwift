@@ -35,6 +35,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logic Games" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGx-Ts-pBn" userLabel="Logic Games">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="7Yf-C1-JWa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dmc-8f-29m">
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -57,23 +65,41 @@
                                     <segue destination="ORe-b4-YC9" kind="presentation" id="B34-9U-Fv0"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logic Games" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGx-Ts-pBn" userLabel="Logic Games">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCN-cq-Dqy">
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="7Yf-C1-JWa"/>
+                                    <constraint firstAttribute="height" constant="30" id="VNK-2q-6MD"/>
+                                    <constraint firstAttribute="width" constant="150" id="gzM-Bq-Z8k"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title="Light Up"/>
+                                <connections>
+                                    <action selector="startGameLightUp:" destination="AeD-bF-k0G" eventType="touchUpInside" id="qEn-9K-lL5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7T-vh-GEq">
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="3XX-F1-pfN"/>
+                                    <constraint firstAttribute="height" constant="30" id="y24-ej-O8t"/>
+                                </constraints>
+                                <state key="normal" title="Bridges"/>
+                                <connections>
+                                    <action selector="startGameBridges:" destination="AeD-bF-k0G" eventType="touchUpInside" id="jmg-c3-FcT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="tCN-cq-Dqy" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="2nh-Ou-IjH"/>
                             <constraint firstItem="yGx-Ts-pBn" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="40a-sz-VC7"/>
                             <constraint firstItem="PxK-QC-2Io" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="4Dj-lj-m8Y"/>
+                            <constraint firstItem="p7T-vh-GEq" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="4FO-nR-m4E"/>
                             <constraint firstItem="Dmc-8f-29m" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="FO6-f1-hga"/>
-                            <constraint firstItem="PxK-QC-2Io" firstAttribute="centerY" secondItem="Y0Z-hx-Q2p" secondAttribute="centerY" constant="-10" id="PsV-fn-JxF"/>
+                            <constraint firstItem="PxK-QC-2Io" firstAttribute="centerY" secondItem="Y0Z-hx-Q2p" secondAttribute="centerY" constant="90" id="PsV-fn-JxF"/>
+                            <constraint firstItem="tCN-cq-Dqy" firstAttribute="centerY" secondItem="Y0Z-hx-Q2p" secondAttribute="centerY" constant="-10" id="QL9-pl-Opx"/>
                             <constraint firstItem="Dmc-8f-29m" firstAttribute="top" secondItem="yGx-Ts-pBn" secondAttribute="bottom" constant="50" id="aO3-0K-mnH"/>
-                            <constraint firstItem="PxK-QC-2Io" firstAttribute="top" secondItem="Dmc-8f-29m" secondAttribute="bottom" constant="20" id="jSF-K2-P1r"/>
+                            <constraint firstItem="p7T-vh-GEq" firstAttribute="centerY" secondItem="Y0Z-hx-Q2p" secondAttribute="centerY" constant="40" id="awX-91-2Lr"/>
+                            <constraint firstItem="PxK-QC-2Io" firstAttribute="top" secondItem="Dmc-8f-29m" secondAttribute="bottom" constant="120" id="jSF-K2-P1r"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="caV-EH-1Wo"/>

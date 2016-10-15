@@ -23,7 +23,7 @@
             </objects>
             <point key="canvasLocation" x="-978" y="36"/>
         </scene>
-        <!--Light Up Main View Controller-->
+        <!--Bridges Main View Controller-->
         <scene sceneID="tFF-GO-VYL">
             <objects>
                 <viewController id="AeD-bF-k0G" customClass="BridgesMainViewController" customModule="LogicGamesSwift" customModuleProvider="target" sceneMemberID="viewController">
@@ -141,7 +141,7 @@
                                     <segue destination="ORe-b4-YC9" kind="presentation" id="B34-9U-Fv0"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Light Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGx-Ts-pBn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bridges" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGx-Ts-pBn">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="7Yf-C1-JWa"/>
                                 </constraints>
@@ -150,7 +150,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZf-JF-kFC">
-                                <frame key="frameInset" minX="159" minY="72" width="49" height="11"/>
+                                <frame key="frameInset" minX="159" minY="72" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
@@ -211,7 +211,7 @@
             </objects>
             <point key="canvasLocation" x="-266.39999999999998" y="35.532233883058474"/>
         </scene>
-        <!--Light Up Game View Controller-->
+        <!--Bridges Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController storyboardIdentifier="BridgesGameViewController" id="BV1-FR-VrT" customClass="BridgesGameViewController" customModule="LogicGamesSwift" customModuleProvider="target" sceneMemberID="viewController">
@@ -280,7 +280,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="jgE-OH-Rll" appends="YES" id="RmU-or-Sl2"/>
+                            <outletCollection property="gestureRecognizers" destination="G88-M1-m0v" appends="YES" id="Y3z-9w-Pvj"/>
                         </connections>
                     </view>
                     <connections>
@@ -290,11 +290,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="jgE-OH-Rll">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="G88-M1-m0v">
                     <connections>
-                        <action selector="didTap:" destination="BV1-FR-VrT" id="kfT-KZ-cXH"/>
+                        <action selector="handlePan:" destination="BV1-FR-VrT" id="LRJ-JT-iih"/>
                     </connections>
-                </tapGestureRecognizer>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="449" y="37"/>
         </scene>
@@ -329,18 +329,18 @@
                                         <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jVV-il-BlP" id="vUC-Zg-Q8r">
-                                            <frame key="frameInset" width="375" height="43.5"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Marker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wWw-9L-o5x">
-                                                    <frame key="frameInset" minX="15" minY="12" width="53.5" height="20.5"/>
+                                                    <frame key="frameInset" minX="15" minY="11" width="54" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Marker After Lightbulb" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DOw-4i-6ht">
-                                                    <frame key="frameInset" minX="188" minY="12" width="172" height="20.5"/>
+                                                    <frame key="frameInset" minX="188" minY="11" width="172" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -353,7 +353,7 @@
                                         <rect key="frame" x="0.0" y="108" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xfs-mt-z74" id="Ndm-k5-m9r">
-                                            <frame key="frameInset" width="375" height="43.5"/>
+                                            <frame key="frameInset" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Normal Lightbulbs Only" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDP-sf-Elx">

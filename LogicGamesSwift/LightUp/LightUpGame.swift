@@ -31,7 +31,8 @@ class LightUpGame {
         return isValid(row: p.row, col: p.col)
     }
     func isValid(row: Int, col: Int) -> Bool {
-        return row >= 0 && col >= 0 && row < rows && col < cols
+        //return row >= 0 && col >= 0 && row < rows && col < cols
+        return 0 ..< rows ~= row && 0 ..< cols ~= col
     }
     
     private var stateIndex = 0
@@ -97,15 +98,14 @@ class LightUpGame {
         }
         // copy a state
         var state = self.state
-        let changed = f(&state, &move)
-        if changed {
-            states.append(state)
-            stateIndex += 1
-            moves.append(move)
-            moveAdded(move: move)
-            levelUpdated(from: states[stateIndex - 1], to: state)
-        }
-        return changed
+        guard f(&state, &move) else {return false}
+        
+        states.append(state)
+        stateIndex += 1
+        moves.append(move)
+        moveAdded(move: move)
+        levelUpdated(from: states[stateIndex - 1], to: state)
+        return true
     }
     
     func switchObject(move: inout LightUpGameMove) -> Bool {

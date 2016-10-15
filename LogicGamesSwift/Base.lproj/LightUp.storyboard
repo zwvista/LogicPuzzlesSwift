@@ -150,7 +150,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZf-JF-kFC">
-                                <frame key="frameInset" minX="159" minY="72" width="49" height="11"/>
+                                <frame key="frameInset" minX="159" minY="72" width="49" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
@@ -292,7 +292,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="jgE-OH-Rll">
                     <connections>
-                        <action selector="didTap:" destination="BV1-FR-VrT" id="kfT-KZ-cXH"/>
+                        <action selector="handTap:" destination="BV1-FR-VrT" id="Ijz-bT-bM2"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

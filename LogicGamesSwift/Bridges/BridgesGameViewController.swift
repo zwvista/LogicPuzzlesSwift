@@ -50,7 +50,7 @@ class BridgesGameViewController: UIViewController, BridgesGameDelegate, BridgesM
         return false
     }
     
-    @IBAction func didTap(_ sender: UITapGestureRecognizer) {
+    @IBAction func handlePan(_ sender: UIPanGestureRecognizer) {
         guard !game.isSolved else {return}
         let touchLocation = sender.location(in: sender.view)
         let touchLocationInScene = scene.convertPoint(fromView: touchLocation)

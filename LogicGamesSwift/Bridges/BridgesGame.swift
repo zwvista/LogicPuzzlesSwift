@@ -39,6 +39,9 @@ class BridgesGame {
         return row >= 0 && col >= 0 && row < rows && col < cols
     }
     var islandsInfo = [Position: IslandInfo]()
+    func isIsland(p: Position) -> Bool {
+        return islandsInfo[p] != nil
+     }
     
     private var stateIndex = 0
     private var states = [BridgesGameState]()
@@ -105,22 +108,25 @@ class BridgesGame {
         levelInitilized(state: state)
     }
     
-    private func changeObject(p: Position, f: (inout BridgesGameState) -> (Bool, BridgesGameMove)) -> Bool {
+    private func switchBridges(p1: Position, p2: Position) -> Bool {
+        guard let o = islandsInfo[p1] else {return false}
+        guard o.neighbors.contains(p2) else {return false}
+        
         if canRedo {
             states.removeSubrange((stateIndex + 1) ..< states.count)
             moves.removeSubrange(stateIndex ..< moves.count)
         }
         // copy a state
         var state = self.state
-        let (changed, move) = f(&state)
-        if changed {
-            states.append(state)
-            stateIndex += 1
-            moves.append(move)
-            moveAdded(move: move)
-            levelUpdated(from: states[stateIndex - 1], to: state)
-        }
-        return changed
+        let move = BridgesGameMove(p1: p1, p2: p2)
+        guard state.switchBridges(move: move) else {return false}
+        
+        states.append(state)
+        stateIndex += 1
+        moves.append(move)
+        moveAdded(move: move)
+        levelUpdated(from: states[stateIndex - 1], to: state)
+        return true
     }
     
     func undo() {
