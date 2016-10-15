@@ -26,7 +26,7 @@ enum LightUpObjectType {
     case empty
     case lightbulb(state: LightUpLightbulbState)
     case marker
-    case wall(lightbulbs: Int, state: LightUpWallState)
+    case wall(state: LightUpWallState)
     init() {
         self = .empty
     }

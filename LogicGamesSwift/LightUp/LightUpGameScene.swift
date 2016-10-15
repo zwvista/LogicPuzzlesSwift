@@ -26,10 +26,11 @@ class LightUpGameScene: SKScene {
     }
     
     func addWalls(from state: LightUpGameState) {
-        for row in 0 ..< state.size.row {
-            for col in 0 ..< state.size.col {
+        for row in 0 ..< state.rows {
+            for col in 0 ..< state.cols {
                 let p = Position(row, col)
-                guard case let .wall(n, s) = state[p].objType else {continue}
+                guard case let .wall(s) = state[p].objType else {continue}
+                let n = state.game.wall2Lightbulbs[p]!
                 let point = gridNode.gridPosition(p: p)
                 let wallNode = SKSpriteNode(color: SKColor.white, size: coloredRectSize())
                 wallNode.position = point
@@ -57,8 +58,8 @@ class LightUpGameScene: SKScene {
     }
     
     func process(from stateFrom: LightUpGameState, to stateTo: LightUpGameState) {
-        for row in 0 ..< stateFrom.size.row {
-            for col in 0 ..< stateFrom.size.col {
+        for row in 0 ..< stateFrom.rows {
+            for col in 0 ..< stateFrom.cols {
                 let point = gridNode.gridPosition(p: Position(row, col))
                 let nodeNameSuffix = "-\(row)-\(col)"
                 let lightCellNodeName = "lightCell" + nodeNameSuffix
@@ -122,7 +123,8 @@ class LightUpGameScene: SKScene {
                     addLightbulb(s: s)
                 case .marker:
                     addMarker()
-                case let .wall(n, s):
+                case let .wall(s):
+                    let n = stateTo.game.wall2Lightbulbs[Position(row, col)]!
                     addWallNumber(n: n, s: s, point: point, nodeName: wallNumberNodeName)
                 default:
                     break

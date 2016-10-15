@@ -34,6 +34,7 @@ class LightUpGame {
         //return row >= 0 && col >= 0 && row < rows && col < cols
         return 0 ..< rows ~= row && 0 ..< cols ~= col
     }
+    var wall2Lightbulbs = [Position: Int]()
     
     private var stateIndex = 0
     private var states = [LightUpGameState]()
@@ -69,7 +70,8 @@ class LightUpGame {
         var state = LightUpGameState(game: self)
         
         func addWall(row: Int, col: Int, lightbulbs: Int) {
-            state[row, col].objType = .wall(lightbulbs: lightbulbs, state: lightbulbs <= 0 ? .complete : .normal)
+            wall2Lightbulbs[Position(row, col)] = lightbulbs
+            state[row, col].objType = .wall(state: lightbulbs <= 0 ? .complete : .normal)
         }
         
         for r in 0 ..< rows {

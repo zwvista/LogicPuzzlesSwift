@@ -11,11 +11,6 @@ import SpriteKit
 class BridgesGameScene: SKScene {
     private(set) var gridNode: BridgesGridNode!
     
-    func coloredRectSize() -> CGSize {
-        let sz = gridNode.blockSize - 4
-        return CGSize(width: sz, height: sz)
-    }
-    
     func addGrid(to view: SKView, rows: Int, cols: Int, blockSize: CGFloat) {
         let offset:CGFloat = 0.5
         scaleMode = .resizeFill

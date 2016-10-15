@@ -135,7 +135,9 @@ struct LightUpGameState {
                     let state: LightUpLightbulbState = o.lightness == 1 ? .normal : .error
                     self[r, c].objType = .lightbulb(state: state)
                     if o.lightness > 1 {isSolved = false}
-                case let .wall(lightbulbs, _) where lightbulbs >= 0:
+                case .wall:
+                    let lightbulbs = game.wall2Lightbulbs[p]!
+                    guard lightbulbs >= 0 else {break}
                     var n = 0
                     for os in LightUpGame.offset {
                         let p2 = p + os
@@ -145,7 +147,7 @@ struct LightUpGameState {
                         }
                     }
                     let state: LightUpWallState = n < lightbulbs ? .normal : n == lightbulbs ? .complete : .error
-                    self[r, c].objType = .wall(lightbulbs: lightbulbs, state: state)
+                    self[r, c].objType = .wall(state: state)
                     if n != lightbulbs {isSolved = false}
                 default:
                     break
