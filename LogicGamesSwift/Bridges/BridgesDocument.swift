@@ -58,8 +58,8 @@ class BridgesDocument {
         let rec = BridgesMoveProgress()
         rec.levelID = selectedLevelID
         rec.moveIndex = game.moveIndex
-        (rec.rowFrom, rec.colTo) = move.pFrom.unapply()
-        (rec.rowFrom, rec.colTo) = move.pTo.unapply()
+        (rec.rowFrom, rec.colFrom) = move.pFrom.unapply()
+        (rec.rowTo, rec.colTo) = move.pTo.unapply()
         rec.commit()
     }
     

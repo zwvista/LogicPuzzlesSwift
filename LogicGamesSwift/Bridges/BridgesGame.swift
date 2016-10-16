@@ -120,6 +120,8 @@ class BridgesGame {
         }
         // copy a state
         var state = self.state
+        var pFrom = pFrom, pTo = pTo
+        if pTo < pFrom {swap(&pFrom, &pTo)}
         let move = BridgesGameMove(pFrom: pFrom, pTo: pTo)
         guard state.switchBridges(move: move) else {return false}
         

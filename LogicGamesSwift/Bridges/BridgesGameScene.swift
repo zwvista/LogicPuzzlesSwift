@@ -61,9 +61,45 @@ class BridgesGameScene: SKScene {
                 }
             }
             func removeIslandNumber() { removeNode(withName: islandNumberNodeName) }
-            func addBridges(dir: Int) {
+            func addBridges(dir: Int, bridges: Int) {
+                guard bridges > 0 else {return}
+                
+                let p2 = info.neighbors[dir]!
+                let point2 = gridNode.gridPosition(p: p2)
+                
+                // http://stackoverflow.com/questions/19092011/how-to-draw-a-line-in-sprite-kit
+                let pathToDraw = CGMutablePath()
+                let bridgesNode = SKShapeNode(path:pathToDraw)
+                switch (dir, bridges) {
+                case (1, 1):
+                    pathToDraw.move(to: CGPoint(x: point.x + gridNode.blockSize / 2, y: point.y))
+                    pathToDraw.addLine(to: CGPoint(x: point2.x - gridNode.blockSize / 2, y: point2.y))
+                case (1, 2):
+                    pathToDraw.move(to: CGPoint(x: point.x + gridNode.blockSize / 2, y: point.y - 5))
+                    pathToDraw.addLine(to: CGPoint(x: point2.x - gridNode.blockSize / 2, y: point2.y - 5))
+                    pathToDraw.move(to: CGPoint(x: point.x + gridNode.blockSize / 2, y: point.y + 5))
+                    pathToDraw.addLine(to: CGPoint(x: point2.x - gridNode.blockSize / 2, y: point2.y + 5))
+                case (2, 1):
+                    pathToDraw.move(to: CGPoint(x: point.x, y: point.y - gridNode.blockSize / 2))
+                    pathToDraw.addLine(to: CGPoint(x: point2.x, y: point2.y + gridNode.blockSize / 2))
+                case (2, 2):
+                    pathToDraw.move(to: CGPoint(x: point.x - 5, y: point.y - gridNode.blockSize / 2))
+                    pathToDraw.addLine(to: CGPoint(x: point2.x - 5, y: point2.y + gridNode.blockSize / 2))
+                    pathToDraw.move(to: CGPoint(x: point.x + 5, y: point.y - gridNode.blockSize / 2))
+                    pathToDraw.addLine(to: CGPoint(x: point2.x + 5, y: point2.y + gridNode.blockSize / 2))
+                default:
+                    break
+                }
+                bridgesNode.path = pathToDraw
+                bridgesNode.strokeColor = SKColor.yellow
+                bridgesNode.glowWidth = 3
+                bridgesNode.name = bridgesNodeName(dir)
+                gridNode.addChild(bridgesNode)
             }
-            func removeBridges(dir: Int) { removeNode(withName: bridgesNodeName(dir)) }
+            func removeBridges(dir: Int, bridges: Int) {
+                guard bridges > 0 else {return}
+                removeNode(withName: bridgesNodeName(dir))
+            }
             let (o1, o2) = (stateFrom[p], stateTo[p])
             guard case let .island(s1, b1) = o1 else {continue}
             guard case let .island(s2, b2) = o2 else {continue}
@@ -73,8 +109,8 @@ class BridgesGameScene: SKScene {
             }
             for dir in [1, 2] {
                 if b1[dir] != b2[dir] {
-                    removeBridges(dir: dir)
-                    addBridges(dir: dir)
+                    removeBridges(dir: dir, bridges: b1[dir])
+                    addBridges(dir: dir, bridges: b2[dir])
                 }
             }
         }

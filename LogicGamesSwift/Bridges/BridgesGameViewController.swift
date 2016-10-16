@@ -122,7 +122,7 @@ class BridgesGameViewController: UIViewController, BridgesGameDelegate, BridgesM
     
     func levelUpdated(_ game: BridgesGame, from stateFrom: BridgesGameState, to stateTo: BridgesGameState) {
         updateLabels(game)
-        //scene.process(from: stateFrom, to: stateTo)
+        scene.process(from: stateFrom, to: stateTo)
         guard !levelInitilizing else {return}
         gameDocument.levelUpdated(game: game)
     }
