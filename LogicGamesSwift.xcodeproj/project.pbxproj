@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C0A580D1DB37A6A00BFCE16 /* SlitherLinkDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A58011DB37A6A00BFCE16 /* SlitherLinkDocument.swift */; };
+		8C0A580E1DB37A6A00BFCE16 /* SlitherLinkGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A58021DB37A6A00BFCE16 /* SlitherLinkGame.swift */; };
+		8C0A580F1DB37A6A00BFCE16 /* SlitherLinkGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A58031DB37A6A00BFCE16 /* SlitherLinkGameScene.swift */; };
+		8C0A58101DB37A6A00BFCE16 /* SlitherLinkGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A58041DB37A6A00BFCE16 /* SlitherLinkGameState.swift */; };
+		8C0A58111DB37A6A00BFCE16 /* SlitherLinkGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A58051DB37A6A00BFCE16 /* SlitherLinkGameViewController.swift */; };
+		8C0A58121DB37A6A00BFCE16 /* SlitherLinkGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A58061DB37A6A00BFCE16 /* SlitherLinkGridNode.swift */; };
+		8C0A58131DB37A6A00BFCE16 /* SlitherLinkLevels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C0A58071DB37A6A00BFCE16 /* SlitherLinkLevels.xml */; };
+		8C0A58141DB37A6A00BFCE16 /* SlitherLinkMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A58081DB37A6A00BFCE16 /* SlitherLinkMainViewController.swift */; };
+		8C0A58151DB37A6A00BFCE16 /* SlitherLinkMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A58091DB37A6A00BFCE16 /* SlitherLinkMixin.swift */; };
+		8C0A58161DB37A6A00BFCE16 /* SlitherLinkObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A580A1DB37A6A00BFCE16 /* SlitherLinkObject.swift */; };
+		8C0A58171DB37A6A00BFCE16 /* SlitherLinkOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A580B1DB37A6A00BFCE16 /* SlitherLinkOptionsViewController.swift */; };
+		8C0A58181DB37A6A00BFCE16 /* SlitherLinkTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A580C1DB37A6A00BFCE16 /* SlitherLinkTables.swift */; };
+		8C0A581B1DB37A8600BFCE16 /* SlitherLink.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C0A58191DB37A8600BFCE16 /* SlitherLink.storyboard */; };
 		8C31FE6E1D90E415008793BF /* SharkORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; };
 		8C31FE6F1D90E415008793BF /* SharkORM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8C835D651D84BCDC0067BC3E /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C835D641D84BCDC0067BC3E /* Position.swift */; };
@@ -102,6 +115,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8C0A58011DB37A6A00BFCE16 /* SlitherLinkDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkDocument.swift; sourceTree = "<group>"; };
+		8C0A58021DB37A6A00BFCE16 /* SlitherLinkGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGame.swift; sourceTree = "<group>"; };
+		8C0A58031DB37A6A00BFCE16 /* SlitherLinkGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGameScene.swift; sourceTree = "<group>"; };
+		8C0A58041DB37A6A00BFCE16 /* SlitherLinkGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGameState.swift; sourceTree = "<group>"; };
+		8C0A58051DB37A6A00BFCE16 /* SlitherLinkGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGameViewController.swift; sourceTree = "<group>"; };
+		8C0A58061DB37A6A00BFCE16 /* SlitherLinkGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGridNode.swift; sourceTree = "<group>"; };
+		8C0A58071DB37A6A00BFCE16 /* SlitherLinkLevels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SlitherLinkLevels.xml; sourceTree = "<group>"; };
+		8C0A58081DB37A6A00BFCE16 /* SlitherLinkMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkMainViewController.swift; sourceTree = "<group>"; };
+		8C0A58091DB37A6A00BFCE16 /* SlitherLinkMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkMixin.swift; sourceTree = "<group>"; };
+		8C0A580A1DB37A6A00BFCE16 /* SlitherLinkObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkObject.swift; sourceTree = "<group>"; };
+		8C0A580B1DB37A6A00BFCE16 /* SlitherLinkOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkOptionsViewController.swift; sourceTree = "<group>"; };
+		8C0A580C1DB37A6A00BFCE16 /* SlitherLinkTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkTables.swift; sourceTree = "<group>"; };
+		8C0A581A1DB37A8600BFCE16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicGamesSwift/Base.lproj/SlitherLink.storyboard; sourceTree = SOURCE_ROOT; };
 		8C31FE6D1D90E415008793BF /* SharkORM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SharkORM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C835D641D84BCDC0067BC3E /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		8C886C281D9E8AF0004A42BF /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
@@ -210,6 +236,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C0A58001DB37A6A00BFCE16 /* SlitherLink */ = {
+			isa = PBXGroup;
+			children = (
+				8C0A58191DB37A8600BFCE16 /* SlitherLink.storyboard */,
+				8C0A58011DB37A6A00BFCE16 /* SlitherLinkDocument.swift */,
+				8C0A58021DB37A6A00BFCE16 /* SlitherLinkGame.swift */,
+				8C0A58031DB37A6A00BFCE16 /* SlitherLinkGameScene.swift */,
+				8C0A58041DB37A6A00BFCE16 /* SlitherLinkGameState.swift */,
+				8C0A58051DB37A6A00BFCE16 /* SlitherLinkGameViewController.swift */,
+				8C0A58061DB37A6A00BFCE16 /* SlitherLinkGridNode.swift */,
+				8C0A58071DB37A6A00BFCE16 /* SlitherLinkLevels.xml */,
+				8C0A58081DB37A6A00BFCE16 /* SlitherLinkMainViewController.swift */,
+				8C0A58091DB37A6A00BFCE16 /* SlitherLinkMixin.swift */,
+				8C0A580A1DB37A6A00BFCE16 /* SlitherLinkObject.swift */,
+				8C0A580B1DB37A6A00BFCE16 /* SlitherLinkOptionsViewController.swift */,
+				8C0A580C1DB37A6A00BFCE16 /* SlitherLinkTables.swift */,
+			);
+			name = SlitherLink;
+			path = LogicGamesSwift/SlitherLink;
+			sourceTree = SOURCE_ROOT;
+		};
 		8C2164131D8FB32600A39B47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +355,7 @@
 				8CFD4B6C1DB1A0CC00DEBBAF /* Bridges */,
 				8CE6BC911DB110D50087BC15 /* LightUp */,
 				8CFD4B611DB12F3C00DEBBAF /* LogicGames */,
+				8C0A58001DB37A6A00BFCE16 /* SlitherLink */,
 				8C835D641D84BCDC0067BC3E /* Position.swift */,
 				8C916CC91DAB2E8E00D9E62B /* SoundManager.swift */,
 				8C9F43E31D771915000139FC /* Assets.xcassets */,
@@ -496,6 +544,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C0A58131DB37A6A00BFCE16 /* SlitherLinkLevels.xml in Resources */,
 				8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */,
 				8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */,
 				8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */,
@@ -504,6 +553,7 @@
 				8CFD4B7F1DB1A0CC00DEBBAF /* BridgesLevels.xml in Resources */,
 				8CE6BCA51DB110D50087BC15 /* LightUpLevels.xml in Resources */,
 				8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */,
+				8C0A581B1DB37A8600BFCE16 /* SlitherLink.storyboard in Resources */,
 				8C9F43E21D771915000139FC /* Main.storyboard in Resources */,
 				8CFD4B871DB1A10200DEBBAF /* Bridges.storyboard in Resources */,
 				8C916CC41DAA5FEB00D9E62B /* music.wav in Resources */,
@@ -531,12 +581,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C0A580F1DB37A6A00BFCE16 /* SlitherLinkGameScene.swift in Sources */,
 				8C916CCA1DAB2E8E00D9E62B /* SoundManager.swift in Sources */,
 				8CFD4B841DB1A0CC00DEBBAF /* BridgesTables.swift in Sources */,
 				8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */,
+				8C0A580E1DB37A6A00BFCE16 /* SlitherLinkGame.swift in Sources */,
+				8C0A58171DB37A6A00BFCE16 /* SlitherLinkOptionsViewController.swift in Sources */,
+				8C0A580D1DB37A6A00BFCE16 /* SlitherLinkDocument.swift in Sources */,
 				8C916CC01DAA5E9500D9E62B /* Node.swift in Sources */,
 				8CE6BCA11DB110D50087BC15 /* LightUpGameScene.swift in Sources */,
 				8CFD4B811DB1A0CC00DEBBAF /* BridgesMixin.swift in Sources */,
+				8C0A58101DB37A6A00BFCE16 /* SlitherLinkGameState.swift in Sources */,
 				8C886C441D9E8AF1004A42BF /* SWActionSheet.m in Sources */,
 				8CE6BC9F1DB110D50087BC15 /* LightUpObject.swift in Sources */,
 				8CE6BC9C1DB110D50087BC15 /* LightUpDocument.swift in Sources */,
@@ -545,6 +600,7 @@
 				8CFD4B831DB1A0CC00DEBBAF /* BridgesOptionsViewController.swift in Sources */,
 				8CFD4B6A1DB12F3C00DEBBAF /* MainViewController.swift in Sources */,
 				8CE6BCA41DB110D50087BC15 /* LightUpGridNode.swift in Sources */,
+				8C0A58161DB37A6A00BFCE16 /* SlitherLinkObject.swift in Sources */,
 				8C886C401D9E8AF1004A42BF /* ActionSheetLocalePicker.m in Sources */,
 				8CE6BCA71DB110F30087BC15 /* LightUpMainViewController.swift in Sources */,
 				8CE6BCA31DB110D50087BC15 /* LightUpGameViewController.swift in Sources */,
@@ -557,6 +613,7 @@
 				8CFD4B681DB12F3C00DEBBAF /* LogicGamesMixin.swift in Sources */,
 				8CFD4B801DB1A0CC00DEBBAF /* BridgesMainViewController.swift in Sources */,
 				8CFD4B581DB1213200DEBBAF /* LightUpOptionsViewController.swift in Sources */,
+				8C0A58181DB37A6A00BFCE16 /* SlitherLinkTables.swift in Sources */,
 				8C916CBE1DAA5E9500D9E62B /* Helpers.swift in Sources */,
 				8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */,
 				8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */,
@@ -564,6 +621,7 @@
 				8C886C421D9E8AF1004A42BF /* ActionSheetStringPicker.m in Sources */,
 				8CFD4B6B1DB12F3C00DEBBAF /* OptionsViewController.swift in Sources */,
 				8C916CBD1DAA5E9500D9E62B /* Error.swift in Sources */,
+				8C0A58121DB37A6A00BFCE16 /* SlitherLinkGridNode.swift in Sources */,
 				8CFD4B691DB12F3C00DEBBAF /* LogicGamesTables.swift in Sources */,
 				8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */,
 				8CFD4B7A1DB1A0CC00DEBBAF /* BridgesGame.swift in Sources */,
@@ -573,10 +631,13 @@
 				8C886C3F1D9E8AF1004A42BF /* ActionSheetDistancePicker.m in Sources */,
 				8CFD4B7B1DB1A0CC00DEBBAF /* BridgesGameScene.swift in Sources */,
 				8CFD4B7D1DB1A0CC00DEBBAF /* BridgesGameViewController.swift in Sources */,
+				8C0A58151DB37A6A00BFCE16 /* SlitherLinkMixin.swift in Sources */,
 				8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */,
 				8C916CBC1DAA5E9500D9E62B /* Element.swift in Sources */,
 				8C886C411D9E8AF1004A42BF /* ActionSheetMultipleStringPicker.m in Sources */,
+				8C0A58111DB37A6A00BFCE16 /* SlitherLinkGameViewController.swift in Sources */,
 				8CE6BC9D1DB110D50087BC15 /* LightUpGame.swift in Sources */,
+				8C0A58141DB37A6A00BFCE16 /* SlitherLinkMainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +673,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		8C0A58191DB37A8600BFCE16 /* SlitherLink.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C0A581A1DB37A8600BFCE16 /* Base */,
+			);
+			name = SlitherLink.storyboard;
+			sourceTree = "<group>";
+		};
 		8C9F43E01D771915000139FC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
