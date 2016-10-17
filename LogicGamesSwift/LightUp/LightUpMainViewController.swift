@@ -20,6 +20,8 @@ class LightUpMainViewController: UIViewController, LightUpMixin {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let toResume = ((UIApplication.shared.keyWindow!.rootViewController! as! UINavigationController).topViewController as! LogicGamesMainViewController).toResume
+        if toResume {resumGame(self)}
     }
     
     // http://stackoverflow.com/questions/845583/iphone-hide-navigation-bar-only-on-first-page

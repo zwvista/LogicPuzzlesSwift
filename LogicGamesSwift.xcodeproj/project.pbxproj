@@ -404,12 +404,12 @@
 		8CFD4B611DB12F3C00DEBBAF /* LogicGames */ = {
 			isa = PBXGroup;
 			children = (
-				8CFD4B621DB12F3C00DEBBAF /* LogicGamesDocument.swift */,
-				8CFD4B631DB12F3C00DEBBAF /* LogicGamesMixin.swift */,
-				8CFD4B641DB12F3C00DEBBAF /* LogicGamesTables.swift */,
 				8C9F43E01D771915000139FC /* LogicGames.storyboard */,
+				8CFD4B621DB12F3C00DEBBAF /* LogicGamesDocument.swift */,
 				8CFD4B651DB12F3C00DEBBAF /* LogicGamesMainViewController.swift */,
+				8CFD4B631DB12F3C00DEBBAF /* LogicGamesMixin.swift */,
 				8CFD4B661DB12F3C00DEBBAF /* LogicGamesOptionsViewController.swift */,
+				8CFD4B641DB12F3C00DEBBAF /* LogicGamesTables.swift */,
 			);
 			name = LogicGames;
 			path = LogicGamesSwift/LogicGames;

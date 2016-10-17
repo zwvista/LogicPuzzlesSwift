@@ -10,6 +10,8 @@ import UIKit
 
 class LogicGamesMainViewController: UIViewController, LogicGamesMixin {
     
+    public private(set) var toResume = false
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -29,16 +31,17 @@ class LogicGamesMainViewController: UIViewController, LogicGamesMixin {
     }
     
     @IBAction func resumeGame(_ sender: AnyObject) {
-        startGame(gameName: gameDocument.gameProgress.gameName!)
+        startGame(gameName: gameDocument.gameProgress.gameName!, toResume: true)
     }
     
     @IBAction func startGame(_ sender: AnyObject) {
-        startGame(gameName: (sender as! UIButton).restorationIdentifier!)
+        startGame(gameName: (sender as! UIButton).restorationIdentifier!, toResume: false)
     }
     
     // http://www.newventuresoftware.com/blog/organizing-xcode-projects-using-multiple-storyboards
-    private func startGame(gameName: String) {
+    private func startGame(gameName: String, toResume: Bool) {
         gameDocument.resumeGame(gameName: gameName)
+        self.toResume = toResume
         let storyboard = UIStoryboard(name: gameName, bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "InitialController") as UIViewController
         self.present(controller, animated: true, completion: nil)
