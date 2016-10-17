@@ -10,12 +10,12 @@ import Foundation
 
 protocol LogicGamesMixin {
     var gameDocument: LogicGamesDocument { get }
-    var gameOptions: LogicGamesProgress { get }
+    var gameOptions: LogicGamesGameProgress { get }
     var soundManager: SoundManager { get }
 }
 
 extension LogicGamesMixin {
     var gameDocument: LogicGamesDocument { return LogicGamesDocument.sharedInstance }
-    var gameOptions: LogicGamesProgress { return gameDocument.gameOptions }
+    var gameOptions: LogicGamesGameProgress { return gameDocument.gameProgress }
     var soundManager: SoundManager { return SoundManager.sharedInstance }
 }

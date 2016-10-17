@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="-978" y="36"/>
         </scene>
-        <!--Main View Controller-->
+        <!--Logic Games Main View Controller-->
         <scene sceneID="tFF-GO-VYL">
             <objects>
-                <viewController id="AeD-bF-k0G" customClass="MainViewController" customModule="LogicGamesSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="AeD-bF-k0G" customClass="LogicGamesMainViewController" customModule="LogicGamesSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QNf-Ma-8u8"/>
                         <viewControllerLayoutGuide type="bottom" id="hRc-kf-dB5"/>
@@ -51,7 +51,7 @@
                                 </constraints>
                                 <state key="normal" title="Resume Game"/>
                                 <connections>
-                                    <action selector="resumGame:" destination="AeD-bF-k0G" eventType="touchUpInside" id="uno-4o-Qpb"/>
+                                    <action selector="resumeGame:" destination="AeD-bF-k0G" eventType="touchUpInside" id="2eQ-Ii-TRm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PxK-QC-2Io">
@@ -65,7 +65,7 @@
                                     <segue destination="ORe-b4-YC9" kind="presentation" id="B34-9U-Fv0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCN-cq-Dqy">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="LightUp" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCN-cq-Dqy">
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="VNK-2q-6MD"/>
@@ -73,10 +73,10 @@
                                 </constraints>
                                 <state key="normal" title="Light Up"/>
                                 <connections>
-                                    <action selector="startGameLightUp:" destination="AeD-bF-k0G" eventType="touchUpInside" id="qEn-9K-lL5"/>
+                                    <action selector="startGame:" destination="AeD-bF-k0G" eventType="touchUpInside" id="cb6-lH-nu5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7T-vh-GEq">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Bridges" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7T-vh-GEq">
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="3XX-F1-pfN"/>
@@ -84,7 +84,7 @@
                                 </constraints>
                                 <state key="normal" title="Bridges"/>
                                 <connections>
-                                    <action selector="startGameBridges:" destination="AeD-bF-k0G" eventType="touchUpInside" id="jmg-c3-FcT"/>
+                                    <action selector="startGame:" destination="AeD-bF-k0G" eventType="touchUpInside" id="JgJ-2v-fLa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -127,7 +127,7 @@
         <!--Options-->
         <scene sceneID="bgb-8z-Yxe">
             <objects>
-                <tableViewController id="NOj-7d-poE" customClass="OptionsViewController" customModule="LogicGamesSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="NOj-7d-poE" customClass="LogicGamesOptionsViewController" customModule="LogicGamesSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="6Or-kc-7fi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

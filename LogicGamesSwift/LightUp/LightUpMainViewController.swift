@@ -34,7 +34,7 @@ class LightUpMainViewController: UIViewController, LightUpMixin {
     }
     
     @IBAction func resumGame(_ sender: AnyObject) {
-        gameDocument.resumGame()
+        gameDocument.resumeGame()
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "LightUpGameViewController") as! LightUpGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }

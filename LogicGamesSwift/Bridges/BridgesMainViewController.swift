@@ -34,7 +34,7 @@ class BridgesMainViewController: UIViewController, BridgesMixin {
     }
     
     @IBAction func resumGame(_ sender: AnyObject) {
-        gameDocument.resumGame()
+        gameDocument.resumeGame()
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "BridgesGameViewController") as! BridgesGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }

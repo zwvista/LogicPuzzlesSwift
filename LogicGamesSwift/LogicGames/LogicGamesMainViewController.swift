@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, LightUpMixin {
+class LogicGamesMainViewController: UIViewController, LogicGamesMixin {
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -28,21 +28,18 @@ class MainViewController: UIViewController, LightUpMixin {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    @IBAction func resumGame(_ sender: AnyObject) {
-        startGame(name: "LightUp")
+    @IBAction func resumeGame(_ sender: AnyObject) {
+        startGame(gameName: gameDocument.gameProgress.gameName!)
     }
     
-    @IBAction func startGameLightUp(_ sender: AnyObject) {
-        startGame(name: "LightUp")
-    }
-    
-    @IBAction func startGameBridges(_ sender: AnyObject) {
-        startGame(name: "Bridges")
+    @IBAction func startGame(_ sender: AnyObject) {
+        startGame(gameName: (sender as! UIButton).restorationIdentifier!)
     }
     
     // http://www.newventuresoftware.com/blog/organizing-xcode-projects-using-multiple-storyboards
-    private func startGame(name: String) {
-        let storyboard = UIStoryboard(name: name, bundle: nil)
+    private func startGame(gameName: String) {
+        gameDocument.resumeGame(gameName: gameName)
+        let storyboard = UIStoryboard(name: gameName, bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "InitialController") as UIViewController
         self.present(controller, animated: true, completion: nil)
     }

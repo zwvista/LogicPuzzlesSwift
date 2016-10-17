@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OptionsViewController: UITableViewController, LogicGamesMixin {
+class LogicGamesOptionsViewController: UITableViewController, LogicGamesMixin {
     
     @IBOutlet weak var swPlayMusic: UISwitch!
     @IBOutlet weak var swPlaySound: UISwitch!

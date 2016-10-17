@@ -11,8 +11,15 @@ import SharkORM
 
 class LogicGamesDocument {
     static var sharedInstance = LogicGamesDocument()
-    var gameOptions: LogicGamesProgress {
-        let result = LogicGamesProgress.query().fetch()!
-        return result.count == 0 ? LogicGamesProgress() : (result[0] as! LogicGamesProgress)
+    var gameProgress: LogicGamesGameProgress {
+        let result = LogicGamesGameProgress.query().fetch()!
+        return result.count == 0 ? LogicGamesGameProgress() : (result[0] as! LogicGamesGameProgress)
     }
+    
+    func resumeGame(gameName: String) {
+        let rec = gameProgress
+        rec.gameName = gameName
+        rec.commit()
+    }
+
 }

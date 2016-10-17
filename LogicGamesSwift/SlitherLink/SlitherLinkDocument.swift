@@ -63,7 +63,7 @@ class SlitherLinkDocument {
         rec.commit()
     }
     
-    func resumGame() {
+    func resumeGame() {
         let rec = gameProgress
         rec.levelID = selectedLevelID
         rec.commit()

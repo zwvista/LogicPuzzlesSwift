@@ -34,7 +34,7 @@ class SlitherLinkMainViewController: UIViewController, SlitherLinkMixin {
     }
     
     @IBAction func resumGame(_ sender: AnyObject) {
-        gameDocument.resumGame()
+        gameDocument.resumeGame()
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "SlitherLinkGameViewController") as! SlitherLinkGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
