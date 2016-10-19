@@ -56,8 +56,9 @@ class SlitherLinkGameViewController: UIViewController, SlitherLinkGameDelegate, 
         let touchLocationInScene = scene.convertPoint(fromView: touchLocation)
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
-        let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = SlitherLinkGameMove(p: p, objOrientation: .horizontal, objType: .empty)
+        let (b, p, orientation) = scene.gridNode.linePosition(point: touchLocationInGrid)
+        guard b else {return}
+        var move = SlitherLinkGameMove(p: p, objOrientation: orientation, objType: .empty)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     
@@ -94,7 +95,7 @@ class SlitherLinkGameViewController: UIViewController, SlitherLinkGameDelegate, 
     func levelInitilized(_ game: SlitherLinkGame, state: SlitherLinkGameState) {
         updateLabels(game)
         scene.removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols - 1)
         scene.addGrid(to: skView, rows: game.rows, cols: game.cols, blockSize: blockSize)
         scene.addHints(from: state)
     }

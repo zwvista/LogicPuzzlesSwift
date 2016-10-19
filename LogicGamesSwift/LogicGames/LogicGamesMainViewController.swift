@@ -35,7 +35,7 @@ class LogicGamesMainViewController: UIViewController, LogicGamesMixin {
     }
     
     @IBAction func startGame(_ sender: AnyObject) {
-        startGame(gameName: (sender as! UIButton).restorationIdentifier!, toResume: false)
+        startGame(gameName: (sender as! UIButton).restorationIdentifier!, toResume: true)
     }
     
     // http://www.newventuresoftware.com/blog/organizing-xcode-projects-using-multiple-storyboards

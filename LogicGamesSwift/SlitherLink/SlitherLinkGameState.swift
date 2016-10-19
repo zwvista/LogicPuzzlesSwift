@@ -51,15 +51,18 @@ struct SlitherLinkGameState {
             if objType != move.objType {
                 changed = true
                 objType = move.objType
-                updateIsSolved()
+                // updateIsSolved() cannot be called here
+                // self[p] will not be updated until the function returns
             }
         }
         let p = move.p
         switch move.objOrientation {
         case .horizontal:
             f(objType: &self[p].objTypeHorz)
+            if changed {updateIsSolved()}
         case .vertical:
             f(objType: &self[p].objTypeVert)
+            if changed {updateIsSolved()}
         }
         return changed
     }
@@ -86,5 +89,15 @@ struct SlitherLinkGameState {
     
     private mutating func updateIsSolved() {
         isSolved = true
+        for (p, n2) in game.pos2hint {
+            var n1 = 0
+            if self[p].objTypeHorz == .line {n1 += 1}
+            if self[p].objTypeVert == .line {n1 += 1}
+            if self[p + SlitherLinkGame.offset[2]].objTypeHorz == .line {n1 += 1}
+            if self[p + SlitherLinkGame.offset[1]].objTypeVert == .line {n1 += 1}
+            pos2state[p] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            if n1 != n2 {isSolved = false}
+        }
+        isSolved = false
     }
 }

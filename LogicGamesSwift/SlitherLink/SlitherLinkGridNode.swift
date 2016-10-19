@@ -73,4 +73,14 @@ class SlitherLinkGridNode : SKSpriteNode {
         let col = Int(point.x / blockSize)
         return Position(row, col)
     }
+    
+    func linePosition(point: CGPoint) -> (Bool, Position, SlitherLinkObjectOrientation) {
+        let offset: CGFloat = 10
+        let row = Int((-point.y + offset) / blockSize)
+        let col = Int((point.x + offset) / blockSize)
+        let p = Position(row, col)
+        return -offset ... offset ~= -point.y - CGFloat(row) * blockSize ? (true, p, .horizontal) :
+            -offset ... offset ~= point.x - CGFloat(col) * blockSize ? (true, p, .vertical) :
+            (false, p, .horizontal)
+    }
 }

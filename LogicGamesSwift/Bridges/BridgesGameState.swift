@@ -82,7 +82,7 @@ struct BridgesGameState {
             let n1 = bridges.reduce(0, +)
             let n2 = info.bridges
             state = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if state != .complete {isSolved = false}
+            if n1 != n2 {isSolved = false}
             self[p] = .island(state: state, bridges: bridges)
         }
     }
