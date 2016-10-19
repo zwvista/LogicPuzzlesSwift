@@ -31,10 +31,9 @@ class SlitherLinkGame {
         return isValid(row: p.row, col: p.col)
     }
     func isValid(row: Int, col: Int) -> Bool {
-        //return row >= 0 && col >= 0 && row < rows && col < cols
         return 0 ..< rows ~= row && 0 ..< cols ~= col
     }
-    var wall2Lightbulbs = [Position: Int]()
+    var pos2hint = [Position: Int]()
     
     private var stateIndex = 0
     private var states = [SlitherLinkGameState]()
@@ -66,23 +65,19 @@ class SlitherLinkGame {
     init(layout: [String], delegate: SlitherLinkGameDelegate? = nil) {
         self.delegate = delegate
         
-        size = Position(layout.count, layout[0].characters.count)
+        size = Position(layout.count + 1, layout[0].characters.count + 1)
         var state = SlitherLinkGameState(game: self)
         
-        func addWall(row: Int, col: Int, lightbulbs: Int) {
-            wall2Lightbulbs[Position(row, col)] = lightbulbs
-            state[row, col].objType = .wall(state: lightbulbs <= 0 ? .complete : .normal)
-        }
-        
-        for r in 0 ..< rows {
+        for r in 0 ..< rows - 1 {
             let str = layout[r]
-            for c in 0 ..< cols {
+            for c in 0 ..< cols - 1 {
+                let p = Position(r, c)
                 let ch = str[str.index(str.startIndex, offsetBy: c)]
                 switch ch {
-                case "W":
-                    addWall(row: r, col: c, lightbulbs: -1)
                 case "0" ... "9":
-                    addWall(row: r, col: c, lightbulbs: Int(String(ch))!)
+                    let n = Int(String(ch))!
+                    pos2hint[p] = n
+                    state.pos2state[p] =  n == 0 ? .complete : .normal
                 default:
                     break
                 }

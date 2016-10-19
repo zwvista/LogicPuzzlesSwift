@@ -18,20 +18,9 @@ class SlitherLinkOptionsViewController: UITableViewController, SlitherLinkMixin 
         lblMarkerOption.text = SlitherLinkMarkerOptions.optionStrings[gameOptions.markerOption]
     }
     
-    func updateNormalLightbulbsOnly() {
-        swNormalLightbulbsOnly.isOn = gameOptions.normalLightbulbsOnly;
-    }
-    
-    @IBAction func normalLightbulbsOnlyChanged(_ sender: AnyObject) {
-        let rec = gameOptions
-        rec.normalLightbulbsOnly = swNormalLightbulbsOnly.isOn
-        rec.commit()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateMarkerOption()
-        updateNormalLightbulbsOnly()
     }
 
     override var prefersStatusBarHidden: Bool {
@@ -49,10 +38,8 @@ class SlitherLinkOptionsViewController: UITableViewController, SlitherLinkMixin 
         let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
             let rec = self.gameOptions
             rec.markerOption = SlitherLinkMarkerOptions.noMarker.rawValue
-            rec.normalLightbulbsOnly = false
             rec.commit()
             self.updateMarkerOption()
-            self.updateNormalLightbulbsOnly()
         }
         alertController.addAction(yesAction)
         self.present(alertController, animated: true, completion: nil)

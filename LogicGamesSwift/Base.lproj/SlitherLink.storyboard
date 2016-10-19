@@ -23,7 +23,7 @@
             </objects>
             <point key="canvasLocation" x="-978" y="36"/>
         </scene>
-        <!--Light Up Main View Controller-->
+        <!--Slither Link Main View Controller-->
         <scene sceneID="tFF-GO-VYL">
             <objects>
                 <viewController id="AeD-bF-k0G" customClass="SlitherLinkMainViewController" customModule="LogicGamesSwift" customModuleProvider="target" sceneMemberID="viewController">
@@ -141,7 +141,7 @@
                                     <segue destination="ORe-b4-YC9" kind="presentation" id="B34-9U-Fv0"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Light Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGx-Ts-pBn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SlitherLink" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGx-Ts-pBn">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="7Yf-C1-JWa"/>
                                 </constraints>
@@ -211,7 +211,7 @@
             </objects>
             <point key="canvasLocation" x="-266.39999999999998" y="35.532233883058474"/>
         </scene>
-        <!--Light Up Game View Controller-->
+        <!--Slither Link Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController storyboardIdentifier="SlitherLinkGameViewController" id="BV1-FR-VrT" customClass="SlitherLinkGameViewController" customModule="LogicGamesSwift" customModuleProvider="target" sceneMemberID="viewController">
@@ -339,40 +339,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Marker After Lightbulb" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DOw-4i-6ht">
-                                                    <frame key="frameInset" minX="188" minY="12" width="172" height="20.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Marker After Line" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DOw-4i-6ht">
+                                                    <frame key="frameInset" minX="228" minY="12" width="132" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Xfs-mt-z74">
-                                        <rect key="frame" x="0.0" y="108" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xfs-mt-z74" id="Ndm-k5-m9r">
-                                            <frame key="frameInset" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Normal Lightbulbs Only" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDP-sf-Elx">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <switch opaque="NO" contentMode="right" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5vs-u1-bcs">
-                                                    <connections>
-                                                        <action selector="normalLightbulbsOnlyChanged:" destination="NOj-7d-poE" eventType="valueChanged" id="Gkp-Wr-RTu"/>
-                                                    </connections>
-                                                </switch>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="5vs-u1-bcs" secondAttribute="trailing" constant="7" id="IMS-YH-I7b"/>
-                                                <constraint firstItem="sDP-sf-Elx" firstAttribute="leading" secondItem="Ndm-k5-m9r" secondAttribute="leadingMargin" constant="7" id="aJH-5l-pIk"/>
-                                                <constraint firstItem="5vs-u1-bcs" firstAttribute="centerY" secondItem="sDP-sf-Elx" secondAttribute="centerY" id="cgj-iL-yHI"/>
-                                                <constraint firstItem="5vs-u1-bcs" firstAttribute="centerY" secondItem="Ndm-k5-m9r" secondAttribute="centerY" id="kZR-ut-dhK"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -398,7 +372,6 @@
                     <connections>
                         <outlet property="lblMarker" destination="wWw-9L-o5x" id="8VX-G5-JXd"/>
                         <outlet property="lblMarkerOption" destination="DOw-4i-6ht" id="ZVl-mA-Kox"/>
-                        <outlet property="swNormalLightbulbsOnly" destination="5vs-u1-bcs" id="cWu-f1-o0A"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPv-81-tuD" userLabel="First Responder" sceneMemberID="firstResponder"/>

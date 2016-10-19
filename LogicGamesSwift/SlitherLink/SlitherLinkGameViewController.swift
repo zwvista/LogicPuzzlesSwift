@@ -57,7 +57,7 @@ class SlitherLinkGameViewController: UIViewController, SlitherLinkGameDelegate, 
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = SlitherLinkGameMove(p: p, objType: .empty)
+        var move = SlitherLinkGameMove(p: p, objOrientation: .horizontal, objType: .empty)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     
@@ -71,7 +71,7 @@ class SlitherLinkGameViewController: UIViewController, SlitherLinkGameDelegate, 
         
         // restore game state
         for case let rec as SlitherLinkMoveProgress in gameDocument.moveProgress {
-            var move = SlitherLinkGameMove(p: Position(rec.row, rec.col), objType: SlitherLinkObjectType.fromString(str: rec.objTypeAsString!))
+            var move = SlitherLinkGameMove(p: Position(rec.row, rec.col), objOrientation: SlitherLinkObjectOrientation(rawValue: rec.objOrientation)!, objType: SlitherLinkObjectType(rawValue: rec.objType)!)
                 _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex
@@ -96,7 +96,7 @@ class SlitherLinkGameViewController: UIViewController, SlitherLinkGameDelegate, 
         scene.removeAllChildren()
         let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
         scene.addGrid(to: skView, rows: game.rows, cols: game.cols, blockSize: blockSize)
-        scene.addWalls(from: state)
+        scene.addHints(from: state)
     }
     
     func levelUpdated(_ game: SlitherLinkGame, from stateFrom: SlitherLinkGameState, to stateTo: SlitherLinkGameState) {

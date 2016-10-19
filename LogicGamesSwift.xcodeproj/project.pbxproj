@@ -121,7 +121,7 @@
 		8C0A58041DB37A6A00BFCE16 /* SlitherLinkGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGameState.swift; sourceTree = "<group>"; };
 		8C0A58051DB37A6A00BFCE16 /* SlitherLinkGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGameViewController.swift; sourceTree = "<group>"; };
 		8C0A58061DB37A6A00BFCE16 /* SlitherLinkGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGridNode.swift; sourceTree = "<group>"; };
-		8C0A58071DB37A6A00BFCE16 /* SlitherLinkLevels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SlitherLinkLevels.xml; sourceTree = "<group>"; };
+		8C0A58071DB37A6A00BFCE16 /* SlitherLinkLevels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = SlitherLinkLevels.xml; path = SlitherLink/SlitherLinkLevels.xml; sourceTree = "<group>"; };
 		8C0A58081DB37A6A00BFCE16 /* SlitherLinkMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkMainViewController.swift; sourceTree = "<group>"; };
 		8C0A58091DB37A6A00BFCE16 /* SlitherLinkMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkMixin.swift; sourceTree = "<group>"; };
 		8C0A580A1DB37A6A00BFCE16 /* SlitherLinkObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkObject.swift; sourceTree = "<group>"; };
@@ -201,7 +201,7 @@
 		8CFD4B701DB1A0CC00DEBBAF /* BridgesGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesGameState.swift; sourceTree = "<group>"; };
 		8CFD4B711DB1A0CC00DEBBAF /* BridgesGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesGameViewController.swift; sourceTree = "<group>"; };
 		8CFD4B721DB1A0CC00DEBBAF /* BridgesGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesGridNode.swift; sourceTree = "<group>"; };
-		8CFD4B731DB1A0CC00DEBBAF /* BridgesLevels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BridgesLevels.xml; sourceTree = "<group>"; };
+		8CFD4B731DB1A0CC00DEBBAF /* BridgesLevels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = BridgesLevels.xml; path = Bridges/BridgesLevels.xml; sourceTree = "<group>"; };
 		8CFD4B741DB1A0CC00DEBBAF /* BridgesMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesMainViewController.swift; sourceTree = "<group>"; };
 		8CFD4B751DB1A0CC00DEBBAF /* BridgesMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesMixin.swift; sourceTree = "<group>"; };
 		8CFD4B761DB1A0CC00DEBBAF /* BridgesObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesObject.swift; sourceTree = "<group>"; };
@@ -246,7 +246,6 @@
 				8C0A58041DB37A6A00BFCE16 /* SlitherLinkGameState.swift */,
 				8C0A58051DB37A6A00BFCE16 /* SlitherLinkGameViewController.swift */,
 				8C0A58061DB37A6A00BFCE16 /* SlitherLinkGridNode.swift */,
-				8C0A58071DB37A6A00BFCE16 /* SlitherLinkLevels.xml */,
 				8C0A58081DB37A6A00BFCE16 /* SlitherLinkMainViewController.swift */,
 				8C0A58091DB37A6A00BFCE16 /* SlitherLinkMixin.swift */,
 				8C0A580A1DB37A6A00BFCE16 /* SlitherLinkObject.swift */,
@@ -313,14 +312,16 @@
 		8C916CC81DAB297A00D9E62B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8C886C451D9E8B72004A42BF /* LogicGamesSwift-Bridging-Header.h */,
-				8CE6BC9B1DB110D50087BC15 /* LightUpLevels.xml */,
+				8CFD4B731DB1A0CC00DEBBAF /* BridgesLevels.xml */,
 				8C9F43E81D771915000139FC /* Info.plist */,
-				8CCF1C011D8E1DB000AB6594 /* lightbulb.png */,
-				8C916CC51DAB1E6000D9E62B /* tap.wav */,
-				8C916CCD1DAB35FC00D9E62B /* solved.wav */,
-				8C916CC31DAA5FEB00D9E62B /* music.wav */,
 				8C9F43E51D771915000139FC /* LaunchScreen.storyboard */,
+				8CCF1C011D8E1DB000AB6594 /* lightbulb.png */,
+				8CE6BC9B1DB110D50087BC15 /* LightUpLevels.xml */,
+				8C886C451D9E8B72004A42BF /* LogicGamesSwift-Bridging-Header.h */,
+				8C916CC31DAA5FEB00D9E62B /* music.wav */,
+				8C0A58071DB37A6A00BFCE16 /* SlitherLinkLevels.xml */,
+				8C916CCD1DAB35FC00D9E62B /* solved.wav */,
+				8C916CC51DAB1E6000D9E62B /* tap.wav */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -425,7 +426,6 @@
 				8CFD4B701DB1A0CC00DEBBAF /* BridgesGameState.swift */,
 				8CFD4B711DB1A0CC00DEBBAF /* BridgesGameViewController.swift */,
 				8CFD4B721DB1A0CC00DEBBAF /* BridgesGridNode.swift */,
-				8CFD4B731DB1A0CC00DEBBAF /* BridgesLevels.xml */,
 				8CFD4B741DB1A0CC00DEBBAF /* BridgesMainViewController.swift */,
 				8CFD4B751DB1A0CC00DEBBAF /* BridgesMixin.swift */,
 				8CFD4B761DB1A0CC00DEBBAF /* BridgesObject.swift */,

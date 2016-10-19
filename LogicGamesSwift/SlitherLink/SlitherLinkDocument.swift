@@ -59,7 +59,8 @@ class SlitherLinkDocument {
         rec.levelID = selectedLevelID
         rec.moveIndex = game.moveIndex
         (rec.row, rec.col) = move.p.unapply()
-        rec.objTypeAsString = move.objType.toString()
+        rec.objOrientation = move.objOrientation.rawValue
+        rec.objType = move.objType.rawValue
         rec.commit()
     }
     
