@@ -20,6 +20,16 @@
 		8C0A58171DB37A6A00BFCE16 /* SlitherLinkOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A580B1DB37A6A00BFCE16 /* SlitherLinkOptionsViewController.swift */; };
 		8C0A58181DB37A6A00BFCE16 /* SlitherLinkTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A580C1DB37A6A00BFCE16 /* SlitherLinkTables.swift */; };
 		8C0A581B1DB37A8600BFCE16 /* SlitherLink.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C0A58191DB37A8600BFCE16 /* SlitherLink.storyboard */; };
+		8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */; };
+		8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */; };
+		8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A01DB8DE930056D407 /* AnimatedExample.graffle */; };
+		8C1D16B01DB8DE930056D407 /* AnimatedExample.psd in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A11DB8DE930056D407 /* AnimatedExample.psd */; };
+		8C1D16B11DB8DE930056D407 /* TraversalTree.graffle in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A21DB8DE930056D407 /* TraversalTree.graffle */; };
+		8C1D16B21DB8DE930056D407 /* TraversalTree.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A31DB8DE930056D407 /* TraversalTree.png */; };
+		8C1D16B31DB8DE930056D407 /* README.markdown in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D16A41DB8DE930056D407 /* README.markdown */; };
+		8C1D16B51DB8DE930056D407 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D16A71DB8DE930056D407 /* Graph.swift */; };
+		8C1D16B61DB8DE930056D407 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A81DB8DE930056D407 /* Info.plist */; };
+		8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D16A91DB8DE930056D407 /* Queue.swift */; };
 		8C31FE6E1D90E415008793BF /* SharkORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; };
 		8C31FE6F1D90E415008793BF /* SharkORM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8C835D651D84BCDC0067BC3E /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C835D641D84BCDC0067BC3E /* Position.swift */; };
@@ -84,6 +94,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8C1D16B91DB8DE940056D407 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8C1D16AA1DB8DE930056D407 /* Tests.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7B2BBC801C779D720067B71D;
+			remoteInfo = Tests;
+		};
 		8C9F43EE1D771915000139FC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8C9F43CF1D771915000139FC /* Project object */;
@@ -128,6 +145,19 @@
 		8C0A580B1DB37A6A00BFCE16 /* SlitherLinkOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkOptionsViewController.swift; sourceTree = "<group>"; };
 		8C0A580C1DB37A6A00BFCE16 /* SlitherLinkTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkTables.swift; sourceTree = "<group>"; };
 		8C0A581A1DB37A8600BFCE16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicGamesSwift/Base.lproj/SlitherLink.storyboard; sourceTree = SOURCE_ROOT; };
+		8C1D169C1DB8DE930056D407 /* BreadthFirstSearch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BreadthFirstSearch.playground; sourceTree = "<group>"; };
+		8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadthFirstSearch.swift; sourceTree = "<group>"; };
+		8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimatedExample.gif; sourceTree = "<group>"; };
+		8C1D16A01DB8DE930056D407 /* AnimatedExample.graffle */ = {isa = PBXFileReference; lastKnownFileType = file; path = AnimatedExample.graffle; sourceTree = "<group>"; };
+		8C1D16A11DB8DE930056D407 /* AnimatedExample.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = AnimatedExample.psd; sourceTree = "<group>"; };
+		8C1D16A21DB8DE930056D407 /* TraversalTree.graffle */ = {isa = PBXFileReference; lastKnownFileType = file; path = TraversalTree.graffle; sourceTree = "<group>"; };
+		8C1D16A31DB8DE930056D407 /* TraversalTree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TraversalTree.png; sourceTree = "<group>"; };
+		8C1D16A41DB8DE930056D407 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
+		8C1D16A61DB8DE930056D407 /* BreadthFirstSearchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadthFirstSearchTests.swift; sourceTree = "<group>"; };
+		8C1D16A71DB8DE930056D407 /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		8C1D16A81DB8DE930056D407 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C1D16A91DB8DE930056D407 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		8C1D16AA1DB8DE930056D407 /* Tests.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Tests.xcodeproj; sourceTree = "<group>"; };
 		8C31FE6D1D90E415008793BF /* SharkORM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SharkORM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C835D641D84BCDC0067BC3E /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		8C886C281D9E8AF0004A42BF /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
@@ -256,6 +286,51 @@
 			path = LogicGamesSwift/SlitherLink;
 			sourceTree = SOURCE_ROOT;
 		};
+		8C1D169B1DB8DE930056D407 /* Breadth-First Search */ = {
+			isa = PBXGroup;
+			children = (
+				8C1D169C1DB8DE930056D407 /* BreadthFirstSearch.playground */,
+				8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */,
+				8C1D169E1DB8DE930056D407 /* Images */,
+				8C1D16A41DB8DE930056D407 /* README.markdown */,
+				8C1D16A51DB8DE930056D407 /* Tests */,
+			);
+			name = "Breadth-First Search";
+			path = "../../OSS/swift-algorithm-club/Breadth-First Search";
+			sourceTree = "<group>";
+		};
+		8C1D169E1DB8DE930056D407 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */,
+				8C1D16A01DB8DE930056D407 /* AnimatedExample.graffle */,
+				8C1D16A11DB8DE930056D407 /* AnimatedExample.psd */,
+				8C1D16A21DB8DE930056D407 /* TraversalTree.graffle */,
+				8C1D16A31DB8DE930056D407 /* TraversalTree.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		8C1D16A51DB8DE930056D407 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				8C1D16A61DB8DE930056D407 /* BreadthFirstSearchTests.swift */,
+				8C1D16A71DB8DE930056D407 /* Graph.swift */,
+				8C1D16A81DB8DE930056D407 /* Info.plist */,
+				8C1D16A91DB8DE930056D407 /* Queue.swift */,
+				8C1D16AA1DB8DE930056D407 /* Tests.xcodeproj */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		8C1D16AB1DB8DE930056D407 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8C1D16BA1DB8DE940056D407 /* Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8C2164131D8FB32600A39B47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +404,7 @@
 		8C9F43CE1D771915000139FC = {
 			isa = PBXGroup;
 			children = (
+				8C1D169B1DB8DE930056D407 /* Breadth-First Search */,
 				8C916CB11DAA5E9500D9E62B /* Sources */,
 				8C886C271D9E8AF0004A42BF /* Pickers */,
 				8C9F43D91D771915000139FC /* LogicGamesSwift */,
@@ -530,6 +606,12 @@
 			mainGroup = 8C9F43CE1D771915000139FC;
 			productRefGroup = 8C9F43D81D771915000139FC /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8C1D16AB1DB8DE930056D407 /* Products */;
+					ProjectRef = 8C1D16AA1DB8DE930056D407 /* Tests.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8C9F43D61D771915000139FC /* LogicGamesSwift */,
@@ -539,6 +621,16 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		8C1D16BA1DB8DE940056D407 /* Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.xctest;
+			remoteRef = 8C1D16B91DB8DE940056D407 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		8C9F43D51D771915000139FC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
@@ -546,10 +638,16 @@
 			files = (
 				8C0A58131DB37A6A00BFCE16 /* SlitherLinkLevels.xml in Resources */,
 				8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */,
+				8C1D16B21DB8DE930056D407 /* TraversalTree.png in Resources */,
+				8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */,
 				8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */,
 				8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */,
+				8C1D16B11DB8DE930056D407 /* TraversalTree.graffle in Resources */,
 				8CFD4B561DB1205500DEBBAF /* LightUp.storyboard in Resources */,
 				8C9F43E41D771915000139FC /* Assets.xcassets in Resources */,
+				8C1D16B61DB8DE930056D407 /* Info.plist in Resources */,
+				8C1D16B01DB8DE930056D407 /* AnimatedExample.psd in Resources */,
+				8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */,
 				8CFD4B7F1DB1A0CC00DEBBAF /* BridgesLevels.xml in Resources */,
 				8CE6BCA51DB110D50087BC15 /* LightUpLevels.xml in Resources */,
 				8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */,
@@ -583,6 +681,7 @@
 			files = (
 				8C0A580F1DB37A6A00BFCE16 /* SlitherLinkGameScene.swift in Sources */,
 				8C916CCA1DAB2E8E00D9E62B /* SoundManager.swift in Sources */,
+				8C1D16B31DB8DE930056D407 /* README.markdown in Sources */,
 				8CFD4B841DB1A0CC00DEBBAF /* BridgesTables.swift in Sources */,
 				8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */,
 				8C0A580E1DB37A6A00BFCE16 /* SlitherLinkGame.swift in Sources */,
@@ -592,6 +691,7 @@
 				8CE6BCA11DB110D50087BC15 /* LightUpGameScene.swift in Sources */,
 				8CFD4B811DB1A0CC00DEBBAF /* BridgesMixin.swift in Sources */,
 				8C0A58101DB37A6A00BFCE16 /* SlitherLinkGameState.swift in Sources */,
+				8C1D16B51DB8DE930056D407 /* Graph.swift in Sources */,
 				8C886C441D9E8AF1004A42BF /* SWActionSheet.m in Sources */,
 				8CE6BC9F1DB110D50087BC15 /* LightUpObject.swift in Sources */,
 				8CE6BC9C1DB110D50087BC15 /* LightUpDocument.swift in Sources */,
@@ -630,6 +730,8 @@
 				8CE6BCA21DB110D50087BC15 /* LightUpGameState.swift in Sources */,
 				8C886C3F1D9E8AF1004A42BF /* ActionSheetDistancePicker.m in Sources */,
 				8CFD4B7B1DB1A0CC00DEBBAF /* BridgesGameScene.swift in Sources */,
+				8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */,
+				8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */,
 				8CFD4B7D1DB1A0CC00DEBBAF /* BridgesGameViewController.swift in Sources */,
 				8C0A58151DB37A6A00BFCE16 /* SlitherLinkMixin.swift in Sources */,
 				8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */,

@@ -51,7 +51,7 @@ class SlitherLinkGridNode : SKSpriteNode {
             bezierPath.move(to: CGPoint(x: 0, y: y))
             bezierPath.addLine(to: CGPoint(x: size.width, y: y))
         }
-        SKColor.white.setStroke()
+        SKColor.gray.setStroke()
         bezierPath.lineWidth = 1.0
         bezierPath.stroke()
         context?.addPath(bezierPath.cgPath)
