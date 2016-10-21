@@ -63,7 +63,7 @@ class SlitherLinkGameScene: SKScene {
                     }
                 }
                 func removeHintNumber() { removeNode(withName: hintNumberNodeName) }
-                func addHorzLine(objType: SlitherLinkObjectType) {
+                func addHorzLine(objType: SlitherLinkObject) {
                     guard objType != .empty else {return}
                     let pathToDraw = CGMutablePath()
                     let lineNode = SKShapeNode(path:pathToDraw)
@@ -86,10 +86,10 @@ class SlitherLinkGameScene: SKScene {
                     lineNode.name = horzLineNodeName
                     gridNode.addChild(lineNode)
                 }
-                func removeHorzLine(objType: SlitherLinkObjectType) {
+                func removeHorzLine(objType: SlitherLinkObject) {
                     if objType != .empty { removeNode(withName: horzLineNodeName) }
                 }
-                func addVertLine(objType: SlitherLinkObjectType) {
+                func addVertLine(objType: SlitherLinkObject) {
                     guard objType != .empty else {return}
                     let pathToDraw = CGMutablePath()
                     let lineNode = SKShapeNode(path:pathToDraw)
@@ -112,15 +112,15 @@ class SlitherLinkGameScene: SKScene {
                     lineNode.name = vertlineNodeName
                     gridNode.addChild(lineNode)
                 }
-                func removeVertLine(objType: SlitherLinkObjectType) {
+                func removeVertLine(objType: SlitherLinkObject) {
                     if objType != .empty { removeNode(withName: vertlineNodeName) }
                 }
-                var (o1, o2) = (stateFrom[p].objTypeHorz, stateTo[p].objTypeHorz)
+                var (o1, o2) = (stateFrom[p][1], stateTo[p][1])
                 if o1 != o2 {
                     removeHorzLine(objType: o1)
                     addHorzLine(objType: o2)
                 }
-                (o1, o2) = (stateFrom[p].objTypeVert, stateTo[p].objTypeVert)
+                (o1, o2) = (stateFrom[p][2], stateTo[p][2])
                 if o1 != o2 {
                     removeVertLine(objType: o1)
                     addVertLine(objType: o2)

@@ -60,7 +60,7 @@ class SlitherLinkDocument {
         rec.moveIndex = game.moveIndex
         (rec.row, rec.col) = move.p.unapply()
         rec.objOrientation = move.objOrientation.rawValue
-        rec.objType = move.objType.rawValue
+        rec.obj = move.obj.rawValue
         rec.commit()
     }
     

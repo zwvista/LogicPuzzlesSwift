@@ -58,7 +58,7 @@ class SlitherLinkGameViewController: UIViewController, SlitherLinkGameDelegate, 
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let (b, p, orientation) = scene.gridNode.linePosition(point: touchLocationInGrid)
         guard b else {return}
-        var move = SlitherLinkGameMove(p: p, objOrientation: orientation, objType: .empty)
+        var move = SlitherLinkGameMove(p: p, objOrientation: orientation, obj: .empty)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     
@@ -72,7 +72,7 @@ class SlitherLinkGameViewController: UIViewController, SlitherLinkGameDelegate, 
         
         // restore game state
         for case let rec as SlitherLinkMoveProgress in gameDocument.moveProgress {
-            var move = SlitherLinkGameMove(p: Position(rec.row, rec.col), objOrientation: SlitherLinkObjectOrientation(rawValue: rec.objOrientation)!, objType: SlitherLinkObjectType(rawValue: rec.objType)!)
+            var move = SlitherLinkGameMove(p: Position(rec.row, rec.col), objOrientation: SlitherLinkObjectOrientation(rawValue: rec.objOrientation)!, obj: SlitherLinkObject(rawValue: rec.obj)!)
                 _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex

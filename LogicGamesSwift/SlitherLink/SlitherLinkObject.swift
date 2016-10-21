@@ -26,7 +26,7 @@ enum SlitherLinkObjectOrientation: Int {
     }
 }
 
-enum SlitherLinkObjectType: Int {
+enum SlitherLinkObject: Int {
     case empty
     case line
     case marker
@@ -35,13 +35,10 @@ enum SlitherLinkObjectType: Int {
     }
 }
 
-struct SlitherLinkObject {
-    var objTypeHorz = SlitherLinkObjectType()
-    var objTypeVert = SlitherLinkObjectType()
-}
+typealias SlitherLinkDotObject = [SlitherLinkObject]
 
 struct SlitherLinkGameMove {
     var p = Position()
     var objOrientation = SlitherLinkObjectOrientation()
-    var objType = SlitherLinkObjectType()
+    var obj = SlitherLinkObject()
 }

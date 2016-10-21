@@ -78,7 +78,7 @@ struct BridgesGameState {
     private mutating func updateIsSolved() {
         isSolved = true
         let tree = Graph()
-        var dictNodes = [String: Node]()
+        var pos2node = [Position: Node]()
         for (p, info) in game.islandsInfo {
             guard case .island(var state, let bridges) = self[p] else {continue}
             let n1 = bridges.reduce(0, +)
@@ -86,17 +86,18 @@ struct BridgesGameState {
             state = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
             self[p] = .island(state: state, bridges: bridges)
-            dictNodes[p.description] = tree.addNode(label: p.description)
+            pos2node[p] = tree.addNode(label: p.description)
         }
         for (p, info) in game.islandsInfo {
             for p2 in info.neighbors {
                 guard let p2 = p2 else {continue}
-                tree.addEdge(source: dictNodes[p.description]!, neighbor: dictNodes[p2.description]!)
+                tree.addEdge(source: pos2node[p]!, neighbor: pos2node[p2]!)
             }
         }
-        let nodesExplored = breadthFirstSearch(tree, source: dictNodes.values.first!)
+        guard isSolved else {return}
+        let nodesExplored = breadthFirstSearch(tree, source: pos2node.values.first!)
         let n1 = nodesExplored.count
-        let n2 = dictNodes.values.count
+        let n2 = pos2node.values.count
         if n1 != n2 {isSolved = false}
     }
 }
