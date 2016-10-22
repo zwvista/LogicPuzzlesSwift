@@ -100,7 +100,7 @@ struct SlitherLinkGameState {
             if n1 != n2 {isSolved = false}
         }
         guard isSolved else {return}
-        let tree = Graph()
+        let g = Graph()
         var pos2node = [Position: Node]()
         for r in 0 ..< rows {
             for c in 0 ..< cols {
@@ -110,22 +110,22 @@ struct SlitherLinkGameState {
                 case 0:
                     continue
                 case 2:
-                    pos2node[p] = tree.addNode(label: p.description)
+                    pos2node[p] = g.addNode(label: p.description)
                 default:
                     isSolved = false
                     return
                 }
             }
         }
-        for (p, _) in pos2node {
-            let ots = self[p]
+        for p in pos2node.keys {
+            let dotObj = self[p]
             for i in 0 ..< 4 {
-                guard ots[i] == .line else {continue}
+                guard dotObj[i] == .line else {continue}
                 let p2 = p + SlitherLinkGame.offset[i]
-                tree.addEdge(source: pos2node[p]!, neighbor: pos2node[p2]!)
+                g.addEdge(source: pos2node[p]!, neighbor: pos2node[p2]!)
             }
         }
-        let nodesExplored = breadthFirstSearch(tree, source: pos2node.values.first!)
+        let nodesExplored = breadthFirstSearch(g, source: pos2node.values.first!)
         let n1 = nodesExplored.count
         let n2 = pos2node.values.count
         if n1 != n2 {isSolved = false}
