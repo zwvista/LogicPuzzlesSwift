@@ -15,7 +15,7 @@ class BridgesGameViewController: UIViewController, BridgesGameDelegate, BridgesM
     var game: BridgesGame!
     weak var skView: SKView!
     var levelInitilizing = false
-    var pFrom, pTo: Position?
+    var pLast: Position?
 
     @IBOutlet weak var lblSolved: UILabel!
     @IBOutlet weak var lblLevel: UILabel!
@@ -63,21 +63,15 @@ class BridgesGameViewController: UIViewController, BridgesGameDelegate, BridgesM
         switch sender.state {
         case .began:
             guard isI else {break}
-            pFrom = p; pTo = p; f()
+            pLast = p; f()
         case .changed:
-            guard pFrom != nil else {break}
+            guard pLast != nil else {break}
             if isI {
-                if pTo != p {
-                    pTo = p; f()
+                if pLast != p {
+                    _ = game.switchBridges(pFrom: pLast!, pTo: p)
+                    pLast = p; f()
                 }
-            } else {
-                pTo = nil
             }
-        case .ended:
-            guard pFrom != nil else {break}
-            defer { pFrom = nil; pTo = nil }
-            guard isI && pTo != pFrom else {break}
-            _ = game.switchBridges(pFrom: pFrom!, pTo: pTo!)
         default:
             break
         }
