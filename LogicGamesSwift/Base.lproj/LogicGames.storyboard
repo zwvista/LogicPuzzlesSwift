@@ -98,6 +98,17 @@
                                     <segue destination="ORe-b4-YC9" kind="presentation" id="B34-9U-Fv0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Clouds" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W8c-5P-91m">
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="JDP-gd-aRw"/>
+                                    <constraint firstAttribute="height" constant="30" id="dQu-mF-Ub5"/>
+                                </constraints>
+                                <state key="normal" title="Clouds"/>
+                                <connections>
+                                    <action selector="startGame:" destination="AeD-bF-k0G" eventType="touchUpInside" id="Sny-kh-aKK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -108,10 +119,12 @@
                             <constraint firstItem="KCa-ba-clV" firstAttribute="top" secondItem="p7T-vh-GEq" secondAttribute="bottom" constant="20" id="8sV-0m-cfc"/>
                             <constraint firstItem="tCN-cq-Dqy" firstAttribute="top" secondItem="Dmc-8f-29m" secondAttribute="bottom" constant="20" id="8vu-pj-HKb"/>
                             <constraint firstItem="Dmc-8f-29m" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="FO6-f1-hga"/>
-                            <constraint firstItem="PxK-QC-2Io" firstAttribute="top" secondItem="KCa-ba-clV" secondAttribute="bottom" constant="20" id="Yox-CG-LPi"/>
+                            <constraint firstItem="W8c-5P-91m" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="PHR-pv-KW4"/>
                             <constraint firstItem="Dmc-8f-29m" firstAttribute="top" secondItem="yGx-Ts-pBn" secondAttribute="bottom" constant="50" id="aO3-0K-mnH"/>
                             <constraint firstItem="KCa-ba-clV" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="byl-KW-Pa9"/>
-                            <constraint firstItem="tCN-cq-Dqy" firstAttribute="centerY" secondItem="Y0Z-hx-Q2p" secondAttribute="centerY" id="qCT-Nv-iFX"/>
+                            <constraint firstItem="W8c-5P-91m" firstAttribute="top" secondItem="KCa-ba-clV" secondAttribute="bottom" constant="20" id="c6e-6B-CV3"/>
+                            <constraint firstItem="PxK-QC-2Io" firstAttribute="top" secondItem="W8c-5P-91m" secondAttribute="bottom" constant="20" id="ton-7K-ilO"/>
+                            <constraint firstItem="p7T-vh-GEq" firstAttribute="centerY" secondItem="Y0Z-hx-Q2p" secondAttribute="centerY" id="yCf-zw-PlJ"/>
                             <constraint firstItem="p7T-vh-GEq" firstAttribute="top" secondItem="tCN-cq-Dqy" secondAttribute="bottom" constant="20" id="zUJ-pE-AkW"/>
                         </constraints>
                     </view>
