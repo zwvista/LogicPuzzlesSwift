@@ -32,6 +32,19 @@
 		8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D16A91DB8DE930056D407 /* Queue.swift */; };
 		8C31FE6E1D90E415008793BF /* SharkORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; };
 		8C31FE6F1D90E415008793BF /* SharkORM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8C6140021DBF647F00512393 /* CloudsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C613FF61DBF647F00512393 /* CloudsDocument.swift */; };
+		8C6140031DBF647F00512393 /* CloudsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C613FF71DBF647F00512393 /* CloudsGame.swift */; };
+		8C6140041DBF647F00512393 /* CloudsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C613FF81DBF647F00512393 /* CloudsGameScene.swift */; };
+		8C6140051DBF647F00512393 /* CloudsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C613FF91DBF647F00512393 /* CloudsGameState.swift */; };
+		8C6140061DBF647F00512393 /* CloudsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C613FFA1DBF647F00512393 /* CloudsGameViewController.swift */; };
+		8C6140071DBF647F00512393 /* CloudsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C613FFB1DBF647F00512393 /* CloudsGridNode.swift */; };
+		8C6140081DBF647F00512393 /* CloudsLevels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C613FFC1DBF647F00512393 /* CloudsLevels.xml */; };
+		8C6140091DBF647F00512393 /* CloudsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C613FFD1DBF647F00512393 /* CloudsMainViewController.swift */; };
+		8C61400A1DBF647F00512393 /* CloudsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C613FFE1DBF647F00512393 /* CloudsMixin.swift */; };
+		8C61400B1DBF647F00512393 /* CloudsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C613FFF1DBF647F00512393 /* CloudsObject.swift */; };
+		8C61400C1DBF647F00512393 /* CloudsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6140001DBF647F00512393 /* CloudsOptionsViewController.swift */; };
+		8C61400D1DBF647F00512393 /* CloudsTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6140011DBF647F00512393 /* CloudsTables.swift */; };
+		8C6140111DBFAFB200512393 /* Clouds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C61400F1DBFAFB200512393 /* Clouds.storyboard */; };
 		8C835D651D84BCDC0067BC3E /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C835D641D84BCDC0067BC3E /* Position.swift */; };
 		8C886C3C1D9E8AF1004A42BF /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C291D9E8AF0004A42BF /* AbstractActionSheetPicker.m */; };
 		8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C2B1D9E8AF0004A42BF /* ActionSheetCustomPicker.m */; };
@@ -159,6 +172,19 @@
 		8C1D16A91DB8DE930056D407 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		8C1D16AA1DB8DE930056D407 /* Tests.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Tests.xcodeproj; sourceTree = "<group>"; };
 		8C31FE6D1D90E415008793BF /* SharkORM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SharkORM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C613FF61DBF647F00512393 /* CloudsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsDocument.swift; sourceTree = "<group>"; };
+		8C613FF71DBF647F00512393 /* CloudsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsGame.swift; sourceTree = "<group>"; };
+		8C613FF81DBF647F00512393 /* CloudsGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsGameScene.swift; sourceTree = "<group>"; };
+		8C613FF91DBF647F00512393 /* CloudsGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsGameState.swift; sourceTree = "<group>"; };
+		8C613FFA1DBF647F00512393 /* CloudsGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsGameViewController.swift; sourceTree = "<group>"; };
+		8C613FFB1DBF647F00512393 /* CloudsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsGridNode.swift; sourceTree = "<group>"; };
+		8C613FFC1DBF647F00512393 /* CloudsLevels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CloudsLevels.xml; sourceTree = "<group>"; };
+		8C613FFD1DBF647F00512393 /* CloudsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsMainViewController.swift; sourceTree = "<group>"; };
+		8C613FFE1DBF647F00512393 /* CloudsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsMixin.swift; sourceTree = "<group>"; };
+		8C613FFF1DBF647F00512393 /* CloudsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsObject.swift; sourceTree = "<group>"; };
+		8C6140001DBF647F00512393 /* CloudsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsOptionsViewController.swift; sourceTree = "<group>"; };
+		8C6140011DBF647F00512393 /* CloudsTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsTables.swift; sourceTree = "<group>"; };
+		8C6140101DBFAFB200512393 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicGamesSwift/Base.lproj/Clouds.storyboard; sourceTree = SOURCE_ROOT; };
 		8C835D641D84BCDC0067BC3E /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		8C886C281D9E8AF0004A42BF /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
 		8C886C291D9E8AF0004A42BF /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
@@ -339,6 +365,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8C613FF51DBF647F00512393 /* Clouds */ = {
+			isa = PBXGroup;
+			children = (
+				8C61400F1DBFAFB200512393 /* Clouds.storyboard */,
+				8C613FF61DBF647F00512393 /* CloudsDocument.swift */,
+				8C613FF71DBF647F00512393 /* CloudsGame.swift */,
+				8C613FF81DBF647F00512393 /* CloudsGameScene.swift */,
+				8C613FF91DBF647F00512393 /* CloudsGameState.swift */,
+				8C613FFA1DBF647F00512393 /* CloudsGameViewController.swift */,
+				8C613FFB1DBF647F00512393 /* CloudsGridNode.swift */,
+				8C613FFC1DBF647F00512393 /* CloudsLevels.xml */,
+				8C613FFD1DBF647F00512393 /* CloudsMainViewController.swift */,
+				8C613FFE1DBF647F00512393 /* CloudsMixin.swift */,
+				8C613FFF1DBF647F00512393 /* CloudsObject.swift */,
+				8C6140001DBF647F00512393 /* CloudsOptionsViewController.swift */,
+				8C6140011DBF647F00512393 /* CloudsTables.swift */,
+			);
+			path = Clouds;
+			sourceTree = "<group>";
+		};
 		8C886C271D9E8AF0004A42BF /* Pickers */ = {
 			isa = PBXGroup;
 			children = (
@@ -430,6 +476,7 @@
 			children = (
 				8C9F43DA1D771915000139FC /* AppDelegate.swift */,
 				8CFD4B6C1DB1A0CC00DEBBAF /* Bridges */,
+				8C613FF51DBF647F00512393 /* Clouds */,
 				8CE6BC911DB110D50087BC15 /* LightUp */,
 				8CFD4B611DB12F3C00DEBBAF /* LogicGames */,
 				8C0A58001DB37A6A00BFCE16 /* SlitherLink */,
@@ -638,8 +685,10 @@
 			files = (
 				8C0A58131DB37A6A00BFCE16 /* SlitherLinkLevels.xml in Resources */,
 				8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */,
+				8C6140111DBFAFB200512393 /* Clouds.storyboard in Resources */,
 				8C1D16B21DB8DE930056D407 /* TraversalTree.png in Resources */,
 				8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */,
+				8C6140081DBF647F00512393 /* CloudsLevels.xml in Resources */,
 				8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */,
 				8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */,
 				8C1D16B11DB8DE930056D407 /* TraversalTree.graffle in Resources */,
@@ -679,7 +728,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C6140021DBF647F00512393 /* CloudsDocument.swift in Sources */,
 				8C0A580F1DB37A6A00BFCE16 /* SlitherLinkGameScene.swift in Sources */,
+				8C6140041DBF647F00512393 /* CloudsGameScene.swift in Sources */,
 				8C916CCA1DAB2E8E00D9E62B /* SoundManager.swift in Sources */,
 				8C1D16B31DB8DE930056D407 /* README.markdown in Sources */,
 				8CFD4B841DB1A0CC00DEBBAF /* BridgesTables.swift in Sources */,
@@ -689,19 +740,24 @@
 				8C0A580D1DB37A6A00BFCE16 /* SlitherLinkDocument.swift in Sources */,
 				8C916CC01DAA5E9500D9E62B /* Node.swift in Sources */,
 				8CE6BCA11DB110D50087BC15 /* LightUpGameScene.swift in Sources */,
+				8C6140061DBF647F00512393 /* CloudsGameViewController.swift in Sources */,
 				8CFD4B811DB1A0CC00DEBBAF /* BridgesMixin.swift in Sources */,
 				8C0A58101DB37A6A00BFCE16 /* SlitherLinkGameState.swift in Sources */,
 				8C1D16B51DB8DE930056D407 /* Graph.swift in Sources */,
 				8C886C441D9E8AF1004A42BF /* SWActionSheet.m in Sources */,
+				8C6140051DBF647F00512393 /* CloudsGameState.swift in Sources */,
 				8CE6BC9F1DB110D50087BC15 /* LightUpObject.swift in Sources */,
+				8C6140091DBF647F00512393 /* CloudsMainViewController.swift in Sources */,
 				8CE6BC9C1DB110D50087BC15 /* LightUpDocument.swift in Sources */,
 				8CFD4B791DB1A0CC00DEBBAF /* BridgesDocument.swift in Sources */,
 				8CFD4B7E1DB1A0CC00DEBBAF /* BridgesGridNode.swift in Sources */,
+				8C61400C1DBF647F00512393 /* CloudsOptionsViewController.swift in Sources */,
 				8CFD4B831DB1A0CC00DEBBAF /* BridgesOptionsViewController.swift in Sources */,
 				8CFD4B6A1DB12F3C00DEBBAF /* LogicGamesMainViewController.swift in Sources */,
 				8CE6BCA41DB110D50087BC15 /* LightUpGridNode.swift in Sources */,
 				8C0A58161DB37A6A00BFCE16 /* SlitherLinkObject.swift in Sources */,
 				8C886C401D9E8AF1004A42BF /* ActionSheetLocalePicker.m in Sources */,
+				8C61400B1DBF647F00512393 /* CloudsObject.swift in Sources */,
 				8CE6BCA71DB110F30087BC15 /* LightUpMainViewController.swift in Sources */,
 				8CE6BCA31DB110D50087BC15 /* LightUpGameViewController.swift in Sources */,
 				8C835D651D84BCDC0067BC3E /* Position.swift in Sources */,
@@ -718,13 +774,16 @@
 				8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */,
 				8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */,
 				8CE6BC9E1DB110D50087BC15 /* LightUpMixin.swift in Sources */,
+				8C61400A1DBF647F00512393 /* CloudsMixin.swift in Sources */,
 				8C886C421D9E8AF1004A42BF /* ActionSheetStringPicker.m in Sources */,
 				8CFD4B6B1DB12F3C00DEBBAF /* LogicGamesOptionsViewController.swift in Sources */,
 				8C916CBD1DAA5E9500D9E62B /* Error.swift in Sources */,
+				8C61400D1DBF647F00512393 /* CloudsTables.swift in Sources */,
 				8C0A58121DB37A6A00BFCE16 /* SlitherLinkGridNode.swift in Sources */,
 				8CFD4B691DB12F3C00DEBBAF /* LogicGamesTables.swift in Sources */,
 				8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */,
 				8CFD4B7A1DB1A0CC00DEBBAF /* BridgesGame.swift in Sources */,
+				8C6140031DBF647F00512393 /* CloudsGame.swift in Sources */,
 				8C916CC11DAA5E9500D9E62B /* NodeSet.swift in Sources */,
 				8CFD4B7C1DB1A0CC00DEBBAF /* BridgesGameState.swift in Sources */,
 				8CE6BCA21DB110D50087BC15 /* LightUpGameState.swift in Sources */,
@@ -735,6 +794,7 @@
 				8CFD4B7D1DB1A0CC00DEBBAF /* BridgesGameViewController.swift in Sources */,
 				8C0A58151DB37A6A00BFCE16 /* SlitherLinkMixin.swift in Sources */,
 				8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */,
+				8C6140071DBF647F00512393 /* CloudsGridNode.swift in Sources */,
 				8C916CBC1DAA5E9500D9E62B /* Element.swift in Sources */,
 				8C886C411D9E8AF1004A42BF /* ActionSheetMultipleStringPicker.m in Sources */,
 				8C0A58111DB37A6A00BFCE16 /* SlitherLinkGameViewController.swift in Sources */,
@@ -781,6 +841,14 @@
 				8C0A581A1DB37A8600BFCE16 /* Base */,
 			);
 			name = SlitherLink.storyboard;
+			sourceTree = "<group>";
+		};
+		8C61400F1DBFAFB200512393 /* Clouds.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C6140101DBFAFB200512393 /* Base */,
+			);
+			name = Clouds.storyboard;
 			sourceTree = "<group>";
 		};
 		8C9F43E01D771915000139FC /* LogicGames.storyboard */ = {
