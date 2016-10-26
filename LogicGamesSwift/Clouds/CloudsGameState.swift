@@ -95,5 +95,39 @@ struct CloudsGameState {
             if n1 != n2 {isSolved = false}
         }
         guard isSolved else {return}
+        let g = Graph()
+        var pos2node = [Position: Node]()
+        for r in 0 ..< rows {
+            for c in 0 ..< cols {
+                let p = Position(r, c)
+                guard self[p] == .cloud else {continue}
+                let node = g.addNode(label: p.description)
+                pos2node[p] = node
+            }
+        }
+        for (p, node) in pos2node {
+            for os in CloudsGame.offset {
+                let p2 = p + os
+                guard let node2 = pos2node[p2] else {continue}
+                g.addEdge(source: node, neighbor: node2)
+            }
+        }
+        while pos2node.count > 0 {
+            let nodesExplored = breadthFirstSearch(g, source: pos2node.values.first!)
+            var r2 = 0, r1 = rows, c2 = 0, c1 = cols
+            for node in nodesExplored {
+                let p = pos2node.filter{$1.label == node}.first!.key
+                pos2node.remove(at: pos2node.index(forKey: p)!)
+                if r2 < p.row {r2 = p.row}
+                if r1 > p.row {r1 = p.row}
+                if c2 < p.col {c2 = p.col}
+                if c1 > p.col {c1 = p.col}
+            }
+            let rs = r2 - r1 + 1, cs = c2 - c1 + 1;
+            if !(rs >= 2 && cs >= 2 && rs * cs == nodesExplored.count) {
+                isSolved = false
+                return
+            }
+        }
     }
 }

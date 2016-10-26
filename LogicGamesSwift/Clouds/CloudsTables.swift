@@ -14,7 +14,7 @@ class CloudsGameProgress: SRKObject {
     dynamic var markerOption = 0
     
     override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
-        return ["levelID": "Level 1", "markerOption": 0, "normalLightbulbsOnly": false]
+        return ["levelID": "Level 1", "markerOption": 0]
     }
 }
 
