@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C0940901DC0D95100294662 /* HitoriDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0940841DC0D95100294662 /* HitoriDocument.swift */; };
+		8C0940911DC0D95100294662 /* HitoriGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0940851DC0D95100294662 /* HitoriGame.swift */; };
+		8C0940921DC0D95100294662 /* HitoriGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0940861DC0D95100294662 /* HitoriGameScene.swift */; };
+		8C0940931DC0D95100294662 /* HitoriGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0940871DC0D95100294662 /* HitoriGameState.swift */; };
+		8C0940941DC0D95100294662 /* HitoriGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0940881DC0D95100294662 /* HitoriGameViewController.swift */; };
+		8C0940951DC0D95100294662 /* HitoriGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0940891DC0D95100294662 /* HitoriGridNode.swift */; };
+		8C0940961DC0D95100294662 /* HitoriLevels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C09408A1DC0D95100294662 /* HitoriLevels.xml */; };
+		8C0940971DC0D95100294662 /* HitoriMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09408B1DC0D95100294662 /* HitoriMainViewController.swift */; };
+		8C0940981DC0D95100294662 /* HitoriMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09408C1DC0D95100294662 /* HitoriMixin.swift */; };
+		8C0940991DC0D95100294662 /* HitoriObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09408D1DC0D95100294662 /* HitoriObject.swift */; };
+		8C09409A1DC0D95100294662 /* HitoriOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09408E1DC0D95100294662 /* HitoriOptionsViewController.swift */; };
+		8C09409B1DC0D95100294662 /* HitoriTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09408F1DC0D95100294662 /* HitoriTables.swift */; };
+		8C09409F1DC0DC3E00294662 /* Hitori.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C09409D1DC0DC3E00294662 /* Hitori.storyboard */; };
 		8C0A580D1DB37A6A00BFCE16 /* SlitherLinkDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A58011DB37A6A00BFCE16 /* SlitherLinkDocument.swift */; };
 		8C0A580E1DB37A6A00BFCE16 /* SlitherLinkGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A58021DB37A6A00BFCE16 /* SlitherLinkGame.swift */; };
 		8C0A580F1DB37A6A00BFCE16 /* SlitherLinkGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A58031DB37A6A00BFCE16 /* SlitherLinkGameScene.swift */; };
@@ -145,6 +158,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8C0940841DC0D95100294662 /* HitoriDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriDocument.swift; sourceTree = "<group>"; };
+		8C0940851DC0D95100294662 /* HitoriGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriGame.swift; sourceTree = "<group>"; };
+		8C0940861DC0D95100294662 /* HitoriGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriGameScene.swift; sourceTree = "<group>"; };
+		8C0940871DC0D95100294662 /* HitoriGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriGameState.swift; sourceTree = "<group>"; };
+		8C0940881DC0D95100294662 /* HitoriGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriGameViewController.swift; sourceTree = "<group>"; };
+		8C0940891DC0D95100294662 /* HitoriGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriGridNode.swift; sourceTree = "<group>"; };
+		8C09408A1DC0D95100294662 /* HitoriLevels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = HitoriLevels.xml; sourceTree = "<group>"; };
+		8C09408B1DC0D95100294662 /* HitoriMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriMainViewController.swift; sourceTree = "<group>"; };
+		8C09408C1DC0D95100294662 /* HitoriMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriMixin.swift; sourceTree = "<group>"; };
+		8C09408D1DC0D95100294662 /* HitoriObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriObject.swift; sourceTree = "<group>"; };
+		8C09408E1DC0D95100294662 /* HitoriOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriOptionsViewController.swift; sourceTree = "<group>"; };
+		8C09408F1DC0D95100294662 /* HitoriTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriTables.swift; sourceTree = "<group>"; };
+		8C09409E1DC0DC3E00294662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicGamesSwift/Base.lproj/Hitori.storyboard; sourceTree = SOURCE_ROOT; };
 		8C0A58011DB37A6A00BFCE16 /* SlitherLinkDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkDocument.swift; sourceTree = "<group>"; };
 		8C0A58021DB37A6A00BFCE16 /* SlitherLinkGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGame.swift; sourceTree = "<group>"; };
 		8C0A58031DB37A6A00BFCE16 /* SlitherLinkGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGameScene.swift; sourceTree = "<group>"; };
@@ -292,6 +318,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C0940831DC0D95100294662 /* Hitori */ = {
+			isa = PBXGroup;
+			children = (
+				8C09409D1DC0DC3E00294662 /* Hitori.storyboard */,
+				8C0940841DC0D95100294662 /* HitoriDocument.swift */,
+				8C0940851DC0D95100294662 /* HitoriGame.swift */,
+				8C0940861DC0D95100294662 /* HitoriGameScene.swift */,
+				8C0940871DC0D95100294662 /* HitoriGameState.swift */,
+				8C0940881DC0D95100294662 /* HitoriGameViewController.swift */,
+				8C0940891DC0D95100294662 /* HitoriGridNode.swift */,
+				8C09408A1DC0D95100294662 /* HitoriLevels.xml */,
+				8C09408B1DC0D95100294662 /* HitoriMainViewController.swift */,
+				8C09408C1DC0D95100294662 /* HitoriMixin.swift */,
+				8C09408D1DC0D95100294662 /* HitoriObject.swift */,
+				8C09408E1DC0D95100294662 /* HitoriOptionsViewController.swift */,
+				8C09408F1DC0D95100294662 /* HitoriTables.swift */,
+			);
+			name = Hitori;
+			path = LogicGamesSwift/Hitori;
+			sourceTree = SOURCE_ROOT;
+		};
 		8C0A58001DB37A6A00BFCE16 /* SlitherLink */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,14 +522,15 @@
 			isa = PBXGroup;
 			children = (
 				8C9F43DA1D771915000139FC /* AppDelegate.swift */,
+				8C9F43E31D771915000139FC /* Assets.xcassets */,
 				8CFD4B6C1DB1A0CC00DEBBAF /* Bridges */,
 				8C613FF51DBF647F00512393 /* Clouds */,
+				8C0940831DC0D95100294662 /* Hitori */,
 				8CE6BC911DB110D50087BC15 /* LightUp */,
 				8CFD4B611DB12F3C00DEBBAF /* LogicGames */,
-				8C0A58001DB37A6A00BFCE16 /* SlitherLink */,
 				8C835D641D84BCDC0067BC3E /* Position.swift */,
+				8C0A58001DB37A6A00BFCE16 /* SlitherLink */,
 				8C916CC91DAB2E8E00D9E62B /* SoundManager.swift */,
-				8C9F43E31D771915000139FC /* Assets.xcassets */,
 				8C916CC81DAB297A00D9E62B /* Supporting Files */,
 			);
 			path = LogicGamesSwift;
@@ -684,6 +732,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C0A58131DB37A6A00BFCE16 /* SlitherLinkLevels.xml in Resources */,
+				8C0940961DC0D95100294662 /* HitoriLevels.xml in Resources */,
 				8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */,
 				8C6140111DBFAFB200512393 /* Clouds.storyboard in Resources */,
 				8C1D16B21DB8DE930056D407 /* TraversalTree.png in Resources */,
@@ -694,6 +743,7 @@
 				8C1D16B11DB8DE930056D407 /* TraversalTree.graffle in Resources */,
 				8CFD4B561DB1205500DEBBAF /* LightUp.storyboard in Resources */,
 				8C9F43E41D771915000139FC /* Assets.xcassets in Resources */,
+				8C09409F1DC0DC3E00294662 /* Hitori.storyboard in Resources */,
 				8C1D16B61DB8DE930056D407 /* Info.plist in Resources */,
 				8C1D16B01DB8DE930056D407 /* AnimatedExample.psd in Resources */,
 				8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */,
@@ -730,9 +780,11 @@
 			files = (
 				8C6140021DBF647F00512393 /* CloudsDocument.swift in Sources */,
 				8C0A580F1DB37A6A00BFCE16 /* SlitherLinkGameScene.swift in Sources */,
+				8C0940921DC0D95100294662 /* HitoriGameScene.swift in Sources */,
 				8C6140041DBF647F00512393 /* CloudsGameScene.swift in Sources */,
 				8C916CCA1DAB2E8E00D9E62B /* SoundManager.swift in Sources */,
 				8C1D16B31DB8DE930056D407 /* README.markdown in Sources */,
+				8C0940951DC0D95100294662 /* HitoriGridNode.swift in Sources */,
 				8CFD4B841DB1A0CC00DEBBAF /* BridgesTables.swift in Sources */,
 				8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */,
 				8C0A580E1DB37A6A00BFCE16 /* SlitherLinkGame.swift in Sources */,
@@ -741,7 +793,9 @@
 				8C916CC01DAA5E9500D9E62B /* Node.swift in Sources */,
 				8CE6BCA11DB110D50087BC15 /* LightUpGameScene.swift in Sources */,
 				8C6140061DBF647F00512393 /* CloudsGameViewController.swift in Sources */,
+				8C0940901DC0D95100294662 /* HitoriDocument.swift in Sources */,
 				8CFD4B811DB1A0CC00DEBBAF /* BridgesMixin.swift in Sources */,
+				8C0940941DC0D95100294662 /* HitoriGameViewController.swift in Sources */,
 				8C0A58101DB37A6A00BFCE16 /* SlitherLinkGameState.swift in Sources */,
 				8C1D16B51DB8DE930056D407 /* Graph.swift in Sources */,
 				8C886C441D9E8AF1004A42BF /* SWActionSheet.m in Sources */,
@@ -752,22 +806,27 @@
 				8CFD4B791DB1A0CC00DEBBAF /* BridgesDocument.swift in Sources */,
 				8CFD4B7E1DB1A0CC00DEBBAF /* BridgesGridNode.swift in Sources */,
 				8C61400C1DBF647F00512393 /* CloudsOptionsViewController.swift in Sources */,
+				8C0940971DC0D95100294662 /* HitoriMainViewController.swift in Sources */,
 				8CFD4B831DB1A0CC00DEBBAF /* BridgesOptionsViewController.swift in Sources */,
 				8CFD4B6A1DB12F3C00DEBBAF /* LogicGamesMainViewController.swift in Sources */,
+				8C0940991DC0D95100294662 /* HitoriObject.swift in Sources */,
 				8CE6BCA41DB110D50087BC15 /* LightUpGridNode.swift in Sources */,
 				8C0A58161DB37A6A00BFCE16 /* SlitherLinkObject.swift in Sources */,
 				8C886C401D9E8AF1004A42BF /* ActionSheetLocalePicker.m in Sources */,
 				8C61400B1DBF647F00512393 /* CloudsObject.swift in Sources */,
+				8C09409A1DC0D95100294662 /* HitoriOptionsViewController.swift in Sources */,
 				8CE6BCA71DB110F30087BC15 /* LightUpMainViewController.swift in Sources */,
 				8CE6BCA31DB110D50087BC15 /* LightUpGameViewController.swift in Sources */,
 				8C835D651D84BCDC0067BC3E /* Position.swift in Sources */,
 				8CE6BCA01DB110D50087BC15 /* LightUpTables.swift in Sources */,
 				8CFD4B821DB1A0CC00DEBBAF /* BridgesObject.swift in Sources */,
+				8C09409B1DC0D95100294662 /* HitoriTables.swift in Sources */,
 				8CFD4B671DB12F3C00DEBBAF /* LogicGamesDocument.swift in Sources */,
 				8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */,
 				8C886C3C1D9E8AF1004A42BF /* AbstractActionSheetPicker.m in Sources */,
 				8CFD4B681DB12F3C00DEBBAF /* LogicGamesMixin.swift in Sources */,
 				8CFD4B801DB1A0CC00DEBBAF /* BridgesMainViewController.swift in Sources */,
+				8C0940931DC0D95100294662 /* HitoriGameState.swift in Sources */,
 				8CFD4B581DB1213200DEBBAF /* LightUpOptionsViewController.swift in Sources */,
 				8C0A58181DB37A6A00BFCE16 /* SlitherLinkTables.swift in Sources */,
 				8C916CBE1DAA5E9500D9E62B /* Helpers.swift in Sources */,
@@ -786,6 +845,7 @@
 				8C6140031DBF647F00512393 /* CloudsGame.swift in Sources */,
 				8C916CC11DAA5E9500D9E62B /* NodeSet.swift in Sources */,
 				8CFD4B7C1DB1A0CC00DEBBAF /* BridgesGameState.swift in Sources */,
+				8C0940981DC0D95100294662 /* HitoriMixin.swift in Sources */,
 				8CE6BCA21DB110D50087BC15 /* LightUpGameState.swift in Sources */,
 				8C886C3F1D9E8AF1004A42BF /* ActionSheetDistancePicker.m in Sources */,
 				8CFD4B7B1DB1A0CC00DEBBAF /* BridgesGameScene.swift in Sources */,
@@ -795,6 +855,7 @@
 				8C0A58151DB37A6A00BFCE16 /* SlitherLinkMixin.swift in Sources */,
 				8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */,
 				8C6140071DBF647F00512393 /* CloudsGridNode.swift in Sources */,
+				8C0940911DC0D95100294662 /* HitoriGame.swift in Sources */,
 				8C916CBC1DAA5E9500D9E62B /* Element.swift in Sources */,
 				8C886C411D9E8AF1004A42BF /* ActionSheetMultipleStringPicker.m in Sources */,
 				8C0A58111DB37A6A00BFCE16 /* SlitherLinkGameViewController.swift in Sources */,
@@ -835,6 +896,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		8C09409D1DC0DC3E00294662 /* Hitori.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C09409E1DC0DC3E00294662 /* Base */,
+			);
+			name = Hitori.storyboard;
+			sourceTree = "<group>";
+		};
 		8C0A58191DB37A8600BFCE16 /* SlitherLink.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
