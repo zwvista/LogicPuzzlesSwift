@@ -68,7 +68,7 @@ class HitoriGameScene: SKScene {
                 func addNumber2() { addNumber(n: stateFrom.game[p], point: point, nodeName: numberNodeName) }
                 func removeNumber() { removeNode(withName: numberNodeName) }
                 func addDarken() {
-                    let darkenNode = SKSpriteNode(color: SKColor.gray, size: coloredRectSize())
+                    let darkenNode = SKSpriteNode(color: SKColor.lightGray, size: coloredRectSize())
                     darkenNode.position = point
                     darkenNode.name = darkenNodeName
                     gridNode.addChild(darkenNode)
