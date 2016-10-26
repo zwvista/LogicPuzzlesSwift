@@ -47,14 +47,11 @@ struct CloudsGameState {
     }
     
     mutating func setObject(move: inout CloudsGameMove) -> Bool {
-        var changed = false
         let p = move.p
-        if self[p] != move.obj {
-            changed = true
-            self[p] = move.obj
-            updateIsSolved()
-        }
-        return changed
+        guard isValid(p: p) && self[p] != move.obj else {return false}
+        self[p] = move.obj
+        updateIsSolved()
+        return true
     }
     
     mutating func switchObject(move: inout CloudsGameMove) -> Bool {
@@ -70,8 +67,8 @@ struct CloudsGameState {
             }
         }
         let p = move.p
-        let o = f(o: self[p])
-        move.obj = o
+        guard isValid(p: p) else {return false}
+        move.obj = f(o: self[p])
         return setObject(move: &move)
     }
     
@@ -79,5 +76,24 @@ struct CloudsGameState {
     
     private mutating func updateIsSolved() {
         isSolved = true
+        for r in 0 ..< rows {
+            var n1 = 0
+            let n2 = game.row2hint[r]
+            for c in 0 ..< cols {
+                if self[r, c] == .cloud {n1 += 1}
+            }
+            row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            if n1 != n2 {isSolved = false}
+        }
+        for c in 0 ..< cols {
+            var n1 = 0
+            let n2 = game.col2hint[c]
+            for r in 0 ..< rows {
+                if self[r, c] == .cloud {n1 += 1}
+            }
+            col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            if n1 != n2 {isSolved = false}
+        }
+        guard isSolved else {return}
     }
 }

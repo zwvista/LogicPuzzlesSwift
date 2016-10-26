@@ -88,8 +88,10 @@ class CloudsGame {
                     let n = Int(String(ch))!
                     if r == rows {
                         col2hint[c] = n
+                        state.col2state[c] = n == 0 ? .complete : .normal
                     } else if c == cols {
                         row2hint[r] = n
+                        state.row2state[r] = n == 0 ? .complete : .normal
                     }
                 default:
                     break

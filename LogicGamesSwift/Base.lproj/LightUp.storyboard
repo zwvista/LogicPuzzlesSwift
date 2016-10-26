@@ -292,7 +292,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="jgE-OH-Rll">
                     <connections>
-                        <action selector="handTap:" destination="BV1-FR-VrT" id="Ijz-bT-bM2"/>
+                        <action selector="handleTap:" destination="BV1-FR-VrT" id="Ijz-bT-bM2"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
