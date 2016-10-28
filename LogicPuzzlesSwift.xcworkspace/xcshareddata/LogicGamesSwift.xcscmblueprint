@@ -1,0 +1,51 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "0B2E5EC0AFF41DD2E9A85F532BCA66ECF209844B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "96D86864D576B39C72B29A1CB8017AF09F0454C5" : 9223372036854775807,
+    "FF65A8AFC255E5913A7BCDE7153CC9C006153EAE" : 9223372036854775807,
+    "A7FB94794D37B7728F6B46975BE5E9D999585A35" : 9223372036854775807,
+    "0B2E5EC0AFF41DD2E9A85F532BCA66ECF209844B" : 9223372036854775807,
+    "CF309AABC690F91A443043D5C69EECB0069B5411" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "4602C493-8112-42AF-8CB7-29358FE87C0E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "96D86864D576B39C72B29A1CB8017AF09F0454C5" : "..\/OSS\/sharkorm",
+    "FF65A8AFC255E5913A7BCDE7153CC9C006153EAE" : "..\/OSS\/ActionSheetPicker-3.0",
+    "A7FB94794D37B7728F6B46975BE5E9D999585A35" : "..\/OSS\/Fuzi",
+    "0B2E5EC0AFF41DD2E9A85F532BCA66ECF209844B" : "LogicPuzzlesSwift\/",
+    "CF309AABC690F91A443043D5C69EECB0069B5411" : "..\/OSS\/swift-algorithm-club"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "LogicPuzzlesSwift",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "LogicPuzzlesSwift.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/zwvista\/LogicPuzzlesSwift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0B2E5EC0AFF41DD2E9A85F532BCA66ECF209844B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sharksync\/sharkorm",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "96D86864D576B39C72B29A1CB8017AF09F0454C5"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/cezheng\/Fuzi",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A7FB94794D37B7728F6B46975BE5E9D999585A35"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/raywenderlich\/swift-algorithm-club",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CF309AABC690F91A443043D5C69EECB0069B5411"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/skywinder\/ActionSheetPicker-3.0",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FF65A8AFC255E5913A7BCDE7153CC9C006153EAE"
+    }
+  ]
+}
