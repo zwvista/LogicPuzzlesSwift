@@ -20,7 +20,7 @@ class LightUpMainViewController: UIViewController, LightUpMixin {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let toResume = ((UIApplication.shared.keyWindow!.rootViewController! as! UINavigationController).topViewController as! LogicPuzzlesMainViewController).toResume
+        let toResume = ((UIApplication.shared.keyWindow!.rootViewController! as! UINavigationController).topViewController as! HomeMainViewController).toResume
         if toResume {resumGame(self)}
     }
     

@@ -58,6 +58,12 @@
 		8C61400C1DBF647F00512393 /* CloudsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6140001DBF647F00512393 /* CloudsOptionsViewController.swift */; };
 		8C61400D1DBF647F00512393 /* CloudsTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6140011DBF647F00512393 /* CloudsTables.swift */; };
 		8C6140111DBFAFB200512393 /* Clouds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C61400F1DBFAFB200512393 /* Clouds.storyboard */; };
+		8C6D37381DC421180052202C /* HomeDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37331DC421180052202C /* HomeDocument.swift */; };
+		8C6D37391DC421180052202C /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37341DC421180052202C /* HomeMainViewController.swift */; };
+		8C6D373A1DC421180052202C /* HomeMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37351DC421180052202C /* HomeMixin.swift */; };
+		8C6D373B1DC421180052202C /* HomeOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37361DC421180052202C /* HomeOptionsViewController.swift */; };
+		8C6D373C1DC421180052202C /* HomeTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37371DC421180052202C /* HomeTables.swift */; };
+		8C6D373F1DC421980052202C /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6D373D1DC421980052202C /* Home.storyboard */; };
 		8C835D651D84BCDC0067BC3E /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C835D641D84BCDC0067BC3E /* Position.swift */; };
 		8C886C3C1D9E8AF1004A42BF /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C291D9E8AF0004A42BF /* AbstractActionSheetPicker.m */; };
 		8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C2B1D9E8AF0004A42BF /* ActionSheetCustomPicker.m */; };
@@ -80,7 +86,6 @@
 		8C916CCA1DAB2E8E00D9E62B /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C916CC91DAB2E8E00D9E62B /* SoundManager.swift */; };
 		8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CCD1DAB35FC00D9E62B /* solved.wav */; };
 		8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43DA1D771915000139FC /* AppDelegate.swift */; };
-		8C9F43E21D771915000139FC /* LogicPuzzles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E01D771915000139FC /* LogicPuzzles.storyboard */; };
 		8C9F43E41D771915000139FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E31D771915000139FC /* Assets.xcassets */; };
 		8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E51D771915000139FC /* LaunchScreen.storyboard */; };
 		8C9F43F21D771915000139FC /* LogicPuzzlesSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43F11D771915000139FC /* LogicPuzzlesSwiftTests.swift */; };
@@ -99,11 +104,6 @@
 		8CE6BCA71DB110F30087BC15 /* LightUpMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE6BCA61DB110F30087BC15 /* LightUpMainViewController.swift */; };
 		8CFD4B561DB1205500DEBBAF /* LightUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CFD4B541DB1205500DEBBAF /* LightUp.storyboard */; };
 		8CFD4B581DB1213200DEBBAF /* LightUpOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B571DB1213200DEBBAF /* LightUpOptionsViewController.swift */; };
-		8CFD4B671DB12F3C00DEBBAF /* LogicPuzzlesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B621DB12F3C00DEBBAF /* LogicPuzzlesDocument.swift */; };
-		8CFD4B681DB12F3C00DEBBAF /* LogicPuzzlesMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B631DB12F3C00DEBBAF /* LogicPuzzlesMixin.swift */; };
-		8CFD4B691DB12F3C00DEBBAF /* LogicPuzzlesTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B641DB12F3C00DEBBAF /* LogicPuzzlesTables.swift */; };
-		8CFD4B6A1DB12F3C00DEBBAF /* LogicPuzzlesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B651DB12F3C00DEBBAF /* LogicPuzzlesMainViewController.swift */; };
-		8CFD4B6B1DB12F3C00DEBBAF /* LogicPuzzlesOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B661DB12F3C00DEBBAF /* LogicPuzzlesOptionsViewController.swift */; };
 		8CFD4B791DB1A0CC00DEBBAF /* BridgesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B6D1DB1A0CC00DEBBAF /* BridgesDocument.swift */; };
 		8CFD4B7A1DB1A0CC00DEBBAF /* BridgesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B6E1DB1A0CC00DEBBAF /* BridgesGame.swift */; };
 		8CFD4B7B1DB1A0CC00DEBBAF /* BridgesGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B6F1DB1A0CC00DEBBAF /* BridgesGameScene.swift */; };
@@ -211,6 +211,12 @@
 		8C6140001DBF647F00512393 /* CloudsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsOptionsViewController.swift; sourceTree = "<group>"; };
 		8C6140011DBF647F00512393 /* CloudsTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsTables.swift; sourceTree = "<group>"; };
 		8C6140101DBFAFB200512393 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/Clouds.storyboard; sourceTree = SOURCE_ROOT; };
+		8C6D37331DC421180052202C /* HomeDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDocument.swift; sourceTree = "<group>"; };
+		8C6D37341DC421180052202C /* HomeMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMainViewController.swift; sourceTree = "<group>"; };
+		8C6D37351DC421180052202C /* HomeMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMixin.swift; sourceTree = "<group>"; };
+		8C6D37361DC421180052202C /* HomeOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeOptionsViewController.swift; sourceTree = "<group>"; };
+		8C6D37371DC421180052202C /* HomeTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTables.swift; sourceTree = "<group>"; };
+		8C6D373E1DC421980052202C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/Home.storyboard; sourceTree = SOURCE_ROOT; };
 		8C835D641D84BCDC0067BC3E /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		8C886C281D9E8AF0004A42BF /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
 		8C886C291D9E8AF0004A42BF /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
@@ -248,7 +254,6 @@
 		8C916CCD1DAB35FC00D9E62B /* solved.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = solved.wav; sourceTree = "<group>"; };
 		8C9F43D71D771915000139FC /* LogicPuzzlesSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogicPuzzlesSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9F43DA1D771915000139FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8C9F43E11D771915000139FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LogicPuzzles.storyboard; sourceTree = "<group>"; };
 		8C9F43E31D771915000139FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C9F43E61D771915000139FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C9F43E81D771915000139FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -272,11 +277,6 @@
 		8CE6BCA61DB110F30087BC15 /* LightUpMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpMainViewController.swift; sourceTree = "<group>"; };
 		8CFD4B551DB1205500DEBBAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/LightUp.storyboard; sourceTree = SOURCE_ROOT; };
 		8CFD4B571DB1213200DEBBAF /* LightUpOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpOptionsViewController.swift; sourceTree = "<group>"; };
-		8CFD4B621DB12F3C00DEBBAF /* LogicPuzzlesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicPuzzlesDocument.swift; sourceTree = "<group>"; };
-		8CFD4B631DB12F3C00DEBBAF /* LogicPuzzlesMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicPuzzlesMixin.swift; sourceTree = "<group>"; };
-		8CFD4B641DB12F3C00DEBBAF /* LogicPuzzlesTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicPuzzlesTables.swift; sourceTree = "<group>"; };
-		8CFD4B651DB12F3C00DEBBAF /* LogicPuzzlesMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicPuzzlesMainViewController.swift; sourceTree = "<group>"; };
-		8CFD4B661DB12F3C00DEBBAF /* LogicPuzzlesOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogicPuzzlesOptionsViewController.swift; sourceTree = "<group>"; };
 		8CFD4B6D1DB1A0CC00DEBBAF /* BridgesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesDocument.swift; sourceTree = "<group>"; };
 		8CFD4B6E1DB1A0CC00DEBBAF /* BridgesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesGame.swift; sourceTree = "<group>"; };
 		8CFD4B6F1DB1A0CC00DEBBAF /* BridgesGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesGameScene.swift; sourceTree = "<group>"; };
@@ -432,6 +432,20 @@
 			path = Clouds;
 			sourceTree = "<group>";
 		};
+		8C6D37321DC421180052202C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8C6D373D1DC421980052202C /* Home.storyboard */,
+				8C6D37331DC421180052202C /* HomeDocument.swift */,
+				8C6D37341DC421180052202C /* HomeMainViewController.swift */,
+				8C6D37351DC421180052202C /* HomeMixin.swift */,
+				8C6D37361DC421180052202C /* HomeOptionsViewController.swift */,
+				8C6D37371DC421180052202C /* HomeTables.swift */,
+			);
+			name = Home;
+			path = LogicPuzzlesSwift/Home;
+			sourceTree = SOURCE_ROOT;
+		};
 		8C886C271D9E8AF0004A42BF /* Pickers */ = {
 			isa = PBXGroup;
 			children = (
@@ -523,11 +537,11 @@
 			children = (
 				8C9F43DA1D771915000139FC /* AppDelegate.swift */,
 				8C9F43E31D771915000139FC /* Assets.xcassets */,
+				8C6D37321DC421180052202C /* Home */,
 				8CFD4B6C1DB1A0CC00DEBBAF /* Bridges */,
 				8C613FF51DBF647F00512393 /* Clouds */,
 				8C0940831DC0D95100294662 /* Hitori */,
 				8CE6BC911DB110D50087BC15 /* LightUp */,
-				8CFD4B611DB12F3C00DEBBAF /* LogicPuzzles */,
 				8C835D641D84BCDC0067BC3E /* Position.swift */,
 				8C0A58001DB37A6A00BFCE16 /* SlitherLink */,
 				8C916CC91DAB2E8E00D9E62B /* SoundManager.swift */,
@@ -572,20 +586,6 @@
 			);
 			path = LightUp;
 			sourceTree = "<group>";
-		};
-		8CFD4B611DB12F3C00DEBBAF /* LogicPuzzles */ = {
-			isa = PBXGroup;
-			children = (
-				8C9F43E01D771915000139FC /* LogicPuzzles.storyboard */,
-				8CFD4B621DB12F3C00DEBBAF /* LogicPuzzlesDocument.swift */,
-				8CFD4B651DB12F3C00DEBBAF /* LogicPuzzlesMainViewController.swift */,
-				8CFD4B631DB12F3C00DEBBAF /* LogicPuzzlesMixin.swift */,
-				8CFD4B661DB12F3C00DEBBAF /* LogicPuzzlesOptionsViewController.swift */,
-				8CFD4B641DB12F3C00DEBBAF /* LogicPuzzlesTables.swift */,
-			);
-			name = LogicPuzzles;
-			path = LogicPuzzlesSwift/LogicPuzzles;
-			sourceTree = SOURCE_ROOT;
 		};
 		8CFD4B6C1DB1A0CC00DEBBAF /* Bridges */ = {
 			isa = PBXGroup;
@@ -751,8 +751,8 @@
 				8CE6BCA51DB110D50087BC15 /* LightUpLevels.xml in Resources */,
 				8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */,
 				8C0A581B1DB37A8600BFCE16 /* SlitherLink.storyboard in Resources */,
-				8C9F43E21D771915000139FC /* LogicPuzzles.storyboard in Resources */,
 				8CFD4B871DB1A10200DEBBAF /* Bridges.storyboard in Resources */,
+				8C6D373F1DC421980052202C /* Home.storyboard in Resources */,
 				8C916CC41DAA5FEB00D9E62B /* music.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -778,6 +778,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C6D373B1DC421180052202C /* HomeOptionsViewController.swift in Sources */,
 				8C6140021DBF647F00512393 /* CloudsDocument.swift in Sources */,
 				8C0A580F1DB37A6A00BFCE16 /* SlitherLinkGameScene.swift in Sources */,
 				8C0940921DC0D95100294662 /* HitoriGameScene.swift in Sources */,
@@ -787,6 +788,8 @@
 				8C0940951DC0D95100294662 /* HitoriGridNode.swift in Sources */,
 				8CFD4B841DB1A0CC00DEBBAF /* BridgesTables.swift in Sources */,
 				8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */,
+				8C6D373A1DC421180052202C /* HomeMixin.swift in Sources */,
+				8C6D373C1DC421180052202C /* HomeTables.swift in Sources */,
 				8C0A580E1DB37A6A00BFCE16 /* SlitherLinkGame.swift in Sources */,
 				8C0A58171DB37A6A00BFCE16 /* SlitherLinkOptionsViewController.swift in Sources */,
 				8C0A580D1DB37A6A00BFCE16 /* SlitherLinkDocument.swift in Sources */,
@@ -808,7 +811,6 @@
 				8C61400C1DBF647F00512393 /* CloudsOptionsViewController.swift in Sources */,
 				8C0940971DC0D95100294662 /* HitoriMainViewController.swift in Sources */,
 				8CFD4B831DB1A0CC00DEBBAF /* BridgesOptionsViewController.swift in Sources */,
-				8CFD4B6A1DB12F3C00DEBBAF /* LogicPuzzlesMainViewController.swift in Sources */,
 				8C0940991DC0D95100294662 /* HitoriObject.swift in Sources */,
 				8CE6BCA41DB110D50087BC15 /* LightUpGridNode.swift in Sources */,
 				8C0A58161DB37A6A00BFCE16 /* SlitherLinkObject.swift in Sources */,
@@ -821,10 +823,8 @@
 				8CE6BCA01DB110D50087BC15 /* LightUpTables.swift in Sources */,
 				8CFD4B821DB1A0CC00DEBBAF /* BridgesObject.swift in Sources */,
 				8C09409B1DC0D95100294662 /* HitoriTables.swift in Sources */,
-				8CFD4B671DB12F3C00DEBBAF /* LogicPuzzlesDocument.swift in Sources */,
 				8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */,
 				8C886C3C1D9E8AF1004A42BF /* AbstractActionSheetPicker.m in Sources */,
-				8CFD4B681DB12F3C00DEBBAF /* LogicPuzzlesMixin.swift in Sources */,
 				8CFD4B801DB1A0CC00DEBBAF /* BridgesMainViewController.swift in Sources */,
 				8C0940931DC0D95100294662 /* HitoriGameState.swift in Sources */,
 				8CFD4B581DB1213200DEBBAF /* LightUpOptionsViewController.swift in Sources */,
@@ -833,13 +833,13 @@
 				8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */,
 				8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */,
 				8CE6BC9E1DB110D50087BC15 /* LightUpMixin.swift in Sources */,
+				8C6D37391DC421180052202C /* HomeMainViewController.swift in Sources */,
+				8C6D37381DC421180052202C /* HomeDocument.swift in Sources */,
 				8C61400A1DBF647F00512393 /* CloudsMixin.swift in Sources */,
 				8C886C421D9E8AF1004A42BF /* ActionSheetStringPicker.m in Sources */,
-				8CFD4B6B1DB12F3C00DEBBAF /* LogicPuzzlesOptionsViewController.swift in Sources */,
 				8C916CBD1DAA5E9500D9E62B /* Error.swift in Sources */,
 				8C61400D1DBF647F00512393 /* CloudsTables.swift in Sources */,
 				8C0A58121DB37A6A00BFCE16 /* SlitherLinkGridNode.swift in Sources */,
-				8CFD4B691DB12F3C00DEBBAF /* LogicPuzzlesTables.swift in Sources */,
 				8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */,
 				8CFD4B7A1DB1A0CC00DEBBAF /* BridgesGame.swift in Sources */,
 				8C6140031DBF647F00512393 /* CloudsGame.swift in Sources */,
@@ -920,13 +920,12 @@
 			name = Clouds.storyboard;
 			sourceTree = "<group>";
 		};
-		8C9F43E01D771915000139FC /* LogicPuzzles.storyboard */ = {
+		8C6D373D1DC421980052202C /* Home.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8C9F43E11D771915000139FC /* Base */,
+				8C6D373E1DC421980052202C /* Base */,
 			);
-			name = LogicPuzzles.storyboard;
-			path = ..;
+			name = Home.storyboard;
 			sourceTree = "<group>";
 		};
 		8C9F43E51D771915000139FC /* LaunchScreen.storyboard */ = {

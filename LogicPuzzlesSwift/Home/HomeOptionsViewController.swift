@@ -1,6 +1,6 @@
 //
 //  OptionsViewController.swift
-//  LogicPuzzlesSwift
+//  HomeSwift
 //
 //  Created by 趙偉 on 2016/09/25.
 //  Copyright © 2016年 趙偉. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LogicPuzzlesOptionsViewController: UITableViewController, LogicPuzzlesMixin {
+class HomeOptionsViewController: UITableViewController, HomeMixin {
     
     @IBOutlet weak var swPlayMusic: UISwitch!
     @IBOutlet weak var swPlaySound: UISwitch!

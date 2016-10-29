@@ -12,7 +12,7 @@ import AVFoundation
 // http://stackoverflow.com/questions/24043904/creating-and-playing-a-sound-in-swift
 class SoundManager {
     static var sharedInstance = SoundManager()
-    var gameOptions: LogicPuzzlesGameProgress { return LogicPuzzlesDocument.sharedInstance.gameProgress }
+    var gameOptions: HomeGameProgress { return HomeDocument.sharedInstance.gameProgress }
 
     // Grab the path, make sure to add it to your project!
     var apMusic = AVAudioPlayer()
