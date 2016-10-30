@@ -7,32 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C0940901DC0D95100294662 /* HitoriDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0940841DC0D95100294662 /* HitoriDocument.swift */; };
-		8C0940911DC0D95100294662 /* HitoriGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0940851DC0D95100294662 /* HitoriGame.swift */; };
-		8C0940921DC0D95100294662 /* HitoriGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0940861DC0D95100294662 /* HitoriGameScene.swift */; };
-		8C0940931DC0D95100294662 /* HitoriGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0940871DC0D95100294662 /* HitoriGameState.swift */; };
-		8C0940941DC0D95100294662 /* HitoriGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0940881DC0D95100294662 /* HitoriGameViewController.swift */; };
-		8C0940951DC0D95100294662 /* HitoriGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0940891DC0D95100294662 /* HitoriGridNode.swift */; };
-		8C0940961DC0D95100294662 /* HitoriLevels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C09408A1DC0D95100294662 /* HitoriLevels.xml */; };
-		8C0940971DC0D95100294662 /* HitoriMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09408B1DC0D95100294662 /* HitoriMainViewController.swift */; };
-		8C0940981DC0D95100294662 /* HitoriMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09408C1DC0D95100294662 /* HitoriMixin.swift */; };
-		8C0940991DC0D95100294662 /* HitoriObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09408D1DC0D95100294662 /* HitoriObject.swift */; };
-		8C09409A1DC0D95100294662 /* HitoriOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09408E1DC0D95100294662 /* HitoriOptionsViewController.swift */; };
-		8C09409B1DC0D95100294662 /* HitoriTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C09408F1DC0D95100294662 /* HitoriTables.swift */; };
-		8C09409F1DC0DC3E00294662 /* Hitori.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C09409D1DC0DC3E00294662 /* Hitori.storyboard */; };
-		8C0A580D1DB37A6A00BFCE16 /* SlitherLinkDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A58011DB37A6A00BFCE16 /* SlitherLinkDocument.swift */; };
-		8C0A580E1DB37A6A00BFCE16 /* SlitherLinkGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A58021DB37A6A00BFCE16 /* SlitherLinkGame.swift */; };
-		8C0A580F1DB37A6A00BFCE16 /* SlitherLinkGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A58031DB37A6A00BFCE16 /* SlitherLinkGameScene.swift */; };
-		8C0A58101DB37A6A00BFCE16 /* SlitherLinkGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A58041DB37A6A00BFCE16 /* SlitherLinkGameState.swift */; };
-		8C0A58111DB37A6A00BFCE16 /* SlitherLinkGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A58051DB37A6A00BFCE16 /* SlitherLinkGameViewController.swift */; };
-		8C0A58121DB37A6A00BFCE16 /* SlitherLinkGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A58061DB37A6A00BFCE16 /* SlitherLinkGridNode.swift */; };
-		8C0A58131DB37A6A00BFCE16 /* SlitherLinkLevels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C0A58071DB37A6A00BFCE16 /* SlitherLinkLevels.xml */; };
-		8C0A58141DB37A6A00BFCE16 /* SlitherLinkMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A58081DB37A6A00BFCE16 /* SlitherLinkMainViewController.swift */; };
-		8C0A58151DB37A6A00BFCE16 /* SlitherLinkMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A58091DB37A6A00BFCE16 /* SlitherLinkMixin.swift */; };
-		8C0A58161DB37A6A00BFCE16 /* SlitherLinkObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A580A1DB37A6A00BFCE16 /* SlitherLinkObject.swift */; };
-		8C0A58171DB37A6A00BFCE16 /* SlitherLinkOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A580B1DB37A6A00BFCE16 /* SlitherLinkOptionsViewController.swift */; };
-		8C0A58181DB37A6A00BFCE16 /* SlitherLinkTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0A580C1DB37A6A00BFCE16 /* SlitherLinkTables.swift */; };
-		8C0A581B1DB37A8600BFCE16 /* SlitherLink.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C0A58191DB37A8600BFCE16 /* SlitherLink.storyboard */; };
 		8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */; };
 		8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */; };
 		8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A01DB8DE930056D407 /* AnimatedExample.graffle */; };
@@ -45,25 +19,77 @@
 		8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D16A91DB8DE930056D407 /* Queue.swift */; };
 		8C31FE6E1D90E415008793BF /* SharkORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; };
 		8C31FE6F1D90E415008793BF /* SharkORM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8C6140021DBF647F00512393 /* CloudsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C613FF61DBF647F00512393 /* CloudsDocument.swift */; };
-		8C6140031DBF647F00512393 /* CloudsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C613FF71DBF647F00512393 /* CloudsGame.swift */; };
-		8C6140041DBF647F00512393 /* CloudsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C613FF81DBF647F00512393 /* CloudsGameScene.swift */; };
-		8C6140051DBF647F00512393 /* CloudsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C613FF91DBF647F00512393 /* CloudsGameState.swift */; };
-		8C6140061DBF647F00512393 /* CloudsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C613FFA1DBF647F00512393 /* CloudsGameViewController.swift */; };
-		8C6140071DBF647F00512393 /* CloudsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C613FFB1DBF647F00512393 /* CloudsGridNode.swift */; };
-		8C6140081DBF647F00512393 /* CloudsLevels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C613FFC1DBF647F00512393 /* CloudsLevels.xml */; };
-		8C6140091DBF647F00512393 /* CloudsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C613FFD1DBF647F00512393 /* CloudsMainViewController.swift */; };
-		8C61400A1DBF647F00512393 /* CloudsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C613FFE1DBF647F00512393 /* CloudsMixin.swift */; };
-		8C61400B1DBF647F00512393 /* CloudsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C613FFF1DBF647F00512393 /* CloudsObject.swift */; };
-		8C61400C1DBF647F00512393 /* CloudsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6140001DBF647F00512393 /* CloudsOptionsViewController.swift */; };
-		8C61400D1DBF647F00512393 /* CloudsTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6140011DBF647F00512393 /* CloudsTables.swift */; };
-		8C6140111DBFAFB200512393 /* Clouds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C61400F1DBFAFB200512393 /* Clouds.storyboard */; };
 		8C6D37381DC421180052202C /* HomeDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37331DC421180052202C /* HomeDocument.swift */; };
 		8C6D37391DC421180052202C /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37341DC421180052202C /* HomeMainViewController.swift */; };
 		8C6D373A1DC421180052202C /* HomeMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37351DC421180052202C /* HomeMixin.swift */; };
 		8C6D373B1DC421180052202C /* HomeOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37361DC421180052202C /* HomeOptionsViewController.swift */; };
 		8C6D373C1DC421180052202C /* HomeTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37371DC421180052202C /* HomeTables.swift */; };
 		8C6D373F1DC421980052202C /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6D373D1DC421980052202C /* Home.storyboard */; };
+		8C6D37821DC42F0A0052202C /* BridgesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37421DC42F0A0052202C /* BridgesDocument.swift */; };
+		8C6D37831DC42F0A0052202C /* BridgesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37431DC42F0A0052202C /* BridgesGame.swift */; };
+		8C6D37841DC42F0A0052202C /* BridgesGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37441DC42F0A0052202C /* BridgesGameScene.swift */; };
+		8C6D37851DC42F0A0052202C /* BridgesGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37451DC42F0A0052202C /* BridgesGameState.swift */; };
+		8C6D37861DC42F0A0052202C /* BridgesGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37461DC42F0A0052202C /* BridgesGameViewController.swift */; };
+		8C6D37871DC42F0A0052202C /* BridgesGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37471DC42F0A0052202C /* BridgesGridNode.swift */; };
+		8C6D37881DC42F0A0052202C /* BridgesLevels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C6D37481DC42F0A0052202C /* BridgesLevels.xml */; };
+		8C6D37891DC42F0A0052202C /* BridgesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37491DC42F0A0052202C /* BridgesMainViewController.swift */; };
+		8C6D378A1DC42F0A0052202C /* BridgesMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D374A1DC42F0A0052202C /* BridgesMixin.swift */; };
+		8C6D378B1DC42F0A0052202C /* BridgesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D374B1DC42F0A0052202C /* BridgesObject.swift */; };
+		8C6D378C1DC42F0A0052202C /* BridgesOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D374C1DC42F0A0052202C /* BridgesOptionsViewController.swift */; };
+		8C6D378D1DC42F0A0052202C /* BridgesTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D374D1DC42F0A0052202C /* BridgesTables.swift */; };
+		8C6D378E1DC42F0A0052202C /* CloudsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D374F1DC42F0A0052202C /* CloudsDocument.swift */; };
+		8C6D378F1DC42F0A0052202C /* CloudsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37501DC42F0A0052202C /* CloudsGame.swift */; };
+		8C6D37901DC42F0A0052202C /* CloudsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37511DC42F0A0052202C /* CloudsGameScene.swift */; };
+		8C6D37911DC42F0A0052202C /* CloudsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37521DC42F0A0052202C /* CloudsGameState.swift */; };
+		8C6D37921DC42F0A0052202C /* CloudsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37531DC42F0A0052202C /* CloudsGameViewController.swift */; };
+		8C6D37931DC42F0A0052202C /* CloudsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37541DC42F0A0052202C /* CloudsGridNode.swift */; };
+		8C6D37941DC42F0A0052202C /* CloudsLevels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C6D37551DC42F0A0052202C /* CloudsLevels.xml */; };
+		8C6D37951DC42F0A0052202C /* CloudsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37561DC42F0A0052202C /* CloudsMainViewController.swift */; };
+		8C6D37961DC42F0A0052202C /* CloudsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37571DC42F0A0052202C /* CloudsMixin.swift */; };
+		8C6D37971DC42F0A0052202C /* CloudsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37581DC42F0A0052202C /* CloudsObject.swift */; };
+		8C6D37981DC42F0A0052202C /* CloudsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37591DC42F0A0052202C /* CloudsOptionsViewController.swift */; };
+		8C6D37991DC42F0A0052202C /* CloudsTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D375A1DC42F0A0052202C /* CloudsTables.swift */; };
+		8C6D379A1DC42F0A0052202C /* HitoriDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D375C1DC42F0A0052202C /* HitoriDocument.swift */; };
+		8C6D379B1DC42F0A0052202C /* HitoriGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D375D1DC42F0A0052202C /* HitoriGame.swift */; };
+		8C6D379C1DC42F0A0052202C /* HitoriGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D375E1DC42F0A0052202C /* HitoriGameScene.swift */; };
+		8C6D379D1DC42F0A0052202C /* HitoriGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D375F1DC42F0A0052202C /* HitoriGameState.swift */; };
+		8C6D379E1DC42F0A0052202C /* HitoriGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37601DC42F0A0052202C /* HitoriGameViewController.swift */; };
+		8C6D379F1DC42F0A0052202C /* HitoriGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37611DC42F0A0052202C /* HitoriGridNode.swift */; };
+		8C6D37A01DC42F0A0052202C /* HitoriLevels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C6D37621DC42F0A0052202C /* HitoriLevels.xml */; };
+		8C6D37A11DC42F0A0052202C /* HitoriMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37631DC42F0A0052202C /* HitoriMainViewController.swift */; };
+		8C6D37A21DC42F0A0052202C /* HitoriMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37641DC42F0A0052202C /* HitoriMixin.swift */; };
+		8C6D37A31DC42F0A0052202C /* HitoriObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37651DC42F0A0052202C /* HitoriObject.swift */; };
+		8C6D37A41DC42F0A0052202C /* HitoriOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37661DC42F0A0052202C /* HitoriOptionsViewController.swift */; };
+		8C6D37A51DC42F0A0052202C /* HitoriTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37671DC42F0A0052202C /* HitoriTables.swift */; };
+		8C6D37A61DC42F0A0052202C /* LightUpDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37691DC42F0A0052202C /* LightUpDocument.swift */; };
+		8C6D37A71DC42F0A0052202C /* LightUpGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D376A1DC42F0A0052202C /* LightUpGame.swift */; };
+		8C6D37A81DC42F0A0052202C /* LightUpGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D376B1DC42F0A0052202C /* LightUpGameScene.swift */; };
+		8C6D37A91DC42F0A0052202C /* LightUpGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D376C1DC42F0A0052202C /* LightUpGameState.swift */; };
+		8C6D37AA1DC42F0A0052202C /* LightUpGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D376D1DC42F0A0052202C /* LightUpGameViewController.swift */; };
+		8C6D37AB1DC42F0A0052202C /* LightUpGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D376E1DC42F0A0052202C /* LightUpGridNode.swift */; };
+		8C6D37AC1DC42F0A0052202C /* LightUpLevels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C6D376F1DC42F0A0052202C /* LightUpLevels.xml */; };
+		8C6D37AD1DC42F0A0052202C /* LightUpMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37701DC42F0A0052202C /* LightUpMainViewController.swift */; };
+		8C6D37AE1DC42F0A0052202C /* LightUpMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37711DC42F0A0052202C /* LightUpMixin.swift */; };
+		8C6D37AF1DC42F0A0052202C /* LightUpObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37721DC42F0A0052202C /* LightUpObject.swift */; };
+		8C6D37B01DC42F0A0052202C /* LightUpOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37731DC42F0A0052202C /* LightUpOptionsViewController.swift */; };
+		8C6D37B11DC42F0A0052202C /* LightUpTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37741DC42F0A0052202C /* LightUpTables.swift */; };
+		8C6D37B21DC42F0A0052202C /* SlitherLinkDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37761DC42F0A0052202C /* SlitherLinkDocument.swift */; };
+		8C6D37B31DC42F0A0052202C /* SlitherLinkGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37771DC42F0A0052202C /* SlitherLinkGame.swift */; };
+		8C6D37B41DC42F0A0052202C /* SlitherLinkGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37781DC42F0A0052202C /* SlitherLinkGameScene.swift */; };
+		8C6D37B51DC42F0A0052202C /* SlitherLinkGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37791DC42F0A0052202C /* SlitherLinkGameState.swift */; };
+		8C6D37B61DC42F0A0052202C /* SlitherLinkGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D377A1DC42F0A0052202C /* SlitherLinkGameViewController.swift */; };
+		8C6D37B71DC42F0A0052202C /* SlitherLinkGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D377B1DC42F0A0052202C /* SlitherLinkGridNode.swift */; };
+		8C6D37B81DC42F0A0052202C /* SlitherLinkLevels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C6D377C1DC42F0A0052202C /* SlitherLinkLevels.xml */; };
+		8C6D37B91DC42F0A0052202C /* SlitherLinkMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D377D1DC42F0A0052202C /* SlitherLinkMainViewController.swift */; };
+		8C6D37BA1DC42F0A0052202C /* SlitherLinkMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D377E1DC42F0A0052202C /* SlitherLinkMixin.swift */; };
+		8C6D37BB1DC42F0A0052202C /* SlitherLinkObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D377F1DC42F0A0052202C /* SlitherLinkObject.swift */; };
+		8C6D37BC1DC42F0A0052202C /* SlitherLinkOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37801DC42F0A0052202C /* SlitherLinkOptionsViewController.swift */; };
+		8C6D37BD1DC42F0A0052202C /* SlitherLinkTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37811DC42F0A0052202C /* SlitherLinkTables.swift */; };
+		8C6D37C01DC42F3B0052202C /* Bridges.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6D37BE1DC42F3B0052202C /* Bridges.storyboard */; };
+		8C6D37C31DC42F450052202C /* Clouds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6D37C11DC42F450052202C /* Clouds.storyboard */; };
+		8C6D37C61DC42F540052202C /* Hitori.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6D37C41DC42F540052202C /* Hitori.storyboard */; };
+		8C6D37C91DC42F640052202C /* LightUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6D37C71DC42F640052202C /* LightUp.storyboard */; };
+		8C6D37CC1DC42F6D0052202C /* SlitherLink.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6D37CA1DC42F6D0052202C /* SlitherLink.storyboard */; };
 		8C835D651D84BCDC0067BC3E /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C835D641D84BCDC0067BC3E /* Position.swift */; };
 		8C886C3C1D9E8AF1004A42BF /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C291D9E8AF0004A42BF /* AbstractActionSheetPicker.m */; };
 		8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C2B1D9E8AF0004A42BF /* ActionSheetCustomPicker.m */; };
@@ -91,32 +117,6 @@
 		8C9F43F21D771915000139FC /* LogicPuzzlesSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43F11D771915000139FC /* LogicPuzzlesSwiftTests.swift */; };
 		8C9F43FD1D771915000139FC /* LogicPuzzlesSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43FC1D771915000139FC /* LogicPuzzlesSwiftUITests.swift */; };
 		8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF1C011D8E1DB000AB6594 /* lightbulb.png */; };
-		8CE6BC9C1DB110D50087BC15 /* LightUpDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE6BC921DB110D50087BC15 /* LightUpDocument.swift */; };
-		8CE6BC9D1DB110D50087BC15 /* LightUpGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE6BC931DB110D50087BC15 /* LightUpGame.swift */; };
-		8CE6BC9E1DB110D50087BC15 /* LightUpMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE6BC941DB110D50087BC15 /* LightUpMixin.swift */; };
-		8CE6BC9F1DB110D50087BC15 /* LightUpObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE6BC951DB110D50087BC15 /* LightUpObject.swift */; };
-		8CE6BCA01DB110D50087BC15 /* LightUpTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE6BC961DB110D50087BC15 /* LightUpTables.swift */; };
-		8CE6BCA11DB110D50087BC15 /* LightUpGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE6BC971DB110D50087BC15 /* LightUpGameScene.swift */; };
-		8CE6BCA21DB110D50087BC15 /* LightUpGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE6BC981DB110D50087BC15 /* LightUpGameState.swift */; };
-		8CE6BCA31DB110D50087BC15 /* LightUpGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE6BC991DB110D50087BC15 /* LightUpGameViewController.swift */; };
-		8CE6BCA41DB110D50087BC15 /* LightUpGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE6BC9A1DB110D50087BC15 /* LightUpGridNode.swift */; };
-		8CE6BCA51DB110D50087BC15 /* LightUpLevels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CE6BC9B1DB110D50087BC15 /* LightUpLevels.xml */; };
-		8CE6BCA71DB110F30087BC15 /* LightUpMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE6BCA61DB110F30087BC15 /* LightUpMainViewController.swift */; };
-		8CFD4B561DB1205500DEBBAF /* LightUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CFD4B541DB1205500DEBBAF /* LightUp.storyboard */; };
-		8CFD4B581DB1213200DEBBAF /* LightUpOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B571DB1213200DEBBAF /* LightUpOptionsViewController.swift */; };
-		8CFD4B791DB1A0CC00DEBBAF /* BridgesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B6D1DB1A0CC00DEBBAF /* BridgesDocument.swift */; };
-		8CFD4B7A1DB1A0CC00DEBBAF /* BridgesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B6E1DB1A0CC00DEBBAF /* BridgesGame.swift */; };
-		8CFD4B7B1DB1A0CC00DEBBAF /* BridgesGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B6F1DB1A0CC00DEBBAF /* BridgesGameScene.swift */; };
-		8CFD4B7C1DB1A0CC00DEBBAF /* BridgesGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B701DB1A0CC00DEBBAF /* BridgesGameState.swift */; };
-		8CFD4B7D1DB1A0CC00DEBBAF /* BridgesGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B711DB1A0CC00DEBBAF /* BridgesGameViewController.swift */; };
-		8CFD4B7E1DB1A0CC00DEBBAF /* BridgesGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B721DB1A0CC00DEBBAF /* BridgesGridNode.swift */; };
-		8CFD4B7F1DB1A0CC00DEBBAF /* BridgesLevels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CFD4B731DB1A0CC00DEBBAF /* BridgesLevels.xml */; };
-		8CFD4B801DB1A0CC00DEBBAF /* BridgesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B741DB1A0CC00DEBBAF /* BridgesMainViewController.swift */; };
-		8CFD4B811DB1A0CC00DEBBAF /* BridgesMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B751DB1A0CC00DEBBAF /* BridgesMixin.swift */; };
-		8CFD4B821DB1A0CC00DEBBAF /* BridgesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B761DB1A0CC00DEBBAF /* BridgesObject.swift */; };
-		8CFD4B831DB1A0CC00DEBBAF /* BridgesOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B771DB1A0CC00DEBBAF /* BridgesOptionsViewController.swift */; };
-		8CFD4B841DB1A0CC00DEBBAF /* BridgesTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD4B781DB1A0CC00DEBBAF /* BridgesTables.swift */; };
-		8CFD4B871DB1A10200DEBBAF /* Bridges.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CFD4B851DB1A10200DEBBAF /* Bridges.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,32 +158,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8C0940841DC0D95100294662 /* HitoriDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriDocument.swift; sourceTree = "<group>"; };
-		8C0940851DC0D95100294662 /* HitoriGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriGame.swift; sourceTree = "<group>"; };
-		8C0940861DC0D95100294662 /* HitoriGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriGameScene.swift; sourceTree = "<group>"; };
-		8C0940871DC0D95100294662 /* HitoriGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriGameState.swift; sourceTree = "<group>"; };
-		8C0940881DC0D95100294662 /* HitoriGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriGameViewController.swift; sourceTree = "<group>"; };
-		8C0940891DC0D95100294662 /* HitoriGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriGridNode.swift; sourceTree = "<group>"; };
-		8C09408A1DC0D95100294662 /* HitoriLevels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = HitoriLevels.xml; sourceTree = "<group>"; };
-		8C09408B1DC0D95100294662 /* HitoriMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriMainViewController.swift; sourceTree = "<group>"; };
-		8C09408C1DC0D95100294662 /* HitoriMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriMixin.swift; sourceTree = "<group>"; };
-		8C09408D1DC0D95100294662 /* HitoriObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriObject.swift; sourceTree = "<group>"; };
-		8C09408E1DC0D95100294662 /* HitoriOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriOptionsViewController.swift; sourceTree = "<group>"; };
-		8C09408F1DC0D95100294662 /* HitoriTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriTables.swift; sourceTree = "<group>"; };
-		8C09409E1DC0DC3E00294662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/Hitori.storyboard; sourceTree = SOURCE_ROOT; };
-		8C0A58011DB37A6A00BFCE16 /* SlitherLinkDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkDocument.swift; sourceTree = "<group>"; };
-		8C0A58021DB37A6A00BFCE16 /* SlitherLinkGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGame.swift; sourceTree = "<group>"; };
-		8C0A58031DB37A6A00BFCE16 /* SlitherLinkGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGameScene.swift; sourceTree = "<group>"; };
-		8C0A58041DB37A6A00BFCE16 /* SlitherLinkGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGameState.swift; sourceTree = "<group>"; };
-		8C0A58051DB37A6A00BFCE16 /* SlitherLinkGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGameViewController.swift; sourceTree = "<group>"; };
-		8C0A58061DB37A6A00BFCE16 /* SlitherLinkGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGridNode.swift; sourceTree = "<group>"; };
-		8C0A58071DB37A6A00BFCE16 /* SlitherLinkLevels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = SlitherLinkLevels.xml; path = SlitherLink/SlitherLinkLevels.xml; sourceTree = "<group>"; };
-		8C0A58081DB37A6A00BFCE16 /* SlitherLinkMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkMainViewController.swift; sourceTree = "<group>"; };
-		8C0A58091DB37A6A00BFCE16 /* SlitherLinkMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkMixin.swift; sourceTree = "<group>"; };
-		8C0A580A1DB37A6A00BFCE16 /* SlitherLinkObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkObject.swift; sourceTree = "<group>"; };
-		8C0A580B1DB37A6A00BFCE16 /* SlitherLinkOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkOptionsViewController.swift; sourceTree = "<group>"; };
-		8C0A580C1DB37A6A00BFCE16 /* SlitherLinkTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkTables.swift; sourceTree = "<group>"; };
-		8C0A581A1DB37A8600BFCE16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/SlitherLink.storyboard; sourceTree = SOURCE_ROOT; };
 		8C1D169C1DB8DE930056D407 /* BreadthFirstSearch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BreadthFirstSearch.playground; sourceTree = "<group>"; };
 		8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadthFirstSearch.swift; sourceTree = "<group>"; };
 		8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimatedExample.gif; sourceTree = "<group>"; };
@@ -198,25 +172,87 @@
 		8C1D16A91DB8DE930056D407 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		8C1D16AA1DB8DE930056D407 /* Tests.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Tests.xcodeproj; sourceTree = "<group>"; };
 		8C31FE6D1D90E415008793BF /* SharkORM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SharkORM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C613FF61DBF647F00512393 /* CloudsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsDocument.swift; sourceTree = "<group>"; };
-		8C613FF71DBF647F00512393 /* CloudsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsGame.swift; sourceTree = "<group>"; };
-		8C613FF81DBF647F00512393 /* CloudsGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsGameScene.swift; sourceTree = "<group>"; };
-		8C613FF91DBF647F00512393 /* CloudsGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsGameState.swift; sourceTree = "<group>"; };
-		8C613FFA1DBF647F00512393 /* CloudsGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsGameViewController.swift; sourceTree = "<group>"; };
-		8C613FFB1DBF647F00512393 /* CloudsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsGridNode.swift; sourceTree = "<group>"; };
-		8C613FFC1DBF647F00512393 /* CloudsLevels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CloudsLevels.xml; sourceTree = "<group>"; };
-		8C613FFD1DBF647F00512393 /* CloudsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsMainViewController.swift; sourceTree = "<group>"; };
-		8C613FFE1DBF647F00512393 /* CloudsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsMixin.swift; sourceTree = "<group>"; };
-		8C613FFF1DBF647F00512393 /* CloudsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsObject.swift; sourceTree = "<group>"; };
-		8C6140001DBF647F00512393 /* CloudsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsOptionsViewController.swift; sourceTree = "<group>"; };
-		8C6140011DBF647F00512393 /* CloudsTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsTables.swift; sourceTree = "<group>"; };
-		8C6140101DBFAFB200512393 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/Clouds.storyboard; sourceTree = SOURCE_ROOT; };
 		8C6D37331DC421180052202C /* HomeDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDocument.swift; sourceTree = "<group>"; };
 		8C6D37341DC421180052202C /* HomeMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMainViewController.swift; sourceTree = "<group>"; };
 		8C6D37351DC421180052202C /* HomeMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMixin.swift; sourceTree = "<group>"; };
 		8C6D37361DC421180052202C /* HomeOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeOptionsViewController.swift; sourceTree = "<group>"; };
 		8C6D37371DC421180052202C /* HomeTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTables.swift; sourceTree = "<group>"; };
 		8C6D373E1DC421980052202C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/Home.storyboard; sourceTree = SOURCE_ROOT; };
+		8C6D37421DC42F0A0052202C /* BridgesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesDocument.swift; sourceTree = "<group>"; };
+		8C6D37431DC42F0A0052202C /* BridgesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesGame.swift; sourceTree = "<group>"; };
+		8C6D37441DC42F0A0052202C /* BridgesGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesGameScene.swift; sourceTree = "<group>"; };
+		8C6D37451DC42F0A0052202C /* BridgesGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesGameState.swift; sourceTree = "<group>"; };
+		8C6D37461DC42F0A0052202C /* BridgesGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesGameViewController.swift; sourceTree = "<group>"; };
+		8C6D37471DC42F0A0052202C /* BridgesGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesGridNode.swift; sourceTree = "<group>"; };
+		8C6D37481DC42F0A0052202C /* BridgesLevels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BridgesLevels.xml; sourceTree = "<group>"; };
+		8C6D37491DC42F0A0052202C /* BridgesMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesMainViewController.swift; sourceTree = "<group>"; };
+		8C6D374A1DC42F0A0052202C /* BridgesMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesMixin.swift; sourceTree = "<group>"; };
+		8C6D374B1DC42F0A0052202C /* BridgesObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesObject.swift; sourceTree = "<group>"; };
+		8C6D374C1DC42F0A0052202C /* BridgesOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesOptionsViewController.swift; sourceTree = "<group>"; };
+		8C6D374D1DC42F0A0052202C /* BridgesTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesTables.swift; sourceTree = "<group>"; };
+		8C6D374F1DC42F0A0052202C /* CloudsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsDocument.swift; sourceTree = "<group>"; };
+		8C6D37501DC42F0A0052202C /* CloudsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsGame.swift; sourceTree = "<group>"; };
+		8C6D37511DC42F0A0052202C /* CloudsGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsGameScene.swift; sourceTree = "<group>"; };
+		8C6D37521DC42F0A0052202C /* CloudsGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsGameState.swift; sourceTree = "<group>"; };
+		8C6D37531DC42F0A0052202C /* CloudsGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsGameViewController.swift; sourceTree = "<group>"; };
+		8C6D37541DC42F0A0052202C /* CloudsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsGridNode.swift; sourceTree = "<group>"; };
+		8C6D37551DC42F0A0052202C /* CloudsLevels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CloudsLevels.xml; sourceTree = "<group>"; };
+		8C6D37561DC42F0A0052202C /* CloudsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsMainViewController.swift; sourceTree = "<group>"; };
+		8C6D37571DC42F0A0052202C /* CloudsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsMixin.swift; sourceTree = "<group>"; };
+		8C6D37581DC42F0A0052202C /* CloudsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsObject.swift; sourceTree = "<group>"; };
+		8C6D37591DC42F0A0052202C /* CloudsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsOptionsViewController.swift; sourceTree = "<group>"; };
+		8C6D375A1DC42F0A0052202C /* CloudsTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsTables.swift; sourceTree = "<group>"; };
+		8C6D375C1DC42F0A0052202C /* HitoriDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriDocument.swift; sourceTree = "<group>"; };
+		8C6D375D1DC42F0A0052202C /* HitoriGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriGame.swift; sourceTree = "<group>"; };
+		8C6D375E1DC42F0A0052202C /* HitoriGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriGameScene.swift; sourceTree = "<group>"; };
+		8C6D375F1DC42F0A0052202C /* HitoriGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriGameState.swift; sourceTree = "<group>"; };
+		8C6D37601DC42F0A0052202C /* HitoriGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriGameViewController.swift; sourceTree = "<group>"; };
+		8C6D37611DC42F0A0052202C /* HitoriGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriGridNode.swift; sourceTree = "<group>"; };
+		8C6D37621DC42F0A0052202C /* HitoriLevels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = HitoriLevels.xml; sourceTree = "<group>"; };
+		8C6D37631DC42F0A0052202C /* HitoriMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriMainViewController.swift; sourceTree = "<group>"; };
+		8C6D37641DC42F0A0052202C /* HitoriMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriMixin.swift; sourceTree = "<group>"; };
+		8C6D37651DC42F0A0052202C /* HitoriObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriObject.swift; sourceTree = "<group>"; };
+		8C6D37661DC42F0A0052202C /* HitoriOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriOptionsViewController.swift; sourceTree = "<group>"; };
+		8C6D37671DC42F0A0052202C /* HitoriTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriTables.swift; sourceTree = "<group>"; };
+		8C6D37691DC42F0A0052202C /* LightUpDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpDocument.swift; sourceTree = "<group>"; };
+		8C6D376A1DC42F0A0052202C /* LightUpGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpGame.swift; sourceTree = "<group>"; };
+		8C6D376B1DC42F0A0052202C /* LightUpGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpGameScene.swift; sourceTree = "<group>"; };
+		8C6D376C1DC42F0A0052202C /* LightUpGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpGameState.swift; sourceTree = "<group>"; };
+		8C6D376D1DC42F0A0052202C /* LightUpGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpGameViewController.swift; sourceTree = "<group>"; };
+		8C6D376E1DC42F0A0052202C /* LightUpGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpGridNode.swift; sourceTree = "<group>"; };
+		8C6D376F1DC42F0A0052202C /* LightUpLevels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LightUpLevels.xml; sourceTree = "<group>"; };
+		8C6D37701DC42F0A0052202C /* LightUpMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpMainViewController.swift; sourceTree = "<group>"; };
+		8C6D37711DC42F0A0052202C /* LightUpMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpMixin.swift; sourceTree = "<group>"; };
+		8C6D37721DC42F0A0052202C /* LightUpObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpObject.swift; sourceTree = "<group>"; };
+		8C6D37731DC42F0A0052202C /* LightUpOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpOptionsViewController.swift; sourceTree = "<group>"; };
+		8C6D37741DC42F0A0052202C /* LightUpTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpTables.swift; sourceTree = "<group>"; };
+		8C6D37761DC42F0A0052202C /* SlitherLinkDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkDocument.swift; sourceTree = "<group>"; };
+		8C6D37771DC42F0A0052202C /* SlitherLinkGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGame.swift; sourceTree = "<group>"; };
+		8C6D37781DC42F0A0052202C /* SlitherLinkGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGameScene.swift; sourceTree = "<group>"; };
+		8C6D37791DC42F0A0052202C /* SlitherLinkGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGameState.swift; sourceTree = "<group>"; };
+		8C6D377A1DC42F0A0052202C /* SlitherLinkGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGameViewController.swift; sourceTree = "<group>"; };
+		8C6D377B1DC42F0A0052202C /* SlitherLinkGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGridNode.swift; sourceTree = "<group>"; };
+		8C6D377C1DC42F0A0052202C /* SlitherLinkLevels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SlitherLinkLevels.xml; sourceTree = "<group>"; };
+		8C6D377D1DC42F0A0052202C /* SlitherLinkMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkMainViewController.swift; sourceTree = "<group>"; };
+		8C6D377E1DC42F0A0052202C /* SlitherLinkMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkMixin.swift; sourceTree = "<group>"; };
+		8C6D377F1DC42F0A0052202C /* SlitherLinkObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkObject.swift; sourceTree = "<group>"; };
+		8C6D37801DC42F0A0052202C /* SlitherLinkOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkOptionsViewController.swift; sourceTree = "<group>"; };
+		8C6D37811DC42F0A0052202C /* SlitherLinkTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkTables.swift; sourceTree = "<group>"; };
+		8C6D37BF1DC42F3B0052202C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/Bridges.storyboard; sourceTree = SOURCE_ROOT; };
+		8C6D37C21DC42F450052202C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/Clouds.storyboard; sourceTree = SOURCE_ROOT; };
+		8C6D37C51DC42F540052202C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/Hitori.storyboard; sourceTree = SOURCE_ROOT; };
+		8C6D37C81DC42F640052202C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/LightUp.storyboard; sourceTree = SOURCE_ROOT; };
+		8C6D37CB1DC42F6D0052202C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/SlitherLink.storyboard; sourceTree = SOURCE_ROOT; };
+		8C6D37CF1DC42FA40052202C /* GameDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDocument.swift; sourceTree = "<group>"; };
+		8C6D37D01DC42FA40052202C /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		8C6D37D21DC42FA40052202C /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		8C6D37D31DC42FA40052202C /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		8C6D37D41DC42FA40052202C /* GridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridNode.swift; sourceTree = "<group>"; };
+		8C6D37D61DC42FA40052202C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8C6D37D71DC42FA40052202C /* GameMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMixin.swift; sourceTree = "<group>"; };
+		8C6D37D91DC42FA40052202C /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		8C6D37E91DC59EE50052202C /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		8C6D37EC1DC5A2F50052202C /* Copyable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Copyable.swift; sourceTree = "<group>"; };
 		8C835D641D84BCDC0067BC3E /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		8C886C281D9E8AF0004A42BF /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
 		8C886C291D9E8AF0004A42BF /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
@@ -264,32 +300,6 @@
 		8C9F43FC1D771915000139FC /* LogicPuzzlesSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicPuzzlesSwiftUITests.swift; sourceTree = "<group>"; };
 		8C9F43FE1D771915000139FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CCF1C011D8E1DB000AB6594 /* lightbulb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightbulb.png; sourceTree = "<group>"; };
-		8CE6BC921DB110D50087BC15 /* LightUpDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpDocument.swift; sourceTree = "<group>"; };
-		8CE6BC931DB110D50087BC15 /* LightUpGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpGame.swift; sourceTree = "<group>"; };
-		8CE6BC941DB110D50087BC15 /* LightUpMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpMixin.swift; sourceTree = "<group>"; };
-		8CE6BC951DB110D50087BC15 /* LightUpObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpObject.swift; sourceTree = "<group>"; };
-		8CE6BC961DB110D50087BC15 /* LightUpTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpTables.swift; sourceTree = "<group>"; };
-		8CE6BC971DB110D50087BC15 /* LightUpGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpGameScene.swift; sourceTree = "<group>"; };
-		8CE6BC981DB110D50087BC15 /* LightUpGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpGameState.swift; sourceTree = "<group>"; };
-		8CE6BC991DB110D50087BC15 /* LightUpGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpGameViewController.swift; sourceTree = "<group>"; };
-		8CE6BC9A1DB110D50087BC15 /* LightUpGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpGridNode.swift; sourceTree = "<group>"; };
-		8CE6BC9B1DB110D50087BC15 /* LightUpLevels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = LightUpLevels.xml; path = LightUp/LightUpLevels.xml; sourceTree = "<group>"; };
-		8CE6BCA61DB110F30087BC15 /* LightUpMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpMainViewController.swift; sourceTree = "<group>"; };
-		8CFD4B551DB1205500DEBBAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/LightUp.storyboard; sourceTree = SOURCE_ROOT; };
-		8CFD4B571DB1213200DEBBAF /* LightUpOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpOptionsViewController.swift; sourceTree = "<group>"; };
-		8CFD4B6D1DB1A0CC00DEBBAF /* BridgesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesDocument.swift; sourceTree = "<group>"; };
-		8CFD4B6E1DB1A0CC00DEBBAF /* BridgesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesGame.swift; sourceTree = "<group>"; };
-		8CFD4B6F1DB1A0CC00DEBBAF /* BridgesGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesGameScene.swift; sourceTree = "<group>"; };
-		8CFD4B701DB1A0CC00DEBBAF /* BridgesGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesGameState.swift; sourceTree = "<group>"; };
-		8CFD4B711DB1A0CC00DEBBAF /* BridgesGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesGameViewController.swift; sourceTree = "<group>"; };
-		8CFD4B721DB1A0CC00DEBBAF /* BridgesGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesGridNode.swift; sourceTree = "<group>"; };
-		8CFD4B731DB1A0CC00DEBBAF /* BridgesLevels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = BridgesLevels.xml; path = Bridges/BridgesLevels.xml; sourceTree = "<group>"; };
-		8CFD4B741DB1A0CC00DEBBAF /* BridgesMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesMainViewController.swift; sourceTree = "<group>"; };
-		8CFD4B751DB1A0CC00DEBBAF /* BridgesMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesMixin.swift; sourceTree = "<group>"; };
-		8CFD4B761DB1A0CC00DEBBAF /* BridgesObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesObject.swift; sourceTree = "<group>"; };
-		8CFD4B771DB1A0CC00DEBBAF /* BridgesOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesOptionsViewController.swift; sourceTree = "<group>"; };
-		8CFD4B781DB1A0CC00DEBBAF /* BridgesTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesTables.swift; sourceTree = "<group>"; };
-		8CFD4B861DB1A10200DEBBAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/Bridges.storyboard; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,47 +328,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8C0940831DC0D95100294662 /* Hitori */ = {
-			isa = PBXGroup;
-			children = (
-				8C09409D1DC0DC3E00294662 /* Hitori.storyboard */,
-				8C0940841DC0D95100294662 /* HitoriDocument.swift */,
-				8C0940851DC0D95100294662 /* HitoriGame.swift */,
-				8C0940861DC0D95100294662 /* HitoriGameScene.swift */,
-				8C0940871DC0D95100294662 /* HitoriGameState.swift */,
-				8C0940881DC0D95100294662 /* HitoriGameViewController.swift */,
-				8C0940891DC0D95100294662 /* HitoriGridNode.swift */,
-				8C09408A1DC0D95100294662 /* HitoriLevels.xml */,
-				8C09408B1DC0D95100294662 /* HitoriMainViewController.swift */,
-				8C09408C1DC0D95100294662 /* HitoriMixin.swift */,
-				8C09408D1DC0D95100294662 /* HitoriObject.swift */,
-				8C09408E1DC0D95100294662 /* HitoriOptionsViewController.swift */,
-				8C09408F1DC0D95100294662 /* HitoriTables.swift */,
-			);
-			name = Hitori;
-			path = LogicPuzzlesSwift/Hitori;
-			sourceTree = SOURCE_ROOT;
-		};
-		8C0A58001DB37A6A00BFCE16 /* SlitherLink */ = {
-			isa = PBXGroup;
-			children = (
-				8C0A58191DB37A8600BFCE16 /* SlitherLink.storyboard */,
-				8C0A58011DB37A6A00BFCE16 /* SlitherLinkDocument.swift */,
-				8C0A58021DB37A6A00BFCE16 /* SlitherLinkGame.swift */,
-				8C0A58031DB37A6A00BFCE16 /* SlitherLinkGameScene.swift */,
-				8C0A58041DB37A6A00BFCE16 /* SlitherLinkGameState.swift */,
-				8C0A58051DB37A6A00BFCE16 /* SlitherLinkGameViewController.swift */,
-				8C0A58061DB37A6A00BFCE16 /* SlitherLinkGridNode.swift */,
-				8C0A58081DB37A6A00BFCE16 /* SlitherLinkMainViewController.swift */,
-				8C0A58091DB37A6A00BFCE16 /* SlitherLinkMixin.swift */,
-				8C0A580A1DB37A6A00BFCE16 /* SlitherLinkObject.swift */,
-				8C0A580B1DB37A6A00BFCE16 /* SlitherLinkOptionsViewController.swift */,
-				8C0A580C1DB37A6A00BFCE16 /* SlitherLinkTables.swift */,
-			);
-			name = SlitherLink;
-			path = LogicPuzzlesSwift/SlitherLink;
-			sourceTree = SOURCE_ROOT;
-		};
 		8C1D169B1DB8DE930056D407 /* Breadth-First Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,26 +381,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8C613FF51DBF647F00512393 /* Clouds */ = {
-			isa = PBXGroup;
-			children = (
-				8C61400F1DBFAFB200512393 /* Clouds.storyboard */,
-				8C613FF61DBF647F00512393 /* CloudsDocument.swift */,
-				8C613FF71DBF647F00512393 /* CloudsGame.swift */,
-				8C613FF81DBF647F00512393 /* CloudsGameScene.swift */,
-				8C613FF91DBF647F00512393 /* CloudsGameState.swift */,
-				8C613FFA1DBF647F00512393 /* CloudsGameViewController.swift */,
-				8C613FFB1DBF647F00512393 /* CloudsGridNode.swift */,
-				8C613FFC1DBF647F00512393 /* CloudsLevels.xml */,
-				8C613FFD1DBF647F00512393 /* CloudsMainViewController.swift */,
-				8C613FFE1DBF647F00512393 /* CloudsMixin.swift */,
-				8C613FFF1DBF647F00512393 /* CloudsObject.swift */,
-				8C6140001DBF647F00512393 /* CloudsOptionsViewController.swift */,
-				8C6140011DBF647F00512393 /* CloudsTables.swift */,
-			);
-			path = Clouds;
-			sourceTree = "<group>";
-		};
 		8C6D37321DC421180052202C /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -445,6 +394,135 @@
 			name = Home;
 			path = LogicPuzzlesSwift/Home;
 			sourceTree = SOURCE_ROOT;
+		};
+		8C6D37401DC42F0A0052202C /* Puzzles */ = {
+			isa = PBXGroup;
+			children = (
+				8C6D37411DC42F0A0052202C /* Bridges */,
+				8C6D374E1DC42F0A0052202C /* Clouds */,
+				8C6D375B1DC42F0A0052202C /* Hitori */,
+				8C6D37681DC42F0A0052202C /* LightUp */,
+				8C6D37751DC42F0A0052202C /* SlitherLink */,
+			);
+			path = Puzzles;
+			sourceTree = "<group>";
+		};
+		8C6D37411DC42F0A0052202C /* Bridges */ = {
+			isa = PBXGroup;
+			children = (
+				8C6D37BE1DC42F3B0052202C /* Bridges.storyboard */,
+				8C6D37421DC42F0A0052202C /* BridgesDocument.swift */,
+				8C6D37431DC42F0A0052202C /* BridgesGame.swift */,
+				8C6D37441DC42F0A0052202C /* BridgesGameScene.swift */,
+				8C6D37451DC42F0A0052202C /* BridgesGameState.swift */,
+				8C6D37461DC42F0A0052202C /* BridgesGameViewController.swift */,
+				8C6D37471DC42F0A0052202C /* BridgesGridNode.swift */,
+				8C6D37481DC42F0A0052202C /* BridgesLevels.xml */,
+				8C6D37491DC42F0A0052202C /* BridgesMainViewController.swift */,
+				8C6D374A1DC42F0A0052202C /* BridgesMixin.swift */,
+				8C6D374B1DC42F0A0052202C /* BridgesObject.swift */,
+				8C6D374C1DC42F0A0052202C /* BridgesOptionsViewController.swift */,
+				8C6D374D1DC42F0A0052202C /* BridgesTables.swift */,
+			);
+			path = Bridges;
+			sourceTree = "<group>";
+		};
+		8C6D374E1DC42F0A0052202C /* Clouds */ = {
+			isa = PBXGroup;
+			children = (
+				8C6D37C11DC42F450052202C /* Clouds.storyboard */,
+				8C6D374F1DC42F0A0052202C /* CloudsDocument.swift */,
+				8C6D37501DC42F0A0052202C /* CloudsGame.swift */,
+				8C6D37511DC42F0A0052202C /* CloudsGameScene.swift */,
+				8C6D37521DC42F0A0052202C /* CloudsGameState.swift */,
+				8C6D37531DC42F0A0052202C /* CloudsGameViewController.swift */,
+				8C6D37541DC42F0A0052202C /* CloudsGridNode.swift */,
+				8C6D37551DC42F0A0052202C /* CloudsLevels.xml */,
+				8C6D37561DC42F0A0052202C /* CloudsMainViewController.swift */,
+				8C6D37571DC42F0A0052202C /* CloudsMixin.swift */,
+				8C6D37581DC42F0A0052202C /* CloudsObject.swift */,
+				8C6D37591DC42F0A0052202C /* CloudsOptionsViewController.swift */,
+				8C6D375A1DC42F0A0052202C /* CloudsTables.swift */,
+			);
+			path = Clouds;
+			sourceTree = "<group>";
+		};
+		8C6D375B1DC42F0A0052202C /* Hitori */ = {
+			isa = PBXGroup;
+			children = (
+				8C6D37C41DC42F540052202C /* Hitori.storyboard */,
+				8C6D375C1DC42F0A0052202C /* HitoriDocument.swift */,
+				8C6D375D1DC42F0A0052202C /* HitoriGame.swift */,
+				8C6D375E1DC42F0A0052202C /* HitoriGameScene.swift */,
+				8C6D375F1DC42F0A0052202C /* HitoriGameState.swift */,
+				8C6D37601DC42F0A0052202C /* HitoriGameViewController.swift */,
+				8C6D37611DC42F0A0052202C /* HitoriGridNode.swift */,
+				8C6D37621DC42F0A0052202C /* HitoriLevels.xml */,
+				8C6D37631DC42F0A0052202C /* HitoriMainViewController.swift */,
+				8C6D37641DC42F0A0052202C /* HitoriMixin.swift */,
+				8C6D37651DC42F0A0052202C /* HitoriObject.swift */,
+				8C6D37661DC42F0A0052202C /* HitoriOptionsViewController.swift */,
+				8C6D37671DC42F0A0052202C /* HitoriTables.swift */,
+			);
+			path = Hitori;
+			sourceTree = "<group>";
+		};
+		8C6D37681DC42F0A0052202C /* LightUp */ = {
+			isa = PBXGroup;
+			children = (
+				8C6D37C71DC42F640052202C /* LightUp.storyboard */,
+				8C6D37691DC42F0A0052202C /* LightUpDocument.swift */,
+				8C6D376A1DC42F0A0052202C /* LightUpGame.swift */,
+				8C6D376B1DC42F0A0052202C /* LightUpGameScene.swift */,
+				8C6D376C1DC42F0A0052202C /* LightUpGameState.swift */,
+				8C6D376D1DC42F0A0052202C /* LightUpGameViewController.swift */,
+				8C6D376E1DC42F0A0052202C /* LightUpGridNode.swift */,
+				8C6D376F1DC42F0A0052202C /* LightUpLevels.xml */,
+				8C6D37701DC42F0A0052202C /* LightUpMainViewController.swift */,
+				8C6D37711DC42F0A0052202C /* LightUpMixin.swift */,
+				8C6D37721DC42F0A0052202C /* LightUpObject.swift */,
+				8C6D37731DC42F0A0052202C /* LightUpOptionsViewController.swift */,
+				8C6D37741DC42F0A0052202C /* LightUpTables.swift */,
+			);
+			path = LightUp;
+			sourceTree = "<group>";
+		};
+		8C6D37751DC42F0A0052202C /* SlitherLink */ = {
+			isa = PBXGroup;
+			children = (
+				8C6D37CA1DC42F6D0052202C /* SlitherLink.storyboard */,
+				8C6D37761DC42F0A0052202C /* SlitherLinkDocument.swift */,
+				8C6D37771DC42F0A0052202C /* SlitherLinkGame.swift */,
+				8C6D37781DC42F0A0052202C /* SlitherLinkGameScene.swift */,
+				8C6D37791DC42F0A0052202C /* SlitherLinkGameState.swift */,
+				8C6D377A1DC42F0A0052202C /* SlitherLinkGameViewController.swift */,
+				8C6D377B1DC42F0A0052202C /* SlitherLinkGridNode.swift */,
+				8C6D377C1DC42F0A0052202C /* SlitherLinkLevels.xml */,
+				8C6D377D1DC42F0A0052202C /* SlitherLinkMainViewController.swift */,
+				8C6D377E1DC42F0A0052202C /* SlitherLinkMixin.swift */,
+				8C6D377F1DC42F0A0052202C /* SlitherLinkObject.swift */,
+				8C6D37801DC42F0A0052202C /* SlitherLinkOptionsViewController.swift */,
+				8C6D37811DC42F0A0052202C /* SlitherLinkTables.swift */,
+			);
+			path = SlitherLink;
+			sourceTree = "<group>";
+		};
+		8C6D37CE1DC42FA40052202C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8C6D37D01DC42FA40052202C /* Game.swift */,
+				8C6D37CF1DC42FA40052202C /* GameDocument.swift */,
+				8C6D37D71DC42FA40052202C /* GameMixin.swift */,
+				8C6D37E91DC59EE50052202C /* GameScene.swift */,
+				8C6D37D21DC42FA40052202C /* GameState.swift */,
+				8C6D37D31DC42FA40052202C /* GameViewController.swift */,
+				8C6D37D41DC42FA40052202C /* GridNode.swift */,
+				8C6D37D61DC42FA40052202C /* MainViewController.swift */,
+				8C6D37D91DC42FA40052202C /* OptionsViewController.swift */,
+				8C6D37EC1DC5A2F50052202C /* Copyable.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
 		};
 		8C886C271D9E8AF0004A42BF /* Pickers */ = {
 			isa = PBXGroup;
@@ -494,14 +572,11 @@
 		8C916CC81DAB297A00D9E62B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8CFD4B731DB1A0CC00DEBBAF /* BridgesLevels.xml */,
 				8C9F43E81D771915000139FC /* Info.plist */,
 				8C9F43E51D771915000139FC /* LaunchScreen.storyboard */,
 				8CCF1C011D8E1DB000AB6594 /* lightbulb.png */,
-				8CE6BC9B1DB110D50087BC15 /* LightUpLevels.xml */,
 				8C886C451D9E8B72004A42BF /* LogicPuzzlesSwift-Bridging-Header.h */,
 				8C916CC31DAA5FEB00D9E62B /* music.wav */,
-				8C0A58071DB37A6A00BFCE16 /* SlitherLinkLevels.xml */,
 				8C916CCD1DAB35FC00D9E62B /* solved.wav */,
 				8C916CC51DAB1E6000D9E62B /* tap.wav */,
 			);
@@ -537,13 +612,10 @@
 			children = (
 				8C9F43DA1D771915000139FC /* AppDelegate.swift */,
 				8C9F43E31D771915000139FC /* Assets.xcassets */,
+				8C6D37CE1DC42FA40052202C /* Common */,
 				8C6D37321DC421180052202C /* Home */,
-				8CFD4B6C1DB1A0CC00DEBBAF /* Bridges */,
-				8C613FF51DBF647F00512393 /* Clouds */,
-				8C0940831DC0D95100294662 /* Hitori */,
-				8CE6BC911DB110D50087BC15 /* LightUp */,
+				8C6D37401DC42F0A0052202C /* Puzzles */,
 				8C835D641D84BCDC0067BC3E /* Position.swift */,
-				8C0A58001DB37A6A00BFCE16 /* SlitherLink */,
 				8C916CC91DAB2E8E00D9E62B /* SoundManager.swift */,
 				8C916CC81DAB297A00D9E62B /* Supporting Files */,
 			);
@@ -566,44 +638,6 @@
 				8C9F43FE1D771915000139FC /* Info.plist */,
 			);
 			path = LogicPuzzlesSwiftUITests;
-			sourceTree = "<group>";
-		};
-		8CE6BC911DB110D50087BC15 /* LightUp */ = {
-			isa = PBXGroup;
-			children = (
-				8CFD4B541DB1205500DEBBAF /* LightUp.storyboard */,
-				8CE6BC921DB110D50087BC15 /* LightUpDocument.swift */,
-				8CE6BC931DB110D50087BC15 /* LightUpGame.swift */,
-				8CE6BC971DB110D50087BC15 /* LightUpGameScene.swift */,
-				8CE6BC981DB110D50087BC15 /* LightUpGameState.swift */,
-				8CE6BC991DB110D50087BC15 /* LightUpGameViewController.swift */,
-				8CE6BC9A1DB110D50087BC15 /* LightUpGridNode.swift */,
-				8CE6BCA61DB110F30087BC15 /* LightUpMainViewController.swift */,
-				8CE6BC941DB110D50087BC15 /* LightUpMixin.swift */,
-				8CE6BC951DB110D50087BC15 /* LightUpObject.swift */,
-				8CFD4B571DB1213200DEBBAF /* LightUpOptionsViewController.swift */,
-				8CE6BC961DB110D50087BC15 /* LightUpTables.swift */,
-			);
-			path = LightUp;
-			sourceTree = "<group>";
-		};
-		8CFD4B6C1DB1A0CC00DEBBAF /* Bridges */ = {
-			isa = PBXGroup;
-			children = (
-				8CFD4B851DB1A10200DEBBAF /* Bridges.storyboard */,
-				8CFD4B6D1DB1A0CC00DEBBAF /* BridgesDocument.swift */,
-				8CFD4B6E1DB1A0CC00DEBBAF /* BridgesGame.swift */,
-				8CFD4B6F1DB1A0CC00DEBBAF /* BridgesGameScene.swift */,
-				8CFD4B701DB1A0CC00DEBBAF /* BridgesGameState.swift */,
-				8CFD4B711DB1A0CC00DEBBAF /* BridgesGameViewController.swift */,
-				8CFD4B721DB1A0CC00DEBBAF /* BridgesGridNode.swift */,
-				8CFD4B741DB1A0CC00DEBBAF /* BridgesMainViewController.swift */,
-				8CFD4B751DB1A0CC00DEBBAF /* BridgesMixin.swift */,
-				8CFD4B761DB1A0CC00DEBBAF /* BridgesObject.swift */,
-				8CFD4B771DB1A0CC00DEBBAF /* BridgesOptionsViewController.swift */,
-				8CFD4B781DB1A0CC00DEBBAF /* BridgesTables.swift */,
-			);
-			path = Bridges;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -731,29 +765,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C0A58131DB37A6A00BFCE16 /* SlitherLinkLevels.xml in Resources */,
-				8C0940961DC0D95100294662 /* HitoriLevels.xml in Resources */,
 				8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */,
-				8C6140111DBFAFB200512393 /* Clouds.storyboard in Resources */,
 				8C1D16B21DB8DE930056D407 /* TraversalTree.png in Resources */,
+				8C6D37C31DC42F450052202C /* Clouds.storyboard in Resources */,
 				8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */,
-				8C6140081DBF647F00512393 /* CloudsLevels.xml in Resources */,
+				8C6D37AC1DC42F0A0052202C /* LightUpLevels.xml in Resources */,
 				8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */,
 				8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */,
 				8C1D16B11DB8DE930056D407 /* TraversalTree.graffle in Resources */,
-				8CFD4B561DB1205500DEBBAF /* LightUp.storyboard in Resources */,
 				8C9F43E41D771915000139FC /* Assets.xcassets in Resources */,
-				8C09409F1DC0DC3E00294662 /* Hitori.storyboard in Resources */,
+				8C6D37C01DC42F3B0052202C /* Bridges.storyboard in Resources */,
 				8C1D16B61DB8DE930056D407 /* Info.plist in Resources */,
+				8C6D37A01DC42F0A0052202C /* HitoriLevels.xml in Resources */,
 				8C1D16B01DB8DE930056D407 /* AnimatedExample.psd in Resources */,
+				8C6D37B81DC42F0A0052202C /* SlitherLinkLevels.xml in Resources */,
 				8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */,
-				8CFD4B7F1DB1A0CC00DEBBAF /* BridgesLevels.xml in Resources */,
-				8CE6BCA51DB110D50087BC15 /* LightUpLevels.xml in Resources */,
+				8C6D37C91DC42F640052202C /* LightUp.storyboard in Resources */,
 				8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */,
-				8C0A581B1DB37A8600BFCE16 /* SlitherLink.storyboard in Resources */,
-				8CFD4B871DB1A10200DEBBAF /* Bridges.storyboard in Resources */,
+				8C6D37881DC42F0A0052202C /* BridgesLevels.xml in Resources */,
 				8C6D373F1DC421980052202C /* Home.storyboard in Resources */,
+				8C6D37CC1DC42F6D0052202C /* SlitherLink.storyboard in Resources */,
+				8C6D37941DC42F0A0052202C /* CloudsLevels.xml in Resources */,
 				8C916CC41DAA5FEB00D9E62B /* music.wav in Resources */,
+				8C6D37C61DC42F540052202C /* Hitori.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -779,88 +813,88 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C6D373B1DC421180052202C /* HomeOptionsViewController.swift in Sources */,
-				8C6140021DBF647F00512393 /* CloudsDocument.swift in Sources */,
-				8C0A580F1DB37A6A00BFCE16 /* SlitherLinkGameScene.swift in Sources */,
-				8C0940921DC0D95100294662 /* HitoriGameScene.swift in Sources */,
-				8C6140041DBF647F00512393 /* CloudsGameScene.swift in Sources */,
 				8C916CCA1DAB2E8E00D9E62B /* SoundManager.swift in Sources */,
+				8C6D37A11DC42F0A0052202C /* HitoriMainViewController.swift in Sources */,
+				8C6D37831DC42F0A0052202C /* BridgesGame.swift in Sources */,
+				8C6D37821DC42F0A0052202C /* BridgesDocument.swift in Sources */,
 				8C1D16B31DB8DE930056D407 /* README.markdown in Sources */,
-				8C0940951DC0D95100294662 /* HitoriGridNode.swift in Sources */,
-				8CFD4B841DB1A0CC00DEBBAF /* BridgesTables.swift in Sources */,
+				8C6D37B11DC42F0A0052202C /* LightUpTables.swift in Sources */,
 				8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */,
+				8C6D37901DC42F0A0052202C /* CloudsGameScene.swift in Sources */,
+				8C6D37A51DC42F0A0052202C /* HitoriTables.swift in Sources */,
+				8C6D37981DC42F0A0052202C /* CloudsOptionsViewController.swift in Sources */,
+				8C6D37891DC42F0A0052202C /* BridgesMainViewController.swift in Sources */,
+				8C6D37BB1DC42F0A0052202C /* SlitherLinkObject.swift in Sources */,
+				8C6D37A21DC42F0A0052202C /* HitoriMixin.swift in Sources */,
 				8C6D373A1DC421180052202C /* HomeMixin.swift in Sources */,
+				8C6D379C1DC42F0A0052202C /* HitoriGameScene.swift in Sources */,
 				8C6D373C1DC421180052202C /* HomeTables.swift in Sources */,
-				8C0A580E1DB37A6A00BFCE16 /* SlitherLinkGame.swift in Sources */,
-				8C0A58171DB37A6A00BFCE16 /* SlitherLinkOptionsViewController.swift in Sources */,
-				8C0A580D1DB37A6A00BFCE16 /* SlitherLinkDocument.swift in Sources */,
+				8C6D37A41DC42F0A0052202C /* HitoriOptionsViewController.swift in Sources */,
 				8C916CC01DAA5E9500D9E62B /* Node.swift in Sources */,
-				8CE6BCA11DB110D50087BC15 /* LightUpGameScene.swift in Sources */,
-				8C6140061DBF647F00512393 /* CloudsGameViewController.swift in Sources */,
-				8C0940901DC0D95100294662 /* HitoriDocument.swift in Sources */,
-				8CFD4B811DB1A0CC00DEBBAF /* BridgesMixin.swift in Sources */,
-				8C0940941DC0D95100294662 /* HitoriGameViewController.swift in Sources */,
-				8C0A58101DB37A6A00BFCE16 /* SlitherLinkGameState.swift in Sources */,
+				8C6D37961DC42F0A0052202C /* CloudsMixin.swift in Sources */,
 				8C1D16B51DB8DE930056D407 /* Graph.swift in Sources */,
+				8C6D37921DC42F0A0052202C /* CloudsGameViewController.swift in Sources */,
 				8C886C441D9E8AF1004A42BF /* SWActionSheet.m in Sources */,
-				8C6140051DBF647F00512393 /* CloudsGameState.swift in Sources */,
-				8CE6BC9F1DB110D50087BC15 /* LightUpObject.swift in Sources */,
-				8C6140091DBF647F00512393 /* CloudsMainViewController.swift in Sources */,
-				8CE6BC9C1DB110D50087BC15 /* LightUpDocument.swift in Sources */,
-				8CFD4B791DB1A0CC00DEBBAF /* BridgesDocument.swift in Sources */,
-				8CFD4B7E1DB1A0CC00DEBBAF /* BridgesGridNode.swift in Sources */,
-				8C61400C1DBF647F00512393 /* CloudsOptionsViewController.swift in Sources */,
-				8C0940971DC0D95100294662 /* HitoriMainViewController.swift in Sources */,
-				8CFD4B831DB1A0CC00DEBBAF /* BridgesOptionsViewController.swift in Sources */,
-				8C0940991DC0D95100294662 /* HitoriObject.swift in Sources */,
-				8CE6BCA41DB110D50087BC15 /* LightUpGridNode.swift in Sources */,
-				8C0A58161DB37A6A00BFCE16 /* SlitherLinkObject.swift in Sources */,
+				8C6D379A1DC42F0A0052202C /* HitoriDocument.swift in Sources */,
+				8C6D37A81DC42F0A0052202C /* LightUpGameScene.swift in Sources */,
 				8C886C401D9E8AF1004A42BF /* ActionSheetLocalePicker.m in Sources */,
-				8C61400B1DBF647F00512393 /* CloudsObject.swift in Sources */,
-				8C09409A1DC0D95100294662 /* HitoriOptionsViewController.swift in Sources */,
-				8CE6BCA71DB110F30087BC15 /* LightUpMainViewController.swift in Sources */,
-				8CE6BCA31DB110D50087BC15 /* LightUpGameViewController.swift in Sources */,
+				8C6D37851DC42F0A0052202C /* BridgesGameState.swift in Sources */,
+				8C6D37A31DC42F0A0052202C /* HitoriObject.swift in Sources */,
 				8C835D651D84BCDC0067BC3E /* Position.swift in Sources */,
-				8CE6BCA01DB110D50087BC15 /* LightUpTables.swift in Sources */,
-				8CFD4B821DB1A0CC00DEBBAF /* BridgesObject.swift in Sources */,
-				8C09409B1DC0D95100294662 /* HitoriTables.swift in Sources */,
+				8C6D37AD1DC42F0A0052202C /* LightUpMainViewController.swift in Sources */,
+				8C6D37B31DC42F0A0052202C /* SlitherLinkGame.swift in Sources */,
+				8C6D37931DC42F0A0052202C /* CloudsGridNode.swift in Sources */,
 				8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */,
+				8C6D378E1DC42F0A0052202C /* CloudsDocument.swift in Sources */,
 				8C886C3C1D9E8AF1004A42BF /* AbstractActionSheetPicker.m in Sources */,
-				8CFD4B801DB1A0CC00DEBBAF /* BridgesMainViewController.swift in Sources */,
-				8C0940931DC0D95100294662 /* HitoriGameState.swift in Sources */,
-				8CFD4B581DB1213200DEBBAF /* LightUpOptionsViewController.swift in Sources */,
-				8C0A58181DB37A6A00BFCE16 /* SlitherLinkTables.swift in Sources */,
 				8C916CBE1DAA5E9500D9E62B /* Helpers.swift in Sources */,
 				8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */,
+				8C6D379E1DC42F0A0052202C /* HitoriGameViewController.swift in Sources */,
+				8C6D37B51DC42F0A0052202C /* SlitherLinkGameState.swift in Sources */,
 				8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */,
-				8CE6BC9E1DB110D50087BC15 /* LightUpMixin.swift in Sources */,
+				8C6D37A71DC42F0A0052202C /* LightUpGame.swift in Sources */,
 				8C6D37391DC421180052202C /* HomeMainViewController.swift in Sources */,
+				8C6D37AF1DC42F0A0052202C /* LightUpObject.swift in Sources */,
+				8C6D37AB1DC42F0A0052202C /* LightUpGridNode.swift in Sources */,
+				8C6D37BD1DC42F0A0052202C /* SlitherLinkTables.swift in Sources */,
+				8C6D37B01DC42F0A0052202C /* LightUpOptionsViewController.swift in Sources */,
 				8C6D37381DC421180052202C /* HomeDocument.swift in Sources */,
-				8C61400A1DBF647F00512393 /* CloudsMixin.swift in Sources */,
+				8C6D378F1DC42F0A0052202C /* CloudsGame.swift in Sources */,
 				8C886C421D9E8AF1004A42BF /* ActionSheetStringPicker.m in Sources */,
+				8C6D37B61DC42F0A0052202C /* SlitherLinkGameViewController.swift in Sources */,
+				8C6D379D1DC42F0A0052202C /* HitoriGameState.swift in Sources */,
+				8C6D37B91DC42F0A0052202C /* SlitherLinkMainViewController.swift in Sources */,
+				8C6D37B21DC42F0A0052202C /* SlitherLinkDocument.swift in Sources */,
+				8C6D37871DC42F0A0052202C /* BridgesGridNode.swift in Sources */,
+				8C6D379B1DC42F0A0052202C /* HitoriGame.swift in Sources */,
+				8C6D37971DC42F0A0052202C /* CloudsObject.swift in Sources */,
+				8C6D378D1DC42F0A0052202C /* BridgesTables.swift in Sources */,
+				8C6D378C1DC42F0A0052202C /* BridgesOptionsViewController.swift in Sources */,
+				8C6D37AA1DC42F0A0052202C /* LightUpGameViewController.swift in Sources */,
 				8C916CBD1DAA5E9500D9E62B /* Error.swift in Sources */,
-				8C61400D1DBF647F00512393 /* CloudsTables.swift in Sources */,
-				8C0A58121DB37A6A00BFCE16 /* SlitherLinkGridNode.swift in Sources */,
+				8C6D37911DC42F0A0052202C /* CloudsGameState.swift in Sources */,
+				8C6D37A61DC42F0A0052202C /* LightUpDocument.swift in Sources */,
 				8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */,
-				8CFD4B7A1DB1A0CC00DEBBAF /* BridgesGame.swift in Sources */,
-				8C6140031DBF647F00512393 /* CloudsGame.swift in Sources */,
+				8C6D379F1DC42F0A0052202C /* HitoriGridNode.swift in Sources */,
+				8C6D37A91DC42F0A0052202C /* LightUpGameState.swift in Sources */,
 				8C916CC11DAA5E9500D9E62B /* NodeSet.swift in Sources */,
-				8CFD4B7C1DB1A0CC00DEBBAF /* BridgesGameState.swift in Sources */,
-				8C0940981DC0D95100294662 /* HitoriMixin.swift in Sources */,
-				8CE6BCA21DB110D50087BC15 /* LightUpGameState.swift in Sources */,
+				8C6D37B71DC42F0A0052202C /* SlitherLinkGridNode.swift in Sources */,
+				8C6D37861DC42F0A0052202C /* BridgesGameViewController.swift in Sources */,
 				8C886C3F1D9E8AF1004A42BF /* ActionSheetDistancePicker.m in Sources */,
-				8CFD4B7B1DB1A0CC00DEBBAF /* BridgesGameScene.swift in Sources */,
+				8C6D37951DC42F0A0052202C /* CloudsMainViewController.swift in Sources */,
 				8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */,
+				8C6D37991DC42F0A0052202C /* CloudsTables.swift in Sources */,
 				8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */,
-				8CFD4B7D1DB1A0CC00DEBBAF /* BridgesGameViewController.swift in Sources */,
-				8C0A58151DB37A6A00BFCE16 /* SlitherLinkMixin.swift in Sources */,
+				8C6D37841DC42F0A0052202C /* BridgesGameScene.swift in Sources */,
+				8C6D37BC1DC42F0A0052202C /* SlitherLinkOptionsViewController.swift in Sources */,
 				8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */,
-				8C6140071DBF647F00512393 /* CloudsGridNode.swift in Sources */,
-				8C0940911DC0D95100294662 /* HitoriGame.swift in Sources */,
 				8C916CBC1DAA5E9500D9E62B /* Element.swift in Sources */,
+				8C6D378B1DC42F0A0052202C /* BridgesObject.swift in Sources */,
+				8C6D37B41DC42F0A0052202C /* SlitherLinkGameScene.swift in Sources */,
+				8C6D378A1DC42F0A0052202C /* BridgesMixin.swift in Sources */,
 				8C886C411D9E8AF1004A42BF /* ActionSheetMultipleStringPicker.m in Sources */,
-				8C0A58111DB37A6A00BFCE16 /* SlitherLinkGameViewController.swift in Sources */,
-				8CE6BC9D1DB110D50087BC15 /* LightUpGame.swift in Sources */,
-				8C0A58141DB37A6A00BFCE16 /* SlitherLinkMainViewController.swift in Sources */,
+				8C6D37AE1DC42F0A0052202C /* LightUpMixin.swift in Sources */,
+				8C6D37BA1DC42F0A0052202C /* SlitherLinkMixin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -896,30 +930,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8C09409D1DC0DC3E00294662 /* Hitori.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8C09409E1DC0DC3E00294662 /* Base */,
-			);
-			name = Hitori.storyboard;
-			sourceTree = "<group>";
-		};
-		8C0A58191DB37A8600BFCE16 /* SlitherLink.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8C0A581A1DB37A8600BFCE16 /* Base */,
-			);
-			name = SlitherLink.storyboard;
-			sourceTree = "<group>";
-		};
-		8C61400F1DBFAFB200512393 /* Clouds.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8C6140101DBFAFB200512393 /* Base */,
-			);
-			name = Clouds.storyboard;
-			sourceTree = "<group>";
-		};
 		8C6D373D1DC421980052202C /* Home.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -928,28 +938,52 @@
 			name = Home.storyboard;
 			sourceTree = "<group>";
 		};
+		8C6D37BE1DC42F3B0052202C /* Bridges.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C6D37BF1DC42F3B0052202C /* Base */,
+			);
+			name = Bridges.storyboard;
+			sourceTree = "<group>";
+		};
+		8C6D37C11DC42F450052202C /* Clouds.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C6D37C21DC42F450052202C /* Base */,
+			);
+			name = Clouds.storyboard;
+			sourceTree = "<group>";
+		};
+		8C6D37C41DC42F540052202C /* Hitori.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C6D37C51DC42F540052202C /* Base */,
+			);
+			name = Hitori.storyboard;
+			sourceTree = "<group>";
+		};
+		8C6D37C71DC42F640052202C /* LightUp.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C6D37C81DC42F640052202C /* Base */,
+			);
+			name = LightUp.storyboard;
+			sourceTree = "<group>";
+		};
+		8C6D37CA1DC42F6D0052202C /* SlitherLink.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C6D37CB1DC42F6D0052202C /* Base */,
+			);
+			name = SlitherLink.storyboard;
+			sourceTree = "<group>";
+		};
 		8C9F43E51D771915000139FC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				8C9F43E61D771915000139FC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		8CFD4B541DB1205500DEBBAF /* LightUp.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8CFD4B551DB1205500DEBBAF /* Base */,
-			);
-			name = LightUp.storyboard;
-			sourceTree = "<group>";
-		};
-		8CFD4B851DB1A10200DEBBAF /* Bridges.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8CFD4B861DB1A10200DEBBAF /* Base */,
-			);
-			name = Bridges.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
