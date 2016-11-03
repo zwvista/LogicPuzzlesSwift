@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class BridgesGameViewController: UIViewController, BridgesGameDelegate, BridgesMixin {
+class BridgesGameViewController: UIViewController, GameDelegate, BridgesMixin {
 
     var scene: BridgesGameScene!
     var game: BridgesGame!
@@ -96,8 +96,9 @@ class BridgesGameViewController: UIViewController, BridgesGameDelegate, BridgesM
         }
     }
     
-    func moveAdded(_ game: BridgesGame, move: BridgesGameMove) {
+    func moveAdded(_ game: AnyObject, move: BridgesGameMove) {
         guard !levelInitilizing else {return}
+        let game = game as! BridgesGame
         gameDocument.moveAdded(game: game, move: move)
     }
     
@@ -106,7 +107,8 @@ class BridgesGameViewController: UIViewController, BridgesGameDelegate, BridgesM
         lblSolved.textColor = game.isSolved ? SKColor.white : SKColor.black
     }
     
-    func levelInitilized(_ game: BridgesGame, state: BridgesGameState) {
+    func levelInitilized(_ game: AnyObject, state: BridgesGameState) {
+        let game = game as! BridgesGame
         updateLabels(game)
         scene.removeAllChildren()
         let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
@@ -114,14 +116,15 @@ class BridgesGameViewController: UIViewController, BridgesGameDelegate, BridgesM
         scene.addIslands(from: state)
     }
     
-    func levelUpdated(_ game: BridgesGame, from stateFrom: BridgesGameState, to stateTo: BridgesGameState) {
+    func levelUpdated(_ game: AnyObject, from stateFrom: BridgesGameState, to stateTo: BridgesGameState) {
+        let game = game as! BridgesGame
         updateLabels(game)
         scene.process(from: stateFrom, to: stateTo)
         guard !levelInitilizing else {return}
         gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: BridgesGame) {
+    func gameSolved(_ game: AnyObject) {
         if !levelInitilizing {
             soundManager.playSoundSolved()
         }

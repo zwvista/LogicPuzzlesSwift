@@ -10,16 +10,15 @@ import Foundation
 
 // http://stackoverflow.com/questions/24066304/how-can-i-make-a-weak-protocol-reference-in-pure-swift-w-o-objc
 protocol GameDelegate: class {
-    associatedtype G
     associatedtype GM
     associatedtype GS: GameStateBase
-    func moveAdded(_ game: G, move: GM)
-    func levelInitilized(_ game: G, state: GS)
-    func levelUpdated(_ game: G, from stateFrom: GS, to stateTo: GS)
-    func gameSolved(_ game: G)
+    func moveAdded(_ game: AnyObject, move: GM)
+    func levelInitilized(_ game: AnyObject, state: GS)
+    func levelUpdated(_ game: AnyObject, from stateFrom: GS, to stateTo: GS)
+    func gameSolved(_ game: AnyObject)
 }
 
-class Game<G, GM, GS: GameStateBase> {
+class Game<GM, GS: GameStateBase> {
     var stateIndex = 0
     var states = [GS]()
     var state: GS {return states[stateIndex]}
@@ -32,13 +31,13 @@ class Game<G, GM, GS: GameStateBase> {
     var moveIndex: Int {return stateIndex}
     var moveCount: Int {return states.count - 1}
     
-    private let _moveAdded: ((G, GM) -> Void)?
-    private let _levelInitilized: ((G, GS) -> Void)?
-    private let _levelUpdated: ((G, GS, GS) -> Void)?
-    private let _gameSolved: ((G) -> Void)?
+    private let _moveAdded: ((AnyObject, GM) -> Void)?
+    private let _levelInitilized: ((AnyObject, GS) -> Void)?
+    private let _levelUpdated: ((AnyObject, GS, GS) -> Void)?
+    private let _gameSolved: ((AnyObject) -> Void)?
     
     // https://www.natashatherobot.com/swift-type-erasure/
-    init<GD: GameDelegate>(delegate: GD? = nil) where GD.G == G, GD.GM == GM, GD.GS == GS {
+    init<GD: GameDelegate>(delegate: GD? = nil) where GD.GM == GM, GD.GS == GS {
         _moveAdded = delegate?.moveAdded
         _levelInitilized = delegate?.levelInitilized
         _levelUpdated = delegate?.levelUpdated
@@ -46,17 +45,17 @@ class Game<G, GM, GS: GameStateBase> {
     }
     
     func moveAdded(move: GM) {
-        _moveAdded?(self as! G, move)
+        _moveAdded?(self, move)
     }
     
     func levelInitilized(state: GS) {
-        _levelInitilized?(self as! G, state)
-        if isSolved { _gameSolved?(self as! G) }
+        _levelInitilized?(self, state)
+        if isSolved { _gameSolved?(self) }
     }
     
     func levelUpdated(from stateFrom: GS, to stateTo: GS) {
-        _levelUpdated?(self as! G, stateFrom, stateTo)
-        if isSolved { _gameSolved?(self as! G) }
+        _levelUpdated?(self, stateFrom, stateTo)
+        if isSolved { _gameSolved?(self) }
     }
     
     func undo() {
@@ -79,7 +78,7 @@ protocol CellsGameBase: class {
     func isValid(row: Int, col: Int) -> Bool;
 }
 
-class CellsGame<G, GM, GS: GameStateBase>: Game<G, GM, GS>, CellsGameBase {
+class CellsGame<GM, GS: GameStateBase>: Game<GM, GS>, CellsGameBase {
     var size: Position!
     var rows: Int { return size.row }
     var cols: Int { return size.col }
@@ -90,7 +89,7 @@ class CellsGame<G, GM, GS: GameStateBase>: Game<G, GM, GS>, CellsGameBase {
         return row >= 0 && col >= 0 && row < rows && col < cols
     }
     
-    override init<GD: GameDelegate>(delegate: GD?) where GD.G == G, GD.GM == GM, GD.GS == GS {
+    override init<GD: GameDelegate>(delegate: GD? = nil) where GD.GM == GM, GD.GS == GS {
         super.init(delegate: delegate)
     }
 }

@@ -8,20 +8,12 @@
 
 import Foundation
 
-// http://stackoverflow.com/questions/24066304/how-can-i-make-a-weak-protocol-reference-in-pure-swift-w-o-objc
-protocol BridgesGameDelegate: class {
-    func moveAdded(_ game: BridgesGame, move: BridgesGameMove)
-    func levelInitilized(_ game: BridgesGame, state: BridgesGameState)
-    func levelUpdated(_ game: BridgesGame, from stateFrom: BridgesGameState, to stateTo: BridgesGameState)
-    func gameSolved(_ game: BridgesGame)
-}
-
 class IslandInfo {
     var bridges = 0
     var neighbors: [Position?] = [nil, nil, nil, nil]
 }
 
-class BridgesGame: CellsGameBase {
+class BridgesGame: CellsGame<BridgesGameMove, BridgesGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),
@@ -29,49 +21,11 @@ class BridgesGame: CellsGameBase {
         Position(0, -1),
     ];
     
-    var size: Position!
-    var rows: Int { return size.row }
-    var cols: Int { return size.col }
-    func isValid(p: Position) -> Bool {
-        return isValid(row: p.row, col: p.col)
-    }
-    func isValid(row: Int, col: Int) -> Bool {
-        return row >= 0 && col >= 0 && row < rows && col < cols
-    }
     var islandsInfo = [Position: IslandInfo]()
-    func isIsland(p: Position) -> Bool {
-        return islandsInfo[p] != nil
-     }
+    func isIsland(p: Position) -> Bool {return islandsInfo[p] != nil}
     
-    private var stateIndex = 0
-    private var states = [BridgesGameState]()
-    private var state: BridgesGameState {return states[stateIndex]}
-    private var moves = [BridgesGameMove]()
-    private var move: BridgesGameMove {return moves[stateIndex - 1]}
-    
-    private(set) weak var delegate: BridgesGameDelegate?
-    var isSolved: Bool {return state.isSolved}
-    var canUndo: Bool {return stateIndex > 0}
-    var canRedo: Bool {return stateIndex < states.count - 1}
-    var moveIndex: Int {return stateIndex}
-    var moveCount: Int {return states.count - 1}
-    
-    private func moveAdded(move: BridgesGameMove) {
-        delegate?.moveAdded(self, move: move)
-    }
-    
-    private func levelInitilized(state: BridgesGameState) {
-        delegate?.levelInitilized(self, state: state)
-        if isSolved { delegate?.gameSolved(self) }
-    }
-    
-    private func levelUpdated(from stateFrom: BridgesGameState, to stateTo: BridgesGameState) {
-        delegate?.levelUpdated(self, from: stateFrom, to: stateTo)
-        if isSolved { delegate?.gameSolved(self) }
-    }
-    
-    init(layout: [String], delegate: BridgesGameDelegate? = nil) {
-        self.delegate = delegate
+    init(layout: [String], delegate: BridgesGameViewController? = nil) {
+        super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].characters.count)
         let state = BridgesGameState(game: self)
@@ -132,17 +86,5 @@ class BridgesGame: CellsGameBase {
         levelUpdated(from: states[stateIndex - 1], to: state)
         return true
     }
-    
-    func undo() {
-        guard canUndo else {return}
-        stateIndex -= 1
-        levelUpdated(from: states[stateIndex + 1], to: state)
-    }
-    
-    func redo() {
-        guard canRedo else {return}
-        stateIndex += 1
-        levelUpdated(from: states[stateIndex - 1], to: state)
-    }
-    
+        
 }
