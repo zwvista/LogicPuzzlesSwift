@@ -21,7 +21,7 @@ class IslandInfo {
     var neighbors: [Position?] = [nil, nil, nil, nil]
 }
 
-class BridgesGame {
+class BridgesGame: CellsGameBase {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),
@@ -29,7 +29,7 @@ class BridgesGame {
         Position(0, -1),
     ];
     
-    var size: Position
+    var size: Position!
     var rows: Int { return size.row }
     var cols: Int { return size.col }
     func isValid(p: Position) -> Bool {
@@ -74,7 +74,7 @@ class BridgesGame {
         self.delegate = delegate
         
         size = Position(layout.count, layout[0].characters.count)
-        var state = BridgesGameState(game: self)
+        let state = BridgesGameState(game: self)
         
         for r in 0 ..< rows {
             let str = layout[r]
@@ -119,7 +119,7 @@ class BridgesGame {
             moves.removeSubrange(stateIndex ..< moves.count)
         }
         // copy a state
-        var state = self.state
+        let state = self.state.copy()
         var pFrom = pFrom, pTo = pTo
         if pTo < pFrom {swap(&pFrom, &pTo)}
         let move = BridgesGameMove(pFrom: pFrom, pTo: pTo)

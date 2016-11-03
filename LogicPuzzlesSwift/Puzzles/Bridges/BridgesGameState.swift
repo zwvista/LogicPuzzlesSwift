@@ -8,22 +8,23 @@
 
 import Foundation
 
-struct BridgesGameState {
-    unowned let game: BridgesGame
-    var size: Position { return game.size }
-    var rows: Int { return size.row }
-    var cols: Int { return size.col }
-    func isValid(p: Position) -> Bool {
-        return game.isValid(row: p.row, col: p.col)
-    }
-    func isValid(row: Int, col: Int) -> Bool {
-        return game.isValid(row: row, col: col)
-    }
+class BridgesGameState: CellsGameState {
+    var game: BridgesGame {return cellsgame as! BridgesGame}
     var objArray = [BridgesObject]()
     var options: BridgesGameProgress { return BridgesDocument.sharedInstance.gameProgress }
     
-    init(game: BridgesGame) {
-        self.game = game
+    override func copy() -> BridgesGameState {
+        let v = BridgesGameState(game: cellsgame)
+        return setup(v: v)
+    }
+    func setup(v: BridgesGameState) -> BridgesGameState {
+        _ = super.setup(v: v)
+        v.objArray = objArray
+        return v
+    }
+
+    required init(game: CellsGameBase) {
+        super.init(game: game)
         objArray = Array<BridgesObject>(repeating: BridgesObject(), count: rows * cols)
     }
     
@@ -44,7 +45,7 @@ struct BridgesGameState {
         }
     }
     
-    mutating func switchBridges(move: BridgesGameMove) -> Bool {
+    func switchBridges(move: BridgesGameMove) -> Bool {
         let pFrom = move.pFrom, pTo = move.pTo
         guard pFrom < pTo && (pFrom.row == pTo.row || pFrom.col == pTo.col) else {return false}
         guard case .island(let state1, var bridges1) = self[pFrom] else {return false}
@@ -73,9 +74,7 @@ struct BridgesGameState {
         return true
     }
     
-    private(set) var isSolved = false
-    
-    private mutating func updateIsSolved() {
+    private func updateIsSolved() {
         isSolved = true
         let g = Graph()
         var pos2node = [Position: Node]()
