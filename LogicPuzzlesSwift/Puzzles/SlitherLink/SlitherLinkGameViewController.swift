@@ -102,7 +102,7 @@ class SlitherLinkGameViewController: UIViewController, SlitherLinkGameDelegate, 
     
     func levelUpdated(_ game: SlitherLinkGame, from stateFrom: SlitherLinkGameState, to stateTo: SlitherLinkGameState) {
         updateLabels(game)
-        scene.process(from: stateFrom, to: stateTo)
+        scene.levelUpdated(from: stateFrom, to: stateTo)
         guard !levelInitilizing else {return}
         gameDocument.levelUpdated(game: game)
     }

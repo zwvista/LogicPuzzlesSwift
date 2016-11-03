@@ -101,7 +101,7 @@ class LightUpGameViewController: UIViewController, LightUpGameDelegate, LightUpM
     
     func levelUpdated(_ game: LightUpGame, from stateFrom: LightUpGameState, to stateTo: LightUpGameState) {
         updateLabels(game)
-        scene.process(from: stateFrom, to: stateTo)
+        scene.levelUpdated(from: stateFrom, to: stateTo)
         guard !levelInitilizing else {return}
         gameDocument.levelUpdated(game: game)
     }

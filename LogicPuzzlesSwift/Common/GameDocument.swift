@@ -9,7 +9,7 @@
 import UIKit
 import SharkORM
 
-class GameDocument<G, GM> {
+class GameDocument<GM> {
     private(set) var levels = [String: [String]]()
     var selectedLevelID: String!
 
@@ -26,9 +26,9 @@ class GameDocument<G, GM> {
         }
     }
     
-    func levelUpdated(game: G) {}
+    func levelUpdated(game: AnyObject) {}
     
-    func moveAdded(game: G, move: GM) {}
+    func moveAdded(game: AnyObject, move: GM) {}
     
     func resumeGame() {}
     

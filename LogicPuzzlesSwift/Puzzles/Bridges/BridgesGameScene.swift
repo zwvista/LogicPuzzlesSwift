@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class BridgesGameScene: SKScene {
+class BridgesGameScene: GameScene<BridgesGameState> {
     private(set) var gridNode: BridgesGridNode!
     
     func addGrid(to view: SKView, rows: Int, cols: Int, blockSize: CGFloat) {
@@ -49,7 +49,15 @@ class BridgesGameScene: SKScene {
         gridNode.addChild(numberNode)
     }
     
-    func process(from stateFrom: BridgesGameState, to stateTo: BridgesGameState) {
+    override func levelInitialized(_ game: AnyObject, state: BridgesGameState, skView: SKView) {
+        let game = game as! BridgesGame
+        removeAllChildren()
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
+        addGrid(to: skView, rows: game.rows, cols: game.cols, blockSize: blockSize)
+        addIslands(from: state)
+    }
+    
+    override func levelUpdated(from stateFrom: BridgesGameState, to stateTo: BridgesGameState) {
         for (p, info) in stateFrom.game.islandsInfo {
             let point = gridNode.gridPosition(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"

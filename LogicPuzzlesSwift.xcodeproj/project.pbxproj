@@ -19,6 +19,10 @@
 		8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D16A91DB8DE930056D407 /* Queue.swift */; };
 		8C31FE6E1D90E415008793BF /* SharkORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; };
 		8C31FE6F1D90E415008793BF /* SharkORM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8C6ACBFD1DCAF8AC0075F32C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D31DC42FA40052202C /* GameViewController.swift */; };
+		8C6ACBFE1DCAF8BA0075F32C /* GameDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37CF1DC42FA40052202C /* GameDocument.swift */; };
+		8C6ACBFF1DCAF8BA0075F32C /* GameMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D71DC42FA40052202C /* GameMixin.swift */; };
+		8C6ACC001DCAF8C20075F32C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37E91DC59EE50052202C /* GameScene.swift */; };
 		8C6D37381DC421180052202C /* HomeDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37331DC421180052202C /* HomeDocument.swift */; };
 		8C6D37391DC421180052202C /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37341DC421180052202C /* HomeMainViewController.swift */; };
 		8C6D373A1DC421180052202C /* HomeMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37351DC421180052202C /* HomeMixin.swift */; };
@@ -825,6 +829,7 @@
 				8C1D16B31DB8DE930056D407 /* README.markdown in Sources */,
 				8C6D37B11DC42F0A0052202C /* LightUpTables.swift in Sources */,
 				8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */,
+				8C6ACBFF1DCAF8BA0075F32C /* GameMixin.swift in Sources */,
 				8C6D37901DC42F0A0052202C /* CloudsGameScene.swift in Sources */,
 				8C6D37A51DC42F0A0052202C /* HitoriTables.swift in Sources */,
 				8C6D37981DC42F0A0052202C /* CloudsOptionsViewController.swift in Sources */,
@@ -836,6 +841,7 @@
 				8C6D379C1DC42F0A0052202C /* HitoriGameScene.swift in Sources */,
 				8C6D373C1DC421180052202C /* HomeTables.swift in Sources */,
 				8C6D37A41DC42F0A0052202C /* HitoriOptionsViewController.swift in Sources */,
+				8C6ACBFD1DCAF8AC0075F32C /* GameViewController.swift in Sources */,
 				8C916CC01DAA5E9500D9E62B /* Node.swift in Sources */,
 				8C6D37961DC42F0A0052202C /* CloudsMixin.swift in Sources */,
 				8C1D16B51DB8DE930056D407 /* Graph.swift in Sources */,
@@ -845,6 +851,7 @@
 				8C6D37A81DC42F0A0052202C /* LightUpGameScene.swift in Sources */,
 				8C886C401D9E8AF1004A42BF /* ActionSheetLocalePicker.m in Sources */,
 				8C6D37851DC42F0A0052202C /* BridgesGameState.swift in Sources */,
+				8C6ACBFE1DCAF8BA0075F32C /* GameDocument.swift in Sources */,
 				8C6D37A31DC42F0A0052202C /* HitoriObject.swift in Sources */,
 				8C6D37AD1DC42F0A0052202C /* LightUpMainViewController.swift in Sources */,
 				8C6D37B31DC42F0A0052202C /* SlitherLinkGame.swift in Sources */,
@@ -860,6 +867,7 @@
 				8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */,
 				8C6D37A71DC42F0A0052202C /* LightUpGame.swift in Sources */,
 				8C6D37391DC421180052202C /* HomeMainViewController.swift in Sources */,
+				8C6ACC001DCAF8C20075F32C /* GameScene.swift in Sources */,
 				8C6D37AF1DC42F0A0052202C /* LightUpObject.swift in Sources */,
 				8C6D37AB1DC42F0A0052202C /* LightUpGridNode.swift in Sources */,
 				8C6D37BD1DC42F0A0052202C /* SlitherLinkTables.swift in Sources */,

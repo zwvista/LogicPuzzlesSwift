@@ -26,19 +26,19 @@ class GameState: Copyable, GameStateBase {
 }
 
 class CellsGameState: GameState {
-    unowned let cellsgame: CellsGameBase
-    var size: Position { return cellsgame.size }
+    unowned let gameBase: CellsGameBase
+    var size: Position { return gameBase.size }
     var rows: Int { return size.row }
     var cols: Int { return size.col }
     func isValid(p: Position) -> Bool {
-        return cellsgame.isValid(row: p.row, col: p.col)
+        return gameBase.isValid(row: p.row, col: p.col)
     }
     func isValid(row: Int, col: Int) -> Bool {
-        return cellsgame.isValid(row: row, col: col)
+        return gameBase.isValid(row: row, col: col)
     }
     
     override func copy() -> CellsGameState {
-        let v = CellsGameState(game: cellsgame)
+        let v = CellsGameState(game: gameBase)
         return setup(v: v)
     }
     func setup(v: CellsGameState) -> CellsGameState {
@@ -47,6 +47,6 @@ class CellsGameState: GameState {
     }
     
     required init(game: CellsGameBase) {
-        self.cellsgame = game
+        self.gameBase = game
     }
 }

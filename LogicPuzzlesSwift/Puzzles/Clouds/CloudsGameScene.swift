@@ -75,7 +75,7 @@ class CloudsGameScene: SKScene {
         gridNode.addChild(numberNode)
     }
     
-    func process(from stateFrom: CloudsGameState, to stateTo: CloudsGameState) {
+    func levelUpdated(from stateFrom: CloudsGameState, to stateTo: CloudsGameState) {
         func removeNode(withName: String) {
             gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
                 node.removeFromParent()

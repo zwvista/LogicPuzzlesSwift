@@ -102,7 +102,7 @@ class CloudsGameViewController: UIViewController, CloudsGameDelegate, CloudsMixi
     
     func levelUpdated(_ game: CloudsGame, from stateFrom: CloudsGameState, to stateTo: CloudsGameState) {
         updateLabels(game)
-        scene.process(from: stateFrom, to: stateTo)
+        scene.levelUpdated(from: stateFrom, to: stateTo)
         guard !levelInitilizing else {return}
         gameDocument.levelUpdated(game: game)
     }

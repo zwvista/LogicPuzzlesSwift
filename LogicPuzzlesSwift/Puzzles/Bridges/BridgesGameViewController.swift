@@ -110,16 +110,13 @@ class BridgesGameViewController: UIViewController, GameDelegate, BridgesMixin {
     func levelInitilized(_ game: AnyObject, state: BridgesGameState) {
         let game = game as! BridgesGame
         updateLabels(game)
-        scene.removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
-        scene.addGrid(to: skView, rows: game.rows, cols: game.cols, blockSize: blockSize)
-        scene.addIslands(from: state)
+        scene.levelInitialized(game, state: state, skView: skView)
     }
     
     func levelUpdated(_ game: AnyObject, from stateFrom: BridgesGameState, to stateTo: BridgesGameState) {
         let game = game as! BridgesGame
         updateLabels(game)
-        scene.process(from: stateFrom, to: stateTo)
+        scene.levelUpdated(from: stateFrom, to: stateTo)
         guard !levelInitilizing else {return}
         gameDocument.levelUpdated(game: game)
     }

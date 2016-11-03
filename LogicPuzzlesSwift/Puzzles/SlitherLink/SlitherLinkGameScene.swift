@@ -47,7 +47,7 @@ class SlitherLinkGameScene: SKScene {
         gridNode.addChild(numberNode)
     }
     
-    func process(from stateFrom: SlitherLinkGameState, to stateTo: SlitherLinkGameState) {
+    func levelUpdated(from stateFrom: SlitherLinkGameState, to stateTo: SlitherLinkGameState) {
         let markerOffset: CGFloat = 7.5
         for row in 0 ..< stateFrom.rows {
             for col in 0 ..< stateFrom.cols {

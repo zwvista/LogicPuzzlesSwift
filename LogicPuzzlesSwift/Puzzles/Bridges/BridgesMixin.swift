@@ -8,14 +8,12 @@
 
 import Foundation
 
-protocol BridgesMixin {
+protocol BridgesMixin: GameMixin {
     var gameDocument: BridgesDocument { get }
     var gameOptions: BridgesGameProgress { get }
-    var soundManager: SoundManager { get }
 }
 
 extension BridgesMixin {
     var gameDocument: BridgesDocument { return BridgesDocument.sharedInstance }
     var gameOptions: BridgesGameProgress { return gameDocument.gameProgress }
-    var soundManager: SoundManager { return SoundManager.sharedInstance }
 }

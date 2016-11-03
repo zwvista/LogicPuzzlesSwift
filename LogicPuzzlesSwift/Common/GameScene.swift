@@ -1,5 +1,5 @@
 //
-//  BridgesGameScene.swift
+//  GameScene.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/09.
@@ -8,6 +8,7 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
-    
+class GameScene<GS: GameStateBase>: SKScene {
+    func levelInitialized(_ game: AnyObject, state: GS, skView: SKView) {}
+    func levelUpdated(from stateFrom: GS, to stateTo: GS) {}
 }

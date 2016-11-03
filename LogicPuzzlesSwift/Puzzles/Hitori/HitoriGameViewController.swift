@@ -101,7 +101,7 @@ class HitoriGameViewController: UIViewController, HitoriGameDelegate, HitoriMixi
     
     func levelUpdated(_ game: HitoriGame, from stateFrom: HitoriGameState, to stateTo: HitoriGameState) {
         updateLabels(game)
-        scene.process(from: stateFrom, to: stateTo)
+        scene.levelUpdated(from: stateFrom, to: stateTo)
         guard !levelInitilizing else {return}
         gameDocument.levelUpdated(game: game)
     }

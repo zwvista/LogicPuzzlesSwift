@@ -57,7 +57,7 @@ class LightUpGameScene: SKScene {
         gridNode.addChild(numberNode)
     }
     
-    func process(from stateFrom: LightUpGameState, to stateTo: LightUpGameState) {
+    func levelUpdated(from stateFrom: LightUpGameState, to stateTo: LightUpGameState) {
         for row in 0 ..< stateFrom.rows {
             for col in 0 ..< stateFrom.cols {
                 let point = gridNode.gridPosition(p: Position(row, col))

@@ -51,7 +51,7 @@ class HitoriGameScene: SKScene {
         gridNode.addChild(numberNode)
     }
     
-    func process(from stateFrom: HitoriGameState, to stateTo: HitoriGameState) {
+    func levelUpdated(from stateFrom: HitoriGameState, to stateTo: HitoriGameState) {
         for row in 0 ..< stateFrom.rows {
             for col in 0 ..< stateFrom.cols {
                 let p = Position(row, col)
