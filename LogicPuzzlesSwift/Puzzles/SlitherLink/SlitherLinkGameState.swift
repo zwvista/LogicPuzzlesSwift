@@ -9,7 +9,7 @@
 import Foundation
 
 struct SlitherLinkGameState {
-    let game: SlitherLinkGame
+    unowned let game: SlitherLinkGame
     var size: Position { return game.size }
     var rows: Int { return size.row }
     var cols: Int { return size.col }    

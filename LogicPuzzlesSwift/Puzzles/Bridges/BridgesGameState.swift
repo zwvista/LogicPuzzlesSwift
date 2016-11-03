@@ -9,7 +9,7 @@
 import Foundation
 
 struct BridgesGameState {
-    let game: BridgesGame
+    unowned let game: BridgesGame
     var size: Position { return game.size }
     var rows: Int { return size.row }
     var cols: Int { return size.col }

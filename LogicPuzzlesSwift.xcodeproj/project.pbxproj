@@ -90,7 +90,12 @@
 		8C6D37C61DC42F540052202C /* Hitori.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6D37C41DC42F540052202C /* Hitori.storyboard */; };
 		8C6D37C91DC42F640052202C /* LightUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6D37C71DC42F640052202C /* LightUp.storyboard */; };
 		8C6D37CC1DC42F6D0052202C /* SlitherLink.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6D37CA1DC42F6D0052202C /* SlitherLink.storyboard */; };
-		8C835D651D84BCDC0067BC3E /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C835D641D84BCDC0067BC3E /* Position.swift */; };
+		8C6D37F31DC5AC310052202C /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37F21DC5AC310052202C /* SoundManager.swift */; };
+		8C6D37F51DC5AC520052202C /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37F41DC5AC520052202C /* Position.swift */; };
+		8C6D37FA1DC5ACC90052202C /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D91DC42FA40052202C /* OptionsViewController.swift */; };
+		8C6D37FB1DC5ACDB0052202C /* Copyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37EC1DC5A2F50052202C /* Copyable.swift */; };
+		8C6D37FC1DC5B4DC0052202C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D01DC42FA40052202C /* Game.swift */; };
+		8C6D37FE1DC5B4EB0052202C /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D21DC42FA40052202C /* GameState.swift */; };
 		8C886C3C1D9E8AF1004A42BF /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C291D9E8AF0004A42BF /* AbstractActionSheetPicker.m */; };
 		8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C2B1D9E8AF0004A42BF /* ActionSheetCustomPicker.m */; };
 		8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C2E1D9E8AF0004A42BF /* ActionSheetDatePicker.m */; };
@@ -109,7 +114,6 @@
 		8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C916CBA1DAA5E9500D9E62B /* Queryable.swift */; };
 		8C916CC41DAA5FEB00D9E62B /* music.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CC31DAA5FEB00D9E62B /* music.wav */; };
 		8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CC51DAB1E6000D9E62B /* tap.wav */; };
-		8C916CCA1DAB2E8E00D9E62B /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C916CC91DAB2E8E00D9E62B /* SoundManager.swift */; };
 		8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CCD1DAB35FC00D9E62B /* solved.wav */; };
 		8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43DA1D771915000139FC /* AppDelegate.swift */; };
 		8C9F43E41D771915000139FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E31D771915000139FC /* Assets.xcassets */; };
@@ -253,7 +257,8 @@
 		8C6D37D91DC42FA40052202C /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		8C6D37E91DC59EE50052202C /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		8C6D37EC1DC5A2F50052202C /* Copyable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Copyable.swift; sourceTree = "<group>"; };
-		8C835D641D84BCDC0067BC3E /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		8C6D37F21DC5AC310052202C /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		8C6D37F41DC5AC520052202C /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		8C886C281D9E8AF0004A42BF /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
 		8C886C291D9E8AF0004A42BF /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
 		8C886C2A1D9E8AF0004A42BF /* ActionSheetCustomPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPicker.h; sourceTree = "<group>"; };
@@ -286,7 +291,6 @@
 		8C916CBA1DAA5E9500D9E62B /* Queryable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queryable.swift; sourceTree = "<group>"; };
 		8C916CC31DAA5FEB00D9E62B /* music.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music.wav; sourceTree = "<group>"; };
 		8C916CC51DAB1E6000D9E62B /* tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tap.wav; sourceTree = "<group>"; };
-		8C916CC91DAB2E8E00D9E62B /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		8C916CCD1DAB35FC00D9E62B /* solved.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = solved.wav; sourceTree = "<group>"; };
 		8C9F43D71D771915000139FC /* LogicPuzzlesSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogicPuzzlesSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9F43DA1D771915000139FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -390,6 +394,7 @@
 				8C6D37351DC421180052202C /* HomeMixin.swift */,
 				8C6D37361DC421180052202C /* HomeOptionsViewController.swift */,
 				8C6D37371DC421180052202C /* HomeTables.swift */,
+				8C6D37F21DC5AC310052202C /* SoundManager.swift */,
 			);
 			name = Home;
 			path = LogicPuzzlesSwift/Home;
@@ -520,6 +525,7 @@
 				8C6D37D61DC42FA40052202C /* MainViewController.swift */,
 				8C6D37D91DC42FA40052202C /* OptionsViewController.swift */,
 				8C6D37EC1DC5A2F50052202C /* Copyable.swift */,
+				8C6D37F41DC5AC520052202C /* Position.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -615,8 +621,6 @@
 				8C6D37CE1DC42FA40052202C /* Common */,
 				8C6D37321DC421180052202C /* Home */,
 				8C6D37401DC42F0A0052202C /* Puzzles */,
-				8C835D641D84BCDC0067BC3E /* Position.swift */,
-				8C916CC91DAB2E8E00D9E62B /* SoundManager.swift */,
 				8C916CC81DAB297A00D9E62B /* Supporting Files */,
 			);
 			path = LogicPuzzlesSwift;
@@ -812,8 +816,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C6D37FB1DC5ACDB0052202C /* Copyable.swift in Sources */,
 				8C6D373B1DC421180052202C /* HomeOptionsViewController.swift in Sources */,
-				8C916CCA1DAB2E8E00D9E62B /* SoundManager.swift in Sources */,
+				8C6D37FA1DC5ACC90052202C /* OptionsViewController.swift in Sources */,
 				8C6D37A11DC42F0A0052202C /* HitoriMainViewController.swift in Sources */,
 				8C6D37831DC42F0A0052202C /* BridgesGame.swift in Sources */,
 				8C6D37821DC42F0A0052202C /* BridgesDocument.swift in Sources */,
@@ -827,6 +832,7 @@
 				8C6D37BB1DC42F0A0052202C /* SlitherLinkObject.swift in Sources */,
 				8C6D37A21DC42F0A0052202C /* HitoriMixin.swift in Sources */,
 				8C6D373A1DC421180052202C /* HomeMixin.swift in Sources */,
+				8C6D37F51DC5AC520052202C /* Position.swift in Sources */,
 				8C6D379C1DC42F0A0052202C /* HitoriGameScene.swift in Sources */,
 				8C6D373C1DC421180052202C /* HomeTables.swift in Sources */,
 				8C6D37A41DC42F0A0052202C /* HitoriOptionsViewController.swift in Sources */,
@@ -840,7 +846,6 @@
 				8C886C401D9E8AF1004A42BF /* ActionSheetLocalePicker.m in Sources */,
 				8C6D37851DC42F0A0052202C /* BridgesGameState.swift in Sources */,
 				8C6D37A31DC42F0A0052202C /* HitoriObject.swift in Sources */,
-				8C835D651D84BCDC0067BC3E /* Position.swift in Sources */,
 				8C6D37AD1DC42F0A0052202C /* LightUpMainViewController.swift in Sources */,
 				8C6D37B31DC42F0A0052202C /* SlitherLinkGame.swift in Sources */,
 				8C6D37931DC42F0A0052202C /* CloudsGridNode.swift in Sources */,
@@ -850,6 +855,7 @@
 				8C916CBE1DAA5E9500D9E62B /* Helpers.swift in Sources */,
 				8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */,
 				8C6D379E1DC42F0A0052202C /* HitoriGameViewController.swift in Sources */,
+				8C6D37FE1DC5B4EB0052202C /* GameState.swift in Sources */,
 				8C6D37B51DC42F0A0052202C /* SlitherLinkGameState.swift in Sources */,
 				8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */,
 				8C6D37A71DC42F0A0052202C /* LightUpGame.swift in Sources */,
@@ -873,6 +879,7 @@
 				8C6D37AA1DC42F0A0052202C /* LightUpGameViewController.swift in Sources */,
 				8C916CBD1DAA5E9500D9E62B /* Error.swift in Sources */,
 				8C6D37911DC42F0A0052202C /* CloudsGameState.swift in Sources */,
+				8C6D37F31DC5AC310052202C /* SoundManager.swift in Sources */,
 				8C6D37A61DC42F0A0052202C /* LightUpDocument.swift in Sources */,
 				8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */,
 				8C6D379F1DC42F0A0052202C /* HitoriGridNode.swift in Sources */,
@@ -893,6 +900,7 @@
 				8C6D37B41DC42F0A0052202C /* SlitherLinkGameScene.swift in Sources */,
 				8C6D378A1DC42F0A0052202C /* BridgesMixin.swift in Sources */,
 				8C886C411D9E8AF1004A42BF /* ActionSheetMultipleStringPicker.m in Sources */,
+				8C6D37FC1DC5B4DC0052202C /* Game.swift in Sources */,
 				8C6D37AE1DC42F0A0052202C /* LightUpMixin.swift in Sources */,
 				8C6D37BA1DC42F0A0052202C /* SlitherLinkMixin.swift in Sources */,
 			);

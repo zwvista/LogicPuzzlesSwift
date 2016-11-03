@@ -9,7 +9,7 @@
 import Foundation
 
 struct HitoriGameState {
-    let game: HitoriGame
+    unowned let game: HitoriGame
     var size: Position { return game.size }
     var rows: Int { return size.row }
     var cols: Int { return size.col }    

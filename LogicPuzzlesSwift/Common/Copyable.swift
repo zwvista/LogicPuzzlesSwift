@@ -11,11 +11,7 @@ import Foundation
 // http://stackoverflow.com/questions/24242629/implementing-copy-in-swift
 
 protocol Copyable {
-    init(instance: Self)
-}
-
-extension Copyable {
-    func copy() -> Self {
-        return Self.init(instance: self)
-    }
+    associatedtype V
+    func copy() -> V
+    func setup(v: V) -> V
 }

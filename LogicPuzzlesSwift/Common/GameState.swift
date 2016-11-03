@@ -1,5 +1,5 @@
 //
-//  BridgesGameState.swift
+//  GameState.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/19.
@@ -8,16 +8,25 @@
 
 import Foundation
 
-class GameState: Copyable {
+protocol GameStateBase: class {
+    var isSolved: Bool {get}
+}
+
+class GameState: Copyable, GameStateBase {
     private(set) var isSolved = false
-    required init(x: GameState) {
-        isSolved = x.isSolved
+    
+    func copy() -> GameState {
+        let v = GameState()
+        return setup(v: v)
+    }
+    func setup(v: GameState) -> GameState {
+        v.isSolved = isSolved
+        return v
     }
 }
 
-class CellsGameState<G: CellsGame<Any, GD, Any, GS>, GD: GameDelegate, GS: GameState> : GameState
-    where GD.G == G, GD.GS == GS {
-    let game: G!
+class CellsGameState: GameState {
+    unowned let game: CellsGameBase
     var size: Position { return game.size }
     var rows: Int { return size.row }
     var cols: Int { return size.col }
@@ -28,8 +37,16 @@ class CellsGameState<G: CellsGame<Any, GD, Any, GS>, GD: GameDelegate, GS: GameS
         return game.isValid(row: row, col: col)
     }
     
-    required init(x: CellsGameState) {
-        super.init(x)
-        game = x.game
+    override func copy() -> CellsGameState {
+        let v = CellsGameState(game: game)
+        return setup(v: v)
+    }
+    func setup(v: CellsGameState) -> CellsGameState {
+        _ = super.setup(v: v)
+        return v
+    }
+    
+    required init(game: CellsGameBase) {
+        self.game = game
     }
 }

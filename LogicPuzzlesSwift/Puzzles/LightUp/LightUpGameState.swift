@@ -9,7 +9,7 @@
 import Foundation
 
 struct LightUpGameState {
-    let game: LightUpGame
+    unowned let game: LightUpGame
     var size: Position { return game.size }
     var rows: Int { return size.row }
     var cols: Int { return size.col }    
