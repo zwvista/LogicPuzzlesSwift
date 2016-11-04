@@ -8,15 +8,7 @@
 
 import Foundation
 
-// http://stackoverflow.com/questions/24066304/how-can-i-make-a-weak-protocol-reference-in-pure-swift-w-o-objc
-protocol LightUpGameDelegate: class {
-    func moveAdded(_ game: LightUpGame, move: LightUpGameMove)
-    func levelInitilized(_ game: LightUpGame, state: LightUpGameState)
-    func levelUpdated(_ game: LightUpGame, from stateFrom: LightUpGameState, to stateTo: LightUpGameState)
-    func gameSolved(_ game: LightUpGame)
-}
-
-class LightUpGame {
+class LightUpGame: CellsGame<LightUpGameMove, LightUpGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),
@@ -24,47 +16,10 @@ class LightUpGame {
         Position(0, -1),
     ];
 
-    var size: Position
-    var rows: Int { return size.row }
-    var cols: Int { return size.col }    
-    func isValid(p: Position) -> Bool {
-        return isValid(row: p.row, col: p.col)
-    }
-    func isValid(row: Int, col: Int) -> Bool {
-        //return row >= 0 && col >= 0 && row < rows && col < cols
-        return 0 ..< rows ~= row && 0 ..< cols ~= col
-    }
     var wall2Lightbulbs = [Position: Int]()
     
-    private var stateIndex = 0
-    private var states = [LightUpGameState]()
-    private var state: LightUpGameState {return states[stateIndex]}
-    private var moves = [LightUpGameMove]()
-    private var move: LightUpGameMove {return moves[stateIndex - 1]}
-    
-    private(set) weak var delegate: LightUpGameDelegate?
-    var isSolved: Bool {return state.isSolved}
-    var canUndo: Bool {return stateIndex > 0}
-    var canRedo: Bool {return stateIndex < states.count - 1}
-    var moveIndex: Int {return stateIndex}
-    var moveCount: Int {return states.count - 1}
-    
-    private func moveAdded(move: LightUpGameMove) {
-        delegate?.moveAdded(self, move: move)
-    }
-    
-    private func levelInitilized(state: LightUpGameState) {
-        delegate?.levelInitilized(self, state: state)
-        if isSolved { delegate?.gameSolved(self) }
-    }
-    
-    private func levelUpdated(from stateFrom: LightUpGameState, to stateTo: LightUpGameState) {
-        delegate?.levelUpdated(self, from: stateFrom, to: stateTo)
-        if isSolved { delegate?.gameSolved(self) }
-    }
-    
-    init(layout: [String], delegate: LightUpGameDelegate? = nil) {
-        self.delegate = delegate
+    init(layout: [String], delegate: LightUpGameViewController? = nil) {
+        super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].characters.count)
         var state = LightUpGameState(game: self)
@@ -99,7 +54,7 @@ class LightUpGame {
             moves.removeSubrange(stateIndex ..< moves.count)
         }
         // copy a state
-        var state = self.state
+        var state = self.state.copy()
         guard f(&state, &move) else {return false}
         
         states.append(state)
@@ -116,18 +71,6 @@ class LightUpGame {
     
     func setObject(move: inout LightUpGameMove) -> Bool {
         return changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
-    }
-    
-    func undo() {
-        guard canUndo else {return}
-        stateIndex -= 1
-        levelUpdated(from: states[stateIndex + 1], to: state)
-    }
-    
-    func redo() {
-        guard canRedo else {return}
-        stateIndex += 1
-        levelUpdated(from: states[stateIndex - 1], to: state)
     }
     
 }

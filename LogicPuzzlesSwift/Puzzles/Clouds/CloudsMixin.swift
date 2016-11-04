@@ -8,14 +8,12 @@
 
 import Foundation
 
-protocol CloudsMixin {
+protocol CloudsMixin: GameMixin {
     var gameDocument: CloudsDocument { get }
     var gameOptions: CloudsGameProgress { get }
-    var soundManager: SoundManager { get }
 }
 
 extension CloudsMixin {
     var gameDocument: CloudsDocument { return CloudsDocument.sharedInstance }
     var gameOptions: CloudsGameProgress { return gameDocument.gameProgress }
-    var soundManager: SoundManager { return SoundManager.sharedInstance }
 }

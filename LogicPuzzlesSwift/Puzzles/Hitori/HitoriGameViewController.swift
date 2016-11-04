@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class HitoriGameViewController: UIViewController, HitoriGameDelegate, HitoriMixin {
+class HitoriGameViewController: UIViewController, GameDelegate, HitoriMixin {
 
     var scene: HitoriGameScene!
     var game: HitoriGame!
@@ -81,7 +81,7 @@ class HitoriGameViewController: UIViewController, HitoriGameDelegate, HitoriMixi
         }
     }
     
-    func moveAdded(_ game: HitoriGame, move: HitoriGameMove) {
+    func moveAdded(_ game: AnyObject, move: HitoriGameMove) {
         guard !levelInitilizing else {return}
         gameDocument.moveAdded(game: game, move: move)
     }
@@ -91,7 +91,8 @@ class HitoriGameViewController: UIViewController, HitoriGameDelegate, HitoriMixi
         lblSolved.textColor = game.isSolved ? SKColor.white : SKColor.black
     }
     
-    func levelInitilized(_ game: HitoriGame, state: HitoriGameState) {
+    func levelInitilized(_ game: AnyObject, state: HitoriGameState) {
+        let game = game as! HitoriGame
         updateLabels(game)
         scene.removeAllChildren()
         let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
@@ -99,14 +100,15 @@ class HitoriGameViewController: UIViewController, HitoriGameDelegate, HitoriMixi
         scene.addNumbers(from: state)
     }
     
-    func levelUpdated(_ game: HitoriGame, from stateFrom: HitoriGameState, to stateTo: HitoriGameState) {
+    func levelUpdated(_ game: AnyObject, from stateFrom: HitoriGameState, to stateTo: HitoriGameState) {
+        let game = game as! HitoriGame
         updateLabels(game)
         scene.levelUpdated(from: stateFrom, to: stateTo)
         guard !levelInitilizing else {return}
         gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: HitoriGame) {
+    func gameSolved(_ game: AnyObject) {
         if !levelInitilizing {
             soundManager.playSoundSolved()
         }

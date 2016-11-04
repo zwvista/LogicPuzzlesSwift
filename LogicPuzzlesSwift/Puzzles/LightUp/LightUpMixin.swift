@@ -8,14 +8,12 @@
 
 import Foundation
 
-protocol LightUpMixin {
+protocol LightUpMixin: GameMixin {
     var gameDocument: LightUpDocument { get }
     var gameOptions: LightUpGameProgress { get }
-    var soundManager: SoundManager { get }
 }
 
 extension LightUpMixin {
     var gameDocument: LightUpDocument { return LightUpDocument.sharedInstance }
     var gameOptions: LightUpGameProgress { return gameDocument.gameProgress }
-    var soundManager: SoundManager { return SoundManager.sharedInstance }
 }

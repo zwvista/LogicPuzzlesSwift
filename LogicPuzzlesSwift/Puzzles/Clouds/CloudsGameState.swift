@@ -8,24 +8,27 @@
 
 import Foundation
 
-struct CloudsGameState {
-    unowned let game: CloudsGame
-    var size: Position { return game.size }
-    var rows: Int { return size.row }
-    var cols: Int { return size.col }    
-    func isValid(p: Position) -> Bool {
-        return game.isValid(p: p)
-    }
-    func isValid(row: Int, col: Int) -> Bool {
-        return game.isValid(row: row, col: col)
-    }
+class CloudsGameState: CellsGameState {
+    var game: CloudsGame {return gameBase as! CloudsGame}
     var objArray = [CloudsObject]()
     var row2state = [CloudsHintState]()
     var col2state = [CloudsHintState]()
     var options: CloudsGameProgress { return CloudsDocument.sharedInstance.gameProgress }
     
-    init(game: CloudsGame) {
-        self.game = game
+    override func copy() -> CloudsGameState {
+        let v = CloudsGameState(game: gameBase)
+        return setup(v: v)
+    }
+    func setup(v: CloudsGameState) -> CloudsGameState {
+        _ = super.setup(v: v)
+        v.objArray = objArray
+        v.row2state = row2state
+        v.col2state = col2state
+        return v
+    }
+    
+    required init(game: CellsGameBase) {
+        super.init(game: game)
         objArray = Array<CloudsObject>(repeating: CloudsObject(), count: rows * cols)
     }
     
@@ -46,7 +49,7 @@ struct CloudsGameState {
         }
     }
     
-    mutating func setObject(move: inout CloudsGameMove) -> Bool {
+    func setObject(move: inout CloudsGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && self[p] != move.obj else {return false}
         self[p] = move.obj
@@ -54,7 +57,7 @@ struct CloudsGameState {
         return true
     }
     
-    mutating func switchObject(move: inout CloudsGameMove) -> Bool {
+    func switchObject(move: inout CloudsGameMove) -> Bool {
         let markerOption = CloudsMarkerOptions(rawValue: options.markerOption)
         func f(o: CloudsObject) -> CloudsObject {
             switch o {
@@ -72,9 +75,7 @@ struct CloudsGameState {
         return setObject(move: &move)
     }
     
-    private(set) var isSolved = false
-    
-    private mutating func updateIsSolved() {
+    private func updateIsSolved() {
         isSolved = true
         for r in 0 ..< rows {
             var n1 = 0

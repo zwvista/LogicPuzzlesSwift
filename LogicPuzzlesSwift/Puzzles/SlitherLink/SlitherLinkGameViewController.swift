@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class SlitherLinkGameViewController: UIViewController, SlitherLinkGameDelegate, SlitherLinkMixin {
+class SlitherLinkGameViewController: UIViewController, GameDelegate, SlitherLinkMixin {
 
     var scene: SlitherLinkGameScene!
     var game: SlitherLinkGame!
@@ -82,7 +82,7 @@ class SlitherLinkGameViewController: UIViewController, SlitherLinkGameDelegate, 
         }
     }
     
-    func moveAdded(_ game: SlitherLinkGame, move: SlitherLinkGameMove) {
+    func moveAdded(_ game: AnyObject, move: SlitherLinkGameMove) {
         guard !levelInitilizing else {return}
         gameDocument.moveAdded(game: game, move: move)
     }
@@ -92,7 +92,8 @@ class SlitherLinkGameViewController: UIViewController, SlitherLinkGameDelegate, 
         lblSolved.textColor = game.isSolved ? SKColor.white : SKColor.black
     }
     
-    func levelInitilized(_ game: SlitherLinkGame, state: SlitherLinkGameState) {
+    func levelInitilized(_ game: AnyObject, state: SlitherLinkGameState) {
+        let game = game as! SlitherLinkGame
         updateLabels(game)
         scene.removeAllChildren()
         let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols - 1)
@@ -100,14 +101,15 @@ class SlitherLinkGameViewController: UIViewController, SlitherLinkGameDelegate, 
         scene.addHints(from: state)
     }
     
-    func levelUpdated(_ game: SlitherLinkGame, from stateFrom: SlitherLinkGameState, to stateTo: SlitherLinkGameState) {
+    func levelUpdated(_ game: AnyObject, from stateFrom: SlitherLinkGameState, to stateTo: SlitherLinkGameState) {
+        let game = game as! SlitherLinkGame
         updateLabels(game)
         scene.levelUpdated(from: stateFrom, to: stateTo)
         guard !levelInitilizing else {return}
         gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: SlitherLinkGame) {
+    func gameSolved(_ game: AnyObject) {
         if !levelInitilizing {
             soundManager.playSoundSolved()
         }

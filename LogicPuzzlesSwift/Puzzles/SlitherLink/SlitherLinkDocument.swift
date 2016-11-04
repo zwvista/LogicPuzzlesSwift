@@ -9,10 +9,8 @@
 import UIKit
 import SharkORM
 
-class SlitherLinkDocument {
+class SlitherLinkDocument: GameDocument<SlitherLinkGameMove> {
     static var sharedInstance = SlitherLinkDocument()
-    private(set) var levels = [String: [String]]()
-    var selectedLevelID: String!
     var gameProgress: SlitherLinkGameProgress {
         let result = SlitherLinkGameProgress.query().fetch()!
         return result.count == 0 ? SlitherLinkGameProgress() : (result[0] as! SlitherLinkGameProgress)
@@ -32,27 +30,19 @@ class SlitherLinkDocument {
     }
 
     init() {
-        let path = Bundle.main.path(forResource: "SlitherLinkLevels", ofType: "xml")!
-        let xml = try! String(contentsOfFile: path)
-        let doc = try! XMLDocument(string: xml)
-        for elem in doc.root!.children {
-            guard let key = elem.attr("id") else {continue}
-            var arr = elem.stringValue.components(separatedBy: "\n")
-            arr = Array(arr[2 ..< (arr.count - 2)])
-            arr = arr.map { s in s.substring(to: s.index(before: s.endIndex)) }
-            levels["Level " + key] = arr
-        }
-        
+        super.init(forResource: "SlitherLinkLevels")
         selectedLevelID = gameProgress.levelID
     }
     
-    func levelUpdated(game: SlitherLinkGame) {
+    override func levelUpdated(game: AnyObject) {
+        let game = game as! SlitherLinkGame
         let rec = levelProgress
         rec.moveIndex = game.moveIndex
         rec.commit()
     }
     
-    func moveAdded(game: SlitherLinkGame, move: SlitherLinkGameMove) {
+    override func moveAdded(game: AnyObject, move: SlitherLinkGameMove) {
+        let game = game as! SlitherLinkGame
         SlitherLinkMoveProgress.query().where(withFormat: "levelID = %@ AND moveIndex >= %@", withParameters: [selectedLevelID, game.moveIndex]).fetch().removeAll()
         
         let rec = SlitherLinkMoveProgress()
@@ -64,13 +54,13 @@ class SlitherLinkDocument {
         rec.commit()
     }
     
-    func resumeGame() {
+    override func resumeGame() {
         let rec = gameProgress
         rec.levelID = selectedLevelID
         rec.commit()
     }
     
-    func clearGame() {
+    override func clearGame() {
         SlitherLinkMoveProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).fetch().removeAll()
 
         let rec = levelProgress

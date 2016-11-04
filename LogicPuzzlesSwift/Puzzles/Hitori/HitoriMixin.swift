@@ -8,14 +8,12 @@
 
 import Foundation
 
-protocol HitoriMixin {
+protocol HitoriMixin: GameMixin {
     var gameDocument: HitoriDocument { get }
     var gameOptions: HitoriGameProgress { get }
-    var soundManager: SoundManager { get }
 }
 
 extension HitoriMixin {
     var gameDocument: HitoriDocument { return HitoriDocument.sharedInstance }
     var gameOptions: HitoriGameProgress { return gameDocument.gameProgress }
-    var soundManager: SoundManager { return SoundManager.sharedInstance }
 }

@@ -11,31 +11,6 @@ import SpriteKit
 class BridgesGameScene: GameScene<BridgesGameState> {
     private(set) var gridNode: BridgesGridNode!
     
-    func addGrid(to view: SKView, rows: Int, cols: Int, blockSize: CGFloat) {
-        let offset:CGFloat = 0.5
-        scaleMode = .resizeFill
-        gridNode = BridgesGridNode(blockSize: blockSize, rows: rows, cols: cols)
-        gridNode.position = CGPoint(x: view.frame.midX - gridNode.blockSize * CGFloat(gridNode.cols) / 2 - offset, y: view.frame.midY + gridNode.blockSize * CGFloat(gridNode.rows) / 2 + offset)
-        addChild(gridNode)
-        gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
-    }
-    
-    func addIslands(from state: BridgesGameState) {
-        for (p, info) in state.game.islandsInfo {
-            let n = info.bridges
-            let point = gridNode.gridPosition(p: p)
-            let islandNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 2)
-            islandNode.position = point
-            islandNode.name = "island"
-            islandNode.strokeColor = SKColor.white
-            islandNode.glowWidth = 1.0
-            gridNode.addChild(islandNode)
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let islandNumberNodeName = "islandNumber" + nodeNameSuffix
-            addIslandNumber(n: n, s: .normal, point: point, nodeName: islandNumberNodeName)
-        }
-    }
-    
     func addIslandNumber(n: Int, s: BridgesIslandState, point: CGPoint, nodeName: String) {
         let numberNode = SKLabelNode(text: String(n))
         numberNode.fontColor = s == .normal ? SKColor.white : s == .complete ? SKColor.green : SKColor.red
@@ -49,12 +24,33 @@ class BridgesGameScene: GameScene<BridgesGameState> {
         gridNode.addChild(numberNode)
     }
     
-    override func levelInitialized(_ game: AnyObject, state: BridgesGameState, skView: SKView) {
+    override func levelInitialized(_ game: AnyObject, state: BridgesGameState, skView view: SKView) {
         let game = game as! BridgesGame
         removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
-        addGrid(to: skView, rows: game.rows, cols: game.cols, blockSize: blockSize)
-        addIslands(from: state)
+        let blockSize = CGFloat(view.bounds.size.width) / CGFloat(game.cols)
+        
+        // add grid
+        let offset: CGFloat = 0.5
+        scaleMode = .resizeFill
+        gridNode = BridgesGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols)
+        gridNode.position = CGPoint(x: view.frame.midX - gridNode.blockSize * CGFloat(gridNode.cols) / 2 - offset, y: view.frame.midY + gridNode.blockSize * CGFloat(gridNode.rows) / 2 + offset)
+        addChild(gridNode)
+        gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
+        
+        // add islands
+        for (p, info) in state.game.islandsInfo {
+            let n = info.bridges
+            let point = gridNode.gridPosition(p: p)
+            let islandNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 2)
+            islandNode.position = point
+            islandNode.name = "island"
+            islandNode.strokeColor = SKColor.white
+            islandNode.glowWidth = 1.0
+            gridNode.addChild(islandNode)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let islandNumberNodeName = "islandNumber" + nodeNameSuffix
+            addIslandNumber(n: n, s: .normal, point: point, nodeName: islandNumberNodeName)
+        }
     }
     
     override func levelUpdated(from stateFrom: BridgesGameState, to stateTo: BridgesGameState) {

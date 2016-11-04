@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class CloudsGameViewController: UIViewController, CloudsGameDelegate, CloudsMixin {
+class CloudsGameViewController: UIViewController, GameDelegate, CloudsMixin {
 
     var scene: CloudsGameScene!
     var game: CloudsGame!
@@ -81,7 +81,7 @@ class CloudsGameViewController: UIViewController, CloudsGameDelegate, CloudsMixi
         }
     }
     
-    func moveAdded(_ game: CloudsGame, move: CloudsGameMove) {
+    func moveAdded(_ game: AnyObject, move: CloudsGameMove) {
         guard !levelInitilizing else {return}
         gameDocument.moveAdded(game: game, move: move)
     }
@@ -91,7 +91,8 @@ class CloudsGameViewController: UIViewController, CloudsGameDelegate, CloudsMixi
         lblSolved.textColor = game.isSolved ? SKColor.white : SKColor.black
     }
     
-    func levelInitilized(_ game: CloudsGame, state: CloudsGameState) {
+    func levelInitilized(_ game: AnyObject, state: CloudsGameState) {
+        let game = game as! CloudsGame
         updateLabels(game)
         scene.removeAllChildren()
         let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols + 1)
@@ -100,14 +101,15 @@ class CloudsGameViewController: UIViewController, CloudsGameDelegate, CloudsMixi
         scene.addClouds(from: state)
     }
     
-    func levelUpdated(_ game: CloudsGame, from stateFrom: CloudsGameState, to stateTo: CloudsGameState) {
+    func levelUpdated(_ game: AnyObject, from stateFrom: CloudsGameState, to stateTo: CloudsGameState) {
+        let game = game as! CloudsGame
         updateLabels(game)
         scene.levelUpdated(from: stateFrom, to: stateTo)
         guard !levelInitilizing else {return}
         gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: CloudsGame) {
+    func gameSolved(_ game: AnyObject) {
         if !levelInitilizing {
             soundManager.playSoundSolved()
         }

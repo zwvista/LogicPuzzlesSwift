@@ -9,10 +9,8 @@
 import UIKit
 import SharkORM
 
-class LightUpDocument {
+class LightUpDocument: GameDocument<LightUpGameMove> {
     static var sharedInstance = LightUpDocument()
-    private(set) var levels = [String: [String]]()
-    var selectedLevelID: String!
     var gameProgress: LightUpGameProgress {
         let result = LightUpGameProgress.query().fetch()!
         return result.count == 0 ? LightUpGameProgress() : (result[0] as! LightUpGameProgress)
@@ -32,27 +30,19 @@ class LightUpDocument {
     }
 
     init() {
-        let path = Bundle.main.path(forResource: "LightUpLevels", ofType: "xml")!
-        let xml = try! String(contentsOfFile: path)
-        let doc = try! XMLDocument(string: xml)
-        for elem in doc.root!.children {
-            guard let key = elem.attr("id") else {continue}
-            var arr = elem.stringValue.components(separatedBy: "\n")
-            arr = Array(arr[2 ..< (arr.count - 2)])
-            arr = arr.map { s in s.substring(to: s.index(before: s.endIndex)) }
-            levels["Level " + key] = arr
-        }
-        
+        super.init(forResource: "LightUpLevels")
         selectedLevelID = gameProgress.levelID
     }
     
-    func levelUpdated(game: LightUpGame) {
+    override func levelUpdated(game: AnyObject) {
+        let game = game as! LightUpGame
         let rec = levelProgress
         rec.moveIndex = game.moveIndex
         rec.commit()
     }
     
-    func moveAdded(game: LightUpGame, move: LightUpGameMove) {
+    override func moveAdded(game: AnyObject, move: LightUpGameMove) {
+        let game = game as! LightUpGame
         LightUpMoveProgress.query().where(withFormat: "levelID = %@ AND moveIndex >= %@", withParameters: [selectedLevelID, game.moveIndex]).fetch().removeAll()
         
         let rec = LightUpMoveProgress()
@@ -63,13 +53,13 @@ class LightUpDocument {
         rec.commit()
     }
     
-    func resumeGame() {
+    override func resumeGame() {
         let rec = gameProgress
         rec.levelID = selectedLevelID
         rec.commit()
     }
     
-    func clearGame() {
+    override func clearGame() {
         LightUpMoveProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).fetch().removeAll()
 
         let rec = levelProgress

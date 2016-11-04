@@ -8,22 +8,23 @@
 
 import Foundation
 
-struct HitoriGameState {
-    unowned let game: HitoriGame
-    var size: Position { return game.size }
-    var rows: Int { return size.row }
-    var cols: Int { return size.col }    
-    func isValid(p: Position) -> Bool {
-        return game.isValid(p: p)
-    }
-    func isValid(row: Int, col: Int) -> Bool {
-        return game.isValid(row: row, col: col)
-    }
+class HitoriGameState: CellsGameState {
+    var game: HitoriGame {return gameBase as! HitoriGame}
     var objArray = [HitoriObject]()
     var options: HitoriGameProgress { return HitoriDocument.sharedInstance.gameProgress }
     
-    init(game: HitoriGame) {
-        self.game = game
+    override func copy() -> HitoriGameState {
+        let v = HitoriGameState(game: gameBase)
+        return setup(v: v)
+    }
+    func setup(v: HitoriGameState) -> HitoriGameState {
+        _ = super.setup(v: v)
+        v.objArray = objArray
+        return v
+    }
+    
+    required init(game: CellsGameBase) {
+        super.init(game: game)
         objArray = Array<HitoriObject>(repeating: HitoriObject(), count: rows * cols)
     }
     
@@ -44,7 +45,7 @@ struct HitoriGameState {
         }
     }
     
-    mutating func setObject(move: inout HitoriGameMove) -> Bool {
+    func setObject(move: inout HitoriGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && self[p] != move.obj else {return false}
         self[p] = move.obj
@@ -52,7 +53,7 @@ struct HitoriGameState {
         return true
     }
     
-    mutating func switchObject(move: inout HitoriGameMove) -> Bool {
+    func switchObject(move: inout HitoriGameMove) -> Bool {
         let markerOption = HitoriMarkerOptions(rawValue: options.markerOption)
         func f(o: HitoriObject) -> HitoriObject {
             switch o {
@@ -70,9 +71,7 @@ struct HitoriGameState {
         return setObject(move: &move)
     }
     
-    private(set) var isSolved = false
-    
-    private mutating func updateIsSolved() {
+    private func updateIsSolved() {
         isSolved = true
         var chars = Set<Character>()
         for r in 0 ..< rows {

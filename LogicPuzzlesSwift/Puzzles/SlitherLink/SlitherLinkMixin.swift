@@ -8,14 +8,12 @@
 
 import Foundation
 
-protocol SlitherLinkMixin {
+protocol SlitherLinkMixin: GameMixin {
     var gameDocument: SlitherLinkDocument { get }
     var gameOptions: SlitherLinkGameProgress { get }
-    var soundManager: SoundManager { get }
 }
 
 extension SlitherLinkMixin {
     var gameDocument: SlitherLinkDocument { return SlitherLinkDocument.sharedInstance }
     var gameOptions: SlitherLinkGameProgress { return gameDocument.gameProgress }
-    var soundManager: SoundManager { return SoundManager.sharedInstance }
 }

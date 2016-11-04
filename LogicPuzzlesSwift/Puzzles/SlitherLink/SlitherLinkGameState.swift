@@ -8,23 +8,25 @@
 
 import Foundation
 
-struct SlitherLinkGameState {
-    unowned let game: SlitherLinkGame
-    var size: Position { return game.size }
-    var rows: Int { return size.row }
-    var cols: Int { return size.col }    
-    func isValid(p: Position) -> Bool {
-        return game.isValid(p: p)
-    }
-    func isValid(row: Int, col: Int) -> Bool {
-        return game.isValid(row: row, col: col)
-    }
+class SlitherLinkGameState: CellsGameState {
+    var game: SlitherLinkGame {return gameBase as! SlitherLinkGame}
     var objArray = [SlitherLinkDotObject]()
     var pos2state = [Position: SlitherLinkHintState]()
     var options: SlitherLinkGameProgress { return SlitherLinkDocument.sharedInstance.gameProgress }
     
-    init(game: SlitherLinkGame) {
-        self.game = game
+    override func copy() -> SlitherLinkGameState {
+        let v = SlitherLinkGameState(game: gameBase)
+        return setup(v: v)
+    }
+    func setup(v: SlitherLinkGameState) -> SlitherLinkGameState {
+        _ = super.setup(v: v)
+        v.objArray = objArray
+        v.pos2state = pos2state
+        return v
+    }
+    
+    required init(game: CellsGameBase) {
+        super.init(game: game)
         objArray = Array<SlitherLinkDotObject>(repeating: Array<SlitherLinkObject>(repeating: .empty, count: 4), count: rows * cols)
     }
     
@@ -45,7 +47,7 @@ struct SlitherLinkGameState {
         }
     }
     
-    mutating func setObject(move: inout SlitherLinkGameMove) -> Bool {
+    func setObject(move: inout SlitherLinkGameMove) -> Bool {
         var changed = false
         func f(o1: inout SlitherLinkObject, o2: inout SlitherLinkObject) {
             if o1 != move.obj {
@@ -68,7 +70,7 @@ struct SlitherLinkGameState {
         return changed
     }
     
-    mutating func switchObject(move: inout SlitherLinkGameMove) -> Bool {
+    func switchObject(move: inout SlitherLinkGameMove) -> Bool {
         let markerOption = SlitherLinkMarkerOptions(rawValue: options.markerOption)
         func f(o: SlitherLinkObject) -> SlitherLinkObject {
             switch o {
@@ -86,9 +88,7 @@ struct SlitherLinkGameState {
         return setObject(move: &move)
     }
     
-    private(set) var isSolved = false
-    
-    private mutating func updateIsSolved() {
+    private func updateIsSolved() {
         isSolved = true
         for (p, n2) in game.pos2hint {
             var n1 = 0

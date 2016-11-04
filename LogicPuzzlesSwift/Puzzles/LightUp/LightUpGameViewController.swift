@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class LightUpGameViewController: UIViewController, LightUpGameDelegate, LightUpMixin {
+class LightUpGameViewController: UIViewController, GameDelegate, LightUpMixin {
 
     var scene: LightUpGameScene!
     var game: LightUpGame!
@@ -81,7 +81,7 @@ class LightUpGameViewController: UIViewController, LightUpGameDelegate, LightUpM
         }
     }
     
-    func moveAdded(_ game: LightUpGame, move: LightUpGameMove) {
+    func moveAdded(_ game: AnyObject, move: LightUpGameMove) {
         guard !levelInitilizing else {return}
         gameDocument.moveAdded(game: game, move: move)
     }
@@ -91,7 +91,8 @@ class LightUpGameViewController: UIViewController, LightUpGameDelegate, LightUpM
         lblSolved.textColor = game.isSolved ? SKColor.white : SKColor.black
     }
     
-    func levelInitilized(_ game: LightUpGame, state: LightUpGameState) {
+    func levelInitilized(_ game: AnyObject, state: LightUpGameState) {
+        let game = game as! LightUpGame
         updateLabels(game)
         scene.removeAllChildren()
         let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
@@ -99,14 +100,15 @@ class LightUpGameViewController: UIViewController, LightUpGameDelegate, LightUpM
         scene.addWalls(from: state)
     }
     
-    func levelUpdated(_ game: LightUpGame, from stateFrom: LightUpGameState, to stateTo: LightUpGameState) {
+    func levelUpdated(_ game: AnyObject, from stateFrom: LightUpGameState, to stateTo: LightUpGameState) {
+        let game = game as! LightUpGame
         updateLabels(game)
         scene.levelUpdated(from: stateFrom, to: stateTo)
         guard !levelInitilizing else {return}
         gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: LightUpGame) {
+    func gameSolved(_ game: AnyObject) {
         if !levelInitilizing {
             soundManager.playSoundSolved()
         }

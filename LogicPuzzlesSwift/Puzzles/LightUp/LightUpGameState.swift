@@ -8,22 +8,23 @@
 
 import Foundation
 
-struct LightUpGameState {
-    unowned let game: LightUpGame
-    var size: Position { return game.size }
-    var rows: Int { return size.row }
-    var cols: Int { return size.col }    
-    func isValid(p: Position) -> Bool {
-        return game.isValid(p: p)
-    }
-    func isValid(row: Int, col: Int) -> Bool {
-        return game.isValid(row: row, col: col)
-    }
+class LightUpGameState: CellsGameState {
+    var game: LightUpGame {return gameBase as! LightUpGame}
     var objArray = [LightUpObject]()
     var options: LightUpGameProgress { return LightUpDocument.sharedInstance.gameProgress }
     
-    init(game: LightUpGame) {
-        self.game = game
+    override func copy() -> LightUpGameState {
+        let v = LightUpGameState(game: gameBase)
+        return setup(v: v)
+    }
+    func setup(v: LightUpGameState) -> LightUpGameState {
+        _ = super.setup(v: v)
+        v.objArray = objArray
+        return v
+    }
+    
+    required init(game: CellsGameBase) {
+        super.init(game: game)
         objArray = Array<LightUpObject>(repeating: LightUpObject(), count: rows * cols)
     }
     
@@ -44,7 +45,7 @@ struct LightUpGameState {
         }
     }
     
-    mutating func setObject(move: inout LightUpGameMove) -> Bool {
+    func setObject(move: inout LightUpGameMove) -> Bool {
         var changed = false
         let p = move.p
         
@@ -92,7 +93,7 @@ struct LightUpGameState {
         return changed
     }
     
-    mutating func switchObject(move: inout LightUpGameMove) -> Bool {
+    func switchObject(move: inout LightUpGameMove) -> Bool {
         let markerOption = LightUpMarkerOptions(rawValue: options.markerOption)
         func f(o: LightUpObjectType) -> LightUpObjectType {
             switch o {
@@ -120,9 +121,7 @@ struct LightUpGameState {
         }
     }
     
-    private(set) var isSolved = false
-    
-    private mutating func updateIsSolved() {
+    private func updateIsSolved() {
         isSolved = true
         for r in 0 ..< rows {
             for c in 0 ..< cols {
