@@ -16,9 +16,9 @@ class HitoriGameScene: GameScene<HitoriGameState> {
         return CGSize(width: sz, height: sz)
     }
     
-    func addNumber(n: Character, point: CGPoint, nodeName: String) {
+    func addNumber(n: String, s: HitoriHintState, point: CGPoint, nodeName: String) {
         let numberNode = SKLabelNode(text: String(n))
-        numberNode.fontColor = SKColor.white
+        numberNode.fontColor = s == .normal ? SKColor.white : s == .complete ? SKColor.green : SKColor.red
         numberNode.fontName = numberNode.fontName! + "-Bold"
         // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
         let scalingFactor = min(gridNode.blockSize / numberNode.frame.width, gridNode.blockSize / numberNode.frame.height)
@@ -27,6 +27,14 @@ class HitoriGameScene: GameScene<HitoriGameState> {
         numberNode.position = point
         numberNode.name = nodeName
         gridNode.addChild(numberNode)
+    }
+    
+    func addHint(p: Position, n: String) {
+        let point = gridNode.gridPosition(p: p)
+        guard !n.isEmpty else {return}
+        let nodeNameSuffix = "-\(p.row)-\(p.col)"
+        let hintNodeName = "hint" + nodeNameSuffix
+        addNumber(n: n, s: .error, point: point, nodeName: hintNodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: HitoriGameState, skView: SKView) {
@@ -50,12 +58,50 @@ class HitoriGameScene: GameScene<HitoriGameState> {
                 let n = state.game[p]
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let numberNodeName = "number" + nodeNameSuffix
-                addNumber(n: n, point: point, nodeName: numberNodeName)
+                addNumber(n: String(n), s: .normal, point: point, nodeName: numberNodeName)
             }
+        }
+        
+        // addHints
+        for r in 0 ..< game.rows {
+            let p = Position(r, game.cols)
+            let n = state.row2hint[r]
+            addHint(p: p, n: n)
+        }
+        for c in 0 ..< game.cols {
+            let p = Position(game.rows, c)
+            let n = state.col2hint[c]
+            addHint(p: p, n: n)
         }
     }
     
     override func levelUpdated(from stateFrom: HitoriGameState, to stateTo: HitoriGameState) {
+        func removeNode(withName: String) {
+            gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
+                node.removeFromParent()
+            }
+        }
+        func removeHint(p: Position) {
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let hintNodeName = "hint" + nodeNameSuffix
+            removeNode(withName: hintNodeName)
+        }
+        for r in 0 ..< stateFrom.rows {
+            let p = Position(r, stateFrom.cols)
+            let n = stateTo.row2hint[r]
+            if stateFrom.row2hint[r] != n {
+                removeHint(p: p)
+                addHint(p: p, n: n)
+            }
+        }
+        for c in 0 ..< stateFrom.cols {
+            let p = Position(stateFrom.rows, c)
+            let n = stateTo.col2hint[c]
+            if stateFrom.col2hint[c] != n {
+                removeHint(p: p)
+                addHint(p: p, n: n)
+            }
+        }
         for row in 0 ..< stateFrom.rows {
             for col in 0 ..< stateFrom.cols {
                 let p = Position(row, col)
@@ -64,12 +110,7 @@ class HitoriGameScene: GameScene<HitoriGameState> {
                 let numberNodeName = "number" + nodeNameSuffix
                 let darkenNodeName = "darken" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
-                func removeNode(withName: String) {
-                    gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
-                        node.removeFromParent()
-                    }
-                }
-                func addNumber2() { addNumber(n: stateFrom.game[p], point: point, nodeName: numberNodeName) }
+                func addNumber2() { addNumber(n: String(stateFrom.game[p]), s: .normal, point: point, nodeName: numberNodeName) }
                 func removeNumber() { removeNode(withName: numberNodeName) }
                 func addDarken() {
                     let darkenNode = SKSpriteNode(color: SKColor.lightGray, size: coloredRectSize())

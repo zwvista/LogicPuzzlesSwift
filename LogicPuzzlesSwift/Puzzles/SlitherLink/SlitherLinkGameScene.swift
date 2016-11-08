@@ -16,12 +16,6 @@ class SlitherLinkGameScene: GameScene<SlitherLinkGameState> {
         return CGSize(width: sz, height: sz)
     }
     
-    func addGrid(to view: SKView, rows: Int, cols: Int, blockSize: CGFloat) {
-    }
-    
-    func addHints(from state: SlitherLinkGameState) {
-    }
-    
     func addHintNumber(n: Int, s: SlitherLinkHintState, point: CGPoint, nodeName: String) {
         let numberNode = SKLabelNode(text: String(n))
         numberNode.fontColor = s == .normal ? SKColor.white : s == .complete ? SKColor.green : SKColor.red
@@ -44,7 +38,7 @@ class SlitherLinkGameScene: GameScene<SlitherLinkGameState> {
         let offset:CGFloat = 0.5
         scaleMode = .resizeFill
         gridNode = SlitherLinkGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1)
-        gridNode.position = CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset)
+        gridNode.position = CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset)
         addChild(gridNode)
         gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
         

@@ -40,8 +40,6 @@ class HitoriGame: CellsGame<HitoriGameMove, HitoriGameState> {
         size = Position(layout.count, layout[0].characters.count)
         objArray = Array<Character>(repeating: " ", count: rows * cols)
         
-        let state = HitoriGameState(game: self)
-        
         for r in 0 ..< rows {
             let str = layout[r]
             for c in 0 ..< cols {
@@ -49,7 +47,8 @@ class HitoriGame: CellsGame<HitoriGameMove, HitoriGameState> {
                 self[r, c] = ch
             }
         }
-        
+                
+        let state = HitoriGameState(game: self)
         states.append(state)
         levelInitilized(state: state)
     }

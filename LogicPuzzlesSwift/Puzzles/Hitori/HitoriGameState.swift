@@ -32,6 +32,7 @@ class HitoriGameState: CellsGameState {
         objArray = Array<HitoriObject>(repeating: HitoriObject(), count: rows * cols)
         row2hint = Array<String>(repeating: "", count: rows)
         col2hint = Array<String>(repeating: "", count: cols)
+        updateIsSolved()
     }
     
     subscript(p: Position) -> HitoriObject {

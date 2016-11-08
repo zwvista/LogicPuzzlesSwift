@@ -27,8 +27,6 @@ class CloudsGame: CellsGame<CloudsGameMove, CloudsGameState> {
         row2hint = Array<Int>(repeating: 0, count: rows)
         col2hint = Array<Int>(repeating: 0, count: cols)
         
-        let state = CloudsGameState(game: self)
-        
         for r in 0 ..< rows + 1 {
             let str = layout[r]
             for c in 0 ..< cols + 1 {
@@ -41,10 +39,8 @@ class CloudsGame: CellsGame<CloudsGameMove, CloudsGameState> {
                     let n = Int(String(ch))!
                     if r == rows {
                         col2hint[c] = n
-                        state.col2state[c] = n == 0 ? .complete : .normal
                     } else if c == cols {
                         row2hint[r] = n
-                        state.row2state[r] = n == 0 ? .complete : .normal
                     }
                 default:
                     break
@@ -52,6 +48,7 @@ class CloudsGame: CellsGame<CloudsGameMove, CloudsGameState> {
             }
         }
         
+        let state = CloudsGameState(game: self)
         states.append(state)
         levelInitilized(state: state)
     }

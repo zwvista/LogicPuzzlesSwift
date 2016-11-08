@@ -32,6 +32,7 @@ class CloudsGameState: CellsGameState {
         objArray = Array<CloudsObject>(repeating: CloudsObject(), count: rows * cols)
         row2state = Array<CloudsHintState>(repeating: .normal, count: rows)
         col2state = Array<CloudsHintState>(repeating: .normal, count: cols)
+        updateIsSolved()
     }
     
     subscript(p: Position) -> CloudsObject {
