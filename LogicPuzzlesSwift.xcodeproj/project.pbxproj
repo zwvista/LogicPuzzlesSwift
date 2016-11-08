@@ -102,6 +102,19 @@
 		8C6D37FB1DC5ACDB0052202C /* Copyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37EC1DC5A2F50052202C /* Copyable.swift */; };
 		8C6D37FC1DC5B4DC0052202C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D01DC42FA40052202C /* Game.swift */; };
 		8C6D37FE1DC5B4EB0052202C /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D21DC42FA40052202C /* GameState.swift */; };
+		8C7EF0621DD297D100D1DE94 /* NurikabeDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF0561DD297D100D1DE94 /* NurikabeDocument.swift */; };
+		8C7EF0631DD297D100D1DE94 /* NurikabeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF0571DD297D100D1DE94 /* NurikabeGame.swift */; };
+		8C7EF0641DD297D100D1DE94 /* NurikabeGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF0581DD297D100D1DE94 /* NurikabeGameScene.swift */; };
+		8C7EF0651DD297D100D1DE94 /* NurikabeGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF0591DD297D100D1DE94 /* NurikabeGameState.swift */; };
+		8C7EF0661DD297D100D1DE94 /* NurikabeGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF05A1DD297D100D1DE94 /* NurikabeGameViewController.swift */; };
+		8C7EF0671DD297D100D1DE94 /* NurikabeGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF05B1DD297D100D1DE94 /* NurikabeGridNode.swift */; };
+		8C7EF0681DD297D100D1DE94 /* NurikabeLevels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C7EF05C1DD297D100D1DE94 /* NurikabeLevels.xml */; };
+		8C7EF0691DD297D100D1DE94 /* NurikabeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF05D1DD297D100D1DE94 /* NurikabeMainViewController.swift */; };
+		8C7EF06A1DD297D100D1DE94 /* NurikabeMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF05E1DD297D100D1DE94 /* NurikabeMixin.swift */; };
+		8C7EF06B1DD297D100D1DE94 /* NurikabeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF05F1DD297D100D1DE94 /* NurikabeObject.swift */; };
+		8C7EF06C1DD297D100D1DE94 /* NurikabeOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF0601DD297D100D1DE94 /* NurikabeOptionsViewController.swift */; };
+		8C7EF06D1DD297D100D1DE94 /* NurikabeTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF0611DD297D100D1DE94 /* NurikabeTables.swift */; };
+		8C7EF0711DD297F000D1DE94 /* Nurikabe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C7EF06F1DD297F000D1DE94 /* Nurikabe.storyboard */; };
 		8C886C3C1D9E8AF1004A42BF /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C291D9E8AF0004A42BF /* AbstractActionSheetPicker.m */; };
 		8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C2B1D9E8AF0004A42BF /* ActionSheetCustomPicker.m */; };
 		8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C2E1D9E8AF0004A42BF /* ActionSheetDatePicker.m */; };
@@ -266,6 +279,19 @@
 		8C6D37EC1DC5A2F50052202C /* Copyable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Copyable.swift; sourceTree = "<group>"; };
 		8C6D37F21DC5AC310052202C /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		8C6D37F41DC5AC520052202C /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		8C7EF0561DD297D100D1DE94 /* NurikabeDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeDocument.swift; sourceTree = "<group>"; };
+		8C7EF0571DD297D100D1DE94 /* NurikabeGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeGame.swift; sourceTree = "<group>"; };
+		8C7EF0581DD297D100D1DE94 /* NurikabeGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeGameScene.swift; sourceTree = "<group>"; };
+		8C7EF0591DD297D100D1DE94 /* NurikabeGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeGameState.swift; sourceTree = "<group>"; };
+		8C7EF05A1DD297D100D1DE94 /* NurikabeGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeGameViewController.swift; sourceTree = "<group>"; };
+		8C7EF05B1DD297D100D1DE94 /* NurikabeGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeGridNode.swift; sourceTree = "<group>"; };
+		8C7EF05C1DD297D100D1DE94 /* NurikabeLevels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NurikabeLevels.xml; sourceTree = "<group>"; };
+		8C7EF05D1DD297D100D1DE94 /* NurikabeMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeMainViewController.swift; sourceTree = "<group>"; };
+		8C7EF05E1DD297D100D1DE94 /* NurikabeMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeMixin.swift; sourceTree = "<group>"; };
+		8C7EF05F1DD297D100D1DE94 /* NurikabeObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeObject.swift; sourceTree = "<group>"; };
+		8C7EF0601DD297D100D1DE94 /* NurikabeOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeOptionsViewController.swift; sourceTree = "<group>"; };
+		8C7EF0611DD297D100D1DE94 /* NurikabeTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeTables.swift; sourceTree = "<group>"; };
+		8C7EF0701DD297F000D1DE94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/Nurikabe.storyboard; sourceTree = SOURCE_ROOT; };
 		8C886C281D9E8AF0004A42BF /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
 		8C886C291D9E8AF0004A42BF /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
 		8C886C2A1D9E8AF0004A42BF /* ActionSheetCustomPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPicker.h; sourceTree = "<group>"; };
@@ -414,6 +440,7 @@
 				8C6D374E1DC42F0A0052202C /* Clouds */,
 				8C6D375B1DC42F0A0052202C /* Hitori */,
 				8C6D37681DC42F0A0052202C /* LightUp */,
+				8C7EF0551DD297D100D1DE94 /* Nurikabe */,
 				8C6D37751DC42F0A0052202C /* SlitherLink */,
 			);
 			path = Puzzles;
@@ -537,6 +564,27 @@
 			);
 			path = Common;
 			sourceTree = "<group>";
+		};
+		8C7EF0551DD297D100D1DE94 /* Nurikabe */ = {
+			isa = PBXGroup;
+			children = (
+				8C7EF06F1DD297F000D1DE94 /* Nurikabe.storyboard */,
+				8C7EF0561DD297D100D1DE94 /* NurikabeDocument.swift */,
+				8C7EF0571DD297D100D1DE94 /* NurikabeGame.swift */,
+				8C7EF0581DD297D100D1DE94 /* NurikabeGameScene.swift */,
+				8C7EF0591DD297D100D1DE94 /* NurikabeGameState.swift */,
+				8C7EF05A1DD297D100D1DE94 /* NurikabeGameViewController.swift */,
+				8C7EF05B1DD297D100D1DE94 /* NurikabeGridNode.swift */,
+				8C7EF05C1DD297D100D1DE94 /* NurikabeLevels.xml */,
+				8C7EF05D1DD297D100D1DE94 /* NurikabeMainViewController.swift */,
+				8C7EF05E1DD297D100D1DE94 /* NurikabeMixin.swift */,
+				8C7EF05F1DD297D100D1DE94 /* NurikabeObject.swift */,
+				8C7EF0601DD297D100D1DE94 /* NurikabeOptionsViewController.swift */,
+				8C7EF0611DD297D100D1DE94 /* NurikabeTables.swift */,
+			);
+			name = Nurikabe;
+			path = LogicPuzzlesSwift/Puzzles/Nurikabe;
+			sourceTree = SOURCE_ROOT;
 		};
 		8C886C271D9E8AF0004A42BF /* Pickers */ = {
 			isa = PBXGroup;
@@ -782,8 +830,10 @@
 				8C6D37C31DC42F450052202C /* Clouds.storyboard in Resources */,
 				8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */,
 				8C6D37AC1DC42F0A0052202C /* LightUpLevels.xml in Resources */,
+				8C7EF0681DD297D100D1DE94 /* NurikabeLevels.xml in Resources */,
 				8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */,
 				8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */,
+				8C7EF0711DD297F000D1DE94 /* Nurikabe.storyboard in Resources */,
 				8C1D16B11DB8DE930056D407 /* TraversalTree.graffle in Resources */,
 				8C9F43E41D771915000139FC /* Assets.xcassets in Resources */,
 				8C6D37C01DC42F3B0052202C /* Bridges.storyboard in Resources */,
@@ -838,6 +888,7 @@
 				8C6D37A51DC42F0A0052202C /* HitoriTables.swift in Sources */,
 				8C6D37981DC42F0A0052202C /* CloudsOptionsViewController.swift in Sources */,
 				8C6D37891DC42F0A0052202C /* BridgesMainViewController.swift in Sources */,
+				8C7EF0631DD297D100D1DE94 /* NurikabeGame.swift in Sources */,
 				8C6D37BB1DC42F0A0052202C /* SlitherLinkObject.swift in Sources */,
 				8C6D37A21DC42F0A0052202C /* HitoriMixin.swift in Sources */,
 				8C6D373A1DC421180052202C /* HomeMixin.swift in Sources */,
@@ -845,8 +896,10 @@
 				8C6D379C1DC42F0A0052202C /* HitoriGameScene.swift in Sources */,
 				8C6D373C1DC421180052202C /* HomeTables.swift in Sources */,
 				8C6D37A41DC42F0A0052202C /* HitoriOptionsViewController.swift in Sources */,
+				8C7EF06C1DD297D100D1DE94 /* NurikabeOptionsViewController.swift in Sources */,
 				8C6ACBFD1DCAF8AC0075F32C /* GameViewController.swift in Sources */,
 				8C916CC01DAA5E9500D9E62B /* Node.swift in Sources */,
+				8C7EF0691DD297D100D1DE94 /* NurikabeMainViewController.swift in Sources */,
 				8C6D37961DC42F0A0052202C /* CloudsMixin.swift in Sources */,
 				8C1D16B51DB8DE930056D407 /* Graph.swift in Sources */,
 				8C6D37921DC42F0A0052202C /* CloudsGameViewController.swift in Sources */,
@@ -855,12 +908,16 @@
 				8C6D37A81DC42F0A0052202C /* LightUpGameScene.swift in Sources */,
 				8C886C401D9E8AF1004A42BF /* ActionSheetLocalePicker.m in Sources */,
 				8C6D37851DC42F0A0052202C /* BridgesGameState.swift in Sources */,
+				8C7EF0661DD297D100D1DE94 /* NurikabeGameViewController.swift in Sources */,
 				8C6ACBFE1DCAF8BA0075F32C /* GameDocument.swift in Sources */,
 				8C6D37A31DC42F0A0052202C /* HitoriObject.swift in Sources */,
 				8C6D37AD1DC42F0A0052202C /* LightUpMainViewController.swift in Sources */,
 				8C6D37B31DC42F0A0052202C /* SlitherLinkGame.swift in Sources */,
+				8C7EF06A1DD297D100D1DE94 /* NurikabeMixin.swift in Sources */,
+				8C7EF0651DD297D100D1DE94 /* NurikabeGameState.swift in Sources */,
 				8C6D37931DC42F0A0052202C /* CloudsGridNode.swift in Sources */,
 				8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */,
+				8C7EF06D1DD297D100D1DE94 /* NurikabeTables.swift in Sources */,
 				8C6D378E1DC42F0A0052202C /* CloudsDocument.swift in Sources */,
 				8C886C3C1D9E8AF1004A42BF /* AbstractActionSheetPicker.m in Sources */,
 				8C916CBE1DAA5E9500D9E62B /* Helpers.swift in Sources */,
@@ -888,6 +945,7 @@
 				8C6D37871DC42F0A0052202C /* BridgesGridNode.swift in Sources */,
 				8C6D379B1DC42F0A0052202C /* HitoriGame.swift in Sources */,
 				8C6D37971DC42F0A0052202C /* CloudsObject.swift in Sources */,
+				8C7EF06B1DD297D100D1DE94 /* NurikabeObject.swift in Sources */,
 				8C6D378D1DC42F0A0052202C /* BridgesTables.swift in Sources */,
 				8C6D378C1DC42F0A0052202C /* BridgesOptionsViewController.swift in Sources */,
 				8C6D37AA1DC42F0A0052202C /* LightUpGameViewController.swift in Sources */,
@@ -898,6 +956,7 @@
 				8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */,
 				8C6D379F1DC42F0A0052202C /* HitoriGridNode.swift in Sources */,
 				8C6D37A91DC42F0A0052202C /* LightUpGameState.swift in Sources */,
+				8C7EF0641DD297D100D1DE94 /* NurikabeGameScene.swift in Sources */,
 				8C916CC11DAA5E9500D9E62B /* NodeSet.swift in Sources */,
 				8C6D37B71DC42F0A0052202C /* SlitherLinkGridNode.swift in Sources */,
 				8C6D37861DC42F0A0052202C /* BridgesGameViewController.swift in Sources */,
@@ -914,7 +973,9 @@
 				8C6D37B41DC42F0A0052202C /* SlitherLinkGameScene.swift in Sources */,
 				8C6D378A1DC42F0A0052202C /* BridgesMixin.swift in Sources */,
 				8C886C411D9E8AF1004A42BF /* ActionSheetMultipleStringPicker.m in Sources */,
+				8C7EF0671DD297D100D1DE94 /* NurikabeGridNode.swift in Sources */,
 				8C6D37FC1DC5B4DC0052202C /* Game.swift in Sources */,
+				8C7EF0621DD297D100D1DE94 /* NurikabeDocument.swift in Sources */,
 				8C6D37AE1DC42F0A0052202C /* LightUpMixin.swift in Sources */,
 				8C6D37BA1DC42F0A0052202C /* SlitherLinkMixin.swift in Sources */,
 			);
@@ -998,6 +1059,14 @@
 				8C6D37CB1DC42F6D0052202C /* Base */,
 			);
 			name = SlitherLink.storyboard;
+			sourceTree = "<group>";
+		};
+		8C7EF06F1DD297F000D1DE94 /* Nurikabe.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C7EF0701DD297F000D1DE94 /* Base */,
+			);
+			name = Nurikabe.storyboard;
 			sourceTree = "<group>";
 		};
 		8C9F43E51D771915000139FC /* LaunchScreen.storyboard */ = {
