@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class CloudsGameScene: SKScene {
+class CloudsGameScene: GameScene<CloudsGameState> {
     private(set) var gridNode: CloudsGridNode!
     
     func coloredRectSize() -> CGSize {
@@ -16,42 +16,11 @@ class CloudsGameScene: SKScene {
         return CGSize(width: sz, height: sz)
     }
     
-    func addGrid(to view: SKView, rows: Int, cols: Int, blockSize: CGFloat) {
-        let offset:CGFloat = 0.5
-        scaleMode = .resizeFill
-        gridNode = CloudsGridNode(blockSize: blockSize, rows: rows, cols: cols)
-        gridNode.position = CGPoint(x: view.frame.midX - gridNode.blockSize * CGFloat(gridNode.cols + 1) / 2 - offset, y: view.frame.midY + gridNode.blockSize * CGFloat(gridNode.rows + 1) / 2 + offset)
-        addChild(gridNode)
-        gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
-    }
-    
-    func addClouds(from state: CloudsGameState) {
-        for p in state.game.pos2cloud {
-            let point = gridNode.gridPosition(p: p)
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let cloudNodeName = "cloud" + nodeNameSuffix
-            addCloud(color: SKColor.gray, point: point, nodeName: cloudNodeName)
-        }
-    }
-    
     func addCloud(color: SKColor, point: CGPoint, nodeName: String) {
         let cloudNode = SKSpriteNode(color: color, size: coloredRectSize())
         cloudNode.position = point
         cloudNode.name = nodeName
         gridNode.addChild(cloudNode)
-    }
-    
-    func addHints(from state: CloudsGameState) {
-        for r in 0 ..< state.rows {
-            let p = Position(r, state.cols)
-            let n = state.game.row2hint[r]
-            addHint(p: p, n: n, s: state.row2state[r])
-        }
-        for c in 0 ..< state.cols {
-            let p = Position(state.rows, c)
-            let n = state.game.col2hint[c]
-            addHint(p: p, n: n, s: state.col2state[c])
-        }
     }
     
     func addHint(p: Position, n: Int, s: CloudsHintState) {
@@ -75,7 +44,41 @@ class CloudsGameScene: SKScene {
         gridNode.addChild(numberNode)
     }
     
-    func levelUpdated(from stateFrom: CloudsGameState, to stateTo: CloudsGameState) {
+    override func levelInitialized(_ game: AnyObject, state: CloudsGameState, skView: SKView) {
+        let game = game as! CloudsGame
+        removeAllChildren()
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols + 1)
+        
+        // add Grid
+        let offset:CGFloat = 0.5
+        scaleMode = .resizeFill
+        gridNode = CloudsGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols)
+        gridNode.position = CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols + 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows + 1) / 2 + offset)
+        addChild(gridNode)
+        gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
+        
+        // add Hints
+        for r in 0 ..< game.rows {
+            let p = Position(r, game.cols)
+            let n = state.game.row2hint[r]
+            addHint(p: p, n: n, s: state.row2state[r])
+        }
+        for c in 0 ..< game.cols {
+            let p = Position(game.rows, c)
+            let n = state.game.col2hint[c]
+            addHint(p: p, n: n, s: state.col2state[c])
+        }
+        
+        // add Clouds
+        for p in game.pos2cloud {
+            let point = gridNode.gridPosition(p: p)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let cloudNodeName = "cloud" + nodeNameSuffix
+            addCloud(color: SKColor.gray, point: point, nodeName: cloudNodeName)
+        }
+    }
+    
+    override func levelUpdated(from stateFrom: CloudsGameState, to stateTo: CloudsGameState) {
         func removeNode(withName: String) {
             gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
                 node.removeFromParent()

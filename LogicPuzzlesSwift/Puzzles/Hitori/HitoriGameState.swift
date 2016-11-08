@@ -11,6 +11,8 @@ import Foundation
 class HitoriGameState: CellsGameState {
     var game: HitoriGame {return gameBase as! HitoriGame}
     var objArray = [HitoriObject]()
+    var row2hint = [String]()
+    var col2hint = [String]()
     var options: HitoriGameProgress { return HitoriDocument.sharedInstance.gameProgress }
     
     override func copy() -> HitoriGameState {
@@ -20,12 +22,16 @@ class HitoriGameState: CellsGameState {
     func setup(v: HitoriGameState) -> HitoriGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
+        v.row2hint = row2hint
+        v.col2hint = col2hint
         return v
     }
     
     required init(game: CellsGameBase) {
         super.init(game: game)
         objArray = Array<HitoriObject>(repeating: HitoriObject(), count: rows * cols)
+        row2hint = Array<String>(repeating: "", count: rows)
+        col2hint = Array<String>(repeating: "", count: cols)
     }
     
     subscript(p: Position) -> HitoriObject {
@@ -76,24 +82,35 @@ class HitoriGameState: CellsGameState {
         var chars = Set<Character>()
         for r in 0 ..< rows {
             chars = []
+            row2hint[r] = ""
             for c in 0 ..< cols {
                 let p = Position(r, c)
                 guard self[p] != .darken else {continue}
                 let ch = game[p]
-                guard !chars.contains(ch) else {isSolved = false; return}
-                chars.insert(ch)
+                if chars.contains(ch) {
+                    isSolved = false
+                    row2hint[r].append(ch)
+                } else {
+                    chars.insert(ch)
+                }
             }
         }
         for c in 0 ..< cols {
             chars = []
+            col2hint[c] = ""
             for r in 0 ..< rows {
                 let p = Position(r, c)
                 guard self[p] != .darken else {continue}
                 let ch = game[p]
-                guard !chars.contains(ch) else {isSolved = false; return}
-                chars.insert(ch)
+                if chars.contains(ch) {
+                    isSolved = false
+                    col2hint[c].append(ch)
+                } else {
+                    chars.insert(ch)
+                }
             }
         }
+        guard isSolved else {return}
         let g = Graph()
         var pos2node = [Position: Node]()
         var rngDarken = [Position]()

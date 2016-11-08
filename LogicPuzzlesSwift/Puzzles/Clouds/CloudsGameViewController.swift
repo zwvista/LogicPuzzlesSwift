@@ -94,11 +94,7 @@ class CloudsGameViewController: UIViewController, GameDelegate, CloudsMixin {
     func levelInitilized(_ game: AnyObject, state: CloudsGameState) {
         let game = game as! CloudsGame
         updateLabels(game)
-        scene.removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols + 1)
-        scene.addGrid(to: skView, rows: game.rows, cols: game.cols, blockSize: blockSize)
-        scene.addHints(from: state)
-        scene.addClouds(from: state)
+        scene.levelInitialized(game, state: state, skView: skView)
     }
     
     func levelUpdated(_ game: AnyObject, from stateFrom: CloudsGameState, to stateTo: CloudsGameState) {

@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class SlitherLinkGameScene: SKScene {
+class SlitherLinkGameScene: GameScene<SlitherLinkGameState> {
     private(set) var gridNode: SlitherLinkGridNode!
     
     func coloredRectSize() -> CGSize {
@@ -17,21 +17,9 @@ class SlitherLinkGameScene: SKScene {
     }
     
     func addGrid(to view: SKView, rows: Int, cols: Int, blockSize: CGFloat) {
-        let offset:CGFloat = 0.5
-        scaleMode = .resizeFill
-        gridNode = SlitherLinkGridNode(blockSize: blockSize, rows: rows - 1, cols: cols - 1)
-        gridNode.position = CGPoint(x: view.frame.midX - gridNode.blockSize * CGFloat(gridNode.cols) / 2 - offset, y: view.frame.midY + gridNode.blockSize * CGFloat(gridNode.rows) / 2 + offset)
-        addChild(gridNode)
-        gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
     }
     
     func addHints(from state: SlitherLinkGameState) {
-        for (p, n) in state.game.pos2hint {
-            let point = gridNode.gridPosition(p: p)
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let hintNumberNodeName = "hintNumber" + nodeNameSuffix
-            addHintNumber(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNumberNodeName)
-        }
     }
     
     func addHintNumber(n: Int, s: SlitherLinkHintState, point: CGPoint, nodeName: String) {
@@ -47,7 +35,29 @@ class SlitherLinkGameScene: SKScene {
         gridNode.addChild(numberNode)
     }
     
-    func levelUpdated(from stateFrom: SlitherLinkGameState, to stateTo: SlitherLinkGameState) {
+    override func levelInitialized(_ game: AnyObject, state: SlitherLinkGameState, skView: SKView) {
+        let game = game as! SlitherLinkGame
+        removeAllChildren()
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols - 1)
+        
+        // addGrid
+        let offset:CGFloat = 0.5
+        scaleMode = .resizeFill
+        gridNode = SlitherLinkGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1)
+        gridNode.position = CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset)
+        addChild(gridNode)
+        gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
+        
+        // addHints
+        for (p, n) in game.pos2hint {
+            let point = gridNode.gridPosition(p: p)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let hintNumberNodeName = "hintNumber" + nodeNameSuffix
+            addHintNumber(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNumberNodeName)
+        }
+    }
+    
+    override func levelUpdated(from stateFrom: SlitherLinkGameState, to stateTo: SlitherLinkGameState) {
         let markerOffset: CGFloat = 7.5
         for row in 0 ..< stateFrom.rows {
             for col in 0 ..< stateFrom.cols {

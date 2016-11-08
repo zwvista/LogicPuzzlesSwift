@@ -28,8 +28,6 @@ class CloudsGame: CellsGame<CloudsGameMove, CloudsGameState> {
         col2hint = Array<Int>(repeating: 0, count: cols)
         
         let state = CloudsGameState(game: self)
-        state.row2state = Array<CloudsHintState>(repeating: .normal, count: rows)
-        state.col2state = Array<CloudsHintState>(repeating: .normal, count: cols)
         
         for r in 0 ..< rows + 1 {
             let str = layout[r]

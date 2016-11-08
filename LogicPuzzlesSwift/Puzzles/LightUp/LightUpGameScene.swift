@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class LightUpGameScene: SKScene {
+class LightUpGameScene: GameScene<LightUpGameState> {
     private(set) var gridNode: LightUpGridNode!
     
     func coloredRectSize() -> CGSize {
@@ -16,18 +16,35 @@ class LightUpGameScene: SKScene {
         return CGSize(width: sz, height: sz)
     }
     
-    func addGrid(to view: SKView, rows: Int, cols: Int, blockSize: CGFloat) {
-        let offset:CGFloat = 0.5
-        scaleMode = .resizeFill
-        gridNode = LightUpGridNode(blockSize: blockSize, rows: rows, cols: cols)
-        gridNode.position = CGPoint(x: view.frame.midX - gridNode.blockSize * CGFloat(gridNode.cols) / 2 - offset, y: view.frame.midY + gridNode.blockSize * CGFloat(gridNode.rows) / 2 + offset)
-        addChild(gridNode)
-        gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
+    func addWallNumber(n: Int, s: LightUpWallState, point: CGPoint, nodeName: String) {
+        let numberNode = SKLabelNode(text: String(n))
+        numberNode.fontColor = s == .normal ? SKColor.black : s == .complete ? SKColor.green : SKColor.red
+        numberNode.fontName = numberNode.fontName! + "-Bold"
+        // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
+        let scalingFactor = min(gridNode.blockSize / numberNode.frame.width, gridNode.blockSize / numberNode.frame.height)
+        numberNode.fontSize *= scalingFactor
+        numberNode.verticalAlignmentMode = .center
+        numberNode.position = point
+        numberNode.name = nodeName
+        gridNode.addChild(numberNode)
     }
     
-    func addWalls(from state: LightUpGameState) {
-        for row in 0 ..< state.rows {
-            for col in 0 ..< state.cols {
+    override func levelInitialized(_ game: AnyObject, state: LightUpGameState, skView: SKView) {
+        let game = game as! LightUpGame
+        removeAllChildren()
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
+        
+        // addGrid
+        let offset:CGFloat = 0.5
+        scaleMode = .resizeFill
+        gridNode = LightUpGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols)
+        gridNode.position = CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset)
+        addChild(gridNode)
+        gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
+        
+        // addWalls
+        for row in 0 ..< game.rows {
+            for col in 0 ..< game.cols {
                 let p = Position(row, col)
                 guard case let .wall(s) = state[p].objType else {continue}
                 let n = state.game.wall2Lightbulbs[p]!
@@ -44,20 +61,7 @@ class LightUpGameScene: SKScene {
         }
     }
     
-    func addWallNumber(n: Int, s: LightUpWallState, point: CGPoint, nodeName: String) {
-        let numberNode = SKLabelNode(text: String(n))
-        numberNode.fontColor = s == .normal ? SKColor.black : s == .complete ? SKColor.green : SKColor.red
-        numberNode.fontName = numberNode.fontName! + "-Bold"
-        // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
-        let scalingFactor = min(gridNode.blockSize / numberNode.frame.width, gridNode.blockSize / numberNode.frame.height)
-        numberNode.fontSize *= scalingFactor
-        numberNode.verticalAlignmentMode = .center
-        numberNode.position = point
-        numberNode.name = nodeName
-        gridNode.addChild(numberNode)
-    }
-    
-    func levelUpdated(from stateFrom: LightUpGameState, to stateTo: LightUpGameState) {
+    override func levelUpdated(from stateFrom: LightUpGameState, to stateTo: LightUpGameState) {
         for row in 0 ..< stateFrom.rows {
             for col in 0 ..< stateFrom.cols {
                 let point = gridNode.gridPosition(p: Position(row, col))

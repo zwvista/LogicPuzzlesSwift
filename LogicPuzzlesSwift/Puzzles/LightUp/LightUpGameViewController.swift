@@ -94,10 +94,7 @@ class LightUpGameViewController: UIViewController, GameDelegate, LightUpMixin {
     func levelInitilized(_ game: AnyObject, state: LightUpGameState) {
         let game = game as! LightUpGame
         updateLabels(game)
-        scene.removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
-        scene.addGrid(to: skView, rows: game.rows, cols: game.cols, blockSize: blockSize)
-        scene.addWalls(from: state)
+        scene.levelInitialized(game, state: state, skView: skView)
     }
     
     func levelUpdated(_ game: AnyObject, from stateFrom: LightUpGameState, to stateTo: LightUpGameState) {

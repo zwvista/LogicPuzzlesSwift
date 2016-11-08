@@ -8,34 +8,12 @@
 
 import SpriteKit
 
-class HitoriGameScene: SKScene {
+class HitoriGameScene: GameScene<HitoriGameState> {
     private(set) var gridNode: HitoriGridNode!
     
     func coloredRectSize() -> CGSize {
         let sz = gridNode.blockSize - 4
         return CGSize(width: sz, height: sz)
-    }
-    
-    func addGrid(to view: SKView, rows: Int, cols: Int, blockSize: CGFloat) {
-        let offset:CGFloat = 0.5
-        scaleMode = .resizeFill
-        gridNode = HitoriGridNode(blockSize: blockSize, rows: rows, cols: cols)
-        gridNode.position = CGPoint(x: view.frame.midX - gridNode.blockSize * CGFloat(gridNode.cols) / 2 - offset, y: view.frame.midY + gridNode.blockSize * CGFloat(gridNode.rows) / 2 + offset)
-        addChild(gridNode)
-        gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
-    }
-    
-    func addNumbers(from state: HitoriGameState) {
-        for r in 0 ..< state.rows {
-            for c in 0 ..< state.cols {
-                let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
-                let n = state.game[p]
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
-                let numberNodeName = "number" + nodeNameSuffix
-                addNumber(n: n, point: point, nodeName: numberNodeName)
-            }
-        }
     }
     
     func addNumber(n: Character, point: CGPoint, nodeName: String) {
@@ -51,7 +29,33 @@ class HitoriGameScene: SKScene {
         gridNode.addChild(numberNode)
     }
     
-    func levelUpdated(from stateFrom: HitoriGameState, to stateTo: HitoriGameState) {
+    override func levelInitialized(_ game: AnyObject, state: HitoriGameState, skView: SKView) {
+        let game = game as! HitoriGame
+        removeAllChildren()
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols + 1)
+        
+        // addGrid
+        let offset:CGFloat = 0.5
+        scaleMode = .resizeFill
+        gridNode = HitoriGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols)
+        gridNode.position = CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols + 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows + 1) / 2 + offset)
+        addChild(gridNode)
+        gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
+        
+        // addNumbers
+        for r in 0 ..< game.rows {
+            for c in 0 ..< game.cols {
+                let p = Position(r, c)
+                let point = gridNode.gridPosition(p: p)
+                let n = state.game[p]
+                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let numberNodeName = "number" + nodeNameSuffix
+                addNumber(n: n, point: point, nodeName: numberNodeName)
+            }
+        }
+    }
+    
+    override func levelUpdated(from stateFrom: HitoriGameState, to stateTo: HitoriGameState) {
         for row in 0 ..< stateFrom.rows {
             for col in 0 ..< stateFrom.cols {
                 let p = Position(row, col)

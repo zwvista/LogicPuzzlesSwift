@@ -30,6 +30,8 @@ class CloudsGameState: CellsGameState {
     required init(game: CellsGameBase) {
         super.init(game: game)
         objArray = Array<CloudsObject>(repeating: CloudsObject(), count: rows * cols)
+        row2state = Array<CloudsHintState>(repeating: .normal, count: rows)
+        col2state = Array<CloudsHintState>(repeating: .normal, count: cols)
     }
     
     subscript(p: Position) -> CloudsObject {

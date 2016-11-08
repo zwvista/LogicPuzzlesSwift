@@ -24,21 +24,21 @@ class BridgesGameScene: GameScene<BridgesGameState> {
         gridNode.addChild(numberNode)
     }
     
-    override func levelInitialized(_ game: AnyObject, state: BridgesGameState, skView view: SKView) {
+    override func levelInitialized(_ game: AnyObject, state: BridgesGameState, skView: SKView) {
         let game = game as! BridgesGame
         removeAllChildren()
-        let blockSize = CGFloat(view.bounds.size.width) / CGFloat(game.cols)
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
         
         // add grid
         let offset: CGFloat = 0.5
         scaleMode = .resizeFill
         gridNode = BridgesGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols)
-        gridNode.position = CGPoint(x: view.frame.midX - gridNode.blockSize * CGFloat(gridNode.cols) / 2 - offset, y: view.frame.midY + gridNode.blockSize * CGFloat(gridNode.rows) / 2 + offset)
+        gridNode.position = CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset)
         addChild(gridNode)
         gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
         
         // add islands
-        for (p, info) in state.game.islandsInfo {
+        for (p, info) in game.islandsInfo {
             let n = info.bridges
             let point = gridNode.gridPosition(p: p)
             let islandNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 2)
