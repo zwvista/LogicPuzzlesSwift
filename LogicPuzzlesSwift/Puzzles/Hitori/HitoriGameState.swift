@@ -80,34 +80,34 @@ class HitoriGameState: CellsGameState {
     
     private func updateIsSolved() {
         isSolved = true
-        var chars = Set<Character>()
+        var chars = ""
         for r in 0 ..< rows {
-            chars = []
+            chars = ""
             row2hint[r] = ""
             for c in 0 ..< cols {
                 let p = Position(r, c)
                 guard self[p] != .darken else {continue}
                 let ch = game[p]
-                if chars.contains(ch) {
+                if chars.contains(String(ch)) {
                     isSolved = false
                     row2hint[r].append(ch)
                 } else {
-                    chars.insert(ch)
+                    chars.append(ch)
                 }
             }
         }
         for c in 0 ..< cols {
-            chars = []
+            chars = ""
             col2hint[c] = ""
             for r in 0 ..< rows {
                 let p = Position(r, c)
                 guard self[p] != .darken else {continue}
                 let ch = game[p]
-                if chars.contains(ch) {
+                if chars.contains(String(ch)) {
                     isSolved = false
                     col2hint[c].append(ch)
                 } else {
-                    chars.insert(ch)
+                    chars.append(ch)
                 }
             }
         }
