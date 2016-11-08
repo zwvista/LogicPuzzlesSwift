@@ -24,6 +24,7 @@
 		8C6ACBFF1DCAF8BA0075F32C /* GameMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D71DC42FA40052202C /* GameMixin.swift */; };
 		8C6ACC001DCAF8C20075F32C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37E91DC59EE50052202C /* GameScene.swift */; };
 		8C6ACC191DD204420075F32C /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6ACC181DD204420075F32C /* GameObject.swift */; };
+		8C6ACC1A1DD206AD0075F32C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D61DC42FA40052202C /* MainViewController.swift */; };
 		8C6D37381DC421180052202C /* HomeDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37331DC421180052202C /* HomeDocument.swift */; };
 		8C6D37391DC421180052202C /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37341DC421180052202C /* HomeMainViewController.swift */; };
 		8C6D373A1DC421180052202C /* HomeMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37351DC421180052202C /* HomeMixin.swift */; };
@@ -521,18 +522,18 @@
 		8C6D37CE1DC42FA40052202C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8C6D37EC1DC5A2F50052202C /* Copyable.swift */,
 				8C6D37D01DC42FA40052202C /* Game.swift */,
 				8C6D37CF1DC42FA40052202C /* GameDocument.swift */,
 				8C6D37D71DC42FA40052202C /* GameMixin.swift */,
+				8C6ACC181DD204420075F32C /* GameObject.swift */,
 				8C6D37E91DC59EE50052202C /* GameScene.swift */,
 				8C6D37D21DC42FA40052202C /* GameState.swift */,
 				8C6D37D31DC42FA40052202C /* GameViewController.swift */,
 				8C6D37D41DC42FA40052202C /* GridNode.swift */,
 				8C6D37D61DC42FA40052202C /* MainViewController.swift */,
 				8C6D37D91DC42FA40052202C /* OptionsViewController.swift */,
-				8C6D37EC1DC5A2F50052202C /* Copyable.swift */,
 				8C6D37F41DC5AC520052202C /* Position.swift */,
-				8C6ACC181DD204420075F32C /* GameObject.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -871,6 +872,7 @@
 				8C6D37A71DC42F0A0052202C /* LightUpGame.swift in Sources */,
 				8C6D37391DC421180052202C /* HomeMainViewController.swift in Sources */,
 				8C6ACC001DCAF8C20075F32C /* GameScene.swift in Sources */,
+				8C6ACC1A1DD206AD0075F32C /* MainViewController.swift in Sources */,
 				8C6D37AF1DC42F0A0052202C /* LightUpObject.swift in Sources */,
 				8C6D37AB1DC42F0A0052202C /* LightUpGridNode.swift in Sources */,
 				8C6D37BD1DC42F0A0052202C /* SlitherLinkTables.swift in Sources */,

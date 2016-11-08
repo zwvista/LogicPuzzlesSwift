@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, BridgesMixin {
+class MainViewController: UIViewController {
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -17,31 +17,10 @@ class MainViewController: UIViewController, BridgesMixin {
     override var shouldAutorotate: Bool {
         return false
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let toResume = ((UIApplication.shared.keyWindow!.rootViewController! as! UINavigationController).topViewController as! HomeMainViewController).toResume
-        if toResume {resumGame(self)}
-    }
     
     // http://stackoverflow.com/questions/845583/iphone-hide-navigation-bar-only-on-first-page
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    @IBAction func startGame(_ sender: AnyObject) {
-        gameDocument.selectedLevelID = (sender as! UIButton).titleLabel!.text!
-        resumGame(self)
-    }
-    
-    @IBAction func resumGame(_ sender: AnyObject) {
-        gameDocument.resumeGame()
-        let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "BridgesGameViewController") as! BridgesGameViewController
-        self.navigationController!.pushViewController(gameViewController, animated: true)
-    }
-    
-    @IBAction func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
     }
 }
