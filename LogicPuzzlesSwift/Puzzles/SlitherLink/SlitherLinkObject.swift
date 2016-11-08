@@ -8,10 +8,6 @@
 
 import Foundation
 
-enum SlitherLinkHintState {
-    case normal, complete, error
-}
-
 enum SlitherLinkMarkerOptions: Int {
     case noMarker, markerAfterLine, markerBeforeLine
     

@@ -8,10 +8,6 @@
 
 import Foundation
 
-enum HitoriHintState {
-    case normal, complete, error
-}
-
 enum HitoriMarkerOptions: Int {
     case noMarker, markerAfterDarken, markerBeforeDarken
     

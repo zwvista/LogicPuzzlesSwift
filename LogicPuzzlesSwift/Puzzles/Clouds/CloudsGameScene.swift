@@ -23,7 +23,7 @@ class CloudsGameScene: GameScene<CloudsGameState> {
         gridNode.addChild(cloudNode)
     }
     
-    func addHint(p: Position, n: Int, s: CloudsHintState) {
+    func addHint(p: Position, n: Int, s: HintState) {
         let point = gridNode.gridPosition(p: p)
         guard n >= 0 else {return}
         let nodeNameSuffix = "-\(p.row)-\(p.col)"
@@ -31,7 +31,7 @@ class CloudsGameScene: GameScene<CloudsGameState> {
         addHintNumber(n: n, s: s, point: point, nodeName: hintNodeName)
     }
     
-    func addHintNumber(n: Int, s: CloudsHintState, point: CGPoint, nodeName: String) {
+    func addHintNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         let numberNode = SKLabelNode(text: String(n))
         numberNode.fontColor = s == .normal ? SKColor.white : s == .complete ? SKColor.green : SKColor.red
         numberNode.fontName = numberNode.fontName! + "-Bold"

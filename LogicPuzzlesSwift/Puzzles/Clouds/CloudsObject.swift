@@ -8,10 +8,6 @@
 
 import Foundation
 
-enum CloudsHintState {
-    case normal, complete, error
-}
-
 enum CloudsMarkerOptions: Int {
     case noMarker, markerAfterCloud, markerBeforeCloud
     

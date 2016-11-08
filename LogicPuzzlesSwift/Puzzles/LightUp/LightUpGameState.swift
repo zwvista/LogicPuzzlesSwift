@@ -145,7 +145,7 @@ class LightUpGameState: CellsGameState {
                             n += 1
                         }
                     }
-                    let state: LightUpWallState = n < lightbulbs ? .normal : n == lightbulbs ? .complete : .error
+                    let state: HintState = n < lightbulbs ? .normal : n == lightbulbs ? .complete : .error
                     self[r, c].objType = .wall(state: state)
                     if n != lightbulbs {isSolved = false}
                 default:

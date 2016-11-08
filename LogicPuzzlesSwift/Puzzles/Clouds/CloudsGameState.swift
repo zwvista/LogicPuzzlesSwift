@@ -11,8 +11,8 @@ import Foundation
 class CloudsGameState: CellsGameState {
     var game: CloudsGame {return gameBase as! CloudsGame}
     var objArray = [CloudsObject]()
-    var row2state = [CloudsHintState]()
-    var col2state = [CloudsHintState]()
+    var row2state = [HintState]()
+    var col2state = [HintState]()
     var options: CloudsGameProgress { return CloudsDocument.sharedInstance.gameProgress }
     
     override func copy() -> CloudsGameState {
@@ -30,8 +30,8 @@ class CloudsGameState: CellsGameState {
     required init(game: CellsGameBase) {
         super.init(game: game)
         objArray = Array<CloudsObject>(repeating: CloudsObject(), count: rows * cols)
-        row2state = Array<CloudsHintState>(repeating: .normal, count: rows)
-        col2state = Array<CloudsHintState>(repeating: .normal, count: cols)
+        row2state = Array<HintState>(repeating: .normal, count: rows)
+        col2state = Array<HintState>(repeating: .normal, count: cols)
         updateIsSolved()
     }
     

@@ -11,7 +11,7 @@ import Foundation
 class SlitherLinkGameState: CellsGameState {
     var game: SlitherLinkGame {return gameBase as! SlitherLinkGame}
     var objArray = [SlitherLinkDotObject]()
-    var pos2state = [Position: SlitherLinkHintState]()
+    var pos2state = [Position: HintState]()
     var options: SlitherLinkGameProgress { return SlitherLinkDocument.sharedInstance.gameProgress }
     
     override func copy() -> SlitherLinkGameState {

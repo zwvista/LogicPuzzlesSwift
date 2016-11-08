@@ -11,7 +11,7 @@ import SpriteKit
 class BridgesGameScene: GameScene<BridgesGameState> {
     private(set) var gridNode: BridgesGridNode!
     
-    func addIslandNumber(n: Int, s: BridgesIslandState, point: CGPoint, nodeName: String) {
+    func addIslandNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         let numberNode = SKLabelNode(text: String(n))
         numberNode.fontColor = s == .normal ? SKColor.white : s == .complete ? SKColor.green : SKColor.red
         numberNode.fontName = numberNode.fontName! + "-Bold"

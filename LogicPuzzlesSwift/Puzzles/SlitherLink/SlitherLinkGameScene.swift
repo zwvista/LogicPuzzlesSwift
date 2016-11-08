@@ -16,7 +16,7 @@ class SlitherLinkGameScene: GameScene<SlitherLinkGameState> {
         return CGSize(width: sz, height: sz)
     }
     
-    func addHintNumber(n: Int, s: SlitherLinkHintState, point: CGPoint, nodeName: String) {
+    func addHintNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         let numberNode = SKLabelNode(text: String(n))
         numberNode.fontColor = s == .normal ? SKColor.white : s == .complete ? SKColor.green : SKColor.red
         numberNode.fontName = numberNode.fontName! + "-Bold"

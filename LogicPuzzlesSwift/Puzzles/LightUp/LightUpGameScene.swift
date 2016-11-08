@@ -16,7 +16,7 @@ class LightUpGameScene: GameScene<LightUpGameState> {
         return CGSize(width: sz, height: sz)
     }
     
-    func addWallNumber(n: Int, s: LightUpWallState, point: CGPoint, nodeName: String) {
+    func addWallNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         let numberNode = SKLabelNode(text: String(n))
         numberNode.fontColor = s == .normal ? SKColor.black : s == .complete ? SKColor.green : SKColor.red
         numberNode.fontName = numberNode.fontName! + "-Bold"

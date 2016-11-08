@@ -16,7 +16,7 @@ class HitoriGameScene: GameScene<HitoriGameState> {
         return CGSize(width: sz, height: sz)
     }
     
-    func addNumber(n: String, s: HitoriHintState, point: CGPoint, nodeName: String) {
+    func addNumber(n: String, s: HintState, point: CGPoint, nodeName: String) {
         let numberNode = SKLabelNode(text: String(n))
         numberNode.fontColor = s == .normal ? SKColor.white : s == .complete ? SKColor.green : SKColor.red
         numberNode.fontName = numberNode.fontName! + "-Bold"

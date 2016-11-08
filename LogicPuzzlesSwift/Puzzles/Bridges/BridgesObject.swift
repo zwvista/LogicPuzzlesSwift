@@ -8,13 +8,9 @@
 
 import Foundation
 
-enum BridgesIslandState {
-    case normal, complete, error
-}
-
 enum BridgesObject {
     case empty
-    case island(state: BridgesIslandState, bridges: [Int])
+    case island(state: HintState, bridges: [Int])
     case bridge
     init() {
         self = .empty

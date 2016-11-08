@@ -8,10 +8,6 @@
 
 import Foundation
 
-enum LightUpWallState {
-    case normal, complete, error
-}
-
 enum LightUpLightbulbState {
     case normal, error
 }
@@ -26,7 +22,7 @@ enum LightUpObjectType {
     case empty
     case lightbulb(state: LightUpLightbulbState)
     case marker
-    case wall(state: LightUpWallState)
+    case wall(state: HintState)
     init() {
         self = .empty
     }

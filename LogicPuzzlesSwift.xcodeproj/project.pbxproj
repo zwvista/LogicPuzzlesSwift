@@ -23,6 +23,7 @@
 		8C6ACBFE1DCAF8BA0075F32C /* GameDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37CF1DC42FA40052202C /* GameDocument.swift */; };
 		8C6ACBFF1DCAF8BA0075F32C /* GameMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D71DC42FA40052202C /* GameMixin.swift */; };
 		8C6ACC001DCAF8C20075F32C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37E91DC59EE50052202C /* GameScene.swift */; };
+		8C6ACC191DD204420075F32C /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6ACC181DD204420075F32C /* GameObject.swift */; };
 		8C6D37381DC421180052202C /* HomeDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37331DC421180052202C /* HomeDocument.swift */; };
 		8C6D37391DC421180052202C /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37341DC421180052202C /* HomeMainViewController.swift */; };
 		8C6D373A1DC421180052202C /* HomeMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37351DC421180052202C /* HomeMixin.swift */; };
@@ -180,6 +181,7 @@
 		8C1D16A91DB8DE930056D407 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		8C1D16AA1DB8DE930056D407 /* Tests.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Tests.xcodeproj; sourceTree = "<group>"; };
 		8C31FE6D1D90E415008793BF /* SharkORM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SharkORM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C6ACC181DD204420075F32C /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
 		8C6D37331DC421180052202C /* HomeDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDocument.swift; sourceTree = "<group>"; };
 		8C6D37341DC421180052202C /* HomeMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMainViewController.swift; sourceTree = "<group>"; };
 		8C6D37351DC421180052202C /* HomeMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMixin.swift; sourceTree = "<group>"; };
@@ -530,6 +532,7 @@
 				8C6D37D91DC42FA40052202C /* OptionsViewController.swift */,
 				8C6D37EC1DC5A2F50052202C /* Copyable.swift */,
 				8C6D37F41DC5AC520052202C /* Position.swift */,
+				8C6ACC181DD204420075F32C /* GameObject.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -878,6 +881,7 @@
 				8C6D37B61DC42F0A0052202C /* SlitherLinkGameViewController.swift in Sources */,
 				8C6D379D1DC42F0A0052202C /* HitoriGameState.swift in Sources */,
 				8C6D37B91DC42F0A0052202C /* SlitherLinkMainViewController.swift in Sources */,
+				8C6ACC191DD204420075F32C /* GameObject.swift in Sources */,
 				8C6D37B21DC42F0A0052202C /* SlitherLinkDocument.swift in Sources */,
 				8C6D37871DC42F0A0052202C /* BridgesGridNode.swift in Sources */,
 				8C6D379B1DC42F0A0052202C /* HitoriGame.swift in Sources */,
