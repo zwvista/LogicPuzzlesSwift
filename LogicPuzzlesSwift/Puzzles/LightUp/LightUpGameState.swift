@@ -123,8 +123,8 @@ class LightUpGameState: CellsGameState {
     
     private func updateIsSolved() {
         isSolved = true
-        for r in 0 ..< rows {
-            for c in 0 ..< cols {
+        for r in 0..<rows {
+            for c in 0..<cols {
                 let p = Position(r, c)
                 let o = self[r, c]
                 switch o.objType {

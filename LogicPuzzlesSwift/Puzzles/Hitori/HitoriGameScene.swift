@@ -51,8 +51,8 @@ class HitoriGameScene: GameScene<HitoriGameState> {
         gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
         
         // addNumbers
-        for r in 0 ..< game.rows {
-            for c in 0 ..< game.cols {
+        for r in 0..<game.rows {
+            for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let n = state.game[p]
@@ -63,12 +63,12 @@ class HitoriGameScene: GameScene<HitoriGameState> {
         }
         
         // addHints
-        for r in 0 ..< game.rows {
+        for r in 0..<game.rows {
             let p = Position(r, game.cols)
             let n = state.row2hint[r]
             addHint(p: p, n: n)
         }
-        for c in 0 ..< game.cols {
+        for c in 0..<game.cols {
             let p = Position(game.rows, c)
             let n = state.col2hint[c]
             addHint(p: p, n: n)
@@ -86,7 +86,7 @@ class HitoriGameScene: GameScene<HitoriGameState> {
             let hintNodeName = "hint" + nodeNameSuffix
             removeNode(withName: hintNodeName)
         }
-        for r in 0 ..< stateFrom.rows {
+        for r in 0..<stateFrom.rows {
             let p = Position(r, stateFrom.cols)
             let n = stateTo.row2hint[r]
             if stateFrom.row2hint[r] != n {
@@ -94,7 +94,7 @@ class HitoriGameScene: GameScene<HitoriGameState> {
                 addHint(p: p, n: n)
             }
         }
-        for c in 0 ..< stateFrom.cols {
+        for c in 0..<stateFrom.cols {
             let p = Position(stateFrom.rows, c)
             let n = stateTo.col2hint[c]
             if stateFrom.col2hint[c] != n {
@@ -102,8 +102,8 @@ class HitoriGameScene: GameScene<HitoriGameState> {
                 addHint(p: p, n: n)
             }
         }
-        for row in 0 ..< stateFrom.rows {
-            for col in 0 ..< stateFrom.cols {
+        for row in 0..<stateFrom.rows {
+            for col in 0..<stateFrom.cols {
                 let p = Position(row, col)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(row)-\(col)"

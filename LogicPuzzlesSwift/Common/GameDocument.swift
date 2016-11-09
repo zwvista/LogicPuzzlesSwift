@@ -20,7 +20,7 @@ class GameDocument<GM> {
         for elem in doc.root!.children {
             guard let key = elem.attr("id") else {continue}
             var arr = elem.stringValue.components(separatedBy: "\n")
-            arr = Array(arr[2 ..< (arr.count - 2)])
+            arr = Array(arr[2..<(arr.count - 2)])
             arr = arr.map { s in s.substring(to: s.index(before: s.endIndex)) }
             levels["Level " + key] = arr
         }

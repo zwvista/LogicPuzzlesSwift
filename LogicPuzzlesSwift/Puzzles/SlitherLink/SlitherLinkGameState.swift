@@ -102,8 +102,8 @@ class SlitherLinkGameState: CellsGameState {
         guard isSolved else {return}
         let g = Graph()
         var pos2node = [Position: Node]()
-        for r in 0 ..< rows {
-            for c in 0 ..< cols {
+        for r in 0..<rows {
+            for c in 0..<cols {
                 let p = Position(r, c)
                 let n = self[p].filter({$0 == .line}).count
                 switch n {
@@ -119,7 +119,7 @@ class SlitherLinkGameState: CellsGameState {
         }
         for p in pos2node.keys {
             let dotObj = self[p]
-            for i in 0 ..< 4 {
+            for i in 0..<4 {
                 guard dotObj[i] == .line else {continue}
                 let p2 = p + SlitherLinkGame.offset[i]
                 g.addEdge(source: pos2node[p]!, neighbor: pos2node[p2]!)

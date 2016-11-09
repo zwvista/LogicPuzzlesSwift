@@ -81,10 +81,10 @@ class HitoriGameState: CellsGameState {
     private func updateIsSolved() {
         isSolved = true
         var chars = ""
-        for r in 0 ..< rows {
+        for r in 0..<rows {
             chars = ""
             row2hint[r] = ""
-            for c in 0 ..< cols {
+            for c in 0..<cols {
                 let p = Position(r, c)
                 guard self[p] != .darken else {continue}
                 let ch = game[p]
@@ -96,10 +96,10 @@ class HitoriGameState: CellsGameState {
                 }
             }
         }
-        for c in 0 ..< cols {
+        for c in 0..<cols {
             chars = ""
             col2hint[c] = ""
-            for r in 0 ..< rows {
+            for r in 0..<rows {
                 let p = Position(r, c)
                 guard self[p] != .darken else {continue}
                 let ch = game[p]
@@ -115,8 +115,8 @@ class HitoriGameState: CellsGameState {
         let g = Graph()
         var pos2node = [Position: Node]()
         var rngDarken = [Position]()
-        for r in 0 ..< rows {
-            for c in 0 ..< cols {
+        for r in 0..<rows {
+            for c in 0..<cols {
                 let p = Position(r, c)
                 switch self[p] {
                 case .darken:

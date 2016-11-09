@@ -76,7 +76,7 @@ class SlitherLinkGameViewController: UIViewController, GameDelegate, SlitherLink
                 _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex
-        guard case 0 ..< game.moveCount = moveIndex else {return}
+        guard case 0..<game.moveCount = moveIndex else {return}
         while moveIndex != game.moveIndex {
             game.undo()
         }

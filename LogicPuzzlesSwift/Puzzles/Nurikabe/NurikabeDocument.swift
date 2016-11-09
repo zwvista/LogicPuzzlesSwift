@@ -49,7 +49,7 @@ class NurikabeDocument: GameDocument<NurikabeGameMove> {
         rec.levelID = selectedLevelID
         rec.moveIndex = game.moveIndex
         (rec.row, rec.col) = move.p.unapply()
-        rec.objTypeAsString = move.objType.toString()
+        rec.objAsString = move.obj.toString()
         rec.commit()
     }
     

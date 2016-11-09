@@ -58,12 +58,12 @@ class CloudsGameScene: GameScene<CloudsGameState> {
         gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
         
         // add Hints
-        for r in 0 ..< game.rows {
+        for r in 0..<game.rows {
             let p = Position(r, game.cols)
             let n = state.game.row2hint[r]
             addHint(p: p, n: n, s: state.row2state[r])
         }
-        for c in 0 ..< game.cols {
+        for c in 0..<game.cols {
             let p = Position(game.rows, c)
             let n = state.game.col2hint[c]
             addHint(p: p, n: n, s: state.col2state[c])
@@ -89,7 +89,7 @@ class CloudsGameScene: GameScene<CloudsGameState> {
             let hintNodeName = "hint" + nodeNameSuffix
             removeNode(withName: hintNodeName)
         }
-        for r in 0 ..< stateFrom.rows {
+        for r in 0..<stateFrom.rows {
             let p = Position(r, stateFrom.cols)
             let n = stateFrom.game.row2hint[r]
             if stateFrom.row2state[r] != stateTo.row2state[r] {
@@ -97,7 +97,7 @@ class CloudsGameScene: GameScene<CloudsGameState> {
                 addHint(p: p, n: n, s: stateTo.row2state[r])
             }
         }
-        for c in 0 ..< stateFrom.cols {
+        for c in 0..<stateFrom.cols {
             let p = Position(stateFrom.rows, c)
             let n = stateFrom.game.col2hint[c]
             if stateFrom.col2state[c] != stateTo.col2state[c] {
@@ -105,8 +105,8 @@ class CloudsGameScene: GameScene<CloudsGameState> {
                 addHint(p: p, n: n, s: stateTo.col2state[c])
             }
         }
-        for row in 0 ..< stateFrom.rows {
-            for col in 0 ..< stateFrom.cols {
+        for row in 0..<stateFrom.rows {
+            for col in 0..<stateFrom.cols {
                 let p = Position(row, col)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(row)-\(col)"

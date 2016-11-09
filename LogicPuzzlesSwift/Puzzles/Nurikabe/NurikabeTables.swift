@@ -33,7 +33,7 @@ class NurikabeMoveProgress: SRKObject {
     dynamic var moveIndex = 0
     dynamic var row = 0
     dynamic var col = 0
-    dynamic var objTypeAsString: String?
+    dynamic var objAsString: String?
     
     override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
         return ["moveIndex": 0]

@@ -90,7 +90,7 @@ class BridgesGameViewController: UIViewController, GameDelegate, BridgesMixin {
             _ = game.switchBridges(pFrom: Position(rec.rowFrom, rec.colFrom), pTo: Position(rec.rowTo, rec.colTo))
         }
         let moveIndex = gameDocument.levelProgress.moveIndex
-        guard case 0 ..< game.moveCount = moveIndex else {return}
+        guard case 0..<game.moveCount = moveIndex else {return}
         while moveIndex != game.moveIndex {
             game.undo()
         }

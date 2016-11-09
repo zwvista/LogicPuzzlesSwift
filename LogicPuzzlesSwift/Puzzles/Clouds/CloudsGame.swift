@@ -27,15 +27,15 @@ class CloudsGame: CellsGame<CloudsGameMove, CloudsGameState> {
         row2hint = Array<Int>(repeating: 0, count: rows)
         col2hint = Array<Int>(repeating: 0, count: cols)
         
-        for r in 0 ..< rows + 1 {
+        for r in 0..<rows + 1 {
             let str = layout[r]
-            for c in 0 ..< cols + 1 {
+            for c in 0..<cols + 1 {
                 let p = Position(r, c)
                 let ch = str[str.index(str.startIndex, offsetBy: c)]
                 switch ch {
                 case "C":
                     pos2cloud.append(p)
-                case "0" ... "9":
+                case "0"..."9":
                     let n = Int(String(ch))!
                     if r == rows {
                         col2hint[c] = n
@@ -55,8 +55,8 @@ class CloudsGame: CellsGame<CloudsGameMove, CloudsGameState> {
     
     private func changeObject(move: inout CloudsGameMove, f: (inout CloudsGameState, inout CloudsGameMove) -> Bool) -> Bool {
         if canRedo {
-            states.removeSubrange((stateIndex + 1) ..< states.count)
-            moves.removeSubrange(stateIndex ..< moves.count)
+            states.removeSubrange((stateIndex + 1)..<states.count)
+            moves.removeSubrange(stateIndex..<moves.count)
         }
         // copy a state
         var state = self.state.copy()

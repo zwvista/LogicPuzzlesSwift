@@ -13,48 +13,43 @@ enum NurikabeLightbulbState {
 }
 
 enum NurikabeMarkerOptions: Int {
-    case noMarker, markerAfterLightbulb, markerBeforeLightbulb
+    case noMarker, markerAfterWall, markerBeforeWall
     
-    static let optionStrings = ["No Marker", "Marker After Lightbulb", "Marker Before Lightbulb"]
+    static let optionStrings = ["No Marker", "Marker After Wall", "Marker Before Wall"]
 }
 
-enum NurikabeObjectType {
+enum NurikabeObject {
     case empty
-    case lightbulb(state: NurikabeLightbulbState)
+    case hint(state: HintState)
     case marker
-    case wall(state: HintState)
+    case wall
     init() {
         self = .empty
     }
     func toString() -> String {
         switch self {
-        case .lightbulb:
-            return "lightbulb"
         case .marker:
             return "marker"
+        case .wall:
+            return "wall"
         default:
             return "empty"
         }
     }
-    static func fromString(str: String) -> NurikabeObjectType {
+    static func fromString(str: String) -> NurikabeObject {
         switch str {
-        case "lightbulb":
-            return .lightbulb(state: .normal)
         case "marker":
             return .marker
+        case "wall":
+            return .wall
         default:
             return .empty
         }
     }
 }
 
-struct NurikabeObject {
-    var objType = NurikabeObjectType()
-    var lightness = 0
-}
-
 struct NurikabeGameMove {
     var p = Position()
-    var objType = NurikabeObjectType()
+    var obj = NurikabeObject()
 }
 

@@ -53,8 +53,8 @@ class SlitherLinkGameScene: GameScene<SlitherLinkGameState> {
     
     override func levelUpdated(from stateFrom: SlitherLinkGameState, to stateTo: SlitherLinkGameState) {
         let markerOffset: CGFloat = 7.5
-        for row in 0 ..< stateFrom.rows {
-            for col in 0 ..< stateFrom.cols {
+        for row in 0..<stateFrom.rows {
+            for col in 0..<stateFrom.cols {
                 let p = Position(row, col)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(row)-\(col)"

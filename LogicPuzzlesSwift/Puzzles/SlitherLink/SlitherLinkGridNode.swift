@@ -40,13 +40,13 @@ class SlitherLinkGridNode : SKSpriteNode {
         let bezierPath = UIBezierPath()
         let offset:CGFloat = 0.5
         // Draw vertical lines
-        for i in 0 ... cols {
+        for i in 0...cols {
             let x = CGFloat(i)*blockSize + offset
             bezierPath.move(to: CGPoint(x: x, y: 0))
             bezierPath.addLine(to: CGPoint(x: x, y: size.height))
         }
         // Draw horizontal lines
-        for i in 0 ... rows {
+        for i in 0...rows {
             let y = CGFloat(i) * blockSize + offset
             bezierPath.move(to: CGPoint(x: 0, y: y))
             bezierPath.addLine(to: CGPoint(x: size.width, y: y))
@@ -79,8 +79,8 @@ class SlitherLinkGridNode : SKSpriteNode {
         let row = Int((-point.y + offset) / blockSize)
         let col = Int((point.x + offset) / blockSize)
         let p = Position(row, col)
-        return -offset ... offset ~= -point.y - CGFloat(row) * blockSize ? (true, p, .horizontal) :
-            -offset ... offset ~= point.x - CGFloat(col) * blockSize ? (true, p, .vertical) :
+        return -offset...offset ~= -point.y - CGFloat(row) * blockSize ? (true, p, .horizontal) :
+            -offset...offset ~= point.x - CGFloat(col) * blockSize ? (true, p, .vertical) :
             (false, p, .horizontal)
     }
 }

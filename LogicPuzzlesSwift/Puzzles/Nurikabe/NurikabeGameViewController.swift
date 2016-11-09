@@ -57,7 +57,7 @@ class NurikabeGameViewController: UIViewController, GameDelegate, NurikabeMixin 
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = NurikabeGameMove(p: p, objType: .empty)
+        var move = NurikabeGameMove(p: p, obj: .empty)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     
@@ -71,11 +71,11 @@ class NurikabeGameViewController: UIViewController, GameDelegate, NurikabeMixin 
         
         // restore game state
         for case let rec as NurikabeMoveProgress in gameDocument.moveProgress {
-            var move = NurikabeGameMove(p: Position(rec.row, rec.col), objType: NurikabeObjectType.fromString(str: rec.objTypeAsString!))
-                _ = game.setObject(move: &move)
+            var move = NurikabeGameMove(p: Position(rec.row, rec.col), obj: NurikabeObject.fromString(str: rec.objAsString!))
+            _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex
-        guard case 0 ..< game.moveCount = moveIndex else {return}
+        guard case 0..<game.moveCount = moveIndex else {return}
         while moveIndex != game.moveIndex {
             game.undo()
         }

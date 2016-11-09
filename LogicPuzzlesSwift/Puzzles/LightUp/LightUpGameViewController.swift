@@ -72,10 +72,10 @@ class LightUpGameViewController: UIViewController, GameDelegate, LightUpMixin {
         // restore game state
         for case let rec as LightUpMoveProgress in gameDocument.moveProgress {
             var move = LightUpGameMove(p: Position(rec.row, rec.col), objType: LightUpObjectType.fromString(str: rec.objTypeAsString!))
-                _ = game.setObject(move: &move)
+            _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex
-        guard case 0 ..< game.moveCount = moveIndex else {return}
+        guard case 0..<game.moveCount = moveIndex else {return}
         while moveIndex != game.moveIndex {
             game.undo()
         }

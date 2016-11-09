@@ -40,9 +40,9 @@ class HitoriGame: CellsGame<HitoriGameMove, HitoriGameState> {
         size = Position(layout.count, layout[0].characters.count)
         objArray = Array<Character>(repeating: " ", count: rows * cols)
         
-        for r in 0 ..< rows {
+        for r in 0..<rows {
             let str = layout[r]
-            for c in 0 ..< cols {
+            for c in 0..<cols {
                 let ch = str[str.index(str.startIndex, offsetBy: c)]
                 self[r, c] = ch
             }
@@ -55,8 +55,8 @@ class HitoriGame: CellsGame<HitoriGameMove, HitoriGameState> {
     
     private func changeObject(move: inout HitoriGameMove, f: (inout HitoriGameState, inout HitoriGameMove) -> Bool) -> Bool {
         if canRedo {
-            states.removeSubrange((stateIndex + 1) ..< states.count)
-            moves.removeSubrange(stateIndex ..< moves.count)
+            states.removeSubrange((stateIndex + 1)..<states.count)
+            moves.removeSubrange(stateIndex..<moves.count)
         }
         // copy a state
         var state = self.state.copy()

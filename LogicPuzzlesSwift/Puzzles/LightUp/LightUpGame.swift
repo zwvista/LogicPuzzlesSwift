@@ -29,14 +29,14 @@ class LightUpGame: CellsGame<LightUpGameMove, LightUpGameState> {
             state[row, col].objType = .wall(state: lightbulbs <= 0 ? .complete : .normal)
         }
         
-        for r in 0 ..< rows {
+        for r in 0..<rows {
             let str = layout[r]
-            for c in 0 ..< cols {
+            for c in 0..<cols {
                 let ch = str[str.index(str.startIndex, offsetBy: c)]
                 switch ch {
                 case "W":
                     addWall(row: r, col: c, lightbulbs: -1)
-                case "0" ... "9":
+                case "0"..."9":
                     addWall(row: r, col: c, lightbulbs: Int(String(ch))!)
                 default:
                     break
@@ -50,8 +50,8 @@ class LightUpGame: CellsGame<LightUpGameMove, LightUpGameState> {
     
     private func changeObject(move: inout LightUpGameMove, f: (inout LightUpGameState, inout LightUpGameMove) -> Bool) -> Bool {
         if canRedo {
-            states.removeSubrange((stateIndex + 1) ..< states.count)
-            moves.removeSubrange(stateIndex ..< moves.count)
+            states.removeSubrange((stateIndex + 1)..<states.count)
+            moves.removeSubrange(stateIndex..<moves.count)
         }
         // copy a state
         var state = self.state.copy()

@@ -30,13 +30,13 @@ class BridgesGame: CellsGame<BridgesGameMove, BridgesGameState> {
         size = Position(layout.count, layout[0].characters.count)
         let state = BridgesGameState(game: self)
         
-        for r in 0 ..< rows {
+        for r in 0..<rows {
             let str = layout[r]
-            for c in 0 ..< cols {
+            for c in 0..<cols {
                 let p = Position(r, c)
                 let ch = str[str.index(str.startIndex, offsetBy: c)]
                 switch ch {
-                case "0" ... "9":
+                case "0"..."9":
                     let info = IslandInfo()
                     info.bridges = Int(String(ch))!
                     islandsInfo[p] = info
@@ -47,7 +47,7 @@ class BridgesGame: CellsGame<BridgesGameMove, BridgesGameState> {
             }
         }
         for (p, info) in islandsInfo {
-            for i in 0 ..< 4 {
+            for i in 0..<4 {
                 let os = BridgesGame.offset[i]
                 var p2 = p + os
                 while(isValid(p: p2)) {
@@ -69,8 +69,8 @@ class BridgesGame: CellsGame<BridgesGameMove, BridgesGameState> {
         guard let _ = o.neighbors.filter({$0 == pTo}).first else {return false}
         
         if canRedo {
-            states.removeSubrange((stateIndex + 1) ..< states.count)
-            moves.removeSubrange(stateIndex ..< moves.count)
+            states.removeSubrange((stateIndex + 1)..<states.count)
+            moves.removeSubrange(stateIndex..<moves.count)
         }
         // copy a state
         let state = self.state.copy()

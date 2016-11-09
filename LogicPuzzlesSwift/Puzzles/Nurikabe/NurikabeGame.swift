@@ -16,42 +16,37 @@ class NurikabeGame: CellsGame<NurikabeGameMove, NurikabeGameState> {
         Position(0, -1),
     ];
 
-    var wall2Lightbulbs = [Position: Int]()
+    var pos2hint = [Position: Int]()
     
     init(layout: [String], delegate: NurikabeGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].characters.count)
-        var state = NurikabeGameState(game: self)
         
-        func addWall(row: Int, col: Int, lightbulbs: Int) {
-            wall2Lightbulbs[Position(row, col)] = lightbulbs
-            state[row, col].objType = .wall(state: lightbulbs <= 0 ? .complete : .normal)
-        }
-        
-        for r in 0 ..< rows {
+        for r in 0..<rows {
             let str = layout[r]
-            for c in 0 ..< cols {
+            for c in 0..<cols {
+                let p = Position(r, c)
                 let ch = str[str.index(str.startIndex, offsetBy: c)]
                 switch ch {
-                case "W":
-                    addWall(row: r, col: c, lightbulbs: -1)
-                case "0" ... "9":
-                    addWall(row: r, col: c, lightbulbs: Int(String(ch))!)
+                case "0"..."9":
+                    pos2hint[p] = Int(String(ch))!
+                    break
                 default:
                     break
                 }
             }
         }
         
+        let state = NurikabeGameState(game: self)
         states.append(state)
         levelInitilized(state: state)
     }
     
     private func changeObject(move: inout NurikabeGameMove, f: (inout NurikabeGameState, inout NurikabeGameMove) -> Bool) -> Bool {
         if canRedo {
-            states.removeSubrange((stateIndex + 1) ..< states.count)
-            moves.removeSubrange(stateIndex ..< moves.count)
+            states.removeSubrange((stateIndex + 1)..<states.count)
+            moves.removeSubrange(stateIndex..<moves.count)
         }
         // copy a state
         var state = self.state.copy()

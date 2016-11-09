@@ -16,7 +16,7 @@ class NurikabeGameScene: GameScene<NurikabeGameState> {
         return CGSize(width: sz, height: sz)
     }
     
-    func addWallNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
+    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         let numberNode = SKLabelNode(text: String(n))
         numberNode.fontColor = s == .normal ? SKColor.black : s == .complete ? SKColor.green : SKColor.red
         numberNode.fontName = numberNode.fontName! + "-Bold"
@@ -43,57 +43,40 @@ class NurikabeGameScene: GameScene<NurikabeGameState> {
         gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
         
         // addWalls
-        for row in 0 ..< game.rows {
-            for col in 0 ..< game.cols {
+        for row in 0..<game.rows {
+            for col in 0..<game.cols {
                 let p = Position(row, col)
-                guard case let .wall(s) = state[p].objType else {continue}
-                let n = state.game.wall2Lightbulbs[p]!
+                guard case let .hint(s) = state[p] else {continue}
+                let n = state.game.pos2hint[p]!
                 let point = gridNode.gridPosition(p: p)
-                let wallNode = SKSpriteNode(color: SKColor.white, size: coloredRectSize())
-                wallNode.position = point
-                wallNode.name = "wall"
-                gridNode.addChild(wallNode)
-                guard n >= 0 else {continue}
                 let nodeNameSuffix = "-\(row)-\(col)"
-                let wallNumberNodeName = "wallNumber" + nodeNameSuffix
-                addWallNumber(n: n, s: s, point: point, nodeName: wallNumberNodeName)
+                let hintNodeName = "hint" + nodeNameSuffix
+                addHint(n: n, s: s, point: point, nodeName: hintNodeName)
             }
         }
     }
     
     override func levelUpdated(from stateFrom: NurikabeGameState, to stateTo: NurikabeGameState) {
-        for row in 0 ..< stateFrom.rows {
-            for col in 0 ..< stateFrom.cols {
+        for row in 0..<stateFrom.rows {
+            for col in 0..<stateFrom.cols {
                 let point = gridNode.gridPosition(p: Position(row, col))
                 let nodeNameSuffix = "-\(row)-\(col)"
-                let lightCellNodeName = "lightCell" + nodeNameSuffix
-                let lightbulbNodeName = "lightbulb" + nodeNameSuffix
+                let wallNodeName = "wall" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
-                let wallNumberNodeName = "wallNumber" + nodeNameSuffix
+                let hintNodeName = "hint" + nodeNameSuffix
                 func removeNode(withName: String) {
                     gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
                         node.removeFromParent()
                     }
                 }
-                func removeWallNumber() { removeNode(withName: wallNumberNodeName) }
-                func addLightCell() {
-                    let lightCellNode = SKSpriteNode(color: SKColor.yellow, size: coloredRectSize())
-                    lightCellNode.position = point
-                    lightCellNode.name = lightCellNodeName
-                    gridNode.addChild(lightCellNode)
+                func removeHint() { removeNode(withName: hintNodeName) }
+                func addWall() {
+                    let wallNode = SKSpriteNode(color: SKColor.white, size: coloredRectSize())
+                    wallNode.position = point
+                    wallNode.name = wallNodeName
+                    gridNode.addChild(wallNode)
                 }
-                func removeLightCell() { removeNode(withName: lightCellNodeName) }
-                func addLightbulb(s: NurikabeLightbulbState) {
-                    let lightbulbNode = SKSpriteNode(imageNamed: "lightbulb")
-                    let scalingFactor = min(gridNode.blockSize / lightbulbNode.frame.width, gridNode.blockSize / lightbulbNode.frame.height)
-                    lightbulbNode.setScale(scalingFactor)
-                    lightbulbNode.position = point
-                    lightbulbNode.name = lightbulbNodeName
-                    lightbulbNode.color = SKColor.red
-                    lightbulbNode.colorBlendFactor = s == .normal ? 0.0 : 0.2
-                    gridNode.addChild(lightbulbNode)
-                }
-                func removeLightbulb() { removeNode(withName: lightbulbNodeName) }
+                func removeWall() { removeNode(withName: wallNodeName) }
                 func addMarker() {
                     let markerNode = SKShapeNode(circleOfRadius: 5)
                     markerNode.position = point
@@ -104,32 +87,26 @@ class NurikabeGameScene: GameScene<NurikabeGameState> {
                     gridNode.addChild(markerNode)
                 }
                 func removeMarker() { removeNode(withName: markerNodeName) }
-                let (x, y) = (stateFrom[row, col].lightness, stateTo[row, col].lightness)
-                if x > 0 && y == 0 {
-                    removeLightCell()
-                } else if x == 0 && y > 0 {
-                    addLightCell()
-                }
-                let (ot1, ot2) = (stateFrom[row, col].objType, stateTo[row, col].objType)
+                let (ot1, ot2) = (stateFrom[row, col], stateTo[row, col])
                 guard String(describing: ot1) != String(describing: ot2) else {continue}
                 switch ot1 {
-                case .lightbulb:
-                    removeLightbulb()
+                case .wall:
+                    removeWall()
                 case .marker:
                     removeMarker()
-                case .wall:
-                    removeWallNumber()
+                case .hint:
+                    removeHint()
                 default:
                     break
                 }
                 switch ot2 {
-                case let .lightbulb(s):
-                    addLightbulb(s: s)
+                case .wall:
+                    addWall()
                 case .marker:
                     addMarker()
-                case let .wall(s):
-                    let n = stateTo.game.wall2Lightbulbs[Position(row, col)]!
-                    addWallNumber(n: n, s: s, point: point, nodeName: wallNumberNodeName)
+                case let .hint(s):
+                    let n = stateTo.game.pos2hint[Position(row, col)]!
+                    addHint(n: n, s: s, point: point, nodeName: hintNodeName)
                 default:
                     break
                 }

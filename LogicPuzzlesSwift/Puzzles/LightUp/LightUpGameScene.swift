@@ -43,8 +43,8 @@ class LightUpGameScene: GameScene<LightUpGameState> {
         gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
         
         // addWalls
-        for row in 0 ..< game.rows {
-            for col in 0 ..< game.cols {
+        for row in 0..<game.rows {
+            for col in 0..<game.cols {
                 let p = Position(row, col)
                 guard case let .wall(s) = state[p].objType else {continue}
                 let n = state.game.wall2Lightbulbs[p]!
@@ -62,8 +62,8 @@ class LightUpGameScene: GameScene<LightUpGameState> {
     }
     
     override func levelUpdated(from stateFrom: LightUpGameState, to stateTo: LightUpGameState) {
-        for row in 0 ..< stateFrom.rows {
-            for col in 0 ..< stateFrom.cols {
+        for row in 0..<stateFrom.rows {
+            for col in 0..<stateFrom.cols {
                 let point = gridNode.gridPosition(p: Position(row, col))
                 let nodeNameSuffix = "-\(row)-\(col)"
                 let lightCellNodeName = "lightCell" + nodeNameSuffix
