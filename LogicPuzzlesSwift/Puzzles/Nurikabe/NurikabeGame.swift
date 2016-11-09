@@ -31,7 +31,6 @@ class NurikabeGame: CellsGame<NurikabeGameMove, NurikabeGameState> {
                 switch ch {
                 case "0"..."9":
                     pos2hint[p] = Int(String(ch))!
-                    break
                 default:
                     break
                 }

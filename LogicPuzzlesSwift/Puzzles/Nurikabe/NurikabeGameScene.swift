@@ -18,7 +18,7 @@ class NurikabeGameScene: GameScene<NurikabeGameState> {
     
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         let numberNode = SKLabelNode(text: String(n))
-        numberNode.fontColor = s == .normal ? SKColor.black : s == .complete ? SKColor.green : SKColor.red
+        numberNode.fontColor = s == .normal ? SKColor.white : s == .complete ? SKColor.green : SKColor.red
         numberNode.fontName = numberNode.fontName! + "-Bold"
         // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
         let scalingFactor = min(gridNode.blockSize / numberNode.frame.width, gridNode.blockSize / numberNode.frame.height)
@@ -34,7 +34,7 @@ class NurikabeGameScene: GameScene<NurikabeGameState> {
         removeAllChildren()
         let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
         
-        // addGrid
+        // add Grid
         let offset:CGFloat = 0.5
         scaleMode = .resizeFill
         gridNode = NurikabeGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols)
@@ -42,17 +42,13 @@ class NurikabeGameScene: GameScene<NurikabeGameState> {
         addChild(gridNode)
         gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
         
-        // addWalls
-        for row in 0..<game.rows {
-            for col in 0..<game.cols {
-                let p = Position(row, col)
-                guard case let .hint(s) = state[p] else {continue}
-                let n = state.game.pos2hint[p]!
-                let point = gridNode.gridPosition(p: p)
-                let nodeNameSuffix = "-\(row)-\(col)"
-                let hintNodeName = "hint" + nodeNameSuffix
-                addHint(n: n, s: s, point: point, nodeName: hintNodeName)
-            }
+        // add Hints
+        for (p, n) in game.pos2hint {
+            guard case let .hint(state: s) = state[p] else {continue}
+            let point = gridNode.gridPosition(p: p)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let hintNodeName = "hint" + nodeNameSuffix
+            addHint(n: n, s: s, point: point, nodeName: hintNodeName)
         }
     }
     

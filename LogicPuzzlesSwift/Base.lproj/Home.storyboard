@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dL8-yL-2cc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dL8-yL-2cc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -38,8 +38,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logic Puzzles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGx-Ts-pBn" userLabel="Logic Games">
-                                <rect key="frame" x="82" y="146.5" width="212" height="42"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logic Puzzles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGx-Ts-pBn">
+                                <rect key="frame" x="82" y="106.5" width="212" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="7Yf-C1-JWa"/>
                                 </constraints>
@@ -48,7 +48,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dmc-8f-29m">
-                                <rect key="frame" x="112.5" y="238.5" width="150" height="30"/>
+                                <rect key="frame" x="112.5" y="198.5" width="150" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="rvI-OL-hMC"/>
@@ -60,7 +60,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="LightUp" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCN-cq-Dqy">
-                                <rect key="frame" x="112.5" y="278.5" width="150" height="30"/>
+                                <rect key="frame" x="112" y="358.5" width="150" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="VNK-2q-6MD"/>
@@ -71,20 +71,8 @@
                                     <action selector="startGame:" destination="AeD-bF-k0G" eventType="touchUpInside" id="cb6-lH-nu5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Bridges" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7T-vh-GEq">
-                                <rect key="frame" x="112.5" y="318.5" width="150" height="30"/>
-                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="3XX-F1-pfN"/>
-                                    <constraint firstAttribute="height" constant="30" id="y24-ej-O8t"/>
-                                </constraints>
-                                <state key="normal" title="Bridges"/>
-                                <connections>
-                                    <action selector="startGame:" destination="AeD-bF-k0G" eventType="touchUpInside" id="JgJ-2v-fLa"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="SlitherLink" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCa-ba-clV">
-                                <rect key="frame" x="112.5" y="358.5" width="150" height="30"/>
+                                <rect key="frame" x="112" y="438.5" width="150" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="eTC-mM-zAY"/>
@@ -96,7 +84,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PxK-QC-2Io">
-                                <rect key="frame" x="112.5" y="478.5" width="150" height="30"/>
+                                <rect key="frame" x="112" y="478.5" width="150" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="LuM-1X-tbp"/>
@@ -108,7 +96,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Clouds" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W8c-5P-91m">
-                                <rect key="frame" x="112.5" y="398.5" width="150" height="30"/>
+                                <rect key="frame" x="112" y="278.5" width="150" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="JDP-gd-aRw"/>
@@ -120,7 +108,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Hitori" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s27-Bh-jGF">
-                                <rect key="frame" x="112.5" y="438.5" width="150" height="30"/>
+                                <rect key="frame" x="112" y="318.5" width="150" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="bjg-5S-luG"/>
@@ -131,25 +119,51 @@
                                     <action selector="startGame:" destination="AeD-bF-k0G" eventType="touchUpInside" id="7eU-cN-2m9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Nurikabe" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAq-Oe-mfE">
+                                <rect key="frame" x="113" y="398.5" width="150" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="MBh-gY-HXJ"/>
+                                    <constraint firstAttribute="height" constant="30" id="kBS-Zg-3Lg"/>
+                                </constraints>
+                                <state key="normal" title="Nurikabe"/>
+                                <connections>
+                                    <action selector="startGame:" destination="AeD-bF-k0G" eventType="touchUpInside" id="G0X-8m-ANf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Bridges" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7T-vh-GEq">
+                                <rect key="frame" x="112" y="238.5" width="150" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="3XX-F1-pfN"/>
+                                    <constraint firstAttribute="height" constant="30" id="y24-ej-O8t"/>
+                                </constraints>
+                                <state key="normal" title="Bridges"/>
+                                <connections>
+                                    <action selector="startGame:" destination="AeD-bF-k0G" eventType="touchUpInside" id="JgJ-2v-fLa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="tCN-cq-Dqy" firstAttribute="top" secondItem="s27-Bh-jGF" secondAttribute="bottom" constant="10" id="0a3-Jg-nWM"/>
+                            <constraint firstItem="PxK-QC-2Io" firstAttribute="top" secondItem="KCa-ba-clV" secondAttribute="bottom" constant="10" id="2OD-6z-Lmk"/>
                             <constraint firstItem="tCN-cq-Dqy" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="2nh-Ou-IjH"/>
+                            <constraint firstItem="s27-Bh-jGF" firstAttribute="centerY" secondItem="Y0Z-hx-Q2p" secondAttribute="centerY" id="3cW-Td-l6S"/>
                             <constraint firstItem="yGx-Ts-pBn" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="40a-sz-VC7"/>
                             <constraint firstItem="PxK-QC-2Io" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="4Dj-lj-m8Y"/>
                             <constraint firstItem="p7T-vh-GEq" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="4FO-nR-m4E"/>
-                            <constraint firstItem="KCa-ba-clV" firstAttribute="top" secondItem="p7T-vh-GEq" secondAttribute="bottom" constant="10" id="8sV-0m-cfc"/>
-                            <constraint firstItem="tCN-cq-Dqy" firstAttribute="top" secondItem="Dmc-8f-29m" secondAttribute="bottom" constant="10" id="8vu-pj-HKb"/>
+                            <constraint firstItem="KCa-ba-clV" firstAttribute="top" secondItem="zAq-Oe-mfE" secondAttribute="bottom" constant="10" id="5Dt-lU-OIT"/>
+                            <constraint firstItem="zAq-Oe-mfE" firstAttribute="top" secondItem="tCN-cq-Dqy" secondAttribute="bottom" constant="10" id="6gC-Rs-a3c"/>
+                            <constraint firstItem="W8c-5P-91m" firstAttribute="top" secondItem="p7T-vh-GEq" secondAttribute="bottom" constant="10" id="6sS-5W-tOd"/>
+                            <constraint firstItem="zAq-Oe-mfE" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="CsA-Oq-h94"/>
                             <constraint firstItem="Dmc-8f-29m" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="FO6-f1-hga"/>
+                            <constraint firstItem="p7T-vh-GEq" firstAttribute="top" secondItem="Dmc-8f-29m" secondAttribute="bottom" constant="10" id="LwM-zn-Gdi"/>
+                            <constraint firstItem="s27-Bh-jGF" firstAttribute="top" secondItem="W8c-5P-91m" secondAttribute="bottom" constant="10" id="NJa-Hw-fqr"/>
                             <constraint firstItem="W8c-5P-91m" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="PHR-pv-KW4"/>
                             <constraint firstItem="Dmc-8f-29m" firstAttribute="top" secondItem="yGx-Ts-pBn" secondAttribute="bottom" constant="50" id="aO3-0K-mnH"/>
                             <constraint firstItem="KCa-ba-clV" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="byl-KW-Pa9"/>
-                            <constraint firstItem="W8c-5P-91m" firstAttribute="top" secondItem="KCa-ba-clV" secondAttribute="bottom" constant="10" id="c6e-6B-CV3"/>
-                            <constraint firstItem="PxK-QC-2Io" firstAttribute="top" secondItem="s27-Bh-jGF" secondAttribute="bottom" constant="10" id="hlf-ut-8dY"/>
                             <constraint firstItem="s27-Bh-jGF" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="t9l-iK-g8K"/>
-                            <constraint firstItem="s27-Bh-jGF" firstAttribute="top" secondItem="W8c-5P-91m" secondAttribute="bottom" constant="10" id="tQT-SX-vxv"/>
-                            <constraint firstItem="p7T-vh-GEq" firstAttribute="centerY" secondItem="Y0Z-hx-Q2p" secondAttribute="centerY" id="yCf-zw-PlJ"/>
-                            <constraint firstItem="p7T-vh-GEq" firstAttribute="top" secondItem="tCN-cq-Dqy" secondAttribute="bottom" constant="10" id="zUJ-pE-AkW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="caV-EH-1Wo"/>
@@ -189,7 +203,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i69-gX-NkB" id="RP3-hS-OXI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfY-9V-8Ab">
@@ -217,7 +231,7 @@
                                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lbr-eC-beW" id="fcl-tX-m3y">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Play Sound" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="my6-qf-7vu">

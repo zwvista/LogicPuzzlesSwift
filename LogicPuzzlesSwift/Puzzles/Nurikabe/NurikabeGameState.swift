@@ -25,7 +25,11 @@ class NurikabeGameState: CellsGameState {
     
     required init(game: CellsGameBase) {
         super.init(game: game)
+        let game = game as! NurikabeGame
         objArray = Array<NurikabeObject>(repeating: NurikabeObject(), count: rows * cols)
+        for p in game.pos2hint.keys {
+            self[p] = .hint(state: .normal)
+        }
     }
     
     subscript(p: Position) -> NurikabeObject {

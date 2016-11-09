@@ -12,10 +12,9 @@ import SharkORM
 class NurikabeGameProgress: SRKObject {
     dynamic var levelID: String?
     dynamic var markerOption = 0
-    dynamic var normalLightbulbsOnly = false
     
     override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
-        return ["levelID": "Level 1", "markerOption": 0, "normalLightbulbsOnly": false]
+        return ["levelID": "Level 1", "markerOption": 0]
     }
 }
 
