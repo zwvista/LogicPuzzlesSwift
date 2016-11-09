@@ -15,6 +15,12 @@ class NurikabeGame: CellsGame<NurikabeGameMove, NurikabeGameState> {
         Position(1, 0),
         Position(0, -1),
     ];
+    static let offset2 = [
+        Position(0, 0),
+        Position(0, 1),
+        Position(1, 0),
+        Position(1, 1),
+    ];
 
     var pos2hint = [Position: Int]()
     

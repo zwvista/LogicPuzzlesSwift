@@ -81,6 +81,65 @@ class NurikabeGameState: CellsGameState {
     
     private func updateIsSolved() {
         isSolved = true
-        isSolved = false
+        rule2x2:
+        for r in 0..<rows - 1 {
+            for c in 0..<cols - 1 {
+                let p = Position(r, c)
+                var is2x2 = true
+                for os in NurikabeGame.offset2 {
+                    guard case .wall = self[p + os] else {is2x2 = false; break}
+                }
+                if is2x2 {isSolved = false; break rule2x2}
+            }
+        }
+        let g = Graph()
+        var pos2node = [Position: Node]()
+        var rngWalls = [Position]()
+        var rngEmpty = [Position]()
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                pos2node[p] = g.addNode(label: p.description)
+                switch self[p] {
+                case .wall:
+                    rngWalls.append(p)
+                default:
+                    rngEmpty.append(p)
+                }
+            }
+        }
+        for p in rngWalls {
+            for os in NurikabeGame.offset {
+                let p2 = p + os
+                if rngWalls.contains(p2) {
+                    g.addEdge(source: pos2node[p]!, neighbor: pos2node[p2]!)
+                }
+            }
+        }
+        for p in rngEmpty {
+            for os in NurikabeGame.offset {
+                let p2 = p + os
+                if rngEmpty.contains(p2) {
+                    g.addEdge(source: pos2node[p]!, neighbor: pos2node[p2]!)
+                }
+            }
+        }
+        if rngWalls.isEmpty {
+            isSolved = false
+        } else {
+            let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
+            if rngWalls.count != nodesExplored.count {isSolved = false}
+        }
+        for (p, n1) in game.pos2hint {
+            let nodesExplored = breadthFirstSearch(g, source: pos2node[p]!)
+            let n2 = nodesExplored.count
+            var m = 0
+            for p2 in game.pos2hint.keys {
+                if nodesExplored.contains(p2.description) {m += 1}
+            }
+            let s: HintState = m > 1 ? .normal : n1 == n2 ? .complete : .error
+            self[p] = .hint(state: s)
+            if s != .complete {isSolved = false}
+        }
     }
 }
