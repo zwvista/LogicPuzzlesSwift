@@ -115,6 +115,19 @@
 		8C7EF06C1DD297D100D1DE94 /* NurikabeOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF0601DD297D100D1DE94 /* NurikabeOptionsViewController.swift */; };
 		8C7EF06D1DD297D100D1DE94 /* NurikabeTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF0611DD297D100D1DE94 /* NurikabeTables.swift */; };
 		8C7EF0711DD297F000D1DE94 /* Nurikabe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C7EF06F1DD297F000D1DE94 /* Nurikabe.storyboard */; };
+		8C7EF07F1DD4C23C00D1DE94 /* AbcDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF0731DD4C23C00D1DE94 /* AbcDocument.swift */; };
+		8C7EF0801DD4C23C00D1DE94 /* AbcGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF0741DD4C23C00D1DE94 /* AbcGame.swift */; };
+		8C7EF0811DD4C23C00D1DE94 /* AbcGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF0751DD4C23C00D1DE94 /* AbcGameScene.swift */; };
+		8C7EF0821DD4C23C00D1DE94 /* AbcGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF0761DD4C23C00D1DE94 /* AbcGameState.swift */; };
+		8C7EF0831DD4C23C00D1DE94 /* AbcGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF0771DD4C23C00D1DE94 /* AbcGameViewController.swift */; };
+		8C7EF0841DD4C23C00D1DE94 /* AbcGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF0781DD4C23C00D1DE94 /* AbcGridNode.swift */; };
+		8C7EF0851DD4C23C00D1DE94 /* AbcLevels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C7EF0791DD4C23C00D1DE94 /* AbcLevels.xml */; };
+		8C7EF0861DD4C23C00D1DE94 /* AbcMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF07A1DD4C23C00D1DE94 /* AbcMainViewController.swift */; };
+		8C7EF0871DD4C23C00D1DE94 /* AbcMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF07B1DD4C23C00D1DE94 /* AbcMixin.swift */; };
+		8C7EF0881DD4C23C00D1DE94 /* AbcObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF07C1DD4C23C00D1DE94 /* AbcObject.swift */; };
+		8C7EF0891DD4C23C00D1DE94 /* AbcOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF07D1DD4C23C00D1DE94 /* AbcOptionsViewController.swift */; };
+		8C7EF08A1DD4C23C00D1DE94 /* AbcTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7EF07E1DD4C23C00D1DE94 /* AbcTables.swift */; };
+		8C7EF08D1DD4C25800D1DE94 /* Abc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C7EF08B1DD4C25800D1DE94 /* Abc.storyboard */; };
 		8C886C3C1D9E8AF1004A42BF /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C291D9E8AF0004A42BF /* AbstractActionSheetPicker.m */; };
 		8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C2B1D9E8AF0004A42BF /* ActionSheetCustomPicker.m */; };
 		8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C2E1D9E8AF0004A42BF /* ActionSheetDatePicker.m */; };
@@ -292,6 +305,19 @@
 		8C7EF0601DD297D100D1DE94 /* NurikabeOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeOptionsViewController.swift; sourceTree = "<group>"; };
 		8C7EF0611DD297D100D1DE94 /* NurikabeTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeTables.swift; sourceTree = "<group>"; };
 		8C7EF0701DD297F000D1DE94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/Nurikabe.storyboard; sourceTree = SOURCE_ROOT; };
+		8C7EF0731DD4C23C00D1DE94 /* AbcDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcDocument.swift; sourceTree = "<group>"; };
+		8C7EF0741DD4C23C00D1DE94 /* AbcGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcGame.swift; sourceTree = "<group>"; };
+		8C7EF0751DD4C23C00D1DE94 /* AbcGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcGameScene.swift; sourceTree = "<group>"; };
+		8C7EF0761DD4C23C00D1DE94 /* AbcGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcGameState.swift; sourceTree = "<group>"; };
+		8C7EF0771DD4C23C00D1DE94 /* AbcGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcGameViewController.swift; sourceTree = "<group>"; };
+		8C7EF0781DD4C23C00D1DE94 /* AbcGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcGridNode.swift; sourceTree = "<group>"; };
+		8C7EF0791DD4C23C00D1DE94 /* AbcLevels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AbcLevels.xml; sourceTree = "<group>"; };
+		8C7EF07A1DD4C23C00D1DE94 /* AbcMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcMainViewController.swift; sourceTree = "<group>"; };
+		8C7EF07B1DD4C23C00D1DE94 /* AbcMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcMixin.swift; sourceTree = "<group>"; };
+		8C7EF07C1DD4C23C00D1DE94 /* AbcObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcObject.swift; sourceTree = "<group>"; };
+		8C7EF07D1DD4C23C00D1DE94 /* AbcOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcOptionsViewController.swift; sourceTree = "<group>"; };
+		8C7EF07E1DD4C23C00D1DE94 /* AbcTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcTables.swift; sourceTree = "<group>"; };
+		8C7EF08C1DD4C25800D1DE94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/Abc.storyboard; sourceTree = SOURCE_ROOT; };
 		8C886C281D9E8AF0004A42BF /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
 		8C886C291D9E8AF0004A42BF /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
 		8C886C2A1D9E8AF0004A42BF /* ActionSheetCustomPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPicker.h; sourceTree = "<group>"; };
@@ -436,6 +462,7 @@
 		8C6D37401DC42F0A0052202C /* Puzzles */ = {
 			isa = PBXGroup;
 			children = (
+				8C7EF0721DD4C23C00D1DE94 /* Abc */,
 				8C6D37411DC42F0A0052202C /* Bridges */,
 				8C6D374E1DC42F0A0052202C /* Clouds */,
 				8C6D375B1DC42F0A0052202C /* Hitori */,
@@ -585,6 +612,26 @@
 			name = Nurikabe;
 			path = LogicPuzzlesSwift/Puzzles/Nurikabe;
 			sourceTree = SOURCE_ROOT;
+		};
+		8C7EF0721DD4C23C00D1DE94 /* Abc */ = {
+			isa = PBXGroup;
+			children = (
+				8C7EF08B1DD4C25800D1DE94 /* Abc.storyboard */,
+				8C7EF0731DD4C23C00D1DE94 /* AbcDocument.swift */,
+				8C7EF0741DD4C23C00D1DE94 /* AbcGame.swift */,
+				8C7EF0751DD4C23C00D1DE94 /* AbcGameScene.swift */,
+				8C7EF0761DD4C23C00D1DE94 /* AbcGameState.swift */,
+				8C7EF0771DD4C23C00D1DE94 /* AbcGameViewController.swift */,
+				8C7EF0781DD4C23C00D1DE94 /* AbcGridNode.swift */,
+				8C7EF0791DD4C23C00D1DE94 /* AbcLevels.xml */,
+				8C7EF07A1DD4C23C00D1DE94 /* AbcMainViewController.swift */,
+				8C7EF07B1DD4C23C00D1DE94 /* AbcMixin.swift */,
+				8C7EF07C1DD4C23C00D1DE94 /* AbcObject.swift */,
+				8C7EF07D1DD4C23C00D1DE94 /* AbcOptionsViewController.swift */,
+				8C7EF07E1DD4C23C00D1DE94 /* AbcTables.swift */,
+			);
+			path = Abc;
+			sourceTree = "<group>";
 		};
 		8C886C271D9E8AF0004A42BF /* Pickers */ = {
 			isa = PBXGroup;
@@ -846,7 +893,9 @@
 				8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */,
 				8C6D37881DC42F0A0052202C /* BridgesLevels.xml in Resources */,
 				8C6D373F1DC421980052202C /* Home.storyboard in Resources */,
+				8C7EF0851DD4C23C00D1DE94 /* AbcLevels.xml in Resources */,
 				8C6D37CC1DC42F6D0052202C /* SlitherLink.storyboard in Resources */,
+				8C7EF08D1DD4C25800D1DE94 /* Abc.storyboard in Resources */,
 				8C6D37941DC42F0A0052202C /* CloudsLevels.xml in Resources */,
 				8C916CC41DAA5FEB00D9E62B /* music.wav in Resources */,
 				8C6D37C61DC42F540052202C /* Hitori.storyboard in Resources */,
@@ -876,6 +925,7 @@
 			files = (
 				8C6D37FB1DC5ACDB0052202C /* Copyable.swift in Sources */,
 				8C6D373B1DC421180052202C /* HomeOptionsViewController.swift in Sources */,
+				8C7EF0881DD4C23C00D1DE94 /* AbcObject.swift in Sources */,
 				8C6D37FA1DC5ACC90052202C /* OptionsViewController.swift in Sources */,
 				8C6D37A11DC42F0A0052202C /* HitoriMainViewController.swift in Sources */,
 				8C6D37831DC42F0A0052202C /* BridgesGame.swift in Sources */,
@@ -899,15 +949,18 @@
 				8C7EF06C1DD297D100D1DE94 /* NurikabeOptionsViewController.swift in Sources */,
 				8C6ACBFD1DCAF8AC0075F32C /* GameViewController.swift in Sources */,
 				8C916CC01DAA5E9500D9E62B /* Node.swift in Sources */,
+				8C7EF08A1DD4C23C00D1DE94 /* AbcTables.swift in Sources */,
 				8C7EF0691DD297D100D1DE94 /* NurikabeMainViewController.swift in Sources */,
 				8C6D37961DC42F0A0052202C /* CloudsMixin.swift in Sources */,
 				8C1D16B51DB8DE930056D407 /* Graph.swift in Sources */,
 				8C6D37921DC42F0A0052202C /* CloudsGameViewController.swift in Sources */,
+				8C7EF0891DD4C23C00D1DE94 /* AbcOptionsViewController.swift in Sources */,
 				8C886C441D9E8AF1004A42BF /* SWActionSheet.m in Sources */,
 				8C6D379A1DC42F0A0052202C /* HitoriDocument.swift in Sources */,
 				8C6D37A81DC42F0A0052202C /* LightUpGameScene.swift in Sources */,
 				8C886C401D9E8AF1004A42BF /* ActionSheetLocalePicker.m in Sources */,
 				8C6D37851DC42F0A0052202C /* BridgesGameState.swift in Sources */,
+				8C7EF0821DD4C23C00D1DE94 /* AbcGameState.swift in Sources */,
 				8C7EF0661DD297D100D1DE94 /* NurikabeGameViewController.swift in Sources */,
 				8C6ACBFE1DCAF8BA0075F32C /* GameDocument.swift in Sources */,
 				8C6D37A31DC42F0A0052202C /* HitoriObject.swift in Sources */,
@@ -925,16 +978,21 @@
 				8C6D379E1DC42F0A0052202C /* HitoriGameViewController.swift in Sources */,
 				8C6D37FE1DC5B4EB0052202C /* GameState.swift in Sources */,
 				8C6D37B51DC42F0A0052202C /* SlitherLinkGameState.swift in Sources */,
+				8C7EF0871DD4C23C00D1DE94 /* AbcMixin.swift in Sources */,
 				8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */,
 				8C6D37A71DC42F0A0052202C /* LightUpGame.swift in Sources */,
+				8C7EF0841DD4C23C00D1DE94 /* AbcGridNode.swift in Sources */,
+				8C7EF0861DD4C23C00D1DE94 /* AbcMainViewController.swift in Sources */,
 				8C6D37391DC421180052202C /* HomeMainViewController.swift in Sources */,
 				8C6ACC001DCAF8C20075F32C /* GameScene.swift in Sources */,
 				8C6ACC1A1DD206AD0075F32C /* MainViewController.swift in Sources */,
 				8C6D37AF1DC42F0A0052202C /* LightUpObject.swift in Sources */,
+				8C7EF07F1DD4C23C00D1DE94 /* AbcDocument.swift in Sources */,
 				8C6D37AB1DC42F0A0052202C /* LightUpGridNode.swift in Sources */,
 				8C6D37BD1DC42F0A0052202C /* SlitherLinkTables.swift in Sources */,
 				8C6D37B01DC42F0A0052202C /* LightUpOptionsViewController.swift in Sources */,
 				8C6D37381DC421180052202C /* HomeDocument.swift in Sources */,
+				8C7EF0831DD4C23C00D1DE94 /* AbcGameViewController.swift in Sources */,
 				8C6D378F1DC42F0A0052202C /* CloudsGame.swift in Sources */,
 				8C886C421D9E8AF1004A42BF /* ActionSheetStringPicker.m in Sources */,
 				8C6D37B61DC42F0A0052202C /* SlitherLinkGameViewController.swift in Sources */,
@@ -961,6 +1019,7 @@
 				8C6D37B71DC42F0A0052202C /* SlitherLinkGridNode.swift in Sources */,
 				8C6D37861DC42F0A0052202C /* BridgesGameViewController.swift in Sources */,
 				8C886C3F1D9E8AF1004A42BF /* ActionSheetDistancePicker.m in Sources */,
+				8C7EF0801DD4C23C00D1DE94 /* AbcGame.swift in Sources */,
 				8C6D37951DC42F0A0052202C /* CloudsMainViewController.swift in Sources */,
 				8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */,
 				8C6D37991DC42F0A0052202C /* CloudsTables.swift in Sources */,
@@ -969,6 +1028,7 @@
 				8C6D37BC1DC42F0A0052202C /* SlitherLinkOptionsViewController.swift in Sources */,
 				8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */,
 				8C916CBC1DAA5E9500D9E62B /* Element.swift in Sources */,
+				8C7EF0811DD4C23C00D1DE94 /* AbcGameScene.swift in Sources */,
 				8C6D378B1DC42F0A0052202C /* BridgesObject.swift in Sources */,
 				8C6D37B41DC42F0A0052202C /* SlitherLinkGameScene.swift in Sources */,
 				8C6D378A1DC42F0A0052202C /* BridgesMixin.swift in Sources */,
@@ -1067,6 +1127,14 @@
 				8C7EF0701DD297F000D1DE94 /* Base */,
 			);
 			name = Nurikabe.storyboard;
+			sourceTree = "<group>";
+		};
+		8C7EF08B1DD4C25800D1DE94 /* Abc.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C7EF08C1DD4C25800D1DE94 /* Base */,
+			);
+			name = Abc.storyboard;
 			sourceTree = "<group>";
 		};
 		8C9F43E51D771915000139FC /* LaunchScreen.storyboard */ = {
