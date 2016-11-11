@@ -25,7 +25,11 @@ class BridgesGameState: CellsGameState {
 
     required init(game: CellsGameBase) {
         super.init(game: game)
+        let game = game as! BridgesGame
         objArray = Array<BridgesObject>(repeating: BridgesObject(), count: rows * cols)
+        for p in game.islandsInfo.keys {
+            self[p] = .island(state: .normal, bridges: [0, 0, 0, 0])
+        }
     }
     
     subscript(p: Position) -> BridgesObject {

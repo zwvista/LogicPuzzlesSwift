@@ -22,11 +22,9 @@ class LightUpGame: CellsGame<LightUpGameMove, LightUpGameState> {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].characters.count)
-        var state = LightUpGameState(game: self)
         
         func addWall(row: Int, col: Int, lightbulbs: Int) {
             wall2Lightbulbs[Position(row, col)] = lightbulbs
-            state[row, col].objType = .wall(state: lightbulbs <= 0 ? .complete : .normal)
         }
         
         for r in 0..<rows {
@@ -44,6 +42,7 @@ class LightUpGame: CellsGame<LightUpGameMove, LightUpGameState> {
             }
         }
         
+        let state = LightUpGameState(game: self)
         states.append(state)
         levelInitilized(state: state)
     }

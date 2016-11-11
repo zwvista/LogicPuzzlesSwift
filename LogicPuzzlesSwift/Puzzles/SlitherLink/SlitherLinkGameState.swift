@@ -27,7 +27,11 @@ class SlitherLinkGameState: CellsGameState {
     
     required init(game: CellsGameBase) {
         super.init(game: game)
+        let game = game as! SlitherLinkGame
         objArray = Array<SlitherLinkDotObject>(repeating: Array<SlitherLinkObject>(repeating: .empty, count: 4), count: rows * cols)
+        for (p, n) in game.pos2hint {
+            pos2state[p] = n == 0 ? .complete : .normal
+        }
     }
     
     subscript(p: Position) -> SlitherLinkDotObject {

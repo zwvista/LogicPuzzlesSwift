@@ -28,7 +28,6 @@ class BridgesGame: CellsGame<BridgesGameMove, BridgesGameState> {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].characters.count)
-        let state = BridgesGameState(game: self)
         
         for r in 0..<rows {
             let str = layout[r]
@@ -40,7 +39,6 @@ class BridgesGame: CellsGame<BridgesGameMove, BridgesGameState> {
                     let info = IslandInfo()
                     info.bridges = Int(String(ch))!
                     islandsInfo[p] = info
-                    state[r, c] = .island(state: .normal, bridges: [0, 0, 0, 0])
                 default:
                     break
                 }
@@ -60,6 +58,7 @@ class BridgesGame: CellsGame<BridgesGameMove, BridgesGameState> {
             }
         }
         
+        let state = BridgesGameState(game: self)
         states.append(state)
         levelInitilized(state: state)
     }

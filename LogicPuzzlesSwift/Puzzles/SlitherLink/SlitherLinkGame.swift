@@ -30,7 +30,6 @@ class SlitherLinkGame: CellsGame<SlitherLinkGameMove, SlitherLinkGameState> {
         super.init(delegate: delegate)
         
         size = Position(layout.count + 1, layout[0].characters.count + 1)
-        let state = SlitherLinkGameState(game: self)
         
         for r in 0..<rows - 1 {
             let str = layout[r]
@@ -41,13 +40,13 @@ class SlitherLinkGame: CellsGame<SlitherLinkGameMove, SlitherLinkGameState> {
                 case "0"..."9":
                     let n = Int(String(ch))!
                     pos2hint[p] = n
-                    state.pos2state[p] =  n == 0 ? .complete : .normal
                 default:
                     break
                 }
             }
         }
         
+        let state = SlitherLinkGameState(game: self)
         states.append(state)
         levelInitilized(state: state)
     }

@@ -25,7 +25,11 @@ class LightUpGameState: CellsGameState {
     
     required init(game: CellsGameBase) {
         super.init(game: game)
+        let game = game as! LightUpGame
         objArray = Array<LightUpObject>(repeating: LightUpObject(), count: rows * cols)
+        for (p, lightbulbs) in game.wall2Lightbulbs {
+            self[p].objType = .wall(state: lightbulbs <= 0 ? .complete : .normal)
+        }
     }
     
     subscript(p: Position) -> LightUpObject {
