@@ -2,275 +2,359 @@
 <levels>
   <level id="1">
     <![CDATA[
-31214\
-13432\
-24421\
-23143\
-12413\
+ CBCA \
+C    A\
+A    B\
+A    B\
+B    C\
+ BCAC \
     ]]>
   </level>
   <level id="2">
     <![CDATA[
-51541\
-15431\
-32255\
-33215\
-14553\
+ BBAC \
+B    C\
+B    C\
+C    A\
+A    B\
+ ACBB \
     ]]>
   </level>
   <level id="3">
     <![CDATA[
-34551\
-52535\
-45312\
-25125\
-51123\
+ ACBCB \
+A     B\
+A     C\
+B     A\
+A     C\
+C     A\
+ CBABA \
     ]]>
   </level>
   <level id="4">
     <![CDATA[
-11455\
-43212\
-15315\
-44231\
-35322\
+ CAABB \
+C     B\
+A     C\
+B     A\
+B     A\
+B     A\
+ BBBCA \
     ]]>
   </level>
   <level id="5">
     <![CDATA[
-33525\
-24235\
-14453\
-45511\
-13241\
+   BB  \
+       \
+B     A\
+B      \
+       \
+       \
+  A C  \
     ]]>
   </level>
   <level id="6">
     <![CDATA[
-13225\
-35234\
-31342\
-52324\
-21151\
+       \
+A      \
+      C\
+       \
+B      \
+B      \
+  AC C \
     ]]>
   </level>
   <level id="7">
     <![CDATA[
-45241\
-51143\
-41314\
-13125\
-14515\
+ ACDBA \
+C     A\
+A     C\
+C     D\
+B     C\
+D     B\
+ DDCAB \
     ]]>
   </level>
   <level id="8">
     <![CDATA[
-15224\
-51352\
-54323\
-23551\
-22215\
+   B   \
+D     C\
+B     C\
+D      \
+C     D\
+       \
+   D   \
     ]]>
   </level>
   <level id="9">
     <![CDATA[
-34425\
-51344\
-23214\
-12422\
-41253\
+ CAAAB \
+C     B\
+A     C\
+B     A\
+A     C\
+C     A\
+ ACCBA \
     ]]>
   </level>
   <level id="10">
     <![CDATA[
-31344\
-24453\
-43531\
-55511\
-13425\
+ BA C  \
+A      \
+      A\
+C     B\
+A     C\
+C     B\
+ CBCA  \
     ]]>
   </level>
   <level id="11">
     <![CDATA[
-31235\
-25515\
-35152\
-12533\
-52424\
+  BCBC \
+       \
+C      \
+C     B\
+B     A\
+B     A\
+   ACA \
     ]]>
   </level>
   <level id="12">
     <![CDATA[
-55431\
-21443\
-43524\
-35145\
-54342\
+ CBC A \
+      A\
+A      \
+      C\
+A      \
+B      \
+ BAB   \
     ]]>
   </level>
   <level id="13">
     <![CDATA[
-456254\
-641321\
-522154\
-256416\
-621625\
-134362\
+ AC C  \
+       \
+C     A\
+      B\
+C     A\
+      C\
+  ABAC \
     ]]>
   </level>
   <level id="14">
     <![CDATA[
-212656\
-566422\
-124336\
-565124\
-211662\
-653241\
+  C  B \
+      B\
+A     C\
+A     C\
+       \
+C     B\
+   BBA \
     ]]>
   </level>
   <level id="15">
     <![CDATA[
-252634\
-315166\
-264654\
-312243\
-431364\
-653415\
+ CAA B \
+A     B\
+       \
+      B\
+A     C\
+B      \
+ BCBA  \
     ]]>
   </level>
   <level id="16">
     <![CDATA[
-443641\
-164324\
-422566\
-151241\
-324565\
-413431\
+ CCABAA \
+C      A\
+B      C\
+B      C\
+A      B\
+B      C\
+A      B\
+ AACABB \
     ]]>
   </level>
   <level id="17">
     <![CDATA[
-554635\
-125214\
-463525\
-524414\
-112526\
-645352\
+ B  B   \
+A       \
+        \
+        \
+B       \
+A       \
+       C\
+  A A A \
     ]]>
   </level>
   <level id="18">
     <![CDATA[
-6727143\
-7343267\
-4765527\
-5176635\
-1516474\
-2336514\
-2251346\
+ BBACAA \
+B      C\
+B      A\
+A      B\
+B      A\
+C      B\
+A      C\
+ AABACC \
     ]]>
   </level>
   <level id="19">
     <![CDATA[
-2762561\
-4347462\
-6146367\
-6245613\
-2431654\
-3571645\
-3473276\
+ AC  C  \
+       C\
+A       \
+C       \
+B       \
+A       \
+        \
+   AB B \
     ]]>
   </level>
   <level id="20">
     <![CDATA[
-6727143\
-7343267\
-4765527\
-5176635\
-1516474\
-2336514\
-2251346\
+ CABADD \
+C      D\
+A      B\
+A      C\
+D      B\
+B      A\
+D      A\
+ DCABCA \
     ]]>
   </level>
   <level id="21">
     <![CDATA[
-5147726\
-6533767\
-4132657\
-2736245\
-6425113\
-7217237\
-3664512\
+  BD B  \
+       D\
+C      D\
+        \
+       C\
+C       \
+        \
+   CBC  \
     ]]>
   </level>
   <level id="22">
     <![CDATA[
-5134161\
-2315612\
-6762165\
-7414452\
-6147121\
-2466237\
-4525372\
+  D D D \
+        \
+       A\
+C       \
+C      A\
+        \
+       A\
+     B  \
     ]]>
   </level>
   <level id="23">
     <![CDATA[
-6431171\
-1527325\
-6151267\
-2326515\
-5141336\
-7523421\
-2712557\
+ C C BD \
+A       \
+B      C\
+       D\
+A       \
+       C\
+        \
+ D BD   \
     ]]>
   </level>
   <level id="24">
     <![CDATA[
-4553352\
-1745623\
-2113732\
-3461367\
-6132425\
-7563754\
-5356231\
+ BA  A  \
+       B\
+        \
+       C\
+       A\
+       C\
+        \
+  DC DD \
     ]]>
   </level>
   <level id="25">
     <![CDATA[
-2261631\
-7643142\
-1271321\
-2712165\
-4236252\
-2341671\
-7477533\
+ EB AB  \
+E       \
+A      D\
+A       \
+C      B\
+D      C\
+        \
+   B  A \
     ]]>
   </level>
   <level id="26">
     <![CDATA[
-1652374\
-3135755\
-5411464\
-3524617\
-5355343\
-2712416\
-6547531\
+ D  ED  \
+        \
+A      D\
+E       \
+       A\
+E      B\
+       E\
+ CEDBA  \
     ]]>
   </level>
-  <level id="73">
+  <level id="27">
     <![CDATA[
-33B7C7B715C8\
-AB643C897841\
-B8B2B91A5967\
-61397B712CC1\
-B7B316565432\
-3534714CABB9\
-B11617964C4A\
-893C2CABA318\
-6A53B258CB66\
-742AA961785C\
-B6B84A17B133\
-2CA2643A8792\
+  D CEE \
+B       \
+A      B\
+D       \
+B      D\
+        \
+E      A\
+ E B CA \
+    ]]>
+  </level>
+  <level id="28">
+    <![CDATA[
+ EBC  A \
+        \
+       E\
+E      B\
+B      C\
+       B\
+       D\
+  D  A  \
+    ]]>
+  </level>
+  <level id="29">
+    <![CDATA[
+ B D  A \
+C       \
+A      B\
+       C\
+        \
+D      B\
+       A\
+ CD B   \
+    ]]>
+  </level>
+  <level id="30">
+    <![CDATA[
+ C  D A \
+        \
+        \
+D      A\
+D       \
+D      B\
+A      C\
+  ADB C \
+    ]]>
+  </level>
+  <level id="57">
+    <![CDATA[
+  AAE DEB \
+C        B\
+   DC    E\
+E D       \
+         E\
+BB   C   E\
+E E   A  D\
+B        A\
+A        D\
+ ABCBDEDA \
     ]]>
   </level>
 </levels>
