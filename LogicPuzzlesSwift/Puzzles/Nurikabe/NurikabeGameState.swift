@@ -81,15 +81,13 @@ class NurikabeGameState: CellsGameState {
     
     private func updateIsSolved() {
         isSolved = true
-        rule2x2:
         for r in 0..<rows - 1 {
+            rule2x2:
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                var is2x2 = true
                 for os in NurikabeGame.offset2 {
-                    guard case .wall = self[p + os] else {is2x2 = false; break}
+                    guard case .wall = self[p + os] else {continue rule2x2}
                 }
-                if is2x2 {isSolved = false; break rule2x2}
             }
         }
         let g = Graph()

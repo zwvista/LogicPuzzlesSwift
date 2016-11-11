@@ -34,11 +34,8 @@ class NurikabeGame: CellsGame<NurikabeGameMove, NurikabeGameState> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let ch = str[str.index(str.startIndex, offsetBy: c)]
-                switch ch {
-                case "0"..."9":
+                if "0"..."9" ~= ch {
                     pos2hint[p] = Int(String(ch))!
-                default:
-                    break
                 }
             }
         }
