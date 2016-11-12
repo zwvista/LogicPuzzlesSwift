@@ -16,7 +16,12 @@ class AbcGame: CellsGame<AbcGameMove, AbcGameState> {
         Position(0, -1),
     ];
 
+    override func isValid(row: Int, col: Int) -> Bool {
+        return (1..<rows - 1 ~= row) && (1..<cols - 1 ~= col)
+    }
+
     var objArray = [Character]()
+    var chMax: Character = "A"
     subscript(p: Position) -> Character {
         get {
             return objArray[p.row * cols + p.col]
@@ -45,6 +50,7 @@ class AbcGame: CellsGame<AbcGameMove, AbcGameState> {
             for c in 0..<cols {
                 let ch = str[str.index(str.startIndex, offsetBy: c)]
                 self[r, c] = ch
+                if chMax < ch {chMax = ch}
             }
         }
                 

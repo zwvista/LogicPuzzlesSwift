@@ -86,7 +86,7 @@ class CellsGame<GM, GS: GameStateBase>: Game<GM, GS>, CellsGameBase {
         return isValid(row: p.row, col: p.col)
     }
     func isValid(row: Int, col: Int) -> Bool {
-        return row >= 0 && col >= 0 && row < rows && col < cols
+        return (0..<rows ~= row) && (0..<cols ~= col)
     }
     
     override init<GD: GameDelegate>(delegate: GD? = nil) where GD.GM == GM, GD.GS == GS {

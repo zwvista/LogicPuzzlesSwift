@@ -10,9 +10,9 @@ import Foundation
 
 class AbcGameState: CellsGameState {
     var game: AbcGame {return gameBase as! AbcGame}
-    var objArray = [AbcObject]()
-    var row2hint = [String]()
-    var col2hint = [String]()
+    var objArray = [Character]()
+    var row2state = [HintState]()
+    var col2state = [HintState]()
     var options: AbcGameProgress { return AbcDocument.sharedInstance.gameProgress }
     
     override func copy() -> AbcGameState {
@@ -22,20 +22,26 @@ class AbcGameState: CellsGameState {
     func setup(v: AbcGameState) -> AbcGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.row2hint = row2hint
-        v.col2hint = col2hint
+        v.row2state = row2state
+        v.col2state = col2state
         return v
     }
     
     required init(game: CellsGameBase) {
         super.init(game: game)
-        objArray = Array<AbcObject>(repeating: AbcObject(), count: rows * cols)
-        row2hint = Array<String>(repeating: "", count: rows)
-        col2hint = Array<String>(repeating: "", count: cols)
+        let game = game as! AbcGame
+        objArray = Array<Character>(repeating: " ", count: rows * cols)
+        row2state = Array<HintState>(repeating: .normal, count: rows * 2)
+        col2state = Array<HintState>(repeating: .normal, count: cols * 2)
+        for r in 0..<rows {
+            for c in 0..<cols {
+                self[r, c] = game[r, c]
+            }
+        }
         updateIsSolved()
     }
     
-    subscript(p: Position) -> AbcObject {
+    subscript(p: Position) -> Character {
         get {
             return objArray[p.row * cols + p.col]
         }
@@ -43,13 +49,21 @@ class AbcGameState: CellsGameState {
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> AbcObject {
+    subscript(row: Int, col: Int) -> Character {
         get {
             return objArray[row * cols + col]
         }
         set(newValue) {
             objArray[row * cols + col] = newValue
         }
+    }
+    
+    func pos2state(row: Int, col: Int) -> HintState {
+        return row == 0 && 1..<cols - 1 ~= col ? col2state[col * 2] :
+            row == rows - 1 && 1..<cols - 1 ~= col ? col2state[col * 2 + 1] :
+            1..<rows - 1 ~= row && col == 0 ? row2state[row * 2] :
+            1..<rows - 1 ~= row && col == cols - 1 ? row2state[row * 2 + 1] :
+            .normal;
     }
     
     func setObject(move: inout AbcGameMove) -> Bool {
@@ -61,85 +75,46 @@ class AbcGameState: CellsGameState {
     }
     
     func switchObject(move: inout AbcGameMove) -> Bool {
-        let markerOption = AbcMarkerOptions(rawValue: options.markerOption)
-        func f(o: AbcObject) -> AbcObject {
-            switch o {
-            case .normal:
-                return markerOption == .markerBeforeDarken ? .marker : .darken
-            case .darken:
-                return markerOption == .markerAfterDarken ? .marker : .normal
-            case .marker:
-                return markerOption == .markerBeforeDarken ? .darken : .normal
-            }
+        func f(ch: Character) -> Character {
+            // http://stackoverflow.com/questions/26761390/changing-value-of-character-using-ascii-value-in-swift
+            let scalars = String(ch).unicodeScalars      // unicode scalar(s) of the character
+            let val = scalars[scalars.startIndex].value  // value of the unicode scalar
+            return Character(UnicodeScalar(val + 1)!)     // return an incremented character
         }
         let p = move.p
         guard isValid(p: p) else {return false}
-        move.obj = f(o: self[p])
+        let o = self[p]
+        move.obj = o == " " ? "A" : o == game.chMax ? " " : f(ch: o)
         return setObject(move: &move)
     }
     
     private func updateIsSolved() {
         isSolved = true
-        var chars = ""
-        for r in 0..<rows {
-            chars = ""
-            row2hint[r] = ""
-            for c in 0..<cols {
-                let p = Position(r, c)
-                guard self[p] != .darken else {continue}
-                let ch = game[p]
-                if chars.contains(String(ch)) {
-                    isSolved = false
-                    row2hint[r].append(ch)
-                } else {
-                    chars.append(ch)
-                }
+        for r in 1..<rows - 1 {
+            let (h1, h2) = (self[r, 0], self[r, cols - 1])
+            var (ch11, ch21): (Character, Character) = (" ", " ")
+            for c in 1..<cols - 1 {
+                let (ch12, ch22) = (self[r, c], self[r, cols - 1 - c])
+                if ch11 == " " && ch11 != ch12 {ch11 = ch12}
+                if ch21 == " " && ch21 != ch22 {ch21 = ch22}
             }
+            let s1: HintState = ch11 == " " ? .normal : ch11 == h1 ? .complete : .error
+            let s2: HintState = ch21 == " " ? .normal : ch21 == h2 ? .complete : .error
+            row2state[r * 2] = s1; row2state[r * 2 + 1] = s2
+            if s1 != .complete || s2 != .complete {isSolved = false}
         }
-        for c in 0..<cols {
-            chars = ""
-            col2hint[c] = ""
-            for r in 0..<rows {
-                let p = Position(r, c)
-                guard self[p] != .darken else {continue}
-                let ch = game[p]
-                if chars.contains(String(ch)) {
-                    isSolved = false
-                    col2hint[c].append(ch)
-                } else {
-                    chars.append(ch)
-                }
+        for c in 1..<cols - 1 {
+            let (h1, h2) = (self[0, c], self[rows - 1, c])
+            var (ch11, ch21): (Character, Character) = (" ", " ")
+            for r in 1..<rows - 1 {
+                let (ch12, ch22) = (self[r, c], self[rows - 1 - r, c])
+                if ch11 == " " && ch11 != ch12 {ch11 = ch12}
+                if ch21 == " " && ch21 != ch22 {ch21 = ch22}
             }
+            let s1: HintState = ch11 == " " ? .normal : ch11 == h1 ? .complete : .error
+            let s2: HintState = ch21 == " " ? .normal : ch21 == h2 ? .complete : .error
+            col2state[c * 2] = s1; col2state[c * 2 + 1] = s2
+            if s1 != .complete || s2 != .complete {isSolved = false}
         }
-        guard isSolved else {return}
-        let g = Graph()
-        var pos2node = [Position: Node]()
-        var rngDarken = [Position]()
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                switch self[p] {
-                case .darken:
-                    rngDarken.append(p)
-                default:
-                    pos2node[p] = g.addNode(label: p.description)
-                }
-            }
-        }
-        for p in rngDarken {
-            for os in CloudsGame.offset {
-                let p2 = p + os
-                guard !rngDarken.contains(p2) else {isSolved = false; return}
-            }
-        }
-        for (p, node) in pos2node {
-            for os in CloudsGame.offset {
-                let p2 = p + os
-                guard let node2 = pos2node[p2] else {continue}
-                g.addEdge(source: node, neighbor: node2)
-            }
-        }
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.values.first!)
-        if pos2node.count != nodesExplored.count {isSolved = false}
     }
 }

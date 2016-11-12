@@ -49,7 +49,7 @@ class AbcDocument: GameDocument<AbcGameMove> {
         rec.levelID = selectedLevelID
         rec.moveIndex = game.moveIndex
         (rec.row, rec.col) = move.p.unapply()
-        rec.obj = move.obj.rawValue
+        rec.obj = String(move.obj)
         rec.commit()
     }
     

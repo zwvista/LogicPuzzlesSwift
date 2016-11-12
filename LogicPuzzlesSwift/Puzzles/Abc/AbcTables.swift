@@ -32,7 +32,7 @@ class AbcMoveProgress: SRKObject {
     dynamic var moveIndex = 0
     dynamic var row = 0
     dynamic var col = 0
-    dynamic var obj = 0
+    dynamic var obj = " "
     
     override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
         return ["moveIndex": 0]

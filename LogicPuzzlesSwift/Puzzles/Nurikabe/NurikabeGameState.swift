@@ -129,15 +129,26 @@ class NurikabeGameState: CellsGameState {
             if rngWalls.count != nodesExplored.count {isSolved = false}
         }
         for (p, n1) in game.pos2hint {
-            let nodesExplored = breadthFirstSearch(g, source: pos2node[p]!)
+            let node = pos2node[p]!
+            guard !node.visited else {continue}
+            let nodesExplored = breadthFirstSearch(g, source: node)
             let n2 = nodesExplored.count
-            var m = 0
+            var rng = [Position]()
             for p2 in game.pos2hint.keys {
-                if nodesExplored.contains(p2.description) {m += 1}
+                if nodesExplored.contains(p2.description) {
+                    rng.append(p2)
+                }
             }
-            let s: HintState = m > 1 ? .normal : n1 == n2 ? .complete : .error
-            self[p] = .hint(state: s)
-            if s != .complete {isSolved = false}
+            if rng.count > 1 {
+                for p2 in rng {
+                    self[p2] = .hint(state: .normal)
+                }
+                isSolved = false
+            } else {
+                let s: HintState = n1 == n2 ? .complete : .error
+                self[rng.first!] = .hint(state: s)
+                if s != .complete {isSolved = false}
+            }
         }
     }
 }

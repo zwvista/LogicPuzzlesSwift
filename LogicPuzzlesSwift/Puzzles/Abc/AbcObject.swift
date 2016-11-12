@@ -8,23 +8,7 @@
 
 import Foundation
 
-enum AbcMarkerOptions: Int {
-    case noMarker, markerAfterDarken, markerBeforeDarken
-    
-    static let optionStrings = ["No Marker", "Marker After Darken", "Marker Before Darken"]
-}
-
-enum AbcObject: Int {
-    case normal
-    case darken
-    case marker
-    init() {
-        self = .normal
-    }
-}
-
 struct AbcGameMove {
     var p = Position()
-    var obj = AbcObject()
+    var obj: Character = " "
 }
-

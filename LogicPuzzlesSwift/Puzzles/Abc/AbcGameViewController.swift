@@ -57,7 +57,7 @@ class AbcGameViewController: UIViewController, GameDelegate, AbcMixin {
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = AbcGameMove(p: p, obj: .normal)
+        var move = AbcGameMove(p: p, obj: " ")
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     
@@ -71,8 +71,8 @@ class AbcGameViewController: UIViewController, GameDelegate, AbcMixin {
         
         // restore game state
         for case let rec as AbcMoveProgress in gameDocument.moveProgress {
-            var move = AbcGameMove(p: Position(rec.row, rec.col), obj: AbcObject(rawValue: rec.obj)!)
-                _ = game.setObject(move: &move)
+            var move = AbcGameMove(p: Position(rec.row, rec.col), obj: rec.obj.characters.first!)
+            _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex
         guard case 0..<game.moveCount = moveIndex else {return}
