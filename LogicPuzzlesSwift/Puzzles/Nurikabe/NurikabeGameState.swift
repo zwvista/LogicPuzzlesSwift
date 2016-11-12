@@ -88,6 +88,7 @@ class NurikabeGameState: CellsGameState {
                 for os in NurikabeGame.offset2 {
                     guard case .wall = self[p + os] else {continue rule2x2}
                 }
+                isSolved = false
             }
         }
         let g = Graph()

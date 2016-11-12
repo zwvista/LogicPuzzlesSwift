@@ -153,6 +153,7 @@
 		8C9F43F21D771915000139FC /* LogicPuzzlesSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43F11D771915000139FC /* LogicPuzzlesSwiftTests.swift */; };
 		8C9F43FD1D771915000139FC /* LogicPuzzlesSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43FC1D771915000139FC /* LogicPuzzlesSwiftUITests.swift */; };
 		8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF1C011D8E1DB000AB6594 /* lightbulb.png */; };
+		8CD1558B1DD77C3400786F34 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD1558A1DD77C3400786F34 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -363,6 +364,7 @@
 		8C9F43FC1D771915000139FC /* LogicPuzzlesSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicPuzzlesSwiftUITests.swift; sourceTree = "<group>"; };
 		8C9F43FE1D771915000139FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CCF1C011D8E1DB000AB6594 /* lightbulb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightbulb.png; sourceTree = "<group>"; };
+		8CD1558A1DD77C3400786F34 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -588,6 +590,7 @@
 				8C6D37D61DC42FA40052202C /* MainViewController.swift */,
 				8C6D37D91DC42FA40052202C /* OptionsViewController.swift */,
 				8C6D37F41DC5AC520052202C /* Position.swift */,
+				8CD1558A1DD77C3400786F34 /* Extensions.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -930,6 +933,7 @@
 				8C6D37A11DC42F0A0052202C /* HitoriMainViewController.swift in Sources */,
 				8C6D37831DC42F0A0052202C /* BridgesGame.swift in Sources */,
 				8C6D37821DC42F0A0052202C /* BridgesDocument.swift in Sources */,
+				8CD1558B1DD77C3400786F34 /* Extensions.swift in Sources */,
 				8C1D16B31DB8DE930056D407 /* README.markdown in Sources */,
 				8C6D37B11DC42F0A0052202C /* LightUpTables.swift in Sources */,
 				8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */,
