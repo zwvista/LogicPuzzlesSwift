@@ -24,7 +24,7 @@ class GameState: Copyable, GameStateBase {
         return v
     }
     deinit {
-        print("deinit called")
+        // print("deinit called: GameState")
     }
 }
 

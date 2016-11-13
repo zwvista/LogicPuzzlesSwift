@@ -21,7 +21,7 @@ class GameViewController: UIViewController {
     }
     
     deinit {
-        print("deinit called")
+        print("deinit called: GameViewController")
     }
     
 }

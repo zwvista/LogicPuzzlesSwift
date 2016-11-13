@@ -39,7 +39,6 @@ class AbcGameScene: GameScene<AbcGameState> {
         scaleMode = .resizeFill
         gridNode = AbcGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols)
         gridNode.position = CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset)
-        gridNode.name = "grid"
         addChild(gridNode)
         gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
         
@@ -49,6 +48,7 @@ class AbcGameScene: GameScene<AbcGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let ch = state[p]
+                guard ch != " " else {continue}
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let charNodeName = "char" + nodeNameSuffix
                 let s = state.pos2state(row: r, col: c)
@@ -73,8 +73,8 @@ class AbcGameScene: GameScene<AbcGameState> {
                 let (ch1, ch2) = (stateFrom[row, col], stateTo[row, col])
                 let (s1, s2) = (stateFrom.pos2state(row: row, col: col), stateTo.pos2state(row: row, col: col))
                 guard ch1 != ch2 || s1 != s2 else {continue}
-                removeCharacter()
-                addCharacter(ch: ch2, s: s2, point: point, nodeName: charNodeName)
+                if (ch1 != " ") {removeCharacter()}
+                if (ch2 != " ") {addCharacter(ch: ch2, s: s2, point: point, nodeName: charNodeName)}
             }
         }
     }

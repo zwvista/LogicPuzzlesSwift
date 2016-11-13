@@ -73,8 +73,4 @@ class AbcGridNode : SKSpriteNode {
         let col = Int(point.x / blockSize)
         return Position(row, col)
     }
-    
-    deinit {
-        print("deinit called")
-    }
 }
