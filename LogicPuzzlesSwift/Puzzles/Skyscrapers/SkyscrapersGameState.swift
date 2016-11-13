@@ -90,7 +90,7 @@ class SkyscrapersGameState: CellsGameState {
     
     private func updateIsSolved() {
         isSolved = true
-        var nums = Set<Int>()
+        var nums = [Int]()
         for r in 1..<rows - 1 {
             let (h1, h2) = (self[r, 0], self[r, cols - 1])
             var (n1, n2) = (0, 0)
@@ -104,7 +104,7 @@ class SkyscrapersGameState: CellsGameState {
                 if nums.contains(n12) {
                     isSolved = false
                 } else {
-                    nums.insert(n12)
+                    nums.append(n12)
                 }
             }
             let s1: HintState = n1 == 0 ? .normal : n1 == h1 ? .complete : .error
@@ -126,7 +126,7 @@ class SkyscrapersGameState: CellsGameState {
                 if nums.contains(n12) {
                     isSolved = false
                 } else {
-                    nums.insert(n12)
+                    nums.append(n12)
                 }
             }
             let s1: HintState = n1 == 0 ? .normal : n1 == h1 ? .complete : .error

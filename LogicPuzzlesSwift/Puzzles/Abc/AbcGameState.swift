@@ -90,17 +90,17 @@ class AbcGameState: CellsGameState {
     
     private func updateIsSolved() {
         isSolved = true
-        var chars = ""
+        var chars = [Character]()
         for r in 1..<rows - 1 {
             let (h1, h2) = (self[r, 0], self[r, cols - 1])
             var (ch11, ch21): (Character, Character) = (" ", " ")
-            chars = ""
+            chars = []
             for c in 1..<cols - 1 {
                 let (ch12, ch22) = (self[r, c], self[r, cols - 1 - c])
                 if ch11 == " " && ch12 != " " {ch11 = ch12}
                 if ch21 == " " && ch22 != " " {ch21 = ch22}
                 guard ch12 != " " else {continue}
-                if chars.contains(String(ch12)) {
+                if chars.contains(ch12) {
                     isSolved = false
                 } else {
                     chars.append(ch12)
@@ -110,18 +110,18 @@ class AbcGameState: CellsGameState {
             let s2: HintState = ch21 == " " ? .normal : ch21 == h2 ? .complete : .error
             row2state[r * 2] = s1; row2state[r * 2 + 1] = s2
             if s1 != .complete || s2 != .complete {isSolved = false}
-            if chars.characters.count != Int(game.chMax.asciiValue!) - Int(Character("A").asciiValue!) + 1 {isSolved = false}
+            if chars.count != Int(game.chMax.asciiValue!) - Int(Character("A").asciiValue!) + 1 {isSolved = false}
         }
         for c in 1..<cols - 1 {
             let (h1, h2) = (self[0, c], self[rows - 1, c])
             var (ch11, ch21): (Character, Character) = (" ", " ")
-            chars = ""
+            chars = []
             for r in 1..<rows - 1 {
                 let (ch12, ch22) = (self[r, c], self[rows - 1 - r, c])
                 if ch11 == " " && ch12 != " " {ch11 = ch12}
                 if ch21 == " " && ch22 != " " {ch21 = ch22}
                 guard ch12 != " " else {continue}
-                if chars.contains(String(ch12)) {
+                if chars.contains(ch12) {
                     isSolved = false
                 } else {
                     chars.append(ch12)
@@ -131,7 +131,7 @@ class AbcGameState: CellsGameState {
             let s2: HintState = ch21 == " " ? .normal : ch21 == h2 ? .complete : .error
             col2state[c * 2] = s1; col2state[c * 2 + 1] = s2
             if s1 != .complete || s2 != .complete {isSolved = false}
-            if chars.characters.count != Int(game.chMax.asciiValue!) - Int(Character("A").asciiValue!) + 1 {isSolved = false}
+            if chars.count != Int(game.chMax.asciiValue!) - Int(Character("A").asciiValue!) + 1 {isSolved = false}
         }
     }
 }
