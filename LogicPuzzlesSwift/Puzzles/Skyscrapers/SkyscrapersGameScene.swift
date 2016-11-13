@@ -16,8 +16,8 @@ class SkyscrapersGameScene: GameScene<SkyscrapersGameState> {
         return CGSize(width: sz, height: sz)
     }
     
-    func addCharacter(ch: Character, s: HintState, point: CGPoint, nodeName: String) {
-        let labelNode = SKLabelNode(text: String(ch))
+    func addNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
+        let labelNode = SKLabelNode(text: String(n))
         labelNode.fontColor = s == .normal ? SKColor.white : s == .complete ? SKColor.green : SKColor.red
         labelNode.fontName = labelNode.fontName! + "-Bold"
         // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
@@ -42,17 +42,17 @@ class SkyscrapersGameScene: GameScene<SkyscrapersGameState> {
         addChild(gridNode)
         gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
         
-        // add Characters
+        // add Numbers
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
-                let ch = state[p]
-                guard ch != " " else {continue}
+                let n = state[p]
+                guard n != 0 else {continue}
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
-                let charNodeName = "char" + nodeNameSuffix
+                let numNodeName = "num" + nodeNameSuffix
                 let s = state.pos2state(row: r, col: c)
-                addCharacter(ch: ch, s: s, point: point, nodeName: charNodeName)
+                addNumber(n: n, s: s, point: point, nodeName: numNodeName)
             }
         }
     }
@@ -63,18 +63,18 @@ class SkyscrapersGameScene: GameScene<SkyscrapersGameState> {
                 let p = Position(row, col)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(row)-\(col)"
-                let charNodeName = "char" + nodeNameSuffix
+                let numNodeName = "num" + nodeNameSuffix
                 func removeNode(withName: String) {
                     gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
                         node.removeFromParent()
                     }
                 }
-                func removeCharacter() { removeNode(withName: charNodeName) }
-                let (ch1, ch2) = (stateFrom[row, col], stateTo[row, col])
+                func removeNumber() { removeNode(withName: numNodeName) }
+                let (n1, n2) = (stateFrom[row, col], stateTo[row, col])
                 let (s1, s2) = (stateFrom.pos2state(row: row, col: col), stateTo.pos2state(row: row, col: col))
-                guard ch1 != ch2 || s1 != s2 else {continue}
-                if (ch1 != " ") {removeCharacter()}
-                if (ch2 != " ") {addCharacter(ch: ch2, s: s2, point: point, nodeName: charNodeName)}
+                guard n1 != n2 || s1 != s2 else {continue}
+                if (n1 != 0) {removeNumber()}
+                if (n2 != 0) {addNumber(n: n2, s: s2, point: point, nodeName: numNodeName)}
             }
         }
     }

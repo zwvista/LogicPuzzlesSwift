@@ -49,7 +49,7 @@ class SkyscrapersDocument: GameDocument<SkyscrapersGameMove> {
         rec.levelID = selectedLevelID
         rec.moveIndex = game.moveIndex
         (rec.row, rec.col) = move.p.unapply()
-        rec.obj = String(move.obj)
+        rec.obj = move.obj
         rec.commit()
     }
     

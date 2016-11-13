@@ -20,9 +20,9 @@ class SkyscrapersGame: CellsGame<SkyscrapersGameViewController, SkyscrapersGameM
         return (1..<rows - 1 ~= row) && (1..<cols - 1 ~= col)
     }
 
-    var objArray = [Character]()
-    var chMax: Character = "A"
-    subscript(p: Position) -> Character {
+    var objArray = [Int]()
+    var intMax = 1
+    subscript(p: Position) -> Int {
         get {
             return objArray[p.row * cols + p.col]
         }
@@ -30,7 +30,7 @@ class SkyscrapersGame: CellsGame<SkyscrapersGameViewController, SkyscrapersGameM
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> Character {
+    subscript(row: Int, col: Int) -> Int {
         get {
             return objArray[row * cols + col]
         }
@@ -43,14 +43,15 @@ class SkyscrapersGame: CellsGame<SkyscrapersGameViewController, SkyscrapersGameM
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].characters.count)
-        objArray = Array<Character>(repeating: " ", count: rows * cols)
+        objArray = Array<Int>(repeating: 0, count: rows * cols)
         
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
                 let ch = str[str.index(str.startIndex, offsetBy: c)]
-                self[r, c] = ch
-                if chMax < ch {chMax = ch}
+                let n = ch == " " ? 0 : Int(String(ch))!
+                self[r, c] = n
+                if intMax < n {intMax = n}
             }
         }
         

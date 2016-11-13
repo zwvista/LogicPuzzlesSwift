@@ -48,7 +48,7 @@ class SkyscrapersGameViewController: GameViewController, GameDelegate, Skyscrape
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = SkyscrapersGameMove(p: p, obj: " ")
+        var move = SkyscrapersGameMove(p: p, obj: 0)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     
@@ -62,7 +62,7 @@ class SkyscrapersGameViewController: GameViewController, GameDelegate, Skyscrape
         
         // restore game state
         for case let rec as SkyscrapersMoveProgress in gameDocument.moveProgress {
-            var move = SkyscrapersGameMove(p: Position(rec.row, rec.col), obj: rec.obj.characters.first!)
+            var move = SkyscrapersGameMove(p: Position(rec.row, rec.col), obj: rec.obj)
             _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex

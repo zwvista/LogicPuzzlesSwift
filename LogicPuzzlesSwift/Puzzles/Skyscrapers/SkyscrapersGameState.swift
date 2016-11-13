@@ -10,7 +10,7 @@ import Foundation
 
 class SkyscrapersGameState: CellsGameState {
     var game: SkyscrapersGame {return gameBase as! SkyscrapersGame}
-    var objArray = [Character]()
+    var objArray = [Int]()
     var row2state = [HintState]()
     var col2state = [HintState]()
     var options: SkyscrapersGameProgress { return SkyscrapersDocument.sharedInstance.gameProgress }
@@ -30,7 +30,7 @@ class SkyscrapersGameState: CellsGameState {
     required init(game: CellsGameBase) {
         super.init(game: game)
         let game = game as! SkyscrapersGame
-        objArray = Array<Character>(repeating: " ", count: rows * cols)
+        objArray = Array<Int>(repeating: 0, count: rows * cols)
         row2state = Array<HintState>(repeating: .normal, count: rows * 2)
         col2state = Array<HintState>(repeating: .normal, count: cols * 2)
         for r in 0..<rows {
@@ -41,7 +41,7 @@ class SkyscrapersGameState: CellsGameState {
         updateIsSolved()
     }
     
-    subscript(p: Position) -> Character {
+    subscript(p: Position) -> Int {
         get {
             return objArray[p.row * cols + p.col]
         }
@@ -49,7 +49,7 @@ class SkyscrapersGameState: CellsGameState {
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> Character {
+    subscript(row: Int, col: Int) -> Int {
         get {
             return objArray[row * cols + col]
         }
@@ -84,54 +84,56 @@ class SkyscrapersGameState: CellsGameState {
         let p = move.p
         guard isValid(p: p) else {return false}
         let o = self[p]
-        move.obj = o == " " ? "A" : o == game.chMax ? " " : f(ch: o)
+        move.obj = (o + 1) % (game.intMax + 1)
         return setObject(move: &move)
     }
     
     private func updateIsSolved() {
         isSolved = true
-        var chars = ""
+        var nums = Set<Int>()
         for r in 1..<rows - 1 {
             let (h1, h2) = (self[r, 0], self[r, cols - 1])
-            var (ch11, ch21): (Character, Character) = (" ", " ")
-            chars = ""
+            var (n1, n2) = (0, 0)
+            var (n11, n21) = (0, 0)
+            nums = []
             for c in 1..<cols - 1 {
-                let (ch12, ch22) = (self[r, c], self[r, cols - 1 - c])
-                if ch11 == " " && ch12 != " " {ch11 = ch12}
-                if ch21 == " " && ch22 != " " {ch21 = ch22}
-                guard ch12 != " " else {continue}
-                if chars.contains(String(ch12)) {
+                let (n12, n22) = (self[r, c], self[r, cols - 1 - c])
+                if n11 < n12 {n11 = n12; n1 += 1}
+                if n21 < n22 {n21 = n22; n2 += 1}
+                guard n12 != 0 else {continue}
+                if nums.contains(n12) {
                     isSolved = false
                 } else {
-                    chars.append(ch12)
+                    nums.insert(n12)
                 }
             }
-            let s1: HintState = ch11 == " " ? .normal : ch11 == h1 ? .complete : .error
-            let s2: HintState = ch21 == " " ? .normal : ch21 == h2 ? .complete : .error
+            let s1: HintState = n1 == 0 ? .normal : n1 == h1 ? .complete : .error
+            let s2: HintState = n2 == 0 ? .normal : n2 == h2 ? .complete : .error
             row2state[r * 2] = s1; row2state[r * 2 + 1] = s2
             if s1 != .complete || s2 != .complete {isSolved = false}
-            if chars.characters.count != Int(game.chMax.asciiValue!) - Int(Character("A").asciiValue!) + 1 {isSolved = false}
+            if nums.count != game.intMax {isSolved = false}
         }
         for c in 1..<cols - 1 {
             let (h1, h2) = (self[0, c], self[rows - 1, c])
-            var (ch11, ch21): (Character, Character) = (" ", " ")
-            chars = ""
+            var (n1, n2) = (0, 0)
+            var (n11, n21) = (0, 0)
+            nums = []
             for r in 1..<rows - 1 {
-                let (ch12, ch22) = (self[r, c], self[rows - 1 - r, c])
-                if ch11 == " " && ch12 != " " {ch11 = ch12}
-                if ch21 == " " && ch22 != " " {ch21 = ch22}
-                guard ch12 != " " else {continue}
-                if chars.contains(String(ch12)) {
+                let (n12, n22) = (self[r, c], self[rows - 1 - r, c])
+                if n11 < n12 {n11 = n12; n1 += 1}
+                if n21 < n22 {n21 = n22; n2 += 1}
+                guard n12 != 0 else {continue}
+                if nums.contains(n12) {
                     isSolved = false
                 } else {
-                    chars.append(ch12)
+                    nums.insert(n12)
                 }
             }
-            let s1: HintState = ch11 == " " ? .normal : ch11 == h1 ? .complete : .error
-            let s2: HintState = ch21 == " " ? .normal : ch21 == h2 ? .complete : .error
+            let s1: HintState = n1 == 0 ? .normal : n1 == h1 ? .complete : .error
+            let s2: HintState = n2 == 0 ? .normal : n2 == h2 ? .complete : .error
             col2state[c * 2] = s1; col2state[c * 2 + 1] = s2
             if s1 != .complete || s2 != .complete {isSolved = false}
-            if chars.characters.count != Int(game.chMax.asciiValue!) - Int(Character("A").asciiValue!) + 1 {isSolved = false}
+            if nums.count != game.intMax {isSolved = false}
         }
     }
 }
