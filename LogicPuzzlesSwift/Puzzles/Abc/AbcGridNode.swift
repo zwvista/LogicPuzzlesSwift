@@ -42,14 +42,14 @@ class AbcGridNode : SKSpriteNode {
         // Draw vertical lines
         for i in 1...cols - 1 {
             let x = CGFloat(i)*blockSize + offset
-            bezierPath.move(to: CGPoint(x: x, y: 0))
-            bezierPath.addLine(to: CGPoint(x: x, y: size.height))
+            bezierPath.move(to: CGPoint(x: x, y: CGFloat(1)*blockSize + offset))
+            bezierPath.addLine(to: CGPoint(x: x, y: CGFloat(rows - 1)*blockSize + offset))
         }
         // Draw horizontal lines
         for i in 1...rows - 1 {
             let y = CGFloat(i) * blockSize + offset
-            bezierPath.move(to: CGPoint(x: 0, y: y))
-            bezierPath.addLine(to: CGPoint(x: size.width, y: y))
+            bezierPath.move(to: CGPoint(x: CGFloat(1)*blockSize + offset, y: y))
+            bezierPath.addLine(to: CGPoint(x: CGFloat(cols - 1)*blockSize + offset, y: y))
         }
         SKColor.white.setStroke()
         bezierPath.lineWidth = 1.0
