@@ -72,7 +72,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="SlitherLink" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KCa-ba-clV">
-                                <rect key="frame" x="112.5" y="438.5" width="150" height="30"/>
+                                <rect key="frame" x="112" y="478.5" width="150" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="eTC-mM-zAY"/>
@@ -84,7 +84,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PxK-QC-2Io">
-                                <rect key="frame" x="112.5" y="478.5" width="150" height="30"/>
+                                <rect key="frame" x="112" y="518.5" width="150" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="LuM-1X-tbp"/>
@@ -155,17 +155,29 @@
                                     <action selector="startGame:" destination="AeD-bF-k0G" eventType="touchUpInside" id="YnG-Dt-5gg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Skyscrapers" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y4t-7M-8lR">
+                                <rect key="frame" x="112" y="438.5" width="150" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0fV-aR-uxj"/>
+                                    <constraint firstAttribute="width" constant="150" id="AmD-20-56p"/>
+                                </constraints>
+                                <state key="normal" title="Skyscrapers"/>
+                                <connections>
+                                    <action selector="startGame:" destination="AeD-bF-k0G" eventType="touchUpInside" id="SUc-LO-eZz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tCN-cq-Dqy" firstAttribute="top" secondItem="s27-Bh-jGF" secondAttribute="bottom" constant="10" id="0a3-Jg-nWM"/>
+                            <constraint firstItem="KCa-ba-clV" firstAttribute="top" secondItem="y4t-7M-8lR" secondAttribute="bottom" constant="10" id="0gP-bM-QsL"/>
                             <constraint firstItem="PxK-QC-2Io" firstAttribute="top" secondItem="KCa-ba-clV" secondAttribute="bottom" constant="10" id="2OD-6z-Lmk"/>
                             <constraint firstItem="tCN-cq-Dqy" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="2nh-Ou-IjH"/>
                             <constraint firstItem="s27-Bh-jGF" firstAttribute="centerY" secondItem="Y0Z-hx-Q2p" secondAttribute="centerY" id="3cW-Td-l6S"/>
                             <constraint firstItem="yGx-Ts-pBn" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="40a-sz-VC7"/>
                             <constraint firstItem="PxK-QC-2Io" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="4Dj-lj-m8Y"/>
                             <constraint firstItem="p7T-vh-GEq" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="4FO-nR-m4E"/>
-                            <constraint firstItem="KCa-ba-clV" firstAttribute="top" secondItem="zAq-Oe-mfE" secondAttribute="bottom" constant="10" id="5Dt-lU-OIT"/>
                             <constraint firstItem="zAq-Oe-mfE" firstAttribute="top" secondItem="tCN-cq-Dqy" secondAttribute="bottom" constant="10" id="6gC-Rs-a3c"/>
                             <constraint firstItem="W8c-5P-91m" firstAttribute="top" secondItem="p7T-vh-GEq" secondAttribute="bottom" constant="10" id="6sS-5W-tOd"/>
                             <constraint firstItem="zAq-Oe-mfE" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="CsA-Oq-h94"/>
@@ -177,7 +189,9 @@
                             <constraint firstItem="VH0-yb-haP" firstAttribute="top" secondItem="Dmc-8f-29m" secondAttribute="bottom" constant="10" id="ULe-cu-v8x"/>
                             <constraint firstItem="Dmc-8f-29m" firstAttribute="top" secondItem="yGx-Ts-pBn" secondAttribute="bottom" constant="50" id="aO3-0K-mnH"/>
                             <constraint firstItem="KCa-ba-clV" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="byl-KW-Pa9"/>
+                            <constraint firstItem="y4t-7M-8lR" firstAttribute="top" secondItem="zAq-Oe-mfE" secondAttribute="bottom" constant="10" id="m1X-IW-hrr"/>
                             <constraint firstItem="s27-Bh-jGF" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="t9l-iK-g8K"/>
+                            <constraint firstItem="y4t-7M-8lR" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="ton-ch-V0m"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="caV-EH-1Wo"/>

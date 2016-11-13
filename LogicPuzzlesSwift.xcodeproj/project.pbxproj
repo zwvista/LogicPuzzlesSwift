@@ -20,6 +20,19 @@
 		8C31FE6E1D90E415008793BF /* SharkORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; };
 		8C31FE6F1D90E415008793BF /* SharkORM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8C64A2681DD8089700AB6C09 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D31DC42FA40052202C /* GameViewController.swift */; };
+		8C64A2771DD85A3800AB6C09 /* SkyscrapersDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A26B1DD85A3800AB6C09 /* SkyscrapersDocument.swift */; };
+		8C64A2781DD85A3800AB6C09 /* SkyscrapersGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A26C1DD85A3800AB6C09 /* SkyscrapersGame.swift */; };
+		8C64A2791DD85A3800AB6C09 /* SkyscrapersGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A26D1DD85A3800AB6C09 /* SkyscrapersGameScene.swift */; };
+		8C64A27A1DD85A3800AB6C09 /* SkyscrapersGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A26E1DD85A3800AB6C09 /* SkyscrapersGameState.swift */; };
+		8C64A27B1DD85A3800AB6C09 /* SkyscrapersGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A26F1DD85A3800AB6C09 /* SkyscrapersGameViewController.swift */; };
+		8C64A27C1DD85A3800AB6C09 /* SkyscrapersGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2701DD85A3800AB6C09 /* SkyscrapersGridNode.swift */; };
+		8C64A27D1DD85A3800AB6C09 /* SkyscrapersLevels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C64A2711DD85A3800AB6C09 /* SkyscrapersLevels.xml */; };
+		8C64A27E1DD85A3800AB6C09 /* SkyscrapersMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2721DD85A3800AB6C09 /* SkyscrapersMainViewController.swift */; };
+		8C64A27F1DD85A3800AB6C09 /* SkyscrapersMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2731DD85A3800AB6C09 /* SkyscrapersMixin.swift */; };
+		8C64A2801DD85A3800AB6C09 /* SkyscrapersObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2741DD85A3800AB6C09 /* SkyscrapersObject.swift */; };
+		8C64A2811DD85A3800AB6C09 /* SkyscrapersOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2751DD85A3800AB6C09 /* SkyscrapersOptionsViewController.swift */; };
+		8C64A2821DD85A3800AB6C09 /* SkyscrapersTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2761DD85A3800AB6C09 /* SkyscrapersTables.swift */; };
+		8C64A2851DD85A5000AB6C09 /* Skyscrapers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C64A2831DD85A5000AB6C09 /* Skyscrapers.storyboard */; };
 		8C6ACBFE1DCAF8BA0075F32C /* GameDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37CF1DC42FA40052202C /* GameDocument.swift */; };
 		8C6ACBFF1DCAF8BA0075F32C /* GameMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D71DC42FA40052202C /* GameMixin.swift */; };
 		8C6ACC001DCAF8C20075F32C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37E91DC59EE50052202C /* GameScene.swift */; };
@@ -209,6 +222,19 @@
 		8C1D16A91DB8DE930056D407 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		8C1D16AA1DB8DE930056D407 /* Tests.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Tests.xcodeproj; sourceTree = "<group>"; };
 		8C31FE6D1D90E415008793BF /* SharkORM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SharkORM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C64A26B1DD85A3800AB6C09 /* SkyscrapersDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersDocument.swift; sourceTree = "<group>"; };
+		8C64A26C1DD85A3800AB6C09 /* SkyscrapersGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersGame.swift; sourceTree = "<group>"; };
+		8C64A26D1DD85A3800AB6C09 /* SkyscrapersGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersGameScene.swift; sourceTree = "<group>"; };
+		8C64A26E1DD85A3800AB6C09 /* SkyscrapersGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersGameState.swift; sourceTree = "<group>"; };
+		8C64A26F1DD85A3800AB6C09 /* SkyscrapersGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersGameViewController.swift; sourceTree = "<group>"; };
+		8C64A2701DD85A3800AB6C09 /* SkyscrapersGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersGridNode.swift; sourceTree = "<group>"; };
+		8C64A2711DD85A3800AB6C09 /* SkyscrapersLevels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SkyscrapersLevels.xml; sourceTree = "<group>"; };
+		8C64A2721DD85A3800AB6C09 /* SkyscrapersMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersMainViewController.swift; sourceTree = "<group>"; };
+		8C64A2731DD85A3800AB6C09 /* SkyscrapersMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersMixin.swift; sourceTree = "<group>"; };
+		8C64A2741DD85A3800AB6C09 /* SkyscrapersObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersObject.swift; sourceTree = "<group>"; };
+		8C64A2751DD85A3800AB6C09 /* SkyscrapersOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersOptionsViewController.swift; sourceTree = "<group>"; };
+		8C64A2761DD85A3800AB6C09 /* SkyscrapersTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersTables.swift; sourceTree = "<group>"; };
+		8C64A2841DD85A5000AB6C09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/Skyscrapers.storyboard; sourceTree = SOURCE_ROOT; };
 		8C6ACC181DD204420075F32C /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
 		8C6D37331DC421180052202C /* HomeDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDocument.swift; sourceTree = "<group>"; };
 		8C6D37341DC421180052202C /* HomeMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMainViewController.swift; sourceTree = "<group>"; };
@@ -446,6 +472,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8C64A26A1DD85A3800AB6C09 /* Skyscrapers */ = {
+			isa = PBXGroup;
+			children = (
+				8C64A2831DD85A5000AB6C09 /* Skyscrapers.storyboard */,
+				8C64A26B1DD85A3800AB6C09 /* SkyscrapersDocument.swift */,
+				8C64A26C1DD85A3800AB6C09 /* SkyscrapersGame.swift */,
+				8C64A26D1DD85A3800AB6C09 /* SkyscrapersGameScene.swift */,
+				8C64A26E1DD85A3800AB6C09 /* SkyscrapersGameState.swift */,
+				8C64A26F1DD85A3800AB6C09 /* SkyscrapersGameViewController.swift */,
+				8C64A2701DD85A3800AB6C09 /* SkyscrapersGridNode.swift */,
+				8C64A2711DD85A3800AB6C09 /* SkyscrapersLevels.xml */,
+				8C64A2721DD85A3800AB6C09 /* SkyscrapersMainViewController.swift */,
+				8C64A2731DD85A3800AB6C09 /* SkyscrapersMixin.swift */,
+				8C64A2741DD85A3800AB6C09 /* SkyscrapersObject.swift */,
+				8C64A2751DD85A3800AB6C09 /* SkyscrapersOptionsViewController.swift */,
+				8C64A2761DD85A3800AB6C09 /* SkyscrapersTables.swift */,
+			);
+			path = Skyscrapers;
+			sourceTree = "<group>";
+		};
 		8C6D37321DC421180052202C /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -470,6 +516,7 @@
 				8C6D375B1DC42F0A0052202C /* Hitori */,
 				8C6D37681DC42F0A0052202C /* LightUp */,
 				8C7EF0551DD297D100D1DE94 /* Nurikabe */,
+				8C64A26A1DD85A3800AB6C09 /* Skyscrapers */,
 				8C6D37751DC42F0A0052202C /* SlitherLink */,
 			);
 			path = Puzzles;
@@ -892,6 +939,7 @@
 				8C1D16B01DB8DE930056D407 /* AnimatedExample.psd in Resources */,
 				8C6D37B81DC42F0A0052202C /* SlitherLinkLevels.xml in Resources */,
 				8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */,
+				8C64A27D1DD85A3800AB6C09 /* SkyscrapersLevels.xml in Resources */,
 				8C6D37C91DC42F640052202C /* LightUp.storyboard in Resources */,
 				8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */,
 				8C6D37881DC42F0A0052202C /* BridgesLevels.xml in Resources */,
@@ -901,6 +949,7 @@
 				8C7EF08D1DD4C25800D1DE94 /* Abc.storyboard in Resources */,
 				8C6D37941DC42F0A0052202C /* CloudsLevels.xml in Resources */,
 				8C916CC41DAA5FEB00D9E62B /* music.wav in Resources */,
+				8C64A2851DD85A5000AB6C09 /* Skyscrapers.storyboard in Resources */,
 				8C6D37C61DC42F540052202C /* Hitori.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -928,11 +977,13 @@
 			files = (
 				8C6D37FB1DC5ACDB0052202C /* Copyable.swift in Sources */,
 				8C6D373B1DC421180052202C /* HomeOptionsViewController.swift in Sources */,
+				8C64A27A1DD85A3800AB6C09 /* SkyscrapersGameState.swift in Sources */,
 				8C7EF0881DD4C23C00D1DE94 /* AbcObject.swift in Sources */,
 				8C6D37FA1DC5ACC90052202C /* OptionsViewController.swift in Sources */,
 				8C6D37A11DC42F0A0052202C /* HitoriMainViewController.swift in Sources */,
 				8C6D37831DC42F0A0052202C /* BridgesGame.swift in Sources */,
 				8C6D37821DC42F0A0052202C /* BridgesDocument.swift in Sources */,
+				8C64A2801DD85A3800AB6C09 /* SkyscrapersObject.swift in Sources */,
 				8CD1558B1DD77C3400786F34 /* Extensions.swift in Sources */,
 				8C64A2681DD8089700AB6C09 /* GameViewController.swift in Sources */,
 				8C1D16B31DB8DE930056D407 /* README.markdown in Sources */,
@@ -956,11 +1007,13 @@
 				8C7EF08A1DD4C23C00D1DE94 /* AbcTables.swift in Sources */,
 				8C7EF0691DD297D100D1DE94 /* NurikabeMainViewController.swift in Sources */,
 				8C6D37961DC42F0A0052202C /* CloudsMixin.swift in Sources */,
+				8C64A27B1DD85A3800AB6C09 /* SkyscrapersGameViewController.swift in Sources */,
 				8C1D16B51DB8DE930056D407 /* Graph.swift in Sources */,
 				8C6D37921DC42F0A0052202C /* CloudsGameViewController.swift in Sources */,
 				8C7EF0891DD4C23C00D1DE94 /* AbcOptionsViewController.swift in Sources */,
 				8C886C441D9E8AF1004A42BF /* SWActionSheet.m in Sources */,
 				8C6D379A1DC42F0A0052202C /* HitoriDocument.swift in Sources */,
+				8C64A2821DD85A3800AB6C09 /* SkyscrapersTables.swift in Sources */,
 				8C6D37A81DC42F0A0052202C /* LightUpGameScene.swift in Sources */,
 				8C886C401D9E8AF1004A42BF /* ActionSheetLocalePicker.m in Sources */,
 				8C6D37851DC42F0A0052202C /* BridgesGameState.swift in Sources */,
@@ -968,9 +1021,13 @@
 				8C7EF0661DD297D100D1DE94 /* NurikabeGameViewController.swift in Sources */,
 				8C6ACBFE1DCAF8BA0075F32C /* GameDocument.swift in Sources */,
 				8C6D37A31DC42F0A0052202C /* HitoriObject.swift in Sources */,
+				8C64A27F1DD85A3800AB6C09 /* SkyscrapersMixin.swift in Sources */,
 				8C6D37AD1DC42F0A0052202C /* LightUpMainViewController.swift in Sources */,
+				8C64A2791DD85A3800AB6C09 /* SkyscrapersGameScene.swift in Sources */,
 				8C6D37B31DC42F0A0052202C /* SlitherLinkGame.swift in Sources */,
 				8C7EF06A1DD297D100D1DE94 /* NurikabeMixin.swift in Sources */,
+				8C64A27E1DD85A3800AB6C09 /* SkyscrapersMainViewController.swift in Sources */,
+				8C64A27C1DD85A3800AB6C09 /* SkyscrapersGridNode.swift in Sources */,
 				8C7EF0651DD297D100D1DE94 /* NurikabeGameState.swift in Sources */,
 				8C6D37931DC42F0A0052202C /* CloudsGridNode.swift in Sources */,
 				8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */,
@@ -995,7 +1052,9 @@
 				8C6D37AB1DC42F0A0052202C /* LightUpGridNode.swift in Sources */,
 				8C6D37BD1DC42F0A0052202C /* SlitherLinkTables.swift in Sources */,
 				8C6D37B01DC42F0A0052202C /* LightUpOptionsViewController.swift in Sources */,
+				8C64A2811DD85A3800AB6C09 /* SkyscrapersOptionsViewController.swift in Sources */,
 				8C6D37381DC421180052202C /* HomeDocument.swift in Sources */,
+				8C64A2771DD85A3800AB6C09 /* SkyscrapersDocument.swift in Sources */,
 				8C7EF0831DD4C23C00D1DE94 /* AbcGameViewController.swift in Sources */,
 				8C6D378F1DC42F0A0052202C /* CloudsGame.swift in Sources */,
 				8C886C421D9E8AF1004A42BF /* ActionSheetStringPicker.m in Sources */,
@@ -1015,6 +1074,7 @@
 				8C6D37911DC42F0A0052202C /* CloudsGameState.swift in Sources */,
 				8C6D37F31DC5AC310052202C /* SoundManager.swift in Sources */,
 				8C6D37A61DC42F0A0052202C /* LightUpDocument.swift in Sources */,
+				8C64A2781DD85A3800AB6C09 /* SkyscrapersGame.swift in Sources */,
 				8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */,
 				8C6D379F1DC42F0A0052202C /* HitoriGridNode.swift in Sources */,
 				8C6D37A91DC42F0A0052202C /* LightUpGameState.swift in Sources */,
@@ -1077,6 +1137,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		8C64A2831DD85A5000AB6C09 /* Skyscrapers.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C64A2841DD85A5000AB6C09 /* Base */,
+			);
+			name = Skyscrapers.storyboard;
+			sourceTree = "<group>";
+		};
 		8C6D373D1DC421980052202C /* Home.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
