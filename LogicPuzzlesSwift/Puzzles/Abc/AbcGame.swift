@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AbcGame: CellsGame<AbcGameMove, AbcGameState> {
+class AbcGame: CellsGame<AbcGameViewController, AbcGameMove, AbcGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),
@@ -53,7 +53,7 @@ class AbcGame: CellsGame<AbcGameMove, AbcGameState> {
                 if chMax < ch {chMax = ch}
             }
         }
-                
+        
         let state = AbcGameState(game: self)
         states.append(state)
         levelInitilized(state: state)

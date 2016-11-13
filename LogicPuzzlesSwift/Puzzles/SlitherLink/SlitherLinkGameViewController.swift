@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class SlitherLinkGameViewController: UIViewController, GameDelegate, SlitherLinkMixin {
+class SlitherLinkGameViewController: GameViewController, GameDelegate, SlitherLinkMixin {
 
     var scene: SlitherLinkGameScene!
     var game: SlitherLinkGame!
@@ -39,15 +39,6 @@ class SlitherLinkGameViewController: UIViewController, GameDelegate, SlitherLink
         lblMoves.textColor = SKColor.white
         
         startGame()
-    }
-    
-    // http://stackoverflow.com/questions/18979837/how-to-hide-ios-status-bar
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
-    override var shouldAutorotate: Bool {
-        return false
     }
     
     @IBAction func handleTap(_ sender: UITapGestureRecognizer) {

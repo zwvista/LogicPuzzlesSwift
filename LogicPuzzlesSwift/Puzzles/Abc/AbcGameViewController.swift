@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class AbcGameViewController: UIViewController, GameDelegate, AbcMixin {
+class AbcGameViewController: GameViewController, GameDelegate, AbcMixin {
 
     var scene: AbcGameScene!
     var game: AbcGame!
@@ -39,15 +39,6 @@ class AbcGameViewController: UIViewController, GameDelegate, AbcMixin {
         lblMoves.textColor = SKColor.white
         
         startGame()
-    }
-    
-    // http://stackoverflow.com/questions/18979837/how-to-hide-ios-status-bar
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
-    override var shouldAutorotate: Bool {
-        return false
     }
     
     @IBAction func handleTap(_ sender: UITapGestureRecognizer) {

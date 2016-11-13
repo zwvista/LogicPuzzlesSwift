@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class HitoriGameViewController: UIViewController, GameDelegate, HitoriMixin {
+class HitoriGameViewController: GameViewController, GameDelegate, HitoriMixin {
 
     var scene: HitoriGameScene!
     var game: HitoriGame!
@@ -39,15 +39,6 @@ class HitoriGameViewController: UIViewController, GameDelegate, HitoriMixin {
         lblMoves.textColor = SKColor.white
         
         startGame()
-    }
-    
-    // http://stackoverflow.com/questions/18979837/how-to-hide-ios-status-bar
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
-    override var shouldAutorotate: Bool {
-        return false
     }
     
     @IBAction func handleTap(_ sender: UITapGestureRecognizer) {

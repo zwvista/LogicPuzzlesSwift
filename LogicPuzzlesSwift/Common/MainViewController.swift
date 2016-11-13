@@ -23,4 +23,8 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
+    
+    deinit {
+        print("deinit called")
+    }
 }

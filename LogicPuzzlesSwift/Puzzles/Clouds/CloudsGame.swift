@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CloudsGame: CellsGame<CloudsGameMove, CloudsGameState> {
+class CloudsGame: CellsGame<CloudsGameViewController, CloudsGameMove, CloudsGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

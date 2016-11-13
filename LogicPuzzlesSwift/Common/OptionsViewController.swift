@@ -39,4 +39,7 @@ class OptionsViewController: UITableViewController {
     
     func onDefault() {}
 
+    deinit {
+        print("deinit called")
+    }
 }

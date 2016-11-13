@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NurikabeGame: CellsGame<NurikabeGameMove, NurikabeGameState> {
+class NurikabeGame: CellsGame<NurikabeGameViewController, NurikabeGameMove, NurikabeGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

@@ -9,7 +9,7 @@
 import SpriteKit
 
 class AbcGameScene: GameScene<AbcGameState> {
-    private(set) var gridNode: AbcGridNode!
+    var gridNode: AbcGridNode { return childNode(withName: "grid") as! AbcGridNode }
     
     func coloredRectSize() -> CGSize {
         let sz = gridNode.blockSize - 4
@@ -37,8 +37,9 @@ class AbcGameScene: GameScene<AbcGameState> {
         // add Grid
         let offset:CGFloat = 0.5
         scaleMode = .resizeFill
-        gridNode = AbcGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols)
+        let gridNode = AbcGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols)
         gridNode.position = CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset)
+        gridNode.name = "grid"
         addChild(gridNode)
         gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
         

@@ -23,6 +23,9 @@ class GameState: Copyable, GameStateBase {
         v.isSolved = isSolved
         return v
     }
+    deinit {
+        print("deinit called")
+    }
 }
 
 class CellsGameState: GameState {

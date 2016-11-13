@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LightUpGame: CellsGame<LightUpGameMove, LightUpGameState> {
+class LightUpGame: CellsGame<LightUpGameViewController, LightUpGameMove, LightUpGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

@@ -18,7 +18,7 @@ protocol GameDelegate: class {
     func gameSolved(_ game: AnyObject)
 }
 
-class Game<GM, GS: GameStateBase> {
+class Game<GD: GameDelegate, GM, GS: GameStateBase> where GD.GM == GM, GD.GS == GS {
     var stateIndex = 0
     var states = [GS]()
     var state: GS {return states[stateIndex]}
@@ -31,31 +31,24 @@ class Game<GM, GS: GameStateBase> {
     var moveIndex: Int {return stateIndex}
     var moveCount: Int {return states.count - 1}
     
-    private let _moveAdded: ((AnyObject, GM) -> Void)?
-    private let _levelInitilized: ((AnyObject, GS) -> Void)?
-    private let _levelUpdated: ((AnyObject, GS, GS) -> Void)?
-    private let _gameSolved: ((AnyObject) -> Void)?
+    weak var delegate: GD?
     
-    // https://www.natashatherobot.com/swift-type-erasure/
-    init<GD: GameDelegate>(delegate: GD? = nil) where GD.GM == GM, GD.GS == GS {
-        _moveAdded = delegate?.moveAdded
-        _levelInitilized = delegate?.levelInitilized
-        _levelUpdated = delegate?.levelUpdated
-        _gameSolved = delegate?.gameSolved
+    init(delegate: GD? = nil) {
+        self.delegate = delegate
     }
     
     func moveAdded(move: GM) {
-        _moveAdded?(self, move)
+        delegate?.moveAdded(self, move: move)
     }
     
     func levelInitilized(state: GS) {
-        _levelInitilized?(self, state)
-        if isSolved { _gameSolved?(self) }
+        delegate?.levelInitilized(self, state: state)
+        if isSolved { delegate?.gameSolved(self) }
     }
     
     func levelUpdated(from stateFrom: GS, to stateTo: GS) {
-        _levelUpdated?(self, stateFrom, stateTo)
-        if isSolved { _gameSolved?(self) }
+        delegate?.levelUpdated(self, from: stateFrom, to: stateTo)
+        if isSolved { delegate?.gameSolved(self) }
     }
     
     func undo() {
@@ -70,6 +63,9 @@ class Game<GM, GS: GameStateBase> {
         levelUpdated(from: states[stateIndex - 1], to: state)
     }
     
+    deinit {
+        print("deinit called")
+    }
 }
 
 protocol CellsGameBase: class {
@@ -78,7 +74,7 @@ protocol CellsGameBase: class {
     func isValid(row: Int, col: Int) -> Bool;
 }
 
-class CellsGame<GM, GS: GameStateBase>: Game<GM, GS>, CellsGameBase {
+class CellsGame<GD: GameDelegate, GM, GS: GameStateBase>: Game<GD, GM, GS>, CellsGameBase where GD.GM == GM, GD.GS == GS {
     var size: Position!
     var rows: Int { return size.row }
     var cols: Int { return size.col }
@@ -89,7 +85,7 @@ class CellsGame<GM, GS: GameStateBase>: Game<GM, GS>, CellsGameBase {
         return (0..<rows ~= row) && (0..<cols ~= col)
     }
     
-    override init<GD: GameDelegate>(delegate: GD? = nil) where GD.GM == GM, GD.GS == GS {
+    override init(delegate: GD? = nil) {
         super.init(delegate: delegate)
     }
 }

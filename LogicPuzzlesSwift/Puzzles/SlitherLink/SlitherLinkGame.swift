@@ -16,7 +16,7 @@ protocol SlitherLinkGameDelegate: class {
     func gameSolved(_ game: SlitherLinkGame)
 }
 
-class SlitherLinkGame: CellsGame<SlitherLinkGameMove, SlitherLinkGameState> {
+class SlitherLinkGame: CellsGame<SlitherLinkGameViewController, SlitherLinkGameMove, SlitherLinkGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

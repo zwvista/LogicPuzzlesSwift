@@ -13,7 +13,7 @@ class IslandInfo {
     var neighbors: [Position?] = [nil, nil, nil, nil]
 }
 
-class BridgesGame: CellsGame<BridgesGameMove, BridgesGameState> {
+class BridgesGame: CellsGame<BridgesGameViewController, BridgesGameMove, BridgesGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

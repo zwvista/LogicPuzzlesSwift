@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class BridgesGameViewController: UIViewController, GameDelegate, BridgesMixin {
+class BridgesGameViewController: GameViewController, GameDelegate, BridgesMixin {
 
     var scene: BridgesGameScene!
     var game: BridgesGame!
@@ -40,15 +40,6 @@ class BridgesGameViewController: UIViewController, GameDelegate, BridgesMixin {
         lblMoves.textColor = SKColor.white
         
         startGame()
-    }
-    
-    // http://stackoverflow.com/questions/18979837/how-to-hide-ios-status-bar
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
-    override var shouldAutorotate: Bool {
-        return false
     }
     
     @IBAction func handlePan(_ sender: UIPanGestureRecognizer) {
