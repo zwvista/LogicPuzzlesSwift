@@ -19,11 +19,16 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         let gameName = cell.textLabel!.restorationIdentifier!
         gameDocument.resumeGame(gameName: gameName)
         dismiss(animated: true, completion: {
-            ((UIApplication.shared.keyWindow!.rootViewController! as! UINavigationController).topViewController as! HomeMainViewController).resumeGame(self)
+            let vc = (UIApplication.shared.keyWindow!.rootViewController! as! UINavigationController).topViewController as! HomeMainViewController
+            vc.resumeGame(vc)
         })
     }
     
     @IBAction func onCancel(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    deinit {
+        print("deinit called: HomeChooseGameViewController")
     }
 }

@@ -67,4 +67,8 @@ class HomeOptionsViewController: UITableViewController, HomeMixin {
     @IBAction func onDone(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
     }
+    
+    deinit {
+        print("deinit called: HomeOptionsViewController")
+    }
 }
