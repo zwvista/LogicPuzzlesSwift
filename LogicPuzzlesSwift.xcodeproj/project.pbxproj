@@ -20,6 +20,7 @@
 		84EE6E971DD945480013A033 /* MasyuOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE6E8B1DD945480013A033 /* MasyuOptionsViewController.swift */; };
 		84EE6E981DD945480013A033 /* MasyuTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE6E8C1DD945480013A033 /* MasyuTables.swift */; };
 		84EE6E9B1DD945610013A033 /* Masyu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84EE6E991DD945610013A033 /* Masyu.storyboard */; };
+		84EE6E9D1DD954280013A033 /* HomeChooseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE6E9C1DD954280013A033 /* HomeChooseGameViewController.swift */; };
 		8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */; };
 		8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */; };
 		8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A01DB8DE930056D407 /* AnimatedExample.graffle */; };
@@ -234,6 +235,7 @@
 		84EE6E8B1DD945480013A033 /* MasyuOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasyuOptionsViewController.swift; sourceTree = "<group>"; };
 		84EE6E8C1DD945480013A033 /* MasyuTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasyuTables.swift; sourceTree = "<group>"; };
 		84EE6E9A1DD945610013A033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/Masyu.storyboard; sourceTree = SOURCE_ROOT; };
+		84EE6E9C1DD954280013A033 /* HomeChooseGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeChooseGameViewController.swift; sourceTree = "<group>"; };
 		8C1D169C1DB8DE930056D407 /* BreadthFirstSearch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BreadthFirstSearch.playground; sourceTree = "<group>"; };
 		8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadthFirstSearch.swift; sourceTree = "<group>"; };
 		8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimatedExample.gif; sourceTree = "<group>"; };
@@ -542,6 +544,7 @@
 			isa = PBXGroup;
 			children = (
 				8C6D373D1DC421980052202C /* Home.storyboard */,
+				84EE6E9C1DD954280013A033 /* HomeChooseGameViewController.swift */,
 				8C6D37331DC421180052202C /* HomeDocument.swift */,
 				8C6D37341DC421180052202C /* HomeMainViewController.swift */,
 				8C6D37351DC421180052202C /* HomeMixin.swift */,
@@ -1073,6 +1076,7 @@
 				8C6D37A31DC42F0A0052202C /* HitoriObject.swift in Sources */,
 				8C64A27F1DD85A3800AB6C09 /* SkyscrapersMixin.swift in Sources */,
 				8C6D37AD1DC42F0A0052202C /* LightUpMainViewController.swift in Sources */,
+				84EE6E9D1DD954280013A033 /* HomeChooseGameViewController.swift in Sources */,
 				8C64A2791DD85A3800AB6C09 /* SkyscrapersGameScene.swift in Sources */,
 				8C6D37B31DC42F0A0052202C /* SlitherLinkGame.swift in Sources */,
 				8C7EF06A1DD297D100D1DE94 /* NurikabeMixin.swift in Sources */,

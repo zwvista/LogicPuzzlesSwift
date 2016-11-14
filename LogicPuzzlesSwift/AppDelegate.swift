@@ -10,7 +10,7 @@ import UIKit
 import SharkORM
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, SRKDelegate, LightUpMixin {
+class AppDelegate: UIResponder, UIApplicationDelegate, SRKDelegate, GameMixin {
 
     var window: UIWindow?
 
@@ -31,7 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SRKDelegate, LightUpMixin
         SharkORM.openDatabaseNamed("Game")
         
         // initilize the managers
-        _ = gameDocument
         _ = soundManager
 
         return true

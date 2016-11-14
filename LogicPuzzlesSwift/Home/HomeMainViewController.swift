@@ -34,13 +34,8 @@ class HomeMainViewController: UIViewController, HomeMixin {
         startGame(gameName: gameDocument.gameProgress.gameName!, toResume: true)
     }
     
-    @IBAction func startGame(_ sender: AnyObject) {
-        startGame(gameName: (sender as! UIButton).restorationIdentifier!, toResume: true)
-    }
-    
     // http://www.newventuresoftware.com/blog/organizing-xcode-projects-using-multiple-storyboards
     private func startGame(gameName: String, toResume: Bool) {
-        gameDocument.resumeGame(gameName: gameName)
         self.toResume = toResume
         let storyboard = UIStoryboard(name: gameName, bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "InitialController") as UIViewController
