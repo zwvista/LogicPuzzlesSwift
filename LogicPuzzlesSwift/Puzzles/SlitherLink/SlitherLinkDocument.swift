@@ -30,7 +30,7 @@ class SlitherLinkDocument: GameDocument<SlitherLinkGameMove> {
     }
 
     init() {
-        super.init(forResource: "SlitherLinkLevels")
+        super.init(forResource: "SlitherLink")
         selectedLevelID = gameProgress.levelID
     }
     

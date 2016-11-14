@@ -30,7 +30,7 @@ class SkyscrapersDocument: GameDocument<SkyscrapersGameMove> {
     }
 
     init() {
-        super.init(forResource: "SkyscrapersLevels")
+        super.init(forResource: "Skyscrapers")
         selectedLevelID = gameProgress.levelID
     }
     

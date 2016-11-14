@@ -30,7 +30,7 @@ class HitoriDocument: GameDocument<HitoriGameMove> {
     }
 
     init() {
-        super.init(forResource: "HitoriLevels")
+        super.init(forResource: "Hitori")
         selectedLevelID = gameProgress.levelID
     }
     

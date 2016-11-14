@@ -30,7 +30,7 @@ class AbcDocument: GameDocument<AbcGameMove> {
     }
 
     init() {
-        super.init(forResource: "AbcLevels")
+        super.init(forResource: "Abc")
         selectedLevelID = gameProgress.levelID
     }
     

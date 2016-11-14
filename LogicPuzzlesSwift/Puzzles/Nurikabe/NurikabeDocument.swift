@@ -30,7 +30,7 @@ class NurikabeDocument: GameDocument<NurikabeGameMove> {
     }
 
     init() {
-        super.init(forResource: "NurikabeLevels")
+        super.init(forResource: "Nurikabe")
         selectedLevelID = gameProgress.levelID
     }
     

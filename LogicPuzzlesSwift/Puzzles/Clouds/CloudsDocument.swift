@@ -30,7 +30,7 @@ class CloudsDocument: GameDocument<CloudsGameMove> {
     }
 
     init() {
-        super.init(forResource: "CloudsLevels")
+        super.init(forResource: "Clouds")
         selectedLevelID = gameProgress.levelID
     }
     

@@ -30,7 +30,7 @@ class BridgesDocument: GameDocument<BridgesGameMove> {
     }
 
     init() {
-        super.init(forResource: "BridgesLevels")
+        super.init(forResource: "Bridges")
         selectedLevelID = gameProgress.levelID
     }
     

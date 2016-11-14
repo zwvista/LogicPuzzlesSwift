@@ -30,7 +30,7 @@ class LightUpDocument: GameDocument<LightUpGameMove> {
     }
 
     init() {
-        super.init(forResource: "LightUpLevels")
+        super.init(forResource: "LightUp")
         selectedLevelID = gameProgress.levelID
     }
     
