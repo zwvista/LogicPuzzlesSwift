@@ -8,6 +8,7 @@
     "FF65A8AFC255E5913A7BCDE7153CC9C006153EAE" : 9223372036854775807,
     "A7FB94794D37B7728F6B46975BE5E9D999585A35" : 9223372036854775807,
     "0B2E5EC0AFF41DD2E9A85F532BCA66ECF209844B" : 9223372036854775807,
+    "EB01B6A79D272820BD36949BD1BFF044DAB62FBE" : 9223372036854775807,
     "CF309AABC690F91A443043D5C69EECB0069B5411" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "099746E7-65A5-48F5-8D4A-2D4A8F47DCF1",
@@ -16,6 +17,7 @@
     "FF65A8AFC255E5913A7BCDE7153CC9C006153EAE" : "..\/OSS\/ActionSheetPicker-3.0",
     "A7FB94794D37B7728F6B46975BE5E9D999585A35" : "..\/OSS\/Fuzi",
     "0B2E5EC0AFF41DD2E9A85F532BCA66ECF209844B" : "LogicPuzzlesSwift\/",
+    "EB01B6A79D272820BD36949BD1BFF044DAB62FBE" : "..\/OSS\/EZSwiftExtensions",
     "CF309AABC690F91A443043D5C69EECB0069B5411" : "..\/OSS\/swift-algorithm-club"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "LogicPuzzlesSwift",
@@ -41,6 +43,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/raywenderlich\/swift-algorithm-club",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CF309AABC690F91A443043D5C69EECB0069B5411"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/goktugyil\/EZSwiftExtensions",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EB01B6A79D272820BD36949BD1BFF044DAB62FBE"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/skywinder\/ActionSheetPicker-3.0",

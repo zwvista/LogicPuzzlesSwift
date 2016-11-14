@@ -47,6 +47,54 @@
 		8C64A2811DD85A3800AB6C09 /* SkyscrapersOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2751DD85A3800AB6C09 /* SkyscrapersOptionsViewController.swift */; };
 		8C64A2821DD85A3800AB6C09 /* SkyscrapersTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2761DD85A3800AB6C09 /* SkyscrapersTables.swift */; };
 		8C64A2851DD85A5000AB6C09 /* Skyscrapers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C64A2831DD85A5000AB6C09 /* Skyscrapers.storyboard */; };
+		8C64A2B81DDA00D500AB6C09 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2881DDA00D500AB6C09 /* ArrayExtensions.swift */; };
+		8C64A2B91DDA00D500AB6C09 /* BlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2891DDA00D500AB6C09 /* BlockButton.swift */; };
+		8C64A2BA1DDA00D500AB6C09 /* BlockLongPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A28A1DDA00D500AB6C09 /* BlockLongPress.swift */; };
+		8C64A2BB1DDA00D500AB6C09 /* BlockPan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A28B1DDA00D500AB6C09 /* BlockPan.swift */; };
+		8C64A2BC1DDA00D500AB6C09 /* BlockPinch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A28C1DDA00D500AB6C09 /* BlockPinch.swift */; };
+		8C64A2BD1DDA00D500AB6C09 /* BlockSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A28D1DDA00D500AB6C09 /* BlockSwipe.swift */; };
+		8C64A2BE1DDA00D500AB6C09 /* BlockTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A28E1DDA00D500AB6C09 /* BlockTap.swift */; };
+		8C64A2BF1DDA00D500AB6C09 /* BlockWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A28F1DDA00D500AB6C09 /* BlockWebView.swift */; };
+		8C64A2C01DDA00D500AB6C09 /* BoolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2901DDA00D500AB6C09 /* BoolExtensions.swift */; };
+		8C64A2C11DDA00D500AB6C09 /* BundleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2911DDA00D500AB6C09 /* BundleExtensions.swift */; };
+		8C64A2C21DDA00D500AB6C09 /* CGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2921DDA00D500AB6C09 /* CGFloatExtensions.swift */; };
+		8C64A2C31DDA00D500AB6C09 /* CGPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2931DDA00D500AB6C09 /* CGPointExtensions.swift */; };
+		8C64A2C41DDA00D500AB6C09 /* CGRectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2941DDA00D500AB6C09 /* CGRectExtensions.swift */; };
+		8C64A2C51DDA00D500AB6C09 /* CharacterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2951DDA00D500AB6C09 /* CharacterExtensions.swift */; };
+		8C64A2C61DDA00D500AB6C09 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2961DDA00D500AB6C09 /* DateExtensions.swift */; };
+		8C64A2C71DDA00D500AB6C09 /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2971DDA00D500AB6C09 /* DictionaryExtensions.swift */; };
+		8C64A2C81DDA00D500AB6C09 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2981DDA00D500AB6C09 /* DoubleExtensions.swift */; };
+		8C64A2C91DDA00D500AB6C09 /* ErrorTypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2991DDA00D500AB6C09 /* ErrorTypeExtensions.swift */; };
+		8C64A2CA1DDA00D500AB6C09 /* EZSwiftFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A29A1DDA00D500AB6C09 /* EZSwiftFunctions.swift */; };
+		8C64A2CB1DDA00D500AB6C09 /* FloatingPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A29B1DDA00D500AB6C09 /* FloatingPointExtensions.swift */; };
+		8C64A2CC1DDA00D500AB6C09 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A29C1DDA00D500AB6C09 /* IntExtensions.swift */; };
+		8C64A2CD1DDA00D500AB6C09 /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A29D1DDA00D500AB6C09 /* NSAttributedStringExtensions.swift */; };
+		8C64A2CE1DDA00D500AB6C09 /* NSDictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A29E1DDA00D500AB6C09 /* NSDictionaryExtensions.swift */; };
+		8C64A2CF1DDA00D500AB6C09 /* NSObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A29F1DDA00D500AB6C09 /* NSObjectExtensions.swift */; };
+		8C64A2D01DDA00D500AB6C09 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2A01DDA00D500AB6C09 /* StringExtensions.swift */; };
+		8C64A2D11DDA00D500AB6C09 /* TimerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2A11DDA00D500AB6C09 /* TimerExtensions.swift */; };
+		8C64A2D21DDA00D500AB6C09 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2A21DDA00D500AB6C09 /* UIAlertControllerExtensions.swift */; };
+		8C64A2D31DDA00D500AB6C09 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2A31DDA00D500AB6C09 /* UIApplicationExtensions.swift */; };
+		8C64A2D41DDA00D500AB6C09 /* UIBarButtonItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2A41DDA00D500AB6C09 /* UIBarButtonItemExtensions.swift */; };
+		8C64A2D51DDA00D500AB6C09 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2A51DDA00D500AB6C09 /* UIButtonExtensions.swift */; };
+		8C64A2D61DDA00D500AB6C09 /* UIColoredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2A61DDA00D500AB6C09 /* UIColoredView.swift */; };
+		8C64A2D71DDA00D500AB6C09 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2A71DDA00D500AB6C09 /* UIColorExtensions.swift */; };
+		8C64A2D81DDA00D500AB6C09 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2A81DDA00D500AB6C09 /* UIDeviceExtensions.swift */; };
+		8C64A2D91DDA00D500AB6C09 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2A91DDA00D500AB6C09 /* UIFontExtensions.swift */; };
+		8C64A2DA1DDA00D500AB6C09 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2AA1DDA00D500AB6C09 /* UIImageExtensions.swift */; };
+		8C64A2DB1DDA00D500AB6C09 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2AB1DDA00D500AB6C09 /* UIImageViewExtensions.swift */; };
+		8C64A2DC1DDA00D500AB6C09 /* UILabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2AC1DDA00D500AB6C09 /* UILabelExtensions.swift */; };
+		8C64A2DD1DDA00D500AB6C09 /* UISliderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2AD1DDA00D500AB6C09 /* UISliderExtensions.swift */; };
+		8C64A2DE1DDA00D500AB6C09 /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2AE1DDA00D500AB6C09 /* UIStoryboardExtensions.swift */; };
+		8C64A2DF1DDA00D500AB6C09 /* UISwitchExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2AF1DDA00D500AB6C09 /* UISwitchExtensions.swift */; };
+		8C64A2E01DDA00D500AB6C09 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2B01DDA00D500AB6C09 /* UITextFieldExtensions.swift */; };
+		8C64A2E11DDA00D500AB6C09 /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2B11DDA00D500AB6C09 /* UITextViewExtensions.swift */; };
+		8C64A2E21DDA00D500AB6C09 /* UIUserInterfaceSizeClassExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2B21DDA00D500AB6C09 /* UIUserInterfaceSizeClassExtensions.swift */; };
+		8C64A2E31DDA00D500AB6C09 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2B31DDA00D500AB6C09 /* UIViewControllerExtensions.swift */; };
+		8C64A2E41DDA00D500AB6C09 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2B41DDA00D500AB6C09 /* UIViewExtensions.swift */; };
+		8C64A2E51DDA00D500AB6C09 /* UIWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2B51DDA00D500AB6C09 /* UIWindowExtensions.swift */; };
+		8C64A2E61DDA00D500AB6C09 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2B61DDA00D500AB6C09 /* URLExtensions.swift */; };
+		8C64A2E71DDA00D500AB6C09 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2B71DDA00D500AB6C09 /* UserDefaultsExtension.swift */; };
 		8C6ACBFE1DCAF8BA0075F32C /* GameDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37CF1DC42FA40052202C /* GameDocument.swift */; };
 		8C6ACBFF1DCAF8BA0075F32C /* GameMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D71DC42FA40052202C /* GameMixin.swift */; };
 		8C6ACC001DCAF8C20075F32C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37E91DC59EE50052202C /* GameScene.swift */; };
@@ -263,6 +311,54 @@
 		8C64A2751DD85A3800AB6C09 /* SkyscrapersOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersOptionsViewController.swift; sourceTree = "<group>"; };
 		8C64A2761DD85A3800AB6C09 /* SkyscrapersTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersTables.swift; sourceTree = "<group>"; };
 		8C64A2841DD85A5000AB6C09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/Skyscrapers.storyboard; sourceTree = SOURCE_ROOT; };
+		8C64A2881DDA00D500AB6C09 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
+		8C64A2891DDA00D500AB6C09 /* BlockButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockButton.swift; sourceTree = "<group>"; };
+		8C64A28A1DDA00D500AB6C09 /* BlockLongPress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockLongPress.swift; sourceTree = "<group>"; };
+		8C64A28B1DDA00D500AB6C09 /* BlockPan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockPan.swift; sourceTree = "<group>"; };
+		8C64A28C1DDA00D500AB6C09 /* BlockPinch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockPinch.swift; sourceTree = "<group>"; };
+		8C64A28D1DDA00D500AB6C09 /* BlockSwipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockSwipe.swift; sourceTree = "<group>"; };
+		8C64A28E1DDA00D500AB6C09 /* BlockTap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockTap.swift; sourceTree = "<group>"; };
+		8C64A28F1DDA00D500AB6C09 /* BlockWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockWebView.swift; sourceTree = "<group>"; };
+		8C64A2901DDA00D500AB6C09 /* BoolExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolExtensions.swift; sourceTree = "<group>"; };
+		8C64A2911DDA00D500AB6C09 /* BundleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleExtensions.swift; sourceTree = "<group>"; };
+		8C64A2921DDA00D500AB6C09 /* CGFloatExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloatExtensions.swift; sourceTree = "<group>"; };
+		8C64A2931DDA00D500AB6C09 /* CGPointExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointExtensions.swift; sourceTree = "<group>"; };
+		8C64A2941DDA00D500AB6C09 /* CGRectExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectExtensions.swift; sourceTree = "<group>"; };
+		8C64A2951DDA00D500AB6C09 /* CharacterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterExtensions.swift; sourceTree = "<group>"; };
+		8C64A2961DDA00D500AB6C09 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		8C64A2971DDA00D500AB6C09 /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
+		8C64A2981DDA00D500AB6C09 /* DoubleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
+		8C64A2991DDA00D500AB6C09 /* ErrorTypeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTypeExtensions.swift; sourceTree = "<group>"; };
+		8C64A29A1DDA00D500AB6C09 /* EZSwiftFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSwiftFunctions.swift; sourceTree = "<group>"; };
+		8C64A29B1DDA00D500AB6C09 /* FloatingPointExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPointExtensions.swift; sourceTree = "<group>"; };
+		8C64A29C1DDA00D500AB6C09 /* IntExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
+		8C64A29D1DDA00D500AB6C09 /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensions.swift; sourceTree = "<group>"; };
+		8C64A29E1DDA00D500AB6C09 /* NSDictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDictionaryExtensions.swift; sourceTree = "<group>"; };
+		8C64A29F1DDA00D500AB6C09 /* NSObjectExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtensions.swift; sourceTree = "<group>"; };
+		8C64A2A01DDA00D500AB6C09 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		8C64A2A11DDA00D500AB6C09 /* TimerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerExtensions.swift; sourceTree = "<group>"; };
+		8C64A2A21DDA00D500AB6C09 /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
+		8C64A2A31DDA00D500AB6C09 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
+		8C64A2A41DDA00D500AB6C09 /* UIBarButtonItemExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtensions.swift; sourceTree = "<group>"; };
+		8C64A2A51DDA00D500AB6C09 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
+		8C64A2A61DDA00D500AB6C09 /* UIColoredView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColoredView.swift; sourceTree = "<group>"; };
+		8C64A2A71DDA00D500AB6C09 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		8C64A2A81DDA00D500AB6C09 /* UIDeviceExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceExtensions.swift; sourceTree = "<group>"; };
+		8C64A2A91DDA00D500AB6C09 /* UIFontExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
+		8C64A2AA1DDA00D500AB6C09 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
+		8C64A2AB1DDA00D500AB6C09 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
+		8C64A2AC1DDA00D500AB6C09 /* UILabelExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtensions.swift; sourceTree = "<group>"; };
+		8C64A2AD1DDA00D500AB6C09 /* UISliderExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISliderExtensions.swift; sourceTree = "<group>"; };
+		8C64A2AE1DDA00D500AB6C09 /* UIStoryboardExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtensions.swift; sourceTree = "<group>"; };
+		8C64A2AF1DDA00D500AB6C09 /* UISwitchExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISwitchExtensions.swift; sourceTree = "<group>"; };
+		8C64A2B01DDA00D500AB6C09 /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensions.swift; sourceTree = "<group>"; };
+		8C64A2B11DDA00D500AB6C09 /* UITextViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewExtensions.swift; sourceTree = "<group>"; };
+		8C64A2B21DDA00D500AB6C09 /* UIUserInterfaceSizeClassExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUserInterfaceSizeClassExtensions.swift; sourceTree = "<group>"; };
+		8C64A2B31DDA00D500AB6C09 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		8C64A2B41DDA00D500AB6C09 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		8C64A2B51DDA00D500AB6C09 /* UIWindowExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindowExtensions.swift; sourceTree = "<group>"; };
+		8C64A2B61DDA00D500AB6C09 /* URLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
+		8C64A2B71DDA00D500AB6C09 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		8C6ACC181DD204420075F32C /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
 		8C6D37331DC421180052202C /* HomeDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDocument.swift; sourceTree = "<group>"; };
 		8C6D37341DC421180052202C /* HomeMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMainViewController.swift; sourceTree = "<group>"; };
@@ -540,6 +636,62 @@
 			path = Skyscrapers;
 			sourceTree = "<group>";
 		};
+		8C64A2871DDA00D500AB6C09 /* EZSwiftExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				8C64A2881DDA00D500AB6C09 /* ArrayExtensions.swift */,
+				8C64A2891DDA00D500AB6C09 /* BlockButton.swift */,
+				8C64A28A1DDA00D500AB6C09 /* BlockLongPress.swift */,
+				8C64A28B1DDA00D500AB6C09 /* BlockPan.swift */,
+				8C64A28C1DDA00D500AB6C09 /* BlockPinch.swift */,
+				8C64A28D1DDA00D500AB6C09 /* BlockSwipe.swift */,
+				8C64A28E1DDA00D500AB6C09 /* BlockTap.swift */,
+				8C64A28F1DDA00D500AB6C09 /* BlockWebView.swift */,
+				8C64A2901DDA00D500AB6C09 /* BoolExtensions.swift */,
+				8C64A2911DDA00D500AB6C09 /* BundleExtensions.swift */,
+				8C64A2921DDA00D500AB6C09 /* CGFloatExtensions.swift */,
+				8C64A2931DDA00D500AB6C09 /* CGPointExtensions.swift */,
+				8C64A2941DDA00D500AB6C09 /* CGRectExtensions.swift */,
+				8C64A2951DDA00D500AB6C09 /* CharacterExtensions.swift */,
+				8C64A2961DDA00D500AB6C09 /* DateExtensions.swift */,
+				8C64A2971DDA00D500AB6C09 /* DictionaryExtensions.swift */,
+				8C64A2981DDA00D500AB6C09 /* DoubleExtensions.swift */,
+				8C64A2991DDA00D500AB6C09 /* ErrorTypeExtensions.swift */,
+				8C64A29A1DDA00D500AB6C09 /* EZSwiftFunctions.swift */,
+				8C64A29B1DDA00D500AB6C09 /* FloatingPointExtensions.swift */,
+				8C64A29C1DDA00D500AB6C09 /* IntExtensions.swift */,
+				8C64A29D1DDA00D500AB6C09 /* NSAttributedStringExtensions.swift */,
+				8C64A29E1DDA00D500AB6C09 /* NSDictionaryExtensions.swift */,
+				8C64A29F1DDA00D500AB6C09 /* NSObjectExtensions.swift */,
+				8C64A2A01DDA00D500AB6C09 /* StringExtensions.swift */,
+				8C64A2A11DDA00D500AB6C09 /* TimerExtensions.swift */,
+				8C64A2A21DDA00D500AB6C09 /* UIAlertControllerExtensions.swift */,
+				8C64A2A31DDA00D500AB6C09 /* UIApplicationExtensions.swift */,
+				8C64A2A41DDA00D500AB6C09 /* UIBarButtonItemExtensions.swift */,
+				8C64A2A51DDA00D500AB6C09 /* UIButtonExtensions.swift */,
+				8C64A2A61DDA00D500AB6C09 /* UIColoredView.swift */,
+				8C64A2A71DDA00D500AB6C09 /* UIColorExtensions.swift */,
+				8C64A2A81DDA00D500AB6C09 /* UIDeviceExtensions.swift */,
+				8C64A2A91DDA00D500AB6C09 /* UIFontExtensions.swift */,
+				8C64A2AA1DDA00D500AB6C09 /* UIImageExtensions.swift */,
+				8C64A2AB1DDA00D500AB6C09 /* UIImageViewExtensions.swift */,
+				8C64A2AC1DDA00D500AB6C09 /* UILabelExtensions.swift */,
+				8C64A2AD1DDA00D500AB6C09 /* UISliderExtensions.swift */,
+				8C64A2AE1DDA00D500AB6C09 /* UIStoryboardExtensions.swift */,
+				8C64A2AF1DDA00D500AB6C09 /* UISwitchExtensions.swift */,
+				8C64A2B01DDA00D500AB6C09 /* UITextFieldExtensions.swift */,
+				8C64A2B11DDA00D500AB6C09 /* UITextViewExtensions.swift */,
+				8C64A2B21DDA00D500AB6C09 /* UIUserInterfaceSizeClassExtensions.swift */,
+				8C64A2B31DDA00D500AB6C09 /* UIViewControllerExtensions.swift */,
+				8C64A2B41DDA00D500AB6C09 /* UIViewExtensions.swift */,
+				8C64A2B51DDA00D500AB6C09 /* UIWindowExtensions.swift */,
+				8C64A2B61DDA00D500AB6C09 /* URLExtensions.swift */,
+				8C64A2B71DDA00D500AB6C09 /* UserDefaultsExtension.swift */,
+			);
+			name = EZSwiftExtensions;
+			path = ../../OSS/EZSwiftExtensions/Sources;
+			sourceTree = "<group>";
+		};
 		8C6D37321DC421180052202C /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -761,7 +913,7 @@
 			path = "../../OSS/ActionSheetPicker-3.0/Pickers";
 			sourceTree = "<group>";
 		};
-		8C916CB11DAA5E9500D9E62B /* Sources */ = {
+		8C916CB11DAA5E9500D9E62B /* Fuzi */ = {
 			isa = PBXGroup;
 			children = (
 				8C916CB21DAA5E9500D9E62B /* Document.swift */,
@@ -774,7 +926,7 @@
 				8C916CB91DAA5E9500D9E62B /* NodeSet.swift */,
 				8C916CBA1DAA5E9500D9E62B /* Queryable.swift */,
 			);
-			name = Sources;
+			name = Fuzi;
 			path = ../../OSS/Fuzi/Sources;
 			sourceTree = "<group>";
 		};
@@ -796,7 +948,8 @@
 			isa = PBXGroup;
 			children = (
 				8C1D169B1DB8DE930056D407 /* Breadth-First Search */,
-				8C916CB11DAA5E9500D9E62B /* Sources */,
+				8C64A2871DDA00D500AB6C09 /* EZSwiftExtensions */,
+				8C916CB11DAA5E9500D9E62B /* Fuzi */,
 				8C886C271D9E8AF0004A42BF /* Pickers */,
 				8C9F43D91D771915000139FC /* LogicPuzzlesSwift */,
 				8C9F43F01D771915000139FC /* LogicPuzzlesSwiftTests */,
@@ -1029,28 +1182,38 @@
 			files = (
 				8C6D37FB1DC5ACDB0052202C /* Copyable.swift in Sources */,
 				8C6D373B1DC421180052202C /* HomeOptionsViewController.swift in Sources */,
+				8C64A2E51DDA00D500AB6C09 /* UIWindowExtensions.swift in Sources */,
 				8C64A27A1DD85A3800AB6C09 /* SkyscrapersGameState.swift in Sources */,
 				8C7EF0881DD4C23C00D1DE94 /* AbcObject.swift in Sources */,
 				8C6D37FA1DC5ACC90052202C /* OptionsViewController.swift in Sources */,
 				8C6D37A11DC42F0A0052202C /* HitoriMainViewController.swift in Sources */,
+				8C64A2BF1DDA00D500AB6C09 /* BlockWebView.swift in Sources */,
+				8C64A2D51DDA00D500AB6C09 /* UIButtonExtensions.swift in Sources */,
 				8C6D37831DC42F0A0052202C /* BridgesGame.swift in Sources */,
+				8C64A2D21DDA00D500AB6C09 /* UIAlertControllerExtensions.swift in Sources */,
+				8C64A2E31DDA00D500AB6C09 /* UIViewControllerExtensions.swift in Sources */,
 				8C6D37821DC42F0A0052202C /* BridgesDocument.swift in Sources */,
 				8C64A2801DD85A3800AB6C09 /* SkyscrapersObject.swift in Sources */,
 				8CD1558B1DD77C3400786F34 /* Extensions.swift in Sources */,
 				8C64A2681DD8089700AB6C09 /* GameViewController.swift in Sources */,
+				8C64A2CE1DDA00D500AB6C09 /* NSDictionaryExtensions.swift in Sources */,
+				8C64A2C91DDA00D500AB6C09 /* ErrorTypeExtensions.swift in Sources */,
 				8C1D16B31DB8DE930056D407 /* README.markdown in Sources */,
 				8C6D37B11DC42F0A0052202C /* LightUpTables.swift in Sources */,
 				8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */,
 				8C6ACBFF1DCAF8BA0075F32C /* GameMixin.swift in Sources */,
 				8C6D37901DC42F0A0052202C /* CloudsGameScene.swift in Sources */,
 				8C6D37A51DC42F0A0052202C /* HitoriTables.swift in Sources */,
+				8C64A2E11DDA00D500AB6C09 /* UITextViewExtensions.swift in Sources */,
 				8C6D37981DC42F0A0052202C /* CloudsOptionsViewController.swift in Sources */,
+				8C64A2CA1DDA00D500AB6C09 /* EZSwiftFunctions.swift in Sources */,
 				8C6D37891DC42F0A0052202C /* BridgesMainViewController.swift in Sources */,
 				8C7EF0631DD297D100D1DE94 /* NurikabeGame.swift in Sources */,
 				8C6D37BB1DC42F0A0052202C /* SlitherLinkObject.swift in Sources */,
 				8C6D37A21DC42F0A0052202C /* HitoriMixin.swift in Sources */,
 				8C6D373A1DC421180052202C /* HomeMixin.swift in Sources */,
 				8C6D37F51DC5AC520052202C /* Position.swift in Sources */,
+				8C64A2C41DDA00D500AB6C09 /* CGRectExtensions.swift in Sources */,
 				8C6D379C1DC42F0A0052202C /* HitoriGameScene.swift in Sources */,
 				8C6D373C1DC421180052202C /* HomeTables.swift in Sources */,
 				8C6D37A41DC42F0A0052202C /* HitoriOptionsViewController.swift in Sources */,
@@ -1061,23 +1224,36 @@
 				8C6D37961DC42F0A0052202C /* CloudsMixin.swift in Sources */,
 				8C64A27B1DD85A3800AB6C09 /* SkyscrapersGameViewController.swift in Sources */,
 				8C1D16B51DB8DE930056D407 /* Graph.swift in Sources */,
+				8C64A2E21DDA00D500AB6C09 /* UIUserInterfaceSizeClassExtensions.swift in Sources */,
 				8C6D37921DC42F0A0052202C /* CloudsGameViewController.swift in Sources */,
 				84EE6E971DD945480013A033 /* MasyuOptionsViewController.swift in Sources */,
 				8C7EF0891DD4C23C00D1DE94 /* AbcOptionsViewController.swift in Sources */,
+				8C64A2D11DDA00D500AB6C09 /* TimerExtensions.swift in Sources */,
 				8C886C441D9E8AF1004A42BF /* SWActionSheet.m in Sources */,
 				8C6D379A1DC42F0A0052202C /* HitoriDocument.swift in Sources */,
+				8C64A2E41DDA00D500AB6C09 /* UIViewExtensions.swift in Sources */,
 				8C64A2821DD85A3800AB6C09 /* SkyscrapersTables.swift in Sources */,
+				8C64A2CB1DDA00D500AB6C09 /* FloatingPointExtensions.swift in Sources */,
 				8C6D37A81DC42F0A0052202C /* LightUpGameScene.swift in Sources */,
+				8C64A2DE1DDA00D500AB6C09 /* UIStoryboardExtensions.swift in Sources */,
 				8C886C401D9E8AF1004A42BF /* ActionSheetLocalePicker.m in Sources */,
+				8C64A2D01DDA00D500AB6C09 /* StringExtensions.swift in Sources */,
 				8C6D37851DC42F0A0052202C /* BridgesGameState.swift in Sources */,
+				8C64A2D31DDA00D500AB6C09 /* UIApplicationExtensions.swift in Sources */,
+				8C64A2C71DDA00D500AB6C09 /* DictionaryExtensions.swift in Sources */,
 				8C7EF0821DD4C23C00D1DE94 /* AbcGameState.swift in Sources */,
+				8C64A2E01DDA00D500AB6C09 /* UITextFieldExtensions.swift in Sources */,
 				8C7EF0661DD297D100D1DE94 /* NurikabeGameViewController.swift in Sources */,
 				8C6ACBFE1DCAF8BA0075F32C /* GameDocument.swift in Sources */,
 				8C6D37A31DC42F0A0052202C /* HitoriObject.swift in Sources */,
+				8C64A2C61DDA00D500AB6C09 /* DateExtensions.swift in Sources */,
 				8C64A27F1DD85A3800AB6C09 /* SkyscrapersMixin.swift in Sources */,
 				8C6D37AD1DC42F0A0052202C /* LightUpMainViewController.swift in Sources */,
 				84EE6E9D1DD954280013A033 /* HomeChooseGameViewController.swift in Sources */,
+				8C64A2D71DDA00D500AB6C09 /* UIColorExtensions.swift in Sources */,
+				8C64A2DF1DDA00D500AB6C09 /* UISwitchExtensions.swift in Sources */,
 				8C64A2791DD85A3800AB6C09 /* SkyscrapersGameScene.swift in Sources */,
+				8C64A2B81DDA00D500AB6C09 /* ArrayExtensions.swift in Sources */,
 				8C6D37B31DC42F0A0052202C /* SlitherLinkGame.swift in Sources */,
 				8C7EF06A1DD297D100D1DE94 /* NurikabeMixin.swift in Sources */,
 				8C64A27E1DD85A3800AB6C09 /* SkyscrapersMainViewController.swift in Sources */,
@@ -1088,25 +1264,33 @@
 				8C7EF06D1DD297D100D1DE94 /* NurikabeTables.swift in Sources */,
 				8C6D378E1DC42F0A0052202C /* CloudsDocument.swift in Sources */,
 				8C886C3C1D9E8AF1004A42BF /* AbstractActionSheetPicker.m in Sources */,
+				8C64A2C01DDA00D500AB6C09 /* BoolExtensions.swift in Sources */,
 				8C916CBE1DAA5E9500D9E62B /* Helpers.swift in Sources */,
 				84EE6E8D1DD945480013A033 /* MasyuDocument.swift in Sources */,
 				8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */,
+				8C64A2DC1DDA00D500AB6C09 /* UILabelExtensions.swift in Sources */,
 				8C6D379E1DC42F0A0052202C /* HitoriGameViewController.swift in Sources */,
+				8C64A2DA1DDA00D500AB6C09 /* UIImageExtensions.swift in Sources */,
 				8C6D37FE1DC5B4EB0052202C /* GameState.swift in Sources */,
 				8C6D37B51DC42F0A0052202C /* SlitherLinkGameState.swift in Sources */,
 				8C7EF0871DD4C23C00D1DE94 /* AbcMixin.swift in Sources */,
 				8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */,
 				8C6D37A71DC42F0A0052202C /* LightUpGame.swift in Sources */,
+				8C64A2C11DDA00D500AB6C09 /* BundleExtensions.swift in Sources */,
 				8C7EF0841DD4C23C00D1DE94 /* AbcGridNode.swift in Sources */,
+				8C64A2D61DDA00D500AB6C09 /* UIColoredView.swift in Sources */,
 				8C7EF0861DD4C23C00D1DE94 /* AbcMainViewController.swift in Sources */,
 				8C6D37391DC421180052202C /* HomeMainViewController.swift in Sources */,
+				8C64A2D41DDA00D500AB6C09 /* UIBarButtonItemExtensions.swift in Sources */,
 				8C6ACC001DCAF8C20075F32C /* GameScene.swift in Sources */,
 				8C6ACC1A1DD206AD0075F32C /* MainViewController.swift in Sources */,
 				8C6D37AF1DC42F0A0052202C /* LightUpObject.swift in Sources */,
 				8C7EF07F1DD4C23C00D1DE94 /* AbcDocument.swift in Sources */,
 				8C6D37AB1DC42F0A0052202C /* LightUpGridNode.swift in Sources */,
+				8C64A2D81DDA00D500AB6C09 /* UIDeviceExtensions.swift in Sources */,
 				8C6D37BD1DC42F0A0052202C /* SlitherLinkTables.swift in Sources */,
 				8C6D37B01DC42F0A0052202C /* LightUpOptionsViewController.swift in Sources */,
+				8C64A2BD1DDA00D500AB6C09 /* BlockSwipe.swift in Sources */,
 				8C64A2811DD85A3800AB6C09 /* SkyscrapersOptionsViewController.swift in Sources */,
 				84EE6E921DD945480013A033 /* MasyuGridNode.swift in Sources */,
 				8C6D37381DC421180052202C /* HomeDocument.swift in Sources */,
@@ -1119,19 +1303,28 @@
 				8C6D379D1DC42F0A0052202C /* HitoriGameState.swift in Sources */,
 				8C6D37B91DC42F0A0052202C /* SlitherLinkMainViewController.swift in Sources */,
 				8C6ACC191DD204420075F32C /* GameObject.swift in Sources */,
+				8C64A2C81DDA00D500AB6C09 /* DoubleExtensions.swift in Sources */,
 				84EE6E8F1DD945480013A033 /* MasyuGameScene.swift in Sources */,
+				8C64A2CC1DDA00D500AB6C09 /* IntExtensions.swift in Sources */,
 				84EE6E961DD945480013A033 /* MasyuObject.swift in Sources */,
 				8C6D37B21DC42F0A0052202C /* SlitherLinkDocument.swift in Sources */,
 				8C6D37871DC42F0A0052202C /* BridgesGridNode.swift in Sources */,
 				8C6D379B1DC42F0A0052202C /* HitoriGame.swift in Sources */,
 				84EE6E911DD945480013A033 /* MasyuGameViewController.swift in Sources */,
+				8C64A2E71DDA00D500AB6C09 /* UserDefaultsExtension.swift in Sources */,
 				8C6D37971DC42F0A0052202C /* CloudsObject.swift in Sources */,
+				8C64A2DD1DDA00D500AB6C09 /* UISliderExtensions.swift in Sources */,
+				8C64A2C21DDA00D500AB6C09 /* CGFloatExtensions.swift in Sources */,
 				8C7EF06B1DD297D100D1DE94 /* NurikabeObject.swift in Sources */,
+				8C64A2CD1DDA00D500AB6C09 /* NSAttributedStringExtensions.swift in Sources */,
 				84EE6E8E1DD945480013A033 /* MasyuGame.swift in Sources */,
 				8C6D378D1DC42F0A0052202C /* BridgesTables.swift in Sources */,
 				8C6D378C1DC42F0A0052202C /* BridgesOptionsViewController.swift in Sources */,
+				8C64A2E61DDA00D500AB6C09 /* URLExtensions.swift in Sources */,
+				8C64A2B91DDA00D500AB6C09 /* BlockButton.swift in Sources */,
 				84EE6E951DD945480013A033 /* MasyuMixin.swift in Sources */,
 				8C6D37AA1DC42F0A0052202C /* LightUpGameViewController.swift in Sources */,
+				8C64A2C51DDA00D500AB6C09 /* CharacterExtensions.swift in Sources */,
 				8C916CBD1DAA5E9500D9E62B /* Error.swift in Sources */,
 				8C6D37911DC42F0A0052202C /* CloudsGameState.swift in Sources */,
 				8C6D37F31DC5AC310052202C /* SoundManager.swift in Sources */,
@@ -1139,15 +1332,20 @@
 				8C64A2781DD85A3800AB6C09 /* SkyscrapersGame.swift in Sources */,
 				8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */,
 				8C6D379F1DC42F0A0052202C /* HitoriGridNode.swift in Sources */,
+				8C64A2BE1DDA00D500AB6C09 /* BlockTap.swift in Sources */,
 				8C6D37A91DC42F0A0052202C /* LightUpGameState.swift in Sources */,
 				8C7EF0641DD297D100D1DE94 /* NurikabeGameScene.swift in Sources */,
 				84EE6E941DD945480013A033 /* MasyuMainViewController.swift in Sources */,
+				8C64A2D91DDA00D500AB6C09 /* UIFontExtensions.swift in Sources */,
 				8C916CC11DAA5E9500D9E62B /* NodeSet.swift in Sources */,
 				8C6D37B71DC42F0A0052202C /* SlitherLinkGridNode.swift in Sources */,
 				8C6D37861DC42F0A0052202C /* BridgesGameViewController.swift in Sources */,
 				8C886C3F1D9E8AF1004A42BF /* ActionSheetDistancePicker.m in Sources */,
 				8C7EF0801DD4C23C00D1DE94 /* AbcGame.swift in Sources */,
+				8C64A2BB1DDA00D500AB6C09 /* BlockPan.swift in Sources */,
 				8C6D37951DC42F0A0052202C /* CloudsMainViewController.swift in Sources */,
+				8C64A2BA1DDA00D500AB6C09 /* BlockLongPress.swift in Sources */,
+				8C64A2CF1DDA00D500AB6C09 /* NSObjectExtensions.swift in Sources */,
 				8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */,
 				8C6D37991DC42F0A0052202C /* CloudsTables.swift in Sources */,
 				8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */,
@@ -1159,8 +1357,11 @@
 				8C6D378B1DC42F0A0052202C /* BridgesObject.swift in Sources */,
 				8C6D37B41DC42F0A0052202C /* SlitherLinkGameScene.swift in Sources */,
 				8C6D378A1DC42F0A0052202C /* BridgesMixin.swift in Sources */,
+				8C64A2BC1DDA00D500AB6C09 /* BlockPinch.swift in Sources */,
 				8C886C411D9E8AF1004A42BF /* ActionSheetMultipleStringPicker.m in Sources */,
 				8C7EF0671DD297D100D1DE94 /* NurikabeGridNode.swift in Sources */,
+				8C64A2DB1DDA00D500AB6C09 /* UIImageViewExtensions.swift in Sources */,
+				8C64A2C31DDA00D500AB6C09 /* CGPointExtensions.swift in Sources */,
 				8C6D37FC1DC5B4DC0052202C /* Game.swift in Sources */,
 				8C7EF0621DD297D100D1DE94 /* NurikabeDocument.swift in Sources */,
 				8C6D37AE1DC42F0A0052202C /* LightUpMixin.swift in Sources */,
