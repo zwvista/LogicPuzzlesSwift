@@ -16,9 +16,9 @@ class SkyscrapersGameScene: GameScene<SkyscrapersGameState> {
         return CGSize(width: sz, height: sz)
     }
     
-    func addNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
+    func addNumber(n: Int, s: HintState, isHint: Bool, point: CGPoint, nodeName: String) {
         let labelNode = SKLabelNode(text: String(n))
-        labelNode.fontColor = s == .normal ? SKColor.white : s == .complete ? SKColor.green : SKColor.red
+        labelNode.fontColor = s == .normal ? isHint ? SKColor.gray : SKColor.white : s == .complete ? SKColor.green : SKColor.red
         labelNode.fontName = labelNode.fontName! + "-Bold"
         // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
         let scalingFactor = min(gridNode.blockSize / labelNode.frame.width, gridNode.blockSize / labelNode.frame.height)
@@ -52,7 +52,7 @@ class SkyscrapersGameScene: GameScene<SkyscrapersGameState> {
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let numNodeName = "num" + nodeNameSuffix
                 let s = state.pos2state(row: r, col: c)
-                addNumber(n: n, s: s, point: point, nodeName: numNodeName)
+                addNumber(n: n, s: s, isHint: !game.isValid(p: p), point: point, nodeName: numNodeName)
             }
         }
     }
@@ -74,7 +74,7 @@ class SkyscrapersGameScene: GameScene<SkyscrapersGameState> {
                 let (s1, s2) = (stateFrom.pos2state(row: row, col: col), stateTo.pos2state(row: row, col: col))
                 guard n1 != n2 || s1 != s2 else {continue}
                 if (n1 != 0) {removeNumber()}
-                if (n2 != 0) {addNumber(n: n2, s: s2, point: point, nodeName: numNodeName)}
+                if (n2 != 0) {addNumber(n: n2, s: s2, isHint: !stateFrom.game.isValid(p: p), point: point, nodeName: numNodeName)}
             }
         }
     }

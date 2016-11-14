@@ -16,9 +16,9 @@ class AbcGameScene: GameScene<AbcGameState> {
         return CGSize(width: sz, height: sz)
     }
     
-    func addCharacter(ch: Character, s: HintState, point: CGPoint, nodeName: String) {
+    func addCharacter(ch: Character, s: HintState, isHint: Bool, point: CGPoint, nodeName: String) {
         let labelNode = SKLabelNode(text: String(ch))
-        labelNode.fontColor = s == .normal ? SKColor.white : s == .complete ? SKColor.green : SKColor.red
+        labelNode.fontColor = s == .normal ? isHint ? SKColor.gray : SKColor.white : s == .complete ? SKColor.green : SKColor.red
         labelNode.fontName = labelNode.fontName! + "-Bold"
         // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
         let scalingFactor = min(gridNode.blockSize / labelNode.frame.width, gridNode.blockSize / labelNode.frame.height)
@@ -52,7 +52,7 @@ class AbcGameScene: GameScene<AbcGameState> {
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let charNodeName = "char" + nodeNameSuffix
                 let s = state.pos2state(row: r, col: c)
-                addCharacter(ch: ch, s: s, point: point, nodeName: charNodeName)
+                addCharacter(ch: ch, s: s, isHint: !game.isValid(p: p), point: point, nodeName: charNodeName)
             }
         }
     }
@@ -74,7 +74,7 @@ class AbcGameScene: GameScene<AbcGameState> {
                 let (s1, s2) = (stateFrom.pos2state(row: row, col: col), stateTo.pos2state(row: row, col: col))
                 guard ch1 != ch2 || s1 != s2 else {continue}
                 if (ch1 != " ") {removeCharacter()}
-                if (ch2 != " ") {addCharacter(ch: ch2, s: s2, point: point, nodeName: charNodeName)}
+                if (ch2 != " ") {addCharacter(ch: ch2, s: s2, isHint: !stateFrom.game.isValid(p: p), point: point, nodeName: charNodeName)}
             }
         }
     }
