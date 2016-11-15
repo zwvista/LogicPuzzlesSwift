@@ -40,6 +40,6 @@ class OptionsViewController: UITableViewController {
     func onDefault() {}
 
     deinit {
-        print("deinit called: OptionsViewController")
+        print("deinit called: \(NSStringFromClass(type(of: self)))")
     }
 }

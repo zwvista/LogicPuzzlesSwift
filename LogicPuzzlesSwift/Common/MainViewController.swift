@@ -25,6 +25,6 @@ class MainViewController: UIViewController {
     }
     
     deinit {
-        print("deinit called: MainViewController")
+        print("deinit called: \(NSStringFromClass(type(of: self)))")
     }
 }

@@ -29,6 +29,6 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
     }
     
     deinit {
-        print("deinit called: HomeChooseGameViewController")
+        print("deinit called: \(NSStringFromClass(type(of: self)))")
     }
 }

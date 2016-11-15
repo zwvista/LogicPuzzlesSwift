@@ -69,6 +69,6 @@ class HomeOptionsViewController: UITableViewController, HomeMixin {
     }
     
     deinit {
-        print("deinit called: HomeOptionsViewController")
+        print("deinit called: \(NSStringFromClass(type(of: self)))")
     }
 }

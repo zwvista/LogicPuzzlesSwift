@@ -24,7 +24,7 @@ class GameState: Copyable, GameStateBase {
         return v
     }
     deinit {
-        // print("deinit called: GameState")
+        // print("deinit called: \(NSStringFromClass(type(of: self)))")
     }
 }
 

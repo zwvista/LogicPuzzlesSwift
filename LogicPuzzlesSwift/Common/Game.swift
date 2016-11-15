@@ -64,7 +64,7 @@ class Game<GD: GameDelegate, GM, GS: GameStateBase> where GD.GM == GM, GD.GS == 
     }
     
     deinit {
-        print("deinit called: Game")
+        print("deinit called: \(NSStringFromClass(type(of: self)))")
     }
 }
 
