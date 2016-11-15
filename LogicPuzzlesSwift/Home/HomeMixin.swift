@@ -8,14 +8,12 @@
 
 import Foundation
 
-protocol HomeMixin {
+protocol HomeMixin: GameMixin {
     var gameDocument: HomeDocument { get }
     var gameOptions: HomeGameProgress { get }
-    var soundManager: SoundManager { get }
 }
 
 extension HomeMixin {
     var gameDocument: HomeDocument { return HomeDocument.sharedInstance }
     var gameOptions: HomeGameProgress { return gameDocument.gameProgress }
-    var soundManager: SoundManager { return SoundManager.sharedInstance }
 }

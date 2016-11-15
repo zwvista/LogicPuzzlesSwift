@@ -31,14 +31,11 @@ class HomeMainViewController: UIViewController, HomeMixin {
     }
     
     @IBAction func resumeGame(_ sender: AnyObject) {
-        startGame(gameName: gameDocument.gameProgress.gameName!, toResume: true)
-    }
-    
-    // http://www.newventuresoftware.com/blog/organizing-xcode-projects-using-multiple-storyboards
-    private func startGame(gameName: String, toResume: Bool) {
-        self.toResume = toResume
+        let gameName = gameDocument.gameProgress.gameName!
+        toResume = true
+        // http://www.newventuresoftware.com/blog/organizing-xcode-projects-using-multiple-storyboards
         let storyboard = UIStoryboard(name: gameName, bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "InitialController") as UIViewController
+        let controller = storyboard.instantiateViewController(withIdentifier: "InitialController")
         self.present(controller, animated: true, completion: nil)
     }
 
