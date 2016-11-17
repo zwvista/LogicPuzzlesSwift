@@ -11,7 +11,6 @@ import Foundation
 class MasyuGameState: CellsGameState {
     var game: MasyuGame {return gameBase as! MasyuGame}
     var objArray = [MasyuObject]()
-    var pos2state = [Position: HintState]()
     var options: MasyuGameProgress { return MasyuDocument.sharedInstance.gameProgress }
     
     override func copy() -> MasyuGameState {
@@ -21,7 +20,6 @@ class MasyuGameState: CellsGameState {
     func setup(v: MasyuGameState) -> MasyuGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     
