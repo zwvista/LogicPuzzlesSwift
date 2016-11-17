@@ -53,12 +53,67 @@ class MasyuGameState: CellsGameState {
         guard isValid(p: p2) else {return false}
         self[p][dir].toggle()
         self[p2][dir2].toggle()
+        updateIsSolved()
         return true
     }
     
     
     private func updateIsSolved() {
         isSolved = true
-        isSolved = false
+        let g = Graph()
+        var pos2node = [Position: Node]()
+        var pos2Dirs = [Position: [Int]]()
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                let o = self[p]
+                let ch = game[p]
+                var dirs = [Int]()
+                for i in 0..<4 {
+                    if o[i] {dirs.append(i)}
+                }
+                switch dirs.count {
+                case 0:
+                    guard ch == " " else {isSolved = false; return}
+                case 2:
+                    pos2node[p] = g.addNode(label: p.description)
+                    pos2Dirs[p] = dirs
+                    switch ch {
+                    case "B":
+                        guard dirs[1] - dirs[0] != 2 else {isSolved = false; return}
+                    case "W":
+                        guard dirs[1] - dirs[0] == 2 else {isSolved = false; return}
+                    default:
+                        break
+                    }
+                default:
+                    isSolved = false; return
+                }
+            }
+        }
+        for (p, node) in pos2node {
+            let dirs = pos2Dirs[p]!
+            let ch = game[p]
+            var bW = ch != "W"
+            for i in dirs {
+                let p2 = p + MasyuGame.offset[i]
+                guard let node2 = pos2node[p2], let dirs2 = pos2Dirs[p2] else {isSolved = false; return}
+                switch ch {
+                case "B":
+                    guard (i == 0 || i == 2) && dirs2[0] == 0 && dirs2[1] == 2 || (i == 1 || i == 3) && dirs2[0] == 1 && dirs2[1] == 3 else {isSolved = false; return}
+                case "W":
+                    let n1 = (i + 1) % 4, n2 = (i + 3) % 4
+                    if dirs2[0] == n1 || dirs2[0] == n2 || dirs2[1] == n1 || dirs2[1] == n2 {bW = true}
+                default:
+                    break
+                }
+                g.addEdge(source: node, neighbor: node2)
+            }
+            guard bW else {isSolved = false; return}
+        }
+        let nodesExplored = breadthFirstSearch(g, source: pos2node.values.first!)
+        let n1 = nodesExplored.count
+        let n2 = pos2node.values.count
+        if n1 != n2 {isSolved = false}
     }
 }

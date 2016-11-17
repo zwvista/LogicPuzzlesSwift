@@ -45,7 +45,7 @@ class MasyuGame: CellsGame<MasyuGameViewController, MasyuGameMove, MasyuGameStat
     init(layout: [String], delegate: MasyuGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count + 1, layout[0].length + 1)
+        size = Position(layout.count, layout[0].length)
         objArray = Array<Character>(repeating: " ", count: rows * cols)
         
         for r in 0..<rows - 1 {

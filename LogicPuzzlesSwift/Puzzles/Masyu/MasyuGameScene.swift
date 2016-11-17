@@ -89,7 +89,7 @@ class MasyuGameScene: GameScene<MasyuGameState> {
                             break
                         }
                         lineNode.path = pathToDraw
-                        lineNode.strokeColor = SKColor.yellow
+                        lineNode.strokeColor = SKColor.green
                         lineNode.name = lineNodeName
                         gridNode.addChild(lineNode)
                     }
