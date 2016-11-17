@@ -8,33 +8,9 @@
 
 import Foundation
 
-enum MasyuMarkerOptions: Int {
-    case noMarker, markerAfterLine, markerBeforeLine
-    
-    static let optionStrings = ["No Marker", "Marker After Line", "Marker Before Line"]
-}
-
-enum MasyuObjectOrientation: Int {
-    case horizontal
-    case vertical
-    init() {
-        self = .horizontal
-    }
-}
-
-enum MasyuObject: Int {
-    case empty
-    case line
-    case marker
-    init() {
-        self = .empty
-    }
-}
-
-typealias MasyuDotObject = [MasyuObject]
+typealias MasyuObject = [Bool]
 
 struct MasyuGameMove {
     var p = Position()
-    var objOrientation = MasyuObjectOrientation()
-    var obj = MasyuObject()
+    var dir = 0
 }

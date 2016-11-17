@@ -27,13 +27,13 @@ class NurikabeGame: CellsGame<NurikabeGameViewController, NurikabeGameMove, Nuri
     init(layout: [String], delegate: NurikabeGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count, layout[0].characters.count)
+        size = Position(layout.count, layout[0].length)
         
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
                 let p = Position(r, c)
-                let ch = str[str.index(str.startIndex, offsetBy: c)]
+                let ch = str[c]
                 if "0"..."9" ~= ch {
                     pos2hint[p] = Int(String(ch))!
                 }

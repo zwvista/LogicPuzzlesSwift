@@ -37,13 +37,13 @@ class HitoriGame: CellsGame<HitoriGameViewController, HitoriGameMove, HitoriGame
     init(layout: [String], delegate: HitoriGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count, layout[0].characters.count)
+        size = Position(layout.count, layout[0].length)
         objArray = Array<Character>(repeating: " ", count: rows * cols)
         
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
-                let ch = str[str.index(str.startIndex, offsetBy: c)]
+                let ch = str[c]
                 self[r, c] = ch
             }
         }

@@ -47,10 +47,10 @@ class MasyuGameViewController: GameViewController, GameDelegate, MasyuMixin {
         let touchLocationInScene = scene.convertPoint(fromView: touchLocation)
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
-        let (b, p, orientation) = scene.gridNode.linePosition(point: touchLocationInGrid)
+        let (b, p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
         guard b else {return}
-        var move = MasyuGameMove(p: p, objOrientation: orientation, obj: .empty)
-        if game.switchObject(move: &move) { soundManager.playSoundTap() }
+        var move = MasyuGameMove(p: p, dir: dir)
+        if game.setObject(move: &move) { soundManager.playSoundTap() }
     }
     
     func startGame() {
@@ -63,8 +63,8 @@ class MasyuGameViewController: GameViewController, GameDelegate, MasyuMixin {
         
         // restore game state
         for case let rec as MasyuMoveProgress in gameDocument.moveProgress {
-            var move = MasyuGameMove(p: Position(rec.row, rec.col), objOrientation: MasyuObjectOrientation(rawValue: rec.objOrientation)!, obj: MasyuObject(rawValue: rec.obj)!)
-                _ = game.setObject(move: &move)
+            var move = MasyuGameMove(p: Position(rec.row, rec.col), dir: rec.dir)
+            _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex
         guard case 0..<game.moveCount = moveIndex else {return}

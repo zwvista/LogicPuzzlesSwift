@@ -21,7 +21,7 @@ class LightUpGame: CellsGame<LightUpGameViewController, LightUpGameMove, LightUp
     init(layout: [String], delegate: LightUpGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count, layout[0].characters.count)
+        size = Position(layout.count, layout[0].length)
         
         func addWall(row: Int, col: Int, lightbulbs: Int) {
             wall2Lightbulbs[Position(row, col)] = lightbulbs
@@ -30,7 +30,7 @@ class LightUpGame: CellsGame<LightUpGameViewController, LightUpGameMove, LightUp
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
-                let ch = str[str.index(str.startIndex, offsetBy: c)]
+                let ch = str[c]
                 switch ch {
                 case "W":
                     addWall(row: r, col: c, lightbulbs: -1)

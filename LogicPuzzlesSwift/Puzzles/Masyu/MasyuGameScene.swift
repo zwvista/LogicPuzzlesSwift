@@ -32,22 +32,31 @@ class MasyuGameScene: GameScene<MasyuGameState> {
     override func levelInitialized(_ game: AnyObject, state: MasyuGameState, skView: SKView) {
         let game = game as! MasyuGame
         removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols - 1)
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
         
-        // addGrid
+        // add Grid
         let offset:CGFloat = 0.5
         scaleMode = .resizeFill
-        gridNode = MasyuGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1)
-        gridNode.position = CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset)
+        gridNode = MasyuGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols)
+        gridNode.position = CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset)
         addChild(gridNode)
         gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
         
-        // addHints
-        for (p, n) in game.pos2hint {
-            let point = gridNode.gridPosition(p: p)
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let hintNumberNodeName = "hintNumber" + nodeNameSuffix
-            addHintNumber(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNumberNodeName)
+        // add Pearls
+        for r in 0..<game.rows {
+            for c in 0..<game.cols {
+                let p = Position(r, c)
+                let ch = game[r, c]
+                guard ch != " " else {continue}
+                let point = gridNode.gridPosition(p: p)
+                let pearlNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 2)
+                pearlNode.position = point
+                pearlNode.name = "pearl"
+                pearlNode.strokeColor = SKColor.white
+                pearlNode.fillColor = ch == "W" ? SKColor.black : SKColor.white
+                pearlNode.glowWidth = 1.0
+                gridNode.addChild(pearlNode)
+            }
         }
     }
     
@@ -55,85 +64,42 @@ class MasyuGameScene: GameScene<MasyuGameState> {
         let markerOffset: CGFloat = 7.5
         for row in 0..<stateFrom.rows {
             for col in 0..<stateFrom.cols {
-                let p = Position(row, col)
-                let point = gridNode.gridPosition(p: p)
-                let nodeNameSuffix = "-\(row)-\(col)"
-                let horzLineNodeName = "horzLine" + nodeNameSuffix
-                let vertlineNodeName = "vertline" + nodeNameSuffix
-                let hintNumberNodeName = "hintNumber" + nodeNameSuffix
-                func removeNode(withName: String) {
-                    gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
-                        node.removeFromParent()
+                for dir in 1...2 {
+                    let p = Position(row, col)
+                    let point = gridNode.gridPosition(p: p)
+                    let nodeNameSuffix = "-\(row)-\(col)-\(dir)"
+                    let lineNodeName = "line" + nodeNameSuffix
+                    func removeNode(withName: String) {
+                        gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
+                            node.removeFromParent()
+                        }
                     }
-                }
-                func removeHintNumber() { removeNode(withName: hintNumberNodeName) }
-                func addHorzLine(objType: MasyuObject) {
-                    guard objType != .empty else {return}
-                    let pathToDraw = CGMutablePath()
-                    let lineNode = SKShapeNode(path:pathToDraw)
-                    switch objType {
-                    case .line:
-                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
-                        pathToDraw.addLine(to: CGPoint(x: point.x + gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
-                        lineNode.glowWidth = 8
-                    case .marker:
-                        pathToDraw.move(to: CGPoint(x: point.x - markerOffset, y: point.y + gridNode.blockSize / 2 + markerOffset))
-                        pathToDraw.addLine(to: CGPoint(x: point.x + markerOffset, y: point.y + gridNode.blockSize / 2 - markerOffset))
-                        pathToDraw.move(to: CGPoint(x: point.x + markerOffset, y: point.y + gridNode.blockSize / 2 + markerOffset))
-                        pathToDraw.addLine(to: CGPoint(x: point.x - markerOffset, y: point.y + gridNode.blockSize / 2 - markerOffset))
-                        lineNode.glowWidth = 2
-                    default:
-                        break
+                    func removeLine() { removeNode(withName: lineNodeName) }
+                    func addLine() {
+                        let pathToDraw = CGMutablePath()
+                        let lineNode = SKShapeNode(path:pathToDraw)
+                        switch dir {
+                        case 1:
+                            pathToDraw.move(to: CGPoint(x: point.x, y: point.y))
+                            pathToDraw.addLine(to: CGPoint(x: point.x + gridNode.blockSize, y: point.y))
+                            lineNode.glowWidth = 8
+                        case 2:
+                            pathToDraw.move(to: CGPoint(x: point.x, y: point.y))
+                            pathToDraw.addLine(to: CGPoint(x: point.x, y: point.y + gridNode.blockSize))
+                            lineNode.glowWidth = 8
+                        default:
+                            break
+                        }
+                        lineNode.path = pathToDraw
+                        lineNode.strokeColor = SKColor.yellow
+                        lineNode.name = lineNodeName
+                        gridNode.addChild(lineNode)
                     }
-                    lineNode.path = pathToDraw
-                    lineNode.strokeColor = SKColor.yellow
-                    lineNode.name = horzLineNodeName
-                    gridNode.addChild(lineNode)
-                }
-                func removeHorzLine(objType: MasyuObject) {
-                    if objType != .empty { removeNode(withName: horzLineNodeName) }
-                }
-                func addVertLine(objType: MasyuObject) {
-                    guard objType != .empty else {return}
-                    let pathToDraw = CGMutablePath()
-                    let lineNode = SKShapeNode(path:pathToDraw)
-                    switch objType {
-                    case .line:
-                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
-                        pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y - gridNode.blockSize / 2))
-                        lineNode.glowWidth = 8
-                    case .marker:
-                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2 - markerOffset, y: point.y + markerOffset))
-                        pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2 + markerOffset, y: point.y - markerOffset))
-                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2 - markerOffset, y: point.y - markerOffset))
-                        pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2 + markerOffset, y: point.y + markerOffset))
-                        lineNode.glowWidth = 2
-                    default:
-                        break
-                    }
-                    lineNode.path = pathToDraw
-                    lineNode.strokeColor = SKColor.yellow
-                    lineNode.name = vertlineNodeName
-                    gridNode.addChild(lineNode)
-                }
-                func removeVertLine(objType: MasyuObject) {
-                    if objType != .empty { removeNode(withName: vertlineNodeName) }
-                }
-                var (o1, o2) = (stateFrom[p][1], stateTo[p][1])
-                if o1 != o2 {
-                    removeHorzLine(objType: o1)
-                    addHorzLine(objType: o2)
-                }
-                (o1, o2) = (stateFrom[p][2], stateTo[p][2])
-                if o1 != o2 {
-                    removeVertLine(objType: o1)
-                    addVertLine(objType: o2)
-                }
-                guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
-                if s1 != s2 {
-                    removeHintNumber()
-                    addHintNumber(n: stateFrom.game.pos2hint[p]!, s: s2, point: point, nodeName: hintNumberNodeName)
-                }
+                    let (o1, o2) = (stateFrom[p][dir], stateTo[p][dir])
+                    guard o1 != o2 else {continue}
+                    if o1 {removeLine()}
+                    if o2 {addLine()}
+                 }
             }
         }
     }

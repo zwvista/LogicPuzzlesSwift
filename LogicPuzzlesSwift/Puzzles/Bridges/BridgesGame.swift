@@ -27,13 +27,13 @@ class BridgesGame: CellsGame<BridgesGameViewController, BridgesGameMove, Bridges
     init(layout: [String], delegate: BridgesGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count, layout[0].characters.count)
+        size = Position(layout.count, layout[0].length)
         
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
                 let p = Position(r, c)
-                let ch = str[str.index(str.startIndex, offsetBy: c)]
+                let ch = str[c]
                 switch ch {
                 case "0"..."9":
                     let info = IslandInfo()

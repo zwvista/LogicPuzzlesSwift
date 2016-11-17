@@ -49,8 +49,7 @@ class MasyuDocument: GameDocument<MasyuGameMove> {
         rec.levelID = selectedLevelID
         rec.moveIndex = game.moveIndex
         (rec.row, rec.col) = move.p.unapply()
-        rec.objOrientation = move.objOrientation.rawValue
-        rec.obj = move.obj.rawValue
+        rec.dir = move.dir
         rec.commit()
     }
     

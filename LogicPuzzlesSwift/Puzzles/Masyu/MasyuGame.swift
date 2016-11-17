@@ -24,25 +24,35 @@ class MasyuGame: CellsGame<MasyuGameViewController, MasyuGameMove, MasyuGameStat
         Position(0, -1),
     ];
 
-    var pos2hint = [Position: Int]()
+    var objArray = [Character]()
+    subscript(p: Position) -> Character {
+        get {
+            return objArray[p.row * cols + p.col]
+        }
+        set(newValue) {
+            self[p.row, p.col] = newValue
+        }
+    }
+    subscript(row: Int, col: Int) -> Character {
+        get {
+            return objArray[row * cols + col]
+        }
+        set(newValue) {
+            objArray[row * cols + col] = newValue
+        }
+    }
     
     init(layout: [String], delegate: MasyuGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count + 1, layout[0].characters.count + 1)
+        size = Position(layout.count + 1, layout[0].length + 1)
+        objArray = Array<Character>(repeating: " ", count: rows * cols)
         
         for r in 0..<rows - 1 {
             let str = layout[r]
             for c in 0..<cols - 1 {
-                let p = Position(r, c)
-                let ch = str[str.index(str.startIndex, offsetBy: c)]
-                switch ch {
-                case "0"..."9":
-                    let n = Int(String(ch))!
-                    pos2hint[p] = n
-                default:
-                    break
-                }
+                let ch = str[c]
+                self[r, c] = ch
             }
         }
         
@@ -66,10 +76,6 @@ class MasyuGame: CellsGame<MasyuGameViewController, MasyuGameMove, MasyuGameStat
         moveAdded(move: move)
         levelUpdated(from: states[stateIndex - 1], to: state)
         return true
-    }
-    
-    func switchObject(move: inout MasyuGameMove) -> Bool {
-        return changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
     }
     
     func setObject(move: inout MasyuGameMove) -> Bool {

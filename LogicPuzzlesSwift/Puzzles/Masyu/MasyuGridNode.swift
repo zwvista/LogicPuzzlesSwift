@@ -74,13 +74,13 @@ class MasyuGridNode : SKSpriteNode {
         return Position(row, col)
     }
     
-    func linePosition(point: CGPoint) -> (Bool, Position, MasyuObjectOrientation) {
-        let offset: CGFloat = 10
-        let row = Int((-point.y + offset) / blockSize)
-        let col = Int((point.x + offset) / blockSize)
+    func linePosition(point: CGPoint) -> (Bool, Position, Int) {
+        let row = Int(-point.y / blockSize)
+        let col = Int(point.x / blockSize)
         let p = Position(row, col)
-        return -offset...offset ~= -point.y - CGFloat(row) * blockSize ? (true, p, .horizontal) :
-            -offset...offset ~= point.x - CGFloat(col) * blockSize ? (true, p, .vertical) :
-            (false, p, .horizontal)
+        let dx = point.x - CGFloat(row) * blockSize
+        let dy = -(point.y - CGFloat(col) * blockSize)
+        return (true, p, -dy...dy ~= dx ? (dy > 0 ? 0 : 2) :
+            -dx...dx ~= dy ? (dx > 0 ? 1 : 3) : 0);
     }
 }

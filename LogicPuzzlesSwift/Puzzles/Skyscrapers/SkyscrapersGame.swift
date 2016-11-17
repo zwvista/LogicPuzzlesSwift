@@ -42,13 +42,13 @@ class SkyscrapersGame: CellsGame<SkyscrapersGameViewController, SkyscrapersGameM
     init(layout: [String], delegate: SkyscrapersGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count, layout[0].characters.count)
+        size = Position(layout.count, layout[0].length)
         objArray = Array<Int>(repeating: 0, count: rows * cols)
         
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
-                let ch = str[str.index(str.startIndex, offsetBy: c)]
+                let ch = str[c]
                 let n = ch == " " ? 0 : Int(String(ch))!
                 self[r, c] = n
                 if intMax < n {intMax = n}

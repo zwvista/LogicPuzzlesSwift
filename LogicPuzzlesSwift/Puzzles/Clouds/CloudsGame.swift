@@ -23,7 +23,7 @@ class CloudsGame: CellsGame<CloudsGameViewController, CloudsGameMove, CloudsGame
     init(layout: [String], delegate: CloudsGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count - 1, layout[0].characters.count - 1)
+        size = Position(layout.count - 1, layout[0].length - 1)
         row2hint = Array<Int>(repeating: 0, count: rows)
         col2hint = Array<Int>(repeating: 0, count: cols)
         
@@ -31,7 +31,7 @@ class CloudsGame: CellsGame<CloudsGameViewController, CloudsGameMove, CloudsGame
             let str = layout[r]
             for c in 0..<cols + 1 {
                 let p = Position(r, c)
-                let ch = str[str.index(str.startIndex, offsetBy: c)]
+                let ch = str[c]
                 switch ch {
                 case "C":
                     pos2cloud.append(p)

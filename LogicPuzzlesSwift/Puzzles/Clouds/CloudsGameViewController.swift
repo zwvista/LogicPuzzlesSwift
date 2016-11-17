@@ -63,7 +63,7 @@ class CloudsGameViewController: GameViewController, GameDelegate, CloudsMixin {
         // restore game state
         for case let rec as CloudsMoveProgress in gameDocument.moveProgress {
             var move = CloudsGameMove(p: Position(rec.row, rec.col), obj: CloudsObject(rawValue: rec.obj)!)
-                _ = game.setObject(move: &move)
+            _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex
         guard case 0..<game.moveCount = moveIndex else {return}

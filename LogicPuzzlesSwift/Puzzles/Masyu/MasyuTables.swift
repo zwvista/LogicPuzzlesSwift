@@ -11,10 +11,9 @@ import SharkORM
 
 class MasyuGameProgress: SRKObject {
     dynamic var levelID: String?
-    dynamic var markerOption = 0
     
     override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
-        return ["levelID": "Level 1", "markerOption": 0]
+        return ["levelID": "Level 1"]
     }
 }
 
@@ -32,8 +31,8 @@ class MasyuMoveProgress: SRKObject {
     dynamic var moveIndex = 0
     dynamic var row = 0
     dynamic var col = 0
-    dynamic var objOrientation = 0
-    dynamic var obj = 0
+    dynamic var dir = 0
+    dynamic var obj = false
     
     override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
         return ["moveIndex": 0]
