@@ -48,9 +48,9 @@ class MasyuGame: CellsGame<MasyuGameViewController, MasyuGameMove, MasyuGameStat
         size = Position(layout.count, layout[0].length)
         objArray = Array<Character>(repeating: " ", count: rows * cols)
         
-        for r in 0..<rows - 1 {
+        for r in 0..<rows {
             let str = layout[r]
-            for c in 0..<cols - 1 {
+            for c in 0..<cols {
                 let ch = str[c]
                 self[r, c] = ch
             }
