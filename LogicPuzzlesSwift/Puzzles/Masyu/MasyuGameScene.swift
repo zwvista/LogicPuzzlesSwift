@@ -53,7 +53,7 @@ class MasyuGameScene: GameScene<MasyuGameState> {
                 pearlNode.position = point
                 pearlNode.name = "pearl"
                 pearlNode.strokeColor = SKColor.white
-                pearlNode.fillColor = ch == "W" ? SKColor.black : SKColor.white
+                pearlNode.fillColor = ch == "W" ? SKColor.white : SKColor.black
                 pearlNode.glowWidth = 1.0
                 gridNode.addChild(pearlNode)
             }
@@ -61,7 +61,6 @@ class MasyuGameScene: GameScene<MasyuGameState> {
     }
     
     override func levelUpdated(from stateFrom: MasyuGameState, to stateTo: MasyuGameState) {
-        let markerOffset: CGFloat = 7.5
         for row in 0..<stateFrom.rows {
             for col in 0..<stateFrom.cols {
                 for dir in 1...2 {
@@ -78,15 +77,14 @@ class MasyuGameScene: GameScene<MasyuGameState> {
                     func addLine() {
                         let pathToDraw = CGMutablePath()
                         let lineNode = SKShapeNode(path:pathToDraw)
+                        lineNode.glowWidth = 8
                         switch dir {
                         case 1:
                             pathToDraw.move(to: CGPoint(x: point.x, y: point.y))
                             pathToDraw.addLine(to: CGPoint(x: point.x + gridNode.blockSize, y: point.y))
-                            lineNode.glowWidth = 8
                         case 2:
                             pathToDraw.move(to: CGPoint(x: point.x, y: point.y))
-                            pathToDraw.addLine(to: CGPoint(x: point.x, y: point.y + gridNode.blockSize))
-                            lineNode.glowWidth = 8
+                            pathToDraw.addLine(to: CGPoint(x: point.x, y: point.y - gridNode.blockSize))
                         default:
                             break
                         }
