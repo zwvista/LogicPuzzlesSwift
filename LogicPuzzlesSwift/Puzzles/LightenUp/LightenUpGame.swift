@@ -1,5 +1,5 @@
 //
-//  LightUpGame.swift
+//  LightenUpGame.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/10.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LightUpGame: CellsGame<LightUpGameViewController, LightUpGameMove, LightUpGameState> {
+class LightenUpGame: CellsGame<LightenUpGameViewController, LightenUpGameMove, LightenUpGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),
@@ -18,7 +18,7 @@ class LightUpGame: CellsGame<LightUpGameViewController, LightUpGameMove, LightUp
 
     var wall2Lightbulbs = [Position: Int]()
     
-    init(layout: [String], delegate: LightUpGameViewController? = nil) {
+    init(layout: [String], delegate: LightenUpGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length)
@@ -42,12 +42,12 @@ class LightUpGame: CellsGame<LightUpGameViewController, LightUpGameMove, LightUp
             }
         }
         
-        let state = LightUpGameState(game: self)
+        let state = LightenUpGameState(game: self)
         states.append(state)
         levelInitilized(state: state)
     }
     
-    private func changeObject(move: inout LightUpGameMove, f: (inout LightUpGameState, inout LightUpGameMove) -> Bool) -> Bool {
+    private func changeObject(move: inout LightenUpGameMove, f: (inout LightenUpGameState, inout LightenUpGameMove) -> Bool) -> Bool {
         if canRedo {
             states.removeSubrange((stateIndex + 1)..<states.count)
             moves.removeSubrange(stateIndex..<moves.count)
@@ -64,11 +64,11 @@ class LightUpGame: CellsGame<LightUpGameViewController, LightUpGameMove, LightUp
         return true
     }
     
-    func switchObject(move: inout LightUpGameMove) -> Bool {
+    func switchObject(move: inout LightenUpGameMove) -> Bool {
         return changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
     }
     
-    func setObject(move: inout LightUpGameMove) -> Bool {
+    func setObject(move: inout LightenUpGameMove) -> Bool {
         return changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
     }
     

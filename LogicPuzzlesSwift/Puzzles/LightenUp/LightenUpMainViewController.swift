@@ -1,5 +1,5 @@
 //
-//  LightUpMainViewController.swift
+//  LightenUpMainViewController.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/21.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LightUpMainViewController: MainViewController, LightUpMixin {
+class LightenUpMainViewController: MainViewController, LightenUpMixin {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class LightUpMainViewController: MainViewController, LightUpMixin {
     
     @IBAction func resumGame(_ sender: AnyObject) {
         gameDocument.resumeGame()
-        let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "LightUpGameViewController") as! LightUpGameViewController
+        let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "LightenUpGameViewController") as! LightenUpGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
     

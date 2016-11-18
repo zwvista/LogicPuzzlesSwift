@@ -1,5 +1,5 @@
 //
-//  LightUpGameScene.swift
+//  LightenUpGameScene.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/09.
@@ -8,8 +8,8 @@
 
 import SpriteKit
 
-class LightUpGameScene: GameScene<LightUpGameState> {
-    private(set) var gridNode: LightUpGridNode!
+class LightenUpGameScene: GameScene<LightenUpGameState> {
+    private(set) var gridNode: LightenUpGridNode!
     
     func coloredRectSize() -> CGSize {
         let sz = gridNode.blockSize - 4
@@ -29,15 +29,15 @@ class LightUpGameScene: GameScene<LightUpGameState> {
         gridNode.addChild(numberNode)
     }
     
-    override func levelInitialized(_ game: AnyObject, state: LightUpGameState, skView: SKView) {
-        let game = game as! LightUpGame
+    override func levelInitialized(_ game: AnyObject, state: LightenUpGameState, skView: SKView) {
+        let game = game as! LightenUpGame
         removeAllChildren()
         let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
         
         // addGrid
         let offset:CGFloat = 0.5
         scaleMode = .resizeFill
-        gridNode = LightUpGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols)
+        gridNode = LightenUpGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols)
         gridNode.position = CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset)
         addChild(gridNode)
         gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
@@ -61,7 +61,7 @@ class LightUpGameScene: GameScene<LightUpGameState> {
         }
     }
     
-    override func levelUpdated(from stateFrom: LightUpGameState, to stateTo: LightUpGameState) {
+    override func levelUpdated(from stateFrom: LightenUpGameState, to stateTo: LightenUpGameState) {
         for row in 0..<stateFrom.rows {
             for col in 0..<stateFrom.cols {
                 let point = gridNode.gridPosition(p: Position(row, col))
@@ -83,7 +83,7 @@ class LightUpGameScene: GameScene<LightUpGameState> {
                     gridNode.addChild(lightCellNode)
                 }
                 func removeLightCell() { removeNode(withName: lightCellNodeName) }
-                func addLightbulb(s: LightUpLightbulbState) {
+                func addLightbulb(s: LightenUpLightbulbState) {
                     let lightbulbNode = SKSpriteNode(imageNamed: "lightbulb")
                     let scalingFactor = min(gridNode.blockSize / lightbulbNode.frame.width, gridNode.blockSize / lightbulbNode.frame.height)
                     lightbulbNode.setScale(scalingFactor)

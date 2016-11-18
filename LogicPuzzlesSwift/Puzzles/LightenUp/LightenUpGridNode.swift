@@ -10,13 +10,13 @@ import SpriteKit
 
 // http://stackoverflow.com/questions/33464925/draw-a-grid-with-spritekit
 
-class LightUpGridNode : SKSpriteNode {
+class LightenUpGridNode : SKSpriteNode {
     private(set) var rows: Int!
     private(set) var cols: Int!
     private(set) var blockSize: CGFloat!
     
     convenience init(blockSize: CGFloat, rows: Int, cols: Int) {
-        let texture = LightUpGridNode.gridTexture(blockSize: blockSize, rows: rows, cols: cols)
+        let texture = LightenUpGridNode.gridTexture(blockSize: blockSize, rows: rows, cols: cols)
         self.init(texture: texture, color: SKColor.clear, size: texture.size())
         self.blockSize = blockSize
         self.rows = rows

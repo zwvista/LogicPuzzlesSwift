@@ -1,5 +1,5 @@
 //
-//  LightUpGameState.swift
+//  LightenUpGameState.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/19.
@@ -8,16 +8,16 @@
 
 import Foundation
 
-class LightUpGameState: CellsGameState {
-    var game: LightUpGame {return gameBase as! LightUpGame}
-    var objArray = [LightUpObject]()
-    var options: LightUpGameProgress { return LightUpDocument.sharedInstance.gameProgress }
+class LightenUpGameState: CellsGameState {
+    var game: LightenUpGame {return gameBase as! LightenUpGame}
+    var objArray = [LightenUpObject]()
+    var options: LightenUpGameProgress { return LightenUpDocument.sharedInstance.gameProgress }
     
-    override func copy() -> LightUpGameState {
-        let v = LightUpGameState(game: gameBase)
+    override func copy() -> LightenUpGameState {
+        let v = LightenUpGameState(game: gameBase)
         return setup(v: v)
     }
-    func setup(v: LightUpGameState) -> LightUpGameState {
+    func setup(v: LightenUpGameState) -> LightenUpGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
         return v
@@ -25,14 +25,14 @@ class LightUpGameState: CellsGameState {
     
     required init(game: CellsGameBase) {
         super.init(game: game)
-        let game = game as! LightUpGame
-        objArray = Array<LightUpObject>(repeating: LightUpObject(), count: rows * cols)
+        let game = game as! LightenUpGame
+        objArray = Array<LightenUpObject>(repeating: LightenUpObject(), count: rows * cols)
         for (p, lightbulbs) in game.wall2Lightbulbs {
             self[p].objType = .wall(state: lightbulbs <= 0 ? .complete : .normal)
         }
     }
     
-    subscript(p: Position) -> LightUpObject {
+    subscript(p: Position) -> LightenUpObject {
         get {
             return objArray[p.row * cols + p.col]
         }
@@ -40,7 +40,7 @@ class LightUpGameState: CellsGameState {
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> LightUpObject {
+    subscript(row: Int, col: Int) -> LightenUpObject {
         get {
             return objArray[row * cols + col]
         }
@@ -49,7 +49,7 @@ class LightUpGameState: CellsGameState {
         }
     }
     
-    func setObject(move: inout LightUpGameMove) -> Bool {
+    func setObject(move: inout LightenUpGameMove) -> Bool {
         var changed = false
         let p = move.p
         
@@ -59,7 +59,7 @@ class LightUpGameState: CellsGameState {
             }
             
             self[p].lightness = f(self[p].lightness)
-            for os in LightUpGame.offset {
+            for os in LightenUpGame.offset {
                 var p2 = p + os
                 while isValid(p: p2) {
                     if case .wall = self[p2].objType {
@@ -80,7 +80,7 @@ class LightUpGameState: CellsGameState {
         
         switch (self[p].objType, move.objType) {
         case (_, .wall):
-            self[p] = LightUpObject(objType: move.objType, lightness: 0)
+            self[p] = LightenUpObject(objType: move.objType, lightness: 0)
         case (.empty, .marker), (.marker, .empty):
             objChanged()
         case (.empty, .lightbulb), (.marker, .lightbulb):
@@ -97,9 +97,9 @@ class LightUpGameState: CellsGameState {
         return changed
     }
     
-    func switchObject(move: inout LightUpGameMove) -> Bool {
-        let markerOption = LightUpMarkerOptions(rawValue: options.markerOption)
-        func f(o: LightUpObjectType) -> LightUpObjectType {
+    func switchObject(move: inout LightenUpGameMove) -> Bool {
+        let markerOption = LightenUpMarkerOptions(rawValue: options.markerOption)
+        func f(o: LightenUpObjectType) -> LightenUpObjectType {
             switch o {
             case .empty:
                 return markerOption == .markerBeforeLightbulb ? .marker : .lightbulb(state: .normal)
@@ -135,14 +135,14 @@ class LightUpGameState: CellsGameState {
                 case .empty where o.lightness == 0, .marker where o.lightness == 0:
                     isSolved = false
                 case .lightbulb:
-                    let state: LightUpLightbulbState = o.lightness == 1 ? .normal : .error
+                    let state: LightenUpLightbulbState = o.lightness == 1 ? .normal : .error
                     self[r, c].objType = .lightbulb(state: state)
                     if o.lightness > 1 {isSolved = false}
                 case .wall:
                     let lightbulbs = game.wall2Lightbulbs[p]!
                     guard lightbulbs >= 0 else {break}
                     var n = 0
-                    for os in LightUpGame.offset {
+                    for os in LightenUpGame.offset {
                         let p2 = p + os
                         guard isValid(p: p2) else {continue}
                         if case .lightbulb = self[p2].objType {

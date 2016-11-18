@@ -20,6 +20,19 @@
 		84DEF07E1DDE84F200A26445 /* LineSweeperOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF0721DDE84F200A26445 /* LineSweeperOptionsViewController.swift */; };
 		84DEF07F1DDE84F200A26445 /* LineSweeperTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF0731DDE84F200A26445 /* LineSweeperTables.swift */; };
 		84DEF0831DDE850400A26445 /* LineSweeper.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DEF0811DDE850400A26445 /* LineSweeper.storyboard */; };
+		84DEF0911DDE964A00A26445 /* LightenUp.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84DEF0851DDE964A00A26445 /* LightenUp.xml */; };
+		84DEF0921DDE964A00A26445 /* LightenUpDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF0861DDE964A00A26445 /* LightenUpDocument.swift */; };
+		84DEF0931DDE964A00A26445 /* LightenUpGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF0871DDE964A00A26445 /* LightenUpGame.swift */; };
+		84DEF0941DDE964A00A26445 /* LightenUpGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF0881DDE964A00A26445 /* LightenUpGameScene.swift */; };
+		84DEF0951DDE964A00A26445 /* LightenUpGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF0891DDE964A00A26445 /* LightenUpGameState.swift */; };
+		84DEF0961DDE964A00A26445 /* LightenUpGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF08A1DDE964A00A26445 /* LightenUpGameViewController.swift */; };
+		84DEF0971DDE964A00A26445 /* LightenUpGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF08B1DDE964A00A26445 /* LightenUpGridNode.swift */; };
+		84DEF0981DDE964A00A26445 /* LightenUpMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF08C1DDE964A00A26445 /* LightenUpMainViewController.swift */; };
+		84DEF0991DDE964A00A26445 /* LightenUpMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF08D1DDE964A00A26445 /* LightenUpMixin.swift */; };
+		84DEF09A1DDE964A00A26445 /* LightenUpObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF08E1DDE964A00A26445 /* LightenUpObject.swift */; };
+		84DEF09B1DDE964A00A26445 /* LightenUpOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF08F1DDE964A00A26445 /* LightenUpOptionsViewController.swift */; };
+		84DEF09C1DDE964A00A26445 /* LightenUpTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF0901DDE964A00A26445 /* LightenUpTables.swift */; };
+		84DEF09F1DDE967500A26445 /* LightenUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DEF09D1DDE967500A26445 /* LightenUp.storyboard */; };
 		84EE6E8D1DD945480013A033 /* MasyuDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE6E811DD945480013A033 /* MasyuDocument.swift */; };
 		84EE6E8E1DD945480013A033 /* MasyuGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE6E821DD945480013A033 /* MasyuGame.swift */; };
 		84EE6E8F1DD945480013A033 /* MasyuGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE6E831DD945480013A033 /* MasyuGameScene.swift */; };
@@ -155,18 +168,6 @@
 		8C6D37A31DC42F0A0052202C /* HitoriObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37651DC42F0A0052202C /* HitoriObject.swift */; };
 		8C6D37A41DC42F0A0052202C /* HitoriOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37661DC42F0A0052202C /* HitoriOptionsViewController.swift */; };
 		8C6D37A51DC42F0A0052202C /* HitoriTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37671DC42F0A0052202C /* HitoriTables.swift */; };
-		8C6D37A61DC42F0A0052202C /* LightUpDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37691DC42F0A0052202C /* LightUpDocument.swift */; };
-		8C6D37A71DC42F0A0052202C /* LightUpGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D376A1DC42F0A0052202C /* LightUpGame.swift */; };
-		8C6D37A81DC42F0A0052202C /* LightUpGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D376B1DC42F0A0052202C /* LightUpGameScene.swift */; };
-		8C6D37A91DC42F0A0052202C /* LightUpGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D376C1DC42F0A0052202C /* LightUpGameState.swift */; };
-		8C6D37AA1DC42F0A0052202C /* LightUpGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D376D1DC42F0A0052202C /* LightUpGameViewController.swift */; };
-		8C6D37AB1DC42F0A0052202C /* LightUpGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D376E1DC42F0A0052202C /* LightUpGridNode.swift */; };
-		8C6D37AC1DC42F0A0052202C /* LightUp.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C6D376F1DC42F0A0052202C /* LightUp.xml */; };
-		8C6D37AD1DC42F0A0052202C /* LightUpMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37701DC42F0A0052202C /* LightUpMainViewController.swift */; };
-		8C6D37AE1DC42F0A0052202C /* LightUpMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37711DC42F0A0052202C /* LightUpMixin.swift */; };
-		8C6D37AF1DC42F0A0052202C /* LightUpObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37721DC42F0A0052202C /* LightUpObject.swift */; };
-		8C6D37B01DC42F0A0052202C /* LightUpOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37731DC42F0A0052202C /* LightUpOptionsViewController.swift */; };
-		8C6D37B11DC42F0A0052202C /* LightUpTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37741DC42F0A0052202C /* LightUpTables.swift */; };
 		8C6D37B21DC42F0A0052202C /* SlitherLinkDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37761DC42F0A0052202C /* SlitherLinkDocument.swift */; };
 		8C6D37B31DC42F0A0052202C /* SlitherLinkGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37771DC42F0A0052202C /* SlitherLinkGame.swift */; };
 		8C6D37B41DC42F0A0052202C /* SlitherLinkGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37781DC42F0A0052202C /* SlitherLinkGameScene.swift */; };
@@ -182,7 +183,6 @@
 		8C6D37C01DC42F3B0052202C /* Bridges.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6D37BE1DC42F3B0052202C /* Bridges.storyboard */; };
 		8C6D37C31DC42F450052202C /* Clouds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6D37C11DC42F450052202C /* Clouds.storyboard */; };
 		8C6D37C61DC42F540052202C /* Hitori.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6D37C41DC42F540052202C /* Hitori.storyboard */; };
-		8C6D37C91DC42F640052202C /* LightUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6D37C71DC42F640052202C /* LightUp.storyboard */; };
 		8C6D37CC1DC42F6D0052202C /* SlitherLink.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6D37CA1DC42F6D0052202C /* SlitherLink.storyboard */; };
 		8C6D37F31DC5AC310052202C /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37F21DC5AC310052202C /* SoundManager.swift */; };
 		8C6D37F51DC5AC520052202C /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37F41DC5AC520052202C /* Position.swift */; };
@@ -296,6 +296,19 @@
 		84DEF0721DDE84F200A26445 /* LineSweeperOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperOptionsViewController.swift; sourceTree = "<group>"; };
 		84DEF0731DDE84F200A26445 /* LineSweeperTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperTables.swift; sourceTree = "<group>"; };
 		84DEF0821DDE850400A26445 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/LineSweeper.storyboard; sourceTree = SOURCE_ROOT; };
+		84DEF0851DDE964A00A26445 /* LightenUp.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LightenUp.xml; sourceTree = "<group>"; };
+		84DEF0861DDE964A00A26445 /* LightenUpDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightenUpDocument.swift; sourceTree = "<group>"; };
+		84DEF0871DDE964A00A26445 /* LightenUpGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightenUpGame.swift; sourceTree = "<group>"; };
+		84DEF0881DDE964A00A26445 /* LightenUpGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightenUpGameScene.swift; sourceTree = "<group>"; };
+		84DEF0891DDE964A00A26445 /* LightenUpGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightenUpGameState.swift; sourceTree = "<group>"; };
+		84DEF08A1DDE964A00A26445 /* LightenUpGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightenUpGameViewController.swift; sourceTree = "<group>"; };
+		84DEF08B1DDE964A00A26445 /* LightenUpGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightenUpGridNode.swift; sourceTree = "<group>"; };
+		84DEF08C1DDE964A00A26445 /* LightenUpMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightenUpMainViewController.swift; sourceTree = "<group>"; };
+		84DEF08D1DDE964A00A26445 /* LightenUpMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightenUpMixin.swift; sourceTree = "<group>"; };
+		84DEF08E1DDE964A00A26445 /* LightenUpObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightenUpObject.swift; sourceTree = "<group>"; };
+		84DEF08F1DDE964A00A26445 /* LightenUpOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightenUpOptionsViewController.swift; sourceTree = "<group>"; };
+		84DEF0901DDE964A00A26445 /* LightenUpTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightenUpTables.swift; sourceTree = "<group>"; };
+		84DEF09E1DDE967500A26445 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/LightenUp.storyboard; sourceTree = SOURCE_ROOT; };
 		84EE6E811DD945480013A033 /* MasyuDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasyuDocument.swift; sourceTree = "<group>"; };
 		84EE6E821DD945480013A033 /* MasyuGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasyuGame.swift; sourceTree = "<group>"; };
 		84EE6E831DD945480013A033 /* MasyuGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasyuGameScene.swift; sourceTree = "<group>"; };
@@ -428,18 +441,6 @@
 		8C6D37651DC42F0A0052202C /* HitoriObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriObject.swift; sourceTree = "<group>"; };
 		8C6D37661DC42F0A0052202C /* HitoriOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriOptionsViewController.swift; sourceTree = "<group>"; };
 		8C6D37671DC42F0A0052202C /* HitoriTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriTables.swift; sourceTree = "<group>"; };
-		8C6D37691DC42F0A0052202C /* LightUpDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpDocument.swift; sourceTree = "<group>"; };
-		8C6D376A1DC42F0A0052202C /* LightUpGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpGame.swift; sourceTree = "<group>"; };
-		8C6D376B1DC42F0A0052202C /* LightUpGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpGameScene.swift; sourceTree = "<group>"; };
-		8C6D376C1DC42F0A0052202C /* LightUpGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpGameState.swift; sourceTree = "<group>"; };
-		8C6D376D1DC42F0A0052202C /* LightUpGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpGameViewController.swift; sourceTree = "<group>"; };
-		8C6D376E1DC42F0A0052202C /* LightUpGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpGridNode.swift; sourceTree = "<group>"; };
-		8C6D376F1DC42F0A0052202C /* LightUp.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LightUp.xml; sourceTree = "<group>"; };
-		8C6D37701DC42F0A0052202C /* LightUpMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpMainViewController.swift; sourceTree = "<group>"; };
-		8C6D37711DC42F0A0052202C /* LightUpMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpMixin.swift; sourceTree = "<group>"; };
-		8C6D37721DC42F0A0052202C /* LightUpObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpObject.swift; sourceTree = "<group>"; };
-		8C6D37731DC42F0A0052202C /* LightUpOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpOptionsViewController.swift; sourceTree = "<group>"; };
-		8C6D37741DC42F0A0052202C /* LightUpTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightUpTables.swift; sourceTree = "<group>"; };
 		8C6D37761DC42F0A0052202C /* SlitherLinkDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkDocument.swift; sourceTree = "<group>"; };
 		8C6D37771DC42F0A0052202C /* SlitherLinkGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGame.swift; sourceTree = "<group>"; };
 		8C6D37781DC42F0A0052202C /* SlitherLinkGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGameScene.swift; sourceTree = "<group>"; };
@@ -455,7 +456,6 @@
 		8C6D37BF1DC42F3B0052202C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/Bridges.storyboard; sourceTree = SOURCE_ROOT; };
 		8C6D37C21DC42F450052202C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/Clouds.storyboard; sourceTree = SOURCE_ROOT; };
 		8C6D37C51DC42F540052202C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/Hitori.storyboard; sourceTree = SOURCE_ROOT; };
-		8C6D37C81DC42F640052202C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/LightUp.storyboard; sourceTree = SOURCE_ROOT; };
 		8C6D37CB1DC42F6D0052202C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/SlitherLink.storyboard; sourceTree = SOURCE_ROOT; };
 		8C6D37CF1DC42FA40052202C /* GameDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDocument.swift; sourceTree = "<group>"; };
 		8C6D37D01DC42FA40052202C /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -589,6 +589,26 @@
 			name = LineSweeper;
 			path = LogicPuzzlesSwift/Puzzles/LineSweeper;
 			sourceTree = SOURCE_ROOT;
+		};
+		84DEF0841DDE964A00A26445 /* LightenUp */ = {
+			isa = PBXGroup;
+			children = (
+				84DEF09D1DDE967500A26445 /* LightenUp.storyboard */,
+				84DEF0851DDE964A00A26445 /* LightenUp.xml */,
+				84DEF0861DDE964A00A26445 /* LightenUpDocument.swift */,
+				84DEF0871DDE964A00A26445 /* LightenUpGame.swift */,
+				84DEF0881DDE964A00A26445 /* LightenUpGameScene.swift */,
+				84DEF0891DDE964A00A26445 /* LightenUpGameState.swift */,
+				84DEF08A1DDE964A00A26445 /* LightenUpGameViewController.swift */,
+				84DEF08B1DDE964A00A26445 /* LightenUpGridNode.swift */,
+				84DEF08C1DDE964A00A26445 /* LightenUpMainViewController.swift */,
+				84DEF08D1DDE964A00A26445 /* LightenUpMixin.swift */,
+				84DEF08E1DDE964A00A26445 /* LightenUpObject.swift */,
+				84DEF08F1DDE964A00A26445 /* LightenUpOptionsViewController.swift */,
+				84DEF0901DDE964A00A26445 /* LightenUpTables.swift */,
+			);
+			path = LightenUp;
+			sourceTree = "<group>";
 		};
 		84EE6E801DD945480013A033 /* Masyu */ = {
 			isa = PBXGroup;
@@ -762,8 +782,8 @@
 				8C6D37411DC42F0A0052202C /* Bridges */,
 				8C6D374E1DC42F0A0052202C /* Clouds */,
 				8C6D375B1DC42F0A0052202C /* Hitori */,
+				84DEF0841DDE964A00A26445 /* LightenUp */,
 				84DEF0671DDE84F200A26445 /* LineSweeper */,
-				8C6D37681DC42F0A0052202C /* LightUp */,
 				84EE6E801DD945480013A033 /* Masyu */,
 				8C7EF0551DD297D100D1DE94 /* Nurikabe */,
 				8C64A26A1DD85A3800AB6C09 /* Skyscrapers */,
@@ -830,26 +850,6 @@
 				8C6D37671DC42F0A0052202C /* HitoriTables.swift */,
 			);
 			path = Hitori;
-			sourceTree = "<group>";
-		};
-		8C6D37681DC42F0A0052202C /* LightUp */ = {
-			isa = PBXGroup;
-			children = (
-				8C6D37C71DC42F640052202C /* LightUp.storyboard */,
-				8C6D376F1DC42F0A0052202C /* LightUp.xml */,
-				8C6D37691DC42F0A0052202C /* LightUpDocument.swift */,
-				8C6D376A1DC42F0A0052202C /* LightUpGame.swift */,
-				8C6D376B1DC42F0A0052202C /* LightUpGameScene.swift */,
-				8C6D376C1DC42F0A0052202C /* LightUpGameState.swift */,
-				8C6D376D1DC42F0A0052202C /* LightUpGameViewController.swift */,
-				8C6D376E1DC42F0A0052202C /* LightUpGridNode.swift */,
-				8C6D37701DC42F0A0052202C /* LightUpMainViewController.swift */,
-				8C6D37711DC42F0A0052202C /* LightUpMixin.swift */,
-				8C6D37721DC42F0A0052202C /* LightUpObject.swift */,
-				8C6D37731DC42F0A0052202C /* LightUpOptionsViewController.swift */,
-				8C6D37741DC42F0A0052202C /* LightUpTables.swift */,
-			);
-			path = LightUp;
 			sourceTree = "<group>";
 		};
 		8C6D37751DC42F0A0052202C /* SlitherLink */ = {
@@ -1178,10 +1178,10 @@
 				84DEF0831DDE850400A26445 /* LineSweeper.storyboard in Resources */,
 				8C6D37C31DC42F450052202C /* Clouds.storyboard in Resources */,
 				8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */,
-				8C6D37AC1DC42F0A0052202C /* LightUp.xml in Resources */,
 				8C7EF0681DD297D100D1DE94 /* Nurikabe.xml in Resources */,
 				8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */,
 				8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */,
+				84DEF09F1DDE967500A26445 /* LightenUp.storyboard in Resources */,
 				8C7EF0711DD297F000D1DE94 /* Nurikabe.storyboard in Resources */,
 				8C1D16B11DB8DE930056D407 /* TraversalTree.graffle in Resources */,
 				8C9F43E41D771915000139FC /* Assets.xcassets in Resources */,
@@ -1193,7 +1193,6 @@
 				8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */,
 				84DEF0741DDE84F200A26445 /* LineSweeper.xml in Resources */,
 				8C64A27D1DD85A3800AB6C09 /* Skyscrapers.xml in Resources */,
-				8C6D37C91DC42F640052202C /* LightUp.storyboard in Resources */,
 				8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */,
 				84EE6E9B1DD945610013A033 /* Masyu.storyboard in Resources */,
 				8C6D37881DC42F0A0052202C /* Bridges.xml in Resources */,
@@ -1203,6 +1202,7 @@
 				8C6D37CC1DC42F6D0052202C /* SlitherLink.storyboard in Resources */,
 				8C7EF08D1DD4C25800D1DE94 /* Abc.storyboard in Resources */,
 				8C6D37941DC42F0A0052202C /* Clouds.xml in Resources */,
+				84DEF0911DDE964A00A26445 /* LightenUp.xml in Resources */,
 				8C916CC41DAA5FEB00D9E62B /* music.wav in Resources */,
 				8C64A2851DD85A5000AB6C09 /* Skyscrapers.storyboard in Resources */,
 				8C6D37C61DC42F540052202C /* Hitori.storyboard in Resources */,
@@ -1238,6 +1238,7 @@
 				8C6D37FA1DC5ACC90052202C /* OptionsViewController.swift in Sources */,
 				8C6D37A11DC42F0A0052202C /* HitoriMainViewController.swift in Sources */,
 				8C64A2BF1DDA00D500AB6C09 /* BlockWebView.swift in Sources */,
+				84DEF0951DDE964A00A26445 /* LightenUpGameState.swift in Sources */,
 				8C64A2D51DDA00D500AB6C09 /* UIButtonExtensions.swift in Sources */,
 				8C6D37831DC42F0A0052202C /* BridgesGame.swift in Sources */,
 				8C64A2D21DDA00D500AB6C09 /* UIAlertControllerExtensions.swift in Sources */,
@@ -1245,13 +1246,14 @@
 				8C6D37821DC42F0A0052202C /* BridgesDocument.swift in Sources */,
 				8C64A2801DD85A3800AB6C09 /* SkyscrapersObject.swift in Sources */,
 				8CD1558B1DD77C3400786F34 /* Extensions.swift in Sources */,
+				84DEF0931DDE964A00A26445 /* LightenUpGame.swift in Sources */,
 				8C64A2681DD8089700AB6C09 /* GameViewController.swift in Sources */,
 				8C64A2CE1DDA00D500AB6C09 /* NSDictionaryExtensions.swift in Sources */,
 				8C64A2C91DDA00D500AB6C09 /* ErrorTypeExtensions.swift in Sources */,
 				84DEF0781DDE84F200A26445 /* LineSweeperGameState.swift in Sources */,
 				8C1D16B31DB8DE930056D407 /* README.markdown in Sources */,
-				8C6D37B11DC42F0A0052202C /* LightUpTables.swift in Sources */,
 				8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */,
+				84DEF0921DDE964A00A26445 /* LightenUpDocument.swift in Sources */,
 				8C6ACBFF1DCAF8BA0075F32C /* GameMixin.swift in Sources */,
 				8C6D37901DC42F0A0052202C /* CloudsGameScene.swift in Sources */,
 				8C6D37A51DC42F0A0052202C /* HitoriTables.swift in Sources */,
@@ -1261,11 +1263,13 @@
 				8C6D37891DC42F0A0052202C /* BridgesMainViewController.swift in Sources */,
 				8C7EF0631DD297D100D1DE94 /* NurikabeGame.swift in Sources */,
 				8C6D37BB1DC42F0A0052202C /* SlitherLinkObject.swift in Sources */,
+				84DEF09C1DDE964A00A26445 /* LightenUpTables.swift in Sources */,
 				8C6D37A21DC42F0A0052202C /* HitoriMixin.swift in Sources */,
 				84DEF0761DDE84F200A26445 /* LineSweeperGame.swift in Sources */,
 				84DEF07C1DDE84F200A26445 /* LineSweeperMixin.swift in Sources */,
 				8C6D373A1DC421180052202C /* HomeMixin.swift in Sources */,
 				8C6D37F51DC5AC520052202C /* Position.swift in Sources */,
+				84DEF0981DDE964A00A26445 /* LightenUpMainViewController.swift in Sources */,
 				8C64A2C41DDA00D500AB6C09 /* CGRectExtensions.swift in Sources */,
 				8C6D379C1DC42F0A0052202C /* HitoriGameScene.swift in Sources */,
 				8C6D373C1DC421180052202C /* HomeTables.swift in Sources */,
@@ -1288,7 +1292,6 @@
 				8C64A2E41DDA00D500AB6C09 /* UIViewExtensions.swift in Sources */,
 				8C64A2821DD85A3800AB6C09 /* SkyscrapersTables.swift in Sources */,
 				8C64A2CB1DDA00D500AB6C09 /* FloatingPointExtensions.swift in Sources */,
-				8C6D37A81DC42F0A0052202C /* LightUpGameScene.swift in Sources */,
 				8C64A2DE1DDA00D500AB6C09 /* UIStoryboardExtensions.swift in Sources */,
 				8C886C401D9E8AF1004A42BF /* ActionSheetLocalePicker.m in Sources */,
 				8C64A2D01DDA00D500AB6C09 /* StringExtensions.swift in Sources */,
@@ -1303,12 +1306,12 @@
 				8C6D37A31DC42F0A0052202C /* HitoriObject.swift in Sources */,
 				8C64A2C61DDA00D500AB6C09 /* DateExtensions.swift in Sources */,
 				8C64A27F1DD85A3800AB6C09 /* SkyscrapersMixin.swift in Sources */,
-				8C6D37AD1DC42F0A0052202C /* LightUpMainViewController.swift in Sources */,
 				84EE6E9D1DD954280013A033 /* HomeChooseGameViewController.swift in Sources */,
 				8C64A2D71DDA00D500AB6C09 /* UIColorExtensions.swift in Sources */,
 				8C64A2DF1DDA00D500AB6C09 /* UISwitchExtensions.swift in Sources */,
 				8C64A2791DD85A3800AB6C09 /* SkyscrapersGameScene.swift in Sources */,
 				8C64A2B81DDA00D500AB6C09 /* ArrayExtensions.swift in Sources */,
+				84DEF0991DDE964A00A26445 /* LightenUpMixin.swift in Sources */,
 				8C6D37B31DC42F0A0052202C /* SlitherLinkGame.swift in Sources */,
 				8C7EF06A1DD297D100D1DE94 /* NurikabeMixin.swift in Sources */,
 				8C64A27E1DD85A3800AB6C09 /* SkyscrapersMainViewController.swift in Sources */,
@@ -1323,6 +1326,7 @@
 				8C886C3C1D9E8AF1004A42BF /* AbstractActionSheetPicker.m in Sources */,
 				8C64A2C01DDA00D500AB6C09 /* BoolExtensions.swift in Sources */,
 				8C916CBE1DAA5E9500D9E62B /* Helpers.swift in Sources */,
+				84DEF09A1DDE964A00A26445 /* LightenUpObject.swift in Sources */,
 				84EE6E8D1DD945480013A033 /* MasyuDocument.swift in Sources */,
 				8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */,
 				8C64A2DC1DDA00D500AB6C09 /* UILabelExtensions.swift in Sources */,
@@ -1332,7 +1336,6 @@
 				8C6D37B51DC42F0A0052202C /* SlitherLinkGameState.swift in Sources */,
 				8C7EF0871DD4C23C00D1DE94 /* AbcMixin.swift in Sources */,
 				8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */,
-				8C6D37A71DC42F0A0052202C /* LightUpGame.swift in Sources */,
 				8C64A2C11DDA00D500AB6C09 /* BundleExtensions.swift in Sources */,
 				8C7EF0841DD4C23C00D1DE94 /* AbcGridNode.swift in Sources */,
 				8C64A2D61DDA00D500AB6C09 /* UIColoredView.swift in Sources */,
@@ -1341,12 +1344,9 @@
 				8C64A2D41DDA00D500AB6C09 /* UIBarButtonItemExtensions.swift in Sources */,
 				8C6ACC001DCAF8C20075F32C /* GameScene.swift in Sources */,
 				8C6ACC1A1DD206AD0075F32C /* MainViewController.swift in Sources */,
-				8C6D37AF1DC42F0A0052202C /* LightUpObject.swift in Sources */,
 				8C7EF07F1DD4C23C00D1DE94 /* AbcDocument.swift in Sources */,
-				8C6D37AB1DC42F0A0052202C /* LightUpGridNode.swift in Sources */,
 				8C64A2D81DDA00D500AB6C09 /* UIDeviceExtensions.swift in Sources */,
 				8C6D37BD1DC42F0A0052202C /* SlitherLinkTables.swift in Sources */,
-				8C6D37B01DC42F0A0052202C /* LightUpOptionsViewController.swift in Sources */,
 				8C64A2BD1DDA00D500AB6C09 /* BlockSwipe.swift in Sources */,
 				8C64A2811DD85A3800AB6C09 /* SkyscrapersOptionsViewController.swift in Sources */,
 				84EE6E921DD945480013A033 /* MasyuGridNode.swift in Sources */,
@@ -1365,6 +1365,7 @@
 				8C64A2CC1DDA00D500AB6C09 /* IntExtensions.swift in Sources */,
 				84EE6E961DD945480013A033 /* MasyuObject.swift in Sources */,
 				8C6D37B21DC42F0A0052202C /* SlitherLinkDocument.swift in Sources */,
+				84DEF09B1DDE964A00A26445 /* LightenUpOptionsViewController.swift in Sources */,
 				8C6D37871DC42F0A0052202C /* BridgesGridNode.swift in Sources */,
 				8C6D379B1DC42F0A0052202C /* HitoriGame.swift in Sources */,
 				84EE6E911DD945480013A033 /* MasyuGameViewController.swift in Sources */,
@@ -1377,20 +1378,18 @@
 				84EE6E8E1DD945480013A033 /* MasyuGame.swift in Sources */,
 				8C6D378D1DC42F0A0052202C /* BridgesTables.swift in Sources */,
 				8C6D378C1DC42F0A0052202C /* BridgesOptionsViewController.swift in Sources */,
+				84DEF0961DDE964A00A26445 /* LightenUpGameViewController.swift in Sources */,
 				8C64A2E61DDA00D500AB6C09 /* URLExtensions.swift in Sources */,
 				8C64A2B91DDA00D500AB6C09 /* BlockButton.swift in Sources */,
 				84EE6E951DD945480013A033 /* MasyuMixin.swift in Sources */,
-				8C6D37AA1DC42F0A0052202C /* LightUpGameViewController.swift in Sources */,
 				8C64A2C51DDA00D500AB6C09 /* CharacterExtensions.swift in Sources */,
 				8C916CBD1DAA5E9500D9E62B /* Error.swift in Sources */,
 				8C6D37911DC42F0A0052202C /* CloudsGameState.swift in Sources */,
 				8C6D37F31DC5AC310052202C /* SoundManager.swift in Sources */,
-				8C6D37A61DC42F0A0052202C /* LightUpDocument.swift in Sources */,
 				8C64A2781DD85A3800AB6C09 /* SkyscrapersGame.swift in Sources */,
 				8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */,
 				8C6D379F1DC42F0A0052202C /* HitoriGridNode.swift in Sources */,
 				8C64A2BE1DDA00D500AB6C09 /* BlockTap.swift in Sources */,
-				8C6D37A91DC42F0A0052202C /* LightUpGameState.swift in Sources */,
 				8C7EF0641DD297D100D1DE94 /* NurikabeGameScene.swift in Sources */,
 				84EE6E941DD945480013A033 /* MasyuMainViewController.swift in Sources */,
 				8C64A2D91DDA00D500AB6C09 /* UIFontExtensions.swift in Sources */,
@@ -1411,6 +1410,7 @@
 				8C6D37991DC42F0A0052202C /* CloudsTables.swift in Sources */,
 				8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */,
 				8C6D37841DC42F0A0052202C /* BridgesGameScene.swift in Sources */,
+				84DEF0941DDE964A00A26445 /* LightenUpGameScene.swift in Sources */,
 				8C6D37BC1DC42F0A0052202C /* SlitherLinkOptionsViewController.swift in Sources */,
 				8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */,
 				8C916CBC1DAA5E9500D9E62B /* Element.swift in Sources */,
@@ -1425,8 +1425,8 @@
 				8C64A2C31DDA00D500AB6C09 /* CGPointExtensions.swift in Sources */,
 				8C6D37FC1DC5B4DC0052202C /* Game.swift in Sources */,
 				8C7EF0621DD297D100D1DE94 /* NurikabeDocument.swift in Sources */,
-				8C6D37AE1DC42F0A0052202C /* LightUpMixin.swift in Sources */,
 				84EE6E901DD945480013A033 /* MasyuGameState.swift in Sources */,
+				84DEF0971DDE964A00A26445 /* LightenUpGridNode.swift in Sources */,
 				8C6D37BA1DC42F0A0052202C /* SlitherLinkMixin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1469,6 +1469,14 @@
 				84DEF0821DDE850400A26445 /* Base */,
 			);
 			name = LineSweeper.storyboard;
+			sourceTree = "<group>";
+		};
+		84DEF09D1DDE967500A26445 /* LightenUp.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84DEF09E1DDE967500A26445 /* Base */,
+			);
+			name = LightenUp.storyboard;
 			sourceTree = "<group>";
 		};
 		84EE6E991DD945610013A033 /* Masyu.storyboard */ = {
@@ -1517,14 +1525,6 @@
 				8C6D37C51DC42F540052202C /* Base */,
 			);
 			name = Hitori.storyboard;
-			sourceTree = "<group>";
-		};
-		8C6D37C71DC42F640052202C /* LightUp.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8C6D37C81DC42F640052202C /* Base */,
-			);
-			name = LightUp.storyboard;
 			sourceTree = "<group>";
 		};
 		8C6D37CA1DC42F6D0052202C /* SlitherLink.storyboard */ = {

@@ -1,5 +1,5 @@
 //
-//  LightUpOptionsViewController.swift
+//  LightenUpOptionsViewController.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/25.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-class LightUpOptionsViewController: OptionsViewController, LightUpMixin {
+class LightenUpOptionsViewController: OptionsViewController, LightenUpMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!
     @IBOutlet weak var swNormalLightbulbsOnly: UISwitch!
     
     func updateMarkerOption() {
-        lblMarkerOption.text = LightUpMarkerOptions.optionStrings[gameOptions.markerOption]
+        lblMarkerOption.text = LightenUpMarkerOptions.optionStrings[gameOptions.markerOption]
     }
     
     func updateNormalLightbulbsOnly() {
@@ -36,7 +36,7 @@ class LightUpOptionsViewController: OptionsViewController, LightUpMixin {
 
     override func onDefault() {
         let rec = self.gameOptions
-        rec.markerOption = LightUpMarkerOptions.noMarker.rawValue
+        rec.markerOption = LightenUpMarkerOptions.noMarker.rawValue
         rec.normalLightbulbsOnly = false
         rec.commit()
         self.updateMarkerOption()
@@ -46,7 +46,7 @@ class LightUpOptionsViewController: OptionsViewController, LightUpMixin {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row == 0 else { return }
         let rec = gameOptions
-        ActionSheetStringPicker.show(withTitle: "Marker Options", rows: LightUpMarkerOptions.optionStrings, initialSelection: rec.markerOption, doneBlock: { (picker, selectedIndex, selectedValue) in
+        ActionSheetStringPicker.show(withTitle: "Marker Options", rows: LightenUpMarkerOptions.optionStrings, initialSelection: rec.markerOption, doneBlock: { (picker, selectedIndex, selectedValue) in
             rec.markerOption = selectedIndex
             rec.commit()
             self.updateMarkerOption()

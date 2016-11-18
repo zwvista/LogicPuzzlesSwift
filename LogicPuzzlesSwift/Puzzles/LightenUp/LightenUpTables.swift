@@ -1,5 +1,5 @@
 //
-//  LightUpTables.swift
+//  LightenUpTables.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/19.
@@ -9,7 +9,7 @@
 import Foundation
 import SharkORM
 
-class LightUpGameProgress: SRKObject {
+class LightenUpGameProgress: SRKObject {
     dynamic var levelID: String?
     dynamic var markerOption = 0
     dynamic var normalLightbulbsOnly = false
@@ -19,7 +19,7 @@ class LightUpGameProgress: SRKObject {
     }
 }
 
-class LightUpLevelProgress: SRKObject {
+class LightenUpLevelProgress: SRKObject {
     dynamic var levelID: String?
     dynamic var moveIndex = 0
     
@@ -28,7 +28,7 @@ class LightUpLevelProgress: SRKObject {
     }
 }
 
-class LightUpMoveProgress: SRKObject {
+class LightenUpMoveProgress: SRKObject {
     dynamic var levelID: String?
     dynamic var moveIndex = 0
     dynamic var row = 0

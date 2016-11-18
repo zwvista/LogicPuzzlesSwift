@@ -1,5 +1,5 @@
 //
-//  LightUpObject.swift
+//  LightenUpObject.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/26.
@@ -8,19 +8,19 @@
 
 import Foundation
 
-enum LightUpLightbulbState {
+enum LightenUpLightbulbState {
     case normal, error
 }
 
-enum LightUpMarkerOptions: Int {
+enum LightenUpMarkerOptions: Int {
     case noMarker, markerAfterLightbulb, markerBeforeLightbulb
     
     static let optionStrings = ["No Marker", "Marker After Lightbulb", "Marker Before Lightbulb"]
 }
 
-enum LightUpObjectType {
+enum LightenUpObjectType {
     case empty
-    case lightbulb(state: LightUpLightbulbState)
+    case lightbulb(state: LightenUpLightbulbState)
     case marker
     case wall(state: HintState)
     init() {
@@ -36,7 +36,7 @@ enum LightUpObjectType {
             return "empty"
         }
     }
-    static func fromString(str: String) -> LightUpObjectType {
+    static func fromString(str: String) -> LightenUpObjectType {
         switch str {
         case "lightbulb":
             return .lightbulb(state: .normal)
@@ -48,13 +48,13 @@ enum LightUpObjectType {
     }
 }
 
-struct LightUpObject {
-    var objType = LightUpObjectType()
+struct LightenUpObject {
+    var objType = LightenUpObjectType()
     var lightness = 0
 }
 
-struct LightUpGameMove {
+struct LightenUpGameMove {
     var p = Position()
-    var objType = LightUpObjectType()
+    var objType = LightenUpObjectType()
 }
 

@@ -1,5 +1,5 @@
 //
-//  LightUpGameViewController.swift
+//  LightenUpGameViewController.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/08/31.
@@ -9,10 +9,10 @@
 import UIKit
 import SpriteKit
 
-class LightUpGameViewController: GameViewController, GameDelegate, LightUpMixin {
+class LightenUpGameViewController: GameViewController, GameDelegate, LightenUpMixin {
 
-    var scene: LightUpGameScene!
-    var game: LightUpGame!
+    var scene: LightenUpGameScene!
+    var game: LightenUpGame!
     weak var skView: SKView!
     var levelInitilizing = false
 
@@ -28,7 +28,7 @@ class LightUpGameViewController: GameViewController, GameDelegate, LightUpMixin 
         skView.isMultipleTouchEnabled = false
         
         // Create and configure the scene.
-        scene = LightUpGameScene(size: skView.bounds.size)
+        scene = LightenUpGameScene(size: skView.bounds.size)
         scene.scaleMode = .aspectFill
         scene.backgroundColor = UIColor.black
         
@@ -48,7 +48,7 @@ class LightUpGameViewController: GameViewController, GameDelegate, LightUpMixin 
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = LightUpGameMove(p: p, objType: .empty)
+        var move = LightenUpGameMove(p: p, objType: .empty)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     
@@ -58,11 +58,11 @@ class LightUpGameViewController: GameViewController, GameDelegate, LightUpMixin 
         
         levelInitilizing = true
         defer {levelInitilizing = false}
-        game = LightUpGame(layout: layout, delegate: self)
+        game = LightenUpGame(layout: layout, delegate: self)
         
         // restore game state
-        for case let rec as LightUpMoveProgress in gameDocument.moveProgress {
-            var move = LightUpGameMove(p: Position(rec.row, rec.col), objType: LightUpObjectType.fromString(str: rec.objTypeAsString!))
+        for case let rec as LightenUpMoveProgress in gameDocument.moveProgress {
+            var move = LightenUpGameMove(p: Position(rec.row, rec.col), objType: LightenUpObjectType.fromString(str: rec.objTypeAsString!))
             _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex
@@ -72,24 +72,24 @@ class LightUpGameViewController: GameViewController, GameDelegate, LightUpMixin 
         }
     }
     
-    func moveAdded(_ game: AnyObject, move: LightUpGameMove) {
+    func moveAdded(_ game: AnyObject, move: LightenUpGameMove) {
         guard !levelInitilizing else {return}
         gameDocument.moveAdded(game: game, move: move)
     }
     
-    func updateLabels(_ game: LightUpGame) {
+    func updateLabels(_ game: LightenUpGame) {
         lblMoves.text = "Moves: \(game.moveIndex)(\(game.moveCount))"
         lblSolved.textColor = game.isSolved ? SKColor.white : SKColor.black
     }
     
-    func levelInitilized(_ game: AnyObject, state: LightUpGameState) {
-        let game = game as! LightUpGame
+    func levelInitilized(_ game: AnyObject, state: LightenUpGameState) {
+        let game = game as! LightenUpGame
         updateLabels(game)
         scene.levelInitialized(game, state: state, skView: skView)
     }
     
-    func levelUpdated(_ game: AnyObject, from stateFrom: LightUpGameState, to stateTo: LightUpGameState) {
-        let game = game as! LightUpGame
+    func levelUpdated(_ game: AnyObject, from stateFrom: LightenUpGameState, to stateTo: LightenUpGameState) {
+        let game = game as! LightenUpGame
         updateLabels(game)
         scene.levelUpdated(from: stateFrom, to: stateTo)
         guard !levelInitilizing else {return}
