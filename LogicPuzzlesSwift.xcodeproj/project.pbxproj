@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84DEF0741DDE84F200A26445 /* LineSweeper.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84DEF0681DDE84F200A26445 /* LineSweeper.xml */; };
+		84DEF0751DDE84F200A26445 /* LineSweeperDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF0691DDE84F200A26445 /* LineSweeperDocument.swift */; };
+		84DEF0761DDE84F200A26445 /* LineSweeperGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF06A1DDE84F200A26445 /* LineSweeperGame.swift */; };
+		84DEF0771DDE84F200A26445 /* LineSweeperGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF06B1DDE84F200A26445 /* LineSweeperGameScene.swift */; };
+		84DEF0781DDE84F200A26445 /* LineSweeperGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF06C1DDE84F200A26445 /* LineSweeperGameState.swift */; };
+		84DEF0791DDE84F200A26445 /* LineSweeperGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF06D1DDE84F200A26445 /* LineSweeperGameViewController.swift */; };
+		84DEF07A1DDE84F200A26445 /* LineSweeperGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF06E1DDE84F200A26445 /* LineSweeperGridNode.swift */; };
+		84DEF07B1DDE84F200A26445 /* LineSweeperMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF06F1DDE84F200A26445 /* LineSweeperMainViewController.swift */; };
+		84DEF07C1DDE84F200A26445 /* LineSweeperMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF0701DDE84F200A26445 /* LineSweeperMixin.swift */; };
+		84DEF07D1DDE84F200A26445 /* LineSweeperObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF0711DDE84F200A26445 /* LineSweeperObject.swift */; };
+		84DEF07E1DDE84F200A26445 /* LineSweeperOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF0721DDE84F200A26445 /* LineSweeperOptionsViewController.swift */; };
+		84DEF07F1DDE84F200A26445 /* LineSweeperTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEF0731DDE84F200A26445 /* LineSweeperTables.swift */; };
+		84DEF0831DDE850400A26445 /* LineSweeper.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DEF0811DDE850400A26445 /* LineSweeper.storyboard */; };
 		84EE6E8D1DD945480013A033 /* MasyuDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE6E811DD945480013A033 /* MasyuDocument.swift */; };
 		84EE6E8E1DD945480013A033 /* MasyuGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE6E821DD945480013A033 /* MasyuGame.swift */; };
 		84EE6E8F1DD945480013A033 /* MasyuGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE6E831DD945480013A033 /* MasyuGameScene.swift */; };
@@ -270,6 +283,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		84DEF0681DDE84F200A26445 /* LineSweeper.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LineSweeper.xml; sourceTree = "<group>"; };
+		84DEF0691DDE84F200A26445 /* LineSweeperDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperDocument.swift; sourceTree = "<group>"; };
+		84DEF06A1DDE84F200A26445 /* LineSweeperGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperGame.swift; sourceTree = "<group>"; };
+		84DEF06B1DDE84F200A26445 /* LineSweeperGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperGameScene.swift; sourceTree = "<group>"; };
+		84DEF06C1DDE84F200A26445 /* LineSweeperGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperGameState.swift; sourceTree = "<group>"; };
+		84DEF06D1DDE84F200A26445 /* LineSweeperGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperGameViewController.swift; sourceTree = "<group>"; };
+		84DEF06E1DDE84F200A26445 /* LineSweeperGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperGridNode.swift; sourceTree = "<group>"; };
+		84DEF06F1DDE84F200A26445 /* LineSweeperMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperMainViewController.swift; sourceTree = "<group>"; };
+		84DEF0701DDE84F200A26445 /* LineSweeperMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperMixin.swift; sourceTree = "<group>"; };
+		84DEF0711DDE84F200A26445 /* LineSweeperObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperObject.swift; sourceTree = "<group>"; };
+		84DEF0721DDE84F200A26445 /* LineSweeperOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperOptionsViewController.swift; sourceTree = "<group>"; };
+		84DEF0731DDE84F200A26445 /* LineSweeperTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperTables.swift; sourceTree = "<group>"; };
+		84DEF0821DDE850400A26445 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/LineSweeper.storyboard; sourceTree = SOURCE_ROOT; };
 		84EE6E811DD945480013A033 /* MasyuDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasyuDocument.swift; sourceTree = "<group>"; };
 		84EE6E821DD945480013A033 /* MasyuGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasyuGame.swift; sourceTree = "<group>"; };
 		84EE6E831DD945480013A033 /* MasyuGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasyuGameScene.swift; sourceTree = "<group>"; };
@@ -543,6 +569,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84DEF0671DDE84F200A26445 /* LineSweeper */ = {
+			isa = PBXGroup;
+			children = (
+				84DEF0811DDE850400A26445 /* LineSweeper.storyboard */,
+				84DEF0681DDE84F200A26445 /* LineSweeper.xml */,
+				84DEF0691DDE84F200A26445 /* LineSweeperDocument.swift */,
+				84DEF06A1DDE84F200A26445 /* LineSweeperGame.swift */,
+				84DEF06B1DDE84F200A26445 /* LineSweeperGameScene.swift */,
+				84DEF06C1DDE84F200A26445 /* LineSweeperGameState.swift */,
+				84DEF06D1DDE84F200A26445 /* LineSweeperGameViewController.swift */,
+				84DEF06E1DDE84F200A26445 /* LineSweeperGridNode.swift */,
+				84DEF06F1DDE84F200A26445 /* LineSweeperMainViewController.swift */,
+				84DEF0701DDE84F200A26445 /* LineSweeperMixin.swift */,
+				84DEF0711DDE84F200A26445 /* LineSweeperObject.swift */,
+				84DEF0721DDE84F200A26445 /* LineSweeperOptionsViewController.swift */,
+				84DEF0731DDE84F200A26445 /* LineSweeperTables.swift */,
+			);
+			name = LineSweeper;
+			path = LogicPuzzlesSwift/Puzzles/LineSweeper;
+			sourceTree = SOURCE_ROOT;
+		};
 		84EE6E801DD945480013A033 /* Masyu */ = {
 			isa = PBXGroup;
 			children = (
@@ -715,6 +762,7 @@
 				8C6D37411DC42F0A0052202C /* Bridges */,
 				8C6D374E1DC42F0A0052202C /* Clouds */,
 				8C6D375B1DC42F0A0052202C /* Hitori */,
+				84DEF0671DDE84F200A26445 /* LineSweeper */,
 				8C6D37681DC42F0A0052202C /* LightUp */,
 				84EE6E801DD945480013A033 /* Masyu */,
 				8C7EF0551DD297D100D1DE94 /* Nurikabe */,
@@ -1127,6 +1175,7 @@
 			files = (
 				8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */,
 				8C1D16B21DB8DE930056D407 /* TraversalTree.png in Resources */,
+				84DEF0831DDE850400A26445 /* LineSweeper.storyboard in Resources */,
 				8C6D37C31DC42F450052202C /* Clouds.storyboard in Resources */,
 				8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */,
 				8C6D37AC1DC42F0A0052202C /* LightUp.xml in Resources */,
@@ -1142,6 +1191,7 @@
 				8C1D16B01DB8DE930056D407 /* AnimatedExample.psd in Resources */,
 				8C6D37B81DC42F0A0052202C /* SlitherLink.xml in Resources */,
 				8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */,
+				84DEF0741DDE84F200A26445 /* LineSweeper.xml in Resources */,
 				8C64A27D1DD85A3800AB6C09 /* Skyscrapers.xml in Resources */,
 				8C6D37C91DC42F640052202C /* LightUp.storyboard in Resources */,
 				8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */,
@@ -1198,6 +1248,7 @@
 				8C64A2681DD8089700AB6C09 /* GameViewController.swift in Sources */,
 				8C64A2CE1DDA00D500AB6C09 /* NSDictionaryExtensions.swift in Sources */,
 				8C64A2C91DDA00D500AB6C09 /* ErrorTypeExtensions.swift in Sources */,
+				84DEF0781DDE84F200A26445 /* LineSweeperGameState.swift in Sources */,
 				8C1D16B31DB8DE930056D407 /* README.markdown in Sources */,
 				8C6D37B11DC42F0A0052202C /* LightUpTables.swift in Sources */,
 				8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */,
@@ -1211,6 +1262,8 @@
 				8C7EF0631DD297D100D1DE94 /* NurikabeGame.swift in Sources */,
 				8C6D37BB1DC42F0A0052202C /* SlitherLinkObject.swift in Sources */,
 				8C6D37A21DC42F0A0052202C /* HitoriMixin.swift in Sources */,
+				84DEF0761DDE84F200A26445 /* LineSweeperGame.swift in Sources */,
+				84DEF07C1DDE84F200A26445 /* LineSweeperMixin.swift in Sources */,
 				8C6D373A1DC421180052202C /* HomeMixin.swift in Sources */,
 				8C6D37F51DC5AC520052202C /* Position.swift in Sources */,
 				8C64A2C41DDA00D500AB6C09 /* CGRectExtensions.swift in Sources */,
@@ -1225,6 +1278,7 @@
 				8C64A27B1DD85A3800AB6C09 /* SkyscrapersGameViewController.swift in Sources */,
 				8C1D16B51DB8DE930056D407 /* Graph.swift in Sources */,
 				8C64A2E21DDA00D500AB6C09 /* UIUserInterfaceSizeClassExtensions.swift in Sources */,
+				84DEF07F1DDE84F200A26445 /* LineSweeperTables.swift in Sources */,
 				8C6D37921DC42F0A0052202C /* CloudsGameViewController.swift in Sources */,
 				84EE6E971DD945480013A033 /* MasyuOptionsViewController.swift in Sources */,
 				8C7EF0891DD4C23C00D1DE94 /* AbcOptionsViewController.swift in Sources */,
@@ -1239,6 +1293,7 @@
 				8C886C401D9E8AF1004A42BF /* ActionSheetLocalePicker.m in Sources */,
 				8C64A2D01DDA00D500AB6C09 /* StringExtensions.swift in Sources */,
 				8C6D37851DC42F0A0052202C /* BridgesGameState.swift in Sources */,
+				84DEF07A1DDE84F200A26445 /* LineSweeperGridNode.swift in Sources */,
 				8C64A2D31DDA00D500AB6C09 /* UIApplicationExtensions.swift in Sources */,
 				8C64A2C71DDA00D500AB6C09 /* DictionaryExtensions.swift in Sources */,
 				8C7EF0821DD4C23C00D1DE94 /* AbcGameState.swift in Sources */,
@@ -1258,7 +1313,9 @@
 				8C7EF06A1DD297D100D1DE94 /* NurikabeMixin.swift in Sources */,
 				8C64A27E1DD85A3800AB6C09 /* SkyscrapersMainViewController.swift in Sources */,
 				8C64A27C1DD85A3800AB6C09 /* SkyscrapersGridNode.swift in Sources */,
+				84DEF0751DDE84F200A26445 /* LineSweeperDocument.swift in Sources */,
 				8C7EF0651DD297D100D1DE94 /* NurikabeGameState.swift in Sources */,
+				84DEF07D1DDE84F200A26445 /* LineSweeperObject.swift in Sources */,
 				8C6D37931DC42F0A0052202C /* CloudsGridNode.swift in Sources */,
 				8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */,
 				8C7EF06D1DD297D100D1DE94 /* NurikabeTables.swift in Sources */,
@@ -1338,6 +1395,8 @@
 				84EE6E941DD945480013A033 /* MasyuMainViewController.swift in Sources */,
 				8C64A2D91DDA00D500AB6C09 /* UIFontExtensions.swift in Sources */,
 				8C916CC11DAA5E9500D9E62B /* NodeSet.swift in Sources */,
+				84DEF0771DDE84F200A26445 /* LineSweeperGameScene.swift in Sources */,
+				84DEF07B1DDE84F200A26445 /* LineSweeperMainViewController.swift in Sources */,
 				8C6D37B71DC42F0A0052202C /* SlitherLinkGridNode.swift in Sources */,
 				8C6D37861DC42F0A0052202C /* BridgesGameViewController.swift in Sources */,
 				8C886C3F1D9E8AF1004A42BF /* ActionSheetDistancePicker.m in Sources */,
@@ -1345,7 +1404,9 @@
 				8C64A2BB1DDA00D500AB6C09 /* BlockPan.swift in Sources */,
 				8C6D37951DC42F0A0052202C /* CloudsMainViewController.swift in Sources */,
 				8C64A2BA1DDA00D500AB6C09 /* BlockLongPress.swift in Sources */,
+				84DEF07E1DDE84F200A26445 /* LineSweeperOptionsViewController.swift in Sources */,
 				8C64A2CF1DDA00D500AB6C09 /* NSObjectExtensions.swift in Sources */,
+				84DEF0791DDE84F200A26445 /* LineSweeperGameViewController.swift in Sources */,
 				8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */,
 				8C6D37991DC42F0A0052202C /* CloudsTables.swift in Sources */,
 				8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */,
@@ -1402,6 +1463,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		84DEF0811DDE850400A26445 /* LineSweeper.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84DEF0821DDE850400A26445 /* Base */,
+			);
+			name = LineSweeper.storyboard;
+			sourceTree = "<group>";
+		};
 		84EE6E991DD945610013A033 /* Masyu.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
