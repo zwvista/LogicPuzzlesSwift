@@ -14,7 +14,7 @@ class NurikabeOptionsViewController: OptionsViewController, NurikabeMixin {
     @IBOutlet weak var lblMarkerOption: UILabel!
     
     func updateMarkerOption() {
-        lblMarkerOption.text = NurikabeMarkerOptions.optionStrings[gameOptions.markerOption]
+        lblMarkerOption.text = NurikabeMarkerOptions.optionStrings[markerOption]
     }
     
     override func viewDidLoad() {
@@ -23,18 +23,16 @@ class NurikabeOptionsViewController: OptionsViewController, NurikabeMixin {
     }
 
     override func onDefault() {
-        let rec = self.gameOptions
-        rec.markerOption = NurikabeMarkerOptions.noMarker.rawValue
-        rec.commit()
+        setMarkerOption(NurikabeMarkerOptions.noMarker.rawValue)
+        gameOptions.commit()
         updateMarkerOption()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row == 0 else { return }
-        let rec = gameOptions
-        ActionSheetStringPicker.show(withTitle: "Marker Options", rows: NurikabeMarkerOptions.optionStrings, initialSelection: rec.markerOption, doneBlock: { (picker, selectedIndex, selectedValue) in
-            rec.markerOption = selectedIndex
-            rec.commit()
+        ActionSheetStringPicker.show(withTitle: "Marker Options", rows: NurikabeMarkerOptions.optionStrings, initialSelection: markerOption, doneBlock: { (picker, selectedIndex, selectedValue) in
+            self.setMarkerOption(selectedIndex)
+            self.gameOptions.commit()
             self.updateMarkerOption()
         }, cancel: nil, origin: lblMarker)
     }

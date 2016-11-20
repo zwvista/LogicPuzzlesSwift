@@ -61,8 +61,8 @@ class LightenUpGameViewController: GameViewController, GameDelegate, LightenUpMi
         game = LightenUpGame(layout: layout, delegate: self)
         
         // restore game state
-        for case let rec as LightenUpMoveProgress in gameDocument.moveProgress {
-            var move = LightenUpGameMove(p: Position(rec.row, rec.col), objType: LightenUpObjectType.fromString(str: rec.objTypeAsString!))
+        for case let rec as MoveProgress in gameDocument.moveProgress {
+            var move = gameDocument.loadMove(from: rec)!
             _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex

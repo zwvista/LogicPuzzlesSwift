@@ -9,61 +9,15 @@
 import UIKit
 import SharkORM
 
-class BridgesDocument: GameDocument<BridgesGameMove> {
+class BridgesDocument: GameDocument<BridgesGame, BridgesGameMove> {
     static var sharedInstance = BridgesDocument()
-    var gameProgress: BridgesGameProgress {
-        let result = BridgesGameProgress.query().fetch()!
-        return result.count == 0 ? BridgesGameProgress() : (result[0] as! BridgesGameProgress)
-    }
-    var levelProgress: BridgesLevelProgress {
-        let result = BridgesLevelProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).fetch()!
-        if result.count == 0 {
-            let rec = BridgesLevelProgress()
-            rec.levelID = selectedLevelID
-            return rec
-        } else {
-            return result[0] as! BridgesLevelProgress
-        }
-    }
-    var moveProgress: SRKResultSet {
-        return BridgesMoveProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).order(by: "moveIndex").fetch()!
-    }
-
-    init() {
-        super.init(forResource: "Bridges")
-        selectedLevelID = gameProgress.levelID
+    
+    override func saveMove(_ move: BridgesGameMove, to rec: MoveProgress) {
+        (rec.row, rec.col) = move.pFrom.unapply()
+        (rec.row2, rec.col2) = move.pTo.unapply()
     }
     
-    override func levelUpdated(game: AnyObject) {
-        let game = game as! BridgesGame
-        let rec = levelProgress
-        rec.moveIndex = game.moveIndex
-        rec.commit()
-    }
-    
-    override func moveAdded(game: AnyObject, move: BridgesGameMove) {
-        let game = game as! BridgesGame
-        BridgesMoveProgress.query().where(withFormat: "levelID = %@ AND moveIndex >= %@", withParameters: [selectedLevelID, game.moveIndex]).fetch().removeAll()
-        
-        let rec = BridgesMoveProgress()
-        rec.levelID = selectedLevelID
-        rec.moveIndex = game.moveIndex
-        (rec.rowFrom, rec.colFrom) = move.pFrom.unapply()
-        (rec.rowTo, rec.colTo) = move.pTo.unapply()
-        rec.commit()
-    }
-    
-    override func resumeGame() {
-        let rec = gameProgress
-        rec.levelID = selectedLevelID
-        rec.commit()
-    }
-    
-    override func clearGame() {
-        BridgesMoveProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).fetch().removeAll()
-        
-        let rec = levelProgress
-        rec.moveIndex = 0
-        rec.commit()
+    override func loadMove(from rec: MoveProgress) -> BridgesGameMove? {
+        return BridgesGameMove(pFrom: Position(rec.row, rec.col), pTo: Position(rec.row2, rec.col2))
     }
 }

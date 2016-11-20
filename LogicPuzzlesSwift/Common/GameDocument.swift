@@ -9,12 +9,31 @@
 import UIKit
 import SharkORM
 
-class GameDocument<GM> {
+class GameDocument<G: GameBase, GM> {
     private(set) var levels = [String: [String]]()
     var selectedLevelID: String!
-
-    init(forResource name: String?) {
-        let path = Bundle.main.path(forResource: name, ofType: "xml")!
+    
+    var gameProgress: GameProgress {
+        let result = GameProgress.query().where(withFormat: "gameID = %@", withParameters: [G.gameID]).fetch()!
+        return result.count == 0 ? GameProgress() : (result[0] as! GameProgress)
+    }
+    var levelProgress: LevelProgress {
+        let result = LevelProgress.query().where(withFormat: "gameID = %@ AND levelID = %@", withParameters: [G.gameID, selectedLevelID]).fetch()!
+        if result.count == 0 {
+            let rec = LevelProgress()
+            rec.gameID = G.gameID
+            rec.levelID = selectedLevelID
+            return rec
+        } else {
+            return result[0] as! LevelProgress
+        }
+    }
+    var moveProgress: SRKResultSet {
+        return MoveProgress.query().where(withFormat: "gameID = %@ levelID = %@", withParameters: [G.gameID, selectedLevelID]).order(by: "moveIndex").fetch()!
+    }
+    
+    init() {
+        let path = Bundle.main.path(forResource: G.gameID, ofType: "xml")!
         let xml = try! String(contentsOfFile: path)
         let doc = try! XMLDocument(string: xml)
         for elem in doc.root!.children {
@@ -24,13 +43,43 @@ class GameDocument<GM> {
             arr = arr.map { s in s.substring(to: s.index(before: s.endIndex)) }
             levels["Level " + key] = arr
         }
+        selectedLevelID = gameProgress.levelID
     }
     
-    func levelUpdated(game: AnyObject) {}
+    func levelUpdated(game: AnyObject) {
+        let game = game as! G
+        let rec = levelProgress
+        rec.gameID = G.gameID
+        rec.moveIndex = game.moveIndex
+        rec.commit()
+    }
     
-    func moveAdded(game: AnyObject, move: GM) {}
+    func moveAdded(game: AnyObject, move: GM) {
+        let game = game as! G
+        GameProgress.query().where(withFormat: "gameID = %@ AND levelID = %@ AND moveIndex >= %@", withParameters: [G.gameID, selectedLevelID, game.moveIndex]).fetch().removeAll()
+        
+        let rec = MoveProgress()
+        rec.gameID = G.gameID
+        rec.levelID = selectedLevelID
+        saveMove(move, to: rec)
+        rec.commit()
+    }
     
-    func resumeGame() {}
+    func saveMove(_ move: GM, to rec: MoveProgress) {}
     
-    func clearGame() {}
+    func loadMove(from rec: MoveProgress) -> GM? {return nil}
+    
+    func resumeGame() {
+        let rec = gameProgress
+        rec.levelID = selectedLevelID
+        rec.commit()
+    }
+    
+    func clearGame() {
+        MoveProgress.query().where(withFormat: "gameID = %@ AND levelID = %@", withParameters: [G.gameID, selectedLevelID]).fetch().removeAll()
+        
+        let rec = levelProgress
+        rec.moveIndex = 0
+        rec.commit()
+    }
 }

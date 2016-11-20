@@ -8,10 +8,9 @@
 
 import Foundation
 
-class BridgesGameState: CellsGameState {
+class BridgesGameState: CellsGameState, BridgesMixin {
     var game: BridgesGame {return gameBase as! BridgesGame}
     var objArray = [BridgesObject]()
-    var options: BridgesGameProgress { return BridgesDocument.sharedInstance.gameProgress }
     
     override func copy() -> BridgesGameState {
         let v = BridgesGameState(game: gameBase)

@@ -10,10 +10,10 @@ import Foundation
 
 protocol AbcMixin: GameMixin {
     var gameDocument: AbcDocument { get }
-    var gameOptions: AbcGameProgress { get }
+    var gameOptions: GameProgress { get }
 }
 
 extension AbcMixin {
     var gameDocument: AbcDocument { return AbcDocument.sharedInstance }
-    var gameOptions: AbcGameProgress { return gameDocument.gameProgress }
+    var gameOptions: GameProgress { return gameDocument.gameProgress }
 }

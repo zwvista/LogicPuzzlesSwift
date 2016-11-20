@@ -8,12 +8,11 @@
 
 import Foundation
 
-class CloudsGameState: CellsGameState {
+class CloudsGameState: CellsGameState, CloudsMixin {
     var game: CloudsGame {return gameBase as! CloudsGame}
     var objArray = [CloudsObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()
-    var options: CloudsGameProgress { return CloudsDocument.sharedInstance.gameProgress }
     
     override func copy() -> CloudsGameState {
         let v = CloudsGameState(game: gameBase)
@@ -61,7 +60,7 @@ class CloudsGameState: CellsGameState {
     }
     
     func switchObject(move: inout CloudsGameMove) -> Bool {
-        let markerOption = CloudsMarkerOptions(rawValue: options.markerOption)
+        let markerOption = CloudsMarkerOptions(rawValue: self.markerOption)
         func f(o: CloudsObject) -> CloudsObject {
             switch o {
             case .empty:

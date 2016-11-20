@@ -8,11 +8,10 @@
 
 import Foundation
 
-class LineSweeperGameState: CellsGameState {
+class LineSweeperGameState: CellsGameState, LineSweeperMixin {
     var game: LineSweeperGame {return gameBase as! LineSweeperGame}
     var objArray = [LineSweeperDotObject]()
     var pos2state = [Position: HintState]()
-    var options: LineSweeperGameProgress { return LineSweeperDocument.sharedInstance.gameProgress }
     
     override func copy() -> LineSweeperGameState {
         let v = LineSweeperGameState(game: gameBase)
@@ -75,7 +74,7 @@ class LineSweeperGameState: CellsGameState {
     }
     
     func switchObject(move: inout LineSweeperGameMove) -> Bool {
-        let markerOption = LineSweeperMarkerOptions(rawValue: options.markerOption)
+        let markerOption = LineSweeperMarkerOptions(rawValue: self.markerOption)
         func f(o: LineSweeperObject) -> LineSweeperObject {
             switch o {
             case .empty:

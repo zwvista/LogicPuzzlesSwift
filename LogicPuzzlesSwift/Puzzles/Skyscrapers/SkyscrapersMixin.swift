@@ -10,10 +10,10 @@ import Foundation
 
 protocol SkyscrapersMixin: GameMixin {
     var gameDocument: SkyscrapersDocument { get }
-    var gameOptions: SkyscrapersGameProgress { get }
+    var gameOptions: GameProgress { get }
 }
 
 extension SkyscrapersMixin {
     var gameDocument: SkyscrapersDocument { return SkyscrapersDocument.sharedInstance }
-    var gameOptions: SkyscrapersGameProgress { return gameDocument.gameProgress }
+    var gameOptions: GameProgress { return gameDocument.gameProgress }
 }

@@ -8,15 +8,8 @@
 
 import Foundation
 
-// http://stackoverflow.com/questions/24066304/how-can-i-make-a-weak-protocol-reference-in-pure-swift-w-o-objc
-protocol SlitherLinkGameDelegate: class {
-    func moveAdded(_ game: SlitherLinkGame, move: SlitherLinkGameMove)
-    func levelInitilized(_ game: SlitherLinkGame, state: SlitherLinkGameState)
-    func levelUpdated(_ game: SlitherLinkGame, from stateFrom: SlitherLinkGameState, to stateTo: SlitherLinkGameState)
-    func gameSolved(_ game: SlitherLinkGame)
-}
-
-class SlitherLinkGame: CellsGame<SlitherLinkGameViewController, SlitherLinkGameMove, SlitherLinkGameState> {
+class SlitherLinkGame: CellsGame<SlitherLinkGameViewController, SlitherLinkGameMove, SlitherLinkGameState>, GameBase {
+    static var gameID = "SlitherLink"
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

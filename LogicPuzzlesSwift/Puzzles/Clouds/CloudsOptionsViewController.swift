@@ -15,7 +15,7 @@ class CloudsOptionsViewController: OptionsViewController, CloudsMixin {
     @IBOutlet weak var swNormalLightbulbsOnly: UISwitch!
     
     func updateMarkerOption() {
-        lblMarkerOption.text = CloudsMarkerOptions.optionStrings[gameOptions.markerOption]
+        lblMarkerOption.text = CloudsMarkerOptions.optionStrings[markerOption]
     }
     
     override func viewDidLoad() {
@@ -24,18 +24,16 @@ class CloudsOptionsViewController: OptionsViewController, CloudsMixin {
     }
     
     override func onDefault() {
-        let rec = self.gameOptions
-        rec.markerOption = CloudsMarkerOptions.noMarker.rawValue
-        rec.commit()
+        setMarkerOption(CloudsMarkerOptions.noMarker.rawValue)
+        gameOptions.commit()
         self.updateMarkerOption()
     }
         
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row == 0 else { return }
-        let rec = gameOptions
-        ActionSheetStringPicker.show(withTitle: "Marker Options", rows: CloudsMarkerOptions.optionStrings, initialSelection: rec.markerOption, doneBlock: { (picker, selectedIndex, selectedValue) in
-            rec.markerOption = selectedIndex
-            rec.commit()
+        ActionSheetStringPicker.show(withTitle: "Marker Options", rows: CloudsMarkerOptions.optionStrings, initialSelection: markerOption, doneBlock: { (picker, selectedIndex, selectedValue) in
+            self.setMarkerOption(selectedIndex)
+            self.gameOptions.commit()
             self.updateMarkerOption()
         }, cancel: nil, origin: lblMarker)
     }

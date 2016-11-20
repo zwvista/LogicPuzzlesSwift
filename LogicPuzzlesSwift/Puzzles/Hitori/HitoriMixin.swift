@@ -10,10 +10,15 @@ import Foundation
 
 protocol HitoriMixin: GameMixin {
     var gameDocument: HitoriDocument { get }
-    var gameOptions: HitoriGameProgress { get }
+    var gameOptions: GameProgress { get }
+    var markerOption: Int { get }
+    // cannot use property here due to compiler bug
+    func setMarkerOption(_ newValue: Int)
 }
 
 extension HitoriMixin {
     var gameDocument: HitoriDocument { return HitoriDocument.sharedInstance }
-    var gameOptions: HitoriGameProgress { return gameDocument.gameProgress }
+    var gameOptions: GameProgress { return gameDocument.gameProgress }
+    var markerOption: Int { return gameOptions.option1?.toInt() ?? 0 }
+    func setMarkerOption(_ newValue: Int) { gameOptions.option1 = newValue.description }
 }

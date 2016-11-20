@@ -8,7 +8,8 @@
 
 import Foundation
 
-class HitoriGame: CellsGame<HitoriGameViewController, HitoriGameMove, HitoriGameState> {
+class HitoriGame: CellsGame<HitoriGameViewController, HitoriGameMove, HitoriGameState>, GameBase {
+    static let gameID = "Hitori"
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

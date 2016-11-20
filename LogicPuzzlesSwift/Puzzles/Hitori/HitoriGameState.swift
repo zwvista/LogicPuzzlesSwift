@@ -8,12 +8,11 @@
 
 import Foundation
 
-class HitoriGameState: CellsGameState {
+class HitoriGameState: CellsGameState, HitoriMixin {
     var game: HitoriGame {return gameBase as! HitoriGame}
     var objArray = [HitoriObject]()
     var row2hint = [String]()
     var col2hint = [String]()
-    var options: HitoriGameProgress { return HitoriDocument.sharedInstance.gameProgress }
     
     override func copy() -> HitoriGameState {
         let v = HitoriGameState(game: gameBase)
@@ -61,7 +60,7 @@ class HitoriGameState: CellsGameState {
     }
     
     func switchObject(move: inout HitoriGameMove) -> Bool {
-        let markerOption = HitoriMarkerOptions(rawValue: options.markerOption)
+        let markerOption = HitoriMarkerOptions(rawValue: self.markerOption)
         func f(o: HitoriObject) -> HitoriObject {
             switch o {
             case .normal:

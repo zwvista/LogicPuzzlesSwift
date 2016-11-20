@@ -8,10 +8,9 @@
 
 import Foundation
 
-class LightenUpGameState: CellsGameState {
+class LightenUpGameState: CellsGameState, LightenUpMixin {
     var game: LightenUpGame {return gameBase as! LightenUpGame}
     var objArray = [LightenUpObject]()
-    var options: LightenUpGameProgress { return LightenUpDocument.sharedInstance.gameProgress }
     
     override func copy() -> LightenUpGameState {
         let v = LightenUpGameState(game: gameBase)
@@ -84,7 +83,7 @@ class LightenUpGameState: CellsGameState {
         case (.empty, .marker), (.marker, .empty):
             objChanged()
         case (.empty, .lightbulb), (.marker, .lightbulb):
-            if options.normalLightbulbsOnly && self[p].lightness > 0 {break}
+            if normalLightbulbsOnly && self[p].lightness > 0 {break}
             objChanged()
             adjustLightness(tolighten: true)
         case (.lightbulb, .empty), (.lightbulb, .marker):
@@ -98,7 +97,7 @@ class LightenUpGameState: CellsGameState {
     }
     
     func switchObject(move: inout LightenUpGameMove) -> Bool {
-        let markerOption = LightenUpMarkerOptions(rawValue: options.markerOption)
+        let markerOption = LightenUpMarkerOptions(rawValue: self.markerOption)
         func f(o: LightenUpObjectType) -> LightenUpObjectType {
             switch o {
             case .empty:
@@ -118,7 +117,7 @@ class LightenUpGameState: CellsGameState {
             move.objType = o
             return setObject(move: &move)
         case .lightbulb:
-            move.objType = options.normalLightbulbsOnly && self[p].lightness > 0 ? f(o: o) : o
+            move.objType = normalLightbulbsOnly && self[p].lightness > 0 ? f(o: o) : o
             return setObject(move: &move)
         case .wall:
             return false

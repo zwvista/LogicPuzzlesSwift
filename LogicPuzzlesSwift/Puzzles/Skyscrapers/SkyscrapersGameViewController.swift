@@ -61,8 +61,8 @@ class SkyscrapersGameViewController: GameViewController, GameDelegate, Skyscrape
         game = SkyscrapersGame(layout: layout, delegate: self)
         
         // restore game state
-        for case let rec as SkyscrapersMoveProgress in gameDocument.moveProgress {
-            var move = SkyscrapersGameMove(p: Position(rec.row, rec.col), obj: rec.obj)
+        for case let rec as MoveProgress in gameDocument.moveProgress {
+            var move = gameDocument.loadMove(from: rec)!
             _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex

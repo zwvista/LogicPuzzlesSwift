@@ -61,8 +61,8 @@ class NurikabeGameViewController: GameViewController, GameDelegate, NurikabeMixi
         game = NurikabeGame(layout: layout, delegate: self)
         
         // restore game state
-        for case let rec as NurikabeMoveProgress in gameDocument.moveProgress {
-            var move = NurikabeGameMove(p: Position(rec.row, rec.col), obj: NurikabeObject.fromString(str: rec.objAsString!))
+        for case let rec as MoveProgress in gameDocument.moveProgress {
+            var move = gameDocument.loadMove(from: rec)!
             _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex

@@ -8,7 +8,8 @@
 
 import Foundation
 
-class AbcGame: CellsGame<AbcGameViewController, AbcGameMove, AbcGameState> {
+class AbcGame: CellsGame<AbcGameViewController, AbcGameMove, AbcGameState>, GameBase {
+    static let gameID = "Abc"
     static let offset = [
         Position(-1, 0),
         Position(0, 1),
@@ -17,7 +18,7 @@ class AbcGame: CellsGame<AbcGameViewController, AbcGameMove, AbcGameState> {
     ];
 
     override func isValid(row: Int, col: Int) -> Bool {
-        return (1..<rows - 1 ~= row) && (1..<cols - 1 ~= col)
+        return 1..<rows - 1 ~= row && 1..<cols - 1 ~= col
     }
 
     var objArray = [Character]()
@@ -61,7 +62,7 @@ class AbcGame: CellsGame<AbcGameViewController, AbcGameMove, AbcGameState> {
     
     private func changeObject(move: inout AbcGameMove, f: (inout AbcGameState, inout AbcGameMove) -> Bool) -> Bool {
         if canRedo {
-            states.removeSubrange((stateIndex + 1)..<states.count)
+            states.removeSubrange(stateIndex + 1..<states.count)
             moves.removeSubrange(stateIndex..<moves.count)
         }
         // copy a state

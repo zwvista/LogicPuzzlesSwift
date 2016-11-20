@@ -8,11 +8,10 @@
 
 import Foundation
 
-class SlitherLinkGameState: CellsGameState {
+class SlitherLinkGameState: CellsGameState, SlitherLinkMixin {
     var game: SlitherLinkGame {return gameBase as! SlitherLinkGame}
     var objArray = [SlitherLinkDotObject]()
     var pos2state = [Position: HintState]()
-    var options: SlitherLinkGameProgress { return SlitherLinkDocument.sharedInstance.gameProgress }
     
     override func copy() -> SlitherLinkGameState {
         let v = SlitherLinkGameState(game: gameBase)
@@ -75,7 +74,7 @@ class SlitherLinkGameState: CellsGameState {
     }
     
     func switchObject(move: inout SlitherLinkGameMove) -> Bool {
-        let markerOption = SlitherLinkMarkerOptions(rawValue: options.markerOption)
+        let markerOption = SlitherLinkMarkerOptions(rawValue: self.markerOption)
         func f(o: SlitherLinkObject) -> SlitherLinkObject {
             switch o {
             case .empty:

@@ -9,62 +9,16 @@
 import UIKit
 import SharkORM
 
-class LineSweeperDocument: GameDocument<LineSweeperGameMove> {
+class LineSweeperDocument: GameDocument<LineSweeperGame, LineSweeperGameMove> {
     static var sharedInstance = LineSweeperDocument()
-    var gameProgress: LineSweeperGameProgress {
-        let result = LineSweeperGameProgress.query().fetch()!
-        return result.count == 0 ? LineSweeperGameProgress() : (result[0] as! LineSweeperGameProgress)
-    }
-    var levelProgress: LineSweeperLevelProgress {
-        let result = LineSweeperLevelProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).fetch()!
-        if result.count == 0 {
-            let rec = LineSweeperLevelProgress()
-            rec.levelID = selectedLevelID
-            return rec
-        } else {
-            return result[0] as! LineSweeperLevelProgress
-        }
-    }
-    var moveProgress: SRKResultSet {
-        return LineSweeperMoveProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).order(by: "moveIndex").fetch()!
-    }
-
-    init() {
-        super.init(forResource: "LineSweeper")
-        selectedLevelID = gameProgress.levelID
-    }
     
-    override func levelUpdated(game: AnyObject) {
-        let game = game as! LineSweeperGame
-        let rec = levelProgress
-        rec.moveIndex = game.moveIndex
-        rec.commit()
-    }
-    
-    override func moveAdded(game: AnyObject, move: LineSweeperGameMove) {
-        let game = game as! LineSweeperGame
-        LineSweeperMoveProgress.query().where(withFormat: "levelID = %@ AND moveIndex >= %@", withParameters: [selectedLevelID, game.moveIndex]).fetch().removeAll()
-        
-        let rec = LineSweeperMoveProgress()
-        rec.levelID = selectedLevelID
-        rec.moveIndex = game.moveIndex
+    override func saveMove(_ move: LineSweeperGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.unapply()
-        rec.objOrientation = move.objOrientation.rawValue
-        rec.obj = move.obj.rawValue
-        rec.commit()
+        rec.obj = move.objOrientation.rawValue.description
+        rec.obj2 = move.obj.rawValue.description
     }
     
-    override func resumeGame() {
-        let rec = gameProgress
-        rec.levelID = selectedLevelID
-        rec.commit()
-    }
-    
-    override func clearGame() {
-        LineSweeperMoveProgress.query().where(withFormat: "levelID = %@", withParameters: [selectedLevelID]).fetch().removeAll()
-
-        let rec = levelProgress
-        rec.moveIndex = 0
-        rec.commit()
+    override func loadMove(from rec: MoveProgress) -> LineSweeperGameMove? {
+        return LineSweeperGameMove(p: Position(rec.row, rec.col), objOrientation: LineSweeperObjectOrientation(rawValue: rec.obj.toInt()!)!, obj: LineSweeperObject(rawValue: rec.obj2.toInt()!)!)
     }
 }

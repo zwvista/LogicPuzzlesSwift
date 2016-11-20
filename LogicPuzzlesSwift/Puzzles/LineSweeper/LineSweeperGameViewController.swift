@@ -62,8 +62,8 @@ class LineSweeperGameViewController: GameViewController, GameDelegate, LineSweep
         game = LineSweeperGame(layout: layout, delegate: self)
         
         // restore game state
-        for case let rec as LineSweeperMoveProgress in gameDocument.moveProgress {
-            var move = LineSweeperGameMove(p: Position(rec.row, rec.col), objOrientation: LineSweeperObjectOrientation(rawValue: rec.objOrientation)!, obj: LineSweeperObject(rawValue: rec.obj)!)
+        for case let rec as MoveProgress in gameDocument.moveProgress {
+            var move = gameDocument.loadMove(from: rec)!
             _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex

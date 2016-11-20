@@ -10,10 +10,15 @@ import Foundation
 
 protocol LineSweeperMixin: GameMixin {
     var gameDocument: LineSweeperDocument { get }
-    var gameOptions: LineSweeperGameProgress { get }
+    var gameOptions: GameProgress { get }
+    var markerOption: Int { get }
+    // cannot use property here due to compiler bug
+    func setMarkerOption(_ newValue: Int)
 }
 
 extension LineSweeperMixin {
     var gameDocument: LineSweeperDocument { return LineSweeperDocument.sharedInstance }
-    var gameOptions: LineSweeperGameProgress { return gameDocument.gameProgress }
+    var gameOptions: GameProgress { return gameDocument.gameProgress }
+    var markerOption: Int { return gameOptions.option1?.toInt() ?? 0 }
+    func setMarkerOption(_ newValue: Int) { gameOptions.option1 = newValue.description }
 }

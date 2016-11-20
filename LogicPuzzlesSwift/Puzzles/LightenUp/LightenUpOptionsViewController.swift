@@ -15,17 +15,16 @@ class LightenUpOptionsViewController: OptionsViewController, LightenUpMixin {
     @IBOutlet weak var swNormalLightbulbsOnly: UISwitch!
     
     func updateMarkerOption() {
-        lblMarkerOption.text = LightenUpMarkerOptions.optionStrings[gameOptions.markerOption]
+        lblMarkerOption.text = LightenUpMarkerOptions.optionStrings[markerOption]
     }
     
     func updateNormalLightbulbsOnly() {
-        swNormalLightbulbsOnly.isOn = gameOptions.normalLightbulbsOnly;
+        swNormalLightbulbsOnly.isOn = normalLightbulbsOnly;
     }
     
     @IBAction func normalLightbulbsOnlyChanged(_ sender: AnyObject) {
-        let rec = gameOptions
-        rec.normalLightbulbsOnly = swNormalLightbulbsOnly.isOn
-        rec.commit()
+        setNormalLightbulbsOnly(swNormalLightbulbsOnly.isOn)
+        gameOptions.commit()
     }
     
     override func viewDidLoad() {
@@ -35,20 +34,18 @@ class LightenUpOptionsViewController: OptionsViewController, LightenUpMixin {
     }
 
     override func onDefault() {
-        let rec = self.gameOptions
-        rec.markerOption = LightenUpMarkerOptions.noMarker.rawValue
-        rec.normalLightbulbsOnly = false
-        rec.commit()
-        self.updateMarkerOption()
-        self.updateNormalLightbulbsOnly()
+        setMarkerOption(LightenUpMarkerOptions.noMarker.rawValue)
+        setNormalLightbulbsOnly(false)
+        gameOptions.commit()
+        updateMarkerOption()
+        updateNormalLightbulbsOnly()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row == 0 else { return }
-        let rec = gameOptions
-        ActionSheetStringPicker.show(withTitle: "Marker Options", rows: LightenUpMarkerOptions.optionStrings, initialSelection: rec.markerOption, doneBlock: { (picker, selectedIndex, selectedValue) in
-            rec.markerOption = selectedIndex
-            rec.commit()
+        ActionSheetStringPicker.show(withTitle: "Marker Options", rows: LightenUpMarkerOptions.optionStrings, initialSelection: markerOption, doneBlock: { (picker, selectedIndex, selectedValue) in
+            self.setMarkerOption(selectedIndex)
+            self.gameOptions.commit()
             self.updateMarkerOption()
         }, cancel: nil, origin: lblMarker)
     }

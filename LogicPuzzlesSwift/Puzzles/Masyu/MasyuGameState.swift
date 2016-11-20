@@ -8,10 +8,9 @@
 
 import Foundation
 
-class MasyuGameState: CellsGameState {
+class MasyuGameState: CellsGameState, MasyuMixin {
     var game: MasyuGame {return gameBase as! MasyuGame}
     var objArray = [MasyuObject]()
-    var options: MasyuGameProgress { return MasyuDocument.sharedInstance.gameProgress }
     
     override func copy() -> MasyuGameState {
         let v = MasyuGameState(game: gameBase)

@@ -15,7 +15,7 @@ class SlitherLinkOptionsViewController: OptionsViewController, SlitherLinkMixin 
     @IBOutlet weak var swNormalLightbulbsOnly: UISwitch!
     
     func updateMarkerOption() {
-        lblMarkerOption.text = SlitherLinkMarkerOptions.optionStrings[gameOptions.markerOption]
+        lblMarkerOption.text = SlitherLinkMarkerOptions.optionStrings[markerOption]
     }
     
     override func viewDidLoad() {
@@ -25,17 +25,16 @@ class SlitherLinkOptionsViewController: OptionsViewController, SlitherLinkMixin 
 
     override func onDefault() {
         let rec = self.gameOptions
-        rec.markerOption = SlitherLinkMarkerOptions.noMarker.rawValue
+        setMarkerOption(SlitherLinkMarkerOptions.noMarker.rawValue)
         rec.commit()
         self.updateMarkerOption()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row == 0 else { return }
-        let rec = gameOptions
-        ActionSheetStringPicker.show(withTitle: "Marker Options", rows: SlitherLinkMarkerOptions.optionStrings, initialSelection: rec.markerOption, doneBlock: { (picker, selectedIndex, selectedValue) in
-            rec.markerOption = selectedIndex
-            rec.commit()
+        ActionSheetStringPicker.show(withTitle: "Marker Options", rows: SlitherLinkMarkerOptions.optionStrings, initialSelection: markerOption, doneBlock: { (picker, selectedIndex, selectedValue) in
+            self.setMarkerOption(selectedIndex)
+            self.gameOptions.commit()
             self.updateMarkerOption()
         }, cancel: nil, origin: lblMarker)
     }

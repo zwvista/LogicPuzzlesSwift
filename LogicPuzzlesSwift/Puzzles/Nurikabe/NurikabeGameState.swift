@@ -8,10 +8,9 @@
 
 import Foundation
 
-class NurikabeGameState: CellsGameState {
+class NurikabeGameState: CellsGameState, NurikabeMixin {
     var game: NurikabeGame {return gameBase as! NurikabeGame}
     var objArray = [NurikabeObject]()
-    var options: NurikabeGameProgress { return NurikabeDocument.sharedInstance.gameProgress }
     
     override func copy() -> NurikabeGameState {
         let v = NurikabeGameState(game: gameBase)
@@ -62,7 +61,7 @@ class NurikabeGameState: CellsGameState {
     }
     
     func switchObject(move: inout NurikabeGameMove) -> Bool {
-        let markerOption = NurikabeMarkerOptions(rawValue: options.markerOption)
+        let markerOption = NurikabeMarkerOptions(rawValue: self.markerOption)
         func f(o: NurikabeObject) -> NurikabeObject {
             switch o {
             case .empty:

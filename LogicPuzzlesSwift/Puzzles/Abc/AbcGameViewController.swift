@@ -61,8 +61,8 @@ class AbcGameViewController: GameViewController, GameDelegate, AbcMixin {
         game = AbcGame(layout: layout, delegate: self)
         
         // restore game state
-        for case let rec as AbcMoveProgress in gameDocument.moveProgress {
-            var move = AbcGameMove(p: Position(rec.row, rec.col), obj: rec.obj.characters.first!)
+        for case let rec as MoveProgress in gameDocument.moveProgress {
+            var move = gameDocument.loadMove(from: rec)!
             _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex

@@ -62,8 +62,8 @@ class SlitherLinkGameViewController: GameViewController, GameDelegate, SlitherLi
         game = SlitherLinkGame(layout: layout, delegate: self)
         
         // restore game state
-        for case let rec as SlitherLinkMoveProgress in gameDocument.moveProgress {
-            var move = SlitherLinkGameMove(p: Position(rec.row, rec.col), objOrientation: SlitherLinkObjectOrientation(rawValue: rec.objOrientation)!, obj: SlitherLinkObject(rawValue: rec.obj)!)
+        for case let rec as MoveProgress in gameDocument.moveProgress {
+            var move = gameDocument.loadMove(from: rec)!
             _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex

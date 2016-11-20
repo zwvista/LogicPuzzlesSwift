@@ -18,6 +18,11 @@ protocol GameDelegate: class {
     func gameSolved(_ game: AnyObject)
 }
 
+protocol GameBase: class {
+    static var gameID: String {get}
+    var moveIndex: Int {get}
+}
+
 class Game<GD: GameDelegate, GM, GS: GameStateBase> where GD.GM == GM, GD.GS == GS {
     var stateIndex = 0
     var states = [GS]()

@@ -61,8 +61,8 @@ class HitoriGameViewController: GameViewController, GameDelegate, HitoriMixin {
         game = HitoriGame(layout: layout, delegate: self)
         
         // restore game state
-        for case let rec as HitoriMoveProgress in gameDocument.moveProgress {
-            var move = HitoriGameMove(p: Position(rec.row, rec.col), obj: HitoriObject(rawValue: rec.obj)!)
+        for case let rec as MoveProgress in gameDocument.moveProgress {
+            var move = gameDocument.loadMove(from: rec)!
             _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex

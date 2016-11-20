@@ -8,12 +8,11 @@
 
 import Foundation
 
-class AbcGameState: CellsGameState {
+class AbcGameState: CellsGameState, AbcMixin {
     var game: AbcGame {return gameBase as! AbcGame}
     var objArray = [Character]()
     var row2state = [HintState]()
     var col2state = [HintState]()
-    var options: AbcGameProgress { return AbcDocument.sharedInstance.gameProgress }
     
     override func copy() -> AbcGameState {
         let v = AbcGameState(game: gameBase)

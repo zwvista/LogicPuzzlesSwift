@@ -13,7 +13,8 @@ class IslandInfo {
     var neighbors: [Position?] = [nil, nil, nil, nil]
 }
 
-class BridgesGame: CellsGame<BridgesGameViewController, BridgesGameMove, BridgesGameState> {
+class BridgesGame: CellsGame<BridgesGameViewController, BridgesGameMove, BridgesGameState>, GameBase {
+    static let gameID = "Bridges"
     static let offset = [
         Position(-1, 0),
         Position(0, 1),
@@ -63,7 +64,8 @@ class BridgesGame: CellsGame<BridgesGameViewController, BridgesGameMove, Bridges
         levelInitilized(state: state)
     }
     
-    func switchBridges(pFrom: Position, pTo: Position) -> Bool {
+    func switchBridges(move: BridgesGameMove) -> Bool {
+        var pFrom = move.pFrom, pTo = move.pTo
         guard let o = islandsInfo[pFrom] else {return false}
         guard let _ = o.neighbors.filter({$0 == pTo}).first else {return false}
         
@@ -73,7 +75,6 @@ class BridgesGame: CellsGame<BridgesGameViewController, BridgesGameMove, Bridges
         }
         // copy a state
         let state = self.state.copy()
-        var pFrom = pFrom, pTo = pTo
         if pTo < pFrom {swap(&pFrom, &pTo)}
         let move = BridgesGameMove(pFrom: pFrom, pTo: pTo)
         guard state.switchBridges(move: move) else {return false}
