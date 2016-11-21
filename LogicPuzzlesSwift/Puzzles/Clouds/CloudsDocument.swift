@@ -14,10 +14,10 @@ class CloudsDocument: GameDocument<CloudsGame, CloudsGameMove> {
     
     override func saveMove(_ move: CloudsGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.unapply()
-        rec.obj = move.obj.rawValue.description
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> CloudsGameMove? {
-        return CloudsGameMove(p: Position(rec.row, rec.col), obj: CloudsObject(rawValue: rec.obj.toInt()!)!)
+        return CloudsGameMove(p: Position(rec.row, rec.col), obj: CloudsObject(rawValue: rec.intValue1)!)
     }
 }

@@ -14,10 +14,10 @@ class AbcDocument: GameDocument<AbcGame, AbcGameMove> {
     
     override func saveMove(_ move: AbcGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.unapply()
-        rec.obj = String(move.obj)
+        rec.strValue1 = move.obj.description
     }
     
     override func loadMove(from rec: MoveProgress) -> AbcGameMove? {
-        return AbcGameMove(p: Position(rec.row, rec.col), obj: rec.obj.characters.first!)
+        return AbcGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
     }
 }

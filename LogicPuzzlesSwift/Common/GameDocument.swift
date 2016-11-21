@@ -29,7 +29,7 @@ class GameDocument<G: GameBase, GM> {
         }
     }
     var moveProgress: SRKResultSet {
-        return MoveProgress.query().where(withFormat: "gameID = %@ levelID = %@", withParameters: [G.gameID, selectedLevelID]).order(by: "moveIndex").fetch()!
+        return MoveProgress.query().where(withFormat: "gameID = %@ AND levelID = %@", withParameters: [G.gameID, selectedLevelID]).order(by: "moveIndex").fetch()!
     }
     
     init() {
@@ -49,7 +49,6 @@ class GameDocument<G: GameBase, GM> {
     func levelUpdated(game: AnyObject) {
         let game = game as! G
         let rec = levelProgress
-        rec.gameID = G.gameID
         rec.moveIndex = game.moveIndex
         rec.commit()
     }

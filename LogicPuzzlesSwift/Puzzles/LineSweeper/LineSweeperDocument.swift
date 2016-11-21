@@ -14,11 +14,11 @@ class LineSweeperDocument: GameDocument<LineSweeperGame, LineSweeperGameMove> {
     
     override func saveMove(_ move: LineSweeperGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.unapply()
-        rec.obj = move.objOrientation.rawValue.description
-        rec.obj2 = move.obj.rawValue.description
+        rec.intValue1 = move.objOrientation.rawValue
+        rec.intValue2 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> LineSweeperGameMove? {
-        return LineSweeperGameMove(p: Position(rec.row, rec.col), objOrientation: LineSweeperObjectOrientation(rawValue: rec.obj.toInt()!)!, obj: LineSweeperObject(rawValue: rec.obj2.toInt()!)!)
+        return LineSweeperGameMove(p: Position(rec.row, rec.col), objOrientation: LineSweeperObjectOrientation(rawValue: rec.intValue1)!, obj: LineSweeperObject(rawValue: rec.intValue2)!)
     }
 }

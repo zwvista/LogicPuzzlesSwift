@@ -38,10 +38,12 @@ class MoveProgress: SRKObject {
     dynamic var moveIndex = 0
     dynamic var row = 0
     dynamic var col = 0
-    dynamic var obj = " "
     dynamic var row2 = 0
     dynamic var col2 = 0
-    dynamic var obj2 = " "
+    dynamic var intValue1 = 0
+    dynamic var intValue2 = 0
+    dynamic var strValue1: String?
+    dynamic var strValue2: String?
     
     override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
         return ["moveIndex": 0]

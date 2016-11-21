@@ -14,11 +14,11 @@ class SlitherLinkDocument: GameDocument<SlitherLinkGame, SlitherLinkGameMove> {
     
     override func saveMove(_ move: SlitherLinkGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.unapply()
-        rec.obj = move.objOrientation.rawValue.description
-        rec.obj2 = move.obj.rawValue.description
+        rec.intValue1 = move.objOrientation.rawValue
+        rec.intValue2 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> SlitherLinkGameMove? {
-        return SlitherLinkGameMove(p: Position(rec.row, rec.col), objOrientation: SlitherLinkObjectOrientation(rawValue: rec.obj.toInt()!)!, obj: SlitherLinkObject(rawValue: rec.obj2.toInt()!)!)
+        return SlitherLinkGameMove(p: Position(rec.row, rec.col), objOrientation: SlitherLinkObjectOrientation(rawValue: rec.intValue1)!, obj: SlitherLinkObject(rawValue: rec.intValue2)!)
     }
 }

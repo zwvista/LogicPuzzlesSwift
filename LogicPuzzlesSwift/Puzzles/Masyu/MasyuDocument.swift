@@ -14,10 +14,10 @@ class MasyuDocument: GameDocument<MasyuGame, MasyuGameMove> {
     
     override func saveMove(_ move: MasyuGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.unapply()
-        rec.obj = move.dir.description
+        rec.intValue1 = move.dir
     }
     
     override func loadMove(from rec: MoveProgress) -> MasyuGameMove? {
-        return MasyuGameMove(p: Position(rec.row, rec.col), dir: rec.obj.toInt()!)
+        return MasyuGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1)
     }
 }
