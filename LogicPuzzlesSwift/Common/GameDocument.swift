@@ -15,7 +15,13 @@ class GameDocument<G: GameBase, GM> {
     
     var gameProgress: GameProgress {
         let result = GameProgress.query().where(withFormat: "gameID = %@", withParameters: [G.gameID]).fetch()!
-        return result.count == 0 ? GameProgress() : (result[0] as! GameProgress)
+        if result.count == 0 {
+            let rec = GameProgress()
+            rec.gameID = G.gameID
+            return rec
+        } else {
+            return result[0] as! GameProgress
+        }
     }
     var levelProgress: LevelProgress {
         let result = LevelProgress.query().where(withFormat: "gameID = %@ AND levelID = %@", withParameters: [G.gameID, selectedLevelID]).fetch()!
@@ -60,6 +66,7 @@ class GameDocument<G: GameBase, GM> {
         let rec = MoveProgress()
         rec.gameID = G.gameID
         rec.levelID = selectedLevelID
+        rec.moveIndex = game.moveIndex
         saveMove(move, to: rec)
         rec.commit()
     }
