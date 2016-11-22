@@ -56,14 +56,10 @@ class BridgesGameViewController: GameViewController, GameDelegate, BridgesMixin 
             guard isI else {break}
             pLast = p; f()
         case .changed:
-            guard pLast != nil else {break}
-            if isI {
-                if pLast != p {
-                    let move = BridgesGameMove(pFrom: pLast!, pTo: p)
-                    _ = game.switchBridges(move: move)
-                    pLast = p; f()
-                }
-            }
+            guard pLast != nil && isI && pLast != p else {break}
+            let move = BridgesGameMove(pFrom: pLast!, pTo: p)
+            _ = game.switchBridges(move: move)
+            pLast = p; f()
         default:
             break
         }

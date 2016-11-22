@@ -9,12 +9,13 @@
 import UIKit
 import SpriteKit
 
-class MasyuGameViewController: GameViewController, GameDelegate, MasyuMixin {
+class MasyuGameViewController: GameViewController, UIGestureRecognizerDelegate, GameDelegate, MasyuMixin {
 
     var scene: MasyuGameScene!
     var game: MasyuGame!
     weak var skView: SKView!
     var levelInitilizing = false
+    var pLast: Position?
 
     @IBOutlet weak var lblSolved: UILabel!
     @IBOutlet weak var lblLevel: UILabel!
@@ -41,6 +42,10 @@ class MasyuGameViewController: GameViewController, GameDelegate, MasyuMixin {
         startGame()
     }
     
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
     @IBAction func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}
         let touchLocation = sender.location(in: sender.view)
@@ -52,6 +57,28 @@ class MasyuGameViewController: GameViewController, GameDelegate, MasyuMixin {
         if game.setObject(move: &move) { soundManager.playSoundTap() }
     }
     
+    @IBAction func handlePan(_ sender: UIPanGestureRecognizer) {
+        guard !game.isSolved else {return}
+        let touchLocation = sender.location(in: sender.view)
+        let touchLocationInScene = scene.convertPoint(fromView: touchLocation)
+        guard scene.gridNode.contains(touchLocationInScene) else {return}
+        let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
+        let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
+        let f = { self.soundManager.playSoundTap() }
+        switch sender.state {
+        case .began:
+            pLast = p; f()
+        case .changed:
+            guard pLast != p else {break}
+            defer {pLast = p}
+            guard let dir = MasyuGame.offset.index(of: p - pLast!) else {break}
+            var move = MasyuGameMove(p: pLast!, dir: dir)
+            if game.setObject(move: &move) {f()}
+        default:
+            break
+        }
+    }
+
     func startGame() {
         lblLevel.text = gameDocument.selectedLevelID
         let layout = gameDocument.levels[gameDocument.selectedLevelID]!

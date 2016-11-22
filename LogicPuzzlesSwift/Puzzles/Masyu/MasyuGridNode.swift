@@ -68,6 +68,12 @@ class MasyuGridNode : SKSpriteNode {
         return CGPoint(x: x, y: y)
     }
     
+    func cellPosition(point: CGPoint) -> Position {
+        let row = Int(-point.y / blockSize)
+        let col = Int(point.x / blockSize)
+        return Position(row, col)
+    }
+
     func linePosition(point: CGPoint) -> (Position, Int) {
         let row = Int(-point.y / blockSize)
         let col = Int(point.x / blockSize)
