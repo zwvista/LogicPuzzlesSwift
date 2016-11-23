@@ -226,6 +226,18 @@
 		8C916CC41DAA5FEB00D9E62B /* music.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CC31DAA5FEB00D9E62B /* music.wav */; };
 		8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CC51DAB1E6000D9E62B /* tap.wav */; };
 		8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CCD1DAB35FC00D9E62B /* solved.wav */; };
+		8C9AF3E41DE5E3760053BED4 /* Sumscrapers.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF3D91DE5E3760053BED4 /* Sumscrapers.xml */; };
+		8C9AF3E51DE5E3760053BED4 /* SumscrapersDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF3DA1DE5E3760053BED4 /* SumscrapersDocument.swift */; };
+		8C9AF3E61DE5E3760053BED4 /* SumscrapersGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF3DB1DE5E3760053BED4 /* SumscrapersGame.swift */; };
+		8C9AF3E71DE5E3760053BED4 /* SumscrapersGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF3DC1DE5E3760053BED4 /* SumscrapersGameScene.swift */; };
+		8C9AF3E81DE5E3760053BED4 /* SumscrapersGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF3DD1DE5E3760053BED4 /* SumscrapersGameState.swift */; };
+		8C9AF3E91DE5E3760053BED4 /* SumscrapersGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF3DE1DE5E3760053BED4 /* SumscrapersGameViewController.swift */; };
+		8C9AF3EA1DE5E3760053BED4 /* SumscrapersGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF3DF1DE5E3760053BED4 /* SumscrapersGridNode.swift */; };
+		8C9AF3EB1DE5E3760053BED4 /* SumscrapersMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF3E01DE5E3760053BED4 /* SumscrapersMainViewController.swift */; };
+		8C9AF3EC1DE5E3760053BED4 /* SumscrapersMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF3E11DE5E3760053BED4 /* SumscrapersMixin.swift */; };
+		8C9AF3ED1DE5E3760053BED4 /* SumscrapersObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF3E21DE5E3760053BED4 /* SumscrapersObject.swift */; };
+		8C9AF3EE1DE5E3760053BED4 /* SumscrapersOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF3E31DE5E3760053BED4 /* SumscrapersOptionsViewController.swift */; };
+		8C9AF3F21DE5E3870053BED4 /* Sumscrapers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF3F01DE5E3870053BED4 /* Sumscrapers.storyboard */; };
 		8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43DA1D771915000139FC /* AppDelegate.swift */; };
 		8C9F43E41D771915000139FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E31D771915000139FC /* Assets.xcassets */; };
 		8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E51D771915000139FC /* LaunchScreen.storyboard */; };
@@ -510,6 +522,18 @@
 		8C916CC31DAA5FEB00D9E62B /* music.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music.wav; sourceTree = "<group>"; };
 		8C916CC51DAB1E6000D9E62B /* tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tap.wav; sourceTree = "<group>"; };
 		8C916CCD1DAB35FC00D9E62B /* solved.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = solved.wav; sourceTree = "<group>"; };
+		8C9AF3D91DE5E3760053BED4 /* Sumscrapers.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Sumscrapers.xml; sourceTree = "<group>"; };
+		8C9AF3DA1DE5E3760053BED4 /* SumscrapersDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumscrapersDocument.swift; sourceTree = "<group>"; };
+		8C9AF3DB1DE5E3760053BED4 /* SumscrapersGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumscrapersGame.swift; sourceTree = "<group>"; };
+		8C9AF3DC1DE5E3760053BED4 /* SumscrapersGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumscrapersGameScene.swift; sourceTree = "<group>"; };
+		8C9AF3DD1DE5E3760053BED4 /* SumscrapersGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumscrapersGameState.swift; sourceTree = "<group>"; };
+		8C9AF3DE1DE5E3760053BED4 /* SumscrapersGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumscrapersGameViewController.swift; sourceTree = "<group>"; };
+		8C9AF3DF1DE5E3760053BED4 /* SumscrapersGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumscrapersGridNode.swift; sourceTree = "<group>"; };
+		8C9AF3E01DE5E3760053BED4 /* SumscrapersMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumscrapersMainViewController.swift; sourceTree = "<group>"; };
+		8C9AF3E11DE5E3760053BED4 /* SumscrapersMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumscrapersMixin.swift; sourceTree = "<group>"; };
+		8C9AF3E21DE5E3760053BED4 /* SumscrapersObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumscrapersObject.swift; sourceTree = "<group>"; };
+		8C9AF3E31DE5E3760053BED4 /* SumscrapersOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumscrapersOptionsViewController.swift; sourceTree = "<group>"; };
+		8C9AF3F11DE5E3870053BED4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LogicPuzzlesSwift/Base.lproj/Sumscrapers.storyboard; sourceTree = SOURCE_ROOT; };
 		8C9F43D71D771915000139FC /* LogicPuzzlesSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogicPuzzlesSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9F43DA1D771915000139FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C9F43E31D771915000139FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -766,6 +790,7 @@
 				8C7EF0551DD297D100D1DE94 /* Nurikabe */,
 				8C64A26A1DD85A3800AB6C09 /* Skyscrapers */,
 				8C6D37751DC42F0A0052202C /* SlitherLink */,
+				8C9AF3D81DE5E3760053BED4 /* Sumscrapers */,
 			);
 			path = Puzzles;
 			sourceTree = "<group>";
@@ -965,6 +990,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8C9AF3D81DE5E3760053BED4 /* Sumscrapers */ = {
+			isa = PBXGroup;
+			children = (
+				8C9AF3F01DE5E3870053BED4 /* Sumscrapers.storyboard */,
+				8C9AF3D91DE5E3760053BED4 /* Sumscrapers.xml */,
+				8C9AF3DA1DE5E3760053BED4 /* SumscrapersDocument.swift */,
+				8C9AF3DB1DE5E3760053BED4 /* SumscrapersGame.swift */,
+				8C9AF3DC1DE5E3760053BED4 /* SumscrapersGameScene.swift */,
+				8C9AF3DD1DE5E3760053BED4 /* SumscrapersGameState.swift */,
+				8C9AF3DE1DE5E3760053BED4 /* SumscrapersGameViewController.swift */,
+				8C9AF3DF1DE5E3760053BED4 /* SumscrapersGridNode.swift */,
+				8C9AF3E01DE5E3760053BED4 /* SumscrapersMainViewController.swift */,
+				8C9AF3E11DE5E3760053BED4 /* SumscrapersMixin.swift */,
+				8C9AF3E21DE5E3760053BED4 /* SumscrapersObject.swift */,
+				8C9AF3E31DE5E3760053BED4 /* SumscrapersOptionsViewController.swift */,
+			);
+			path = Sumscrapers;
+			sourceTree = "<group>";
+		};
 		8C9F43CE1D771915000139FC = {
 			isa = PBXGroup;
 			children = (
@@ -1152,6 +1196,7 @@
 				8C6D37C31DC42F450052202C /* Clouds.storyboard in Resources */,
 				8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */,
 				8C7EF0681DD297D100D1DE94 /* Nurikabe.xml in Resources */,
+				8C9AF3F21DE5E3870053BED4 /* Sumscrapers.storyboard in Resources */,
 				8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */,
 				8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */,
 				84DEF09F1DDE967500A26445 /* LightenUp.storyboard in Resources */,
@@ -1178,6 +1223,7 @@
 				84DEF0911DDE964A00A26445 /* LightenUp.xml in Resources */,
 				8C916CC41DAA5FEB00D9E62B /* music.wav in Resources */,
 				8C64A2851DD85A5000AB6C09 /* Skyscrapers.storyboard in Resources */,
+				8C9AF3E41DE5E3760053BED4 /* Sumscrapers.xml in Resources */,
 				8C6D37C61DC42F540052202C /* Hitori.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1253,6 +1299,7 @@
 				8C64A27B1DD85A3800AB6C09 /* SkyscrapersGameViewController.swift in Sources */,
 				8C1D16B51DB8DE930056D407 /* Graph.swift in Sources */,
 				8C64A2E21DDA00D500AB6C09 /* UIUserInterfaceSizeClassExtensions.swift in Sources */,
+				8C9AF3EC1DE5E3760053BED4 /* SumscrapersMixin.swift in Sources */,
 				8C6D37921DC42F0A0052202C /* CloudsGameViewController.swift in Sources */,
 				84EE6E971DD945480013A033 /* MasyuOptionsViewController.swift in Sources */,
 				8C7EF0891DD4C23C00D1DE94 /* AbcOptionsViewController.swift in Sources */,
@@ -1282,6 +1329,7 @@
 				8C64A2B81DDA00D500AB6C09 /* ArrayExtensions.swift in Sources */,
 				84DEF0991DDE964A00A26445 /* LightenUpMixin.swift in Sources */,
 				8C6D37B31DC42F0A0052202C /* SlitherLinkGame.swift in Sources */,
+				8C9AF3E51DE5E3760053BED4 /* SumscrapersDocument.swift in Sources */,
 				8C7EF06A1DD297D100D1DE94 /* NurikabeMixin.swift in Sources */,
 				8C64A27E1DD85A3800AB6C09 /* SkyscrapersMainViewController.swift in Sources */,
 				8C64A27C1DD85A3800AB6C09 /* SkyscrapersGridNode.swift in Sources */,
@@ -1299,6 +1347,7 @@
 				8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */,
 				8C64A2DC1DDA00D500AB6C09 /* UILabelExtensions.swift in Sources */,
 				8C6D379E1DC42F0A0052202C /* HitoriGameViewController.swift in Sources */,
+				8C9AF3E81DE5E3760053BED4 /* SumscrapersGameState.swift in Sources */,
 				8C64A2DA1DDA00D500AB6C09 /* UIImageExtensions.swift in Sources */,
 				8C6D37FE1DC5B4EB0052202C /* GameState.swift in Sources */,
 				8C6D37B51DC42F0A0052202C /* SlitherLinkGameState.swift in Sources */,
@@ -1312,6 +1361,7 @@
 				8C64A2D41DDA00D500AB6C09 /* UIBarButtonItemExtensions.swift in Sources */,
 				8C6ACC001DCAF8C20075F32C /* GameScene.swift in Sources */,
 				8C6ACC1A1DD206AD0075F32C /* MainViewController.swift in Sources */,
+				8C9AF3E61DE5E3760053BED4 /* SumscrapersGame.swift in Sources */,
 				8C7EF07F1DD4C23C00D1DE94 /* AbcDocument.swift in Sources */,
 				8C64A2D81DDA00D500AB6C09 /* UIDeviceExtensions.swift in Sources */,
 				8C64A2BD1DDA00D500AB6C09 /* BlockSwipe.swift in Sources */,
@@ -1327,14 +1377,17 @@
 				8C6D37B91DC42F0A0052202C /* SlitherLinkMainViewController.swift in Sources */,
 				8C6ACC191DD204420075F32C /* GameObject.swift in Sources */,
 				8C64A2C81DDA00D500AB6C09 /* DoubleExtensions.swift in Sources */,
+				8C9AF3E91DE5E3760053BED4 /* SumscrapersGameViewController.swift in Sources */,
 				84EE6E8F1DD945480013A033 /* MasyuGameScene.swift in Sources */,
 				8C64A2CC1DDA00D500AB6C09 /* IntExtensions.swift in Sources */,
 				84EE6E961DD945480013A033 /* MasyuObject.swift in Sources */,
 				8C6D37B21DC42F0A0052202C /* SlitherLinkDocument.swift in Sources */,
+				8C9AF3ED1DE5E3760053BED4 /* SumscrapersObject.swift in Sources */,
 				84DEF09B1DDE964A00A26445 /* LightenUpOptionsViewController.swift in Sources */,
 				8C6D37871DC42F0A0052202C /* BridgesGridNode.swift in Sources */,
 				8C6D379B1DC42F0A0052202C /* HitoriGame.swift in Sources */,
 				84EE6E911DD945480013A033 /* MasyuGameViewController.swift in Sources */,
+				8C9AF3EE1DE5E3760053BED4 /* SumscrapersOptionsViewController.swift in Sources */,
 				8C64A2E71DDA00D500AB6C09 /* UserDefaultsExtension.swift in Sources */,
 				8C6D37971DC42F0A0052202C /* CloudsObject.swift in Sources */,
 				8C64A2DD1DDA00D500AB6C09 /* UISliderExtensions.swift in Sources */,
@@ -1353,6 +1406,7 @@
 				8C6D37F31DC5AC310052202C /* SoundManager.swift in Sources */,
 				8C64A2781DD85A3800AB6C09 /* SkyscrapersGame.swift in Sources */,
 				8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */,
+				8C9AF3EA1DE5E3760053BED4 /* SumscrapersGridNode.swift in Sources */,
 				8C6D379F1DC42F0A0052202C /* HitoriGridNode.swift in Sources */,
 				8C64A2BE1DDA00D500AB6C09 /* BlockTap.swift in Sources */,
 				8C7EF0641DD297D100D1DE94 /* NurikabeGameScene.swift in Sources */,
@@ -1372,6 +1426,7 @@
 				8C64A2CF1DDA00D500AB6C09 /* NSObjectExtensions.swift in Sources */,
 				84DEF0791DDE84F200A26445 /* LineSweeperGameViewController.swift in Sources */,
 				8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */,
+				8C9AF3EB1DE5E3760053BED4 /* SumscrapersMainViewController.swift in Sources */,
 				8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */,
 				8C6D37841DC42F0A0052202C /* BridgesGameScene.swift in Sources */,
 				84DEF0941DDE964A00A26445 /* LightenUpGameScene.swift in Sources */,
@@ -1382,6 +1437,7 @@
 				8C6D378B1DC42F0A0052202C /* BridgesObject.swift in Sources */,
 				8C6D37B41DC42F0A0052202C /* SlitherLinkGameScene.swift in Sources */,
 				8C6D378A1DC42F0A0052202C /* BridgesMixin.swift in Sources */,
+				8C9AF3E71DE5E3760053BED4 /* SumscrapersGameScene.swift in Sources */,
 				8C64A2BC1DDA00D500AB6C09 /* BlockPinch.swift in Sources */,
 				8C886C411D9E8AF1004A42BF /* ActionSheetMultipleStringPicker.m in Sources */,
 				8C7EF0671DD297D100D1DE94 /* NurikabeGridNode.swift in Sources */,
@@ -1513,6 +1569,14 @@
 				8C7EF08C1DD4C25800D1DE94 /* Base */,
 			);
 			name = Abc.storyboard;
+			sourceTree = "<group>";
+		};
+		8C9AF3F01DE5E3870053BED4 /* Sumscrapers.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C9AF3F11DE5E3870053BED4 /* Base */,
+			);
+			name = Sumscrapers.storyboard;
 			sourceTree = "<group>";
 		};
 		8C9F43E51D771915000139FC /* LaunchScreen.storyboard */ = {
