@@ -9,13 +9,17 @@
 import Foundation
 
 class CloudsGameState: CellsGameState, CloudsMixin {
-    var game: CloudsGame {return gameBase as! CloudsGame}
+    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
+    var game: CloudsGame {
+        get {return getGame() as! CloudsGame}
+        set {setGame(game: newValue)}
+    }
     var objArray = [CloudsObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()
     
     override func copy() -> CloudsGameState {
-        let v = CloudsGameState(game: gameBase)
+        let v = CloudsGameState(game: game)
         return setup(v: v)
     }
     func setup(v: CloudsGameState) -> CloudsGameState {
@@ -26,8 +30,8 @@ class CloudsGameState: CellsGameState, CloudsMixin {
         return v
     }
     
-    required init(game: CellsGameBase) {
-        super.init(game: game)
+    required init(game: CloudsGame) {
+        super.init(game: game);
         objArray = Array<CloudsObject>(repeating: CloudsObject(), count: rows * cols)
         row2state = Array<HintState>(repeating: .normal, count: rows)
         col2state = Array<HintState>(repeating: .normal, count: cols)

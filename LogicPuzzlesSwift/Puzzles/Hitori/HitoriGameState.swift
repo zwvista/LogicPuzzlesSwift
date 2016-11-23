@@ -9,13 +9,17 @@
 import Foundation
 
 class HitoriGameState: CellsGameState, HitoriMixin {
-    var game: HitoriGame {return gameBase as! HitoriGame}
+    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
+    var game: HitoriGame {
+        get {return getGame() as! HitoriGame}
+        set {setGame(game: newValue)}
+    }
     var objArray = [HitoriObject]()
     var row2hint = [String]()
     var col2hint = [String]()
     
     override func copy() -> HitoriGameState {
-        let v = HitoriGameState(game: gameBase)
+        let v = HitoriGameState(game: game)
         return setup(v: v)
     }
     func setup(v: HitoriGameState) -> HitoriGameState {
@@ -26,8 +30,8 @@ class HitoriGameState: CellsGameState, HitoriMixin {
         return v
     }
     
-    required init(game: CellsGameBase) {
-        super.init(game: game)
+    required init(game: HitoriGame) {
+        super.init(game: game);
         objArray = Array<HitoriObject>(repeating: HitoriObject(), count: rows * cols)
         row2hint = Array<String>(repeating: "", count: rows)
         col2hint = Array<String>(repeating: "", count: cols)

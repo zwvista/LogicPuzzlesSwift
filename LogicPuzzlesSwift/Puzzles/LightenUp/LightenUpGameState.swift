@@ -9,11 +9,15 @@
 import Foundation
 
 class LightenUpGameState: CellsGameState, LightenUpMixin {
-    var game: LightenUpGame {return gameBase as! LightenUpGame}
+    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
+    var game: LightenUpGame {
+        get {return getGame() as! LightenUpGame}
+        set {setGame(game: newValue)}
+    }
     var objArray = [LightenUpObject]()
     
     override func copy() -> LightenUpGameState {
-        let v = LightenUpGameState(game: gameBase)
+        let v = LightenUpGameState(game: game)
         return setup(v: v)
     }
     func setup(v: LightenUpGameState) -> LightenUpGameState {
@@ -22,9 +26,8 @@ class LightenUpGameState: CellsGameState, LightenUpMixin {
         return v
     }
     
-    required init(game: CellsGameBase) {
-        super.init(game: game)
-        let game = game as! LightenUpGame
+    required init(game: LightenUpGame) {
+        super.init(game: game);
         objArray = Array<LightenUpObject>(repeating: LightenUpObject(), count: rows * cols)
         for (p, lightbulbs) in game.wall2Lightbulbs {
             self[p].objType = .wall(state: lightbulbs <= 0 ? .complete : .normal)

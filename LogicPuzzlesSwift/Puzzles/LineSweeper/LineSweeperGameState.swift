@@ -9,12 +9,16 @@
 import Foundation
 
 class LineSweeperGameState: CellsGameState, LineSweeperMixin {
-    var game: LineSweeperGame {return gameBase as! LineSweeperGame}
+    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
+    var game: LineSweeperGame {
+        get {return getGame() as! LineSweeperGame}
+        set {setGame(game: newValue)}
+    }
     var objArray = [LineSweeperObject]()
     var pos2state = [Position: HintState]()
     
     override func copy() -> LineSweeperGameState {
-        let v = LineSweeperGameState(game: gameBase)
+        let v = LineSweeperGameState(game: game)
         return setup(v: v)
     }
     func setup(v: LineSweeperGameState) -> LineSweeperGameState {
@@ -24,9 +28,8 @@ class LineSweeperGameState: CellsGameState, LineSweeperMixin {
         return v
     }
     
-    required init(game: CellsGameBase) {
-        super.init(game: game)
-        let game = game as! LineSweeperGame
+    required init(game: LineSweeperGame) {
+        super.init(game: game);
         objArray = Array<LineSweeperObject>(repeating: LineSweeperObject(repeating: false, count: 4), count: rows * cols)
         for (p, n) in game.pos2hint {
             pos2state[p] = n == 0 ? .complete : .normal

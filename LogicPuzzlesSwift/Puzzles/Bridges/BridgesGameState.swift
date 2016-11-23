@@ -9,11 +9,15 @@
 import Foundation
 
 class BridgesGameState: CellsGameState, BridgesMixin {
-    var game: BridgesGame {return gameBase as! BridgesGame}
+    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
+    var game: BridgesGame {
+        get {return getGame() as! BridgesGame}
+        set {setGame(game: newValue)}
+    }
     var objArray = [BridgesObject]()
     
     override func copy() -> BridgesGameState {
-        let v = BridgesGameState(game: gameBase)
+        let v = BridgesGameState(game: game)
         return setup(v: v)
     }
     func setup(v: BridgesGameState) -> BridgesGameState {
@@ -22,9 +26,8 @@ class BridgesGameState: CellsGameState, BridgesMixin {
         return v
     }
 
-    required init(game: CellsGameBase) {
-        super.init(game: game)
-        let game = game as! BridgesGame
+    required init(game: BridgesGame) {
+        super.init(game: game);
         objArray = Array<BridgesObject>(repeating: BridgesObject(), count: rows * cols)
         for p in game.islandsInfo.keys {
             self[p] = .island(state: .normal, bridges: [0, 0, 0, 0])

@@ -9,12 +9,16 @@
 import Foundation
 
 class SlitherLinkGameState: CellsGameState, SlitherLinkMixin {
-    var game: SlitherLinkGame {return gameBase as! SlitherLinkGame}
+    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
+    var game: SlitherLinkGame {
+        get {return getGame() as! SlitherLinkGame}
+        set {setGame(game: newValue)}
+    }
     var objArray = [SlitherLinkDotObject]()
     var pos2state = [Position: HintState]()
     
     override func copy() -> SlitherLinkGameState {
-        let v = SlitherLinkGameState(game: gameBase)
+        let v = SlitherLinkGameState(game: game)
         return setup(v: v)
     }
     func setup(v: SlitherLinkGameState) -> SlitherLinkGameState {
@@ -24,9 +28,8 @@ class SlitherLinkGameState: CellsGameState, SlitherLinkMixin {
         return v
     }
     
-    required init(game: CellsGameBase) {
-        super.init(game: game)
-        let game = game as! SlitherLinkGame
+    required init(game: SlitherLinkGame) {
+        super.init(game: game);
         objArray = Array<SlitherLinkDotObject>(repeating: Array<SlitherLinkObject>(repeating: .empty, count: 4), count: rows * cols)
         for (p, n) in game.pos2hint {
             pos2state[p] = n == 0 ? .complete : .normal

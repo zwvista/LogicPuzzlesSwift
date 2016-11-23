@@ -9,11 +9,15 @@
 import Foundation
 
 class MasyuGameState: CellsGameState, MasyuMixin {
-    var game: MasyuGame {return gameBase as! MasyuGame}
+    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
+    var game: MasyuGame {
+        get {return getGame() as! MasyuGame}
+        set {setGame(game: newValue)}
+    }
     var objArray = [MasyuObject]()
     
     override func copy() -> MasyuGameState {
-        let v = MasyuGameState(game: gameBase)
+        let v = MasyuGameState(game: game)
         return setup(v: v)
     }
     func setup(v: MasyuGameState) -> MasyuGameState {
@@ -22,8 +26,8 @@ class MasyuGameState: CellsGameState, MasyuMixin {
         return v
     }
     
-    required init(game: CellsGameBase) {
-        super.init(game: game)
+    required init(game: MasyuGame) {
+        super.init(game: game);
         objArray = Array<MasyuObject>(repeating: MasyuObject(repeating: false, count: 4), count: rows * cols)
     }
     

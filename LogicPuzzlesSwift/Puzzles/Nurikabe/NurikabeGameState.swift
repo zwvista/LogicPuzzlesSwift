@@ -9,11 +9,15 @@
 import Foundation
 
 class NurikabeGameState: CellsGameState, NurikabeMixin {
-    var game: NurikabeGame {return gameBase as! NurikabeGame}
+    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
+    var game: NurikabeGame {
+        get {return getGame() as! NurikabeGame}
+        set {setGame(game: newValue)}
+    }
     var objArray = [NurikabeObject]()
     
     override func copy() -> NurikabeGameState {
-        let v = NurikabeGameState(game: gameBase)
+        let v = NurikabeGameState(game: game)
         return setup(v: v)
     }
     func setup(v: NurikabeGameState) -> NurikabeGameState {
@@ -22,9 +26,8 @@ class NurikabeGameState: CellsGameState, NurikabeMixin {
         return v
     }
     
-    required init(game: CellsGameBase) {
-        super.init(game: game)
-        let game = game as! NurikabeGame
+    required init(game: NurikabeGame) {
+        super.init(game: game);
         objArray = Array<NurikabeObject>(repeating: NurikabeObject(), count: rows * cols)
         for p in game.pos2hint.keys {
             self[p] = .hint(state: .normal)

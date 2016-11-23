@@ -29,19 +29,23 @@ class GameState: Copyable, GameStateBase {
 }
 
 class CellsGameState: GameState {
-    unowned let gameBase: CellsGameBase
-    var size: Position { return gameBase.size }
+    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
+    private weak var game: CellsGameBase?
+    func getGame() -> CellsGameBase? {return game}
+    func setGame(game: CellsGameBase) {self.game = game}
+    
+    var size: Position { return game!.size }
     var rows: Int { return size.row }
     var cols: Int { return size.col }
     func isValid(p: Position) -> Bool {
-        return gameBase.isValid(row: p.row, col: p.col)
+        return game!.isValid(row: p.row, col: p.col)
     }
     func isValid(row: Int, col: Int) -> Bool {
-        return gameBase.isValid(row: row, col: col)
+        return game!.isValid(row: row, col: col)
     }
     
     override func copy() -> CellsGameState {
-        let v = CellsGameState(game: gameBase)
+        let v = CellsGameState(game: game)
         return setup(v: v)
     }
     func setup(v: CellsGameState) -> CellsGameState {
@@ -49,7 +53,7 @@ class CellsGameState: GameState {
         return v
     }
     
-    required init(game: CellsGameBase) {
-        self.gameBase = game
+    init(game: CellsGameBase?) {
+        self.game = game
     }
 }
