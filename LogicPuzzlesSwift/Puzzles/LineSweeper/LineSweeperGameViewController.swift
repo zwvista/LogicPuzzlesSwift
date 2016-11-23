@@ -15,6 +15,7 @@ class LineSweeperGameViewController: GameViewController, GameDelegate, LineSweep
     var game: LineSweeperGame!
     weak var skView: SKView!
     var levelInitilizing = false
+    var pLast: Position?
 
     @IBOutlet weak var lblSolved: UILabel!
     @IBOutlet weak var lblLevel: UILabel!
@@ -47,12 +48,35 @@ class LineSweeperGameViewController: GameViewController, GameDelegate, LineSweep
         let touchLocationInScene = scene.convertPoint(fromView: touchLocation)
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
-        let (b, p, orientation) = scene.gridNode.linePosition(point: touchLocationInGrid)
-        guard b else {return}
-        var move = LineSweeperGameMove(p: p, objOrientation: orientation, obj: .empty)
-        if game.switchObject(move: &move) { soundManager.playSoundTap() }
+        let (p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
+        var move = LineSweeperGameMove(p: p, dir: dir)
+        if game.setObject(move: &move) { soundManager.playSoundTap() }
     }
     
+    @IBAction func handlePan(_ sender: UIPanGestureRecognizer) {
+        guard !game.isSolved else {return}
+        let touchLocation = sender.location(in: sender.view)
+        let touchLocationInScene = scene.convertPoint(fromView: touchLocation)
+        guard scene.gridNode.contains(touchLocationInScene) else {return}
+        let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
+        let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
+        let isH = game.isHint(p: p)
+        let f = { self.soundManager.playSoundTap() }
+        switch sender.state {
+        case .began:
+            guard !isH else {break}
+            pLast = p; f()
+        case .changed:
+            guard pLast != nil && !isH && pLast != p else {break}
+            defer {pLast = p}
+            guard let dir = MasyuGame.offset.index(of: p - pLast!) else {break}
+            var move = LineSweeperGameMove(p: pLast!, dir: dir)
+            if game.setObject(move: &move) {f()}
+        default:
+            break
+        }
+    }
+
     func startGame() {
         lblLevel.text = gameDocument.selectedLevelID
         let layout = gameDocument.levels[gameDocument.selectedLevelID]!

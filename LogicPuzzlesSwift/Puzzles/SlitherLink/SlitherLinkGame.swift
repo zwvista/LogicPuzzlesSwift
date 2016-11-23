@@ -31,7 +31,7 @@ class SlitherLinkGame: CellsGame<SlitherLinkGameViewController, SlitherLinkGameM
                 let ch = str[c]
                 switch ch {
                 case "0"..."9":
-                    let n = Int(String(ch))!
+                    let n = ch.toInt!
                     pos2hint[p] = n
                 default:
                     break

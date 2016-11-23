@@ -38,7 +38,7 @@ class BridgesGame: CellsGame<BridgesGameViewController, BridgesGameMove, Bridges
                 switch ch {
                 case "0"..."9":
                     let info = IslandInfo()
-                    info.bridges = Int(String(ch))!
+                    info.bridges = ch.toInt!
                     islandsInfo[p] = info
                 default:
                     break

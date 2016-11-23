@@ -10,7 +10,7 @@ import Foundation
 
 class LineSweeperGameState: CellsGameState, LineSweeperMixin {
     var game: LineSweeperGame {return gameBase as! LineSweeperGame}
-    var objArray = [LineSweeperDotObject]()
+    var objArray = [LineSweeperObject]()
     var pos2state = [Position: HintState]()
     
     override func copy() -> LineSweeperGameState {
@@ -27,13 +27,13 @@ class LineSweeperGameState: CellsGameState, LineSweeperMixin {
     required init(game: CellsGameBase) {
         super.init(game: game)
         let game = game as! LineSweeperGame
-        objArray = Array<LineSweeperDotObject>(repeating: Array<LineSweeperObject>(repeating: .empty, count: 4), count: rows * cols)
+        objArray = Array<LineSweeperObject>(repeating: LineSweeperObject(repeating: false, count: 4), count: rows * cols)
         for (p, n) in game.pos2hint {
             pos2state[p] = n == 0 ? .complete : .normal
         }
     }
     
-    subscript(p: Position) -> LineSweeperDotObject {
+    subscript(p: Position) -> LineSweeperObject {
         get {
             return objArray[p.row * cols + p.col]
         }
@@ -41,7 +41,7 @@ class LineSweeperGameState: CellsGameState, LineSweeperMixin {
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> LineSweeperDotObject {
+    subscript(row: Int, col: Int) -> LineSweeperObject {
         get {
             return objArray[row * cols + col]
         }
@@ -51,54 +51,28 @@ class LineSweeperGameState: CellsGameState, LineSweeperMixin {
     }
     
     func setObject(move: inout LineSweeperGameMove) -> Bool {
-        var changed = false
-        func f(o1: inout LineSweeperObject, o2: inout LineSweeperObject) {
-            if o1 != move.obj {
-                changed = true
-                o1 = move.obj
-                o2 = move.obj
-                // updateIsSolved() cannot be called here
-                // self[p] will not be updated until the function returns
-            }
-        }
-        let p = move.p
-        switch move.objOrientation {
-        case .horizontal:
-            f(o1: &self[p][1], o2: &self[p + LineSweeperGame.offset[1]][3])
-            if changed {updateIsSolved()}
-        case .vertical:
-            f(o1: &self[p][2], o2: &self[p + LineSweeperGame.offset[2]][0])
-            if changed {updateIsSolved()}
-        }
-        return changed
-    }
-    
-    func switchObject(move: inout LineSweeperGameMove) -> Bool {
-        let markerOption = LineSweeperMarkerOptions(rawValue: self.markerOption)
-        func f(o: LineSweeperObject) -> LineSweeperObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerBeforeLine ? .marker : .line
-            case .line:
-                return markerOption == .markerAfterLine ? .marker : .empty
-            case .marker:
-                return markerOption == .markerBeforeLine ? .line : .empty
-            }
-        }
-        let p = move.p
-        let o = f(o: self[p][move.objOrientation == .horizontal ? 1 : 2])
-        move.obj = o
-        return setObject(move: &move)
+        let p = move.p, dir = move.dir
+        let p2 = p + LineSweeperGame.offset[dir * 2], dir2 = (dir + 2) % 4
+        guard isValid(p: p2) else {return false}
+        self[p][dir].toggle()
+        self[p2][dir2].toggle()
+        updateIsSolved()
+        return true
     }
     
     private func updateIsSolved() {
         isSolved = true
         for (p, n2) in game.pos2hint {
             var n1 = 0
-            if self[p][1] == .line {n1 += 1}
-            if self[p][2] == .line {n1 += 1}
-            if self[p + Position(1, 1)][0] == .line {n1 += 1}
-            if self[p + Position(1, 1)][3] == .line {n1 += 1}
+            for os in LineSweeperGame.offset {
+                let p2 = p + os
+                if !isValid(p: p2) {continue}
+                var hasLine = false
+                for b in self[p2] {
+                    if b {hasLine = true}
+                }
+                if hasLine {n1 += 1}
+            }
             pos2state[p] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
         }
@@ -108,7 +82,7 @@ class LineSweeperGameState: CellsGameState, LineSweeperMixin {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let n = self[p].filter({$0 == .line}).count
+                let n = self[p].filter({$0}).count
                 switch n {
                 case 0:
                     continue
@@ -121,10 +95,10 @@ class LineSweeperGameState: CellsGameState, LineSweeperMixin {
             }
         }
         for p in pos2node.keys {
-            let dotObj = self[p]
+            let o = self[p]
             for i in 0..<4 {
-                guard dotObj[i] == .line else {continue}
-                let p2 = p + LineSweeperGame.offset[i]
+                guard o[i] else {continue}
+                let p2 = p + LineSweeperGame.offset[i * 2]
                 g.addEdge(source: pos2node[p]!, neighbor: pos2node[p2]!)
             }
         }

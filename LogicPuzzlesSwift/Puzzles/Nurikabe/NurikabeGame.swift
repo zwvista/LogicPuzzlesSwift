@@ -36,7 +36,7 @@ class NurikabeGame: CellsGame<NurikabeGameViewController, NurikabeGameMove, Nuri
                 let p = Position(r, c)
                 let ch = str[c]
                 if "0"..."9" ~= ch {
-                    pos2hint[p] = Int(String(ch))!
+                    pos2hint[p] = ch.toInt!
                 }
             }
         }

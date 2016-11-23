@@ -50,7 +50,7 @@ class SkyscrapersGame: CellsGame<SkyscrapersGameViewController, SkyscrapersGameM
             let str = layout[r]
             for c in 0..<cols {
                 let ch = str[c]
-                let n = ch == " " ? 0 : Int(String(ch))!
+                let n = ch == " " ? 0 : ch.toInt!
                 self[r, c] = n
                 if intMax < n {intMax = n}
             }

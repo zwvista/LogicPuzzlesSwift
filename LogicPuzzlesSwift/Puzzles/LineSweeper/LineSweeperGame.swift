@@ -12,29 +12,30 @@ class LineSweeperGame: CellsGame<LineSweeperGameViewController, LineSweeperGameM
     static let gameID = "LineSweeper"
     static let offset = [
         Position(-1, 0),
+        Position(-1, 1),
         Position(0, 1),
+        Position(1, 1),
         Position(1, 0),
+        Position(1, -1),
         Position(0, -1),
+        Position(-1, -1),
     ];
 
     var pos2hint = [Position: Int]()
+    func isHint(p: Position) -> Bool {return pos2hint[p] != nil}
     
     init(layout: [String], delegate: LineSweeperGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count + 1, layout[0].length + 1)
+        size = Position(layout.count, layout[0].length)
         
-        for r in 0..<rows - 1 {
+        for r in 0..<rows {
             let str = layout[r]
-            for c in 0..<cols - 1 {
+            for c in 0..<cols {
                 let p = Position(r, c)
                 let ch = str[c]
-                switch ch {
-                case "0"..."9":
-                    let n = Int(String(ch))!
-                    pos2hint[p] = n
-                default:
-                    break
+                if "0"..."9" ~= ch {
+                    pos2hint[p] = ch.toInt!
                 }
             }
         }
@@ -59,10 +60,6 @@ class LineSweeperGame: CellsGame<LineSweeperGameViewController, LineSweeperGameM
         moveAdded(move: move)
         levelUpdated(from: states[stateIndex - 1], to: state)
         return true
-    }
-    
-    func switchObject(move: inout LineSweeperGameMove) -> Bool {
-        return changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
     }
     
     func setObject(move: inout LineSweeperGameMove) -> Bool {

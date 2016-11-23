@@ -16,19 +16,6 @@ class MasyuGameScene: GameScene<MasyuGameState> {
         return CGSize(width: sz, height: sz)
     }
     
-    func addHintNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        let numberNode = SKLabelNode(text: String(n))
-        numberNode.fontColor = s == .normal ? SKColor.white : s == .complete ? SKColor.green : SKColor.red
-        numberNode.fontName = numberNode.fontName! + "-Bold"
-        // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
-        let scalingFactor = min(gridNode.blockSize / numberNode.frame.width, gridNode.blockSize / numberNode.frame.height)
-        numberNode.fontSize *= scalingFactor
-        numberNode.verticalAlignmentMode = .center
-        numberNode.position = point
-        numberNode.name = nodeName
-        gridNode.addChild(numberNode)
-    }
-    
     override func levelInitialized(_ game: AnyObject, state: MasyuGameState, skView: SKView) {
         let game = game as! MasyuGame
         removeAllChildren()

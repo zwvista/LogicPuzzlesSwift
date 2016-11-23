@@ -37,7 +37,7 @@ class CloudsGame: CellsGame<CloudsGameViewController, CloudsGameMove, CloudsGame
                 case "C":
                     pos2cloud.append(p)
                 case "0"..."9":
-                    let n = Int(String(ch))!
+                    let n = ch.toInt!
                     if r == rows {
                         col2hint[c] = n
                     } else if c == cols {

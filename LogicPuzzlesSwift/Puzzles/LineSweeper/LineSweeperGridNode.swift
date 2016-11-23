@@ -74,13 +74,14 @@ class LineSweeperGridNode : SKSpriteNode {
         return Position(row, col)
     }
     
-    func linePosition(point: CGPoint) -> (Bool, Position, LineSweeperObjectOrientation) {
-        let offset: CGFloat = 10
-        let row = Int((-point.y + offset) / blockSize)
-        let col = Int((point.x + offset) / blockSize)
+    func linePosition(point: CGPoint) -> (Position, Int) {
+        let row = Int(-point.y / blockSize)
+        let col = Int(point.x / blockSize)
         let p = Position(row, col)
-        return -offset...offset ~= -point.y - CGFloat(row) * blockSize ? (true, p, .horizontal) :
-            -offset...offset ~= point.x - CGFloat(col) * blockSize ? (true, p, .vertical) :
-            (false, p, .horizontal)
+        let dx = point.x - (CGFloat(col) + 0.5) * blockSize
+        let dy = -(point.y + (CGFloat(row) + 0.5) * blockSize)
+        let dx2 = abs(dx), dy2 = abs(dy)
+        return (p, -dy2...dy2 ~= dx ? dy > 0 ? 2 : 0 :
+            -dx2...dx2 ~= dy ? dx > 0 ? 1 : 3 : 0);
     }
 }

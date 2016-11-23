@@ -36,7 +36,7 @@ class LightenUpGame: CellsGame<LightenUpGameViewController, LightenUpGameMove, L
                 case "W":
                     addWall(row: r, col: c, lightbulbs: -1)
                 case "0"..."9":
-                    addWall(row: r, col: c, lightbulbs: Int(String(ch))!)
+                    addWall(row: r, col: c, lightbulbs: ch.toInt!)
                 default:
                     break
                 }

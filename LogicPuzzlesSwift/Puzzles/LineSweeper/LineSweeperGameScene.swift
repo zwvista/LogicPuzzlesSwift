@@ -32,13 +32,13 @@ class LineSweeperGameScene: GameScene<LineSweeperGameState> {
     override func levelInitialized(_ game: AnyObject, state: LineSweeperGameState, skView: SKView) {
         let game = game as! LineSweeperGame
         removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols - 1)
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
         
         // addGrid
         let offset:CGFloat = 0.5
         scaleMode = .resizeFill
-        gridNode = LineSweeperGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1)
-        gridNode.position = CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset)
+        gridNode = LineSweeperGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols)
+        gridNode.position = CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset)
         addChild(gridNode)
         gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
         
@@ -52,87 +52,50 @@ class LineSweeperGameScene: GameScene<LineSweeperGameState> {
     }
     
     override func levelUpdated(from stateFrom: LineSweeperGameState, to stateTo: LineSweeperGameState) {
-        let markerOffset: CGFloat = 7.5
         for row in 0..<stateFrom.rows {
             for col in 0..<stateFrom.cols {
-                let p = Position(row, col)
-                let point = gridNode.gridPosition(p: p)
-                let nodeNameSuffix = "-\(row)-\(col)"
-                let horzLineNodeName = "horzLine" + nodeNameSuffix
-                let vertlineNodeName = "vertline" + nodeNameSuffix
-                let hintNumberNodeName = "hintNumber" + nodeNameSuffix
-                func removeNode(withName: String) {
-                    gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
-                        node.removeFromParent()
+                for dir in 1...2 {
+                    let p = Position(row, col)
+                    let point = gridNode.gridPosition(p: p)
+                    let nodeNameSuffix = "-\(row)-\(col)-\(dir)"
+                    let hintNumberNodeName = "hintNumber" + nodeNameSuffix
+                    let lineNodeName = "line" + nodeNameSuffix
+                    func removeNode(withName: String) {
+                        gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
+                            node.removeFromParent()
+                        }
                     }
-                }
-                func removeHintNumber() { removeNode(withName: hintNumberNodeName) }
-                func addHorzLine(objType: LineSweeperObject) {
-                    guard objType != .empty else {return}
-                    let pathToDraw = CGMutablePath()
-                    let lineNode = SKShapeNode(path:pathToDraw)
-                    switch objType {
-                    case .line:
-                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
-                        pathToDraw.addLine(to: CGPoint(x: point.x + gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
+                    func removeHintNumber() { removeNode(withName: hintNumberNodeName) }
+                    func removeLine() { removeNode(withName: lineNodeName) }
+                    func addLine() {
+                        let pathToDraw = CGMutablePath()
+                        let lineNode = SKShapeNode(path:pathToDraw)
                         lineNode.glowWidth = 8
-                    case .marker:
-                        pathToDraw.move(to: CGPoint(x: point.x - markerOffset, y: point.y + gridNode.blockSize / 2 + markerOffset))
-                        pathToDraw.addLine(to: CGPoint(x: point.x + markerOffset, y: point.y + gridNode.blockSize / 2 - markerOffset))
-                        pathToDraw.move(to: CGPoint(x: point.x + markerOffset, y: point.y + gridNode.blockSize / 2 + markerOffset))
-                        pathToDraw.addLine(to: CGPoint(x: point.x - markerOffset, y: point.y + gridNode.blockSize / 2 - markerOffset))
-                        lineNode.glowWidth = 2
-                    default:
-                        break
+                        switch dir {
+                        case 1:
+                            pathToDraw.move(to: CGPoint(x: point.x, y: point.y))
+                            pathToDraw.addLine(to: CGPoint(x: point.x + gridNode.blockSize, y: point.y))
+                        case 2:
+                            pathToDraw.move(to: CGPoint(x: point.x, y: point.y))
+                            pathToDraw.addLine(to: CGPoint(x: point.x, y: point.y - gridNode.blockSize))
+                        default:
+                            break
+                        }
+                        lineNode.path = pathToDraw
+                        lineNode.strokeColor = SKColor.yellow
+                        lineNode.name = lineNodeName
+                        gridNode.addChild(lineNode)
                     }
-                    lineNode.path = pathToDraw
-                    lineNode.strokeColor = SKColor.yellow
-                    lineNode.name = horzLineNodeName
-                    gridNode.addChild(lineNode)
-                }
-                func removeHorzLine(objType: LineSweeperObject) {
-                    if objType != .empty { removeNode(withName: horzLineNodeName) }
-                }
-                func addVertLine(objType: LineSweeperObject) {
-                    guard objType != .empty else {return}
-                    let pathToDraw = CGMutablePath()
-                    let lineNode = SKShapeNode(path:pathToDraw)
-                    switch objType {
-                    case .line:
-                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
-                        pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y - gridNode.blockSize / 2))
-                        lineNode.glowWidth = 8
-                    case .marker:
-                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2 - markerOffset, y: point.y + markerOffset))
-                        pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2 + markerOffset, y: point.y - markerOffset))
-                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2 - markerOffset, y: point.y - markerOffset))
-                        pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2 + markerOffset, y: point.y + markerOffset))
-                        lineNode.glowWidth = 2
-                    default:
-                        break
+                    let (o1, o2) = (stateFrom[p][dir], stateTo[p][dir])
+                    if o1 != o2 {
+                        if o1 {removeLine()}
+                        if o2 {addLine()}
                     }
-                    lineNode.path = pathToDraw
-                    lineNode.strokeColor = SKColor.yellow
-                    lineNode.name = vertlineNodeName
-                    gridNode.addChild(lineNode)
-                }
-                func removeVertLine(objType: LineSweeperObject) {
-                    if objType != .empty { removeNode(withName: vertlineNodeName) }
-                }
-                var (o1, o2) = (stateFrom[p][1], stateTo[p][1])
-                if o1 != o2 {
-                    removeHorzLine(objType: o1)
-                    addHorzLine(objType: o2)
-                }
-                (o1, o2) = (stateFrom[p][2], stateTo[p][2])
-                if o1 != o2 {
-                    removeVertLine(objType: o1)
-                    addVertLine(objType: o2)
-                }
-                guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
-                if s1 != s2 {
-                    removeHintNumber()
-                    addHintNumber(n: stateFrom.game.pos2hint[p]!, s: s2, point: point, nodeName: hintNumberNodeName)
+                    guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
+                    if s1 != s2 {
+                        removeHintNumber()
+                        addHintNumber(n: stateFrom.game.pos2hint[p]!, s: s2, point: point, nodeName: hintNumberNodeName)
+                    }
                 }
             }
         }
