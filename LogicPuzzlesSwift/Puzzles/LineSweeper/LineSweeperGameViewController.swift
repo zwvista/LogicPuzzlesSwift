@@ -67,11 +67,13 @@ class LineSweeperGameViewController: GameViewController, GameDelegate, LineSweep
             guard !isH else {break}
             pLast = p; f()
         case .changed:
-            guard pLast != nil && !isH && pLast != p else {break}
+            guard !isH && pLast != nil && pLast != p else {break}
             defer {pLast = p}
-            guard let dir = MasyuGame.offset.index(of: p - pLast!) else {break}
-            var move = LineSweeperGameMove(p: pLast!, dir: dir)
+            guard let dir = LineSweeperGame.offset.index(of: p - pLast!) else {break}
+            var move = LineSweeperGameMove(p: pLast!, dir: dir / 2)
             if game.setObject(move: &move) {f()}
+        case .ended:
+            pLast = nil
         default:
             break
         }
