@@ -22,7 +22,7 @@ class SkyscrapersGame: CellsGame<SkyscrapersGameViewController, SkyscrapersGameM
     }
 
     var objArray = [Int]()
-    var intMax = 1
+    var intMax: Int {return rows - 2}
     subscript(p: Position) -> Int {
         get {
             return objArray[p.row * cols + p.col]
@@ -52,7 +52,6 @@ class SkyscrapersGame: CellsGame<SkyscrapersGameViewController, SkyscrapersGameM
                 let ch = str[c]
                 let n = ch == " " ? 0 : ch.toInt!
                 self[r, c] = n
-                if intMax < n {intMax = n}
             }
         }
         
