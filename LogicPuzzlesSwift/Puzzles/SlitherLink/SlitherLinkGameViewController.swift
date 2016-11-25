@@ -47,9 +47,9 @@ class SlitherLinkGameViewController: GameViewController, GameDelegate, SlitherLi
         let touchLocationInScene = scene.convertPoint(fromView: touchLocation)
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
-        let (b, p, orientation) = scene.gridNode.linePosition(point: touchLocationInGrid)
+        let (b, p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
         guard b else {return}
-        var move = SlitherLinkGameMove(p: p, objOrientation: orientation, obj: .empty)
+        var move = SlitherLinkGameMove(p: p, dir: dir, obj: .empty)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     

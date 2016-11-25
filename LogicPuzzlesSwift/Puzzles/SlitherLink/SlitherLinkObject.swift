@@ -35,6 +35,6 @@ typealias SlitherLinkDotObject = [SlitherLinkObject]
 
 struct SlitherLinkGameMove {
     var p = Position()
-    var objOrientation = SlitherLinkObjectOrientation()
+    var dir = 0
     var obj = SlitherLinkObject()
 }

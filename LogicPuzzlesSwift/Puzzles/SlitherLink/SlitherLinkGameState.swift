@@ -65,14 +65,9 @@ class SlitherLinkGameState: CellsGameState, SlitherLinkMixin {
             }
         }
         let p = move.p
-        switch move.objOrientation {
-        case .horizontal:
-            f(o1: &self[p][1], o2: &self[p + SlitherLinkGame.offset[1]][3])
-            if changed {updateIsSolved()}
-        case .vertical:
-            f(o1: &self[p][2], o2: &self[p + SlitherLinkGame.offset[2]][0])
-            if changed {updateIsSolved()}
-        }
+        let dir = move.dir, dir2 = (dir + 2) % 4
+        f(o1: &self[p][dir], o2: &self[p + SlitherLinkGame.offset[dir]][dir2])
+        if changed {updateIsSolved()}
         return changed
     }
     
@@ -88,8 +83,7 @@ class SlitherLinkGameState: CellsGameState, SlitherLinkMixin {
                 return markerOption == .markerBeforeLine ? .line : .empty
             }
         }
-        let p = move.p
-        let o = f(o: self[p][move.objOrientation == .horizontal ? 1 : 2])
+        let o = f(o: self[move.p][move.dir])
         move.obj = o
         return setObject(move: &move)
     }
