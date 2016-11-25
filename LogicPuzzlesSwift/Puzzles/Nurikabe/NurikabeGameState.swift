@@ -131,26 +131,31 @@ class NurikabeGameState: CellsGameState, NurikabeMixin {
             let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
             if rngWalls.count != nodesExplored.count {isSolved = false}
         }
-        for (p, n1) in game.pos2hint {
-            let node = pos2node[p]!
-            guard !node.visited else {continue}
+        while !rngEmpty.isEmpty {
+            let node = pos2node[rngEmpty.first!]!
             let nodesExplored = breadthFirstSearch(g, source: node)
+            rngEmpty = rngEmpty.filter({p in !nodesExplored.contains(p.description)})
             let n2 = nodesExplored.count
             var rng = [Position]()
-            for p2 in game.pos2hint.keys {
-                if nodesExplored.contains(p2.description) {
-                    rng.append(p2)
+            for p in game.pos2hint.keys {
+                if nodesExplored.contains(p.description) {
+                    rng.append(p)
                 }
             }
-            if rng.count > 1 {
-                for p2 in rng {
-                    self[p2] = .hint(state: .normal)
+            switch rng.count {
+            case 0:
+                isSolved = false
+            case 1:
+                let p = rng.first!
+                let n1 = game.pos2hint[p]!
+                let s: HintState = n1 == n2 ? .complete : .error
+                self[p] = .hint(state: s)
+                if s != .complete {isSolved = false}
+            default:
+                for p in rng {
+                    self[p] = .hint(state: .normal)
                 }
                 isSolved = false
-            } else {
-                let s: HintState = n1 == n2 ? .complete : .error
-                self[rng.first!] = .hint(state: s)
-                if s != .complete {isSolved = false}
             }
         }
     }
