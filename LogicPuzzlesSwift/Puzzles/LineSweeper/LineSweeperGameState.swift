@@ -55,8 +55,9 @@ class LineSweeperGameState: CellsGameState, LineSweeperMixin {
     
     func setObject(move: inout LineSweeperGameMove) -> Bool {
         let p = move.p, dir = move.dir
+        guard isValid(p: p) && !game.isHint(p: p) else {return false}
         let p2 = p + LineSweeperGame.offset[dir * 2], dir2 = (dir + 2) % 4
-        guard isValid(p: p2) else {return false}
+        guard isValid(p: p2) && !game.isHint(p: p2) else {return false}
         self[p][dir].toggle()
         self[p2][dir2].toggle()
         updateIsSolved()
