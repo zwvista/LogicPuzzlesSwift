@@ -14,8 +14,7 @@ class LoopyGameState: CellsGameState, LoopyMixin {
         get {return getGame() as! LoopyGame}
         set {setGame(game: newValue)}
     }
-    var objArray = [LoopyDotObject]()
-    var pos2state = [Position: HintState]()
+    var objArray = [LoopyObject]()
     
     override func copy() -> LoopyGameState {
         let v = LoopyGameState(game: game)
@@ -24,19 +23,24 @@ class LoopyGameState: CellsGameState, LoopyMixin {
     func setup(v: LoopyGameState) -> LoopyGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     
     required init(game: LoopyGame) {
         super.init(game: game);
-        objArray = Array<LoopyDotObject>(repeating: Array<LoopyObject>(repeating: .empty, count: 4), count: rows * cols)
-        for (p, n) in game.pos2hint {
-            pos2state[p] = n == 0 ? .complete : .normal
+        objArray = Array<LoopyObject>(repeating: Array<Bool>(repeating: false, count: 4), count: rows * cols)
+        for r in 0..<rows {
+            for c in 0..<cols {
+                for dir in 1...2 {
+                    guard game[r, c][dir] else {continue}
+                    var move = LoopyGameMove(p: Position(r, c), dir: dir)
+                    _ = setObject(move: &move)
+                }
+            }
         }
     }
     
-    subscript(p: Position) -> LoopyDotObject {
+    subscript(p: Position) -> LoopyObject {
         get {
             return objArray[p.row * cols + p.col]
         }
@@ -44,7 +48,7 @@ class LoopyGameState: CellsGameState, LoopyMixin {
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> LoopyDotObject {
+    subscript(row: Int, col: Int) -> LoopyObject {
         get {
             return objArray[row * cols + col]
         }
@@ -54,67 +58,24 @@ class LoopyGameState: CellsGameState, LoopyMixin {
     }
     
     func setObject(move: inout LoopyGameMove) -> Bool {
-        var changed = false
-        func f(o1: inout LoopyObject, o2: inout LoopyObject) {
-            if o1 != move.obj {
-                changed = true
-                o1 = move.obj
-                o2 = move.obj
-                // updateIsSolved() cannot be called here
-                // self[p] will not be updated until the function returns
-            }
-        }
-        let p = move.p
-        switch move.objOrientation {
-        case .horizontal:
-            f(o1: &self[p][1], o2: &self[p + LoopyGame.offset[1]][3])
-            if changed {updateIsSolved()}
-        case .vertical:
-            f(o1: &self[p][2], o2: &self[p + LoopyGame.offset[2]][0])
-            if changed {updateIsSolved()}
-        }
-        return changed
-    }
-    
-    func switchObject(move: inout LoopyGameMove) -> Bool {
-        let markerOption = LoopyMarkerOptions(rawValue: self.markerOption)
-        func f(o: LoopyObject) -> LoopyObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerBeforeLine ? .marker : .line
-            case .line:
-                return markerOption == .markerAfterLine ? .marker : .empty
-            case .marker:
-                return markerOption == .markerBeforeLine ? .line : .empty
-            }
-        }
-        let p = move.p
-        let o = f(o: self[p][move.objOrientation == .horizontal ? 1 : 2])
-        move.obj = o
-        return setObject(move: &move)
+        let p = move.p, dir = move.dir
+        let p2 = p + LoopyGame.offset[dir], dir2 = (dir + 2) % 4
+        guard isValid(p: p2) && !(game[p][dir] && self[p][dir]) else {return false}
+        self[p][dir].toggle()
+        self[p2][dir2].toggle()
+        updateIsSolved()
+        return true
     }
     
     private func updateIsSolved() {
         isSolved = true
-        for (p, n2) in game.pos2hint {
-            var n1 = 0
-            if self[p][1] == .line {n1 += 1}
-            if self[p][2] == .line {n1 += 1}
-            if self[p + Position(1, 1)][0] == .line {n1 += 1}
-            if self[p + Position(1, 1)][3] == .line {n1 += 1}
-            pos2state[p] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 {isSolved = false}
-        }
-        guard isSolved else {return}
         let g = Graph()
         var pos2node = [Position: Node]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let n = self[p].filter({$0 == .line}).count
+                let n = self[p].filter({$0}).count
                 switch n {
-                case 0:
-                    continue
                 case 2:
                     pos2node[p] = g.addNode(label: p.description)
                 default:
@@ -126,7 +87,7 @@ class LoopyGameState: CellsGameState, LoopyMixin {
         for p in pos2node.keys {
             let dotObj = self[p]
             for i in 0..<4 {
-                guard dotObj[i] == .line else {continue}
+                guard dotObj[i] else {continue}
                 let p2 = p + LoopyGame.offset[i]
                 g.addEdge(source: pos2node[p]!, neighbor: pos2node[p2]!)
             }

@@ -9,34 +9,4 @@
 import UIKit
 
 class LoopyOptionsViewController: OptionsViewController, LoopyMixin {
-    
-    @IBOutlet weak var lblMarker: UILabel!
-    @IBOutlet weak var lblMarkerOption: UILabel!
-    @IBOutlet weak var swNormalLightbulbsOnly: UISwitch!
-    
-    func updateMarkerOption() {
-        lblMarkerOption.text = LoopyMarkerOptions.optionStrings[markerOption]
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateMarkerOption()
-    }
-
-    override func onDefault() {
-        let rec = self.gameOptions
-        setMarkerOption(LoopyMarkerOptions.noMarker.rawValue)
-        rec.commit()
-        self.updateMarkerOption()
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard indexPath.row == 0 else { return }
-        ActionSheetStringPicker.show(withTitle: "Marker Options", rows: LoopyMarkerOptions.optionStrings, initialSelection: markerOption, doneBlock: { (picker, selectedIndex, selectedValue) in
-            self.setMarkerOption(selectedIndex)
-            self.gameOptions.commit()
-            self.updateMarkerOption()
-        }, cancel: nil, origin: lblMarker)
-    }
-
 }

@@ -14,11 +14,10 @@ class LoopyDocument: GameDocument<LoopyGame, LoopyGameMove> {
     
     override func saveMove(_ move: LoopyGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.unapply()
-        rec.intValue1 = move.objOrientation.rawValue
-        rec.intValue2 = move.obj.rawValue
+        rec.intValue1 = move.dir
     }
     
     override func loadMove(from rec: MoveProgress) -> LoopyGameMove? {
-        return LoopyGameMove(p: Position(rec.row, rec.col), objOrientation: LoopyObjectOrientation(rawValue: rec.intValue1)!, obj: LoopyObject(rawValue: rec.intValue2)!)
+        return LoopyGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1)
     }
 }

@@ -68,19 +68,26 @@ class LoopyGridNode : SKSpriteNode {
         return CGPoint(x: x, y: y)
     }
     
+    func dotPosition(p: Position) -> CGPoint {
+        let offset: CGFloat = 0.5
+        let x = CGFloat(p.col) * blockSize + offset
+        let y = -(CGFloat(p.row) * blockSize + offset)
+        return CGPoint(x: x, y: y)
+    }
+    
     func cellPosition(point: CGPoint) -> Position {
         let row = Int(-point.y / blockSize)
         let col = Int(point.x / blockSize)
         return Position(row, col)
     }
     
-    func linePosition(point: CGPoint) -> (Bool, Position, LoopyObjectOrientation) {
+    func linePosition(point: CGPoint) -> (Bool, Position, Int) {
         let offset: CGFloat = 10
         let row = Int((-point.y + offset) / blockSize)
         let col = Int((point.x + offset) / blockSize)
         let p = Position(row, col)
-        return -offset...offset ~= -point.y - CGFloat(row) * blockSize ? (true, p, .horizontal) :
-            -offset...offset ~= point.x - CGFloat(col) * blockSize ? (true, p, .vertical) :
-            (false, p, .horizontal)
+        return -offset...offset ~= -point.y - CGFloat(row) * blockSize ? (true, p, 1) :
+            -offset...offset ~= point.x - CGFloat(col) * blockSize ? (true, p, 2) :
+            (false, p, 1)
     }
 }

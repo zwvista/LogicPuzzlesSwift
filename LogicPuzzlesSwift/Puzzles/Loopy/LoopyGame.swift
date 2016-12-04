@@ -17,31 +17,48 @@ class LoopyGame: CellsGame<LoopyGameViewController, LoopyGameMove, LoopyGameStat
         Position(0, -1),
     ];
 
-    var pos2hint = [Position: Int]()
+    var objArray = [LoopyObject]()
     
     init(layout: [String], delegate: LoopyGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count + 1, layout[0].length + 1)
+        size = Position(layout.count / 2 + 1, layout[0].length / 2 + 1)
+        objArray = Array<LoopyObject>(repeating: Array<Bool>(repeating: false, count: 4), count: rows * cols)
         
-        for r in 0..<rows - 1 {
-            let str = layout[r]
+        for r in 0..<rows {
+            var str = layout[2 * r]
             for c in 0..<cols - 1 {
-                let p = Position(r, c)
-                let ch = str[c]
-                switch ch {
-                case "0"..."9":
-                    let n = ch.toInt!
-                    pos2hint[p] = n
-                default:
-                    break
-                }
+                let ch = str[2 * c + 1]
+                if ch == "-" {self[r, c][1] = true}
+            }
+            guard r < rows - 1 else {break}
+            str = layout[2 * r + 1]
+            for c in 0..<cols {
+                let ch = str[2 * c]
+                if ch == "|" {self[r, c][2] = true}
             }
         }
         
         let state = LoopyGameState(game: self)
         states.append(state)
         levelInitilized(state: state)
+    }
+    
+    subscript(p: Position) -> LoopyObject {
+        get {
+            return objArray[p.row * cols + p.col]
+        }
+        set(newValue) {
+            self[p.row, p.col] = newValue
+        }
+    }
+    subscript(row: Int, col: Int) -> LoopyObject {
+        get {
+            return objArray[row * cols + col]
+        }
+        set(newValue) {
+            objArray[row * cols + col] = newValue
+        }
     }
     
     private func changeObject(move: inout LoopyGameMove, f: (inout LoopyGameState, inout LoopyGameMove) -> Bool) -> Bool {
@@ -59,10 +76,6 @@ class LoopyGame: CellsGame<LoopyGameViewController, LoopyGameMove, LoopyGameStat
         moveAdded(move: move)
         levelUpdated(from: states[stateIndex - 1], to: state)
         return true
-    }
-    
-    func switchObject(move: inout LoopyGameMove) -> Bool {
-        return changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
     }
     
     func setObject(move: inout LoopyGameMove) -> Bool {

@@ -8,33 +8,9 @@
 
 import Foundation
 
-enum LoopyMarkerOptions: Int {
-    case noMarker, markerAfterLine, markerBeforeLine
-    
-    static let optionStrings = ["No Marker", "Marker After Line", "Marker Before Line"]
-}
-
-enum LoopyObjectOrientation: Int {
-    case horizontal
-    case vertical
-    init() {
-        self = .horizontal
-    }
-}
-
-enum LoopyObject: Int {
-    case empty
-    case line
-    case marker
-    init() {
-        self = .empty
-    }
-}
-
-typealias LoopyDotObject = [LoopyObject]
+typealias LoopyObject = [Bool]
 
 struct LoopyGameMove {
     var p = Position()
-    var objOrientation = LoopyObjectOrientation()
-    var obj = LoopyObject()
+    var dir = 0
 }
