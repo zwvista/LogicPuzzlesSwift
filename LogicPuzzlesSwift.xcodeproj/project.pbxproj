@@ -250,6 +250,18 @@
 		8C9AF51C1DE975030053BED4 /* LoopyMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5101DE975030053BED4 /* LoopyMixin.swift */; };
 		8C9AF51D1DE975030053BED4 /* LoopyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5111DE975030053BED4 /* LoopyObject.swift */; };
 		8C9AF51E1DE975030053BED4 /* LoopyOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5121DE975030053BED4 /* LoopyOptionsViewController.swift */; };
+		8C9AF5451DF471AA0053BED4 /* Mosaik.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF5391DF471AA0053BED4 /* Mosaik.storyboard */; };
+		8C9AF5461DF471AA0053BED4 /* Mosaik.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF53A1DF471AA0053BED4 /* Mosaik.xml */; };
+		8C9AF5471DF471AA0053BED4 /* MosaikDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF53B1DF471AA0053BED4 /* MosaikDocument.swift */; };
+		8C9AF5481DF471AA0053BED4 /* MosaikGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF53C1DF471AA0053BED4 /* MosaikGame.swift */; };
+		8C9AF5491DF471AA0053BED4 /* MosaikGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF53D1DF471AA0053BED4 /* MosaikGameScene.swift */; };
+		8C9AF54A1DF471AA0053BED4 /* MosaikGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF53E1DF471AA0053BED4 /* MosaikGameState.swift */; };
+		8C9AF54B1DF471AA0053BED4 /* MosaikGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF53F1DF471AA0053BED4 /* MosaikGameViewController.swift */; };
+		8C9AF54C1DF471AA0053BED4 /* MosaikGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5401DF471AA0053BED4 /* MosaikGridNode.swift */; };
+		8C9AF54D1DF471AA0053BED4 /* MosaikMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5411DF471AA0053BED4 /* MosaikMainViewController.swift */; };
+		8C9AF54E1DF471AA0053BED4 /* MosaikMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5421DF471AA0053BED4 /* MosaikMixin.swift */; };
+		8C9AF54F1DF471AA0053BED4 /* MosaikObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5431DF471AA0053BED4 /* MosaikObject.swift */; };
+		8C9AF5501DF471AA0053BED4 /* MosaikOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5441DF471AA0053BED4 /* MosaikOptionsViewController.swift */; };
 		8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43DA1D771915000139FC /* AppDelegate.swift */; };
 		8C9F43E41D771915000139FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E31D771915000139FC /* Assets.xcassets */; };
 		8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E51D771915000139FC /* LaunchScreen.storyboard */; };
@@ -558,6 +570,18 @@
 		8C9AF5101DE975030053BED4 /* LoopyMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopyMixin.swift; sourceTree = "<group>"; };
 		8C9AF5111DE975030053BED4 /* LoopyObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopyObject.swift; sourceTree = "<group>"; };
 		8C9AF5121DE975030053BED4 /* LoopyOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopyOptionsViewController.swift; sourceTree = "<group>"; };
+		8C9AF5391DF471AA0053BED4 /* Mosaik.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mosaik.storyboard; sourceTree = "<group>"; };
+		8C9AF53A1DF471AA0053BED4 /* Mosaik.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Mosaik.xml; sourceTree = "<group>"; };
+		8C9AF53B1DF471AA0053BED4 /* MosaikDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaikDocument.swift; sourceTree = "<group>"; };
+		8C9AF53C1DF471AA0053BED4 /* MosaikGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaikGame.swift; sourceTree = "<group>"; };
+		8C9AF53D1DF471AA0053BED4 /* MosaikGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaikGameScene.swift; sourceTree = "<group>"; };
+		8C9AF53E1DF471AA0053BED4 /* MosaikGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaikGameState.swift; sourceTree = "<group>"; };
+		8C9AF53F1DF471AA0053BED4 /* MosaikGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaikGameViewController.swift; sourceTree = "<group>"; };
+		8C9AF5401DF471AA0053BED4 /* MosaikGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaikGridNode.swift; sourceTree = "<group>"; };
+		8C9AF5411DF471AA0053BED4 /* MosaikMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaikMainViewController.swift; sourceTree = "<group>"; };
+		8C9AF5421DF471AA0053BED4 /* MosaikMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaikMixin.swift; sourceTree = "<group>"; };
+		8C9AF5431DF471AA0053BED4 /* MosaikObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaikObject.swift; sourceTree = "<group>"; };
+		8C9AF5441DF471AA0053BED4 /* MosaikOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaikOptionsViewController.swift; sourceTree = "<group>"; };
 		8C9F43D71D771915000139FC /* LogicPuzzlesSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogicPuzzlesSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9F43DA1D771915000139FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C9F43E31D771915000139FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -734,6 +758,7 @@
 				8C9AF4271DE974BF0053BED4 /* LightenUp */,
 				8C9AF4341DE974BF0053BED4 /* LineSweeper */,
 				8C9AF5061DE975030053BED4 /* Loopy */,
+				8C9AF5381DF471AA0053BED4 /* Mosaik */,
 				8C9AF4411DE974BF0053BED4 /* Masyu */,
 				8C9AF44E1DE974BF0053BED4 /* Nurikabe */,
 				8C9AF45B1DE974BF0053BED4 /* Skyscrapers */,
@@ -1052,6 +1077,26 @@
 			path = LogicPuzzlesSwift/Puzzles/Loopy;
 			sourceTree = SOURCE_ROOT;
 		};
+		8C9AF5381DF471AA0053BED4 /* Mosaik */ = {
+			isa = PBXGroup;
+			children = (
+				8C9AF5391DF471AA0053BED4 /* Mosaik.storyboard */,
+				8C9AF53A1DF471AA0053BED4 /* Mosaik.xml */,
+				8C9AF53B1DF471AA0053BED4 /* MosaikDocument.swift */,
+				8C9AF53C1DF471AA0053BED4 /* MosaikGame.swift */,
+				8C9AF53D1DF471AA0053BED4 /* MosaikGameScene.swift */,
+				8C9AF53E1DF471AA0053BED4 /* MosaikGameState.swift */,
+				8C9AF53F1DF471AA0053BED4 /* MosaikGameViewController.swift */,
+				8C9AF5401DF471AA0053BED4 /* MosaikGridNode.swift */,
+				8C9AF5411DF471AA0053BED4 /* MosaikMainViewController.swift */,
+				8C9AF5421DF471AA0053BED4 /* MosaikMixin.swift */,
+				8C9AF5431DF471AA0053BED4 /* MosaikObject.swift */,
+				8C9AF5441DF471AA0053BED4 /* MosaikOptionsViewController.swift */,
+			);
+			name = Mosaik;
+			path = LogicPuzzlesSwift/Puzzles/Mosaik;
+			sourceTree = SOURCE_ROOT;
+		};
 		8C9F43CE1D771915000139FC = {
 			isa = PBXGroup;
 			children = (
@@ -1239,6 +1284,7 @@
 				8C9AF49A1DE974BF0053BED4 /* Clouds.storyboard in Resources */,
 				8C1D16B21DB8DE930056D407 /* TraversalTree.png in Resources */,
 				8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */,
+				8C9AF5451DF471AA0053BED4 /* Mosaik.storyboard in Resources */,
 				8C9AF4BF1DE974BF0053BED4 /* LineSweeper.xml in Resources */,
 				8C9AF4EF1DE974BF0053BED4 /* SlitherLink.xml in Resources */,
 				8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */,
@@ -1266,6 +1312,7 @@
 				8C1D16B01DB8DE930056D407 /* AnimatedExample.psd in Resources */,
 				8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */,
 				8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */,
+				8C9AF5461DF471AA0053BED4 /* Mosaik.xml in Resources */,
 				8C9AF4B21DE974BF0053BED4 /* LightenUp.storyboard in Resources */,
 				8C9AF4FB1DE974BF0053BED4 /* Sumscrapers.xml in Resources */,
 				8C6D373F1DC421980052202C /* Home.storyboard in Resources */,
@@ -1302,6 +1349,7 @@
 				8C9AF4DB1DE974BF0053BED4 /* NurikabeGameState.swift in Sources */,
 				8C6D37FA1DC5ACC90052202C /* OptionsViewController.swift in Sources */,
 				8C64A2BF1DDA00D500AB6C09 /* BlockWebView.swift in Sources */,
+				8C9AF5481DF471AA0053BED4 /* MosaikGame.swift in Sources */,
 				8C64A2D51DDA00D500AB6C09 /* UIButtonExtensions.swift in Sources */,
 				8C9AF4B41DE974BF0053BED4 /* LightenUpDocument.swift in Sources */,
 				8C9AF4F71DE974BF0053BED4 /* SlitherLinkMixin.swift in Sources */,
@@ -1329,11 +1377,13 @@
 				8C9AF4911DE974BF0053BED4 /* BridgesGame.swift in Sources */,
 				8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */,
 				8C9AF4BC1DE974BF0053BED4 /* LightenUpObject.swift in Sources */,
+				8C9AF5491DF471AA0053BED4 /* MosaikGameScene.swift in Sources */,
 				8C6ACBFF1DCAF8BA0075F32C /* GameMixin.swift in Sources */,
 				8C64A2E11DDA00D500AB6C09 /* UITextViewExtensions.swift in Sources */,
 				8C64A2CA1DDA00D500AB6C09 /* EZSwiftFunctions.swift in Sources */,
 				8C6D373A1DC421180052202C /* HomeMixin.swift in Sources */,
 				8C64A2EC1DE0891000AB6C09 /* GameTables.swift in Sources */,
+				8C9AF54B1DF471AA0053BED4 /* MosaikGameViewController.swift in Sources */,
 				8C9AF4981DE974BF0053BED4 /* BridgesObject.swift in Sources */,
 				8C9AF4A11DE974BF0053BED4 /* CloudsGridNode.swift in Sources */,
 				8C9AF4871DE974BF0053BED4 /* AbcGameState.swift in Sources */,
@@ -1353,6 +1403,7 @@
 				8C9AF4971DE974BF0053BED4 /* BridgesMixin.swift in Sources */,
 				8C9AF4901DE974BF0053BED4 /* BridgesDocument.swift in Sources */,
 				8C9AF4A51DE974BF0053BED4 /* CloudsOptionsViewController.swift in Sources */,
+				8C9AF54C1DF471AA0053BED4 /* MosaikGridNode.swift in Sources */,
 				8C9AF4881DE974BF0053BED4 /* AbcGameViewController.swift in Sources */,
 				8C9AF5181DE975030053BED4 /* LoopyGameState.swift in Sources */,
 				8C886C441D9E8AF1004A42BF /* SWActionSheet.m in Sources */,
@@ -1370,6 +1421,7 @@
 				8C64A2DE1DDA00D500AB6C09 /* UIStoryboardExtensions.swift in Sources */,
 				8C886C401D9E8AF1004A42BF /* ActionSheetLocalePicker.m in Sources */,
 				8C9AF4E71DE974BF0053BED4 /* SkyscrapersGameState.swift in Sources */,
+				8C9AF54F1DF471AA0053BED4 /* MosaikObject.swift in Sources */,
 				8C9AF4C61DE974BF0053BED4 /* LineSweeperMainViewController.swift in Sources */,
 				8C64A2D01DDA00D500AB6C09 /* StringExtensions.swift in Sources */,
 				8C64A2D31DDA00D500AB6C09 /* UIApplicationExtensions.swift in Sources */,
@@ -1379,6 +1431,7 @@
 				8C9AF4931DE974BF0053BED4 /* BridgesGameState.swift in Sources */,
 				8C9AF4FC1DE974BF0053BED4 /* SumscrapersDocument.swift in Sources */,
 				8C9AF4DA1DE974BF0053BED4 /* NurikabeGameScene.swift in Sources */,
+				8C9AF54D1DF471AA0053BED4 /* MosaikMainViewController.swift in Sources */,
 				8C64A2E01DDA00D500AB6C09 /* UITextFieldExtensions.swift in Sources */,
 				8C6ACBFE1DCAF8BA0075F32C /* GameDocument.swift in Sources */,
 				8C64A2C61DDA00D500AB6C09 /* DateExtensions.swift in Sources */,
@@ -1422,6 +1475,7 @@
 				8C9AF4D01DE974BF0053BED4 /* MasyuGameViewController.swift in Sources */,
 				8C64A2C11DDA00D500AB6C09 /* BundleExtensions.swift in Sources */,
 				8C9AF4F11DE974BF0053BED4 /* SlitherLinkGame.swift in Sources */,
+				8C9AF54E1DF471AA0053BED4 /* MosaikMixin.swift in Sources */,
 				8C9AF51C1DE975030053BED4 /* LoopyMixin.swift in Sources */,
 				8C64A2D61DDA00D500AB6C09 /* UIColoredView.swift in Sources */,
 				8C9AF51E1DE975030053BED4 /* LoopyOptionsViewController.swift in Sources */,
@@ -1451,6 +1505,7 @@
 				8C64A2CC1DDA00D500AB6C09 /* IntExtensions.swift in Sources */,
 				8C64A2E71DDA00D500AB6C09 /* UserDefaultsExtension.swift in Sources */,
 				8C9AF4961DE974BF0053BED4 /* BridgesMainViewController.swift in Sources */,
+				8C9AF54A1DF471AA0053BED4 /* MosaikGameState.swift in Sources */,
 				8C64A2DD1DDA00D500AB6C09 /* UISliderExtensions.swift in Sources */,
 				8C9AF4C81DE974BF0053BED4 /* LineSweeperObject.swift in Sources */,
 				8C64A2C21DDA00D500AB6C09 /* CGFloatExtensions.swift in Sources */,
@@ -1476,6 +1531,7 @@
 				8C64A2BB1DDA00D500AB6C09 /* BlockPan.swift in Sources */,
 				8C9AF4941DE974BF0053BED4 /* BridgesGameViewController.swift in Sources */,
 				8C9AF4AF1DE974BF0053BED4 /* HitoriMixin.swift in Sources */,
+				8C9AF5501DF471AA0053BED4 /* MosaikOptionsViewController.swift in Sources */,
 				8C9AF4F51DE974BF0053BED4 /* SlitherLinkGridNode.swift in Sources */,
 				8C64A2BA1DDA00D500AB6C09 /* BlockLongPress.swift in Sources */,
 				8C9AF5151DE975030053BED4 /* LoopyDocument.swift in Sources */,
@@ -1486,6 +1542,7 @@
 				8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */,
 				8C9AF4A91DE974BF0053BED4 /* HitoriGame.swift in Sources */,
 				8C9AF4921DE974BF0053BED4 /* BridgesGameScene.swift in Sources */,
+				8C9AF5471DF471AA0053BED4 /* MosaikDocument.swift in Sources */,
 				8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */,
 				8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */,
 				8C916CBC1DAA5E9500D9E62B /* Element.swift in Sources */,
