@@ -14,14 +14,6 @@ enum SlitherLinkMarkerOptions: Int {
     static let optionStrings = ["No Marker", "Marker After Line", "Marker Before Line"]
 }
 
-enum SlitherLinkObjectOrientation: Int {
-    case horizontal
-    case vertical
-    init() {
-        self = .horizontal
-    }
-}
-
 enum SlitherLinkObject: Int {
     case empty
     case line

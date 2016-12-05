@@ -17,7 +17,7 @@ class HitoriGameScene: GameScene<HitoriGameState> {
     }
     
     func addNumber(n: String, s: HintState, point: CGPoint, nodeName: String) {
-        let numberNode = SKLabelNode(text: String(n))
+        let numberNode = SKLabelNode(text: n)
         numberNode.fontColor = s == .normal ? SKColor.white : s == .complete ? SKColor.green : SKColor.red
         numberNode.fontName = numberNode.fontName! + "-Bold"
         // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit

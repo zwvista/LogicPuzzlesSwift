@@ -14,11 +14,10 @@ class MosaikDocument: GameDocument<MosaikGame, MosaikGameMove> {
     
     override func saveMove(_ move: MosaikGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.unapply()
-        rec.intValue1 = move.dir
-        rec.intValue2 = move.obj.rawValue
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> MosaikGameMove? {
-        return MosaikGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: MosaikObject(rawValue: rec.intValue2)!)
+        return MosaikGameMove(p: Position(rec.row, rec.col), obj: MosaikObject(rawValue: rec.intValue1)!)
     }
 }

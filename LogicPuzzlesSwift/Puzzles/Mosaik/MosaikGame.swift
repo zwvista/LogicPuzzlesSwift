@@ -12,9 +12,14 @@ class MosaikGame: CellsGame<MosaikGameViewController, MosaikGameMove, MosaikGame
     static var gameID = "Mosaik"
     static let offset = [
         Position(-1, 0),
+        Position(-1, 1),
         Position(0, 1),
+        Position(1, 1),
         Position(1, 0),
+        Position(1, -1),
         Position(0, -1),
+        Position(-1, -1),
+        Position(0, 0),
     ];
 
     var pos2hint = [Position: Int]()
@@ -22,11 +27,11 @@ class MosaikGame: CellsGame<MosaikGameViewController, MosaikGameMove, MosaikGame
     init(layout: [String], delegate: MosaikGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count + 1, layout[0].length + 1)
+        size = Position(layout.count, layout[0].length)
         
-        for r in 0..<rows - 1 {
+        for r in 0..<rows {
             let str = layout[r]
-            for c in 0..<cols - 1 {
+            for c in 0..<cols {
                 let p = Position(r, c)
                 let ch = str[c]
                 switch ch {

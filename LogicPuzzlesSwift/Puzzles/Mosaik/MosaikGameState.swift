@@ -14,7 +14,7 @@ class MosaikGameState: CellsGameState, MosaikMixin {
         get {return getGame() as! MosaikGame}
         set {setGame(game: newValue)}
     }
-    var objArray = [MosaikDotObject]()
+    var objArray = [MosaikObject]()
     var pos2state = [Position: HintState]()
     
     override func copy() -> MosaikGameState {
@@ -30,13 +30,13 @@ class MosaikGameState: CellsGameState, MosaikMixin {
     
     required init(game: MosaikGame) {
         super.init(game: game);
-        objArray = Array<MosaikDotObject>(repeating: Array<MosaikObject>(repeating: .empty, count: 4), count: rows * cols)
+        objArray = Array<MosaikObject>(repeating: .empty, count: rows * cols)
         for (p, n) in game.pos2hint {
             pos2state[p] = n == 0 ? .complete : .normal
         }
     }
     
-    subscript(p: Position) -> MosaikDotObject {
+    subscript(p: Position) -> MosaikObject {
         get {
             return objArray[p.row * cols + p.col]
         }
@@ -44,7 +44,7 @@ class MosaikGameState: CellsGameState, MosaikMixin {
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> MosaikDotObject {
+    subscript(row: Int, col: Int) -> MosaikObject {
         get {
             return objArray[row * cols + col]
         }
@@ -64,9 +64,7 @@ class MosaikGameState: CellsGameState, MosaikMixin {
                 // self[p] will not be updated until the function returns
             }
         }
-        let p = move.p
-        let dir = move.dir, dir2 = (dir + 2) % 4
-        f(o1: &self[p][dir], o2: &self[p + MosaikGame.offset[dir]][dir2])
+        f(o1: &self[move.p], o2: &move.obj)
         if changed {updateIsSolved()}
         return changed
     }
@@ -76,14 +74,14 @@ class MosaikGameState: CellsGameState, MosaikMixin {
         func f(o: MosaikObject) -> MosaikObject {
             switch o {
             case .empty:
-                return markerOption == .markerBeforeLine ? .marker : .line
-            case .line:
-                return markerOption == .markerAfterLine ? .marker : .empty
+                return markerOption == .markerBeforeFill ? .marker : .filled
+            case .filled:
+                return markerOption == .markerAfterFill ? .marker : .empty
             case .marker:
-                return markerOption == .markerBeforeLine ? .line : .empty
+                return markerOption == .markerBeforeFill ? .filled : .empty
             }
         }
-        let o = f(o: self[move.p][move.dir])
+        let o = f(o: self[move.p])
         move.obj = o
         return setObject(move: &move)
     }
@@ -92,42 +90,13 @@ class MosaikGameState: CellsGameState, MosaikMixin {
         isSolved = true
         for (p, n2) in game.pos2hint {
             var n1 = 0
-            if self[p][1] == .line {n1 += 1}
-            if self[p][2] == .line {n1 += 1}
-            if self[p + Position(1, 1)][0] == .line {n1 += 1}
-            if self[p + Position(1, 1)][3] == .line {n1 += 1}
+            for os in MosaikGame.offset {
+                let p2 = p + os
+                guard isValid(p: p2) else {continue}
+                if self[p2] == .filled {n1 += 1}
+            }
             pos2state[p] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
         }
-        guard isSolved else {return}
-        let g = Graph()
-        var pos2node = [Position: Node]()
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                let n = self[p].filter({$0 == .line}).count
-                switch n {
-                case 0:
-                    continue
-                case 2:
-                    pos2node[p] = g.addNode(label: p.description)
-                default:
-                    isSolved = false
-                    return
-                }
-            }
-        }
-        for p in pos2node.keys {
-            let dotObj = self[p]
-            for i in 0..<4 {
-                guard dotObj[i] == .line else {continue}
-                let p2 = p + MosaikGame.offset[i]
-                g.addEdge(source: pos2node[p]!, neighbor: pos2node[p2]!)
-            }
-        }
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.values.first!)
-        let n1 = nodesExplored.count
-        let n2 = pos2node.values.count
-        if n1 != n2 {isSolved = false}
     }
 }

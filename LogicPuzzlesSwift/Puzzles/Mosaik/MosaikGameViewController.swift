@@ -47,9 +47,8 @@ class MosaikGameViewController: GameViewController, GameDelegate, MosaikMixin {
         let touchLocationInScene = scene.convertPoint(fromView: touchLocation)
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
-        let (b, p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
-        guard b else {return}
-        var move = MosaikGameMove(p: p, dir: dir, obj: .empty)
+        let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
+        var move = MosaikGameMove(p: p, obj: .empty)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     

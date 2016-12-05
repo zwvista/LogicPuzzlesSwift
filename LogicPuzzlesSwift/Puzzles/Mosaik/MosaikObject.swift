@@ -9,32 +9,21 @@
 import Foundation
 
 enum MosaikMarkerOptions: Int {
-    case noMarker, markerAfterLine, markerBeforeLine
+    case noMarker, markerAfterFill, markerBeforeFill
     
-    static let optionStrings = ["No Marker", "Marker After Line", "Marker Before Line"]
-}
-
-enum MosaikObjectOrientation: Int {
-    case horizontal
-    case vertical
-    init() {
-        self = .horizontal
-    }
+    static let optionStrings = ["No Marker", "Marker After Fill", "Marker Before Fill"]
 }
 
 enum MosaikObject: Int {
     case empty
-    case line
+    case filled
     case marker
     init() {
         self = .empty
     }
 }
 
-typealias MosaikDotObject = [MosaikObject]
-
 struct MosaikGameMove {
     var p = Position()
-    var dir = 0
     var obj = MosaikObject()
 }
