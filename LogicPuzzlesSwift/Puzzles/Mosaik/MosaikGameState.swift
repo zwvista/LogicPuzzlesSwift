@@ -54,19 +54,10 @@ class MosaikGameState: CellsGameState, MosaikMixin {
     }
     
     func setObject(move: inout MosaikGameMove) -> Bool {
-        var changed = false
-        func f(o1: inout MosaikObject, o2: inout MosaikObject) {
-            if o1 != move.obj {
-                changed = true
-                o1 = move.obj
-                o2 = move.obj
-                // updateIsSolved() cannot be called here
-                // self[p] will not be updated until the function returns
-            }
-        }
-        f(o1: &self[move.p], o2: &move.obj)
-        if changed {updateIsSolved()}
-        return changed
+        if self[move.p] == move.obj {return false}
+        self[move.p] = move.obj
+        updateIsSolved()
+        return true
     }
     
     func switchObject(move: inout MosaikGameMove) -> Bool {
