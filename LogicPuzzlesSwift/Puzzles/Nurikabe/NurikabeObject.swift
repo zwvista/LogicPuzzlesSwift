@@ -12,12 +12,6 @@ enum NurikabeLightbulbState {
     case normal, error
 }
 
-enum NurikabeMarkerOptions: Int {
-    case noMarker, markerAfterWall, markerBeforeWall
-    
-    static let optionStrings = ["No Marker", "Marker After Wall", "Marker Before Wall"]
-}
-
 enum NurikabeObject {
     case empty
     case hint(state: HintState)

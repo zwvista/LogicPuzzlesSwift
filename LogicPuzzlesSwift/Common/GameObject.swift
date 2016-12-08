@@ -8,6 +8,12 @@
 
 import Foundation
 
+enum MarkerOptions: Int {
+    case noMarker, markerFirst, markerLast
+    
+    static let optionStrings = ["No Marker", "Marker First", "Marker Last"]
+}
+
 enum HintState {
     case normal, complete, error
 }

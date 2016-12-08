@@ -100,15 +100,15 @@ class LightenUpGameState: CellsGameState, LightenUpMixin {
     }
     
     func switchObject(move: inout LightenUpGameMove) -> Bool {
-        let markerOption = LightenUpMarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: LightenUpObjectType) -> LightenUpObjectType {
             switch o {
             case .empty:
-                return markerOption == .markerBeforeLightbulb ? .marker : .lightbulb(state: .normal)
+                return markerOption == .markerFirst ? .marker : .lightbulb(state: .normal)
             case .lightbulb:
-                return markerOption == .markerAfterLightbulb ? .marker : .empty
+                return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerBeforeLightbulb ? .lightbulb(state: .normal) : .empty
+                return markerOption == .markerFirst ? .lightbulb(state: .normal) : .empty
             case .wall:
                 return o
             }

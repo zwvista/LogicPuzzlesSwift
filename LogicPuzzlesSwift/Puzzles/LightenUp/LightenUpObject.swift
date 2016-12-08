@@ -12,12 +12,6 @@ enum LightenUpLightbulbState {
     case normal, error
 }
 
-enum LightenUpMarkerOptions: Int {
-    case noMarker, markerAfterLightbulb, markerBeforeLightbulb
-    
-    static let optionStrings = ["No Marker", "Marker After Lightbulb", "Marker Before Lightbulb"]
-}
-
 enum LightenUpObjectType {
     case empty
     case lightbulb(state: LightenUpLightbulbState)

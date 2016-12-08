@@ -8,12 +8,6 @@
 
 import Foundation
 
-enum RoomsMarkerOptions: Int {
-    case noMarker, markerAfterLine, markerBeforeLine
-    
-    static let optionStrings = ["No Marker", "Marker After Line", "Marker Before Line"]
-}
-
 enum RoomsObject: Int {
     case empty
     case line

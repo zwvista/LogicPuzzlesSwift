@@ -72,15 +72,15 @@ class SlitherLinkGameState: CellsGameState, SlitherLinkMixin {
     }
     
     func switchObject(move: inout SlitherLinkGameMove) -> Bool {
-        let markerOption = SlitherLinkMarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: SlitherLinkObject) -> SlitherLinkObject {
             switch o {
             case .empty:
-                return markerOption == .markerBeforeLine ? .marker : .line
+                return markerOption == .markerFirst ? .marker : .line
             case .line:
-                return markerOption == .markerAfterLine ? .marker : .empty
+                return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerBeforeLine ? .line : .empty
+                return markerOption == .markerFirst ? .line : .empty
             }
         }
         let o = f(o: self[move.p][move.dir])

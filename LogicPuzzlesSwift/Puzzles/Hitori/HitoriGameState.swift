@@ -64,15 +64,15 @@ class HitoriGameState: CellsGameState, HitoriMixin {
     }
     
     func switchObject(move: inout HitoriGameMove) -> Bool {
-        let markerOption = HitoriMarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: HitoriObject) -> HitoriObject {
             switch o {
             case .normal:
-                return markerOption == .markerBeforeDarken ? .marker : .darken
+                return markerOption == .markerFirst ? .marker : .darken
             case .darken:
-                return markerOption == .markerAfterDarken ? .marker : .normal
+                return markerOption == .markerLast ? .marker : .normal
             case .marker:
-                return markerOption == .markerBeforeDarken ? .darken : .normal
+                return markerOption == .markerFirst ? .darken : .normal
             }
         }
         let p = move.p

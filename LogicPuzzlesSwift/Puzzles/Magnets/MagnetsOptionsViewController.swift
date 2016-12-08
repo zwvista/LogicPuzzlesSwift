@@ -15,7 +15,7 @@ class MagnetsOptionsViewController: OptionsViewController, MagnetsMixin {
     @IBOutlet weak var swNormalLightbulbsOnly: UISwitch!
     
     func updateMarkerOption() {
-        lblMarkerOption.text = MagnetsMarkerOptions.optionStrings[markerOption]
+        lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]
     }
     
     override func viewDidLoad() {
@@ -24,14 +24,14 @@ class MagnetsOptionsViewController: OptionsViewController, MagnetsMixin {
     }
     
     override func onDefault() {
-        setMarkerOption(MagnetsMarkerOptions.noMarker.rawValue)
+        setMarkerOption(MarkerOptions.noMarker.rawValue)
         gameOptions.commit()
         self.updateMarkerOption()
     }
         
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row == 0 else { return }
-        ActionSheetStringPicker.show(withTitle: "Marker Options", rows: MagnetsMarkerOptions.optionStrings, initialSelection: markerOption, doneBlock: { (picker, selectedIndex, selectedValue) in
+        ActionSheetStringPicker.show(withTitle: "Marker Options", rows: MarkerOptions.optionStrings, initialSelection: markerOption, doneBlock: { (picker, selectedIndex, selectedValue) in
             self.setMarkerOption(selectedIndex)
             self.gameOptions.commit()
             self.updateMarkerOption()

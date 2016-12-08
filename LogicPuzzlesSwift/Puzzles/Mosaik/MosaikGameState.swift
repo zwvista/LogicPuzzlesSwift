@@ -61,15 +61,15 @@ class MosaikGameState: CellsGameState, MosaikMixin {
     }
     
     func switchObject(move: inout MosaikGameMove) -> Bool {
-        let markerOption = MosaikMarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: MosaikObject) -> MosaikObject {
             switch o {
             case .empty:
-                return markerOption == .markerBeforeFill ? .marker : .filled
+                return markerOption == .markerFirst ? .marker : .filled
             case .filled:
-                return markerOption == .markerAfterFill ? .marker : .empty
+                return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerBeforeFill ? .filled : .empty
+                return markerOption == .markerFirst ? .filled : .empty
             }
         }
         let o = f(o: self[move.p])

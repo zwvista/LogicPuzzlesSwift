@@ -72,15 +72,15 @@ class RoomsGameState: CellsGameState, RoomsMixin {
     }
     
     func switchObject(move: inout RoomsGameMove) -> Bool {
-        let markerOption = RoomsMarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: RoomsObject) -> RoomsObject {
             switch o {
             case .empty:
-                return markerOption == .markerBeforeLine ? .marker : .line
+                return markerOption == .markerFirst ? .marker : .line
             case .line:
-                return markerOption == .markerAfterLine ? .marker : .empty
+                return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerBeforeLine ? .line : .empty
+                return markerOption == .markerFirst ? .line : .empty
             }
         }
         let o = f(o: self[move.p][move.dir])

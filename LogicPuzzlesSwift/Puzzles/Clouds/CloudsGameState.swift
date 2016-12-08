@@ -64,15 +64,15 @@ class CloudsGameState: CellsGameState, CloudsMixin {
     }
     
     func switchObject(move: inout CloudsGameMove) -> Bool {
-        let markerOption = CloudsMarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: CloudsObject) -> CloudsObject {
             switch o {
             case .empty:
-                return markerOption == .markerBeforeCloud ? .marker : .cloud
+                return markerOption == .markerFirst ? .marker : .cloud
             case .cloud:
-                return markerOption == .markerAfterCloud ? .marker : .empty
+                return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerBeforeCloud ? .cloud : .empty
+                return markerOption == .markerFirst ? .cloud : .empty
             }
         }
         let p = move.p

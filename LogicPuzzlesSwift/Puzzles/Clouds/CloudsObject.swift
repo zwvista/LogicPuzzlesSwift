@@ -8,12 +8,6 @@
 
 import Foundation
 
-enum CloudsMarkerOptions: Int {
-    case noMarker, markerAfterCloud, markerBeforeCloud
-    
-    static let optionStrings = ["No Marker", "Marker After Cloud", "Marker Before Cloud"]
-}
-
 enum CloudsObject: Int {
     case empty
     case cloud

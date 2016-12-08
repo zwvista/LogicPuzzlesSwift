@@ -64,15 +64,15 @@ class NurikabeGameState: CellsGameState, NurikabeMixin {
     }
     
     func switchObject(move: inout NurikabeGameMove) -> Bool {
-        let markerOption = NurikabeMarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: NurikabeObject) -> NurikabeObject {
             switch o {
             case .empty:
-                return markerOption == .markerBeforeWall ? .marker : .wall
+                return markerOption == .markerFirst ? .marker : .wall
             case .wall:
-                return markerOption == .markerAfterWall ? .marker : .empty
+                return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerBeforeWall ? .wall : .empty
+                return markerOption == .markerFirst ? .wall : .empty
             case .hint:
                 return o
             }

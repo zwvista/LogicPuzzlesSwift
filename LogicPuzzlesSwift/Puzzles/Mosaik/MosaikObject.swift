@@ -8,12 +8,6 @@
 
 import Foundation
 
-enum MosaikMarkerOptions: Int {
-    case noMarker, markerAfterFill, markerBeforeFill
-    
-    static let optionStrings = ["No Marker", "Marker After Fill", "Marker Before Fill"]
-}
-
 enum MosaikObject: Int {
     case empty
     case filled

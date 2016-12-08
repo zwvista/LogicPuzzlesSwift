@@ -8,15 +8,10 @@
 
 import Foundation
 
-enum MagnetsMarkerOptions: Int {
-    case noMarker, markerAfterCloud, markerBeforeCloud
-    
-    static let optionStrings = ["No Marker", "Marker After Cloud", "Marker Before Cloud"]
-}
-
 enum MagnetsObject: Int {
     case empty
-    case cloud
+    case positive
+    case negative
     case marker
     init() {
         self = .empty

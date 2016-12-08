@@ -8,12 +8,6 @@
 
 import Foundation
 
-enum HitoriMarkerOptions: Int {
-    case noMarker, markerAfterDarken, markerBeforeDarken
-    
-    static let optionStrings = ["No Marker", "Marker After Darken", "Marker Before Darken"]
-}
-
 enum HitoriObject: Int {
     case normal
     case darken

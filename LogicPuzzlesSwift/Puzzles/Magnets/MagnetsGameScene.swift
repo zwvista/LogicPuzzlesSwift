@@ -47,26 +47,30 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
     override func levelInitialized(_ game: AnyObject, state: MagnetsGameState, skView: SKView) {
         let game = game as! MagnetsGame
         removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols + 1)
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols + 2)
         
         // add Grid
         let offset:CGFloat = 0.5
         scaleMode = .resizeFill
         gridNode = MagnetsGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols)
-        gridNode.position = CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols + 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows + 1) / 2 + offset)
+        gridNode.position = CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols + 2) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows + 2) / 2 + offset)
         addChild(gridNode)
         gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
         
         // add Hints
         for r in 0..<game.rows {
-            let p = Position(r, game.cols)
-            let n = state.game.row2hint[r]
-            addHint(p: p, n: n, s: state.row2state[r])
+            for c in 0..<2 {
+                let p = Position(r, game.cols + c)
+                let n = state.game.row2hint[r * 2 + c]
+                addHint(p: p, n: n, s: state.row2state[r * 2 + c])
+            }
         }
         for c in 0..<game.cols {
-            let p = Position(game.rows, c)
-            let n = state.game.col2hint[c]
-            addHint(p: p, n: n, s: state.col2state[c])
+            for r in 0..<2 {
+                let p = Position(game.rows + r, c)
+                let n = state.game.col2hint[c * 2 + r]
+                addHint(p: p, n: n, s: state.col2state[c * 2 + r])
+            }
         }
         
         // add Magnets
@@ -126,7 +130,9 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
                 let (o1, o2) = (stateFrom[row, col], stateTo[row, col])
                 guard o1 != o2 else {continue}
                 switch o1 {
-                case .cloud:
+                case .positive:
+                    removeCloud()
+                case .negative:
                     removeCloud()
                 case .marker:
                     removeMarker()
@@ -134,8 +140,10 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
                     break
                 }
                 switch o2 {
-                case .cloud:
+                case .positive:
                     addCloud(color: SKColor.white, point: point, nodeName: cloudNodeName)
+                case .negative:
+                    removeCloud()
                 case .marker:
                     addMarker()
                 default:

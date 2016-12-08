@@ -33,8 +33,8 @@ class MagnetsGameState: CellsGameState, MagnetsMixin {
     required init(game: MagnetsGame) {
         super.init(game: game);
         objArray = Array<MagnetsObject>(repeating: MagnetsObject(), count: rows * cols)
-        row2state = Array<HintState>(repeating: .normal, count: rows)
-        col2state = Array<HintState>(repeating: .normal, count: cols)
+        row2state = Array<HintState>(repeating: .normal, count: rows * 2)
+        col2state = Array<HintState>(repeating: .normal, count: cols * 2)
         updateIsSolved()
     }
     
@@ -64,15 +64,17 @@ class MagnetsGameState: CellsGameState, MagnetsMixin {
     }
     
     func switchObject(move: inout MagnetsGameMove) -> Bool {
-        let markerOption = MagnetsMarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: MagnetsObject) -> MagnetsObject {
             switch o {
             case .empty:
-                return markerOption == .markerBeforeCloud ? .marker : .cloud
-            case .cloud:
-                return markerOption == .markerAfterCloud ? .marker : .empty
+                return markerOption == .markerFirst ? .marker : .positive
+            case .positive:
+                return .negative
+            case .negative:
+                return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerBeforeCloud ? .cloud : .empty
+                return markerOption == .markerFirst ? .positive : .empty
             }
         }
         let p = move.p
@@ -84,57 +86,38 @@ class MagnetsGameState: CellsGameState, MagnetsMixin {
     private func updateIsSolved() {
         isSolved = true
         for r in 0..<rows {
-            var n1 = 0
-            let n2 = game.row2hint[r]
+            var (np1, nn1) = (0, 0)
+            let (np2, nn2) = (game.row2hint[r * 2], game.row2hint[r * 2 + 1])
             for c in 0..<cols {
-                if self[r, c] == .cloud {n1 += 1}
+                switch self[r, c] {
+                case .positive:
+                    np1 += 1
+                case .negative:
+                    nn1 += 1
+                default:
+                    break
+                }
             }
-            row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 {isSolved = false}
+            row2state[r * 2] = np1 < np2 ? .normal : np1 == np2 ? .complete : .error
+            row2state[r * 2 + 1] = nn1 < nn2 ? .normal : nn1 == nn2 ? .complete : .error
+            if np1 != np2 || nn1 != nn2 {isSolved = false}
         }
         for c in 0..<cols {
-            var n1 = 0
-            let n2 = game.col2hint[c]
+            var (np1, nn1) = (0, 0)
+            let (np2, nn2) = (game.row2hint[c * 2], game.row2hint[c * 2 + 1])
             for r in 0..<rows {
-                if self[r, c] == .cloud {n1 += 1}
+                switch self[r, c] {
+                case .positive:
+                    np1 += 1
+                case .negative:
+                    nn1 += 1
+                default:
+                    break
+                }
             }
-            col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 {isSolved = false}
-        }
-        guard isSolved else {return}
-        let g = Graph()
-        var pos2node = [Position: Node]()
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                guard self[p] == .cloud else {continue}
-                let node = g.addNode(label: p.description)
-                pos2node[p] = node
-            }
-        }
-        for (p, node) in pos2node {
-            for os in MagnetsGame.offset {
-                let p2 = p + os
-                guard let node2 = pos2node[p2] else {continue}
-                g.addEdge(source: node, neighbor: node2)
-            }
-        }
-        while pos2node.count > 0 {
-            let nodesExplored = breadthFirstSearch(g, source: pos2node.values.first!)
-            var r2 = 0, r1 = rows, c2 = 0, c1 = cols
-            for node in nodesExplored {
-                let p = pos2node.filter{$1.label == node}.first!.key
-                pos2node.remove(at: pos2node.index(forKey: p)!)
-                if r2 < p.row {r2 = p.row}
-                if r1 > p.row {r1 = p.row}
-                if c2 < p.col {c2 = p.col}
-                if c1 > p.col {c1 = p.col}
-            }
-            let rs = r2 - r1 + 1, cs = c2 - c1 + 1;
-            if !(rs >= 2 && cs >= 2 && rs * cs == nodesExplored.count) {
-                isSolved = false
-                return
-            }
+            row2state[c * 2] = np1 < np2 ? .normal : np1 == np2 ? .complete : .error
+            row2state[c * 2 + 1] = nn1 < nn2 ? .normal : nn1 == nn2 ? .complete : .error
+            if np1 != np2 || nn1 != nn2 {isSolved = false}
         }
     }
 }

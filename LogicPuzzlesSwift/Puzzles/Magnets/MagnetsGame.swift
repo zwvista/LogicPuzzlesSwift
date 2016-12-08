@@ -24,27 +24,20 @@ class MagnetsGame: CellsGame<MagnetsGameViewController, MagnetsGameMove, Magnets
     init(layout: [String], delegate: MagnetsGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count - 1, layout[0].length - 1)
-        row2hint = Array<Int>(repeating: 0, count: rows)
-        col2hint = Array<Int>(repeating: 0, count: cols)
+        size = Position(layout.count - 2, layout[0].length - 2)
+        row2hint = Array<Int>(repeating: 0, count: rows * 2)
+        col2hint = Array<Int>(repeating: 0, count: cols * 2)
         
-        for r in 0..<rows + 1 {
+        for r in 0..<rows + 2 {
             let str = layout[r]
-            for c in 0..<cols + 1 {
-                let p = Position(r, c)
+            for c in 0..<cols + 2 {
                 let ch = str[c]
-                switch ch {
-                case "C":
-                    pos2cloud.append(p)
-                case "0"..."9":
-                    let n = ch.toInt!
-                    if r == rows {
-                        col2hint[c] = n
-                    } else if c == cols {
-                        row2hint[r] = n
+                if let n = ch.toInt {
+                    if r >= rows {
+                        col2hint[2 * c + r - rows] = n
+                    } else if c >= cols {
+                        row2hint[2 * r + c - cols] = n
                     }
-                default:
-                    break
                 }
             }
         }

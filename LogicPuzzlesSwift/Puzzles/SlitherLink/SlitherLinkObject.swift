@@ -8,12 +8,6 @@
 
 import Foundation
 
-enum SlitherLinkMarkerOptions: Int {
-    case noMarker, markerAfterLine, markerBeforeLine
-    
-    static let optionStrings = ["No Marker", "Marker After Line", "Marker Before Line"]
-}
-
 enum SlitherLinkObject: Int {
     case empty
     case line

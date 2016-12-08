@@ -15,7 +15,7 @@ class RoomsOptionsViewController: OptionsViewController, RoomsMixin {
     @IBOutlet weak var swNormalLightbulbsOnly: UISwitch!
     
     func updateMarkerOption() {
-        lblMarkerOption.text = RoomsMarkerOptions.optionStrings[markerOption]
+        lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]
     }
     
     override func viewDidLoad() {
@@ -25,14 +25,14 @@ class RoomsOptionsViewController: OptionsViewController, RoomsMixin {
 
     override func onDefault() {
         let rec = self.gameOptions
-        setMarkerOption(RoomsMarkerOptions.noMarker.rawValue)
+        setMarkerOption(MarkerOptions.noMarker.rawValue)
         rec.commit()
         self.updateMarkerOption()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row == 0 else { return }
-        ActionSheetStringPicker.show(withTitle: "Marker Options", rows: RoomsMarkerOptions.optionStrings, initialSelection: markerOption, doneBlock: { (picker, selectedIndex, selectedValue) in
+        ActionSheetStringPicker.show(withTitle: "Marker Options", rows: MarkerOptions.optionStrings, initialSelection: markerOption, doneBlock: { (picker, selectedIndex, selectedValue) in
             self.setMarkerOption(selectedIndex)
             self.gameOptions.commit()
             self.updateMarkerOption()
