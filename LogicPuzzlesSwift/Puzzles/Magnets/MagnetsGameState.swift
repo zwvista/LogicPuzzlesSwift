@@ -119,5 +119,26 @@ class MagnetsGameState: CellsGameState, MagnetsMixin {
             row2state[c * 2 + 1] = nn1 < nn2 ? .normal : nn1 == nn2 ? .complete : .error
             if np1 != np2 || nn1 != nn2 {isSolved = false}
         }
+        guard isSolved else {return}
+        for a in game.areas {
+            let (o1, o2) = (self[a[0]], self[a[1]])
+            if o1.isEmpty() != o2.isEmpty() {
+                isSolved = false; return
+            }
+        }
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                let o = self[r, c]
+                for os in MagnetsGame.offset {
+                    let p2 = p + os
+                    guard isValid(p: p2) else {continue}
+                    let o2 = self[p2]
+                    if o.isPole() && o == o2 {
+                        isSolved = false; return
+                    }
+                }
+            }
+        }
     }
 }

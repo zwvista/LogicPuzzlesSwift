@@ -19,7 +19,7 @@ class MagnetsGame: CellsGame<MagnetsGameViewController, MagnetsGameMove, Magnets
 
     var row2hint = [Int]()
     var col2hint = [Int]()
-    var pos2cloud = [Position]()
+    var areas = [[Position]]()
     
     init(layout: [String], delegate: MagnetsGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -31,13 +31,22 @@ class MagnetsGame: CellsGame<MagnetsGameViewController, MagnetsGameMove, Magnets
         for r in 0..<rows + 2 {
             let str = layout[r]
             for c in 0..<cols + 2 {
+                let p = Position(r, c)
                 let ch = str[c]
-                if let n = ch.toInt {
+                switch ch {
+                case "0"..."9":
+                    let n = ch.toInt!
                     if r >= rows {
                         col2hint[2 * c + r - rows] = n
                     } else if c >= cols {
                         row2hint[2 * r + c - cols] = n
                     }
+                case "H":
+                    areas.append([p, p + MagnetsGame.offset[1]])
+                case "V":
+                    areas.append([p, p + MagnetsGame.offset[2]])
+                default:
+                    break
                 }
             }
         }

@@ -72,14 +72,6 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
                 addHint(p: p, n: n, s: state.col2state[c * 2 + r])
             }
         }
-        
-        // add Magnets
-        for p in game.pos2cloud {
-            let point = gridNode.gridPosition(p: p)
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let cloudNodeName = "cloud" + nodeNameSuffix
-            addCloud(color: SKColor.gray, point: point, nodeName: cloudNodeName)
-        }
     }
     
     override func levelUpdated(from stateFrom: MagnetsGameState, to stateTo: MagnetsGameState) {

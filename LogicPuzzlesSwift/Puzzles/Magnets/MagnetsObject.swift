@@ -16,6 +16,8 @@ enum MagnetsObject: Int {
     init() {
         self = .empty
     }
+    func isEmpty() -> Bool {return self == .empty || self == .marker}
+    func isPole() -> Bool {return self == .positive || self == .negative}
 }
 
 struct MagnetsGameMove {
