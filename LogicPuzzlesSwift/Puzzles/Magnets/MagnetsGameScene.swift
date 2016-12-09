@@ -57,6 +57,9 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
         addChild(gridNode)
         gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
         
+        for a in game.areas {
+        }
+        
         // add Hints
         for r in 0..<game.rows {
             for c in 0..<2 {
