@@ -9,15 +9,13 @@
 import SpriteKit
 
 class SumscrapersGameScene: GameScene<SumscrapersGameState> {
-    private(set) var gridNode: SumscrapersGridNode!
-    
-    func coloredRectSize() -> CGSize {
-        let sz = gridNode.blockSize - 4
-        return CGSize(width: sz, height: sz)
+    var gridNode: SumscrapersGridNode {
+        get {return getGridNode() as! SumscrapersGridNode}
+        set {setGridNode(gridNode: newValue)}
     }
     
     func addNumber(n: Int, s: HintState, isHint: Bool, point: CGPoint, nodeName: String) {
-        addLabel(parentNode: gridNode, text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: SumscrapersGameState, skView: SKView) {

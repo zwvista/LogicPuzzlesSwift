@@ -9,10 +9,13 @@
 import SpriteKit
 
 class BridgesGameScene: GameScene<BridgesGameState> {
-    private(set) var gridNode: BridgesGridNode!
+    var gridNode: BridgesGridNode {
+        get {return getGridNode() as! BridgesGridNode}
+        set {setGridNode(gridNode: newValue)}
+    }
     
     func addIslandNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(parentNode: gridNode, text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: BridgesGameState, skView: SKView) {

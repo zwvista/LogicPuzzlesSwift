@@ -9,15 +9,13 @@
 import SpriteKit
 
 class AbcGameScene: GameScene<AbcGameState> {
-    var gridNode: AbcGridNode!
-    
-    func coloredRectSize() -> CGSize {
-        let sz = gridNode.blockSize - 4
-        return CGSize(width: sz, height: sz)
+    var gridNode: AbcGridNode {
+        get {return getGridNode() as! AbcGridNode}
+        set {setGridNode(gridNode: newValue)}
     }
     
     func addCharacter(ch: Character, s: HintState, isHint: Bool, point: CGPoint, nodeName: String) {
-        addLabel(parentNode: gridNode, text: String(ch), fontColor: s == .normal ? isHint ? .gray : .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+        addLabel(text: String(ch), fontColor: s == .normal ? isHint ? .gray : .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: AbcGameState, skView: SKView) {

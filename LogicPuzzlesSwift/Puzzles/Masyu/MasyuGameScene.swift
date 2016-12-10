@@ -9,11 +9,9 @@
 import SpriteKit
 
 class MasyuGameScene: GameScene<MasyuGameState> {
-    private(set) var gridNode: MasyuGridNode!
-    
-    func coloredRectSize() -> CGSize {
-        let sz = gridNode.blockSize - 4
-        return CGSize(width: sz, height: sz)
+    var gridNode: MasyuGridNode {
+        get {return getGridNode() as! MasyuGridNode}
+        set {setGridNode(gridNode: newValue)}
     }
     
     override func levelInitialized(_ game: AnyObject, state: MasyuGameState, skView: SKView) {

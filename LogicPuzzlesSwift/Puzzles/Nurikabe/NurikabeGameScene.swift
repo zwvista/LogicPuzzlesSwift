@@ -9,15 +9,13 @@
 import SpriteKit
 
 class NurikabeGameScene: GameScene<NurikabeGameState> {
-    private(set) var gridNode: NurikabeGridNode!
-    
-    func coloredRectSize() -> CGSize {
-        let sz = gridNode.blockSize - 4
-        return CGSize(width: sz, height: sz)
+    var gridNode: NurikabeGridNode {
+        get {return getGridNode() as! NurikabeGridNode}
+        set {setGridNode(gridNode: newValue)}
     }
     
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(parentNode: gridNode, text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: NurikabeGameState, skView: SKView) {

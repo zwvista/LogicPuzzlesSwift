@@ -9,15 +9,13 @@
 import SpriteKit
 
 class RoomsGameScene: GameScene<RoomsGameState> {
-    private(set) var gridNode: RoomsGridNode!
-    
-    func coloredRectSize() -> CGSize {
-        let sz = gridNode.blockSize - 4
-        return CGSize(width: sz, height: sz)
+    var gridNode: RoomsGridNode {
+        get {return getGridNode() as! RoomsGridNode}
+        set {setGridNode(gridNode: newValue)}
     }
     
     func addHintNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(parentNode: gridNode, text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: RoomsGameState, skView: SKView) {

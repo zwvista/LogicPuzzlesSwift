@@ -9,11 +9,9 @@
 import SpriteKit
 
 class MagnetsGameScene: GameScene<MagnetsGameState> {
-    private(set) var gridNode: MagnetsGridNode!
-    
-    func coloredRectSize() -> CGSize {
-        let sz = gridNode.blockSize - 4
-        return CGSize(width: sz, height: sz)
+    var gridNode: MagnetsGridNode {
+        get {return getGridNode() as! MagnetsGridNode}
+        set {setGridNode(gridNode: newValue)}
     }
     
     func addHint(p: Position, n: Int, s: HintState) {
@@ -25,7 +23,7 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
     }
     
     func addHintNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(parentNode: gridNode, text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: MagnetsGameState, skView: SKView) {
@@ -119,7 +117,7 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
                 let markerNodeName = "marker" + nodeNameSuffix
                 func removePole() { removeNode(withName: poleNodeName) }
                 func addPole(ch: String, color: SKColor) {
-                    addLabel(parentNode: gridNode, text: ch, fontColor: color, point: point, nodeName: poleNodeName)
+                    addLabel(text: ch, fontColor: color, point: point, nodeName: poleNodeName)
                 }
                 func addMarker() {
                     let markerNode = SKShapeNode(circleOfRadius: 5)

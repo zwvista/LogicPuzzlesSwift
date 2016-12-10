@@ -9,11 +9,9 @@
 import SpriteKit
 
 class LoopyGameScene: GameScene<LoopyGameState> {
-    private(set) var gridNode: LoopyGridNode!
-    
-    func coloredRectSize() -> CGSize {
-        let sz = gridNode.blockSize - 4
-        return CGSize(width: sz, height: sz)
+    var gridNode: LoopyGridNode {
+        get {return getGridNode() as! LoopyGridNode}
+        set {setGridNode(gridNode: newValue)}
     }
     
     func addLine(dir: Int, color: SKColor, point: CGPoint, nodeName: String) {

@@ -9,11 +9,9 @@
 import SpriteKit
 
 class CloudsGameScene: GameScene<CloudsGameState> {
-    private(set) var gridNode: CloudsGridNode!
-    
-    func coloredRectSize() -> CGSize {
-        let sz = gridNode.blockSize - 4
-        return CGSize(width: sz, height: sz)
+    var gridNode: CloudsGridNode {
+        get {return getGridNode() as! CloudsGridNode}
+        set {setGridNode(gridNode: newValue)}
     }
     
     func addCloud(color: SKColor, point: CGPoint, nodeName: String) {
@@ -32,7 +30,7 @@ class CloudsGameScene: GameScene<CloudsGameState> {
     }
     
     func addHintNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(parentNode: gridNode, text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: CloudsGameState, skView: SKView) {

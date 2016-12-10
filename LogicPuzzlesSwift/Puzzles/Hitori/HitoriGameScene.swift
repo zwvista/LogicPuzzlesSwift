@@ -9,15 +9,13 @@
 import SpriteKit
 
 class HitoriGameScene: GameScene<HitoriGameState> {
-    private(set) var gridNode: HitoriGridNode!
-    
-    func coloredRectSize() -> CGSize {
-        let sz = gridNode.blockSize - 4
-        return CGSize(width: sz, height: sz)
+    var gridNode: HitoriGridNode {
+        get {return getGridNode() as! HitoriGridNode}
+        set {setGridNode(gridNode: newValue)}
     }
     
     func addNumber(n: String, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(parentNode: gridNode, text: n, fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+        addLabel(text: n, fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
     func addHint(p: Position, n: String) {
