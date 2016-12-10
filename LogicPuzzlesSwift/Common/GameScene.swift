@@ -19,6 +19,14 @@ class GameScene<GS: GameStateBase>: SKScene {
         print("deinit called: \(NSStringFromClass(type(of: self)))")
     }
     
+    func addGrid(gridNode: GridNode, point: CGPoint) {
+        scaleMode = .resizeFill
+        self.gridNode = gridNode
+        gridNode.position = point
+        addChild(gridNode)
+        gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
+    }
+    
     func coloredRectSize() -> CGSize {
         let sz = gridNode.blockSize - 4
         return CGSize(width: sz, height: sz)
@@ -36,7 +44,7 @@ class GameScene<GS: GameStateBase>: SKScene {
         labelNode.fontName = labelNode.fontName! + "-Bold"
         // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
         let scalingFactor = min(gridNode.blockSize / labelNode.frame.width, gridNode.blockSize / labelNode.frame.height)
-        labelNode.fontSize *= scalingFactor
+        labelNode.fontSize *= scalingFactor * 0.8
         labelNode.verticalAlignmentMode = .center
         labelNode.position = point
         labelNode.name = nodeName

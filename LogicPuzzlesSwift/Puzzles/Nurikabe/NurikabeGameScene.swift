@@ -25,11 +25,7 @@ class NurikabeGameScene: GameScene<NurikabeGameState> {
         
         // add Grid
         let offset:CGFloat = 0.5
-        scaleMode = .resizeFill
-        gridNode = NurikabeGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols)
-        gridNode.position = CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset)
-        addChild(gridNode)
-        gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
+        addGrid(gridNode: NurikabeGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
         // add Hints
         for (p, n) in game.pos2hint {
