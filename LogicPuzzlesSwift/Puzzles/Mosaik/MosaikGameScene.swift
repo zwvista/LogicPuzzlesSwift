@@ -51,11 +51,6 @@ class MosaikGameScene: GameScene<MosaikGameState> {
                 let markerNodeName = "marker" + nodeNameSuffix
                 let hintNumberNodeName = "hintNumber" + nodeNameSuffix
                 func addHintNumber2() { addHintNumber(n: stateFrom.game.pos2hint[p]!, s: stateTo.pos2state[p]!, point: point, nodeName: hintNumberNodeName) }
-                func removeNode(withName: String) {
-                    gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
-                        node.removeFromParent()
-                    }
-                }
                 func removeHintNumber() { removeNode(withName: hintNumberNodeName) }
                 func addFilledCell() {
                     let filledCellNode = SKSpriteNode(color: .purple, size: coloredRectSize())

@@ -23,6 +23,12 @@ class GameScene<GS: GameStateBase>: SKScene {
         let sz = gridNode.blockSize - 4
         return CGSize(width: sz, height: sz)
     }
+    
+    func removeNode(withName: String) {
+        gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
+            node.removeFromParent()
+        }
+    }
 
     func addLabel(text: String, fontColor: SKColor, point: CGPoint, nodeName: String) {
         let labelNode = SKLabelNode(text: text)

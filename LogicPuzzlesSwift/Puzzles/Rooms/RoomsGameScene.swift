@@ -50,11 +50,6 @@ class RoomsGameScene: GameScene<RoomsGameState> {
                 let horzLineNodeName = "horzLine" + nodeNameSuffix
                 let vertlineNodeName = "vertline" + nodeNameSuffix
                 let hintNumberNodeName = "hintNumber" + nodeNameSuffix
-                func removeNode(withName: String) {
-                    gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
-                        node.removeFromParent()
-                    }
-                }
                 func removeHintNumber() { removeNode(withName: hintNumberNodeName) }
                 func addHorzLine(objType: RoomsObject) {
                     guard objType != .empty else {return}

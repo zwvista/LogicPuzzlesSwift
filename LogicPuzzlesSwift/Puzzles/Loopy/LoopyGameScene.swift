@@ -86,11 +86,6 @@ class LoopyGameScene: GameScene<LoopyGameState> {
                     let point = gridNode.gridPosition(p: p)
                     let nodeNameSuffix = "-\(row)-\(col)-\(dir)"
                     let lineNodeName = "line" + nodeNameSuffix
-                    func removeNode(withName: String) {
-                        gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
-                            node.removeFromParent()
-                        }
-                    }
                     func removeLine() { removeNode(withName: lineNodeName) }
                     let (o1, o2) = (stateFrom[p][dir], stateTo[p][dir])
                     guard o1 != o2 else {continue}

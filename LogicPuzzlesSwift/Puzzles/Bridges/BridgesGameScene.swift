@@ -53,11 +53,6 @@ class BridgesGameScene: GameScene<BridgesGameState> {
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let bridgesNodeName = {(dir: Int) in "bridges" + nodeNameSuffix + "-\(dir)"}
             let islandNumberNodeName = "islandNumber" + nodeNameSuffix
-            func removeNode(withName: String) {
-                gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
-                    node.removeFromParent()
-                }
-            }
             func removeIslandNumber() { removeNode(withName: islandNumberNodeName) }
             func addBridges(dir: Int, bridges: Int) {
                 guard bridges > 0 else {return}

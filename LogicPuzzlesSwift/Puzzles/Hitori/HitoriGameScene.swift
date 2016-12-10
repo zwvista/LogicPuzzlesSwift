@@ -65,11 +65,6 @@ class HitoriGameScene: GameScene<HitoriGameState> {
     }
     
     override func levelUpdated(from stateFrom: HitoriGameState, to stateTo: HitoriGameState) {
-        func removeNode(withName: String) {
-            gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
-                node.removeFromParent()
-            }
-        }
         func removeHint(p: Position) {
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix

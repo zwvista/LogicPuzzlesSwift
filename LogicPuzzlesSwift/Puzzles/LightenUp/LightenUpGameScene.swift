@@ -59,11 +59,6 @@ class LightenUpGameScene: GameScene<LightenUpGameState> {
                 let lightbulbNodeName = "lightbulb" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let wallNumberNodeName = "wallNumber" + nodeNameSuffix
-                func removeNode(withName: String) {
-                    gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
-                        node.removeFromParent()
-                    }
-                }
                 func removeWallNumber() { removeNode(withName: wallNumberNodeName) }
                 func addLightCell() {
                     let lightCellNode = SKSpriteNode(color: .yellow, size: coloredRectSize())

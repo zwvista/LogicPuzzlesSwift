@@ -53,11 +53,6 @@ class SumscrapersGameScene: GameScene<SumscrapersGameState> {
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(row)-\(col)"
                 let numNodeName = "num" + nodeNameSuffix
-                func removeNode(withName: String) {
-                    gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
-                        node.removeFromParent()
-                    }
-                }
                 func removeNumber() { removeNode(withName: numNodeName) }
                 let (n1, n2) = (stateFrom[row, col], stateTo[row, col])
                 let (s1, s2) = (stateFrom.pos2state(row: row, col: col), stateTo.pos2state(row: row, col: col))

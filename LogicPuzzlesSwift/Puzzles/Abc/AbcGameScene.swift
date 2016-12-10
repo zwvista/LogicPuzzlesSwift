@@ -53,11 +53,6 @@ class AbcGameScene: GameScene<AbcGameState> {
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(row)-\(col)"
                 let charNodeName = "char" + nodeNameSuffix
-                func removeNode(withName: String) {
-                    gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
-                        node.removeFromParent()
-                    }
-                }
                 func removeCharacter() { removeNode(withName: charNodeName) }
                 let (ch1, ch2) = (stateFrom[row, col], stateTo[row, col])
                 let (s1, s2) = (stateFrom.pos2state(row: row, col: col), stateTo.pos2state(row: row, col: col))

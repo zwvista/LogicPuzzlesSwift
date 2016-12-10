@@ -76,11 +76,6 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
     }
     
     override func levelUpdated(from stateFrom: MagnetsGameState, to stateTo: MagnetsGameState) {
-        func removeNode(withName: String) {
-            gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
-                node.removeFromParent()
-            }
-        }
         func removeHint(p: Position) {
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix

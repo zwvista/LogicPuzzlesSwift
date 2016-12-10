@@ -53,11 +53,6 @@ class MasyuGameScene: GameScene<MasyuGameState> {
                     let point = gridNode.gridPosition(p: p)
                     let nodeNameSuffix = "-\(row)-\(col)-\(dir)"
                     let lineNodeName = "line" + nodeNameSuffix
-                    func removeNode(withName: String) {
-                        gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
-                            node.removeFromParent()
-                        }
-                    }
                     func removeLine() { removeNode(withName: lineNodeName) }
                     func addLine() {
                         let pathToDraw = CGMutablePath()

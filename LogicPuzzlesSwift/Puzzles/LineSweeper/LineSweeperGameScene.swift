@@ -49,11 +49,6 @@ class LineSweeperGameScene: GameScene<LineSweeperGameState> {
                     let nodeNameSuffix = "-\(row)-\(col)-\(dir)"
                     let hintNumberNodeName = "hintNumber" + nodeNameSuffix
                     let lineNodeName = "line" + nodeNameSuffix
-                    func removeNode(withName: String) {
-                        gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
-                            node.removeFromParent()
-                        }
-                    }
                     func removeHintNumber() { removeNode(withName: hintNumberNodeName) }
                     func removeLine() { removeNode(withName: lineNodeName) }
                     func addLine() {

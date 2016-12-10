@@ -49,11 +49,6 @@ class NurikabeGameScene: GameScene<NurikabeGameState> {
                 let wallNodeName = "wall" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                func removeNode(withName: String) {
-                    gridNode.enumerateChildNodes(withName: withName) { (node, pointer) in
-                        node.removeFromParent()
-                    }
-                }
                 func removeHint() { removeNode(withName: hintNodeName) }
                 func addWall() {
                     let wallNode = SKSpriteNode(color: .white, size: coloredRectSize())
