@@ -35,8 +35,8 @@ class MagnetsGameViewController: GameViewController, GameDelegate, MagnetsMixin 
         // Present the scene.
         skView.presentScene(scene)
         
-        lblLevel.textColor = SKColor.white
-        lblMoves.textColor = SKColor.white
+        lblLevel.textColor = .white
+        lblMoves.textColor = .white
         
         startGame()
     }
@@ -79,7 +79,7 @@ class MagnetsGameViewController: GameViewController, GameDelegate, MagnetsMixin 
     
     func updateLabels(_ game: MagnetsGame) {
         lblMoves.text = "Moves: \(game.moveIndex)(\(game.moveCount))"
-        lblSolved.textColor = game.isSolved ? SKColor.white : SKColor.black
+        lblSolved.textColor = game.isSolved ? .white : .black
     }
     
     func levelInitilized(_ game: AnyObject, state: MagnetsGameState) {

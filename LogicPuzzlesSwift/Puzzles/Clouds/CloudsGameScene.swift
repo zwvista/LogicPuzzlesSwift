@@ -33,7 +33,7 @@ class CloudsGameScene: GameScene<CloudsGameState> {
     
     func addHintNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         let numberNode = SKLabelNode(text: String(n))
-        numberNode.fontColor = s == .normal ? SKColor.white : s == .complete ? SKColor.green : SKColor.red
+        numberNode.fontColor = s == .normal ? .white : s == .complete ? .green : .red
         numberNode.fontName = numberNode.fontName! + "-Bold"
         // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
         let scalingFactor = min(gridNode.blockSize / numberNode.frame.width, gridNode.blockSize / numberNode.frame.height)
@@ -74,7 +74,7 @@ class CloudsGameScene: GameScene<CloudsGameState> {
             let point = gridNode.gridPosition(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let cloudNodeName = "cloud" + nodeNameSuffix
-            addCloud(color: SKColor.gray, point: point, nodeName: cloudNodeName)
+            addCloud(color: .gray, point: point, nodeName: cloudNodeName)
         }
     }
     
@@ -117,9 +117,9 @@ class CloudsGameScene: GameScene<CloudsGameState> {
                     let markerNode = SKShapeNode(circleOfRadius: 5)
                     markerNode.position = point
                     markerNode.name = markerNodeName
-                    markerNode.strokeColor = SKColor.white
+                    markerNode.strokeColor = .white
                     markerNode.glowWidth = 1.0
-                    markerNode.fillColor = SKColor.white
+                    markerNode.fillColor = .white
                     gridNode.addChild(markerNode)
                 }
                 func removeMarker() { removeNode(withName: markerNodeName) }
@@ -135,7 +135,7 @@ class CloudsGameScene: GameScene<CloudsGameState> {
                 }
                 switch o2 {
                 case .cloud:
-                    addCloud(color: SKColor.white, point: point, nodeName: cloudNodeName)
+                    addCloud(color: .white, point: point, nodeName: cloudNodeName)
                 case .marker:
                     addMarker()
                 default:

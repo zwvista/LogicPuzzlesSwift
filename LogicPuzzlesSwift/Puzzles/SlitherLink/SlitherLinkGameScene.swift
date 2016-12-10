@@ -18,7 +18,7 @@ class SlitherLinkGameScene: GameScene<SlitherLinkGameState> {
     
     func addHintNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         let numberNode = SKLabelNode(text: String(n))
-        numberNode.fontColor = s == .normal ? SKColor.white : s == .complete ? SKColor.green : SKColor.red
+        numberNode.fontColor = s == .normal ? .white : s == .complete ? .green : .red
         numberNode.fontName = numberNode.fontName! + "-Bold"
         // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
         let scalingFactor = min(gridNode.blockSize / numberNode.frame.width, gridNode.blockSize / numberNode.frame.height)
@@ -86,7 +86,7 @@ class SlitherLinkGameScene: GameScene<SlitherLinkGameState> {
                         break
                     }
                     lineNode.path = pathToDraw
-                    lineNode.strokeColor = SKColor.yellow
+                    lineNode.strokeColor = .yellow
                     lineNode.name = horzLineNodeName
                     gridNode.addChild(lineNode)
                 }
@@ -112,7 +112,7 @@ class SlitherLinkGameScene: GameScene<SlitherLinkGameState> {
                         break
                     }
                     lineNode.path = pathToDraw
-                    lineNode.strokeColor = SKColor.yellow
+                    lineNode.strokeColor = .yellow
                     lineNode.name = vertlineNodeName
                     gridNode.addChild(lineNode)
                 }

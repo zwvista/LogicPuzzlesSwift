@@ -18,7 +18,7 @@ class HitoriGameScene: GameScene<HitoriGameState> {
     
     func addNumber(n: String, s: HintState, point: CGPoint, nodeName: String) {
         let numberNode = SKLabelNode(text: n)
-        numberNode.fontColor = s == .normal ? SKColor.white : s == .complete ? SKColor.green : SKColor.red
+        numberNode.fontColor = s == .normal ? .white : s == .complete ? .green : .red
         numberNode.fontName = numberNode.fontName! + "-Bold"
         // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
         let scalingFactor = min(gridNode.blockSize / numberNode.frame.width, gridNode.blockSize / numberNode.frame.height)
@@ -113,7 +113,7 @@ class HitoriGameScene: GameScene<HitoriGameState> {
                 func addNumber2() { addNumber(n: String(stateFrom.game[p]), s: .normal, point: point, nodeName: numberNodeName) }
                 func removeNumber() { removeNode(withName: numberNodeName) }
                 func addDarken() {
-                    let darkenNode = SKSpriteNode(color: SKColor.lightGray, size: coloredRectSize())
+                    let darkenNode = SKSpriteNode(color: .lightGray, size: coloredRectSize())
                     darkenNode.position = point
                     darkenNode.name = darkenNodeName
                     gridNode.addChild(darkenNode)
@@ -123,7 +123,7 @@ class HitoriGameScene: GameScene<HitoriGameState> {
                     let markerNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 2)
                     markerNode.position = point
                     markerNode.name = markerNodeName
-                    markerNode.strokeColor = SKColor.white
+                    markerNode.strokeColor = .white
                     markerNode.glowWidth = 1.0
                     gridNode.addChild(markerNode)
                 }

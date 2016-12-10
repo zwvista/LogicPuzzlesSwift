@@ -18,7 +18,7 @@ class NurikabeGameScene: GameScene<NurikabeGameState> {
     
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         let numberNode = SKLabelNode(text: String(n))
-        numberNode.fontColor = s == .normal ? SKColor.white : s == .complete ? SKColor.green : SKColor.red
+        numberNode.fontColor = s == .normal ? .white : s == .complete ? .green : .red
         numberNode.fontName = numberNode.fontName! + "-Bold"
         // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
         let scalingFactor = min(gridNode.blockSize / numberNode.frame.width, gridNode.blockSize / numberNode.frame.height)
@@ -67,7 +67,7 @@ class NurikabeGameScene: GameScene<NurikabeGameState> {
                 }
                 func removeHint() { removeNode(withName: hintNodeName) }
                 func addWall() {
-                    let wallNode = SKSpriteNode(color: SKColor.white, size: coloredRectSize())
+                    let wallNode = SKSpriteNode(color: .white, size: coloredRectSize())
                     wallNode.position = point
                     wallNode.name = wallNodeName
                     gridNode.addChild(wallNode)
@@ -77,9 +77,9 @@ class NurikabeGameScene: GameScene<NurikabeGameState> {
                     let markerNode = SKShapeNode(circleOfRadius: 5)
                     markerNode.position = point
                     markerNode.name = markerNodeName
-                    markerNode.strokeColor = SKColor.white
+                    markerNode.strokeColor = .white
                     markerNode.glowWidth = 1.0
-                    markerNode.fillColor = SKColor.white
+                    markerNode.fillColor = .white
                     gridNode.addChild(markerNode)
                 }
                 func removeMarker() { removeNode(withName: markerNodeName) }

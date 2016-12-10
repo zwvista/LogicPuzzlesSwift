@@ -57,9 +57,9 @@ class LoopyGameScene: GameScene<LoopyGameState> {
                 let dotNode = SKShapeNode(circleOfRadius: 5)
                 dotNode.position = point
                 dotNode.name = "dot"
-                dotNode.strokeColor = SKColor.white
+                dotNode.strokeColor = .white
                 dotNode.glowWidth = 1.0
-                dotNode.fillColor = SKColor.white
+                dotNode.fillColor = .white
                 gridNode.addChild(dotNode)
             }
         }
@@ -72,7 +72,7 @@ class LoopyGameScene: GameScene<LoopyGameState> {
                     guard game[row, col][dir] else {continue}
                     let nodeNameSuffix = "-\(row)-\(col)-\(dir)"
                     let lineNodeName = "line" + nodeNameSuffix
-                    addLine(dir: dir, color: SKColor.white, point: point, nodeName: lineNodeName)
+                    addLine(dir: dir, color: .white, point: point, nodeName: lineNodeName)
                 }
             }
         }
@@ -97,7 +97,7 @@ class LoopyGameScene: GameScene<LoopyGameState> {
                     let (o1, o2) = (stateFrom[p][dir], stateTo[p][dir])
                     guard o1 != o2 else {continue}
                     if o1 {removeLine()}
-                    if o2 {addLine(dir: dir, color: SKColor.green, point: point, nodeName: lineNodeName)}
+                    if o2 {addLine(dir: dir, color: .green, point: point, nodeName: lineNodeName)}
                 }
             }
         }

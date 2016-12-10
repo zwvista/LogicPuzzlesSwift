@@ -16,13 +16,6 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
         return CGSize(width: sz, height: sz)
     }
     
-    func addCloud(color: SKColor, point: CGPoint, nodeName: String) {
-        let cloudNode = SKSpriteNode(color: color, size: coloredRectSize())
-        cloudNode.position = point
-        cloudNode.name = nodeName
-        gridNode.addChild(cloudNode)
-    }
-    
     func addHint(p: Position, n: Int, s: HintState) {
         let point = gridNode.gridPosition(p: p)
         guard n >= 0 else {return}
@@ -33,7 +26,7 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
     
     func addHintNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         let numberNode = SKLabelNode(text: String(n))
-        numberNode.fontColor = s == .normal ? SKColor.white : s == .complete ? SKColor.green : SKColor.red
+        numberNode.fontColor = s == .normal ? .white : s == .complete ? .green : .red
         numberNode.fontName = numberNode.fontName! + "-Bold"
         // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
         let scalingFactor = min(gridNode.blockSize / numberNode.frame.width, gridNode.blockSize / numberNode.frame.height)
@@ -62,17 +55,14 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
             switch a.type {
             case .single:
                 let rectNode = SKShapeNode(rectOf: CGSize(width: blockSize, height: blockSize))
-                rectNode.strokeColor = .white
                 rectNode.position = point
                 gridNode.addChild(rectNode)
             case .horizontal:
                 let rectNode = SKShapeNode(rectOf: CGSize(width: blockSize * 2, height: blockSize))
-                rectNode.strokeColor = .white
                 rectNode.position = CGPoint(x: point.x + CGFloat(blockSize) / 2, y: point.y)
                 gridNode.addChild(rectNode)
             case .vertical:
                 let rectNode = SKShapeNode(rectOf: CGSize(width: blockSize, height: blockSize * 2))
-                rectNode.strokeColor = .white
                 rectNode.position = point
                 rectNode.position = CGPoint(x: point.x, y: point.y - CGFloat(blockSize) / 2)
                 gridNode.addChild(rectNode)
@@ -128,26 +118,36 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
                 let p = Position(row, col)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(row)-\(col)"
-                let cloudNodeName = "cloud" + nodeNameSuffix
+                let poleNodeName = "pole" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
-                func removeCloud() { removeNode(withName: cloudNodeName) }
+                func removePole() { removeNode(withName: poleNodeName) }
+                func addPole(ch: String) {
+                    let poleNode = SKLabelNode(text: ch)
+                    poleNode.fontColor = .white
+                    poleNode.fontName = poleNode.fontName! + "-Bold"
+                    // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
+                    let scalingFactor = min(gridNode.blockSize / poleNode.frame.width, gridNode.blockSize / poleNode.frame.height)
+                    poleNode.fontSize *= scalingFactor
+                    poleNode.verticalAlignmentMode = .center
+                    poleNode.position = point
+                    poleNode.name = poleNodeName
+                    gridNode.addChild(poleNode)
+                }
                 func addMarker() {
                     let markerNode = SKShapeNode(circleOfRadius: 5)
                     markerNode.position = point
                     markerNode.name = markerNodeName
-                    markerNode.strokeColor = SKColor.white
+                    markerNode.strokeColor = .white
                     markerNode.glowWidth = 1.0
-                    markerNode.fillColor = SKColor.white
+                    markerNode.fillColor = .white
                     gridNode.addChild(markerNode)
                 }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 let (o1, o2) = (stateFrom[row, col], stateTo[row, col])
                 guard o1 != o2 else {continue}
                 switch o1 {
-                case .positive:
-                    removeCloud()
-                case .negative:
-                    removeCloud()
+                case .positive, .negative:
+                    removePole()
                 case .marker:
                     removeMarker()
                 default:
@@ -155,9 +155,9 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
                 }
                 switch o2 {
                 case .positive:
-                    addCloud(color: SKColor.white, point: point, nodeName: cloudNodeName)
+                    addPole(ch: "+")
                 case .negative:
-                    removeCloud()
+                    addPole(ch: "-")
                 case .marker:
                     addMarker()
                 default:

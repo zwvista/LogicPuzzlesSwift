@@ -13,7 +13,7 @@ class BridgesGameScene: GameScene<BridgesGameState> {
     
     func addIslandNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         let numberNode = SKLabelNode(text: String(n))
-        numberNode.fontColor = s == .normal ? SKColor.white : s == .complete ? SKColor.green : SKColor.red
+        numberNode.fontColor = s == .normal ? .white : s == .complete ? .green : .red
         numberNode.fontName = numberNode.fontName! + "-Bold"
         // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
         let scalingFactor = min(gridNode.blockSize / numberNode.frame.width, gridNode.blockSize / numberNode.frame.height)
@@ -44,7 +44,7 @@ class BridgesGameScene: GameScene<BridgesGameState> {
             let islandNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 2)
             islandNode.position = point
             islandNode.name = "island"
-            islandNode.strokeColor = SKColor.white
+            islandNode.strokeColor = .white
             islandNode.glowWidth = 1.0
             gridNode.addChild(islandNode)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
@@ -95,7 +95,7 @@ class BridgesGameScene: GameScene<BridgesGameState> {
                     break
                 }
                 bridgesNode.path = pathToDraw
-                bridgesNode.strokeColor = SKColor.yellow
+                bridgesNode.strokeColor = .yellow
                 bridgesNode.glowWidth = 3
                 bridgesNode.name = bridgesNodeName(dir)
                 gridNode.addChild(bridgesNode)

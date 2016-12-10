@@ -115,8 +115,8 @@ class MagnetsGameState: CellsGameState, MagnetsMixin {
                     break
                 }
             }
-            row2state[c * 2] = np1 < np2 ? .normal : np1 == np2 ? .complete : .error
-            row2state[c * 2 + 1] = nn1 < nn2 ? .normal : nn1 == nn2 ? .complete : .error
+            col2state[c * 2] = np1 < np2 ? .normal : np1 == np2 ? .complete : .error
+            col2state[c * 2 + 1] = nn1 < nn2 ? .normal : nn1 == nn2 ? .complete : .error
             if np1 != np2 || nn1 != nn2 {isSolved = false}
         }
         guard isSolved else {return}

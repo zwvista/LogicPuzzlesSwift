@@ -18,7 +18,7 @@ class MosaikGameScene: GameScene<MosaikGameState> {
     
     func addHintNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         let numberNode = SKLabelNode(text: String(n))
-        numberNode.fontColor = s == .normal ? SKColor.white : s == .complete ? SKColor.green : SKColor.red
+        numberNode.fontColor = s == .normal ? .white : s == .complete ? .green : .red
         numberNode.fontName = numberNode.fontName! + "-Bold"
         // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
         let scalingFactor = min(gridNode.blockSize / numberNode.frame.width, gridNode.blockSize / numberNode.frame.height)
@@ -69,7 +69,7 @@ class MosaikGameScene: GameScene<MosaikGameState> {
                 }
                 func removeHintNumber() { removeNode(withName: hintNumberNodeName) }
                 func addFilledCell() {
-                    let filledCellNode = SKSpriteNode(color: SKColor.purple, size: coloredRectSize())
+                    let filledCellNode = SKSpriteNode(color: .purple, size: coloredRectSize())
                     filledCellNode.position = point
                     filledCellNode.name = filledCellNodeName
                     gridNode.addChild(filledCellNode)
@@ -79,9 +79,9 @@ class MosaikGameScene: GameScene<MosaikGameState> {
                     let markerNode = SKShapeNode(circleOfRadius: 5)
                     markerNode.position = point
                     markerNode.name = markerNodeName
-                    markerNode.strokeColor = SKColor.white
+                    markerNode.strokeColor = .white
                     markerNode.glowWidth = 1.0
-                    markerNode.fillColor = SKColor.white
+                    markerNode.fillColor = .white
                     gridNode.addChild(markerNode)
                 }
                 func removeMarker() { removeNode(withName: markerNodeName) }

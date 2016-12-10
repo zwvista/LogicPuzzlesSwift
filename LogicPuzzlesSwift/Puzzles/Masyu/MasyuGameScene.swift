@@ -39,8 +39,8 @@ class MasyuGameScene: GameScene<MasyuGameState> {
                 let pearlNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 2)
                 pearlNode.position = point
                 pearlNode.name = "pearl"
-                pearlNode.strokeColor = SKColor.white
-                pearlNode.fillColor = ch == "W" ? SKColor.white : SKColor.black
+                pearlNode.strokeColor = .white
+                pearlNode.fillColor = ch == "W" ? .white : .black
                 pearlNode.glowWidth = 1.0
                 gridNode.addChild(pearlNode)
             }
@@ -76,7 +76,7 @@ class MasyuGameScene: GameScene<MasyuGameState> {
                             break
                         }
                         lineNode.path = pathToDraw
-                        lineNode.strokeColor = SKColor.green
+                        lineNode.strokeColor = .green
                         lineNode.name = lineNodeName
                         gridNode.addChild(lineNode)
                     }

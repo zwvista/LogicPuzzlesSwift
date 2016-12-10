@@ -17,7 +17,7 @@ class LoopyGridNode : SKSpriteNode {
     
     convenience init(blockSize: CGFloat, rows: Int, cols: Int) {
         let texture = LoopyGridNode.gridTexture(blockSize: blockSize, rows: rows, cols: cols)
-        self.init(texture: texture, color: SKColor.clear, size: texture.size())
+        self.init(texture: texture, color: .clear, size: texture.size())
         self.blockSize = blockSize
         self.rows = rows
         self.cols = cols

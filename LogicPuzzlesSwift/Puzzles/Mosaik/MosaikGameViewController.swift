@@ -35,8 +35,8 @@ class MosaikGameViewController: GameViewController, GameDelegate, MosaikMixin {
         // Present the scene.
         skView.presentScene(scene)
         
-        lblLevel.textColor = SKColor.white
-        lblMoves.textColor = SKColor.white
+        lblLevel.textColor = .white
+        lblMoves.textColor = .white
         
         startGame()
     }
@@ -79,7 +79,7 @@ class MosaikGameViewController: GameViewController, GameDelegate, MosaikMixin {
     
     func updateLabels(_ game: MosaikGame) {
         lblMoves.text = "Moves: \(game.moveIndex)(\(game.moveCount))"
-        lblSolved.textColor = game.isSolved ? SKColor.white : SKColor.black
+        lblSolved.textColor = game.isSolved ? .white : .black
     }
     
     func levelInitilized(_ game: AnyObject, state: MosaikGameState) {

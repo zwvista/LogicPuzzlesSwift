@@ -18,7 +18,7 @@ class LightenUpGameScene: GameScene<LightenUpGameState> {
     
     func addWallNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         let numberNode = SKLabelNode(text: String(n))
-        numberNode.fontColor = s == .normal ? SKColor.black : s == .complete ? SKColor.green : SKColor.red
+        numberNode.fontColor = s == .normal ? .black : s == .complete ? .green : .red
         numberNode.fontName = numberNode.fontName! + "-Bold"
         // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
         let scalingFactor = min(gridNode.blockSize / numberNode.frame.width, gridNode.blockSize / numberNode.frame.height)
@@ -49,7 +49,7 @@ class LightenUpGameScene: GameScene<LightenUpGameState> {
                 guard case let .wall(s) = state[p].objType else {continue}
                 let n = state.game.wall2Lightbulbs[p]!
                 let point = gridNode.gridPosition(p: p)
-                let wallNode = SKSpriteNode(color: SKColor.white, size: coloredRectSize())
+                let wallNode = SKSpriteNode(color: .white, size: coloredRectSize())
                 wallNode.position = point
                 wallNode.name = "wall"
                 gridNode.addChild(wallNode)
@@ -77,7 +77,7 @@ class LightenUpGameScene: GameScene<LightenUpGameState> {
                 }
                 func removeWallNumber() { removeNode(withName: wallNumberNodeName) }
                 func addLightCell() {
-                    let lightCellNode = SKSpriteNode(color: SKColor.yellow, size: coloredRectSize())
+                    let lightCellNode = SKSpriteNode(color: .yellow, size: coloredRectSize())
                     lightCellNode.position = point
                     lightCellNode.name = lightCellNodeName
                     gridNode.addChild(lightCellNode)
@@ -89,7 +89,7 @@ class LightenUpGameScene: GameScene<LightenUpGameState> {
                     lightbulbNode.setScale(scalingFactor)
                     lightbulbNode.position = point
                     lightbulbNode.name = lightbulbNodeName
-                    lightbulbNode.color = SKColor.red
+                    lightbulbNode.color = .red
                     lightbulbNode.colorBlendFactor = s == .normal ? 0.0 : 0.2
                     gridNode.addChild(lightbulbNode)
                 }
@@ -98,9 +98,9 @@ class LightenUpGameScene: GameScene<LightenUpGameState> {
                     let markerNode = SKShapeNode(circleOfRadius: 5)
                     markerNode.position = point
                     markerNode.name = markerNodeName
-                    markerNode.strokeColor = SKColor.white
+                    markerNode.strokeColor = .white
                     markerNode.glowWidth = 1.0
-                    markerNode.fillColor = SKColor.white
+                    markerNode.fillColor = .white
                     gridNode.addChild(markerNode)
                 }
                 func removeMarker() { removeNode(withName: markerNodeName) }
