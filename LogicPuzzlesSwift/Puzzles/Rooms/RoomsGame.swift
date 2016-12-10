@@ -16,6 +16,10 @@ class RoomsGame: CellsGame<RoomsGameViewController, RoomsGameMove, RoomsGameStat
         Position(1, 0),
         Position(0, -1),
     ];
+    
+    override func isValid(row: Int, col: Int) -> Bool {
+        return 0..<rows - 1 ~= row && 0..<cols - 1 ~= col
+    }
 
     var pos2hint = [Position: Int]()
     

@@ -31,9 +31,7 @@ class RoomsGameState: CellsGameState, RoomsMixin {
     required init(game: RoomsGame) {
         super.init(game: game);
         objArray = Array<RoomsDotObject>(repeating: Array<RoomsObject>(repeating: .empty, count: 4), count: rows * cols)
-        for (p, n) in game.pos2hint {
-            pos2state[p] = n == 0 ? .complete : .normal
-        }
+        updateIsSolved()
     }
     
     subscript(p: Position) -> RoomsDotObject {
@@ -92,42 +90,18 @@ class RoomsGameState: CellsGameState, RoomsMixin {
         isSolved = true
         for (p, n2) in game.pos2hint {
             var n1 = 0
-            if self[p][1] == .line {n1 += 1}
-            if self[p][2] == .line {n1 += 1}
-            if self[p + Position(1, 1)][0] == .line {n1 += 1}
-            if self[p + Position(1, 1)][3] == .line {n1 += 1}
+            func f(os1: Position, os2: Position, dir: Int) {
+                var p2 = p
+                while(isValid(p: p2 + os1) && self[p2 + os2][dir] != .line) {
+                    n1 += 1; p2 += os1
+                }
+            }
+            f(os1: RoomsGame.offset[0], os2: Position(0, 0), dir: 1)
+            f(os1: RoomsGame.offset[3], os2: Position(0, 0), dir: 2)
+            f(os1: RoomsGame.offset[1], os2: Position(1, 1), dir: 0)
+            f(os1: RoomsGame.offset[2], os2: Position(1, 1), dir: 3)
             pos2state[p] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
         }
-        guard isSolved else {return}
-        let g = Graph()
-        var pos2node = [Position: Node]()
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                let n = self[p].filter({$0 == .line}).count
-                switch n {
-                case 0:
-                    continue
-                case 2:
-                    pos2node[p] = g.addNode(label: p.description)
-                default:
-                    isSolved = false
-                    return
-                }
-            }
-        }
-        for p in pos2node.keys {
-            let dotObj = self[p]
-            for i in 0..<4 {
-                guard dotObj[i] == .line else {continue}
-                let p2 = p + RoomsGame.offset[i]
-                g.addEdge(source: pos2node[p]!, neighbor: pos2node[p2]!)
-            }
-        }
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.values.first!)
-        let n1 = nodesExplored.count
-        let n2 = pos2node.values.count
-        if n1 != n2 {isSolved = false}
     }
 }
