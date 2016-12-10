@@ -121,9 +121,9 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
                 let poleNodeName = "pole" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 func removePole() { removeNode(withName: poleNodeName) }
-                func addPole(ch: String) {
+                func addPole(ch: String, color: SKColor) {
                     let poleNode = SKLabelNode(text: ch)
-                    poleNode.fontColor = .white
+                    poleNode.fontColor = color
                     poleNode.fontName = poleNode.fontName! + "-Bold"
                     // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
                     let scalingFactor = min(gridNode.blockSize / poleNode.frame.width, gridNode.blockSize / poleNode.frame.height)
@@ -155,9 +155,9 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
                 }
                 switch o2 {
                 case .positive:
-                    addPole(ch: "+")
+                    addPole(ch: "+", color: .red)
                 case .negative:
-                    addPole(ch: "-")
+                    addPole(ch: "-", color: .blue)
                 case .marker:
                     addMarker()
                 default:

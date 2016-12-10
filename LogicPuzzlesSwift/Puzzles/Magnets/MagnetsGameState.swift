@@ -104,7 +104,7 @@ class MagnetsGameState: CellsGameState, MagnetsMixin {
         }
         for c in 0..<cols {
             var (np1, nn1) = (0, 0)
-            let (np2, nn2) = (game.row2hint[c * 2], game.row2hint[c * 2 + 1])
+            let (np2, nn2) = (game.col2hint[c * 2], game.col2hint[c * 2 + 1])
             for r in 0..<rows {
                 switch self[r, c] {
                 case .positive:
