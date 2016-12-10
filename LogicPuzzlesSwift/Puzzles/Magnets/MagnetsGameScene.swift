@@ -73,14 +73,14 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
         for r in 0..<game.rows {
             for c in 0..<2 {
                 let p = Position(r, game.cols + c)
-                let n = state.game.row2hint[r * 2 + c]
+                let n = game.row2hint[r * 2 + c]
                 addHint(p: p, n: n, s: state.row2state[r * 2 + c])
             }
         }
         for c in 0..<game.cols {
             for r in 0..<2 {
                 let p = Position(game.rows + r, c)
-                let n = state.game.col2hint[c * 2 + r]
+                let n = game.col2hint[c * 2 + r]
                 addHint(p: p, n: n, s: state.col2state[c * 2 + r])
             }
         }
@@ -98,19 +98,25 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
             removeNode(withName: hintNodeName)
         }
         for r in 0..<stateFrom.rows {
-            let p = Position(r, stateFrom.cols)
-            let n = stateFrom.game.row2hint[r]
-            if stateFrom.row2state[r] != stateTo.row2state[r] {
-                removeHint(p: p)
-                addHint(p: p, n: n, s: stateTo.row2state[r])
+            for c in 0..<2 {
+                let p = Position(r, stateFrom.cols + c)
+                let id = r * 2 + c
+                let n = stateFrom.game.row2hint[id]
+                if stateFrom.row2state[id] != stateTo.row2state[id] {
+                    removeHint(p: p)
+                    addHint(p: p, n: n, s: stateTo.row2state[id])
+                }
             }
         }
         for c in 0..<stateFrom.cols {
-            let p = Position(stateFrom.rows, c)
-            let n = stateFrom.game.col2hint[c]
-            if stateFrom.col2state[c] != stateTo.col2state[c] {
-                removeHint(p: p)
-                addHint(p: p, n: n, s: stateTo.col2state[c])
+            for r in 0..<2 {
+                let p = Position(stateFrom.rows + r, c)
+                let id = c * 2 + r
+                let n = stateFrom.game.col2hint[id]
+                if stateFrom.col2state[id] != stateTo.col2state[id] {
+                    removeHint(p: p)
+                    addHint(p: p, n: n, s: stateTo.col2state[id])
+                }
             }
         }
         for row in 0..<stateFrom.rows {
