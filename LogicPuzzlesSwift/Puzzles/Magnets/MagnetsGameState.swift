@@ -121,9 +121,19 @@ class MagnetsGameState: CellsGameState, MagnetsMixin {
         }
         guard isSolved else {return}
         for a in game.areas {
-            let (o1, o2) = (self[a[0]], self[a[1]])
-            if o1.isEmpty() != o2.isEmpty() {
-                isSolved = false; return
+            switch a.type {
+            case .single:
+                continue
+            case .horizontal:
+                let (o1, o2) = (self[a.p], self[a.p + MagnetsGame.offset[1]])
+                if o1.isEmpty() != o2.isEmpty() {
+                    isSolved = false; return
+                }
+            case .vertical:
+                let (o1, o2) = (self[a.p], self[a.p + MagnetsGame.offset[2]])
+                if o1.isEmpty() != o2.isEmpty() {
+                    isSolved = false; return
+                }
             }
         }
         for r in 0..<rows {

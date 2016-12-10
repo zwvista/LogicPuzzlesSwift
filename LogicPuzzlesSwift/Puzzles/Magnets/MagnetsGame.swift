@@ -19,7 +19,7 @@ class MagnetsGame: CellsGame<MagnetsGameViewController, MagnetsGameMove, Magnets
 
     var row2hint = [Int]()
     var col2hint = [Int]()
-    var areas = [[Position]]()
+    var areas = [MagnetsArea]()
     
     init(layout: [String], delegate: MagnetsGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -41,10 +41,12 @@ class MagnetsGame: CellsGame<MagnetsGameViewController, MagnetsGameMove, Magnets
                     } else if c >= cols {
                         row2hint[2 * r + c - cols] = n
                     }
+                case ".":
+                    areas.append(MagnetsArea(p: p, type: .single))
                 case "H":
-                    areas.append([p, p + MagnetsGame.offset[1]])
+                    areas.append(MagnetsArea(p: p, type: .horizontal))
                 case "V":
-                    areas.append([p, p + MagnetsGame.offset[2]])
+                    areas.append(MagnetsArea(p: p, type: .vertical))
                 default:
                     break
                 }

@@ -8,6 +8,17 @@
 
 import Foundation
 
+enum MagnetsAreaType {
+    case single
+    case horizontal
+    case vertical
+}
+
+struct MagnetsArea {
+    var p = Position()
+    var type: MagnetsAreaType = .single
+}
+
 enum MagnetsObject: Int {
     case empty
     case positive

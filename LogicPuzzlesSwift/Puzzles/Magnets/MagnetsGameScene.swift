@@ -58,6 +58,25 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
         gridNode.anchorPoint = CGPoint(x: 0, y: 1.0)
         
         for a in game.areas {
+            let point = gridNode.gridPosition(p: a.p)
+            switch a.type {
+            case .single:
+                let rectNode = SKShapeNode(rectOf: CGSize(width: blockSize, height: blockSize))
+                rectNode.strokeColor = .white
+                rectNode.position = point
+                gridNode.addChild(rectNode)
+            case .horizontal:
+                let rectNode = SKShapeNode(rectOf: CGSize(width: blockSize * 2, height: blockSize))
+                rectNode.strokeColor = .white
+                rectNode.position = CGPoint(x: point.x + CGFloat(blockSize) / 2, y: point.y)
+                gridNode.addChild(rectNode)
+            case .vertical:
+                let rectNode = SKShapeNode(rectOf: CGSize(width: blockSize, height: blockSize * 2))
+                rectNode.strokeColor = .white
+                rectNode.position = point
+                rectNode.position = CGPoint(x: point.x, y: point.y - CGFloat(blockSize) / 2)
+                gridNode.addChild(rectNode)
+            }
         }
         
         // add Hints
