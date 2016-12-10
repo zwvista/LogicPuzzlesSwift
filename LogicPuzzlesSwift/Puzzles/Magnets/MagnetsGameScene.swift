@@ -25,16 +25,7 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
     }
     
     func addHintNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        let numberNode = SKLabelNode(text: String(n))
-        numberNode.fontColor = s == .normal ? .white : s == .complete ? .green : .red
-        numberNode.fontName = numberNode.fontName! + "-Bold"
-        // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
-        let scalingFactor = min(gridNode.blockSize / numberNode.frame.width, gridNode.blockSize / numberNode.frame.height)
-        numberNode.fontSize *= scalingFactor
-        numberNode.verticalAlignmentMode = .center
-        numberNode.position = point
-        numberNode.name = nodeName
-        gridNode.addChild(numberNode)
+        addLabel(parentNode: gridNode, text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: MagnetsGameState, skView: SKView) {
@@ -128,16 +119,7 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
                 let markerNodeName = "marker" + nodeNameSuffix
                 func removePole() { removeNode(withName: poleNodeName) }
                 func addPole(ch: String, color: SKColor) {
-                    let poleNode = SKLabelNode(text: ch)
-                    poleNode.fontColor = color
-                    poleNode.fontName = poleNode.fontName! + "-Bold"
-                    // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
-                    let scalingFactor = min(gridNode.blockSize / poleNode.frame.width, gridNode.blockSize / poleNode.frame.height)
-                    poleNode.fontSize *= scalingFactor
-                    poleNode.verticalAlignmentMode = .center
-                    poleNode.position = point
-                    poleNode.name = poleNodeName
-                    gridNode.addChild(poleNode)
+                    addLabel(parentNode: gridNode, text: ch, fontColor: color, point: point, nodeName: poleNodeName)
                 }
                 func addMarker() {
                     let markerNode = SKShapeNode(circleOfRadius: 5)

@@ -17,16 +17,7 @@ class SumscrapersGameScene: GameScene<SumscrapersGameState> {
     }
     
     func addNumber(n: Int, s: HintState, isHint: Bool, point: CGPoint, nodeName: String) {
-        let labelNode = SKLabelNode(text: String(n))
-        labelNode.fontColor = s == .normal ? isHint ? .gray : .white : s == .complete ? .green : .red
-        labelNode.fontName = labelNode.fontName! + "-Bold"
-        // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
-        let scalingFactor = min(gridNode.blockSize / labelNode.frame.width, gridNode.blockSize / labelNode.frame.height)
-        labelNode.fontSize *= scalingFactor
-        labelNode.verticalAlignmentMode = .center
-        labelNode.position = point
-        labelNode.name = nodeName
-        gridNode.addChild(labelNode)
+        addLabel(parentNode: gridNode, text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: SumscrapersGameState, skView: SKView) {

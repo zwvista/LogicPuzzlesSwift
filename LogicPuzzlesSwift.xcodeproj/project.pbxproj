@@ -20,6 +20,7 @@
 		8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D16A91DB8DE930056D407 /* Queue.swift */; };
 		8C31FE6E1D90E415008793BF /* SharkORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; };
 		8C31FE6F1D90E415008793BF /* SharkORM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8C508BEE1DFBD13700D99A09 /* GridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D41DC42FA40052202C /* GridNode.swift */; };
 		8C64A2681DD8089700AB6C09 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D31DC42FA40052202C /* GameViewController.swift */; };
 		8C64A2B81DDA00D500AB6C09 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2881DDA00D500AB6C09 /* ArrayExtensions.swift */; };
 		8C64A2B91DDA00D500AB6C09 /* BlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2891DDA00D500AB6C09 /* BlockButton.swift */; };
@@ -1471,6 +1472,7 @@
 				8C1D16B31DB8DE930056D407 /* README.markdown in Sources */,
 				8C9AF4A31DE974BF0053BED4 /* CloudsMixin.swift in Sources */,
 				8C9AF5651DF8D7770053BED4 /* MagnetsGameViewController.swift in Sources */,
+				8C508BEE1DFBD13700D99A09 /* GridNode.swift in Sources */,
 				8C9AF4911DE974BF0053BED4 /* BridgesGame.swift in Sources */,
 				8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */,
 				8C9AF5831DF8D84B0053BED4 /* RoomsObject.swift in Sources */,
