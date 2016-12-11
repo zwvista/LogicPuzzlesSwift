@@ -124,13 +124,9 @@ class MagnetsGameState: CellsGameState, MagnetsMixin {
             switch a.type {
             case .single:
                 continue
-            case .horizontal:
-                let (o1, o2) = (self[a.p], self[a.p + MagnetsGame.offset[1]])
-                if o1.isEmpty() != o2.isEmpty() {
-                    isSolved = false; return
-                }
-            case .vertical:
-                let (o1, o2) = (self[a.p], self[a.p + MagnetsGame.offset[2]])
+            case .horizontal, .vertical:
+                let os = MagnetsGame.offset[a.type == .horizontal ? 1 : 2]
+                let (o1, o2) = (self[a.p], self[a.p + os])
                 if o1.isEmpty() != o2.isEmpty() {
                     isSolved = false; return
                 }

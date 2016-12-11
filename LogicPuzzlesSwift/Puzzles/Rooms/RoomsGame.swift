@@ -16,6 +16,13 @@ class RoomsGame: CellsGame<RoomsGameViewController, RoomsGameMove, RoomsGameStat
         Position(1, 0),
         Position(0, -1),
     ];
+    static let offset2 = [
+        Position(0, 0),
+        Position(1, 1),
+        Position(1, 1),
+        Position(0, 0),
+    ];
+    static let dirs = [1, 0, 3, 2]
     
     override func isValid(row: Int, col: Int) -> Bool {
         return 0..<rows - 1 ~= row && 0..<cols - 1 ~= col

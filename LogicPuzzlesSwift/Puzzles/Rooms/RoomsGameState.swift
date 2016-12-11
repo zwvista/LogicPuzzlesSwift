@@ -90,17 +90,14 @@ class RoomsGameState: CellsGameState, RoomsMixin {
         isSolved = true
         for (p, n2) in game.pos2hint {
             var n1 = 0
-            func f(os1: Position, os2: Position, dir: Int) {
+            for i in 0..<4 {
+                let (os1, os2, dir) = (RoomsGame.offset[i], RoomsGame.offset2[i], RoomsGame.dirs[i])
                 var p2 = p
                 while(isValid(p: p2 + os1) && self[p2 + os2][dir] != .line) {
                     n1 += 1; p2 += os1
                 }
             }
-            f(os1: RoomsGame.offset[0], os2: Position(0, 0), dir: 1)
-            f(os1: RoomsGame.offset[3], os2: Position(0, 0), dir: 2)
-            f(os1: RoomsGame.offset[1], os2: Position(1, 1), dir: 0)
-            f(os1: RoomsGame.offset[2], os2: Position(1, 1), dir: 3)
-            pos2state[p] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            pos2state[p] = n1 > n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
         }
     }
