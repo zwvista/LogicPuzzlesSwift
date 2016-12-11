@@ -292,6 +292,8 @@
 		8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E51D771915000139FC /* LaunchScreen.storyboard */; };
 		8C9F43F21D771915000139FC /* LogicPuzzlesSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43F11D771915000139FC /* LogicPuzzlesSwiftTests.swift */; };
 		8C9F43FD1D771915000139FC /* LogicPuzzlesSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43FC1D771915000139FC /* LogicPuzzlesSwiftUITests.swift */; };
+		8CC34F9C1DFD958A00B8FD83 /* negative.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC34F9A1DFD958A00B8FD83 /* negative.png */; };
+		8CC34F9D1DFD958A00B8FD83 /* positive.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC34F9B1DFD958A00B8FD83 /* positive.png */; };
 		8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF1C011D8E1DB000AB6594 /* lightbulb.png */; };
 		8CD1558B1DD77C3400786F34 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD1558A1DD77C3400786F34 /* Extensions.swift */; };
 /* End PBXBuildFile section */
@@ -642,6 +644,8 @@
 		8C9F43F81D771915000139FC /* LogicPuzzlesSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogicPuzzlesSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9F43FC1D771915000139FC /* LogicPuzzlesSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicPuzzlesSwiftUITests.swift; sourceTree = "<group>"; };
 		8C9F43FE1D771915000139FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CC34F9A1DFD958A00B8FD83 /* negative.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = negative.png; sourceTree = "<group>"; };
+		8CC34F9B1DFD958A00B8FD83 /* positive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = positive.png; sourceTree = "<group>"; };
 		8CCF1C011D8E1DB000AB6594 /* lightbulb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightbulb.png; sourceTree = "<group>"; };
 		8CD1558A1DD77C3400786F34 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -888,6 +892,8 @@
 		8C916CC81DAB297A00D9E62B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8CC34F9A1DFD958A00B8FD83 /* negative.png */,
+				8CC34F9B1DFD958A00B8FD83 /* positive.png */,
 				8C9F43E81D771915000139FC /* Info.plist */,
 				8C9F43E51D771915000139FC /* LaunchScreen.storyboard */,
 				8CCF1C011D8E1DB000AB6594 /* lightbulb.png */,
@@ -1398,7 +1404,9 @@
 				8C9AF4EE1DE974BF0053BED4 /* SlitherLink.storyboard in Resources */,
 				8C9AF4821DE974BF0053BED4 /* Abc.storyboard in Resources */,
 				8C9AF4FA1DE974BF0053BED4 /* Sumscrapers.storyboard in Resources */,
+				8CC34F9C1DFD958A00B8FD83 /* negative.png in Resources */,
 				8C9AF48E1DE974BF0053BED4 /* Bridges.storyboard in Resources */,
+				8CC34F9D1DFD958A00B8FD83 /* positive.png in Resources */,
 				8C1D16B61DB8DE930056D407 /* Info.plist in Resources */,
 				8C1D16B01DB8DE930056D407 /* AnimatedExample.psd in Resources */,
 				8C9AF5601DF8D7770053BED4 /* Magnets.xml in Resources */,

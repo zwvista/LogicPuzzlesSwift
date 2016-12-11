@@ -26,8 +26,8 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
-    func addPole(ch: String, color: SKColor, point: CGPoint, nodeName: String) {
-        addLabel(text: ch, fontColor: color, point: point, nodeName: nodeName)
+    func addPole(o: MagnetsObject, colorBlendFactor: CGFloat, point: CGPoint, nodeName: String) {
+        addImage(imageNamed: o == .positive ? "positive" : "negative", color: .black, colorBlendFactor: colorBlendFactor, point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: MagnetsGameState, skView: SKView) {
@@ -80,10 +80,11 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
             }
         }
         
+        let poleNodeName = "pole"
         var point = gridNode.gridPosition(p: Position(game.rows, game.cols))
-        addPole(ch: "+", color: .red, point: point, nodeName: "pole")
+        addPole(o: .positive, colorBlendFactor: 0.5, point: point, nodeName: poleNodeName)
         point = gridNode.gridPosition(p: Position(game.rows + 1, game.cols + 1))
-        addPole(ch: "-", color: .blue, point: point, nodeName: "pole")
+        addPole(o: .negative, colorBlendFactor: 0.5, point: point, nodeName: poleNodeName)
     }
     
     override func levelUpdated(from stateFrom: MagnetsGameState, to stateTo: MagnetsGameState) {
@@ -143,10 +144,8 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
                     break
                 }
                 switch o2 {
-                case .positive:
-                    addPole(ch: "+", color: .red, point: point, nodeName: poleNodeName)
-                case .negative:
-                    addPole(ch: "-", color: .blue, point: point, nodeName: poleNodeName)
+                case .positive, .negative:
+                    addPole(o: o2, colorBlendFactor: 0.0, point: point, nodeName: poleNodeName)
                 case .marker:
                     addMarker()
                 default:

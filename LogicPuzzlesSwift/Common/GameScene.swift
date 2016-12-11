@@ -50,4 +50,15 @@ class GameScene<GS: GameStateBase>: SKScene {
         labelNode.name = nodeName
         gridNode.addChild(labelNode)
     }
+    
+    func addImage(imageNamed: String, color: SKColor, colorBlendFactor: CGFloat, point: CGPoint, nodeName: String) {
+        let lightbulbNode = SKSpriteNode(imageNamed: imageNamed)
+        let scalingFactor = min(gridNode.blockSize / lightbulbNode.frame.width, gridNode.blockSize / lightbulbNode.frame.height)
+        lightbulbNode.setScale(scalingFactor)
+        lightbulbNode.position = point
+        lightbulbNode.name = nodeName
+        lightbulbNode.color = color
+        lightbulbNode.colorBlendFactor = colorBlendFactor
+        gridNode.addChild(lightbulbNode)
+    }
 }
