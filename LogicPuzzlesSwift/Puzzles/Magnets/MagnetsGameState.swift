@@ -57,7 +57,7 @@ class MagnetsGameState: CellsGameState, MagnetsMixin {
     
     func setObject(move: inout MagnetsGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else {return false}
+        guard isValid(p: p) && !game.singles.contains(p) && self[p] != move.obj else {return false}
         self[p] = move.obj
         updateIsSolved()
         return true

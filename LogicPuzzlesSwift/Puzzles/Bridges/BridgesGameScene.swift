@@ -31,7 +31,7 @@ class BridgesGameScene: GameScene<BridgesGameState> {
         for (p, info) in game.islandsInfo {
             let n = info.bridges
             let point = gridNode.gridPosition(p: p)
-            let islandNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 2)
+            let islandNode = SKShapeNode(circleOfRadius: blockSize / 2)
             islandNode.position = point
             islandNode.name = "island"
             islandNode.strokeColor = .white

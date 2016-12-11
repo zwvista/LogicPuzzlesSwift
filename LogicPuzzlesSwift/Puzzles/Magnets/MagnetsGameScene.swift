@@ -26,6 +26,10 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
+    func addPole(ch: String, color: SKColor, point: CGPoint, nodeName: String) {
+        addLabel(text: ch, fontColor: color, point: point, nodeName: nodeName)
+    }
+    
     override func levelInitialized(_ game: AnyObject, state: MagnetsGameState, skView: SKView) {
         let game = game as! MagnetsGame
         removeAllChildren()
@@ -42,6 +46,12 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
                 let rectNode = SKShapeNode(rectOf: CGSize(width: blockSize, height: blockSize))
                 rectNode.position = point
                 gridNode.addChild(rectNode)
+                let pathToDraw = CGMutablePath()
+                let lineNode = SKShapeNode(path:pathToDraw)
+                pathToDraw.move(to: CGPoint(x: point.x + CGFloat(blockSize) / 2, y: point.y + CGFloat(blockSize) / 2))
+                pathToDraw.addLine(to: CGPoint(x: point.x - CGFloat(blockSize) / 2, y: point.y - CGFloat(blockSize) / 2))
+                lineNode.path = pathToDraw
+                gridNode.addChild(lineNode)
             case .horizontal:
                 let rectNode = SKShapeNode(rectOf: CGSize(width: blockSize * 2, height: blockSize))
                 rectNode.position = CGPoint(x: point.x + CGFloat(blockSize) / 2, y: point.y)
@@ -69,6 +79,11 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
                 addHint(p: p, n: n, s: state.col2state[c * 2 + r])
             }
         }
+        
+        var point = gridNode.gridPosition(p: Position(game.rows, game.cols))
+        addPole(ch: "+", color: .red, point: point, nodeName: "pole")
+        point = gridNode.gridPosition(p: Position(game.rows + 1, game.cols + 1))
+        addPole(ch: "-", color: .blue, point: point, nodeName: "pole")
     }
     
     override func levelUpdated(from stateFrom: MagnetsGameState, to stateTo: MagnetsGameState) {
@@ -107,9 +122,6 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
                 let poleNodeName = "pole" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 func removePole() { removeNode(withName: poleNodeName) }
-                func addPole(ch: String, color: SKColor) {
-                    addLabel(text: ch, fontColor: color, point: point, nodeName: poleNodeName)
-                }
                 func addMarker() {
                     let markerNode = SKShapeNode(circleOfRadius: 5)
                     markerNode.position = point
@@ -132,9 +144,9 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
                 }
                 switch o2 {
                 case .positive:
-                    addPole(ch: "+", color: .red)
+                    addPole(ch: "+", color: .red, point: point, nodeName: poleNodeName)
                 case .negative:
-                    addPole(ch: "-", color: .blue)
+                    addPole(ch: "-", color: .blue, point: point, nodeName: poleNodeName)
                 case .marker:
                     addMarker()
                 default:
