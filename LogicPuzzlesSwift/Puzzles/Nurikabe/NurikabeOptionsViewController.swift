@@ -21,20 +21,21 @@ class NurikabeOptionsViewController: OptionsViewController, NurikabeMixin {
         super.viewDidLoad()
         updateMarkerOption()
     }
-
+    
     override func onDefault() {
-        setMarkerOption(MarkerOptions.noMarker.rawValue)
-        gameOptions.commit()
-        updateMarkerOption()
+        let rec = gameOptions
+        setMarkerOption(rec: rec, newValue: MarkerOptions.noMarker.rawValue)
+        rec.commit()
+        self.updateMarkerOption()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row == 0 else { return }
         ActionSheetStringPicker.show(withTitle: "Marker Options", rows: MarkerOptions.optionStrings, initialSelection: markerOption, doneBlock: { (picker, selectedIndex, selectedValue) in
-            self.setMarkerOption(selectedIndex)
-            self.gameOptions.commit()
+            let rec = self.gameOptions
+            self.setMarkerOption(rec: rec, newValue: selectedIndex)
+            rec.commit()
             self.updateMarkerOption()
         }, cancel: nil, origin: lblMarker)
     }
-
 }

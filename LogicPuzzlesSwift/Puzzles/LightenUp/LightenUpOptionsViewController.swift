@@ -23,8 +23,9 @@ class LightenUpOptionsViewController: OptionsViewController, LightenUpMixin {
     }
     
     @IBAction func normalLightbulbsOnlyChanged(_ sender: AnyObject) {
-        setNormalLightbulbsOnly(swNormalLightbulbsOnly.isOn)
-        gameOptions.commit()
+        let rec = gameOptions
+        setNormalLightbulbsOnly(rec: rec, newValue: swNormalLightbulbsOnly.isOn)
+        rec.commit()
     }
     
     override func viewDidLoad() {
@@ -34,8 +35,9 @@ class LightenUpOptionsViewController: OptionsViewController, LightenUpMixin {
     }
 
     override func onDefault() {
-        setMarkerOption(MarkerOptions.noMarker.rawValue)
-        setNormalLightbulbsOnly(false)
+        let rec = gameOptions
+        setMarkerOption(rec: rec, newValue: MarkerOptions.noMarker.rawValue)
+        setNormalLightbulbsOnly(rec: rec, newValue: false)
         gameOptions.commit()
         updateMarkerOption()
         updateNormalLightbulbsOnly()
@@ -44,8 +46,9 @@ class LightenUpOptionsViewController: OptionsViewController, LightenUpMixin {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row == 0 else { return }
         ActionSheetStringPicker.show(withTitle: "Marker Options", rows: MarkerOptions.optionStrings, initialSelection: markerOption, doneBlock: { (picker, selectedIndex, selectedValue) in
-            self.setMarkerOption(selectedIndex)
-            self.gameOptions.commit()
+            let rec = self.gameOptions
+            self.setMarkerOption(rec: rec, newValue: selectedIndex)
+            rec.commit()
             self.updateMarkerOption()
         }, cancel: nil, origin: lblMarker)
     }
