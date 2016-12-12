@@ -358,7 +358,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="No Marker" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0fV-It-gjG">
-                                                    <rect key="frame" x="188" y="11" width="172" height="21"/>
+                                                    <rect key="frame" x="280" y="11" width="80" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -387,6 +387,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="lblMarker" destination="AgE-lo-Qjs" id="kwa-cG-VOW"/>
+                        <outlet property="lblMarkerOption" destination="0fV-It-gjG" id="4po-ip-All"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPv-81-tuD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

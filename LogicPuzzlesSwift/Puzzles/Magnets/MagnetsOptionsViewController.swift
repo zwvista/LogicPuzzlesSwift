@@ -12,7 +12,6 @@ class MagnetsOptionsViewController: OptionsViewController, MagnetsMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!
-    @IBOutlet weak var swNormalLightbulbsOnly: UISwitch!
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

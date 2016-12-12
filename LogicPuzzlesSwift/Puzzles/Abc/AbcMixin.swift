@@ -11,9 +11,14 @@ import Foundation
 protocol AbcMixin: GameMixin {
     var gameDocument: AbcDocument { get }
     var gameOptions: GameProgress { get }
+    var markerOption: Int { get }
+    // cannot use property here due to compiler bug
+    func setMarkerOption(_ newValue: Int)
 }
 
 extension AbcMixin {
     var gameDocument: AbcDocument { return AbcDocument.sharedInstance }
     var gameOptions: GameProgress { return gameDocument.gameProgress }
+    var markerOption: Int { return gameOptions.option1?.toInt() ?? 0 }
+    func setMarkerOption(_ newValue: Int) { gameOptions.option1 = newValue.description }
 }

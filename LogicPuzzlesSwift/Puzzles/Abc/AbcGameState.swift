@@ -86,7 +86,12 @@ class AbcGameState: CellsGameState, AbcMixin {
         let p = move.p
         guard isValid(p: p) else {return false}
         let o = self[p]
-        move.obj = o == " " ? "A" : o == game.chMax ? " " : f(ch: o)
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        move.obj =
+            o == " " ? markerOption == .markerFirst ? "." : "A" :
+            o == "." ? markerOption == .markerFirst ? "A" : " " :
+            o == game.chMax ? markerOption == .markerLast ? "." : " " :
+            f(ch: o)
         return setObject(move: &move)
     }
     

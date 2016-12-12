@@ -49,12 +49,31 @@ class AbcGameScene: GameScene<AbcGameState> {
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(row)-\(col)"
                 let charNodeName = "char" + nodeNameSuffix
+                let markerNodeName = "marker" + nodeNameSuffix
                 func removeCharacter() { removeNode(withName: charNodeName) }
+                func addMarker() {
+                    let markerNode = SKShapeNode(circleOfRadius: 5)
+                    markerNode.position = point
+                    markerNode.name = markerNodeName
+                    markerNode.strokeColor = .white
+                    markerNode.glowWidth = 1.0
+                    markerNode.fillColor = .white
+                    gridNode.addChild(markerNode)
+                }
+                func removeMarker() { removeNode(withName: markerNodeName) }
                 let (ch1, ch2) = (stateFrom[row, col], stateTo[row, col])
                 let (s1, s2) = (stateFrom.pos2state(row: row, col: col), stateTo.pos2state(row: row, col: col))
                 guard ch1 != ch2 || s1 != s2 else {continue}
-                if (ch1 != " ") {removeCharacter()}
-                if (ch2 != " ") {addCharacter(ch: ch2, s: s2, isHint: !stateFrom.game.isValid(p: p), point: point, nodeName: charNodeName)}
+                if ch1 == "." {
+                    removeMarker()
+                } else if (ch1 != " ") {
+                    removeCharacter()
+                }
+                if ch2 == "." {
+                    addMarker()
+                } else if (ch2 != " ") {
+                    addCharacter(ch: ch2, s: s2, isHint: !stateFrom.game.isValid(p: p), point: point, nodeName: charNodeName)
+                }
             }
         }
     }
