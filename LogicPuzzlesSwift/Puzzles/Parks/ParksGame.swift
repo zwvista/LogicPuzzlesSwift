@@ -27,6 +27,7 @@ class ParksGame: CellsGame<ParksGameViewController, ParksGameMove, ParksGameStat
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
     var dots: ParksDots!
+    let treesInEachArea = 1
     
     init(layout: [String], delegate: ParksGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -61,6 +62,16 @@ class ParksGame: CellsGame<ParksGameViewController, ParksGameMove, ParksGameStat
                 let p = Position(r, c)
                 rng.insert(p)
                 pos2node[p] = g.addNode(label: p.description)
+            }
+        }
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                for i in 0..<4 {
+                    if !dots[p + ParksGame.offset2[i], ParksGame.dirs[i]] {
+                        g.addEdge(source: pos2node[p]!, neighbor: pos2node[p + ParksGame.offset[i]]!)
+                    }
+                }
             }
         }
         while !rng.isEmpty {

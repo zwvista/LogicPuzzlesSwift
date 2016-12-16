@@ -75,7 +75,7 @@ class ParksGameScene: GameScene<ParksGameState> {
                 }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                guard String(describing: o1) == String(describing: o2) else {continue}
+                guard String(describing: o1) != String(describing: o2) else {continue}
                 switch o1 {
                 case .tree:
                     removeTree()

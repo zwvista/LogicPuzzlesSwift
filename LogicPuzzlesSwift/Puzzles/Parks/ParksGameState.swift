@@ -57,6 +57,7 @@ class ParksGameState: CellsGameState, ParksMixin {
         func objChanged() {
             changed = true
             self[p] = move.obj
+            updateIsSolved()
         }
         
         switch (self[p], move.obj) {
@@ -99,5 +100,58 @@ class ParksGameState: CellsGameState, ParksMixin {
     
     private func updateIsSolved() {
         isSolved = true
+        for r in 0..<rows {
+            for c in 0..<cols {
+                if case .tree = self[r, c] {
+                    self[r, c] = .tree(state: .normal)
+                }
+            }
+        }
+        let n2 = game.treesInEachArea
+        for r in 0..<rows {
+            var n1 = 0
+            var rng = [Position]()
+            for c in 0..<cols {
+                if case .tree = self[r, c] {
+                    rng.append(Position(r, c))
+                    n1 += 1
+                }
+            }
+            if n1 != n2 {isSolved = false}
+            guard n1 != n2 else {continue}
+            for p in rng {
+                self[p] = .tree(state: .error)
+            }
+        }
+        for c in 0..<cols {
+            var n1 = 0
+            var rng = [Position]()
+            for r in 0..<rows {
+                if case .tree = self[r, c] {
+                    rng.append(Position(r, c))
+                    n1 += 1
+                }
+            }
+            if n1 != n2 {isSolved = false}
+            guard n1 != n2 else {continue}
+            for p in rng {
+                self[p] = .tree(state: .error)
+            }
+        }
+        for a in game.areas {
+            var n1 = 0
+            var rng = [Position]()
+            for p in a {
+                if case .tree = self[p] {
+                    rng.append(p)
+                    n1 += 1
+                }
+            }
+            if n1 != n2 {isSolved = false}
+            guard n1 != n2 else {continue}
+            for p in rng {
+                self[p] = .tree(state: .error)
+            }
+        }
     }
 }
