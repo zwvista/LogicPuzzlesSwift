@@ -59,7 +59,7 @@ class ParksGameScene: GameScene<ParksGameState> {
                 }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                if o1 != o2 {
+                if String(describing: o1) != String(describing: o2) {
                     switch o1 {
                     case .tree:
                         removeFilledCell()

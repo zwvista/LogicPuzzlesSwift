@@ -137,7 +137,7 @@ class LightenUpGameState: CellsGameState, LightenUpMixin {
                 case .empty where o.lightness == 0, .marker where o.lightness == 0:
                     isSolved = false
                 case .lightbulb:
-                    let state: LightenUpLightbulbState = o.lightness == 1 ? .normal : .error
+                    let state: AllowedObjectState = o.lightness == 1 ? .normal : .error
                     self[r, c].objType = .lightbulb(state: state)
                     if o.lightness > 1 {isSolved = false}
                 case .wall:

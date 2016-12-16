@@ -8,12 +8,32 @@
 
 import Foundation
 
-enum ParksObject: Int {
+enum ParksObject {
     case empty
-    case tree
+    case tree(state: AllowedObjectState)
     case marker
     init() {
         self = .empty
+    }
+    func toString() -> String {
+        switch self {
+        case .tree:
+            return "tree"
+        case .marker:
+            return "marker"
+        default:
+            return "empty"
+        }
+    }
+    static func fromString(str: String) -> ParksObject {
+        switch str {
+        case "tree":
+            return .tree(state: .normal)
+        case "marker":
+            return .marker
+        default:
+            return .empty
+        }
     }
 }
 

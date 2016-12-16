@@ -51,10 +51,27 @@ class ParksGameState: CellsGameState, ParksMixin {
     }
     
     func setObject(move: inout ParksGameMove) -> Bool {
-        if self[move.p] == move.obj {return false}
-        self[move.p] = move.obj
-        updateIsSolved()
-        return true
+        var changed = false
+        let p = move.p
+        
+        func objChanged() {
+            changed = true
+            self[p] = move.obj
+        }
+        
+        switch (self[p], move.obj) {
+        case (.empty, .marker), (.marker, .empty):
+            objChanged()
+        case (.empty, .tree), (.marker, .tree):
+            if allowedObjectsOnly {break}
+            objChanged()
+        case (.tree, .empty), (.tree, .marker):
+            objChanged()
+        default:
+            break
+        }
+        
+        return changed
     }
     
     func switchObject(move: inout ParksGameMove) -> Bool {
@@ -62,11 +79,11 @@ class ParksGameState: CellsGameState, ParksMixin {
         func f(o: ParksObject) -> ParksObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .tree
+                return markerOption == .markerFirst ? .marker : .tree(state: .normal)
             case .tree:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .tree : .empty
+                return markerOption == .markerFirst ? .tree(state: .normal) : .empty
             }
         }
         let o = f(o: self[move.p])

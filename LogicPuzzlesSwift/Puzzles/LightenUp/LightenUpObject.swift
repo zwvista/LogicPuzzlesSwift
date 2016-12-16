@@ -8,13 +8,13 @@
 
 import Foundation
 
-enum LightenUpLightbulbState {
+enum AllowedObjectState {
     case normal, error
 }
 
 enum LightenUpObjectType {
     case empty
-    case lightbulb(state: LightenUpLightbulbState)
+    case lightbulb(state: AllowedObjectState)
     case marker
     case wall(state: HintState)
     init() {
