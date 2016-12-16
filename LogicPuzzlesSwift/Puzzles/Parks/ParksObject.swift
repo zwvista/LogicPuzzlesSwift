@@ -10,7 +10,7 @@ import Foundation
 
 enum ParksObject: Int {
     case empty
-    case filled
+    case tree
     case marker
     init() {
         self = .empty

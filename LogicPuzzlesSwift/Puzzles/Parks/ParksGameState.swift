@@ -62,16 +62,22 @@ class ParksGameState: CellsGameState, ParksMixin {
         func f(o: ParksObject) -> ParksObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .filled
-            case .filled:
+                return markerOption == .markerFirst ? .marker : .tree
+            case .tree:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .filled : .empty
+                return markerOption == .markerFirst ? .tree : .empty
             }
         }
         let o = f(o: self[move.p])
-        move.obj = o
-        return setObject(move: &move)
+        switch o {
+        case .empty, .marker:
+            move.obj = o
+            return setObject(move: &move)
+        case .tree:
+            move.obj = allowedObjectsOnly ? f(o: o) : o
+            return setObject(move: &move)
+        }
     }
     
     private func updateIsSolved() {

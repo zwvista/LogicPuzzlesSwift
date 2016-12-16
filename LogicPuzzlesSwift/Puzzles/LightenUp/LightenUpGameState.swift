@@ -86,7 +86,7 @@ class LightenUpGameState: CellsGameState, LightenUpMixin {
         case (.empty, .marker), (.marker, .empty):
             objChanged()
         case (.empty, .lightbulb), (.marker, .lightbulb):
-            if normalLightbulbsOnly && self[p].lightness > 0 {break}
+            if allowedObjectsOnly && self[p].lightness > 0 {break}
             objChanged()
             adjustLightness(tolighten: true)
         case (.lightbulb, .empty), (.lightbulb, .marker):
@@ -120,7 +120,7 @@ class LightenUpGameState: CellsGameState, LightenUpMixin {
             move.objType = o
             return setObject(move: &move)
         case .lightbulb:
-            move.objType = normalLightbulbsOnly && self[p].lightness > 0 ? f(o: o) : o
+            move.objType = allowedObjectsOnly && self[p].lightness > 0 ? f(o: o) : o
             return setObject(move: &move)
         case .wall:
             return false

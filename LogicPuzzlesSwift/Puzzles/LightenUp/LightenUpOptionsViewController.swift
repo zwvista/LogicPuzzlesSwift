@@ -12,35 +12,35 @@ class LightenUpOptionsViewController: OptionsViewController, LightenUpMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!
-    @IBOutlet weak var swNormalLightbulbsOnly: UISwitch!
+    @IBOutlet weak var swAllowedObjectsOnly: UISwitch!
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]
     }
     
-    func updateNormalLightbulbsOnly() {
-        swNormalLightbulbsOnly.isOn = normalLightbulbsOnly;
+    func updateAllowedObjectsOnly() {
+        swAllowedObjectsOnly.isOn = allowedObjectsOnly;
     }
     
-    @IBAction func normalLightbulbsOnlyChanged(_ sender: AnyObject) {
+    @IBAction func allowedObjectsOnlyChanged(_ sender: AnyObject) {
         let rec = gameOptions
-        setNormalLightbulbsOnly(rec: rec, newValue: swNormalLightbulbsOnly.isOn)
+        setAllowedObjectsOnly(rec: rec, newValue: swAllowedObjectsOnly.isOn)
         rec.commit()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateMarkerOption()
-        updateNormalLightbulbsOnly()
+        updateAllowedObjectsOnly()
     }
 
     override func onDefault() {
         let rec = gameOptions
         setMarkerOption(rec: rec, newValue: MarkerOptions.noMarker.rawValue)
-        setNormalLightbulbsOnly(rec: rec, newValue: false)
-        gameOptions.commit()
+        setAllowedObjectsOnly(rec: rec, newValue: false)
+        rec.commit()
         updateMarkerOption()
-        updateNormalLightbulbsOnly()
+        updateAllowedObjectsOnly()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -12,9 +12,20 @@ class ParksOptionsViewController: OptionsViewController, ParksMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!
-    
+    @IBOutlet weak var swAllowedObjectsOnly: UISwitch!
+
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]
+    }
+    
+    func updateAllowedObjectsOnly() {
+        swAllowedObjectsOnly.isOn = allowedObjectsOnly;
+    }
+    
+    @IBAction func allowedObjectsOnlyChanged(_ sender: AnyObject) {
+        let rec = gameOptions
+        setAllowedObjectsOnly(rec: rec, newValue: swAllowedObjectsOnly.isOn)
+        rec.commit()
     }
     
     override func viewDidLoad() {
@@ -25,8 +36,10 @@ class ParksOptionsViewController: OptionsViewController, ParksMixin {
     override func onDefault() {
         let rec = gameOptions
         setMarkerOption(rec: rec, newValue: MarkerOptions.noMarker.rawValue)
+        setAllowedObjectsOnly(rec: rec, newValue: false)
         rec.commit()
-        self.updateMarkerOption()
+        updateMarkerOption()
+        updateAllowedObjectsOnly()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

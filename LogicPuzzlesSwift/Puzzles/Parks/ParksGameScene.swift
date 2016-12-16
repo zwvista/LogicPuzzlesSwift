@@ -61,7 +61,7 @@ class ParksGameScene: GameScene<ParksGameState> {
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 if o1 != o2 {
                     switch o1 {
-                    case .filled:
+                    case .tree:
                         removeFilledCell()
                     case .marker:
                         removeMarker()
@@ -69,7 +69,7 @@ class ParksGameScene: GameScene<ParksGameState> {
                         break
                     }
                     switch o2 {
-                    case .filled:
+                    case .tree:
                         break
                     case .marker:
                         addMarker()
