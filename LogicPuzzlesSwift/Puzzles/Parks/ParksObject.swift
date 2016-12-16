@@ -37,31 +37,33 @@ enum ParksObject {
     }
 }
 
-struct ParksDots {
+typealias ParksDotObject = [Bool]
+
+class ParksDots {
     var rows = 0
     var cols = 0
-    var objArray = [[Bool]]()
+    var objArray = [ParksDotObject]()
     
     init(rows: Int, cols: Int) {
         self.rows = rows
         self.cols = cols
-        objArray = Array<LoopyObject>(repeating: Array<Bool>(repeating: false, count: 4), count: rows * cols)
+        objArray = Array<ParksDotObject>(repeating: Array<Bool>(repeating: false, count: 4), count: rows * cols)
     }
 
-    subscript(p: Position) -> LoopyObject {
+    subscript(p: Position, dir: Int) -> Bool {
         get {
-            return objArray[p.row * cols + p.col]
+            return self[p.row, p.col, dir]
         }
         set(newValue) {
-            self[p.row, p.col] = newValue
+            self[p.row, p.col, dir] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> LoopyObject {
+    subscript(row: Int, col: Int, dir: Int) -> Bool {
         get {
-            return objArray[row * cols + col]
+            return objArray[row * cols + col][dir]
         }
         set(newValue) {
-            objArray[row * cols + col] = newValue
+            objArray[row * cols + col][dir] = newValue
         }
     }
 }

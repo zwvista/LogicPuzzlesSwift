@@ -32,15 +32,15 @@ class ParksGame: CellsGame<ParksGameViewController, ParksGameMove, ParksGameStat
         super.init(delegate: delegate)
         
         size = Position(layout.count / 2, layout[0].length / 2)
-        dots = ParksDots(rows: rows, cols: cols)
+        dots = ParksDots(rows: rows + 1, cols: cols + 1)
         
         for r in 0..<rows + 1 {
             var str = layout[2 * r]
             for c in 0..<cols {
                 let ch = str[2 * c + 1]
                 if ch == "-" {
-                    dots[r, c][1] = true
-                    dots[r, c + 1][3] = true
+                    dots[r, c, 1] = true
+                    dots[r, c + 1, 3] = true
                 }
             }
             guard r < rows else {break}
@@ -48,8 +48,8 @@ class ParksGame: CellsGame<ParksGameViewController, ParksGameMove, ParksGameStat
             for c in 0..<cols + 1 {
                 let ch = str[2 * c]
                 if ch == "|" {
-                    dots[r, c][2] = true
-                    dots[r + 1, c][0] = true
+                    dots[r, c, 2] = true
+                    dots[r + 1, c, 0] = true
                 }
             }
         }
@@ -72,7 +72,7 @@ class ParksGame: CellsGame<ParksGameViewController, ParksGameMove, ParksGameStat
                 pos2area[p] = n
             }
             areas.append(area)
-            rng = rng.intersection(area)
+            rng.subtract(area)
         }
         
         let state = ParksGameState(game: self)

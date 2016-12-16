@@ -17,7 +17,7 @@ class ParksGameScene: GameScene<ParksGameState> {
     func addHintNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
-    
+
     override func levelInitialized(_ game: AnyObject, state: ParksGameState, skView: SKView) {
         let game = game as! ParksGame
         removeAllChildren()
@@ -27,7 +27,33 @@ class ParksGameScene: GameScene<ParksGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: ParksGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
-        // addHints
+        let pathToDraw = CGMutablePath()
+        let lineNode = SKShapeNode(path: pathToDraw)
+        for row in 0..<game.rows + 1 {
+            for col in 0..<game.cols + 1 {
+                let p = Position(row, col)
+                let point = gridNode.gridPosition(p: p)
+                for dir in 1...2 {
+                    guard game.dots[row, col, dir] else {continue}
+                    switch dir {
+                    case 1:
+                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
+                        pathToDraw.addLine(to: CGPoint(x: point.x + gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
+                        lineNode.glowWidth = 8
+                    case 2:
+                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
+                        pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y - gridNode.blockSize / 2))
+                        lineNode.glowWidth = 8
+                    default:
+                        break
+                    }
+                }
+            }
+        }
+        lineNode.path = pathToDraw
+        lineNode.strokeColor = .yellow
+        lineNode.name = "line"
+        gridNode.addChild(lineNode)
     }
     
     override func levelUpdated(from stateFrom: ParksGameState, to stateTo: ParksGameState) {
