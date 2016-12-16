@@ -28,12 +28,6 @@ class ParksGameScene: GameScene<ParksGameState> {
         addGrid(gridNode: ParksGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
         // addHints
-        for (p, n) in game.pos2hint {
-            let point = gridNode.gridPosition(p: p)
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let hintNumberNodeName = "hintNumber" + nodeNameSuffix
-            addHintNumber(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNumberNodeName)
-        }
     }
     
     override func levelUpdated(from stateFrom: ParksGameState, to stateTo: ParksGameState) {
@@ -46,7 +40,6 @@ class ParksGameScene: GameScene<ParksGameState> {
                 let filledCellNodeName = "filledCell" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let hintNumberNodeName = "hintNumber" + nodeNameSuffix
-                func addHintNumber2() { addHintNumber(n: stateFrom.game.pos2hint[p]!, s: stateTo.pos2state[p]!, point: point, nodeName: hintNumberNodeName) }
                 func removeHintNumber() { removeNode(withName: hintNumberNodeName) }
                 func addFilledCell() {
                     let filledCellNode = SKSpriteNode(color: .purple, size: coloredRectSize())
@@ -77,10 +70,7 @@ class ParksGameScene: GameScene<ParksGameState> {
                     }
                     switch o2 {
                     case .filled:
-                        let b = stateFrom.game.pos2hint[p] != nil
-                        if b {removeHintNumber()}
-                        addFilledCell()
-                        if b {addHintNumber2()}
+                        break
                     case .marker:
                         addMarker()
                     default:
@@ -90,7 +80,6 @@ class ParksGameScene: GameScene<ParksGameState> {
                 guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
                 if s1 != s2 {
                     removeHintNumber()
-                    addHintNumber2()
                 }
             }
         }

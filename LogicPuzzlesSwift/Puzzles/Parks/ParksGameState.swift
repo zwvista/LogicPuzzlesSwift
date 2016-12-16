@@ -31,9 +31,6 @@ class ParksGameState: CellsGameState, ParksMixin {
     required init(game: ParksGame) {
         super.init(game: game);
         objArray = Array<ParksObject>(repeating: .empty, count: rows * cols)
-        for (p, n) in game.pos2hint {
-            pos2state[p] = n == 0 ? .complete : .normal
-        }
     }
     
     subscript(p: Position) -> ParksObject {
@@ -79,15 +76,5 @@ class ParksGameState: CellsGameState, ParksMixin {
     
     private func updateIsSolved() {
         isSolved = true
-        for (p, n2) in game.pos2hint {
-            var n1 = 0
-            for os in ParksGame.offset {
-                let p2 = p + os
-                guard isValid(p: p2) else {continue}
-                if self[p2] == .filled {n1 += 1}
-            }
-            pos2state[p] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 {isSolved = false}
-        }
     }
 }

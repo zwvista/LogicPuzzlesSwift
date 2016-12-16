@@ -12,36 +12,67 @@ class ParksGame: CellsGame<ParksGameViewController, ParksGameMove, ParksGameStat
     static var gameID = "Parks"
     static let offset = [
         Position(-1, 0),
-        Position(-1, 1),
         Position(0, 1),
-        Position(1, 1),
         Position(1, 0),
-        Position(1, -1),
         Position(0, -1),
-        Position(-1, -1),
+    ];
+    static let offset2 = [
+        Position(0, 0),
+        Position(1, 1),
+        Position(1, 1),
         Position(0, 0),
     ];
+    static let dirs = [1, 0, 3, 2]
 
-    var pos2hint = [Position: Int]()
+    var areas = [[Position]]()
+    var pos2area = [Position: Int]()
+    var dots: ParksDots!
     
     init(layout: [String], delegate: ParksGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count, layout[0].length)
+        size = Position(layout.count / 2, layout[0].length / 2)
+        dots = ParksDots(rows: rows, cols: cols)
         
-        for r in 0..<rows {
-            let str = layout[r]
+        for r in 0..<rows + 1 {
+            var str = layout[2 * r]
             for c in 0..<cols {
-                let p = Position(r, c)
-                let ch = str[c]
-                switch ch {
-                case "0"..."9":
-                    let n = ch.toInt!
-                    pos2hint[p] = n
-                default:
-                    break
+                let ch = str[2 * c + 1]
+                if ch == "-" {
+                    dots[r, c][1] = true
+                    dots[r, c + 1][3] = true
                 }
             }
+            guard r < rows else {break}
+            str = layout[2 * r + 1]
+            for c in 0..<cols + 1 {
+                let ch = str[2 * c]
+                if ch == "|" {
+                    dots[r, c][2] = true
+                    dots[r + 1, c][0] = true
+                }
+            }
+        }
+        var rng = Set<Position>()
+        let g = Graph()
+        var pos2node = [Position: Node]()
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                rng.insert(p)
+                pos2node[p] = g.addNode(label: p.description)
+            }
+        }
+        while !rng.isEmpty {
+            let node = pos2node[rng.first!]!
+            let nodesExplored = breadthFirstSearch(g, source: node)
+            let area = rng.filter({p in nodesExplored.contains(p.description)})
+            let n = areas.count
+            for p in area {
+                pos2area[p] = n
+            }
+            areas.append(area)
+            rng = rng.intersection(area)
         }
         
         let state = ParksGameState(game: self)
