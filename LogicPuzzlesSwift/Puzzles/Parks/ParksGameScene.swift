@@ -13,10 +13,6 @@ class ParksGameScene: GameScene<ParksGameState> {
         get {return getGridNode() as! ParksGridNode}
         set {setGridNode(gridNode: newValue)}
     }
-    
-    func addHintNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
-    }
 
     override func levelInitialized(_ game: AnyObject, state: ParksGameState, skView: SKView) {
         let game = game as! ParksGame
@@ -57,23 +53,17 @@ class ParksGameScene: GameScene<ParksGameState> {
     }
     
     override func levelUpdated(from stateFrom: ParksGameState, to stateTo: ParksGameState) {
-        let markerOffset: CGFloat = 7.5
         for row in 0..<stateFrom.rows {
             for col in 0..<stateFrom.cols {
                 let p = Position(row, col)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(row)-\(col)"
-                let filledCellNodeName = "filledCell" + nodeNameSuffix
+                let treeNodeName = "tree" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
-                let hintNumberNodeName = "hintNumber" + nodeNameSuffix
-                func removeHintNumber() { removeNode(withName: hintNumberNodeName) }
-                func addFilledCell() {
-                    let filledCellNode = SKSpriteNode(color: .purple, size: coloredRectSize())
-                    filledCellNode.position = point
-                    filledCellNode.name = filledCellNodeName
-                    gridNode.addChild(filledCellNode)
+                func addTree(s: AllowedObjectState) {
+                    addImage(imageNamed: "lightbulb", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.2, point: point, nodeName: treeNodeName)
                 }
-                func removeFilledCell() { removeNode(withName: filledCellNodeName) }
+                func removeTree() { removeNode(withName: treeNodeName) }
                 func addMarker() {
                     let markerNode = SKShapeNode(circleOfRadius: 5)
                     markerNode.position = point
@@ -85,27 +75,22 @@ class ParksGameScene: GameScene<ParksGameState> {
                 }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                if String(describing: o1) != String(describing: o2) {
-                    switch o1 {
-                    case .tree:
-                        removeFilledCell()
-                    case .marker:
-                        removeMarker()
-                    default:
-                        break
-                    }
-                    switch o2 {
-                    case .tree:
-                        break
-                    case .marker:
-                        addMarker()
-                    default:
-                        break
-                    }
+                guard String(describing: o1) == String(describing: o2) else {continue}
+                switch o1 {
+                case .tree:
+                    removeTree()
+                case .marker:
+                    removeMarker()
+                default:
+                    break
                 }
-                guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
-                if s1 != s2 {
-                    removeHintNumber()
+                switch o2 {
+                case let .tree(s):
+                    addTree(s: s)
+                case .marker:
+                    addMarker()
+                default:
+                    break
                 }
             }
         }
