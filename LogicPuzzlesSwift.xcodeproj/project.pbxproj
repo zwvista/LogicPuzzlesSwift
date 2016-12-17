@@ -56,6 +56,8 @@
 		8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D16A91DB8DE930056D407 /* Queue.swift */; };
 		8C31FE6E1D90E415008793BF /* SharkORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; };
 		8C31FE6F1D90E415008793BF /* SharkORM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8C373D441E0507F7005712CD /* tent.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C373D421E0507F7005712CD /* tent.png */; };
+		8C373D451E0507F7005712CD /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C373D431E0507F7005712CD /* tree.png */; };
 		8C508BEE1DFBD13700D99A09 /* GridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D41DC42FA40052202C /* GridNode.swift */; };
 		8C64A2681DD8089700AB6C09 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D31DC42FA40052202C /* GameViewController.swift */; };
 		8C64A2EC1DE0891000AB6C09 /* GameTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2EB1DE0891000AB6C09 /* GameTables.swift */; };
@@ -424,6 +426,8 @@
 		8C1D16A91DB8DE930056D407 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		8C1D16AA1DB8DE930056D407 /* Tests.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Tests.xcodeproj; sourceTree = "<group>"; };
 		8C31FE6D1D90E415008793BF /* SharkORM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SharkORM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C373D421E0507F7005712CD /* tent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tent.png; sourceTree = "<group>"; };
+		8C373D431E0507F7005712CD /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree.png; sourceTree = "<group>"; };
 		8C64A2EB1DE0891000AB6C09 /* GameTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTables.swift; sourceTree = "<group>"; };
 		8C6ACC181DD204420075F32C /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
 		8C6D37331DC421180052202C /* HomeDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDocument.swift; sourceTree = "<group>"; };
@@ -1024,6 +1028,8 @@
 		8C916CC81DAB297A00D9E62B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8C373D421E0507F7005712CD /* tent.png */,
+				8C373D431E0507F7005712CD /* tree.png */,
 				8CC34F9A1DFD958A00B8FD83 /* negative.png */,
 				8CC34F9B1DFD958A00B8FD83 /* positive.png */,
 				8C9F43E81D771915000139FC /* Info.plist */,
@@ -1508,6 +1514,7 @@
 			files = (
 				84FBA5571DFF7F4F00594DAE /* Tents.xml in Resources */,
 				8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */,
+				8C373D441E0507F7005712CD /* tent.png in Resources */,
 				8C9AF48F1DE974BF0053BED4 /* Bridges.xml in Resources */,
 				8C9AF4E31DE974BF0053BED4 /* Skyscrapers.xml in Resources */,
 				8C9AF49A1DE974BF0053BED4 /* Clouds.storyboard in Resources */,
@@ -1523,6 +1530,7 @@
 				8C9AF4A71DE974BF0053BED4 /* Hitori.xml in Resources */,
 				8C9AF4BE1DE974BF0053BED4 /* LineSweeper.storyboard in Resources */,
 				8C9AF5791DF8D84B0053BED4 /* Rooms.storyboard in Resources */,
+				8C373D451E0507F7005712CD /* tree.png in Resources */,
 				8C1D16B11DB8DE930056D407 /* TraversalTree.graffle in Resources */,
 				8C9AF4D61DE974BF0053BED4 /* Nurikabe.storyboard in Resources */,
 				8C9AF49B1DE974BF0053BED4 /* Clouds.xml in Resources */,

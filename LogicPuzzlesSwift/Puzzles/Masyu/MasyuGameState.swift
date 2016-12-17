@@ -33,7 +33,7 @@ class MasyuGameState: CellsGameState, MasyuMixin {
     
     subscript(p: Position) -> MasyuObject {
         get {
-            return objArray[p.row * cols + p.col]
+            return self[p.row, p.col]
         }
         set(newValue) {
             self[p.row, p.col] = newValue

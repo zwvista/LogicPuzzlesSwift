@@ -8,12 +8,37 @@
 
 import Foundation
 
-enum TentsObject: Int {
+enum TentsObject {
     case empty
-    case cloud
     case marker
+    case tent(state: AllowedObjectState)
+    case tree
     init() {
         self = .empty
+    }
+    func toString() -> String {
+        switch self {
+        case .marker:
+            return "marker"
+        case .tent:
+            return "tent"
+        case .tree:
+            return "tree"
+        default:
+            return "empty"
+        }
+    }
+    static func fromString(str: String) -> TentsObject {
+        switch str {
+        case "marker":
+            return .marker
+        case "tent":
+            return .tent(state: .normal)
+        case "tree":
+            return .tree
+        default:
+            return .empty
+        }
     }
 }
 

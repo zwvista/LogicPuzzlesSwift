@@ -19,7 +19,7 @@ class TentsGame: CellsGame<TentsGameViewController, TentsGameMove, TentsGameStat
 
     var row2hint = [Int]()
     var col2hint = [Int]()
-    var pos2cloud = [Position]()
+    var pos2tree = [Position]()
     
     init(layout: [String], delegate: TentsGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -34,8 +34,8 @@ class TentsGame: CellsGame<TentsGameViewController, TentsGameMove, TentsGameStat
                 let p = Position(r, c)
                 let ch = str[c]
                 switch ch {
-                case "C":
-                    pos2cloud.append(p)
+                case "T":
+                    pos2tree.append(p)
                 case "0"..."9":
                     let n = ch.toInt!
                     if r == rows {

@@ -17,20 +17,20 @@ enum ParksObject {
     }
     func toString() -> String {
         switch self {
-        case .tree:
-            return "tree"
         case .marker:
             return "marker"
+        case .tree:
+            return "tree"
         default:
             return "empty"
         }
     }
     static func fromString(str: String) -> ParksObject {
         switch str {
-        case "tree":
-            return .tree(state: .normal)
         case "marker":
             return .marker
+        case "tree":
+            return .tree(state: .normal)
         default:
             return .empty
         }

@@ -40,7 +40,7 @@ class TentsGameState: CellsGameState, TentsMixin {
     
     subscript(p: Position) -> TentsObject {
         get {
-            return objArray[p.row * cols + p.col]
+            return self[p.row, p.col]
         }
         set(newValue) {
             self[p.row, p.col] = newValue
@@ -56,11 +56,28 @@ class TentsGameState: CellsGameState, TentsMixin {
     }
     
     func setObject(move: inout TentsGameMove) -> Bool {
+        var changed = false
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else {return false}
-        self[p] = move.obj
-        updateIsSolved()
-        return true
+        
+        func objChanged() {
+            changed = true
+            self[p] = move.obj
+            updateIsSolved()
+        }
+        
+        switch (self[p], move.obj) {
+        case (.empty, .marker), (.marker, .empty):
+            objChanged()
+        case (.empty, .tree), (.marker, .tree):
+            if allowedObjectsOnly {break}
+            objChanged()
+        case (.tree, .empty), (.tree, .marker):
+            objChanged()
+        default:
+            break
+        }
+        
+        return changed
     }
     
     func switchObject(move: inout TentsGameMove) -> Bool {
@@ -68,11 +85,13 @@ class TentsGameState: CellsGameState, TentsMixin {
         func f(o: TentsObject) -> TentsObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .cloud
-            case .cloud:
+                return markerOption == .markerFirst ? .marker : .tent(state: .normal)
+            case .tent:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .cloud : .empty
+                return markerOption == .markerFirst ? .tent(state: .normal) : .empty
+            default:
+                return o
             }
         }
         let p = move.p
@@ -87,7 +106,7 @@ class TentsGameState: CellsGameState, TentsMixin {
             var n1 = 0
             let n2 = game.row2hint[r]
             for c in 0..<cols {
-                if self[r, c] == .cloud {n1 += 1}
+                if case .tent = self[r, c] {n1 += 1}
             }
             row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
@@ -96,45 +115,10 @@ class TentsGameState: CellsGameState, TentsMixin {
             var n1 = 0
             let n2 = game.col2hint[c]
             for r in 0..<rows {
-                if self[r, c] == .cloud {n1 += 1}
+                if case .tent = self[r, c] {n1 += 1}
             }
             col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
-        }
-        guard isSolved else {return}
-        let g = Graph()
-        var pos2node = [Position: Node]()
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                guard self[p] == .cloud else {continue}
-                let node = g.addNode(label: p.description)
-                pos2node[p] = node
-            }
-        }
-        for (p, node) in pos2node {
-            for os in TentsGame.offset {
-                let p2 = p + os
-                guard let node2 = pos2node[p2] else {continue}
-                g.addEdge(source: node, neighbor: node2)
-            }
-        }
-        while pos2node.count > 0 {
-            let nodesExplored = breadthFirstSearch(g, source: pos2node.values.first!)
-            var r2 = 0, r1 = rows, c2 = 0, c1 = cols
-            for node in nodesExplored {
-                let p = pos2node.filter{$1.label == node}.first!.key
-                pos2node.remove(at: pos2node.index(forKey: p)!)
-                if r2 < p.row {r2 = p.row}
-                if r1 > p.row {r1 = p.row}
-                if c2 < p.col {c2 = p.col}
-                if c1 > p.col {c1 = p.col}
-            }
-            let rs = r2 - r1 + 1, cs = c2 - c1 + 1;
-            if !(rs >= 2 && cs >= 2 && rs * cs == nodesExplored.count) {
-                isSolved = false
-                return
-            }
         }
     }
 }

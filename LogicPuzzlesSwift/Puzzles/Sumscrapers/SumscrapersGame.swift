@@ -25,7 +25,7 @@ class SumscrapersGame: CellsGame<SumscrapersGameViewController, SumscrapersGameM
     var intMax: Int {return rows - 2}
     subscript(p: Position) -> Int {
         get {
-            return objArray[p.row * cols + p.col]
+            return self[p.row, p.col]
         }
         set(newValue) {
             self[p.row, p.col] = newValue

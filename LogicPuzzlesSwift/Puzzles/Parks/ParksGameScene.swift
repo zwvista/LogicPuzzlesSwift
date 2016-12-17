@@ -61,7 +61,7 @@ class ParksGameScene: GameScene<ParksGameState> {
                 let treeNodeName = "tree" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 func addTree(s: AllowedObjectState) {
-                    addImage(imageNamed: "lightbulb", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.2, point: point, nodeName: treeNodeName)
+                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.2, point: point, nodeName: treeNodeName)
                 }
                 func removeTree() { removeNode(withName: treeNodeName) }
                 func addMarker() {

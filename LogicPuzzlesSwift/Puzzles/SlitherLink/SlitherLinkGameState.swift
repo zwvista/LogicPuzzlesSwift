@@ -38,7 +38,7 @@ class SlitherLinkGameState: CellsGameState, SlitherLinkMixin {
     
     subscript(p: Position) -> SlitherLinkDotObject {
         get {
-            return objArray[p.row * cols + p.col]
+            return self[p.row, p.col]
         }
         set(newValue) {
             self[p.row, p.col] = newValue

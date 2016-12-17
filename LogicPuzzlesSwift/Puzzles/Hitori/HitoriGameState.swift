@@ -40,7 +40,7 @@ class HitoriGameState: CellsGameState, HitoriMixin {
     
     subscript(p: Position) -> HitoriObject {
         get {
-            return objArray[p.row * cols + p.col]
+            return self[p.row, p.col]
         }
         set(newValue) {
             self[p.row, p.col] = newValue

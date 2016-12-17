@@ -14,13 +14,6 @@ class TentsGameScene: GameScene<TentsGameState> {
         set {setGridNode(gridNode: newValue)}
     }
     
-    func addCloud(color: SKColor, point: CGPoint, nodeName: String) {
-        let cloudNode = SKSpriteNode(color: color, size: coloredRectSize())
-        cloudNode.position = point
-        cloudNode.name = nodeName
-        gridNode.addChild(cloudNode)
-    }
-    
     func addHint(p: Position, n: Int, s: HintState) {
         let point = gridNode.gridPosition(p: p)
         guard n >= 0 else {return}
@@ -54,12 +47,10 @@ class TentsGameScene: GameScene<TentsGameState> {
             addHint(p: p, n: n, s: state.col2state[c])
         }
         
-        // add Tents
-        for p in game.pos2cloud {
+        // add Trees
+        for p in game.pos2tree {
             let point = gridNode.gridPosition(p: p)
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let cloudNodeName = "cloud" + nodeNameSuffix
-            addCloud(color: .gray, point: point, nodeName: cloudNodeName)
+            addImage(imageNamed: "tree", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "tree")
         }
     }
     
@@ -90,9 +81,12 @@ class TentsGameScene: GameScene<TentsGameState> {
                 let p = Position(row, col)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(row)-\(col)"
-                let cloudNodeName = "cloud" + nodeNameSuffix
+                let tentNodeName = "tent" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
-                func removeCloud() { removeNode(withName: cloudNodeName) }
+                func addTent(s: AllowedObjectState) {
+                    addImage(imageNamed: "tent", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.2, point: point, nodeName: tentNodeName)
+                }
+                func removeTent() { removeNode(withName: tentNodeName) }
                 func addMarker() {
                     let markerNode = SKShapeNode(circleOfRadius: 5)
                     markerNode.position = point
@@ -104,18 +98,18 @@ class TentsGameScene: GameScene<TentsGameState> {
                 }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 let (o1, o2) = (stateFrom[row, col], stateTo[row, col])
-                guard o1 != o2 else {continue}
+                guard String(describing: o1) != String(describing: o2) else {continue}
                 switch o1 {
-                case .cloud:
-                    removeCloud()
+                case .tent:
+                    removeTent()
                 case .marker:
                     removeMarker()
                 default:
                     break
                 }
                 switch o2 {
-                case .cloud:
-                    addCloud(color: .white, point: point, nodeName: cloudNodeName)
+                case let .tent(s):
+                    addTent(s: s)
                 case .marker:
                     addMarker()
                 default:
