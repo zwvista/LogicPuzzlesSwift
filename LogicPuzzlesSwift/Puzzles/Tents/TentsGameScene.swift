@@ -84,7 +84,7 @@ class TentsGameScene: GameScene<TentsGameState> {
                 let tentNodeName = "tent" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 func addTent(s: AllowedObjectState) {
-                    addImage(imageNamed: "tent", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.2, point: point, nodeName: tentNodeName)
+                    addImage(imageNamed: "tent", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: tentNodeName)
                 }
                 func removeTent() { removeNode(withName: tentNodeName) }
                 func addMarker() {

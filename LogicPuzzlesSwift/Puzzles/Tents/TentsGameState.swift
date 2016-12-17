@@ -33,6 +33,9 @@ class TentsGameState: CellsGameState, TentsMixin {
     required init(game: TentsGame) {
         super.init(game: game);
         objArray = Array<TentsObject>(repeating: TentsObject(), count: rows * cols)
+        for p in game.pos2tree {
+            self[p] = .tree
+        }
         row2state = Array<HintState>(repeating: .normal, count: rows)
         col2state = Array<HintState>(repeating: .normal, count: cols)
         updateIsSolved()
@@ -68,10 +71,10 @@ class TentsGameState: CellsGameState, TentsMixin {
         switch (self[p], move.obj) {
         case (.empty, .marker), (.marker, .empty):
             objChanged()
-        case (.empty, .tree), (.marker, .tree):
+        case (.empty, .tent), (.marker, .tent):
             if allowedObjectsOnly {break}
             objChanged()
-        case (.tree, .empty), (.tree, .marker):
+        case (.tent, .empty), (.tent, .marker):
             objChanged()
         default:
             break
@@ -102,6 +105,27 @@ class TentsGameState: CellsGameState, TentsMixin {
     
     private func updateIsSolved() {
         isSolved = true
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                guard case .tent = self[p] else {continue}
+                var (hasTree, hasNeighbor) = (false, false)
+                for os in TentsGame.offset {
+                    let p2 = p + os
+                    guard isValid(p: p2) else {continue}
+                    switch self[p2] {
+                    case .tree:
+                        hasTree = true
+                    case .tent:
+                        hasNeighbor = true
+                    default:
+                        continue
+                    }
+                }
+                self[p] = .tent(state: (hasTree, hasNeighbor) == (true, false) ? .normal : .error)
+                if (hasTree, hasNeighbor) != (true, false) {isSolved = false}
+            }
+        }
         for r in 0..<rows {
             var n1 = 0
             let n2 = game.row2hint[r]
