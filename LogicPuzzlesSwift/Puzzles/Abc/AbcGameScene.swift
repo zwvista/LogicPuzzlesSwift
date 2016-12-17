@@ -51,15 +51,7 @@ class AbcGameScene: GameScene<AbcGameState> {
                 let charNodeName = "char" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 func removeCharacter() { removeNode(withName: charNodeName) }
-                func addMarker() {
-                    let markerNode = SKShapeNode(circleOfRadius: 5)
-                    markerNode.position = point
-                    markerNode.name = markerNodeName
-                    markerNode.strokeColor = .white
-                    markerNode.glowWidth = 1.0
-                    markerNode.fillColor = .white
-                    gridNode.addChild(markerNode)
-                }
+                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 let (ch1, ch2) = (stateFrom[row, col], stateTo[row, col])
                 let (s1, s2) = (stateFrom.pos2state(row: row, col: col), stateTo.pos2state(row: row, col: col))

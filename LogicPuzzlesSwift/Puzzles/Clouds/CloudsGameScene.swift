@@ -93,15 +93,7 @@ class CloudsGameScene: GameScene<CloudsGameState> {
                 let cloudNodeName = "cloud" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 func removeCloud() { removeNode(withName: cloudNodeName) }
-                func addMarker() {
-                    let markerNode = SKShapeNode(circleOfRadius: 5)
-                    markerNode.position = point
-                    markerNode.name = markerNodeName
-                    markerNode.strokeColor = .white
-                    markerNode.glowWidth = 1.0
-                    markerNode.fillColor = .white
-                    gridNode.addChild(markerNode)
-                }
+                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 let (o1, o2) = (stateFrom[row, col], stateTo[row, col])
                 guard o1 != o2 else {continue}

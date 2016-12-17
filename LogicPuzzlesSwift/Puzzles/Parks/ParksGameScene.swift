@@ -64,15 +64,7 @@ class ParksGameScene: GameScene<ParksGameState> {
                     addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.2, point: point, nodeName: treeNodeName)
                 }
                 func removeTree() { removeNode(withName: treeNodeName) }
-                func addMarker() {
-                    let markerNode = SKShapeNode(circleOfRadius: 5)
-                    markerNode.position = point
-                    markerNode.name = markerNodeName
-                    markerNode.strokeColor = .white
-                    markerNode.glowWidth = 1.0
-                    markerNode.fillColor = .white
-                    gridNode.addChild(markerNode)
-                }
+                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 guard String(describing: o1) != String(describing: o2) else {continue}

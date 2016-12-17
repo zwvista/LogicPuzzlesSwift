@@ -61,4 +61,23 @@ class GameScene<GS: GameStateBase>: SKScene {
         lightbulbNode.colorBlendFactor = colorBlendFactor
         gridNode.addChild(lightbulbNode)
     }
+    
+    func addDotMarker(point: CGPoint, nodeName: String) {
+        let markerNode = SKShapeNode(circleOfRadius: 5)
+        markerNode.position = point
+        markerNode.name = nodeName
+        markerNode.strokeColor = .white
+        markerNode.glowWidth = 1.0
+        markerNode.fillColor = .white
+        gridNode.addChild(markerNode)
+    }
+    
+    func addCircleMarker(point: CGPoint, nodeName: String) {
+        let markerNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 2)
+        markerNode.position = point
+        markerNode.name = nodeName
+        markerNode.strokeColor = .white
+        markerNode.glowWidth = 1.0
+        gridNode.addChild(markerNode)
+    }
 }

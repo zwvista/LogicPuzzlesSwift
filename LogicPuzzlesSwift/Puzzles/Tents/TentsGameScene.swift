@@ -87,15 +87,7 @@ class TentsGameScene: GameScene<TentsGameState> {
                     addImage(imageNamed: "tent", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: tentNodeName)
                 }
                 func removeTent() { removeNode(withName: tentNodeName) }
-                func addMarker() {
-                    let markerNode = SKShapeNode(circleOfRadius: 5)
-                    markerNode.position = point
-                    markerNode.name = markerNodeName
-                    markerNode.strokeColor = .white
-                    markerNode.glowWidth = 1.0
-                    markerNode.fillColor = .white
-                    gridNode.addChild(markerNode)
-                }
+                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 let (o1, o2) = (stateFrom[row, col], stateTo[row, col])
                 guard String(describing: o1) != String(describing: o2) else {continue}

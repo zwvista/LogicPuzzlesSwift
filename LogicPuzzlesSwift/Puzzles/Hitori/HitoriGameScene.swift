@@ -99,14 +99,7 @@ class HitoriGameScene: GameScene<HitoriGameState> {
                     gridNode.addChild(darkenNode)
                 }
                 func removeDarken() { removeNode(withName: darkenNodeName) }
-                func addMarker() {
-                    let markerNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 2)
-                    markerNode.position = point
-                    markerNode.name = markerNodeName
-                    markerNode.strokeColor = .white
-                    markerNode.glowWidth = 1.0
-                    gridNode.addChild(markerNode)
-                }
+                func addMarker() { addCircleMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 let (o1, o2) = (stateFrom[row, col], stateTo[row, col])
                 guard o1 != o2 else {continue}
