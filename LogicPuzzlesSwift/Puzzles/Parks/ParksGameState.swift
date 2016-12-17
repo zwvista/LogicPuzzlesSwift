@@ -51,28 +51,11 @@ class ParksGameState: CellsGameState, ParksMixin {
     }
     
     func setObject(move: inout ParksGameMove) -> Bool {
-        var changed = false
         let p = move.p
-        
-        func objChanged() {
-            changed = true
-            self[p] = move.obj
-            updateIsSolved()
-        }
-        
-        switch (self[p], move.obj) {
-        case (.empty, .marker), (.marker, .empty):
-            objChanged()
-        case (.empty, .tree), (.marker, .tree):
-            if allowedObjectsOnly {break}
-            objChanged()
-        case (.tree, .empty), (.tree, .marker):
-            objChanged()
-        default:
-            break
-        }
-        
-        return changed
+        guard String(describing: self[p]) != String(describing: move.obj) else {return false}
+        self[p] = move.obj
+        updateIsSolved()
+        return true
     }
     
     func switchObject(move: inout ParksGameMove) -> Bool {
@@ -85,15 +68,16 @@ class ParksGameState: CellsGameState, ParksMixin {
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
                 return markerOption == .markerFirst ? .tree(state: .normal) : .empty
+            case .forbidden:
+                return o
             }
         }
         let o = f(o: self[move.p])
         switch o {
-        case .empty, .marker:
+        case .forbidden:
+            return false
+        default:
             move.obj = o
-            return setObject(move: &move)
-        case .tree:
-            move.obj = allowedObjectsOnly ? f(o: o) : o
             return setObject(move: &move)
         }
     }
@@ -102,55 +86,89 @@ class ParksGameState: CellsGameState, ParksMixin {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                if case .tree = self[r, c] {
-                    self[r, c] = .tree(state: .normal)
+                let p = Position(r, c)
+                switch self[p] {
+                case .forbidden:
+                    self[p] = .empty
+                case .tree:
+                    self[p] = .tree(state: .normal)
+                default:
+                    break
+                }
+            }
+        }
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                func hasTreeNeighbor() -> Bool {
+                    for os in ParksGame.offset {
+                        let p2 = p + os
+                        guard isValid(p: p2) else {continue}
+                        if case .tree = self[p2] {return true}
+                    }
+                    return false
+                }
+                switch self[p] {
+                case let .tree(state):
+                    self[p] = .tree(state: state == .normal && !hasTreeNeighbor() ? .normal : .error)
+                case .forbidden:
+                    break
+                default:
+                    guard allowedObjectsOnly && hasTreeNeighbor() else {continue}
+                    self[p] = .forbidden
                 }
             }
         }
         let n2 = game.treesInEachArea
         for r in 0..<rows {
             var n1 = 0
-            var rng = [Position]()
             for c in 0..<cols {
-                if case .tree = self[r, c] {
-                    rng.append(Position(r, c))
-                    n1 += 1
-                }
+                if case .tree = self[r, c] {n1 += 1}
             }
             if n1 != n2 {isSolved = false}
-            guard n1 != n2 else {continue}
-            for p in rng {
-                self[p] = .tree(state: .error)
+            for c in 0..<cols {
+                switch self[r, c] {
+                case let .tree(state):
+                    self[r, c] = .tree(state: state == .normal && n1 <= n2 ? .normal : .error)
+                case .forbidden:
+                    break
+                default:
+                    if n1 == n2 && allowedObjectsOnly {self[r, c] = .forbidden}
+                }
             }
         }
         for c in 0..<cols {
             var n1 = 0
-            var rng = [Position]()
             for r in 0..<rows {
-                if case .tree = self[r, c] {
-                    rng.append(Position(r, c))
-                    n1 += 1
-                }
+                if case .tree = self[r, c] {n1 += 1}
             }
             if n1 != n2 {isSolved = false}
-            guard n1 != n2 else {continue}
-            for p in rng {
-                self[p] = .tree(state: .error)
+            for r in 0..<rows {
+                switch self[r, c] {
+                case let .tree(state):
+                    self[r, c] = .tree(state: state == .normal && n1 <= n2 ? .normal : .error)
+                case .forbidden:
+                    break
+                default:
+                    if n1 == n2 && allowedObjectsOnly {self[r, c] = .forbidden}
+                }
             }
         }
         for a in game.areas {
             var n1 = 0
-            var rng = [Position]()
             for p in a {
-                if case .tree = self[p] {
-                    rng.append(p)
-                    n1 += 1
-                }
+                if case .tree = self[p] {n1 += 1}
             }
             if n1 != n2 {isSolved = false}
-            guard n1 != n2 else {continue}
-            for p in rng {
-                self[p] = .tree(state: .error)
+            for p in a {
+                switch self[p] {
+                case let .tree(state):
+                    self[p] = .tree(state: state == .normal && n1 <= n2 ? .normal : .error)
+                case .forbidden:
+                    break
+                default:
+                    if n1 == n2 && allowedObjectsOnly {self[p] = .forbidden}
+                }
             }
         }
     }

@@ -8,10 +8,6 @@
 
 import Foundation
 
-enum AllowedObjectState {
-    case normal, error
-}
-
 enum LightenUpObjectType {
     case empty
     case lightbulb(state: AllowedObjectState)

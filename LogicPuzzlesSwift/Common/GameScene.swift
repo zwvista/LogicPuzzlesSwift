@@ -62,14 +62,22 @@ class GameScene<GS: GameStateBase>: SKScene {
         gridNode.addChild(lightbulbNode)
     }
     
-    func addDotMarker(point: CGPoint, nodeName: String) {
+    private func addDotMarker2(color: SKColor, point: CGPoint, nodeName: String) {
         let markerNode = SKShapeNode(circleOfRadius: 5)
         markerNode.position = point
         markerNode.name = nodeName
         markerNode.strokeColor = .white
         markerNode.glowWidth = 1.0
-        markerNode.fillColor = .white
+        markerNode.fillColor = color
         gridNode.addChild(markerNode)
+    }
+    
+    func addDotMarker(point: CGPoint, nodeName: String) {
+        addDotMarker2(color: .white, point: point, nodeName: nodeName)
+    }
+    
+    func addForbiddenMarker(point: CGPoint, nodeName: String) {
+        addDotMarker2(color: .yellow, point: point, nodeName: nodeName)
     }
     
     func addCircleMarker(point: CGPoint, nodeName: String) {

@@ -10,8 +10,9 @@ import Foundation
 
 enum ParksObject {
     case empty
-    case tree(state: AllowedObjectState)
+    case forbidden
     case marker
+    case tree(state: AllowedObjectState)
     init() {
         self = .empty
     }

@@ -17,3 +17,7 @@ enum MarkerOptions: Int {
 enum HintState {
     case normal, complete, error
 }
+
+enum AllowedObjectState {
+    case normal, error
+}

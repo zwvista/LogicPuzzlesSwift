@@ -12,9 +12,13 @@ class ParksGame: CellsGame<ParksGameViewController, ParksGameMove, ParksGameStat
     static var gameID = "Parks"
     static let offset = [
         Position(-1, 0),
+        Position(-1, 1),
         Position(0, 1),
+        Position(1, 1),
         Position(1, 0),
+        Position(1, -1),
         Position(0, -1),
+        Position(-1, -1),
     ];
     static let offset2 = [
         Position(0, 0),
@@ -69,7 +73,7 @@ class ParksGame: CellsGame<ParksGameViewController, ParksGameMove, ParksGameStat
                 let p = Position(r, c)
                 for i in 0..<4 {
                     if !dots[p + ParksGame.offset2[i], ParksGame.dirs[i]] {
-                        g.addEdge(source: pos2node[p]!, neighbor: pos2node[p + ParksGame.offset[i]]!)
+                        g.addEdge(source: pos2node[p]!, neighbor: pos2node[p + ParksGame.offset[i * 2]]!)
                     }
                 }
             }

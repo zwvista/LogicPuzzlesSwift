@@ -19,7 +19,7 @@ class LightenUpOptionsViewController: OptionsViewController, LightenUpMixin {
     }
     
     func updateAllowedObjectsOnly() {
-        swAllowedObjectsOnly.isOn = allowedObjectsOnly;
+        swAllowedObjectsOnly.isOn = allowedObjectsOnly
     }
     
     @IBAction func allowedObjectsOnlyChanged(_ sender: AnyObject) {

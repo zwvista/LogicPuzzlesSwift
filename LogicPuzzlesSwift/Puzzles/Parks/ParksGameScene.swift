@@ -60,15 +60,20 @@ class ParksGameScene: GameScene<ParksGameState> {
                 let nodeNameSuffix = "-\(row)-\(col)"
                 let treeNodeName = "tree" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
+                let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 func addTree(s: AllowedObjectState) {
-                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.2, point: point, nodeName: treeNodeName)
+                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: treeNodeName)
                 }
                 func removeTree() { removeNode(withName: treeNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
+                func addFordden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
+                func removeFordden() { removeNode(withName: forbiddenNodeName) }
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 guard String(describing: o1) != String(describing: o2) else {continue}
                 switch o1 {
+                case .forbidden:
+                    removeFordden()
                 case .tree:
                     removeTree()
                 case .marker:
@@ -77,6 +82,8 @@ class ParksGameScene: GameScene<ParksGameState> {
                     break
                 }
                 switch o2 {
+                case .forbidden:
+                    addFordden()
                 case let .tree(s):
                     addTree(s: s)
                 case .marker:

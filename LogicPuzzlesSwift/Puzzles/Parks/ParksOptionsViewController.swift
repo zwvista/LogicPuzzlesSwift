@@ -19,7 +19,7 @@ class ParksOptionsViewController: OptionsViewController, ParksMixin {
     }
     
     func updateAllowedObjectsOnly() {
-        swAllowedObjectsOnly.isOn = allowedObjectsOnly;
+        swAllowedObjectsOnly.isOn = allowedObjectsOnly
     }
     
     @IBAction func allowedObjectsOnlyChanged(_ sender: AnyObject) {
@@ -31,6 +31,7 @@ class ParksOptionsViewController: OptionsViewController, ParksMixin {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateMarkerOption()
+        updateAllowedObjectsOnly()
     }
     
     override func onDefault() {
