@@ -61,12 +61,11 @@ class GameDocument<G: GameBase, GM> {
     
     func moveAdded(game: AnyObject, move: GM) {
         let game = game as! G
-        let n = game.moveIndex
-        MoveProgress.query().where(withFormat: "gameID = %@ AND levelID = %@ AND moveIndex >= %@", withParameters: [G.gameID, selectedLevelID, n]).fetch().removeAll()
+        MoveProgress.query().where(withFormat: "gameID = %@ AND levelID = %@ AND moveIndex >= %@", withParameters: [G.gameID, selectedLevelID, game.moveIndex]).fetch().removeAll()
         let rec = MoveProgress()
         rec.gameID = G.gameID
         rec.levelID = selectedLevelID
-        rec.moveIndex = n
+        rec.moveIndex = game.moveIndex
         saveMove(move, to: rec)
         rec.commit()
     }
