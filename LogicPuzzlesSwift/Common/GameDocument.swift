@@ -62,11 +62,7 @@ class GameDocument<G: GameBase, GM> {
     func moveAdded(game: AnyObject, move: GM) {
         let game = game as! G
         let n = game.moveIndex
-        // I don't know why this doesn't work
-        GameProgress.query().where(withFormat: "gameID = %@ AND levelID = %@ AND moveIndex >= %@", withParameters: [G.gameID, selectedLevelID, n]).fetch().removeAll()
-        for case let rec as MoveProgress in moveProgress {
-            if rec.moveIndex >= n {rec.remove()}
-        }
+        MoveProgress.query().where(withFormat: "gameID = %@ AND levelID = %@ AND moveIndex >= %@", withParameters: [G.gameID, selectedLevelID, n]).fetch().removeAll()
         let rec = MoveProgress()
         rec.gameID = G.gameID
         rec.levelID = selectedLevelID
