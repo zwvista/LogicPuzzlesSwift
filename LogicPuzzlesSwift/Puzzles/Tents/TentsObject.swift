@@ -10,6 +10,7 @@ import Foundation
 
 enum TentsObject {
     case empty
+    case forbidden
     case marker
     case tent(state: AllowedObjectState)
     case tree
@@ -22,8 +23,6 @@ enum TentsObject {
             return "marker"
         case .tent:
             return "tent"
-        case .tree:
-            return "tree"
         default:
             return "empty"
         }
@@ -34,8 +33,6 @@ enum TentsObject {
             return .marker
         case "tent":
             return .tent(state: .normal)
-        case "tree":
-            return .tree
         default:
             return .empty
         }

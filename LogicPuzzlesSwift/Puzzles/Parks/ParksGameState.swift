@@ -68,18 +68,14 @@ class ParksGameState: CellsGameState, ParksMixin {
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
                 return markerOption == .markerFirst ? .tree(state: .normal) : .empty
-            case .forbidden:
+            default:
                 return o
             }
         }
-        let o = f(o: self[move.p])
-        switch o {
-        case .forbidden:
-            return false
-        default:
-            move.obj = o
-            return setObject(move: &move)
-        }
+        let p = move.p
+        guard isValid(p: p) else {return false}
+        move.obj = f(o: self[p])
+        return setObject(move: &move)
     }
     
     private func updateIsSolved() {
