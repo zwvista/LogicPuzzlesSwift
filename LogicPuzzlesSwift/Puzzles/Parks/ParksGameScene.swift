@@ -25,12 +25,12 @@ class ParksGameScene: GameScene<ParksGameState> {
         
         let pathToDraw = CGMutablePath()
         let lineNode = SKShapeNode(path: pathToDraw)
-        for row in 0..<game.rows + 1 {
-            for col in 0..<game.cols + 1 {
-                let p = Position(row, col)
+        for r in 0..<game.rows + 1 {
+            for c in 0..<game.cols + 1 {
+                let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 for dir in 1...2 {
-                    guard game.dots[row, col, dir] else {continue}
+                    guard game.dots[r, c, dir] else {continue}
                     switch dir {
                     case 1:
                         pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
@@ -53,11 +53,11 @@ class ParksGameScene: GameScene<ParksGameState> {
     }
     
     override func levelUpdated(from stateFrom: ParksGameState, to stateTo: ParksGameState) {
-        for row in 0..<stateFrom.rows {
-            for col in 0..<stateFrom.cols {
-                let p = Position(row, col)
+        for r in 0..<stateFrom.rows {
+            for c in 0..<stateFrom.cols {
+                let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
-                let nodeNameSuffix = "-\(row)-\(col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let treeNodeName = "tree" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
@@ -67,13 +67,13 @@ class ParksGameScene: GameScene<ParksGameState> {
                 func removeTree() { removeNode(withName: treeNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
-                func addFordden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
-                func removeFordden() { removeNode(withName: forbiddenNodeName) }
+                func addForbidden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
+                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 guard String(describing: o1) != String(describing: o2) else {continue}
                 switch o1 {
                 case .forbidden:
-                    removeFordden()
+                    removeForbidden()
                 case .tree:
                     removeTree()
                 case .marker:
@@ -83,7 +83,7 @@ class ParksGameScene: GameScene<ParksGameState> {
                 }
                 switch o2 {
                 case .forbidden:
-                    addFordden()
+                    addForbidden()
                 case let .tree(s):
                     addTree(s: s)
                 case .marker:

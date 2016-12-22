@@ -38,10 +38,10 @@ class NurikabeGameScene: GameScene<NurikabeGameState> {
     }
     
     override func levelUpdated(from stateFrom: NurikabeGameState, to stateTo: NurikabeGameState) {
-        for row in 0..<stateFrom.rows {
-            for col in 0..<stateFrom.cols {
-                let point = gridNode.gridPosition(p: Position(row, col))
-                let nodeNameSuffix = "-\(row)-\(col)"
+        for r in 0..<stateFrom.rows {
+            for c in 0..<stateFrom.cols {
+                let point = gridNode.gridPosition(p: Position(r, c))
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let wallNodeName = "wall" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
@@ -55,7 +55,7 @@ class NurikabeGameScene: GameScene<NurikabeGameState> {
                 func removeWall() { removeNode(withName: wallNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
-                let (ot1, ot2) = (stateFrom[row, col], stateTo[row, col])
+                let (ot1, ot2) = (stateFrom[r, c], stateTo[r, c])
                 guard String(describing: ot1) != String(describing: ot2) else {continue}
                 switch ot1 {
                 case .wall:
@@ -73,7 +73,7 @@ class NurikabeGameScene: GameScene<NurikabeGameState> {
                 case .marker:
                     addMarker()
                 case let .hint(s):
-                    let n = stateTo.game.pos2hint[Position(row, col)]!
+                    let n = stateTo.game.pos2hint[Position(r, c)]!
                     addHint(n: n, s: s, point: point, nodeName: hintNodeName)
                 default:
                     break

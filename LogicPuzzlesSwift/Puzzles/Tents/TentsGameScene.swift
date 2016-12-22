@@ -26,6 +26,10 @@ class TentsGameScene: GameScene<TentsGameState> {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
+    func addForbidden(point: CGPoint, nodeName: String) {
+        addForbiddenMarker(point: point, nodeName: nodeName)
+    }
+    
     override func levelInitialized(_ game: AnyObject, state: TentsGameState, skView: SKView) {
         let game = game as! TentsGame
         removeAllChildren()
@@ -47,10 +51,22 @@ class TentsGameScene: GameScene<TentsGameState> {
             addHint(p: p, n: n, s: state.col2state[c])
         }
         
-        // add Trees
-        for p in game.pos2tree {
-            let point = gridNode.gridPosition(p: p)
-            addImage(imageNamed: "tree", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "tree")
+        for r in 0..<game.rows {
+            for c in 0..<game.cols {
+                let p = Position(r, c)
+                let point = gridNode.gridPosition(p: p)
+                let nodeNameSuffix = "-\(r)-\(c)"
+                let forbiddenNodeName = "forbidden" + nodeNameSuffix
+                switch state[p] {
+                case .forbidden:
+                    addForbidden(point: point, nodeName: forbiddenNodeName)
+                case .tree:
+                    let point = gridNode.gridPosition(p: p)
+                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "tree")
+                default:
+                    break
+                }
+            }
         }
     }
     
@@ -76,22 +92,26 @@ class TentsGameScene: GameScene<TentsGameState> {
                 addHint(p: p, n: n, s: stateTo.col2state[c])
             }
         }
-        for row in 0..<stateFrom.rows {
-            for col in 0..<stateFrom.cols {
-                let p = Position(row, col)
+        for r in 0..<stateFrom.rows {
+            for c in 0..<stateFrom.cols {
+                let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
-                let nodeNameSuffix = "-\(row)-\(col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let tentNodeName = "tent" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
+                let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 func addTent(s: AllowedObjectState) {
                     addImage(imageNamed: "tent", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: tentNodeName)
                 }
                 func removeTent() { removeNode(withName: tentNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
-                let (o1, o2) = (stateFrom[row, col], stateTo[row, col])
+                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
+                let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
                 guard String(describing: o1) != String(describing: o2) else {continue}
                 switch o1 {
+                case .forbidden:
+                    removeForbidden()
                 case .tent:
                     removeTent()
                 case .marker:
@@ -100,6 +120,8 @@ class TentsGameScene: GameScene<TentsGameState> {
                     break
                 }
                 switch o2 {
+                case .forbidden:
+                    addForbidden(point: point, nodeName: forbiddenNodeName)
                 case let .tent(s):
                     addTent(s: s)
                 case .marker:

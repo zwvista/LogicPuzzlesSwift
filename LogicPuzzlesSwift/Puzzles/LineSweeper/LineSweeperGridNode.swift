@@ -20,11 +20,11 @@ class LineSweeperGridNode : GridNode {
     }
     
     func linePosition(point: CGPoint) -> (Position, Int) {
-        let row = Int(-point.y / blockSize)
-        let col = Int(point.x / blockSize)
-        let p = Position(row, col)
-        let dx = point.x - (CGFloat(col) + 0.5) * blockSize
-        let dy = -(point.y + (CGFloat(row) + 0.5) * blockSize)
+        let r = Int(-point.y / blockSize)
+        let c = Int(point.x / blockSize)
+        let p = Position(r, c)
+        let dx = point.x - (CGFloat(c) + 0.5) * blockSize
+        let dy = -(point.y + (CGFloat(r) + 0.5) * blockSize)
         let dx2 = abs(dx), dy2 = abs(dy)
         return (p, -dy2...dy2 ~= dx ? dy > 0 ? 2 : 0 :
             -dx2...dx2 ~= dy ? dx > 0 ? 1 : 3 : 0);

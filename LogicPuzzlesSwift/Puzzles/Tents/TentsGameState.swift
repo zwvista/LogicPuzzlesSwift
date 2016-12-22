@@ -59,28 +59,11 @@ class TentsGameState: CellsGameState, TentsMixin {
     }
     
     func setObject(move: inout TentsGameMove) -> Bool {
-        var changed = false
         let p = move.p
-        
-        func objChanged() {
-            changed = true
-            self[p] = move.obj
-            updateIsSolved()
-        }
-        
-        switch (self[p], move.obj) {
-        case (.empty, .marker), (.marker, .empty):
-            objChanged()
-        case (.empty, .tent), (.marker, .tent):
-            if allowedObjectsOnly {break}
-            objChanged()
-        case (.tent, .empty), (.tent, .marker):
-            objChanged()
-        default:
-            break
-        }
-        
-        return changed
+        guard String(describing: self[p]) != String(describing: move.obj) else {return false}
+        self[p] = move.obj
+        updateIsSolved()
+        return true
     }
     
     func switchObject(move: inout TentsGameMove) -> Bool {
@@ -106,27 +89,6 @@ class TentsGameState: CellsGameState, TentsMixin {
     private func updateIsSolved() {
         isSolved = true
         for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                guard case .tent = self[p] else {continue}
-                var (hasTree, hasNeighbor) = (false, false)
-                for os in TentsGame.offset {
-                    let p2 = p + os
-                    guard isValid(p: p2) else {continue}
-                    switch self[p2] {
-                    case .tree:
-                        hasTree = true
-                    case .tent:
-                        hasNeighbor = true
-                    default:
-                        continue
-                    }
-                }
-                self[p] = .tent(state: (hasTree, hasNeighbor) == (true, false) ? .normal : .error)
-                if (hasTree, hasNeighbor) != (true, false) {isSolved = false}
-            }
-        }
-        for r in 0..<rows {
             var n1 = 0
             let n2 = game.row2hint[r]
             for c in 0..<cols {
@@ -143,6 +105,40 @@ class TentsGameState: CellsGameState, TentsMixin {
             }
             col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
+        }
+        for r in 0..<rows {
+            for c in 0..<cols {
+                if case .forbidden = self[r, c] {self[r, c] = .empty}
+            }
+        }
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                if case .tree = self[p] {continue}
+                var (hasTree, hasTent) = (false, false)
+                for os in TentsGame.offset {
+                    let p2 = p + os
+                    guard isValid(p: p2) else {continue}
+                    switch self[p2] {
+                    case .tree:
+                        hasTree = true
+                    case .tent:
+                        hasTent = true
+                    default:
+                        continue
+                    }
+                }
+                switch self[p] {
+                case .tent:
+                    self[p] = .tent(state: (hasTree, hasTent) == (true, false) ? .normal : .error)
+                    if (hasTree, hasTent) != (true, false) {isSolved = false}
+                case .empty, .marker:
+                    guard allowedObjectsOnly else {break}
+                    if col2state[c] != .normal || row2state[r] != .normal || !hasTree || hasTent {self[p] = .forbidden}
+                default:
+                    break
+                }
+            }
         }
     }
 }

@@ -115,17 +115,17 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
                 }
             }
         }
-        for row in 0..<stateFrom.rows {
-            for col in 0..<stateFrom.cols {
-                let p = Position(row, col)
+        for r in 0..<stateFrom.rows {
+            for c in 0..<stateFrom.cols {
+                let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
-                let nodeNameSuffix = "-\(row)-\(col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let poleNodeName = "pole" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 func removePole() { removeNode(withName: poleNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
-                let (o1, o2) = (stateFrom[row, col], stateTo[row, col])
+                let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
                 guard o1 != o2 else {continue}
                 switch o1 {
                 case .positive, .negative:

@@ -44,9 +44,9 @@ class LoopyGameScene: GameScene<LoopyGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: LoopyGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset))
 
-        for row in 0..<game.rows {
-            for col in 0..<game.cols {
-                let p = Position(row, col)
+        for r in 0..<game.rows {
+            for c in 0..<game.cols {
+                let p = Position(r, c)
                 let point = gridNode.dotPosition(p: p)
                 let dotNode = SKShapeNode(circleOfRadius: 5)
                 dotNode.position = point
@@ -58,13 +58,13 @@ class LoopyGameScene: GameScene<LoopyGameState> {
             }
         }
 
-        for row in 0..<game.rows {
-            for col in 0..<game.cols {
-                let p = Position(row, col)
+        for r in 0..<game.rows {
+            for c in 0..<game.cols {
+                let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 for dir in 1...2 {
-                    guard game[row, col][dir] else {continue}
-                    let nodeNameSuffix = "-\(row)-\(col)-\(dir)"
+                    guard game[r, c][dir] else {continue}
+                    let nodeNameSuffix = "-\(r)-\(c)-\(dir)"
                     let lineNodeName = "line" + nodeNameSuffix
                     addLine(dir: dir, color: .white, point: point, nodeName: lineNodeName)
                 }
@@ -74,13 +74,13 @@ class LoopyGameScene: GameScene<LoopyGameState> {
     
     override func levelUpdated(from stateFrom: LoopyGameState, to stateTo: LoopyGameState) {
         let markerOffset: CGFloat = 7.5
-        for row in 0..<stateFrom.rows {
-            for col in 0..<stateFrom.cols {
+        for r in 0..<stateFrom.rows {
+            for c in 0..<stateFrom.cols {
                 for dir in 1...2 {
-                    guard !stateFrom.game[row, col][dir] else {continue}
-                    let p = Position(row, col)
+                    guard !stateFrom.game[r, c][dir] else {continue}
+                    let p = Position(r, c)
                     let point = gridNode.gridPosition(p: p)
-                    let nodeNameSuffix = "-\(row)-\(col)-\(dir)"
+                    let nodeNameSuffix = "-\(r)-\(c)-\(dir)"
                     let lineNodeName = "line" + nodeNameSuffix
                     func removeLine() { removeNode(withName: lineNodeName) }
                     let (o1, o2) = (stateFrom[p][dir], stateTo[p][dir])

@@ -82,11 +82,11 @@ class HitoriGameScene: GameScene<HitoriGameState> {
                 addHint(p: p, n: n)
             }
         }
-        for row in 0..<stateFrom.rows {
-            for col in 0..<stateFrom.cols {
-                let p = Position(row, col)
+        for r in 0..<stateFrom.rows {
+            for c in 0..<stateFrom.cols {
+                let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
-                let nodeNameSuffix = "-\(row)-\(col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
                 let darkenNodeName = "darken" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
@@ -101,7 +101,7 @@ class HitoriGameScene: GameScene<HitoriGameState> {
                 func removeDarken() { removeNode(withName: darkenNodeName) }
                 func addMarker() { addCircleMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
-                let (o1, o2) = (stateFrom[row, col], stateTo[row, col])
+                let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
                 guard o1 != o2 else {continue}
                 switch o1 {
                 case .darken:

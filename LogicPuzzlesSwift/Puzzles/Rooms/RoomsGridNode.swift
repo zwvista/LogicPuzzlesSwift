@@ -21,11 +21,11 @@ class RoomsGridNode : GridNode {
     
     func linePosition(point: CGPoint) -> (Bool, Position, Int) {
         let offset: CGFloat = 10
-        let row = Int((-point.y + offset) / blockSize)
-        let col = Int((point.x + offset) / blockSize)
-        let p = Position(row, col)
-        return -offset...offset ~= -point.y - CGFloat(row) * blockSize ? (true, p, 1) :
-            -offset...offset ~= point.x - CGFloat(col) * blockSize ? (true, p, 2) :
+        let r = Int((-point.y + offset) / blockSize)
+        let c = Int((point.x + offset) / blockSize)
+        let p = Position(r, c)
+        return -offset...offset ~= -point.y - CGFloat(r) * blockSize ? (true, p, 1) :
+            -offset...offset ~= point.x - CGFloat(c) * blockSize ? (true, p, 2) :
             (false, p, 1)
     }
 }

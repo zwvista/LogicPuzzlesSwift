@@ -43,15 +43,15 @@ class SkyscrapersGameScene: GameScene<SkyscrapersGameState> {
     }
     
     override func levelUpdated(from stateFrom: SkyscrapersGameState, to stateTo: SkyscrapersGameState) {
-        for row in 0..<stateFrom.rows {
-            for col in 0..<stateFrom.cols {
-                let p = Position(row, col)
+        for r in 0..<stateFrom.rows {
+            for c in 0..<stateFrom.cols {
+                let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
-                let nodeNameSuffix = "-\(row)-\(col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let numNodeName = "num" + nodeNameSuffix
                 func removeNumber() { removeNode(withName: numNodeName) }
-                let (n1, n2) = (stateFrom[row, col], stateTo[row, col])
-                let (s1, s2) = (stateFrom.pos2state(row: row, col: col), stateTo.pos2state(row: row, col: col))
+                let (n1, n2) = (stateFrom[r, c], stateTo[r, c])
+                let (s1, s2) = (stateFrom.pos2state(row: r, col: c), stateTo.pos2state(row: r, col: c))
                 guard n1 != n2 || s1 != s2 else {continue}
                 if (n1 != 0) {removeNumber()}
                 if (n2 != 0) {addNumber(n: n2, s: s2, isHint: !stateFrom.game.isValid(p: p), point: point, nodeName: numNodeName)}

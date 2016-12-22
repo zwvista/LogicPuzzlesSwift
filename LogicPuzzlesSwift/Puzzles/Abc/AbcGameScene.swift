@@ -43,18 +43,18 @@ class AbcGameScene: GameScene<AbcGameState> {
     }
     
     override func levelUpdated(from stateFrom: AbcGameState, to stateTo: AbcGameState) {
-        for row in 0..<stateFrom.rows {
-            for col in 0..<stateFrom.cols {
-                let p = Position(row, col)
+        for r in 0..<stateFrom.rows {
+            for c in 0..<stateFrom.cols {
+                let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
-                let nodeNameSuffix = "-\(row)-\(col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let charNodeName = "char" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 func removeCharacter() { removeNode(withName: charNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
-                let (ch1, ch2) = (stateFrom[row, col], stateTo[row, col])
-                let (s1, s2) = (stateFrom.pos2state(row: row, col: col), stateTo.pos2state(row: row, col: col))
+                let (ch1, ch2) = (stateFrom[r, c], stateTo[r, c])
+                let (s1, s2) = (stateFrom.pos2state(row: r, col: c), stateTo.pos2state(row: r, col: c))
                 guard ch1 != ch2 || s1 != s2 else {continue}
                 if ch1 == "." {
                     removeMarker()
