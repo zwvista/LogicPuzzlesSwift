@@ -16,6 +16,16 @@ class TentsGame: CellsGame<TentsGameViewController, TentsGameMove, TentsGameStat
         Position(1, 0),
         Position(0, -1),
     ];
+    static let offset2 = [
+        Position(-1, 0),
+        Position(-1, 1),
+        Position(0, 1),
+        Position(1, 1),
+        Position(1, 0),
+        Position(1, -1),
+        Position(0, -1),
+        Position(-1, -1),
+    ];
 
     var row2hint = [Int]()
     var col2hint = [Int]()

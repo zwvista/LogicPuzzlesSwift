@@ -119,14 +119,12 @@ class TentsGameState: CellsGameState, TentsMixin {
                 for os in TentsGame.offset {
                     let p2 = p + os
                     guard isValid(p: p2) else {continue}
-                    switch self[p2] {
-                    case .tree:
-                        hasTree = true
-                    case .tent:
-                        hasTent = true
-                    default:
-                        continue
-                    }
+                    if case .tree = self[p2] {hasTree = true}
+                }
+                for os in TentsGame.offset2 {
+                    let p2 = p + os
+                    guard isValid(p: p2) else {continue}
+                    if case .tent = self[p2] {hasTent = true}
                 }
                 switch self[p] {
                 case .tent:
