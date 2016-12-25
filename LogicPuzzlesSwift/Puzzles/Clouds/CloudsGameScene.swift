@@ -33,6 +33,10 @@ class CloudsGameScene: GameScene<CloudsGameState> {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
+    func addForbidden(point: CGPoint, nodeName: String) {
+        addForbiddenMarker(point: point, nodeName: nodeName)
+    }
+    
     override func levelInitialized(_ game: AnyObject, state: CloudsGameState, skView: SKView) {
         let game = game as! CloudsGame
         removeAllChildren()
@@ -60,6 +64,20 @@ class CloudsGameScene: GameScene<CloudsGameState> {
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let cloudNodeName = "cloud" + nodeNameSuffix
             addCloud(color: .gray, point: point, nodeName: cloudNodeName)
+        }
+        for r in 0..<game.rows {
+            for c in 0..<game.cols {
+                let p = Position(r, c)
+                let point = gridNode.gridPosition(p: p)
+                let nodeNameSuffix = "-\(r)-\(c)"
+                let forbiddenNodeName = "forbidden" + nodeNameSuffix
+                switch state[p] {
+                case .forbidden:
+                    addForbidden(point: point, nodeName: forbiddenNodeName)
+                default:
+                    break
+                }
+            }
         }
     }
     
@@ -92,14 +110,18 @@ class CloudsGameScene: GameScene<CloudsGameState> {
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let cloudNodeName = "cloud" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
+                let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 func removeCloud() { removeNode(withName: cloudNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
+                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
                 let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
                 guard o1 != o2 else {continue}
                 switch o1 {
                 case .cloud:
                     removeCloud()
+                case .forbidden:
+                    removeForbidden()
                 case .marker:
                     removeMarker()
                 default:
@@ -108,6 +130,8 @@ class CloudsGameScene: GameScene<CloudsGameState> {
                 switch o2 {
                 case .cloud:
                     addCloud(color: .white, point: point, nodeName: cloudNodeName)
+                case .forbidden:
+                    addForbidden(point: point, nodeName: forbiddenNodeName)
                 case .marker:
                     addMarker()
                 default:

@@ -11,6 +11,7 @@ import Foundation
 enum CloudsObject: Int {
     case empty
     case cloud
+    case forbidden
     case marker
     init() {
         self = .empty

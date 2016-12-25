@@ -73,6 +73,8 @@ class CloudsGameState: CellsGameState, CloudsMixin {
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
                 return markerOption == .markerFirst ? .cloud : .empty
+            default:
+                return o
             }
         }
         let p = move.p
@@ -83,6 +85,11 @@ class CloudsGameState: CellsGameState, CloudsMixin {
     
     private func updateIsSolved() {
         isSolved = true
+        for r in 0..<rows {
+            for c in 0..<cols {
+                if self[r, c] == .forbidden {self[r, c] = .empty}
+            }
+        }
         for r in 0..<rows {
             var n1 = 0
             let n2 = game.row2hint[r]
@@ -100,6 +107,16 @@ class CloudsGameState: CellsGameState, CloudsMixin {
             }
             col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
+        }
+        for r in 0..<rows {
+            for c in 0..<cols {
+                switch self[r, c] {
+                case .empty, .marker:
+                    if allowedObjectsOnly && (row2state[r] != .normal || col2state[c] != .normal) {self[r, c] = .forbidden}
+                default:
+                    break
+                }
+            }
         }
         guard isSolved else {return}
         let g = Graph()
