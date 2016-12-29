@@ -1,5 +1,5 @@
 //
-//  SlitherLinkGame.swift
+//  BoxItUpGame.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/10.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-class SlitherLinkGame: CellsGame<SlitherLinkGameViewController, SlitherLinkGameMove, SlitherLinkGameState>, GameBase {
-    static let gameID = "SlitherLink"
+class BoxItUpGame: CellsGame<BoxItUpGameViewController, BoxItUpGameMove, BoxItUpGameState>, GameBase {
+    static let gameID = "BoxItUp"
     static let offset = [
         Position(-1, 0),
         Position(0, 1),
@@ -19,7 +19,7 @@ class SlitherLinkGame: CellsGame<SlitherLinkGameViewController, SlitherLinkGameM
 
     var pos2hint = [Position: Int]()
     
-    init(layout: [String], delegate: SlitherLinkGameViewController? = nil) {
+    init(layout: [String], delegate: BoxItUpGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count + 1, layout[0].length + 1)
@@ -39,12 +39,12 @@ class SlitherLinkGame: CellsGame<SlitherLinkGameViewController, SlitherLinkGameM
             }
         }
         
-        let state = SlitherLinkGameState(game: self)
+        let state = BoxItUpGameState(game: self)
         states.append(state)
         levelInitilized(state: state)
     }
     
-    private func changeObject(move: inout SlitherLinkGameMove, f: (inout SlitherLinkGameState, inout SlitherLinkGameMove) -> Bool) -> Bool {
+    private func changeObject(move: inout BoxItUpGameMove, f: (inout BoxItUpGameState, inout BoxItUpGameMove) -> Bool) -> Bool {
         if canRedo {
             states.removeSubrange((stateIndex + 1)..<states.count)
             moves.removeSubrange(stateIndex..<moves.count)
@@ -61,11 +61,11 @@ class SlitherLinkGame: CellsGame<SlitherLinkGameViewController, SlitherLinkGameM
         return true
     }
     
-    func switchObject(move: inout SlitherLinkGameMove) -> Bool {
+    func switchObject(move: inout BoxItUpGameMove) -> Bool {
         return changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
     }
     
-    func setObject(move: inout SlitherLinkGameMove) -> Bool {
+    func setObject(move: inout BoxItUpGameMove) -> Bool {
         return changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
     }
     

@@ -9,7 +9,7 @@
 import Foundation
 
 class LoopyGame: CellsGame<LoopyGameViewController, LoopyGameMove, LoopyGameState>, GameBase {
-    static var gameID = "Loopy"
+    static let gameID = "Loopy"
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

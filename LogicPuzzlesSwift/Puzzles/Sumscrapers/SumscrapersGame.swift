@@ -9,7 +9,7 @@
 import Foundation
 
 class SumscrapersGame: CellsGame<SumscrapersGameViewController, SumscrapersGameMove, SumscrapersGameState>, GameBase {
-    static var gameID = "Sumscrapers"
+    static let gameID = "Sumscrapers"
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

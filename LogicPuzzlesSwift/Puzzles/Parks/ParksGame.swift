@@ -9,7 +9,7 @@
 import Foundation
 
 class ParksGame: CellsGame<ParksGameViewController, ParksGameMove, ParksGameState>, GameBase {
-    static var gameID = "Parks"
+    static let gameID = "Parks"
     static let offset = [
         Position(-1, 0),
         Position(-1, 1),

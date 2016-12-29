@@ -9,7 +9,7 @@
 import Foundation
 
 class MosaikGame: CellsGame<MosaikGameViewController, MosaikGameMove, MosaikGameState>, GameBase {
-    static var gameID = "Mosaik"
+    static let gameID = "Mosaik"
     static let offset = [
         Position(-1, 0),
         Position(-1, 1),
