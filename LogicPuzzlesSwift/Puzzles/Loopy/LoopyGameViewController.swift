@@ -49,8 +49,8 @@ class LoopyGameViewController: GameViewController, GameDelegate, LoopyMixin {
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let (b, p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
         guard b else {return}
-        var move = LoopyGameMove(p: p, dir: dir)
-        if game.setObject(move: &move) { soundManager.playSoundTap() }
+        var move = LoopyGameMove(p: p, dir: dir, obj: .empty)
+        if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     
     func startGame() {

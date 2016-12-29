@@ -37,7 +37,6 @@ class SlitherLinkGameScene: GameScene<SlitherLinkGameState> {
     }
     
     override func levelUpdated(from stateFrom: SlitherLinkGameState, to stateTo: SlitherLinkGameState) {
-        let markerOffset: CGFloat = 7.5
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -47,54 +46,8 @@ class SlitherLinkGameScene: GameScene<SlitherLinkGameState> {
                 let vertlineNodeName = "vertline" + nodeNameSuffix
                 let hintNumberNodeName = "hintNumber" + nodeNameSuffix
                 func removeHintNumber() { removeNode(withName: hintNumberNodeName) }
-                func addHorzLine(objType: GridLineObject) {
-                    guard objType != .empty else {return}
-                    let pathToDraw = CGMutablePath()
-                    let lineNode = SKShapeNode(path:pathToDraw)
-                    switch objType {
-                    case .line:
-                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
-                        pathToDraw.addLine(to: CGPoint(x: point.x + gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
-                        lineNode.glowWidth = 8
-                    case .marker:
-                        pathToDraw.move(to: CGPoint(x: point.x - markerOffset, y: point.y + gridNode.blockSize / 2 + markerOffset))
-                        pathToDraw.addLine(to: CGPoint(x: point.x + markerOffset, y: point.y + gridNode.blockSize / 2 - markerOffset))
-                        pathToDraw.move(to: CGPoint(x: point.x + markerOffset, y: point.y + gridNode.blockSize / 2 + markerOffset))
-                        pathToDraw.addLine(to: CGPoint(x: point.x - markerOffset, y: point.y + gridNode.blockSize / 2 - markerOffset))
-                        lineNode.glowWidth = 2
-                    default:
-                        break
-                    }
-                    lineNode.path = pathToDraw
-                    lineNode.strokeColor = .yellow
-                    lineNode.name = horzLineNodeName
-                    gridNode.addChild(lineNode)
-                }
                 func removeHorzLine(objType: GridLineObject) {
                     if objType != .empty { removeNode(withName: horzLineNodeName) }
-                }
-                func addVertLine(objType: GridLineObject) {
-                    guard objType != .empty else {return}
-                    let pathToDraw = CGMutablePath()
-                    let lineNode = SKShapeNode(path:pathToDraw)
-                    switch objType {
-                    case .line:
-                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
-                        pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y - gridNode.blockSize / 2))
-                        lineNode.glowWidth = 8
-                    case .marker:
-                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2 - markerOffset, y: point.y + markerOffset))
-                        pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2 + markerOffset, y: point.y - markerOffset))
-                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2 - markerOffset, y: point.y - markerOffset))
-                        pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2 + markerOffset, y: point.y + markerOffset))
-                        lineNode.glowWidth = 2
-                    default:
-                        break
-                    }
-                    lineNode.path = pathToDraw
-                    lineNode.strokeColor = .yellow
-                    lineNode.name = vertlineNodeName
-                    gridNode.addChild(lineNode)
                 }
                 func removeVertLine(objType: GridLineObject) {
                     if objType != .empty { removeNode(withName: vertlineNodeName) }
@@ -102,12 +55,12 @@ class SlitherLinkGameScene: GameScene<SlitherLinkGameState> {
                 var (o1, o2) = (stateFrom[p][1], stateTo[p][1])
                 if o1 != o2 {
                     removeHorzLine(objType: o1)
-                    addHorzLine(objType: o2)
+                    addHorzLine(objType: o2, color: .yellow, point: point, nodeName: horzLineNodeName)
                 }
                 (o1, o2) = (stateFrom[p][2], stateTo[p][2])
                 if o1 != o2 {
                     removeVertLine(objType: o1)
-                    addVertLine(objType: o2)
+                    addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
                 }
                 guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
                 if s1 != s2 {

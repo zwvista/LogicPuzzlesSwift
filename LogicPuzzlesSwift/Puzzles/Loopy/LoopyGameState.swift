@@ -14,7 +14,7 @@ class LoopyGameState: CellsGameState, LoopyMixin {
         get {return getGame() as! LoopyGame}
         set {setGame(game: newValue)}
     }
-    var objArray = [LoopyObject]()
+    var objArray = [GridDotObject]()
     
     override func copy() -> LoopyGameState {
         let v = LoopyGameState(game: game)
@@ -28,19 +28,15 @@ class LoopyGameState: CellsGameState, LoopyMixin {
     
     required init(game: LoopyGame) {
         super.init(game: game);
-        objArray = Array<LoopyObject>(repeating: Array<Bool>(repeating: false, count: 4), count: rows * cols)
+        objArray = Array<GridDotObject>(repeating: Array<GridLineObject>(repeating: .empty, count: 4), count: rows * cols)
         for r in 0..<rows {
             for c in 0..<cols {
-                for dir in 1...2 {
-                    guard game[r, c][dir] else {continue}
-                    var move = LoopyGameMove(p: Position(r, c), dir: dir)
-                    _ = setObject(move: &move)
-                }
+                self[r, c] = game[r, c]
             }
         }
     }
     
-    subscript(p: Position) -> LoopyObject {
+    subscript(p: Position) -> GridDotObject {
         get {
             return self[p.row, p.col]
         }
@@ -48,7 +44,7 @@ class LoopyGameState: CellsGameState, LoopyMixin {
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> LoopyObject {
+    subscript(row: Int, col: Int) -> GridDotObject {
         get {
             return objArray[row * cols + col]
         }
@@ -58,13 +54,39 @@ class LoopyGameState: CellsGameState, LoopyMixin {
     }
     
     func setObject(move: inout LoopyGameMove) -> Bool {
-        let p = move.p, dir = move.dir
-        let p2 = p + LoopyGame.offset[dir], dir2 = (dir + 2) % 4
-        guard isValid(p: p2) && !(game[p][dir] && self[p][dir]) else {return false}
-        self[p][dir].toggle()
-        self[p2][dir2].toggle()
-        updateIsSolved()
-        return true
+        var changed = false
+        func f(o1: inout GridLineObject, o2: inout GridLineObject) {
+            if o1 != move.obj {
+                changed = true
+                o1 = move.obj
+                o2 = move.obj
+                // updateIsSolved() cannot be called here
+                // self[p] will not be updated until the function returns
+            }
+        }
+        let dir = move.dir, dir2 = (dir + 2) % 4
+        let p = move.p, p2 = p + LoopyGame.offset[dir]
+        guard isValid(p: p2) && game[p][dir] != .line else {return false}
+        f(o1: &self[p][dir], o2: &self[p2][dir2])
+        if changed {updateIsSolved()}
+        return changed
+    }
+    
+    func switchObject(move: inout LoopyGameMove) -> Bool {
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        func f(o: GridLineObject) -> GridLineObject {
+            switch o {
+            case .empty:
+                return markerOption == .markerFirst ? .marker : .line
+            case .line:
+                return markerOption == .markerLast ? .marker : .empty
+            case .marker:
+                return markerOption == .markerFirst ? .line : .empty
+            }
+        }
+        let o = f(o: self[move.p][move.dir])
+        move.obj = o
+        return setObject(move: &move)
     }
     
     private func updateIsSolved() {
@@ -74,7 +96,7 @@ class LoopyGameState: CellsGameState, LoopyMixin {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let n = self[p].filter({$0}).count
+                let n = self[p].filter({$0 == .line}).count
                 switch n {
                 case 2:
                     pos2node[p] = g.addNode(label: p.description)
@@ -87,7 +109,7 @@ class LoopyGameState: CellsGameState, LoopyMixin {
         for p in pos2node.keys {
             let dotObj = self[p]
             for i in 0..<4 {
-                guard dotObj[i] else {continue}
+                guard dotObj[i] == .line else {continue}
                 let p2 = p + LoopyGame.offset[i]
                 g.addEdge(source: pos2node[p]!, neighbor: pos2node[p2]!)
             }

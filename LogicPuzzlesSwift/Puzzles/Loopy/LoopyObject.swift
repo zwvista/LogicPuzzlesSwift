@@ -8,9 +8,8 @@
 
 import Foundation
 
-typealias LoopyObject = [Bool]
-
 struct LoopyGameMove {
     var p = Position()
     var dir = 0
+    var obj = GridLineObject()
 }

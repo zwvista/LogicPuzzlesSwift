@@ -8,9 +8,8 @@
 
 import Foundation
 
-typealias BoxItUpObject = [Bool]
-
 struct BoxItUpGameMove {
     var p = Position()
     var dir = 0
+    var obj = GridLineObject()
 }

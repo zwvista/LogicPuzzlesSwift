@@ -88,4 +88,54 @@ class GameScene<GS: GameStateBase>: SKScene {
         markerNode.glowWidth = 1.0
         gridNode.addChild(markerNode)
     }
+    
+    func addHorzLine(objType: GridLineObject, color: SKColor, point: CGPoint, nodeName: String) {
+        let markerOffset: CGFloat = 7.5
+        guard objType != .empty else {return}
+        let pathToDraw = CGMutablePath()
+        let lineNode = SKShapeNode(path:pathToDraw)
+        switch objType {
+        case .line:
+            pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
+            pathToDraw.addLine(to: CGPoint(x: point.x + gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
+            lineNode.glowWidth = 8
+        case .marker:
+            pathToDraw.move(to: CGPoint(x: point.x - markerOffset, y: point.y + gridNode.blockSize / 2 + markerOffset))
+            pathToDraw.addLine(to: CGPoint(x: point.x + markerOffset, y: point.y + gridNode.blockSize / 2 - markerOffset))
+            pathToDraw.move(to: CGPoint(x: point.x + markerOffset, y: point.y + gridNode.blockSize / 2 + markerOffset))
+            pathToDraw.addLine(to: CGPoint(x: point.x - markerOffset, y: point.y + gridNode.blockSize / 2 - markerOffset))
+            lineNode.glowWidth = 2
+        default:
+            break
+        }
+        lineNode.path = pathToDraw
+        lineNode.strokeColor = color
+        lineNode.name = nodeName
+        gridNode.addChild(lineNode)
+    }
+    
+    func addVertLine(objType: GridLineObject, color: SKColor, point: CGPoint, nodeName: String) {
+        let markerOffset: CGFloat = 7.5
+        guard objType != .empty else {return}
+        let pathToDraw = CGMutablePath()
+        let lineNode = SKShapeNode(path:pathToDraw)
+        switch objType {
+        case .line:
+            pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
+            pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y - gridNode.blockSize / 2))
+            lineNode.glowWidth = 8
+        case .marker:
+            pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2 - markerOffset, y: point.y + markerOffset))
+            pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2 + markerOffset, y: point.y - markerOffset))
+            pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2 - markerOffset, y: point.y - markerOffset))
+            pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2 + markerOffset, y: point.y + markerOffset))
+            lineNode.glowWidth = 2
+        default:
+            break
+        }
+        lineNode.path = pathToDraw
+        lineNode.strokeColor = color
+        lineNode.name = nodeName
+        gridNode.addChild(lineNode)
+    }
 }

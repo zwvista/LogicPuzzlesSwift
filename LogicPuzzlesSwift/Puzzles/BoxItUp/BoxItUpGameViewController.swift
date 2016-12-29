@@ -49,8 +49,8 @@ class BoxItUpGameViewController: GameViewController, GameDelegate, BoxItUpMixin 
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let (b, p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
         guard b else {return}
-        var move = BoxItUpGameMove(p: p, dir: dir)
-        if game.setObject(move: &move) { soundManager.playSoundTap() }
+        var move = BoxItUpGameMove(p: p, dir: dir, obj: .empty)
+        if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     
     func startGame() {

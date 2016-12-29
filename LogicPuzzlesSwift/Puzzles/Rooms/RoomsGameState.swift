@@ -34,20 +34,20 @@ class RoomsGameState: CellsGameState, RoomsMixin {
         updateIsSolved()
     }
     
-    subscript(p: Position, dir: Int) -> GridLineObject {
+    subscript(p: Position) -> GridDotObject {
         get {
-            return self[p.row, p.col, dir]
+            return self[p.row, p.col]
         }
         set(newValue) {
-            self[p.row, p.col, dir] = newValue
+            self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int, dir: Int) -> GridLineObject {
+    subscript(row: Int, col: Int) -> GridDotObject {
         get {
-            return objArray[row * cols + col][dir]
+            return objArray[row * cols + col]
         }
         set(newValue) {
-            objArray[row * cols + col][dir] = newValue
+            objArray[row * cols + col] = newValue
         }
     }
     
@@ -64,7 +64,7 @@ class RoomsGameState: CellsGameState, RoomsMixin {
         }
         let p = move.p
         let dir = move.dir, dir2 = (dir + 2) % 4
-        f(o1: &self[p, dir], o2: &self[p + RoomsGame.offset[dir], dir2])
+        f(o1: &self[p][dir], o2: &self[p + RoomsGame.offset[dir]][dir2])
         if changed {updateIsSolved()}
         return changed
     }
@@ -81,7 +81,7 @@ class RoomsGameState: CellsGameState, RoomsMixin {
                 return markerOption == .markerFirst ? .line : .empty
             }
         }
-        let o = f(o: self[move.p, move.dir])
+        let o = f(o: self[move.p][move.dir])
         move.obj = o
         return setObject(move: &move)
     }
@@ -93,7 +93,7 @@ class RoomsGameState: CellsGameState, RoomsMixin {
             for i in 0..<4 {
                 let (os1, os2, dir) = (RoomsGame.offset[i], RoomsGame.offset2[i], RoomsGame.dirs[i])
                 var p2 = p
-                while(isValid(p: p2 + os1) && self[p2 + os2, dir] != .line) {
+                while(isValid(p: p2 + os1) && self[p2 + os2][dir] != .line) {
                     n1 += 1; p2 += os1
                 }
             }

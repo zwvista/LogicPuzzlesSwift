@@ -99,12 +99,12 @@ class RoomsGameScene: GameScene<RoomsGameState> {
                 func removeVertLine(objType: GridLineObject) {
                     if objType != .empty { removeNode(withName: vertlineNodeName) }
                 }
-                var (o1, o2) = (stateFrom[p, 1], stateTo[p, 1])
+                var (o1, o2) = (stateFrom[p][1], stateTo[p][1])
                 if o1 != o2 {
                     removeHorzLine(objType: o1)
                     addHorzLine(objType: o2)
                 }
-                (o1, o2) = (stateFrom[p, 2], stateTo[p, 2])
+                (o1, o2) = (stateFrom[p][2], stateTo[p][2])
                 if o1 != o2 {
                     removeVertLine(objType: o1)
                     addVertLine(objType: o2)

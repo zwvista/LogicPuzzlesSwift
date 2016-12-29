@@ -11,9 +11,13 @@ import Foundation
 protocol LoopyMixin: GameMixin {
     var gameDocument: LoopyDocument { get }
     var gameOptions: GameProgress { get }
+    var markerOption: Int { get }
+    func setMarkerOption(rec: GameProgress, newValue: Int)
 }
 
 extension LoopyMixin {
     var gameDocument: LoopyDocument { return LoopyDocument.sharedInstance }
     var gameOptions: GameProgress { return gameDocument.gameProgress }
+    var markerOption: Int { return gameOptions.option1?.toInt() ?? 0 }
+    func setMarkerOption(rec: GameProgress, newValue: Int) { rec.option1 = newValue.description }
 }

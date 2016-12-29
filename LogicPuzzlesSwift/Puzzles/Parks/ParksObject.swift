@@ -49,20 +49,20 @@ class ParksDots {
         objArray = Array<GridDotObject>(repeating: Array<GridLineObject>(repeating: .empty, count: 4), count: rows * cols)
     }
     
-    subscript(p: Position, dir: Int) -> GridLineObject {
+    subscript(p: Position) -> GridDotObject {
         get {
-            return self[p.row, p.col, dir]
+            return self[p.row, p.col]
         }
         set(newValue) {
-            self[p.row, p.col, dir] = newValue
+            self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int, dir: Int) -> GridLineObject {
+    subscript(row: Int, col: Int) -> GridDotObject {
         get {
-            return objArray[row * cols + col][dir]
+            return objArray[row * cols + col]
         }
         set(newValue) {
-            objArray[row * cols + col][dir] = newValue
+            objArray[row * cols + col] = newValue
         }
     }
 }

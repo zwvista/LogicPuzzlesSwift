@@ -18,27 +18,6 @@ class BoxItUpGameScene: GameScene<BoxItUpGameState> {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
-    func addLine(dir: Int, color: SKColor, point: CGPoint, nodeName: String) {
-        let pathToDraw = CGMutablePath()
-        let lineNode = SKShapeNode(path:pathToDraw)
-        switch dir {
-        case 1:
-            pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
-            pathToDraw.addLine(to: CGPoint(x: point.x + gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
-            lineNode.glowWidth = 8
-        case 2:
-            pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
-            pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y - gridNode.blockSize / 2))
-            lineNode.glowWidth = 8
-        default:
-            break
-        }
-        lineNode.path = pathToDraw
-        lineNode.strokeColor = color
-        lineNode.name = nodeName
-        gridNode.addChild(lineNode)
-    }
-    
     override func levelInitialized(_ game: AnyObject, state: BoxItUpGameState, skView: SKView) {
         let game = game as! BoxItUpGame
         removeAllChildren()
@@ -60,12 +39,8 @@ class BoxItUpGameScene: GameScene<BoxItUpGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
-                for dir in 1...2 {
-                    guard game[r, c][dir] else {continue}
-                    let nodeNameSuffix = "-\(r)-\(c)-\(dir)"
-                    let lineNodeName = "line" + nodeNameSuffix
-                    addLine(dir: dir, color: .white, point: point, nodeName: lineNodeName)
-                }
+                if game[r, c][1] == .line {addHorzLine(objType: .line, color: .white, point: point, nodeName: "line")}
+                if game[r, c][2] == .line {addVertLine(objType: .line, color: .white, point: point, nodeName: "line")}
             }
         }
     }
@@ -76,17 +51,25 @@ class BoxItUpGameScene: GameScene<BoxItUpGameState> {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
-                for dir in 1...2 {
-                    guard !stateFrom.game[r, c][dir] else {continue}
-                    let nodeNameSuffix = "-\(r)-\(c)-\(dir)"
-                    let lineNodeName = "line" + nodeNameSuffix
-                    func removeLine() { removeNode(withName: lineNodeName) }
-                    let (o1, o2) = (stateFrom[p][dir], stateTo[p][dir])
-                    guard o1 != o2 else {continue}
-                    if o1 {removeLine()}
-                    if o2 {addLine(dir: dir, color: .green, point: point, nodeName: lineNodeName)}
-                }
                 let nodeNameSuffix = "-\(r)-\(c)"
+                let horzLineNodeName = "horzLine" + nodeNameSuffix
+                let vertlineNodeName = "vertline" + nodeNameSuffix
+                func removeHorzLine(objType: GridLineObject) {
+                    if objType != .empty { removeNode(withName: horzLineNodeName) }
+                }
+                func removeVertLine(objType: GridLineObject) {
+                    if objType != .empty { removeNode(withName: vertlineNodeName) }
+                }
+                var (o1, o2) = (stateFrom[p][1], stateTo[p][1])
+                if o1 != o2 {
+                    removeHorzLine(objType: o1)
+                    addHorzLine(objType: o2, color: .yellow, point: point, nodeName: horzLineNodeName)
+                }
+                (o1, o2) = (stateFrom[p][2], stateTo[p][2])
+                if o1 != o2 {
+                    removeVertLine(objType: o1)
+                    addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
+                }
                 let hintNumberNodeName = "hintNumber" + nodeNameSuffix
                 func removeHintNumber() { removeNode(withName: hintNumberNodeName) }
                 guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}

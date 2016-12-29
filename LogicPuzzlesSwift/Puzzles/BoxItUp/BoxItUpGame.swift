@@ -24,14 +24,14 @@ class BoxItUpGame: CellsGame<BoxItUpGameViewController, BoxItUpGameMove, BoxItUp
     ];
     static let dirs = [1, 0, 3, 2]
     
-    var objArray = [BoxItUpObject]()
+    var objArray = [GridDotObject]()
     var pos2hint = [Position: Int]()
     
     init(layout: [String], delegate: BoxItUpGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count + 1, layout[0].length / 2 + 1)
-        objArray = Array<BoxItUpObject>(repeating: Array<Bool>(repeating: false, count: 4), count: rows * cols)
+        objArray = Array<GridDotObject>(repeating: Array<GridLineObject>(repeating: .empty, count: 4), count: rows * cols)
         
         for r in 0..<rows - 1 {
             let str = layout[r]
@@ -44,16 +44,16 @@ class BoxItUpGame: CellsGame<BoxItUpGameViewController, BoxItUpGameMove, BoxItUp
             }
         }
         for r in 0..<rows - 1 {
-            self[r, 0][2] = true
-            self[r + 1, 0][0] = true
-            self[r, cols - 1][2] = true
-            self[r + 1, cols - 1][0] = true
+            self[r, 0][2] = .line
+            self[r + 1, 0][0] = .line
+            self[r, cols - 1][2] = .line
+            self[r + 1, cols - 1][0] = .line
         }
         for c in 0..<cols - 1 {
-            self[0, c][1] = true
-            self[0, c + 1][3] = true
-            self[rows - 1, c][1] = true
-            self[rows - 1, c + 1][3] = true
+            self[0, c][1] = .line
+            self[0, c + 1][3] = .line
+            self[rows - 1, c][1] = .line
+            self[rows - 1, c + 1][3] = .line
         }
         
         let state = BoxItUpGameState(game: self)
@@ -61,7 +61,7 @@ class BoxItUpGame: CellsGame<BoxItUpGameViewController, BoxItUpGameMove, BoxItUp
         levelInitilized(state: state)
     }
     
-    subscript(p: Position) -> BoxItUpObject {
+    subscript(p: Position) -> GridDotObject {
         get {
             return self[p.row, p.col]
         }
@@ -69,7 +69,7 @@ class BoxItUpGame: CellsGame<BoxItUpGameViewController, BoxItUpGameMove, BoxItUp
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> BoxItUpObject {
+    subscript(row: Int, col: Int) -> GridDotObject {
         get {
             return objArray[row * cols + col]
         }
@@ -93,6 +93,10 @@ class BoxItUpGame: CellsGame<BoxItUpGameViewController, BoxItUpGameMove, BoxItUp
         moveAdded(move: move)
         levelUpdated(from: states[stateIndex - 1], to: state)
         return true
+    }
+    
+    func switchObject(move: inout BoxItUpGameMove) -> Bool {
+        return changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
     }
     
     func setObject(move: inout BoxItUpGameMove) -> Bool {
