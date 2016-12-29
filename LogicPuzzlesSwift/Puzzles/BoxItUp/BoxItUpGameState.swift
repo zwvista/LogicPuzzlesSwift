@@ -31,6 +31,11 @@ class BoxItUpGameState: CellsGameState, BoxItUpMixin {
     required init(game: BoxItUpGame) {
         super.init(game: game);
         objArray = Array<BoxItUpObject>(repeating: Array<Bool>(repeating: false, count: 4), count: rows * cols)
+        for r in 0..<rows {
+            for c in 0..<cols {
+                self[r, c] = game[r, c]
+            }
+        }
         for p in game.pos2hint.keys {
             pos2state[p] = .normal
         }
@@ -65,5 +70,51 @@ class BoxItUpGameState: CellsGameState, BoxItUpMixin {
     
     private func updateIsSolved() {
         isSolved = true
+        var rng = Set<Position>()
+        let g = Graph()
+        var pos2node = [Position: Node]()
+        for r in 0..<rows - 1 {
+            for c in 0..<cols - 1 {
+                let p = Position(r, c)
+                rng.insert(p)
+                pos2node[p] = g.addNode(label: p.description)
+            }
+        }
+        for r in 0..<rows - 1 {
+            for c in 0..<cols - 1 {
+                let p = Position(r, c)
+                for i in 0..<4 {
+                    if !self[p + BoxItUpGame.offset2[i]][BoxItUpGame.dirs[i]] {
+                        g.addEdge(source: pos2node[p]!, neighbor: pos2node[p + BoxItUpGame.offset[i]]!)
+                    }
+                }
+            }
+        }
+        while !rng.isEmpty {
+            let node = pos2node[rng.first!]!
+            let nodesExplored = breadthFirstSearch(g, source: node)
+            let area = rng.filter({p in nodesExplored.contains(p.description)})
+            rng.subtract(area)
+            let rng2 = area.filter({p in game.pos2hint[p] != nil})
+            if rng2.count != 1 {
+                for p in rng2 {
+                    pos2state[p] = .normal
+                }
+                isSolved = false; continue
+            }
+            let p2 = rng2[0]
+            let n1 = area.count, n2 = game.pos2hint[p2]!
+            if n1 != n2 {isSolved = false; pos2state[p2] = .error; continue}
+            var r2 = 0, r1 = rows, c2 = 0, c1 = cols
+            for p in area {
+                if r2 < p.row {r2 = p.row}
+                if r1 > p.row {r1 = p.row}
+                if c2 < p.col {c2 = p.col}
+                if c1 > p.col {c1 = p.col}
+            }
+            let rs = r2 - r1 + 1, cs = c2 - c1 + 1;
+            pos2state[p2] = rs * cs == n2 ? .complete : .error
+            if rs * cs != n2 {isSolved = false}
+        }
     }
 }

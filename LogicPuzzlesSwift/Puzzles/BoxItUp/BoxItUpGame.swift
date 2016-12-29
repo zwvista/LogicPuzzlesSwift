@@ -16,6 +16,13 @@ class BoxItUpGame: CellsGame<BoxItUpGameViewController, BoxItUpGameMove, BoxItUp
         Position(1, 0),
         Position(0, -1),
     ];
+    static let offset2 = [
+        Position(0, 0),
+        Position(1, 1),
+        Position(1, 1),
+        Position(0, 0),
+    ];
+    static let dirs = [1, 0, 3, 2]
     
     var objArray = [BoxItUpObject]()
     var pos2hint = [Position: Int]()
@@ -35,6 +42,18 @@ class BoxItUpGame: CellsGame<BoxItUpGameViewController, BoxItUpGameMove, BoxItUp
                 let n = s.toInt()!
                 pos2hint[p] = n
             }
+        }
+        for r in 0..<rows - 1 {
+            self[r, 0][2] = true
+            self[r + 1, 0][0] = true
+            self[r, cols - 1][2] = true
+            self[r + 1, cols - 1][0] = true
+        }
+        for c in 0..<cols - 1 {
+            self[0, c][1] = true
+            self[0, c + 1][3] = true
+            self[rows - 1, c][1] = true
+            self[rows - 1, c + 1][3] = true
         }
         
         let state = BoxItUpGameState(game: self)
