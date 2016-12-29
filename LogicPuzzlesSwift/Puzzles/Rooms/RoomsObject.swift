@@ -8,19 +8,8 @@
 
 import Foundation
 
-enum RoomsObject: Int {
-    case empty
-    case line
-    case marker
-    init() {
-        self = .empty
-    }
-}
-
-typealias RoomsDotObject = [RoomsObject]
-
 struct RoomsGameMove {
     var p = Position()
     var dir = 0
-    var obj = RoomsObject()
+    var obj = GridLineObject()
 }

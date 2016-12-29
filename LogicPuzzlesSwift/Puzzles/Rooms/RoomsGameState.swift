@@ -14,7 +14,7 @@ class RoomsGameState: CellsGameState, RoomsMixin {
         get {return getGame() as! RoomsGame}
         set {setGame(game: newValue)}
     }
-    var objArray = [RoomsDotObject]()
+    var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
     
     override func copy() -> RoomsGameState {
@@ -30,30 +30,30 @@ class RoomsGameState: CellsGameState, RoomsMixin {
     
     required init(game: RoomsGame) {
         super.init(game: game);
-        objArray = Array<RoomsDotObject>(repeating: Array<RoomsObject>(repeating: .empty, count: 4), count: rows * cols)
+        objArray = Array<GridDotObject>(repeating: Array<GridLineObject>(repeating: .empty, count: 4), count: rows * cols)
         updateIsSolved()
     }
     
-    subscript(p: Position) -> RoomsDotObject {
+    subscript(p: Position, dir: Int) -> GridLineObject {
         get {
-            return self[p.row, p.col]
+            return self[p.row, p.col, dir]
         }
         set(newValue) {
-            self[p.row, p.col] = newValue
+            self[p.row, p.col, dir] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> RoomsDotObject {
+    subscript(row: Int, col: Int, dir: Int) -> GridLineObject {
         get {
-            return objArray[row * cols + col]
+            return objArray[row * cols + col][dir]
         }
         set(newValue) {
-            objArray[row * cols + col] = newValue
+            objArray[row * cols + col][dir] = newValue
         }
     }
     
     func setObject(move: inout RoomsGameMove) -> Bool {
         var changed = false
-        func f(o1: inout RoomsObject, o2: inout RoomsObject) {
+        func f(o1: inout GridLineObject, o2: inout GridLineObject) {
             if o1 != move.obj {
                 changed = true
                 o1 = move.obj
@@ -64,14 +64,14 @@ class RoomsGameState: CellsGameState, RoomsMixin {
         }
         let p = move.p
         let dir = move.dir, dir2 = (dir + 2) % 4
-        f(o1: &self[p][dir], o2: &self[p + RoomsGame.offset[dir]][dir2])
+        f(o1: &self[p, dir], o2: &self[p + RoomsGame.offset[dir], dir2])
         if changed {updateIsSolved()}
         return changed
     }
     
     func switchObject(move: inout RoomsGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
-        func f(o: RoomsObject) -> RoomsObject {
+        func f(o: GridLineObject) -> GridLineObject {
             switch o {
             case .empty:
                 return markerOption == .markerFirst ? .marker : .line
@@ -81,7 +81,7 @@ class RoomsGameState: CellsGameState, RoomsMixin {
                 return markerOption == .markerFirst ? .line : .empty
             }
         }
-        let o = f(o: self[move.p][move.dir])
+        let o = f(o: self[move.p, move.dir])
         move.obj = o
         return setObject(move: &move)
     }
@@ -93,7 +93,7 @@ class RoomsGameState: CellsGameState, RoomsMixin {
             for i in 0..<4 {
                 let (os1, os2, dir) = (RoomsGame.offset[i], RoomsGame.offset2[i], RoomsGame.dirs[i])
                 var p2 = p
-                while(isValid(p: p2 + os1) && self[p2 + os2][dir] != .line) {
+                while(isValid(p: p2 + os1) && self[p2 + os2, dir] != .line) {
                     n1 += 1; p2 += os1
                 }
             }

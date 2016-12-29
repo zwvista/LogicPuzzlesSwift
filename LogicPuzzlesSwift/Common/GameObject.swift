@@ -21,3 +21,14 @@ enum HintState {
 enum AllowedObjectState {
     case normal, error
 }
+
+enum GridLineObject: Int {
+    case empty
+    case line
+    case marker
+    init() {
+        self = .empty
+    }
+}
+
+typealias GridDotObject = [GridLineObject]

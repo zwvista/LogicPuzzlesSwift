@@ -44,8 +44,8 @@ class ParksGame: CellsGame<ParksGameViewController, ParksGameMove, ParksGameStat
             for c in 0..<cols {
                 let ch = str[2 * c + 1]
                 if ch == "-" {
-                    dots[r, c, 1] = true
-                    dots[r, c + 1, 3] = true
+                    dots[r, c, 1] = .line
+                    dots[r, c + 1, 3] = .line
                 }
             }
             guard r < rows else {break}
@@ -53,8 +53,8 @@ class ParksGame: CellsGame<ParksGameViewController, ParksGameMove, ParksGameStat
             for c in 0..<cols + 1 {
                 let ch = str[2 * c]
                 if ch == "|" {
-                    dots[r, c, 2] = true
-                    dots[r + 1, c, 0] = true
+                    dots[r, c, 2] = .line
+                    dots[r + 1, c, 0] = .line
                 }
             }
         }
@@ -72,7 +72,7 @@ class ParksGame: CellsGame<ParksGameViewController, ParksGameMove, ParksGameStat
             for c in 0..<cols {
                 let p = Position(r, c)
                 for i in 0..<4 {
-                    if !dots[p + ParksGame.offset2[i], ParksGame.dirs[i]] {
+                    if dots[p + ParksGame.offset2[i], ParksGame.dirs[i]] != .line {
                         g.addEdge(source: pos2node[p]!, neighbor: pos2node[p + ParksGame.offset[i * 2]]!)
                     }
                 }

@@ -14,7 +14,7 @@ class SlitherLinkGameState: CellsGameState, SlitherLinkMixin {
         get {return getGame() as! SlitherLinkGame}
         set {setGame(game: newValue)}
     }
-    var objArray = [SlitherLinkDotObject]()
+    var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
     
     override func copy() -> SlitherLinkGameState {
@@ -30,13 +30,13 @@ class SlitherLinkGameState: CellsGameState, SlitherLinkMixin {
     
     required init(game: SlitherLinkGame) {
         super.init(game: game);
-        objArray = Array<SlitherLinkDotObject>(repeating: Array<SlitherLinkObject>(repeating: .empty, count: 4), count: rows * cols)
+        objArray = Array<GridDotObject>(repeating: Array<GridLineObject>(repeating: .empty, count: 4), count: rows * cols)
         for (p, n) in game.pos2hint {
             pos2state[p] = n == 0 ? .complete : .normal
         }
     }
     
-    subscript(p: Position) -> SlitherLinkDotObject {
+    subscript(p: Position) -> GridDotObject {
         get {
             return self[p.row, p.col]
         }
@@ -44,7 +44,7 @@ class SlitherLinkGameState: CellsGameState, SlitherLinkMixin {
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> SlitherLinkDotObject {
+    subscript(row: Int, col: Int) -> GridDotObject {
         get {
             return objArray[row * cols + col]
         }
@@ -55,7 +55,7 @@ class SlitherLinkGameState: CellsGameState, SlitherLinkMixin {
     
     func setObject(move: inout SlitherLinkGameMove) -> Bool {
         var changed = false
-        func f(o1: inout SlitherLinkObject, o2: inout SlitherLinkObject) {
+        func f(o1: inout GridLineObject, o2: inout GridLineObject) {
             if o1 != move.obj {
                 changed = true
                 o1 = move.obj
@@ -73,7 +73,7 @@ class SlitherLinkGameState: CellsGameState, SlitherLinkMixin {
     
     func switchObject(move: inout SlitherLinkGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
-        func f(o: SlitherLinkObject) -> SlitherLinkObject {
+        func f(o: GridLineObject) -> GridLineObject {
             switch o {
             case .empty:
                 return markerOption == .markerFirst ? .marker : .line

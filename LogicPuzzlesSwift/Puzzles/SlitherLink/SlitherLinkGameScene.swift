@@ -47,7 +47,7 @@ class SlitherLinkGameScene: GameScene<SlitherLinkGameState> {
                 let vertlineNodeName = "vertline" + nodeNameSuffix
                 let hintNumberNodeName = "hintNumber" + nodeNameSuffix
                 func removeHintNumber() { removeNode(withName: hintNumberNodeName) }
-                func addHorzLine(objType: SlitherLinkObject) {
+                func addHorzLine(objType: GridLineObject) {
                     guard objType != .empty else {return}
                     let pathToDraw = CGMutablePath()
                     let lineNode = SKShapeNode(path:pathToDraw)
@@ -70,10 +70,10 @@ class SlitherLinkGameScene: GameScene<SlitherLinkGameState> {
                     lineNode.name = horzLineNodeName
                     gridNode.addChild(lineNode)
                 }
-                func removeHorzLine(objType: SlitherLinkObject) {
+                func removeHorzLine(objType: GridLineObject) {
                     if objType != .empty { removeNode(withName: horzLineNodeName) }
                 }
-                func addVertLine(objType: SlitherLinkObject) {
+                func addVertLine(objType: GridLineObject) {
                     guard objType != .empty else {return}
                     let pathToDraw = CGMutablePath()
                     let lineNode = SKShapeNode(path:pathToDraw)
@@ -96,7 +96,7 @@ class SlitherLinkGameScene: GameScene<SlitherLinkGameState> {
                     lineNode.name = vertlineNodeName
                     gridNode.addChild(lineNode)
                 }
-                func removeVertLine(objType: SlitherLinkObject) {
+                func removeVertLine(objType: GridLineObject) {
                     if objType != .empty { removeNode(withName: vertlineNodeName) }
                 }
                 var (o1, o2) = (stateFrom[p][1], stateTo[p][1])

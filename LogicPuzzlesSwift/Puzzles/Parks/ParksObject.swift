@@ -38,20 +38,18 @@ enum ParksObject {
     }
 }
 
-typealias ParksDotObject = [Bool]
-
 class ParksDots {
     var rows = 0
     var cols = 0
-    var objArray = [ParksDotObject]()
+    var objArray = [GridDotObject]()
     
     init(rows: Int, cols: Int) {
         self.rows = rows
         self.cols = cols
-        objArray = Array<ParksDotObject>(repeating: Array<Bool>(repeating: false, count: 4), count: rows * cols)
+        objArray = Array<GridDotObject>(repeating: Array<GridLineObject>(repeating: .empty, count: 4), count: rows * cols)
     }
-
-    subscript(p: Position, dir: Int) -> Bool {
+    
+    subscript(p: Position, dir: Int) -> GridLineObject {
         get {
             return self[p.row, p.col, dir]
         }
@@ -59,7 +57,7 @@ class ParksDots {
             self[p.row, p.col, dir] = newValue
         }
     }
-    subscript(row: Int, col: Int, dir: Int) -> Bool {
+    subscript(row: Int, col: Int, dir: Int) -> GridLineObject {
         get {
             return objArray[row * cols + col][dir]
         }

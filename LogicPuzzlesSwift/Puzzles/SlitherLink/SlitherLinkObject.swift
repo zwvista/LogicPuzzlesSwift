@@ -8,19 +8,8 @@
 
 import Foundation
 
-enum SlitherLinkObject: Int {
-    case empty
-    case line
-    case marker
-    init() {
-        self = .empty
-    }
-}
-
-typealias SlitherLinkDotObject = [SlitherLinkObject]
-
 struct SlitherLinkGameMove {
     var p = Position()
     var dir = 0
-    var obj = SlitherLinkObject()
+    var obj = GridLineObject()
 }

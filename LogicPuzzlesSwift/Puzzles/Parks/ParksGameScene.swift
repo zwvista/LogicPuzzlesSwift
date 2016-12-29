@@ -30,7 +30,7 @@ class ParksGameScene: GameScene<ParksGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 for dir in 1...2 {
-                    guard game.dots[r, c, dir] else {continue}
+                    guard game.dots[r, c, dir] == .line else {continue}
                     switch dir {
                     case 1:
                         pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
