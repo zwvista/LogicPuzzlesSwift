@@ -18,6 +18,27 @@ class BoxItUpGameScene: GameScene<BoxItUpGameState> {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
+    func addLine(dir: Int, color: SKColor, point: CGPoint, nodeName: String) {
+        let pathToDraw = CGMutablePath()
+        let lineNode = SKShapeNode(path:pathToDraw)
+        switch dir {
+        case 1:
+            pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
+            pathToDraw.addLine(to: CGPoint(x: point.x + gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
+            lineNode.glowWidth = 8
+        case 2:
+            pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
+            pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y - gridNode.blockSize / 2))
+            lineNode.glowWidth = 8
+        default:
+            break
+        }
+        lineNode.path = pathToDraw
+        lineNode.strokeColor = color
+        lineNode.name = nodeName
+        gridNode.addChild(lineNode)
+    }
+    
     override func levelInitialized(_ game: AnyObject, state: BoxItUpGameState, skView: SKView) {
         let game = game as! BoxItUpGame
         removeAllChildren()
@@ -34,6 +55,19 @@ class BoxItUpGameScene: GameScene<BoxItUpGameState> {
             let hintNumberNodeName = "hintNumber" + nodeNameSuffix
             addHintNumber(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNumberNodeName)
         }
+        
+        for r in 0..<game.rows {
+            for c in 0..<game.cols {
+                let p = Position(r, c)
+                let point = gridNode.gridPosition(p: p)
+                for dir in 1...2 {
+                    guard game[r, c][dir] else {continue}
+                    let nodeNameSuffix = "-\(r)-\(c)-\(dir)"
+                    let lineNodeName = "line" + nodeNameSuffix
+                    addLine(dir: dir, color: .white, point: point, nodeName: lineNodeName)
+                }
+            }
+        }
     }
     
     override func levelUpdated(from stateFrom: BoxItUpGameState, to stateTo: BoxItUpGameState) {
@@ -42,73 +76,19 @@ class BoxItUpGameScene: GameScene<BoxItUpGameState> {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
+                for dir in 1...2 {
+                    guard !stateFrom.game[r, c][dir] else {continue}
+                    let nodeNameSuffix = "-\(r)-\(c)-\(dir)"
+                    let lineNodeName = "line" + nodeNameSuffix
+                    func removeLine() { removeNode(withName: lineNodeName) }
+                    let (o1, o2) = (stateFrom[p][dir], stateTo[p][dir])
+                    guard o1 != o2 else {continue}
+                    if o1 {removeLine()}
+                    if o2 {addLine(dir: dir, color: .green, point: point, nodeName: lineNodeName)}
+                }
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let horzLineNodeName = "horzLine" + nodeNameSuffix
-                let vertlineNodeName = "vertline" + nodeNameSuffix
                 let hintNumberNodeName = "hintNumber" + nodeNameSuffix
                 func removeHintNumber() { removeNode(withName: hintNumberNodeName) }
-                func addHorzLine(objType: BoxItUpObject) {
-                    guard objType != .empty else {return}
-                    let pathToDraw = CGMutablePath()
-                    let lineNode = SKShapeNode(path:pathToDraw)
-                    switch objType {
-                    case .line:
-                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
-                        pathToDraw.addLine(to: CGPoint(x: point.x + gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
-                        lineNode.glowWidth = 8
-                    case .marker:
-                        pathToDraw.move(to: CGPoint(x: point.x - markerOffset, y: point.y + gridNode.blockSize / 2 + markerOffset))
-                        pathToDraw.addLine(to: CGPoint(x: point.x + markerOffset, y: point.y + gridNode.blockSize / 2 - markerOffset))
-                        pathToDraw.move(to: CGPoint(x: point.x + markerOffset, y: point.y + gridNode.blockSize / 2 + markerOffset))
-                        pathToDraw.addLine(to: CGPoint(x: point.x - markerOffset, y: point.y + gridNode.blockSize / 2 - markerOffset))
-                        lineNode.glowWidth = 2
-                    default:
-                        break
-                    }
-                    lineNode.path = pathToDraw
-                    lineNode.strokeColor = .yellow
-                    lineNode.name = horzLineNodeName
-                    gridNode.addChild(lineNode)
-                }
-                func removeHorzLine(objType: BoxItUpObject) {
-                    if objType != .empty { removeNode(withName: horzLineNodeName) }
-                }
-                func addVertLine(objType: BoxItUpObject) {
-                    guard objType != .empty else {return}
-                    let pathToDraw = CGMutablePath()
-                    let lineNode = SKShapeNode(path:pathToDraw)
-                    switch objType {
-                    case .line:
-                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
-                        pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y - gridNode.blockSize / 2))
-                        lineNode.glowWidth = 8
-                    case .marker:
-                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2 - markerOffset, y: point.y + markerOffset))
-                        pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2 + markerOffset, y: point.y - markerOffset))
-                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2 - markerOffset, y: point.y - markerOffset))
-                        pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2 + markerOffset, y: point.y + markerOffset))
-                        lineNode.glowWidth = 2
-                    default:
-                        break
-                    }
-                    lineNode.path = pathToDraw
-                    lineNode.strokeColor = .yellow
-                    lineNode.name = vertlineNodeName
-                    gridNode.addChild(lineNode)
-                }
-                func removeVertLine(objType: BoxItUpObject) {
-                    if objType != .empty { removeNode(withName: vertlineNodeName) }
-                }
-                var (o1, o2) = (stateFrom[p][1], stateTo[p][1])
-                if o1 != o2 {
-                    removeHorzLine(objType: o1)
-                    addHorzLine(objType: o2)
-                }
-                (o1, o2) = (stateFrom[p][2], stateTo[p][2])
-                if o1 != o2 {
-                    removeVertLine(objType: o1)
-                    addVertLine(objType: o2)
-                }
                 guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
                 if s1 != s2 {
                     removeHintNumber()

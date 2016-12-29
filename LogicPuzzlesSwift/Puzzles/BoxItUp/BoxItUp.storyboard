@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-978" y="36"/>
         </scene>
-        <!--Slither Link Main View Controller-->
+        <!--Box It Up Main View Controller-->
         <scene sceneID="tFF-GO-VYL">
             <objects>
                 <viewController id="AeD-bF-k0G" customClass="BoxItUpMainViewController" customModule="LogicPuzzlesSwift" customModuleProvider="target" sceneMemberID="viewController">
@@ -158,8 +158,8 @@
                                     <segue destination="ORe-b4-YC9" kind="presentation" id="B34-9U-Fv0"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BoxItUp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGx-Ts-pBn">
-                                <rect key="frame" x="106.5" y="166.5" width="162" height="42"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Box It Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGx-Ts-pBn">
+                                <rect key="frame" x="117.5" y="166.5" width="140.5" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="7Yf-C1-JWa"/>
                                 </constraints>
@@ -229,7 +229,7 @@
             </objects>
             <point key="canvasLocation" x="-266.39999999999998" y="35.532233883058474"/>
         </scene>
-        <!--Slither Link Game View Controller-->
+        <!--Box It Up Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController storyboardIdentifier="BoxItUpGameViewController" id="BV1-FR-VrT" customClass="BoxItUpGameViewController" customModule="LogicPuzzlesSwift" customModuleProvider="target" sceneMemberID="viewController">
