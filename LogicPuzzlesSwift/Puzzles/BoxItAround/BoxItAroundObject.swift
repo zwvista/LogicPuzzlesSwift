@@ -8,19 +8,8 @@
 
 import Foundation
 
-enum BoxItAroundObject: Int {
-    case empty
-    case line
-    case marker
-    init() {
-        self = .empty
-    }
-}
-
-typealias BoxItAroundDotObject = [BoxItAroundObject]
-
 struct BoxItAroundGameMove {
     var p = Position()
     var dir = 0
-    var obj = BoxItAroundObject()
+    var obj = GridLineObject()
 }

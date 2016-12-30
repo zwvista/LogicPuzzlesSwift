@@ -14,7 +14,7 @@ class BoxItAroundGameState: CellsGameState, BoxItAroundMixin {
         get {return getGame() as! BoxItAroundGame}
         set {setGame(game: newValue)}
     }
-    var objArray = [BoxItAroundDotObject]()
+    var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
     
     override func copy() -> BoxItAroundGameState {
@@ -30,13 +30,18 @@ class BoxItAroundGameState: CellsGameState, BoxItAroundMixin {
     
     required init(game: BoxItAroundGame) {
         super.init(game: game);
-        objArray = Array<BoxItAroundDotObject>(repeating: Array<BoxItAroundObject>(repeating: .empty, count: 4), count: rows * cols)
-        for (p, n) in game.pos2hint {
-            pos2state[p] = n == 0 ? .complete : .normal
+        objArray = Array<GridDotObject>(repeating: Array<GridLineObject>(repeating: .empty, count: 4), count: rows * cols)
+        for r in 0..<rows {
+            for c in 0..<cols {
+                self[r, c] = game[r, c]
+            }
+        }
+        for p in game.pos2hint.keys {
+            pos2state[p] = .normal
         }
     }
     
-    subscript(p: Position) -> BoxItAroundDotObject {
+    subscript(p: Position) -> GridDotObject {
         get {
             return self[p.row, p.col]
         }
@@ -44,7 +49,7 @@ class BoxItAroundGameState: CellsGameState, BoxItAroundMixin {
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> BoxItAroundDotObject {
+    subscript(row: Int, col: Int) -> GridDotObject {
         get {
             return objArray[row * cols + col]
         }
@@ -55,7 +60,7 @@ class BoxItAroundGameState: CellsGameState, BoxItAroundMixin {
     
     func setObject(move: inout BoxItAroundGameMove) -> Bool {
         var changed = false
-        func f(o1: inout BoxItAroundObject, o2: inout BoxItAroundObject) {
+        func f(o1: inout GridLineObject, o2: inout GridLineObject) {
             if o1 != move.obj {
                 changed = true
                 o1 = move.obj
@@ -64,16 +69,17 @@ class BoxItAroundGameState: CellsGameState, BoxItAroundMixin {
                 // self[p] will not be updated until the function returns
             }
         }
-        let p = move.p
         let dir = move.dir, dir2 = (dir + 2) % 4
-        f(o1: &self[p][dir], o2: &self[p + BoxItAroundGame.offset[dir]][dir2])
+        let p = move.p, p2 = p + BoxItAroundGame.offset[dir]
+        guard isValid(p: p2) && game[p][dir] != .line else {return false}
+        f(o1: &self[p][dir], o2: &self[p2][dir2])
         if changed {updateIsSolved()}
         return changed
     }
     
     func switchObject(move: inout BoxItAroundGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
-        func f(o: BoxItAroundObject) -> BoxItAroundObject {
+        func f(o: GridLineObject) -> GridLineObject {
             switch o {
             case .empty:
                 return markerOption == .markerFirst ? .marker : .line
@@ -90,44 +96,51 @@ class BoxItAroundGameState: CellsGameState, BoxItAroundMixin {
     
     private func updateIsSolved() {
         isSolved = true
-        for (p, n2) in game.pos2hint {
-            var n1 = 0
-            if self[p][1] == .line {n1 += 1}
-            if self[p][2] == .line {n1 += 1}
-            if self[p + Position(1, 1)][0] == .line {n1 += 1}
-            if self[p + Position(1, 1)][3] == .line {n1 += 1}
-            pos2state[p] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 {isSolved = false}
-        }
-        guard isSolved else {return}
+        var rng = Set<Position>()
         let g = Graph()
         var pos2node = [Position: Node]()
-        for r in 0..<rows {
-            for c in 0..<cols {
+        for r in 0..<rows - 1 {
+            for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                let n = self[p].filter({$0 == .line}).count
-                switch n {
-                case 0:
-                    continue
-                case 2:
-                    pos2node[p] = g.addNode(label: p.description)
-                default:
-                    isSolved = false
-                    return
+                rng.insert(p)
+                pos2node[p] = g.addNode(label: p.description)
+            }
+        }
+        for r in 0..<rows - 1 {
+            for c in 0..<cols - 1 {
+                let p = Position(r, c)
+                for i in 0..<4 {
+                    if self[p + BoxItUpGame.offset2[i]][BoxItUpGame.dirs[i]] != .line {
+                        g.addEdge(source: pos2node[p]!, neighbor: pos2node[p + BoxItUpGame.offset[i]]!)
+                    }
                 }
             }
         }
-        for p in pos2node.keys {
-            let dotObj = self[p]
-            for i in 0..<4 {
-                guard dotObj[i] == .line else {continue}
-                let p2 = p + BoxItAroundGame.offset[i]
-                g.addEdge(source: pos2node[p]!, neighbor: pos2node[p2]!)
+        while !rng.isEmpty {
+            let node = pos2node[rng.first!]!
+            let nodesExplored = breadthFirstSearch(g, source: node)
+            let area = rng.filter({p in nodesExplored.contains(p.description)})
+            rng.subtract(area)
+            let rng2 = area.filter({p in game.pos2hint[p] != nil})
+            if rng2.count != 1 {
+                for p in rng2 {
+                    pos2state[p] = .normal
+                }
+                isSolved = false; continue
             }
+            let p2 = rng2[0]
+            let n1 = area.count, n2 = game.pos2hint[p2]!
+            if n1 != n2 {isSolved = false; pos2state[p2] = .error; continue}
+            var r2 = 0, r1 = rows, c2 = 0, c1 = cols
+            for p in area {
+                if r2 < p.row {r2 = p.row}
+                if r1 > p.row {r1 = p.row}
+                if c2 < p.col {c2 = p.col}
+                if c1 > p.col {c1 = p.col}
+            }
+            let rs = r2 - r1 + 1, cs = c2 - c1 + 1;
+            pos2state[p2] = rs * cs == n2 ? .complete : .error
+            if rs * cs != n2 {isSolved = false}
         }
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.values.first!)
-        let n1 = nodesExplored.count
-        let n2 = pos2node.values.count
-        if n1 != n2 {isSolved = false}
     }
 }
