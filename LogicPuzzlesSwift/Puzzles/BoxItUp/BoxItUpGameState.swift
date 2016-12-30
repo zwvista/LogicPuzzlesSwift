@@ -125,7 +125,6 @@ class BoxItUpGameState: CellsGameState, BoxItUpMixin {
             }
             let p2 = rng2[0]
             let n1 = area.count, n2 = game.pos2hint[p2]!
-            if n1 != n2 {isSolved = false; pos2state[p2] = .error; continue}
             var r2 = 0, r1 = rows, c2 = 0, c1 = cols
             for p in area {
                 if r2 < p.row {r2 = p.row}
@@ -134,8 +133,8 @@ class BoxItUpGameState: CellsGameState, BoxItUpMixin {
                 if c1 > p.col {c1 = p.col}
             }
             let rs = r2 - r1 + 1, cs = c2 - c1 + 1;
-            pos2state[p2] = rs * cs == n2 ? .complete : .error
-            if rs * cs != n2 {isSolved = false}
+            pos2state[p2] = rs * cs == n1 && rs * cs == n2 ? .complete : .error
+            if pos2state[p2] != .complete {isSolved = false}
         }
     }
 }
