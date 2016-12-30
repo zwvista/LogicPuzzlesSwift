@@ -133,7 +133,16 @@ class BoxItUpGameState: CellsGameState, BoxItUpMixin {
                 if c1 > p.col {c1 = p.col}
             }
             let rs = r2 - r1 + 1, cs = c2 - c1 + 1;
-            pos2state[p2] = rs * cs == n1 && rs * cs == n2 ? .complete : .error
+            func hasLine() -> Bool {
+                for r in r1...r2 {
+                    for c in c1...c2 {
+                        let dotObj = self[r + 1, c + 1]
+                        if r < r2 && dotObj[3] == .line || c < c2 && dotObj[0] == .line {return true}
+                    }
+                }
+                return false
+            }
+            pos2state[p2] = rs * cs == n1 && rs * cs == n2 && !hasLine() ? .complete : .error
             if pos2state[p2] != .complete {isSolved = false}
         }
     }
