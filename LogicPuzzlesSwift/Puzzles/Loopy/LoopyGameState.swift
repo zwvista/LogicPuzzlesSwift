@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LoopyGameState: CellsGameState, LoopyMixin {
+class LoopyGameState: GridGameState, LoopyMixin {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: LoopyGame {
         get {return getGame() as! LoopyGame}

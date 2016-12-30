@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NurikabeGameState: CellsGameState, NurikabeMixin {
+class NurikabeGameState: GridGameState, NurikabeMixin {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: NurikabeGame {
         get {return getGame() as! NurikabeGame}

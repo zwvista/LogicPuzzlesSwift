@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BattleShipsGameState: CellsGameState, BattleShipsMixin {
+class BattleShipsGameState: GridGameState, BattleShipsMixin {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: BattleShipsGame {
         get {return getGame() as! BattleShipsGame}

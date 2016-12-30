@@ -8,7 +8,7 @@
 
 import Foundation
 
-class HitoriGameState: CellsGameState, HitoriMixin {
+class HitoriGameState: GridGameState, HitoriMixin {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: HitoriGame {
         get {return getGame() as! HitoriGame}

@@ -73,13 +73,13 @@ class Game<GD: GameDelegate, GM, GS: GameStateBase> where GD.GM == GM, GD.GS == 
     }
 }
 
-protocol CellsGameBase: class {
+protocol GridGameBase: class {
     var size: Position! {get}
     func isValid(p: Position) -> Bool;
     func isValid(row: Int, col: Int) -> Bool;
 }
 
-class CellsGame<GD: GameDelegate, GM, GS: GameStateBase>: Game<GD, GM, GS>, CellsGameBase where GD.GM == GM, GD.GS == GS {
+class GridGame<GD: GameDelegate, GM, GS: GameStateBase>: Game<GD, GM, GS>, GridGameBase where GD.GM == GM, GD.GS == GS {
     var size: Position!
     var rows: Int { return size.row }
     var cols: Int { return size.col }

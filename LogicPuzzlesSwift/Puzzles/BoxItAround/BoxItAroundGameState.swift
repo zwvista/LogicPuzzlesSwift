@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BoxItAroundGameState: CellsGameState, BoxItAroundMixin {
+class BoxItAroundGameState: GridGameState, BoxItAroundMixin {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: BoxItAroundGame {
         get {return getGame() as! BoxItAroundGame}

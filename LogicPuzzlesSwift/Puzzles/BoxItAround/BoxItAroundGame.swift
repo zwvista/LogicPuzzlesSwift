@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BoxItAroundGame: CellsGame<BoxItAroundGameViewController, BoxItAroundGameMove, BoxItAroundGameState>, GameBase {
+class BoxItAroundGame: GridGame<BoxItAroundGameViewController, BoxItAroundGameMove, BoxItAroundGameState>, GameBase {
     static let gameID = "BoxItAround"
     static let offset = [
         Position(-1, 0),

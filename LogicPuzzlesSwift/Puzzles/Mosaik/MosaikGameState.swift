@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MosaikGameState: CellsGameState, MosaikMixin {
+class MosaikGameState: GridGameState, MosaikMixin {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: MosaikGame {
         get {return getGame() as! MosaikGame}

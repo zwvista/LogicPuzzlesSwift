@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MasyuGameState: CellsGameState, MasyuMixin {
+class MasyuGameState: GridGameState, MasyuMixin {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: MasyuGame {
         get {return getGame() as! MasyuGame}

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MosaikGame: CellsGame<MosaikGameViewController, MosaikGameMove, MosaikGameState>, GameBase {
+class MosaikGame: GridGame<MosaikGameViewController, MosaikGameMove, MosaikGameState>, GameBase {
     static let gameID = "Mosaik"
     static let offset = [
         Position(-1, 0),

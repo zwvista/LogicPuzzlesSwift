@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SlitherLinkGameState: CellsGameState, SlitherLinkMixin {
+class SlitherLinkGameState: GridGameState, SlitherLinkMixin {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: SlitherLinkGame {
         get {return getGame() as! SlitherLinkGame}

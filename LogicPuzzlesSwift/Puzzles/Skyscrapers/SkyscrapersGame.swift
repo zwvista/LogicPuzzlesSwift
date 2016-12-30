@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SkyscrapersGame: CellsGame<SkyscrapersGameViewController, SkyscrapersGameMove, SkyscrapersGameState>, GameBase {
+class SkyscrapersGame: GridGame<SkyscrapersGameViewController, SkyscrapersGameMove, SkyscrapersGameState>, GameBase {
     static let gameID = "Skyscrapers"
     static let offset = [
         Position(-1, 0),

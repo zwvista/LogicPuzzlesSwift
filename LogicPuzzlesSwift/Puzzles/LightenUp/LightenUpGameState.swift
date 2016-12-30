@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LightenUpGameState: CellsGameState, LightenUpMixin {
+class LightenUpGameState: GridGameState, LightenUpMixin {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: LightenUpGame {
         get {return getGame() as! LightenUpGame}
