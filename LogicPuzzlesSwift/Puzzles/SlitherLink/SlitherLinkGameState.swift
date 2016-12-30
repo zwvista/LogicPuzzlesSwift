@@ -92,10 +92,9 @@ class SlitherLinkGameState: CellsGameState, SlitherLinkMixin {
         isSolved = true
         for (p, n2) in game.pos2hint {
             var n1 = 0
-            if self[p][1] == .line {n1 += 1}
-            if self[p][2] == .line {n1 += 1}
-            if self[p + Position(1, 1)][0] == .line {n1 += 1}
-            if self[p + Position(1, 1)][3] == .line {n1 += 1}
+            for i in 0..<4 {
+                if self[p + SlitherLinkGame.offset2[i]][SlitherLinkGame.dirs[i]] != .line {n1 += 1}
+            }
             pos2state[p] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
         }

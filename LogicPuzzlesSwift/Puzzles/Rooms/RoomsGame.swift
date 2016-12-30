@@ -28,12 +28,14 @@ class RoomsGame: CellsGame<RoomsGameViewController, RoomsGameMove, RoomsGameStat
         return 0..<rows - 1 ~= row && 0..<cols - 1 ~= col
     }
 
+    var objArray = [GridDotObject]()
     var pos2hint = [Position: Int]()
     
     init(layout: [String], delegate: RoomsGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count + 1, layout[0].length + 1)
+        objArray = Array<GridDotObject>(repeating: Array<GridLineObject>(repeating: .empty, count: 4), count: rows * cols)
         
         for r in 0..<rows - 1 {
             let str = layout[r]
@@ -49,10 +51,39 @@ class RoomsGame: CellsGame<RoomsGameViewController, RoomsGameMove, RoomsGameStat
                 }
             }
         }
+        for r in 0..<rows - 1 {
+            self[r, 0][2] = .line
+            self[r + 1, 0][0] = .line
+            self[r, cols - 1][2] = .line
+            self[r + 1, cols - 1][0] = .line
+        }
+        for c in 0..<cols - 1 {
+            self[0, c][1] = .line
+            self[0, c + 1][3] = .line
+            self[rows - 1, c][1] = .line
+            self[rows - 1, c + 1][3] = .line
+        }
         
         let state = RoomsGameState(game: self)
         states.append(state)
         levelInitilized(state: state)
+    }
+    
+    subscript(p: Position) -> GridDotObject {
+        get {
+            return self[p.row, p.col]
+        }
+        set(newValue) {
+            self[p.row, p.col] = newValue
+        }
+    }
+    subscript(row: Int, col: Int) -> GridDotObject {
+        get {
+            return objArray[row * cols + col]
+        }
+        set(newValue) {
+            objArray[row * cols + col] = newValue
+        }
     }
     
     private func changeObject(move: inout RoomsGameMove, f: (inout RoomsGameState, inout RoomsGameMove) -> Bool) -> Bool {

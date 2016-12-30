@@ -30,12 +30,7 @@ class BoxItUpGameState: CellsGameState, BoxItUpMixin {
     
     required init(game: BoxItUpGame) {
         super.init(game: game);
-        objArray = Array<GridDotObject>(repeating: Array<GridLineObject>(repeating: .empty, count: 4), count: rows * cols)
-        for r in 0..<rows {
-            for c in 0..<cols {
-                self[r, c] = game[r, c]
-            }
-        }
+        objArray = game.objArray
         for p in game.pos2hint.keys {
             pos2state[p] = .normal
         }

@@ -30,7 +30,7 @@ class RoomsGameState: CellsGameState, RoomsMixin {
     
     required init(game: RoomsGame) {
         super.init(game: game);
-        objArray = Array<GridDotObject>(repeating: Array<GridLineObject>(repeating: .empty, count: 4), count: rows * cols)
+        objArray = game.objArray
         updateIsSolved()
     }
     
@@ -62,9 +62,10 @@ class RoomsGameState: CellsGameState, RoomsMixin {
                 // self[p] will not be updated until the function returns
             }
         }
-        let p = move.p
         let dir = move.dir, dir2 = (dir + 2) % 4
-        f(o1: &self[p][dir], o2: &self[p + RoomsGame.offset[dir]][dir2])
+        let p = move.p, p2 = p + RoomsGame.offset[dir]
+        guard isValid(p: p2) && game[p][dir] != .line else {return false}
+        f(o1: &self[p][dir], o2: &self[p2][dir2])
         if changed {updateIsSolved()}
         return changed
     }
@@ -91,10 +92,9 @@ class RoomsGameState: CellsGameState, RoomsMixin {
         for (p, n2) in game.pos2hint {
             var n1 = 0
             for i in 0..<4 {
-                let (os1, os2, dir) = (RoomsGame.offset[i], RoomsGame.offset2[i], RoomsGame.dirs[i])
                 var p2 = p
-                while(isValid(p: p2 + os1) && self[p2 + os2][dir] != .line) {
-                    n1 += 1; p2 += os1
+                while self[p2 + RoomsGame.offset2[i]][RoomsGame.dirs[i]] != .line {
+                    n1 += 1; p2 += RoomsGame.offset[i]
                 }
             }
             pos2state[p] = n1 > n2 ? .normal : n1 == n2 ? .complete : .error
