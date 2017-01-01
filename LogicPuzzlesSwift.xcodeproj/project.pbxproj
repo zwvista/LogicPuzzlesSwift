@@ -102,6 +102,30 @@
 		8C6D37FB1DC5ACDB0052202C /* Copyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37EC1DC5A2F50052202C /* Copyable.swift */; };
 		8C6D37FC1DC5B4DC0052202C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D01DC42FA40052202C /* Game.swift */; };
 		8C6D37FE1DC5B4EB0052202C /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D21DC42FA40052202C /* GameState.swift */; };
+		8C81CB9E1E19546000FB244A /* BoxItAgain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C81CB851E19546000FB244A /* BoxItAgain.storyboard */; };
+		8C81CB9F1E19546000FB244A /* BoxItAgain.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C81CB861E19546000FB244A /* BoxItAgain.xml */; };
+		8C81CBA01E19546000FB244A /* BoxItAgainDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB871E19546000FB244A /* BoxItAgainDocument.swift */; };
+		8C81CBA11E19546000FB244A /* BoxItAgainGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB881E19546000FB244A /* BoxItAgainGame.swift */; };
+		8C81CBA21E19546000FB244A /* BoxItAgainGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB891E19546000FB244A /* BoxItAgainGameScene.swift */; };
+		8C81CBA31E19546000FB244A /* BoxItAgainGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB8A1E19546000FB244A /* BoxItAgainGameState.swift */; };
+		8C81CBA41E19546000FB244A /* BoxItAgainGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB8B1E19546000FB244A /* BoxItAgainGameViewController.swift */; };
+		8C81CBA51E19546000FB244A /* BoxItAgainGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB8C1E19546000FB244A /* BoxItAgainGridNode.swift */; };
+		8C81CBA61E19546000FB244A /* BoxItAgainMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB8D1E19546000FB244A /* BoxItAgainMainViewController.swift */; };
+		8C81CBA71E19546000FB244A /* BoxItAgainMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB8E1E19546000FB244A /* BoxItAgainMixin.swift */; };
+		8C81CBA81E19546000FB244A /* BoxItAgainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB8F1E19546000FB244A /* BoxItAgainObject.swift */; };
+		8C81CBA91E19546000FB244A /* BoxItAgainOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB901E19546000FB244A /* BoxItAgainOptionsViewController.swift */; };
+		8C81CBAA1E19546000FB244A /* FenceItUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C81CB921E19546000FB244A /* FenceItUp.storyboard */; };
+		8C81CBAB1E19546000FB244A /* FenceItUp.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C81CB931E19546000FB244A /* FenceItUp.xml */; };
+		8C81CBAC1E19546000FB244A /* FenceItUpDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB941E19546000FB244A /* FenceItUpDocument.swift */; };
+		8C81CBAD1E19546000FB244A /* FenceItUpGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB951E19546000FB244A /* FenceItUpGame.swift */; };
+		8C81CBAE1E19546000FB244A /* FenceItUpGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB961E19546000FB244A /* FenceItUpGameScene.swift */; };
+		8C81CBAF1E19546000FB244A /* FenceItUpGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB971E19546000FB244A /* FenceItUpGameState.swift */; };
+		8C81CBB01E19546000FB244A /* FenceItUpGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB981E19546000FB244A /* FenceItUpGameViewController.swift */; };
+		8C81CBB11E19546000FB244A /* FenceItUpGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB991E19546000FB244A /* FenceItUpGridNode.swift */; };
+		8C81CBB21E19546000FB244A /* FenceItUpMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB9A1E19546000FB244A /* FenceItUpMainViewController.swift */; };
+		8C81CBB31E19546000FB244A /* FenceItUpMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB9B1E19546000FB244A /* FenceItUpMixin.swift */; };
+		8C81CBB41E19546000FB244A /* FenceItUpObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB9C1E19546000FB244A /* FenceItUpObject.swift */; };
+		8C81CBB51E19546000FB244A /* FenceItUpOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB9D1E19546000FB244A /* FenceItUpOptionsViewController.swift */; };
 		8C886C3C1D9E8AF1004A42BF /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C291D9E8AF0004A42BF /* AbstractActionSheetPicker.m */; };
 		8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C2B1D9E8AF0004A42BF /* ActionSheetCustomPicker.m */; };
 		8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C2E1D9E8AF0004A42BF /* ActionSheetDatePicker.m */; };
@@ -496,6 +520,30 @@
 		8C6D37EC1DC5A2F50052202C /* Copyable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Copyable.swift; sourceTree = "<group>"; };
 		8C6D37F21DC5AC310052202C /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		8C6D37F41DC5AC520052202C /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		8C81CB851E19546000FB244A /* BoxItAgain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BoxItAgain.storyboard; sourceTree = "<group>"; };
+		8C81CB861E19546000FB244A /* BoxItAgain.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BoxItAgain.xml; sourceTree = "<group>"; };
+		8C81CB871E19546000FB244A /* BoxItAgainDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainDocument.swift; sourceTree = "<group>"; };
+		8C81CB881E19546000FB244A /* BoxItAgainGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainGame.swift; sourceTree = "<group>"; };
+		8C81CB891E19546000FB244A /* BoxItAgainGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainGameScene.swift; sourceTree = "<group>"; };
+		8C81CB8A1E19546000FB244A /* BoxItAgainGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainGameState.swift; sourceTree = "<group>"; };
+		8C81CB8B1E19546000FB244A /* BoxItAgainGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainGameViewController.swift; sourceTree = "<group>"; };
+		8C81CB8C1E19546000FB244A /* BoxItAgainGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainGridNode.swift; sourceTree = "<group>"; };
+		8C81CB8D1E19546000FB244A /* BoxItAgainMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainMainViewController.swift; sourceTree = "<group>"; };
+		8C81CB8E1E19546000FB244A /* BoxItAgainMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainMixin.swift; sourceTree = "<group>"; };
+		8C81CB8F1E19546000FB244A /* BoxItAgainObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainObject.swift; sourceTree = "<group>"; };
+		8C81CB901E19546000FB244A /* BoxItAgainOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainOptionsViewController.swift; sourceTree = "<group>"; };
+		8C81CB921E19546000FB244A /* FenceItUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FenceItUp.storyboard; sourceTree = "<group>"; };
+		8C81CB931E19546000FB244A /* FenceItUp.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FenceItUp.xml; sourceTree = "<group>"; };
+		8C81CB941E19546000FB244A /* FenceItUpDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceItUpDocument.swift; sourceTree = "<group>"; };
+		8C81CB951E19546000FB244A /* FenceItUpGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceItUpGame.swift; sourceTree = "<group>"; };
+		8C81CB961E19546000FB244A /* FenceItUpGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceItUpGameScene.swift; sourceTree = "<group>"; };
+		8C81CB971E19546000FB244A /* FenceItUpGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceItUpGameState.swift; sourceTree = "<group>"; };
+		8C81CB981E19546000FB244A /* FenceItUpGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceItUpGameViewController.swift; sourceTree = "<group>"; };
+		8C81CB991E19546000FB244A /* FenceItUpGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceItUpGridNode.swift; sourceTree = "<group>"; };
+		8C81CB9A1E19546000FB244A /* FenceItUpMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceItUpMainViewController.swift; sourceTree = "<group>"; };
+		8C81CB9B1E19546000FB244A /* FenceItUpMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceItUpMixin.swift; sourceTree = "<group>"; };
+		8C81CB9C1E19546000FB244A /* FenceItUpObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceItUpObject.swift; sourceTree = "<group>"; };
+		8C81CB9D1E19546000FB244A /* FenceItUpOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceItUpOptionsViewController.swift; sourceTree = "<group>"; };
 		8C886C281D9E8AF0004A42BF /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
 		8C886C291D9E8AF0004A42BF /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
 		8C886C2A1D9E8AF0004A42BF /* ActionSheetCustomPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPicker.h; sourceTree = "<group>"; };
@@ -1025,10 +1073,12 @@
 			children = (
 				8C9AF3F31DE974BE0053BED4 /* Abc */,
 				84FBA5161DFF7F3600594DAE /* BattleShips */,
+				8C81CB841E19546000FB244A /* BoxItAgain */,
 				8C373D471E14A621005712CD /* BoxItAround */,
 				8C373D541E14A622005712CD /* BoxItUp */,
 				8C9AF4001DE974BE0053BED4 /* Bridges */,
 				8C9AF40D1DE974BE0053BED4 /* Clouds */,
+				8C81CB911E19546000FB244A /* FenceItUp */,
 				8C9AF41A1DE974BE0053BED4 /* Hitori */,
 				8C9AF4271DE974BF0053BED4 /* LightenUp */,
 				8C9AF4341DE974BF0053BED4 /* LineSweeper */,
@@ -1066,6 +1116,44 @@
 				8C6D37F41DC5AC520052202C /* Position.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		8C81CB841E19546000FB244A /* BoxItAgain */ = {
+			isa = PBXGroup;
+			children = (
+				8C81CB851E19546000FB244A /* BoxItAgain.storyboard */,
+				8C81CB861E19546000FB244A /* BoxItAgain.xml */,
+				8C81CB871E19546000FB244A /* BoxItAgainDocument.swift */,
+				8C81CB881E19546000FB244A /* BoxItAgainGame.swift */,
+				8C81CB891E19546000FB244A /* BoxItAgainGameScene.swift */,
+				8C81CB8A1E19546000FB244A /* BoxItAgainGameState.swift */,
+				8C81CB8B1E19546000FB244A /* BoxItAgainGameViewController.swift */,
+				8C81CB8C1E19546000FB244A /* BoxItAgainGridNode.swift */,
+				8C81CB8D1E19546000FB244A /* BoxItAgainMainViewController.swift */,
+				8C81CB8E1E19546000FB244A /* BoxItAgainMixin.swift */,
+				8C81CB8F1E19546000FB244A /* BoxItAgainObject.swift */,
+				8C81CB901E19546000FB244A /* BoxItAgainOptionsViewController.swift */,
+			);
+			path = BoxItAgain;
+			sourceTree = "<group>";
+		};
+		8C81CB911E19546000FB244A /* FenceItUp */ = {
+			isa = PBXGroup;
+			children = (
+				8C81CB921E19546000FB244A /* FenceItUp.storyboard */,
+				8C81CB931E19546000FB244A /* FenceItUp.xml */,
+				8C81CB941E19546000FB244A /* FenceItUpDocument.swift */,
+				8C81CB951E19546000FB244A /* FenceItUpGame.swift */,
+				8C81CB961E19546000FB244A /* FenceItUpGameScene.swift */,
+				8C81CB971E19546000FB244A /* FenceItUpGameState.swift */,
+				8C81CB981E19546000FB244A /* FenceItUpGameViewController.swift */,
+				8C81CB991E19546000FB244A /* FenceItUpGridNode.swift */,
+				8C81CB9A1E19546000FB244A /* FenceItUpMainViewController.swift */,
+				8C81CB9B1E19546000FB244A /* FenceItUpMixin.swift */,
+				8C81CB9C1E19546000FB244A /* FenceItUpObject.swift */,
+				8C81CB9D1E19546000FB244A /* FenceItUpOptionsViewController.swift */,
+			);
+			path = FenceItUp;
 			sourceTree = "<group>";
 		};
 		8C886C271D9E8AF0004A42BF /* Pickers */ = {
@@ -1626,14 +1714,17 @@
 				8C9AF4831DE974BF0053BED4 /* Abc.xml in Resources */,
 				8C9F43E41D771915000139FC /* Assets.xcassets in Resources */,
 				8C9AF4CA1DE974BF0053BED4 /* Masyu.storyboard in Resources */,
+				8C81CBAA1E19546000FB244A /* FenceItUp.storyboard in Resources */,
 				8C9AF4B31DE974BF0053BED4 /* LightenUp.xml in Resources */,
 				8C9AF4CB1DE974BF0053BED4 /* Masyu.xml in Resources */,
 				8C373D6D1E14A622005712CD /* BoxItUp.storyboard in Resources */,
 				8C9AF4A61DE974BF0053BED4 /* Hitori.storyboard in Resources */,
 				84FBA53D1DFF7F4500594DAE /* Parks.storyboard in Resources */,
+				8C81CB9F1E19546000FB244A /* BoxItAgain.xml in Resources */,
 				8C9AF4E21DE974BF0053BED4 /* Skyscrapers.storyboard in Resources */,
 				84FBA5231DFF7F3600594DAE /* BattleShips.storyboard in Resources */,
 				8C9AF5141DE975030053BED4 /* Loopy.xml in Resources */,
+				8C81CB9E1E19546000FB244A /* BoxItAgain.storyboard in Resources */,
 				8C9AF5131DE975030053BED4 /* Loopy.storyboard in Resources */,
 				8C9AF4D71DE974BF0053BED4 /* Nurikabe.xml in Resources */,
 				8C9AF4EE1DE974BF0053BED4 /* SlitherLink.storyboard in Resources */,
@@ -1653,6 +1744,7 @@
 				8C9AF4B21DE974BF0053BED4 /* LightenUp.storyboard in Resources */,
 				8C9AF4FB1DE974BF0053BED4 /* Sumscrapers.xml in Resources */,
 				8C9AF57A1DF8D84B0053BED4 /* Rooms.xml in Resources */,
+				8C81CBAB1E19546000FB244A /* FenceItUp.xml in Resources */,
 				84FBA5561DFF7F4F00594DAE /* Tents.storyboard in Resources */,
 				8C6D373F1DC421980052202C /* Home.storyboard in Resources */,
 				8C373D6E1E14A622005712CD /* BoxItUp.xml in Resources */,
@@ -1681,6 +1773,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C81CBA61E19546000FB244A /* BoxItAgainMainViewController.swift in Sources */,
 				8CC3504D1E001D2800B8FD83 /* UIBarButtonItemExtensions.swift in Sources */,
 				8C6D37FB1DC5ACDB0052202C /* Copyable.swift in Sources */,
 				84FBA55A1DFF7F4F00594DAE /* TentsGameScene.swift in Sources */,
@@ -1691,9 +1784,11 @@
 				8C9AF4DB1DE974BF0053BED4 /* NurikabeGameState.swift in Sources */,
 				8C6D37FA1DC5ACC90052202C /* OptionsViewController.swift in Sources */,
 				84FBA5471DFF7F4500594DAE /* ParksObject.swift in Sources */,
+				8C81CBA71E19546000FB244A /* BoxItAgainMixin.swift in Sources */,
 				8C9AF5481DF471AA0053BED4 /* MosaikGame.swift in Sources */,
 				84FBA5261DFF7F3600594DAE /* BattleShipsGame.swift in Sources */,
 				8C9AF4B41DE974BF0053BED4 /* LightenUpDocument.swift in Sources */,
+				8C81CBA51E19546000FB244A /* BoxItAgainGridNode.swift in Sources */,
 				8C373D691E14A622005712CD /* BoxItAroundMainViewController.swift in Sources */,
 				8C9AF4F71DE974BF0053BED4 /* SlitherLinkMixin.swift in Sources */,
 				8C9AF4DC1DE974BF0053BED4 /* NurikabeGameViewController.swift in Sources */,
@@ -1749,12 +1844,15 @@
 				8C9AF5801DF8D84B0053BED4 /* RoomsGridNode.swift in Sources */,
 				84FBA5421DFF7F4500594DAE /* ParksGameState.swift in Sources */,
 				8C9AF4871DE974BF0053BED4 /* AbcGameState.swift in Sources */,
+				8C81CBA41E19546000FB244A /* BoxItAgainGameViewController.swift in Sources */,
 				8C6D37F51DC5AC520052202C /* Position.swift in Sources */,
 				84FBA55D1DFF7F4F00594DAE /* TentsGridNode.swift in Sources */,
 				8C6D373C1DC421180052202C /* HomeTables.swift in Sources */,
+				8C81CBA01E19546000FB244A /* BoxItAgainDocument.swift in Sources */,
 				8C916CC01DAA5E9500D9E62B /* Node.swift in Sources */,
 				8CC3505E1E001D2800B8FD83 /* UIWindowExtensions.swift in Sources */,
 				8C9AF4F81DE974BF0053BED4 /* SlitherLinkObject.swift in Sources */,
+				8C81CBB31E19546000FB244A /* FenceItUpMixin.swift in Sources */,
 				8CC350511E001D2800B8FD83 /* UIDeviceExtensions.swift in Sources */,
 				8C9AF4D51DE974BF0053BED4 /* MasyuOptionsViewController.swift in Sources */,
 				8C9AF4B91DE974BF0053BED4 /* LightenUpGridNode.swift in Sources */,
@@ -1775,6 +1873,7 @@
 				8C9AF54C1DF471AA0053BED4 /* MosaikGridNode.swift in Sources */,
 				8C9AF4881DE974BF0053BED4 /* AbcGameViewController.swift in Sources */,
 				8C9AF5181DE975030053BED4 /* LoopyGameState.swift in Sources */,
+				8C81CBA81E19546000FB244A /* BoxItAgainObject.swift in Sources */,
 				84FBA55C1DFF7F4F00594DAE /* TentsGameViewController.swift in Sources */,
 				8C373D731E14A622005712CD /* BoxItUpGameViewController.swift in Sources */,
 				8C886C441D9E8AF1004A42BF /* SWActionSheet.m in Sources */,
@@ -1814,6 +1913,7 @@
 				8C9AF48D1DE974BF0053BED4 /* AbcOptionsViewController.swift in Sources */,
 				8C9AF5191DE975030053BED4 /* LoopyGameViewController.swift in Sources */,
 				8CC350411E001D2800B8FD83 /* DoubleExtensions.swift in Sources */,
+				8C81CBAD1E19546000FB244A /* FenceItUpGame.swift in Sources */,
 				8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */,
 				8CC350351E001D2800B8FD83 /* BlockPinch.swift in Sources */,
 				8C9AF4991DE974BF0053BED4 /* BridgesOptionsViewController.swift in Sources */,
@@ -1851,6 +1951,9 @@
 				8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */,
 				8C9AF4D01DE974BF0053BED4 /* MasyuGameViewController.swift in Sources */,
 				8C9AF4F11DE974BF0053BED4 /* SlitherLinkGame.swift in Sources */,
+				8C81CBAF1E19546000FB244A /* FenceItUpGameState.swift in Sources */,
+				8C81CBAC1E19546000FB244A /* FenceItUpDocument.swift in Sources */,
+				8C81CBB21E19546000FB244A /* FenceItUpMainViewController.swift in Sources */,
 				8C9AF54E1DF471AA0053BED4 /* MosaikMixin.swift in Sources */,
 				8C9AF51C1DE975030053BED4 /* LoopyMixin.swift in Sources */,
 				8C9AF5631DF8D7770053BED4 /* MagnetsGameScene.swift in Sources */,
@@ -1881,6 +1984,7 @@
 				8C9AF5821DF8D84B0053BED4 /* RoomsMixin.swift in Sources */,
 				8C886C421D9E8AF1004A42BF /* ActionSheetStringPicker.m in Sources */,
 				8C9AF5051DE974BF0053BED4 /* SumscrapersOptionsViewController.swift in Sources */,
+				8C81CBA31E19546000FB244A /* BoxItAgainGameState.swift in Sources */,
 				8C9AF4A21DE974BF0053BED4 /* CloudsMainViewController.swift in Sources */,
 				8CC3503D1E001D2800B8FD83 /* CGRectExtensions.swift in Sources */,
 				8C9AF48A1DE974BF0053BED4 /* AbcMainViewController.swift in Sources */,
@@ -1889,9 +1993,12 @@
 				8C373D781E14A622005712CD /* BoxItUpOptionsViewController.swift in Sources */,
 				8C6ACC191DD204420075F32C /* GameObject.swift in Sources */,
 				8C9AF4D21DE974BF0053BED4 /* MasyuMainViewController.swift in Sources */,
+				8C81CBAE1E19546000FB244A /* FenceItUpGameScene.swift in Sources */,
 				8C9AF4B11DE974BF0053BED4 /* HitoriOptionsViewController.swift in Sources */,
 				84FBA5481DFF7F4500594DAE /* ParksOptionsViewController.swift in Sources */,
+				8C81CBA11E19546000FB244A /* BoxItAgainGame.swift in Sources */,
 				84FBA5251DFF7F3600594DAE /* BattleShipsDocument.swift in Sources */,
+				8C81CBB41E19546000FB244A /* FenceItUpObject.swift in Sources */,
 				8C9AF5681DF8D7770053BED4 /* MagnetsMixin.swift in Sources */,
 				8CC350561E001D2800B8FD83 /* UISliderExtensions.swift in Sources */,
 				8CC3504A1E001D2800B8FD83 /* TimerExtensions.swift in Sources */,
@@ -1918,10 +2025,12 @@
 				8CC3503B1E001D2800B8FD83 /* CGFloatExtensions.swift in Sources */,
 				8CC3505C1E001D2800B8FD83 /* UIViewControllerExtensions.swift in Sources */,
 				84FBA5451DFF7F4500594DAE /* ParksMainViewController.swift in Sources */,
+				8C81CBB11E19546000FB244A /* FenceItUpGridNode.swift in Sources */,
 				8C9AF4BA1DE974BF0053BED4 /* LightenUpMainViewController.swift in Sources */,
 				8CC350401E001D2800B8FD83 /* DictionaryExtensions.swift in Sources */,
 				8C9AF4C31DE974BF0053BED4 /* LineSweeperGameState.swift in Sources */,
 				8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */,
+				8C81CBA21E19546000FB244A /* BoxItAgainGameScene.swift in Sources */,
 				8CC350541E001D2800B8FD83 /* UIImageViewExtensions.swift in Sources */,
 				8C9AF57D1DF8D84B0053BED4 /* RoomsGameScene.swift in Sources */,
 				8CC350521E001D2800B8FD83 /* UIFontExtensions.swift in Sources */,
@@ -1941,6 +2050,7 @@
 				8C373D771E14A622005712CD /* BoxItUpObject.swift in Sources */,
 				8C9AF5021DE974BF0053BED4 /* SumscrapersMainViewController.swift in Sources */,
 				8C9AF49F1DE974BF0053BED4 /* CloudsGameState.swift in Sources */,
+				8C81CBB01E19546000FB244A /* FenceItUpGameViewController.swift in Sources */,
 				8C9AF57C1DF8D84B0053BED4 /* RoomsGame.swift in Sources */,
 				8CC350331E001D2800B8FD83 /* BlockLongPress.swift in Sources */,
 				8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */,
@@ -1965,6 +2075,8 @@
 				8C9AF4C11DE974BF0053BED4 /* LineSweeperGame.swift in Sources */,
 				8C9AF51B1DE975030053BED4 /* LoopyMainViewController.swift in Sources */,
 				8CC350461E001D2800B8FD83 /* NSAttributedStringExtensions.swift in Sources */,
+				8C81CBA91E19546000FB244A /* BoxItAgainOptionsViewController.swift in Sources */,
+				8C81CBB51E19546000FB244A /* FenceItUpOptionsViewController.swift in Sources */,
 				8C9AF57F1DF8D84B0053BED4 /* RoomsGameViewController.swift in Sources */,
 				8C9AF4CD1DE974BF0053BED4 /* MasyuGame.swift in Sources */,
 				8C6D37FC1DC5B4DC0052202C /* Game.swift in Sources */,
