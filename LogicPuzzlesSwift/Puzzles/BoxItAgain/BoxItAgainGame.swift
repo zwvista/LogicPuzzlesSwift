@@ -30,16 +30,16 @@ class BoxItAgainGame: GridGame<BoxItAgainGameViewController, BoxItAgainGameMove,
     init(layout: [String], delegate: BoxItAgainGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count + 1, layout[0].length / 2 + 1)
+        size = Position(layout.count + 1, layout[0].length + 1)
         objArray = Array<GridDotObject>(repeating: Array<GridLineObject>(repeating: .empty, count: 4), count: rows * cols)
         
         for r in 0..<rows - 1 {
             let str = layout[r]
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                let s = str[c * 2...c * 2 + 1]
-                guard s != "  " else {continue}
-                let n = s.toInt()!
+                let ch = str[c]
+                guard ch != " " else {continue}
+                let n = ch.toInt!
                 pos2hint[p] = n
             }
         }

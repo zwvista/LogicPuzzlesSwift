@@ -117,6 +117,7 @@ class BoxItAgainGameState: GridGameState, BoxItAgainMixin {
             let area = rng.filter({p in nodesExplored.contains(p.description)})
             rng.subtract(area)
             let rng2 = area.filter({p in game.pos2hint[p] != nil})
+            if rng2.count == 0 {continue}
             if rng2.count != 1 {
                 for p in rng2 {
                     pos2state[p] = .normal
