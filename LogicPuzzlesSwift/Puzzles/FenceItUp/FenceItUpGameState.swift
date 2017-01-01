@@ -124,25 +124,14 @@ class FenceItUpGameState: GridGameState, FenceItUpMixin {
                 isSolved = false; continue
             }
             let p2 = rng2[0]
-            let n1 = area.count, n2 = game.pos2hint[p2]!
-            var r2 = 0, r1 = rows, c2 = 0, c1 = cols
+            let n2 = game.pos2hint[p2]!
+            var n1 = 0
             for p in area {
-                if r2 < p.row {r2 = p.row}
-                if r1 > p.row {r1 = p.row}
-                if c2 < p.col {c2 = p.col}
-                if c1 > p.col {c1 = p.col}
-            }
-            let rs = r2 - r1 + 1, cs = c2 - c1 + 1;
-            func hasLine() -> Bool {
-                for r in r1...r2 {
-                    for c in c1...c2 {
-                        let dotObj = self[r + 1, c + 1]
-                        if r < r2 && dotObj[3] == .line || c < c2 && dotObj[0] == .line {return true}
-                    }
+                for i in 0..<4 {
+                    if self[p + FenceItUpGame.offset2[i]][FenceItUpGame.dirs[i]] == .line {n1 += 1}
                 }
-                return false
             }
-            pos2state[p2] = rs * cs == n1 && rs * cs == n2 && !hasLine() ? .complete : .error
+            pos2state[p2] = n1 == n2 ? .complete : .error
             if pos2state[p2] != .complete {isSolved = false}
         }
     }
