@@ -91,13 +91,11 @@ class FenceItUpGameState: GridGameState, FenceItUpMixin {
     
     private func updateIsSolved() {
         isSolved = true
-        var rng = Set<Position>()
         let g = Graph()
         var pos2node = [Position: Node]()
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                rng.insert(p)
                 pos2node[p] = g.addNode(label: p.description)
             }
         }
@@ -111,19 +109,19 @@ class FenceItUpGameState: GridGameState, FenceItUpMixin {
                 }
             }
         }
-        while !rng.isEmpty {
-            let node = pos2node[rng.first!]!
+        while !pos2node.isEmpty {
+            let node = pos2node.first!.value
             let nodesExplored = breadthFirstSearch(g, source: node)
-            let area = rng.filter({p in nodesExplored.contains(p.description)})
-            rng.subtract(area)
-            let rng2 = area.filter({p in game.pos2hint[p] != nil})
-            if rng2.count != 1 {
-                for p in rng2 {
+            let area = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
+            pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
+            let rng = area.filter({p in game.pos2hint[p] != nil})
+            if rng.count != 1 {
+                for p in rng {
                     pos2state[p] = .normal
                 }
                 isSolved = false; continue
             }
-            let p2 = rng2[0]
+            let p2 = rng[0]
             let n2 = game.pos2hint[p2]!
             var n1 = 0
             for p in area {
