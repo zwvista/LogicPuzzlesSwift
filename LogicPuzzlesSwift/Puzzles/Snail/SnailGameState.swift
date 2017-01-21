@@ -14,8 +14,7 @@ class SnailGameState: GridGameState, SnailMixin {
         get {return getGame() as! SnailGame}
         set {setGame(game: newValue)}
     }
-    var objArray = [GridDotObject]()
-    var pos2state = [Position: HintState]()
+    var objArray = [Character]()
     
     override func copy() -> SnailGameState {
         let v = SnailGameState(game: game)
@@ -24,7 +23,6 @@ class SnailGameState: GridGameState, SnailMixin {
     func setup(v: SnailGameState) -> SnailGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     
@@ -34,7 +32,7 @@ class SnailGameState: GridGameState, SnailMixin {
         updateIsSolved()
     }
     
-    subscript(p: Position) -> GridDotObject {
+    subscript(p: Position) -> Character {
         get {
             return self[p.row, p.col]
         }
@@ -42,7 +40,7 @@ class SnailGameState: GridGameState, SnailMixin {
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> GridDotObject {
+    subscript(row: Int, col: Int) -> Character {
         get {
             return objArray[row * cols + col]
         }
@@ -52,53 +50,33 @@ class SnailGameState: GridGameState, SnailMixin {
     }
     
     func setObject(move: inout SnailGameMove) -> Bool {
-        var changed = false
-        func f(o1: inout GridLineObject, o2: inout GridLineObject) {
-            if o1 != move.obj {
-                changed = true
-                o1 = move.obj
-                o2 = move.obj
-                // updateIsSolved() cannot be called here
-                // self[p] will not be updated until the function returns
-            }
-        }
-        let dir = move.dir, dir2 = (dir + 2) % 4
-        let p = move.p, p2 = p + SnailGame.offset[dir]
-        guard isValid(p: p2) && game[p][dir] != .line else {return false}
-        f(o1: &self[p][dir], o2: &self[p2][dir2])
-        if changed {updateIsSolved()}
-        return changed
+        let p = move.p
+        guard isValid(p: p) && self[p] != move.obj else {return false}
+        self[p] = move.obj
+        updateIsSolved()
+        return true
     }
     
     func switchObject(move: inout SnailGameMove) -> Bool {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
-        func f(o: GridLineObject) -> GridLineObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .line
-            case .line:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .line : .empty
-            }
+        func f(ch: Character) -> Character {
+            // http://stackoverflow.com/questions/26761390/changing-value-of-character-using-ascii-value-in-swift
+            let scalars = String(ch).unicodeScalars      // unicode scalar(s) of the character
+            let val = scalars[scalars.startIndex].value  // value of the unicode scalar
+            return Character(UnicodeScalar(val + 1)!)     // return an incremented character
         }
-        let o = f(o: self[move.p][move.dir])
-        move.obj = o
+        let p = move.p
+        guard isValid(p: p) else {return false}
+        let o = self[p]
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        move.obj =
+            o == " " ? markerOption == .markerFirst ? "." : "1" :
+            o == "." ? markerOption == .markerFirst ? "1" : " " :
+            o == "3" ? markerOption == .markerLast ? "." : " " :
+            f(ch: o)
         return setObject(move: &move)
     }
     
     private func updateIsSolved() {
         isSolved = true
-        for (p, n2) in game.pos2hint {
-            var n1 = 0
-            for i in 0..<4 {
-                var p2 = p
-                while self[p2 + SnailGame.offset2[i]][SnailGame.dirs[i]] != .line {
-                    n1 += 1; p2 += SnailGame.offset[i]
-                }
-            }
-            pos2state[p] = n1 > n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 {isSolved = false}
-        }
     }
 }

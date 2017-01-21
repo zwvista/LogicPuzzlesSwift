@@ -14,68 +14,55 @@ class SnailGameScene: GameScene<SnailGameState> {
         set {setGridNode(gridNode: newValue)}
     }
     
-    func addHintNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+    func addCharacter(ch: Character, s: HintState, isHint: Bool, point: CGPoint, nodeName: String) {
+        addLabel(text: String(ch), fontColor: s == .normal ? isHint ? .gray : .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: SnailGameState, skView: SKView) {
         let game = game as! SnailGame
         removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols - 1)
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
         
-        // addGrid
+        // add Grid
         let offset:CGFloat = 0.5
-        addGrid(gridNode: SnailGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset))
+        addGrid(gridNode: SnailGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
-        // addHints
-        for (p, n) in game.pos2hint {
-            let point = gridNode.gridPosition(p: p)
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let hintNumberNodeName = "hintNumber" + nodeNameSuffix
-            addHintNumber(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNumberNodeName)
-        }
-        
+        // add Characters
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
-                if game[r, c][1] == .line {addHorzLine(objType: .line, color: .white, point: point, nodeName: "line")}
-                if game[r, c][2] == .line {addVertLine(objType: .line, color: .white, point: point, nodeName: "line")}
+                let ch = state[p]
+                guard ch != " " else {continue}
+                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let charNodeName = "char" + nodeNameSuffix
+                addCharacter(ch: ch, s: .normal, isHint: !game.isValid(p: p), point: point, nodeName: charNodeName)
             }
         }
     }
     
     override func levelUpdated(from stateFrom: SnailGameState, to stateTo: SnailGameState) {
-        let markerOffset: CGFloat = 7.5
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let horzLineNodeName = "horzLine" + nodeNameSuffix
-                let vertlineNodeName = "vertline" + nodeNameSuffix
-                func removeHorzLine(objType: GridLineObject) {
-                    if objType != .empty { removeNode(withName: horzLineNodeName) }
+                let charNodeName = "char" + nodeNameSuffix
+                let markerNodeName = "marker" + nodeNameSuffix
+                func removeCharacter() { removeNode(withName: charNodeName) }
+                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
+                func removeMarker() { removeNode(withName: markerNodeName) }
+                let (ch1, ch2) = (stateFrom[r, c], stateTo[r, c])
+                guard ch1 != ch2 else {continue}
+                if ch1 == "." {
+                    removeMarker()
+                } else if (ch1 != " ") {
+                    removeCharacter()
                 }
-                func removeVertLine(objType: GridLineObject) {
-                    if objType != .empty { removeNode(withName: vertlineNodeName) }
-                }
-                var (o1, o2) = (stateFrom[p][1], stateTo[p][1])
-                if o1 != o2 {
-                    removeHorzLine(objType: o1)
-                    addHorzLine(objType: o2, color: .yellow, point: point, nodeName: horzLineNodeName)
-                }
-                (o1, o2) = (stateFrom[p][2], stateTo[p][2])
-                if o1 != o2 {
-                    removeVertLine(objType: o1)
-                    addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
-                }
-                let hintNumberNodeName = "hintNumber" + nodeNameSuffix
-                func removeHintNumber() { removeNode(withName: hintNumberNodeName) }
-                guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
-                if s1 != s2 {
-                    removeHintNumber()
-                    addHintNumber(n: stateFrom.game.pos2hint[p]!, s: s2, point: point, nodeName: hintNumberNodeName)
+                if ch2 == "." {
+                    addMarker()
+                } else if (ch2 != " ") {
+                    addCharacter(ch: ch2, s: .normal, isHint: !stateFrom.game.isValid(p: p), point: point, nodeName: charNodeName)
                 }
             }
         }

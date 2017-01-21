@@ -47,9 +47,8 @@ class SnailGameViewController: GameViewController, GameDelegate, SnailMixin {
         let touchLocationInScene = scene.convertPoint(fromView: touchLocation)
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
-        let (b, p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
-        guard b else {return}
-        var move = SnailGameMove(p: p, dir: dir, obj: .empty)
+        let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
+        var move = SnailGameMove(p: p, obj: " ")
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     

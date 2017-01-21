@@ -16,52 +16,21 @@ class SnailGame: GridGame<SnailGameViewController, SnailGameMove, SnailGameState
         Position(1, 0),
         Position(0, -1),
     ];
-    static let offset2 = [
-        Position(0, 0),
-        Position(1, 1),
-        Position(1, 1),
-        Position(0, 0),
-    ];
-    static let dirs = [1, 0, 3, 2]
-    
-    override func isValid(row: Int, col: Int) -> Bool {
-        return 0..<rows - 1 ~= row && 0..<cols - 1 ~= col
-    }
 
-    var objArray = [GridDotObject]()
-    var pos2hint = [Position: Int]()
+    var objArray = [Character]()
     
     init(layout: [String], delegate: SnailGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count + 1, layout[0].length + 1)
-        objArray = Array<GridDotObject>(repeating: Array<GridLineObject>(repeating: .empty, count: 4), count: rows * cols)
+        size = Position(layout.count, layout[0].length)
+        objArray = Array<Character>(repeating: " ", count: rows * cols)
         
-        for r in 0..<rows - 1 {
+        for r in 0..<rows {
             let str = layout[r]
-            for c in 0..<cols - 1 {
-                let p = Position(r, c)
+            for c in 0..<cols {
                 let ch = str[c]
-                switch ch {
-                case "0"..."9":
-                    let n = ch.toInt!
-                    pos2hint[p] = n
-                default:
-                    break
-                }
+                self[r, c] = ch
             }
-        }
-        for r in 0..<rows - 1 {
-            self[r, 0][2] = .line
-            self[r + 1, 0][0] = .line
-            self[r, cols - 1][2] = .line
-            self[r + 1, cols - 1][0] = .line
-        }
-        for c in 0..<cols - 1 {
-            self[0, c][1] = .line
-            self[0, c + 1][3] = .line
-            self[rows - 1, c][1] = .line
-            self[rows - 1, c + 1][3] = .line
         }
         
         let state = SnailGameState(game: self)
@@ -69,7 +38,7 @@ class SnailGame: GridGame<SnailGameViewController, SnailGameMove, SnailGameState
         levelInitilized(state: state)
     }
     
-    subscript(p: Position) -> GridDotObject {
+    subscript(p: Position) -> Character {
         get {
             return self[p.row, p.col]
         }
@@ -77,7 +46,7 @@ class SnailGame: GridGame<SnailGameViewController, SnailGameMove, SnailGameState
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> GridDotObject {
+    subscript(row: Int, col: Int) -> Character {
         get {
             return objArray[row * cols + col]
         }

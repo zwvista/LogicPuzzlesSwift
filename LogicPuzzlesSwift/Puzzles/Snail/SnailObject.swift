@@ -10,6 +10,5 @@ import Foundation
 
 struct SnailGameMove {
     var p = Position()
-    var dir = 0
-    var obj = GridLineObject()
+    var obj: Character = " "
 }
