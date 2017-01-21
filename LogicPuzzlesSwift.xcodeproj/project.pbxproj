@@ -380,6 +380,18 @@
 		8CC3505E1E001D2800B8FD83 /* UIWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3502E1E001D2800B8FD83 /* UIWindowExtensions.swift */; };
 		8CC3505F1E001D2800B8FD83 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3502F1E001D2800B8FD83 /* URLExtensions.swift */; };
 		8CC350601E001D2800B8FD83 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350301E001D2800B8FD83 /* UserDefaultsExtension.swift */; };
+		8CC3CD1C1E32DEE40056B78F /* Snail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CC3CD101E32DEE40056B78F /* Snail.storyboard */; };
+		8CC3CD1D1E32DEE40056B78F /* Snail.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CC3CD111E32DEE40056B78F /* Snail.xml */; };
+		8CC3CD1E1E32DEE40056B78F /* SnailDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3CD121E32DEE40056B78F /* SnailDocument.swift */; };
+		8CC3CD1F1E32DEE40056B78F /* SnailGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3CD131E32DEE40056B78F /* SnailGame.swift */; };
+		8CC3CD201E32DEE40056B78F /* SnailGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3CD141E32DEE40056B78F /* SnailGameScene.swift */; };
+		8CC3CD211E32DEE40056B78F /* SnailGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3CD151E32DEE40056B78F /* SnailGameState.swift */; };
+		8CC3CD221E32DEE40056B78F /* SnailGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3CD161E32DEE40056B78F /* SnailGameViewController.swift */; };
+		8CC3CD231E32DEE40056B78F /* SnailGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3CD171E32DEE40056B78F /* SnailGridNode.swift */; };
+		8CC3CD241E32DEE40056B78F /* SnailMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3CD181E32DEE40056B78F /* SnailMainViewController.swift */; };
+		8CC3CD251E32DEE40056B78F /* SnailMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3CD191E32DEE40056B78F /* SnailMixin.swift */; };
+		8CC3CD261E32DEE40056B78F /* SnailObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3CD1A1E32DEE40056B78F /* SnailObject.swift */; };
+		8CC3CD271E32DEE40056B78F /* SnailOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3CD1B1E32DEE40056B78F /* SnailOptionsViewController.swift */; };
 		8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF1C011D8E1DB000AB6594 /* lightbulb.png */; };
 		8CD1558B1DD77C3400786F34 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD1558A1DD77C3400786F34 /* Extensions.swift */; };
 /* End PBXBuildFile section */
@@ -818,6 +830,18 @@
 		8CC3502E1E001D2800B8FD83 /* UIWindowExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindowExtensions.swift; sourceTree = "<group>"; };
 		8CC3502F1E001D2800B8FD83 /* URLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
 		8CC350301E001D2800B8FD83 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
+		8CC3CD101E32DEE40056B78F /* Snail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Snail.storyboard; sourceTree = "<group>"; };
+		8CC3CD111E32DEE40056B78F /* Snail.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Snail.xml; sourceTree = "<group>"; };
+		8CC3CD121E32DEE40056B78F /* SnailDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailDocument.swift; sourceTree = "<group>"; };
+		8CC3CD131E32DEE40056B78F /* SnailGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailGame.swift; sourceTree = "<group>"; };
+		8CC3CD141E32DEE40056B78F /* SnailGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailGameScene.swift; sourceTree = "<group>"; };
+		8CC3CD151E32DEE40056B78F /* SnailGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailGameState.swift; sourceTree = "<group>"; };
+		8CC3CD161E32DEE40056B78F /* SnailGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailGameViewController.swift; sourceTree = "<group>"; };
+		8CC3CD171E32DEE40056B78F /* SnailGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailGridNode.swift; sourceTree = "<group>"; };
+		8CC3CD181E32DEE40056B78F /* SnailMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailMainViewController.swift; sourceTree = "<group>"; };
+		8CC3CD191E32DEE40056B78F /* SnailMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailMixin.swift; sourceTree = "<group>"; };
+		8CC3CD1A1E32DEE40056B78F /* SnailObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailObject.swift; sourceTree = "<group>"; };
+		8CC3CD1B1E32DEE40056B78F /* SnailOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailOptionsViewController.swift; sourceTree = "<group>"; };
 		8CCF1C011D8E1DB000AB6594 /* lightbulb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightbulb.png; sourceTree = "<group>"; };
 		8CD1558A1DD77C3400786F34 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1089,6 +1113,7 @@
 				8C9AF44E1DE974BF0053BED4 /* Nurikabe */,
 				84FBA5301DFF7F4500594DAE /* Parks */,
 				8C9AF56C1DF8D84B0053BED4 /* Rooms */,
+				8CC3CD0F1E32DEE40056B78F /* Snail */,
 				8C9AF45B1DE974BF0053BED4 /* Skyscrapers */,
 				8C9AF4681DE974BF0053BED4 /* SlitherLink */,
 				8C9AF4751DE974BF0053BED4 /* Sumscrapers */,
@@ -1563,6 +1588,25 @@
 			path = LogicPuzzlesSwiftUITests;
 			sourceTree = "<group>";
 		};
+		8CC3CD0F1E32DEE40056B78F /* Snail */ = {
+			isa = PBXGroup;
+			children = (
+				8CC3CD101E32DEE40056B78F /* Snail.storyboard */,
+				8CC3CD111E32DEE40056B78F /* Snail.xml */,
+				8CC3CD121E32DEE40056B78F /* SnailDocument.swift */,
+				8CC3CD131E32DEE40056B78F /* SnailGame.swift */,
+				8CC3CD141E32DEE40056B78F /* SnailGameScene.swift */,
+				8CC3CD151E32DEE40056B78F /* SnailGameState.swift */,
+				8CC3CD161E32DEE40056B78F /* SnailGameViewController.swift */,
+				8CC3CD171E32DEE40056B78F /* SnailGridNode.swift */,
+				8CC3CD181E32DEE40056B78F /* SnailMainViewController.swift */,
+				8CC3CD191E32DEE40056B78F /* SnailMixin.swift */,
+				8CC3CD1A1E32DEE40056B78F /* SnailObject.swift */,
+				8CC3CD1B1E32DEE40056B78F /* SnailOptionsViewController.swift */,
+			);
+			path = Snail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1692,9 +1736,11 @@
 				8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */,
 				8C373D441E0507F7005712CD /* tent.png in Resources */,
 				8C9AF48F1DE974BF0053BED4 /* Bridges.xml in Resources */,
+				8CC3CD1C1E32DEE40056B78F /* Snail.storyboard in Resources */,
 				8C9AF4E31DE974BF0053BED4 /* Skyscrapers.xml in Resources */,
 				8C9AF49A1DE974BF0053BED4 /* Clouds.storyboard in Resources */,
 				8C1D16B21DB8DE930056D407 /* TraversalTree.png in Resources */,
+				8CC3CD1D1E32DEE40056B78F /* Snail.xml in Resources */,
 				8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */,
 				8C9AF5451DF471AA0053BED4 /* Mosaik.storyboard in Resources */,
 				8C9AF4BF1DE974BF0053BED4 /* LineSweeper.xml in Resources */,
@@ -1836,6 +1882,7 @@
 				8C6D373A1DC421180052202C /* HomeMixin.swift in Sources */,
 				8CC350591E001D2800B8FD83 /* UITextFieldExtensions.swift in Sources */,
 				8C64A2EC1DE0891000AB6C09 /* GameTables.swift in Sources */,
+				8CC3CD241E32DEE40056B78F /* SnailMainViewController.swift in Sources */,
 				8CC350441E001D2800B8FD83 /* FloatingPointExtensions.swift in Sources */,
 				8C9AF54B1DF471AA0053BED4 /* MosaikGameViewController.swift in Sources */,
 				8C9AF4981DE974BF0053BED4 /* BridgesObject.swift in Sources */,
@@ -1848,6 +1895,7 @@
 				8C6D37F51DC5AC520052202C /* Position.swift in Sources */,
 				84FBA55D1DFF7F4F00594DAE /* TentsGridNode.swift in Sources */,
 				8C6D373C1DC421180052202C /* HomeTables.swift in Sources */,
+				8CC3CD261E32DEE40056B78F /* SnailObject.swift in Sources */,
 				8C81CBA01E19546000FB244A /* BoxItAgainDocument.swift in Sources */,
 				8C916CC01DAA5E9500D9E62B /* Node.swift in Sources */,
 				8CC3505E1E001D2800B8FD83 /* UIWindowExtensions.swift in Sources */,
@@ -1862,6 +1910,7 @@
 				8CC3504E1E001D2800B8FD83 /* UIButtonExtensions.swift in Sources */,
 				8C9AF4E51DE974BF0053BED4 /* SkyscrapersGame.swift in Sources */,
 				84FBA5431DFF7F4500594DAE /* ParksGameViewController.swift in Sources */,
+				8CC3CD201E32DEE40056B78F /* SnailGameScene.swift in Sources */,
 				8C9AF4A01DE974BF0053BED4 /* CloudsGameViewController.swift in Sources */,
 				84FBA5611DFF7F4F00594DAE /* TentsOptionsViewController.swift in Sources */,
 				8C9AF4971DE974BF0053BED4 /* BridgesMixin.swift in Sources */,
@@ -1929,6 +1978,7 @@
 				8C9AF4CE1DE974BF0053BED4 /* MasyuGameScene.swift in Sources */,
 				8C9AF4F61DE974BF0053BED4 /* SlitherLinkMainViewController.swift in Sources */,
 				8C9AF4C41DE974BF0053BED4 /* LineSweeperGameViewController.swift in Sources */,
+				8CC3CD211E32DEE40056B78F /* SnailGameState.swift in Sources */,
 				8C9AF4B81DE974BF0053BED4 /* LightenUpGameViewController.swift in Sources */,
 				8C9AF4C21DE974BF0053BED4 /* LineSweeperGameScene.swift in Sources */,
 				8C9AF4E61DE974BF0053BED4 /* SkyscrapersGameScene.swift in Sources */,
@@ -1960,6 +2010,7 @@
 				8C373D681E14A622005712CD /* BoxItAroundGridNode.swift in Sources */,
 				84FBA5411DFF7F4500594DAE /* ParksGameScene.swift in Sources */,
 				8C9AF51E1DE975030053BED4 /* LoopyOptionsViewController.swift in Sources */,
+				8CC3CD231E32DEE40056B78F /* SnailGridNode.swift in Sources */,
 				8C9AF49C1DE974BF0053BED4 /* CloudsDocument.swift in Sources */,
 				8C6D37391DC421180052202C /* HomeMainViewController.swift in Sources */,
 				8C9AF5001DE974BF0053BED4 /* SumscrapersGameViewController.swift in Sources */,
@@ -1976,6 +2027,8 @@
 				8C9AF5041DE974BF0053BED4 /* SumscrapersObject.swift in Sources */,
 				8CC3504C1E001D2800B8FD83 /* UIApplicationExtensions.swift in Sources */,
 				84FBA55F1DFF7F4F00594DAE /* TentsMixin.swift in Sources */,
+				8CC3CD251E32DEE40056B78F /* SnailMixin.swift in Sources */,
+				8CC3CD1F1E32DEE40056B78F /* SnailGame.swift in Sources */,
 				84FBA5601DFF7F4F00594DAE /* TentsObject.swift in Sources */,
 				8C9AF4BB1DE974BF0053BED4 /* LightenUpMixin.swift in Sources */,
 				8CC350391E001D2800B8FD83 /* BoolExtensions.swift in Sources */,
@@ -2017,6 +2070,7 @@
 				8C373D6B1E14A622005712CD /* BoxItAroundObject.swift in Sources */,
 				8C916CBD1DAA5E9500D9E62B /* Error.swift in Sources */,
 				84FBA5401DFF7F4500594DAE /* ParksGame.swift in Sources */,
+				8CC3CD221E32DEE40056B78F /* SnailGameViewController.swift in Sources */,
 				8C9AF5811DF8D84B0053BED4 /* RoomsMainViewController.swift in Sources */,
 				8C9AF4B61DE974BF0053BED4 /* LightenUpGameScene.swift in Sources */,
 				8C373D641E14A622005712CD /* BoxItAroundGame.swift in Sources */,
@@ -2064,6 +2118,7 @@
 				8CC350481E001D2800B8FD83 /* NSObjectExtensions.swift in Sources */,
 				8CC350471E001D2800B8FD83 /* NSDictionaryExtensions.swift in Sources */,
 				8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */,
+				8CC3CD1E1E32DEE40056B78F /* SnailDocument.swift in Sources */,
 				8C916CBC1DAA5E9500D9E62B /* Element.swift in Sources */,
 				8C9AF5611DF8D7770053BED4 /* MagnetsDocument.swift in Sources */,
 				8C886C411D9E8AF1004A42BF /* ActionSheetMultipleStringPicker.m in Sources */,
@@ -2078,6 +2133,7 @@
 				8C81CBA91E19546000FB244A /* BoxItAgainOptionsViewController.swift in Sources */,
 				8C81CBB51E19546000FB244A /* FenceItUpOptionsViewController.swift in Sources */,
 				8C9AF57F1DF8D84B0053BED4 /* RoomsGameViewController.swift in Sources */,
+				8CC3CD271E32DEE40056B78F /* SnailOptionsViewController.swift in Sources */,
 				8C9AF4CD1DE974BF0053BED4 /* MasyuGame.swift in Sources */,
 				8C6D37FC1DC5B4DC0052202C /* Game.swift in Sources */,
 				8C9AF4F91DE974BF0053BED4 /* SlitherLinkOptionsViewController.swift in Sources */,
