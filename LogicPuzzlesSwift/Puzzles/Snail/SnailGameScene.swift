@@ -14,26 +14,27 @@ class SnailGameScene: GameScene<SnailGameState> {
         set {setGridNode(gridNode: newValue)}
     }
     
-    func addCharacter(ch: Character, s: HintState, isHint: Bool, point: CGPoint, nodeName: String) {
-        addLabel(text: String(ch), fontColor: s == .normal ? isHint ? .gray : .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+    func addCharacter(ch: Character, s: HintState, isPreset: Bool, point: CGPoint, nodeName: String) {
+        addLabel(text: String(ch), fontColor: s == .normal ? isPreset ? .gray : .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: SnailGameState, skView: SKView) {
         let game = game as! SnailGame
         removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols + 1)
         
         // add Grid
         let offset:CGFloat = 0.5
-        addGrid(gridNode: SnailGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
+        addGrid(gridNode: SnailGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols + 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows + 1) / 2 + offset))
         
+        // add Snail Path
         let pathToDraw = CGMutablePath()
         let lineNode = SKShapeNode(path: pathToDraw)
         var point = gridNode.gridPosition(p: game.snailPathLine[0])
-        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
+        pathToDraw.move(to: CGPoint(x: point.x - blockSize / 2, y: point.y + blockSize / 2))
         for i in 1..<game.snailPathLine.count {
             point = gridNode.gridPosition(p: game.snailPathLine[i])
-            pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
+            pathToDraw.addLine(to: CGPoint(x: point.x - blockSize / 2, y: point.y + blockSize / 2))
         }
         lineNode.glowWidth = 8
         lineNode.path = pathToDraw
@@ -46,11 +47,11 @@ class SnailGameScene: GameScene<SnailGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
-                let ch = state[p]
+                let ch = game[p]
                 guard ch != " " else {continue}
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let charNodeName = "char" + nodeNameSuffix
-                addCharacter(ch: ch, s: .normal, isHint: !game.isValid(p: p), point: point, nodeName: charNodeName)
+                addCharacter(ch: ch, s: .normal, isPreset: true, point: point, nodeName: charNodeName)
             }
         }
     }
@@ -76,7 +77,7 @@ class SnailGameScene: GameScene<SnailGameState> {
                 if ch2 == "." {
                     addMarker()
                 } else if (ch2 != " ") {
-                    addCharacter(ch: ch2, s: .normal, isHint: !stateFrom.game.isValid(p: p), point: point, nodeName: charNodeName)
+                    addCharacter(ch: ch2, s: .normal, isPreset: false, point: point, nodeName: charNodeName)
                 }
             }
         }

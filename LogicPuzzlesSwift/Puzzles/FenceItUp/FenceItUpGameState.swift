@@ -29,7 +29,7 @@ class FenceItUpGameState: GridGameState, FenceItUpMixin {
     }
     
     required init(game: FenceItUpGame) {
-        super.init(game: game);
+        super.init(game: game)
         objArray = game.objArray
         for p in game.pos2hint.keys {
             pos2state[p] = .normal

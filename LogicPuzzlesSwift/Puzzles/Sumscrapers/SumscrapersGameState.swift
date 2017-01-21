@@ -31,7 +31,7 @@ class SumscrapersGameState: GridGameState, SumscrapersMixin {
     }
     
     required init(game: SumscrapersGame) {
-        super.init(game: game);
+        super.init(game: game)
         objArray = Array<Int>(repeating: 0, count: rows * cols)
         row2state = Array<HintState>(repeating: .normal, count: rows * 2)
         col2state = Array<HintState>(repeating: .normal, count: cols * 2)

@@ -15,7 +15,7 @@ class MagnetsGame: GridGame<MagnetsGameViewController, MagnetsGameMove, MagnetsG
         Position(0, 1),
         Position(1, 0),
         Position(0, -1),
-    ];
+    ]
 
     var row2hint = [Int]()
     var col2hint = [Int]()

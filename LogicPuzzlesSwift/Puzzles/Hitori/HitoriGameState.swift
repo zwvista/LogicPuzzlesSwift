@@ -31,7 +31,7 @@ class HitoriGameState: GridGameState, HitoriMixin {
     }
     
     required init(game: HitoriGame) {
-        super.init(game: game);
+        super.init(game: game)
         objArray = Array<HitoriObject>(repeating: HitoriObject(), count: rows * cols)
         row2hint = Array<String>(repeating: "", count: rows)
         col2hint = Array<String>(repeating: "", count: cols)

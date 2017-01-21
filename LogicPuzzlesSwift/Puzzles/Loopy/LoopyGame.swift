@@ -15,7 +15,7 @@ class LoopyGame: GridGame<LoopyGameViewController, LoopyGameMove, LoopyGameState
         Position(0, 1),
         Position(1, 0),
         Position(0, -1),
-    ];
+    ]
 
     var objArray = [GridDotObject]()
     

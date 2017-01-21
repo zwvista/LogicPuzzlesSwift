@@ -20,7 +20,7 @@ class BridgesGame: GridGame<BridgesGameViewController, BridgesGameMove, BridgesG
         Position(0, 1),
         Position(1, 0),
         Position(0, -1),
-    ];
+    ]
     
     var islandsInfo = [Position: IslandInfo]()
     func isIsland(p: Position) -> Bool {return islandsInfo[p] != nil}

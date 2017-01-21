@@ -15,7 +15,7 @@ class MasyuGame: GridGame<MasyuGameViewController, MasyuGameMove, MasyuGameState
         Position(0, 1),
         Position(1, 0),
         Position(0, -1),
-    ];
+    ]
 
     var objArray = [Character]()
     subscript(p: Position) -> Character {

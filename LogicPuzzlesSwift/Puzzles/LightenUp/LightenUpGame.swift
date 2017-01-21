@@ -15,7 +15,7 @@ class LightenUpGame: GridGame<LightenUpGameViewController, LightenUpGameMove, Li
         Position(0, 1),
         Position(1, 0),
         Position(0, -1),
-    ];
+    ]
 
     var wall2Lightbulbs = [Position: Int]()
     

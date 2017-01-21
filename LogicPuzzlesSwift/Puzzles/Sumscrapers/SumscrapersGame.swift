@@ -15,7 +15,7 @@ class SumscrapersGame: GridGame<SumscrapersGameViewController, SumscrapersGameMo
         Position(0, 1),
         Position(1, 0),
         Position(0, -1),
-    ];
+    ]
 
     override func isValid(row: Int, col: Int) -> Bool {
         return (1..<rows - 1 ~= row) && (1..<cols - 1 ~= col)

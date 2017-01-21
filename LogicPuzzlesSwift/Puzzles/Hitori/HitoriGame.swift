@@ -15,7 +15,7 @@ class HitoriGame: GridGame<HitoriGameViewController, HitoriGameMove, HitoriGameS
         Position(0, 1),
         Position(1, 0),
         Position(0, -1),
-    ];
+    ]
 
     var objArray = [Character]()
     subscript(p: Position) -> Character {

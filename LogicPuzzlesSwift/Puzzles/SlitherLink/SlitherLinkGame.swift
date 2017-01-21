@@ -15,13 +15,13 @@ class SlitherLinkGame: GridGame<SlitherLinkGameViewController, SlitherLinkGameMo
         Position(0, 1),
         Position(1, 0),
         Position(0, -1),
-    ];
+    ]
     static let offset2 = [
         Position(0, 0),
         Position(1, 1),
         Position(1, 1),
         Position(0, 0),
-    ];
+    ]
     static let dirs = [1, 0, 3, 2]
 
     var pos2hint = [Position: Int]()

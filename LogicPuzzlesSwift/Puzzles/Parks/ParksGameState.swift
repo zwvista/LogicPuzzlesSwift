@@ -29,7 +29,7 @@ class ParksGameState: GridGameState, ParksMixin {
     }
     
     required init(game: ParksGame) {
-        super.init(game: game);
+        super.init(game: game)
         objArray = Array<ParksObject>(repeating: .empty, count: rows * cols)
     }
     

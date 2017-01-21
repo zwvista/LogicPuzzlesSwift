@@ -27,7 +27,7 @@ class NurikabeGameState: GridGameState, NurikabeMixin {
     }
     
     required init(game: NurikabeGame) {
-        super.init(game: game);
+        super.init(game: game)
         objArray = Array<NurikabeObject>(repeating: NurikabeObject(), count: rows * cols)
         for p in game.pos2hint.keys {
             self[p] = .hint(state: .normal)

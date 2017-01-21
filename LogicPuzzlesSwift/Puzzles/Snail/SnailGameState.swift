@@ -15,6 +15,9 @@ class SnailGameState: GridGameState, SnailMixin {
         set {setGame(game: newValue)}
     }
     var objArray = [Character]()
+    var pos2state = [Position: HintState]()
+    var row2state = [HintState]()
+    var col2state = [HintState]()
     
     override func copy() -> SnailGameState {
         let v = SnailGameState(game: game)
@@ -23,12 +26,17 @@ class SnailGameState: GridGameState, SnailMixin {
     func setup(v: SnailGameState) -> SnailGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
+        v.pos2state = pos2state
+        v.row2state = row2state
+        v.col2state = col2state
         return v
     }
     
     required init(game: SnailGame) {
-        super.init(game: game);
+        super.init(game: game)
         objArray = game.objArray
+        row2state = Array<HintState>(repeating: .normal, count: rows)
+        col2state = Array<HintState>(repeating: .normal, count: cols)
         updateIsSolved()
     }
     
@@ -81,43 +89,44 @@ class SnailGameState: GridGameState, SnailMixin {
         var chars = [Character]()
         for r in 0..<rows {
             chars = []
+            row2state[r] = .complete
             for c in 0..<cols {
                 let ch = self[r, c]
                 guard ch != " " else {continue}
-                if chars.contains(ch) {
-                    isSolved = false
-                } else {
-                    chars.append(ch)
-                }
+                guard !chars.contains(ch) else {break}
+                chars.append(ch)
             }
-            if chars.count != 3 {isSolved = false}
+            if chars.count != 3 {row2state[r] = .error; isSolved = false}
         }
         for c in 0..<cols {
             chars = []
+            col2state[c] = .complete
             for r in 0..<rows {
                 let ch = self[r, c]
                 guard ch != " " else {continue}
-                if chars.contains(ch) {
-                    isSolved = false
-                } else {
-                    chars.append(ch)
-                }
+                guard !chars.contains(ch) else {break}
+                chars.append(ch)
             }
-            if chars.count != 3 {isSolved = false}
+            if chars.count != 3 {col2state[c] = .error; isSolved = false}
         }
+        var rng = [Position]()
         chars = []
         for p in game.snailPathGrid {
             let ch = self[p]
             guard ch != " " else {continue}
+            rng.append(p)
             chars.append(ch)
+            pos2state[p] = .complete
         }
-        if chars[0] != "1" || chars[chars.count - 1] != "3" {isSolved = false}
-        for i in 0..<chars.count - 1 {
+        let cnt = chars.count
+        if chars[0] != "1" {pos2state[rng[0]] = .error; isSolved = false}
+        if chars[cnt - 1] != "3" {pos2state[rng[cnt - 1]] = .error; isSolved = false}
+        for i in 0..<cnt - 1 {
             switch (chars[i], chars[i + 1]) {
             case ("1", "2"), ("2", "3"), ("3", "1"):
                 break
             default:
-                isSolved = false
+                pos2state[rng[i]] = .error; isSolved = false
             }
         }
     }

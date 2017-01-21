@@ -31,7 +31,7 @@ class TentsGameState: GridGameState, TentsMixin {
     }
     
     required init(game: TentsGame) {
-        super.init(game: game);
+        super.init(game: game)
         objArray = Array<TentsObject>(repeating: TentsObject(), count: rows * cols)
         for p in game.pos2tree {
             self[p] = .tree

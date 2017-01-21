@@ -27,7 +27,7 @@ class LoopyGameState: GridGameState, LoopyMixin {
     }
     
     required init(game: LoopyGame) {
-        super.init(game: game);
+        super.init(game: game)
         objArray = game.objArray
     }
     

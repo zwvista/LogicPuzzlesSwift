@@ -29,7 +29,7 @@ class BoxItAroundGameState: GridGameState, BoxItAroundMixin {
     }
     
     required init(game: BoxItAroundGame) {
-        super.init(game: game);
+        super.init(game: game)
         objArray = game.objArray
         for p in game.pos2hint.keys {
             pos2state[p] = .normal

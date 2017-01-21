@@ -31,7 +31,7 @@ class MagnetsGameState: GridGameState, MagnetsMixin {
     }
     
     required init(game: MagnetsGame) {
-        super.init(game: game);
+        super.init(game: game)
         objArray = Array<MagnetsObject>(repeating: MagnetsObject(), count: rows * cols)
         row2state = Array<HintState>(repeating: .normal, count: rows * 2)
         col2state = Array<HintState>(repeating: .normal, count: cols * 2)

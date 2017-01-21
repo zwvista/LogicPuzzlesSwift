@@ -27,7 +27,7 @@ class LightenUpGameState: GridGameState, LightenUpMixin {
     }
     
     required init(game: LightenUpGame) {
-        super.init(game: game);
+        super.init(game: game)
         objArray = Array<LightenUpObject>(repeating: LightenUpObject(), count: rows * cols)
         for (p, lightbulbs) in game.wall2Lightbulbs {
             self[p].objType = .wall(state: lightbulbs <= 0 ? .complete : .normal)

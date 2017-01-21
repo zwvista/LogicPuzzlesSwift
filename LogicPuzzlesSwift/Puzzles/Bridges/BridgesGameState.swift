@@ -27,7 +27,7 @@ class BridgesGameState: GridGameState, BridgesMixin {
     }
 
     required init(game: BridgesGame) {
-        super.init(game: game);
+        super.init(game: game)
         objArray = Array<BridgesObject>(repeating: BridgesObject(), count: rows * cols)
         for p in game.islandsInfo.keys {
             self[p] = .island(state: .normal, bridges: [0, 0, 0, 0])
@@ -56,8 +56,8 @@ class BridgesGameState: GridGameState, BridgesMixin {
         guard pFrom < pTo && (pFrom.row == pTo.row || pFrom.col == pTo.col) else {return false}
         guard case .island(let state1, var bridges1) = self[pFrom] else {return false}
         guard case .island(let state2, var bridges2) = self[pTo] else {return false}
-        let n1 = pFrom.row == pTo.row ? 1 : 2;
-        let n2 = (n1 + 2) % 4;
+        let n1 = pFrom.row == pTo.row ? 1 : 2
+        let n2 = (n1 + 2) % 4
         let os = BridgesGame.offset[n1]
         var p = pFrom + os
         while p != pTo {

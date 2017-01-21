@@ -29,7 +29,7 @@ class LineSweeperGameState: GridGameState, LineSweeperMixin {
     }
     
     required init(game: LineSweeperGame) {
-        super.init(game: game);
+        super.init(game: game)
         objArray = Array<LineSweeperObject>(repeating: LineSweeperObject(repeating: false, count: 4), count: rows * cols)
         for (p, n) in game.pos2hint {
             pos2state[p] = n == 0 ? .complete : .normal

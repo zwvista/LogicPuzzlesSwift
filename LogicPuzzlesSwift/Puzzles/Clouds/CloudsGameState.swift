@@ -31,7 +31,7 @@ class CloudsGameState: GridGameState, CloudsMixin {
     }
     
     required init(game: CloudsGame) {
-        super.init(game: game);
+        super.init(game: game)
         objArray = Array<CloudsObject>(repeating: CloudsObject(), count: rows * cols)
         row2state = Array<HintState>(repeating: .normal, count: rows)
         col2state = Array<HintState>(repeating: .normal, count: cols)
@@ -147,7 +147,7 @@ class CloudsGameState: GridGameState, CloudsMixin {
                 if c2 < p.col {c2 = p.col}
                 if c1 > p.col {c1 = p.col}
             }
-            let rs = r2 - r1 + 1, cs = c2 - c1 + 1;
+            let rs = r2 - r1 + 1, cs = c2 - c1 + 1
             if !(rs >= 2 && cs >= 2 && rs * cs == nodesExplored.count) {
                 isSolved = false
                 return

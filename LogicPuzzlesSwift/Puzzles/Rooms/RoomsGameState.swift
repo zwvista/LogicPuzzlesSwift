@@ -29,7 +29,7 @@ class RoomsGameState: GridGameState, RoomsMixin {
     }
     
     required init(game: RoomsGame) {
-        super.init(game: game);
+        super.init(game: game)
         objArray = game.objArray
         updateIsSolved()
     }

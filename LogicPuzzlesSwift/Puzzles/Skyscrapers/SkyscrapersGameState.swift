@@ -31,7 +31,7 @@ class SkyscrapersGameState: GridGameState, SkyscrapersMixin {
     }
     
     required init(game: SkyscrapersGame) {
-        super.init(game: game);
+        super.init(game: game)
         objArray = Array<Int>(repeating: 0, count: rows * cols)
         row2state = Array<HintState>(repeating: .normal, count: rows * 2)
         col2state = Array<HintState>(repeating: .normal, count: cols * 2)
@@ -65,7 +65,7 @@ class SkyscrapersGameState: GridGameState, SkyscrapersMixin {
             row == rows - 1 && 1..<cols - 1 ~= col ? col2state[col * 2 + 1] :
             col == 0 && 1..<rows - 1 ~= row ? row2state[row * 2] :
             col == cols - 1 && 1..<rows - 1 ~= row ? row2state[row * 2 + 1] :
-            .normal;
+            .normal
     }
     
     func setObject(move: inout SkyscrapersGameMove) -> Bool {
