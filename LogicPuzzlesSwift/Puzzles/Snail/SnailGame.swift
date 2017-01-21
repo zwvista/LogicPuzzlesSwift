@@ -18,6 +18,8 @@ class SnailGame: GridGame<SnailGameViewController, SnailGameMove, SnailGameState
     ];
 
     var objArray = [Character]()
+    var snailPathGrid = [Position]()
+    var snailPathLine = [Position]()
     
     init(layout: [String], delegate: SnailGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -32,6 +34,33 @@ class SnailGame: GridGame<SnailGameViewController, SnailGameMove, SnailGameState
                 self[r, c] = ch
             }
         }
+        
+        func snailPath(n: Int) -> [Position] {
+            var path = [Position]()
+            var rng = Set<Position>()
+            for r in 0..<n {
+                for c in 0..<n {
+                    rng.insert(Position(r, c))
+                }
+            }
+            var p = Position(0, -1)
+            var dir = 1
+            while !rng.isEmpty {
+                let p2 = p + SnailGame.offset[dir]
+                if rng.contains(p2) {
+                    p = p2
+                    rng.remove(p)
+                } else {
+                    dir = (dir + 1) % 4
+                    p += SnailGame.offset[dir]
+                    rng.remove(p)
+                }
+                path.append(p)
+            }
+            return path
+        }
+        snailPathGrid = snailPath(n: rows)
+        snailPathLine = snailPath(n: rows + 1)
         
         let state = SnailGameState(game: self)
         states.append(state)

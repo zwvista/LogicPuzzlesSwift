@@ -51,7 +51,7 @@ class SnailGameState: GridGameState, SnailMixin {
     
     func setObject(move: inout SnailGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else {return false}
+        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else {return false}
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -78,5 +78,47 @@ class SnailGameState: GridGameState, SnailMixin {
     
     private func updateIsSolved() {
         isSolved = true
+        var chars = [Character]()
+        for r in 0..<rows {
+            chars = []
+            for c in 0..<cols {
+                let ch = self[r, c]
+                guard ch != " " else {continue}
+                if chars.contains(ch) {
+                    isSolved = false
+                } else {
+                    chars.append(ch)
+                }
+            }
+            if chars.count != 3 {isSolved = false}
+        }
+        for c in 0..<cols {
+            chars = []
+            for r in 0..<rows {
+                let ch = self[r, c]
+                guard ch != " " else {continue}
+                if chars.contains(ch) {
+                    isSolved = false
+                } else {
+                    chars.append(ch)
+                }
+            }
+            if chars.count != 3 {isSolved = false}
+        }
+        chars = []
+        for p in game.snailPathGrid {
+            let ch = self[p]
+            guard ch != " " else {continue}
+            chars.append(ch)
+        }
+        if chars[0] != "1" || chars[chars.count - 1] != "3" {isSolved = false}
+        for i in 0..<chars.count - 1 {
+            switch (chars[i], chars[i + 1]) {
+            case ("1", "2"), ("2", "3"), ("3", "1"):
+                break
+            default:
+                isSolved = false
+            }
+        }
     }
 }

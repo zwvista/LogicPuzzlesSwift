@@ -27,6 +27,20 @@ class SnailGameScene: GameScene<SnailGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: SnailGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
+        let pathToDraw = CGMutablePath()
+        let lineNode = SKShapeNode(path: pathToDraw)
+        var point = gridNode.gridPosition(p: game.snailPathLine[0])
+        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
+        for i in 1..<game.snailPathLine.count {
+            point = gridNode.gridPosition(p: game.snailPathLine[i])
+            pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
+        }
+        lineNode.glowWidth = 8
+        lineNode.path = pathToDraw
+        lineNode.strokeColor = .yellow
+        lineNode.name = "line"
+        gridNode.addChild(lineNode)
+        
         // add Characters
         for r in 0..<game.rows {
             for c in 0..<game.cols {
