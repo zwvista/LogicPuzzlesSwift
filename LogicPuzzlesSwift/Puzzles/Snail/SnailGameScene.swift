@@ -14,10 +14,25 @@ class SnailGameScene: GameScene<SnailGameState> {
         set {setGridNode(gridNode: newValue)}
     }
     
-    func addCharacter(ch: Character, s: HintState, isPreset: Bool, point: CGPoint, nodeName: String) {
-        addLabel(text: String(ch), fontColor: s == .normal ? isPreset ? .gray : .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+    func addHint(p: Position) {
+        let point = gridNode.gridPosition(p: p)
+        let nodeNameSuffix = "-\(p.row)-\(p.col)"
+        let hintNodeName = "hint" + nodeNameSuffix
+        addLabel(text: "123", fontColor: .red, point: point, nodeName: hintNodeName)
     }
     
+    func addSnailMarker(p: Position) {
+        let point = gridNode.gridPosition(p: p)
+        let nodeNameSuffix = "-\(p.row)-\(p.col)"
+        let snailMarkerNodeName = "snailMarker" + nodeNameSuffix
+        let snailMarkerNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 2)
+        snailMarkerNode.position = point
+        snailMarkerNode.name = snailMarkerNodeName
+        snailMarkerNode.strokeColor = .green
+        snailMarkerNode.glowWidth = 1.0
+        gridNode.addChild(snailMarkerNode)
+    }
+
     override func levelInitialized(_ game: AnyObject, state: SnailGameState, skView: SKView) {
         let game = game as! SnailGame
         removeAllChildren()
@@ -51,12 +66,41 @@ class SnailGameScene: GameScene<SnailGameState> {
                 guard ch != " " else {continue}
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let charNodeName = "char" + nodeNameSuffix
-                addCharacter(ch: ch, s: .normal, isPreset: true, point: point, nodeName: charNodeName)
+                addLabel(text: String(ch), fontColor: .gray, point: point, nodeName: charNodeName)
+                if state.pos2state[p] == .complete {addSnailMarker(p: p)}
             }
+        }
+        
+        for r in 0..<game.rows {
+            let p = Position(r, game.cols)
+            if state.row2state[r] == .error {addHint(p: p)}
+        }
+        for c in 0..<game.cols {
+            let p = Position(game.rows, c)
+            if state.col2state[c] == .error {addHint(p: p)}
         }
     }
     
     override func levelUpdated(from stateFrom: SnailGameState, to stateTo: SnailGameState) {
+        func removeHint(p: Position) {
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let hintNodeName = "hint" + nodeNameSuffix
+            removeNode(withName: hintNodeName)
+        }
+        for r in 0..<stateFrom.rows {
+            let p = Position(r, stateFrom.cols)
+            if stateFrom.row2state[r] != stateTo.row2state[r] {
+                if stateFrom.row2state[r] == .error {removeHint(p: p)}
+                if stateTo.row2state[r] == .error {addHint(p: p)}
+            }
+        }
+        for c in 0..<stateFrom.cols {
+            let p = Position(stateFrom.rows, c)
+            if stateFrom.col2state[c] != stateTo.col2state[c] {
+                if stateFrom.col2state[c] == .error {removeHint(p: p)}
+                if stateTo.col2state[c] == .error {addHint(p: p)}
+            }
+        }
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -64,20 +108,27 @@ class SnailGameScene: GameScene<SnailGameState> {
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let charNodeName = "char" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
-                func removeCharacter() { removeNode(withName: charNodeName) }
+                let snailMarkerNodeName = "snailMarker" + nodeNameSuffix
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
-                let (ch1, ch2) = (stateFrom[r, c], stateTo[r, c])
-                guard ch1 != ch2 else {continue}
-                if ch1 == "." {
-                    removeMarker()
-                } else if (ch1 != " ") {
-                    removeCharacter()
+                func removeSnailMarker() { removeNode(withName: snailMarkerNodeName) }
+                let (ch1, ch2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                if ch1 != ch2 {
+                    if ch1 == "." {
+                        removeMarker()
+                    } else if (ch1 != " ") {
+                        removeNode(withName: charNodeName)
+                    }
+                    if ch2 == "." {
+                        addMarker()
+                    } else if (ch2 != " ") {
+                        addLabel(text: String(ch2), fontColor: .white, point: point, nodeName: charNodeName)
+                    }
                 }
-                if ch2 == "." {
-                    addMarker()
-                } else if (ch2 != " ") {
-                    addCharacter(ch: ch2, s: .normal, isPreset: false, point: point, nodeName: charNodeName)
+                if s1 != s2 {
+                    if s1 == .complete {removeSnailMarker()}
+                    if s2 == .complete {addSnailMarker(p: p)}
                 }
             }
         }

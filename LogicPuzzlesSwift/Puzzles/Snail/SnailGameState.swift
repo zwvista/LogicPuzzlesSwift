@@ -113,6 +113,7 @@ class SnailGameState: GridGameState, SnailMixin {
         chars = []
         for p in game.snailPathGrid {
             let ch = self[p]
+            pos2state[p] = .error
             guard ch != " " else {continue}
             rng.append(p)
             chars.append(ch)
