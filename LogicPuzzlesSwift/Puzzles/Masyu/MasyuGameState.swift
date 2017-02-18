@@ -77,7 +77,7 @@ class MasyuGameState: GridGameState, MasyuMixin {
                 case 0:
                     guard ch == " " else {isSolved = false; return}
                 case 2:
-                    pos2node[p] = g.addNode(label: p.description)
+                    pos2node[p] = g.addNode(p.description)
                     pos2Dirs[p] = dirs
                     switch ch {
                     case "B":
@@ -108,7 +108,7 @@ class MasyuGameState: GridGameState, MasyuMixin {
                 default:
                     break
                 }
-                g.addEdge(source: node, neighbor: node2)
+                g.addEdge(node, neighbor: node2)
             }
             guard bW else {isSolved = false; return}
         }

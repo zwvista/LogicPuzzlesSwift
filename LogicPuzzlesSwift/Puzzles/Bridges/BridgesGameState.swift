@@ -91,13 +91,13 @@ class BridgesGameState: GridGameState, BridgesMixin {
             state = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
             self[p] = .island(state: state, bridges: bridges)
-            pos2node[p] = g.addNode(label: p.description)
+            pos2node[p] = g.addNode(p.description)
         }
         guard isSolved else {return}
         for (p, info) in game.islandsInfo {
             for p2 in info.neighbors {
                 guard let p2 = p2 else {continue}
-                g.addEdge(source: pos2node[p]!, neighbor: pos2node[p2]!)
+                g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
             }
         }
         let nodesExplored = breadthFirstSearch(g, source: pos2node.values.first!)

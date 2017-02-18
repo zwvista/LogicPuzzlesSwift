@@ -100,7 +100,7 @@ class NurikabeGameState: GridGameState, NurikabeMixin {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                pos2node[p] = g.addNode(label: p.description)
+                pos2node[p] = g.addNode(p.description)
                 switch self[p] {
                 case .wall:
                     rngWalls.append(p)
@@ -113,7 +113,7 @@ class NurikabeGameState: GridGameState, NurikabeMixin {
             for os in NurikabeGame.offset {
                 let p2 = p + os
                 if rngWalls.contains(p2) {
-                    g.addEdge(source: pos2node[p]!, neighbor: pos2node[p2]!)
+                    g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
                 }
             }
         }
@@ -121,7 +121,7 @@ class NurikabeGameState: GridGameState, NurikabeMixin {
             for os in NurikabeGame.offset {
                 let p2 = p + os
                 if rngEmpty.contains(p2) {
-                    g.addEdge(source: pos2node[p]!, neighbor: pos2node[p2]!)
+                    g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
                 }
             }
         }

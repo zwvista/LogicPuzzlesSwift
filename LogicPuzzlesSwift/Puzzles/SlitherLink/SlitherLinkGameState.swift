@@ -109,7 +109,7 @@ class SlitherLinkGameState: GridGameState, SlitherLinkMixin {
                 case 0:
                     continue
                 case 2:
-                    pos2node[p] = g.addNode(label: p.description)
+                    pos2node[p] = g.addNode(p.description)
                 default:
                     isSolved = false
                     return
@@ -121,7 +121,7 @@ class SlitherLinkGameState: GridGameState, SlitherLinkMixin {
             for i in 0..<4 {
                 guard dotObj[i] == .line else {continue}
                 let p2 = p + SlitherLinkGame.offset[i]
-                g.addEdge(source: pos2node[p]!, neighbor: pos2node[p2]!)
+                g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
             }
         }
         let nodesExplored = breadthFirstSearch(g, source: pos2node.values.first!)

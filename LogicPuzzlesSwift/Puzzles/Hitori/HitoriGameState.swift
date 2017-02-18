@@ -125,7 +125,7 @@ class HitoriGameState: GridGameState, HitoriMixin {
                 case .darken:
                     rngDarken.append(p)
                 default:
-                    pos2node[p] = g.addNode(label: p.description)
+                    pos2node[p] = g.addNode(p.description)
                 }
             }
         }
@@ -139,7 +139,7 @@ class HitoriGameState: GridGameState, HitoriMixin {
             for os in CloudsGame.offset {
                 let p2 = p + os
                 guard let node2 = pos2node[p2] else {continue}
-                g.addEdge(source: node, neighbor: node2)
+                g.addEdge(node, neighbor: node2)
             }
         }
         let nodesExplored = breadthFirstSearch(g, source: pos2node.values.first!)

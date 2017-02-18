@@ -65,7 +65,7 @@ class ParksGame: GridGame<ParksGameViewController, ParksGameMove, ParksGameState
             for c in 0..<cols {
                 let p = Position(r, c)
                 rng.insert(p)
-                pos2node[p] = g.addNode(label: p.description)
+                pos2node[p] = g.addNode(p.description)
             }
         }
         for r in 0..<rows {
@@ -73,7 +73,7 @@ class ParksGame: GridGame<ParksGameViewController, ParksGameMove, ParksGameState
                 let p = Position(r, c)
                 for i in 0..<4 {
                     if dots[p + ParksGame.offset2[i]][ParksGame.dirs[i]] != .line {
-                        g.addEdge(source: pos2node[p]!, neighbor: pos2node[p + ParksGame.offset[i * 2]]!)
+                        g.addEdge(pos2node[p]!, neighbor: pos2node[p + ParksGame.offset[i * 2]]!)
                     }
                 }
             }

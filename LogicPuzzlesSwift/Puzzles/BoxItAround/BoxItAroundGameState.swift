@@ -96,7 +96,7 @@ class BoxItAroundGameState: GridGameState, BoxItAroundMixin {
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                pos2node[p] = g.addNode(label: p.description)
+                pos2node[p] = g.addNode(p.description)
             }
         }
         for r in 0..<rows - 1 {
@@ -104,7 +104,7 @@ class BoxItAroundGameState: GridGameState, BoxItAroundMixin {
                 let p = Position(r, c)
                 for i in 0..<4 {
                     if self[p + BoxItUpGame.offset2[i]][BoxItUpGame.dirs[i]] != .line {
-                        g.addEdge(source: pos2node[p]!, neighbor: pos2node[p + BoxItUpGame.offset[i]]!)
+                        g.addEdge(pos2node[p]!, neighbor: pos2node[p + BoxItUpGame.offset[i]]!)
                     }
                 }
             }

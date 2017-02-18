@@ -108,7 +108,7 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
             for c in 0..<cols {
                 let p = Position(r, c)
                 guard self[p] == .cloud else {continue}
-                let node = g.addNode(label: p.description)
+                let node = g.addNode(p.description)
                 pos2node[p] = node
             }
         }
@@ -116,7 +116,7 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
             for os in BattleShipsGame.offset {
                 let p2 = p + os
                 guard let node2 = pos2node[p2] else {continue}
-                g.addEdge(source: node, neighbor: node2)
+                g.addEdge(node, neighbor: node2)
             }
         }
         while pos2node.count > 0 {
