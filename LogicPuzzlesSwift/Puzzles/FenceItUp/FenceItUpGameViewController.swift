@@ -98,9 +98,9 @@ class FenceItUpGameViewController: GameViewController, GameDelegate, FenceItUpMi
     }
     
     func gameSolved(_ game: AnyObject) {
-        if !levelInitilizing {
-            soundManager.playSoundSolved()
-        }
+        guard !levelInitilizing else {return}
+        soundManager.playSoundSolved()
+        gameDocument.gameSolved(game: game)
     }
     
     @IBAction func undoGame(_ sender: AnyObject) {

@@ -59,6 +59,10 @@ class GameDocument<G: GameBase, GM> {
         rec.commit()
     }
     
+    func gameSolved(game: AnyObject) {
+        
+    }
+
     func moveAdded(game: AnyObject, move: GM) {
         let game = game as! G
         MoveProgress.query().where(withFormat: "gameID = %@ AND levelID = %@ AND moveIndex >= %@", withParameters: [G.gameID, selectedLevelID, game.moveIndex]).fetch().removeAll()
