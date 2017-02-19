@@ -427,6 +427,11 @@
                         <action selector="handleTap:" destination="KfB-1n-qBg" id="16u-rM-3lP"/>
                     </connections>
                 </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Lnp-gL-Q99">
+                    <connections>
+                        <action selector="handlePan:" destination="KfB-1n-qBg" id="32G-eV-lje"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="448.80000000000001" y="36.431784107946029"/>
         </scene>

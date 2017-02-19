@@ -427,6 +427,11 @@
                         <action selector="handleTap:" destination="PD4-mh-6x2" id="Wfj-LY-KcW"/>
                     </connections>
                 </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="X17-XC-CjO">
+                    <connections>
+                        <action selector="handlePan:" destination="PD4-mh-6x2" id="X8v-f5-3JQ"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="448.80000000000001" y="36.431784107946029"/>
         </scene>

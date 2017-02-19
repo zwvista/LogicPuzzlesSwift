@@ -379,7 +379,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="knD-I3-WYr" appends="YES" id="ogZ-f9-Ud8"/>
+                            <outletCollection property="gestureRecognizers" destination="BZv-Mv-I1b" appends="YES" id="ibE-WR-RJT"/>
                         </connections>
                     </view>
                     <connections>
@@ -393,11 +393,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Etr-Uq-lrA" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="knD-I3-WYr">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="BZv-Mv-I1b">
                     <connections>
-                        <action selector="handleTap:" destination="ewq-WB-kg9" id="Q0F-6H-MFd"/>
+                        <action selector="handlePan:" destination="ewq-WB-kg9" id="4hd-Ie-DCb"/>
                     </connections>
-                </tapGestureRecognizer>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="448.80000000000001" y="36.431784107946029"/>
         </scene>
