@@ -19,7 +19,11 @@ class MosaikGameViewController: GameViewController, GameDelegate, MosaikMixin {
     @IBOutlet weak var lblSolved: UILabel!
     @IBOutlet weak var lblLevel: UILabel!
     @IBOutlet weak var lblMoves: UILabel!
-    
+    @IBOutlet weak var lblSolution: UILabel!
+    @IBOutlet weak var btnSaveSolution: UIButton!
+    @IBOutlet weak var btnLoadSolution: UIButton!
+    @IBOutlet weak var btnDeleteSolution: UIButton!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,7 +41,8 @@ class MosaikGameViewController: GameViewController, GameDelegate, MosaikMixin {
         
         lblLevel.textColor = .white
         lblMoves.textColor = .white
-        
+        lblSolution.textColor = .white
+       
         startGame()
     }
     
@@ -52,8 +57,18 @@ class MosaikGameViewController: GameViewController, GameDelegate, MosaikMixin {
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     
+    func updateSolutionUI() {
+        let rec = gameDocument.levelProgressSolution
+        let hasSolution = rec.moveIndex != 0
+        lblSolution.text = "Solution:" + (!hasSolution ? "None" : "\(rec.moveIndex)")
+        btnLoadSolution.isEnabled = hasSolution
+        btnDeleteSolution.isEnabled = hasSolution
+    }
+    
     func startGame() {
         lblLevel.text = gameDocument.selectedLevelID
+        updateSolutionUI()
+        
         let layout = gameDocument.levels[gameDocument.selectedLevelID]!
         
         levelInitilizing = true
@@ -77,20 +92,21 @@ class MosaikGameViewController: GameViewController, GameDelegate, MosaikMixin {
         gameDocument.moveAdded(game: game, move: move)
     }
     
-    func updateLabels(_ game: MosaikGame) {
+    func updateMovesUI(_ game: MosaikGame) {
         lblMoves.text = "Moves: \(game.moveIndex)(\(game.moveCount))"
         lblSolved.textColor = game.isSolved ? .white : .black
+        btnSaveSolution.isEnabled = game.isSolved
     }
     
     func levelInitilized(_ game: AnyObject, state: MosaikGameState) {
         let game = game as! MosaikGame
-        updateLabels(game)
+        updateMovesUI(game)
         scene.levelInitialized(game, state: state, skView: skView)
     }
     
     func levelUpdated(_ game: AnyObject, from stateFrom: MosaikGameState, to stateTo: MosaikGameState) {
         let game = game as! MosaikGame
-        updateLabels(game)
+        updateMovesUI(game)
         scene.levelUpdated(from: stateFrom, to: stateTo)
         guard !levelInitilizing else {return}
         gameDocument.levelUpdated(game: game)
@@ -100,6 +116,7 @@ class MosaikGameViewController: GameViewController, GameDelegate, MosaikMixin {
         guard !levelInitilizing else {return}
         soundManager.playSoundSolved()
         gameDocument.gameSolved(game: game)
+        updateSolutionUI()
     }
     
     @IBAction func undoGame(_ sender: AnyObject) {
@@ -126,4 +143,18 @@ class MosaikGameViewController: GameViewController, GameDelegate, MosaikMixin {
         navigationController!.popViewController(animated: true)
     }
 
+    @IBAction func saveSolution(_ sender: Any) {
+        gameDocument.saveSolution(game: game)
+        updateSolutionUI()
+    }
+    
+    @IBAction func loadSolution(_ sender: Any) {
+        gameDocument.loadSolution()
+        startGame()
+    }
+    
+    @IBAction func deleteSolution(_ sender: Any) {
+        gameDocument.deleteSolution()
+        updateSolutionUI()
+    }
 }

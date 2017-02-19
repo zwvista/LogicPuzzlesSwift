@@ -68,7 +68,7 @@ class GameDocument<G: GameBase, GM> {
         let recLP = levelProgress
         let recLPS = levelProgressSolution
         guard recLPS.moveIndex == 0 || recLPS.moveIndex > recLP.moveIndex else {return}
-        saveSolution()
+        saveSolution(game: game)
     }
 
     func moveAdded(game: AnyObject, move: GM) {
@@ -112,9 +112,27 @@ class GameDocument<G: GameBase, GM> {
             recMPS.commit()
         }
     }
-    func saveSolution() { copyMoves(moveProgressFrom: moveProgress, levelIDTo: selectedLevelIDSolution) }
-    func loadSolution() { copyMoves(moveProgressFrom: moveProgressSolution, levelIDTo: selectedLevelID) }
+    
+    func saveSolution(game: AnyObject) {
+        copyMoves(moveProgressFrom: moveProgress, levelIDTo: selectedLevelIDSolution)
+        let game = game as! G
+        let rec = levelProgressSolution
+        rec.moveIndex = game.moveIndex
+        rec.commit()
+    }
+    
+    func loadSolution() {
+        let mps = moveProgressSolution
+        copyMoves(moveProgressFrom: mps, levelIDTo: selectedLevelID)
+        let rec = levelProgress
+        rec.moveIndex = mps.count
+        rec.commit()
+    }
+    
     func deleteSolution() {
         MoveProgress.query().where(withFormat: "gameID = %@ AND levelID = %@", withParameters: [G.gameID, selectedLevelIDSolution]).fetch().removeAll()
+        let rec = levelProgressSolution
+        rec.moveIndex = 0
+        rec.commit()
     }
 }
