@@ -61,7 +61,7 @@ class SlitherLinkGameViewController: GameViewController, GameDelegate, SlitherLi
     func updateSolutionUI() {
         let rec = gameDocument.levelProgressSolution
         let hasSolution = rec.moveIndex != 0
-        lblSolution.text = "Solution:" + (!hasSolution ? "None" : "\(rec.moveIndex)")
+        lblSolution.text = "Solution: " + (!hasSolution ? "None" : "\(rec.moveIndex)")
         btnLoadSolution.isEnabled = hasSolution
         btnDeleteSolution.isEnabled = hasSolution
     }
