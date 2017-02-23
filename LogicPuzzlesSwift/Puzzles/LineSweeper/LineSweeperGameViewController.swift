@@ -155,15 +155,10 @@ class LineSweeperGameViewController: GameViewController, GameDelegate, LineSweep
     }
     
     @IBAction func clearGame(_ sender: AnyObject) {
-        let alertController = UIAlertController(title: "Clear", message: "Do you really want to reset the level?", preferredStyle: .alert)
-        let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
-        alertController.addAction(noAction)
-        let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+        yesNoAction(title: "Clear", message: "Do you really want to reset the level?") { (action) in
             self.gameDocument.clearGame()
             self.startGame()
         }
-        alertController.addAction(yesAction)
-        self.present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func backToMain(_ sender: AnyObject) {
@@ -181,7 +176,9 @@ class LineSweeperGameViewController: GameViewController, GameDelegate, LineSweep
     }
     
     @IBAction func deleteSolution(_ sender: Any) {
-        gameDocument.deleteSolution()
-        updateSolutionUI()
+        yesNoAction(title: "Delete", message: "Do you really want to delete the solution?") { (action) in
+            self.gameDocument.deleteSolution()
+            self.updateSolutionUI()
+        }
     }
 }
