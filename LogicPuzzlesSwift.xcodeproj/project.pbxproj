@@ -44,6 +44,18 @@
 		84FBA55F1DFF7F4F00594DAE /* TentsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBA5531DFF7F4F00594DAE /* TentsMixin.swift */; };
 		84FBA5601DFF7F4F00594DAE /* TentsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBA5541DFF7F4F00594DAE /* TentsObject.swift */; };
 		84FBA5611DFF7F4F00594DAE /* TentsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBA5551DFF7F4F00594DAE /* TentsOptionsViewController.swift */; };
+		8C10B7831E87B6870049C44B /* Neighbours.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C10B7771E87B6870049C44B /* Neighbours.storyboard */; };
+		8C10B7841E87B6870049C44B /* Neighbours.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C10B7781E87B6870049C44B /* Neighbours.xml */; };
+		8C10B7851E87B6870049C44B /* NeighboursDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7791E87B6870049C44B /* NeighboursDocument.swift */; };
+		8C10B7861E87B6870049C44B /* NeighboursGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B77A1E87B6870049C44B /* NeighboursGame.swift */; };
+		8C10B7871E87B6870049C44B /* NeighboursGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B77B1E87B6870049C44B /* NeighboursGameScene.swift */; };
+		8C10B7881E87B6870049C44B /* NeighboursGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B77C1E87B6870049C44B /* NeighboursGameState.swift */; };
+		8C10B7891E87B6870049C44B /* NeighboursGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B77D1E87B6870049C44B /* NeighboursGameViewController.swift */; };
+		8C10B78A1E87B6870049C44B /* NeighboursGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B77E1E87B6870049C44B /* NeighboursGridNode.swift */; };
+		8C10B78B1E87B6870049C44B /* NeighboursMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B77F1E87B6870049C44B /* NeighboursMainViewController.swift */; };
+		8C10B78C1E87B6870049C44B /* NeighboursMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7801E87B6870049C44B /* NeighboursMixin.swift */; };
+		8C10B78D1E87B6870049C44B /* NeighboursObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7811E87B6870049C44B /* NeighboursObject.swift */; };
+		8C10B78E1E87B6870049C44B /* NeighboursOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7821E87B6870049C44B /* NeighboursOptionsViewController.swift */; };
 		8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */; };
 		8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */; };
 		8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A01DB8DE930056D407 /* AnimatedExample.graffle */; };
@@ -472,6 +484,18 @@
 		84FBA5531DFF7F4F00594DAE /* TentsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TentsMixin.swift; sourceTree = "<group>"; };
 		84FBA5541DFF7F4F00594DAE /* TentsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TentsObject.swift; sourceTree = "<group>"; };
 		84FBA5551DFF7F4F00594DAE /* TentsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TentsOptionsViewController.swift; sourceTree = "<group>"; };
+		8C10B7771E87B6870049C44B /* Neighbours.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Neighbours.storyboard; sourceTree = "<group>"; };
+		8C10B7781E87B6870049C44B /* Neighbours.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Neighbours.xml; sourceTree = "<group>"; };
+		8C10B7791E87B6870049C44B /* NeighboursDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighboursDocument.swift; sourceTree = "<group>"; };
+		8C10B77A1E87B6870049C44B /* NeighboursGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighboursGame.swift; sourceTree = "<group>"; };
+		8C10B77B1E87B6870049C44B /* NeighboursGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighboursGameScene.swift; sourceTree = "<group>"; };
+		8C10B77C1E87B6870049C44B /* NeighboursGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighboursGameState.swift; sourceTree = "<group>"; };
+		8C10B77D1E87B6870049C44B /* NeighboursGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighboursGameViewController.swift; sourceTree = "<group>"; };
+		8C10B77E1E87B6870049C44B /* NeighboursGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighboursGridNode.swift; sourceTree = "<group>"; };
+		8C10B77F1E87B6870049C44B /* NeighboursMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighboursMainViewController.swift; sourceTree = "<group>"; };
+		8C10B7801E87B6870049C44B /* NeighboursMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighboursMixin.swift; sourceTree = "<group>"; };
+		8C10B7811E87B6870049C44B /* NeighboursObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighboursObject.swift; sourceTree = "<group>"; };
+		8C10B7821E87B6870049C44B /* NeighboursOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighboursOptionsViewController.swift; sourceTree = "<group>"; };
 		8C1D169C1DB8DE930056D407 /* BreadthFirstSearch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BreadthFirstSearch.playground; sourceTree = "<group>"; };
 		8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadthFirstSearch.swift; sourceTree = "<group>"; };
 		8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimatedExample.gif; sourceTree = "<group>"; };
@@ -929,6 +953,25 @@
 			path = Tents;
 			sourceTree = "<group>";
 		};
+		8C10B7761E87B6870049C44B /* Neighbours */ = {
+			isa = PBXGroup;
+			children = (
+				8C10B7771E87B6870049C44B /* Neighbours.storyboard */,
+				8C10B7781E87B6870049C44B /* Neighbours.xml */,
+				8C10B7791E87B6870049C44B /* NeighboursDocument.swift */,
+				8C10B77A1E87B6870049C44B /* NeighboursGame.swift */,
+				8C10B77B1E87B6870049C44B /* NeighboursGameScene.swift */,
+				8C10B77C1E87B6870049C44B /* NeighboursGameState.swift */,
+				8C10B77D1E87B6870049C44B /* NeighboursGameViewController.swift */,
+				8C10B77E1E87B6870049C44B /* NeighboursGridNode.swift */,
+				8C10B77F1E87B6870049C44B /* NeighboursMainViewController.swift */,
+				8C10B7801E87B6870049C44B /* NeighboursMixin.swift */,
+				8C10B7811E87B6870049C44B /* NeighboursObject.swift */,
+				8C10B7821E87B6870049C44B /* NeighboursOptionsViewController.swift */,
+			);
+			path = Neighbours;
+			sourceTree = "<group>";
+		};
 		8C1D169B1DB8DE930056D407 /* Breadth-First Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -1110,6 +1153,7 @@
 				8C9AF5521DF8D7770053BED4 /* Magnets */,
 				8C9AF4411DE974BF0053BED4 /* Masyu */,
 				8C9AF5381DF471AA0053BED4 /* Mosaik */,
+				8C10B7761E87B6870049C44B /* Neighbours */,
 				8C9AF44E1DE974BF0053BED4 /* Nurikabe */,
 				84FBA5301DFF7F4500594DAE /* Parks */,
 				8C9AF56C1DF8D84B0053BED4 /* Rooms */,
@@ -1766,6 +1810,7 @@
 				8C373D6D1E14A622005712CD /* BoxItUp.storyboard in Resources */,
 				8C9AF4A61DE974BF0053BED4 /* Hitori.storyboard in Resources */,
 				84FBA53D1DFF7F4500594DAE /* Parks.storyboard in Resources */,
+				8C10B7831E87B6870049C44B /* Neighbours.storyboard in Resources */,
 				8C81CB9F1E19546000FB244A /* BoxItAgain.xml in Resources */,
 				8C9AF4E21DE974BF0053BED4 /* Skyscrapers.storyboard in Resources */,
 				84FBA5231DFF7F3600594DAE /* BattleShips.storyboard in Resources */,
@@ -1793,6 +1838,7 @@
 				8C81CBAB1E19546000FB244A /* FenceItUp.xml in Resources */,
 				84FBA5561DFF7F4F00594DAE /* Tents.storyboard in Resources */,
 				8C6D373F1DC421980052202C /* Home.storyboard in Resources */,
+				8C10B7841E87B6870049C44B /* Neighbours.xml in Resources */,
 				8C373D6E1E14A622005712CD /* BoxItUp.xml in Resources */,
 				8C916CC41DAA5FEB00D9E62B /* music.wav in Resources */,
 			);
@@ -1822,6 +1868,7 @@
 				8C81CBA61E19546000FB244A /* BoxItAgainMainViewController.swift in Sources */,
 				8CC3504D1E001D2800B8FD83 /* UIBarButtonItemExtensions.swift in Sources */,
 				8C6D37FB1DC5ACDB0052202C /* Copyable.swift in Sources */,
+				8C10B78E1E87B6870049C44B /* NeighboursOptionsViewController.swift in Sources */,
 				84FBA55A1DFF7F4F00594DAE /* TentsGameScene.swift in Sources */,
 				84FBA5271DFF7F3600594DAE /* BattleShipsGameScene.swift in Sources */,
 				8C9AF4D81DE974BF0053BED4 /* NurikabeDocument.swift in Sources */,
@@ -1884,6 +1931,7 @@
 				8C64A2EC1DE0891000AB6C09 /* GameTables.swift in Sources */,
 				8CC3CD241E32DEE40056B78F /* SnailMainViewController.swift in Sources */,
 				8CC350441E001D2800B8FD83 /* FloatingPointExtensions.swift in Sources */,
+				8C10B7881E87B6870049C44B /* NeighboursGameState.swift in Sources */,
 				8C9AF54B1DF471AA0053BED4 /* MosaikGameViewController.swift in Sources */,
 				8C9AF4981DE974BF0053BED4 /* BridgesObject.swift in Sources */,
 				8C9AF4A11DE974BF0053BED4 /* CloudsGridNode.swift in Sources */,
@@ -1892,6 +1940,7 @@
 				84FBA5421DFF7F4500594DAE /* ParksGameState.swift in Sources */,
 				8C9AF4871DE974BF0053BED4 /* AbcGameState.swift in Sources */,
 				8C81CBA41E19546000FB244A /* BoxItAgainGameViewController.swift in Sources */,
+				8C10B7861E87B6870049C44B /* NeighboursGame.swift in Sources */,
 				8C6D37F51DC5AC520052202C /* Position.swift in Sources */,
 				84FBA55D1DFF7F4F00594DAE /* TentsGridNode.swift in Sources */,
 				8C6D373C1DC421180052202C /* HomeTables.swift in Sources */,
@@ -1906,6 +1955,7 @@
 				8C9AF4B91DE974BF0053BED4 /* LightenUpGridNode.swift in Sources */,
 				8C9AF56A1DF8D7770053BED4 /* MagnetsOptionsViewController.swift in Sources */,
 				8C1D16B51DB8DE930056D407 /* Graph.swift in Sources */,
+				8C10B7851E87B6870049C44B /* NeighboursDocument.swift in Sources */,
 				8C9AF5031DE974BF0053BED4 /* SumscrapersMixin.swift in Sources */,
 				8CC3504E1E001D2800B8FD83 /* UIButtonExtensions.swift in Sources */,
 				8C9AF4E51DE974BF0053BED4 /* SkyscrapersGame.swift in Sources */,
@@ -1995,6 +2045,7 @@
 				8C9AF4EC1DE974BF0053BED4 /* SkyscrapersObject.swift in Sources */,
 				8C9AF4D31DE974BF0053BED4 /* MasyuMixin.swift in Sources */,
 				84FBA52A1DFF7F3600594DAE /* BattleShipsGridNode.swift in Sources */,
+				8C10B7871E87B6870049C44B /* NeighboursGameScene.swift in Sources */,
 				8C6D37FE1DC5B4EB0052202C /* GameState.swift in Sources */,
 				8C9AF4AB1DE974BF0053BED4 /* HitoriGameState.swift in Sources */,
 				8CC350371E001D2800B8FD83 /* BlockTap.swift in Sources */,
@@ -2020,6 +2071,7 @@
 				8C373D721E14A622005712CD /* BoxItUpGameState.swift in Sources */,
 				8C6ACC001DCAF8C20075F32C /* GameScene.swift in Sources */,
 				8C9AF5691DF8D7770053BED4 /* MagnetsObject.swift in Sources */,
+				8C10B78A1E87B6870049C44B /* NeighboursGridNode.swift in Sources */,
 				8C6ACC1A1DD206AD0075F32C /* MainViewController.swift in Sources */,
 				8C9AF4AC1DE974BF0053BED4 /* HitoriGameViewController.swift in Sources */,
 				8C9AF5171DE975030053BED4 /* LoopyGameScene.swift in Sources */,
@@ -2033,6 +2085,7 @@
 				8C9AF4BB1DE974BF0053BED4 /* LightenUpMixin.swift in Sources */,
 				8CC350391E001D2800B8FD83 /* BoolExtensions.swift in Sources */,
 				8C6D37381DC421180052202C /* HomeDocument.swift in Sources */,
+				8C10B78B1E87B6870049C44B /* NeighboursMainViewController.swift in Sources */,
 				84FBA5291DFF7F3600594DAE /* BattleShipsGameViewController.swift in Sources */,
 				8C9AF5821DF8D84B0053BED4 /* RoomsMixin.swift in Sources */,
 				8C886C421D9E8AF1004A42BF /* ActionSheetStringPicker.m in Sources */,
@@ -2056,6 +2109,7 @@
 				8CC350561E001D2800B8FD83 /* UISliderExtensions.swift in Sources */,
 				8CC3504A1E001D2800B8FD83 /* TimerExtensions.swift in Sources */,
 				8C9AF4961DE974BF0053BED4 /* BridgesMainViewController.swift in Sources */,
+				8C10B78C1E87B6870049C44B /* NeighboursMixin.swift in Sources */,
 				8C9AF54A1DF471AA0053BED4 /* MosaikGameState.swift in Sources */,
 				8C9AF5661DF8D7770053BED4 /* MagnetsGridNode.swift in Sources */,
 				8C9AF5841DF8D84B0053BED4 /* RoomsOptionsViewController.swift in Sources */,
@@ -2104,6 +2158,7 @@
 				8C373D771E14A622005712CD /* BoxItUpObject.swift in Sources */,
 				8C9AF5021DE974BF0053BED4 /* SumscrapersMainViewController.swift in Sources */,
 				8C9AF49F1DE974BF0053BED4 /* CloudsGameState.swift in Sources */,
+				8C10B7891E87B6870049C44B /* NeighboursGameViewController.swift in Sources */,
 				8C81CBB01E19546000FB244A /* FenceItUpGameViewController.swift in Sources */,
 				8C9AF57C1DF8D84B0053BED4 /* RoomsGame.swift in Sources */,
 				8CC350331E001D2800B8FD83 /* BlockLongPress.swift in Sources */,
@@ -2115,6 +2170,7 @@
 				8C9AF5471DF471AA0053BED4 /* MosaikDocument.swift in Sources */,
 				8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */,
 				8CC350601E001D2800B8FD83 /* UserDefaultsExtension.swift in Sources */,
+				8C10B78D1E87B6870049C44B /* NeighboursObject.swift in Sources */,
 				8CC350481E001D2800B8FD83 /* NSObjectExtensions.swift in Sources */,
 				8CC350471E001D2800B8FD83 /* NSDictionaryExtensions.swift in Sources */,
 				8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */,
