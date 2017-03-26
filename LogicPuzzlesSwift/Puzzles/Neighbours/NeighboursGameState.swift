@@ -103,17 +103,25 @@ class NeighboursGameState: GridGameState, NeighboursMixin {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
                 for i in 0..<4 {
-                    if self[p + NeighboursGame.offset2[i]][NeighboursGame.dirs[i]] != .line {
-                        g.addEdge(pos2node[p]!, neighbor: pos2node[p + NeighboursGame.offset[i]]!)
-                    }
+                    guard self[p + NeighboursGame.offset2[i]][NeighboursGame.dirs[i]] != .line else {continue}
+                    g.addEdge(pos2node[p]!, neighbor: pos2node[p + NeighboursGame.offset[i]]!)
                 }
             }
         }
+        var areas = [[Position]]()
+        var pos2area = [Position: Int]()
         while !pos2node.isEmpty {
             let node = pos2node.first!.value
             let nodesExplored = breadthFirstSearch(g, source: node)
             let area = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
+            areas.append(area)
+            for p in area {
+                pos2area[p] = areas.count
+            }
             pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
+        }
+        let n2 = game.areaSize
+        for area in areas {
             let rng = area.filter({p in game.pos2hint[p] != nil})
             if rng.count != 1 {
                 for p in rng {
@@ -121,27 +129,24 @@ class NeighboursGameState: GridGameState, NeighboursMixin {
                 }
                 isSolved = false; continue
             }
-            let p2 = rng[0]
-            let n1 = area.count, n2 = game.pos2hint[p2]!
-            var r2 = 0, r1 = rows, c2 = 0, c1 = cols
-            for p in area {
-                if r2 < p.row {r2 = p.row}
-                if r1 > p.row {r1 = p.row}
-                if c2 < p.col {c2 = p.col}
-                if c1 > p.col {c1 = p.col}
-            }
-            let rs = r2 - r1 + 1, cs = c2 - c1 + 1
-            func hasLine() -> Bool {
-                for r in r1...r2 {
-                    for c in c1...c2 {
-                        let dotObj = self[r + 1, c + 1]
-                        if r < r2 && dotObj[3] == .line || c < c2 && dotObj[0] == .line {return true}
+            let p3 = rng[0]
+            let n1 = area.count, n3 = game.pos2hint[p3]!
+            func neighbours() -> Int {
+                var indexes = Set<Int>()
+                let idx = pos2area[area.first!]!
+                for p in area {
+                    for i in 0..<4 {
+                        guard self[p + NeighboursGame.offset2[i]][NeighboursGame.dirs[i]] == .line else {continue}
+                        let p2 = p + NeighboursGame.offset[i]
+                        guard let idx2 = pos2area[p2] else {continue}
+                        guard idx != idx2 else {return -1}
+                        indexes.insert(idx2)
                     }
                 }
-                return false
+                return indexes.count
             }
-            pos2state[p2] = rs * cs == n1 && rs * cs == n2 && !hasLine() ? .complete : .error
-            if pos2state[p2] != .complete {isSolved = false}
+            pos2state[p3] = n1 == n2 && n3 == neighbours() ? .complete : .error
+            if pos2state[p3] != .complete {isSolved = false}
         }
     }
 }

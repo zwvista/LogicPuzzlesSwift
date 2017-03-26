@@ -103,9 +103,8 @@ class BoxItUpGameState: GridGameState, BoxItUpMixin {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
                 for i in 0..<4 {
-                    if self[p + BoxItUpGame.offset2[i]][BoxItUpGame.dirs[i]] != .line {
-                        g.addEdge(pos2node[p]!, neighbor: pos2node[p + BoxItUpGame.offset[i]]!)
-                    }
+                    guard self[p + BoxItUpGame.offset2[i]][BoxItUpGame.dirs[i]] != .line else {continue}
+                    g.addEdge(pos2node[p]!, neighbor: pos2node[p + BoxItUpGame.offset[i]]!)
                 }
             }
         }

@@ -103,9 +103,8 @@ class FenceItUpGameState: GridGameState, FenceItUpMixin {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
                 for i in 0..<4 {
-                    if self[p + FenceItUpGame.offset2[i]][FenceItUpGame.dirs[i]] != .line {
-                        g.addEdge(pos2node[p]!, neighbor: pos2node[p + FenceItUpGame.offset[i]]!)
-                    }
+                    guard self[p + FenceItUpGame.offset2[i]][FenceItUpGame.dirs[i]] != .line else {continue}
+                    g.addEdge(pos2node[p]!, neighbor: pos2node[p + FenceItUpGame.offset[i]]!)
                 }
             }
         }
