@@ -26,7 +26,7 @@ class FenceItUpOptionsViewController: OptionsViewController, FenceItUpMixin {
         let rec = gameOptions
         setMarkerOption(rec: rec, newValue: MarkerOptions.noMarker.rawValue)
         rec.commit()
-        self.updateMarkerOption()
+        updateMarkerOption()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
