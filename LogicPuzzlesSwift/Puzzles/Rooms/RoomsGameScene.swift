@@ -14,7 +14,7 @@ class RoomsGameScene: GameScene<RoomsGameState> {
         set {setGridNode(gridNode: newValue)}
     }
     
-    func addHintNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
+    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
@@ -31,8 +31,8 @@ class RoomsGameScene: GameScene<RoomsGameState> {
         for (p, n) in game.pos2hint {
             let point = gridNode.gridPosition(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let hintNumberNodeName = "hintNumber" + nodeNameSuffix
-            addHintNumber(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNumberNodeName)
+            let hintNodeName = "hint" + nodeNameSuffix
+            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
         }
         
         for r in 0..<game.rows {
@@ -70,12 +70,12 @@ class RoomsGameScene: GameScene<RoomsGameState> {
                     removeVertLine(objType: o1)
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
                 }
-                let hintNumberNodeName = "hintNumber" + nodeNameSuffix
-                func removeHintNumber() { removeNode(withName: hintNumberNodeName) }
+                let hintNodeName = "hint" + nodeNameSuffix
+                func removeHint() { removeNode(withName: hintNodeName) }
                 guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
                 if s1 != s2 {
-                    removeHintNumber()
-                    addHintNumber(n: stateFrom.game.pos2hint[p]!, s: s2, point: point, nodeName: hintNumberNodeName)
+                    removeHint()
+                    addHint(n: stateFrom.game.pos2hint[p]!, s: s2, point: point, nodeName: hintNodeName)
                 }
             }
         }

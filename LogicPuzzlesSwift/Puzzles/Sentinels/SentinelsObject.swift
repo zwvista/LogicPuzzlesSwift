@@ -1,5 +1,5 @@
 //
-//  NurikabeObject.swift
+//  SentinelsObject.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/26.
@@ -8,11 +8,11 @@
 
 import Foundation
 
-enum NurikabeObject {
+enum SentinelsObject {
     case empty
     case hint(state: HintState)
     case marker
-    case wall
+    case sentinel
     init() {
         self = .empty
     }
@@ -20,26 +20,25 @@ enum NurikabeObject {
         switch self {
         case .marker:
             return "marker"
-        case .wall:
-            return "wall"
+        case .sentinel:
+            return "sentinel"
         default:
             return "empty"
         }
     }
-    static func fromString(str: String) -> NurikabeObject {
+    static func fromString(str: String) -> SentinelsObject {
         switch str {
         case "marker":
             return .marker
-        case "wall":
-            return .wall
+        case "sentinel":
+            return .sentinel
         default:
             return .empty
         }
     }
 }
 
-struct NurikabeGameMove {
+struct SentinelsGameMove {
     var p = Position()
-    var obj = NurikabeObject()
+    var obj = SentinelsObject()
 }
-

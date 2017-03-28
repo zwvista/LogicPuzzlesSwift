@@ -14,7 +14,7 @@ class MosaikGameScene: GameScene<MosaikGameState> {
         set {setGridNode(gridNode: newValue)}
     }
     
-    func addHintNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
+    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
@@ -31,8 +31,8 @@ class MosaikGameScene: GameScene<MosaikGameState> {
         for (p, n) in game.pos2hint {
             let point = gridNode.gridPosition(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let hintNumberNodeName = "hintNumber" + nodeNameSuffix
-            addHintNumber(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNumberNodeName)
+            let hintNodeName = "hint" + nodeNameSuffix
+            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
         }
     }
     
@@ -45,9 +45,9 @@ class MosaikGameScene: GameScene<MosaikGameState> {
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let filledCellNodeName = "filledCell" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
-                let hintNumberNodeName = "hintNumber" + nodeNameSuffix
-                func addHintNumber2() { addHintNumber(n: stateFrom.game.pos2hint[p]!, s: stateTo.pos2state[p]!, point: point, nodeName: hintNumberNodeName) }
-                func removeHintNumber() { removeNode(withName: hintNumberNodeName) }
+                let hintNodeName = "hint" + nodeNameSuffix
+                func addHint2() { addHint(n: stateFrom.game.pos2hint[p]!, s: stateTo.pos2state[p]!, point: point, nodeName: hintNodeName) }
+                func removeHint() { removeNode(withName: hintNodeName) }
                 func addFilledCell() {
                     let filledCellNode = SKSpriteNode(color: .purple, size: coloredRectSize())
                     filledCellNode.position = point
@@ -70,9 +70,9 @@ class MosaikGameScene: GameScene<MosaikGameState> {
                     switch o2 {
                     case .filled:
                         let b = stateFrom.game.pos2hint[p] != nil
-                        if b {removeHintNumber()}
+                        if b {removeHint()}
                         addFilledCell()
-                        if b {addHintNumber2()}
+                        if b {addHint2()}
                     case .marker:
                         addMarker()
                     default:
@@ -81,8 +81,8 @@ class MosaikGameScene: GameScene<MosaikGameState> {
                 }
                 guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
                 if s1 != s2 {
-                    removeHintNumber()
-                    addHintNumber2()
+                    removeHint()
+                    addHint2()
                 }
             }
         }

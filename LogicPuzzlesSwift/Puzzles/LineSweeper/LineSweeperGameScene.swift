@@ -14,7 +14,7 @@ class LineSweeperGameScene: GameScene<LineSweeperGameState> {
         set {setGridNode(gridNode: newValue)}
     }
     
-    func addHintNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
+    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
@@ -31,8 +31,8 @@ class LineSweeperGameScene: GameScene<LineSweeperGameState> {
         for (p, n) in game.pos2hint {
             let point = gridNode.gridPosition(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let hintNumberNodeName = "hintNumber" + nodeNameSuffix
-            addHintNumber(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNumberNodeName)
+            let hintNodeName = "hint" + nodeNameSuffix
+            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
         }
     }
     
@@ -43,9 +43,9 @@ class LineSweeperGameScene: GameScene<LineSweeperGameState> {
                     let p = Position(r, c)
                     let point = gridNode.gridPosition(p: p)
                     let nodeNameSuffix = "-\(r)-\(c)-\(dir)"
-                    let hintNumberNodeName = "hintNumber" + nodeNameSuffix
+                    let hintNodeName = "hint" + nodeNameSuffix
                     let lineNodeName = "line" + nodeNameSuffix
-                    func removeHintNumber() { removeNode(withName: hintNumberNodeName) }
+                    func removeHint() { removeNode(withName: hintNodeName) }
                     func removeLine() { removeNode(withName: lineNodeName) }
                     func addLine() {
                         let pathToDraw = CGMutablePath()
@@ -73,8 +73,8 @@ class LineSweeperGameScene: GameScene<LineSweeperGameState> {
                     }
                     guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
                     if s1 != s2 {
-                        removeHintNumber()
-                        addHintNumber(n: stateFrom.game.pos2hint[p]!, s: s2, point: point, nodeName: hintNumberNodeName)
+                        removeHint()
+                        addHint(n: stateFrom.game.pos2hint[p]!, s: s2, point: point, nodeName: hintNodeName)
                     }
                 }
             }
