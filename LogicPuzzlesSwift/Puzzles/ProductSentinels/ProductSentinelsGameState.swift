@@ -1,5 +1,5 @@
 //
-//  SentinelsGameState.swift
+//  ProductSentinelsGameState.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/19.
@@ -8,33 +8,33 @@
 
 import Foundation
 
-class SentinelsGameState: GridGameState, SentinelsMixin {
+class ProductSentinelsGameState: GridGameState, ProductSentinelsMixin {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
-    var game: SentinelsGame {
-        get {return getGame() as! SentinelsGame}
+    var game: ProductSentinelsGame {
+        get {return getGame() as! ProductSentinelsGame}
         set {setGame(game: newValue)}
     }
-    var objArray = [SentinelsObject]()
+    var objArray = [ProductSentinelsObject]()
     
-    override func copy() -> SentinelsGameState {
-        let v = SentinelsGameState(game: game)
+    override func copy() -> ProductSentinelsGameState {
+        let v = ProductSentinelsGameState(game: game)
         return setup(v: v)
     }
-    func setup(v: SentinelsGameState) -> SentinelsGameState {
+    func setup(v: ProductSentinelsGameState) -> ProductSentinelsGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
         return v
     }
     
-    required init(game: SentinelsGame) {
+    required init(game: ProductSentinelsGame) {
         super.init(game: game)
-        objArray = Array<SentinelsObject>(repeating: .empty, count: rows * cols)
+        objArray = Array<ProductSentinelsObject>(repeating: .empty, count: rows * cols)
         for p in game.pos2hint.keys {
             self[p] = .hint(state: .normal)
         }
     }
     
-    subscript(p: Position) -> SentinelsObject {
+    subscript(p: Position) -> ProductSentinelsObject {
         get {
             return self[p.row, p.col]
         }
@@ -42,7 +42,7 @@ class SentinelsGameState: GridGameState, SentinelsMixin {
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> SentinelsObject {
+    subscript(row: Int, col: Int) -> ProductSentinelsObject {
         get {
             return objArray[row * cols + col]
         }
@@ -51,7 +51,7 @@ class SentinelsGameState: GridGameState, SentinelsMixin {
         }
     }
     
-    func setObject(move: inout SentinelsGameMove) -> Bool {
+    func setObject(move: inout ProductSentinelsGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         if case .hint = o1 {return false}
@@ -63,9 +63,9 @@ class SentinelsGameState: GridGameState, SentinelsMixin {
         return true
     }
     
-    func switchObject(move: inout SentinelsGameMove) -> Bool {
+    func switchObject(move: inout ProductSentinelsGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
-        func f(o: SentinelsObject) -> SentinelsObject {
+        func f(o: ProductSentinelsObject) -> ProductSentinelsObject {
             switch o {
             case .empty:
                 return markerOption == .markerFirst ? .marker : .sentinel
@@ -86,7 +86,7 @@ class SentinelsGameState: GridGameState, SentinelsMixin {
         for (p, n2) in game.pos2hint {
             var nums = [0, 0, 0, 0]
             for i in 0..<4 {
-                let os = SentinelsGame.offset[i]
+                let os = ProductSentinelsGame.offset[i]
                 var p2 = p + os
                 while game.isValid(p: p2) {
                     if case .sentinel = self[p2] {break}
@@ -94,7 +94,7 @@ class SentinelsGameState: GridGameState, SentinelsMixin {
                     p2 += os
                 }
             }
-            let n1 = nums[0] + nums[1] + nums[2] + nums[3] + 1
+            let n1 = (nums[0] + nums[2] + 1) * (nums[1] + nums[3] + 1)
             let s: HintState = n1 > n2 ? .normal : n1 == n2 ? .complete : .error
             self[p] = .hint(state: s)
             if s != .complete {isSolved = false}

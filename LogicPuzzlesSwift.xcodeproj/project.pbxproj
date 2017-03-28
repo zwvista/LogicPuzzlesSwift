@@ -68,6 +68,18 @@
 		8C10B7A71E8A98C30049C44B /* SentinelsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B79B1E8A98C30049C44B /* SentinelsMixin.swift */; };
 		8C10B7A81E8A98C30049C44B /* SentinelsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B79C1E8A98C30049C44B /* SentinelsObject.swift */; };
 		8C10B7A91E8A98C30049C44B /* SentinelsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B79D1E8A98C30049C44B /* SentinelsOptionsViewController.swift */; };
+		8C10B7B81E8AB2680049C44B /* ProductSentinels.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C10B7AC1E8AB2670049C44B /* ProductSentinels.storyboard */; };
+		8C10B7B91E8AB2680049C44B /* ProductSentinels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C10B7AD1E8AB2670049C44B /* ProductSentinels.xml */; };
+		8C10B7BA1E8AB2680049C44B /* ProductSentinelsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7AE1E8AB2670049C44B /* ProductSentinelsDocument.swift */; };
+		8C10B7BB1E8AB2680049C44B /* ProductSentinelsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7AF1E8AB2670049C44B /* ProductSentinelsGame.swift */; };
+		8C10B7BC1E8AB2680049C44B /* ProductSentinelsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7B01E8AB2670049C44B /* ProductSentinelsGameScene.swift */; };
+		8C10B7BD1E8AB2680049C44B /* ProductSentinelsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7B11E8AB2670049C44B /* ProductSentinelsGameState.swift */; };
+		8C10B7BE1E8AB2680049C44B /* ProductSentinelsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7B21E8AB2670049C44B /* ProductSentinelsGameViewController.swift */; };
+		8C10B7BF1E8AB2680049C44B /* ProductSentinelsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7B31E8AB2670049C44B /* ProductSentinelsGridNode.swift */; };
+		8C10B7C01E8AB2680049C44B /* ProductSentinelsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7B41E8AB2670049C44B /* ProductSentinelsMainViewController.swift */; };
+		8C10B7C11E8AB2680049C44B /* ProductSentinelsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7B51E8AB2670049C44B /* ProductSentinelsMixin.swift */; };
+		8C10B7C21E8AB2680049C44B /* ProductSentinelsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7B61E8AB2670049C44B /* ProductSentinelsObject.swift */; };
+		8C10B7C31E8AB2680049C44B /* ProductSentinelsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7B71E8AB2670049C44B /* ProductSentinelsOptionsViewController.swift */; };
 		8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */; };
 		8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */; };
 		8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A01DB8DE930056D407 /* AnimatedExample.graffle */; };
@@ -520,6 +532,18 @@
 		8C10B79B1E8A98C30049C44B /* SentinelsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentinelsMixin.swift; sourceTree = "<group>"; };
 		8C10B79C1E8A98C30049C44B /* SentinelsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentinelsObject.swift; sourceTree = "<group>"; };
 		8C10B79D1E8A98C30049C44B /* SentinelsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentinelsOptionsViewController.swift; sourceTree = "<group>"; };
+		8C10B7AC1E8AB2670049C44B /* ProductSentinels.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductSentinels.storyboard; sourceTree = "<group>"; };
+		8C10B7AD1E8AB2670049C44B /* ProductSentinels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ProductSentinels.xml; sourceTree = "<group>"; };
+		8C10B7AE1E8AB2670049C44B /* ProductSentinelsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSentinelsDocument.swift; sourceTree = "<group>"; };
+		8C10B7AF1E8AB2670049C44B /* ProductSentinelsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSentinelsGame.swift; sourceTree = "<group>"; };
+		8C10B7B01E8AB2670049C44B /* ProductSentinelsGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSentinelsGameScene.swift; sourceTree = "<group>"; };
+		8C10B7B11E8AB2670049C44B /* ProductSentinelsGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSentinelsGameState.swift; sourceTree = "<group>"; };
+		8C10B7B21E8AB2670049C44B /* ProductSentinelsGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSentinelsGameViewController.swift; sourceTree = "<group>"; };
+		8C10B7B31E8AB2670049C44B /* ProductSentinelsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSentinelsGridNode.swift; sourceTree = "<group>"; };
+		8C10B7B41E8AB2670049C44B /* ProductSentinelsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSentinelsMainViewController.swift; sourceTree = "<group>"; };
+		8C10B7B51E8AB2670049C44B /* ProductSentinelsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSentinelsMixin.swift; sourceTree = "<group>"; };
+		8C10B7B61E8AB2670049C44B /* ProductSentinelsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSentinelsObject.swift; sourceTree = "<group>"; };
+		8C10B7B71E8AB2670049C44B /* ProductSentinelsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSentinelsOptionsViewController.swift; sourceTree = "<group>"; };
 		8C1D169C1DB8DE930056D407 /* BreadthFirstSearch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BreadthFirstSearch.playground; sourceTree = "<group>"; };
 		8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadthFirstSearch.swift; sourceTree = "<group>"; };
 		8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimatedExample.gif; sourceTree = "<group>"; };
@@ -1015,6 +1039,25 @@
 			path = Sentinels;
 			sourceTree = "<group>";
 		};
+		8C10B7AB1E8AB2670049C44B /* ProductSentinels */ = {
+			isa = PBXGroup;
+			children = (
+				8C10B7AC1E8AB2670049C44B /* ProductSentinels.storyboard */,
+				8C10B7AD1E8AB2670049C44B /* ProductSentinels.xml */,
+				8C10B7AE1E8AB2670049C44B /* ProductSentinelsDocument.swift */,
+				8C10B7AF1E8AB2670049C44B /* ProductSentinelsGame.swift */,
+				8C10B7B01E8AB2670049C44B /* ProductSentinelsGameScene.swift */,
+				8C10B7B11E8AB2670049C44B /* ProductSentinelsGameState.swift */,
+				8C10B7B21E8AB2670049C44B /* ProductSentinelsGameViewController.swift */,
+				8C10B7B31E8AB2670049C44B /* ProductSentinelsGridNode.swift */,
+				8C10B7B41E8AB2670049C44B /* ProductSentinelsMainViewController.swift */,
+				8C10B7B51E8AB2670049C44B /* ProductSentinelsMixin.swift */,
+				8C10B7B61E8AB2670049C44B /* ProductSentinelsObject.swift */,
+				8C10B7B71E8AB2670049C44B /* ProductSentinelsOptionsViewController.swift */,
+			);
+			path = ProductSentinels;
+			sourceTree = "<group>";
+		};
 		8C1D169B1DB8DE930056D407 /* Breadth-First Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -1199,6 +1242,7 @@
 				8C10B7761E87B6870049C44B /* Neighbours */,
 				8C9AF44E1DE974BF0053BED4 /* Nurikabe */,
 				84FBA5301DFF7F4500594DAE /* Parks */,
+				8C10B7AB1E8AB2670049C44B /* ProductSentinels */,
 				8C9AF56C1DF8D84B0053BED4 /* Rooms */,
 				8C10B7911E8A98C30049C44B /* Sentinels */,
 				8CC3CD0F1E32DEE40056B78F /* Snail */,
@@ -1839,6 +1883,7 @@
 				8C10B79E1E8A98C30049C44B /* Sentinels.storyboard in Resources */,
 				84FBA5241DFF7F3600594DAE /* BattleShips.xml in Resources */,
 				84FBA53E1DFF7F4500594DAE /* Parks.xml in Resources */,
+				8C10B7B91E8AB2680049C44B /* ProductSentinels.xml in Resources */,
 				8C9AF4A71DE974BF0053BED4 /* Hitori.xml in Resources */,
 				8C9AF4BE1DE974BF0053BED4 /* LineSweeper.storyboard in Resources */,
 				8C9AF5791DF8D84B0053BED4 /* Rooms.storyboard in Resources */,
@@ -1856,6 +1901,7 @@
 				8C9AF4A61DE974BF0053BED4 /* Hitori.storyboard in Resources */,
 				84FBA53D1DFF7F4500594DAE /* Parks.storyboard in Resources */,
 				8C10B7831E87B6870049C44B /* Neighbours.storyboard in Resources */,
+				8C10B7B81E8AB2680049C44B /* ProductSentinels.storyboard in Resources */,
 				8C81CB9F1E19546000FB244A /* BoxItAgain.xml in Resources */,
 				8C9AF4E21DE974BF0053BED4 /* Skyscrapers.storyboard in Resources */,
 				84FBA5231DFF7F3600594DAE /* BattleShips.storyboard in Resources */,
@@ -1968,6 +2014,7 @@
 				8C9AF4911DE974BF0053BED4 /* BridgesGame.swift in Sources */,
 				8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */,
 				84FBA5461DFF7F4500594DAE /* ParksMixin.swift in Sources */,
+				8C10B7C11E8AB2680049C44B /* ProductSentinelsMixin.swift in Sources */,
 				8C9AF5831DF8D84B0053BED4 /* RoomsObject.swift in Sources */,
 				8CC3505F1E001D2800B8FD83 /* URLExtensions.swift in Sources */,
 				8C10B7A71E8A98C30049C44B /* SentinelsMixin.swift in Sources */,
@@ -1992,6 +2039,7 @@
 				8C6D37F51DC5AC520052202C /* Position.swift in Sources */,
 				84FBA55D1DFF7F4F00594DAE /* TentsGridNode.swift in Sources */,
 				8C6D373C1DC421180052202C /* HomeTables.swift in Sources */,
+				8C10B7BC1E8AB2680049C44B /* ProductSentinelsGameScene.swift in Sources */,
 				8CC3CD261E32DEE40056B78F /* SnailObject.swift in Sources */,
 				8C81CBA01E19546000FB244A /* BoxItAgainDocument.swift in Sources */,
 				8C916CC01DAA5E9500D9E62B /* Node.swift in Sources */,
@@ -2021,6 +2069,7 @@
 				8C9AF54C1DF471AA0053BED4 /* MosaikGridNode.swift in Sources */,
 				8C9AF4881DE974BF0053BED4 /* AbcGameViewController.swift in Sources */,
 				8C9AF5181DE975030053BED4 /* LoopyGameState.swift in Sources */,
+				8C10B7BA1E8AB2680049C44B /* ProductSentinelsDocument.swift in Sources */,
 				8C81CBA81E19546000FB244A /* BoxItAgainObject.swift in Sources */,
 				8C10B7A41E8A98C30049C44B /* SentinelsGameViewController.swift in Sources */,
 				84FBA55C1DFF7F4F00594DAE /* TentsGameViewController.swift in Sources */,
@@ -2037,6 +2086,7 @@
 				8C9AF4841DE974BF0053BED4 /* AbcDocument.swift in Sources */,
 				8CC350321E001D2800B8FD83 /* BlockButton.swift in Sources */,
 				8C9AF49D1DE974BF0053BED4 /* CloudsGame.swift in Sources */,
+				8C10B7BE1E8AB2680049C44B /* ProductSentinelsGameViewController.swift in Sources */,
 				8CC3504B1E001D2800B8FD83 /* UIAlertControllerExtensions.swift in Sources */,
 				8C9AF4AE1DE974BF0053BED4 /* HitoriMainViewController.swift in Sources */,
 				8C9AF5161DE975030053BED4 /* LoopyGame.swift in Sources */,
@@ -2077,6 +2127,7 @@
 				8C9AF4F31DE974BF0053BED4 /* SlitherLinkGameState.swift in Sources */,
 				8CC350381E001D2800B8FD83 /* BlockWebView.swift in Sources */,
 				8C9AF4CE1DE974BF0053BED4 /* MasyuGameScene.swift in Sources */,
+				8C10B7C21E8AB2680049C44B /* ProductSentinelsObject.swift in Sources */,
 				8C9AF4F61DE974BF0053BED4 /* SlitherLinkMainViewController.swift in Sources */,
 				8C10B7A81E8A98C30049C44B /* SentinelsObject.swift in Sources */,
 				8C9AF4C41DE974BF0053BED4 /* LineSweeperGameViewController.swift in Sources */,
@@ -2089,6 +2140,7 @@
 				8CC350531E001D2800B8FD83 /* UIImageExtensions.swift in Sources */,
 				8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */,
 				8C9AF4861DE974BF0053BED4 /* AbcGameScene.swift in Sources */,
+				8C10B7C01E8AB2680049C44B /* ProductSentinelsMainViewController.swift in Sources */,
 				8C9AF4E41DE974BF0053BED4 /* SkyscrapersDocument.swift in Sources */,
 				8CC350431E001D2800B8FD83 /* EZSwiftFunctions.swift in Sources */,
 				8C373D631E14A622005712CD /* BoxItAroundDocument.swift in Sources */,
@@ -2133,9 +2185,11 @@
 				8CC3504C1E001D2800B8FD83 /* UIApplicationExtensions.swift in Sources */,
 				84FBA55F1DFF7F4F00594DAE /* TentsMixin.swift in Sources */,
 				8CC3CD251E32DEE40056B78F /* SnailMixin.swift in Sources */,
+				8C10B7BF1E8AB2680049C44B /* ProductSentinelsGridNode.swift in Sources */,
 				8CC3CD1F1E32DEE40056B78F /* SnailGame.swift in Sources */,
 				84FBA5601DFF7F4F00594DAE /* TentsObject.swift in Sources */,
 				8C9AF4BB1DE974BF0053BED4 /* LightenUpMixin.swift in Sources */,
+				8C10B7BD1E8AB2680049C44B /* ProductSentinelsGameState.swift in Sources */,
 				8CC350391E001D2800B8FD83 /* BoolExtensions.swift in Sources */,
 				8C6D37381DC421180052202C /* HomeDocument.swift in Sources */,
 				8C10B7A11E8A98C30049C44B /* SentinelsGame.swift in Sources */,
@@ -2193,6 +2247,7 @@
 				8CC350401E001D2800B8FD83 /* DictionaryExtensions.swift in Sources */,
 				8C9AF4C31DE974BF0053BED4 /* LineSweeperGameState.swift in Sources */,
 				8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */,
+				8C10B7BB1E8AB2680049C44B /* ProductSentinelsGame.swift in Sources */,
 				8C81CBA21E19546000FB244A /* BoxItAgainGameScene.swift in Sources */,
 				8CC350541E001D2800B8FD83 /* UIImageViewExtensions.swift in Sources */,
 				8C9AF57D1DF8D84B0053BED4 /* RoomsGameScene.swift in Sources */,
@@ -2239,6 +2294,7 @@
 				8C9AF4DD1DE974BF0053BED4 /* NurikabeGridNode.swift in Sources */,
 				8C373D6A1E14A622005712CD /* BoxItAroundMixin.swift in Sources */,
 				8C9AF4DF1DE974BF0053BED4 /* NurikabeMixin.swift in Sources */,
+				8C10B7C31E8AB2680049C44B /* ProductSentinelsOptionsViewController.swift in Sources */,
 				8C9AF4C11DE974BF0053BED4 /* LineSweeperGame.swift in Sources */,
 				8C9AF51B1DE975030053BED4 /* LoopyMainViewController.swift in Sources */,
 				8CC350461E001D2800B8FD83 /* NSAttributedStringExtensions.swift in Sources */,
