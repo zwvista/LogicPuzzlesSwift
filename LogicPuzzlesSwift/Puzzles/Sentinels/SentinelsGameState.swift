@@ -83,5 +83,19 @@ class SentinelsGameState: GridGameState, SentinelsMixin {
     
     private func updateIsSolved() {
         isSolved = true
+        for (p, n2) in game.pos2hint {
+            var n1 = 1
+            for os in SentinelsGame.offset {
+                var p2 = p + os
+                while game.isValid(p: p2) {
+                    if case .sentinel = self[p2] {break}
+                    n1 += 1
+                    p2 += os
+                }
+            }
+            let s: HintState = n1 > n2 ? .normal : n1 == n2 ? .complete : .error
+            self[p] = .hint(state: s)
+            if s != .complete {isSolved = false}
+        }
     }
 }

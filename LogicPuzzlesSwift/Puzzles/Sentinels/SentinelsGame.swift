@@ -12,14 +12,9 @@ class SentinelsGame: GridGame<SentinelsGameViewController, SentinelsGameMove, Se
     static let gameID = "Sentinels"
     static let offset = [
         Position(-1, 0),
-        Position(-1, 1),
         Position(0, 1),
-        Position(1, 1),
         Position(1, 0),
-        Position(1, -1),
         Position(0, -1),
-        Position(-1, -1),
-        Position(0, 0),
     ]
 
     var pos2hint = [Position: Int]()

@@ -44,24 +44,21 @@ class SentinelsGameScene: GameScene<SentinelsGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let wallNodeName = "wall" + nodeNameSuffix
+                let sentinelNodeName = "sentinel" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
                 func removeHint() { removeNode(withName: hintNodeName) }
-                func addWall() {
-                    let wallNode = SKSpriteNode(color: .white, size: coloredRectSize())
-                    wallNode.position = point
-                    wallNode.name = wallNodeName
-                    gridNode.addChild(wallNode)
+                func addSentinel() {
+                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: 0.0, point: point, nodeName: sentinelNodeName)
                 }
-                func removeWall() { removeNode(withName: wallNodeName) }
+                func removeSentinel() { removeNode(withName: sentinelNodeName) }
                 func addMarker() { addCircleMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 let (ot1, ot2) = (stateFrom[r, c], stateTo[r, c])
                 guard String(describing: ot1) != String(describing: ot2) else {continue}
                 switch ot1 {
                 case .sentinel:
-                    removeWall()
+                    removeSentinel()
                 case .marker:
                     removeMarker()
                 case .hint:
@@ -71,7 +68,7 @@ class SentinelsGameScene: GameScene<SentinelsGameState> {
                 }
                 switch ot2 {
                 case .sentinel:
-                    addWall()
+                    addSentinel()
                 case .marker:
                     addMarker()
                 case let .hint(s):
