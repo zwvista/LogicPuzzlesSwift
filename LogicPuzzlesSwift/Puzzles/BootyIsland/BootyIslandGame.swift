@@ -12,9 +12,13 @@ class BootyIslandGame: GridGame<BootyIslandGameViewController, BootyIslandGameMo
     static let gameID = "BootyIsland"
     static let offset = [
         Position(-1, 0),
+        Position(-1, 1),
         Position(0, 1),
+        Position(1, 1),
         Position(1, 0),
+        Position(1, -1),
         Position(0, -1),
+        Position(-1, -1),
     ]
 
     var pos2hint = [Position: Int]()

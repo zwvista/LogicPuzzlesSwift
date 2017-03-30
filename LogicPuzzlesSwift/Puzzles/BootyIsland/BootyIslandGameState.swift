@@ -68,12 +68,12 @@ class BootyIslandGameState: GridGameState, BootyIslandMixin {
         func f(o: BootyIslandObject) -> BootyIslandObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .sentinel
-            case .sentinel:
+                return markerOption == .markerFirst ? .marker : .treasure(state: .normal)
+            case .treasure:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .sentinel : .empty
-            case .hint:
+                return markerOption == .markerFirst ? .treasure(state: .normal) : .empty
+            default:
                 return o
             }
         }
@@ -83,19 +83,101 @@ class BootyIslandGameState: GridGameState, BootyIslandMixin {
     
     private func updateIsSolved() {
         isSolved = true
-        for (p, n2) in game.pos2hint {
-            var nums = [0, 0, 0, 0]
-            for i in 0..<4 {
-                let os = BootyIslandGame.offset[i]
-                var p2 = p + os
-                while game.isValid(p: p2) {
-                    if case .sentinel = self[p2] {break}
-                    nums[i] += 1
-                    p2 += os
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                switch self[p] {
+                case .forbidden:
+                    self[p] = .empty
+                case .treasure:
+                    self[p] = .treasure(state: .normal)
+                default:
+                    break
                 }
             }
-            let n1 = nums[0] + nums[1] + nums[2] + nums[3] + 1
-            let s: HintState = n1 > n2 ? .normal : n1 == n2 ? .complete : .error
+        }
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                func hasTreasureNeighbor() -> Bool {
+                    for os in BootyIslandGame.offset {
+                        let p2 = p + os
+                        guard isValid(p: p2) else {continue}
+                        if case .treasure = self[p2] {return true}
+                    }
+                    return false
+                }
+                switch self[p] {
+                case let .treasure(state):
+                    self[p] = .treasure(state: state == .normal && !hasTreasureNeighbor() ? .normal : .error)
+                case .forbidden:
+                    break
+                default:
+                    guard allowedObjectsOnly && hasTreasureNeighbor() else {continue}
+                    self[p] = .forbidden
+                }
+            }
+        }
+        let n2 = 1
+        for r in 0..<rows {
+            var n1 = 0
+            for c in 0..<cols {
+                if case .treasure = self[r, c] {n1 += 1}
+            }
+            if n1 != n2 {isSolved = false}
+            for c in 0..<cols {
+                switch self[r, c] {
+                case let .treasure(state):
+                    self[r, c] = .treasure(state: state == .normal && n1 <= n2 ? .normal : .error)
+                case .forbidden:
+                    break
+                default:
+                    if n1 == n2 && allowedObjectsOnly {self[r, c] = .forbidden}
+                }
+            }
+        }
+        for c in 0..<cols {
+            var n1 = 0
+            for r in 0..<rows {
+                if case .treasure = self[r, c] {n1 += 1}
+            }
+            if n1 != n2 {isSolved = false}
+            for r in 0..<rows {
+                switch self[r, c] {
+                case let .treasure(state):
+                    self[r, c] = .treasure(state: state == .normal && n1 <= n2 ? .normal : .error)
+                case .forbidden:
+                    break
+                default:
+                    if n1 == n2 && allowedObjectsOnly {self[r, c] = .forbidden}
+                }
+            }
+        }
+        for (p, n2) in game.pos2hint {
+            func f() -> HintState {
+                var possible = false
+                next:
+                for i in 0..<4 {
+                    let os = BootyIslandGame.offset[i * 2]
+                    var n1 = 1, p2 = p + os
+                    var possible2 = false
+                    while game.isValid(p: p2) {
+                        switch self[p2] {
+                        case .treasure:
+                            if n1 == n2 {return .complete}
+                            continue next
+                        case .empty:
+                            if n1 == n2 {possible2 = true}
+                        default:
+                            if n1 == n2 {continue next}
+                        }
+                        n1 += 1; p2 += os
+                    }
+                    if possible2 {possible = true}
+                }
+                return possible ? .normal : .error
+            }
+            let s = f()
             self[p] = .hint(state: s)
             if s != .complete {isSolved = false}
         }

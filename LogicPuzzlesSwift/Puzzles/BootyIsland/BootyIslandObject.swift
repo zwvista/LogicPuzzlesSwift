@@ -10,9 +10,10 @@ import Foundation
 
 enum BootyIslandObject {
     case empty
+    case forbidden
     case hint(state: HintState)
     case marker
-    case sentinel
+    case treasure(state: AllowedObjectState)
     init() {
         self = .empty
     }
@@ -20,8 +21,8 @@ enum BootyIslandObject {
         switch self {
         case .marker:
             return "marker"
-        case .sentinel:
-            return "sentinel"
+        case .treasure:
+            return "treasure"
         default:
             return "empty"
         }
@@ -30,8 +31,8 @@ enum BootyIslandObject {
         switch str {
         case "marker":
             return .marker
-        case "sentinel":
-            return .sentinel
+        case "treasure":
+            return .treasure(state: .normal)
         default:
             return .empty
         }

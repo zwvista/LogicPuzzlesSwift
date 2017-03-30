@@ -44,21 +44,26 @@ class BootyIslandGameScene: GameScene<BootyIslandGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let sentinelNodeName = "sentinel" + nodeNameSuffix
+                let treasureNodeName = "treasure" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
+                let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
                 func removeHint() { removeNode(withName: hintNodeName) }
-                func addSentinel() {
-                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: 0.0, point: point, nodeName: sentinelNodeName)
+                func addTreasure(s: AllowedObjectState) {
+                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: treasureNodeName)
                 }
-                func removeSentinel() { removeNode(withName: sentinelNodeName) }
+                func removeTreasure() { removeNode(withName: treasureNodeName) }
                 func addMarker() { addCircleMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
+                func addForbidden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
+                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
                 let (ot1, ot2) = (stateFrom[r, c], stateTo[r, c])
                 guard String(describing: ot1) != String(describing: ot2) else {continue}
                 switch ot1 {
-                case .sentinel:
-                    removeSentinel()
+                case .forbidden:
+                    removeForbidden()
+                case .treasure:
+                    removeTreasure()
                 case .marker:
                     removeMarker()
                 case .hint:
@@ -67,8 +72,10 @@ class BootyIslandGameScene: GameScene<BootyIslandGameState> {
                     break
                 }
                 switch ot2 {
-                case .sentinel:
-                    addSentinel()
+                case .forbidden:
+                    addForbidden()
+                case let .treasure(s):
+                    addTreasure(s: s)
                 case .marker:
                     addMarker()
                 case let .hint(s):
