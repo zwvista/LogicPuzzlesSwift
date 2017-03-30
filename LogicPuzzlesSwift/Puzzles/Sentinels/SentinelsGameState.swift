@@ -29,9 +29,7 @@ class SentinelsGameState: GridGameState, SentinelsMixin {
     required init(game: SentinelsGame) {
         super.init(game: game)
         objArray = Array<SentinelsObject>(repeating: .empty, count: rows * cols)
-        for p in game.pos2hint.keys {
-            self[p] = .hint(state: .normal)
-        }
+        updateIsSolved()
     }
     
     subscript(p: Position) -> SentinelsObject {
@@ -68,12 +66,12 @@ class SentinelsGameState: GridGameState, SentinelsMixin {
         func f(o: SentinelsObject) -> SentinelsObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .sentinel
-            case .sentinel:
+                return markerOption == .markerFirst ? .marker : .tower(state: .normal)
+            case .tower:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .sentinel : .empty
-            case .hint:
+                return markerOption == .markerFirst ? .tower(state: .normal) : .empty
+            default:
                 return o
             }
         }
@@ -83,13 +81,48 @@ class SentinelsGameState: GridGameState, SentinelsMixin {
     
     private func updateIsSolved() {
         isSolved = true
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                switch self[p] {
+                case .forbidden:
+                    self[p] = .empty
+                case .tower:
+                    self[p] = .tower(state: .normal)
+                default:
+                    break
+                }
+            }
+        }
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                func hasTowerNeighbor() -> Bool {
+                    for os in SentinelsGame.offset {
+                        let p2 = p + os
+                        guard isValid(p: p2) else {continue}
+                        if case .tower = self[p2] {return true}
+                    }
+                    return false
+                }
+                switch self[p] {
+                case let .tower(state):
+                    self[p] = .tower(state: state == .normal && !hasTowerNeighbor() ? .normal : .error)
+                case .forbidden:
+                    break
+                default:
+                    guard allowedObjectsOnly && hasTowerNeighbor() else {continue}
+                    self[p] = .forbidden
+                }
+            }
+        }
         for (p, n2) in game.pos2hint {
             var nums = [0, 0, 0, 0]
             for i in 0..<4 {
                 let os = SentinelsGame.offset[i]
                 var p2 = p + os
                 while game.isValid(p: p2) {
-                    if case .sentinel = self[p2] {break}
+                    if case .tower = self[p2] {break}
                     nums[i] += 1
                     p2 += os
                 }

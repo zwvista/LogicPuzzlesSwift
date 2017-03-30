@@ -10,9 +10,10 @@ import Foundation
 
 enum ProductSentinelsObject {
     case empty
+    case forbidden
     case hint(state: HintState)
     case marker
-    case sentinel
+    case tower(state: AllowedObjectState)
     init() {
         self = .empty
     }
@@ -20,8 +21,8 @@ enum ProductSentinelsObject {
         switch self {
         case .marker:
             return "marker"
-        case .sentinel:
-            return "sentinel"
+        case .tower:
+            return "tower"
         default:
             return "empty"
         }
@@ -30,8 +31,8 @@ enum ProductSentinelsObject {
         switch str {
         case "marker":
             return .marker
-        case "sentinel":
-            return .sentinel
+        case "tower":
+            return .tower(state: .normal)
         default:
             return .empty
         }

@@ -44,21 +44,26 @@ class SentinelsGameScene: GameScene<SentinelsGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let sentinelNodeName = "sentinel" + nodeNameSuffix
+                let towerNodeName = "tower" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
+                let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
                 func removeHint() { removeNode(withName: hintNodeName) }
-                func addSentinel() {
-                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: 0.0, point: point, nodeName: sentinelNodeName)
+                func addTower(s: AllowedObjectState) {
+                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: towerNodeName)
                 }
-                func removeSentinel() { removeNode(withName: sentinelNodeName) }
+                func removeTower() { removeNode(withName: towerNodeName) }
                 func addMarker() { addCircleMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
+                func addForbidden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
+                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
                 let (ot1, ot2) = (stateFrom[r, c], stateTo[r, c])
                 guard String(describing: ot1) != String(describing: ot2) else {continue}
                 switch ot1 {
-                case .sentinel:
-                    removeSentinel()
+                case .forbidden:
+                    removeForbidden()
+                case .tower:
+                    removeTower()
                 case .marker:
                     removeMarker()
                 case .hint:
@@ -67,8 +72,10 @@ class SentinelsGameScene: GameScene<SentinelsGameState> {
                     break
                 }
                 switch ot2 {
-                case .sentinel:
-                    addSentinel()
+                case .forbidden:
+                    addForbidden()
+                case let .tower(s):
+                    addTower(s: s)
                 case .marker:
                     addMarker()
                 case let .hint(s):
