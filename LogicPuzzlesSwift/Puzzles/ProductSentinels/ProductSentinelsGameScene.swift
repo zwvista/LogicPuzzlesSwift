@@ -35,6 +35,18 @@ class ProductSentinelsGameScene: GameScene<ProductSentinelsGameState> {
             let hintNodeName = "hint" + nodeNameSuffix
             addHint(n: n, s: s, point: point, nodeName: hintNodeName)
         }
+        
+        // addForbidden
+        for r in 0..<game.rows {
+            for c in 0..<game.cols {
+                let p = Position(r, c)
+                guard case .forbidden = state[p] else {continue}
+                let point = gridNode.gridPosition(p: p)
+                let nodeNameSuffix = "-\(r)-\(c)"
+                let forbiddenNodeName = "forbidden" + nodeNameSuffix
+                addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
+            }
+        }
     }
     
     override func levelUpdated(from stateFrom: ProductSentinelsGameState, to stateTo: ProductSentinelsGameState) {

@@ -118,11 +118,20 @@ class SentinelsGameState: GridGameState, SentinelsMixin {
         }
         for (p, n2) in game.pos2hint {
             var nums = [0, 0, 0, 0]
+            var rng = [Position]()
+            next:
             for i in 0..<4 {
                 let os = SentinelsGame.offset[i]
                 var p2 = p + os
                 while game.isValid(p: p2) {
-                    if case .tower = self[p2] {break}
+                    switch self[p2] {
+                    case .tower:
+                        continue next
+                    case .empty:
+                        rng.append(p2)
+                    default:
+                        break
+                    }
                     nums[i] += 1
                     p2 += os
                 }
@@ -130,7 +139,13 @@ class SentinelsGameState: GridGameState, SentinelsMixin {
             let n1 = nums[0] + nums[1] + nums[2] + nums[3] + 1
             let s: HintState = n1 > n2 ? .normal : n1 == n2 ? .complete : .error
             self[p] = .hint(state: s)
-            if s != .complete {isSolved = false}
+            if s != .complete {
+                isSolved = false
+            } else {
+                for p2 in rng {
+                    self[p2] = .forbidden
+                }
+            }
         }
     }
 }

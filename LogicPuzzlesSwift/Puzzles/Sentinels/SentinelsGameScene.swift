@@ -17,7 +17,7 @@ class SentinelsGameScene: GameScene<SentinelsGameState> {
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
-    
+
     override func levelInitialized(_ game: AnyObject, state: SentinelsGameState, skView: SKView) {
         let game = game as! SentinelsGame
         removeAllChildren()
@@ -34,6 +34,18 @@ class SentinelsGameScene: GameScene<SentinelsGameState> {
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             addHint(n: n, s: s, point: point, nodeName: hintNodeName)
+        }
+        
+        // addForbidden
+        for r in 0..<game.rows {
+            for c in 0..<game.cols {
+                let p = Position(r, c)
+                guard case .forbidden = state[p] else {continue}
+                let point = gridNode.gridPosition(p: p)
+                let nodeNameSuffix = "-\(r)-\(c)"
+                let forbiddenNodeName = "forbidden" + nodeNameSuffix
+                addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
+            }
         }
     }
     
