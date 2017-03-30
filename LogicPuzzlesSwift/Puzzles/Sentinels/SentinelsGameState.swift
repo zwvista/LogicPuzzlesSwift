@@ -81,16 +81,27 @@ class SentinelsGameState: GridGameState, SentinelsMixin {
     
     private func updateIsSolved() {
         isSolved = true
+        let g = Graph()
+        var pos2node = [Position: Node]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 switch self[p] {
-                case .forbidden:
-                    self[p] = .empty
                 case .tower:
                     self[p] = .tower(state: .normal)
+                case .forbidden:
+                    self[p] = .empty
+                    fallthrough
                 default:
-                    break
+                    pos2node[p] = g.addNode(p.description)
+                }
+            }
+        }
+        for p in pos2node.keys {
+            for os in SentinelsGame.offset {
+                let p2 = p + os
+                if let node2 = pos2node[p2] {
+                    g.addEdge(pos2node[p]!, neighbor: node2)
                 }
             }
         }
@@ -108,11 +119,11 @@ class SentinelsGameState: GridGameState, SentinelsMixin {
                 switch self[p] {
                 case let .tower(state):
                     self[p] = .tower(state: state == .normal && !hasTowerNeighbor() ? .normal : .error)
-                case .forbidden:
-                    break
-                default:
+                case .empty, .marker:
                     guard allowedObjectsOnly && hasTowerNeighbor() else {continue}
                     self[p] = .forbidden
+                default:
+                    break
                 }
             }
         }
@@ -147,5 +158,8 @@ class SentinelsGameState: GridGameState, SentinelsMixin {
                 }
             }
         }
+        guard isSolved else {return}
+        let nodesExplored = breadthFirstSearch(g, source: pos2node.values.first!)
+        if pos2node.count != nodesExplored.count {isSolved = false}
     }
 }
