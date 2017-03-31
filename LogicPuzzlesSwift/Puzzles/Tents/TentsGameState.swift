@@ -118,13 +118,11 @@ class TentsGameState: GridGameState, TentsMixin {
                 var (hasTree, hasTent) = (false, false)
                 for os in TentsGame.offset {
                     let p2 = p + os
-                    guard isValid(p: p2) else {continue}
-                    if case .tree = self[p2] {hasTree = true}
+                    if isValid(p: p2), case .tree = self[p2] {hasTree = true}
                 }
                 for os in TentsGame.offset2 {
                     let p2 = p + os
-                    guard isValid(p: p2) else {continue}
-                    if case .tent = self[p2] {hasTent = true}
+                    if isValid(p: p2), case .tent = self[p2] {hasTent = true}
                 }
                 switch self[p] {
                 case .tent:

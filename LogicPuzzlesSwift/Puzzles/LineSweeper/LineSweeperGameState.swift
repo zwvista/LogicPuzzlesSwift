@@ -70,7 +70,7 @@ class LineSweeperGameState: GridGameState, LineSweeperMixin {
             var n1 = 0
             for os in LineSweeperGame.offset {
                 let p2 = p + os
-                if !isValid(p: p2) {continue}
+                guard isValid(p: p2) else {continue}
                 var hasLine = false
                 for b in self[p2] {
                     if b {hasLine = true}

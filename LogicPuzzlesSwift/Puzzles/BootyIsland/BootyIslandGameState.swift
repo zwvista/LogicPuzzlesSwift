@@ -102,8 +102,7 @@ class BootyIslandGameState: GridGameState, BootyIslandMixin {
                 func hasTreasureNeighbor() -> Bool {
                     for os in BootyIslandGame.offset {
                         let p2 = p + os
-                        guard isValid(p: p2) else {continue}
-                        if case .treasure = self[p2] {return true}
+                        if isValid(p: p2), case .treasure = self[p2] {return true}
                     }
                     return false
                 }

@@ -99,8 +99,7 @@ class ParksGameState: GridGameState, ParksMixin {
                 func hasTreeNeighbor() -> Bool {
                     for os in ParksGame.offset {
                         let p2 = p + os
-                        guard isValid(p: p2) else {continue}
-                        if case .tree = self[p2] {return true}
+                        if isValid(p: p2), case .tree = self[p2] {return true}
                     }
                     return false
                 }

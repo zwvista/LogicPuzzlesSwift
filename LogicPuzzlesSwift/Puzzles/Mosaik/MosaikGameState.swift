@@ -83,8 +83,7 @@ class MosaikGameState: GridGameState, MosaikMixin {
             var n1 = 0
             for os in MosaikGame.offset {
                 let p2 = p + os
-                guard isValid(p: p2) else {continue}
-                if self[p2] == .filled {n1 += 1}
+                if isValid(p: p2), self[p2] == .filled {n1 += 1}
             }
             pos2state[p] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}

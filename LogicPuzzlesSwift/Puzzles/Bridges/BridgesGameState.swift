@@ -53,9 +53,10 @@ class BridgesGameState: GridGameState, BridgesMixin {
     
     func switchBridges(move: BridgesGameMove) -> Bool {
         let pFrom = move.pFrom, pTo = move.pTo
-        guard pFrom < pTo && (pFrom.row == pTo.row || pFrom.col == pTo.col) else {return false}
-        guard case .island(let state1, var bridges1) = self[pFrom] else {return false}
-        guard case .island(let state2, var bridges2) = self[pTo] else {return false}
+        guard pFrom < pTo,
+            pFrom.row == pTo.row || pFrom.col == pTo.col,
+            case .island(let state1, var bridges1) = self[pFrom],
+            case .island(let state2, var bridges2) = self[pTo] else {return false}
         let n1 = pFrom.row == pTo.row ? 1 : 2
         let n2 = (n1 + 2) % 4
         let os = BridgesGame.offset[n1]

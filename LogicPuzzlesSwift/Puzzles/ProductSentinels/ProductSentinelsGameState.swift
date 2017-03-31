@@ -111,8 +111,7 @@ class ProductSentinelsGameState: GridGameState, ProductSentinelsMixin {
                 func hasTowerNeighbor() -> Bool {
                     for os in ProductSentinelsGame.offset {
                         let p2 = p + os
-                        guard isValid(p: p2) else {continue}
-                        if case .tower = self[p2] {return true}
+                        if isValid(p: p2), case .tower = self[p2] {return true}
                     }
                     return false
                 }

@@ -57,18 +57,15 @@ class LightenUpGameState: GridGameState, LightenUpMixin {
         
         func adjustLightness(tolighten: Bool) {
             let f = { lightness in
-                tolighten ? lightness + 1 : lightness > 0 ? lightness - 1 : lightness;
+                tolighten ? lightness + 1 : max(0, lightness - 1);
             }
             
             self[p].lightness = f(self[p].lightness)
             for os in LightenUpGame.offset {
                 var p2 = p + os
                 while isValid(p: p2) {
-                    if case .wall = self[p2].objType {
-                        break
-                    } else {
-                        self[p2].lightness = f(self[p2].lightness)
-                    }
+                    if case .wall = self[p2].objType {break}
+                    self[p2].lightness = f(self[p2].lightness)
                     p2 += os
                 }
             }
@@ -146,10 +143,7 @@ class LightenUpGameState: GridGameState, LightenUpMixin {
                     var n = 0
                     for os in LightenUpGame.offset {
                         let p2 = p + os
-                        guard isValid(p: p2) else {continue}
-                        if case .lightbulb = self[p2].objType {
-                            n += 1
-                        }
+                        if isValid(p: p2), case .lightbulb = self[p2].objType {n += 1}
                     }
                     let state: HintState = n < lightbulbs ? .normal : n == lightbulbs ? .complete : .error
                     self[r, c].objType = .wall(state: state)

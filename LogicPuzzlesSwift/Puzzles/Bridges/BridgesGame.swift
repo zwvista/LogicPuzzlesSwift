@@ -49,7 +49,7 @@ class BridgesGame: GridGame<BridgesGameViewController, BridgesGameMove, BridgesG
             for i in 0..<4 {
                 let os = BridgesGame.offset[i]
                 var p2 = p + os
-                while(isValid(p: p2)) {
+                while isValid(p: p2) {
                     if let _ = islandsInfo[p2] {
                         info.neighbors[i] = p2
                         break
