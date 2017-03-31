@@ -99,14 +99,29 @@ class LighthousesGameState: GridGameState, LighthousesMixin {
                     for os in LighthousesGame.offset {
                         let p2 = p + os
                         guard isValid(p: p2) else {continue}
-                        if case .hint = self[p2] {return true}
-                        if case .lighthouse = self[p2] {return true}
+                        switch self[p2] {
+                        case .hint, .lighthouse:
+                            return true
+                        default:
+                            break
+                        }
+                    }
+                    return false
+                }
+                func hasLightedBoat() -> Bool {
+                    for i in 0..<4 {
+                        let os = LighthousesGame.offset[i * 2]
+                        var p2 = p + os
+                        while game.isValid(p: p2) {
+                            if case .hint = self[p2] {return true}
+                            p2 += os
+                        }
                     }
                     return false
                 }
                 switch self[p] {
                 case let .lighthouse(state):
-                    self[p] = .lighthouse(state: state == .normal && !hasNeighbor() ? .normal : .error)
+                    self[p] = .lighthouse(state: state == .normal && !hasNeighbor() && hasLightedBoat() ? .normal : .error)
                 case .empty, .marker:
                     guard allowedObjectsOnly && hasNeighbor() else {continue}
                     self[p] = .forbidden

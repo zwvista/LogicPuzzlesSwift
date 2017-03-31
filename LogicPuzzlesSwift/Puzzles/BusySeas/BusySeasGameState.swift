@@ -92,6 +92,24 @@ class BusySeasGameState: GridGameState, BusySeasMixin {
                 }
             }
         }
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                func hasLightedBoat() -> Bool {
+                    for os in BusySeasGame.offset {
+                        var p2 = p + os
+                        while game.isValid(p: p2) {
+                            if case .hint = self[p2] {return true}
+                            p2 += os
+                        }
+                    }
+                    return false
+                }
+                if case let .lighthouse(state) = self[p] {
+                    self[p] = .lighthouse(state: state == .normal && hasLightedBoat() ? .normal : .error)
+                }
+            }
+        }
         for (p, n2) in game.pos2hint {
             var nums = [0, 0, 0, 0]
             var rng = [Position]()
@@ -101,19 +119,20 @@ class BusySeasGameState: GridGameState, BusySeasMixin {
                 var p2 = p + os
                 while game.isValid(p: p2) {
                     switch self[p2] {
-                    case .lighthouse:
+                    case .hint:
                         continue next
                     case .empty:
                         rng.append(p2)
+                    case .lighthouse:
+                        nums[i] += 1
                     default:
                         break
                     }
-                    nums[i] += 1
                     p2 += os
                 }
             }
-            let n1 = nums[0] + nums[1] + nums[2] + nums[3] + 1
-            let s: HintState = n1 > n2 ? .normal : n1 == n2 ? .complete : .error
+            let n1 = nums.reduce(0, +)
+            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             self[p] = .hint(state: s)
             if s != .complete {
                 isSolved = false
