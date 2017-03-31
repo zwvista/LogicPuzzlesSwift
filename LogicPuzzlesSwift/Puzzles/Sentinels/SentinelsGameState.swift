@@ -53,8 +53,6 @@ class SentinelsGameState: GridGameState, SentinelsMixin {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         if case .hint = o1 {return false}
-        // guard case .hint != o1 else {return false} // syntax error
-        // guard !(.hint ~= o1) else {return false} // syntax error
         guard String(describing: o1) != String(describing: o2) else {return false}
         self[p] = o2
         updateIsSolved()

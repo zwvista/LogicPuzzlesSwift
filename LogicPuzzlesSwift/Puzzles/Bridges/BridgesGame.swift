@@ -66,8 +66,7 @@ class BridgesGame: GridGame<BridgesGameViewController, BridgesGameMove, BridgesG
     
     func switchBridges(move: BridgesGameMove) -> Bool {
         var pFrom = move.pFrom, pTo = move.pTo
-        guard let o = islandsInfo[pFrom] else {return false}
-        guard let _ = o.neighbors.filter({$0 == pTo}).first else {return false}
+        guard let o = islandsInfo[pFrom], let _ = o.neighbors.filter({$0 == pTo}).first else {return false}
         
         if canRedo {
             states.removeSubrange((stateIndex + 1)..<states.count)

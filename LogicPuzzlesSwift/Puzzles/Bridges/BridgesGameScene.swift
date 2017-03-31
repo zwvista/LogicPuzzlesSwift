@@ -90,8 +90,7 @@ class BridgesGameScene: GameScene<BridgesGameState> {
                 removeNode(withName: bridgesNodeName(dir))
             }
             let (o1, o2) = (stateFrom[p], stateTo[p])
-            guard case let .island(s1, b1) = o1 else {continue}
-            guard case let .island(s2, b2) = o2 else {continue}
+            guard case let .island(s1, b1) = o1, case let .island(s2, b2) = o2 else {continue}
             if s1 != s2 {
                 removeIslandNumber()
                 addIslandNumber(n: info.bridges, s: s2, point: point, nodeName: islandNumberNodeName)

@@ -97,6 +97,7 @@ class BridgesGameState: GridGameState, BridgesMixin {
         guard isSolved else {return}
         for (p, info) in game.islandsInfo {
             for p2 in info.neighbors {
+                // if the neighbor is not nil
                 guard let p2 = p2 else {continue}
                 g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
             }
