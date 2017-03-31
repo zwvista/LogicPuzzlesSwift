@@ -96,7 +96,7 @@ class ParksGameState: GridGameState, ParksMixin {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                func hasTreeNeighbor() -> Bool {
+                func hasNeighbor() -> Bool {
                     for os in ParksGame.offset {
                         let p2 = p + os
                         if isValid(p: p2), case .tree = self[p2] {return true}
@@ -105,11 +105,11 @@ class ParksGameState: GridGameState, ParksMixin {
                 }
                 switch self[p] {
                 case let .tree(state):
-                    self[p] = .tree(state: state == .normal && !hasTreeNeighbor() ? .normal : .error)
+                    self[p] = .tree(state: state == .normal && !hasNeighbor() ? .normal : .error)
                 case .forbidden:
                     break
                 default:
-                    guard allowedObjectsOnly && hasTreeNeighbor() else {continue}
+                    guard allowedObjectsOnly && hasNeighbor() else {continue}
                     self[p] = .forbidden
                 }
             }

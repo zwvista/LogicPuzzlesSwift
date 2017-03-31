@@ -97,7 +97,7 @@ class BootyIslandGameState: GridGameState, BootyIslandMixin {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                func hasTreasureNeighbor() -> Bool {
+                func hasNeighbor() -> Bool {
                     for os in BootyIslandGame.offset {
                         let p2 = p + os
                         if isValid(p: p2), case .treasure = self[p2] {return true}
@@ -106,11 +106,11 @@ class BootyIslandGameState: GridGameState, BootyIslandMixin {
                 }
                 switch self[p] {
                 case let .treasure(state):
-                    self[p] = .treasure(state: state == .normal && !hasTreasureNeighbor() ? .normal : .error)
+                    self[p] = .treasure(state: state == .normal && !hasNeighbor() ? .normal : .error)
                 case .forbidden:
                     break
                 default:
-                    guard allowedObjectsOnly && hasTreasureNeighbor() else {continue}
+                    guard allowedObjectsOnly && hasNeighbor() else {continue}
                     self[p] = .forbidden
                 }
             }

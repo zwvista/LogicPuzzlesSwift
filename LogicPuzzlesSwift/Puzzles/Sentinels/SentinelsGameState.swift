@@ -106,7 +106,7 @@ class SentinelsGameState: GridGameState, SentinelsMixin {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                func hasTowerNeighbor() -> Bool {
+                func hasNeighbor() -> Bool {
                     for os in SentinelsGame.offset {
                         let p2 = p + os
                         if isValid(p: p2), case .tower = self[p2] {return true}
@@ -115,9 +115,9 @@ class SentinelsGameState: GridGameState, SentinelsMixin {
                 }
                 switch self[p] {
                 case let .tower(state):
-                    self[p] = .tower(state: state == .normal && !hasTowerNeighbor() ? .normal : .error)
+                    self[p] = .tower(state: state == .normal && !hasNeighbor() ? .normal : .error)
                 case .empty, .marker:
-                    guard allowedObjectsOnly && hasTowerNeighbor() else {continue}
+                    guard allowedObjectsOnly && hasNeighbor() else {continue}
                     self[p] = .forbidden
                 default:
                     break

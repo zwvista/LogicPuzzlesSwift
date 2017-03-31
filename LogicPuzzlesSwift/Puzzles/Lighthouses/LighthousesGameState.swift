@@ -95,18 +95,20 @@ class LighthousesGameState: GridGameState, LighthousesMixin {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                func hasLighthouseNeighbor() -> Bool {
+                func hasNeighbor() -> Bool {
                     for os in LighthousesGame.offset {
                         let p2 = p + os
-                        if isValid(p: p2), case .lighthouse = self[p2] {return true}
+                        guard isValid(p: p2) else {continue}
+                        if case .hint = self[p2] {return true}
+                        if case .lighthouse = self[p2] {return true}
                     }
                     return false
                 }
                 switch self[p] {
                 case let .lighthouse(state):
-                    self[p] = .lighthouse(state: state == .normal && !hasLighthouseNeighbor() ? .normal : .error)
+                    self[p] = .lighthouse(state: state == .normal && !hasNeighbor() ? .normal : .error)
                 case .empty, .marker:
-                    guard allowedObjectsOnly && hasLighthouseNeighbor() else {continue}
+                    guard allowedObjectsOnly && hasNeighbor() else {continue}
                     self[p] = .forbidden
                 default:
                     break
@@ -116,25 +118,23 @@ class LighthousesGameState: GridGameState, LighthousesMixin {
         for (p, n2) in game.pos2hint {
             var nums = [0, 0, 0, 0]
             var rng = [Position]()
-            next:
             for i in 0..<4 {
-                let os = LighthousesGame.offset[i]
+                let os = LighthousesGame.offset[i * 2]
                 var p2 = p + os
                 while game.isValid(p: p2) {
                     switch self[p2] {
-                    case .lighthouse:
-                        continue next
                     case .empty:
                         rng.append(p2)
+                    case .lighthouse:
+                        nums[i] += 1
                     default:
                         break
                     }
-                    nums[i] += 1
                     p2 += os
                 }
             }
-            let n1 = nums[0] + nums[1] + nums[2] + nums[3] + 1
-            let s: HintState = n1 > n2 ? .normal : n1 == n2 ? .complete : .error
+            let n1 = nums.reduce(0, +)
+            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             self[p] = .hint(state: s)
             if s != .complete {
                 isSolved = false

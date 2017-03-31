@@ -92,27 +92,6 @@ class BusySeasGameState: GridGameState, BusySeasMixin {
                 }
             }
         }
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                func hasLighthouseNeighbor() -> Bool {
-                    for os in BusySeasGame.offset {
-                        let p2 = p + os
-                        if isValid(p: p2), case .lighthouse = self[p2] {return true}
-                    }
-                    return false
-                }
-                switch self[p] {
-                case let .lighthouse(state):
-                    self[p] = .lighthouse(state: state == .normal && !hasLighthouseNeighbor() ? .normal : .error)
-                case .empty, .marker:
-                    guard allowedObjectsOnly && hasLighthouseNeighbor() else {continue}
-                    self[p] = .forbidden
-                default:
-                    break
-                }
-            }
-        }
         for (p, n2) in game.pos2hint {
             var nums = [0, 0, 0, 0]
             var rng = [Position]()
