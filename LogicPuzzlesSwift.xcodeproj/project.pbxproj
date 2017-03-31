@@ -452,6 +452,30 @@
 		8CC3CD251E32DEE40056B78F /* SnailMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3CD191E32DEE40056B78F /* SnailMixin.swift */; };
 		8CC3CD261E32DEE40056B78F /* SnailObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3CD1A1E32DEE40056B78F /* SnailObject.swift */; };
 		8CC3CD271E32DEE40056B78F /* SnailOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3CD1B1E32DEE40056B78F /* SnailOptionsViewController.swift */; };
+		8CCF10B31E8E097100422284 /* BusySeas.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF10A71E8E097100422284 /* BusySeas.storyboard */; };
+		8CCF10B41E8E097100422284 /* BusySeas.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF10A81E8E097100422284 /* BusySeas.xml */; };
+		8CCF10B51E8E097100422284 /* BusySeasDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10A91E8E097100422284 /* BusySeasDocument.swift */; };
+		8CCF10B61E8E097100422284 /* BusySeasGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10AA1E8E097100422284 /* BusySeasGame.swift */; };
+		8CCF10B71E8E097100422284 /* BusySeasGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10AB1E8E097100422284 /* BusySeasGameScene.swift */; };
+		8CCF10B81E8E097100422284 /* BusySeasGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10AC1E8E097100422284 /* BusySeasGameState.swift */; };
+		8CCF10B91E8E097100422284 /* BusySeasGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10AD1E8E097100422284 /* BusySeasGameViewController.swift */; };
+		8CCF10BA1E8E097100422284 /* BusySeasGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10AE1E8E097100422284 /* BusySeasGridNode.swift */; };
+		8CCF10BB1E8E097100422284 /* BusySeasMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10AF1E8E097100422284 /* BusySeasMainViewController.swift */; };
+		8CCF10BC1E8E097100422284 /* BusySeasMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10B01E8E097100422284 /* BusySeasMixin.swift */; };
+		8CCF10BD1E8E097100422284 /* BusySeasObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10B11E8E097100422284 /* BusySeasObject.swift */; };
+		8CCF10BE1E8E097100422284 /* BusySeasOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10B21E8E097100422284 /* BusySeasOptionsViewController.swift */; };
+		8CCF10CD1E8E097C00422284 /* Lighthouses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF10C11E8E097C00422284 /* Lighthouses.storyboard */; };
+		8CCF10CE1E8E097C00422284 /* Lighthouses.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF10C21E8E097C00422284 /* Lighthouses.xml */; };
+		8CCF10CF1E8E097C00422284 /* LighthousesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10C31E8E097C00422284 /* LighthousesDocument.swift */; };
+		8CCF10D01E8E097C00422284 /* LighthousesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10C41E8E097C00422284 /* LighthousesGame.swift */; };
+		8CCF10D11E8E097C00422284 /* LighthousesGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10C51E8E097C00422284 /* LighthousesGameScene.swift */; };
+		8CCF10D21E8E097C00422284 /* LighthousesGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10C61E8E097C00422284 /* LighthousesGameState.swift */; };
+		8CCF10D31E8E097C00422284 /* LighthousesGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10C71E8E097C00422284 /* LighthousesGameViewController.swift */; };
+		8CCF10D41E8E097C00422284 /* LighthousesGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10C81E8E097C00422284 /* LighthousesGridNode.swift */; };
+		8CCF10D51E8E097C00422284 /* LighthousesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10C91E8E097C00422284 /* LighthousesMainViewController.swift */; };
+		8CCF10D61E8E097C00422284 /* LighthousesMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10CA1E8E097C00422284 /* LighthousesMixin.swift */; };
+		8CCF10D71E8E097C00422284 /* LighthousesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10CB1E8E097C00422284 /* LighthousesObject.swift */; };
+		8CCF10D81E8E097C00422284 /* LighthousesOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10CC1E8E097C00422284 /* LighthousesOptionsViewController.swift */; };
 		8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF1C011D8E1DB000AB6594 /* lightbulb.png */; };
 		8CD1558B1DD77C3400786F34 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD1558A1DD77C3400786F34 /* Extensions.swift */; };
 /* End PBXBuildFile section */
@@ -962,6 +986,30 @@
 		8CC3CD191E32DEE40056B78F /* SnailMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailMixin.swift; sourceTree = "<group>"; };
 		8CC3CD1A1E32DEE40056B78F /* SnailObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailObject.swift; sourceTree = "<group>"; };
 		8CC3CD1B1E32DEE40056B78F /* SnailOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailOptionsViewController.swift; sourceTree = "<group>"; };
+		8CCF10A71E8E097100422284 /* BusySeas.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BusySeas.storyboard; sourceTree = "<group>"; };
+		8CCF10A81E8E097100422284 /* BusySeas.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BusySeas.xml; sourceTree = "<group>"; };
+		8CCF10A91E8E097100422284 /* BusySeasDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusySeasDocument.swift; sourceTree = "<group>"; };
+		8CCF10AA1E8E097100422284 /* BusySeasGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusySeasGame.swift; sourceTree = "<group>"; };
+		8CCF10AB1E8E097100422284 /* BusySeasGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusySeasGameScene.swift; sourceTree = "<group>"; };
+		8CCF10AC1E8E097100422284 /* BusySeasGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusySeasGameState.swift; sourceTree = "<group>"; };
+		8CCF10AD1E8E097100422284 /* BusySeasGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusySeasGameViewController.swift; sourceTree = "<group>"; };
+		8CCF10AE1E8E097100422284 /* BusySeasGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusySeasGridNode.swift; sourceTree = "<group>"; };
+		8CCF10AF1E8E097100422284 /* BusySeasMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusySeasMainViewController.swift; sourceTree = "<group>"; };
+		8CCF10B01E8E097100422284 /* BusySeasMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusySeasMixin.swift; sourceTree = "<group>"; };
+		8CCF10B11E8E097100422284 /* BusySeasObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusySeasObject.swift; sourceTree = "<group>"; };
+		8CCF10B21E8E097100422284 /* BusySeasOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusySeasOptionsViewController.swift; sourceTree = "<group>"; };
+		8CCF10C11E8E097C00422284 /* Lighthouses.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Lighthouses.storyboard; sourceTree = "<group>"; };
+		8CCF10C21E8E097C00422284 /* Lighthouses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Lighthouses.xml; sourceTree = "<group>"; };
+		8CCF10C31E8E097C00422284 /* LighthousesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesDocument.swift; sourceTree = "<group>"; };
+		8CCF10C41E8E097C00422284 /* LighthousesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesGame.swift; sourceTree = "<group>"; };
+		8CCF10C51E8E097C00422284 /* LighthousesGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesGameScene.swift; sourceTree = "<group>"; };
+		8CCF10C61E8E097C00422284 /* LighthousesGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesGameState.swift; sourceTree = "<group>"; };
+		8CCF10C71E8E097C00422284 /* LighthousesGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesGameViewController.swift; sourceTree = "<group>"; };
+		8CCF10C81E8E097C00422284 /* LighthousesGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesGridNode.swift; sourceTree = "<group>"; };
+		8CCF10C91E8E097C00422284 /* LighthousesMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesMainViewController.swift; sourceTree = "<group>"; };
+		8CCF10CA1E8E097C00422284 /* LighthousesMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesMixin.swift; sourceTree = "<group>"; };
+		8CCF10CB1E8E097C00422284 /* LighthousesObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesObject.swift; sourceTree = "<group>"; };
+		8CCF10CC1E8E097C00422284 /* LighthousesOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesOptionsViewController.swift; sourceTree = "<group>"; };
 		8CCF1C011D8E1DB000AB6594 /* lightbulb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightbulb.png; sourceTree = "<group>"; };
 		8CD1558A1DD77C3400786F34 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1318,10 +1366,12 @@
 				8C373D471E14A621005712CD /* BoxItAround */,
 				8C373D541E14A622005712CD /* BoxItUp */,
 				8C9AF4001DE974BE0053BED4 /* Bridges */,
+				8CCF10A61E8E097100422284 /* BusySeas */,
 				8C9AF40D1DE974BE0053BED4 /* Clouds */,
 				8C81CB911E19546000FB244A /* FenceItUp */,
 				8C9AF41A1DE974BE0053BED4 /* Hitori */,
 				8C9AF4271DE974BF0053BED4 /* LightenUp */,
+				8CCF10C01E8E097C00422284 /* Lighthouses */,
 				8C9AF4341DE974BF0053BED4 /* LineSweeper */,
 				8C9AF5061DE975030053BED4 /* Loopy */,
 				8C9AF5521DF8D7770053BED4 /* Magnets */,
@@ -1828,6 +1878,44 @@
 			path = Snail;
 			sourceTree = "<group>";
 		};
+		8CCF10A61E8E097100422284 /* BusySeas */ = {
+			isa = PBXGroup;
+			children = (
+				8CCF10A71E8E097100422284 /* BusySeas.storyboard */,
+				8CCF10A81E8E097100422284 /* BusySeas.xml */,
+				8CCF10A91E8E097100422284 /* BusySeasDocument.swift */,
+				8CCF10AA1E8E097100422284 /* BusySeasGame.swift */,
+				8CCF10AB1E8E097100422284 /* BusySeasGameScene.swift */,
+				8CCF10AC1E8E097100422284 /* BusySeasGameState.swift */,
+				8CCF10AD1E8E097100422284 /* BusySeasGameViewController.swift */,
+				8CCF10AE1E8E097100422284 /* BusySeasGridNode.swift */,
+				8CCF10AF1E8E097100422284 /* BusySeasMainViewController.swift */,
+				8CCF10B01E8E097100422284 /* BusySeasMixin.swift */,
+				8CCF10B11E8E097100422284 /* BusySeasObject.swift */,
+				8CCF10B21E8E097100422284 /* BusySeasOptionsViewController.swift */,
+			);
+			path = BusySeas;
+			sourceTree = "<group>";
+		};
+		8CCF10C01E8E097C00422284 /* Lighthouses */ = {
+			isa = PBXGroup;
+			children = (
+				8CCF10C11E8E097C00422284 /* Lighthouses.storyboard */,
+				8CCF10C21E8E097C00422284 /* Lighthouses.xml */,
+				8CCF10C31E8E097C00422284 /* LighthousesDocument.swift */,
+				8CCF10C41E8E097C00422284 /* LighthousesGame.swift */,
+				8CCF10C51E8E097C00422284 /* LighthousesGameScene.swift */,
+				8CCF10C61E8E097C00422284 /* LighthousesGameState.swift */,
+				8CCF10C71E8E097C00422284 /* LighthousesGameViewController.swift */,
+				8CCF10C81E8E097C00422284 /* LighthousesGridNode.swift */,
+				8CCF10C91E8E097C00422284 /* LighthousesMainViewController.swift */,
+				8CCF10CA1E8E097C00422284 /* LighthousesMixin.swift */,
+				8CCF10CB1E8E097C00422284 /* LighthousesObject.swift */,
+				8CCF10CC1E8E097C00422284 /* LighthousesOptionsViewController.swift */,
+			);
+			path = Lighthouses;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1960,6 +2048,7 @@
 				8C9AF48F1DE974BF0053BED4 /* Bridges.xml in Resources */,
 				8CC3CD1C1E32DEE40056B78F /* Snail.storyboard in Resources */,
 				8C9AF4E31DE974BF0053BED4 /* Skyscrapers.xml in Resources */,
+				8CCF10B31E8E097100422284 /* BusySeas.storyboard in Resources */,
 				8C9AF49A1DE974BF0053BED4 /* Clouds.storyboard in Resources */,
 				8C1D16B21DB8DE930056D407 /* TraversalTree.png in Resources */,
 				8CC3CD1D1E32DEE40056B78F /* Snail.xml in Resources */,
@@ -1968,9 +2057,11 @@
 				8C9AF4BF1DE974BF0053BED4 /* LineSweeper.xml in Resources */,
 				8C373D621E14A622005712CD /* BoxItAround.xml in Resources */,
 				8C9AF4EF1DE974BF0053BED4 /* SlitherLink.xml in Resources */,
+				8CCF10B41E8E097100422284 /* BusySeas.xml in Resources */,
 				8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */,
 				8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */,
 				8C10B79E1E8A98C30049C44B /* Sentinels.storyboard in Resources */,
+				8CCF10CE1E8E097C00422284 /* Lighthouses.xml in Resources */,
 				84FBA5241DFF7F3600594DAE /* BattleShips.xml in Resources */,
 				84FBA53E1DFF7F4500594DAE /* Parks.xml in Resources */,
 				8C10B7B91E8AB2680049C44B /* ProductSentinels.xml in Resources */,
@@ -2011,6 +2102,7 @@
 				8C10B7EA1E8D7DC50049C44B /* PowerGrid.storyboard in Resources */,
 				8C9AF5601DF8D7770053BED4 /* Magnets.xml in Resources */,
 				8C9AF55F1DF8D7770053BED4 /* Magnets.storyboard in Resources */,
+				8CCF10CD1E8E097C00422284 /* Lighthouses.storyboard in Resources */,
 				8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */,
 				8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */,
 				8C373D611E14A622005712CD /* BoxItAround.storyboard in Resources */,
@@ -2062,6 +2154,8 @@
 				8C9AF4AD1DE974BF0053BED4 /* HitoriGridNode.swift in Sources */,
 				8C9AF4DB1DE974BF0053BED4 /* NurikabeGameState.swift in Sources */,
 				8C6D37FA1DC5ACC90052202C /* OptionsViewController.swift in Sources */,
+				8CCF10BA1E8E097100422284 /* BusySeasGridNode.swift in Sources */,
+				8CCF10D41E8E097C00422284 /* LighthousesGridNode.swift in Sources */,
 				84FBA5471DFF7F4500594DAE /* ParksObject.swift in Sources */,
 				8C81CBA71E19546000FB244A /* BoxItAgainMixin.swift in Sources */,
 				8C9AF5481DF471AA0053BED4 /* MosaikGame.swift in Sources */,
@@ -2100,13 +2194,16 @@
 				8CC3503F1E001D2800B8FD83 /* DateExtensions.swift in Sources */,
 				8C1D16B31DB8DE930056D407 /* README.markdown in Sources */,
 				8C373D751E14A622005712CD /* BoxItUpMainViewController.swift in Sources */,
+				8CCF10B51E8E097100422284 /* BusySeasDocument.swift in Sources */,
 				84FBA55B1DFF7F4F00594DAE /* TentsGameState.swift in Sources */,
 				8C9AF4A31DE974BF0053BED4 /* CloudsMixin.swift in Sources */,
 				8CC350451E001D2800B8FD83 /* IntExtensions.swift in Sources */,
 				8C373D741E14A622005712CD /* BoxItUpGridNode.swift in Sources */,
+				8CCF10BE1E8E097100422284 /* BusySeasOptionsViewController.swift in Sources */,
 				8CC350491E001D2800B8FD83 /* StringExtensions.swift in Sources */,
 				8CC3503A1E001D2800B8FD83 /* BundleExtensions.swift in Sources */,
 				8C9AF5651DF8D7770053BED4 /* MagnetsGameViewController.swift in Sources */,
+				8CCF10D81E8E097C00422284 /* LighthousesOptionsViewController.swift in Sources */,
 				8C508BEE1DFBD13700D99A09 /* GridNode.swift in Sources */,
 				8C9AF4911DE974BF0053BED4 /* BridgesGame.swift in Sources */,
 				8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */,
@@ -2119,6 +2216,7 @@
 				8C9AF4BC1DE974BF0053BED4 /* LightenUpObject.swift in Sources */,
 				8C9AF5491DF471AA0053BED4 /* MosaikGameScene.swift in Sources */,
 				8C6ACBFF1DCAF8BA0075F32C /* GameMixin.swift in Sources */,
+				8CCF10B81E8E097100422284 /* BusySeasGameState.swift in Sources */,
 				8C10B7D61E8CDABA0049C44B /* BootyIslandGameState.swift in Sources */,
 				8C6D373A1DC421180052202C /* HomeMixin.swift in Sources */,
 				8CC350591E001D2800B8FD83 /* UITextFieldExtensions.swift in Sources */,
@@ -2166,6 +2264,7 @@
 				8C9AF4A51DE974BF0053BED4 /* CloudsOptionsViewController.swift in Sources */,
 				84FBA52D1DFF7F3600594DAE /* BattleShipsObject.swift in Sources */,
 				8CC350581E001D2800B8FD83 /* UISwitchExtensions.swift in Sources */,
+				8CCF10D61E8E097C00422284 /* LighthousesMixin.swift in Sources */,
 				8C9AF54C1DF471AA0053BED4 /* MosaikGridNode.swift in Sources */,
 				8C9AF4881DE974BF0053BED4 /* AbcGameViewController.swift in Sources */,
 				8C9AF5181DE975030053BED4 /* LoopyGameState.swift in Sources */,
@@ -2173,7 +2272,9 @@
 				8C81CBA81E19546000FB244A /* BoxItAgainObject.swift in Sources */,
 				8C10B7A41E8A98C30049C44B /* SentinelsGameViewController.swift in Sources */,
 				84FBA55C1DFF7F4F00594DAE /* TentsGameViewController.swift in Sources */,
+				8CCF10D21E8E097C00422284 /* LighthousesGameState.swift in Sources */,
 				8C373D731E14A622005712CD /* BoxItUpGameViewController.swift in Sources */,
+				8CCF10D71E8E097C00422284 /* LighthousesObject.swift in Sources */,
 				8C886C441D9E8AF1004A42BF /* SWActionSheet.m in Sources */,
 				8C9AF4C51DE974BF0053BED4 /* LineSweeperGridNode.swift in Sources */,
 				8CC350501E001D2800B8FD83 /* UIColorExtensions.swift in Sources */,
@@ -2205,6 +2306,7 @@
 				8C9AF54D1DF471AA0053BED4 /* MosaikMainViewController.swift in Sources */,
 				8C6ACBFE1DCAF8BA0075F32C /* GameDocument.swift in Sources */,
 				8C9AF48B1DE974BF0053BED4 /* AbcMixin.swift in Sources */,
+				8CCF10D11E8E097C00422284 /* LighthousesGameScene.swift in Sources */,
 				8C9AF48C1DE974BF0053BED4 /* AbcObject.swift in Sources */,
 				84EE6E9D1DD954280013A033 /* HomeChooseGameViewController.swift in Sources */,
 				8C9AF4F21DE974BF0053BED4 /* SlitherLinkGameScene.swift in Sources */,
@@ -2235,6 +2337,7 @@
 				8C9AF4C41DE974BF0053BED4 /* LineSweeperGameViewController.swift in Sources */,
 				8CC3CD211E32DEE40056B78F /* SnailGameState.swift in Sources */,
 				8C9AF4B81DE974BF0053BED4 /* LightenUpGameViewController.swift in Sources */,
+				8CCF10B71E8E097100422284 /* BusySeasGameScene.swift in Sources */,
 				8C9AF4C21DE974BF0053BED4 /* LineSweeperGameScene.swift in Sources */,
 				8C9AF4E61DE974BF0053BED4 /* SkyscrapersGameScene.swift in Sources */,
 				8CC3503E1E001D2800B8FD83 /* CharacterExtensions.swift in Sources */,
@@ -2245,6 +2348,7 @@
 				8C10B7C01E8AB2680049C44B /* ProductSentinelsMainViewController.swift in Sources */,
 				8C9AF4E41DE974BF0053BED4 /* SkyscrapersDocument.swift in Sources */,
 				8CC350431E001D2800B8FD83 /* EZSwiftFunctions.swift in Sources */,
+				8CCF10D51E8E097C00422284 /* LighthousesMainViewController.swift in Sources */,
 				8C10B7D71E8CDABA0049C44B /* BootyIslandGameViewController.swift in Sources */,
 				8C373D631E14A622005712CD /* BoxItAroundDocument.swift in Sources */,
 				8C9AF4FD1DE974BF0053BED4 /* SumscrapersGame.swift in Sources */,
@@ -2278,6 +2382,7 @@
 				8C10B7A61E8A98C30049C44B /* SentinelsMainViewController.swift in Sources */,
 				8C373D721E14A622005712CD /* BoxItUpGameState.swift in Sources */,
 				8C6ACC001DCAF8C20075F32C /* GameScene.swift in Sources */,
+				8CCF10BC1E8E097100422284 /* BusySeasMixin.swift in Sources */,
 				8C9AF5691DF8D7770053BED4 /* MagnetsObject.swift in Sources */,
 				8C10B78A1E87B6870049C44B /* NeighboursGridNode.swift in Sources */,
 				8C6ACC1A1DD206AD0075F32C /* MainViewController.swift in Sources */,
@@ -2308,11 +2413,14 @@
 				8CC3503D1E001D2800B8FD83 /* CGRectExtensions.swift in Sources */,
 				8C9AF48A1DE974BF0053BED4 /* AbcMainViewController.swift in Sources */,
 				8C9AF4A41DE974BF0053BED4 /* CloudsObject.swift in Sources */,
+				8CCF10BB1E8E097100422284 /* BusySeasMainViewController.swift in Sources */,
 				84FBA52B1DFF7F3600594DAE /* BattleShipsMainViewController.swift in Sources */,
 				8C373D781E14A622005712CD /* BoxItUpOptionsViewController.swift in Sources */,
 				8C6ACC191DD204420075F32C /* GameObject.swift in Sources */,
 				8C9AF4D21DE974BF0053BED4 /* MasyuMainViewController.swift in Sources */,
 				8C10B7F01E8D7DC50049C44B /* PowerGridGameViewController.swift in Sources */,
+				8CCF10CF1E8E097C00422284 /* LighthousesDocument.swift in Sources */,
+				8CCF10B91E8E097100422284 /* BusySeasGameViewController.swift in Sources */,
 				8C10B7A31E8A98C30049C44B /* SentinelsGameState.swift in Sources */,
 				8C81CBAE1E19546000FB244A /* FenceItUpGameScene.swift in Sources */,
 				8C9AF4B11DE974BF0053BED4 /* HitoriOptionsViewController.swift in Sources */,
@@ -2327,11 +2435,14 @@
 				8C10B78C1E87B6870049C44B /* NeighboursMixin.swift in Sources */,
 				8C9AF54A1DF471AA0053BED4 /* MosaikGameState.swift in Sources */,
 				8C9AF5661DF8D7770053BED4 /* MagnetsGridNode.swift in Sources */,
+				8CCF10B61E8E097100422284 /* BusySeasGame.swift in Sources */,
 				8C9AF5841DF8D84B0053BED4 /* RoomsOptionsViewController.swift in Sources */,
 				8C373D701E14A622005712CD /* BoxItUpGame.swift in Sources */,
 				84FBA55E1DFF7F4F00594DAE /* TentsMainViewController.swift in Sources */,
+				8CCF10D31E8E097C00422284 /* LighthousesGameViewController.swift in Sources */,
 				8C9AF4C81DE974BF0053BED4 /* LineSweeperObject.swift in Sources */,
 				8C9AF5671DF8D7770053BED4 /* MagnetsMainViewController.swift in Sources */,
+				8CCF10BD1E8E097100422284 /* BusySeasObject.swift in Sources */,
 				8CC350551E001D2800B8FD83 /* UILabelExtensions.swift in Sources */,
 				8C9AF4F41DE974BF0053BED4 /* SlitherLinkGameViewController.swift in Sources */,
 				8C9AF4851DE974BF0053BED4 /* AbcGame.swift in Sources */,
@@ -2352,6 +2463,7 @@
 				8C9AF4BA1DE974BF0053BED4 /* LightenUpMainViewController.swift in Sources */,
 				8CC350401E001D2800B8FD83 /* DictionaryExtensions.swift in Sources */,
 				8C9AF4C31DE974BF0053BED4 /* LineSweeperGameState.swift in Sources */,
+				8CCF10D01E8E097C00422284 /* LighthousesGame.swift in Sources */,
 				8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */,
 				8C10B7BB1E8AB2680049C44B /* ProductSentinelsGame.swift in Sources */,
 				8C81CBA21E19546000FB244A /* BoxItAgainGameScene.swift in Sources */,
