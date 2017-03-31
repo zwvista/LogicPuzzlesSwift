@@ -92,6 +92,18 @@
 		8C10B7DA1E8CDABA0049C44B /* BootyIslandMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7CE1E8CDABA0049C44B /* BootyIslandMixin.swift */; };
 		8C10B7DB1E8CDABA0049C44B /* BootyIslandObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7CF1E8CDABA0049C44B /* BootyIslandObject.swift */; };
 		8C10B7DC1E8CDABA0049C44B /* BootyIslandOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7D01E8CDABA0049C44B /* BootyIslandOptionsViewController.swift */; };
+		8C10B7EA1E8D7DC50049C44B /* PowerGrid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C10B7DE1E8D7DC40049C44B /* PowerGrid.storyboard */; };
+		8C10B7EB1E8D7DC50049C44B /* PowerGrid.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C10B7DF1E8D7DC40049C44B /* PowerGrid.xml */; };
+		8C10B7EC1E8D7DC50049C44B /* PowerGridDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7E01E8D7DC40049C44B /* PowerGridDocument.swift */; };
+		8C10B7ED1E8D7DC50049C44B /* PowerGridGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7E11E8D7DC40049C44B /* PowerGridGame.swift */; };
+		8C10B7EE1E8D7DC50049C44B /* PowerGridGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7E21E8D7DC40049C44B /* PowerGridGameScene.swift */; };
+		8C10B7EF1E8D7DC50049C44B /* PowerGridGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7E31E8D7DC40049C44B /* PowerGridGameState.swift */; };
+		8C10B7F01E8D7DC50049C44B /* PowerGridGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7E41E8D7DC40049C44B /* PowerGridGameViewController.swift */; };
+		8C10B7F11E8D7DC50049C44B /* PowerGridGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7E51E8D7DC40049C44B /* PowerGridGridNode.swift */; };
+		8C10B7F21E8D7DC50049C44B /* PowerGridMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7E61E8D7DC40049C44B /* PowerGridMainViewController.swift */; };
+		8C10B7F31E8D7DC50049C44B /* PowerGridMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7E71E8D7DC40049C44B /* PowerGridMixin.swift */; };
+		8C10B7F41E8D7DC50049C44B /* PowerGridObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7E81E8D7DC40049C44B /* PowerGridObject.swift */; };
+		8C10B7F51E8D7DC50049C44B /* PowerGridOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7E91E8D7DC40049C44B /* PowerGridOptionsViewController.swift */; };
 		8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */; };
 		8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */; };
 		8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A01DB8DE930056D407 /* AnimatedExample.graffle */; };
@@ -568,6 +580,18 @@
 		8C10B7CE1E8CDABA0049C44B /* BootyIslandMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BootyIslandMixin.swift; sourceTree = "<group>"; };
 		8C10B7CF1E8CDABA0049C44B /* BootyIslandObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BootyIslandObject.swift; sourceTree = "<group>"; };
 		8C10B7D01E8CDABA0049C44B /* BootyIslandOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BootyIslandOptionsViewController.swift; sourceTree = "<group>"; };
+		8C10B7DE1E8D7DC40049C44B /* PowerGrid.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PowerGrid.storyboard; sourceTree = "<group>"; };
+		8C10B7DF1E8D7DC40049C44B /* PowerGrid.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PowerGrid.xml; sourceTree = "<group>"; };
+		8C10B7E01E8D7DC40049C44B /* PowerGridDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerGridDocument.swift; sourceTree = "<group>"; };
+		8C10B7E11E8D7DC40049C44B /* PowerGridGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerGridGame.swift; sourceTree = "<group>"; };
+		8C10B7E21E8D7DC40049C44B /* PowerGridGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerGridGameScene.swift; sourceTree = "<group>"; };
+		8C10B7E31E8D7DC40049C44B /* PowerGridGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerGridGameState.swift; sourceTree = "<group>"; };
+		8C10B7E41E8D7DC40049C44B /* PowerGridGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerGridGameViewController.swift; sourceTree = "<group>"; };
+		8C10B7E51E8D7DC40049C44B /* PowerGridGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerGridGridNode.swift; sourceTree = "<group>"; };
+		8C10B7E61E8D7DC40049C44B /* PowerGridMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerGridMainViewController.swift; sourceTree = "<group>"; };
+		8C10B7E71E8D7DC40049C44B /* PowerGridMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerGridMixin.swift; sourceTree = "<group>"; };
+		8C10B7E81E8D7DC40049C44B /* PowerGridObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerGridObject.swift; sourceTree = "<group>"; };
+		8C10B7E91E8D7DC40049C44B /* PowerGridOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerGridOptionsViewController.swift; sourceTree = "<group>"; };
 		8C1D169C1DB8DE930056D407 /* BreadthFirstSearch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BreadthFirstSearch.playground; sourceTree = "<group>"; };
 		8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadthFirstSearch.swift; sourceTree = "<group>"; };
 		8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimatedExample.gif; sourceTree = "<group>"; };
@@ -1101,6 +1125,26 @@
 			path = BootyIsland;
 			sourceTree = "<group>";
 		};
+		8C10B7DD1E8D7DC40049C44B /* PowerGrid */ = {
+			isa = PBXGroup;
+			children = (
+				8C10B7DE1E8D7DC40049C44B /* PowerGrid.storyboard */,
+				8C10B7DF1E8D7DC40049C44B /* PowerGrid.xml */,
+				8C10B7E01E8D7DC40049C44B /* PowerGridDocument.swift */,
+				8C10B7E11E8D7DC40049C44B /* PowerGridGame.swift */,
+				8C10B7E21E8D7DC40049C44B /* PowerGridGameScene.swift */,
+				8C10B7E31E8D7DC40049C44B /* PowerGridGameState.swift */,
+				8C10B7E41E8D7DC40049C44B /* PowerGridGameViewController.swift */,
+				8C10B7E51E8D7DC40049C44B /* PowerGridGridNode.swift */,
+				8C10B7E61E8D7DC40049C44B /* PowerGridMainViewController.swift */,
+				8C10B7E71E8D7DC40049C44B /* PowerGridMixin.swift */,
+				8C10B7E81E8D7DC40049C44B /* PowerGridObject.swift */,
+				8C10B7E91E8D7DC40049C44B /* PowerGridOptionsViewController.swift */,
+			);
+			name = PowerGrid;
+			path = LogicPuzzlesSwift/Puzzles/PowerGrid;
+			sourceTree = SOURCE_ROOT;
+		};
 		8C1D169B1DB8DE930056D407 /* Breadth-First Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -1286,6 +1330,7 @@
 				8C10B7761E87B6870049C44B /* Neighbours */,
 				8C9AF44E1DE974BF0053BED4 /* Nurikabe */,
 				84FBA5301DFF7F4500594DAE /* Parks */,
+				8C10B7DD1E8D7DC40049C44B /* PowerGrid */,
 				8C10B7AB1E8AB2670049C44B /* ProductSentinels */,
 				8C9AF56C1DF8D84B0053BED4 /* Rooms */,
 				8C10B7911E8A98C30049C44B /* Sentinels */,
@@ -1911,6 +1956,7 @@
 				84FBA5571DFF7F4F00594DAE /* Tents.xml in Resources */,
 				8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */,
 				8C373D441E0507F7005712CD /* tent.png in Resources */,
+				8C10B7EB1E8D7DC50049C44B /* PowerGrid.xml in Resources */,
 				8C9AF48F1DE974BF0053BED4 /* Bridges.xml in Resources */,
 				8CC3CD1C1E32DEE40056B78F /* Snail.storyboard in Resources */,
 				8C9AF4E31DE974BF0053BED4 /* Skyscrapers.xml in Resources */,
@@ -1962,6 +2008,7 @@
 				8CC34F9D1DFD958A00B8FD83 /* positive.png in Resources */,
 				8C1D16B61DB8DE930056D407 /* Info.plist in Resources */,
 				8C1D16B01DB8DE930056D407 /* AnimatedExample.psd in Resources */,
+				8C10B7EA1E8D7DC50049C44B /* PowerGrid.storyboard in Resources */,
 				8C9AF5601DF8D7770053BED4 /* Magnets.xml in Resources */,
 				8C9AF55F1DF8D7770053BED4 /* Magnets.storyboard in Resources */,
 				8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */,
@@ -2004,6 +2051,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C81CBA61E19546000FB244A /* BoxItAgainMainViewController.swift in Sources */,
+				8C10B7EE1E8D7DC50049C44B /* PowerGridGameScene.swift in Sources */,
 				8CC3504D1E001D2800B8FD83 /* UIBarButtonItemExtensions.swift in Sources */,
 				8C6D37FB1DC5ACDB0052202C /* Copyable.swift in Sources */,
 				8C10B78E1E87B6870049C44B /* NeighboursOptionsViewController.swift in Sources */,
@@ -2018,6 +2066,7 @@
 				8C81CBA71E19546000FB244A /* BoxItAgainMixin.swift in Sources */,
 				8C9AF5481DF471AA0053BED4 /* MosaikGame.swift in Sources */,
 				84FBA5261DFF7F3600594DAE /* BattleShipsGame.swift in Sources */,
+				8C10B7F41E8D7DC50049C44B /* PowerGridObject.swift in Sources */,
 				8C9AF4B41DE974BF0053BED4 /* LightenUpDocument.swift in Sources */,
 				8C81CBA51E19546000FB244A /* BoxItAgainGridNode.swift in Sources */,
 				8C373D691E14A622005712CD /* BoxItAroundMainViewController.swift in Sources */,
@@ -2061,6 +2110,7 @@
 				8C508BEE1DFBD13700D99A09 /* GridNode.swift in Sources */,
 				8C9AF4911DE974BF0053BED4 /* BridgesGame.swift in Sources */,
 				8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */,
+				8C10B7F11E8D7DC50049C44B /* PowerGridGridNode.swift in Sources */,
 				84FBA5461DFF7F4500594DAE /* ParksMixin.swift in Sources */,
 				8C10B7C11E8AB2680049C44B /* ProductSentinelsMixin.swift in Sources */,
 				8C9AF5831DF8D84B0053BED4 /* RoomsObject.swift in Sources */,
@@ -2175,6 +2225,7 @@
 				8C10B7D51E8CDABA0049C44B /* BootyIslandGameScene.swift in Sources */,
 				8CC3505A1E001D2800B8FD83 /* UITextViewExtensions.swift in Sources */,
 				8C373D651E14A622005712CD /* BoxItAroundGameScene.swift in Sources */,
+				8C10B7EC1E8D7DC50049C44B /* PowerGridDocument.swift in Sources */,
 				8C9AF4F31DE974BF0053BED4 /* SlitherLinkGameState.swift in Sources */,
 				8CC350381E001D2800B8FD83 /* BlockWebView.swift in Sources */,
 				8C9AF4CE1DE974BF0053BED4 /* MasyuGameScene.swift in Sources */,
@@ -2250,6 +2301,7 @@
 				8C9AF5821DF8D84B0053BED4 /* RoomsMixin.swift in Sources */,
 				8C886C421D9E8AF1004A42BF /* ActionSheetStringPicker.m in Sources */,
 				8C9AF5051DE974BF0053BED4 /* SumscrapersOptionsViewController.swift in Sources */,
+				8C10B7EF1E8D7DC50049C44B /* PowerGridGameState.swift in Sources */,
 				8C81CBA31E19546000FB244A /* BoxItAgainGameState.swift in Sources */,
 				8C10B7D41E8CDABA0049C44B /* BootyIslandGame.swift in Sources */,
 				8C9AF4A21DE974BF0053BED4 /* CloudsMainViewController.swift in Sources */,
@@ -2260,6 +2312,7 @@
 				8C373D781E14A622005712CD /* BoxItUpOptionsViewController.swift in Sources */,
 				8C6ACC191DD204420075F32C /* GameObject.swift in Sources */,
 				8C9AF4D21DE974BF0053BED4 /* MasyuMainViewController.swift in Sources */,
+				8C10B7F01E8D7DC50049C44B /* PowerGridGameViewController.swift in Sources */,
 				8C10B7A31E8A98C30049C44B /* SentinelsGameState.swift in Sources */,
 				8C81CBAE1E19546000FB244A /* FenceItUpGameScene.swift in Sources */,
 				8C9AF4B11DE974BF0053BED4 /* HitoriOptionsViewController.swift in Sources */,
@@ -2318,6 +2371,7 @@
 				8C9AF4F51DE974BF0053BED4 /* SlitherLinkGridNode.swift in Sources */,
 				8CC3504F1E001D2800B8FD83 /* UIColoredView.swift in Sources */,
 				8C373D761E14A622005712CD /* BoxItUpMixin.swift in Sources */,
+				8C10B7F51E8D7DC50049C44B /* PowerGridOptionsViewController.swift in Sources */,
 				8C9AF5151DE975030053BED4 /* LoopyDocument.swift in Sources */,
 				8C10B7DC1E8CDABA0049C44B /* BootyIslandOptionsViewController.swift in Sources */,
 				8C9AF4C91DE974BF0053BED4 /* LineSweeperOptionsViewController.swift in Sources */,
@@ -2352,9 +2406,12 @@
 				8C9AF4DF1DE974BF0053BED4 /* NurikabeMixin.swift in Sources */,
 				8C10B7C31E8AB2680049C44B /* ProductSentinelsOptionsViewController.swift in Sources */,
 				8C9AF4C11DE974BF0053BED4 /* LineSweeperGame.swift in Sources */,
+				8C10B7F21E8D7DC50049C44B /* PowerGridMainViewController.swift in Sources */,
 				8C9AF51B1DE975030053BED4 /* LoopyMainViewController.swift in Sources */,
+				8C10B7ED1E8D7DC50049C44B /* PowerGridGame.swift in Sources */,
 				8CC350461E001D2800B8FD83 /* NSAttributedStringExtensions.swift in Sources */,
 				8C81CBA91E19546000FB244A /* BoxItAgainOptionsViewController.swift in Sources */,
+				8C10B7F31E8D7DC50049C44B /* PowerGridMixin.swift in Sources */,
 				8C81CBB51E19546000FB244A /* FenceItUpOptionsViewController.swift in Sources */,
 				8C9AF57F1DF8D84B0053BED4 /* RoomsGameViewController.swift in Sources */,
 				8CC3CD271E32DEE40056B78F /* SnailOptionsViewController.swift in Sources */,

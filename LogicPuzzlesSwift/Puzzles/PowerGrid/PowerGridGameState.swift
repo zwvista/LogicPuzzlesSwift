@@ -1,0 +1,147 @@
+//
+//  PowerGridGameState.swift
+//  LogicPuzzlesSwift
+//
+//  Created by 趙偉 on 2016/09/19.
+//  Copyright © 2016年 趙偉. All rights reserved.
+//
+
+import Foundation
+
+class PowerGridGameState: GridGameState, PowerGridMixin {
+    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
+    var game: PowerGridGame {
+        get {return getGame() as! PowerGridGame}
+        set {setGame(game: newValue)}
+    }
+    var objArray = [PowerGridObject]()
+    var row2state = [HintState]()
+    var col2state = [HintState]()
+    
+    override func copy() -> PowerGridGameState {
+        let v = PowerGridGameState(game: game)
+        return setup(v: v)
+    }
+    func setup(v: PowerGridGameState) -> PowerGridGameState {
+        _ = super.setup(v: v)
+        v.objArray = objArray
+        v.row2state = row2state
+        v.col2state = col2state
+        return v
+    }
+    
+    required init(game: PowerGridGame) {
+        super.init(game: game)
+        objArray = Array<PowerGridObject>(repeating: PowerGridObject(), count: rows * cols)
+        row2state = Array<HintState>(repeating: .normal, count: rows)
+        col2state = Array<HintState>(repeating: .normal, count: cols)
+        updateIsSolved()
+    }
+    
+    subscript(p: Position) -> PowerGridObject {
+        get {
+            return self[p.row, p.col]
+        }
+        set(newValue) {
+            self[p.row, p.col] = newValue
+        }
+    }
+    subscript(row: Int, col: Int) -> PowerGridObject {
+        get {
+            return objArray[row * cols + col]
+        }
+        set(newValue) {
+            objArray[row * cols + col] = newValue
+        }
+    }
+    
+    func setObject(move: inout PowerGridGameMove) -> Bool {
+        let p = move.p
+        let (o1, o2) = (self[p], move.obj)
+        guard String(describing: o1) != String(describing: o2) else {return false}
+        self[p] = o2
+        updateIsSolved()
+        return true
+    }
+    
+    func switchObject(move: inout PowerGridGameMove) -> Bool {
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        func f(o: PowerGridObject) -> PowerGridObject {
+            switch o {
+            case .empty:
+                return markerOption == .markerFirst ? .marker : .post(state: .normal)
+            case .post:
+                return markerOption == .markerLast ? .marker : .empty
+            case .marker:
+                return markerOption == .markerFirst ? .post(state: .normal) : .empty
+            default:
+                return o
+            }
+        }
+        let p = move.p
+        guard isValid(p: p) else {return false}
+        move.obj = f(o: self[p])
+        return setObject(move: &move)
+    }
+    
+    private func updateIsSolved() {
+        isSolved = true
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                switch self[p] {
+                case .forbidden:
+                    self[p] = .empty
+                case .post:
+                    self[p] = .post(state: .normal)
+                default:
+                    break
+                }
+            }
+        }
+        for r in 0..<rows {
+            var posts = [Position]()
+            for c in 0..<cols {
+                let p = Position(r, c)
+                if case .post = self[p] {posts.append(p)}
+            }
+            let n1 = posts.count, n2 = game.row2hint[r] + 1
+            let s: HintState = n1 < 2 ? .normal : n1 == 2 && n2 == posts[1].col - posts[0].col ? .complete : .error
+            row2state[r] = s
+            if s != .complete {isSolved = false}
+            if s == .error {
+                for p in posts {
+                    self[p] = .post(state: .error)
+                }
+            }
+            guard allowedObjectsOnly && n1 > 0 else {continue}
+            for c in 0..<cols {
+                if case .empty = self[r, c], n1 > 1 || n1 == 1 && n2 != abs(posts[0].col - c) {
+                    self[r, c] = .forbidden
+                }
+            }
+        }
+        for c in 0..<cols {
+            var posts = [Position]()
+            for r in 0..<rows {
+                let p = Position(r, c)
+                if case .post = self[p] {posts.append(p)}
+            }
+            let n1 = posts.count, n2 = game.col2hint[c] + 1
+            let s: HintState = n1 < 2 ? .normal : n1 == 2 && n2 == posts[1].row - posts[0].row ? .complete : .error
+            col2state[c] = s
+            if s != .complete {isSolved = false}
+            if s == .error {
+                for p in posts {
+                    self[p] = .post(state: .error)
+                }
+            }
+            guard allowedObjectsOnly && n1 > 0 else {continue}
+            for r in 0..<rows {
+                if case .empty = self[r, c], n1 > 1 || n1 == 1 && n2 != abs(posts[0].row - r) {
+                    self[r, c] = .forbidden
+                }
+            }
+        }
+    }
+}
