@@ -64,11 +64,11 @@ class BusySeasGameState: GridGameState, BusySeasMixin {
         func f(o: BusySeasObject) -> BusySeasObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .tower(state: .normal)
-            case .tower:
+                return markerOption == .markerFirst ? .marker : .lighthouse(state: .normal)
+            case .lighthouse:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .tower(state: .normal) : .empty
+                return markerOption == .markerFirst ? .lighthouse(state: .normal) : .empty
             default:
                 return o
             }
@@ -79,45 +79,34 @@ class BusySeasGameState: GridGameState, BusySeasMixin {
     
     private func updateIsSolved() {
         isSolved = true
-        let g = Graph()
-        var pos2node = [Position: Node]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 switch self[p] {
-                case .tower:
-                    self[p] = .tower(state: .normal)
+                case .lighthouse:
+                    self[p] = .lighthouse(state: .normal)
                 case .forbidden:
                     self[p] = .empty
-                    fallthrough
                 default:
-                    pos2node[p] = g.addNode(p.description)
-                }
-            }
-        }
-        for p in pos2node.keys {
-            for os in BusySeasGame.offset {
-                let p2 = p + os
-                if let node2 = pos2node[p2] {
-                    g.addEdge(pos2node[p]!, neighbor: node2)
+                    break
                 }
             }
         }
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                func hasTowerNeighbor() -> Bool {
+                func hasLighthouseNeighbor() -> Bool {
                     for os in BusySeasGame.offset {
                         let p2 = p + os
-                        if isValid(p: p2), case .tower = self[p2] {return true}
+                        if isValid(p: p2), case .lighthouse = self[p2] {return true}
                     }
                     return false
                 }
                 switch self[p] {
-                case let .tower(state):
-                    self[p] = .tower(state: state == .normal && !hasTowerNeighbor() ? .normal : .error)
+                case let .lighthouse(state):
+                    self[p] = .lighthouse(state: state == .normal && !hasLighthouseNeighbor() ? .normal : .error)
                 case .empty, .marker:
-                    guard allowedObjectsOnly && hasTowerNeighbor() else {continue}
+                    guard allowedObjectsOnly && hasLighthouseNeighbor() else {continue}
                     self[p] = .forbidden
                 default:
                     break
@@ -133,7 +122,7 @@ class BusySeasGameState: GridGameState, BusySeasMixin {
                 var p2 = p + os
                 while game.isValid(p: p2) {
                     switch self[p2] {
-                    case .tower:
+                    case .lighthouse:
                         continue next
                     case .empty:
                         rng.append(p2)
@@ -155,8 +144,5 @@ class BusySeasGameState: GridGameState, BusySeasMixin {
                 }
             }
         }
-        guard isSolved else {return}
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.values.first!)
-        if pos2node.count != nodesExplored.count {isSolved = false}
     }
 }

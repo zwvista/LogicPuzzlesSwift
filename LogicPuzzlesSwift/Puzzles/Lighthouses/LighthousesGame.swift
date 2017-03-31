@@ -12,9 +12,13 @@ class LighthousesGame: GridGame<LighthousesGameViewController, LighthousesGameMo
     static let gameID = "Lighthouses"
     static let offset = [
         Position(-1, 0),
+        Position(-1, 1),
         Position(0, 1),
+        Position(1, 1),
         Position(1, 0),
+        Position(1, -1),
         Position(0, -1),
+        Position(-1, -1),
     ]
 
     var pos2hint = [Position: Int]()

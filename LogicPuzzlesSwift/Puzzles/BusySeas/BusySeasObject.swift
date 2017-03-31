@@ -13,7 +13,7 @@ enum BusySeasObject {
     case forbidden
     case hint(state: HintState)
     case marker
-    case tower(state: AllowedObjectState)
+    case lighthouse(state: AllowedObjectState)
     init() {
         self = .empty
     }
@@ -21,8 +21,8 @@ enum BusySeasObject {
         switch self {
         case .marker:
             return "marker"
-        case .tower:
-            return "tower"
+        case .lighthouse:
+            return "lighthouse"
         default:
             return "empty"
         }
@@ -31,8 +31,8 @@ enum BusySeasObject {
         switch str {
         case "marker":
             return .marker
-        case "tower":
-            return .tower(state: .normal)
+        case "lighthouse":
+            return .lighthouse(state: .normal)
         default:
             return .empty
         }

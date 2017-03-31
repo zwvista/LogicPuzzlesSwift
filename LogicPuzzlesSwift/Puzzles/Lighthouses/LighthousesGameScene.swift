@@ -56,15 +56,15 @@ class LighthousesGameScene: GameScene<LighthousesGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let towerNodeName = "tower" + nodeNameSuffix
+                let lighthouseNodeName = "lighthouse" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
                 func removeHint() { removeNode(withName: hintNodeName) }
-                func addTower(s: AllowedObjectState) {
-                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: towerNodeName)
+                func addLighthouse(s: AllowedObjectState) {
+                    addImage(imageNamed: "lightbulb", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: lighthouseNodeName)
                 }
-                func removeTower() { removeNode(withName: towerNodeName) }
+                func removeLighthouse() { removeNode(withName: lighthouseNodeName) }
                 func addMarker() { addCircleMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 func addForbidden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
@@ -74,8 +74,8 @@ class LighthousesGameScene: GameScene<LighthousesGameState> {
                 switch ot1 {
                 case .forbidden:
                     removeForbidden()
-                case .tower:
-                    removeTower()
+                case .lighthouse:
+                    removeLighthouse()
                 case .marker:
                     removeMarker()
                 case .hint:
@@ -86,8 +86,8 @@ class LighthousesGameScene: GameScene<LighthousesGameState> {
                 switch ot2 {
                 case .forbidden:
                     addForbidden()
-                case let .tower(s):
-                    addTower(s: s)
+                case let .lighthouse(s):
+                    addLighthouse(s: s)
                 case .marker:
                     addMarker()
                 case let .hint(s):
