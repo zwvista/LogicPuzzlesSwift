@@ -29,6 +29,9 @@ class LighthousesGameState: GridGameState, LighthousesMixin {
     required init(game: LighthousesGame) {
         super.init(game: game)
         objArray = Array<LighthousesObject>(repeating: .empty, count: rows * cols)
+        for p in game.pos2hint.keys {
+            self[p] = .hint(state: .normal)
+        }
         updateIsSolved()
     }
     

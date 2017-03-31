@@ -34,6 +34,7 @@ class FenceItUpGameState: GridGameState, FenceItUpMixin {
         for p in game.pos2hint.keys {
             pos2state[p] = .normal
         }
+        updateIsSolved()
     }
     
     subscript(p: Position) -> GridDotObject {

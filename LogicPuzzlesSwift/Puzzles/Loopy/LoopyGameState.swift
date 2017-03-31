@@ -29,6 +29,7 @@ class LoopyGameState: GridGameState, LoopyMixin {
     required init(game: LoopyGame) {
         super.init(game: game)
         objArray = game.objArray
+        updateIsSolved()
     }
     
     subscript(p: Position) -> GridDotObject {

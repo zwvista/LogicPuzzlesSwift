@@ -31,9 +31,10 @@ class LineSweeperGameState: GridGameState, LineSweeperMixin {
     required init(game: LineSweeperGame) {
         super.init(game: game)
         objArray = Array<LineSweeperObject>(repeating: LineSweeperObject(repeating: false, count: 4), count: rows * cols)
-        for (p, n) in game.pos2hint {
-            pos2state[p] = n == 0 ? .complete : .normal
+        for p in game.pos2hint.keys {
+            pos2state[p] = .normal
         }
+        updateIsSolved()
     }
     
     subscript(p: Position) -> LineSweeperObject {

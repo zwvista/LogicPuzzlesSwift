@@ -29,6 +29,7 @@ class MasyuGameState: GridGameState, MasyuMixin {
     required init(game: MasyuGame) {
         super.init(game: game)
         objArray = Array<MasyuObject>(repeating: MasyuObject(repeating: false, count: 4), count: rows * cols)
+        updateIsSolved()
     }
     
     subscript(p: Position) -> MasyuObject {

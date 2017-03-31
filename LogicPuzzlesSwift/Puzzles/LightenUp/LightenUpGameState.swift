@@ -32,6 +32,7 @@ class LightenUpGameState: GridGameState, LightenUpMixin {
         for (p, lightbulbs) in game.wall2Lightbulbs {
             self[p].objType = .wall(state: lightbulbs <= 0 ? .complete : .normal)
         }
+        updateIsSolved()
     }
     
     subscript(p: Position) -> LightenUpObject {

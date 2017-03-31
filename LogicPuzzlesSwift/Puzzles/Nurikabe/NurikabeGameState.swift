@@ -32,6 +32,7 @@ class NurikabeGameState: GridGameState, NurikabeMixin {
         for p in game.pos2hint.keys {
             self[p] = .hint(state: .normal)
         }
+        updateIsSolved()
     }
     
     subscript(p: Position) -> NurikabeObject {

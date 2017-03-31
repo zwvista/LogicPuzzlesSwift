@@ -32,6 +32,7 @@ class BridgesGameState: GridGameState, BridgesMixin {
         for p in game.islandsInfo.keys {
             self[p] = .island(state: .normal, bridges: [0, 0, 0, 0])
         }
+        updateIsSolved()
     }
     
     subscript(p: Position) -> BridgesObject {

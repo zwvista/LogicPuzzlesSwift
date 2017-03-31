@@ -29,6 +29,9 @@ class BusySeasGameState: GridGameState, BusySeasMixin {
     required init(game: BusySeasGame) {
         super.init(game: game)
         objArray = Array<BusySeasObject>(repeating: .empty, count: rows * cols)
+        for p in game.pos2hint.keys {
+            self[p] = .hint(state: .normal)
+        }
         updateIsSolved()
     }
     

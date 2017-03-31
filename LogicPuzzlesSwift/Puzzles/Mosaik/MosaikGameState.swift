@@ -31,9 +31,10 @@ class MosaikGameState: GridGameState, MosaikMixin {
     required init(game: MosaikGame) {
         super.init(game: game)
         objArray = Array<MosaikObject>(repeating: .empty, count: rows * cols)
-        for (p, n) in game.pos2hint {
-            pos2state[p] = n == 0 ? .complete : .normal
+        for p in game.pos2hint.keys {
+            pos2state[p] = .normal
         }
+        updateIsSolved()
     }
     
     subscript(p: Position) -> MosaikObject {

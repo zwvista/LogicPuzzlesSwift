@@ -32,6 +32,7 @@ class BootyIslandGameState: GridGameState, BootyIslandMixin {
         for p in game.pos2hint.keys {
             self[p] = .hint(state: .normal)
         }
+        updateIsSolved()
     }
     
     subscript(p: Position) -> BootyIslandObject {

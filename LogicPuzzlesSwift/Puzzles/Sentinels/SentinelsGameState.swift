@@ -29,6 +29,9 @@ class SentinelsGameState: GridGameState, SentinelsMixin {
     required init(game: SentinelsGame) {
         super.init(game: game)
         objArray = Array<SentinelsObject>(repeating: .empty, count: rows * cols)
+        for p in game.pos2hint.keys {
+            self[p] = .hint(state: .normal)
+        }
         updateIsSolved()
     }
     
