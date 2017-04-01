@@ -136,12 +136,15 @@ class LitsGameState: GridGameState, LitsMixin {
                 info.trees.append(p)
                 info.blockIndexes.insert(i)
             }
-            for n in areaIndexes {
-                let info = infos[n]
-                for n2 in areaIndexes {
-                    if n != n2 {
-                        info.neighborIndexes.insert(n2)
-                    }
+        }
+        for i in 0..<infos.count {
+            let info = infos[i]
+            for p in info.trees {
+                for os in LitsGame.offset {
+                    let p2 = p + os
+                    guard let index = infos.index(where: {$0.trees.contains(p2)}),
+                        index != i else {continue}
+                    info.neighborIndexes.insert(index)
                 }
             }
         }
@@ -154,8 +157,7 @@ class LitsGameState: GridGameState, LitsMixin {
         for i in 0..<infos.count {
             let info = infos[i]
             let treeCount = info.trees.count
-            if treeCount > 4 || treeCount == 4 && info.blockIndexes.count > 1 {notSolved(info: info)}
-            if treeCount >= 4 {
+            if treeCount >= 4 && allowedObjectsOnly {
                 for p in game.areas[i] {
                     switch self[p] {
                     case .empty, .marker:
@@ -165,7 +167,8 @@ class LitsGameState: GridGameState, LitsMixin {
                     }
                 }
             }
-            if treeCount == 4 {
+            if treeCount > 4 || treeCount == 4 && info.blockIndexes.count > 1 {notSolved(info: info)}
+            if treeCount == 4 && info.blockIndexes.count == 1 {
                 info.trees.sort()
                 var treeOffsets = [Position]()
                 let p2 = Position(info.trees.min(by: {$0.row < $1.row})!.row, info.trees.min(by: {$0.col < $1.col})!.col)
@@ -189,7 +192,10 @@ class LitsGameState: GridGameState, LitsMixin {
             for os in LitsGame.offset3 {
                 guard block.contains(p + os) else {continue rule2x2}
             }
-            isSolved = false; return
+            isSolved = false
+            for os in LitsGame.offset3 {
+                self[p + os] = .tree(state: .error)
+            }
         }
     }
 }
