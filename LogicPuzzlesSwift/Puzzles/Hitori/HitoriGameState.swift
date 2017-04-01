@@ -19,7 +19,7 @@ class HitoriGameState: GridGameState, HitoriMixin {
     var col2hint = [String]()
     
     override func copy() -> HitoriGameState {
-        let v = HitoriGameState(game: game)
+        let v = HitoriGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: HitoriGameState) -> HitoriGameState {
@@ -30,8 +30,9 @@ class HitoriGameState: GridGameState, HitoriMixin {
         return v
     }
     
-    required init(game: HitoriGame) {
+    required init(game: HitoriGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = Array<HitoriObject>(repeating: HitoriObject(), count: rows * cols)
         row2hint = Array<String>(repeating: "", count: rows)
         col2hint = Array<String>(repeating: "", count: cols)

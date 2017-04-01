@@ -17,7 +17,7 @@ class MinesweeperGameState: GridGameState, MinesweeperMixin {
     var objArray = [MinesweeperObject]()
     
     override func copy() -> MinesweeperGameState {
-        let v = MinesweeperGameState(game: game)
+        let v = MinesweeperGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: MinesweeperGameState) -> MinesweeperGameState {
@@ -26,8 +26,9 @@ class MinesweeperGameState: GridGameState, MinesweeperMixin {
         return v
     }
     
-    required init(game: MinesweeperGame) {
+    required init(game: MinesweeperGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = Array<MinesweeperObject>(repeating: .empty, count: rows * cols)
         for p in game.pos2hint.keys {
             self[p] = .hint(state: .normal)

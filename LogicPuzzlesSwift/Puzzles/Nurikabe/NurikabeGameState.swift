@@ -17,7 +17,7 @@ class NurikabeGameState: GridGameState, NurikabeMixin {
     var objArray = [NurikabeObject]()
     
     override func copy() -> NurikabeGameState {
-        let v = NurikabeGameState(game: game)
+        let v = NurikabeGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: NurikabeGameState) -> NurikabeGameState {
@@ -26,8 +26,9 @@ class NurikabeGameState: GridGameState, NurikabeMixin {
         return v
     }
     
-    required init(game: NurikabeGame) {
+    required init(game: NurikabeGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = Array<NurikabeObject>(repeating: NurikabeObject(), count: rows * cols)
         for p in game.pos2hint.keys {
             self[p] = .hint(state: .normal)

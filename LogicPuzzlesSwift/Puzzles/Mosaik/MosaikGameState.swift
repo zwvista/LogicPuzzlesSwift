@@ -18,7 +18,7 @@ class MosaikGameState: GridGameState, MosaikMixin {
     var pos2state = [Position: HintState]()
     
     override func copy() -> MosaikGameState {
-        let v = MosaikGameState(game: game)
+        let v = MosaikGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: MosaikGameState) -> MosaikGameState {
@@ -28,8 +28,9 @@ class MosaikGameState: GridGameState, MosaikMixin {
         return v
     }
     
-    required init(game: MosaikGame) {
+    required init(game: MosaikGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = Array<MosaikObject>(repeating: .empty, count: rows * cols)
         for p in game.pos2hint.keys {
             pos2state[p] = .normal

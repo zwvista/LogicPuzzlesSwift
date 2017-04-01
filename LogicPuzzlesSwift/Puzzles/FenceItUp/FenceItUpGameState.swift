@@ -18,7 +18,7 @@ class FenceItUpGameState: GridGameState, FenceItUpMixin {
     var pos2state = [Position: HintState]()
     
     override func copy() -> FenceItUpGameState {
-        let v = FenceItUpGameState(game: game)
+        let v = FenceItUpGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: FenceItUpGameState) -> FenceItUpGameState {
@@ -28,8 +28,9 @@ class FenceItUpGameState: GridGameState, FenceItUpMixin {
         return v
     }
     
-    required init(game: FenceItUpGame) {
+    required init(game: FenceItUpGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = game.objArray
         for p in game.pos2hint.keys {
             pos2state[p] = .normal

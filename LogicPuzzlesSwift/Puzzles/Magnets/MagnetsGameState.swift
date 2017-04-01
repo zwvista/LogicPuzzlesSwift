@@ -19,7 +19,7 @@ class MagnetsGameState: GridGameState, MagnetsMixin {
     var col2state = [HintState]()
     
     override func copy() -> MagnetsGameState {
-        let v = MagnetsGameState(game: game)
+        let v = MagnetsGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: MagnetsGameState) -> MagnetsGameState {
@@ -30,8 +30,9 @@ class MagnetsGameState: GridGameState, MagnetsMixin {
         return v
     }
     
-    required init(game: MagnetsGame) {
+    required init(game: MagnetsGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = Array<MagnetsObject>(repeating: MagnetsObject(), count: rows * cols)
         row2state = Array<HintState>(repeating: .normal, count: rows * 2)
         col2state = Array<HintState>(repeating: .normal, count: cols * 2)

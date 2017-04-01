@@ -19,7 +19,7 @@ class AbcGameState: GridGameState, AbcMixin {
     var col2state = [HintState]()
     
     override func copy() -> AbcGameState {
-        let v = AbcGameState(game: game)
+        let v = AbcGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: AbcGameState) -> AbcGameState {
@@ -30,8 +30,9 @@ class AbcGameState: GridGameState, AbcMixin {
         return v
     }
     
-    required init(game: AbcGame) {
+    required init(game: AbcGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = Array<Character>(repeating: " ", count: rows * cols)
         row2state = Array<HintState>(repeating: .normal, count: rows * 2)
         col2state = Array<HintState>(repeating: .normal, count: cols * 2)

@@ -17,7 +17,7 @@ class MasyuGameState: GridGameState, MasyuMixin {
     var objArray = [MasyuObject]()
     
     override func copy() -> MasyuGameState {
-        let v = MasyuGameState(game: game)
+        let v = MasyuGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: MasyuGameState) -> MasyuGameState {
@@ -26,8 +26,9 @@ class MasyuGameState: GridGameState, MasyuMixin {
         return v
     }
     
-    required init(game: MasyuGame) {
+    required init(game: MasyuGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = Array<MasyuObject>(repeating: MasyuObject(repeating: false, count: 4), count: rows * cols)
         updateIsSolved()
     }

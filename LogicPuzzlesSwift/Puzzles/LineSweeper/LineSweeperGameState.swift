@@ -18,7 +18,7 @@ class LineSweeperGameState: GridGameState, LineSweeperMixin {
     var pos2state = [Position: HintState]()
     
     override func copy() -> LineSweeperGameState {
-        let v = LineSweeperGameState(game: game)
+        let v = LineSweeperGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: LineSweeperGameState) -> LineSweeperGameState {
@@ -28,8 +28,9 @@ class LineSweeperGameState: GridGameState, LineSweeperMixin {
         return v
     }
     
-    required init(game: LineSweeperGame) {
+    required init(game: LineSweeperGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = Array<LineSweeperObject>(repeating: LineSweeperObject(repeating: false, count: 4), count: rows * cols)
         for p in game.pos2hint.keys {
             pos2state[p] = .normal

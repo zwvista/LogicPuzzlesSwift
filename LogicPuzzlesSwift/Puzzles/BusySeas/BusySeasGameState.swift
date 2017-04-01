@@ -17,7 +17,7 @@ class BusySeasGameState: GridGameState, BusySeasMixin {
     var objArray = [BusySeasObject]()
     
     override func copy() -> BusySeasGameState {
-        let v = BusySeasGameState(game: game)
+        let v = BusySeasGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: BusySeasGameState) -> BusySeasGameState {
@@ -26,8 +26,9 @@ class BusySeasGameState: GridGameState, BusySeasMixin {
         return v
     }
     
-    required init(game: BusySeasGame) {
+    required init(game: BusySeasGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = Array<BusySeasObject>(repeating: .empty, count: rows * cols)
         for p in game.pos2hint.keys {
             self[p] = .hint(state: .normal)

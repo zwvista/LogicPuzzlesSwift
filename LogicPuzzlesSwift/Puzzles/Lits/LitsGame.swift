@@ -12,13 +12,9 @@ class LitsGame: GridGame<LitsGameViewController, LitsGameMove, LitsGameState>, G
     static let gameID = "Lits"
     static let offset = [
         Position(-1, 0),
-        Position(-1, 1),
         Position(0, 1),
-        Position(1, 1),
         Position(1, 0),
-        Position(1, -1),
         Position(0, -1),
-        Position(-1, -1),
     ]
     static let offset2 = [
         Position(0, 0),
@@ -27,6 +23,41 @@ class LitsGame: GridGame<LitsGameViewController, LitsGameMove, LitsGameState>, G
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
+    static let offset3 = [
+        Position(0, 0),
+        Position(0, 1),
+        Position(1, 0),
+        Position(1, 1),
+    ]
+
+    static let tetrominoes = [
+        [ // L
+            [Position(0, 0), Position(1, 0), Position(2, 0), Position(2, 1)],
+            [Position(0, 1), Position(1, 1), Position(2, 0), Position(2, 1)],
+            [Position(0, 0), Position(0, 1), Position(0, 2), Position(1, 0)],
+            [Position(0, 0), Position(0, 1), Position(0, 2), Position(1, 2)],
+            [Position(0, 0), Position(0, 1), Position(1, 0), Position(2, 0)],
+            [Position(0, 0), Position(0, 1), Position(1, 1), Position(2, 1)],
+            [Position(0, 0), Position(1, 0), Position(1, 1), Position(1, 2)],
+            [Position(0, 2), Position(1, 0), Position(1, 1), Position(1, 2)],
+        ],
+        [ // I
+            [Position(0, 0), Position(1, 0), Position(2, 0), Position(3, 0)],
+            [Position(0, 0), Position(0, 1), Position(0, 2), Position(0, 3)],
+        ],
+        [ // T
+            [Position(0, 0), Position(0, 1), Position(0, 2), Position(1, 1)],
+            [Position(0, 1), Position(1, 0), Position(1, 1), Position(2, 1)],
+            [Position(0, 1), Position(1, 0), Position(1, 1), Position(1, 2)],
+            [Position(0, 0), Position(1, 0), Position(1, 1), Position(2, 0)],
+        ],
+        [ // S
+            [Position(0, 0), Position(0, 1), Position(1, 1), Position(1, 2)],
+            [Position(0, 1), Position(0, 2), Position(1, 0), Position(1, 1)],
+            [Position(0, 0), Position(1, 0), Position(1, 1), Position(2, 1)],
+            [Position(0, 1), Position(1, 0), Position(1, 1), Position(2, 0)],
+        ],
+    ];
 
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
@@ -73,7 +104,7 @@ class LitsGame: GridGame<LitsGameViewController, LitsGameMove, LitsGameState>, G
                 let p = Position(r, c)
                 for i in 0..<4 {
                     if dots[p + LitsGame.offset2[i]][LitsGame.dirs[i]] != .line {
-                        g.addEdge(pos2node[p]!, neighbor: pos2node[p + LitsGame.offset[i * 2]]!)
+                        g.addEdge(pos2node[p]!, neighbor: pos2node[p + LitsGame.offset[i]]!)
                     }
                 }
             }

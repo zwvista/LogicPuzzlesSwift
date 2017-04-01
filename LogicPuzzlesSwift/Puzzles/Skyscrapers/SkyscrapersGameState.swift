@@ -19,7 +19,7 @@ class SkyscrapersGameState: GridGameState, SkyscrapersMixin {
     var col2state = [HintState]()
     
     override func copy() -> SkyscrapersGameState {
-        let v = SkyscrapersGameState(game: game)
+        let v = SkyscrapersGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: SkyscrapersGameState) -> SkyscrapersGameState {
@@ -30,8 +30,9 @@ class SkyscrapersGameState: GridGameState, SkyscrapersMixin {
         return v
     }
     
-    required init(game: SkyscrapersGame) {
+    required init(game: SkyscrapersGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = Array<Int>(repeating: 0, count: rows * cols)
         row2state = Array<HintState>(repeating: .normal, count: rows * 2)
         col2state = Array<HintState>(repeating: .normal, count: cols * 2)

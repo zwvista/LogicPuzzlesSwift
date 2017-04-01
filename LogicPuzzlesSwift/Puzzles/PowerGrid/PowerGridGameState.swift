@@ -19,7 +19,7 @@ class PowerGridGameState: GridGameState, PowerGridMixin {
     var col2state = [HintState]()
     
     override func copy() -> PowerGridGameState {
-        let v = PowerGridGameState(game: game)
+        let v = PowerGridGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: PowerGridGameState) -> PowerGridGameState {
@@ -30,8 +30,9 @@ class PowerGridGameState: GridGameState, PowerGridMixin {
         return v
     }
     
-    required init(game: PowerGridGame) {
+    required init(game: PowerGridGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = Array<PowerGridObject>(repeating: PowerGridObject(), count: rows * cols)
         row2state = Array<HintState>(repeating: .normal, count: rows)
         col2state = Array<HintState>(repeating: .normal, count: cols)

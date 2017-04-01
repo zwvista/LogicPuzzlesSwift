@@ -19,7 +19,7 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
     var col2state = [HintState]()
     
     override func copy() -> BattleShipsGameState {
-        let v = BattleShipsGameState(game: game)
+        let v = BattleShipsGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: BattleShipsGameState) -> BattleShipsGameState {
@@ -30,8 +30,9 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
         return v
     }
     
-    required init(game: BattleShipsGame) {
+    required init(game: BattleShipsGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = Array<BattleShipsObject>(repeating: BattleShipsObject(), count: rows * cols)
         row2state = Array<HintState>(repeating: .normal, count: rows)
         col2state = Array<HintState>(repeating: .normal, count: cols)

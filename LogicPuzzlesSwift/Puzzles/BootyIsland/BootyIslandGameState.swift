@@ -17,7 +17,7 @@ class BootyIslandGameState: GridGameState, BootyIslandMixin {
     var objArray = [BootyIslandObject]()
     
     override func copy() -> BootyIslandGameState {
-        let v = BootyIslandGameState(game: game)
+        let v = BootyIslandGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: BootyIslandGameState) -> BootyIslandGameState {
@@ -26,8 +26,9 @@ class BootyIslandGameState: GridGameState, BootyIslandMixin {
         return v
     }
     
-    required init(game: BootyIslandGame) {
+    required init(game: BootyIslandGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = Array<BootyIslandObject>(repeating: .empty, count: rows * cols)
         for p in game.pos2hint.keys {
             self[p] = .hint(state: .normal)

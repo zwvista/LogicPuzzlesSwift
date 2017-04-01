@@ -18,7 +18,7 @@ class NeighboursGameState: GridGameState, NeighboursMixin {
     var pos2state = [Position: HintState]()
     
     override func copy() -> NeighboursGameState {
-        let v = NeighboursGameState(game: game)
+        let v = NeighboursGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: NeighboursGameState) -> NeighboursGameState {
@@ -28,8 +28,9 @@ class NeighboursGameState: GridGameState, NeighboursMixin {
         return v
     }
     
-    required init(game: NeighboursGame) {
+    required init(game: NeighboursGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = game.objArray
         for p in game.pos2hint.keys {
             pos2state[p] = .normal

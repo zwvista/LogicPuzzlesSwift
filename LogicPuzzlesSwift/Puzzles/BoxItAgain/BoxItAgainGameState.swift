@@ -18,7 +18,7 @@ class BoxItAgainGameState: GridGameState, BoxItAgainMixin {
     var pos2state = [Position: HintState]()
     
     override func copy() -> BoxItAgainGameState {
-        let v = BoxItAgainGameState(game: game)
+        let v = BoxItAgainGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: BoxItAgainGameState) -> BoxItAgainGameState {
@@ -28,8 +28,9 @@ class BoxItAgainGameState: GridGameState, BoxItAgainMixin {
         return v
     }
     
-    required init(game: BoxItAgainGame) {
+    required init(game: BoxItAgainGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = game.objArray
         for p in game.pos2hint.keys {
             pos2state[p] = .normal

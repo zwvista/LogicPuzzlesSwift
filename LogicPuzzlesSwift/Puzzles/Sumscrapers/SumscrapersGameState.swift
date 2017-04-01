@@ -19,7 +19,7 @@ class SumscrapersGameState: GridGameState, SumscrapersMixin {
     var col2state = [HintState]()
     
     override func copy() -> SumscrapersGameState {
-        let v = SumscrapersGameState(game: game)
+        let v = SumscrapersGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: SumscrapersGameState) -> SumscrapersGameState {
@@ -30,8 +30,9 @@ class SumscrapersGameState: GridGameState, SumscrapersMixin {
         return v
     }
     
-    required init(game: SumscrapersGame) {
+    required init(game: SumscrapersGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = Array<Int>(repeating: 0, count: rows * cols)
         row2state = Array<HintState>(repeating: .normal, count: rows * 2)
         col2state = Array<HintState>(repeating: .normal, count: cols * 2)

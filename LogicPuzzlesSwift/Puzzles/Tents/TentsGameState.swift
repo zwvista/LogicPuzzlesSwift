@@ -19,7 +19,7 @@ class TentsGameState: GridGameState, TentsMixin {
     var col2state = [HintState]()
     
     override func copy() -> TentsGameState {
-        let v = TentsGameState(game: game)
+        let v = TentsGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: TentsGameState) -> TentsGameState {
@@ -30,8 +30,9 @@ class TentsGameState: GridGameState, TentsMixin {
         return v
     }
     
-    required init(game: TentsGame) {
+    required init(game: TentsGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = Array<TentsObject>(repeating: TentsObject(), count: rows * cols)
         for p in game.pos2tree {
             self[p] = .tree

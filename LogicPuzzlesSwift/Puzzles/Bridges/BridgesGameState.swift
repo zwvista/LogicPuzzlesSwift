@@ -17,7 +17,7 @@ class BridgesGameState: GridGameState, BridgesMixin {
     var objArray = [BridgesObject]()
     
     override func copy() -> BridgesGameState {
-        let v = BridgesGameState(game: game)
+        let v = BridgesGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: BridgesGameState) -> BridgesGameState {
@@ -26,8 +26,9 @@ class BridgesGameState: GridGameState, BridgesMixin {
         return v
     }
 
-    required init(game: BridgesGame) {
+    required init(game: BridgesGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = Array<BridgesObject>(repeating: BridgesObject(), count: rows * cols)
         for p in game.islandsInfo.keys {
             self[p] = .island(state: .normal, bridges: [0, 0, 0, 0])

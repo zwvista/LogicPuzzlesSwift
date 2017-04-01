@@ -8,6 +8,13 @@
 
 import Foundation
 
+class LitsAreaInfo {
+    var trees = [Position]()
+    var blockIndexes = Set<Int>()
+    var neighborIndexes = Set<Int>()
+    var tetrominoIndex: Int?
+}
+
 class LitsGameState: GridGameState, LitsMixin {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: LitsGame {
@@ -18,7 +25,7 @@ class LitsGameState: GridGameState, LitsMixin {
     var pos2state = [Position: HintState]()
     
     override func copy() -> LitsGameState {
-        let v = LitsGameState(game: game)
+        let v = LitsGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: LitsGameState) -> LitsGameState {
@@ -28,8 +35,9 @@ class LitsGameState: GridGameState, LitsMixin {
         return v
     }
     
-    required init(game: LitsGame) {
+    required init(game: LitsGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = Array<LitsObject>(repeating: .empty, count: rows * cols)
         updateIsSolved()
     }
@@ -81,6 +89,8 @@ class LitsGameState: GridGameState, LitsMixin {
     
     private func updateIsSolved() {
         isSolved = true
+        let g = Graph()
+        var pos2node = [Position: Node]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
@@ -89,83 +99,97 @@ class LitsGameState: GridGameState, LitsMixin {
                     self[p] = .empty
                 case .tree:
                     self[p] = .tree(state: .normal)
+                    pos2node[p] = g.addNode(p.description)
                 default:
                     break
                 }
             }
         }
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                func hasNeighbor() -> Bool {
-                    for os in LitsGame.offset {
-                        let p2 = p + os
-                        if isValid(p: p2), case .tree = self[p2] {return true}
+        for p in pos2node.keys {
+            for os in LitsGame.offset {
+                let p2 = p + os
+                if let node2 = pos2node[p2] {
+                    g.addEdge(pos2node[p]!, neighbor: node2)
+                }
+            }
+        }
+        var blocks = [[Position]]()
+        while !pos2node.isEmpty {
+            let node = pos2node.first!.value
+            let nodesExplored = breadthFirstSearch(g, source: node)
+            let block = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
+            blocks.append(block)
+            pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
+        }
+        if blocks.count != 1 {isSolved = false}
+        var infos = [LitsAreaInfo]()
+        for i in 0..<game.areas.count {
+            infos.append(LitsAreaInfo())
+        }
+        for i in 0..<blocks.count {
+            let block = blocks[i]
+            var areaIndexes = Set<Int>()
+            for p in block {
+                let n = game.pos2area[p]!
+                areaIndexes.insert(n)
+                let info = infos[n]
+                info.trees.append(p)
+                info.blockIndexes.insert(i)
+            }
+            for n in areaIndexes {
+                let info = infos[n]
+                for n2 in areaIndexes {
+                    if n != n2 {
+                        info.neighborIndexes.insert(n2)
                     }
-                    return false
-                }
-                switch self[p] {
-                case let .tree(state):
-                    self[p] = .tree(state: state == .normal && !hasNeighbor() ? .normal : .error)
-                case .forbidden:
-                    break
-                default:
-                    guard allowedObjectsOnly && hasNeighbor() else {continue}
-                    self[p] = .forbidden
                 }
             }
         }
-        let n2 = game.treesInEachArea
-        for r in 0..<rows {
-            var n1 = 0
-            for c in 0..<cols {
-                if case .tree = self[r, c] {n1 += 1}
-            }
-            if n1 != n2 {isSolved = false}
-            for c in 0..<cols {
-                switch self[r, c] {
-                case let .tree(state):
-                    self[r, c] = .tree(state: state == .normal && n1 <= n2 ? .normal : .error)
-                case .forbidden:
-                    break
-                default:
-                    if n1 == n2 && allowedObjectsOnly {self[r, c] = .forbidden}
-                }
+        func notSolved(info: LitsAreaInfo) {
+            isSolved = false
+            for p in info.trees {
+                self[p] = .tree(state: .error)
             }
         }
-        for c in 0..<cols {
-            var n1 = 0
-            for r in 0..<rows {
-                if case .tree = self[r, c] {n1 += 1}
-            }
-            if n1 != n2 {isSolved = false}
-            for r in 0..<rows {
-                switch self[r, c] {
-                case let .tree(state):
-                    self[r, c] = .tree(state: state == .normal && n1 <= n2 ? .normal : .error)
-                case .forbidden:
-                    break
-                default:
-                    if n1 == n2 && allowedObjectsOnly {self[r, c] = .forbidden}
+        for i in 0..<infos.count {
+            let info = infos[i]
+            let treeCount = info.trees.count
+            if treeCount > 4 || treeCount == 4 && info.blockIndexes.count > 1 {notSolved(info: info)}
+            if treeCount >= 4 {
+                for p in game.areas[i] {
+                    switch self[p] {
+                    case .empty, .marker:
+                        self[p] = .forbidden
+                    default:
+                        break
+                    }
                 }
             }
+            if treeCount == 4 {
+                info.trees.sort()
+                var treeOffsets = [Position]()
+                let p2 = Position(info.trees.min(by: {$0.row < $1.row})!.row, info.trees.min(by: {$0.col < $1.col})!.col)
+                for p in info.trees {
+                    treeOffsets.append(p - p2)
+                }
+                info.tetrominoIndex = LitsGame.tetrominoes.index(where: {$0.contains(where: {$0 == treeOffsets})})
+                if info.tetrominoIndex == nil {notSolved(info: info)}
+            }
+            if treeCount < 4 {isSolved = false}
         }
-        for a in game.areas {
-            var n1 = 0
-            for p in a {
-                if case .tree = self[p] {n1 += 1}
+        for i in 0..<infos.count {
+            let info = infos[i]
+            guard let index = info.tetrominoIndex else {continue}
+            if info.neighborIndexes.contains(where: {infos[$0].tetrominoIndex == index}) {notSolved(info: info)}
+        }
+        guard isSolved else {return}
+        let block = blocks[0]
+        rule2x2:
+        for p in block {
+            for os in LitsGame.offset3 {
+                guard block.contains(p + os) else {continue rule2x2}
             }
-            if n1 != n2 {isSolved = false}
-            for p in a {
-                switch self[p] {
-                case let .tree(state):
-                    self[p] = .tree(state: state == .normal && n1 <= n2 ? .normal : .error)
-                case .forbidden:
-                    break
-                default:
-                    if n1 == n2 && allowedObjectsOnly {self[p] = .forbidden}
-                }
-            }
+            isSolved = false; return
         }
     }
 }

@@ -17,7 +17,7 @@ class DominoGameState: GridGameState, DominoMixin {
     var objArray = [GridDotObject]()
     
     override func copy() -> DominoGameState {
-        let v = DominoGameState(game: game)
+        let v = DominoGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: DominoGameState) -> DominoGameState {
@@ -26,8 +26,9 @@ class DominoGameState: GridGameState, DominoMixin {
         return v
     }
     
-    required init(game: DominoGame) {
+    required init(game: DominoGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = game.objArray
         updateIsSolved()
     }

@@ -18,7 +18,7 @@ class SlitherLinkGameState: GridGameState, SlitherLinkMixin {
     var pos2state = [Position: HintState]()
     
     override func copy() -> SlitherLinkGameState {
-        let v = SlitherLinkGameState(game: game)
+        let v = SlitherLinkGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: SlitherLinkGameState) -> SlitherLinkGameState {
@@ -28,8 +28,9 @@ class SlitherLinkGameState: GridGameState, SlitherLinkMixin {
         return v
     }
     
-    required init(game: SlitherLinkGame) {
+    required init(game: SlitherLinkGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = Array<GridDotObject>(repeating: Array<GridLineObject>(repeating: .empty, count: 4), count: rows * cols)
         for p in game.pos2hint.keys {
             pos2state[p] = .normal

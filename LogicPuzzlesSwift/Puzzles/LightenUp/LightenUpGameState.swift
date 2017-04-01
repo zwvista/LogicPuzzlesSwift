@@ -17,7 +17,7 @@ class LightenUpGameState: GridGameState, LightenUpMixin {
     var objArray = [LightenUpObject]()
     
     override func copy() -> LightenUpGameState {
-        let v = LightenUpGameState(game: game)
+        let v = LightenUpGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: LightenUpGameState) -> LightenUpGameState {
@@ -26,8 +26,9 @@ class LightenUpGameState: GridGameState, LightenUpMixin {
         return v
     }
     
-    required init(game: LightenUpGame) {
+    required init(game: LightenUpGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = Array<LightenUpObject>(repeating: LightenUpObject(), count: rows * cols)
         for (p, lightbulbs) in game.wall2Lightbulbs {
             self[p].objType = .wall(state: lightbulbs <= 0 ? .complete : .normal)

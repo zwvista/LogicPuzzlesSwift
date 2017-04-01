@@ -17,7 +17,7 @@ class LoopyGameState: GridGameState, LoopyMixin {
     var objArray = [GridDotObject]()
     
     override func copy() -> LoopyGameState {
-        let v = LoopyGameState(game: game)
+        let v = LoopyGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: LoopyGameState) -> LoopyGameState {
@@ -26,8 +26,9 @@ class LoopyGameState: GridGameState, LoopyMixin {
         return v
     }
     
-    required init(game: LoopyGame) {
+    required init(game: LoopyGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = game.objArray
         updateIsSolved()
     }

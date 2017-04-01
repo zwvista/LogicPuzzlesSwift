@@ -17,7 +17,7 @@ class SentinelsGameState: GridGameState, SentinelsMixin {
     var objArray = [SentinelsObject]()
     
     override func copy() -> SentinelsGameState {
-        let v = SentinelsGameState(game: game)
+        let v = SentinelsGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: SentinelsGameState) -> SentinelsGameState {
@@ -26,8 +26,9 @@ class SentinelsGameState: GridGameState, SentinelsMixin {
         return v
     }
     
-    required init(game: SentinelsGame) {
+    required init(game: SentinelsGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = Array<SentinelsObject>(repeating: .empty, count: rows * cols)
         for p in game.pos2hint.keys {
             self[p] = .hint(state: .normal)

@@ -20,7 +20,7 @@ class SnailGameState: GridGameState, SnailMixin {
     var col2state = [HintState]()
     
     override func copy() -> SnailGameState {
-        let v = SnailGameState(game: game)
+        let v = SnailGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: SnailGameState) -> SnailGameState {
@@ -32,8 +32,9 @@ class SnailGameState: GridGameState, SnailMixin {
         return v
     }
     
-    required init(game: SnailGame) {
+    required init(game: SnailGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = game.objArray
         row2state = Array<HintState>(repeating: .normal, count: rows)
         col2state = Array<HintState>(repeating: .normal, count: cols)

@@ -17,7 +17,7 @@ class LighthousesGameState: GridGameState, LighthousesMixin {
     var objArray = [LighthousesObject]()
     
     override func copy() -> LighthousesGameState {
-        let v = LighthousesGameState(game: game)
+        let v = LighthousesGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: LighthousesGameState) -> LighthousesGameState {
@@ -26,8 +26,9 @@ class LighthousesGameState: GridGameState, LighthousesMixin {
         return v
     }
     
-    required init(game: LighthousesGame) {
+    required init(game: LighthousesGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = Array<LighthousesObject>(repeating: .empty, count: rows * cols)
         for p in game.pos2hint.keys {
             self[p] = .hint(state: .normal)

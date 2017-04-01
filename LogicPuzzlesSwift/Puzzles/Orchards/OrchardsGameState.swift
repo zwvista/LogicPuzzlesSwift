@@ -18,7 +18,7 @@ class OrchardsGameState: GridGameState, OrchardsMixin {
     var pos2state = [Position: HintState]()
     
     override func copy() -> OrchardsGameState {
-        let v = OrchardsGameState(game: game)
+        let v = OrchardsGameState(game: game, isCopy: true)
         return setup(v: v)
     }
     func setup(v: OrchardsGameState) -> OrchardsGameState {
@@ -28,8 +28,9 @@ class OrchardsGameState: GridGameState, OrchardsMixin {
         return v
     }
     
-    required init(game: OrchardsGame) {
+    required init(game: OrchardsGame, isCopy: Bool = false) {
         super.init(game: game)
+        guard !isCopy else {return}
         objArray = Array<OrchardsObject>(repeating: .empty, count: rows * cols)
         updateIsSolved()
     }
