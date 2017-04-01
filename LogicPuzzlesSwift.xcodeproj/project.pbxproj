@@ -390,6 +390,18 @@
 		8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E51D771915000139FC /* LaunchScreen.storyboard */; };
 		8C9F43F21D771915000139FC /* LogicPuzzlesSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43F11D771915000139FC /* LogicPuzzlesSwiftTests.swift */; };
 		8C9F43FD1D771915000139FC /* LogicPuzzlesSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43FC1D771915000139FC /* LogicPuzzlesSwiftUITests.swift */; };
+		8CB29ACA1E8F716C001D07C6 /* Minesweeper.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB29ABE1E8F716C001D07C6 /* Minesweeper.storyboard */; };
+		8CB29ACB1E8F716C001D07C6 /* Minesweeper.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB29ABF1E8F716C001D07C6 /* Minesweeper.xml */; };
+		8CB29ACC1E8F716C001D07C6 /* MinesweeperDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AC01E8F716C001D07C6 /* MinesweeperDocument.swift */; };
+		8CB29ACD1E8F716C001D07C6 /* MinesweeperGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AC11E8F716C001D07C6 /* MinesweeperGame.swift */; };
+		8CB29ACE1E8F716C001D07C6 /* MinesweeperGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AC21E8F716C001D07C6 /* MinesweeperGameScene.swift */; };
+		8CB29ACF1E8F716C001D07C6 /* MinesweeperGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AC31E8F716C001D07C6 /* MinesweeperGameState.swift */; };
+		8CB29AD01E8F716C001D07C6 /* MinesweeperGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AC41E8F716C001D07C6 /* MinesweeperGameViewController.swift */; };
+		8CB29AD11E8F716C001D07C6 /* MinesweeperGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AC51E8F716C001D07C6 /* MinesweeperGridNode.swift */; };
+		8CB29AD21E8F716C001D07C6 /* MinesweeperMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AC61E8F716C001D07C6 /* MinesweeperMainViewController.swift */; };
+		8CB29AD31E8F716C001D07C6 /* MinesweeperMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AC71E8F716C001D07C6 /* MinesweeperMixin.swift */; };
+		8CB29AD41E8F716C001D07C6 /* MinesweeperObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AC81E8F716C001D07C6 /* MinesweeperObject.swift */; };
+		8CB29AD51E8F716C001D07C6 /* MinesweeperOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AC91E8F716C001D07C6 /* MinesweeperOptionsViewController.swift */; };
 		8CC34F9C1DFD958A00B8FD83 /* negative.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC34F9A1DFD958A00B8FD83 /* negative.png */; };
 		8CC34F9D1DFD958A00B8FD83 /* positive.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC34F9B1DFD958A00B8FD83 /* positive.png */; };
 		8CC350311E001D2800B8FD83 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350011E001D2700B8FD83 /* ArrayExtensions.swift */; };
@@ -936,6 +948,18 @@
 		8C9F43F81D771915000139FC /* LogicPuzzlesSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogicPuzzlesSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9F43FC1D771915000139FC /* LogicPuzzlesSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicPuzzlesSwiftUITests.swift; sourceTree = "<group>"; };
 		8C9F43FE1D771915000139FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CB29ABE1E8F716C001D07C6 /* Minesweeper.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Minesweeper.storyboard; sourceTree = "<group>"; };
+		8CB29ABF1E8F716C001D07C6 /* Minesweeper.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Minesweeper.xml; sourceTree = "<group>"; };
+		8CB29AC01E8F716C001D07C6 /* MinesweeperDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperDocument.swift; sourceTree = "<group>"; };
+		8CB29AC11E8F716C001D07C6 /* MinesweeperGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperGame.swift; sourceTree = "<group>"; };
+		8CB29AC21E8F716C001D07C6 /* MinesweeperGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperGameScene.swift; sourceTree = "<group>"; };
+		8CB29AC31E8F716C001D07C6 /* MinesweeperGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperGameState.swift; sourceTree = "<group>"; };
+		8CB29AC41E8F716C001D07C6 /* MinesweeperGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperGameViewController.swift; sourceTree = "<group>"; };
+		8CB29AC51E8F716C001D07C6 /* MinesweeperGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperGridNode.swift; sourceTree = "<group>"; };
+		8CB29AC61E8F716C001D07C6 /* MinesweeperMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperMainViewController.swift; sourceTree = "<group>"; };
+		8CB29AC71E8F716C001D07C6 /* MinesweeperMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperMixin.swift; sourceTree = "<group>"; };
+		8CB29AC81E8F716C001D07C6 /* MinesweeperObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperObject.swift; sourceTree = "<group>"; };
+		8CB29AC91E8F716C001D07C6 /* MinesweeperOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperOptionsViewController.swift; sourceTree = "<group>"; };
 		8CC34F9A1DFD958A00B8FD83 /* negative.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = negative.png; sourceTree = "<group>"; };
 		8CC34F9B1DFD958A00B8FD83 /* positive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = positive.png; sourceTree = "<group>"; };
 		8CC350011E001D2700B8FD83 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
@@ -1401,6 +1425,7 @@
 				8C9AF5061DE975030053BED4 /* Loopy */,
 				8C9AF5521DF8D7770053BED4 /* Magnets */,
 				8C9AF4411DE974BF0053BED4 /* Masyu */,
+				8CB29ABD1E8F716C001D07C6 /* Minesweeper */,
 				8C9AF5381DF471AA0053BED4 /* Mosaik */,
 				8C10B7761E87B6870049C44B /* Neighbours */,
 				8C9AF44E1DE974BF0053BED4 /* Nurikabe */,
@@ -1884,6 +1909,25 @@
 			path = LogicPuzzlesSwiftUITests;
 			sourceTree = "<group>";
 		};
+		8CB29ABD1E8F716C001D07C6 /* Minesweeper */ = {
+			isa = PBXGroup;
+			children = (
+				8CB29ABE1E8F716C001D07C6 /* Minesweeper.storyboard */,
+				8CB29ABF1E8F716C001D07C6 /* Minesweeper.xml */,
+				8CB29AC01E8F716C001D07C6 /* MinesweeperDocument.swift */,
+				8CB29AC11E8F716C001D07C6 /* MinesweeperGame.swift */,
+				8CB29AC21E8F716C001D07C6 /* MinesweeperGameScene.swift */,
+				8CB29AC31E8F716C001D07C6 /* MinesweeperGameState.swift */,
+				8CB29AC41E8F716C001D07C6 /* MinesweeperGameViewController.swift */,
+				8CB29AC51E8F716C001D07C6 /* MinesweeperGridNode.swift */,
+				8CB29AC61E8F716C001D07C6 /* MinesweeperMainViewController.swift */,
+				8CB29AC71E8F716C001D07C6 /* MinesweeperMixin.swift */,
+				8CB29AC81E8F716C001D07C6 /* MinesweeperObject.swift */,
+				8CB29AC91E8F716C001D07C6 /* MinesweeperOptionsViewController.swift */,
+			);
+			path = Minesweeper;
+			sourceTree = "<group>";
+		};
 		8CC3CD0F1E32DEE40056B78F /* Snail */ = {
 			isa = PBXGroup;
 			children = (
@@ -2097,6 +2141,7 @@
 				8C9AF49A1DE974BF0053BED4 /* Clouds.storyboard in Resources */,
 				8C1D16B21DB8DE930056D407 /* TraversalTree.png in Resources */,
 				8CC3CD1D1E32DEE40056B78F /* Snail.xml in Resources */,
+				8CB29ACB1E8F716C001D07C6 /* Minesweeper.xml in Resources */,
 				8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */,
 				8C9AF5451DF471AA0053BED4 /* Mosaik.storyboard in Resources */,
 				8C9AF4BF1DE974BF0053BED4 /* LineSweeper.xml in Resources */,
@@ -2134,6 +2179,7 @@
 				84FBA5231DFF7F3600594DAE /* BattleShips.storyboard in Resources */,
 				8C10B79F1E8A98C30049C44B /* Sentinels.xml in Resources */,
 				8C9AF5141DE975030053BED4 /* Loopy.xml in Resources */,
+				8CB29ACA1E8F716C001D07C6 /* Minesweeper.storyboard in Resources */,
 				8C81CB9E1E19546000FB244A /* BoxItAgain.storyboard in Resources */,
 				8C9AF5131DE975030053BED4 /* Loopy.storyboard in Resources */,
 				8C9AF4D71DE974BF0053BED4 /* Nurikabe.xml in Resources */,
@@ -2190,6 +2236,7 @@
 			files = (
 				8C81CBA61E19546000FB244A /* BoxItAgainMainViewController.swift in Sources */,
 				8C10B7EE1E8D7DC50049C44B /* PowerGridGameScene.swift in Sources */,
+				8CB29AD31E8F716C001D07C6 /* MinesweeperMixin.swift in Sources */,
 				8CC3504D1E001D2800B8FD83 /* UIBarButtonItemExtensions.swift in Sources */,
 				8C6D37FB1DC5ACDB0052202C /* Copyable.swift in Sources */,
 				8C10B78E1E87B6870049C44B /* NeighboursOptionsViewController.swift in Sources */,
@@ -2233,6 +2280,7 @@
 				8C9AF4D11DE974BF0053BED4 /* MasyuGridNode.swift in Sources */,
 				8C9AF4D41DE974BF0053BED4 /* MasyuObject.swift in Sources */,
 				8C9AF4A81DE974BF0053BED4 /* HitoriDocument.swift in Sources */,
+				8CB29AD51E8F716C001D07C6 /* MinesweeperOptionsViewController.swift in Sources */,
 				8C9AF57B1DF8D84B0053BED4 /* RoomsDocument.swift in Sources */,
 				8C9AF4E81DE974BF0053BED4 /* SkyscrapersGameViewController.swift in Sources */,
 				8C373D6F1E14A622005712CD /* BoxItUpDocument.swift in Sources */,
@@ -2322,12 +2370,15 @@
 				8CCF10ED1E8F5D9900422284 /* DominoGridNode.swift in Sources */,
 				8C10B7BA1E8AB2680049C44B /* ProductSentinelsDocument.swift in Sources */,
 				8C81CBA81E19546000FB244A /* BoxItAgainObject.swift in Sources */,
+				8CB29ACD1E8F716C001D07C6 /* MinesweeperGame.swift in Sources */,
+				8CB29AD01E8F716C001D07C6 /* MinesweeperGameViewController.swift in Sources */,
 				8C10B7A41E8A98C30049C44B /* SentinelsGameViewController.swift in Sources */,
 				84FBA55C1DFF7F4F00594DAE /* TentsGameViewController.swift in Sources */,
 				8CCF10D21E8E097C00422284 /* LighthousesGameState.swift in Sources */,
 				8C373D731E14A622005712CD /* BoxItUpGameViewController.swift in Sources */,
 				8CCF10D71E8E097C00422284 /* LighthousesObject.swift in Sources */,
 				8C886C441D9E8AF1004A42BF /* SWActionSheet.m in Sources */,
+				8CB29AD11E8F716C001D07C6 /* MinesweeperGridNode.swift in Sources */,
 				8C9AF4C51DE974BF0053BED4 /* LineSweeperGridNode.swift in Sources */,
 				8CC350501E001D2800B8FD83 /* UIColorExtensions.swift in Sources */,
 				8CC350421E001D2800B8FD83 /* ErrorTypeExtensions.swift in Sources */,
@@ -2402,6 +2453,7 @@
 				8CC350431E001D2800B8FD83 /* EZSwiftFunctions.swift in Sources */,
 				8CCF10D51E8E097C00422284 /* LighthousesMainViewController.swift in Sources */,
 				8C10B7D71E8CDABA0049C44B /* BootyIslandGameViewController.swift in Sources */,
+				8CB29AD41E8F716C001D07C6 /* MinesweeperObject.swift in Sources */,
 				8C373D631E14A622005712CD /* BoxItAroundDocument.swift in Sources */,
 				8CCF10F11E8F5D9900422284 /* DominoOptionsViewController.swift in Sources */,
 				8C9AF4FD1DE974BF0053BED4 /* SumscrapersGame.swift in Sources */,
@@ -2415,6 +2467,7 @@
 				8CC350371E001D2800B8FD83 /* BlockTap.swift in Sources */,
 				8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */,
 				8C9AF4D01DE974BF0053BED4 /* MasyuGameViewController.swift in Sources */,
+				8CB29ACE1E8F716C001D07C6 /* MinesweeperGameScene.swift in Sources */,
 				8C9AF4F11DE974BF0053BED4 /* SlitherLinkGame.swift in Sources */,
 				8C81CBAF1E19546000FB244A /* FenceItUpGameState.swift in Sources */,
 				8C81CBAC1E19546000FB244A /* FenceItUpDocument.swift in Sources */,
@@ -2509,6 +2562,7 @@
 				8C9AF4B61DE974BF0053BED4 /* LightenUpGameScene.swift in Sources */,
 				8C373D641E14A622005712CD /* BoxItAroundGame.swift in Sources */,
 				8C6D37F31DC5AC310052202C /* SoundManager.swift in Sources */,
+				8CB29ACC1E8F716C001D07C6 /* MinesweeperDocument.swift in Sources */,
 				8C373D711E14A622005712CD /* BoxItUpGameScene.swift in Sources */,
 				8CC3503B1E001D2800B8FD83 /* CGFloatExtensions.swift in Sources */,
 				8CC3505C1E001D2800B8FD83 /* UIViewControllerExtensions.swift in Sources */,
@@ -2573,11 +2627,13 @@
 				8C373D6A1E14A622005712CD /* BoxItAroundMixin.swift in Sources */,
 				8C9AF4DF1DE974BF0053BED4 /* NurikabeMixin.swift in Sources */,
 				8C10B7C31E8AB2680049C44B /* ProductSentinelsOptionsViewController.swift in Sources */,
+				8CB29ACF1E8F716C001D07C6 /* MinesweeperGameState.swift in Sources */,
 				8C9AF4C11DE974BF0053BED4 /* LineSweeperGame.swift in Sources */,
 				8C10B7F21E8D7DC50049C44B /* PowerGridMainViewController.swift in Sources */,
 				8C9AF51B1DE975030053BED4 /* LoopyMainViewController.swift in Sources */,
 				8C10B7ED1E8D7DC50049C44B /* PowerGridGame.swift in Sources */,
 				8CC350461E001D2800B8FD83 /* NSAttributedStringExtensions.swift in Sources */,
+				8CB29AD21E8F716C001D07C6 /* MinesweeperMainViewController.swift in Sources */,
 				8C81CBA91E19546000FB244A /* BoxItAgainOptionsViewController.swift in Sources */,
 				8C10B7F31E8D7DC50049C44B /* PowerGridMixin.swift in Sources */,
 				8C81CBB51E19546000FB244A /* FenceItUpOptionsViewController.swift in Sources */,
