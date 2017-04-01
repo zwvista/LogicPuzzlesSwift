@@ -107,11 +107,11 @@ class ParksGameState: GridGameState, ParksMixin {
                 switch self[p] {
                 case let .tree(state):
                     self[p] = .tree(state: state == .normal && !hasNeighbor() ? .normal : .error)
-                case .forbidden:
-                    break
-                default:
+                case .empty, .marker:
                     guard allowedObjectsOnly && hasNeighbor() else {continue}
                     self[p] = .forbidden
+                default:
+                    break
                 }
             }
         }
@@ -126,10 +126,10 @@ class ParksGameState: GridGameState, ParksMixin {
                 switch self[r, c] {
                 case let .tree(state):
                     self[r, c] = .tree(state: state == .normal && n1 <= n2 ? .normal : .error)
-                case .forbidden:
-                    break
-                default:
+                case .empty, .marker:
                     if n1 == n2 && allowedObjectsOnly {self[r, c] = .forbidden}
+                default:
+                    break
                 }
             }
         }
@@ -143,10 +143,10 @@ class ParksGameState: GridGameState, ParksMixin {
                 switch self[r, c] {
                 case let .tree(state):
                     self[r, c] = .tree(state: state == .normal && n1 <= n2 ? .normal : .error)
-                case .forbidden:
-                    break
-                default:
+                case .empty, .marker:
                     if n1 == n2 && allowedObjectsOnly {self[r, c] = .forbidden}
+                default:
+                    break
                 }
             }
         }
@@ -160,10 +160,10 @@ class ParksGameState: GridGameState, ParksMixin {
                 switch self[p] {
                 case let .tree(state):
                     self[p] = .tree(state: state == .normal && n1 <= n2 ? .normal : .error)
-                case .forbidden:
-                    break
-                default:
+                case .empty, .marker:
                     if n1 == n2 && allowedObjectsOnly {self[p] = .forbidden}
+                default:
+                    break
                 }
             }
         }

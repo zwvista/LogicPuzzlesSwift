@@ -12,13 +12,9 @@ class OrchardsGame: GridGame<OrchardsGameViewController, OrchardsGameMove, Orcha
     static let gameID = "Orchards"
     static let offset = [
         Position(-1, 0),
-        Position(-1, 1),
         Position(0, 1),
-        Position(1, 1),
         Position(1, 0),
-        Position(1, -1),
         Position(0, -1),
-        Position(-1, -1),
     ]
     static let offset2 = [
         Position(0, 0),
@@ -73,7 +69,7 @@ class OrchardsGame: GridGame<OrchardsGameViewController, OrchardsGameMove, Orcha
                 let p = Position(r, c)
                 for i in 0..<4 {
                     if dots[p + OrchardsGame.offset2[i]][OrchardsGame.dirs[i]] != .line {
-                        g.addEdge(pos2node[p]!, neighbor: pos2node[p + OrchardsGame.offset[i * 2]]!)
+                        g.addEdge(pos2node[p]!, neighbor: pos2node[p + OrchardsGame.offset[i]]!)
                     }
                 }
             }

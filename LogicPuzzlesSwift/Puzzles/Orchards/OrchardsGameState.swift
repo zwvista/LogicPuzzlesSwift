@@ -81,6 +81,8 @@ class OrchardsGameState: GridGameState, OrchardsMixin {
     
     private func updateIsSolved() {
         isSolved = true
+        let g = Graph()
+        var pos2node = [Position: Node]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
@@ -89,81 +91,48 @@ class OrchardsGameState: GridGameState, OrchardsMixin {
                     self[p] = .empty
                 case .tree:
                     self[p] = .tree(state: .normal)
+                    pos2node[p] = g.addNode(p.description)
                 default:
                     break
                 }
             }
         }
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                func hasNeighbor() -> Bool {
-                    for os in OrchardsGame.offset {
-                        let p2 = p + os
-                        if isValid(p: p2), case .tree = self[p2] {return true}
-                    }
-                    return false
-                }
-                switch self[p] {
-                case let .tree(state):
-                    self[p] = .tree(state: state == .normal && !hasNeighbor() ? .normal : .error)
-                case .forbidden:
-                    break
-                default:
-                    guard allowedObjectsOnly && hasNeighbor() else {continue}
-                    self[p] = .forbidden
+        for p in pos2node.keys {
+            for os in OrchardsGame.offset {
+                let p2 = p + os
+                if let node2 = pos2node[p2] {
+                    g.addEdge(pos2node[p]!, neighbor: node2)
                 }
             }
         }
-        let n2 = game.treesInEachArea
-        for r in 0..<rows {
-            var n1 = 0
-            for c in 0..<cols {
-                if case .tree = self[r, c] {n1 += 1}
-            }
-            if n1 != n2 {isSolved = false}
-            for c in 0..<cols {
-                switch self[r, c] {
-                case let .tree(state):
-                    self[r, c] = .tree(state: state == .normal && n1 <= n2 ? .normal : .error)
-                case .forbidden:
-                    break
-                default:
-                    if n1 == n2 && allowedObjectsOnly {self[r, c] = .forbidden}
+        while !pos2node.isEmpty {
+            let node = pos2node.first!.value
+            let nodesExplored = breadthFirstSearch(g, source: node)
+            let trees = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
+            if trees.count != 2 {isSolved = false}
+            if trees.count > 2 {
+                for p in trees {
+                    self[p] = .tree(state: .error)
                 }
             }
-        }
-        for c in 0..<cols {
-            var n1 = 0
-            for r in 0..<rows {
-                if case .tree = self[r, c] {n1 += 1}
-            }
-            if n1 != n2 {isSolved = false}
-            for r in 0..<rows {
-                switch self[r, c] {
-                case let .tree(state):
-                    self[r, c] = .tree(state: state == .normal && n1 <= n2 ? .normal : .error)
-                case .forbidden:
-                    break
-                default:
-                    if n1 == n2 && allowedObjectsOnly {self[r, c] = .forbidden}
-                }
-            }
+            pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
         }
         for a in game.areas {
-            var n1 = 0
+            var trees = [Position]()
+            let n2 = 2
             for p in a {
-                if case .tree = self[p] {n1 += 1}
+                if case .tree = self[p] {trees.append(p)}
             }
+            let n1 = trees.count
             if n1 != n2 {isSolved = false}
             for p in a {
                 switch self[p] {
                 case let .tree(state):
                     self[p] = .tree(state: state == .normal && n1 <= n2 ? .normal : .error)
-                case .forbidden:
-                    break
-                default:
+                case .empty, .marker:
                     if n1 == n2 && allowedObjectsOnly {self[p] = .forbidden}
+                default:
+                    break
                 }
             }
         }
