@@ -476,6 +476,18 @@
 		8CCF10D61E8E097C00422284 /* LighthousesMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10CA1E8E097C00422284 /* LighthousesMixin.swift */; };
 		8CCF10D71E8E097C00422284 /* LighthousesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10CB1E8E097C00422284 /* LighthousesObject.swift */; };
 		8CCF10D81E8E097C00422284 /* LighthousesOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10CC1E8E097C00422284 /* LighthousesOptionsViewController.swift */; };
+		8CCF10E61E8F5D9900422284 /* Domino.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF10DA1E8F5D9900422284 /* Domino.storyboard */; };
+		8CCF10E71E8F5D9900422284 /* Domino.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF10DB1E8F5D9900422284 /* Domino.xml */; };
+		8CCF10E81E8F5D9900422284 /* DominoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10DC1E8F5D9900422284 /* DominoDocument.swift */; };
+		8CCF10E91E8F5D9900422284 /* DominoGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10DD1E8F5D9900422284 /* DominoGame.swift */; };
+		8CCF10EA1E8F5D9900422284 /* DominoGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10DE1E8F5D9900422284 /* DominoGameScene.swift */; };
+		8CCF10EB1E8F5D9900422284 /* DominoGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10DF1E8F5D9900422284 /* DominoGameState.swift */; };
+		8CCF10EC1E8F5D9900422284 /* DominoGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10E01E8F5D9900422284 /* DominoGameViewController.swift */; };
+		8CCF10ED1E8F5D9900422284 /* DominoGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10E11E8F5D9900422284 /* DominoGridNode.swift */; };
+		8CCF10EE1E8F5D9900422284 /* DominoMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10E21E8F5D9900422284 /* DominoMainViewController.swift */; };
+		8CCF10EF1E8F5D9900422284 /* DominoMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10E31E8F5D9900422284 /* DominoMixin.swift */; };
+		8CCF10F01E8F5D9900422284 /* DominoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10E41E8F5D9900422284 /* DominoObject.swift */; };
+		8CCF10F11E8F5D9900422284 /* DominoOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10E51E8F5D9900422284 /* DominoOptionsViewController.swift */; };
 		8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF1C011D8E1DB000AB6594 /* lightbulb.png */; };
 		8CD1558B1DD77C3400786F34 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD1558A1DD77C3400786F34 /* Extensions.swift */; };
 /* End PBXBuildFile section */
@@ -1010,6 +1022,18 @@
 		8CCF10CA1E8E097C00422284 /* LighthousesMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesMixin.swift; sourceTree = "<group>"; };
 		8CCF10CB1E8E097C00422284 /* LighthousesObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesObject.swift; sourceTree = "<group>"; };
 		8CCF10CC1E8E097C00422284 /* LighthousesOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesOptionsViewController.swift; sourceTree = "<group>"; };
+		8CCF10DA1E8F5D9900422284 /* Domino.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Domino.storyboard; sourceTree = "<group>"; };
+		8CCF10DB1E8F5D9900422284 /* Domino.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Domino.xml; sourceTree = "<group>"; };
+		8CCF10DC1E8F5D9900422284 /* DominoDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominoDocument.swift; sourceTree = "<group>"; };
+		8CCF10DD1E8F5D9900422284 /* DominoGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominoGame.swift; sourceTree = "<group>"; };
+		8CCF10DE1E8F5D9900422284 /* DominoGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominoGameScene.swift; sourceTree = "<group>"; };
+		8CCF10DF1E8F5D9900422284 /* DominoGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominoGameState.swift; sourceTree = "<group>"; };
+		8CCF10E01E8F5D9900422284 /* DominoGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominoGameViewController.swift; sourceTree = "<group>"; };
+		8CCF10E11E8F5D9900422284 /* DominoGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominoGridNode.swift; sourceTree = "<group>"; };
+		8CCF10E21E8F5D9900422284 /* DominoMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominoMainViewController.swift; sourceTree = "<group>"; };
+		8CCF10E31E8F5D9900422284 /* DominoMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominoMixin.swift; sourceTree = "<group>"; };
+		8CCF10E41E8F5D9900422284 /* DominoObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominoObject.swift; sourceTree = "<group>"; };
+		8CCF10E51E8F5D9900422284 /* DominoOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominoOptionsViewController.swift; sourceTree = "<group>"; };
 		8CCF1C011D8E1DB000AB6594 /* lightbulb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightbulb.png; sourceTree = "<group>"; };
 		8CD1558A1DD77C3400786F34 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1368,6 +1392,7 @@
 				8C9AF4001DE974BE0053BED4 /* Bridges */,
 				8CCF10A61E8E097100422284 /* BusySeas */,
 				8C9AF40D1DE974BE0053BED4 /* Clouds */,
+				8CCF10D91E8F5D9900422284 /* Domino */,
 				8C81CB911E19546000FB244A /* FenceItUp */,
 				8C9AF41A1DE974BE0053BED4 /* Hitori */,
 				8C9AF4271DE974BF0053BED4 /* LightenUp */,
@@ -1916,6 +1941,25 @@
 			path = Lighthouses;
 			sourceTree = "<group>";
 		};
+		8CCF10D91E8F5D9900422284 /* Domino */ = {
+			isa = PBXGroup;
+			children = (
+				8CCF10DA1E8F5D9900422284 /* Domino.storyboard */,
+				8CCF10DB1E8F5D9900422284 /* Domino.xml */,
+				8CCF10DC1E8F5D9900422284 /* DominoDocument.swift */,
+				8CCF10DD1E8F5D9900422284 /* DominoGame.swift */,
+				8CCF10DE1E8F5D9900422284 /* DominoGameScene.swift */,
+				8CCF10DF1E8F5D9900422284 /* DominoGameState.swift */,
+				8CCF10E01E8F5D9900422284 /* DominoGameViewController.swift */,
+				8CCF10E11E8F5D9900422284 /* DominoGridNode.swift */,
+				8CCF10E21E8F5D9900422284 /* DominoMainViewController.swift */,
+				8CCF10E31E8F5D9900422284 /* DominoMixin.swift */,
+				8CCF10E41E8F5D9900422284 /* DominoObject.swift */,
+				8CCF10E51E8F5D9900422284 /* DominoOptionsViewController.swift */,
+			);
+			path = Domino;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2044,6 +2088,7 @@
 				84FBA5571DFF7F4F00594DAE /* Tents.xml in Resources */,
 				8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */,
 				8C373D441E0507F7005712CD /* tent.png in Resources */,
+				8CCF10E71E8F5D9900422284 /* Domino.xml in Resources */,
 				8C10B7EB1E8D7DC50049C44B /* PowerGrid.xml in Resources */,
 				8C9AF48F1DE974BF0053BED4 /* Bridges.xml in Resources */,
 				8CC3CD1C1E32DEE40056B78F /* Snail.storyboard in Resources */,
@@ -2069,6 +2114,7 @@
 				8C9AF4BE1DE974BF0053BED4 /* LineSweeper.storyboard in Resources */,
 				8C9AF5791DF8D84B0053BED4 /* Rooms.storyboard in Resources */,
 				8C373D451E0507F7005712CD /* tree.png in Resources */,
+				8CCF10E61E8F5D9900422284 /* Domino.storyboard in Resources */,
 				8C1D16B11DB8DE930056D407 /* TraversalTree.graffle in Resources */,
 				8C9AF4D61DE974BF0053BED4 /* Nurikabe.storyboard in Resources */,
 				8C9AF49B1DE974BF0053BED4 /* Clouds.xml in Resources */,
@@ -2216,8 +2262,10 @@
 				8C9AF4BC1DE974BF0053BED4 /* LightenUpObject.swift in Sources */,
 				8C9AF5491DF471AA0053BED4 /* MosaikGameScene.swift in Sources */,
 				8C6ACBFF1DCAF8BA0075F32C /* GameMixin.swift in Sources */,
+				8CCF10EE1E8F5D9900422284 /* DominoMainViewController.swift in Sources */,
 				8CCF10B81E8E097100422284 /* BusySeasGameState.swift in Sources */,
 				8C10B7D61E8CDABA0049C44B /* BootyIslandGameState.swift in Sources */,
+				8CCF10F01E8F5D9900422284 /* DominoObject.swift in Sources */,
 				8C6D373A1DC421180052202C /* HomeMixin.swift in Sources */,
 				8CC350591E001D2800B8FD83 /* UITextFieldExtensions.swift in Sources */,
 				8C64A2EC1DE0891000AB6C09 /* GameTables.swift in Sources */,
@@ -2229,6 +2277,7 @@
 				8C9AF4A11DE974BF0053BED4 /* CloudsGridNode.swift in Sources */,
 				84FBA5591DFF7F4F00594DAE /* TentsGame.swift in Sources */,
 				8C9AF5801DF8D84B0053BED4 /* RoomsGridNode.swift in Sources */,
+				8CCF10EB1E8F5D9900422284 /* DominoGameState.swift in Sources */,
 				84FBA5421DFF7F4500594DAE /* ParksGameState.swift in Sources */,
 				8C9AF4871DE974BF0053BED4 /* AbcGameState.swift in Sources */,
 				8C81CBA41E19546000FB244A /* BoxItAgainGameViewController.swift in Sources */,
@@ -2241,6 +2290,7 @@
 				8C81CBA01E19546000FB244A /* BoxItAgainDocument.swift in Sources */,
 				8C916CC01DAA5E9500D9E62B /* Node.swift in Sources */,
 				8CC3505E1E001D2800B8FD83 /* UIWindowExtensions.swift in Sources */,
+				8CCF10EA1E8F5D9900422284 /* DominoGameScene.swift in Sources */,
 				8C10B7D81E8CDABA0049C44B /* BootyIslandGridNode.swift in Sources */,
 				8C9AF4F81DE974BF0053BED4 /* SlitherLinkObject.swift in Sources */,
 				8C81CBB31E19546000FB244A /* FenceItUpMixin.swift in Sources */,
@@ -2263,11 +2313,13 @@
 				8C9AF5641DF8D7770053BED4 /* MagnetsGameState.swift in Sources */,
 				8C9AF4A51DE974BF0053BED4 /* CloudsOptionsViewController.swift in Sources */,
 				84FBA52D1DFF7F3600594DAE /* BattleShipsObject.swift in Sources */,
+				8CCF10E81E8F5D9900422284 /* DominoDocument.swift in Sources */,
 				8CC350581E001D2800B8FD83 /* UISwitchExtensions.swift in Sources */,
 				8CCF10D61E8E097C00422284 /* LighthousesMixin.swift in Sources */,
 				8C9AF54C1DF471AA0053BED4 /* MosaikGridNode.swift in Sources */,
 				8C9AF4881DE974BF0053BED4 /* AbcGameViewController.swift in Sources */,
 				8C9AF5181DE975030053BED4 /* LoopyGameState.swift in Sources */,
+				8CCF10ED1E8F5D9900422284 /* DominoGridNode.swift in Sources */,
 				8C10B7BA1E8AB2680049C44B /* ProductSentinelsDocument.swift in Sources */,
 				8C81CBA81E19546000FB244A /* BoxItAgainObject.swift in Sources */,
 				8C10B7A41E8A98C30049C44B /* SentinelsGameViewController.swift in Sources */,
@@ -2351,6 +2403,7 @@
 				8CCF10D51E8E097C00422284 /* LighthousesMainViewController.swift in Sources */,
 				8C10B7D71E8CDABA0049C44B /* BootyIslandGameViewController.swift in Sources */,
 				8C373D631E14A622005712CD /* BoxItAroundDocument.swift in Sources */,
+				8CCF10F11E8F5D9900422284 /* DominoOptionsViewController.swift in Sources */,
 				8C9AF4FD1DE974BF0053BED4 /* SumscrapersGame.swift in Sources */,
 				8C9AF4E91DE974BF0053BED4 /* SkyscrapersGridNode.swift in Sources */,
 				8C9AF4EC1DE974BF0053BED4 /* SkyscrapersObject.swift in Sources */,
@@ -2392,6 +2445,7 @@
 				8C9AF5041DE974BF0053BED4 /* SumscrapersObject.swift in Sources */,
 				8CC3504C1E001D2800B8FD83 /* UIApplicationExtensions.swift in Sources */,
 				84FBA55F1DFF7F4F00594DAE /* TentsMixin.swift in Sources */,
+				8CCF10E91E8F5D9900422284 /* DominoGame.swift in Sources */,
 				8CC3CD251E32DEE40056B78F /* SnailMixin.swift in Sources */,
 				8C10B7BF1E8AB2680049C44B /* ProductSentinelsGridNode.swift in Sources */,
 				8CC3CD1F1E32DEE40056B78F /* SnailGame.swift in Sources */,
@@ -2473,6 +2527,7 @@
 				8C9AF4891DE974BF0053BED4 /* AbcGridNode.swift in Sources */,
 				8C9AF4EB1DE974BF0053BED4 /* SkyscrapersMixin.swift in Sources */,
 				84FBA52C1DFF7F3600594DAE /* BattleShipsMixin.swift in Sources */,
+				8CCF10EF1E8F5D9900422284 /* DominoMixin.swift in Sources */,
 				8C916CC11DAA5E9500D9E62B /* NodeSet.swift in Sources */,
 				8C10B7DB1E8CDABA0049C44B /* BootyIslandObject.swift in Sources */,
 				8C886C3F1D9E8AF1004A42BF /* ActionSheetDistancePicker.m in Sources */,
@@ -2499,6 +2554,7 @@
 				8C9AF4921DE974BF0053BED4 /* BridgesGameScene.swift in Sources */,
 				8CC3505D1E001D2800B8FD83 /* UIViewExtensions.swift in Sources */,
 				84FBA5281DFF7F3600594DAE /* BattleShipsGameState.swift in Sources */,
+				8CCF10EC1E8F5D9900422284 /* DominoGameViewController.swift in Sources */,
 				8C9AF5471DF471AA0053BED4 /* MosaikDocument.swift in Sources */,
 				8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */,
 				8CC350601E001D2800B8FD83 /* UserDefaultsExtension.swift in Sources */,
