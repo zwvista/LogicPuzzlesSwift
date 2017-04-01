@@ -23,6 +23,10 @@ class FenceSentinelsGame: GridGame<FenceSentinelsGameViewController, FenceSentin
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
+    
+    override func isValid(row: Int, col: Int) -> Bool {
+        return 0..<rows - 1 ~= row && 0..<cols - 1 ~= col
+    }
 
     var pos2hint = [Position: Int]()
     

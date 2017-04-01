@@ -92,11 +92,17 @@ class FenceSentinelsGameState: GridGameState, FenceSentinelsMixin {
     private func updateIsSolved() {
         isSolved = true
         for (p, n2) in game.pos2hint {
-            var n1 = 0
-            for i in 0..<4 {
-                if self[p + FenceSentinelsGame.offset2[i]][FenceSentinelsGame.dirs[i]] != .line {n1 += 1}
+            var n1 = -3
+            next: for i in 0..<4 {
+                let os = FenceSentinelsGame.offset[i]
+                var p2 = p
+                while game.isValid(p: p2) {
+                    n1 += 1
+                    guard self[p2 + FenceSentinelsGame.offset2[i]][FenceSentinelsGame.dirs[i]] != .line else {continue next}
+                    p2 += os
+                }
             }
-            pos2state[p] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            pos2state[p] = n1 > n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
         }
         guard isSolved else {return}
