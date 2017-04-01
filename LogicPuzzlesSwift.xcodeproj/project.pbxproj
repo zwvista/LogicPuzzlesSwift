@@ -426,6 +426,18 @@
 		8CB29B061E8F7AF6001D07C6 /* OrchardsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AFA1E8F7AF6001D07C6 /* OrchardsMixin.swift */; };
 		8CB29B071E8F7AF6001D07C6 /* OrchardsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AFB1E8F7AF6001D07C6 /* OrchardsObject.swift */; };
 		8CB29B081E8F7AF6001D07C6 /* OrchardsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AFC1E8F7AF6001D07C6 /* OrchardsOptionsViewController.swift */; };
+		8CB29B161E8F7DE1001D07C6 /* FenceSentinels.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB29B0A1E8F7DE1001D07C6 /* FenceSentinels.storyboard */; };
+		8CB29B171E8F7DE1001D07C6 /* FenceSentinels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB29B0B1E8F7DE1001D07C6 /* FenceSentinels.xml */; };
+		8CB29B181E8F7DE1001D07C6 /* FenceSentinelsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29B0C1E8F7DE1001D07C6 /* FenceSentinelsDocument.swift */; };
+		8CB29B191E8F7DE1001D07C6 /* FenceSentinelsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29B0D1E8F7DE1001D07C6 /* FenceSentinelsGame.swift */; };
+		8CB29B1A1E8F7DE1001D07C6 /* FenceSentinelsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29B0E1E8F7DE1001D07C6 /* FenceSentinelsGameScene.swift */; };
+		8CB29B1B1E8F7DE1001D07C6 /* FenceSentinelsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29B0F1E8F7DE1001D07C6 /* FenceSentinelsGameState.swift */; };
+		8CB29B1C1E8F7DE1001D07C6 /* FenceSentinelsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29B101E8F7DE1001D07C6 /* FenceSentinelsGameViewController.swift */; };
+		8CB29B1D1E8F7DE1001D07C6 /* FenceSentinelsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29B111E8F7DE1001D07C6 /* FenceSentinelsGridNode.swift */; };
+		8CB29B1E1E8F7DE1001D07C6 /* FenceSentinelsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29B121E8F7DE1001D07C6 /* FenceSentinelsMainViewController.swift */; };
+		8CB29B1F1E8F7DE1001D07C6 /* FenceSentinelsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29B131E8F7DE1001D07C6 /* FenceSentinelsMixin.swift */; };
+		8CB29B201E8F7DE1001D07C6 /* FenceSentinelsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29B141E8F7DE1001D07C6 /* FenceSentinelsObject.swift */; };
+		8CB29B211E8F7DE1001D07C6 /* FenceSentinelsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29B151E8F7DE1001D07C6 /* FenceSentinelsOptionsViewController.swift */; };
 		8CC34F9C1DFD958A00B8FD83 /* negative.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC34F9A1DFD958A00B8FD83 /* negative.png */; };
 		8CC34F9D1DFD958A00B8FD83 /* positive.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC34F9B1DFD958A00B8FD83 /* positive.png */; };
 		8CC350311E001D2800B8FD83 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350011E001D2700B8FD83 /* ArrayExtensions.swift */; };
@@ -1008,6 +1020,18 @@
 		8CB29AFA1E8F7AF6001D07C6 /* OrchardsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrchardsMixin.swift; sourceTree = "<group>"; };
 		8CB29AFB1E8F7AF6001D07C6 /* OrchardsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrchardsObject.swift; sourceTree = "<group>"; };
 		8CB29AFC1E8F7AF6001D07C6 /* OrchardsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrchardsOptionsViewController.swift; sourceTree = "<group>"; };
+		8CB29B0A1E8F7DE1001D07C6 /* FenceSentinels.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FenceSentinels.storyboard; sourceTree = "<group>"; };
+		8CB29B0B1E8F7DE1001D07C6 /* FenceSentinels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FenceSentinels.xml; sourceTree = "<group>"; };
+		8CB29B0C1E8F7DE1001D07C6 /* FenceSentinelsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceSentinelsDocument.swift; sourceTree = "<group>"; };
+		8CB29B0D1E8F7DE1001D07C6 /* FenceSentinelsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceSentinelsGame.swift; sourceTree = "<group>"; };
+		8CB29B0E1E8F7DE1001D07C6 /* FenceSentinelsGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceSentinelsGameScene.swift; sourceTree = "<group>"; };
+		8CB29B0F1E8F7DE1001D07C6 /* FenceSentinelsGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceSentinelsGameState.swift; sourceTree = "<group>"; };
+		8CB29B101E8F7DE1001D07C6 /* FenceSentinelsGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceSentinelsGameViewController.swift; sourceTree = "<group>"; };
+		8CB29B111E8F7DE1001D07C6 /* FenceSentinelsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceSentinelsGridNode.swift; sourceTree = "<group>"; };
+		8CB29B121E8F7DE1001D07C6 /* FenceSentinelsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceSentinelsMainViewController.swift; sourceTree = "<group>"; };
+		8CB29B131E8F7DE1001D07C6 /* FenceSentinelsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceSentinelsMixin.swift; sourceTree = "<group>"; };
+		8CB29B141E8F7DE1001D07C6 /* FenceSentinelsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceSentinelsObject.swift; sourceTree = "<group>"; };
+		8CB29B151E8F7DE1001D07C6 /* FenceSentinelsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceSentinelsOptionsViewController.swift; sourceTree = "<group>"; };
 		8CC34F9A1DFD958A00B8FD83 /* negative.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = negative.png; sourceTree = "<group>"; };
 		8CC34F9B1DFD958A00B8FD83 /* positive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = positive.png; sourceTree = "<group>"; };
 		8CC350011E001D2700B8FD83 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
@@ -1466,6 +1490,7 @@
 				8C9AF40D1DE974BE0053BED4 /* Clouds */,
 				8CCF10D91E8F5D9900422284 /* Domino */,
 				8C81CB911E19546000FB244A /* FenceItUp */,
+				8CB29B091E8F7DE1001D07C6 /* FenceSentinels */,
 				8C9AF41A1DE974BE0053BED4 /* Hitori */,
 				8C9AF4271DE974BF0053BED4 /* LightenUp */,
 				8CCF10C01E8E097C00422284 /* Lighthouses */,
@@ -2017,6 +2042,25 @@
 			path = Orchards;
 			sourceTree = "<group>";
 		};
+		8CB29B091E8F7DE1001D07C6 /* FenceSentinels */ = {
+			isa = PBXGroup;
+			children = (
+				8CB29B0A1E8F7DE1001D07C6 /* FenceSentinels.storyboard */,
+				8CB29B0B1E8F7DE1001D07C6 /* FenceSentinels.xml */,
+				8CB29B0C1E8F7DE1001D07C6 /* FenceSentinelsDocument.swift */,
+				8CB29B0D1E8F7DE1001D07C6 /* FenceSentinelsGame.swift */,
+				8CB29B0E1E8F7DE1001D07C6 /* FenceSentinelsGameScene.swift */,
+				8CB29B0F1E8F7DE1001D07C6 /* FenceSentinelsGameState.swift */,
+				8CB29B101E8F7DE1001D07C6 /* FenceSentinelsGameViewController.swift */,
+				8CB29B111E8F7DE1001D07C6 /* FenceSentinelsGridNode.swift */,
+				8CB29B121E8F7DE1001D07C6 /* FenceSentinelsMainViewController.swift */,
+				8CB29B131E8F7DE1001D07C6 /* FenceSentinelsMixin.swift */,
+				8CB29B141E8F7DE1001D07C6 /* FenceSentinelsObject.swift */,
+				8CB29B151E8F7DE1001D07C6 /* FenceSentinelsOptionsViewController.swift */,
+			);
+			path = FenceSentinels;
+			sourceTree = "<group>";
+		};
 		8CC3CD0F1E32DEE40056B78F /* Snail */ = {
 			isa = PBXGroup;
 			children = (
@@ -2255,6 +2299,7 @@
 				8C9AF49B1DE974BF0053BED4 /* Clouds.xml in Resources */,
 				8C9AF4831DE974BF0053BED4 /* Abc.xml in Resources */,
 				8C9F43E41D771915000139FC /* Assets.xcassets in Resources */,
+				8CB29B171E8F7DE1001D07C6 /* FenceSentinels.xml in Resources */,
 				8C9AF4CA1DE974BF0053BED4 /* Masyu.storyboard in Resources */,
 				8C81CBAA1E19546000FB244A /* FenceItUp.storyboard in Resources */,
 				8C9AF4B31DE974BF0053BED4 /* LightenUp.xml in Resources */,
@@ -2262,6 +2307,7 @@
 				8C373D6D1E14A622005712CD /* BoxItUp.storyboard in Resources */,
 				8C9AF4A61DE974BF0053BED4 /* Hitori.storyboard in Resources */,
 				84FBA53D1DFF7F4500594DAE /* Parks.storyboard in Resources */,
+				8CB29B161E8F7DE1001D07C6 /* FenceSentinels.storyboard in Resources */,
 				8CB29AFD1E8F7AF6001D07C6 /* Orchards.storyboard in Resources */,
 				8C10B7831E87B6870049C44B /* Neighbours.storyboard in Resources */,
 				8C10B7B81E8AB2680049C44B /* ProductSentinels.storyboard in Resources */,
@@ -2328,6 +2374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C81CBA61E19546000FB244A /* BoxItAgainMainViewController.swift in Sources */,
+				8CB29B1D1E8F7DE1001D07C6 /* FenceSentinelsGridNode.swift in Sources */,
 				8C10B7EE1E8D7DC50049C44B /* PowerGridGameScene.swift in Sources */,
 				8CB29AD31E8F716C001D07C6 /* MinesweeperMixin.swift in Sources */,
 				8CC3504D1E001D2800B8FD83 /* UIBarButtonItemExtensions.swift in Sources */,
@@ -2346,6 +2393,7 @@
 				8C81CBA71E19546000FB244A /* BoxItAgainMixin.swift in Sources */,
 				8CB29AEC1E8F795E001D07C6 /* LitsMainViewController.swift in Sources */,
 				8C9AF5481DF471AA0053BED4 /* MosaikGame.swift in Sources */,
+				8CB29B191E8F7DE1001D07C6 /* FenceSentinelsGame.swift in Sources */,
 				84FBA5261DFF7F3600594DAE /* BattleShipsGame.swift in Sources */,
 				8C10B7F41E8D7DC50049C44B /* PowerGridObject.swift in Sources */,
 				8C9AF4B41DE974BF0053BED4 /* LightenUpDocument.swift in Sources */,
@@ -2444,6 +2492,7 @@
 				8C9AF4B91DE974BF0053BED4 /* LightenUpGridNode.swift in Sources */,
 				8C10B7A21E8A98C30049C44B /* SentinelsGameScene.swift in Sources */,
 				8C9AF56A1DF8D7770053BED4 /* MagnetsOptionsViewController.swift in Sources */,
+				8CB29B201E8F7DE1001D07C6 /* FenceSentinelsObject.swift in Sources */,
 				8C1D16B51DB8DE930056D407 /* Graph.swift in Sources */,
 				8C10B7851E87B6870049C44B /* NeighboursDocument.swift in Sources */,
 				8C9AF5031DE974BF0053BED4 /* SumscrapersMixin.swift in Sources */,
@@ -2515,6 +2564,7 @@
 				8C9AF4CC1DE974BF0053BED4 /* MasyuDocument.swift in Sources */,
 				8C9AF48D1DE974BF0053BED4 /* AbcOptionsViewController.swift in Sources */,
 				8C10B7A01E8A98C30049C44B /* SentinelsDocument.swift in Sources */,
+				8CB29B1E1E8F7DE1001D07C6 /* FenceSentinelsMainViewController.swift in Sources */,
 				8C9AF5191DE975030053BED4 /* LoopyGameViewController.swift in Sources */,
 				8CC350411E001D2800B8FD83 /* DoubleExtensions.swift in Sources */,
 				8C81CBAD1E19546000FB244A /* FenceItUpGame.swift in Sources */,
@@ -2563,6 +2613,7 @@
 				8C9AF4E91DE974BF0053BED4 /* SkyscrapersGridNode.swift in Sources */,
 				8C9AF4EC1DE974BF0053BED4 /* SkyscrapersObject.swift in Sources */,
 				8C9AF4D31DE974BF0053BED4 /* MasyuMixin.swift in Sources */,
+				8CB29B181E8F7DE1001D07C6 /* FenceSentinelsDocument.swift in Sources */,
 				84FBA52A1DFF7F3600594DAE /* BattleShipsGridNode.swift in Sources */,
 				8C10B7871E87B6870049C44B /* NeighboursGameScene.swift in Sources */,
 				8C6D37FE1DC5B4EB0052202C /* GameState.swift in Sources */,
@@ -2607,6 +2658,7 @@
 				8C10B7BF1E8AB2680049C44B /* ProductSentinelsGridNode.swift in Sources */,
 				8CC3CD1F1E32DEE40056B78F /* SnailGame.swift in Sources */,
 				84FBA5601DFF7F4F00594DAE /* TentsObject.swift in Sources */,
+				8CB29B211E8F7DE1001D07C6 /* FenceSentinelsOptionsViewController.swift in Sources */,
 				8C9AF4BB1DE974BF0053BED4 /* LightenUpMixin.swift in Sources */,
 				8C10B7BD1E8AB2680049C44B /* ProductSentinelsGameState.swift in Sources */,
 				8CC350391E001D2800B8FD83 /* BoolExtensions.swift in Sources */,
@@ -2658,6 +2710,7 @@
 				8C9AF5671DF8D7770053BED4 /* MagnetsMainViewController.swift in Sources */,
 				8CCF10BD1E8E097100422284 /* BusySeasObject.swift in Sources */,
 				8CC350551E001D2800B8FD83 /* UILabelExtensions.swift in Sources */,
+				8CB29B1B1E8F7DE1001D07C6 /* FenceSentinelsGameState.swift in Sources */,
 				8C9AF4F41DE974BF0053BED4 /* SlitherLinkGameViewController.swift in Sources */,
 				8C9AF4851DE974BF0053BED4 /* AbcGame.swift in Sources */,
 				8C9AF5011DE974BF0053BED4 /* SumscrapersGridNode.swift in Sources */,
@@ -2733,6 +2786,7 @@
 				8C916CBC1DAA5E9500D9E62B /* Element.swift in Sources */,
 				8C9AF5611DF8D7770053BED4 /* MagnetsDocument.swift in Sources */,
 				8C886C411D9E8AF1004A42BF /* ActionSheetMultipleStringPicker.m in Sources */,
+				8CB29B1C1E8F7DE1001D07C6 /* FenceSentinelsGameViewController.swift in Sources */,
 				8C9AF4FE1DE974BF0053BED4 /* SumscrapersGameScene.swift in Sources */,
 				8C9AF4ED1DE974BF0053BED4 /* SkyscrapersOptionsViewController.swift in Sources */,
 				8C10B7D31E8CDABA0049C44B /* BootyIslandDocument.swift in Sources */,
@@ -2740,9 +2794,11 @@
 				8C373D6A1E14A622005712CD /* BoxItAroundMixin.swift in Sources */,
 				8C9AF4DF1DE974BF0053BED4 /* NurikabeMixin.swift in Sources */,
 				8C10B7C31E8AB2680049C44B /* ProductSentinelsOptionsViewController.swift in Sources */,
+				8CB29B1A1E8F7DE1001D07C6 /* FenceSentinelsGameScene.swift in Sources */,
 				8CB29ACF1E8F716C001D07C6 /* MinesweeperGameState.swift in Sources */,
 				8C9AF4C11DE974BF0053BED4 /* LineSweeperGame.swift in Sources */,
 				8C10B7F21E8D7DC50049C44B /* PowerGridMainViewController.swift in Sources */,
+				8CB29B1F1E8F7DE1001D07C6 /* FenceSentinelsMixin.swift in Sources */,
 				8C9AF51B1DE975030053BED4 /* LoopyMainViewController.swift in Sources */,
 				8C10B7ED1E8D7DC50049C44B /* PowerGridGame.swift in Sources */,
 				8CC350461E001D2800B8FD83 /* NSAttributedStringExtensions.swift in Sources */,
