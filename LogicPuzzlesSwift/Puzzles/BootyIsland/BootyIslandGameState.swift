@@ -108,11 +108,11 @@ class BootyIslandGameState: GridGameState, BootyIslandMixin {
                 switch self[p] {
                 case let .treasure(state):
                     self[p] = .treasure(state: state == .normal && !hasNeighbor() ? .normal : .error)
-                case .forbidden:
-                    break
-                default:
+                case .empty, .marker:
                     guard allowedObjectsOnly && hasNeighbor() else {continue}
                     self[p] = .forbidden
+                default:
+                    break
                 }
             }
         }
@@ -127,10 +127,10 @@ class BootyIslandGameState: GridGameState, BootyIslandMixin {
                 switch self[r, c] {
                 case let .treasure(state):
                     self[r, c] = .treasure(state: state == .normal && n1 <= n2 ? .normal : .error)
-                case .forbidden:
-                    break
-                default:
+                case .empty, .marker:
                     if n1 == n2 && allowedObjectsOnly {self[r, c] = .forbidden}
+                default:
+                    break
                 }
             }
         }
@@ -144,10 +144,10 @@ class BootyIslandGameState: GridGameState, BootyIslandMixin {
                 switch self[r, c] {
                 case let .treasure(state):
                     self[r, c] = .treasure(state: state == .normal && n1 <= n2 ? .normal : .error)
-                case .forbidden:
-                    break
-                default:
+                case .empty, .marker:
                     if n1 == n2 && allowedObjectsOnly {self[r, c] = .forbidden}
+                default:
+                    break
                 }
             }
         }
