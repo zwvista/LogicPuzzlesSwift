@@ -174,6 +174,18 @@
 		8C7016601E90C25000210CE7 /* MiniLitsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7016541E90C25000210CE7 /* MiniLitsMixin.swift */; };
 		8C7016611E90C25000210CE7 /* MiniLitsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7016551E90C25000210CE7 /* MiniLitsObject.swift */; };
 		8C7016621E90C25000210CE7 /* MiniLitsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7016561E90C25000210CE7 /* MiniLitsOptionsViewController.swift */; };
+		8C7016711E90C79E00210CE7 /* FenceLits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C7016651E90C79E00210CE7 /* FenceLits.storyboard */; };
+		8C7016721E90C79E00210CE7 /* FenceLits.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C7016661E90C79E00210CE7 /* FenceLits.xml */; };
+		8C7016731E90C79E00210CE7 /* FenceLitsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7016671E90C79E00210CE7 /* FenceLitsDocument.swift */; };
+		8C7016741E90C79E00210CE7 /* FenceLitsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7016681E90C79E00210CE7 /* FenceLitsGame.swift */; };
+		8C7016751E90C79E00210CE7 /* FenceLitsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7016691E90C79E00210CE7 /* FenceLitsGameScene.swift */; };
+		8C7016761E90C79E00210CE7 /* FenceLitsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70166A1E90C79E00210CE7 /* FenceLitsGameState.swift */; };
+		8C7016771E90C79E00210CE7 /* FenceLitsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70166B1E90C79E00210CE7 /* FenceLitsGameViewController.swift */; };
+		8C7016781E90C79E00210CE7 /* FenceLitsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70166C1E90C79E00210CE7 /* FenceLitsGridNode.swift */; };
+		8C7016791E90C79E00210CE7 /* FenceLitsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70166D1E90C79E00210CE7 /* FenceLitsMainViewController.swift */; };
+		8C70167A1E90C79E00210CE7 /* FenceLitsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70166E1E90C79E00210CE7 /* FenceLitsMixin.swift */; };
+		8C70167B1E90C79E00210CE7 /* FenceLitsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70166F1E90C79E00210CE7 /* FenceLitsObject.swift */; };
+		8C70167C1E90C79E00210CE7 /* FenceLitsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7016701E90C79E00210CE7 /* FenceLitsOptionsViewController.swift */; };
 		8C81CB9E1E19546000FB244A /* BoxItAgain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C81CB851E19546000FB244A /* BoxItAgain.storyboard */; };
 		8C81CB9F1E19546000FB244A /* BoxItAgain.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C81CB861E19546000FB244A /* BoxItAgain.xml */; };
 		8C81CBA01E19546000FB244A /* BoxItAgainDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB871E19546000FB244A /* BoxItAgainDocument.swift */; };
@@ -760,6 +772,18 @@
 		8C7016541E90C25000210CE7 /* MiniLitsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsMixin.swift; sourceTree = "<group>"; };
 		8C7016551E90C25000210CE7 /* MiniLitsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsObject.swift; sourceTree = "<group>"; };
 		8C7016561E90C25000210CE7 /* MiniLitsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsOptionsViewController.swift; sourceTree = "<group>"; };
+		8C7016651E90C79E00210CE7 /* FenceLits.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FenceLits.storyboard; sourceTree = "<group>"; };
+		8C7016661E90C79E00210CE7 /* FenceLits.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FenceLits.xml; sourceTree = "<group>"; };
+		8C7016671E90C79E00210CE7 /* FenceLitsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsDocument.swift; sourceTree = "<group>"; };
+		8C7016681E90C79E00210CE7 /* FenceLitsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsGame.swift; sourceTree = "<group>"; };
+		8C7016691E90C79E00210CE7 /* FenceLitsGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsGameScene.swift; sourceTree = "<group>"; };
+		8C70166A1E90C79E00210CE7 /* FenceLitsGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsGameState.swift; sourceTree = "<group>"; };
+		8C70166B1E90C79E00210CE7 /* FenceLitsGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsGameViewController.swift; sourceTree = "<group>"; };
+		8C70166C1E90C79E00210CE7 /* FenceLitsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsGridNode.swift; sourceTree = "<group>"; };
+		8C70166D1E90C79E00210CE7 /* FenceLitsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsMainViewController.swift; sourceTree = "<group>"; };
+		8C70166E1E90C79E00210CE7 /* FenceLitsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsMixin.swift; sourceTree = "<group>"; };
+		8C70166F1E90C79E00210CE7 /* FenceLitsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsObject.swift; sourceTree = "<group>"; };
+		8C7016701E90C79E00210CE7 /* FenceLitsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsOptionsViewController.swift; sourceTree = "<group>"; };
 		8C81CB851E19546000FB244A /* BoxItAgain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BoxItAgain.storyboard; sourceTree = "<group>"; };
 		8C81CB861E19546000FB244A /* BoxItAgain.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BoxItAgain.xml; sourceTree = "<group>"; };
 		8C81CB871E19546000FB244A /* BoxItAgainDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainDocument.swift; sourceTree = "<group>"; };
@@ -1514,6 +1538,7 @@
 				8C9AF40D1DE974BE0053BED4 /* Clouds */,
 				8CCF10D91E8F5D9900422284 /* Domino */,
 				8C81CB911E19546000FB244A /* FenceItUp */,
+				8C7016641E90C79E00210CE7 /* FenceLits */,
 				8CB29B091E8F7DE1001D07C6 /* FenceSentinels */,
 				8C9AF41A1DE974BE0053BED4 /* Hitori */,
 				8C9AF4271DE974BF0053BED4 /* LightenUp */,
@@ -1581,6 +1606,25 @@
 				8C7016561E90C25000210CE7 /* MiniLitsOptionsViewController.swift */,
 			);
 			path = MiniLits;
+			sourceTree = "<group>";
+		};
+		8C7016641E90C79E00210CE7 /* FenceLits */ = {
+			isa = PBXGroup;
+			children = (
+				8C7016651E90C79E00210CE7 /* FenceLits.storyboard */,
+				8C7016661E90C79E00210CE7 /* FenceLits.xml */,
+				8C7016671E90C79E00210CE7 /* FenceLitsDocument.swift */,
+				8C7016681E90C79E00210CE7 /* FenceLitsGame.swift */,
+				8C7016691E90C79E00210CE7 /* FenceLitsGameScene.swift */,
+				8C70166A1E90C79E00210CE7 /* FenceLitsGameState.swift */,
+				8C70166B1E90C79E00210CE7 /* FenceLitsGameViewController.swift */,
+				8C70166C1E90C79E00210CE7 /* FenceLitsGridNode.swift */,
+				8C70166D1E90C79E00210CE7 /* FenceLitsMainViewController.swift */,
+				8C70166E1E90C79E00210CE7 /* FenceLitsMixin.swift */,
+				8C70166F1E90C79E00210CE7 /* FenceLitsObject.swift */,
+				8C7016701E90C79E00210CE7 /* FenceLitsOptionsViewController.swift */,
+			);
+			path = FenceLits;
 			sourceTree = "<group>";
 		};
 		8C81CB841E19546000FB244A /* BoxItAgain */ = {
@@ -2341,6 +2385,7 @@
 				8C1D16B11DB8DE930056D407 /* TraversalTree.graffle in Resources */,
 				8C9AF4D61DE974BF0053BED4 /* Nurikabe.storyboard in Resources */,
 				8C9AF49B1DE974BF0053BED4 /* Clouds.xml in Resources */,
+				8C7016721E90C79E00210CE7 /* FenceLits.xml in Resources */,
 				8C7016571E90C25000210CE7 /* MiniLits.storyboard in Resources */,
 				8C9AF4831DE974BF0053BED4 /* Abc.xml in Resources */,
 				8C9F43E41D771915000139FC /* Assets.xcassets in Resources */,
@@ -2374,6 +2419,7 @@
 				8C1D16B61DB8DE930056D407 /* Info.plist in Resources */,
 				8CB29AE51E8F795E001D07C6 /* Lits.xml in Resources */,
 				8CB29AFE1E8F7AF6001D07C6 /* Orchards.xml in Resources */,
+				8C7016711E90C79E00210CE7 /* FenceLits.storyboard in Resources */,
 				8C1D16B01DB8DE930056D407 /* AnimatedExample.psd in Resources */,
 				8C10B7EA1E8D7DC50049C44B /* PowerGrid.storyboard in Resources */,
 				8C9AF5601DF8D7770053BED4 /* Magnets.xml in Resources */,
@@ -2458,6 +2504,7 @@
 				8CD1558B1DD77C3400786F34 /* Extensions.swift in Sources */,
 				8CC350571E001D2800B8FD83 /* UIStoryboardExtensions.swift in Sources */,
 				8C64A2681DD8089700AB6C09 /* GameViewController.swift in Sources */,
+				8C70167C1E90C79E00210CE7 /* FenceLitsOptionsViewController.swift in Sources */,
 				8C9AF5621DF8D7770053BED4 /* MagnetsGame.swift in Sources */,
 				8C9AF57E1DF8D84B0053BED4 /* RoomsGameState.swift in Sources */,
 				8C9AF4DE1DE974BF0053BED4 /* NurikabeMainViewController.swift in Sources */,
@@ -2477,6 +2524,7 @@
 				8C1D16B31DB8DE930056D407 /* README.markdown in Sources */,
 				8C373D751E14A622005712CD /* BoxItUpMainViewController.swift in Sources */,
 				8CCF10B51E8E097100422284 /* BusySeasDocument.swift in Sources */,
+				8C7016791E90C79E00210CE7 /* FenceLitsMainViewController.swift in Sources */,
 				84FBA55B1DFF7F4F00594DAE /* TentsGameState.swift in Sources */,
 				8C9AF4A31DE974BF0053BED4 /* CloudsMixin.swift in Sources */,
 				8CC350451E001D2800B8FD83 /* IntExtensions.swift in Sources */,
@@ -2502,6 +2550,7 @@
 				8C9AF5491DF471AA0053BED4 /* MosaikGameScene.swift in Sources */,
 				8C6ACBFF1DCAF8BA0075F32C /* GameMixin.swift in Sources */,
 				8CCF10EE1E8F5D9900422284 /* DominoMainViewController.swift in Sources */,
+				8C7016751E90C79E00210CE7 /* FenceLitsGameScene.swift in Sources */,
 				8CCF10B81E8E097100422284 /* BusySeasGameState.swift in Sources */,
 				8C10B7D61E8CDABA0049C44B /* BootyIslandGameState.swift in Sources */,
 				8CCF10F01E8F5D9900422284 /* DominoObject.swift in Sources */,
@@ -2533,6 +2582,7 @@
 				8CCF10EA1E8F5D9900422284 /* DominoGameScene.swift in Sources */,
 				8C10B7D81E8CDABA0049C44B /* BootyIslandGridNode.swift in Sources */,
 				8C9AF4F81DE974BF0053BED4 /* SlitherLinkObject.swift in Sources */,
+				8C7016781E90C79E00210CE7 /* FenceLitsGridNode.swift in Sources */,
 				8CB29AEE1E8F795E001D07C6 /* LitsObject.swift in Sources */,
 				8CB29AE61E8F795E001D07C6 /* LitsDocument.swift in Sources */,
 				8C81CBB31E19546000FB244A /* FenceItUpMixin.swift in Sources */,
@@ -2637,6 +2687,7 @@
 				8C10B7C21E8AB2680049C44B /* ProductSentinelsObject.swift in Sources */,
 				8C9AF4F61DE974BF0053BED4 /* SlitherLinkMainViewController.swift in Sources */,
 				8CB29AEA1E8F795E001D07C6 /* LitsGameViewController.swift in Sources */,
+				8C70167A1E90C79E00210CE7 /* FenceLitsMixin.swift in Sources */,
 				8C10B7A81E8A98C30049C44B /* SentinelsObject.swift in Sources */,
 				8C9AF4C41DE974BF0053BED4 /* LineSweeperGameViewController.swift in Sources */,
 				8CC3CD211E32DEE40056B78F /* SnailGameState.swift in Sources */,
@@ -2665,6 +2716,7 @@
 				8C9AF4EC1DE974BF0053BED4 /* SkyscrapersObject.swift in Sources */,
 				8C9AF4D31DE974BF0053BED4 /* MasyuMixin.swift in Sources */,
 				8CB29B181E8F7DE1001D07C6 /* FenceSentinelsDocument.swift in Sources */,
+				8C70167B1E90C79E00210CE7 /* FenceLitsObject.swift in Sources */,
 				8C7016611E90C25000210CE7 /* MiniLitsObject.swift in Sources */,
 				84FBA52A1DFF7F3600594DAE /* BattleShipsGridNode.swift in Sources */,
 				8C10B7871E87B6870049C44B /* NeighboursGameScene.swift in Sources */,
@@ -2732,6 +2784,7 @@
 				8C9AF4A41DE974BF0053BED4 /* CloudsObject.swift in Sources */,
 				8C70165A1E90C25000210CE7 /* MiniLitsGame.swift in Sources */,
 				8CCF10BB1E8E097100422284 /* BusySeasMainViewController.swift in Sources */,
+				8C7016731E90C79E00210CE7 /* FenceLitsDocument.swift in Sources */,
 				84FBA52B1DFF7F3600594DAE /* BattleShipsMainViewController.swift in Sources */,
 				8C373D781E14A622005712CD /* BoxItUpOptionsViewController.swift in Sources */,
 				8C6ACC191DD204420075F32C /* GameObject.swift in Sources */,
@@ -2773,6 +2826,7 @@
 				84FBA5401DFF7F4500594DAE /* ParksGame.swift in Sources */,
 				8CC3CD221E32DEE40056B78F /* SnailGameViewController.swift in Sources */,
 				8C9AF5811DF8D84B0053BED4 /* RoomsMainViewController.swift in Sources */,
+				8C7016771E90C79E00210CE7 /* FenceLitsGameViewController.swift in Sources */,
 				8C9AF4B61DE974BF0053BED4 /* LightenUpGameScene.swift in Sources */,
 				8C373D641E14A622005712CD /* BoxItAroundGame.swift in Sources */,
 				8C6D37F31DC5AC310052202C /* SoundManager.swift in Sources */,
@@ -2835,6 +2889,7 @@
 				8CC350601E001D2800B8FD83 /* UserDefaultsExtension.swift in Sources */,
 				8C7016601E90C25000210CE7 /* MiniLitsMixin.swift in Sources */,
 				8C10B78D1E87B6870049C44B /* NeighboursObject.swift in Sources */,
+				8C7016741E90C79E00210CE7 /* FenceLitsGame.swift in Sources */,
 				8CC350481E001D2800B8FD83 /* NSObjectExtensions.swift in Sources */,
 				8CC350471E001D2800B8FD83 /* NSDictionaryExtensions.swift in Sources */,
 				8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */,
@@ -2861,6 +2916,7 @@
 				8CB29AD21E8F716C001D07C6 /* MinesweeperMainViewController.swift in Sources */,
 				8C81CBA91E19546000FB244A /* BoxItAgainOptionsViewController.swift in Sources */,
 				8C10B7F31E8D7DC50049C44B /* PowerGridMixin.swift in Sources */,
+				8C7016761E90C79E00210CE7 /* FenceLitsGameState.swift in Sources */,
 				8C81CBB51E19546000FB244A /* FenceItUpOptionsViewController.swift in Sources */,
 				8C9AF57F1DF8D84B0053BED4 /* RoomsGameViewController.swift in Sources */,
 				8CC3CD271E32DEE40056B78F /* SnailOptionsViewController.swift in Sources */,
