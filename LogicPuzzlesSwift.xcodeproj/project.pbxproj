@@ -162,6 +162,18 @@
 		8C6D37FB1DC5ACDB0052202C /* Copyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37EC1DC5A2F50052202C /* Copyable.swift */; };
 		8C6D37FC1DC5B4DC0052202C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D01DC42FA40052202C /* Game.swift */; };
 		8C6D37FE1DC5B4EB0052202C /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D21DC42FA40052202C /* GameState.swift */; };
+		8C7016571E90C25000210CE7 /* MiniLits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C70164B1E90C25000210CE7 /* MiniLits.storyboard */; };
+		8C7016581E90C25000210CE7 /* MiniLits.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C70164C1E90C25000210CE7 /* MiniLits.xml */; };
+		8C7016591E90C25000210CE7 /* MiniLitsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70164D1E90C25000210CE7 /* MiniLitsDocument.swift */; };
+		8C70165A1E90C25000210CE7 /* MiniLitsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70164E1E90C25000210CE7 /* MiniLitsGame.swift */; };
+		8C70165B1E90C25000210CE7 /* MiniLitsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70164F1E90C25000210CE7 /* MiniLitsGameScene.swift */; };
+		8C70165C1E90C25000210CE7 /* MiniLitsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7016501E90C25000210CE7 /* MiniLitsGameState.swift */; };
+		8C70165D1E90C25000210CE7 /* MiniLitsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7016511E90C25000210CE7 /* MiniLitsGameViewController.swift */; };
+		8C70165E1E90C25000210CE7 /* MiniLitsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7016521E90C25000210CE7 /* MiniLitsGridNode.swift */; };
+		8C70165F1E90C25000210CE7 /* MiniLitsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7016531E90C25000210CE7 /* MiniLitsMainViewController.swift */; };
+		8C7016601E90C25000210CE7 /* MiniLitsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7016541E90C25000210CE7 /* MiniLitsMixin.swift */; };
+		8C7016611E90C25000210CE7 /* MiniLitsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7016551E90C25000210CE7 /* MiniLitsObject.swift */; };
+		8C7016621E90C25000210CE7 /* MiniLitsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7016561E90C25000210CE7 /* MiniLitsOptionsViewController.swift */; };
 		8C81CB9E1E19546000FB244A /* BoxItAgain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C81CB851E19546000FB244A /* BoxItAgain.storyboard */; };
 		8C81CB9F1E19546000FB244A /* BoxItAgain.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C81CB861E19546000FB244A /* BoxItAgain.xml */; };
 		8C81CBA01E19546000FB244A /* BoxItAgainDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB871E19546000FB244A /* BoxItAgainDocument.swift */; };
@@ -736,6 +748,18 @@
 		8C6D37EC1DC5A2F50052202C /* Copyable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Copyable.swift; sourceTree = "<group>"; };
 		8C6D37F21DC5AC310052202C /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		8C6D37F41DC5AC520052202C /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		8C70164B1E90C25000210CE7 /* MiniLits.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MiniLits.storyboard; sourceTree = "<group>"; };
+		8C70164C1E90C25000210CE7 /* MiniLits.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MiniLits.xml; sourceTree = "<group>"; };
+		8C70164D1E90C25000210CE7 /* MiniLitsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsDocument.swift; sourceTree = "<group>"; };
+		8C70164E1E90C25000210CE7 /* MiniLitsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsGame.swift; sourceTree = "<group>"; };
+		8C70164F1E90C25000210CE7 /* MiniLitsGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsGameScene.swift; sourceTree = "<group>"; };
+		8C7016501E90C25000210CE7 /* MiniLitsGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsGameState.swift; sourceTree = "<group>"; };
+		8C7016511E90C25000210CE7 /* MiniLitsGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsGameViewController.swift; sourceTree = "<group>"; };
+		8C7016521E90C25000210CE7 /* MiniLitsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsGridNode.swift; sourceTree = "<group>"; };
+		8C7016531E90C25000210CE7 /* MiniLitsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsMainViewController.swift; sourceTree = "<group>"; };
+		8C7016541E90C25000210CE7 /* MiniLitsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsMixin.swift; sourceTree = "<group>"; };
+		8C7016551E90C25000210CE7 /* MiniLitsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsObject.swift; sourceTree = "<group>"; };
+		8C7016561E90C25000210CE7 /* MiniLitsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsOptionsViewController.swift; sourceTree = "<group>"; };
 		8C81CB851E19546000FB244A /* BoxItAgain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BoxItAgain.storyboard; sourceTree = "<group>"; };
 		8C81CB861E19546000FB244A /* BoxItAgain.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BoxItAgain.xml; sourceTree = "<group>"; };
 		8C81CB871E19546000FB244A /* BoxItAgainDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainDocument.swift; sourceTree = "<group>"; };
@@ -1500,6 +1524,7 @@
 				8C9AF5521DF8D7770053BED4 /* Magnets */,
 				8C9AF4411DE974BF0053BED4 /* Masyu */,
 				8CB29ABD1E8F716C001D07C6 /* Minesweeper */,
+				8C70164A1E90C25000210CE7 /* MiniLits */,
 				8C9AF5381DF471AA0053BED4 /* Mosaik */,
 				8C10B7761E87B6870049C44B /* Neighbours */,
 				8C9AF44E1DE974BF0053BED4 /* Nurikabe */,
@@ -1537,6 +1562,25 @@
 				8C6D37F41DC5AC520052202C /* Position.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		8C70164A1E90C25000210CE7 /* MiniLits */ = {
+			isa = PBXGroup;
+			children = (
+				8C70164B1E90C25000210CE7 /* MiniLits.storyboard */,
+				8C70164C1E90C25000210CE7 /* MiniLits.xml */,
+				8C70164D1E90C25000210CE7 /* MiniLitsDocument.swift */,
+				8C70164E1E90C25000210CE7 /* MiniLitsGame.swift */,
+				8C70164F1E90C25000210CE7 /* MiniLitsGameScene.swift */,
+				8C7016501E90C25000210CE7 /* MiniLitsGameState.swift */,
+				8C7016511E90C25000210CE7 /* MiniLitsGameViewController.swift */,
+				8C7016521E90C25000210CE7 /* MiniLitsGridNode.swift */,
+				8C7016531E90C25000210CE7 /* MiniLitsMainViewController.swift */,
+				8C7016541E90C25000210CE7 /* MiniLitsMixin.swift */,
+				8C7016551E90C25000210CE7 /* MiniLitsObject.swift */,
+				8C7016561E90C25000210CE7 /* MiniLitsOptionsViewController.swift */,
+			);
+			path = MiniLits;
 			sourceTree = "<group>";
 		};
 		8C81CB841E19546000FB244A /* BoxItAgain */ = {
@@ -2297,6 +2341,7 @@
 				8C1D16B11DB8DE930056D407 /* TraversalTree.graffle in Resources */,
 				8C9AF4D61DE974BF0053BED4 /* Nurikabe.storyboard in Resources */,
 				8C9AF49B1DE974BF0053BED4 /* Clouds.xml in Resources */,
+				8C7016571E90C25000210CE7 /* MiniLits.storyboard in Resources */,
 				8C9AF4831DE974BF0053BED4 /* Abc.xml in Resources */,
 				8C9F43E41D771915000139FC /* Assets.xcassets in Resources */,
 				8CB29B171E8F7DE1001D07C6 /* FenceSentinels.xml in Resources */,
@@ -2340,6 +2385,7 @@
 				8C9AF5461DF471AA0053BED4 /* Mosaik.xml in Resources */,
 				8C10B7D21E8CDABA0049C44B /* BootyIsland.xml in Resources */,
 				8C9AF4B21DE974BF0053BED4 /* LightenUp.storyboard in Resources */,
+				8C7016581E90C25000210CE7 /* MiniLits.xml in Resources */,
 				8C9AF4FB1DE974BF0053BED4 /* Sumscrapers.xml in Resources */,
 				8C9AF57A1DF8D84B0053BED4 /* Rooms.xml in Resources */,
 				8C81CBAB1E19546000FB244A /* FenceItUp.xml in Resources */,
@@ -2435,8 +2481,10 @@
 				8C9AF4A31DE974BF0053BED4 /* CloudsMixin.swift in Sources */,
 				8CC350451E001D2800B8FD83 /* IntExtensions.swift in Sources */,
 				8C373D741E14A622005712CD /* BoxItUpGridNode.swift in Sources */,
+				8C70165C1E90C25000210CE7 /* MiniLitsGameState.swift in Sources */,
 				8CCF10BE1E8E097100422284 /* BusySeasOptionsViewController.swift in Sources */,
 				8CC350491E001D2800B8FD83 /* StringExtensions.swift in Sources */,
+				8C70165D1E90C25000210CE7 /* MiniLitsGameViewController.swift in Sources */,
 				8CC3503A1E001D2800B8FD83 /* BundleExtensions.swift in Sources */,
 				8C9AF5651DF8D7770053BED4 /* MagnetsGameViewController.swift in Sources */,
 				8CCF10D81E8E097C00422284 /* LighthousesOptionsViewController.swift in Sources */,
@@ -2465,6 +2513,7 @@
 				8C10B7881E87B6870049C44B /* NeighboursGameState.swift in Sources */,
 				8C9AF54B1DF471AA0053BED4 /* MosaikGameViewController.swift in Sources */,
 				8C9AF4981DE974BF0053BED4 /* BridgesObject.swift in Sources */,
+				8C70165B1E90C25000210CE7 /* MiniLitsGameScene.swift in Sources */,
 				8C9AF4A11DE974BF0053BED4 /* CloudsGridNode.swift in Sources */,
 				84FBA5591DFF7F4F00594DAE /* TentsGame.swift in Sources */,
 				8C9AF5801DF8D84B0053BED4 /* RoomsGridNode.swift in Sources */,
@@ -2506,6 +2555,7 @@
 				8C9AF4901DE974BF0053BED4 /* BridgesDocument.swift in Sources */,
 				8C9AF5641DF8D7770053BED4 /* MagnetsGameState.swift in Sources */,
 				8C9AF4A51DE974BF0053BED4 /* CloudsOptionsViewController.swift in Sources */,
+				8C7016621E90C25000210CE7 /* MiniLitsOptionsViewController.swift in Sources */,
 				84FBA52D1DFF7F3600594DAE /* BattleShipsObject.swift in Sources */,
 				8CCF10E81E8F5D9900422284 /* DominoDocument.swift in Sources */,
 				8CC350581E001D2800B8FD83 /* UISwitchExtensions.swift in Sources */,
@@ -2599,6 +2649,7 @@
 				8C916CBE1DAA5E9500D9E62B /* Helpers.swift in Sources */,
 				8CC350531E001D2800B8FD83 /* UIImageExtensions.swift in Sources */,
 				8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */,
+				8C70165F1E90C25000210CE7 /* MiniLitsMainViewController.swift in Sources */,
 				8C9AF4861DE974BF0053BED4 /* AbcGameScene.swift in Sources */,
 				8C10B7C01E8AB2680049C44B /* ProductSentinelsMainViewController.swift in Sources */,
 				8CB29B051E8F7AF6001D07C6 /* OrchardsMainViewController.swift in Sources */,
@@ -2614,6 +2665,7 @@
 				8C9AF4EC1DE974BF0053BED4 /* SkyscrapersObject.swift in Sources */,
 				8C9AF4D31DE974BF0053BED4 /* MasyuMixin.swift in Sources */,
 				8CB29B181E8F7DE1001D07C6 /* FenceSentinelsDocument.swift in Sources */,
+				8C7016611E90C25000210CE7 /* MiniLitsObject.swift in Sources */,
 				84FBA52A1DFF7F3600594DAE /* BattleShipsGridNode.swift in Sources */,
 				8C10B7871E87B6870049C44B /* NeighboursGameScene.swift in Sources */,
 				8C6D37FE1DC5B4EB0052202C /* GameState.swift in Sources */,
@@ -2672,11 +2724,13 @@
 				8CB29B071E8F7AF6001D07C6 /* OrchardsObject.swift in Sources */,
 				8C10B7EF1E8D7DC50049C44B /* PowerGridGameState.swift in Sources */,
 				8C81CBA31E19546000FB244A /* BoxItAgainGameState.swift in Sources */,
+				8C70165E1E90C25000210CE7 /* MiniLitsGridNode.swift in Sources */,
 				8C10B7D41E8CDABA0049C44B /* BootyIslandGame.swift in Sources */,
 				8C9AF4A21DE974BF0053BED4 /* CloudsMainViewController.swift in Sources */,
 				8CC3503D1E001D2800B8FD83 /* CGRectExtensions.swift in Sources */,
 				8C9AF48A1DE974BF0053BED4 /* AbcMainViewController.swift in Sources */,
 				8C9AF4A41DE974BF0053BED4 /* CloudsObject.swift in Sources */,
+				8C70165A1E90C25000210CE7 /* MiniLitsGame.swift in Sources */,
 				8CCF10BB1E8E097100422284 /* BusySeasMainViewController.swift in Sources */,
 				84FBA52B1DFF7F3600594DAE /* BattleShipsMainViewController.swift in Sources */,
 				8C373D781E14A622005712CD /* BoxItUpOptionsViewController.swift in Sources */,
@@ -2764,6 +2818,7 @@
 				8C373D771E14A622005712CD /* BoxItUpObject.swift in Sources */,
 				8C9AF5021DE974BF0053BED4 /* SumscrapersMainViewController.swift in Sources */,
 				8C9AF49F1DE974BF0053BED4 /* CloudsGameState.swift in Sources */,
+				8C7016591E90C25000210CE7 /* MiniLitsDocument.swift in Sources */,
 				8C10B7891E87B6870049C44B /* NeighboursGameViewController.swift in Sources */,
 				8C81CBB01E19546000FB244A /* FenceItUpGameViewController.swift in Sources */,
 				8C9AF57C1DF8D84B0053BED4 /* RoomsGame.swift in Sources */,
@@ -2778,6 +2833,7 @@
 				8CB29B001E8F7AF6001D07C6 /* OrchardsGame.swift in Sources */,
 				8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */,
 				8CC350601E001D2800B8FD83 /* UserDefaultsExtension.swift in Sources */,
+				8C7016601E90C25000210CE7 /* MiniLitsMixin.swift in Sources */,
 				8C10B78D1E87B6870049C44B /* NeighboursObject.swift in Sources */,
 				8CC350481E001D2800B8FD83 /* NSObjectExtensions.swift in Sources */,
 				8CC350471E001D2800B8FD83 /* NSDictionaryExtensions.swift in Sources */,
