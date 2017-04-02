@@ -409,6 +409,18 @@
 		8C9AF5821DF8D84B0053BED4 /* RoomsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5761DF8D84B0053BED4 /* RoomsMixin.swift */; };
 		8C9AF5831DF8D84B0053BED4 /* RoomsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5771DF8D84B0053BED4 /* RoomsObject.swift */; };
 		8C9AF5841DF8D84B0053BED4 /* RoomsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5781DF8D84B0053BED4 /* RoomsOptionsViewController.swift */; };
+		8C9BE9FB1E9137F000A13A98 /* Pairakabe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BE9EF1E9137F000A13A98 /* Pairakabe.storyboard */; };
+		8C9BE9FC1E9137F000A13A98 /* Pairakabe.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BE9F01E9137F000A13A98 /* Pairakabe.xml */; };
+		8C9BE9FD1E9137F000A13A98 /* PairakabeDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BE9F11E9137F000A13A98 /* PairakabeDocument.swift */; };
+		8C9BE9FE1E9137F000A13A98 /* PairakabeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BE9F21E9137F000A13A98 /* PairakabeGame.swift */; };
+		8C9BE9FF1E9137F000A13A98 /* PairakabeGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BE9F31E9137F000A13A98 /* PairakabeGameScene.swift */; };
+		8C9BEA001E9137F000A13A98 /* PairakabeGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BE9F41E9137F000A13A98 /* PairakabeGameState.swift */; };
+		8C9BEA011E9137F000A13A98 /* PairakabeGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BE9F51E9137F000A13A98 /* PairakabeGameViewController.swift */; };
+		8C9BEA021E9137F000A13A98 /* PairakabeGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BE9F61E9137F000A13A98 /* PairakabeGridNode.swift */; };
+		8C9BEA031E9137F000A13A98 /* PairakabeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BE9F71E9137F000A13A98 /* PairakabeMainViewController.swift */; };
+		8C9BEA041E9137F000A13A98 /* PairakabeMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BE9F81E9137F000A13A98 /* PairakabeMixin.swift */; };
+		8C9BEA051E9137F000A13A98 /* PairakabeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BE9F91E9137F000A13A98 /* PairakabeObject.swift */; };
+		8C9BEA061E9137F000A13A98 /* PairakabeOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BE9FA1E9137F000A13A98 /* PairakabeOptionsViewController.swift */; };
 		8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43DA1D771915000139FC /* AppDelegate.swift */; };
 		8C9F43E41D771915000139FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E31D771915000139FC /* Assets.xcassets */; };
 		8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E51D771915000139FC /* LaunchScreen.storyboard */; };
@@ -1021,6 +1033,18 @@
 		8C9AF5761DF8D84B0053BED4 /* RoomsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsMixin.swift; sourceTree = "<group>"; };
 		8C9AF5771DF8D84B0053BED4 /* RoomsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsObject.swift; sourceTree = "<group>"; };
 		8C9AF5781DF8D84B0053BED4 /* RoomsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsOptionsViewController.swift; sourceTree = "<group>"; };
+		8C9BE9EF1E9137F000A13A98 /* Pairakabe.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Pairakabe.storyboard; sourceTree = "<group>"; };
+		8C9BE9F01E9137F000A13A98 /* Pairakabe.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Pairakabe.xml; sourceTree = "<group>"; };
+		8C9BE9F11E9137F000A13A98 /* PairakabeDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeDocument.swift; sourceTree = "<group>"; };
+		8C9BE9F21E9137F000A13A98 /* PairakabeGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeGame.swift; sourceTree = "<group>"; };
+		8C9BE9F31E9137F000A13A98 /* PairakabeGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeGameScene.swift; sourceTree = "<group>"; };
+		8C9BE9F41E9137F000A13A98 /* PairakabeGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeGameState.swift; sourceTree = "<group>"; };
+		8C9BE9F51E9137F000A13A98 /* PairakabeGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeGameViewController.swift; sourceTree = "<group>"; };
+		8C9BE9F61E9137F000A13A98 /* PairakabeGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeGridNode.swift; sourceTree = "<group>"; };
+		8C9BE9F71E9137F000A13A98 /* PairakabeMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeMainViewController.swift; sourceTree = "<group>"; };
+		8C9BE9F81E9137F000A13A98 /* PairakabeMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeMixin.swift; sourceTree = "<group>"; };
+		8C9BE9F91E9137F000A13A98 /* PairakabeObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeObject.swift; sourceTree = "<group>"; };
+		8C9BE9FA1E9137F000A13A98 /* PairakabeOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeOptionsViewController.swift; sourceTree = "<group>"; };
 		8C9F43D71D771915000139FC /* LogicPuzzlesSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogicPuzzlesSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9F43DA1D771915000139FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C9F43E31D771915000139FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1554,6 +1578,7 @@
 				8C10B7761E87B6870049C44B /* Neighbours */,
 				8C9AF44E1DE974BF0053BED4 /* Nurikabe */,
 				8CB29AF01E8F7AF6001D07C6 /* Orchards */,
+				8C9BE9EE1E9137F000A13A98 /* Pairakabe */,
 				84FBA5301DFF7F4500594DAE /* Parks */,
 				8C10B7DD1E8D7DC40049C44B /* PowerGrid */,
 				8C10B7AB1E8AB2670049C44B /* ProductSentinels */,
@@ -2016,6 +2041,25 @@
 			path = LogicPuzzlesSwift/Puzzles/Rooms;
 			sourceTree = SOURCE_ROOT;
 		};
+		8C9BE9EE1E9137F000A13A98 /* Pairakabe */ = {
+			isa = PBXGroup;
+			children = (
+				8C9BE9EF1E9137F000A13A98 /* Pairakabe.storyboard */,
+				8C9BE9F01E9137F000A13A98 /* Pairakabe.xml */,
+				8C9BE9F11E9137F000A13A98 /* PairakabeDocument.swift */,
+				8C9BE9F21E9137F000A13A98 /* PairakabeGame.swift */,
+				8C9BE9F31E9137F000A13A98 /* PairakabeGameScene.swift */,
+				8C9BE9F41E9137F000A13A98 /* PairakabeGameState.swift */,
+				8C9BE9F51E9137F000A13A98 /* PairakabeGameViewController.swift */,
+				8C9BE9F61E9137F000A13A98 /* PairakabeGridNode.swift */,
+				8C9BE9F71E9137F000A13A98 /* PairakabeMainViewController.swift */,
+				8C9BE9F81E9137F000A13A98 /* PairakabeMixin.swift */,
+				8C9BE9F91E9137F000A13A98 /* PairakabeObject.swift */,
+				8C9BE9FA1E9137F000A13A98 /* PairakabeOptionsViewController.swift */,
+			);
+			path = Pairakabe;
+			sourceTree = "<group>";
+		};
 		8C9F43CE1D771915000139FC = {
 			isa = PBXGroup;
 			children = (
@@ -2434,6 +2478,7 @@
 				8C7016581E90C25000210CE7 /* MiniLits.xml in Resources */,
 				8C9AF4FB1DE974BF0053BED4 /* Sumscrapers.xml in Resources */,
 				8C9AF57A1DF8D84B0053BED4 /* Rooms.xml in Resources */,
+				8C9BE9FC1E9137F000A13A98 /* Pairakabe.xml in Resources */,
 				8C81CBAB1E19546000FB244A /* FenceItUp.xml in Resources */,
 				84FBA5561DFF7F4F00594DAE /* Tents.storyboard in Resources */,
 				8C6D373F1DC421980052202C /* Home.storyboard in Resources */,
@@ -2441,6 +2486,7 @@
 				8C10B7D11E8CDABA0049C44B /* BootyIsland.storyboard in Resources */,
 				8C373D6E1E14A622005712CD /* BoxItUp.xml in Resources */,
 				8C916CC41DAA5FEB00D9E62B /* music.wav in Resources */,
+				8C9BE9FB1E9137F000A13A98 /* Pairakabe.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2471,6 +2517,7 @@
 				8CB29AD31E8F716C001D07C6 /* MinesweeperMixin.swift in Sources */,
 				8CC3504D1E001D2800B8FD83 /* UIBarButtonItemExtensions.swift in Sources */,
 				8C6D37FB1DC5ACDB0052202C /* Copyable.swift in Sources */,
+				8C9BE9FD1E9137F000A13A98 /* PairakabeDocument.swift in Sources */,
 				8C10B78E1E87B6870049C44B /* NeighboursOptionsViewController.swift in Sources */,
 				84FBA55A1DFF7F4F00594DAE /* TentsGameScene.swift in Sources */,
 				84FBA5271DFF7F3600594DAE /* BattleShipsGameScene.swift in Sources */,
@@ -2536,6 +2583,7 @@
 				8CC3503A1E001D2800B8FD83 /* BundleExtensions.swift in Sources */,
 				8C9AF5651DF8D7770053BED4 /* MagnetsGameViewController.swift in Sources */,
 				8CCF10D81E8E097C00422284 /* LighthousesOptionsViewController.swift in Sources */,
+				8C9BEA051E9137F000A13A98 /* PairakabeObject.swift in Sources */,
 				8C508BEE1DFBD13700D99A09 /* GridNode.swift in Sources */,
 				8C9AF4911DE974BF0053BED4 /* BridgesGame.swift in Sources */,
 				8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */,
@@ -2558,6 +2606,7 @@
 				8CC350591E001D2800B8FD83 /* UITextFieldExtensions.swift in Sources */,
 				8C64A2EC1DE0891000AB6C09 /* GameTables.swift in Sources */,
 				8CC3CD241E32DEE40056B78F /* SnailMainViewController.swift in Sources */,
+				8C9BEA001E9137F000A13A98 /* PairakabeGameState.swift in Sources */,
 				8CC350441E001D2800B8FD83 /* FloatingPointExtensions.swift in Sources */,
 				8C10B7881E87B6870049C44B /* NeighboursGameState.swift in Sources */,
 				8C9AF54B1DF471AA0053BED4 /* MosaikGameViewController.swift in Sources */,
@@ -2618,6 +2667,7 @@
 				8C81CBA81E19546000FB244A /* BoxItAgainObject.swift in Sources */,
 				8CB29ACD1E8F716C001D07C6 /* MinesweeperGame.swift in Sources */,
 				8CB29AD01E8F716C001D07C6 /* MinesweeperGameViewController.swift in Sources */,
+				8C9BEA061E9137F000A13A98 /* PairakabeOptionsViewController.swift in Sources */,
 				8C10B7A41E8A98C30049C44B /* SentinelsGameViewController.swift in Sources */,
 				84FBA55C1DFF7F4F00594DAE /* TentsGameViewController.swift in Sources */,
 				8CCF10D21E8E097C00422284 /* LighthousesGameState.swift in Sources */,
@@ -2638,6 +2688,7 @@
 				8C9AF49D1DE974BF0053BED4 /* CloudsGame.swift in Sources */,
 				8C10B7BE1E8AB2680049C44B /* ProductSentinelsGameViewController.swift in Sources */,
 				8CC3504B1E001D2800B8FD83 /* UIAlertControllerExtensions.swift in Sources */,
+				8C9BE9FE1E9137F000A13A98 /* PairakabeGame.swift in Sources */,
 				8C9AF4AE1DE974BF0053BED4 /* HitoriMainViewController.swift in Sources */,
 				8C9AF5161DE975030053BED4 /* LoopyGame.swift in Sources */,
 				84FBA53F1DFF7F4500594DAE /* ParksDocument.swift in Sources */,
@@ -2718,6 +2769,7 @@
 				8CB29B181E8F7DE1001D07C6 /* FenceSentinelsDocument.swift in Sources */,
 				8C70167B1E90C79E00210CE7 /* FenceLitsObject.swift in Sources */,
 				8C7016611E90C25000210CE7 /* MiniLitsObject.swift in Sources */,
+				8C9BEA031E9137F000A13A98 /* PairakabeMainViewController.swift in Sources */,
 				84FBA52A1DFF7F3600594DAE /* BattleShipsGridNode.swift in Sources */,
 				8C10B7871E87B6870049C44B /* NeighboursGameScene.swift in Sources */,
 				8C6D37FE1DC5B4EB0052202C /* GameState.swift in Sources */,
@@ -2765,6 +2817,7 @@
 				8CB29B211E8F7DE1001D07C6 /* FenceSentinelsOptionsViewController.swift in Sources */,
 				8C9AF4BB1DE974BF0053BED4 /* LightenUpMixin.swift in Sources */,
 				8C10B7BD1E8AB2680049C44B /* ProductSentinelsGameState.swift in Sources */,
+				8C9BEA041E9137F000A13A98 /* PairakabeMixin.swift in Sources */,
 				8CC350391E001D2800B8FD83 /* BoolExtensions.swift in Sources */,
 				8C6D37381DC421180052202C /* HomeDocument.swift in Sources */,
 				8C10B7A11E8A98C30049C44B /* SentinelsGame.swift in Sources */,
@@ -2809,6 +2862,7 @@
 				8C9AF54A1DF471AA0053BED4 /* MosaikGameState.swift in Sources */,
 				8C9AF5661DF8D7770053BED4 /* MagnetsGridNode.swift in Sources */,
 				8CCF10B61E8E097100422284 /* BusySeasGame.swift in Sources */,
+				8C9BEA011E9137F000A13A98 /* PairakabeGameViewController.swift in Sources */,
 				8C9AF5841DF8D84B0053BED4 /* RoomsOptionsViewController.swift in Sources */,
 				8C373D701E14A622005712CD /* BoxItUpGame.swift in Sources */,
 				84FBA55E1DFF7F4F00594DAE /* TentsMainViewController.swift in Sources */,
@@ -2910,10 +2964,12 @@
 				8C9AF4C11DE974BF0053BED4 /* LineSweeperGame.swift in Sources */,
 				8C10B7F21E8D7DC50049C44B /* PowerGridMainViewController.swift in Sources */,
 				8CB29B1F1E8F7DE1001D07C6 /* FenceSentinelsMixin.swift in Sources */,
+				8C9BE9FF1E9137F000A13A98 /* PairakabeGameScene.swift in Sources */,
 				8C9AF51B1DE975030053BED4 /* LoopyMainViewController.swift in Sources */,
 				8C10B7ED1E8D7DC50049C44B /* PowerGridGame.swift in Sources */,
 				8CC350461E001D2800B8FD83 /* NSAttributedStringExtensions.swift in Sources */,
 				8CB29AD21E8F716C001D07C6 /* MinesweeperMainViewController.swift in Sources */,
+				8C9BEA021E9137F000A13A98 /* PairakabeGridNode.swift in Sources */,
 				8C81CBA91E19546000FB244A /* BoxItAgainOptionsViewController.swift in Sources */,
 				8C10B7F31E8D7DC50049C44B /* PowerGridMixin.swift in Sources */,
 				8C7016761E90C79E00210CE7 /* FenceLitsGameState.swift in Sources */,

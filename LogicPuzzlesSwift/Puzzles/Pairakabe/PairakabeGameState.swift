@@ -1,5 +1,5 @@
 //
-//  NurikabeGameState.swift
+//  PairakabeGameState.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/19.
@@ -8,35 +8,35 @@
 
 import Foundation
 
-class NurikabeGameState: GridGameState, NurikabeMixin {
+class PairakabeGameState: GridGameState, PairakabeMixin {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
-    var game: NurikabeGame {
-        get {return getGame() as! NurikabeGame}
+    var game: PairakabeGame {
+        get {return getGame() as! PairakabeGame}
         set {setGame(game: newValue)}
     }
-    var objArray = [NurikabeObject]()
+    var objArray = [PairakabeObject]()
     
-    override func copy() -> NurikabeGameState {
-        let v = NurikabeGameState(game: game, isCopy: true)
+    override func copy() -> PairakabeGameState {
+        let v = PairakabeGameState(game: game, isCopy: true)
         return setup(v: v)
     }
-    func setup(v: NurikabeGameState) -> NurikabeGameState {
+    func setup(v: PairakabeGameState) -> PairakabeGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
         return v
     }
     
-    required init(game: NurikabeGame, isCopy: Bool = false) {
+    required init(game: PairakabeGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<NurikabeObject>(repeating: NurikabeObject(), count: rows * cols)
+        objArray = Array<PairakabeObject>(repeating: PairakabeObject(), count: rows * cols)
         for p in game.pos2hint.keys {
             self[p] = .hint(state: .normal)
         }
         updateIsSolved()
     }
     
-    subscript(p: Position) -> NurikabeObject {
+    subscript(p: Position) -> PairakabeObject {
         get {
             return self[p.row, p.col]
         }
@@ -44,7 +44,7 @@ class NurikabeGameState: GridGameState, NurikabeMixin {
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> NurikabeObject {
+    subscript(row: Int, col: Int) -> PairakabeObject {
         get {
             return objArray[row * cols + col]
         }
@@ -53,7 +53,7 @@ class NurikabeGameState: GridGameState, NurikabeMixin {
         }
     }
     
-    func setObject(move: inout NurikabeGameMove) -> Bool {
+    func setObject(move: inout PairakabeGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         if case .hint = o1 {return false}
@@ -63,9 +63,9 @@ class NurikabeGameState: GridGameState, NurikabeMixin {
         return true
     }
     
-    func switchObject(move: inout NurikabeGameMove) -> Bool {
+    func switchObject(move: inout PairakabeGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
-        func f(o: NurikabeObject) -> NurikabeObject {
+        func f(o: PairakabeObject) -> PairakabeObject {
             switch o {
             case .empty:
                 return markerOption == .markerFirst ? .marker : .wall
@@ -87,7 +87,7 @@ class NurikabeGameState: GridGameState, NurikabeMixin {
             rule2x2:
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                for os in NurikabeGame.offset2 {
+                for os in PairakabeGame.offset2 {
                     guard case .wall = self[p + os] else {continue rule2x2}
                 }
                 isSolved = false
@@ -110,7 +110,7 @@ class NurikabeGameState: GridGameState, NurikabeMixin {
             }
         }
         for p in rngWalls {
-            for os in NurikabeGame.offset {
+            for os in PairakabeGame.offset {
                 let p2 = p + os
                 if rngWalls.contains(p2) {
                     g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
@@ -118,7 +118,7 @@ class NurikabeGameState: GridGameState, NurikabeMixin {
             }
         }
         for p in rngEmpty {
-            for os in NurikabeGame.offset {
+            for os in PairakabeGame.offset {
                 let p2 = p + os
                 if rngEmpty.contains(p2) {
                     g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
@@ -146,10 +146,13 @@ class NurikabeGameState: GridGameState, NurikabeMixin {
             case 0:
                 isSolved = false
             case 1:
-                let p = rng[0]
-                let n1 = game.pos2hint[p]!
+                self[rng[0]] = .hint(state: .error)
+            case 2:
+                let p1 = rng[0], p2 = rng[1]
+                let n1 = game.pos2hint[p1]! + game.pos2hint[p2]!
                 let s: HintState = n1 == n2 ? .complete : .error
-                self[p] = .hint(state: s)
+                self[p1] = .hint(state: s)
+                self[p2] = .hint(state: s)
                 if s != .complete {isSolved = false}
             default:
                 for p in rng {
