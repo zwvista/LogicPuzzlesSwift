@@ -63,15 +63,9 @@ class FenceLitsGame: GridGame<FenceLitsGameViewController, FenceLitsGameMove, Fe
         for r in 0..<rows - 1 {
             let str = layout[r]
             for c in 0..<cols - 1 {
-                let p = Position(r, c)
                 let ch = str[c]
-                switch ch {
-                case "0"..."9":
-                    let n = ch.toInt!
-                    pos2hint[p] = n
-                default:
-                    break
-                }
+                guard case "0"..."9" = ch else {continue}
+                pos2hint[Position(r, c)] = ch.toInt!
             }
         }
         for r in 0..<rows - 1 {

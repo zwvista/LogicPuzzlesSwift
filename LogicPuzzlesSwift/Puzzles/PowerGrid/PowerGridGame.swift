@@ -31,20 +31,13 @@ class PowerGridGame: GridGame<PowerGridGameViewController, PowerGridGameMove, Po
         for r in 0..<rows + 1 {
             let str = layout[r]
             for c in 0..<cols + 1 {
-                let p = Position(r, c)
                 let ch = str[c]
-                switch ch {
-                case "C":
-                    pos2post.append(p)
-                case "0"..."9":
-                    let n = ch.toInt!
-                    if r == rows {
-                        col2hint[c] = n
-                    } else if c == cols {
-                        row2hint[r] = n
-                    }
-                default:
-                    break
+                guard case "0"..."9" = ch else {continue}
+                let n = ch.toInt!
+                if r == rows {
+                    col2hint[c] = n
+                } else if c == cols {
+                    row2hint[r] = n
                 }
             }
         }

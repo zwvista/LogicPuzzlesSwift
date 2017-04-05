@@ -32,11 +32,9 @@ class LineSweeperGame: GridGame<LineSweeperGameViewController, LineSweeperGameMo
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
-                let p = Position(r, c)
                 let ch = str[c]
-                if "0"..."9" ~= ch {
-                    pos2hint[p] = ch.toInt!
-                }
+                guard case "0"..."9" = ch else {continue}
+                pos2hint[Position(r, c)] = ch.toInt!
             }
         }
         

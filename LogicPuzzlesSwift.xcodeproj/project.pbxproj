@@ -421,6 +421,18 @@
 		8C9BEA041E9137F000A13A98 /* PairakabeMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BE9F81E9137F000A13A98 /* PairakabeMixin.swift */; };
 		8C9BEA051E9137F000A13A98 /* PairakabeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BE9F91E9137F000A13A98 /* PairakabeObject.swift */; };
 		8C9BEA061E9137F000A13A98 /* PairakabeOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BE9FA1E9137F000A13A98 /* PairakabeOptionsViewController.swift */; };
+		8C9BEA151E91452B00A13A98 /* Tatami.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BEA091E91452B00A13A98 /* Tatami.storyboard */; };
+		8C9BEA161E91452B00A13A98 /* Tatami.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BEA0A1E91452B00A13A98 /* Tatami.xml */; };
+		8C9BEA171E91452B00A13A98 /* TatamiDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BEA0B1E91452B00A13A98 /* TatamiDocument.swift */; };
+		8C9BEA181E91452B00A13A98 /* TatamiGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BEA0C1E91452B00A13A98 /* TatamiGame.swift */; };
+		8C9BEA191E91452B00A13A98 /* TatamiGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BEA0D1E91452B00A13A98 /* TatamiGameScene.swift */; };
+		8C9BEA1A1E91452B00A13A98 /* TatamiGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BEA0E1E91452B00A13A98 /* TatamiGameState.swift */; };
+		8C9BEA1B1E91452B00A13A98 /* TatamiGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BEA0F1E91452B00A13A98 /* TatamiGameViewController.swift */; };
+		8C9BEA1C1E91452B00A13A98 /* TatamiGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BEA101E91452B00A13A98 /* TatamiGridNode.swift */; };
+		8C9BEA1D1E91452B00A13A98 /* TatamiMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BEA111E91452B00A13A98 /* TatamiMainViewController.swift */; };
+		8C9BEA1E1E91452B00A13A98 /* TatamiMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BEA121E91452B00A13A98 /* TatamiMixin.swift */; };
+		8C9BEA1F1E91452B00A13A98 /* TatamiObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BEA131E91452B00A13A98 /* TatamiObject.swift */; };
+		8C9BEA201E91452B00A13A98 /* TatamiOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BEA141E91452B00A13A98 /* TatamiOptionsViewController.swift */; };
 		8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43DA1D771915000139FC /* AppDelegate.swift */; };
 		8C9F43E41D771915000139FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E31D771915000139FC /* Assets.xcassets */; };
 		8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E51D771915000139FC /* LaunchScreen.storyboard */; };
@@ -1045,6 +1057,18 @@
 		8C9BE9F81E9137F000A13A98 /* PairakabeMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeMixin.swift; sourceTree = "<group>"; };
 		8C9BE9F91E9137F000A13A98 /* PairakabeObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeObject.swift; sourceTree = "<group>"; };
 		8C9BE9FA1E9137F000A13A98 /* PairakabeOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeOptionsViewController.swift; sourceTree = "<group>"; };
+		8C9BEA091E91452B00A13A98 /* Tatami.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tatami.storyboard; sourceTree = "<group>"; };
+		8C9BEA0A1E91452B00A13A98 /* Tatami.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tatami.xml; sourceTree = "<group>"; };
+		8C9BEA0B1E91452B00A13A98 /* TatamiDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TatamiDocument.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		8C9BEA0C1E91452B00A13A98 /* TatamiGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TatamiGame.swift; sourceTree = "<group>"; };
+		8C9BEA0D1E91452B00A13A98 /* TatamiGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TatamiGameScene.swift; sourceTree = "<group>"; };
+		8C9BEA0E1E91452B00A13A98 /* TatamiGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TatamiGameState.swift; sourceTree = "<group>"; };
+		8C9BEA0F1E91452B00A13A98 /* TatamiGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TatamiGameViewController.swift; sourceTree = "<group>"; };
+		8C9BEA101E91452B00A13A98 /* TatamiGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TatamiGridNode.swift; sourceTree = "<group>"; };
+		8C9BEA111E91452B00A13A98 /* TatamiMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TatamiMainViewController.swift; sourceTree = "<group>"; };
+		8C9BEA121E91452B00A13A98 /* TatamiMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TatamiMixin.swift; sourceTree = "<group>"; };
+		8C9BEA131E91452B00A13A98 /* TatamiObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TatamiObject.swift; sourceTree = "<group>"; };
+		8C9BEA141E91452B00A13A98 /* TatamiOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TatamiOptionsViewController.swift; sourceTree = "<group>"; };
 		8C9F43D71D771915000139FC /* LogicPuzzlesSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogicPuzzlesSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9F43DA1D771915000139FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C9F43E31D771915000139FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1588,6 +1612,7 @@
 				8C9AF45B1DE974BF0053BED4 /* Skyscrapers */,
 				8C9AF4681DE974BF0053BED4 /* SlitherLink */,
 				8C9AF4751DE974BF0053BED4 /* Sumscrapers */,
+				8C9BEA081E91452B00A13A98 /* Tatami */,
 				84FBA5491DFF7F4F00594DAE /* Tents */,
 			);
 			path = Puzzles;
@@ -2060,6 +2085,25 @@
 			path = Pairakabe;
 			sourceTree = "<group>";
 		};
+		8C9BEA081E91452B00A13A98 /* Tatami */ = {
+			isa = PBXGroup;
+			children = (
+				8C9BEA091E91452B00A13A98 /* Tatami.storyboard */,
+				8C9BEA0A1E91452B00A13A98 /* Tatami.xml */,
+				8C9BEA0B1E91452B00A13A98 /* TatamiDocument.swift */,
+				8C9BEA0C1E91452B00A13A98 /* TatamiGame.swift */,
+				8C9BEA0D1E91452B00A13A98 /* TatamiGameScene.swift */,
+				8C9BEA0E1E91452B00A13A98 /* TatamiGameState.swift */,
+				8C9BEA0F1E91452B00A13A98 /* TatamiGameViewController.swift */,
+				8C9BEA101E91452B00A13A98 /* TatamiGridNode.swift */,
+				8C9BEA111E91452B00A13A98 /* TatamiMainViewController.swift */,
+				8C9BEA121E91452B00A13A98 /* TatamiMixin.swift */,
+				8C9BEA131E91452B00A13A98 /* TatamiObject.swift */,
+				8C9BEA141E91452B00A13A98 /* TatamiOptionsViewController.swift */,
+			);
+			path = Tatami;
+			sourceTree = "<group>";
+		};
 		8C9F43CE1D771915000139FC = {
 			isa = PBXGroup;
 			children = (
@@ -2441,6 +2485,7 @@
 				8C373D6D1E14A622005712CD /* BoxItUp.storyboard in Resources */,
 				8C9AF4A61DE974BF0053BED4 /* Hitori.storyboard in Resources */,
 				84FBA53D1DFF7F4500594DAE /* Parks.storyboard in Resources */,
+				8C9BEA161E91452B00A13A98 /* Tatami.xml in Resources */,
 				8CB29B161E8F7DE1001D07C6 /* FenceSentinels.storyboard in Resources */,
 				8CB29AFD1E8F7AF6001D07C6 /* Orchards.storyboard in Resources */,
 				8C10B7831E87B6870049C44B /* Neighbours.storyboard in Resources */,
@@ -2472,6 +2517,7 @@
 				8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */,
 				8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */,
 				8C373D611E14A622005712CD /* BoxItAround.storyboard in Resources */,
+				8C9BEA151E91452B00A13A98 /* Tatami.storyboard in Resources */,
 				8C9AF5461DF471AA0053BED4 /* Mosaik.xml in Resources */,
 				8C10B7D21E8CDABA0049C44B /* BootyIsland.xml in Resources */,
 				8C9AF4B21DE974BF0053BED4 /* LightenUp.storyboard in Resources */,
@@ -2511,6 +2557,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C9BEA1B1E91452B00A13A98 /* TatamiGameViewController.swift in Sources */,
 				8C81CBA61E19546000FB244A /* BoxItAgainMainViewController.swift in Sources */,
 				8CB29B1D1E8F7DE1001D07C6 /* FenceSentinelsGridNode.swift in Sources */,
 				8C10B7EE1E8D7DC50049C44B /* PowerGridGameScene.swift in Sources */,
@@ -2603,6 +2650,7 @@
 				8C10B7D61E8CDABA0049C44B /* BootyIslandGameState.swift in Sources */,
 				8CCF10F01E8F5D9900422284 /* DominoObject.swift in Sources */,
 				8C6D373A1DC421180052202C /* HomeMixin.swift in Sources */,
+				8C9BEA171E91452B00A13A98 /* TatamiDocument.swift in Sources */,
 				8CC350591E001D2800B8FD83 /* UITextFieldExtensions.swift in Sources */,
 				8C64A2EC1DE0891000AB6C09 /* GameTables.swift in Sources */,
 				8CC3CD241E32DEE40056B78F /* SnailMainViewController.swift in Sources */,
@@ -2648,6 +2696,7 @@
 				8C9AF4E51DE974BF0053BED4 /* SkyscrapersGame.swift in Sources */,
 				84FBA5431DFF7F4500594DAE /* ParksGameViewController.swift in Sources */,
 				8CC3CD201E32DEE40056B78F /* SnailGameScene.swift in Sources */,
+				8C9BEA191E91452B00A13A98 /* TatamiGameScene.swift in Sources */,
 				8C9AF4A01DE974BF0053BED4 /* CloudsGameViewController.swift in Sources */,
 				84FBA5611DFF7F4F00594DAE /* TentsOptionsViewController.swift in Sources */,
 				8C9AF4971DE974BF0053BED4 /* BridgesMixin.swift in Sources */,
@@ -2673,6 +2722,7 @@
 				8CCF10D21E8E097C00422284 /* LighthousesGameState.swift in Sources */,
 				8C373D731E14A622005712CD /* BoxItUpGameViewController.swift in Sources */,
 				8CCF10D71E8E097C00422284 /* LighthousesObject.swift in Sources */,
+				8C9BEA1D1E91452B00A13A98 /* TatamiMainViewController.swift in Sources */,
 				8C886C441D9E8AF1004A42BF /* SWActionSheet.m in Sources */,
 				8CB29AD11E8F716C001D07C6 /* MinesweeperGridNode.swift in Sources */,
 				8C9AF4C51DE974BF0053BED4 /* LineSweeperGridNode.swift in Sources */,
@@ -2684,6 +2734,7 @@
 				8C9AF4BD1DE974BF0053BED4 /* LightenUpOptionsViewController.swift in Sources */,
 				8C9AF4EA1DE974BF0053BED4 /* SkyscrapersMainViewController.swift in Sources */,
 				8C9AF4841DE974BF0053BED4 /* AbcDocument.swift in Sources */,
+				8C9BEA1E1E91452B00A13A98 /* TatamiMixin.swift in Sources */,
 				8CC350321E001D2800B8FD83 /* BlockButton.swift in Sources */,
 				8C9AF49D1DE974BF0053BED4 /* CloudsGame.swift in Sources */,
 				8C10B7BE1E8AB2680049C44B /* ProductSentinelsGameViewController.swift in Sources */,
@@ -2704,6 +2755,7 @@
 				8C9AF4FC1DE974BF0053BED4 /* SumscrapersDocument.swift in Sources */,
 				8C9AF4DA1DE974BF0053BED4 /* NurikabeGameScene.swift in Sources */,
 				8CB29AE91E8F795E001D07C6 /* LitsGameState.swift in Sources */,
+				8C9BEA1A1E91452B00A13A98 /* TatamiGameState.swift in Sources */,
 				8C9AF54D1DF471AA0053BED4 /* MosaikMainViewController.swift in Sources */,
 				8C6ACBFE1DCAF8BA0075F32C /* GameDocument.swift in Sources */,
 				8CB29B081E8F7AF6001D07C6 /* OrchardsOptionsViewController.swift in Sources */,
@@ -2723,6 +2775,7 @@
 				8CC350351E001D2800B8FD83 /* BlockPinch.swift in Sources */,
 				8C9AF4991DE974BF0053BED4 /* BridgesOptionsViewController.swift in Sources */,
 				8C886C3C1D9E8AF1004A42BF /* AbstractActionSheetPicker.m in Sources */,
+				8C9BEA181E91452B00A13A98 /* TatamiGame.swift in Sources */,
 				8CB29AE81E8F795E001D07C6 /* LitsGameScene.swift in Sources */,
 				84FBA5441DFF7F4500594DAE /* ParksGridNode.swift in Sources */,
 				8C9AF4F01DE974BF0053BED4 /* SlitherLinkDocument.swift in Sources */,
@@ -2929,6 +2982,7 @@
 				8C7016591E90C25000210CE7 /* MiniLitsDocument.swift in Sources */,
 				8C10B7891E87B6870049C44B /* NeighboursGameViewController.swift in Sources */,
 				8C81CBB01E19546000FB244A /* FenceItUpGameViewController.swift in Sources */,
+				8C9BEA1C1E91452B00A13A98 /* TatamiGridNode.swift in Sources */,
 				8C9AF57C1DF8D84B0053BED4 /* RoomsGame.swift in Sources */,
 				8CC350331E001D2800B8FD83 /* BlockLongPress.swift in Sources */,
 				8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */,
@@ -2972,12 +3026,14 @@
 				8C9BEA021E9137F000A13A98 /* PairakabeGridNode.swift in Sources */,
 				8C81CBA91E19546000FB244A /* BoxItAgainOptionsViewController.swift in Sources */,
 				8C10B7F31E8D7DC50049C44B /* PowerGridMixin.swift in Sources */,
+				8C9BEA201E91452B00A13A98 /* TatamiOptionsViewController.swift in Sources */,
 				8C7016761E90C79E00210CE7 /* FenceLitsGameState.swift in Sources */,
 				8C81CBB51E19546000FB244A /* FenceItUpOptionsViewController.swift in Sources */,
 				8C9AF57F1DF8D84B0053BED4 /* RoomsGameViewController.swift in Sources */,
 				8CC3CD271E32DEE40056B78F /* SnailOptionsViewController.swift in Sources */,
 				8C9AF4CD1DE974BF0053BED4 /* MasyuGame.swift in Sources */,
 				8C6D37FC1DC5B4DC0052202C /* Game.swift in Sources */,
+				8C9BEA1F1E91452B00A13A98 /* TatamiObject.swift in Sources */,
 				8C9AF4F91DE974BF0053BED4 /* SlitherLinkOptionsViewController.swift in Sources */,
 				8CC3503C1E001D2800B8FD83 /* CGPointExtensions.swift in Sources */,
 				8C9AF4E11DE974BF0053BED4 /* NurikabeOptionsViewController.swift in Sources */,
