@@ -14,7 +14,7 @@ class TatamiGameState: GridGameState, TatamiMixin {
         get {return getGame() as! TatamiGame}
         set {setGame(game: newValue)}
     }
-    var objArray = [TatamiObject]()
+    var objArray = [Character]()
     var pos2state = [Position: HintState]()
     
     override func copy() -> TatamiGameState {
@@ -31,11 +31,11 @@ class TatamiGameState: GridGameState, TatamiMixin {
     required init(game: TatamiGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<TatamiObject>(repeating: .empty, count: rows * cols)
+        objArray = Array<Character>(repeating: " ", count: rows * cols)
         updateIsSolved()
     }
     
-    subscript(p: Position) -> TatamiObject {
+    subscript(p: Position) -> Character {
         get {
             return self[p.row, p.col]
         }
@@ -43,7 +43,7 @@ class TatamiGameState: GridGameState, TatamiMixin {
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> TatamiObject {
+    subscript(row: Int, col: Int) -> Character {
         get {
             return objArray[row * cols + col]
         }
@@ -54,29 +54,20 @@ class TatamiGameState: GridGameState, TatamiMixin {
     
     func setObject(move: inout TatamiGameMove) -> Bool {
         let p = move.p
-        guard String(describing: self[p]) != String(describing: move.obj) else {return false}
+        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else {return false}
         self[p] = move.obj
         updateIsSolved()
         return true
     }
     
     func switchObject(move: inout TatamiGameMove) -> Bool {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
-        func f(o: TatamiObject) -> TatamiObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .tree(state: .normal)
-            case .tree:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .tree(state: .normal) : .empty
-            default:
-                return o
-            }
-        }
         let p = move.p
-        guard isValid(p: p) else {return false}
-        move.obj = f(o: self[p])
+        guard isValid(p: p) && game[p] == " " else {return false}
+        let o = self[p]
+        move.obj =
+            o == " " ? "1" :
+            o == "3" ? " " :
+            succ(ch: o)
         return setObject(move: &move)
     }
     

@@ -56,7 +56,7 @@ class TatamiGame: GridGame<TatamiGameViewController, TatamiGameMove, TatamiGameS
                 guard c < cols else {continue}
                 let ch2 = str[2 * c + 1]
                 if case "0"..."9" = ch2 {
-                    objArray[r * cols + c] = ch2
+                    self[r, c] = ch2
                 }
             }
         }
@@ -112,6 +112,23 @@ class TatamiGame: GridGame<TatamiGameViewController, TatamiGameMove, TatamiGameS
         moveAdded(move: move)
         levelUpdated(from: states[stateIndex - 1], to: state)
         return true
+    }
+    
+    subscript(p: Position) -> Character {
+        get {
+            return self[p.row, p.col]
+        }
+        set(newValue) {
+            self[p.row, p.col] = newValue
+        }
+    }
+    subscript(row: Int, col: Int) -> Character {
+        get {
+            return objArray[row * cols + col]
+        }
+        set(newValue) {
+            objArray[row * cols + col] = newValue
+        }
     }
     
     func switchObject(move: inout TatamiGameMove) -> Bool {

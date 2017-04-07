@@ -78,12 +78,6 @@ class SumscrapersGameState: GridGameState, SumscrapersMixin {
     }
     
     func switchObject(move: inout SumscrapersGameMove) -> Bool {
-        func f(ch: Character) -> Character {
-            // http://stackoverflow.com/questions/26761390/changing-value-of-character-using-ascii-value-in-swift
-            let scalars = String(ch).unicodeScalars      // unicode scalar(s) of the character
-            let val = scalars[scalars.startIndex].value  // value of the unicode scalar
-            return Character(UnicodeScalar(val + 1)!)     // return an incremented character
-        }
         let p = move.p
         guard isValid(p: p) else {return false}
         let o = self[p]

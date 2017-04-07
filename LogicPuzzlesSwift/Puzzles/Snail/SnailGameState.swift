@@ -67,21 +67,15 @@ class SnailGameState: GridGameState, SnailMixin {
     }
     
     func switchObject(move: inout SnailGameMove) -> Bool {
-        func f(ch: Character) -> Character {
-            // http://stackoverflow.com/questions/26761390/changing-value-of-character-using-ascii-value-in-swift
-            let scalars = String(ch).unicodeScalars      // unicode scalar(s) of the character
-            let val = scalars[scalars.startIndex].value  // value of the unicode scalar
-            return Character(UnicodeScalar(val + 1)!)     // return an incremented character
-        }
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) && game[p] == " " else {return false}
         let o = self[p]
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         move.obj =
             o == " " ? markerOption == .markerFirst ? "." : "1" :
             o == "." ? markerOption == .markerFirst ? "1" : " " :
             o == "3" ? markerOption == .markerLast ? "." : " " :
-            f(ch: o)
+            succ(ch: o)
         return setObject(move: &move)
     }
     

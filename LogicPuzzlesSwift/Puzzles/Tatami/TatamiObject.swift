@@ -8,36 +8,6 @@
 
 import Foundation
 
-enum TatamiObject {
-    case empty
-    case forbidden
-    case marker
-    case tree(state: AllowedObjectState)
-    init() {
-        self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .tree:
-            return "tree"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> TatamiObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "tree":
-            return .tree(state: .normal)
-        default:
-            return .empty
-        }
-    }
-}
-
 class TatamiDots {
     var rows = 0
     var cols = 0
@@ -69,5 +39,5 @@ class TatamiDots {
 
 struct TatamiGameMove {
     var p = Position()
-    var obj = TatamiObject()
+    var obj: Character = " "
 }

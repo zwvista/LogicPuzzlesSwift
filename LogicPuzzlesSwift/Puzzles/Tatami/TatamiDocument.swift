@@ -14,10 +14,10 @@ class TatamiDocument: GameDocument<TatamiGame, TatamiGameMove> {
     
     override func saveMove(_ move: TatamiGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.unapply()
-        rec.strValue1 = move.obj.toString()
+        rec.strValue1 = move.obj.description
     }
     
     override func loadMove(from rec: MoveProgress) -> TatamiGameMove? {
-        return TatamiGameMove(p: Position(rec.row, rec.col), obj: TatamiObject.fromString(str: rec.strValue1!))
+        return TatamiGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
     }
 }
