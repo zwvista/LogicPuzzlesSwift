@@ -82,10 +82,12 @@ class DominoGameViewController: GameViewController, GameDelegate, DominoMixin {
             _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex
-        guard case 0..<game.moveCount = moveIndex else {return}
-        while moveIndex != game.moveIndex {
-            game.undo()
+        if case 0..<game.moveCount = moveIndex {
+            while moveIndex != game.moveIndex {
+                game.undo()
+            }
         }
+        scene.levelUpdated(from: game.states[0], to: game.state)
     }
     
     func moveAdded(_ game: AnyObject, move: DominoGameMove) {
@@ -108,8 +110,8 @@ class DominoGameViewController: GameViewController, GameDelegate, DominoMixin {
     func levelUpdated(_ game: AnyObject, from stateFrom: DominoGameState, to stateTo: DominoGameState) {
         let game = game as! DominoGame
         updateMovesUI(game)
-        scene.levelUpdated(from: stateFrom, to: stateTo)
         guard !levelInitilizing else {return}
+        scene.levelUpdated(from: stateFrom, to: stateTo)
         gameDocument.levelUpdated(game: game)
     }
     

@@ -81,10 +81,12 @@ class MiniLitsGameViewController: GameViewController, GameDelegate, MiniLitsMixi
             _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex
-        guard case 0..<game.moveCount = moveIndex else {return}
-        while moveIndex != game.moveIndex {
-            game.undo()
+        if case 0..<game.moveCount = moveIndex {
+            while moveIndex != game.moveIndex {
+                game.undo()
+            }
         }
+        scene.levelUpdated(from: game.states[0], to: game.state)
     }
     
     func moveAdded(_ game: AnyObject, move: MiniLitsGameMove) {
@@ -107,8 +109,8 @@ class MiniLitsGameViewController: GameViewController, GameDelegate, MiniLitsMixi
     func levelUpdated(_ game: AnyObject, from stateFrom: MiniLitsGameState, to stateTo: MiniLitsGameState) {
         let game = game as! MiniLitsGame
         updateMovesUI(game)
-        scene.levelUpdated(from: stateFrom, to: stateTo)
         guard !levelInitilizing else {return}
+        scene.levelUpdated(from: stateFrom, to: stateTo)
         gameDocument.levelUpdated(game: game)
     }
     

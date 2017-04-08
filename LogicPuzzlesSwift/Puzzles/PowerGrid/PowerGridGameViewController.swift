@@ -81,10 +81,12 @@ class PowerGridGameViewController: GameViewController, GameDelegate, PowerGridMi
             _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex
-        guard case 0..<game.moveCount = moveIndex else {return}
-        while moveIndex != game.moveIndex {
-            game.undo()
+        if case 0..<game.moveCount = moveIndex {
+            while moveIndex != game.moveIndex {
+                game.undo()
+            }
         }
+        scene.levelUpdated(from: game.states[0], to: game.state)
     }
     
     func moveAdded(_ game: AnyObject, move: PowerGridGameMove) {
@@ -107,8 +109,8 @@ class PowerGridGameViewController: GameViewController, GameDelegate, PowerGridMi
     func levelUpdated(_ game: AnyObject, from stateFrom: PowerGridGameState, to stateTo: PowerGridGameState) {
         let game = game as! PowerGridGame
         updateMovesUI(game)
-        scene.levelUpdated(from: stateFrom, to: stateTo)
         guard !levelInitilizing else {return}
+        scene.levelUpdated(from: stateFrom, to: stateTo)
         gameDocument.levelUpdated(game: game)
     }
     

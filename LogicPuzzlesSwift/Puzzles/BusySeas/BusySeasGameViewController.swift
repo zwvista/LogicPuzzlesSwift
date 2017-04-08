@@ -81,10 +81,12 @@ class BusySeasGameViewController: GameViewController, GameDelegate, BusySeasMixi
             _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex
-        guard case 0..<game.moveCount = moveIndex else {return}
-        while moveIndex != game.moveIndex {
-            game.undo()
+        if case 0..<game.moveCount = moveIndex {
+            while moveIndex != game.moveIndex {
+                game.undo()
+            }
         }
+        scene.levelUpdated(from: game.states[0], to: game.state)
     }
     
     func moveAdded(_ game: AnyObject, move: BusySeasGameMove) {
@@ -107,8 +109,8 @@ class BusySeasGameViewController: GameViewController, GameDelegate, BusySeasMixi
     func levelUpdated(_ game: AnyObject, from stateFrom: BusySeasGameState, to stateTo: BusySeasGameState) {
         let game = game as! BusySeasGame
         updateMovesUI(game)
-        scene.levelUpdated(from: stateFrom, to: stateTo)
         guard !levelInitilizing else {return}
+        scene.levelUpdated(from: stateFrom, to: stateTo)
         gameDocument.levelUpdated(game: game)
     }
     

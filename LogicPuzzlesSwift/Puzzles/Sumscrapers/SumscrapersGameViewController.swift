@@ -81,10 +81,12 @@ class SumscrapersGameViewController: GameViewController, GameDelegate, Sumscrape
             _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex
-        guard case 0..<game.moveCount = moveIndex else {return}
-        while moveIndex != game.moveIndex {
-            game.undo()
+        if case 0..<game.moveCount = moveIndex {
+            while moveIndex != game.moveIndex {
+                game.undo()
+            }
         }
+        scene.levelUpdated(from: game.states[0], to: game.state)
     }
     
     func moveAdded(_ game: AnyObject, move: SumscrapersGameMove) {
@@ -107,8 +109,8 @@ class SumscrapersGameViewController: GameViewController, GameDelegate, Sumscrape
     func levelUpdated(_ game: AnyObject, from stateFrom: SumscrapersGameState, to stateTo: SumscrapersGameState) {
         let game = game as! SumscrapersGame
         updateMovesUI(game)
-        scene.levelUpdated(from: stateFrom, to: stateTo)
         guard !levelInitilizing else {return}
+        scene.levelUpdated(from: stateFrom, to: stateTo)
         gameDocument.levelUpdated(game: game)
     }
     

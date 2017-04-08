@@ -108,10 +108,12 @@ class LineSweeperGameViewController: GameViewController, GameDelegate, LineSweep
             _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex
-        guard case 0..<game.moveCount = moveIndex else {return}
-        while moveIndex != game.moveIndex {
-            game.undo()
+        if case 0..<game.moveCount = moveIndex {
+            while moveIndex != game.moveIndex {
+                game.undo()
+            }
         }
+        scene.levelUpdated(from: game.states[0], to: game.state)
     }
     
     func moveAdded(_ game: AnyObject, move: LineSweeperGameMove) {
@@ -134,8 +136,8 @@ class LineSweeperGameViewController: GameViewController, GameDelegate, LineSweep
     func levelUpdated(_ game: AnyObject, from stateFrom: LineSweeperGameState, to stateTo: LineSweeperGameState) {
         let game = game as! LineSweeperGame
         updateMovesUI(game)
-        scene.levelUpdated(from: stateFrom, to: stateTo)
         guard !levelInitilizing else {return}
+        scene.levelUpdated(from: stateFrom, to: stateTo)
         gameDocument.levelUpdated(game: game)
     }
     
