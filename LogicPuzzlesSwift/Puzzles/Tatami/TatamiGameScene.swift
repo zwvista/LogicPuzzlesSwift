@@ -13,6 +13,10 @@ class TatamiGameScene: GameScene<TatamiGameState> {
         get {return getGridNode() as! TatamiGridNode}
         set {setGridNode(gridNode: newValue)}
     }
+    
+    func addCharacter(ch: Character, s: HintState, isHint: Bool, point: CGPoint, nodeName: String) {
+        addLabel(text: String(ch), fontColor: isHint ? .gray : s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+    }
 
     override func levelInitialized(_ game: AnyObject, state: TatamiGameState, skView: SKView) {
         let game = game as! TatamiGame
@@ -49,6 +53,20 @@ class TatamiGameScene: GameScene<TatamiGameState> {
         lineNode.path = pathToDraw
         lineNode.name = "line"
         gridNode.addChild(lineNode)
+        
+        // add Characters
+        for r in 0..<game.rows {
+            for c in 0..<game.cols {
+                let p = Position(r, c)
+                let point = gridNode.gridPosition(p: p)
+                let ch = game[p]
+                guard ch != " " else {continue}
+                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let charNodeName = "char" + nodeNameSuffix
+                addCharacter(ch: ch, s: state.pos2state[p] ?? .normal, isHint: game[p] != " ", point: point, nodeName: charNodeName)
+            }
+        }
+
     }
     
     override func levelUpdated(from stateFrom: TatamiGameState, to stateTo: TatamiGameState) {
@@ -57,8 +75,17 @@ class TatamiGameScene: GameScene<TatamiGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
+                let charNodeName = "char" + nodeNameSuffix
                 let (ch1, ch2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                if ch1 != ch2 || s1 != s2 {
+                    if (ch1 != " ") {
+                        removeNode(withName: charNodeName)
+                    }
+                    if (ch2 != " ") {
+                        addCharacter(ch: ch2, s: stateTo.pos2state[p] ?? .normal, isHint: stateTo.game[p] != " ", point: point, nodeName: charNodeName)
+                    }
+                }
             }
         }
     }
