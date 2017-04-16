@@ -87,7 +87,7 @@ class GridGame<GD: GameDelegate, GM, GS: GameStateBase>: Game<GD, GM, GS>, GridG
         return isValid(row: p.row, col: p.col)
     }
     func isValid(row: Int, col: Int) -> Bool {
-        return (0..<rows ~= row) && (0..<cols ~= col)
+        return 0..<rows ~= row && 0..<cols ~= col
     }
     
     override init(delegate: GD? = nil) {
