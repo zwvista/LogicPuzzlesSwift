@@ -143,6 +143,7 @@
 		8C373D771E14A622005712CD /* BoxItUpObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C373D5F1E14A622005712CD /* BoxItUpObject.swift */; };
 		8C373D781E14A622005712CD /* BoxItUpOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C373D601E14A622005712CD /* BoxItUpOptionsViewController.swift */; };
 		8C508BEE1DFBD13700D99A09 /* GridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D41DC42FA40052202C /* GridNode.swift */; };
+		8C5368841EA1DFCC0071D475 /* GridObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5368831EA1DFCC0071D475 /* GridObject.swift */; };
 		8C64A2681DD8089700AB6C09 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D31DC42FA40052202C /* GameViewController.swift */; };
 		8C64A2EC1DE0891000AB6C09 /* GameTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2EB1DE0891000AB6C09 /* GameTables.swift */; };
 		8C6ACBFE1DCAF8BA0075F32C /* GameDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37CF1DC42FA40052202C /* GameDocument.swift */; };
@@ -764,6 +765,7 @@
 		8C373D5E1E14A622005712CD /* BoxItUpMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItUpMixin.swift; sourceTree = "<group>"; };
 		8C373D5F1E14A622005712CD /* BoxItUpObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItUpObject.swift; sourceTree = "<group>"; };
 		8C373D601E14A622005712CD /* BoxItUpOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItUpOptionsViewController.swift; sourceTree = "<group>"; };
+		8C5368831EA1DFCC0071D475 /* GridObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridObject.swift; sourceTree = "<group>"; };
 		8C64A2EB1DE0891000AB6C09 /* GameTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTables.swift; sourceTree = "<group>"; };
 		8C6ACC181DD204420075F32C /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
 		8C6D37331DC421180052202C /* HomeDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDocument.swift; sourceTree = "<group>"; };
@@ -1632,6 +1634,7 @@
 				8C64A2EB1DE0891000AB6C09 /* GameTables.swift */,
 				8C6D37D31DC42FA40052202C /* GameViewController.swift */,
 				8C6D37D41DC42FA40052202C /* GridNode.swift */,
+				8C5368831EA1DFCC0071D475 /* GridObject.swift */,
 				8C6D37D61DC42FA40052202C /* MainViewController.swift */,
 				8C6D37D91DC42FA40052202C /* OptionsViewController.swift */,
 				8C6D37F41DC5AC520052202C /* Position.swift */,
@@ -2795,6 +2798,7 @@
 				8C10B7A81E8A98C30049C44B /* SentinelsObject.swift in Sources */,
 				8C9AF4C41DE974BF0053BED4 /* LineSweeperGameViewController.swift in Sources */,
 				8CC3CD211E32DEE40056B78F /* SnailGameState.swift in Sources */,
+				8C5368841EA1DFCC0071D475 /* GridObject.swift in Sources */,
 				8C9AF4B81DE974BF0053BED4 /* LightenUpGameViewController.swift in Sources */,
 				8CCF10B71E8E097100422284 /* BusySeasGameScene.swift in Sources */,
 				8C9AF4C21DE974BF0053BED4 /* LineSweeperGameScene.swift in Sources */,

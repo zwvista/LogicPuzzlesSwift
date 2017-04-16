@@ -105,14 +105,13 @@ class DominoGameState: GridGameState, DominoMixin {
                 }
             }
         }
-        guard isSolved else {return}
-        var dominoes = [(Int, Int)]()
+        var dominoes = [[Int]]()
         while !pos2node.isEmpty {
             let node = pos2node.first!.value
             let nodesExplored = breadthFirstSearch(g, source: node)
             let area = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
             guard area.count == 2 else {isSolved = false; return}
-            let domino = (game.pos2hint[area[0]]!, game.pos2hint[area[1]]!)
+            let domino = [game.pos2hint[area[0]]!, game.pos2hint[area[1]]!].sorted()
             // http://stackoverflow.com/questions/29736244/how-do-i-check-if-an-array-of-tuples-contains-a-particular-one-in-swift
             guard !dominoes.contains(where: {$0 == domino}) else {isSolved = false; return}
             dominoes.append(domino)
