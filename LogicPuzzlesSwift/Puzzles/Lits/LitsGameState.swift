@@ -128,10 +128,8 @@ class LitsGameState: GridGameState, LitsMixin {
         }
         for i in 0..<blocks.count {
             let block = blocks[i]
-            var areaIndexes = Set<Int>()
             for p in block {
                 let n = game.pos2area[p]!
-                areaIndexes.insert(n)
                 let info = infos[n]
                 info.trees.append(p)
                 info.blockIndexes.insert(i)
