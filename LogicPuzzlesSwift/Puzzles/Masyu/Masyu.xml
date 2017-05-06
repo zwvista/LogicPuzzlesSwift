@@ -2,106 +2,106 @@
 <levels>
   <level id="1">
     <![CDATA[
-BW W  \
-W     \
-BW   W\
-BW BWB\
-W  W  \
-BWWB  \
+BW W  `
+W     `
+BW   W`
+BW BWB`
+W  W  `
+BWWB  `
     ]]>
   </level>
   <level id="2">
     <![CDATA[
-BW    \
-W WWB \
-  WBWW\
-W  W  \
-BW BW \
-   WW \
+BW    `
+W WWB `
+  WBWW`
+W  W  `
+BW BW `
+   WW `
     ]]>
   </level>
   <level id="3">
     <![CDATA[
-BWW   \
-W    W\
-      \
-  WWW \
-WWWWWW\
-      \
+BWW   `
+W    W`
+      `
+  WWW `
+WWWWWW`
+      `
     ]]>
   </level>
   <level id="4">
     <![CDATA[
- W   B\
- W WB \
-    W \
-BWW W \
-W     \
- W   B\
+ W   B`
+ W WB `
+    W `
+BWW W `
+W     `
+ W   B`
     ]]>
   </level>
   <level id="5">
     <![CDATA[
-B  WB \
-  WBW \
- W W  \
-   BW \
-   WW \
-B   W \
+B  WB `
+  WBW `
+ W W  `
+   BW `
+   WW `
+B   W `
     ]]>
   </level>
   <level id="6">
     <![CDATA[
-  BWWB\
-WWW  W\
-    W \
-    W \
-  W   \
-B B  B\
+  BWWB`
+WWW  W`
+    W `
+    W `
+  W   `
+B B  B`
     ]]>
   </level>
   <level id="7">
     <![CDATA[
- WBBWB\
-  WW W\
- W    \
-    W \
-W WW  \
-BWBBW \
+ WBBWB`
+  WW W`
+ W    `
+    W `
+W WW  `
+BWBBW `
     ]]>
   </level>
   <level id="8">
     <![CDATA[
-  BWW \
-W WBW \
-   W  \
- WWWWW\
-     W\
-B   WB\
+  BWW `
+W WBW `
+   W  `
+ WWWWW`
+     W`
+B   WB`
     ]]>
   </level>
   <level id="9">
     <![CDATA[
- W  W \
-WBW   \
- W WW \
-      \
-  WW W\
-B BB B\
+ W  W `
+WBW   `
+ W WW `
+      `
+  WW W`
+B BB B`
     ]]>
   </level>
   <level id="170">
     <![CDATA[
- B   BB   \
- WB B     \
-        W \
-  B  B B  \
-     W    \
-  WW   W  \
-  WW W  W \
- B        \
-          \
-   B     B\
+ B   BB   `
+ WB B     `
+        W `
+  B  B B  `
+     W    `
+  WW   W  `
+  WW W  W `
+ B        `
+          `
+   B     B`
     ]]>
   </level>
 </levels>
