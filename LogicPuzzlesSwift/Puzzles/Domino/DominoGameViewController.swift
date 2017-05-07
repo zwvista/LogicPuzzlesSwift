@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class DominoGameViewController: GameViewController, GameDelegate, DominoMixin {
+    typealias GM = DominoGameMove
+    typealias GS = DominoGameState
 
     var scene: DominoGameScene!
     var game: DominoGame!

@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class BusySeasGameViewController: GameViewController, GameDelegate, BusySeasMixin {
+    typealias GM = BusySeasGameMove
+    typealias GS = BusySeasGameState
 
     var scene: BusySeasGameScene!
     var game: BusySeasGame!

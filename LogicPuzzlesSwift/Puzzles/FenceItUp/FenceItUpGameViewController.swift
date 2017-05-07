@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class FenceItUpGameViewController: GameViewController, GameDelegate, FenceItUpMixin {
+    typealias GM = FenceItUpGameMove
+    typealias GS = FenceItUpGameState
 
     var scene: FenceItUpGameScene!
     var game: FenceItUpGame!

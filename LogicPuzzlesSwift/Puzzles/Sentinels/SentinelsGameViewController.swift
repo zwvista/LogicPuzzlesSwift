@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class SentinelsGameViewController: GameViewController, GameDelegate, SentinelsMixin {
+    typealias GM = SentinelsGameMove
+    typealias GS = SentinelsGameState
 
     var scene: SentinelsGameScene!
     var game: SentinelsGame!

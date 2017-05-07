@@ -8,8 +8,7 @@
 
 import Foundation
 
-class ProductSentinelsGame: GridGame<ProductSentinelsGameViewController, ProductSentinelsGameMove, ProductSentinelsGameState>, GameBase {
-    static let gameID = "ProductSentinels"
+class ProductSentinelsGame: GridGame<ProductSentinelsGameViewController> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

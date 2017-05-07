@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class MiniLitsGameViewController: GameViewController, GameDelegate, MiniLitsMixin {
+    typealias GM = MiniLitsGameMove
+    typealias GS = MiniLitsGameState
 
     var scene: MiniLitsGameScene!
     var game: MiniLitsGame!

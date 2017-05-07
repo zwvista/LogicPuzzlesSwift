@@ -8,8 +8,7 @@
 
 import Foundation
 
-class MasyuGame: GridGame<MasyuGameViewController, MasyuGameMove, MasyuGameState>, GameBase {
-    static let gameID = "Masyu"
+class MasyuGame: GridGame<MasyuGameViewController> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

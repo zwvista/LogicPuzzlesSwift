@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class RoomsGameViewController: GameViewController, GameDelegate, RoomsMixin {
+    typealias GM = RoomsGameMove
+    typealias GS = RoomsGameState
 
     var scene: RoomsGameScene!
     var game: RoomsGame!

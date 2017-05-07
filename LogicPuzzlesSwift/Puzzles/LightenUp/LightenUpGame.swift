@@ -8,8 +8,7 @@
 
 import Foundation
 
-class LightenUpGame: GridGame<LightenUpGameViewController, LightenUpGameMove, LightenUpGameState>, GameBase {
-    static let gameID = "LightenUp"
+class LightenUpGame: GridGame<LightenUpGameViewController> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

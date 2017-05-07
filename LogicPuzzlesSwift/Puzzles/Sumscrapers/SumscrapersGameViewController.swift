@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class SumscrapersGameViewController: GameViewController, GameDelegate, SumscrapersMixin {
+    typealias GM = SumscrapersGameMove
+    typealias GS = SumscrapersGameState
 
     var scene: SumscrapersGameScene!
     var game: SumscrapersGame!

@@ -8,8 +8,7 @@
 
 import Foundation
 
-class BusySeasGame: GridGame<BusySeasGameViewController, BusySeasGameMove, BusySeasGameState>, GameBase {
-    static let gameID = "BusySeas"
+class BusySeasGame: GridGame<BusySeasGameViewController> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

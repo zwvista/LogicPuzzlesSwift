@@ -8,8 +8,7 @@
 
 import Foundation
 
-class SnailGame: GridGame<SnailGameViewController, SnailGameMove, SnailGameState>, GameBase {
-    static let gameID = "Snail"
+class SnailGame: GridGame<SnailGameViewController> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

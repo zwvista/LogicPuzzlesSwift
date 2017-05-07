@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class SlitherLinkGameViewController: GameViewController, GameDelegate, SlitherLinkMixin {
+    typealias GM = SlitherLinkGameMove
+    typealias GS = SlitherLinkGameState
 
     var scene: SlitherLinkGameScene!
     var game: SlitherLinkGame!

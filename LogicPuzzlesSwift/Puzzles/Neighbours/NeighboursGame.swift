@@ -8,8 +8,7 @@
 
 import Foundation
 
-class NeighboursGame: GridGame<NeighboursGameViewController, NeighboursGameMove, NeighboursGameState>, GameBase {
-    static let gameID = "Neighbours"
+class NeighboursGame: GridGame<NeighboursGameViewController> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class LineSweeperGameViewController: GameViewController, GameDelegate, LineSweeperMixin {
+    typealias GM = LineSweeperGameMove
+    typealias GS = LineSweeperGameState
 
     var scene: LineSweeperGameScene!
     var game: LineSweeperGame!

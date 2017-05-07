@@ -8,8 +8,7 @@
 
 import Foundation
 
-class CloudsGame: GridGame<CloudsGameViewController, CloudsGameMove, CloudsGameState>, GameBase {
-    static let gameID = "Clouds"
+class CloudsGame: GridGame<CloudsGameViewController> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class LitsGameViewController: GameViewController, GameDelegate, LitsMixin {
+    typealias GM = LitsGameMove
+    typealias GS = LitsGameState
 
     var scene: LitsGameScene!
     var game: LitsGame!

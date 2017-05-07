@@ -8,8 +8,7 @@
 
 import Foundation
 
-class AbcGame: GridGame<AbcGameViewController, AbcGameMove, AbcGameState>, GameBase {
-    static let gameID = "Abc"
+class AbcGame: GridGame<AbcGameViewController> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

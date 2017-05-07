@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class ProductSentinelsGameViewController: GameViewController, GameDelegate, ProductSentinelsMixin {
+    typealias GD = ProductSentinelsGameMove
+    typealias GS = ProductSentinelsGameState
 
     var scene: ProductSentinelsGameScene!
     var game: ProductSentinelsGame!

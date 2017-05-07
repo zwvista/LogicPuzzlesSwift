@@ -8,8 +8,7 @@
 
 import Foundation
 
-class LoopyGame: GridGame<LoopyGameViewController, LoopyGameMove, LoopyGameState>, GameBase {
-    static let gameID = "Loopy"
+class LoopyGame: GridGame<LoopyGameViewController> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

@@ -13,22 +13,22 @@ class GameDocument<G: GameBase, GM> {
     private(set) var levels = [String: [String]]()
     var selectedLevelID: String!
     var selectedLevelIDSolution: String { return selectedLevelID + " Solution" }
-    
+    var gameID: String!
     var gameProgress: GameProgress {
-        let result = GameProgress.query().where(withFormat: "gameID = %@", withParameters: [G.gameID]).fetch()!
+        let result = GameProgress.query().where(withFormat: "gameID = %@", withParameters: [gameID]).fetch()!
         if result.count == 0 {
             let rec = GameProgress()
-            rec.gameID = G.gameID
+            rec.gameID = gameID
             return rec
         } else {
             return result[0] as! GameProgress
         }
     }
     private func getLevelProgress(levelID: String) -> LevelProgress {
-        let result = LevelProgress.query().where(withFormat: "gameID = %@ AND levelID = %@", withParameters: [G.gameID, levelID]).fetch()!
+        let result = LevelProgress.query().where(withFormat: "gameID = %@ AND levelID = %@", withParameters: [gameID, levelID]).fetch()!
         if result.count == 0 {
             let rec = LevelProgress()
-            rec.gameID = G.gameID
+            rec.gameID = gameID
             rec.levelID = levelID
             return rec
         } else {
@@ -38,13 +38,16 @@ class GameDocument<G: GameBase, GM> {
     var levelProgress: LevelProgress { return getLevelProgress(levelID: selectedLevelID) }
     var levelProgressSolution: LevelProgress { return getLevelProgress(levelID: selectedLevelIDSolution) }
     private func getMoveProgress(levelID: String) -> SRKResultSet {
-        return MoveProgress.query().where(withFormat: "gameID = %@ AND levelID = %@", withParameters: [G.gameID, levelID]).order(by: "moveIndex").fetch()!
+        return MoveProgress.query().where(withFormat: "gameID = %@ AND levelID = %@", withParameters: [gameID, levelID]).order(by: "moveIndex").fetch()!
     }
     var moveProgress: SRKResultSet { return getMoveProgress(levelID: selectedLevelID) }
     var moveProgressSolution: SRKResultSet { return getMoveProgress(levelID: selectedLevelIDSolution) }
     
     init() {
-        let path = Bundle.main.path(forResource: G.gameID, ofType: "xml")!
+        // http://stackoverflow.com/questions/24494784/get-class-name-of-object-as-string-in-swift
+        let gameTypeName = String(describing: type(of: G.self))
+        gameID = gameTypeName[0..<gameTypeName.length - "Game.Type".length]
+        let path = Bundle.main.path(forResource: gameID, ofType: "xml")!
         let xml = try! String(contentsOfFile: path)
         let doc = try! XMLDocument(string: xml)
         for elem in doc.root!.children {
@@ -73,9 +76,9 @@ class GameDocument<G: GameBase, GM> {
 
     func moveAdded(game: AnyObject, move: GM) {
         let game = game as! G
-        MoveProgress.query().where(withFormat: "gameID = %@ AND levelID = %@ AND moveIndex >= %@", withParameters: [G.gameID, selectedLevelID, game.moveIndex]).fetch().removeAll()
+        MoveProgress.query().where(withFormat: "gameID = %@ AND levelID = %@ AND moveIndex >= %@", withParameters: [gameID, selectedLevelID, game.moveIndex]).fetch().removeAll()
         let rec = MoveProgress()
-        rec.gameID = G.gameID
+        rec.gameID = gameID
         rec.levelID = selectedLevelID
         rec.moveIndex = game.moveIndex
         saveMove(move, to: rec)
@@ -93,7 +96,7 @@ class GameDocument<G: GameBase, GM> {
     }
     
     func clearGame() {
-        MoveProgress.query().where(withFormat: "gameID = %@ AND levelID = %@", withParameters: [G.gameID, selectedLevelID]).fetch().removeAll()
+        MoveProgress.query().where(withFormat: "gameID = %@ AND levelID = %@", withParameters: [gameID, selectedLevelID]).fetch().removeAll()
         
         let rec = levelProgress
         rec.moveIndex = 0
@@ -101,11 +104,11 @@ class GameDocument<G: GameBase, GM> {
     }
     
     private func copyMoves(moveProgressFrom: SRKResultSet, levelIDTo: String) {
-        MoveProgress.query().where(withFormat: "gameID = %@ AND levelID = %@", withParameters: [G.gameID, levelIDTo]).fetch().removeAll()
+        MoveProgress.query().where(withFormat: "gameID = %@ AND levelID = %@", withParameters: [gameID, levelIDTo]).fetch().removeAll()
         for case let recMP as MoveProgress in moveProgressFrom {
             let move = loadMove(from: recMP)!
             let recMPS = MoveProgress()
-            recMPS.gameID = G.gameID
+            recMPS.gameID = gameID
             recMPS.levelID = levelIDTo
             recMPS.moveIndex = recMP.moveIndex
             saveMove(move, to: recMPS)
@@ -130,7 +133,7 @@ class GameDocument<G: GameBase, GM> {
     }
     
     func deleteSolution() {
-        MoveProgress.query().where(withFormat: "gameID = %@ AND levelID = %@", withParameters: [G.gameID, selectedLevelIDSolution]).fetch().removeAll()
+        MoveProgress.query().where(withFormat: "gameID = %@ AND levelID = %@", withParameters: [gameID, selectedLevelIDSolution]).fetch().removeAll()
         let rec = levelProgressSolution
         rec.moveIndex = 0
         rec.commit()

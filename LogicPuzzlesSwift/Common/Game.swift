@@ -19,11 +19,12 @@ protocol GameDelegate: class {
 }
 
 protocol GameBase: class {
-    static var gameID: String {get}
     var moveIndex: Int {get}
 }
 
-class Game<GD: GameDelegate, GM, GS: GameStateBase> where GD.GM == GM, GD.GS == GS {
+class Game<GD: GameDelegate>: GameBase {
+    typealias GM = GD.GM
+    typealias GS = GD.GS
     var stateIndex = 0
     var states = [GS]()
     var state: GS {return states[stateIndex]}
@@ -79,7 +80,7 @@ protocol GridGameBase: class {
     func isValid(row: Int, col: Int) -> Bool;
 }
 
-class GridGame<GD: GameDelegate, GM, GS: GameStateBase>: Game<GD, GM, GS>, GridGameBase where GD.GM == GM, GD.GS == GS {
+class GridGame<GD: GameDelegate>: Game<GD>, GridGameBase {
     var size: Position!
     var rows: Int { return size.row }
     var cols: Int { return size.col }
@@ -88,9 +89,5 @@ class GridGame<GD: GameDelegate, GM, GS: GameStateBase>: Game<GD, GM, GS>, GridG
     }
     func isValid(row: Int, col: Int) -> Bool {
         return 0..<rows ~= row && 0..<cols ~= col
-    }
-    
-    override init(delegate: GD? = nil) {
-        super.init(delegate: delegate)
     }
 }

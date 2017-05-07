@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class MosaikGameViewController: GameViewController, GameDelegate, MosaikMixin {
+    typealias GM = MosaikGameMove
+    typealias GS = MosaikGameState
 
     var scene: MosaikGameScene!
     var game: MosaikGame!

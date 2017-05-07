@@ -8,8 +8,7 @@
 
 import Foundation
 
-class NurikabeGame: GridGame<NurikabeGameViewController, NurikabeGameMove, NurikabeGameState>, GameBase {
-    static let gameID = "Nurikabe"
+class NurikabeGame: GridGame<NurikabeGameViewController> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

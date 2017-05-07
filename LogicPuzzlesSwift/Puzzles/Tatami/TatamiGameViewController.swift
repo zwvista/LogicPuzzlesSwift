@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class TatamiGameViewController: GameViewController, GameDelegate, TatamiMixin {
+    typealias GM = TatamiGameMove
+    typealias GS = TatamiGameState
 
     var scene: TatamiGameScene!
     var game: TatamiGame!

@@ -8,8 +8,7 @@
 
 import Foundation
 
-class HitoriGame: GridGame<HitoriGameViewController, HitoriGameMove, HitoriGameState>, GameBase {
-    static let gameID = "Hitori"
+class HitoriGame: GridGame<HitoriGameViewController> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

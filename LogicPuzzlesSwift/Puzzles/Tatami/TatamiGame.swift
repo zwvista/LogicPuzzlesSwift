@@ -8,8 +8,7 @@
 
 import Foundation
 
-class TatamiGame: GridGame<TatamiGameViewController, TatamiGameMove, TatamiGameState>, GameBase {
-    static let gameID = "Tatami"
+class TatamiGame: GridGame<TatamiGameViewController> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

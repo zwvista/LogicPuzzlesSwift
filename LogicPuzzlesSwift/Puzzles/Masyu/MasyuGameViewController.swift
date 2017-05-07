@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class MasyuGameViewController: GameViewController, UIGestureRecognizerDelegate, GameDelegate, MasyuMixin {
+    typealias GM = MasyuGameMove
+    typealias GS = MasyuGameState
 
     var scene: MasyuGameScene!
     var game: MasyuGame!

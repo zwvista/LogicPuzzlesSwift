@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class LightenUpGameViewController: GameViewController, GameDelegate, LightenUpMixin {
+    typealias GM = LightenUpGameMove
+    typealias GS = LightenUpGameState
 
     var scene: LightenUpGameScene!
     var game: LightenUpGame!

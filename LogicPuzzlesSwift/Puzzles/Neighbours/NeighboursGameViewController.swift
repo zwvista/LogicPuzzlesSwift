@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class NeighboursGameViewController: GameViewController, GameDelegate, NeighboursMixin {
+    typealias GM = NeighboursGameMove
+    typealias GS = NeighboursGameState
 
     var scene: NeighboursGameScene!
     var game: NeighboursGame!

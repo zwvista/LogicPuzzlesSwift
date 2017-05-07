@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class MinesweeperGameViewController: GameViewController, GameDelegate, MinesweeperMixin {
+    typealias GM = MinesweeperGameMove
+    typealias GS = MinesweeperGameState
 
     var scene: MinesweeperGameScene!
     var game: MinesweeperGame!

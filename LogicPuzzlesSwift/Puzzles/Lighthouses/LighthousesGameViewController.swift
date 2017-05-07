@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class LighthousesGameViewController: GameViewController, GameDelegate, LighthousesMixin {
+    typealias GM = LighthousesGameMove
+    typealias GS = LighthousesGameState
 
     var scene: LighthousesGameScene!
     var game: LighthousesGame!

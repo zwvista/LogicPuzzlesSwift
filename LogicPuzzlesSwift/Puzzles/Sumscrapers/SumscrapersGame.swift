@@ -8,8 +8,7 @@
 
 import Foundation
 
-class SumscrapersGame: GridGame<SumscrapersGameViewController, SumscrapersGameMove, SumscrapersGameState>, GameBase {
-    static let gameID = "Sumscrapers"
+class SumscrapersGame: GridGame<SumscrapersGameViewController> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

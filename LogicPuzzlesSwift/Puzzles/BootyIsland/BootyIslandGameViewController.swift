@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class BootyIslandGameViewController: GameViewController, GameDelegate, BootyIslandMixin {
+    typealias GM = BootyIslandGameMove
+    typealias GS = BootyIslandGameState
 
     var scene: BootyIslandGameScene!
     var game: BootyIslandGame!

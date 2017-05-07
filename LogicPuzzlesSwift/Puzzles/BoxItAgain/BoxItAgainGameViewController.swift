@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class BoxItAgainGameViewController: GameViewController, GameDelegate, BoxItAgainMixin {
+    typealias GM = BoxItAgainGameMove
+    typealias GS = BoxItAgainGameState
 
     var scene: BoxItAgainGameScene!
     var game: BoxItAgainGame!

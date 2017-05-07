@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class TentsGameViewController: GameViewController, GameDelegate, TentsMixin {
+    typealias GM = TentsGameMove
+    typealias GS = TentsGameState
 
     var scene: TentsGameScene!
     var game: TentsGame!

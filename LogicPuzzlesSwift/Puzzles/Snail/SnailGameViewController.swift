@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class SnailGameViewController: GameViewController, GameDelegate, SnailMixin {
+    typealias GM = SnailGameMove
+    typealias GS = SnailGameState
 
     var scene: SnailGameScene!
     var game: SnailGame!

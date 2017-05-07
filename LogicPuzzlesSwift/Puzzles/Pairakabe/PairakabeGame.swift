@@ -8,8 +8,7 @@
 
 import Foundation
 
-class PairakabeGame: GridGame<PairakabeGameViewController, PairakabeGameMove, PairakabeGameState>, GameBase {
-    static let gameID = "Pairakabe"
+class PairakabeGame: GridGame<PairakabeGameViewController> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

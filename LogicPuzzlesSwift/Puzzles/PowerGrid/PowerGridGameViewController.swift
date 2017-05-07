@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class PowerGridGameViewController: GameViewController, GameDelegate, PowerGridMixin {
+    typealias GM = PowerGridGameMove
+    typealias GS = PowerGridGameState
 
     var scene: PowerGridGameScene!
     var game: PowerGridGame!

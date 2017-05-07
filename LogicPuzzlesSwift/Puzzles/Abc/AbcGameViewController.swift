@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class AbcGameViewController: GameViewController, GameDelegate, AbcMixin {
+    typealias GM = AbcGameMove
+    typealias GS = AbcGameState
 
     var scene: AbcGameScene!
     var game: AbcGame!

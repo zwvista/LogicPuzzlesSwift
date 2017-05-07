@@ -8,8 +8,7 @@
 
 import Foundation
 
-class DominoGame: GridGame<DominoGameViewController, DominoGameMove, DominoGameState>, GameBase {
-    static let gameID = "Domino"
+class DominoGame: GridGame<DominoGameViewController> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),
