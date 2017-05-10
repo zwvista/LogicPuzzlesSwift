@@ -160,7 +160,7 @@ class MineShipsGameState: GridGameState, MineShipsMixin {
                         let p2 = $0 + os
                         if !self.isValid(p: p2) {return true}
                         switch self[p2] {
-                        case .empty, .forbidden, .marker:
+                        case .empty, .forbidden, .marker, .hint:
                             return true
                         default:
                             return false
