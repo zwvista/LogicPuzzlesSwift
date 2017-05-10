@@ -138,8 +138,8 @@ class MineShipsGameState: GridGameState, MineShipsMixin {
             }
         }
         for (p, node) in pos2node {
-            for os in MineShipsGame.offset {
-                let p2 = p + os
+            for i in 0..<4 {
+                let p2 = p + MineShipsGame.offset[i * 2]
                 guard let node2 = pos2node[p2] else {continue}
                 g.addEdge(node, neighbor: node2)
             }

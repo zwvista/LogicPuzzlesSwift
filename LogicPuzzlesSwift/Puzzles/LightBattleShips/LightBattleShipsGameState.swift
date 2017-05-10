@@ -15,8 +15,6 @@ class LightBattleShipsGameState: GridGameState, LightBattleShipsMixin {
         set {setGame(game: newValue)}
     }
     var objArray = [LightBattleShipsObject]()
-    var row2state = [HintState]()
-    var col2state = [HintState]()
     
     override func copy() -> LightBattleShipsGameState {
         let v = LightBattleShipsGameState(game: game, isCopy: true)
@@ -25,8 +23,6 @@ class LightBattleShipsGameState: GridGameState, LightBattleShipsMixin {
     func setup(v: LightBattleShipsGameState) -> LightBattleShipsGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.row2state = row2state
-        v.col2state = col2state
         return v
     }
     
@@ -37,8 +33,6 @@ class LightBattleShipsGameState: GridGameState, LightBattleShipsMixin {
         for (p, obj) in game.pos2obj {
             self[p] = obj
         }
-        row2state = Array<HintState>(repeating: .normal, count: rows)
-        col2state = Array<HintState>(repeating: .normal, count: cols)
         updateIsSolved()
     }
     
@@ -61,8 +55,10 @@ class LightBattleShipsGameState: GridGameState, LightBattleShipsMixin {
     
     func setObject(move: inout LightBattleShipsGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game.pos2obj[p] == nil && self[p] != move.obj else {return false}
-        self[p] = move.obj
+        let (o1, o2) = (self[p], move.obj)
+        if case .hint = o1 {return false}
+        guard String(describing: o1) != String(describing: o2) else {return false}
+        self[p] = o2
         updateIsSolved()
         return true
     }
@@ -101,44 +97,57 @@ class LightBattleShipsGameState: GridGameState, LightBattleShipsMixin {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                if self[r, c] == .forbidden {self[r, c] = .empty}
+                if case .forbidden = self[r, c] {self[r, c] = .empty}
             }
         }
         for r in 0..<rows {
-            var n1 = 0
-            let n2 = game.row2hint[r]
             for c in 0..<cols {
-                switch self[r, c] {
-                case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
-                    n1 += 1
-                default:
-                    break
+                let p = Position(r, c)
+                func hasNeighbor() -> Bool {
+                    for os in LightBattleShipsGame.offset {
+                        let p2 = p + os
+                        guard isValid(p: p2) else {continue}
+                        if case .hint = self[p2] {return true}
+                    }
+                    return false
                 }
-            }
-            row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 {isSolved = false}
-        }
-        for c in 0..<cols {
-            var n1 = 0
-            let n2 = game.col2hint[c]
-            for r in 0..<rows {
-                switch self[r, c] {
-                case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
-                    n1 += 1
-                default:
-                    break
-                }
-            }
-            col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 {isSolved = false}
-        }
-        for r in 0..<rows {
-            for c in 0..<cols {
-                switch self[r, c] {
+                switch self[p] {
+                case let .hint(state):
+                    self[p] = .hint(state: state == .normal && !hasNeighbor() ? .normal : .error)
                 case .empty, .marker:
-                    if allowedObjectsOnly && (row2state[r] != .normal || col2state[c] != .normal) {self[r, c] = .forbidden}
+                    guard allowedObjectsOnly && hasNeighbor() else {continue}
+                    self[p] = .forbidden
                 default:
                     break
+                }
+            }
+        }
+        for (p, n2) in game.pos2hint {
+            var nums = [0, 0, 0, 0]
+            var rng = [Position]()
+            for i in 0..<4 {
+                let os = LightBattleShipsGame.offset[i * 2]
+                var p2 = p + os
+                while game.isValid(p: p2) {
+                    switch self[p2] {
+                    case .empty:
+                        rng.append(p2)
+                    case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
+                        nums[i] += 1
+                    default:
+                        break
+                    }
+                    p2 += os
+                }
+            }
+            let n1 = nums.reduce(0, +)
+            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            if case let .hint(state) = self[p], state == .normal {self[p] = .hint(state: s)}
+            if s != .complete {
+                isSolved = false
+            } else if allowedObjectsOnly {
+                for p2 in rng {
+                    self[p2] = .forbidden
                 }
             }
         }
@@ -158,8 +167,8 @@ class LightBattleShipsGameState: GridGameState, LightBattleShipsMixin {
             }
         }
         for (p, node) in pos2node {
-            for os in LightBattleShipsGame.offset {
-                let p2 = p + os
+            for i in 0..<4 {
+                let p2 = p + LightBattleShipsGame.offset[i * 2]
                 guard let node2 = pos2node[p2] else {continue}
                 g.addEdge(node, neighbor: node2)
             }
@@ -170,17 +179,21 @@ class LightBattleShipsGameState: GridGameState, LightBattleShipsMixin {
             let area = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map({$0.0}).sorted()
             pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
             func f(os: Position, objTopLeft: LightBattleShipsObject, objBottomRight: LightBattleShipsObject) -> Bool {
-                return self[area.first!] == objTopLeft && self[area.last!] == objBottomRight &&
-                    [Int](1..<area.count - 1).testAll({self[area[$0]] == .battleShipMiddle}) &&
+                return String(describing: self[area.first!]) == String(describing: objTopLeft) && String(describing: self[area.last!]) == String(describing: objBottomRight) &&
+                    [Int](1..<area.count - 1).testAll({String(describing: self[area[$0]]) == String(describing: LightBattleShipsObject.battleShipMiddle)}) &&
                     [Int](1..<area.count).testAll({area[$0] - area[$0 - 1] == os})
             }
-            guard (area.count == 1 && self[area.first!] == .battleShipUnit || area.count > 1 && area.count < 5 && (
+            guard (area.count == 1 && String(describing: self[area.first!]) == String(describing: LightBattleShipsObject.battleShipUnit) || area.count > 1 && area.count < 5 && (
                 area.testAll({$0.row == area.first!.row}) && f(os: Position(0, 1), objTopLeft: .battleShipLeft, objBottomRight: .battleShipRight) ||
-                    area.testAll({$0.col == area.first!.col}) && f(os: Position(1, 0), objTopLeft: .battleShipTop, objBottomRight: .battleShipBottom))) && LightBattleShipsGame.offset2.testAll({os in area.testAll({
+                    area.testAll({$0.col == area.first!.col}) && f(os: Position(1, 0), objTopLeft: LightBattleShipsObject.battleShipTop, objBottomRight: LightBattleShipsObject.battleShipBottom))) && LightBattleShipsGame.offset2.testAll({os in area.testAll({
                         let p2 = $0 + os
                         if !self.isValid(p: p2) {return true}
-                        let o = self[p2]
-                        return o == .empty || o == .forbidden || o == .marker
+                        switch self[p2] {
+                        case .empty, .forbidden, .marker, .hint:
+                            return true
+                        default:
+                            return false
+                        }
                     })}) else {isSolved = false; return}
             shipNumbers[area.count] += 1
         }

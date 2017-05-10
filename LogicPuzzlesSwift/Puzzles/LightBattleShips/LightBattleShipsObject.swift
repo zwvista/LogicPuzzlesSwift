@@ -8,11 +8,59 @@
 
 import Foundation
 
-enum LightBattleShipsObject: Int {
-    case empty, forbidden, marker
-    case battleShipTop, battleShipBottom, battleShipLeft, battleShipRight, battleShipMiddle, battleShipUnit
+enum LightBattleShipsObject {
+    case empty
+    case forbidden
+    case hint(state: HintState)
+    case marker
+    case battleShipTop
+    case battleShipBottom
+    case battleShipLeft
+    case battleShipRight
+    case battleShipMiddle
+    case battleShipUnit
     init() {
         self = .empty
+    }
+    func toString() -> String {
+        switch self {
+        case .marker:
+            return "marker"
+        case .battleShipTop:
+            return "battleShipTop"
+        case .battleShipBottom:
+            return "battleShipBottom"
+        case .battleShipLeft:
+            return "battleShipLeft"
+        case .battleShipRight:
+            return "battleShipRight"
+        case .battleShipMiddle:
+            return "battleShipMiddle"
+        case .battleShipUnit:
+            return "battleShipUnit"
+        default:
+            return "empty"
+        }
+    }
+    static func fromString(str: String) -> LightBattleShipsObject {
+        switch str {
+        case "marker":
+            return .marker
+        case "battleShipTop":
+            return .battleShipTop
+        case "battleShipBottom":
+            return .battleShipBottom
+        case "battleShipLeft":
+            return .battleShipLeft
+        case "battleShipRight":
+            return .battleShipRight
+        case "battleShipMiddle":
+            return .battleShipMiddle
+        case "battleShipUnit":
+            return .battleShipUnit
+        default:
+            return .empty
+        }
     }
 }
 
