@@ -140,12 +140,12 @@ class CloudsGameState: GridGameState, CloudsMixin {
                 g.addEdge(node, neighbor: node2)
             }
         }
-        while pos2node.count > 0 {
+        while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.values.first!)
             var r2 = 0, r1 = rows, c2 = 0, c1 = cols
-            for node in nodesExplored {
-                let p = pos2node.filter{$1.label == node}.first!.key
-                pos2node.remove(at: pos2node.index(forKey: p)!)
+            let area = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
+            pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
+            for p in area {
                 if r2 < p.row {r2 = p.row}
                 if r1 > p.row {r1 = p.row}
                 if c2 < p.col {c2 = p.col}

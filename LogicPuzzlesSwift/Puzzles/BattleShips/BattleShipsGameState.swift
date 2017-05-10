@@ -164,22 +164,27 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
                 g.addEdge(node, neighbor: node2)
             }
         }
+        var shipNumbers = Array<Int>(repeating: 0, count: 5)
         while pos2node.count > 0 {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.values.first!)
-            var r2 = 0, r1 = rows, c2 = 0, c1 = cols
-            for node in nodesExplored {
-                let p = pos2node.filter{$1.label == node}.first!.key
-                pos2node.remove(at: pos2node.index(forKey: p)!)
-                if r2 < p.row {r2 = p.row}
-                if r1 > p.row {r1 = p.row}
-                if c2 < p.col {c2 = p.col}
-                if c1 > p.col {c1 = p.col}
+            let area = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map({$0.0}).sorted()
+            pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
+            func f(os: Position, objTopLeft: BattleShipsObject, objBottomRight: BattleShipsObject) -> Bool {
+                return self[area.first!] == objTopLeft && self[area.last!] == objBottomRight &&
+                    [Int](1..<area.count - 1).testAll({self[area[$0]] == .battleShipMiddle}) &&
+                    [Int](1..<area.count).testAll({area[$0] - area[$0 - 1] == os})
+                
             }
-            let rs = r2 - r1 + 1, cs = c2 - c1 + 1
-            if !(rs >= 2 && cs >= 2 && rs * cs == nodesExplored.count) {
-                isSolved = false
-                return
-            }
+            guard (area.count == 1 && self[area.first!] == .battleShipUnit || area.count > 1 && area.count < 5 && (
+                area.testAll({$0.row == area.first!.row}) && f(os: Position(0, 1), objTopLeft: .battleShipLeft, objBottomRight: .battleShipRight) ||
+                    area.testAll({$0.col == area.first!.col}) && f(os: Position(1, 0), objTopLeft: .battleShipTop, objBottomRight: .battleShipBottom))) && BattleShipsGame.offset2.testAll({os in area.testAll({
+                        let p2 = $0 + os
+                        if !self.isValid(p: p2) {return true}
+                        let o = self[p2]
+                        return o == .empty || o == .forbidden || o == .marker
+                    })}) else {isSolved = false; return}
+            shipNumbers[area.count] += 1
         }
+        if shipNumbers != [0, 4, 3, 2, 1] {isSolved = false}
     }
 }
