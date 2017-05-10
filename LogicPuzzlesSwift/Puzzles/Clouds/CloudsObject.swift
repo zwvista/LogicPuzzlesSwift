@@ -9,10 +9,8 @@
 import Foundation
 
 enum CloudsObject: Int {
-    case empty
+    case empty, forbidden, marker
     case cloud
-    case forbidden
-    case marker
     init() {
         self = .empty
     }

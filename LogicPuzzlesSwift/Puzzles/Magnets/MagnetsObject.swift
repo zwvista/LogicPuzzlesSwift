@@ -8,10 +8,8 @@
 
 import Foundation
 
-enum MagnetsAreaType {
-    case single
-    case horizontal
-    case vertical
+enum MagnetsAreaType: Int {
+    case single, horizontal, vertical
 }
 
 struct MagnetsArea {
@@ -20,10 +18,7 @@ struct MagnetsArea {
 }
 
 enum MagnetsObject: Int {
-    case empty
-    case positive
-    case negative
-    case marker
+    case empty, positive, negative, marker
     init() {
         self = .empty
     }

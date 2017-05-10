@@ -9,9 +9,8 @@
 import Foundation
 
 enum BattleShipsObject: Int {
-    case empty
-    case cloud
-    case marker
+    case empty, forbidden, marker
+    case shipTop, shipBottom, shipLeft, shipRight, shipMiddle, shipUnit
     init() {
         self = .empty
     }

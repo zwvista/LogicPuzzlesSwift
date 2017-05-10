@@ -98,7 +98,7 @@ class BattleShipsGameScene: GameScene<BattleShipsGameState> {
                 let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
                 guard o1 != o2 else {continue}
                 switch o1 {
-                case .cloud:
+                case .shipUnit:
                     removeCloud()
                 case .marker:
                     removeMarker()
@@ -106,7 +106,7 @@ class BattleShipsGameScene: GameScene<BattleShipsGameState> {
                     break
                 }
                 switch o2 {
-                case .cloud:
+                case .shipUnit:
                     addCloud(color: .white, point: point, nodeName: cloudNodeName)
                 case .marker:
                     addMarker()

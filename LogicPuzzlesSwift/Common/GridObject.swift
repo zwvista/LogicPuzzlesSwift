@@ -9,9 +9,7 @@
 import Foundation
 
 enum GridLineObject: Int {
-    case empty
-    case line
-    case marker
+    case empty, line, marker
     init() {
         self = .empty
     }

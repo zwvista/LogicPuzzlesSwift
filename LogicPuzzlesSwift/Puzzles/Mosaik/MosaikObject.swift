@@ -9,9 +9,7 @@
 import Foundation
 
 enum MosaikObject: Int {
-    case empty
-    case filled
-    case marker
+    case empty, filled, marker
     init() {
         self = .empty
     }

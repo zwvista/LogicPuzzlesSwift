@@ -69,11 +69,23 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
         func f(o: BattleShipsObject) -> BattleShipsObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .cloud
-            case .cloud:
+                return markerOption == .markerFirst ? .marker : .shipUnit
+            case .shipUnit:
+                return .shipMiddle
+            case .shipMiddle:
+                return .shipLeft
+            case .shipLeft:
+                return .shipTop
+            case .shipTop:
+                return .shipRight
+            case .shipRight:
+                return .shipBottom
+            case .shipBottom:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .cloud : .empty
+                return markerOption == .markerFirst ? .shipUnit : .empty
+            default:
+                return o
             }
         }
         let p = move.p
@@ -88,7 +100,7 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
             var n1 = 0
             let n2 = game.row2hint[r]
             for c in 0..<cols {
-                if self[r, c] == .cloud {n1 += 1}
+                if self[r, c] == .shipUnit {n1 += 1}
             }
             row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
@@ -97,7 +109,7 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
             var n1 = 0
             let n2 = game.col2hint[c]
             for r in 0..<rows {
-                if self[r, c] == .cloud {n1 += 1}
+                if self[r, c] == .shipUnit {n1 += 1}
             }
             col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
@@ -108,7 +120,7 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard self[p] == .cloud else {continue}
+                guard self[p] == .shipUnit else {continue}
                 let node = g.addNode(p.description)
                 pos2node[p] = node
             }

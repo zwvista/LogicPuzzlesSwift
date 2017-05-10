@@ -9,9 +9,7 @@
 import Foundation
 
 enum HitoriObject: Int {
-    case normal
-    case darken
-    case marker
+    case normal, darken, marker
     init() {
         self = .normal
     }
