@@ -103,19 +103,26 @@ class LightBattleShipsGameState: GridGameState, LightBattleShipsMixin {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                func hasNeighbor() -> Bool {
+                func hasNeighbor(isHint: Bool) -> Bool {
                     for os in LightBattleShipsGame.offset {
                         let p2 = p + os
                         guard isValid(p: p2) else {continue}
-                        if case .hint = self[p2] {return true}
+                        switch self[p2] {
+                        case .hint:
+                            if !isHint {return true}
+                        case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
+                            if isHint {return true}
+                        default:
+                            break
+                        }
                     }
                     return false
                 }
                 switch self[p] {
-                case let .hint(state):
-                    self[p] = .hint(state: state == .normal && !hasNeighbor() ? .normal : .error)
+                case .hint:
+                    self[p] = .hint(state: !hasNeighbor(isHint: true) ? .normal : .error)
                 case .empty, .marker:
-                    guard allowedObjectsOnly && hasNeighbor() else {continue}
+                    guard allowedObjectsOnly && hasNeighbor(isHint: false) else {continue}
                     self[p] = .forbidden
                 default:
                     break
@@ -142,7 +149,7 @@ class LightBattleShipsGameState: GridGameState, LightBattleShipsMixin {
             }
             let n1 = nums.reduce(0, +)
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if case let .hint(state) = self[p], state == .normal {self[p] = .hint(state: s)}
+            if case let .hint(state) = self[p], state != .error {self[p] = .hint(state: s)}
             if s != .complete {
                 isSolved = false
             } else if allowedObjectsOnly {
