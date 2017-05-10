@@ -18,7 +18,7 @@ class BattleShipsGame: GridGame<BattleShipsGameViewController> {
 
     var row2hint = [Int]()
     var col2hint = [Int]()
-    var pos2cloud = [Position]()
+    var pos2obj = [Position: BattleShipsObject]()
     
     init(layout: [String], delegate: BattleShipsGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -33,8 +33,20 @@ class BattleShipsGame: GridGame<BattleShipsGameViewController> {
                 let p = Position(r, c)
                 let ch = str[c]
                 switch ch {
-                case "C":
-                    pos2cloud.append(p)
+                case "^":
+                    pos2obj[p] = .battleShipTop
+                case "v":
+                    pos2obj[p] = .battleShipBottom
+                case "<":
+                    pos2obj[p] = .battleShipLeft
+                case ">":
+                    pos2obj[p] = .battleShipRight
+                case "+":
+                    pos2obj[p] = .battleShipMiddle
+                case "o":
+                    pos2obj[p] = .battleShipUnit
+                case ".":
+                    pos2obj[p] = .marker
                 case "0"..."9":
                     let n = ch.toInt!
                     if r == rows {

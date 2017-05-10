@@ -10,7 +10,7 @@ import Foundation
 
 enum BattleShipsObject: Int {
     case empty, forbidden, marker
-    case shipTop, shipBottom, shipLeft, shipRight, shipMiddle, shipUnit
+    case battleShipTop, battleShipBottom, battleShipLeft, battleShipRight, battleShipMiddle, battleShipUnit
     init() {
         self = .empty
     }

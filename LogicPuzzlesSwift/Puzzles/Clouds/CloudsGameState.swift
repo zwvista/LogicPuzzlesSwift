@@ -34,6 +34,9 @@ class CloudsGameState: GridGameState, CloudsMixin {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<CloudsObject>(repeating: CloudsObject(), count: rows * cols)
+        for p in game.pos2cloud {
+            self[p] = .cloud
+        }
         row2state = Array<HintState>(repeating: .normal, count: rows)
         col2state = Array<HintState>(repeating: .normal, count: cols)
         updateIsSolved()
@@ -58,7 +61,7 @@ class CloudsGameState: GridGameState, CloudsMixin {
     
     func setObject(move: inout CloudsGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else {return false}
+        guard isValid(p: p) && !game.pos2cloud.contains(p) && self[p] != move.obj else {return false}
         self[p] = move.obj
         updateIsSolved()
         return true

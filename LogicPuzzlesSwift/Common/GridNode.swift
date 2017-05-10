@@ -30,10 +30,10 @@ class GridNode : SKSpriteNode {
         
         let context = UIGraphicsGetCurrentContext()
         let bezierPath = UIBezierPath()
-        let offset:CGFloat = 0.5
+        let offset: CGFloat = 0.5
         // Draw vertical lines
         for i in verticalLinesRange {
-            let x = CGFloat(i)*blockSize + offset
+            let x = CGFloat(i) * blockSize + offset
             bezierPath.move(to: CGPoint(x: x, y: CGFloat(horizontalLinesRange.lowerBound) * blockSize + offset))
             bezierPath.addLine(to: CGPoint(x: x, y: CGFloat(horizontalLinesRange.upperBound) * blockSize + offset))
         }

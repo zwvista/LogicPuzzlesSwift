@@ -14,11 +14,47 @@ class BattleShipsGameScene: GameScene<BattleShipsGameState> {
         set {setGridNode(gridNode: newValue)}
     }
     
-    func addCloud(color: SKColor, point: CGPoint, nodeName: String) {
-        let cloudNode = SKSpriteNode(color: color, size: coloredRectSize())
-        cloudNode.position = point
-        cloudNode.name = nodeName
-        gridNode.addChild(cloudNode)
+    func addBattleShip(color: SKColor, point: CGPoint, obj: BattleShipsObject, nodeName: String) {
+        let battleShipNode = SKShapeNode()
+        let bezierPath = UIBezierPath()
+        let radius = gridNode.blockSize * CGFloat(0.5) - CGFloat(1)
+        switch obj {
+        case .battleShipTop:
+            bezierPath.move(to: CGPoint(x: point.x - radius, y: point.y - radius))
+            bezierPath.addLine(to: CGPoint(x: point.x + radius, y: point.y - radius))
+            bezierPath.addLine(to: CGPoint(x: point.x + radius, y: point.y))
+            bezierPath.addArc(withCenter: point, radius: radius, startAngle: 0, endAngle: .pi, clockwise: true)
+        case .battleShipBottom:
+            bezierPath.move(to: CGPoint(x: point.x - radius, y: point.y + radius))
+            bezierPath.addLine(to: CGPoint(x: point.x + radius, y: point.y + radius))
+            bezierPath.addLine(to: CGPoint(x: point.x + radius, y: point.y))
+            bezierPath.addArc(withCenter: point, radius: radius, startAngle: 0, endAngle: .pi, clockwise: false)
+        case .battleShipLeft:
+            bezierPath.move(to: CGPoint(x: point.x + radius, y: point.y - radius))
+            bezierPath.addLine(to: CGPoint(x: point.x + radius, y: point.y + radius))
+            bezierPath.addLine(to: CGPoint(x: point.x, y: point.y + radius))
+            bezierPath.addArc(withCenter: point, radius: radius, startAngle: .pi / 2, endAngle: .pi / 2 * 3, clockwise: true)
+        case .battleShipRight:
+            bezierPath.move(to: CGPoint(x: point.x - radius, y: point.y - radius))
+            bezierPath.addLine(to: CGPoint(x: point.x - radius, y: point.y + radius))
+            bezierPath.addLine(to: CGPoint(x: point.x, y: point.y + radius))
+            bezierPath.addArc(withCenter: point, radius: radius, startAngle: .pi / 2, endAngle: .pi / 2 * 3, clockwise: false)
+        case .battleShipMiddle:
+            bezierPath.move(to: CGPoint(x: point.x - radius, y: point.y + radius))
+            bezierPath.addLine(to: CGPoint(x: point.x + radius, y: point.y + radius))
+            bezierPath.addLine(to: CGPoint(x: point.x + radius, y: point.y - radius))
+            bezierPath.addLine(to: CGPoint(x: point.x - radius, y: point.y - radius))
+        case .battleShipUnit:
+            bezierPath.addArc(withCenter: point, radius: radius, startAngle: 0, endAngle: .pi * 2, clockwise: false)
+        default:
+            break
+        }
+        bezierPath.close()
+        battleShipNode.path = bezierPath.cgPath
+        battleShipNode.fillColor = color
+        battleShipNode.strokeColor = .gray
+        battleShipNode.name = nodeName
+        gridNode.addChild(battleShipNode)
     }
     
     func addHint(p: Position, n: Int, s: HintState) {
@@ -31,6 +67,10 @@ class BattleShipsGameScene: GameScene<BattleShipsGameState> {
     
     func addHintNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+    }
+    
+    func addForbidden(point: CGPoint, nodeName: String) {
+        addForbiddenMarker(point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: BattleShipsGameState, skView: SKView) {
@@ -55,11 +95,25 @@ class BattleShipsGameScene: GameScene<BattleShipsGameState> {
         }
         
         // add BattleShips
-        for p in game.pos2cloud {
+        for (p, obj) in game.pos2obj {
             let point = gridNode.gridPosition(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let cloudNodeName = "cloud" + nodeNameSuffix
-            addCloud(color: .gray, point: point, nodeName: cloudNodeName)
+            let battleShipNodeName = "battleShip" + nodeNameSuffix
+            addBattleShip(color: .gray, point: point, obj: obj, nodeName: battleShipNodeName)
+        }
+        for r in 0..<game.rows {
+            for c in 0..<game.cols {
+                let p = Position(r, c)
+                let point = gridNode.gridPosition(p: p)
+                let nodeNameSuffix = "-\(r)-\(c)"
+                let forbiddenNodeName = "forbidden" + nodeNameSuffix
+                switch state[p] {
+                case .forbidden:
+                    addForbidden(point: point, nodeName: forbiddenNodeName)
+                default:
+                    break
+                }
+            }
         }
     }
     
@@ -90,24 +144,30 @@ class BattleShipsGameScene: GameScene<BattleShipsGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let cloudNodeName = "cloud" + nodeNameSuffix
+                let battleShipNodeName = "battleShip" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
-                func removeCloud() { removeNode(withName: cloudNodeName) }
+                let forbiddenNodeName = "forbidden" + nodeNameSuffix
+                func removeBattleShip() { removeNode(withName: battleShipNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
+                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
                 let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
                 guard o1 != o2 else {continue}
                 switch o1 {
-                case .shipUnit:
-                    removeCloud()
+                case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
+                    removeBattleShip()
+                case .forbidden:
+                    removeForbidden()
                 case .marker:
                     removeMarker()
                 default:
                     break
                 }
                 switch o2 {
-                case .shipUnit:
-                    addCloud(color: .white, point: point, nodeName: cloudNodeName)
+                case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
+                    addBattleShip(color: .white, point: point, obj: o2, nodeName: battleShipNodeName)
+                case .forbidden:
+                    addForbidden(point: point, nodeName: forbiddenNodeName)
                 case .marker:
                     addMarker()
                 default:

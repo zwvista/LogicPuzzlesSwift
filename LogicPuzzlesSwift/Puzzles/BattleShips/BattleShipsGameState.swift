@@ -34,6 +34,9 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<BattleShipsObject>(repeating: BattleShipsObject(), count: rows * cols)
+        for (p, obj) in game.pos2obj {
+            self[p] = obj
+        }
         row2state = Array<HintState>(repeating: .normal, count: rows)
         col2state = Array<HintState>(repeating: .normal, count: cols)
         updateIsSolved()
@@ -58,7 +61,7 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
     
     func setObject(move: inout BattleShipsGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else {return false}
+        guard isValid(p: p) && game.pos2obj[p] == nil && self[p] != move.obj else {return false}
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -69,21 +72,21 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
         func f(o: BattleShipsObject) -> BattleShipsObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .shipUnit
-            case .shipUnit:
-                return .shipMiddle
-            case .shipMiddle:
-                return .shipLeft
-            case .shipLeft:
-                return .shipTop
-            case .shipTop:
-                return .shipRight
-            case .shipRight:
-                return .shipBottom
-            case .shipBottom:
+                return markerOption == .markerFirst ? .marker : .battleShipUnit
+            case .battleShipUnit:
+                return .battleShipMiddle
+            case .battleShipMiddle:
+                return .battleShipLeft
+            case .battleShipLeft:
+                return .battleShipTop
+            case .battleShipTop:
+                return .battleShipRight
+            case .battleShipRight:
+                return .battleShipBottom
+            case .battleShipBottom:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .shipUnit : .empty
+                return markerOption == .markerFirst ? .battleShipUnit : .empty
             default:
                 return o
             }
@@ -97,10 +100,20 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
     private func updateIsSolved() {
         isSolved = true
         for r in 0..<rows {
+            for c in 0..<cols {
+                if self[r, c] == .forbidden {self[r, c] = .empty}
+            }
+        }
+        for r in 0..<rows {
             var n1 = 0
             let n2 = game.row2hint[r]
             for c in 0..<cols {
-                if self[r, c] == .shipUnit {n1 += 1}
+                switch self[r, c] {
+                case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
+                    n1 += 1
+                default:
+                    break
+                }
             }
             row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
@@ -109,10 +122,25 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
             var n1 = 0
             let n2 = game.col2hint[c]
             for r in 0..<rows {
-                if self[r, c] == .shipUnit {n1 += 1}
+                switch self[r, c] {
+                case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
+                    n1 += 1
+                default:
+                    break
+                }
             }
             col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
+        }
+        for r in 0..<rows {
+            for c in 0..<cols {
+                switch self[r, c] {
+                case .empty, .marker:
+                    if allowedObjectsOnly && (row2state[r] != .normal || col2state[c] != .normal) {self[r, c] = .forbidden}
+                default:
+                    break
+                }
+            }
         }
         guard isSolved else {return}
         let g = Graph()
@@ -120,9 +148,13 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard self[p] == .shipUnit else {continue}
-                let node = g.addNode(p.description)
-                pos2node[p] = node
+                switch self[r, c] {
+                case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
+                    let node = g.addNode(p.description)
+                    pos2node[p] = node
+                default:
+                    break
+                }
             }
         }
         for (p, node) in pos2node {

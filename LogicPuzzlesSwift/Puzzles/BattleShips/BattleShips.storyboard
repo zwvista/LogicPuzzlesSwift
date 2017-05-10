@@ -294,6 +294,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="right" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="YSE-3Z-uEc">
                                                     <rect key="frame" x="311" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="allowedObjectsOnlyChanged:" destination="NOj-7d-poE" eventType="valueChanged" id="x0d-fg-a58"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
