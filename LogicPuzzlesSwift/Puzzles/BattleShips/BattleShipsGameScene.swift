@@ -69,10 +69,6 @@ class BattleShipsGameScene: GameScene<BattleShipsGameState> {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
-    func addForbidden(point: CGPoint, nodeName: String) {
-        addForbiddenMarker(point: point, nodeName: nodeName)
-    }
-    
     override func levelInitialized(_ game: AnyObject, state: BattleShipsGameState, skView: SKView) {
         let game = game as! BattleShipsGame
         removeAllChildren()
@@ -94,12 +90,16 @@ class BattleShipsGameScene: GameScene<BattleShipsGameState> {
             addHint(p: p, n: n, s: state.col2state[c])
         }
         
-        // add BattleShips
+        // add BattleShips and marker
         for (p, obj) in game.pos2obj {
             let point = gridNode.gridPosition(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let battleShipNodeName = "battleShip" + nodeNameSuffix
-            addBattleShip(color: .gray, point: point, obj: obj, nodeName: battleShipNodeName)
+            switch obj {
+            case .marker:
+                addDotMarker2(color: .gray, point: point, nodeName: "marker" + nodeNameSuffix)
+            default:
+                addBattleShip(color: .gray, point: point, obj: obj, nodeName: "battleShip" + nodeNameSuffix)
+            }
         }
         for r in 0..<game.rows {
             for c in 0..<game.cols {
@@ -109,7 +109,7 @@ class BattleShipsGameScene: GameScene<BattleShipsGameState> {
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 switch state[p] {
                 case .forbidden:
-                    addForbidden(point: point, nodeName: forbiddenNodeName)
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 default:
                     break
                 }
@@ -167,7 +167,7 @@ class BattleShipsGameScene: GameScene<BattleShipsGameState> {
                 case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
                     addBattleShip(color: .white, point: point, obj: o2, nodeName: battleShipNodeName)
                 case .forbidden:
-                    addForbidden(point: point, nodeName: forbiddenNodeName)
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case .marker:
                     addMarker()
                 default:

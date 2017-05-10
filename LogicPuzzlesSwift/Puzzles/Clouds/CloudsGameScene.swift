@@ -33,10 +33,6 @@ class CloudsGameScene: GameScene<CloudsGameState> {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
-    func addForbidden(point: CGPoint, nodeName: String) {
-        addForbiddenMarker(point: point, nodeName: nodeName)
-    }
-    
     override func levelInitialized(_ game: AnyObject, state: CloudsGameState, skView: SKView) {
         let game = game as! CloudsGame
         removeAllChildren()
@@ -73,7 +69,7 @@ class CloudsGameScene: GameScene<CloudsGameState> {
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 switch state[p] {
                 case .forbidden:
-                    addForbidden(point: point, nodeName: forbiddenNodeName)
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 default:
                     break
                 }
@@ -131,7 +127,7 @@ class CloudsGameScene: GameScene<CloudsGameState> {
                 case .cloud:
                     addCloud(color: .white, point: point, nodeName: cloudNodeName)
                 case .forbidden:
-                    addForbidden(point: point, nodeName: forbiddenNodeName)
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case .marker:
                     addMarker()
                 default:

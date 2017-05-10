@@ -26,10 +26,6 @@ class TentsGameScene: GameScene<TentsGameState> {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
-    func addForbidden(point: CGPoint, nodeName: String) {
-        addForbiddenMarker(point: point, nodeName: nodeName)
-    }
-    
     override func levelInitialized(_ game: AnyObject, state: TentsGameState, skView: SKView) {
         let game = game as! TentsGame
         removeAllChildren()
@@ -59,7 +55,7 @@ class TentsGameScene: GameScene<TentsGameState> {
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 switch state[p] {
                 case .forbidden:
-                    addForbidden(point: point, nodeName: forbiddenNodeName)
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case .tree:
                     let point = gridNode.gridPosition(p: p)
                     addImage(imageNamed: "tree", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "tree")
@@ -121,7 +117,7 @@ class TentsGameScene: GameScene<TentsGameState> {
                 }
                 switch o2 {
                 case .forbidden:
-                    addForbidden(point: point, nodeName: forbiddenNodeName)
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case let .tent(s):
                     addTent(s: s)
                 case .marker:

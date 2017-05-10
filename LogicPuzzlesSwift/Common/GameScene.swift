@@ -62,7 +62,7 @@ class GameScene<GS: GameStateBase>: SKScene {
         gridNode.addChild(lightbulbNode)
     }
     
-    private func addDotMarker2(color: SKColor, point: CGPoint, nodeName: String) {
+    func addDotMarker2(color: SKColor, point: CGPoint, nodeName: String) {
         let markerNode = SKShapeNode(circleOfRadius: 5)
         markerNode.position = point
         markerNode.name = nodeName
