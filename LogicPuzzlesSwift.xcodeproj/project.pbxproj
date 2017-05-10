@@ -144,6 +144,30 @@
 		8C373D781E14A622005712CD /* BoxItUpOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C373D601E14A622005712CD /* BoxItUpOptionsViewController.swift */; };
 		8C508BEE1DFBD13700D99A09 /* GridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D41DC42FA40052202C /* GridNode.swift */; };
 		8C5368841EA1DFCC0071D475 /* GridObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5368831EA1DFCC0071D475 /* GridObject.swift */; };
+		8C5AE2691EC372A9000F0949 /* MineShips.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C5AE25D1EC372A8000F0949 /* MineShips.storyboard */; };
+		8C5AE26A1EC372A9000F0949 /* MineShips.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C5AE25E1EC372A8000F0949 /* MineShips.xml */; };
+		8C5AE26B1EC372A9000F0949 /* MineShipsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE25F1EC372A8000F0949 /* MineShipsDocument.swift */; };
+		8C5AE26C1EC372A9000F0949 /* MineShipsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE2601EC372A8000F0949 /* MineShipsGame.swift */; };
+		8C5AE26D1EC372A9000F0949 /* MineShipsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE2611EC372A8000F0949 /* MineShipsGameScene.swift */; };
+		8C5AE26E1EC372A9000F0949 /* MineShipsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE2621EC372A8000F0949 /* MineShipsGameState.swift */; };
+		8C5AE26F1EC372A9000F0949 /* MineShipsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE2631EC372A8000F0949 /* MineShipsGameViewController.swift */; };
+		8C5AE2701EC372A9000F0949 /* MineShipsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE2641EC372A8000F0949 /* MineShipsGridNode.swift */; };
+		8C5AE2711EC372A9000F0949 /* MineShipsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE2651EC372A8000F0949 /* MineShipsMainViewController.swift */; };
+		8C5AE2721EC372A9000F0949 /* MineShipsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE2661EC372A8000F0949 /* MineShipsMixin.swift */; };
+		8C5AE2731EC372A9000F0949 /* MineShipsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE2671EC372A8000F0949 /* MineShipsObject.swift */; };
+		8C5AE2741EC372A9000F0949 /* MineShipsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE2681EC372A8000F0949 /* MineShipsOptionsViewController.swift */; };
+		8C5AE2831EC372D3000F0949 /* LightBattleShips.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C5AE2771EC372D3000F0949 /* LightBattleShips.storyboard */; };
+		8C5AE2841EC372D3000F0949 /* LightBattleShips.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C5AE2781EC372D3000F0949 /* LightBattleShips.xml */; };
+		8C5AE2851EC372D3000F0949 /* LightBattleShipsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE2791EC372D3000F0949 /* LightBattleShipsDocument.swift */; };
+		8C5AE2861EC372D3000F0949 /* LightBattleShipsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE27A1EC372D3000F0949 /* LightBattleShipsGame.swift */; };
+		8C5AE2871EC372D3000F0949 /* LightBattleShipsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE27B1EC372D3000F0949 /* LightBattleShipsGameScene.swift */; };
+		8C5AE2881EC372D3000F0949 /* LightBattleShipsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE27C1EC372D3000F0949 /* LightBattleShipsGameState.swift */; };
+		8C5AE2891EC372D3000F0949 /* LightBattleShipsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE27D1EC372D3000F0949 /* LightBattleShipsGameViewController.swift */; };
+		8C5AE28A1EC372D3000F0949 /* LightBattleShipsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE27E1EC372D3000F0949 /* LightBattleShipsGridNode.swift */; };
+		8C5AE28B1EC372D3000F0949 /* LightBattleShipsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE27F1EC372D3000F0949 /* LightBattleShipsMainViewController.swift */; };
+		8C5AE28C1EC372D3000F0949 /* LightBattleShipsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE2801EC372D3000F0949 /* LightBattleShipsMixin.swift */; };
+		8C5AE28D1EC372D3000F0949 /* LightBattleShipsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE2811EC372D3000F0949 /* LightBattleShipsObject.swift */; };
+		8C5AE28E1EC372D3000F0949 /* LightBattleShipsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE2821EC372D3000F0949 /* LightBattleShipsOptionsViewController.swift */; };
 		8C64A2681DD8089700AB6C09 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D31DC42FA40052202C /* GameViewController.swift */; };
 		8C64A2EC1DE0891000AB6C09 /* GameTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2EB1DE0891000AB6C09 /* GameTables.swift */; };
 		8C6ACBFE1DCAF8BA0075F32C /* GameDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37CF1DC42FA40052202C /* GameDocument.swift */; };
@@ -766,6 +790,30 @@
 		8C373D5F1E14A622005712CD /* BoxItUpObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItUpObject.swift; sourceTree = "<group>"; };
 		8C373D601E14A622005712CD /* BoxItUpOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItUpOptionsViewController.swift; sourceTree = "<group>"; };
 		8C5368831EA1DFCC0071D475 /* GridObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridObject.swift; sourceTree = "<group>"; };
+		8C5AE25D1EC372A8000F0949 /* MineShips.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MineShips.storyboard; sourceTree = "<group>"; };
+		8C5AE25E1EC372A8000F0949 /* MineShips.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MineShips.xml; sourceTree = "<group>"; };
+		8C5AE25F1EC372A8000F0949 /* MineShipsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineShipsDocument.swift; sourceTree = "<group>"; };
+		8C5AE2601EC372A8000F0949 /* MineShipsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineShipsGame.swift; sourceTree = "<group>"; };
+		8C5AE2611EC372A8000F0949 /* MineShipsGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineShipsGameScene.swift; sourceTree = "<group>"; };
+		8C5AE2621EC372A8000F0949 /* MineShipsGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineShipsGameState.swift; sourceTree = "<group>"; };
+		8C5AE2631EC372A8000F0949 /* MineShipsGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineShipsGameViewController.swift; sourceTree = "<group>"; };
+		8C5AE2641EC372A8000F0949 /* MineShipsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineShipsGridNode.swift; sourceTree = "<group>"; };
+		8C5AE2651EC372A8000F0949 /* MineShipsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineShipsMainViewController.swift; sourceTree = "<group>"; };
+		8C5AE2661EC372A8000F0949 /* MineShipsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineShipsMixin.swift; sourceTree = "<group>"; };
+		8C5AE2671EC372A8000F0949 /* MineShipsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineShipsObject.swift; sourceTree = "<group>"; };
+		8C5AE2681EC372A8000F0949 /* MineShipsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineShipsOptionsViewController.swift; sourceTree = "<group>"; };
+		8C5AE2771EC372D3000F0949 /* LightBattleShips.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LightBattleShips.storyboard; sourceTree = "<group>"; };
+		8C5AE2781EC372D3000F0949 /* LightBattleShips.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LightBattleShips.xml; sourceTree = "<group>"; };
+		8C5AE2791EC372D3000F0949 /* LightBattleShipsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightBattleShipsDocument.swift; sourceTree = "<group>"; };
+		8C5AE27A1EC372D3000F0949 /* LightBattleShipsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightBattleShipsGame.swift; sourceTree = "<group>"; };
+		8C5AE27B1EC372D3000F0949 /* LightBattleShipsGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightBattleShipsGameScene.swift; sourceTree = "<group>"; };
+		8C5AE27C1EC372D3000F0949 /* LightBattleShipsGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightBattleShipsGameState.swift; sourceTree = "<group>"; };
+		8C5AE27D1EC372D3000F0949 /* LightBattleShipsGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightBattleShipsGameViewController.swift; sourceTree = "<group>"; };
+		8C5AE27E1EC372D3000F0949 /* LightBattleShipsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightBattleShipsGridNode.swift; sourceTree = "<group>"; };
+		8C5AE27F1EC372D3000F0949 /* LightBattleShipsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightBattleShipsMainViewController.swift; sourceTree = "<group>"; };
+		8C5AE2801EC372D3000F0949 /* LightBattleShipsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightBattleShipsMixin.swift; sourceTree = "<group>"; };
+		8C5AE2811EC372D3000F0949 /* LightBattleShipsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightBattleShipsObject.swift; sourceTree = "<group>"; };
+		8C5AE2821EC372D3000F0949 /* LightBattleShipsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightBattleShipsOptionsViewController.swift; sourceTree = "<group>"; };
 		8C64A2EB1DE0891000AB6C09 /* GameTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTables.swift; sourceTree = "<group>"; };
 		8C6ACC181DD204420075F32C /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
 		8C6D37331DC421180052202C /* HomeDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDocument.swift; sourceTree = "<group>"; };
@@ -1502,6 +1550,45 @@
 			path = BoxItUp;
 			sourceTree = "<group>";
 		};
+		8C5AE25C1EC372A8000F0949 /* MineShips */ = {
+			isa = PBXGroup;
+			children = (
+				8C5AE25D1EC372A8000F0949 /* MineShips.storyboard */,
+				8C5AE25E1EC372A8000F0949 /* MineShips.xml */,
+				8C5AE25F1EC372A8000F0949 /* MineShipsDocument.swift */,
+				8C5AE2601EC372A8000F0949 /* MineShipsGame.swift */,
+				8C5AE2611EC372A8000F0949 /* MineShipsGameScene.swift */,
+				8C5AE2621EC372A8000F0949 /* MineShipsGameState.swift */,
+				8C5AE2631EC372A8000F0949 /* MineShipsGameViewController.swift */,
+				8C5AE2641EC372A8000F0949 /* MineShipsGridNode.swift */,
+				8C5AE2651EC372A8000F0949 /* MineShipsMainViewController.swift */,
+				8C5AE2661EC372A8000F0949 /* MineShipsMixin.swift */,
+				8C5AE2671EC372A8000F0949 /* MineShipsObject.swift */,
+				8C5AE2681EC372A8000F0949 /* MineShipsOptionsViewController.swift */,
+			);
+			name = MineShips;
+			path = LogicPuzzlesSwift/Puzzles/MineShips;
+			sourceTree = SOURCE_ROOT;
+		};
+		8C5AE2761EC372D3000F0949 /* LightBattleShips */ = {
+			isa = PBXGroup;
+			children = (
+				8C5AE2771EC372D3000F0949 /* LightBattleShips.storyboard */,
+				8C5AE2781EC372D3000F0949 /* LightBattleShips.xml */,
+				8C5AE2791EC372D3000F0949 /* LightBattleShipsDocument.swift */,
+				8C5AE27A1EC372D3000F0949 /* LightBattleShipsGame.swift */,
+				8C5AE27B1EC372D3000F0949 /* LightBattleShipsGameScene.swift */,
+				8C5AE27C1EC372D3000F0949 /* LightBattleShipsGameState.swift */,
+				8C5AE27D1EC372D3000F0949 /* LightBattleShipsGameViewController.swift */,
+				8C5AE27E1EC372D3000F0949 /* LightBattleShipsGridNode.swift */,
+				8C5AE27F1EC372D3000F0949 /* LightBattleShipsMainViewController.swift */,
+				8C5AE2801EC372D3000F0949 /* LightBattleShipsMixin.swift */,
+				8C5AE2811EC372D3000F0949 /* LightBattleShipsObject.swift */,
+				8C5AE2821EC372D3000F0949 /* LightBattleShipsOptionsViewController.swift */,
+			);
+			path = LightBattleShips;
+			sourceTree = "<group>";
+		};
 		8C64A2871DDA00D500AB6C09 /* EZSwiftExtensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -1591,6 +1678,7 @@
 				8C7016641E90C79E00210CE7 /* FenceLits */,
 				8CB29B091E8F7DE1001D07C6 /* FenceSentinels */,
 				8C9AF41A1DE974BE0053BED4 /* Hitori */,
+				8C5AE2761EC372D3000F0949 /* LightBattleShips */,
 				8C9AF4271DE974BF0053BED4 /* LightenUp */,
 				8CCF10C01E8E097C00422284 /* Lighthouses */,
 				8C9AF4341DE974BF0053BED4 /* LineSweeper */,
@@ -1598,6 +1686,7 @@
 				8C9AF5061DE975030053BED4 /* Loopy */,
 				8C9AF5521DF8D7770053BED4 /* Magnets */,
 				8C9AF4411DE974BF0053BED4 /* Masyu */,
+				8C5AE25C1EC372A8000F0949 /* MineShips */,
 				8CB29ABD1E8F716C001D07C6 /* Minesweeper */,
 				8C70164A1E90C25000210CE7 /* MiniLits */,
 				8C9AF5381DF471AA0053BED4 /* Mosaik */,
@@ -2465,6 +2554,7 @@
 				8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */,
 				8C10B79E1E8A98C30049C44B /* Sentinels.storyboard in Resources */,
 				8CCF10CE1E8E097C00422284 /* Lighthouses.xml in Resources */,
+				8C5AE26A1EC372A9000F0949 /* MineShips.xml in Resources */,
 				84FBA5241DFF7F3600594DAE /* BattleShips.xml in Resources */,
 				84FBA53E1DFF7F4500594DAE /* Parks.xml in Resources */,
 				8C10B7B91E8AB2680049C44B /* ProductSentinels.xml in Resources */,
@@ -2512,9 +2602,11 @@
 				8CB29AE51E8F795E001D07C6 /* Lits.xml in Resources */,
 				8CB29AFE1E8F7AF6001D07C6 /* Orchards.xml in Resources */,
 				8C7016711E90C79E00210CE7 /* FenceLits.storyboard in Resources */,
+				8C5AE2841EC372D3000F0949 /* LightBattleShips.xml in Resources */,
 				8C1D16B01DB8DE930056D407 /* AnimatedExample.psd in Resources */,
 				8C10B7EA1E8D7DC50049C44B /* PowerGrid.storyboard in Resources */,
 				8C9AF5601DF8D7770053BED4 /* Magnets.xml in Resources */,
+				8C5AE2831EC372D3000F0949 /* LightBattleShips.storyboard in Resources */,
 				8C9AF55F1DF8D7770053BED4 /* Magnets.storyboard in Resources */,
 				8CCF10CD1E8E097C00422284 /* Lighthouses.storyboard in Resources */,
 				8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */,
@@ -2532,6 +2624,7 @@
 				84FBA5561DFF7F4F00594DAE /* Tents.storyboard in Resources */,
 				8C6D373F1DC421980052202C /* Home.storyboard in Resources */,
 				8C10B7841E87B6870049C44B /* Neighbours.xml in Resources */,
+				8C5AE2691EC372A9000F0949 /* MineShips.storyboard in Resources */,
 				8C10B7D11E8CDABA0049C44B /* BootyIsland.storyboard in Resources */,
 				8C373D6E1E14A622005712CD /* BoxItUp.xml in Resources */,
 				8C916CC41DAA5FEB00D9E62B /* music.wav in Resources */,
@@ -2566,12 +2659,15 @@
 				8C10B7EE1E8D7DC50049C44B /* PowerGridGameScene.swift in Sources */,
 				8CB29AD31E8F716C001D07C6 /* MinesweeperMixin.swift in Sources */,
 				8CC3504D1E001D2800B8FD83 /* UIBarButtonItemExtensions.swift in Sources */,
+				8C5AE2881EC372D3000F0949 /* LightBattleShipsGameState.swift in Sources */,
+				8C5AE2891EC372D3000F0949 /* LightBattleShipsGameViewController.swift in Sources */,
 				8C6D37FB1DC5ACDB0052202C /* Copyable.swift in Sources */,
 				8C9BE9FD1E9137F000A13A98 /* PairakabeDocument.swift in Sources */,
 				8C10B78E1E87B6870049C44B /* NeighboursOptionsViewController.swift in Sources */,
 				84FBA55A1DFF7F4F00594DAE /* TentsGameScene.swift in Sources */,
 				84FBA5271DFF7F3600594DAE /* BattleShipsGameScene.swift in Sources */,
 				8C9AF4D81DE974BF0053BED4 /* NurikabeDocument.swift in Sources */,
+				8C5AE28B1EC372D3000F0949 /* LightBattleShipsMainViewController.swift in Sources */,
 				8C6D373B1DC421180052202C /* HomeOptionsViewController.swift in Sources */,
 				8C9AF4AD1DE974BF0053BED4 /* HitoriGridNode.swift in Sources */,
 				8C9AF4DB1DE974BF0053BED4 /* NurikabeGameState.swift in Sources */,
@@ -2583,6 +2679,7 @@
 				8CB29AEC1E8F795E001D07C6 /* LitsMainViewController.swift in Sources */,
 				8C9AF5481DF471AA0053BED4 /* MosaikGame.swift in Sources */,
 				8CB29B191E8F7DE1001D07C6 /* FenceSentinelsGame.swift in Sources */,
+				8C5AE26F1EC372A9000F0949 /* MineShipsGameViewController.swift in Sources */,
 				84FBA5261DFF7F3600594DAE /* BattleShipsGame.swift in Sources */,
 				8C10B7F41E8D7DC50049C44B /* PowerGridObject.swift in Sources */,
 				8C9AF4B41DE974BF0053BED4 /* LightenUpDocument.swift in Sources */,
@@ -2604,6 +2701,7 @@
 				8C70167C1E90C79E00210CE7 /* FenceLitsOptionsViewController.swift in Sources */,
 				8C9AF5621DF8D7770053BED4 /* MagnetsGame.swift in Sources */,
 				8C9AF57E1DF8D84B0053BED4 /* RoomsGameState.swift in Sources */,
+				8C5AE2731EC372A9000F0949 /* MineShipsObject.swift in Sources */,
 				8C9AF4DE1DE974BF0053BED4 /* NurikabeMainViewController.swift in Sources */,
 				8C9AF4C01DE974BF0053BED4 /* LineSweeperDocument.swift in Sources */,
 				8C9AF4C71DE974BF0053BED4 /* LineSweeperMixin.swift in Sources */,
@@ -2625,6 +2723,7 @@
 				84FBA55B1DFF7F4F00594DAE /* TentsGameState.swift in Sources */,
 				8C9AF4A31DE974BF0053BED4 /* CloudsMixin.swift in Sources */,
 				8CC350451E001D2800B8FD83 /* IntExtensions.swift in Sources */,
+				8C5AE2851EC372D3000F0949 /* LightBattleShipsDocument.swift in Sources */,
 				8C373D741E14A622005712CD /* BoxItUpGridNode.swift in Sources */,
 				8C70165C1E90C25000210CE7 /* MiniLitsGameState.swift in Sources */,
 				8CCF10BE1E8E097100422284 /* BusySeasOptionsViewController.swift in Sources */,
@@ -2632,6 +2731,7 @@
 				8C70165D1E90C25000210CE7 /* MiniLitsGameViewController.swift in Sources */,
 				8CC3503A1E001D2800B8FD83 /* BundleExtensions.swift in Sources */,
 				8C9AF5651DF8D7770053BED4 /* MagnetsGameViewController.swift in Sources */,
+				8C5AE2701EC372A9000F0949 /* MineShipsGridNode.swift in Sources */,
 				8CCF10D81E8E097C00422284 /* LighthousesOptionsViewController.swift in Sources */,
 				8C9BEA051E9137F000A13A98 /* PairakabeObject.swift in Sources */,
 				8C508BEE1DFBD13700D99A09 /* GridNode.swift in Sources */,
@@ -2673,6 +2773,7 @@
 				8C10B7861E87B6870049C44B /* NeighboursGame.swift in Sources */,
 				8C6D37F51DC5AC520052202C /* Position.swift in Sources */,
 				84FBA55D1DFF7F4F00594DAE /* TentsGridNode.swift in Sources */,
+				8C5AE2871EC372D3000F0949 /* LightBattleShipsGameScene.swift in Sources */,
 				8C6D373C1DC421180052202C /* HomeTables.swift in Sources */,
 				8C10B7BC1E8AB2680049C44B /* ProductSentinelsGameScene.swift in Sources */,
 				8CC3CD261E32DEE40056B78F /* SnailObject.swift in Sources */,
@@ -2718,6 +2819,7 @@
 				8C10B7BA1E8AB2680049C44B /* ProductSentinelsDocument.swift in Sources */,
 				8C81CBA81E19546000FB244A /* BoxItAgainObject.swift in Sources */,
 				8CB29ACD1E8F716C001D07C6 /* MinesweeperGame.swift in Sources */,
+				8C5AE2711EC372A9000F0949 /* MineShipsMainViewController.swift in Sources */,
 				8CB29AD01E8F716C001D07C6 /* MinesweeperGameViewController.swift in Sources */,
 				8C9BEA061E9137F000A13A98 /* PairakabeOptionsViewController.swift in Sources */,
 				8C10B7A41E8A98C30049C44B /* SentinelsGameViewController.swift in Sources */,
@@ -2828,9 +2930,11 @@
 				8C7016611E90C25000210CE7 /* MiniLitsObject.swift in Sources */,
 				8C9BEA031E9137F000A13A98 /* PairakabeMainViewController.swift in Sources */,
 				84FBA52A1DFF7F3600594DAE /* BattleShipsGridNode.swift in Sources */,
+				8C5AE28C1EC372D3000F0949 /* LightBattleShipsMixin.swift in Sources */,
 				8C10B7871E87B6870049C44B /* NeighboursGameScene.swift in Sources */,
 				8C6D37FE1DC5B4EB0052202C /* GameState.swift in Sources */,
 				8C9AF4AB1DE974BF0053BED4 /* HitoriGameState.swift in Sources */,
+				8C5AE26B1EC372A9000F0949 /* MineShipsDocument.swift in Sources */,
 				8CC350371E001D2800B8FD83 /* BlockTap.swift in Sources */,
 				8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */,
 				8C9AF4D01DE974BF0053BED4 /* MasyuGameViewController.swift in Sources */,
@@ -2859,24 +2963,30 @@
 				8C9AF5691DF8D7770053BED4 /* MagnetsObject.swift in Sources */,
 				8C10B78A1E87B6870049C44B /* NeighboursGridNode.swift in Sources */,
 				8C6ACC1A1DD206AD0075F32C /* MainViewController.swift in Sources */,
+				8C5AE28A1EC372D3000F0949 /* LightBattleShipsGridNode.swift in Sources */,
 				8C9AF4AC1DE974BF0053BED4 /* HitoriGameViewController.swift in Sources */,
 				8C9AF5171DE975030053BED4 /* LoopyGameScene.swift in Sources */,
+				8C5AE2861EC372D3000F0949 /* LightBattleShipsGame.swift in Sources */,
 				8CC350311E001D2800B8FD83 /* ArrayExtensions.swift in Sources */,
 				8C9AF5041DE974BF0053BED4 /* SumscrapersObject.swift in Sources */,
 				8CB29AE71E8F795E001D07C6 /* LitsGame.swift in Sources */,
+				8C5AE28D1EC372D3000F0949 /* LightBattleShipsObject.swift in Sources */,
 				8CC3504C1E001D2800B8FD83 /* UIApplicationExtensions.swift in Sources */,
 				84FBA55F1DFF7F4F00594DAE /* TentsMixin.swift in Sources */,
 				8CCF10E91E8F5D9900422284 /* DominoGame.swift in Sources */,
 				8CC3CD251E32DEE40056B78F /* SnailMixin.swift in Sources */,
 				8C10B7BF1E8AB2680049C44B /* ProductSentinelsGridNode.swift in Sources */,
 				8CC3CD1F1E32DEE40056B78F /* SnailGame.swift in Sources */,
+				8C5AE26D1EC372A9000F0949 /* MineShipsGameScene.swift in Sources */,
 				84FBA5601DFF7F4F00594DAE /* TentsObject.swift in Sources */,
 				8CB29B211E8F7DE1001D07C6 /* FenceSentinelsOptionsViewController.swift in Sources */,
 				8C9AF4BB1DE974BF0053BED4 /* LightenUpMixin.swift in Sources */,
 				8C10B7BD1E8AB2680049C44B /* ProductSentinelsGameState.swift in Sources */,
 				8C9BEA041E9137F000A13A98 /* PairakabeMixin.swift in Sources */,
+				8C5AE26E1EC372A9000F0949 /* MineShipsGameState.swift in Sources */,
 				8CC350391E001D2800B8FD83 /* BoolExtensions.swift in Sources */,
 				8C6D37381DC421180052202C /* HomeDocument.swift in Sources */,
+				8C5AE28E1EC372D3000F0949 /* LightBattleShipsOptionsViewController.swift in Sources */,
 				8C10B7A11E8A98C30049C44B /* SentinelsGame.swift in Sources */,
 				8C10B78B1E87B6870049C44B /* NeighboursMainViewController.swift in Sources */,
 				84FBA5291DFF7F3600594DAE /* BattleShipsGameViewController.swift in Sources */,
@@ -2888,6 +2998,7 @@
 				8C81CBA31E19546000FB244A /* BoxItAgainGameState.swift in Sources */,
 				8C70165E1E90C25000210CE7 /* MiniLitsGridNode.swift in Sources */,
 				8C10B7D41E8CDABA0049C44B /* BootyIslandGame.swift in Sources */,
+				8C5AE2741EC372A9000F0949 /* MineShipsOptionsViewController.swift in Sources */,
 				8C9AF4A21DE974BF0053BED4 /* CloudsMainViewController.swift in Sources */,
 				8CC3503D1E001D2800B8FD83 /* CGRectExtensions.swift in Sources */,
 				8C9AF48A1DE974BF0053BED4 /* AbcMainViewController.swift in Sources */,
@@ -2951,6 +3062,7 @@
 				8C9AF4BA1DE974BF0053BED4 /* LightenUpMainViewController.swift in Sources */,
 				8CC350401E001D2800B8FD83 /* DictionaryExtensions.swift in Sources */,
 				8C9AF4C31DE974BF0053BED4 /* LineSweeperGameState.swift in Sources */,
+				8C5AE2721EC372A9000F0949 /* MineShipsMixin.swift in Sources */,
 				8CCF10D01E8E097C00422284 /* LighthousesGame.swift in Sources */,
 				8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */,
 				8C10B7BB1E8AB2680049C44B /* ProductSentinelsGame.swift in Sources */,
@@ -3032,6 +3144,7 @@
 				8C10B7F31E8D7DC50049C44B /* PowerGridMixin.swift in Sources */,
 				8C9BEA201E91452B00A13A98 /* TatamiOptionsViewController.swift in Sources */,
 				8C7016761E90C79E00210CE7 /* FenceLitsGameState.swift in Sources */,
+				8C5AE26C1EC372A9000F0949 /* MineShipsGame.swift in Sources */,
 				8C81CBB51E19546000FB244A /* FenceItUpOptionsViewController.swift in Sources */,
 				8C9AF57F1DF8D84B0053BED4 /* RoomsGameViewController.swift in Sources */,
 				8CC3CD271E32DEE40056B78F /* SnailOptionsViewController.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  BattleShipsGameState.swift
+//  LightBattleShipsGameState.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/19.
@@ -8,21 +8,21 @@
 
 import Foundation
 
-class BattleShipsGameState: GridGameState, BattleShipsMixin {
+class LightBattleShipsGameState: GridGameState, LightBattleShipsMixin {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
-    var game: BattleShipsGame {
-        get {return getGame() as! BattleShipsGame}
+    var game: LightBattleShipsGame {
+        get {return getGame() as! LightBattleShipsGame}
         set {setGame(game: newValue)}
     }
-    var objArray = [BattleShipsObject]()
+    var objArray = [LightBattleShipsObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()
     
-    override func copy() -> BattleShipsGameState {
-        let v = BattleShipsGameState(game: game, isCopy: true)
+    override func copy() -> LightBattleShipsGameState {
+        let v = LightBattleShipsGameState(game: game, isCopy: true)
         return setup(v: v)
     }
-    func setup(v: BattleShipsGameState) -> BattleShipsGameState {
+    func setup(v: LightBattleShipsGameState) -> LightBattleShipsGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
         v.row2state = row2state
@@ -30,10 +30,10 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
         return v
     }
     
-    required init(game: BattleShipsGame, isCopy: Bool = false) {
+    required init(game: LightBattleShipsGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<BattleShipsObject>(repeating: BattleShipsObject(), count: rows * cols)
+        objArray = Array<LightBattleShipsObject>(repeating: LightBattleShipsObject(), count: rows * cols)
         for (p, obj) in game.pos2obj {
             self[p] = obj
         }
@@ -42,7 +42,7 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
         updateIsSolved()
     }
     
-    subscript(p: Position) -> BattleShipsObject {
+    subscript(p: Position) -> LightBattleShipsObject {
         get {
             return self[p.row, p.col]
         }
@@ -50,7 +50,7 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> BattleShipsObject {
+    subscript(row: Int, col: Int) -> LightBattleShipsObject {
         get {
             return objArray[row * cols + col]
         }
@@ -59,7 +59,7 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
         }
     }
     
-    func setObject(move: inout BattleShipsGameMove) -> Bool {
+    func setObject(move: inout LightBattleShipsGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && game.pos2obj[p] == nil && self[p] != move.obj else {return false}
         self[p] = move.obj
@@ -67,9 +67,9 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
         return true
     }
     
-    func switchObject(move: inout BattleShipsGameMove) -> Bool {
+    func switchObject(move: inout LightBattleShipsGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
-        func f(o: BattleShipsObject) -> BattleShipsObject {
+        func f(o: LightBattleShipsObject) -> LightBattleShipsObject {
             switch o {
             case .empty:
                 return markerOption == .markerFirst ? .marker : .battleShipUnit
@@ -158,7 +158,7 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
             }
         }
         for (p, node) in pos2node {
-            for os in BattleShipsGame.offset {
+            for os in LightBattleShipsGame.offset {
                 let p2 = p + os
                 guard let node2 = pos2node[p2] else {continue}
                 g.addEdge(node, neighbor: node2)
@@ -169,14 +169,14 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.values.first!)
             let area = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map({$0.0}).sorted()
             pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
-            func f(os: Position, objTopLeft: BattleShipsObject, objBottomRight: BattleShipsObject) -> Bool {
+            func f(os: Position, objTopLeft: LightBattleShipsObject, objBottomRight: LightBattleShipsObject) -> Bool {
                 return self[area.first!] == objTopLeft && self[area.last!] == objBottomRight &&
                     [Int](1..<area.count - 1).testAll({self[area[$0]] == .battleShipMiddle}) &&
                     [Int](1..<area.count).testAll({area[$0] - area[$0 - 1] == os})
             }
             guard (area.count == 1 && self[area.first!] == .battleShipUnit || area.count > 1 && area.count < 5 && (
                 area.testAll({$0.row == area.first!.row}) && f(os: Position(0, 1), objTopLeft: .battleShipLeft, objBottomRight: .battleShipRight) ||
-                    area.testAll({$0.col == area.first!.col}) && f(os: Position(1, 0), objTopLeft: .battleShipTop, objBottomRight: .battleShipBottom))) && BattleShipsGame.offset2.testAll({os in area.testAll({
+                    area.testAll({$0.col == area.first!.col}) && f(os: Position(1, 0), objTopLeft: .battleShipTop, objBottomRight: .battleShipBottom))) && LightBattleShipsGame.offset2.testAll({os in area.testAll({
                         let p2 = $0 + os
                         if !self.isValid(p: p2) {return true}
                         let o = self[p2]

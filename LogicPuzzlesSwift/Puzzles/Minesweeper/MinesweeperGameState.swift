@@ -30,9 +30,6 @@ class MinesweeperGameState: GridGameState, MinesweeperMixin {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<MinesweeperObject>(repeating: .empty, count: rows * cols)
-        for p in game.pos2hint.keys {
-            self[p] = .hint(state: .normal)
-        }
         updateIsSolved()
     }
     
@@ -108,7 +105,7 @@ class MinesweeperGameState: GridGameState, MinesweeperMixin {
             self[p] = .hint(state: s)
             if s != .complete {
                 isSolved = false
-            } else {
+            } else if allowedObjectsOnly {
                 for p2 in rng {
                     self[p2] = .forbidden
                 }
