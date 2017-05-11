@@ -14,13 +14,6 @@ class AbstractPaintingGameScene: GameScene<AbstractPaintingGameState> {
         set {setGridNode(gridNode: newValue)}
     }
     
-    func addCloud(color: SKColor, point: CGPoint, nodeName: String) {
-        let cloudNode = SKSpriteNode(color: color, size: coloredRectSize())
-        cloudNode.position = point
-        cloudNode.name = nodeName
-        gridNode.addChild(cloudNode)
-    }
-    
     func addHint(p: Position, n: Int, s: HintState) {
         let point = gridNode.gridPosition(p: p)
         guard n >= 0 else {return}
@@ -125,18 +118,24 @@ class AbstractPaintingGameScene: GameScene<AbstractPaintingGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let cloudNodeName = "cloud" + nodeNameSuffix
+                let paintingNodeName = "painting" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                func removeCloud() { removeNode(withName: cloudNodeName) }
+                func addPainting() {
+                    let paintingNode = SKSpriteNode(color: .white, size: coloredRectSize())
+                    paintingNode.position = point
+                    paintingNode.name = paintingNodeName
+                    gridNode.addChild(paintingNode)
+                }
+                func removePainting() { removeNode(withName: paintingNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 func removeForbidden() { removeNode(withName: forbiddenNodeName) }
                 let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
                 guard o1 != o2 else {continue}
                 switch o1 {
-                case .cloud:
-                    removeCloud()
+                case .painting:
+                    removePainting()
                 case .forbidden:
                     removeForbidden()
                 case .marker:
@@ -145,8 +144,8 @@ class AbstractPaintingGameScene: GameScene<AbstractPaintingGameState> {
                     break
                 }
                 switch o2 {
-                case .cloud:
-                    addCloud(color: .white, point: point, nodeName: cloudNodeName)
+                case .painting:
+                    addPainting()
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case .marker:

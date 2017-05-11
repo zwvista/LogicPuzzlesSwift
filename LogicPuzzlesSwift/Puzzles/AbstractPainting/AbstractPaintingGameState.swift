@@ -59,7 +59,9 @@ class AbstractPaintingGameState: GridGameState, AbstractPaintingMixin {
     func setObject(move: inout AbstractPaintingGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && self[p] != move.obj else {return false}
-        self[p] = move.obj
+        for p2 in game.areas[game.pos2area[p]!] {
+            self[p2] = move.obj
+        }
         updateIsSolved()
         return true
     }
@@ -69,11 +71,11 @@ class AbstractPaintingGameState: GridGameState, AbstractPaintingMixin {
         func f(o: AbstractPaintingObject) -> AbstractPaintingObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .cloud
-            case .cloud:
+                return markerOption == .markerFirst ? .marker : .painting
+            case .painting:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .cloud : .empty
+                return markerOption == .markerFirst ? .painting : .empty
             default:
                 return o
             }
@@ -95,7 +97,7 @@ class AbstractPaintingGameState: GridGameState, AbstractPaintingMixin {
             var n1 = 0
             let n2 = game.row2hint[r]
             for c in 0..<cols {
-                if self[r, c] == .cloud {n1 += 1}
+                if self[r, c] == .painting {n1 += 1}
             }
             row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
@@ -104,7 +106,7 @@ class AbstractPaintingGameState: GridGameState, AbstractPaintingMixin {
             var n1 = 0
             let n2 = game.col2hint[c]
             for r in 0..<rows {
-                if self[r, c] == .cloud {n1 += 1}
+                if self[r, c] == .painting {n1 += 1}
             }
             col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
@@ -117,41 +119,6 @@ class AbstractPaintingGameState: GridGameState, AbstractPaintingMixin {
                 default:
                     break
                 }
-            }
-        }
-        guard isSolved else {return}
-        let g = Graph()
-        var pos2node = [Position: Node]()
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                guard self[p] == .cloud else {continue}
-                let node = g.addNode(p.description)
-                pos2node[p] = node
-            }
-        }
-        for (p, node) in pos2node {
-            for os in AbstractPaintingGame.offset {
-                let p2 = p + os
-                guard let node2 = pos2node[p2] else {continue}
-                g.addEdge(node, neighbor: node2)
-            }
-        }
-        while !pos2node.isEmpty {
-            let nodesExplored = breadthFirstSearch(g, source: pos2node.values.first!)
-            var r2 = 0, r1 = rows, c2 = 0, c1 = cols
-            let area = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
-            pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
-            for p in area {
-                if r2 < p.row {r2 = p.row}
-                if r1 > p.row {r1 = p.row}
-                if c2 < p.col {c2 = p.col}
-                if c1 > p.col {c1 = p.col}
-            }
-            let rs = r2 - r1 + 1, cs = c2 - c1 + 1
-            if !(rs >= 2 && cs >= 2 && rs * cs == nodesExplored.count) {
-                isSolved = false
-                return
             }
         }
     }

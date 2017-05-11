@@ -10,7 +10,7 @@ import Foundation
 
 enum AbstractPaintingObject: Int {
     case empty, forbidden, marker
-    case cloud
+    case painting
     init() {
         self = .empty
     }
