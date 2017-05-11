@@ -66,7 +66,7 @@ class SumscrapersGameState: GridGameState, SumscrapersMixin {
             row == rows - 1 && 1..<cols - 1 ~= col ? col2state[col * 2 + 1] :
             col == 0 && 1..<rows - 1 ~= row ? row2state[row * 2] :
             col == cols - 1 && 1..<rows - 1 ~= row ? row2state[row * 2 + 1] :
-            .normal;
+            .normal
     }
     
     func setObject(move: inout SumscrapersGameMove) -> Bool {

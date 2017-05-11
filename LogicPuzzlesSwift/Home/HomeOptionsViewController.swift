@@ -13,11 +13,11 @@ class HomeOptionsViewController: UITableViewController, HomeMixin {
     @IBOutlet weak var swPlayMusic: UISwitch!
     @IBOutlet weak var swPlaySound: UISwitch!
     func updatePlayMusic() {
-        swPlayMusic.isOn = gameOptions.playMusic;
+        swPlayMusic.isOn = gameOptions.playMusic
     }
     
     func updatePlaySound() {
-        swPlaySound.isOn = gameOptions.playSound;
+        swPlaySound.isOn = gameOptions.playSound
     }
     
     @IBAction func playMusicChanged(_ sender: AnyObject) {

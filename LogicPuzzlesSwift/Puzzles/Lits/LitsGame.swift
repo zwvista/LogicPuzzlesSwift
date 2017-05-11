@@ -56,7 +56,7 @@ class LitsGame: GridGame<LitsGameViewController> {
             [Position(0, 0), Position(1, 0), Position(1, 1), Position(2, 1)],
             [Position(0, 1), Position(1, 0), Position(1, 1), Position(2, 0)],
         ],
-    ];
+    ]
 
     var areas = [[Position]]()
     var pos2area = [Position: Int]()

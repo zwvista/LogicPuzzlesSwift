@@ -76,8 +76,8 @@ class Game<GD: GameDelegate>: GameBase {
 
 protocol GridGameBase: class {
     var size: Position! {get}
-    func isValid(p: Position) -> Bool;
-    func isValid(row: Int, col: Int) -> Bool;
+    func isValid(p: Position) -> Bool
+    func isValid(row: Int, col: Int) -> Bool
 }
 
 class GridGame<GD: GameDelegate>: Game<GD>, GridGameBase {

@@ -59,7 +59,7 @@ class LightenUpGameState: GridGameState, LightenUpMixin {
         
         func adjustLightness(tolighten: Bool) {
             let f = { lightness in
-                tolighten ? lightness + 1 : max(0, lightness - 1);
+                tolighten ? lightness + 1 : max(0, lightness - 1)
             }
             
             self[p].lightness = f(self[p].lightness)

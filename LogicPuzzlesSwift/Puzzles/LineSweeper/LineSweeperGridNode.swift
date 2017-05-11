@@ -27,6 +27,6 @@ class LineSweeperGridNode : GridNode {
         let dy = -(point.y + (CGFloat(r) + 0.5) * blockSize)
         let dx2 = abs(dx), dy2 = abs(dy)
         return (p, -dy2...dy2 ~= dx ? dy > 0 ? 2 : 0 :
-            -dx2...dx2 ~= dy ? dx > 0 ? 1 : 3 : 0);
+            -dx2...dx2 ~= dy ? dx > 0 ? 1 : 3 : 0)
     }
 }
