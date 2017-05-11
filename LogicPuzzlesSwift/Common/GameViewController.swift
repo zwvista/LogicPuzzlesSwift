@@ -11,6 +11,14 @@ import SpriteKit
 
 class GameViewController: UIViewController {
     
+    @IBOutlet weak var lblSolved: UILabel!
+    @IBOutlet weak var lblLevel: UILabel!
+    @IBOutlet weak var lblMoves: UILabel!
+    @IBOutlet weak var lblSolution: UILabel!
+    @IBOutlet weak var btnSaveSolution: UIButton!
+    @IBOutlet weak var btnLoadSolution: UIButton!
+    @IBOutlet weak var btnDeleteSolution: UIButton!
+    
     // http://stackoverflow.com/questions/18979837/how-to-hide-ios-status-bar
     override var prefersStatusBarHidden: Bool {
         return true

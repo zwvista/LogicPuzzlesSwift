@@ -80,21 +80,30 @@ class ParksGameState: GridGameState, ParksMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 1/Parks
+
+        Summary
+        Put one Tree in each Park, row and column.(two in bigger levels)
+
+        Description
+        1. In Parks, you have many differently coloured areas(Parks) on the board.
+        2. The goal is to plant Trees, following these rules:
+        3. A Tree can't touch another Tree, not even diagonally.
+        4. Each park must have exactly ONE Tree.
+        5. There must be exactly ONE Tree in each row and each column.
+        6. Remember a Tree CANNOT touch another Tree diagonally,
+           but it CAN be on the same diagonal line.
+        7. Larger puzzles have TWO Trees in each park, each row and each column.
+    */
     private func updateIsSolved() {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                let p = Position(r, c)
-                switch self[p] {
-                case .forbidden:
-                    self[p] = .empty
-                case .tree:
-                    self[p] = .tree(state: .normal)
-                default:
-                    break
-                }
+                if case .forbidden = self[r, c] {self[r, c] = .empty}
             }
         }
+        // 3. A Tree can't touch another Tree, not even diagonally.
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
@@ -106,17 +115,17 @@ class ParksGameState: GridGameState, ParksMixin {
                     return false
                 }
                 switch self[p] {
-                case let .tree(state):
-                    self[p] = .tree(state: state == .normal && !hasNeighbor() ? .normal : .error)
+                case .tree:
+                    self[p] = .tree(state: !hasNeighbor() ? .normal : .error)
                 case .empty, .marker:
-                    guard allowedObjectsOnly && hasNeighbor() else {continue}
-                    self[p] = .forbidden
+                    if allowedObjectsOnly && hasNeighbor() {self[p] = .forbidden}
                 default:
                     break
                 }
             }
         }
         let n2 = game.treesInEachArea
+        // 5. There must be exactly ONE Tree in each row.
         for r in 0..<rows {
             var n1 = 0
             for c in 0..<cols {
@@ -128,12 +137,13 @@ class ParksGameState: GridGameState, ParksMixin {
                 case let .tree(state):
                     self[r, c] = .tree(state: state == .normal && n1 <= n2 ? .normal : .error)
                 case .empty, .marker:
-                    if n1 == n2 && allowedObjectsOnly {self[r, c] = .forbidden}
+                    if n1 >= n2 && allowedObjectsOnly {self[r, c] = .forbidden}
                 default:
                     break
                 }
             }
         }
+        // 5. There must be exactly ONE Tree in each column.
         for c in 0..<cols {
             var n1 = 0
             for r in 0..<rows {
@@ -145,12 +155,13 @@ class ParksGameState: GridGameState, ParksMixin {
                 case let .tree(state):
                     self[r, c] = .tree(state: state == .normal && n1 <= n2 ? .normal : .error)
                 case .empty, .marker:
-                    if n1 == n2 && allowedObjectsOnly {self[r, c] = .forbidden}
+                    if n1 >= n2 && allowedObjectsOnly {self[r, c] = .forbidden}
                 default:
                     break
                 }
             }
         }
+        // 4. Each park must have exactly ONE Tree.
         for a in game.areas {
             var n1 = 0
             for p in a {
@@ -162,7 +173,7 @@ class ParksGameState: GridGameState, ParksMixin {
                 case let .tree(state):
                     self[p] = .tree(state: state == .normal && n1 <= n2 ? .normal : .error)
                 case .empty, .marker:
-                    if n1 == n2 && allowedObjectsOnly {self[p] = .forbidden}
+                    if n1 >= n2 && allowedObjectsOnly {self[p] = .forbidden}
                 default:
                     break
                 }

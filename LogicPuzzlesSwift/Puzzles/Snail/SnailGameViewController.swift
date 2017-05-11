@@ -17,14 +17,6 @@ class SnailGameViewController: GameViewController, GameDelegate, SnailMixin {
     var game: SnailGame!
     weak var skView: SKView!
     var levelInitilizing = false
-
-    @IBOutlet weak var lblSolved: UILabel!
-    @IBOutlet weak var lblLevel: UILabel!
-    @IBOutlet weak var lblMoves: UILabel!
-    @IBOutlet weak var lblSolution: UILabel!
-    @IBOutlet weak var btnSaveSolution: UIButton!
-    @IBOutlet weak var btnLoadSolution: UIButton!
-    @IBOutlet weak var btnDeleteSolution: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
