@@ -144,7 +144,7 @@ class DigitalBattleShipsGameScene: GameScene<DigitalBattleShipsGameState> {
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 func removeBattleShip() { removeNode(withName: battleShipNodeName) }
-                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
+                func addMarker() { addDotMarker2(color: .green, point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 func removeForbidden() { removeNode(withName: forbiddenNodeName) }
                 let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
@@ -161,7 +161,9 @@ class DigitalBattleShipsGameScene: GameScene<DigitalBattleShipsGameState> {
                 }
                 switch o2 {
                 case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
-                    addBattleShip(color: .white, point: point, obj: o2, nodeName: battleShipNodeName)
+                    removeHint(p: p)
+                    addBattleShip(color: .gray, point: point, obj: o2, nodeName: battleShipNodeName)
+                    addHint(p: p, n: stateFrom.game[p], s: .normal)
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case .marker:
