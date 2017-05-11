@@ -29,14 +29,17 @@ class DigitalBattleShipsGame: GridGame<DigitalBattleShipsGameViewController> {
     init(layout: [String], delegate: DigitalBattleShipsGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count - 1, layout[0].length - 1)
+        size = Position(layout.count - 1, layout[0].length / 2 - 1)
+        objArray = Array<Int>(repeating: 0, count: rows * cols)
         row2hint = Array<Int>(repeating: 0, count: rows)
         col2hint = Array<Int>(repeating: 0, count: cols)
         
         for r in 0..<rows + 1 {
             let str = layout[r]
             for c in 0..<cols + 1 {
-                let n = str[c * 2...c * 2 + 1].toInt()!
+                let s = str[c * 2...c * 2 + 1]
+                guard s != "  " else {continue}
+                let n = s.toInt()!
                 if r == rows {
                     col2hint[c] = n
                 } else if c == cols {

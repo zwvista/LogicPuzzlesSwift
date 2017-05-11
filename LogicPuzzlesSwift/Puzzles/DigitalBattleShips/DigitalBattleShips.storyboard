@@ -29,7 +29,7 @@
         <!--Battle Ships Main View Controller-->
         <scene sceneID="tFF-GO-VYL">
             <objects>
-                <viewController id="AeD-bF-k0G" customClass="BattleShipsMainViewController" customModule="LogicPuzzlesSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="AeD-bF-k0G" customClass="DigitalBattleShipsMainViewController" customModule="LogicPuzzlesSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QNf-Ma-8u8"/>
                         <viewControllerLayoutGuide type="bottom" id="hRc-kf-dB5"/>
@@ -158,8 +158,8 @@
                                     <segue destination="ORe-b4-YC9" kind="presentation" id="B34-9U-Fv0"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BattleShips" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGx-Ts-pBn">
-                                <rect key="frame" x="99.5" y="166.5" width="176" height="42"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DigitalBattleShips" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGx-Ts-pBn">
+                                <rect key="frame" x="51" y="166.5" width="273" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="7Yf-C1-JWa"/>
                                 </constraints>
@@ -247,7 +247,7 @@
         <!--Options-->
         <scene sceneID="bgb-8z-Yxe">
             <objects>
-                <tableViewController id="NOj-7d-poE" customClass="BattleShipsOptionsViewController" customModule="LogicPuzzlesSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="NOj-7d-poE" customClass="DigitalBattleShipsOptionsViewController" customModule="LogicPuzzlesSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="6Or-kc-7fi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -340,7 +340,7 @@
         <!--Battle Ships Game View Controller-->
         <scene sceneID="FUy-3F-4x3">
             <objects>
-                <viewController storyboardIdentifier="BattleShipsGameViewController" id="Af3-Xi-D45" customClass="BattleShipsGameViewController" customModule="LogicPuzzlesSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DigitalBattleShipsGameViewController" id="Af3-Xi-D45" customClass="DigitalBattleShipsGameViewController" customModule="LogicPuzzlesSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ncn-Pv-xyN"/>
                         <viewControllerLayoutGuide type="bottom" id="o6U-14-5Ht"/>

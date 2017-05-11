@@ -107,7 +107,7 @@ class DigitalBattleShipsGameState: GridGameState, DigitalBattleShipsMixin {
             for c in 0..<cols {
                 switch self[r, c] {
                 case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
-                    n1 += 1
+                    n1 += game[r, c]
                 default:
                     break
                 }
@@ -121,7 +121,7 @@ class DigitalBattleShipsGameState: GridGameState, DigitalBattleShipsMixin {
             for r in 0..<rows {
                 switch self[r, c] {
                 case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
-                    n1 += 1
+                    n1 += game[r, c]
                 default:
                     break
                 }
