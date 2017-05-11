@@ -53,14 +53,7 @@ class AbstractPaintingGameScene: GameScene<AbstractPaintingGameState> {
             let n = state.game.col2hint[c]
             addHint(p: p, n: n, s: state.col2state[c])
         }
-        
-        // add AbstractPainting
-        for p in game.pos2cloud {
-            let point = gridNode.gridPosition(p: p)
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let cloudNodeName = "cloud" + nodeNameSuffix
-            addCloud(color: .gray, point: point, nodeName: cloudNodeName)
-        }
+
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
@@ -75,6 +68,34 @@ class AbstractPaintingGameScene: GameScene<AbstractPaintingGameState> {
                 }
             }
         }
+        
+        let pathToDraw = CGMutablePath()
+        let lineNode = SKShapeNode(path: pathToDraw)
+        for r in 0..<game.rows + 1 {
+            for c in 0..<game.cols + 1 {
+                let p = Position(r, c)
+                let point = gridNode.gridPosition(p: p)
+                for dir in 1...2 {
+                    guard game.dots[r, c][dir] == .line else {continue}
+                    switch dir {
+                    case 1:
+                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
+                        pathToDraw.addLine(to: CGPoint(x: point.x + gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
+                        lineNode.glowWidth = 8
+                    case 2:
+                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
+                        pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y - gridNode.blockSize / 2))
+                        lineNode.glowWidth = 8
+                    default:
+                        break
+                    }
+                }
+            }
+        }
+        lineNode.path = pathToDraw
+        lineNode.strokeColor = .yellow
+        lineNode.name = "line"
+        gridNode.addChild(lineNode)
     }
     
     override func levelUpdated(from stateFrom: AbstractPaintingGameState, to stateTo: AbstractPaintingGameState) {

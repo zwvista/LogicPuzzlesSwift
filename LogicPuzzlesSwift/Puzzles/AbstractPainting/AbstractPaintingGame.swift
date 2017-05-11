@@ -18,34 +18,78 @@ class AbstractPaintingGame: GridGame<AbstractPaintingGameViewController> {
 
     var row2hint = [Int]()
     var col2hint = [Int]()
-    var pos2cloud = [Position]()
+    var areas = [[Position]]()
+    var pos2area = [Position: Int]()
+    var dots: GridDots!
     
     init(layout: [String], delegate: AbstractPaintingGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count - 1, layout[0].length - 1)
+        size = Position(layout.count / 2 - 1, layout[0].length /  2 - 1)
+        dots = GridDots(rows: rows + 1, cols: cols + 1)
         row2hint = Array<Int>(repeating: 0, count: rows)
         col2hint = Array<Int>(repeating: 0, count: cols)
         
         for r in 0..<rows + 1 {
-            let str = layout[r]
-            for c in 0..<cols + 1 {
-                let p = Position(r, c)
-                let ch = str[c]
-                switch ch {
-                case "C":
-                    pos2cloud.append(p)
-                case "0"..."9":
-                    let n = ch.toInt!
-                    if r == rows {
-                        col2hint[c] = n
-                    } else if c == cols {
-                        row2hint[r] = n
-                    }
-                default:
-                    break
+            var str = layout[2 * r]
+            for c in 0..<cols {
+                let ch = str[2 * c + 1]
+                if ch == "-" {
+                    dots[r, c][1] = .line
+                    dots[r, c + 1][3] = .line
                 }
             }
+            guard r < rows else {break}
+            str = layout[2 * r + 1]
+            for c in 0..<cols + 1 {
+                let ch = str[2 * c]
+                if ch == "|" {
+                    dots[r, c][2] = .line
+                    dots[r + 1, c][0] = .line
+                }
+            }
+        }
+        var rng = Set<Position>()
+        let g = Graph()
+        var pos2node = [Position: Node]()
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                rng.insert(p)
+                pos2node[p] = g.addNode(p.description)
+            }
+        }
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                for i in 0..<4 {
+                    if dots[p + ParksGame.offset2[i]][ParksGame.dirs[i]] != .line {
+                        g.addEdge(pos2node[p]!, neighbor: pos2node[p + ParksGame.offset[i * 2]]!)
+                    }
+                }
+            }
+        }
+        while !rng.isEmpty {
+            let node = pos2node[rng.first!]!
+            let nodesExplored = breadthFirstSearch(g, source: node)
+            let area = rng.filter({p in nodesExplored.contains(p.description)})
+            let n = areas.count
+            for p in area {
+                pos2area[p] = n
+            }
+            areas.append(area)
+            rng.subtract(area)
+        }
+        
+        for r in 0..<rows {
+            let ch = layout[2 * r + 1][2 * cols + 1]
+            guard case "1"..."9" = ch else {continue}
+            row2hint[r] = ch.toInt!
+        }
+        for c in 0..<cols {
+            let ch = layout[2 * rows + 1][2 * c + 1]
+            guard case "1"..."9" = ch else {continue}
+            col2hint[c] = ch.toInt!
         }
         
         let state = AbstractPaintingGameState(game: self)

@@ -34,9 +34,6 @@ class AbstractPaintingGameState: GridGameState, AbstractPaintingMixin {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<AbstractPaintingObject>(repeating: AbstractPaintingObject(), count: rows * cols)
-        for p in game.pos2cloud {
-            self[p] = .cloud
-        }
         row2state = Array<HintState>(repeating: .normal, count: rows)
         col2state = Array<HintState>(repeating: .normal, count: cols)
         updateIsSolved()
@@ -61,7 +58,7 @@ class AbstractPaintingGameState: GridGameState, AbstractPaintingMixin {
     
     func setObject(move: inout AbstractPaintingGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && !game.pos2cloud.contains(p) && self[p] != move.obj else {return false}
+        guard isValid(p: p) && self[p] != move.obj else {return false}
         self[p] = move.obj
         updateIsSolved()
         return true
