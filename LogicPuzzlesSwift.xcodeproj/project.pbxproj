@@ -126,6 +126,18 @@
 		8C262D211EC3ED1D00BCDBD2 /* DigitalBattleShipsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C262D151EC3ED1D00BCDBD2 /* DigitalBattleShipsMixin.swift */; };
 		8C262D221EC3ED1D00BCDBD2 /* DigitalBattleShipsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C262D161EC3ED1D00BCDBD2 /* DigitalBattleShipsObject.swift */; };
 		8C262D231EC3ED1D00BCDBD2 /* DigitalBattleShipsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C262D171EC3ED1D00BCDBD2 /* DigitalBattleShipsOptionsViewController.swift */; };
+		8C262D321EC400CE00BCDBD2 /* AbstractPainting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C262D261EC400CE00BCDBD2 /* AbstractPainting.storyboard */; };
+		8C262D331EC400CE00BCDBD2 /* AbstractPainting.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C262D271EC400CE00BCDBD2 /* AbstractPainting.xml */; };
+		8C262D341EC400CE00BCDBD2 /* AbstractPaintingDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C262D281EC400CE00BCDBD2 /* AbstractPaintingDocument.swift */; };
+		8C262D351EC400CE00BCDBD2 /* AbstractPaintingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C262D291EC400CE00BCDBD2 /* AbstractPaintingGame.swift */; };
+		8C262D361EC400CE00BCDBD2 /* AbstractPaintingGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C262D2A1EC400CE00BCDBD2 /* AbstractPaintingGameScene.swift */; };
+		8C262D371EC400CE00BCDBD2 /* AbstractPaintingGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C262D2B1EC400CE00BCDBD2 /* AbstractPaintingGameState.swift */; };
+		8C262D381EC400CE00BCDBD2 /* AbstractPaintingGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C262D2C1EC400CE00BCDBD2 /* AbstractPaintingGameViewController.swift */; };
+		8C262D391EC400CE00BCDBD2 /* AbstractPaintingGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C262D2D1EC400CE00BCDBD2 /* AbstractPaintingGridNode.swift */; };
+		8C262D3A1EC400CE00BCDBD2 /* AbstractPaintingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C262D2E1EC400CE00BCDBD2 /* AbstractPaintingMainViewController.swift */; };
+		8C262D3B1EC400CE00BCDBD2 /* AbstractPaintingMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C262D2F1EC400CE00BCDBD2 /* AbstractPaintingMixin.swift */; };
+		8C262D3C1EC400CE00BCDBD2 /* AbstractPaintingObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C262D301EC400CE00BCDBD2 /* AbstractPaintingObject.swift */; };
+		8C262D3D1EC400CE00BCDBD2 /* AbstractPaintingOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C262D311EC400CE00BCDBD2 /* AbstractPaintingOptionsViewController.swift */; };
 		8C31FE6E1D90E415008793BF /* SharkORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; };
 		8C31FE6F1D90E415008793BF /* SharkORM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8C373D441E0507F7005712CD /* tent.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C373D421E0507F7005712CD /* tent.png */; };
@@ -786,6 +798,18 @@
 		8C262D151EC3ED1D00BCDBD2 /* DigitalBattleShipsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitalBattleShipsMixin.swift; sourceTree = "<group>"; };
 		8C262D161EC3ED1D00BCDBD2 /* DigitalBattleShipsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitalBattleShipsObject.swift; sourceTree = "<group>"; };
 		8C262D171EC3ED1D00BCDBD2 /* DigitalBattleShipsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitalBattleShipsOptionsViewController.swift; sourceTree = "<group>"; };
+		8C262D261EC400CE00BCDBD2 /* AbstractPainting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AbstractPainting.storyboard; sourceTree = "<group>"; };
+		8C262D271EC400CE00BCDBD2 /* AbstractPainting.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AbstractPainting.xml; sourceTree = "<group>"; };
+		8C262D281EC400CE00BCDBD2 /* AbstractPaintingDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractPaintingDocument.swift; sourceTree = "<group>"; };
+		8C262D291EC400CE00BCDBD2 /* AbstractPaintingGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractPaintingGame.swift; sourceTree = "<group>"; };
+		8C262D2A1EC400CE00BCDBD2 /* AbstractPaintingGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractPaintingGameScene.swift; sourceTree = "<group>"; };
+		8C262D2B1EC400CE00BCDBD2 /* AbstractPaintingGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractPaintingGameState.swift; sourceTree = "<group>"; };
+		8C262D2C1EC400CE00BCDBD2 /* AbstractPaintingGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractPaintingGameViewController.swift; sourceTree = "<group>"; };
+		8C262D2D1EC400CE00BCDBD2 /* AbstractPaintingGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractPaintingGridNode.swift; sourceTree = "<group>"; };
+		8C262D2E1EC400CE00BCDBD2 /* AbstractPaintingMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractPaintingMainViewController.swift; sourceTree = "<group>"; };
+		8C262D2F1EC400CE00BCDBD2 /* AbstractPaintingMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractPaintingMixin.swift; sourceTree = "<group>"; };
+		8C262D301EC400CE00BCDBD2 /* AbstractPaintingObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractPaintingObject.swift; sourceTree = "<group>"; };
+		8C262D311EC400CE00BCDBD2 /* AbstractPaintingOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractPaintingOptionsViewController.swift; sourceTree = "<group>"; };
 		8C31FE6D1D90E415008793BF /* SharkORM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SharkORM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C373D421E0507F7005712CD /* tent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tent.png; sourceTree = "<group>"; };
 		8C373D431E0507F7005712CD /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree.png; sourceTree = "<group>"; };
@@ -1555,6 +1579,25 @@
 			path = DigitalBattleShips;
 			sourceTree = "<group>";
 		};
+		8C262D251EC400CE00BCDBD2 /* AbstractPainting */ = {
+			isa = PBXGroup;
+			children = (
+				8C262D261EC400CE00BCDBD2 /* AbstractPainting.storyboard */,
+				8C262D271EC400CE00BCDBD2 /* AbstractPainting.xml */,
+				8C262D281EC400CE00BCDBD2 /* AbstractPaintingDocument.swift */,
+				8C262D291EC400CE00BCDBD2 /* AbstractPaintingGame.swift */,
+				8C262D2A1EC400CE00BCDBD2 /* AbstractPaintingGameScene.swift */,
+				8C262D2B1EC400CE00BCDBD2 /* AbstractPaintingGameState.swift */,
+				8C262D2C1EC400CE00BCDBD2 /* AbstractPaintingGameViewController.swift */,
+				8C262D2D1EC400CE00BCDBD2 /* AbstractPaintingGridNode.swift */,
+				8C262D2E1EC400CE00BCDBD2 /* AbstractPaintingMainViewController.swift */,
+				8C262D2F1EC400CE00BCDBD2 /* AbstractPaintingMixin.swift */,
+				8C262D301EC400CE00BCDBD2 /* AbstractPaintingObject.swift */,
+				8C262D311EC400CE00BCDBD2 /* AbstractPaintingOptionsViewController.swift */,
+			);
+			path = AbstractPainting;
+			sourceTree = "<group>";
+		};
 		8C373D471E14A621005712CD /* BoxItAround */ = {
 			isa = PBXGroup;
 			children = (
@@ -1708,6 +1751,7 @@
 			isa = PBXGroup;
 			children = (
 				8C9AF3F31DE974BE0053BED4 /* Abc */,
+				8C262D251EC400CE00BCDBD2 /* AbstractPainting */,
 				84FBA5161DFF7F3600594DAE /* BattleShips */,
 				8C10B7C41E8CDABA0049C44B /* BootyIsland */,
 				8C81CB841E19546000FB244A /* BoxItAgain */,
@@ -2586,6 +2630,7 @@
 				8CCF10B31E8E097100422284 /* BusySeas.storyboard in Resources */,
 				8C9AF49A1DE974BF0053BED4 /* Clouds.storyboard in Resources */,
 				8C1D16B21DB8DE930056D407 /* TraversalTree.png in Resources */,
+				8C262D321EC400CE00BCDBD2 /* AbstractPainting.storyboard in Resources */,
 				8CC3CD1D1E32DEE40056B78F /* Snail.xml in Resources */,
 				8CB29ACB1E8F716C001D07C6 /* Minesweeper.xml in Resources */,
 				8C262D191EC3ED1D00BCDBD2 /* DigitalBattleShips.xml in Resources */,
@@ -2593,6 +2638,7 @@
 				8C9AF5451DF471AA0053BED4 /* Mosaik.storyboard in Resources */,
 				8C9AF4BF1DE974BF0053BED4 /* LineSweeper.xml in Resources */,
 				8C373D621E14A622005712CD /* BoxItAround.xml in Resources */,
+				8C262D331EC400CE00BCDBD2 /* AbstractPainting.xml in Resources */,
 				8C9AF4EF1DE974BF0053BED4 /* SlitherLink.xml in Resources */,
 				8CCF10B41E8E097100422284 /* BusySeas.xml in Resources */,
 				8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */,
@@ -2723,6 +2769,7 @@
 				84FBA5471DFF7F4500594DAE /* ParksObject.swift in Sources */,
 				8C81CBA71E19546000FB244A /* BoxItAgainMixin.swift in Sources */,
 				8CB29AEC1E8F795E001D07C6 /* LitsMainViewController.swift in Sources */,
+				8C262D3D1EC400CE00BCDBD2 /* AbstractPaintingOptionsViewController.swift in Sources */,
 				8C9AF5481DF471AA0053BED4 /* MosaikGame.swift in Sources */,
 				8CB29B191E8F7DE1001D07C6 /* FenceSentinelsGame.swift in Sources */,
 				8C5AE26F1EC372A9000F0949 /* MineShipsGameViewController.swift in Sources */,
@@ -2755,6 +2802,7 @@
 				8C10B7A51E8A98C30049C44B /* SentinelsGridNode.swift in Sources */,
 				8C9AF4D11DE974BF0053BED4 /* MasyuGridNode.swift in Sources */,
 				8C9AF4D41DE974BF0053BED4 /* MasyuObject.swift in Sources */,
+				8C262D3B1EC400CE00BCDBD2 /* AbstractPaintingMixin.swift in Sources */,
 				8C9AF4A81DE974BF0053BED4 /* HitoriDocument.swift in Sources */,
 				8CB29AD51E8F716C001D07C6 /* MinesweeperOptionsViewController.swift in Sources */,
 				8C9AF57B1DF8D84B0053BED4 /* RoomsDocument.swift in Sources */,
@@ -2807,6 +2855,7 @@
 				8CC3CD241E32DEE40056B78F /* SnailMainViewController.swift in Sources */,
 				8C9BEA001E9137F000A13A98 /* PairakabeGameState.swift in Sources */,
 				8CC350441E001D2800B8FD83 /* FloatingPointExtensions.swift in Sources */,
+				8C262D351EC400CE00BCDBD2 /* AbstractPaintingGame.swift in Sources */,
 				8C10B7881E87B6870049C44B /* NeighboursGameState.swift in Sources */,
 				8C9AF54B1DF471AA0053BED4 /* MosaikGameViewController.swift in Sources */,
 				8C9AF4981DE974BF0053BED4 /* BridgesObject.swift in Sources */,
@@ -2868,6 +2917,7 @@
 				8C10B7BA1E8AB2680049C44B /* ProductSentinelsDocument.swift in Sources */,
 				8C262D221EC3ED1D00BCDBD2 /* DigitalBattleShipsObject.swift in Sources */,
 				8C81CBA81E19546000FB244A /* BoxItAgainObject.swift in Sources */,
+				8C262D381EC400CE00BCDBD2 /* AbstractPaintingGameViewController.swift in Sources */,
 				8CB29ACD1E8F716C001D07C6 /* MinesweeperGame.swift in Sources */,
 				8C5AE2711EC372A9000F0949 /* MineShipsMainViewController.swift in Sources */,
 				8CB29AD01E8F716C001D07C6 /* MinesweeperGameViewController.swift in Sources */,
@@ -2942,6 +2992,7 @@
 				8CC3505A1E001D2800B8FD83 /* UITextViewExtensions.swift in Sources */,
 				8C373D651E14A622005712CD /* BoxItAroundGameScene.swift in Sources */,
 				8C10B7EC1E8D7DC50049C44B /* PowerGridDocument.swift in Sources */,
+				8C262D361EC400CE00BCDBD2 /* AbstractPaintingGameScene.swift in Sources */,
 				8C9AF4F31DE974BF0053BED4 /* SlitherLinkGameState.swift in Sources */,
 				8CC350381E001D2800B8FD83 /* BlockWebView.swift in Sources */,
 				8C9AF4CE1DE974BF0053BED4 /* MasyuGameScene.swift in Sources */,
@@ -2989,10 +3040,12 @@
 				8C9AF4AB1DE974BF0053BED4 /* HitoriGameState.swift in Sources */,
 				8C5AE26B1EC372A9000F0949 /* MineShipsDocument.swift in Sources */,
 				8CC350371E001D2800B8FD83 /* BlockTap.swift in Sources */,
+				8C262D3A1EC400CE00BCDBD2 /* AbstractPaintingMainViewController.swift in Sources */,
 				8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */,
 				8C9AF4D01DE974BF0053BED4 /* MasyuGameViewController.swift in Sources */,
 				8C262D1C1EC3ED1D00BCDBD2 /* DigitalBattleShipsGameScene.swift in Sources */,
 				8CB29ACE1E8F716C001D07C6 /* MinesweeperGameScene.swift in Sources */,
+				8C262D341EC400CE00BCDBD2 /* AbstractPaintingDocument.swift in Sources */,
 				8C9AF4F11DE974BF0053BED4 /* SlitherLinkGame.swift in Sources */,
 				8C81CBAF1E19546000FB244A /* FenceItUpGameState.swift in Sources */,
 				8C81CBAC1E19546000FB244A /* FenceItUpDocument.swift in Sources */,
@@ -3113,6 +3166,7 @@
 				8C373D711E14A622005712CD /* BoxItUpGameScene.swift in Sources */,
 				8CC3503B1E001D2800B8FD83 /* CGFloatExtensions.swift in Sources */,
 				8CC3505C1E001D2800B8FD83 /* UIViewControllerExtensions.swift in Sources */,
+				8C262D391EC400CE00BCDBD2 /* AbstractPaintingGridNode.swift in Sources */,
 				84FBA5451DFF7F4500594DAE /* ParksMainViewController.swift in Sources */,
 				8C81CBB11E19546000FB244A /* FenceItUpGridNode.swift in Sources */,
 				8C9AF4BA1DE974BF0053BED4 /* LightenUpMainViewController.swift in Sources */,
@@ -3136,6 +3190,7 @@
 				8C886C3F1D9E8AF1004A42BF /* ActionSheetDistancePicker.m in Sources */,
 				8C10B7A91E8A98C30049C44B /* SentinelsOptionsViewController.swift in Sources */,
 				8C9AF4941DE974BF0053BED4 /* BridgesGameViewController.swift in Sources */,
+				8C262D3C1EC400CE00BCDBD2 /* AbstractPaintingObject.swift in Sources */,
 				8C9AF4AF1DE974BF0053BED4 /* HitoriMixin.swift in Sources */,
 				8C9AF5501DF471AA0053BED4 /* MosaikOptionsViewController.swift in Sources */,
 				8C9AF4F51DE974BF0053BED4 /* SlitherLinkGridNode.swift in Sources */,
@@ -3185,6 +3240,7 @@
 				8C373D6A1E14A622005712CD /* BoxItAroundMixin.swift in Sources */,
 				8C9AF4DF1DE974BF0053BED4 /* NurikabeMixin.swift in Sources */,
 				8C10B7C31E8AB2680049C44B /* ProductSentinelsOptionsViewController.swift in Sources */,
+				8C262D371EC400CE00BCDBD2 /* AbstractPaintingGameState.swift in Sources */,
 				8CB29B1A1E8F7DE1001D07C6 /* FenceSentinelsGameScene.swift in Sources */,
 				8CB29ACF1E8F716C001D07C6 /* MinesweeperGameState.swift in Sources */,
 				8C9AF4C11DE974BF0053BED4 /* LineSweeperGame.swift in Sources */,
