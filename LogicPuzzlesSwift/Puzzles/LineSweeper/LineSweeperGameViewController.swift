@@ -13,8 +13,14 @@ class LineSweeperGameViewController: GameViewController, GameDelegate, LineSweep
     typealias GM = LineSweeperGameMove
     typealias GS = LineSweeperGameState
 
-    var scene: LineSweeperGameScene!
-    var game: LineSweeperGame!
+    var scene: LineSweeperGameScene {
+        get {return getScene() as! LineSweeperGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: LineSweeperGame {
+        get {return getGame() as! LineSweeperGame}
+        set {setGame(game: newValue)}
+    }
     var pLast: Position?
    
     override func viewDidLoad() {

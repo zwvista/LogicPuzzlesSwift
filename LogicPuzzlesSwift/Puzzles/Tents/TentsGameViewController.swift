@@ -13,8 +13,14 @@ class TentsGameViewController: GameViewController, GameDelegate, TentsMixin {
     typealias GM = TentsGameMove
     typealias GS = TentsGameState
 
-    var scene: TentsGameScene!
-    var game: TentsGame!
+    var scene: TentsGameScene {
+        get {return getScene() as! TentsGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: TentsGame {
+        get {return getGame() as! TentsGame}
+        set {setGame(game: newValue)}
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

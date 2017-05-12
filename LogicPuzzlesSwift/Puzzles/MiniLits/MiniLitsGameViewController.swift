@@ -13,8 +13,14 @@ class MiniLitsGameViewController: GameViewController, GameDelegate, MiniLitsMixi
     typealias GM = MiniLitsGameMove
     typealias GS = MiniLitsGameState
 
-    var scene: MiniLitsGameScene!
-    var game: MiniLitsGame!
+    var scene: MiniLitsGameScene {
+        get {return getScene() as! MiniLitsGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: MiniLitsGame {
+        get {return getGame() as! MiniLitsGame}
+        set {setGame(game: newValue)}
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()

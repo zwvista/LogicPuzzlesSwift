@@ -13,8 +13,14 @@ class BoxItUpGameViewController: GameViewController, GameDelegate, BoxItUpMixin 
     typealias GM = BoxItUpGameMove
     typealias GS = BoxItUpGameState
 
-    var scene: BoxItUpGameScene!
-    var game: BoxItUpGame!
+    var scene: BoxItUpGameScene {
+        get {return getScene() as! BoxItUpGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: BoxItUpGame {
+        get {return getGame() as! BoxItUpGame}
+        set {setGame(game: newValue)}
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

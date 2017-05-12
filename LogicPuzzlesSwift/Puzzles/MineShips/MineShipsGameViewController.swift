@@ -13,8 +13,14 @@ class MineShipsGameViewController: GameViewController, GameDelegate, MineShipsMi
     typealias GM = MineShipsGameMove
     typealias GS = MineShipsGameState
 
-    var scene: MineShipsGameScene!
-    var game: MineShipsGame!
+    var scene: MineShipsGameScene {
+        get {return getScene() as! MineShipsGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: MineShipsGame {
+        get {return getGame() as! MineShipsGame}
+        set {setGame(game: newValue)}
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

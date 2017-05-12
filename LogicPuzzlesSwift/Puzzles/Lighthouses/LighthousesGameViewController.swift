@@ -13,8 +13,14 @@ class LighthousesGameViewController: GameViewController, GameDelegate, Lighthous
     typealias GM = LighthousesGameMove
     typealias GS = LighthousesGameState
 
-    var scene: LighthousesGameScene!
-    var game: LighthousesGame!
+    var scene: LighthousesGameScene {
+        get {return getScene() as! LighthousesGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: LighthousesGame {
+        get {return getGame() as! LighthousesGame}
+        set {setGame(game: newValue)}
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()

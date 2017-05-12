@@ -11,8 +11,14 @@ import SpriteKit
 
 class FenceLitsGameViewController: GameViewController, GameDelegate, FenceLitsMixin {
 
-    var scene: FenceLitsGameScene!
-    var game: FenceLitsGame!
+    var scene: FenceLitsGameScene {
+        get {return getScene() as! FenceLitsGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: FenceLitsGame {
+        get {return getGame() as! FenceLitsGame}
+        set {setGame(game: newValue)}
+    }
   
     override func viewDidLoad() {
         super.viewDidLoad()

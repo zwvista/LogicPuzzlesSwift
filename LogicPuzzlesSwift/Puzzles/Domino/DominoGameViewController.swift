@@ -13,8 +13,14 @@ class DominoGameViewController: GameViewController, GameDelegate, DominoMixin {
     typealias GM = DominoGameMove
     typealias GS = DominoGameState
 
-    var scene: DominoGameScene!
-    var game: DominoGame!
+    var scene: DominoGameScene {
+        get {return getScene() as! DominoGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: DominoGame {
+        get {return getGame() as! DominoGame}
+        set {setGame(game: newValue)}
+    }
   
     override func viewDidLoad() {
         super.viewDidLoad()

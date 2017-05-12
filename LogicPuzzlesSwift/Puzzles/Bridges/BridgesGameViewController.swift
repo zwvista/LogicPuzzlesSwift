@@ -13,8 +13,14 @@ class BridgesGameViewController: GameViewController, GameDelegate, BridgesMixin 
     typealias GM = BridgesGameMove
     typealias GS = BridgesGameState
 
-    var scene: BridgesGameScene!
-    var game: BridgesGame!
+    var scene: BridgesGameScene {
+        get {return getScene() as! BridgesGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: BridgesGame {
+        get {return getGame() as! BridgesGame}
+        set {setGame(game: newValue)}
+    }
     var pLast: Position?
     
     override func viewDidLoad() {

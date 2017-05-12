@@ -13,8 +13,14 @@ class MosaikGameViewController: GameViewController, GameDelegate, MosaikMixin {
     typealias GM = MosaikGameMove
     typealias GS = MosaikGameState
 
-    var scene: MosaikGameScene!
-    var game: MosaikGame!
+    var scene: MosaikGameScene {
+        get {return getScene() as! MosaikGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: MosaikGame {
+        get {return getGame() as! MosaikGame}
+        set {setGame(game: newValue)}
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()

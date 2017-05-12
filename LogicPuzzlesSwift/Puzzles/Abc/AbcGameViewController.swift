@@ -13,8 +13,14 @@ class AbcGameViewController: GameViewController, GameDelegate, AbcMixin {
     typealias GM = AbcGameMove
     typealias GS = AbcGameState
 
-    var scene: AbcGameScene!
-    var game: AbcGame!
+    var scene: AbcGameScene {
+        get {return getScene() as! AbcGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: AbcGame {
+        get {return getGame() as! AbcGame}
+        set {setGame(game: newValue)}
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -13,8 +13,14 @@ class SlitherLinkGameViewController: GameViewController, GameDelegate, SlitherLi
     typealias GM = SlitherLinkGameMove
     typealias GS = SlitherLinkGameState
 
-    var scene: SlitherLinkGameScene!
-    var game: SlitherLinkGame!
+    var scene: SlitherLinkGameScene {
+        get {return getScene() as! SlitherLinkGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: SlitherLinkGame {
+        get {return getGame() as! SlitherLinkGame}
+        set {setGame(game: newValue)}
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()

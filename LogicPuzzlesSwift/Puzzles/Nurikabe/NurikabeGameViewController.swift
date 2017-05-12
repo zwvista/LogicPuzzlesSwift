@@ -13,8 +13,14 @@ class NurikabeGameViewController: GameViewController, GameDelegate, NurikabeMixi
     typealias GM = NurikabeGameMove
     typealias GS = NurikabeGameState
 
-    var scene: NurikabeGameScene!
-    var game: NurikabeGame!
+    var scene: NurikabeGameScene {
+        get {return getScene() as! NurikabeGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: NurikabeGame {
+        get {return getGame() as! NurikabeGame}
+        set {setGame(game: newValue)}
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -13,8 +13,14 @@ class SentinelsGameViewController: GameViewController, GameDelegate, SentinelsMi
     typealias GM = SentinelsGameMove
     typealias GS = SentinelsGameState
 
-    var scene: SentinelsGameScene!
-    var game: SentinelsGame!
+    var scene: SentinelsGameScene {
+        get {return getScene() as! SentinelsGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: SentinelsGame {
+        get {return getGame() as! SentinelsGame}
+        set {setGame(game: newValue)}
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()

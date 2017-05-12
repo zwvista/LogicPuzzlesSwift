@@ -13,8 +13,14 @@ class BoxItAroundGameViewController: GameViewController, GameDelegate, BoxItArou
     typealias GM = BoxItAroundGameMove
     typealias GS = BoxItAroundGameState
 
-    var scene: BoxItAroundGameScene!
-    var game: BoxItAroundGame!
+    var scene: BoxItAroundGameScene {
+        get {return getScene() as! BoxItAroundGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: BoxItAroundGame {
+        get {return getGame() as! BoxItAroundGame}
+        set {setGame(game: newValue)}
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

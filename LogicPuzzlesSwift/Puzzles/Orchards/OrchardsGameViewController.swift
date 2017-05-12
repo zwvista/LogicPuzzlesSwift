@@ -13,8 +13,14 @@ class OrchardsGameViewController: GameViewController, GameDelegate, OrchardsMixi
     typealias GM = OrchardsGameMove
     typealias GS = OrchardsGameState
 
-    var scene: OrchardsGameScene!
-    var game: OrchardsGame!
+    var scene: OrchardsGameScene {
+        get {return getScene() as! OrchardsGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: OrchardsGame {
+        get {return getGame() as! OrchardsGame}
+        set {setGame(game: newValue)}
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()

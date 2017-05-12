@@ -13,8 +13,14 @@ class NeighboursGameViewController: GameViewController, GameDelegate, Neighbours
     typealias GM = NeighboursGameMove
     typealias GS = NeighboursGameState
 
-    var scene: NeighboursGameScene!
-    var game: NeighboursGame!
+    var scene: NeighboursGameScene {
+        get {return getScene() as! NeighboursGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: NeighboursGame {
+        get {return getGame() as! NeighboursGame}
+        set {setGame(game: newValue)}
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

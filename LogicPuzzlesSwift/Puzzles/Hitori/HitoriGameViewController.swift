@@ -13,8 +13,14 @@ class HitoriGameViewController: GameViewController, GameDelegate, HitoriMixin {
     typealias GM = HitoriGameMove
     typealias GS = HitoriGameState
 
-    var scene: HitoriGameScene!
-    var game: HitoriGame!
+    var scene: HitoriGameScene {
+        get {return getScene() as! HitoriGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: HitoriGame {
+        get {return getGame() as! HitoriGame}
+        set {setGame(game: newValue)}
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()

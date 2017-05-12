@@ -13,8 +13,14 @@ class MasyuGameViewController: GameViewController, UIGestureRecognizerDelegate, 
     typealias GM = MasyuGameMove
     typealias GS = MasyuGameState
 
-    var scene: MasyuGameScene!
-    var game: MasyuGame!
+    var scene: MasyuGameScene {
+        get {return getScene() as! MasyuGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: MasyuGame {
+        get {return getGame() as! MasyuGame}
+        set {setGame(game: newValue)}
+    }
     var pLast: Position?
     
     override func viewDidLoad() {

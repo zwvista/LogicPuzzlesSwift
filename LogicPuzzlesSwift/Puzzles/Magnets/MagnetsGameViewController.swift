@@ -13,8 +13,14 @@ class MagnetsGameViewController: GameViewController, GameDelegate, MagnetsMixin 
     typealias GM = MagnetsGameMove
     typealias GS = MagnetsGameState
 
-    var scene: MagnetsGameScene!
-    var game: MagnetsGame!
+    var scene: MagnetsGameScene {
+        get {return getScene() as! MagnetsGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: MagnetsGame {
+        get {return getGame() as! MagnetsGame}
+        set {setGame(game: newValue)}
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

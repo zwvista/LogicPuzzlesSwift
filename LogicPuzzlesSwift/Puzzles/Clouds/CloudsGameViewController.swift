@@ -13,8 +13,14 @@ class CloudsGameViewController: GameViewController, GameDelegate, CloudsMixin {
     typealias GM = CloudsGameMove
     typealias GS = CloudsGameState
 
-    var scene: CloudsGameScene!
-    var game: CloudsGame!
+    var scene: CloudsGameScene {
+        get {return getScene() as! CloudsGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: CloudsGame {
+        get {return getGame() as! CloudsGame}
+        set {setGame(game: newValue)}
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

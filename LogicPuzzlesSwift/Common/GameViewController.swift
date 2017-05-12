@@ -19,6 +19,13 @@ class GameViewController: UIViewController {
     @IBOutlet weak var btnLoadSolution: UIButton!
     @IBOutlet weak var btnDeleteSolution: UIButton!
     
+    private var scene: SKScene?
+    func getScene() -> SKScene? {return scene}
+    func setScene(scene: SKScene?) {self.scene = scene}
+    private var game: GridGameBase?
+    func getGame() -> GridGameBase? {return game}
+    func setGame(game: GridGameBase?) {self.game = game}
+    
     weak var skView: SKView!
     var levelInitilizing = false
 

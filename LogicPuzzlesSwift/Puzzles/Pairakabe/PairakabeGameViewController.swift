@@ -13,8 +13,14 @@ class PairakabeGameViewController: GameViewController, GameDelegate, PairakabeMi
     typealias GM = PairakabeGameMove
     typealias GS = PairakabeGameState
 
-    var scene: PairakabeGameScene!
-    var game: PairakabeGame!
+    var scene: PairakabeGameScene {
+        get {return getScene() as! PairakabeGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: PairakabeGame {
+        get {return getGame() as! PairakabeGame}
+        set {setGame(game: newValue)}
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

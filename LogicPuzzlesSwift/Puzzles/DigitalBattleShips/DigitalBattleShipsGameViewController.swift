@@ -13,8 +13,14 @@ class DigitalBattleShipsGameViewController: GameViewController, GameDelegate, Di
     typealias GM = DigitalBattleShipsGameMove
     typealias GS = DigitalBattleShipsGameState
 
-    var scene: DigitalBattleShipsGameScene!
-    var game: DigitalBattleShipsGame!
+    var scene: DigitalBattleShipsGameScene {
+        get {return getScene() as! DigitalBattleShipsGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: DigitalBattleShipsGame {
+        get {return getGame() as! DigitalBattleShipsGame}
+        set {setGame(game: newValue)}
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

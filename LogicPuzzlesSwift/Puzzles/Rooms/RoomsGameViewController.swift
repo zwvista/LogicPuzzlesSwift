@@ -13,8 +13,14 @@ class RoomsGameViewController: GameViewController, GameDelegate, RoomsMixin {
     typealias GM = RoomsGameMove
     typealias GS = RoomsGameState
 
-    var scene: RoomsGameScene!
-    var game: RoomsGame!
+    var scene: RoomsGameScene {
+        get {return getScene() as! RoomsGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: RoomsGame {
+        get {return getGame() as! RoomsGame}
+        set {setGame(game: newValue)}
+    }
   
     override func viewDidLoad() {
         super.viewDidLoad()

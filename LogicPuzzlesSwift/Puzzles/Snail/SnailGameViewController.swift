@@ -13,8 +13,14 @@ class SnailGameViewController: GameViewController, GameDelegate, SnailMixin {
     typealias GM = SnailGameMove
     typealias GS = SnailGameState
 
-    var scene: SnailGameScene!
-    var game: SnailGame!
+    var scene: SnailGameScene {
+        get {return getScene() as! SnailGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: SnailGame {
+        get {return getGame() as! SnailGame}
+        set {setGame(game: newValue)}
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

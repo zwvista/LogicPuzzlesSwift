@@ -13,8 +13,14 @@ class AbstractPaintingGameViewController: GameViewController, GameDelegate, Abst
     typealias GM = AbstractPaintingGameMove
     typealias GS = AbstractPaintingGameState
 
-    var scene: AbstractPaintingGameScene!
-    var game: AbstractPaintingGame!
+    var scene: AbstractPaintingGameScene {
+        get {return getScene() as! AbstractPaintingGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: AbstractPaintingGame {
+        get {return getGame() as! AbstractPaintingGame}
+        set {setGame(game: newValue)}
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

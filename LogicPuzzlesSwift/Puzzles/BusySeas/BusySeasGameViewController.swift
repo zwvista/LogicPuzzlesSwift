@@ -13,8 +13,14 @@ class BusySeasGameViewController: GameViewController, GameDelegate, BusySeasMixi
     typealias GM = BusySeasGameMove
     typealias GS = BusySeasGameState
 
-    var scene: BusySeasGameScene!
-    var game: BusySeasGame!
+    var scene: BusySeasGameScene {
+        get {return getScene() as! BusySeasGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: BusySeasGame {
+        get {return getGame() as! BusySeasGame}
+        set {setGame(game: newValue)}
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()

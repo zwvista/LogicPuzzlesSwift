@@ -13,8 +13,14 @@ class TatamiGameViewController: GameViewController, GameDelegate, TatamiMixin {
     typealias GM = TatamiGameMove
     typealias GS = TatamiGameState
 
-    var scene: TatamiGameScene!
-    var game: TatamiGame!
+    var scene: TatamiGameScene {
+        get {return getScene() as! TatamiGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: TatamiGame {
+        get {return getGame() as! TatamiGame}
+        set {setGame(game: newValue)}
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -13,8 +13,14 @@ class BootyIslandGameViewController: GameViewController, GameDelegate, BootyIsla
     typealias GM = BootyIslandGameMove
     typealias GS = BootyIslandGameState
 
-    var scene: BootyIslandGameScene!
-    var game: BootyIslandGame!
+    var scene: BootyIslandGameScene {
+        get {return getScene() as! BootyIslandGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: BootyIslandGame {
+        get {return getGame() as! BootyIslandGame}
+        set {setGame(game: newValue)}
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()

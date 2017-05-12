@@ -13,8 +13,14 @@ class SkyscrapersGameViewController: GameViewController, GameDelegate, Skyscrape
     typealias GM = SkyscrapersGameMove
     typealias GS = SkyscrapersGameState
 
-    var scene: SkyscrapersGameScene!
-    var game: SkyscrapersGame!
+    var scene: SkyscrapersGameScene {
+        get {return getScene() as! SkyscrapersGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: SkyscrapersGame {
+        get {return getGame() as! SkyscrapersGame}
+        set {setGame(game: newValue)}
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()

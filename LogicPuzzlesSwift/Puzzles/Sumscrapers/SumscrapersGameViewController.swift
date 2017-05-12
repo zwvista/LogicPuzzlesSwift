@@ -13,8 +13,14 @@ class SumscrapersGameViewController: GameViewController, GameDelegate, Sumscrape
     typealias GM = SumscrapersGameMove
     typealias GS = SumscrapersGameState
 
-    var scene: SumscrapersGameScene!
-    var game: SumscrapersGame!
+    var scene: SumscrapersGameScene {
+        get {return getScene() as! SumscrapersGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: SumscrapersGame {
+        get {return getGame() as! SumscrapersGame}
+        set {setGame(game: newValue)}
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

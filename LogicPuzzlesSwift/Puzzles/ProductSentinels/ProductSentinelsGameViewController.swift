@@ -13,8 +13,14 @@ class ProductSentinelsGameViewController: GameViewController, GameDelegate, Prod
     typealias GD = ProductSentinelsGameMove
     typealias GS = ProductSentinelsGameState
 
-    var scene: ProductSentinelsGameScene!
-    var game: ProductSentinelsGame!
+    var scene: ProductSentinelsGameScene {
+        get {return getScene() as! ProductSentinelsGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: ProductSentinelsGame {
+        get {return getGame() as! ProductSentinelsGame}
+        set {setGame(game: newValue)}
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()

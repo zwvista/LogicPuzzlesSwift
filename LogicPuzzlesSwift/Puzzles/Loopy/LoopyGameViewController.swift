@@ -13,8 +13,14 @@ class LoopyGameViewController: GameViewController, GameDelegate, LoopyMixin {
     typealias GM = LoopyGameMove
     typealias GS = LoopyGameState
 
-    var scene: LoopyGameScene!
-    var game: LoopyGame!
+    var scene: LoopyGameScene {
+        get {return getScene() as! LoopyGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: LoopyGame {
+        get {return getGame() as! LoopyGame}
+        set {setGame(game: newValue)}
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -13,8 +13,14 @@ class PowerGridGameViewController: GameViewController, GameDelegate, PowerGridMi
     typealias GM = PowerGridGameMove
     typealias GS = PowerGridGameState
 
-    var scene: PowerGridGameScene!
-    var game: PowerGridGame!
+    var scene: PowerGridGameScene {
+        get {return getScene() as! PowerGridGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: PowerGridGame {
+        get {return getGame() as! PowerGridGame}
+        set {setGame(game: newValue)}
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

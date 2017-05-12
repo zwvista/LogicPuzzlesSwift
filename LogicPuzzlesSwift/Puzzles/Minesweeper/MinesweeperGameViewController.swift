@@ -13,8 +13,14 @@ class MinesweeperGameViewController: GameViewController, GameDelegate, Minesweep
     typealias GM = MinesweeperGameMove
     typealias GS = MinesweeperGameState
 
-    var scene: MinesweeperGameScene!
-    var game: MinesweeperGame!
+    var scene: MinesweeperGameScene {
+        get {return getScene() as! MinesweeperGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: MinesweeperGame {
+        get {return getGame() as! MinesweeperGame}
+        set {setGame(game: newValue)}
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()

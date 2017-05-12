@@ -13,8 +13,14 @@ class FenceItUpGameViewController: GameViewController, GameDelegate, FenceItUpMi
     typealias GM = FenceItUpGameMove
     typealias GS = FenceItUpGameState
 
-    var scene: FenceItUpGameScene!
-    var game: FenceItUpGame!
+    var scene: FenceItUpGameScene {
+        get {return getScene() as! FenceItUpGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: FenceItUpGame {
+        get {return getGame() as! FenceItUpGame}
+        set {setGame(game: newValue)}
+    }
  
     override func viewDidLoad() {
         super.viewDidLoad()

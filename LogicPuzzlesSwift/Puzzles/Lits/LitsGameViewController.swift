@@ -13,8 +13,14 @@ class LitsGameViewController: GameViewController, GameDelegate, LitsMixin {
     typealias GM = LitsGameMove
     typealias GS = LitsGameState
 
-    var scene: LitsGameScene!
-    var game: LitsGame!
+    var scene: LitsGameScene {
+        get {return getScene() as! LitsGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: LitsGame {
+        get {return getGame() as! LitsGame}
+        set {setGame(game: newValue)}
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()

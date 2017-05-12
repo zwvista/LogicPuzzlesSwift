@@ -13,8 +13,14 @@ class LightenUpGameViewController: GameViewController, GameDelegate, LightenUpMi
     typealias GM = LightenUpGameMove
     typealias GS = LightenUpGameState
 
-    var scene: LightenUpGameScene!
-    var game: LightenUpGame!
+    var scene: LightenUpGameScene {
+        get {return getScene() as! LightenUpGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: LightenUpGame {
+        get {return getGame() as! LightenUpGame}
+        set {setGame(game: newValue)}
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

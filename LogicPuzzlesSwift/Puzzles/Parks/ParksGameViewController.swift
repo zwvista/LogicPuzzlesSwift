@@ -13,8 +13,14 @@ class ParksGameViewController: GameViewController, GameDelegate, ParksMixin {
     typealias GM = ParksGameMove
     typealias GS = ParksGameState
 
-    var scene: ParksGameScene!
-    var game: ParksGame!
+    var scene: ParksGameScene {
+        get {return getScene() as! ParksGameScene}
+        set {setScene(scene: newValue)}
+    }
+    var game: ParksGame {
+        get {return getGame() as! ParksGame}
+        set {setGame(game: newValue)}
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()
