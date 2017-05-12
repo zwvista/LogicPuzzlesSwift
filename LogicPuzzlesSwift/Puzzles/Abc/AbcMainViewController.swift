@@ -26,8 +26,4 @@ class AbcMainViewController: GameMainViewController, AbcMixin {
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "AbcGameViewController") as! AbcGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

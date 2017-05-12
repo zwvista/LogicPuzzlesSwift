@@ -26,8 +26,4 @@ class SentinelsMainViewController: GameMainViewController, SentinelsMixin {
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "SentinelsGameViewController") as! SentinelsGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

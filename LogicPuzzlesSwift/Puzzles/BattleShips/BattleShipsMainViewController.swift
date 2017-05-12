@@ -26,8 +26,4 @@ class BattleShipsMainViewController: GameMainViewController, BattleShipsMixin {
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "BattleShipsGameViewController") as! BattleShipsGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

@@ -10,9 +10,6 @@ import UIKit
 
 class NurikabeOptionsViewController: GameOptionsViewController, NurikabeMixin {
     
-    @IBOutlet weak var lblMarker: UILabel!
-    @IBOutlet weak var lblMarkerOption: UILabel!
-    
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]
     }

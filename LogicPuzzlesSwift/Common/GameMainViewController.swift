@@ -14,6 +14,10 @@ class GameMainViewController: UIViewController {
     
     override var shouldAutorotate: Bool { return false}
     
+    override func awakeFromNib() {
+        object_setClass(self, NSClassFromString("LogicPuzzlesSwift.\(currentGameName)MainViewController").self)
+    }
+    
     // http://stackoverflow.com/questions/845583/iphone-hide-navigation-bar-only-on-first-page
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

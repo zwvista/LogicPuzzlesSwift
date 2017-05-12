@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class GameViewController: UIViewController {
-    var vcType: String!
     
     @IBOutlet weak var lblSolved: UILabel!
     @IBOutlet weak var lblLevel: UILabel!
@@ -20,6 +19,9 @@ class GameViewController: UIViewController {
     @IBOutlet weak var btnLoadSolution: UIButton!
     @IBOutlet weak var btnDeleteSolution: UIButton!
     
+    weak var skView: SKView!
+    var levelInitilizing = false
+
     // http://stackoverflow.com/questions/18979837/how-to-hide-ios-status-bar
     override var prefersStatusBarHidden: Bool { return true }
     
@@ -27,8 +29,32 @@ class GameViewController: UIViewController {
     
     // http://stackoverflow.com/questions/14111572/how-to-use-single-storyboard-uiviewcontroller-for-multiple-subclass
     override func viewDidLoad() {
-        object_setClass(self, NSClassFromString(vcType).self)
+        object_setClass(self, NSClassFromString(currentGameName).self)
         viewDidLoad()
+    }
+    
+    @IBAction func handleTap(_ sender: UITapGestureRecognizer) {
+    }
+    
+    @IBAction func handlePan(_ sender: UIPanGestureRecognizer) {
+    }
+
+    @IBAction func undoGame(_ sender: AnyObject) {
+    }
+    
+    @IBAction func redoGame(_ sender: AnyObject) {
+    }
+    
+    @IBAction func clearGame(_ sender: AnyObject) {
+    }
+    
+    @IBAction func saveSolution(_ sender: Any) {
+    }
+    
+    @IBAction func loadSolution(_ sender: Any) {
+    }
+    
+    @IBAction func deleteSolution(_ sender: Any) {
     }
     
     @IBAction func backToMain(_ sender: AnyObject) {

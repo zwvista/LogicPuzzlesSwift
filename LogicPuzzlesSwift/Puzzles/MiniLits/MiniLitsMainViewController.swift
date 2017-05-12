@@ -26,8 +26,4 @@ class MiniLitsMainViewController: GameMainViewController, MiniLitsMixin {
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "MiniLitsGameViewController") as! MiniLitsGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

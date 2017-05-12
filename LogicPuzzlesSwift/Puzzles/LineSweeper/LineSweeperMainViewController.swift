@@ -26,8 +26,4 @@ class LineSweeperMainViewController: GameMainViewController, LineSweeperMixin {
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "LineSweeperGameViewController") as! LineSweeperGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

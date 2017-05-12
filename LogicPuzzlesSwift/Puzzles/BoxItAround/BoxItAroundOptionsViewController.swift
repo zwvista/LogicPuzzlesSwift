@@ -10,9 +10,6 @@ import UIKit
 
 class BoxItAroundOptionsViewController: GameOptionsViewController, BoxItAroundMixin {
     
-    @IBOutlet weak var lblMarker: UILabel!
-    @IBOutlet weak var lblMarkerOption: UILabel!
-    
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]
     }

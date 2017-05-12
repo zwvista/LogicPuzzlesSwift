@@ -26,8 +26,4 @@ class BootyIslandMainViewController: GameMainViewController, BootyIslandMixin {
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "BootyIslandGameViewController") as! BootyIslandGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

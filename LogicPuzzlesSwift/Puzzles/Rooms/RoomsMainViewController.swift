@@ -26,8 +26,4 @@ class RoomsMainViewController: GameMainViewController, RoomsMixin {
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "RoomsGameViewController") as! RoomsGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

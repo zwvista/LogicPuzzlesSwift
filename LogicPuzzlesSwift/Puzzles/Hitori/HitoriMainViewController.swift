@@ -26,8 +26,4 @@ class HitoriMainViewController: GameMainViewController, HitoriMixin {
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "HitoriGameViewController") as! HitoriGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

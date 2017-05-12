@@ -26,8 +26,4 @@ class MinesweeperMainViewController: GameMainViewController, MinesweeperMixin {
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "MinesweeperGameViewController") as! MinesweeperGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

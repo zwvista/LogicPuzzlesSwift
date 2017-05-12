@@ -10,10 +10,6 @@ import UIKit
 
 class MineShipsOptionsViewController: GameOptionsViewController, MineShipsMixin {
     
-    @IBOutlet weak var lblMarker: UILabel!
-    @IBOutlet weak var lblMarkerOption: UILabel!
-    @IBOutlet weak var swAllowedObjectsOnly: UISwitch!
-    
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]
     }
@@ -22,7 +18,7 @@ class MineShipsOptionsViewController: GameOptionsViewController, MineShipsMixin 
         swAllowedObjectsOnly.isOn = allowedObjectsOnly
     }
     
-    @IBAction func allowedObjectsOnlyChanged(_ sender: AnyObject) {
+    override func allowedObjectsOnlyChanged(_ sender: AnyObject) {
         let rec = gameOptions
         setAllowedObjectsOnly(rec: rec, newValue: swAllowedObjectsOnly.isOn)
         rec.commit()

@@ -26,8 +26,4 @@ class BridgesMainViewController: GameMainViewController, BridgesMixin {
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "BridgesGameViewController") as! BridgesGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

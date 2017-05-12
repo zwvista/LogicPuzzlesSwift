@@ -26,8 +26,4 @@ class MagnetsMainViewController: GameMainViewController, MagnetsMixin {
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "MagnetsGameViewController") as! MagnetsGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

@@ -220,6 +220,7 @@
 		8C70167B1E90C79E00210CE7 /* FenceLitsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70166F1E90C79E00210CE7 /* FenceLitsObject.swift */; };
 		8C70167C1E90C79E00210CE7 /* FenceLitsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7016701E90C79E00210CE7 /* FenceLitsOptionsViewController.swift */; };
 		8C76090B1EC61A8A00DFCD7B /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C76090A1EC61A8A00DFCD7B /* Game.storyboard */; };
+		8C7609101EC627E900DFCD7B /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C76090F1EC627E900DFCD7B /* Global.swift */; };
 		8C81CB9F1E19546000FB244A /* BoxItAgain.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C81CB861E19546000FB244A /* BoxItAgain.xml */; };
 		8C81CBA01E19546000FB244A /* BoxItAgainDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB871E19546000FB244A /* BoxItAgainDocument.swift */; };
 		8C81CBA11E19546000FB244A /* BoxItAgainGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB881E19546000FB244A /* BoxItAgainGame.swift */; };
@@ -849,6 +850,7 @@
 		8C70166F1E90C79E00210CE7 /* FenceLitsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsObject.swift; sourceTree = "<group>"; };
 		8C7016701E90C79E00210CE7 /* FenceLitsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsOptionsViewController.swift; sourceTree = "<group>"; };
 		8C76090A1EC61A8A00DFCD7B /* Game.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
+		8C76090F1EC627E900DFCD7B /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		8C81CB861E19546000FB244A /* BoxItAgain.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BoxItAgain.xml; sourceTree = "<group>"; };
 		8C81CB871E19546000FB244A /* BoxItAgainDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainDocument.swift; sourceTree = "<group>"; };
 		8C81CB881E19546000FB244A /* BoxItAgainGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainGame.swift; sourceTree = "<group>"; };
@@ -1715,6 +1717,7 @@
 				8C6D37D21DC42FA40052202C /* GameState.swift */,
 				8C64A2EB1DE0891000AB6C09 /* GameTables.swift */,
 				8C6D37D31DC42FA40052202C /* GameViewController.swift */,
+				8C76090F1EC627E900DFCD7B /* Global.swift */,
 				8C6D37D41DC42FA40052202C /* GridNode.swift */,
 				8C5368831EA1DFCC0071D475 /* GridObject.swift */,
 				8C6D37F41DC5AC520052202C /* Position.swift */,
@@ -2621,6 +2624,7 @@
 				8C9AF4E01DE974BF0053BED4 /* NurikabeObject.swift in Sources */,
 				8C10B7D91E8CDABA0049C44B /* BootyIslandMainViewController.swift in Sources */,
 				8CD1558B1DD77C3400786F34 /* Extensions.swift in Sources */,
+				8C7609101EC627E900DFCD7B /* Global.swift in Sources */,
 				8CC350571E001D2800B8FD83 /* UIStoryboardExtensions.swift in Sources */,
 				8C64A2681DD8089700AB6C09 /* GameViewController.swift in Sources */,
 				8C70167C1E90C79E00210CE7 /* FenceLitsOptionsViewController.swift in Sources */,

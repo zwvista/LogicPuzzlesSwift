@@ -26,8 +26,4 @@ class AbstractPaintingMainViewController: GameMainViewController, AbstractPainti
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "AbstractPaintingGameViewController") as! AbstractPaintingGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

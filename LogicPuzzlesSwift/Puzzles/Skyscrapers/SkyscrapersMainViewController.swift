@@ -26,8 +26,4 @@ class SkyscrapersMainViewController: GameMainViewController, SkyscrapersMixin {
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "SkyscrapersGameViewController") as! SkyscrapersGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

@@ -26,8 +26,4 @@ class MosaikMainViewController: GameMainViewController, MosaikMixin {
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "MosaikGameViewController") as! MosaikGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

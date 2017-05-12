@@ -10,9 +10,6 @@ import UIKit
 
 class NeighboursOptionsViewController: GameOptionsViewController, NeighboursMixin {
     
-    @IBOutlet weak var lblMarker: UILabel!
-    @IBOutlet weak var lblMarkerOption: UILabel!
-    
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]
     }

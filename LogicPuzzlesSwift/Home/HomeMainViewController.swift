@@ -12,13 +12,9 @@ class HomeMainViewController: UIViewController, HomeMixin {
     
     public private(set) var toResume = false
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
+    override var prefersStatusBarHidden: Bool { return true }
     
-    override var shouldAutorotate: Bool {
-        return false
-    }
+    override var shouldAutorotate: Bool { return false}
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +27,10 @@ class HomeMainViewController: UIViewController, HomeMixin {
     }
     
     @IBAction func resumeGame(_ sender: AnyObject) {
-        let gameName = gameDocument.gameProgress.gameName!
+        currentGameName = gameDocument.gameProgress.gameName!
         toResume = true
         // http://www.newventuresoftware.com/blog/organizing-xcode-projects-using-multiple-storyboards
-        let storyboard = UIStoryboard(name: gameName, bundle: nil)
+        let storyboard = UIStoryboard(name: "Game", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "InitialController")
         self.present(controller, animated: true, completion: nil)
     }

@@ -9,6 +9,10 @@
 import UIKit
 
 class GameOptionsViewController: UITableViewController {
+    
+    @IBOutlet weak var lblMarker: UILabel!
+    @IBOutlet weak var lblMarkerOption: UILabel!
+    @IBOutlet weak var swAllowedObjectsOnly: UISwitch!
 
     override var prefersStatusBarHidden: Bool { return true }
     
@@ -16,6 +20,9 @@ class GameOptionsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    @IBAction func allowedObjectsOnlyChanged(_ sender: AnyObject) {
     }
     
     @IBAction func onDefault(_ sender: AnyObject) {

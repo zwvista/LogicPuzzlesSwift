@@ -15,8 +15,6 @@ class PowerGridGameViewController: GameViewController, GameDelegate, PowerGridMi
 
     var scene: PowerGridGameScene!
     var game: PowerGridGame!
-    weak var skView: SKView!
-    var levelInitilizing = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +38,7 @@ class PowerGridGameViewController: GameViewController, GameDelegate, PowerGridMi
         startGame()
     }
     
-    @IBAction func handleTap(_ sender: UITapGestureRecognizer) {
+    override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}
         let touchLocation = sender.location(in: sender.view)
         let touchLocationInScene = scene.convertPoint(fromView: touchLocation)
@@ -115,36 +113,32 @@ class PowerGridGameViewController: GameViewController, GameDelegate, PowerGridMi
         updateSolutionUI()
     }
     
-    @IBAction func undoGame(_ sender: AnyObject) {
+    override func undoGame(_ sender: AnyObject) {
         game.undo()
     }
     
-    @IBAction func redoGame(_ sender: AnyObject) {
+    override func redoGame(_ sender: AnyObject) {
         game.redo()
     }
     
-    @IBAction func clearGame(_ sender: AnyObject) {
+    override func clearGame(_ sender: AnyObject) {
         yesNoAction(title: "Clear", message: "Do you really want to reset the level?") { (action) in
             self.gameDocument.clearGame()
             self.startGame()
         }
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        navigationController!.popViewController(animated: true)
-    }
 
-    @IBAction func saveSolution(_ sender: Any) {
+    override func saveSolution(_ sender: Any) {
         gameDocument.saveSolution(game: game)
         updateSolutionUI()
     }
     
-    @IBAction func loadSolution(_ sender: Any) {
+    override func loadSolution(_ sender: Any) {
         gameDocument.loadSolution()
         startGame()
     }
     
-    @IBAction func deleteSolution(_ sender: Any) {
+    override func deleteSolution(_ sender: Any) {
         yesNoAction(title: "Delete", message: "Do you really want to delete the solution?") { (action) in
             self.gameDocument.deleteSolution()
             self.updateSolutionUI()

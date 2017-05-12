@@ -26,8 +26,4 @@ class LitsMainViewController: GameMainViewController, LitsMixin {
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "LitsGameViewController") as! LitsGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

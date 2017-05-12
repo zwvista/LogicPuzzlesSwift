@@ -10,9 +10,6 @@ import UIKit
 
 class DominoOptionsViewController: GameOptionsViewController, DominoMixin {
     
-    @IBOutlet weak var lblMarker: UILabel!
-    @IBOutlet weak var lblMarkerOption: UILabel!
-    
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]
     }

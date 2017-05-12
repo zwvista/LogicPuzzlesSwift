@@ -26,8 +26,4 @@ class OrchardsMainViewController: GameMainViewController, OrchardsMixin {
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "OrchardsGameViewController") as! OrchardsGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

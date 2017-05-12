@@ -26,8 +26,4 @@ class LighthousesMainViewController: GameMainViewController, LighthousesMixin {
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "LighthousesGameViewController") as! LighthousesGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

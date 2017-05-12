@@ -26,8 +26,4 @@ class PairakabeMainViewController: GameMainViewController, PairakabeMixin {
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "PairakabeGameViewController") as! PairakabeGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

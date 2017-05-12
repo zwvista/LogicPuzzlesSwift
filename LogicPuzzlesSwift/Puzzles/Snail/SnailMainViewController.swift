@@ -26,8 +26,4 @@ class SnailMainViewController: GameMainViewController, SnailMixin {
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "SnailGameViewController") as! SnailGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

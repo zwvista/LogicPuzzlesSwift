@@ -26,8 +26,4 @@ class TatamiMainViewController: GameMainViewController, TatamiMixin {
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "TatamiGameViewController") as! TatamiGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

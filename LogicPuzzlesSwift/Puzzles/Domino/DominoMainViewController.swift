@@ -26,8 +26,4 @@ class DominoMainViewController: GameMainViewController, DominoMixin {
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "DominoGameViewController") as! DominoGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

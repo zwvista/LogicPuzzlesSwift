@@ -26,8 +26,4 @@ class SlitherLinkMainViewController: GameMainViewController, SlitherLinkMixin {
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "SlitherLinkGameViewController") as! SlitherLinkGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

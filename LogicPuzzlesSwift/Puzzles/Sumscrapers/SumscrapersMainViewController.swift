@@ -26,8 +26,4 @@ class SumscrapersMainViewController: GameMainViewController, SumscrapersMixin {
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "SumscrapersGameViewController") as! SumscrapersGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }

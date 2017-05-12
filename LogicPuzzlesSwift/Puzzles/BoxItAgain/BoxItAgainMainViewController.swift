@@ -26,8 +26,4 @@ class BoxItAgainMainViewController: GameMainViewController, BoxItAgainMixin {
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "BoxItAgainGameViewController") as! BoxItAgainGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
-    
-    override func backToMain(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: nil)
-    }
 }
