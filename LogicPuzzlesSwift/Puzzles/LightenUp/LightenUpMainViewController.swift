@@ -23,7 +23,7 @@ class LightenUpMainViewController: GameMainViewController, LightenUpMixin {
     
     override func resumGame(_ sender: AnyObject) {
         gameDocument.resumeGame()
-        let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "LightenUpGameViewController") as! LightenUpGameViewController
+        let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
 }

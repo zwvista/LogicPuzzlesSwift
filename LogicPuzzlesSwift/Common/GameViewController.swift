@@ -28,9 +28,8 @@ class GameViewController: UIViewController {
     override var shouldAutorotate: Bool { return false}
     
     // http://stackoverflow.com/questions/14111572/how-to-use-single-storyboard-uiviewcontroller-for-multiple-subclass
-    override func viewDidLoad() {
-        object_setClass(self, NSClassFromString(currentGameName).self)
-        viewDidLoad()
+    override func awakeFromNib() {
+        object_setClass(self, NSClassFromString("LogicPuzzlesSwift.\(currentGameName)GameViewController").self)
     }
     
     @IBAction func handleTap(_ sender: UITapGestureRecognizer) {

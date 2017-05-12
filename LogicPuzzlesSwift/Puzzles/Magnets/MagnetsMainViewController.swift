@@ -23,7 +23,7 @@ class MagnetsMainViewController: GameMainViewController, MagnetsMixin {
     
     override func resumGame(_ sender: AnyObject) {
         gameDocument.resumeGame()
-        let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "MagnetsGameViewController") as! MagnetsGameViewController
+        let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
 }

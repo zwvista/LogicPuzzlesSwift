@@ -23,7 +23,7 @@ class SkyscrapersMainViewController: GameMainViewController, SkyscrapersMixin {
     
     override func resumGame(_ sender: AnyObject) {
         gameDocument.resumeGame()
-        let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "SkyscrapersGameViewController") as! SkyscrapersGameViewController
+        let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
 }

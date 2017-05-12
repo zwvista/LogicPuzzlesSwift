@@ -23,7 +23,7 @@ class BattleShipsMainViewController: GameMainViewController, BattleShipsMixin {
     
     override func resumGame(_ sender: AnyObject) {
         gameDocument.resumeGame()
-        let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "BattleShipsGameViewController") as! BattleShipsGameViewController
+        let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
 }

@@ -23,7 +23,7 @@ class LitsMainViewController: GameMainViewController, LitsMixin {
     
     override func resumGame(_ sender: AnyObject) {
         gameDocument.resumeGame()
-        let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "LitsGameViewController") as! LitsGameViewController
+        let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
 }

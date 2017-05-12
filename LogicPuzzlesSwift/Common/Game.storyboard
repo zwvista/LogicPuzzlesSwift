@@ -294,6 +294,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="right" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ddB-hZ-bxv">
                                                     <rect key="frame" x="311" y="7" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="allowedObjectsOnlyChanged:" destination="NOj-7d-poE" eventType="valueChanged" id="sdO-2C-vgd"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -327,6 +330,7 @@
                     <connections>
                         <outlet property="lblMarker" destination="wWw-9L-o5x" id="8VX-G5-JXd"/>
                         <outlet property="lblMarkerOption" destination="DOw-4i-6ht" id="ZVl-mA-Kox"/>
+                        <outlet property="swAllowedObjectsOnly" destination="ddB-hZ-bxv" id="hQm-cu-mru"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPv-81-tuD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -336,7 +340,7 @@
         <!--Game View Controller-->
         <scene sceneID="Mlx-MR-pgg">
             <objects>
-                <viewController storyboardIdentifier="GameGameViewController" id="KfB-1n-qBg" customClass="GameViewController" customModule="LogicPuzzlesSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameViewController" id="KfB-1n-qBg" customClass="GameViewController" customModule="LogicPuzzlesSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XvK-jl-kCW"/>
                         <viewControllerLayoutGuide type="bottom" id="b8B-wD-MdQ"/>

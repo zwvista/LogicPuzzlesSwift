@@ -18,6 +18,10 @@ class GameOptionsViewController: UITableViewController {
     
     override var shouldAutorotate: Bool { return false}
     
+    override func awakeFromNib() {
+        object_setClass(self, NSClassFromString("LogicPuzzlesSwift.\(currentGameName)OptionsViewController").self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

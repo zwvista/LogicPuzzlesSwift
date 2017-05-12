@@ -23,7 +23,7 @@ class LightBattleShipsMainViewController: GameMainViewController, LightBattleShi
     
     override func resumGame(_ sender: AnyObject) {
         gameDocument.resumeGame()
-        let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "LightBattleShipsGameViewController") as! LightBattleShipsGameViewController
+        let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
 }
