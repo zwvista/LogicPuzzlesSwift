@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PairakabeOptionsViewController: OptionsViewController, PairakabeMixin {
+class PairakabeOptionsViewController: GameOptionsViewController, PairakabeMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

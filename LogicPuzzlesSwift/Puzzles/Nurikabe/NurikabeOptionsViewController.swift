@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NurikabeOptionsViewController: OptionsViewController, NurikabeMixin {
+class NurikabeOptionsViewController: GameOptionsViewController, NurikabeMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

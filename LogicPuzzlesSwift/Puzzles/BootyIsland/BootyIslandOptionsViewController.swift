@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BootyIslandOptionsViewController: OptionsViewController, BootyIslandMixin {
+class BootyIslandOptionsViewController: GameOptionsViewController, BootyIslandMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

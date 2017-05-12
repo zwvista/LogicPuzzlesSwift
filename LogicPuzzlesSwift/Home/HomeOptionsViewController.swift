@@ -1,5 +1,5 @@
 //
-//  OptionsViewController.swift
+//  GameOptionsViewController.swift
 //  HomeSwift
 //
 //  Created by 趙偉 on 2016/09/25.

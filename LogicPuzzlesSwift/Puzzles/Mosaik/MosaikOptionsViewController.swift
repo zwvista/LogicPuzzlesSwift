@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MosaikOptionsViewController: OptionsViewController, MosaikMixin {
+class MosaikOptionsViewController: GameOptionsViewController, MosaikMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

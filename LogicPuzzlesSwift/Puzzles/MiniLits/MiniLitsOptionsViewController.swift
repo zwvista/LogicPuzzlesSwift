@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MiniLitsOptionsViewController: OptionsViewController, MiniLitsMixin {
+class MiniLitsOptionsViewController: GameOptionsViewController, MiniLitsMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

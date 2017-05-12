@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HitoriMainViewController: MainViewController, HitoriMixin {
+class HitoriMainViewController: GameMainViewController, HitoriMixin {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,18 +16,18 @@ class HitoriMainViewController: MainViewController, HitoriMixin {
         if toResume {resumGame(self)}
     }
     
-    @IBAction func startGame(_ sender: AnyObject) {
+    override func startGame(_ sender: AnyObject) {
         gameDocument.selectedLevelID = (sender as! UIButton).titleLabel!.text!
         resumGame(self)
     }
     
-    @IBAction func resumGame(_ sender: AnyObject) {
+    override func resumGame(_ sender: AnyObject) {
         gameDocument.resumeGame()
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "HitoriGameViewController") as! HitoriGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
     
-    @IBAction func backToMain(_ sender: AnyObject) {
+    override func backToMain(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
     }
 }

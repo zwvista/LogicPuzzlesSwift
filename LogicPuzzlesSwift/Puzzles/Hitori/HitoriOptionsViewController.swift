@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HitoriOptionsViewController: OptionsViewController, HitoriMixin {
+class HitoriOptionsViewController: GameOptionsViewController, HitoriMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

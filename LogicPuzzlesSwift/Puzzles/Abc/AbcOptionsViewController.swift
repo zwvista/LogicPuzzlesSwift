@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AbcOptionsViewController: OptionsViewController, AbcMixin {
+class AbcOptionsViewController: GameOptionsViewController, AbcMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

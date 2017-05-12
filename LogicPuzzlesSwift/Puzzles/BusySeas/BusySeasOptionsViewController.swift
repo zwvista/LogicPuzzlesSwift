@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BusySeasOptionsViewController: OptionsViewController, BusySeasMixin {
+class BusySeasOptionsViewController: GameOptionsViewController, BusySeasMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

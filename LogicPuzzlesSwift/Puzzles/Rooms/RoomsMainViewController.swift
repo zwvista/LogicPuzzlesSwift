@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RoomsMainViewController: MainViewController, RoomsMixin {
+class RoomsMainViewController: GameMainViewController, RoomsMixin {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,18 +16,18 @@ class RoomsMainViewController: MainViewController, RoomsMixin {
         if toResume {resumGame(self)}
     }
     
-    @IBAction func startGame(_ sender: AnyObject) {
+    override func startGame(_ sender: AnyObject) {
         gameDocument.selectedLevelID = (sender as! UIButton).titleLabel!.text!
         resumGame(self)
     }
     
-    @IBAction func resumGame(_ sender: AnyObject) {
+    override func resumGame(_ sender: AnyObject) {
         gameDocument.resumeGame()
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "RoomsGameViewController") as! RoomsGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
     
-    @IBAction func backToMain(_ sender: AnyObject) {
+    override func backToMain(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
     }
 }

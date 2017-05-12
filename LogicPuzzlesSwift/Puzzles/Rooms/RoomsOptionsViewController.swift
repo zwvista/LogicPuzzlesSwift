@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RoomsOptionsViewController: OptionsViewController, RoomsMixin {
+class RoomsOptionsViewController: GameOptionsViewController, RoomsMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BattleShipsMainViewController: MainViewController, BattleShipsMixin {
+class BattleShipsMainViewController: GameMainViewController, BattleShipsMixin {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,18 +16,18 @@ class BattleShipsMainViewController: MainViewController, BattleShipsMixin {
         if toResume {resumGame(self)}
     }
     
-    @IBAction func startGame(_ sender: AnyObject) {
+    override func startGame(_ sender: AnyObject) {
         gameDocument.selectedLevelID = (sender as! UIButton).titleLabel!.text!
         resumGame(self)
     }
     
-    @IBAction func resumGame(_ sender: AnyObject) {
+    override func resumGame(_ sender: AnyObject) {
         gameDocument.resumeGame()
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "BattleShipsGameViewController") as! BattleShipsGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
     
-    @IBAction func backToMain(_ sender: AnyObject) {
+    override func backToMain(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DominoOptionsViewController: OptionsViewController, DominoMixin {
+class DominoOptionsViewController: GameOptionsViewController, DominoMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

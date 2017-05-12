@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LighthousesOptionsViewController: OptionsViewController, LighthousesMixin {
+class LighthousesOptionsViewController: GameOptionsViewController, LighthousesMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

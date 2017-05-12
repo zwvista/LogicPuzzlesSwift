@@ -8,5 +8,5 @@
 
 import UIKit
 
-class MasyuOptionsViewController: OptionsViewController, MasyuMixin {
+class MasyuOptionsViewController: GameOptionsViewController, MasyuMixin {
 }

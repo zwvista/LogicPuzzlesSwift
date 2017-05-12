@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OrchardsOptionsViewController: OptionsViewController, OrchardsMixin {
+class OrchardsOptionsViewController: GameOptionsViewController, OrchardsMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SlitherLinkOptionsViewController: OptionsViewController, SlitherLinkMixin {
+class SlitherLinkOptionsViewController: GameOptionsViewController, SlitherLinkMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

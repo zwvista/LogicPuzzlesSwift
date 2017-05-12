@@ -1,5 +1,5 @@
 //
-//  OptionsViewController.swift
+//  GameOptionsViewController.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/25.
@@ -8,18 +8,14 @@
 
 import UIKit
 
-class OptionsViewController: UITableViewController {
+class GameOptionsViewController: UITableViewController {
+
+    override var prefersStatusBarHidden: Bool { return true }
+    
+    override var shouldAutorotate: Bool { return false}
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
-    override var shouldAutorotate: Bool {
-        return false
     }
     
     @IBAction func onDefault(_ sender: AnyObject) {

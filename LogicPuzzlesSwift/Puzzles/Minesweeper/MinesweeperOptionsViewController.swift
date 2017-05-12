@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MinesweeperOptionsViewController: OptionsViewController, MinesweeperMixin {
+class MinesweeperOptionsViewController: GameOptionsViewController, MinesweeperMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

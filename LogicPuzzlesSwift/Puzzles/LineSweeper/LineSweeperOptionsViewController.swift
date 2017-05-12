@@ -8,5 +8,5 @@
 
 import UIKit
 
-class LineSweeperOptionsViewController: OptionsViewController, LineSweeperMixin {
+class LineSweeperOptionsViewController: GameOptionsViewController, LineSweeperMixin {
 }

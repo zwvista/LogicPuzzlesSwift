@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LightBattleShipsOptionsViewController: OptionsViewController, LightBattleShipsMixin {
+class LightBattleShipsOptionsViewController: GameOptionsViewController, LightBattleShipsMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

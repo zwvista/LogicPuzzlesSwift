@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FenceSentinelsOptionsViewController: OptionsViewController, FenceSentinelsMixin {
+class FenceSentinelsOptionsViewController: GameOptionsViewController, FenceSentinelsMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

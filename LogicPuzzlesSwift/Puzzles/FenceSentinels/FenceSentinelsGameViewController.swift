@@ -131,7 +131,7 @@ class FenceSentinelsGameViewController: GameViewController, GameDelegate, FenceS
         }
     }
     
-    @IBAction func backToMain(_ sender: AnyObject) {
+    override func backToMain(_ sender: AnyObject) {
         navigationController!.popViewController(animated: true)
     }
 

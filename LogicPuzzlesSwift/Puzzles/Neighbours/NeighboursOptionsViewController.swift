@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NeighboursOptionsViewController: OptionsViewController, NeighboursMixin {
+class NeighboursOptionsViewController: GameOptionsViewController, NeighboursMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TatamiOptionsViewController: OptionsViewController, TatamiMixin {
+class TatamiOptionsViewController: GameOptionsViewController, TatamiMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

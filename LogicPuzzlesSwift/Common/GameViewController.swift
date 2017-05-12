@@ -10,6 +10,7 @@ import UIKit
 import SpriteKit
 
 class GameViewController: UIViewController {
+    var vcType: String!
     
     @IBOutlet weak var lblSolved: UILabel!
     @IBOutlet weak var lblLevel: UILabel!
@@ -20,12 +21,18 @@ class GameViewController: UIViewController {
     @IBOutlet weak var btnDeleteSolution: UIButton!
     
     // http://stackoverflow.com/questions/18979837/how-to-hide-ios-status-bar
-    override var prefersStatusBarHidden: Bool {
-        return true
+    override var prefersStatusBarHidden: Bool { return true }
+    
+    override var shouldAutorotate: Bool { return false}
+    
+    // http://stackoverflow.com/questions/14111572/how-to-use-single-storyboard-uiviewcontroller-for-multiple-subclass
+    override func viewDidLoad() {
+        object_setClass(self, NSClassFromString(vcType).self)
+        viewDidLoad()
     }
     
-    override var shouldAutorotate: Bool {
-        return false
+    @IBAction func backToMain(_ sender: AnyObject) {
+        navigationController!.popViewController(animated: true)
     }
     
     deinit {

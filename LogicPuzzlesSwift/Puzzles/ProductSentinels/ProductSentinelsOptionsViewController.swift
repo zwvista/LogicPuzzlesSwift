@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProductSentinelsOptionsViewController: OptionsViewController, ProductSentinelsMixin {
+class ProductSentinelsOptionsViewController: GameOptionsViewController, ProductSentinelsMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

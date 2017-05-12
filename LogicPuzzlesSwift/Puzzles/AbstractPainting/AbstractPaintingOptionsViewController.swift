@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AbstractPaintingOptionsViewController: OptionsViewController, AbstractPaintingMixin {
+class AbstractPaintingOptionsViewController: GameOptionsViewController, AbstractPaintingMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

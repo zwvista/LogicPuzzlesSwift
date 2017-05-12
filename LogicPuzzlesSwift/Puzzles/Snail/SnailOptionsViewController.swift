@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SnailOptionsViewController: OptionsViewController, SnailMixin {
+class SnailOptionsViewController: GameOptionsViewController, SnailMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

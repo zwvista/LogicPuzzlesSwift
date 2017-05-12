@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BoxItAroundMainViewController: MainViewController, BoxItAroundMixin {
+class BoxItAroundMainViewController: GameMainViewController, BoxItAroundMixin {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,18 +16,18 @@ class BoxItAroundMainViewController: MainViewController, BoxItAroundMixin {
         if toResume {resumGame(self)}
     }
     
-    @IBAction func startGame(_ sender: AnyObject) {
+    override func startGame(_ sender: AnyObject) {
         gameDocument.selectedLevelID = (sender as! UIButton).titleLabel!.text!
         resumGame(self)
     }
     
-    @IBAction func resumGame(_ sender: AnyObject) {
+    override func resumGame(_ sender: AnyObject) {
         gameDocument.resumeGame()
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "BoxItAroundGameViewController") as! BoxItAroundGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
     
-    @IBAction func backToMain(_ sender: AnyObject) {
+    override func backToMain(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
     }
 }

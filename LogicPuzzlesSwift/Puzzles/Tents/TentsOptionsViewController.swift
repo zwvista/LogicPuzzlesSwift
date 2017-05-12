@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TentsOptionsViewController: OptionsViewController, TentsMixin {
+class TentsOptionsViewController: GameOptionsViewController, TentsMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

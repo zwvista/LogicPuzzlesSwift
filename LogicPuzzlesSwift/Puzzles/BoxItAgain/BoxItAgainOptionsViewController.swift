@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BoxItAgainOptionsViewController: OptionsViewController, BoxItAgainMixin {
+class BoxItAgainOptionsViewController: GameOptionsViewController, BoxItAgainMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

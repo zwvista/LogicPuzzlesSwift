@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MineShipsOptionsViewController: OptionsViewController, MineShipsMixin {
+class MineShipsOptionsViewController: GameOptionsViewController, MineShipsMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

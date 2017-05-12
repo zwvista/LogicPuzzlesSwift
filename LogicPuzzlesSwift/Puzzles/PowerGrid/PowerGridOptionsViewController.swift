@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PowerGridOptionsViewController: OptionsViewController, PowerGridMixin {
+class PowerGridOptionsViewController: GameOptionsViewController, PowerGridMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

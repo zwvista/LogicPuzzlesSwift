@@ -130,7 +130,7 @@ class AbstractPaintingGameViewController: GameViewController, GameDelegate, Abst
         }
     }
     
-    @IBAction func backToMain(_ sender: AnyObject) {
+    override func backToMain(_ sender: AnyObject) {
         navigationController!.popViewController(animated: true)
     }
 

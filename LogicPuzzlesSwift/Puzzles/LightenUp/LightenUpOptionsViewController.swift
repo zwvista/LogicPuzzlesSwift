@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LightenUpOptionsViewController: OptionsViewController, LightenUpMixin {
+class LightenUpOptionsViewController: GameOptionsViewController, LightenUpMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

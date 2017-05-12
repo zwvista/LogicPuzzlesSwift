@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CloudsOptionsViewController: OptionsViewController, CloudsMixin {
+class CloudsOptionsViewController: GameOptionsViewController, CloudsMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

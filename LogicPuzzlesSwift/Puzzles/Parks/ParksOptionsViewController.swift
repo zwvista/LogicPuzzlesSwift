@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ParksOptionsViewController: OptionsViewController, ParksMixin {
+class ParksOptionsViewController: GameOptionsViewController, ParksMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

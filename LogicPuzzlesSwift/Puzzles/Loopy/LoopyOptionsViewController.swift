@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoopyOptionsViewController: OptionsViewController, LoopyMixin {
+class LoopyOptionsViewController: GameOptionsViewController, LoopyMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LitsOptionsViewController: OptionsViewController, LitsMixin {
+class LitsOptionsViewController: GameOptionsViewController, LitsMixin {
     
     @IBOutlet weak var lblMarker: UILabel!
     @IBOutlet weak var lblMarkerOption: UILabel!

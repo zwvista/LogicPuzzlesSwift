@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		84EE6E9D1DD954280013A033 /* HomeChooseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE6E9C1DD954280013A033 /* HomeChooseGameViewController.swift */; };
-		84FBA5231DFF7F3600594DAE /* BattleShips.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FBA5171DFF7F3600594DAE /* BattleShips.storyboard */; };
 		84FBA5241DFF7F3600594DAE /* BattleShips.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84FBA5181DFF7F3600594DAE /* BattleShips.xml */; };
 		84FBA5251DFF7F3600594DAE /* BattleShipsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBA5191DFF7F3600594DAE /* BattleShipsDocument.swift */; };
 		84FBA5261DFF7F3600594DAE /* BattleShipsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBA51A1DFF7F3600594DAE /* BattleShipsGame.swift */; };
@@ -20,7 +19,6 @@
 		84FBA52C1DFF7F3600594DAE /* BattleShipsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBA5201DFF7F3600594DAE /* BattleShipsMixin.swift */; };
 		84FBA52D1DFF7F3600594DAE /* BattleShipsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBA5211DFF7F3600594DAE /* BattleShipsObject.swift */; };
 		84FBA52E1DFF7F3600594DAE /* BattleShipsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBA5221DFF7F3600594DAE /* BattleShipsOptionsViewController.swift */; };
-		84FBA53D1DFF7F4500594DAE /* Parks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FBA5311DFF7F4500594DAE /* Parks.storyboard */; };
 		84FBA53E1DFF7F4500594DAE /* Parks.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84FBA5321DFF7F4500594DAE /* Parks.xml */; };
 		84FBA53F1DFF7F4500594DAE /* ParksDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBA5331DFF7F4500594DAE /* ParksDocument.swift */; };
 		84FBA5401DFF7F4500594DAE /* ParksGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBA5341DFF7F4500594DAE /* ParksGame.swift */; };
@@ -32,7 +30,6 @@
 		84FBA5461DFF7F4500594DAE /* ParksMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBA53A1DFF7F4500594DAE /* ParksMixin.swift */; };
 		84FBA5471DFF7F4500594DAE /* ParksObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBA53B1DFF7F4500594DAE /* ParksObject.swift */; };
 		84FBA5481DFF7F4500594DAE /* ParksOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBA53C1DFF7F4500594DAE /* ParksOptionsViewController.swift */; };
-		84FBA5561DFF7F4F00594DAE /* Tents.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FBA54A1DFF7F4F00594DAE /* Tents.storyboard */; };
 		84FBA5571DFF7F4F00594DAE /* Tents.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84FBA54B1DFF7F4F00594DAE /* Tents.xml */; };
 		84FBA5581DFF7F4F00594DAE /* TentsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBA54C1DFF7F4F00594DAE /* TentsDocument.swift */; };
 		84FBA5591DFF7F4F00594DAE /* TentsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBA54D1DFF7F4F00594DAE /* TentsGame.swift */; };
@@ -44,7 +41,6 @@
 		84FBA55F1DFF7F4F00594DAE /* TentsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBA5531DFF7F4F00594DAE /* TentsMixin.swift */; };
 		84FBA5601DFF7F4F00594DAE /* TentsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBA5541DFF7F4F00594DAE /* TentsObject.swift */; };
 		84FBA5611DFF7F4F00594DAE /* TentsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBA5551DFF7F4F00594DAE /* TentsOptionsViewController.swift */; };
-		8C10B7831E87B6870049C44B /* Neighbours.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C10B7771E87B6870049C44B /* Neighbours.storyboard */; };
 		8C10B7841E87B6870049C44B /* Neighbours.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C10B7781E87B6870049C44B /* Neighbours.xml */; };
 		8C10B7851E87B6870049C44B /* NeighboursDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7791E87B6870049C44B /* NeighboursDocument.swift */; };
 		8C10B7861E87B6870049C44B /* NeighboursGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B77A1E87B6870049C44B /* NeighboursGame.swift */; };
@@ -56,7 +52,6 @@
 		8C10B78C1E87B6870049C44B /* NeighboursMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7801E87B6870049C44B /* NeighboursMixin.swift */; };
 		8C10B78D1E87B6870049C44B /* NeighboursObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7811E87B6870049C44B /* NeighboursObject.swift */; };
 		8C10B78E1E87B6870049C44B /* NeighboursOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7821E87B6870049C44B /* NeighboursOptionsViewController.swift */; };
-		8C10B79E1E8A98C30049C44B /* Sentinels.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C10B7921E8A98C30049C44B /* Sentinels.storyboard */; };
 		8C10B79F1E8A98C30049C44B /* Sentinels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C10B7931E8A98C30049C44B /* Sentinels.xml */; };
 		8C10B7A01E8A98C30049C44B /* SentinelsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7941E8A98C30049C44B /* SentinelsDocument.swift */; };
 		8C10B7A11E8A98C30049C44B /* SentinelsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7951E8A98C30049C44B /* SentinelsGame.swift */; };
@@ -68,7 +63,6 @@
 		8C10B7A71E8A98C30049C44B /* SentinelsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B79B1E8A98C30049C44B /* SentinelsMixin.swift */; };
 		8C10B7A81E8A98C30049C44B /* SentinelsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B79C1E8A98C30049C44B /* SentinelsObject.swift */; };
 		8C10B7A91E8A98C30049C44B /* SentinelsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B79D1E8A98C30049C44B /* SentinelsOptionsViewController.swift */; };
-		8C10B7B81E8AB2680049C44B /* ProductSentinels.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C10B7AC1E8AB2670049C44B /* ProductSentinels.storyboard */; };
 		8C10B7B91E8AB2680049C44B /* ProductSentinels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C10B7AD1E8AB2670049C44B /* ProductSentinels.xml */; };
 		8C10B7BA1E8AB2680049C44B /* ProductSentinelsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7AE1E8AB2670049C44B /* ProductSentinelsDocument.swift */; };
 		8C10B7BB1E8AB2680049C44B /* ProductSentinelsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7AF1E8AB2670049C44B /* ProductSentinelsGame.swift */; };
@@ -80,7 +74,6 @@
 		8C10B7C11E8AB2680049C44B /* ProductSentinelsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7B51E8AB2670049C44B /* ProductSentinelsMixin.swift */; };
 		8C10B7C21E8AB2680049C44B /* ProductSentinelsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7B61E8AB2670049C44B /* ProductSentinelsObject.swift */; };
 		8C10B7C31E8AB2680049C44B /* ProductSentinelsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7B71E8AB2670049C44B /* ProductSentinelsOptionsViewController.swift */; };
-		8C10B7D11E8CDABA0049C44B /* BootyIsland.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C10B7C51E8CDABA0049C44B /* BootyIsland.storyboard */; };
 		8C10B7D21E8CDABA0049C44B /* BootyIsland.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C10B7C61E8CDABA0049C44B /* BootyIsland.xml */; };
 		8C10B7D31E8CDABA0049C44B /* BootyIslandDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7C71E8CDABA0049C44B /* BootyIslandDocument.swift */; };
 		8C10B7D41E8CDABA0049C44B /* BootyIslandGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7C81E8CDABA0049C44B /* BootyIslandGame.swift */; };
@@ -92,7 +85,6 @@
 		8C10B7DA1E8CDABA0049C44B /* BootyIslandMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7CE1E8CDABA0049C44B /* BootyIslandMixin.swift */; };
 		8C10B7DB1E8CDABA0049C44B /* BootyIslandObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7CF1E8CDABA0049C44B /* BootyIslandObject.swift */; };
 		8C10B7DC1E8CDABA0049C44B /* BootyIslandOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7D01E8CDABA0049C44B /* BootyIslandOptionsViewController.swift */; };
-		8C10B7EA1E8D7DC50049C44B /* PowerGrid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C10B7DE1E8D7DC40049C44B /* PowerGrid.storyboard */; };
 		8C10B7EB1E8D7DC50049C44B /* PowerGrid.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C10B7DF1E8D7DC40049C44B /* PowerGrid.xml */; };
 		8C10B7EC1E8D7DC50049C44B /* PowerGridDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7E01E8D7DC40049C44B /* PowerGridDocument.swift */; };
 		8C10B7ED1E8D7DC50049C44B /* PowerGridGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10B7E11E8D7DC40049C44B /* PowerGridGame.swift */; };
@@ -114,7 +106,6 @@
 		8C1D16B51DB8DE930056D407 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D16A71DB8DE930056D407 /* Graph.swift */; };
 		8C1D16B61DB8DE930056D407 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A81DB8DE930056D407 /* Info.plist */; };
 		8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D16A91DB8DE930056D407 /* Queue.swift */; };
-		8C262D181EC3ED1D00BCDBD2 /* DigitalBattleShips.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C262D0C1EC3ED1D00BCDBD2 /* DigitalBattleShips.storyboard */; };
 		8C262D191EC3ED1D00BCDBD2 /* DigitalBattleShips.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C262D0D1EC3ED1D00BCDBD2 /* DigitalBattleShips.xml */; };
 		8C262D1A1EC3ED1D00BCDBD2 /* DigitalBattleShipsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C262D0E1EC3ED1D00BCDBD2 /* DigitalBattleShipsDocument.swift */; };
 		8C262D1B1EC3ED1D00BCDBD2 /* DigitalBattleShipsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C262D0F1EC3ED1D00BCDBD2 /* DigitalBattleShipsGame.swift */; };
@@ -126,7 +117,6 @@
 		8C262D211EC3ED1D00BCDBD2 /* DigitalBattleShipsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C262D151EC3ED1D00BCDBD2 /* DigitalBattleShipsMixin.swift */; };
 		8C262D221EC3ED1D00BCDBD2 /* DigitalBattleShipsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C262D161EC3ED1D00BCDBD2 /* DigitalBattleShipsObject.swift */; };
 		8C262D231EC3ED1D00BCDBD2 /* DigitalBattleShipsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C262D171EC3ED1D00BCDBD2 /* DigitalBattleShipsOptionsViewController.swift */; };
-		8C262D321EC400CE00BCDBD2 /* AbstractPainting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C262D261EC400CE00BCDBD2 /* AbstractPainting.storyboard */; };
 		8C262D331EC400CE00BCDBD2 /* AbstractPainting.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C262D271EC400CE00BCDBD2 /* AbstractPainting.xml */; };
 		8C262D341EC400CE00BCDBD2 /* AbstractPaintingDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C262D281EC400CE00BCDBD2 /* AbstractPaintingDocument.swift */; };
 		8C262D351EC400CE00BCDBD2 /* AbstractPaintingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C262D291EC400CE00BCDBD2 /* AbstractPaintingGame.swift */; };
@@ -142,7 +132,6 @@
 		8C31FE6F1D90E415008793BF /* SharkORM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8C373D441E0507F7005712CD /* tent.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C373D421E0507F7005712CD /* tent.png */; };
 		8C373D451E0507F7005712CD /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C373D431E0507F7005712CD /* tree.png */; };
-		8C373D611E14A622005712CD /* BoxItAround.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C373D481E14A622005712CD /* BoxItAround.storyboard */; };
 		8C373D621E14A622005712CD /* BoxItAround.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C373D491E14A622005712CD /* BoxItAround.xml */; };
 		8C373D631E14A622005712CD /* BoxItAroundDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C373D4A1E14A622005712CD /* BoxItAroundDocument.swift */; };
 		8C373D641E14A622005712CD /* BoxItAroundGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C373D4B1E14A622005712CD /* BoxItAroundGame.swift */; };
@@ -154,7 +143,6 @@
 		8C373D6A1E14A622005712CD /* BoxItAroundMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C373D511E14A622005712CD /* BoxItAroundMixin.swift */; };
 		8C373D6B1E14A622005712CD /* BoxItAroundObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C373D521E14A622005712CD /* BoxItAroundObject.swift */; };
 		8C373D6C1E14A622005712CD /* BoxItAroundOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C373D531E14A622005712CD /* BoxItAroundOptionsViewController.swift */; };
-		8C373D6D1E14A622005712CD /* BoxItUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C373D551E14A622005712CD /* BoxItUp.storyboard */; };
 		8C373D6E1E14A622005712CD /* BoxItUp.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C373D561E14A622005712CD /* BoxItUp.xml */; };
 		8C373D6F1E14A622005712CD /* BoxItUpDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C373D571E14A622005712CD /* BoxItUpDocument.swift */; };
 		8C373D701E14A622005712CD /* BoxItUpGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C373D581E14A622005712CD /* BoxItUpGame.swift */; };
@@ -168,7 +156,6 @@
 		8C373D781E14A622005712CD /* BoxItUpOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C373D601E14A622005712CD /* BoxItUpOptionsViewController.swift */; };
 		8C508BEE1DFBD13700D99A09 /* GridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D41DC42FA40052202C /* GridNode.swift */; };
 		8C5368841EA1DFCC0071D475 /* GridObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5368831EA1DFCC0071D475 /* GridObject.swift */; };
-		8C5AE2691EC372A9000F0949 /* MineShips.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C5AE25D1EC372A8000F0949 /* MineShips.storyboard */; };
 		8C5AE26A1EC372A9000F0949 /* MineShips.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C5AE25E1EC372A8000F0949 /* MineShips.xml */; };
 		8C5AE26B1EC372A9000F0949 /* MineShipsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE25F1EC372A8000F0949 /* MineShipsDocument.swift */; };
 		8C5AE26C1EC372A9000F0949 /* MineShipsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE2601EC372A8000F0949 /* MineShipsGame.swift */; };
@@ -180,7 +167,6 @@
 		8C5AE2721EC372A9000F0949 /* MineShipsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE2661EC372A8000F0949 /* MineShipsMixin.swift */; };
 		8C5AE2731EC372A9000F0949 /* MineShipsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE2671EC372A8000F0949 /* MineShipsObject.swift */; };
 		8C5AE2741EC372A9000F0949 /* MineShipsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE2681EC372A8000F0949 /* MineShipsOptionsViewController.swift */; };
-		8C5AE2831EC372D3000F0949 /* LightBattleShips.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C5AE2771EC372D3000F0949 /* LightBattleShips.storyboard */; };
 		8C5AE2841EC372D3000F0949 /* LightBattleShips.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C5AE2781EC372D3000F0949 /* LightBattleShips.xml */; };
 		8C5AE2851EC372D3000F0949 /* LightBattleShipsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE2791EC372D3000F0949 /* LightBattleShipsDocument.swift */; };
 		8C5AE2861EC372D3000F0949 /* LightBattleShipsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE27A1EC372D3000F0949 /* LightBattleShipsGame.swift */; };
@@ -198,7 +184,7 @@
 		8C6ACBFF1DCAF8BA0075F32C /* GameMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D71DC42FA40052202C /* GameMixin.swift */; };
 		8C6ACC001DCAF8C20075F32C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37E91DC59EE50052202C /* GameScene.swift */; };
 		8C6ACC191DD204420075F32C /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6ACC181DD204420075F32C /* GameObject.swift */; };
-		8C6ACC1A1DD206AD0075F32C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D61DC42FA40052202C /* MainViewController.swift */; };
+		8C6ACC1A1DD206AD0075F32C /* GameMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D61DC42FA40052202C /* GameMainViewController.swift */; };
 		8C6D37381DC421180052202C /* HomeDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37331DC421180052202C /* HomeDocument.swift */; };
 		8C6D37391DC421180052202C /* HomeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37341DC421180052202C /* HomeMainViewController.swift */; };
 		8C6D373A1DC421180052202C /* HomeMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37351DC421180052202C /* HomeMixin.swift */; };
@@ -207,11 +193,10 @@
 		8C6D373F1DC421980052202C /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6D373D1DC421980052202C /* Home.storyboard */; };
 		8C6D37F31DC5AC310052202C /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37F21DC5AC310052202C /* SoundManager.swift */; };
 		8C6D37F51DC5AC520052202C /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37F41DC5AC520052202C /* Position.swift */; };
-		8C6D37FA1DC5ACC90052202C /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D91DC42FA40052202C /* OptionsViewController.swift */; };
+		8C6D37FA1DC5ACC90052202C /* GameOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D91DC42FA40052202C /* GameOptionsViewController.swift */; };
 		8C6D37FB1DC5ACDB0052202C /* Copyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37EC1DC5A2F50052202C /* Copyable.swift */; };
 		8C6D37FC1DC5B4DC0052202C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D01DC42FA40052202C /* Game.swift */; };
 		8C6D37FE1DC5B4EB0052202C /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D21DC42FA40052202C /* GameState.swift */; };
-		8C7016571E90C25000210CE7 /* MiniLits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C70164B1E90C25000210CE7 /* MiniLits.storyboard */; };
 		8C7016581E90C25000210CE7 /* MiniLits.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C70164C1E90C25000210CE7 /* MiniLits.xml */; };
 		8C7016591E90C25000210CE7 /* MiniLitsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70164D1E90C25000210CE7 /* MiniLitsDocument.swift */; };
 		8C70165A1E90C25000210CE7 /* MiniLitsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70164E1E90C25000210CE7 /* MiniLitsGame.swift */; };
@@ -223,7 +208,6 @@
 		8C7016601E90C25000210CE7 /* MiniLitsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7016541E90C25000210CE7 /* MiniLitsMixin.swift */; };
 		8C7016611E90C25000210CE7 /* MiniLitsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7016551E90C25000210CE7 /* MiniLitsObject.swift */; };
 		8C7016621E90C25000210CE7 /* MiniLitsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7016561E90C25000210CE7 /* MiniLitsOptionsViewController.swift */; };
-		8C7016711E90C79E00210CE7 /* FenceLits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C7016651E90C79E00210CE7 /* FenceLits.storyboard */; };
 		8C7016721E90C79E00210CE7 /* FenceLits.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C7016661E90C79E00210CE7 /* FenceLits.xml */; };
 		8C7016731E90C79E00210CE7 /* FenceLitsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7016671E90C79E00210CE7 /* FenceLitsDocument.swift */; };
 		8C7016741E90C79E00210CE7 /* FenceLitsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7016681E90C79E00210CE7 /* FenceLitsGame.swift */; };
@@ -235,7 +219,7 @@
 		8C70167A1E90C79E00210CE7 /* FenceLitsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70166E1E90C79E00210CE7 /* FenceLitsMixin.swift */; };
 		8C70167B1E90C79E00210CE7 /* FenceLitsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70166F1E90C79E00210CE7 /* FenceLitsObject.swift */; };
 		8C70167C1E90C79E00210CE7 /* FenceLitsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7016701E90C79E00210CE7 /* FenceLitsOptionsViewController.swift */; };
-		8C81CB9E1E19546000FB244A /* BoxItAgain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C81CB851E19546000FB244A /* BoxItAgain.storyboard */; };
+		8C76090B1EC61A8A00DFCD7B /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C76090A1EC61A8A00DFCD7B /* Game.storyboard */; };
 		8C81CB9F1E19546000FB244A /* BoxItAgain.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C81CB861E19546000FB244A /* BoxItAgain.xml */; };
 		8C81CBA01E19546000FB244A /* BoxItAgainDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB871E19546000FB244A /* BoxItAgainDocument.swift */; };
 		8C81CBA11E19546000FB244A /* BoxItAgainGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB881E19546000FB244A /* BoxItAgainGame.swift */; };
@@ -247,7 +231,6 @@
 		8C81CBA71E19546000FB244A /* BoxItAgainMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB8E1E19546000FB244A /* BoxItAgainMixin.swift */; };
 		8C81CBA81E19546000FB244A /* BoxItAgainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB8F1E19546000FB244A /* BoxItAgainObject.swift */; };
 		8C81CBA91E19546000FB244A /* BoxItAgainOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB901E19546000FB244A /* BoxItAgainOptionsViewController.swift */; };
-		8C81CBAA1E19546000FB244A /* FenceItUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C81CB921E19546000FB244A /* FenceItUp.storyboard */; };
 		8C81CBAB1E19546000FB244A /* FenceItUp.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C81CB931E19546000FB244A /* FenceItUp.xml */; };
 		8C81CBAC1E19546000FB244A /* FenceItUpDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB941E19546000FB244A /* FenceItUpDocument.swift */; };
 		8C81CBAD1E19546000FB244A /* FenceItUpGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB951E19546000FB244A /* FenceItUpGame.swift */; };
@@ -278,7 +261,6 @@
 		8C916CC41DAA5FEB00D9E62B /* music.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CC31DAA5FEB00D9E62B /* music.wav */; };
 		8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CC51DAB1E6000D9E62B /* tap.wav */; };
 		8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CCD1DAB35FC00D9E62B /* solved.wav */; };
-		8C9AF4821DE974BF0053BED4 /* Abc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF3F41DE974BE0053BED4 /* Abc.storyboard */; };
 		8C9AF4831DE974BF0053BED4 /* Abc.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF3F51DE974BE0053BED4 /* Abc.xml */; };
 		8C9AF4841DE974BF0053BED4 /* AbcDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF3F61DE974BE0053BED4 /* AbcDocument.swift */; };
 		8C9AF4851DE974BF0053BED4 /* AbcGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF3F71DE974BE0053BED4 /* AbcGame.swift */; };
@@ -290,7 +272,6 @@
 		8C9AF48B1DE974BF0053BED4 /* AbcMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF3FD1DE974BE0053BED4 /* AbcMixin.swift */; };
 		8C9AF48C1DE974BF0053BED4 /* AbcObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF3FE1DE974BE0053BED4 /* AbcObject.swift */; };
 		8C9AF48D1DE974BF0053BED4 /* AbcOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF3FF1DE974BE0053BED4 /* AbcOptionsViewController.swift */; };
-		8C9AF48E1DE974BF0053BED4 /* Bridges.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF4011DE974BE0053BED4 /* Bridges.storyboard */; };
 		8C9AF48F1DE974BF0053BED4 /* Bridges.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF4021DE974BE0053BED4 /* Bridges.xml */; };
 		8C9AF4901DE974BF0053BED4 /* BridgesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4031DE974BE0053BED4 /* BridgesDocument.swift */; };
 		8C9AF4911DE974BF0053BED4 /* BridgesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4041DE974BE0053BED4 /* BridgesGame.swift */; };
@@ -302,7 +283,6 @@
 		8C9AF4971DE974BF0053BED4 /* BridgesMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF40A1DE974BE0053BED4 /* BridgesMixin.swift */; };
 		8C9AF4981DE974BF0053BED4 /* BridgesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF40B1DE974BE0053BED4 /* BridgesObject.swift */; };
 		8C9AF4991DE974BF0053BED4 /* BridgesOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF40C1DE974BE0053BED4 /* BridgesOptionsViewController.swift */; };
-		8C9AF49A1DE974BF0053BED4 /* Clouds.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF40E1DE974BE0053BED4 /* Clouds.storyboard */; };
 		8C9AF49B1DE974BF0053BED4 /* Clouds.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF40F1DE974BE0053BED4 /* Clouds.xml */; };
 		8C9AF49C1DE974BF0053BED4 /* CloudsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4101DE974BE0053BED4 /* CloudsDocument.swift */; };
 		8C9AF49D1DE974BF0053BED4 /* CloudsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4111DE974BE0053BED4 /* CloudsGame.swift */; };
@@ -314,7 +294,6 @@
 		8C9AF4A31DE974BF0053BED4 /* CloudsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4171DE974BE0053BED4 /* CloudsMixin.swift */; };
 		8C9AF4A41DE974BF0053BED4 /* CloudsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4181DE974BE0053BED4 /* CloudsObject.swift */; };
 		8C9AF4A51DE974BF0053BED4 /* CloudsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4191DE974BE0053BED4 /* CloudsOptionsViewController.swift */; };
-		8C9AF4A61DE974BF0053BED4 /* Hitori.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF41B1DE974BE0053BED4 /* Hitori.storyboard */; };
 		8C9AF4A71DE974BF0053BED4 /* Hitori.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF41C1DE974BE0053BED4 /* Hitori.xml */; };
 		8C9AF4A81DE974BF0053BED4 /* HitoriDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF41D1DE974BE0053BED4 /* HitoriDocument.swift */; };
 		8C9AF4A91DE974BF0053BED4 /* HitoriGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF41E1DE974BE0053BED4 /* HitoriGame.swift */; };
@@ -326,7 +305,6 @@
 		8C9AF4AF1DE974BF0053BED4 /* HitoriMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4241DE974BF0053BED4 /* HitoriMixin.swift */; };
 		8C9AF4B01DE974BF0053BED4 /* HitoriObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4251DE974BF0053BED4 /* HitoriObject.swift */; };
 		8C9AF4B11DE974BF0053BED4 /* HitoriOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4261DE974BF0053BED4 /* HitoriOptionsViewController.swift */; };
-		8C9AF4B21DE974BF0053BED4 /* LightenUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF4281DE974BF0053BED4 /* LightenUp.storyboard */; };
 		8C9AF4B31DE974BF0053BED4 /* LightenUp.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF4291DE974BF0053BED4 /* LightenUp.xml */; };
 		8C9AF4B41DE974BF0053BED4 /* LightenUpDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF42A1DE974BF0053BED4 /* LightenUpDocument.swift */; };
 		8C9AF4B51DE974BF0053BED4 /* LightenUpGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF42B1DE974BF0053BED4 /* LightenUpGame.swift */; };
@@ -338,7 +316,6 @@
 		8C9AF4BB1DE974BF0053BED4 /* LightenUpMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4311DE974BF0053BED4 /* LightenUpMixin.swift */; };
 		8C9AF4BC1DE974BF0053BED4 /* LightenUpObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4321DE974BF0053BED4 /* LightenUpObject.swift */; };
 		8C9AF4BD1DE974BF0053BED4 /* LightenUpOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4331DE974BF0053BED4 /* LightenUpOptionsViewController.swift */; };
-		8C9AF4BE1DE974BF0053BED4 /* LineSweeper.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF4351DE974BF0053BED4 /* LineSweeper.storyboard */; };
 		8C9AF4BF1DE974BF0053BED4 /* LineSweeper.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF4361DE974BF0053BED4 /* LineSweeper.xml */; };
 		8C9AF4C01DE974BF0053BED4 /* LineSweeperDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4371DE974BF0053BED4 /* LineSweeperDocument.swift */; };
 		8C9AF4C11DE974BF0053BED4 /* LineSweeperGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4381DE974BF0053BED4 /* LineSweeperGame.swift */; };
@@ -350,7 +327,6 @@
 		8C9AF4C71DE974BF0053BED4 /* LineSweeperMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF43E1DE974BF0053BED4 /* LineSweeperMixin.swift */; };
 		8C9AF4C81DE974BF0053BED4 /* LineSweeperObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF43F1DE974BF0053BED4 /* LineSweeperObject.swift */; };
 		8C9AF4C91DE974BF0053BED4 /* LineSweeperOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4401DE974BF0053BED4 /* LineSweeperOptionsViewController.swift */; };
-		8C9AF4CA1DE974BF0053BED4 /* Masyu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF4421DE974BF0053BED4 /* Masyu.storyboard */; };
 		8C9AF4CB1DE974BF0053BED4 /* Masyu.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF4431DE974BF0053BED4 /* Masyu.xml */; };
 		8C9AF4CC1DE974BF0053BED4 /* MasyuDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4441DE974BF0053BED4 /* MasyuDocument.swift */; };
 		8C9AF4CD1DE974BF0053BED4 /* MasyuGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4451DE974BF0053BED4 /* MasyuGame.swift */; };
@@ -362,7 +338,6 @@
 		8C9AF4D31DE974BF0053BED4 /* MasyuMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF44B1DE974BF0053BED4 /* MasyuMixin.swift */; };
 		8C9AF4D41DE974BF0053BED4 /* MasyuObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF44C1DE974BF0053BED4 /* MasyuObject.swift */; };
 		8C9AF4D51DE974BF0053BED4 /* MasyuOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF44D1DE974BF0053BED4 /* MasyuOptionsViewController.swift */; };
-		8C9AF4D61DE974BF0053BED4 /* Nurikabe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF44F1DE974BF0053BED4 /* Nurikabe.storyboard */; };
 		8C9AF4D71DE974BF0053BED4 /* Nurikabe.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF4501DE974BF0053BED4 /* Nurikabe.xml */; };
 		8C9AF4D81DE974BF0053BED4 /* NurikabeDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4511DE974BF0053BED4 /* NurikabeDocument.swift */; };
 		8C9AF4D91DE974BF0053BED4 /* NurikabeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4521DE974BF0053BED4 /* NurikabeGame.swift */; };
@@ -374,7 +349,6 @@
 		8C9AF4DF1DE974BF0053BED4 /* NurikabeMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4581DE974BF0053BED4 /* NurikabeMixin.swift */; };
 		8C9AF4E01DE974BF0053BED4 /* NurikabeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4591DE974BF0053BED4 /* NurikabeObject.swift */; };
 		8C9AF4E11DE974BF0053BED4 /* NurikabeOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF45A1DE974BF0053BED4 /* NurikabeOptionsViewController.swift */; };
-		8C9AF4E21DE974BF0053BED4 /* Skyscrapers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF45C1DE974BF0053BED4 /* Skyscrapers.storyboard */; };
 		8C9AF4E31DE974BF0053BED4 /* Skyscrapers.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF45D1DE974BF0053BED4 /* Skyscrapers.xml */; };
 		8C9AF4E41DE974BF0053BED4 /* SkyscrapersDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF45E1DE974BF0053BED4 /* SkyscrapersDocument.swift */; };
 		8C9AF4E51DE974BF0053BED4 /* SkyscrapersGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF45F1DE974BF0053BED4 /* SkyscrapersGame.swift */; };
@@ -386,7 +360,6 @@
 		8C9AF4EB1DE974BF0053BED4 /* SkyscrapersMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4651DE974BF0053BED4 /* SkyscrapersMixin.swift */; };
 		8C9AF4EC1DE974BF0053BED4 /* SkyscrapersObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4661DE974BF0053BED4 /* SkyscrapersObject.swift */; };
 		8C9AF4ED1DE974BF0053BED4 /* SkyscrapersOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4671DE974BF0053BED4 /* SkyscrapersOptionsViewController.swift */; };
-		8C9AF4EE1DE974BF0053BED4 /* SlitherLink.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF4691DE974BF0053BED4 /* SlitherLink.storyboard */; };
 		8C9AF4EF1DE974BF0053BED4 /* SlitherLink.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF46A1DE974BF0053BED4 /* SlitherLink.xml */; };
 		8C9AF4F01DE974BF0053BED4 /* SlitherLinkDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF46B1DE974BF0053BED4 /* SlitherLinkDocument.swift */; };
 		8C9AF4F11DE974BF0053BED4 /* SlitherLinkGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF46C1DE974BF0053BED4 /* SlitherLinkGame.swift */; };
@@ -398,7 +371,6 @@
 		8C9AF4F71DE974BF0053BED4 /* SlitherLinkMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4721DE974BF0053BED4 /* SlitherLinkMixin.swift */; };
 		8C9AF4F81DE974BF0053BED4 /* SlitherLinkObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4731DE974BF0053BED4 /* SlitherLinkObject.swift */; };
 		8C9AF4F91DE974BF0053BED4 /* SlitherLinkOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4741DE974BF0053BED4 /* SlitherLinkOptionsViewController.swift */; };
-		8C9AF4FA1DE974BF0053BED4 /* Sumscrapers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF4761DE974BF0053BED4 /* Sumscrapers.storyboard */; };
 		8C9AF4FB1DE974BF0053BED4 /* Sumscrapers.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF4771DE974BF0053BED4 /* Sumscrapers.xml */; };
 		8C9AF4FC1DE974BF0053BED4 /* SumscrapersDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4781DE974BF0053BED4 /* SumscrapersDocument.swift */; };
 		8C9AF4FD1DE974BF0053BED4 /* SumscrapersGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4791DE974BF0053BED4 /* SumscrapersGame.swift */; };
@@ -410,7 +382,6 @@
 		8C9AF5031DE974BF0053BED4 /* SumscrapersMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF47F1DE974BF0053BED4 /* SumscrapersMixin.swift */; };
 		8C9AF5041DE974BF0053BED4 /* SumscrapersObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4801DE974BF0053BED4 /* SumscrapersObject.swift */; };
 		8C9AF5051DE974BF0053BED4 /* SumscrapersOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF4811DE974BF0053BED4 /* SumscrapersOptionsViewController.swift */; };
-		8C9AF5131DE975030053BED4 /* Loopy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF5071DE975030053BED4 /* Loopy.storyboard */; };
 		8C9AF5141DE975030053BED4 /* Loopy.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF5081DE975030053BED4 /* Loopy.xml */; };
 		8C9AF5151DE975030053BED4 /* LoopyDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5091DE975030053BED4 /* LoopyDocument.swift */; };
 		8C9AF5161DE975030053BED4 /* LoopyGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF50A1DE975030053BED4 /* LoopyGame.swift */; };
@@ -422,7 +393,6 @@
 		8C9AF51C1DE975030053BED4 /* LoopyMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5101DE975030053BED4 /* LoopyMixin.swift */; };
 		8C9AF51D1DE975030053BED4 /* LoopyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5111DE975030053BED4 /* LoopyObject.swift */; };
 		8C9AF51E1DE975030053BED4 /* LoopyOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5121DE975030053BED4 /* LoopyOptionsViewController.swift */; };
-		8C9AF5451DF471AA0053BED4 /* Mosaik.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF5391DF471AA0053BED4 /* Mosaik.storyboard */; };
 		8C9AF5461DF471AA0053BED4 /* Mosaik.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF53A1DF471AA0053BED4 /* Mosaik.xml */; };
 		8C9AF5471DF471AA0053BED4 /* MosaikDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF53B1DF471AA0053BED4 /* MosaikDocument.swift */; };
 		8C9AF5481DF471AA0053BED4 /* MosaikGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF53C1DF471AA0053BED4 /* MosaikGame.swift */; };
@@ -434,7 +404,6 @@
 		8C9AF54E1DF471AA0053BED4 /* MosaikMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5421DF471AA0053BED4 /* MosaikMixin.swift */; };
 		8C9AF54F1DF471AA0053BED4 /* MosaikObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5431DF471AA0053BED4 /* MosaikObject.swift */; };
 		8C9AF5501DF471AA0053BED4 /* MosaikOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5441DF471AA0053BED4 /* MosaikOptionsViewController.swift */; };
-		8C9AF55F1DF8D7770053BED4 /* Magnets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF5531DF8D7770053BED4 /* Magnets.storyboard */; };
 		8C9AF5601DF8D7770053BED4 /* Magnets.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF5541DF8D7770053BED4 /* Magnets.xml */; };
 		8C9AF5611DF8D7770053BED4 /* MagnetsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5551DF8D7770053BED4 /* MagnetsDocument.swift */; };
 		8C9AF5621DF8D7770053BED4 /* MagnetsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5561DF8D7770053BED4 /* MagnetsGame.swift */; };
@@ -446,7 +415,6 @@
 		8C9AF5681DF8D7770053BED4 /* MagnetsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF55C1DF8D7770053BED4 /* MagnetsMixin.swift */; };
 		8C9AF5691DF8D7770053BED4 /* MagnetsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF55D1DF8D7770053BED4 /* MagnetsObject.swift */; };
 		8C9AF56A1DF8D7770053BED4 /* MagnetsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF55E1DF8D7770053BED4 /* MagnetsOptionsViewController.swift */; };
-		8C9AF5791DF8D84B0053BED4 /* Rooms.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF56D1DF8D84B0053BED4 /* Rooms.storyboard */; };
 		8C9AF57A1DF8D84B0053BED4 /* Rooms.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AF56E1DF8D84B0053BED4 /* Rooms.xml */; };
 		8C9AF57B1DF8D84B0053BED4 /* RoomsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF56F1DF8D84B0053BED4 /* RoomsDocument.swift */; };
 		8C9AF57C1DF8D84B0053BED4 /* RoomsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5701DF8D84B0053BED4 /* RoomsGame.swift */; };
@@ -458,7 +426,6 @@
 		8C9AF5821DF8D84B0053BED4 /* RoomsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5761DF8D84B0053BED4 /* RoomsMixin.swift */; };
 		8C9AF5831DF8D84B0053BED4 /* RoomsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5771DF8D84B0053BED4 /* RoomsObject.swift */; };
 		8C9AF5841DF8D84B0053BED4 /* RoomsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AF5781DF8D84B0053BED4 /* RoomsOptionsViewController.swift */; };
-		8C9BE9FB1E9137F000A13A98 /* Pairakabe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BE9EF1E9137F000A13A98 /* Pairakabe.storyboard */; };
 		8C9BE9FC1E9137F000A13A98 /* Pairakabe.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BE9F01E9137F000A13A98 /* Pairakabe.xml */; };
 		8C9BE9FD1E9137F000A13A98 /* PairakabeDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BE9F11E9137F000A13A98 /* PairakabeDocument.swift */; };
 		8C9BE9FE1E9137F000A13A98 /* PairakabeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BE9F21E9137F000A13A98 /* PairakabeGame.swift */; };
@@ -470,7 +437,6 @@
 		8C9BEA041E9137F000A13A98 /* PairakabeMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BE9F81E9137F000A13A98 /* PairakabeMixin.swift */; };
 		8C9BEA051E9137F000A13A98 /* PairakabeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BE9F91E9137F000A13A98 /* PairakabeObject.swift */; };
 		8C9BEA061E9137F000A13A98 /* PairakabeOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BE9FA1E9137F000A13A98 /* PairakabeOptionsViewController.swift */; };
-		8C9BEA151E91452B00A13A98 /* Tatami.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BEA091E91452B00A13A98 /* Tatami.storyboard */; };
 		8C9BEA161E91452B00A13A98 /* Tatami.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BEA0A1E91452B00A13A98 /* Tatami.xml */; };
 		8C9BEA171E91452B00A13A98 /* TatamiDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BEA0B1E91452B00A13A98 /* TatamiDocument.swift */; };
 		8C9BEA181E91452B00A13A98 /* TatamiGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BEA0C1E91452B00A13A98 /* TatamiGame.swift */; };
@@ -487,7 +453,6 @@
 		8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E51D771915000139FC /* LaunchScreen.storyboard */; };
 		8C9F43F21D771915000139FC /* LogicPuzzlesSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43F11D771915000139FC /* LogicPuzzlesSwiftTests.swift */; };
 		8C9F43FD1D771915000139FC /* LogicPuzzlesSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43FC1D771915000139FC /* LogicPuzzlesSwiftUITests.swift */; };
-		8CB29ACA1E8F716C001D07C6 /* Minesweeper.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB29ABE1E8F716C001D07C6 /* Minesweeper.storyboard */; };
 		8CB29ACB1E8F716C001D07C6 /* Minesweeper.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB29ABF1E8F716C001D07C6 /* Minesweeper.xml */; };
 		8CB29ACC1E8F716C001D07C6 /* MinesweeperDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AC01E8F716C001D07C6 /* MinesweeperDocument.swift */; };
 		8CB29ACD1E8F716C001D07C6 /* MinesweeperGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AC11E8F716C001D07C6 /* MinesweeperGame.swift */; };
@@ -499,7 +464,6 @@
 		8CB29AD31E8F716C001D07C6 /* MinesweeperMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AC71E8F716C001D07C6 /* MinesweeperMixin.swift */; };
 		8CB29AD41E8F716C001D07C6 /* MinesweeperObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AC81E8F716C001D07C6 /* MinesweeperObject.swift */; };
 		8CB29AD51E8F716C001D07C6 /* MinesweeperOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AC91E8F716C001D07C6 /* MinesweeperOptionsViewController.swift */; };
-		8CB29AE41E8F795E001D07C6 /* Lits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB29AD81E8F795E001D07C6 /* Lits.storyboard */; };
 		8CB29AE51E8F795E001D07C6 /* Lits.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB29AD91E8F795E001D07C6 /* Lits.xml */; };
 		8CB29AE61E8F795E001D07C6 /* LitsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29ADA1E8F795E001D07C6 /* LitsDocument.swift */; };
 		8CB29AE71E8F795E001D07C6 /* LitsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29ADB1E8F795E001D07C6 /* LitsGame.swift */; };
@@ -511,7 +475,6 @@
 		8CB29AED1E8F795E001D07C6 /* LitsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AE11E8F795E001D07C6 /* LitsMixin.swift */; };
 		8CB29AEE1E8F795E001D07C6 /* LitsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AE21E8F795E001D07C6 /* LitsObject.swift */; };
 		8CB29AEF1E8F795E001D07C6 /* LitsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AE31E8F795E001D07C6 /* LitsOptionsViewController.swift */; };
-		8CB29AFD1E8F7AF6001D07C6 /* Orchards.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB29AF11E8F7AF6001D07C6 /* Orchards.storyboard */; };
 		8CB29AFE1E8F7AF6001D07C6 /* Orchards.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB29AF21E8F7AF6001D07C6 /* Orchards.xml */; };
 		8CB29AFF1E8F7AF6001D07C6 /* OrchardsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AF31E8F7AF6001D07C6 /* OrchardsDocument.swift */; };
 		8CB29B001E8F7AF6001D07C6 /* OrchardsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AF41E8F7AF6001D07C6 /* OrchardsGame.swift */; };
@@ -523,7 +486,6 @@
 		8CB29B061E8F7AF6001D07C6 /* OrchardsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AFA1E8F7AF6001D07C6 /* OrchardsMixin.swift */; };
 		8CB29B071E8F7AF6001D07C6 /* OrchardsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AFB1E8F7AF6001D07C6 /* OrchardsObject.swift */; };
 		8CB29B081E8F7AF6001D07C6 /* OrchardsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29AFC1E8F7AF6001D07C6 /* OrchardsOptionsViewController.swift */; };
-		8CB29B161E8F7DE1001D07C6 /* FenceSentinels.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB29B0A1E8F7DE1001D07C6 /* FenceSentinels.storyboard */; };
 		8CB29B171E8F7DE1001D07C6 /* FenceSentinels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB29B0B1E8F7DE1001D07C6 /* FenceSentinels.xml */; };
 		8CB29B181E8F7DE1001D07C6 /* FenceSentinelsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29B0C1E8F7DE1001D07C6 /* FenceSentinelsDocument.swift */; };
 		8CB29B191E8F7DE1001D07C6 /* FenceSentinelsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB29B0D1E8F7DE1001D07C6 /* FenceSentinelsGame.swift */; };
@@ -585,7 +547,6 @@
 		8CC3505E1E001D2800B8FD83 /* UIWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3502E1E001D2800B8FD83 /* UIWindowExtensions.swift */; };
 		8CC3505F1E001D2800B8FD83 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3502F1E001D2800B8FD83 /* URLExtensions.swift */; };
 		8CC350601E001D2800B8FD83 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350301E001D2800B8FD83 /* UserDefaultsExtension.swift */; };
-		8CC3CD1C1E32DEE40056B78F /* Snail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CC3CD101E32DEE40056B78F /* Snail.storyboard */; };
 		8CC3CD1D1E32DEE40056B78F /* Snail.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CC3CD111E32DEE40056B78F /* Snail.xml */; };
 		8CC3CD1E1E32DEE40056B78F /* SnailDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3CD121E32DEE40056B78F /* SnailDocument.swift */; };
 		8CC3CD1F1E32DEE40056B78F /* SnailGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3CD131E32DEE40056B78F /* SnailGame.swift */; };
@@ -597,7 +558,6 @@
 		8CC3CD251E32DEE40056B78F /* SnailMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3CD191E32DEE40056B78F /* SnailMixin.swift */; };
 		8CC3CD261E32DEE40056B78F /* SnailObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3CD1A1E32DEE40056B78F /* SnailObject.swift */; };
 		8CC3CD271E32DEE40056B78F /* SnailOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3CD1B1E32DEE40056B78F /* SnailOptionsViewController.swift */; };
-		8CCF10B31E8E097100422284 /* BusySeas.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF10A71E8E097100422284 /* BusySeas.storyboard */; };
 		8CCF10B41E8E097100422284 /* BusySeas.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF10A81E8E097100422284 /* BusySeas.xml */; };
 		8CCF10B51E8E097100422284 /* BusySeasDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10A91E8E097100422284 /* BusySeasDocument.swift */; };
 		8CCF10B61E8E097100422284 /* BusySeasGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10AA1E8E097100422284 /* BusySeasGame.swift */; };
@@ -609,7 +569,6 @@
 		8CCF10BC1E8E097100422284 /* BusySeasMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10B01E8E097100422284 /* BusySeasMixin.swift */; };
 		8CCF10BD1E8E097100422284 /* BusySeasObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10B11E8E097100422284 /* BusySeasObject.swift */; };
 		8CCF10BE1E8E097100422284 /* BusySeasOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10B21E8E097100422284 /* BusySeasOptionsViewController.swift */; };
-		8CCF10CD1E8E097C00422284 /* Lighthouses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF10C11E8E097C00422284 /* Lighthouses.storyboard */; };
 		8CCF10CE1E8E097C00422284 /* Lighthouses.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF10C21E8E097C00422284 /* Lighthouses.xml */; };
 		8CCF10CF1E8E097C00422284 /* LighthousesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10C31E8E097C00422284 /* LighthousesDocument.swift */; };
 		8CCF10D01E8E097C00422284 /* LighthousesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10C41E8E097C00422284 /* LighthousesGame.swift */; };
@@ -621,7 +580,6 @@
 		8CCF10D61E8E097C00422284 /* LighthousesMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10CA1E8E097C00422284 /* LighthousesMixin.swift */; };
 		8CCF10D71E8E097C00422284 /* LighthousesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10CB1E8E097C00422284 /* LighthousesObject.swift */; };
 		8CCF10D81E8E097C00422284 /* LighthousesOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10CC1E8E097C00422284 /* LighthousesOptionsViewController.swift */; };
-		8CCF10E61E8F5D9900422284 /* Domino.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF10DA1E8F5D9900422284 /* Domino.storyboard */; };
 		8CCF10E71E8F5D9900422284 /* Domino.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF10DB1E8F5D9900422284 /* Domino.xml */; };
 		8CCF10E81E8F5D9900422284 /* DominoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10DC1E8F5D9900422284 /* DominoDocument.swift */; };
 		8CCF10E91E8F5D9900422284 /* DominoGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCF10DD1E8F5D9900422284 /* DominoGame.swift */; };
@@ -677,7 +635,6 @@
 
 /* Begin PBXFileReference section */
 		84EE6E9C1DD954280013A033 /* HomeChooseGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeChooseGameViewController.swift; sourceTree = "<group>"; };
-		84FBA5171DFF7F3600594DAE /* BattleShips.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BattleShips.storyboard; sourceTree = "<group>"; };
 		84FBA5181DFF7F3600594DAE /* BattleShips.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BattleShips.xml; sourceTree = "<group>"; };
 		84FBA5191DFF7F3600594DAE /* BattleShipsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleShipsDocument.swift; sourceTree = "<group>"; };
 		84FBA51A1DFF7F3600594DAE /* BattleShipsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleShipsGame.swift; sourceTree = "<group>"; };
@@ -689,7 +646,6 @@
 		84FBA5201DFF7F3600594DAE /* BattleShipsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleShipsMixin.swift; sourceTree = "<group>"; };
 		84FBA5211DFF7F3600594DAE /* BattleShipsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleShipsObject.swift; sourceTree = "<group>"; };
 		84FBA5221DFF7F3600594DAE /* BattleShipsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleShipsOptionsViewController.swift; sourceTree = "<group>"; };
-		84FBA5311DFF7F4500594DAE /* Parks.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Parks.storyboard; sourceTree = "<group>"; };
 		84FBA5321DFF7F4500594DAE /* Parks.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Parks.xml; sourceTree = "<group>"; };
 		84FBA5331DFF7F4500594DAE /* ParksDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParksDocument.swift; sourceTree = "<group>"; };
 		84FBA5341DFF7F4500594DAE /* ParksGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParksGame.swift; sourceTree = "<group>"; };
@@ -701,7 +657,6 @@
 		84FBA53A1DFF7F4500594DAE /* ParksMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParksMixin.swift; sourceTree = "<group>"; };
 		84FBA53B1DFF7F4500594DAE /* ParksObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParksObject.swift; sourceTree = "<group>"; };
 		84FBA53C1DFF7F4500594DAE /* ParksOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParksOptionsViewController.swift; sourceTree = "<group>"; };
-		84FBA54A1DFF7F4F00594DAE /* Tents.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tents.storyboard; sourceTree = "<group>"; };
 		84FBA54B1DFF7F4F00594DAE /* Tents.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tents.xml; sourceTree = "<group>"; };
 		84FBA54C1DFF7F4F00594DAE /* TentsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TentsDocument.swift; sourceTree = "<group>"; };
 		84FBA54D1DFF7F4F00594DAE /* TentsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TentsGame.swift; sourceTree = "<group>"; };
@@ -713,7 +668,6 @@
 		84FBA5531DFF7F4F00594DAE /* TentsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TentsMixin.swift; sourceTree = "<group>"; };
 		84FBA5541DFF7F4F00594DAE /* TentsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TentsObject.swift; sourceTree = "<group>"; };
 		84FBA5551DFF7F4F00594DAE /* TentsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TentsOptionsViewController.swift; sourceTree = "<group>"; };
-		8C10B7771E87B6870049C44B /* Neighbours.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Neighbours.storyboard; sourceTree = "<group>"; };
 		8C10B7781E87B6870049C44B /* Neighbours.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Neighbours.xml; sourceTree = "<group>"; };
 		8C10B7791E87B6870049C44B /* NeighboursDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighboursDocument.swift; sourceTree = "<group>"; };
 		8C10B77A1E87B6870049C44B /* NeighboursGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighboursGame.swift; sourceTree = "<group>"; };
@@ -725,7 +679,6 @@
 		8C10B7801E87B6870049C44B /* NeighboursMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighboursMixin.swift; sourceTree = "<group>"; };
 		8C10B7811E87B6870049C44B /* NeighboursObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighboursObject.swift; sourceTree = "<group>"; };
 		8C10B7821E87B6870049C44B /* NeighboursOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighboursOptionsViewController.swift; sourceTree = "<group>"; };
-		8C10B7921E8A98C30049C44B /* Sentinels.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sentinels.storyboard; sourceTree = "<group>"; };
 		8C10B7931E8A98C30049C44B /* Sentinels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Sentinels.xml; sourceTree = "<group>"; };
 		8C10B7941E8A98C30049C44B /* SentinelsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentinelsDocument.swift; sourceTree = "<group>"; };
 		8C10B7951E8A98C30049C44B /* SentinelsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentinelsGame.swift; sourceTree = "<group>"; };
@@ -737,7 +690,6 @@
 		8C10B79B1E8A98C30049C44B /* SentinelsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentinelsMixin.swift; sourceTree = "<group>"; };
 		8C10B79C1E8A98C30049C44B /* SentinelsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentinelsObject.swift; sourceTree = "<group>"; };
 		8C10B79D1E8A98C30049C44B /* SentinelsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentinelsOptionsViewController.swift; sourceTree = "<group>"; };
-		8C10B7AC1E8AB2670049C44B /* ProductSentinels.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductSentinels.storyboard; sourceTree = "<group>"; };
 		8C10B7AD1E8AB2670049C44B /* ProductSentinels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ProductSentinels.xml; sourceTree = "<group>"; };
 		8C10B7AE1E8AB2670049C44B /* ProductSentinelsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSentinelsDocument.swift; sourceTree = "<group>"; };
 		8C10B7AF1E8AB2670049C44B /* ProductSentinelsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSentinelsGame.swift; sourceTree = "<group>"; };
@@ -749,7 +701,6 @@
 		8C10B7B51E8AB2670049C44B /* ProductSentinelsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSentinelsMixin.swift; sourceTree = "<group>"; };
 		8C10B7B61E8AB2670049C44B /* ProductSentinelsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSentinelsObject.swift; sourceTree = "<group>"; };
 		8C10B7B71E8AB2670049C44B /* ProductSentinelsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSentinelsOptionsViewController.swift; sourceTree = "<group>"; };
-		8C10B7C51E8CDABA0049C44B /* BootyIsland.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BootyIsland.storyboard; sourceTree = "<group>"; };
 		8C10B7C61E8CDABA0049C44B /* BootyIsland.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BootyIsland.xml; sourceTree = "<group>"; };
 		8C10B7C71E8CDABA0049C44B /* BootyIslandDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BootyIslandDocument.swift; sourceTree = "<group>"; };
 		8C10B7C81E8CDABA0049C44B /* BootyIslandGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BootyIslandGame.swift; sourceTree = "<group>"; };
@@ -761,7 +712,6 @@
 		8C10B7CE1E8CDABA0049C44B /* BootyIslandMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BootyIslandMixin.swift; sourceTree = "<group>"; };
 		8C10B7CF1E8CDABA0049C44B /* BootyIslandObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BootyIslandObject.swift; sourceTree = "<group>"; };
 		8C10B7D01E8CDABA0049C44B /* BootyIslandOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BootyIslandOptionsViewController.swift; sourceTree = "<group>"; };
-		8C10B7DE1E8D7DC40049C44B /* PowerGrid.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PowerGrid.storyboard; sourceTree = "<group>"; };
 		8C10B7DF1E8D7DC40049C44B /* PowerGrid.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PowerGrid.xml; sourceTree = "<group>"; };
 		8C10B7E01E8D7DC40049C44B /* PowerGridDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerGridDocument.swift; sourceTree = "<group>"; };
 		8C10B7E11E8D7DC40049C44B /* PowerGridGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerGridGame.swift; sourceTree = "<group>"; };
@@ -786,7 +736,6 @@
 		8C1D16A81DB8DE930056D407 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C1D16A91DB8DE930056D407 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		8C1D16AA1DB8DE930056D407 /* Tests.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Tests.xcodeproj; sourceTree = "<group>"; };
-		8C262D0C1EC3ED1D00BCDBD2 /* DigitalBattleShips.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DigitalBattleShips.storyboard; sourceTree = "<group>"; };
 		8C262D0D1EC3ED1D00BCDBD2 /* DigitalBattleShips.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DigitalBattleShips.xml; sourceTree = "<group>"; };
 		8C262D0E1EC3ED1D00BCDBD2 /* DigitalBattleShipsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitalBattleShipsDocument.swift; sourceTree = "<group>"; };
 		8C262D0F1EC3ED1D00BCDBD2 /* DigitalBattleShipsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitalBattleShipsGame.swift; sourceTree = "<group>"; };
@@ -798,7 +747,6 @@
 		8C262D151EC3ED1D00BCDBD2 /* DigitalBattleShipsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitalBattleShipsMixin.swift; sourceTree = "<group>"; };
 		8C262D161EC3ED1D00BCDBD2 /* DigitalBattleShipsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitalBattleShipsObject.swift; sourceTree = "<group>"; };
 		8C262D171EC3ED1D00BCDBD2 /* DigitalBattleShipsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitalBattleShipsOptionsViewController.swift; sourceTree = "<group>"; };
-		8C262D261EC400CE00BCDBD2 /* AbstractPainting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AbstractPainting.storyboard; sourceTree = "<group>"; };
 		8C262D271EC400CE00BCDBD2 /* AbstractPainting.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AbstractPainting.xml; sourceTree = "<group>"; };
 		8C262D281EC400CE00BCDBD2 /* AbstractPaintingDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractPaintingDocument.swift; sourceTree = "<group>"; };
 		8C262D291EC400CE00BCDBD2 /* AbstractPaintingGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractPaintingGame.swift; sourceTree = "<group>"; };
@@ -813,7 +761,6 @@
 		8C31FE6D1D90E415008793BF /* SharkORM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SharkORM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C373D421E0507F7005712CD /* tent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tent.png; sourceTree = "<group>"; };
 		8C373D431E0507F7005712CD /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree.png; sourceTree = "<group>"; };
-		8C373D481E14A622005712CD /* BoxItAround.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BoxItAround.storyboard; sourceTree = "<group>"; };
 		8C373D491E14A622005712CD /* BoxItAround.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BoxItAround.xml; sourceTree = "<group>"; };
 		8C373D4A1E14A622005712CD /* BoxItAroundDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAroundDocument.swift; sourceTree = "<group>"; };
 		8C373D4B1E14A622005712CD /* BoxItAroundGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAroundGame.swift; sourceTree = "<group>"; };
@@ -825,7 +772,6 @@
 		8C373D511E14A622005712CD /* BoxItAroundMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAroundMixin.swift; sourceTree = "<group>"; };
 		8C373D521E14A622005712CD /* BoxItAroundObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAroundObject.swift; sourceTree = "<group>"; };
 		8C373D531E14A622005712CD /* BoxItAroundOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAroundOptionsViewController.swift; sourceTree = "<group>"; };
-		8C373D551E14A622005712CD /* BoxItUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BoxItUp.storyboard; sourceTree = "<group>"; };
 		8C373D561E14A622005712CD /* BoxItUp.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BoxItUp.xml; sourceTree = "<group>"; };
 		8C373D571E14A622005712CD /* BoxItUpDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItUpDocument.swift; sourceTree = "<group>"; };
 		8C373D581E14A622005712CD /* BoxItUpGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItUpGame.swift; sourceTree = "<group>"; };
@@ -838,7 +784,6 @@
 		8C373D5F1E14A622005712CD /* BoxItUpObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItUpObject.swift; sourceTree = "<group>"; };
 		8C373D601E14A622005712CD /* BoxItUpOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItUpOptionsViewController.swift; sourceTree = "<group>"; };
 		8C5368831EA1DFCC0071D475 /* GridObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridObject.swift; sourceTree = "<group>"; };
-		8C5AE25D1EC372A8000F0949 /* MineShips.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MineShips.storyboard; sourceTree = "<group>"; };
 		8C5AE25E1EC372A8000F0949 /* MineShips.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MineShips.xml; sourceTree = "<group>"; };
 		8C5AE25F1EC372A8000F0949 /* MineShipsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineShipsDocument.swift; sourceTree = "<group>"; };
 		8C5AE2601EC372A8000F0949 /* MineShipsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineShipsGame.swift; sourceTree = "<group>"; };
@@ -850,7 +795,6 @@
 		8C5AE2661EC372A8000F0949 /* MineShipsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineShipsMixin.swift; sourceTree = "<group>"; };
 		8C5AE2671EC372A8000F0949 /* MineShipsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineShipsObject.swift; sourceTree = "<group>"; };
 		8C5AE2681EC372A8000F0949 /* MineShipsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineShipsOptionsViewController.swift; sourceTree = "<group>"; };
-		8C5AE2771EC372D3000F0949 /* LightBattleShips.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LightBattleShips.storyboard; sourceTree = "<group>"; };
 		8C5AE2781EC372D3000F0949 /* LightBattleShips.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LightBattleShips.xml; sourceTree = "<group>"; };
 		8C5AE2791EC372D3000F0949 /* LightBattleShipsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightBattleShipsDocument.swift; sourceTree = "<group>"; };
 		8C5AE27A1EC372D3000F0949 /* LightBattleShipsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightBattleShipsGame.swift; sourceTree = "<group>"; };
@@ -875,14 +819,13 @@
 		8C6D37D21DC42FA40052202C /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		8C6D37D31DC42FA40052202C /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		8C6D37D41DC42FA40052202C /* GridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridNode.swift; sourceTree = "<group>"; };
-		8C6D37D61DC42FA40052202C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8C6D37D61DC42FA40052202C /* GameMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMainViewController.swift; sourceTree = "<group>"; };
 		8C6D37D71DC42FA40052202C /* GameMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMixin.swift; sourceTree = "<group>"; };
-		8C6D37D91DC42FA40052202C /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		8C6D37D91DC42FA40052202C /* GameOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOptionsViewController.swift; sourceTree = "<group>"; };
 		8C6D37E91DC59EE50052202C /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		8C6D37EC1DC5A2F50052202C /* Copyable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Copyable.swift; sourceTree = "<group>"; };
 		8C6D37F21DC5AC310052202C /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		8C6D37F41DC5AC520052202C /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
-		8C70164B1E90C25000210CE7 /* MiniLits.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MiniLits.storyboard; sourceTree = "<group>"; };
 		8C70164C1E90C25000210CE7 /* MiniLits.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MiniLits.xml; sourceTree = "<group>"; };
 		8C70164D1E90C25000210CE7 /* MiniLitsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsDocument.swift; sourceTree = "<group>"; };
 		8C70164E1E90C25000210CE7 /* MiniLitsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsGame.swift; sourceTree = "<group>"; };
@@ -894,7 +837,6 @@
 		8C7016541E90C25000210CE7 /* MiniLitsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsMixin.swift; sourceTree = "<group>"; };
 		8C7016551E90C25000210CE7 /* MiniLitsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsObject.swift; sourceTree = "<group>"; };
 		8C7016561E90C25000210CE7 /* MiniLitsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsOptionsViewController.swift; sourceTree = "<group>"; };
-		8C7016651E90C79E00210CE7 /* FenceLits.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FenceLits.storyboard; sourceTree = "<group>"; };
 		8C7016661E90C79E00210CE7 /* FenceLits.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FenceLits.xml; sourceTree = "<group>"; };
 		8C7016671E90C79E00210CE7 /* FenceLitsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsDocument.swift; sourceTree = "<group>"; };
 		8C7016681E90C79E00210CE7 /* FenceLitsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsGame.swift; sourceTree = "<group>"; };
@@ -906,7 +848,7 @@
 		8C70166E1E90C79E00210CE7 /* FenceLitsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsMixin.swift; sourceTree = "<group>"; };
 		8C70166F1E90C79E00210CE7 /* FenceLitsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsObject.swift; sourceTree = "<group>"; };
 		8C7016701E90C79E00210CE7 /* FenceLitsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsOptionsViewController.swift; sourceTree = "<group>"; };
-		8C81CB851E19546000FB244A /* BoxItAgain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BoxItAgain.storyboard; sourceTree = "<group>"; };
+		8C76090A1EC61A8A00DFCD7B /* Game.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		8C81CB861E19546000FB244A /* BoxItAgain.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BoxItAgain.xml; sourceTree = "<group>"; };
 		8C81CB871E19546000FB244A /* BoxItAgainDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainDocument.swift; sourceTree = "<group>"; };
 		8C81CB881E19546000FB244A /* BoxItAgainGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainGame.swift; sourceTree = "<group>"; };
@@ -918,7 +860,6 @@
 		8C81CB8E1E19546000FB244A /* BoxItAgainMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainMixin.swift; sourceTree = "<group>"; };
 		8C81CB8F1E19546000FB244A /* BoxItAgainObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainObject.swift; sourceTree = "<group>"; };
 		8C81CB901E19546000FB244A /* BoxItAgainOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainOptionsViewController.swift; sourceTree = "<group>"; };
-		8C81CB921E19546000FB244A /* FenceItUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FenceItUp.storyboard; sourceTree = "<group>"; };
 		8C81CB931E19546000FB244A /* FenceItUp.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FenceItUp.xml; sourceTree = "<group>"; };
 		8C81CB941E19546000FB244A /* FenceItUpDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceItUpDocument.swift; sourceTree = "<group>"; };
 		8C81CB951E19546000FB244A /* FenceItUpGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceItUpGame.swift; sourceTree = "<group>"; };
@@ -963,7 +904,6 @@
 		8C916CC31DAA5FEB00D9E62B /* music.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music.wav; sourceTree = "<group>"; };
 		8C916CC51DAB1E6000D9E62B /* tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tap.wav; sourceTree = "<group>"; };
 		8C916CCD1DAB35FC00D9E62B /* solved.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = solved.wav; sourceTree = "<group>"; };
-		8C9AF3F41DE974BE0053BED4 /* Abc.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Abc.storyboard; sourceTree = "<group>"; };
 		8C9AF3F51DE974BE0053BED4 /* Abc.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Abc.xml; sourceTree = "<group>"; };
 		8C9AF3F61DE974BE0053BED4 /* AbcDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcDocument.swift; sourceTree = "<group>"; };
 		8C9AF3F71DE974BE0053BED4 /* AbcGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcGame.swift; sourceTree = "<group>"; };
@@ -975,7 +915,6 @@
 		8C9AF3FD1DE974BE0053BED4 /* AbcMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcMixin.swift; sourceTree = "<group>"; };
 		8C9AF3FE1DE974BE0053BED4 /* AbcObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcObject.swift; sourceTree = "<group>"; };
 		8C9AF3FF1DE974BE0053BED4 /* AbcOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcOptionsViewController.swift; sourceTree = "<group>"; };
-		8C9AF4011DE974BE0053BED4 /* Bridges.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Bridges.storyboard; sourceTree = "<group>"; };
 		8C9AF4021DE974BE0053BED4 /* Bridges.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Bridges.xml; sourceTree = "<group>"; };
 		8C9AF4031DE974BE0053BED4 /* BridgesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesDocument.swift; sourceTree = "<group>"; };
 		8C9AF4041DE974BE0053BED4 /* BridgesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesGame.swift; sourceTree = "<group>"; };
@@ -987,7 +926,6 @@
 		8C9AF40A1DE974BE0053BED4 /* BridgesMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesMixin.swift; sourceTree = "<group>"; };
 		8C9AF40B1DE974BE0053BED4 /* BridgesObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesObject.swift; sourceTree = "<group>"; };
 		8C9AF40C1DE974BE0053BED4 /* BridgesOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesOptionsViewController.swift; sourceTree = "<group>"; };
-		8C9AF40E1DE974BE0053BED4 /* Clouds.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Clouds.storyboard; sourceTree = "<group>"; };
 		8C9AF40F1DE974BE0053BED4 /* Clouds.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Clouds.xml; sourceTree = "<group>"; };
 		8C9AF4101DE974BE0053BED4 /* CloudsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsDocument.swift; sourceTree = "<group>"; };
 		8C9AF4111DE974BE0053BED4 /* CloudsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsGame.swift; sourceTree = "<group>"; };
@@ -999,7 +937,6 @@
 		8C9AF4171DE974BE0053BED4 /* CloudsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsMixin.swift; sourceTree = "<group>"; };
 		8C9AF4181DE974BE0053BED4 /* CloudsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsObject.swift; sourceTree = "<group>"; };
 		8C9AF4191DE974BE0053BED4 /* CloudsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsOptionsViewController.swift; sourceTree = "<group>"; };
-		8C9AF41B1DE974BE0053BED4 /* Hitori.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Hitori.storyboard; sourceTree = "<group>"; };
 		8C9AF41C1DE974BE0053BED4 /* Hitori.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Hitori.xml; sourceTree = "<group>"; };
 		8C9AF41D1DE974BE0053BED4 /* HitoriDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriDocument.swift; sourceTree = "<group>"; };
 		8C9AF41E1DE974BE0053BED4 /* HitoriGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriGame.swift; sourceTree = "<group>"; };
@@ -1011,7 +948,6 @@
 		8C9AF4241DE974BF0053BED4 /* HitoriMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriMixin.swift; sourceTree = "<group>"; };
 		8C9AF4251DE974BF0053BED4 /* HitoriObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriObject.swift; sourceTree = "<group>"; };
 		8C9AF4261DE974BF0053BED4 /* HitoriOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriOptionsViewController.swift; sourceTree = "<group>"; };
-		8C9AF4281DE974BF0053BED4 /* LightenUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LightenUp.storyboard; sourceTree = "<group>"; };
 		8C9AF4291DE974BF0053BED4 /* LightenUp.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LightenUp.xml; sourceTree = "<group>"; };
 		8C9AF42A1DE974BF0053BED4 /* LightenUpDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightenUpDocument.swift; sourceTree = "<group>"; };
 		8C9AF42B1DE974BF0053BED4 /* LightenUpGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightenUpGame.swift; sourceTree = "<group>"; };
@@ -1023,7 +959,6 @@
 		8C9AF4311DE974BF0053BED4 /* LightenUpMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightenUpMixin.swift; sourceTree = "<group>"; };
 		8C9AF4321DE974BF0053BED4 /* LightenUpObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightenUpObject.swift; sourceTree = "<group>"; };
 		8C9AF4331DE974BF0053BED4 /* LightenUpOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightenUpOptionsViewController.swift; sourceTree = "<group>"; };
-		8C9AF4351DE974BF0053BED4 /* LineSweeper.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LineSweeper.storyboard; sourceTree = "<group>"; };
 		8C9AF4361DE974BF0053BED4 /* LineSweeper.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LineSweeper.xml; sourceTree = "<group>"; };
 		8C9AF4371DE974BF0053BED4 /* LineSweeperDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperDocument.swift; sourceTree = "<group>"; };
 		8C9AF4381DE974BF0053BED4 /* LineSweeperGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperGame.swift; sourceTree = "<group>"; };
@@ -1035,7 +970,6 @@
 		8C9AF43E1DE974BF0053BED4 /* LineSweeperMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperMixin.swift; sourceTree = "<group>"; };
 		8C9AF43F1DE974BF0053BED4 /* LineSweeperObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperObject.swift; sourceTree = "<group>"; };
 		8C9AF4401DE974BF0053BED4 /* LineSweeperOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperOptionsViewController.swift; sourceTree = "<group>"; };
-		8C9AF4421DE974BF0053BED4 /* Masyu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Masyu.storyboard; sourceTree = "<group>"; };
 		8C9AF4431DE974BF0053BED4 /* Masyu.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Masyu.xml; sourceTree = "<group>"; };
 		8C9AF4441DE974BF0053BED4 /* MasyuDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasyuDocument.swift; sourceTree = "<group>"; };
 		8C9AF4451DE974BF0053BED4 /* MasyuGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasyuGame.swift; sourceTree = "<group>"; };
@@ -1047,7 +981,6 @@
 		8C9AF44B1DE974BF0053BED4 /* MasyuMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasyuMixin.swift; sourceTree = "<group>"; };
 		8C9AF44C1DE974BF0053BED4 /* MasyuObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasyuObject.swift; sourceTree = "<group>"; };
 		8C9AF44D1DE974BF0053BED4 /* MasyuOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasyuOptionsViewController.swift; sourceTree = "<group>"; };
-		8C9AF44F1DE974BF0053BED4 /* Nurikabe.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Nurikabe.storyboard; sourceTree = "<group>"; };
 		8C9AF4501DE974BF0053BED4 /* Nurikabe.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Nurikabe.xml; sourceTree = "<group>"; };
 		8C9AF4511DE974BF0053BED4 /* NurikabeDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeDocument.swift; sourceTree = "<group>"; };
 		8C9AF4521DE974BF0053BED4 /* NurikabeGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeGame.swift; sourceTree = "<group>"; };
@@ -1059,7 +992,6 @@
 		8C9AF4581DE974BF0053BED4 /* NurikabeMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeMixin.swift; sourceTree = "<group>"; };
 		8C9AF4591DE974BF0053BED4 /* NurikabeObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeObject.swift; sourceTree = "<group>"; };
 		8C9AF45A1DE974BF0053BED4 /* NurikabeOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeOptionsViewController.swift; sourceTree = "<group>"; };
-		8C9AF45C1DE974BF0053BED4 /* Skyscrapers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Skyscrapers.storyboard; sourceTree = "<group>"; };
 		8C9AF45D1DE974BF0053BED4 /* Skyscrapers.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Skyscrapers.xml; sourceTree = "<group>"; };
 		8C9AF45E1DE974BF0053BED4 /* SkyscrapersDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersDocument.swift; sourceTree = "<group>"; };
 		8C9AF45F1DE974BF0053BED4 /* SkyscrapersGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersGame.swift; sourceTree = "<group>"; };
@@ -1071,7 +1003,6 @@
 		8C9AF4651DE974BF0053BED4 /* SkyscrapersMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersMixin.swift; sourceTree = "<group>"; };
 		8C9AF4661DE974BF0053BED4 /* SkyscrapersObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersObject.swift; sourceTree = "<group>"; };
 		8C9AF4671DE974BF0053BED4 /* SkyscrapersOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersOptionsViewController.swift; sourceTree = "<group>"; };
-		8C9AF4691DE974BF0053BED4 /* SlitherLink.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SlitherLink.storyboard; sourceTree = "<group>"; };
 		8C9AF46A1DE974BF0053BED4 /* SlitherLink.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SlitherLink.xml; sourceTree = "<group>"; };
 		8C9AF46B1DE974BF0053BED4 /* SlitherLinkDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkDocument.swift; sourceTree = "<group>"; };
 		8C9AF46C1DE974BF0053BED4 /* SlitherLinkGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGame.swift; sourceTree = "<group>"; };
@@ -1083,7 +1014,6 @@
 		8C9AF4721DE974BF0053BED4 /* SlitherLinkMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkMixin.swift; sourceTree = "<group>"; };
 		8C9AF4731DE974BF0053BED4 /* SlitherLinkObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkObject.swift; sourceTree = "<group>"; };
 		8C9AF4741DE974BF0053BED4 /* SlitherLinkOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkOptionsViewController.swift; sourceTree = "<group>"; };
-		8C9AF4761DE974BF0053BED4 /* Sumscrapers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sumscrapers.storyboard; sourceTree = "<group>"; };
 		8C9AF4771DE974BF0053BED4 /* Sumscrapers.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Sumscrapers.xml; sourceTree = "<group>"; };
 		8C9AF4781DE974BF0053BED4 /* SumscrapersDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumscrapersDocument.swift; sourceTree = "<group>"; };
 		8C9AF4791DE974BF0053BED4 /* SumscrapersGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumscrapersGame.swift; sourceTree = "<group>"; };
@@ -1095,7 +1025,6 @@
 		8C9AF47F1DE974BF0053BED4 /* SumscrapersMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumscrapersMixin.swift; sourceTree = "<group>"; };
 		8C9AF4801DE974BF0053BED4 /* SumscrapersObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumscrapersObject.swift; sourceTree = "<group>"; };
 		8C9AF4811DE974BF0053BED4 /* SumscrapersOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumscrapersOptionsViewController.swift; sourceTree = "<group>"; };
-		8C9AF5071DE975030053BED4 /* Loopy.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Loopy.storyboard; sourceTree = "<group>"; };
 		8C9AF5081DE975030053BED4 /* Loopy.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Loopy.xml; sourceTree = "<group>"; };
 		8C9AF5091DE975030053BED4 /* LoopyDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopyDocument.swift; sourceTree = "<group>"; };
 		8C9AF50A1DE975030053BED4 /* LoopyGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopyGame.swift; sourceTree = "<group>"; };
@@ -1107,7 +1036,6 @@
 		8C9AF5101DE975030053BED4 /* LoopyMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopyMixin.swift; sourceTree = "<group>"; };
 		8C9AF5111DE975030053BED4 /* LoopyObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopyObject.swift; sourceTree = "<group>"; };
 		8C9AF5121DE975030053BED4 /* LoopyOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopyOptionsViewController.swift; sourceTree = "<group>"; };
-		8C9AF5391DF471AA0053BED4 /* Mosaik.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mosaik.storyboard; sourceTree = "<group>"; };
 		8C9AF53A1DF471AA0053BED4 /* Mosaik.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Mosaik.xml; sourceTree = "<group>"; };
 		8C9AF53B1DF471AA0053BED4 /* MosaikDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaikDocument.swift; sourceTree = "<group>"; };
 		8C9AF53C1DF471AA0053BED4 /* MosaikGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaikGame.swift; sourceTree = "<group>"; };
@@ -1119,7 +1047,6 @@
 		8C9AF5421DF471AA0053BED4 /* MosaikMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaikMixin.swift; sourceTree = "<group>"; };
 		8C9AF5431DF471AA0053BED4 /* MosaikObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaikObject.swift; sourceTree = "<group>"; };
 		8C9AF5441DF471AA0053BED4 /* MosaikOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaikOptionsViewController.swift; sourceTree = "<group>"; };
-		8C9AF5531DF8D7770053BED4 /* Magnets.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Magnets.storyboard; sourceTree = "<group>"; };
 		8C9AF5541DF8D7770053BED4 /* Magnets.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Magnets.xml; sourceTree = "<group>"; };
 		8C9AF5551DF8D7770053BED4 /* MagnetsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnetsDocument.swift; sourceTree = "<group>"; };
 		8C9AF5561DF8D7770053BED4 /* MagnetsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnetsGame.swift; sourceTree = "<group>"; };
@@ -1131,7 +1058,6 @@
 		8C9AF55C1DF8D7770053BED4 /* MagnetsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnetsMixin.swift; sourceTree = "<group>"; };
 		8C9AF55D1DF8D7770053BED4 /* MagnetsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnetsObject.swift; sourceTree = "<group>"; };
 		8C9AF55E1DF8D7770053BED4 /* MagnetsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnetsOptionsViewController.swift; sourceTree = "<group>"; };
-		8C9AF56D1DF8D84B0053BED4 /* Rooms.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Rooms.storyboard; sourceTree = "<group>"; };
 		8C9AF56E1DF8D84B0053BED4 /* Rooms.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Rooms.xml; sourceTree = "<group>"; };
 		8C9AF56F1DF8D84B0053BED4 /* RoomsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsDocument.swift; sourceTree = "<group>"; };
 		8C9AF5701DF8D84B0053BED4 /* RoomsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsGame.swift; sourceTree = "<group>"; };
@@ -1143,7 +1069,6 @@
 		8C9AF5761DF8D84B0053BED4 /* RoomsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsMixin.swift; sourceTree = "<group>"; };
 		8C9AF5771DF8D84B0053BED4 /* RoomsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsObject.swift; sourceTree = "<group>"; };
 		8C9AF5781DF8D84B0053BED4 /* RoomsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsOptionsViewController.swift; sourceTree = "<group>"; };
-		8C9BE9EF1E9137F000A13A98 /* Pairakabe.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Pairakabe.storyboard; sourceTree = "<group>"; };
 		8C9BE9F01E9137F000A13A98 /* Pairakabe.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Pairakabe.xml; sourceTree = "<group>"; };
 		8C9BE9F11E9137F000A13A98 /* PairakabeDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeDocument.swift; sourceTree = "<group>"; };
 		8C9BE9F21E9137F000A13A98 /* PairakabeGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeGame.swift; sourceTree = "<group>"; };
@@ -1155,7 +1080,6 @@
 		8C9BE9F81E9137F000A13A98 /* PairakabeMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeMixin.swift; sourceTree = "<group>"; };
 		8C9BE9F91E9137F000A13A98 /* PairakabeObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeObject.swift; sourceTree = "<group>"; };
 		8C9BE9FA1E9137F000A13A98 /* PairakabeOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeOptionsViewController.swift; sourceTree = "<group>"; };
-		8C9BEA091E91452B00A13A98 /* Tatami.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tatami.storyboard; sourceTree = "<group>"; };
 		8C9BEA0A1E91452B00A13A98 /* Tatami.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tatami.xml; sourceTree = "<group>"; };
 		8C9BEA0B1E91452B00A13A98 /* TatamiDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TatamiDocument.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8C9BEA0C1E91452B00A13A98 /* TatamiGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TatamiGame.swift; sourceTree = "<group>"; };
@@ -1178,7 +1102,6 @@
 		8C9F43F81D771915000139FC /* LogicPuzzlesSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogicPuzzlesSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9F43FC1D771915000139FC /* LogicPuzzlesSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicPuzzlesSwiftUITests.swift; sourceTree = "<group>"; };
 		8C9F43FE1D771915000139FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8CB29ABE1E8F716C001D07C6 /* Minesweeper.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Minesweeper.storyboard; sourceTree = "<group>"; };
 		8CB29ABF1E8F716C001D07C6 /* Minesweeper.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Minesweeper.xml; sourceTree = "<group>"; };
 		8CB29AC01E8F716C001D07C6 /* MinesweeperDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperDocument.swift; sourceTree = "<group>"; };
 		8CB29AC11E8F716C001D07C6 /* MinesweeperGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperGame.swift; sourceTree = "<group>"; };
@@ -1190,7 +1113,6 @@
 		8CB29AC71E8F716C001D07C6 /* MinesweeperMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperMixin.swift; sourceTree = "<group>"; };
 		8CB29AC81E8F716C001D07C6 /* MinesweeperObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperObject.swift; sourceTree = "<group>"; };
 		8CB29AC91E8F716C001D07C6 /* MinesweeperOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperOptionsViewController.swift; sourceTree = "<group>"; };
-		8CB29AD81E8F795E001D07C6 /* Lits.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Lits.storyboard; sourceTree = "<group>"; };
 		8CB29AD91E8F795E001D07C6 /* Lits.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Lits.xml; sourceTree = "<group>"; };
 		8CB29ADA1E8F795E001D07C6 /* LitsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LitsDocument.swift; sourceTree = "<group>"; };
 		8CB29ADB1E8F795E001D07C6 /* LitsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LitsGame.swift; sourceTree = "<group>"; };
@@ -1202,7 +1124,6 @@
 		8CB29AE11E8F795E001D07C6 /* LitsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LitsMixin.swift; sourceTree = "<group>"; };
 		8CB29AE21E8F795E001D07C6 /* LitsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LitsObject.swift; sourceTree = "<group>"; };
 		8CB29AE31E8F795E001D07C6 /* LitsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LitsOptionsViewController.swift; sourceTree = "<group>"; };
-		8CB29AF11E8F7AF6001D07C6 /* Orchards.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Orchards.storyboard; sourceTree = "<group>"; };
 		8CB29AF21E8F7AF6001D07C6 /* Orchards.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Orchards.xml; sourceTree = "<group>"; };
 		8CB29AF31E8F7AF6001D07C6 /* OrchardsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrchardsDocument.swift; sourceTree = "<group>"; };
 		8CB29AF41E8F7AF6001D07C6 /* OrchardsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrchardsGame.swift; sourceTree = "<group>"; };
@@ -1214,7 +1135,6 @@
 		8CB29AFA1E8F7AF6001D07C6 /* OrchardsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrchardsMixin.swift; sourceTree = "<group>"; };
 		8CB29AFB1E8F7AF6001D07C6 /* OrchardsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrchardsObject.swift; sourceTree = "<group>"; };
 		8CB29AFC1E8F7AF6001D07C6 /* OrchardsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrchardsOptionsViewController.swift; sourceTree = "<group>"; };
-		8CB29B0A1E8F7DE1001D07C6 /* FenceSentinels.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FenceSentinels.storyboard; sourceTree = "<group>"; };
 		8CB29B0B1E8F7DE1001D07C6 /* FenceSentinels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FenceSentinels.xml; sourceTree = "<group>"; };
 		8CB29B0C1E8F7DE1001D07C6 /* FenceSentinelsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceSentinelsDocument.swift; sourceTree = "<group>"; };
 		8CB29B0D1E8F7DE1001D07C6 /* FenceSentinelsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceSentinelsGame.swift; sourceTree = "<group>"; };
@@ -1276,7 +1196,6 @@
 		8CC3502E1E001D2800B8FD83 /* UIWindowExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindowExtensions.swift; sourceTree = "<group>"; };
 		8CC3502F1E001D2800B8FD83 /* URLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
 		8CC350301E001D2800B8FD83 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
-		8CC3CD101E32DEE40056B78F /* Snail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Snail.storyboard; sourceTree = "<group>"; };
 		8CC3CD111E32DEE40056B78F /* Snail.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Snail.xml; sourceTree = "<group>"; };
 		8CC3CD121E32DEE40056B78F /* SnailDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailDocument.swift; sourceTree = "<group>"; };
 		8CC3CD131E32DEE40056B78F /* SnailGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailGame.swift; sourceTree = "<group>"; };
@@ -1288,7 +1207,6 @@
 		8CC3CD191E32DEE40056B78F /* SnailMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailMixin.swift; sourceTree = "<group>"; };
 		8CC3CD1A1E32DEE40056B78F /* SnailObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailObject.swift; sourceTree = "<group>"; };
 		8CC3CD1B1E32DEE40056B78F /* SnailOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailOptionsViewController.swift; sourceTree = "<group>"; };
-		8CCF10A71E8E097100422284 /* BusySeas.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BusySeas.storyboard; sourceTree = "<group>"; };
 		8CCF10A81E8E097100422284 /* BusySeas.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BusySeas.xml; sourceTree = "<group>"; };
 		8CCF10A91E8E097100422284 /* BusySeasDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusySeasDocument.swift; sourceTree = "<group>"; };
 		8CCF10AA1E8E097100422284 /* BusySeasGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusySeasGame.swift; sourceTree = "<group>"; };
@@ -1300,7 +1218,6 @@
 		8CCF10B01E8E097100422284 /* BusySeasMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusySeasMixin.swift; sourceTree = "<group>"; };
 		8CCF10B11E8E097100422284 /* BusySeasObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusySeasObject.swift; sourceTree = "<group>"; };
 		8CCF10B21E8E097100422284 /* BusySeasOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusySeasOptionsViewController.swift; sourceTree = "<group>"; };
-		8CCF10C11E8E097C00422284 /* Lighthouses.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Lighthouses.storyboard; sourceTree = "<group>"; };
 		8CCF10C21E8E097C00422284 /* Lighthouses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Lighthouses.xml; sourceTree = "<group>"; };
 		8CCF10C31E8E097C00422284 /* LighthousesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesDocument.swift; sourceTree = "<group>"; };
 		8CCF10C41E8E097C00422284 /* LighthousesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesGame.swift; sourceTree = "<group>"; };
@@ -1312,7 +1229,6 @@
 		8CCF10CA1E8E097C00422284 /* LighthousesMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesMixin.swift; sourceTree = "<group>"; };
 		8CCF10CB1E8E097C00422284 /* LighthousesObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesObject.swift; sourceTree = "<group>"; };
 		8CCF10CC1E8E097C00422284 /* LighthousesOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesOptionsViewController.swift; sourceTree = "<group>"; };
-		8CCF10DA1E8F5D9900422284 /* Domino.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Domino.storyboard; sourceTree = "<group>"; };
 		8CCF10DB1E8F5D9900422284 /* Domino.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Domino.xml; sourceTree = "<group>"; };
 		8CCF10DC1E8F5D9900422284 /* DominoDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominoDocument.swift; sourceTree = "<group>"; };
 		8CCF10DD1E8F5D9900422284 /* DominoGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominoGame.swift; sourceTree = "<group>"; };
@@ -1357,7 +1273,6 @@
 		84FBA5161DFF7F3600594DAE /* BattleShips */ = {
 			isa = PBXGroup;
 			children = (
-				84FBA5171DFF7F3600594DAE /* BattleShips.storyboard */,
 				84FBA5181DFF7F3600594DAE /* BattleShips.xml */,
 				84FBA5191DFF7F3600594DAE /* BattleShipsDocument.swift */,
 				84FBA51A1DFF7F3600594DAE /* BattleShipsGame.swift */,
@@ -1376,7 +1291,6 @@
 		84FBA5301DFF7F4500594DAE /* Parks */ = {
 			isa = PBXGroup;
 			children = (
-				84FBA5311DFF7F4500594DAE /* Parks.storyboard */,
 				84FBA5321DFF7F4500594DAE /* Parks.xml */,
 				84FBA5331DFF7F4500594DAE /* ParksDocument.swift */,
 				84FBA5341DFF7F4500594DAE /* ParksGame.swift */,
@@ -1395,7 +1309,6 @@
 		84FBA5491DFF7F4F00594DAE /* Tents */ = {
 			isa = PBXGroup;
 			children = (
-				84FBA54A1DFF7F4F00594DAE /* Tents.storyboard */,
 				84FBA54B1DFF7F4F00594DAE /* Tents.xml */,
 				84FBA54C1DFF7F4F00594DAE /* TentsDocument.swift */,
 				84FBA54D1DFF7F4F00594DAE /* TentsGame.swift */,
@@ -1414,7 +1327,6 @@
 		8C10B7761E87B6870049C44B /* Neighbours */ = {
 			isa = PBXGroup;
 			children = (
-				8C10B7771E87B6870049C44B /* Neighbours.storyboard */,
 				8C10B7781E87B6870049C44B /* Neighbours.xml */,
 				8C10B7791E87B6870049C44B /* NeighboursDocument.swift */,
 				8C10B77A1E87B6870049C44B /* NeighboursGame.swift */,
@@ -1433,7 +1345,6 @@
 		8C10B7911E8A98C30049C44B /* Sentinels */ = {
 			isa = PBXGroup;
 			children = (
-				8C10B7921E8A98C30049C44B /* Sentinels.storyboard */,
 				8C10B7931E8A98C30049C44B /* Sentinels.xml */,
 				8C10B7941E8A98C30049C44B /* SentinelsDocument.swift */,
 				8C10B7951E8A98C30049C44B /* SentinelsGame.swift */,
@@ -1452,7 +1363,6 @@
 		8C10B7AB1E8AB2670049C44B /* ProductSentinels */ = {
 			isa = PBXGroup;
 			children = (
-				8C10B7AC1E8AB2670049C44B /* ProductSentinels.storyboard */,
 				8C10B7AD1E8AB2670049C44B /* ProductSentinels.xml */,
 				8C10B7AE1E8AB2670049C44B /* ProductSentinelsDocument.swift */,
 				8C10B7AF1E8AB2670049C44B /* ProductSentinelsGame.swift */,
@@ -1471,7 +1381,6 @@
 		8C10B7C41E8CDABA0049C44B /* BootyIsland */ = {
 			isa = PBXGroup;
 			children = (
-				8C10B7C51E8CDABA0049C44B /* BootyIsland.storyboard */,
 				8C10B7C61E8CDABA0049C44B /* BootyIsland.xml */,
 				8C10B7C71E8CDABA0049C44B /* BootyIslandDocument.swift */,
 				8C10B7C81E8CDABA0049C44B /* BootyIslandGame.swift */,
@@ -1490,7 +1399,6 @@
 		8C10B7DD1E8D7DC40049C44B /* PowerGrid */ = {
 			isa = PBXGroup;
 			children = (
-				8C10B7DE1E8D7DC40049C44B /* PowerGrid.storyboard */,
 				8C10B7DF1E8D7DC40049C44B /* PowerGrid.xml */,
 				8C10B7E01E8D7DC40049C44B /* PowerGridDocument.swift */,
 				8C10B7E11E8D7DC40049C44B /* PowerGridGame.swift */,
@@ -1563,7 +1471,6 @@
 		8C262D0B1EC3ED1D00BCDBD2 /* DigitalBattleShips */ = {
 			isa = PBXGroup;
 			children = (
-				8C262D0C1EC3ED1D00BCDBD2 /* DigitalBattleShips.storyboard */,
 				8C262D0D1EC3ED1D00BCDBD2 /* DigitalBattleShips.xml */,
 				8C262D0E1EC3ED1D00BCDBD2 /* DigitalBattleShipsDocument.swift */,
 				8C262D0F1EC3ED1D00BCDBD2 /* DigitalBattleShipsGame.swift */,
@@ -1582,7 +1489,6 @@
 		8C262D251EC400CE00BCDBD2 /* AbstractPainting */ = {
 			isa = PBXGroup;
 			children = (
-				8C262D261EC400CE00BCDBD2 /* AbstractPainting.storyboard */,
 				8C262D271EC400CE00BCDBD2 /* AbstractPainting.xml */,
 				8C262D281EC400CE00BCDBD2 /* AbstractPaintingDocument.swift */,
 				8C262D291EC400CE00BCDBD2 /* AbstractPaintingGame.swift */,
@@ -1601,7 +1507,6 @@
 		8C373D471E14A621005712CD /* BoxItAround */ = {
 			isa = PBXGroup;
 			children = (
-				8C373D481E14A622005712CD /* BoxItAround.storyboard */,
 				8C373D491E14A622005712CD /* BoxItAround.xml */,
 				8C373D4A1E14A622005712CD /* BoxItAroundDocument.swift */,
 				8C373D4B1E14A622005712CD /* BoxItAroundGame.swift */,
@@ -1620,7 +1525,6 @@
 		8C373D541E14A622005712CD /* BoxItUp */ = {
 			isa = PBXGroup;
 			children = (
-				8C373D551E14A622005712CD /* BoxItUp.storyboard */,
 				8C373D561E14A622005712CD /* BoxItUp.xml */,
 				8C373D571E14A622005712CD /* BoxItUpDocument.swift */,
 				8C373D581E14A622005712CD /* BoxItUpGame.swift */,
@@ -1639,7 +1543,6 @@
 		8C5AE25C1EC372A8000F0949 /* MineShips */ = {
 			isa = PBXGroup;
 			children = (
-				8C5AE25D1EC372A8000F0949 /* MineShips.storyboard */,
 				8C5AE25E1EC372A8000F0949 /* MineShips.xml */,
 				8C5AE25F1EC372A8000F0949 /* MineShipsDocument.swift */,
 				8C5AE2601EC372A8000F0949 /* MineShipsGame.swift */,
@@ -1659,7 +1562,6 @@
 		8C5AE2761EC372D3000F0949 /* LightBattleShips */ = {
 			isa = PBXGroup;
 			children = (
-				8C5AE2771EC372D3000F0949 /* LightBattleShips.storyboard */,
 				8C5AE2781EC372D3000F0949 /* LightBattleShips.xml */,
 				8C5AE2791EC372D3000F0949 /* LightBattleShipsDocument.swift */,
 				8C5AE27A1EC372D3000F0949 /* LightBattleShipsGame.swift */,
@@ -1802,18 +1704,19 @@
 			children = (
 				8C6D37EC1DC5A2F50052202C /* Copyable.swift */,
 				8CD1558A1DD77C3400786F34 /* Extensions.swift */,
+				8C76090A1EC61A8A00DFCD7B /* Game.storyboard */,
 				8C6D37D01DC42FA40052202C /* Game.swift */,
 				8C6D37CF1DC42FA40052202C /* GameDocument.swift */,
+				8C6D37D61DC42FA40052202C /* GameMainViewController.swift */,
 				8C6D37D71DC42FA40052202C /* GameMixin.swift */,
 				8C6ACC181DD204420075F32C /* GameObject.swift */,
+				8C6D37D91DC42FA40052202C /* GameOptionsViewController.swift */,
 				8C6D37E91DC59EE50052202C /* GameScene.swift */,
 				8C6D37D21DC42FA40052202C /* GameState.swift */,
 				8C64A2EB1DE0891000AB6C09 /* GameTables.swift */,
 				8C6D37D31DC42FA40052202C /* GameViewController.swift */,
 				8C6D37D41DC42FA40052202C /* GridNode.swift */,
 				8C5368831EA1DFCC0071D475 /* GridObject.swift */,
-				8C6D37D61DC42FA40052202C /* MainViewController.swift */,
-				8C6D37D91DC42FA40052202C /* OptionsViewController.swift */,
 				8C6D37F41DC5AC520052202C /* Position.swift */,
 			);
 			path = Common;
@@ -1822,7 +1725,6 @@
 		8C70164A1E90C25000210CE7 /* MiniLits */ = {
 			isa = PBXGroup;
 			children = (
-				8C70164B1E90C25000210CE7 /* MiniLits.storyboard */,
 				8C70164C1E90C25000210CE7 /* MiniLits.xml */,
 				8C70164D1E90C25000210CE7 /* MiniLitsDocument.swift */,
 				8C70164E1E90C25000210CE7 /* MiniLitsGame.swift */,
@@ -1841,7 +1743,6 @@
 		8C7016641E90C79E00210CE7 /* FenceLits */ = {
 			isa = PBXGroup;
 			children = (
-				8C7016651E90C79E00210CE7 /* FenceLits.storyboard */,
 				8C7016661E90C79E00210CE7 /* FenceLits.xml */,
 				8C7016671E90C79E00210CE7 /* FenceLitsDocument.swift */,
 				8C7016681E90C79E00210CE7 /* FenceLitsGame.swift */,
@@ -1860,7 +1761,6 @@
 		8C81CB841E19546000FB244A /* BoxItAgain */ = {
 			isa = PBXGroup;
 			children = (
-				8C81CB851E19546000FB244A /* BoxItAgain.storyboard */,
 				8C81CB861E19546000FB244A /* BoxItAgain.xml */,
 				8C81CB871E19546000FB244A /* BoxItAgainDocument.swift */,
 				8C81CB881E19546000FB244A /* BoxItAgainGame.swift */,
@@ -1879,7 +1779,6 @@
 		8C81CB911E19546000FB244A /* FenceItUp */ = {
 			isa = PBXGroup;
 			children = (
-				8C81CB921E19546000FB244A /* FenceItUp.storyboard */,
 				8C81CB931E19546000FB244A /* FenceItUp.xml */,
 				8C81CB941E19546000FB244A /* FenceItUpDocument.swift */,
 				8C81CB951E19546000FB244A /* FenceItUpGame.swift */,
@@ -1961,7 +1860,6 @@
 		8C9AF3F31DE974BE0053BED4 /* Abc */ = {
 			isa = PBXGroup;
 			children = (
-				8C9AF3F41DE974BE0053BED4 /* Abc.storyboard */,
 				8C9AF3F51DE974BE0053BED4 /* Abc.xml */,
 				8C9AF3F61DE974BE0053BED4 /* AbcDocument.swift */,
 				8C9AF3F71DE974BE0053BED4 /* AbcGame.swift */,
@@ -1980,7 +1878,6 @@
 		8C9AF4001DE974BE0053BED4 /* Bridges */ = {
 			isa = PBXGroup;
 			children = (
-				8C9AF4011DE974BE0053BED4 /* Bridges.storyboard */,
 				8C9AF4021DE974BE0053BED4 /* Bridges.xml */,
 				8C9AF4031DE974BE0053BED4 /* BridgesDocument.swift */,
 				8C9AF4041DE974BE0053BED4 /* BridgesGame.swift */,
@@ -1999,7 +1896,6 @@
 		8C9AF40D1DE974BE0053BED4 /* Clouds */ = {
 			isa = PBXGroup;
 			children = (
-				8C9AF40E1DE974BE0053BED4 /* Clouds.storyboard */,
 				8C9AF40F1DE974BE0053BED4 /* Clouds.xml */,
 				8C9AF4101DE974BE0053BED4 /* CloudsDocument.swift */,
 				8C9AF4111DE974BE0053BED4 /* CloudsGame.swift */,
@@ -2018,7 +1914,6 @@
 		8C9AF41A1DE974BE0053BED4 /* Hitori */ = {
 			isa = PBXGroup;
 			children = (
-				8C9AF41B1DE974BE0053BED4 /* Hitori.storyboard */,
 				8C9AF41C1DE974BE0053BED4 /* Hitori.xml */,
 				8C9AF41D1DE974BE0053BED4 /* HitoriDocument.swift */,
 				8C9AF41E1DE974BE0053BED4 /* HitoriGame.swift */,
@@ -2037,7 +1932,6 @@
 		8C9AF4271DE974BF0053BED4 /* LightenUp */ = {
 			isa = PBXGroup;
 			children = (
-				8C9AF4281DE974BF0053BED4 /* LightenUp.storyboard */,
 				8C9AF4291DE974BF0053BED4 /* LightenUp.xml */,
 				8C9AF42A1DE974BF0053BED4 /* LightenUpDocument.swift */,
 				8C9AF42B1DE974BF0053BED4 /* LightenUpGame.swift */,
@@ -2056,7 +1950,6 @@
 		8C9AF4341DE974BF0053BED4 /* LineSweeper */ = {
 			isa = PBXGroup;
 			children = (
-				8C9AF4351DE974BF0053BED4 /* LineSweeper.storyboard */,
 				8C9AF4361DE974BF0053BED4 /* LineSweeper.xml */,
 				8C9AF4371DE974BF0053BED4 /* LineSweeperDocument.swift */,
 				8C9AF4381DE974BF0053BED4 /* LineSweeperGame.swift */,
@@ -2075,7 +1968,6 @@
 		8C9AF4411DE974BF0053BED4 /* Masyu */ = {
 			isa = PBXGroup;
 			children = (
-				8C9AF4421DE974BF0053BED4 /* Masyu.storyboard */,
 				8C9AF4431DE974BF0053BED4 /* Masyu.xml */,
 				8C9AF4441DE974BF0053BED4 /* MasyuDocument.swift */,
 				8C9AF4451DE974BF0053BED4 /* MasyuGame.swift */,
@@ -2094,7 +1986,6 @@
 		8C9AF44E1DE974BF0053BED4 /* Nurikabe */ = {
 			isa = PBXGroup;
 			children = (
-				8C9AF44F1DE974BF0053BED4 /* Nurikabe.storyboard */,
 				8C9AF4501DE974BF0053BED4 /* Nurikabe.xml */,
 				8C9AF4511DE974BF0053BED4 /* NurikabeDocument.swift */,
 				8C9AF4521DE974BF0053BED4 /* NurikabeGame.swift */,
@@ -2113,7 +2004,6 @@
 		8C9AF45B1DE974BF0053BED4 /* Skyscrapers */ = {
 			isa = PBXGroup;
 			children = (
-				8C9AF45C1DE974BF0053BED4 /* Skyscrapers.storyboard */,
 				8C9AF45D1DE974BF0053BED4 /* Skyscrapers.xml */,
 				8C9AF45E1DE974BF0053BED4 /* SkyscrapersDocument.swift */,
 				8C9AF45F1DE974BF0053BED4 /* SkyscrapersGame.swift */,
@@ -2132,7 +2022,6 @@
 		8C9AF4681DE974BF0053BED4 /* SlitherLink */ = {
 			isa = PBXGroup;
 			children = (
-				8C9AF4691DE974BF0053BED4 /* SlitherLink.storyboard */,
 				8C9AF46A1DE974BF0053BED4 /* SlitherLink.xml */,
 				8C9AF46B1DE974BF0053BED4 /* SlitherLinkDocument.swift */,
 				8C9AF46C1DE974BF0053BED4 /* SlitherLinkGame.swift */,
@@ -2151,7 +2040,6 @@
 		8C9AF4751DE974BF0053BED4 /* Sumscrapers */ = {
 			isa = PBXGroup;
 			children = (
-				8C9AF4761DE974BF0053BED4 /* Sumscrapers.storyboard */,
 				8C9AF4771DE974BF0053BED4 /* Sumscrapers.xml */,
 				8C9AF4781DE974BF0053BED4 /* SumscrapersDocument.swift */,
 				8C9AF4791DE974BF0053BED4 /* SumscrapersGame.swift */,
@@ -2170,7 +2058,6 @@
 		8C9AF5061DE975030053BED4 /* Loopy */ = {
 			isa = PBXGroup;
 			children = (
-				8C9AF5071DE975030053BED4 /* Loopy.storyboard */,
 				8C9AF5081DE975030053BED4 /* Loopy.xml */,
 				8C9AF5091DE975030053BED4 /* LoopyDocument.swift */,
 				8C9AF50A1DE975030053BED4 /* LoopyGame.swift */,
@@ -2190,7 +2077,6 @@
 		8C9AF5381DF471AA0053BED4 /* Mosaik */ = {
 			isa = PBXGroup;
 			children = (
-				8C9AF5391DF471AA0053BED4 /* Mosaik.storyboard */,
 				8C9AF53A1DF471AA0053BED4 /* Mosaik.xml */,
 				8C9AF53B1DF471AA0053BED4 /* MosaikDocument.swift */,
 				8C9AF53C1DF471AA0053BED4 /* MosaikGame.swift */,
@@ -2210,7 +2096,6 @@
 		8C9AF5521DF8D7770053BED4 /* Magnets */ = {
 			isa = PBXGroup;
 			children = (
-				8C9AF5531DF8D7770053BED4 /* Magnets.storyboard */,
 				8C9AF5541DF8D7770053BED4 /* Magnets.xml */,
 				8C9AF5551DF8D7770053BED4 /* MagnetsDocument.swift */,
 				8C9AF5561DF8D7770053BED4 /* MagnetsGame.swift */,
@@ -2229,7 +2114,6 @@
 		8C9AF56C1DF8D84B0053BED4 /* Rooms */ = {
 			isa = PBXGroup;
 			children = (
-				8C9AF56D1DF8D84B0053BED4 /* Rooms.storyboard */,
 				8C9AF56E1DF8D84B0053BED4 /* Rooms.xml */,
 				8C9AF56F1DF8D84B0053BED4 /* RoomsDocument.swift */,
 				8C9AF5701DF8D84B0053BED4 /* RoomsGame.swift */,
@@ -2249,7 +2133,6 @@
 		8C9BE9EE1E9137F000A13A98 /* Pairakabe */ = {
 			isa = PBXGroup;
 			children = (
-				8C9BE9EF1E9137F000A13A98 /* Pairakabe.storyboard */,
 				8C9BE9F01E9137F000A13A98 /* Pairakabe.xml */,
 				8C9BE9F11E9137F000A13A98 /* PairakabeDocument.swift */,
 				8C9BE9F21E9137F000A13A98 /* PairakabeGame.swift */,
@@ -2268,7 +2151,6 @@
 		8C9BEA081E91452B00A13A98 /* Tatami */ = {
 			isa = PBXGroup;
 			children = (
-				8C9BEA091E91452B00A13A98 /* Tatami.storyboard */,
 				8C9BEA0A1E91452B00A13A98 /* Tatami.xml */,
 				8C9BEA0B1E91452B00A13A98 /* TatamiDocument.swift */,
 				8C9BEA0C1E91452B00A13A98 /* TatamiGame.swift */,
@@ -2343,7 +2225,6 @@
 		8CB29ABD1E8F716C001D07C6 /* Minesweeper */ = {
 			isa = PBXGroup;
 			children = (
-				8CB29ABE1E8F716C001D07C6 /* Minesweeper.storyboard */,
 				8CB29ABF1E8F716C001D07C6 /* Minesweeper.xml */,
 				8CB29AC01E8F716C001D07C6 /* MinesweeperDocument.swift */,
 				8CB29AC11E8F716C001D07C6 /* MinesweeperGame.swift */,
@@ -2362,7 +2243,6 @@
 		8CB29AD71E8F795E001D07C6 /* Lits */ = {
 			isa = PBXGroup;
 			children = (
-				8CB29AD81E8F795E001D07C6 /* Lits.storyboard */,
 				8CB29AD91E8F795E001D07C6 /* Lits.xml */,
 				8CB29ADA1E8F795E001D07C6 /* LitsDocument.swift */,
 				8CB29ADB1E8F795E001D07C6 /* LitsGame.swift */,
@@ -2382,7 +2262,6 @@
 		8CB29AF01E8F7AF6001D07C6 /* Orchards */ = {
 			isa = PBXGroup;
 			children = (
-				8CB29AF11E8F7AF6001D07C6 /* Orchards.storyboard */,
 				8CB29AF21E8F7AF6001D07C6 /* Orchards.xml */,
 				8CB29AF31E8F7AF6001D07C6 /* OrchardsDocument.swift */,
 				8CB29AF41E8F7AF6001D07C6 /* OrchardsGame.swift */,
@@ -2401,7 +2280,6 @@
 		8CB29B091E8F7DE1001D07C6 /* FenceSentinels */ = {
 			isa = PBXGroup;
 			children = (
-				8CB29B0A1E8F7DE1001D07C6 /* FenceSentinels.storyboard */,
 				8CB29B0B1E8F7DE1001D07C6 /* FenceSentinels.xml */,
 				8CB29B0C1E8F7DE1001D07C6 /* FenceSentinelsDocument.swift */,
 				8CB29B0D1E8F7DE1001D07C6 /* FenceSentinelsGame.swift */,
@@ -2420,7 +2298,6 @@
 		8CC3CD0F1E32DEE40056B78F /* Snail */ = {
 			isa = PBXGroup;
 			children = (
-				8CC3CD101E32DEE40056B78F /* Snail.storyboard */,
 				8CC3CD111E32DEE40056B78F /* Snail.xml */,
 				8CC3CD121E32DEE40056B78F /* SnailDocument.swift */,
 				8CC3CD131E32DEE40056B78F /* SnailGame.swift */,
@@ -2439,7 +2316,6 @@
 		8CCF10A61E8E097100422284 /* BusySeas */ = {
 			isa = PBXGroup;
 			children = (
-				8CCF10A71E8E097100422284 /* BusySeas.storyboard */,
 				8CCF10A81E8E097100422284 /* BusySeas.xml */,
 				8CCF10A91E8E097100422284 /* BusySeasDocument.swift */,
 				8CCF10AA1E8E097100422284 /* BusySeasGame.swift */,
@@ -2458,7 +2334,6 @@
 		8CCF10C01E8E097C00422284 /* Lighthouses */ = {
 			isa = PBXGroup;
 			children = (
-				8CCF10C11E8E097C00422284 /* Lighthouses.storyboard */,
 				8CCF10C21E8E097C00422284 /* Lighthouses.xml */,
 				8CCF10C31E8E097C00422284 /* LighthousesDocument.swift */,
 				8CCF10C41E8E097C00422284 /* LighthousesGame.swift */,
@@ -2477,7 +2352,6 @@
 		8CCF10D91E8F5D9900422284 /* Domino */ = {
 			isa = PBXGroup;
 			children = (
-				8CCF10DA1E8F5D9900422284 /* Domino.storyboard */,
 				8CCF10DB1E8F5D9900422284 /* Domino.xml */,
 				8CCF10DC1E8F5D9900422284 /* DominoDocument.swift */,
 				8CCF10DD1E8F5D9900422284 /* DominoGame.swift */,
@@ -2622,20 +2496,14 @@
 				8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */,
 				8C373D441E0507F7005712CD /* tent.png in Resources */,
 				8CCF10E71E8F5D9900422284 /* Domino.xml in Resources */,
-				8CB29AE41E8F795E001D07C6 /* Lits.storyboard in Resources */,
 				8C10B7EB1E8D7DC50049C44B /* PowerGrid.xml in Resources */,
 				8C9AF48F1DE974BF0053BED4 /* Bridges.xml in Resources */,
-				8CC3CD1C1E32DEE40056B78F /* Snail.storyboard in Resources */,
 				8C9AF4E31DE974BF0053BED4 /* Skyscrapers.xml in Resources */,
-				8CCF10B31E8E097100422284 /* BusySeas.storyboard in Resources */,
-				8C9AF49A1DE974BF0053BED4 /* Clouds.storyboard in Resources */,
 				8C1D16B21DB8DE930056D407 /* TraversalTree.png in Resources */,
-				8C262D321EC400CE00BCDBD2 /* AbstractPainting.storyboard in Resources */,
 				8CC3CD1D1E32DEE40056B78F /* Snail.xml in Resources */,
 				8CB29ACB1E8F716C001D07C6 /* Minesweeper.xml in Resources */,
 				8C262D191EC3ED1D00BCDBD2 /* DigitalBattleShips.xml in Resources */,
 				8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */,
-				8C9AF5451DF471AA0053BED4 /* Mosaik.storyboard in Resources */,
 				8C9AF4BF1DE974BF0053BED4 /* LineSweeper.xml in Resources */,
 				8C373D621E14A622005712CD /* BoxItAround.xml in Resources */,
 				8C262D331EC400CE00BCDBD2 /* AbstractPainting.xml in Resources */,
@@ -2643,84 +2511,48 @@
 				8CCF10B41E8E097100422284 /* BusySeas.xml in Resources */,
 				8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */,
 				8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */,
-				8C10B79E1E8A98C30049C44B /* Sentinels.storyboard in Resources */,
 				8CCF10CE1E8E097C00422284 /* Lighthouses.xml in Resources */,
 				8C5AE26A1EC372A9000F0949 /* MineShips.xml in Resources */,
-				8C262D181EC3ED1D00BCDBD2 /* DigitalBattleShips.storyboard in Resources */,
 				84FBA5241DFF7F3600594DAE /* BattleShips.xml in Resources */,
 				84FBA53E1DFF7F4500594DAE /* Parks.xml in Resources */,
 				8C10B7B91E8AB2680049C44B /* ProductSentinels.xml in Resources */,
 				8C9AF4A71DE974BF0053BED4 /* Hitori.xml in Resources */,
-				8C9AF4BE1DE974BF0053BED4 /* LineSweeper.storyboard in Resources */,
-				8C9AF5791DF8D84B0053BED4 /* Rooms.storyboard in Resources */,
 				8C373D451E0507F7005712CD /* tree.png in Resources */,
-				8CCF10E61E8F5D9900422284 /* Domino.storyboard in Resources */,
 				8C1D16B11DB8DE930056D407 /* TraversalTree.graffle in Resources */,
-				8C9AF4D61DE974BF0053BED4 /* Nurikabe.storyboard in Resources */,
 				8C9AF49B1DE974BF0053BED4 /* Clouds.xml in Resources */,
 				8C7016721E90C79E00210CE7 /* FenceLits.xml in Resources */,
-				8C7016571E90C25000210CE7 /* MiniLits.storyboard in Resources */,
 				8C9AF4831DE974BF0053BED4 /* Abc.xml in Resources */,
 				8C9F43E41D771915000139FC /* Assets.xcassets in Resources */,
 				8CB29B171E8F7DE1001D07C6 /* FenceSentinels.xml in Resources */,
-				8C9AF4CA1DE974BF0053BED4 /* Masyu.storyboard in Resources */,
-				8C81CBAA1E19546000FB244A /* FenceItUp.storyboard in Resources */,
 				8C9AF4B31DE974BF0053BED4 /* LightenUp.xml in Resources */,
 				8C9AF4CB1DE974BF0053BED4 /* Masyu.xml in Resources */,
-				8C373D6D1E14A622005712CD /* BoxItUp.storyboard in Resources */,
-				8C9AF4A61DE974BF0053BED4 /* Hitori.storyboard in Resources */,
-				84FBA53D1DFF7F4500594DAE /* Parks.storyboard in Resources */,
 				8C9BEA161E91452B00A13A98 /* Tatami.xml in Resources */,
-				8CB29B161E8F7DE1001D07C6 /* FenceSentinels.storyboard in Resources */,
-				8CB29AFD1E8F7AF6001D07C6 /* Orchards.storyboard in Resources */,
-				8C10B7831E87B6870049C44B /* Neighbours.storyboard in Resources */,
-				8C10B7B81E8AB2680049C44B /* ProductSentinels.storyboard in Resources */,
 				8C81CB9F1E19546000FB244A /* BoxItAgain.xml in Resources */,
-				8C9AF4E21DE974BF0053BED4 /* Skyscrapers.storyboard in Resources */,
-				84FBA5231DFF7F3600594DAE /* BattleShips.storyboard in Resources */,
 				8C10B79F1E8A98C30049C44B /* Sentinels.xml in Resources */,
 				8C9AF5141DE975030053BED4 /* Loopy.xml in Resources */,
-				8CB29ACA1E8F716C001D07C6 /* Minesweeper.storyboard in Resources */,
-				8C81CB9E1E19546000FB244A /* BoxItAgain.storyboard in Resources */,
-				8C9AF5131DE975030053BED4 /* Loopy.storyboard in Resources */,
 				8C9AF4D71DE974BF0053BED4 /* Nurikabe.xml in Resources */,
-				8C9AF4EE1DE974BF0053BED4 /* SlitherLink.storyboard in Resources */,
-				8C9AF4821DE974BF0053BED4 /* Abc.storyboard in Resources */,
-				8C9AF4FA1DE974BF0053BED4 /* Sumscrapers.storyboard in Resources */,
 				8CC34F9C1DFD958A00B8FD83 /* negative.png in Resources */,
-				8C9AF48E1DE974BF0053BED4 /* Bridges.storyboard in Resources */,
 				8CC34F9D1DFD958A00B8FD83 /* positive.png in Resources */,
 				8C1D16B61DB8DE930056D407 /* Info.plist in Resources */,
 				8CB29AE51E8F795E001D07C6 /* Lits.xml in Resources */,
 				8CB29AFE1E8F7AF6001D07C6 /* Orchards.xml in Resources */,
-				8C7016711E90C79E00210CE7 /* FenceLits.storyboard in Resources */,
 				8C5AE2841EC372D3000F0949 /* LightBattleShips.xml in Resources */,
 				8C1D16B01DB8DE930056D407 /* AnimatedExample.psd in Resources */,
-				8C10B7EA1E8D7DC50049C44B /* PowerGrid.storyboard in Resources */,
 				8C9AF5601DF8D7770053BED4 /* Magnets.xml in Resources */,
-				8C5AE2831EC372D3000F0949 /* LightBattleShips.storyboard in Resources */,
-				8C9AF55F1DF8D7770053BED4 /* Magnets.storyboard in Resources */,
-				8CCF10CD1E8E097C00422284 /* Lighthouses.storyboard in Resources */,
 				8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */,
 				8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */,
-				8C373D611E14A622005712CD /* BoxItAround.storyboard in Resources */,
-				8C9BEA151E91452B00A13A98 /* Tatami.storyboard in Resources */,
 				8C9AF5461DF471AA0053BED4 /* Mosaik.xml in Resources */,
 				8C10B7D21E8CDABA0049C44B /* BootyIsland.xml in Resources */,
-				8C9AF4B21DE974BF0053BED4 /* LightenUp.storyboard in Resources */,
 				8C7016581E90C25000210CE7 /* MiniLits.xml in Resources */,
 				8C9AF4FB1DE974BF0053BED4 /* Sumscrapers.xml in Resources */,
+				8C76090B1EC61A8A00DFCD7B /* Game.storyboard in Resources */,
 				8C9AF57A1DF8D84B0053BED4 /* Rooms.xml in Resources */,
 				8C9BE9FC1E9137F000A13A98 /* Pairakabe.xml in Resources */,
 				8C81CBAB1E19546000FB244A /* FenceItUp.xml in Resources */,
-				84FBA5561DFF7F4F00594DAE /* Tents.storyboard in Resources */,
 				8C6D373F1DC421980052202C /* Home.storyboard in Resources */,
 				8C10B7841E87B6870049C44B /* Neighbours.xml in Resources */,
-				8C5AE2691EC372A9000F0949 /* MineShips.storyboard in Resources */,
-				8C10B7D11E8CDABA0049C44B /* BootyIsland.storyboard in Resources */,
 				8C373D6E1E14A622005712CD /* BoxItUp.xml in Resources */,
 				8C916CC41DAA5FEB00D9E62B /* music.wav in Resources */,
-				8C9BE9FB1E9137F000A13A98 /* Pairakabe.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2763,7 +2595,7 @@
 				8C6D373B1DC421180052202C /* HomeOptionsViewController.swift in Sources */,
 				8C9AF4AD1DE974BF0053BED4 /* HitoriGridNode.swift in Sources */,
 				8C9AF4DB1DE974BF0053BED4 /* NurikabeGameState.swift in Sources */,
-				8C6D37FA1DC5ACC90052202C /* OptionsViewController.swift in Sources */,
+				8C6D37FA1DC5ACC90052202C /* GameOptionsViewController.swift in Sources */,
 				8CCF10BA1E8E097100422284 /* BusySeasGridNode.swift in Sources */,
 				8CCF10D41E8E097C00422284 /* LighthousesGridNode.swift in Sources */,
 				84FBA5471DFF7F4500594DAE /* ParksObject.swift in Sources */,
@@ -3070,7 +2902,7 @@
 				8CCF10BC1E8E097100422284 /* BusySeasMixin.swift in Sources */,
 				8C9AF5691DF8D7770053BED4 /* MagnetsObject.swift in Sources */,
 				8C10B78A1E87B6870049C44B /* NeighboursGridNode.swift in Sources */,
-				8C6ACC1A1DD206AD0075F32C /* MainViewController.swift in Sources */,
+				8C6ACC1A1DD206AD0075F32C /* GameMainViewController.swift in Sources */,
 				8C5AE28A1EC372D3000F0949 /* LightBattleShipsGridNode.swift in Sources */,
 				8C9AF4AC1DE974BF0053BED4 /* HitoriGameViewController.swift in Sources */,
 				8C9AF5171DE975030053BED4 /* LoopyGameScene.swift in Sources */,

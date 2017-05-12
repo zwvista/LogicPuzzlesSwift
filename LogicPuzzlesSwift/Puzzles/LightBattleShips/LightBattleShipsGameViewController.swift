@@ -130,7 +130,7 @@ class LightBattleShipsGameViewController: GameViewController, GameDelegate, Ligh
         }
     }
     
-    @IBAction func backToMain(_ sender: AnyObject) {
+    override func backToMain(_ sender: AnyObject) {
         navigationController!.popViewController(animated: true)
     }
 
