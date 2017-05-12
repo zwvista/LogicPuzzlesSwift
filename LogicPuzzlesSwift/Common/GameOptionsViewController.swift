@@ -18,6 +18,7 @@ class GameOptionsViewController: UITableViewController {
     
     override var shouldAutorotate: Bool { return false}
     
+    // http://stackoverflow.com/questions/18979837/how-to-hide-ios-status-bar
     override func awakeFromNib() {
         object_setClass(self, NSClassFromString("LogicPuzzlesSwift.\(currentGameName)OptionsViewController").self)
     }

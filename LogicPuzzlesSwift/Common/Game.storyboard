@@ -223,6 +223,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="caV-EH-1Wo"/>
+                    <connections>
+                        <outlet property="lblGameTitle" destination="yGx-Ts-pBn" id="ivz-3Q-GtT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sG2-jb-JjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

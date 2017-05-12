@@ -16,9 +16,10 @@ class HomeDocument {
         return result.count == 0 ? HomeGameProgress() : (result[0] as! HomeGameProgress)
     }
     
-    func resumeGame(gameName: String) {
+    func resumeGame(gameName: String, gameTitle: String) {
         let rec = gameProgress
         rec.gameName = gameName
+        rec.gameTitle = gameTitle
         rec.commit()
     }
 

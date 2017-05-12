@@ -25,10 +25,6 @@ class DigitalBattleShipsGameViewController: GameViewController, GameDelegate, Di
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Configure the view.
-        skView = view as! SKView
-        skView.isMultipleTouchEnabled = false
-        
         // Create and configure the scene.
         scene = DigitalBattleShipsGameScene(size: skView.bounds.size)
         scene.scaleMode = .aspectFill
@@ -36,10 +32,6 @@ class DigitalBattleShipsGameViewController: GameViewController, GameDelegate, Di
         
         // Present the scene.
         skView.presentScene(scene)
-        
-        lblLevel.textColor = .white
-        lblMoves.textColor = .white
-        lblSolution.textColor = .white
         
         startGame()
     }

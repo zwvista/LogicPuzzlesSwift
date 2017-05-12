@@ -11,6 +11,7 @@ import SharkORM
 
 class HomeGameProgress: SRKObject {
     dynamic var gameName: String?
+    dynamic var gameTitle: String?
     dynamic var playMusic = true
     dynamic var playSound = true
     

@@ -16,8 +16,9 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)!
-        let gameName = cell.textLabel!.restorationIdentifier!
-        gameDocument.resumeGame(gameName: gameName)
+        currentGameName = cell.textLabel!.restorationIdentifier!
+        currentGameTitle = cell.textLabel!.text!
+        gameDocument.resumeGame(gameName: currentGameName, gameTitle: currentGameTitle)
         dismiss(animated: true, completion: {
             let vc = (UIApplication.shared.keyWindow!.rootViewController! as! UINavigationController).topViewController as! HomeMainViewController
             vc.resumeGame(vc)

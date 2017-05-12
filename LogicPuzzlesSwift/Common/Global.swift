@@ -9,3 +9,4 @@
 import Foundation
 
 var currentGameName = ""
+var currentGameTitle = ""

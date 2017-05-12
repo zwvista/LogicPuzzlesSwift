@@ -28,6 +28,7 @@ class HomeMainViewController: UIViewController, HomeMixin {
     
     @IBAction func resumeGame(_ sender: AnyObject) {
         currentGameName = gameDocument.gameProgress.gameName!
+        currentGameTitle = gameDocument.gameProgress.gameTitle!
         toResume = true
         // http://www.newventuresoftware.com/blog/organizing-xcode-projects-using-multiple-storyboards
         let storyboard = UIStoryboard(name: "Game", bundle: nil)

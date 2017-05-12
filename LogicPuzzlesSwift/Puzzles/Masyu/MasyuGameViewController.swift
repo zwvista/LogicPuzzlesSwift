@@ -26,10 +26,6 @@ class MasyuGameViewController: GameViewController, UIGestureRecognizerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Configure the view.
-        skView = view as! SKView
-        skView.isMultipleTouchEnabled = false
-        
         // Create and configure the scene.
         scene = MasyuGameScene(size: skView.bounds.size)
         scene.scaleMode = .aspectFill
@@ -37,10 +33,6 @@ class MasyuGameViewController: GameViewController, UIGestureRecognizerDelegate, 
         
         // Present the scene.
         skView.presentScene(scene)
-        
-        lblLevel.textColor = .white
-        lblMoves.textColor = .white
-        lblSolution.textColor = .white
        
         startGame()
     }

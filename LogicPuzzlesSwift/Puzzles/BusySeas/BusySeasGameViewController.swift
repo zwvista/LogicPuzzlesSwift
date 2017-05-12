@@ -25,10 +25,6 @@ class BusySeasGameViewController: GameViewController, GameDelegate, BusySeasMixi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Configure the view.
-        skView = view as! SKView
-        skView.isMultipleTouchEnabled = false
-        
         // Create and configure the scene.
         scene = BusySeasGameScene(size: skView.bounds.size)
         scene.scaleMode = .aspectFill
@@ -36,10 +32,6 @@ class BusySeasGameViewController: GameViewController, GameDelegate, BusySeasMixi
         
         // Present the scene.
         skView.presentScene(scene)
-        
-        lblLevel.textColor = .white
-        lblMoves.textColor = .white
-        lblSolution.textColor = .white
        
         startGame()
     }

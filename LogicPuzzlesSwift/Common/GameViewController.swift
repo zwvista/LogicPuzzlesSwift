@@ -39,6 +39,18 @@ class GameViewController: UIViewController {
         object_setClass(self, NSClassFromString("LogicPuzzlesSwift.\(currentGameName)GameViewController").self)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Configure the view.
+        skView = view as! SKView
+        skView.isMultipleTouchEnabled = false
+        
+        lblLevel.textColor = .white
+        lblMoves.textColor = .white
+        lblSolution.textColor = .white
+    }
+
     @IBAction func handleTap(_ sender: UITapGestureRecognizer) {
     }
     
