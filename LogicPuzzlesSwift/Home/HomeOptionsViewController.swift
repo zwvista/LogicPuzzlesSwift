@@ -20,14 +20,14 @@ class HomeOptionsViewController: UITableViewController, HomeMixin {
         swPlaySound.isOn = gameOptions.playSound
     }
     
-    @IBAction func playMusicChanged(_ sender: AnyObject) {
+    @IBAction func playMusicChanged(_ sender: Any) {
         let rec = gameOptions
         rec.playMusic = swPlayMusic.isOn
         rec.commit()
         soundManager.playOrPauseMusic()
     }
     
-    @IBAction func playSoundChanged(_ sender: AnyObject) {
+    @IBAction func playSoundChanged(_ sender: Any) {
         let rec = gameOptions
         rec.playSound = swPlaySound.isOn
         rec.commit()
@@ -43,7 +43,7 @@ class HomeOptionsViewController: UITableViewController, HomeMixin {
     
     override var shouldAutorotate: Bool { return false}
     
-    @IBAction func onDefault(_ sender: AnyObject) {
+    @IBAction func onDefault(_ sender: Any) {
         let alertController = UIAlertController(title: "Default Options", message: "Do you really want to reset the options?", preferredStyle: .alert)
         let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
         alertController.addAction(noAction)
@@ -60,7 +60,7 @@ class HomeOptionsViewController: UITableViewController, HomeMixin {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    @IBAction func onDone(_ sender: AnyObject) {
+    @IBAction func onDone(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     

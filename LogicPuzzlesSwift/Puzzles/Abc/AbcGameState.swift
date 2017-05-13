@@ -90,6 +90,22 @@ class AbcGameState: GridGameState, AbcMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 1/Abc
+
+        Summary
+        Fill the board with ABC
+
+        Description
+        1. The goal is to put the letter A B and C in the board.
+        2. Each letter appears once in every row and column.
+        3. The letters on the borders tell you what letter you see from there.
+        4. Since most puzzles can contain empty spaces, the hint on the board
+           doesn't always match the tile next to it.
+        5. Bigger puzzles can contain the letter 'D'. In these cases, the name
+           of the puzzle is 'Abcd'. Further on, you might also encounter 'E',
+           'F' etc.
+    */
     private func updateIsSolved() {
         isSolved = true
         var chars = [Character]()
@@ -102,16 +118,19 @@ class AbcGameState: GridGameState, AbcMixin {
                 if ch11 == " " && ch12 != " " {ch11 = ch12}
                 if ch21 == " " && ch22 != " " {ch21 = ch22}
                 guard ch12 != " " else {continue}
+                // 2. Each letter appears once in every row.
                 if chars.contains(ch12) {
                     isSolved = false
                 } else {
                     chars.append(ch12)
                 }
             }
+            // 3. The letters on the borders tell you what letter you see from there.
             let s1: HintState = ch11 == " " ? .normal : ch11 == h1 ? .complete : .error
             let s2: HintState = ch21 == " " ? .normal : ch21 == h2 ? .complete : .error
             row2state[r * 2] = s1; row2state[r * 2 + 1] = s2
             if s1 != .complete || s2 != .complete {isSolved = false}
+            // 2. Each letter appears once in every row.
             if chars.count != Int(game.chMax.asciiValue!) - Int(Character("A").asciiValue!) + 1 {isSolved = false}
         }
         for c in 1..<cols - 1 {
@@ -123,16 +142,19 @@ class AbcGameState: GridGameState, AbcMixin {
                 if ch11 == " " && ch12 != " " {ch11 = ch12}
                 if ch21 == " " && ch22 != " " {ch21 = ch22}
                 guard ch12 != " " else {continue}
+                // 2. Each letter appears once in every column.
                 if chars.contains(ch12) {
                     isSolved = false
                 } else {
                     chars.append(ch12)
                 }
             }
+            // 3. The letters on the borders tell you what letter you see from there.
             let s1: HintState = ch11 == " " ? .normal : ch11 == h1 ? .complete : .error
             let s2: HintState = ch21 == " " ? .normal : ch21 == h2 ? .complete : .error
             col2state[c * 2] = s1; col2state[c * 2 + 1] = s2
             if s1 != .complete || s2 != .complete {isSolved = false}
+            // 2. Each letter appears once in every row.
             if chars.count != Int(game.chMax.asciiValue!) - Int(Character("A").asciiValue!) + 1 {isSolved = false}
         }
     }

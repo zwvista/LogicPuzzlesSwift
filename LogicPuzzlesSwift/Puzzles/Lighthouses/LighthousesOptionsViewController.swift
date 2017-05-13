@@ -18,7 +18,7 @@ class LighthousesOptionsViewController: GameOptionsViewController, LighthousesMi
         swAllowedObjectsOnly.isOn = allowedObjectsOnly
     }
     
-    override func allowedObjectsOnlyChanged(_ sender: AnyObject) {
+    override func allowedObjectsOnlyChanged(_ sender: Any) {
         let rec = gameOptions
         setAllowedObjectsOnly(rec: rec, newValue: swAllowedObjectsOnly.isOn)
         rec.commit()

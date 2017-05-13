@@ -11,8 +11,9 @@ import SpriteKit
 
 class GameViewController: UIViewController {
     
-    @IBOutlet weak var lblSolved: UILabel!
     @IBOutlet weak var lblLevel: UILabel!
+    @IBOutlet weak var lblSolved: UILabel!
+    @IBOutlet weak var lblGameTitle: UILabel!
     @IBOutlet weak var lblMoves: UILabel!
     @IBOutlet weak var lblSolution: UILabel!
     @IBOutlet weak var btnSaveSolution: UIButton!
@@ -49,6 +50,8 @@ class GameViewController: UIViewController {
         lblLevel.textColor = .white
         lblMoves.textColor = .white
         lblSolution.textColor = .white
+        lblGameTitle.textColor = .white
+        lblGameTitle.text = currentGameTitle
     }
 
     @IBAction func handleTap(_ sender: UITapGestureRecognizer) {
@@ -57,13 +60,13 @@ class GameViewController: UIViewController {
     @IBAction func handlePan(_ sender: UIPanGestureRecognizer) {
     }
 
-    @IBAction func undoGame(_ sender: AnyObject) {
+    @IBAction func undoGame(_ sender: Any) {
     }
     
-    @IBAction func redoGame(_ sender: AnyObject) {
+    @IBAction func redoGame(_ sender: Any) {
     }
     
-    @IBAction func clearGame(_ sender: AnyObject) {
+    @IBAction func clearGame(_ sender: Any) {
     }
     
     @IBAction func saveSolution(_ sender: Any) {
@@ -75,7 +78,11 @@ class GameViewController: UIViewController {
     @IBAction func deleteSolution(_ sender: Any) {
     }
     
-    @IBAction func backToMain(_ sender: AnyObject) {
+    @IBAction func backToMain(_ sender: Any) {
+        navigationController!.popViewController(animated: true)
+    }
+    
+    @IBAction func showHelp(_ sender: Any) {
         navigationController!.popViewController(animated: true)
     }
     

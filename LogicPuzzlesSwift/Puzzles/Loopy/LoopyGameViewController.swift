@@ -112,15 +112,15 @@ class LoopyGameViewController: GameViewController, GameDelegate, LoopyMixin {
         updateSolutionUI()
     }
     
-    override func undoGame(_ sender: AnyObject) {
+    override func undoGame(_ sender: Any) {
         game.undo()
     }
     
-    override func redoGame(_ sender: AnyObject) {
+    override func redoGame(_ sender: Any) {
         game.redo()
     }
     
-    override func clearGame(_ sender: AnyObject) {
+    override func clearGame(_ sender: Any) {
         yesNoAction(title: "Clear", message: "Do you really want to reset the level?") { (action) in
             self.gameDocument.clearGame()
             self.startGame()

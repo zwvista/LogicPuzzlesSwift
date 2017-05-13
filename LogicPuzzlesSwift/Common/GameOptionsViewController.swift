@@ -27,10 +27,10 @@ class GameOptionsViewController: UITableViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func allowedObjectsOnlyChanged(_ sender: AnyObject) {
+    @IBAction func allowedObjectsOnlyChanged(_ sender: Any) {
     }
     
-    @IBAction func onDefault(_ sender: AnyObject) {
+    @IBAction func onDefault(_ sender: Any) {
         let alertController = UIAlertController(title: "Default Options", message: "Do you really want to reset the options?", preferredStyle: .alert)
         let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
         alertController.addAction(noAction)
@@ -41,7 +41,7 @@ class GameOptionsViewController: UITableViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    @IBAction func onDone(_ sender: AnyObject) {
+    @IBAction func onDone(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     

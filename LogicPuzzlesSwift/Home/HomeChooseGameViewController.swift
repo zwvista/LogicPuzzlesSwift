@@ -25,7 +25,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         })
     }
     
-    @IBAction func onCancel(_ sender: AnyObject) {
+    @IBAction func onCancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     

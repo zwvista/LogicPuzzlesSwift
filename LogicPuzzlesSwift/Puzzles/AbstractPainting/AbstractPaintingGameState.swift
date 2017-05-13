@@ -86,6 +86,17 @@ class AbstractPaintingGameState: GridGameState, AbstractPaintingMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 16/Abstract Painting
+
+        Summary
+        Abstract Logic
+
+        Description
+        1. The goal is to reveal part of the abstract painting behind the board.
+        2. Outer numbers tell how many tiles form the painting on the row and column.
+        3. The region of the painting can be entirely hidden or revealed.
+    */
     private func updateIsSolved() {
         isSolved = true
         for r in 0..<rows {
@@ -99,6 +110,7 @@ class AbstractPaintingGameState: GridGameState, AbstractPaintingMixin {
             for c in 0..<cols {
                 if self[r, c] == .painting {n1 += 1}
             }
+            // 2. Outer numbers tell how many tiles form the painting on the row.
             row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
         }
@@ -108,6 +120,7 @@ class AbstractPaintingGameState: GridGameState, AbstractPaintingMixin {
             for r in 0..<rows {
                 if self[r, c] == .painting {n1 += 1}
             }
+            // 2. Outer numbers tell how many tiles form the painting on the column.
             col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
         }

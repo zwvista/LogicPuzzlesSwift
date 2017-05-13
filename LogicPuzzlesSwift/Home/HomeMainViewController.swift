@@ -26,7 +26,7 @@ class HomeMainViewController: UIViewController, HomeMixin {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    @IBAction func resumeGame(_ sender: AnyObject) {
+    @IBAction func resumeGame(_ sender: Any) {
         currentGameName = gameDocument.gameProgress.gameName!
         currentGameTitle = gameDocument.gameProgress.gameTitle!
         toResume = true

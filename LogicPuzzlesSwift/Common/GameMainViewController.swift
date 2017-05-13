@@ -34,10 +34,10 @@ class GameMainViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    @IBAction func startGame(_ sender: AnyObject) {
+    @IBAction func startGame(_ sender: Any) {
     }
     
-    @IBAction func resumGame(_ sender: AnyObject) {
+    @IBAction func resumGame(_ sender: Any) {
     }
     
     func resumeGame() {
@@ -45,7 +45,7 @@ class GameMainViewController: UIViewController {
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
     
-    @IBAction func backToMain(_ sender: AnyObject) {
+    @IBAction func backToMain(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     

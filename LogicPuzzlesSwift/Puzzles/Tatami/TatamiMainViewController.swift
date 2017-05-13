@@ -10,12 +10,12 @@ import UIKit
 
 class TatamiMainViewController: GameMainViewController, TatamiMixin {
     
-    override func startGame(_ sender: AnyObject) {
+    override func startGame(_ sender: Any) {
         gameDocument.selectedLevelID = (sender as! UIButton).titleLabel!.text!
         resumGame(self)
     }
     
-    override func resumGame(_ sender: AnyObject) {
+    override func resumGame(_ sender: Any) {
         gameDocument.resumeGame()
         resumeGame()
     }
