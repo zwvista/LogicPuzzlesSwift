@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class BusySeasGameViewController: GameViewController, GameDelegate, BusySeasMixin {
+class BusySeasGameViewController: GameGameViewController, GameDelegate, BusySeasMixin {
     typealias GM = BusySeasGameMove
     typealias GS = BusySeasGameState
 

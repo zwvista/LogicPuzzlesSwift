@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class SkyscrapersGameViewController: GameViewController, GameDelegate, SkyscrapersMixin {
+class SkyscrapersGameViewController: GameGameViewController, GameDelegate, SkyscrapersMixin {
     typealias GM = SkyscrapersGameMove
     typealias GS = SkyscrapersGameState
 

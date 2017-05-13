@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class SnailGameViewController: GameViewController, GameDelegate, SnailMixin {
+class SnailGameViewController: GameGameViewController, GameDelegate, SnailMixin {
     typealias GM = SnailGameMove
     typealias GS = SnailGameState
 

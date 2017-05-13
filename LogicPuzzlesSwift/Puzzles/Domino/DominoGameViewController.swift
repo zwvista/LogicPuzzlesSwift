@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class DominoGameViewController: GameViewController, GameDelegate, DominoMixin {
+class DominoGameViewController: GameGameViewController, GameDelegate, DominoMixin {
     typealias GM = DominoGameMove
     typealias GS = DominoGameState
 

@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class BridgesGameViewController: GameViewController, GameDelegate, BridgesMixin {
+class BridgesGameViewController: GameGameViewController, GameDelegate, BridgesMixin {
     typealias GM = BridgesGameMove
     typealias GS = BridgesGameState
 

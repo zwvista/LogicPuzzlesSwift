@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class NeighboursGameViewController: GameViewController, GameDelegate, NeighboursMixin {
+class NeighboursGameViewController: GameGameViewController, GameDelegate, NeighboursMixin {
     typealias GM = NeighboursGameMove
     typealias GS = NeighboursGameState
 

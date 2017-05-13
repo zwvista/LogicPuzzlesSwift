@@ -178,7 +178,7 @@
 		8C5AE28C1EC372D3000F0949 /* LightBattleShipsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE2801EC372D3000F0949 /* LightBattleShipsMixin.swift */; };
 		8C5AE28D1EC372D3000F0949 /* LightBattleShipsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE2811EC372D3000F0949 /* LightBattleShipsObject.swift */; };
 		8C5AE28E1EC372D3000F0949 /* LightBattleShipsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AE2821EC372D3000F0949 /* LightBattleShipsOptionsViewController.swift */; };
-		8C64A2681DD8089700AB6C09 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D31DC42FA40052202C /* GameViewController.swift */; };
+		8C64A2681DD8089700AB6C09 /* GameGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D31DC42FA40052202C /* GameGameViewController.swift */; };
 		8C64A2EC1DE0891000AB6C09 /* GameTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2EB1DE0891000AB6C09 /* GameTables.swift */; };
 		8C6ACBFE1DCAF8BA0075F32C /* GameDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37CF1DC42FA40052202C /* GameDocument.swift */; };
 		8C6ACBFF1DCAF8BA0075F32C /* GameMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D71DC42FA40052202C /* GameMixin.swift */; };
@@ -818,7 +818,7 @@
 		8C6D37CF1DC42FA40052202C /* GameDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDocument.swift; sourceTree = "<group>"; };
 		8C6D37D01DC42FA40052202C /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		8C6D37D21DC42FA40052202C /* GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
-		8C6D37D31DC42FA40052202C /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		8C6D37D31DC42FA40052202C /* GameGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameGameViewController.swift; sourceTree = "<group>"; };
 		8C6D37D41DC42FA40052202C /* GridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridNode.swift; sourceTree = "<group>"; };
 		8C6D37D61DC42FA40052202C /* GameMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMainViewController.swift; sourceTree = "<group>"; };
 		8C6D37D71DC42FA40052202C /* GameMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMixin.swift; sourceTree = "<group>"; };
@@ -1709,6 +1709,7 @@
 				8C76090A1EC61A8A00DFCD7B /* Game.storyboard */,
 				8C6D37D01DC42FA40052202C /* Game.swift */,
 				8C6D37CF1DC42FA40052202C /* GameDocument.swift */,
+				8C6D37D31DC42FA40052202C /* GameGameViewController.swift */,
 				8C6D37D61DC42FA40052202C /* GameMainViewController.swift */,
 				8C6D37D71DC42FA40052202C /* GameMixin.swift */,
 				8C6ACC181DD204420075F32C /* GameObject.swift */,
@@ -1716,7 +1717,6 @@
 				8C6D37E91DC59EE50052202C /* GameScene.swift */,
 				8C6D37D21DC42FA40052202C /* GameState.swift */,
 				8C64A2EB1DE0891000AB6C09 /* GameTables.swift */,
-				8C6D37D31DC42FA40052202C /* GameViewController.swift */,
 				8C76090F1EC627E900DFCD7B /* Global.swift */,
 				8C6D37D41DC42FA40052202C /* GridNode.swift */,
 				8C5368831EA1DFCC0071D475 /* GridObject.swift */,
@@ -2626,7 +2626,7 @@
 				8CD1558B1DD77C3400786F34 /* Extensions.swift in Sources */,
 				8C7609101EC627E900DFCD7B /* Global.swift in Sources */,
 				8CC350571E001D2800B8FD83 /* UIStoryboardExtensions.swift in Sources */,
-				8C64A2681DD8089700AB6C09 /* GameViewController.swift in Sources */,
+				8C64A2681DD8089700AB6C09 /* GameGameViewController.swift in Sources */,
 				8C70167C1E90C79E00210CE7 /* FenceLitsOptionsViewController.swift in Sources */,
 				8C9AF5621DF8D7770053BED4 /* MagnetsGame.swift in Sources */,
 				8C9AF57E1DF8D84B0053BED4 /* RoomsGameState.swift in Sources */,

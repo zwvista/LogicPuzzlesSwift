@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class BootyIslandGameViewController: GameViewController, GameDelegate, BootyIslandMixin {
+class BootyIslandGameViewController: GameGameViewController, GameDelegate, BootyIslandMixin {
     typealias GM = BootyIslandGameMove
     typealias GS = BootyIslandGameState
 

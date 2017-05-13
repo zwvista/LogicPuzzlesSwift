@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class MiniLitsGameViewController: GameViewController, GameDelegate, MiniLitsMixin {
+class MiniLitsGameViewController: GameGameViewController, GameDelegate, MiniLitsMixin {
     typealias GM = MiniLitsGameMove
     typealias GS = MiniLitsGameState
 

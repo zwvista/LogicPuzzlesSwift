@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class LightBattleShipsGameViewController: GameViewController, GameDelegate, LightBattleShipsMixin {
+class LightBattleShipsGameViewController: GameGameViewController, GameDelegate, LightBattleShipsMixin {
     typealias GM = LightBattleShipsGameMove
     typealias GS = LightBattleShipsGameState
 

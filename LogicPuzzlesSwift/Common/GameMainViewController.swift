@@ -41,7 +41,7 @@ class GameMainViewController: UIViewController {
     }
     
     func resumeGame() {
-        let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "GameViewController") as! GameViewController
+        let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "GameGameViewController") as! GameGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
     

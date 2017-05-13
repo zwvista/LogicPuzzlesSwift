@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class PairakabeGameViewController: GameViewController, GameDelegate, PairakabeMixin {
+class PairakabeGameViewController: GameGameViewController, GameDelegate, PairakabeMixin {
     typealias GM = PairakabeGameMove
     typealias GS = PairakabeGameState
 

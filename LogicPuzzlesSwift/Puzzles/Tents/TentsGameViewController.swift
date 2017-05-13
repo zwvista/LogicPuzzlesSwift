@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class TentsGameViewController: GameViewController, GameDelegate, TentsMixin {
+class TentsGameViewController: GameGameViewController, GameDelegate, TentsMixin {
     typealias GM = TentsGameMove
     typealias GS = TentsGameState
 

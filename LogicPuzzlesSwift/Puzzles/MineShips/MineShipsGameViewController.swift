@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class MineShipsGameViewController: GameViewController, GameDelegate, MineShipsMixin {
+class MineShipsGameViewController: GameGameViewController, GameDelegate, MineShipsMixin {
     typealias GM = MineShipsGameMove
     typealias GS = MineShipsGameState
 

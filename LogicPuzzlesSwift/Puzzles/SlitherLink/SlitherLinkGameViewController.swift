@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class SlitherLinkGameViewController: GameViewController, GameDelegate, SlitherLinkMixin {
+class SlitherLinkGameViewController: GameGameViewController, GameDelegate, SlitherLinkMixin {
     typealias GM = SlitherLinkGameMove
     typealias GS = SlitherLinkGameState
 

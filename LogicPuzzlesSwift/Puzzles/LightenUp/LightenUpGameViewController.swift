@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class LightenUpGameViewController: GameViewController, GameDelegate, LightenUpMixin {
+class LightenUpGameViewController: GameGameViewController, GameDelegate, LightenUpMixin {
     typealias GM = LightenUpGameMove
     typealias GS = LightenUpGameState
 

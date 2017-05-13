@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class BoxItUpGameViewController: GameViewController, GameDelegate, BoxItUpMixin {
+class BoxItUpGameViewController: GameGameViewController, GameDelegate, BoxItUpMixin {
     typealias GM = BoxItUpGameMove
     typealias GS = BoxItUpGameState
 

@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class LineSweeperGameViewController: GameViewController, GameDelegate, LineSweeperMixin {
+class LineSweeperGameViewController: GameGameViewController, GameDelegate, LineSweeperMixin {
     typealias GM = LineSweeperGameMove
     typealias GS = LineSweeperGameState
 

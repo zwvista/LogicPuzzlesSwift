@@ -1,5 +1,5 @@
 //
-//  GameViewController.swift
+//  GameGameViewController.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/08/31.
@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController {
+class GameGameViewController: UIViewController {
     
     @IBOutlet weak var lblLevel: UILabel!
     @IBOutlet weak var lblSolved: UILabel!
@@ -37,7 +37,7 @@ class GameViewController: UIViewController {
     
     // http://stackoverflow.com/questions/14111572/how-to-use-single-storyboard-uiviewcontroller-for-multiple-subclass
     override func awakeFromNib() {
-        object_setClass(self, NSClassFromString("LogicPuzzlesSwift.\(currentGameName)GameViewController").self)
+        object_setClass(self, NSClassFromString("LogicPuzzlesSwift.\(currentGameName)GameGameViewController").self)
     }
     
     override func viewDidLoad() {

@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class MosaikGameViewController: GameViewController, GameDelegate, MosaikMixin {
+class MosaikGameViewController: GameGameViewController, GameDelegate, MosaikMixin {
     typealias GM = MosaikGameMove
     typealias GS = MosaikGameState
 

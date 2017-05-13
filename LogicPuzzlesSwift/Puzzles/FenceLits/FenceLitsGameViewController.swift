@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class FenceLitsGameViewController: GameViewController, GameDelegate, FenceLitsMixin {
+class FenceLitsGameViewController: GameGameViewController, GameDelegate, FenceLitsMixin {
 
     var scene: FenceLitsGameScene {
         get {return getScene() as! FenceLitsGameScene}

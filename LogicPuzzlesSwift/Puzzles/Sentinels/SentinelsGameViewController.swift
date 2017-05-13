@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class SentinelsGameViewController: GameViewController, GameDelegate, SentinelsMixin {
+class SentinelsGameViewController: GameGameViewController, GameDelegate, SentinelsMixin {
     typealias GM = SentinelsGameMove
     typealias GS = SentinelsGameState
 

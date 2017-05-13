@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class MagnetsGameViewController: GameViewController, GameDelegate, MagnetsMixin {
+class MagnetsGameViewController: GameGameViewController, GameDelegate, MagnetsMixin {
     typealias GM = MagnetsGameMove
     typealias GS = MagnetsGameState
 

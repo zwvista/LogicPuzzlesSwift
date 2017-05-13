@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class AbcGameViewController: GameViewController, GameDelegate, AbcMixin {
+class AbcGameViewController: GameGameViewController, GameDelegate, AbcMixin {
     typealias GM = AbcGameMove
     typealias GS = AbcGameState
 

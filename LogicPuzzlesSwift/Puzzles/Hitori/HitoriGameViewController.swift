@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class HitoriGameViewController: GameViewController, GameDelegate, HitoriMixin {
+class HitoriGameViewController: GameGameViewController, GameDelegate, HitoriMixin {
     typealias GM = HitoriGameMove
     typealias GS = HitoriGameState
 

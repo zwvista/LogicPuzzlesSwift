@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class CloudsGameViewController: GameViewController, GameDelegate, CloudsMixin {
+class CloudsGameViewController: GameGameViewController, GameDelegate, CloudsMixin {
     typealias GM = CloudsGameMove
     typealias GS = CloudsGameState
 

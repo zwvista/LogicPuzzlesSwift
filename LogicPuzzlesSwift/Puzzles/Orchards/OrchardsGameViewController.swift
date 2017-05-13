@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class OrchardsGameViewController: GameViewController, GameDelegate, OrchardsMixin {
+class OrchardsGameViewController: GameGameViewController, GameDelegate, OrchardsMixin {
     typealias GM = OrchardsGameMove
     typealias GS = OrchardsGameState
 

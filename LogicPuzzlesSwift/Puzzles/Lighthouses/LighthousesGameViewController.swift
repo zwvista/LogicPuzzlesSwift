@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class LighthousesGameViewController: GameViewController, GameDelegate, LighthousesMixin {
+class LighthousesGameViewController: GameGameViewController, GameDelegate, LighthousesMixin {
     typealias GM = LighthousesGameMove
     typealias GS = LighthousesGameState
 

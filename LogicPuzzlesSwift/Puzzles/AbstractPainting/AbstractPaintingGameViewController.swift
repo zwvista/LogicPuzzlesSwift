@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class AbstractPaintingGameViewController: GameViewController, GameDelegate, AbstractPaintingMixin {
+class AbstractPaintingGameViewController: GameGameViewController, GameDelegate, AbstractPaintingMixin {
     typealias GM = AbstractPaintingGameMove
     typealias GS = AbstractPaintingGameState
 

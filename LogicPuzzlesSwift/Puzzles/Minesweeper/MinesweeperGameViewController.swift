@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class MinesweeperGameViewController: GameViewController, GameDelegate, MinesweeperMixin {
+class MinesweeperGameViewController: GameGameViewController, GameDelegate, MinesweeperMixin {
     typealias GM = MinesweeperGameMove
     typealias GS = MinesweeperGameState
 

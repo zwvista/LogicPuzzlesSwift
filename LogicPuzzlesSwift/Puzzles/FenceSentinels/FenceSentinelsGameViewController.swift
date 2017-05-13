@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class FenceSentinelsGameViewController: GameViewController, GameDelegate, FenceSentinelsMixin {
+class FenceSentinelsGameViewController: GameGameViewController, GameDelegate, FenceSentinelsMixin {
     typealias GM = FenceSentinelsGameMove
     typealias GS = FenceSentinelsGameState
 

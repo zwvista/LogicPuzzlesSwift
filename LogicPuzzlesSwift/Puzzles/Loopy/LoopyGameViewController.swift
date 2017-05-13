@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class LoopyGameViewController: GameViewController, GameDelegate, LoopyMixin {
+class LoopyGameViewController: GameGameViewController, GameDelegate, LoopyMixin {
     typealias GM = LoopyGameMove
     typealias GS = LoopyGameState
 

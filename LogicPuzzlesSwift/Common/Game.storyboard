@@ -343,7 +343,7 @@
         <!--Game View Controller-->
         <scene sceneID="Mlx-MR-pgg">
             <objects>
-                <viewController storyboardIdentifier="GameViewController" id="KfB-1n-qBg" customClass="GameViewController" customModule="LogicPuzzlesSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameGameViewController" id="KfB-1n-qBg" customClass="GameGameViewController" customModule="LogicPuzzlesSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XvK-jl-kCW"/>
                         <viewControllerLayoutGuide type="bottom" id="b8B-wD-MdQ"/>
