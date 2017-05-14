@@ -10,7 +10,7 @@ import UIKit
 import SharkORM
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, SRKDelegate, GameMixin {
+class AppDelegate: UIResponder, UIApplicationDelegate, SRKDelegate, SoundMixin {
 
     var window: UIWindow?
 

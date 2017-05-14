@@ -9,15 +9,9 @@
 import Foundation
 
 protocol NurikabeMixin: GameMixin {
-    var gameDocument: NurikabeDocument { get }
-    var gameOptions: GameProgress { get }
-    var markerOption: Int { get }
-    func setMarkerOption(rec: GameProgress, newValue: Int)
 }
 
 extension NurikabeMixin {
+    var gameDocumentBase: GameDocumentBase { return NurikabeDocument.sharedInstance }
     var gameDocument: NurikabeDocument { return NurikabeDocument.sharedInstance }
-    var gameOptions: GameProgress { return gameDocument.gameProgress }
-    var markerOption: Int { return gameOptions.option1?.toInt() ?? 0 }
-    func setMarkerOption(rec: GameProgress, newValue: Int) { rec.option1 = newValue.description }
 }

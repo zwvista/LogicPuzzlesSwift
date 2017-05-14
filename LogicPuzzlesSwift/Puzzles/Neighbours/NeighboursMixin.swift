@@ -9,15 +9,9 @@
 import Foundation
 
 protocol NeighboursMixin: GameMixin {
-    var gameDocument: NeighboursDocument { get }
-    var gameOptions: GameProgress { get }
-    var markerOption: Int { get }
-    func setMarkerOption(rec: GameProgress, newValue: Int)
 }
 
 extension NeighboursMixin {
+    var gameDocumentBase: GameDocumentBase { return NeighboursDocument.sharedInstance }
     var gameDocument: NeighboursDocument { return NeighboursDocument.sharedInstance }
-    var gameOptions: GameProgress { return gameDocument.gameProgress }
-    var markerOption: Int { return gameOptions.option1?.toInt() ?? 0 }
-    func setMarkerOption(rec: GameProgress, newValue: Int) { rec.option1 = newValue.description }
 }

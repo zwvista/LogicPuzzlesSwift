@@ -9,11 +9,11 @@
 import Foundation
 
 protocol SumscrapersMixin: GameMixin {
-    var gameDocument: SumscrapersDocument { get }
     var gameOptions: GameProgress { get }
 }
 
 extension SumscrapersMixin {
+    var gameDocumentBase: GameDocumentBase { return SumscrapersDocument.sharedInstance }
     var gameDocument: SumscrapersDocument { return SumscrapersDocument.sharedInstance }
     var gameOptions: GameProgress { return gameDocument.gameProgress }
 }

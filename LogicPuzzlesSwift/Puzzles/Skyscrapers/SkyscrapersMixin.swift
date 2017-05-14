@@ -9,11 +9,11 @@
 import Foundation
 
 protocol SkyscrapersMixin: GameMixin {
-    var gameDocument: SkyscrapersDocument { get }
     var gameOptions: GameProgress { get }
 }
 
 extension SkyscrapersMixin {
+    var gameDocumentBase: GameDocumentBase { return SkyscrapersDocument.sharedInstance }
     var gameDocument: SkyscrapersDocument { return SkyscrapersDocument.sharedInstance }
     var gameOptions: GameProgress { return gameDocument.gameProgress }
 }

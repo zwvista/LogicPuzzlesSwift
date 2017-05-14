@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol HomeMixin: GameMixin {
+protocol HomeMixin: SoundMixin {
     var gameDocument: HomeDocument { get }
     var gameOptions: HomeGameProgress { get }
 }

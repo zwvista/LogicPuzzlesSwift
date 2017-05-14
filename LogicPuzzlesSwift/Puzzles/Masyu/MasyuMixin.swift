@@ -9,11 +9,11 @@
 import Foundation
 
 protocol MasyuMixin: GameMixin {
-    var gameDocument: MasyuDocument { get }
     var gameOptions: GameProgress { get }
 }
 
 extension MasyuMixin {
+    var gameDocumentBase: GameDocumentBase { return MasyuDocument.sharedInstance }
     var gameDocument: MasyuDocument { return MasyuDocument.sharedInstance }
     var gameOptions: GameProgress { return gameDocument.gameProgress }
 }

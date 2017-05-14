@@ -1710,7 +1710,6 @@
 		8C6D37CE1DC42FA40052202C /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				8C7609191EC7EB1C00DFCD7B /* SelfSizingTableViewCell.swift */,
 				8C6D37EC1DC5A2F50052202C /* Copyable.swift */,
 				8CD1558A1DD77C3400786F34 /* Extensions.swift */,
 				8C76090A1EC61A8A00DFCD7B /* Game.storyboard */,
@@ -1729,6 +1728,7 @@
 				8C6D37D41DC42FA40052202C /* GridNode.swift */,
 				8C5368831EA1DFCC0071D475 /* GridObject.swift */,
 				8C6D37F41DC5AC520052202C /* Position.swift */,
+				8C7609191EC7EB1C00DFCD7B /* SelfSizingTableViewCell.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";

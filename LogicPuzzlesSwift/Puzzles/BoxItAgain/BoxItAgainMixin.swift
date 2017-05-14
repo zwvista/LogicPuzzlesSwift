@@ -9,15 +9,9 @@
 import Foundation
 
 protocol BoxItAgainMixin: GameMixin {
-    var gameDocument: BoxItAgainDocument { get }
-    var gameOptions: GameProgress { get }
-    var markerOption: Int { get }
-    func setMarkerOption(rec: GameProgress, newValue: Int)
 }
 
 extension BoxItAgainMixin {
+    var gameDocumentBase: GameDocumentBase { return BoxItAgainDocument.sharedInstance }
     var gameDocument: BoxItAgainDocument { return BoxItAgainDocument.sharedInstance }
-    var gameOptions: GameProgress { return gameDocument.gameProgress }
-    var markerOption: Int { return gameOptions.option1?.toInt() ?? 0 }
-    func setMarkerOption(rec: GameProgress, newValue: Int) { rec.option1 = newValue.description }
 }

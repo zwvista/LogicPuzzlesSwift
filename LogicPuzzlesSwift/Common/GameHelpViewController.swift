@@ -27,4 +27,8 @@ class GameHelpViewController: UITableViewController {
     @IBAction func backToGame(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+    deinit {
+        print("deinit called: \(NSStringFromClass(type(of: self)))")
+    }
 }

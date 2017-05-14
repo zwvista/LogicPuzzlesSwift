@@ -9,11 +9,11 @@
 import Foundation
 
 protocol BridgesMixin: GameMixin {
-    var gameDocument: BridgesDocument { get }
     var gameOptions: GameProgress { get }
 }
 
 extension BridgesMixin {
+    var gameDocumentBase: GameDocumentBase { return BridgesDocument.sharedInstance }
     var gameDocument: BridgesDocument { return BridgesDocument.sharedInstance }
     var gameOptions: GameProgress { return gameDocument.gameProgress }
 }

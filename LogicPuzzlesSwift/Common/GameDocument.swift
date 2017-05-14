@@ -9,7 +9,11 @@
 import UIKit
 import SharkORM
 
-class GameDocument<G: GameBase, GM> {
+protocol GameDocumentBase: class {
+    var gameProgress: GameProgress { get }
+}
+
+class GameDocument<G: GameBase, GM>: GameDocumentBase {
     private(set) var levels = [String: [String]]()
     private(set) var help = [String]()
     var selectedLevelID: String!

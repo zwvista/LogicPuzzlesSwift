@@ -9,15 +9,9 @@
 import Foundation
 
 protocol SnailMixin: GameMixin {
-    var gameDocument: SnailDocument { get }
-    var gameOptions: GameProgress { get }
-    var markerOption: Int { get }
-    func setMarkerOption(rec: GameProgress, newValue: Int)
 }
 
 extension SnailMixin {
+    var gameDocumentBase: GameDocumentBase { return SnailDocument.sharedInstance }
     var gameDocument: SnailDocument { return SnailDocument.sharedInstance }
-    var gameOptions: GameProgress { return gameDocument.gameProgress }
-    var markerOption: Int { return gameOptions.option1?.toInt() ?? 0 }
-    func setMarkerOption(rec: GameProgress, newValue: Int) { rec.option1 = newValue.description }
 }

@@ -9,19 +9,9 @@
 import Foundation
 
 protocol BusySeasMixin: GameMixin {
-    var gameDocument: BusySeasDocument { get }
-    var gameOptions: GameProgress { get }
-    var markerOption: Int { get }
-    func setMarkerOption(rec: GameProgress, newValue: Int)
-    var allowedObjectsOnly: Bool { get }
-    func setAllowedObjectsOnly(rec: GameProgress, newValue: Bool)
 }
 
 extension BusySeasMixin {
+    var gameDocumentBase: GameDocumentBase { return BusySeasDocument.sharedInstance }
     var gameDocument: BusySeasDocument { return BusySeasDocument.sharedInstance }
-    var gameOptions: GameProgress { return gameDocument.gameProgress }
-    var markerOption: Int { return gameOptions.option1?.toInt() ?? 0 }
-    func setMarkerOption(rec: GameProgress, newValue: Int) { rec.option1 = newValue.description }
-    var allowedObjectsOnly: Bool { return gameOptions.option2?.toBool() ?? false }
-    func setAllowedObjectsOnly(rec: GameProgress, newValue: Bool) { rec.option2 = newValue.description }
 }

@@ -9,15 +9,9 @@
 import Foundation
 
 protocol FenceLitsMixin: GameMixin {
-    var gameDocument: FenceLitsDocument { get }
-    var gameOptions: GameProgress { get }
-    var markerOption: Int { get }
-    func setMarkerOption(rec: GameProgress, newValue: Int)
 }
 
 extension FenceLitsMixin {
+    var gameDocumentBase: GameDocumentBase { return FenceLitsDocument.sharedInstance }
     var gameDocument: FenceLitsDocument { return FenceLitsDocument.sharedInstance }
-    var gameOptions: GameProgress { return gameDocument.gameProgress }
-    var markerOption: Int { return gameOptions.option1?.toInt() ?? 0 }
-    func setMarkerOption(rec: GameProgress, newValue: Int) { rec.option1 = newValue.description }
 }
