@@ -1,4 +1,11 @@
 <?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Find the mines on the field.
+2. Numbers tell you how many mines there are close by, touching that number horizontally, vertically or diagonally.
+  ]]>
+</help>
 <levels>
   <level id="1">
     <![CDATA[
@@ -292,3 +299,4 @@
     ]]>
   </level>
 </levels>
+</puzzle>

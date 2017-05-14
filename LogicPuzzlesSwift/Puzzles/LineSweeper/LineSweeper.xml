@@ -1,4 +1,13 @@
 <?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Draw a single closed looping path that never crosses itself or branches off.
+2. A number in a cell denotes how many of the 8 adjacent cells are passed by the loop.
+3. The loop can only go horizontally or vertically between cells, but not over the numbers.
+4. The loop doesn't need to cover all the board.
+  ]]>
+</help>
 <levels>
   <level id="1">
     <![CDATA[
@@ -301,3 +310,4 @@
     ]]>
   </level>
 </levels>
+</puzzle>

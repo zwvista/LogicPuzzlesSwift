@@ -1,4 +1,16 @@
 <?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Each number on the grid indicates a garden, occupying as many tiles as the number itself.
+2. Gardens can have any form, extending horizontally and vertically, but can't extend diagonally.
+3. The garden is separated by a single continuous wall. This means all wall tiles on the board must be connected horizontally or vertically. There can't be isolated walls.
+4. You must find and mark the wall following these rules:
+5. All the gardens in the puzzle are numbered at the start, there are no hidden gardens.
+6. A wall can't go over numbered squares.
+7. The wall can't form 2*2 squares.
+  ]]>
+</help>
 <levels>
   <level id="1">
     <![CDATA[
@@ -631,3 +643,4 @@
     ]]>
   </level>
 </levels>
+</puzzle>

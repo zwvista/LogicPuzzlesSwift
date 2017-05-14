@@ -1,4 +1,15 @@
 <?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. What you see from above is a room and the marked squares are walls.
+2. The goal is to put lightbulbs in the room so that all the blank(non-wall) squares are lit, following these rules.
+3. Lightbulbs light all free, unblocked squares horizontally and vertically.
+4. A lightbulb can't light another lightbulb.
+5. Walls block light. Also walls with a number tell you how many lightbulbs are adjacent to it, horizontally and vertically.
+6. Walls without a number can have any number of lightbulbs. However, lightbulbs don't need to be adjacent to a wall.
+  ]]>
+</help>
 <levels>
   <level id="1">
     <![CDATA[
@@ -436,14 +447,5 @@ W 0   W    `
    1    W  `
     ]]>
   </level>
-  <level id="test">
-    <![CDATA[
-1     `
- W0 W `
-W     `
-1   3 `
- 3  W `
-    W `
-     ]]>
-  </level>
 </levels>
+</puzzle>

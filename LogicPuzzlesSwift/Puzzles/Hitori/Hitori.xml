@@ -1,4 +1,12 @@
 <?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. The goal is to shade squares so that a number appears only once in a row or column.
+2. While doing that, you must take care that shaded squares don't touch horizontally or vertically between them.
+3. In the end all the un-shaded squares must form a single continuous area.
+  ]]>
+</help>
 <levels>
   <level id="1">
     <![CDATA[
@@ -274,3 +282,4 @@ B6B84A17B133`
     ]]>
   </level>
 </levels>
+</puzzle>

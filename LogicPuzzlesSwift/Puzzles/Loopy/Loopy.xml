@@ -1,4 +1,10 @@
 <?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Draw a single looping path. You have to touch all the dots. As usual, the path cannot have branches or cross itself.
+  ]]>
+</help>
 <levels>
   <level id="1">
     <![CDATA[
@@ -172,3 +178,4 @@
     ]]>
   </level>
 </levels>
+</puzzle>

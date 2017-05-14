@@ -1,4 +1,13 @@
 <?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. The goal is to draw a single, uninterrupted, closed loop.
+2. The loop goes around all the numbers.
+3. The number tells you how many cells you can see horizontally or vertically from there, including the cell itself.  Variant
+4. Some levels are marked 'Inside Outside'. In this case some numbers are on the outside of the loop.
+  ]]>
+</help>
 <levels>
   <level id="1">
     <![CDATA[
@@ -150,3 +159,4 @@
     ]]>
   </level>
 </levels>
+</puzzle>

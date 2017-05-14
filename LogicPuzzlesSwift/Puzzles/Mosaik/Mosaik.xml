@@ -1,4 +1,13 @@
 <?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. In Mosaik, there is a hidden image which can be discovered using the numbered hints.
+2. A number tells you how many tiles must be filled in the 3*3 area formed by the tile itself and the ones surrounding it.
+3. Thus the numbers can go from 0, where no tiles is filled, to 9, where every tile is filled in a 3*3 area around the tile with the number.
+4. Every number in between denotes that some of the tiles in that 3*3 area are filled and some are not.
+  ]]>
+</help>
 <levels>
   <level id="1">
     <![CDATA[
@@ -108,3 +117,4 @@
     ]]>
   </level>
 </levels>
+</puzzle>

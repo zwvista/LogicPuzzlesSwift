@@ -1,4 +1,14 @@
 <?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Each Magnet has a positive(+) and a negative(-) pole.
+2. Every rectangle can either contain a Magnet or be empty.
+3. The number on the board tells you how many positive and negative poles you can see from there in a straight line.
+4. When placing a Magnet, you have to respect the rule that the same pole (+ and + / - and -) can't be adjacent horizontally or vertically.
+5. In some levels, a few numbers on the border can be hidden.
+  ]]>
+</help>
 <levels>
   <level id="1">
     <![CDATA[
@@ -149,3 +159,4 @@ H  H    H 45`
     ]]>
   </level>
 </levels>
+</puzzle>

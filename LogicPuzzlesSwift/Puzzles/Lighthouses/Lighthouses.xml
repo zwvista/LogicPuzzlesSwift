@@ -1,4 +1,13 @@
 <?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. You are at sea and you need to find the lighthouses and light the boats.
+2. Each boat has a number on it that tells you how many lighthouses are lighting it.
+3. A lighthouse lights all the tiles horizontally and vertically and doesn't stop at boats or other lighthouses.
+4. Finally, no boat touches another boat or lighthouse, not even diagonally. No lighthouse touches another lighthouse as well.
+  ]]>
+</help>
 <levels>
   <level id="1">
     <![CDATA[
@@ -443,3 +452,4 @@
     ]]>
   </level>
 </levels>
+</puzzle>

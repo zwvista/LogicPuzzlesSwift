@@ -1,4 +1,11 @@
 <?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. A simple puzzle where you have to divide the Board into enclosed areas by Fences.
+2. Each area must contain one number and the number tells you the length of the perimeter of the area.
+  ]]>
+</help>
 <levels>
   <level id="1">
     <![CDATA[
@@ -124,3 +131,4 @@
     ]]>
   </level>
 </levels>
+</puzzle>

@@ -1,4 +1,14 @@
 <?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. A mix of Battle Ships and Lighthouses, you have to guess the usual piece of ships with the help of Lighthouses.
+2. Each number is a Lighthouse, telling you how many pieces of ship there are in that row and column, summed together.
+3. Ships cannot touch each other OR touch Lighthouses. Not even diagonally.
+4. In each puzzle there are 1 Aircraft Carrier (4 squares) 2 Destroyers (3 squares) 3 Submarines (2 squares) 4 Patrol boats (1 square)  Variant
+5. Some puzzle can also have a: 1 Supertanker (5 squares)
+  ]]>
+</help>
 <levels>
   <level id="1">
     <![CDATA[
@@ -59,3 +69,4 @@ o         `
     ]]>
   </level>
 </levels>
+</puzzle>

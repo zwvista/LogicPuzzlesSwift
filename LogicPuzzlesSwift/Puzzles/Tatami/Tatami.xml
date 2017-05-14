@@ -1,39 +1,14 @@
 <?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Each rectangle represents a mat(Tatami) which is of the same size. You must fill each Tatami with a number ranging from 1 to size.
+2. Each number can appear only once in each Tatami.
+3. In one row or column, each number must appear the same number of times.
+4. You can't have two identical numbers touching horizontally or vertically.
+  ]]>
+</help>
 <levels>
-  <level id="1">
-    <![CDATA[
- - - - - - - `
-|1    | | | |`
- - - -       `
-|    2| | | |`
- - - -       `
-| | | |3| | |`
-       - - - `
-| | |2|     |`
-       - - - `
-| | | |2    |`
- - - - - - - `
-|     |    2|`
- - - - - - - `
-    ]]>
-  </level>
-  <level id="2">
-    <![CDATA[
- - - - - - - `
-|1    | | | |`
- - - -       `
-|    2| | | |`
- - - -       `
-| | | |3| | |`
-       - - - `
-| | |2|     |`
-       - - - `
-| | | |2    |`
- - - - - - - `
-|     |    2|`
- - - - - - - `
-    ]]>
-  </level>
   <level id="29">
     <![CDATA[
  - - - - - - `
@@ -343,3 +318,4 @@
     ]]>
   </level>
 </levels>
+</puzzle>

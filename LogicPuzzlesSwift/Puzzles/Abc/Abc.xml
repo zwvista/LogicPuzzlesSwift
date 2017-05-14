@@ -1,14 +1,14 @@
 <?xml version="1.0" ?>
 <puzzle>
-    <help>
-        <![CDATA[
+<help>
+  <![CDATA[
 1. The goal is to put the letter A B and C in the board.
 2. Each letter appears once in every row and column.
 3. The letters on the borders tell you what letter you see from there.
 4. Since most puzzles can contain empty spaces, the hint on the board doesn't always match the tile next to it.
 5. Bigger puzzles can contain the letter 'D'. In these cases, the name of the puzzle is 'Abcd'. Further on, you might also encounter 'E', 'F' etc.
-        ]]>
-    </help>
+  ]]>
+</help>
 <levels>
   <level id="1">
     <![CDATA[
@@ -368,4 +368,4 @@ A        D`
     ]]>
   </level>
 </levels>
-</puzzel>
+</puzzle>
