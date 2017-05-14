@@ -81,6 +81,28 @@ class BootyIslandGameState: GridGameState, BootyIslandMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 13/Booty Island
+
+        Summary
+        Overcrowded Piracy
+
+        Description
+        1. Overcrowded by Greedy Pirates (tm), this land has Treasures buried
+           almost everywhere and the relative maps scattered around.
+        2. In fact there's only one Treasure for each row and for each column.
+        3. On the island you can see maps with a number: these tell you how
+           many steps are required, horizontally or vertically, to reach a
+           Treasure.
+        4. For how stupid the Pirates are, they don't bury their Treasures
+           touching each other, even diagonally, however at times they are so
+           stupid that two or more maps point to the same Treasure!
+
+        Bigger Islands
+        5. On bigger islands, there will be two Treasures per row and column.
+        6. In this case, the number on the map doesn't necessarily point to the
+           closest Treasure on that row or column.
+    */
     private func updateIsSolved() {
         isSolved = true
         for r in 0..<rows {

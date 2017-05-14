@@ -79,6 +79,22 @@ class MosaikGameState: GridGameState, MosaikMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 4/Mosaik
+
+        Summary
+        Paint the mosaic, filling squares with the numbered hints
+
+        Description
+        1. In Mosaik, there is a hidden image which can be discovered using the
+           numbered hints.
+        2. A number tells you how many tiles must be filled in the 3*3 area formed
+           by the tile itself and the ones surrounding it.
+        3. Thus the numbers can go from 0, where no tiles is filled, to 9, where
+           every tile is filled in a 3*3 area around the tile with the number.
+        4. Every number in between denotes that some of the tiles in that 3*3
+           area are filled and some are not.
+    */
     private func updateIsSolved() {
         isSolved = true
         for (p, n2) in game.pos2hint {

@@ -80,6 +80,22 @@ class OrchardsGameState: GridGameState, OrchardsMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 11/Orchards
+
+        Summary
+        Plant the trees. Very close, this time!
+
+        Description
+        1. In a reverse of 'Parks', you're now planting Trees close together in
+           neighboring country areas.
+        2. These are Apple Trees, which must cross-pollinate, thus must be planted
+           in pairs - horizontally or vertically touching.
+        3. A Tree must be touching just one other Tree: you can't put three or
+           more contiguous Trees.
+        4. At the same time, like in Parks, every country area must have exactly
+           two Trees in it.
+    */
     private func updateIsSolved() {
         isSolved = true
         let g = Graph()

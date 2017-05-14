@@ -86,6 +86,26 @@ class DominoGameState: GridGameState, DominoMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 5/Domino
+
+        Summary
+        Find all the Domino tiles
+
+        Description
+        1. On the board there is a complete Domino set. The Domino tiles borders
+           however aren't marked, it's up to you to identify them.
+        2. In early levels the board contains a smaller Domino set, of numbers
+           ranging from 0 to 3.
+        3. This means you will be looking for a Domino set composed of these
+           combinations.
+           0-0, 0-1, 0-2, 0-3
+           1-1, 1-2, 1-3
+           2-2, 2-3
+           3-3
+        4. In harder levels, the Domino set will also include fours, fives,
+           sixes, etc.
+    */
     private func updateIsSolved() {
         isSolved = true
         let g = Graph()

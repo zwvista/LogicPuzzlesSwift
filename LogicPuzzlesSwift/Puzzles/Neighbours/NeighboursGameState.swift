@@ -91,6 +91,24 @@ class NeighboursGameState: GridGameState, NeighboursMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 8/Neighbours
+
+        Summary
+        Neighbours, yes, but not equally sociable
+
+        Description
+        1. The board represents a piece of land bought by a bunch of people. They
+           decided to split the land in equal parts.
+        2. However some people are more social and some are less, so each owner
+           wants an exact number of neighbours around him.
+        3. Each number on the board represents an owner house and the number of
+           neighbours he desires.
+        4. Divide the land so that each one has an equal number of squares and
+           the requested number of neighbours.
+        5. Later on, there will be Question Marks, which represents an owner for
+           which you don't know the neighbours preference.
+    */
     private func updateIsSolved() {
         isSolved = true
         let g = Graph()

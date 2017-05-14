@@ -90,6 +90,22 @@ class FenceSentinelsGameState: GridGameState, FenceSentinelsMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 12/Fence Sentinels
+
+        Summary
+        We used to guard a castle, you know?
+
+        Description
+        1. The goal is to draw a single, uninterrupted, closed loop.
+        2. The loop goes around all the numbers.
+        3. The number tells you how many cells you can see horizontally or
+           vertically from there, including the cell itself.
+
+        Variant
+        4. Some levels are marked 'Inside Outside'. In this case some numbers
+           are on the outside of the loop.
+    */
     private func updateIsSolved() {
         isSolved = true
         for (p, n2) in game.pos2hint {

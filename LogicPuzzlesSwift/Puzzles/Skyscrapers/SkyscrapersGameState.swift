@@ -85,6 +85,21 @@ class SkyscrapersGameState: GridGameState, SkyscrapersMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 1/Skyscrapers
+
+        Summary
+        Guess skyscrapers heights, judging from the skyline
+
+        Description
+        1. The grid in the center represents a city from above. Each cell contain
+           a skyscraper, of different height.
+        2. The goal is to guess the height of each Skyscraper.
+        3. Each row and column can't have two Skyscrapers of the same height.
+        4. The numbers on the boarders tell you how many skyscrapers you see from
+           there, keeping mind that a higher skyscraper hides a lower one. 
+           Skyscrapers are numbered from 1(lowest) to the grid size(height).
+    */
     private func updateIsSolved() {
         isSolved = true
         var nums = [Int]()

@@ -91,6 +91,19 @@ class BoxItAgainGameState: GridGameState, BoxItAgainMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 15/Box It Again
+
+        Summary
+        Harder Boxes
+
+        Description
+        1. Just like Box It Up, you have to divide the Board in Boxes (Rectangles).
+        2. Each Box must contain one number and the number represents the area of
+           that Box.
+        3. However this time, some tiles can be left unboxed, the board isn't 
+           entirely covered by boxes.
+    */
     private func updateIsSolved() {
         isSolved = true
         let g = Graph()

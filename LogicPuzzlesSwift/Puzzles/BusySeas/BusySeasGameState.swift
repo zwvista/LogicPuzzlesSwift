@@ -81,6 +81,19 @@ class BusySeasGameState: GridGameState, BusySeasMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 14/Busy Seas
+
+        Summary
+        More seafaring puzzles
+
+        Description
+        1. You are at sea and you need to find the lighthouses and light the boats.
+        2. Each boat has a number on it that tells you how many lighthouses are lighting it.
+        3. A lighthouse lights all the tiles horizontally and vertically. Its
+           light is stopped by the first boat it meets.
+        4. Lighthouses can touch boats and other lighthouses.
+    */
     private func updateIsSolved() {
         isSolved = true
         for r in 0..<rows {

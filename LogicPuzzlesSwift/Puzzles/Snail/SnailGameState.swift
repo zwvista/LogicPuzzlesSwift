@@ -79,6 +79,27 @@ class SnailGameState: GridGameState, SnailMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 14/Snail
+
+        Summary
+        Follow the winding path with numbers 1, 2 and 3
+
+        Description
+        1. The goal is to start at the entrance in the top left corner and proceed
+           towards the center, leaving a trail of numbers.
+        2. The numbers must be entered in the sequence 1,2,3 1,2,3 1,2,3 etc,
+           however not every tile must be filled in and some tiles will remain
+           empty.
+        3. Your task is to determine which tiles will be empty, following these
+           two rules:
+        4. Trail Rule: The first number to write after entering in the top left
+           is a 1 and the last before ending in the center is a 3. In between,
+           the 1,2,3 sequence will repeat many times in this order, following the
+           snail path.
+        5. Board Rule: Each row and column of the board (disregarding the snail
+           path) must have exactly one 1, one 2 and one 3.
+    */
     private func updateIsSolved() {
         isSolved = true
         var chars = [Character]()

@@ -97,6 +97,29 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 1/Battle Ships
+
+        Summary
+        Play solo Battleships, with the help of the numbers on the border.
+
+        Description
+        1. Standard rules of Battleships apply, but you are guessing the other
+           player ships disposition, by using the numbers on the borders.
+        2. Each number tells you how many ship or ship pieces you're seeing in
+           that row or column.
+        3. Standard rules apply: a ship or piece of ship can't touch another,
+           not even diagonally.
+        4. In each puzzle there are
+           1 Aircraft Carrier (4 squares)
+           2 Destroyers (3 squares)
+           3 Submarines (2 squares)
+           4 Patrol boats (1 square)
+
+        Variant
+        5. Some puzzle can also have a:
+           1 Supertanker (5 squares)
+    */
     private func updateIsSolved() {
         isSolved = true
         for r in 0..<rows {

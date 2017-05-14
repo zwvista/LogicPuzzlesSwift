@@ -78,6 +78,17 @@ class MinesweeperGameState: GridGameState, MinesweeperMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 6/Minesweeper
+
+        Summary
+        You know the drill :)
+
+        Description
+        1. Find the mines on the field.
+        2. Numbers tell you how many mines there are close by, touching that
+           number horizontally, vertically or diagonally.
+    */
     private func updateIsSolved() {
         isSolved = true
         for r in 0..<rows {

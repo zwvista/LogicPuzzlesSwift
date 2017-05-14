@@ -87,6 +87,20 @@ class MiniLitsGameState: GridGameState, MiniLitsMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 14/Mini-Lits
+
+        Summary
+        Lits Jr.
+
+        Description
+        1. You play the game with triominos (pieces of three squares).
+        2. The board is divided into many areas. You have to place a triomino
+           into each area respecting these rules:
+        3. No two adjacent (touching horizontally / vertically) triominos should
+           be of equal shape & orientation.
+        4. All the shaded cells should form a valid Nurikabe.
+    */
     private func updateIsSolved() {
         isSolved = true
         let g = Graph()

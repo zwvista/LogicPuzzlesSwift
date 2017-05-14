@@ -87,6 +87,22 @@ class LitsGameState: GridGameState, LitsMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 12/Lits
+
+        Summary
+        Tetris without the fat guy
+
+        Description
+        1. You play the game with all the Tetris pieces, except the square one.
+        2. So in other words you use pieces of four squares (tetrominoes) in the
+           shape of L, I, T and S, which can also be rotated or reflected (mirrored).
+        3. The board is divided into many areas. You have to place a tetromino
+           into each area respecting these rules:
+        4. No two adjacent (touching horizontally / vertically) tetromino should
+           be of equal shape, even counting rotations or reflections.
+        5. All the shaded cells should form a valid Nurikabe (hence no fat guy).
+    */
     private func updateIsSolved() {
         isSolved = true
         let g = Graph()

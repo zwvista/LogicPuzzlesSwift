@@ -66,6 +66,20 @@ class LineSweeperGameState: GridGameState, LineSweeperMixin {
         return true
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 4/LineSweeper
+
+        Summary
+        Draw a single loop, minesweeper style
+
+        Description
+        1. Draw a single closed looping path that never crosses itself or branches off.
+        2. A number in a cell denotes how many of the 8 adjacent cells are passed
+           by the loop.
+        3. The loop can only go horizontally or vertically between cells, but
+           not over the numbers.
+        4. The loop doesn't need to cover all the board.
+    */
     private func updateIsSolved() {
         isSolved = true
         for (p, n2) in game.pos2hint {

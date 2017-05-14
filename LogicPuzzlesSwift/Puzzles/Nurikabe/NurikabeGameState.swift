@@ -81,6 +81,26 @@ class NurikabeGameState: GridGameState, NurikabeMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 1/Nurikabe
+
+        Summary
+        Draw a continuous wall that divides gardens as big as the numbers
+
+        Description
+        1. Each number on the grid indicates a garden, occupying as many tiles
+           as the number itself.
+        2. Gardens can have any form, extending horizontally and vertically, but
+           can't extend diagonally.
+        3. The garden is separated by a single continuous wall. This means all
+           wall tiles on the board must be connected horizontally or vertically.
+           There can't be isolated walls.
+        4. You must find and mark the wall following these rules:
+        5. All the gardens in the puzzle are numbered at the start, there are no
+           hidden gardens.
+        6. A wall can't go over numbered squares.
+        7. The wall can't form 2*2 squares.
+    */
     private func updateIsSolved() {
         isSolved = true
         for r in 0..<rows - 1 {

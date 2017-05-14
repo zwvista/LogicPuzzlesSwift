@@ -126,6 +126,23 @@ class LightenUpGameState: GridGameState, LightenUpMixin {
         }
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 2/Lighten Up
+
+        Summary
+        Place lightbulbs to light up all the room squares
+
+        Description
+        1. What you see from above is a room and the marked squares are walls.
+        2. The goal is to put lightbulbs in the room so that all the blank(non-wall)
+           squares are lit, following these rules.
+        3. Lightbulbs light all free, unblocked squares horizontally and vertically.
+        4. A lightbulb can't light another lightbulb.
+        5. Walls block light. Also walls with a number tell you how many lightbulbs
+           are adjacent to it, horizontally and vertically.
+        6. Walls without a number can have any number of lightbulbs. However,
+           lightbulbs don't need to be adjacent to a wall.
+    */
     private func updateIsSolved() {
         isSolved = true
         for r in 0..<rows {

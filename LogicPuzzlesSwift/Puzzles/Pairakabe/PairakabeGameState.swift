@@ -81,6 +81,17 @@ class PairakabeGameState: GridGameState, PairakabeMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 12/Pairakabe
+
+        Summary
+        Just to confuse things a bit more
+
+        Description
+        1. Plays like Nurikabe, with an interesting twist.
+        2. Instead of just one number, each 'garden' contains two numbers and
+           the area of the garden is given by the sum of both.
+    */
     private func updateIsSolved() {
         isSolved = true
         for r in 0..<rows - 1 {

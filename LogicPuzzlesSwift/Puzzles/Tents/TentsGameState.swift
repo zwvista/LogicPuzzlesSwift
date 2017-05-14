@@ -87,6 +87,24 @@ class TentsGameState: GridGameState, TentsMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 1/Tents
+
+        Summary
+        Each camper wants to put his Tent under the shade of a Tree. But he also
+        wants his privacy!
+
+        Description
+        1. The board represents a camping field with many Trees. Campers want to set
+           their Tent in the shade, horizontally or vertically adjacent to a Tree(not
+           diagonally).
+        2. At the same time they need their privacy, so a Tent can't have any other
+           Tents near them, not even diagonally.
+        3. The numbers on the borders tell you how many Tents there are in that row
+           or column.
+        4. Finally, each Tree has at least one Tent touching it, horizontally or
+           vertically.
+    */
     private func updateIsSolved() {
         isSolved = true
         for r in 0..<rows {

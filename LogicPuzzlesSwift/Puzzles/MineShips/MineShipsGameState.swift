@@ -90,6 +90,21 @@ class MineShipsGameState: GridGameState, MineShipsMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 8/Mine Ships
+
+        Summary
+        Warning! Naval Mines in the water!
+
+        Description
+        1. There are actually no mines in the water, but this is a mix between
+           Minesweeper and Battle Ships.
+        2. You must find the same set of ships like 'Battle Ships'
+           (1*4, 2*3, 3*2, 4*1).
+        3. However this time the hints are given in the same form as 'Minesweeper',
+           where a number tells you how many pieces of ship are around it.
+        4. Usual Battle Ships rules apply!
+    */
     private func updateIsSolved() {
         isSolved = true
         for r in 0..<rows {

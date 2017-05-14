@@ -81,6 +81,25 @@ class SentinelsGameState: GridGameState, SentinelsMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 3/Sentinels
+
+        Summary
+        This time it's one Garden and many Towers
+
+        Description
+        1. On the Board there are a few sentinels. These sentinels are marked with
+           a number.
+        2. The number tells you how many tiles that Sentinel can control (see) from
+           there vertically and horizontally. This includes the tile where he is
+           located.
+        3. You must put Towers on the Boards in accordance with these hints, keeping
+           in mind that a Tower blocks the Sentinel View.
+        4. The restrictions are that there must be a single continuous Garden, and
+           two Towers can't touch horizontally or vertically.
+        5. Towers can't go over numbered squares. But numbered squares don't block
+           Sentinel View.
+    */
     private func updateIsSolved() {
         isSolved = true
         let g = Graph()

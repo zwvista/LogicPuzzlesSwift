@@ -82,6 +82,19 @@ class HitoriGameState: GridGameState, HitoriMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 2/Hitori
+
+        Summary
+        Darken some tiles so no number appears in a row or column more than once
+
+        Description
+        1. The goal is to shade squares so that a number appears only once in a
+           row or column.
+        2. While doing that, you must take care that shaded squares don't touch
+           horizontally or vertically between them.
+        3. In the end all the un-shaded squares must form a single continuous area.
+    */
     private func updateIsSolved() {
         isSolved = true
         var chars = ""

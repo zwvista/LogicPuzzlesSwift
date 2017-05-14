@@ -85,6 +85,24 @@ class PowerGridGameState: GridGameState, PowerGridMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 14/Power Grid
+
+        Summary
+        Utility Posts
+
+        Description
+        1. Your task is to identify Utility Posts of a Power Grid.
+        2. There are two Posts in each Row and in each Column.
+        3. The numbers on the side tell you the length of the cables between
+           the two Posts (in that Row or Column).
+        4. Or in other words, the number of empty tiles between two Posts.
+        5. Posts cannot touch themselves, not even diagonally.
+        6. Posts don't have to form a single connected chain.
+
+        Variant
+        7. On some levels, there are exactly two Posts in each diagonal too.
+    */
     private func updateIsSolved() {
         isSolved = true
         for r in 0..<rows {

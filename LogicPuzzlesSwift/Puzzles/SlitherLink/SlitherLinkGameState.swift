@@ -90,6 +90,25 @@ class SlitherLinkGameState: GridGameState, SlitherLinkMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 3/SlitherLink
+
+        Summary
+        Draw a loop a-la-minesweeper!
+
+        Description
+        1. Draw a single looping path with the aid of the numbered hints. The path
+           cannot have branches or cross itself.
+        2. Each number in a tile tells you on how many of its four sides are touched
+           by the path.
+        3. For example:
+        4. A 0 tells you that the path doesn't touch that square at all.
+        5. A 1 tells you that the path touches that square ONLY one-side.
+        6. A 3 tells you that the path does a U-turn around that square.
+        7. There can't be tiles marked with 4 because that would form a single
+           closed loop in it.
+        8. Empty tiles can have any number of sides touched by that path.
+    */
     private func updateIsSolved() {
         isSolved = true
         for (p, n2) in game.pos2hint {

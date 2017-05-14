@@ -86,6 +86,16 @@ class LoopyGameState: GridGameState, LoopyMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 5/Loopy
+
+        Summary
+        Loop a loop! And touch all the dots!
+
+        Description
+        1. Draw a single looping path. You have to touch all the dots. As usual,
+           the path cannot have branches or cross itself.
+    */
     private func updateIsSolved() {
         isSolved = true
         let g = Graph()

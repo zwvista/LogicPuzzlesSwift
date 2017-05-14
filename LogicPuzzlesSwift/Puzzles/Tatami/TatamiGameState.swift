@@ -71,6 +71,19 @@ class TatamiGameState: GridGameState, TatamiMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 2/Tatami
+
+        Summary
+        1,2,3... 1,2,3... Fill the mats
+
+        Description
+        1. Each rectangle represents a mat(Tatami) which is of the same size.
+           You must fill each Tatami with a number ranging from 1 to size.
+        2. Each number can appear only once in each Tatami.
+        3. In one row or column, each number must appear the same number of times.
+        4. You can't have two identical numbers touching horizontally or vertically.
+    */
     private func updateIsSolved() {
         isSolved = true
         let chars2: [Character] = ["1", "2", "3"]

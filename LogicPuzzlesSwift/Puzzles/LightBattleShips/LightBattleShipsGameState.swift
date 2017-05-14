@@ -93,6 +93,28 @@ class LightBattleShipsGameState: GridGameState, LightBattleShipsMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 13/Light Battle Ships
+
+        Summary
+        Please divert your course 15 degrees to avoid collision
+
+        Description
+        1. A mix of Battle Ships and Lighthouses, you have to guess the usual
+           piece of ships with the help of Lighthouses.
+        2. Each number is a Lighthouse, telling you how many pieces of ship
+           there are in that row and column, summed together.
+        3. Ships cannot touch each other OR touch Lighthouses. Not even diagonally.
+        4. In each puzzle there are
+           1 Aircraft Carrier (4 squares)
+           2 Destroyers (3 squares)
+           3 Submarines (2 squares)
+           4 Patrol boats (1 square)
+
+        Variant
+        5. Some puzzle can also have a:
+           1 Supertanker (5 squares)
+    */
     private func updateIsSolved() {
         isSolved = true
         for r in 0..<rows {

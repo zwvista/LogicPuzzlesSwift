@@ -94,6 +94,29 @@ class DigitalBattleShipsGameState: GridGameState, DigitalBattleShipsMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 13/Digital Battle Ships
+
+        Summary
+        Please divert your course 12+1+2 to avoid collision
+
+        Description
+        1. Play like Solo Battle Ships, with a difference.
+        2. Each number on the outer board tells you the SUM of the ship or
+           ship pieces you're seeing in that row or column.
+        3. A ship or ship piece is worth the number it occupies on the board.
+        4. Standard rules apply: a ship or piece of ship can't touch another,
+           not even diagonally.
+        5. In each puzzle there are
+           1 Aircraft Carrier (4 squares)
+           2 Destroyers (3 squares)
+           3 Submarines (2 squares)
+           4 Patrol boats (1 square)
+
+        Variant
+        5. Some puzzle can also have a:
+           1 Supertanker (5 squares)
+    */
     private func updateIsSolved() {
         isSolved = true
         for r in 0..<rows {

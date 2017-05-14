@@ -87,6 +87,20 @@ class CloudsGameState: GridGameState, CloudsMixin {
         return setObject(move: &move)
     }
     
+    /*
+        iOS Game: Logic Games/Puzzle Set 5/Clouds
+
+        Summary
+        Weather Radar Report
+
+        Description
+        1. You must find Clouds in the sky.
+        2. The hints on the borders tell you how many tiles are covered by Clouds
+           in that row or column.
+        3. Clouds only appear in rectangular or square areas. Furthermore, their
+           width and height is always at least two tiles wide.
+        4. Clouds can't touch between themselves, not even diagonally. 
+    */
     private func updateIsSolved() {
         isSolved = true
         for r in 0..<rows {
