@@ -11,6 +11,7 @@ import SharkORM
 
 class GameDocument<G: GameBase, GM> {
     private(set) var levels = [String: [String]]()
+    private(set) var help = [String]()
     var selectedLevelID: String!
     var selectedLevelIDSolution: String { return selectedLevelID + " Solution" }
     var gameID: String!
@@ -50,12 +51,18 @@ class GameDocument<G: GameBase, GM> {
         let path = Bundle.main.path(forResource: gameID, ofType: "xml")!
         let xml = try! String(contentsOfFile: path)
         let doc = try! XMLDocument(string: xml)
-        for elem in doc.root!.children {
-            guard let key = elem.attr("id") else {continue}
-            var arr = elem.stringValue.components(separatedBy: "\n")
+        let root = doc.root!
+        for elemLevel in root.firstChild(tag: "levels")!.children {
+            guard let key = elemLevel.attr("id") else {continue}
+            var arr = elemLevel.stringValue.components(separatedBy: "\n")
             arr = Array(arr[2..<(arr.count - 2)])
             arr = arr.map { s in s.substring(to: s.index(before: s.endIndex)) }
             levels["Level " + key] = arr
+        }
+        if let elemHelp = root.firstChild(tag: "help") {
+            var arr = elemHelp.stringValue.components(separatedBy: "\n")
+            arr = Array(arr[2..<(arr.count - 2)])
+            help = arr
         }
         selectedLevelID = gameProgress.levelID
     }

@@ -37,7 +37,7 @@ class GameGameViewController: UIViewController {
     
     // http://stackoverflow.com/questions/14111572/how-to-use-single-storyboard-uiviewcontroller-for-multiple-subclass
     override func awakeFromNib() {
-        object_setClass(self, NSClassFromString("LogicPuzzlesSwift.\(currentGameName)GameGameViewController").self)
+        object_setClass(self, NSClassFromString("LogicPuzzlesSwift.\(currentGameName)GameViewController").self)
     }
     
     override func viewDidLoad() {
@@ -46,11 +46,7 @@ class GameGameViewController: UIViewController {
         // Configure the view.
         skView = view as! SKView
         skView.isMultipleTouchEnabled = false
-        
-        lblLevel.textColor = .white
-        lblMoves.textColor = .white
-        lblSolution.textColor = .white
-        lblGameTitle.textColor = .white
+
         lblGameTitle.text = currentGameTitle
     }
 
@@ -79,10 +75,6 @@ class GameGameViewController: UIViewController {
     }
     
     @IBAction func backToMain(_ sender: Any) {
-        navigationController!.popViewController(animated: true)
-    }
-    
-    @IBAction func showHelp(_ sender: Any) {
         navigationController!.popViewController(animated: true)
     }
     

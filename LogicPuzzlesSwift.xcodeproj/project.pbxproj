@@ -221,6 +221,9 @@
 		8C70167C1E90C79E00210CE7 /* FenceLitsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7016701E90C79E00210CE7 /* FenceLitsOptionsViewController.swift */; };
 		8C76090B1EC61A8A00DFCD7B /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C76090A1EC61A8A00DFCD7B /* Game.storyboard */; };
 		8C7609101EC627E900DFCD7B /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C76090F1EC627E900DFCD7B /* Global.swift */; };
+		8C7609181EC7778100DFCD7B /* GameHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7609171EC7778100DFCD7B /* GameHelpViewController.swift */; };
+		8C76091A1EC7EB1C00DFCD7B /* SelfSizingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7609191EC7EB1C00DFCD7B /* SelfSizingTableViewCell.swift */; };
+		8C76091C1EC7F88800DFCD7B /* AbcHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C76091B1EC7F88800DFCD7B /* AbcHelpViewController.swift */; };
 		8C81CB9F1E19546000FB244A /* BoxItAgain.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C81CB861E19546000FB244A /* BoxItAgain.xml */; };
 		8C81CBA01E19546000FB244A /* BoxItAgainDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB871E19546000FB244A /* BoxItAgainDocument.swift */; };
 		8C81CBA11E19546000FB244A /* BoxItAgainGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81CB881E19546000FB244A /* BoxItAgainGame.swift */; };
@@ -851,6 +854,9 @@
 		8C7016701E90C79E00210CE7 /* FenceLitsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsOptionsViewController.swift; sourceTree = "<group>"; };
 		8C76090A1EC61A8A00DFCD7B /* Game.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		8C76090F1EC627E900DFCD7B /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		8C7609171EC7778100DFCD7B /* GameHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHelpViewController.swift; sourceTree = "<group>"; };
+		8C7609191EC7EB1C00DFCD7B /* SelfSizingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfSizingTableViewCell.swift; sourceTree = "<group>"; };
+		8C76091B1EC7F88800DFCD7B /* AbcHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcHelpViewController.swift; sourceTree = "<group>"; };
 		8C81CB861E19546000FB244A /* BoxItAgain.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BoxItAgain.xml; sourceTree = "<group>"; };
 		8C81CB871E19546000FB244A /* BoxItAgainDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainDocument.swift; sourceTree = "<group>"; };
 		8C81CB881E19546000FB244A /* BoxItAgainGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainGame.swift; sourceTree = "<group>"; };
@@ -1704,12 +1710,14 @@
 		8C6D37CE1DC42FA40052202C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8C7609191EC7EB1C00DFCD7B /* SelfSizingTableViewCell.swift */,
 				8C6D37EC1DC5A2F50052202C /* Copyable.swift */,
 				8CD1558A1DD77C3400786F34 /* Extensions.swift */,
 				8C76090A1EC61A8A00DFCD7B /* Game.storyboard */,
 				8C6D37D01DC42FA40052202C /* Game.swift */,
 				8C6D37CF1DC42FA40052202C /* GameDocument.swift */,
 				8C6D37D31DC42FA40052202C /* GameGameViewController.swift */,
+				8C7609171EC7778100DFCD7B /* GameHelpViewController.swift */,
 				8C6D37D61DC42FA40052202C /* GameMainViewController.swift */,
 				8C6D37D71DC42FA40052202C /* GameMixin.swift */,
 				8C6ACC181DD204420075F32C /* GameObject.swift */,
@@ -1870,6 +1878,7 @@
 				8C9AF3F91DE974BE0053BED4 /* AbcGameState.swift */,
 				8C9AF3FA1DE974BE0053BED4 /* AbcGameViewController.swift */,
 				8C9AF3FB1DE974BE0053BED4 /* AbcGridNode.swift */,
+				8C76091B1EC7F88800DFCD7B /* AbcHelpViewController.swift */,
 				8C9AF3FC1DE974BE0053BED4 /* AbcMainViewController.swift */,
 				8C9AF3FD1DE974BE0053BED4 /* AbcMixin.swift */,
 				8C9AF3FE1DE974BE0053BED4 /* AbcObject.swift */,
@@ -2849,6 +2858,7 @@
 				8CC3503E1E001D2800B8FD83 /* CharacterExtensions.swift in Sources */,
 				8C916CBE1DAA5E9500D9E62B /* Helpers.swift in Sources */,
 				8CC350531E001D2800B8FD83 /* UIImageExtensions.swift in Sources */,
+				8C76091C1EC7F88800DFCD7B /* AbcHelpViewController.swift in Sources */,
 				8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */,
 				8C70165F1E90C25000210CE7 /* MiniLitsMainViewController.swift in Sources */,
 				8C9AF4861DE974BF0053BED4 /* AbcGameScene.swift in Sources */,
@@ -2878,6 +2888,7 @@
 				8CC350371E001D2800B8FD83 /* BlockTap.swift in Sources */,
 				8C262D3A1EC400CE00BCDBD2 /* AbstractPaintingMainViewController.swift in Sources */,
 				8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */,
+				8C76091A1EC7EB1C00DFCD7B /* SelfSizingTableViewCell.swift in Sources */,
 				8C9AF4D01DE974BF0053BED4 /* MasyuGameViewController.swift in Sources */,
 				8C262D1C1EC3ED1D00BCDBD2 /* DigitalBattleShipsGameScene.swift in Sources */,
 				8CB29ACE1E8F716C001D07C6 /* MinesweeperGameScene.swift in Sources */,
@@ -2967,6 +2978,7 @@
 				8CB29B011E8F7AF6001D07C6 /* OrchardsGameScene.swift in Sources */,
 				8CB29AEF1E8F795E001D07C6 /* LitsOptionsViewController.swift in Sources */,
 				8C9AF5681DF8D7770053BED4 /* MagnetsMixin.swift in Sources */,
+				8C7609181EC7778100DFCD7B /* GameHelpViewController.swift in Sources */,
 				8CC350561E001D2800B8FD83 /* UISliderExtensions.swift in Sources */,
 				8CC3504A1E001D2800B8FD83 /* TimerExtensions.swift in Sources */,
 				8C9AF4961DE974BF0053BED4 /* BridgesMainViewController.swift in Sources */,
