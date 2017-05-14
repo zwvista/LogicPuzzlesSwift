@@ -9,8 +9,6 @@
 import Foundation
 
 protocol HomeMixin: SoundMixin {
-    var gameDocument: HomeDocument { get }
-    var gameOptions: HomeGameProgress { get }
 }
 
 extension HomeMixin {

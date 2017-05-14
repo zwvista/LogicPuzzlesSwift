@@ -8,7 +8,6 @@
 
 import Foundation
 protocol SoundMixin {
-    var soundManager: SoundManager { get }
 }
 
 extension SoundMixin {
@@ -17,11 +16,6 @@ extension SoundMixin {
 
 protocol GameMixin: SoundMixin {
     var gameDocumentBase: GameDocumentBase { get }
-    var gameOptions: GameProgress { get }
-    var markerOption: Int { get }
-    func setMarkerOption(rec: GameProgress, newValue: Int)
-    var allowedObjectsOnly: Bool { get }
-    func setAllowedObjectsOnly(rec: GameProgress, newValue: Bool)
 }
 
 extension GameMixin {
