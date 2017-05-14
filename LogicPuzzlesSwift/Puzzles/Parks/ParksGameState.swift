@@ -96,22 +96,6 @@ class ParksGameState: GridGameState, ParksMixin {
            but it CAN be on the same diagonal line.
         7. Larger puzzles have TWO Trees in each park, each row and each column.
     */
-    /*
-        iOS Game: Logic Games/Puzzle Set 1/Parks
-
-        Summary
-        Put one Tree in each Park, row and column.(two in bigger levels)
-
-        Description
-        1. In Parks, you have many differently coloured areas(Parks) on the board.
-        2. The goal is to plant Trees, following these rules:
-        3. A Tree can't touch another Tree, not even diagonally.
-        4. Each park must have exactly ONE Tree.
-        5. There must be exactly ONE Tree in each row and each column.
-        6. Remember a Tree CANNOT touch another Tree diagonally,
-           but it CAN be on the same diagonal line.
-        7. Larger puzzles have TWO Trees in each park, each row and each column.
-    */
     private func updateIsSolved() {
         isSolved = true
         for r in 0..<rows {

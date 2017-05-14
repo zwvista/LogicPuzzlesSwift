@@ -131,8 +131,7 @@ class NeighboursGameState: GridGameState, NeighboursMixin {
         var areas = [[Position]]()
         var pos2area = [Position: Int]()
         while !pos2node.isEmpty {
-            let node = pos2node.first!.value
-            let nodesExplored = breadthFirstSearch(g, source: node)
+            let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
             areas.append(area)
             for p in area {

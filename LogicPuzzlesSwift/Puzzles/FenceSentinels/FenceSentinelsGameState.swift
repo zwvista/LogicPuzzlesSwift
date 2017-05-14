@@ -148,7 +148,7 @@ class FenceSentinelsGameState: GridGameState, FenceSentinelsMixin {
                 g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
             }
         }
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.values.first!)
+        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
         let n1 = nodesExplored.count
         let n2 = pos2node.values.count
         if n1 != n2 {isSolved = false}

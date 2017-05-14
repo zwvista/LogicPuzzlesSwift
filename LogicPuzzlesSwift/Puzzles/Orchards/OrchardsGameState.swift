@@ -123,8 +123,7 @@ class OrchardsGameState: GridGameState, OrchardsMixin {
             }
         }
         while !pos2node.isEmpty {
-            let node = pos2node.first!.value
-            let nodesExplored = breadthFirstSearch(g, source: node)
+            let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let trees = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
             if trees.count != 2 {isSolved = false}
             if trees.count > 2 {

@@ -143,8 +143,7 @@ class PairakabeGameState: GridGameState, PairakabeMixin {
             if rngWalls.count != nodesExplored.count {isSolved = false}
         }
         while !rngEmpty.isEmpty {
-            let node = pos2node[rngEmpty.first!]!
-            let nodesExplored = breadthFirstSearch(g, source: node)
+            let nodesExplored = breadthFirstSearch(g, source: pos2node[rngEmpty.first!]!)
             rngEmpty = rngEmpty.filter({p in !nodesExplored.contains(p.description)})
             let n2 = nodesExplored.count
             var rng = [Position]()

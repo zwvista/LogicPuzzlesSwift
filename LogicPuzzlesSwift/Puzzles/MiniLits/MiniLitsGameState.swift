@@ -129,8 +129,7 @@ class MiniLitsGameState: GridGameState, MiniLitsMixin {
         }
         var blocks = [[Position]]()
         while !pos2node.isEmpty {
-            let node = pos2node.first!.value
-            let nodesExplored = breadthFirstSearch(g, source: node)
+            let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let block = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
             blocks.append(block)
             pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})

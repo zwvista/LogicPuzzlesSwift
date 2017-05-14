@@ -122,8 +122,7 @@ class BoxItUpGameState: GridGameState, BoxItUpMixin {
             }
         }
         while !pos2node.isEmpty {
-            let node = pos2node.first!.value
-            let nodesExplored = breadthFirstSearch(g, source: node)
+            let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
             pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
             let rng = area.filter({p in game.pos2hint[p] != nil})

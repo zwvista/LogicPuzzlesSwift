@@ -188,8 +188,8 @@ class BattleShipsGameState: GridGameState, BattleShipsMixin {
             }
         }
         var shipNumbers = Array<Int>(repeating: 0, count: 5)
-        while pos2node.count > 0 {
-            let nodesExplored = breadthFirstSearch(g, source: pos2node.values.first!)
+        while !pos2node.isEmpty {
+            let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map({$0.0}).sorted()
             pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
             func f(os: Position, objTopLeft: BattleShipsObject, objBottomRight: BattleShipsObject) -> Bool {

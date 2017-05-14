@@ -49,13 +49,11 @@ class AbstractPaintingGame: GridGame<AbstractPaintingGameViewController> {
                 }
             }
         }
-        var rng = Set<Position>()
         let g = Graph()
         var pos2node = [Position: Node]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                rng.insert(p)
                 pos2node[p] = g.addNode(p.description)
             }
         }
@@ -69,16 +67,15 @@ class AbstractPaintingGame: GridGame<AbstractPaintingGameViewController> {
                 }
             }
         }
-        while !rng.isEmpty {
-            let node = pos2node[rng.first!]!
-            let nodesExplored = breadthFirstSearch(g, source: node)
-            let area = rng.filter({p in nodesExplored.contains(p.description)})
+        while !pos2node.isEmpty {
+            let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+            let area = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map({$0.0})
+            pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
             let n = areas.count
             for p in area {
                 pos2area[p] = n
             }
             areas.append(area)
-            rng.subtract(area)
         }
         
         for r in 0..<rows {

@@ -133,8 +133,7 @@ class FenceLitsGameState: GridGameState, FenceLitsMixin {
         }
         guard isSolved else {return}
         while !pos2node.isEmpty {
-            let node = pos2node.first!.value
-            let nodesExplored = breadthFirstSearch(g, source: node)
+            let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}.sorted()
             guard area.count == 4 else {isSolved = false; return}
             var areaOffsets = [Position]()

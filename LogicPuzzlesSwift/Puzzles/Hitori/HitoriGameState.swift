@@ -156,7 +156,7 @@ class HitoriGameState: GridGameState, HitoriMixin {
                 g.addEdge(node, neighbor: node2)
             }
         }
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.values.first!)
+        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
         if pos2node.count != nodesExplored.count {isSolved = false}
     }
 }

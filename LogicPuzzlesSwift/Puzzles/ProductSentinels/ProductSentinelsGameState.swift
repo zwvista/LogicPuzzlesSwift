@@ -179,7 +179,7 @@ class ProductSentinelsGameState: GridGameState, ProductSentinelsMixin {
             }
         }
         guard isSolved else {return}
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.values.first!)
+        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
         if pos2node.count != nodesExplored.count {isSolved = false}
     }
 }
