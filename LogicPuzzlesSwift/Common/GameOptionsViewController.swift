@@ -33,9 +33,14 @@ class GameOptionsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateMarkerOption()
+        updateAllowedObjectsOnly()
     }
     
     @IBAction func allowedObjectsOnlyChanged(_ sender: Any) {
+        let rec = gameOptions
+        setAllowedObjectsOnly(rec: rec, newValue: swAllowedObjectsOnly.isOn)
+        rec.commit()
     }
     
     @IBAction func onDefault(_ sender: Any) {
@@ -53,7 +58,32 @@ class GameOptionsViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    func onDefault() {}
+    func onDefault() {
+        let rec = gameOptions
+        setMarkerOption(rec: rec, newValue: MarkerOptions.noMarker.rawValue)
+        setAllowedObjectsOnly(rec: rec, newValue: false)
+        rec.commit()
+        updateMarkerOption()
+        updateAllowedObjectsOnly()
+    }
+    
+    func updateMarkerOption() {
+        lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]
+    }
+    
+    func updateAllowedObjectsOnly() {
+        swAllowedObjectsOnly.isOn = allowedObjectsOnly
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.row == 0 else { return }
+        ActionSheetStringPicker.show(withTitle: "Marker Options", rows: MarkerOptions.optionStrings, initialSelection: markerOption, doneBlock: { (picker, selectedIndex, selectedValue) in
+            let rec = self.gameOptions
+            self.setMarkerOption(rec: rec, newValue: selectedIndex)
+            rec.commit()
+            self.updateMarkerOption()
+        }, cancel: nil, origin: lblMarker)
+    }
 
     deinit {
         print("deinit called: \(NSStringFromClass(type(of: self)))")
