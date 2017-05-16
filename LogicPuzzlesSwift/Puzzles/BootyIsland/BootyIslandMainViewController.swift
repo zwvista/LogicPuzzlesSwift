@@ -13,13 +13,4 @@ class BootyIslandMainViewController: GameMainViewController {
     var gameDocument: BootyIslandDocument { return BootyIslandDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { return BootyIslandDocument.sharedInstance }
 
-    override func startGame(_ sender: UIButton) {
-        gameDocument.selectedLevelID = sender.titleLabel!.text!
-        resumGame(self)
-    }
-    
-    override func resumGame(_ sender: Any) {
-        gameDocument.resumeGame()
-        resumeGame()
-    }
 }

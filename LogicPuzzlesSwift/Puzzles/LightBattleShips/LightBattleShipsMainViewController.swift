@@ -13,13 +13,4 @@ class LightBattleShipsMainViewController: GameMainViewController {
     var gameDocument: LightBattleShipsDocument { return LightBattleShipsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { return LightBattleShipsDocument.sharedInstance }
 
-    override func startGame(_ sender: UIButton) {
-        gameDocument.selectedLevelID = sender.titleLabel!.text!
-        resumGame(self)
-    }
-    
-    override func resumGame(_ sender: Any) {
-        gameDocument.resumeGame()
-        resumeGame()
-    }
 }

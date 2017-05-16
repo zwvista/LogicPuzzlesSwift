@@ -13,13 +13,4 @@ class SkyscrapersMainViewController: GameMainViewController {
     var gameDocument: SkyscrapersDocument { return SkyscrapersDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { return SkyscrapersDocument.sharedInstance }
 
-    override func startGame(_ sender: UIButton) {
-        gameDocument.selectedLevelID = sender.titleLabel!.text!
-        resumGame(self)
-    }
-    
-    override func resumGame(_ sender: Any) {
-        gameDocument.resumeGame()
-        resumeGame()
-    }
 }

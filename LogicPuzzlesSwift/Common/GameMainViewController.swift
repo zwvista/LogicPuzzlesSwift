@@ -41,12 +41,12 @@ class GameMainViewController: UIViewController {
     }
     
     @IBAction func startGame(_ sender: UIButton) {
+        gameDocument.selectedLevelID = sender.titleLabel!.text!
+        resumGame(self)
     }
     
     @IBAction func resumGame(_ sender: Any) {
-    }
-    
-    func resumeGame() {
+        gameDocument.resumeGame()
         let gameViewController = self.storyboard!.instantiateViewController(withIdentifier: "GameGameViewController") as! GameGameViewController
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }

@@ -13,13 +13,4 @@ class TatamiMainViewController: GameMainViewController {
     var gameDocument: TatamiDocument { return TatamiDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { return TatamiDocument.sharedInstance }
 
-    override func startGame(_ sender: UIButton) {
-        gameDocument.selectedLevelID = sender.titleLabel!.text!
-        resumGame(self)
-    }
-    
-    override func resumGame(_ sender: Any) {
-        gameDocument.resumeGame()
-        resumeGame()
-    }
 }

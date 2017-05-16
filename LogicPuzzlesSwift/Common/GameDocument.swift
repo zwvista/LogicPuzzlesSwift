@@ -12,6 +12,8 @@ import SharkORM
 protocol GameDocumentBase: class {
     var gameProgress: GameProgress { get }
     var help: [String] { get }
+    var selectedLevelID: String! { get set }
+    func resumeGame()
 }
 
 class GameDocument<G: GameBase, GM>: GameDocumentBase {

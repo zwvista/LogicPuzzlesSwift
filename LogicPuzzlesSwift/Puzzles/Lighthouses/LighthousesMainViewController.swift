@@ -13,13 +13,4 @@ class LighthousesMainViewController: GameMainViewController {
     var gameDocument: LighthousesDocument { return LighthousesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { return LighthousesDocument.sharedInstance }
 
-    override func startGame(_ sender: UIButton) {
-        gameDocument.selectedLevelID = sender.titleLabel!.text!
-        resumGame(self)
-    }
-    
-    override func resumGame(_ sender: Any) {
-        gameDocument.resumeGame()
-        resumeGame()
-    }
 }

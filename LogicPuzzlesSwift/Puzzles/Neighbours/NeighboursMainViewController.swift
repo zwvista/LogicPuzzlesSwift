@@ -13,13 +13,4 @@ class NeighboursMainViewController: GameMainViewController {
     var gameDocument: NeighboursDocument { return NeighboursDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { return NeighboursDocument.sharedInstance }
 
-    override func startGame(_ sender: UIButton) {
-        gameDocument.selectedLevelID = sender.titleLabel!.text!
-        resumGame(self)
-    }
-    
-    override func resumGame(_ sender: Any) {
-        gameDocument.resumeGame()
-        resumeGame()
-    }
 }

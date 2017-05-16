@@ -13,13 +13,4 @@ class OrchardsMainViewController: GameMainViewController {
     var gameDocument: OrchardsDocument { return OrchardsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { return OrchardsDocument.sharedInstance }
 
-    override func startGame(_ sender: UIButton) {
-        gameDocument.selectedLevelID = sender.titleLabel!.text!
-        resumGame(self)
-    }
-    
-    override func resumGame(_ sender: Any) {
-        gameDocument.resumeGame()
-        resumeGame()
-    }
 }

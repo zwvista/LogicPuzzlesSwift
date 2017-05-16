@@ -13,13 +13,4 @@ class MiniLitsMainViewController: GameMainViewController {
     var gameDocument: MiniLitsDocument { return MiniLitsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { return MiniLitsDocument.sharedInstance }
 
-    override func startGame(_ sender: UIButton) {
-        gameDocument.selectedLevelID = sender.titleLabel!.text!
-        resumGame(self)
-    }
-    
-    override func resumGame(_ sender: Any) {
-        gameDocument.resumeGame()
-        resumeGame()
-    }
 }

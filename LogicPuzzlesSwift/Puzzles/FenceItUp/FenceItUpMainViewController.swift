@@ -13,13 +13,4 @@ class FenceItUpMainViewController: GameMainViewController {
     var gameDocument: FenceItUpDocument { return FenceItUpDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { return FenceItUpDocument.sharedInstance }
 
-    override func startGame(_ sender: UIButton) {
-        gameDocument.selectedLevelID = sender.titleLabel!.text!
-        resumGame(self)
-    }
-    
-    override func resumGame(_ sender: Any) {
-        gameDocument.resumeGame()
-        resumeGame()
-    }
 }

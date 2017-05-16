@@ -13,13 +13,4 @@ class LightenUpMainViewController: GameMainViewController {
     var gameDocument: LightenUpDocument { return LightenUpDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { return LightenUpDocument.sharedInstance }
 
-    override func startGame(_ sender: UIButton) {
-        gameDocument.selectedLevelID = sender.titleLabel!.text!
-        resumGame(self)
-    }
-    
-    override func resumGame(_ sender: Any) {
-        gameDocument.resumeGame()
-        resumeGame()
-    }
 }

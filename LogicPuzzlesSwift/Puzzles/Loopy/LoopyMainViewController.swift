@@ -13,13 +13,4 @@ class LoopyMainViewController: GameMainViewController {
     var gameDocument: LoopyDocument { return LoopyDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { return LoopyDocument.sharedInstance }
 
-    override func startGame(_ sender: UIButton) {
-        gameDocument.selectedLevelID = sender.titleLabel!.text!
-        resumGame(self)
-    }
-    
-    override func resumGame(_ sender: Any) {
-        gameDocument.resumeGame()
-        resumeGame()
-    }
 }
