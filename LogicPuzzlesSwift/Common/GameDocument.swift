@@ -11,6 +11,7 @@ import SharkORM
 
 protocol GameDocumentBase: class {
     var gameProgress: GameProgress { get }
+    var help: [String] { get }
 }
 
 class GameDocument<G: GameBase, GM>: GameDocumentBase {
