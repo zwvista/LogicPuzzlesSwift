@@ -18,7 +18,7 @@ class GameProgress: SRKObject {
     dynamic var option4: String?
     
     override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
-        return ["levelID": "Level 1"]
+        return ["levelID": "1"]
     }
 }
 

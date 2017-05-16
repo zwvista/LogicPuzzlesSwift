@@ -74,7 +74,7 @@ class BridgesGameViewController: GameGameViewController, GameDelegate, BridgesMi
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let layout = gameDocument.levels[gameDocument.selectedLevelID]!
+        let layout: [String] = gameDocument.levels.first(where: {$0.0 == gameDocument.selectedLevelID}).map({$0.1}) ?? gameDocument.levels.first!.1
         
         levelInitilizing = true
         defer {levelInitilizing = false}

@@ -14,7 +14,7 @@ protocol GameDocumentBase: class {
 }
 
 class GameDocument<G: GameBase, GM>: GameDocumentBase {
-    private(set) var levels = [String: [String]]()
+    private(set) var levels = [(String, [String])]()
     private(set) var help = [String]()
     var selectedLevelID: String!
     var selectedLevelIDSolution: String { return selectedLevelID + " Solution" }
@@ -61,7 +61,7 @@ class GameDocument<G: GameBase, GM>: GameDocumentBase {
             var arr = elemLevel.stringValue.components(separatedBy: "\n")
             arr = Array(arr[2..<(arr.count - 2)])
             arr = arr.map { s in s.substring(to: s.index(before: s.endIndex)) }
-            levels["Level " + key] = arr
+            levels.append((key, arr))
         }
         if let elemHelp = root.firstChild(tag: "help") {
             var arr = elemHelp.stringValue.components(separatedBy: "\n")

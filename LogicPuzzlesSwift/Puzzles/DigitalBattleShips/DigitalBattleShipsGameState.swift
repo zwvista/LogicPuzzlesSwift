@@ -189,19 +189,15 @@ class DigitalBattleShipsGameState: GridGameState, DigitalBattleShipsMixin {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map({$0.0}).sorted()
             pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
-            func f(os: Position, objTopLeft: DigitalBattleShipsObject, objBottomRight: DigitalBattleShipsObject) -> Bool {
-                return self[area.first!] == objTopLeft && self[area.last!] == objBottomRight &&
-                    [Int](1..<area.count - 1).testAll({self[area[$0]] == .battleShipMiddle}) &&
-                    [Int](1..<area.count).testAll({area[$0] - area[$0 - 1] == os})
-            }
-            guard (area.count == 1 && self[area.first!] == .battleShipUnit || area.count > 1 && area.count < 5 && (
-                area.testAll({$0.row == area.first!.row}) && f(os: Position(0, 1), objTopLeft: .battleShipLeft, objBottomRight: .battleShipRight) ||
-                    area.testAll({$0.col == area.first!.col}) && f(os: Position(1, 0), objTopLeft: .battleShipTop, objBottomRight: .battleShipBottom))) && DigitalBattleShipsGame.offset2.testAll({os in area.testAll({
-                        let p2 = $0 + os
-                        if !self.isValid(p: p2) {return true}
-                        let o = self[p2]
-                        return o == .empty || o == .forbidden || o == .marker
-                    })}) else {isSolved = false; return}
+            guard (area.count == 1 && self[area.first!] == .battleShipUnit || area.count > 1 && area.count < 5 && ((
+                area.testAll({$0.row == area.first!.row}) && self[area.first!] == .battleShipLeft && self[area.last!] == .battleShipRight) ||
+                area.testAll({$0.col == area.first!.col}) && self[area.first!] == .battleShipTop && self[area.last!] == .battleShipBottom) &&
+                [Int](1..<area.count - 1).testAll({self[area[$0]] == .battleShipMiddle})) && DigitalBattleShipsGame.offset2.testAll({os in area.testAll({
+                    let p2 = $0 + os
+                    if !self.isValid(p: p2) {return true}
+                    let o = self[p2]
+                    return o == .empty || o == .forbidden || o == .marker
+                })}) else {isSolved = false; return}
             shipNumbers[area.count] += 1
         }
         if shipNumbers != [0, 4, 3, 2, 1] {isSolved = false}
