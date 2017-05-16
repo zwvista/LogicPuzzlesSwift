@@ -20,6 +20,8 @@ protocol GameDelegate: class {
 
 protocol GameBase: class {
     var moveIndex: Int {get}
+    var isSolved: Bool {get}
+    var moveCount: Int {get}
     func undo()
     func redo()
 }

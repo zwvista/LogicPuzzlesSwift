@@ -78,12 +78,6 @@ class OrchardsGameViewController: GameGameViewController, GameDelegate {
         gameDocument.moveAdded(game: game, move: move)
     }
     
-    func updateMovesUI(_ game: OrchardsGame) {
-        lblMoves.text = "Moves: \(game.moveIndex)(\(game.moveCount))"
-        lblSolved.textColor = game.isSolved ? .white : .black
-        btnSaveSolution.isEnabled = game.isSolved
-    }
-    
     func levelInitilized(_ game: AnyObject, state: OrchardsGameState) {
         let game = game as! OrchardsGame
         updateMovesUI(game)

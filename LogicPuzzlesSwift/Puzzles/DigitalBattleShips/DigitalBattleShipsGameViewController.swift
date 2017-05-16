@@ -78,12 +78,6 @@ class DigitalBattleShipsGameViewController: GameGameViewController, GameDelegate
         gameDocument.moveAdded(game: game, move: move)
     }
     
-    func updateMovesUI(_ game: DigitalBattleShipsGame) {
-        lblMoves.text = "Moves: \(game.moveIndex)(\(game.moveCount))"
-        lblSolved.textColor = game.isSolved ? .white : .black
-        btnSaveSolution.isEnabled = game.isSolved
-    }
-    
     func levelInitilized(_ game: AnyObject, state: DigitalBattleShipsGameState) {
         let game = game as! DigitalBattleShipsGame
         updateMovesUI(game)

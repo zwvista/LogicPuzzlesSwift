@@ -78,12 +78,6 @@ class MagnetsGameViewController: GameGameViewController, GameDelegate {
         gameDocument.moveAdded(game: game, move: move)
     }
     
-    func updateMovesUI(_ game: MagnetsGame) {
-        lblMoves.text = "Moves: \(game.moveIndex)(\(game.moveCount))"
-        lblSolved.textColor = game.isSolved ? .white : .black
-        btnSaveSolution.isEnabled = game.isSolved
-    }
-    
     func levelInitilized(_ game: AnyObject, state: MagnetsGameState) {
         let game = game as! MagnetsGame
         updateMovesUI(game)

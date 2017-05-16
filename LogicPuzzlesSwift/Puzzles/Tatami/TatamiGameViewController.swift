@@ -78,12 +78,6 @@ class TatamiGameViewController: GameGameViewController, GameDelegate {
         gameDocument.moveAdded(game: game, move: move)
     }
     
-    func updateMovesUI(_ game: TatamiGame) {
-        lblMoves.text = "Moves: \(game.moveIndex)(\(game.moveCount))"
-        lblSolved.textColor = game.isSolved ? .white : .black
-        btnSaveSolution.isEnabled = game.isSolved
-    }
-    
     func levelInitilized(_ game: AnyObject, state: TatamiGameState) {
         let game = game as! TatamiGame
         updateMovesUI(game)

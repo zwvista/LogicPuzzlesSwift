@@ -79,12 +79,6 @@ class BoxItAgainGameViewController: GameGameViewController, GameDelegate {
         gameDocument.moveAdded(game: game, move: move)
     }
     
-    func updateMovesUI(_ game: BoxItAgainGame) {
-        lblMoves.text = "Moves: \(game.moveIndex)(\(game.moveCount))"
-        lblSolved.textColor = game.isSolved ? .white : .black
-        btnSaveSolution.isEnabled = game.isSolved
-    }
-    
     func levelInitilized(_ game: AnyObject, state: BoxItAgainGameState) {
         let game = game as! BoxItAgainGame
         updateMovesUI(game)

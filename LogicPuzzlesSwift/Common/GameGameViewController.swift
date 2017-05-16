@@ -63,6 +63,12 @@ class GameGameViewController: UIViewController, SoundMixin {
         btnDeleteSolution.isEnabled = hasSolution
     }
     
+    func updateMovesUI(_ game: GridGameBase) {
+        lblMoves.text = "Moves: \(game.moveIndex)(\(game.moveCount))"
+        lblSolved.textColor = game.isSolved ? .white : .black
+        btnSaveSolution.isEnabled = game.isSolved
+    }
+    
     func startGame() {
     }
 
