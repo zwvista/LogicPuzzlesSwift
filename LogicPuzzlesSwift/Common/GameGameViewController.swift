@@ -57,9 +57,11 @@ class GameGameViewController: UIViewController {
     }
 
     @IBAction func undoGame(_ sender: Any) {
+        game?.undo()
     }
     
     @IBAction func redoGame(_ sender: Any) {
+        game?.redo()
     }
     
     @IBAction func clearGame(_ sender: Any) {

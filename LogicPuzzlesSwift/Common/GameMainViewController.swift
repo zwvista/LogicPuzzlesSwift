@@ -34,7 +34,7 @@ class GameMainViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    @IBAction func startGame(_ sender: Any) {
+    @IBAction func startGame(_ sender: UIButton) {
     }
     
     @IBAction func resumGame(_ sender: Any) {

@@ -20,6 +20,8 @@ protocol GameDelegate: class {
 
 protocol GameBase: class {
     var moveIndex: Int {get}
+    func undo()
+    func redo()
 }
 
 class Game<GD: GameDelegate>: GameBase {
@@ -74,7 +76,7 @@ class Game<GD: GameDelegate>: GameBase {
     }
 }
 
-protocol GridGameBase: class {
+protocol GridGameBase: GameBase {
     var size: Position! {get}
     func isValid(p: Position) -> Bool
     func isValid(row: Int, col: Int) -> Bool

@@ -10,8 +10,8 @@ import UIKit
 
 class BootyIslandMainViewController: GameMainViewController, BootyIslandMixin {
     
-    override func startGame(_ sender: Any) {
-        gameDocument.selectedLevelID = (sender as! UIButton).titleLabel!.text!
+    override func startGame(_ sender: UIButton) {
+        gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)
     }
     
