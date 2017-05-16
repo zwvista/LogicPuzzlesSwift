@@ -8,7 +8,10 @@
 
 import UIKit
 
-class MiniLitsHelpViewController: GameHelpViewController, MiniLitsMixin {
+class MiniLitsHelpViewController: GameHelpViewController {
+
+    var gameDocument: MiniLitsDocument { return MiniLitsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return MiniLitsDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

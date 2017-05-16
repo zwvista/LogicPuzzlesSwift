@@ -8,7 +8,10 @@
 
 import UIKit
 
-class SnailOptionsViewController: GameOptionsViewController, SnailMixin {
+class SnailOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: SnailDocument { return SnailDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return SnailDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

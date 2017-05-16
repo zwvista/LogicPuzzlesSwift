@@ -8,8 +8,11 @@
 
 import UIKit
 
-class FenceSentinelsMainViewController: GameMainViewController, FenceSentinelsMixin {
-    
+class FenceSentinelsMainViewController: GameMainViewController {
+
+    var gameDocument: FenceSentinelsDocument { return FenceSentinelsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return FenceSentinelsDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

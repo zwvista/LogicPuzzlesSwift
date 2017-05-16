@@ -8,7 +8,10 @@
 
 import UIKit
 
-class MineShipsOptionsViewController: GameOptionsViewController, MineShipsMixin {
+class MineShipsOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: MineShipsDocument { return MineShipsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return MineShipsDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

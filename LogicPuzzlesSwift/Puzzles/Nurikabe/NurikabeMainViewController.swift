@@ -8,8 +8,11 @@
 
 import UIKit
 
-class NurikabeMainViewController: GameMainViewController, NurikabeMixin {
-    
+class NurikabeMainViewController: GameMainViewController {
+
+    var gameDocument: NurikabeDocument { return NurikabeDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return NurikabeDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

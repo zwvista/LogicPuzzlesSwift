@@ -8,7 +8,10 @@
 
 import UIKit
 
-class NeighboursHelpViewController: GameHelpViewController, NeighboursMixin {
+class NeighboursHelpViewController: GameHelpViewController {
+
+    var gameDocument: NeighboursDocument { return NeighboursDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return NeighboursDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

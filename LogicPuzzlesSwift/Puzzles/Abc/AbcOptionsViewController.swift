@@ -8,7 +8,10 @@
 
 import UIKit
 
-class AbcOptionsViewController: GameOptionsViewController, AbcMixin {
+class AbcOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: AbcDocument { return AbcDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return AbcDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

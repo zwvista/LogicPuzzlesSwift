@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class LightenUpGameViewController: GameGameViewController, GameDelegate, LightenUpMixin {
+class LightenUpGameViewController: GameGameViewController, GameDelegate {
     typealias GM = LightenUpGameMove
     typealias GS = LightenUpGameState
 
@@ -21,6 +21,8 @@ class LightenUpGameViewController: GameGameViewController, GameDelegate, Lighten
         get {return getGame() as! LightenUpGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: LightenUpDocument { return LightenUpDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return LightenUpDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

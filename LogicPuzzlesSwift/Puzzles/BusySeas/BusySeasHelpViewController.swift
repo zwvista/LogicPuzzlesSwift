@@ -8,7 +8,10 @@
 
 import UIKit
 
-class BusySeasHelpViewController: GameHelpViewController, BusySeasMixin {
+class BusySeasHelpViewController: GameHelpViewController {
+
+    var gameDocument: BusySeasDocument { return BusySeasDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return BusySeasDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

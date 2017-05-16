@@ -8,5 +8,5 @@
 
 import UIKit
 
-class BridgesOptionsViewController: GameOptionsViewController, BridgesMixin {
+class BridgesOptionsViewController: GameOptionsViewController {
 }

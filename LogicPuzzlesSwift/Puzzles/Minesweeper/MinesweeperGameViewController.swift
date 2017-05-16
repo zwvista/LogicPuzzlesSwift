@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class MinesweeperGameViewController: GameGameViewController, GameDelegate, MinesweeperMixin {
+class MinesweeperGameViewController: GameGameViewController, GameDelegate {
     typealias GM = MinesweeperGameMove
     typealias GS = MinesweeperGameState
 
@@ -21,6 +21,8 @@ class MinesweeperGameViewController: GameGameViewController, GameDelegate, Mines
         get {return getGame() as! MinesweeperGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: MinesweeperDocument { return MinesweeperDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return MinesweeperDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

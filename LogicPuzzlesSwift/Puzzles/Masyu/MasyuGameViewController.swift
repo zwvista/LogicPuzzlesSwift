@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class MasyuGameViewController: GameGameViewController, UIGestureRecognizerDelegate, GameDelegate, MasyuMixin {
+class MasyuGameViewController: GameGameViewController, GameDelegate {
     typealias GM = MasyuGameMove
     typealias GS = MasyuGameState
 
@@ -21,6 +21,8 @@ class MasyuGameViewController: GameGameViewController, UIGestureRecognizerDelega
         get {return getGame() as! MasyuGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: MasyuDocument { return MasyuDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return MasyuDocument.sharedInstance }
     var pLast: Position?
     
     override func viewDidLoad() {

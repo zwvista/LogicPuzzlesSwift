@@ -8,7 +8,10 @@
 
 import UIKit
 
-class BoxItAroundOptionsViewController: GameOptionsViewController, BoxItAroundMixin {
+class BoxItAroundOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: BoxItAroundDocument { return BoxItAroundDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return BoxItAroundDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

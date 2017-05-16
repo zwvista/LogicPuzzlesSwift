@@ -8,8 +8,11 @@
 
 import UIKit
 
-class MinesweeperMainViewController: GameMainViewController, MinesweeperMixin {
-    
+class MinesweeperMainViewController: GameMainViewController {
+
+    var gameDocument: MinesweeperDocument { return MinesweeperDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return MinesweeperDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

@@ -8,8 +8,11 @@
 
 import UIKit
 
-class PairakabeMainViewController: GameMainViewController, PairakabeMixin {
-    
+class PairakabeMainViewController: GameMainViewController {
+
+    var gameDocument: PairakabeDocument { return PairakabeDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return PairakabeDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

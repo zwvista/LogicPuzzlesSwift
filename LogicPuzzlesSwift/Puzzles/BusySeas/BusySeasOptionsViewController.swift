@@ -8,7 +8,10 @@
 
 import UIKit
 
-class BusySeasOptionsViewController: GameOptionsViewController, BusySeasMixin {
+class BusySeasOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: BusySeasDocument { return BusySeasDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return BusySeasDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

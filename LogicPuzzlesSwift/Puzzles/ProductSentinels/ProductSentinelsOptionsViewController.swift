@@ -8,7 +8,10 @@
 
 import UIKit
 
-class ProductSentinelsOptionsViewController: GameOptionsViewController, ProductSentinelsMixin {
+class ProductSentinelsOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: ProductSentinelsDocument { return ProductSentinelsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return ProductSentinelsDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

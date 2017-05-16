@@ -8,7 +8,10 @@
 
 import UIKit
 
-class SentinelsOptionsViewController: GameOptionsViewController, SentinelsMixin {
+class SentinelsOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: SentinelsDocument { return SentinelsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return SentinelsDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

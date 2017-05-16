@@ -8,7 +8,10 @@
 
 import UIKit
 
-class FenceSentinelsOptionsViewController: GameOptionsViewController, FenceSentinelsMixin {
+class FenceSentinelsOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: FenceSentinelsDocument { return FenceSentinelsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return FenceSentinelsDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

@@ -8,12 +8,14 @@
 
 import Foundation
 
-class BusySeasGameState: GridGameState, BusySeasMixin {
+class BusySeasGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: BusySeasGame {
         get {return getGame() as! BusySeasGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: BusySeasDocument { return BusySeasDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return BusySeasDocument.sharedInstance }
     var objArray = [BusySeasObject]()
     
     override func copy() -> BusySeasGameState {

@@ -8,7 +8,10 @@
 
 import UIKit
 
-class BridgesHelpViewController: GameHelpViewController, BridgesMixin {
+class BridgesHelpViewController: GameHelpViewController {
+
+    var gameDocument: BridgesDocument { return BridgesDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return BridgesDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

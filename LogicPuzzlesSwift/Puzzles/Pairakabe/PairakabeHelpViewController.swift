@@ -8,7 +8,10 @@
 
 import UIKit
 
-class PairakabeHelpViewController: GameHelpViewController, PairakabeMixin {
+class PairakabeHelpViewController: GameHelpViewController {
+
+    var gameDocument: PairakabeDocument { return PairakabeDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return PairakabeDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

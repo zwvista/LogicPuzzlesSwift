@@ -8,7 +8,10 @@
 
 import UIKit
 
-class LighthousesHelpViewController: GameHelpViewController, LighthousesMixin {
+class LighthousesHelpViewController: GameHelpViewController {
+
+    var gameDocument: LighthousesDocument { return LighthousesDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return LighthousesDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

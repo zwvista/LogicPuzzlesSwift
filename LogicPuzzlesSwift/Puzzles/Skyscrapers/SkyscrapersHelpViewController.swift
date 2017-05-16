@@ -8,7 +8,10 @@
 
 import UIKit
 
-class SkyscrapersHelpViewController: GameHelpViewController, SkyscrapersMixin {
+class SkyscrapersHelpViewController: GameHelpViewController {
+
+    var gameDocument: SkyscrapersDocument { return SkyscrapersDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return SkyscrapersDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

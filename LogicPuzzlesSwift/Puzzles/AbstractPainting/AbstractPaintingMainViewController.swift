@@ -8,8 +8,11 @@
 
 import UIKit
 
-class AbstractPaintingMainViewController: GameMainViewController, AbstractPaintingMixin {
-    
+class AbstractPaintingMainViewController: GameMainViewController {
+
+    var gameDocument: AbstractPaintingDocument { return AbstractPaintingDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return AbstractPaintingDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

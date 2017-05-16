@@ -8,7 +8,10 @@
 
 import UIKit
 
-class LightenUpOptionsViewController: GameOptionsViewController, LightenUpMixin {
+class LightenUpOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: LightenUpDocument { return LightenUpDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return LightenUpDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

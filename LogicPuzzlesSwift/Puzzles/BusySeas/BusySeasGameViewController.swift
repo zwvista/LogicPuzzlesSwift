@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class BusySeasGameViewController: GameGameViewController, GameDelegate, BusySeasMixin {
+class BusySeasGameViewController: GameGameViewController, GameDelegate {
     typealias GM = BusySeasGameMove
     typealias GS = BusySeasGameState
 
@@ -21,6 +21,8 @@ class BusySeasGameViewController: GameGameViewController, GameDelegate, BusySeas
         get {return getGame() as! BusySeasGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: BusySeasDocument { return BusySeasDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return BusySeasDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

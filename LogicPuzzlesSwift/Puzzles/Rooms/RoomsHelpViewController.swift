@@ -8,7 +8,10 @@
 
 import UIKit
 
-class RoomsHelpViewController: GameHelpViewController, RoomsMixin {
+class RoomsHelpViewController: GameHelpViewController {
+
+    var gameDocument: RoomsDocument { return RoomsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return RoomsDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

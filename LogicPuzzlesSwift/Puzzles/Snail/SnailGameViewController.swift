@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class SnailGameViewController: GameGameViewController, GameDelegate, SnailMixin {
+class SnailGameViewController: GameGameViewController, GameDelegate {
     typealias GM = SnailGameMove
     typealias GS = SnailGameState
 
@@ -21,6 +21,8 @@ class SnailGameViewController: GameGameViewController, GameDelegate, SnailMixin 
         get {return getGame() as! SnailGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: SnailDocument { return SnailDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return SnailDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

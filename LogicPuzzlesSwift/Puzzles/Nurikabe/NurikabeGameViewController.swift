@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class NurikabeGameViewController: GameGameViewController, GameDelegate, NurikabeMixin {
+class NurikabeGameViewController: GameGameViewController, GameDelegate {
     typealias GM = NurikabeGameMove
     typealias GS = NurikabeGameState
 
@@ -21,6 +21,8 @@ class NurikabeGameViewController: GameGameViewController, GameDelegate, Nurikabe
         get {return getGame() as! NurikabeGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: NurikabeDocument { return NurikabeDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return NurikabeDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

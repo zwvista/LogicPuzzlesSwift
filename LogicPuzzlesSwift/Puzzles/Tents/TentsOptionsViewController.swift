@@ -8,7 +8,10 @@
 
 import UIKit
 
-class TentsOptionsViewController: GameOptionsViewController, TentsMixin {
+class TentsOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: TentsDocument { return TentsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return TentsDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

@@ -8,8 +8,11 @@
 
 import UIKit
 
-class DominoMainViewController: GameMainViewController, DominoMixin {
-    
+class DominoMainViewController: GameMainViewController {
+
+    var gameDocument: DominoDocument { return DominoDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return DominoDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

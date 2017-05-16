@@ -8,8 +8,11 @@
 
 import UIKit
 
-class LighthousesMainViewController: GameMainViewController, LighthousesMixin {
-    
+class LighthousesMainViewController: GameMainViewController {
+
+    var gameDocument: LighthousesDocument { return LighthousesDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return LighthousesDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

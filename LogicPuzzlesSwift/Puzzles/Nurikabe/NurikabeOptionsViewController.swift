@@ -8,7 +8,10 @@
 
 import UIKit
 
-class NurikabeOptionsViewController: GameOptionsViewController, NurikabeMixin {
+class NurikabeOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: NurikabeDocument { return NurikabeDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return NurikabeDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

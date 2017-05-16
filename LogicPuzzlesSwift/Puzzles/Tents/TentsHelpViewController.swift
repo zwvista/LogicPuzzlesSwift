@@ -8,7 +8,10 @@
 
 import UIKit
 
-class TentsHelpViewController: GameHelpViewController, TentsMixin {
+class TentsHelpViewController: GameHelpViewController {
+
+    var gameDocument: TentsDocument { return TentsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return TentsDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

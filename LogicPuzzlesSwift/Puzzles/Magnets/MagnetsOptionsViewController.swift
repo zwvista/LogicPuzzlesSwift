@@ -8,7 +8,10 @@
 
 import UIKit
 
-class MagnetsOptionsViewController: GameOptionsViewController, MagnetsMixin {
+class MagnetsOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: MagnetsDocument { return MagnetsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return MagnetsDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

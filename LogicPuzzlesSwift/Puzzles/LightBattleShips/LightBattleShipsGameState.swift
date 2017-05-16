@@ -8,12 +8,14 @@
 
 import Foundation
 
-class LightBattleShipsGameState: GridGameState, LightBattleShipsMixin {
+class LightBattleShipsGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: LightBattleShipsGame {
         get {return getGame() as! LightBattleShipsGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: LightBattleShipsDocument { return LightBattleShipsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return LightBattleShipsDocument.sharedInstance }
     var objArray = [LightBattleShipsObject]()
     
     override func copy() -> LightBattleShipsGameState {
@@ -213,7 +215,6 @@ class LightBattleShipsGameState: GridGameState, LightBattleShipsMixin {
                 [Int](1..<area.count - 1).testAll({String(describing: self[area[$0]]) == String(describing: LightBattleShipsObject.battleShipMiddle)})) && BattleShipsGame.offset2.testAll({os in area.testAll({
                     let p2 = $0 + os
                     if !self.isValid(p: p2) {return true}
-                    let o = self[p2]
                     switch self[p2] {
                     case .empty, .forbidden, .marker, .hint:
                         return true

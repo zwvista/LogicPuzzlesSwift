@@ -8,7 +8,10 @@
 
 import UIKit
 
-class LoopyHelpViewController: GameHelpViewController, LoopyMixin {
+class LoopyHelpViewController: GameHelpViewController {
+
+    var gameDocument: LoopyDocument { return LoopyDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return LoopyDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

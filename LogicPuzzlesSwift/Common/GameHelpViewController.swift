@@ -9,7 +9,13 @@
 import UIKit
 
 class GameHelpViewController: UITableViewController {
-    
+
+    private var gameDocument: GameDocumentBase! { return getGameDocument() }
+    func getGameDocument() -> GameDocumentBase! { return nil }
+    var gameOptions: GameProgress { return gameDocument.gameProgress }
+    var markerOption: Int { return gameOptions.option1?.toInt() ?? 0 }
+    var allowedObjectsOnly: Bool { return gameOptions.option2?.toBool() ?? false }
+
     // http://stackoverflow.com/questions/14111572/how-to-use-single-storyboard-uiviewcontroller-for-multiple-subclass
     override func awakeFromNib() {
         object_setClass(self, NSClassFromString("LogicPuzzlesSwift.\(currentGameName)HelpViewController").self)

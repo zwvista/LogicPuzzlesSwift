@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TatamiOptionsViewController: GameOptionsViewController, TatamiMixin {
+class TatamiOptionsViewController: GameOptionsViewController {
 
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

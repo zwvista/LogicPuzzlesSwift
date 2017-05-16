@@ -8,7 +8,10 @@
 
 import UIKit
 
-class PowerGridHelpViewController: GameHelpViewController, PowerGridMixin {
+class PowerGridHelpViewController: GameHelpViewController {
+
+    var gameDocument: PowerGridDocument { return PowerGridDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return PowerGridDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

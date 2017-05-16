@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class LightBattleShipsGameViewController: GameGameViewController, GameDelegate, LightBattleShipsMixin {
+class LightBattleShipsGameViewController: GameGameViewController, GameDelegate {
     typealias GM = LightBattleShipsGameMove
     typealias GS = LightBattleShipsGameState
 
@@ -21,6 +21,8 @@ class LightBattleShipsGameViewController: GameGameViewController, GameDelegate, 
         get {return getGame() as! LightBattleShipsGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: LightBattleShipsDocument { return LightBattleShipsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return LightBattleShipsDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

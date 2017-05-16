@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class PairakabeGameViewController: GameGameViewController, GameDelegate, PairakabeMixin {
+class PairakabeGameViewController: GameGameViewController, GameDelegate {
     typealias GM = PairakabeGameMove
     typealias GS = PairakabeGameState
 
@@ -21,6 +21,8 @@ class PairakabeGameViewController: GameGameViewController, GameDelegate, Pairaka
         get {return getGame() as! PairakabeGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: PairakabeDocument { return PairakabeDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return PairakabeDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

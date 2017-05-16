@@ -8,8 +8,11 @@
 
 import UIKit
 
-class ProductSentinelsMainViewController: GameMainViewController, ProductSentinelsMixin {
-    
+class ProductSentinelsMainViewController: GameMainViewController {
+
+    var gameDocument: ProductSentinelsDocument { return ProductSentinelsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return ProductSentinelsDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

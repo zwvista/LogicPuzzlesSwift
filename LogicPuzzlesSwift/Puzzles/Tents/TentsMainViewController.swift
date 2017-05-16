@@ -8,8 +8,11 @@
 
 import UIKit
 
-class TentsMainViewController: GameMainViewController, TentsMixin {
-    
+class TentsMainViewController: GameMainViewController {
+
+    var gameDocument: TentsDocument { return TentsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return TentsDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

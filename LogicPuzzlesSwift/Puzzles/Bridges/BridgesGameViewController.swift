@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class BridgesGameViewController: GameGameViewController, GameDelegate, BridgesMixin {
+class BridgesGameViewController: GameGameViewController, GameDelegate {
     typealias GM = BridgesGameMove
     typealias GS = BridgesGameState
 
@@ -21,6 +21,8 @@ class BridgesGameViewController: GameGameViewController, GameDelegate, BridgesMi
         get {return getGame() as! BridgesGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: BridgesDocument { return BridgesDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return BridgesDocument.sharedInstance }
     var pLast: Position?
     
     override func viewDidLoad() {

@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class FenceItUpGameViewController: GameGameViewController, GameDelegate, FenceItUpMixin {
+class FenceItUpGameViewController: GameGameViewController, GameDelegate {
     typealias GM = FenceItUpGameMove
     typealias GS = FenceItUpGameState
 
@@ -21,6 +21,8 @@ class FenceItUpGameViewController: GameGameViewController, GameDelegate, FenceIt
         get {return getGame() as! FenceItUpGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: FenceItUpDocument { return FenceItUpDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return FenceItUpDocument.sharedInstance }
  
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,7 +8,10 @@
 
 import UIKit
 
-class SumscrapersHelpViewController: GameHelpViewController, SumscrapersMixin {
+class SumscrapersHelpViewController: GameHelpViewController {
+
+    var gameDocument: SumscrapersDocument { return SumscrapersDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return SumscrapersDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

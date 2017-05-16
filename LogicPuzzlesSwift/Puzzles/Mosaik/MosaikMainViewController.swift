@@ -8,8 +8,11 @@
 
 import UIKit
 
-class MosaikMainViewController: GameMainViewController, MosaikMixin {
-    
+class MosaikMainViewController: GameMainViewController {
+
+    var gameDocument: MosaikDocument { return MosaikDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return MosaikDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

@@ -8,12 +8,14 @@
 
 import Foundation
 
-class LighthousesGameState: GridGameState, LighthousesMixin {
+class LighthousesGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: LighthousesGame {
         get {return getGame() as! LighthousesGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: LighthousesDocument { return LighthousesDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return LighthousesDocument.sharedInstance }
     var objArray = [LighthousesObject]()
     
     override func copy() -> LighthousesGameState {

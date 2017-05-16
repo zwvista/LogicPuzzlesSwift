@@ -8,7 +8,10 @@
 
 import UIKit
 
-class SentinelsHelpViewController: GameHelpViewController, SentinelsMixin {
+class SentinelsHelpViewController: GameHelpViewController {
+
+    var gameDocument: SentinelsDocument { return SentinelsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return SentinelsDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

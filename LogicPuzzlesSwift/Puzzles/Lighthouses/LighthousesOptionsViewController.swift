@@ -8,7 +8,10 @@
 
 import UIKit
 
-class LighthousesOptionsViewController: GameOptionsViewController, LighthousesMixin {
+class LighthousesOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: LighthousesDocument { return LighthousesDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return LighthousesDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

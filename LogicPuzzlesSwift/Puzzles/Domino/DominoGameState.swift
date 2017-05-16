@@ -8,12 +8,14 @@
 
 import Foundation
 
-class DominoGameState: GridGameState, DominoMixin {
+class DominoGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: DominoGame {
         get {return getGame() as! DominoGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: DominoDocument { return DominoDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return DominoDocument.sharedInstance }
     var objArray = [GridDotObject]()
     
     override func copy() -> DominoGameState {

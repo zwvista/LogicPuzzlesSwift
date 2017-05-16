@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class MineShipsGameViewController: GameGameViewController, GameDelegate, MineShipsMixin {
+class MineShipsGameViewController: GameGameViewController, GameDelegate {
     typealias GM = MineShipsGameMove
     typealias GS = MineShipsGameState
 
@@ -21,6 +21,8 @@ class MineShipsGameViewController: GameGameViewController, GameDelegate, MineShi
         get {return getGame() as! MineShipsGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: MineShipsDocument { return MineShipsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return MineShipsDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

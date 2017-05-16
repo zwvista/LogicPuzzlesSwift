@@ -8,7 +8,10 @@
 
 import UIKit
 
-class RoomsOptionsViewController: GameOptionsViewController, RoomsMixin {
+class RoomsOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: RoomsDocument { return RoomsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return RoomsDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

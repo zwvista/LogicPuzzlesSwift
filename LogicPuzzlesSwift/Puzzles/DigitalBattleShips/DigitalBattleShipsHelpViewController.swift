@@ -8,7 +8,10 @@
 
 import UIKit
 
-class DigitalBattleShipsHelpViewController: GameHelpViewController, DigitalBattleShipsMixin {
+class DigitalBattleShipsHelpViewController: GameHelpViewController {
+
+    var gameDocument: DigitalBattleShipsDocument { return DigitalBattleShipsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return DigitalBattleShipsDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

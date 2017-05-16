@@ -8,8 +8,11 @@
 
 import UIKit
 
-class BattleShipsMainViewController: GameMainViewController, BattleShipsMixin {
-    
+class BattleShipsMainViewController: GameMainViewController {
+
+    var gameDocument: BattleShipsDocument { return BattleShipsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return BattleShipsDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

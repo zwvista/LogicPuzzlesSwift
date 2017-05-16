@@ -31,7 +31,6 @@
 		8C3A35EE1EC88D4200A914A5 /* AbcGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33C01EC88D4100A914A5 /* AbcGridNode.swift */; };
 		8C3A35EF1EC88D4200A914A5 /* AbcHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33C11EC88D4100A914A5 /* AbcHelpViewController.swift */; };
 		8C3A35F01EC88D4200A914A5 /* AbcMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33C21EC88D4100A914A5 /* AbcMainViewController.swift */; };
-		8C3A35F11EC88D4200A914A5 /* AbcMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33C31EC88D4100A914A5 /* AbcMixin.swift */; };
 		8C3A35F21EC88D4200A914A5 /* AbcObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33C41EC88D4100A914A5 /* AbcObject.swift */; };
 		8C3A35F31EC88D4200A914A5 /* AbcOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33C51EC88D4100A914A5 /* AbcOptionsViewController.swift */; };
 		8C3A35F41EC88D4200A914A5 /* AbstractPainting.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A33C71EC88D4100A914A5 /* AbstractPainting.xml */; };
@@ -43,7 +42,6 @@
 		8C3A35FA1EC88D4200A914A5 /* AbstractPaintingGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33CD1EC88D4100A914A5 /* AbstractPaintingGridNode.swift */; };
 		8C3A35FB1EC88D4200A914A5 /* AbstractPaintingHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33CE1EC88D4100A914A5 /* AbstractPaintingHelpViewController.swift */; };
 		8C3A35FC1EC88D4200A914A5 /* AbstractPaintingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33CF1EC88D4100A914A5 /* AbstractPaintingMainViewController.swift */; };
-		8C3A35FD1EC88D4200A914A5 /* AbstractPaintingMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33D01EC88D4100A914A5 /* AbstractPaintingMixin.swift */; };
 		8C3A35FE1EC88D4200A914A5 /* AbstractPaintingObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33D11EC88D4100A914A5 /* AbstractPaintingObject.swift */; };
 		8C3A35FF1EC88D4200A914A5 /* AbstractPaintingOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33D21EC88D4100A914A5 /* AbstractPaintingOptionsViewController.swift */; };
 		8C3A36001EC88D4200A914A5 /* BattleShips.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A33D41EC88D4100A914A5 /* BattleShips.xml */; };
@@ -55,7 +53,6 @@
 		8C3A36061EC88D4200A914A5 /* BattleShipsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33DA1EC88D4100A914A5 /* BattleShipsGridNode.swift */; };
 		8C3A36071EC88D4200A914A5 /* BattleShipsHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33DB1EC88D4100A914A5 /* BattleShipsHelpViewController.swift */; };
 		8C3A36081EC88D4200A914A5 /* BattleShipsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33DC1EC88D4100A914A5 /* BattleShipsMainViewController.swift */; };
-		8C3A36091EC88D4200A914A5 /* BattleShipsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33DD1EC88D4100A914A5 /* BattleShipsMixin.swift */; };
 		8C3A360A1EC88D4200A914A5 /* BattleShipsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33DE1EC88D4100A914A5 /* BattleShipsObject.swift */; };
 		8C3A360B1EC88D4200A914A5 /* BattleShipsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33DF1EC88D4100A914A5 /* BattleShipsOptionsViewController.swift */; };
 		8C3A360C1EC88D4200A914A5 /* BootyIsland.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A33E11EC88D4100A914A5 /* BootyIsland.xml */; };
@@ -67,7 +64,6 @@
 		8C3A36121EC88D4200A914A5 /* BootyIslandGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33E71EC88D4100A914A5 /* BootyIslandGridNode.swift */; };
 		8C3A36131EC88D4200A914A5 /* BootyIslandHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33E81EC88D4100A914A5 /* BootyIslandHelpViewController.swift */; };
 		8C3A36141EC88D4200A914A5 /* BootyIslandMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33E91EC88D4100A914A5 /* BootyIslandMainViewController.swift */; };
-		8C3A36151EC88D4200A914A5 /* BootyIslandMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33EA1EC88D4100A914A5 /* BootyIslandMixin.swift */; };
 		8C3A36161EC88D4200A914A5 /* BootyIslandObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33EB1EC88D4100A914A5 /* BootyIslandObject.swift */; };
 		8C3A36171EC88D4200A914A5 /* BootyIslandOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33EC1EC88D4100A914A5 /* BootyIslandOptionsViewController.swift */; };
 		8C3A36181EC88D4200A914A5 /* BoxItAgain.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A33EE1EC88D4100A914A5 /* BoxItAgain.xml */; };
@@ -79,7 +75,6 @@
 		8C3A361E1EC88D4200A914A5 /* BoxItAgainGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33F41EC88D4100A914A5 /* BoxItAgainGridNode.swift */; };
 		8C3A361F1EC88D4200A914A5 /* BoxItAgainHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33F51EC88D4100A914A5 /* BoxItAgainHelpViewController.swift */; };
 		8C3A36201EC88D4200A914A5 /* BoxItAgainMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33F61EC88D4100A914A5 /* BoxItAgainMainViewController.swift */; };
-		8C3A36211EC88D4200A914A5 /* BoxItAgainMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33F71EC88D4100A914A5 /* BoxItAgainMixin.swift */; };
 		8C3A36221EC88D4200A914A5 /* BoxItAgainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33F81EC88D4100A914A5 /* BoxItAgainObject.swift */; };
 		8C3A36231EC88D4200A914A5 /* BoxItAgainOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A33F91EC88D4100A914A5 /* BoxItAgainOptionsViewController.swift */; };
 		8C3A36241EC88D4200A914A5 /* BoxItAround.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A33FB1EC88D4100A914A5 /* BoxItAround.xml */; };
@@ -91,7 +86,6 @@
 		8C3A362A1EC88D4200A914A5 /* BoxItAroundGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34011EC88D4100A914A5 /* BoxItAroundGridNode.swift */; };
 		8C3A362B1EC88D4200A914A5 /* BoxItAroundHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34021EC88D4100A914A5 /* BoxItAroundHelpViewController.swift */; };
 		8C3A362C1EC88D4200A914A5 /* BoxItAroundMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34031EC88D4100A914A5 /* BoxItAroundMainViewController.swift */; };
-		8C3A362D1EC88D4200A914A5 /* BoxItAroundMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34041EC88D4100A914A5 /* BoxItAroundMixin.swift */; };
 		8C3A362E1EC88D4200A914A5 /* BoxItAroundObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34051EC88D4100A914A5 /* BoxItAroundObject.swift */; };
 		8C3A362F1EC88D4200A914A5 /* BoxItAroundOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34061EC88D4100A914A5 /* BoxItAroundOptionsViewController.swift */; };
 		8C3A36301EC88D4200A914A5 /* BoxItUp.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A34081EC88D4100A914A5 /* BoxItUp.xml */; };
@@ -103,7 +97,6 @@
 		8C3A36361EC88D4200A914A5 /* BoxItUpGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A340E1EC88D4100A914A5 /* BoxItUpGridNode.swift */; };
 		8C3A36371EC88D4200A914A5 /* BoxItUpHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A340F1EC88D4100A914A5 /* BoxItUpHelpViewController.swift */; };
 		8C3A36381EC88D4200A914A5 /* BoxItUpMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34101EC88D4100A914A5 /* BoxItUpMainViewController.swift */; };
-		8C3A36391EC88D4200A914A5 /* BoxItUpMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34111EC88D4100A914A5 /* BoxItUpMixin.swift */; };
 		8C3A363A1EC88D4200A914A5 /* BoxItUpObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34121EC88D4100A914A5 /* BoxItUpObject.swift */; };
 		8C3A363B1EC88D4200A914A5 /* BoxItUpOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34131EC88D4100A914A5 /* BoxItUpOptionsViewController.swift */; };
 		8C3A363C1EC88D4200A914A5 /* Bridges.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A34151EC88D4100A914A5 /* Bridges.xml */; };
@@ -115,7 +108,6 @@
 		8C3A36421EC88D4200A914A5 /* BridgesGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A341B1EC88D4100A914A5 /* BridgesGridNode.swift */; };
 		8C3A36431EC88D4200A914A5 /* BridgesHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A341C1EC88D4100A914A5 /* BridgesHelpViewController.swift */; };
 		8C3A36441EC88D4200A914A5 /* BridgesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A341D1EC88D4100A914A5 /* BridgesMainViewController.swift */; };
-		8C3A36451EC88D4200A914A5 /* BridgesMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A341E1EC88D4100A914A5 /* BridgesMixin.swift */; };
 		8C3A36461EC88D4200A914A5 /* BridgesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A341F1EC88D4100A914A5 /* BridgesObject.swift */; };
 		8C3A36471EC88D4200A914A5 /* BridgesOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34201EC88D4100A914A5 /* BridgesOptionsViewController.swift */; };
 		8C3A36481EC88D4200A914A5 /* BusySeas.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A34221EC88D4100A914A5 /* BusySeas.xml */; };
@@ -127,7 +119,6 @@
 		8C3A364E1EC88D4200A914A5 /* BusySeasGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34281EC88D4100A914A5 /* BusySeasGridNode.swift */; };
 		8C3A364F1EC88D4200A914A5 /* BusySeasHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34291EC88D4100A914A5 /* BusySeasHelpViewController.swift */; };
 		8C3A36501EC88D4200A914A5 /* BusySeasMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A342A1EC88D4100A914A5 /* BusySeasMainViewController.swift */; };
-		8C3A36511EC88D4200A914A5 /* BusySeasMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A342B1EC88D4100A914A5 /* BusySeasMixin.swift */; };
 		8C3A36521EC88D4200A914A5 /* BusySeasObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A342C1EC88D4100A914A5 /* BusySeasObject.swift */; };
 		8C3A36531EC88D4200A914A5 /* BusySeasOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A342D1EC88D4100A914A5 /* BusySeasOptionsViewController.swift */; };
 		8C3A36541EC88D4200A914A5 /* Clouds.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A342F1EC88D4100A914A5 /* Clouds.xml */; };
@@ -139,7 +130,6 @@
 		8C3A365A1EC88D4200A914A5 /* CloudsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34351EC88D4100A914A5 /* CloudsGridNode.swift */; };
 		8C3A365B1EC88D4200A914A5 /* CloudsHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34361EC88D4100A914A5 /* CloudsHelpViewController.swift */; };
 		8C3A365C1EC88D4200A914A5 /* CloudsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34371EC88D4100A914A5 /* CloudsMainViewController.swift */; };
-		8C3A365D1EC88D4200A914A5 /* CloudsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34381EC88D4100A914A5 /* CloudsMixin.swift */; };
 		8C3A365E1EC88D4200A914A5 /* CloudsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34391EC88D4100A914A5 /* CloudsObject.swift */; };
 		8C3A365F1EC88D4200A914A5 /* CloudsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A343A1EC88D4100A914A5 /* CloudsOptionsViewController.swift */; };
 		8C3A36601EC88D4200A914A5 /* DigitalBattleShips.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A343C1EC88D4100A914A5 /* DigitalBattleShips.xml */; };
@@ -151,7 +141,6 @@
 		8C3A36661EC88D4200A914A5 /* DigitalBattleShipsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34421EC88D4100A914A5 /* DigitalBattleShipsGridNode.swift */; };
 		8C3A36671EC88D4200A914A5 /* DigitalBattleShipsHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34431EC88D4100A914A5 /* DigitalBattleShipsHelpViewController.swift */; };
 		8C3A36681EC88D4200A914A5 /* DigitalBattleShipsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34441EC88D4100A914A5 /* DigitalBattleShipsMainViewController.swift */; };
-		8C3A36691EC88D4200A914A5 /* DigitalBattleShipsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34451EC88D4100A914A5 /* DigitalBattleShipsMixin.swift */; };
 		8C3A366A1EC88D4200A914A5 /* DigitalBattleShipsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34461EC88D4100A914A5 /* DigitalBattleShipsObject.swift */; };
 		8C3A366B1EC88D4200A914A5 /* DigitalBattleShipsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34471EC88D4100A914A5 /* DigitalBattleShipsOptionsViewController.swift */; };
 		8C3A366C1EC88D4200A914A5 /* Domino.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A34491EC88D4100A914A5 /* Domino.xml */; };
@@ -163,7 +152,6 @@
 		8C3A36721EC88D4200A914A5 /* DominoGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A344F1EC88D4100A914A5 /* DominoGridNode.swift */; };
 		8C3A36731EC88D4200A914A5 /* DominoHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34501EC88D4100A914A5 /* DominoHelpViewController.swift */; };
 		8C3A36741EC88D4200A914A5 /* DominoMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34511EC88D4100A914A5 /* DominoMainViewController.swift */; };
-		8C3A36751EC88D4200A914A5 /* DominoMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34521EC88D4100A914A5 /* DominoMixin.swift */; };
 		8C3A36761EC88D4200A914A5 /* DominoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34531EC88D4100A914A5 /* DominoObject.swift */; };
 		8C3A36771EC88D4200A914A5 /* DominoOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34541EC88D4100A914A5 /* DominoOptionsViewController.swift */; };
 		8C3A36781EC88D4200A914A5 /* FenceItUp.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A34561EC88D4100A914A5 /* FenceItUp.xml */; };
@@ -175,7 +163,6 @@
 		8C3A367E1EC88D4200A914A5 /* FenceItUpGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A345C1EC88D4100A914A5 /* FenceItUpGridNode.swift */; };
 		8C3A367F1EC88D4200A914A5 /* FenceItUpHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A345D1EC88D4100A914A5 /* FenceItUpHelpViewController.swift */; };
 		8C3A36801EC88D4200A914A5 /* FenceItUpMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A345E1EC88D4100A914A5 /* FenceItUpMainViewController.swift */; };
-		8C3A36811EC88D4200A914A5 /* FenceItUpMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A345F1EC88D4100A914A5 /* FenceItUpMixin.swift */; };
 		8C3A36821EC88D4200A914A5 /* FenceItUpObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34601EC88D4100A914A5 /* FenceItUpObject.swift */; };
 		8C3A36831EC88D4200A914A5 /* FenceItUpOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34611EC88D4100A914A5 /* FenceItUpOptionsViewController.swift */; };
 		8C3A36841EC88D4200A914A5 /* FenceLits.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A34631EC88D4100A914A5 /* FenceLits.xml */; };
@@ -187,7 +174,6 @@
 		8C3A368A1EC88D4200A914A5 /* FenceLitsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34691EC88D4100A914A5 /* FenceLitsGridNode.swift */; };
 		8C3A368B1EC88D4200A914A5 /* FenceLitsHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A346A1EC88D4100A914A5 /* FenceLitsHelpViewController.swift */; };
 		8C3A368C1EC88D4200A914A5 /* FenceLitsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A346B1EC88D4100A914A5 /* FenceLitsMainViewController.swift */; };
-		8C3A368D1EC88D4200A914A5 /* FenceLitsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A346C1EC88D4100A914A5 /* FenceLitsMixin.swift */; };
 		8C3A368E1EC88D4200A914A5 /* FenceLitsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A346D1EC88D4100A914A5 /* FenceLitsObject.swift */; };
 		8C3A368F1EC88D4200A914A5 /* FenceLitsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A346E1EC88D4100A914A5 /* FenceLitsOptionsViewController.swift */; };
 		8C3A36901EC88D4200A914A5 /* FenceSentinels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A34701EC88D4100A914A5 /* FenceSentinels.xml */; };
@@ -199,7 +185,6 @@
 		8C3A36961EC88D4200A914A5 /* FenceSentinelsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34761EC88D4100A914A5 /* FenceSentinelsGridNode.swift */; };
 		8C3A36971EC88D4200A914A5 /* FenceSentinelsHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34771EC88D4100A914A5 /* FenceSentinelsHelpViewController.swift */; };
 		8C3A36981EC88D4200A914A5 /* FenceSentinelsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34781EC88D4100A914A5 /* FenceSentinelsMainViewController.swift */; };
-		8C3A36991EC88D4200A914A5 /* FenceSentinelsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34791EC88D4100A914A5 /* FenceSentinelsMixin.swift */; };
 		8C3A369A1EC88D4200A914A5 /* FenceSentinelsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A347A1EC88D4100A914A5 /* FenceSentinelsObject.swift */; };
 		8C3A369B1EC88D4200A914A5 /* FenceSentinelsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A347B1EC88D4100A914A5 /* FenceSentinelsOptionsViewController.swift */; };
 		8C3A369C1EC88D4200A914A5 /* Hitori.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A347D1EC88D4100A914A5 /* Hitori.xml */; };
@@ -211,7 +196,6 @@
 		8C3A36A21EC88D4200A914A5 /* HitoriGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34831EC88D4100A914A5 /* HitoriGridNode.swift */; };
 		8C3A36A31EC88D4200A914A5 /* HitoriHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34841EC88D4100A914A5 /* HitoriHelpViewController.swift */; };
 		8C3A36A41EC88D4200A914A5 /* HitoriMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34851EC88D4100A914A5 /* HitoriMainViewController.swift */; };
-		8C3A36A51EC88D4200A914A5 /* HitoriMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34861EC88D4100A914A5 /* HitoriMixin.swift */; };
 		8C3A36A61EC88D4200A914A5 /* HitoriObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34871EC88D4100A914A5 /* HitoriObject.swift */; };
 		8C3A36A71EC88D4200A914A5 /* HitoriOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34881EC88D4100A914A5 /* HitoriOptionsViewController.swift */; };
 		8C3A36A81EC88D4200A914A5 /* LightBattleShips.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A348A1EC88D4100A914A5 /* LightBattleShips.xml */; };
@@ -223,7 +207,6 @@
 		8C3A36AE1EC88D4300A914A5 /* LightBattleShipsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34901EC88D4100A914A5 /* LightBattleShipsGridNode.swift */; };
 		8C3A36AF1EC88D4300A914A5 /* LightBattleShipsHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34911EC88D4100A914A5 /* LightBattleShipsHelpViewController.swift */; };
 		8C3A36B01EC88D4300A914A5 /* LightBattleShipsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34921EC88D4100A914A5 /* LightBattleShipsMainViewController.swift */; };
-		8C3A36B11EC88D4300A914A5 /* LightBattleShipsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34931EC88D4100A914A5 /* LightBattleShipsMixin.swift */; };
 		8C3A36B21EC88D4300A914A5 /* LightBattleShipsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34941EC88D4100A914A5 /* LightBattleShipsObject.swift */; };
 		8C3A36B31EC88D4300A914A5 /* LightBattleShipsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34951EC88D4100A914A5 /* LightBattleShipsOptionsViewController.swift */; };
 		8C3A36B41EC88D4300A914A5 /* LightenUp.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A34971EC88D4100A914A5 /* LightenUp.xml */; };
@@ -235,7 +218,6 @@
 		8C3A36BA1EC88D4300A914A5 /* LightenUpGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A349D1EC88D4100A914A5 /* LightenUpGridNode.swift */; };
 		8C3A36BB1EC88D4300A914A5 /* LightenUpHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A349E1EC88D4100A914A5 /* LightenUpHelpViewController.swift */; };
 		8C3A36BC1EC88D4300A914A5 /* LightenUpMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A349F1EC88D4100A914A5 /* LightenUpMainViewController.swift */; };
-		8C3A36BD1EC88D4300A914A5 /* LightenUpMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34A01EC88D4100A914A5 /* LightenUpMixin.swift */; };
 		8C3A36BE1EC88D4300A914A5 /* LightenUpObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34A11EC88D4100A914A5 /* LightenUpObject.swift */; };
 		8C3A36BF1EC88D4300A914A5 /* LightenUpOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34A21EC88D4100A914A5 /* LightenUpOptionsViewController.swift */; };
 		8C3A36C01EC88D4300A914A5 /* Lighthouses.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A34A41EC88D4100A914A5 /* Lighthouses.xml */; };
@@ -247,7 +229,6 @@
 		8C3A36C61EC88D4300A914A5 /* LighthousesGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34AA1EC88D4100A914A5 /* LighthousesGridNode.swift */; };
 		8C3A36C71EC88D4300A914A5 /* LighthousesHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34AB1EC88D4100A914A5 /* LighthousesHelpViewController.swift */; };
 		8C3A36C81EC88D4300A914A5 /* LighthousesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34AC1EC88D4100A914A5 /* LighthousesMainViewController.swift */; };
-		8C3A36C91EC88D4300A914A5 /* LighthousesMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34AD1EC88D4100A914A5 /* LighthousesMixin.swift */; };
 		8C3A36CA1EC88D4300A914A5 /* LighthousesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34AE1EC88D4100A914A5 /* LighthousesObject.swift */; };
 		8C3A36CB1EC88D4300A914A5 /* LighthousesOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34AF1EC88D4100A914A5 /* LighthousesOptionsViewController.swift */; };
 		8C3A36CC1EC88D4300A914A5 /* LineSweeper.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A34B11EC88D4100A914A5 /* LineSweeper.xml */; };
@@ -259,7 +240,6 @@
 		8C3A36D21EC88D4300A914A5 /* LineSweeperGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34B71EC88D4100A914A5 /* LineSweeperGridNode.swift */; };
 		8C3A36D31EC88D4300A914A5 /* LineSweeperHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34B81EC88D4100A914A5 /* LineSweeperHelpViewController.swift */; };
 		8C3A36D41EC88D4300A914A5 /* LineSweeperMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34B91EC88D4100A914A5 /* LineSweeperMainViewController.swift */; };
-		8C3A36D51EC88D4300A914A5 /* LineSweeperMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34BA1EC88D4100A914A5 /* LineSweeperMixin.swift */; };
 		8C3A36D61EC88D4300A914A5 /* LineSweeperObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34BB1EC88D4100A914A5 /* LineSweeperObject.swift */; };
 		8C3A36D71EC88D4300A914A5 /* LineSweeperOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34BC1EC88D4100A914A5 /* LineSweeperOptionsViewController.swift */; };
 		8C3A36D81EC88D4300A914A5 /* Lits.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A34BE1EC88D4100A914A5 /* Lits.xml */; };
@@ -271,7 +251,6 @@
 		8C3A36DE1EC88D4300A914A5 /* LitsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34C41EC88D4100A914A5 /* LitsGridNode.swift */; };
 		8C3A36DF1EC88D4300A914A5 /* LitsHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34C51EC88D4100A914A5 /* LitsHelpViewController.swift */; };
 		8C3A36E01EC88D4300A914A5 /* LitsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34C61EC88D4100A914A5 /* LitsMainViewController.swift */; };
-		8C3A36E11EC88D4300A914A5 /* LitsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34C71EC88D4100A914A5 /* LitsMixin.swift */; };
 		8C3A36E21EC88D4300A914A5 /* LitsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34C81EC88D4100A914A5 /* LitsObject.swift */; };
 		8C3A36E31EC88D4300A914A5 /* LitsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34C91EC88D4100A914A5 /* LitsOptionsViewController.swift */; };
 		8C3A36E41EC88D4300A914A5 /* Loopy.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A34CB1EC88D4100A914A5 /* Loopy.xml */; };
@@ -283,7 +262,6 @@
 		8C3A36EA1EC88D4300A914A5 /* LoopyGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34D11EC88D4100A914A5 /* LoopyGridNode.swift */; };
 		8C3A36EB1EC88D4300A914A5 /* LoopyHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34D21EC88D4100A914A5 /* LoopyHelpViewController.swift */; };
 		8C3A36EC1EC88D4300A914A5 /* LoopyMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34D31EC88D4100A914A5 /* LoopyMainViewController.swift */; };
-		8C3A36ED1EC88D4300A914A5 /* LoopyMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34D41EC88D4100A914A5 /* LoopyMixin.swift */; };
 		8C3A36EE1EC88D4300A914A5 /* LoopyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34D51EC88D4100A914A5 /* LoopyObject.swift */; };
 		8C3A36EF1EC88D4300A914A5 /* LoopyOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34D61EC88D4100A914A5 /* LoopyOptionsViewController.swift */; };
 		8C3A36F01EC88D4300A914A5 /* Magnets.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A34D81EC88D4100A914A5 /* Magnets.xml */; };
@@ -295,7 +273,6 @@
 		8C3A36F61EC88D4300A914A5 /* MagnetsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34DE1EC88D4100A914A5 /* MagnetsGridNode.swift */; };
 		8C3A36F71EC88D4300A914A5 /* MagnetsHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34DF1EC88D4100A914A5 /* MagnetsHelpViewController.swift */; };
 		8C3A36F81EC88D4300A914A5 /* MagnetsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34E01EC88D4100A914A5 /* MagnetsMainViewController.swift */; };
-		8C3A36F91EC88D4300A914A5 /* MagnetsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34E11EC88D4100A914A5 /* MagnetsMixin.swift */; };
 		8C3A36FA1EC88D4300A914A5 /* MagnetsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34E21EC88D4100A914A5 /* MagnetsObject.swift */; };
 		8C3A36FB1EC88D4300A914A5 /* MagnetsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34E31EC88D4100A914A5 /* MagnetsOptionsViewController.swift */; };
 		8C3A36FC1EC88D4300A914A5 /* Masyu.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A34E51EC88D4100A914A5 /* Masyu.xml */; };
@@ -307,7 +284,6 @@
 		8C3A37021EC88D4300A914A5 /* MasyuGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34EB1EC88D4100A914A5 /* MasyuGridNode.swift */; };
 		8C3A37031EC88D4300A914A5 /* MasyuHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34EC1EC88D4100A914A5 /* MasyuHelpViewController.swift */; };
 		8C3A37041EC88D4300A914A5 /* MasyuMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34ED1EC88D4100A914A5 /* MasyuMainViewController.swift */; };
-		8C3A37051EC88D4300A914A5 /* MasyuMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34EE1EC88D4100A914A5 /* MasyuMixin.swift */; };
 		8C3A37061EC88D4300A914A5 /* MasyuObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34EF1EC88D4100A914A5 /* MasyuObject.swift */; };
 		8C3A37071EC88D4300A914A5 /* MasyuOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34F01EC88D4100A914A5 /* MasyuOptionsViewController.swift */; };
 		8C3A37081EC88D4300A914A5 /* MineShips.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A34F21EC88D4100A914A5 /* MineShips.xml */; };
@@ -319,7 +295,6 @@
 		8C3A370E1EC88D4300A914A5 /* MineShipsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34F81EC88D4100A914A5 /* MineShipsGridNode.swift */; };
 		8C3A370F1EC88D4300A914A5 /* MineShipsHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34F91EC88D4100A914A5 /* MineShipsHelpViewController.swift */; };
 		8C3A37101EC88D4300A914A5 /* MineShipsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34FA1EC88D4100A914A5 /* MineShipsMainViewController.swift */; };
-		8C3A37111EC88D4300A914A5 /* MineShipsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34FB1EC88D4100A914A5 /* MineShipsMixin.swift */; };
 		8C3A37121EC88D4300A914A5 /* MineShipsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34FC1EC88D4100A914A5 /* MineShipsObject.swift */; };
 		8C3A37131EC88D4300A914A5 /* MineShipsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A34FD1EC88D4100A914A5 /* MineShipsOptionsViewController.swift */; };
 		8C3A37141EC88D4300A914A5 /* Minesweeper.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A34FF1EC88D4100A914A5 /* Minesweeper.xml */; };
@@ -331,7 +306,6 @@
 		8C3A371A1EC88D4300A914A5 /* MinesweeperGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35051EC88D4100A914A5 /* MinesweeperGridNode.swift */; };
 		8C3A371B1EC88D4300A914A5 /* MinesweeperHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35061EC88D4100A914A5 /* MinesweeperHelpViewController.swift */; };
 		8C3A371C1EC88D4300A914A5 /* MinesweeperMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35071EC88D4100A914A5 /* MinesweeperMainViewController.swift */; };
-		8C3A371D1EC88D4300A914A5 /* MinesweeperMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35081EC88D4100A914A5 /* MinesweeperMixin.swift */; };
 		8C3A371E1EC88D4300A914A5 /* MinesweeperObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35091EC88D4100A914A5 /* MinesweeperObject.swift */; };
 		8C3A371F1EC88D4300A914A5 /* MinesweeperOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A350A1EC88D4100A914A5 /* MinesweeperOptionsViewController.swift */; };
 		8C3A37201EC88D4300A914A5 /* MiniLits.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A350C1EC88D4100A914A5 /* MiniLits.xml */; };
@@ -343,7 +317,6 @@
 		8C3A37261EC88D4300A914A5 /* MiniLitsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35121EC88D4100A914A5 /* MiniLitsGridNode.swift */; };
 		8C3A37271EC88D4300A914A5 /* MiniLitsHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35131EC88D4100A914A5 /* MiniLitsHelpViewController.swift */; };
 		8C3A37281EC88D4300A914A5 /* MiniLitsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35141EC88D4100A914A5 /* MiniLitsMainViewController.swift */; };
-		8C3A37291EC88D4300A914A5 /* MiniLitsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35151EC88D4100A914A5 /* MiniLitsMixin.swift */; };
 		8C3A372A1EC88D4300A914A5 /* MiniLitsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35161EC88D4100A914A5 /* MiniLitsObject.swift */; };
 		8C3A372B1EC88D4300A914A5 /* MiniLitsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35171EC88D4100A914A5 /* MiniLitsOptionsViewController.swift */; };
 		8C3A372C1EC88D4300A914A5 /* Mosaik.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A35191EC88D4100A914A5 /* Mosaik.xml */; };
@@ -355,7 +328,6 @@
 		8C3A37321EC88D4300A914A5 /* MosaikGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A351F1EC88D4100A914A5 /* MosaikGridNode.swift */; };
 		8C3A37331EC88D4300A914A5 /* MosaikHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35201EC88D4100A914A5 /* MosaikHelpViewController.swift */; };
 		8C3A37341EC88D4300A914A5 /* MosaikMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35211EC88D4100A914A5 /* MosaikMainViewController.swift */; };
-		8C3A37351EC88D4300A914A5 /* MosaikMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35221EC88D4100A914A5 /* MosaikMixin.swift */; };
 		8C3A37361EC88D4300A914A5 /* MosaikObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35231EC88D4100A914A5 /* MosaikObject.swift */; };
 		8C3A37371EC88D4300A914A5 /* MosaikOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35241EC88D4100A914A5 /* MosaikOptionsViewController.swift */; };
 		8C3A37381EC88D4300A914A5 /* Neighbours.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A35261EC88D4100A914A5 /* Neighbours.xml */; };
@@ -367,7 +339,6 @@
 		8C3A373E1EC88D4300A914A5 /* NeighboursGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A352C1EC88D4100A914A5 /* NeighboursGridNode.swift */; };
 		8C3A373F1EC88D4300A914A5 /* NeighboursHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A352D1EC88D4100A914A5 /* NeighboursHelpViewController.swift */; };
 		8C3A37401EC88D4300A914A5 /* NeighboursMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A352E1EC88D4100A914A5 /* NeighboursMainViewController.swift */; };
-		8C3A37411EC88D4300A914A5 /* NeighboursMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A352F1EC88D4100A914A5 /* NeighboursMixin.swift */; };
 		8C3A37421EC88D4300A914A5 /* NeighboursObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35301EC88D4100A914A5 /* NeighboursObject.swift */; };
 		8C3A37431EC88D4300A914A5 /* NeighboursOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35311EC88D4100A914A5 /* NeighboursOptionsViewController.swift */; };
 		8C3A37441EC88D4300A914A5 /* Nurikabe.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A35331EC88D4100A914A5 /* Nurikabe.xml */; };
@@ -379,7 +350,6 @@
 		8C3A374A1EC88D4300A914A5 /* NurikabeGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35391EC88D4100A914A5 /* NurikabeGridNode.swift */; };
 		8C3A374B1EC88D4300A914A5 /* NurikabeHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A353A1EC88D4100A914A5 /* NurikabeHelpViewController.swift */; };
 		8C3A374C1EC88D4300A914A5 /* NurikabeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A353B1EC88D4100A914A5 /* NurikabeMainViewController.swift */; };
-		8C3A374D1EC88D4300A914A5 /* NurikabeMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A353C1EC88D4100A914A5 /* NurikabeMixin.swift */; };
 		8C3A374E1EC88D4300A914A5 /* NurikabeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A353D1EC88D4100A914A5 /* NurikabeObject.swift */; };
 		8C3A374F1EC88D4300A914A5 /* NurikabeOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A353E1EC88D4100A914A5 /* NurikabeOptionsViewController.swift */; };
 		8C3A37501EC88D4300A914A5 /* Orchards.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A35401EC88D4100A914A5 /* Orchards.xml */; };
@@ -391,7 +361,6 @@
 		8C3A37561EC88D4300A914A5 /* OrchardsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35461EC88D4100A914A5 /* OrchardsGridNode.swift */; };
 		8C3A37571EC88D4300A914A5 /* OrchardsHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35471EC88D4100A914A5 /* OrchardsHelpViewController.swift */; };
 		8C3A37581EC88D4300A914A5 /* OrchardsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35481EC88D4100A914A5 /* OrchardsMainViewController.swift */; };
-		8C3A37591EC88D4300A914A5 /* OrchardsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35491EC88D4100A914A5 /* OrchardsMixin.swift */; };
 		8C3A375A1EC88D4300A914A5 /* OrchardsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A354A1EC88D4100A914A5 /* OrchardsObject.swift */; };
 		8C3A375B1EC88D4300A914A5 /* OrchardsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A354B1EC88D4100A914A5 /* OrchardsOptionsViewController.swift */; };
 		8C3A375C1EC88D4300A914A5 /* Pairakabe.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A354D1EC88D4100A914A5 /* Pairakabe.xml */; };
@@ -403,7 +372,6 @@
 		8C3A37621EC88D4300A914A5 /* PairakabeGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35531EC88D4100A914A5 /* PairakabeGridNode.swift */; };
 		8C3A37631EC88D4300A914A5 /* PairakabeHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35541EC88D4100A914A5 /* PairakabeHelpViewController.swift */; };
 		8C3A37641EC88D4300A914A5 /* PairakabeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35551EC88D4100A914A5 /* PairakabeMainViewController.swift */; };
-		8C3A37651EC88D4300A914A5 /* PairakabeMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35561EC88D4100A914A5 /* PairakabeMixin.swift */; };
 		8C3A37661EC88D4300A914A5 /* PairakabeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35571EC88D4100A914A5 /* PairakabeObject.swift */; };
 		8C3A37671EC88D4300A914A5 /* PairakabeOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35581EC88D4100A914A5 /* PairakabeOptionsViewController.swift */; };
 		8C3A37681EC88D4300A914A5 /* Parks.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A355A1EC88D4100A914A5 /* Parks.xml */; };
@@ -415,7 +383,6 @@
 		8C3A376E1EC88D4300A914A5 /* ParksGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35601EC88D4100A914A5 /* ParksGridNode.swift */; };
 		8C3A376F1EC88D4300A914A5 /* ParksHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35611EC88D4100A914A5 /* ParksHelpViewController.swift */; };
 		8C3A37701EC88D4300A914A5 /* ParksMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35621EC88D4100A914A5 /* ParksMainViewController.swift */; };
-		8C3A37711EC88D4300A914A5 /* ParksMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35631EC88D4100A914A5 /* ParksMixin.swift */; };
 		8C3A37721EC88D4300A914A5 /* ParksObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35641EC88D4100A914A5 /* ParksObject.swift */; };
 		8C3A37731EC88D4300A914A5 /* ParksOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35651EC88D4100A914A5 /* ParksOptionsViewController.swift */; };
 		8C3A37741EC88D4300A914A5 /* PowerGrid.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A35671EC88D4100A914A5 /* PowerGrid.xml */; };
@@ -427,7 +394,6 @@
 		8C3A377A1EC88D4300A914A5 /* PowerGridGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A356D1EC88D4100A914A5 /* PowerGridGridNode.swift */; };
 		8C3A377B1EC88D4300A914A5 /* PowerGridHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A356E1EC88D4100A914A5 /* PowerGridHelpViewController.swift */; };
 		8C3A377C1EC88D4300A914A5 /* PowerGridMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A356F1EC88D4100A914A5 /* PowerGridMainViewController.swift */; };
-		8C3A377D1EC88D4300A914A5 /* PowerGridMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35701EC88D4100A914A5 /* PowerGridMixin.swift */; };
 		8C3A377E1EC88D4300A914A5 /* PowerGridObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35711EC88D4100A914A5 /* PowerGridObject.swift */; };
 		8C3A377F1EC88D4300A914A5 /* PowerGridOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35721EC88D4100A914A5 /* PowerGridOptionsViewController.swift */; };
 		8C3A37801EC88D4300A914A5 /* ProductSentinels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A35741EC88D4200A914A5 /* ProductSentinels.xml */; };
@@ -439,7 +405,6 @@
 		8C3A37861EC88D4400A914A5 /* ProductSentinelsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A357A1EC88D4200A914A5 /* ProductSentinelsGridNode.swift */; };
 		8C3A37871EC88D4400A914A5 /* ProductSentinelsHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A357B1EC88D4200A914A5 /* ProductSentinelsHelpViewController.swift */; };
 		8C3A37881EC88D4400A914A5 /* ProductSentinelsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A357C1EC88D4200A914A5 /* ProductSentinelsMainViewController.swift */; };
-		8C3A37891EC88D4400A914A5 /* ProductSentinelsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A357D1EC88D4200A914A5 /* ProductSentinelsMixin.swift */; };
 		8C3A378A1EC88D4400A914A5 /* ProductSentinelsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A357E1EC88D4200A914A5 /* ProductSentinelsObject.swift */; };
 		8C3A378B1EC88D4400A914A5 /* ProductSentinelsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A357F1EC88D4200A914A5 /* ProductSentinelsOptionsViewController.swift */; };
 		8C3A378C1EC88D4400A914A5 /* Rooms.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A35811EC88D4200A914A5 /* Rooms.xml */; };
@@ -451,7 +416,6 @@
 		8C3A37921EC88D4400A914A5 /* RoomsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35871EC88D4200A914A5 /* RoomsGridNode.swift */; };
 		8C3A37931EC88D4400A914A5 /* RoomsHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35881EC88D4200A914A5 /* RoomsHelpViewController.swift */; };
 		8C3A37941EC88D4400A914A5 /* RoomsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35891EC88D4200A914A5 /* RoomsMainViewController.swift */; };
-		8C3A37951EC88D4400A914A5 /* RoomsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A358A1EC88D4200A914A5 /* RoomsMixin.swift */; };
 		8C3A37961EC88D4400A914A5 /* RoomsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A358B1EC88D4200A914A5 /* RoomsObject.swift */; };
 		8C3A37971EC88D4400A914A5 /* RoomsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A358C1EC88D4200A914A5 /* RoomsOptionsViewController.swift */; };
 		8C3A37981EC88D4400A914A5 /* Sentinels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A358E1EC88D4200A914A5 /* Sentinels.xml */; };
@@ -463,7 +427,6 @@
 		8C3A379E1EC88D4400A914A5 /* SentinelsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35941EC88D4200A914A5 /* SentinelsGridNode.swift */; };
 		8C3A379F1EC88D4400A914A5 /* SentinelsHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35951EC88D4200A914A5 /* SentinelsHelpViewController.swift */; };
 		8C3A37A01EC88D4400A914A5 /* SentinelsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35961EC88D4200A914A5 /* SentinelsMainViewController.swift */; };
-		8C3A37A11EC88D4400A914A5 /* SentinelsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35971EC88D4200A914A5 /* SentinelsMixin.swift */; };
 		8C3A37A21EC88D4400A914A5 /* SentinelsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35981EC88D4200A914A5 /* SentinelsObject.swift */; };
 		8C3A37A31EC88D4400A914A5 /* SentinelsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35991EC88D4200A914A5 /* SentinelsOptionsViewController.swift */; };
 		8C3A37A41EC88D4400A914A5 /* Skyscrapers.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A359B1EC88D4200A914A5 /* Skyscrapers.xml */; };
@@ -475,7 +438,6 @@
 		8C3A37AA1EC88D4400A914A5 /* SkyscrapersGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35A11EC88D4200A914A5 /* SkyscrapersGridNode.swift */; };
 		8C3A37AB1EC88D4400A914A5 /* SkyscrapersHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35A21EC88D4200A914A5 /* SkyscrapersHelpViewController.swift */; };
 		8C3A37AC1EC88D4400A914A5 /* SkyscrapersMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35A31EC88D4200A914A5 /* SkyscrapersMainViewController.swift */; };
-		8C3A37AD1EC88D4400A914A5 /* SkyscrapersMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35A41EC88D4200A914A5 /* SkyscrapersMixin.swift */; };
 		8C3A37AE1EC88D4400A914A5 /* SkyscrapersObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35A51EC88D4200A914A5 /* SkyscrapersObject.swift */; };
 		8C3A37AF1EC88D4400A914A5 /* SkyscrapersOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35A61EC88D4200A914A5 /* SkyscrapersOptionsViewController.swift */; };
 		8C3A37B01EC88D4400A914A5 /* SlitherLink.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A35A81EC88D4200A914A5 /* SlitherLink.xml */; };
@@ -487,7 +449,6 @@
 		8C3A37B61EC88D4400A914A5 /* SlitherLinkGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35AE1EC88D4200A914A5 /* SlitherLinkGridNode.swift */; };
 		8C3A37B71EC88D4400A914A5 /* SlitherLinkHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35AF1EC88D4200A914A5 /* SlitherLinkHelpViewController.swift */; };
 		8C3A37B81EC88D4400A914A5 /* SlitherLinkMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35B01EC88D4200A914A5 /* SlitherLinkMainViewController.swift */; };
-		8C3A37B91EC88D4400A914A5 /* SlitherLinkMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35B11EC88D4200A914A5 /* SlitherLinkMixin.swift */; };
 		8C3A37BA1EC88D4400A914A5 /* SlitherLinkObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35B21EC88D4200A914A5 /* SlitherLinkObject.swift */; };
 		8C3A37BB1EC88D4400A914A5 /* SlitherLinkOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35B31EC88D4200A914A5 /* SlitherLinkOptionsViewController.swift */; };
 		8C3A37BC1EC88D4400A914A5 /* Snail.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A35B51EC88D4200A914A5 /* Snail.xml */; };
@@ -499,7 +460,6 @@
 		8C3A37C21EC88D4400A914A5 /* SnailGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35BB1EC88D4200A914A5 /* SnailGridNode.swift */; };
 		8C3A37C31EC88D4400A914A5 /* SnailHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35BC1EC88D4200A914A5 /* SnailHelpViewController.swift */; };
 		8C3A37C41EC88D4400A914A5 /* SnailMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35BD1EC88D4200A914A5 /* SnailMainViewController.swift */; };
-		8C3A37C51EC88D4400A914A5 /* SnailMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35BE1EC88D4200A914A5 /* SnailMixin.swift */; };
 		8C3A37C61EC88D4400A914A5 /* SnailObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35BF1EC88D4200A914A5 /* SnailObject.swift */; };
 		8C3A37C71EC88D4400A914A5 /* SnailOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35C01EC88D4200A914A5 /* SnailOptionsViewController.swift */; };
 		8C3A37C81EC88D4400A914A5 /* Sumscrapers.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A35C21EC88D4200A914A5 /* Sumscrapers.xml */; };
@@ -511,7 +471,6 @@
 		8C3A37CE1EC88D4400A914A5 /* SumscrapersGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35C81EC88D4200A914A5 /* SumscrapersGridNode.swift */; };
 		8C3A37CF1EC88D4400A914A5 /* SumscrapersHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35C91EC88D4200A914A5 /* SumscrapersHelpViewController.swift */; };
 		8C3A37D01EC88D4400A914A5 /* SumscrapersMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35CA1EC88D4200A914A5 /* SumscrapersMainViewController.swift */; };
-		8C3A37D11EC88D4400A914A5 /* SumscrapersMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35CB1EC88D4200A914A5 /* SumscrapersMixin.swift */; };
 		8C3A37D21EC88D4400A914A5 /* SumscrapersObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35CC1EC88D4200A914A5 /* SumscrapersObject.swift */; };
 		8C3A37D31EC88D4400A914A5 /* SumscrapersOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35CD1EC88D4200A914A5 /* SumscrapersOptionsViewController.swift */; };
 		8C3A37D41EC88D4400A914A5 /* Tatami.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A35CF1EC88D4200A914A5 /* Tatami.xml */; };
@@ -523,7 +482,6 @@
 		8C3A37DA1EC88D4400A914A5 /* TatamiGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35D51EC88D4200A914A5 /* TatamiGridNode.swift */; };
 		8C3A37DB1EC88D4400A914A5 /* TatamiHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35D61EC88D4200A914A5 /* TatamiHelpViewController.swift */; };
 		8C3A37DC1EC88D4400A914A5 /* TatamiMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35D71EC88D4200A914A5 /* TatamiMainViewController.swift */; };
-		8C3A37DD1EC88D4400A914A5 /* TatamiMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35D81EC88D4200A914A5 /* TatamiMixin.swift */; };
 		8C3A37DE1EC88D4400A914A5 /* TatamiObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35D91EC88D4200A914A5 /* TatamiObject.swift */; };
 		8C3A37DF1EC88D4400A914A5 /* TatamiOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35DA1EC88D4200A914A5 /* TatamiOptionsViewController.swift */; };
 		8C3A37E01EC88D4400A914A5 /* Tents.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A35DC1EC88D4200A914A5 /* Tents.xml */; };
@@ -535,7 +493,6 @@
 		8C3A37E61EC88D4400A914A5 /* TentsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35E21EC88D4200A914A5 /* TentsGridNode.swift */; };
 		8C3A37E71EC88D4400A914A5 /* TentsHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35E31EC88D4200A914A5 /* TentsHelpViewController.swift */; };
 		8C3A37E81EC88D4400A914A5 /* TentsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35E41EC88D4200A914A5 /* TentsMainViewController.swift */; };
-		8C3A37E91EC88D4400A914A5 /* TentsMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35E51EC88D4200A914A5 /* TentsMixin.swift */; };
 		8C3A37EA1EC88D4400A914A5 /* TentsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35E61EC88D4200A914A5 /* TentsObject.swift */; };
 		8C3A37EB1EC88D4400A914A5 /* TentsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3A35E71EC88D4200A914A5 /* TentsOptionsViewController.swift */; };
 		8C508BEE1DFBD13700D99A09 /* GridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D41DC42FA40052202C /* GridNode.swift */; };
@@ -702,11 +659,10 @@
 		8C3A33BC1EC88D4100A914A5 /* AbcGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcGame.swift; sourceTree = "<group>"; };
 		8C3A33BD1EC88D4100A914A5 /* AbcGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcGameScene.swift; sourceTree = "<group>"; };
 		8C3A33BE1EC88D4100A914A5 /* AbcGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcGameState.swift; sourceTree = "<group>"; };
-		8C3A33BF1EC88D4100A914A5 /* AbcGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcGameViewController.swift; sourceTree = "<group>"; };
+		8C3A33BF1EC88D4100A914A5 /* AbcGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AbcGameViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8C3A33C01EC88D4100A914A5 /* AbcGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcGridNode.swift; sourceTree = "<group>"; };
 		8C3A33C11EC88D4100A914A5 /* AbcHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A33C21EC88D4100A914A5 /* AbcMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcMainViewController.swift; sourceTree = "<group>"; };
-		8C3A33C31EC88D4100A914A5 /* AbcMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcMixin.swift; sourceTree = "<group>"; };
 		8C3A33C41EC88D4100A914A5 /* AbcObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcObject.swift; sourceTree = "<group>"; };
 		8C3A33C51EC88D4100A914A5 /* AbcOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbcOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A33C71EC88D4100A914A5 /* AbstractPainting.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AbstractPainting.xml; sourceTree = "<group>"; };
@@ -718,7 +674,6 @@
 		8C3A33CD1EC88D4100A914A5 /* AbstractPaintingGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractPaintingGridNode.swift; sourceTree = "<group>"; };
 		8C3A33CE1EC88D4100A914A5 /* AbstractPaintingHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractPaintingHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A33CF1EC88D4100A914A5 /* AbstractPaintingMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractPaintingMainViewController.swift; sourceTree = "<group>"; };
-		8C3A33D01EC88D4100A914A5 /* AbstractPaintingMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractPaintingMixin.swift; sourceTree = "<group>"; };
 		8C3A33D11EC88D4100A914A5 /* AbstractPaintingObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractPaintingObject.swift; sourceTree = "<group>"; };
 		8C3A33D21EC88D4100A914A5 /* AbstractPaintingOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractPaintingOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A33D41EC88D4100A914A5 /* BattleShips.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BattleShips.xml; sourceTree = "<group>"; };
@@ -730,7 +685,6 @@
 		8C3A33DA1EC88D4100A914A5 /* BattleShipsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleShipsGridNode.swift; sourceTree = "<group>"; };
 		8C3A33DB1EC88D4100A914A5 /* BattleShipsHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleShipsHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A33DC1EC88D4100A914A5 /* BattleShipsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleShipsMainViewController.swift; sourceTree = "<group>"; };
-		8C3A33DD1EC88D4100A914A5 /* BattleShipsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleShipsMixin.swift; sourceTree = "<group>"; };
 		8C3A33DE1EC88D4100A914A5 /* BattleShipsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleShipsObject.swift; sourceTree = "<group>"; };
 		8C3A33DF1EC88D4100A914A5 /* BattleShipsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BattleShipsOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A33E11EC88D4100A914A5 /* BootyIsland.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BootyIsland.xml; sourceTree = "<group>"; };
@@ -742,7 +696,6 @@
 		8C3A33E71EC88D4100A914A5 /* BootyIslandGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BootyIslandGridNode.swift; sourceTree = "<group>"; };
 		8C3A33E81EC88D4100A914A5 /* BootyIslandHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BootyIslandHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A33E91EC88D4100A914A5 /* BootyIslandMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BootyIslandMainViewController.swift; sourceTree = "<group>"; };
-		8C3A33EA1EC88D4100A914A5 /* BootyIslandMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BootyIslandMixin.swift; sourceTree = "<group>"; };
 		8C3A33EB1EC88D4100A914A5 /* BootyIslandObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BootyIslandObject.swift; sourceTree = "<group>"; };
 		8C3A33EC1EC88D4100A914A5 /* BootyIslandOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BootyIslandOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A33EE1EC88D4100A914A5 /* BoxItAgain.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BoxItAgain.xml; sourceTree = "<group>"; };
@@ -754,7 +707,6 @@
 		8C3A33F41EC88D4100A914A5 /* BoxItAgainGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainGridNode.swift; sourceTree = "<group>"; };
 		8C3A33F51EC88D4100A914A5 /* BoxItAgainHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A33F61EC88D4100A914A5 /* BoxItAgainMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainMainViewController.swift; sourceTree = "<group>"; };
-		8C3A33F71EC88D4100A914A5 /* BoxItAgainMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainMixin.swift; sourceTree = "<group>"; };
 		8C3A33F81EC88D4100A914A5 /* BoxItAgainObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainObject.swift; sourceTree = "<group>"; };
 		8C3A33F91EC88D4100A914A5 /* BoxItAgainOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAgainOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A33FB1EC88D4100A914A5 /* BoxItAround.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BoxItAround.xml; sourceTree = "<group>"; };
@@ -766,7 +718,6 @@
 		8C3A34011EC88D4100A914A5 /* BoxItAroundGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAroundGridNode.swift; sourceTree = "<group>"; };
 		8C3A34021EC88D4100A914A5 /* BoxItAroundHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAroundHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A34031EC88D4100A914A5 /* BoxItAroundMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAroundMainViewController.swift; sourceTree = "<group>"; };
-		8C3A34041EC88D4100A914A5 /* BoxItAroundMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAroundMixin.swift; sourceTree = "<group>"; };
 		8C3A34051EC88D4100A914A5 /* BoxItAroundObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAroundObject.swift; sourceTree = "<group>"; };
 		8C3A34061EC88D4100A914A5 /* BoxItAroundOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItAroundOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A34081EC88D4100A914A5 /* BoxItUp.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BoxItUp.xml; sourceTree = "<group>"; };
@@ -778,7 +729,6 @@
 		8C3A340E1EC88D4100A914A5 /* BoxItUpGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItUpGridNode.swift; sourceTree = "<group>"; };
 		8C3A340F1EC88D4100A914A5 /* BoxItUpHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItUpHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A34101EC88D4100A914A5 /* BoxItUpMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItUpMainViewController.swift; sourceTree = "<group>"; };
-		8C3A34111EC88D4100A914A5 /* BoxItUpMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItUpMixin.swift; sourceTree = "<group>"; };
 		8C3A34121EC88D4100A914A5 /* BoxItUpObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItUpObject.swift; sourceTree = "<group>"; };
 		8C3A34131EC88D4100A914A5 /* BoxItUpOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxItUpOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A34151EC88D4100A914A5 /* Bridges.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Bridges.xml; sourceTree = "<group>"; };
@@ -790,7 +740,6 @@
 		8C3A341B1EC88D4100A914A5 /* BridgesGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesGridNode.swift; sourceTree = "<group>"; };
 		8C3A341C1EC88D4100A914A5 /* BridgesHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A341D1EC88D4100A914A5 /* BridgesMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesMainViewController.swift; sourceTree = "<group>"; };
-		8C3A341E1EC88D4100A914A5 /* BridgesMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesMixin.swift; sourceTree = "<group>"; };
 		8C3A341F1EC88D4100A914A5 /* BridgesObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesObject.swift; sourceTree = "<group>"; };
 		8C3A34201EC88D4100A914A5 /* BridgesOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgesOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A34221EC88D4100A914A5 /* BusySeas.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BusySeas.xml; sourceTree = "<group>"; };
@@ -802,7 +751,6 @@
 		8C3A34281EC88D4100A914A5 /* BusySeasGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusySeasGridNode.swift; sourceTree = "<group>"; };
 		8C3A34291EC88D4100A914A5 /* BusySeasHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusySeasHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A342A1EC88D4100A914A5 /* BusySeasMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusySeasMainViewController.swift; sourceTree = "<group>"; };
-		8C3A342B1EC88D4100A914A5 /* BusySeasMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusySeasMixin.swift; sourceTree = "<group>"; };
 		8C3A342C1EC88D4100A914A5 /* BusySeasObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusySeasObject.swift; sourceTree = "<group>"; };
 		8C3A342D1EC88D4100A914A5 /* BusySeasOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusySeasOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A342F1EC88D4100A914A5 /* Clouds.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Clouds.xml; sourceTree = "<group>"; };
@@ -814,7 +762,6 @@
 		8C3A34351EC88D4100A914A5 /* CloudsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsGridNode.swift; sourceTree = "<group>"; };
 		8C3A34361EC88D4100A914A5 /* CloudsHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A34371EC88D4100A914A5 /* CloudsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsMainViewController.swift; sourceTree = "<group>"; };
-		8C3A34381EC88D4100A914A5 /* CloudsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsMixin.swift; sourceTree = "<group>"; };
 		8C3A34391EC88D4100A914A5 /* CloudsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsObject.swift; sourceTree = "<group>"; };
 		8C3A343A1EC88D4100A914A5 /* CloudsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A343C1EC88D4100A914A5 /* DigitalBattleShips.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DigitalBattleShips.xml; sourceTree = "<group>"; };
@@ -826,7 +773,6 @@
 		8C3A34421EC88D4100A914A5 /* DigitalBattleShipsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitalBattleShipsGridNode.swift; sourceTree = "<group>"; };
 		8C3A34431EC88D4100A914A5 /* DigitalBattleShipsHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitalBattleShipsHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A34441EC88D4100A914A5 /* DigitalBattleShipsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitalBattleShipsMainViewController.swift; sourceTree = "<group>"; };
-		8C3A34451EC88D4100A914A5 /* DigitalBattleShipsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitalBattleShipsMixin.swift; sourceTree = "<group>"; };
 		8C3A34461EC88D4100A914A5 /* DigitalBattleShipsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitalBattleShipsObject.swift; sourceTree = "<group>"; };
 		8C3A34471EC88D4100A914A5 /* DigitalBattleShipsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DigitalBattleShipsOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A34491EC88D4100A914A5 /* Domino.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Domino.xml; sourceTree = "<group>"; };
@@ -838,7 +784,6 @@
 		8C3A344F1EC88D4100A914A5 /* DominoGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominoGridNode.swift; sourceTree = "<group>"; };
 		8C3A34501EC88D4100A914A5 /* DominoHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominoHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A34511EC88D4100A914A5 /* DominoMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominoMainViewController.swift; sourceTree = "<group>"; };
-		8C3A34521EC88D4100A914A5 /* DominoMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominoMixin.swift; sourceTree = "<group>"; };
 		8C3A34531EC88D4100A914A5 /* DominoObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominoObject.swift; sourceTree = "<group>"; };
 		8C3A34541EC88D4100A914A5 /* DominoOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DominoOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A34561EC88D4100A914A5 /* FenceItUp.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FenceItUp.xml; sourceTree = "<group>"; };
@@ -850,7 +795,6 @@
 		8C3A345C1EC88D4100A914A5 /* FenceItUpGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceItUpGridNode.swift; sourceTree = "<group>"; };
 		8C3A345D1EC88D4100A914A5 /* FenceItUpHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceItUpHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A345E1EC88D4100A914A5 /* FenceItUpMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceItUpMainViewController.swift; sourceTree = "<group>"; };
-		8C3A345F1EC88D4100A914A5 /* FenceItUpMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceItUpMixin.swift; sourceTree = "<group>"; };
 		8C3A34601EC88D4100A914A5 /* FenceItUpObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceItUpObject.swift; sourceTree = "<group>"; };
 		8C3A34611EC88D4100A914A5 /* FenceItUpOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceItUpOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A34631EC88D4100A914A5 /* FenceLits.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FenceLits.xml; sourceTree = "<group>"; };
@@ -862,7 +806,6 @@
 		8C3A34691EC88D4100A914A5 /* FenceLitsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsGridNode.swift; sourceTree = "<group>"; };
 		8C3A346A1EC88D4100A914A5 /* FenceLitsHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A346B1EC88D4100A914A5 /* FenceLitsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsMainViewController.swift; sourceTree = "<group>"; };
-		8C3A346C1EC88D4100A914A5 /* FenceLitsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsMixin.swift; sourceTree = "<group>"; };
 		8C3A346D1EC88D4100A914A5 /* FenceLitsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsObject.swift; sourceTree = "<group>"; };
 		8C3A346E1EC88D4100A914A5 /* FenceLitsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceLitsOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A34701EC88D4100A914A5 /* FenceSentinels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FenceSentinels.xml; sourceTree = "<group>"; };
@@ -874,7 +817,6 @@
 		8C3A34761EC88D4100A914A5 /* FenceSentinelsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceSentinelsGridNode.swift; sourceTree = "<group>"; };
 		8C3A34771EC88D4100A914A5 /* FenceSentinelsHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceSentinelsHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A34781EC88D4100A914A5 /* FenceSentinelsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceSentinelsMainViewController.swift; sourceTree = "<group>"; };
-		8C3A34791EC88D4100A914A5 /* FenceSentinelsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceSentinelsMixin.swift; sourceTree = "<group>"; };
 		8C3A347A1EC88D4100A914A5 /* FenceSentinelsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceSentinelsObject.swift; sourceTree = "<group>"; };
 		8C3A347B1EC88D4100A914A5 /* FenceSentinelsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FenceSentinelsOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A347D1EC88D4100A914A5 /* Hitori.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Hitori.xml; sourceTree = "<group>"; };
@@ -886,7 +828,6 @@
 		8C3A34831EC88D4100A914A5 /* HitoriGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriGridNode.swift; sourceTree = "<group>"; };
 		8C3A34841EC88D4100A914A5 /* HitoriHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A34851EC88D4100A914A5 /* HitoriMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriMainViewController.swift; sourceTree = "<group>"; };
-		8C3A34861EC88D4100A914A5 /* HitoriMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriMixin.swift; sourceTree = "<group>"; };
 		8C3A34871EC88D4100A914A5 /* HitoriObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriObject.swift; sourceTree = "<group>"; };
 		8C3A34881EC88D4100A914A5 /* HitoriOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitoriOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A348A1EC88D4100A914A5 /* LightBattleShips.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LightBattleShips.xml; sourceTree = "<group>"; };
@@ -898,7 +839,6 @@
 		8C3A34901EC88D4100A914A5 /* LightBattleShipsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightBattleShipsGridNode.swift; sourceTree = "<group>"; };
 		8C3A34911EC88D4100A914A5 /* LightBattleShipsHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightBattleShipsHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A34921EC88D4100A914A5 /* LightBattleShipsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightBattleShipsMainViewController.swift; sourceTree = "<group>"; };
-		8C3A34931EC88D4100A914A5 /* LightBattleShipsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightBattleShipsMixin.swift; sourceTree = "<group>"; };
 		8C3A34941EC88D4100A914A5 /* LightBattleShipsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightBattleShipsObject.swift; sourceTree = "<group>"; };
 		8C3A34951EC88D4100A914A5 /* LightBattleShipsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightBattleShipsOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A34971EC88D4100A914A5 /* LightenUp.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LightenUp.xml; sourceTree = "<group>"; };
@@ -910,7 +850,6 @@
 		8C3A349D1EC88D4100A914A5 /* LightenUpGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightenUpGridNode.swift; sourceTree = "<group>"; };
 		8C3A349E1EC88D4100A914A5 /* LightenUpHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightenUpHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A349F1EC88D4100A914A5 /* LightenUpMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightenUpMainViewController.swift; sourceTree = "<group>"; };
-		8C3A34A01EC88D4100A914A5 /* LightenUpMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightenUpMixin.swift; sourceTree = "<group>"; };
 		8C3A34A11EC88D4100A914A5 /* LightenUpObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightenUpObject.swift; sourceTree = "<group>"; };
 		8C3A34A21EC88D4100A914A5 /* LightenUpOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightenUpOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A34A41EC88D4100A914A5 /* Lighthouses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Lighthouses.xml; sourceTree = "<group>"; };
@@ -922,7 +861,6 @@
 		8C3A34AA1EC88D4100A914A5 /* LighthousesGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesGridNode.swift; sourceTree = "<group>"; };
 		8C3A34AB1EC88D4100A914A5 /* LighthousesHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A34AC1EC88D4100A914A5 /* LighthousesMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesMainViewController.swift; sourceTree = "<group>"; };
-		8C3A34AD1EC88D4100A914A5 /* LighthousesMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesMixin.swift; sourceTree = "<group>"; };
 		8C3A34AE1EC88D4100A914A5 /* LighthousesObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesObject.swift; sourceTree = "<group>"; };
 		8C3A34AF1EC88D4100A914A5 /* LighthousesOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LighthousesOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A34B11EC88D4100A914A5 /* LineSweeper.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LineSweeper.xml; sourceTree = "<group>"; };
@@ -934,7 +872,6 @@
 		8C3A34B71EC88D4100A914A5 /* LineSweeperGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperGridNode.swift; sourceTree = "<group>"; };
 		8C3A34B81EC88D4100A914A5 /* LineSweeperHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A34B91EC88D4100A914A5 /* LineSweeperMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperMainViewController.swift; sourceTree = "<group>"; };
-		8C3A34BA1EC88D4100A914A5 /* LineSweeperMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperMixin.swift; sourceTree = "<group>"; };
 		8C3A34BB1EC88D4100A914A5 /* LineSweeperObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperObject.swift; sourceTree = "<group>"; };
 		8C3A34BC1EC88D4100A914A5 /* LineSweeperOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineSweeperOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A34BE1EC88D4100A914A5 /* Lits.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Lits.xml; sourceTree = "<group>"; };
@@ -946,7 +883,6 @@
 		8C3A34C41EC88D4100A914A5 /* LitsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LitsGridNode.swift; sourceTree = "<group>"; };
 		8C3A34C51EC88D4100A914A5 /* LitsHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LitsHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A34C61EC88D4100A914A5 /* LitsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LitsMainViewController.swift; sourceTree = "<group>"; };
-		8C3A34C71EC88D4100A914A5 /* LitsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LitsMixin.swift; sourceTree = "<group>"; };
 		8C3A34C81EC88D4100A914A5 /* LitsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LitsObject.swift; sourceTree = "<group>"; };
 		8C3A34C91EC88D4100A914A5 /* LitsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LitsOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A34CB1EC88D4100A914A5 /* Loopy.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Loopy.xml; sourceTree = "<group>"; };
@@ -958,7 +894,6 @@
 		8C3A34D11EC88D4100A914A5 /* LoopyGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopyGridNode.swift; sourceTree = "<group>"; };
 		8C3A34D21EC88D4100A914A5 /* LoopyHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopyHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A34D31EC88D4100A914A5 /* LoopyMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopyMainViewController.swift; sourceTree = "<group>"; };
-		8C3A34D41EC88D4100A914A5 /* LoopyMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopyMixin.swift; sourceTree = "<group>"; };
 		8C3A34D51EC88D4100A914A5 /* LoopyObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopyObject.swift; sourceTree = "<group>"; };
 		8C3A34D61EC88D4100A914A5 /* LoopyOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopyOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A34D81EC88D4100A914A5 /* Magnets.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Magnets.xml; sourceTree = "<group>"; };
@@ -970,7 +905,6 @@
 		8C3A34DE1EC88D4100A914A5 /* MagnetsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnetsGridNode.swift; sourceTree = "<group>"; };
 		8C3A34DF1EC88D4100A914A5 /* MagnetsHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnetsHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A34E01EC88D4100A914A5 /* MagnetsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnetsMainViewController.swift; sourceTree = "<group>"; };
-		8C3A34E11EC88D4100A914A5 /* MagnetsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnetsMixin.swift; sourceTree = "<group>"; };
 		8C3A34E21EC88D4100A914A5 /* MagnetsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnetsObject.swift; sourceTree = "<group>"; };
 		8C3A34E31EC88D4100A914A5 /* MagnetsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnetsOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A34E51EC88D4100A914A5 /* Masyu.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Masyu.xml; sourceTree = "<group>"; };
@@ -982,7 +916,6 @@
 		8C3A34EB1EC88D4100A914A5 /* MasyuGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasyuGridNode.swift; sourceTree = "<group>"; };
 		8C3A34EC1EC88D4100A914A5 /* MasyuHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasyuHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A34ED1EC88D4100A914A5 /* MasyuMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasyuMainViewController.swift; sourceTree = "<group>"; };
-		8C3A34EE1EC88D4100A914A5 /* MasyuMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasyuMixin.swift; sourceTree = "<group>"; };
 		8C3A34EF1EC88D4100A914A5 /* MasyuObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasyuObject.swift; sourceTree = "<group>"; };
 		8C3A34F01EC88D4100A914A5 /* MasyuOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasyuOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A34F21EC88D4100A914A5 /* MineShips.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MineShips.xml; sourceTree = "<group>"; };
@@ -994,7 +927,6 @@
 		8C3A34F81EC88D4100A914A5 /* MineShipsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineShipsGridNode.swift; sourceTree = "<group>"; };
 		8C3A34F91EC88D4100A914A5 /* MineShipsHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineShipsHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A34FA1EC88D4100A914A5 /* MineShipsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineShipsMainViewController.swift; sourceTree = "<group>"; };
-		8C3A34FB1EC88D4100A914A5 /* MineShipsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineShipsMixin.swift; sourceTree = "<group>"; };
 		8C3A34FC1EC88D4100A914A5 /* MineShipsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineShipsObject.swift; sourceTree = "<group>"; };
 		8C3A34FD1EC88D4100A914A5 /* MineShipsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineShipsOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A34FF1EC88D4100A914A5 /* Minesweeper.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Minesweeper.xml; sourceTree = "<group>"; };
@@ -1006,7 +938,6 @@
 		8C3A35051EC88D4100A914A5 /* MinesweeperGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperGridNode.swift; sourceTree = "<group>"; };
 		8C3A35061EC88D4100A914A5 /* MinesweeperHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A35071EC88D4100A914A5 /* MinesweeperMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperMainViewController.swift; sourceTree = "<group>"; };
-		8C3A35081EC88D4100A914A5 /* MinesweeperMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperMixin.swift; sourceTree = "<group>"; };
 		8C3A35091EC88D4100A914A5 /* MinesweeperObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperObject.swift; sourceTree = "<group>"; };
 		8C3A350A1EC88D4100A914A5 /* MinesweeperOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A350C1EC88D4100A914A5 /* MiniLits.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MiniLits.xml; sourceTree = "<group>"; };
@@ -1018,7 +949,6 @@
 		8C3A35121EC88D4100A914A5 /* MiniLitsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsGridNode.swift; sourceTree = "<group>"; };
 		8C3A35131EC88D4100A914A5 /* MiniLitsHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A35141EC88D4100A914A5 /* MiniLitsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsMainViewController.swift; sourceTree = "<group>"; };
-		8C3A35151EC88D4100A914A5 /* MiniLitsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsMixin.swift; sourceTree = "<group>"; };
 		8C3A35161EC88D4100A914A5 /* MiniLitsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsObject.swift; sourceTree = "<group>"; };
 		8C3A35171EC88D4100A914A5 /* MiniLitsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniLitsOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A35191EC88D4100A914A5 /* Mosaik.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Mosaik.xml; sourceTree = "<group>"; };
@@ -1030,7 +960,6 @@
 		8C3A351F1EC88D4100A914A5 /* MosaikGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaikGridNode.swift; sourceTree = "<group>"; };
 		8C3A35201EC88D4100A914A5 /* MosaikHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaikHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A35211EC88D4100A914A5 /* MosaikMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaikMainViewController.swift; sourceTree = "<group>"; };
-		8C3A35221EC88D4100A914A5 /* MosaikMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaikMixin.swift; sourceTree = "<group>"; };
 		8C3A35231EC88D4100A914A5 /* MosaikObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaikObject.swift; sourceTree = "<group>"; };
 		8C3A35241EC88D4100A914A5 /* MosaikOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaikOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A35261EC88D4100A914A5 /* Neighbours.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Neighbours.xml; sourceTree = "<group>"; };
@@ -1042,7 +971,6 @@
 		8C3A352C1EC88D4100A914A5 /* NeighboursGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighboursGridNode.swift; sourceTree = "<group>"; };
 		8C3A352D1EC88D4100A914A5 /* NeighboursHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighboursHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A352E1EC88D4100A914A5 /* NeighboursMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighboursMainViewController.swift; sourceTree = "<group>"; };
-		8C3A352F1EC88D4100A914A5 /* NeighboursMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighboursMixin.swift; sourceTree = "<group>"; };
 		8C3A35301EC88D4100A914A5 /* NeighboursObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighboursObject.swift; sourceTree = "<group>"; };
 		8C3A35311EC88D4100A914A5 /* NeighboursOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeighboursOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A35331EC88D4100A914A5 /* Nurikabe.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Nurikabe.xml; sourceTree = "<group>"; };
@@ -1054,7 +982,6 @@
 		8C3A35391EC88D4100A914A5 /* NurikabeGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeGridNode.swift; sourceTree = "<group>"; };
 		8C3A353A1EC88D4100A914A5 /* NurikabeHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A353B1EC88D4100A914A5 /* NurikabeMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeMainViewController.swift; sourceTree = "<group>"; };
-		8C3A353C1EC88D4100A914A5 /* NurikabeMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeMixin.swift; sourceTree = "<group>"; };
 		8C3A353D1EC88D4100A914A5 /* NurikabeObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeObject.swift; sourceTree = "<group>"; };
 		8C3A353E1EC88D4100A914A5 /* NurikabeOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurikabeOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A35401EC88D4100A914A5 /* Orchards.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Orchards.xml; sourceTree = "<group>"; };
@@ -1066,7 +993,6 @@
 		8C3A35461EC88D4100A914A5 /* OrchardsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrchardsGridNode.swift; sourceTree = "<group>"; };
 		8C3A35471EC88D4100A914A5 /* OrchardsHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrchardsHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A35481EC88D4100A914A5 /* OrchardsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrchardsMainViewController.swift; sourceTree = "<group>"; };
-		8C3A35491EC88D4100A914A5 /* OrchardsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrchardsMixin.swift; sourceTree = "<group>"; };
 		8C3A354A1EC88D4100A914A5 /* OrchardsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrchardsObject.swift; sourceTree = "<group>"; };
 		8C3A354B1EC88D4100A914A5 /* OrchardsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrchardsOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A354D1EC88D4100A914A5 /* Pairakabe.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Pairakabe.xml; sourceTree = "<group>"; };
@@ -1078,7 +1004,6 @@
 		8C3A35531EC88D4100A914A5 /* PairakabeGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeGridNode.swift; sourceTree = "<group>"; };
 		8C3A35541EC88D4100A914A5 /* PairakabeHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A35551EC88D4100A914A5 /* PairakabeMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeMainViewController.swift; sourceTree = "<group>"; };
-		8C3A35561EC88D4100A914A5 /* PairakabeMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeMixin.swift; sourceTree = "<group>"; };
 		8C3A35571EC88D4100A914A5 /* PairakabeObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeObject.swift; sourceTree = "<group>"; };
 		8C3A35581EC88D4100A914A5 /* PairakabeOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PairakabeOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A355A1EC88D4100A914A5 /* Parks.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Parks.xml; sourceTree = "<group>"; };
@@ -1090,7 +1015,6 @@
 		8C3A35601EC88D4100A914A5 /* ParksGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParksGridNode.swift; sourceTree = "<group>"; };
 		8C3A35611EC88D4100A914A5 /* ParksHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParksHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A35621EC88D4100A914A5 /* ParksMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParksMainViewController.swift; sourceTree = "<group>"; };
-		8C3A35631EC88D4100A914A5 /* ParksMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParksMixin.swift; sourceTree = "<group>"; };
 		8C3A35641EC88D4100A914A5 /* ParksObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParksObject.swift; sourceTree = "<group>"; };
 		8C3A35651EC88D4100A914A5 /* ParksOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParksOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A35671EC88D4100A914A5 /* PowerGrid.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PowerGrid.xml; sourceTree = "<group>"; };
@@ -1102,7 +1026,6 @@
 		8C3A356D1EC88D4100A914A5 /* PowerGridGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerGridGridNode.swift; sourceTree = "<group>"; };
 		8C3A356E1EC88D4100A914A5 /* PowerGridHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerGridHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A356F1EC88D4100A914A5 /* PowerGridMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerGridMainViewController.swift; sourceTree = "<group>"; };
-		8C3A35701EC88D4100A914A5 /* PowerGridMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerGridMixin.swift; sourceTree = "<group>"; };
 		8C3A35711EC88D4100A914A5 /* PowerGridObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerGridObject.swift; sourceTree = "<group>"; };
 		8C3A35721EC88D4100A914A5 /* PowerGridOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PowerGridOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A35741EC88D4200A914A5 /* ProductSentinels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ProductSentinels.xml; sourceTree = "<group>"; };
@@ -1114,7 +1037,6 @@
 		8C3A357A1EC88D4200A914A5 /* ProductSentinelsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSentinelsGridNode.swift; sourceTree = "<group>"; };
 		8C3A357B1EC88D4200A914A5 /* ProductSentinelsHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSentinelsHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A357C1EC88D4200A914A5 /* ProductSentinelsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSentinelsMainViewController.swift; sourceTree = "<group>"; };
-		8C3A357D1EC88D4200A914A5 /* ProductSentinelsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSentinelsMixin.swift; sourceTree = "<group>"; };
 		8C3A357E1EC88D4200A914A5 /* ProductSentinelsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSentinelsObject.swift; sourceTree = "<group>"; };
 		8C3A357F1EC88D4200A914A5 /* ProductSentinelsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSentinelsOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A35811EC88D4200A914A5 /* Rooms.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Rooms.xml; sourceTree = "<group>"; };
@@ -1126,7 +1048,6 @@
 		8C3A35871EC88D4200A914A5 /* RoomsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsGridNode.swift; sourceTree = "<group>"; };
 		8C3A35881EC88D4200A914A5 /* RoomsHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A35891EC88D4200A914A5 /* RoomsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsMainViewController.swift; sourceTree = "<group>"; };
-		8C3A358A1EC88D4200A914A5 /* RoomsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsMixin.swift; sourceTree = "<group>"; };
 		8C3A358B1EC88D4200A914A5 /* RoomsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsObject.swift; sourceTree = "<group>"; };
 		8C3A358C1EC88D4200A914A5 /* RoomsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A358E1EC88D4200A914A5 /* Sentinels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Sentinels.xml; sourceTree = "<group>"; };
@@ -1138,7 +1059,6 @@
 		8C3A35941EC88D4200A914A5 /* SentinelsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentinelsGridNode.swift; sourceTree = "<group>"; };
 		8C3A35951EC88D4200A914A5 /* SentinelsHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentinelsHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A35961EC88D4200A914A5 /* SentinelsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentinelsMainViewController.swift; sourceTree = "<group>"; };
-		8C3A35971EC88D4200A914A5 /* SentinelsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentinelsMixin.swift; sourceTree = "<group>"; };
 		8C3A35981EC88D4200A914A5 /* SentinelsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentinelsObject.swift; sourceTree = "<group>"; };
 		8C3A35991EC88D4200A914A5 /* SentinelsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentinelsOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A359B1EC88D4200A914A5 /* Skyscrapers.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Skyscrapers.xml; sourceTree = "<group>"; };
@@ -1150,7 +1070,6 @@
 		8C3A35A11EC88D4200A914A5 /* SkyscrapersGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersGridNode.swift; sourceTree = "<group>"; };
 		8C3A35A21EC88D4200A914A5 /* SkyscrapersHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A35A31EC88D4200A914A5 /* SkyscrapersMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersMainViewController.swift; sourceTree = "<group>"; };
-		8C3A35A41EC88D4200A914A5 /* SkyscrapersMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersMixin.swift; sourceTree = "<group>"; };
 		8C3A35A51EC88D4200A914A5 /* SkyscrapersObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersObject.swift; sourceTree = "<group>"; };
 		8C3A35A61EC88D4200A914A5 /* SkyscrapersOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyscrapersOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A35A81EC88D4200A914A5 /* SlitherLink.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SlitherLink.xml; sourceTree = "<group>"; };
@@ -1162,7 +1081,6 @@
 		8C3A35AE1EC88D4200A914A5 /* SlitherLinkGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkGridNode.swift; sourceTree = "<group>"; };
 		8C3A35AF1EC88D4200A914A5 /* SlitherLinkHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A35B01EC88D4200A914A5 /* SlitherLinkMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkMainViewController.swift; sourceTree = "<group>"; };
-		8C3A35B11EC88D4200A914A5 /* SlitherLinkMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkMixin.swift; sourceTree = "<group>"; };
 		8C3A35B21EC88D4200A914A5 /* SlitherLinkObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkObject.swift; sourceTree = "<group>"; };
 		8C3A35B31EC88D4200A914A5 /* SlitherLinkOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlitherLinkOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A35B51EC88D4200A914A5 /* Snail.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Snail.xml; sourceTree = "<group>"; };
@@ -1174,7 +1092,6 @@
 		8C3A35BB1EC88D4200A914A5 /* SnailGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailGridNode.swift; sourceTree = "<group>"; };
 		8C3A35BC1EC88D4200A914A5 /* SnailHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A35BD1EC88D4200A914A5 /* SnailMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailMainViewController.swift; sourceTree = "<group>"; };
-		8C3A35BE1EC88D4200A914A5 /* SnailMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailMixin.swift; sourceTree = "<group>"; };
 		8C3A35BF1EC88D4200A914A5 /* SnailObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailObject.swift; sourceTree = "<group>"; };
 		8C3A35C01EC88D4200A914A5 /* SnailOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnailOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A35C21EC88D4200A914A5 /* Sumscrapers.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Sumscrapers.xml; sourceTree = "<group>"; };
@@ -1186,7 +1103,6 @@
 		8C3A35C81EC88D4200A914A5 /* SumscrapersGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumscrapersGridNode.swift; sourceTree = "<group>"; };
 		8C3A35C91EC88D4200A914A5 /* SumscrapersHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumscrapersHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A35CA1EC88D4200A914A5 /* SumscrapersMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumscrapersMainViewController.swift; sourceTree = "<group>"; };
-		8C3A35CB1EC88D4200A914A5 /* SumscrapersMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumscrapersMixin.swift; sourceTree = "<group>"; };
 		8C3A35CC1EC88D4200A914A5 /* SumscrapersObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumscrapersObject.swift; sourceTree = "<group>"; };
 		8C3A35CD1EC88D4200A914A5 /* SumscrapersOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SumscrapersOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A35CF1EC88D4200A914A5 /* Tatami.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tatami.xml; sourceTree = "<group>"; };
@@ -1198,7 +1114,6 @@
 		8C3A35D51EC88D4200A914A5 /* TatamiGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TatamiGridNode.swift; sourceTree = "<group>"; };
 		8C3A35D61EC88D4200A914A5 /* TatamiHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TatamiHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A35D71EC88D4200A914A5 /* TatamiMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TatamiMainViewController.swift; sourceTree = "<group>"; };
-		8C3A35D81EC88D4200A914A5 /* TatamiMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TatamiMixin.swift; sourceTree = "<group>"; };
 		8C3A35D91EC88D4200A914A5 /* TatamiObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TatamiObject.swift; sourceTree = "<group>"; };
 		8C3A35DA1EC88D4200A914A5 /* TatamiOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TatamiOptionsViewController.swift; sourceTree = "<group>"; };
 		8C3A35DC1EC88D4200A914A5 /* Tents.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tents.xml; sourceTree = "<group>"; };
@@ -1210,7 +1125,6 @@
 		8C3A35E21EC88D4200A914A5 /* TentsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TentsGridNode.swift; sourceTree = "<group>"; };
 		8C3A35E31EC88D4200A914A5 /* TentsHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TentsHelpViewController.swift; sourceTree = "<group>"; };
 		8C3A35E41EC88D4200A914A5 /* TentsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TentsMainViewController.swift; sourceTree = "<group>"; };
-		8C3A35E51EC88D4200A914A5 /* TentsMixin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TentsMixin.swift; sourceTree = "<group>"; };
 		8C3A35E61EC88D4200A914A5 /* TentsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TentsObject.swift; sourceTree = "<group>"; };
 		8C3A35E71EC88D4200A914A5 /* TentsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TentsOptionsViewController.swift; sourceTree = "<group>"; };
 		8C5368831EA1DFCC0071D475 /* GridObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridObject.swift; sourceTree = "<group>"; };
@@ -1477,7 +1391,6 @@
 				8C3A33C01EC88D4100A914A5 /* AbcGridNode.swift */,
 				8C3A33C11EC88D4100A914A5 /* AbcHelpViewController.swift */,
 				8C3A33C21EC88D4100A914A5 /* AbcMainViewController.swift */,
-				8C3A33C31EC88D4100A914A5 /* AbcMixin.swift */,
 				8C3A33C41EC88D4100A914A5 /* AbcObject.swift */,
 				8C3A33C51EC88D4100A914A5 /* AbcOptionsViewController.swift */,
 			);
@@ -1496,7 +1409,6 @@
 				8C3A33CD1EC88D4100A914A5 /* AbstractPaintingGridNode.swift */,
 				8C3A33CE1EC88D4100A914A5 /* AbstractPaintingHelpViewController.swift */,
 				8C3A33CF1EC88D4100A914A5 /* AbstractPaintingMainViewController.swift */,
-				8C3A33D01EC88D4100A914A5 /* AbstractPaintingMixin.swift */,
 				8C3A33D11EC88D4100A914A5 /* AbstractPaintingObject.swift */,
 				8C3A33D21EC88D4100A914A5 /* AbstractPaintingOptionsViewController.swift */,
 			);
@@ -1515,7 +1427,6 @@
 				8C3A33DA1EC88D4100A914A5 /* BattleShipsGridNode.swift */,
 				8C3A33DB1EC88D4100A914A5 /* BattleShipsHelpViewController.swift */,
 				8C3A33DC1EC88D4100A914A5 /* BattleShipsMainViewController.swift */,
-				8C3A33DD1EC88D4100A914A5 /* BattleShipsMixin.swift */,
 				8C3A33DE1EC88D4100A914A5 /* BattleShipsObject.swift */,
 				8C3A33DF1EC88D4100A914A5 /* BattleShipsOptionsViewController.swift */,
 			);
@@ -1534,7 +1445,6 @@
 				8C3A33E71EC88D4100A914A5 /* BootyIslandGridNode.swift */,
 				8C3A33E81EC88D4100A914A5 /* BootyIslandHelpViewController.swift */,
 				8C3A33E91EC88D4100A914A5 /* BootyIslandMainViewController.swift */,
-				8C3A33EA1EC88D4100A914A5 /* BootyIslandMixin.swift */,
 				8C3A33EB1EC88D4100A914A5 /* BootyIslandObject.swift */,
 				8C3A33EC1EC88D4100A914A5 /* BootyIslandOptionsViewController.swift */,
 			);
@@ -1553,7 +1463,6 @@
 				8C3A33F41EC88D4100A914A5 /* BoxItAgainGridNode.swift */,
 				8C3A33F51EC88D4100A914A5 /* BoxItAgainHelpViewController.swift */,
 				8C3A33F61EC88D4100A914A5 /* BoxItAgainMainViewController.swift */,
-				8C3A33F71EC88D4100A914A5 /* BoxItAgainMixin.swift */,
 				8C3A33F81EC88D4100A914A5 /* BoxItAgainObject.swift */,
 				8C3A33F91EC88D4100A914A5 /* BoxItAgainOptionsViewController.swift */,
 			);
@@ -1572,7 +1481,6 @@
 				8C3A34011EC88D4100A914A5 /* BoxItAroundGridNode.swift */,
 				8C3A34021EC88D4100A914A5 /* BoxItAroundHelpViewController.swift */,
 				8C3A34031EC88D4100A914A5 /* BoxItAroundMainViewController.swift */,
-				8C3A34041EC88D4100A914A5 /* BoxItAroundMixin.swift */,
 				8C3A34051EC88D4100A914A5 /* BoxItAroundObject.swift */,
 				8C3A34061EC88D4100A914A5 /* BoxItAroundOptionsViewController.swift */,
 			);
@@ -1591,7 +1499,6 @@
 				8C3A340E1EC88D4100A914A5 /* BoxItUpGridNode.swift */,
 				8C3A340F1EC88D4100A914A5 /* BoxItUpHelpViewController.swift */,
 				8C3A34101EC88D4100A914A5 /* BoxItUpMainViewController.swift */,
-				8C3A34111EC88D4100A914A5 /* BoxItUpMixin.swift */,
 				8C3A34121EC88D4100A914A5 /* BoxItUpObject.swift */,
 				8C3A34131EC88D4100A914A5 /* BoxItUpOptionsViewController.swift */,
 			);
@@ -1610,7 +1517,6 @@
 				8C3A341B1EC88D4100A914A5 /* BridgesGridNode.swift */,
 				8C3A341C1EC88D4100A914A5 /* BridgesHelpViewController.swift */,
 				8C3A341D1EC88D4100A914A5 /* BridgesMainViewController.swift */,
-				8C3A341E1EC88D4100A914A5 /* BridgesMixin.swift */,
 				8C3A341F1EC88D4100A914A5 /* BridgesObject.swift */,
 				8C3A34201EC88D4100A914A5 /* BridgesOptionsViewController.swift */,
 			);
@@ -1629,7 +1535,6 @@
 				8C3A34281EC88D4100A914A5 /* BusySeasGridNode.swift */,
 				8C3A34291EC88D4100A914A5 /* BusySeasHelpViewController.swift */,
 				8C3A342A1EC88D4100A914A5 /* BusySeasMainViewController.swift */,
-				8C3A342B1EC88D4100A914A5 /* BusySeasMixin.swift */,
 				8C3A342C1EC88D4100A914A5 /* BusySeasObject.swift */,
 				8C3A342D1EC88D4100A914A5 /* BusySeasOptionsViewController.swift */,
 			);
@@ -1648,7 +1553,6 @@
 				8C3A34351EC88D4100A914A5 /* CloudsGridNode.swift */,
 				8C3A34361EC88D4100A914A5 /* CloudsHelpViewController.swift */,
 				8C3A34371EC88D4100A914A5 /* CloudsMainViewController.swift */,
-				8C3A34381EC88D4100A914A5 /* CloudsMixin.swift */,
 				8C3A34391EC88D4100A914A5 /* CloudsObject.swift */,
 				8C3A343A1EC88D4100A914A5 /* CloudsOptionsViewController.swift */,
 			);
@@ -1667,7 +1571,6 @@
 				8C3A34421EC88D4100A914A5 /* DigitalBattleShipsGridNode.swift */,
 				8C3A34431EC88D4100A914A5 /* DigitalBattleShipsHelpViewController.swift */,
 				8C3A34441EC88D4100A914A5 /* DigitalBattleShipsMainViewController.swift */,
-				8C3A34451EC88D4100A914A5 /* DigitalBattleShipsMixin.swift */,
 				8C3A34461EC88D4100A914A5 /* DigitalBattleShipsObject.swift */,
 				8C3A34471EC88D4100A914A5 /* DigitalBattleShipsOptionsViewController.swift */,
 			);
@@ -1686,7 +1589,6 @@
 				8C3A344F1EC88D4100A914A5 /* DominoGridNode.swift */,
 				8C3A34501EC88D4100A914A5 /* DominoHelpViewController.swift */,
 				8C3A34511EC88D4100A914A5 /* DominoMainViewController.swift */,
-				8C3A34521EC88D4100A914A5 /* DominoMixin.swift */,
 				8C3A34531EC88D4100A914A5 /* DominoObject.swift */,
 				8C3A34541EC88D4100A914A5 /* DominoOptionsViewController.swift */,
 			);
@@ -1705,7 +1607,6 @@
 				8C3A345C1EC88D4100A914A5 /* FenceItUpGridNode.swift */,
 				8C3A345D1EC88D4100A914A5 /* FenceItUpHelpViewController.swift */,
 				8C3A345E1EC88D4100A914A5 /* FenceItUpMainViewController.swift */,
-				8C3A345F1EC88D4100A914A5 /* FenceItUpMixin.swift */,
 				8C3A34601EC88D4100A914A5 /* FenceItUpObject.swift */,
 				8C3A34611EC88D4100A914A5 /* FenceItUpOptionsViewController.swift */,
 			);
@@ -1724,7 +1625,6 @@
 				8C3A34691EC88D4100A914A5 /* FenceLitsGridNode.swift */,
 				8C3A346A1EC88D4100A914A5 /* FenceLitsHelpViewController.swift */,
 				8C3A346B1EC88D4100A914A5 /* FenceLitsMainViewController.swift */,
-				8C3A346C1EC88D4100A914A5 /* FenceLitsMixin.swift */,
 				8C3A346D1EC88D4100A914A5 /* FenceLitsObject.swift */,
 				8C3A346E1EC88D4100A914A5 /* FenceLitsOptionsViewController.swift */,
 			);
@@ -1743,7 +1643,6 @@
 				8C3A34761EC88D4100A914A5 /* FenceSentinelsGridNode.swift */,
 				8C3A34771EC88D4100A914A5 /* FenceSentinelsHelpViewController.swift */,
 				8C3A34781EC88D4100A914A5 /* FenceSentinelsMainViewController.swift */,
-				8C3A34791EC88D4100A914A5 /* FenceSentinelsMixin.swift */,
 				8C3A347A1EC88D4100A914A5 /* FenceSentinelsObject.swift */,
 				8C3A347B1EC88D4100A914A5 /* FenceSentinelsOptionsViewController.swift */,
 			);
@@ -1762,7 +1661,6 @@
 				8C3A34831EC88D4100A914A5 /* HitoriGridNode.swift */,
 				8C3A34841EC88D4100A914A5 /* HitoriHelpViewController.swift */,
 				8C3A34851EC88D4100A914A5 /* HitoriMainViewController.swift */,
-				8C3A34861EC88D4100A914A5 /* HitoriMixin.swift */,
 				8C3A34871EC88D4100A914A5 /* HitoriObject.swift */,
 				8C3A34881EC88D4100A914A5 /* HitoriOptionsViewController.swift */,
 			);
@@ -1781,7 +1679,6 @@
 				8C3A34901EC88D4100A914A5 /* LightBattleShipsGridNode.swift */,
 				8C3A34911EC88D4100A914A5 /* LightBattleShipsHelpViewController.swift */,
 				8C3A34921EC88D4100A914A5 /* LightBattleShipsMainViewController.swift */,
-				8C3A34931EC88D4100A914A5 /* LightBattleShipsMixin.swift */,
 				8C3A34941EC88D4100A914A5 /* LightBattleShipsObject.swift */,
 				8C3A34951EC88D4100A914A5 /* LightBattleShipsOptionsViewController.swift */,
 			);
@@ -1800,7 +1697,6 @@
 				8C3A349D1EC88D4100A914A5 /* LightenUpGridNode.swift */,
 				8C3A349E1EC88D4100A914A5 /* LightenUpHelpViewController.swift */,
 				8C3A349F1EC88D4100A914A5 /* LightenUpMainViewController.swift */,
-				8C3A34A01EC88D4100A914A5 /* LightenUpMixin.swift */,
 				8C3A34A11EC88D4100A914A5 /* LightenUpObject.swift */,
 				8C3A34A21EC88D4100A914A5 /* LightenUpOptionsViewController.swift */,
 			);
@@ -1819,7 +1715,6 @@
 				8C3A34AA1EC88D4100A914A5 /* LighthousesGridNode.swift */,
 				8C3A34AB1EC88D4100A914A5 /* LighthousesHelpViewController.swift */,
 				8C3A34AC1EC88D4100A914A5 /* LighthousesMainViewController.swift */,
-				8C3A34AD1EC88D4100A914A5 /* LighthousesMixin.swift */,
 				8C3A34AE1EC88D4100A914A5 /* LighthousesObject.swift */,
 				8C3A34AF1EC88D4100A914A5 /* LighthousesOptionsViewController.swift */,
 			);
@@ -1838,7 +1733,6 @@
 				8C3A34B71EC88D4100A914A5 /* LineSweeperGridNode.swift */,
 				8C3A34B81EC88D4100A914A5 /* LineSweeperHelpViewController.swift */,
 				8C3A34B91EC88D4100A914A5 /* LineSweeperMainViewController.swift */,
-				8C3A34BA1EC88D4100A914A5 /* LineSweeperMixin.swift */,
 				8C3A34BB1EC88D4100A914A5 /* LineSweeperObject.swift */,
 				8C3A34BC1EC88D4100A914A5 /* LineSweeperOptionsViewController.swift */,
 			);
@@ -1857,7 +1751,6 @@
 				8C3A34C41EC88D4100A914A5 /* LitsGridNode.swift */,
 				8C3A34C51EC88D4100A914A5 /* LitsHelpViewController.swift */,
 				8C3A34C61EC88D4100A914A5 /* LitsMainViewController.swift */,
-				8C3A34C71EC88D4100A914A5 /* LitsMixin.swift */,
 				8C3A34C81EC88D4100A914A5 /* LitsObject.swift */,
 				8C3A34C91EC88D4100A914A5 /* LitsOptionsViewController.swift */,
 			);
@@ -1876,7 +1769,6 @@
 				8C3A34D11EC88D4100A914A5 /* LoopyGridNode.swift */,
 				8C3A34D21EC88D4100A914A5 /* LoopyHelpViewController.swift */,
 				8C3A34D31EC88D4100A914A5 /* LoopyMainViewController.swift */,
-				8C3A34D41EC88D4100A914A5 /* LoopyMixin.swift */,
 				8C3A34D51EC88D4100A914A5 /* LoopyObject.swift */,
 				8C3A34D61EC88D4100A914A5 /* LoopyOptionsViewController.swift */,
 			);
@@ -1895,7 +1787,6 @@
 				8C3A34DE1EC88D4100A914A5 /* MagnetsGridNode.swift */,
 				8C3A34DF1EC88D4100A914A5 /* MagnetsHelpViewController.swift */,
 				8C3A34E01EC88D4100A914A5 /* MagnetsMainViewController.swift */,
-				8C3A34E11EC88D4100A914A5 /* MagnetsMixin.swift */,
 				8C3A34E21EC88D4100A914A5 /* MagnetsObject.swift */,
 				8C3A34E31EC88D4100A914A5 /* MagnetsOptionsViewController.swift */,
 			);
@@ -1914,7 +1805,6 @@
 				8C3A34EB1EC88D4100A914A5 /* MasyuGridNode.swift */,
 				8C3A34EC1EC88D4100A914A5 /* MasyuHelpViewController.swift */,
 				8C3A34ED1EC88D4100A914A5 /* MasyuMainViewController.swift */,
-				8C3A34EE1EC88D4100A914A5 /* MasyuMixin.swift */,
 				8C3A34EF1EC88D4100A914A5 /* MasyuObject.swift */,
 				8C3A34F01EC88D4100A914A5 /* MasyuOptionsViewController.swift */,
 			);
@@ -1933,7 +1823,6 @@
 				8C3A34F81EC88D4100A914A5 /* MineShipsGridNode.swift */,
 				8C3A34F91EC88D4100A914A5 /* MineShipsHelpViewController.swift */,
 				8C3A34FA1EC88D4100A914A5 /* MineShipsMainViewController.swift */,
-				8C3A34FB1EC88D4100A914A5 /* MineShipsMixin.swift */,
 				8C3A34FC1EC88D4100A914A5 /* MineShipsObject.swift */,
 				8C3A34FD1EC88D4100A914A5 /* MineShipsOptionsViewController.swift */,
 			);
@@ -1952,7 +1841,6 @@
 				8C3A35051EC88D4100A914A5 /* MinesweeperGridNode.swift */,
 				8C3A35061EC88D4100A914A5 /* MinesweeperHelpViewController.swift */,
 				8C3A35071EC88D4100A914A5 /* MinesweeperMainViewController.swift */,
-				8C3A35081EC88D4100A914A5 /* MinesweeperMixin.swift */,
 				8C3A35091EC88D4100A914A5 /* MinesweeperObject.swift */,
 				8C3A350A1EC88D4100A914A5 /* MinesweeperOptionsViewController.swift */,
 			);
@@ -1971,7 +1859,6 @@
 				8C3A35121EC88D4100A914A5 /* MiniLitsGridNode.swift */,
 				8C3A35131EC88D4100A914A5 /* MiniLitsHelpViewController.swift */,
 				8C3A35141EC88D4100A914A5 /* MiniLitsMainViewController.swift */,
-				8C3A35151EC88D4100A914A5 /* MiniLitsMixin.swift */,
 				8C3A35161EC88D4100A914A5 /* MiniLitsObject.swift */,
 				8C3A35171EC88D4100A914A5 /* MiniLitsOptionsViewController.swift */,
 			);
@@ -1990,7 +1877,6 @@
 				8C3A351F1EC88D4100A914A5 /* MosaikGridNode.swift */,
 				8C3A35201EC88D4100A914A5 /* MosaikHelpViewController.swift */,
 				8C3A35211EC88D4100A914A5 /* MosaikMainViewController.swift */,
-				8C3A35221EC88D4100A914A5 /* MosaikMixin.swift */,
 				8C3A35231EC88D4100A914A5 /* MosaikObject.swift */,
 				8C3A35241EC88D4100A914A5 /* MosaikOptionsViewController.swift */,
 			);
@@ -2009,7 +1895,6 @@
 				8C3A352C1EC88D4100A914A5 /* NeighboursGridNode.swift */,
 				8C3A352D1EC88D4100A914A5 /* NeighboursHelpViewController.swift */,
 				8C3A352E1EC88D4100A914A5 /* NeighboursMainViewController.swift */,
-				8C3A352F1EC88D4100A914A5 /* NeighboursMixin.swift */,
 				8C3A35301EC88D4100A914A5 /* NeighboursObject.swift */,
 				8C3A35311EC88D4100A914A5 /* NeighboursOptionsViewController.swift */,
 			);
@@ -2028,7 +1913,6 @@
 				8C3A35391EC88D4100A914A5 /* NurikabeGridNode.swift */,
 				8C3A353A1EC88D4100A914A5 /* NurikabeHelpViewController.swift */,
 				8C3A353B1EC88D4100A914A5 /* NurikabeMainViewController.swift */,
-				8C3A353C1EC88D4100A914A5 /* NurikabeMixin.swift */,
 				8C3A353D1EC88D4100A914A5 /* NurikabeObject.swift */,
 				8C3A353E1EC88D4100A914A5 /* NurikabeOptionsViewController.swift */,
 			);
@@ -2047,7 +1931,6 @@
 				8C3A35461EC88D4100A914A5 /* OrchardsGridNode.swift */,
 				8C3A35471EC88D4100A914A5 /* OrchardsHelpViewController.swift */,
 				8C3A35481EC88D4100A914A5 /* OrchardsMainViewController.swift */,
-				8C3A35491EC88D4100A914A5 /* OrchardsMixin.swift */,
 				8C3A354A1EC88D4100A914A5 /* OrchardsObject.swift */,
 				8C3A354B1EC88D4100A914A5 /* OrchardsOptionsViewController.swift */,
 			);
@@ -2066,7 +1949,6 @@
 				8C3A35531EC88D4100A914A5 /* PairakabeGridNode.swift */,
 				8C3A35541EC88D4100A914A5 /* PairakabeHelpViewController.swift */,
 				8C3A35551EC88D4100A914A5 /* PairakabeMainViewController.swift */,
-				8C3A35561EC88D4100A914A5 /* PairakabeMixin.swift */,
 				8C3A35571EC88D4100A914A5 /* PairakabeObject.swift */,
 				8C3A35581EC88D4100A914A5 /* PairakabeOptionsViewController.swift */,
 			);
@@ -2085,7 +1967,6 @@
 				8C3A35601EC88D4100A914A5 /* ParksGridNode.swift */,
 				8C3A35611EC88D4100A914A5 /* ParksHelpViewController.swift */,
 				8C3A35621EC88D4100A914A5 /* ParksMainViewController.swift */,
-				8C3A35631EC88D4100A914A5 /* ParksMixin.swift */,
 				8C3A35641EC88D4100A914A5 /* ParksObject.swift */,
 				8C3A35651EC88D4100A914A5 /* ParksOptionsViewController.swift */,
 			);
@@ -2104,7 +1985,6 @@
 				8C3A356D1EC88D4100A914A5 /* PowerGridGridNode.swift */,
 				8C3A356E1EC88D4100A914A5 /* PowerGridHelpViewController.swift */,
 				8C3A356F1EC88D4100A914A5 /* PowerGridMainViewController.swift */,
-				8C3A35701EC88D4100A914A5 /* PowerGridMixin.swift */,
 				8C3A35711EC88D4100A914A5 /* PowerGridObject.swift */,
 				8C3A35721EC88D4100A914A5 /* PowerGridOptionsViewController.swift */,
 			);
@@ -2123,7 +2003,6 @@
 				8C3A357A1EC88D4200A914A5 /* ProductSentinelsGridNode.swift */,
 				8C3A357B1EC88D4200A914A5 /* ProductSentinelsHelpViewController.swift */,
 				8C3A357C1EC88D4200A914A5 /* ProductSentinelsMainViewController.swift */,
-				8C3A357D1EC88D4200A914A5 /* ProductSentinelsMixin.swift */,
 				8C3A357E1EC88D4200A914A5 /* ProductSentinelsObject.swift */,
 				8C3A357F1EC88D4200A914A5 /* ProductSentinelsOptionsViewController.swift */,
 			);
@@ -2142,7 +2021,6 @@
 				8C3A35871EC88D4200A914A5 /* RoomsGridNode.swift */,
 				8C3A35881EC88D4200A914A5 /* RoomsHelpViewController.swift */,
 				8C3A35891EC88D4200A914A5 /* RoomsMainViewController.swift */,
-				8C3A358A1EC88D4200A914A5 /* RoomsMixin.swift */,
 				8C3A358B1EC88D4200A914A5 /* RoomsObject.swift */,
 				8C3A358C1EC88D4200A914A5 /* RoomsOptionsViewController.swift */,
 			);
@@ -2161,7 +2039,6 @@
 				8C3A35941EC88D4200A914A5 /* SentinelsGridNode.swift */,
 				8C3A35951EC88D4200A914A5 /* SentinelsHelpViewController.swift */,
 				8C3A35961EC88D4200A914A5 /* SentinelsMainViewController.swift */,
-				8C3A35971EC88D4200A914A5 /* SentinelsMixin.swift */,
 				8C3A35981EC88D4200A914A5 /* SentinelsObject.swift */,
 				8C3A35991EC88D4200A914A5 /* SentinelsOptionsViewController.swift */,
 			);
@@ -2180,7 +2057,6 @@
 				8C3A35A11EC88D4200A914A5 /* SkyscrapersGridNode.swift */,
 				8C3A35A21EC88D4200A914A5 /* SkyscrapersHelpViewController.swift */,
 				8C3A35A31EC88D4200A914A5 /* SkyscrapersMainViewController.swift */,
-				8C3A35A41EC88D4200A914A5 /* SkyscrapersMixin.swift */,
 				8C3A35A51EC88D4200A914A5 /* SkyscrapersObject.swift */,
 				8C3A35A61EC88D4200A914A5 /* SkyscrapersOptionsViewController.swift */,
 			);
@@ -2199,7 +2075,6 @@
 				8C3A35AE1EC88D4200A914A5 /* SlitherLinkGridNode.swift */,
 				8C3A35AF1EC88D4200A914A5 /* SlitherLinkHelpViewController.swift */,
 				8C3A35B01EC88D4200A914A5 /* SlitherLinkMainViewController.swift */,
-				8C3A35B11EC88D4200A914A5 /* SlitherLinkMixin.swift */,
 				8C3A35B21EC88D4200A914A5 /* SlitherLinkObject.swift */,
 				8C3A35B31EC88D4200A914A5 /* SlitherLinkOptionsViewController.swift */,
 			);
@@ -2218,7 +2093,6 @@
 				8C3A35BB1EC88D4200A914A5 /* SnailGridNode.swift */,
 				8C3A35BC1EC88D4200A914A5 /* SnailHelpViewController.swift */,
 				8C3A35BD1EC88D4200A914A5 /* SnailMainViewController.swift */,
-				8C3A35BE1EC88D4200A914A5 /* SnailMixin.swift */,
 				8C3A35BF1EC88D4200A914A5 /* SnailObject.swift */,
 				8C3A35C01EC88D4200A914A5 /* SnailOptionsViewController.swift */,
 			);
@@ -2237,7 +2111,6 @@
 				8C3A35C81EC88D4200A914A5 /* SumscrapersGridNode.swift */,
 				8C3A35C91EC88D4200A914A5 /* SumscrapersHelpViewController.swift */,
 				8C3A35CA1EC88D4200A914A5 /* SumscrapersMainViewController.swift */,
-				8C3A35CB1EC88D4200A914A5 /* SumscrapersMixin.swift */,
 				8C3A35CC1EC88D4200A914A5 /* SumscrapersObject.swift */,
 				8C3A35CD1EC88D4200A914A5 /* SumscrapersOptionsViewController.swift */,
 			);
@@ -2256,7 +2129,6 @@
 				8C3A35D51EC88D4200A914A5 /* TatamiGridNode.swift */,
 				8C3A35D61EC88D4200A914A5 /* TatamiHelpViewController.swift */,
 				8C3A35D71EC88D4200A914A5 /* TatamiMainViewController.swift */,
-				8C3A35D81EC88D4200A914A5 /* TatamiMixin.swift */,
 				8C3A35D91EC88D4200A914A5 /* TatamiObject.swift */,
 				8C3A35DA1EC88D4200A914A5 /* TatamiOptionsViewController.swift */,
 			);
@@ -2275,7 +2147,6 @@
 				8C3A35E21EC88D4200A914A5 /* TentsGridNode.swift */,
 				8C3A35E31EC88D4200A914A5 /* TentsHelpViewController.swift */,
 				8C3A35E41EC88D4200A914A5 /* TentsMainViewController.swift */,
-				8C3A35E51EC88D4200A914A5 /* TentsMixin.swift */,
 				8C3A35E61EC88D4200A914A5 /* TentsObject.swift */,
 				8C3A35E71EC88D4200A914A5 /* TentsOptionsViewController.swift */,
 			);
@@ -2715,7 +2586,6 @@
 				8C3A366B1EC88D4200A914A5 /* DigitalBattleShipsOptionsViewController.swift in Sources */,
 				8CC3504D1E001D2800B8FD83 /* UIBarButtonItemExtensions.swift in Sources */,
 				8C3A36F71EC88D4300A914A5 /* MagnetsHelpViewController.swift in Sources */,
-				8C3A37AD1EC88D4400A914A5 /* SkyscrapersMixin.swift in Sources */,
 				8C3A373B1EC88D4300A914A5 /* NeighboursGameScene.swift in Sources */,
 				8C3A37E41EC88D4400A914A5 /* TentsGameState.swift in Sources */,
 				8C6D37FB1DC5ACDB0052202C /* Copyable.swift in Sources */,
@@ -2735,13 +2605,11 @@
 				8C7609101EC627E900DFCD7B /* Global.swift in Sources */,
 				8C3A379B1EC88D4400A914A5 /* SentinelsGameScene.swift in Sources */,
 				8CC350571E001D2800B8FD83 /* UIStoryboardExtensions.swift in Sources */,
-				8C3A36811EC88D4200A914A5 /* FenceItUpMixin.swift in Sources */,
 				8C3A37C21EC88D4400A914A5 /* SnailGridNode.swift in Sources */,
 				8C3A364E1EC88D4200A914A5 /* BusySeasGridNode.swift in Sources */,
 				8C3A36231EC88D4200A914A5 /* BoxItAgainOptionsViewController.swift in Sources */,
 				8C3A37371EC88D4300A914A5 /* MosaikOptionsViewController.swift in Sources */,
 				8C3A37BD1EC88D4400A914A5 /* SnailDocument.swift in Sources */,
-				8C3A37711EC88D4300A914A5 /* ParksMixin.swift in Sources */,
 				8C3A36E21EC88D4300A914A5 /* LitsObject.swift in Sources */,
 				8C3A36B21EC88D4300A914A5 /* LightBattleShipsObject.swift in Sources */,
 				8C3A360E1EC88D4200A914A5 /* BootyIslandGame.swift in Sources */,
@@ -2762,10 +2630,8 @@
 				8C3A35FF1EC88D4200A914A5 /* AbstractPaintingOptionsViewController.swift in Sources */,
 				8C3A36A01EC88D4200A914A5 /* HitoriGameState.swift in Sources */,
 				8C3A36BB1EC88D4300A914A5 /* LightenUpHelpViewController.swift in Sources */,
-				8C3A36391EC88D4200A914A5 /* BoxItUpMixin.swift in Sources */,
 				8C3A37BB1EC88D4400A914A5 /* SlitherLinkOptionsViewController.swift in Sources */,
 				8C3A36351EC88D4200A914A5 /* BoxItUpGameViewController.swift in Sources */,
-				8C3A36D51EC88D4300A914A5 /* LineSweeperMixin.swift in Sources */,
 				8C3A37821EC88D4300A914A5 /* ProductSentinelsGame.swift in Sources */,
 				8C3A36981EC88D4200A914A5 /* FenceSentinelsMainViewController.swift in Sources */,
 				8C3A36E91EC88D4300A914A5 /* LoopyGameViewController.swift in Sources */,
@@ -2783,7 +2649,6 @@
 				8C3A377A1EC88D4300A914A5 /* PowerGridGridNode.swift in Sources */,
 				8C3A378D1EC88D4400A914A5 /* RoomsDocument.swift in Sources */,
 				8CC350491E001D2800B8FD83 /* StringExtensions.swift in Sources */,
-				8C3A37411EC88D4300A914A5 /* NeighboursMixin.swift in Sources */,
 				8C3A36311EC88D4200A914A5 /* BoxItUpDocument.swift in Sources */,
 				8C3A37D01EC88D4400A914A5 /* SumscrapersMainViewController.swift in Sources */,
 				8C3A37E61EC88D4400A914A5 /* TentsGridNode.swift in Sources */,
@@ -2808,7 +2673,6 @@
 				8C3A36581EC88D4200A914A5 /* CloudsGameState.swift in Sources */,
 				8CC3505F1E001D2800B8FD83 /* URLExtensions.swift in Sources */,
 				8C3A36BF1EC88D4300A914A5 /* LightenUpOptionsViewController.swift in Sources */,
-				8C3A37A11EC88D4400A914A5 /* SentinelsMixin.swift in Sources */,
 				8C6ACBFF1DCAF8BA0075F32C /* GameMixin.swift in Sources */,
 				8C3A37021EC88D4300A914A5 /* MasyuGridNode.swift in Sources */,
 				8C3A361C1EC88D4200A914A5 /* BoxItAgainGameState.swift in Sources */,
@@ -2837,7 +2701,6 @@
 				8C3A36BA1EC88D4300A914A5 /* LightenUpGridNode.swift in Sources */,
 				8C3A375A1EC88D4300A914A5 /* OrchardsObject.swift in Sources */,
 				8C3A377E1EC88D4300A914A5 /* PowerGridObject.swift in Sources */,
-				8C3A36C91EC88D4300A914A5 /* LighthousesMixin.swift in Sources */,
 				8CC350441E001D2800B8FD83 /* FloatingPointExtensions.swift in Sources */,
 				8C3A36661EC88D4200A914A5 /* DigitalBattleShipsGridNode.swift in Sources */,
 				8C3A36B31EC88D4300A914A5 /* LightBattleShipsOptionsViewController.swift in Sources */,
@@ -2881,8 +2744,6 @@
 				8C3A376C1EC88D4300A914A5 /* ParksGameState.swift in Sources */,
 				8C3A364A1EC88D4200A914A5 /* BusySeasGame.swift in Sources */,
 				8C3A368A1EC88D4200A914A5 /* FenceLitsGridNode.swift in Sources */,
-				8C3A37B91EC88D4400A914A5 /* SlitherLinkMixin.swift in Sources */,
-				8C3A37DD1EC88D4400A914A5 /* TatamiMixin.swift in Sources */,
 				8C886C441D9E8AF1004A42BF /* SWActionSheet.m in Sources */,
 				8C3A37541EC88D4300A914A5 /* OrchardsGameState.swift in Sources */,
 				8C3A37191EC88D4300A914A5 /* MinesweeperGameViewController.swift in Sources */,
@@ -2893,7 +2754,6 @@
 				8C3A37A31EC88D4400A914A5 /* SentinelsOptionsViewController.swift in Sources */,
 				8C3A361A1EC88D4200A914A5 /* BoxItAgainGame.swift in Sources */,
 				8C3A35F01EC88D4200A914A5 /* AbcMainViewController.swift in Sources */,
-				8C3A36E11EC88D4300A914A5 /* LitsMixin.swift in Sources */,
 				8C3A37DE1EC88D4400A914A5 /* TatamiObject.swift in Sources */,
 				8C3A369E1EC88D4200A914A5 /* HitoriGame.swift in Sources */,
 				8C3A35F81EC88D4200A914A5 /* AbstractPaintingGameState.swift in Sources */,
@@ -2910,7 +2770,6 @@
 				8CC3504B1E001D2800B8FD83 /* UIAlertControllerExtensions.swift in Sources */,
 				8C3A36FA1EC88D4300A914A5 /* MagnetsObject.swift in Sources */,
 				8C3A36D91EC88D4300A914A5 /* LitsDocument.swift in Sources */,
-				8C3A36991EC88D4200A914A5 /* FenceSentinelsMixin.swift in Sources */,
 				8C3A376B1EC88D4300A914A5 /* ParksGameScene.swift in Sources */,
 				8C3A37B71EC88D4400A914A5 /* SlitherLinkHelpViewController.swift in Sources */,
 				8C3A370D1EC88D4300A914A5 /* MineShipsGameViewController.swift in Sources */,
@@ -2919,14 +2778,11 @@
 				8CC350341E001D2800B8FD83 /* BlockPan.swift in Sources */,
 				8C3A36681EC88D4200A914A5 /* DigitalBattleShipsMainViewController.swift in Sources */,
 				8C6ACBFE1DCAF8BA0075F32C /* GameDocument.swift in Sources */,
-				8C3A37951EC88D4400A914A5 /* RoomsMixin.swift in Sources */,
 				8C3A36401EC88D4200A914A5 /* BridgesGameState.swift in Sources */,
 				8C3A37121EC88D4300A914A5 /* MineShipsObject.swift in Sources */,
 				8C3A37601EC88D4300A914A5 /* PairakabeGameState.swift in Sources */,
 				84EE6E9D1DD954280013A033 /* HomeChooseGameViewController.swift in Sources */,
-				8C3A371D1EC88D4300A914A5 /* MinesweeperMixin.swift in Sources */,
 				8C3A36591EC88D4200A914A5 /* CloudsGameViewController.swift in Sources */,
-				8C3A36091EC88D4200A914A5 /* BattleShipsMixin.swift in Sources */,
 				8C3A35F51EC88D4200A914A5 /* AbstractPaintingDocument.swift in Sources */,
 				8C3A36E31EC88D4300A914A5 /* LitsOptionsViewController.swift in Sources */,
 				8C3A35EB1EC88D4200A914A5 /* AbcGameScene.swift in Sources */,
@@ -2936,7 +2792,6 @@
 				8C3A36501EC88D4200A914A5 /* BusySeasMainViewController.swift in Sources */,
 				8C3A37B21EC88D4400A914A5 /* SlitherLinkGame.swift in Sources */,
 				8C3A373D1EC88D4300A914A5 /* NeighboursGameViewController.swift in Sources */,
-				8C3A36511EC88D4200A914A5 /* BusySeasMixin.swift in Sources */,
 				8C3A37A51EC88D4400A914A5 /* SkyscrapersDocument.swift in Sources */,
 				8C3A377F1EC88D4300A914A5 /* PowerGridOptionsViewController.swift in Sources */,
 				8C3A363E1EC88D4200A914A5 /* BridgesGame.swift in Sources */,
@@ -2950,8 +2805,6 @@
 				8C3A36C71EC88D4300A914A5 /* LighthousesHelpViewController.swift in Sources */,
 				8C3A36531EC88D4200A914A5 /* BusySeasOptionsViewController.swift in Sources */,
 				8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */,
-				8C3A36151EC88D4200A914A5 /* BootyIslandMixin.swift in Sources */,
-				8C3A37051EC88D4300A914A5 /* MasyuMixin.swift in Sources */,
 				8C3A376D1EC88D4300A914A5 /* ParksGameViewController.swift in Sources */,
 				8C3A36BE1EC88D4300A914A5 /* LightenUpObject.swift in Sources */,
 				8C3A36731EC88D4200A914A5 /* DominoHelpViewController.swift in Sources */,
@@ -2969,7 +2822,6 @@
 				8C886C3C1D9E8AF1004A42BF /* AbstractActionSheetPicker.m in Sources */,
 				8C3A36E81EC88D4300A914A5 /* LoopyGameState.swift in Sources */,
 				8C3A37D91EC88D4400A914A5 /* TatamiGameViewController.swift in Sources */,
-				8C3A37351EC88D4300A914A5 /* MosaikMixin.swift in Sources */,
 				8C3A361D1EC88D4200A914A5 /* BoxItAgainGameViewController.swift in Sources */,
 				8C3A37B61EC88D4400A914A5 /* SlitherLinkGridNode.swift in Sources */,
 				8C3A36631EC88D4200A914A5 /* DigitalBattleShipsGameScene.swift in Sources */,
@@ -2986,7 +2838,6 @@
 				8CC350531E001D2800B8FD83 /* UIImageExtensions.swift in Sources */,
 				8C3A36AB1EC88D4300A914A5 /* LightBattleShipsGameScene.swift in Sources */,
 				8C3A36C21EC88D4300A914A5 /* LighthousesGame.swift in Sources */,
-				8C3A36BD1EC88D4300A914A5 /* LightenUpMixin.swift in Sources */,
 				8C3A37E51EC88D4400A914A5 /* TentsGameViewController.swift in Sources */,
 				8C3A37921EC88D4400A914A5 /* RoomsGridNode.swift in Sources */,
 				8C3A37461EC88D4300A914A5 /* NurikabeGame.swift in Sources */,
@@ -3007,7 +2858,6 @@
 				8C3A36961EC88D4200A914A5 /* FenceSentinelsGridNode.swift in Sources */,
 				8C3A37CB1EC88D4400A914A5 /* SumscrapersGameScene.swift in Sources */,
 				8CC350431E001D2800B8FD83 /* EZSwiftFunctions.swift in Sources */,
-				8C3A377D1EC88D4300A914A5 /* PowerGridMixin.swift in Sources */,
 				8C3A36A11EC88D4200A914A5 /* HitoriGameViewController.swift in Sources */,
 				8C3A376A1EC88D4300A914A5 /* ParksGame.swift in Sources */,
 				8C6D37FE1DC5B4EB0052202C /* GameState.swift in Sources */,
@@ -3015,7 +2865,6 @@
 				8C3A365B1EC88D4200A914A5 /* CloudsHelpViewController.swift in Sources */,
 				8C3A36FD1EC88D4300A914A5 /* MasyuDocument.swift in Sources */,
 				8C3A36381EC88D4200A914A5 /* BoxItUpMainViewController.swift in Sources */,
-				8C3A36B11EC88D4300A914A5 /* LightBattleShipsMixin.swift in Sources */,
 				8C3A377B1EC88D4300A914A5 /* PowerGridHelpViewController.swift in Sources */,
 				8C3A37401EC88D4300A914A5 /* NeighboursMainViewController.swift in Sources */,
 				8CC350371E001D2800B8FD83 /* BlockTap.swift in Sources */,
@@ -3030,14 +2879,12 @@
 				8CC3505B1E001D2800B8FD83 /* UIUserInterfaceSizeClassExtensions.swift in Sources */,
 				8C3A35FA1EC88D4200A914A5 /* AbstractPaintingGridNode.swift in Sources */,
 				8C3A37471EC88D4300A914A5 /* NurikabeGameScene.swift in Sources */,
-				8C3A36451EC88D4200A914A5 /* BridgesMixin.swift in Sources */,
 				8C3A36AF1EC88D4300A914A5 /* LightBattleShipsHelpViewController.swift in Sources */,
 				8C3A362E1EC88D4200A914A5 /* BoxItAroundObject.swift in Sources */,
 				8C3A36EF1EC88D4300A914A5 /* LoopyOptionsViewController.swift in Sources */,
 				8C3A37841EC88D4400A914A5 /* ProductSentinelsGameState.swift in Sources */,
 				8C3A37AE1EC88D4400A914A5 /* SkyscrapersObject.swift in Sources */,
 				8C3A37811EC88D4300A914A5 /* ProductSentinelsDocument.swift in Sources */,
-				8C3A37E91EC88D4400A914A5 /* TentsMixin.swift in Sources */,
 				8C3A36621EC88D4200A914A5 /* DigitalBattleShipsGame.swift in Sources */,
 				8C3A37671EC88D4300A914A5 /* PairakabeOptionsViewController.swift in Sources */,
 				8C3A37C31EC88D4400A914A5 /* SnailHelpViewController.swift in Sources */,
@@ -3087,8 +2934,6 @@
 				8C886C421D9E8AF1004A42BF /* ActionSheetStringPicker.m in Sources */,
 				8C3A36DE1EC88D4300A914A5 /* LitsGridNode.swift in Sources */,
 				8C3A36061EC88D4200A914A5 /* BattleShipsGridNode.swift in Sources */,
-				8C3A37C51EC88D4400A914A5 /* SnailMixin.swift in Sources */,
-				8C3A37291EC88D4300A914A5 /* MiniLitsMixin.swift in Sources */,
 				8C3A36941EC88D4200A914A5 /* FenceSentinelsGameState.swift in Sources */,
 				8C3A37CE1EC88D4400A914A5 /* SumscrapersGridNode.swift in Sources */,
 				8C3A36651EC88D4200A914A5 /* DigitalBattleShipsGameViewController.swift in Sources */,
@@ -3110,9 +2955,7 @@
 				8C3A37D81EC88D4400A914A5 /* TatamiGameState.swift in Sources */,
 				8C3A37E11EC88D4400A914A5 /* TentsDocument.swift in Sources */,
 				8C3A36B61EC88D4300A914A5 /* LightenUpGame.swift in Sources */,
-				8C3A37651EC88D4300A914A5 /* PairakabeMixin.swift in Sources */,
 				8C7609181EC7778100DFCD7B /* GameHelpViewController.swift in Sources */,
-				8C3A36A51EC88D4200A914A5 /* HitoriMixin.swift in Sources */,
 				8CC350561E001D2800B8FD83 /* UISliderExtensions.swift in Sources */,
 				8C3A35FC1EC88D4200A914A5 /* AbstractPaintingMainViewController.swift in Sources */,
 				8CC3504A1E001D2800B8FD83 /* TimerExtensions.swift in Sources */,
@@ -3139,11 +2982,9 @@
 				8C3A36371EC88D4200A914A5 /* BoxItUpHelpViewController.swift in Sources */,
 				8CC3503B1E001D2800B8FD83 /* CGFloatExtensions.swift in Sources */,
 				8C3A35F71EC88D4200A914A5 /* AbstractPaintingGameScene.swift in Sources */,
-				8C3A36691EC88D4200A914A5 /* DigitalBattleShipsMixin.swift in Sources */,
 				8C3A36E71EC88D4300A914A5 /* LoopyGameScene.swift in Sources */,
 				8C3A37B41EC88D4400A914A5 /* SlitherLinkGameState.swift in Sources */,
 				8CC3505C1E001D2800B8FD83 /* UIViewControllerExtensions.swift in Sources */,
-				8C3A35FD1EC88D4200A914A5 /* AbstractPaintingMixin.swift in Sources */,
 				8C3A36471EC88D4200A914A5 /* BridgesOptionsViewController.swift in Sources */,
 				8C3A364D1EC88D4200A914A5 /* BusySeasGameViewController.swift in Sources */,
 				8CC350401E001D2800B8FD83 /* DictionaryExtensions.swift in Sources */,
@@ -3154,7 +2995,6 @@
 				8C3A366A1EC88D4200A914A5 /* DigitalBattleShipsObject.swift in Sources */,
 				8C3A36461EC88D4200A914A5 /* BridgesObject.swift in Sources */,
 				8C3A367D1EC88D4200A914A5 /* FenceItUpGameViewController.swift in Sources */,
-				8C3A362D1EC88D4200A914A5 /* BoxItAroundMixin.swift in Sources */,
 				8C3A37031EC88D4300A914A5 /* MasyuHelpViewController.swift in Sources */,
 				8C3A373F1EC88D4300A914A5 /* NeighboursHelpViewController.swift in Sources */,
 				8C3A36F61EC88D4300A914A5 /* MagnetsGridNode.swift in Sources */,
@@ -3166,7 +3006,6 @@
 				8C3A377C1EC88D4300A914A5 /* PowerGridMainViewController.swift in Sources */,
 				8C3A37571EC88D4300A914A5 /* OrchardsHelpViewController.swift in Sources */,
 				8C3A36D11EC88D4300A914A5 /* LineSweeperGameViewController.swift in Sources */,
-				8C3A37D11EC88D4400A914A5 /* SumscrapersMixin.swift in Sources */,
 				8CC350541E001D2800B8FD83 /* UIImageViewExtensions.swift in Sources */,
 				8C3A364B1EC88D4200A914A5 /* BusySeasGameScene.swift in Sources */,
 				8C3A37451EC88D4300A914A5 /* NurikabeDocument.swift in Sources */,
@@ -3176,7 +3015,6 @@
 				8C3A36D41EC88D4300A914A5 /* LineSweeperMainViewController.swift in Sources */,
 				8C886C3F1D9E8AF1004A42BF /* ActionSheetDistancePicker.m in Sources */,
 				8C3A36B71EC88D4300A914A5 /* LightenUpGameScene.swift in Sources */,
-				8C3A35F11EC88D4200A914A5 /* AbcMixin.swift in Sources */,
 				8C3A37901EC88D4400A914A5 /* RoomsGameState.swift in Sources */,
 				8C3A37701EC88D4300A914A5 /* ParksMainViewController.swift in Sources */,
 				8C3A37751EC88D4300A914A5 /* PowerGridDocument.swift in Sources */,
@@ -3192,17 +3030,14 @@
 				8C3A370B1EC88D4300A914A5 /* MineShipsGameScene.swift in Sources */,
 				8C3A36281EC88D4200A914A5 /* BoxItAroundGameState.swift in Sources */,
 				8C3A365E1EC88D4200A914A5 /* CloudsObject.swift in Sources */,
-				8C3A37111EC88D4300A914A5 /* MineShipsMixin.swift in Sources */,
 				8C3A378F1EC88D4400A914A5 /* RoomsGameScene.swift in Sources */,
 				8CC3505D1E001D2800B8FD83 /* UIViewExtensions.swift in Sources */,
 				8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */,
 				8CC350601E001D2800B8FD83 /* UserDefaultsExtension.swift in Sources */,
 				8C3A36571EC88D4200A914A5 /* CloudsGameScene.swift in Sources */,
-				8C3A36211EC88D4200A914A5 /* BoxItAgainMixin.swift in Sources */,
 				8C3A36E51EC88D4300A914A5 /* LoopyDocument.swift in Sources */,
 				8C3A362C1EC88D4200A914A5 /* BoxItAroundMainViewController.swift in Sources */,
 				8C3A37A01EC88D4400A914A5 /* SentinelsMainViewController.swift in Sources */,
-				8C3A365D1EC88D4200A914A5 /* CloudsMixin.swift in Sources */,
 				8C3A36F21EC88D4300A914A5 /* MagnetsGame.swift in Sources */,
 				8C3A366E1EC88D4200A914A5 /* DominoGame.swift in Sources */,
 				8C3A35F21EC88D4200A914A5 /* AbcObject.swift in Sources */,
@@ -3214,7 +3049,6 @@
 				8C3A36431EC88D4200A914A5 /* BridgesHelpViewController.swift in Sources */,
 				8C3A36291EC88D4200A914A5 /* BoxItAroundGameViewController.swift in Sources */,
 				8C3A374C1EC88D4300A914A5 /* NurikabeMainViewController.swift in Sources */,
-				8C3A37891EC88D4400A914A5 /* ProductSentinelsMixin.swift in Sources */,
 				8C3A36761EC88D4200A914A5 /* DominoObject.swift in Sources */,
 				8C3A367A1EC88D4200A914A5 /* FenceItUpGame.swift in Sources */,
 				8C3A36801EC88D4200A914A5 /* FenceItUpMainViewController.swift in Sources */,
@@ -3231,18 +3065,15 @@
 				8C3A37481EC88D4300A914A5 /* NurikabeGameState.swift in Sources */,
 				8C3A367C1EC88D4200A914A5 /* FenceItUpGameState.swift in Sources */,
 				8C3A37491EC88D4300A914A5 /* NurikabeGameViewController.swift in Sources */,
-				8C3A368D1EC88D4200A914A5 /* FenceLitsMixin.swift in Sources */,
 				8C3A37151EC88D4300A914A5 /* MinesweeperDocument.swift in Sources */,
 				8C3A36AE1EC88D4300A914A5 /* LightBattleShipsGridNode.swift in Sources */,
 				8C3A37611EC88D4300A914A5 /* PairakabeGameViewController.swift in Sources */,
 				8C3A36C51EC88D4300A914A5 /* LighthousesGameViewController.swift in Sources */,
 				8C3A364F1EC88D4200A914A5 /* BusySeasHelpViewController.swift in Sources */,
 				8C916CBC1DAA5E9500D9E62B /* Element.swift in Sources */,
-				8C3A37591EC88D4300A914A5 /* OrchardsMixin.swift in Sources */,
 				8C3A37C41EC88D4400A914A5 /* SnailMainViewController.swift in Sources */,
 				8C3A37731EC88D4300A914A5 /* ParksOptionsViewController.swift in Sources */,
 				8C3A36A21EC88D4200A914A5 /* HitoriGridNode.swift in Sources */,
-				8C3A36751EC88D4200A914A5 /* DominoMixin.swift in Sources */,
 				8C3A36641EC88D4200A914A5 /* DigitalBattleShipsGameState.swift in Sources */,
 				8C3A36041EC88D4200A914A5 /* BattleShipsGameState.swift in Sources */,
 				8C886C411D9E8AF1004A42BF /* ActionSheetMultipleStringPicker.m in Sources */,
@@ -3266,10 +3097,7 @@
 				8C3A36771EC88D4200A914A5 /* DominoOptionsViewController.swift in Sources */,
 				8C3A36A61EC88D4200A914A5 /* HitoriObject.swift in Sources */,
 				8C3A372B1EC88D4300A914A5 /* MiniLitsOptionsViewController.swift in Sources */,
-				8C3A374D1EC88D4300A914A5 /* NurikabeMixin.swift in Sources */,
 				8C3A36201EC88D4200A914A5 /* BoxItAgainMainViewController.swift in Sources */,
-				8C3A36ED1EC88D4300A914A5 /* LoopyMixin.swift in Sources */,
-				8C3A36F91EC88D4300A914A5 /* MagnetsMixin.swift in Sources */,
 				8C3A37561EC88D4300A914A5 /* OrchardsGridNode.swift in Sources */,
 				8C3A37941EC88D4400A914A5 /* RoomsMainViewController.swift in Sources */,
 				8C3A363D1EC88D4200A914A5 /* BridgesDocument.swift in Sources */,

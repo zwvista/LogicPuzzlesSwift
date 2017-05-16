@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class LoopyGameViewController: GameGameViewController, GameDelegate, LoopyMixin {
+class LoopyGameViewController: GameGameViewController, GameDelegate {
     typealias GM = LoopyGameMove
     typealias GS = LoopyGameState
 
@@ -21,6 +21,8 @@ class LoopyGameViewController: GameGameViewController, GameDelegate, LoopyMixin 
         get {return getGame() as! LoopyGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: LoopyDocument { return LoopyDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return LoopyDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

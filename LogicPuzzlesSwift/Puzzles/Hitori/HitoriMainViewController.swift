@@ -8,8 +8,11 @@
 
 import UIKit
 
-class HitoriMainViewController: GameMainViewController, HitoriMixin {
-    
+class HitoriMainViewController: GameMainViewController {
+
+    var gameDocument: HitoriDocument { return HitoriDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return HitoriDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

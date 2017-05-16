@@ -8,7 +8,10 @@
 
 import UIKit
 
-class MosaikOptionsViewController: GameOptionsViewController, MosaikMixin {
+class MosaikOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: MosaikDocument { return MosaikDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return MosaikDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

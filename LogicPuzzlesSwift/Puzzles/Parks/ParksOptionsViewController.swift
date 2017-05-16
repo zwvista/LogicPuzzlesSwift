@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ParksOptionsViewController: GameOptionsViewController, ParksMixin {
+class ParksOptionsViewController: GameOptionsViewController {
 
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

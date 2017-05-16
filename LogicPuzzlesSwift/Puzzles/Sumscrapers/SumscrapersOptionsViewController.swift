@@ -8,5 +8,5 @@
 
 import UIKit
 
-class SumscrapersOptionsViewController: GameOptionsViewController, SumscrapersMixin {
+class SumscrapersOptionsViewController: GameOptionsViewController {
 }

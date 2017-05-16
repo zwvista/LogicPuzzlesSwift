@@ -8,7 +8,10 @@
 
 import UIKit
 
-class DominoOptionsViewController: GameOptionsViewController, DominoMixin {
+class DominoOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: DominoDocument { return DominoDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return DominoDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

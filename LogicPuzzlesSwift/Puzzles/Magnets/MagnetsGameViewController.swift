@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class MagnetsGameViewController: GameGameViewController, GameDelegate, MagnetsMixin {
+class MagnetsGameViewController: GameGameViewController, GameDelegate {
     typealias GM = MagnetsGameMove
     typealias GS = MagnetsGameState
 
@@ -21,6 +21,8 @@ class MagnetsGameViewController: GameGameViewController, GameDelegate, MagnetsMi
         get {return getGame() as! MagnetsGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: MagnetsDocument { return MagnetsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return MagnetsDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

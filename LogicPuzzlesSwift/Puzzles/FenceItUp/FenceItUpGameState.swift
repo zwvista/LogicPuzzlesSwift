@@ -8,12 +8,14 @@
 
 import Foundation
 
-class FenceItUpGameState: GridGameState, FenceItUpMixin {
+class FenceItUpGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: FenceItUpGame {
         get {return getGame() as! FenceItUpGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: FenceItUpDocument { return FenceItUpDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return FenceItUpDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
     

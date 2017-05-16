@@ -8,7 +8,10 @@
 
 import UIKit
 
-class CloudsOptionsViewController: GameOptionsViewController, CloudsMixin {
+class CloudsOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: CloudsDocument { return CloudsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return CloudsDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

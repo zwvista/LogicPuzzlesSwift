@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class FenceSentinelsGameViewController: GameGameViewController, GameDelegate, FenceSentinelsMixin {
+class FenceSentinelsGameViewController: GameGameViewController, GameDelegate {
     typealias GM = FenceSentinelsGameMove
     typealias GS = FenceSentinelsGameState
 
@@ -21,6 +21,8 @@ class FenceSentinelsGameViewController: GameGameViewController, GameDelegate, Fe
         get {return getGame() as! FenceSentinelsGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: FenceSentinelsDocument { return FenceSentinelsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return FenceSentinelsDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,7 +8,10 @@
 
 import UIKit
 
-class SlitherLinkOptionsViewController: GameOptionsViewController, SlitherLinkMixin {
+class SlitherLinkOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: SlitherLinkDocument { return SlitherLinkDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return SlitherLinkDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

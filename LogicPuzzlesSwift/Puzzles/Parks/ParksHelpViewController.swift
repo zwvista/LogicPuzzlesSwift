@@ -8,7 +8,10 @@
 
 import UIKit
 
-class ParksHelpViewController: GameHelpViewController, ParksMixin {
+class ParksHelpViewController: GameHelpViewController {
+
+    var gameDocument: ParksDocument { return ParksDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return ParksDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -33,6 +33,11 @@ class GridGameState: GameState {
     private weak var game: GridGameBase?
     func getGame() -> GridGameBase? {return game}
     func setGame(game: GridGameBase) {self.game = game}
+    private var gameDocument: GameDocumentBase! { return getGameDocument() }
+    func getGameDocument() -> GameDocumentBase! { return nil }
+    var gameOptions: GameProgress { return gameDocument.gameProgress }
+    var markerOption: Int { return gameOptions.option1?.toInt() ?? 0 }
+    var allowedObjectsOnly: Bool { return gameOptions.option2?.toBool() ?? false }
     
     var size: Position { return game!.size }
     var rows: Int { return size.row }

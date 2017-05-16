@@ -8,8 +8,11 @@
 
 import UIKit
 
-class MasyuMainViewController: GameMainViewController, MasyuMixin {
-    
+class MasyuMainViewController: GameMainViewController {
+
+    var gameDocument: MasyuDocument { return MasyuDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return MasyuDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

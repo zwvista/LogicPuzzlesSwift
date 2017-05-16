@@ -8,7 +8,10 @@
 
 import UIKit
 
-class MinesweeperOptionsViewController: GameOptionsViewController, MinesweeperMixin {
+class MinesweeperOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: MinesweeperDocument { return MinesweeperDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return MinesweeperDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

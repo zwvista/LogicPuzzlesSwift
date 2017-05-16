@@ -8,7 +8,10 @@
 
 import UIKit
 
-class LineSweeperHelpViewController: GameHelpViewController, LineSweeperMixin {
+class LineSweeperHelpViewController: GameHelpViewController {
+
+    var gameDocument: LineSweeperDocument { return LineSweeperDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return LineSweeperDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

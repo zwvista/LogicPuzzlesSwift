@@ -15,12 +15,14 @@ class LitsAreaInfo {
     var tetrominoIndex: Int?
 }
 
-class LitsGameState: GridGameState, LitsMixin {
+class LitsGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: LitsGame {
         get {return getGame() as! LitsGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: LitsDocument { return LitsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return LitsDocument.sharedInstance }
     var objArray = [LitsObject]()
     var pos2state = [Position: HintState]()
     

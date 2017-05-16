@@ -8,7 +8,10 @@
 
 import UIKit
 
-class PowerGridOptionsViewController: GameOptionsViewController, PowerGridMixin {
+class PowerGridOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: PowerGridDocument { return PowerGridDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return PowerGridDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

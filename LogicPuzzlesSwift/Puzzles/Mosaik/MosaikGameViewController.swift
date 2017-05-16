@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class MosaikGameViewController: GameGameViewController, GameDelegate, MosaikMixin {
+class MosaikGameViewController: GameGameViewController, GameDelegate {
     typealias GM = MosaikGameMove
     typealias GS = MosaikGameState
 
@@ -21,6 +21,8 @@ class MosaikGameViewController: GameGameViewController, GameDelegate, MosaikMixi
         get {return getGame() as! MosaikGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: MosaikDocument { return MosaikDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return MosaikDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

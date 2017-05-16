@@ -8,8 +8,11 @@
 
 import UIKit
 
-class RoomsMainViewController: GameMainViewController, RoomsMixin {
-    
+class RoomsMainViewController: GameMainViewController {
+
+    var gameDocument: RoomsDocument { return RoomsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return RoomsDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

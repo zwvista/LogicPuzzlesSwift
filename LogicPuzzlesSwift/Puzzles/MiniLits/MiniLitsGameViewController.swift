@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class MiniLitsGameViewController: GameGameViewController, GameDelegate, MiniLitsMixin {
+class MiniLitsGameViewController: GameGameViewController, GameDelegate {
     typealias GM = MiniLitsGameMove
     typealias GS = MiniLitsGameState
 
@@ -21,6 +21,8 @@ class MiniLitsGameViewController: GameGameViewController, GameDelegate, MiniLits
         get {return getGame() as! MiniLitsGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: MiniLitsDocument { return MiniLitsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return MiniLitsDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

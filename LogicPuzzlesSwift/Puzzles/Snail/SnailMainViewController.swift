@@ -8,8 +8,11 @@
 
 import UIKit
 
-class SnailMainViewController: GameMainViewController, SnailMixin {
-    
+class SnailMainViewController: GameMainViewController {
+
+    var gameDocument: SnailDocument { return SnailDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return SnailDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

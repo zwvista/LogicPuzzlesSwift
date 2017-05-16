@@ -8,7 +8,10 @@
 
 import UIKit
 
-class BoxItAgainHelpViewController: GameHelpViewController, BoxItAgainMixin {
+class BoxItAgainHelpViewController: GameHelpViewController {
+
+    var gameDocument: BoxItAgainDocument { return BoxItAgainDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return BoxItAgainDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

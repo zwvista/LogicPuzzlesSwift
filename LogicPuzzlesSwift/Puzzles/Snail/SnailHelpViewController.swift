@@ -8,7 +8,10 @@
 
 import UIKit
 
-class SnailHelpViewController: GameHelpViewController, SnailMixin {
+class SnailHelpViewController: GameHelpViewController {
+
+    var gameDocument: SnailDocument { return SnailDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return SnailDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

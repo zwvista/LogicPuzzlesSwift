@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OrchardsOptionsViewController: GameOptionsViewController, OrchardsMixin {
+class OrchardsOptionsViewController: GameOptionsViewController {
 
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class DominoGameViewController: GameGameViewController, GameDelegate, DominoMixin {
+class DominoGameViewController: GameGameViewController, GameDelegate {
     typealias GM = DominoGameMove
     typealias GS = DominoGameState
 
@@ -21,6 +21,8 @@ class DominoGameViewController: GameGameViewController, GameDelegate, DominoMixi
         get {return getGame() as! DominoGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: DominoDocument { return DominoDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return DominoDocument.sharedInstance }
   
     override func viewDidLoad() {
         super.viewDidLoad()

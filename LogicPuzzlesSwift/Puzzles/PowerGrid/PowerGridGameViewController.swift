@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class PowerGridGameViewController: GameGameViewController, GameDelegate, PowerGridMixin {
+class PowerGridGameViewController: GameGameViewController, GameDelegate {
     typealias GM = PowerGridGameMove
     typealias GS = PowerGridGameState
 
@@ -21,6 +21,8 @@ class PowerGridGameViewController: GameGameViewController, GameDelegate, PowerGr
         get {return getGame() as! PowerGridGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: PowerGridDocument { return PowerGridDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return PowerGridDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,8 +8,11 @@
 
 import UIKit
 
-class LitsMainViewController: GameMainViewController, LitsMixin {
-    
+class LitsMainViewController: GameMainViewController {
+
+    var gameDocument: LitsDocument { return LitsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return LitsDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

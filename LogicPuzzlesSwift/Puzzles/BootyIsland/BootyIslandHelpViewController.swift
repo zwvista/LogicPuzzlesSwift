@@ -8,7 +8,10 @@
 
 import UIKit
 
-class BootyIslandHelpViewController: GameHelpViewController, BootyIslandMixin {
+class BootyIslandHelpViewController: GameHelpViewController {
+
+    var gameDocument: BootyIslandDocument { return BootyIslandDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return BootyIslandDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

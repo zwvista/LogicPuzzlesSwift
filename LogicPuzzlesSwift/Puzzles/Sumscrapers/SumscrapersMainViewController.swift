@@ -8,8 +8,11 @@
 
 import UIKit
 
-class SumscrapersMainViewController: GameMainViewController, SumscrapersMixin {
-    
+class SumscrapersMainViewController: GameMainViewController {
+
+    var gameDocument: SumscrapersDocument { return SumscrapersDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return SumscrapersDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class SumscrapersGameViewController: GameGameViewController, GameDelegate, SumscrapersMixin {
+class SumscrapersGameViewController: GameGameViewController, GameDelegate {
     typealias GM = SumscrapersGameMove
     typealias GS = SumscrapersGameState
 
@@ -21,6 +21,8 @@ class SumscrapersGameViewController: GameGameViewController, GameDelegate, Sumsc
         get {return getGame() as! SumscrapersGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: SumscrapersDocument { return SumscrapersDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return SumscrapersDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

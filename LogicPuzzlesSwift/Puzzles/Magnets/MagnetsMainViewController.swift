@@ -8,8 +8,11 @@
 
 import UIKit
 
-class MagnetsMainViewController: GameMainViewController, MagnetsMixin {
-    
+class MagnetsMainViewController: GameMainViewController {
+
+    var gameDocument: MagnetsDocument { return MagnetsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return MagnetsDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

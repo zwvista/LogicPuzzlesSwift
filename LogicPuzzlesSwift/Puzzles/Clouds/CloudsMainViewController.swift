@@ -8,8 +8,11 @@
 
 import UIKit
 
-class CloudsMainViewController: GameMainViewController, CloudsMixin {
-    
+class CloudsMainViewController: GameMainViewController {
+
+    var gameDocument: CloudsDocument { return CloudsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return CloudsDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

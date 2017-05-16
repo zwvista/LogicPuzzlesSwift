@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class HitoriGameViewController: GameGameViewController, GameDelegate, HitoriMixin {
+class HitoriGameViewController: GameGameViewController, GameDelegate {
     typealias GM = HitoriGameMove
     typealias GS = HitoriGameState
 
@@ -21,6 +21,8 @@ class HitoriGameViewController: GameGameViewController, GameDelegate, HitoriMixi
         get {return getGame() as! HitoriGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: HitoriDocument { return HitoriDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return HitoriDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

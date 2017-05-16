@@ -8,7 +8,10 @@
 
 import UIKit
 
-class LightBattleShipsOptionsViewController: GameOptionsViewController, LightBattleShipsMixin {
+class LightBattleShipsOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: LightBattleShipsDocument { return LightBattleShipsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return LightBattleShipsDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

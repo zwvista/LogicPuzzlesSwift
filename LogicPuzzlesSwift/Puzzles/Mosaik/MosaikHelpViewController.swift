@@ -8,7 +8,10 @@
 
 import UIKit
 
-class MosaikHelpViewController: GameHelpViewController, MosaikMixin {
+class MosaikHelpViewController: GameHelpViewController {
+
+    var gameDocument: MosaikDocument { return MosaikDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return MosaikDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

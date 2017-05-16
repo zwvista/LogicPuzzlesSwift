@@ -8,7 +8,10 @@
 
 import UIKit
 
-class AbstractPaintingOptionsViewController: GameOptionsViewController, AbstractPaintingMixin {
+class AbstractPaintingOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: AbstractPaintingDocument { return AbstractPaintingDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return AbstractPaintingDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

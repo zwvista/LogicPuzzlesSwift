@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class TentsGameViewController: GameGameViewController, GameDelegate, TentsMixin {
+class TentsGameViewController: GameGameViewController, GameDelegate {
     typealias GM = TentsGameMove
     typealias GS = TentsGameState
 
@@ -21,6 +21,8 @@ class TentsGameViewController: GameGameViewController, GameDelegate, TentsMixin 
         get {return getGame() as! TentsGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: TentsDocument { return TentsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return TentsDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

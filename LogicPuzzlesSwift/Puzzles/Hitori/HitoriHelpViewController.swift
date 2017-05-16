@@ -8,7 +8,10 @@
 
 import UIKit
 
-class HitoriHelpViewController: GameHelpViewController, HitoriMixin {
+class HitoriHelpViewController: GameHelpViewController {
+
+    var gameDocument: HitoriDocument { return HitoriDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return HitoriDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

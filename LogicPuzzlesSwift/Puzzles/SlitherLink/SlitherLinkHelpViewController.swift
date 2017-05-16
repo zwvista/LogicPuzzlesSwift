@@ -8,7 +8,10 @@
 
 import UIKit
 
-class SlitherLinkHelpViewController: GameHelpViewController, SlitherLinkMixin {
+class SlitherLinkHelpViewController: GameHelpViewController {
+
+    var gameDocument: SlitherLinkDocument { return SlitherLinkDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return SlitherLinkDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

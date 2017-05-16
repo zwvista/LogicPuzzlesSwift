@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class AbstractPaintingGameViewController: GameGameViewController, GameDelegate, AbstractPaintingMixin {
+class AbstractPaintingGameViewController: GameGameViewController, GameDelegate {
     typealias GM = AbstractPaintingGameMove
     typealias GS = AbstractPaintingGameState
 
@@ -21,6 +21,8 @@ class AbstractPaintingGameViewController: GameGameViewController, GameDelegate, 
         get {return getGame() as! AbstractPaintingGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: AbstractPaintingDocument { return AbstractPaintingDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return AbstractPaintingDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

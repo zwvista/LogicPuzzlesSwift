@@ -8,7 +8,10 @@
 
 import UIKit
 
-class PairakabeOptionsViewController: GameOptionsViewController, PairakabeMixin {
+class PairakabeOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: PairakabeDocument { return PairakabeDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return PairakabeDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

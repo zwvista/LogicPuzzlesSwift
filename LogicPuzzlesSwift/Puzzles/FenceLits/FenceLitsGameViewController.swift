@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class FenceLitsGameViewController: GameGameViewController, GameDelegate, FenceLitsMixin {
+class FenceLitsGameViewController: GameGameViewController, GameDelegate {
 
     var scene: FenceLitsGameScene {
         get {return getScene() as! FenceLitsGameScene}
@@ -19,6 +19,8 @@ class FenceLitsGameViewController: GameGameViewController, GameDelegate, FenceLi
         get {return getGame() as! FenceLitsGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: FenceLitsDocument { return FenceLitsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return FenceLitsDocument.sharedInstance }
   
     override func viewDidLoad() {
         super.viewDidLoad()

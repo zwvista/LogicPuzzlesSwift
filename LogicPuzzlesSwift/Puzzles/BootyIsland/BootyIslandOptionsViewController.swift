@@ -8,7 +8,10 @@
 
 import UIKit
 
-class BootyIslandOptionsViewController: GameOptionsViewController, BootyIslandMixin {
+class BootyIslandOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: BootyIslandDocument { return BootyIslandDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return BootyIslandDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

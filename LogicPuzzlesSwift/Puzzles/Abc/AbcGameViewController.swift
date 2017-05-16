@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class AbcGameViewController: GameGameViewController, GameDelegate, AbcMixin {
+class AbcGameViewController: GameGameViewController, GameDelegate {
     typealias GM = AbcGameMove
     typealias GS = AbcGameState
 
@@ -21,6 +21,8 @@ class AbcGameViewController: GameGameViewController, GameDelegate, AbcMixin {
         get {return getGame() as! AbcGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: AbcDocument { return AbcDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return AbcDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

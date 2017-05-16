@@ -8,8 +8,11 @@
 
 import UIKit
 
-class LightenUpMainViewController: GameMainViewController, LightenUpMixin {
-    
+class LightenUpMainViewController: GameMainViewController {
+
+    var gameDocument: LightenUpDocument { return LightenUpDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return LightenUpDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

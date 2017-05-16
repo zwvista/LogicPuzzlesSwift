@@ -8,5 +8,5 @@
 
 import UIKit
 
-class SkyscrapersOptionsViewController: GameOptionsViewController, SkyscrapersMixin {
+class SkyscrapersOptionsViewController: GameOptionsViewController {
 }

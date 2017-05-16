@@ -8,7 +8,10 @@
 
 import UIKit
 
-class FenceLitsHelpViewController: GameHelpViewController, FenceLitsMixin {
+class FenceLitsHelpViewController: GameHelpViewController {
+
+    var gameDocument: FenceLitsDocument { return FenceLitsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return FenceLitsDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

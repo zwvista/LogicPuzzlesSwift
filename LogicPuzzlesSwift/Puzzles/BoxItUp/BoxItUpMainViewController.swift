@@ -8,8 +8,11 @@
 
 import UIKit
 
-class BoxItUpMainViewController: GameMainViewController, BoxItUpMixin {
-    
+class BoxItUpMainViewController: GameMainViewController {
+
+    var gameDocument: BoxItUpDocument { return BoxItUpDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return BoxItUpDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

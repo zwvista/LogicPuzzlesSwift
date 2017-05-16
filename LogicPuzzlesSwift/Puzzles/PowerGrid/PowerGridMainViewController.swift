@@ -8,8 +8,11 @@
 
 import UIKit
 
-class PowerGridMainViewController: GameMainViewController, PowerGridMixin {
-    
+class PowerGridMainViewController: GameMainViewController {
+
+    var gameDocument: PowerGridDocument { return PowerGridDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return PowerGridDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

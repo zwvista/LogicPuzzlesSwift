@@ -8,7 +8,10 @@
 
 import UIKit
 
-class MasyuHelpViewController: GameHelpViewController, MasyuMixin {
+class MasyuHelpViewController: GameHelpViewController {
+
+    var gameDocument: MasyuDocument { return MasyuDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return MasyuDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

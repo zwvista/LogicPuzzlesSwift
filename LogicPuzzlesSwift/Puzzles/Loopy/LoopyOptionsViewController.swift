@@ -8,7 +8,10 @@
 
 import UIKit
 
-class LoopyOptionsViewController: GameOptionsViewController, LoopyMixin {
+class LoopyOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: LoopyDocument { return LoopyDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return LoopyDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

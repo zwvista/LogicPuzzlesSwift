@@ -8,7 +8,10 @@
 
 import UIKit
 
-class OrchardsHelpViewController: GameHelpViewController, OrchardsMixin {
+class OrchardsHelpViewController: GameHelpViewController {
+
+    var gameDocument: OrchardsDocument { return OrchardsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return OrchardsDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,7 +8,10 @@
 
 import UIKit
 
-class NeighboursOptionsViewController: GameOptionsViewController, NeighboursMixin {
+class NeighboursOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: NeighboursDocument { return NeighboursDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return NeighboursDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

@@ -8,7 +8,10 @@
 
 import UIKit
 
-class HitoriOptionsViewController: GameOptionsViewController, HitoriMixin {
+class HitoriOptionsViewController: GameOptionsViewController {
+
+    var gameDocument: HitoriDocument { return HitoriDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return HitoriDocument.sharedInstance }
     
     func updateMarkerOption() {
         lblMarkerOption.text = MarkerOptions.optionStrings[markerOption]

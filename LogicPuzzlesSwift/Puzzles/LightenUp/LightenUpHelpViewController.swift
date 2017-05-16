@@ -8,7 +8,10 @@
 
 import UIKit
 
-class LightenUpHelpViewController: GameHelpViewController, LightenUpMixin {
+class LightenUpHelpViewController: GameHelpViewController {
+
+    var gameDocument: LightenUpDocument { return LightenUpDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return LightenUpDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

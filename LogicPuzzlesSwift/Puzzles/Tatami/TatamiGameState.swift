@@ -8,12 +8,14 @@
 
 import Foundation
 
-class TatamiGameState: GridGameState, TatamiMixin {
+class TatamiGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: TatamiGame {
         get {return getGame() as! TatamiGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: TatamiDocument { return TatamiDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return TatamiDocument.sharedInstance }
     var objArray = [Character]()
     var pos2state = [Position: HintState]()
     

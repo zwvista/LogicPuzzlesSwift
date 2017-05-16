@@ -8,12 +8,14 @@
 
 import Foundation
 
-class AbstractPaintingGameState: GridGameState, AbstractPaintingMixin {
+class AbstractPaintingGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: AbstractPaintingGame {
         get {return getGame() as! AbstractPaintingGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: AbstractPaintingDocument { return AbstractPaintingDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return AbstractPaintingDocument.sharedInstance }
     var objArray = [AbstractPaintingObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()

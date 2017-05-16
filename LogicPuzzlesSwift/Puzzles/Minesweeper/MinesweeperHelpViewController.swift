@@ -8,7 +8,10 @@
 
 import UIKit
 
-class MinesweeperHelpViewController: GameHelpViewController, MinesweeperMixin {
+class MinesweeperHelpViewController: GameHelpViewController {
+
+    var gameDocument: MinesweeperDocument { return MinesweeperDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return MinesweeperDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

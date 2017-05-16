@@ -8,8 +8,11 @@
 
 import UIKit
 
-class MineShipsMainViewController: GameMainViewController, MineShipsMixin {
-    
+class MineShipsMainViewController: GameMainViewController {
+
+    var gameDocument: MineShipsDocument { return MineShipsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return MineShipsDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

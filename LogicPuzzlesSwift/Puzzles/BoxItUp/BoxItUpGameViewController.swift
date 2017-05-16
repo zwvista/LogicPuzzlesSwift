@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class BoxItUpGameViewController: GameGameViewController, GameDelegate, BoxItUpMixin {
+class BoxItUpGameViewController: GameGameViewController, GameDelegate {
     typealias GM = BoxItUpGameMove
     typealias GS = BoxItUpGameState
 
@@ -21,6 +21,8 @@ class BoxItUpGameViewController: GameGameViewController, GameDelegate, BoxItUpMi
         get {return getGame() as! BoxItUpGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: BoxItUpDocument { return BoxItUpDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return BoxItUpDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class BootyIslandGameViewController: GameGameViewController, GameDelegate, BootyIslandMixin {
+class BootyIslandGameViewController: GameGameViewController, GameDelegate {
     typealias GM = BootyIslandGameMove
     typealias GS = BootyIslandGameState
 
@@ -21,6 +21,8 @@ class BootyIslandGameViewController: GameGameViewController, GameDelegate, Booty
         get {return getGame() as! BootyIslandGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: BootyIslandDocument { return BootyIslandDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return BootyIslandDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

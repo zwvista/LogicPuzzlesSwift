@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class SkyscrapersGameViewController: GameGameViewController, GameDelegate, SkyscrapersMixin {
+class SkyscrapersGameViewController: GameGameViewController, GameDelegate {
     typealias GM = SkyscrapersGameMove
     typealias GS = SkyscrapersGameState
 
@@ -21,6 +21,8 @@ class SkyscrapersGameViewController: GameGameViewController, GameDelegate, Skysc
         get {return getGame() as! SkyscrapersGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: SkyscrapersDocument { return SkyscrapersDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return SkyscrapersDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

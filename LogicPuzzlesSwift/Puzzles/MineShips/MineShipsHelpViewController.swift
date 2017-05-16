@@ -8,7 +8,10 @@
 
 import UIKit
 
-class MineShipsHelpViewController: GameHelpViewController, MineShipsMixin {
+class MineShipsHelpViewController: GameHelpViewController {
+
+    var gameDocument: MineShipsDocument { return MineShipsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return MineShipsDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

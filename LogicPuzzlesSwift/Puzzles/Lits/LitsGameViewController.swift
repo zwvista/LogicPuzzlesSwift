@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class LitsGameViewController: GameGameViewController, GameDelegate, LitsMixin {
+class LitsGameViewController: GameGameViewController, GameDelegate {
     typealias GM = LitsGameMove
     typealias GS = LitsGameState
 
@@ -21,6 +21,8 @@ class LitsGameViewController: GameGameViewController, GameDelegate, LitsMixin {
         get {return getGame() as! LitsGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: LitsDocument { return LitsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return LitsDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

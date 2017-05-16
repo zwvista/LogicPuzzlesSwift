@@ -8,12 +8,14 @@
 
 import Foundation
 
-class HitoriGameState: GridGameState, HitoriMixin {
+class HitoriGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: HitoriGame {
         get {return getGame() as! HitoriGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: HitoriDocument { return HitoriDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return HitoriDocument.sharedInstance }
     var objArray = [HitoriObject]()
     var row2hint = [String]()
     var col2hint = [String]()

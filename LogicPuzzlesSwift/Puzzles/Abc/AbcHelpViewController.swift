@@ -8,7 +8,10 @@
 
 import UIKit
 
-class AbcHelpViewController: GameHelpViewController, AbcMixin {
+class AbcHelpViewController: GameHelpViewController {
+
+    var gameDocument: AbcDocument { return AbcDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return AbcDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

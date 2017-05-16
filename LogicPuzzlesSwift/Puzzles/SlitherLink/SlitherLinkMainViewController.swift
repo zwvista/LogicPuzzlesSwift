@@ -8,8 +8,11 @@
 
 import UIKit
 
-class SlitherLinkMainViewController: GameMainViewController, SlitherLinkMixin {
-    
+class SlitherLinkMainViewController: GameMainViewController {
+
+    var gameDocument: SlitherLinkDocument { return SlitherLinkDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return SlitherLinkDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

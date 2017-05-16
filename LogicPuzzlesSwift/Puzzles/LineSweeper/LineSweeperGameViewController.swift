@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class LineSweeperGameViewController: GameGameViewController, GameDelegate, LineSweeperMixin {
+class LineSweeperGameViewController: GameGameViewController, GameDelegate {
     typealias GM = LineSweeperGameMove
     typealias GS = LineSweeperGameState
 
@@ -21,6 +21,8 @@ class LineSweeperGameViewController: GameGameViewController, GameDelegate, LineS
         get {return getGame() as! LineSweeperGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: LineSweeperDocument { return LineSweeperDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return LineSweeperDocument.sharedInstance }
     var pLast: Position?
    
     override func viewDidLoad() {

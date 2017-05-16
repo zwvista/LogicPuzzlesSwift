@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class SlitherLinkGameViewController: GameGameViewController, GameDelegate, SlitherLinkMixin {
+class SlitherLinkGameViewController: GameGameViewController, GameDelegate {
     typealias GM = SlitherLinkGameMove
     typealias GS = SlitherLinkGameState
 
@@ -21,6 +21,8 @@ class SlitherLinkGameViewController: GameGameViewController, GameDelegate, Slith
         get {return getGame() as! SlitherLinkGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: SlitherLinkDocument { return SlitherLinkDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return SlitherLinkDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

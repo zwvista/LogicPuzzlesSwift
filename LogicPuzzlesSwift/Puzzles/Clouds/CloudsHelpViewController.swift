@@ -8,7 +8,10 @@
 
 import UIKit
 
-class CloudsHelpViewController: GameHelpViewController, CloudsMixin {
+class CloudsHelpViewController: GameHelpViewController {
+
+    var gameDocument: CloudsDocument { return CloudsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return CloudsDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

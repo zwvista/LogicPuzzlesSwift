@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class SentinelsGameViewController: GameGameViewController, GameDelegate, SentinelsMixin {
+class SentinelsGameViewController: GameGameViewController, GameDelegate {
     typealias GM = SentinelsGameMove
     typealias GS = SentinelsGameState
 
@@ -21,6 +21,8 @@ class SentinelsGameViewController: GameGameViewController, GameDelegate, Sentine
         get {return getGame() as! SentinelsGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: SentinelsDocument { return SentinelsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return SentinelsDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

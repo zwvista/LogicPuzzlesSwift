@@ -8,8 +8,11 @@
 
 import UIKit
 
-class LoopyMainViewController: GameMainViewController, LoopyMixin {
-    
+class LoopyMainViewController: GameMainViewController {
+
+    var gameDocument: LoopyDocument { return LoopyDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return LoopyDocument.sharedInstance }
+
     override func startGame(_ sender: UIButton) {
         gameDocument.selectedLevelID = sender.titleLabel!.text!
         resumGame(self)

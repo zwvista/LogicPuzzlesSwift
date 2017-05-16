@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class TatamiGameViewController: GameGameViewController, GameDelegate, TatamiMixin {
+class TatamiGameViewController: GameGameViewController, GameDelegate {
     typealias GM = TatamiGameMove
     typealias GS = TatamiGameState
 
@@ -21,6 +21,8 @@ class TatamiGameViewController: GameGameViewController, GameDelegate, TatamiMixi
         get {return getGame() as! TatamiGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: TatamiDocument { return TatamiDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return TatamiDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

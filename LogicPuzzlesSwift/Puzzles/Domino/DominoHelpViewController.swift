@@ -8,7 +8,10 @@
 
 import UIKit
 
-class DominoHelpViewController: GameHelpViewController, DominoMixin {
+class DominoHelpViewController: GameHelpViewController {
+
+    var gameDocument: DominoDocument { return DominoDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return DominoDocument.sharedInstance }
 
     override func viewDidLoad() {
         super.viewDidLoad()

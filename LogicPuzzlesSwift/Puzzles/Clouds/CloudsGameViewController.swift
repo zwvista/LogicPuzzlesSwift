@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class CloudsGameViewController: GameGameViewController, GameDelegate, CloudsMixin {
+class CloudsGameViewController: GameGameViewController, GameDelegate {
     typealias GM = CloudsGameMove
     typealias GS = CloudsGameState
 
@@ -21,6 +21,8 @@ class CloudsGameViewController: GameGameViewController, GameDelegate, CloudsMixi
         get {return getGame() as! CloudsGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: CloudsDocument { return CloudsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return CloudsDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class NeighboursGameViewController: GameGameViewController, GameDelegate, NeighboursMixin {
+class NeighboursGameViewController: GameGameViewController, GameDelegate {
     typealias GM = NeighboursGameMove
     typealias GS = NeighboursGameState
 
@@ -21,6 +21,8 @@ class NeighboursGameViewController: GameGameViewController, GameDelegate, Neighb
         get {return getGame() as! NeighboursGame}
         set {setGame(game: newValue)}
     }
+    var gameDocument: NeighboursDocument { return NeighboursDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return NeighboursDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()
