@@ -49,15 +49,7 @@ class MinesweeperGameViewController: GameGameViewController, GameDelegate {
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     
-    func updateSolutionUI() {
-        let rec = gameDocument.levelProgressSolution
-        let hasSolution = rec.moveIndex != 0
-        lblSolution.text = "Solution: " + (!hasSolution ? "None" : "\(rec.moveIndex)")
-        btnLoadSolution.isEnabled = hasSolution
-        btnDeleteSolution.isEnabled = hasSolution
-    }
-    
-    func startGame() {
+    override func startGame() {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
@@ -111,29 +103,5 @@ class MinesweeperGameViewController: GameGameViewController, GameDelegate {
         soundManager.playSoundSolved()
         gameDocument.gameSolved(game: game)
         updateSolutionUI()
-    }
-    
-    override func clearGame(_ sender: Any) {
-        yesNoAction(title: "Clear", message: "Do you really want to reset the level?") { (action) in
-            self.gameDocument.clearGame()
-            self.startGame()
-        }
-    }
-
-    override func saveSolution(_ sender: Any) {
-        gameDocument.saveSolution(game: game)
-        updateSolutionUI()
-    }
-    
-    override func loadSolution(_ sender: Any) {
-        gameDocument.loadSolution()
-        startGame()
-    }
-    
-    override func deleteSolution(_ sender: Any) {
-        yesNoAction(title: "Delete", message: "Do you really want to delete the solution?") { (action) in
-            self.gameDocument.deleteSolution()
-            self.updateSolutionUI()
-        }
     }
 }

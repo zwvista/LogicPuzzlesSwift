@@ -54,6 +54,17 @@ class GameGameViewController: UIViewController, SoundMixin {
 
         lblGameTitle.text = currentGameTitle
     }
+    
+    func updateSolutionUI() {
+        let rec = gameDocument.levelProgressSolution
+        let hasSolution = rec.moveIndex != 0
+        lblSolution.text = "Solution: " + (!hasSolution ? "None" : "\(rec.moveIndex)")
+        btnLoadSolution.isEnabled = hasSolution
+        btnDeleteSolution.isEnabled = hasSolution
+    }
+    
+    func startGame() {
+    }
 
     @IBAction func handleTap(_ sender: UITapGestureRecognizer) {
     }
@@ -70,15 +81,27 @@ class GameGameViewController: UIViewController, SoundMixin {
     }
     
     @IBAction func clearGame(_ sender: Any) {
+        yesNoAction(title: "Clear", message: "Do you really want to reset the level?") { (action) in
+            self.gameDocument.clearGame()
+            self.startGame()
+        }
     }
     
     @IBAction func saveSolution(_ sender: Any) {
+        gameDocument.saveSolution(game: game!)
+        updateSolutionUI()
     }
     
     @IBAction func loadSolution(_ sender: Any) {
+        gameDocument.loadSolution()
+        startGame()
     }
     
     @IBAction func deleteSolution(_ sender: Any) {
+        yesNoAction(title: "Delete", message: "Do you really want to delete the solution?") { (action) in
+            self.gameDocument.deleteSolution()
+            self.updateSolutionUI()
+        }
     }
     
     @IBAction func backToMain(_ sender: Any) {

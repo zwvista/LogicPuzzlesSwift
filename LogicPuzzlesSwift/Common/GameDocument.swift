@@ -14,6 +14,11 @@ protocol GameDocumentBase: class {
     var help: [String] { get }
     var selectedLevelID: String! { get set }
     func resumeGame()
+    func clearGame()
+    var levelProgressSolution: LevelProgress { get }
+    func saveSolution(game: AnyObject)
+    func loadSolution()
+    func deleteSolution()
 }
 
 class GameDocument<G: GameBase, GM>: GameDocumentBase {
