@@ -10,6 +10,8 @@ import UIKit
 
 class HomeMainViewController: UIViewController, HomeMixin {
     
+    @IBOutlet weak var btnResumeGame: UIButton!
+    
     public private(set) var toResume = false
     
     override var prefersStatusBarHidden: Bool { return true }
@@ -24,11 +26,12 @@ class HomeMainViewController: UIViewController, HomeMixin {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        currentGameName = gameDocument.gameProgress.gameName!
+        currentGameTitle = gameDocument.gameProgress.gameTitle!
+        btnResumeGame.setTitle("Resume Game " + currentGameTitle, for: .normal)
     }
     
     @IBAction func resumeGame(_ sender: Any) {
-        currentGameName = gameDocument.gameProgress.gameName!
-        currentGameTitle = gameDocument.gameProgress.gameTitle!
         toResume = true
         // http://www.newventuresoftware.com/blog/organizing-xcode-projects-using-multiple-storyboards
         let storyboard = UIStoryboard(name: "Game", bundle: nil)

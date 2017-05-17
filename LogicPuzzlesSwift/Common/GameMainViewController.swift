@@ -11,6 +11,7 @@ import UIKit
 class GameMainViewController: UIViewController {
 
     @IBOutlet weak var lblGameTitle: UILabel!
+    @IBOutlet weak var btnResumeLevel: UIButton!
 
     override var prefersStatusBarHidden: Bool { return true }
     
@@ -21,6 +22,10 @@ class GameMainViewController: UIViewController {
     var gameOptions: GameProgress { return gameDocument.gameProgress }
     var markerOption: Int { return gameOptions.option1?.toInt() ?? 0 }
     var allowedObjectsOnly: Bool { return gameOptions.option2?.toBool() ?? false }
+    
+    var currentPage = 0
+    let countPerPage = 12
+    var numPages = 1
 
     // http://stackoverflow.com/questions/14111572/how-to-use-single-storyboard-uiviewcontroller-for-multiple-subclass
     override func awakeFromNib() {
@@ -30,6 +35,10 @@ class GameMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         lblGameTitle.text = currentGameTitle
+        numPages = (gameDocument.levels.count + countPerPage - 1) / countPerPage
+        let index = gameDocument.levels.index(where: {$0.0 == gameDocument.selectedLevelID}) ?? 0
+        currentPage = index / countPerPage
+        showCurrentPage()
         let toResume = ((UIApplication.shared.keyWindow!.rootViewController! as! UINavigationController).topViewController as! HomeMainViewController).toResume
         if toResume {resumGame(self)}
     }
@@ -38,6 +47,27 @@ class GameMainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        btnResumeLevel.setTitle("Resume Level " + gameDocument.selectedLevelID, for: .normal)
+    }
+    
+    private func showCurrentPage() {
+        for i in 0..<countPerPage {
+            let button = view.viewWithTag(i + 1) as! UIButton
+            let index = currentPage * countPerPage + i
+            let b = index < gameDocument.levels.count
+            button.isHidden = !b
+            if b {button.setTitle(gameDocument.levels[index].0, for: .normal)}
+        }
+    }
+    
+    @IBAction func prevPage(_ sender: UIButton) {
+        currentPage = (currentPage - 1 + numPages) % numPages
+        showCurrentPage()
+    }
+    
+    @IBAction func nextPage(_ sender: UIButton) {
+        currentPage = (currentPage + 1) % numPages
+        showCurrentPage()
     }
     
     @IBAction func startGame(_ sender: UIButton) {

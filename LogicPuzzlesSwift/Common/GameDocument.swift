@@ -10,12 +10,13 @@ import UIKit
 import SharkORM
 
 protocol GameDocumentBase: class {
-    var gameProgress: GameProgress { get }
-    var help: [String] { get }
-    var selectedLevelID: String! { get set }
+    var gameProgress: GameProgress {get}
+    var levels: [(String, [String])] {get}
+    var help: [String] {get}
+    var selectedLevelID: String! {get set}
     func resumeGame()
     func clearGame()
-    var levelProgressSolution: LevelProgress { get }
+    var levelProgressSolution: LevelProgress {get}
     func saveSolution(game: AnyObject)
     func loadSolution()
     func deleteSolution()
