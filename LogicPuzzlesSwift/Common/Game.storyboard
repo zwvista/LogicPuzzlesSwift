@@ -189,7 +189,6 @@
                                 <state key="normal" title="Reset All Levels"/>
                                 <connections>
                                     <action selector="resetAllLevels:" destination="AeD-bF-k0G" eventType="touchUpInside" id="Ql2-uN-DsJ"/>
-                                    <action selector="resumGame:" destination="AeD-bF-k0G" eventType="touchUpInside" id="gkm-Ym-Y7c"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dmc-8f-29m">
