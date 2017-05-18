@@ -108,6 +108,7 @@ class MineShipsGameState: GridGameState {
         4. Usual Battle Ships rules apply!
     */
     private func updateIsSolved() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {

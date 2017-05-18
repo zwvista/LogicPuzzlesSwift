@@ -102,6 +102,7 @@ class LightenUpGameState: GridGameState {
     
     func switchObject(move: inout LightenUpGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let allowedObjectsOnly = self.allowedObjectsOnly
         func f(o: LightenUpObjectType) -> LightenUpObjectType {
             switch o {
             case .empty:

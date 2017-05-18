@@ -104,6 +104,7 @@ class CloudsGameState: GridGameState {
         4. Clouds can't touch between themselves, not even diagonally. 
     */
     private func updateIsSolved() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {

@@ -99,6 +99,7 @@ class ParksGameState: GridGameState {
         7. Larger puzzles have TWO Trees in each park, each row and each column.
     */
     private func updateIsSolved() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {

@@ -98,6 +98,7 @@ class LighthousesGameState: GridGameState {
            No lighthouse touches another lighthouse as well.
     */
     private func updateIsSolved() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {

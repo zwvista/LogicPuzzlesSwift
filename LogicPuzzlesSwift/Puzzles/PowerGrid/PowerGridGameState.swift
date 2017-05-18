@@ -106,6 +106,7 @@ class PowerGridGameState: GridGameState {
         7. On some levels, there are exactly two Posts in each diagonal too.
     */
     private func updateIsSolved() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {

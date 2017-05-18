@@ -118,6 +118,7 @@ class LightBattleShipsGameState: GridGameState {
            1 Supertanker (5 squares)
     */
     private func updateIsSolved() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {

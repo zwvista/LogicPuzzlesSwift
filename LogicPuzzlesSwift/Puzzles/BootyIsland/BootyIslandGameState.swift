@@ -106,6 +106,7 @@ class BootyIslandGameState: GridGameState {
            closest Treasure on that row or column.
     */
     private func updateIsSolved() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {

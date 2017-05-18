@@ -104,6 +104,7 @@ class MiniLitsGameState: GridGameState {
         4. All the shaded cells should form a valid Nurikabe.
     */
     private func updateIsSolved() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         let g = Graph()
         var pos2node = [Position: Node]()

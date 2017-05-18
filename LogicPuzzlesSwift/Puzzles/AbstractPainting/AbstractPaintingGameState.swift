@@ -100,6 +100,7 @@ class AbstractPaintingGameState: GridGameState {
         3. The region of the painting can be entirely hidden or revealed.
     */
     private func updateIsSolved() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {

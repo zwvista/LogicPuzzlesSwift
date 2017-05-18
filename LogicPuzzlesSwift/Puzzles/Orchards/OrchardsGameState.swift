@@ -99,6 +99,7 @@ class OrchardsGameState: GridGameState {
            two Trees in it.
     */
     private func updateIsSolved() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         let g = Graph()
         var pos2node = [Position: Node]()

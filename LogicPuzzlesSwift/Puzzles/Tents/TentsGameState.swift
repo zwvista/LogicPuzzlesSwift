@@ -108,6 +108,7 @@ class TentsGameState: GridGameState {
            vertically.
     */
     private func updateIsSolved() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         for r in 0..<rows {
             var n1 = 0

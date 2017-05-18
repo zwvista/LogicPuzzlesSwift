@@ -106,6 +106,7 @@ class LitsGameState: GridGameState {
         5. All the shaded cells should form a valid Nurikabe (hence no fat guy).
     */
     private func updateIsSolved() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         let g = Graph()
         var pos2node = [Position: Node]()

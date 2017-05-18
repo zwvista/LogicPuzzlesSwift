@@ -92,6 +92,7 @@ class MinesweeperGameState: GridGameState {
            number horizontally, vertically or diagonally.
     */
     private func updateIsSolved() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {

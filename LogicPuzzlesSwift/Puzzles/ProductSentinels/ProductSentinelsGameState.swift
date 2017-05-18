@@ -103,6 +103,7 @@ class ProductSentinelsGameState: GridGameState {
            Sentinel View.
     */
     private func updateIsSolved() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         let g = Graph()
         var pos2node = [Position: Node]()
