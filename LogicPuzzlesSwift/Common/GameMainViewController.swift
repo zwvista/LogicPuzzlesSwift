@@ -81,6 +81,12 @@ class GameMainViewController: UIViewController {
         self.navigationController!.pushViewController(gameViewController, animated: true)
     }
     
+    @IBAction func resetAllLevels(_ sender: Any) {
+        yesNoAction(title: "Clear", message: "Do you really want to reset all levels in the game?") { (action) in
+            self.gameDocument.resetAllLevels()
+        }
+    }
+  
     @IBAction func backToMain(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

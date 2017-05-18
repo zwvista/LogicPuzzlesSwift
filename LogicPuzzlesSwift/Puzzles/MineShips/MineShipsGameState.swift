@@ -117,7 +117,7 @@ class MineShipsGameState: GridGameState {
         for (p, n2) in game.pos2hint {
             var n1 = 0
             var rng = [Position]()
-            for os in MinesweeperGame.offset {
+            for os in MineShipsGame.offset {
                 let p2 = p + os
                 guard game.isValid(p: p2) else {continue}
                 switch self[p2] {

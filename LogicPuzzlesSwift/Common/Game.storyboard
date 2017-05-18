@@ -138,18 +138,6 @@
                                     <action selector="startGame:" destination="AeD-bF-k0G" eventType="touchUpInside" id="xl1-YD-Fot"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dmc-8f-29m">
-                                <rect key="frame" x="87.5" y="238.5" width="200" height="30"/>
-                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="rvI-OL-hMC"/>
-                                    <constraint firstAttribute="width" constant="200" id="yvB-du-aEj"/>
-                                </constraints>
-                                <state key="normal" title="Resume Level"/>
-                                <connections>
-                                    <action selector="resumGame:" destination="AeD-bF-k0G" eventType="touchUpInside" id="HrE-5B-ewJ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PxK-QC-2Io">
                                 <rect key="frame" x="87.5" y="288.5" width="200" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -159,7 +147,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGx-Ts-pBn">
-                                <rect key="frame" x="141.5" y="146.5" width="92" height="42"/>
+                                <rect key="frame" x="141" y="96" width="92" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="7Yf-C1-JWa"/>
                                 </constraints>
@@ -195,6 +183,27 @@
                                     <action selector="prevPage:" destination="AeD-bF-k0G" eventType="touchUpInside" id="QTS-1w-z48"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqG-xN-dvz" userLabel="Reset All Levels">
+                                <rect key="frame" x="87" y="238" width="200" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Reset All Levels"/>
+                                <connections>
+                                    <action selector="resetAllLevels:" destination="AeD-bF-k0G" eventType="touchUpInside" id="Ql2-uN-DsJ"/>
+                                    <action selector="resumGame:" destination="AeD-bF-k0G" eventType="touchUpInside" id="gkm-Ym-Y7c"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dmc-8f-29m">
+                                <rect key="frame" x="87" y="188" width="200" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="rvI-OL-hMC"/>
+                                    <constraint firstAttribute="width" constant="200" id="yvB-du-aEj"/>
+                                </constraints>
+                                <state key="normal" title="Resume Level"/>
+                                <connections>
+                                    <action selector="resumGame:" destination="AeD-bF-k0G" eventType="touchUpInside" id="HrE-5B-ewJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -209,7 +218,9 @@
                             <constraint firstItem="mR9-Du-Clp" firstAttribute="top" secondItem="4nM-2n-tKr" secondAttribute="bottom" constant="8" id="7el-AE-xoF"/>
                             <constraint firstItem="Qa6-y3-hce" firstAttribute="height" secondItem="qZE-38-9do" secondAttribute="height" id="A3E-Ap-npA"/>
                             <constraint firstItem="4nM-2n-tKr" firstAttribute="width" secondItem="qZE-38-9do" secondAttribute="width" id="AX7-rn-bJC"/>
+                            <constraint firstItem="PxK-QC-2Io" firstAttribute="top" secondItem="dqG-xN-dvz" secondAttribute="bottom" constant="20" id="CLo-H8-nM2"/>
                             <constraint firstItem="RQk-Ug-dr5" firstAttribute="top" secondItem="noG-pI-jA5" secondAttribute="bottom" constant="8" id="Cq9-Lb-e6x"/>
+                            <constraint firstItem="dqG-xN-dvz" firstAttribute="width" secondItem="Dmc-8f-29m" secondAttribute="width" id="ENn-Lw-we4"/>
                             <constraint firstItem="WIk-Ig-UdF" firstAttribute="top" secondItem="2Zq-Eo-Euy" secondAttribute="bottom" constant="40" id="Ett-On-3od"/>
                             <constraint firstItem="RQk-Ug-dr5" firstAttribute="height" secondItem="qZE-38-9do" secondAttribute="height" id="F78-mr-kgu"/>
                             <constraint firstItem="Dmc-8f-29m" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="FO6-f1-hga"/>
@@ -238,6 +249,7 @@
                             <constraint firstItem="zCh-jw-YbM" firstAttribute="height" secondItem="qZE-38-9do" secondAttribute="height" id="amc-fy-7zd"/>
                             <constraint firstItem="qel-4o-kxH" firstAttribute="leading" secondItem="aHR-3G-KBd" secondAttribute="trailing" constant="8" id="bGE-2E-iXq"/>
                             <constraint firstItem="aHR-3G-KBd" firstAttribute="top" secondItem="qZE-38-9do" secondAttribute="bottom" constant="8" id="d6R-Xi-x7H"/>
+                            <constraint firstItem="dqG-xN-dvz" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="d8v-Ok-Oif"/>
                             <constraint firstItem="V4n-Mh-PM7" firstAttribute="leading" secondItem="qZE-38-9do" secondAttribute="trailing" constant="8" id="dCl-bG-BfP"/>
                             <constraint firstItem="Qa6-y3-hce" firstAttribute="leading" secondItem="2Zq-Eo-Euy" secondAttribute="trailing" constant="8" id="eTg-Yo-KiJ"/>
                             <constraint firstItem="RQk-Ug-dr5" firstAttribute="centerY" secondItem="aHR-3G-KBd" secondAttribute="centerY" id="f3G-Wv-pyu"/>
@@ -246,7 +258,6 @@
                             <constraint firstItem="qZE-38-9do" firstAttribute="centerY" secondItem="Y0Z-hx-Q2p" secondAttribute="centerY" constant="60" id="hHH-p4-RbN"/>
                             <constraint firstItem="PxK-QC-2Io" firstAttribute="width" secondItem="Dmc-8f-29m" secondAttribute="width" id="hgE-hF-xuT"/>
                             <constraint firstItem="zCh-jw-YbM" firstAttribute="centerY" secondItem="qZE-38-9do" secondAttribute="centerY" id="iMs-o8-oJl"/>
-                            <constraint firstItem="PxK-QC-2Io" firstAttribute="top" secondItem="Dmc-8f-29m" secondAttribute="bottom" constant="20" id="jSF-K2-P1r"/>
                             <constraint firstItem="qel-4o-kxH" firstAttribute="width" secondItem="qZE-38-9do" secondAttribute="width" id="jey-dR-CEv"/>
                             <constraint firstItem="mR9-Du-Clp" firstAttribute="width" secondItem="qZE-38-9do" secondAttribute="width" id="klL-VK-AwW"/>
                             <constraint firstItem="2Zq-Eo-Euy" firstAttribute="leading" secondItem="qel-4o-kxH" secondAttribute="trailing" constant="8" id="m0U-TM-DyV"/>
@@ -261,8 +272,10 @@
                             <constraint firstItem="5Y4-RU-SQB" firstAttribute="height" secondItem="qZE-38-9do" secondAttribute="height" id="tzz-Ei-KIa"/>
                             <constraint firstItem="NHK-Sl-fwE" firstAttribute="width" secondItem="WIk-Ig-UdF" secondAttribute="width" id="ujH-Wf-wce"/>
                             <constraint firstItem="5Y4-RU-SQB" firstAttribute="centerY" secondItem="qZE-38-9do" secondAttribute="centerY" id="v9d-xe-UkR"/>
+                            <constraint firstItem="dqG-xN-dvz" firstAttribute="top" secondItem="Dmc-8f-29m" secondAttribute="bottom" constant="20" id="vZC-8P-LOt"/>
                             <constraint firstItem="2Zq-Eo-Euy" firstAttribute="height" secondItem="qZE-38-9do" secondAttribute="height" id="waJ-75-Zqr"/>
                             <constraint firstItem="4nM-2n-tKr" firstAttribute="centerY" secondItem="qZE-38-9do" secondAttribute="centerY" id="xXC-du-buE"/>
+                            <constraint firstItem="dqG-xN-dvz" firstAttribute="height" secondItem="Dmc-8f-29m" secondAttribute="height" id="yxO-ZP-7om"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="caV-EH-1Wo"/>

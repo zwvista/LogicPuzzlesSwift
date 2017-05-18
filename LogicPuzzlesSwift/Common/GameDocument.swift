@@ -20,6 +20,7 @@ protocol GameDocumentBase: class {
     func saveSolution(game: AnyObject)
     func loadSolution()
     func deleteSolution()
+    func resetAllLevels()
 }
 
 class GameDocument<G: GameBase, GM>: GameDocumentBase {
@@ -157,5 +158,10 @@ class GameDocument<G: GameBase, GM>: GameDocumentBase {
         let rec = levelProgressSolution
         rec.moveIndex = 0
         rec.commit()
+    }
+    
+    func resetAllLevels() {
+        MoveProgress.query().where(withFormat: "gameID = %@", withParameters: [gameID]).fetch().removeAll()
+        LevelProgress.query().where(withFormat: "gameID = %@", withParameters: [gameID]).fetch().removeAll()
     }
 }

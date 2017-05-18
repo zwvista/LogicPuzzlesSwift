@@ -117,14 +117,4 @@ class GameGameViewController: UIViewController, SoundMixin {
     deinit {
         print("deinit called: \(NSStringFromClass(type(of: self)))")
     }
-    
-    func yesNoAction(title: String?, message: String?, handler: ((UIAlertAction) -> Swift.Void)? = nil) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
-        alertController.addAction(noAction)
-        let yesAction = UIAlertAction(title: "Yes", style: .default, handler: handler)
-        alertController.addAction(yesAction)
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
 }
