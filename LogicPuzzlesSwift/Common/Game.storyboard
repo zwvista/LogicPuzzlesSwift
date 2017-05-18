@@ -473,7 +473,7 @@
                                     <action selector="clearGame:" destination="KfB-1n-qBg" eventType="touchUpInside" id="EVF-PP-sBO"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ZS-t0-20I">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ZS-t0-20I">
                                 <rect key="frame" x="16" y="20" width="194" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -500,6 +500,7 @@
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="eKt-KQ-2N7" appends="YES" id="W8m-93-LcE"/>
+                            <outletCollection property="gestureRecognizers" destination="ocq-20-cTU" appends="YES" id="fU1-Hp-xqa"/>
                         </connections>
                     </view>
                     <connections>
@@ -519,9 +520,9 @@
                         <action selector="handleTap:" destination="KfB-1n-qBg" id="16u-rM-3lP"/>
                     </connections>
                 </tapGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="Lnp-gL-Q99">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="ocq-20-cTU">
                     <connections>
-                        <action selector="handlePan:" destination="KfB-1n-qBg" id="32G-eV-lje"/>
+                        <action selector="handlePan:" destination="KfB-1n-qBg" id="aDI-gs-rZF"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>

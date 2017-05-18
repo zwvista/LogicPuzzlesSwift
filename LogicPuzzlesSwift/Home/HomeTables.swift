@@ -16,6 +16,6 @@ class HomeGameProgress: SRKObject {
     dynamic var playSound = true
     
     override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
-        return ["gameName": "LightenUp", "playMusic": true, "playSound": true]
+        return ["gameName": "LightenUp", "gameTitle": "Lighten Up", "playMusic": true, "playSound": true]
     }
 }

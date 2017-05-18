@@ -9,4 +9,8 @@
 import UIKit
 
 class LineSweeperOptionsViewController: GameOptionsViewController {
+    
+    var gameDocument: LineSweeperDocument { return LineSweeperDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return LineSweeperDocument.sharedInstance }
+    
 }

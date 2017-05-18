@@ -9,4 +9,8 @@
 import UIKit
 
 class MasyuOptionsViewController: GameOptionsViewController {
+    
+    var gameDocument: MasyuDocument { return MasyuDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return MasyuDocument.sharedInstance }
+    
 }
