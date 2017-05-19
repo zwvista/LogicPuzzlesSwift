@@ -57,7 +57,13 @@ class SlitherLinkGameState: GridGameState {
         }
     }
     
+    private func isValidMove(move: inout SlitherLinkGameMove) -> Bool {
+        return !(move.p.row == rows - 1 && move.dir == 2 ||
+            move.p.col == cols - 1 && move.dir == 1)
+    }
+    
     func setObject(move: inout SlitherLinkGameMove) -> Bool {
+        guard isValidMove(move: &move) else {return false}
         var changed = false
         func f(o1: inout GridLineObject, o2: inout GridLineObject) {
             if o1 != move.obj {
@@ -76,6 +82,7 @@ class SlitherLinkGameState: GridGameState {
     }
     
     func switchObject(move: inout SlitherLinkGameMove) -> Bool {
+        guard isValidMove(move: &move) else {return false}
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: GridLineObject) -> GridLineObject {
             switch o {
