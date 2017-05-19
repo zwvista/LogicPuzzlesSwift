@@ -119,12 +119,12 @@ class FenceSentinelsGameState: GridGameState {
         isSolved = true
         for (p, n2) in game.pos2hint {
             var n1 = -3
-            next: for i in 0..<4 {
+            for i in 0..<4 {
                 let os = FenceSentinelsGame.offset[i]
                 var p2 = p
                 while game.isValid(p: p2) {
                     n1 += 1
-                    guard self[p2 + FenceSentinelsGame.offset2[i]][FenceSentinelsGame.dirs[i]] != .line else {continue next}
+                    guard self[p2 + FenceSentinelsGame.offset2[i]][FenceSentinelsGame.dirs[i]] != .line else {break}
                     p2 += os
                 }
             }
