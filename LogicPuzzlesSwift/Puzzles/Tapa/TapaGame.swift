@@ -41,6 +41,7 @@ class TapaGame: GridGame<TapaGameViewController> {
                 guard s != "" else {continue}
                 pos2hint[p] = [Int]()
                 for ch in s.trimmed().characters {
+                    guard case "0"..."9" = ch else {continue}
                     pos2hint[p]!.append(ch.toInt!)
                 }
             }

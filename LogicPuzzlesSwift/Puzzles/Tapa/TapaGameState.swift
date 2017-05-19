@@ -139,6 +139,7 @@ class TapaGameState: GridGameState {
             self[p] = .hint(state: s)
             if s != .complete {isSolved = false}
         }
+        guard isSolved else {return}
         for r in 0..<rows - 1 {
             rule2x2:
             for c in 0..<cols - 1 {
@@ -152,7 +153,6 @@ class TapaGameState: GridGameState {
         let g = Graph()
         var pos2node = [Position: Node]()
         var rngWalls = [Position]()
-        var rngEmpty = [Position]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
@@ -161,7 +161,7 @@ class TapaGameState: GridGameState {
                 case .wall:
                     rngWalls.append(p)
                 default:
-                    rngEmpty.append(p)
+                    break
                 }
             }
         }
@@ -173,11 +173,7 @@ class TapaGameState: GridGameState {
                 }
             }
         }
-        if rngWalls.isEmpty {
-            isSolved = false
-        } else {
-            let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
-            if rngWalls.count != nodesExplored.count {isSolved = false}
-        }
+        let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
+        if rngWalls.count != nodesExplored.count {isSolved = false}
     }
 }
