@@ -539,6 +539,17 @@
 		8C916CC41DAA5FEB00D9E62B /* music.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CC31DAA5FEB00D9E62B /* music.wav */; };
 		8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CC51DAB1E6000D9E62B /* tap.wav */; };
 		8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CCD1DAB35FC00D9E62B /* solved.wav */; };
+		8C9F32291ECF06C000E10965 /* Tapa.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F321E1ECF06BF00E10965 /* Tapa.xml */; };
+		8C9F322A1ECF06C000E10965 /* TapaDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F321F1ECF06BF00E10965 /* TapaDocument.swift */; };
+		8C9F322B1ECF06C000E10965 /* TapaGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F32201ECF06BF00E10965 /* TapaGame.swift */; };
+		8C9F322C1ECF06C000E10965 /* TapaGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F32211ECF06BF00E10965 /* TapaGameScene.swift */; };
+		8C9F322D1ECF06C000E10965 /* TapaGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F32221ECF06BF00E10965 /* TapaGameState.swift */; };
+		8C9F322E1ECF06C000E10965 /* TapaGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F32231ECF06BF00E10965 /* TapaGameViewController.swift */; };
+		8C9F322F1ECF06C000E10965 /* TapaGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F32241ECF06BF00E10965 /* TapaGridNode.swift */; };
+		8C9F32301ECF06C000E10965 /* TapaHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F32251ECF06BF00E10965 /* TapaHelpViewController.swift */; };
+		8C9F32311ECF06C000E10965 /* TapaMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F32261ECF06BF00E10965 /* TapaMainViewController.swift */; };
+		8C9F32321ECF06C000E10965 /* TapaObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F32271ECF06BF00E10965 /* TapaObject.swift */; };
+		8C9F32331ECF06C000E10965 /* TapaOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F32281ECF06BF00E10965 /* TapaOptionsViewController.swift */; };
 		8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43DA1D771915000139FC /* AppDelegate.swift */; };
 		8C9F43E41D771915000139FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E31D771915000139FC /* Assets.xcassets */; };
 		8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E51D771915000139FC /* LaunchScreen.storyboard */; };
@@ -1185,6 +1196,17 @@
 		8C916CC31DAA5FEB00D9E62B /* music.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music.wav; sourceTree = "<group>"; };
 		8C916CC51DAB1E6000D9E62B /* tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tap.wav; sourceTree = "<group>"; };
 		8C916CCD1DAB35FC00D9E62B /* solved.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = solved.wav; sourceTree = "<group>"; };
+		8C9F321E1ECF06BF00E10965 /* Tapa.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tapa.xml; sourceTree = "<group>"; };
+		8C9F321F1ECF06BF00E10965 /* TapaDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaDocument.swift; sourceTree = "<group>"; };
+		8C9F32201ECF06BF00E10965 /* TapaGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaGame.swift; sourceTree = "<group>"; };
+		8C9F32211ECF06BF00E10965 /* TapaGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaGameScene.swift; sourceTree = "<group>"; };
+		8C9F32221ECF06BF00E10965 /* TapaGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaGameState.swift; sourceTree = "<group>"; };
+		8C9F32231ECF06BF00E10965 /* TapaGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaGameViewController.swift; sourceTree = "<group>"; };
+		8C9F32241ECF06BF00E10965 /* TapaGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaGridNode.swift; sourceTree = "<group>"; };
+		8C9F32251ECF06BF00E10965 /* TapaHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaHelpViewController.swift; sourceTree = "<group>"; };
+		8C9F32261ECF06BF00E10965 /* TapaMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaMainViewController.swift; sourceTree = "<group>"; };
+		8C9F32271ECF06BF00E10965 /* TapaObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaObject.swift; sourceTree = "<group>"; };
+		8C9F32281ECF06BF00E10965 /* TapaOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaOptionsViewController.swift; sourceTree = "<group>"; };
 		8C9F43D71D771915000139FC /* LogicPuzzlesSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogicPuzzlesSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9F43DA1D771915000139FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C9F43E31D771915000139FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1373,6 +1395,7 @@
 				8C3A35A71EC88D4200A914A5 /* SlitherLink */,
 				8C3A35B41EC88D4200A914A5 /* Snail */,
 				8C3A35C11EC88D4200A914A5 /* Sumscrapers */,
+				8C9F321D1ECF06BF00E10965 /* Tapa */,
 				8C3A35CE1EC88D4200A914A5 /* Tatami */,
 				8C3A35DB1EC88D4200A914A5 /* Tents */,
 			);
@@ -2314,6 +2337,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8C9F321D1ECF06BF00E10965 /* Tapa */ = {
+			isa = PBXGroup;
+			children = (
+				8C9F321E1ECF06BF00E10965 /* Tapa.xml */,
+				8C9F321F1ECF06BF00E10965 /* TapaDocument.swift */,
+				8C9F32201ECF06BF00E10965 /* TapaGame.swift */,
+				8C9F32211ECF06BF00E10965 /* TapaGameScene.swift */,
+				8C9F32221ECF06BF00E10965 /* TapaGameState.swift */,
+				8C9F32231ECF06BF00E10965 /* TapaGameViewController.swift */,
+				8C9F32241ECF06BF00E10965 /* TapaGridNode.swift */,
+				8C9F32251ECF06BF00E10965 /* TapaHelpViewController.swift */,
+				8C9F32261ECF06BF00E10965 /* TapaMainViewController.swift */,
+				8C9F32271ECF06BF00E10965 /* TapaObject.swift */,
+				8C9F32281ECF06BF00E10965 /* TapaOptionsViewController.swift */,
+			);
+			path = Tapa;
+			sourceTree = "<group>";
+		};
 		8C9F43CE1D771915000139FC = {
 			isa = PBXGroup;
 			children = (
@@ -2522,6 +2563,7 @@
 				8C9F43E41D771915000139FC /* Assets.xcassets in Resources */,
 				8C3A35F41EC88D4200A914A5 /* AbstractPainting.xml in Resources */,
 				8C3A37B01EC88D4400A914A5 /* SlitherLink.xml in Resources */,
+				8C9F32291ECF06C000E10965 /* Tapa.xml in Resources */,
 				8C3A36A81EC88D4200A914A5 /* LightBattleShips.xml in Resources */,
 				8C3A36901EC88D4200A914A5 /* FenceSentinels.xml in Resources */,
 				8C3A37081EC88D4300A914A5 /* MineShips.xml in Resources */,
@@ -2788,6 +2830,7 @@
 				8C3A35EB1EC88D4200A914A5 /* AbcGameScene.swift in Sources */,
 				8C3A36361EC88D4200A914A5 /* BoxItUpGridNode.swift in Sources */,
 				8C3A37DF1EC88D4400A914A5 /* TatamiOptionsViewController.swift in Sources */,
+				8C9F322A1ECF06C000E10965 /* TapaDocument.swift in Sources */,
 				8CC350411E001D2800B8FD83 /* DoubleExtensions.swift in Sources */,
 				8C3A36501EC88D4200A914A5 /* BusySeasMainViewController.swift in Sources */,
 				8C3A37B21EC88D4400A914A5 /* SlitherLinkGame.swift in Sources */,
@@ -2805,6 +2848,7 @@
 				8C3A36C71EC88D4300A914A5 /* LighthousesHelpViewController.swift in Sources */,
 				8C3A36531EC88D4200A914A5 /* BusySeasOptionsViewController.swift in Sources */,
 				8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */,
+				8C9F322E1ECF06C000E10965 /* TapaGameViewController.swift in Sources */,
 				8C3A376D1EC88D4300A914A5 /* ParksGameViewController.swift in Sources */,
 				8C3A36BE1EC88D4300A914A5 /* LightenUpObject.swift in Sources */,
 				8C3A36731EC88D4200A914A5 /* DominoHelpViewController.swift in Sources */,
@@ -2907,6 +2951,7 @@
 				8C3A37331EC88D4300A914A5 /* MosaikHelpViewController.swift in Sources */,
 				8C3A36711EC88D4200A914A5 /* DominoGameViewController.swift in Sources */,
 				8C3A375B1EC88D4300A914A5 /* OrchardsOptionsViewController.swift in Sources */,
+				8C9F32311ECF06C000E10965 /* TapaMainViewController.swift in Sources */,
 				8C3A376E1EC88D4300A914A5 /* ParksGridNode.swift in Sources */,
 				8CC350311E001D2800B8FD83 /* ArrayExtensions.swift in Sources */,
 				8C3A37A61EC88D4400A914A5 /* SkyscrapersGame.swift in Sources */,
@@ -2934,6 +2979,7 @@
 				8C886C421D9E8AF1004A42BF /* ActionSheetStringPicker.m in Sources */,
 				8C3A36DE1EC88D4300A914A5 /* LitsGridNode.swift in Sources */,
 				8C3A36061EC88D4200A914A5 /* BattleShipsGridNode.swift in Sources */,
+				8C9F32301ECF06C000E10965 /* TapaHelpViewController.swift in Sources */,
 				8C3A36941EC88D4200A914A5 /* FenceSentinelsGameState.swift in Sources */,
 				8C3A37CE1EC88D4400A914A5 /* SumscrapersGridNode.swift in Sources */,
 				8C3A36651EC88D4200A914A5 /* DigitalBattleShipsGameViewController.swift in Sources */,
@@ -2954,6 +3000,7 @@
 				8C3A35EF1EC88D4200A914A5 /* AbcHelpViewController.swift in Sources */,
 				8C3A37D81EC88D4400A914A5 /* TatamiGameState.swift in Sources */,
 				8C3A37E11EC88D4400A914A5 /* TentsDocument.swift in Sources */,
+				8C9F322C1ECF06C000E10965 /* TapaGameScene.swift in Sources */,
 				8C3A36B61EC88D4300A914A5 /* LightenUpGame.swift in Sources */,
 				8C7609181EC7778100DFCD7B /* GameHelpViewController.swift in Sources */,
 				8CC350561E001D2800B8FD83 /* UISliderExtensions.swift in Sources */,
@@ -3000,14 +3047,17 @@
 				8C3A36F61EC88D4300A914A5 /* MagnetsGridNode.swift in Sources */,
 				8C3A361E1EC88D4200A914A5 /* BoxItAgainGridNode.swift in Sources */,
 				8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */,
+				8C9F322B1ECF06C000E10965 /* TapaGame.swift in Sources */,
 				8C3A37311EC88D4300A914A5 /* MosaikGameViewController.swift in Sources */,
 				8C3A37521EC88D4300A914A5 /* OrchardsGame.swift in Sources */,
 				8C3A36191EC88D4200A914A5 /* BoxItAgainDocument.swift in Sources */,
 				8C3A377C1EC88D4300A914A5 /* PowerGridMainViewController.swift in Sources */,
 				8C3A37571EC88D4300A914A5 /* OrchardsHelpViewController.swift in Sources */,
+				8C9F322F1ECF06C000E10965 /* TapaGridNode.swift in Sources */,
 				8C3A36D11EC88D4300A914A5 /* LineSweeperGameViewController.swift in Sources */,
 				8CC350541E001D2800B8FD83 /* UIImageViewExtensions.swift in Sources */,
 				8C3A364B1EC88D4200A914A5 /* BusySeasGameScene.swift in Sources */,
+				8C9F32331ECF06C000E10965 /* TapaOptionsViewController.swift in Sources */,
 				8C3A37451EC88D4300A914A5 /* NurikabeDocument.swift in Sources */,
 				8CC350521E001D2800B8FD83 /* UIFontExtensions.swift in Sources */,
 				8C3A371C1EC88D4300A914A5 /* MinesweeperMainViewController.swift in Sources */,
@@ -3087,6 +3137,7 @@
 				8C3A36F51EC88D4300A914A5 /* MagnetsGameViewController.swift in Sources */,
 				8CC3503C1E001D2800B8FD83 /* CGPointExtensions.swift in Sources */,
 				8C3A37E71EC88D4400A914A5 /* TentsHelpViewController.swift in Sources */,
+				8C9F32321ECF06C000E10965 /* TapaObject.swift in Sources */,
 				8C3A37061EC88D4300A914A5 /* MasyuObject.swift in Sources */,
 				8C3A371E1EC88D4300A914A5 /* MinesweeperObject.swift in Sources */,
 				8C3A37DA1EC88D4400A914A5 /* TatamiGridNode.swift in Sources */,
@@ -3104,6 +3155,7 @@
 				8C3A36E01EC88D4300A914A5 /* LitsMainViewController.swift in Sources */,
 				8C3A36CB1EC88D4300A914A5 /* LighthousesOptionsViewController.swift in Sources */,
 				8C3A368F1EC88D4200A914A5 /* FenceLitsOptionsViewController.swift in Sources */,
+				8C9F322D1ECF06C000E10965 /* TapaGameState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

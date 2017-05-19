@@ -37,18 +37,22 @@ class GameScene<GS: GameStateBase>: SKScene {
             node.removeFromParent()
         }
     }
-
-    func addLabel(text: String, fontColor: SKColor, point: CGPoint, nodeName: String) {
+    
+    func addLabel(text: String, fontColor: SKColor, point: CGPoint, nodeName: String, size: CGSize) {
         let labelNode = SKLabelNode(text: text)
         labelNode.fontColor = fontColor
         labelNode.fontName = labelNode.fontName! + "-Bold"
         // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
-        let scalingFactor = min(gridNode.blockSize / labelNode.frame.width, gridNode.blockSize / labelNode.frame.height)
+        let scalingFactor = min(size.width / labelNode.frame.width, size.height / labelNode.frame.height)
         labelNode.fontSize *= scalingFactor * 0.8
         labelNode.verticalAlignmentMode = .center
         labelNode.position = point
         labelNode.name = nodeName
         gridNode.addChild(labelNode)
+    }
+
+    func addLabel(text: String, fontColor: SKColor, point: CGPoint, nodeName: String) {
+        addLabel(text: text, fontColor: fontColor, point: point, nodeName: nodeName, size: CGSize(width: gridNode.blockSize, height: gridNode.blockSize))
     }
     
     func addImage(imageNamed: String, color: SKColor, colorBlendFactor: CGFloat, point: CGPoint, nodeName: String) {

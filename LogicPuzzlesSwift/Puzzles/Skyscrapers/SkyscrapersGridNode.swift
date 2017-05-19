@@ -10,7 +10,7 @@ import SpriteKit
 
 // http://stackoverflow.com/questions/33464925/draw-a-grid-with-spritekit
 
-class SkyscrapersGridNode : GridNode {
+class SkyscrapersGridNode: GridNode {
     convenience init(blockSize: CGFloat, rows: Int, cols: Int) {
         let texture = GridNode.gridTexture(blockSize: blockSize, rows: rows, cols: cols, verticalLinesRange: 1...cols - 1, horizontalLinesRange: 1...rows - 1)
         self.init(texture: texture, color: .clear, size: texture.size())

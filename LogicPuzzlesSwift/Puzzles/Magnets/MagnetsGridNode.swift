@@ -10,7 +10,7 @@ import SpriteKit
 
 // http://stackoverflow.com/questions/33464925/draw-a-grid-with-spritekit
 
-class MagnetsGridNode : GridNode {
+class MagnetsGridNode: GridNode {
     convenience init(blockSize: CGFloat, rows: Int, cols: Int) {
         let texture = GridNode.gridTexture(blockSize: blockSize, rows: rows, cols: cols, verticalLinesRange: 0...0, horizontalLinesRange: 0...0)
         self.init(texture: texture, color: .clear, size: texture.size())

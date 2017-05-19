@@ -10,9 +10,9 @@ import SpriteKit
 
 // http://stackoverflow.com/questions/33464925/draw-a-grid-with-spritekit
 
-class AbcGridNode: GridNode {
+class TapaGridNode: GridNode {
     convenience init(blockSize: CGFloat, rows: Int, cols: Int) {
-        let texture = GridNode.gridTexture(blockSize: blockSize, rows: rows, cols: cols, verticalLinesRange: 1...cols - 1, horizontalLinesRange: 1...rows - 1)
+        let texture = GridNode.gridTexture(blockSize: blockSize, rows: rows, cols: cols, verticalLinesRange: 0...cols, horizontalLinesRange: 0...rows)
         self.init(texture: texture, color: .clear, size: texture.size())
         self.blockSize = blockSize
         self.rows = rows

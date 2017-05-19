@@ -1,0 +1,180 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. The goal is to fill some tiles forming a single orthogonally continuous path. Just like Tapa.
+2. A number indicates how many of the surrounding tiles are filled. If a tile has more than one number, it hints at multiple separated groups of filled tiles.
+3. For example, a cell with a 1 and 3 means there is a continuous group of 3 filled cells around it and one more single filled cell, separated from the other 3. The order of the numbers in this case is irrelevant.
+4. Filled tiles can't cover an area of 2*2 or larger (just like Tapa). Tiles with numbers can be considered 'empty'.  Variations
+5. Tapa has plenty of variations. Some are available in the levels of this game. Stronger variations are B-W Tapa, Island Tapa and Pata and have their own game.
+6. Equal Tapa - The board contains an equal number of white and black tiles. Tiles with numbers or question marks are NOT counted as empty or filled for this rule (i.e. they're left out of the count).
+7. Four-Me-Tapa - Four-Me-Not rule apply: you can't have more than three filled tiles in line.
+8. No Square Tapa - No 2*2 area of the board can be left empty.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+    22      22      `
+            7       `
+                    `
+    33              `
+                2   `
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+2                   `
+                    `
+3           3       `
+        12  4       `
+        11          `
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+                    `
+    3           5   `
+    5   5           `
+                    `
+2   4           1   `
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+1               1       `
+        3       4       `
+                        `
+    7           7       `
+                        `
+    3   4       22      `
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+                        `
+22                  4   `
+            22          `
+4       4       22      `
+3       5               `
+                    3   `
+    ]]>
+  </level>
+  <level id="6" GameType="Four-Me-Tapa">
+    <![CDATA[
+            3           `
+    5                   `
+                7       `
+                22      `
+            2           `
+2               0       `
+    ]]>
+  </level>
+  <level id="7" GameType="Four-Me-Tapa">
+    <![CDATA[
+3           1           `
+            4           `
+                    1   `
+        15      5       `
+22                  3   `
+            5           `
+    ]]>
+  </level>
+  <level id="8" GameType="No Square Tapa">
+    <![CDATA[
+        11              `
+            14      3   `
+    23      6           `
+    33                  `
+                        `
+            12      2   `
+    ]]>
+  </level>
+  <level id="9" GameType="No Square Tapa">
+    <![CDATA[
+2           3       2   `
+3                       `
+        7           4   `
+                        `
+4           6       3   `
+2       12              `
+    ]]>
+  </level>
+  <level id="10" GameType="Equal Tapa">
+    <![CDATA[
+    0               2   `
+        5               `
+                        `
+    5           22      `
+    3           11  1   `
+                        `
+    ]]>
+  </level>
+  <level id="11" GameType="Equal Tapa">
+    <![CDATA[
+        2               `
+1                   12  `
+    4                   `
+                6       `
+            12          `
+                        `
+    ]]>
+  </level>
+  <level id="44">
+    <![CDATA[
+    2                           1?      `
+            22      3           ?       `
+2?              ?                       `
+            22      2                   `
+                                        `
+    ?                           23      `
+                                        `
+                5       ?   ??          `
+        4                   2           `
+    2               1               1   `
+    ]]>
+  </level>
+  <level id="62" GameType="Four-Me-Tapa">
+    <![CDATA[
+                                        `
+3                               6       `
+    5                   3               `
+                    1?      4           `
+2                                       `
+                        2?              `
+    6                                   `
+                                        `
+2                   1?                  `
+                        1       3       `
+    ]]>
+  </level>
+  <level id="64" GameType="No Square Tapa">
+    <![CDATA[
+    3                       ??          `
+                    12              2   `
+11          7                           `
+                                        `
+    22                  4?          2   `
+                        6               `
+                1?                      `
+                                5       `
+    6   ???         22                  `
+                                2       `
+    ]]>
+  </level>
+  <level id="67" GameType="Equal Tapa">
+    <![CDATA[
+                                        `
+    5           ?               2       `
+                                        `
+    4       ??              4           `
+                                        `
+        5           ?           14      `
+                                        `
+1                   11      3           `
+    23                  2           ?   `
+                            ?           `
+    ]]>
+  </level>
+</levels>
+</puzzle>
