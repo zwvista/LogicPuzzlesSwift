@@ -11,9 +11,13 @@ import Foundation
 class TapaGame: GridGame<TapaGameViewController> {
     static let offset = [
         Position(-1, 0),
+        Position(-1, 1),
         Position(0, 1),
+        Position(1, 1),
         Position(1, 0),
+        Position(1, -1),
         Position(0, -1),
+        Position(-1, -1),
     ]
     static let offset2 = [
         Position(0, 0),

@@ -84,27 +84,61 @@ class TapaGameState: GridGameState {
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 1/Tapa
+        iOS Game: Logic Games/Puzzle Set 9/Tapa
 
         Summary
-        Draw a continuous wall that divides gardens as big as the numbers
+        Turkish art of PAint(TAPA)
 
         Description
-        1. Each number on the grid indicates a garden, occupying as many tiles
-           as the number itself.
-        2. Gardens can have any form, extending horizontally and vertically, but
-           can't extend diagonally.
-        3. The garden is separated by a single continuous wall. This means all
-           wall tiles on the board must be connected horizontally or vertically.
-           There can't be isolated walls.
-        4. You must find and mark the wall following these rules:
-        5. All the gardens in the puzzle are numbered at the start, there are no
-           hidden gardens.
-        6. A wall can't go over numbered squares.
-        7. The wall can't form 2*2 squares.
+        1. The goal is to fill some tiles forming a single orthogonally continuous
+           path. Just like Nurikabe.
+        2. A number indicates how many of the surrounding tiles are filled. If a
+           tile has more than one number, it hints at multiple separated groups
+           of filled tiles.
+        3. For example, a cell with a 1 and 3 means there is a continuous group
+           of 3 filled cells around it and one more single filled cell, separated
+           from the other 3. The order of the numbers in this case is irrelevant.
+        4. Filled tiles can't cover an area of 2*2 or larger (just like Nurikabe).
+           Tiles with numbers can be considered 'empty'.
+
+        Variations
+        5. Tapa has plenty of variations. Some are available in the levels of this
+           game. Stronger variations are B-W Tapa, Island Tapa and Pata and have
+           their own game.
+        6. Equal Tapa - The board contains an equal number of white and black tiles.
+           Tiles with numbers or question marks are NOT counted as empty or filled
+           for this rule (i.e. they're left out of the count).
+        7. Four-Me-Tapa - Four-Me-Not rule apply: you can't have more than three
+           filled tiles in line.
+        8. No Square Tapa - No 2*2 area of the board can be left empty.
     */
     private func updateIsSolved() {
         isSolved = true
+        func computeHint(filled: [Int]) -> [Int] {
+            if filled.isEmpty {return [0]}
+            var hint = [Int]()
+            for j in 0..<filled.count {
+                if j == 0 || filled[j] - filled[j - 1] != 1 {
+                    hint.append(1)
+                } else {
+                    hint[hint.count - 1] += 1
+                }
+            }
+            if filled.count > 1 && hint.count > 1 && filled.last! - filled.first! == 7 {
+                hint[0] += hint.last!; hint.removeLast()
+            }
+            return hint.sorted()
+        }
+        for (p, arr2) in game.pos2hint {
+            let filled = [Int](0..<8).filter({
+                let p2 = p + TapaGame.offset[$0]
+                return isValid(p: p2) && String(describing: self[p2]) == String(describing: TapaObject.wall)
+            })
+            let arr = computeHint(filled: filled)
+            let s: HintState = arr == [0] ? .normal : arr == arr2 ? .complete : .error
+            self[p] = .hint(state: s)
+            if s != .complete {isSolved = false}
+        }
         for r in 0..<rows - 1 {
             rule2x2:
             for c in 0..<cols - 1 {
@@ -112,7 +146,7 @@ class TapaGameState: GridGameState {
                 for os in TapaGame.offset2 {
                     guard case .wall = self[p + os] else {continue rule2x2}
                 }
-                isSolved = false
+                isSolved = false; return
             }
         }
         let g = Graph()
@@ -139,46 +173,11 @@ class TapaGameState: GridGameState {
                 }
             }
         }
-        for p in rngEmpty {
-            for os in TapaGame.offset {
-                let p2 = p + os
-                if rngEmpty.contains(p2) {
-                    g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
-                }
-            }
-        }
         if rngWalls.isEmpty {
             isSolved = false
         } else {
             let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
             if rngWalls.count != nodesExplored.count {isSolved = false}
-        }
-        while !rngEmpty.isEmpty {
-            let node = pos2node[rngEmpty.first!]!
-            let nodesExplored = breadthFirstSearch(g, source: node)
-            rngEmpty = rngEmpty.filter({p in !nodesExplored.contains(p.description)})
-            let n2 = nodesExplored.count
-            var rng = [Position]()
-            for p in game.pos2hint.keys {
-                if nodesExplored.contains(p.description) {
-                    rng.append(p)
-                }
-            }
-            switch rng.count {
-            case 0:
-                isSolved = false
-            case 1:
-                let p = rng[0]
-                let n1 = game.pos2hint[p]!
-                let s: HintState = n1[0] == n2 ? .complete : .error
-                self[p] = .hint(state: s)
-                if s != .complete {isSolved = false}
-            default:
-                for p in rng {
-                    self[p] = .hint(state: .normal)
-                }
-                isSolved = false
-            }
         }
     }
 }
