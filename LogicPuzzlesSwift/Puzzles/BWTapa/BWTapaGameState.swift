@@ -84,33 +84,15 @@ class BWTapaGameState: GridGameState {
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 9/BWTapa
+        iOS Game: Logic Games/Puzzle Set 9/B&W Tapa
 
         Summary
-        Turkish art of PAint(TAPA)
+        Black and white Tapas
 
         Description
-        1. The goal is to fill some tiles forming a single orthogonally continuous
-           path. Just like Nurikabe.
-        2. A number indicates how many of the surrounding tiles are filled. If a
-           tile has more than one number, it hints at multiple separated groups
-           of filled tiles.
-        3. For example, a cell with a 1 and 3 means there is a continuous group
-           of 3 filled cells around it and one more single filled cell, separated
-           from the other 3. The order of the numbers in this case is irrelevant.
-        4. Filled tiles can't cover an area of 2*2 or larger (just like Nurikabe).
-           Tiles with numbers can be considered 'empty'.
-
-        Variations
-        5. BWTapa has plenty of variations. Some are available in the levels of this
-           game. Stronger variations are B-W BWTapa, Island BWTapa and Pata and have
-           their own game.
-        6. Equal BWTapa - The board contains an equal number of white and black tiles.
-           Tiles with numbers or question marks are NOT counted as empty or filled
-           for this rule (i.e. they're left out of the count).
-        7. Four-Me-BWTapa - Four-Me-Not rule apply: you can't have more than three
-           filled tiles in line.
-        8. No Square BWTapa - No 2*2 area of the board can be left empty.
+        1. Play with the same rules as Tapa with these variations:
+        2. Both Black and White cells must form a single continuous region.
+        3. There can't be any 2*2 of white or black cells.
     */
     private func updateIsSolved() {
         isSolved = true
@@ -149,18 +131,21 @@ class BWTapaGameState: GridGameState {
         }
         guard isSolved else {return}
         for r in 0..<rows - 1 {
-            rule2x2:
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                for os in BWTapaGame.offset2 {
-                    guard case .wall = self[p + os] else {continue rule2x2}
-                }
-                isSolved = false; return
+                if BWTapaGame.offset2.testAll({os in
+                    let o = self[p + os]
+                    if case .wall = o {return true} else {return false}
+                }) || BWTapaGame.offset2.testAll({os in
+                    let o = self[p + os]
+                    if case .empty = o, case .hint = o {return true} else {return false}
+                }) {isSolved = false; return}
             }
         }
         let g = Graph()
         var pos2node = [Position: Node]()
         var rngWalls = [Position]()
+        var rngEmpty = [Position]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
@@ -169,7 +154,7 @@ class BWTapaGameState: GridGameState {
                 case .wall:
                     rngWalls.append(p)
                 default:
-                    break
+                    rngEmpty.append(p)
                 }
             }
         }
@@ -181,7 +166,17 @@ class BWTapaGameState: GridGameState {
                 }
             }
         }
+        for p in rngEmpty {
+            for os in NurikabeGame.offset {
+                let p2 = p + os
+                if rngEmpty.contains(p2) {
+                    g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
+                }
+            }
+        }
         let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
-        if rngWalls.count != nodesExplored.count {isSolved = false}
+        if rngWalls.count != nodesExplored.count {isSolved = false; return}
+        let nodesExplored2 = breadthFirstSearch(g, source: pos2node[rngEmpty.first!]!)
+        if rngEmpty.count != nodesExplored2.count {isSolved = false; return}
     }
 }

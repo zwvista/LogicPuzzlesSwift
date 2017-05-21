@@ -149,13 +149,12 @@ class TapaGameState: GridGameState {
         }
         guard isSolved else {return}
         for r in 0..<rows - 1 {
-            rule2x2:
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                for os in TapaGame.offset2 {
-                    guard case .wall = self[p + os] else {continue rule2x2}
-                }
-                isSolved = false; return
+                if TapaGame.offset2.testAll({os in
+                    let o = self[p + os]
+                    if case .wall = o {return true} else {return false}
+                }) {isSolved = false; return}
             }
         }
         let g = Graph()
