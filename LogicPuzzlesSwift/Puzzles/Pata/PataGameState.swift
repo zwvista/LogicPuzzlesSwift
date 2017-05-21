@@ -1,5 +1,5 @@
 //
-//  TapaGameState.swift
+//  PataGameState.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/19.
@@ -8,37 +8,37 @@
 
 import Foundation
 
-class TapaGameState: GridGameState {
+class PataGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
-    var game: TapaGame {
-        get {return getGame() as! TapaGame}
+    var game: PataGame {
+        get {return getGame() as! PataGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: TapaDocument { return TapaDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return TapaDocument.sharedInstance }
-    var objArray = [TapaObject]()
+    var gameDocument: PataDocument { return PataDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return PataDocument.sharedInstance }
+    var objArray = [PataObject]()
     
-    override func copy() -> TapaGameState {
-        let v = TapaGameState(game: game, isCopy: true)
+    override func copy() -> PataGameState {
+        let v = PataGameState(game: game, isCopy: true)
         return setup(v: v)
     }
-    func setup(v: TapaGameState) -> TapaGameState {
+    func setup(v: PataGameState) -> PataGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
         return v
     }
     
-    required init(game: TapaGame, isCopy: Bool = false) {
+    required init(game: PataGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<TapaObject>(repeating: TapaObject(), count: rows * cols)
+        objArray = Array<PataObject>(repeating: PataObject(), count: rows * cols)
         for p in game.pos2hint.keys {
             self[p] = .hint(state: .normal)
         }
         updateIsSolved()
     }
     
-    subscript(p: Position) -> TapaObject {
+    subscript(p: Position) -> PataObject {
         get {
             return self[p.row, p.col]
         }
@@ -46,7 +46,7 @@ class TapaGameState: GridGameState {
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> TapaObject {
+    subscript(row: Int, col: Int) -> PataObject {
         get {
             return objArray[row * cols + col]
         }
@@ -55,7 +55,7 @@ class TapaGameState: GridGameState {
         }
     }
     
-    func setObject(move: inout TapaGameMove) -> Bool {
+    func setObject(move: inout PataGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         if case .hint = o1 {return false}
@@ -65,9 +65,9 @@ class TapaGameState: GridGameState {
         return true
     }
     
-    func switchObject(move: inout TapaGameMove) -> Bool {
+    func switchObject(move: inout PataGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
-        func f(o: TapaObject) -> TapaObject {
+        func f(o: PataObject) -> PataObject {
             switch o {
             case .empty:
                 return markerOption == .markerFirst ? .marker : .wall
@@ -84,7 +84,7 @@ class TapaGameState: GridGameState {
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 9/Tapa
+        iOS Game: Logic Games/Puzzle Set 9/Pata
 
         Summary
         Turkish art of PAint(TAPA)
@@ -102,15 +102,15 @@ class TapaGameState: GridGameState {
            Tiles with numbers can be considered 'empty'.
 
         Variations
-        5. Tapa has plenty of variations. Some are available in the levels of this
-           game. Stronger variations are B-W Tapa, Island Tapa and Pata and have
+        5. Pata has plenty of variations. Some are available in the levels of this
+           game. Stronger variations are B-W Pata, Island Pata and Pata and have
            their own game.
-        6. Equal Tapa - The board contains an equal number of white and black tiles.
+        6. Equal Pata - The board contains an equal number of white and black tiles.
            Tiles with numbers or question marks are NOT counted as empty or filled
            for this rule (i.e. they're left out of the count).
-        7. Four-Me-Tapa - Four-Me-Not rule apply: you can't have more than three
+        7. Four-Me-Pata - Four-Me-Not rule apply: you can't have more than three
            filled tiles in line.
-        8. No Square Tapa - No 2*2 area of the board can be left empty.
+        8. No Square Pata - No 2*2 area of the board can be left empty.
     */
     private func updateIsSolved() {
         isSolved = true
@@ -139,8 +139,8 @@ class TapaGameState: GridGameState {
         }
         for (p, arr2) in game.pos2hint {
             let filled = [Int](0..<8).filter({
-                let p2 = p + TapaGame.offset[$0]
-                return isValid(p: p2) && String(describing: self[p2]) == String(describing: TapaObject.wall)
+                let p2 = p + PataGame.offset[$0]
+                return isValid(p: p2) && String(describing: self[p2]) == String(describing: PataObject.wall)
             })
             let arr = computeHint(filled: filled)
             let s: HintState = arr == [0] ? .normal : isCompatible(computedHint: arr, givenHint: arr2) ? .complete : .error
@@ -152,7 +152,7 @@ class TapaGameState: GridGameState {
             rule2x2:
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                for os in TapaGame.offset2 {
+                for os in PataGame.offset2 {
                     guard case .wall = self[p + os] else {continue rule2x2}
                 }
                 isSolved = false; return
@@ -174,7 +174,7 @@ class TapaGameState: GridGameState {
             }
         }
         for p in rngWalls {
-            for os in TapaGame.offset {
+            for os in PataGame.offset {
                 let p2 = p + os
                 if rngWalls.contains(p2) {
                     g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)

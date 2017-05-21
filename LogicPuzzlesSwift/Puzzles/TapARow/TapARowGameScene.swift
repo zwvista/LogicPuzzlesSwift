@@ -1,5 +1,5 @@
 //
-//  TapaGameScene.swift
+//  TapARowGameScene.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/09.
@@ -8,9 +8,9 @@
 
 import SpriteKit
 
-class TapaGameScene: GameScene<TapaGameState> {
-    var gridNode: TapaGridNode {
-        get {return getGridNode() as! TapaGridNode}
+class TapARowGameScene: GameScene<TapARowGameState> {
+    var gridNode: TapARowGridNode {
+        get {return getGridNode() as! TapARowGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     
@@ -41,14 +41,14 @@ class TapaGameScene: GameScene<TapaGameState> {
         }
     }
     
-    override func levelInitialized(_ game: AnyObject, state: TapaGameState, skView: SKView) {
-        let game = game as! TapaGame
+    override func levelInitialized(_ game: AnyObject, state: TapARowGameState, skView: SKView) {
+        let game = game as! TapARowGame
         removeAllChildren()
         let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
         
         // add Grid
         let offset:CGFloat = 0.5
-        addGrid(gridNode: TapaGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
+        addGrid(gridNode: TapARowGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
         // add Hints
         for (p, arr) in game.pos2hint {
@@ -60,7 +60,7 @@ class TapaGameScene: GameScene<TapaGameState> {
         }
     }
     
-    override func levelUpdated(from stateFrom: TapaGameState, to stateTo: TapaGameState) {
+    override func levelUpdated(from stateFrom: TapARowGameState, to stateTo: TapARowGameState) {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let point = gridNode.gridPosition(p: Position(r, c))

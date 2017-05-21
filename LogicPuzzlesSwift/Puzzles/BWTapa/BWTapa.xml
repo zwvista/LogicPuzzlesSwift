@@ -1,0 +1,206 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Play with the same rules as Tapa with these variations:
+2. Both Black and White cells must form a single continuous region.
+3. There can't be any 2*2 of white or black cells.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+2               2   `
+                3   `
+        33      3   `
+                    `
+1   1       1       `
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+1       3           `
+                3   `
+    22  7           `
+                    `
+    2   3   2       `
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+    3               `
+1           6       `
+11                  `
+                    `
+    2       3       `
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+    3   11          `
+                2   `
+4       7           `
+                    `
+        3           `
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+1   1       1       `
+                2   `
+                2   `
+    6           12  `
+                    `
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+                    `
+    7       5       `
+                    `
+        23      12  `
+                    `
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+        3               `
+                    2   `
+11  12              3   `
+        12              `
+3       15  6       4   `
+                        `
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+                        `
+                22      `
+    33                  `
+    23              2   `
+        13  113 13      `
+                        `
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+                        `
+        13          11  `
+                        `
+                    2   `
+    7       7       12  `
+                        `
+    ]]>
+  </level>
+  <level id="10">
+    <![CDATA[
+                ?       `
+                        `
+    1?              3   `
+                    2   `
+            ??? 3?      `
+                        `
+    ]]>
+  </level>
+  <level id="11">
+    <![CDATA[
+                        `
+                    4   `
+                        `
+??  6                   `
+?           ??          `
+        2               `
+    ]]>
+  </level>
+  <level id="12">
+    <![CDATA[
+?       ?   3           `
+                        `
+11  5       7           `
+                    2   `
+                    11  `
+2                       `
+    ]]>
+  </level>
+  <level id="13">
+    <![CDATA[
+                            `
+            ???         2   `
+            ??              `
+    ?           13          `
+                ??      3   `
+                        ?   `
+    2               ?       `
+    ]]>
+  </level>
+  <level id="14">
+    <![CDATA[
+    3                       `
+                            `
+                        3   `
+    ??      12              `
+            ??? 6       3   `
+                        ?   `
+1       3                   `
+    ]]>
+  </level>
+  <level id="15">
+    <![CDATA[
+?           3   ?           `
+1                           `
+11  5               ???     `
+2                   22      `
+                            `
+                            `
+        3       3   3       `
+    ]]>
+  </level>
+  <level id="16">
+    <![CDATA[
+?                       2   `
+    ??  33  33              `
+?                           `
+        ?       ?       ?   `
+                        ?   `
+        22                  `
+                11  ?       `
+    ]]>
+  </level>
+  <level id="17">
+    <![CDATA[
+                            `
+?           ??              `
+??  ???                     `
+    ??                      `
+    ???             ??      `
+            6               `
+                            `
+    ]]>
+  </level>
+  <level id="18">
+    <![CDATA[
+2                           `
+?       6                   `
+3           2?              `
+                        ?   `
+        3?      7           `
+                            `
+        3   3           ?   `
+    ]]>
+  </level>
+  <level id="33">
+    <![CDATA[
+                ??      3               `
+                                        `
+        4?                              `
+?                                       `
+                            33          `
+        3?                              `
+                                        `
+        4?  ??                  12      `
+                ?                       `
+?                                       `
+    ]]>
+  </level>
+</levels>
+</puzzle>

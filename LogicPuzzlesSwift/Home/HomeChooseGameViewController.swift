@@ -10,8 +10,47 @@ import UIKit
 
 class HomeChooseGameViewController: UITableViewController, HomeMixin {
     
+    var gameNames: [String]!
+    let name2title = [
+        "AbstractPainting": "Abstract Painting",
+        "BattleShips": "Battle Ships",
+        "BootyIsland": "Booty Island",
+        "BoxItAgain": "Box It Again",
+        "BoxItAround": "Box It Around",
+        "BoxItUp": "Box It Up",
+        "BusySeas": "Busy Seas",
+        "BWTapa": "B&W Tapa",
+        "DigitalBattleShips": "Digital BattleShips",
+        "FenceSentinels": "Fence Sentinels",
+        "LightBattleShips": "Light Battle Ships",
+        "LightenUp": "Lighten Up",
+        "MineShips": "Mine Ships",
+        "MiniLits": "Mini-Lits",
+        "ProductSentinels": "Product Sentinels",
+        "TapaIslands": "Tapa Islands",
+        "TapAlike": "Tap-Alike",
+        "TapARow": "Tap-A-Row",
+        "TapDifferently": "Tap Differently",
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        gameNames = try! FileManager.default.contentsOfDirectory(atPath: Bundle.main.bundlePath)
+            .filter({s in s[s.length - ".xml".length..<s.length] == ".xml"})
+            .map({s in s[0..<s.length - ".xml".length]})
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return gameNames.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath)
+        let gameName = gameNames[indexPath.row]
+        let gameTitle = name2title[gameName] ?? gameName
+        cell.textLabel!.restorationIdentifier = gameName
+        cell.textLabel!.text = gameTitle
+        return cell;
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

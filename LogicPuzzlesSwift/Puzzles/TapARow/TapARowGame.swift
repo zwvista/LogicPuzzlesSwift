@@ -1,5 +1,5 @@
 //
-//  TapaGame.swift
+//  TapARowGame.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/10.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TapaGame: GridGame<TapaGameViewController> {
+class TapARowGame: GridGame<TapARowGameViewController> {
     static let offset = [
         Position(-1, 0),
         Position(-1, 1),
@@ -28,7 +28,7 @@ class TapaGame: GridGame<TapaGameViewController> {
 
     var pos2hint = [Position: [Int]]()
     
-    init(layout: [String], delegate: TapaGameViewController? = nil) {
+    init(layout: [String], delegate: TapARowGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length / 4)
@@ -53,12 +53,12 @@ class TapaGame: GridGame<TapaGameViewController> {
             }
         }
         
-        let state = TapaGameState(game: self)
+        let state = TapARowGameState(game: self)
         states.append(state)
         levelInitilized(state: state)
     }
     
-    private func changeObject(move: inout TapaGameMove, f: (inout TapaGameState, inout TapaGameMove) -> Bool) -> Bool {
+    private func changeObject(move: inout TapARowGameMove, f: (inout TapARowGameState, inout TapARowGameMove) -> Bool) -> Bool {
         if canRedo {
             states.removeSubrange((stateIndex + 1)..<states.count)
             moves.removeSubrange(stateIndex..<moves.count)
@@ -75,11 +75,11 @@ class TapaGame: GridGame<TapaGameViewController> {
         return true
     }
     
-    func switchObject(move: inout TapaGameMove) -> Bool {
+    func switchObject(move: inout TapARowGameMove) -> Bool {
         return changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
     }
     
-    func setObject(move: inout TapaGameMove) -> Bool {
+    func setObject(move: inout TapARowGameMove) -> Bool {
         return changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
     }
     
