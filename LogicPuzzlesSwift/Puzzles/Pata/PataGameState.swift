@@ -87,44 +87,30 @@ class PataGameState: GridGameState {
         iOS Game: Logic Games/Puzzle Set 9/Pata
 
         Summary
-        Turkish art of PAint(TAPA)
+        Yes, it's the opposite of Tapa
 
         Description
-        1. The goal is to fill some tiles forming a single orthogonally continuous
-           path. Just like Nurikabe.
-        2. A number indicates how many of the surrounding tiles are filled. If a
-           tile has more than one number, it hints at multiple separated groups
-           of filled tiles.
-        3. For example, a cell with a 1 and 3 means there is a continuous group
-           of 3 filled cells around it and one more single filled cell, separated
-           from the other 3. The order of the numbers in this case is irrelevant.
-        4. Filled tiles can't cover an area of 2*2 or larger (just like Nurikabe).
-           Tiles with numbers can be considered 'empty'.
-
-        Variations
-        5. Pata has plenty of variations. Some are available in the levels of this
-           game. Stronger variations are B-W Pata, Island Pata and Pata and have
-           their own game.
-        6. Equal Pata - The board contains an equal number of white and black tiles.
-           Tiles with numbers or question marks are NOT counted as empty or filled
-           for this rule (i.e. they're left out of the count).
-        7. Four-Me-Pata - Four-Me-Not rule apply: you can't have more than three
-           filled tiles in line.
-        8. No Square Pata - No 2*2 area of the board can be left empty.
+        1. Plays the opposite of Tapa, regarding the hints:
+        2. A number indicates the groups of connected empty tiles that are around
+           it, instead of filled ones.
+        3. Different groups of empty tiles are separated by at least one filled cell.
+        4. Same as Tapa:
+        5. The filled tiles are continuous.
+        6. You can't have a 2*2 space of filled tiles.
     */
     private func updateIsSolved() {
         isSolved = true
-        func computeHint(filled: [Int]) -> [Int] {
-            if filled.isEmpty {return [0]}
+        func computeHint(emptied: [Int]) -> [Int] {
+            if emptied.isEmpty {return [0]}
             var hint = [Int]()
-            for j in 0..<filled.count {
-                if j == 0 || filled[j] - filled[j - 1] != 1 {
+            for j in 0..<emptied.count {
+                if j == 0 || emptied[j] - emptied[j - 1] != 1 {
                     hint.append(1)
                 } else {
                     hint[hint.count - 1] += 1
                 }
             }
-            if filled.count > 1 && hint.count > 1 && filled.last! - filled.first! == 7 {
+            if emptied.count > 1 && emptied.count > 1 && emptied.last! - emptied.first! == 7 {
                 hint[0] += hint.last!; hint.removeLast()
             }
             return hint.sorted()
@@ -138,24 +124,32 @@ class PataGameState: GridGameState {
             return h2.isSubset(of: h1)
         }
         for (p, arr2) in game.pos2hint {
+            let emptied = [Int](0..<8).filter({
+                let p2 = p + PataGame.offset[$0]
+                guard isValid(p: p2) else {return false}
+                switch self[p2] {
+                case .empty, .hint: return true
+                default: return false
+                }
+            })
+            let arr = computeHint(emptied: emptied)
             let filled = [Int](0..<8).filter({
                 let p2 = p + PataGame.offset[$0]
-                return isValid(p: p2) && String(describing: self[p2]) == String(describing: PataObject.wall)
+                if isValid(p: p2), case .wall = self[p2] {return true} else {return false}
             })
-            let arr = computeHint(filled: filled)
-            let s: HintState = arr == [0] ? .normal : isCompatible(computedHint: arr, givenHint: arr2) ? .complete : .error
+            let arr3 = computeHint(emptied: filled)
+            let s: HintState = arr3 == [0] ? .normal : isCompatible(computedHint: arr, givenHint: arr2) ? .complete : .error
             self[p] = .hint(state: s)
             if s != .complete {isSolved = false}
         }
         guard isSolved else {return}
         for r in 0..<rows - 1 {
-            rule2x2:
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                for os in PataGame.offset2 {
-                    guard case .wall = self[p + os] else {continue rule2x2}
-                }
-                isSolved = false; return
+                if PataGame.offset2.testAll({os in
+                    let o = self[p + os]
+                    if case .wall = o {return true} else {return false}
+                }) {isSolved = false; return}
             }
         }
         let g = Graph()

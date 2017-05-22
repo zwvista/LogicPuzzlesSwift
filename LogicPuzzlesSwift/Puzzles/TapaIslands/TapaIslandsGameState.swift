@@ -147,20 +147,19 @@ class TapaIslandsGameState: GridGameState {
             self[p] = .hint(state: s)
             if s != .complete {isSolved = false}
         }
-        guard isSolved else {return}
         for r in 0..<rows - 1 {
-            rule2x2:
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                for os in TapaIslandsGame.offset2 {
-                    guard case .wall = self[p + os] else {continue rule2x2}
-                }
-                isSolved = false; return
+                if TapaIslandsGame.offset2.testAll({os in
+                    let o = self[p + os]
+                    if case .wall = o {return true} else {return false}
+                }) {isSolved = false}
             }
         }
         let g = Graph()
         var pos2node = [Position: Node]()
         var rngWalls = [Position]()
+        var rngEmpty = [Position]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
@@ -169,7 +168,7 @@ class TapaIslandsGameState: GridGameState {
                 case .wall:
                     rngWalls.append(p)
                 default:
-                    break
+                    rngEmpty.append(p)
                 }
             }
         }
@@ -181,7 +180,42 @@ class TapaIslandsGameState: GridGameState {
                 }
             }
         }
+        for p in rngEmpty {
+            for os in TapaIslandsGame.offset {
+                let p2 = p + os
+                if rngEmpty.contains(p2) {
+                    g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
+                }
+            }
+        }
+        guard !rngWalls.isEmpty else {isSolved = false; return}
         let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
         if rngWalls.count != nodesExplored.count {isSolved = false}
+        while !rngEmpty.isEmpty {
+            let nodesExplored = breadthFirstSearch(g, source: pos2node[rngEmpty.first!]!)
+            rngEmpty = rngEmpty.filter({p in !nodesExplored.contains(p.description)})
+            let n2 = nodesExplored.count
+            var rng = [Position]()
+            for p in game.pos2hint.keys {
+                if nodesExplored.contains(p.description) {
+                    rng.append(p)
+                }
+            }
+            switch rng.count {
+            case 0:
+                isSolved = false
+            case 1:
+                let p = rng[0]
+                let arr2 = game.pos2hint[p]!
+                let s: HintState = arr2.contains(n2) ? .complete : .error
+                self[p] = .hint(state: s)
+                if s != .complete {isSolved = false}
+            default:
+                for p in rng {
+                    self[p] = .hint(state: .normal)
+                }
+                isSolved = false
+            }
+        }
     }
 }
