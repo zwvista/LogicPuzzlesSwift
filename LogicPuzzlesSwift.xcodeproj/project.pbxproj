@@ -18,6 +18,17 @@
 		8C1D16B51DB8DE930056D407 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D16A71DB8DE930056D407 /* Graph.swift */; };
 		8C1D16B61DB8DE930056D407 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A81DB8DE930056D407 /* Info.plist */; };
 		8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D16A91DB8DE930056D407 /* Queue.swift */; };
+		8C2AF82D1ED5FB0000EC84AB /* NumberPath.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2AF8221ED5FB0000EC84AB /* NumberPath.xml */; };
+		8C2AF82E1ED5FB0000EC84AB /* NumberPathDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8231ED5FB0000EC84AB /* NumberPathDocument.swift */; };
+		8C2AF82F1ED5FB0000EC84AB /* NumberPathGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8241ED5FB0000EC84AB /* NumberPathGame.swift */; };
+		8C2AF8301ED5FB0000EC84AB /* NumberPathGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8251ED5FB0000EC84AB /* NumberPathGameScene.swift */; };
+		8C2AF8311ED5FB0000EC84AB /* NumberPathGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8261ED5FB0000EC84AB /* NumberPathGameState.swift */; };
+		8C2AF8321ED5FB0000EC84AB /* NumberPathGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8271ED5FB0000EC84AB /* NumberPathGameViewController.swift */; };
+		8C2AF8331ED5FB0000EC84AB /* NumberPathGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8281ED5FB0000EC84AB /* NumberPathGridNode.swift */; };
+		8C2AF8341ED5FB0000EC84AB /* NumberPathHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8291ED5FB0000EC84AB /* NumberPathHelpViewController.swift */; };
+		8C2AF8351ED5FB0000EC84AB /* NumberPathMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF82A1ED5FB0000EC84AB /* NumberPathMainViewController.swift */; };
+		8C2AF8361ED5FB0000EC84AB /* NumberPathObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF82B1ED5FB0000EC84AB /* NumberPathObject.swift */; };
+		8C2AF8371ED5FB0000EC84AB /* NumberPathOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF82C1ED5FB0000EC84AB /* NumberPathOptionsViewController.swift */; };
 		8C31FE6E1D90E415008793BF /* SharkORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; };
 		8C31FE6F1D90E415008793BF /* SharkORM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8C373D441E0507F7005712CD /* tent.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C373D421E0507F7005712CD /* tent.png */; };
@@ -728,6 +739,17 @@
 		8C1D16A81DB8DE930056D407 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C1D16A91DB8DE930056D407 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		8C1D16AA1DB8DE930056D407 /* Tests.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Tests.xcodeproj; sourceTree = "<group>"; };
+		8C2AF8221ED5FB0000EC84AB /* NumberPath.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NumberPath.xml; sourceTree = "<group>"; };
+		8C2AF8231ED5FB0000EC84AB /* NumberPathDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberPathDocument.swift; sourceTree = "<group>"; };
+		8C2AF8241ED5FB0000EC84AB /* NumberPathGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberPathGame.swift; sourceTree = "<group>"; };
+		8C2AF8251ED5FB0000EC84AB /* NumberPathGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberPathGameScene.swift; sourceTree = "<group>"; };
+		8C2AF8261ED5FB0000EC84AB /* NumberPathGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberPathGameState.swift; sourceTree = "<group>"; };
+		8C2AF8271ED5FB0000EC84AB /* NumberPathGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberPathGameViewController.swift; sourceTree = "<group>"; };
+		8C2AF8281ED5FB0000EC84AB /* NumberPathGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberPathGridNode.swift; sourceTree = "<group>"; };
+		8C2AF8291ED5FB0000EC84AB /* NumberPathHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberPathHelpViewController.swift; sourceTree = "<group>"; };
+		8C2AF82A1ED5FB0000EC84AB /* NumberPathMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberPathMainViewController.swift; sourceTree = "<group>"; };
+		8C2AF82B1ED5FB0000EC84AB /* NumberPathObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberPathObject.swift; sourceTree = "<group>"; };
+		8C2AF82C1ED5FB0000EC84AB /* NumberPathOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberPathOptionsViewController.swift; sourceTree = "<group>"; };
 		8C31FE6D1D90E415008793BF /* SharkORM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SharkORM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C373D421E0507F7005712CD /* tent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tent.png; sourceTree = "<group>"; };
 		8C373D431E0507F7005712CD /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree.png; sourceTree = "<group>"; };
@@ -1483,6 +1505,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8C2AF8211ED5FB0000EC84AB /* NumberPath */ = {
+			isa = PBXGroup;
+			children = (
+				8C2AF8221ED5FB0000EC84AB /* NumberPath.xml */,
+				8C2AF8231ED5FB0000EC84AB /* NumberPathDocument.swift */,
+				8C2AF8241ED5FB0000EC84AB /* NumberPathGame.swift */,
+				8C2AF8251ED5FB0000EC84AB /* NumberPathGameScene.swift */,
+				8C2AF8261ED5FB0000EC84AB /* NumberPathGameState.swift */,
+				8C2AF8271ED5FB0000EC84AB /* NumberPathGameViewController.swift */,
+				8C2AF8281ED5FB0000EC84AB /* NumberPathGridNode.swift */,
+				8C2AF8291ED5FB0000EC84AB /* NumberPathHelpViewController.swift */,
+				8C2AF82A1ED5FB0000EC84AB /* NumberPathMainViewController.swift */,
+				8C2AF82B1ED5FB0000EC84AB /* NumberPathObject.swift */,
+				8C2AF82C1ED5FB0000EC84AB /* NumberPathOptionsViewController.swift */,
+			);
+			path = NumberPath;
+			sourceTree = "<group>";
+		};
 		8C3A33B81EC88D4100A914A5 /* Puzzles */ = {
 			isa = PBXGroup;
 			children = (
@@ -1516,6 +1556,7 @@
 				8C3A350B1EC88D4100A914A5 /* MiniLits */,
 				8C3A35181EC88D4100A914A5 /* Mosaik */,
 				8C3A35251EC88D4100A914A5 /* Neighbours */,
+				8C2AF8211ED5FB0000EC84AB /* NumberPath */,
 				8C3A35321EC88D4100A914A5 /* Nurikabe */,
 				8C3A353F1EC88D4100A914A5 /* Orchards */,
 				8C3A354C1EC88D4100A914A5 /* Pairakabe */,
@@ -2827,6 +2868,7 @@
 				8C1D16B61DB8DE930056D407 /* Info.plist in Resources */,
 				8C1D16B01DB8DE930056D407 /* AnimatedExample.psd in Resources */,
 				8C3A37D41EC88D4400A914A5 /* Tatami.xml in Resources */,
+				8C2AF82D1ED5FB0000EC84AB /* NumberPath.xml in Resources */,
 				8C3A36601EC88D4200A914A5 /* DigitalBattleShips.xml in Resources */,
 				8C3A36001EC88D4200A914A5 /* BattleShips.xml in Resources */,
 				8C3A37E01EC88D4400A914A5 /* Tents.xml in Resources */,
@@ -2900,6 +2942,7 @@
 				8C3A36021EC88D4200A914A5 /* BattleShipsGame.swift in Sources */,
 				8C3A37551EC88D4300A914A5 /* OrchardsGameViewController.swift in Sources */,
 				8C6D37FA1DC5ACC90052202C /* GameOptionsViewController.swift in Sources */,
+				8C2AF82E1ED5FB0000EC84AB /* NumberPathDocument.swift in Sources */,
 				8CD1558B1DD77C3400786F34 /* Extensions.swift in Sources */,
 				8C9F32F41ED1FCFF00E10965 /* TapARowGridNode.swift in Sources */,
 				8C7609101EC627E900DFCD7B /* Global.swift in Sources */,
@@ -3023,6 +3066,7 @@
 				8C3A37781EC88D4300A914A5 /* PowerGridGameState.swift in Sources */,
 				8C6D37F51DC5AC520052202C /* Position.swift in Sources */,
 				8C6D373C1DC421180052202C /* HomeTables.swift in Sources */,
+				8C2AF8331ED5FB0000EC84AB /* NumberPathGridNode.swift in Sources */,
 				8C3A363B1EC88D4200A914A5 /* BoxItUpOptionsViewController.swift in Sources */,
 				8C3A374B1EC88D4300A914A5 /* NurikabeHelpViewController.swift in Sources */,
 				8C3A36FB1EC88D4300A914A5 /* MagnetsOptionsViewController.swift in Sources */,
@@ -3042,6 +3086,7 @@
 				8C3A37AA1EC88D4400A914A5 /* SkyscrapersGridNode.swift in Sources */,
 				8CC350511E001D2800B8FD83 /* UIDeviceExtensions.swift in Sources */,
 				8C3A36221EC88D4200A914A5 /* BoxItAgainObject.swift in Sources */,
+				8C2AF8361ED5FB0000EC84AB /* NumberPathObject.swift in Sources */,
 				8C9F32F61ED1FCFF00E10965 /* TapARowMainViewController.swift in Sources */,
 				8C1D16B51DB8DE930056D407 /* Graph.swift in Sources */,
 				8C3A37CA1EC88D4400A914A5 /* SumscrapersGame.swift in Sources */,
@@ -3106,6 +3151,7 @@
 				8C3A37B21EC88D4400A914A5 /* SlitherLinkGame.swift in Sources */,
 				8C3A373D1EC88D4300A914A5 /* NeighboursGameViewController.swift in Sources */,
 				8C3A37A51EC88D4400A914A5 /* SkyscrapersDocument.swift in Sources */,
+				8C2AF8351ED5FB0000EC84AB /* NumberPathMainViewController.swift in Sources */,
 				8C3A377F1EC88D4300A914A5 /* PowerGridOptionsViewController.swift in Sources */,
 				8C3A363E1EC88D4200A914A5 /* BridgesGame.swift in Sources */,
 				8C3A36D31EC88D4300A914A5 /* LineSweeperHelpViewController.swift in Sources */,
@@ -3196,6 +3242,7 @@
 				8C9F32FF1ED1FCFF00E10965 /* TapDifferentlyGridNode.swift in Sources */,
 				8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */,
 				8C76091A1EC7EB1C00DFCD7B /* SelfSizingTableViewCell.swift in Sources */,
+				8C2AF8301ED5FB0000EC84AB /* NumberPathGameScene.swift in Sources */,
 				8C6D37391DC421180052202C /* HomeMainViewController.swift in Sources */,
 				8C3A370A1EC88D4300A914A5 /* MineShipsGame.swift in Sources */,
 				8C9F32BC1ED1FB0700E10965 /* TapaIslandsMainViewController.swift in Sources */,
@@ -3275,8 +3322,10 @@
 				8C3A37CE1EC88D4400A914A5 /* SumscrapersGridNode.swift in Sources */,
 				8C3A36651EC88D4200A914A5 /* DigitalBattleShipsGameViewController.swift in Sources */,
 				8C9F32F01ED1FCFF00E10965 /* TapARowGame.swift in Sources */,
+				8C2AF8371ED5FB0000EC84AB /* NumberPathOptionsViewController.swift in Sources */,
 				8C9F32EC1ED1FCFF00E10965 /* TapAlikeObject.swift in Sources */,
 				8CC3503D1E001D2800B8FD83 /* CGRectExtensions.swift in Sources */,
+				8C2AF8341ED5FB0000EC84AB /* NumberPathHelpViewController.swift in Sources */,
 				8C3A375F1EC88D4300A914A5 /* PairakabeGameScene.swift in Sources */,
 				8C3A37641EC88D4300A914A5 /* PairakabeMainViewController.swift in Sources */,
 				8C3A37D61EC88D4400A914A5 /* TatamiGame.swift in Sources */,
@@ -3341,6 +3390,7 @@
 				8C3A366A1EC88D4200A914A5 /* DigitalBattleShipsObject.swift in Sources */,
 				8C3A36461EC88D4200A914A5 /* BridgesObject.swift in Sources */,
 				8C3A367D1EC88D4200A914A5 /* FenceItUpGameViewController.swift in Sources */,
+				8C2AF82F1ED5FB0000EC84AB /* NumberPathGame.swift in Sources */,
 				8C3A37031EC88D4300A914A5 /* MasyuHelpViewController.swift in Sources */,
 				8C3A373F1EC88D4300A914A5 /* NeighboursHelpViewController.swift in Sources */,
 				8C3A36F61EC88D4300A914A5 /* MagnetsGridNode.swift in Sources */,
@@ -3398,6 +3448,7 @@
 				8C9F33001ED1FCFF00E10965 /* TapDifferentlyHelpViewController.swift in Sources */,
 				8C3A366E1EC88D4200A914A5 /* DominoGame.swift in Sources */,
 				8C3A35F21EC88D4200A914A5 /* AbcObject.swift in Sources */,
+				8C2AF8321ED5FB0000EC84AB /* NumberPathGameViewController.swift in Sources */,
 				8C9F32E91ED1FCFF00E10965 /* TapAlikeGridNode.swift in Sources */,
 				8CC350481E001D2800B8FD83 /* NSObjectExtensions.swift in Sources */,
 				8CC350471E001D2800B8FD83 /* NSDictionaryExtensions.swift in Sources */,
@@ -3405,6 +3456,7 @@
 				8C3A37D51EC88D4400A914A5 /* TatamiDocument.swift in Sources */,
 				8C3A36101EC88D4200A914A5 /* BootyIslandGameState.swift in Sources */,
 				8C9F32471ED1FAD400E10965 /* BWTapaGridNode.swift in Sources */,
+				8C2AF8311ED5FB0000EC84AB /* NumberPathGameState.swift in Sources */,
 				8C3A36431EC88D4200A914A5 /* BridgesHelpViewController.swift in Sources */,
 				8C3A36291EC88D4200A914A5 /* BoxItAroundGameViewController.swift in Sources */,
 				8C3A374C1EC88D4300A914A5 /* NurikabeMainViewController.swift in Sources */,

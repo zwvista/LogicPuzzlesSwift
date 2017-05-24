@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Connect the top left corner (1) to the bottom right corner (N), including all the numbers between 1 and N, only once.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+ 11110 7`
+ 5 8 9 4`
+ 8 21210`
+11 6 313`
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+ 1 910 9`
+ 412 7 5`
+1110 2 6`
+ 3 8 613`
+    ]]>
+  </level>
+  <level id="260">
+    <![CDATA[
+ 1 219 7142011 71620`
+13121612 911 21911 3`
+ 61517 516 71514 2 9`
+10 5121514 9 42013 7`
+ 31315 8 71617101120`
+ 4 310 9 620 8 21316`
+ 212 9 610141918 619`
+14 41614172010201518`
+1514 8 51517151613 3`
+ 1 7131611 710 81521`
+    ]]>
+  </level>
+</levels>
+</puzzle>
