@@ -29,6 +29,17 @@
 		8C2AF8351ED5FB0000EC84AB /* NumberPathMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF82A1ED5FB0000EC84AB /* NumberPathMainViewController.swift */; };
 		8C2AF8361ED5FB0000EC84AB /* NumberPathObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF82B1ED5FB0000EC84AB /* NumberPathObject.swift */; };
 		8C2AF8371ED5FB0000EC84AB /* NumberPathOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF82C1ED5FB0000EC84AB /* NumberPathOptionsViewController.swift */; };
+		8C2AF8451ED6084300EC84AB /* PaintTheNurikabe.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2AF83A1ED6084300EC84AB /* PaintTheNurikabe.xml */; };
+		8C2AF8461ED6084300EC84AB /* PaintTheNurikabeDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF83B1ED6084300EC84AB /* PaintTheNurikabeDocument.swift */; };
+		8C2AF8471ED6084300EC84AB /* PaintTheNurikabeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF83C1ED6084300EC84AB /* PaintTheNurikabeGame.swift */; };
+		8C2AF8481ED6084300EC84AB /* PaintTheNurikabeGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF83D1ED6084300EC84AB /* PaintTheNurikabeGameScene.swift */; };
+		8C2AF8491ED6084300EC84AB /* PaintTheNurikabeGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF83E1ED6084300EC84AB /* PaintTheNurikabeGameState.swift */; };
+		8C2AF84A1ED6084300EC84AB /* PaintTheNurikabeGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF83F1ED6084300EC84AB /* PaintTheNurikabeGameViewController.swift */; };
+		8C2AF84B1ED6084300EC84AB /* PaintTheNurikabeGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8401ED6084300EC84AB /* PaintTheNurikabeGridNode.swift */; };
+		8C2AF84C1ED6084300EC84AB /* PaintTheNurikabeHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8411ED6084300EC84AB /* PaintTheNurikabeHelpViewController.swift */; };
+		8C2AF84D1ED6084300EC84AB /* PaintTheNurikabeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8421ED6084300EC84AB /* PaintTheNurikabeMainViewController.swift */; };
+		8C2AF84E1ED6084300EC84AB /* PaintTheNurikabeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8431ED6084300EC84AB /* PaintTheNurikabeObject.swift */; };
+		8C2AF84F1ED6084300EC84AB /* PaintTheNurikabeOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8441ED6084300EC84AB /* PaintTheNurikabeOptionsViewController.swift */; };
 		8C31FE6E1D90E415008793BF /* SharkORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; };
 		8C31FE6F1D90E415008793BF /* SharkORM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8C373D441E0507F7005712CD /* tent.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C373D421E0507F7005712CD /* tent.png */; };
@@ -750,6 +761,17 @@
 		8C2AF82A1ED5FB0000EC84AB /* NumberPathMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberPathMainViewController.swift; sourceTree = "<group>"; };
 		8C2AF82B1ED5FB0000EC84AB /* NumberPathObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberPathObject.swift; sourceTree = "<group>"; };
 		8C2AF82C1ED5FB0000EC84AB /* NumberPathOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberPathOptionsViewController.swift; sourceTree = "<group>"; };
+		8C2AF83A1ED6084300EC84AB /* PaintTheNurikabe.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PaintTheNurikabe.xml; sourceTree = "<group>"; };
+		8C2AF83B1ED6084300EC84AB /* PaintTheNurikabeDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintTheNurikabeDocument.swift; sourceTree = "<group>"; };
+		8C2AF83C1ED6084300EC84AB /* PaintTheNurikabeGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintTheNurikabeGame.swift; sourceTree = "<group>"; };
+		8C2AF83D1ED6084300EC84AB /* PaintTheNurikabeGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintTheNurikabeGameScene.swift; sourceTree = "<group>"; };
+		8C2AF83E1ED6084300EC84AB /* PaintTheNurikabeGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintTheNurikabeGameState.swift; sourceTree = "<group>"; };
+		8C2AF83F1ED6084300EC84AB /* PaintTheNurikabeGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintTheNurikabeGameViewController.swift; sourceTree = "<group>"; };
+		8C2AF8401ED6084300EC84AB /* PaintTheNurikabeGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintTheNurikabeGridNode.swift; sourceTree = "<group>"; };
+		8C2AF8411ED6084300EC84AB /* PaintTheNurikabeHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintTheNurikabeHelpViewController.swift; sourceTree = "<group>"; };
+		8C2AF8421ED6084300EC84AB /* PaintTheNurikabeMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintTheNurikabeMainViewController.swift; sourceTree = "<group>"; };
+		8C2AF8431ED6084300EC84AB /* PaintTheNurikabeObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintTheNurikabeObject.swift; sourceTree = "<group>"; };
+		8C2AF8441ED6084300EC84AB /* PaintTheNurikabeOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintTheNurikabeOptionsViewController.swift; sourceTree = "<group>"; };
 		8C31FE6D1D90E415008793BF /* SharkORM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SharkORM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C373D421E0507F7005712CD /* tent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tent.png; sourceTree = "<group>"; };
 		8C373D431E0507F7005712CD /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree.png; sourceTree = "<group>"; };
@@ -1523,6 +1545,24 @@
 			path = NumberPath;
 			sourceTree = "<group>";
 		};
+		8C2AF8391ED6084300EC84AB /* PaintTheNurikabe */ = {
+			isa = PBXGroup;
+			children = (
+				8C2AF83A1ED6084300EC84AB /* PaintTheNurikabe.xml */,
+				8C2AF83B1ED6084300EC84AB /* PaintTheNurikabeDocument.swift */,
+				8C2AF83C1ED6084300EC84AB /* PaintTheNurikabeGame.swift */,
+				8C2AF83D1ED6084300EC84AB /* PaintTheNurikabeGameScene.swift */,
+				8C2AF83E1ED6084300EC84AB /* PaintTheNurikabeGameState.swift */,
+				8C2AF83F1ED6084300EC84AB /* PaintTheNurikabeGameViewController.swift */,
+				8C2AF8401ED6084300EC84AB /* PaintTheNurikabeGridNode.swift */,
+				8C2AF8411ED6084300EC84AB /* PaintTheNurikabeHelpViewController.swift */,
+				8C2AF8421ED6084300EC84AB /* PaintTheNurikabeMainViewController.swift */,
+				8C2AF8431ED6084300EC84AB /* PaintTheNurikabeObject.swift */,
+				8C2AF8441ED6084300EC84AB /* PaintTheNurikabeOptionsViewController.swift */,
+			);
+			path = PaintTheNurikabe;
+			sourceTree = "<group>";
+		};
 		8C3A33B81EC88D4100A914A5 /* Puzzles */ = {
 			isa = PBXGroup;
 			children = (
@@ -1559,6 +1599,7 @@
 				8C2AF8211ED5FB0000EC84AB /* NumberPath */,
 				8C3A35321EC88D4100A914A5 /* Nurikabe */,
 				8C3A353F1EC88D4100A914A5 /* Orchards */,
+				8C2AF8391ED6084300EC84AB /* PaintTheNurikabe */,
 				8C3A354C1EC88D4100A914A5 /* Pairakabe */,
 				8C3A35591EC88D4100A914A5 /* Parks */,
 				8C9F324C1ED1FAF600E10965 /* Pata */,
@@ -2849,6 +2890,7 @@
 				8C3A36E41EC88D4300A914A5 /* Loopy.xml in Resources */,
 				8C3A37201EC88D4300A914A5 /* MiniLits.xml in Resources */,
 				8C3A36301EC88D4200A914A5 /* BoxItUp.xml in Resources */,
+				8C2AF8451ED6084300EC84AB /* PaintTheNurikabe.xml in Resources */,
 				8C3A36481EC88D4200A914A5 /* BusySeas.xml in Resources */,
 				8C373D451E0507F7005712CD /* tree.png in Resources */,
 				8C1D16B11DB8DE930056D407 /* TraversalTree.graffle in Resources */,
@@ -2928,6 +2970,7 @@
 				8C3A373B1EC88D4300A914A5 /* NeighboursGameScene.swift in Sources */,
 				8C3A37E41EC88D4400A914A5 /* TentsGameState.swift in Sources */,
 				8C6D37FB1DC5ACDB0052202C /* Copyable.swift in Sources */,
+				8C2AF84B1ED6084300EC84AB /* PaintTheNurikabeGridNode.swift in Sources */,
 				8C3A36411EC88D4200A914A5 /* BridgesGameViewController.swift in Sources */,
 				8C3A37A91EC88D4400A914A5 /* SkyscrapersGameViewController.swift in Sources */,
 				8C9F324A1ED1FAD400E10965 /* BWTapaObject.swift in Sources */,
@@ -3016,6 +3059,7 @@
 				8C3A37A81EC88D4400A914A5 /* SkyscrapersGameState.swift in Sources */,
 				8C3A373E1EC88D4300A914A5 /* NeighboursGridNode.swift in Sources */,
 				8C3A36EE1EC88D4300A914A5 /* LoopyObject.swift in Sources */,
+				8C2AF8491ED6084300EC84AB /* PaintTheNurikabeGameState.swift in Sources */,
 				8C3A36551EC88D4200A914A5 /* CloudsDocument.swift in Sources */,
 				8C3A36611EC88D4200A914A5 /* DigitalBattleShipsDocument.swift in Sources */,
 				8C3A37C11EC88D4400A914A5 /* SnailGameViewController.swift in Sources */,
@@ -3054,12 +3098,14 @@
 				8C3A36BA1EC88D4300A914A5 /* LightenUpGridNode.swift in Sources */,
 				8C3A375A1EC88D4300A914A5 /* OrchardsObject.swift in Sources */,
 				8C3A377E1EC88D4300A914A5 /* PowerGridObject.swift in Sources */,
+				8C2AF84F1ED6084300EC84AB /* PaintTheNurikabeOptionsViewController.swift in Sources */,
 				8CC350441E001D2800B8FD83 /* FloatingPointExtensions.swift in Sources */,
 				8C3A36661EC88D4200A914A5 /* DigitalBattleShipsGridNode.swift in Sources */,
 				8C3A36B31EC88D4300A914A5 /* LightBattleShipsOptionsViewController.swift in Sources */,
 				8C3A37D21EC88D4400A914A5 /* SumscrapersObject.swift in Sources */,
 				8C3A37EA1EC88D4400A914A5 /* TentsObject.swift in Sources */,
 				8C3A37CC1EC88D4400A914A5 /* SumscrapersGameState.swift in Sources */,
+				8C2AF84A1ED6084300EC84AB /* PaintTheNurikabeGameViewController.swift in Sources */,
 				8C3A37C71EC88D4400A914A5 /* SnailOptionsViewController.swift in Sources */,
 				8C3A36171EC88D4200A914A5 /* BootyIslandOptionsViewController.swift in Sources */,
 				8C3A365C1EC88D4200A914A5 /* CloudsMainViewController.swift in Sources */,
@@ -3070,6 +3116,7 @@
 				8C3A363B1EC88D4200A914A5 /* BoxItUpOptionsViewController.swift in Sources */,
 				8C3A374B1EC88D4300A914A5 /* NurikabeHelpViewController.swift in Sources */,
 				8C3A36FB1EC88D4300A914A5 /* MagnetsOptionsViewController.swift in Sources */,
+				8C2AF84E1ED6084300EC84AB /* PaintTheNurikabeObject.swift in Sources */,
 				8C916CC01DAA5E9500D9E62B /* Node.swift in Sources */,
 				8C3A36DA1EC88D4300A914A5 /* LitsGame.swift in Sources */,
 				8C3A37C91EC88D4400A914A5 /* SumscrapersDocument.swift in Sources */,
@@ -3116,6 +3163,7 @@
 				8C3A35EE1EC88D4200A914A5 /* AbcGridNode.swift in Sources */,
 				8C3A36B81EC88D4300A914A5 /* LightenUpGameState.swift in Sources */,
 				8CC350421E001D2800B8FD83 /* ErrorTypeExtensions.swift in Sources */,
+				8C2AF8471ED6084300EC84AB /* PaintTheNurikabeGame.swift in Sources */,
 				8C3A37DB1EC88D4400A914A5 /* TatamiHelpViewController.swift in Sources */,
 				8C3A37E21EC88D4400A914A5 /* TentsGame.swift in Sources */,
 				8C3A370E1EC88D4300A914A5 /* MineShipsGridNode.swift in Sources */,
@@ -3214,6 +3262,7 @@
 				8C9F32B71ED1FB0700E10965 /* TapaIslandsGameScene.swift in Sources */,
 				8C3A36921EC88D4200A914A5 /* FenceSentinelsGame.swift in Sources */,
 				8C3A37961EC88D4400A914A5 /* RoomsObject.swift in Sources */,
+				8C2AF84D1ED6084300EC84AB /* PaintTheNurikabeMainViewController.swift in Sources */,
 				8C3A37091EC88D4300A914A5 /* MineShipsDocument.swift in Sources */,
 				8C3A37D31EC88D4400A914A5 /* SumscrapersOptionsViewController.swift in Sources */,
 				8C3A37071EC88D4300A914A5 /* MasyuOptionsViewController.swift in Sources */,
@@ -3320,8 +3369,10 @@
 				8C9F32301ECF06C000E10965 /* TapaHelpViewController.swift in Sources */,
 				8C3A36941EC88D4200A914A5 /* FenceSentinelsGameState.swift in Sources */,
 				8C3A37CE1EC88D4400A914A5 /* SumscrapersGridNode.swift in Sources */,
+				8C2AF84C1ED6084300EC84AB /* PaintTheNurikabeHelpViewController.swift in Sources */,
 				8C3A36651EC88D4200A914A5 /* DigitalBattleShipsGameViewController.swift in Sources */,
 				8C9F32F01ED1FCFF00E10965 /* TapARowGame.swift in Sources */,
+				8C2AF8461ED6084300EC84AB /* PaintTheNurikabeDocument.swift in Sources */,
 				8C2AF8371ED5FB0000EC84AB /* NumberPathOptionsViewController.swift in Sources */,
 				8C9F32EC1ED1FCFF00E10965 /* TapAlikeObject.swift in Sources */,
 				8CC3503D1E001D2800B8FD83 /* CGRectExtensions.swift in Sources */,
@@ -3471,6 +3522,7 @@
 				8C3A36DD1EC88D4300A914A5 /* LitsGameViewController.swift in Sources */,
 				8C3A36521EC88D4200A914A5 /* BusySeasObject.swift in Sources */,
 				8C3A37231EC88D4300A914A5 /* MiniLitsGameScene.swift in Sources */,
+				8C2AF8481ED6084300EC84AB /* PaintTheNurikabeGameScene.swift in Sources */,
 				8C3A35F91EC88D4200A914A5 /* AbstractPaintingGameViewController.swift in Sources */,
 				8C3A36851EC88D4200A914A5 /* FenceLitsDocument.swift in Sources */,
 				8C3A37481EC88D4300A914A5 /* NurikabeGameState.swift in Sources */,

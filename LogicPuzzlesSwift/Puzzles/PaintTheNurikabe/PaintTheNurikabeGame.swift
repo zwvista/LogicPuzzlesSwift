@@ -1,5 +1,5 @@
 //
-//  AbstractPaintingGame.swift
+//  PaintTheNurikabeGame.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/10.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AbstractPaintingGame: GridGame<AbstractPaintingGameViewController> {
+class PaintTheNurikabeGame: GridGame<PaintTheNurikabeGameViewController> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),
@@ -23,19 +23,16 @@ class AbstractPaintingGame: GridGame<AbstractPaintingGameViewController> {
     ]
     static let dirs = [1, 0, 3, 2]
 
-    var row2hint = [Int]()
-    var col2hint = [Int]()
+    var pos2hint = [Position: Int]()
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
     var dots: GridDots!
     
-    init(layout: [String], delegate: AbstractPaintingGameViewController? = nil) {
+    init(layout: [String], delegate: PaintTheNurikabeGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count / 2 - 1, layout[0].length /  2 - 1)
+        size = Position(layout.count / 2, layout[0].length /  2)
         dots = GridDots(rows: rows + 1, cols: cols + 1)
-        row2hint = Array<Int>(repeating: 0, count: rows)
-        col2hint = Array<Int>(repeating: 0, count: cols)
         
         for r in 0..<rows + 1 {
             var str = layout[2 * r]
@@ -54,6 +51,10 @@ class AbstractPaintingGame: GridGame<AbstractPaintingGameViewController> {
                     dots[r, c][2] = .line
                     dots[r + 1, c][0] = .line
                 }
+                guard c < rows else {break}
+                let ch2 = str[2 * c + 1]
+                guard case "0"..."9" = ch2 else {continue}
+                pos2hint[Position(r, c)] = ch2.toInt!
             }
         }
         let g = Graph()
@@ -68,8 +69,8 @@ class AbstractPaintingGame: GridGame<AbstractPaintingGameViewController> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 for i in 0..<4 {
-                    if dots[p + AbstractPaintingGame.offset2[i]][AbstractPaintingGame.dirs[i]] != .line {
-                        g.addEdge(pos2node[p]!, neighbor: pos2node[p + AbstractPaintingGame.offset[i * 2]]!)
+                    if dots[p + PaintTheNurikabeGame.offset2[i]][PaintTheNurikabeGame.dirs[i]] != .line {
+                        g.addEdge(pos2node[p]!, neighbor: pos2node[p + PaintTheNurikabeGame.offset[i]]!)
                     }
                 }
             }
@@ -85,23 +86,12 @@ class AbstractPaintingGame: GridGame<AbstractPaintingGameViewController> {
             areas.append(area)
         }
         
-        for r in 0..<rows {
-            let ch = layout[2 * r + 1][2 * cols + 1]
-            guard case "1"..."9" = ch else {continue}
-            row2hint[r] = ch.toInt!
-        }
-        for c in 0..<cols {
-            let ch = layout[2 * rows + 1][2 * c + 1]
-            guard case "1"..."9" = ch else {continue}
-            col2hint[c] = ch.toInt!
-        }
-        
-        let state = AbstractPaintingGameState(game: self)
+        let state = PaintTheNurikabeGameState(game: self)
         states.append(state)
         levelInitilized(state: state)
     }
     
-    private func changeObject(move: inout AbstractPaintingGameMove, f: (inout AbstractPaintingGameState, inout AbstractPaintingGameMove) -> Bool) -> Bool {
+    private func changeObject(move: inout PaintTheNurikabeGameMove, f: (inout PaintTheNurikabeGameState, inout PaintTheNurikabeGameMove) -> Bool) -> Bool {
         if canRedo {
             states.removeSubrange((stateIndex + 1)..<states.count)
             moves.removeSubrange(stateIndex..<moves.count)
@@ -118,11 +108,11 @@ class AbstractPaintingGame: GridGame<AbstractPaintingGameViewController> {
         return true
     }
     
-    func switchObject(move: inout AbstractPaintingGameMove) -> Bool {
+    func switchObject(move: inout PaintTheNurikabeGameMove) -> Bool {
         return changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
     }
     
-    func setObject(move: inout AbstractPaintingGameMove) -> Bool {
+    func setObject(move: inout PaintTheNurikabeGameMove) -> Bool {
         return changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
     }
     
