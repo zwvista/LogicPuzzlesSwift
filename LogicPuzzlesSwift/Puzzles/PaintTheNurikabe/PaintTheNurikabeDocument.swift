@@ -14,10 +14,10 @@ class PaintTheNurikabeDocument: GameDocument<PaintTheNurikabeGame, PaintTheNurik
     
     override func saveMove(_ move: PaintTheNurikabeGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.unapply()
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> PaintTheNurikabeGameMove? {
-        return PaintTheNurikabeGameMove(p: Position(rec.row, rec.col), obj: PaintTheNurikabeObject.fromString(str: rec.strValue1!))
+        return PaintTheNurikabeGameMove(p: Position(rec.row, rec.col), obj: PaintTheNurikabeObject(rawValue: rec.intValue1)!)
     }
 }

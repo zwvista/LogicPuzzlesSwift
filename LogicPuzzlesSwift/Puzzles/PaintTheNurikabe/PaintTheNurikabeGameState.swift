@@ -33,7 +33,7 @@ class PaintTheNurikabeGameState: GridGameState {
     required init(game: PaintTheNurikabeGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<PaintTheNurikabeObject>(repeating: PaintTheNurikabeObject(), count: rows * cols)
+        objArray = Array<PaintTheNurikabeObject>(repeating: .empty, count: rows * cols)
         for p in game.pos2hint.keys {
             pos2state[p] = .normal
         }
@@ -59,8 +59,8 @@ class PaintTheNurikabeGameState: GridGameState {
     
     func setObject(move: inout PaintTheNurikabeGameMove) -> Bool {
         let p = move.p
-        let (o1, o2) = (self[p], move.obj)
-        guard String(describing: o1) != String(describing: o2) else {return false}
+        guard isValid(p: p) && self[p] != move.obj else {return false}
+        self[p] = move.obj
         for p2 in game.areas[game.pos2area[p]!] {
             self[p2] = move.obj
         }
@@ -73,11 +73,11 @@ class PaintTheNurikabeGameState: GridGameState {
         func f(o: PaintTheNurikabeObject) -> PaintTheNurikabeObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .painting
-            case .painting:
+                return markerOption == .markerFirst ? .marker : .painted
+            case .painted:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .painting : .empty
+                return markerOption == .markerFirst ? .painted : .empty
             default:
                 return o
             }
@@ -118,7 +118,7 @@ class PaintTheNurikabeGameState: GridGameState {
                 let p2 = p + os
                 guard game.isValid(p: p2) else {continue}
                 switch self[p2] {
-                case .painting:
+                case .painted:
                     n1 += 1
                 case .empty:
                     rng.append(p2)
@@ -127,7 +127,7 @@ class PaintTheNurikabeGameState: GridGameState {
                 }
             }
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            self[p] = .hint(state: s)
+            pos2state[p] = s
             if s != .complete {
                 isSolved = false
             } else if allowedObjectsOnly {
@@ -136,5 +136,32 @@ class PaintTheNurikabeGameState: GridGameState {
                 }
             }
         }
+        for r in 0..<rows - 1 {
+            for c in 0..<cols - 1 {
+                let p = Position(r, c)
+                if NurikabeGame.offset2.testAll({self[p + $0] == .painted}) ||
+                   NurikabeGame.offset2.testAll({self[p + $0] == .empty}) {
+                    isSolved = false; return
+                }
+            }
+        }
+        guard isSolved else {return}
+        let g = Graph()
+        var pos2node = [Position: Node]()
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                if self[p] == .painted {pos2node[p] = g.addNode(p.description)}
+            }
+        }
+        for (p, node) in pos2node {
+            for os in CloudsGame.offset {
+                let p2 = p + os
+                guard let node2 = pos2node[p2] else {continue}
+                g.addEdge(node, neighbor: node2)
+            }
+        }
+        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+        if pos2node.count != nodesExplored.count {isSolved = false}
     }
 }

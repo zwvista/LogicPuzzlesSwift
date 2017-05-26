@@ -80,58 +80,54 @@ class PaintTheNurikabeGameScene: GameScene<PaintTheNurikabeGameState> {
     }
     
     override func levelUpdated(from stateFrom: PaintTheNurikabeGameState, to stateTo: PaintTheNurikabeGameState) {
-        func removeHint(p: Position) {
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let hintNodeName = "hint" + nodeNameSuffix
-            removeNode(withName: hintNodeName)
-        }
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let paintingNodeName = "painting" + nodeNameSuffix
+                let paintedCellNodeName = "paintedCell" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
+                func addHint2() { addHint(n: stateFrom.game.pos2hint[p]!, s: stateTo.pos2state[p]!, point: point, nodeName: hintNodeName) }
                 func removeHint() { removeNode(withName: hintNodeName) }
-                func addPainting() {
-                    let paintingNode = SKSpriteNode(color: .white, size: coloredRectSize())
-                    paintingNode.position = point
-                    paintingNode.name = paintingNodeName
-                    gridNode.addChild(paintingNode)
+                func addPaintedCell() {
+                    let paintedCellNode = SKSpriteNode(color: .purple, size: coloredRectSize())
+                    paintedCellNode.position = point
+                    paintedCellNode.name = paintedCellNodeName
+                    gridNode.addChild(paintedCellNode)
                 }
-                func removePainting() { removeNode(withName: paintingNodeName) }
+                func removePaintedCell() { removeNode(withName: paintedCellNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 func removeForbidden() { removeNode(withName: forbiddenNodeName) }
-                let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
-                guard String(describing: o1) != String(describing: o2) else {continue}
-                switch o1 {
-                case .painting:
-                    removePainting()
-                case .forbidden:
-                    removeForbidden()
-                case .marker:
-                    removeMarker()
-                case .hint:
-                    removeHint()
-                default:
-                    break
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                if o1 != o2 {
+                    switch o1 {
+                    case .painted:
+                        removePaintedCell()
+                    case .marker:
+                        removeMarker()
+                    default:
+                        break
+                    }
+                    switch o2 {
+                    case .painted:
+                        let b = stateFrom.game.pos2hint[p] != nil
+                        if b {removeHint()}
+                        addPaintedCell()
+                        if b {addHint2()}
+                    case .marker:
+                        addMarker()
+                    default:
+                        break
+                    }
                 }
-                switch o2 {
-                case .painting:
-                    addPainting()
-                case .forbidden:
-                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
-                case .marker:
-                    addMarker()
-                case let .hint(s):
-                    let n = stateTo.game.pos2hint[Position(r, c)]!
-                    addHint(n: n, s: s, point: point, nodeName: hintNodeName)
-                default:
-                    break
-                }                
+                guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
+                if s1 != s2 {
+                    removeHint()
+                    addHint2()
+                }
             }
         }
     }

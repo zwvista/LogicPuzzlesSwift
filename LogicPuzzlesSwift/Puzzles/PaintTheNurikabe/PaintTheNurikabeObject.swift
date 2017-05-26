@@ -8,34 +8,10 @@
 
 import Foundation
 
-enum PaintTheNurikabeObject {
-    case empty
-    case forbidden
-    case hint(state: HintState)
-    case marker
-    case painting
+enum PaintTheNurikabeObject: Int {
+    case empty, painted, forbidden, marker
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .painting:
-            return "painting"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> PaintTheNurikabeObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "painting":
-            return .painting
-        default:
-            return .empty
-        }
     }
 }
 
