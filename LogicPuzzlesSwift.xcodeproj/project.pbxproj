@@ -18,6 +18,17 @@
 		8C1D16B51DB8DE930056D407 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D16A71DB8DE930056D407 /* Graph.swift */; };
 		8C1D16B61DB8DE930056D407 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A81DB8DE930056D407 /* Info.plist */; };
 		8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D16A91DB8DE930056D407 /* Queue.swift */; };
+		8C2973E11EE7284C0022A18A /* Galaxies.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2973D61EE7284C0022A18A /* Galaxies.xml */; };
+		8C2973E21EE7284C0022A18A /* GalaxiesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2973D71EE7284C0022A18A /* GalaxiesDocument.swift */; };
+		8C2973E31EE7284C0022A18A /* GalaxiesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2973D81EE7284C0022A18A /* GalaxiesGame.swift */; };
+		8C2973E41EE7284C0022A18A /* GalaxiesGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2973D91EE7284C0022A18A /* GalaxiesGameScene.swift */; };
+		8C2973E51EE7284C0022A18A /* GalaxiesGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2973DA1EE7284C0022A18A /* GalaxiesGameState.swift */; };
+		8C2973E61EE7284C0022A18A /* GalaxiesGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2973DB1EE7284C0022A18A /* GalaxiesGameViewController.swift */; };
+		8C2973E71EE7284C0022A18A /* GalaxiesGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2973DC1EE7284C0022A18A /* GalaxiesGridNode.swift */; };
+		8C2973E81EE7284C0022A18A /* GalaxiesHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2973DD1EE7284C0022A18A /* GalaxiesHelpViewController.swift */; };
+		8C2973E91EE7284C0022A18A /* GalaxiesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2973DE1EE7284C0022A18A /* GalaxiesMainViewController.swift */; };
+		8C2973EA1EE7284C0022A18A /* GalaxiesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2973DF1EE7284C0022A18A /* GalaxiesObject.swift */; };
+		8C2973EB1EE7284C0022A18A /* GalaxiesOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2973E01EE7284C0022A18A /* GalaxiesOptionsViewController.swift */; };
 		8C2AF82D1ED5FB0000EC84AB /* NumberPath.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2AF8221ED5FB0000EC84AB /* NumberPath.xml */; };
 		8C2AF82E1ED5FB0000EC84AB /* NumberPathDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8231ED5FB0000EC84AB /* NumberPathDocument.swift */; };
 		8C2AF82F1ED5FB0000EC84AB /* NumberPathGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8241ED5FB0000EC84AB /* NumberPathGame.swift */; };
@@ -750,6 +761,17 @@
 		8C1D16A81DB8DE930056D407 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C1D16A91DB8DE930056D407 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		8C1D16AA1DB8DE930056D407 /* Tests.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Tests.xcodeproj; sourceTree = "<group>"; };
+		8C2973D61EE7284C0022A18A /* Galaxies.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Galaxies.xml; sourceTree = "<group>"; };
+		8C2973D71EE7284C0022A18A /* GalaxiesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalaxiesDocument.swift; sourceTree = "<group>"; };
+		8C2973D81EE7284C0022A18A /* GalaxiesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalaxiesGame.swift; sourceTree = "<group>"; };
+		8C2973D91EE7284C0022A18A /* GalaxiesGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalaxiesGameScene.swift; sourceTree = "<group>"; };
+		8C2973DA1EE7284C0022A18A /* GalaxiesGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalaxiesGameState.swift; sourceTree = "<group>"; };
+		8C2973DB1EE7284C0022A18A /* GalaxiesGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalaxiesGameViewController.swift; sourceTree = "<group>"; };
+		8C2973DC1EE7284C0022A18A /* GalaxiesGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalaxiesGridNode.swift; sourceTree = "<group>"; };
+		8C2973DD1EE7284C0022A18A /* GalaxiesHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalaxiesHelpViewController.swift; sourceTree = "<group>"; };
+		8C2973DE1EE7284C0022A18A /* GalaxiesMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalaxiesMainViewController.swift; sourceTree = "<group>"; };
+		8C2973DF1EE7284C0022A18A /* GalaxiesObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalaxiesObject.swift; sourceTree = "<group>"; };
+		8C2973E01EE7284C0022A18A /* GalaxiesOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalaxiesOptionsViewController.swift; sourceTree = "<group>"; };
 		8C2AF8221ED5FB0000EC84AB /* NumberPath.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NumberPath.xml; sourceTree = "<group>"; };
 		8C2AF8231ED5FB0000EC84AB /* NumberPathDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberPathDocument.swift; sourceTree = "<group>"; };
 		8C2AF8241ED5FB0000EC84AB /* NumberPathGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberPathGame.swift; sourceTree = "<group>"; };
@@ -1527,6 +1549,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8C2973D51EE7284C0022A18A /* Galaxies */ = {
+			isa = PBXGroup;
+			children = (
+				8C2973D61EE7284C0022A18A /* Galaxies.xml */,
+				8C2973D71EE7284C0022A18A /* GalaxiesDocument.swift */,
+				8C2973D81EE7284C0022A18A /* GalaxiesGame.swift */,
+				8C2973D91EE7284C0022A18A /* GalaxiesGameScene.swift */,
+				8C2973DA1EE7284C0022A18A /* GalaxiesGameState.swift */,
+				8C2973DB1EE7284C0022A18A /* GalaxiesGameViewController.swift */,
+				8C2973DC1EE7284C0022A18A /* GalaxiesGridNode.swift */,
+				8C2973DD1EE7284C0022A18A /* GalaxiesHelpViewController.swift */,
+				8C2973DE1EE7284C0022A18A /* GalaxiesMainViewController.swift */,
+				8C2973DF1EE7284C0022A18A /* GalaxiesObject.swift */,
+				8C2973E01EE7284C0022A18A /* GalaxiesOptionsViewController.swift */,
+			);
+			name = Galaxies;
+			path = LogicPuzzlesSwift/Puzzles/Galaxies;
+			sourceTree = SOURCE_ROOT;
+		};
 		8C2AF8211ED5FB0000EC84AB /* NumberPath */ = {
 			isa = PBXGroup;
 			children = (
@@ -1582,6 +1623,7 @@
 				8C3A34551EC88D4100A914A5 /* FenceItUp */,
 				8C3A34621EC88D4100A914A5 /* FenceLits */,
 				8C3A346F1EC88D4100A914A5 /* FenceSentinels */,
+				8C2973D51EE7284C0022A18A /* Galaxies */,
 				8C3A347C1EC88D4100A914A5 /* Hitori */,
 				8C3A34891EC88D4100A914A5 /* LightBattleShips */,
 				8C3A34961EC88D4100A914A5 /* LightenUp */,
@@ -2912,6 +2954,7 @@
 				8C3A37D41EC88D4400A914A5 /* Tatami.xml in Resources */,
 				8C2AF82D1ED5FB0000EC84AB /* NumberPath.xml in Resources */,
 				8C3A36601EC88D4200A914A5 /* DigitalBattleShips.xml in Resources */,
+				8C2973E11EE7284C0022A18A /* Galaxies.xml in Resources */,
 				8C3A36001EC88D4200A914A5 /* BattleShips.xml in Resources */,
 				8C3A37E01EC88D4400A914A5 /* Tents.xml in Resources */,
 				8C3A37981EC88D4400A914A5 /* Sentinels.xml in Resources */,
@@ -2970,6 +3013,7 @@
 				8C3A373B1EC88D4300A914A5 /* NeighboursGameScene.swift in Sources */,
 				8C3A37E41EC88D4400A914A5 /* TentsGameState.swift in Sources */,
 				8C6D37FB1DC5ACDB0052202C /* Copyable.swift in Sources */,
+				8C2973E51EE7284C0022A18A /* GalaxiesGameState.swift in Sources */,
 				8C2AF84B1ED6084300EC84AB /* PaintTheNurikabeGridNode.swift in Sources */,
 				8C3A36411EC88D4200A914A5 /* BridgesGameViewController.swift in Sources */,
 				8C3A37A91EC88D4400A914A5 /* SkyscrapersGameViewController.swift in Sources */,
@@ -2982,6 +3026,7 @@
 				8C3A369A1EC88D4200A914A5 /* FenceSentinelsObject.swift in Sources */,
 				8C3A374E1EC88D4300A914A5 /* NurikabeObject.swift in Sources */,
 				8C9F32F31ED1FCFF00E10965 /* TapARowGameViewController.swift in Sources */,
+				8C2973E91EE7284C0022A18A /* GalaxiesMainViewController.swift in Sources */,
 				8C3A36021EC88D4200A914A5 /* BattleShipsGame.swift in Sources */,
 				8C3A37551EC88D4300A914A5 /* OrchardsGameViewController.swift in Sources */,
 				8C6D37FA1DC5ACC90052202C /* GameOptionsViewController.swift in Sources */,
@@ -3100,6 +3145,7 @@
 				8C3A377E1EC88D4300A914A5 /* PowerGridObject.swift in Sources */,
 				8C2AF84F1ED6084300EC84AB /* PaintTheNurikabeOptionsViewController.swift in Sources */,
 				8CC350441E001D2800B8FD83 /* FloatingPointExtensions.swift in Sources */,
+				8C2973E21EE7284C0022A18A /* GalaxiesDocument.swift in Sources */,
 				8C3A36661EC88D4200A914A5 /* DigitalBattleShipsGridNode.swift in Sources */,
 				8C3A36B31EC88D4300A914A5 /* LightBattleShipsOptionsViewController.swift in Sources */,
 				8C3A37D21EC88D4400A914A5 /* SumscrapersObject.swift in Sources */,
@@ -3139,6 +3185,7 @@
 				8C3A37CA1EC88D4400A914A5 /* SumscrapersGame.swift in Sources */,
 				8CC3504E1E001D2800B8FD83 /* UIButtonExtensions.swift in Sources */,
 				8CC350581E001D2800B8FD83 /* UISwitchExtensions.swift in Sources */,
+				8C2973E81EE7284C0022A18A /* GalaxiesHelpViewController.swift in Sources */,
 				8C3A367F1EC88D4200A914A5 /* FenceItUpHelpViewController.swift in Sources */,
 				8C3A369D1EC88D4200A914A5 /* HitoriDocument.swift in Sources */,
 				8C3A37761EC88D4300A914A5 /* PowerGridGame.swift in Sources */,
@@ -3155,6 +3202,7 @@
 				8C3A35ED1EC88D4200A914A5 /* AbcGameViewController.swift in Sources */,
 				8CC350501E001D2800B8FD83 /* UIColorExtensions.swift in Sources */,
 				8C3A37A31EC88D4400A914A5 /* SentinelsOptionsViewController.swift in Sources */,
+				8C2973EA1EE7284C0022A18A /* GalaxiesObject.swift in Sources */,
 				8C3A361A1EC88D4200A914A5 /* BoxItAgainGame.swift in Sources */,
 				8C3A35F01EC88D4200A914A5 /* AbcMainViewController.swift in Sources */,
 				8C3A37DE1EC88D4400A914A5 /* TatamiObject.swift in Sources */,
@@ -3168,6 +3216,7 @@
 				8C3A37E21EC88D4400A914A5 /* TentsGame.swift in Sources */,
 				8C3A370E1EC88D4300A914A5 /* MineShipsGridNode.swift in Sources */,
 				8C3A368E1EC88D4200A914A5 /* FenceLitsObject.swift in Sources */,
+				8C2973E71EE7284C0022A18A /* GalaxiesGridNode.swift in Sources */,
 				8C3A37631EC88D4300A914A5 /* PairakabeHelpViewController.swift in Sources */,
 				8CC350321E001D2800B8FD83 /* BlockButton.swift in Sources */,
 				8C3A360A1EC88D4200A914A5 /* BattleShipsObject.swift in Sources */,
@@ -3379,6 +3428,7 @@
 				8C2AF8341ED5FB0000EC84AB /* NumberPathHelpViewController.swift in Sources */,
 				8C3A375F1EC88D4300A914A5 /* PairakabeGameScene.swift in Sources */,
 				8C3A37641EC88D4300A914A5 /* PairakabeMainViewController.swift in Sources */,
+				8C2973E31EE7284C0022A18A /* GalaxiesGame.swift in Sources */,
 				8C3A37D61EC88D4400A914A5 /* TatamiGame.swift in Sources */,
 				8C3A37931EC88D4400A914A5 /* RoomsHelpViewController.swift in Sources */,
 				8C3A37DC1EC88D4400A914A5 /* TatamiMainViewController.swift in Sources */,
@@ -3388,6 +3438,7 @@
 				8C3A36491EC88D4200A914A5 /* BusySeasDocument.swift in Sources */,
 				8C3A36741EC88D4200A914A5 /* DominoMainViewController.swift in Sources */,
 				8C3A379C1EC88D4400A914A5 /* SentinelsGameState.swift in Sources */,
+				8C2973E61EE7284C0022A18A /* GalaxiesGameViewController.swift in Sources */,
 				8C3A379E1EC88D4400A914A5 /* SentinelsGridNode.swift in Sources */,
 				8C3A36321EC88D4200A914A5 /* BoxItUpGame.swift in Sources */,
 				8C3A360F1EC88D4200A914A5 /* BootyIslandGameScene.swift in Sources */,
@@ -3430,6 +3481,7 @@
 				8C3A36E71EC88D4300A914A5 /* LoopyGameScene.swift in Sources */,
 				8C3A37B41EC88D4400A914A5 /* SlitherLinkGameState.swift in Sources */,
 				8CC3505C1E001D2800B8FD83 /* UIViewControllerExtensions.swift in Sources */,
+				8C2973EB1EE7284C0022A18A /* GalaxiesOptionsViewController.swift in Sources */,
 				8C3A36471EC88D4200A914A5 /* BridgesOptionsViewController.swift in Sources */,
 				8C9F325E1ED1FAF600E10965 /* PataGridNode.swift in Sources */,
 				8C3A364D1EC88D4200A914A5 /* BusySeasGameViewController.swift in Sources */,
@@ -3556,6 +3608,7 @@
 				8C9F32321ECF06C000E10965 /* TapaObject.swift in Sources */,
 				8C3A37061EC88D4300A914A5 /* MasyuObject.swift in Sources */,
 				8C3A371E1EC88D4300A914A5 /* MinesweeperObject.swift in Sources */,
+				8C2973E41EE7284C0022A18A /* GalaxiesGameScene.swift in Sources */,
 				8C3A37DA1EC88D4400A914A5 /* TatamiGridNode.swift in Sources */,
 				8C3A37AC1EC88D4400A914A5 /* SkyscrapersMainViewController.swift in Sources */,
 				8C3A36DC1EC88D4300A914A5 /* LitsGameState.swift in Sources */,

@@ -1,0 +1,141 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. In the board there are marked centers of a few 'Spiral' Galaxies.
+2. These Galaxies are symmetrical to a rotation of 180 degrees. This means that rotating the shape of the Galaxy by 180 degrees (half a full turn) around the center, will result in an identical shape.
+3. In the end, all the space must be included in Galaxies and Galaxies can't overlap.
+4. There can be single tile Galaxies (with the center inside it) and some Galaxy center will be cross two or four tiles.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+> x `
+    `
+ o v`
+o   `
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+ o o`
+x x `
+    `
+ o o`
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+ o x `
+     `
+v >  `
+ >   `
+ o o `
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+v v v`
+     `
+ >  v`
+> v  `
+o  > `
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+ o o o`
+    v `
+> o   `
+ o    `
+o o  o`
+ > >  `
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+o v > `
+ v ox `
+      `
+o    o`
+ > o> `
+>    o`
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+> v> > `
+ o  >  `
+ox  x  `
+       `
+>      `
+x oo o `
+   >   `
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+ >   o `
+>  o  o`
+ov   v `
+  ooo v`
+     v `
+ o     `
+  >  o `
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+ v x >  `
+     o  `
+ >  vx  `
+ox     o`
+      o `
+o o  o  `
+   v    `
+      o `
+    ]]>
+  </level>
+  <level id="10">
+    <![CDATA[
+ o  v > `
+   v  o `
+v v    o`
+     vo `
+ o x  > `
+vx    o `
+    v v `
+  o    o`
+    ]]>
+  </level>
+  <level id="11">
+    <![CDATA[
+ o   o > `
+    vo  o`
+>      x `
+  v      `
+>  x     `
+o    v>  `
+x v     o`
+   o >   `
+  o >  o `
+    ]]>
+  </level>
+  <level id="24">
+    <![CDATA[
+ > x   v>  `
+     x    o`
+    o  o   `
+ o    x    `
+  x      v `
+>    x o   `
+   >       `
+x       v  `
+  o      x `
+   v   x   `
+ o       > `
+    ]]>
+  </level>
+</levels>
+</puzzle>
