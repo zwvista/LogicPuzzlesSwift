@@ -28,4 +28,11 @@ class GalaxiesGridNode: GridNode {
             -offset...offset ~= point.x - CGFloat(c) * blockSize ? (true, p, 2) :
             (false, p, 1)
     }
+    
+    func galaxyPosition(p: Position) -> CGPoint {
+        var point = gridPosition(p: Position(p.row / 2, p.col / 2))
+        point = CGPoint(x: point.x - (p.col % 2 == 0 ? blockSize / 2 : 0),
+                        y: point.y + (p.row % 2 == 0 ? blockSize / 2 : 0))
+        return point
+    }
 }

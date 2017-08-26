@@ -141,33 +141,18 @@ class GalaxiesGameState: GridGameState {
             }
             pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
         }
-//        let n2 = game.areaSize
-//        for area in areas {
-//            let rng = area.filter({p in game.pos2hint[p] != nil})
-//            if rng.count != 1 {
-//                for p in rng {
-//                    pos2state[p] = .normal
-//                }
-//                isSolved = false; continue
-//            }
-//            let p3 = rng[0]
-//            let n1 = area.count, n3 = game.pos2hint[p3]!
-//            func neighbours() -> Int {
-//                var indexes = Set<Int>()
-//                let idx = pos2area[area.first!]!
-//                for p in area {
-//                    for i in 0..<4 {
-//                        guard self[p + GalaxiesGame.offset2[i]][GalaxiesGame.dirs[i]] == .line else {continue}
-//                        let p2 = p + GalaxiesGame.offset[i]
-//                        guard let idx2 = pos2area[p2] else {continue}
-//                        guard idx != idx2 else {return -1}
-//                        indexes.insert(idx2)
-//                    }
-//                }
-//                return indexes.count
-//            }
-//            pos2state[p3] = n1 == n2 && n3 == neighbours() ? .complete : .error
-//            if pos2state[p3] != .complete {isSolved = false}
-//        }
+        for area in areas {
+            var rng = game.galaxies.filter({p in area.contains(Position(p.row / 2, p.col / 2))})
+            guard rng.count == 1 else {
+                for p in rng {
+                    pos2state[p] = .normal
+                }
+                isSolved = false; continue
+            }
+            let galaxy = rng[0]
+            let b = area.testAll({p in area.contains(Position(galaxy.row - p.row - 1, galaxy.col - p.col - 1))})
+            pos2state[galaxy] = b ? .complete : .error
+            if !b {isSolved = false}
+        }
     }
 }

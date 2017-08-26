@@ -29,9 +29,7 @@ class GalaxiesGameScene: GameScene<GalaxiesGameState> {
         
         // addHints
         for p in game.galaxies {
-            var point = gridNode.gridPosition(p: Position(p.row / 2, p.col / 2))
-            point = CGPoint(x: point.x - (p.col % 2 == 0 ? blockSize / 2 : 0),
-                            y: point.y + (p.row % 2 == 0 ? blockSize / 2 : 0))
+            let point = gridNode.galaxyPosition(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             addGalaxy(s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
@@ -48,6 +46,17 @@ class GalaxiesGameScene: GameScene<GalaxiesGameState> {
     }
     
     override func levelUpdated(from stateFrom: GalaxiesGameState, to stateTo: GalaxiesGameState) {
+        for p in stateFrom.game.galaxies {
+            let point = gridNode.galaxyPosition(p: p)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let hintNodeName = "hint" + nodeNameSuffix
+            func removeGalaxy() { removeNode(withName: hintNodeName) }
+            let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
+            if s1 != s2 {
+                removeGalaxy()
+                addGalaxy(s: s2, point: point, nodeName: hintNodeName)
+            }
+        }
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -70,13 +79,6 @@ class GalaxiesGameScene: GameScene<GalaxiesGameState> {
                 if o1 != o2 {
                     removeVertLine(objType: o1)
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
-                }
-                let hintNodeName = "hint" + nodeNameSuffix
-                func removeGalaxy() { removeNode(withName: hintNodeName) }
-                guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
-                if s1 != s2 {
-                    removeGalaxy()
-                    addGalaxy(s: s2, point: point, nodeName: hintNodeName)
                 }
             }
         }
