@@ -14,8 +14,8 @@ class GalaxiesGameScene: GameScene<GalaxiesGameState> {
         set {setGridNode(gridNode: newValue)}
     }
     
-    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+    func addGalaxy(s: HintState, point: CGPoint, nodeName: String) {
+        addDotMarker2(color: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: GalaxiesGameState, skView: SKView) {
@@ -28,11 +28,13 @@ class GalaxiesGameScene: GameScene<GalaxiesGameState> {
         addGrid(gridNode: GalaxiesGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset))
         
         // addHints
-        for (p, n) in game.pos2hint {
-            let point = gridNode.gridPosition(p: p)
+        for p in game.galaxies {
+            var point = gridNode.gridPosition(p: Position(p.row / 2, p.col / 2))
+            point = CGPoint(x: point.x - (p.col % 2 == 0 ? blockSize / 2 : 0),
+                            y: point.y + (p.row % 2 == 0 ? blockSize / 2 : 0))
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
-            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
+            addGalaxy(s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
         }
         
         for r in 0..<game.rows {
@@ -70,11 +72,11 @@ class GalaxiesGameScene: GameScene<GalaxiesGameState> {
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
                 }
                 let hintNodeName = "hint" + nodeNameSuffix
-                func removeHint() { removeNode(withName: hintNodeName) }
+                func removeGalaxy() { removeNode(withName: hintNodeName) }
                 guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
                 if s1 != s2 {
-                    removeHint()
-                    addHint(n: stateFrom.game.pos2hint[p]!, s: s2, point: point, nodeName: hintNodeName)
+                    removeGalaxy()
+                    addGalaxy(s: s2, point: point, nodeName: hintNodeName)
                 }
             }
         }

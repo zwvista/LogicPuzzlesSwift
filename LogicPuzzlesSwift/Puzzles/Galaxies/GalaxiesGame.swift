@@ -24,7 +24,7 @@ class GalaxiesGame: GridGame<GalaxiesGameViewController> {
     static let dirs = [1, 0, 3, 2]
     
     var objArray = [GridDotObject]()
-    var pos2hint = [Position: Int]()
+    var galaxies = Set<Position>()
     var areaSize = 0
     
     init(layout: [String], delegate: GalaxiesGameViewController? = nil) {
@@ -32,18 +32,36 @@ class GalaxiesGame: GridGame<GalaxiesGameViewController> {
         
         size = Position(layout.count + 1, layout[0].length + 1)
         objArray = Array<GridDotObject>(repeating: Array<GridLineObject>(repeating: .empty, count: 4), count: rows * cols)
-        
+
         for r in 0..<rows - 1 {
             let str = layout[r]
             for c in 0..<cols - 1 {
-                let p = Position(r, c)
-                let ch = str[c]
-                guard ch != " " else {continue}
-                let n = ch.toInt!
-                pos2hint[p] = n
+                switch str[c] {
+                case "o":
+                    galaxies.insert(Position(r * 2 + 1, c * 2 + 1))
+                case "v":
+                    galaxies.insert(Position(r * 2 + 2, c * 2 + 1))
+                    self[r + 1, c][1] = .forbidden
+                    self[r + 1, c + 1][3] = .forbidden
+                case ">":
+                    galaxies.insert(Position(r * 2 + 1, c * 2 + 2))
+                    self[r, c + 1][2] = .marker
+                    self[r + 1, c + 1][0] = .forbidden
+                case "x":
+                    galaxies.insert(Position(r * 2 + 2, c * 2 + 2))
+                    self[r, c + 1][2] = .forbidden
+                    self[r + 1, c + 1][0] = .forbidden
+                    self[r + 1, c][1] = .forbidden
+                    self[r + 1, c + 1][3] = .forbidden
+                    self[r + 1, c + 1][1] = .forbidden
+                    self[r + 1, c + 2][3] = .forbidden
+                    self[r + 1, c + 1][2] = .forbidden
+                    self[r + 2, c + 1][0] = .forbidden
+                default:
+                    break
+                }
             }
         }
-        areaSize = (rows - 1) * (cols - 1) / pos2hint.count
         for r in 0..<rows - 1 {
             self[r, 0][2] = .line
             self[r + 1, 0][0] = .line

@@ -67,7 +67,7 @@ class RoomsGameState: GridGameState {
         }
         let dir = move.dir, dir2 = (dir + 2) % 4
         let p = move.p, p2 = p + RoomsGame.offset[dir]
-        guard isValid(p: p2) && game[p][dir] != .line else {return false}
+        guard isValid(p: p2) && game[p][dir] == .empty else {return false}
         f(o1: &self[p][dir], o2: &self[p2][dir2])
         if changed {updateIsSolved()}
         return changed
@@ -83,6 +83,8 @@ class RoomsGameState: GridGameState {
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
                 return markerOption == .markerFirst ? .line : .empty
+            default:
+                return o
             }
         }
         let o = f(o: self[move.p][move.dir])

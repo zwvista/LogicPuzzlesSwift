@@ -34,7 +34,7 @@ class GalaxiesGameState: GridGameState {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = game.objArray
-        for p in game.pos2hint.keys {
+        for p in game.galaxies {
             pos2state[p] = .normal
         }
         updateIsSolved()
@@ -70,7 +70,7 @@ class GalaxiesGameState: GridGameState {
         }
         let dir = move.dir, dir2 = (dir + 2) % 4
         let p = move.p, p2 = p + GalaxiesGame.offset[dir]
-        guard isValid(p: p2) && game[p][dir] != .line else {return false}
+        guard isValid(p: p2) && game[p][dir] == .empty else {return false}
         f(o1: &self[p][dir], o2: &self[p2][dir2])
         if changed {updateIsSolved()}
         return changed
@@ -86,6 +86,8 @@ class GalaxiesGameState: GridGameState {
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
                 return markerOption == .markerFirst ? .line : .empty
+            default:
+                return o
             }
         }
         let o = f(o: self[move.p][move.dir])
@@ -94,22 +96,20 @@ class GalaxiesGameState: GridGameState {
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 8/Galaxies
+        iOS Game: Logic Games/Puzzle Set 4/Galaxies
 
         Summary
-        Galaxies, yes, but not equally sociable
+        Fill the Symmetric Spiral Galaxies
 
         Description
-        1. The board represents a piece of land bought by a bunch of people. They
-           decided to split the land in equal parts.
-        2. However some people are more social and some are less, so each owner
-           wants an exact number of neighbours around him.
-        3. Each number on the board represents an owner house and the number of
-           neighbours he desires.
-        4. Divide the land so that each one has an equal number of squares and
-           the requested number of neighbours.
-        5. Later on, there will be Question Marks, which represents an owner for
-           which you don't know the neighbours preference.
+        1. In the board there are marked centers of a few 'Spiral' Galaxies.
+        2. These Galaxies are symmetrical to a rotation of 180 degrees. This
+           means that rotating the shape of the Galaxy by 180 degrees (half a
+           full turn) around the center, will result in an identical shape.
+        3. In the end, all the space must be included in Galaxies and Galaxies
+           can't overlap.
+        4. There can be single tile Galaxies (with the center inside it) and
+           some Galaxy center will be cross two or four tiles.
     */
     private func updateIsSolved() {
         isSolved = true
@@ -141,33 +141,33 @@ class GalaxiesGameState: GridGameState {
             }
             pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
         }
-        let n2 = game.areaSize
-        for area in areas {
-            let rng = area.filter({p in game.pos2hint[p] != nil})
-            if rng.count != 1 {
-                for p in rng {
-                    pos2state[p] = .normal
-                }
-                isSolved = false; continue
-            }
-            let p3 = rng[0]
-            let n1 = area.count, n3 = game.pos2hint[p3]!
-            func neighbours() -> Int {
-                var indexes = Set<Int>()
-                let idx = pos2area[area.first!]!
-                for p in area {
-                    for i in 0..<4 {
-                        guard self[p + GalaxiesGame.offset2[i]][GalaxiesGame.dirs[i]] == .line else {continue}
-                        let p2 = p + GalaxiesGame.offset[i]
-                        guard let idx2 = pos2area[p2] else {continue}
-                        guard idx != idx2 else {return -1}
-                        indexes.insert(idx2)
-                    }
-                }
-                return indexes.count
-            }
-            pos2state[p3] = n1 == n2 && n3 == neighbours() ? .complete : .error
-            if pos2state[p3] != .complete {isSolved = false}
-        }
+//        let n2 = game.areaSize
+//        for area in areas {
+//            let rng = area.filter({p in game.pos2hint[p] != nil})
+//            if rng.count != 1 {
+//                for p in rng {
+//                    pos2state[p] = .normal
+//                }
+//                isSolved = false; continue
+//            }
+//            let p3 = rng[0]
+//            let n1 = area.count, n3 = game.pos2hint[p3]!
+//            func neighbours() -> Int {
+//                var indexes = Set<Int>()
+//                let idx = pos2area[area.first!]!
+//                for p in area {
+//                    for i in 0..<4 {
+//                        guard self[p + GalaxiesGame.offset2[i]][GalaxiesGame.dirs[i]] == .line else {continue}
+//                        let p2 = p + GalaxiesGame.offset[i]
+//                        guard let idx2 = pos2area[p2] else {continue}
+//                        guard idx != idx2 else {return -1}
+//                        indexes.insert(idx2)
+//                    }
+//                }
+//                return indexes.count
+//            }
+//            pos2state[p3] = n1 == n2 && n3 == neighbours() ? .complete : .error
+//            if pos2state[p3] != .complete {isSolved = false}
+//        }
     }
 }

@@ -92,6 +92,8 @@ class SlitherLinkGameState: GridGameState {
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
                 return markerOption == .markerFirst ? .line : .empty
+            default:
+                return o
             }
         }
         let o = f(o: self[move.p][move.dir])
