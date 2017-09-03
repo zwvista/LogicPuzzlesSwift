@@ -28,6 +28,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         "MineShips": "Mine Ships",
         "MiniLits": "Mini-Lits",
         "NumberPath": "Number Path",
+        "OverUnder": "Over Under",
         "PaintTheNurikabe": "Paint The Nurikabe",
         "ProductSentinels": "Product Sentinels",
         "TapaIslands": "Tapa Islands",

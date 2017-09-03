@@ -134,6 +134,7 @@ class OverUnderGameState: GridGameState {
         }
         for area in areas {
             let rng = area.filter({p in game.pos2hint[p] != nil})
+            // 2. Each region must contain two numbers.
             if rng.count != 2 {
                 for p in rng {
                     pos2state[p] = .normal
@@ -144,6 +145,7 @@ class OverUnderGameState: GridGameState {
             let p2 = rng[0], p3 = rng[1]
             var n2 = game.pos2hint[p2]!, n3 = game.pos2hint[p3]!
             if n2 > n3 {swap(&n2, &n3)}
+            // 3. The region size must be between the two numbers.
             let s: HintState = n1 > n2 && n1 < n3 ? .complete : .error
             pos2state[p2] = s; pos2state[p3] = s
             if s != .complete {isSolved = false}
