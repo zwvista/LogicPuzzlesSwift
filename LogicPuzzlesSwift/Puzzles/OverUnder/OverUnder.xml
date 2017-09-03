@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Divide the board in regions following these rules:
+2. Each region must contain two numbers.
+3. The region size must be between the two numbers.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+    4`
+ 6 5 `
+   6 `
+ 9 49`
+ 319 `
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+   5 `
+ 74  `
+    5`
+6 71 `
+  537`
+    ]]>
+  </level>
+</levels>
+</puzzle>
