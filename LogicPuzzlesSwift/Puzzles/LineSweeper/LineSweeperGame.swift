@@ -23,7 +23,7 @@ class LineSweeperGame: GridGame<LineSweeperGameViewController> {
     var pos2hint = [Position: Int]()
     func isHint(p: Position) -> Bool {return pos2hint[p] != nil}
     
-    init(layout: [String], delegate: LineSweeperGameViewController? = nil) {
+    init(layout: [String], elemLevel: XMLElement, delegate: LineSweeperGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length)

@@ -28,7 +28,7 @@ class OrchardsGame: GridGame<OrchardsGameViewController> {
     var dots: OrchardsDots!
     let treesInEachArea = 1
     
-    init(layout: [String], delegate: OrchardsGameViewController? = nil) {
+    init(layout: [String], elemLevel: XMLElement, delegate: OrchardsGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count / 2, layout[0].length / 2)

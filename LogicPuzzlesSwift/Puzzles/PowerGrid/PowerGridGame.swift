@@ -20,7 +20,7 @@ class PowerGridGame: GridGame<PowerGridGameViewController> {
     var col2hint = [Int]()
     var pos2post = [Position]()
     
-    init(layout: [String], delegate: PowerGridGameViewController? = nil) {
+    init(layout: [String], elemLevel: XMLElement, delegate: PowerGridGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count - 1, layout[0].length - 1)

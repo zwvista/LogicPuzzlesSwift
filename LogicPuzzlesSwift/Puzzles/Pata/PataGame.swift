@@ -28,7 +28,7 @@ class PataGame: GridGame<PataGameViewController> {
 
     var pos2hint = [Position: [Int]]()
     
-    init(layout: [String], delegate: PataGameViewController? = nil) {
+    init(layout: [String], elemLevel: XMLElement, delegate: PataGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length / 4)

@@ -53,11 +53,11 @@ class NurikabeGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let layout: [String] = gameDocument.levels.first(where: {$0.0 == gameDocument.selectedLevelID}).map({$0.1}) ?? gameDocument.levels.first!.1
+        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
         
         levelInitilizing = true
         defer {levelInitilizing = false}
-        game = NurikabeGame(layout: layout, delegate: self)
+        game = NurikabeGame(layout: level.layout, elemLevel: level.elemLevel, delegate: self)
         
         // restore game state
         for case let rec as MoveProgress in gameDocument.moveProgress {

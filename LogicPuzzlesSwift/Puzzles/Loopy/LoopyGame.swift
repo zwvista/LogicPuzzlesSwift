@@ -18,7 +18,7 @@ class LoopyGame: GridGame<LoopyGameViewController> {
 
     var objArray = [GridDotObject]()
     
-    init(layout: [String], delegate: LoopyGameViewController? = nil) {
+    init(layout: [String], elemLevel: XMLElement, delegate: LoopyGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count / 2 + 1, layout[0].length / 2 + 1)

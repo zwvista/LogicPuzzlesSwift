@@ -21,7 +21,7 @@ class MagnetsGame: GridGame<MagnetsGameViewController> {
     var areas = [MagnetsArea]()
     var singles = [Position]()
     
-    init(layout: [String], delegate: MagnetsGameViewController? = nil) {
+    init(layout: [String], elemLevel: XMLElement, delegate: MagnetsGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count - 2, layout[0].length - 2)

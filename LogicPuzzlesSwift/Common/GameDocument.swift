@@ -9,9 +9,15 @@
 import UIKit
 import SharkORM
 
+struct GameLevel {
+    var id: String
+    var layout: [String]
+    var elemLevel: XMLElement
+}
+
 protocol GameDocumentBase: class {
     var gameProgress: GameProgress {get}
-    var levels: [(String, [String])] {get}
+    var levels: [GameLevel] {get}
     var help: [String] {get}
     var selectedLevelID: String! {get set}
     func resumeGame()
@@ -24,7 +30,7 @@ protocol GameDocumentBase: class {
 }
 
 class GameDocument<G: GameBase, GM>: GameDocumentBase {
-    private(set) var levels = [(String, [String])]()
+    private(set) var levels = [GameLevel]()
     private(set) var help = [String]()
     var selectedLevelID: String!
     var selectedLevelIDSolution: String { return selectedLevelID + " Solution" }
@@ -71,7 +77,7 @@ class GameDocument<G: GameBase, GM>: GameDocumentBase {
             var arr = elemLevel.stringValue.components(separatedBy: "\n")
             arr = Array(arr[2..<(arr.count - 2)])
             arr = arr.map { s in s.substring(to: s.index(before: s.endIndex)) }
-            levels.append((key, arr))
+            levels.append(GameLevel(id: key, layout: arr, elemLevel: elemLevel))
         }
         if let elemHelp = root.firstChild(tag: "help") {
             var arr = elemHelp.stringValue.components(separatedBy: "\n")

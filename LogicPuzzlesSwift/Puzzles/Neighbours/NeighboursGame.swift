@@ -27,7 +27,7 @@ class NeighboursGame: GridGame<NeighboursGameViewController> {
     var pos2hint = [Position: Int]()
     var areaSize = 0
     
-    init(layout: [String], delegate: NeighboursGameViewController? = nil) {
+    init(layout: [String], elemLevel: XMLElement, delegate: NeighboursGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count + 1, layout[0].length + 1)

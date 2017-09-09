@@ -26,7 +26,7 @@ class DominoGame: GridGame<DominoGameViewController> {
     var objArray = [GridDotObject]()
     var pos2hint = [Position: Int]()
     
-    init(layout: [String], delegate: DominoGameViewController? = nil) {
+    init(layout: [String], elemLevel: XMLElement, delegate: DominoGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count + 1, layout[0].length + 1)

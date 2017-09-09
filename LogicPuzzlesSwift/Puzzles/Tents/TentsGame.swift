@@ -30,7 +30,7 @@ class TentsGame: GridGame<TentsGameViewController> {
     var col2hint = [Int]()
     var pos2tree = [Position]()
     
-    init(layout: [String], delegate: TentsGameViewController? = nil) {
+    init(layout: [String], elemLevel: XMLElement, delegate: TentsGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count - 1, layout[0].length - 1)

@@ -28,7 +28,7 @@ class PaintTheNurikabeGame: GridGame<PaintTheNurikabeGameViewController> {
     var pos2area = [Position: Int]()
     var dots: GridDots!
     
-    init(layout: [String], delegate: PaintTheNurikabeGameViewController? = nil) {
+    init(layout: [String], elemLevel: XMLElement, delegate: PaintTheNurikabeGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count / 2, layout[0].length /  2)

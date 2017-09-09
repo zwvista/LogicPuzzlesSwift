@@ -39,7 +39,7 @@ class AbcGame: GridGame<AbcGameViewController> {
         }
     }
     
-    init(layout: [String], delegate: AbcGameViewController? = nil) {
+    init(layout: [String], elemLevel: XMLElement, delegate: AbcGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length)

@@ -36,7 +36,7 @@ class GameMainViewController: UIViewController {
         super.viewDidLoad()
         lblGameTitle.text = currentGameTitle
         numPages = (gameDocument.levels.count + countPerPage - 1) / countPerPage
-        let index = gameDocument.levels.index(where: {$0.0 == gameDocument.selectedLevelID}) ?? 0
+        let index = gameDocument.levels.index(where: {$0.id == gameDocument.selectedLevelID}) ?? 0
         currentPage = index / countPerPage
         showCurrentPage()
         let toResume = ((UIApplication.shared.keyWindow!.rootViewController! as! UINavigationController).topViewController as! HomeMainViewController).toResume
@@ -56,7 +56,7 @@ class GameMainViewController: UIViewController {
             let index = currentPage * countPerPage + i
             let b = index < gameDocument.levels.count
             button.isHidden = !b
-            if b {button.setTitle(gameDocument.levels[index].0, for: .normal)}
+            if b {button.setTitle(gameDocument.levels[index].id, for: .normal)}
         }
     }
     

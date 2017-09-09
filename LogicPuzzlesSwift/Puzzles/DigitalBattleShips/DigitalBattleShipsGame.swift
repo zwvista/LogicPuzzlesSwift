@@ -26,7 +26,7 @@ class DigitalBattleShipsGame: GridGame<DigitalBattleShipsGameViewController> {
     var row2hint = [Int]()
     var col2hint = [Int]()
     
-    init(layout: [String], delegate: DigitalBattleShipsGameViewController? = nil) {
+    init(layout: [String], elemLevel: XMLElement, delegate: DigitalBattleShipsGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count - 1, layout[0].length / 2 - 1)

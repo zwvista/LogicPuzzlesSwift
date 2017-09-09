@@ -27,7 +27,7 @@ class OverUnderGame: GridGame<OverUnderGameViewController> {
     var pos2hint = [Position: Int]()
     var areaSize = 0
     
-    init(layout: [String], delegate: OverUnderGameViewController? = nil) {
+    init(layout: [String], elemLevel: XMLElement, delegate: OverUnderGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count + 1, layout[0].length + 1)

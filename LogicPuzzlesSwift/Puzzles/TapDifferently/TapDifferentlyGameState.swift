@@ -181,6 +181,6 @@ class TapDifferentlyGameState: GridGameState {
             }
             nums.insert(n)
         }
-        if nums.count != cols {isSolved = false; return}
+        if nums.count != cols {isSolved = false}
     }
 }

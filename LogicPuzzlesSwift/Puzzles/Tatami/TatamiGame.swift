@@ -28,7 +28,7 @@ class TatamiGame: GridGame<TatamiGameViewController> {
     var dots: TatamiDots!
     var objArray = [Character]()
     
-    init(layout: [String], delegate: TatamiGameViewController? = nil) {
+    init(layout: [String], elemLevel: XMLElement, delegate: TatamiGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count / 2, layout[0].length / 2)

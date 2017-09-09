@@ -29,7 +29,7 @@ class AbstractPaintingGame: GridGame<AbstractPaintingGameViewController> {
     var pos2area = [Position: Int]()
     var dots: GridDots!
     
-    init(layout: [String], delegate: AbstractPaintingGameViewController? = nil) {
+    init(layout: [String], elemLevel: XMLElement, delegate: AbstractPaintingGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count / 2 - 1, layout[0].length /  2 - 1)

@@ -28,7 +28,7 @@ class TapARowGame: GridGame<TapARowGameViewController> {
 
     var pos2hint = [Position: [Int]]()
     
-    init(layout: [String], delegate: TapARowGameViewController? = nil) {
+    init(layout: [String], elemLevel: XMLElement, delegate: TapARowGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length / 4)

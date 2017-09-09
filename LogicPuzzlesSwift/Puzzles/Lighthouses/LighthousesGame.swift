@@ -22,7 +22,7 @@ class LighthousesGame: GridGame<LighthousesGameViewController> {
 
     var pos2hint = [Position: Int]()
     
-    init(layout: [String], delegate: LighthousesGameViewController? = nil) {
+    init(layout: [String], elemLevel: XMLElement, delegate: LighthousesGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length)

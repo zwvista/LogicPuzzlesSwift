@@ -24,7 +24,7 @@ class PairakabeGame: GridGame<PairakabeGameViewController> {
 
     var pos2hint = [Position: Int]()
     
-    init(layout: [String], delegate: PairakabeGameViewController? = nil) {
+    init(layout: [String], elemLevel: XMLElement, delegate: PairakabeGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length)

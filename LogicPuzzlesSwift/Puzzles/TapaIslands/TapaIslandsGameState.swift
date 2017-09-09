@@ -84,33 +84,18 @@ class TapaIslandsGameState: GridGameState {
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 9/TapaIslands
+        iOS Game: Logic Games/Puzzle Set 9/Tapa Islands
 
         Summary
-        Turkish art of PAint(TAPA)
+        Tap-Archipelago
 
         Description
-        1. The goal is to fill some tiles forming a single orthogonally continuous
-           path. Just like Nurikabe.
-        2. A number indicates how many of the surrounding tiles are filled. If a
-           tile has more than one number, it hints at multiple separated groups
-           of filled tiles.
-        3. For example, a cell with a 1 and 3 means there is a continuous group
-           of 3 filled cells around it and one more single filled cell, separated
-           from the other 3. The order of the numbers in this case is irrelevant.
-        4. Filled tiles can't cover an area of 2*2 or larger (just like Nurikabe).
-           Tiles with numbers can be considered 'empty'.
-
-        Variations
-        5. TapaIslands has plenty of variations. Some are available in the levels of this
-           game. Stronger variations are B-W TapaIslands, Island TapaIslands and Pata and have
-           their own game.
-        6. Equal TapaIslands - The board contains an equal number of white and black tiles.
-           Tiles with numbers or question marks are NOT counted as empty or filled
-           for this rule (i.e. they're left out of the count).
-        7. Four-Me-TapaIslands - Four-Me-Not rule apply: you can't have more than three
-           filled tiles in line.
-        8. No Square TapaIslands - No 2*2 area of the board can be left empty.
+        1. Plays with the same rules as Tapa with these variations.
+        2. Empty tiles from 'islands', or separated areas, are surrounded by the
+           filled tiles.
+        3. Each separated area may contain at most one clue tile.
+        4. If there is a clue tile in an area, at least one digit should give the
+           size of that area in unit squares.
     */
     private func updateIsSolved() {
         isSolved = true

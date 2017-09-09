@@ -34,7 +34,7 @@ class MasyuGame: GridGame<MasyuGameViewController> {
         }
     }
     
-    init(layout: [String], delegate: MasyuGameViewController? = nil) {
+    init(layout: [String], elemLevel: XMLElement, delegate: MasyuGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length)

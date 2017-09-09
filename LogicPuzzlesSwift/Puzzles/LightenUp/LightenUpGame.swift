@@ -18,7 +18,7 @@ class LightenUpGame: GridGame<LightenUpGameViewController> {
 
     var wall2Lightbulbs = [Position: Int]()
     
-    init(layout: [String], delegate: LightenUpGameViewController? = nil) {
+    init(layout: [String], elemLevel: XMLElement, delegate: LightenUpGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length)

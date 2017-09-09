@@ -28,7 +28,7 @@ class TapaIslandsGame: GridGame<TapaIslandsGameViewController> {
 
     var pos2hint = [Position: [Int]]()
     
-    init(layout: [String], delegate: TapaIslandsGameViewController? = nil) {
+    init(layout: [String], elemLevel: XMLElement, delegate: TapaIslandsGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length / 4)

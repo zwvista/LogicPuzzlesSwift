@@ -27,7 +27,7 @@ class GalaxiesGame: GridGame<GalaxiesGameViewController> {
     var galaxies = Set<Position>()
     var areaSize = 0
     
-    init(layout: [String], delegate: GalaxiesGameViewController? = nil) {
+    init(layout: [String], elemLevel: XMLElement, delegate: GalaxiesGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count + 1, layout[0].length + 1)

@@ -20,7 +20,7 @@ class CloudsGame: GridGame<CloudsGameViewController> {
     var col2hint = [Int]()
     var pos2cloud = [Position]()
     
-    init(layout: [String], delegate: CloudsGameViewController? = nil) {
+    init(layout: [String], elemLevel: XMLElement, delegate: CloudsGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count - 1, layout[0].length - 1)
