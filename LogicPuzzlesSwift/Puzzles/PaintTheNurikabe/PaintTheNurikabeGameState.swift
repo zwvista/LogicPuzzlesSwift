@@ -89,7 +89,7 @@ class PaintTheNurikabeGameState: GridGameState {
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 6/Paint The Nurikabe
+        iOS Game: Logic Games/Puzzle Set 16/Paint The Nurikabe
 
         Summary
         Paint areas, find Nurikabes

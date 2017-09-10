@@ -51,7 +51,7 @@ class PaintTheNurikabeGame: GridGame<PaintTheNurikabeGameViewController> {
                     dots[r, c][2] = .line
                     dots[r + 1, c][0] = .line
                 }
-                guard c < rows else {break}
+                guard c < cols else {break}
                 let ch2 = str[2 * c + 1]
                 guard case "0"..."9" = ch2 else {continue}
                 pos2hint[Position(r, c)] = ch2.toInt!

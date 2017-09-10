@@ -25,7 +25,6 @@ class GalaxiesGame: GridGame<GalaxiesGameViewController> {
     
     var objArray = [GridDotObject]()
     var galaxies = Set<Position>()
-    var areaSize = 0
     
     init(layout: [String], delegate: GalaxiesGameViewController? = nil) {
         super.init(delegate: delegate)
