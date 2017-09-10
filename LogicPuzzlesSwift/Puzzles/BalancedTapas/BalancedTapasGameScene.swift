@@ -103,20 +103,22 @@ class BalancedTapasGameScene: GameScene<BalancedTapasGameState> {
                         break
                     }
                 }
-                if c == stateFrom.game.left {
-                    let lineNodeName = "line" + nodeNameSuffix
-                    removeNode(withName: lineNodeName)
-                    let pathToDraw = CGMutablePath()
-                    let lineNode = SKShapeNode(path: pathToDraw)
-                    let x = point.x - gridNode.blockSize / 2 - (c > stateFrom.game.right ? gridNode.blockSize / 2 : 0)
-                    pathToDraw.move(to: CGPoint(x: x, y: point.y + gridNode.blockSize / 2))
-                    pathToDraw.addLine(to: CGPoint(x: x, y: point.y - gridNode.blockSize / 2))
-                    lineNode.glowWidth = 4
-                    lineNode.path = pathToDraw
-                    lineNode.strokeColor = .yellow
-                    gridNode.addChild(lineNode)
-                }
             }
         }
+        let lineNodeName = "line"
+        removeNode(withName: lineNodeName)
+        let pathToDraw = CGMutablePath()
+        let lineNode = SKShapeNode(path: pathToDraw)
+        for r in 0..<stateFrom.rows {
+            let c = stateFrom.game.left
+            let point = gridNode.gridPosition(p: Position(r, c))
+            let x = point.x - gridNode.blockSize / 2 - (c > stateFrom.game.right ? gridNode.blockSize / 2 : 0)
+            pathToDraw.move(to: CGPoint(x: x, y: point.y + gridNode.blockSize / 2))
+            pathToDraw.addLine(to: CGPoint(x: x, y: point.y - gridNode.blockSize / 2))
+        }
+        lineNode.glowWidth = 4
+        lineNode.path = pathToDraw
+        lineNode.strokeColor = .yellow
+        gridNode.addChild(lineNode)
     }
 }
