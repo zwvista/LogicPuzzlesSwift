@@ -57,7 +57,7 @@ class MinesweeperGameViewController: GameGameViewController, GameDelegate {
         
         levelInitilizing = true
         defer {levelInitilizing = false}
-        game = MinesweeperGame(layout: level.layout, elemLevel: level.elemLevel, delegate: self)
+        game = MinesweeperGame(layout: level.layout, delegate: self)
         
         // restore game state
         for case let rec as MoveProgress in gameDocument.moveProgress {

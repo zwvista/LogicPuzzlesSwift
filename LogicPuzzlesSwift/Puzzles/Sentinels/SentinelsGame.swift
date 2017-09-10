@@ -18,7 +18,7 @@ class SentinelsGame: GridGame<SentinelsGameViewController> {
 
     var pos2hint = [Position: Int]()
     
-    init(layout: [String], elemLevel: XMLElement, delegate: SentinelsGameViewController? = nil) {
+    init(layout: [String], delegate: SentinelsGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length)

@@ -57,7 +57,7 @@ class LightenUpGameViewController: GameGameViewController, GameDelegate {
         
         levelInitilizing = true
         defer {levelInitilizing = false}
-        game = LightenUpGame(layout: level.layout, elemLevel: level.elemLevel, delegate: self)
+        game = LightenUpGame(layout: level.layout, delegate: self)
         
         // restore game state
         for case let rec as MoveProgress in gameDocument.moveProgress {

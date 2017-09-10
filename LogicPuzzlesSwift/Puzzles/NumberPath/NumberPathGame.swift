@@ -34,7 +34,7 @@ class NumberPathGame: GridGame<NumberPathGameViewController> {
         }
     }
     
-    init(layout: [String], elemLevel: XMLElement, delegate: NumberPathGameViewController? = nil) {
+    init(layout: [String], delegate: NumberPathGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length / 2)

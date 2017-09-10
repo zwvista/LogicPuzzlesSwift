@@ -58,7 +58,7 @@ class GalaxiesGameViewController: GameGameViewController, GameDelegate {
         
         levelInitilizing = true
         defer {levelInitilizing = false}
-        game = GalaxiesGame(layout: level.layout, elemLevel: level.elemLevel, delegate: self)
+        game = GalaxiesGame(layout: level.layout, delegate: self)
         
         // restore game state
         for case let rec as MoveProgress in gameDocument.moveProgress {

@@ -57,7 +57,7 @@ class AbstractPaintingGameViewController: GameGameViewController, GameDelegate {
         
         levelInitilizing = true
         defer {levelInitilizing = false}
-        game = AbstractPaintingGame(layout: level.layout, elemLevel: level.elemLevel, delegate: self)
+        game = AbstractPaintingGame(layout: level.layout, delegate: self)
         
         // restore game state
         for case let rec as MoveProgress in gameDocument.moveProgress {

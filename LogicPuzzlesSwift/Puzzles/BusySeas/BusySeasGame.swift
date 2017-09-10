@@ -18,7 +18,7 @@ class BusySeasGame: GridGame<BusySeasGameViewController> {
 
     var pos2hint = [Position: Int]()
     
-    init(layout: [String], elemLevel: XMLElement, delegate: BusySeasGameViewController? = nil) {
+    init(layout: [String], delegate: BusySeasGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length)

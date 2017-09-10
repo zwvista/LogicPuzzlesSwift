@@ -53,7 +53,7 @@ class FenceLitsGame: GridGame<FenceLitsGameViewController> {
     var objArray = [GridDotObject]()
     var pos2hint = [Position: Int]()
     
-    init(layout: [String], elemLevel: XMLElement, delegate: FenceLitsGameViewController? = nil) {
+    init(layout: [String], delegate: FenceLitsGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count + 1, layout[0].length + 1)

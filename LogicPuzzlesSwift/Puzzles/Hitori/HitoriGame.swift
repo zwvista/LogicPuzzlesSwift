@@ -34,7 +34,7 @@ class HitoriGame: GridGame<HitoriGameViewController> {
         }
     }
     
-    init(layout: [String], elemLevel: XMLElement, delegate: HitoriGameViewController? = nil) {
+    init(layout: [String], delegate: HitoriGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length)

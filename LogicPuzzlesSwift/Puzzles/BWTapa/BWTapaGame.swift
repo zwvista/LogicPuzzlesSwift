@@ -28,7 +28,7 @@ class BWTapaGame: GridGame<BWTapaGameViewController> {
 
     var pos2hint = [Position: [Int]]()
     
-    init(layout: [String], elemLevel: XMLElement, delegate: BWTapaGameViewController? = nil) {
+    init(layout: [String], delegate: BWTapaGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length / 4)

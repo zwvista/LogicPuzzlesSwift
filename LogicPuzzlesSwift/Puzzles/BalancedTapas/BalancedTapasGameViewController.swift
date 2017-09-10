@@ -57,7 +57,7 @@ class BalancedTapasGameViewController: GameGameViewController, GameDelegate {
         
         levelInitilizing = true
         defer {levelInitilizing = false}
-        game = BalancedTapasGame(layout: level.layout, elemLevel: level.elemLevel, delegate: self)
+        game = BalancedTapasGame(layout: level.layout, leftPart: level.settings["LeftPart"]!, delegate: self)
         
         // restore game state
         for case let rec as MoveProgress in gameDocument.moveProgress {

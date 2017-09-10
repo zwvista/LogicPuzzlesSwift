@@ -24,7 +24,7 @@ class BridgesGame: GridGame<BridgesGameViewController> {
     var islandsInfo = [Position: IslandInfo]()
     func isIsland(p: Position) -> Bool {return islandsInfo[p] != nil}
     
-    init(layout: [String], elemLevel: XMLElement, delegate: BridgesGameViewController? = nil) {
+    init(layout: [String], delegate: BridgesGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length)

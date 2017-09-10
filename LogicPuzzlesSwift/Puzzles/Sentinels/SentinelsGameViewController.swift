@@ -57,7 +57,7 @@ class SentinelsGameViewController: GameGameViewController, GameDelegate {
         
         levelInitilizing = true
         defer {levelInitilizing = false}
-        game = SentinelsGame(layout: level.layout, elemLevel: level.elemLevel, delegate: self)
+        game = SentinelsGame(layout: level.layout, delegate: self)
         
         // restore game state
         for case let rec as MoveProgress in gameDocument.moveProgress {

@@ -39,7 +39,7 @@ class SumscrapersGame: GridGame<SumscrapersGameViewController> {
         }
     }
     
-    init(layout: [String], elemLevel: XMLElement, delegate: SumscrapersGameViewController? = nil) {
+    init(layout: [String], delegate: SumscrapersGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length / 2)

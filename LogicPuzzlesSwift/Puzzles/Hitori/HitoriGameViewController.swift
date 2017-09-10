@@ -57,7 +57,7 @@ class HitoriGameViewController: GameGameViewController, GameDelegate {
         
         levelInitilizing = true
         defer {levelInitilizing = false}
-        game = HitoriGame(layout: level.layout, elemLevel: level.elemLevel, delegate: self)
+        game = HitoriGame(layout: level.layout, delegate: self)
         
         // restore game state
         for case let rec as MoveProgress in gameDocument.moveProgress {

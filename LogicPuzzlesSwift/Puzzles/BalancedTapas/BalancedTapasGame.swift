@@ -29,7 +29,7 @@ class BalancedTapasGame: GridGame<BalancedTapasGameViewController> {
     var pos2hint = [Position: [Int]]()
     var left = 0, right = 0;
     
-    init(layout: [String], elemLevel: XMLElement, delegate: BalancedTapasGameViewController? = nil) {
+    init(layout: [String], leftPart: String, delegate: BalancedTapasGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length / 4)

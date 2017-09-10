@@ -12,7 +12,7 @@ import SharkORM
 struct GameLevel {
     var id: String
     var layout: [String]
-    var elemLevel: XMLElement
+    var settings: [String: String]
 }
 
 protocol GameDocumentBase: class {
@@ -77,7 +77,7 @@ class GameDocument<G: GameBase, GM>: GameDocumentBase {
             var arr = elemLevel.stringValue.components(separatedBy: "\n")
             arr = Array(arr[2..<(arr.count - 2)])
             arr = arr.map { s in s.substring(to: s.index(before: s.endIndex)) }
-            levels.append(GameLevel(id: key, layout: arr, elemLevel: elemLevel))
+            levels.append(GameLevel(id: key, layout: arr, settings: elemLevel.attributes))
         }
         if let elemHelp = root.firstChild(tag: "help") {
             var arr = elemHelp.stringValue.components(separatedBy: "\n")

@@ -58,7 +58,7 @@ class FenceItUpGameViewController: GameGameViewController, GameDelegate {
         
         levelInitilizing = true
         defer {levelInitilizing = false}
-        game = FenceItUpGame(layout: level.layout, elemLevel: level.elemLevel, delegate: self)
+        game = FenceItUpGame(layout: level.layout, delegate: self)
         
         // restore game state
         for case let rec as MoveProgress in gameDocument.moveProgress {

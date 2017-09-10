@@ -29,7 +29,7 @@ class LightBattleShipsGame: GridGame<LightBattleShipsGameViewController> {
     var pos2hint = [Position: Int]()
     var pos2obj = [Position: LightBattleShipsObject]()
     
-    init(layout: [String], elemLevel: XMLElement, delegate: LightBattleShipsGameViewController? = nil) {
+    init(layout: [String], delegate: LightBattleShipsGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length)

@@ -26,7 +26,7 @@ class BoxItAgainGame: GridGame<BoxItAgainGameViewController> {
     var objArray = [GridDotObject]()
     var pos2hint = [Position: Int]()
     
-    init(layout: [String], elemLevel: XMLElement, delegate: BoxItAgainGameViewController? = nil) {
+    init(layout: [String], delegate: BoxItAgainGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count + 1, layout[0].length + 1)

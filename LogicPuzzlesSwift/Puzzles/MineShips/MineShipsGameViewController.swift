@@ -57,7 +57,7 @@ class MineShipsGameViewController: GameGameViewController, GameDelegate {
         
         levelInitilizing = true
         defer {levelInitilizing = false}
-        game = MineShipsGame(layout: level.layout, elemLevel: level.elemLevel, delegate: self)
+        game = MineShipsGame(layout: level.layout, delegate: self)
         
         // restore game state
         for case let rec as MoveProgress in gameDocument.moveProgress {

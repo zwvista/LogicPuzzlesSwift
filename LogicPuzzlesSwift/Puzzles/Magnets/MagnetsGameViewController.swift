@@ -57,7 +57,7 @@ class MagnetsGameViewController: GameGameViewController, GameDelegate {
         
         levelInitilizing = true
         defer {levelInitilizing = false}
-        game = MagnetsGame(layout: level.layout, elemLevel: level.elemLevel, delegate: self)
+        game = MagnetsGame(layout: level.layout, delegate: self)
         
         // restore game state
         for case let rec as MoveProgress in gameDocument.moveProgress {

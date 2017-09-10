@@ -63,7 +63,7 @@ class LitsGame: GridGame<LitsGameViewController> {
     var dots: GridDots!
     let treesInEachArea = 1
     
-    init(layout: [String], elemLevel: XMLElement, delegate: LitsGameViewController? = nil) {
+    init(layout: [String], delegate: LitsGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count / 2, layout[0].length / 2)

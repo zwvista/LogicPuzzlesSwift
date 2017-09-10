@@ -57,7 +57,7 @@ class SnailGameViewController: GameGameViewController, GameDelegate {
         
         levelInitilizing = true
         defer {levelInitilizing = false}
-        game = SnailGame(layout: level.layout, elemLevel: level.elemLevel, delegate: self)
+        game = SnailGame(layout: level.layout, delegate: self)
         
         // restore game state
         for case let rec as MoveProgress in gameDocument.moveProgress {

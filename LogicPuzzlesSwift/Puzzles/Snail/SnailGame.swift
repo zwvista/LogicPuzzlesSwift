@@ -20,7 +20,7 @@ class SnailGame: GridGame<SnailGameViewController> {
     var snailPathGrid = [Position]()
     var snailPathLine = [Position]()
     
-    init(layout: [String], elemLevel: XMLElement, delegate: SnailGameViewController? = nil) {
+    init(layout: [String], delegate: SnailGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length)

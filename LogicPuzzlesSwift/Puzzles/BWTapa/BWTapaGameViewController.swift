@@ -57,7 +57,7 @@ class BWTapaGameViewController: GameGameViewController, GameDelegate {
         
         levelInitilizing = true
         defer {levelInitilizing = false}
-        game = BWTapaGame(layout: level.layout, elemLevel: level.elemLevel, delegate: self)
+        game = BWTapaGame(layout: level.layout, delegate: self)
         
         // restore game state
         for case let rec as MoveProgress in gameDocument.moveProgress {

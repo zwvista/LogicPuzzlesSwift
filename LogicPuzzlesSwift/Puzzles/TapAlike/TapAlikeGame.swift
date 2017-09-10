@@ -28,7 +28,7 @@ class TapAlikeGame: GridGame<TapAlikeGameViewController> {
 
     var pos2hint = [Position: [Int]]()
     
-    init(layout: [String], elemLevel: XMLElement, delegate: TapAlikeGameViewController? = nil) {
+    init(layout: [String], delegate: TapAlikeGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length / 4)

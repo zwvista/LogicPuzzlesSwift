@@ -57,7 +57,7 @@ class PowerGridGameViewController: GameGameViewController, GameDelegate {
         
         levelInitilizing = true
         defer {levelInitilizing = false}
-        game = PowerGridGame(layout: level.layout, elemLevel: level.elemLevel, delegate: self)
+        game = PowerGridGame(layout: level.layout, delegate: self)
         
         // restore game state
         for case let rec as MoveProgress in gameDocument.moveProgress {
