@@ -15,7 +15,8 @@ class PataGameScene: GameScene<PataGameState> {
     }
     
     func addHint(arr: [Int], s: HintState, point: CGPoint, nodeName: String) {
-        func hint2Str(n: Int) -> String {
+        func hint2Str(i: Int) -> String {
+            let n = arr[i]
             return n == -1 ? "?" : String(n)
         }
         let blockSize = gridNode.blockSize!
@@ -23,19 +24,19 @@ class PataGameScene: GameScene<PataGameState> {
         let size2 = CGSize(width: blockSize / 2, height: blockSize / 2)
         switch arr.count {
         case 1:
-            addLabel(text: hint2Str(n: arr[0]), fontColor: fontColor, point: point, nodeName: nodeName)
+            addLabel(text: hint2Str(i: 0), fontColor: fontColor, point: point, nodeName: nodeName)
         case 2:
-            addLabel(text: hint2Str(n: arr[0]), fontColor: fontColor, point: CGPoint(x: point.x - blockSize / 4, y: point.y + blockSize / 4), nodeName: nodeName, size: size2)
-            addLabel(text: hint2Str(n: arr[1]), fontColor: fontColor, point: CGPoint(x: point.x + blockSize / 4, y: point.y - blockSize / 4), nodeName: nodeName, size: size2)
+            addLabel(text: hint2Str(i: 0), fontColor: fontColor, point: CGPoint(x: point.x - blockSize / 4, y: point.y + blockSize / 4), nodeName: nodeName, size: size2)
+            addLabel(text: hint2Str(i: 1), fontColor: fontColor, point: CGPoint(x: point.x + blockSize / 4, y: point.y - blockSize / 4), nodeName: nodeName, size: size2)
         case 3:
-            addLabel(text: hint2Str(n: arr[0]), fontColor: fontColor, point: CGPoint(x: point.x, y: point.y + blockSize / 4), nodeName: nodeName, size: CGSize(width: blockSize, height: blockSize / 2))
-            addLabel(text: hint2Str(n: arr[1]), fontColor: fontColor, point: CGPoint(x: point.x - blockSize / 4, y: point.y - blockSize / 4), nodeName: nodeName, size: size2)
-            addLabel(text: hint2Str(n: arr[2]), fontColor: fontColor, point: CGPoint(x: point.x + blockSize / 4, y: point.y - blockSize / 4), nodeName: nodeName, size: size2)
+            addLabel(text: hint2Str(i: 0), fontColor: fontColor, point: CGPoint(x: point.x, y: point.y + blockSize / 4), nodeName: nodeName, size: CGSize(width: blockSize, height: blockSize / 2))
+            addLabel(text: hint2Str(i: 1), fontColor: fontColor, point: CGPoint(x: point.x - blockSize / 4, y: point.y - blockSize / 4), nodeName: nodeName, size: size2)
+            addLabel(text: hint2Str(i: 2), fontColor: fontColor, point: CGPoint(x: point.x + blockSize / 4, y: point.y - blockSize / 4), nodeName: nodeName, size: size2)
         case 4:
-            addLabel(text: hint2Str(n: arr[0]), fontColor: fontColor, point: CGPoint(x: point.x - blockSize / 4, y: point.y + blockSize / 4), nodeName: nodeName, size: size2)
-            addLabel(text: hint2Str(n: arr[1]), fontColor: fontColor, point: CGPoint(x: point.x + blockSize / 4, y: point.y + blockSize / 4), nodeName: nodeName, size: size2)
-            addLabel(text: hint2Str(n: arr[2]), fontColor: fontColor, point: CGPoint(x: point.x - blockSize / 4, y: point.y - blockSize / 4), nodeName: nodeName, size: size2)
-            addLabel(text: hint2Str(n: arr[3]), fontColor: fontColor, point: CGPoint(x: point.x + blockSize / 4, y: point.y - blockSize / 4), nodeName: nodeName, size: size2)
+            addLabel(text: hint2Str(i: 0), fontColor: fontColor, point: CGPoint(x: point.x - blockSize / 4, y: point.y + blockSize / 4), nodeName: nodeName, size: size2)
+            addLabel(text: hint2Str(i: 1), fontColor: fontColor, point: CGPoint(x: point.x + blockSize / 4, y: point.y + blockSize / 4), nodeName: nodeName, size: size2)
+            addLabel(text: hint2Str(i: 2), fontColor: fontColor, point: CGPoint(x: point.x - blockSize / 4, y: point.y - blockSize / 4), nodeName: nodeName, size: size2)
+            addLabel(text: hint2Str(i: 3), fontColor: fontColor, point: CGPoint(x: point.x + blockSize / 4, y: point.y - blockSize / 4), nodeName: nodeName, size: size2)
         default:
             break
         }

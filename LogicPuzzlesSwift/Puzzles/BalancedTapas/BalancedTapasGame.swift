@@ -33,6 +33,8 @@ class BalancedTapasGame: GridGame<BalancedTapasGameViewController> {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length / 4)
+        left = leftPart[0].toInt!; right = left
+        if leftPart.length > 1 {left += 1}
         
         for r in 0..<rows {
             let str = layout[r]

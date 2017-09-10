@@ -163,6 +163,17 @@ class BalancedTapasGameState: GridGameState {
             }
         }
         let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
-        if rngWalls.count != nodesExplored.count {isSolved = false}
+        if rngWalls.count != nodesExplored.count {isSolved = false; return}
+        func computeWalls(from: Int, to: Int) -> Int {
+            var n = 0
+            for c in from..<to {
+                for r in 0..<rows {
+                    if case .wall = self[r, c] {n += 1}
+                }
+            }
+            return n;
+        }
+        let (n1, n2) = (computeWalls(from: 0, to: game.left), computeWalls(from: game.right, to: cols))
+        if n1 != n2 {isSolved = false}
     }
 }
