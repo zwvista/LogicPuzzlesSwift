@@ -25,14 +25,14 @@ class OrchardsGame: GridGame<OrchardsGameViewController> {
 
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
-    var dots: OrchardsDots!
+    var dots: GridDots!
     let treesInEachArea = 1
     
     init(layout: [String], delegate: OrchardsGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count / 2, layout[0].length / 2)
-        dots = OrchardsDots(rows: rows + 1, cols: cols + 1)
+        dots = GridDots(rows: rows + 1, cols: cols + 1)
         
         for r in 0..<rows + 1 {
             var str = layout[2 * r]
