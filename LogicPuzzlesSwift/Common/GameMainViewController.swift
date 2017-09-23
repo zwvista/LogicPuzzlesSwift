@@ -29,7 +29,7 @@ class GameMainViewController: UIViewController {
 
     // http://stackoverflow.com/questions/14111572/how-to-use-single-storyboard-uiviewcontroller-for-multiple-subclass
     override func awakeFromNib() {
-        object_setClass(self, NSClassFromString("LogicPuzzlesSwift.\(currentGameName)MainViewController").self)
+        object_setClass(self, NSClassFromString("LogicPuzzlesSwift.\(currentGameName)MainViewController").self!)
     }
     
     override func viewDidLoad() {

@@ -18,7 +18,7 @@ class GameHelpViewController: UITableViewController {
 
     // http://stackoverflow.com/questions/14111572/how-to-use-single-storyboard-uiviewcontroller-for-multiple-subclass
     override func awakeFromNib() {
-        object_setClass(self, NSClassFromString("LogicPuzzlesSwift.\(currentGameName)HelpViewController").self)
+        object_setClass(self, NSClassFromString("LogicPuzzlesSwift.\(currentGameName)HelpViewController").self!)
     }
 
     override func viewDidLoad() {

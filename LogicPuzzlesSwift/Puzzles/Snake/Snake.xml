@@ -1,0 +1,94 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Complete the Snake, head to tail, inside the board.
+2. The two tiles given at the start are the head and the tail of the snake (it is irrelevant which is which).
+3. Numbers on the border tell you how many tiles the snake occupies in that row or column.
+4. The snake can't touch itself, not even diagonally.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+S    4`
+     1`
+     2`
+     1`
+    S3`
+11441 `
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+S    1`
+     1`
+     4`
+     4`
+    S1`
+41213 `
+    ]]>
+  </level>
+  <level id="3">
+   <![CDATA[
+S    1`
+     4`
+     4`
+     1`
+    S1`
+31214 `
+    ]]>
+  </level>
+  <level id="36">
+   <![CDATA[
+S      4`
+       1`
+       4`
+        `
+        `
+       4`
+      S5`
+4535  1 `
+    ]]>
+  </level>
+    <level id="81">
+      <![CDATA[
+        4`
+     S  4`
+        1`
+         `
+        1`
+ S       `
+        2`
+        6`
+4 5 5 23 `
+    ]]>
+    </level>
+  <level id="82">
+   <![CDATA[
+ S      4`
+        2`
+        1`
+        4`
+        4`
+        2`
+         `
+       S7`
+ 5 4  2  `
+    ]]>
+  </level>
+  <level id="88">
+   <![CDATA[
+      S 4`
+        2`
+        1`
+         `
+         `
+S       5`
+        3`
+         `
+114 44 4 `
+    ]]>
+  </level>
+</levels>
+</puzzle>

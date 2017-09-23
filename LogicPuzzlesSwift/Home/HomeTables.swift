@@ -10,10 +10,10 @@ import Foundation
 import SharkORM
 
 class HomeGameProgress: SRKObject {
-    dynamic var gameName: String?
-    dynamic var gameTitle: String?
-    dynamic var playMusic = true
-    dynamic var playSound = true
+    @objc dynamic var gameName: String?
+    @objc dynamic var gameTitle: String?
+    @objc dynamic var playMusic = true
+    @objc dynamic var playSound = true
     
     override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
         return ["gameName": "LightenUp", "gameTitle": "Lighten Up", "playMusic": true, "playSound": true]

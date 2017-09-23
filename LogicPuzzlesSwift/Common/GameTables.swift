@@ -10,12 +10,12 @@ import Foundation
 import SharkORM
 
 class GameProgress: SRKObject {
-    dynamic var gameID: String?
-    dynamic var levelID: String?
-    dynamic var option1: String?
-    dynamic var option2: String?
-    dynamic var option3: String?
-    dynamic var option4: String?
+    @objc dynamic var gameID: String?
+    @objc dynamic var levelID: String?
+    @objc dynamic var option1: String?
+    @objc dynamic var option2: String?
+    @objc dynamic var option3: String?
+    @objc dynamic var option4: String?
     
     override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
         return ["levelID": "1"]
@@ -23,9 +23,9 @@ class GameProgress: SRKObject {
 }
 
 class LevelProgress: SRKObject {
-    dynamic var gameID: String?
-    dynamic var levelID: String?
-    dynamic var moveIndex = 0
+    @objc dynamic var gameID: String?
+    @objc dynamic var levelID: String?
+    @objc dynamic var moveIndex = 0
     
     override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
         return ["moveIndex": 0]
@@ -33,17 +33,17 @@ class LevelProgress: SRKObject {
 }
 
 class MoveProgress: SRKObject {
-    dynamic var gameID: String?
-    dynamic var levelID: String?
-    dynamic var moveIndex = 0
-    dynamic var row = 0
-    dynamic var col = 0
-    dynamic var row2 = 0
-    dynamic var col2 = 0
-    dynamic var intValue1 = 0
-    dynamic var intValue2 = 0
-    dynamic var strValue1: String?
-    dynamic var strValue2: String?
+    @objc dynamic var gameID: String?
+    @objc dynamic var levelID: String?
+    @objc dynamic var moveIndex = 0
+    @objc dynamic var row = 0
+    @objc dynamic var col = 0
+    @objc dynamic var row2 = 0
+    @objc dynamic var col2 = 0
+    @objc dynamic var intValue1 = 0
+    @objc dynamic var intValue2 = 0
+    @objc dynamic var strValue1: String?
+    @objc dynamic var strValue2: String?
     
     override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
         return ["moveIndex": 0]
