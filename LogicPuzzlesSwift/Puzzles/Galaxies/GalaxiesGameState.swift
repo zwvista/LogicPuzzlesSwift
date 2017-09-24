@@ -149,7 +149,7 @@ class GalaxiesGameState: GridGameState {
                 }
                 isSolved = false; continue
             }
-            let galaxy = rng[0]
+            let galaxy = rng.first!
             let b = area.testAll({p in area.contains(Position(galaxy.row - p.row - 1, galaxy.col - p.col - 1))})
             pos2state[galaxy] = b ? .complete : .error
             if !b {isSolved = false}
