@@ -125,6 +125,16 @@ class KakurasuGameState: GridGameState {
             let s: HintState = n == 0 ? .normal : n == h ? .complete : .error
             row2state[r * 2] = s
             if s != .complete {isSolved = false}
+            if n >= h && allowedObjectsOnly {
+                for c in 1..<cols - 1 {
+                    switch self[r, c] {
+                    case .empty, .marker:
+                        self[r, c] = .forbidden
+                    default:
+                        break
+                    }
+                }
+            }
         }
         for c in 1..<cols - 1 {
             let h = game.col2hint[c * 2]
@@ -137,6 +147,16 @@ class KakurasuGameState: GridGameState {
             let s: HintState = n == 0 ? .normal : n == h ? .complete : .error
             col2state[c * 2] = s
             if s != .complete {isSolved = false}
+            if n >= h && allowedObjectsOnly {
+                for r in 1..<rows - 1 {
+                    switch self[r, c] {
+                    case .empty, .marker:
+                        self[r, c] = .forbidden
+                    default:
+                        break
+                    }
+                }
+            }
         }
     }
 }

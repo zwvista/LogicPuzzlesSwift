@@ -32,6 +32,16 @@ class KakurasuGameScene: GameScene<KakurasuGameState> {
     func addHintNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
+    
+    func addHintMarker(p: Position) {
+        let point = gridNode.gridPosition(p: p)
+        let hintMarkerNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 2)
+        hintMarkerNode.position = point
+        hintMarkerNode.name = "hintMarker"
+        hintMarkerNode.strokeColor = .green
+        hintMarkerNode.glowWidth = 1.0
+        gridNode.addChild(hintMarkerNode)
+    }
 
     override func levelInitialized(_ game: AnyObject, state: KakurasuGameState, skView: SKView) {
         let game = game as! KakurasuGame
@@ -48,6 +58,7 @@ class KakurasuGameScene: GameScene<KakurasuGameState> {
                 let p = Position(r, i == 0 ? 0 : game.cols - 1)
                 let n = state.game.row2hint[r * 2 + i]
                 addHint(p: p, n: n, s: state.row2state[r * 2 + i])
+                if i == 1 {addHintMarker(p: p)}
             }
         }
         for c in 1..<game.cols - 1 {
@@ -55,6 +66,7 @@ class KakurasuGameScene: GameScene<KakurasuGameState> {
                 let p = Position(i == 0 ? 0 : game.rows - 1, c)
                 let n = state.game.col2hint[c * 2 + i]
                 addHint(p: p, n: n, s: state.col2state[c * 2 + i])
+                if i == 1 {addHintMarker(p: p)}
             }
         }
     }
