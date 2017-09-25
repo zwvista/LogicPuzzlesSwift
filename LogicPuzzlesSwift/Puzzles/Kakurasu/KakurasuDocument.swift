@@ -14,10 +14,10 @@ class KakurasuDocument: GameDocument<KakurasuGame, KakurasuGameMove> {
     
     override func saveMove(_ move: KakurasuGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.unapply()
-        rec.intValue1 = move.obj
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> KakurasuGameMove? {
-        return KakurasuGameMove(p: Position(rec.row, rec.col), obj: rec.intValue1)
+        return KakurasuGameMove(p: Position(rec.row, rec.col), obj: KakurasuObject(rawValue: rec.intValue1)!)
     }
 }

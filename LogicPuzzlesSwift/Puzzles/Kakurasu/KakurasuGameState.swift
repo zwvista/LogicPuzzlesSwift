@@ -16,7 +16,7 @@ class KakurasuGameState: GridGameState {
     }
     var gameDocument: KakurasuDocument { return KakurasuDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { return KakurasuDocument.sharedInstance }
-    var objArray = [Int]()
+    var objArray = [KakurasuObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()
     
@@ -35,18 +35,13 @@ class KakurasuGameState: GridGameState {
     required init(game: KakurasuGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<Int>(repeating: 0, count: rows * cols)
+        objArray = Array<KakurasuObject>(repeating: .empty, count: rows * cols)
         row2state = Array<HintState>(repeating: .normal, count: rows * 2)
         col2state = Array<HintState>(repeating: .normal, count: cols * 2)
-        for r in 0..<rows {
-            for c in 0..<cols {
-                self[r, c] = game[r, c]
-            }
-        }
         updateIsSolved()
     }
     
-    subscript(p: Position) -> Int {
+    subscript(p: Position) -> KakurasuObject {
         get {
             return self[p.row, p.col]
         }
@@ -54,7 +49,7 @@ class KakurasuGameState: GridGameState {
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> Int {
+    subscript(row: Int, col: Int) -> KakurasuObject {
         get {
             return objArray[row * cols + col]
         }
@@ -80,74 +75,68 @@ class KakurasuGameState: GridGameState {
     }
     
     func switchObject(move: inout KakurasuGameMove) -> Bool {
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        func f(o: KakurasuObject) -> KakurasuObject {
+            switch o {
+            case .empty:
+                return markerOption == .markerFirst ? .marker : .cloud
+            case .cloud:
+                return markerOption == .markerLast ? .marker : .empty
+            case .marker:
+                return markerOption == .markerFirst ? .cloud : .empty
+            default:
+                return o
+            }
+        }
         let p = move.p
         guard isValid(p: p) else {return false}
-        let o = self[p]
-        move.obj = (o + 1) % (game.intMax + 1)
+        move.obj = f(o: self[p])
         return setObject(move: &move)
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 1/Kakurasu
+        iOS Game: Logic Games/Puzzle Set 8/Kakurasu
 
         Summary
-        Guess skyscrapers heights, judging from the skyline
+        Cloud Kakuro on a Skyscraper
 
         Description
-        1. The grid in the center represents a city from above. Each cell contain
-           a skyscraper, of different height.
-        2. The goal is to guess the height of each Skyscraper.
-        3. Each row and column can't have two Kakurasu of the same height.
-        4. The numbers on the boarders tell you how many skyscrapers you see from
-           there, keeping mind that a higher skyscraper hides a lower one. 
-           Kakurasu are numbered from 1(lowest) to the grid size(height).
+        1. On the bottom and right border, you see the value of (respectively)
+           the columns and rows.
+        2. On the other borders, on the top and the left, you see the hints about
+           which tile have to be filled on the board. These numbers represent the
+           sum of the values mentioned above.
     */
     private func updateIsSolved() {
         isSolved = true
-        var nums = [Int]()
+        for r in 0..<rows {
+            for c in 0..<cols {
+                if self[r, c] == .forbidden {self[r, c] = .empty}
+            }
+        }
         for r in 1..<rows - 1 {
-            let (h1, h2) = (self[r, 0], self[r, cols - 1])
-            var (n1, n2) = (0, 0)
-            var (n11, n21) = (0, 0)
-            nums = []
+            let h = game.row2hint[r * 2]
+            var n = 0
             for c in 1..<cols - 1 {
-                let (n12, n22) = (self[r, c], self[r, cols - 1 - c])
-                if n11 < n12 {n11 = n12; n1 += 1}
-                if n21 < n22 {n21 = n22; n2 += 1}
-                guard n12 != 0 else {continue}
-                if nums.contains(n12) {
-                    isSolved = false
-                } else {
-                    nums.append(n12)
+                if self[r, c] == .cloud {
+                    n += game.col2hint[c * 2 + 1]
                 }
             }
-            let s1: HintState = n1 == 0 ? .normal : n1 == h1 ? .complete : .error
-            let s2: HintState = n2 == 0 ? .normal : n2 == h2 ? .complete : .error
-            row2state[r * 2] = s1; row2state[r * 2 + 1] = s2
-            if s1 != .complete || s2 != .complete {isSolved = false}
-            if nums.count != game.intMax {isSolved = false}
+            let s: HintState = n == 0 ? .normal : n == h ? .complete : .error
+            row2state[r * 2] = s
+            if s != .complete {isSolved = false}
         }
         for c in 1..<cols - 1 {
-            let (h1, h2) = (self[0, c], self[rows - 1, c])
-            var (n1, n2) = (0, 0)
-            var (n11, n21) = (0, 0)
-            nums = []
+            let h = game.col2hint[c * 2]
+            var n = 0
             for r in 1..<rows - 1 {
-                let (n12, n22) = (self[r, c], self[rows - 1 - r, c])
-                if n11 < n12 {n11 = n12; n1 += 1}
-                if n21 < n22 {n21 = n22; n2 += 1}
-                guard n12 != 0 else {continue}
-                if nums.contains(n12) {
-                    isSolved = false
-                } else {
-                    nums.append(n12)
+                if self[r, c] == .cloud {
+                    n += game.row2hint[r * 2 + 1]
                 }
             }
-            let s1: HintState = n1 == 0 ? .normal : n1 == h1 ? .complete : .error
-            let s2: HintState = n2 == 0 ? .normal : n2 == h2 ? .complete : .error
-            col2state[c * 2] = s1; col2state[c * 2 + 1] = s2
-            if s1 != .complete || s2 != .complete {isSolved = false}
-            if nums.count != game.intMax {isSolved = false}
+            let s: HintState = n == 0 ? .normal : n == h ? .complete : .error
+            col2state[c * 2] = s
+            if s != .complete {isSolved = false}
         }
     }
 }

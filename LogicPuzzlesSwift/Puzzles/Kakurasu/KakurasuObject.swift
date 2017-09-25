@@ -8,7 +8,15 @@
 
 import Foundation
 
+enum KakurasuObject: Int {
+    case empty, forbidden, marker
+    case cloud
+    init() {
+        self = .empty
+    }
+}
+
 struct KakurasuGameMove {
     var p = Position()
-    var obj = 0
+    var obj = KakurasuObject()
 }

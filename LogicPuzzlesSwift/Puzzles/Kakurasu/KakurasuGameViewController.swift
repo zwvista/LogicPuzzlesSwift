@@ -45,7 +45,7 @@ class KakurasuGameViewController: GameGameViewController, GameDelegate {
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = KakurasuGameMove(p: p, obj: 0)
+        var move = KakurasuGameMove(p: p, obj: .empty)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     
