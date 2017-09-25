@@ -36,6 +36,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         "TapAlike": "Tap-Alike",
         "TapARow": "Tap-A-Row",
         "TapDifferently": "Tap Differently",
+        "TennerGrid": "Tenner Grid",
     ]
     
     override func viewDidLoad() {
