@@ -22,11 +22,11 @@ class TennerGridGameScene: GameScene<TennerGridGameState> {
     override func levelInitialized(_ game: AnyObject, state: TennerGridGameState, skView: SKView) {
         let game = game as! TennerGridGame
         removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols + 1)
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
         
         // addGrid
         let offset:CGFloat = 0.5
-        addGrid(gridNode: TennerGridGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols + 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows + 1) / 2 + offset))
+        addGrid(gridNode: TennerGridGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
         // addNumbers
         for r in 0..<game.rows {
@@ -36,7 +36,7 @@ class TennerGridGameScene: GameScene<TennerGridGameState> {
                 let n = state.game[p]
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let numberNodeName = "number" + nodeNameSuffix
-                addNumber(n: n, s: .normal, isFixed: game[r, c] != -1, point: point, nodeName: numberNodeName)
+                addNumber(n: n, s: state.pos2state[p] ?? .normal, isFixed: game[r, c] != -1, point: point, nodeName: numberNodeName)
             }
         }
     }

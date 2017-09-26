@@ -92,11 +92,11 @@ class TennerGridGameState: GridGameState {
         isSolved = true
         for c in 0..<cols {
             let h = self[rows - 1, c]
-            var n = 0, isDirty = false, hasSpace = false
+            var n = 0, isDirty = false, allFixed = true
             for r in 0..<rows - 1 {
                 let (o1, o2) = (game[r, c], self[r, c])
                 if o1 == -1 {
-                    hasSpace = true
+                    allFixed = false
                     if o2 == -1 {
                         isSolved = false
                     } else {
@@ -105,9 +105,30 @@ class TennerGridGameState: GridGameState {
                 }
                 n += o2 == -1 ? 0 : o2
             }
-            let s: HintState = !isDirty && hasSpace ? .normal : n == h ? .complete : .error
+            let s: HintState = !isDirty && !allFixed ? .normal : n == h ? .complete : .error
             pos2state[Position(rows - 1, c)] = s
             if s != .complete {isSolved = false}
+        }
+        for r in 0..<rows - 1 {
+            var nums = Set<Int>()
+            var rowState: HintState = .complete
+            for c in 0..<cols {
+                let (o1, o2) = (game[r, c], self[r, c])
+                if o1 == -1 && o2 == -1 {rowState = .normal}
+                if o2 != -1 {nums.insert(o2)}
+            }
+            if nums.count != cols {
+                isSolved = false
+                if rowState == .complete {rowState = .error}
+            }
+            guard rowState != .normal else {continue}
+            for c in 0..<cols {
+                let p = Position(r, c)
+                let (o1, o2) = (game[p], self[p])
+                if o1 == -1 && o2 != -1 {
+                    pos2state[p] = rowState
+                }
+            }
         }
     }
 }
