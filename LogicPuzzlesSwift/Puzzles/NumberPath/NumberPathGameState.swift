@@ -107,7 +107,7 @@ class NumberPathGameState: GridGameState {
             }
         }
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        let n1 = game[pEnd], n2 = nums.count, n3 = pos2node.values.count
-        if n1 != n2 || n1 != n3 {isSolved = false}
+        let n1 = game[pEnd], n2 = nums.count, n3 = pos2node.values.count, n4 = nodesExplored.count
+        if n1 != n2 || n1 != n3 || n1 != n4 {isSolved = false}
     }
 }

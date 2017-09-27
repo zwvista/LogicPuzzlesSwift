@@ -121,7 +121,6 @@ class TennerGridGameState: GridGameState {
                 isSolved = false
                 if rowState == .complete {rowState = .error}
             }
-            guard rowState != .normal else {continue}
             for c in 0..<cols {
                 let p = Position(r, c)
                 let (o1, o2) = (game[p], self[p])
