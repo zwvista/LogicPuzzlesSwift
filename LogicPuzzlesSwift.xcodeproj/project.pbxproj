@@ -18,6 +18,17 @@
 		8C1D16B51DB8DE930056D407 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D16A71DB8DE930056D407 /* Graph.swift */; };
 		8C1D16B61DB8DE930056D407 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A81DB8DE930056D407 /* Info.plist */; };
 		8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D16A91DB8DE930056D407 /* Queue.swift */; };
+		8C1D4F871F7D079F000D5FB3 /* Square100.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D4F7B1F7D079F000D5FB3 /* Square100.xml */; };
+		8C1D4F881F7D079F000D5FB3 /* Square100Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D4F7C1F7D079F000D5FB3 /* Square100Document.swift */; };
+		8C1D4F891F7D079F000D5FB3 /* Square100Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D4F7D1F7D079F000D5FB3 /* Square100Game.swift */; };
+		8C1D4F8A1F7D079F000D5FB3 /* Square100GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D4F7E1F7D079F000D5FB3 /* Square100GameScene.swift */; };
+		8C1D4F8B1F7D079F000D5FB3 /* Square100GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D4F7F1F7D079F000D5FB3 /* Square100GameState.swift */; };
+		8C1D4F8C1F7D079F000D5FB3 /* Square100GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D4F801F7D079F000D5FB3 /* Square100GameViewController.swift */; };
+		8C1D4F8D1F7D079F000D5FB3 /* Square100GridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D4F811F7D079F000D5FB3 /* Square100GridNode.swift */; };
+		8C1D4F8E1F7D079F000D5FB3 /* Square100HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D4F821F7D079F000D5FB3 /* Square100HelpViewController.swift */; };
+		8C1D4F8F1F7D079F000D5FB3 /* Square100MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D4F831F7D079F000D5FB3 /* Square100MainViewController.swift */; };
+		8C1D4F901F7D079F000D5FB3 /* Square100Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D4F841F7D079F000D5FB3 /* Square100Object.swift */; };
+		8C1D4F911F7D079F000D5FB3 /* Square100OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D4F851F7D079F000D5FB3 /* Square100OptionsViewController.swift */; };
 		8C2973E11EE7284C0022A18A /* Galaxies.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2973D61EE7284C0022A18A /* Galaxies.xml */; };
 		8C2973E21EE7284C0022A18A /* GalaxiesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2973D71EE7284C0022A18A /* GalaxiesDocument.swift */; };
 		8C2973E31EE7284C0022A18A /* GalaxiesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2973D81EE7284C0022A18A /* GalaxiesGame.swift */; };
@@ -816,6 +827,17 @@
 		8C1D16A81DB8DE930056D407 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C1D16A91DB8DE930056D407 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		8C1D16AA1DB8DE930056D407 /* Tests.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Tests.xcodeproj; sourceTree = "<group>"; };
+		8C1D4F7B1F7D079F000D5FB3 /* Square100.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Square100.xml; sourceTree = "<group>"; };
+		8C1D4F7C1F7D079F000D5FB3 /* Square100Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Square100Document.swift; sourceTree = "<group>"; };
+		8C1D4F7D1F7D079F000D5FB3 /* Square100Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Square100Game.swift; sourceTree = "<group>"; };
+		8C1D4F7E1F7D079F000D5FB3 /* Square100GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Square100GameScene.swift; sourceTree = "<group>"; };
+		8C1D4F7F1F7D079F000D5FB3 /* Square100GameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Square100GameState.swift; sourceTree = "<group>"; };
+		8C1D4F801F7D079F000D5FB3 /* Square100GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Square100GameViewController.swift; sourceTree = "<group>"; };
+		8C1D4F811F7D079F000D5FB3 /* Square100GridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Square100GridNode.swift; sourceTree = "<group>"; };
+		8C1D4F821F7D079F000D5FB3 /* Square100HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Square100HelpViewController.swift; sourceTree = "<group>"; };
+		8C1D4F831F7D079F000D5FB3 /* Square100MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Square100MainViewController.swift; sourceTree = "<group>"; };
+		8C1D4F841F7D079F000D5FB3 /* Square100Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Square100Object.swift; sourceTree = "<group>"; };
+		8C1D4F851F7D079F000D5FB3 /* Square100OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Square100OptionsViewController.swift; sourceTree = "<group>"; };
 		8C2973D61EE7284C0022A18A /* Galaxies.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Galaxies.xml; sourceTree = "<group>"; };
 		8C2973D71EE7284C0022A18A /* GalaxiesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalaxiesDocument.swift; sourceTree = "<group>"; };
 		8C2973D81EE7284C0022A18A /* GalaxiesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalaxiesGame.swift; sourceTree = "<group>"; };
@@ -1651,6 +1673,24 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		8C1D4F7A1F7D079F000D5FB3 /* Square100 */ = {
+			isa = PBXGroup;
+			children = (
+				8C1D4F7B1F7D079F000D5FB3 /* Square100.xml */,
+				8C1D4F7C1F7D079F000D5FB3 /* Square100Document.swift */,
+				8C1D4F7D1F7D079F000D5FB3 /* Square100Game.swift */,
+				8C1D4F7E1F7D079F000D5FB3 /* Square100GameScene.swift */,
+				8C1D4F7F1F7D079F000D5FB3 /* Square100GameState.swift */,
+				8C1D4F801F7D079F000D5FB3 /* Square100GameViewController.swift */,
+				8C1D4F811F7D079F000D5FB3 /* Square100GridNode.swift */,
+				8C1D4F821F7D079F000D5FB3 /* Square100HelpViewController.swift */,
+				8C1D4F831F7D079F000D5FB3 /* Square100MainViewController.swift */,
+				8C1D4F841F7D079F000D5FB3 /* Square100Object.swift */,
+				8C1D4F851F7D079F000D5FB3 /* Square100OptionsViewController.swift */,
+			);
+			path = Square100;
+			sourceTree = "<group>";
+		};
 		8C2164131D8FB32600A39B47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1766,6 +1806,7 @@
 				8C3A35A71EC88D4200A914A5 /* SlitherLink */,
 				8C3A35B41EC88D4200A914A5 /* Snail */,
 				8C506F021F6D2C9300BA4332 /* Snake */,
+				8C1D4F7A1F7D079F000D5FB3 /* Square100 */,
 				8C3A35C11EC88D4200A914A5 /* Sumscrapers */,
 				8C9F321D1ECF06BF00E10965 /* Tapa */,
 				8C9F32871ED1FB0700E10965 /* TapaIslands */,
@@ -3173,6 +3214,7 @@
 				8C3A37741EC88D4300A914A5 /* PowerGrid.xml in Resources */,
 				8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */,
 				8C3A37501EC88D4300A914A5 /* Orchards.xml in Resources */,
+				8C1D4F871F7D079F000D5FB3 /* Square100.xml in Resources */,
 				8C3A35E81EC88D4200A914A5 /* Abc.xml in Resources */,
 				8C3A36F01EC88D4300A914A5 /* Magnets.xml in Resources */,
 				8C3A369C1EC88D4200A914A5 /* Hitori.xml in Resources */,
@@ -3246,6 +3288,7 @@
 				8C2AF82E1ED5FB0000EC84AB /* NumberPathDocument.swift in Sources */,
 				8CD1558B1DD77C3400786F34 /* Extensions.swift in Sources */,
 				8C9F32F41ED1FCFF00E10965 /* TapARowGridNode.swift in Sources */,
+				8C1D4F8E1F7D079F000D5FB3 /* Square100HelpViewController.swift in Sources */,
 				8CE9C3121F7914B800134093 /* KakurasuGameScene.swift in Sources */,
 				8C7E4B461F793C9800B57C60 /* TennerGridGameScene.swift in Sources */,
 				8C7609101EC627E900DFCD7B /* Global.swift in Sources */,
@@ -3290,6 +3333,7 @@
 				8C3A37101EC88D4300A914A5 /* MineShipsMainViewController.swift in Sources */,
 				8C3A373C1EC88D4300A914A5 /* NeighboursGameState.swift in Sources */,
 				8C3A37511EC88D4300A914A5 /* OrchardsDocument.swift in Sources */,
+				8C1D4F901F7D079F000D5FB3 /* Square100Object.swift in Sources */,
 				8C9F32421ED1FAD400E10965 /* BWTapaDocument.swift in Sources */,
 				8C9F32FB1ED1FCFF00E10965 /* TapDifferentlyGame.swift in Sources */,
 				8C3A379D1EC88D4400A914A5 /* SentinelsGameViewController.swift in Sources */,
@@ -3354,6 +3398,7 @@
 				8C3A37911EC88D4400A914A5 /* RoomsGameViewController.swift in Sources */,
 				8C3A369F1EC88D4200A914A5 /* HitoriGameScene.swift in Sources */,
 				8C9F324B1ED1FAD400E10965 /* BWTapaOptionsViewController.swift in Sources */,
+				8C1D4F8B1F7D079F000D5FB3 /* Square100GameState.swift in Sources */,
 				8C3A36561EC88D4200A914A5 /* CloudsGame.swift in Sources */,
 				8C3A36C41EC88D4300A914A5 /* LighthousesGameState.swift in Sources */,
 				8C3A37301EC88D4300A914A5 /* MosaikGameState.swift in Sources */,
@@ -3583,6 +3628,7 @@
 				8C76091A1EC7EB1C00DFCD7B /* SelfSizingTableViewCell.swift in Sources */,
 				8C2AF8301ED5FB0000EC84AB /* NumberPathGameScene.swift in Sources */,
 				8C6D37391DC421180052202C /* HomeMainViewController.swift in Sources */,
+				8C1D4F881F7D079F000D5FB3 /* Square100Document.swift in Sources */,
 				8C3A370A1EC88D4300A914A5 /* MineShipsGame.swift in Sources */,
 				8C9F32BC1ED1FB0700E10965 /* TapaIslandsMainViewController.swift in Sources */,
 				8C3A37131EC88D4300A914A5 /* MineShipsOptionsViewController.swift in Sources */,
@@ -3656,6 +3702,7 @@
 				8C9F325D1ED1FAF600E10965 /* PataGameViewController.swift in Sources */,
 				8C3A36A91EC88D4200A914A5 /* LightBattleShipsDocument.swift in Sources */,
 				8C886C421D9E8AF1004A42BF /* ActionSheetStringPicker.m in Sources */,
+				8C1D4F8C1F7D079F000D5FB3 /* Square100GameViewController.swift in Sources */,
 				8C3A36DE1EC88D4300A914A5 /* LitsGridNode.swift in Sources */,
 				8C3A36061EC88D4200A914A5 /* BattleShipsGridNode.swift in Sources */,
 				8C9F32301ECF06C000E10965 /* TapaHelpViewController.swift in Sources */,
@@ -3697,6 +3744,7 @@
 				8CC3504A1E001D2800B8FD83 /* TimerExtensions.swift in Sources */,
 				8C3A37BE1EC88D4400A914A5 /* SnailGame.swift in Sources */,
 				8C3A37CD1EC88D4400A914A5 /* SumscrapersGameViewController.swift in Sources */,
+				8C1D4F8D1F7D079F000D5FB3 /* Square100GridNode.swift in Sources */,
 				8C9F32481ED1FAD400E10965 /* BWTapaHelpViewController.swift in Sources */,
 				8C3A369B1EC88D4200A914A5 /* FenceSentinelsOptionsViewController.swift in Sources */,
 				8C3A36F81EC88D4300A914A5 /* MagnetsMainViewController.swift in Sources */,
@@ -3706,6 +3754,7 @@
 				8C9F32461ED1FAD400E10965 /* BWTapaGameViewController.swift in Sources */,
 				8C3A36131EC88D4200A914A5 /* BootyIslandHelpViewController.swift in Sources */,
 				8C3A37241EC88D4300A914A5 /* MiniLitsGameState.swift in Sources */,
+				8C1D4F8A1F7D079F000D5FB3 /* Square100GameScene.swift in Sources */,
 				8C916CBD1DAA5E9500D9E62B /* Error.swift in Sources */,
 				8C3A35EA1EC88D4200A914A5 /* AbcGame.swift in Sources */,
 				8C3A36BC1EC88D4300A914A5 /* LightenUpMainViewController.swift in Sources */,
@@ -3797,6 +3846,7 @@
 				8C3A36E51EC88D4300A914A5 /* LoopyDocument.swift in Sources */,
 				8C9F32621ED1FAF600E10965 /* PataOptionsViewController.swift in Sources */,
 				8C3A362C1EC88D4200A914A5 /* BoxItAroundMainViewController.swift in Sources */,
+				8C1D4F891F7D079F000D5FB3 /* Square100Game.swift in Sources */,
 				8C3A37A01EC88D4400A914A5 /* SentinelsMainViewController.swift in Sources */,
 				8C3A36F21EC88D4300A914A5 /* MagnetsGame.swift in Sources */,
 				8C9F33011ED1FCFF00E10965 /* TapDifferentlyMainViewController.swift in Sources */,
@@ -3821,6 +3871,7 @@
 				8C3A367A1EC88D4200A914A5 /* FenceItUpGame.swift in Sources */,
 				8C7E4B471F793C9800B57C60 /* TennerGridGameState.swift in Sources */,
 				8C3A36801EC88D4200A914A5 /* FenceItUpMainViewController.swift in Sources */,
+				8C1D4F8F1F7D079F000D5FB3 /* Square100MainViewController.swift in Sources */,
 				8C3A365A1EC88D4200A914A5 /* CloudsGridNode.swift in Sources */,
 				8C3A35FB1EC88D4200A914A5 /* AbstractPaintingHelpViewController.swift in Sources */,
 				8C3A37BF1EC88D4400A914A5 /* SnailGameScene.swift in Sources */,
@@ -3867,6 +3918,7 @@
 				8C2973E41EE7284C0022A18A /* GalaxiesGameScene.swift in Sources */,
 				8C506F151F6D2C9300BA4332 /* SnakeHelpViewController.swift in Sources */,
 				8C3A37DA1EC88D4400A914A5 /* TatamiGridNode.swift in Sources */,
+				8C1D4F911F7D079F000D5FB3 /* Square100OptionsViewController.swift in Sources */,
 				8C3A37AC1EC88D4400A914A5 /* SkyscrapersMainViewController.swift in Sources */,
 				8C3A36DC1EC88D4300A914A5 /* LitsGameState.swift in Sources */,
 				8CDAE80A1F646C29000DE5AF /* BalancedTapasGame.swift in Sources */,

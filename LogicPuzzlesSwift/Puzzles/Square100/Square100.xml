@@ -1,0 +1,312 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. You are given a 3*3 or 4*4 square with digits in it.
+2. You have to add digits to some (or all) tiles, in order to produce the sum of 100 for every row and column.
+3. You can add digits before or after the given one.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+321`
+683`
+497`
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+593`
+331`
+654`
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+188`
+184`
+884`
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+495`
+421`
+279`
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+213`
+527`
+991`
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+218`
+787`
+341`
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+693`
+867`
+632`
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+671`
+891`
+241`
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+491`
+473`
+316`
+    ]]>
+  </level>
+  <level id="10">
+    <![CDATA[
+831`
+189`
+667`
+    ]]>
+  </level>
+  <level id="11">
+    <![CDATA[
+828`
+149`
+554`
+    ]]>
+  </level>
+  <level id="12">
+    <![CDATA[
+768`
+157`
+891`
+    ]]>
+  </level>
+  <level id="13">
+    <![CDATA[
+594`
+226`
+379`
+    ]]>
+  </level>
+  <level id="14">
+    <![CDATA[
+791`
+732`
+188`
+    ]]>
+  </level>
+  <level id="15">
+    <![CDATA[
+647`
+263`
+718`
+    ]]>
+  </level>
+  <level id="16">
+    <![CDATA[
+193`
+261`
+346`
+    ]]>
+  </level>
+  <level id="17">
+    <![CDATA[
+934`
+128`
+232`
+    ]]>
+  </level>
+  <level id="18">
+    <![CDATA[
+247`
+924`
+774`
+    ]]>
+  </level>
+  <level id="19">
+    <![CDATA[
+368`
+143`
+844`
+    ]]>
+  </level>
+  <level id="20">
+    <![CDATA[
+182`
+898`
+745`
+    ]]>
+  </level>
+  <level id="21">
+    <![CDATA[
+8726`
+4814`
+3689`
+8748`
+    ]]>
+  </level>
+  <level id="22">
+    <![CDATA[
+8882`
+2865`
+8821`
+7798`
+    ]]>
+  </level>
+  <level id="23">
+    <![CDATA[
+7172`
+6785`
+6775`
+5134`
+    ]]>
+  </level>
+  <level id="24">
+    <![CDATA[
+9541`
+1593`
+8855`
+1771`
+    ]]>
+  </level>
+  <level id="25">
+    <![CDATA[
+8915`
+6366`
+5824`
+4374`
+    ]]>
+  </level>
+  <level id="26">
+    <![CDATA[
+1698`
+5915`
+1889`
+5987`
+    ]]>
+  </level>
+  <level id="27">
+    <![CDATA[
+7717`
+7111`
+7728`
+7418`
+    ]]>
+  </level>
+  <level id="28">
+    <![CDATA[
+2498`
+3835`
+5553`
+6544`
+    ]]>
+  </level>
+  <level id="29">
+    <![CDATA[
+7876`
+9167`
+7787`
+6329`
+    ]]>
+  </level>
+  <level id="30">
+    <![CDATA[
+7892`
+3439`
+2186`
+5738`
+    ]]>
+  </level>
+  <level id="31">
+    <![CDATA[
+8862`
+4869`
+4445`
+8747`
+    ]]>
+  </level>
+  <level id="32">
+    <![CDATA[
+8653`
+5738`
+5149`
+4943`
+    ]]>
+  </level>
+  <level id="33">
+    <![CDATA[
+8554`
+1887`
+2172`
+2182`
+    ]]>
+  </level>
+  <level id="34">
+    <![CDATA[
+5917`
+8488`
+9415`
+1559`
+    ]]>
+  </level>
+  <level id="35">
+    <![CDATA[
+5696`
+4949`
+1577`
+7677`
+    ]]>
+  </level>
+  <level id="36">
+    <![CDATA[
+8511`
+9552`
+5947`
+6942`
+    ]]>
+  </level>
+  <level id="37">
+    <![CDATA[
+7777`
+6614`
+6836`
+9552`
+    ]]>
+  </level>
+  <level id="38">
+    <![CDATA[
+8653`
+4345`
+4685`
+6963`
+    ]]>
+  </level>
+  <level id="39">
+    <![CDATA[
+3646`
+9461`
+9384`
+7768`
+    ]]>
+  </level>
+  <level id="40">
+    <![CDATA[
+4163`
+4848`
+8681`
+7975`
+    ]]>
+  </level>
+</levels>
+</puzzle>
