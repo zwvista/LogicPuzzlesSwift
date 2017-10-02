@@ -24,8 +24,8 @@ class SnakeGame: GridGame<SnakeGameViewController> {
         super.init(delegate: delegate)
         
         size = Position(layout.count - 1, layout[0].length - 1)
-        row2hint = Array<Int>(repeating: 0, count: rows)
-        col2hint = Array<Int>(repeating: 0, count: cols)
+        row2hint = Array<Int>(repeating: -1, count: rows)
+        col2hint = Array<Int>(repeating: -1, count: cols)
         
         for r in 0..<rows + 1 {
             let str = layout[r]

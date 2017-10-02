@@ -1,0 +1,137 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. The Goal is to enter numbers 1 to board size once in every row and column.
+2. A Dot between two tiles give you hints about the two numbers:
+3. Black Dot - one number is twice the other.
+4. White Dot - the numbers are consecutive.
+5. Where the numbers are 1 and 2, there can be either a Black Dot(2 is 1*2) or a White Dot(1 and 2 are consecutive).
+6. Please note that when two numbers are either consecutive or doubles, there MUST be a Dot between them!  Variant
+7. In later 9*9 levels you will also have bordered and coloured areas, which must also contain all the numbers 1 to 9.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+WB `
+WW `
+W  `
+W W`
+ W `
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+ B WW `
+BWBWWB`
+ BBWW `
+  BBWW`
+ WB W `
+BBWBBW`
+ W  W `
+BWW  B`
+WWB B `
+WWBBBB`
+WWB B `
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+BWW B  `
+B  WBB `
+   WBW `
+W  WBWW`
+  BBWB `
+  BBWBB`
+ BB WB `
+ WB WW `
+WWWWW  `
+B   B B`
+WWW  B `
+  BW  B`
+BWBW W `
+    ]]>
+  </level>
+  <level id="9" Bordered="1">
+    <![CDATA[
+       B `
+ W W B   `
+     W   `
+   W  BW `
+W        `
+  B   BW `
+    B    `
+  W      `
+BW  W  W `
+B   B  W `
+ W       `
+ W  W    `
+   B   B `
+W     W  `
+         `
+W   W BWW`
+    BWW  `
+ - - - - - - - - - `
+|         |       |`
+ -             - - `
+| |       |   |   |`
+   - - - -   -     `
+|       |   |     |`
+           -       `
+|       | |       |`
+ - - - - - - - - - `
+|                 |`
+ - - - - - - - - - `
+|       | |       |`
+       -           `
+|     |   |       |`
+     -   - - - -   `
+|   |   |       | |`
+ - -             - `
+|       |         |`
+ - - - - - - - - - `
+    ]]>
+  </level>
+  <level id="22" Bordered="1">
+    <![CDATA[
+W  W WW  `
+ W       `
+ B W     `
+ BWW   WB`
+ W       `
+   W W  W`
+ BW WWWW `
+B      BW`
+  W W  W `
+  WWBW W `
+  W B BW `
+   WW    `
+ WB    W `
+      W  `
+BW   B   `
+ B   B W `
+         `
+ - - - - - - - - - `
+|                 |`
+ - - - - - - - - - `
+|   |             |`
+     - - - - -     `
+|     |   |   |   |`
+ - -   -       - - `
+|   |   | |       |`
+   -   -   - - -   `
+| |   |     |   | |`
+   - - -   -   -   `
+|       | |   |   |`
+ - -       -   - - `
+|   |   |   |     |`
+     - - - - -     `
+|             |   |`
+ - - - - - - - - - `
+|                 |`
+ - - - - - - - - - `
+    ]]>
+  </level>
+</levels>
+</puzzle>

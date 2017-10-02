@@ -554,6 +554,17 @@
 		8C5368841EA1DFCC0071D475 /* GridObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5368831EA1DFCC0071D475 /* GridObject.swift */; };
 		8C64A2681DD8089700AB6C09 /* GameGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D31DC42FA40052202C /* GameGameViewController.swift */; };
 		8C64A2EC1DE0891000AB6C09 /* GameTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2EB1DE0891000AB6C09 /* GameTables.swift */; };
+		8C6A9BE51F812743002A44FF /* Kropki.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C6A9BD91F812742002A44FF /* Kropki.xml */; };
+		8C6A9BE61F812743002A44FF /* KropkiDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A9BDA1F812742002A44FF /* KropkiDocument.swift */; };
+		8C6A9BE71F812743002A44FF /* KropkiGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A9BDB1F812742002A44FF /* KropkiGame.swift */; };
+		8C6A9BE81F812743002A44FF /* KropkiGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A9BDC1F812742002A44FF /* KropkiGameScene.swift */; };
+		8C6A9BE91F812743002A44FF /* KropkiGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A9BDD1F812742002A44FF /* KropkiGameState.swift */; };
+		8C6A9BEA1F812743002A44FF /* KropkiGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A9BDE1F812742002A44FF /* KropkiGameViewController.swift */; };
+		8C6A9BEB1F812743002A44FF /* KropkiGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A9BDF1F812742002A44FF /* KropkiGridNode.swift */; };
+		8C6A9BEC1F812743002A44FF /* KropkiHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A9BE01F812742002A44FF /* KropkiHelpViewController.swift */; };
+		8C6A9BED1F812743002A44FF /* KropkiMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A9BE11F812742002A44FF /* KropkiMainViewController.swift */; };
+		8C6A9BEE1F812743002A44FF /* KropkiObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A9BE21F812742002A44FF /* KropkiObject.swift */; };
+		8C6A9BEF1F812743002A44FF /* KropkiOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A9BE31F812742002A44FF /* KropkiOptionsViewController.swift */; };
 		8C6ACBFE1DCAF8BA0075F32C /* GameDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37CF1DC42FA40052202C /* GameDocument.swift */; };
 		8C6ACBFF1DCAF8BA0075F32C /* GameMixin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D71DC42FA40052202C /* GameMixin.swift */; };
 		8C6ACC001DCAF8C20075F32C /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37E91DC59EE50052202C /* GameScene.swift */; };
@@ -1360,6 +1371,17 @@
 		8C506F0D1F6D2C9300BA4332 /* SnakeOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeOptionsViewController.swift; sourceTree = "<group>"; };
 		8C5368831EA1DFCC0071D475 /* GridObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridObject.swift; sourceTree = "<group>"; };
 		8C64A2EB1DE0891000AB6C09 /* GameTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTables.swift; sourceTree = "<group>"; };
+		8C6A9BD91F812742002A44FF /* Kropki.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kropki.xml; sourceTree = "<group>"; };
+		8C6A9BDA1F812742002A44FF /* KropkiDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KropkiDocument.swift; sourceTree = "<group>"; };
+		8C6A9BDB1F812742002A44FF /* KropkiGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KropkiGame.swift; sourceTree = "<group>"; };
+		8C6A9BDC1F812742002A44FF /* KropkiGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KropkiGameScene.swift; sourceTree = "<group>"; };
+		8C6A9BDD1F812742002A44FF /* KropkiGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KropkiGameState.swift; sourceTree = "<group>"; };
+		8C6A9BDE1F812742002A44FF /* KropkiGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KropkiGameViewController.swift; sourceTree = "<group>"; };
+		8C6A9BDF1F812742002A44FF /* KropkiGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KropkiGridNode.swift; sourceTree = "<group>"; };
+		8C6A9BE01F812742002A44FF /* KropkiHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KropkiHelpViewController.swift; sourceTree = "<group>"; };
+		8C6A9BE11F812742002A44FF /* KropkiMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KropkiMainViewController.swift; sourceTree = "<group>"; };
+		8C6A9BE21F812742002A44FF /* KropkiObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KropkiObject.swift; sourceTree = "<group>"; };
+		8C6A9BE31F812742002A44FF /* KropkiOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KropkiOptionsViewController.swift; sourceTree = "<group>"; };
 		8C6ACC181DD204420075F32C /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
 		8C6D37331DC421180052202C /* HomeDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDocument.swift; sourceTree = "<group>"; };
 		8C6D37341DC421180052202C /* HomeMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMainViewController.swift; sourceTree = "<group>"; };
@@ -1777,6 +1799,7 @@
 				8C2973D51EE7284C0022A18A /* Galaxies */,
 				8C3A347C1EC88D4100A914A5 /* Hitori */,
 				8CE9C3031F7914B800134093 /* Kakurasu */,
+				8C6A9BD81F812742002A44FF /* Kropki */,
 				8C3A34891EC88D4100A914A5 /* LightBattleShips */,
 				8C3A34961EC88D4100A914A5 /* LightenUp */,
 				8C3A34A31EC88D4100A914A5 /* Lighthouses */,
@@ -2668,6 +2691,24 @@
 			path = ../../OSS/EZSwiftExtensions/Sources;
 			sourceTree = "<group>";
 		};
+		8C6A9BD81F812742002A44FF /* Kropki */ = {
+			isa = PBXGroup;
+			children = (
+				8C6A9BD91F812742002A44FF /* Kropki.xml */,
+				8C6A9BDA1F812742002A44FF /* KropkiDocument.swift */,
+				8C6A9BDB1F812742002A44FF /* KropkiGame.swift */,
+				8C6A9BDC1F812742002A44FF /* KropkiGameScene.swift */,
+				8C6A9BDD1F812742002A44FF /* KropkiGameState.swift */,
+				8C6A9BDE1F812742002A44FF /* KropkiGameViewController.swift */,
+				8C6A9BDF1F812742002A44FF /* KropkiGridNode.swift */,
+				8C6A9BE01F812742002A44FF /* KropkiHelpViewController.swift */,
+				8C6A9BE11F812742002A44FF /* KropkiMainViewController.swift */,
+				8C6A9BE21F812742002A44FF /* KropkiObject.swift */,
+				8C6A9BE31F812742002A44FF /* KropkiOptionsViewController.swift */,
+			);
+			path = Kropki;
+			sourceTree = "<group>";
+		};
 		8C6D37321DC421180052202C /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -3156,6 +3197,7 @@
 				8C3A37A41EC88D4400A914A5 /* Skyscrapers.xml in Resources */,
 				8C3A37C81EC88D4400A914A5 /* Sumscrapers.xml in Resources */,
 				8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */,
+				8C6A9BE51F812743002A44FF /* Kropki.xml in Resources */,
 				8C9F32411ED1FAD400E10965 /* BWTapa.xml in Resources */,
 				8C3A36FC1EC88D4300A914A5 /* Masyu.xml in Resources */,
 				8C3A375C1EC88D4300A914A5 /* Pairakabe.xml in Resources */,
@@ -3393,6 +3435,7 @@
 				8C3A37B51EC88D4400A914A5 /* SlitherLinkGameViewController.swift in Sources */,
 				8CDAE7F01F5BFBD8000DE5AF /* OverUnderDocument.swift in Sources */,
 				8C64A2EC1DE0891000AB6C09 /* GameTables.swift in Sources */,
+				8C6A9BE91F812743002A44FF /* KropkiGameState.swift in Sources */,
 				8C3A367E1EC88D4200A914A5 /* FenceItUpGridNode.swift in Sources */,
 				8C3A37041EC88D4300A914A5 /* MasyuMainViewController.swift in Sources */,
 				8C3A37911EC88D4400A914A5 /* RoomsGameViewController.swift in Sources */,
@@ -3414,6 +3457,7 @@
 				8CC350441E001D2800B8FD83 /* FloatingPointExtensions.swift in Sources */,
 				8C2973E21EE7284C0022A18A /* GalaxiesDocument.swift in Sources */,
 				8CDAE80F1F646C29000DE5AF /* BalancedTapasHelpViewController.swift in Sources */,
+				8C6A9BEB1F812743002A44FF /* KropkiGridNode.swift in Sources */,
 				8C3A36661EC88D4200A914A5 /* DigitalBattleShipsGridNode.swift in Sources */,
 				8C3A36B31EC88D4300A914A5 /* LightBattleShipsOptionsViewController.swift in Sources */,
 				8C3A37D21EC88D4400A914A5 /* SumscrapersObject.swift in Sources */,
@@ -3519,6 +3563,7 @@
 				8C9F322A1ECF06C000E10965 /* TapaDocument.swift in Sources */,
 				8CC350411E001D2800B8FD83 /* DoubleExtensions.swift in Sources */,
 				8C3A36501EC88D4200A914A5 /* BusySeasMainViewController.swift in Sources */,
+				8C6A9BEE1F812743002A44FF /* KropkiObject.swift in Sources */,
 				8C3A37B21EC88D4400A914A5 /* SlitherLinkGame.swift in Sources */,
 				8C3A373D1EC88D4300A914A5 /* NeighboursGameViewController.swift in Sources */,
 				8C3A37A51EC88D4400A914A5 /* SkyscrapersDocument.swift in Sources */,
@@ -3554,6 +3599,7 @@
 				8C9F32B81ED1FB0700E10965 /* TapaIslandsGameState.swift in Sources */,
 				8C3A36911EC88D4200A914A5 /* FenceSentinelsDocument.swift in Sources */,
 				8C9F32BA1ED1FB0700E10965 /* TapaIslandsGridNode.swift in Sources */,
+				8C6A9BEF1F812743002A44FF /* KropkiOptionsViewController.swift in Sources */,
 				8CC350351E001D2800B8FD83 /* BlockPinch.swift in Sources */,
 				8CE9C3171F7914B800134093 /* KakurasuMainViewController.swift in Sources */,
 				8C3A37B11EC88D4400A914A5 /* SlitherLinkDocument.swift in Sources */,
@@ -3647,6 +3693,7 @@
 				8C3A37671EC88D4300A914A5 /* PairakabeOptionsViewController.swift in Sources */,
 				8C3A37C31EC88D4400A914A5 /* SnailHelpViewController.swift in Sources */,
 				8C3A361F1EC88D4200A914A5 /* BoxItAgainHelpViewController.swift in Sources */,
+				8C6A9BE71F812743002A44FF /* KropkiGame.swift in Sources */,
 				8C3A36AA1EC88D4300A914A5 /* LightBattleShipsGame.swift in Sources */,
 				8C3A36031EC88D4200A914A5 /* BattleShipsGameScene.swift in Sources */,
 				8C3A37831EC88D4300A914A5 /* ProductSentinelsGameScene.swift in Sources */,
@@ -3744,9 +3791,11 @@
 				8CC3504A1E001D2800B8FD83 /* TimerExtensions.swift in Sources */,
 				8C3A37BE1EC88D4400A914A5 /* SnailGame.swift in Sources */,
 				8C3A37CD1EC88D4400A914A5 /* SumscrapersGameViewController.swift in Sources */,
+				8C6A9BEC1F812743002A44FF /* KropkiHelpViewController.swift in Sources */,
 				8C1D4F8D1F7D079F000D5FB3 /* Square100GridNode.swift in Sources */,
 				8C9F32481ED1FAD400E10965 /* BWTapaHelpViewController.swift in Sources */,
 				8C3A369B1EC88D4200A914A5 /* FenceSentinelsOptionsViewController.swift in Sources */,
+				8C6A9BED1F812743002A44FF /* KropkiMainViewController.swift in Sources */,
 				8C3A36F81EC88D4300A914A5 /* MagnetsMainViewController.swift in Sources */,
 				8CC350551E001D2800B8FD83 /* UILabelExtensions.swift in Sources */,
 				8C3A36D01EC88D4300A914A5 /* LineSweeperGameState.swift in Sources */,
@@ -3789,10 +3838,12 @@
 				8C3A366A1EC88D4200A914A5 /* DigitalBattleShipsObject.swift in Sources */,
 				8C3A36461EC88D4200A914A5 /* BridgesObject.swift in Sources */,
 				8C3A367D1EC88D4200A914A5 /* FenceItUpGameViewController.swift in Sources */,
+				8C6A9BEA1F812743002A44FF /* KropkiGameViewController.swift in Sources */,
 				8C2AF82F1ED5FB0000EC84AB /* NumberPathGame.swift in Sources */,
 				8C3A37031EC88D4300A914A5 /* MasyuHelpViewController.swift in Sources */,
 				8C3A373F1EC88D4300A914A5 /* NeighboursHelpViewController.swift in Sources */,
 				8C7E4B4C1F793C9800B57C60 /* TennerGridObject.swift in Sources */,
+				8C6A9BE81F812743002A44FF /* KropkiGameScene.swift in Sources */,
 				8C3A36F61EC88D4300A914A5 /* MagnetsGridNode.swift in Sources */,
 				8C3A361E1EC88D4200A914A5 /* BoxItAgainGridNode.swift in Sources */,
 				8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */,
@@ -3905,6 +3956,7 @@
 				8C3A37581EC88D4300A914A5 /* OrchardsMainViewController.swift in Sources */,
 				8C6D37FC1DC5B4DC0052202C /* Game.swift in Sources */,
 				8C3A37B31EC88D4400A914A5 /* SlitherLinkGameScene.swift in Sources */,
+				8C6A9BE61F812743002A44FF /* KropkiDocument.swift in Sources */,
 				8C3A371A1EC88D4300A914A5 /* MinesweeperGridNode.swift in Sources */,
 				8C3A36C81EC88D4300A914A5 /* LighthousesMainViewController.swift in Sources */,
 				8C3A36F51EC88D4300A914A5 /* MagnetsGameViewController.swift in Sources */,

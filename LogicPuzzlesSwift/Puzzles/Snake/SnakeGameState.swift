@@ -112,8 +112,9 @@ class SnakeGameState: GridGameState {
             }
         }
         for r in 0..<rows {
-            var n1 = 0
             let n2 = game.row2hint[r]
+            guard n2 != -1 else {continue}
+            var n1 = 0
             for c in 0..<cols {
                 if self[r, c] == .snake {n1 += 1}
             }
@@ -121,8 +122,9 @@ class SnakeGameState: GridGameState {
             if n1 != n2 {isSolved = false}
         }
         for c in 0..<cols {
-            var n1 = 0
             let n2 = game.col2hint[c]
+            guard n2 != -1 else {continue}
+            var n1 = 0
             for r in 0..<rows {
                 if self[r, c] == .snake {n1 += 1}
             }
