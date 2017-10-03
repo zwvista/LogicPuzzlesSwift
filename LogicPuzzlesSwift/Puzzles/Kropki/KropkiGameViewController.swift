@@ -57,7 +57,7 @@ class KropkiGameViewController: GameGameViewController, GameDelegate {
         
         levelInitilizing = true
         defer {levelInitilizing = false}
-        game = KropkiGame(layout: level.layout, delegate: self)
+        game = KropkiGame(layout: level.layout, bordered: level.settings["Bordered"] == "1", delegate: self)
         
         // restore game state
         for case let rec as MoveProgress in gameDocument.moveProgress {

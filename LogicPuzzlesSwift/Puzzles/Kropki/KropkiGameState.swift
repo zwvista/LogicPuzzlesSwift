@@ -17,7 +17,8 @@ class KropkiGameState: GridGameState {
     var gameDocument: KropkiDocument { return KropkiDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { return KropkiDocument.sharedInstance }
     var objArray = [Int]()
-    var pos2state = [Position: HintState]()
+    var pos2horzState = [Position: HintState]()
+    var pos2vertState = [Position: HintState]()
 
     override func copy() -> KropkiGameState {
         let v = KropkiGameState(game: game, isCopy: true)
@@ -26,7 +27,8 @@ class KropkiGameState: GridGameState {
     func setup(v: KropkiGameState) -> KropkiGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
+        v.pos2horzState = pos2horzState
+        v.pos2vertState = pos2vertState
         return v
     }
     
@@ -110,18 +112,25 @@ class KropkiGameState: GridGameState {
         }
         for r in 0..<rows {
             for c in 0..<cols {
+                let p = Position(r, c)
                 for i in 0..<2 {
+                    func setState(s: HintState) {
+                        if i == 0 {
+                            pos2horzState[p] = s
+                        } else {
+                            pos2vertState[p] = s
+                        }
+                    }
                     guard i == 0 && c != game.cols - 1 || i == 1 && r != game.rows - 1 else {continue}
-                    let p = Position(r * 2 + i, c)
-                    var (n1, n2) = (self[r, c], self[r + i, c + 1 - i])
-                    if n1 == 0 || n2 == 0 {pos2state[p] = .normal; isSolved = false; continue}
+                    var (n1, n2) = (self[p], self[r + i, c + 1 - i])
+                    if n1 == 0 || n2 == 0 {setState(s: .normal); isSolved = false; continue}
                     if n1 > n2 {swap(&n1, &n2)}
-                    let kh = game[p]
+                    let kh = (i == 0 ? game.pos2horzHint : game.pos2vertHint)[p]!
                     let s: HintState =
                         n2 != n1 + 1 && n2 != n1 * 2 && kh == .none ||
                         n2 == n1 + 1 && kh == .consecutive ||
                         n2 == n1 * 2 && kh == .twice ? .complete : .error
-                    pos2state[p] = s
+                    setState(s: s)
                     if s != .complete {isSolved = false}
                 }
             }

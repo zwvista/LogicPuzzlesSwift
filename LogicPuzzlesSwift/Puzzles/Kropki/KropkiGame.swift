@@ -16,36 +16,26 @@ class KropkiGame: GridGame<KropkiGameViewController> {
         Position(0, -1),
     ]
 
-    var objArray = [KropkiHint]()
-    subscript(p: Position) -> KropkiHint {
-        get {
-            return self[p.row, p.col]
-        }
-        set(newValue) {
-            self[p.row, p.col] = newValue
-        }
-    }
-    subscript(row: Int, col: Int) -> KropkiHint {
-        get {
-            return objArray[row * cols + col]
-        }
-        set(newValue) {
-            objArray[row * cols + col] = newValue
-        }
-    }
+    var pos2horzHint = [Position: KropkiHint]()
+    var pos2vertHint = [Position: KropkiHint]()
     
-    init(layout: [String], delegate: KropkiGameViewController? = nil) {
+    init(layout: [String], bordered: Bool, delegate: KropkiGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count / 2 + 1, layout[0].length)
-        objArray = Array<KropkiHint>(repeating: .none, count: (rows * 2 - 1) * cols)
+        size = Position(bordered ? layout.count / 4 : layout.count / 2 + 1, layout[0].length)
         
         for r in 0..<rows * 2 - 1 {
             let str = layout[r]
             for c in 0..<cols {
+                let p = Position(r / 2, c)
                 let ch = str[c]
-                self[r, c] = ch == "W" ? .consecutive :
+                let kh: KropkiHint = ch == "W" ? .consecutive :
                     ch == "B" ? .twice : .none;
+                if r % 2 == 0 {
+                    pos2horzHint[p] = kh
+                } else {
+                    pos2vertHint[p] = kh
+                }
             }
         }
                 
