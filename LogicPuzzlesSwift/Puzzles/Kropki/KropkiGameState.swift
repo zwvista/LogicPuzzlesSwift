@@ -110,6 +110,15 @@ class KropkiGameState: GridGameState {
             }
             if nums.count != rows {isSolved = false}
         }
+        if game.bordered {
+            for a in game.areas {
+                nums.removeAll()
+                for p in a {
+                    nums.insert(self[p])
+                }
+                if nums.count != a.count {isSolved = false}
+            }
+        }
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
