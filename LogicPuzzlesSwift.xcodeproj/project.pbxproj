@@ -698,6 +698,17 @@
 		8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E51D771915000139FC /* LaunchScreen.storyboard */; };
 		8C9F43F21D771915000139FC /* LogicPuzzlesSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43F11D771915000139FC /* LogicPuzzlesSwiftTests.swift */; };
 		8C9F43FD1D771915000139FC /* LogicPuzzlesSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43FC1D771915000139FC /* LogicPuzzlesSwiftUITests.swift */; };
+		8CC25CC21F87BB5A005560F7 /* Kakuro.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CC25CB61F87BB5A005560F7 /* Kakuro.xml */; };
+		8CC25CC31F87BB5A005560F7 /* KakuroDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CB71F87BB5A005560F7 /* KakuroDocument.swift */; };
+		8CC25CC41F87BB5A005560F7 /* KakuroGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CB81F87BB5A005560F7 /* KakuroGame.swift */; };
+		8CC25CC51F87BB5A005560F7 /* KakuroGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CB91F87BB5A005560F7 /* KakuroGameScene.swift */; };
+		8CC25CC61F87BB5A005560F7 /* KakuroGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CBA1F87BB5A005560F7 /* KakuroGameState.swift */; };
+		8CC25CC71F87BB5A005560F7 /* KakuroGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CBB1F87BB5A005560F7 /* KakuroGameViewController.swift */; };
+		8CC25CC81F87BB5A005560F7 /* KakuroGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CBC1F87BB5A005560F7 /* KakuroGridNode.swift */; };
+		8CC25CC91F87BB5A005560F7 /* KakuroHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CBD1F87BB5A005560F7 /* KakuroHelpViewController.swift */; };
+		8CC25CCA1F87BB5A005560F7 /* KakuroMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CBE1F87BB5A005560F7 /* KakuroMainViewController.swift */; };
+		8CC25CCB1F87BB5A005560F7 /* KakuroObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CBF1F87BB5A005560F7 /* KakuroObject.swift */; };
+		8CC25CCC1F87BB5A005560F7 /* KakuroOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CC01F87BB5A005560F7 /* KakuroOptionsViewController.swift */; };
 		8CC34F9C1DFD958A00B8FD83 /* negative.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC34F9A1DFD958A00B8FD83 /* negative.png */; };
 		8CC34F9D1DFD958A00B8FD83 /* positive.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC34F9B1DFD958A00B8FD83 /* positive.png */; };
 		8CC350311E001D2800B8FD83 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350011E001D2700B8FD83 /* ArrayExtensions.swift */; };
@@ -1537,6 +1548,17 @@
 		8C9F43F81D771915000139FC /* LogicPuzzlesSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogicPuzzlesSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9F43FC1D771915000139FC /* LogicPuzzlesSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicPuzzlesSwiftUITests.swift; sourceTree = "<group>"; };
 		8C9F43FE1D771915000139FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CC25CB61F87BB5A005560F7 /* Kakuro.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kakuro.xml; sourceTree = "<group>"; };
+		8CC25CB71F87BB5A005560F7 /* KakuroDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroDocument.swift; sourceTree = "<group>"; };
+		8CC25CB81F87BB5A005560F7 /* KakuroGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroGame.swift; sourceTree = "<group>"; };
+		8CC25CB91F87BB5A005560F7 /* KakuroGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroGameScene.swift; sourceTree = "<group>"; };
+		8CC25CBA1F87BB5A005560F7 /* KakuroGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroGameState.swift; sourceTree = "<group>"; };
+		8CC25CBB1F87BB5A005560F7 /* KakuroGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroGameViewController.swift; sourceTree = "<group>"; };
+		8CC25CBC1F87BB5A005560F7 /* KakuroGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroGridNode.swift; sourceTree = "<group>"; };
+		8CC25CBD1F87BB5A005560F7 /* KakuroHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroHelpViewController.swift; sourceTree = "<group>"; };
+		8CC25CBE1F87BB5A005560F7 /* KakuroMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroMainViewController.swift; sourceTree = "<group>"; };
+		8CC25CBF1F87BB5A005560F7 /* KakuroObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroObject.swift; sourceTree = "<group>"; };
+		8CC25CC01F87BB5A005560F7 /* KakuroOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroOptionsViewController.swift; sourceTree = "<group>"; };
 		8CC34F9A1DFD958A00B8FD83 /* negative.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = negative.png; sourceTree = "<group>"; };
 		8CC34F9B1DFD958A00B8FD83 /* positive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = positive.png; sourceTree = "<group>"; };
 		8CC350011E001D2700B8FD83 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
@@ -1799,6 +1821,7 @@
 				8C2973D51EE7284C0022A18A /* Galaxies */,
 				8C3A347C1EC88D4100A914A5 /* Hitori */,
 				8CE9C3031F7914B800134093 /* Kakurasu */,
+				8CC25CB51F87BB5A005560F7 /* Kakuro */,
 				8C6A9BD81F812742002A44FF /* Kropki */,
 				8C3A34891EC88D4100A914A5 /* LightBattleShips */,
 				8C3A34961EC88D4100A914A5 /* LightenUp */,
@@ -3015,6 +3038,24 @@
 			path = LogicPuzzlesSwiftUITests;
 			sourceTree = "<group>";
 		};
+		8CC25CB51F87BB5A005560F7 /* Kakuro */ = {
+			isa = PBXGroup;
+			children = (
+				8CC25CB61F87BB5A005560F7 /* Kakuro.xml */,
+				8CC25CB71F87BB5A005560F7 /* KakuroDocument.swift */,
+				8CC25CB81F87BB5A005560F7 /* KakuroGame.swift */,
+				8CC25CB91F87BB5A005560F7 /* KakuroGameScene.swift */,
+				8CC25CBA1F87BB5A005560F7 /* KakuroGameState.swift */,
+				8CC25CBB1F87BB5A005560F7 /* KakuroGameViewController.swift */,
+				8CC25CBC1F87BB5A005560F7 /* KakuroGridNode.swift */,
+				8CC25CBD1F87BB5A005560F7 /* KakuroHelpViewController.swift */,
+				8CC25CBE1F87BB5A005560F7 /* KakuroMainViewController.swift */,
+				8CC25CBF1F87BB5A005560F7 /* KakuroObject.swift */,
+				8CC25CC01F87BB5A005560F7 /* KakuroOptionsViewController.swift */,
+			);
+			path = Kakuro;
+			sourceTree = "<group>";
+		};
 		8CDAE7E31F5BFBD8000DE5AF /* OverUnder */ = {
 			isa = PBXGroup;
 			children = (
@@ -3247,6 +3288,7 @@
 				8C3A36001EC88D4200A914A5 /* BattleShips.xml in Resources */,
 				8C506F0E1F6D2C9300BA4332 /* Snake.xml in Resources */,
 				8C3A37E01EC88D4400A914A5 /* Tents.xml in Resources */,
+				8CC25CC21F87BB5A005560F7 /* Kakuro.xml in Resources */,
 				8C3A37981EC88D4400A914A5 /* Sentinels.xml in Resources */,
 				8C3A37141EC88D4300A914A5 /* Minesweeper.xml in Resources */,
 				8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */,
@@ -3417,6 +3459,7 @@
 				8CC3505F1E001D2800B8FD83 /* URLExtensions.swift in Sources */,
 				8C3A36BF1EC88D4300A914A5 /* LightenUpOptionsViewController.swift in Sources */,
 				8C6ACBFF1DCAF8BA0075F32C /* GameMixin.swift in Sources */,
+				8CC25CC71F87BB5A005560F7 /* KakuroGameViewController.swift in Sources */,
 				8CE9C3101F7914B800134093 /* KakurasuDocument.swift in Sources */,
 				8C3A37021EC88D4300A914A5 /* MasyuGridNode.swift in Sources */,
 				8C3A361C1EC88D4200A914A5 /* BoxItAgainGameState.swift in Sources */,
@@ -3447,6 +3490,7 @@
 				8C3A37301EC88D4300A914A5 /* MosaikGameState.swift in Sources */,
 				8C3A36971EC88D4200A914A5 /* FenceSentinelsHelpViewController.swift in Sources */,
 				8C3A36F41EC88D4300A914A5 /* MagnetsGameState.swift in Sources */,
+				8CC25CC81F87BB5A005560F7 /* KakuroGridNode.swift in Sources */,
 				8C3A372A1EC88D4300A914A5 /* MiniLitsObject.swift in Sources */,
 				8C3A36B91EC88D4300A914A5 /* LightenUpGameViewController.swift in Sources */,
 				8C3A36BA1EC88D4300A914A5 /* LightenUpGridNode.swift in Sources */,
@@ -3470,6 +3514,7 @@
 				8C3A365C1EC88D4200A914A5 /* CloudsMainViewController.swift in Sources */,
 				8C3A37781EC88D4300A914A5 /* PowerGridGameState.swift in Sources */,
 				8C6D37F51DC5AC520052202C /* Position.swift in Sources */,
+				8CC25CC91F87BB5A005560F7 /* KakuroHelpViewController.swift in Sources */,
 				8C6D373C1DC421180052202C /* HomeTables.swift in Sources */,
 				8C2AF8331ED5FB0000EC84AB /* NumberPathGridNode.swift in Sources */,
 				8C3A363B1EC88D4200A914A5 /* BoxItUpOptionsViewController.swift in Sources */,
@@ -3545,7 +3590,9 @@
 				8C3A370D1EC88D4300A914A5 /* MineShipsGameViewController.swift in Sources */,
 				8C3A362F1EC88D4200A914A5 /* BoxItAroundOptionsViewController.swift in Sources */,
 				8C886C401D9E8AF1004A42BF /* ActionSheetLocalePicker.m in Sources */,
+				8CC25CCC1F87BB5A005560F7 /* KakuroOptionsViewController.swift in Sources */,
 				8CDAE7F91F5BFBD9000DE5AF /* OverUnderOptionsViewController.swift in Sources */,
+				8CC25CCB1F87BB5A005560F7 /* KakuroObject.swift in Sources */,
 				8CC350341E001D2800B8FD83 /* BlockPan.swift in Sources */,
 				8C3A36681EC88D4200A914A5 /* DigitalBattleShipsMainViewController.swift in Sources */,
 				8C506F111F6D2C9300BA4332 /* SnakeGameScene.swift in Sources */,
@@ -3603,6 +3650,7 @@
 				8CC350351E001D2800B8FD83 /* BlockPinch.swift in Sources */,
 				8CE9C3171F7914B800134093 /* KakurasuMainViewController.swift in Sources */,
 				8C3A37B11EC88D4400A914A5 /* SlitherLinkDocument.swift in Sources */,
+				8CC25CC31F87BB5A005560F7 /* KakuroDocument.swift in Sources */,
 				8CE9C3161F7914B800134093 /* KakurasuHelpViewController.swift in Sources */,
 				8C3A36CD1EC88D4300A914A5 /* LineSweeperDocument.swift in Sources */,
 				8C3A36791EC88D4200A914A5 /* FenceItUpDocument.swift in Sources */,
@@ -3697,6 +3745,7 @@
 				8C3A36AA1EC88D4300A914A5 /* LightBattleShipsGame.swift in Sources */,
 				8C3A36031EC88D4200A914A5 /* BattleShipsGameScene.swift in Sources */,
 				8C3A37831EC88D4300A914A5 /* ProductSentinelsGameScene.swift in Sources */,
+				8CC25CC41F87BB5A005560F7 /* KakuroGame.swift in Sources */,
 				8C3A36111EC88D4200A914A5 /* BootyIslandGameViewController.swift in Sources */,
 				8C3A36F11EC88D4300A914A5 /* MagnetsDocument.swift in Sources */,
 				8C9F32F71ED1FCFF00E10965 /* TapARowObject.swift in Sources */,
@@ -3787,6 +3836,7 @@
 				8C3A36B61EC88D4300A914A5 /* LightenUpGame.swift in Sources */,
 				8C7609181EC7778100DFCD7B /* GameHelpViewController.swift in Sources */,
 				8CC350561E001D2800B8FD83 /* UISliderExtensions.swift in Sources */,
+				8CC25CCA1F87BB5A005560F7 /* KakuroMainViewController.swift in Sources */,
 				8C3A35FC1EC88D4200A914A5 /* AbstractPaintingMainViewController.swift in Sources */,
 				8CC3504A1E001D2800B8FD83 /* TimerExtensions.swift in Sources */,
 				8C3A37BE1EC88D4400A914A5 /* SnailGame.swift in Sources */,
@@ -3888,6 +3938,7 @@
 				8C3A370B1EC88D4300A914A5 /* MineShipsGameScene.swift in Sources */,
 				8C506F101F6D2C9300BA4332 /* SnakeGame.swift in Sources */,
 				8C3A36281EC88D4200A914A5 /* BoxItAroundGameState.swift in Sources */,
+				8CC25CC61F87BB5A005560F7 /* KakuroGameState.swift in Sources */,
 				8C3A365E1EC88D4200A914A5 /* CloudsObject.swift in Sources */,
 				8C3A378F1EC88D4400A914A5 /* RoomsGameScene.swift in Sources */,
 				8CC3505D1E001D2800B8FD83 /* UIViewExtensions.swift in Sources */,
@@ -3908,6 +3959,7 @@
 				8C9F32E91ED1FCFF00E10965 /* TapAlikeGridNode.swift in Sources */,
 				8CE9C3181F7914B800134093 /* KakurasuObject.swift in Sources */,
 				8CC350481E001D2800B8FD83 /* NSObjectExtensions.swift in Sources */,
+				8CC25CC51F87BB5A005560F7 /* KakuroGameScene.swift in Sources */,
 				8CC350471E001D2800B8FD83 /* NSDictionaryExtensions.swift in Sources */,
 				8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */,
 				8C3A37D51EC88D4400A914A5 /* TatamiDocument.swift in Sources */,
