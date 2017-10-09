@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		84EE6E9D1DD954280013A033 /* HomeChooseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE6E9C1DD954280013A033 /* HomeChooseGameViewController.swift */; };
+		8C0467181F8BA2BE00B5DE41 /* Tatamino.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C04670C1F8BA2BD00B5DE41 /* Tatamino.xml */; };
+		8C0467191F8BA2BE00B5DE41 /* TataminoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C04670D1F8BA2BD00B5DE41 /* TataminoDocument.swift */; };
+		8C04671A1F8BA2BE00B5DE41 /* TataminoGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C04670E1F8BA2BD00B5DE41 /* TataminoGame.swift */; };
+		8C04671B1F8BA2BE00B5DE41 /* TataminoGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C04670F1F8BA2BD00B5DE41 /* TataminoGameScene.swift */; };
+		8C04671C1F8BA2BE00B5DE41 /* TataminoGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0467101F8BA2BD00B5DE41 /* TataminoGameState.swift */; };
+		8C04671D1F8BA2BE00B5DE41 /* TataminoGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0467111F8BA2BD00B5DE41 /* TataminoGameViewController.swift */; };
+		8C04671E1F8BA2BE00B5DE41 /* TataminoGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0467121F8BA2BD00B5DE41 /* TataminoGridNode.swift */; };
+		8C04671F1F8BA2BE00B5DE41 /* TataminoHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0467131F8BA2BD00B5DE41 /* TataminoHelpViewController.swift */; };
+		8C0467201F8BA2BE00B5DE41 /* TataminoMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0467141F8BA2BD00B5DE41 /* TataminoMainViewController.swift */; };
+		8C0467211F8BA2BE00B5DE41 /* TataminoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0467151F8BA2BD00B5DE41 /* TataminoObject.swift */; };
+		8C0467221F8BA2BE00B5DE41 /* TataminoOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0467161F8BA2BD00B5DE41 /* TataminoOptionsViewController.swift */; };
 		8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */; };
 		8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */; };
 		8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A01DB8DE930056D407 /* AnimatedExample.graffle */; };
@@ -836,6 +847,17 @@
 
 /* Begin PBXFileReference section */
 		84EE6E9C1DD954280013A033 /* HomeChooseGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeChooseGameViewController.swift; sourceTree = "<group>"; };
+		8C04670C1F8BA2BD00B5DE41 /* Tatamino.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tatamino.xml; sourceTree = "<group>"; };
+		8C04670D1F8BA2BD00B5DE41 /* TataminoDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TataminoDocument.swift; sourceTree = "<group>"; };
+		8C04670E1F8BA2BD00B5DE41 /* TataminoGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TataminoGame.swift; sourceTree = "<group>"; };
+		8C04670F1F8BA2BD00B5DE41 /* TataminoGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TataminoGameScene.swift; sourceTree = "<group>"; };
+		8C0467101F8BA2BD00B5DE41 /* TataminoGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TataminoGameState.swift; sourceTree = "<group>"; };
+		8C0467111F8BA2BD00B5DE41 /* TataminoGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TataminoGameViewController.swift; sourceTree = "<group>"; };
+		8C0467121F8BA2BD00B5DE41 /* TataminoGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TataminoGridNode.swift; sourceTree = "<group>"; };
+		8C0467131F8BA2BD00B5DE41 /* TataminoHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TataminoHelpViewController.swift; sourceTree = "<group>"; };
+		8C0467141F8BA2BD00B5DE41 /* TataminoMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TataminoMainViewController.swift; sourceTree = "<group>"; };
+		8C0467151F8BA2BD00B5DE41 /* TataminoObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TataminoObject.swift; sourceTree = "<group>"; };
+		8C0467161F8BA2BD00B5DE41 /* TataminoOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TataminoOptionsViewController.swift; sourceTree = "<group>"; };
 		8C1D169C1DB8DE930056D407 /* BreadthFirstSearch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BreadthFirstSearch.playground; sourceTree = "<group>"; };
 		8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadthFirstSearch.swift; sourceTree = "<group>"; };
 		8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimatedExample.gif; sourceTree = "<group>"; };
@@ -1672,6 +1694,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C04670B1F8BA2BD00B5DE41 /* Tatamino */ = {
+			isa = PBXGroup;
+			children = (
+				8C04670C1F8BA2BD00B5DE41 /* Tatamino.xml */,
+				8C04670D1F8BA2BD00B5DE41 /* TataminoDocument.swift */,
+				8C04670E1F8BA2BD00B5DE41 /* TataminoGame.swift */,
+				8C04670F1F8BA2BD00B5DE41 /* TataminoGameScene.swift */,
+				8C0467101F8BA2BD00B5DE41 /* TataminoGameState.swift */,
+				8C0467111F8BA2BD00B5DE41 /* TataminoGameViewController.swift */,
+				8C0467121F8BA2BD00B5DE41 /* TataminoGridNode.swift */,
+				8C0467131F8BA2BD00B5DE41 /* TataminoHelpViewController.swift */,
+				8C0467141F8BA2BD00B5DE41 /* TataminoMainViewController.swift */,
+				8C0467151F8BA2BD00B5DE41 /* TataminoObject.swift */,
+				8C0467161F8BA2BD00B5DE41 /* TataminoOptionsViewController.swift */,
+			);
+			path = Tatamino;
+			sourceTree = "<group>";
+		};
 		8C1D169B1DB8DE930056D407 /* Breadth-First Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -1860,6 +1900,7 @@
 				8C9F32CB1ED1FCFF00E10965 /* TapARow */,
 				8C9F32D71ED1FCFF00E10965 /* TapDifferently */,
 				8C3A35CE1EC88D4200A914A5 /* Tatami */,
+				8C04670B1F8BA2BD00B5DE41 /* Tatamino */,
 				8C7E4B371F793A6100B57C60 /* TennerGrid */,
 				8C3A35DB1EC88D4200A914A5 /* Tents */,
 			);
@@ -3307,6 +3348,7 @@
 				8C76090B1EC61A8A00DFCD7B /* Game.storyboard in Resources */,
 				8C9F32E31ED1FCFF00E10965 /* TapAlike.xml in Resources */,
 				8C3A36781EC88D4200A914A5 /* FenceItUp.xml in Resources */,
+				8C0467181F8BA2BE00B5DE41 /* Tatamino.xml in Resources */,
 				8CE9C30F1F7914B800134093 /* Kakurasu.xml in Resources */,
 				8C6D373F1DC421980052202C /* Home.storyboard in Resources */,
 				8C3A36181EC88D4200A914A5 /* BoxItAgain.xml in Resources */,
@@ -3341,6 +3383,7 @@
 				8C3A36C11EC88D4300A914A5 /* LighthousesDocument.swift in Sources */,
 				8C3A379F1EC88D4400A914A5 /* SentinelsHelpViewController.swift in Sources */,
 				8C3A35F31EC88D4200A914A5 /* AbcOptionsViewController.swift in Sources */,
+				8C04671B1F8BA2BE00B5DE41 /* TataminoGameScene.swift in Sources */,
 				8C3A366B1EC88D4200A914A5 /* DigitalBattleShipsOptionsViewController.swift in Sources */,
 				8CC3504D1E001D2800B8FD83 /* UIBarButtonItemExtensions.swift in Sources */,
 				8C3A36F71EC88D4300A914A5 /* MagnetsHelpViewController.swift in Sources */,
@@ -3361,6 +3404,7 @@
 				8C3A36141EC88D4200A914A5 /* BootyIslandMainViewController.swift in Sources */,
 				8C3A37861EC88D4400A914A5 /* ProductSentinelsGridNode.swift in Sources */,
 				8C3A369A1EC88D4200A914A5 /* FenceSentinelsObject.swift in Sources */,
+				8C04671D1F8BA2BE00B5DE41 /* TataminoGameViewController.swift in Sources */,
 				8C3A374E1EC88D4300A914A5 /* NurikabeObject.swift in Sources */,
 				8C9F32F31ED1FCFF00E10965 /* TapARowGameViewController.swift in Sources */,
 				8C2973E91EE7284C0022A18A /* GalaxiesMainViewController.swift in Sources */,
@@ -3395,6 +3439,7 @@
 				8C64A2681DD8089700AB6C09 /* GameGameViewController.swift in Sources */,
 				8C3A36421EC88D4200A914A5 /* BridgesGridNode.swift in Sources */,
 				8C3A37691EC88D4300A914A5 /* ParksDocument.swift in Sources */,
+				8C04671C1F8BA2BE00B5DE41 /* TataminoGameState.swift in Sources */,
 				8C9F32B91ED1FB0700E10965 /* TapaIslandsGameViewController.swift in Sources */,
 				8C3A366F1EC88D4200A914A5 /* DominoGameScene.swift in Sources */,
 				8C3A37871EC88D4400A914A5 /* ProductSentinelsHelpViewController.swift in Sources */,
@@ -3425,12 +3470,14 @@
 				8C9F32E41ED1FCFF00E10965 /* TapAlikeDocument.swift in Sources */,
 				8C1D16B31DB8DE930056D407 /* README.markdown in Sources */,
 				8C3A371B1EC88D4300A914A5 /* MinesweeperHelpViewController.swift in Sources */,
+				8C0467221F8BA2BE00B5DE41 /* TataminoOptionsViewController.swift in Sources */,
 				8CC350451E001D2800B8FD83 /* IntExtensions.swift in Sources */,
 				8C3A36011EC88D4200A914A5 /* BattleShipsDocument.swift in Sources */,
 				8C3A36B01EC88D4300A914A5 /* LightBattleShipsMainViewController.swift in Sources */,
 				8C3A36861EC88D4200A914A5 /* FenceLitsGame.swift in Sources */,
 				8C3A377A1EC88D4300A914A5 /* PowerGridGridNode.swift in Sources */,
 				8C9F32BB1ED1FB0700E10965 /* TapaIslandsHelpViewController.swift in Sources */,
+				8C0467201F8BA2BE00B5DE41 /* TataminoMainViewController.swift in Sources */,
 				8C3A378D1EC88D4400A914A5 /* RoomsDocument.swift in Sources */,
 				8CC350491E001D2800B8FD83 /* StringExtensions.swift in Sources */,
 				8C3A36311EC88D4200A914A5 /* BoxItUpDocument.swift in Sources */,
@@ -3482,6 +3529,7 @@
 				8C3A367E1EC88D4200A914A5 /* FenceItUpGridNode.swift in Sources */,
 				8C3A37041EC88D4300A914A5 /* MasyuMainViewController.swift in Sources */,
 				8C3A37911EC88D4400A914A5 /* RoomsGameViewController.swift in Sources */,
+				8C04671F1F8BA2BE00B5DE41 /* TataminoHelpViewController.swift in Sources */,
 				8C3A369F1EC88D4200A914A5 /* HitoriGameScene.swift in Sources */,
 				8C9F324B1ED1FAD400E10965 /* BWTapaOptionsViewController.swift in Sources */,
 				8C1D4F8B1F7D079F000D5FB3 /* Square100GameState.swift in Sources */,
@@ -3491,6 +3539,7 @@
 				8C3A36971EC88D4200A914A5 /* FenceSentinelsHelpViewController.swift in Sources */,
 				8C3A36F41EC88D4300A914A5 /* MagnetsGameState.swift in Sources */,
 				8CC25CC81F87BB5A005560F7 /* KakuroGridNode.swift in Sources */,
+				8C04671E1F8BA2BE00B5DE41 /* TataminoGridNode.swift in Sources */,
 				8C3A372A1EC88D4300A914A5 /* MiniLitsObject.swift in Sources */,
 				8C3A36B91EC88D4300A914A5 /* LightenUpGameViewController.swift in Sources */,
 				8C3A36BA1EC88D4300A914A5 /* LightenUpGridNode.swift in Sources */,
@@ -3686,6 +3735,7 @@
 				8C3A36821EC88D4200A914A5 /* FenceItUpObject.swift in Sources */,
 				8C7E4B491F793C9800B57C60 /* TennerGridGridNode.swift in Sources */,
 				8C9F32B71ED1FB0700E10965 /* TapaIslandsGameScene.swift in Sources */,
+				8C0467211F8BA2BE00B5DE41 /* TataminoObject.swift in Sources */,
 				8C3A36921EC88D4200A914A5 /* FenceSentinelsGame.swift in Sources */,
 				8C3A37961EC88D4400A914A5 /* RoomsObject.swift in Sources */,
 				8C2AF84D1ED6084300EC84AB /* PaintTheNurikabeMainViewController.swift in Sources */,
@@ -3794,6 +3844,7 @@
 				8C506F181F6D2C9300BA4332 /* SnakeOptionsViewController.swift in Sources */,
 				8C3A36081EC88D4200A914A5 /* BattleShipsMainViewController.swift in Sources */,
 				8C3A36161EC88D4200A914A5 /* BootyIslandObject.swift in Sources */,
+				8C0467191F8BA2BE00B5DE41 /* TataminoDocument.swift in Sources */,
 				8C9F32FE1ED1FCFF00E10965 /* TapDifferentlyGameViewController.swift in Sources */,
 				8C9F325D1ED1FAF600E10965 /* PataGameViewController.swift in Sources */,
 				8C3A36A91EC88D4200A914A5 /* LightBattleShipsDocument.swift in Sources */,
@@ -3939,6 +3990,7 @@
 				8C506F101F6D2C9300BA4332 /* SnakeGame.swift in Sources */,
 				8C3A36281EC88D4200A914A5 /* BoxItAroundGameState.swift in Sources */,
 				8CC25CC61F87BB5A005560F7 /* KakuroGameState.swift in Sources */,
+				8C04671A1F8BA2BE00B5DE41 /* TataminoGame.swift in Sources */,
 				8C3A365E1EC88D4200A914A5 /* CloudsObject.swift in Sources */,
 				8C3A378F1EC88D4400A914A5 /* RoomsGameScene.swift in Sources */,
 				8CC3505D1E001D2800B8FD83 /* UIViewExtensions.swift in Sources */,
