@@ -17,16 +17,8 @@ class TataminoGameScene: GameScene<TataminoGameState> {
     func addCharacter(ch: Character, s: HintState, isHint: Bool, point: CGPoint, nodeName: String) {
         addLabel(text: String(ch), fontColor: isHint ? .gray : s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
-
-    override func levelInitialized(_ game: AnyObject, state: TataminoGameState, skView: SKView) {
-        let game = game as! TataminoGame
-        removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
-        
-        // addGrid
-        let offset:CGFloat = 0.5
-        addGrid(gridNode: TataminoGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
-        
+    
+    func addLines(game: TataminoGame) {
         let pathToDraw = CGMutablePath()
         let lineNode = SKShapeNode(path: pathToDraw)
         for r in 0..<game.rows + 1 {
@@ -53,6 +45,18 @@ class TataminoGameScene: GameScene<TataminoGameState> {
         lineNode.path = pathToDraw
         lineNode.name = "line"
         gridNode.addChild(lineNode)
+    }
+
+    override func levelInitialized(_ game: AnyObject, state: TataminoGameState, skView: SKView) {
+        let game = game as! TataminoGame
+        removeAllChildren()
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
+        
+        addLines(game: game)
+        
+        // addGrid
+        let offset:CGFloat = 0.5
+        addGrid(gridNode: TataminoGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
         // add Characters
         for r in 0..<game.rows {

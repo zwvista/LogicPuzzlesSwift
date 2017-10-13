@@ -17,6 +17,7 @@ class TataminoGameState: GridGameState {
     var gameDocument: TataminoDocument { return TataminoDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { return TataminoDocument.sharedInstance }
     var objArray = [Character]()
+    var dots: GridDots!
     var pos2state = [Position: HintState]()
     
     override func copy() -> TataminoGameState {
@@ -74,82 +75,61 @@ class TataminoGameState: GridGameState {
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 2/Tatamino
+        iOS Game: Logic Games/Puzzle Set 13/Tatamino
 
         Summary
-        1,2,3... 1,2,3... Fill the mats
+        Which is a little Tatami
 
         Description
-        1. Each rectangle represents a mat(Tatamino) which is of the same size.
-           You must fill each Tatamino with a number ranging from 1 to size.
-        2. Each number can appear only once in each Tatamino.
-        3. In one row or column, each number must appear the same number of times.
-        4. You can't have two identical numbers touching horizontally or vertically.
+        1. Plays like Fillomino, in which you have to guess areas on the board
+           marked by their number.
+        2. In Tatamino, however, you only have areas 1, 2 and 3 tiles big.
+        3. Please remember two areas of the same number size can't be touching.
     */
     private func updateIsSolved() {
         isSolved = true
-        let chars2: [Character] = ["1", "2", "3"]
-        let chars3 = chars2.flatMap({Array<Character>(repeating: $0, count: rows / 3)})
+        let g = Graph()
+        var pos2node = [Position: Node]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if self[p] == " " {isSolved = false}
-                pos2state[p] = .normal
+                if self[p] != " " {
+                    pos2node[p] = g.addNode(p.description)
+                }
             }
         }
         for r in 0..<rows {
-            var lineSolved = true
-            for c in 0..<cols - 1 {
-                let (p1, p2) = (Position(r, c), Position(r, c + 1))
-                let (ch1, ch2) = (self[p1], self[p2])
-                guard ch1 != " " && ch2 != " " && ch1 == ch2 else {continue}
-                isSolved = false; lineSolved = false
-                pos2state[p1] = .error
-                pos2state[p2] = .error
-            }
-            var chars = (0..<cols).map({self[r, $0]}).sorted()
-            if chars[0] != " " && chars != chars3 {
-                isSolved = false; lineSolved = false
-                for c in 0..<cols {
-                    pos2state[Position(r, c)] = .error
-                }
-            }
-            if lineSolved {
-                for c in 0..<cols {
-                    pos2state[Position(r, c)] = .complete
+            for c in 0..<cols {
+                let p = Position(r, c)
+                let ch = self[p]
+                guard ch != " " else {continue}
+                for os in TataminoGame.offset {
+                    let p2 = p + os
+                    if isValid(p: p2) && self[p2] == ch {
+                        g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
+                    }
                 }
             }
         }
-        for c in 0..<cols {
-            var lineSolved = true
-            for r in 0..<rows - 1 {
-                let (p1, p2) = (Position(r, c), Position(r + 1, c))
-                let (ch1, ch2) = (self[p1], self[p2])
-                guard ch1 != " " && ch2 != " " && ch1 == ch2 else {continue}
-                isSolved = false; lineSolved = false
-                pos2state[p1] = .error
-                pos2state[p2] = .error
-            }
-            var chars = (0..<rows).map({self[$0, c]}).sorted()
-            if chars[0] != " " && chars != chars3 {
-                isSolved = false; lineSolved = false
-                for r in 0..<rows {
-                    pos2state[Position(r, c)] = .error
+        dots = GridDots(x: game.dots)
+        while !pos2node.isEmpty {
+            let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+            let area = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
+            pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
+            let ch = self[area[0]]
+            let (n1, n2) = (ch.toInt!, area.count)
+            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            for p in area {
+                pos2state[p] = s
+                for i in 0..<4 {
+                    let p2 = p + TataminoGame.offset[i]
+                    let ch2 = !isValid(p: p2) ? "." : self[p2]
+                    if ch2 != ch && (n1 <= n2 || ch2 != " ") {
+                        dots[p + TataminoGame.offset2[i]][TataminoGame.dirs[i]] = .line
+                    }
                 }
             }
-            if lineSolved {
-                for r in 0..<rows {
-                    pos2state[Position(r, c)] = .complete
-                }
-            }
-        }
-        for a in game.areas {
-            let chars = a.map({self[$0]}).sorted()
-            guard chars[0] != " " && chars != chars2 else {continue}
-            isSolved = false
-            for p in a {
-                pos2state[p] = .error
-            }
+            if s != .complete {isSolved = false}
         }
     }
 }

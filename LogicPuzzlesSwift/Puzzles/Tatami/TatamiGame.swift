@@ -25,14 +25,14 @@ class TatamiGame: GridGame<TatamiGameViewController> {
 
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
-    var dots: TatamiDots!
+    var dots: GridDots!
     var objArray = [Character]()
     
     init(layout: [String], delegate: TatamiGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count / 2, layout[0].length / 2)
-        dots = TatamiDots(rows: rows + 1, cols: cols + 1)
+        dots = GridDots(rows: rows + 1, cols: cols + 1)
         objArray = Array<Character>(repeating: " ", count: rows * cols)
         
         for r in 0..<rows + 1 {

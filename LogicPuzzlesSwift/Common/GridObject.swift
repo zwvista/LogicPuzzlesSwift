@@ -29,6 +29,12 @@ class GridDots {
         objArray = Array<GridDotObject>(repeating: Array<GridLineObject>(repeating: .empty, count: 4), count: rows * cols)
     }
     
+    init(x: GridDots) {
+        rows = x.rows
+        cols = x.cols
+        objArray = x.objArray
+    }
+    
     subscript(p: Position) -> GridDotObject {
         get {
             return self[p.row, p.col]
