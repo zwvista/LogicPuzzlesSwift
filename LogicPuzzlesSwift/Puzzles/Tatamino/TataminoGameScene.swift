@@ -52,42 +52,73 @@ class TataminoGameScene: GameScene<TataminoGameState> {
         removeAllChildren()
         let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
         
-        addLines(game: game)
-        
         // addGrid
         let offset:CGFloat = 0.5
         addGrid(gridNode: TataminoGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
+        addLines(game: game)
+
         // add Characters
-        for r in 0..<game.rows {
-            for c in 0..<game.cols {
+        for r in 0..<game.rows + 1 {
+            for c in 0..<game.cols + 1 {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
-                let ch = game[p]
-                guard ch != " " else {continue}
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
-                let charNodeName = "char" + nodeNameSuffix
-                addCharacter(ch: ch, s: state.pos2state[p] ?? .normal, isHint: game[p] != " ", point: point, nodeName: charNodeName)
+                if r < game.rows && c < game.cols {
+                    let ch = game[p]
+                    if ch != " " {
+                        let charNodeName = "char" + nodeNameSuffix
+                        addCharacter(ch: ch, s: state.pos2state[p] ?? .normal, isHint: game[p] != " ", point: point, nodeName: charNodeName)
+                    }
+                }
+                let horzLineNodeName = "horzLine" + nodeNameSuffix
+                let vertlineNodeName = "vertline" + nodeNameSuffix
+                for dir in 1...2 {
+                    guard game.dots[r, c][dir] != .line && state.dots[r, c][dir] == .line else {continue}
+                    if dir == 1 {
+                        addHorzLine(objType: .line, color: .yellow, point: point, nodeName: horzLineNodeName)
+                    } else {
+                        addVertLine(objType: .line, color: .yellow, point: point, nodeName: vertlineNodeName)
+                    }
+                }
             }
         }
 
     }
     
     override func levelUpdated(from stateFrom: TataminoGameState, to stateTo: TataminoGameState) {
-        for r in 0..<stateFrom.rows {
-            for c in 0..<stateFrom.cols {
+        for r in 0..<stateFrom.rows + 1 {
+            for c in 0..<stateFrom.cols + 1 {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let charNodeName = "char" + nodeNameSuffix
-                let (ch1, ch2) = (stateFrom[p], stateTo[p])
-                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
-                if ch1 != ch2 || s1 != s2 {
-                    if (ch1 != " ") {
-                        removeNode(withName: charNodeName)
+                if r < stateFrom.rows && c < stateFrom.cols {
+                    let (ch1, ch2) = (stateFrom[p], stateTo[p])
+                    let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                    if ch1 != ch2 || s1 != s2 {
+                        if (ch1 != " ") {
+                            removeNode(withName: charNodeName)
+                        }
+                        if (ch2 != " ") {
+                            addCharacter(ch: ch2, s: stateTo.pos2state[p] ?? .normal, isHint: stateTo.game[p] != " ", point: point, nodeName: charNodeName)
+                        }
                     }
-                    if (ch2 != " ") {
-                        addCharacter(ch: ch2, s: stateTo.pos2state[p] ?? .normal, isHint: stateTo.game[p] != " ", point: point, nodeName: charNodeName)
+                }
+                let horzLineNodeName = "horzLine" + nodeNameSuffix
+                let vertlineNodeName = "vertline" + nodeNameSuffix
+                for dir in 1...2 {
+                    let (o1, o2) = (stateFrom.dots[r, c][dir], stateTo.dots[r, c][dir])
+                    guard o1 != o2 else {continue}
+                    if dir == 1 {
+                        removeNode(withName: horzLineNodeName)
+                    } else {
+                        removeNode(withName: vertlineNodeName)
+                    }
+                    if dir == 1 {
+                        addHorzLine(objType: o2, color: .yellow, point: point, nodeName: horzLineNodeName)
+                    } else {
+                        addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
                     }
                 }
             }

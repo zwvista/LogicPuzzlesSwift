@@ -93,7 +93,9 @@ class TataminoGameState: GridGameState {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if self[p] != " " {
+                if self[p] == " " {
+                    isSolved = false
+                } else {
                     pos2node[p] = g.addNode(p.description)
                 }
             }
