@@ -5,10 +5,6 @@
 1. Plays like Fillomino, in which you have to guess areas on the board marked by their number.
 2. In Tatamino, however, you only have areas 1, 2 and 3 tiles big.
 3. Please remember two areas of the same number size can't be touching.
-1. Each rectangle represents a mat(Tatami) which is of the same size. You must fill each Tatami with a number ranging from 1 to size.
-2. Each number can appear only once in each Tatami.
-3. In one row or column, each number must appear the same number of times.
-4. You can't have two identical numbers touching horizontally or vertically.
   ]]>
 </help>
 <levels>
