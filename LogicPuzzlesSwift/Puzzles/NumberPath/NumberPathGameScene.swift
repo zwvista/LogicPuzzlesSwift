@@ -15,7 +15,7 @@ class NumberPathGameScene: GameScene<NumberPathGameState> {
     }
     
     func addNumber(n: String, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(text: n, fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+        addLabel(text: n, fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName, sampleText: "10")
     }
 
     override func levelInitialized(_ game: AnyObject, state: NumberPathGameState, skView: SKView) {

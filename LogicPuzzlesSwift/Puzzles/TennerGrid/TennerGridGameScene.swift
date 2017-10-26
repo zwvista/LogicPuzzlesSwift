@@ -16,7 +16,7 @@ class TennerGridGameScene: GameScene<TennerGridGameState> {
     
     func addNumber(n: Int, s: HintState, isFixed: Bool, point: CGPoint, nodeName: String) {
         guard n >= 0 else {return}
-        addLabel(text: String(n), fontColor: s == .normal ? isFixed ? .gray : .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+        addLabel(text: String(n), fontColor: s == .normal ? isFixed ? .gray : .white : s == .complete ? .green : .red, point: point, nodeName: nodeName, sampleText: "22")
     }
     
     override func levelInitialized(_ game: AnyObject, state: TennerGridGameState, skView: SKView) {

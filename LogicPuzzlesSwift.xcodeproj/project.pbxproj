@@ -40,6 +40,28 @@
 		8C1D4F8F1F7D079F000D5FB3 /* Square100MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D4F831F7D079F000D5FB3 /* Square100MainViewController.swift */; };
 		8C1D4F901F7D079F000D5FB3 /* Square100Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D4F841F7D079F000D5FB3 /* Square100Object.swift */; };
 		8C1D4F911F7D079F000D5FB3 /* Square100OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D4F851F7D079F000D5FB3 /* Square100OptionsViewController.swift */; };
+		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
+		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
+		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
+		8C2963F01FA20D620017A812 /* RobotFencesGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D91FA20D620017A812 /* RobotFencesGameScene.swift */; };
+		8C2963F11FA20D620017A812 /* RobotFencesGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963DA1FA20D620017A812 /* RobotFencesGameState.swift */; };
+		8C2963F21FA20D620017A812 /* RobotFencesGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963DB1FA20D620017A812 /* RobotFencesGameViewController.swift */; };
+		8C2963F31FA20D620017A812 /* RobotFencesGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963DC1FA20D620017A812 /* RobotFencesGridNode.swift */; };
+		8C2963F41FA20D620017A812 /* RobotFencesHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963DD1FA20D620017A812 /* RobotFencesHelpViewController.swift */; };
+		8C2963F51FA20D620017A812 /* RobotFencesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963DE1FA20D620017A812 /* RobotFencesMainViewController.swift */; };
+		8C2963F61FA20D620017A812 /* RobotFencesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963DF1FA20D620017A812 /* RobotFencesObject.swift */; };
+		8C2963F71FA20D620017A812 /* RobotFencesOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963E01FA20D620017A812 /* RobotFencesOptionsViewController.swift */; };
+		8C2963F81FA20D620017A812 /* RobotCrosswords.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963E21FA20D620017A812 /* RobotCrosswords.xml */; };
+		8C2963F91FA20D620017A812 /* RobotCrosswordsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963E31FA20D620017A812 /* RobotCrosswordsDocument.swift */; };
+		8C2963FA1FA20D620017A812 /* RobotCrosswordsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963E41FA20D620017A812 /* RobotCrosswordsGame.swift */; };
+		8C2963FB1FA20D620017A812 /* RobotCrosswordsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963E51FA20D620017A812 /* RobotCrosswordsGameScene.swift */; };
+		8C2963FC1FA20D620017A812 /* RobotCrosswordsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963E61FA20D620017A812 /* RobotCrosswordsGameState.swift */; };
+		8C2963FD1FA20D620017A812 /* RobotCrosswordsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963E71FA20D620017A812 /* RobotCrosswordsGameViewController.swift */; };
+		8C2963FE1FA20D620017A812 /* RobotCrosswordsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963E81FA20D620017A812 /* RobotCrosswordsGridNode.swift */; };
+		8C2963FF1FA20D620017A812 /* RobotCrosswordsHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963E91FA20D620017A812 /* RobotCrosswordsHelpViewController.swift */; };
+		8C2964001FA20D620017A812 /* RobotCrosswordsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963EA1FA20D620017A812 /* RobotCrosswordsMainViewController.swift */; };
+		8C2964011FA20D620017A812 /* RobotCrosswordsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963EB1FA20D620017A812 /* RobotCrosswordsObject.swift */; };
+		8C2964021FA20D620017A812 /* RobotCrosswordsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963EC1FA20D620017A812 /* RobotCrosswordsOptionsViewController.swift */; };
 		8C2973E11EE7284C0022A18A /* Galaxies.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2973D61EE7284C0022A18A /* Galaxies.xml */; };
 		8C2973E21EE7284C0022A18A /* GalaxiesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2973D71EE7284C0022A18A /* GalaxiesDocument.swift */; };
 		8C2973E31EE7284C0022A18A /* GalaxiesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2973D81EE7284C0022A18A /* GalaxiesGame.swift */; };
@@ -882,6 +904,28 @@
 		8C1D4F831F7D079F000D5FB3 /* Square100MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Square100MainViewController.swift; sourceTree = "<group>"; };
 		8C1D4F841F7D079F000D5FB3 /* Square100Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Square100Object.swift; sourceTree = "<group>"; };
 		8C1D4F851F7D079F000D5FB3 /* Square100OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Square100OptionsViewController.swift; sourceTree = "<group>"; };
+		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
+		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
+		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
+		8C2963D91FA20D620017A812 /* RobotFencesGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGameScene.swift; sourceTree = "<group>"; };
+		8C2963DA1FA20D620017A812 /* RobotFencesGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGameState.swift; sourceTree = "<group>"; };
+		8C2963DB1FA20D620017A812 /* RobotFencesGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGameViewController.swift; sourceTree = "<group>"; };
+		8C2963DC1FA20D620017A812 /* RobotFencesGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGridNode.swift; sourceTree = "<group>"; };
+		8C2963DD1FA20D620017A812 /* RobotFencesHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesHelpViewController.swift; sourceTree = "<group>"; };
+		8C2963DE1FA20D620017A812 /* RobotFencesMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesMainViewController.swift; sourceTree = "<group>"; };
+		8C2963DF1FA20D620017A812 /* RobotFencesObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesObject.swift; sourceTree = "<group>"; };
+		8C2963E01FA20D620017A812 /* RobotFencesOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesOptionsViewController.swift; sourceTree = "<group>"; };
+		8C2963E21FA20D620017A812 /* RobotCrosswords.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotCrosswords.xml; sourceTree = "<group>"; };
+		8C2963E31FA20D620017A812 /* RobotCrosswordsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotCrosswordsDocument.swift; sourceTree = "<group>"; };
+		8C2963E41FA20D620017A812 /* RobotCrosswordsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotCrosswordsGame.swift; sourceTree = "<group>"; };
+		8C2963E51FA20D620017A812 /* RobotCrosswordsGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotCrosswordsGameScene.swift; sourceTree = "<group>"; };
+		8C2963E61FA20D620017A812 /* RobotCrosswordsGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotCrosswordsGameState.swift; sourceTree = "<group>"; };
+		8C2963E71FA20D620017A812 /* RobotCrosswordsGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotCrosswordsGameViewController.swift; sourceTree = "<group>"; };
+		8C2963E81FA20D620017A812 /* RobotCrosswordsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotCrosswordsGridNode.swift; sourceTree = "<group>"; };
+		8C2963E91FA20D620017A812 /* RobotCrosswordsHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotCrosswordsHelpViewController.swift; sourceTree = "<group>"; };
+		8C2963EA1FA20D620017A812 /* RobotCrosswordsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotCrosswordsMainViewController.swift; sourceTree = "<group>"; };
+		8C2963EB1FA20D620017A812 /* RobotCrosswordsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotCrosswordsObject.swift; sourceTree = "<group>"; };
+		8C2963EC1FA20D620017A812 /* RobotCrosswordsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotCrosswordsOptionsViewController.swift; sourceTree = "<group>"; };
 		8C2973D61EE7284C0022A18A /* Galaxies.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Galaxies.xml; sourceTree = "<group>"; };
 		8C2973D71EE7284C0022A18A /* GalaxiesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalaxiesDocument.swift; sourceTree = "<group>"; };
 		8C2973D81EE7284C0022A18A /* GalaxiesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalaxiesGame.swift; sourceTree = "<group>"; };
@@ -1783,6 +1827,44 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8C2963D51FA20D620017A812 /* RobotFences */ = {
+			isa = PBXGroup;
+			children = (
+				8C2963D61FA20D620017A812 /* RobotFences.xml */,
+				8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */,
+				8C2963D81FA20D620017A812 /* RobotFencesGame.swift */,
+				8C2963D91FA20D620017A812 /* RobotFencesGameScene.swift */,
+				8C2963DA1FA20D620017A812 /* RobotFencesGameState.swift */,
+				8C2963DB1FA20D620017A812 /* RobotFencesGameViewController.swift */,
+				8C2963DC1FA20D620017A812 /* RobotFencesGridNode.swift */,
+				8C2963DD1FA20D620017A812 /* RobotFencesHelpViewController.swift */,
+				8C2963DE1FA20D620017A812 /* RobotFencesMainViewController.swift */,
+				8C2963DF1FA20D620017A812 /* RobotFencesObject.swift */,
+				8C2963E01FA20D620017A812 /* RobotFencesOptionsViewController.swift */,
+			);
+			name = RobotFences;
+			path = LogicPuzzlesSwift/Puzzles/RobotFences;
+			sourceTree = SOURCE_ROOT;
+		};
+		8C2963E11FA20D620017A812 /* RobotCrosswords */ = {
+			isa = PBXGroup;
+			children = (
+				8C2963E21FA20D620017A812 /* RobotCrosswords.xml */,
+				8C2963E31FA20D620017A812 /* RobotCrosswordsDocument.swift */,
+				8C2963E41FA20D620017A812 /* RobotCrosswordsGame.swift */,
+				8C2963E51FA20D620017A812 /* RobotCrosswordsGameScene.swift */,
+				8C2963E61FA20D620017A812 /* RobotCrosswordsGameState.swift */,
+				8C2963E71FA20D620017A812 /* RobotCrosswordsGameViewController.swift */,
+				8C2963E81FA20D620017A812 /* RobotCrosswordsGridNode.swift */,
+				8C2963E91FA20D620017A812 /* RobotCrosswordsHelpViewController.swift */,
+				8C2963EA1FA20D620017A812 /* RobotCrosswordsMainViewController.swift */,
+				8C2963EB1FA20D620017A812 /* RobotCrosswordsObject.swift */,
+				8C2963EC1FA20D620017A812 /* RobotCrosswordsOptionsViewController.swift */,
+			);
+			name = RobotCrosswords;
+			path = LogicPuzzlesSwift/Puzzles/RobotCrosswords;
+			sourceTree = SOURCE_ROOT;
+		};
 		8C2973D51EE7284C0022A18A /* Galaxies */ = {
 			isa = PBXGroup;
 			children = (
@@ -1886,6 +1968,8 @@
 				8C9F324C1ED1FAF600E10965 /* Pata */,
 				8C3A35661EC88D4100A914A5 /* PowerGrid */,
 				8C3A35731EC88D4200A914A5 /* ProductSentinels */,
+				8C2963E11FA20D620017A812 /* RobotCrosswords */,
+				8C2963D51FA20D620017A812 /* RobotFences */,
 				8C3A35801EC88D4200A914A5 /* Rooms */,
 				8C3A358D1EC88D4200A914A5 /* Sentinels */,
 				8C3A359A1EC88D4200A914A5 /* Skyscrapers */,
@@ -3276,6 +3360,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */,
 				8C3A37A41EC88D4400A914A5 /* Skyscrapers.xml in Resources */,
 				8C3A37C81EC88D4400A914A5 /* Sumscrapers.xml in Resources */,
 				8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */,
@@ -3350,6 +3435,7 @@
 				8C3A36781EC88D4200A914A5 /* FenceItUp.xml in Resources */,
 				8C0467181F8BA2BE00B5DE41 /* Tatamino.xml in Resources */,
 				8CE9C30F1F7914B800134093 /* Kakurasu.xml in Resources */,
+				8C2963F81FA20D620017A812 /* RobotCrosswords.xml in Resources */,
 				8C6D373F1DC421980052202C /* Home.storyboard in Resources */,
 				8C3A36181EC88D4200A914A5 /* BoxItAgain.xml in Resources */,
 				8C3A37801EC88D4300A914A5 /* ProductSentinels.xml in Resources */,
@@ -3390,6 +3476,7 @@
 				8C9F32441ED1FAD400E10965 /* BWTapaGameScene.swift in Sources */,
 				8C9F32BD1ED1FB0700E10965 /* TapaIslandsObject.swift in Sources */,
 				8C3A373B1EC88D4300A914A5 /* NeighboursGameScene.swift in Sources */,
+				8C2963F91FA20D620017A812 /* RobotCrosswordsDocument.swift in Sources */,
 				8C3A37E41EC88D4400A914A5 /* TentsGameState.swift in Sources */,
 				8C6D37FB1DC5ACDB0052202C /* Copyable.swift in Sources */,
 				8C2973E51EE7284C0022A18A /* GalaxiesGameState.swift in Sources */,
@@ -3416,6 +3503,7 @@
 				8C2AF82E1ED5FB0000EC84AB /* NumberPathDocument.swift in Sources */,
 				8CD1558B1DD77C3400786F34 /* Extensions.swift in Sources */,
 				8C9F32F41ED1FCFF00E10965 /* TapARowGridNode.swift in Sources */,
+				8C2964021FA20D620017A812 /* RobotCrosswordsOptionsViewController.swift in Sources */,
 				8C1D4F8E1F7D079F000D5FB3 /* Square100HelpViewController.swift in Sources */,
 				8CE9C3121F7914B800134093 /* KakurasuGameScene.swift in Sources */,
 				8C7E4B461F793C9800B57C60 /* TennerGridGameScene.swift in Sources */,
@@ -3472,6 +3560,8 @@
 				8C3A371B1EC88D4300A914A5 /* MinesweeperHelpViewController.swift in Sources */,
 				8C0467221F8BA2BE00B5DE41 /* TataminoOptionsViewController.swift in Sources */,
 				8CC350451E001D2800B8FD83 /* IntExtensions.swift in Sources */,
+				8C2963F21FA20D620017A812 /* RobotFencesGameViewController.swift in Sources */,
+				8C2963F41FA20D620017A812 /* RobotFencesHelpViewController.swift in Sources */,
 				8C3A36011EC88D4200A914A5 /* BattleShipsDocument.swift in Sources */,
 				8C3A36B01EC88D4300A914A5 /* LightBattleShipsMainViewController.swift in Sources */,
 				8C3A36861EC88D4200A914A5 /* FenceLitsGame.swift in Sources */,
@@ -3500,6 +3590,7 @@
 				8C3A36551EC88D4200A914A5 /* CloudsDocument.swift in Sources */,
 				8C3A36611EC88D4200A914A5 /* DigitalBattleShipsDocument.swift in Sources */,
 				8C3A37C11EC88D4400A914A5 /* SnailGameViewController.swift in Sources */,
+				8C2963FF1FA20D620017A812 /* RobotCrosswordsHelpViewController.swift in Sources */,
 				8C3A37361EC88D4300A914A5 /* MosaikObject.swift in Sources */,
 				8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */,
 				8C3A36581EC88D4200A914A5 /* CloudsGameState.swift in Sources */,
@@ -3564,6 +3655,7 @@
 				8C3A37781EC88D4300A914A5 /* PowerGridGameState.swift in Sources */,
 				8C6D37F51DC5AC520052202C /* Position.swift in Sources */,
 				8CC25CC91F87BB5A005560F7 /* KakuroHelpViewController.swift in Sources */,
+				8C2963F71FA20D620017A812 /* RobotFencesOptionsViewController.swift in Sources */,
 				8C6D373C1DC421180052202C /* HomeTables.swift in Sources */,
 				8C2AF8331ED5FB0000EC84AB /* NumberPathGridNode.swift in Sources */,
 				8C3A363B1EC88D4200A914A5 /* BoxItUpOptionsViewController.swift in Sources */,
@@ -3596,6 +3688,7 @@
 				8C2973E81EE7284C0022A18A /* GalaxiesHelpViewController.swift in Sources */,
 				8C3A367F1EC88D4200A914A5 /* FenceItUpHelpViewController.swift in Sources */,
 				8C3A369D1EC88D4200A914A5 /* HitoriDocument.swift in Sources */,
+				8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */,
 				8C3A37761EC88D4300A914A5 /* PowerGridGame.swift in Sources */,
 				8C3A37001EC88D4300A914A5 /* MasyuGameState.swift in Sources */,
 				8C3A36E61EC88D4300A914A5 /* LoopyGame.swift in Sources */,
@@ -3619,6 +3712,7 @@
 				8C3A35EE1EC88D4200A914A5 /* AbcGridNode.swift in Sources */,
 				8C3A36B81EC88D4300A914A5 /* LightenUpGameState.swift in Sources */,
 				8CC350421E001D2800B8FD83 /* ErrorTypeExtensions.swift in Sources */,
+				8C2963F51FA20D620017A812 /* RobotFencesMainViewController.swift in Sources */,
 				8CDAE7F51F5BFBD9000DE5AF /* OverUnderGridNode.swift in Sources */,
 				8C2AF8471ED6084300EC84AB /* PaintTheNurikabeGame.swift in Sources */,
 				8CDAE8121F646C29000DE5AF /* BalancedTapasOptionsViewController.swift in Sources */,
@@ -3628,6 +3722,7 @@
 				8C3A368E1EC88D4200A914A5 /* FenceLitsObject.swift in Sources */,
 				8C2973E71EE7284C0022A18A /* GalaxiesGridNode.swift in Sources */,
 				8C3A37631EC88D4300A914A5 /* PairakabeHelpViewController.swift in Sources */,
+				8C2963F31FA20D620017A812 /* RobotFencesGridNode.swift in Sources */,
 				8CC350321E001D2800B8FD83 /* BlockButton.swift in Sources */,
 				8C3A360A1EC88D4200A914A5 /* BattleShipsObject.swift in Sources */,
 				8CC3504B1E001D2800B8FD83 /* UIAlertControllerExtensions.swift in Sources */,
@@ -3768,11 +3863,13 @@
 				8C3A362A1EC88D4200A914A5 /* BoxItAroundGridNode.swift in Sources */,
 				8C3A368C1EC88D4200A914A5 /* FenceLitsMainViewController.swift in Sources */,
 				8C9F32FF1ED1FCFF00E10965 /* TapDifferentlyGridNode.swift in Sources */,
+				8C2963FC1FA20D620017A812 /* RobotCrosswordsGameState.swift in Sources */,
 				8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */,
 				8C76091A1EC7EB1C00DFCD7B /* SelfSizingTableViewCell.swift in Sources */,
 				8C2AF8301ED5FB0000EC84AB /* NumberPathGameScene.swift in Sources */,
 				8C6D37391DC421180052202C /* HomeMainViewController.swift in Sources */,
 				8C1D4F881F7D079F000D5FB3 /* Square100Document.swift in Sources */,
+				8C2963FE1FA20D620017A812 /* RobotCrosswordsGridNode.swift in Sources */,
 				8C3A370A1EC88D4300A914A5 /* MineShipsGame.swift in Sources */,
 				8C9F32BC1ED1FB0700E10965 /* TapaIslandsMainViewController.swift in Sources */,
 				8C3A37131EC88D4300A914A5 /* MineShipsOptionsViewController.swift in Sources */,
@@ -3815,6 +3912,7 @@
 				8C3A37331EC88D4300A914A5 /* MosaikHelpViewController.swift in Sources */,
 				8C3A36711EC88D4200A914A5 /* DominoGameViewController.swift in Sources */,
 				8C3A375B1EC88D4300A914A5 /* OrchardsOptionsViewController.swift in Sources */,
+				8C2964001FA20D620017A812 /* RobotCrosswordsMainViewController.swift in Sources */,
 				8C9F32311ECF06C000E10965 /* TapaMainViewController.swift in Sources */,
 				8C9F32F81ED1FCFF00E10965 /* TapARowOptionsViewController.swift in Sources */,
 				8C9F32E61ED1FCFF00E10965 /* TapAlikeGameScene.swift in Sources */,
@@ -3847,6 +3945,7 @@
 				8C0467191F8BA2BE00B5DE41 /* TataminoDocument.swift in Sources */,
 				8C9F32FE1ED1FCFF00E10965 /* TapDifferentlyGameViewController.swift in Sources */,
 				8C9F325D1ED1FAF600E10965 /* PataGameViewController.swift in Sources */,
+				8C2963F01FA20D620017A812 /* RobotFencesGameScene.swift in Sources */,
 				8C3A36A91EC88D4200A914A5 /* LightBattleShipsDocument.swift in Sources */,
 				8C886C421D9E8AF1004A42BF /* ActionSheetStringPicker.m in Sources */,
 				8C1D4F8C1F7D079F000D5FB3 /* Square100GameViewController.swift in Sources */,
@@ -3916,6 +4015,7 @@
 				8C3A37431EC88D4300A914A5 /* NeighboursOptionsViewController.swift in Sources */,
 				8C6D37F31DC5AC310052202C /* SoundManager.swift in Sources */,
 				8C3A372D1EC88D4300A914A5 /* MosaikDocument.swift in Sources */,
+				8C2963FB1FA20D620017A812 /* RobotCrosswordsGameScene.swift in Sources */,
 				8C3A37211EC88D4300A914A5 /* MiniLitsDocument.swift in Sources */,
 				8C3A37971EC88D4400A914A5 /* RoomsOptionsViewController.swift in Sources */,
 				8C3A36371EC88D4200A914A5 /* BoxItUpHelpViewController.swift in Sources */,
@@ -3930,11 +4030,13 @@
 				8C2973EB1EE7284C0022A18A /* GalaxiesOptionsViewController.swift in Sources */,
 				8C3A36471EC88D4200A914A5 /* BridgesOptionsViewController.swift in Sources */,
 				8C9F325E1ED1FAF600E10965 /* PataGridNode.swift in Sources */,
+				8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */,
 				8C3A364D1EC88D4200A914A5 /* BusySeasGameViewController.swift in Sources */,
 				8CC350401E001D2800B8FD83 /* DictionaryExtensions.swift in Sources */,
 				8C3A37421EC88D4300A914A5 /* NeighboursObject.swift in Sources */,
 				8C3A375E1EC88D4300A914A5 /* PairakabeGame.swift in Sources */,
 				8C3A36891EC88D4200A914A5 /* FenceLitsGameViewController.swift in Sources */,
+				8C2963FD1FA20D620017A812 /* RobotCrosswordsGameViewController.swift in Sources */,
 				8C3A379A1EC88D4400A914A5 /* SentinelsGame.swift in Sources */,
 				8C3A366A1EC88D4200A914A5 /* DigitalBattleShipsObject.swift in Sources */,
 				8C3A36461EC88D4200A914A5 /* BridgesObject.swift in Sources */,
@@ -3977,8 +4079,10 @@
 				8C3A37701EC88D4300A914A5 /* ParksMainViewController.swift in Sources */,
 				8C3A37751EC88D4300A914A5 /* PowerGridDocument.swift in Sources */,
 				8CC3504F1E001D2800B8FD83 /* UIColoredView.swift in Sources */,
+				8C2963F11FA20D620017A812 /* RobotFencesGameState.swift in Sources */,
 				8CC350331E001D2800B8FD83 /* BlockLongPress.swift in Sources */,
 				8C3A36D71EC88D4300A914A5 /* LineSweeperOptionsViewController.swift in Sources */,
+				8C2964011FA20D620017A812 /* RobotCrosswordsObject.swift in Sources */,
 				8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */,
 				8C3A37CF1EC88D4400A914A5 /* SumscrapersHelpViewController.swift in Sources */,
 				8C3A36EA1EC88D4300A914A5 /* LoopyGridNode.swift in Sources */,
@@ -4047,6 +4151,7 @@
 				8C3A36C51EC88D4300A914A5 /* LighthousesGameViewController.swift in Sources */,
 				8C3A364F1EC88D4200A914A5 /* BusySeasHelpViewController.swift in Sources */,
 				8C916CBC1DAA5E9500D9E62B /* Element.swift in Sources */,
+				8C2963FA1FA20D620017A812 /* RobotCrosswordsGame.swift in Sources */,
 				8C9F32451ED1FAD400E10965 /* BWTapaGameState.swift in Sources */,
 				8CDAE80C1F646C29000DE5AF /* BalancedTapasGameState.swift in Sources */,
 				8C3A37C41EC88D4400A914A5 /* SnailMainViewController.swift in Sources */,
@@ -4081,6 +4186,7 @@
 				8C3A37771EC88D4300A914A5 /* PowerGridGameScene.swift in Sources */,
 				8C3A36F31EC88D4300A914A5 /* MagnetsGameScene.swift in Sources */,
 				8C3A36771EC88D4200A914A5 /* DominoOptionsViewController.swift in Sources */,
+				8C2963F61FA20D620017A812 /* RobotFencesObject.swift in Sources */,
 				8C3A36A61EC88D4200A914A5 /* HitoriObject.swift in Sources */,
 				8CDAE8091F646C29000DE5AF /* BalancedTapasDocument.swift in Sources */,
 				8C3A372B1EC88D4300A914A5 /* MiniLitsOptionsViewController.swift in Sources */,

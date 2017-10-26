@@ -32,6 +32,8 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         "OverUnder": "Over Under",
         "PaintTheNurikabe": "Paint The Nurikabe",
         "ProductSentinels": "Product Sentinels",
+        "RobotCrosswords": "Robot Crosswords",
+        "RobotFences": "Robot Fences",
         "Square100": "Square 100",
         "TapaIslands": "Tapa Islands",
         "TapAlike": "Tap-Alike",

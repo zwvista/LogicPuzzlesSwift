@@ -20,7 +20,7 @@ class KakuroGameScene: GameScene<KakuroGameState> {
         point.y -= gridNode.blockSize / 4 * (isHorz ? -1 : 1)
         let nodeNameSuffix = "-\(p.row)-\(p.col)-" + (isHorz ? "h" : "v")
         let nodeName = "hint" + nodeNameSuffix
-        let labelNode = SKLabelNode(text: String(n))
+        let labelNode = SKLabelNode(text: "10")
         labelNode.fontColor = s == .normal ? .black : s == .complete ? .green : .red
         labelNode.fontName = labelNode.fontName! + "-Bold"
         // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
@@ -29,6 +29,7 @@ class KakuroGameScene: GameScene<KakuroGameState> {
         labelNode.verticalAlignmentMode = .center
         labelNode.position = point
         labelNode.name = nodeName
+        labelNode.text = String(n)
         gridNode.addChild(labelNode)
     }
 

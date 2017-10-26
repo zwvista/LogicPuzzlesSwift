@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. In a possible crossword for Robots, letters are substituted with digits.
+2. Each 'word' is formed by an uninterrupted sequence of numbers (i.e. 2-3-4-5), but in any order (i.e. 3-4-2-5).
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+.43  `
+1. 4 `
+2  ..`
+  2 .`
+.5.65`
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+.67.6`
+  .4 `
+6.43.`
+   .9`
+.7 98`
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+98 7.`
+ .7 6`
+ 4 . `
+7 .3 `
+.52  `
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+ 4.9.`
+4.  7`
+ 5 .6`
+2  4.`
+.4.54`
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+ .1 2`
+1   .`
+.  .9`
+43.7 `
+3  6.`
+    ]]>
+  </level>
+  <level id="200">
+    <![CDATA[
+24 .2 . 9   `
+4.23.   .9  `
+  . 1.6.  7 `
+.1 .    . . `
+4  3.2. 7.43`
+. .   4 .5 .`
+  4.2.   . 4`
+9. 3.2 . 6. `
+     .  8.7 `
+7  .    .7 .`
+.   .4.4 6  `
+9 . 6.4  .4 `
+    ]]>
+  </level>
+</levels>
+</puzzle>
