@@ -14,8 +14,8 @@ class RobotCrosswordsGameScene: GameScene<RobotCrosswordsGameState> {
         set {setGridNode(gridNode: newValue)}
     }
     
-    func addHint(p: Position, isHorz: Bool, s: HintState) {
-        var point = gridNode.gridPosition(p: p)
+    func addHint(p: Position, isHorz: Bool, s: HintState, point: CGPoint) {
+        var point = point
         if isHorz {
             point.x += gridNode.blockSize / 2
         } else {
@@ -26,7 +26,8 @@ class RobotCrosswordsGameScene: GameScene<RobotCrosswordsGameState> {
         let hintNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 8)
         hintNode.position = point
         hintNode.name = nodeName
-        hintNode.strokeColor = s == .normal ? .white : s == .complete ? .green : .red
+        hintNode.strokeColor = s == .complete ? .green : .red
+        hintNode.fillColor = s == .complete ? .green : .red
         hintNode.glowWidth = 4.0
         gridNode.addChild(hintNode)
     }
@@ -40,13 +41,25 @@ class RobotCrosswordsGameScene: GameScene<RobotCrosswordsGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: RobotCrosswordsGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
-        // addHint
+        // addSquare addHint
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                for i in 0..<2 {
-                    guard i == 0 && c != game.cols - 1 || i == 1 && r != game.rows - 1 else {continue}
-                    addHint(p: Position(r, c), isHorz: i == 0, s: .normal)
+                let n = game[p]
+                let point = gridNode.gridPosition(p: p)
+                let nodeNameSuffix = "-\(r)-\(c)"
+                let numberNodeName = "number" + nodeNameSuffix
+                if n == -1 {
+                    let squareNode = SKSpriteNode(color: .white, size: coloredRectSize())
+                    squareNode.position = point
+                    squareNode.name = "square"
+                    gridNode.addChild(squareNode)
+                } else if n > 0 {
+                    addLabel(text: String(n), fontColor: .gray, point: point, nodeName: numberNodeName)
+                    for i in 0..<2 {
+                        let s: HintState = i == 0 ? state.pos2horzState[p] ?? .normal : state.pos2vertState[p] ?? .normal
+                        if s != .normal {addHint(p: Position(r, c), isHorz: i == 0, s: s, point: point)}
+                    }
                 }
             }
         }
@@ -60,19 +73,16 @@ class RobotCrosswordsGameScene: GameScene<RobotCrosswordsGameState> {
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
                 let (n1, n2) = (stateFrom[r, c], stateTo[r, c])
-                if n1 != n2 {
+                if stateFrom.game[p] == 0 && n1 != n2 {
                     if n1 != 0 {removeNode(withName: numberNodeName)}
                     if n2 != 0 {addLabel(text: String(n2), fontColor: .white, point: point, nodeName: numberNodeName)}
                 }
                 for i in 0..<2 {
-                    guard i == 0 && c != stateFrom.game.cols - 1 || i == 1 && r != stateFrom.game.rows - 1 else {continue}
                     let nodeNameSuffix = "-\(p.row)-\(p.col)-" + (i == 0 ? "h" : "v")
                     let hintNodeName = "hint" + nodeNameSuffix
                     let (s1, s2) = ((i == 0 ? stateFrom.pos2horzState : stateFrom.pos2vertState)[p] ?? .normal, (i == 0 ? stateTo.pos2horzState : stateTo.pos2vertState)[p] ?? .normal)
-                    if s1 != s2 {
-                        removeNode(withName: hintNodeName)
-                        addHint(p: Position(r, c), isHorz: i == 0, s: s2)
-                    }
+                    if s1 != .normal {removeNode(withName: hintNodeName)}
+                    if s2 != .normal {addHint(p: Position(r, c), isHorz: i == 0, s: s2, point: point)}
                 }
             }
         }

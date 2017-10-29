@@ -38,18 +38,20 @@ class RobotCrosswordsGame: GridGame<RobotCrosswordsGameViewController> {
         var n = 0
         func f() {
             guard !area.isEmpty else {return}
-            areas.append(area)
+            if area.count > 1 {
+                areas.append(area)
+                n += 1
+            }
             area.removeAll()
-            n += 1
         }
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let n = self[p]
-                switch(n) {
-                case -1: f()
-                case 0: area.append(p); pos2area[p] = n
-                default: break
+                if(n == -1) {
+                    f()
+                } else {
+                    area.append(p); pos2area[p] = n
                 }
             }
             f()
@@ -59,10 +61,10 @@ class RobotCrosswordsGame: GridGame<RobotCrosswordsGameViewController> {
             for r in 0..<rows {
                 let p = Position(r, c)
                 let n = self[p]
-                switch(n) {
-                case -1: f()
-                case 0: area.append(p); pos2area[p] = n
-                default: break
+                if(n == -1) {
+                    f()
+                } else {
+                    area.append(p); pos2area[p] = n
                 }
             }
             f()
