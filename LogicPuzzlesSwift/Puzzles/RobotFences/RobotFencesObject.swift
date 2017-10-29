@@ -8,13 +8,6 @@
 
 import Foundation
 
-enum RobotFencesHint: Int {
-    case none, consecutive, twice
-    init() {
-        self = .none
-    }
-}
-
 struct RobotFencesGameMove {
     var p = Position()
     var obj = 0

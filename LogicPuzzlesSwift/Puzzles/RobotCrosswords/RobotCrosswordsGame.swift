@@ -15,94 +15,57 @@ class RobotCrosswordsGame: GridGame<RobotCrosswordsGameViewController> {
         Position(1, 0),
         Position(0, -1),
     ]
-    static let offset2 = [
-        Position(0, 0),
-        Position(1, 1),
-        Position(1, 1),
-        Position(0, 0),
-    ]
-    static let dirs = [1, 0, 3, 2]
 
-    var pos2horzHint = [Position: RobotCrosswordsHint]()
-    var pos2vertHint = [Position: RobotCrosswordsHint]()
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
-    var dots: GridDots!
-    let bordered: Bool
+    var objArray = [Int]()
+    var horzAreaCount = 0
 
-    init(layout: [String], bordered: Bool, delegate: RobotCrosswordsGameViewController? = nil) {
-        self.bordered = bordered
-
+    init(layout: [String], delegate: RobotCrosswordsGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(bordered ? layout.count / 4 : layout.count / 2 + 1, layout[0].length)
+        size = Position(layout.count, layout[0].length)
+        objArray = Array<Int>(repeating: 0, count: rows * cols)
 
-        for r in 0..<rows * 2 - 1 {
+        for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
-                let p = Position(r / 2, c)
                 let ch = str[c]
-                let kh: RobotCrosswordsHint = ch == "W" ? .consecutive :
-                    ch == "B" ? .twice : .none;
-                if r % 2 == 0 {
-                    pos2horzHint[p] = kh
-                } else {
-                    pos2vertHint[p] = kh
-                }
+                self[r, c] = ch == "." ? -1 : ch == " " ? 0 : ch.toInt!
             }
         }
-        if bordered {
-            dots = GridDots(rows: rows + 1, cols: cols + 1)
-            for r in 0..<rows + 1 {
-                var str = layout[rows * 2 - 1 + 2 * r]
-                for c in 0..<cols {
-                    let ch = str[2 * c + 1]
-                    if ch == "-" {
-                        dots[r, c][1] = .line
-                        dots[r, c + 1][3] = .line
-                    }
-                }
-                guard r < rows else {break}
-                str = layout[rows * 2 - 1 + 2 * r + 1]
-                for c in 0..<cols + 1 {
-                    let ch = str[2 * c]
-                    if ch == "|" {
-                        dots[r, c][2] = .line
-                        dots[r + 1, c][0] = .line
-                    }
+        var area = [Position]()
+        var n = 0
+        func f() {
+            guard !area.isEmpty else {return}
+            areas.append(area)
+            area.removeAll()
+            n += 1
+        }
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                let n = self[p]
+                switch(n) {
+                case -1: f()
+                case 0: area.append(p); pos2area[p] = n
+                default: break
                 }
             }
-            var rng = Set<Position>()
-            let g = Graph()
-            var pos2node = [Position: Node]()
+            f()
+        }
+        horzAreaCount = n
+        for c in 0..<cols {
             for r in 0..<rows {
-                for c in 0..<cols {
-                    let p = Position(r, c)
-                    rng.insert(p)
-                    pos2node[p] = g.addNode(p.description)
+                let p = Position(r, c)
+                let n = self[p]
+                switch(n) {
+                case -1: f()
+                case 0: area.append(p); pos2area[p] = n
+                default: break
                 }
             }
-            for r in 0..<rows {
-                for c in 0..<cols {
-                    let p = Position(r, c)
-                    for i in 0..<4 {
-                        if dots[p + RobotCrosswordsGame.offset2[i]][RobotCrosswordsGame.dirs[i]] != .line {
-                            g.addEdge(pos2node[p]!, neighbor: pos2node[p + RobotCrosswordsGame.offset[i]]!)
-                        }
-                    }
-                }
-            }
-            while !rng.isEmpty {
-                let node = pos2node[rng.first!]!
-                let nodesExplored = breadthFirstSearch(g, source: node)
-                let area = [Position](rng.filter({p in nodesExplored.contains(p.description)}))
-                let n = areas.count
-                for p in area {
-                    pos2area[p] = n
-                }
-                areas.append(area)
-                rng.subtract(area)
-            }
+            f()
         }
 
         let state = RobotCrosswordsGameState(game: self)
@@ -127,6 +90,23 @@ class RobotCrosswordsGame: GridGame<RobotCrosswordsGameViewController> {
         return true
     }
     
+    subscript(p: Position) -> Int {
+        get {
+            return self[p.row, p.col]
+        }
+        set(newValue) {
+            self[p.row, p.col] = newValue
+        }
+    }
+    subscript(row: Int, col: Int) -> Int {
+        get {
+            return objArray[row * cols + col]
+        }
+        set(newValue) {
+            objArray[row * cols + col] = newValue
+        }
+    }
+
     func switchObject(move: inout RobotCrosswordsGameMove) -> Bool {
         return changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
     }

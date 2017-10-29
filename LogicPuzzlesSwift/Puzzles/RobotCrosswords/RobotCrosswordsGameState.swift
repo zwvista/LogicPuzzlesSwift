@@ -36,6 +36,11 @@ class RobotCrosswordsGameState: GridGameState {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<Int>(repeating: 0, count: rows * cols)
+        for r in 0..<rows {
+            for c in 0..<cols {
+                self[r, c] = game[r, c]
+            }
+        }
         updateIsSolved()
     }
     
@@ -58,7 +63,7 @@ class RobotCrosswordsGameState: GridGameState {
 
     func setObject(move: inout RobotCrosswordsGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else {return false}
+        guard isValid(p: p) && game[p] <= 0 && self[p] != move.obj else {return false}
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -66,83 +71,39 @@ class RobotCrosswordsGameState: GridGameState {
     
     func switchObject(move: inout RobotCrosswordsGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) && game[p] <= 0 else {return false}
         let o = self[p]
-        move.obj = (o + 1) % (cols + 1)
+        move.obj = (o + 1) % 10
         return setObject(move: &move)
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 6/RobotCrosswords
+        iOS Game: Logic Games/Puzzle Set 13/RobotCrosswords
 
         Summary
-        Fill the rows and columns with numbers, respecting the relations
+        BZZZZliip 4 across?
 
         Description
-        1. The Goal is to enter numbers 1 to board size once in every row and
-           column.
-        2. A Dot between two tiles give you hints about the two numbers:
-        3. Black Dot - one number is twice the other.
-        4. White Dot - the numbers are consecutive.
-        5. Where the numbers are 1 and 2, there can be either a Black Dot(2 is
-           1*2) or a White Dot(1 and 2 are consecutive).
-        6. Please note that when two numbers are either consecutive or doubles,
-           there MUST be a Dot between them!
-
-        Variant
-        7. In later 9*9 levels you will also have bordered and coloured areas,
-           which must also contain all the numbers 1 to 9.
+        1. In a possible crossword for Robots, letters are substituted with digits.
+        2. Each 'word' is formed by an uninterrupted sequence of numbers (i.e.
+           2-3-4-5), but in any order (i.e. 3-4-2-5).
     */
     private func updateIsSolved() {
         isSolved = true
-        var nums = Set<Int>()
-        for r in 0..<rows {
-            nums.removeAll()
-            for c in 0..<cols {
-                nums.insert(self[r, c])
-            }
-            if nums.count != cols {isSolved = false}
-        }
-        for c in 0..<cols {
-            nums.removeAll()
-            for r in 0..<rows {
-                nums.insert(self[r, c])
-            }
-            if nums.count != rows {isSolved = false}
-        }
-        if game.bordered {
-            for a in game.areas {
-                nums.removeAll()
-                for p in a {
-                    nums.insert(self[p])
-                }
-                if nums.count != a.count {isSolved = false}
-            }
-        }
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                for i in 0..<2 {
-                    func setState(s: HintState) {
-                        if i == 0 {
-                            pos2horzState[p] = s
-                        } else {
-                            pos2vertState[p] = s
-                        }
-                    }
-                    guard i == 0 && c != game.cols - 1 || i == 1 && r != game.rows - 1 else {continue}
-                    var (n1, n2) = (self[p], self[r + i, c + 1 - i])
-                    if n1 == 0 || n2 == 0 {setState(s: .normal); isSolved = false; continue}
-                    if n1 > n2 {swap(&n1, &n2)}
-                    let kh = (i == 0 ? game.pos2horzHint : game.pos2vertHint)[p]!
-                    let s: HintState =
-                        n2 != n1 + 1 && n2 != n1 * 2 && kh == .none ||
-                        n2 == n1 + 1 && kh == .consecutive ||
-                        n2 == n1 * 2 && kh == .twice ? .complete : .error
-                    setState(s: s)
-                    if s != .complete {isSolved = false}
+        for i in 0..<game.areas.count {
+            let a = game.areas[i]
+            let nums = a.map({self[$0]})
+            let count = nums.count
+            let nums2 = Set<Int>(nums).sorted()
+            let s: HintState = nums2.first! == 0 ? .normal : nums2.count == count && nums2.last! - nums2.first! + 1 == count ? .complete : .error
+            for p in a {
+                if i < game.horzAreaCount {
+                    pos2horzState[p] = s
+                } else {
+                    pos2vertState[p] = s
                 }
             }
+            if s != .complete {isSolved = false}
         }
     }
 }

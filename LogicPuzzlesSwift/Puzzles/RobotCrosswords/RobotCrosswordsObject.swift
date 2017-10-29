@@ -8,15 +8,7 @@
 
 import Foundation
 
-enum RobotCrosswordsHint: Int {
-    case none, consecutive, twice
-    init() {
-        self = .none
-    }
-}
-
 struct RobotCrosswordsGameMove {
     var p = Position()
     var obj = 0
 }
-

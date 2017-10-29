@@ -57,7 +57,7 @@ class RobotCrosswordsGameViewController: GameGameViewController, GameDelegate {
         
         levelInitilizing = true
         defer {levelInitilizing = false}
-        game = RobotCrosswordsGame(layout: level.layout, bordered: level.settings["Bordered"] == "1", delegate: self)
+        game = RobotCrosswordsGame(layout: level.layout, delegate: self)
         
         // restore game state
         for case let rec as MoveProgress in gameDocument.moveProgress {

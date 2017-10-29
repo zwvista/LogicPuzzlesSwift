@@ -83,15 +83,16 @@ class RobotFencesGameState: GridGameState {
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 13/RobotCrosswords
+        iOS Game: Logic Games/Puzzle Set 13/Robot Fences
 
         Summary
-        BZZZZliip 4 across?
+        BZZZZliip ...cows?
 
         Description
-        1. In a possible crossword for Robots, letters are substituted with digits.
-        2. Each 'word' is formed by an uninterrupted sequence of numbers (i.e.
-           2-3-4-5), but in any order (i.e. 3-4-2-5).
+        1. A bit like Robot Crosswords, you need to fill each region with a
+           randomly ordered sequence of numbers.
+        2. Numbers can only be in range 1 to N where N is the board size.
+        3. No same number can appear in the same row or column.
     */
     private func updateIsSolved() {
         isSolved = true
