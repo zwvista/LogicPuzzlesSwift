@@ -15,7 +15,7 @@ class ProductSentinelsGameScene: GameScene<ProductSentinelsGameState> {
     }
     
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName, sampleText: "20")
     }
     
     override func levelInitialized(_ game: AnyObject, state: ProductSentinelsGameState, skView: SKView) {

@@ -23,8 +23,6 @@ class RobotFencesGame: GridGame<RobotFencesGameViewController> {
     ]
     static let dirs = [1, 0, 3, 2]
 
-    var pos2horzHint = [Position: RobotFencesHint]()
-    var pos2vertHint = [Position: RobotFencesHint]()
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
     var dots: GridDots!

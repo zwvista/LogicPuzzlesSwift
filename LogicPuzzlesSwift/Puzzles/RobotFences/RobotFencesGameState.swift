@@ -17,8 +17,9 @@ class RobotFencesGameState: GridGameState {
     var gameDocument: RobotFencesDocument { return RobotFencesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { return RobotFencesDocument.sharedInstance }
     var objArray = [Int]()
-    var pos2horzState = [Position: HintState]()
-    var pos2vertState = [Position: HintState]()
+    var row2info = [(String, HintState)]()
+    var col2info = [(String, HintState)]()
+    var area2info = [(String, HintState)]()
 
     override func copy() -> RobotFencesGameState {
         let v = RobotFencesGameState(game: game, isCopy: true)
@@ -27,8 +28,9 @@ class RobotFencesGameState: GridGameState {
     func setup(v: RobotFencesGameState) -> RobotFencesGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2horzState = pos2horzState
-        v.pos2vertState = pos2vertState
+        v.row2info = row2info
+        v.col2info = col2info
+        v.area2info = area2info
         return v
     }
     
@@ -36,6 +38,14 @@ class RobotFencesGameState: GridGameState {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<Int>(repeating: 0, count: rows * cols)
+        for r in 0..<rows {
+            for c in 0..<cols {
+                self[r, c] = game[r, c]
+            }
+        }
+        row2info = Array<(String, HintState)>(repeating: ("", .normal), count: rows)
+        col2info = Array<(String, HintState)>(repeating: ("", .normal), count: cols)
+        area2info = Array<(String, HintState)>(repeating: ("", .normal), count: game.areas.count)
         updateIsSolved()
     }
     
@@ -85,37 +95,23 @@ class RobotFencesGameState: GridGameState {
     */
     private func updateIsSolved() {
         isSolved = true
-        func isUninterrupted(nums: Set<Int>) -> Bool {
-            let nums2 = nums.sorted()
-            return [Int](0..<nums2.count - 1).testAll{i in nums2[i + 1] - nums2[i] == 1}
+        func f(nums: [Int], info: inout (String, HintState)) {
+            let count = nums.count
+            var nums2 = Set<Int>(nums).sorted()
+            let s: HintState = nums2.first! == 0 ? .normal : nums2.count == count && nums2.last! - nums2.first! + 1 == count ? .complete : .error
+            nums2.removeFirst(0)
+            info.0 = nums2.reduce("", {(acc, i) in acc + String(i)})
+            info.1 = s
+            if s != .complete {isSolved = false}
         }
-        var nums = Set<Int>()
-        next_r: for r in 0..<rows {
-            nums.removeAll()
-            for c in 0..<cols {
-                let n = self[r, c]
-                if n == 0 {isSolved = false; continue next_r}
-                nums.insert(n)
-            }
-            if nums.count != cols || !isUninterrupted(nums: nums) {isSolved = false}
+        for r in 0..<rows {
+            f(nums: (0..<cols).map({self[r, $0]}), info: &row2info[r])
         }
-        next_c: for c in 0..<cols {
-            nums.removeAll()
-            for r in 0..<rows {
-                let n = self[r, c]
-                if n == 0 {isSolved = false; continue next_c}
-                nums.insert(self[r, c])
-            }
-            if nums.count != rows || !isUninterrupted(nums: nums) {isSolved = false}
+        for c in 0..<cols {
+            f(nums: (0..<rows).map({self[$0, c]}), info: &col2info[c])
         }
-        next_a: for a in game.areas {
-            nums.removeAll()
-            for p in a {
-                let n = self[p]
-                if n == 0 {isSolved = false; continue next_a}
-                nums.insert(n)
-            }
-            if nums.count != a.count || !isUninterrupted(nums: nums) {isSolved = false}
+        for i in 0..<game.areas.count {
+            f(nums: game.areas[i].map({self[$0]}), info: &area2info[i])
         }
     }
 }
