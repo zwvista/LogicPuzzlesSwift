@@ -38,7 +38,7 @@ class KakurasuGameScene: GameScene<KakurasuGameState> {
         let hintMarkerNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 2)
         hintMarkerNode.position = point
         hintMarkerNode.name = "hintMarker"
-        hintMarkerNode.strokeColor = .green
+        hintMarkerNode.strokeColor = .white
         hintMarkerNode.glowWidth = 1.0
         gridNode.addChild(hintMarkerNode)
     }

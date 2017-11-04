@@ -115,17 +115,17 @@ class KakurasuGameState: GridGameState {
             }
         }
         for r in 1..<rows - 1 {
-            let h = game.row2hint[r * 2]
-            var n = 0
+            let n2 = game.row2hint[r * 2]
+            var n1 = 0
             for c in 1..<cols - 1 {
                 if self[r, c] == .cloud {
-                    n += game.col2hint[c * 2 + 1]
+                    n1 += game.col2hint[c * 2 + 1]
                 }
             }
-            let s: HintState = n == 0 ? .normal : n == h ? .complete : .error
+            let s: HintState = n1 == 0 ? .normal : n1 == n2 ? .complete : .error
             row2state[r * 2] = s
             if s != .complete {isSolved = false}
-            if n >= h && allowedObjectsOnly {
+            if n1 >= n2 && allowedObjectsOnly {
                 for c in 1..<cols - 1 {
                     switch self[r, c] {
                     case .empty, .marker:
@@ -137,17 +137,17 @@ class KakurasuGameState: GridGameState {
             }
         }
         for c in 1..<cols - 1 {
-            let h = game.col2hint[c * 2]
-            var n = 0
+            let n2 = game.col2hint[c * 2]
+            var n1 = 0
             for r in 1..<rows - 1 {
                 if self[r, c] == .cloud {
-                    n += game.row2hint[r * 2 + 1]
+                    n1 += game.row2hint[r * 2 + 1]
                 }
             }
-            let s: HintState = n == 0 ? .normal : n == h ? .complete : .error
+            let s: HintState = n1 == 0 ? .normal : n1 == n2 ? .complete : .error
             col2state[c * 2] = s
             if s != .complete {isSolved = false}
-            if n >= h && allowedObjectsOnly {
+            if n1 >= n2 && allowedObjectsOnly {
                 for r in 1..<rows - 1 {
                     switch self[r, c] {
                     case .empty, .marker:

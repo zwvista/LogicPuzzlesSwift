@@ -41,7 +41,7 @@ class KakuroGameState: GridGameState {
 
     func setObject(move: inout KakuroGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && pos2num[p] != nil else {return false}
+        guard isValid(p: p) && pos2num[p] != nil && pos2num[p] != move.obj else {return false}
         pos2num[p] = move.obj
         updateIsSolved()
         return true
