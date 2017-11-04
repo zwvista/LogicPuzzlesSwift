@@ -44,6 +44,9 @@ class KropkiGame: GridGame<KropkiGameViewController> {
                 let ch = str[c]
                 let kh: KropkiHint = ch == "W" ? .consecutive :
                     ch == "B" ? .twice : .none;
+                // Cannot assign through subscript:
+                // result of conditional operator '? :' is never mutable
+                // (r % 2 == 0 ? pos2horzHint : pos2vertHint)[p] = kh
                 if r % 2 == 0 {
                     pos2horzHint[p] = kh
                 } else {

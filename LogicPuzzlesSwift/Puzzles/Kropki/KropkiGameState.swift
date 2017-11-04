@@ -95,28 +95,18 @@ class KropkiGameState: GridGameState {
     */
     private func updateIsSolved() {
         isSolved = true
-        var nums = Set<Int>()
         for r in 0..<rows {
-            nums.removeAll()
-            for c in 0..<cols {
-                nums.insert(self[r, c])
-            }
-            if nums.count != cols {isSolved = false}
+            var nums = Set<Int>((0..<cols).map{self[r, $0]})
+            if nums.contains(0) || nums.count != cols {isSolved = false}
         }
         for c in 0..<cols {
-            nums.removeAll()
-            for r in 0..<rows {
-                nums.insert(self[r, c])
-            }
-            if nums.count != rows {isSolved = false}
+            var nums = Set<Int>((0..<rows).map{self[$0, c]})
+            if nums.contains(0) || nums.count != rows {isSolved = false}
         }
         if game.bordered {
             for a in game.areas {
-                nums.removeAll()
-                for p in a {
-                    nums.insert(self[p])
-                }
-                if nums.count != a.count {isSolved = false}
+                var nums = Set<Int>(a.map{self[$0]})
+                if nums.contains(0) || nums.count != a.count {isSolved = false}
             }
         }
         for r in 0..<rows {
@@ -130,7 +120,7 @@ class KropkiGameState: GridGameState {
                             pos2vertState[p] = s
                         }
                     }
-                    guard i == 0 && c != game.cols - 1 || i == 1 && r != game.rows - 1 else {continue}
+                    guard i == 0 && c != cols - 1 || i == 1 && r != rows - 1 else {continue}
                     var (n1, n2) = (self[p], self[r + i, c + 1 - i])
                     if n1 == 0 || n2 == 0 {setState(s: .normal); isSolved = false; continue}
                     if n1 > n2 {swap(&n1, &n2)}
