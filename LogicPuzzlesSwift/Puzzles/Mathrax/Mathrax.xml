@@ -1,0 +1,299 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. The goal is to input numbers 1 to N, where N is the board size, following the hints in the intersections.
+2. A number must appear once for every row and column.
+3. The tiny numbers and sign in the intersections tell you the result of the operation between the two opposite diagonal tiles. This is valid for both pairs of numbers surrounding the hint.
+4. In some puzzles, there will be 'E' or 'O' as hint. This means that all four tiles are either (E)ven or (O)dd numbers.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+1 43`
+2   `
+4   `
+3   `
+ 4+ 1-   `
+ 1-    1-`
+    1-   `
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+   1`
+    `
+4 1 `
+ 1 4`
+ 4*      `
+ 2- 1-   `
+       4*`
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+ 1  `
+ 3  `
+  3 `
+    `
+    1-   `
+    6+ 4+`
+ 1- 5+   `
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+    `
+    `
+    `
+    `
+ 4* 1-   `
+ 2- 0-   `
+    1-   `
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+32   `
+   4 `
+     `
+   3 `
+1   3`
+    5+ 8+   `
+       2-   `
+          1-`
+            `
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+    2`
+     `
+ 1   `
+     `
+     `
+            `
+    5+ 1-   `
+ 5+         `
+    1-      `
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+     `
+     `
+     `
+     `
+     `
+          7+`
+ 4* 2-     O`
+       7+   `
+       1- 2-`
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+     `
+     `
+     `
+     `
+     `
+  O    2-   `
+    5+ 1-   `
+    2-      `
+    1-      `
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+ 4    `
+   5  `
+      `
+      `
+1     `
+  2   `
+               `
+    2-         `
+       2-      `
+       7+    7+`
+          9+   \   
+    ]]>
+  </level>
+  <level id="10">
+    <![CDATA[
+      `
+      `
+      `
+      `
+      `
+      `
+       3-      `
+          2/ 7+`
+               `
+ 4* 8+ 3-      `
+ 6*    8+      \   
+    ]]>
+  </level>
+  <level id="11">
+    <![CDATA[
+     2`
+      `
+ 6 2  `
+     4`
+32    `
+   5  `
+               `
+       4+ 5+   `
+               `
+          2-   `
+ 2- 4-    6+ 3/\   
+    ]]>
+  </level>
+  <level id="12">
+    <![CDATA[
+      `
+      `
+      `
+      `
+      `
+      `
+ 1-            `
+    4-    8+ 3-`
+ 7+            `
+ 2- 6+ 3/    3-`
+       5+      \   
+    ]]>
+  </level>
+  <level id="13">
+    <![CDATA[
+      `
+      `
+      `
+5 1 2 `
+4     `
+   1 5`
+       2-      `
+    5+         `
+               `
+               `
+          3/   \   
+    ]]>
+  </level>
+  <level id="14">
+    <![CDATA[
+      `
+      `
+      `
+      `
+      `
+      `
+          1- 5+`
+       6+      `
+    6+         `
+          1-   `
+ 7+ 2/       1-\   
+    ]]>
+  </level>
+  <level id="15">
+    <![CDATA[
+      `
+      `
+   6  `
+5     `
+      `
+      `
+               `
+  E            `
+    1-       7+`
+          1-   `
+       4-      \   
+    ]]>
+  </level>
+  <level id="16">
+    <![CDATA[
+       `
+       `
+       `
+       `
+       `
+       `
+       `
+ 8+    1-         `
+       3-         `
+             4+   `
+       2-    4-   `
+ 8+ 6+ 4+ 4-      `
+ 6+         11+ 1-`
+    ]]>
+  </level>
+  <level id="17">
+    <![CDATA[
+  1    `
+1      `
+  5   3`
+       `
+    7  `
+   3   `
+      5`
+       1-       1-`
+                  `
+    3-    2/12*   `
+    1-            `
+                  `
+                  `
+    ]]>
+  </level>
+  <level id="18">
+    <![CDATA[
+       `
+       `
+       `
+       `
+       `
+       `
+       `
+             6+ 4+`
+             3/   `
+       3/         `
+                 O`
+ 6+               `
+ 4+ 6+       1-   `
+    ]]>
+  </level>
+  <level id="19">
+    <![CDATA[
+       `
+       `
+       `
+       `
+       `
+       `
+       `
+                1-`
+    5-       2/   `
+          4+      `
+                  `
+ 1-          8+   `
+       1-       5+`
+    ]]>
+  </level>
+  <level id="20">
+    <![CDATA[
+       `
+     2 `
+     1 `
+2  5   `
+       `
+3      `
+1    5 `
+       1- 9+      `
+    2-            `
+       1-     O   `
+          4-      `
+                  `
+                  `
+    ]]>
+  </level>
+</levels>
+</puzzle>

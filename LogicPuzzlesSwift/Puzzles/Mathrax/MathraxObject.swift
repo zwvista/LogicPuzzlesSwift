@@ -1,5 +1,5 @@
 //
-//  RobotFencesObject.swift
+//  MathraxObject.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/26.
@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct RobotFencesGameMove {
+struct MathraxHint {
+    var op: Character = " "
+    var result = 0
+}
+
+struct MathraxGameMove {
     var p = Position()
     var obj = 0
 }

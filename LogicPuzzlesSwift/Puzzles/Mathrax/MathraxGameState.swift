@@ -1,5 +1,5 @@
 //
-//  RobotFencesGameState.swift
+//  MathraxGameState.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/19.
@@ -8,44 +8,36 @@
 
 import Foundation
 
-class RobotFencesGameState: GridGameState {
+class MathraxGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
-    var game: RobotFencesGame {
-        get {return getGame() as! RobotFencesGame}
+    var game: MathraxGame {
+        get {return getGame() as! MathraxGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: RobotFencesDocument { return RobotFencesDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return RobotFencesDocument.sharedInstance }
+    var gameDocument: MathraxDocument { return MathraxDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return MathraxDocument.sharedInstance }
     var objArray = [Int]()
     var row2state = [HintState]()
     var col2state = [HintState]()
-    var area2state = [HintState]()
-
-    override func copy() -> RobotFencesGameState {
-        let v = RobotFencesGameState(game: game, isCopy: true)
+    var pos2state = [Position: HintState]()
+    
+    override func copy() -> MathraxGameState {
+        let v = MathraxGameState(game: game, isCopy: true)
         return setup(v: v)
     }
-    func setup(v: RobotFencesGameState) -> RobotFencesGameState {
+    func setup(v: MathraxGameState) -> MathraxGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
         v.row2state = row2state
         v.col2state = col2state
-        v.area2state = area2state
+        v.pos2state = pos2state
         return v
     }
     
-    required init(game: RobotFencesGame, isCopy: Bool = false) {
+    required init(game: MathraxGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<Int>(repeating: 0, count: rows * cols)
-        for r in 0..<rows {
-            for c in 0..<cols {
-                self[r, c] = game[r, c]
-            }
-        }
-        row2state = Array<HintState>(repeating: .normal, count: rows)
-        col2state = Array<HintState>(repeating: .normal, count: cols)
-        area2state = Array<HintState>(repeating: .normal, count: game.areas.count)
+        objArray = game.objArray
         updateIsSolved()
     }
     
@@ -65,8 +57,8 @@ class RobotFencesGameState: GridGameState {
             objArray[row * cols + col] = newValue
         }
     }
-
-    func setObject(move: inout RobotFencesGameMove) -> Bool {
+    
+    func setObject(move: inout MathraxGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else {return false}
         self[p] = move.obj
@@ -74,7 +66,7 @@ class RobotFencesGameState: GridGameState {
         return true
     }
     
-    func switchObject(move: inout RobotFencesGameMove) -> Bool {
+    func switchObject(move: inout MathraxGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && game[p] == 0 else {return false}
         let o = self[p]
@@ -83,16 +75,20 @@ class RobotFencesGameState: GridGameState {
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 13/Robot Fences
+        iOS Game: Logic Games/Puzzle Set 6/Mathrax
 
         Summary
-        BZZZZliip ...cows?
+        Diagonal Math Wiz
 
         Description
-        1. A bit like Robot Crosswords, you need to fill each region with a
-           randomly ordered sequence of numbers.
-        2. Numbers can only be in range 1 to N where N is the board size.
-        3. No same number can appear in the same row or column.
+        1. The goal is to input numbers 1 to N, where N is the board size, following
+           the hints in the intersections.
+        2. A number must appear once for every row and column.
+        3. The tiny numbers and sign in the intersections tell you the result of
+           the operation between the two opposite diagonal tiles. This is valid
+           for both pairs of numbers surrounding the hint.
+        4. In some puzzles, there will be 'E' or 'O' as hint. This means that all
+           four tiles are either (E)ven or (O)dd numbers.
     */
     private func updateIsSolved() {
         isSolved = true
@@ -107,9 +103,6 @@ class RobotFencesGameState: GridGameState {
         }
         for c in 0..<cols {
             f(nums: (0..<rows).map({self[$0, c]}), s: &col2state[c])
-        }
-        for i in 0..<game.areas.count {
-            f(nums: game.areas[i].map({self[$0]}), s: &area2state[i])
         }
     }
 }

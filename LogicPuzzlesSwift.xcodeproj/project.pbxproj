@@ -587,6 +587,17 @@
 		8C5368841EA1DFCC0071D475 /* GridObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5368831EA1DFCC0071D475 /* GridObject.swift */; };
 		8C64A2681DD8089700AB6C09 /* GameGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D31DC42FA40052202C /* GameGameViewController.swift */; };
 		8C64A2EC1DE0891000AB6C09 /* GameTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2EB1DE0891000AB6C09 /* GameTables.swift */; };
+		8C6A35DF1FAF4FFD00D2804D /* Mathrax.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C6A35D31FAF4FFD00D2804D /* Mathrax.xml */; };
+		8C6A35E01FAF4FFD00D2804D /* MathraxDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A35D41FAF4FFD00D2804D /* MathraxDocument.swift */; };
+		8C6A35E11FAF4FFD00D2804D /* MathraxGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A35D51FAF4FFD00D2804D /* MathraxGame.swift */; };
+		8C6A35E21FAF4FFD00D2804D /* MathraxGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A35D61FAF4FFD00D2804D /* MathraxGameScene.swift */; };
+		8C6A35E31FAF4FFD00D2804D /* MathraxGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A35D71FAF4FFD00D2804D /* MathraxGameState.swift */; };
+		8C6A35E41FAF4FFD00D2804D /* MathraxGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A35D81FAF4FFD00D2804D /* MathraxGameViewController.swift */; };
+		8C6A35E51FAF4FFD00D2804D /* MathraxGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A35D91FAF4FFD00D2804D /* MathraxGridNode.swift */; };
+		8C6A35E61FAF4FFD00D2804D /* MathraxHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A35DA1FAF4FFD00D2804D /* MathraxHelpViewController.swift */; };
+		8C6A35E71FAF4FFD00D2804D /* MathraxMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A35DB1FAF4FFD00D2804D /* MathraxMainViewController.swift */; };
+		8C6A35E81FAF4FFD00D2804D /* MathraxObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A35DC1FAF4FFD00D2804D /* MathraxObject.swift */; };
+		8C6A35E91FAF4FFD00D2804D /* MathraxOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A35DD1FAF4FFD00D2804D /* MathraxOptionsViewController.swift */; };
 		8C6A9BE51F812743002A44FF /* Kropki.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C6A9BD91F812742002A44FF /* Kropki.xml */; };
 		8C6A9BE61F812743002A44FF /* KropkiDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A9BDA1F812742002A44FF /* KropkiDocument.swift */; };
 		8C6A9BE71F812743002A44FF /* KropkiGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A9BDB1F812742002A44FF /* KropkiGame.swift */; };
@@ -1448,6 +1459,17 @@
 		8C506F0D1F6D2C9300BA4332 /* SnakeOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeOptionsViewController.swift; sourceTree = "<group>"; };
 		8C5368831EA1DFCC0071D475 /* GridObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridObject.swift; sourceTree = "<group>"; };
 		8C64A2EB1DE0891000AB6C09 /* GameTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTables.swift; sourceTree = "<group>"; };
+		8C6A35D31FAF4FFD00D2804D /* Mathrax.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Mathrax.xml; sourceTree = "<group>"; };
+		8C6A35D41FAF4FFD00D2804D /* MathraxDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathraxDocument.swift; sourceTree = "<group>"; };
+		8C6A35D51FAF4FFD00D2804D /* MathraxGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathraxGame.swift; sourceTree = "<group>"; };
+		8C6A35D61FAF4FFD00D2804D /* MathraxGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathraxGameScene.swift; sourceTree = "<group>"; };
+		8C6A35D71FAF4FFD00D2804D /* MathraxGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathraxGameState.swift; sourceTree = "<group>"; };
+		8C6A35D81FAF4FFD00D2804D /* MathraxGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathraxGameViewController.swift; sourceTree = "<group>"; };
+		8C6A35D91FAF4FFD00D2804D /* MathraxGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathraxGridNode.swift; sourceTree = "<group>"; };
+		8C6A35DA1FAF4FFD00D2804D /* MathraxHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathraxHelpViewController.swift; sourceTree = "<group>"; };
+		8C6A35DB1FAF4FFD00D2804D /* MathraxMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathraxMainViewController.swift; sourceTree = "<group>"; };
+		8C6A35DC1FAF4FFD00D2804D /* MathraxObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathraxObject.swift; sourceTree = "<group>"; };
+		8C6A35DD1FAF4FFD00D2804D /* MathraxOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathraxOptionsViewController.swift; sourceTree = "<group>"; };
 		8C6A9BD91F812742002A44FF /* Kropki.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kropki.xml; sourceTree = "<group>"; };
 		8C6A9BDA1F812742002A44FF /* KropkiDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KropkiDocument.swift; sourceTree = "<group>"; };
 		8C6A9BDB1F812742002A44FF /* KropkiGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KropkiGame.swift; sourceTree = "<group>"; };
@@ -1953,6 +1975,7 @@
 				8C3A34CA1EC88D4100A914A5 /* Loopy */,
 				8C3A34D71EC88D4100A914A5 /* Magnets */,
 				8C3A34E41EC88D4100A914A5 /* Masyu */,
+				8C6A35D21FAF4FFD00D2804D /* Mathrax */,
 				8C3A34F11EC88D4100A914A5 /* MineShips */,
 				8C3A34FE1EC88D4100A914A5 /* Minesweeper */,
 				8C3A350B1EC88D4100A914A5 /* MiniLits */,
@@ -2839,6 +2862,25 @@
 			path = ../../OSS/EZSwiftExtensions/Sources;
 			sourceTree = "<group>";
 		};
+		8C6A35D21FAF4FFD00D2804D /* Mathrax */ = {
+			isa = PBXGroup;
+			children = (
+				8C6A35D31FAF4FFD00D2804D /* Mathrax.xml */,
+				8C6A35D41FAF4FFD00D2804D /* MathraxDocument.swift */,
+				8C6A35D51FAF4FFD00D2804D /* MathraxGame.swift */,
+				8C6A35D61FAF4FFD00D2804D /* MathraxGameScene.swift */,
+				8C6A35D71FAF4FFD00D2804D /* MathraxGameState.swift */,
+				8C6A35D81FAF4FFD00D2804D /* MathraxGameViewController.swift */,
+				8C6A35D91FAF4FFD00D2804D /* MathraxGridNode.swift */,
+				8C6A35DA1FAF4FFD00D2804D /* MathraxHelpViewController.swift */,
+				8C6A35DB1FAF4FFD00D2804D /* MathraxMainViewController.swift */,
+				8C6A35DC1FAF4FFD00D2804D /* MathraxObject.swift */,
+				8C6A35DD1FAF4FFD00D2804D /* MathraxOptionsViewController.swift */,
+			);
+			name = Mathrax;
+			path = LogicPuzzlesSwift/Puzzles/Mathrax;
+			sourceTree = SOURCE_ROOT;
+		};
 		8C6A9BD81F812742002A44FF /* Kropki */ = {
 			isa = PBXGroup;
 			children = (
@@ -3439,6 +3481,7 @@
 				8C6D373F1DC421980052202C /* Home.storyboard in Resources */,
 				8C3A36181EC88D4200A914A5 /* BoxItAgain.xml in Resources */,
 				8C3A37801EC88D4300A914A5 /* ProductSentinels.xml in Resources */,
+				8C6A35DF1FAF4FFD00D2804D /* Mathrax.xml in Resources */,
 				8C3A36D81EC88D4300A914A5 /* Lits.xml in Resources */,
 				8C916CC41DAA5FEB00D9E62B /* music.wav in Resources */,
 				8C3A37BC1EC88D4400A914A5 /* Snail.xml in Resources */,
@@ -3511,6 +3554,7 @@
 				8C3A379B1EC88D4400A914A5 /* SentinelsGameScene.swift in Sources */,
 				8CC350571E001D2800B8FD83 /* UIStoryboardExtensions.swift in Sources */,
 				8C3A37C21EC88D4400A914A5 /* SnailGridNode.swift in Sources */,
+				8C6A35E51FAF4FFD00D2804D /* MathraxGridNode.swift in Sources */,
 				8C3A364E1EC88D4200A914A5 /* BusySeasGridNode.swift in Sources */,
 				8C3A36231EC88D4200A914A5 /* BoxItAgainOptionsViewController.swift in Sources */,
 				8C3A37371EC88D4300A914A5 /* MosaikOptionsViewController.swift in Sources */,
@@ -3525,6 +3569,7 @@
 				8C3A37B81EC88D4400A914A5 /* SlitherLinkMainViewController.swift in Sources */,
 				8C3A36051EC88D4200A914A5 /* BattleShipsGameViewController.swift in Sources */,
 				8C64A2681DD8089700AB6C09 /* GameGameViewController.swift in Sources */,
+				8C6A35E11FAF4FFD00D2804D /* MathraxGame.swift in Sources */,
 				8C3A36421EC88D4200A914A5 /* BridgesGridNode.swift in Sources */,
 				8C3A37691EC88D4300A914A5 /* ParksDocument.swift in Sources */,
 				8C04671C1F8BA2BE00B5DE41 /* TataminoGameState.swift in Sources */,
@@ -3599,6 +3644,7 @@
 				8C6ACBFF1DCAF8BA0075F32C /* GameMixin.swift in Sources */,
 				8CC25CC71F87BB5A005560F7 /* KakuroGameViewController.swift in Sources */,
 				8CE9C3101F7914B800134093 /* KakurasuDocument.swift in Sources */,
+				8C6A35E71FAF4FFD00D2804D /* MathraxMainViewController.swift in Sources */,
 				8C3A37021EC88D4300A914A5 /* MasyuGridNode.swift in Sources */,
 				8C3A361C1EC88D4200A914A5 /* BoxItAgainGameState.swift in Sources */,
 				8C3A37851EC88D4400A914A5 /* ProductSentinelsGameViewController.swift in Sources */,
@@ -3616,6 +3662,7 @@
 				8C3A37B51EC88D4400A914A5 /* SlitherLinkGameViewController.swift in Sources */,
 				8CDAE7F01F5BFBD8000DE5AF /* OverUnderDocument.swift in Sources */,
 				8C64A2EC1DE0891000AB6C09 /* GameTables.swift in Sources */,
+				8C6A35E91FAF4FFD00D2804D /* MathraxOptionsViewController.swift in Sources */,
 				8C6A9BE91F812743002A44FF /* KropkiGameState.swift in Sources */,
 				8C3A367E1EC88D4200A914A5 /* FenceItUpGridNode.swift in Sources */,
 				8C3A37041EC88D4300A914A5 /* MasyuMainViewController.swift in Sources */,
@@ -3633,6 +3680,7 @@
 				8C04671E1F8BA2BE00B5DE41 /* TataminoGridNode.swift in Sources */,
 				8C3A372A1EC88D4300A914A5 /* MiniLitsObject.swift in Sources */,
 				8C3A36B91EC88D4300A914A5 /* LightenUpGameViewController.swift in Sources */,
+				8C6A35E81FAF4FFD00D2804D /* MathraxObject.swift in Sources */,
 				8C3A36BA1EC88D4300A914A5 /* LightenUpGridNode.swift in Sources */,
 				8C3A375A1EC88D4300A914A5 /* OrchardsObject.swift in Sources */,
 				8C506F0F1F6D2C9300BA4332 /* SnakeDocument.swift in Sources */,
@@ -3809,6 +3857,7 @@
 				8C3A378E1EC88D4400A914A5 /* RoomsGame.swift in Sources */,
 				8CC3505A1E001D2800B8FD83 /* UITextViewExtensions.swift in Sources */,
 				8C506F121F6D2C9300BA4332 /* SnakeGameState.swift in Sources */,
+				8C6A35E61FAF4FFD00D2804D /* MathraxHelpViewController.swift in Sources */,
 				8C3A36C31EC88D4300A914A5 /* LighthousesGameScene.swift in Sources */,
 				8CC350381E001D2800B8FD83 /* BlockWebView.swift in Sources */,
 				8C3A36441EC88D4200A914A5 /* BridgesMainViewController.swift in Sources */,
@@ -3817,6 +3866,7 @@
 				8CC3503E1E001D2800B8FD83 /* CharacterExtensions.swift in Sources */,
 				8C9F32EF1ED1FCFF00E10965 /* TapARowDocument.swift in Sources */,
 				8C3A37E31EC88D4400A914A5 /* TentsGameScene.swift in Sources */,
+				8C6A35E01FAF4FFD00D2804D /* MathraxDocument.swift in Sources */,
 				8C916CBE1DAA5E9500D9E62B /* Helpers.swift in Sources */,
 				8C3A365F1EC88D4200A914A5 /* CloudsOptionsViewController.swift in Sources */,
 				8CC350531E001D2800B8FD83 /* UIImageExtensions.swift in Sources */,
@@ -3857,6 +3907,7 @@
 				8C3A365B1EC88D4200A914A5 /* CloudsHelpViewController.swift in Sources */,
 				8C3A36FD1EC88D4300A914A5 /* MasyuDocument.swift in Sources */,
 				8C3A36381EC88D4200A914A5 /* BoxItUpMainViewController.swift in Sources */,
+				8C6A35E31FAF4FFD00D2804D /* MathraxGameState.swift in Sources */,
 				8C3A377B1EC88D4300A914A5 /* PowerGridHelpViewController.swift in Sources */,
 				8C3A37401EC88D4300A914A5 /* NeighboursMainViewController.swift in Sources */,
 				8CC350371E001D2800B8FD83 /* BlockTap.swift in Sources */,
@@ -4080,6 +4131,8 @@
 				8C3A37751EC88D4300A914A5 /* PowerGridDocument.swift in Sources */,
 				8CC3504F1E001D2800B8FD83 /* UIColoredView.swift in Sources */,
 				8C2963F11FA20D620017A812 /* RobotFencesGameState.swift in Sources */,
+				8C6A35E21FAF4FFD00D2804D /* MathraxGameScene.swift in Sources */,
+				8C6A35E41FAF4FFD00D2804D /* MathraxGameViewController.swift in Sources */,
 				8CC350331E001D2800B8FD83 /* BlockLongPress.swift in Sources */,
 				8C3A36D71EC88D4300A914A5 /* LineSweeperOptionsViewController.swift in Sources */,
 				8C2964011FA20D620017A812 /* RobotCrosswordsObject.swift in Sources */,
