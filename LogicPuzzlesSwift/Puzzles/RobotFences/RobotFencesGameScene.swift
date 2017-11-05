@@ -18,11 +18,11 @@ class RobotFencesGameScene: GameScene<RobotFencesGameState> {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
-    func addHint(p: Position, info: (String, HintState)) {
+    func addHint(p: Position, info: RobotFencesInfo) {
         let point = gridNode.gridPosition(p: p)
         let nodeNameSuffix = "-\(p.row)-\(p.col)"
         let hintNodeName = "hint" + nodeNameSuffix
-        addNumber(n: String(info.0), s: info.1, point: point, nodeName: hintNodeName)
+        addNumber(n: String(info.nums), s: info.state, point: point, nodeName: hintNodeName)
     }
 
     override func levelInitialized(_ game: AnyObject, state: RobotFencesGameState, skView: SKView) {
@@ -91,18 +91,18 @@ class RobotFencesGameScene: GameScene<RobotFencesGameState> {
         }
         for r in 0..<stateFrom.rows {
             let p = Position(r, stateFrom.cols)
-            let info = stateTo.row2info[r]
-            if stateFrom.row2info[r] != info {
+            let (infoFrom, infoTo) = (stateFrom.row2info[r], stateTo.row2info[r])
+            if  infoFrom.nums != infoTo.nums || infoFrom.state != infoTo.state {
                 removeHint(p: p)
-                addHint(p: p, info: info)
+                addHint(p: p, info: infoTo)
             }
         }
         for c in 0..<stateFrom.cols {
             let p = Position(stateFrom.rows, c)
-            let info = stateTo.col2info[c]
-            if stateFrom.col2info[c] != info {
+            let (infoFrom, infoTo) = (stateFrom.col2info[c], stateTo.col2info[c])
+            if  infoFrom.nums != infoTo.nums || infoFrom.state != infoTo.state {
                 removeHint(p: p)
-                addHint(p: p, info: info)
+                addHint(p: p, info: infoTo)
             }
         }
         for r in 0..<stateFrom.rows {
@@ -114,7 +114,7 @@ class RobotFencesGameScene: GameScene<RobotFencesGameState> {
                 let numberNodeName = "number" + nodeNameSuffix
                 let (n1, n2) = (stateFrom[p], stateTo[p])
                 let i = stateFrom.game.pos2area[p]!
-                let (s1, s2) = (stateFrom.area2info[i].1, stateTo.area2info[i].1)
+                let (s1, s2) = (stateFrom.area2info[i].state, stateTo.area2info[i].state)
                 if n1 != n2 || s1 != s2 {
                     if n1 != 0 {removeNode(withName: numberNodeName)}
                     if n2 != 0 {addNumber(n: String(n2), s: s2, point: point, nodeName: numberNodeName)}

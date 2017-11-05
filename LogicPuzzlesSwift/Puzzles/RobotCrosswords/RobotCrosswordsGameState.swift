@@ -63,7 +63,7 @@ class RobotCrosswordsGameState: GridGameState {
 
     func setObject(move: inout RobotCrosswordsGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] <= 0 && self[p] != move.obj else {return false}
+        guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else {return false}
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -71,7 +71,7 @@ class RobotCrosswordsGameState: GridGameState {
     
     func switchObject(move: inout RobotCrosswordsGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] <= 0 else {return false}
+        guard isValid(p: p) && game[p] == 0 else {return false}
         let o = self[p]
         move.obj = (o + 1) % 10
         return setObject(move: &move)

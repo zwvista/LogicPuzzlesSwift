@@ -17,9 +17,9 @@ class RobotFencesGameState: GridGameState {
     var gameDocument: RobotFencesDocument { return RobotFencesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { return RobotFencesDocument.sharedInstance }
     var objArray = [Int]()
-    var row2info = [(String, HintState)]()
-    var col2info = [(String, HintState)]()
-    var area2info = [(String, HintState)]()
+    var row2info = [RobotFencesInfo]()
+    var col2info = [RobotFencesInfo]()
+    var area2info = [RobotFencesInfo]()
 
     override func copy() -> RobotFencesGameState {
         let v = RobotFencesGameState(game: game, isCopy: true)
@@ -43,9 +43,9 @@ class RobotFencesGameState: GridGameState {
                 self[r, c] = game[r, c]
             }
         }
-        row2info = Array<(String, HintState)>(repeating: ("", .normal), count: rows)
-        col2info = Array<(String, HintState)>(repeating: ("", .normal), count: cols)
-        area2info = Array<(String, HintState)>(repeating: ("", .normal), count: game.areas.count)
+        row2info = Array<RobotFencesInfo>(repeating: RobotFencesInfo(), count: rows)
+        col2info = Array<RobotFencesInfo>(repeating: RobotFencesInfo(), count: cols)
+        area2info = Array<RobotFencesInfo>(repeating: RobotFencesInfo(), count: game.areas.count)
         updateIsSolved()
     }
     
@@ -96,13 +96,12 @@ class RobotFencesGameState: GridGameState {
     */
     private func updateIsSolved() {
         isSolved = true
-        func f(nums: [Int], info: inout (String, HintState)) {
+        func f(nums: [Int], info: inout RobotFencesInfo) {
             let count = nums.count
-            var nums2 = Set<Int>(nums).sorted()
+            let nums2 = Set<Int>(nums).sorted()
             let s: HintState = nums2.first! == 0 ? .normal : nums2.count == count && nums2.last! - nums2.first! + 1 == count ? .complete : .error
-            nums2.removeFirst(0)
-            info.0 = nums2.reduce("", {(acc, i) in acc + String(i)})
-            info.1 = s
+            info.nums = nums2.filter{$0 != 0}.map{String($0)}.joined()
+            info.state = s
             if s != .complete {isSolved = false}
         }
         for r in 0..<rows {

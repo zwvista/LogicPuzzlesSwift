@@ -17,7 +17,6 @@ class RobotCrosswordsGame: GridGame<RobotCrosswordsGameViewController> {
     ]
 
     var areas = [[Position]]()
-    var pos2area = [Position: Int]()
     var objArray = [Int]()
     var horzAreaCount = 0
 
@@ -35,39 +34,35 @@ class RobotCrosswordsGame: GridGame<RobotCrosswordsGameViewController> {
             }
         }
         var area = [Position]()
-        var n = 0
-        func f() {
+        func f(isHorz: Bool) {
             guard !area.isEmpty else {return}
             if area.count > 1 {
                 areas.append(area)
-                n += 1
+                if isHorz {horzAreaCount += 1}
             }
             area.removeAll()
         }
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let n = self[p]
-                if(n == -1) {
-                    f()
+                if(self[p] == -1) {
+                    f(isHorz: true)
                 } else {
-                    area.append(p); pos2area[p] = n
+                    area.append(p)
                 }
             }
-            f()
+            f(isHorz: true)
         }
-        horzAreaCount = n
         for c in 0..<cols {
             for r in 0..<rows {
                 let p = Position(r, c)
-                let n = self[p]
-                if(n == -1) {
-                    f()
+                if(self[p] == -1) {
+                    f(isHorz: false)
                 } else {
-                    area.append(p); pos2area[p] = n
+                    area.append(p)
                 }
             }
-            f()
+            f(isHorz: false)
         }
 
         let state = RobotCrosswordsGameState(game: self)

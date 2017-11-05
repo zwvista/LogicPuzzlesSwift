@@ -13,3 +13,8 @@ struct RobotFencesGameMove {
     var obj = 0
 }
 
+struct RobotFencesInfo {
+    var nums = ""
+    var state: HintState = .normal
+}
+
