@@ -71,7 +71,7 @@ class TennerGridGameState: GridGameState {
         let p = move.p
         guard isValid(p: p) && game[p] == -1 else {return false}
         let o = self[p]
-        move.obj = (o + 1) % 10
+        move.obj = o == 9 ? -1 : o + 1
         return setObject(move: &move)
     }
     

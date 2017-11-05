@@ -99,7 +99,8 @@ class Square100GameState: GridGameState {
         isSolved = true
         func f(r: Int, c: Int) -> Int {
             let o = self[r, c]
-            var n = ("0"..."9" ~= o[0] ? o[0].toInt! * 10 : 0) + o[1].toInt!
+            var n = o[1].toInt!
+            if "0"..."9" ~= o[0] {n += o[0].toInt! * 10}
             if "0"..."9" ~= o[2] {n = n * 10 + o[2].toInt!}
             return n
         }
