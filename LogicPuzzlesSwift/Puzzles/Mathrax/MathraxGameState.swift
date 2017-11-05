@@ -38,6 +38,8 @@ class MathraxGameState: GridGameState {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = game.objArray
+        row2state = Array<HintState>(repeating: .normal, count: rows)
+        col2state = Array<HintState>(repeating: .normal, count: cols)
         updateIsSolved()
     }
     
@@ -103,6 +105,34 @@ class MathraxGameState: GridGameState {
         }
         for c in 0..<cols {
             f(nums: (0..<rows).map({self[$0, c]}), s: &col2state[c])
+        }
+        for (p, h) in game.pos2hint {
+            func g(n1: Int, n2: Int) -> HintState {
+                if n1 == 0 || n2 == 0 {return .normal}
+                let n = h.result
+                switch h.op {
+                case "+":
+                    return n1 + n2 == n ? .complete : .error
+                case "-":
+                    return n1 - n2 == n || n2 - n1 == n ? .complete : .error
+                case "*":
+                    return n1 * n2 == n ? .complete : .error
+                case "/":
+                    return n1 / n2 * n2 == n * n2 || n2 / n1 * n1 == n * n1 ? .complete : .error
+                case "O":
+                    return n1 % 2 == 1 && n2 % 2 == 1 ? .complete : .error
+                case "E":
+                    return n1 % 2 == 0 && n2 % 2 == 0 ? .complete : .error
+                default:
+                    return .normal
+                }
+            }
+            let nums = MathraxGame.offset2.map{self[p + $0]}
+            let (s1, s2) = (g(n1: nums[0], n2: nums[1]), g(n1: nums[2], n2: nums[3]))
+            let s: HintState = s1 == .error || s2 == .error ? .error :
+                s1 == .complete && s2 == .complete ? .complete : .normal
+            pos2state[p] = s
+            if s != .complete {isSolved = false}
         }
     }
 }

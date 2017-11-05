@@ -15,6 +15,12 @@ class MathraxGame: GridGame<MathraxGameViewController> {
         Position(1, 0),
         Position(0, -1),
     ]
+    static let offset2 = [
+        Position(0, 0),
+        Position(1, 1),
+        Position(1, 0),
+        Position(0, 1),
+    ]
 
     var objArray = [Int]()
     var pos2hint = [Position: MathraxHint]()
@@ -34,11 +40,11 @@ class MathraxGame: GridGame<MathraxGameViewController> {
             }
         }
         for r in 0..<rows - 1 {
-            let str = layout[r]
-            for c in 0..<cols {
+            let str = layout[rows + r]
+            for c in 0..<cols - 1 {
                 let (s, ch) = (str[c * 3...c * 3 + 1], str[c * 3 + 2])
-                guard s != "  " else {continue}
-                pos2hint[Position(r, c)] = MathraxHint(op: ch, result: s.toInt()!)
+                guard ch != " " else {continue}
+                pos2hint[Position(r, c)] = MathraxHint(op: ch, result: s == "  " ? 0 : s.toInt()!)
             }
         }
 

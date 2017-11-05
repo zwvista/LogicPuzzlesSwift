@@ -31,6 +31,10 @@ class MathraxGameScene: GameScene<MathraxGameState> {
         hintNode.glowWidth = 4.0
         gridNode.addChild(hintNode)
     }
+    
+    func addMath(h: MathraxHint, s: HintState, point: CGPoint, nodeName: String) {
+        addLabel(text: h.description(), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName, size: CGSize(width: gridNode.blockSize / 2, height: gridNode.blockSize / 2))
+    }
 
     override func levelInitialized(_ game: AnyObject, state: MathraxGameState, skView: SKView) {
         let game = game as! MathraxGame
@@ -58,20 +62,32 @@ class MathraxGameScene: GameScene<MathraxGameState> {
         for r in 0..<game.rows {
             let s = state.row2state[r]
             guard s != .normal else {continue}
-            for c in 0..<game.cols {
-                let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
-                addHint(p: Position(r, game.cols), isHorz: true, s: s, point: point)
-            }
+            let c = game.cols - 1
+            let p = Position(r, c)
+            let point = gridNode.gridPosition(p: p)
+            addHint(p: Position(r, game.cols), isHorz: true, s: s, point: point)
         }
         for c in 0..<game.cols {
             let s = state.col2state[c]
             guard s != .normal else {continue}
-            for r in 0..<game.rows {
-                let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
-                addHint(p: Position(r, game.cols), isHorz: false, s: s, point: point)
-            }
+            let r = game.rows - 1
+            let p = Position(r, c)
+            let point = gridNode.gridPosition(p: p)
+            addHint(p: Position(r, game.cols), isHorz: false, s: s, point: point)
+        }
+        for (p, h) in game.pos2hint {
+            var point = gridNode.gridPosition(p: p)
+            point.x += blockSize / 2; point.y -= blockSize / 2
+            let markerNode = SKShapeNode(circleOfRadius: blockSize / 4)
+            markerNode.position = point
+            markerNode.name = "marker"
+            markerNode.strokeColor = .yellow
+            markerNode.fillColor = .black
+            markerNode.glowWidth = 1.0
+            gridNode.addChild(markerNode)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let mathNodeName = "math" + nodeNameSuffix
+            addMath(h: h, s: state.pos2state[p]!, point: point, nodeName: mathNodeName)
         }
     }
     
@@ -84,22 +100,20 @@ class MathraxGameScene: GameScene<MathraxGameState> {
         for r in 0..<stateFrom.rows {
             let (s1, s2) = (stateFrom.row2state[r], stateTo.row2state[r])
             guard s1 != s2 else {continue}
-            for c in 0..<stateFrom.cols {
-                let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
-                if s1 != .normal {removeHint(p: p, isHorz: true)}
-                if s2 != .normal {addHint(p: p, isHorz: true, s: s2, point: point)}
-            }
+            let c = stateFrom.cols - 1
+            let p = Position(r, c)
+            let point = gridNode.gridPosition(p: p)
+            if s1 != .normal {removeHint(p: p, isHorz: true)}
+            if s2 != .normal {addHint(p: p, isHorz: true, s: s2, point: point)}
         }
         for c in 0..<stateFrom.cols {
             let (s1, s2) = (stateFrom.col2state[c], stateTo.col2state[c])
             guard s1 != s2 else {continue}
-            for r in 0..<stateFrom.rows {
-                let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
-                if s1 != .normal {removeHint(p: p, isHorz: false)}
-                if s2 != .normal {addHint(p: p, isHorz: false, s: s2, point: point)}
-            }
+            let r = stateFrom.rows - 1
+            let p = Position(r, c)
+            let point = gridNode.gridPosition(p: p)
+            if s1 != .normal {removeHint(p: p, isHorz: false)}
+            if s2 != .normal {addHint(p: p, isHorz: false, s: s2, point: point)}
         }
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
@@ -110,9 +124,19 @@ class MathraxGameScene: GameScene<MathraxGameState> {
                 let (n1, n2) = (stateFrom[p], stateTo[p])
                 if n1 != n2 {
                     if n1 != 0 {removeNode(withName: numberNodeName)}
-//                    if n2 != 0 {addLabel(text: String(n2), fontColor: s2 == .normal ? .white : s2 == .complete ? .green : .red, point: point, nodeName: numberNodeName)}
+                    if n2 != 0 {addLabel(text: String(n2), fontColor: .white, point: point, nodeName: numberNodeName)}
                 }
             }
+        }
+        for (p, h) in stateFrom.game.pos2hint {
+            let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
+            guard s1 != s2 else {continue}
+            var point = gridNode.gridPosition(p: p)
+            point.x += gridNode.blockSize / 2; point.y -= gridNode.blockSize / 2
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let mathNodeName = "math" + nodeNameSuffix
+            removeNode(withName: mathNodeName)
+            addMath(h: h, s: s2, point: point, nodeName: mathNodeName)
         }
     }
 }
