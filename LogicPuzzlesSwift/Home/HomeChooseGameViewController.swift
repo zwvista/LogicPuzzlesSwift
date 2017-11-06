@@ -28,6 +28,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         "LightenUp": "Lighten Up",
         "MineShips": "Mine Ships",
         "MiniLits": "Mini-Lits",
+        "NoughtsAndCrosses": "Noughts & Crosses",
         "NumberPath": "Number Path",
         "OverUnder": "Over Under",
         "PaintTheNurikabe": "Paint The Nurikabe",
@@ -40,13 +41,23 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         "TapARow": "Tap-A-Row",
         "TapDifferently": "Tap Differently",
         "TennerGrid": "Tenner Grid",
+        "TheOddBrick": "The Odd Brick",
     ]
+    var selectedRow: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         gameNames = try! FileManager.default.contentsOfDirectory(atPath: Bundle.main.bundlePath)
             .filter({s in s[s.length - ".xml".length..<s.length] == ".xml"})
             .map({s in s[0..<s.length - ".xml".length]})
+        
+        selectedRow = gameNames.index(of: gameDocument.gameProgress.gameName!)!
+        let indexPath = IndexPath(row: selectedRow, section: 0)
+        // https://stackoverflow.com/questions/2685548/uitableview-scrolling-to-specific-position
+        tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+        var point = tableView.contentOffset
+        point.y += (navBar!.frame.height + tableView.rowHeight) / 2
+        tableView.contentOffset = point
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,6 +70,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         let gameTitle = name2title[gameName] ?? gameName
         cell.textLabel!.restorationIdentifier = gameName
         cell.textLabel!.text = gameTitle
+        cell.textLabel!.backgroundColor = indexPath.row == selectedRow ? .yellow : .white
         return cell;
     }
 
