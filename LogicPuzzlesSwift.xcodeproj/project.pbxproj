@@ -609,6 +609,17 @@
 		8C6A36171FAF97AF00D2804D /* TheOddBrickMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A360C1FAF97AF00D2804D /* TheOddBrickMainViewController.swift */; };
 		8C6A36181FAF97AF00D2804D /* TheOddBrickObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A360D1FAF97AF00D2804D /* TheOddBrickObject.swift */; };
 		8C6A36191FAF97AF00D2804D /* TheOddBrickOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A360E1FAF97AF00D2804D /* TheOddBrickOptionsViewController.swift */; };
+		8C6A36261FAF9D8600D2804D /* NoughtsAndCrosses.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C6A361B1FAF9D8600D2804D /* NoughtsAndCrosses.xml */; };
+		8C6A36271FAF9D8600D2804D /* NoughtsAndCrossesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A361C1FAF9D8600D2804D /* NoughtsAndCrossesDocument.swift */; };
+		8C6A36281FAF9D8600D2804D /* NoughtsAndCrossesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A361D1FAF9D8600D2804D /* NoughtsAndCrossesGame.swift */; };
+		8C6A36291FAF9D8600D2804D /* NoughtsAndCrossesGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A361E1FAF9D8600D2804D /* NoughtsAndCrossesGameScene.swift */; };
+		8C6A362A1FAF9D8600D2804D /* NoughtsAndCrossesGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A361F1FAF9D8600D2804D /* NoughtsAndCrossesGameState.swift */; };
+		8C6A362B1FAF9D8600D2804D /* NoughtsAndCrossesGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A36201FAF9D8600D2804D /* NoughtsAndCrossesGameViewController.swift */; };
+		8C6A362C1FAF9D8600D2804D /* NoughtsAndCrossesGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A36211FAF9D8600D2804D /* NoughtsAndCrossesGridNode.swift */; };
+		8C6A362D1FAF9D8600D2804D /* NoughtsAndCrossesHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A36221FAF9D8600D2804D /* NoughtsAndCrossesHelpViewController.swift */; };
+		8C6A362E1FAF9D8600D2804D /* NoughtsAndCrossesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A36231FAF9D8600D2804D /* NoughtsAndCrossesMainViewController.swift */; };
+		8C6A362F1FAF9D8600D2804D /* NoughtsAndCrossesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A36241FAF9D8600D2804D /* NoughtsAndCrossesObject.swift */; };
+		8C6A36301FAF9D8600D2804D /* NoughtsAndCrossesOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A36251FAF9D8600D2804D /* NoughtsAndCrossesOptionsViewController.swift */; };
 		8C6A9BE51F812743002A44FF /* Kropki.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C6A9BD91F812742002A44FF /* Kropki.xml */; };
 		8C6A9BE61F812743002A44FF /* KropkiDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A9BDA1F812742002A44FF /* KropkiDocument.swift */; };
 		8C6A9BE71F812743002A44FF /* KropkiGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A9BDB1F812742002A44FF /* KropkiGame.swift */; };
@@ -1492,6 +1503,17 @@
 		8C6A360C1FAF97AF00D2804D /* TheOddBrickMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheOddBrickMainViewController.swift; sourceTree = "<group>"; };
 		8C6A360D1FAF97AF00D2804D /* TheOddBrickObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheOddBrickObject.swift; sourceTree = "<group>"; };
 		8C6A360E1FAF97AF00D2804D /* TheOddBrickOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheOddBrickOptionsViewController.swift; sourceTree = "<group>"; };
+		8C6A361B1FAF9D8600D2804D /* NoughtsAndCrosses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NoughtsAndCrosses.xml; sourceTree = "<group>"; };
+		8C6A361C1FAF9D8600D2804D /* NoughtsAndCrossesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoughtsAndCrossesDocument.swift; sourceTree = "<group>"; };
+		8C6A361D1FAF9D8600D2804D /* NoughtsAndCrossesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoughtsAndCrossesGame.swift; sourceTree = "<group>"; };
+		8C6A361E1FAF9D8600D2804D /* NoughtsAndCrossesGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoughtsAndCrossesGameScene.swift; sourceTree = "<group>"; };
+		8C6A361F1FAF9D8600D2804D /* NoughtsAndCrossesGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoughtsAndCrossesGameState.swift; sourceTree = "<group>"; };
+		8C6A36201FAF9D8600D2804D /* NoughtsAndCrossesGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoughtsAndCrossesGameViewController.swift; sourceTree = "<group>"; };
+		8C6A36211FAF9D8600D2804D /* NoughtsAndCrossesGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoughtsAndCrossesGridNode.swift; sourceTree = "<group>"; };
+		8C6A36221FAF9D8600D2804D /* NoughtsAndCrossesHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoughtsAndCrossesHelpViewController.swift; sourceTree = "<group>"; };
+		8C6A36231FAF9D8600D2804D /* NoughtsAndCrossesMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoughtsAndCrossesMainViewController.swift; sourceTree = "<group>"; };
+		8C6A36241FAF9D8600D2804D /* NoughtsAndCrossesObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoughtsAndCrossesObject.swift; sourceTree = "<group>"; };
+		8C6A36251FAF9D8600D2804D /* NoughtsAndCrossesOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoughtsAndCrossesOptionsViewController.swift; sourceTree = "<group>"; };
 		8C6A9BD91F812742002A44FF /* Kropki.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kropki.xml; sourceTree = "<group>"; };
 		8C6A9BDA1F812742002A44FF /* KropkiDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KropkiDocument.swift; sourceTree = "<group>"; };
 		8C6A9BDB1F812742002A44FF /* KropkiGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KropkiGame.swift; sourceTree = "<group>"; };
@@ -2003,6 +2025,7 @@
 				8C3A350B1EC88D4100A914A5 /* MiniLits */,
 				8C3A35181EC88D4100A914A5 /* Mosaik */,
 				8C3A35251EC88D4100A914A5 /* Neighbours */,
+				8C6A361A1FAF9D8600D2804D /* NoughtsAndCrosses */,
 				8C2AF8211ED5FB0000EC84AB /* NumberPath */,
 				8C3A35321EC88D4100A914A5 /* Nurikabe */,
 				8C3A353F1EC88D4100A914A5 /* Orchards */,
@@ -2922,6 +2945,24 @@
 			path = TheOddBrick;
 			sourceTree = "<group>";
 		};
+		8C6A361A1FAF9D8600D2804D /* NoughtsAndCrosses */ = {
+			isa = PBXGroup;
+			children = (
+				8C6A361B1FAF9D8600D2804D /* NoughtsAndCrosses.xml */,
+				8C6A361C1FAF9D8600D2804D /* NoughtsAndCrossesDocument.swift */,
+				8C6A361D1FAF9D8600D2804D /* NoughtsAndCrossesGame.swift */,
+				8C6A361E1FAF9D8600D2804D /* NoughtsAndCrossesGameScene.swift */,
+				8C6A361F1FAF9D8600D2804D /* NoughtsAndCrossesGameState.swift */,
+				8C6A36201FAF9D8600D2804D /* NoughtsAndCrossesGameViewController.swift */,
+				8C6A36211FAF9D8600D2804D /* NoughtsAndCrossesGridNode.swift */,
+				8C6A36221FAF9D8600D2804D /* NoughtsAndCrossesHelpViewController.swift */,
+				8C6A36231FAF9D8600D2804D /* NoughtsAndCrossesMainViewController.swift */,
+				8C6A36241FAF9D8600D2804D /* NoughtsAndCrossesObject.swift */,
+				8C6A36251FAF9D8600D2804D /* NoughtsAndCrossesOptionsViewController.swift */,
+			);
+			path = NoughtsAndCrosses;
+			sourceTree = "<group>";
+		};
 		8C6A9BD81F812742002A44FF /* Kropki */ = {
 			isa = PBXGroup;
 			children = (
@@ -3507,6 +3548,7 @@
 				8CDAE7EF1F5BFBD8000DE5AF /* OverUnder.xml in Resources */,
 				8C3A37741EC88D4300A914A5 /* PowerGrid.xml in Resources */,
 				8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */,
+				8C6A36261FAF9D8600D2804D /* NoughtsAndCrosses.xml in Resources */,
 				8C3A37501EC88D4300A914A5 /* Orchards.xml in Resources */,
 				8C1D4F871F7D079F000D5FB3 /* Square100.xml in Resources */,
 				8C3A35E81EC88D4200A914A5 /* Abc.xml in Resources */,
@@ -3852,11 +3894,14 @@
 				8C3A37A51EC88D4400A914A5 /* SkyscrapersDocument.swift in Sources */,
 				8C2AF8351ED5FB0000EC84AB /* NumberPathMainViewController.swift in Sources */,
 				8C3A377F1EC88D4300A914A5 /* PowerGridOptionsViewController.swift in Sources */,
+				8C6A36281FAF9D8600D2804D /* NoughtsAndCrossesGame.swift in Sources */,
 				8C3A363E1EC88D4200A914A5 /* BridgesGame.swift in Sources */,
+				8C6A362E1FAF9D8600D2804D /* NoughtsAndCrossesMainViewController.swift in Sources */,
 				8C3A36D31EC88D4300A914A5 /* LineSweeperHelpViewController.swift in Sources */,
 				8C3A36331EC88D4200A914A5 /* BoxItUpGameScene.swift in Sources */,
 				8C3A374F1EC88D4300A914A5 /* NurikabeOptionsViewController.swift in Sources */,
 				8C9F32FD1ED1FCFF00E10965 /* TapDifferentlyGameState.swift in Sources */,
+				8C6A362C1FAF9D8600D2804D /* NoughtsAndCrossesGridNode.swift in Sources */,
 				8C506F131F6D2C9300BA4332 /* SnakeGameViewController.swift in Sources */,
 				8C3A37C61EC88D4400A914A5 /* SnailObject.swift in Sources */,
 				8CDAE80E1F646C29000DE5AF /* BalancedTapasGridNode.swift in Sources */,
@@ -4066,7 +4111,9 @@
 				8C3A37D61EC88D4400A914A5 /* TatamiGame.swift in Sources */,
 				8C3A37931EC88D4400A914A5 /* RoomsHelpViewController.swift in Sources */,
 				8C3A37DC1EC88D4400A914A5 /* TatamiMainViewController.swift in Sources */,
+				8C6A362D1FAF9D8600D2804D /* NoughtsAndCrossesHelpViewController.swift in Sources */,
 				8C3A37251EC88D4300A914A5 /* MiniLitsGameViewController.swift in Sources */,
+				8C6A36291FAF9D8600D2804D /* NoughtsAndCrossesGameScene.swift in Sources */,
 				8C6ACC191DD204420075F32C /* GameObject.swift in Sources */,
 				8C9F32E51ED1FCFF00E10965 /* TapAlikeGame.swift in Sources */,
 				8C3A36491EC88D4200A914A5 /* BusySeasDocument.swift in Sources */,
@@ -4097,6 +4144,7 @@
 				8C6A9BED1F812743002A44FF /* KropkiMainViewController.swift in Sources */,
 				8C3A36F81EC88D4300A914A5 /* MagnetsMainViewController.swift in Sources */,
 				8CC350551E001D2800B8FD83 /* UILabelExtensions.swift in Sources */,
+				8C6A362A1FAF9D8600D2804D /* NoughtsAndCrossesGameState.swift in Sources */,
 				8C3A36D01EC88D4300A914A5 /* LineSweeperGameState.swift in Sources */,
 				8C3A36AC1EC88D4300A914A5 /* LightBattleShipsGameState.swift in Sources */,
 				8C9F32461ED1FAD400E10965 /* BWTapaGameViewController.swift in Sources */,
@@ -4117,6 +4165,8 @@
 				8C2963FB1FA20D620017A812 /* RobotCrosswordsGameScene.swift in Sources */,
 				8C3A37211EC88D4300A914A5 /* MiniLitsDocument.swift in Sources */,
 				8C3A37971EC88D4400A914A5 /* RoomsOptionsViewController.swift in Sources */,
+				8C6A362B1FAF9D8600D2804D /* NoughtsAndCrossesGameViewController.swift in Sources */,
+				8C6A36271FAF9D8600D2804D /* NoughtsAndCrossesDocument.swift in Sources */,
 				8C3A36371EC88D4200A914A5 /* BoxItUpHelpViewController.swift in Sources */,
 				8CE9C3131F7914B800134093 /* KakurasuGameState.swift in Sources */,
 				8CC3503B1E001D2800B8FD83 /* CGFloatExtensions.swift in Sources */,
@@ -4259,8 +4309,10 @@
 				8C9F32451ED1FAD400E10965 /* BWTapaGameState.swift in Sources */,
 				8CDAE80C1F646C29000DE5AF /* BalancedTapasGameState.swift in Sources */,
 				8C3A37C41EC88D4400A914A5 /* SnailMainViewController.swift in Sources */,
+				8C6A362F1FAF9D8600D2804D /* NoughtsAndCrossesObject.swift in Sources */,
 				8C3A37731EC88D4300A914A5 /* ParksOptionsViewController.swift in Sources */,
 				8C3A36A21EC88D4200A914A5 /* HitoriGridNode.swift in Sources */,
+				8C6A36301FAF9D8600D2804D /* NoughtsAndCrossesOptionsViewController.swift in Sources */,
 				8C3A36641EC88D4200A914A5 /* DigitalBattleShipsGameState.swift in Sources */,
 				8C3A36041EC88D4200A914A5 /* BattleShipsGameState.swift in Sources */,
 				8C886C411D9E8AF1004A42BF /* ActionSheetMultipleStringPicker.m in Sources */,

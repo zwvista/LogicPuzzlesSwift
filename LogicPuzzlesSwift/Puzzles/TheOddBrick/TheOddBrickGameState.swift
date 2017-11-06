@@ -100,7 +100,7 @@ class TheOddBrickGameState: GridGameState {
         func f(nums: [Int], s: inout HintState) {
             let count = nums.count
             let nums2 = Set<Int>(nums).sorted()
-            s = nums2.first! == 0 ? .normal : nums2.count == count && nums2.last! - nums2.first! + 1 == count ? .complete : .error
+            s = nums2.first! == 0 ? .normal : nums2.count == count ? .complete : .error
             if s != .complete {isSolved = false}
         }
         for r in 0..<rows {

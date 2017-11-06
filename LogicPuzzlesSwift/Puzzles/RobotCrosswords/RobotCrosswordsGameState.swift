@@ -95,7 +95,7 @@ class RobotCrosswordsGameState: GridGameState {
             let nums = a.map({self[$0]})
             let count = nums.count
             let nums2 = Set<Int>(nums).sorted()
-            let s: HintState = nums2.first! == 0 ? .normal : nums2.count == count && nums2.last! - nums2.first! + 1 == count ? .complete : .error
+            let s: HintState = nums2.first! == 0 ? .normal : nums2.count == count ? .complete : .error
             for p in a {
                 if i < game.horzAreaCount {
                     pos2horzState[p] = s

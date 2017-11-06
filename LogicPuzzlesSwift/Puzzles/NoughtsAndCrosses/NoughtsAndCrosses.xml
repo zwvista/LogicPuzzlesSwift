@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Place all numbers from 1 to N on each row and column - just once, without repeating.
+2. In other words, all numbers must appear just once on each row and column.
+3. A circle marks where a number must go.
+4. A cross marks where no number can go.
+5. All other cells can contain a number or be empty.
+  ]]>
+</help>
+<levels>
+  <level id="1" num="3">
+    <![CDATA[
+3O1 `
+O O1`
+ O  `
+X OO`
+    ]]>
+  </level>
+  <level id="300" num="8">
+    <![CDATA[
+3 1  X 48`
+8 4 7 O6 `
+X  64  23`
+ 3       `
+  5   1  `
+ 2OO  8  `
+2  1  43 `
+ 6 7    X`
+4O7O 2OO1`
+    ]]>
+  </level>
+</levels>
+</puzzle>
