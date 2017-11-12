@@ -40,6 +40,17 @@
 		8C1D4F8F1F7D079F000D5FB3 /* Square100MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D4F831F7D079F000D5FB3 /* Square100MainViewController.swift */; };
 		8C1D4F901F7D079F000D5FB3 /* Square100Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D4F841F7D079F000D5FB3 /* Square100Object.swift */; };
 		8C1D4F911F7D079F000D5FB3 /* Square100OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D4F851F7D079F000D5FB3 /* Square100OptionsViewController.swift */; };
+		8C2319EE1FB88E3F0021C680 /* TierraDelFuegoGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2319E31FB88E3F0021C680 /* TierraDelFuegoGameViewController.swift */; };
+		8C2319EF1FB88E3F0021C680 /* TierraDelFuegoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2319E41FB88E3F0021C680 /* TierraDelFuegoObject.swift */; };
+		8C2319F01FB88E3F0021C680 /* TierraDelFuegoMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2319E51FB88E3F0021C680 /* TierraDelFuegoMainViewController.swift */; };
+		8C2319F11FB88E3F0021C680 /* TierraDelFuegoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2319E61FB88E3F0021C680 /* TierraDelFuegoDocument.swift */; };
+		8C2319F21FB88E3F0021C680 /* TierraDelFuegoOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2319E71FB88E3F0021C680 /* TierraDelFuegoOptionsViewController.swift */; };
+		8C2319F31FB88E3F0021C680 /* TierraDelFuegoHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2319E81FB88E3F0021C680 /* TierraDelFuegoHelpViewController.swift */; };
+		8C2319F41FB88E3F0021C680 /* TierraDelFuegoGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2319E91FB88E3F0021C680 /* TierraDelFuegoGame.swift */; };
+		8C2319F51FB88E3F0021C680 /* TierraDelFuegoGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2319EA1FB88E3F0021C680 /* TierraDelFuegoGridNode.swift */; };
+		8C2319F61FB88E3F0021C680 /* TierraDelFuegoGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2319EB1FB88E3F0021C680 /* TierraDelFuegoGameScene.swift */; };
+		8C2319F71FB88E3F0021C680 /* TierraDelFuegoGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2319EC1FB88E3F0021C680 /* TierraDelFuegoGameState.swift */; };
+		8C2319F81FB88E3F0021C680 /* TierraDelFuego.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2319ED1FB88E3F0021C680 /* TierraDelFuego.xml */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -937,6 +948,17 @@
 		8C1D4F831F7D079F000D5FB3 /* Square100MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Square100MainViewController.swift; sourceTree = "<group>"; };
 		8C1D4F841F7D079F000D5FB3 /* Square100Object.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Square100Object.swift; sourceTree = "<group>"; };
 		8C1D4F851F7D079F000D5FB3 /* Square100OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Square100OptionsViewController.swift; sourceTree = "<group>"; };
+		8C2319E31FB88E3F0021C680 /* TierraDelFuegoGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TierraDelFuegoGameViewController.swift; sourceTree = "<group>"; };
+		8C2319E41FB88E3F0021C680 /* TierraDelFuegoObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TierraDelFuegoObject.swift; sourceTree = "<group>"; };
+		8C2319E51FB88E3F0021C680 /* TierraDelFuegoMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TierraDelFuegoMainViewController.swift; sourceTree = "<group>"; };
+		8C2319E61FB88E3F0021C680 /* TierraDelFuegoDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TierraDelFuegoDocument.swift; sourceTree = "<group>"; };
+		8C2319E71FB88E3F0021C680 /* TierraDelFuegoOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TierraDelFuegoOptionsViewController.swift; sourceTree = "<group>"; };
+		8C2319E81FB88E3F0021C680 /* TierraDelFuegoHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TierraDelFuegoHelpViewController.swift; sourceTree = "<group>"; };
+		8C2319E91FB88E3F0021C680 /* TierraDelFuegoGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TierraDelFuegoGame.swift; sourceTree = "<group>"; };
+		8C2319EA1FB88E3F0021C680 /* TierraDelFuegoGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TierraDelFuegoGridNode.swift; sourceTree = "<group>"; };
+		8C2319EB1FB88E3F0021C680 /* TierraDelFuegoGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TierraDelFuegoGameScene.swift; sourceTree = "<group>"; };
+		8C2319EC1FB88E3F0021C680 /* TierraDelFuegoGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TierraDelFuegoGameState.swift; sourceTree = "<group>"; };
+		8C2319ED1FB88E3F0021C680 /* TierraDelFuego.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TierraDelFuego.xml; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -1893,6 +1915,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8C2319E21FB88E3F0021C680 /* TierraDelFuego */ = {
+			isa = PBXGroup;
+			children = (
+				8C2319ED1FB88E3F0021C680 /* TierraDelFuego.xml */,
+				8C2319E61FB88E3F0021C680 /* TierraDelFuegoDocument.swift */,
+				8C2319E91FB88E3F0021C680 /* TierraDelFuegoGame.swift */,
+				8C2319EB1FB88E3F0021C680 /* TierraDelFuegoGameScene.swift */,
+				8C2319EC1FB88E3F0021C680 /* TierraDelFuegoGameState.swift */,
+				8C2319E31FB88E3F0021C680 /* TierraDelFuegoGameViewController.swift */,
+				8C2319EA1FB88E3F0021C680 /* TierraDelFuegoGridNode.swift */,
+				8C2319E81FB88E3F0021C680 /* TierraDelFuegoHelpViewController.swift */,
+				8C2319E51FB88E3F0021C680 /* TierraDelFuegoMainViewController.swift */,
+				8C2319E41FB88E3F0021C680 /* TierraDelFuegoObject.swift */,
+				8C2319E71FB88E3F0021C680 /* TierraDelFuegoOptionsViewController.swift */,
+			);
+			name = TierraDelFuego;
+			path = LogicPuzzlesSwift/Puzzles/TierraDelFuego;
+			sourceTree = SOURCE_ROOT;
+		};
 		8C2963D51FA20D620017A812 /* RobotFences */ = {
 			isa = PBXGroup;
 			children = (
@@ -2056,6 +2097,7 @@
 				8C7E4B371F793A6100B57C60 /* TennerGrid */,
 				8C3A35DB1EC88D4200A914A5 /* Tents */,
 				8C6A36031FAF97AF00D2804D /* TheOddBrick */,
+				8C2319E21FB88E3F0021C680 /* TierraDelFuego */,
 			);
 			path = Puzzles;
 			sourceTree = "<group>";
@@ -3545,6 +3587,7 @@
 				8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */,
 				8C7E4B4E1F7940E300B57C60 /* TennerGrid.xml in Resources */,
 				8C3A366C1EC88D4200A914A5 /* Domino.xml in Resources */,
+				8C2319F81FB88E3F0021C680 /* TierraDelFuego.xml in Resources */,
 				8CDAE7EF1F5BFBD8000DE5AF /* OverUnder.xml in Resources */,
 				8C3A37741EC88D4300A914A5 /* PowerGrid.xml in Resources */,
 				8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */,
@@ -3638,6 +3681,7 @@
 				8C3A379B1EC88D4400A914A5 /* SentinelsGameScene.swift in Sources */,
 				8CC350571E001D2800B8FD83 /* UIStoryboardExtensions.swift in Sources */,
 				8C3A37C21EC88D4400A914A5 /* SnailGridNode.swift in Sources */,
+				8C2319F31FB88E3F0021C680 /* TierraDelFuegoHelpViewController.swift in Sources */,
 				8C6A35E51FAF4FFD00D2804D /* MathraxGridNode.swift in Sources */,
 				8C3A364E1EC88D4200A914A5 /* BusySeasGridNode.swift in Sources */,
 				8C3A36231EC88D4200A914A5 /* BoxItAgainOptionsViewController.swift in Sources */,
@@ -3669,6 +3713,7 @@
 				8C3A35FF1EC88D4200A914A5 /* AbstractPaintingOptionsViewController.swift in Sources */,
 				8C3A36A01EC88D4200A914A5 /* HitoriGameState.swift in Sources */,
 				8C3A36BB1EC88D4300A914A5 /* LightenUpHelpViewController.swift in Sources */,
+				8C2319F51FB88E3F0021C680 /* TierraDelFuegoGridNode.swift in Sources */,
 				8C3A37BB1EC88D4400A914A5 /* SlitherLinkOptionsViewController.swift in Sources */,
 				8C6A36141FAF97AF00D2804D /* TheOddBrickGameViewController.swift in Sources */,
 				8C3A36351EC88D4200A914A5 /* BoxItUpGameViewController.swift in Sources */,
@@ -3854,6 +3899,7 @@
 				8C3A370E1EC88D4300A914A5 /* MineShipsGridNode.swift in Sources */,
 				8C3A368E1EC88D4200A914A5 /* FenceLitsObject.swift in Sources */,
 				8C2973E71EE7284C0022A18A /* GalaxiesGridNode.swift in Sources */,
+				8C2319EE1FB88E3F0021C680 /* TierraDelFuegoGameViewController.swift in Sources */,
 				8C3A37631EC88D4300A914A5 /* PairakabeHelpViewController.swift in Sources */,
 				8C2963F31FA20D620017A812 /* RobotFencesGridNode.swift in Sources */,
 				8C6A36181FAF97AF00D2804D /* TheOddBrickObject.swift in Sources */,
@@ -3964,6 +4010,7 @@
 				8C3A36AB1EC88D4300A914A5 /* LightBattleShipsGameScene.swift in Sources */,
 				8C3A36C21EC88D4300A914A5 /* LighthousesGame.swift in Sources */,
 				8C3A37E51EC88D4400A914A5 /* TentsGameViewController.swift in Sources */,
+				8C2319F21FB88E3F0021C680 /* TierraDelFuegoOptionsViewController.swift in Sources */,
 				8C3A37921EC88D4400A914A5 /* RoomsGridNode.swift in Sources */,
 				8C9F32B51ED1FB0700E10965 /* TapaIslandsDocument.swift in Sources */,
 				8C3A37461EC88D4300A914A5 /* NurikabeGame.swift in Sources */,
@@ -4040,6 +4087,7 @@
 				8C9F32F71ED1FCFF00E10965 /* TapARowObject.swift in Sources */,
 				8CC350361E001D2800B8FD83 /* BlockSwipe.swift in Sources */,
 				8C3A37261EC88D4300A914A5 /* MiniLitsGridNode.swift in Sources */,
+				8C2319EF1FB88E3F0021C680 /* TierraDelFuegoObject.swift in Sources */,
 				8C3A37531EC88D4300A914A5 /* OrchardsGameScene.swift in Sources */,
 				8C3A36831EC88D4200A914A5 /* FenceItUpOptionsViewController.swift in Sources */,
 				8C6ACC001DCAF8C20075F32C /* GameScene.swift in Sources */,
@@ -4141,8 +4189,10 @@
 				8C1D4F8D1F7D079F000D5FB3 /* Square100GridNode.swift in Sources */,
 				8C9F32481ED1FAD400E10965 /* BWTapaHelpViewController.swift in Sources */,
 				8C3A369B1EC88D4200A914A5 /* FenceSentinelsOptionsViewController.swift in Sources */,
+				8C2319F71FB88E3F0021C680 /* TierraDelFuegoGameState.swift in Sources */,
 				8C6A9BED1F812743002A44FF /* KropkiMainViewController.swift in Sources */,
 				8C3A36F81EC88D4300A914A5 /* MagnetsMainViewController.swift in Sources */,
+				8C2319F11FB88E3F0021C680 /* TierraDelFuegoDocument.swift in Sources */,
 				8CC350551E001D2800B8FD83 /* UILabelExtensions.swift in Sources */,
 				8C6A362A1FAF9D8600D2804D /* NoughtsAndCrossesGameState.swift in Sources */,
 				8C3A36D01EC88D4300A914A5 /* LineSweeperGameState.swift in Sources */,
@@ -4202,6 +4252,7 @@
 				8C9F32491ED1FAD400E10965 /* BWTapaMainViewController.swift in Sources */,
 				8C9F322B1ECF06C000E10965 /* TapaGame.swift in Sources */,
 				8C3A37311EC88D4300A914A5 /* MosaikGameViewController.swift in Sources */,
+				8C2319F01FB88E3F0021C680 /* TierraDelFuegoMainViewController.swift in Sources */,
 				8C9F32ED1ED1FCFF00E10965 /* TapAlikeOptionsViewController.swift in Sources */,
 				8C9F32E81ED1FCFF00E10965 /* TapAlikeGameViewController.swift in Sources */,
 				8C6A36111FAF97AF00D2804D /* TheOddBrickGame.swift in Sources */,
@@ -4219,6 +4270,7 @@
 				8C9F32331ECF06C000E10965 /* TapaOptionsViewController.swift in Sources */,
 				8C9F32BE1ED1FB0700E10965 /* TapaIslandsOptionsViewController.swift in Sources */,
 				8C3A37451EC88D4300A914A5 /* NurikabeDocument.swift in Sources */,
+				8C2319F61FB88E3F0021C680 /* TierraDelFuegoGameScene.swift in Sources */,
 				8CC350521E001D2800B8FD83 /* UIFontExtensions.swift in Sources */,
 				8C6A36191FAF97AF00D2804D /* TheOddBrickOptionsViewController.swift in Sources */,
 				8C3A371C1EC88D4300A914A5 /* MinesweeperMainViewController.swift in Sources */,
@@ -4334,6 +4386,7 @@
 				8C3A371E1EC88D4300A914A5 /* MinesweeperObject.swift in Sources */,
 				8C2973E41EE7284C0022A18A /* GalaxiesGameScene.swift in Sources */,
 				8C506F151F6D2C9300BA4332 /* SnakeHelpViewController.swift in Sources */,
+				8C2319F41FB88E3F0021C680 /* TierraDelFuegoGame.swift in Sources */,
 				8C3A37DA1EC88D4400A914A5 /* TatamiGridNode.swift in Sources */,
 				8C1D4F911F7D079F000D5FB3 /* Square100OptionsViewController.swift in Sources */,
 				8C3A37AC1EC88D4400A914A5 /* SkyscrapersMainViewController.swift in Sources */,

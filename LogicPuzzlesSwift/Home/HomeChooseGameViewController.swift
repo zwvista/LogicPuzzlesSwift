@@ -42,6 +42,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         "TapDifferently": "Tap Differently",
         "TennerGrid": "Tenner Grid",
         "TheOddBrick": "The Odd Brick",
+        "TierraDelFuego": "Tierra Del Fuego",
     ]
     var selectedRow: Int!
     
@@ -50,6 +51,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         gameNames = try! FileManager.default.contentsOfDirectory(atPath: Bundle.main.bundlePath)
             .filter({s in s[s.length - ".xml".length..<s.length] == ".xml"})
             .map({s in s[0..<s.length - ".xml".length]})
+            .sorted()
         
         selectedRow = gameNames.index(of: gameDocument.gameProgress.gameName!)!
         let indexPath = IndexPath(row: selectedRow, section: 0)

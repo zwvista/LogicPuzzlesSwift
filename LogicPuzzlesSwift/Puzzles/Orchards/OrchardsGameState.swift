@@ -117,11 +117,11 @@ class OrchardsGameState: GridGameState {
                 }
             }
         }
-        for p in pos2node.keys {
+        for (p, node) in pos2node {
             for os in OrchardsGame.offset {
                 let p2 = p + os
                 if let node2 = pos2node[p2] {
-                    g.addEdge(pos2node[p]!, neighbor: node2)
+                    g.addEdge(node, neighbor: node2)
                 }
             }
         }

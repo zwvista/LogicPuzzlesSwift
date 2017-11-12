@@ -1,0 +1,258 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. The board represents the 'Tierra del Fuego' archipelago, where native tribes, the Fuegians, live.
+2. Being organized in tribes, each tribe, marked with a different letter, has occupied an island in the archipelago.
+3. The archipelago is peculiar because all bodies of water separating the islands are identical in shape and occupied a 2*1 or 1*2 space.
+4. These bodies of water can only touch diagonally.
+5. Your task is to find these bodies of water.
+6. Please note there are no hidden tribes or islands without a tribe on it.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+     `
+C D  `
+ C   `
+  A  `
+B   A`
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+C   A`
+  A  `
+ D  B`
+   B `
+D D  `
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+AA  C`
+  A C`
+B  C `
+ B  C`
+B B  `
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+    A `
+  D   `
+     A`
+      `
+B B C `
+   C C`
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+B     `
+ B  D `
+  B  C`
+A   C `
+  A   `
+ A   C`
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+  E   `
+ E   B`
+  D   `
+   D B`
+ A    `
+  C C `
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+ B B  `
+     C`
+A C C `
+      `
+A    D`
+  D D `
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+C C   `
+ C   D`
+  D   `
+     D`
+B A   `
+   A A`
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+A     `
+      `
+  A D `
+     C`
+ B    `
+   C  `
+    ]]>
+  </level>
+  <level id="10">
+    <![CDATA[
+ D D  `
+D     `
+  D B `
+   C  `
+A    C`
+  A   `
+    ]]>
+  </level>
+  <level id="11">
+    <![CDATA[
+  C   `
+ C  D `
+   A D`
+      `
+ B  A `
+B     `
+    ]]>
+  </level>
+  <level id="12">
+    <![CDATA[
+   C C`
+D D   `
+   B  `
+ A  B `
+      `
+   A  `
+    ]]>
+  </level>
+  <level id="13">
+    <![CDATA[
+  B C C`
+ B     `
+E   C  `
+ E     `
+E E   D`
+   A D `
+E      `
+    ]]>
+  </level>
+  <level id="14">
+    <![CDATA[
+ A D   `
+A   D  `
+       `
+E     B`
+  C    `
+   C   `
+E    C `
+    ]]>
+  </level>
+  <level id="15">
+    <![CDATA[
+     A `
+ C C  A`
+  C    `
+B    D `
+ B    E`
+     E `
+    E E`
+    ]]>
+  </level>
+  <level id="16">
+    <![CDATA[
+F   C  `
+  C  E `
+ A  B E`
+   B   `
+A A   E`
+ A D   `
+A    D `
+    ]]>
+  </level>
+  <level id="17">
+    <![CDATA[
+B  C C `
+  C    `
+B   A  `
+      E`
+ B     `
+   D  E`
+  D D  `
+    ]]>
+  </level>
+  <level id="18">
+    <![CDATA[
+   B   `
+C C  B `
+    E  `
+      D`
+ F   E `
+       `
+ A A   `
+    ]]>
+  </level>
+  <level id="19">
+    <![CDATA[
+D   E  `
+     B `
+       `
+D     F`
+ A C   `
+       `
+A     F`
+    ]]>
+  </level>
+  <level id="20">
+    <![CDATA[
+   C   `
+ A  C B`
+A      `
+     B `
+ D  E B`
+       `
+D D   B`
+    ]]>
+  </level>
+  <level id="21">
+    <![CDATA[
+   D  D`
+E      `
+     A `
+ B F  A`
+B   F  `
+  C    `
+B  C  C`
+    ]]>
+  </level>
+  <level id="22">
+    <![CDATA[
+ A     `
+      C`
+    D  `
+ D   B `
+    B  `
+E E    `
+   F   `
+    ]]>
+  </level>
+  <level id="82">
+    <![CDATA[
+     E   GG `
+D F   E   GG`
+            `
+ D   F      `
+  B     I  G`
+            `
+    J  K    `
+            `
+ H    K I  A`
+    L       `
+C         A `
+        K   `
+    ]]>
+  </level>
+</levels>
+</puzzle>
