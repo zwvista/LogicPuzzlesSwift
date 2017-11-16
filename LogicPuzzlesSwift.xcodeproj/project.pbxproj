@@ -659,6 +659,17 @@
 		8C6D37FB1DC5ACDB0052202C /* Copyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37EC1DC5A2F50052202C /* Copyable.swift */; };
 		8C6D37FC1DC5B4DC0052202C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D01DC42FA40052202C /* Game.swift */; };
 		8C6D37FE1DC5B4EB0052202C /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D21DC42FA40052202C /* GameState.swift */; };
+		8C7474381FBDEAD100C4112C /* HolidayIslandGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74742C1FBDEAD100C4112C /* HolidayIslandGameScene.swift */; };
+		8C7474391FBDEAD100C4112C /* HolidayIslandObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74742D1FBDEAD100C4112C /* HolidayIslandObject.swift */; };
+		8C74743A1FBDEAD100C4112C /* HolidayIslandGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74742E1FBDEAD100C4112C /* HolidayIslandGameViewController.swift */; };
+		8C74743B1FBDEAD100C4112C /* HolidayIslandMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74742F1FBDEAD100C4112C /* HolidayIslandMainViewController.swift */; };
+		8C74743C1FBDEAD100C4112C /* HolidayIslandHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7474301FBDEAD100C4112C /* HolidayIslandHelpViewController.swift */; };
+		8C74743D1FBDEAD100C4112C /* HolidayIslandDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7474311FBDEAD100C4112C /* HolidayIslandDocument.swift */; };
+		8C74743E1FBDEAD100C4112C /* HolidayIslandGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7474321FBDEAD100C4112C /* HolidayIslandGameState.swift */; };
+		8C74743F1FBDEAD100C4112C /* HolidayIslandOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7474331FBDEAD100C4112C /* HolidayIslandOptionsViewController.swift */; };
+		8C7474401FBDEAD100C4112C /* HolidayIslandGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7474341FBDEAD100C4112C /* HolidayIslandGridNode.swift */; };
+		8C7474411FBDEAD100C4112C /* HolidayIslandGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7474351FBDEAD100C4112C /* HolidayIslandGame.swift */; };
+		8C7474421FBDEAD100C4112C /* HolidayIsland.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C7474361FBDEAD100C4112C /* HolidayIsland.xml */; };
 		8C76090B1EC61A8A00DFCD7B /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C76090A1EC61A8A00DFCD7B /* Game.storyboard */; };
 		8C7609101EC627E900DFCD7B /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C76090F1EC627E900DFCD7B /* Global.swift */; };
 		8C7609181EC7778100DFCD7B /* GameHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7609171EC7778100DFCD7B /* GameHelpViewController.swift */; };
@@ -1566,6 +1577,17 @@
 		8C6D37EC1DC5A2F50052202C /* Copyable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Copyable.swift; sourceTree = "<group>"; };
 		8C6D37F21DC5AC310052202C /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		8C6D37F41DC5AC520052202C /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		8C74742C1FBDEAD100C4112C /* HolidayIslandGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayIslandGameScene.swift; sourceTree = "<group>"; };
+		8C74742D1FBDEAD100C4112C /* HolidayIslandObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayIslandObject.swift; sourceTree = "<group>"; };
+		8C74742E1FBDEAD100C4112C /* HolidayIslandGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayIslandGameViewController.swift; sourceTree = "<group>"; };
+		8C74742F1FBDEAD100C4112C /* HolidayIslandMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayIslandMainViewController.swift; sourceTree = "<group>"; };
+		8C7474301FBDEAD100C4112C /* HolidayIslandHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayIslandHelpViewController.swift; sourceTree = "<group>"; };
+		8C7474311FBDEAD100C4112C /* HolidayIslandDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayIslandDocument.swift; sourceTree = "<group>"; };
+		8C7474321FBDEAD100C4112C /* HolidayIslandGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayIslandGameState.swift; sourceTree = "<group>"; };
+		8C7474331FBDEAD100C4112C /* HolidayIslandOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayIslandOptionsViewController.swift; sourceTree = "<group>"; };
+		8C7474341FBDEAD100C4112C /* HolidayIslandGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayIslandGridNode.swift; sourceTree = "<group>"; };
+		8C7474351FBDEAD100C4112C /* HolidayIslandGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayIslandGame.swift; sourceTree = "<group>"; };
+		8C7474361FBDEAD100C4112C /* HolidayIsland.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = HolidayIsland.xml; sourceTree = "<group>"; };
 		8C76090A1EC61A8A00DFCD7B /* Game.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		8C76090F1EC627E900DFCD7B /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		8C7609171EC7778100DFCD7B /* GameHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHelpViewController.swift; sourceTree = "<group>"; };
@@ -2049,6 +2071,7 @@
 				8C3A346F1EC88D4100A914A5 /* FenceSentinels */,
 				8C2973D51EE7284C0022A18A /* Galaxies */,
 				8C3A347C1EC88D4100A914A5 /* Hitori */,
+				8C74742B1FBDEAD100C4112C /* HolidayIsland */,
 				8CE9C3031F7914B800134093 /* Kakurasu */,
 				8CC25CB51F87BB5A005560F7 /* Kakuro */,
 				8C6A9BD81F812742002A44FF /* Kropki */,
@@ -3065,6 +3088,24 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		8C74742B1FBDEAD100C4112C /* HolidayIsland */ = {
+			isa = PBXGroup;
+			children = (
+				8C7474361FBDEAD100C4112C /* HolidayIsland.xml */,
+				8C7474311FBDEAD100C4112C /* HolidayIslandDocument.swift */,
+				8C7474351FBDEAD100C4112C /* HolidayIslandGame.swift */,
+				8C74742C1FBDEAD100C4112C /* HolidayIslandGameScene.swift */,
+				8C7474321FBDEAD100C4112C /* HolidayIslandGameState.swift */,
+				8C74742E1FBDEAD100C4112C /* HolidayIslandGameViewController.swift */,
+				8C7474341FBDEAD100C4112C /* HolidayIslandGridNode.swift */,
+				8C7474301FBDEAD100C4112C /* HolidayIslandHelpViewController.swift */,
+				8C74742F1FBDEAD100C4112C /* HolidayIslandMainViewController.swift */,
+				8C74742D1FBDEAD100C4112C /* HolidayIslandObject.swift */,
+				8C7474331FBDEAD100C4112C /* HolidayIslandOptionsViewController.swift */,
+			);
+			path = HolidayIsland;
+			sourceTree = "<group>";
+		};
 		8C7E4B371F793A6100B57C60 /* TennerGrid */ = {
 			isa = PBXGroup;
 			children = (
@@ -3538,6 +3579,7 @@
 				8C6A360F1FAF97AF00D2804D /* TheOddBrick.xml in Resources */,
 				8C373D441E0507F7005712CD /* tent.png in Resources */,
 				8C1D16B21DB8DE930056D407 /* TraversalTree.png in Resources */,
+				8C7474421FBDEAD100C4112C /* HolidayIsland.xml in Resources */,
 				8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */,
 				8C3A36B41EC88D4300A914A5 /* LightenUp.xml in Resources */,
 				8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */,
@@ -3764,6 +3806,7 @@
 				8C2AF8491ED6084300EC84AB /* PaintTheNurikabeGameState.swift in Sources */,
 				8C3A36551EC88D4200A914A5 /* CloudsDocument.swift in Sources */,
 				8C3A36611EC88D4200A914A5 /* DigitalBattleShipsDocument.swift in Sources */,
+				8C7474391FBDEAD100C4112C /* HolidayIslandObject.swift in Sources */,
 				8C3A37C11EC88D4400A914A5 /* SnailGameViewController.swift in Sources */,
 				8C2963FF1FA20D620017A812 /* RobotCrosswordsHelpViewController.swift in Sources */,
 				8C3A37361EC88D4300A914A5 /* MosaikObject.swift in Sources */,
@@ -3862,6 +3905,7 @@
 				8C1D16B51DB8DE930056D407 /* Graph.swift in Sources */,
 				8C3A37CA1EC88D4400A914A5 /* SumscrapersGame.swift in Sources */,
 				8CC3504E1E001D2800B8FD83 /* UIButtonExtensions.swift in Sources */,
+				8C7474381FBDEAD100C4112C /* HolidayIslandGameScene.swift in Sources */,
 				8CC350581E001D2800B8FD83 /* UISwitchExtensions.swift in Sources */,
 				8C2973E81EE7284C0022A18A /* GalaxiesHelpViewController.swift in Sources */,
 				8C3A367F1EC88D4200A914A5 /* FenceItUpHelpViewController.swift in Sources */,
@@ -3915,6 +3959,7 @@
 				8C3A362F1EC88D4200A914A5 /* BoxItAroundOptionsViewController.swift in Sources */,
 				8C886C401D9E8AF1004A42BF /* ActionSheetLocalePicker.m in Sources */,
 				8CC25CCC1F87BB5A005560F7 /* KakuroOptionsViewController.swift in Sources */,
+				8C74743F1FBDEAD100C4112C /* HolidayIslandOptionsViewController.swift in Sources */,
 				8CDAE7F91F5BFBD9000DE5AF /* OverUnderOptionsViewController.swift in Sources */,
 				8CC25CCB1F87BB5A005560F7 /* KakuroObject.swift in Sources */,
 				8CC350341E001D2800B8FD83 /* BlockPan.swift in Sources */,
@@ -3922,6 +3967,7 @@
 				8C506F111F6D2C9300BA4332 /* SnakeGameScene.swift in Sources */,
 				8C6ACBFE1DCAF8BA0075F32C /* GameDocument.swift in Sources */,
 				8C3A36401EC88D4200A914A5 /* BridgesGameState.swift in Sources */,
+				8C7474411FBDEAD100C4112C /* HolidayIslandGame.swift in Sources */,
 				8C3A37121EC88D4300A914A5 /* MineShipsObject.swift in Sources */,
 				8C3A37601EC88D4300A914A5 /* PairakabeGameState.swift in Sources */,
 				84EE6E9D1DD954280013A033 /* HomeChooseGameViewController.swift in Sources */,
@@ -3952,6 +3998,7 @@
 				8C3A37C61EC88D4400A914A5 /* SnailObject.swift in Sources */,
 				8CDAE80E1F646C29000DE5AF /* BalancedTapasGridNode.swift in Sources */,
 				8C3A36EC1EC88D4300A914A5 /* LoopyMainViewController.swift in Sources */,
+				8C74743A1FBDEAD100C4112C /* HolidayIslandGameViewController.swift in Sources */,
 				8C3A361B1EC88D4200A914A5 /* BoxItAgainGameScene.swift in Sources */,
 				8C3A36B51EC88D4300A914A5 /* LightenUpDocument.swift in Sources */,
 				8C3A36C71EC88D4300A914A5 /* LighthousesHelpViewController.swift in Sources */,
@@ -4022,6 +4069,7 @@
 				8C3A36921EC88D4200A914A5 /* FenceSentinelsGame.swift in Sources */,
 				8C3A37961EC88D4400A914A5 /* RoomsObject.swift in Sources */,
 				8C2AF84D1ED6084300EC84AB /* PaintTheNurikabeMainViewController.swift in Sources */,
+				8C74743E1FBDEAD100C4112C /* HolidayIslandGameState.swift in Sources */,
 				8C3A37091EC88D4300A914A5 /* MineShipsDocument.swift in Sources */,
 				8C3A37D31EC88D4400A914A5 /* SumscrapersOptionsViewController.swift in Sources */,
 				8C3A37071EC88D4300A914A5 /* MasyuOptionsViewController.swift in Sources */,
@@ -4031,6 +4079,7 @@
 				8C3A37BA1EC88D4400A914A5 /* SlitherLinkObject.swift in Sources */,
 				8C3A35F61EC88D4200A914A5 /* AbstractPaintingGame.swift in Sources */,
 				8C3A37AB1EC88D4400A914A5 /* SkyscrapersHelpViewController.swift in Sources */,
+				8C74743D1FBDEAD100C4112C /* HolidayIslandDocument.swift in Sources */,
 				8C3A36CA1EC88D4300A914A5 /* LighthousesObject.swift in Sources */,
 				8C3A36FF1EC88D4300A914A5 /* MasyuGameScene.swift in Sources */,
 				8C506F171F6D2C9300BA4332 /* SnakeObject.swift in Sources */,
@@ -4084,6 +4133,7 @@
 				8CC25CC41F87BB5A005560F7 /* KakuroGame.swift in Sources */,
 				8C3A36111EC88D4200A914A5 /* BootyIslandGameViewController.swift in Sources */,
 				8C3A36F11EC88D4300A914A5 /* MagnetsDocument.swift in Sources */,
+				8C7474401FBDEAD100C4112C /* HolidayIslandGridNode.swift in Sources */,
 				8C9F32F71ED1FCFF00E10965 /* TapARowObject.swift in Sources */,
 				8CC350361E001D2800B8FD83 /* BlockSwipe.swift in Sources */,
 				8C3A37261EC88D4300A914A5 /* MiniLitsGridNode.swift in Sources */,
@@ -4176,7 +4226,9 @@
 				8C3A37D81EC88D4400A914A5 /* TatamiGameState.swift in Sources */,
 				8C3A37E11EC88D4400A914A5 /* TentsDocument.swift in Sources */,
 				8C9F322C1ECF06C000E10965 /* TapaGameScene.swift in Sources */,
+				8C74743B1FBDEAD100C4112C /* HolidayIslandMainViewController.swift in Sources */,
 				8C6A36161FAF97AF00D2804D /* TheOddBrickHelpViewController.swift in Sources */,
+				8C74743C1FBDEAD100C4112C /* HolidayIslandHelpViewController.swift in Sources */,
 				8C3A36B61EC88D4300A914A5 /* LightenUpGame.swift in Sources */,
 				8C7609181EC7778100DFCD7B /* GameHelpViewController.swift in Sources */,
 				8CC350561E001D2800B8FD83 /* UISliderExtensions.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  TierraDelFuegoObject.swift
+//  HolidayIslandObject.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/26.
@@ -8,12 +8,12 @@
 
 import Foundation
 
-enum TierraDelFuegoObject {
+enum HolidayIslandObject {
     case empty
     case forbidden
     case marker
-    case tree(state: AllowedObjectState)
-    case hint(id: Character, state: HintState)
+    case tree
+    case hint(tiles: Int, state: HintState)
     init() {
         self = .empty
     }
@@ -27,19 +27,19 @@ enum TierraDelFuegoObject {
             return "empty"
         }
     }
-    static func fromString(str: String) -> TierraDelFuegoObject {
+    static func fromString(str: String) -> HolidayIslandObject {
         switch str {
         case "marker":
             return .marker
         case "tree":
-            return .tree(state: .normal)
+            return .tree
         default:
             return .empty
         }
     }
 }
 
-struct TierraDelFuegoGameMove {
+struct HolidayIslandGameMove {
     var p = Position()
-    var obj = TierraDelFuegoObject()
+    var obj = HolidayIslandObject()
 }

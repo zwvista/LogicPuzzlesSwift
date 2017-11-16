@@ -1,5 +1,5 @@
 //
-//  TierraDelFuegoGameScene.swift
+//  HolidayIslandGameScene.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/09.
@@ -8,35 +8,35 @@
 
 import SpriteKit
 
-class TierraDelFuegoGameScene: GameScene<TierraDelFuegoGameState> {
-    var gridNode: TierraDelFuegoGridNode {
-        get {return getGridNode() as! TierraDelFuegoGridNode}
+class HolidayIslandGameScene: GameScene<HolidayIslandGameState> {
+    var gridNode: HolidayIslandGridNode {
+        get {return getGridNode() as! HolidayIslandGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     
-    func addHint(p: Position, ch: Character, s: HintState) {
+    func addHint(p: Position, n: Int, s: HintState) {
         let point = gridNode.gridPosition(p: p)
         let nodeNameSuffix = "-\(p.row)-\(p.col)"
         let hintNodeName = "hint" + nodeNameSuffix
-        addLabel(text: String(ch), fontColor: s == .complete ? .green : .white, point: point, nodeName: hintNodeName)
+        addLabel(text: String(n), fontColor: s == .complete ? .green : .white, point: point, nodeName: hintNodeName)
     }
 
-    override func levelInitialized(_ game: AnyObject, state: TierraDelFuegoGameState, skView: SKView) {
-        let game = game as! TierraDelFuegoGame
+    override func levelInitialized(_ game: AnyObject, state: HolidayIslandGameState, skView: SKView) {
+        let game = game as! HolidayIslandGame
         removeAllChildren()
         let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
         
         // addGrid
         let offset:CGFloat = 0.5
-        addGrid(gridNode: TierraDelFuegoGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
+        addGrid(gridNode: HolidayIslandGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
         // addHint
-        for (p, ch) in game.pos2hint {
-            addHint(p: p, ch: ch, s: .normal)
+        for (p, n) in game.pos2hint {
+            addHint(p: p, n: n, s: .normal)
         }
     }
     
-    override func levelUpdated(from stateFrom: TierraDelFuegoGameState, to stateTo: TierraDelFuegoGameState) {
+    override func levelUpdated(from stateFrom: HolidayIslandGameState, to stateTo: HolidayIslandGameState) {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -46,8 +46,8 @@ class TierraDelFuegoGameScene: GameScene<TierraDelFuegoGameState> {
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                func addTree(s: AllowedObjectState) {
-                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: treeNodeName)
+                func addTree() {
+                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: 0.0, point: point, nodeName: treeNodeName)
                 }
                 func removeTree() { removeNode(withName: treeNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
@@ -72,10 +72,10 @@ class TierraDelFuegoGameScene: GameScene<TierraDelFuegoGameState> {
                 switch o2 {
                 case .forbidden:
                     addForbidden()
-                case let .tree(s):
-                    addTree(s: s)
-                case let .hint(id, s):
-                    addHint(p: p, ch: id, s: s)
+                case .tree:
+                    addTree()
+                case let .hint(n, s):
+                    addHint(p: p, n: n, s: s)
                 case .marker:
                     addMarker()
                 default:

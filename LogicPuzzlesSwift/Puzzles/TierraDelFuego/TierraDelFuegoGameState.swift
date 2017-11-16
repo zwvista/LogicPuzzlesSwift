@@ -33,7 +33,7 @@ class TierraDelFuegoGameState: GridGameState {
         guard !isCopy else {return}
         objArray = Array<TierraDelFuegoObject>(repeating: .empty, count: rows * cols)
         for (p, ch) in game.pos2hint {
-            self[p] = .tribe(id: ch, state: .normal)
+            self[p] = .hint(id: ch, state: .normal)
         }
         updateIsSolved()
     }
@@ -58,7 +58,7 @@ class TierraDelFuegoGameState: GridGameState {
     func setObject(move: inout TierraDelFuegoGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) else {return false}
-        if case .tribe = self[p] {return false}
+        if case .hint = self[p] {return false}
         guard String(describing: self[p]) != String(describing: move.obj) else {return false}
         self[p] = move.obj
         updateIsSolved()
@@ -81,7 +81,7 @@ class TierraDelFuegoGameState: GridGameState {
         }
         let p = move.p
         guard isValid(p: p) else {return false}
-        if case .tribe = self[p] {return false}
+        if case .hint = self[p] {return false}
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -117,8 +117,8 @@ class TierraDelFuegoGameState: GridGameState {
                     self[p] = .empty
                 case .tree:
                     self[p] = .tree(state: .normal)
-                case let .tribe(id, _):
-                    self[p] = .tribe(id: id, state: .normal)
+                case let .hint(id, _):
+                    self[p] = .hint(id: id, state: .normal)
                 default:
                     break
                 }
@@ -168,17 +168,17 @@ class TierraDelFuegoGameState: GridGameState {
                     }
                 }
             } else {
-                let tribes = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
+                let hints = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
                 var ids = Set<Character>()
-                for p in tribes {
-                    if case let .tribe(id, _) = self[p] {
+                for p in hints {
+                    if case let .hint(id, _) = self[p] {
                         ids.insert(id)
                     }
                 }
                 if ids.count == 1 {
-                    for p in tribes {
-                        if case let .tribe(id, _) = self[p] {
-                            self[p] = .tribe(id: id, state: .complete)
+                    for p in hints {
+                        if case let .hint(id, _) = self[p] {
+                            self[p] = .hint(id: id, state: .complete)
                         }
                     }
                 } else {
