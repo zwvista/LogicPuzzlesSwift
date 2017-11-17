@@ -57,9 +57,7 @@ class TierraDelFuegoGameState: GridGameState {
     
     func setObject(move: inout TierraDelFuegoGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) else {return false}
-        if case .hint = self[p] {return false}
-        guard String(describing: self[p]) != String(describing: move.obj) else {return false}
+        guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else {return false}
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -80,8 +78,7 @@ class TierraDelFuegoGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p) else {return false}
-        if case .hint = self[p] {return false}
+        guard isValid(p: p), game.pos2hint[p] == nil else {return false}
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -139,15 +136,14 @@ class TierraDelFuegoGameState: GridGameState {
         }
         while !pos2node.isEmpty {
             let kv = pos2node.first!
-            var b = false
-            if case .tree = self[kv.key] {b = true}
             let nodesExplored = breadthFirstSearch(g, source: kv.value)
-            if b {
-                let trees = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
-                if trees.count != 2 {
+            let area = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
+            pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
+            if case .tree = self[kv.key] {
+                if area.count != 2 {
                     isSolved = false
                 } else if allowedObjectsOnly {
-                    for p in trees {
+                    for p in area {
                         for os in TierraDelFuegoGame.offset {
                             let p2 = p + os
                             guard isValid(p: p2) else {continue}
@@ -160,23 +156,22 @@ class TierraDelFuegoGameState: GridGameState {
                         }
                     }
                 }
-                if trees.count > 2 {
-                    for p in trees {
+                if area.count > 2 {
+                    for p in area {
                         if case .tree = self[p] {
                             self[p] = .tree(state: .error)
                         }
                     }
                 }
             } else {
-                let hints = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
                 var ids = Set<Character>()
-                for p in hints {
+                for p in area {
                     if case let .hint(id, _) = self[p] {
                         ids.insert(id)
                     }
                 }
                 if ids.count == 1 {
-                    for p in hints {
+                    for p in area {
                         if case let .hint(id, _) = self[p] {
                             self[p] = .hint(id: id, state: .complete)
                         }
@@ -185,7 +180,6 @@ class TierraDelFuegoGameState: GridGameState {
                     isSolved = false
                 }
             }
-            pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
         }
     }
 }

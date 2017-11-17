@@ -34,6 +34,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         "NumberPath": "Number Path",
         "OverUnder": "Over Under",
         "PaintTheNurikabe": "Paint The Nurikabe",
+        "ParkLakes": "Park Lakes",
         "ProductSentinels": "Product Sentinels",
         "RobotCrosswords": "Robot Crosswords",
         "RobotFences": "Robot Fences",

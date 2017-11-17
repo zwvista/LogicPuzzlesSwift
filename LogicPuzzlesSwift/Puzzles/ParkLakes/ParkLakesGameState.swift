@@ -57,9 +57,7 @@ class ParkLakesGameState: GridGameState {
     
     func setObject(move: inout ParkLakesGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) else {return false}
-        if case .hint = self[p] {return false}
-        guard String(describing: self[p]) != String(describing: move.obj) else {return false}
+        guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else {return false}
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -80,8 +78,7 @@ class ParkLakesGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p) else {return false}
-        if case .hint = self[p] {return false}
+        guard isValid(p: p), game.pos2hint[p] == nil else {return false}
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -103,14 +100,11 @@ class ParkLakesGameState: GridGameState {
         5. All the land tiles are connected horizontally or vertically.
     */
     private func updateIsSolved() {
-        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 switch self[p] {
-                case .forbidden:
-                    self[p] = .empty
                 case .tree:
                     self[p] = .tree(state: .normal)
                 case let .hint(tiles, _):
@@ -164,8 +158,7 @@ class ParkLakesGameState: GridGameState {
             guard case let .hint(n, _) = self[p] else {continue}
             var n1 = 0
             for os in ParkLakesGame.offset {
-                let p2 = p + os
-                guard isValid(p: p2), let i = pos2area[p2] else {continue}
+                guard let i = pos2area[p + os] else {continue}
                 n1 += areas[i].count
             }
             let s: HintState = n1 == 0 ? .normal : n1 == n2 || n2 == -1 ? .complete : .error

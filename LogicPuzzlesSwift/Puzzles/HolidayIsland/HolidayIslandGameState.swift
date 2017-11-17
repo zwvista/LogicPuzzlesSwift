@@ -57,9 +57,7 @@ class HolidayIslandGameState: GridGameState {
     
     func setObject(move: inout HolidayIslandGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) else {return false}
-        if case .hint = self[p] {return false}
-        guard String(describing: self[p]) != String(describing: move.obj) else {return false}
+        guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else {return false}
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -80,8 +78,7 @@ class HolidayIslandGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p) else {return false}
-        if case .hint = self[p] {return false}
+        guard isValid(p: p), game.pos2hint[p] == nil else {return false}
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -106,9 +103,9 @@ class HolidayIslandGameState: GridGameState {
     private func updateIsSolved() {
         let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
-        var rngHints = [Position]()
         var g = Graph()
         var pos2node = [Position: Node]()
+        var rngHints = [Position]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
@@ -121,18 +118,10 @@ class HolidayIslandGameState: GridGameState {
                 default:
                     break
                 }
+                if case .tree = self[p] {continue}
+                pos2node[p] = g.addNode(p.description)
             }
         }
-        func addNodes() {
-            for r in 0..<rows {
-                for c in 0..<cols {
-                    let p = Position(r, c)
-                    if case .tree = self[p] {continue}
-                    pos2node[p] = g.addNode(p.description)
-                }
-            }
-        }
-        addNodes()
         for (p, node) in pos2node {
             for os in HolidayIslandGame.offset {
                 let p2 = p + os
@@ -144,28 +133,52 @@ class HolidayIslandGameState: GridGameState {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             if nodesExplored.count != pos2node.count {isSolved = false}
         }
-        for pHint in rngHints {
-            g = Graph()
-            pos2node.removeAll()
-            addNodes()
-            for (p, node) in pos2node {
-                for os in HolidayIslandGame.offset {
-                    let p2 = p + os
-                    guard let node2 = pos2node[p2] else {continue}
-                    if case .hint = self[p2] {continue}
-                    g.addEdge(node, neighbor: node2)
+        g = Graph()
+        pos2node.removeAll()
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                switch self[p] {
+                case .tree, .hint:
+                    break
+                default:
+                    pos2node[p] = g.addNode(p.description)
                 }
             }
-            guard case let .hint(n2, _) = self[pHint] else {continue}
-            let nodesExplored = breadthFirstSearch(g, source: pos2node[pHint]!)
-            let n1 = nodesExplored.count - 1
+        }
+        for (p, node) in pos2node {
+            for os in HolidayIslandGame.offset {
+                let p2 = p + os
+                guard let node2 = pos2node[p2] else {continue}
+                g.addEdge(node, neighbor: node2)
+            }
+        }
+        var areas = [[Position]]()
+        var pos2area = [Position: Int]()
+        while !pos2node.isEmpty {
+            let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+            let area = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
+            pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
+            let n = areas.count
+            for p in area {
+                pos2area[p] = n
+            }
+            areas.append(area)
+        }
+        for p in rngHints {
+            let n2 = game.pos2hint[p]!
+            var rng = Set<Position>()
+            for os in HolidayIslandGame.offset {
+                let p2 = p + os
+                guard let i = pos2area[p2] else {continue}
+                rng = rng.union(areas[i])
+            }
+            let n1 = rng.count
             let s: HintState = n1 > n2 ? .normal : n1 == n2 ? .complete : .error
-            self[pHint] = .hint(tiles: n2, state: s)
+            self[p] = .hint(tiles: n2, state: s)
             if s != .complete {isSolved = false}
             if allowedObjectsOnly && n1 <= n2 {
-                for node in nodesExplored {
-                    let p2 = pos2node.filter{$0.0.description == node}.first!.key
-                    guard p2 != pHint else {continue}
+                for p2 in rng {
                     self[p2] = .forbidden
                 }
             }

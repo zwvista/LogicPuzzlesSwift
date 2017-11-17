@@ -44,7 +44,6 @@ class ParkLakesGameScene: GameScene<ParkLakesGameState> {
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let treeNodeName = "tree" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
-                let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
                 func addTree(s: AllowedObjectState) {
                     addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: treeNodeName)
@@ -52,14 +51,10 @@ class ParkLakesGameScene: GameScene<ParkLakesGameState> {
                 func removeTree() { removeNode(withName: treeNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
-                func addForbidden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
-                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
                 func removeHint() { removeNode(withName: hintNodeName) }
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 guard String(describing: o1) != String(describing: o2) else {continue}
                 switch o1 {
-                case .forbidden:
-                    removeForbidden()
                 case .tree:
                     removeTree()
                 case .hint:
@@ -70,8 +65,6 @@ class ParkLakesGameScene: GameScene<ParkLakesGameState> {
                     break
                 }
                 switch o2 {
-                case .forbidden:
-                    addForbidden()
                 case let .tree(s):
                     addTree(s: s)
                 case let .hint(n, s):

@@ -10,7 +10,6 @@ import Foundation
 
 enum ParkLakesObject {
     case empty
-    case forbidden
     case marker
     case tree(state: AllowedObjectState)
     case hint(tiles: Int, state: HintState)
