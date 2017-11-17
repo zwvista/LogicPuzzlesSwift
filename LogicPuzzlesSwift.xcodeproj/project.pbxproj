@@ -670,6 +670,17 @@
 		8C7474401FBDEAD100C4112C /* HolidayIslandGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7474341FBDEAD100C4112C /* HolidayIslandGridNode.swift */; };
 		8C7474411FBDEAD100C4112C /* HolidayIslandGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7474351FBDEAD100C4112C /* HolidayIslandGame.swift */; };
 		8C7474421FBDEAD100C4112C /* HolidayIsland.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C7474361FBDEAD100C4112C /* HolidayIsland.xml */; };
+		8C74744F1FBED8BD00C4112C /* ParkLakesGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7474441FBED8BC00C4112C /* ParkLakesGameState.swift */; };
+		8C7474501FBED8BD00C4112C /* ParkLakesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7474451FBED8BC00C4112C /* ParkLakesGame.swift */; };
+		8C7474511FBED8BD00C4112C /* ParkLakesGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7474461FBED8BC00C4112C /* ParkLakesGameScene.swift */; };
+		8C7474521FBED8BD00C4112C /* ParkLakesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7474471FBED8BC00C4112C /* ParkLakesDocument.swift */; };
+		8C7474531FBED8BD00C4112C /* ParkLakesOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7474481FBED8BC00C4112C /* ParkLakesOptionsViewController.swift */; };
+		8C7474541FBED8BD00C4112C /* ParkLakes.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C7474491FBED8BC00C4112C /* ParkLakes.xml */; };
+		8C7474551FBED8BD00C4112C /* ParkLakesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74744A1FBED8BC00C4112C /* ParkLakesMainViewController.swift */; };
+		8C7474561FBED8BD00C4112C /* ParkLakesGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74744B1FBED8BC00C4112C /* ParkLakesGameViewController.swift */; };
+		8C7474571FBED8BD00C4112C /* ParkLakesHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74744C1FBED8BC00C4112C /* ParkLakesHelpViewController.swift */; };
+		8C7474581FBED8BD00C4112C /* ParkLakesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74744D1FBED8BC00C4112C /* ParkLakesObject.swift */; };
+		8C7474591FBED8BD00C4112C /* ParkLakesGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74744E1FBED8BC00C4112C /* ParkLakesGridNode.swift */; };
 		8C76090B1EC61A8A00DFCD7B /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C76090A1EC61A8A00DFCD7B /* Game.storyboard */; };
 		8C7609101EC627E900DFCD7B /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C76090F1EC627E900DFCD7B /* Global.swift */; };
 		8C7609181EC7778100DFCD7B /* GameHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7609171EC7778100DFCD7B /* GameHelpViewController.swift */; };
@@ -1588,6 +1599,17 @@
 		8C7474341FBDEAD100C4112C /* HolidayIslandGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayIslandGridNode.swift; sourceTree = "<group>"; };
 		8C7474351FBDEAD100C4112C /* HolidayIslandGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayIslandGame.swift; sourceTree = "<group>"; };
 		8C7474361FBDEAD100C4112C /* HolidayIsland.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = HolidayIsland.xml; sourceTree = "<group>"; };
+		8C7474441FBED8BC00C4112C /* ParkLakesGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkLakesGameState.swift; sourceTree = "<group>"; };
+		8C7474451FBED8BC00C4112C /* ParkLakesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkLakesGame.swift; sourceTree = "<group>"; };
+		8C7474461FBED8BC00C4112C /* ParkLakesGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkLakesGameScene.swift; sourceTree = "<group>"; };
+		8C7474471FBED8BC00C4112C /* ParkLakesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkLakesDocument.swift; sourceTree = "<group>"; };
+		8C7474481FBED8BC00C4112C /* ParkLakesOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkLakesOptionsViewController.swift; sourceTree = "<group>"; };
+		8C7474491FBED8BC00C4112C /* ParkLakes.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ParkLakes.xml; sourceTree = "<group>"; };
+		8C74744A1FBED8BC00C4112C /* ParkLakesMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkLakesMainViewController.swift; sourceTree = "<group>"; };
+		8C74744B1FBED8BC00C4112C /* ParkLakesGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkLakesGameViewController.swift; sourceTree = "<group>"; };
+		8C74744C1FBED8BC00C4112C /* ParkLakesHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkLakesHelpViewController.swift; sourceTree = "<group>"; };
+		8C74744D1FBED8BC00C4112C /* ParkLakesObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkLakesObject.swift; sourceTree = "<group>"; };
+		8C74744E1FBED8BC00C4112C /* ParkLakesGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkLakesGridNode.swift; sourceTree = "<group>"; };
 		8C76090A1EC61A8A00DFCD7B /* Game.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		8C76090F1EC627E900DFCD7B /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		8C7609171EC7778100DFCD7B /* GameHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHelpViewController.swift; sourceTree = "<group>"; };
@@ -2096,6 +2118,7 @@
 				8CDAE7E31F5BFBD8000DE5AF /* OverUnder */,
 				8C2AF8391ED6084300EC84AB /* PaintTheNurikabe */,
 				8C3A354C1EC88D4100A914A5 /* Pairakabe */,
+				8C7474431FBED8BC00C4112C /* ParkLakes */,
 				8C3A35591EC88D4100A914A5 /* Parks */,
 				8C9F324C1ED1FAF600E10965 /* Pata */,
 				8C3A35661EC88D4100A914A5 /* PowerGrid */,
@@ -3106,6 +3129,25 @@
 			path = HolidayIsland;
 			sourceTree = "<group>";
 		};
+		8C7474431FBED8BC00C4112C /* ParkLakes */ = {
+			isa = PBXGroup;
+			children = (
+				8C7474491FBED8BC00C4112C /* ParkLakes.xml */,
+				8C7474471FBED8BC00C4112C /* ParkLakesDocument.swift */,
+				8C7474451FBED8BC00C4112C /* ParkLakesGame.swift */,
+				8C7474461FBED8BC00C4112C /* ParkLakesGameScene.swift */,
+				8C7474441FBED8BC00C4112C /* ParkLakesGameState.swift */,
+				8C74744B1FBED8BC00C4112C /* ParkLakesGameViewController.swift */,
+				8C74744E1FBED8BC00C4112C /* ParkLakesGridNode.swift */,
+				8C74744C1FBED8BC00C4112C /* ParkLakesHelpViewController.swift */,
+				8C74744A1FBED8BC00C4112C /* ParkLakesMainViewController.swift */,
+				8C74744D1FBED8BC00C4112C /* ParkLakesObject.swift */,
+				8C7474481FBED8BC00C4112C /* ParkLakesOptionsViewController.swift */,
+			);
+			name = ParkLakes;
+			path = LogicPuzzlesSwift/Puzzles/ParkLakes;
+			sourceTree = SOURCE_ROOT;
+		};
 		8C7E4B371F793A6100B57C60 /* TennerGrid */ = {
 			isa = PBXGroup;
 			children = (
@@ -3609,6 +3651,7 @@
 				8C3A37081EC88D4300A914A5 /* MineShips.xml in Resources */,
 				8C3A36541EC88D4200A914A5 /* Clouds.xml in Resources */,
 				8CC34F9C1DFD958A00B8FD83 /* negative.png in Resources */,
+				8C7474541FBED8BD00C4112C /* ParkLakes.xml in Resources */,
 				8CDAE8081F646C29000DE5AF /* BalancedTapas.xml in Resources */,
 				8C9F32B41ED1FB0700E10965 /* TapaIslands.xml in Resources */,
 				8C3A372C1EC88D4300A914A5 /* Mosaik.xml in Resources */,
@@ -3760,6 +3803,7 @@
 				8C6A36141FAF97AF00D2804D /* TheOddBrickGameViewController.swift in Sources */,
 				8C3A36351EC88D4200A914A5 /* BoxItUpGameViewController.swift in Sources */,
 				8CE9C3151F7914B800134093 /* KakurasuGridNode.swift in Sources */,
+				8C7474591FBED8BD00C4112C /* ParkLakesGridNode.swift in Sources */,
 				8C3A37821EC88D4300A914A5 /* ProductSentinelsGame.swift in Sources */,
 				8C3A36981EC88D4200A914A5 /* FenceSentinelsMainViewController.swift in Sources */,
 				8C3A36E91EC88D4300A914A5 /* LoopyGameViewController.swift in Sources */,
@@ -3932,6 +3976,7 @@
 				8C3A369E1EC88D4200A914A5 /* HitoriGame.swift in Sources */,
 				8C3A35F81EC88D4200A914A5 /* AbstractPaintingGameState.swift in Sources */,
 				8C3A35EE1EC88D4200A914A5 /* AbcGridNode.swift in Sources */,
+				8C7474571FBED8BD00C4112C /* ParkLakesHelpViewController.swift in Sources */,
 				8C3A36B81EC88D4300A914A5 /* LightenUpGameState.swift in Sources */,
 				8CC350421E001D2800B8FD83 /* ErrorTypeExtensions.swift in Sources */,
 				8C2963F51FA20D620017A812 /* RobotFencesMainViewController.swift in Sources */,
@@ -3992,6 +4037,7 @@
 				8C3A36D31EC88D4300A914A5 /* LineSweeperHelpViewController.swift in Sources */,
 				8C3A36331EC88D4200A914A5 /* BoxItUpGameScene.swift in Sources */,
 				8C3A374F1EC88D4300A914A5 /* NurikabeOptionsViewController.swift in Sources */,
+				8C7474551FBED8BD00C4112C /* ParkLakesMainViewController.swift in Sources */,
 				8C9F32FD1ED1FCFF00E10965 /* TapDifferentlyGameState.swift in Sources */,
 				8C6A362C1FAF9D8600D2804D /* NoughtsAndCrossesGridNode.swift in Sources */,
 				8C506F131F6D2C9300BA4332 /* SnakeGameViewController.swift in Sources */,
@@ -4051,6 +4097,7 @@
 				8C9F32EF1ED1FCFF00E10965 /* TapARowDocument.swift in Sources */,
 				8C3A37E31EC88D4400A914A5 /* TentsGameScene.swift in Sources */,
 				8C6A35E01FAF4FFD00D2804D /* MathraxDocument.swift in Sources */,
+				8C7474581FBED8BD00C4112C /* ParkLakesObject.swift in Sources */,
 				8C916CBE1DAA5E9500D9E62B /* Helpers.swift in Sources */,
 				8C3A365F1EC88D4200A914A5 /* CloudsOptionsViewController.swift in Sources */,
 				8CC350531E001D2800B8FD83 /* UIImageExtensions.swift in Sources */,
@@ -4077,9 +4124,11 @@
 				8C3A37A21EC88D4400A914A5 /* SentinelsObject.swift in Sources */,
 				8CDAE7F71F5BFBD9000DE5AF /* OverUnderMainViewController.swift in Sources */,
 				8C3A37BA1EC88D4400A914A5 /* SlitherLinkObject.swift in Sources */,
+				8C7474511FBED8BD00C4112C /* ParkLakesGameScene.swift in Sources */,
 				8C3A35F61EC88D4200A914A5 /* AbstractPaintingGame.swift in Sources */,
 				8C3A37AB1EC88D4400A914A5 /* SkyscrapersHelpViewController.swift in Sources */,
 				8C74743D1FBDEAD100C4112C /* HolidayIslandDocument.swift in Sources */,
+				8C7474521FBED8BD00C4112C /* ParkLakesDocument.swift in Sources */,
 				8C3A36CA1EC88D4300A914A5 /* LighthousesObject.swift in Sources */,
 				8C3A36FF1EC88D4300A914A5 /* MasyuGameScene.swift in Sources */,
 				8C506F171F6D2C9300BA4332 /* SnakeObject.swift in Sources */,
@@ -4286,6 +4335,7 @@
 				8CC350401E001D2800B8FD83 /* DictionaryExtensions.swift in Sources */,
 				8C3A37421EC88D4300A914A5 /* NeighboursObject.swift in Sources */,
 				8C3A375E1EC88D4300A914A5 /* PairakabeGame.swift in Sources */,
+				8C7474531FBED8BD00C4112C /* ParkLakesOptionsViewController.swift in Sources */,
 				8C3A36891EC88D4200A914A5 /* FenceLitsGameViewController.swift in Sources */,
 				8C2963FD1FA20D620017A812 /* RobotCrosswordsGameViewController.swift in Sources */,
 				8C3A379A1EC88D4400A914A5 /* SentinelsGame.swift in Sources */,
@@ -4307,6 +4357,7 @@
 				8C2319F01FB88E3F0021C680 /* TierraDelFuegoMainViewController.swift in Sources */,
 				8C9F32ED1ED1FCFF00E10965 /* TapAlikeOptionsViewController.swift in Sources */,
 				8C9F32E81ED1FCFF00E10965 /* TapAlikeGameViewController.swift in Sources */,
+				8C74744F1FBED8BD00C4112C /* ParkLakesGameState.swift in Sources */,
 				8C6A36111FAF97AF00D2804D /* TheOddBrickGame.swift in Sources */,
 				8C3A37521EC88D4300A914A5 /* OrchardsGame.swift in Sources */,
 				8C3A36191EC88D4200A914A5 /* BoxItAgainDocument.swift in Sources */,
@@ -4343,6 +4394,7 @@
 				8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */,
 				8C3A37CF1EC88D4400A914A5 /* SumscrapersHelpViewController.swift in Sources */,
 				8C3A36EA1EC88D4300A914A5 /* LoopyGridNode.swift in Sources */,
+				8C7474501FBED8BD00C4112C /* ParkLakesGame.swift in Sources */,
 				8C3A37271EC88D4300A914A5 /* MiniLitsHelpViewController.swift in Sources */,
 				8C3A378B1EC88D4400A914A5 /* ProductSentinelsOptionsViewController.swift in Sources */,
 				8C9F32FC1ED1FCFF00E10965 /* TapDifferentlyGameScene.swift in Sources */,
@@ -4392,6 +4444,7 @@
 				8C3A365A1EC88D4200A914A5 /* CloudsGridNode.swift in Sources */,
 				8C3A35FB1EC88D4200A914A5 /* AbstractPaintingHelpViewController.swift in Sources */,
 				8C3A37BF1EC88D4400A914A5 /* SnailGameScene.swift in Sources */,
+				8C7474561FBED8BD00C4112C /* ParkLakesGameViewController.swift in Sources */,
 				8C3A367B1EC88D4200A914A5 /* FenceItUpGameScene.swift in Sources */,
 				8C3A374A1EC88D4300A914A5 /* NurikabeGridNode.swift in Sources */,
 				8C3A36DD1EC88D4300A914A5 /* LitsGameViewController.swift in Sources */,

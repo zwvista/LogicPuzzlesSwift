@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. The board represents a park, where there are some hidden lakes, all square in shape.
+2. You have to find the lakes with the aid of hints, knowing that:
+3. A number tells you the total size of the any lakes orthogonally touching it, while a question mark tells you that there is at least one lake orthogonally touching it.
+4. Lakes aren't on tiles with numbers or question marks.
+5. All the land tiles are connected horizontally or vertically.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+  10      `
+ 2        `
+   ?      `
+         ?`
+     2   1`
+    ]]>
+  </level>
+  <level id="200">
+    <![CDATA[
+         2   2        `
+   5       1         ?`
+             2       2`
+         2            `
+            11        `
+                      `
+                      `
+ ?        10   9      `
+   4  10              `
+             4       2`
+         ?            `
+    ]]>
+  </level>
+</levels>
+</puzzle>

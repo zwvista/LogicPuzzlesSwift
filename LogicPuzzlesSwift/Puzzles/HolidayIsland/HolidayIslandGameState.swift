@@ -140,10 +140,10 @@ class HolidayIslandGameState: GridGameState {
                 g.addEdge(node, neighbor: node2)
             }
         }
-        {
+        do {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             if nodesExplored.count != pos2node.count {isSolved = false}
-        }()
+        }
         for pHint in rngHints {
             g = Graph()
             pos2node.removeAll()

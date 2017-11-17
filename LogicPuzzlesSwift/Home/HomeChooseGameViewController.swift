@@ -59,7 +59,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         // https://stackoverflow.com/questions/2685548/uitableview-scrolling-to-specific-position
         tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
         var point = tableView.contentOffset
-        point.y += (navBar!.frame.height + tableView.rowHeight) / 2
+        point.y += (navBar!.frame.height + tableView.rowHeight) / 2 + navBar!.frame.height
         tableView.contentOffset = point
     }
     
