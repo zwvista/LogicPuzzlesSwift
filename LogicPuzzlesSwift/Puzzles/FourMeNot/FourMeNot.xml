@@ -1,0 +1,124 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. In Four-Me-Not (or Forbidden Four) you need to create a continuous flower bed without putting four flowers in a row.
+2. More exactly, you have to join the existing flowers by adding more of them, creating a single path of flowers touching horizontally or vertically.
+3. At the same time, you can't line up horizontally or vertically more than 3 flowers (thus Forbidden Four).
+4. Some tiles are marked as squares and are just fixed blocks.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+F F `
+ FFF`
+    `
+ F F`
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+F   `
+FF F`
+FF  `
+   F`
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+ F   `
+B   F`
+FF  F`
+F FFB`
+ FFF `
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+F   B`
+F  FF`
+ FF F`
+FF FF`
+BFFF `
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+F   F`
+  F F`
+BF  B`
+  F F`
+F   F`
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+B FF  `
+F  FB `
+  F FF`
+F  F F`
+ B F F`
+ FF  B`
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+F FF F`
+ F    `
+FF  FF`
+  F   `
+  F  F`
+FF   F`
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+F F FF`
+   F F`
+F F   `
+F  F  `
+  F  F`
+   F F`
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+    FF`
+ F    `
+FFF   `
+ FF   `
+F     `
+ FFF F`
+    ]]>
+  </level>
+  <level id="36">
+    <![CDATA[
+F F FF F F`
+FF    B   `
+F  B  F  B`
+B        F`
+F     BF  `
+ F B      `
+F        B`
+BF    B   `
+F FB      `
+FF  F F FF`
+    ]]>
+  </level>
+  <level id="40">
+    <![CDATA[
+F  FFF    `
+     FF  F`
+   FF FF F`
+  F FFF F `
+ FF FF   F`
+ F        `
+F        F`
+ F    F FF`
+F F    FFF`
+ F F F    `
+    ]]>
+  </level>
+</levels>
+</puzzle>

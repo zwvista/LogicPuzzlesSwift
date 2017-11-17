@@ -681,6 +681,17 @@
 		8C7474571FBED8BD00C4112C /* ParkLakesHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74744C1FBED8BC00C4112C /* ParkLakesHelpViewController.swift */; };
 		8C7474581FBED8BD00C4112C /* ParkLakesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74744D1FBED8BC00C4112C /* ParkLakesObject.swift */; };
 		8C7474591FBED8BD00C4112C /* ParkLakesGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74744E1FBED8BC00C4112C /* ParkLakesGridNode.swift */; };
+		8C7474661FBEFD5700C4112C /* FourMeNotOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74745B1FBEFD5700C4112C /* FourMeNotOptionsViewController.swift */; };
+		8C7474671FBEFD5700C4112C /* FourMeNotGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74745C1FBEFD5700C4112C /* FourMeNotGameState.swift */; };
+		8C7474681FBEFD5700C4112C /* FourMeNot.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C74745D1FBEFD5700C4112C /* FourMeNot.xml */; };
+		8C7474691FBEFD5700C4112C /* FourMeNotHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74745E1FBEFD5700C4112C /* FourMeNotHelpViewController.swift */; };
+		8C74746A1FBEFD5700C4112C /* FourMeNotGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74745F1FBEFD5700C4112C /* FourMeNotGame.swift */; };
+		8C74746B1FBEFD5700C4112C /* FourMeNotMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7474601FBEFD5700C4112C /* FourMeNotMainViewController.swift */; };
+		8C74746C1FBEFD5700C4112C /* FourMeNotDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7474611FBEFD5700C4112C /* FourMeNotDocument.swift */; };
+		8C74746D1FBEFD5700C4112C /* FourMeNotGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7474621FBEFD5700C4112C /* FourMeNotGameViewController.swift */; };
+		8C74746E1FBEFD5700C4112C /* FourMeNotObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7474631FBEFD5700C4112C /* FourMeNotObject.swift */; };
+		8C74746F1FBEFD5700C4112C /* FourMeNotGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7474641FBEFD5700C4112C /* FourMeNotGameScene.swift */; };
+		8C7474701FBEFD5700C4112C /* FourMeNotGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7474651FBEFD5700C4112C /* FourMeNotGridNode.swift */; };
 		8C76090B1EC61A8A00DFCD7B /* Game.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C76090A1EC61A8A00DFCD7B /* Game.storyboard */; };
 		8C7609101EC627E900DFCD7B /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C76090F1EC627E900DFCD7B /* Global.swift */; };
 		8C7609181EC7778100DFCD7B /* GameHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7609171EC7778100DFCD7B /* GameHelpViewController.swift */; };
@@ -1610,6 +1621,17 @@
 		8C74744C1FBED8BC00C4112C /* ParkLakesHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkLakesHelpViewController.swift; sourceTree = "<group>"; };
 		8C74744D1FBED8BC00C4112C /* ParkLakesObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkLakesObject.swift; sourceTree = "<group>"; };
 		8C74744E1FBED8BC00C4112C /* ParkLakesGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkLakesGridNode.swift; sourceTree = "<group>"; };
+		8C74745B1FBEFD5700C4112C /* FourMeNotOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourMeNotOptionsViewController.swift; sourceTree = "<group>"; };
+		8C74745C1FBEFD5700C4112C /* FourMeNotGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourMeNotGameState.swift; sourceTree = "<group>"; };
+		8C74745D1FBEFD5700C4112C /* FourMeNot.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FourMeNot.xml; sourceTree = "<group>"; };
+		8C74745E1FBEFD5700C4112C /* FourMeNotHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourMeNotHelpViewController.swift; sourceTree = "<group>"; };
+		8C74745F1FBEFD5700C4112C /* FourMeNotGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourMeNotGame.swift; sourceTree = "<group>"; };
+		8C7474601FBEFD5700C4112C /* FourMeNotMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourMeNotMainViewController.swift; sourceTree = "<group>"; };
+		8C7474611FBEFD5700C4112C /* FourMeNotDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourMeNotDocument.swift; sourceTree = "<group>"; };
+		8C7474621FBEFD5700C4112C /* FourMeNotGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourMeNotGameViewController.swift; sourceTree = "<group>"; };
+		8C7474631FBEFD5700C4112C /* FourMeNotObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourMeNotObject.swift; sourceTree = "<group>"; };
+		8C7474641FBEFD5700C4112C /* FourMeNotGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourMeNotGameScene.swift; sourceTree = "<group>"; };
+		8C7474651FBEFD5700C4112C /* FourMeNotGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourMeNotGridNode.swift; sourceTree = "<group>"; };
 		8C76090A1EC61A8A00DFCD7B /* Game.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Game.storyboard; sourceTree = "<group>"; };
 		8C76090F1EC627E900DFCD7B /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		8C7609171EC7778100DFCD7B /* GameHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHelpViewController.swift; sourceTree = "<group>"; };
@@ -2091,6 +2113,7 @@
 				8C3A34551EC88D4100A914A5 /* FenceItUp */,
 				8C3A34621EC88D4100A914A5 /* FenceLits */,
 				8C3A346F1EC88D4100A914A5 /* FenceSentinels */,
+				8C74745A1FBEFD5700C4112C /* FourMeNot */,
 				8C2973D51EE7284C0022A18A /* Galaxies */,
 				8C3A347C1EC88D4100A914A5 /* Hitori */,
 				8C74742B1FBDEAD100C4112C /* HolidayIsland */,
@@ -3148,6 +3171,24 @@
 			path = LogicPuzzlesSwift/Puzzles/ParkLakes;
 			sourceTree = SOURCE_ROOT;
 		};
+		8C74745A1FBEFD5700C4112C /* FourMeNot */ = {
+			isa = PBXGroup;
+			children = (
+				8C74745D1FBEFD5700C4112C /* FourMeNot.xml */,
+				8C7474611FBEFD5700C4112C /* FourMeNotDocument.swift */,
+				8C74745F1FBEFD5700C4112C /* FourMeNotGame.swift */,
+				8C7474641FBEFD5700C4112C /* FourMeNotGameScene.swift */,
+				8C74745C1FBEFD5700C4112C /* FourMeNotGameState.swift */,
+				8C7474621FBEFD5700C4112C /* FourMeNotGameViewController.swift */,
+				8C7474651FBEFD5700C4112C /* FourMeNotGridNode.swift */,
+				8C74745E1FBEFD5700C4112C /* FourMeNotHelpViewController.swift */,
+				8C7474601FBEFD5700C4112C /* FourMeNotMainViewController.swift */,
+				8C7474631FBEFD5700C4112C /* FourMeNotObject.swift */,
+				8C74745B1FBEFD5700C4112C /* FourMeNotOptionsViewController.swift */,
+			);
+			path = FourMeNot;
+			sourceTree = "<group>";
+		};
 		8C7E4B371F793A6100B57C60 /* TennerGrid */ = {
 			isa = PBXGroup;
 			children = (
@@ -3619,6 +3660,7 @@
 				8C3A375C1EC88D4300A914A5 /* Pairakabe.xml in Resources */,
 				8C3A37381EC88D4300A914A5 /* Neighbours.xml in Resources */,
 				8C6A360F1FAF97AF00D2804D /* TheOddBrick.xml in Resources */,
+				8C7474681FBEFD5700C4112C /* FourMeNot.xml in Resources */,
 				8C373D441E0507F7005712CD /* tent.png in Resources */,
 				8C1D16B21DB8DE930056D407 /* TraversalTree.png in Resources */,
 				8C7474421FBDEAD100C4112C /* HolidayIsland.xml in Resources */,
@@ -3766,6 +3808,7 @@
 				8C3A379B1EC88D4400A914A5 /* SentinelsGameScene.swift in Sources */,
 				8CC350571E001D2800B8FD83 /* UIStoryboardExtensions.swift in Sources */,
 				8C3A37C21EC88D4400A914A5 /* SnailGridNode.swift in Sources */,
+				8C7474701FBEFD5700C4112C /* FourMeNotGridNode.swift in Sources */,
 				8C2319F31FB88E3F0021C680 /* TierraDelFuegoHelpViewController.swift in Sources */,
 				8C6A35E51FAF4FFD00D2804D /* MathraxGridNode.swift in Sources */,
 				8C3A364E1EC88D4200A914A5 /* BusySeasGridNode.swift in Sources */,
@@ -3917,6 +3960,7 @@
 				8C3A37C71EC88D4400A914A5 /* SnailOptionsViewController.swift in Sources */,
 				8C3A36171EC88D4200A914A5 /* BootyIslandOptionsViewController.swift in Sources */,
 				8C3A365C1EC88D4200A914A5 /* CloudsMainViewController.swift in Sources */,
+				8C74746E1FBEFD5700C4112C /* FourMeNotObject.swift in Sources */,
 				8C3A37781EC88D4300A914A5 /* PowerGridGameState.swift in Sources */,
 				8C6D37F51DC5AC520052202C /* Position.swift in Sources */,
 				8CC25CC91F87BB5A005560F7 /* KakuroHelpViewController.swift in Sources */,
@@ -3965,6 +4009,7 @@
 				8C3A37541EC88D4300A914A5 /* OrchardsGameState.swift in Sources */,
 				8C3A37191EC88D4300A914A5 /* MinesweeperGameViewController.swift in Sources */,
 				8C3A36EB1EC88D4300A914A5 /* LoopyHelpViewController.swift in Sources */,
+				8C74746F1FBEFD5700C4112C /* FourMeNotGameScene.swift in Sources */,
 				8C3A363A1EC88D4200A914A5 /* BoxItUpObject.swift in Sources */,
 				8C3A35ED1EC88D4200A914A5 /* AbcGameViewController.swift in Sources */,
 				8CC350501E001D2800B8FD83 /* UIColorExtensions.swift in Sources */,
@@ -4134,6 +4179,7 @@
 				8C506F171F6D2C9300BA4332 /* SnakeObject.swift in Sources */,
 				8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */,
 				8C3A36961EC88D4200A914A5 /* FenceSentinelsGridNode.swift in Sources */,
+				8C7474691FBEFD5700C4112C /* FourMeNotHelpViewController.swift in Sources */,
 				8C3A37CB1EC88D4400A914A5 /* SumscrapersGameScene.swift in Sources */,
 				8CC350431E001D2800B8FD83 /* EZSwiftFunctions.swift in Sources */,
 				8C3A36A11EC88D4200A914A5 /* HitoriGameViewController.swift in Sources */,
@@ -4172,6 +4218,7 @@
 				8C3A37AE1EC88D4400A914A5 /* SkyscrapersObject.swift in Sources */,
 				8C3A37811EC88D4300A914A5 /* ProductSentinelsDocument.swift in Sources */,
 				8C3A36621EC88D4200A914A5 /* DigitalBattleShipsGame.swift in Sources */,
+				8C7474661FBEFD5700C4112C /* FourMeNotOptionsViewController.swift in Sources */,
 				8C3A37671EC88D4300A914A5 /* PairakabeOptionsViewController.swift in Sources */,
 				8C3A37C31EC88D4400A914A5 /* SnailHelpViewController.swift in Sources */,
 				8C3A361F1EC88D4200A914A5 /* BoxItAgainHelpViewController.swift in Sources */,
@@ -4193,6 +4240,7 @@
 				8C9F32601ED1FAF600E10965 /* PataMainViewController.swift in Sources */,
 				8C3A36FE1EC88D4300A914A5 /* MasyuGame.swift in Sources */,
 				8C9F325F1ED1FAF600E10965 /* PataHelpViewController.swift in Sources */,
+				8C7474671FBEFD5700C4112C /* FourMeNotGameState.swift in Sources */,
 				8C3A366D1EC88D4200A914A5 /* DominoDocument.swift in Sources */,
 				8C9F33021ED1FCFF00E10965 /* TapDifferentlyObject.swift in Sources */,
 				8C3A37D71EC88D4400A914A5 /* TatamiGameScene.swift in Sources */,
@@ -4353,6 +4401,7 @@
 				8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */,
 				8C9F32491ED1FAD400E10965 /* BWTapaMainViewController.swift in Sources */,
 				8C9F322B1ECF06C000E10965 /* TapaGame.swift in Sources */,
+				8C74746D1FBEFD5700C4112C /* FourMeNotGameViewController.swift in Sources */,
 				8C3A37311EC88D4300A914A5 /* MosaikGameViewController.swift in Sources */,
 				8C2319F01FB88E3F0021C680 /* TierraDelFuegoMainViewController.swift in Sources */,
 				8C9F32ED1ED1FCFF00E10965 /* TapAlikeOptionsViewController.swift in Sources */,
@@ -4374,6 +4423,7 @@
 				8C9F32BE1ED1FB0700E10965 /* TapaIslandsOptionsViewController.swift in Sources */,
 				8C3A37451EC88D4300A914A5 /* NurikabeDocument.swift in Sources */,
 				8C2319F61FB88E3F0021C680 /* TierraDelFuegoGameScene.swift in Sources */,
+				8C74746C1FBEFD5700C4112C /* FourMeNotDocument.swift in Sources */,
 				8CC350521E001D2800B8FD83 /* UIFontExtensions.swift in Sources */,
 				8C6A36191FAF97AF00D2804D /* TheOddBrickOptionsViewController.swift in Sources */,
 				8C3A371C1EC88D4300A914A5 /* MinesweeperMainViewController.swift in Sources */,
@@ -4469,6 +4519,7 @@
 				8C6A362F1FAF9D8600D2804D /* NoughtsAndCrossesObject.swift in Sources */,
 				8C3A37731EC88D4300A914A5 /* ParksOptionsViewController.swift in Sources */,
 				8C3A36A21EC88D4200A914A5 /* HitoriGridNode.swift in Sources */,
+				8C74746B1FBEFD5700C4112C /* FourMeNotMainViewController.swift in Sources */,
 				8C6A36301FAF9D8600D2804D /* NoughtsAndCrossesOptionsViewController.swift in Sources */,
 				8C3A36641EC88D4200A914A5 /* DigitalBattleShipsGameState.swift in Sources */,
 				8C3A36041EC88D4200A914A5 /* BattleShipsGameState.swift in Sources */,
@@ -4515,6 +4566,7 @@
 				8CDAE7F21F5BFBD9000DE5AF /* OverUnderGameScene.swift in Sources */,
 				8C3A368F1EC88D4200A914A5 /* FenceLitsOptionsViewController.swift in Sources */,
 				8C9F322D1ECF06C000E10965 /* TapaGameState.swift in Sources */,
+				8C74746A1FBEFD5700C4112C /* FourMeNotGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
