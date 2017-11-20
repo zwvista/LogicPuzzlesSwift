@@ -1,0 +1,224 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. The Board represents a Garden, divided in many rectangular Flowerbeds.
+2. The owner of the Garden wants you to plant Flowers according to these rules.
+3. A number tells you how many Flowers you must plant in that Flowerbed. A Flowerbed without number can have any quantity of Flowers.
+4. Flowers can't be horizontally or vertically touching.
+5. All the remaining Garden space where there are no Flowers must be interconnected (horizontally or vertically), as he wants to be able to reach every part of the Garden without treading over Flowers.
+6. Lastly, there must be enough balance in the Garden, so a straight line (horizontally or vertically) of non-planted tiles can't span for more than two Flowerbeds.
+7. In other words, a straight path of empty space can't pass through three or more Flowerbeds.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+ - - - - - `
+|1|0      |`
+   - - - - `
+| |2  |1  |`
+       - - `
+| |   |1  |`
+ - - - - - `
+|1  |0    |`
+     - - - `
+|   |2    |`
+ - - - - - `
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+ - - - - - `
+|0  |1|1  |`
+ - -       `
+|1  | |   |`
+ - -   - - `
+|1|0| |1  |`
+       - - `
+| | | |1  |`
+ - - - - - `
+|1  |0    |`
+ - - - - - `
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+ - - - - - - `
+|1  |1  |1  |`
+ - -         `
+|0|1|   |   |`
+     - - - - `
+| | |1|0|1|1|`
+ -           `
+|1| | | | | |`
+     - -   - `
+| | |2  | |1|`
+ - -         `
+|0  |   | | |`
+ - - - - - - `
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+ - - - - - - `
+|2  |0      |`
+     - - - - `
+|   |1  |2  |`
+ - -         `
+|1  |   |   |`
+     - - - - `
+|   |1  |0  |`
+ - -     - - `
+|1  |   |1  |`
+     - - - - `
+|   |0  |1  |`
+ - - - - - - `
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+ - - - - - - `
+|1      |1  |`
+ - - - -     `
+|0  |1  |   |`
+ - - - - - - `
+|1    |2  |0|`
+ - - -       `
+|2|1  |   | |`
+       - -   `
+| |   |0  | |`
+   - - - - - `
+| |1    |0  |`
+ - - - - - - `
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+ - - - - - - `
+|2  |1  |1  |`
+             `
+|   |   |   |`
+ - - - - - - `
+|1|1  |1|2  |`
+             `
+| |   | |   |`
+   - - - - - `
+| |0        |`
+   - - - - - `
+| |3        |`
+ - - - - - - `
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+ - - - - - - `
+|2      |0  |`
+ - - - - - - `
+|0  |0  |1  |`
+ - - - -     `
+|2  |2  |   |`
+         - - `
+|   |   | |1|`
+ - - - - -   `
+|1  |2    | |`
+             `
+|   |     | |`
+ - - - - - - `
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+ - - - - - - `
+|1  |2  |1  |`
+             `
+|   |   |   |`
+ - - - - - - `
+|0|0    |2  |`
+   - - -     `
+| |2    |   |`
+ - - - -     `
+|1  |2  |   |`
+         - - `
+|   |   |   |`
+ - - - - - - `
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+ - - - - - - `
+|2  |0|1    |`
+       - - - `
+|   | | |1  |`
+ - -         `
+|2  | | |   |`
+     - - - - `
+|   |0  |2  |`
+             `
+|   |   |   |`
+ - - - - - - `
+|0  |1      |`
+ - - - - - - `
+    ]]>
+  </level>
+  <level id="10">
+    <![CDATA[
+ - - - - - - `
+|0        |0|`
+ - - - - -   `
+|2  | |2  | |`
+             `
+|   | |   | |`
+ - - - - -   `
+|2        | |`
+ - - - - -   `
+|2  |0    | |`
+     - - - - `
+|   |2      |`
+ - - - - - - `
+    ]]>
+  </level>
+  <level id="11">
+    <![CDATA[
+ - - - - - - `
+|1|1    |   |`
+         - - `
+| |     |2  |`
+   - - -     `
+| |3  | |   |`
+       - - - `
+| |   |0  |1|`
+ -     - -   `
+|1|   |1  | |`
+   - -       `
+| |   |   | |`
+ - - - - - - `
+    ]]>
+  </level>
+  <level id="35">
+    <![CDATA[
+ - - - - - - - - - - `
+|       |2        |2|`
+ - - - -             `
+| |3    |         | |`
+         - - - - -   `
+| |     | |4    |2| |`
+ - - - -           - `
+| |1    | |     | | |`
+                     `
+| |     | |     | | |`
+   - - - - - - -     `
+| | |   |       | | |`
+ - -               - `
+|0  |   |       | | |`
+     - - - - - -     `
+|   |           | | |`
+     - - - - - - - - `
+|   |3    |   |0    |`
+ - -                 `
+|   |     |   |     |`
+ - - - - - - - - - - `
+    ]]>
+  </level>
+</levels>
+</puzzle>

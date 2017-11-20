@@ -1,5 +1,5 @@
 //
-//  FourMeNotGameState.swift
+//  GardenerGameState.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/19.
@@ -8,34 +8,36 @@
 
 import Foundation
 
-class FourMeNotGameState: GridGameState {
+class GardenerGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
-    var game: FourMeNotGame {
-        get {return getGame() as! FourMeNotGame}
+    var game: GardenerGame {
+        get {return getGame() as! GardenerGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: FourMeNotDocument { return FourMeNotDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return FourMeNotDocument.sharedInstance }
-    var objArray = [FourMeNotObject]()
+    var gameDocument: GardenerDocument { return GardenerDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { return GardenerDocument.sharedInstance }
+    var objArray = [GardenerObject]()
+    var pos2state = [Position: HintState]()
     
-    override func copy() -> FourMeNotGameState {
-        let v = FourMeNotGameState(game: game, isCopy: true)
+    override func copy() -> GardenerGameState {
+        let v = GardenerGameState(game: game, isCopy: true)
         return setup(v: v)
     }
-    func setup(v: FourMeNotGameState) -> FourMeNotGameState {
+    func setup(v: GardenerGameState) -> GardenerGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
+        v.pos2state = pos2state
         return v
     }
     
-    required init(game: FourMeNotGame, isCopy: Bool = false) {
+    required init(game: GardenerGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = game.objArray
+        objArray = Array<GardenerObject>(repeating: .empty, count: rows * cols)
         updateIsSolved()
     }
     
-    subscript(p: Position) -> FourMeNotObject {
+    subscript(p: Position) -> GardenerObject {
         get {
             return self[p.row, p.col]
         }
@@ -43,7 +45,7 @@ class FourMeNotGameState: GridGameState {
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> FourMeNotObject {
+    subscript(row: Int, col: Int) -> GardenerObject {
         get {
             return objArray[row * cols + col]
         }
@@ -52,17 +54,17 @@ class FourMeNotGameState: GridGameState {
         }
     }
     
-    func setObject(move: inout FourMeNotGameMove) -> Bool {
+    func setObject(move: inout GardenerGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p), case .empty = game[p], String(describing: self[p]) != String(describing: move.obj) else {return false}
+        guard String(describing: self[p]) != String(describing: move.obj) else {return false}
         self[p] = move.obj
         updateIsSolved()
         return true
     }
     
-    func switchObject(move: inout FourMeNotGameMove) -> Bool {
+    func switchObject(move: inout GardenerGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
-        func f(o: FourMeNotObject) -> FourMeNotObject {
+        func f(o: GardenerObject) -> GardenerObject {
             switch o {
             case .empty:
                 return markerOption == .markerFirst ? .marker : .tree(state: .normal)
@@ -75,56 +77,61 @@ class FourMeNotGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p), case .empty = game[p] else {return false}
+        guard isValid(p: p) else {return false}
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 9/Four-Me-Not
+        iOS Game: Logic Games/Puzzle Set 7/Gardener
 
         Summary
-        It seems we do a lot of gardening in this game!
+        Hitori Flower Planting
 
         Description
-        1. In Four-Me-Not (or Forbidden Four) you need to create a continuous
-           flower bed without putting four flowers in a row.
-        2. More exactly, you have to join the existing flowers by adding more of
-           them, creating a single path of flowers touching horizontally or
-           vertically.
-        3. At the same time, you can't line up horizontally or vertically more
-           than 3 flowers (thus Forbidden Four).
-        4. Some tiles are marked as squares and are just fixed blocks.
+        1. The Board represents a Garden, divided in many rectangular Flowerbeds.
+        2. The owner of the Garden wants you to plant Flowers according to these
+           rules.
+        3. A number tells you how many Flowers you must plant in that Flowerbed.
+           A Flowerbed without number can have any quantity of Flowers.
+        4. Flowers can't be horizontally or vertically touching.
+        5. All the remaining Garden space where there are no Flowers must be
+           interconnected (horizontally or vertically), as he wants to be able
+           to reach every part of the Garden without treading over Flowers.
+        6. Lastly, there must be enough balance in the Garden, so a straight
+           line (horizontally or vertically) of non-planted tiles can't span
+           for more than two Flowerbeds.
+        7. In other words, a straight path of empty space can't pass through
+           three or more Flowerbeds.
     */
     private func updateIsSolved() {
         let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
-        let g = Graph()
-        var pos2node = [Position: Node]()
         for r in 0..<rows {
             for c in 0..<cols {
-                let p = Position(r, c)
-                switch self[p] {
-                case .forbidden:
-                    self[p] = .empty
-                case .tree:
-                    self[p] = .tree(state: .normal)
-                    pos2node[p] = g.addNode(p.description)
-                default:
-                    break
+                if case .forbidden = self[r, c] {self[r, c] = .empty}
+            }
+        }
+        for (p, (n2, i)) in game.pos2hint {
+            let area = game.areas[i]
+            var n1 = 0
+            for p in area {
+                if case .tree = self[p] {n1 += 1}
+            }
+            let s: HintState = n1 < n2 ? .normal : n1 == n2 || n2 == -1 ? .complete : .error
+            pos2state[p] = s
+            if s != .complete {isSolved = false}
+            if s != .normal && allowedObjectsOnly {
+                for p in area {
+                    switch self[p] {
+                    case .empty, .marker:
+                        self[p] = .forbidden
+                    default:
+                        break
+                    }
                 }
             }
         }
-        for (p, node) in pos2node {
-            for os in FourMeNotGame.offset {
-                let p2 = p + os
-                guard let node2 = pos2node[p2] else {continue}
-                g.addEdge(node, neighbor: node2)
-            }
-        }
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count {isSolved = false}
-        
         var trees = [Position]()
         func f() {
             if trees.count > 3 {
@@ -139,7 +146,7 @@ class FourMeNotGameState: GridGameState {
             guard allowedObjectsOnly else {return}
             var n = 0
             for i in indexes {
-                let os = FourMeNotGame.offset[i]
+                let os = GardenerGame.offset[i]
                 var p2 = p + os
                 while isValid(p: p2) {
                     guard case .tree = self[p2] else {break}

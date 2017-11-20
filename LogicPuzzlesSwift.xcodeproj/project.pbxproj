@@ -108,6 +108,17 @@
 		8C2AF84F1ED6084300EC84AB /* PaintTheNurikabeOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8441ED6084300EC84AB /* PaintTheNurikabeOptionsViewController.swift */; };
 		8C31FE6E1D90E415008793BF /* SharkORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; };
 		8C31FE6F1D90E415008793BF /* SharkORM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8C35E38B1FC2844F00A26EE3 /* GardenerGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E37F1FC2844E00A26EE3 /* GardenerGridNode.swift */; };
+		8C35E38C1FC2844F00A26EE3 /* GardenerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E3801FC2844E00A26EE3 /* GardenerObject.swift */; };
+		8C35E38D1FC2844F00A26EE3 /* GardenerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E3811FC2844E00A26EE3 /* GardenerGame.swift */; };
+		8C35E38E1FC2844F00A26EE3 /* GardenerHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E3821FC2844E00A26EE3 /* GardenerHelpViewController.swift */; };
+		8C35E38F1FC2844F00A26EE3 /* GardenerMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E3831FC2844E00A26EE3 /* GardenerMainViewController.swift */; };
+		8C35E3901FC2844F00A26EE3 /* GardenerGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E3841FC2844E00A26EE3 /* GardenerGameViewController.swift */; };
+		8C35E3911FC2844F00A26EE3 /* Gardener.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C35E3851FC2844E00A26EE3 /* Gardener.xml */; };
+		8C35E3921FC2844F00A26EE3 /* GardenerGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E3861FC2844E00A26EE3 /* GardenerGameState.swift */; };
+		8C35E3931FC2844F00A26EE3 /* GardenerDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E3871FC2844E00A26EE3 /* GardenerDocument.swift */; };
+		8C35E3941FC2844F00A26EE3 /* GardenerGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E3881FC2844E00A26EE3 /* GardenerGameScene.swift */; };
+		8C35E3951FC2844F00A26EE3 /* GardenerOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E3891FC2844E00A26EE3 /* GardenerOptionsViewController.swift */; };
 		8C373D441E0507F7005712CD /* tent.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C373D421E0507F7005712CD /* tent.png */; };
 		8C373D451E0507F7005712CD /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C373D431E0507F7005712CD /* tree.png */; };
 		8C3A35E81EC88D4200A914A5 /* Abc.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A33BA1EC88D4100A914A5 /* Abc.xml */; };
@@ -1048,6 +1059,17 @@
 		8C2AF8431ED6084300EC84AB /* PaintTheNurikabeObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintTheNurikabeObject.swift; sourceTree = "<group>"; };
 		8C2AF8441ED6084300EC84AB /* PaintTheNurikabeOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintTheNurikabeOptionsViewController.swift; sourceTree = "<group>"; };
 		8C31FE6D1D90E415008793BF /* SharkORM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SharkORM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C35E37F1FC2844E00A26EE3 /* GardenerGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenerGridNode.swift; sourceTree = "<group>"; };
+		8C35E3801FC2844E00A26EE3 /* GardenerObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenerObject.swift; sourceTree = "<group>"; };
+		8C35E3811FC2844E00A26EE3 /* GardenerGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenerGame.swift; sourceTree = "<group>"; };
+		8C35E3821FC2844E00A26EE3 /* GardenerHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenerHelpViewController.swift; sourceTree = "<group>"; };
+		8C35E3831FC2844E00A26EE3 /* GardenerMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenerMainViewController.swift; sourceTree = "<group>"; };
+		8C35E3841FC2844E00A26EE3 /* GardenerGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenerGameViewController.swift; sourceTree = "<group>"; };
+		8C35E3851FC2844E00A26EE3 /* Gardener.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Gardener.xml; sourceTree = "<group>"; };
+		8C35E3861FC2844E00A26EE3 /* GardenerGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenerGameState.swift; sourceTree = "<group>"; };
+		8C35E3871FC2844E00A26EE3 /* GardenerDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenerDocument.swift; sourceTree = "<group>"; };
+		8C35E3881FC2844E00A26EE3 /* GardenerGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenerGameScene.swift; sourceTree = "<group>"; };
+		8C35E3891FC2844E00A26EE3 /* GardenerOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenerOptionsViewController.swift; sourceTree = "<group>"; };
 		8C373D421E0507F7005712CD /* tent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tent.png; sourceTree = "<group>"; };
 		8C373D431E0507F7005712CD /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree.png; sourceTree = "<group>"; };
 		8C3A33BA1EC88D4100A914A5 /* Abc.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Abc.xml; sourceTree = "<group>"; };
@@ -2093,6 +2115,24 @@
 			path = PaintTheNurikabe;
 			sourceTree = "<group>";
 		};
+		8C35E37E1FC2844E00A26EE3 /* Gardener */ = {
+			isa = PBXGroup;
+			children = (
+				8C35E3851FC2844E00A26EE3 /* Gardener.xml */,
+				8C35E3871FC2844E00A26EE3 /* GardenerDocument.swift */,
+				8C35E3811FC2844E00A26EE3 /* GardenerGame.swift */,
+				8C35E3881FC2844E00A26EE3 /* GardenerGameScene.swift */,
+				8C35E3861FC2844E00A26EE3 /* GardenerGameState.swift */,
+				8C35E3841FC2844E00A26EE3 /* GardenerGameViewController.swift */,
+				8C35E37F1FC2844E00A26EE3 /* GardenerGridNode.swift */,
+				8C35E3821FC2844E00A26EE3 /* GardenerHelpViewController.swift */,
+				8C35E3831FC2844E00A26EE3 /* GardenerMainViewController.swift */,
+				8C35E3801FC2844E00A26EE3 /* GardenerObject.swift */,
+				8C35E3891FC2844E00A26EE3 /* GardenerOptionsViewController.swift */,
+			);
+			path = Gardener;
+			sourceTree = "<group>";
+		};
 		8C3A33B81EC88D4100A914A5 /* Puzzles */ = {
 			isa = PBXGroup;
 			children = (
@@ -2115,6 +2155,7 @@
 				8C3A346F1EC88D4100A914A5 /* FenceSentinels */,
 				8C74745A1FBEFD5700C4112C /* FourMeNot */,
 				8C2973D51EE7284C0022A18A /* Galaxies */,
+				8C35E37E1FC2844E00A26EE3 /* Gardener */,
 				8C3A347C1EC88D4100A914A5 /* Hitori */,
 				8C74742B1FBDEAD100C4112C /* HolidayIsland */,
 				8CE9C3031F7914B800134093 /* Kakurasu */,
@@ -3739,6 +3780,7 @@
 				8C3A36D81EC88D4300A914A5 /* Lits.xml in Resources */,
 				8C916CC41DAA5FEB00D9E62B /* music.wav in Resources */,
 				8C3A37BC1EC88D4400A914A5 /* Snail.xml in Resources */,
+				8C35E3911FC2844F00A26EE3 /* Gardener.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3811,6 +3853,7 @@
 				8C7474701FBEFD5700C4112C /* FourMeNotGridNode.swift in Sources */,
 				8C2319F31FB88E3F0021C680 /* TierraDelFuegoHelpViewController.swift in Sources */,
 				8C6A35E51FAF4FFD00D2804D /* MathraxGridNode.swift in Sources */,
+				8C35E38B1FC2844F00A26EE3 /* GardenerGridNode.swift in Sources */,
 				8C3A364E1EC88D4200A914A5 /* BusySeasGridNode.swift in Sources */,
 				8C3A36231EC88D4200A914A5 /* BoxItAgainOptionsViewController.swift in Sources */,
 				8C3A37371EC88D4300A914A5 /* MosaikOptionsViewController.swift in Sources */,
@@ -3863,6 +3906,7 @@
 				8C1D16B31DB8DE930056D407 /* README.markdown in Sources */,
 				8C3A371B1EC88D4300A914A5 /* MinesweeperHelpViewController.swift in Sources */,
 				8C0467221F8BA2BE00B5DE41 /* TataminoOptionsViewController.swift in Sources */,
+				8C35E3941FC2844F00A26EE3 /* GardenerGameScene.swift in Sources */,
 				8CC350451E001D2800B8FD83 /* IntExtensions.swift in Sources */,
 				8C2963F21FA20D620017A812 /* RobotFencesGameViewController.swift in Sources */,
 				8C2963F41FA20D620017A812 /* RobotFencesHelpViewController.swift in Sources */,
@@ -4038,6 +4082,7 @@
 				8C2963F31FA20D620017A812 /* RobotFencesGridNode.swift in Sources */,
 				8C6A36181FAF97AF00D2804D /* TheOddBrickObject.swift in Sources */,
 				8CC350321E001D2800B8FD83 /* BlockButton.swift in Sources */,
+				8C35E38F1FC2844F00A26EE3 /* GardenerMainViewController.swift in Sources */,
 				8C3A360A1EC88D4200A914A5 /* BattleShipsObject.swift in Sources */,
 				8CC3504B1E001D2800B8FD83 /* UIAlertControllerExtensions.swift in Sources */,
 				8C3A36FA1EC88D4300A914A5 /* MagnetsObject.swift in Sources */,
@@ -4053,6 +4098,7 @@
 				8CDAE7F91F5BFBD9000DE5AF /* OverUnderOptionsViewController.swift in Sources */,
 				8CC25CCB1F87BB5A005560F7 /* KakuroObject.swift in Sources */,
 				8CC350341E001D2800B8FD83 /* BlockPan.swift in Sources */,
+				8C35E3951FC2844F00A26EE3 /* GardenerOptionsViewController.swift in Sources */,
 				8C3A36681EC88D4200A914A5 /* DigitalBattleShipsMainViewController.swift in Sources */,
 				8C506F111F6D2C9300BA4332 /* SnakeGameScene.swift in Sources */,
 				8C6ACBFE1DCAF8BA0075F32C /* GameDocument.swift in Sources */,
@@ -4126,6 +4172,7 @@
 				8C3A36E81EC88D4300A914A5 /* LoopyGameState.swift in Sources */,
 				8C3A37D91EC88D4400A914A5 /* TatamiGameViewController.swift in Sources */,
 				8C3A361D1EC88D4200A914A5 /* BoxItAgainGameViewController.swift in Sources */,
+				8C35E38C1FC2844F00A26EE3 /* GardenerObject.swift in Sources */,
 				8C3A37B61EC88D4400A914A5 /* SlitherLinkGridNode.swift in Sources */,
 				8C3A36631EC88D4200A914A5 /* DigitalBattleShipsGameScene.swift in Sources */,
 				8C3A378E1EC88D4400A914A5 /* RoomsGame.swift in Sources */,
@@ -4186,6 +4233,7 @@
 				8C3A376A1EC88D4300A914A5 /* ParksGame.swift in Sources */,
 				8C6D37FE1DC5B4EB0052202C /* GameState.swift in Sources */,
 				8C3A37171EC88D4300A914A5 /* MinesweeperGameScene.swift in Sources */,
+				8C35E3901FC2844F00A26EE3 /* GardenerGameViewController.swift in Sources */,
 				8C3A365B1EC88D4200A914A5 /* CloudsHelpViewController.swift in Sources */,
 				8C3A36FD1EC88D4300A914A5 /* MasyuDocument.swift in Sources */,
 				8C3A36381EC88D4200A914A5 /* BoxItUpMainViewController.swift in Sources */,
@@ -4289,11 +4337,13 @@
 				8C1D4F8C1F7D079F000D5FB3 /* Square100GameViewController.swift in Sources */,
 				8C3A36DE1EC88D4300A914A5 /* LitsGridNode.swift in Sources */,
 				8C3A36061EC88D4200A914A5 /* BattleShipsGridNode.swift in Sources */,
+				8C35E38D1FC2844F00A26EE3 /* GardenerGame.swift in Sources */,
 				8C9F32301ECF06C000E10965 /* TapaHelpViewController.swift in Sources */,
 				8C3A36941EC88D4200A914A5 /* FenceSentinelsGameState.swift in Sources */,
 				8C3A37CE1EC88D4400A914A5 /* SumscrapersGridNode.swift in Sources */,
 				8C2AF84C1ED6084300EC84AB /* PaintTheNurikabeHelpViewController.swift in Sources */,
 				8C3A36651EC88D4200A914A5 /* DigitalBattleShipsGameViewController.swift in Sources */,
+				8C35E38E1FC2844F00A26EE3 /* GardenerHelpViewController.swift in Sources */,
 				8C9F32F01ED1FCFF00E10965 /* TapARowGame.swift in Sources */,
 				8C2AF8461ED6084300EC84AB /* PaintTheNurikabeDocument.swift in Sources */,
 				8C2AF8371ED5FB0000EC84AB /* NumberPathOptionsViewController.swift in Sources */,
@@ -4421,6 +4471,7 @@
 				8C3A364B1EC88D4200A914A5 /* BusySeasGameScene.swift in Sources */,
 				8C9F32331ECF06C000E10965 /* TapaOptionsViewController.swift in Sources */,
 				8C9F32BE1ED1FB0700E10965 /* TapaIslandsOptionsViewController.swift in Sources */,
+				8C35E3931FC2844F00A26EE3 /* GardenerDocument.swift in Sources */,
 				8C3A37451EC88D4300A914A5 /* NurikabeDocument.swift in Sources */,
 				8C2319F61FB88E3F0021C680 /* TierraDelFuegoGameScene.swift in Sources */,
 				8C74746C1FBEFD5700C4112C /* FourMeNotDocument.swift in Sources */,
@@ -4509,6 +4560,7 @@
 				8C3A37151EC88D4300A914A5 /* MinesweeperDocument.swift in Sources */,
 				8C3A36AE1EC88D4300A914A5 /* LightBattleShipsGridNode.swift in Sources */,
 				8C3A37611EC88D4300A914A5 /* PairakabeGameViewController.swift in Sources */,
+				8C35E3921FC2844F00A26EE3 /* GardenerGameState.swift in Sources */,
 				8C3A36C51EC88D4300A914A5 /* LighthousesGameViewController.swift in Sources */,
 				8C3A364F1EC88D4200A914A5 /* BusySeasHelpViewController.swift in Sources */,
 				8C916CBC1DAA5E9500D9E62B /* Element.swift in Sources */,
