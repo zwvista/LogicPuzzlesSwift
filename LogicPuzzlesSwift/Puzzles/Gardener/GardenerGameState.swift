@@ -107,25 +107,47 @@ class GardenerGameState: GridGameState {
     private func updateIsSolved() {
         let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
+        let g = Graph()
+        var pos2node = [Position: Node]()
         for r in 0..<rows {
             for c in 0..<cols {
-                if case .forbidden = self[r, c] {self[r, c] = .empty}
+                let p = Position(r, c)
+                func f() {pos2node[p] = g.addNode(p.description)}
+                switch self[p] {
+                case .forbidden:
+                    self[p] = .empty
+                    f()
+                case .tree:
+                    self[p] = .tree(state: .normal)
+                default:
+                    f()
+                }
             }
         }
+        for (p, node) in pos2node {
+            for os in FourMeNotGame.offset {
+                let p2 = p + os
+                guard let node2 = pos2node[p2] else {continue}
+                g.addEdge(node, neighbor: node2)
+            }
+        }
+        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+        if nodesExplored.count != pos2node.count {isSolved = false}
+        
         for (p, (n2, i)) in game.pos2hint {
             let area = game.areas[i]
             var n1 = 0
-            for p in area {
-                if case .tree = self[p] {n1 += 1}
+            for p2 in area {
+                if case .tree = self[p2] {n1 += 1}
             }
             let s: HintState = n1 < n2 ? .normal : n1 == n2 || n2 == -1 ? .complete : .error
             pos2state[p] = s
             if s != .complete {isSolved = false}
             if s != .normal && allowedObjectsOnly {
-                for p in area {
-                    switch self[p] {
+                for p2 in area {
+                    switch self[p2] {
                     case .empty, .marker:
-                        self[p] = .forbidden
+                        self[p2] = .forbidden
                     default:
                         break
                     }

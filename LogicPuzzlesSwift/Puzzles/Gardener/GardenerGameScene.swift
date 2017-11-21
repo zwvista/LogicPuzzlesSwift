@@ -62,6 +62,17 @@ class GardenerGameScene: GameScene<GardenerGameState> {
             let hintNodeName = "hint" + nodeNameSuffix
             addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
         }
+        for r in 0..<game.rows {
+            for c in 0..<game.cols {
+                let p = Position(r, c)
+                let point = gridNode.gridPosition(p: p)
+                let nodeNameSuffix = "-\(r)-\(c)"
+                let forbiddenNodeName = "forbidden" + nodeNameSuffix
+                if case .forbidden = state[p] {
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
+                }
+            }
+        }
     }
     
     override func levelUpdated(from stateFrom: GardenerGameState, to stateTo: GardenerGameState) {
@@ -90,7 +101,6 @@ class GardenerGameScene: GameScene<GardenerGameState> {
                 func removeTree() { removeNode(withName: treeNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
-                func addForbidden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
                 func removeForbidden() { removeNode(withName: forbiddenNodeName) }
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 guard String(describing: o1) != String(describing: o2) else {continue}
@@ -106,7 +116,7 @@ class GardenerGameScene: GameScene<GardenerGameState> {
                 }
                 switch o2 {
                 case .forbidden:
-                    addForbidden()
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case let .tree(s):
                     trees.insert(p)
                     addTree(s: s)
