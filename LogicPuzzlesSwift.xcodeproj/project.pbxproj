@@ -119,6 +119,17 @@
 		8C35E3931FC2844F00A26EE3 /* GardenerDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E3871FC2844E00A26EE3 /* GardenerDocument.swift */; };
 		8C35E3941FC2844F00A26EE3 /* GardenerGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E3881FC2844E00A26EE3 /* GardenerGameScene.swift */; };
 		8C35E3951FC2844F00A26EE3 /* GardenerOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E3891FC2844E00A26EE3 /* GardenerOptionsViewController.swift */; };
+		8C35E3A41FC4839100A26EE3 /* WallsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E3981FC4839100A26EE3 /* WallsGridNode.swift */; };
+		8C35E3A51FC4839100A26EE3 /* Walls.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C35E3991FC4839100A26EE3 /* Walls.xml */; };
+		8C35E3A61FC4839100A26EE3 /* WallsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E39A1FC4839100A26EE3 /* WallsObject.swift */; };
+		8C35E3A71FC4839100A26EE3 /* WallsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E39B1FC4839100A26EE3 /* WallsDocument.swift */; };
+		8C35E3A81FC4839100A26EE3 /* WallsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E39C1FC4839100A26EE3 /* WallsGame.swift */; };
+		8C35E3A91FC4839100A26EE3 /* WallsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E39D1FC4839100A26EE3 /* WallsGameState.swift */; };
+		8C35E3AA1FC4839100A26EE3 /* WallsHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E39E1FC4839100A26EE3 /* WallsHelpViewController.swift */; };
+		8C35E3AB1FC4839100A26EE3 /* WallsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E39F1FC4839100A26EE3 /* WallsOptionsViewController.swift */; };
+		8C35E3AC1FC4839100A26EE3 /* WallsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E3A01FC4839100A26EE3 /* WallsGameScene.swift */; };
+		8C35E3AD1FC4839100A26EE3 /* WallsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E3A11FC4839100A26EE3 /* WallsGameViewController.swift */; };
+		8C35E3AE1FC4839100A26EE3 /* WallsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E3A21FC4839100A26EE3 /* WallsMainViewController.swift */; };
 		8C373D441E0507F7005712CD /* tent.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C373D421E0507F7005712CD /* tent.png */; };
 		8C373D451E0507F7005712CD /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C373D431E0507F7005712CD /* tree.png */; };
 		8C3A35E81EC88D4200A914A5 /* Abc.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C3A33BA1EC88D4100A914A5 /* Abc.xml */; };
@@ -1070,6 +1081,17 @@
 		8C35E3871FC2844E00A26EE3 /* GardenerDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenerDocument.swift; sourceTree = "<group>"; };
 		8C35E3881FC2844E00A26EE3 /* GardenerGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenerGameScene.swift; sourceTree = "<group>"; };
 		8C35E3891FC2844E00A26EE3 /* GardenerOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenerOptionsViewController.swift; sourceTree = "<group>"; };
+		8C35E3981FC4839100A26EE3 /* WallsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallsGridNode.swift; sourceTree = "<group>"; };
+		8C35E3991FC4839100A26EE3 /* Walls.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Walls.xml; sourceTree = "<group>"; };
+		8C35E39A1FC4839100A26EE3 /* WallsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallsObject.swift; sourceTree = "<group>"; };
+		8C35E39B1FC4839100A26EE3 /* WallsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallsDocument.swift; sourceTree = "<group>"; };
+		8C35E39C1FC4839100A26EE3 /* WallsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallsGame.swift; sourceTree = "<group>"; };
+		8C35E39D1FC4839100A26EE3 /* WallsGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallsGameState.swift; sourceTree = "<group>"; };
+		8C35E39E1FC4839100A26EE3 /* WallsHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallsHelpViewController.swift; sourceTree = "<group>"; };
+		8C35E39F1FC4839100A26EE3 /* WallsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallsOptionsViewController.swift; sourceTree = "<group>"; };
+		8C35E3A01FC4839100A26EE3 /* WallsGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallsGameScene.swift; sourceTree = "<group>"; };
+		8C35E3A11FC4839100A26EE3 /* WallsGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallsGameViewController.swift; sourceTree = "<group>"; };
+		8C35E3A21FC4839100A26EE3 /* WallsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallsMainViewController.swift; sourceTree = "<group>"; };
 		8C373D421E0507F7005712CD /* tent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tent.png; sourceTree = "<group>"; };
 		8C373D431E0507F7005712CD /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree.png; sourceTree = "<group>"; };
 		8C3A33BA1EC88D4100A914A5 /* Abc.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Abc.xml; sourceTree = "<group>"; };
@@ -2133,6 +2155,24 @@
 			path = Gardener;
 			sourceTree = "<group>";
 		};
+		8C35E3971FC4839000A26EE3 /* Walls */ = {
+			isa = PBXGroup;
+			children = (
+				8C35E3991FC4839100A26EE3 /* Walls.xml */,
+				8C35E39B1FC4839100A26EE3 /* WallsDocument.swift */,
+				8C35E39C1FC4839100A26EE3 /* WallsGame.swift */,
+				8C35E3A01FC4839100A26EE3 /* WallsGameScene.swift */,
+				8C35E39D1FC4839100A26EE3 /* WallsGameState.swift */,
+				8C35E3A11FC4839100A26EE3 /* WallsGameViewController.swift */,
+				8C35E3981FC4839100A26EE3 /* WallsGridNode.swift */,
+				8C35E39E1FC4839100A26EE3 /* WallsHelpViewController.swift */,
+				8C35E3A21FC4839100A26EE3 /* WallsMainViewController.swift */,
+				8C35E39A1FC4839100A26EE3 /* WallsObject.swift */,
+				8C35E39F1FC4839100A26EE3 /* WallsOptionsViewController.swift */,
+			);
+			path = Walls;
+			sourceTree = "<group>";
+		};
 		8C3A33B81EC88D4100A914A5 /* Puzzles */ = {
 			isa = PBXGroup;
 			children = (
@@ -2208,6 +2248,7 @@
 				8C3A35DB1EC88D4200A914A5 /* Tents */,
 				8C6A36031FAF97AF00D2804D /* TheOddBrick */,
 				8C2319E21FB88E3F0021C680 /* TierraDelFuego */,
+				8C35E3971FC4839000A26EE3 /* Walls */,
 			);
 			path = Puzzles;
 			sourceTree = "<group>";
@@ -3763,6 +3804,7 @@
 				8C3A37501EC88D4300A914A5 /* Orchards.xml in Resources */,
 				8C1D4F871F7D079F000D5FB3 /* Square100.xml in Resources */,
 				8C3A35E81EC88D4200A914A5 /* Abc.xml in Resources */,
+				8C35E3A51FC4839100A26EE3 /* Walls.xml in Resources */,
 				8C3A36F01EC88D4300A914A5 /* Magnets.xml in Resources */,
 				8C3A369C1EC88D4200A914A5 /* Hitori.xml in Resources */,
 				8C3A36C01EC88D4300A914A5 /* Lighthouses.xml in Resources */,
@@ -3938,6 +3980,7 @@
 				8C3A36551EC88D4200A914A5 /* CloudsDocument.swift in Sources */,
 				8C3A36611EC88D4200A914A5 /* DigitalBattleShipsDocument.swift in Sources */,
 				8C7474391FBDEAD100C4112C /* HolidayIslandObject.swift in Sources */,
+				8C35E3AD1FC4839100A26EE3 /* WallsGameViewController.swift in Sources */,
 				8C3A37C11EC88D4400A914A5 /* SnailGameViewController.swift in Sources */,
 				8C2963FF1FA20D620017A812 /* RobotCrosswordsHelpViewController.swift in Sources */,
 				8C3A37361EC88D4300A914A5 /* MosaikObject.swift in Sources */,
@@ -4056,6 +4099,7 @@
 				8C74746F1FBEFD5700C4112C /* FourMeNotGameScene.swift in Sources */,
 				8C3A363A1EC88D4200A914A5 /* BoxItUpObject.swift in Sources */,
 				8C3A35ED1EC88D4200A914A5 /* AbcGameViewController.swift in Sources */,
+				8C35E3A71FC4839100A26EE3 /* WallsDocument.swift in Sources */,
 				8CC350501E001D2800B8FD83 /* UIColorExtensions.swift in Sources */,
 				8C3A37A31EC88D4400A914A5 /* SentinelsOptionsViewController.swift in Sources */,
 				8C2973EA1EE7284C0022A18A /* GalaxiesObject.swift in Sources */,
@@ -4127,6 +4171,7 @@
 				8C6A362E1FAF9D8600D2804D /* NoughtsAndCrossesMainViewController.swift in Sources */,
 				8C3A36D31EC88D4300A914A5 /* LineSweeperHelpViewController.swift in Sources */,
 				8C3A36331EC88D4200A914A5 /* BoxItUpGameScene.swift in Sources */,
+				8C35E3AB1FC4839100A26EE3 /* WallsOptionsViewController.swift in Sources */,
 				8C3A374F1EC88D4300A914A5 /* NurikabeOptionsViewController.swift in Sources */,
 				8C7474551FBED8BD00C4112C /* ParkLakesMainViewController.swift in Sources */,
 				8C9F32FD1ED1FCFF00E10965 /* TapDifferentlyGameState.swift in Sources */,
@@ -4163,6 +4208,7 @@
 				8CE9C3171F7914B800134093 /* KakurasuMainViewController.swift in Sources */,
 				8C3A37B11EC88D4400A914A5 /* SlitherLinkDocument.swift in Sources */,
 				8CC25CC31F87BB5A005560F7 /* KakuroDocument.swift in Sources */,
+				8C35E3A61FC4839100A26EE3 /* WallsObject.swift in Sources */,
 				8CE9C3161F7914B800134093 /* KakurasuHelpViewController.swift in Sources */,
 				8C3A36CD1EC88D4300A914A5 /* LineSweeperDocument.swift in Sources */,
 				8C3A36791EC88D4200A914A5 /* FenceItUpDocument.swift in Sources */,
@@ -4174,6 +4220,7 @@
 				8C3A361D1EC88D4200A914A5 /* BoxItAgainGameViewController.swift in Sources */,
 				8C35E38C1FC2844F00A26EE3 /* GardenerObject.swift in Sources */,
 				8C3A37B61EC88D4400A914A5 /* SlitherLinkGridNode.swift in Sources */,
+				8C35E3AA1FC4839100A26EE3 /* WallsHelpViewController.swift in Sources */,
 				8C3A36631EC88D4200A914A5 /* DigitalBattleShipsGameScene.swift in Sources */,
 				8C3A378E1EC88D4400A914A5 /* RoomsGame.swift in Sources */,
 				8CC3505A1E001D2800B8FD83 /* UITextViewExtensions.swift in Sources */,
@@ -4298,6 +4345,7 @@
 				8C3A36711EC88D4200A914A5 /* DominoGameViewController.swift in Sources */,
 				8C3A375B1EC88D4300A914A5 /* OrchardsOptionsViewController.swift in Sources */,
 				8C2964001FA20D620017A812 /* RobotCrosswordsMainViewController.swift in Sources */,
+				8C35E3A81FC4839100A26EE3 /* WallsGame.swift in Sources */,
 				8C9F32311ECF06C000E10965 /* TapaMainViewController.swift in Sources */,
 				8C9F32F81ED1FCFF00E10965 /* TapARowOptionsViewController.swift in Sources */,
 				8C9F32E61ED1FCFF00E10965 /* TapAlikeGameScene.swift in Sources */,
@@ -4342,6 +4390,7 @@
 				8C3A36941EC88D4200A914A5 /* FenceSentinelsGameState.swift in Sources */,
 				8C3A37CE1EC88D4400A914A5 /* SumscrapersGridNode.swift in Sources */,
 				8C2AF84C1ED6084300EC84AB /* PaintTheNurikabeHelpViewController.swift in Sources */,
+				8C35E3AE1FC4839100A26EE3 /* WallsMainViewController.swift in Sources */,
 				8C3A36651EC88D4200A914A5 /* DigitalBattleShipsGameViewController.swift in Sources */,
 				8C35E38E1FC2844F00A26EE3 /* GardenerHelpViewController.swift in Sources */,
 				8C9F32F01ED1FCFF00E10965 /* TapARowGame.swift in Sources */,
@@ -4470,6 +4519,7 @@
 				8CC350541E001D2800B8FD83 /* UIImageViewExtensions.swift in Sources */,
 				8C3A364B1EC88D4200A914A5 /* BusySeasGameScene.swift in Sources */,
 				8C9F32331ECF06C000E10965 /* TapaOptionsViewController.swift in Sources */,
+				8C35E3AC1FC4839100A26EE3 /* WallsGameScene.swift in Sources */,
 				8C9F32BE1ED1FB0700E10965 /* TapaIslandsOptionsViewController.swift in Sources */,
 				8C35E3931FC2844F00A26EE3 /* GardenerDocument.swift in Sources */,
 				8C3A37451EC88D4300A914A5 /* NurikabeDocument.swift in Sources */,
@@ -4584,6 +4634,7 @@
 				8C6A9BE61F812743002A44FF /* KropkiDocument.swift in Sources */,
 				8C3A371A1EC88D4300A914A5 /* MinesweeperGridNode.swift in Sources */,
 				8C3A36C81EC88D4300A914A5 /* LighthousesMainViewController.swift in Sources */,
+				8C35E3A41FC4839100A26EE3 /* WallsGridNode.swift in Sources */,
 				8C3A36F51EC88D4300A914A5 /* MagnetsGameViewController.swift in Sources */,
 				8C9F32F11ED1FCFF00E10965 /* TapARowGameScene.swift in Sources */,
 				8CC3503C1E001D2800B8FD83 /* CGPointExtensions.swift in Sources */,
@@ -4606,6 +4657,7 @@
 				8C2963F61FA20D620017A812 /* RobotFencesObject.swift in Sources */,
 				8C3A36A61EC88D4200A914A5 /* HitoriObject.swift in Sources */,
 				8CDAE8091F646C29000DE5AF /* BalancedTapasDocument.swift in Sources */,
+				8C35E3A91FC4839100A26EE3 /* WallsGameState.swift in Sources */,
 				8C3A372B1EC88D4300A914A5 /* MiniLitsOptionsViewController.swift in Sources */,
 				8C3A36201EC88D4200A914A5 /* BoxItAgainMainViewController.swift in Sources */,
 				8C6A36101FAF97AF00D2804D /* TheOddBrickDocument.swift in Sources */,

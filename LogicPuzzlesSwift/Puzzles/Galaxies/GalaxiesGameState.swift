@@ -142,7 +142,7 @@ class GalaxiesGameState: GridGameState {
             pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
         }
         for area in areas {
-            var rng = game.galaxies.filter({p in area.contains(Position(p.row / 2, p.col / 2))})
+            let rng = game.galaxies.filter({p in area.contains(Position(p.row / 2, p.col / 2))})
             guard rng.count == 1 else {
                 for p in rng {
                     pos2state[p] = .normal

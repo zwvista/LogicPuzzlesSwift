@@ -40,7 +40,7 @@ class TapDifferentlyGame: GridGame<TapDifferentlyGameViewController> {
                 let s = str[c * 4...c * 4 + 3].trimmed()
                 guard s != "" else {continue}
                 pos2hint[p] = [Int]()
-                for ch in s.trimmed().characters {
+                for ch in s.trimmed() {
                     switch ch {
                     case "0"..."9":
                         pos2hint[p]!.append(ch.toInt!)

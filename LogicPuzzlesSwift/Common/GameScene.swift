@@ -56,15 +56,16 @@ class GameScene<GS: GameStateBase>: SKScene {
         addLabel(text: text, fontColor: fontColor, point: point, nodeName: nodeName, size: CGSize(width: gridNode.blockSize, height: gridNode.blockSize), sampleText: sampleText)
     }
     
-    func addImage(imageNamed: String, color: SKColor, colorBlendFactor: CGFloat, point: CGPoint, nodeName: String) {
-        let lightbulbNode = SKSpriteNode(imageNamed: imageNamed)
-        let scalingFactor = min(gridNode.blockSize / lightbulbNode.frame.width, gridNode.blockSize / lightbulbNode.frame.height)
-        lightbulbNode.setScale(scalingFactor)
-        lightbulbNode.position = point
-        lightbulbNode.name = nodeName
-        lightbulbNode.color = color
-        lightbulbNode.colorBlendFactor = colorBlendFactor
-        gridNode.addChild(lightbulbNode)
+    func addImage(imageNamed: String, color: SKColor, colorBlendFactor: CGFloat, point: CGPoint, nodeName: String, zRotation: CGFloat = 0) {
+        let imageNode = SKSpriteNode(imageNamed: imageNamed)
+        let scalingFactor = min(gridNode.blockSize / imageNode.frame.width, gridNode.blockSize / imageNode.frame.height)
+        imageNode.setScale(scalingFactor)
+        imageNode.position = point
+        imageNode.name = nodeName
+        imageNode.color = color
+        imageNode.colorBlendFactor = colorBlendFactor
+        imageNode.zRotation = zRotation
+        gridNode.addChild(imageNode)
     }
     
     func addDotMarker2(color: SKColor, point: CGPoint, nodeName: String) {
