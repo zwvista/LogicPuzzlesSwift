@@ -46,7 +46,7 @@ class WallsGameScene: GameScene<WallsGameState> {
                 let hintNodeName = "hint" + nodeNameSuffix
                 func addWall(isHorz: Bool) {
                     addImage(imageNamed: "tree", color: .red, colorBlendFactor: 0.0, point: point, nodeName: isHorz ? horzNodeName : vertNodeName,
-                        zRotation: isHorz ? CGFloat(Double.pi / 2) : 0.0)
+                        zRotation: isHorz ? CGFloat(-Double.pi / 2) : 0.0)
                 }
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 guard String(describing: o1) != String(describing: o2) else {continue}
