@@ -26,7 +26,8 @@ class GardenerGame: GridGame<GardenerGameViewController> {
     var areas = [[Position]]()
     var dots: GridDots!
     var pos2hint = [Position: (Int, Int)]()
-    
+    var pos2area = [Position: Int]()
+
     init(layout: [String], delegate: GardenerGameViewController? = nil) {
         super.init(delegate: delegate)
         
@@ -75,7 +76,6 @@ class GardenerGame: GridGame<GardenerGameViewController> {
                 }
             }
         }
-        var pos2area = [Position: Int]()
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map({$0.0})

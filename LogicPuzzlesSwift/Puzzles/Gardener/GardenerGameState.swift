@@ -133,8 +133,11 @@ class GardenerGameState: GridGameState {
             }
         }
         var trees = [Position]()
-        func f() {
-            if trees.count > 3 {
+        func trees2areaCount() -> Int {
+            return Set<Int>(trees.map{game.pos2area[$0]!}).count
+        }
+        func checkTrees() {
+            if trees2areaCount() > 2 {
                 isSolved = false
                 for p in trees {
                     self[p] = .tree(state: .error)
@@ -142,19 +145,19 @@ class GardenerGameState: GridGameState {
             }
             trees.removeAll()
         }
-        func f2(p: Position, indexes: [Int]) {
+        func checkForbidden(p: Position, indexes: [Int]) {
             guard allowedObjectsOnly else {return}
-            var n = 0
             for i in indexes {
                 let os = GardenerGame.offset[i]
                 var p2 = p + os
                 while isValid(p: p2) {
                     guard case .tree = self[p2] else {break}
-                    n += 1
+                    trees.append(p2)
                     p2 += os
                 }
             }
-            if n >= 3 {self[p] = .forbidden}
+            if trees2areaCount() > 2 {self[p] = .forbidden}
+            trees.removeAll()
         }
         for r in 0..<rows {
             for c in 0..<cols {
@@ -163,13 +166,13 @@ class GardenerGameState: GridGameState {
                 case .tree:
                     trees.append(p)
                 case .empty, .marker:
-                    f2(p: p, indexes: [1,3])
-                    fallthrough
+                    checkTrees()
+                    checkForbidden(p: p, indexes: [1,3])
                 default:
-                    f()
+                    checkTrees()
                 }
             }
-            f()
+            checkTrees()
         }
         for c in 0..<cols {
             for r in 0..<rows {
@@ -178,13 +181,13 @@ class GardenerGameState: GridGameState {
                 case .tree:
                     trees.append(p)
                 case .empty, .marker:
-                    f2(p: p, indexes: [0,2])
-                    fallthrough
+                    checkTrees()
+                    checkForbidden(p: p, indexes: [0,2])
                 default:
-                    f()
+                    checkTrees()
                 }
             }
-            f()
+            checkTrees()
         }
     }
 }

@@ -13,6 +13,10 @@ class GardenerGameScene: GameScene<GardenerGameState> {
         get {return getGridNode() as! GardenerGridNode}
         set {setGridNode(gridNode: newValue)}
     }
+    
+    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
+        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+    }
 
     override func levelInitialized(_ game: AnyObject, state: GardenerGameState, skView: SKView) {
         let game = game as! GardenerGame
@@ -50,9 +54,28 @@ class GardenerGameScene: GameScene<GardenerGameState> {
         lineNode.strokeColor = .yellow
         lineNode.name = "line"
         gridNode.addChild(lineNode)
+        
+        // addHints
+        for (p, (n, _)) in game.pos2hint {
+            let point = gridNode.gridPosition(p: p)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let hintNodeName = "hint" + nodeNameSuffix
+            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
+        }
     }
     
     override func levelUpdated(from stateFrom: GardenerGameState, to stateTo: GardenerGameState) {
+        for (p, (n, _)) in stateFrom.game.pos2hint {
+            let point = gridNode.gridPosition(p: p)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let hintNodeName = "hint" + nodeNameSuffix
+            let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
+            if s1 != s2 {
+                removeNode(withName: hintNodeName)
+                addHint(n: n, s: s2, point: point, nodeName: hintNodeName)
+            }
+        }
+        var trees = Set<Position>()
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -85,12 +108,23 @@ class GardenerGameScene: GameScene<GardenerGameState> {
                 case .forbidden:
                     addForbidden()
                 case let .tree(s):
+                    trees.insert(p)
                     addTree(s: s)
                 case .marker:
                     addMarker()
                 default:
                     break
                 }
+            }
+        }
+        for (p, (n, _)) in stateFrom.game.pos2hint {
+            let point = gridNode.gridPosition(p: p)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let hintNodeName = "hint" + nodeNameSuffix
+            let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
+            if s1 != s2 || trees.contains(p) {
+                removeNode(withName: hintNodeName)
+                addHint(n: n, s: s2, point: point, nodeName: hintNodeName)
             }
         }
     }

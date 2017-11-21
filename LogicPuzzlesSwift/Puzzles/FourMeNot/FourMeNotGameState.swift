@@ -126,7 +126,7 @@ class FourMeNotGameState: GridGameState {
         if nodesExplored.count != pos2node.count {isSolved = false}
         
         var trees = [Position]()
-        func f() {
+        func checkTrees() {
             if trees.count > 3 {
                 isSolved = false
                 for p in trees {
@@ -135,19 +135,19 @@ class FourMeNotGameState: GridGameState {
             }
             trees.removeAll()
         }
-        func f2(p: Position, indexes: [Int]) {
+        func checkForbidden(p: Position, indexes: [Int]) {
             guard allowedObjectsOnly else {return}
-            var n = 0
             for i in indexes {
                 let os = FourMeNotGame.offset[i]
                 var p2 = p + os
                 while isValid(p: p2) {
                     guard case .tree = self[p2] else {break}
-                    n += 1
+                    trees.append(p2)
                     p2 += os
                 }
             }
-            if n >= 3 {self[p] = .forbidden}
+            if trees.count >= 3 {self[p] = .forbidden}
+            trees.removeAll()
         }
         for r in 0..<rows {
             for c in 0..<cols {
@@ -156,13 +156,13 @@ class FourMeNotGameState: GridGameState {
                 case .tree:
                     trees.append(p)
                 case .empty, .marker:
-                    f2(p: p, indexes: [1,3])
-                    fallthrough
+                    checkTrees()
+                    checkForbidden(p: p, indexes: [1,3])
                 default:
-                    f()
+                    checkTrees()
                 }
             }
-            f()
+            checkTrees()
         }
         for c in 0..<cols {
             for r in 0..<rows {
@@ -171,13 +171,13 @@ class FourMeNotGameState: GridGameState {
                 case .tree:
                     trees.append(p)
                 case .empty, .marker:
-                    f2(p: p, indexes: [0,2])
-                    fallthrough
+                    checkTrees()
+                    checkForbidden(p: p, indexes: [0,2])
                 default:
-                    f()
+                    checkTrees()
                 }
             }
-            f()
+            checkTrees()
         }
     }
 }
