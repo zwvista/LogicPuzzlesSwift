@@ -108,22 +108,38 @@ class NumberLinkGameState: GridGameState {
             }
         }
         for (p, node) in pos2node {
+            pos2state[p] = .normal
             guard let indexes = pos2indexes[p] else {continue}
             for i in indexes {
                 let p2 = p + NumberLinkGame.offset[i]
-                guard let node2 = pos2node[p2] else {continue}
+                let node2 = pos2node[p2]!
                 g.addEdge(node, neighbor: node2)
             }
+            guard indexes.count == 2 else {continue}
+            let (i1, i2) = (indexes[0], indexes[1])
+            func f(i: Int, isRight: Bool) {
+                let p2 = p + NumberLinkGame.offset[i]
+                guard var indexes2 = pos2indexes[p2] else {return}
+                guard indexes2.count == 2 else {return}
+                let i1 = (i + 2) % 4
+                indexes2.removeFirst(i1)
+                let i2 = indexes2[0]
+                if isRight && (i1 + 3) % 4 == i2 || !isRight && (i1 + 1) % 4 == i2 {pos2state[p] = .error; isSolved = false}
+            }
+            if (i1 + 3) % 4 == i2 {f(i: i2, isRight: true)}
+            if (i2 + 3) % 4 == i1 {f(i: i1, isRight: true)}
+            if (i1 + 1) % 4 == i2 {f(i: i2, isRight: false)}
+            if (i2 + 1) % 4 == i1 {f(i: i1, isRight: false)}
         }
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
             pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
             let rng1 = area.filter{game.pos2hint[$0] != nil}
-            guard !rng1.isEmpty else {continue}
+            guard !rng1.isEmpty else {isSolved = false; continue}
             let rng2 = game.hint2rng[game.pos2hint[rng1[0]]!]!
-            let (b1, b2) = (rng1.difference(rng2).isEmpty, rng2.difference(rng1).isEmpty)
-            let s: HintState = !b1 ? .error : b2 ? .complete : .normal
+            let (b1, b2, b3) = (rng1.difference(rng2).isEmpty, rng2.difference(rng1).isEmpty, area.testAll{self.pos2state[$0] != .error})
+            let s: HintState = !b1 || !b3 ? .error : b2 ? .complete : .normal
             if s != .complete {isSolved = false}
             for p in rng1 {
                 pos2state[p] = s
