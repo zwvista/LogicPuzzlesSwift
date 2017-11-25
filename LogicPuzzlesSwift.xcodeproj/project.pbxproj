@@ -108,6 +108,17 @@
 		8C2AF84F1ED6084300EC84AB /* PaintTheNurikabeOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8441ED6084300EC84AB /* PaintTheNurikabeOptionsViewController.swift */; };
 		8C31FE6E1D90E415008793BF /* SharkORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; };
 		8C31FE6F1D90E415008793BF /* SharkORM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8C32D8DC1FC92B5F00BA2D07 /* RippleEffectGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8D01FC92B5F00BA2D07 /* RippleEffectGameViewController.swift */; };
+		8C32D8DD1FC92B5F00BA2D07 /* RippleEffectMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8D11FC92B5F00BA2D07 /* RippleEffectMainViewController.swift */; };
+		8C32D8DE1FC92B5F00BA2D07 /* RippleEffectOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8D21FC92B5F00BA2D07 /* RippleEffectOptionsViewController.swift */; };
+		8C32D8DF1FC92B5F00BA2D07 /* RippleEffectGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8D31FC92B5F00BA2D07 /* RippleEffectGameScene.swift */; };
+		8C32D8E01FC92B5F00BA2D07 /* RippleEffectGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8D41FC92B5F00BA2D07 /* RippleEffectGame.swift */; };
+		8C32D8E11FC92B5F00BA2D07 /* RippleEffectGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8D51FC92B5F00BA2D07 /* RippleEffectGameState.swift */; };
+		8C32D8E21FC92B5F00BA2D07 /* RippleEffectHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8D61FC92B5F00BA2D07 /* RippleEffectHelpViewController.swift */; };
+		8C32D8E31FC92B5F00BA2D07 /* RippleEffectGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8D71FC92B5F00BA2D07 /* RippleEffectGridNode.swift */; };
+		8C32D8E41FC92B5F00BA2D07 /* RippleEffectObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8D81FC92B5F00BA2D07 /* RippleEffectObject.swift */; };
+		8C32D8E51FC92B5F00BA2D07 /* RippleEffect.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C32D8D91FC92B5F00BA2D07 /* RippleEffect.xml */; };
+		8C32D8E61FC92B5F00BA2D07 /* RippleEffectDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8DA1FC92B5F00BA2D07 /* RippleEffectDocument.swift */; };
 		8C35E38B1FC2844F00A26EE3 /* GardenerGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E37F1FC2844E00A26EE3 /* GardenerGridNode.swift */; };
 		8C35E38C1FC2844F00A26EE3 /* GardenerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E3801FC2844E00A26EE3 /* GardenerObject.swift */; };
 		8C35E38D1FC2844F00A26EE3 /* GardenerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E3811FC2844E00A26EE3 /* GardenerGame.swift */; };
@@ -1081,6 +1092,17 @@
 		8C2AF8431ED6084300EC84AB /* PaintTheNurikabeObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintTheNurikabeObject.swift; sourceTree = "<group>"; };
 		8C2AF8441ED6084300EC84AB /* PaintTheNurikabeOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintTheNurikabeOptionsViewController.swift; sourceTree = "<group>"; };
 		8C31FE6D1D90E415008793BF /* SharkORM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SharkORM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C32D8D01FC92B5F00BA2D07 /* RippleEffectGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleEffectGameViewController.swift; sourceTree = "<group>"; };
+		8C32D8D11FC92B5F00BA2D07 /* RippleEffectMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleEffectMainViewController.swift; sourceTree = "<group>"; };
+		8C32D8D21FC92B5F00BA2D07 /* RippleEffectOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleEffectOptionsViewController.swift; sourceTree = "<group>"; };
+		8C32D8D31FC92B5F00BA2D07 /* RippleEffectGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleEffectGameScene.swift; sourceTree = "<group>"; };
+		8C32D8D41FC92B5F00BA2D07 /* RippleEffectGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleEffectGame.swift; sourceTree = "<group>"; };
+		8C32D8D51FC92B5F00BA2D07 /* RippleEffectGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleEffectGameState.swift; sourceTree = "<group>"; };
+		8C32D8D61FC92B5F00BA2D07 /* RippleEffectHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleEffectHelpViewController.swift; sourceTree = "<group>"; };
+		8C32D8D71FC92B5F00BA2D07 /* RippleEffectGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleEffectGridNode.swift; sourceTree = "<group>"; };
+		8C32D8D81FC92B5F00BA2D07 /* RippleEffectObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleEffectObject.swift; sourceTree = "<group>"; };
+		8C32D8D91FC92B5F00BA2D07 /* RippleEffect.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RippleEffect.xml; sourceTree = "<group>"; };
+		8C32D8DA1FC92B5F00BA2D07 /* RippleEffectDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleEffectDocument.swift; sourceTree = "<group>"; };
 		8C35E37F1FC2844E00A26EE3 /* GardenerGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenerGridNode.swift; sourceTree = "<group>"; };
 		8C35E3801FC2844E00A26EE3 /* GardenerObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenerObject.swift; sourceTree = "<group>"; };
 		8C35E3811FC2844E00A26EE3 /* GardenerGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenerGame.swift; sourceTree = "<group>"; };
@@ -2159,6 +2181,24 @@
 			path = PaintTheNurikabe;
 			sourceTree = "<group>";
 		};
+		8C32D8CF1FC92B5F00BA2D07 /* RippleEffect */ = {
+			isa = PBXGroup;
+			children = (
+				8C32D8D91FC92B5F00BA2D07 /* RippleEffect.xml */,
+				8C32D8DA1FC92B5F00BA2D07 /* RippleEffectDocument.swift */,
+				8C32D8D41FC92B5F00BA2D07 /* RippleEffectGame.swift */,
+				8C32D8D31FC92B5F00BA2D07 /* RippleEffectGameScene.swift */,
+				8C32D8D51FC92B5F00BA2D07 /* RippleEffectGameState.swift */,
+				8C32D8D01FC92B5F00BA2D07 /* RippleEffectGameViewController.swift */,
+				8C32D8D71FC92B5F00BA2D07 /* RippleEffectGridNode.swift */,
+				8C32D8D61FC92B5F00BA2D07 /* RippleEffectHelpViewController.swift */,
+				8C32D8D11FC92B5F00BA2D07 /* RippleEffectMainViewController.swift */,
+				8C32D8D81FC92B5F00BA2D07 /* RippleEffectObject.swift */,
+				8C32D8D21FC92B5F00BA2D07 /* RippleEffectOptionsViewController.swift */,
+			);
+			path = RippleEffect;
+			sourceTree = "<group>";
+		};
 		8C35E37E1FC2844E00A26EE3 /* Gardener */ = {
 			isa = PBXGroup;
 			children = (
@@ -2268,6 +2308,7 @@
 				8C9F324C1ED1FAF600E10965 /* Pata */,
 				8C3A35661EC88D4100A914A5 /* PowerGrid */,
 				8C3A35731EC88D4200A914A5 /* ProductSentinels */,
+				8C32D8CF1FC92B5F00BA2D07 /* RippleEffect */,
 				8C2963E11FA20D620017A812 /* RobotCrosswords */,
 				8C2963D51FA20D620017A812 /* RobotFences */,
 				8C3A35801EC88D4200A914A5 /* Rooms */,
@@ -3812,6 +3853,7 @@
 				8C3A37B01EC88D4400A914A5 /* SlitherLink.xml in Resources */,
 				8C9F32291ECF06C000E10965 /* Tapa.xml in Resources */,
 				8C3A36A81EC88D4200A914A5 /* LightBattleShips.xml in Resources */,
+				8C32D8E51FC92B5F00BA2D07 /* RippleEffect.xml in Resources */,
 				8C3A36901EC88D4200A914A5 /* FenceSentinels.xml in Resources */,
 				8C3A37081EC88D4300A914A5 /* MineShips.xml in Resources */,
 				8C3A36541EC88D4200A914A5 /* Clouds.xml in Resources */,
@@ -3942,6 +3984,7 @@
 				8C35E38B1FC2844F00A26EE3 /* GardenerGridNode.swift in Sources */,
 				8C3A364E1EC88D4200A914A5 /* BusySeasGridNode.swift in Sources */,
 				8C3A36231EC88D4200A914A5 /* BoxItAgainOptionsViewController.swift in Sources */,
+				8C32D8DF1FC92B5F00BA2D07 /* RippleEffectGameScene.swift in Sources */,
 				8C3A37371EC88D4300A914A5 /* MosaikOptionsViewController.swift in Sources */,
 				8C3A37BD1EC88D4400A914A5 /* SnailDocument.swift in Sources */,
 				8C9F32B61ED1FB0700E10965 /* TapaIslandsGame.swift in Sources */,
@@ -4050,6 +4093,7 @@
 				8CE9C3111F7914B800134093 /* KakurasuGame.swift in Sources */,
 				8C3A37661EC88D4300A914A5 /* PairakabeObject.swift in Sources */,
 				8C3A36251EC88D4200A914A5 /* BoxItAroundDocument.swift in Sources */,
+				8C32D8DE1FC92B5F00BA2D07 /* RippleEffectOptionsViewController.swift in Sources */,
 				8C3A37B51EC88D4400A914A5 /* SlitherLinkGameViewController.swift in Sources */,
 				8CDAE7F01F5BFBD8000DE5AF /* OverUnderDocument.swift in Sources */,
 				8C64A2EC1DE0891000AB6C09 /* GameTables.swift in Sources */,
@@ -4201,12 +4245,14 @@
 				8C3A36E31EC88D4300A914A5 /* LitsOptionsViewController.swift in Sources */,
 				8C3A35EB1EC88D4200A914A5 /* AbcGameScene.swift in Sources */,
 				8C3A36361EC88D4200A914A5 /* BoxItUpGridNode.swift in Sources */,
+				8C32D8DD1FC92B5F00BA2D07 /* RippleEffectMainViewController.swift in Sources */,
 				8C3A37DF1EC88D4400A914A5 /* TatamiOptionsViewController.swift in Sources */,
 				8C9F322A1ECF06C000E10965 /* TapaDocument.swift in Sources */,
 				8CC350411E001D2800B8FD83 /* DoubleExtensions.swift in Sources */,
 				8C3A36501EC88D4200A914A5 /* BusySeasMainViewController.swift in Sources */,
 				8C6A9BEE1F812743002A44FF /* KropkiObject.swift in Sources */,
 				8C3A37B21EC88D4400A914A5 /* SlitherLinkGame.swift in Sources */,
+				8C32D8E01FC92B5F00BA2D07 /* RippleEffectGame.swift in Sources */,
 				8C3A373D1EC88D4300A914A5 /* NeighboursGameViewController.swift in Sources */,
 				8C3A37A51EC88D4400A914A5 /* SkyscrapersDocument.swift in Sources */,
 				8C2AF8351ED5FB0000EC84AB /* NumberPathMainViewController.swift in Sources */,
@@ -4223,6 +4269,7 @@
 				8C6A362C1FAF9D8600D2804D /* NoughtsAndCrossesGridNode.swift in Sources */,
 				8C506F131F6D2C9300BA4332 /* SnakeGameViewController.swift in Sources */,
 				8C3A37C61EC88D4400A914A5 /* SnailObject.swift in Sources */,
+				8C32D8E31FC92B5F00BA2D07 /* RippleEffectGridNode.swift in Sources */,
 				8CDAE80E1F646C29000DE5AF /* BalancedTapasGridNode.swift in Sources */,
 				8C3A36EC1EC88D4300A914A5 /* LoopyMainViewController.swift in Sources */,
 				8C74743A1FBDEAD100C4112C /* HolidayIslandGameViewController.swift in Sources */,
@@ -4413,6 +4460,7 @@
 				8CC3504C1E001D2800B8FD83 /* UIApplicationExtensions.swift in Sources */,
 				8C9F325A1ED1FAF600E10965 /* PataGame.swift in Sources */,
 				8CC350391E001D2800B8FD83 /* BoolExtensions.swift in Sources */,
+				8C32D8DC1FC92B5F00BA2D07 /* RippleEffectGameViewController.swift in Sources */,
 				8C3A37011EC88D4300A914A5 /* MasyuGameViewController.swift in Sources */,
 				8C3A37881EC88D4400A914A5 /* ProductSentinelsMainViewController.swift in Sources */,
 				8C6D37381DC421180052202C /* HomeDocument.swift in Sources */,
@@ -4492,6 +4540,7 @@
 				8C2319F11FB88E3F0021C680 /* TierraDelFuegoDocument.swift in Sources */,
 				8CC350551E001D2800B8FD83 /* UILabelExtensions.swift in Sources */,
 				8C6A362A1FAF9D8600D2804D /* NoughtsAndCrossesGameState.swift in Sources */,
+				8C32D8E41FC92B5F00BA2D07 /* RippleEffectObject.swift in Sources */,
 				8C3A36D01EC88D4300A914A5 /* LineSweeperGameState.swift in Sources */,
 				8C3A36AC1EC88D4300A914A5 /* LightBattleShipsGameState.swift in Sources */,
 				8C9F32461ED1FAD400E10965 /* BWTapaGameViewController.swift in Sources */,
@@ -4527,6 +4576,7 @@
 				8C3A36471EC88D4200A914A5 /* BridgesOptionsViewController.swift in Sources */,
 				8C9F325E1ED1FAF600E10965 /* PataGridNode.swift in Sources */,
 				8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */,
+				8C32D8E61FC92B5F00BA2D07 /* RippleEffectDocument.swift in Sources */,
 				8C3A364D1EC88D4200A914A5 /* BusySeasGameViewController.swift in Sources */,
 				8CC350401E001D2800B8FD83 /* DictionaryExtensions.swift in Sources */,
 				8C3A37421EC88D4300A914A5 /* NeighboursObject.swift in Sources */,
@@ -4595,6 +4645,7 @@
 				8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */,
 				8C35E3BF1FC6DAE600A26EE3 /* NumberLinkObject.swift in Sources */,
 				8C3A37CF1EC88D4400A914A5 /* SumscrapersHelpViewController.swift in Sources */,
+				8C32D8E21FC92B5F00BA2D07 /* RippleEffectHelpViewController.swift in Sources */,
 				8C3A36EA1EC88D4300A914A5 /* LoopyGridNode.swift in Sources */,
 				8C7474501FBED8BD00C4112C /* ParkLakesGame.swift in Sources */,
 				8C3A37271EC88D4300A914A5 /* MiniLitsHelpViewController.swift in Sources */,
@@ -4638,6 +4689,7 @@
 				8C2AF8311ED5FB0000EC84AB /* NumberPathGameState.swift in Sources */,
 				8C3A36431EC88D4200A914A5 /* BridgesHelpViewController.swift in Sources */,
 				8C3A36291EC88D4200A914A5 /* BoxItAroundGameViewController.swift in Sources */,
+				8C32D8E11FC92B5F00BA2D07 /* RippleEffectGameState.swift in Sources */,
 				8C3A374C1EC88D4300A914A5 /* NurikabeMainViewController.swift in Sources */,
 				8C3A36761EC88D4200A914A5 /* DominoObject.swift in Sources */,
 				8C3A367A1EC88D4200A914A5 /* FenceItUpGame.swift in Sources */,

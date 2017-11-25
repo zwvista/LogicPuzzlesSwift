@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. The goal is to fill the Rooms you see on the board, with numbers 1 to room size.
+2. While doing this, you must consider the Ripple Effect. The same number can only appear on the same row or column at the distance of the number itself.
+3. For example a 2 must be separated by another 2 on the same row or column by at least two tiles.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+ - - - - - `
+|2  |1   4|`
+     - -   `
+|4  |2 1|3|`
+   - -   - `
+|5|   | |1|`
+ -     -   `
+|1|5 3 4|2|`
+ - - - - - `
+|     |  1|`
+ - - - - - `
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+ - - - - - `
+| | |1|  3|`
+     -     `
+| |   |5  |`
+ -       - `
+|4|   | | |`
+   - - -   `
+|1 2  |   |`
+   - -     `
+| |1  |3 4|`
+ - - - - - `
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+ - - - - - `
+|  4|  2| |`
+       - - `
+|2  |3|  4|`
+ - -     - `
+|  2|4| |2|`
+     -     `
+|  3| | |1|`
+   - - -   `
+|5|1  |   |`
+ - - - - - `
+    ]]>
+  </level>
+</levels>
+</puzzle>

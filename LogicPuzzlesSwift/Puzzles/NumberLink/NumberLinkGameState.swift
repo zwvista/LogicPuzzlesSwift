@@ -119,12 +119,11 @@ class NumberLinkGameState: GridGameState {
             let (i1, i2) = (indexes[0], indexes[1])
             func f(i: Int, isRight: Bool) {
                 let p2 = p + NumberLinkGame.offset[i]
-                guard var indexes2 = pos2indexes[p2] else {return}
-                guard indexes2.count == 2 else {return}
-                let i1 = (i + 2) % 4
+                guard var indexes2 = pos2indexes[p2], indexes2.count == 2 else {return}
+                let i3 = (i + 2) % 4
                 indexes2.removeFirst(i1)
-                let i2 = indexes2[0]
-                if isRight && (i1 + 3) % 4 == i2 || !isRight && (i1 + 1) % 4 == i2 {pos2state[p] = .error; isSolved = false}
+                let i4 = indexes2[0]
+                if isRight && (i3 + 3) % 4 == i4 || !isRight && (i3 + 1) % 4 == i4 {pos2state[p] = .error; isSolved = false}
             }
             if (i1 + 3) % 4 == i2 {f(i: i2, isRight: true)}
             if (i2 + 3) % 4 == i1 {f(i: i1, isRight: true)}
