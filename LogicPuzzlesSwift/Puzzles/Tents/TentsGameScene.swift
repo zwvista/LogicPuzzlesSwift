@@ -19,11 +19,11 @@ class TentsGameScene: GameScene<TentsGameState> {
         guard n >= 0 else {return}
         let nodeNameSuffix = "-\(p.row)-\(p.col)"
         let hintNodeName = "hint" + nodeNameSuffix
-        addHintNumber(n: n, s: s, point: point, nodeName: hintNodeName)
+        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: hintNodeName)
     }
     
-    func addHintNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+    func addTree(s: AllowedObjectState, point: CGPoint, nodeName: String) {
+        addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: TentsGameState, skView: SKView) {
@@ -53,12 +53,13 @@ class TentsGameScene: GameScene<TentsGameState> {
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
+                let treeNodeName = "tree" + nodeNameSuffix
                 switch state[p] {
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
-                case .tree:
+                case let .tree(s):
                     let point = gridNode.gridPosition(p: p)
-                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "tree")
+                    addTree(s: s, point: point, nodeName: treeNodeName)
                 default:
                     break
                 }
@@ -96,22 +97,18 @@ class TentsGameScene: GameScene<TentsGameState> {
                 let tentNodeName = "tent" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                func addTent(s: AllowedObjectState) {
-                    addImage(imageNamed: "tent", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: tentNodeName)
-                }
-                func removeTent() { removeNode(withName: tentNodeName) }
-                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
+                let treeNodeName = "tree" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
                 guard String(describing: o1) != String(describing: o2) else {continue}
                 switch o1 {
                 case .forbidden:
-                    removeForbidden()
+                    removeNode(withName: forbiddenNodeName)
                 case .tent:
-                    removeTent()
+                    removeNode(withName: tentNodeName)
+                case .tree:
+                    removeNode(withName: treeNodeName)
                 case .marker:
-                    removeMarker()
+                    removeNode(withName: markerNodeName)
                 default:
                     break
                 }
@@ -119,9 +116,11 @@ class TentsGameScene: GameScene<TentsGameState> {
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case let .tent(s):
-                    addTent(s: s)
+                    addImage(imageNamed: "tent", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: tentNodeName)
+                case let .tree(s):
+                    addTree(s: s, point: point, nodeName: treeNodeName)
                 case .marker:
-                    addMarker()
+                    addDotMarker(point: point, nodeName: markerNodeName)
                 default:
                     break
                 }                

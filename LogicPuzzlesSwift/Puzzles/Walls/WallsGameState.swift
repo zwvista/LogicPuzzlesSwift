@@ -100,6 +100,10 @@ class WallsGameState: GridGameState {
                 let p = Position(r, c)
                 switch self[p] {
                 case .empty:
+                    // 1. In Walls you must fill the board with straight horizontal and
+                    // vertical lines (walls) that stem from each number.
+                    // 4. Not every wall piece must be connected with a number, but the
+                    // board must be filled with wall pieces.
                     isSolved = false
                 case let .hint(n2, _):
                     var n1 = 0
@@ -108,12 +112,14 @@ class WallsGameState: GridGameState {
                         var p2 = p + os
                         while isValid(p: p2) {
                             if i % 2 == 0 {
+                                // 3. Wall pieces have two ways to be put, horizontally or vertically.
                                 if case .vert = self[p2] {
                                     n1 += 1
                                 } else {
                                     break
                                 }
                             } else {
+                                // 3. Wall pieces have two ways to be put, horizontally or vertically.
                                 if case .horz = self[p2] {
                                     n1 += 1
                                 } else {
@@ -123,6 +129,8 @@ class WallsGameState: GridGameState {
                             p2 += os
                         }
                     }
+                    // 2. The number itself tells you the total length of Wall segments
+                    // connected to it.
                     let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
                     if s != .complete {isSolved = false}
                     self[p] = .hint(walls: n2, state: s)

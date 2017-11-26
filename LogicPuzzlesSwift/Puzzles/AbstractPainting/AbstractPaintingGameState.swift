@@ -61,6 +61,7 @@ class AbstractPaintingGameState: GridGameState {
     func setObject(move: inout AbstractPaintingGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && self[p] != move.obj else {return false}
+        // 3. The region of the painting can be entirely hidden or revealed.
         for p2 in game.areas[game.pos2area[p]!] {
             self[p2] = move.obj
         }

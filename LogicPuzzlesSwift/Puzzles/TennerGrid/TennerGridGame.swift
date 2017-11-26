@@ -10,10 +10,9 @@ import Foundation
 
 class TennerGridGame: GridGame<TennerGridGameViewController> {
     static let offset = [
-        Position(-1, 0),
-        Position(0, 1),
+        Position(1, -1),
         Position(1, 0),
-        Position(0, -1),
+        Position(1, 1),
     ]
 
     var objArray = [Int]()

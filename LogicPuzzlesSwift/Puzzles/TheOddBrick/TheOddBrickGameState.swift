@@ -100,6 +100,8 @@ class TheOddBrickGameState: GridGameState {
         func f(nums: [Int], s: inout HintState) {
             let count = nums.count
             let nums2 = Set<Int>(nums).sorted()
+            // 3. Each row and column contains numbers 1 to N, where N is the side of
+            // the board.
             s = nums2.first! == 0 ? .normal : nums2.count == count ? .complete : .error
             if s != .complete {isSolved = false}
         }
@@ -111,6 +113,8 @@ class TheOddBrickGameState: GridGameState {
         }
         for i in 0..<game.areas.count {
             let nums = game.areas[i].map{self[$0]}
+            // 2. Each 2*1 brick contains and odd and an even number, while 1*1 bricks
+            // can contain any number.
             area2state[i] = nums.contains(0) ? .normal : nums.count == 1 || nums[0] % 2 == 0 && nums[1] % 2 == 1 || nums[0] % 2 == 1 && nums[1] % 2 == 0 ? .complete : .error
             if area2state[i] != .complete {isSolved = false}
         }

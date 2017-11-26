@@ -140,6 +140,9 @@ class TierraDelFuegoGameState: GridGameState {
             let area = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
             pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
             if case .tree = self[kv.key] {
+                // 3. The archipelago is peculiar because all bodies of water separating the
+                // islands are identical in shape and occupied a 2*1 or 1*2 space.
+                // 4. These bodies of water can only touch diagonally.
                 if area.count != 2 {
                     isSolved = false
                 } else if allowedObjectsOnly {
@@ -164,6 +167,8 @@ class TierraDelFuegoGameState: GridGameState {
                     }
                 }
             } else {
+                // 2. Being organized in tribes, each tribe, marked with a different letter,
+                // has occupied an island in the archipelago.
                 var ids = Set<Character>()
                 for p in area {
                     if case let .hint(id, _) = self[p] {

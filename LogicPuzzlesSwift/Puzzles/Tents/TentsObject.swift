@@ -13,7 +13,7 @@ enum TentsObject {
     case forbidden
     case marker
     case tent(state: AllowedObjectState)
-    case tree
+    case tree(state: AllowedObjectState)
     init() {
         self = .empty
     }
