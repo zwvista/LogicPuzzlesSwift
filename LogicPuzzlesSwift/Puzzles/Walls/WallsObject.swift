@@ -10,7 +10,6 @@ import Foundation
 
 enum WallsObject {
     case empty
-    case forbidden
     case horz
     case vert
     case hint(walls: Int, state: HintState)
