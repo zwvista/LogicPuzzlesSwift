@@ -133,10 +133,11 @@ class MiniLitsGameState: GridGameState {
         var blocks = [[Position]]()
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let block = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
+            let block = pos2node.filter{(p, _) in nodesExplored.contains(p.description)}.map{$0.0}
             blocks.append(block)
-            pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
+            pos2node = pos2node.filter{(p, _) in !nodesExplored.contains(p.description)}
         }
+        // 4. All the shaded cells should form a valid Nurikabe.
         if blocks.count != 1 {isSolved = false}
         var infos = [MiniLitsAreaInfo]()
         for i in 0..<game.areas.count {
@@ -182,24 +183,29 @@ class MiniLitsGameState: GridGameState {
                 }
             }
             if treeCount > 3 || treeCount == 3 && info.blockIndexes.count > 1 {notSolved(info: info)}
+            // 2. The board is divided into many areas. You have to place a triomino
+            // into each area.
             if treeCount == 3 && info.blockIndexes.count == 1 {
                 info.trees.sort()
                 var treeOffsets = [Position]()
-                let p2 = Position(info.trees.min(by: {$0.row < $1.row})!.row, info.trees.min(by: {$0.col < $1.col})!.col)
+                let p2 = Position(info.trees.min{$0.row < $1.row}!.row, info.trees.min{$0.col < $1.col}!.col)
                 for p in info.trees {
                     treeOffsets.append(p - p2)
                 }
-                info.triominoIndex = MiniLitsGame.triominos.index(where: {$0 == treeOffsets})
+                info.triominoIndex = MiniLitsGame.triominos.index{$0 == treeOffsets}
                 if info.triominoIndex == nil {notSolved(info: info)}
             }
             if treeCount < 3 {isSolved = false}
         }
+        // 3. No two adjacent (touching horizontally / vertically) triominos should
+        // be of equal shape & orientation.
         for i in 0..<infos.count {
             let info = infos[i]
             guard let index = info.triominoIndex else {continue}
             if info.neighborIndexes.contains(where: {infos[$0].triominoIndex == index}) {notSolved(info: info)}
         }
         guard isSolved else {return}
+        // 4. All the shaded cells should form a valid Nurikabe.
         let block = blocks[0]
         rule2x2:
         for p in block {

@@ -156,7 +156,7 @@ class AbcGameState: GridGameState {
             let s2: HintState = ch21 == " " ? .normal : ch21 == h2 ? .complete : .error
             col2state[c * 2] = s1; col2state[c * 2 + 1] = s2
             if s1 != .complete || s2 != .complete {isSolved = false}
-            // 2. Each letter appears once in every row.
+            // 2. Each letter appears once in every column.
             if chars.count != Int(game.chMax.asciiValue!) - Int(Character("A").asciiValue!) + 1 {isSolved = false}
         }
     }

@@ -165,8 +165,8 @@ class MineShipsGameState: GridGameState {
         var shipNumbers = Array<Int>(repeating: 0, count: 5)
         while pos2node.count > 0 {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map({$0.0}).sorted()
-            pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
+            let area = pos2node.filter{(p, _) in nodesExplored.contains(p.description)}.map{$0.0}.sorted()
+            pos2node = pos2node.filter{(p, _) in !nodesExplored.contains(p.description)}
             func f(os: Position, objTopLeft: MineShipsObject, objBottomRight: MineShipsObject) -> Bool {
                 return String(describing: self[area.first!]) == String(describing: objTopLeft) && String(describing: self[area.last!]) == String(describing: objBottomRight) &&
                     [Int](1..<area.count - 1).testAll({String(describing: self[area[$0]]) == String(describing: MineShipsObject.battleShipMiddle)}) &&

@@ -130,6 +130,7 @@ class HolidayIslandGameState: GridGameState {
             }
         }
         do {
+            // 4. There is only one, continuous island.
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             if nodesExplored.count != pos2node.count {isSolved = false}
         }
@@ -140,6 +141,7 @@ class HolidayIslandGameState: GridGameState {
                 let p = Position(r, c)
                 switch self[p] {
                 case .tree, .hint:
+                    // 5. A camper can't cross water or other Tents.
                     break
                 default:
                     pos2node[p] = g.addNode(p.description)
@@ -157,8 +159,8 @@ class HolidayIslandGameState: GridGameState {
         var pos2area = [Position: Int]()
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
-            pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
+            let area = pos2node.filter{(p, _) in nodesExplored.contains(p.description)}.map{$0.0}
+            pos2node = pos2node.filter{(p, _) in !nodesExplored.contains(p.description)}
             let n = areas.count
             for p in area {
                 pos2area[p] = n
@@ -174,6 +176,8 @@ class HolidayIslandGameState: GridGameState {
                 rng = rng.union(areas[i])
             }
             let n1 = rng.count
+            // 5. The numbers tell you how many tiles that camper can walk from his Tent,
+            // by moving horizontally or vertically.
             let s: HintState = n1 > n2 ? .normal : n1 == n2 ? .complete : .error
             self[p] = .hint(tiles: n2, state: s)
             if s != .complete {isSolved = false}

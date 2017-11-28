@@ -128,12 +128,12 @@ class OverUnderGameState: GridGameState {
         var areas = [[Position]]()
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
+            let area = pos2node.filter{(p, _) in nodesExplored.contains(p.description)}.map{$0.0}
             areas.append(area)
-            pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
+            pos2node = pos2node.filter{(p, _) in !nodesExplored.contains(p.description)}
         }
         for area in areas {
-            let rng = area.filter({p in game.pos2hint[p] != nil})
+            let rng = area.filter{p in game.pos2hint[p] != nil}
             // 2. Each region must contain two numbers.
             if rng.count != 2 {
                 for p in rng {

@@ -107,7 +107,7 @@ class TatamiGameState: GridGameState {
                 pos2state[p1] = .error
                 pos2state[p2] = .error
             }
-            var chars = (0..<cols).map({self[r, $0]}).sorted()
+            var chars = (0..<cols).map{self[r, $0]}.sorted()
             if chars[0] != " " && chars != chars3 {
                 isSolved = false; lineSolved = false
                 for c in 0..<cols {
@@ -130,7 +130,7 @@ class TatamiGameState: GridGameState {
                 pos2state[p1] = .error
                 pos2state[p2] = .error
             }
-            var chars = (0..<rows).map({self[$0, c]}).sorted()
+            var chars = (0..<rows).map{self[$0, c]}.sorted()
             if chars[0] != " " && chars != chars3 {
                 isSolved = false; lineSolved = false
                 for r in 0..<rows {
@@ -144,7 +144,7 @@ class TatamiGameState: GridGameState {
             }
         }
         for a in game.areas {
-            let chars = a.map({self[$0]}).sorted()
+            let chars = a.map{self[$0]}.sorted()
             guard chars[0] != " " && chars != chars2 else {continue}
             isSolved = false
             for p in a {

@@ -126,11 +126,11 @@ class FourMeNotGameState: GridGameState {
         if nodesExplored.count != pos2node.count {isSolved = false}
         
         var trees = [Position]()
-        func areTreesInvalid() -> Bool {
+        func invalidTrees() -> Bool {
             return trees.count > 3
         }
         func checkTrees() {
-            if areTreesInvalid() {
+            if invalidTrees() {
                 isSolved = false
                 for p in trees {
                     self[p] = .tree(state: .error)
@@ -149,7 +149,7 @@ class FourMeNotGameState: GridGameState {
                     p2 += os
                 }
             }
-            if areTreesInvalid() {self[p] = .forbidden}
+            if invalidTrees() {self[p] = .forbidden}
             trees.removeAll()
         }
         for r in 0..<rows {

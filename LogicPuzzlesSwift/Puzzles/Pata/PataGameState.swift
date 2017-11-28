@@ -124,19 +124,19 @@ class PataGameState: GridGameState {
             return h2.isSubset(of: h1)
         }
         for (p, arr2) in game.pos2hint {
-            let emptied = [Int](0..<8).filter({
+            let emptied = [Int](0..<8).filter{
                 let p2 = p + PataGame.offset[$0]
                 guard isValid(p: p2) else {return false}
                 switch self[p2] {
                 case .empty, .hint: return true
                 default: return false
                 }
-            })
+            }
             let arr = computeHint(emptied: emptied)
-            let filled = [Int](0..<8).filter({
+            let filled = [Int](0..<8).filter{
                 let p2 = p + PataGame.offset[$0]
                 if isValid(p: p2), case .wall = self[p2] {return true} else {return false}
-            })
+            }
             let arr3 = computeHint(emptied: filled)
             let s: HintState = arr3 == [0] ? .normal : isCompatible(computedHint: arr, givenHint: arr2) ? .complete : .error
             self[p] = .hint(state: s)

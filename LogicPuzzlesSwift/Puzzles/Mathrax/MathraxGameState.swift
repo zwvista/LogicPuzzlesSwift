@@ -95,22 +95,26 @@ class MathraxGameState: GridGameState {
     private func updateIsSolved() {
         isSolved = true
         func f(nums: [Int], s: inout HintState) {
-            let count = nums.count
             let nums2 = Set<Int>(nums).sorted()
-            s = nums2.first! == 0 ? .normal : nums2.count == count ? .complete : .error
+            // 1. The goal is to input numbers 1 to N, where N is the board size.
+            s = nums2.first! == 0 ? .normal : nums2.count == nums.count ? .complete : .error
             if s != .complete {isSolved = false}
         }
+        // 2. A number must appear once for every row and column.
         for r in 0..<rows {
-            f(nums: (0..<cols).map({self[r, $0]}), s: &row2state[r])
+            f(nums: (0..<cols).map{self[r, $0]}, s: &row2state[r])
         }
+        // 2. A number must appear once for every row and column.
         for c in 0..<cols {
-            f(nums: (0..<rows).map({self[$0, c]}), s: &col2state[c])
+            f(nums: (0..<rows).map{self[$0, c]}, s: &col2state[c])
         }
         for (p, h) in game.pos2hint {
             func g(n1: Int, n2: Int) -> HintState {
                 if n1 == 0 || n2 == 0 {return .normal}
                 let n = h.result
                 switch h.op {
+                // 3. The tiny numbers and sign in the intersections tell you the result of
+                // the operation between the two opposite diagonal tiles.
                 case "+":
                     return n1 + n2 == n ? .complete : .error
                 case "-":
@@ -119,6 +123,8 @@ class MathraxGameState: GridGameState {
                     return n1 * n2 == n ? .complete : .error
                 case "/":
                     return n1 / n2 * n2 == n * n2 || n2 / n1 * n1 == n * n1 ? .complete : .error
+                // 4. In some puzzles, there will be 'E' or 'O' as hint. This means that all
+                // four tiles are either (E)ven or (O)dd numbers.
                 case "O":
                     return n1 % 2 == 1 && n2 % 2 == 1 ? .complete : .error
                 case "E":
@@ -128,6 +134,7 @@ class MathraxGameState: GridGameState {
                 }
             }
             let nums = MathraxGame.offset2.map{self[p + $0]}
+            // 3. This is valid for both pairs of numbers surrounding the hint.
             let (s1, s2) = (g(n1: nums[0], n2: nums[1]), g(n1: nums[2], n2: nums[3]))
             let s: HintState = s1 == .error || s2 == .error ? .error :
                 s1 == .complete && s2 == .complete ? .complete : .normal

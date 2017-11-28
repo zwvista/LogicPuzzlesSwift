@@ -127,14 +127,14 @@ class OrchardsGameState: GridGameState {
         }
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let trees = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
+            let trees = pos2node.filter{(p, _) in nodesExplored.contains(p.description)}.map{$0.0}
             if trees.count != 2 {isSolved = false}
             if trees.count > 2 {
                 for p in trees {
                     self[p] = .tree(state: .error)
                 }
             }
-            pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
+            pos2node = pos2node.filter{(p, _) in !nodesExplored.contains(p.description)}
         }
         for a in game.areas {
             var trees = [Position]()

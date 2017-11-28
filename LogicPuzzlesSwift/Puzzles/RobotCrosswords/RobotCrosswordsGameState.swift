@@ -92,10 +92,11 @@ class RobotCrosswordsGameState: GridGameState {
         isSolved = true
         for i in 0..<game.areas.count {
             let a = game.areas[i]
-            let nums = a.map({self[$0]})
-            let count = nums.count
+            let nums = a.map{self[$0]}
             let nums2 = Set<Int>(nums).sorted()
-            let s: HintState = nums2.first! == 0 ? .normal : nums2.count == count ? .complete : .error
+            // 2. Each 'word' is formed by an uninterrupted sequence of numbers,
+            // but in any order.
+            let s: HintState = nums2.first! == 0 ? .normal : nums2.count == nums.count ? .complete : .error
             for p in a {
                 if i < game.horzAreaCount {
                     pos2horzState[p] = s

@@ -123,10 +123,10 @@ class TapaIslandsGameState: GridGameState {
             return h2.isSubset(of: h1)
         }
         for (p, arr2) in game.pos2hint {
-            let filled = [Int](0..<8).filter({
+            let filled = [Int](0..<8).filter{
                 let p2 = p + TapaIslandsGame.offset[$0]
                 return isValid(p: p2) && String(describing: self[p2]) == String(describing: TapaIslandsObject.wall)
-            })
+            }
             let arr = computeHint(filled: filled)
             let s: HintState = arr == [0] ? .normal : isCompatible(computedHint: arr, givenHint: arr2) ? .complete : .error
             self[p] = .hint(state: s)
@@ -178,7 +178,7 @@ class TapaIslandsGameState: GridGameState {
         if rngWalls.count != nodesExplored.count {isSolved = false}
         while !rngEmpty.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node[rngEmpty.first!]!)
-            rngEmpty = rngEmpty.filter({p in !nodesExplored.contains(p.description)})
+            rngEmpty = rngEmpty.filter{p in !nodesExplored.contains(p.description)}
             let n2 = nodesExplored.count
             var rng = [Position]()
             for p in game.pos2hint.keys {

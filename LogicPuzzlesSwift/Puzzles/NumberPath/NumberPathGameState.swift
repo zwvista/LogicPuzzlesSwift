@@ -81,7 +81,7 @@ class NumberPathGameState: GridGameState {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let n = self[p].filter({$0}).count
+                let n = self[p].filter{$0}.count
                 if p == pStart || p == pEnd {
                     if n != 1 {isSolved = false; return}
                     pos2node[p] = g.addNode(p.description); continue

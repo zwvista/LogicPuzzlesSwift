@@ -948,6 +948,17 @@
 		8CE9C3171F7914B800134093 /* KakurasuMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE9C30C1F7914B800134093 /* KakurasuMainViewController.swift */; };
 		8CE9C3181F7914B800134093 /* KakurasuObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE9C30D1F7914B800134093 /* KakurasuObject.swift */; };
 		8CE9C3191F7914B800134093 /* KakurasuOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE9C30E1F7914B800134093 /* KakurasuOptionsViewController.swift */; };
+		8CF3FFD41FCB2A2700D41B67 /* DisconnectFourOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFC81FCB2A2600D41B67 /* DisconnectFourOptionsViewController.swift */; };
+		8CF3FFD51FCB2A2700D41B67 /* DisconnectFourGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */; };
+		8CF3FFD61FCB2A2700D41B67 /* DisconnectFourGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */; };
+		8CF3FFD71FCB2A2700D41B67 /* DisconnectFour.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */; };
+		8CF3FFD81FCB2A2700D41B67 /* DisconnectFourGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCC1FCB2A2600D41B67 /* DisconnectFourGridNode.swift */; };
+		8CF3FFD91FCB2A2700D41B67 /* DisconnectFourGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCD1FCB2A2600D41B67 /* DisconnectFourGame.swift */; };
+		8CF3FFDA1FCB2A2700D41B67 /* DisconnectFourGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCE1FCB2A2600D41B67 /* DisconnectFourGameViewController.swift */; };
+		8CF3FFDB1FCB2A2700D41B67 /* DisconnectFourMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCF1FCB2A2600D41B67 /* DisconnectFourMainViewController.swift */; };
+		8CF3FFDC1FCB2A2700D41B67 /* DisconnectFourObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFD01FCB2A2600D41B67 /* DisconnectFourObject.swift */; };
+		8CF3FFDD1FCB2A2700D41B67 /* DisconnectFourDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFD11FCB2A2600D41B67 /* DisconnectFourDocument.swift */; };
+		8CF3FFDE1FCB2A2700D41B67 /* DisconnectFourHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFD21FCB2A2600D41B67 /* DisconnectFourHelpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1952,6 +1963,17 @@
 		8CE9C30C1F7914B800134093 /* KakurasuMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakurasuMainViewController.swift; sourceTree = "<group>"; };
 		8CE9C30D1F7914B800134093 /* KakurasuObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakurasuObject.swift; sourceTree = "<group>"; };
 		8CE9C30E1F7914B800134093 /* KakurasuOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakurasuOptionsViewController.swift; sourceTree = "<group>"; };
+		8CF3FFC81FCB2A2600D41B67 /* DisconnectFourOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourOptionsViewController.swift; sourceTree = "<group>"; };
+		8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameState.swift; sourceTree = "<group>"; };
+		8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameScene.swift; sourceTree = "<group>"; };
+		8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DisconnectFour.xml; sourceTree = "<group>"; };
+		8CF3FFCC1FCB2A2600D41B67 /* DisconnectFourGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGridNode.swift; sourceTree = "<group>"; };
+		8CF3FFCD1FCB2A2600D41B67 /* DisconnectFourGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGame.swift; sourceTree = "<group>"; };
+		8CF3FFCE1FCB2A2600D41B67 /* DisconnectFourGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameViewController.swift; sourceTree = "<group>"; };
+		8CF3FFCF1FCB2A2600D41B67 /* DisconnectFourMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourMainViewController.swift; sourceTree = "<group>"; };
+		8CF3FFD01FCB2A2600D41B67 /* DisconnectFourObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourObject.swift; sourceTree = "<group>"; };
+		8CF3FFD11FCB2A2600D41B67 /* DisconnectFourDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourDocument.swift; sourceTree = "<group>"; };
+		8CF3FFD21FCB2A2600D41B67 /* DisconnectFourHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourHelpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2269,6 +2291,7 @@
 				8C9F32351ED1FAD400E10965 /* BWTapa */,
 				8C3A342E1EC88D4100A914A5 /* Clouds */,
 				8C3A343B1EC88D4100A914A5 /* DigitalBattleShips */,
+				8CF3FFC71FCB2A2600D41B67 /* DisconnectFour */,
 				8C3A34481EC88D4100A914A5 /* Domino */,
 				8C3A34551EC88D4100A914A5 /* FenceItUp */,
 				8C3A34621EC88D4100A914A5 /* FenceLits */,
@@ -3689,6 +3712,24 @@
 			path = Kakurasu;
 			sourceTree = "<group>";
 		};
+		8CF3FFC71FCB2A2600D41B67 /* DisconnectFour */ = {
+			isa = PBXGroup;
+			children = (
+				8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */,
+				8CF3FFD11FCB2A2600D41B67 /* DisconnectFourDocument.swift */,
+				8CF3FFCD1FCB2A2600D41B67 /* DisconnectFourGame.swift */,
+				8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */,
+				8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */,
+				8CF3FFCE1FCB2A2600D41B67 /* DisconnectFourGameViewController.swift */,
+				8CF3FFCC1FCB2A2600D41B67 /* DisconnectFourGridNode.swift */,
+				8CF3FFD21FCB2A2600D41B67 /* DisconnectFourHelpViewController.swift */,
+				8CF3FFCF1FCB2A2600D41B67 /* DisconnectFourMainViewController.swift */,
+				8CF3FFD01FCB2A2600D41B67 /* DisconnectFourObject.swift */,
+				8CF3FFC81FCB2A2600D41B67 /* DisconnectFourOptionsViewController.swift */,
+			);
+			path = DisconnectFour;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3839,6 +3880,7 @@
 				8C3A363C1EC88D4200A914A5 /* Bridges.xml in Resources */,
 				8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */,
 				8C3A360C1EC88D4200A914A5 /* BootyIsland.xml in Resources */,
+				8CF3FFD71FCB2A2700D41B67 /* DisconnectFour.xml in Resources */,
 				8C3A37441EC88D4300A914A5 /* Nurikabe.xml in Resources */,
 				8C3A36841EC88D4200A914A5 /* FenceLits.xml in Resources */,
 				8C3A36E41EC88D4300A914A5 /* Loopy.xml in Resources */,
@@ -4004,6 +4046,7 @@
 				8C9F32B91ED1FB0700E10965 /* TapaIslandsGameViewController.swift in Sources */,
 				8C3A366F1EC88D4200A914A5 /* DominoGameScene.swift in Sources */,
 				8C3A37871EC88D4400A914A5 /* ProductSentinelsHelpViewController.swift in Sources */,
+				8CF3FFD81FCB2A2700D41B67 /* DisconnectFourGridNode.swift in Sources */,
 				8C9F32EA1ED1FCFF00E10965 /* TapAlikeHelpViewController.swift in Sources */,
 				8C3A37161EC88D4300A914A5 /* MinesweeperGame.swift in Sources */,
 				8C3A364C1EC88D4200A914A5 /* BusySeasGameState.swift in Sources */,
@@ -4100,6 +4143,7 @@
 				8C6A35E91FAF4FFD00D2804D /* MathraxOptionsViewController.swift in Sources */,
 				8C6A9BE91F812743002A44FF /* KropkiGameState.swift in Sources */,
 				8C3A367E1EC88D4200A914A5 /* FenceItUpGridNode.swift in Sources */,
+				8CF3FFDA1FCB2A2700D41B67 /* DisconnectFourGameViewController.swift in Sources */,
 				8C3A37041EC88D4300A914A5 /* MasyuMainViewController.swift in Sources */,
 				8C3A37911EC88D4400A914A5 /* RoomsGameViewController.swift in Sources */,
 				8C04671F1F8BA2BE00B5DE41 /* TataminoHelpViewController.swift in Sources */,
@@ -4112,6 +4156,7 @@
 				8C3A36971EC88D4200A914A5 /* FenceSentinelsHelpViewController.swift in Sources */,
 				8C3A36F41EC88D4300A914A5 /* MagnetsGameState.swift in Sources */,
 				8CC25CC81F87BB5A005560F7 /* KakuroGridNode.swift in Sources */,
+				8CF3FFD61FCB2A2700D41B67 /* DisconnectFourGameScene.swift in Sources */,
 				8C04671E1F8BA2BE00B5DE41 /* TataminoGridNode.swift in Sources */,
 				8C3A372A1EC88D4300A914A5 /* MiniLitsObject.swift in Sources */,
 				8C3A36B91EC88D4300A914A5 /* LightenUpGameViewController.swift in Sources */,
@@ -4298,6 +4343,7 @@
 				8C6A9BEF1F812743002A44FF /* KropkiOptionsViewController.swift in Sources */,
 				8CC350351E001D2800B8FD83 /* BlockPinch.swift in Sources */,
 				8CE9C3171F7914B800134093 /* KakurasuMainViewController.swift in Sources */,
+				8CF3FFD51FCB2A2700D41B67 /* DisconnectFourGameState.swift in Sources */,
 				8C3A37B11EC88D4400A914A5 /* SlitherLinkDocument.swift in Sources */,
 				8CC25CC31F87BB5A005560F7 /* KakuroDocument.swift in Sources */,
 				8C35E3A61FC4839100A26EE3 /* WallsObject.swift in Sources */,
@@ -4327,6 +4373,7 @@
 				8CC3503E1E001D2800B8FD83 /* CharacterExtensions.swift in Sources */,
 				8C9F32EF1ED1FCFF00E10965 /* TapARowDocument.swift in Sources */,
 				8C3A37E31EC88D4400A914A5 /* TentsGameScene.swift in Sources */,
+				8CF3FFDB1FCB2A2700D41B67 /* DisconnectFourMainViewController.swift in Sources */,
 				8C6A35E01FAF4FFD00D2804D /* MathraxDocument.swift in Sources */,
 				8C7474581FBED8BD00C4112C /* ParkLakesObject.swift in Sources */,
 				8C916CBE1DAA5E9500D9E62B /* Helpers.swift in Sources */,
@@ -4382,6 +4429,7 @@
 				8CC350371E001D2800B8FD83 /* BlockTap.swift in Sources */,
 				8C3A362A1EC88D4200A914A5 /* BoxItAroundGridNode.swift in Sources */,
 				8C3A368C1EC88D4200A914A5 /* FenceLitsMainViewController.swift in Sources */,
+				8CF3FFD91FCB2A2700D41B67 /* DisconnectFourGame.swift in Sources */,
 				8C9F32FF1ED1FCFF00E10965 /* TapDifferentlyGridNode.swift in Sources */,
 				8C2963FC1FA20D620017A812 /* RobotCrosswordsGameState.swift in Sources */,
 				8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */,
@@ -4483,6 +4531,7 @@
 				8C3A36DE1EC88D4300A914A5 /* LitsGridNode.swift in Sources */,
 				8C3A36061EC88D4200A914A5 /* BattleShipsGridNode.swift in Sources */,
 				8C35E38D1FC2844F00A26EE3 /* GardenerGame.swift in Sources */,
+				8CF3FFDC1FCB2A2700D41B67 /* DisconnectFourObject.swift in Sources */,
 				8C9F32301ECF06C000E10965 /* TapaHelpViewController.swift in Sources */,
 				8C3A36941EC88D4200A914A5 /* FenceSentinelsGameState.swift in Sources */,
 				8C3A37CE1EC88D4400A914A5 /* SumscrapersGridNode.swift in Sources */,
@@ -4530,6 +4579,7 @@
 				8CC3504A1E001D2800B8FD83 /* TimerExtensions.swift in Sources */,
 				8C3A37BE1EC88D4400A914A5 /* SnailGame.swift in Sources */,
 				8C3A37CD1EC88D4400A914A5 /* SumscrapersGameViewController.swift in Sources */,
+				8CF3FFDD1FCB2A2700D41B67 /* DisconnectFourDocument.swift in Sources */,
 				8C6A9BEC1F812743002A44FF /* KropkiHelpViewController.swift in Sources */,
 				8C1D4F8D1F7D079F000D5FB3 /* Square100GridNode.swift in Sources */,
 				8C9F32481ED1FAD400E10965 /* BWTapaHelpViewController.swift in Sources */,
@@ -4609,6 +4659,7 @@
 				8C6A36111FAF97AF00D2804D /* TheOddBrickGame.swift in Sources */,
 				8C3A37521EC88D4300A914A5 /* OrchardsGame.swift in Sources */,
 				8C3A36191EC88D4200A914A5 /* BoxItAgainDocument.swift in Sources */,
+				8CF3FFD41FCB2A2700D41B67 /* DisconnectFourOptionsViewController.swift in Sources */,
 				8C3A377C1EC88D4300A914A5 /* PowerGridMainViewController.swift in Sources */,
 				8C3A37571EC88D4300A914A5 /* OrchardsHelpViewController.swift in Sources */,
 				8CDAE8101F646C29000DE5AF /* BalancedTapasMainViewController.swift in Sources */,
@@ -4641,6 +4692,7 @@
 				8C6A35E41FAF4FFD00D2804D /* MathraxGameViewController.swift in Sources */,
 				8CC350331E001D2800B8FD83 /* BlockLongPress.swift in Sources */,
 				8C3A36D71EC88D4300A914A5 /* LineSweeperOptionsViewController.swift in Sources */,
+				8CF3FFDE1FCB2A2700D41B67 /* DisconnectFourHelpViewController.swift in Sources */,
 				8C2964011FA20D620017A812 /* RobotCrosswordsObject.swift in Sources */,
 				8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */,
 				8C35E3BF1FC6DAE600A26EE3 /* NumberLinkObject.swift in Sources */,

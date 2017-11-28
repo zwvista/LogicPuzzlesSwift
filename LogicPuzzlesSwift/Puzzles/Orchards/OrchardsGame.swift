@@ -76,7 +76,7 @@ class OrchardsGame: GridGame<OrchardsGameViewController> {
         while !rng.isEmpty {
             let node = pos2node[rng.first!]!
             let nodesExplored = breadthFirstSearch(g, source: node)
-            let area = [Position](rng.filter({p in nodesExplored.contains(p.description)}))
+            let area = [Position](rng.filter{p in nodesExplored.contains(p.description)})
             let n = areas.count
             for p in area {
                 pos2area[p] = n

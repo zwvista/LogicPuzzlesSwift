@@ -111,6 +111,7 @@ class SnakeGameState: GridGameState {
                 if self[r, c] == .forbidden {self[r, c] = .empty}
             }
         }
+        // 3. Numbers on the border tell you how many tiles the snake occupies in that row.
         for r in 0..<rows {
             let n2 = game.row2hint[r]
             guard n2 != -1 else {continue}
@@ -121,6 +122,7 @@ class SnakeGameState: GridGameState {
             row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
         }
+        // 3. Numbers on the border tell you how many tiles the snake occupies in that column.
         for c in 0..<cols {
             let n2 = game.col2hint[c]
             guard n2 != -1 else {continue}
@@ -176,6 +178,8 @@ class SnakeGameState: GridGameState {
                     break
                 }
             }
+            // 2. The two tiles given at the start are the head and the tail of the snake.
+            // 4. The snake can't touch itself, not even diagonally.
             let b = game.pos2snake.contains(p)
             let cnt = rngSnake.count
             if b && cnt >= 1 || !b && cnt >= 2 {

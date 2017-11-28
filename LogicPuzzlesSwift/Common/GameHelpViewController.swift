@@ -43,7 +43,7 @@ class GameHelpViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell", for: indexPath) as! SelfSizingTableViewCell
         cell.label.text = gameDocument.help[indexPath.row]
-        return cell;
+        return cell
     }
 
     deinit {

@@ -124,26 +124,23 @@ class LitsGameState: GridGameState {
                 }
             }
         }
-        for p in pos2node.keys {
+        for (p, node) in pos2node {
             for os in LitsGame.offset {
                 let p2 = p + os
-                if let node2 = pos2node[p2] {
-                    g.addEdge(pos2node[p]!, neighbor: node2)
-                }
+                guard let node2 = pos2node[p2] else {continue}
+                g.addEdge(node, neighbor: node2)
             }
         }
         var blocks = [[Position]]()
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let block = pos2node.filter({(p, _) in nodesExplored.contains(p.description)}).map{$0.0}
+            let block = pos2node.filter{(p, _) in nodesExplored.contains(p.description)}.map{$0.0}
             blocks.append(block)
-            pos2node = pos2node.filter({(p, _) in !nodesExplored.contains(p.description)})
+            pos2node = pos2node.filter{(p, _) in !nodesExplored.contains(p.description)}
         }
+        // 5. All the shaded cells should form a valid Nurikabe.
         if blocks.count != 1 {isSolved = false}
-        var infos = [LitsAreaInfo]()
-        for i in 0..<game.areas.count {
-            infos.append(LitsAreaInfo())
-        }
+        var infos = Array<LitsAreaInfo>(repeating: LitsAreaInfo(), count: game.areas.count)
         for i in 0..<blocks.count {
             let block = blocks[i]
             for p in block {
@@ -158,8 +155,7 @@ class LitsGameState: GridGameState {
             for p in info.trees {
                 for os in LitsGame.offset {
                     let p2 = p + os
-                    guard let index = infos.index(where: {$0.trees.contains(p2)}),
-                        index != i else {continue}
+                    guard let index = infos.index(where: {$0.trees.contains(p2)}), index != i else {continue}
                     info.neighborIndexes.insert(index)
                 }
             }
@@ -184,24 +180,30 @@ class LitsGameState: GridGameState {
                 }
             }
             if treeCount > 4 || treeCount == 4 && info.blockIndexes.count > 1 {notSolved(info: info)}
+            // 3. The board is divided into many areas. You have to place a tetromino
+            // into each area.
             if treeCount == 4 && info.blockIndexes.count == 1 {
                 info.trees.sort()
                 var treeOffsets = [Position]()
-                let p2 = Position(info.trees.min(by: {$0.row < $1.row})!.row, info.trees.min(by: {$0.col < $1.col})!.col)
+                let p2 = Position(info.trees.min{$0.row < $1.row}!.row, info.trees.min{$0.col < $1.col}!.col)
                 for p in info.trees {
                     treeOffsets.append(p - p2)
                 }
-                info.tetrominoIndex = LitsGame.tetrominoes.index(where: {$0.contains(where: {$0 == treeOffsets})})
+                info.tetrominoIndex = LitsGame.tetrominoes.index{$0.contains{$0 == treeOffsets}}
+                
                 if info.tetrominoIndex == nil {notSolved(info: info)}
             }
             if treeCount < 4 {isSolved = false}
         }
+        // 4. No two adjacent (touching horizontally / vertically) tetromino should
+        // be of equal shape, even counting rotations or reflections.
         for i in 0..<infos.count {
             let info = infos[i]
             guard let index = info.tetrominoIndex else {continue}
             if info.neighborIndexes.contains(where: {infos[$0].tetrominoIndex == index}) {notSolved(info: info)}
         }
         guard isSolved else {return}
+        // 5. All the shaded cells should form a valid Nurikabe.
         let block = blocks[0]
         rule2x2:
         for p in block {

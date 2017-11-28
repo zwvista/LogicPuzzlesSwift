@@ -115,13 +115,18 @@ class KakurasuGameState: GridGameState {
             }
         }
         for r in 1..<rows - 1 {
+            // 1. On the bottom and right border, you see the value of (respectively)
+            // the columns and rows.
             let n2 = game.row2hint[r * 2]
             var n1 = 0
             for c in 1..<cols - 1 {
                 if self[r, c] == .cloud {
+                    // 2. On the other borders, on the top and the left, you see the hints about
+                    // which tile have to be filled on the board.
                     n1 += game.col2hint[c * 2 + 1]
                 }
             }
+            // 2. These numbers represent the sum of the values mentioned above.
             let s: HintState = n1 == 0 ? .normal : n1 == n2 ? .complete : .error
             row2state[r * 2] = s
             if s != .complete {isSolved = false}
@@ -137,13 +142,18 @@ class KakurasuGameState: GridGameState {
             }
         }
         for c in 1..<cols - 1 {
+            // 1. On the bottom and right border, you see the value of (respectively)
+            // the columns and rows.
             let n2 = game.col2hint[c * 2]
             var n1 = 0
             for r in 1..<rows - 1 {
                 if self[r, c] == .cloud {
+                    // 2. On the other borders, on the top and the left, you see the hints about
+                    // which tile have to be filled on the board.
                     n1 += game.row2hint[r * 2 + 1]
                 }
             }
+            // 2. These numbers represent the sum of the values mentioned above.
             let s: HintState = n1 == 0 ? .normal : n1 == n2 ? .complete : .error
             col2state[c * 2] = s
             if s != .complete {isSolved = false}

@@ -122,6 +122,8 @@ class SlitherLinkGameState: GridGameState {
     */
     private func updateIsSolved() {
         isSolved = true
+        // 2. Each number in a tile tells you on how many of its four sides are touched
+        // by the path.
         for (p, n2) in game.pos2hint {
             var n1 = 0
             for i in 0..<4 {
@@ -136,13 +138,14 @@ class SlitherLinkGameState: GridGameState {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let n = self[p].filter({$0 == .line}).count
+                let n = self[p].filter{$0 == .line}.count
                 switch n {
                 case 0:
                     continue
                 case 2:
                     pos2node[p] = g.addNode(p.description)
                 default:
+                    // 1. The path cannot have branches or cross itself.
                     isSolved = false
                     return
                 }
@@ -156,6 +159,7 @@ class SlitherLinkGameState: GridGameState {
                 g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
             }
         }
+        // 1. Draw a single looping path with the aid of the numbered hints.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
         let n1 = nodesExplored.count
         let n2 = pos2node.values.count

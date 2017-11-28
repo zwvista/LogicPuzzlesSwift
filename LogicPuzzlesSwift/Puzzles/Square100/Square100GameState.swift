@@ -79,7 +79,7 @@ class Square100GameState: GridGameState {
             succ(ch: o)
         if !move.isRightPart && o == "0" {o = "1"}
         move.obj = move.isRightPart ? n[0...1] + String(o) :
-            String(o) + n[1...2];
+            String(o) + n[1...2]
         return setObject(move: &move)
     }
     

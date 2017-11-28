@@ -27,7 +27,7 @@ class BalancedTapasGame: GridGame<BalancedTapasGameViewController> {
     ]
 
     var pos2hint = [Position: [Int]]()
-    var left = 0, right = 0;
+    var left = 0, right = 0
     
     init(layout: [String], leftPart: String, delegate: BalancedTapasGameViewController? = nil) {
         super.init(delegate: delegate)

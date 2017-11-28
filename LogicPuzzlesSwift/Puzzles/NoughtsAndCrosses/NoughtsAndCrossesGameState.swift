@@ -109,10 +109,10 @@ class NoughtsAndCrossesGameState: GridGameState {
             if s != .complete {isSolved = false}
         }
         for r in 0..<rows {
-            f(nums: (0..<cols).map({self[r, $0]}), s: &row2state[r])
+            f(nums: (0..<cols).map{self[r, $0]}, s: &row2state[r])
         }
         for c in 0..<cols {
-            f(nums: (0..<rows).map({self[$0, c]}), s: &col2state[c])
+            f(nums: (0..<rows).map{self[$0, c]}, s: &col2state[c])
         }
         for p in game.noughts {
             let ch = self[p]

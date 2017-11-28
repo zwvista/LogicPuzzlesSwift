@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. The opposite of the famous game 'Connect Four', where you must line up four tokens of the same colour.
+2. In this puzzle you have to ensure that there are no more than three tokens of the same colour lined up horizontally, vertically or diagonally.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+YYY `
+ R R`
+ RRR`
+YY  `
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+R YR`
+YRRR`
+RR Y`
+YRRR`
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+RRYYR`
+RY YY`
+YR R `
+R    `
+YRYRY`
+    ]]>
+  </level>
+  <level id="36">
+    <![CDATA[
+ R   R Y`
+ Y Y Y Y`
+YR YY  Y`
+  Y  Y  `
+ YR  YRY`
+    R YY`
+ YYY    `
+YYY R Y `
+    ]]>
+  </level>
+  <level id="157">
+    <![CDATA[
+ YYY   RR RY`
+  Y  Y      `
+ Y   YY     `
+   R      R `
+R  Y     R  `
+Y YY R  RR Y`
+     RR   R `
+ Y   R      `
+         Y Y`
+  RR    YY Y`
+R R   Y   YY`
+YR R  RYY Y `
+    ]]>
+  </level>
+</levels>
+</puzzle>

@@ -14,7 +14,7 @@ class SnailDocument: GameDocument<SnailGame, SnailGameMove> {
     
     override func saveMove(_ move: SnailGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.unapply()
-        rec.strValue1 = move.obj.description
+        rec.strValue1 = String(move.obj)
     }
     
     override func loadMove(from rec: MoveProgress) -> SnailGameMove? {

@@ -53,8 +53,8 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
     override func viewDidLoad() {
         super.viewDidLoad()
         gameNames = try! FileManager.default.contentsOfDirectory(atPath: Bundle.main.bundlePath)
-            .filter({s in s[s.length - ".xml".length..<s.length] == ".xml"})
-            .map({s in s[0..<s.length - ".xml".length]})
+            .filter{s in s[s.length - ".xml".length..<s.length] == ".xml"}
+            .map{s in s[0..<s.length - ".xml".length]}
             .sorted()
         
         selectedRow = gameNames.index(of: gameDocument.gameProgress.gameName!)!
@@ -77,7 +77,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         cell.textLabel!.restorationIdentifier = gameName
         cell.textLabel!.text = gameTitle
         cell.textLabel!.backgroundColor = indexPath.row == selectedRow ? .yellow : .white
-        return cell;
+        return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

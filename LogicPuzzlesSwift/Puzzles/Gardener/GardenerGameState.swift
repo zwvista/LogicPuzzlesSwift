@@ -155,11 +155,11 @@ class GardenerGameState: GridGameState {
             }
         }
         var trees = [Position]()
-        func areTreesInvalid() -> Bool {
+        func invalidTrees() -> Bool {
             return Set<Int>(trees.map{game.pos2area[$0]!}).count > 2
         }
         func checkTrees() {
-            if areTreesInvalid() {
+            if invalidTrees() {
                 isSolved = false
                 for p in trees {
                     self[p] = .tree(state: .error)
@@ -178,7 +178,7 @@ class GardenerGameState: GridGameState {
                     p2 += os
                 }
             }
-            if areTreesInvalid() {self[p] = .forbidden}
+            if invalidTrees() {self[p] = .forbidden}
             trees.removeAll()
         }
         for r in 0..<rows {

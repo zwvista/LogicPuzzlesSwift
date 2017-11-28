@@ -60,16 +60,17 @@ class LightenUpGameState: GridGameState {
         let p = move.p
         
         func adjustLightness(tolighten: Bool) {
-            let f = { lightness in
-                tolighten ? lightness + 1 : max(0, lightness - 1)
+            func f(lightness: inout Int) {
+                lightness = tolighten ? lightness + 1 : max(0, lightness - 1)
             }
-            
-            self[p].lightness = f(self[p].lightness)
+            f(lightness: &self[p].lightness)
+            // 3. Lightbulbs light all free, unblocked squares horizontally and vertically.
             for os in LightenUpGame.offset {
                 var p2 = p + os
                 while isValid(p: p2) {
+                    // 5. Walls block light.
                     if case .wall = self[p2].objType {break}
-                    self[p2].lightness = f(self[p2].lightness)
+                    f(lightness: &self[p2].lightness)
                     p2 += os
                 }
             }
@@ -154,22 +155,28 @@ class LightenUpGameState: GridGameState {
                 let o = self[r, c]
                 switch o.objType {
                 case .empty where o.lightness == 0, .marker where o.lightness == 0:
+                    // 2. The goal is to put lightbulbs in the room so that all the blank(non-wall)
+                    // squares are lit.
                     isSolved = false
                 case .lightbulb:
-                    let state: AllowedObjectState = o.lightness == 1 ? .normal : .error
-                    self[r, c].objType = .lightbulb(state: state)
-                    if o.lightness > 1 {isSolved = false}
+                    // 4. A lightbulb can't light another lightbulb.
+                    let s: AllowedObjectState = o.lightness == 1 ? .normal : .error
+                    self[r, c].objType = .lightbulb(state: s)
+                    if s == .error {isSolved = false}
                 case .wall:
                     let lightbulbs = game.wall2Lightbulbs[p]!
+                    // 6. Walls without a number can have any number of lightbulbs.
                     guard lightbulbs >= 0 else {break}
                     var n = 0
                     for os in LightenUpGame.offset {
                         let p2 = p + os
                         if isValid(p: p2), case .lightbulb = self[p2].objType {n += 1}
                     }
-                    let state: HintState = n < lightbulbs ? .normal : n == lightbulbs ? .complete : .error
-                    self[r, c].objType = .wall(state: state)
-                    if n != lightbulbs {isSolved = false}
+                    // 5. Walls with a number tell you how many lightbulbs
+                    // are adjacent to it, horizontally and vertically.
+                    let s: HintState = n < lightbulbs ? .normal : n == lightbulbs ? .complete : .error
+                    self[r, c].objType = .wall(state: s)
+                    if s != .complete {isSolved = false}
                 default:
                     break
                 }

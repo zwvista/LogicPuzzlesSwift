@@ -98,18 +98,17 @@ class TheOddBrickGameState: GridGameState {
     private func updateIsSolved() {
         isSolved = true
         func f(nums: [Int], s: inout HintState) {
-            let count = nums.count
             let nums2 = Set<Int>(nums).sorted()
             // 3. Each row and column contains numbers 1 to N, where N is the side of
             // the board.
-            s = nums2.first! == 0 ? .normal : nums2.count == count ? .complete : .error
+            s = nums2.first! == 0 ? .normal : nums2.count == nums.count ? .complete : .error
             if s != .complete {isSolved = false}
         }
         for r in 0..<rows {
-            f(nums: (0..<cols).map({self[r, $0]}), s: &row2state[r])
+            f(nums: (0..<cols).map{self[r, $0]}, s: &row2state[r])
         }
         for c in 0..<cols {
-            f(nums: (0..<rows).map({self[$0, c]}), s: &col2state[c])
+            f(nums: (0..<rows).map{self[$0, c]}, s: &col2state[c])
         }
         for i in 0..<game.areas.count {
             let nums = game.areas[i].map{self[$0]}

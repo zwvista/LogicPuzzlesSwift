@@ -116,8 +116,7 @@ class TentsGameState: GridGameState {
             for c in 0..<cols {
                 if case .tent = self[r, c] {n1 += 1}
             }
-            // 3. The numbers on the borders tell you how many Tents there are in that row
-            // or column.
+            // 3. The numbers on the borders tell you how many Tents there are in that row.
             row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
         }
@@ -127,8 +126,7 @@ class TentsGameState: GridGameState {
             for r in 0..<rows {
                 if case .tent = self[r, c] {n1 += 1}
             }
-            // 3. The numbers on the borders tell you how many Tents there are in that row
-            // or column.
+            // 3. The numbers on the borders tell you how many Tents there are in that column.
             col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
         }

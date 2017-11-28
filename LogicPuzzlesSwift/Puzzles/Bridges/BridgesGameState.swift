@@ -57,6 +57,7 @@ class BridgesGameState: GridGameState {
     
     func switchBridges(move: BridgesGameMove) -> Bool {
         let pFrom = move.pFrom, pTo = move.pTo
+        // 4. Bridges can only run horizontally or vertically.
         guard pFrom < pTo,
             pFrom.row == pTo.row || pFrom.col == pTo.col,
             case .island(let state1, var bridges1) = self[pFrom],
@@ -68,6 +69,7 @@ class BridgesGameState: GridGameState {
         while p != pTo {
             switch bridges1[n1] {
             case 0:
+                // 4. Bridges can't cross each other.
                 guard case .empty = self[p] else {return false}
                 self[p] = .bridge
             case 2:
@@ -106,6 +108,8 @@ class BridgesGameState: GridGameState {
         isSolved = true
         let g = Graph()
         var pos2node = [Position: Node]()
+        // 3. The number on each island tells you how many Bridges are touching
+        // that island.
         for (p, info) in game.islandsInfo {
             guard case .island(var state, let bridges) = self[p] else {continue}
             let n1 = bridges.reduce(0, +)
@@ -123,6 +127,8 @@ class BridgesGameState: GridGameState {
                 g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
             }
         }
+        // 2. You must connect all the islands with Bridges, making sure every
+        // island is connected to each other with a Bridges path.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
         let n1 = nodesExplored.count
         let n2 = pos2node.values.count
