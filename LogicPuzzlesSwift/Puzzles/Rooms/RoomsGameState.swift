@@ -112,6 +112,9 @@ class RoomsGameState: GridGameState {
     */
     private func updateIsSolved() {
         isSolved = true
+        // 2. Each number inside a Room tells you how many other Rooms you see from
+        // there, in a straight line horizontally or vertically when the appropriate
+        // doors are closed.
         for (p, n2) in game.pos2hint {
             var n1 = 0
             for i in 0..<4 {
@@ -123,5 +126,29 @@ class RoomsGameState: GridGameState {
             pos2state[p] = n1 > n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
         }
+        let g = Graph()
+        var pos2node = [Position: Node]()
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                pos2node[p] = g.addNode(p.description)
+            }
+        }
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                for i in 0..<4 {
+                    if self[p + RoomsGame.offset2[i]][RoomsGame.dirs[i]] != .line {
+                        g.addEdge(pos2node[p]!, neighbor: pos2node[p + RoomsGame.offset[i]]!)
+                    }
+                }
+            }
+        }
+        // 3. At the end of the solution, each Room must be reachable from the others.
+        // That means no single Room or group of Rooms can be divided by the others.
+        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+        let n1 = nodesExplored.count
+        let n2 = pos2node.values.count
+        if n1 != n2 {isSolved = false}
     }
 }

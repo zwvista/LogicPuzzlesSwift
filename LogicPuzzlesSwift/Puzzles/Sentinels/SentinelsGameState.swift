@@ -121,13 +121,7 @@ class SentinelsGameState: GridGameState {
                 }
             }
         }
-        for (p, node) in pos2node {
-            for os in SentinelsGame.offset {
-                let p2 = p + os
-                guard let node2 = pos2node[p2] else {continue}
-                g.addEdge(pos2node[p]!, neighbor: node2)
-            }
-        }
+        // 4. two Towers can't touch horizontally or vertically.
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
@@ -140,7 +134,9 @@ class SentinelsGameState: GridGameState {
                 }
                 switch self[p] {
                 case let .tower(state):
-                    self[p] = .tower(state: state == .normal && !hasNeighbor() ? .normal : .error)
+                    let s: AllowedObjectState = state == .normal && !hasNeighbor() ? .normal : .error
+                    self[p] = .tower(state: s)
+                    if s == .error {isSolved = false}
                 case .empty, .marker:
                     guard allowedObjectsOnly && hasNeighbor() else {continue}
                     self[p] = .forbidden
@@ -149,6 +145,9 @@ class SentinelsGameState: GridGameState {
                 }
             }
         }
+        // 2. The number tells you how many tiles that Sentinel can control (see) from
+        // there vertically and horizontally. This includes the tile where he is
+        // located.
         for (p, n2) in game.pos2hint {
             var nums = [0, 0, 0, 0]
             var rng = [Position]()
@@ -180,6 +179,14 @@ class SentinelsGameState: GridGameState {
             }
         }
         guard isSolved else {return}
+        for (p, node) in pos2node {
+            for os in SentinelsGame.offset {
+                let p2 = p + os
+                guard let node2 = pos2node[p2] else {continue}
+                g.addEdge(node, neighbor: node2)
+            }
+        }
+        // 4. There must be a single continuous Garden
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
         if pos2node.count != nodesExplored.count {isSolved = false}
     }
