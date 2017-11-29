@@ -96,6 +96,7 @@ class PairakabeGameState: GridGameState {
     */
     private func updateIsSolved() {
         isSolved = true
+        // The wall can't form 2*2 squares.
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
@@ -140,6 +141,9 @@ class PairakabeGameState: GridGameState {
         if rngWalls.isEmpty {
             isSolved = false
         } else {
+            // The garden is separated by a single continuous wall. This means all
+            // wall tiles on the board must be connected horizontally or vertically.
+            // There can't be isolated walls.
             let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
             if rngWalls.count != nodesExplored.count {isSolved = false}
         }
@@ -155,10 +159,14 @@ class PairakabeGameState: GridGameState {
             }
             switch rng.count {
             case 0:
+                // All the gardens in the puzzle are numbered at the start, there are no
+                // hidden gardens.
                 isSolved = false
             case 1:
                 self[rng[0]] = .hint(state: .error)
             case 2:
+                // 2. Instead of just one number, each 'garden' contains two numbers and
+                // the area of the garden is given by the sum of both.
                 let p1 = rng[0], p2 = rng[1]
                 let n1 = game.pos2hint[p1]! + game.pos2hint[p2]!
                 let s: HintState = n1 == n2 ? .complete : .error

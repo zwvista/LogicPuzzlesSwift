@@ -105,6 +105,7 @@ class NurikabeGameState: GridGameState {
     */
     private func updateIsSolved() {
         isSolved = true
+        // 7. The wall can't form 2*2 squares.
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
@@ -149,6 +150,9 @@ class NurikabeGameState: GridGameState {
         if rngWalls.isEmpty {
             isSolved = false
         } else {
+            // 3. The garden is separated by a single continuous wall. This means all
+            // wall tiles on the board must be connected horizontally or vertically.
+            // There can't be isolated walls.
             let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
             if rngWalls.count != nodesExplored.count {isSolved = false}
         }
@@ -165,8 +169,12 @@ class NurikabeGameState: GridGameState {
             }
             switch rng.count {
             case 0:
+                // 5. All the gardens in the puzzle are numbered at the start, there are no
+                // hidden gardens.
                 isSolved = false
             case 1:
+                // 1. Each number on the grid indicates a garden, occupying as many tiles
+                // as the number itself.
                 let p = rng[0]
                 let n1 = game.pos2hint[p]!
                 let s: HintState = n1 == n2 ? .complete : .error

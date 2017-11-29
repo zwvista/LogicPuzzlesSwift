@@ -100,11 +100,11 @@ class MathraxGameState: GridGameState {
             s = nums2.first! == 0 ? .normal : nums2.count == nums.count ? .complete : .error
             if s != .complete {isSolved = false}
         }
-        // 2. A number must appear once for every row and column.
+        // 2. A number must appear once for every row.
         for r in 0..<rows {
             f(nums: (0..<cols).map{self[r, $0]}, s: &row2state[r])
         }
-        // 2. A number must appear once for every row and column.
+        // 2. A number must appear once for every column.
         for c in 0..<cols {
             f(nums: (0..<rows).map{self[$0, c]}, s: &col2state[c])
         }

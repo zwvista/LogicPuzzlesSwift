@@ -116,7 +116,7 @@ class KakurasuGameState: GridGameState {
         }
         for r in 1..<rows - 1 {
             // 1. On the bottom and right border, you see the value of (respectively)
-            // the columns and rows.
+            // the rows.
             let n2 = game.row2hint[r * 2]
             var n1 = 0
             for c in 1..<cols - 1 {
@@ -143,7 +143,7 @@ class KakurasuGameState: GridGameState {
         }
         for c in 1..<cols - 1 {
             // 1. On the bottom and right border, you see the value of (respectively)
-            // the columns and rows.
+            // the columns.
             let n2 = game.col2hint[c * 2]
             var n1 = 0
             for r in 1..<rows - 1 {

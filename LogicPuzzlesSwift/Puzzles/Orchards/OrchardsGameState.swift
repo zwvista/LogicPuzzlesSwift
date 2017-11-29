@@ -128,7 +128,11 @@ class OrchardsGameState: GridGameState {
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let trees = pos2node.filter{(p, _) in nodesExplored.contains(p.description)}.map{$0.0}
+            // 2. These are Apple Trees, which must cross-pollinate, thus must be planted
+            // in pairs - horizontally or vertically touching.
             if trees.count != 2 {isSolved = false}
+            // 3. A Tree must be touching just one other Tree: you can't put three or
+            // more contiguous Trees.
             if trees.count > 2 {
                 for p in trees {
                     self[p] = .tree(state: .error)
@@ -143,6 +147,8 @@ class OrchardsGameState: GridGameState {
                 if case .tree = self[p] {trees.append(p)}
             }
             let n1 = trees.count
+            // 4. At the same time, like in Parks, every country area must have exactly
+            // two Trees in it.
             if n1 != n2 {isSolved = false}
             for p in a {
                 switch self[p] {

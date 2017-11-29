@@ -105,6 +105,8 @@ class MosaikGameState: GridGameState {
                 let p2 = p + os
                 if isValid(p: p2), self[p2] == .filled {n1 += 1}
             }
+            // 2. A number tells you how many tiles must be filled in the 3*3 area formed
+            // by the tile itself and the ones surrounding it.
             pos2state[p] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
         }

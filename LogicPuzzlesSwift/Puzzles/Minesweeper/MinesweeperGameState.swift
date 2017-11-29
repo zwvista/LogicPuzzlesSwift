@@ -115,6 +115,8 @@ class MinesweeperGameState: GridGameState {
                     break
                 }
             }
+            // 2. Numbers tell you how many mines there are close by, touching that
+            // number horizontally, vertically or diagonally.
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             self[p] = .hint(state: s)
             if s != .complete {

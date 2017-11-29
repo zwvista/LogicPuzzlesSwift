@@ -129,6 +129,7 @@ class ProductSentinelsGameState: GridGameState {
                 }
             }
         }
+        // 4. two Towers can't touch horizontally or vertically.
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
@@ -150,6 +151,9 @@ class ProductSentinelsGameState: GridGameState {
                 }
             }
         }
+        // 2. The number tells you the product of the tiles that Sentinel can control
+        // (see) from there vertically and horizontally. This includes the tile
+        // where he is located.
         for (p, n2) in game.pos2hint {
             var nums = [0, 0, 0, 0]
             var rng = [Position]()
@@ -181,6 +185,7 @@ class ProductSentinelsGameState: GridGameState {
             }
         }
         guard isSolved else {return}
+        // 4. There must be a single continuous Garden
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
         if pos2node.count != nodesExplored.count {isSolved = false}
     }

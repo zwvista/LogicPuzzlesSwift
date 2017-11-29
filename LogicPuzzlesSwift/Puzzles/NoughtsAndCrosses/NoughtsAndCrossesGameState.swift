@@ -104,16 +104,22 @@ class NoughtsAndCrossesGameState: GridGameState {
         isSolved = true
         func f(nums: [Character], s: inout HintState) {
             var nums = nums
+            // 4. A cross marks where no number can go.
+            // 5. All other cells can contain a number or be empty.
             nums.removeAll([" ", ".", "X"])
+            // 2. All numbers must appear just once.
             s = nums.count == game.chMax.toInt! && nums.count == Set<Character>(nums).count ? .complete : .error
             if s != .complete {isSolved = false}
         }
+        // 2. All numbers must appear just once on each row.
         for r in 0..<rows {
             f(nums: (0..<cols).map{self[r, $0]}, s: &row2state[r])
         }
+        // 2. All numbers must appear just once on each column.
         for c in 0..<cols {
             f(nums: (0..<rows).map{self[$0, c]}, s: &col2state[c])
         }
+        // 3. A circle marks where a number must go.
         for p in game.noughts {
             let ch = self[p]
             pos2state[p] = ch == " " || ch == "." ? .normal : .complete

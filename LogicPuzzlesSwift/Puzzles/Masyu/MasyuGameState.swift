@@ -96,19 +96,24 @@ class MasyuGameState: GridGameState {
                 }
                 switch dirs.count {
                 case 0:
+                    // 1. The goal is to draw a single Loop(Necklace) through every circle(Pearl)
                     guard ch == " " else {isSolved = false; return}
                 case 2:
                     pos2node[p] = g.addNode(p.description)
                     pos2Dirs[p] = dirs
                     switch ch {
                     case "B":
+                        // 4. Lines passing through Black Pearls must do a 90 degree turn in them.
                         guard dirs[1] - dirs[0] != 2 else {isSolved = false; return}
                     case "W":
+                        // 3. Lines passing through White Pearls must go straight through them.
                         guard dirs[1] - dirs[0] == 2 else {isSolved = false; return}
                     default:
                         break
                     }
                 default:
+                    // 1. The goal is to draw a single Loop(Necklace)
+                    // that never branches-off or crosses itself.
                     isSolved = false; return
                 }
             }
@@ -122,8 +127,12 @@ class MasyuGameState: GridGameState {
                 guard let node2 = pos2node[p2], let dirs2 = pos2Dirs[p2] else {isSolved = false; return}
                 switch ch {
                 case "B":
+                    // 4. Lines passing through Black Pearls must go straight
+                    // in the next tile in both directions.
                     guard (i == 0 || i == 2) && dirs2[0] == 0 && dirs2[1] == 2 || (i == 1 || i == 3) && dirs2[0] == 1 && dirs2[1] == 3 else {isSolved = false; return}
                 case "W":
+                    // 3. At least at one side of the White Pearl(or both),
+                    // Lines passing through White Pearls must do a 90 degree turn.
                     let n1 = (i + 1) % 4, n2 = (i + 3) % 4
                     if dirs2[0] == n1 || dirs2[0] == n2 || dirs2[1] == n1 || dirs2[1] == n2 {bW = true}
                 default:
@@ -133,6 +142,7 @@ class MasyuGameState: GridGameState {
             }
             guard bW else {isSolved = false; return}
         }
+        // 1. The goal is to draw a single Loop(Necklace).
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
         let n1 = nodesExplored.count
         let n2 = pos2node.values.count

@@ -168,6 +168,10 @@ class NeighboursGameState: GridGameState {
                 }
                 return indexes.count
             }
+            // 3. Each number on the board represents an owner house and the number of
+            // neighbours he desires.
+            // 4. Divide the land so that each one has an equal number of squares and
+            // the requested number of neighbours.
             pos2state[p3] = n1 == n2 && n3 == neighbours() ? .complete : .error
             if pos2state[p3] != .complete {isSolved = false}
         }

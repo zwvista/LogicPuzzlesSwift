@@ -128,6 +128,9 @@ class PowerGridGameState: GridGameState {
                 if case .post = self[p] {posts.append(p)}
             }
             let n1 = posts.count, n2 = game.row2hint[r] + 1
+            // 2. There are two Posts in each Row.
+            // 3. The numbers on the side tell you the length of the cables between
+            // the two Posts (in that Row).
             let s: HintState = n1 < 2 ? .normal : n1 == 2 && n2 == posts[1].col - posts[0].col ? .complete : .error
             row2state[r] = s
             if s != .complete {isSolved = false}
@@ -150,6 +153,9 @@ class PowerGridGameState: GridGameState {
                 if case .post = self[p] {posts.append(p)}
             }
             let n1 = posts.count, n2 = game.col2hint[c] + 1
+            // 2. There are two Posts in each Column.
+            // 3. The numbers on the side tell you the length of the cables between
+            // the two Posts (in that Column).
             let s: HintState = n1 < 2 ? .normal : n1 == 2 && n2 == posts[1].row - posts[0].row ? .complete : .error
             col2state[c] = s
             if s != .complete {isSolved = false}
