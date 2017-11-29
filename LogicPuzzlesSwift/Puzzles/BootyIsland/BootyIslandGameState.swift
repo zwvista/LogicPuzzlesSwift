@@ -121,6 +121,7 @@ class BootyIslandGameState: GridGameState {
                 }
             }
         }
+        // 4. Pirates don't bury their Treasures touching each other, even diagonally.
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
@@ -133,7 +134,9 @@ class BootyIslandGameState: GridGameState {
                 }
                 switch self[p] {
                 case let .treasure(state):
-                    self[p] = .treasure(state: state == .normal && !hasNeighbor() ? .normal : .error)
+                    let s: AllowedObjectState = state == .normal && !hasNeighbor() ? .normal : .error
+                    self[p] = .treasure(state: s)
+                    if s == .error {isSolved = false}
                 case .empty, .marker:
                     guard allowedObjectsOnly && hasNeighbor() else {continue}
                     self[p] = .forbidden
@@ -143,6 +146,7 @@ class BootyIslandGameState: GridGameState {
             }
         }
         let n2 = 1
+        // 2. In fact there's only one Treasure for each row.
         for r in 0..<rows {
             var n1 = 0
             for c in 0..<cols {
@@ -160,6 +164,7 @@ class BootyIslandGameState: GridGameState {
                 }
             }
         }
+        // 2. In fact there's only one Treasure for each column.
         for c in 0..<cols {
             var n1 = 0
             for r in 0..<rows {
@@ -177,15 +182,17 @@ class BootyIslandGameState: GridGameState {
                 }
             }
         }
+        // 3. On the island you can see maps with a number: these tell you how
+        // many steps are required, horizontally or vertically, to reach a
+        // Treasure.
         for (p, n2) in game.pos2hint {
             func f() -> HintState {
                 var possible = false
-                next:
-                for i in 0..<4 {
+                next: for i in 0..<4 {
                     let os = BootyIslandGame.offset[i * 2]
                     var n1 = 1, p2 = p + os
                     var possible2 = false
-                    while game.isValid(p: p2) {
+                    while isValid(p: p2) {
                         switch self[p2] {
                         case .treasure:
                             if n1 == n2 {return .complete}

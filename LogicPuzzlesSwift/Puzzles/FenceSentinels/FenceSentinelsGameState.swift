@@ -119,6 +119,9 @@ class FenceSentinelsGameState: GridGameState {
     */
     private func updateIsSolved() {
         isSolved = true
+        // 2. The loop goes around all the numbers.
+        // 3. The number tells you how many cells you can see horizontally or
+        // vertically from there, including the cell itself.
         for (p, n2) in game.pos2hint {
             var n1 = -3
             for i in 0..<4 {
@@ -159,6 +162,7 @@ class FenceSentinelsGameState: GridGameState {
                 g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
             }
         }
+        // 1. The goal is to draw a single, uninterrupted, closed loop.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
         let n1 = nodesExplored.count
         let n2 = pos2node.values.count

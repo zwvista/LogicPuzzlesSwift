@@ -205,8 +205,7 @@ class LitsGameState: GridGameState {
         guard isSolved else {return}
         // 5. All the shaded cells should form a valid Nurikabe.
         let block = blocks[0]
-        rule2x2:
-        for p in block {
+        rule2x2: for p in block {
             for os in LitsGame.offset3 {
                 guard block.contains(p + os) else {continue rule2x2}
             }

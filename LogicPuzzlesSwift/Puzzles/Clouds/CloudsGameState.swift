@@ -111,6 +111,8 @@ class CloudsGameState: GridGameState {
                 if self[r, c] == .forbidden {self[r, c] = .empty}
             }
         }
+        // 2. The hints on the borders tell you how many tiles are covered by Clouds
+        // in that row.
         for r in 0..<rows {
             var n1 = 0
             let n2 = game.row2hint[r]
@@ -120,6 +122,8 @@ class CloudsGameState: GridGameState {
             row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
         }
+        // 2. The hints on the borders tell you how many tiles are covered by Clouds
+        // in that column.
         for c in 0..<cols {
             var n1 = 0
             let n2 = game.col2hint[c]
@@ -169,6 +173,8 @@ class CloudsGameState: GridGameState {
                 if c1 > p.col {c1 = p.col}
             }
             let rs = r2 - r1 + 1, cs = c2 - c1 + 1
+            // 3. Clouds only appear in rectangular or square areas. Furthermore, their
+            // width and height is always at least two tiles wide.
             if !(rs >= 2 && cs >= 2 && rs * cs == nodesExplored.count) {
                 isSolved = false
                 return

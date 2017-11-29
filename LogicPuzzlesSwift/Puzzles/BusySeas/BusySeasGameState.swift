@@ -125,20 +125,23 @@ class BusySeasGameState: GridGameState {
                     return false
                 }
                 if case let .lighthouse(state) = self[p] {
-                    self[p] = .lighthouse(state: state == .normal && hasLightedBoat() ? .normal : .error)
+                    let s: AllowedObjectState = state == .normal && hasLightedBoat() ? .normal : .error
+                    self[p] = .lighthouse(state: s)
+                    if s == .error {isSolved = false}
                 }
             }
         }
+        // 3. A lighthouse lights all the tiles horizontally and vertically.
         for (p, n2) in game.pos2hint {
             var nums = [0, 0, 0, 0]
             var rng = [Position]()
-            next:
-            for i in 0..<4 {
+            next: for i in 0..<4 {
                 let os = BusySeasGame.offset[i]
                 var p2 = p + os
                 while game.isValid(p: p2) {
                     switch self[p2] {
                     case .hint:
+                        // 3. A lighthouse's light is stopped by the first boat it meets.
                         continue next
                     case .empty:
                         rng.append(p2)
@@ -151,6 +154,7 @@ class BusySeasGameState: GridGameState {
                 }
             }
             let n1 = nums.reduce(0, +)
+            // 2. Each boat has a number on it that tells you how many lighthouses are lighting it.
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             self[p] = .hint(state: s)
             if s != .complete {

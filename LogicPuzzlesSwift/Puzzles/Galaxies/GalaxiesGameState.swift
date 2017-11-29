@@ -141,19 +141,27 @@ class GalaxiesGameState: GridGameState {
             }
             pos2node = pos2node.filter{(p, _) in !nodesExplored.contains(p.description)}
         }
+        var n1 = 0
         for area in areas {
             let rng = game.galaxies.filter{p in area.contains(Position(p.row / 2, p.col / 2))}
             if rng.count != 1 {
+                // 3. Galaxies can't overlap.
                 for p in rng {
                     pos2state[p] = .normal
                 }
                 isSolved = false
             } else {
+                // 2. These Galaxies are symmetrical to a rotation of 180 degrees. This
+                // means that rotating the shape of the Galaxy by 180 degrees (half a
+                // full turn) around the center, will result in an identical shape.
                 let galaxy = rng.first!
                 let b = area.testAll{p in area.contains(Position(galaxy.row - p.row - 1, galaxy.col - p.col - 1))}
                 pos2state[galaxy] = b ? .complete : .error
                 if !b {isSolved = false}
             }
+            n1 += area.count
         }
+        // 3. In the end, all the space must be included in Galaxies
+        if n1 != rows * cols {isSolved = false}
     }
 }

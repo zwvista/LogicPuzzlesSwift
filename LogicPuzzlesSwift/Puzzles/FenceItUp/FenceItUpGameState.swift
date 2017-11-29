@@ -140,6 +140,8 @@ class FenceItUpGameState: GridGameState {
             let p2 = rng[0]
             let n2 = game.pos2hint[p2]!
             var n1 = 0
+            // 2. Each area must contain one number and the number tells you the length
+            // of the perimeter of the area.
             for p in area {
                 for i in 0..<4 {
                     if self[p + FenceItUpGame.offset2[i]][FenceItUpGame.dirs[i]] == .line {n1 += 1}

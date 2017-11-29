@@ -135,7 +135,8 @@ class DominoGameState: GridGameState {
             let area = pos2node.filter{(p, _) in nodesExplored.contains(p.description)}.map{$0.0}
             guard area.count == 2 else {isSolved = false; return}
             let domino = [game.pos2hint[area[0]]!, game.pos2hint[area[1]]!].sorted()
-            // http://stackoverflow.com/questions/29736244/how-do-i-check-if-an-array-of-tuples-contains-a-particular-one-in-swift
+            // 2. In early levels the board contains a smaller Domino set, of numbers ranging from 0 to 3.
+            // 3. This means you will be looking for a Domino set composed of these combinations.
             guard !dominoes.contains(where: {$0 == domino}) else {isSolved = false; return}
             dominoes.append(domino)
             pos2node = pos2node.filter{(p, _) in !nodesExplored.contains(p.description)}

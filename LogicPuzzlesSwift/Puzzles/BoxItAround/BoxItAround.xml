@@ -3,7 +3,7 @@
 <help>
   <![CDATA[
 1. A simple puzzle where you have to divide the Board in Boxes (Rectangles).
-2. Each Box must contain one number and the number represents the sum of of the width and the height of that Box.
+2. Each Box must contain one number and the number represents the sum of the width and the height of that Box.
   ]]>
 </help>
 <levels>

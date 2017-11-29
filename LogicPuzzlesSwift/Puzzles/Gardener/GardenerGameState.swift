@@ -131,9 +131,14 @@ class GardenerGameState: GridGameState {
                 g.addEdge(node, neighbor: node2)
             }
         }
+        // 5. All the remaining Garden space where there are no Flowers must be
+        // interconnected (horizontally or vertically), as he wants to be able
+        // to reach every part of the Garden without treading over Flowers.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
         if nodesExplored.count != pos2node.count {isSolved = false}
         
+        // 3. A number tells you how many Flowers you must plant in that Flowerbed.
+        // A Flowerbed without number can have any quantity of Flowers.
         for (p, (n2, i)) in game.pos2hint {
             let area = game.areas[i]
             var n1 = 0
@@ -155,6 +160,11 @@ class GardenerGameState: GridGameState {
             }
         }
         var trees = [Position]()
+        // 6. Lastly, there must be enough balance in the Garden, so a straight
+        // line (horizontally or vertically) of non-planted tiles can't span
+        // for more than two Flowerbeds.
+        // 7. In other words, a straight path of empty space can't pass through
+        // three or more Flowerbeds.
         func invalidTrees() -> Bool {
             return Set<Int>(trees.map{game.pos2area[$0]!}).count > 2
         }

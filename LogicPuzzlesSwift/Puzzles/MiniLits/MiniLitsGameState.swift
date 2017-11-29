@@ -207,8 +207,7 @@ class MiniLitsGameState: GridGameState {
         guard isSolved else {return}
         // 4. All the shaded cells should form a valid Nurikabe.
         let block = blocks[0]
-        rule2x2:
-        for p in block {
+        rule2x2: for p in block {
             for os in MiniLitsGame.offset3 {
                 guard block.contains(p + os) else {continue rule2x2}
             }

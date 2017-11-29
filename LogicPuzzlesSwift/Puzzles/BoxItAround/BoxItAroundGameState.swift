@@ -104,7 +104,7 @@ class BoxItAroundGameState: GridGameState {
         Description
         1. A simple puzzle where you have to divide the Board in Boxes (Rectangles).
         2. Each Box must contain one number and the number represents the sum of
-           of the width and the height of that Box.
+           the width and the height of that Box.
     */
     private func updateIsSolved() {
         isSolved = true
@@ -130,6 +130,7 @@ class BoxItAroundGameState: GridGameState {
             let area = pos2node.filter{(p, _) in nodesExplored.contains(p.description)}.map{$0.0}
             pos2node = pos2node.filter{(p, _) in !nodesExplored.contains(p.description)}
             let rng = area.filter{p in game.pos2hint[p] != nil}
+            // 2. Each Box must contain one number.
             if rng.count != 1 {
                 for p in rng {
                     pos2state[p] = .normal
@@ -155,6 +156,8 @@ class BoxItAroundGameState: GridGameState {
                 }
                 return false
             }
+            // 1. A simple puzzle where you have to divide the Board in Boxes (Rectangles).
+            // 2. The number represents the sum of the width and the height of that Box.
             pos2state[p2] = rs * cs == n1 && rs + cs == n2 && !hasLine() ? .complete : .error
             if pos2state[p2] != .complete {isSolved = false}
         }

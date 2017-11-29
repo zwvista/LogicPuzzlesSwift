@@ -79,6 +79,8 @@ class BridgesGameState: GridGameState {
             }
             p += os
         }
+        // 5. Lastly, you can connect two islands with either one or two Bridges
+        // (or none, of course)
         let n = (bridges1[n1] + 1) % 3
         bridges1[n1] = n; bridges2[n2] = n
         self[pFrom] = .island(state: state1, bridges: bridges1)

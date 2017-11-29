@@ -110,6 +110,8 @@ class FenceLitsGameState: GridGameState {
     */
     private func updateIsSolved() {
         isSolved = true
+        // 2. The number in a cell tells you how many of the sides are marked
+        // (like slitherlink).
         for (p, n2) in game.pos2hint {
             var n1 = 0
             for i in 0..<4 {
@@ -136,6 +138,8 @@ class FenceLitsGameState: GridGameState {
             }
         }
         guard isSolved else {return}
+        // 1. The goal is to divide the board into Tetris pieces, including the
+        // square one (differently from LITS).
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter{(p, _) in nodesExplored.contains(p.description)}.map{$0.0}.sorted()
