@@ -96,6 +96,9 @@ class BWTapaGameState: GridGameState {
     */
     private func updateIsSolved() {
         isSolved = true
+        // A number indicates how many of the surrounding tiles are filled. If a
+        // tile has more than one number, it hints at multiple separated groups
+        // of filled tiles.
         func computeHint(filled: [Int]) -> [Int] {
             if filled.isEmpty {return [0]}
             var hint = [Int]()
@@ -130,6 +133,7 @@ class BWTapaGameState: GridGameState {
             if s != .complete {isSolved = false}
         }
         guard isSolved else {return}
+        // 3. There can't be any 2*2 of white or black cells.
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
@@ -174,6 +178,7 @@ class BWTapaGameState: GridGameState {
                 }
             }
         }
+        // 2. Both Black and White cells must form a single continuous region.
         let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
         if rngWalls.count != nodesExplored.count {isSolved = false; return}
         let nodesExplored2 = breadthFirstSearch(g, source: pos2node[rngEmpty.first!]!)

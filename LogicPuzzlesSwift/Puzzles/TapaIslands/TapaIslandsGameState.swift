@@ -99,6 +99,9 @@ class TapaIslandsGameState: GridGameState {
     */
     private func updateIsSolved() {
         isSolved = true
+        // A number indicates how many of the surrounding tiles are filled. If a
+        // tile has more than one number, it hints at multiple separated groups
+        // of filled tiles.
         func computeHint(filled: [Int]) -> [Int] {
             if filled.isEmpty {return [0]}
             var hint = [Int]()
@@ -132,6 +135,8 @@ class TapaIslandsGameState: GridGameState {
             self[p] = .hint(state: s)
             if s != .complete {isSolved = false}
         }
+        // Filled tiles can't cover an area of 2*2 or larger (just like Nurikabe).
+        // Tiles with numbers can be considered 'empty'.
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
