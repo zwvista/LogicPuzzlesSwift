@@ -959,6 +959,7 @@
 		8CF3FFDC1FCB2A2700D41B67 /* DisconnectFourObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFD01FCB2A2600D41B67 /* DisconnectFourObject.swift */; };
 		8CF3FFDD1FCB2A2700D41B67 /* DisconnectFourDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFD11FCB2A2600D41B67 /* DisconnectFourDocument.swift */; };
 		8CF3FFDE1FCB2A2700D41B67 /* DisconnectFourHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFD21FCB2A2600D41B67 /* DisconnectFourHelpViewController.swift */; };
+		8CF3FFE01FCF082A00D41B67 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFDF1FCF082900D41B67 /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1974,6 +1975,7 @@
 		8CF3FFD01FCB2A2600D41B67 /* DisconnectFourObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourObject.swift; sourceTree = "<group>"; };
 		8CF3FFD11FCB2A2600D41B67 /* DisconnectFourDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourDocument.swift; sourceTree = "<group>"; };
 		8CF3FFD21FCB2A2600D41B67 /* DisconnectFourHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourHelpViewController.swift; sourceTree = "<group>"; };
+		8CF3FFDF1FCF082900D41B67 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3317,6 +3319,7 @@
 				8C5368831EA1DFCC0071D475 /* GridObject.swift */,
 				8C6D37F41DC5AC520052202C /* Position.swift */,
 				8C7609191EC7EB1C00DFCD7B /* SelfSizingTableViewCell.swift */,
+				8CF3FFDF1FCF082900D41B67 /* UIView+Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -4156,6 +4159,7 @@
 				8C3A36971EC88D4200A914A5 /* FenceSentinelsHelpViewController.swift in Sources */,
 				8C3A36F41EC88D4300A914A5 /* MagnetsGameState.swift in Sources */,
 				8CC25CC81F87BB5A005560F7 /* KakuroGridNode.swift in Sources */,
+				8CF3FFE01FCF082A00D41B67 /* UIView+Extension.swift in Sources */,
 				8CF3FFD61FCB2A2700D41B67 /* DisconnectFourGameScene.swift in Sources */,
 				8C04671E1F8BA2BE00B5DE41 /* TataminoGridNode.swift in Sources */,
 				8C3A372A1EC88D4300A914A5 /* MiniLitsObject.swift in Sources */,

@@ -12,7 +12,7 @@ class GameMainViewController: UIViewController {
 
     @IBOutlet weak var lblGameTitle: UILabel!
     @IBOutlet weak var btnResumeLevel: UIButton!
-
+    
     override var prefersStatusBarHidden: Bool { return true }
     
     override var shouldAutorotate: Bool { return false}
@@ -34,6 +34,11 @@ class GameMainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        for subView in view.subviews {
+            guard let button = subView as? UIButton, button.titleColor(for: .normal) == .white else {continue}
+            button.initColors()
+        }
+        
         lblGameTitle.text = currentGameTitle
         numPages = (gameDocument.levels.count + countPerPage - 1) / countPerPage
         let index = gameDocument.levels.index(where: {$0.id == gameDocument.selectedLevelID}) ?? 0
