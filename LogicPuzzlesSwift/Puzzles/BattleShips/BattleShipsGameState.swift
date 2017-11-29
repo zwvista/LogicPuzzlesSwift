@@ -130,6 +130,7 @@ class BattleShipsGameState: GridGameState {
                 if self[r, c] == .forbidden {self[r, c] = .empty}
             }
         }
+        // 2. Each number tells you how many ship or ship pieces you're seeing in that row.
         for r in 0..<rows {
             var n1 = 0
             let n2 = game.row2hint[r]
@@ -144,6 +145,7 @@ class BattleShipsGameState: GridGameState {
             row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
         }
+        // 2. Each number tells you how many ship or ship pieces you're seeing in that column.
         for c in 0..<cols {
             var n1 = 0
             let n2 = game.col2hint[c]
@@ -168,7 +170,6 @@ class BattleShipsGameState: GridGameState {
                 }
             }
         }
-        guard isSolved else {return}
         let g = Graph()
         var pos2node = [Position: Node]()
         for r in 0..<rows {
@@ -184,8 +185,8 @@ class BattleShipsGameState: GridGameState {
             }
         }
         for (p, node) in pos2node {
-            for os in BattleShipsGame.offset {
-                let p2 = p + os
+            for i in 0..<4  {
+                let p2 = p + BattleShipsGame.offset[i * 2]
                 guard let node2 = pos2node[p2] else {continue}
                 g.addEdge(node, neighbor: node2)
             }
@@ -195,17 +196,30 @@ class BattleShipsGameState: GridGameState {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter{(p, _) in nodesExplored.contains(p.description)}.map({$0.0}).sorted()
             pos2node = pos2node.filter{(p, _) in !nodesExplored.contains(p.description)}
-            guard (area.count == 1 && self[area.first!] == .battleShipUnit || area.count > 1 && area.count < 5 && ((
-                area.testAll({$0.row == area.first!.row}) && self[area.first!] == .battleShipLeft && self[area.last!] == .battleShipRight) ||
+            guard area.count == 1 && self[area.first!] == .battleShipUnit || area.count > 1 && area.count < 5 && (
+                area.testAll({$0.row == area.first!.row}) && self[area.first!] == .battleShipLeft && self[area.last!] == .battleShipRight ||
                 area.testAll({$0.col == area.first!.col}) && self[area.first!] == .battleShipTop && self[area.last!] == .battleShipBottom) &&
-                [Int](1..<area.count - 1).testAll({self[area[$0]] == .battleShipMiddle})) && BattleShipsGame.offset2.testAll({os in area.testAll({
-                        let p2 = $0 + os
-                        if !self.isValid(p: p2) {return true}
-                        let o = self[p2]
-                        return o == .empty || o == .forbidden || o == .marker
-                    })}) else {isSolved = false; return}
+                [Int](1..<area.count - 1).testAll({self[area[$0]] == .battleShipMiddle}) else {isSolved = false; continue}
+            for p in area {
+                for os in BattleShipsGame.offset {
+                    // 3. A ship or piece of ship can't touch another, not even diagonally.
+                    let p2 = p + os
+                    if !self.isValid(p: p2) || area.contains(p2) {continue}
+                    let o = self[p2]
+                    if !(o == .empty || o == .forbidden || o == .marker) {
+                        isSolved = false
+                    } else if allowedObjectsOnly {
+                        self[p2] = .forbidden
+                    }
+                }
+            }
             shipNumbers[area.count] += 1
         }
+        // 4. In each puzzle there are
+        //    1 Aircraft Carrier (4 squares)
+        //    2 Destroyers (3 squares)
+        //    3 Submarines (2 squares)
+        //    4 Patrol boats (1 square)
         if shipNumbers != [0, 4, 3, 2, 1] {isSolved = false}
     }
 }

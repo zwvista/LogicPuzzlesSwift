@@ -127,12 +127,15 @@ class DigitalBattleShipsGameState: GridGameState {
                 if self[r, c] == .forbidden {self[r, c] = .empty}
             }
         }
+        // 2. Each number on the outer board tells you the SUM of the ship or
+        // ship pieces you're seeing in that row.
         for r in 0..<rows {
             var n1 = 0
             let n2 = game.row2hint[r]
             for c in 0..<cols {
                 switch self[r, c] {
                 case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
+                    // 3. A ship or ship piece is worth the number it occupies on the board.
                     n1 += game[r, c]
                 default:
                     break
@@ -141,12 +144,15 @@ class DigitalBattleShipsGameState: GridGameState {
             row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
         }
+        // 2. Each number on the outer board tells you the SUM of the ship or
+        // ship pieces you're seeing in that column.
         for c in 0..<cols {
             var n1 = 0
             let n2 = game.col2hint[c]
             for r in 0..<rows {
                 switch self[r, c] {
                 case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
+                    // 3. A ship or ship piece is worth the number it occupies on the board.
                     n1 += game[r, c]
                 default:
                     break
@@ -165,7 +171,6 @@ class DigitalBattleShipsGameState: GridGameState {
                 }
             }
         }
-        guard isSolved else {return}
         let g = Graph()
         var pos2node = [Position: Node]()
         for r in 0..<rows {
@@ -181,8 +186,8 @@ class DigitalBattleShipsGameState: GridGameState {
             }
         }
         for (p, node) in pos2node {
-            for os in DigitalBattleShipsGame.offset {
-                let p2 = p + os
+            for i in 0..<4 {
+                let p2 = p + DigitalBattleShipsGame.offset[i * 2]
                 guard let node2 = pos2node[p2] else {continue}
                 g.addEdge(node, neighbor: node2)
             }
@@ -192,17 +197,30 @@ class DigitalBattleShipsGameState: GridGameState {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter{(p, _) in nodesExplored.contains(p.description)}.map{$0.0}.sorted()
             pos2node = pos2node.filter{(p, _) in !nodesExplored.contains(p.description)}
-            guard (area.count == 1 && self[area.first!] == .battleShipUnit || area.count > 1 && area.count < 5 && ((
-                area.testAll({$0.row == area.first!.row}) && self[area.first!] == .battleShipLeft && self[area.last!] == .battleShipRight) ||
+            guard area.count == 1 && self[area.first!] == .battleShipUnit || area.count > 1 && area.count < 5 && (
+                area.testAll({$0.row == area.first!.row}) && self[area.first!] == .battleShipLeft && self[area.last!] == .battleShipRight ||
                 area.testAll({$0.col == area.first!.col}) && self[area.first!] == .battleShipTop && self[area.last!] == .battleShipBottom) &&
-                [Int](1..<area.count - 1).testAll({self[area[$0]] == .battleShipMiddle})) && DigitalBattleShipsGame.offset2.testAll({os in area.testAll({
-                    let p2 = $0 + os
-                    if !self.isValid(p: p2) {return true}
+                [Int](1..<area.count - 1).testAll({self[area[$0]] == .battleShipMiddle}) else {isSolved = false; continue}
+            for p in area {
+                for os in DigitalBattleShipsGame.offset {
+                    // 4. A ship or piece of ship can't touch another, not even diagonally.
+                    let p2 = p + os
+                    if !self.isValid(p: p2) || area.contains(p2) {continue}
                     let o = self[p2]
-                    return o == .empty || o == .forbidden || o == .marker
-                })}) else {isSolved = false; return}
+                    if !(o == .empty || o == .forbidden || o == .marker) {
+                        isSolved = false
+                    } else if allowedObjectsOnly {
+                        self[p2] = .forbidden
+                    }
+                }
+            }
             shipNumbers[area.count] += 1
         }
+        // 5. In each puzzle there are
+        //    1 Aircraft Carrier (4 squares)
+        //    2 Destroyers (3 squares)
+        //    3 Submarines (2 squares)
+        //    4 Patrol boats (1 square)
         if shipNumbers != [0, 4, 3, 2, 1] {isSolved = false}
     }
 }

@@ -19,12 +19,6 @@ class MineShipsGame: GridGame<MineShipsGameViewController> {
         Position(0, -1),
         Position(-1, -1),
     ]
-    static let offset2 = [
-        Position(-1, 1),
-        Position(1, 1),
-        Position(1, -1),
-        Position(-1, -1),
-    ]
 
     var pos2hint = [Position: Int]()
     

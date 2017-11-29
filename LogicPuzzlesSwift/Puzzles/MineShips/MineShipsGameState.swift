@@ -115,6 +115,7 @@ class MineShipsGameState: GridGameState {
                 if case .forbidden = self[r, c] {self[r, c] = .empty}
             }
         }
+        // 3. A number tells you how many pieces of ship are around it.
         for (p, n2) in game.pos2hint {
             var n1 = 0
             var rng = [Position]()
@@ -140,7 +141,6 @@ class MineShipsGameState: GridGameState {
                 }
             }
         }
-        guard isSolved else {return}
         let g = Graph()
         var pos2node = [Position: Node]()
         for r in 0..<rows {
@@ -167,25 +167,32 @@ class MineShipsGameState: GridGameState {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter{(p, _) in nodesExplored.contains(p.description)}.map{$0.0}.sorted()
             pos2node = pos2node.filter{(p, _) in !nodesExplored.contains(p.description)}
-            func f(os: Position, objTopLeft: MineShipsObject, objBottomRight: MineShipsObject) -> Bool {
-                return String(describing: self[area.first!]) == String(describing: objTopLeft) && String(describing: self[area.last!]) == String(describing: objBottomRight) &&
-                    [Int](1..<area.count - 1).testAll({String(describing: self[area[$0]]) == String(describing: MineShipsObject.battleShipMiddle)}) &&
-                    [Int](1..<area.count).testAll({area[$0] - area[$0 - 1] == os})
+            guard area.count == 1 && String(describing: self[area.first!]) == String(describing: MineShipsObject.battleShipUnit) || area.count > 1 && area.count < 5 && (
+                area.testAll({$0.row == area.first!.row}) && String(describing: self[area.first!]) == String(describing: MineShipsObject.battleShipLeft) && String(describing: self[area.last!]) == String(describing: MineShipsObject.battleShipRight) ||
+                area.testAll({$0.col == area.first!.col}) && String(describing: self[area.first!]) == String(describing: MineShipsObject.battleShipTop) && String(describing: self[area.last!]) == String(describing: MineShipsObject.battleShipBottom)) &&
+                [Int](1..<area.count - 1).testAll({String(describing: self[area[$0]]) == String(describing: MineShipsObject.battleShipMiddle)}) else {isSolved = false; continue}
+            for p in area {
+                for os in MineShipsGame.offset {
+                    // A ship or piece of ship can't touch another, not even diagonally.
+                    let p2 = p + os
+                    if !self.isValid(p: p2) || area.contains(p2) {continue}
+                    switch self[p2] {
+                    case .empty, .marker:
+                        if allowedObjectsOnly {self[p2] = .forbidden}
+                    case .forbidden, .hint:
+                        break
+                    default:
+                        isSolved = false
+                    }
+                }
             }
-            guard (area.count == 1 && String(describing: self[area.first!]) == String(describing: MineShipsObject.battleShipUnit) || area.count > 1 && area.count < 5 && (
-                area.testAll({$0.row == area.first!.row}) && f(os: Position(0, 1), objTopLeft: .battleShipLeft, objBottomRight: .battleShipRight) ||
-                    area.testAll({$0.col == area.first!.col}) && f(os: Position(1, 0), objTopLeft: MineShipsObject.battleShipTop, objBottomRight: MineShipsObject.battleShipBottom))) && MineShipsGame.offset2.testAll({os in area.testAll({
-                        let p2 = $0 + os
-                        if !self.isValid(p: p2) {return true}
-                        switch self[p2] {
-                        case .empty, .forbidden, .marker, .hint:
-                            return true
-                        default:
-                            return false
-                        }
-                    })}) else {isSolved = false; return}
             shipNumbers[area.count] += 1
         }
+        // In each puzzle there are
+        //    1 Aircraft Carrier (4 squares)
+        //    2 Destroyers (3 squares)
+        //    3 Submarines (2 squares)
+        //    4 Patrol boats (1 square)
         if shipNumbers != [0, 4, 3, 2, 1] {isSolved = false}
     }
 }

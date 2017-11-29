@@ -125,6 +125,7 @@ class LightBattleShipsGameState: GridGameState {
                 if case .forbidden = self[r, c] {self[r, c] = .empty}
             }
         }
+        // 3. Ships cannot touch Lighthouses. Not even diagonally.
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
@@ -145,7 +146,9 @@ class LightBattleShipsGameState: GridGameState {
                 }
                 switch self[p] {
                 case .hint:
-                    self[p] = .hint(state: !hasNeighbor(isHint: true) ? .normal : .error)
+                    let s: HintState = !hasNeighbor(isHint: true) ? .normal : .error
+                    self[p] = .hint(state: s)
+                    if s == .error {isSolved = false}
                 case .empty, .marker:
                     guard allowedObjectsOnly && hasNeighbor(isHint: false) else {continue}
                     self[p] = .forbidden
@@ -154,6 +157,8 @@ class LightBattleShipsGameState: GridGameState {
                 }
             }
         }
+        // 2. Each number is a Lighthouse, telling you how many pieces of ship
+        // there are in that row and column, summed together.
         for (p, n2) in game.pos2hint {
             var nums = [0, 0, 0, 0]
             var rng = [Position]()
@@ -183,7 +188,6 @@ class LightBattleShipsGameState: GridGameState {
                 }
             }
         }
-        guard isSolved else {return}
         let g = Graph()
         var pos2node = [Position: Node]()
         for r in 0..<rows {
@@ -210,21 +214,30 @@ class LightBattleShipsGameState: GridGameState {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter{(p, _) in nodesExplored.contains(p.description)}.map{$0.0}.sorted()
             pos2node = pos2node.filter{(p, _) in !nodesExplored.contains(p.description)}
-            guard (area.count == 1 && String(describing: self[area.first!]) == String(describing: LightBattleShipsObject.battleShipUnit) || area.count > 1 && area.count < 5 && ((
-                area.testAll({$0.row == area.first!.row}) && String(describing: self[area.first!]) == String(describing: LightBattleShipsObject.battleShipLeft) && String(describing: self[area.last!]) == String(describing: LightBattleShipsObject.battleShipRight)) ||
+            guard area.count == 1 && String(describing: self[area.first!]) == String(describing: LightBattleShipsObject.battleShipUnit) || area.count > 1 && area.count < 5 && (
+                area.testAll({$0.row == area.first!.row}) && String(describing: self[area.first!]) == String(describing: LightBattleShipsObject.battleShipLeft) && String(describing: self[area.last!]) == String(describing: LightBattleShipsObject.battleShipRight) ||
                 area.testAll({$0.col == area.first!.col}) && String(describing: self[area.first!]) == String(describing: LightBattleShipsObject.battleShipTop) && String(describing: self[area.last!]) == String(describing: LightBattleShipsObject.battleShipBottom)) &&
-                [Int](1..<area.count - 1).testAll({String(describing: self[area[$0]]) == String(describing: LightBattleShipsObject.battleShipMiddle)})) && BattleShipsGame.offset2.testAll({os in area.testAll({
-                    let p2 = $0 + os
-                    if !self.isValid(p: p2) {return true}
+                [Int](1..<area.count - 1).testAll({String(describing: self[area[$0]]) == String(describing: LightBattleShipsObject.battleShipMiddle)}) else {isSolved = false; continue}
+            for p in area {
+                for os in LightBattleShipsGame.offset {
+                    // 3. Ships cannot touch each other. Not even diagonally.
+                    let p2 = p + os
+                    if !self.isValid(p: p2) || area.contains(p2) {continue}
                     switch self[p2] {
-                    case .empty, .forbidden, .marker, .hint:
-                        return true
+                    case .empty, .marker, .forbidden:
+                        if allowedObjectsOnly {self[p2] = .forbidden}
                     default:
-                        return false
+                        isSolved = false
                     }
-                })}) else {isSolved = false; return}
+                }
+            }
             shipNumbers[area.count] += 1
         }
+        // 4. In each puzzle there are
+        //    1 Aircraft Carrier (4 squares)
+        //    2 Destroyers (3 squares)
+        //    3 Submarines (2 squares)
+        //    4 Patrol boats (1 square)
         if shipNumbers != [0, 4, 3, 2, 1] {isSolved = false}
     }
 }
