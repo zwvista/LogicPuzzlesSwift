@@ -100,6 +100,8 @@ class PataGameState: GridGameState {
     */
     private func updateIsSolved() {
         isSolved = true
+        // 2. A number indicates the groups of connected empty tiles that are around
+        // it, instead of filled ones.
         func computeHint(emptied: [Int]) -> [Int] {
             if emptied.isEmpty {return [0]}
             var hint = [Int]()
@@ -143,6 +145,7 @@ class PataGameState: GridGameState {
             if s != .complete {isSolved = false}
         }
         guard isSolved else {return}
+        // 6. You can't have a 2*2 space of filled tiles.
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
@@ -154,28 +157,21 @@ class PataGameState: GridGameState {
         }
         let g = Graph()
         var pos2node = [Position: Node]()
-        var rngWalls = [Position]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                pos2node[p] = g.addNode(p.description)
-                switch self[p] {
-                case .wall:
-                    rngWalls.append(p)
-                default:
-                    break
-                }
+                if case .wall = self[p] {pos2node[p] = g.addNode(p.description)}
             }
         }
-        for p in rngWalls {
+        for (p, node) in pos2node {
             for os in PataGame.offset {
                 let p2 = p + os
-                if rngWalls.contains(p2) {
-                    g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
-                }
+                guard let node2 = pos2node[p2] else {continue}
+                g.addEdge(node, neighbor: node2)
             }
         }
-        let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
-        if rngWalls.count != nodesExplored.count {isSolved = false}
+        // 5. The filled tiles are continuous.
+        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+        if nodesExplored.count != pos2node.count {isSolved = false; return}
     }
 }

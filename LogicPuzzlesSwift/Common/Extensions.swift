@@ -29,21 +29,6 @@ extension UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
 }
-// https://stackoverflow.com/questions/31220002/how-to-group-by-the-elements-of-an-array-in-swift
-extension Sequence {
-    func group<GroupingType: Hashable>(by key: (Iterator.Element) -> GroupingType) -> [[Iterator.Element]] {
-        var groups: [GroupingType: [Iterator.Element]] = [:]
-        var groupsOrder: [GroupingType] = []
-        forEach { element in
-            let key = key(element)
-            if case nil = groups[key]?.append(element) {
-                groups[key] = [element]
-                groupsOrder.append(key)
-            }
-        }
-        return groupsOrder.map { groups[$0]! }
-    }
-}
 
 extension UIButton {
     func initColors() {

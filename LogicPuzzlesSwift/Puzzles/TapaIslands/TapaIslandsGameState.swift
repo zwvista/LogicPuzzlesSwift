@@ -179,6 +179,8 @@ class TapaIslandsGameState: GridGameState {
             }
         }
         guard !rngWalls.isEmpty else {isSolved = false; return}
+        // The goal is to fill some tiles forming a single orthogonally continuous
+        // path. Just like Nurikabe.
         let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
         if rngWalls.count != nodesExplored.count {isSolved = false}
         while !rngEmpty.isEmpty {
@@ -195,6 +197,9 @@ class TapaIslandsGameState: GridGameState {
             case 0:
                 isSolved = false
             case 1:
+                // 3. Each separated area may contain at most one clue tile.
+                // 4. If there is a clue tile in an area, at least one digit should give the
+                // size of that area in unit squares.
                 let p = rng[0]
                 let arr2 = game.pos2hint[p]!
                 let s: HintState = arr2.contains(n2) ? .complete : .error

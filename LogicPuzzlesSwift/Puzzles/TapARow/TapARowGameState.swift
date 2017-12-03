@@ -97,6 +97,9 @@ class TapARowGameState: GridGameState {
     */
     private func updateIsSolved() {
         isSolved = true
+        // A number indicates how many of the surrounding tiles are filled. If a
+        // tile has more than one number, it hints at multiple separated groups
+        // of filled tiles.
         func computeHint(filled: [Int]) -> [Int] {
             if filled.isEmpty {return [0]}
             var hint = [Int]()
@@ -131,6 +134,8 @@ class TapARowGameState: GridGameState {
             if s != .complete {isSolved = false}
         }
         guard isSolved else {return}
+        // Filled tiles can't cover an area of 2*2 or larger (just like Nurikabe).
+        // Tiles with numbers can be considered 'empty'.
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
@@ -142,29 +147,26 @@ class TapARowGameState: GridGameState {
         }
         let g = Graph()
         var pos2node = [Position: Node]()
-        var rngWalls = [Position]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                pos2node[p] = g.addNode(p.description)
-                switch self[p] {
-                case .wall:
-                    rngWalls.append(p)
-                default:
-                    break
-                }
+                if case .wall = self[p] {pos2node[p] = g.addNode(p.description)}
             }
         }
-        for p in rngWalls {
-            for os in TapaGame.offset {
+        for (p, node) in pos2node {
+            for os in TapARowGame.offset {
                 let p2 = p + os
-                if rngWalls.contains(p2) {
-                    g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
-                }
+                guard let node2 = pos2node[p2] else {continue}
+                g.addEdge(node, neighbor: node2)
             }
         }
-        let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
-        if rngWalls.count != nodesExplored.count {isSolved = false; return}
+        // The goal is to fill some tiles forming a single orthogonally continuous
+        // path. Just like Nurikabe.
+        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+        if nodesExplored.count != pos2node.count {isSolved = false; return}
+        // 2. The number also tells you the filled cell count for that row.
+        // 3. In other words, the sum of the digits in that row equals the number
+        // of that row.
         for r in 0..<rows {
             var n1 = 0, n2 = 0
             for c in 0..<cols {

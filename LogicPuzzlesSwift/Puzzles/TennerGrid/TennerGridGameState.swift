@@ -91,19 +91,11 @@ class TennerGridGameState: GridGameState {
     private func updateIsSolved() {
         isSolved = true
         for r in 0..<rows - 1 {
-            var nums = Set<Int>()
-            var rowState: HintState = .complete
-            for c in 0..<cols {
-                let (o1, o2) = (game[r, c], self[r, c])
-                if o1 == -1 && o2 == -1 {isSolved = false; rowState = .normal}
-                if o2 != -1 {nums.insert(o2)}
-            }
+            let cs = Dictionary(grouping: 0..<cols, by: {self[r, $0]}).filter{$0.0 != -1 && $0.1.count > 1}.flatMap{$0.1}
             // 3. Obviously digits can't repeat on the same row.
-            if rowState == .complete && nums.count != cols {rowState = .error}
-            for c in 0..<cols {
-                let p = Position(r, c)
-                let (o1, o2) = (game[p], self[p])
-                pos2state[p] = rowState
+            if !cs.isEmpty {isSolved = false}
+            for c in 0..<cols - 1 {
+                pos2state[Position(r, c)] = cs.contains(c) ? .error : .normal
             }
         }
         for c in 0..<cols {
