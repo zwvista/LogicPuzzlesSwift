@@ -100,6 +100,8 @@ class HitoriGameState: GridGameState {
     private func updateIsSolved() {
         isSolved = true
         var chars = ""
+        // 1. The goal is to shade squares so that a number appears only once in a
+        // row.
         for r in 0..<rows {
             chars = ""
             row2hint[r] = ""
@@ -115,6 +117,8 @@ class HitoriGameState: GridGameState {
                 }
             }
         }
+        // 1. The goal is to shade squares so that a number appears only once in a
+        // column.
         for c in 0..<cols {
             chars = ""
             col2hint[c] = ""
@@ -145,6 +149,8 @@ class HitoriGameState: GridGameState {
                 }
             }
         }
+        // 2. While doing that, you must take care that shaded squares don't touch
+        // horizontally or vertically between them.
         for p in rngDarken {
             for os in CloudsGame.offset {
                 let p2 = p + os
@@ -158,6 +164,7 @@ class HitoriGameState: GridGameState {
                 g.addEdge(node, neighbor: node2)
             }
         }
+        // 3. In the end all the un-shaded squares must form a single continuous area.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
         if pos2node.count != nodesExplored.count {isSolved = false}
     }

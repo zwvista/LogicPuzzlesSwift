@@ -17,6 +17,24 @@ class GardenerGameScene: GameScene<GardenerGameState> {
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
+    
+    func addHint2(p: Position, isHorz: Bool, s: HintState, point: CGPoint) {
+        var point = point
+        if isHorz {
+            point.x += gridNode.blockSize / 2
+        } else {
+            point.y -= gridNode.blockSize / 2
+        }
+        let nodeNameSuffix = "-\(p.row)-\(p.col)-" + (isHorz ? "h" : "v")
+        let nodeName = "hint" + nodeNameSuffix
+        let hintNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 8)
+        hintNode.position = point
+        hintNode.name = nodeName
+        hintNode.strokeColor = s == .complete ? .green : .red
+        hintNode.fillColor = s == .complete ? .green : .red
+        hintNode.glowWidth = 4.0
+        gridNode.addChild(hintNode)
+    }
 
     override func levelInitialized(_ game: AnyObject, state: GardenerGameState, skView: SKView) {
         let game = game as! GardenerGame
@@ -71,6 +89,12 @@ class GardenerGameScene: GameScene<GardenerGameState> {
                 if case .forbidden = state[p] {
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 }
+                if state.invalidSpacesHorz.contains(p) {
+                    addHint2(p: p, isHorz: true, s: .error, point: point)
+                }
+                if state.invalidSpacesVert.contains(p) {
+                    addHint2(p: p, isHorz: false, s: .error, point: point)
+                }
             }
         }
     }
@@ -95,35 +119,46 @@ class GardenerGameScene: GameScene<GardenerGameState> {
                 let treeNodeName = "tree" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
+                func hintNodeName(isHorz: Bool) -> String {
+                    return "hint" + nodeNameSuffix + "-" + (isHorz ? "h" : "v");
+                }
                 func addTree(s: AllowedObjectState) {
                     addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: treeNodeName)
                 }
-                func removeTree() { removeNode(withName: treeNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                guard String(describing: o1) != String(describing: o2) else {continue}
-                switch o1 {
-                case .forbidden:
-                    removeForbidden()
-                case .tree:
-                    removeTree()
-                case .marker:
-                    removeMarker()
-                default:
-                    break
+                if String(describing: o1) != String(describing: o2) {
+                    switch o1 {
+                    case .forbidden:
+                        removeNode(withName: forbiddenNodeName)
+                    case .tree:
+                        removeNode(withName: treeNodeName)
+                    case .marker:
+                        removeNode(withName: markerNodeName)
+                    default:
+                        break
+                    }
+                    switch o2 {
+                    case .forbidden:
+                        addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
+                    case let .tree(s):
+                        trees.insert(p)
+                        addTree(s: s)
+                    case .marker:
+                        addMarker()
+                    default:
+                        break
+                    }
                 }
-                switch o2 {
-                case .forbidden:
-                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
-                case let .tree(s):
-                    trees.insert(p)
-                    addTree(s: s)
-                case .marker:
-                    addMarker()
-                default:
-                    break
+                let (b1, b2) = (stateFrom.invalidSpacesHorz.contains(p), stateTo.invalidSpacesHorz.contains(p))
+                if b1 != b2 {
+                    if !b1 {addHint2(p: p, isHorz: true, s: .error, point: point)}
+                    if !b2 {removeNode(withName: hintNodeName(isHorz: true))}
+                }
+                let (b3, b4) = (stateFrom.invalidSpacesVert.contains(p), stateTo.invalidSpacesVert.contains(p))
+                if b3 != b4 {
+                    if !b3 {addHint2(p: p, isHorz: false, s: .error, point: point)}
+                    if !b4 {removeNode(withName: hintNodeName(isHorz: false))}
                 }
             }
         }

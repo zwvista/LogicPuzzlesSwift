@@ -119,7 +119,9 @@ class ParksGameState: GridGameState {
                 }
                 switch self[p] {
                 case .tree:
-                    self[p] = .tree(state: !hasNeighbor() ? .normal : .error)
+                    let s: AllowedObjectState = !hasNeighbor() ? .normal : .error
+                    self[p] = .tree(state: s)
+                    if s == .error {isSolved = false}
                 case .empty, .marker:
                     if allowedObjectsOnly && hasNeighbor() {self[p] = .forbidden}
                 default:
