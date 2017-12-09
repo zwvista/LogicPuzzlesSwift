@@ -16,17 +16,21 @@ class DisconnectFourGame: GridGame<DisconnectFourGameViewController> {
         Position(0, -1),
     ]
 
-    var objArray = [Character]()
+    var objArray = [DisconnectFourObject]()
 
     init(layout: [String], delegate: DisconnectFourGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length)
-        objArray = Array<Character>(repeating: " ", count: rows * cols)
+        objArray = Array<DisconnectFourObject>(repeating: .empty, count: rows * cols)
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
-                self[r, c] = str[c]
+                switch str[c] {
+                case "Y": self[r, c] = .yellow
+                case "R": self[r, c] = .red
+                default: break
+                }
             }
         }
         
@@ -35,7 +39,7 @@ class DisconnectFourGame: GridGame<DisconnectFourGameViewController> {
         levelInitilized(state: state)
     }
     
-    subscript(p: Position) -> Character {
+    subscript(p: Position) -> DisconnectFourObject {
         get {
             return self[p.row, p.col]
         }
@@ -43,7 +47,7 @@ class DisconnectFourGame: GridGame<DisconnectFourGameViewController> {
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> Character {
+    subscript(row: Int, col: Int) -> DisconnectFourObject {
         get {
             return objArray[row * cols + col]
         }

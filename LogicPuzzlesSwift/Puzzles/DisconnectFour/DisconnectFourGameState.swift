@@ -16,7 +16,7 @@ class DisconnectFourGameState: GridGameState {
     }
     var gameDocument: DisconnectFourDocument { return DisconnectFourDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { return DisconnectFourDocument.sharedInstance }
-    var objArray = [Character]()
+    var objArray = [DisconnectFourObject]()
     var pos2state = [Position: AllowedObjectState]()
 
     override func copy() -> DisconnectFourGameState {
@@ -37,7 +37,7 @@ class DisconnectFourGameState: GridGameState {
         updateIsSolved()
     }
     
-    subscript(p: Position) -> Character {
+    subscript(p: Position) -> DisconnectFourObject {
         get {
             return self[p.row, p.col]
         }
@@ -45,7 +45,7 @@ class DisconnectFourGameState: GridGameState {
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> Character {
+    subscript(row: Int, col: Int) -> DisconnectFourObject {
         get {
             return objArray[row * cols + col]
         }
@@ -56,7 +56,7 @@ class DisconnectFourGameState: GridGameState {
     
     func setObject(move: inout DisconnectFourGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p), game[p] == " ", self[p] != move.obj else {return false}
+        guard isValid(p: p), game[p] == .empty, self[p] != move.obj else {return false}
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -64,9 +64,9 @@ class DisconnectFourGameState: GridGameState {
     
     func switchObject(move: inout DisconnectFourGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p), game[p] == " " else {return false}
+        guard isValid(p: p), game[p] == .empty else {return false}
         let o = self[p]
-        move.obj = o == " " ? "Y" : o == "Y" ? "R" : " "
+        move.obj = o == .empty ? .yellow : o == .yellow ? .red : .empty
         return setObject(move: &move)
     }
     
@@ -85,7 +85,12 @@ class DisconnectFourGameState: GridGameState {
     */
     private func updateIsSolved() {
         isSolved = true
-        var chLast: Character = " "
+        for r in 0..<rows {
+            for c in 0..<cols {
+                pos2state[Position(r, c)] = .normal
+            }
+        }
+        var oLast: DisconnectFourObject = .empty
         var trees = [Position]()
         func checkTrees() {
             if trees.count > 3 {
@@ -97,28 +102,36 @@ class DisconnectFourGameState: GridGameState {
             trees.removeAll()
         }
         for r in 0..<rows {
-            chLast = " "
+            oLast = .empty
             for c in 0..<cols {
                 let p = Position(r, c)
-                let ch = self[p]
-                if ch != chLast {
+                let o = self[p]
+                if o != oLast {
                     checkTrees()
-                    chLast = ch
+                    oLast = o
                 }
-                if ch != " " {trees.append(p)}
+                if o == .empty {
+                    isSolved = false
+                } else {
+                    trees.append(p)
+                }
             }
             checkTrees()
         }
         for c in 0..<cols {
-            chLast = " "
+            oLast = .empty
             for r in 0..<rows {
                 let p = Position(r, c)
-                let ch = self[p]
-                if ch != chLast {
+                let o = self[p]
+                if o != oLast {
                     checkTrees()
-                    chLast = ch
+                    oLast = o
                 }
-                if ch != " " {trees.append(p)}
+                if o == .empty {
+                    isSolved = false
+                } else {
+                    trees.append(p)
+                }
             }
             checkTrees()
         }

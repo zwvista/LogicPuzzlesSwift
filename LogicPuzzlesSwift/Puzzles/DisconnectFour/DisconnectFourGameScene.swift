@@ -15,7 +15,7 @@ class DisconnectFourGameScene: GameScene<DisconnectFourGameState> {
     }
     
     func addTree(isY: Bool, s: AllowedObjectState, point: CGPoint, nodeName: String) {
-        addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName, zRotation: isY ? CGFloat(-Double.pi / 2) : 0.0)
+        addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName, zRotation: isY ? 0 : CGFloat(Double.pi))
     }
 
     override func levelInitialized(_ game: AnyObject, state: DisconnectFourGameState, skView: SKView) {
@@ -34,9 +34,9 @@ class DisconnectFourGameScene: GameScene<DisconnectFourGameState> {
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let treeNodeName = "tree" + nodeNameSuffix
-                let ch = state[p]
-                guard ch != " " else {continue}
-                addTree(isY: ch == "Y", s: state.pos2state[p] ?? .normal, point: point, nodeName: treeNodeName)
+                let o = state[p]
+                guard o != .empty else {continue}
+                addTree(isY: o == .yellow, s: state.pos2state[p] ?? .normal, point: point, nodeName: treeNodeName)
                 addCircleMarker(point: point, nodeName: "marker")
             }
         }
@@ -52,6 +52,8 @@ class DisconnectFourGameScene: GameScene<DisconnectFourGameState> {
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2state[p] ?? .normal, stateTo.pos2state[p] ?? .normal)
                 guard o1 != o2 || s1 != s2 else {continue}
+                if o1 != .empty {removeNode(withName: treeNodeName)}
+                if o2 != .empty {addTree(isY: o2 == .yellow, s: s2, point: point, nodeName: treeNodeName)}
             }
         }
     }

@@ -22,6 +22,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         "BusySeas": "Busy Seas",
         "BWTapa": "B&W Tapa",
         "DigitalBattleShips": "Digital Battle Ships",
+        "DisconnectFour": "Disconnect Four",
         "FenceItUp": "Fence It Up",
         "FenceSentinels": "Fence Sentinels",
         "FourMeNot": "Four-Me-Not",

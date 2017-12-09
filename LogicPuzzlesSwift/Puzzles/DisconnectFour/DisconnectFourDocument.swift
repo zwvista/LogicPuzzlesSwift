@@ -14,10 +14,10 @@ class DisconnectFourDocument: GameDocument<DisconnectFourGame, DisconnectFourGam
     
     override func saveMove(_ move: DisconnectFourGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.unapply()
-        rec.strValue1 = String(move.obj)
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> DisconnectFourGameMove? {
-        return DisconnectFourGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
+        return DisconnectFourGameMove(p: Position(rec.row, rec.col), obj: DisconnectFourObject(rawValue: rec.intValue1)!)
     }
 }

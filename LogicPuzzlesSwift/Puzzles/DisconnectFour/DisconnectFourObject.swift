@@ -8,7 +8,14 @@
 
 import Foundation
 
+enum DisconnectFourObject: Int {
+    case empty, yellow, red
+    init() {
+        self = .empty
+    }
+}
+
 struct DisconnectFourGameMove {
     var p = Position()
-    var obj: Character = " "
+    var obj = DisconnectFourObject()
 }
