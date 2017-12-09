@@ -37,7 +37,7 @@ class CalcudokuGameState: GridGameState {
     required init(game: CalcudokuGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = game.objArray
+        objArray = Array<Int>(repeating: 0, count: rows * cols)
         row2state = Array<HintState>(repeating: .normal, count: rows)
         col2state = Array<HintState>(repeating: .normal, count: cols)
         updateIsSolved()
@@ -62,7 +62,7 @@ class CalcudokuGameState: GridGameState {
     
     func setObject(move: inout CalcudokuGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else {return false}
+        guard isValid(p: p) && self[p] != move.obj else {return false}
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -70,74 +70,74 @@ class CalcudokuGameState: GridGameState {
     
     func switchObject(move: inout CalcudokuGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] == 0 else {return false}
+        guard isValid(p: p) else {return false}
         let o = self[p]
         move.obj = (o + 1) % (cols + 1)
         return setObject(move: &move)
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 6/Calcudoku
+        iOS Game: Logic Games/Puzzle Set 4/Calcudoku
 
         Summary
-        Diagonal Math Wiz
+        Mathematical Sudoku
 
         Description
-        1. The goal is to input numbers 1 to N, where N is the board size, following
-           the hints in the intersections.
-        2. A number must appear once for every row and column.
-        3. The tiny numbers and sign in the intersections tell you the result of
-           the operation between the two opposite diagonal tiles. This is valid
-           for both pairs of numbers surrounding the hint.
-        4. In some puzzles, there will be 'E' or 'O' as hint. This means that all
-           four tiles are either (E)ven or (O)dd numbers.
+        1. Write numbers ranging from 1 to board size respecting the calculation
+           hint.
+        2. The tiny numbers and math signs in the corner of an area give you the
+           hint about what's happening inside that area.
+        3. For example a '3+' means that the sum of the numbers inside that area
+           equals 3. In that case you would have to write the numbers 1 and 2
+           there.
+        4. Another example: '12*' means that the multiplication of the numbers
+           in that area gives 12, so it could be 3 and 4 or even 3, 4 and 1,
+           depending on the area size.
+        5. Even where the order of the operands matter (in subtraction and division)
+           they can appear in any order inside the area (ie.e. 2/ could be done
+           with 4 and 2 or 2 and 4.
+        6. All the numbers appear just one time in each row and column, but they
+           could be repeated in non-straight areas, like the L-shaped one.
     */
     private func updateIsSolved() {
         isSolved = true
         func f(nums: [Int], s: inout HintState) {
             let nums2 = Set<Int>(nums).sorted()
-            // 1. The goal is to input numbers 1 to N, where N is the board size.
+            // 1. Write numbers ranging from 1 to board size.
             s = nums2.first! == 0 ? .normal : nums2.count == nums.count ? .complete : .error
             if s != .complete {isSolved = false}
         }
-        // 2. A number must appear once for every row.
+        // 6. All the numbers appear just one time in each row.
         for r in 0..<rows {
             f(nums: (0..<cols).map{self[r, $0]}, s: &row2state[r])
         }
-        // 2. A number must appear once for every column.
+        // 6. All the numbers appear just one time in each column.
         for c in 0..<cols {
             f(nums: (0..<rows).map{self[$0, c]}, s: &col2state[c])
         }
         for (p, h) in game.pos2hint {
-            func g(n1: Int, n2: Int) -> HintState {
-                if n1 == 0 || n2 == 0 {return .normal}
+            let nums = game.areas[game.pos2area[p]!].map{self[$0]}
+            func g() -> HintState {
+                if nums.contains(0) {return .normal}
                 let n = h.result
                 switch h.op {
-                // 3. The tiny numbers and sign in the intersections tell you the result of
-                // the operation between the two opposite diagonal tiles.
+                // 2. The tiny numbers and math signs in the corner of an area give you the
+                // hint about what's happening inside that area.
                 case "+":
-                    return n1 + n2 == n ? .complete : .error
+                    return nums.reduce(0, +) == n ? .complete : .error
                 case "-":
+                    let (n1, n2) = (nums[0], nums[1])
                     return n1 - n2 == n || n2 - n1 == n ? .complete : .error
                 case "*":
-                    return n1 * n2 == n ? .complete : .error
+                    return nums.reduce(1, *) == n ? .complete : .error
                 case "/":
+                    let (n1, n2) = (nums[0], nums[1])
                     return n1 / n2 * n2 == n * n2 || n2 / n1 * n1 == n * n1 ? .complete : .error
-                // 4. In some puzzles, there will be 'E' or 'O' as hint. This means that all
-                // four tiles are either (E)ven or (O)dd numbers.
-                case "O":
-                    return n1 % 2 == 1 && n2 % 2 == 1 ? .complete : .error
-                case "E":
-                    return n1 % 2 == 0 && n2 % 2 == 0 ? .complete : .error
                 default:
                     return .normal
                 }
             }
-            let nums = CalcudokuGame.offset2.map{self[p + $0]}
-            // 3. This is valid for both pairs of numbers surrounding the hint.
-            let (s1, s2) = (g(n1: nums[0], n2: nums[1]), g(n1: nums[2], n2: nums[3]))
-            let s: HintState = s1 == .error || s2 == .error ? .error :
-                s1 == .complete && s2 == .complete ? .complete : .normal
+            let s = g()
             pos2state[p] = s
             if s != .complete {isSolved = false}
         }
