@@ -852,6 +852,17 @@
 		8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F43E51D771915000139FC /* LaunchScreen.storyboard */; };
 		8C9F43F21D771915000139FC /* LogicPuzzlesSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43F11D771915000139FC /* LogicPuzzlesSwiftTests.swift */; };
 		8C9F43FD1D771915000139FC /* LogicPuzzlesSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F43FC1D771915000139FC /* LogicPuzzlesSwiftUITests.swift */; };
+		8CA042D91FDB878800AF85E1 /* FillominoGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA042CD1FDB878700AF85E1 /* FillominoGridNode.swift */; };
+		8CA042DA1FDB878800AF85E1 /* Fillomino.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CA042CE1FDB878700AF85E1 /* Fillomino.xml */; };
+		8CA042DB1FDB878800AF85E1 /* FillominoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA042CF1FDB878700AF85E1 /* FillominoObject.swift */; };
+		8CA042DC1FDB878800AF85E1 /* FillominoGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA042D01FDB878700AF85E1 /* FillominoGame.swift */; };
+		8CA042DD1FDB878800AF85E1 /* FillominoOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA042D11FDB878700AF85E1 /* FillominoOptionsViewController.swift */; };
+		8CA042DE1FDB878800AF85E1 /* FillominoGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA042D21FDB878700AF85E1 /* FillominoGameScene.swift */; };
+		8CA042DF1FDB878800AF85E1 /* FillominoHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA042D31FDB878700AF85E1 /* FillominoHelpViewController.swift */; };
+		8CA042E01FDB878800AF85E1 /* FillominoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA042D41FDB878700AF85E1 /* FillominoDocument.swift */; };
+		8CA042E11FDB878800AF85E1 /* FillominoMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA042D51FDB878700AF85E1 /* FillominoMainViewController.swift */; };
+		8CA042E21FDB878800AF85E1 /* FillominoGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA042D61FDB878700AF85E1 /* FillominoGameViewController.swift */; };
+		8CA042E31FDB878800AF85E1 /* FillominoGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA042D71FDB878700AF85E1 /* FillominoGameState.swift */; };
 		8CC25CC21F87BB5A005560F7 /* Kakuro.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CC25CB61F87BB5A005560F7 /* Kakuro.xml */; };
 		8CC25CC31F87BB5A005560F7 /* KakuroDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CB71F87BB5A005560F7 /* KakuroDocument.swift */; };
 		8CC25CC41F87BB5A005560F7 /* KakuroGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CB81F87BB5A005560F7 /* KakuroGame.swift */; };
@@ -1868,6 +1879,17 @@
 		8C9F43F81D771915000139FC /* LogicPuzzlesSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogicPuzzlesSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C9F43FC1D771915000139FC /* LogicPuzzlesSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogicPuzzlesSwiftUITests.swift; sourceTree = "<group>"; };
 		8C9F43FE1D771915000139FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CA042CD1FDB878700AF85E1 /* FillominoGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillominoGridNode.swift; sourceTree = "<group>"; };
+		8CA042CE1FDB878700AF85E1 /* Fillomino.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Fillomino.xml; sourceTree = "<group>"; };
+		8CA042CF1FDB878700AF85E1 /* FillominoObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillominoObject.swift; sourceTree = "<group>"; };
+		8CA042D01FDB878700AF85E1 /* FillominoGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillominoGame.swift; sourceTree = "<group>"; };
+		8CA042D11FDB878700AF85E1 /* FillominoOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillominoOptionsViewController.swift; sourceTree = "<group>"; };
+		8CA042D21FDB878700AF85E1 /* FillominoGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillominoGameScene.swift; sourceTree = "<group>"; };
+		8CA042D31FDB878700AF85E1 /* FillominoHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillominoHelpViewController.swift; sourceTree = "<group>"; };
+		8CA042D41FDB878700AF85E1 /* FillominoDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillominoDocument.swift; sourceTree = "<group>"; };
+		8CA042D51FDB878700AF85E1 /* FillominoMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillominoMainViewController.swift; sourceTree = "<group>"; };
+		8CA042D61FDB878700AF85E1 /* FillominoGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillominoGameViewController.swift; sourceTree = "<group>"; };
+		8CA042D71FDB878700AF85E1 /* FillominoGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillominoGameState.swift; sourceTree = "<group>"; };
 		8CC25CB61F87BB5A005560F7 /* Kakuro.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kakuro.xml; sourceTree = "<group>"; };
 		8CC25CB71F87BB5A005560F7 /* KakuroDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroDocument.swift; sourceTree = "<group>"; };
 		8CC25CB81F87BB5A005560F7 /* KakuroGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroGame.swift; sourceTree = "<group>"; };
@@ -2298,6 +2320,7 @@
 				8C3A34551EC88D4100A914A5 /* FenceItUp */,
 				8C3A34621EC88D4100A914A5 /* FenceLits */,
 				8C3A346F1EC88D4100A914A5 /* FenceSentinels */,
+				8CA042CC1FDB878700AF85E1 /* Fillomino */,
 				8C74745A1FBEFD5700C4112C /* FourMeNot */,
 				8C2973D51EE7284C0022A18A /* Galaxies */,
 				8C35E37E1FC2844E00A26EE3 /* Gardener */,
@@ -3643,6 +3666,25 @@
 			path = LogicPuzzlesSwiftUITests;
 			sourceTree = "<group>";
 		};
+		8CA042CC1FDB878700AF85E1 /* Fillomino */ = {
+			isa = PBXGroup;
+			children = (
+				8CA042CE1FDB878700AF85E1 /* Fillomino.xml */,
+				8CA042D41FDB878700AF85E1 /* FillominoDocument.swift */,
+				8CA042D01FDB878700AF85E1 /* FillominoGame.swift */,
+				8CA042D21FDB878700AF85E1 /* FillominoGameScene.swift */,
+				8CA042D71FDB878700AF85E1 /* FillominoGameState.swift */,
+				8CA042D61FDB878700AF85E1 /* FillominoGameViewController.swift */,
+				8CA042CD1FDB878700AF85E1 /* FillominoGridNode.swift */,
+				8CA042D31FDB878700AF85E1 /* FillominoHelpViewController.swift */,
+				8CA042D51FDB878700AF85E1 /* FillominoMainViewController.swift */,
+				8CA042CF1FDB878700AF85E1 /* FillominoObject.swift */,
+				8CA042D11FDB878700AF85E1 /* FillominoOptionsViewController.swift */,
+			);
+			name = Fillomino;
+			path = LogicPuzzlesSwift/Puzzles/Fillomino;
+			sourceTree = SOURCE_ROOT;
+		};
 		8CC25CB51F87BB5A005560F7 /* Kakuro */ = {
 			isa = PBXGroup;
 			children = (
@@ -3886,6 +3928,7 @@
 				8C3A363C1EC88D4200A914A5 /* Bridges.xml in Resources */,
 				8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */,
 				8C3A360C1EC88D4200A914A5 /* BootyIsland.xml in Resources */,
+				8CA042DA1FDB878800AF85E1 /* Fillomino.xml in Resources */,
 				8CF3FFD71FCB2A2700D41B67 /* DisconnectFour.xml in Resources */,
 				8C3A37441EC88D4300A914A5 /* Nurikabe.xml in Resources */,
 				8C3A36841EC88D4200A914A5 /* FenceLits.xml in Resources */,
@@ -4016,6 +4059,7 @@
 				8C6D37FA1DC5ACC90052202C /* GameOptionsViewController.swift in Sources */,
 				8CDAE7F31F5BFBD9000DE5AF /* OverUnderGameState.swift in Sources */,
 				8C2AF82E1ED5FB0000EC84AB /* NumberPathDocument.swift in Sources */,
+				8CA042DD1FDB878800AF85E1 /* FillominoOptionsViewController.swift in Sources */,
 				8CD1558B1DD77C3400786F34 /* Extensions.swift in Sources */,
 				8C9F32F41ED1FCFF00E10965 /* TapARowGridNode.swift in Sources */,
 				8C2964021FA20D620017A812 /* RobotCrosswordsOptionsViewController.swift in Sources */,
@@ -4052,6 +4096,7 @@
 				8C9F32B91ED1FB0700E10965 /* TapaIslandsGameViewController.swift in Sources */,
 				8C3A366F1EC88D4200A914A5 /* DominoGameScene.swift in Sources */,
 				8C3A37871EC88D4400A914A5 /* ProductSentinelsHelpViewController.swift in Sources */,
+				8CA042DF1FDB878800AF85E1 /* FillominoHelpViewController.swift in Sources */,
 				8CF3FFD81FCB2A2700D41B67 /* DisconnectFourGridNode.swift in Sources */,
 				8C9F32EA1ED1FCFF00E10965 /* TapAlikeHelpViewController.swift in Sources */,
 				8C3A37161EC88D4300A914A5 /* MinesweeperGame.swift in Sources */,
@@ -4075,6 +4120,7 @@
 				8C3A37101EC88D4300A914A5 /* MineShipsMainViewController.swift in Sources */,
 				8C3A373C1EC88D4300A914A5 /* NeighboursGameState.swift in Sources */,
 				8C3A37511EC88D4300A914A5 /* OrchardsDocument.swift in Sources */,
+				8CA042E31FDB878800AF85E1 /* FillominoGameState.swift in Sources */,
 				8C1D4F901F7D079F000D5FB3 /* Square100Object.swift in Sources */,
 				8C9F32421ED1FAD400E10965 /* BWTapaDocument.swift in Sources */,
 				8C9F32FB1ED1FCFF00E10965 /* TapDifferentlyGame.swift in Sources */,
@@ -4082,6 +4128,7 @@
 				8CC3503F1E001D2800B8FD83 /* DateExtensions.swift in Sources */,
 				8C9F32E41ED1FCFF00E10965 /* TapAlikeDocument.swift in Sources */,
 				8C1D16B31DB8DE930056D407 /* README.markdown in Sources */,
+				8CA042D91FDB878800AF85E1 /* FillominoGridNode.swift in Sources */,
 				8C3A371B1EC88D4300A914A5 /* MinesweeperHelpViewController.swift in Sources */,
 				8C0467221F8BA2BE00B5DE41 /* TataminoOptionsViewController.swift in Sources */,
 				8C35E3941FC2844F00A26EE3 /* GardenerGameScene.swift in Sources */,
@@ -4097,6 +4144,7 @@
 				8C3A378D1EC88D4400A914A5 /* RoomsDocument.swift in Sources */,
 				8CC350491E001D2800B8FD83 /* StringExtensions.swift in Sources */,
 				8C3A36311EC88D4200A914A5 /* BoxItUpDocument.swift in Sources */,
+				8CA042E11FDB878800AF85E1 /* FillominoMainViewController.swift in Sources */,
 				8C3A37D01EC88D4400A914A5 /* SumscrapersMainViewController.swift in Sources */,
 				8C3A37E61EC88D4400A914A5 /* TentsGridNode.swift in Sources */,
 				8C3A37AF1EC88D4400A914A5 /* SkyscrapersOptionsViewController.swift in Sources */,
@@ -4435,6 +4483,7 @@
 				8C3A37401EC88D4300A914A5 /* NeighboursMainViewController.swift in Sources */,
 				8CC350371E001D2800B8FD83 /* BlockTap.swift in Sources */,
 				8C3A362A1EC88D4200A914A5 /* BoxItAroundGridNode.swift in Sources */,
+				8CA042DC1FDB878800AF85E1 /* FillominoGame.swift in Sources */,
 				8C3A368C1EC88D4200A914A5 /* FenceLitsMainViewController.swift in Sources */,
 				8CF3FFD91FCB2A2700D41B67 /* DisconnectFourGame.swift in Sources */,
 				8C9F32FF1ED1FCFF00E10965 /* TapDifferentlyGridNode.swift in Sources */,
@@ -4536,6 +4585,7 @@
 				8C886C421D9E8AF1004A42BF /* ActionSheetStringPicker.m in Sources */,
 				8C1D4F8C1F7D079F000D5FB3 /* Square100GameViewController.swift in Sources */,
 				8C3A36DE1EC88D4300A914A5 /* LitsGridNode.swift in Sources */,
+				8CA042DE1FDB878800AF85E1 /* FillominoGameScene.swift in Sources */,
 				8C3A36061EC88D4200A914A5 /* BattleShipsGridNode.swift in Sources */,
 				8C35E38D1FC2844F00A26EE3 /* GardenerGame.swift in Sources */,
 				8CF3FFDC1FCB2A2700D41B67 /* DisconnectFourObject.swift in Sources */,
@@ -4714,6 +4764,7 @@
 				8C3A370B1EC88D4300A914A5 /* MineShipsGameScene.swift in Sources */,
 				8C506F101F6D2C9300BA4332 /* SnakeGame.swift in Sources */,
 				8C6A36121FAF97AF00D2804D /* TheOddBrickGameScene.swift in Sources */,
+				8CA042E01FDB878800AF85E1 /* FillominoDocument.swift in Sources */,
 				8C3A36281EC88D4200A914A5 /* BoxItAroundGameState.swift in Sources */,
 				8CC25CC61F87BB5A005560F7 /* KakuroGameState.swift in Sources */,
 				8C04671A1F8BA2BE00B5DE41 /* TataminoGame.swift in Sources */,
@@ -4766,6 +4817,7 @@
 				8C3A37231EC88D4300A914A5 /* MiniLitsGameScene.swift in Sources */,
 				8C2AF8481ED6084300EC84AB /* PaintTheNurikabeGameScene.swift in Sources */,
 				8C3A35F91EC88D4200A914A5 /* AbstractPaintingGameViewController.swift in Sources */,
+				8CA042E21FDB878800AF85E1 /* FillominoGameViewController.swift in Sources */,
 				8C3A36851EC88D4200A914A5 /* FenceLitsDocument.swift in Sources */,
 				8C3A37481EC88D4300A914A5 /* NurikabeGameState.swift in Sources */,
 				8C3A367C1EC88D4200A914A5 /* FenceItUpGameState.swift in Sources */,
@@ -4827,6 +4879,7 @@
 				8C9F32F21ED1FCFF00E10965 /* TapARowGameState.swift in Sources */,
 				8C3A37561EC88D4300A914A5 /* OrchardsGridNode.swift in Sources */,
 				8C3A37941EC88D4400A914A5 /* RoomsMainViewController.swift in Sources */,
+				8CA042DB1FDB878800AF85E1 /* FillominoObject.swift in Sources */,
 				8C3A363D1EC88D4200A914A5 /* BridgesDocument.swift in Sources */,
 				8C3A36E01EC88D4300A914A5 /* LitsMainViewController.swift in Sources */,
 				8C3A36CB1EC88D4300A914A5 /* LighthousesOptionsViewController.swift in Sources */,

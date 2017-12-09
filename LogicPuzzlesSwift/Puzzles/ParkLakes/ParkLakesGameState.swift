@@ -93,7 +93,7 @@ class ParkLakesGameState: GridGameState {
         1. The board represents a park, where there are some hidden lakes, all square
            in shape.
         2. You have to find the lakes with the aid of hints, knowing that:
-        3. A number tells you the total size of the any lakes orthogonally touching it,
+        3. A number tells you the total size of any lakes orthogonally touching it,
            while a question mark tells you that there is at least one lake orthogonally
            touching it.
         4. Lakes aren't on tiles with numbers or question marks.
@@ -114,7 +114,7 @@ class ParkLakesGameState: GridGameState {
                 }
             }
         }
-        let g = Graph()
+        var g = Graph()
         var pos2node = [Position: Node]()
         for r in 0..<rows {
             for c in 0..<cols {
@@ -161,9 +161,30 @@ class ParkLakesGameState: GridGameState {
                 guard let i = pos2area[p + os] else {continue}
                 n1 += areas[i].count
             }
+            // 3. A number tells you the total size of any lakes orthogonally touching it,
+            // while a question mark tells you that there is at least one lake orthogonally
+            // touching it.
             let s: HintState = n1 == 0 ? .normal : n1 == n2 || n2 == -1 ? .complete : .error
             self[p] = .hint(tiles: n, state: s)
             if s != .complete {isSolved = false}
         }
+        g = Graph()
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                if case .tree = self[p] {continue}
+                pos2node[p] = g.addNode(p.description)
+            }
+        }
+        for (p, node) in pos2node {
+            for os in HolidayIslandGame.offset {
+                let p2 = p + os
+                guard let node2 = pos2node[p2] else {continue}
+                g.addEdge(node, neighbor: node2)
+            }
+        }
+        // 5. All the land tiles are connected horizontally or vertically.
+        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+        if nodesExplored.count != pos2node.count {isSolved = false}
     }
 }

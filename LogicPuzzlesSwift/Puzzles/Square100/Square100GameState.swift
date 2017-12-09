@@ -100,10 +100,13 @@ class Square100GameState: GridGameState {
         func f(r: Int, c: Int) -> Int {
             let o = self[r, c]
             var n = o[1].toInt!
+            // 3. You can add digits before or after the given one.
             if "0"..."9" ~= o[0] {n += o[0].toInt! * 10}
             if "0"..."9" ~= o[2] {n = n * 10 + o[2].toInt!}
             return n
         }
+        // 2. You have to add digits to some (or all) tiles, in order to produce
+        // the sum of 100 for every row.
         for r in 0..<rows {
             var n = 0
             for c in 0..<cols {
@@ -112,6 +115,8 @@ class Square100GameState: GridGameState {
             row2hint[r] = n
             if n != 100 {isSolved = false}
         }
+        // 2. You have to add digits to some (or all) tiles, in order to produce
+        // the sum of 100 for every column.
         for c in 0..<cols {
             var n = 0
             for r in 0..<rows {

@@ -75,11 +75,21 @@ class KakuroGameState: GridGameState {
         for (p, n2) in game.pos2horzHint {
             let os = KakuroGame.offset[1]
             var p2 = p + os
-            var n1 = 0
+            var n1 = 0, lastN = 0
             while let n = pos2num[p2] {
                 n1 += n
                 p2 += os
+                // 3. You can write numbers 1 to 9 in the tiles, however no same number should
+                // appear in a consecutive row.
+                if n == lastN {
+                    isSolved = false
+                    pos2horzState[p2] = .error
+                    pos2horzState[p2 - os] = .error
+                }
+                lastN = n
             }
+            // 2. The number on at the left of a row gives you
+            // the sum of the numbers in that row.
             let s: HintState = n1 == 0 ? .normal : n1 == n2 ? .complete : .error
             pos2horzState[p] = s
             if s != .complete {isSolved = false}
@@ -87,11 +97,21 @@ class KakuroGameState: GridGameState {
         for (p, n2) in game.pos2vertHint {
             let os = KakuroGame.offset[2]
             var p2 = p + os
-            var n1 = 0
+            var n1 = 0, lastN = 0
             while let n = pos2num[p2] {
                 n1 += n
                 p2 += os
+                // 3. You can write numbers 1 to 9 in the tiles, however no same number should
+                // appear in a consecutive column.
+                if n == lastN {
+                    isSolved = false
+                    pos2vertState[p2] = .error
+                    pos2vertState[p2 - os] = .error
+                }
+                lastN = n
             }
+            // 2. The number on the top of a column gives you
+            // the sum of the numbers in that column.
             let s: HintState = n1 == 0 ? .normal : n1 == n2 ? .complete : .error
             pos2vertState[p] = s
             if s != .complete {isSolved = false}

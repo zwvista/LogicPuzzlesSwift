@@ -71,19 +71,17 @@ class DisconnectFourGameState: GridGameState {
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 5/DisconnectFour
+        iOS Game: Logic Games/Puzzle Set 11/Disconnect Four
 
         Summary
-        Find the maze of Bricks
+        Win by not winning!
 
         Description
-        1. In DisconnectFour you must fill the board with straight horizontal and
-           vertical lines (walls) that stem from each number.
-        2. The number itself tells you the total length of Wall segments
-           connected to it.
-        3. Wall pieces have two ways to be put, horizontally or vertically.
-        4. Not every wall piece must be connected with a number, but the
-           board must be filled with wall pieces.
+        1. The opposite of the famous game 'Connect Four', where you must line
+           up four tokens of the same colour.
+        2. In this puzzle you have to ensure that there are no more than three
+           tokens of the same colour lined up horizontally, vertically or
+           diagonally.
     */
     private func updateIsSolved() {
         isSolved = true
