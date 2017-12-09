@@ -863,6 +863,17 @@
 		8CA042E11FDB878800AF85E1 /* FillominoMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA042D51FDB878700AF85E1 /* FillominoMainViewController.swift */; };
 		8CA042E21FDB878800AF85E1 /* FillominoGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA042D61FDB878700AF85E1 /* FillominoGameViewController.swift */; };
 		8CA042E31FDB878800AF85E1 /* FillominoGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA042D71FDB878700AF85E1 /* FillominoGameState.swift */; };
+		8CA042F01FDB930A00AF85E1 /* CalcudokuDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA042E51FDB930900AF85E1 /* CalcudokuDocument.swift */; };
+		8CA042F11FDB930A00AF85E1 /* CalcudokuObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA042E61FDB930900AF85E1 /* CalcudokuObject.swift */; };
+		8CA042F21FDB930A00AF85E1 /* CalcudokuHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA042E71FDB930900AF85E1 /* CalcudokuHelpViewController.swift */; };
+		8CA042F31FDB930A00AF85E1 /* CalcudokuGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA042E81FDB930900AF85E1 /* CalcudokuGameViewController.swift */; };
+		8CA042F41FDB930A00AF85E1 /* CalcudokuMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA042E91FDB930900AF85E1 /* CalcudokuMainViewController.swift */; };
+		8CA042F51FDB930A00AF85E1 /* CalcudokuGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA042EA1FDB930900AF85E1 /* CalcudokuGame.swift */; };
+		8CA042F61FDB930A00AF85E1 /* CalcudokuGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA042EB1FDB930900AF85E1 /* CalcudokuGridNode.swift */; };
+		8CA042F71FDB930A00AF85E1 /* CalcudokuGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA042EC1FDB930900AF85E1 /* CalcudokuGameState.swift */; };
+		8CA042F81FDB930A00AF85E1 /* CalcudokuGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA042ED1FDB930900AF85E1 /* CalcudokuGameScene.swift */; };
+		8CA042F91FDB930A00AF85E1 /* CalcudokuOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA042EE1FDB930900AF85E1 /* CalcudokuOptionsViewController.swift */; };
+		8CA042FA1FDB930A00AF85E1 /* Calcudoku.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CA042EF1FDB930900AF85E1 /* Calcudoku.xml */; };
 		8CC25CC21F87BB5A005560F7 /* Kakuro.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CC25CB61F87BB5A005560F7 /* Kakuro.xml */; };
 		8CC25CC31F87BB5A005560F7 /* KakuroDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CB71F87BB5A005560F7 /* KakuroDocument.swift */; };
 		8CC25CC41F87BB5A005560F7 /* KakuroGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CB81F87BB5A005560F7 /* KakuroGame.swift */; };
@@ -1890,6 +1901,17 @@
 		8CA042D51FDB878700AF85E1 /* FillominoMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillominoMainViewController.swift; sourceTree = "<group>"; };
 		8CA042D61FDB878700AF85E1 /* FillominoGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillominoGameViewController.swift; sourceTree = "<group>"; };
 		8CA042D71FDB878700AF85E1 /* FillominoGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillominoGameState.swift; sourceTree = "<group>"; };
+		8CA042E51FDB930900AF85E1 /* CalcudokuDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalcudokuDocument.swift; sourceTree = "<group>"; };
+		8CA042E61FDB930900AF85E1 /* CalcudokuObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalcudokuObject.swift; sourceTree = "<group>"; };
+		8CA042E71FDB930900AF85E1 /* CalcudokuHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalcudokuHelpViewController.swift; sourceTree = "<group>"; };
+		8CA042E81FDB930900AF85E1 /* CalcudokuGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalcudokuGameViewController.swift; sourceTree = "<group>"; };
+		8CA042E91FDB930900AF85E1 /* CalcudokuMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalcudokuMainViewController.swift; sourceTree = "<group>"; };
+		8CA042EA1FDB930900AF85E1 /* CalcudokuGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalcudokuGame.swift; sourceTree = "<group>"; };
+		8CA042EB1FDB930900AF85E1 /* CalcudokuGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalcudokuGridNode.swift; sourceTree = "<group>"; };
+		8CA042EC1FDB930900AF85E1 /* CalcudokuGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalcudokuGameState.swift; sourceTree = "<group>"; };
+		8CA042ED1FDB930900AF85E1 /* CalcudokuGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalcudokuGameScene.swift; sourceTree = "<group>"; };
+		8CA042EE1FDB930900AF85E1 /* CalcudokuOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalcudokuOptionsViewController.swift; sourceTree = "<group>"; };
+		8CA042EF1FDB930900AF85E1 /* Calcudoku.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Calcudoku.xml; sourceTree = "<group>"; };
 		8CC25CB61F87BB5A005560F7 /* Kakuro.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kakuro.xml; sourceTree = "<group>"; };
 		8CC25CB71F87BB5A005560F7 /* KakuroDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroDocument.swift; sourceTree = "<group>"; };
 		8CC25CB81F87BB5A005560F7 /* KakuroGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroGame.swift; sourceTree = "<group>"; };
@@ -2313,6 +2335,7 @@
 				8C3A34141EC88D4100A914A5 /* Bridges */,
 				8C3A34211EC88D4100A914A5 /* BusySeas */,
 				8C9F32351ED1FAD400E10965 /* BWTapa */,
+				8CA042E41FDB930900AF85E1 /* Calcudoku */,
 				8C3A342E1EC88D4100A914A5 /* Clouds */,
 				8C3A343B1EC88D4100A914A5 /* DigitalBattleShips */,
 				8CF3FFC71FCB2A2600D41B67 /* DisconnectFour */,
@@ -3685,6 +3708,24 @@
 			path = LogicPuzzlesSwift/Puzzles/Fillomino;
 			sourceTree = SOURCE_ROOT;
 		};
+		8CA042E41FDB930900AF85E1 /* Calcudoku */ = {
+			isa = PBXGroup;
+			children = (
+				8CA042EF1FDB930900AF85E1 /* Calcudoku.xml */,
+				8CA042E51FDB930900AF85E1 /* CalcudokuDocument.swift */,
+				8CA042EA1FDB930900AF85E1 /* CalcudokuGame.swift */,
+				8CA042ED1FDB930900AF85E1 /* CalcudokuGameScene.swift */,
+				8CA042EC1FDB930900AF85E1 /* CalcudokuGameState.swift */,
+				8CA042E81FDB930900AF85E1 /* CalcudokuGameViewController.swift */,
+				8CA042EB1FDB930900AF85E1 /* CalcudokuGridNode.swift */,
+				8CA042E71FDB930900AF85E1 /* CalcudokuHelpViewController.swift */,
+				8CA042E91FDB930900AF85E1 /* CalcudokuMainViewController.swift */,
+				8CA042E61FDB930900AF85E1 /* CalcudokuObject.swift */,
+				8CA042EE1FDB930900AF85E1 /* CalcudokuOptionsViewController.swift */,
+			);
+			path = Calcudoku;
+			sourceTree = "<group>";
+		};
 		8CC25CB51F87BB5A005560F7 /* Kakuro */ = {
 			isa = PBXGroup;
 			children = (
@@ -3974,6 +4015,7 @@
 				8C2319F81FB88E3F0021C680 /* TierraDelFuego.xml in Resources */,
 				8CDAE7EF1F5BFBD8000DE5AF /* OverUnder.xml in Resources */,
 				8C3A37741EC88D4300A914A5 /* PowerGrid.xml in Resources */,
+				8CA042FA1FDB930A00AF85E1 /* Calcudoku.xml in Resources */,
 				8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */,
 				8C6A36261FAF9D8600D2804D /* NoughtsAndCrosses.xml in Resources */,
 				8C3A37501EC88D4300A914A5 /* Orchards.xml in Resources */,
@@ -4046,6 +4088,7 @@
 				8C6D373B1DC421180052202C /* HomeOptionsViewController.swift in Sources */,
 				8C3A37E81EC88D4400A914A5 /* TentsMainViewController.swift in Sources */,
 				8C3A36141EC88D4200A914A5 /* BootyIslandMainViewController.swift in Sources */,
+				8CA042F81FDB930A00AF85E1 /* CalcudokuGameScene.swift in Sources */,
 				8C3A37861EC88D4400A914A5 /* ProductSentinelsGridNode.swift in Sources */,
 				8C35E3C21FC6DAE600A26EE3 /* NumberLinkGameViewController.swift in Sources */,
 				8C3A369A1EC88D4200A914A5 /* FenceSentinelsObject.swift in Sources */,
@@ -4242,6 +4285,7 @@
 				8C2963F71FA20D620017A812 /* RobotFencesOptionsViewController.swift in Sources */,
 				8C6D373C1DC421180052202C /* HomeTables.swift in Sources */,
 				8C2AF8331ED5FB0000EC84AB /* NumberPathGridNode.swift in Sources */,
+				8CA042F31FDB930A00AF85E1 /* CalcudokuGameViewController.swift in Sources */,
 				8C3A363B1EC88D4200A914A5 /* BoxItUpOptionsViewController.swift in Sources */,
 				8C3A374B1EC88D4300A914A5 /* NurikabeHelpViewController.swift in Sources */,
 				8C3A36FB1EC88D4300A914A5 /* MagnetsOptionsViewController.swift in Sources */,
@@ -4312,6 +4356,7 @@
 				8C2319EE1FB88E3F0021C680 /* TierraDelFuegoGameViewController.swift in Sources */,
 				8C3A37631EC88D4300A914A5 /* PairakabeHelpViewController.swift in Sources */,
 				8C2963F31FA20D620017A812 /* RobotFencesGridNode.swift in Sources */,
+				8CA042F01FDB930A00AF85E1 /* CalcudokuDocument.swift in Sources */,
 				8C6A36181FAF97AF00D2804D /* TheOddBrickObject.swift in Sources */,
 				8CC350321E001D2800B8FD83 /* BlockButton.swift in Sources */,
 				8C35E38F1FC2844F00A26EE3 /* GardenerMainViewController.swift in Sources */,
@@ -4355,6 +4400,7 @@
 				8C32D8E01FC92B5F00BA2D07 /* RippleEffectGame.swift in Sources */,
 				8C3A373D1EC88D4300A914A5 /* NeighboursGameViewController.swift in Sources */,
 				8C3A37A51EC88D4400A914A5 /* SkyscrapersDocument.swift in Sources */,
+				8CA042F41FDB930A00AF85E1 /* CalcudokuMainViewController.swift in Sources */,
 				8C2AF8351ED5FB0000EC84AB /* NumberPathMainViewController.swift in Sources */,
 				8C3A377F1EC88D4300A914A5 /* PowerGridOptionsViewController.swift in Sources */,
 				8C6A36281FAF9D8600D2804D /* NoughtsAndCrossesGame.swift in Sources */,
@@ -4379,6 +4425,7 @@
 				8C7E4B4A1F793C9800B57C60 /* TennerGridHelpViewController.swift in Sources */,
 				8C3A36531EC88D4200A914A5 /* BusySeasOptionsViewController.swift in Sources */,
 				8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */,
+				8CA042F91FDB930A00AF85E1 /* CalcudokuOptionsViewController.swift in Sources */,
 				8C9F322E1ECF06C000E10965 /* TapaGameViewController.swift in Sources */,
 				8C3A376D1EC88D4300A914A5 /* ParksGameViewController.swift in Sources */,
 				8C3A36BE1EC88D4300A914A5 /* LightenUpObject.swift in Sources */,
@@ -4466,6 +4513,7 @@
 				8C3A36FF1EC88D4300A914A5 /* MasyuGameScene.swift in Sources */,
 				8C506F171F6D2C9300BA4332 /* SnakeObject.swift in Sources */,
 				8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */,
+				8CA042F21FDB930A00AF85E1 /* CalcudokuHelpViewController.swift in Sources */,
 				8C3A36961EC88D4200A914A5 /* FenceSentinelsGridNode.swift in Sources */,
 				8C7474691FBEFD5700C4112C /* FourMeNotHelpViewController.swift in Sources */,
 				8C3A37CB1EC88D4400A914A5 /* SumscrapersGameScene.swift in Sources */,
@@ -4484,6 +4532,7 @@
 				8CC350371E001D2800B8FD83 /* BlockTap.swift in Sources */,
 				8C3A362A1EC88D4200A914A5 /* BoxItAroundGridNode.swift in Sources */,
 				8CA042DC1FDB878800AF85E1 /* FillominoGame.swift in Sources */,
+				8CA042F11FDB930A00AF85E1 /* CalcudokuObject.swift in Sources */,
 				8C3A368C1EC88D4200A914A5 /* FenceLitsMainViewController.swift in Sources */,
 				8CF3FFD91FCB2A2700D41B67 /* DisconnectFourGame.swift in Sources */,
 				8C9F32FF1ED1FCFF00E10965 /* TapDifferentlyGridNode.swift in Sources */,
@@ -4506,6 +4555,7 @@
 				8C3A362E1EC88D4200A914A5 /* BoxItAroundObject.swift in Sources */,
 				8C3A36EF1EC88D4300A914A5 /* LoopyOptionsViewController.swift in Sources */,
 				8C3A37841EC88D4400A914A5 /* ProductSentinelsGameState.swift in Sources */,
+				8CA042F61FDB930A00AF85E1 /* CalcudokuGridNode.swift in Sources */,
 				8C3A37AE1EC88D4400A914A5 /* SkyscrapersObject.swift in Sources */,
 				8C3A37811EC88D4300A914A5 /* ProductSentinelsDocument.swift in Sources */,
 				8C3A36621EC88D4200A914A5 /* DigitalBattleShipsGame.swift in Sources */,
@@ -4675,6 +4725,7 @@
 				8CC3503B1E001D2800B8FD83 /* CGFloatExtensions.swift in Sources */,
 				8C506F161F6D2C9300BA4332 /* SnakeMainViewController.swift in Sources */,
 				8CDAE7F11F5BFBD9000DE5AF /* OverUnderGame.swift in Sources */,
+				8CA042F71FDB930A00AF85E1 /* CalcudokuGameState.swift in Sources */,
 				8C3A35F71EC88D4200A914A5 /* AbstractPaintingGameScene.swift in Sources */,
 				8C3A36E71EC88D4300A914A5 /* LoopyGameScene.swift in Sources */,
 				8C3A37B41EC88D4400A914A5 /* SlitherLinkGameState.swift in Sources */,
@@ -4784,6 +4835,7 @@
 				8C9F33001ED1FCFF00E10965 /* TapDifferentlyHelpViewController.swift in Sources */,
 				8C3A366E1EC88D4200A914A5 /* DominoGame.swift in Sources */,
 				8C3A35F21EC88D4200A914A5 /* AbcObject.swift in Sources */,
+				8CA042F51FDB930A00AF85E1 /* CalcudokuGame.swift in Sources */,
 				8C2AF8321ED5FB0000EC84AB /* NumberPathGameViewController.swift in Sources */,
 				8C9F32E91ED1FCFF00E10965 /* TapAlikeGridNode.swift in Sources */,
 				8CE9C3181F7914B800134093 /* KakurasuObject.swift in Sources */,

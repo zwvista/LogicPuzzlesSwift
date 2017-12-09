@@ -119,7 +119,7 @@ class TataminoGameState: GridGameState {
             let area = pos2node.filter{nodesExplored.contains($0.0.description)}.map{$0.0}
             pos2node = pos2node.filter{!nodesExplored.contains($0.0.description)}
             let ch = self[area[0]]
-            let (n1, n2) = (ch.toInt!, area.count)
+            let (n1, n2) = (area.count, ch.toInt!)
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             for p in area {
                 pos2state[p] = s

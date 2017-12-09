@@ -4,13 +4,15 @@
   <![CDATA[
 1. The goal is to detect areas marked with the tile count of the area itself.
 2. So for example, areas marked '1', will always consist of one single tile. Areas marked with '2' will consist of two (horizontally or vertically) adjacent tiles. Tiles numbered '3' will appear in a group of three and so on.
-3. Some areas can also be totally hidden at the start.  Variation
+3. Some areas can also be totally hidden at the start.
+Variation
 4. Fillomino has several variants.
 5. No Rectangles: Areas can't form Rectangles.
 6. Only Rectangles: Areas can ONLY form Rectangles.
 7. Non Consecutive: Areas can't touch another area which has +1 or -1 as number (orthogonally).
 8. Consecutive: Areas MUST touch another area which has +1 or -1 as number (orthogonally).
-9. All Odds: There are only odd numbers on the board. 10.All Evens: There are only even numbers on the board.
+9. All Odds: There are only odd numbers on the board.
+10.All Evens: There are only even numbers on the board.
   ]]>
 </help>
 <levels>

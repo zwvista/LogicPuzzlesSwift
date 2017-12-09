@@ -1,0 +1,96 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Write numbers ranging from 1 to board size respecting the calculation hint.
+2. The tiny numbers and math signs in the corner of an area give you the hint about what's happening inside that area.
+3. For example a '3+' means that the sum of the numbers inside that area equals 3. In that case you would have to write the numbers 1 and 2 there.
+4. Another example: '12*' means that the multiplication of the numbers in that area gives 12, so it could be 3 and 4 or even 3, 4 and 1, depending on the area size.
+5. Even where the order of the operands matter (in subtraction and division) they can appear in any order inside the area (ie.e. 2/ could be done with 4 and 2 or 2 and 4.
+6. All the numbers appear just one time in each row and column, but they could be repeated in non-straight areas, like the L-shaped one.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+a 2/b 5+b   c 3/`
+a   d 4+e12*c   `
+d   d   e   f 2/`
+g 1-g   e   f   `
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+a 2/a   b 3+c 7+`
+d 3*d   b   c   `
+e 2/f12*g 3/g   `
+e   f   h 2/h   `
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+a 3/a   b 2*c 1-`
+d 9+d   b   c   `
+f 2/d   e 2/e   `
+f   g12*g   g   `
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+a 2/a   b 3+c 7+`
+d 3*d   b   c   `
+e 2/f12*g 3/g   `
+e   f   h 2/h   `
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+a 8+a   a   b11+b   `
+c 9+d 2/e15*b   f 4+`
+c   d   e   g 6*f   `
+h 7+h   h   g   i20*`
+j30*j   j   j   i   `
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+a12*b 1-c 3-c   d 2/`
+a   b   e 3*e   d   `
+f 8+f   f   g 7+g   `
+h 9+h   h   i 5/i   `
+j 2/j   k12+k   k   `
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+a20*a   b 2/b   c 9+c   `
+d 3-e 5/e   f11+g 2/g   `
+d   h 1-h   f   i 6+i   `
+j 7+j   k 2-k   i   l 5*`
+m 3-n 2/n   o 9+o   l   `
+m   p 2/p   q13+q   q   `
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+a 2/a   b30*b   c60*c   `
+d10+e 2-f 2/f   c   c   `
+d   e   g 1-g   h 2/i 7+`
+d   j 4/j   k12+h   i   `
+l10*m 8+n 5-k   o 4-o   `
+l   m   n   k   p 5+p   `
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+a15*a   a   b21*c11+d 4-e 9+`
+f11+g 6-g   b   c   d   e   `
+f   f   h 6*i 1-c   j12+j   `
+k 1-k   h   i   l10*l   j   `
+m48*m   m   n14+o 8+p10+p   `
+q20*q   n   n   o   r12*r   `
+s 5/s   t 2/t   u21*u   r   `
+    ]]>
+  </level>
+</levels>
+</puzzle>
