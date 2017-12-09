@@ -147,8 +147,6 @@ class RoomsGameState: GridGameState {
         // 3. At the end of the solution, each Room must be reachable from the others.
         // That means no single Room or group of Rooms can be divided by the others.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        let n1 = nodesExplored.count
-        let n2 = pos2node.values.count
-        if n1 != n2 {isSolved = false}
+        if nodesExplored.count != pos2node.count {isSolved = false}
     }
 }

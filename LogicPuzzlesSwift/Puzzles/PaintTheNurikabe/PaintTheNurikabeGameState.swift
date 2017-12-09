@@ -111,6 +111,7 @@ class PaintTheNurikabeGameState: GridGameState {
                 if case .forbidden = self[p] {self[p] = .empty}
             }
         }
+        // 2. A number indicates how many painted tiles are adjacent to it.
         for (p, n2) in game.pos2hint {
             var rng = [Position]()
             var n1 = 0
@@ -136,6 +137,7 @@ class PaintTheNurikabeGameState: GridGameState {
                 }
             }
         }
+        // 4. There can't be any 2*2 area of the same color(painted or empty).
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
@@ -161,6 +163,8 @@ class PaintTheNurikabeGameState: GridGameState {
                 g.addEdge(node, neighbor: node2)
             }
         }
+        // 3. The painted tiles form an orthogonally continuous area, like a
+        // Nurikabe.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
         if pos2node.count != nodesExplored.count {isSolved = false}
     }

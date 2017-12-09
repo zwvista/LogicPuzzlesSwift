@@ -161,8 +161,6 @@ class SlitherLinkGameState: GridGameState {
         }
         // 1. Draw a single looping path with the aid of the numbered hints.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        let n1 = nodesExplored.count
-        let n2 = pos2node.values.count
-        if n1 != n2 {isSolved = false}
+        if nodesExplored.count != pos2node.count {isSolved = false}
     }
 }

@@ -129,21 +129,14 @@ class LighthousesGameState: GridGameState {
                     }
                     return false
                 }
-                func hasLightedBoat() -> Bool {
-                    for i in 0..<4 {
-                        let os = LighthousesGame.offset[i * 2]
-                        var p2 = p + os
-                        while game.isValid(p: p2) {
-                            if case .hint = self[p2] {return true}
-                            p2 += os
-                        }
-                    }
-                    return false
-                }
                 switch self[p] {
                 case let .lighthouse(state):
-                    self[p] = .lighthouse(state: state == .normal && !hasNeighbor() && hasLightedBoat() ? .normal : .error)
+                    // 4. Finally, no boat touches another boat or lighthouse, not even diagonally.
+                    // No lighthouse touches another lighthouse as well.
+                    self[p] = .lighthouse(state: state == .normal && !hasNeighbor() ? .normal : .error)
                 case .empty, .marker:
+                    // 4. Finally, no boat touches another boat or lighthouse, not even diagonally.
+                    // No lighthouse touches another lighthouse as well.
                     guard allowedObjectsOnly && hasNeighbor() else {continue}
                     self[p] = .forbidden
                 default:
@@ -151,6 +144,9 @@ class LighthousesGameState: GridGameState {
                 }
             }
         }
+        // 2. Each boat has a number on it that tells you how many lighthouses are lighting it.
+        // 3. A lighthouse lights all the tiles horizontally and vertically and doesn't
+        // stop at boats or other lighthouses.
         for (p, n2) in game.pos2hint {
             var nums = [0, 0, 0, 0]
             var rng = [Position]()
@@ -159,7 +155,7 @@ class LighthousesGameState: GridGameState {
                 var p2 = p + os
                 while game.isValid(p: p2) {
                     switch self[p2] {
-                    case .empty:
+                    case .empty, .marker:
                         rng.append(p2)
                     case .lighthouse:
                         nums[i] += 1
@@ -174,7 +170,8 @@ class LighthousesGameState: GridGameState {
             self[p] = .hint(state: s)
             if s != .complete {
                 isSolved = false
-            } else if allowedObjectsOnly {
+            }
+            if allowedObjectsOnly && s != .normal {
                 for p2 in rng {
                     self[p2] = .forbidden
                 }

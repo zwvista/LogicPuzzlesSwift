@@ -119,6 +119,8 @@ class LoopyGameState: GridGameState {
                 case 2:
                     pos2node[p] = g.addNode(p.description)
                 default:
+                    // 1. The path cannot have branches or cross itself.
+                    // 1. You have to touch all the dots.
                     isSolved = false
                     return
                 }
@@ -132,9 +134,8 @@ class LoopyGameState: GridGameState {
                 g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
             }
         }
+        // 1. Draw a single looping path.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        let n1 = nodesExplored.count
-        let n2 = pos2node.values.count
-        if n1 != n2 {isSolved = false}
+        if nodesExplored.count != pos2node.count {isSolved = false}
     }
 }

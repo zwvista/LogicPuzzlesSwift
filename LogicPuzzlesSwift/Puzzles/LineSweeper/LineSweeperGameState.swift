@@ -84,6 +84,8 @@ class LineSweeperGameState: GridGameState {
     */
     private func updateIsSolved() {
         isSolved = true
+        // 2. A number in a cell denotes how many of the 8 adjacent cells are passed
+        // by the loop.
         for (p, n2) in game.pos2hint {
             var n1 = 0
             for os in LineSweeperGame.offset {
@@ -111,6 +113,7 @@ class LineSweeperGameState: GridGameState {
                 case 2:
                     pos2node[p] = g.addNode(p.description)
                 default:
+                    // 1. Draw a single closed looping path that never crosses itself or branches off.
                     isSolved = false
                     return
                 }
@@ -124,9 +127,8 @@ class LineSweeperGameState: GridGameState {
                 g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
             }
         }
+        // 1. Draw a single closed looping path that never crosses itself or branches off.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        let n1 = nodesExplored.count
-        let n2 = pos2node.values.count
-        if n1 != n2 {isSolved = false}
+        if nodesExplored.count != pos2node.count {isSolved = false}
     }
 }

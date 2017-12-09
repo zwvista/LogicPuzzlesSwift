@@ -103,6 +103,8 @@ class NumberLinkGameState: GridGameState {
                 if b && n == 1 || !b && n == 2 {
                     pos2indexes[p] = (0..<4).filter{self[p][$0]}
                 } else {
+                    // 3. Lines must originate on a number and must end in the other equal
+                    // number.
                     isSolved = false
                 }
             }
@@ -117,6 +119,9 @@ class NumberLinkGameState: GridGameState {
             }
             guard indexes.count == 2 else {continue}
             let (i1, i2) = (indexes[0], indexes[1])
+            // 4. At the end of the puzzle, no line can cover a 2*2 area (like a 180 degree turn).
+            // 5. In other words you can't turn right and immediately right again. The
+            // same happens on the left, obviously. Be careful not to miss this rule.
             func f(i: Int, isRight: Bool) {
                 let p2 = p + NumberLinkGame.offset[i]
                 guard var indexes2 = pos2indexes[p2], indexes2.count == 2 else {return}
@@ -138,6 +143,10 @@ class NumberLinkGameState: GridGameState {
             guard !rng1.isEmpty else {isSolved = false; continue}
             let rng2 = game.hint2rng[game.pos2hint[rng1[0]]!]!
             let (b1, b2, b3) = (rng1.difference(rng2).isEmpty, rng2.difference(rng1).isEmpty, area.testAll{self.pos2state[$0] != .error})
+            // 3. Lines must originate on a number and must end in the other equal
+            // number.
+            // 4. At the end of the puzzle, you must have covered ALL the squares with
+            // lines.
             let s: HintState = !b1 || !b3 ? .error : b2 ? .complete : .normal
             if s != .complete {isSolved = false}
             for p in rng1 {

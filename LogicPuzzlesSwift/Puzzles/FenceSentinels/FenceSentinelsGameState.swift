@@ -164,8 +164,6 @@ class FenceSentinelsGameState: GridGameState {
         }
         // 1. The goal is to draw a single, uninterrupted, closed loop.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        let n1 = nodesExplored.count
-        let n2 = pos2node.values.count
-        if n1 != n2 {isSolved = false}
+        if nodesExplored.count != pos2node.count {isSolved = false}
     }
 }

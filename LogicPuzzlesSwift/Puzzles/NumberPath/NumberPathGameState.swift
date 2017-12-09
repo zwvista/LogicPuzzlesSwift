@@ -83,6 +83,7 @@ class NumberPathGameState: GridGameState {
                 let p = Position(r, c)
                 let n = self[p].filter{$0}.count
                 if p == pStart || p == pEnd {
+                    // 1. Connect the top left corner (1) to the bottom right corner (N).
                     if n != 1 {isSolved = false; return}
                     pos2node[p] = g.addNode(p.description); continue
                 }
@@ -106,8 +107,10 @@ class NumberPathGameState: GridGameState {
                 g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
             }
         }
+        // 1. Connect the top left corner (1) to the bottom right corner (N), including
+        // all the numbers between 1 and N, only once.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        let n1 = game[pEnd], n2 = nums.count, n3 = pos2node.values.count, n4 = nodesExplored.count
+        let n1 = game[pEnd], n2 = nums.count, n3 = pos2node.count, n4 = nodesExplored.count
         if n1 != n2 || n1 != n3 || n1 != n4 {isSolved = false}
     }
 }

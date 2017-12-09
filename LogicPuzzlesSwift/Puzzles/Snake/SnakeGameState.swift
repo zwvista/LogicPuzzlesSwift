@@ -161,9 +161,7 @@ class SnakeGameState: GridGameState {
             }
         }
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        let n1 = nodesExplored.count
-        let n2 = pos2node.values.count
-        if n1 != n2 {isSolved = false}
+        if nodesExplored.count != pos2node.count {isSolved = false}
         for p in pos2node.keys {
             var (rngEmpty, rngSnake) = ([Position](), [Position]())
             for os in SnakeGame.offset {

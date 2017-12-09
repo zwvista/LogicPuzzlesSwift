@@ -95,14 +95,18 @@ class KropkiGameState: GridGameState {
     */
     private func updateIsSolved() {
         isSolved = true
+        // 1. The Goal is to enter numbers 1 to board size once in every row.
         for r in 0..<rows {
             var nums = Set<Int>((0..<cols).map{self[r, $0]})
             if nums.contains(0) || nums.count != cols {isSolved = false}
         }
+        // 1. The Goal is to enter numbers 1 to board size once in every column.
         for c in 0..<cols {
             var nums = Set<Int>((0..<rows).map{self[$0, c]})
             if nums.contains(0) || nums.count != rows {isSolved = false}
         }
+        // 7. In later 9*9 levels you will also have bordered and coloured areas,
+        // which must also contain all the numbers 1 to 9.
         if game.bordered {
             for a in game.areas {
                 var nums = Set<Int>(a.map{self[$0]})
@@ -125,6 +129,12 @@ class KropkiGameState: GridGameState {
                     if n1 == 0 || n2 == 0 {setState(s: .normal); isSolved = false; continue}
                     if n1 > n2 {swap(&n1, &n2)}
                     let kh = (i == 0 ? game.pos2horzHint : game.pos2vertHint)[p]!
+                    // 3. Black Dot - one number is twice the other.
+                    // 4. White Dot - the numbers are consecutive.
+                    // 5. Where the numbers are 1 and 2, there can be either a Black Dot(2 is
+                    // 1*2) or a White Dot(1 and 2 are consecutive).
+                    // 6. Please note that when two numbers are either consecutive or doubles,
+                    // there MUST be a Dot between them!
                     let s: HintState =
                         n2 != n1 + 1 && n2 != n1 * 2 && kh == .none ||
                         n2 == n1 + 1 && kh == .consecutive ||

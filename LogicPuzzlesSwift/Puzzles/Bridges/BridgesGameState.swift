@@ -132,8 +132,6 @@ class BridgesGameState: GridGameState {
         // 2. You must connect all the islands with Bridges, making sure every
         // island is connected to each other with a Bridges path.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        let n1 = nodesExplored.count
-        let n2 = pos2node.values.count
-        if n1 != n2 {isSolved = false}
+        if nodesExplored.count != pos2node.count {isSolved = false}
     }
 }
