@@ -105,6 +105,8 @@ class SnailGameState: GridGameState {
     private func updateIsSolved() {
         isSolved = true
         var chars = [Character]()
+        // 5. Board Rule: Each row of the board (disregarding the snail
+        // path) must have exactly one 1, one 2 and one 3.
         for r in 0..<rows {
             chars = []
             row2state[r] = .complete
@@ -116,6 +118,8 @@ class SnailGameState: GridGameState {
             }
             if chars.count != 3 {row2state[r] = .error; isSolved = false}
         }
+        // 5. Board Rule: Each column of the board (disregarding the snail
+        // path) must have exactly one 1, one 2 and one 3.
         for c in 0..<cols {
             chars = []
             col2state[c] = .complete
@@ -138,6 +142,10 @@ class SnailGameState: GridGameState {
             pos2state[p] = .complete
         }
         let cnt = chars.count
+        // 4. Trail Rule: The first number to write after entering in the top left
+        // is a 1 and the last before ending in the center is a 3. In between,
+        // the 1,2,3 sequence will repeat many times in this order, following the
+        // snail path.
         if chars[0] != "1" {pos2state[rng[0]] = .error; isSolved = false}
         if chars[cnt - 1] != "3" {pos2state[rng[cnt - 1]] = .error; isSolved = false}
         for i in 0..<cnt - 1 {
