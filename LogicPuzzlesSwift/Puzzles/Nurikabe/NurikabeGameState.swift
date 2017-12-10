@@ -159,7 +159,7 @@ class NurikabeGameState: GridGameState {
         while !rngEmpty.isEmpty {
             let node = pos2node[rngEmpty.first!]!
             let nodesExplored = breadthFirstSearch(g, source: node)
-            rngEmpty = rngEmpty.filter{p in !nodesExplored.contains(p.description)}
+            rngEmpty = rngEmpty.filter{!nodesExplored.contains($0.description)}
             let n2 = nodesExplored.count
             var rng = [Position]()
             for p in game.pos2hint.keys {

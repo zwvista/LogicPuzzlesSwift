@@ -185,7 +185,7 @@ class TapaIslandsGameState: GridGameState {
         if rngWalls.count != nodesExplored.count {isSolved = false}
         while !rngEmpty.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node[rngEmpty.first!]!)
-            rngEmpty = rngEmpty.filter{p in !nodesExplored.contains(p.description)}
+            rngEmpty = rngEmpty.filter{!nodesExplored.contains($0.description)}
             let n2 = nodesExplored.count
             var rng = [Position]()
             for p in game.pos2hint.keys {

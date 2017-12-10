@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Similar to Carpenter's Wall, this time you have to respect the same rules, but instead of forming a Nurikabe, you just have to divide the board into many.Capenter's Squares (L shaped tools) of different size.
+2. The circled numbers on the board indicate the corner of the L.
+3. When a number is inside the circle, that indicates the total number of squares occupied by the L.
+4. The arrow always sits at the end of an arm and points to the corner of an L.
+5. All the tiles in the board have to be part of a Carpenter's Square.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+    <`
+    O`
+     `
+  3  `
+7  4 `
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+>3  7`
+v    `
+  O  `
+ >   `
+O    `
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+6   O`
+     `
+     `
+^^  ^`
+   4 `
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+   5 `
+  <  `
+  <  `
+  > 6`
+O    `
+    ]]>
+  </level>
+</levels>
+</puzzle>
