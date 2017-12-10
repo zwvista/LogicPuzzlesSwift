@@ -185,7 +185,7 @@ class CarpentersWallGameState: GridGameState {
             let cntR2 = area.filter{$0.row == r2}.count
             let cntC1 = area.filter{$0.col == c1}.count
             let cntC2 = area.filter{$0.col == c2}.count
-            func f(_ a: Int, _ b: Int) -> Bool {return a > 1 && b > 1 && a + b - 1 == n1;}
+            func f(_ a: Int, _ b: Int) -> Bool {return a > 1 && b > 1 && a + b - 1 == n1}
             let squareType =
                 f(cntR1, cntC1) ? 0 : // ┌
                 f(cntR1, cntC2) ? 1 : // ┐
