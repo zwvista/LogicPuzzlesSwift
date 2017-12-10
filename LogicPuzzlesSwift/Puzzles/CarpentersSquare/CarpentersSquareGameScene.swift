@@ -14,8 +14,8 @@ class CarpentersSquareGameScene: GameScene<CarpentersSquareGameState> {
         set {setGridNode(gridNode: newValue)}
     }
     
-    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+    func addHint(text: String, s: HintState, point: CGPoint, nodeName: String) {
+        addLabel(text: text, fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: CarpentersSquareGameState, skView: SKView) {
@@ -28,11 +28,26 @@ class CarpentersSquareGameScene: GameScene<CarpentersSquareGameState> {
         addGrid(gridNode: CarpentersSquareGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset))
         
         // addHints
-        for (p, n) in game.pos2hint {
+        for (p, h) in game.pos2hint {
             let point = gridNode.gridPosition(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
-            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
+            let s = state.pos2state[p]!
+            switch h {
+            case let .corner(n):
+                addCircleMarker(point: point, nodeName: "marker")
+                addHint(text: n == 0 ? "?" : String(n), s: s, point: point, nodeName: hintNodeName)
+            case .left:
+                addHint(text: "<", s: s, point: point, nodeName: hintNodeName)
+            case .up:
+                addHint(text: "^", s: s, point: point, nodeName: hintNodeName)
+            case .right:
+                addHint(text: ">", s: s, point: point, nodeName: hintNodeName)
+            case .down:
+                addHint(text: "v", s: s, point: point, nodeName: hintNodeName)
+            default:
+                break
+            }
         }
         
         for r in 0..<game.rows {
@@ -53,29 +68,41 @@ class CarpentersSquareGameScene: GameScene<CarpentersSquareGameState> {
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let horzLineNodeName = "horzLine" + nodeNameSuffix
                 let vertlineNodeName = "vertline" + nodeNameSuffix
-                func removeHorzLine(objType: GridLineObject) {
-                    if objType != .empty { removeNode(withName: horzLineNodeName) }
-                }
-                func removeVertLine(objType: GridLineObject) {
-                    if objType != .empty { removeNode(withName: vertlineNodeName) }
-                }
                 var (o1, o2) = (stateFrom[p][1], stateTo[p][1])
                 if o1 != o2 {
-                    removeHorzLine(objType: o1)
+                    if o1 != .empty { removeNode(withName: horzLineNodeName) }
                     addHorzLine(objType: o2, color: .yellow, point: point, nodeName: horzLineNodeName)
                 }
                 (o1, o2) = (stateFrom[p][2], stateTo[p][2])
                 if o1 != o2 {
-                    removeVertLine(objType: o1)
+                    if o1 != .empty { removeNode(withName: vertlineNodeName) }
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
                 }
                 let hintNodeName = "hint" + nodeNameSuffix
-                func removeHint() { removeNode(withName: hintNodeName) }
-                guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
-                if s1 != s2 {
-                    removeHint()
-                    addHint(n: stateFrom.game.pos2hint[p]!, s: s2, point: point, nodeName: hintNodeName)
-                }
+                func removeHint() {  }
+            }
+        }
+        for (p, h) in stateFrom.game.pos2hint {
+            let point = gridNode.gridPosition(p: p)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let hintNodeName = "hint" + nodeNameSuffix
+            let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
+            guard s1 != s2 else {continue}
+            removeNode(withName: hintNodeName)
+            switch h {
+            case let .corner(n):
+                addCircleMarker(point: point, nodeName: "marker")
+                addHint(text: n == 0 ? "?" : String(n), s: s2, point: point, nodeName: hintNodeName)
+            case .left:
+                addHint(text: "<", s: s2, point: point, nodeName: hintNodeName)
+            case .up:
+                addHint(text: "^", s: s2, point: point, nodeName: hintNodeName)
+            case .right:
+                addHint(text: ">", s: s2, point: point, nodeName: hintNodeName)
+            case .down:
+                addHint(text: "v", s: s2, point: point, nodeName: hintNodeName)
+            default:
+                break
             }
         }
     }

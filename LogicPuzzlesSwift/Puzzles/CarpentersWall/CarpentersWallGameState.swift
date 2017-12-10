@@ -169,22 +169,22 @@ class CarpentersWallGameState: GridGameState {
         while !rngEmpty.isEmpty {
             let node = pos2node[rngEmpty.first!]!
             let nodesExplored = breadthFirstSearch(g, source: node)
-            let rngCurrent = rngEmpty.filter{nodesExplored.contains($0.description)}
-            let rngHint = rngCurrent.filter{self[$0].isHint()}
+            let area = rngEmpty.filter{nodesExplored.contains($0.description)}
+            let rngHint = area.filter{self[$0].isHint()}
             rngEmpty = rngEmpty.filter{!nodesExplored.contains($0.description)}
             let n1 = nodesExplored.count
             var r2 = 0, r1 = rows, c2 = 0, c1 = cols
-            for p in rngCurrent {
+            for p in area {
                 if r2 < p.row {r2 = p.row}
                 if r1 > p.row {r1 = p.row}
                 if c2 < p.col {c2 = p.col}
                 if c1 > p.col {c1 = p.col}
             }
             if r1 == r2 || c1 == c2 {isSolved = false; continue}
-            let cntR1 = rngCurrent.filter{$0.row == r1}.count
-            let cntR2 = rngCurrent.filter{$0.row == r2}.count
-            let cntC1 = rngCurrent.filter{$0.col == c1}.count
-            let cntC2 = rngCurrent.filter{$0.col == c2}.count
+            let cntR1 = area.filter{$0.row == r1}.count
+            let cntR2 = area.filter{$0.row == r2}.count
+            let cntC1 = area.filter{$0.col == c1}.count
+            let cntC2 = area.filter{$0.col == c2}.count
             func f(_ a: Int, _ b: Int) -> Bool {return a > 1 && b > 1 && a + b - 1 == n1;}
             let squareType =
                 f(cntR1, cntC1) ? 0 : // ┌

@@ -135,16 +135,8 @@ class CarpentersSquareGameState: GridGameState {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter{nodesExplored.contains($0.0.description)}.map{$0.0}
             pos2node = pos2node.filter{!nodesExplored.contains($0.0.description)}
-            let rng = area.filter{p in game.pos2hint[p] != nil}
-            // 2. Each Box must contain one number.
-            if rng.count != 1 {
-                for p in rng {
-                    pos2state[p] = .normal
-                }
-                isSolved = false; continue
-            }
-            let p2 = rng[0]
-            let n1 = area.count, n2 = game.pos2hint[p2]!
+            let rngHint = area.filter{game.pos2hint[$0] != nil}
+            let n1 = nodesExplored.count
             var r2 = 0, r1 = rows, c2 = 0, c1 = cols
             for p in area {
                 if r2 < p.row {r2 = p.row}
@@ -152,20 +144,43 @@ class CarpentersSquareGameState: GridGameState {
                 if c2 < p.col {c2 = p.col}
                 if c1 > p.col {c1 = p.col}
             }
-            let rs = r2 - r1 + 1, cs = c2 - c1 + 1
-            func hasLine() -> Bool {
-                for r in r1...r2 {
-                    for c in c1...c2 {
-                        let dotObj = self[r + 1, c + 1]
-                        if r < r2 && dotObj[3] == .line || c < c2 && dotObj[0] == .line {return true}
-                    }
+            if r1 == r2 || c1 == c2 {isSolved = false; continue}
+            let cntR1 = area.filter{$0.row == r1}.count
+            let cntR2 = area.filter{$0.row == r2}.count
+            let cntC1 = area.filter{$0.col == c1}.count
+            let cntC2 = area.filter{$0.col == c2}.count
+            func f(_ a: Int, _ b: Int) -> Bool {return a > 1 && b > 1 && a + b - 1 == n1;}
+            let squareType =
+                f(cntR1, cntC1) ? 0 : // ┌
+                    f(cntR1, cntC2) ? 1 : // ┐
+                    f(cntR2, cntC1) ? 2 : // └
+                    f(cntR2, cntC2) ? 3 : -1 // ┘
+            for p in rngHint {
+                switch game.pos2hint[p]! {
+                case let .corner(n2):
+                    let s: HintState = squareType == -1 ? .normal : !(n1 == n2 || n2 == 0) ? .error : squareType == 0 && p == Position(r1, c1) || squareType == 1 && p == Position(r1, c2) || squareType == 2 && p == Position(r2, c1) || squareType == 3 && p == Position(r2, c2) ? .complete : .error
+                    pos2state[p] = s
+                    if s != .complete {isSolved = false}
+                case .left:
+                    let s: HintState = squareType == -1 ? .normal : squareType == 0 && p == Position(r1, c2) || squareType == 2 && p == Position(r2, c2) ? .complete : .error
+                    pos2state[p] = s
+                    if s != .complete {isSolved = false}
+                case .up:
+                    let s: HintState = squareType == -1 ? .normal : squareType == 0 && p == Position(r2, c1) || squareType == 1 && p == Position(r2, c2) ? .complete : .error
+                    pos2state[p] = s
+                    if s != .complete {isSolved = false}
+                case .right:
+                    let s: HintState = squareType == -1 ? .normal : squareType == 1 && p == Position(r1, c1) || squareType == 3 && p == Position(r2, c1) ? .complete : .error
+                    pos2state[p] = s
+                    if s != .complete {isSolved = false}
+                case .down:
+                    let s: HintState = squareType == -1 ? .normal : squareType == 2 && p == Position(r1, c1) || squareType == 3 && p == Position(r1, c2) ? .complete : .error
+                    pos2state[p] = s
+                    if s != .complete {isSolved = false}
+                default:
+                    break
                 }
-                return false
             }
-            // 1. A simple puzzle where you have to divide the Board in Boxes (Rectangles).
-            // 2. The number represents the area of that Box.
-            pos2state[p2] = rs * cs == n1 && rs * cs == n2 && !hasLine() ? .complete : .error
-            if pos2state[p2] != .complete {isSolved = false}
         }
     }
 }
