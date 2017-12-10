@@ -150,30 +150,44 @@ class CarpentersSquareGameState: GridGameState {
             let cntC1 = area.filter{$0.col == c1}.count
             let cntC2 = area.filter{$0.col == c2}.count
             func f(_ a: Int, _ b: Int) -> Bool {return a > 1 && b > 1 && a + b - 1 == n1}
+            // 1. You just have to divide the board into many.Capenter's Squares (L shaped tools) of different size.
             let squareType =
                 f(cntR1, cntC1) ? 0 : // ┌
-                    f(cntR1, cntC2) ? 1 : // ┐
-                    f(cntR2, cntC1) ? 2 : // └
-                    f(cntR2, cntC2) ? 3 : -1 // ┘
+                f(cntR1, cntC2) ? 1 : // ┐
+                f(cntR2, cntC1) ? 2 : // └
+                f(cntR2, cntC2) ? 3 : -1 // ┘
+            // 5. All the tiles in the board have to be part of a Carpenter's Square.
+            if squareType == -1 {isSolved = false}
             for p in rngHint {
                 switch game.pos2hint[p]! {
                 case let .corner(n2):
+                    // 2. The circled numbers on the board indicate the corner of the L.
+                    // 3. When a number is inside the circle, that indicates the total number of
+                    // squares occupied by the L.
                     let s: HintState = squareType == -1 ? .normal : !(n1 == n2 || n2 == 0) ? .error : squareType == 0 && p == Position(r1, c1) || squareType == 1 && p == Position(r1, c2) || squareType == 2 && p == Position(r2, c1) || squareType == 3 && p == Position(r2, c2) ? .complete : .error
                     pos2state[p] = s
                     if s != .complete {isSolved = false}
                 case .left:
+                    // 4. The arrow always sits at the end of an arm and points to the corner of
+                    // an L.
                     let s: HintState = squareType == -1 ? .normal : squareType == 0 && p == Position(r1, c2) || squareType == 2 && p == Position(r2, c2) ? .complete : .error
                     pos2state[p] = s
                     if s != .complete {isSolved = false}
                 case .up:
+                    // 4. The arrow always sits at the end of an arm and points to the corner of
+                    // an L.
                     let s: HintState = squareType == -1 ? .normal : squareType == 0 && p == Position(r2, c1) || squareType == 1 && p == Position(r2, c2) ? .complete : .error
                     pos2state[p] = s
                     if s != .complete {isSolved = false}
                 case .right:
+                    // 4. The arrow always sits at the end of an arm and points to the corner of
+                    // an L.
                     let s: HintState = squareType == -1 ? .normal : squareType == 1 && p == Position(r1, c1) || squareType == 3 && p == Position(r2, c1) ? .complete : .error
                     pos2state[p] = s
                     if s != .complete {isSolved = false}
                 case .down:
+                    // 4. The arrow always sits at the end of an arm and points to the corner of
+                    // an L.
                     let s: HintState = squareType == -1 ? .normal : squareType == 2 && p == Position(r1, c1) || squareType == 3 && p == Position(r1, c2) ? .complete : .error
                     pos2state[p] = s
                     if s != .complete {isSolved = false}

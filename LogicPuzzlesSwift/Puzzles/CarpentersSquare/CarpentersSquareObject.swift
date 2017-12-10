@@ -18,14 +18,6 @@ enum CarpentersSquareHint {
     init() {
         self = .empty
     }
-    func isHint() -> Bool {
-        switch self {
-        case .corner, .up, .down, .left, .right:
-            return true
-        default:
-            return false
-        }
-    }
 }
 
 struct CarpentersSquareGameMove {

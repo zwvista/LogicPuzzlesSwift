@@ -102,7 +102,7 @@ class CarpentersWallGameState: GridGameState {
     */
     private func updateIsSolved() {
         isSolved = true
-        // 7. The wall can't form 2*2 squares.
+        // The wall can't form 2*2 squares.
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
@@ -160,7 +160,7 @@ class CarpentersWallGameState: GridGameState {
         if rngWalls.isEmpty {
             isSolved = false
         } else {
-            // 3. The garden is separated by a single continuous wall. This means all
+            // The garden is separated by a single continuous wall. This means all
             // wall tiles on the board must be connected horizontally or vertically.
             // There can't be isolated walls.
             let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
@@ -186,6 +186,8 @@ class CarpentersWallGameState: GridGameState {
             let cntC1 = area.filter{$0.col == c1}.count
             let cntC2 = area.filter{$0.col == c2}.count
             func f(_ a: Int, _ b: Int) -> Bool {return a > 1 && b > 1 && a + b - 1 == n1}
+            // 2. In the end, the empty spaces left by the Nurikabe will form many Carpenter's
+            // Squares (L shaped tools) of different size.
             let squareType =
                 f(cntR1, cntC1) ? 0 : // ┌
                 f(cntR1, cntC2) ? 1 : // ┐
@@ -194,22 +196,33 @@ class CarpentersWallGameState: GridGameState {
             for p in rngHint {
                 switch self[p] {
                 case let .corner(n2, _):
+                    // 3. The circled numbers on the board indicate the corner of the L.
+                    // 4. When a number is inside the circle, that indicates the total number of
+                    // squares occupied by the L.
                     let s: HintState = squareType == -1 ? .normal : !(n1 == n2 || n2 == 0) ? .error : squareType == 0 && p == Position(r1, c1) || squareType == 1 && p == Position(r1, c2) || squareType == 2 && p == Position(r2, c1) || squareType == 3 && p == Position(r2, c2) ? .complete : .error
                     self[p] = .corner(tiles: n2, state: s)
                     if s != .complete {isSolved = false}
                 case .left:
+                    // 5. The arrow always sits at the end of an arm and points to the corner of
+                    // an L.
                     let s: HintState = squareType == -1 ? .normal : squareType == 0 && p == Position(r1, c2) || squareType == 2 && p == Position(r2, c2) ? .complete : .error
                     self[p] = .left(state: s)
                     if s != .complete {isSolved = false}
                 case .up:
+                    // 5. The arrow always sits at the end of an arm and points to the corner of
+                    // an L.
                     let s: HintState = squareType == -1 ? .normal : squareType == 0 && p == Position(r2, c1) || squareType == 1 && p == Position(r2, c2) ? .complete : .error
                     self[p] = .up(state: s)
                     if s != .complete {isSolved = false}
                 case .right:
+                    // 5. The arrow always sits at the end of an arm and points to the corner of
+                    // an L.
                     let s: HintState = squareType == -1 ? .normal : squareType == 1 && p == Position(r1, c1) || squareType == 3 && p == Position(r2, c1) ? .complete : .error
                     self[p] = .right(state: s)
                     if s != .complete {isSolved = false}
                 case .down:
+                    // 5. The arrow always sits at the end of an arm and points to the corner of
+                    // an L.
                     let s: HintState = squareType == -1 ? .normal : squareType == 2 && p == Position(r1, c1) || squareType == 3 && p == Position(r1, c2) ? .complete : .error
                     self[p] = .down(state: s)
                     if s != .complete {isSolved = false}
