@@ -128,14 +128,14 @@ class RoomsGameState: GridGameState {
         }
         let g = Graph()
         var pos2node = [Position: Node]()
-        for r in 0..<rows {
-            for c in 0..<cols {
+        for r in 0..<rows - 1 {
+            for c in 0..<cols - 1 {
                 let p = Position(r, c)
                 pos2node[p] = g.addNode(p.description)
             }
         }
-        for r in 0..<rows {
-            for c in 0..<cols {
+        for r in 0..<rows - 1 {
+            for c in 0..<cols - 1 {
                 let p = Position(r, c)
                 for i in 0..<4 {
                     if self[p + RoomsGame.offset2[i]][RoomsGame.dirs[i]] != .line {
