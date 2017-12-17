@@ -40,6 +40,7 @@ class GameDocument<G: GameBase, GM>: GameDocumentBase {
         if result.count == 0 {
             let rec = GameProgress()
             rec.gameID = gameID
+            rec.levelID = levels[0].id
             return rec
         } else {
             return result[0] as! GameProgress

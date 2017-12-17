@@ -70,6 +70,7 @@ class ABCPathGameState: GridGameState {
         let p = move.p
         guard isValid(p: p), game[p] == " " else {return false}
         let o = self[p]
+        // 1.  Enter every letter from A to Y into the grid.
         var chars = (0...24).map{succ(ch: "A", offset: $0)}
         for r in 1..<rows - 1 {
             for c in 1..<cols - 1 {
@@ -111,11 +112,11 @@ class ABCPathGameState: GridGameState {
                 }
             }
         }
-        let ch2pos = Dictionary(grouping: pos2ch, by: {$0.1})
+        let ch2rng = Dictionary(grouping: pos2ch, by: {$0.1})
             .map{(ch, kvs) in (ch, kvs.map{$0.0})}
             .filter{(ch, rng) in rng.count > 1}
-        if !ch2pos.isEmpty {isSolved = false}
-        for (_, rng) in ch2pos {
+        if !ch2rng.isEmpty {isSolved = false}
+        for (_, rng) in ch2rng {
             for p in rng {
                 pos2state[p] = .error
             }
@@ -125,10 +126,7 @@ class ABCPathGameState: GridGameState {
             for c in 1..<cols - 1 {
                 let p = Position(r, c)
                 let ch = self[p]
-                if pos2state[p] == .normal, ch == "Y" || ABCPathGame.offset.contains(where: {
-                    let p2 = p + $0
-                    return isValid(p: p2) && self[p2] == succ(ch: ch)
-                }), ch == "A" || ABCPathGame.offset.contains(where: {
+                if pos2state[p] == .normal, ch == "A" || ABCPathGame.offset.contains(where: {
                     let p2 = p + $0
                     return isValid(p: p2) && self[p2] == succ(ch: ch, offset: -1)
                 }) {
