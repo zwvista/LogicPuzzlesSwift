@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1.  Enter every letter from A to Y into the grid.
+2.  Each letter is next to the previous letter either horizontally, vertically or diagonally.
+3.  The clues around the edge tell you which row, column or diagonal each letter is in.
+  ]]>
+</help>
+<levels>
+  <level id="20171216">
+    <![CDATA[
+RCVWKLG`
+P A   O`
+N     I`
+S     J`
+T     F`
+U     Y`
+HDEQXMB`
+    ]]>
+  </level>
+</levels>
+</puzzle>

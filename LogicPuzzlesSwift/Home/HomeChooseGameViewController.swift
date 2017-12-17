@@ -12,6 +12,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
     
     var gameNames: [String]!
     let name2title = [
+        "ABCPath": "ABC Path",
         "AbstractPainting": "Abstract Painting",
         "BalancedTapas": "Balanced Tapas",
         "BattleShips": "Battle Ships",
@@ -55,10 +56,11 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // https://stackoverflow.com/questions/32418917/sorting-a-string-array-and-ignoring-case
         gameNames = try! FileManager.default.contentsOfDirectory(atPath: Bundle.main.bundlePath)
             .filter{s in s[s.length - ".xml".length..<s.length] == ".xml"}
             .map{s in s[0..<s.length - ".xml".length]}
-            .sorted()
+            .sorted{$0.localizedCompare($1) == .orderedAscending}
         
         selectedRow = gameNames.index(of: gameDocument.gameProgress.gameName!)!
         let indexPath = IndexPath(row: selectedRow, section: 0)

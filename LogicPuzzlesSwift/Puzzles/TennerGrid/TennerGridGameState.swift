@@ -91,6 +91,7 @@ class TennerGridGameState: GridGameState {
     private func updateIsSolved() {
         isSolved = true
         for r in 0..<rows - 1 {
+            // https://stackoverflow.com/questions/31220002/how-to-group-by-the-elements-of-an-array-in-swift
             let cs = Dictionary(grouping: 0..<cols, by: {self[r, $0]}).filter{$0.0 != -1 && $0.1.count > 1}.flatMap{$0.1}
             // 3. Obviously digits can't repeat on the same row.
             if !cs.isEmpty {isSolved = false}

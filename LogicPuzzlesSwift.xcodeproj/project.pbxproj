@@ -119,6 +119,17 @@
 		8C32D8E41FC92B5F00BA2D07 /* RippleEffectObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8D81FC92B5F00BA2D07 /* RippleEffectObject.swift */; };
 		8C32D8E51FC92B5F00BA2D07 /* RippleEffect.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C32D8D91FC92B5F00BA2D07 /* RippleEffect.xml */; };
 		8C32D8E61FC92B5F00BA2D07 /* RippleEffectDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8DA1FC92B5F00BA2D07 /* RippleEffectDocument.swift */; };
+		8C355CE11FE586F8002FC9D6 /* ABCPathOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C355CD51FE586F8002FC9D6 /* ABCPathOptionsViewController.swift */; };
+		8C355CE21FE586F9002FC9D6 /* ABCPathGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C355CD61FE586F8002FC9D6 /* ABCPathGameScene.swift */; };
+		8C355CE31FE586F9002FC9D6 /* ABCPath.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C355CD71FE586F8002FC9D6 /* ABCPath.xml */; };
+		8C355CE41FE586F9002FC9D6 /* ABCPathGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C355CD81FE586F8002FC9D6 /* ABCPathGame.swift */; };
+		8C355CE51FE586F9002FC9D6 /* ABCPathGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C355CD91FE586F8002FC9D6 /* ABCPathGridNode.swift */; };
+		8C355CE61FE586F9002FC9D6 /* ABCPathGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C355CDA1FE586F8002FC9D6 /* ABCPathGameState.swift */; };
+		8C355CE71FE586F9002FC9D6 /* ABCPathMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C355CDB1FE586F8002FC9D6 /* ABCPathMainViewController.swift */; };
+		8C355CE81FE586F9002FC9D6 /* ABCPathGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C355CDC1FE586F8002FC9D6 /* ABCPathGameViewController.swift */; };
+		8C355CE91FE586F9002FC9D6 /* ABCPathHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C355CDD1FE586F8002FC9D6 /* ABCPathHelpViewController.swift */; };
+		8C355CEA1FE586F9002FC9D6 /* ABCPathObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C355CDE1FE586F8002FC9D6 /* ABCPathObject.swift */; };
+		8C355CEB1FE586F9002FC9D6 /* ABCPathDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C355CDF1FE586F8002FC9D6 /* ABCPathDocument.swift */; };
 		8C35E38B1FC2844F00A26EE3 /* GardenerGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E37F1FC2844E00A26EE3 /* GardenerGridNode.swift */; };
 		8C35E38C1FC2844F00A26EE3 /* GardenerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E3801FC2844E00A26EE3 /* GardenerObject.swift */; };
 		8C35E38D1FC2844F00A26EE3 /* GardenerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C35E3811FC2844E00A26EE3 /* GardenerGame.swift */; };
@@ -1159,6 +1170,17 @@
 		8C32D8D81FC92B5F00BA2D07 /* RippleEffectObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleEffectObject.swift; sourceTree = "<group>"; };
 		8C32D8D91FC92B5F00BA2D07 /* RippleEffect.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RippleEffect.xml; sourceTree = "<group>"; };
 		8C32D8DA1FC92B5F00BA2D07 /* RippleEffectDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleEffectDocument.swift; sourceTree = "<group>"; };
+		8C355CD51FE586F8002FC9D6 /* ABCPathOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABCPathOptionsViewController.swift; sourceTree = "<group>"; };
+		8C355CD61FE586F8002FC9D6 /* ABCPathGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABCPathGameScene.swift; sourceTree = "<group>"; };
+		8C355CD71FE586F8002FC9D6 /* ABCPath.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ABCPath.xml; sourceTree = "<group>"; };
+		8C355CD81FE586F8002FC9D6 /* ABCPathGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABCPathGame.swift; sourceTree = "<group>"; };
+		8C355CD91FE586F8002FC9D6 /* ABCPathGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABCPathGridNode.swift; sourceTree = "<group>"; };
+		8C355CDA1FE586F8002FC9D6 /* ABCPathGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABCPathGameState.swift; sourceTree = "<group>"; };
+		8C355CDB1FE586F8002FC9D6 /* ABCPathMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABCPathMainViewController.swift; sourceTree = "<group>"; };
+		8C355CDC1FE586F8002FC9D6 /* ABCPathGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABCPathGameViewController.swift; sourceTree = "<group>"; };
+		8C355CDD1FE586F8002FC9D6 /* ABCPathHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABCPathHelpViewController.swift; sourceTree = "<group>"; };
+		8C355CDE1FE586F8002FC9D6 /* ABCPathObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABCPathObject.swift; sourceTree = "<group>"; };
+		8C355CDF1FE586F8002FC9D6 /* ABCPathDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ABCPathDocument.swift; sourceTree = "<group>"; };
 		8C35E37F1FC2844E00A26EE3 /* GardenerGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenerGridNode.swift; sourceTree = "<group>"; };
 		8C35E3801FC2844E00A26EE3 /* GardenerObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenerObject.swift; sourceTree = "<group>"; };
 		8C35E3811FC2844E00A26EE3 /* GardenerGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GardenerGame.swift; sourceTree = "<group>"; };
@@ -2311,6 +2333,24 @@
 			path = RippleEffect;
 			sourceTree = "<group>";
 		};
+		8C355CD41FE586F8002FC9D6 /* ABCPath */ = {
+			isa = PBXGroup;
+			children = (
+				8C355CD71FE586F8002FC9D6 /* ABCPath.xml */,
+				8C355CDF1FE586F8002FC9D6 /* ABCPathDocument.swift */,
+				8C355CD81FE586F8002FC9D6 /* ABCPathGame.swift */,
+				8C355CD61FE586F8002FC9D6 /* ABCPathGameScene.swift */,
+				8C355CDA1FE586F8002FC9D6 /* ABCPathGameState.swift */,
+				8C355CDC1FE586F8002FC9D6 /* ABCPathGameViewController.swift */,
+				8C355CD91FE586F8002FC9D6 /* ABCPathGridNode.swift */,
+				8C355CDD1FE586F8002FC9D6 /* ABCPathHelpViewController.swift */,
+				8C355CDB1FE586F8002FC9D6 /* ABCPathMainViewController.swift */,
+				8C355CDE1FE586F8002FC9D6 /* ABCPathObject.swift */,
+				8C355CD51FE586F8002FC9D6 /* ABCPathOptionsViewController.swift */,
+			);
+			path = ABCPath;
+			sourceTree = "<group>";
+		};
 		8C35E37E1FC2844E00A26EE3 /* Gardener */ = {
 			isa = PBXGroup;
 			children = (
@@ -2369,6 +2409,7 @@
 			isa = PBXGroup;
 			children = (
 				8C3A33B91EC88D4100A914A5 /* Abc */,
+				8C355CD41FE586F8002FC9D6 /* ABCPath */,
 				8C3A33C61EC88D4100A914A5 /* AbstractPainting */,
 				8CDAE7FC1F646C29000DE5AF /* BalancedTapas */,
 				8C3A33D31EC88D4100A914A5 /* BattleShips */,
@@ -4033,6 +4074,7 @@
 				8C6A9BE51F812743002A44FF /* Kropki.xml in Resources */,
 				8C9F32411ED1FAD400E10965 /* BWTapa.xml in Resources */,
 				8C3A36FC1EC88D4300A914A5 /* Masyu.xml in Resources */,
+				8C355CE31FE586F9002FC9D6 /* ABCPath.xml in Resources */,
 				8C3A375C1EC88D4300A914A5 /* Pairakabe.xml in Resources */,
 				8C3A37381EC88D4300A914A5 /* Neighbours.xml in Resources */,
 				8C6A360F1FAF97AF00D2804D /* TheOddBrick.xml in Resources */,
@@ -4161,12 +4203,14 @@
 				8C9F32441ED1FAD400E10965 /* BWTapaGameScene.swift in Sources */,
 				8C9F32BD1ED1FB0700E10965 /* TapaIslandsObject.swift in Sources */,
 				8C3A373B1EC88D4300A914A5 /* NeighboursGameScene.swift in Sources */,
+				8C355CE51FE586F9002FC9D6 /* ABCPathGridNode.swift in Sources */,
 				8C2963F91FA20D620017A812 /* RobotCrosswordsDocument.swift in Sources */,
 				8C3A37E41EC88D4400A914A5 /* TentsGameState.swift in Sources */,
 				8C6D37FB1DC5ACDB0052202C /* Copyable.swift in Sources */,
 				8C2973E51EE7284C0022A18A /* GalaxiesGameState.swift in Sources */,
 				8C2AF84B1ED6084300EC84AB /* PaintTheNurikabeGridNode.swift in Sources */,
 				8C3A36411EC88D4200A914A5 /* BridgesGameViewController.swift in Sources */,
+				8C355CEB1FE586F9002FC9D6 /* ABCPathDocument.swift in Sources */,
 				8C3A37A91EC88D4400A914A5 /* SkyscrapersGameViewController.swift in Sources */,
 				8C9F324A1ED1FAD400E10965 /* BWTapaObject.swift in Sources */,
 				8C7E4B441F793C9800B57C60 /* TennerGridDocument.swift in Sources */,
@@ -4311,6 +4355,7 @@
 				8C3A37021EC88D4300A914A5 /* MasyuGridNode.swift in Sources */,
 				8C3A361C1EC88D4200A914A5 /* BoxItAgainGameState.swift in Sources */,
 				8C3A37851EC88D4400A914A5 /* ProductSentinelsGameViewController.swift in Sources */,
+				8C355CE21FE586F9002FC9D6 /* ABCPathGameScene.swift in Sources */,
 				8C3A36721EC88D4200A914A5 /* DominoGridNode.swift in Sources */,
 				8C3A360D1EC88D4200A914A5 /* BootyIslandDocument.swift in Sources */,
 				8C9F325B1ED1FAF600E10965 /* PataGameScene.swift in Sources */,
@@ -4442,6 +4487,7 @@
 				8C3A37E21EC88D4400A914A5 /* TentsGame.swift in Sources */,
 				8C3A370E1EC88D4300A914A5 /* MineShipsGridNode.swift in Sources */,
 				8C3A368E1EC88D4200A914A5 /* FenceLitsObject.swift in Sources */,
+				8C355CEA1FE586F9002FC9D6 /* ABCPathObject.swift in Sources */,
 				8C2973E71EE7284C0022A18A /* GalaxiesGridNode.swift in Sources */,
 				8C2319EE1FB88E3F0021C680 /* TierraDelFuegoGameViewController.swift in Sources */,
 				8C3A37631EC88D4300A914A5 /* PairakabeHelpViewController.swift in Sources */,
@@ -4580,6 +4626,7 @@
 				8C3A37921EC88D4400A914A5 /* RoomsGridNode.swift in Sources */,
 				8C9F32B51ED1FB0700E10965 /* TapaIslandsDocument.swift in Sources */,
 				8C3A37461EC88D4300A914A5 /* NurikabeGame.swift in Sources */,
+				8C355CE41FE586F9002FC9D6 /* ABCPathGame.swift in Sources */,
 				8C3A36701EC88D4200A914A5 /* DominoGameState.swift in Sources */,
 				8C3A36821EC88D4200A914A5 /* FenceItUpObject.swift in Sources */,
 				8C7E4B491F793C9800B57C60 /* TennerGridGridNode.swift in Sources */,
@@ -4717,6 +4764,7 @@
 				8C3A368B1EC88D4200A914A5 /* FenceLitsHelpViewController.swift in Sources */,
 				8C3A36A31EC88D4200A914A5 /* HitoriHelpViewController.swift in Sources */,
 				8C506F141F6D2C9300BA4332 /* SnakeGridNode.swift in Sources */,
+				8C355CE81FE586F9002FC9D6 /* ABCPathGameViewController.swift in Sources */,
 				8C506F181F6D2C9300BA4332 /* SnakeOptionsViewController.swift in Sources */,
 				8C3A36081EC88D4200A914A5 /* BattleShipsMainViewController.swift in Sources */,
 				8C3A36161EC88D4200A914A5 /* BootyIslandObject.swift in Sources */,
@@ -4792,6 +4840,7 @@
 				8CC350551E001D2800B8FD83 /* UILabelExtensions.swift in Sources */,
 				8C6A362A1FAF9D8600D2804D /* NoughtsAndCrossesGameState.swift in Sources */,
 				8C32D8E41FC92B5F00BA2D07 /* RippleEffectObject.swift in Sources */,
+				8C355CE61FE586F9002FC9D6 /* ABCPathGameState.swift in Sources */,
 				8C3A36D01EC88D4300A914A5 /* LineSweeperGameState.swift in Sources */,
 				8C3A36AC1EC88D4300A914A5 /* LightBattleShipsGameState.swift in Sources */,
 				8C9F32461ED1FAD400E10965 /* BWTapaGameViewController.swift in Sources */,
@@ -4955,6 +5004,8 @@
 				8C32D8E11FC92B5F00BA2D07 /* RippleEffectGameState.swift in Sources */,
 				8C3A374C1EC88D4300A914A5 /* NurikabeMainViewController.swift in Sources */,
 				8C3A36761EC88D4200A914A5 /* DominoObject.swift in Sources */,
+				8C355CE71FE586F9002FC9D6 /* ABCPathMainViewController.swift in Sources */,
+				8C355CE91FE586F9002FC9D6 /* ABCPathHelpViewController.swift in Sources */,
 				8C3A367A1EC88D4200A914A5 /* FenceItUpGame.swift in Sources */,
 				8C7E4B471F793C9800B57C60 /* TennerGridGameState.swift in Sources */,
 				8C3A36801EC88D4200A914A5 /* FenceItUpMainViewController.swift in Sources */,
@@ -5019,6 +5070,7 @@
 				8C3A37DA1EC88D4400A914A5 /* TatamiGridNode.swift in Sources */,
 				8C1D4F911F7D079F000D5FB3 /* Square100OptionsViewController.swift in Sources */,
 				8C3A37AC1EC88D4400A914A5 /* SkyscrapersMainViewController.swift in Sources */,
+				8C355CE11FE586F8002FC9D6 /* ABCPathOptionsViewController.swift in Sources */,
 				8C3A36DC1EC88D4300A914A5 /* LitsGameState.swift in Sources */,
 				8CDAE80A1F646C29000DE5AF /* BalancedTapasGame.swift in Sources */,
 				8C3A37771EC88D4300A914A5 /* PowerGridGameScene.swift in Sources */,
