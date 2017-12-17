@@ -77,7 +77,7 @@ class GameDocument<G: GameBase, GM>: GameDocumentBase {
             guard let key = elemLevel.attr("id") else {continue}
             var arr = elemLevel.stringValue.components(separatedBy: "\n")
             arr = Array(arr[2..<(arr.count - 2)])
-            arr = arr.map { s in s.substring(to: s.index(before: s.endIndex)) }
+            arr = arr.map{$0[0..<$0.length - 1]}
             levels.append(GameLevel(id: key, layout: arr, settings: elemLevel.attributes))
         }
         if let elemHelp = root.firstChild(tag: "help") {
