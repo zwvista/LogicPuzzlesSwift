@@ -62,17 +62,10 @@ class GridGameState: GameState {
         self.game = game
     }
     
-    func succ(ch: Character) -> Character {
+    func succ(ch: Character, offset: Int = 1) -> Character {
         // http://stackoverflow.com/questions/26761390/changing-value-of-character-using-ascii-value-in-swift
         let scalars = String(ch).unicodeScalars      // unicode scalar(s) of the character
         let val = scalars[scalars.startIndex].value  // value of the unicode scalar
-        return Character(UnicodeScalar(val + 1)!)     // return an incremented character
-    }
-    
-    func pred(ch: Character) -> Character {
-        // http://stackoverflow.com/questions/26761390/changing-value-of-character-using-ascii-value-in-swift
-        let scalars = String(ch).unicodeScalars      // unicode scalar(s) of the character
-        let val = scalars[scalars.startIndex].value  // value of the unicode scalar
-        return Character(UnicodeScalar(val - 1)!)     // return an incremented character
+        return Character(UnicodeScalar(UInt32(Int(val) + offset))!)     // return an incremented character
     }
 }

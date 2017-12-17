@@ -70,7 +70,16 @@ class ABCPathGameState: GridGameState {
         let p = move.p
         guard isValid(p: p), game[p] == " " else {return false}
         let o = self[p]
-        move.obj = o == " " ? "A" : o == "Y" ? " " : succ(ch: o)
+        var chars = (0...24).map{succ(ch: "A", offset: $0)}
+        for r in 1..<rows - 1 {
+            for c in 1..<cols - 1 {
+                let p2 = Position(r, c)
+                guard p2 != p else {continue}
+                chars.removeFirst(self[p2])
+            }
+        }
+        let i = chars.index(of: o) ?? chars.count - 1
+        move.obj = o == " " ? chars[0] : i == chars.count - 1 ? " " : chars[i + 1]
         return setObject(move: &move)
     }
     
@@ -121,7 +130,7 @@ class ABCPathGameState: GridGameState {
                     return isValid(p: p2) && self[p2] == succ(ch: ch)
                 }), ch == "A" || ABCPathGame.offset.contains(where: {
                     let p2 = p + $0
-                    return isValid(p: p2) && self[p2] == pred(ch: ch)
+                    return isValid(p: p2) && self[p2] == succ(ch: ch, offset: -1)
                 }) {
                     pos2state[p] = .complete
                 } else {
