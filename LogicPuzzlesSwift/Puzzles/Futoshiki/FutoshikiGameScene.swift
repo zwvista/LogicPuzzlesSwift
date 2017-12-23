@@ -52,7 +52,7 @@ class FutoshikiGameScene: GameScene<FutoshikiGameState> {
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
                 let ch = state[p]
-                if ch != " " {addLabel(text: String(ch), fontColor: .white, point: point, nodeName: numberNodeName)}
+                if ch != " " {addLabel(text: String(ch), fontColor: .gray, point: point, nodeName: numberNodeName)}
                 let cellNode = SKShapeNode(rectOf: CGSize(width: blockSize, height: blockSize))
                 cellNode.position = point
                 gridNode.addChild(cellNode)
