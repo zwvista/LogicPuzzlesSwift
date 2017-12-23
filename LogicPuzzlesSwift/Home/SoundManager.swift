@@ -43,7 +43,11 @@ class SoundManager {
     
     private func playSound(soundID: SystemSoundID) {
         if gameOptions.playSound {
-            AudioServicesPlaySystemSound(soundID)
+            if #available(iOS 9.0, *) {
+                AudioServicesPlaySystemSoundWithCompletion(soundID, nil)
+            } else {
+                AudioServicesPlaySystemSound(soundID)
+            }
         }
     }
     

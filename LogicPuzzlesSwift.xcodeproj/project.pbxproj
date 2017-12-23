@@ -992,6 +992,17 @@
 		8CDAE8101F646C29000DE5AF /* BalancedTapasMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDAE8051F646C29000DE5AF /* BalancedTapasMainViewController.swift */; };
 		8CDAE8111F646C29000DE5AF /* BalancedTapasObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDAE8061F646C29000DE5AF /* BalancedTapasObject.swift */; };
 		8CDAE8121F646C29000DE5AF /* BalancedTapasOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDAE8071F646C29000DE5AF /* BalancedTapasOptionsViewController.swift */; };
+		8CE43BD81FEE6C7B00DCCD91 /* FutoshikiMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE43BCC1FEE6C7B00DCCD91 /* FutoshikiMainViewController.swift */; };
+		8CE43BD91FEE6C7B00DCCD91 /* FutoshikiObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE43BCD1FEE6C7B00DCCD91 /* FutoshikiObject.swift */; };
+		8CE43BDA1FEE6C7B00DCCD91 /* FutoshikiGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE43BCE1FEE6C7B00DCCD91 /* FutoshikiGameViewController.swift */; };
+		8CE43BDB1FEE6C7B00DCCD91 /* FutoshikiGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE43BCF1FEE6C7B00DCCD91 /* FutoshikiGameScene.swift */; };
+		8CE43BDC1FEE6C7B00DCCD91 /* FutoshikiGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE43BD01FEE6C7B00DCCD91 /* FutoshikiGameState.swift */; };
+		8CE43BDD1FEE6C7B00DCCD91 /* FutoshikiHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE43BD11FEE6C7B00DCCD91 /* FutoshikiHelpViewController.swift */; };
+		8CE43BDE1FEE6C7B00DCCD91 /* FutoshikiGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE43BD21FEE6C7B00DCCD91 /* FutoshikiGridNode.swift */; };
+		8CE43BDF1FEE6C7B00DCCD91 /* FutoshikiGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE43BD31FEE6C7B00DCCD91 /* FutoshikiGame.swift */; };
+		8CE43BE01FEE6C7B00DCCD91 /* Futoshiki.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CE43BD41FEE6C7B00DCCD91 /* Futoshiki.xml */; };
+		8CE43BE11FEE6C7B00DCCD91 /* FutoshikiDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE43BD51FEE6C7B00DCCD91 /* FutoshikiDocument.swift */; };
+		8CE43BE21FEE6C7B00DCCD91 /* FutoshikiOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE43BD61FEE6C7B00DCCD91 /* FutoshikiOptionsViewController.swift */; };
 		8CE9C30F1F7914B800134093 /* Kakurasu.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CE9C3041F7914B800134093 /* Kakurasu.xml */; };
 		8CE9C3101F7914B800134093 /* KakurasuDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE9C3051F7914B800134093 /* KakurasuDocument.swift */; };
 		8CE9C3111F7914B800134093 /* KakurasuGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE9C3061F7914B800134093 /* KakurasuGame.swift */; };
@@ -2063,6 +2074,17 @@
 		8CDAE8051F646C29000DE5AF /* BalancedTapasMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalancedTapasMainViewController.swift; sourceTree = "<group>"; };
 		8CDAE8061F646C29000DE5AF /* BalancedTapasObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalancedTapasObject.swift; sourceTree = "<group>"; };
 		8CDAE8071F646C29000DE5AF /* BalancedTapasOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalancedTapasOptionsViewController.swift; sourceTree = "<group>"; };
+		8CE43BCC1FEE6C7B00DCCD91 /* FutoshikiMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutoshikiMainViewController.swift; sourceTree = "<group>"; };
+		8CE43BCD1FEE6C7B00DCCD91 /* FutoshikiObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutoshikiObject.swift; sourceTree = "<group>"; };
+		8CE43BCE1FEE6C7B00DCCD91 /* FutoshikiGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutoshikiGameViewController.swift; sourceTree = "<group>"; };
+		8CE43BCF1FEE6C7B00DCCD91 /* FutoshikiGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutoshikiGameScene.swift; sourceTree = "<group>"; };
+		8CE43BD01FEE6C7B00DCCD91 /* FutoshikiGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutoshikiGameState.swift; sourceTree = "<group>"; };
+		8CE43BD11FEE6C7B00DCCD91 /* FutoshikiHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutoshikiHelpViewController.swift; sourceTree = "<group>"; };
+		8CE43BD21FEE6C7B00DCCD91 /* FutoshikiGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutoshikiGridNode.swift; sourceTree = "<group>"; };
+		8CE43BD31FEE6C7B00DCCD91 /* FutoshikiGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutoshikiGame.swift; sourceTree = "<group>"; };
+		8CE43BD41FEE6C7B00DCCD91 /* Futoshiki.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Futoshiki.xml; sourceTree = "<group>"; };
+		8CE43BD51FEE6C7B00DCCD91 /* FutoshikiDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutoshikiDocument.swift; sourceTree = "<group>"; };
+		8CE43BD61FEE6C7B00DCCD91 /* FutoshikiOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutoshikiOptionsViewController.swift; sourceTree = "<group>"; };
 		8CE9C3041F7914B800134093 /* Kakurasu.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kakurasu.xml; sourceTree = "<group>"; };
 		8CE9C3051F7914B800134093 /* KakurasuDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakurasuDocument.swift; sourceTree = "<group>"; };
 		8CE9C3061F7914B800134093 /* KakurasuGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakurasuGame.swift; sourceTree = "<group>"; };
@@ -2432,6 +2454,7 @@
 				8C3A346F1EC88D4100A914A5 /* FenceSentinels */,
 				8CA042CC1FDB878700AF85E1 /* Fillomino */,
 				8C74745A1FBEFD5700C4112C /* FourMeNot */,
+				8CE43BCB1FEE6C7B00DCCD91 /* Futoshiki */,
 				8C2973D51EE7284C0022A18A /* Galaxies */,
 				8C35E37E1FC2844E00A26EE3 /* Gardener */,
 				8C3A347C1EC88D4100A914A5 /* Hitori */,
@@ -3903,6 +3926,24 @@
 			path = BalancedTapas;
 			sourceTree = "<group>";
 		};
+		8CE43BCB1FEE6C7B00DCCD91 /* Futoshiki */ = {
+			isa = PBXGroup;
+			children = (
+				8CE43BD41FEE6C7B00DCCD91 /* Futoshiki.xml */,
+				8CE43BD51FEE6C7B00DCCD91 /* FutoshikiDocument.swift */,
+				8CE43BD31FEE6C7B00DCCD91 /* FutoshikiGame.swift */,
+				8CE43BCF1FEE6C7B00DCCD91 /* FutoshikiGameScene.swift */,
+				8CE43BD01FEE6C7B00DCCD91 /* FutoshikiGameState.swift */,
+				8CE43BCE1FEE6C7B00DCCD91 /* FutoshikiGameViewController.swift */,
+				8CE43BD21FEE6C7B00DCCD91 /* FutoshikiGridNode.swift */,
+				8CE43BD11FEE6C7B00DCCD91 /* FutoshikiHelpViewController.swift */,
+				8CE43BCC1FEE6C7B00DCCD91 /* FutoshikiMainViewController.swift */,
+				8CE43BCD1FEE6C7B00DCCD91 /* FutoshikiObject.swift */,
+				8CE43BD61FEE6C7B00DCCD91 /* FutoshikiOptionsViewController.swift */,
+			);
+			path = Futoshiki;
+			sourceTree = "<group>";
+		};
 		8CE9C3031F7914B800134093 /* Kakurasu */ = {
 			isa = PBXGroup;
 			children = (
@@ -4089,6 +4130,7 @@
 				8C9F32581ED1FAF600E10965 /* Pata.xml in Resources */,
 				8C9F32F91ED1FCFF00E10965 /* TapDifferently.xml in Resources */,
 				8C3A36241EC88D4200A914A5 /* BoxItAround.xml in Resources */,
+				8CE43BE01FEE6C7B00DCCD91 /* Futoshiki.xml in Resources */,
 				8C9F32EE1ED1FCFF00E10965 /* TapARow.xml in Resources */,
 				8C3A363C1EC88D4200A914A5 /* Bridges.xml in Resources */,
 				8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */,
@@ -4237,6 +4279,7 @@
 				8CD1558B1DD77C3400786F34 /* Extensions.swift in Sources */,
 				8C9F32F41ED1FCFF00E10965 /* TapARowGridNode.swift in Sources */,
 				8C2964021FA20D620017A812 /* RobotCrosswordsOptionsViewController.swift in Sources */,
+				8CE43BDB1FEE6C7B00DCCD91 /* FutoshikiGameScene.swift in Sources */,
 				8C1D4F8E1F7D079F000D5FB3 /* Square100HelpViewController.swift in Sources */,
 				8CE9C3121F7914B800134093 /* KakurasuGameScene.swift in Sources */,
 				8C7E4B461F793C9800B57C60 /* TennerGridGameScene.swift in Sources */,
@@ -4475,6 +4518,7 @@
 				8C3A37DE1EC88D4400A914A5 /* TatamiObject.swift in Sources */,
 				8C3A369E1EC88D4200A914A5 /* HitoriGame.swift in Sources */,
 				8C3A35F81EC88D4200A914A5 /* AbstractPaintingGameState.swift in Sources */,
+				8CE43BE21FEE6C7B00DCCD91 /* FutoshikiOptionsViewController.swift in Sources */,
 				8C3A35EE1EC88D4200A914A5 /* AbcGridNode.swift in Sources */,
 				8C7474571FBED8BD00C4112C /* ParkLakesHelpViewController.swift in Sources */,
 				8C3A36B81EC88D4300A914A5 /* LightenUpGameState.swift in Sources */,
@@ -4597,6 +4641,7 @@
 				8C35E38C1FC2844F00A26EE3 /* GardenerObject.swift in Sources */,
 				8C3A37B61EC88D4400A914A5 /* SlitherLinkGridNode.swift in Sources */,
 				8CA043271FDBE77B00AF85E1 /* CarpentersSquareGameState.swift in Sources */,
+				8CE43BDC1FEE6C7B00DCCD91 /* FutoshikiGameState.swift in Sources */,
 				8C35E3AA1FC4839100A26EE3 /* WallsHelpViewController.swift in Sources */,
 				8C3A36631EC88D4200A914A5 /* DigitalBattleShipsGameScene.swift in Sources */,
 				8C3A378E1EC88D4400A914A5 /* RoomsGame.swift in Sources */,
@@ -4622,6 +4667,7 @@
 				8C3A36AB1EC88D4300A914A5 /* LightBattleShipsGameScene.swift in Sources */,
 				8C3A36C21EC88D4300A914A5 /* LighthousesGame.swift in Sources */,
 				8C3A37E51EC88D4400A914A5 /* TentsGameViewController.swift in Sources */,
+				8CE43BDF1FEE6C7B00DCCD91 /* FutoshikiGame.swift in Sources */,
 				8C2319F21FB88E3F0021C680 /* TierraDelFuegoOptionsViewController.swift in Sources */,
 				8C3A37921EC88D4400A914A5 /* RoomsGridNode.swift in Sources */,
 				8C9F32B51ED1FB0700E10965 /* TapaIslandsDocument.swift in Sources */,
@@ -4757,8 +4803,10 @@
 				8CC350391E001D2800B8FD83 /* BoolExtensions.swift in Sources */,
 				8C32D8DC1FC92B5F00BA2D07 /* RippleEffectGameViewController.swift in Sources */,
 				8C3A37011EC88D4300A914A5 /* MasyuGameViewController.swift in Sources */,
+				8CE43BD91FEE6C7B00DCCD91 /* FutoshikiObject.swift in Sources */,
 				8C3A37881EC88D4400A914A5 /* ProductSentinelsMainViewController.swift in Sources */,
 				8C6D37381DC421180052202C /* HomeDocument.swift in Sources */,
+				8CE43BE11FEE6C7B00DCCD91 /* FutoshikiDocument.swift in Sources */,
 				8C3A36CE1EC88D4300A914A5 /* LineSweeperGame.swift in Sources */,
 				8C3A36871EC88D4200A914A5 /* FenceLitsGameScene.swift in Sources */,
 				8C3A368B1EC88D4200A914A5 /* FenceLitsHelpViewController.swift in Sources */,
@@ -4895,6 +4943,7 @@
 				8C3A37031EC88D4300A914A5 /* MasyuHelpViewController.swift in Sources */,
 				8C3A373F1EC88D4300A914A5 /* NeighboursHelpViewController.swift in Sources */,
 				8C7E4B4C1F793C9800B57C60 /* TennerGridObject.swift in Sources */,
+				8CE43BDE1FEE6C7B00DCCD91 /* FutoshikiGridNode.swift in Sources */,
 				8C6A9BE81F812743002A44FF /* KropkiGameScene.swift in Sources */,
 				8C35E3C51FC6DAE600A26EE3 /* NumberLinkGameScene.swift in Sources */,
 				8C3A36F61EC88D4300A914A5 /* MagnetsGridNode.swift in Sources */,
@@ -4906,6 +4955,7 @@
 				8C3A37311EC88D4300A914A5 /* MosaikGameViewController.swift in Sources */,
 				8C2319F01FB88E3F0021C680 /* TierraDelFuegoMainViewController.swift in Sources */,
 				8C9F32ED1ED1FCFF00E10965 /* TapAlikeOptionsViewController.swift in Sources */,
+				8CE43BDA1FEE6C7B00DCCD91 /* FutoshikiGameViewController.swift in Sources */,
 				8C9F32E81ED1FCFF00E10965 /* TapAlikeGameViewController.swift in Sources */,
 				8C74744F1FBED8BD00C4112C /* ParkLakesGameState.swift in Sources */,
 				8C6A36111FAF97AF00D2804D /* TheOddBrickGame.swift in Sources */,
@@ -4937,6 +4987,7 @@
 				8CA043201FDBE77B00AF85E1 /* CarpentersSquareHelpViewController.swift in Sources */,
 				8C886C3F1D9E8AF1004A42BF /* ActionSheetDistancePicker.m in Sources */,
 				8C3A36B71EC88D4300A914A5 /* LightenUpGameScene.swift in Sources */,
+				8CE43BDD1FEE6C7B00DCCD91 /* FutoshikiHelpViewController.swift in Sources */,
 				8C3A37901EC88D4400A914A5 /* RoomsGameState.swift in Sources */,
 				8C3A37701EC88D4300A914A5 /* ParksMainViewController.swift in Sources */,
 				8C3A37751EC88D4300A914A5 /* PowerGridDocument.swift in Sources */,
@@ -4954,6 +5005,7 @@
 				8C32D8E21FC92B5F00BA2D07 /* RippleEffectHelpViewController.swift in Sources */,
 				8C3A36EA1EC88D4300A914A5 /* LoopyGridNode.swift in Sources */,
 				8CA043191FDBE77B00AF85E1 /* CarpentersWallHelpViewController.swift in Sources */,
+				8CE43BD81FEE6C7B00DCCD91 /* FutoshikiMainViewController.swift in Sources */,
 				8C7474501FBED8BD00C4112C /* ParkLakesGame.swift in Sources */,
 				8C3A37271EC88D4300A914A5 /* MiniLitsHelpViewController.swift in Sources */,
 				8C3A378B1EC88D4400A914A5 /* ProductSentinelsOptionsViewController.swift in Sources */,

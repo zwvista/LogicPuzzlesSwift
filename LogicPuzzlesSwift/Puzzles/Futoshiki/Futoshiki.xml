@@ -1,0 +1,220 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. In a manner similar to Sudoku, you have to put in each row and column numbers ranging from 1 to N, where N is the puzzle board size.
+2. The hints you have are the 'less than'/'greater than' signs between tiles.
+3. Remember you can't repeat the same number in a row or column.  Variation
+4. Some boards, instead of having less/greater signs, have just a line separating the tiles.
+5. That separator hints at two tiles with consecutive numbers, i.e. 1-2 or 3-4..
+6. Please note that in this variation consecutive numbers MUST have a line separating the tiles. Otherwise they're not consecutive.
+7. This Variation is a taste of a similar game: 'Consecutives'.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+4>     `
+  ^   v`
+2< >3> `
+      ^`
+  2  < `
+v ^ ^ v`
+1 3<   `
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+2   4  `
+v     v`
+       `
+^     v`
+  3>   `
+v     ^`
+3     4`
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+  3 4> `
+       `
+   < <3`
+       `
+2< >3  `
+^ v   ^`
+  2> < `
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+   >  3`
+       `
+1<  2  `
+^   ^  `
+ >    2`
+  ^   v`
+3>  4> `
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+2      `
+    ^  `
+1< <3 4`
+      v`
+  3    `
+  v ^  `
+ > <   `
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+3  >  4`
+       `
+  4>  1`
+       `
+ >   < `
+       `
+    4  `
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+4>   > `
+       `
+  4    `
+       `
+1      `
+      ^`
+  3    `
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+   >   `
+       `
+       `
+    ^ ^`
+ >     `
+       `
+2    > `
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+       `
+^     ^`
+       `
+      ^`
+   <   `
+  v    `
+     > `
+    ]]>
+  </level>
+  <level id="25">
+    <![CDATA[
+       <2`
+^   ^    `
+  3      `
+  v v    `
+         `
+^        `
+         `
+  v   ^  `
+         `
+    ]]>
+  </level>
+  <level id="26">
+    <![CDATA[
+  2      `
+  ^     ^`
+       > `
+         `
+     <3  `
+      ^ ^`
+         `
+v        `
+         `
+    ]]>
+  </level>
+  <level id="42">
+    <![CDATA[
+     |   `
+    - - -`
+ |      5`
+- -      `
+ | |     `
+      -  `
+ |   | | `
+      - -`
+ |     | `
+    ]]>
+  </level>
+  <level id="67">
+    <![CDATA[
+    5 6  < `
+           `
+        6  `
+^ v        `
+ >     < <4`
+  ^   v    `
+ <5>     < `
+    ^     v`
+  2<       `
+        ^  `
+    2      `
+    ]]>
+  </level>
+  <level id="68">
+    <![CDATA[
+           `
+        ^  `
+ <         `
+          ^`
+ <         `
+v       ^ v`
+   >     < `
+          v`
+ <      6  `
+v          `
+ >      3  `
+    ]]>
+  </level>
+  <level id="80">
+    <![CDATA[
+   |       `
+  - - - - -`
+ |         `
+  -        `
+6  |       `
+      - - -`
+           `
+    -      `
+  1|     | `
+        -  `
+2  |       `
+    ]]>
+  </level>
+  <level id="190">
+    <![CDATA[
+   >    7 1      `
+^         ^ ^    `
+    7<    5 8>   `
+                 `
+       <     >3  `
+  v v ^         v`
+     <        5  `
+v ^              `
+ >3  <   >7 9    `
+              v  `
+          9 5 1 4`
+            v    `
+8     7      <   `
+          ^ ^    `
+    8  >2      > `
+v             ^ v`
+2           7 9  `
+    ]]>
+  </level>
+</levels>
+</puzzle>
