@@ -31,9 +31,11 @@ class SoundManager: NSObject, AVAudioPlayerDelegate {
     }
     
     func playCurrentMusic() {
-        let index = arc4random_uniform(2) + 1
-        let url = NSURL(fileURLWithPath: Bundle.main.path(forResource: "music\(index)", ofType: "wav")!)
-        apMusic = try! AVAudioPlayer(contentsOf: url as URL)
+        let musicFiles = try! FileManager.default.contentsOfDirectory(atPath: Bundle.main.bundlePath)
+            .filter{$0.starts(with: "music")}
+        let index = Int(arc4random_uniform(UInt32(musicFiles.count)))
+        let url = Bundle.main.url(forResource: musicFiles[index], withExtension: nil)!
+        apMusic = try! AVAudioPlayer(contentsOf: url)
         apMusic.prepareToPlay()
         apMusic.delegate = self
         playOrPauseMusic()
