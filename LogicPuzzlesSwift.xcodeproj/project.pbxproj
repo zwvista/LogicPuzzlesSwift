@@ -778,7 +778,6 @@
 		8C916CC01DAA5E9500D9E62B /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C916CB81DAA5E9500D9E62B /* Node.swift */; };
 		8C916CC11DAA5E9500D9E62B /* NodeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C916CB91DAA5E9500D9E62B /* NodeSet.swift */; };
 		8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C916CBA1DAA5E9500D9E62B /* Queryable.swift */; };
-		8C916CC41DAA5FEB00D9E62B /* music.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CC31DAA5FEB00D9E62B /* music.wav */; };
 		8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CC51DAB1E6000D9E62B /* tap.wav */; };
 		8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CCD1DAB35FC00D9E62B /* solved.wav */; };
 		8C9F32291ECF06C000E10965 /* Tapa.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F321E1ECF06BF00E10965 /* Tapa.xml */; };
@@ -907,6 +906,8 @@
 		8CA043261FDBE77B00AF85E1 /* CarpentersSquareGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA043101FDBE77700AF85E1 /* CarpentersSquareGame.swift */; };
 		8CA043271FDBE77B00AF85E1 /* CarpentersSquareGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA043111FDBE77700AF85E1 /* CarpentersSquareGameState.swift */; };
 		8CA043281FDBE77B00AF85E1 /* CarpentersSquareDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA043121FDBE77700AF85E1 /* CarpentersSquareDocument.swift */; };
+		8CA646241FF3EEB0004707E5 /* music1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8CA646211FF3EEAF004707E5 /* music1.wav */; };
+		8CA646251FF3EEB0004707E5 /* music2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8CA646231FF3EEB0004707E5 /* music2.wav */; };
 		8CC25CC21F87BB5A005560F7 /* Kakuro.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CC25CB61F87BB5A005560F7 /* Kakuro.xml */; };
 		8CC25CC31F87BB5A005560F7 /* KakuroDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CB71F87BB5A005560F7 /* KakuroDocument.swift */; };
 		8CC25CC41F87BB5A005560F7 /* KakuroGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CB81F87BB5A005560F7 /* KakuroGame.swift */; };
@@ -1854,7 +1855,6 @@
 		8C916CB81DAA5E9500D9E62B /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		8C916CB91DAA5E9500D9E62B /* NodeSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeSet.swift; sourceTree = "<group>"; };
 		8C916CBA1DAA5E9500D9E62B /* Queryable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queryable.swift; sourceTree = "<group>"; };
-		8C916CC31DAA5FEB00D9E62B /* music.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music.wav; sourceTree = "<group>"; };
 		8C916CC51DAB1E6000D9E62B /* tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tap.wav; sourceTree = "<group>"; };
 		8C916CCD1DAB35FC00D9E62B /* solved.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = solved.wav; sourceTree = "<group>"; };
 		8C9F321E1ECF06BF00E10965 /* Tapa.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tapa.xml; sourceTree = "<group>"; };
@@ -1989,6 +1989,8 @@
 		8CA043101FDBE77700AF85E1 /* CarpentersSquareGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarpentersSquareGame.swift; sourceTree = "<group>"; };
 		8CA043111FDBE77700AF85E1 /* CarpentersSquareGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarpentersSquareGameState.swift; sourceTree = "<group>"; };
 		8CA043121FDBE77700AF85E1 /* CarpentersSquareDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarpentersSquareDocument.swift; sourceTree = "<group>"; };
+		8CA646211FF3EEAF004707E5 /* music1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music1.wav; sourceTree = "<group>"; };
+		8CA646231FF3EEB0004707E5 /* music2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music2.wav; sourceTree = "<group>"; };
 		8CC25CB61F87BB5A005560F7 /* Kakuro.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kakuro.xml; sourceTree = "<group>"; };
 		8CC25CB71F87BB5A005560F7 /* KakuroDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroDocument.swift; sourceTree = "<group>"; };
 		8CC25CB81F87BB5A005560F7 /* KakuroGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroGame.swift; sourceTree = "<group>"; };
@@ -3601,17 +3603,18 @@
 		8C916CC81DAB297A00D9E62B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8C373D421E0507F7005712CD /* tent.png */,
-				8C373D431E0507F7005712CD /* tree.png */,
-				8CC34F9A1DFD958A00B8FD83 /* negative.png */,
-				8CC34F9B1DFD958A00B8FD83 /* positive.png */,
 				8C9F43E81D771915000139FC /* Info.plist */,
 				8C9F43E51D771915000139FC /* LaunchScreen.storyboard */,
 				8CCF1C011D8E1DB000AB6594 /* lightbulb.png */,
 				8C886C451D9E8B72004A42BF /* LogicPuzzlesSwift-Bridging-Header.h */,
-				8C916CC31DAA5FEB00D9E62B /* music.wav */,
+				8CA646211FF3EEAF004707E5 /* music1.wav */,
+				8CA646231FF3EEB0004707E5 /* music2.wav */,
+				8CC34F9A1DFD958A00B8FD83 /* negative.png */,
+				8CC34F9B1DFD958A00B8FD83 /* positive.png */,
 				8C916CCD1DAB35FC00D9E62B /* solved.wav */,
 				8C916CC51DAB1E6000D9E62B /* tap.wav */,
+				8C373D421E0507F7005712CD /* tent.png */,
+				8C373D431E0507F7005712CD /* tree.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -4160,6 +4163,7 @@
 				8C7474541FBED8BD00C4112C /* ParkLakes.xml in Resources */,
 				8CDAE8081F646C29000DE5AF /* BalancedTapas.xml in Resources */,
 				8C9F32B41ED1FB0700E10965 /* TapaIslands.xml in Resources */,
+				8CA646241FF3EEB0004707E5 /* music1.wav in Resources */,
 				8C3A372C1EC88D4300A914A5 /* Mosaik.xml in Resources */,
 				8C3A36CC1EC88D4300A914A5 /* LineSweeper.xml in Resources */,
 				8C35E3BC1FC6DAE600A26EE3 /* NumberLink.xml in Resources */,
@@ -4168,6 +4172,7 @@
 				8C1D16B01DB8DE930056D407 /* AnimatedExample.psd in Resources */,
 				8C3A37D41EC88D4400A914A5 /* Tatami.xml in Resources */,
 				8C2AF82D1ED5FB0000EC84AB /* NumberPath.xml in Resources */,
+				8CA646251FF3EEB0004707E5 /* music2.wav in Resources */,
 				8C3A36601EC88D4200A914A5 /* DigitalBattleShips.xml in Resources */,
 				8C2973E11EE7284C0022A18A /* Galaxies.xml in Resources */,
 				8C3A36001EC88D4200A914A5 /* BattleShips.xml in Resources */,
@@ -4205,7 +4210,6 @@
 				8C3A37801EC88D4300A914A5 /* ProductSentinels.xml in Resources */,
 				8C6A35DF1FAF4FFD00D2804D /* Mathrax.xml in Resources */,
 				8C3A36D81EC88D4300A914A5 /* Lits.xml in Resources */,
-				8C916CC41DAA5FEB00D9E62B /* music.wav in Resources */,
 				8C3A37BC1EC88D4400A914A5 /* Snail.xml in Resources */,
 				8C35E3911FC2844F00A26EE3 /* Gardener.xml in Resources */,
 			);
