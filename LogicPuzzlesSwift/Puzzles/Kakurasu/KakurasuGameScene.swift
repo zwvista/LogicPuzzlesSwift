@@ -35,12 +35,7 @@ class KakurasuGameScene: GameScene<KakurasuGameState> {
     
     func addHintMarker(p: Position) {
         let point = gridNode.gridPosition(p: p)
-        let hintMarkerNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 2)
-        hintMarkerNode.position = point
-        hintMarkerNode.name = "hintMarker"
-        hintMarkerNode.strokeColor = .white
-        hintMarkerNode.glowWidth = 1.0
-        gridNode.addChild(hintMarkerNode)
+        addCircleMarker(color: .white, point: point, nodeName: "hintMarker")
     }
 
     override func levelInitialized(_ game: AnyObject, state: KakurasuGameState, skView: SKView) {

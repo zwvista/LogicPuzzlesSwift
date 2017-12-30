@@ -86,11 +86,11 @@ class GameScene<GS: GameStateBase>: SKScene {
         addDotMarker2(color: .red, point: point, nodeName: nodeName)
     }
     
-    func addCircleMarker(point: CGPoint, nodeName: String) {
+    func addCircleMarker(color: SKColor, point: CGPoint, nodeName: String) {
         let markerNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 2)
         markerNode.position = point
         markerNode.name = nodeName
-        markerNode.strokeColor = .white
+        markerNode.strokeColor = color
         markerNode.glowWidth = 1.0
         gridNode.addChild(markerNode)
     }

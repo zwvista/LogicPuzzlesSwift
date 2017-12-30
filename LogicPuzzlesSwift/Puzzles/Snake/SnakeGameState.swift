@@ -84,7 +84,7 @@ class SnakeGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) && !game.pos2snake.contains(p) else {return false}
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -119,8 +119,9 @@ class SnakeGameState: GridGameState {
             for c in 0..<cols {
                 if self[r, c] == .snake {n1 += 1}
             }
-            row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 {isSolved = false}
+            let s: HintState = n1 < n2 ? .normal : n1 == n2 || n2 == -1 ? .complete : .error
+            row2state[r] = s
+            if s != .complete {isSolved = false}
         }
         // 3. Numbers on the border tell you how many tiles the snake occupies in that column.
         for c in 0..<cols {
@@ -130,14 +131,15 @@ class SnakeGameState: GridGameState {
             for r in 0..<rows {
                 if self[r, c] == .snake {n1 += 1}
             }
-            col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 {isSolved = false}
+            let s: HintState = n1 < n2 ? .normal : n1 == n2 || n2 == -1 ? .complete : .error
+            col2state[c] = s
+            if s != .complete {isSolved = false}
         }
         for r in 0..<rows {
             for c in 0..<cols {
                 switch self[r, c] {
                 case .empty, .marker:
-                    if allowedObjectsOnly && (row2state[r] != .normal || col2state[c] != .normal) {self[r, c] = .forbidden}
+                    if allowedObjectsOnly && (row2state[r] != .normal && game.row2hint[r] != -1 || col2state[c] != .normal && game.col2hint[c] != -1) {self[r, c] = .forbidden}
                 default:
                     break
                 }

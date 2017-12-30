@@ -40,7 +40,7 @@ class FourMeNotGameScene: GameScene<FourMeNotGameState> {
                 switch state[p] {
                 case let .tree(s):
                     addTree(s: s, point: point, nodeName: treeNodeName)
-                    addCircleMarker(point: point, nodeName: "marker")
+                    addCircleMarker(color: .white, point: point, nodeName: "marker")
                 case .block:
                     let blockNode = SKSpriteNode(color: .white, size: coloredRectSize())
                     blockNode.position = point

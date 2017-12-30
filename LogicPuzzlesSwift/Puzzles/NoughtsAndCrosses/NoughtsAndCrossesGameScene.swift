@@ -53,7 +53,7 @@ class NoughtsAndCrossesGameScene: GameScene<NoughtsAndCrossesGameState> {
                 let numberNodeName = "number" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 if b {
-                    addCircleMarker(point: point, nodeName: markerNodeName)
+                    addCircleMarker(color: .white, point: point, nodeName: markerNodeName)
                 } else {
                     addLabel(text: String(ch), fontColor: .gray, point: point, nodeName: numberNodeName)
                 }

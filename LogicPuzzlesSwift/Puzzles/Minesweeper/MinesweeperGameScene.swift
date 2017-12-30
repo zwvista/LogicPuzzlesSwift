@@ -65,7 +65,7 @@ class MinesweeperGameScene: GameScene<MinesweeperGameState> {
                     addImage(imageNamed: "tree", color: .red, colorBlendFactor: 0.0, point: point, nodeName: mineNodeName)
                 }
                 func removeMine() { removeNode(withName: mineNodeName) }
-                func addMarker() { addCircleMarker(point: point, nodeName: markerNodeName) }
+                func addMarker() { addCircleMarker(color: .white, point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 func addForbidden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
                 func removeForbidden() { removeNode(withName: forbiddenNodeName) }

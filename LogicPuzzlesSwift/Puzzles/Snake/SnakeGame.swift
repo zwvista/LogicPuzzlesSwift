@@ -43,7 +43,13 @@ class SnakeGame: GridGame<SnakeGameViewController> {
                         row2hint[r] = n
                     }
                 default:
-                    break
+                    if r == rows && c == cols {
+                        // 
+                    } else if r == rows {
+                        col2hint[c] = -1
+                    } else if c == cols {
+                        row2hint[r] = -1
+                    }
                 }
             }
         }

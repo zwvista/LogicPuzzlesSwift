@@ -37,7 +37,7 @@ class DisconnectFourGameScene: GameScene<DisconnectFourGameState> {
                 let o = state[p]
                 guard o != .empty else {continue}
                 addTree(isY: o == .yellow, s: state.pos2state[p] ?? .normal, point: point, nodeName: treeNodeName)
-                addCircleMarker(point: point, nodeName: "marker")
+                addCircleMarker(color: .white, point: point, nodeName: "marker")
             }
         }
     }

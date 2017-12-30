@@ -55,7 +55,7 @@ class MosaikGameScene: GameScene<MosaikGameState> {
                     gridNode.addChild(filledCellNode)
                 }
                 func removeFilledCell() { removeNode(withName: filledCellNodeName) }
-                func addMarker() { addCircleMarker(point: point, nodeName: markerNodeName) }
+                func addMarker() { addCircleMarker(color: .white, point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 if o1 != o2 {

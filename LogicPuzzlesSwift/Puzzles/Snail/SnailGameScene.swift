@@ -25,12 +25,7 @@ class SnailGameScene: GameScene<SnailGameState> {
         let point = gridNode.gridPosition(p: p)
         let nodeNameSuffix = "-\(p.row)-\(p.col)"
         let snailMarkerNodeName = "snailMarker" + nodeNameSuffix
-        let snailMarkerNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 2)
-        snailMarkerNode.position = point
-        snailMarkerNode.name = snailMarkerNodeName
-        snailMarkerNode.strokeColor = .green
-        snailMarkerNode.glowWidth = 1.0
-        gridNode.addChild(snailMarkerNode)
+        addCircleMarker(color: .green, point: point, nodeName: snailMarkerNodeName)
     }
 
     override func levelInitialized(_ game: AnyObject, state: SnailGameState, skView: SKView) {

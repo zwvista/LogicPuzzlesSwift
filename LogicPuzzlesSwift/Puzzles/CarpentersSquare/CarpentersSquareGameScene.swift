@@ -35,7 +35,7 @@ class CarpentersSquareGameScene: GameScene<CarpentersSquareGameState> {
             let s = state.pos2state[p]!
             switch h {
             case let .corner(n):
-                addCircleMarker(point: point, nodeName: "marker")
+                addCircleMarker(color: .white, point: point, nodeName: "marker")
                 addHint(text: n == 0 ? "?" : String(n), s: s, point: point, nodeName: hintNodeName)
             case .left:
                 addHint(text: "<", s: s, point: point, nodeName: hintNodeName)
@@ -91,7 +91,7 @@ class CarpentersSquareGameScene: GameScene<CarpentersSquareGameState> {
             removeNode(withName: hintNodeName)
             switch h {
             case let .corner(n):
-                addCircleMarker(point: point, nodeName: "marker")
+                addCircleMarker(color: .white, point: point, nodeName: "marker")
                 addHint(text: n == 0 ? "?" : String(n), s: s2, point: point, nodeName: hintNodeName)
             case .left:
                 addHint(text: "<", s: s2, point: point, nodeName: hintNodeName)

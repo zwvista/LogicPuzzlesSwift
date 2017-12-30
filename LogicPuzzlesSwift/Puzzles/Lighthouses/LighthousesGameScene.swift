@@ -65,7 +65,7 @@ class LighthousesGameScene: GameScene<LighthousesGameState> {
                     addImage(imageNamed: "lightbulb", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: lighthouseNodeName)
                 }
                 func removeLighthouse() { removeNode(withName: lighthouseNodeName) }
-                func addMarker() { addCircleMarker(point: point, nodeName: markerNodeName) }
+                func addMarker() { addCircleMarker(color: .white, point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 func addForbidden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
                 func removeForbidden() { removeNode(withName: forbiddenNodeName) }

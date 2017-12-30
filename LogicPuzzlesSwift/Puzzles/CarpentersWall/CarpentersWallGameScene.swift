@@ -36,7 +36,7 @@ class CarpentersWallGameScene: GameScene<CarpentersWallGameState> {
                 let hintNodeName = "hint" + nodeNameSuffix
                 switch state[p] {
                 case let .corner(n, s):
-                    addCircleMarker(point: point, nodeName: "marker")
+                    addCircleMarker(color: .white, point: point, nodeName: "marker")
                     addHint(text: n == 0 ? "?" : String(n), s: s, point: point, nodeName: hintNodeName)
                 case let .left(s):
                     addHint(text: "<", s: s, point: point, nodeName: hintNodeName)

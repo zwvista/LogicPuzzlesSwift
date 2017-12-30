@@ -74,6 +74,8 @@ class MosaikGameState: GridGameState {
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
                 return markerOption == .markerFirst ? .filled : .empty
+            default:
+                return o
             }
         }
         let o = f(o: self[move.p])
@@ -98,7 +100,15 @@ class MosaikGameState: GridGameState {
            area are filled and some are not.
     */
     private func updateIsSolved() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
+        for r in 0..<rows {
+            for c in 0..<cols {
+                if self[r, c] == .forbidden {
+                    self[r, c] = .empty
+                }
+            }
+        }
         for (p, n2) in game.pos2hint {
             var n1 = 0
             for os in MosaikGame.offset {
@@ -107,8 +117,20 @@ class MosaikGameState: GridGameState {
             }
             // 2. A number tells you how many tiles must be filled in the 3*3 area formed
             // by the tile itself and the ones surrounding it.
-            pos2state[p] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 {isSolved = false}
+            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            pos2state[p] = s
+            if s != .complete {isSolved = false}
+            if s != .normal && allowedObjectsOnly {
+                for os in MosaikGame.offset {
+                    let p2 = p + os
+                    switch self[p2] {
+                    case .empty, .marker:
+                        self[p2] = .forbidden
+                    default:
+                        break
+                    }
+                }
+            }
         }
     }
 }

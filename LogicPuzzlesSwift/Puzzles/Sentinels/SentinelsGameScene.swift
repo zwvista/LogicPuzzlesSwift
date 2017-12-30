@@ -65,7 +65,7 @@ class SentinelsGameScene: GameScene<SentinelsGameState> {
                     addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: towerNodeName)
                 }
                 func removeTower() { removeNode(withName: towerNodeName) }
-                func addMarker() { addCircleMarker(point: point, nodeName: markerNodeName) }
+                func addMarker() { addCircleMarker(color: .white, point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 func addForbidden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
                 func removeForbidden() { removeNode(withName: forbiddenNodeName) }
