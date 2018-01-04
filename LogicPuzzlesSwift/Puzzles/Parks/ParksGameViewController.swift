@@ -57,7 +57,7 @@ class ParksGameViewController: GameGameViewController, GameDelegate {
         
         levelInitilizing = true
         defer {levelInitilizing = false}
-        game = ParksGame(layout: level.layout, delegate: self)
+        game = ParksGame(layout: level.layout, treesInEachArea: (level.settings["TreesInEachArea"] ?? "1").toInt()!, delegate: self)
         
         // restore game state
         for case let rec as MoveProgress in gameDocument.moveProgress {

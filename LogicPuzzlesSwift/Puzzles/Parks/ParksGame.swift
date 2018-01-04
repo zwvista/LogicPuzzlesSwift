@@ -30,9 +30,11 @@ class ParksGame: GridGame<ParksGameViewController> {
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
     var dots: GridDots!
-    let treesInEachArea = 1
+    let treesInEachArea: Int
     
-    init(layout: [String], delegate: ParksGameViewController? = nil) {
+    init(layout: [String], treesInEachArea: Int, delegate: ParksGameViewController? = nil) {
+        self.treesInEachArea = treesInEachArea
+        
         super.init(delegate: delegate)
         
         size = Position(layout.count / 2, layout[0].length / 2)
