@@ -12,6 +12,8 @@ class GameMainViewController: UIViewController {
 
     @IBOutlet weak var lblGameTitle: UILabel!
     @IBOutlet weak var btnResumeLevel: UIButton!
+    @IBOutlet weak var btnPrevPage: UIButton!
+    @IBOutlet weak var btnNextPage: UIButton!
     
     override var prefersStatusBarHidden: Bool { return true }
     
@@ -43,6 +45,10 @@ class GameMainViewController: UIViewController {
         numPages = (gameDocument.levels.count + countPerPage - 1) / countPerPage
         let index = gameDocument.levels.index(where: {$0.id == gameDocument.selectedLevelID}) ?? 0
         currentPage = index / countPerPage
+        if numPages == 1 {
+            btnPrevPage.isHidden = true
+            btnNextPage.isHidden = true
+        }
         showCurrentPage()
         let toResume = ((UIApplication.shared.keyWindow!.rootViewController! as! UINavigationController).topViewController as! HomeMainViewController).toResume
         if toResume {resumGame(self)}
