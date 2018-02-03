@@ -87,13 +87,19 @@ class AbstractPaintingGame: GridGame<AbstractPaintingGameViewController> {
         
         for r in 0..<rows {
             let ch = layout[2 * r + 1][2 * cols + 1]
-            guard case "1"..."9" = ch else {continue}
-            row2hint[r] = ch.toInt!
+            if case "1"..."9" = ch {
+                row2hint[r] = ch.toInt!
+            } else {
+                row2hint[r] = -1
+            }
         }
         for c in 0..<cols {
             let ch = layout[2 * rows + 1][2 * c + 1]
-            guard case "1"..."9" = ch else {continue}
-            col2hint[c] = ch.toInt!
+            if case "1"..."9" = ch {
+                col2hint[c] = ch.toInt!
+            } else {
+                col2hint[c] = -1
+            }
         }
         
         let state = AbstractPaintingGameState(game: self)

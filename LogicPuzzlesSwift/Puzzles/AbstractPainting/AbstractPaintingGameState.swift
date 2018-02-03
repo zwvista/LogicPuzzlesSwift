@@ -115,8 +115,9 @@ class AbstractPaintingGameState: GridGameState {
                 if self[r, c] == .painting {n1 += 1}
             }
             // 2. Outer numbers tell how many tiles form the painting on the row.
-            row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 {isSolved = false}
+            let s: HintState = n1 < n2 ? .normal : n1 == n2 || n2 == -1 ? .complete : .error
+            row2state[r] = s
+            if s != .complete {isSolved = false}
         }
         for c in 0..<cols {
             var n1 = 0
@@ -125,14 +126,15 @@ class AbstractPaintingGameState: GridGameState {
                 if self[r, c] == .painting {n1 += 1}
             }
             // 2. Outer numbers tell how many tiles form the painting on the column.
-            col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 {isSolved = false}
+            let s: HintState = n1 < n2 ? .normal : n1 == n2 || n2 == -1 ? .complete : .error
+            col2state[c] = s
+            if s != .complete {isSolved = false}
         }
         for r in 0..<rows {
             for c in 0..<cols {
                 switch self[r, c] {
                 case .empty, .marker:
-                    if allowedObjectsOnly && (row2state[r] != .normal || col2state[c] != .normal) {self[r, c] = .forbidden}
+                    if allowedObjectsOnly && (row2state[r] != .normal && game.row2hint[r] != -1 || col2state[c] != .normal && game.col2hint[c] != -1) {self[r, c] = .forbidden}
                 default:
                     break
                 }
