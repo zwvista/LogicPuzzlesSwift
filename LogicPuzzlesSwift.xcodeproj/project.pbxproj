@@ -1027,6 +1027,17 @@
 		8CF3FFDD1FCB2A2700D41B67 /* DisconnectFourDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFD11FCB2A2600D41B67 /* DisconnectFourDocument.swift */; };
 		8CF3FFDE1FCB2A2700D41B67 /* DisconnectFourHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFD21FCB2A2600D41B67 /* DisconnectFourHelpViewController.swift */; };
 		8CF3FFE01FCF082A00D41B67 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFDF1FCF082900D41B67 /* UIView+Extension.swift */; };
+		8CFAF9A2202615570095EFFC /* WallSentinelsHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFAF996202615560095EFFC /* WallSentinelsHelpViewController.swift */; };
+		8CFAF9A3202615570095EFFC /* WallSentinelsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFAF997202615560095EFFC /* WallSentinelsGameViewController.swift */; };
+		8CFAF9A4202615570095EFFC /* WallSentinelsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFAF998202615560095EFFC /* WallSentinelsObject.swift */; };
+		8CFAF9A5202615570095EFFC /* WallSentinelsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFAF999202615560095EFFC /* WallSentinelsMainViewController.swift */; };
+		8CFAF9A6202615570095EFFC /* WallSentinelsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFAF99A202615560095EFFC /* WallSentinelsDocument.swift */; };
+		8CFAF9A7202615570095EFFC /* WallSentinelsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFAF99B202615560095EFFC /* WallSentinelsGame.swift */; };
+		8CFAF9A8202615570095EFFC /* WallSentinels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CFAF99C202615560095EFFC /* WallSentinels.xml */; };
+		8CFAF9A9202615570095EFFC /* WallSentinelsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFAF99D202615560095EFFC /* WallSentinelsGameScene.swift */; };
+		8CFAF9AA202615570095EFFC /* WallSentinelsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFAF99E202615560095EFFC /* WallSentinelsGameState.swift */; };
+		8CFAF9AB202615570095EFFC /* WallSentinelsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFAF99F202615560095EFFC /* WallSentinelsOptionsViewController.swift */; };
+		8CFAF9AC202615570095EFFC /* WallSentinelsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFAF9A0202615560095EFFC /* WallSentinelsGridNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2110,6 +2121,17 @@
 		8CF3FFD11FCB2A2600D41B67 /* DisconnectFourDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourDocument.swift; sourceTree = "<group>"; };
 		8CF3FFD21FCB2A2600D41B67 /* DisconnectFourHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourHelpViewController.swift; sourceTree = "<group>"; };
 		8CF3FFDF1FCF082900D41B67 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		8CFAF996202615560095EFFC /* WallSentinelsHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallSentinelsHelpViewController.swift; sourceTree = "<group>"; };
+		8CFAF997202615560095EFFC /* WallSentinelsGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallSentinelsGameViewController.swift; sourceTree = "<group>"; };
+		8CFAF998202615560095EFFC /* WallSentinelsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallSentinelsObject.swift; sourceTree = "<group>"; };
+		8CFAF999202615560095EFFC /* WallSentinelsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallSentinelsMainViewController.swift; sourceTree = "<group>"; };
+		8CFAF99A202615560095EFFC /* WallSentinelsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallSentinelsDocument.swift; sourceTree = "<group>"; };
+		8CFAF99B202615560095EFFC /* WallSentinelsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallSentinelsGame.swift; sourceTree = "<group>"; };
+		8CFAF99C202615560095EFFC /* WallSentinels.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = WallSentinels.xml; sourceTree = "<group>"; };
+		8CFAF99D202615560095EFFC /* WallSentinelsGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallSentinelsGameScene.swift; sourceTree = "<group>"; };
+		8CFAF99E202615560095EFFC /* WallSentinelsGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallSentinelsGameState.swift; sourceTree = "<group>"; };
+		8CFAF99F202615560095EFFC /* WallSentinelsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallSentinelsOptionsViewController.swift; sourceTree = "<group>"; };
+		8CFAF9A0202615560095EFFC /* WallSentinelsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallSentinelsGridNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2514,6 +2536,7 @@
 				8C6A36031FAF97AF00D2804D /* TheOddBrick */,
 				8C2319E21FB88E3F0021C680 /* TierraDelFuego */,
 				8C35E3971FC4839000A26EE3 /* Walls */,
+				8CFAF995202615560095EFFC /* WallSentinels */,
 			);
 			path = Puzzles;
 			sourceTree = "<group>";
@@ -3983,6 +4006,24 @@
 			path = DisconnectFour;
 			sourceTree = "<group>";
 		};
+		8CFAF995202615560095EFFC /* WallSentinels */ = {
+			isa = PBXGroup;
+			children = (
+				8CFAF99C202615560095EFFC /* WallSentinels.xml */,
+				8CFAF99A202615560095EFFC /* WallSentinelsDocument.swift */,
+				8CFAF99B202615560095EFFC /* WallSentinelsGame.swift */,
+				8CFAF99D202615560095EFFC /* WallSentinelsGameScene.swift */,
+				8CFAF99E202615560095EFFC /* WallSentinelsGameState.swift */,
+				8CFAF997202615560095EFFC /* WallSentinelsGameViewController.swift */,
+				8CFAF9A0202615560095EFFC /* WallSentinelsGridNode.swift */,
+				8CFAF996202615560095EFFC /* WallSentinelsHelpViewController.swift */,
+				8CFAF998202615560095EFFC /* WallSentinelsObject.swift */,
+				8CFAF999202615560095EFFC /* WallSentinelsMainViewController.swift */,
+				8CFAF99F202615560095EFFC /* WallSentinelsOptionsViewController.swift */,
+			);
+			path = WallSentinels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -4166,6 +4207,7 @@
 				8CA646241FF3EEB0004707E5 /* music1.wav in Resources */,
 				8C3A372C1EC88D4300A914A5 /* Mosaik.xml in Resources */,
 				8C3A36CC1EC88D4300A914A5 /* LineSweeper.xml in Resources */,
+				8CFAF9A8202615570095EFFC /* WallSentinels.xml in Resources */,
 				8C35E3BC1FC6DAE600A26EE3 /* NumberLink.xml in Resources */,
 				8CC34F9D1DFD958A00B8FD83 /* positive.png in Resources */,
 				8C1D16B61DB8DE930056D407 /* Info.plist in Resources */,
@@ -4475,6 +4517,7 @@
 				8C3A36DA1EC88D4300A914A5 /* LitsGame.swift in Sources */,
 				8C3A37C91EC88D4400A914A5 /* SumscrapersDocument.swift in Sources */,
 				8C3A37A71EC88D4400A914A5 /* SkyscrapersGameScene.swift in Sources */,
+				8CFAF9AB202615570095EFFC /* WallSentinelsOptionsViewController.swift in Sources */,
 				8C3A36121EC88D4200A914A5 /* BootyIslandGridNode.swift in Sources */,
 				8C3A37221EC88D4300A914A5 /* MiniLitsGame.swift in Sources */,
 				8C3A36DB1EC88D4300A914A5 /* LitsGameScene.swift in Sources */,
@@ -4580,6 +4623,7 @@
 				8CC350411E001D2800B8FD83 /* DoubleExtensions.swift in Sources */,
 				8C3A36501EC88D4200A914A5 /* BusySeasMainViewController.swift in Sources */,
 				8C6A9BEE1F812743002A44FF /* KropkiObject.swift in Sources */,
+				8CFAF9A4202615570095EFFC /* WallSentinelsObject.swift in Sources */,
 				8C3A37B21EC88D4400A914A5 /* SlitherLinkGame.swift in Sources */,
 				8C32D8E01FC92B5F00BA2D07 /* RippleEffectGame.swift in Sources */,
 				8C3A373D1EC88D4300A914A5 /* NeighboursGameViewController.swift in Sources */,
@@ -4631,6 +4675,7 @@
 				8CE9C3171F7914B800134093 /* KakurasuMainViewController.swift in Sources */,
 				8CF3FFD51FCB2A2700D41B67 /* DisconnectFourGameState.swift in Sources */,
 				8C3A37B11EC88D4400A914A5 /* SlitherLinkDocument.swift in Sources */,
+				8CFAF9A9202615570095EFFC /* WallSentinelsGameScene.swift in Sources */,
 				8CC25CC31F87BB5A005560F7 /* KakuroDocument.swift in Sources */,
 				8C35E3A61FC4839100A26EE3 /* WallsObject.swift in Sources */,
 				8CE9C3161F7914B800134093 /* KakurasuHelpViewController.swift in Sources */,
@@ -4645,6 +4690,7 @@
 				8C35E38C1FC2844F00A26EE3 /* GardenerObject.swift in Sources */,
 				8C3A37B61EC88D4400A914A5 /* SlitherLinkGridNode.swift in Sources */,
 				8CA043271FDBE77B00AF85E1 /* CarpentersSquareGameState.swift in Sources */,
+				8CFAF9A7202615570095EFFC /* WallSentinelsGame.swift in Sources */,
 				8CE43BDC1FEE6C7B00DCCD91 /* FutoshikiGameState.swift in Sources */,
 				8C35E3AA1FC4839100A26EE3 /* WallsHelpViewController.swift in Sources */,
 				8C3A36631EC88D4200A914A5 /* DigitalBattleShipsGameScene.swift in Sources */,
@@ -4685,6 +4731,7 @@
 				8C3A36921EC88D4200A914A5 /* FenceSentinelsGame.swift in Sources */,
 				8C3A37961EC88D4400A914A5 /* RoomsObject.swift in Sources */,
 				8C2AF84D1ED6084300EC84AB /* PaintTheNurikabeMainViewController.swift in Sources */,
+				8CFAF9A6202615570095EFFC /* WallSentinelsDocument.swift in Sources */,
 				8C74743E1FBDEAD100C4112C /* HolidayIslandGameState.swift in Sources */,
 				8C3A37091EC88D4300A914A5 /* MineShipsDocument.swift in Sources */,
 				8C3A37D31EC88D4400A914A5 /* SumscrapersOptionsViewController.swift in Sources */,
@@ -4748,6 +4795,7 @@
 				8CA042F61FDB930A00AF85E1 /* CalcudokuGridNode.swift in Sources */,
 				8C3A37AE1EC88D4400A914A5 /* SkyscrapersObject.swift in Sources */,
 				8C3A37811EC88D4300A914A5 /* ProductSentinelsDocument.swift in Sources */,
+				8CFAF9AC202615570095EFFC /* WallSentinelsGridNode.swift in Sources */,
 				8C3A36621EC88D4200A914A5 /* DigitalBattleShipsGame.swift in Sources */,
 				8C7474661FBEFD5700C4112C /* FourMeNotOptionsViewController.swift in Sources */,
 				8C3A37671EC88D4300A914A5 /* PairakabeOptionsViewController.swift in Sources */,
@@ -4850,6 +4898,7 @@
 				8C3A37641EC88D4300A914A5 /* PairakabeMainViewController.swift in Sources */,
 				8C2973E31EE7284C0022A18A /* GalaxiesGame.swift in Sources */,
 				8C3A37D61EC88D4400A914A5 /* TatamiGame.swift in Sources */,
+				8CFAF9A5202615570095EFFC /* WallSentinelsMainViewController.swift in Sources */,
 				8C3A37931EC88D4400A914A5 /* RoomsHelpViewController.swift in Sources */,
 				8C3A37DC1EC88D4400A914A5 /* TatamiMainViewController.swift in Sources */,
 				8C6A362D1FAF9D8600D2804D /* NoughtsAndCrossesHelpViewController.swift in Sources */,
@@ -4961,6 +5010,7 @@
 				8C9F32ED1ED1FCFF00E10965 /* TapAlikeOptionsViewController.swift in Sources */,
 				8CE43BDA1FEE6C7B00DCCD91 /* FutoshikiGameViewController.swift in Sources */,
 				8C9F32E81ED1FCFF00E10965 /* TapAlikeGameViewController.swift in Sources */,
+				8CFAF9A2202615570095EFFC /* WallSentinelsHelpViewController.swift in Sources */,
 				8C74744F1FBED8BD00C4112C /* ParkLakesGameState.swift in Sources */,
 				8C6A36111FAF97AF00D2804D /* TheOddBrickGame.swift in Sources */,
 				8C3A37521EC88D4300A914A5 /* OrchardsGame.swift in Sources */,
@@ -4988,6 +5038,7 @@
 				8C3A371C1EC88D4300A914A5 /* MinesweeperMainViewController.swift in Sources */,
 				8C916CC11DAA5E9500D9E62B /* NodeSet.swift in Sources */,
 				8C3A36D41EC88D4300A914A5 /* LineSweeperMainViewController.swift in Sources */,
+				8CFAF9A3202615570095EFFC /* WallSentinelsGameViewController.swift in Sources */,
 				8CA043201FDBE77B00AF85E1 /* CarpentersSquareHelpViewController.swift in Sources */,
 				8C886C3F1D9E8AF1004A42BF /* ActionSheetDistancePicker.m in Sources */,
 				8C3A36B71EC88D4300A914A5 /* LightenUpGameScene.swift in Sources */,
@@ -5089,6 +5140,7 @@
 				8C35E3921FC2844F00A26EE3 /* GardenerGameState.swift in Sources */,
 				8C3A36C51EC88D4300A914A5 /* LighthousesGameViewController.swift in Sources */,
 				8C3A364F1EC88D4200A914A5 /* BusySeasHelpViewController.swift in Sources */,
+				8CFAF9AA202615570095EFFC /* WallSentinelsGameState.swift in Sources */,
 				8C916CBC1DAA5E9500D9E62B /* Element.swift in Sources */,
 				8CA043131FDBE77B00AF85E1 /* CarpentersWallDocument.swift in Sources */,
 				8C2963FA1FA20D620017A812 /* RobotCrosswordsGame.swift in Sources */,

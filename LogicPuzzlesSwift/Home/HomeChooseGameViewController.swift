@@ -51,6 +51,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         "TennerGrid": "Tenner Grid",
         "TheOddBrick": "The Odd Brick",
         "TierraDelFuego": "Tierra Del Fuego",
+        "WallSentinels": "Wall Sentinels",
     ]
     var selectedRow: Int!
     

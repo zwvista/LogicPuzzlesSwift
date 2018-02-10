@@ -1,0 +1,235 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. On the board there is a single continuous castle wall, which you must discover.
+2. The numbers on the board represent Sentinels (in a similar way to 'Sentinels'). The Sentinels can be placed on the Wall or Land.
+3. The number tells you how many tiles that Sentinel can control (see) from there vertically and horizontally - of his type of tile.
+4. That means the number of a Land Sentinel indicates how many Land tiles are visible from there, up to Wall tiles or the grid border.
+5. That works the opposite way for Wall Sentinels: they control all the Wall tiles up to Land tiles or the grid border.
+6. The number includes the tile itself, where the Sentinel is located (again, like 'Sentinels').
+7. Lastly there is a single, orthogonally contiguous, Wall and it cannot contain 2*2 Wall tiles - just like Nurikabe.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+      .2  `
+.3  W6    `
+  .2  .2  `
+    .2  W4`
+  W5      `
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+W9        `
+      .2  `
+          `
+  W3    .4`
+          `
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+.2.5      `
+          `
+    W4    `
+          `
+      W4.4`
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+          `
+  W5      `
+W5.4  W3.3`
+      .5  `
+          `
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+.3.4        `
+.3      .5  `
+            `
+            `
+  W4      .4`
+        W3W3`
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+    W5      `
+.1          `
+      .1  .3`
+            `
+.1          `
+          W2`
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+            `
+.2    W3  .3`
+      W4    `
+    .6      `
+W5  .5    .2`
+            `
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+        .4    `
+  WD        W9`
+      .5      `
+              `
+      .5      `
+.3        W4  `
+    .5        `
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+      W3  .2  `
+.3.2        W4`
+      W4      `
+    .3  .4    `
+            .2`
+              `
+.3      W3    `
+    ]]>
+  </level>
+  <level id="10">
+    <![CDATA[
+W2          W4`
+              `
+W5  W2        `
+      .5  W6  `
+      .4      `
+  W3          `
+          .2.3`
+    ]]>
+  </level>
+  <level id="11">
+    <![CDATA[
+                `
+      .3        `
+          .5    `
+  .4  .3.3      `
+      .3.3  .2  `
+    W5          `
+        W3      `
+                `
+    ]]>
+  </level>
+  <level id="12">
+    <![CDATA[
+  .2    W3    .7`
+  .3      .3    `
+            W3  `
+    .3          `
+          W3    `
+  W5            `
+    .5      W5  `
+W4    .3    W2  `
+    ]]>
+  </level>
+  <level id="13">
+    <![CDATA[
+        WF      `
+    W2          `
+            WA  `
+.3              `
+              .6`
+  W3            `
+          .3    `
+      .9        `
+    ]]>
+  </level>
+  <level id="14">
+    <![CDATA[
+    .3      W8    `
+  .5          .3  `
+.6              W2`
+        W6        `
+      WC  .5      `
+        W3        `
+.2              .2`
+  W5          .3  `
+    .1      W6    `
+    ]]>
+  </level>
+  <level id="15">
+    <![CDATA[
+        W4        `
+        .4.4W5    `
+                  `
+                .4`
+.4W4W4      W5.3W5`
+W3                `
+                  `
+    .3W3W3        `
+        W3        `
+    ]]>
+  </level>
+  <level id="16">
+    <![CDATA[
+    .3              `
+  .3W3        .4W4  `
+  W5.2    W6  W6W6.3`
+  W5                `
+    W8              `
+              .3    `
+                W6  `
+W3.3W5  W8    .3W5  `
+  .6.4        .4W5  `
+              .5    `
+    ]]>
+  </level>
+  <level id="17">
+    <![CDATA[
+W2  W5    .6        `
+                .4  `
+.3    .4      .2    `
+    .3              `
+          W7      .2`
+W2      W8          `
+              .3    `
+    .7      .3    W5`
+  .7                `
+        .6    W4  .3`
+    ]]>
+  </level>
+  <level id="18">
+    <![CDATA[
+W2  .2                `
+.2              W8.8  `
+                      `
+        W2.2          `
+            W6.6    W5`
+W4                  .5`
+.4    .6W6            `
+          .2W2        `
+                      `
+  .2W2              W9`
+                .9  .9`
+    ]]>
+  </level>
+  <level id="19">
+    <![CDATA[
+  W4  W3              `
+                .6  .2`
+  .4  .6              `
+                .6  W5`
+        .6  W3        `
+                      `
+        W7  W3        `
+W5  .6                `
+              W3  .7  `
+.2  .5                `
+              .6  W3  `
+    ]]>
+  </level>
+</levels>
+</puzzle>
