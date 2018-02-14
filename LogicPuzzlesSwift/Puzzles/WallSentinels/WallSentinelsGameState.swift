@@ -114,21 +114,14 @@ class WallSentinelsGameState: GridGameState {
                     var n1 = 1
                     for os in WallSentinelsGame.offset {
                         var p2 = p + os
-                        next_tile: while isValid(p: p2) {
+                        while isValid(p: p2) {
+                            var isWall2 = false
                             switch self[p2] {
-                            case .wall, .hintWall:
-                                if isWall {
-                                    n1 += 1
-                                } else {
-                                    break next_tile
-                                }
-                            default:
-                                if !isWall {
-                                    n1 += 1
-                                } else {
-                                    break next_tile
-                                }
+                            case .wall, .hintWall: isWall2 = true
+                            default: break
                             }
+                            if isWall2 != isWall {break}
+                            n1 += 1
                             p2 += os
                         }
                     }
@@ -161,7 +154,7 @@ class WallSentinelsGameState: GridGameState {
                     if WallSentinelsGame.offset2.testAll({os in
                         let p2 = p + os
                         if !self.isValid(p: p2) {return false}
-                        switch self[p + os] {
+                        switch self[p2] {
                         case .wall, .hintWall: return true
                         default: return false
                         }
