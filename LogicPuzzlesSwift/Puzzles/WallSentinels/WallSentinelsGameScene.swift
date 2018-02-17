@@ -55,7 +55,6 @@ class WallSentinelsGameScene: GameScene<WallSentinelsGameState> {
     }
     
     override func levelUpdated(from stateFrom: WallSentinelsGameState, to stateTo: WallSentinelsGameState) {
-        let markerOffset: CGFloat = 7.5
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -64,8 +63,6 @@ class WallSentinelsGameScene: GameScene<WallSentinelsGameState> {
                 let wallNodeName = "wall" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                func removeHint() { removeNode(withName: hintNodeName) }
-                func addMarker() {  }
                 let (ot1, ot2) = (stateFrom[r, c], stateTo[r, c])
                 guard String(describing: ot1) != String(describing: ot2) else {continue}
                 switch ot1 {

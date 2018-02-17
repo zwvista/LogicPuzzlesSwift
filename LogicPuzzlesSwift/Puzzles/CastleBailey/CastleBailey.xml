@@ -1,0 +1,137 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. A very convoluted Medieval Architect devised a very weird Bailey (or Ward, the inner area contained in the Outer Walls of a Castle).
+2. He deployed quite a few towers (the circles) and put a number on top of each one.
+3. The number tells you how many pieces (squares) of wall it touches.
+4. So the number can go from 0 (no walls around the tower) to 4 (tower entirely surrounded by walls).
+5. Board borders don't count as walls, so there you'll have two walls at most (or one in corners).
+6. To facilitate movement in the castle, the Bailey must have a single continuous area (Garden).
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+12 10`
+ 321 `
+11  1`
+1 11 `
+12 00`
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+001 1`
+1 121`
+2  2 `
+ 12 2`
+001 1`
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+00 21`
+1 12 `
+ 2  0`
+2 21 `
+1 2 0`
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+110 0`
+2  1 `
+ 31 2`
+1  3 `
+00 21`
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+12 00`
+2 3 0`
+ 3  0`
+1 1  `
+00 00`
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+0 2 10`
+02 320`
+  1 1 `
+01 1 1`
+  3 3 `
+001 21`
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+01 1 1`
+ 22 3 `
+0  022`
+122 2 `
+ 2   2`
+0 0011`
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+001 21`
+1 23 2`
+ 1 21 `
+1  1 1`
+ 2 23 `
+1 1 21`
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+0 0 00`
+ 2   0`
+1 123 `
+ 21  2`
+24 132`
+1 11 1`
+    ]]>
+  </level>
+  <level id="10">
+    <![CDATA[
+11 1 1`
+ 3 1 2`
+121 3 `
+ 1 2 2`
+1  11 `
+0000 0`
+    ]]>
+  </level>
+  <level id="36">
+    <![CDATA[
+01 0  0`
+0 2 2 0`
+0 12 1 `
+ 1 32 1`
+0 2  1 `
+ 1  1 1`
+0 22 00`
+    ]]>
+  </level>
+  <level id="200">
+    <![CDATA[
+  2      1  `
+    2 2    2`
+2   2   32  `
+   2 2  3 3 `
+    2 113   `
+02 3      2 `
+ 2   3   2  `
+   23 2 4   `
+  2     4 3 `
+11 3   3    `
+    2   2  2`
+ 2 1        `
+    ]]>
+  </level>
+</levels>
+</puzzle>
