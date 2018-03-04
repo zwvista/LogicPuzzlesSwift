@@ -651,6 +651,17 @@
 		8C506F181F6D2C9300BA4332 /* SnakeOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C506F0D1F6D2C9300BA4332 /* SnakeOptionsViewController.swift */; };
 		8C508BEE1DFBD13700D99A09 /* GridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D41DC42FA40052202C /* GridNode.swift */; };
 		8C5368841EA1DFCC0071D475 /* GridObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5368831EA1DFCC0071D475 /* GridObject.swift */; };
+		8C610F1E204159110087C545 /* NorthPoleFishingOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C610F12204159110087C545 /* NorthPoleFishingOptionsViewController.swift */; };
+		8C610F1F204159110087C545 /* NorthPoleFishingDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C610F13204159110087C545 /* NorthPoleFishingDocument.swift */; };
+		8C610F20204159110087C545 /* NorthPoleFishingHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C610F14204159110087C545 /* NorthPoleFishingHelpViewController.swift */; };
+		8C610F21204159110087C545 /* NorthPoleFishingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C610F15204159110087C545 /* NorthPoleFishingMainViewController.swift */; };
+		8C610F22204159110087C545 /* NorthPoleFishingObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C610F16204159110087C545 /* NorthPoleFishingObject.swift */; };
+		8C610F23204159110087C545 /* NorthPoleFishingGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C610F17204159110087C545 /* NorthPoleFishingGameViewController.swift */; };
+		8C610F24204159110087C545 /* NorthPoleFishingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C610F18204159110087C545 /* NorthPoleFishingGame.swift */; };
+		8C610F25204159110087C545 /* NorthPoleFishingGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C610F19204159110087C545 /* NorthPoleFishingGameScene.swift */; };
+		8C610F26204159110087C545 /* NorthPoleFishing.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C610F1A204159110087C545 /* NorthPoleFishing.xml */; };
+		8C610F27204159110087C545 /* NorthPoleFishingGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C610F1B204159110087C545 /* NorthPoleFishingGridNode.swift */; };
+		8C610F28204159110087C545 /* NorthPoleFishingGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C610F1C204159110087C545 /* NorthPoleFishingGameState.swift */; };
 		8C64A2681DD8089700AB6C09 /* GameGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D31DC42FA40052202C /* GameGameViewController.swift */; };
 		8C64A2EC1DE0891000AB6C09 /* GameTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2EB1DE0891000AB6C09 /* GameTables.swift */; };
 		8C6A35DF1FAF4FFD00D2804D /* Mathrax.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C6A35D31FAF4FFD00D2804D /* Mathrax.xml */; };
@@ -1735,6 +1746,17 @@
 		8C506F0C1F6D2C9300BA4332 /* SnakeObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeObject.swift; sourceTree = "<group>"; };
 		8C506F0D1F6D2C9300BA4332 /* SnakeOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeOptionsViewController.swift; sourceTree = "<group>"; };
 		8C5368831EA1DFCC0071D475 /* GridObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridObject.swift; sourceTree = "<group>"; };
+		8C610F12204159110087C545 /* NorthPoleFishingOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorthPoleFishingOptionsViewController.swift; sourceTree = "<group>"; };
+		8C610F13204159110087C545 /* NorthPoleFishingDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorthPoleFishingDocument.swift; sourceTree = "<group>"; };
+		8C610F14204159110087C545 /* NorthPoleFishingHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorthPoleFishingHelpViewController.swift; sourceTree = "<group>"; };
+		8C610F15204159110087C545 /* NorthPoleFishingMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorthPoleFishingMainViewController.swift; sourceTree = "<group>"; };
+		8C610F16204159110087C545 /* NorthPoleFishingObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorthPoleFishingObject.swift; sourceTree = "<group>"; };
+		8C610F17204159110087C545 /* NorthPoleFishingGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorthPoleFishingGameViewController.swift; sourceTree = "<group>"; };
+		8C610F18204159110087C545 /* NorthPoleFishingGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorthPoleFishingGame.swift; sourceTree = "<group>"; };
+		8C610F19204159110087C545 /* NorthPoleFishingGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorthPoleFishingGameScene.swift; sourceTree = "<group>"; };
+		8C610F1A204159110087C545 /* NorthPoleFishing.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NorthPoleFishing.xml; sourceTree = "<group>"; };
+		8C610F1B204159110087C545 /* NorthPoleFishingGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorthPoleFishingGridNode.swift; sourceTree = "<group>"; };
+		8C610F1C204159110087C545 /* NorthPoleFishingGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorthPoleFishingGameState.swift; sourceTree = "<group>"; };
 		8C64A2EB1DE0891000AB6C09 /* GameTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTables.swift; sourceTree = "<group>"; };
 		8C6A35D31FAF4FFD00D2804D /* Mathrax.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Mathrax.xml; sourceTree = "<group>"; };
 		8C6A35D41FAF4FFD00D2804D /* MathraxDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathraxDocument.swift; sourceTree = "<group>"; };
@@ -2523,6 +2545,7 @@
 				8C3A350B1EC88D4100A914A5 /* MiniLits */,
 				8C3A35181EC88D4100A914A5 /* Mosaik */,
 				8C3A35251EC88D4100A914A5 /* Neighbours */,
+				8C610F11204159100087C545 /* NorthPoleFishing */,
 				8C6A361A1FAF9D8600D2804D /* NoughtsAndCrosses */,
 				8C35E3AF1FC6DADD00A26EE3 /* NumberLink */,
 				8C2AF8211ED5FB0000EC84AB /* NumberPath */,
@@ -3354,6 +3377,24 @@
 				8C506F0D1F6D2C9300BA4332 /* SnakeOptionsViewController.swift */,
 			);
 			path = Snake;
+			sourceTree = "<group>";
+		};
+		8C610F11204159100087C545 /* NorthPoleFishing */ = {
+			isa = PBXGroup;
+			children = (
+				8C610F1A204159110087C545 /* NorthPoleFishing.xml */,
+				8C610F13204159110087C545 /* NorthPoleFishingDocument.swift */,
+				8C610F18204159110087C545 /* NorthPoleFishingGame.swift */,
+				8C610F19204159110087C545 /* NorthPoleFishingGameScene.swift */,
+				8C610F1C204159110087C545 /* NorthPoleFishingGameState.swift */,
+				8C610F17204159110087C545 /* NorthPoleFishingGameViewController.swift */,
+				8C610F1B204159110087C545 /* NorthPoleFishingGridNode.swift */,
+				8C610F14204159110087C545 /* NorthPoleFishingHelpViewController.swift */,
+				8C610F15204159110087C545 /* NorthPoleFishingMainViewController.swift */,
+				8C610F16204159110087C545 /* NorthPoleFishingObject.swift */,
+				8C610F12204159110087C545 /* NorthPoleFishingOptionsViewController.swift */,
+			);
+			path = NorthPoleFishing;
 			sourceTree = "<group>";
 		};
 		8C64A2871DDA00D500AB6C09 /* EZSwiftExtensions */ = {
@@ -4255,6 +4296,7 @@
 				8C1D16B01DB8DE930056D407 /* AnimatedExample.psd in Resources */,
 				8C3A37D41EC88D4400A914A5 /* Tatami.xml in Resources */,
 				8C2AF82D1ED5FB0000EC84AB /* NumberPath.xml in Resources */,
+				8C610F26204159110087C545 /* NorthPoleFishing.xml in Resources */,
 				8CA646251FF3EEB0004707E5 /* music2.wav in Resources */,
 				8C3A36601EC88D4200A914A5 /* DigitalBattleShips.xml in Resources */,
 				8C2973E11EE7284C0022A18A /* Galaxies.xml in Resources */,
@@ -4429,6 +4471,7 @@
 				8CA042E31FDB878800AF85E1 /* FillominoGameState.swift in Sources */,
 				8C1D4F901F7D079F000D5FB3 /* Square100Object.swift in Sources */,
 				8C9F32421ED1FAD400E10965 /* BWTapaDocument.swift in Sources */,
+				8C610F23204159110087C545 /* NorthPoleFishingGameViewController.swift in Sources */,
 				8C9F32FB1ED1FCFF00E10965 /* TapDifferentlyGame.swift in Sources */,
 				8C3A379D1EC88D4400A914A5 /* SentinelsGameViewController.swift in Sources */,
 				8CC3503F1E001D2800B8FD83 /* DateExtensions.swift in Sources */,
@@ -4464,6 +4507,7 @@
 				8C3A370F1EC88D4300A914A5 /* MineShipsHelpViewController.swift in Sources */,
 				8C508BEE1DFBD13700D99A09 /* GridNode.swift in Sources */,
 				8C3A37A81EC88D4400A914A5 /* SkyscrapersGameState.swift in Sources */,
+				8C610F20204159110087C545 /* NorthPoleFishingHelpViewController.swift in Sources */,
 				8C3A373E1EC88D4300A914A5 /* NeighboursGridNode.swift in Sources */,
 				8C3A36EE1EC88D4300A914A5 /* LoopyObject.swift in Sources */,
 				8C2AF8491ED6084300EC84AB /* PaintTheNurikabeGameState.swift in Sources */,
@@ -4478,6 +4522,7 @@
 				8C3A37361EC88D4300A914A5 /* MosaikObject.swift in Sources */,
 				8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */,
 				8C3A36581EC88D4200A914A5 /* CloudsGameState.swift in Sources */,
+				8C610F28204159110087C545 /* NorthPoleFishingGameState.swift in Sources */,
 				8CA043141FDBE77B00AF85E1 /* CarpentersWallGameState.swift in Sources */,
 				8CC3505F1E001D2800B8FD83 /* URLExtensions.swift in Sources */,
 				8C3A36BF1EC88D4300A914A5 /* LightenUpOptionsViewController.swift in Sources */,
@@ -4951,6 +4996,7 @@
 				8CFAF9A5202615570095EFFC /* WallSentinelsMainViewController.swift in Sources */,
 				8C3A37931EC88D4400A914A5 /* RoomsHelpViewController.swift in Sources */,
 				8C3A37DC1EC88D4400A914A5 /* TatamiMainViewController.swift in Sources */,
+				8C610F21204159110087C545 /* NorthPoleFishingMainViewController.swift in Sources */,
 				8C6A362D1FAF9D8600D2804D /* NoughtsAndCrossesHelpViewController.swift in Sources */,
 				8C3A37251EC88D4300A914A5 /* MiniLitsGameViewController.swift in Sources */,
 				8C6A36291FAF9D8600D2804D /* NoughtsAndCrossesGameScene.swift in Sources */,
@@ -4997,6 +5043,7 @@
 				8C3A36AC1EC88D4300A914A5 /* LightBattleShipsGameState.swift in Sources */,
 				8C9F32461ED1FAD400E10965 /* BWTapaGameViewController.swift in Sources */,
 				8C3A36131EC88D4200A914A5 /* BootyIslandHelpViewController.swift in Sources */,
+				8C610F27204159110087C545 /* NorthPoleFishingGridNode.swift in Sources */,
 				8C3A37241EC88D4300A914A5 /* MiniLitsGameState.swift in Sources */,
 				8C1D4F8A1F7D079F000D5FB3 /* Square100GameScene.swift in Sources */,
 				8C916CBD1DAA5E9500D9E62B /* Error.swift in Sources */,
@@ -5011,6 +5058,7 @@
 				8C6D37F31DC5AC310052202C /* SoundManager.swift in Sources */,
 				8C3A372D1EC88D4300A914A5 /* MosaikDocument.swift in Sources */,
 				8CA043241FDBE77B00AF85E1 /* CarpentersSquareGameScene.swift in Sources */,
+				8C610F24204159110087C545 /* NorthPoleFishingGame.swift in Sources */,
 				8C2963FB1FA20D620017A812 /* RobotCrosswordsGameScene.swift in Sources */,
 				8C3A37211EC88D4300A914A5 /* MiniLitsDocument.swift in Sources */,
 				8C3A37971EC88D4400A914A5 /* RoomsOptionsViewController.swift in Sources */,
@@ -5097,6 +5145,7 @@
 				8CE43BDD1FEE6C7B00DCCD91 /* FutoshikiHelpViewController.swift in Sources */,
 				8C3A37901EC88D4400A914A5 /* RoomsGameState.swift in Sources */,
 				8C3A37701EC88D4300A914A5 /* ParksMainViewController.swift in Sources */,
+				8C610F1F204159110087C545 /* NorthPoleFishingDocument.swift in Sources */,
 				8C3A37751EC88D4300A914A5 /* PowerGridDocument.swift in Sources */,
 				8CC3504F1E001D2800B8FD83 /* UIColoredView.swift in Sources */,
 				8C2963F11FA20D620017A812 /* RobotFencesGameState.swift in Sources */,
@@ -5116,6 +5165,7 @@
 				8C7474501FBED8BD00C4112C /* ParkLakesGame.swift in Sources */,
 				8C3A37271EC88D4300A914A5 /* MiniLitsHelpViewController.swift in Sources */,
 				8C3A378B1EC88D4400A914A5 /* ProductSentinelsOptionsViewController.swift in Sources */,
+				8C610F1E204159110087C545 /* NorthPoleFishingOptionsViewController.swift in Sources */,
 				8C9F32FC1ED1FCFF00E10965 /* TapDifferentlyGameScene.swift in Sources */,
 				8C3A373A1EC88D4300A914A5 /* NeighboursGame.swift in Sources */,
 				8C3A370B1EC88D4300A914A5 /* MineShipsGameScene.swift in Sources */,
@@ -5146,6 +5196,7 @@
 				8C2AF8321ED5FB0000EC84AB /* NumberPathGameViewController.swift in Sources */,
 				8C9F32E91ED1FCFF00E10965 /* TapAlikeGridNode.swift in Sources */,
 				8CE9C3181F7914B800134093 /* KakurasuObject.swift in Sources */,
+				8C610F25204159110087C545 /* NorthPoleFishingGameScene.swift in Sources */,
 				8CA0431E1FDBE77B00AF85E1 /* CarpentersSquareObject.swift in Sources */,
 				8CC350481E001D2800B8FD83 /* NSObjectExtensions.swift in Sources */,
 				8CC25CC51F87BB5A005560F7 /* KakuroGameScene.swift in Sources */,
@@ -5241,6 +5292,7 @@
 				8C3A36A61EC88D4200A914A5 /* HitoriObject.swift in Sources */,
 				8CDAE8091F646C29000DE5AF /* BalancedTapasDocument.swift in Sources */,
 				8C35E3A91FC4839100A26EE3 /* WallsGameState.swift in Sources */,
+				8C610F22204159110087C545 /* NorthPoleFishingObject.swift in Sources */,
 				8C3A372B1EC88D4300A914A5 /* MiniLitsOptionsViewController.swift in Sources */,
 				8C3A36201EC88D4200A914A5 /* BoxItAgainMainViewController.swift in Sources */,
 				8C6A36101FAF97AF00D2804D /* TheOddBrickDocument.swift in Sources */,

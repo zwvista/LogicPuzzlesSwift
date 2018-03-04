@@ -102,11 +102,28 @@ class CastleBaileyGameState: GridGameState {
            continuous area (Garden).
     */
     private func updateIsSolved() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                if self[p] == .forbidden {self[p] = .empty}
+            }
+        }
         for (p, n2) in game.pos2hint {
-            let n1 = CastleBaileyGame.offset2.reduce(0){acc, os in
+            var n1 = 0
+            var rng = [Position]()
+            for os  in CastleBaileyGame.offset2 {
                 let p2 = p + os
-                return acc + (isValid(p: p2) && self[p2] == .wall ? 1 : 0)
+                guard isValid(p: p2) else {continue}
+                switch self[p2] {
+                case .empty, .marker:
+                    rng.append(os)
+                case .wall:
+                    n1 += 1
+                default:
+                    break
+                }
             }
             // 3. The number tells you how many pieces (squares) of wall it touches.
             // 4. So the number can go from 0 (no walls around the tower) to 4 (tower
@@ -116,6 +133,11 @@ class CastleBaileyGameState: GridGameState {
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             pos2state[p] = s
             if s != .complete {isSolved = false}
+            if s != .normal && allowedObjectsOnly {
+                for p2 in rng {
+                    self[p2] = .forbidden
+                }
+            }
         }
         if !isSolved {return}
         let g = Graph()

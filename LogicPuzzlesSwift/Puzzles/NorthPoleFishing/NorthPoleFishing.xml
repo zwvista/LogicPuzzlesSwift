@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. The board represents a piece of antarctic, which some fisherman want to split in equal parts.
+2. They decide each one should have a piece of land of exactly 4 squares, including one fishing hole.
+3. Divide the land accordingly.
+4. Ice blocks are just obstacles and don't count as piece of land.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+B  B`
+  H `
+    `
+BHHB`
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+B HB`
+   H`
+    `
+B HB`
+    ]]>
+  </level>
+  <level id="200">
+    <![CDATA[
+    H HB  `
+  H B   H `
+B   HB HH `
+   B     B`
+H     HH  `
+ H H  H   `
+B     BH  `
+H  HB    B`
+H    BH   `
+  BHH  HH `
+    ]]>
+  </level>
+</levels>
+</puzzle>
