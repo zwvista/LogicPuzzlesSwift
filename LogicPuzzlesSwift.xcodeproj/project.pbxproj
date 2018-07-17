@@ -773,22 +773,6 @@
 		8C7E4B4C1F793C9800B57C60 /* TennerGridObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7E4B411F793A6100B57C60 /* TennerGridObject.swift */; };
 		8C7E4B4D1F793C9800B57C60 /* TennerGridOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7E4B421F793A6100B57C60 /* TennerGridOptionsViewController.swift */; };
 		8C7E4B4E1F7940E300B57C60 /* TennerGrid.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C7E4B381F793A6100B57C60 /* TennerGrid.xml */; };
-		8C886C3C1D9E8AF1004A42BF /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C291D9E8AF0004A42BF /* AbstractActionSheetPicker.m */; };
-		8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C2B1D9E8AF0004A42BF /* ActionSheetCustomPicker.m */; };
-		8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C2E1D9E8AF0004A42BF /* ActionSheetDatePicker.m */; };
-		8C886C3F1D9E8AF1004A42BF /* ActionSheetDistancePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C301D9E8AF0004A42BF /* ActionSheetDistancePicker.m */; };
-		8C886C401D9E8AF1004A42BF /* ActionSheetLocalePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C321D9E8AF0004A42BF /* ActionSheetLocalePicker.m */; };
-		8C886C411D9E8AF1004A42BF /* ActionSheetMultipleStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C341D9E8AF0004A42BF /* ActionSheetMultipleStringPicker.m */; };
-		8C886C421D9E8AF1004A42BF /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C371D9E8AF1004A42BF /* ActionSheetStringPicker.m */; };
-		8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C391D9E8AF1004A42BF /* DistancePickerView.m */; };
-		8C886C441D9E8AF1004A42BF /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C886C3B1D9E8AF1004A42BF /* SWActionSheet.m */; };
-		8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C916CB21DAA5E9500D9E62B /* Document.swift */; };
-		8C916CBC1DAA5E9500D9E62B /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C916CB31DAA5E9500D9E62B /* Element.swift */; };
-		8C916CBD1DAA5E9500D9E62B /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C916CB41DAA5E9500D9E62B /* Error.swift */; };
-		8C916CBE1DAA5E9500D9E62B /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C916CB61DAA5E9500D9E62B /* Helpers.swift */; };
-		8C916CC01DAA5E9500D9E62B /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C916CB81DAA5E9500D9E62B /* Node.swift */; };
-		8C916CC11DAA5E9500D9E62B /* NodeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C916CB91DAA5E9500D9E62B /* NodeSet.swift */; };
-		8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C916CBA1DAA5E9500D9E62B /* Queryable.swift */; };
 		8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CC51DAB1E6000D9E62B /* tap.wav */; };
 		8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CCD1DAB35FC00D9E62B /* solved.wav */; };
 		8C9F32291ECF06C000E10965 /* Tapa.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F321E1ECF06BF00E10965 /* Tapa.xml */; };
@@ -932,54 +916,6 @@
 		8CC25CCC1F87BB5A005560F7 /* KakuroOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CC01F87BB5A005560F7 /* KakuroOptionsViewController.swift */; };
 		8CC34F9C1DFD958A00B8FD83 /* negative.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC34F9A1DFD958A00B8FD83 /* negative.png */; };
 		8CC34F9D1DFD958A00B8FD83 /* positive.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CC34F9B1DFD958A00B8FD83 /* positive.png */; };
-		8CC350311E001D2800B8FD83 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350011E001D2700B8FD83 /* ArrayExtensions.swift */; };
-		8CC350321E001D2800B8FD83 /* BlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350021E001D2700B8FD83 /* BlockButton.swift */; };
-		8CC350331E001D2800B8FD83 /* BlockLongPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350031E001D2700B8FD83 /* BlockLongPress.swift */; };
-		8CC350341E001D2800B8FD83 /* BlockPan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350041E001D2700B8FD83 /* BlockPan.swift */; };
-		8CC350351E001D2800B8FD83 /* BlockPinch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350051E001D2700B8FD83 /* BlockPinch.swift */; };
-		8CC350361E001D2800B8FD83 /* BlockSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350061E001D2700B8FD83 /* BlockSwipe.swift */; };
-		8CC350371E001D2800B8FD83 /* BlockTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350071E001D2700B8FD83 /* BlockTap.swift */; };
-		8CC350381E001D2800B8FD83 /* BlockWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350081E001D2700B8FD83 /* BlockWebView.swift */; };
-		8CC350391E001D2800B8FD83 /* BoolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350091E001D2700B8FD83 /* BoolExtensions.swift */; };
-		8CC3503A1E001D2800B8FD83 /* BundleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3500A1E001D2700B8FD83 /* BundleExtensions.swift */; };
-		8CC3503B1E001D2800B8FD83 /* CGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3500B1E001D2700B8FD83 /* CGFloatExtensions.swift */; };
-		8CC3503C1E001D2800B8FD83 /* CGPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3500C1E001D2700B8FD83 /* CGPointExtensions.swift */; };
-		8CC3503D1E001D2800B8FD83 /* CGRectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3500D1E001D2700B8FD83 /* CGRectExtensions.swift */; };
-		8CC3503E1E001D2800B8FD83 /* CharacterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3500E1E001D2700B8FD83 /* CharacterExtensions.swift */; };
-		8CC3503F1E001D2800B8FD83 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3500F1E001D2700B8FD83 /* DateExtensions.swift */; };
-		8CC350401E001D2800B8FD83 /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350101E001D2700B8FD83 /* DictionaryExtensions.swift */; };
-		8CC350411E001D2800B8FD83 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350111E001D2700B8FD83 /* DoubleExtensions.swift */; };
-		8CC350421E001D2800B8FD83 /* ErrorTypeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350121E001D2700B8FD83 /* ErrorTypeExtensions.swift */; };
-		8CC350431E001D2800B8FD83 /* EZSwiftFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350131E001D2700B8FD83 /* EZSwiftFunctions.swift */; };
-		8CC350441E001D2800B8FD83 /* FloatingPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350141E001D2700B8FD83 /* FloatingPointExtensions.swift */; };
-		8CC350451E001D2800B8FD83 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350151E001D2700B8FD83 /* IntExtensions.swift */; };
-		8CC350461E001D2800B8FD83 /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350161E001D2700B8FD83 /* NSAttributedStringExtensions.swift */; };
-		8CC350471E001D2800B8FD83 /* NSDictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350171E001D2700B8FD83 /* NSDictionaryExtensions.swift */; };
-		8CC350481E001D2800B8FD83 /* NSObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350181E001D2700B8FD83 /* NSObjectExtensions.swift */; };
-		8CC350491E001D2800B8FD83 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350191E001D2700B8FD83 /* StringExtensions.swift */; };
-		8CC3504A1E001D2800B8FD83 /* TimerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3501A1E001D2700B8FD83 /* TimerExtensions.swift */; };
-		8CC3504B1E001D2800B8FD83 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3501B1E001D2700B8FD83 /* UIAlertControllerExtensions.swift */; };
-		8CC3504C1E001D2800B8FD83 /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3501C1E001D2700B8FD83 /* UIApplicationExtensions.swift */; };
-		8CC3504D1E001D2800B8FD83 /* UIBarButtonItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3501D1E001D2700B8FD83 /* UIBarButtonItemExtensions.swift */; };
-		8CC3504E1E001D2800B8FD83 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3501E1E001D2700B8FD83 /* UIButtonExtensions.swift */; };
-		8CC3504F1E001D2800B8FD83 /* UIColoredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3501F1E001D2700B8FD83 /* UIColoredView.swift */; };
-		8CC350501E001D2800B8FD83 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350201E001D2700B8FD83 /* UIColorExtensions.swift */; };
-		8CC350511E001D2800B8FD83 /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350211E001D2700B8FD83 /* UIDeviceExtensions.swift */; };
-		8CC350521E001D2800B8FD83 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350221E001D2700B8FD83 /* UIFontExtensions.swift */; };
-		8CC350531E001D2800B8FD83 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350231E001D2700B8FD83 /* UIImageExtensions.swift */; };
-		8CC350541E001D2800B8FD83 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350241E001D2700B8FD83 /* UIImageViewExtensions.swift */; };
-		8CC350551E001D2800B8FD83 /* UILabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350251E001D2700B8FD83 /* UILabelExtensions.swift */; };
-		8CC350561E001D2800B8FD83 /* UISliderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350261E001D2700B8FD83 /* UISliderExtensions.swift */; };
-		8CC350571E001D2800B8FD83 /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350271E001D2700B8FD83 /* UIStoryboardExtensions.swift */; };
-		8CC350581E001D2800B8FD83 /* UISwitchExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350281E001D2700B8FD83 /* UISwitchExtensions.swift */; };
-		8CC350591E001D2800B8FD83 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350291E001D2800B8FD83 /* UITextFieldExtensions.swift */; };
-		8CC3505A1E001D2800B8FD83 /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3502A1E001D2800B8FD83 /* UITextViewExtensions.swift */; };
-		8CC3505B1E001D2800B8FD83 /* UIUserInterfaceSizeClassExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3502B1E001D2800B8FD83 /* UIUserInterfaceSizeClassExtensions.swift */; };
-		8CC3505C1E001D2800B8FD83 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3502C1E001D2800B8FD83 /* UIViewControllerExtensions.swift */; };
-		8CC3505D1E001D2800B8FD83 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3502D1E001D2800B8FD83 /* UIViewExtensions.swift */; };
-		8CC3505E1E001D2800B8FD83 /* UIWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3502E1E001D2800B8FD83 /* UIWindowExtensions.swift */; };
-		8CC3505F1E001D2800B8FD83 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC3502F1E001D2800B8FD83 /* URLExtensions.swift */; };
-		8CC350601E001D2800B8FD83 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC350301E001D2800B8FD83 /* UserDefaultsExtension.swift */; };
 		8CCF1C021D8E1DB100AB6594 /* lightbulb.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCF1C011D8E1DB000AB6594 /* lightbulb.png */; };
 		8CD1558B1DD77C3400786F34 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD1558A1DD77C3400786F34 /* Extensions.swift */; };
 		8CDAE7EF1F5BFBD8000DE5AF /* OverUnder.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CDAE7E41F5BFBD8000DE5AF /* OverUnder.xml */; };
@@ -1060,6 +996,7 @@
 		8CFAF9C120381D870095EFFC /* CastleBaileyGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFAF9B620381D860095EFFC /* CastleBaileyGridNode.swift */; };
 		8CFAF9C220381D870095EFFC /* CastleBailey.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CFAF9B720381D860095EFFC /* CastleBailey.xml */; };
 		8CFAF9C320381D870095EFFC /* CastleBaileyGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFAF9B820381D860095EFFC /* CastleBaileyGameState.swift */; };
+		9514BA4F20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9514BA4E20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1101,6 +1038,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3CC1F29EA8EBB354D2BB9C39 /* Pods-LogicPuzzlesSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogicPuzzlesSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-LogicPuzzlesSwift/Pods-LogicPuzzlesSwift.release.xcconfig"; sourceTree = "<group>"; };
 		84EE6E9C1DD954280013A033 /* HomeChooseGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeChooseGameViewController.swift; sourceTree = "<group>"; };
 		8C04670C1F8BA2BD00B5DE41 /* Tatamino.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tatamino.xml; sourceTree = "<group>"; };
 		8C04670D1F8BA2BD00B5DE41 /* TataminoDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TataminoDocument.swift; sourceTree = "<group>"; };
@@ -1869,36 +1807,7 @@
 		8C7E4B401F793A6100B57C60 /* TennerGridMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennerGridMainViewController.swift; sourceTree = "<group>"; };
 		8C7E4B411F793A6100B57C60 /* TennerGridObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennerGridObject.swift; sourceTree = "<group>"; };
 		8C7E4B421F793A6100B57C60 /* TennerGridOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennerGridOptionsViewController.swift; sourceTree = "<group>"; };
-		8C886C281D9E8AF0004A42BF /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
-		8C886C291D9E8AF0004A42BF /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
-		8C886C2A1D9E8AF0004A42BF /* ActionSheetCustomPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPicker.h; sourceTree = "<group>"; };
-		8C886C2B1D9E8AF0004A42BF /* ActionSheetCustomPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetCustomPicker.m; sourceTree = "<group>"; };
-		8C886C2C1D9E8AF0004A42BF /* ActionSheetCustomPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPickerDelegate.h; sourceTree = "<group>"; };
-		8C886C2D1D9E8AF0004A42BF /* ActionSheetDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDatePicker.h; sourceTree = "<group>"; };
-		8C886C2E1D9E8AF0004A42BF /* ActionSheetDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDatePicker.m; sourceTree = "<group>"; };
-		8C886C2F1D9E8AF0004A42BF /* ActionSheetDistancePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDistancePicker.h; sourceTree = "<group>"; };
-		8C886C301D9E8AF0004A42BF /* ActionSheetDistancePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDistancePicker.m; sourceTree = "<group>"; };
-		8C886C311D9E8AF0004A42BF /* ActionSheetLocalePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetLocalePicker.h; sourceTree = "<group>"; };
-		8C886C321D9E8AF0004A42BF /* ActionSheetLocalePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetLocalePicker.m; sourceTree = "<group>"; };
-		8C886C331D9E8AF0004A42BF /* ActionSheetMultipleStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetMultipleStringPicker.h; sourceTree = "<group>"; };
-		8C886C341D9E8AF0004A42BF /* ActionSheetMultipleStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetMultipleStringPicker.m; sourceTree = "<group>"; };
-		8C886C351D9E8AF1004A42BF /* ActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetPicker.h; sourceTree = "<group>"; };
-		8C886C361D9E8AF1004A42BF /* ActionSheetStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetStringPicker.h; sourceTree = "<group>"; };
-		8C886C371D9E8AF1004A42BF /* ActionSheetStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetStringPicker.m; sourceTree = "<group>"; };
-		8C886C381D9E8AF1004A42BF /* DistancePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistancePickerView.h; sourceTree = "<group>"; };
-		8C886C391D9E8AF1004A42BF /* DistancePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePickerView.m; sourceTree = "<group>"; };
-		8C886C3A1D9E8AF1004A42BF /* SWActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWActionSheet.h; sourceTree = "<group>"; };
-		8C886C3B1D9E8AF1004A42BF /* SWActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWActionSheet.m; sourceTree = "<group>"; };
 		8C886C451D9E8B72004A42BF /* LogicPuzzlesSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LogicPuzzlesSwift-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
-		8C916CB21DAA5E9500D9E62B /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
-		8C916CB31DAA5E9500D9E62B /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
-		8C916CB41DAA5E9500D9E62B /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		8C916CB51DAA5E9500D9E62B /* Fuzi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fuzi.h; sourceTree = "<group>"; };
-		8C916CB61DAA5E9500D9E62B /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
-		8C916CB71DAA5E9500D9E62B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8C916CB81DAA5E9500D9E62B /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
-		8C916CB91DAA5E9500D9E62B /* NodeSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeSet.swift; sourceTree = "<group>"; };
-		8C916CBA1DAA5E9500D9E62B /* Queryable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queryable.swift; sourceTree = "<group>"; };
 		8C916CC51DAB1E6000D9E62B /* tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tap.wav; sourceTree = "<group>"; };
 		8C916CCD1DAB35FC00D9E62B /* solved.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = solved.wav; sourceTree = "<group>"; };
 		8C9F321E1ECF06BF00E10965 /* Tapa.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tapa.xml; sourceTree = "<group>"; };
@@ -2048,54 +1957,6 @@
 		8CC25CC01F87BB5A005560F7 /* KakuroOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroOptionsViewController.swift; sourceTree = "<group>"; };
 		8CC34F9A1DFD958A00B8FD83 /* negative.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = negative.png; sourceTree = "<group>"; };
 		8CC34F9B1DFD958A00B8FD83 /* positive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = positive.png; sourceTree = "<group>"; };
-		8CC350011E001D2700B8FD83 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
-		8CC350021E001D2700B8FD83 /* BlockButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockButton.swift; sourceTree = "<group>"; };
-		8CC350031E001D2700B8FD83 /* BlockLongPress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockLongPress.swift; sourceTree = "<group>"; };
-		8CC350041E001D2700B8FD83 /* BlockPan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockPan.swift; sourceTree = "<group>"; };
-		8CC350051E001D2700B8FD83 /* BlockPinch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockPinch.swift; sourceTree = "<group>"; };
-		8CC350061E001D2700B8FD83 /* BlockSwipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockSwipe.swift; sourceTree = "<group>"; };
-		8CC350071E001D2700B8FD83 /* BlockTap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockTap.swift; sourceTree = "<group>"; };
-		8CC350081E001D2700B8FD83 /* BlockWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockWebView.swift; sourceTree = "<group>"; };
-		8CC350091E001D2700B8FD83 /* BoolExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolExtensions.swift; sourceTree = "<group>"; };
-		8CC3500A1E001D2700B8FD83 /* BundleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleExtensions.swift; sourceTree = "<group>"; };
-		8CC3500B1E001D2700B8FD83 /* CGFloatExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloatExtensions.swift; sourceTree = "<group>"; };
-		8CC3500C1E001D2700B8FD83 /* CGPointExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointExtensions.swift; sourceTree = "<group>"; };
-		8CC3500D1E001D2700B8FD83 /* CGRectExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectExtensions.swift; sourceTree = "<group>"; };
-		8CC3500E1E001D2700B8FD83 /* CharacterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterExtensions.swift; sourceTree = "<group>"; };
-		8CC3500F1E001D2700B8FD83 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
-		8CC350101E001D2700B8FD83 /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
-		8CC350111E001D2700B8FD83 /* DoubleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
-		8CC350121E001D2700B8FD83 /* ErrorTypeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTypeExtensions.swift; sourceTree = "<group>"; };
-		8CC350131E001D2700B8FD83 /* EZSwiftFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSwiftFunctions.swift; sourceTree = "<group>"; };
-		8CC350141E001D2700B8FD83 /* FloatingPointExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPointExtensions.swift; sourceTree = "<group>"; };
-		8CC350151E001D2700B8FD83 /* IntExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
-		8CC350161E001D2700B8FD83 /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensions.swift; sourceTree = "<group>"; };
-		8CC350171E001D2700B8FD83 /* NSDictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDictionaryExtensions.swift; sourceTree = "<group>"; };
-		8CC350181E001D2700B8FD83 /* NSObjectExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtensions.swift; sourceTree = "<group>"; };
-		8CC350191E001D2700B8FD83 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
-		8CC3501A1E001D2700B8FD83 /* TimerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerExtensions.swift; sourceTree = "<group>"; };
-		8CC3501B1E001D2700B8FD83 /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
-		8CC3501C1E001D2700B8FD83 /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
-		8CC3501D1E001D2700B8FD83 /* UIBarButtonItemExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtensions.swift; sourceTree = "<group>"; };
-		8CC3501E1E001D2700B8FD83 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
-		8CC3501F1E001D2700B8FD83 /* UIColoredView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColoredView.swift; sourceTree = "<group>"; };
-		8CC350201E001D2700B8FD83 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
-		8CC350211E001D2700B8FD83 /* UIDeviceExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceExtensions.swift; sourceTree = "<group>"; };
-		8CC350221E001D2700B8FD83 /* UIFontExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
-		8CC350231E001D2700B8FD83 /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
-		8CC350241E001D2700B8FD83 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
-		8CC350251E001D2700B8FD83 /* UILabelExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtensions.swift; sourceTree = "<group>"; };
-		8CC350261E001D2700B8FD83 /* UISliderExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISliderExtensions.swift; sourceTree = "<group>"; };
-		8CC350271E001D2700B8FD83 /* UIStoryboardExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtensions.swift; sourceTree = "<group>"; };
-		8CC350281E001D2700B8FD83 /* UISwitchExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISwitchExtensions.swift; sourceTree = "<group>"; };
-		8CC350291E001D2800B8FD83 /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensions.swift; sourceTree = "<group>"; };
-		8CC3502A1E001D2800B8FD83 /* UITextViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewExtensions.swift; sourceTree = "<group>"; };
-		8CC3502B1E001D2800B8FD83 /* UIUserInterfaceSizeClassExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUserInterfaceSizeClassExtensions.swift; sourceTree = "<group>"; };
-		8CC3502C1E001D2800B8FD83 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
-		8CC3502D1E001D2800B8FD83 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
-		8CC3502E1E001D2800B8FD83 /* UIWindowExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIWindowExtensions.swift; sourceTree = "<group>"; };
-		8CC3502F1E001D2800B8FD83 /* URLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
-		8CC350301E001D2800B8FD83 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		8CCF1C011D8E1DB000AB6594 /* lightbulb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightbulb.png; sourceTree = "<group>"; };
 		8CD1558A1DD77C3400786F34 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8CDAE7E41F5BFBD8000DE5AF /* OverUnder.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = OverUnder.xml; sourceTree = "<group>"; };
@@ -2176,6 +2037,9 @@
 		8CFAF9B620381D860095EFFC /* CastleBaileyGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastleBaileyGridNode.swift; sourceTree = "<group>"; };
 		8CFAF9B720381D860095EFFC /* CastleBailey.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CastleBailey.xml; sourceTree = "<group>"; };
 		8CFAF9B820381D860095EFFC /* CastleBaileyGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastleBaileyGameState.swift; sourceTree = "<group>"; };
+		9514BA4E20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_LogicPuzzlesSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEFB6D9344DD96D2CD5A6A3E /* Pods-LogicPuzzlesSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogicPuzzlesSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LogicPuzzlesSwift/Pods-LogicPuzzlesSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		F3AC06FD9C5A9A3F8A0CD64A /* Pods_LogicPuzzlesSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogicPuzzlesSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2183,6 +2047,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9514BA4F20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework in Frameworks */,
 				8C31FE6E1D90E415008793BF /* SharkORM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2288,7 +2153,9 @@
 		8C2164131D8FB32600A39B47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9514BA4E20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework */,
 				8C31FE6D1D90E415008793BF /* SharkORM.framework */,
+				F3AC06FD9C5A9A3F8A0CD64A /* Pods_LogicPuzzlesSwift.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3397,62 +3264,6 @@
 			path = NorthPoleFishing;
 			sourceTree = "<group>";
 		};
-		8C64A2871DDA00D500AB6C09 /* EZSwiftExtensions */ = {
-			isa = PBXGroup;
-			children = (
-				8CC350011E001D2700B8FD83 /* ArrayExtensions.swift */,
-				8CC350021E001D2700B8FD83 /* BlockButton.swift */,
-				8CC350031E001D2700B8FD83 /* BlockLongPress.swift */,
-				8CC350041E001D2700B8FD83 /* BlockPan.swift */,
-				8CC350051E001D2700B8FD83 /* BlockPinch.swift */,
-				8CC350061E001D2700B8FD83 /* BlockSwipe.swift */,
-				8CC350071E001D2700B8FD83 /* BlockTap.swift */,
-				8CC350081E001D2700B8FD83 /* BlockWebView.swift */,
-				8CC350091E001D2700B8FD83 /* BoolExtensions.swift */,
-				8CC3500A1E001D2700B8FD83 /* BundleExtensions.swift */,
-				8CC3500B1E001D2700B8FD83 /* CGFloatExtensions.swift */,
-				8CC3500C1E001D2700B8FD83 /* CGPointExtensions.swift */,
-				8CC3500D1E001D2700B8FD83 /* CGRectExtensions.swift */,
-				8CC3500E1E001D2700B8FD83 /* CharacterExtensions.swift */,
-				8CC3500F1E001D2700B8FD83 /* DateExtensions.swift */,
-				8CC350101E001D2700B8FD83 /* DictionaryExtensions.swift */,
-				8CC350111E001D2700B8FD83 /* DoubleExtensions.swift */,
-				8CC350121E001D2700B8FD83 /* ErrorTypeExtensions.swift */,
-				8CC350131E001D2700B8FD83 /* EZSwiftFunctions.swift */,
-				8CC350141E001D2700B8FD83 /* FloatingPointExtensions.swift */,
-				8CC350151E001D2700B8FD83 /* IntExtensions.swift */,
-				8CC350161E001D2700B8FD83 /* NSAttributedStringExtensions.swift */,
-				8CC350171E001D2700B8FD83 /* NSDictionaryExtensions.swift */,
-				8CC350181E001D2700B8FD83 /* NSObjectExtensions.swift */,
-				8CC350191E001D2700B8FD83 /* StringExtensions.swift */,
-				8CC3501A1E001D2700B8FD83 /* TimerExtensions.swift */,
-				8CC3501B1E001D2700B8FD83 /* UIAlertControllerExtensions.swift */,
-				8CC3501C1E001D2700B8FD83 /* UIApplicationExtensions.swift */,
-				8CC3501D1E001D2700B8FD83 /* UIBarButtonItemExtensions.swift */,
-				8CC3501E1E001D2700B8FD83 /* UIButtonExtensions.swift */,
-				8CC3501F1E001D2700B8FD83 /* UIColoredView.swift */,
-				8CC350201E001D2700B8FD83 /* UIColorExtensions.swift */,
-				8CC350211E001D2700B8FD83 /* UIDeviceExtensions.swift */,
-				8CC350221E001D2700B8FD83 /* UIFontExtensions.swift */,
-				8CC350231E001D2700B8FD83 /* UIImageExtensions.swift */,
-				8CC350241E001D2700B8FD83 /* UIImageViewExtensions.swift */,
-				8CC350251E001D2700B8FD83 /* UILabelExtensions.swift */,
-				8CC350261E001D2700B8FD83 /* UISliderExtensions.swift */,
-				8CC350271E001D2700B8FD83 /* UIStoryboardExtensions.swift */,
-				8CC350281E001D2700B8FD83 /* UISwitchExtensions.swift */,
-				8CC350291E001D2800B8FD83 /* UITextFieldExtensions.swift */,
-				8CC3502A1E001D2800B8FD83 /* UITextViewExtensions.swift */,
-				8CC3502B1E001D2800B8FD83 /* UIUserInterfaceSizeClassExtensions.swift */,
-				8CC3502C1E001D2800B8FD83 /* UIViewControllerExtensions.swift */,
-				8CC3502D1E001D2800B8FD83 /* UIViewExtensions.swift */,
-				8CC3502E1E001D2800B8FD83 /* UIWindowExtensions.swift */,
-				8CC3502F1E001D2800B8FD83 /* URLExtensions.swift */,
-				8CC350301E001D2800B8FD83 /* UserDefaultsExtension.swift */,
-			);
-			name = EZSwiftExtensions;
-			path = ../../OSS/EZSwiftExtensions/Sources;
-			sourceTree = "<group>";
-		};
 		8C6A35D21FAF4FFD00D2804D /* Mathrax */ = {
 			isa = PBXGroup;
 			children = (
@@ -3642,51 +3453,6 @@
 			path = TennerGrid;
 			sourceTree = "<group>";
 		};
-		8C886C271D9E8AF0004A42BF /* Pickers */ = {
-			isa = PBXGroup;
-			children = (
-				8C886C281D9E8AF0004A42BF /* AbstractActionSheetPicker.h */,
-				8C886C291D9E8AF0004A42BF /* AbstractActionSheetPicker.m */,
-				8C886C2A1D9E8AF0004A42BF /* ActionSheetCustomPicker.h */,
-				8C886C2B1D9E8AF0004A42BF /* ActionSheetCustomPicker.m */,
-				8C886C2C1D9E8AF0004A42BF /* ActionSheetCustomPickerDelegate.h */,
-				8C886C2D1D9E8AF0004A42BF /* ActionSheetDatePicker.h */,
-				8C886C2E1D9E8AF0004A42BF /* ActionSheetDatePicker.m */,
-				8C886C2F1D9E8AF0004A42BF /* ActionSheetDistancePicker.h */,
-				8C886C301D9E8AF0004A42BF /* ActionSheetDistancePicker.m */,
-				8C886C311D9E8AF0004A42BF /* ActionSheetLocalePicker.h */,
-				8C886C321D9E8AF0004A42BF /* ActionSheetLocalePicker.m */,
-				8C886C331D9E8AF0004A42BF /* ActionSheetMultipleStringPicker.h */,
-				8C886C341D9E8AF0004A42BF /* ActionSheetMultipleStringPicker.m */,
-				8C886C351D9E8AF1004A42BF /* ActionSheetPicker.h */,
-				8C886C361D9E8AF1004A42BF /* ActionSheetStringPicker.h */,
-				8C886C371D9E8AF1004A42BF /* ActionSheetStringPicker.m */,
-				8C886C381D9E8AF1004A42BF /* DistancePickerView.h */,
-				8C886C391D9E8AF1004A42BF /* DistancePickerView.m */,
-				8C886C3A1D9E8AF1004A42BF /* SWActionSheet.h */,
-				8C886C3B1D9E8AF1004A42BF /* SWActionSheet.m */,
-			);
-			name = Pickers;
-			path = "../../OSS/ActionSheetPicker-3.0/Pickers";
-			sourceTree = "<group>";
-		};
-		8C916CB11DAA5E9500D9E62B /* Fuzi */ = {
-			isa = PBXGroup;
-			children = (
-				8C916CB21DAA5E9500D9E62B /* Document.swift */,
-				8C916CB31DAA5E9500D9E62B /* Element.swift */,
-				8C916CB41DAA5E9500D9E62B /* Error.swift */,
-				8C916CB51DAA5E9500D9E62B /* Fuzi.h */,
-				8C916CB61DAA5E9500D9E62B /* Helpers.swift */,
-				8C916CB71DAA5E9500D9E62B /* Info.plist */,
-				8C916CB81DAA5E9500D9E62B /* Node.swift */,
-				8C916CB91DAA5E9500D9E62B /* NodeSet.swift */,
-				8C916CBA1DAA5E9500D9E62B /* Queryable.swift */,
-			);
-			name = Fuzi;
-			path = ../../OSS/Fuzi/Sources;
-			sourceTree = "<group>";
-		};
 		8C916CC81DAB297A00D9E62B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -3837,14 +3603,12 @@
 			isa = PBXGroup;
 			children = (
 				8C1D169B1DB8DE930056D407 /* Breadth-First Search */,
-				8C64A2871DDA00D500AB6C09 /* EZSwiftExtensions */,
-				8C916CB11DAA5E9500D9E62B /* Fuzi */,
-				8C886C271D9E8AF0004A42BF /* Pickers */,
 				8C9F43D91D771915000139FC /* LogicPuzzlesSwift */,
 				8C9F43F01D771915000139FC /* LogicPuzzlesSwiftTests */,
 				8C9F43FB1D771915000139FC /* LogicPuzzlesSwiftUITests */,
 				8C9F43D81D771915000139FC /* Products */,
 				8C2164131D8FB32600A39B47 /* Frameworks */,
+				EEB3A28154EBC98077733058 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -4106,6 +3870,15 @@
 			path = CastleBailey;
 			sourceTree = "<group>";
 		};
+		EEB3A28154EBC98077733058 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BEFB6D9344DD96D2CD5A6A3E /* Pods-LogicPuzzlesSwift.debug.xcconfig */,
+				3CC1F29EA8EBB354D2BB9C39 /* Pods-LogicPuzzlesSwift.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -4113,10 +3886,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8C9F44011D771915000139FC /* Build configuration list for PBXNativeTarget "LogicPuzzlesSwift" */;
 			buildPhases = (
+				811782EA996F82BD9748A137 /* [CP] Check Pods Manifest.lock */,
 				8C9F43D31D771915000139FC /* Sources */,
 				8C9F43D41D771915000139FC /* Frameworks */,
 				8C9F43D51D771915000139FC /* Resources */,
 				8C21641F1D8FBE9F00A39B47 /* Embed Frameworks */,
+				AD0B0337545AB5DC7929067B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -4357,6 +4132,49 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		811782EA996F82BD9748A137 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LogicPuzzlesSwift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD0B0337545AB5DC7929067B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LogicPuzzlesSwift/Pods-LogicPuzzlesSwift-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
+				"${BUILT_PRODUCTS_DIR}/EZSwiftExtensions/EZSwiftExtensions.framework",
+				"${BUILT_PRODUCTS_DIR}/Fuzi/Fuzi.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EZSwiftExtensions.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fuzi.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LogicPuzzlesSwift/Pods-LogicPuzzlesSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8C9F43D31D771915000139FC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -4368,7 +4186,6 @@
 				8C04671B1F8BA2BE00B5DE41 /* TataminoGameScene.swift in Sources */,
 				8CA043221FDBE77B00AF85E1 /* CarpentersSquareMainViewController.swift in Sources */,
 				8C3A366B1EC88D4200A914A5 /* DigitalBattleShipsOptionsViewController.swift in Sources */,
-				8CC3504D1E001D2800B8FD83 /* UIBarButtonItemExtensions.swift in Sources */,
 				8CA043281FDBE77B00AF85E1 /* CarpentersSquareDocument.swift in Sources */,
 				8C35E3C41FC6DAE600A26EE3 /* NumberLinkHelpViewController.swift in Sources */,
 				8C3A36F71EC88D4300A914A5 /* MagnetsHelpViewController.swift in Sources */,
@@ -4415,7 +4232,6 @@
 				8C7E4B461F793C9800B57C60 /* TennerGridGameScene.swift in Sources */,
 				8C7609101EC627E900DFCD7B /* Global.swift in Sources */,
 				8C3A379B1EC88D4400A914A5 /* SentinelsGameScene.swift in Sources */,
-				8CC350571E001D2800B8FD83 /* UIStoryboardExtensions.swift in Sources */,
 				8C3A37C21EC88D4400A914A5 /* SnailGridNode.swift in Sources */,
 				8C7474701FBEFD5700C4112C /* FourMeNotGridNode.swift in Sources */,
 				8C2319F31FB88E3F0021C680 /* TierraDelFuegoHelpViewController.swift in Sources */,
@@ -4474,14 +4290,12 @@
 				8C610F23204159110087C545 /* NorthPoleFishingGameViewController.swift in Sources */,
 				8C9F32FB1ED1FCFF00E10965 /* TapDifferentlyGame.swift in Sources */,
 				8C3A379D1EC88D4400A914A5 /* SentinelsGameViewController.swift in Sources */,
-				8CC3503F1E001D2800B8FD83 /* DateExtensions.swift in Sources */,
 				8C9F32E41ED1FCFF00E10965 /* TapAlikeDocument.swift in Sources */,
 				8C1D16B31DB8DE930056D407 /* README.markdown in Sources */,
 				8CA042D91FDB878800AF85E1 /* FillominoGridNode.swift in Sources */,
 				8C3A371B1EC88D4300A914A5 /* MinesweeperHelpViewController.swift in Sources */,
 				8C0467221F8BA2BE00B5DE41 /* TataminoOptionsViewController.swift in Sources */,
 				8C35E3941FC2844F00A26EE3 /* GardenerGameScene.swift in Sources */,
-				8CC350451E001D2800B8FD83 /* IntExtensions.swift in Sources */,
 				8C2963F21FA20D620017A812 /* RobotFencesGameViewController.swift in Sources */,
 				8C2963F41FA20D620017A812 /* RobotFencesHelpViewController.swift in Sources */,
 				8C3A36011EC88D4200A914A5 /* BattleShipsDocument.swift in Sources */,
@@ -4491,7 +4305,6 @@
 				8C9F32BB1ED1FB0700E10965 /* TapaIslandsHelpViewController.swift in Sources */,
 				8C0467201F8BA2BE00B5DE41 /* TataminoMainViewController.swift in Sources */,
 				8C3A378D1EC88D4400A914A5 /* RoomsDocument.swift in Sources */,
-				8CC350491E001D2800B8FD83 /* StringExtensions.swift in Sources */,
 				8C3A36311EC88D4200A914A5 /* BoxItUpDocument.swift in Sources */,
 				8CA042E11FDB878800AF85E1 /* FillominoMainViewController.swift in Sources */,
 				8C3A37D01EC88D4400A914A5 /* SumscrapersMainViewController.swift in Sources */,
@@ -4499,7 +4312,6 @@
 				8C3A37AF1EC88D4400A914A5 /* SkyscrapersOptionsViewController.swift in Sources */,
 				8C3A36DF1EC88D4300A914A5 /* LitsHelpViewController.swift in Sources */,
 				8C3A35E91EC88D4200A914A5 /* AbcDocument.swift in Sources */,
-				8CC3503A1E001D2800B8FD83 /* BundleExtensions.swift in Sources */,
 				8C3A37621EC88D4300A914A5 /* PairakabeGridNode.swift in Sources */,
 				8C3A36071EC88D4200A914A5 /* BattleShipsHelpViewController.swift in Sources */,
 				8C3A37321EC88D4300A914A5 /* MosaikGridNode.swift in Sources */,
@@ -4520,11 +4332,9 @@
 				8C3A37C11EC88D4400A914A5 /* SnailGameViewController.swift in Sources */,
 				8C2963FF1FA20D620017A812 /* RobotCrosswordsHelpViewController.swift in Sources */,
 				8C3A37361EC88D4300A914A5 /* MosaikObject.swift in Sources */,
-				8C916CBB1DAA5E9500D9E62B /* Document.swift in Sources */,
 				8C3A36581EC88D4200A914A5 /* CloudsGameState.swift in Sources */,
 				8C610F28204159110087C545 /* NorthPoleFishingGameState.swift in Sources */,
 				8CA043141FDBE77B00AF85E1 /* CarpentersWallGameState.swift in Sources */,
-				8CC3505F1E001D2800B8FD83 /* URLExtensions.swift in Sources */,
 				8C3A36BF1EC88D4300A914A5 /* LightenUpOptionsViewController.swift in Sources */,
 				8C6ACBFF1DCAF8BA0075F32C /* GameMixin.swift in Sources */,
 				8CC25CC71F87BB5A005560F7 /* KakuroGameViewController.swift in Sources */,
@@ -4541,7 +4351,6 @@
 				8CDAE7F41F5BFBD9000DE5AF /* OverUnderGameViewController.swift in Sources */,
 				8C3A37791EC88D4300A914A5 /* PowerGridGameViewController.swift in Sources */,
 				8C3A37C01EC88D4400A914A5 /* SnailGameState.swift in Sources */,
-				8CC350591E001D2800B8FD83 /* UITextFieldExtensions.swift in Sources */,
 				8CE9C3111F7914B800134093 /* KakurasuGame.swift in Sources */,
 				8C3A37661EC88D4300A914A5 /* PairakabeObject.swift in Sources */,
 				8C3A36251EC88D4200A914A5 /* BoxItAroundDocument.swift in Sources */,
@@ -4576,7 +4385,6 @@
 				8C506F0F1F6D2C9300BA4332 /* SnakeDocument.swift in Sources */,
 				8C3A377E1EC88D4300A914A5 /* PowerGridObject.swift in Sources */,
 				8C2AF84F1ED6084300EC84AB /* PaintTheNurikabeOptionsViewController.swift in Sources */,
-				8CC350441E001D2800B8FD83 /* FloatingPointExtensions.swift in Sources */,
 				8C2973E21EE7284C0022A18A /* GalaxiesDocument.swift in Sources */,
 				8CDAE80F1F646C29000DE5AF /* BalancedTapasHelpViewController.swift in Sources */,
 				8C6A9BEB1F812743002A44FF /* KropkiGridNode.swift in Sources */,
@@ -4602,7 +4410,6 @@
 				8C3A374B1EC88D4300A914A5 /* NurikabeHelpViewController.swift in Sources */,
 				8C3A36FB1EC88D4300A914A5 /* MagnetsOptionsViewController.swift in Sources */,
 				8C2AF84E1ED6084300EC84AB /* PaintTheNurikabeObject.swift in Sources */,
-				8C916CC01DAA5E9500D9E62B /* Node.swift in Sources */,
 				8C3A36DA1EC88D4300A914A5 /* LitsGame.swift in Sources */,
 				8C3A37C91EC88D4400A914A5 /* SumscrapersDocument.swift in Sources */,
 				8C3A37A71EC88D4400A914A5 /* SkyscrapersGameScene.swift in Sources */,
@@ -4616,18 +4423,14 @@
 				8C3A37341EC88D4300A914A5 /* MosaikMainViewController.swift in Sources */,
 				8C3A371F1EC88D4300A914A5 /* MinesweeperOptionsViewController.swift in Sources */,
 				8C3A36D21EC88D4300A914A5 /* LineSweeperGridNode.swift in Sources */,
-				8CC3505E1E001D2800B8FD83 /* UIWindowExtensions.swift in Sources */,
 				8C3A37AA1EC88D4400A914A5 /* SkyscrapersGridNode.swift in Sources */,
-				8CC350511E001D2800B8FD83 /* UIDeviceExtensions.swift in Sources */,
 				8C3A36221EC88D4200A914A5 /* BoxItAgainObject.swift in Sources */,
 				8C2AF8361ED5FB0000EC84AB /* NumberPathObject.swift in Sources */,
 				8C9F32F61ED1FCFF00E10965 /* TapARowMainViewController.swift in Sources */,
 				8C1D16B51DB8DE930056D407 /* Graph.swift in Sources */,
 				8C3A37CA1EC88D4400A914A5 /* SumscrapersGame.swift in Sources */,
 				8CA0431A1FDBE77B00AF85E1 /* CarpentersWallGame.swift in Sources */,
-				8CC3504E1E001D2800B8FD83 /* UIButtonExtensions.swift in Sources */,
 				8C7474381FBDEAD100C4112C /* HolidayIslandGameScene.swift in Sources */,
-				8CC350581E001D2800B8FD83 /* UISwitchExtensions.swift in Sources */,
 				8C2973E81EE7284C0022A18A /* GalaxiesHelpViewController.swift in Sources */,
 				8C3A367F1EC88D4200A914A5 /* FenceItUpHelpViewController.swift in Sources */,
 				8C3A369D1EC88D4200A914A5 /* HitoriDocument.swift in Sources */,
@@ -4638,7 +4441,6 @@
 				8C3A376C1EC88D4300A914A5 /* ParksGameState.swift in Sources */,
 				8C3A364A1EC88D4200A914A5 /* BusySeasGame.swift in Sources */,
 				8C3A368A1EC88D4200A914A5 /* FenceLitsGridNode.swift in Sources */,
-				8C886C441D9E8AF1004A42BF /* SWActionSheet.m in Sources */,
 				8C3A37541EC88D4300A914A5 /* OrchardsGameState.swift in Sources */,
 				8C3A37191EC88D4300A914A5 /* MinesweeperGameViewController.swift in Sources */,
 				8C3A36EB1EC88D4300A914A5 /* LoopyHelpViewController.swift in Sources */,
@@ -4646,7 +4448,6 @@
 				8C3A363A1EC88D4200A914A5 /* BoxItUpObject.swift in Sources */,
 				8C3A35ED1EC88D4200A914A5 /* AbcGameViewController.swift in Sources */,
 				8C35E3A71FC4839100A26EE3 /* WallsDocument.swift in Sources */,
-				8CC350501E001D2800B8FD83 /* UIColorExtensions.swift in Sources */,
 				8C3A37A31EC88D4400A914A5 /* SentinelsOptionsViewController.swift in Sources */,
 				8C2973EA1EE7284C0022A18A /* GalaxiesObject.swift in Sources */,
 				8C3A361A1EC88D4200A914A5 /* BoxItAgainGame.swift in Sources */,
@@ -4658,7 +4459,6 @@
 				8C3A35EE1EC88D4200A914A5 /* AbcGridNode.swift in Sources */,
 				8C7474571FBED8BD00C4112C /* ParkLakesHelpViewController.swift in Sources */,
 				8C3A36B81EC88D4300A914A5 /* LightenUpGameState.swift in Sources */,
-				8CC350421E001D2800B8FD83 /* ErrorTypeExtensions.swift in Sources */,
 				8C2963F51FA20D620017A812 /* RobotFencesMainViewController.swift in Sources */,
 				8CDAE7F51F5BFBD9000DE5AF /* OverUnderGridNode.swift in Sources */,
 				8C2AF8471ED6084300EC84AB /* PaintTheNurikabeGame.swift in Sources */,
@@ -4674,10 +4474,8 @@
 				8C2963F31FA20D620017A812 /* RobotFencesGridNode.swift in Sources */,
 				8CA042F01FDB930A00AF85E1 /* CalcudokuDocument.swift in Sources */,
 				8C6A36181FAF97AF00D2804D /* TheOddBrickObject.swift in Sources */,
-				8CC350321E001D2800B8FD83 /* BlockButton.swift in Sources */,
 				8C35E38F1FC2844F00A26EE3 /* GardenerMainViewController.swift in Sources */,
 				8C3A360A1EC88D4200A914A5 /* BattleShipsObject.swift in Sources */,
-				8CC3504B1E001D2800B8FD83 /* UIAlertControllerExtensions.swift in Sources */,
 				8C3A36FA1EC88D4300A914A5 /* MagnetsObject.swift in Sources */,
 				8C3A36D91EC88D4300A914A5 /* LitsDocument.swift in Sources */,
 				8C3A376B1EC88D4300A914A5 /* ParksGameScene.swift in Sources */,
@@ -4685,12 +4483,10 @@
 				8C9F32EB1ED1FCFF00E10965 /* TapAlikeMainViewController.swift in Sources */,
 				8C3A370D1EC88D4300A914A5 /* MineShipsGameViewController.swift in Sources */,
 				8C3A362F1EC88D4200A914A5 /* BoxItAroundOptionsViewController.swift in Sources */,
-				8C886C401D9E8AF1004A42BF /* ActionSheetLocalePicker.m in Sources */,
 				8CC25CCC1F87BB5A005560F7 /* KakuroOptionsViewController.swift in Sources */,
 				8C74743F1FBDEAD100C4112C /* HolidayIslandOptionsViewController.swift in Sources */,
 				8CDAE7F91F5BFBD9000DE5AF /* OverUnderOptionsViewController.swift in Sources */,
 				8CC25CCB1F87BB5A005560F7 /* KakuroObject.swift in Sources */,
-				8CC350341E001D2800B8FD83 /* BlockPan.swift in Sources */,
 				8C35E3951FC2844F00A26EE3 /* GardenerOptionsViewController.swift in Sources */,
 				8C3A36681EC88D4200A914A5 /* DigitalBattleShipsMainViewController.swift in Sources */,
 				8C506F111F6D2C9300BA4332 /* SnakeGameScene.swift in Sources */,
@@ -4709,7 +4505,6 @@
 				8C32D8DD1FC92B5F00BA2D07 /* RippleEffectMainViewController.swift in Sources */,
 				8C3A37DF1EC88D4400A914A5 /* TatamiOptionsViewController.swift in Sources */,
 				8C9F322A1ECF06C000E10965 /* TapaDocument.swift in Sources */,
-				8CC350411E001D2800B8FD83 /* DoubleExtensions.swift in Sources */,
 				8C3A36501EC88D4200A914A5 /* BusySeasMainViewController.swift in Sources */,
 				8C6A9BEE1F812743002A44FF /* KropkiObject.swift in Sources */,
 				8CFAF9A4202615570095EFFC /* WallSentinelsObject.swift in Sources */,
@@ -4764,7 +4559,6 @@
 				8C6A36151FAF97AF00D2804D /* TheOddBrickGridNode.swift in Sources */,
 				8C9F32BA1ED1FB0700E10965 /* TapaIslandsGridNode.swift in Sources */,
 				8C6A9BEF1F812743002A44FF /* KropkiOptionsViewController.swift in Sources */,
-				8CC350351E001D2800B8FD83 /* BlockPinch.swift in Sources */,
 				8CE9C3171F7914B800134093 /* KakurasuMainViewController.swift in Sources */,
 				8CF3FFD51FCB2A2700D41B67 /* DisconnectFourGameState.swift in Sources */,
 				8C3A37B11EC88D4400A914A5 /* SlitherLinkDocument.swift in Sources */,
@@ -4776,7 +4570,6 @@
 				8C3A36791EC88D4200A914A5 /* FenceItUpDocument.swift in Sources */,
 				8C7E4B4D1F793C9800B57C60 /* TennerGridOptionsViewController.swift in Sources */,
 				8C3A36CF1EC88D4300A914A5 /* LineSweeperGameScene.swift in Sources */,
-				8C886C3C1D9E8AF1004A42BF /* AbstractActionSheetPicker.m in Sources */,
 				8C3A36E81EC88D4300A914A5 /* LoopyGameState.swift in Sources */,
 				8C3A37D91EC88D4400A914A5 /* TatamiGameViewController.swift in Sources */,
 				8C3A361D1EC88D4200A914A5 /* BoxItAgainGameViewController.swift in Sources */,
@@ -4789,25 +4582,20 @@
 				8C3A36631EC88D4200A914A5 /* DigitalBattleShipsGameScene.swift in Sources */,
 				8C3A378E1EC88D4400A914A5 /* RoomsGame.swift in Sources */,
 				8CA0431B1FDBE77B00AF85E1 /* CarpentersWallGridNode.swift in Sources */,
-				8CC3505A1E001D2800B8FD83 /* UITextViewExtensions.swift in Sources */,
 				8C506F121F6D2C9300BA4332 /* SnakeGameState.swift in Sources */,
 				8C6A35E61FAF4FFD00D2804D /* MathraxHelpViewController.swift in Sources */,
 				8C3A36C31EC88D4300A914A5 /* LighthousesGameScene.swift in Sources */,
-				8CC350381E001D2800B8FD83 /* BlockWebView.swift in Sources */,
 				8C3A36441EC88D4200A914A5 /* BridgesMainViewController.swift in Sources */,
 				8C9F325C1ED1FAF600E10965 /* PataGameState.swift in Sources */,
 				8C5368841EA1DFCC0071D475 /* GridObject.swift in Sources */,
 				8C6A36131FAF97AF00D2804D /* TheOddBrickGameState.swift in Sources */,
-				8CC3503E1E001D2800B8FD83 /* CharacterExtensions.swift in Sources */,
 				8C9F32EF1ED1FCFF00E10965 /* TapARowDocument.swift in Sources */,
 				8C3A37E31EC88D4400A914A5 /* TentsGameScene.swift in Sources */,
 				8CFAF9C020381D870095EFFC /* CastleBaileyGameScene.swift in Sources */,
 				8CF3FFDB1FCB2A2700D41B67 /* DisconnectFourMainViewController.swift in Sources */,
 				8C6A35E01FAF4FFD00D2804D /* MathraxDocument.swift in Sources */,
 				8C7474581FBED8BD00C4112C /* ParkLakesObject.swift in Sources */,
-				8C916CBE1DAA5E9500D9E62B /* Helpers.swift in Sources */,
 				8C3A365F1EC88D4200A914A5 /* CloudsOptionsViewController.swift in Sources */,
-				8CC350531E001D2800B8FD83 /* UIImageExtensions.swift in Sources */,
 				8C3A36AB1EC88D4300A914A5 /* LightBattleShipsGameScene.swift in Sources */,
 				8C3A36C21EC88D4300A914A5 /* LighthousesGame.swift in Sources */,
 				8C3A37E51EC88D4400A914A5 /* TentsGameViewController.swift in Sources */,
@@ -4842,12 +4630,10 @@
 				8C3A36CA1EC88D4300A914A5 /* LighthousesObject.swift in Sources */,
 				8C3A36FF1EC88D4300A914A5 /* MasyuGameScene.swift in Sources */,
 				8C506F171F6D2C9300BA4332 /* SnakeObject.swift in Sources */,
-				8C886C3E1D9E8AF1004A42BF /* ActionSheetDatePicker.m in Sources */,
 				8CA042F21FDB930A00AF85E1 /* CalcudokuHelpViewController.swift in Sources */,
 				8C3A36961EC88D4200A914A5 /* FenceSentinelsGridNode.swift in Sources */,
 				8C7474691FBEFD5700C4112C /* FourMeNotHelpViewController.swift in Sources */,
 				8C3A37CB1EC88D4400A914A5 /* SumscrapersGameScene.swift in Sources */,
-				8CC350431E001D2800B8FD83 /* EZSwiftFunctions.swift in Sources */,
 				8C3A36A11EC88D4200A914A5 /* HitoriGameViewController.swift in Sources */,
 				8C3A376A1EC88D4300A914A5 /* ParksGame.swift in Sources */,
 				8C6D37FE1DC5B4EB0052202C /* GameState.swift in Sources */,
@@ -4860,7 +4646,6 @@
 				8CA043251FDBE77B00AF85E1 /* CarpentersSquareOptionsViewController.swift in Sources */,
 				8C3A377B1EC88D4300A914A5 /* PowerGridHelpViewController.swift in Sources */,
 				8C3A37401EC88D4300A914A5 /* NeighboursMainViewController.swift in Sources */,
-				8CC350371E001D2800B8FD83 /* BlockTap.swift in Sources */,
 				8C3A362A1EC88D4200A914A5 /* BoxItAroundGridNode.swift in Sources */,
 				8CA042DC1FDB878800AF85E1 /* FillominoGame.swift in Sources */,
 				8CA042F11FDB930A00AF85E1 /* CalcudokuObject.swift in Sources */,
@@ -4868,7 +4653,6 @@
 				8CF3FFD91FCB2A2700D41B67 /* DisconnectFourGame.swift in Sources */,
 				8C9F32FF1ED1FCFF00E10965 /* TapDifferentlyGridNode.swift in Sources */,
 				8C2963FC1FA20D620017A812 /* RobotCrosswordsGameState.swift in Sources */,
-				8C886C431D9E8AF1004A42BF /* DistancePickerView.m in Sources */,
 				8C76091A1EC7EB1C00DFCD7B /* SelfSizingTableViewCell.swift in Sources */,
 				8C2AF8301ED5FB0000EC84AB /* NumberPathGameScene.swift in Sources */,
 				8C6D37391DC421180052202C /* HomeMainViewController.swift in Sources */,
@@ -4878,7 +4662,6 @@
 				8C9F32BC1ED1FB0700E10965 /* TapaIslandsMainViewController.swift in Sources */,
 				8C3A37131EC88D4300A914A5 /* MineShipsOptionsViewController.swift in Sources */,
 				8C3A362B1EC88D4200A914A5 /* BoxItAroundHelpViewController.swift in Sources */,
-				8CC3505B1E001D2800B8FD83 /* UIUserInterfaceSizeClassExtensions.swift in Sources */,
 				8C3A35FA1EC88D4200A914A5 /* AbstractPaintingGridNode.swift in Sources */,
 				8C3A37471EC88D4300A914A5 /* NurikabeGameScene.swift in Sources */,
 				8C9F32FA1ED1FCFF00E10965 /* TapDifferentlyDocument.swift in Sources */,
@@ -4906,7 +4689,6 @@
 				8C3A36F11EC88D4300A914A5 /* MagnetsDocument.swift in Sources */,
 				8C7474401FBDEAD100C4112C /* HolidayIslandGridNode.swift in Sources */,
 				8C9F32F71ED1FCFF00E10965 /* TapARowObject.swift in Sources */,
-				8CC350361E001D2800B8FD83 /* BlockSwipe.swift in Sources */,
 				8C3A37261EC88D4300A914A5 /* MiniLitsGridNode.swift in Sources */,
 				8C35E3C01FC6DAE600A26EE3 /* NumberLinkMainViewController.swift in Sources */,
 				8C2319EF1FB88E3F0021C680 /* TierraDelFuegoObject.swift in Sources */,
@@ -4934,7 +4716,6 @@
 				8C9F32E61ED1FCFF00E10965 /* TapAlikeGameScene.swift in Sources */,
 				8C3A376E1EC88D4300A914A5 /* ParksGridNode.swift in Sources */,
 				8C35E3C11FC6DAE600A26EE3 /* NumberLinkDocument.swift in Sources */,
-				8CC350311E001D2800B8FD83 /* ArrayExtensions.swift in Sources */,
 				8C3A37A61EC88D4400A914A5 /* SkyscrapersGame.swift in Sources */,
 				8C3A36341EC88D4200A914A5 /* BoxItUpGameState.swift in Sources */,
 				8C3A36A71EC88D4200A914A5 /* HitoriOptionsViewController.swift in Sources */,
@@ -4945,9 +4726,7 @@
 				8C3A36951EC88D4200A914A5 /* FenceSentinelsGameViewController.swift in Sources */,
 				8C3A363F1EC88D4200A914A5 /* BridgesGameScene.swift in Sources */,
 				8C3A378A1EC88D4400A914A5 /* ProductSentinelsObject.swift in Sources */,
-				8CC3504C1E001D2800B8FD83 /* UIApplicationExtensions.swift in Sources */,
 				8C9F325A1ED1FAF600E10965 /* PataGame.swift in Sources */,
-				8CC350391E001D2800B8FD83 /* BoolExtensions.swift in Sources */,
 				8C32D8DC1FC92B5F00BA2D07 /* RippleEffectGameViewController.swift in Sources */,
 				8C3A37011EC88D4300A914A5 /* MasyuGameViewController.swift in Sources */,
 				8CE43BD91FEE6C7B00DCCD91 /* FutoshikiObject.swift in Sources */,
@@ -4969,7 +4748,6 @@
 				8C6A36171FAF97AF00D2804D /* TheOddBrickMainViewController.swift in Sources */,
 				8C2963F01FA20D620017A812 /* RobotFencesGameScene.swift in Sources */,
 				8C3A36A91EC88D4200A914A5 /* LightBattleShipsDocument.swift in Sources */,
-				8C886C421D9E8AF1004A42BF /* ActionSheetStringPicker.m in Sources */,
 				8C1D4F8C1F7D079F000D5FB3 /* Square100GameViewController.swift in Sources */,
 				8C3A36DE1EC88D4300A914A5 /* LitsGridNode.swift in Sources */,
 				8CA042DE1FDB878800AF85E1 /* FillominoGameScene.swift in Sources */,
@@ -4987,7 +4765,6 @@
 				8C2AF8461ED6084300EC84AB /* PaintTheNurikabeDocument.swift in Sources */,
 				8C2AF8371ED5FB0000EC84AB /* NumberPathOptionsViewController.swift in Sources */,
 				8C9F32EC1ED1FCFF00E10965 /* TapAlikeObject.swift in Sources */,
-				8CC3503D1E001D2800B8FD83 /* CGRectExtensions.swift in Sources */,
 				8C2AF8341ED5FB0000EC84AB /* NumberPathHelpViewController.swift in Sources */,
 				8C3A375F1EC88D4300A914A5 /* PairakabeGameScene.swift in Sources */,
 				8C3A37641EC88D4300A914A5 /* PairakabeMainViewController.swift in Sources */,
@@ -5019,10 +4796,8 @@
 				8C74743C1FBDEAD100C4112C /* HolidayIslandHelpViewController.swift in Sources */,
 				8C3A36B61EC88D4300A914A5 /* LightenUpGame.swift in Sources */,
 				8C7609181EC7778100DFCD7B /* GameHelpViewController.swift in Sources */,
-				8CC350561E001D2800B8FD83 /* UISliderExtensions.swift in Sources */,
 				8CC25CCA1F87BB5A005560F7 /* KakuroMainViewController.swift in Sources */,
 				8C3A35FC1EC88D4200A914A5 /* AbstractPaintingMainViewController.swift in Sources */,
-				8CC3504A1E001D2800B8FD83 /* TimerExtensions.swift in Sources */,
 				8C3A37BE1EC88D4400A914A5 /* SnailGame.swift in Sources */,
 				8C3A37CD1EC88D4400A914A5 /* SumscrapersGameViewController.swift in Sources */,
 				8CFAF9BF20381D870095EFFC /* CastleBaileyObject.swift in Sources */,
@@ -5035,7 +4810,6 @@
 				8C6A9BED1F812743002A44FF /* KropkiMainViewController.swift in Sources */,
 				8C3A36F81EC88D4300A914A5 /* MagnetsMainViewController.swift in Sources */,
 				8C2319F11FB88E3F0021C680 /* TierraDelFuegoDocument.swift in Sources */,
-				8CC350551E001D2800B8FD83 /* UILabelExtensions.swift in Sources */,
 				8C6A362A1FAF9D8600D2804D /* NoughtsAndCrossesGameState.swift in Sources */,
 				8C32D8E41FC92B5F00BA2D07 /* RippleEffectObject.swift in Sources */,
 				8C355CE61FE586F9002FC9D6 /* ABCPathGameState.swift in Sources */,
@@ -5046,7 +4820,6 @@
 				8C610F27204159110087C545 /* NorthPoleFishingGridNode.swift in Sources */,
 				8C3A37241EC88D4300A914A5 /* MiniLitsGameState.swift in Sources */,
 				8C1D4F8A1F7D079F000D5FB3 /* Square100GameScene.swift in Sources */,
-				8C916CBD1DAA5E9500D9E62B /* Error.swift in Sources */,
 				8C3A35EA1EC88D4200A914A5 /* AbcGame.swift in Sources */,
 				8C3A36BC1EC88D4300A914A5 /* LightenUpMainViewController.swift in Sources */,
 				8C9F32F51ED1FCFF00E10965 /* TapARowHelpViewController.swift in Sources */,
@@ -5066,7 +4839,6 @@
 				8C6A36271FAF9D8600D2804D /* NoughtsAndCrossesDocument.swift in Sources */,
 				8C3A36371EC88D4200A914A5 /* BoxItUpHelpViewController.swift in Sources */,
 				8CE9C3131F7914B800134093 /* KakurasuGameState.swift in Sources */,
-				8CC3503B1E001D2800B8FD83 /* CGFloatExtensions.swift in Sources */,
 				8C506F161F6D2C9300BA4332 /* SnakeMainViewController.swift in Sources */,
 				8CDAE7F11F5BFBD9000DE5AF /* OverUnderGame.swift in Sources */,
 				8CFAF9BC20381D870095EFFC /* CastleBaileyGame.swift in Sources */,
@@ -5074,14 +4846,12 @@
 				8C3A35F71EC88D4200A914A5 /* AbstractPaintingGameScene.swift in Sources */,
 				8C3A36E71EC88D4300A914A5 /* LoopyGameScene.swift in Sources */,
 				8C3A37B41EC88D4400A914A5 /* SlitherLinkGameState.swift in Sources */,
-				8CC3505C1E001D2800B8FD83 /* UIViewControllerExtensions.swift in Sources */,
 				8C2973EB1EE7284C0022A18A /* GalaxiesOptionsViewController.swift in Sources */,
 				8C3A36471EC88D4200A914A5 /* BridgesOptionsViewController.swift in Sources */,
 				8C9F325E1ED1FAF600E10965 /* PataGridNode.swift in Sources */,
 				8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */,
 				8C32D8E61FC92B5F00BA2D07 /* RippleEffectDocument.swift in Sources */,
 				8C3A364D1EC88D4200A914A5 /* BusySeasGameViewController.swift in Sources */,
-				8CC350401E001D2800B8FD83 /* DictionaryExtensions.swift in Sources */,
 				8C3A37421EC88D4300A914A5 /* NeighboursObject.swift in Sources */,
 				8C3A375E1EC88D4300A914A5 /* PairakabeGame.swift in Sources */,
 				8C7474531FBED8BD00C4112C /* ParkLakesOptionsViewController.swift in Sources */,
@@ -5101,7 +4871,6 @@
 				8C35E3C51FC6DAE600A26EE3 /* NumberLinkGameScene.swift in Sources */,
 				8C3A36F61EC88D4300A914A5 /* MagnetsGridNode.swift in Sources */,
 				8C3A361E1EC88D4200A914A5 /* BoxItAgainGridNode.swift in Sources */,
-				8C916CC21DAA5E9500D9E62B /* Queryable.swift in Sources */,
 				8C9F32491ED1FAD400E10965 /* BWTapaMainViewController.swift in Sources */,
 				8C9F322B1ECF06C000E10965 /* TapaGame.swift in Sources */,
 				8C74746D1FBEFD5700C4112C /* FourMeNotGameViewController.swift in Sources */,
@@ -5124,7 +4893,6 @@
 				8C7E4B451F793C9800B57C60 /* TennerGridGame.swift in Sources */,
 				8CA043181FDBE77B00AF85E1 /* CarpentersWallGameScene.swift in Sources */,
 				8C3A36D11EC88D4300A914A5 /* LineSweeperGameViewController.swift in Sources */,
-				8CC350541E001D2800B8FD83 /* UIImageViewExtensions.swift in Sources */,
 				8C3A364B1EC88D4200A914A5 /* BusySeasGameScene.swift in Sources */,
 				8C9F32331ECF06C000E10965 /* TapaOptionsViewController.swift in Sources */,
 				8C35E3AC1FC4839100A26EE3 /* WallsGameScene.swift in Sources */,
@@ -5133,25 +4901,20 @@
 				8C3A37451EC88D4300A914A5 /* NurikabeDocument.swift in Sources */,
 				8C2319F61FB88E3F0021C680 /* TierraDelFuegoGameScene.swift in Sources */,
 				8C74746C1FBEFD5700C4112C /* FourMeNotDocument.swift in Sources */,
-				8CC350521E001D2800B8FD83 /* UIFontExtensions.swift in Sources */,
 				8C6A36191FAF97AF00D2804D /* TheOddBrickOptionsViewController.swift in Sources */,
 				8C3A371C1EC88D4300A914A5 /* MinesweeperMainViewController.swift in Sources */,
-				8C916CC11DAA5E9500D9E62B /* NodeSet.swift in Sources */,
 				8C3A36D41EC88D4300A914A5 /* LineSweeperMainViewController.swift in Sources */,
 				8CFAF9A3202615570095EFFC /* WallSentinelsGameViewController.swift in Sources */,
 				8CA043201FDBE77B00AF85E1 /* CarpentersSquareHelpViewController.swift in Sources */,
-				8C886C3F1D9E8AF1004A42BF /* ActionSheetDistancePicker.m in Sources */,
 				8C3A36B71EC88D4300A914A5 /* LightenUpGameScene.swift in Sources */,
 				8CE43BDD1FEE6C7B00DCCD91 /* FutoshikiHelpViewController.swift in Sources */,
 				8C3A37901EC88D4400A914A5 /* RoomsGameState.swift in Sources */,
 				8C3A37701EC88D4300A914A5 /* ParksMainViewController.swift in Sources */,
 				8C610F1F204159110087C545 /* NorthPoleFishingDocument.swift in Sources */,
 				8C3A37751EC88D4300A914A5 /* PowerGridDocument.swift in Sources */,
-				8CC3504F1E001D2800B8FD83 /* UIColoredView.swift in Sources */,
 				8C2963F11FA20D620017A812 /* RobotFencesGameState.swift in Sources */,
 				8C6A35E21FAF4FFD00D2804D /* MathraxGameScene.swift in Sources */,
 				8C6A35E41FAF4FFD00D2804D /* MathraxGameViewController.swift in Sources */,
-				8CC350331E001D2800B8FD83 /* BlockLongPress.swift in Sources */,
 				8C3A36D71EC88D4300A914A5 /* LineSweeperOptionsViewController.swift in Sources */,
 				8CF3FFDE1FCB2A2700D41B67 /* DisconnectFourHelpViewController.swift in Sources */,
 				8C2964011FA20D620017A812 /* RobotCrosswordsObject.swift in Sources */,
@@ -5178,9 +4941,7 @@
 				8C3A365E1EC88D4200A914A5 /* CloudsObject.swift in Sources */,
 				8CA0431C1FDBE77B00AF85E1 /* CarpentersWallGameViewController.swift in Sources */,
 				8C3A378F1EC88D4400A914A5 /* RoomsGameScene.swift in Sources */,
-				8CC3505D1E001D2800B8FD83 /* UIViewExtensions.swift in Sources */,
 				8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */,
-				8CC350601E001D2800B8FD83 /* UserDefaultsExtension.swift in Sources */,
 				8C3A36571EC88D4200A914A5 /* CloudsGameScene.swift in Sources */,
 				8C3A36E51EC88D4300A914A5 /* LoopyDocument.swift in Sources */,
 				8C9F32621ED1FAF600E10965 /* PataOptionsViewController.swift in Sources */,
@@ -5198,10 +4959,7 @@
 				8CE9C3181F7914B800134093 /* KakurasuObject.swift in Sources */,
 				8C610F25204159110087C545 /* NorthPoleFishingGameScene.swift in Sources */,
 				8CA0431E1FDBE77B00AF85E1 /* CarpentersSquareObject.swift in Sources */,
-				8CC350481E001D2800B8FD83 /* NSObjectExtensions.swift in Sources */,
 				8CC25CC51F87BB5A005560F7 /* KakuroGameScene.swift in Sources */,
-				8CC350471E001D2800B8FD83 /* NSDictionaryExtensions.swift in Sources */,
-				8C886C3D1D9E8AF1004A42BF /* ActionSheetCustomPicker.m in Sources */,
 				8C3A37D51EC88D4400A914A5 /* TatamiDocument.swift in Sources */,
 				8C7E4B481F793C9800B57C60 /* TennerGridGameViewController.swift in Sources */,
 				8C3A36101EC88D4200A914A5 /* BootyIslandGameState.swift in Sources */,
@@ -5244,7 +5002,6 @@
 				8C3A36C51EC88D4300A914A5 /* LighthousesGameViewController.swift in Sources */,
 				8C3A364F1EC88D4200A914A5 /* BusySeasHelpViewController.swift in Sources */,
 				8CFAF9AA202615570095EFFC /* WallSentinelsGameState.swift in Sources */,
-				8C916CBC1DAA5E9500D9E62B /* Element.swift in Sources */,
 				8CA043131FDBE77B00AF85E1 /* CarpentersWallDocument.swift in Sources */,
 				8C2963FA1FA20D620017A812 /* RobotCrosswordsGame.swift in Sources */,
 				8C9F32451ED1FAD400E10965 /* BWTapaGameState.swift in Sources */,
@@ -5257,9 +5014,7 @@
 				8C6A36301FAF9D8600D2804D /* NoughtsAndCrossesOptionsViewController.swift in Sources */,
 				8C3A36641EC88D4200A914A5 /* DigitalBattleShipsGameState.swift in Sources */,
 				8C3A36041EC88D4200A914A5 /* BattleShipsGameState.swift in Sources */,
-				8C886C411D9E8AF1004A42BF /* ActionSheetMultipleStringPicker.m in Sources */,
 				8C3A37EB1EC88D4400A914A5 /* TentsOptionsViewController.swift in Sources */,
-				8CC350461E001D2800B8FD83 /* NSAttributedStringExtensions.swift in Sources */,
 				8C3A37581EC88D4300A914A5 /* OrchardsMainViewController.swift in Sources */,
 				8C6D37FC1DC5B4DC0052202C /* Game.swift in Sources */,
 				8C3A37B31EC88D4400A914A5 /* SlitherLinkGameScene.swift in Sources */,
@@ -5269,7 +5024,6 @@
 				8C35E3A41FC4839100A26EE3 /* WallsGridNode.swift in Sources */,
 				8C3A36F51EC88D4300A914A5 /* MagnetsGameViewController.swift in Sources */,
 				8C9F32F11ED1FCFF00E10965 /* TapARowGameScene.swift in Sources */,
-				8CC3503C1E001D2800B8FD83 /* CGPointExtensions.swift in Sources */,
 				8C9F33031ED1FCFF00E10965 /* TapDifferentlyOptionsViewController.swift in Sources */,
 				8C3A37E71EC88D4400A914A5 /* TentsHelpViewController.swift in Sources */,
 				8C9F32321ECF06C000E10965 /* TapaObject.swift in Sources */,
@@ -5469,43 +5223,41 @@
 		};
 		8C9F44021D771915000139FC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BEFB6D9344DD96D2CD5A6A3E /* Pods-LogicPuzzlesSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "";
-				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				HEADER_SEARCH_PATHS = "Pods/**";
 				INFOPLIST_FILE = LogicPuzzlesSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zwstudio.LogicPuzzlesSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_INCLUDE_PATHS = ../../OSS/Fuzi/libxml2;
 				SWIFT_OBJC_BRIDGING_HEADER = "LogicPuzzlesSwift-Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		8C9F44031D771915000139FC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CC1F29EA8EBB354D2BB9C39 /* Pods-LogicPuzzlesSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "";
-				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				HEADER_SEARCH_PATHS = "Pods/**";
 				INFOPLIST_FILE = LogicPuzzlesSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zwstudio.LogicPuzzlesSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_INCLUDE_PATHS = ../../OSS/Fuzi/libxml2;
 				SWIFT_OBJC_BRIDGING_HEADER = "LogicPuzzlesSwift-Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

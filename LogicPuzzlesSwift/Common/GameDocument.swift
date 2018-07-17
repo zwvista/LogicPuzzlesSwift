@@ -8,6 +8,7 @@
 
 import UIKit
 import SharkORM
+import Fuzi
 
 struct GameLevel {
     var id: String

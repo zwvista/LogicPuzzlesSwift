@@ -1,0 +1,6 @@
+framework module Pods_LogicPuzzlesSwift {
+  umbrella header "Pods-LogicPuzzlesSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}
