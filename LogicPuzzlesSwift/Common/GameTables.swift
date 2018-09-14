@@ -18,7 +18,7 @@ class GameProgress: SRKObject {
     dynamic var option3: String?
     dynamic var option4: String?
     
-    override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
+    override class func defaultValuesForEntity() -> [String : Any] {
         return ["levelID": "1"]
     }
 }
@@ -29,7 +29,7 @@ class LevelProgress: SRKObject {
     dynamic var levelID: String?
     dynamic var moveIndex = 0
     
-    override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
+    override class func defaultValuesForEntity() -> [String : Any] {
         return ["moveIndex": 0]
     }
 }
@@ -48,7 +48,7 @@ class MoveProgress: SRKObject {
     dynamic var strValue1: String?
     dynamic var strValue2: String?
     
-    override class func defaultValuesForEntity() -> [AnyHashable : Any]! {
+    override class func defaultValuesForEntity() -> [String : Any] {
         return ["moveIndex": 0]
     }
 }

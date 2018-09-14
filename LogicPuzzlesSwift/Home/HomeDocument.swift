@@ -12,7 +12,7 @@ import SharkORM
 class HomeDocument {
     static var sharedInstance = HomeDocument()
     var gameProgress: HomeGameProgress {
-        let result = HomeGameProgress.query().fetch()!
+        let result = HomeGameProgress.query().fetch()
         return result.count == 0 ? HomeGameProgress() : (result[0] as! HomeGameProgress)
     }
     
