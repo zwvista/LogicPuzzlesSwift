@@ -26,7 +26,6 @@
 		8C1D16B11DB8DE930056D407 /* TraversalTree.graffle in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A21DB8DE930056D407 /* TraversalTree.graffle */; };
 		8C1D16B21DB8DE930056D407 /* TraversalTree.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A31DB8DE930056D407 /* TraversalTree.png */; };
 		8C1D16B51DB8DE930056D407 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D16A71DB8DE930056D407 /* Graph.swift */; };
-		8C1D16B61DB8DE930056D407 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A81DB8DE930056D407 /* Info.plist */; };
 		8C1D16B71DB8DE930056D407 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D16A91DB8DE930056D407 /* Queue.swift */; };
 		8C1D4F871F7D079F000D5FB3 /* Square100.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D4F7B1F7D079F000D5FB3 /* Square100.xml */; };
 		8C1D4F881F7D079F000D5FB3 /* Square100Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D4F7C1F7D079F000D5FB3 /* Square100Document.swift */; };
@@ -2038,6 +2037,8 @@
 		8CFAF9B820381D860095EFFC /* CastleBaileyGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastleBaileyGameState.swift; sourceTree = "<group>"; };
 		9514BA4E20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_LogicPuzzlesSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEFB6D9344DD96D2CD5A6A3E /* Pods-LogicPuzzlesSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogicPuzzlesSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LogicPuzzlesSwift/Pods-LogicPuzzlesSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		CA124229BC409C1A67D792A6 /* Pods_LogicPuzzlesSwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogicPuzzlesSwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBA93331BB14FE671CFD4748 /* Pods_LogicPuzzlesSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogicPuzzlesSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3AC06FD9C5A9A3F8A0CD64A /* Pods_LogicPuzzlesSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogicPuzzlesSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -2155,6 +2156,8 @@
 				9514BA4E20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework */,
 				8C31FE6D1D90E415008793BF /* SharkORM.framework */,
 				F3AC06FD9C5A9A3F8A0CD64A /* Pods_LogicPuzzlesSwift.framework */,
+				DBA93331BB14FE671CFD4748 /* Pods_LogicPuzzlesSwiftTests.framework */,
+				CA124229BC409C1A67D792A6 /* Pods_LogicPuzzlesSwiftUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3950,18 +3953,18 @@
 					8C9F43D61D771915000139FC = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = U259NHMY78;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					8C9F43EC1D771915000139FC = {
 						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 8C9F43D61D771915000139FC;
 					};
 					8C9F43F71D771915000139FC = {
 						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 8C9F43D61D771915000139FC;
 					};
@@ -4066,7 +4069,6 @@
 				8CFAF9A8202615570095EFFC /* WallSentinels.xml in Resources */,
 				8C35E3BC1FC6DAE600A26EE3 /* NumberLink.xml in Resources */,
 				8CC34F9D1DFD958A00B8FD83 /* positive.png in Resources */,
-				8C1D16B61DB8DE930056D407 /* Info.plist in Resources */,
 				8C1D16B01DB8DE930056D407 /* AnimatedExample.psd in Resources */,
 				8C3A37D41EC88D4400A914A5 /* Tatami.xml in Resources */,
 				8C2AF82D1ED5FB0000EC84AB /* NumberPath.xml in Resources */,
@@ -5238,8 +5240,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_INCLUDE_PATHS = ../../OSS/Fuzi/libxml2;
 				SWIFT_OBJC_BRIDGING_HEADER = "LogicPuzzlesSwift-Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -5261,8 +5262,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_INCLUDE_PATHS = ../../OSS/Fuzi/libxml2;
 				SWIFT_OBJC_BRIDGING_HEADER = "LogicPuzzlesSwift-Bridging-Header.h";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -5271,12 +5271,22 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ActionSheetPicker-3.0\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/EZSwiftExtensions\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Fuzi\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"Pods/**",
+					"$(SDKROOT)/usr/include/libxml2",
+				);
 				INFOPLIST_FILE = LogicPuzzlesSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zwstudio.LogicPuzzlesSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "LogicPuzzlesSwift-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LogicPuzzlesSwift.app/LogicPuzzlesSwift";
 			};
 			name = Debug;
@@ -5285,12 +5295,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ActionSheetPicker-3.0\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/EZSwiftExtensions\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Fuzi\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"Pods/**",
+					"$(SDKROOT)/usr/include/libxml2",
+				);
 				INFOPLIST_FILE = LogicPuzzlesSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zwstudio.LogicPuzzlesSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "LogicPuzzlesSwift-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LogicPuzzlesSwift.app/LogicPuzzlesSwift";
 			};
 			name = Release;
@@ -5300,12 +5320,28 @@
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ActionSheetPicker-3.0\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/EZSwiftExtensions\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Fuzi\"",
+				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ActionSheetPicker-3.0\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/EZSwiftExtensions\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Fuzi\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"Pods/**",
+					"$(SDKROOT)/usr/include/libxml2",
+				);
 				INFOPLIST_FILE = LogicPuzzlesSwiftUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zwstudio.LogicPuzzlesSwiftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "LogicPuzzlesSwift-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = LogicPuzzlesSwift;
 			};
 			name = Debug;
@@ -5314,12 +5350,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ActionSheetPicker-3.0\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/EZSwiftExtensions\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Fuzi\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"Pods/**",
+					"$(SDKROOT)/usr/include/libxml2",
+				);
 				INFOPLIST_FILE = LogicPuzzlesSwiftUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zwstudio.LogicPuzzlesSwiftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "LogicPuzzlesSwift-Bridging-Header.h";
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = LogicPuzzlesSwift;
 			};
 			name = Release;

@@ -24,7 +24,7 @@ class GameHelpViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 140
         
         title = "\(currentGameTitle) Help"

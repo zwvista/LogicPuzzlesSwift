@@ -21,7 +21,7 @@ extension UIApplication {
                 taskID = self.beginBackgroundTask(expirationHandler: { })
             }
             closure()
-            self.endBackgroundTask(taskID)
+            self.endBackgroundTask(convertToUIBackgroundTaskIdentifier(taskID.rawValue))
         }
     }
 
@@ -43,3 +43,8 @@ extension UIApplication {
 }
 
 #endif
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIBackgroundTaskIdentifier(_ input: Int) -> UIBackgroundTaskIdentifier {
+	return UIBackgroundTaskIdentifier(rawValue: input)
+}
