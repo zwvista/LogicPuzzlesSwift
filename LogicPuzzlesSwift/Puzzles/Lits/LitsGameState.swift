@@ -156,7 +156,7 @@ class LitsGameState: GridGameState {
             for p in info.trees {
                 for os in LitsGame.offset {
                     let p2 = p + os
-                    guard let index = infos.index(where: {$0.trees.contains(p2)}), index != i else {continue}
+                    guard let index = infos.firstIndex(where: {$0.trees.contains(p2)}), index != i else {continue}
                     info.neighborIndexes.insert(index)
                 }
             }
@@ -190,7 +190,7 @@ class LitsGameState: GridGameState {
                 for p in info.trees {
                     treeOffsets.append(p - p2)
                 }
-                info.tetrominoIndex = LitsGame.tetrominoes.index{$0.contains{$0 == treeOffsets}}
+                info.tetrominoIndex = LitsGame.tetrominoes.firstIndex{$0.contains{$0 == treeOffsets}}
                 
                 if info.tetrominoIndex == nil {notSolved(info: info)}
             }

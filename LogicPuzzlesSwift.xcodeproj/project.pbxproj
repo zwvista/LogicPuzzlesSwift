@@ -3953,18 +3953,18 @@
 					8C9F43D61D771915000139FC = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = U259NHMY78;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 					8C9F43EC1D771915000139FC = {
 						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 8C9F43D61D771915000139FC;
 					};
 					8C9F43F71D771915000139FC = {
 						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 8C9F43D61D771915000139FC;
 					};
@@ -3975,6 +3975,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -5240,7 +5241,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_INCLUDE_PATHS = ../../OSS/Fuzi/libxml2;
 				SWIFT_OBJC_BRIDGING_HEADER = "LogicPuzzlesSwift-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -5262,7 +5263,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_INCLUDE_PATHS = ../../OSS/Fuzi/libxml2;
 				SWIFT_OBJC_BRIDGING_HEADER = "LogicPuzzlesSwift-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -5286,7 +5287,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zwstudio.LogicPuzzlesSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "LogicPuzzlesSwift-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LogicPuzzlesSwift.app/LogicPuzzlesSwift";
 			};
 			name = Debug;
@@ -5310,7 +5311,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zwstudio.LogicPuzzlesSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "LogicPuzzlesSwift-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LogicPuzzlesSwift.app/LogicPuzzlesSwift";
 			};
 			name = Release;
@@ -5341,7 +5342,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zwstudio.LogicPuzzlesSwiftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "LogicPuzzlesSwift-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = LogicPuzzlesSwift;
 			};
 			name = Debug;
@@ -5365,7 +5366,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zwstudio.LogicPuzzlesSwiftUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "LogicPuzzlesSwift-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = LogicPuzzlesSwift;
 			};
 			name = Release;

@@ -155,7 +155,7 @@ class MiniLitsGameState: GridGameState {
             for p in info.trees {
                 for os in MiniLitsGame.offset {
                     let p2 = p + os
-                    guard let index = infos.index(where: {$0.trees.contains(p2)}),
+                    guard let index = infos.firstIndex(where: {$0.trees.contains(p2)}),
                         index != i else {continue}
                     info.neighborIndexes.insert(index)
                 }
@@ -190,7 +190,7 @@ class MiniLitsGameState: GridGameState {
                 for p in info.trees {
                     treeOffsets.append(p - p2)
                 }
-                info.triominoIndex = MiniLitsGame.triominos.index{$0 == treeOffsets}
+                info.triominoIndex = MiniLitsGame.triominos.firstIndex{$0 == treeOffsets}
                 if info.triominoIndex == nil {notSolved(info: info)}
             }
             if treeCount < 3 {isSolved = false}

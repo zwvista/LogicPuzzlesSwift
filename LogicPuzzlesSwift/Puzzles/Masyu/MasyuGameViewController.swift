@@ -68,7 +68,7 @@ class MasyuGameViewController: GameGameViewController, GameDelegate {
         case .changed:
             guard pLast != p else {break}
             defer {pLast = p}
-            guard let dir = MasyuGame.offset.index(of: p - pLast!) else {break}
+            guard let dir = MasyuGame.offset.firstIndex(of: p - pLast!) else {break}
             var move = MasyuGameMove(p: pLast!, dir: dir)
             if game.setObject(move: &move) {f()}
         default:

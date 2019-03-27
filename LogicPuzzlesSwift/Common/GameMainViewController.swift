@@ -43,7 +43,7 @@ class GameMainViewController: UIViewController {
         
         lblGameTitle.text = currentGameTitle
         numPages = (gameDocument.levels.count + countPerPage - 1) / countPerPage
-        let index = gameDocument.levels.index(where: {$0.id == gameDocument.selectedLevelID}) ?? 0
+        let index = gameDocument.levels.firstIndex(where: {$0.id == gameDocument.selectedLevelID}) ?? 0
         currentPage = index / countPerPage
         if numPages == 1 {
             btnPrevPage.isHidden = true

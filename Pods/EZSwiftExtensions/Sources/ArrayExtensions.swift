@@ -104,12 +104,12 @@ extension Array where Element: Equatable {
 
     /// EZSE: Checks if the main array contains the parameter array
     public func contains(_ array: [Element]) -> Bool {
-        return array.testAll { self.index(of: $0) ?? -1 >= 0 }
+        return array.testAll { self.firstIndex(of: $0) ?? -1 >= 0 }
     }
 
     /// EZSE: Checks if self contains a list of items.
     public func contains(_ elements: Element...) -> Bool {
-        return elements.testAll { self.index(of: $0) ?? -1 >= 0 }
+        return elements.testAll { self.firstIndex(of: $0) ?? -1 >= 0 }
     }
 
     /// EZSE: Returns the indexes of the object
@@ -124,7 +124,7 @@ extension Array where Element: Equatable {
 
     /// EZSE: Removes the first given object
     public mutating func removeFirst(_ element: Element) {
-        guard let index = index(of: element) else { return }
+        guard let index = firstIndex(of: element) else { return }
         self.remove(at: index)
     }
 

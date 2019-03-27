@@ -65,7 +65,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
             .map{s in s[0..<s.length - ".xml".length]}
             .sorted{$0.localizedCompare($1) == .orderedAscending}
         
-        selectedRow = gameNames.index(of: gameDocument.gameProgress.gameName!)!
+        selectedRow = gameNames.firstIndex(of: gameDocument.gameProgress.gameName!)!
         let indexPath = IndexPath(row: selectedRow, section: 0)
         // https://stackoverflow.com/questions/2685548/uitableview-scrolling-to-specific-position
         tableView.scrollToRow(at: indexPath, at: .middle, animated: true)

@@ -66,7 +66,7 @@ class LineSweeperGameViewController: GameGameViewController, GameDelegate {
         case .changed:
             guard !isH && pLast != nil && pLast != p else {break}
             defer {pLast = p}
-            guard let dir = LineSweeperGame.offset.index(of: p - pLast!) else {break}
+            guard let dir = LineSweeperGame.offset.firstIndex(of: p - pLast!) else {break}
             var move = LineSweeperGameMove(p: pLast!, dir: dir / 2)
             if game.setObject(move: &move) {f()}
         case .ended:

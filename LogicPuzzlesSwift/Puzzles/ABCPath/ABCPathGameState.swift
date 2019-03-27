@@ -79,7 +79,7 @@ class ABCPathGameState: GridGameState {
                 chars.removeFirst(self[p2])
             }
         }
-        let i = chars.index(of: o) ?? chars.count - 1
+        let i = chars.firstIndex(of: o) ?? chars.count - 1
         move.obj = o == " " ? chars[0] : i == chars.count - 1 ? " " : chars[i + 1]
         return setObject(move: &move)
     }
