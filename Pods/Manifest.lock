@@ -1,6 +1,6 @@
 PODS:
   - ActionSheetPicker-3.0 (2.3.0)
-  - EZSwiftExtensions (1.11)
+  - EZSwiftExtensions (2.0)
   - Fuzi (2.1.0)
 
 DEPENDENCIES:
@@ -19,14 +19,14 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   EZSwiftExtensions:
-    :commit: 4536c10b8b60cace968f9bd9384e0886f79c1fa1
+    :commit: 761abf1a568e5a244b78e7796e7d4b1d1ada20dc
     :git: https://github.com/goktugyil/EZSwiftExtensions.git
 
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
-  EZSwiftExtensions: 9d3dc8a51818e2fbfd11099b38a2c47d0ca693d0
+  EZSwiftExtensions: f73648a591e529a1dbd83c22b19fd3e57df6fb7d
   Fuzi: 8c57344debff6d3a0c76a9e0f549152defdaaa48
 
 PODFILE CHECKSUM: a43c4f62ad02586f54d18337eb962c1da24d23f2
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

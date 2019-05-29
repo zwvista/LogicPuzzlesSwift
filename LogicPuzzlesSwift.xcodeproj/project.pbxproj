@@ -4159,7 +4159,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-LogicPuzzlesSwift/Pods-LogicPuzzlesSwift-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-LogicPuzzlesSwift/Pods-LogicPuzzlesSwift-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
 				"${BUILT_PRODUCTS_DIR}/EZSwiftExtensions/EZSwiftExtensions.framework",
 				"${BUILT_PRODUCTS_DIR}/Fuzi/Fuzi.framework",
@@ -4172,7 +4172,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LogicPuzzlesSwift/Pods-LogicPuzzlesSwift-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LogicPuzzlesSwift/Pods-LogicPuzzlesSwift-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -5327,12 +5327,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/EZSwiftExtensions\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/Fuzi\"",
 				);
-				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
-					"$(inherited)",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/ActionSheetPicker-3.0\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/EZSwiftExtensions\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/Fuzi\"",
-				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(inherited) \"${PODS_CONFIGURATION_BUILD_DIR}/ActionSheetPicker-3.0\" \"${PODS_CONFIGURATION_BUILD_DIR}/EZSwiftExtensions\" \"${PODS_CONFIGURATION_BUILD_DIR}/Fuzi\"";
 				HEADER_SEARCH_PATHS = (
 					"Pods/**",
 					"$(SDKROOT)/usr/include/libxml2",

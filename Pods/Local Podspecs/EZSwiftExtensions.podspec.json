@@ -1,6 +1,6 @@
 {
   "name": "EZSwiftExtensions",
-  "version": "1.11",
+  "version": "2.0",
   "summary": ":smirk: How Swift standard types and classes were supposed to work",
   "description": ":smirk: How Swift standard types and classes were supposed to work.",
   "homepage": "https://github.com/goktugyil/EZSwiftExtensions",
@@ -10,7 +10,7 @@
   },
   "source": {
     "git": "https://github.com/goktugyil/EZSwiftExtensions.git",
-    "tag": "1.11"
+    "tag": "2.0"
   },
   "platforms": {
     "ios": "8.0",
