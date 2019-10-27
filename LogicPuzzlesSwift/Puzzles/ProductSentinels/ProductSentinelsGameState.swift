@@ -122,7 +122,7 @@ class ProductSentinelsGameState: GridGameState {
             }
         }
         for p in pos2node.keys {
-            for os in SentinelsGame.offset {
+            for os in ProductSentinelsGame.offset {
                 let p2 = p + os
                 if let node2 = pos2node[p2] {
                     g.addEdge(pos2node[p]!, neighbor: node2)

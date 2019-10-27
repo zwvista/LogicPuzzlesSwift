@@ -152,13 +152,13 @@ class HitoriGameState: GridGameState {
         // 2. While doing that, you must take care that shaded squares don't touch
         // horizontally or vertically between them.
         for p in rngDarken {
-            for os in CloudsGame.offset {
+            for os in HitoriGame.offset {
                 let p2 = p + os
                 guard !rngDarken.contains(p2) else {isSolved = false; return}
             }
         }
         for (p, node) in pos2node {
-            for os in CloudsGame.offset {
+            for os in HitoriGame.offset {
                 let p2 = p + os
                 guard let node2 = pos2node[p2] else {continue}
                 g.addEdge(node, neighbor: node2)

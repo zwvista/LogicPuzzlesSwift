@@ -141,8 +141,8 @@ class PaintTheNurikabeGameState: GridGameState {
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                if NurikabeGame.offset2.testAll({self[p + $0] == .painted}) ||
-                   NurikabeGame.offset2.testAll({self[p + $0] == .empty}) {
+                if PaintTheNurikabeGame.offset2.testAll({self[p + $0] == .painted}) ||
+                   PaintTheNurikabeGame.offset2.testAll({self[p + $0] == .empty}) {
                     isSolved = false; return
                 }
             }
@@ -157,7 +157,7 @@ class PaintTheNurikabeGameState: GridGameState {
             }
         }
         for (p, node) in pos2node {
-            for os in CloudsGame.offset {
+            for os in PaintTheNurikabeGame.offset {
                 let p2 = p + os
                 guard let node2 = pos2node[p2] else {continue}
                 g.addEdge(node, neighbor: node2)
