@@ -14,8 +14,8 @@ class SoundManager: NSObject, AVAudioPlayerDelegate {
     static var sharedInstance = SoundManager()
     var gameOptions: HomeGameProgress { return HomeDocument.sharedInstance.gameProgress }
 
-    // Grab the path, make sure to add it to your project!
-    var apMusic = AVAudioPlayer()
+    // https://stackoverflow.com/questions/58360765/swift-5-1-error-plugin-addinstanceforfactory-no-factory-registered-for-id-c
+    var apMusic: AVAudioPlayer!
     // http://stackoverflow.com/questions/31405990/avaudioplayer-play-multiple-times-same-sound-without-interrupting
     var soundIDTap: SystemSoundID = 0
     var soundIDSolved: SystemSoundID = 0
