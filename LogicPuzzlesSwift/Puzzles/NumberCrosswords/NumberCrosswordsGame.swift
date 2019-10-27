@@ -16,8 +16,8 @@ class NumberCrosswordsGame: GridGame<NumberCrosswordsGameViewController> {
         Position(0, -1),
     ]
 
-    var objArray = [Character]()
-    subscript(p: Position) -> Character {
+    var objArray = [Int]()
+    subscript(p: Position) -> Int {
         get {
             return self[p.row, p.col]
         }
@@ -25,7 +25,7 @@ class NumberCrosswordsGame: GridGame<NumberCrosswordsGameViewController> {
             self[p.row, p.col] = newValue
         }
     }
-    subscript(row: Int, col: Int) -> Character {
+    subscript(row: Int, col: Int) -> Int {
         get {
             return objArray[row * cols + col]
         }
@@ -37,14 +37,16 @@ class NumberCrosswordsGame: GridGame<NumberCrosswordsGameViewController> {
     init(layout: [String], delegate: NumberCrosswordsGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count, layout[0].length)
-        objArray = Array<Character>(repeating: " ", count: rows * cols)
+        size = Position(layout.count, layout[0].length / 2)
+        objArray = Array<Int>(repeating: 0, count: rows * cols)
         
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
-                let ch = str[c]
-                self[r, c] = ch
+                let s = str[c * 2...c * 2 + 1]
+                guard s != "  " else {continue}
+                let n = s.toInt()!
+                self[r, c] = n
             }
         }
                 

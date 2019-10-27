@@ -18,26 +18,25 @@ class NumberCrosswordsGameScene: GameScene<NumberCrosswordsGameState> {
         addLabel(text: n, fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
-    func addHint(p: Position, n: String) {
+    func addHint(p: Position, n: Int, s: HintState) {
         let point = gridNode.gridPosition(p: p)
-        guard !n.isEmpty else {return}
         let nodeNameSuffix = "-\(p.row)-\(p.col)"
         let hintNodeName = "hint" + nodeNameSuffix
-        addNumber(n: n, s: .error, point: point, nodeName: hintNodeName)
+        addNumber(n: String(n), s: s, point: point, nodeName: hintNodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: NumberCrosswordsGameState, skView: SKView) {
         let game = game as! NumberCrosswordsGame
         removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols + 1)
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
         
         // addGrid
         let offset:CGFloat = 0.5
-        addGrid(gridNode: NumberCrosswordsGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols + 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows + 1) / 2 + offset))
+        addGrid(gridNode: NumberCrosswordsGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
         // addNumbers
-        for r in 0..<game.rows {
-            for c in 0..<game.cols {
+        for r in 0..<game.rows - 1 {
+            for c in 0..<game.cols - 1 {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let n = state.game[p]
@@ -48,15 +47,15 @@ class NumberCrosswordsGameScene: GameScene<NumberCrosswordsGameState> {
         }
         
         // addHints
-        for r in 0..<game.rows {
+        for r in 0..<game.rows - 1 {
             let p = Position(r, game.cols)
-            let n = state.row2hint[r]
-            addHint(p: p, n: n)
+            let s = state.row2state[r]
+            addHint(p: p, n: game[r, game.cols - 1], s: s)
         }
-        for c in 0..<game.cols {
+        for c in 0..<game.cols - 1 {
             let p = Position(game.rows, c)
-            let n = state.col2hint[c]
-            addHint(p: p, n: n)
+            let s = state.col2state[c]
+            addHint(p: p, n: game[game.rows - 1, c], s: s)
         }
     }
     
@@ -66,20 +65,20 @@ class NumberCrosswordsGameScene: GameScene<NumberCrosswordsGameState> {
             let hintNodeName = "hint" + nodeNameSuffix
             removeNode(withName: hintNodeName)
         }
-        for r in 0..<stateFrom.rows {
+        for r in 0..<stateFrom.rows - 1 {
             let p = Position(r, stateFrom.cols)
-            let n = stateTo.row2hint[r]
-            if stateFrom.row2hint[r] != n {
+            let s = stateTo.row2state[r]
+            if stateFrom.row2state[r] != s {
                 removeHint(p: p)
-                addHint(p: p, n: n)
+                addHint(p: p, n: stateFrom.game[r, stateFrom.cols - 1], s: s)
             }
         }
-        for c in 0..<stateFrom.cols {
+        for c in 0..<stateFrom.cols - 1 {
             let p = Position(stateFrom.rows, c)
-            let n = stateTo.col2hint[c]
-            if stateFrom.col2hint[c] != n {
+            let s = stateTo.col2state[c]
+            if stateFrom.col2state[c] != s {
                 removeHint(p: p)
-                addHint(p: p, n: n)
+                addHint(p: p, n: stateFrom.game[stateFrom.rows - 1, c], s: s)
             }
         }
         for r in 0..<stateFrom.rows {

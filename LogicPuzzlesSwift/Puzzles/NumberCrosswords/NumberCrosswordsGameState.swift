@@ -17,8 +17,8 @@ class NumberCrosswordsGameState: GridGameState {
     var gameDocument: NumberCrosswordsDocument { return NumberCrosswordsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { return NumberCrosswordsDocument.sharedInstance }
     var objArray = [NumberCrosswordsObject]()
-    var row2hint = [String]()
-    var col2hint = [String]()
+    var row2state = [HintState]()
+    var col2state = [HintState]()
     
     override func copy() -> NumberCrosswordsGameState {
         let v = NumberCrosswordsGameState(game: game, isCopy: true)
@@ -27,8 +27,8 @@ class NumberCrosswordsGameState: GridGameState {
     func setup(v: NumberCrosswordsGameState) -> NumberCrosswordsGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.row2hint = row2hint
-        v.col2hint = col2hint
+        v.row2state = row2state
+        v.col2state = col2state
         return v
     }
     
@@ -36,8 +36,8 @@ class NumberCrosswordsGameState: GridGameState {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<NumberCrosswordsObject>(repeating: NumberCrosswordsObject(), count: rows * cols)
-        row2hint = Array<String>(repeating: "", count: rows)
-        col2hint = Array<String>(repeating: "", count: cols)
+        row2state = Array<HintState>(repeating: .error, count: rows - 1)
+        col2state = Array<HintState>(repeating: .error, count: cols - 1)
         updateIsSolved()
     }
     
@@ -92,78 +92,36 @@ class NumberCrosswordsGameState: GridGameState {
 
         Description
         1. Blacken some tiles, so that some of the numbers remain visible.
-        2. Numbers outside the grid show the sums of the numbers in the
+        2. Numbers outside the grid show the states of the numbers in the
            remaining tiles in that row or column.
     */
     private func updateIsSolved() {
         isSolved = true
-        var chars = ""
-        // 1. The goal is to shade squares so that a number appears only once in a
-        // row.
-        for r in 0..<rows {
-            chars = ""
-            row2hint[r] = ""
-            for c in 0..<cols {
+        // 1. Blacken some tiles, so that some of the numbers remain visible.
+        // 2. Numbers outside the grid show the states of the numbers in the
+        //    remaining tiles in that row or column.
+        for r in 0..<rows - 1 {
+            var sum = 0
+            for c in 0..<cols - 1 {
                 let p = Position(r, c)
                 guard self[p] != .darken else {continue}
-                let ch = game[p]
-                if chars.contains(String(ch)) {
-                    isSolved = false
-                    row2hint[r].append(ch)
-                } else {
-                    chars.append(ch)
-                }
+                sum += game[p]
             }
+            row2state[r] = sum == game[r, cols - 1] ? .complete : .error
+            if row2state[r] != .complete {isSolved = false}
         }
-        // 1. The goal is to shade squares so that a number appears only once in a
-        // column.
-        for c in 0..<cols {
-            chars = ""
-            col2hint[c] = ""
-            for r in 0..<rows {
+        // 1. Blacken some tiles, so that some of the numbers remain visible.
+        // 2. Numbers outside the grid show the states of the numbers in the
+        //    remaining tiles in that row or column.
+        for c in 0..<cols - 1 {
+            var sum = 0
+            for r in 0..<rows - 1 {
                 let p = Position(r, c)
                 guard self[p] != .darken else {continue}
-                let ch = game[p]
-                if chars.contains(String(ch)) {
-                    isSolved = false
-                    col2hint[c].append(ch)
-                } else {
-                    chars.append(ch)
-                }
+                sum += game[p]
             }
+            col2state[c] = sum == game[rows - 1, c] ? .complete : .error
+            if col2state[c] != .complete {isSolved = false}
         }
-        guard isSolved else {return}
-        let g = Graph()
-        var pos2node = [Position: Node]()
-        var rngDarken = [Position]()
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                switch self[p] {
-                case .darken:
-                    rngDarken.append(p)
-                default:
-                    pos2node[p] = g.addNode(p.description)
-                }
-            }
-        }
-        // 2. While doing that, you must take care that shaded squares don't touch
-        // horizontally or vertically between them.
-        for p in rngDarken {
-            for os in CloudsGame.offset {
-                let p2 = p + os
-                guard !rngDarken.contains(p2) else {isSolved = false; return}
-            }
-        }
-        for (p, node) in pos2node {
-            for os in CloudsGame.offset {
-                let p2 = p + os
-                guard let node2 = pos2node[p2] else {continue}
-                g.addEdge(node, neighbor: node2)
-            }
-        }
-        // 3. In the end all the un-shaded squares must form a single continuous area.
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if pos2node.count != nodesExplored.count {isSolved = false}
     }
 }
