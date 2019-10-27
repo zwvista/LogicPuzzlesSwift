@@ -15,6 +15,10 @@ class NumberCrosswordsGame: GridGame<NumberCrosswordsGameViewController> {
         Position(1, 0),
         Position(0, -1),
     ]
+    
+    override func isValid(row: Int, col: Int) -> Bool {
+        return 0..<rows - 1 ~= row && 0..<cols - 1 ~= col
+    }
 
     var objArray = [Int]()
     subscript(p: Position) -> Int {

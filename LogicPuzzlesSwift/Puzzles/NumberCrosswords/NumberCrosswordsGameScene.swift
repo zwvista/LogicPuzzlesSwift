@@ -32,7 +32,7 @@ class NumberCrosswordsGameScene: GameScene<NumberCrosswordsGameState> {
         
         // addGrid
         let offset:CGFloat = 0.5
-        addGrid(gridNode: NumberCrosswordsGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
+        addGrid(gridNode: NumberCrosswordsGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
         // addNumbers
         for r in 0..<game.rows - 1 {
@@ -48,12 +48,12 @@ class NumberCrosswordsGameScene: GameScene<NumberCrosswordsGameState> {
         
         // addHints
         for r in 0..<game.rows - 1 {
-            let p = Position(r, game.cols)
+            let p = Position(r, game.cols - 1)
             let s = state.row2state[r]
             addHint(p: p, n: game[r, game.cols - 1], s: s)
         }
         for c in 0..<game.cols - 1 {
-            let p = Position(game.rows, c)
+            let p = Position(game.rows - 1, c)
             let s = state.col2state[c]
             addHint(p: p, n: game[game.rows - 1, c], s: s)
         }
@@ -66,7 +66,7 @@ class NumberCrosswordsGameScene: GameScene<NumberCrosswordsGameState> {
             removeNode(withName: hintNodeName)
         }
         for r in 0..<stateFrom.rows - 1 {
-            let p = Position(r, stateFrom.cols)
+            let p = Position(r, stateFrom.cols - 1)
             let s = stateTo.row2state[r]
             if stateFrom.row2state[r] != s {
                 removeHint(p: p)
@@ -74,7 +74,7 @@ class NumberCrosswordsGameScene: GameScene<NumberCrosswordsGameState> {
             }
         }
         for c in 0..<stateFrom.cols - 1 {
-            let p = Position(stateFrom.rows, c)
+            let p = Position(stateFrom.rows - 1, c)
             let s = stateTo.col2state[c]
             if stateFrom.col2state[c] != s {
                 removeHint(p: p)
