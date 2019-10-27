@@ -37,6 +37,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         "MiniLits": "Mini-Lits",
         "NorthPoleFishing": "North Pole Fishing",
         "NoughtsAndCrosses": "Noughts & Crosses",
+        "NumberCrosswords": "Number Crosswords",
         "NumberPath": "Number Path",
         "OverUnder": "Over Under",
         "PaintTheNurikabe": "Paint The Nurikabe",

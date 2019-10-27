@@ -1,0 +1,22 @@
+//
+//  NumberCrosswordsObject.swift
+//  LogicPuzzlesSwift
+//
+//  Created by 趙偉 on 2016/09/26.
+//  Copyright © 2016年 趙偉. All rights reserved.
+//
+
+import Foundation
+
+enum NumberCrosswordsObject: Int {
+    case normal, darken, marker
+    init() {
+        self = .normal
+    }
+}
+
+struct NumberCrosswordsGameMove {
+    var p = Position()
+    var obj = NumberCrosswordsObject()
+}
+

@@ -995,6 +995,17 @@
 		8CFAF9C220381D870095EFFC /* CastleBailey.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CFAF9B720381D860095EFFC /* CastleBailey.xml */; };
 		8CFAF9C320381D870095EFFC /* CastleBaileyGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFAF9B820381D860095EFFC /* CastleBaileyGameState.swift */; };
 		9514BA4F20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9514BA4E20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework */; };
+		95E2B500236598F400F4F95B /* NumberCrosswordsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B4F4236598F400F4F95B /* NumberCrosswordsMainViewController.swift */; };
+		95E2B501236598F400F4F95B /* NumberCrosswordsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B4F5236598F400F4F95B /* NumberCrosswordsGameViewController.swift */; };
+		95E2B502236598F400F4F95B /* NumberCrosswordsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B4F6236598F400F4F95B /* NumberCrosswordsDocument.swift */; };
+		95E2B503236598F400F4F95B /* NumberCrosswordsHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B4F7236598F400F4F95B /* NumberCrosswordsHelpViewController.swift */; };
+		95E2B504236598F400F4F95B /* NumberCrosswordsOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B4F8236598F400F4F95B /* NumberCrosswordsOptionsViewController.swift */; };
+		95E2B505236598F400F4F95B /* NumberCrosswords.xml in Resources */ = {isa = PBXBuildFile; fileRef = 95E2B4F9236598F400F4F95B /* NumberCrosswords.xml */; };
+		95E2B506236598F400F4F95B /* NumberCrosswordsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B4FA236598F400F4F95B /* NumberCrosswordsGameScene.swift */; };
+		95E2B507236598F400F4F95B /* NumberCrosswordsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B4FB236598F400F4F95B /* NumberCrosswordsGameState.swift */; };
+		95E2B508236598F400F4F95B /* NumberCrosswordsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B4FC236598F400F4F95B /* NumberCrosswordsObject.swift */; };
+		95E2B509236598F400F4F95B /* NumberCrosswordsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B4FD236598F400F4F95B /* NumberCrosswordsGridNode.swift */; };
+		95E2B50A236598F400F4F95B /* NumberCrosswordsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B4FE236598F400F4F95B /* NumberCrosswordsGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2036,6 +2047,17 @@
 		8CFAF9B720381D860095EFFC /* CastleBailey.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CastleBailey.xml; sourceTree = "<group>"; };
 		8CFAF9B820381D860095EFFC /* CastleBaileyGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastleBaileyGameState.swift; sourceTree = "<group>"; };
 		9514BA4E20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_LogicPuzzlesSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95E2B4F4236598F400F4F95B /* NumberCrosswordsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberCrosswordsMainViewController.swift; sourceTree = "<group>"; };
+		95E2B4F5236598F400F4F95B /* NumberCrosswordsGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberCrosswordsGameViewController.swift; sourceTree = "<group>"; };
+		95E2B4F6236598F400F4F95B /* NumberCrosswordsDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberCrosswordsDocument.swift; sourceTree = "<group>"; };
+		95E2B4F7236598F400F4F95B /* NumberCrosswordsHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberCrosswordsHelpViewController.swift; sourceTree = "<group>"; };
+		95E2B4F8236598F400F4F95B /* NumberCrosswordsOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberCrosswordsOptionsViewController.swift; sourceTree = "<group>"; };
+		95E2B4F9236598F400F4F95B /* NumberCrosswords.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NumberCrosswords.xml; sourceTree = "<group>"; };
+		95E2B4FA236598F400F4F95B /* NumberCrosswordsGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberCrosswordsGameScene.swift; sourceTree = "<group>"; };
+		95E2B4FB236598F400F4F95B /* NumberCrosswordsGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberCrosswordsGameState.swift; sourceTree = "<group>"; };
+		95E2B4FC236598F400F4F95B /* NumberCrosswordsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberCrosswordsObject.swift; sourceTree = "<group>"; };
+		95E2B4FD236598F400F4F95B /* NumberCrosswordsGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberCrosswordsGridNode.swift; sourceTree = "<group>"; };
+		95E2B4FE236598F400F4F95B /* NumberCrosswordsGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberCrosswordsGame.swift; sourceTree = "<group>"; };
 		BEFB6D9344DD96D2CD5A6A3E /* Pods-LogicPuzzlesSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogicPuzzlesSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LogicPuzzlesSwift/Pods-LogicPuzzlesSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		CA124229BC409C1A67D792A6 /* Pods_LogicPuzzlesSwiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogicPuzzlesSwiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBA93331BB14FE671CFD4748 /* Pods_LogicPuzzlesSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogicPuzzlesSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2416,6 +2438,7 @@
 				8C3A35251EC88D4100A914A5 /* Neighbours */,
 				8C610F11204159100087C545 /* NorthPoleFishing */,
 				8C6A361A1FAF9D8600D2804D /* NoughtsAndCrosses */,
+				95E2B4F3236598F400F4F95B /* NumberCrosswords */,
 				8C35E3AF1FC6DADD00A26EE3 /* NumberLink */,
 				8C2AF8211ED5FB0000EC84AB /* NumberPath */,
 				8C3A35321EC88D4100A914A5 /* Nurikabe */,
@@ -3872,6 +3895,24 @@
 			path = CastleBailey;
 			sourceTree = "<group>";
 		};
+		95E2B4F3236598F400F4F95B /* NumberCrosswords */ = {
+			isa = PBXGroup;
+			children = (
+				95E2B4F9236598F400F4F95B /* NumberCrosswords.xml */,
+				95E2B4F6236598F400F4F95B /* NumberCrosswordsDocument.swift */,
+				95E2B4FE236598F400F4F95B /* NumberCrosswordsGame.swift */,
+				95E2B4FA236598F400F4F95B /* NumberCrosswordsGameScene.swift */,
+				95E2B4FB236598F400F4F95B /* NumberCrosswordsGameState.swift */,
+				95E2B4F5236598F400F4F95B /* NumberCrosswordsGameViewController.swift */,
+				95E2B4FD236598F400F4F95B /* NumberCrosswordsGridNode.swift */,
+				95E2B4F7236598F400F4F95B /* NumberCrosswordsHelpViewController.swift */,
+				95E2B4F4236598F400F4F95B /* NumberCrosswordsMainViewController.swift */,
+				95E2B4FC236598F400F4F95B /* NumberCrosswordsObject.swift */,
+				95E2B4F8236598F400F4F95B /* NumberCrosswordsOptionsViewController.swift */,
+			);
+			path = NumberCrosswords;
+			sourceTree = "<group>";
+		};
 		EEB3A28154EBC98077733058 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -4097,6 +4138,7 @@
 				8C3A37501EC88D4300A914A5 /* Orchards.xml in Resources */,
 				8C1D4F871F7D079F000D5FB3 /* Square100.xml in Resources */,
 				8C3A35E81EC88D4200A914A5 /* Abc.xml in Resources */,
+				95E2B505236598F400F4F95B /* NumberCrosswords.xml in Resources */,
 				8C35E3A51FC4839100A26EE3 /* Walls.xml in Resources */,
 				8C3A36F01EC88D4300A914A5 /* Magnets.xml in Resources */,
 				8C3A369C1EC88D4200A914A5 /* Hitori.xml in Resources */,
@@ -4226,10 +4268,12 @@
 				8C2AF82E1ED5FB0000EC84AB /* NumberPathDocument.swift in Sources */,
 				8CA042DD1FDB878800AF85E1 /* FillominoOptionsViewController.swift in Sources */,
 				8CD1558B1DD77C3400786F34 /* Extensions.swift in Sources */,
+				95E2B506236598F400F4F95B /* NumberCrosswordsGameScene.swift in Sources */,
 				8C9F32F41ED1FCFF00E10965 /* TapARowGridNode.swift in Sources */,
 				8C2964021FA20D620017A812 /* RobotCrosswordsOptionsViewController.swift in Sources */,
 				8CE43BDB1FEE6C7B00DCCD91 /* FutoshikiGameScene.swift in Sources */,
 				8C1D4F8E1F7D079F000D5FB3 /* Square100HelpViewController.swift in Sources */,
+				95E2B509236598F400F4F95B /* NumberCrosswordsGridNode.swift in Sources */,
 				8CE9C3121F7914B800134093 /* KakurasuGameScene.swift in Sources */,
 				8C7E4B461F793C9800B57C60 /* TennerGridGameScene.swift in Sources */,
 				8C7609101EC627E900DFCD7B /* Global.swift in Sources */,
@@ -4473,6 +4517,7 @@
 				8C2319EE1FB88E3F0021C680 /* TierraDelFuegoGameViewController.swift in Sources */,
 				8C3A37631EC88D4300A914A5 /* PairakabeHelpViewController.swift in Sources */,
 				8C2963F31FA20D620017A812 /* RobotFencesGridNode.swift in Sources */,
+				95E2B502236598F400F4F95B /* NumberCrosswordsDocument.swift in Sources */,
 				8CA042F01FDB930A00AF85E1 /* CalcudokuDocument.swift in Sources */,
 				8C6A36181FAF97AF00D2804D /* TheOddBrickObject.swift in Sources */,
 				8C35E38F1FC2844F00A26EE3 /* GardenerMainViewController.swift in Sources */,
@@ -4486,6 +4531,7 @@
 				8C3A362F1EC88D4200A914A5 /* BoxItAroundOptionsViewController.swift in Sources */,
 				8CC25CCC1F87BB5A005560F7 /* KakuroOptionsViewController.swift in Sources */,
 				8C74743F1FBDEAD100C4112C /* HolidayIslandOptionsViewController.swift in Sources */,
+				95E2B501236598F400F4F95B /* NumberCrosswordsGameViewController.swift in Sources */,
 				8CDAE7F91F5BFBD9000DE5AF /* OverUnderOptionsViewController.swift in Sources */,
 				8CC25CCB1F87BB5A005560F7 /* KakuroObject.swift in Sources */,
 				8C35E3951FC2844F00A26EE3 /* GardenerOptionsViewController.swift in Sources */,
@@ -4665,6 +4711,7 @@
 				8C3A362B1EC88D4200A914A5 /* BoxItAroundHelpViewController.swift in Sources */,
 				8C3A35FA1EC88D4200A914A5 /* AbstractPaintingGridNode.swift in Sources */,
 				8C3A37471EC88D4300A914A5 /* NurikabeGameScene.swift in Sources */,
+				95E2B507236598F400F4F95B /* NumberCrosswordsGameState.swift in Sources */,
 				8C9F32FA1ED1FCFF00E10965 /* TapDifferentlyDocument.swift in Sources */,
 				8C3A36AF1EC88D4300A914A5 /* LightBattleShipsHelpViewController.swift in Sources */,
 				8C3A362E1EC88D4200A914A5 /* BoxItAroundObject.swift in Sources */,
@@ -4924,11 +4971,14 @@
 				8C3A37CF1EC88D4400A914A5 /* SumscrapersHelpViewController.swift in Sources */,
 				8C32D8E21FC92B5F00BA2D07 /* RippleEffectHelpViewController.swift in Sources */,
 				8C3A36EA1EC88D4300A914A5 /* LoopyGridNode.swift in Sources */,
+				95E2B50A236598F400F4F95B /* NumberCrosswordsGame.swift in Sources */,
 				8CA043191FDBE77B00AF85E1 /* CarpentersWallHelpViewController.swift in Sources */,
 				8CE43BD81FEE6C7B00DCCD91 /* FutoshikiMainViewController.swift in Sources */,
 				8C7474501FBED8BD00C4112C /* ParkLakesGame.swift in Sources */,
+				95E2B500236598F400F4F95B /* NumberCrosswordsMainViewController.swift in Sources */,
 				8C3A37271EC88D4300A914A5 /* MiniLitsHelpViewController.swift in Sources */,
 				8C3A378B1EC88D4400A914A5 /* ProductSentinelsOptionsViewController.swift in Sources */,
+				95E2B508236598F400F4F95B /* NumberCrosswordsObject.swift in Sources */,
 				8C610F1E204159110087C545 /* NorthPoleFishingOptionsViewController.swift in Sources */,
 				8C9F32FC1ED1FCFF00E10965 /* TapDifferentlyGameScene.swift in Sources */,
 				8C3A373A1EC88D4300A914A5 /* NeighboursGame.swift in Sources */,
@@ -5027,6 +5077,7 @@
 				8C9F32F11ED1FCFF00E10965 /* TapARowGameScene.swift in Sources */,
 				8C9F33031ED1FCFF00E10965 /* TapDifferentlyOptionsViewController.swift in Sources */,
 				8C3A37E71EC88D4400A914A5 /* TentsHelpViewController.swift in Sources */,
+				95E2B504236598F400F4F95B /* NumberCrosswordsOptionsViewController.swift in Sources */,
 				8C9F32321ECF06C000E10965 /* TapaObject.swift in Sources */,
 				8C3A37061EC88D4300A914A5 /* MasyuObject.swift in Sources */,
 				8C3A371E1EC88D4300A914A5 /* MinesweeperObject.swift in Sources */,
@@ -5052,6 +5103,7 @@
 				8C3A36201EC88D4200A914A5 /* BoxItAgainMainViewController.swift in Sources */,
 				8C6A36101FAF97AF00D2804D /* TheOddBrickDocument.swift in Sources */,
 				8C9F32F21ED1FCFF00E10965 /* TapARowGameState.swift in Sources */,
+				95E2B503236598F400F4F95B /* NumberCrosswordsHelpViewController.swift in Sources */,
 				8C3A37561EC88D4300A914A5 /* OrchardsGridNode.swift in Sources */,
 				8C3A37941EC88D4400A914A5 /* RoomsMainViewController.swift in Sources */,
 				8CA042DB1FDB878800AF85E1 /* FillominoObject.swift in Sources */,
@@ -5327,7 +5379,12 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/EZSwiftExtensions\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/Fuzi\"",
 				);
-				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "$(inherited) \"${PODS_CONFIGURATION_BUILD_DIR}/ActionSheetPicker-3.0\" \"${PODS_CONFIGURATION_BUILD_DIR}/EZSwiftExtensions\" \"${PODS_CONFIGURATION_BUILD_DIR}/Fuzi\"";
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ActionSheetPicker-3.0\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/EZSwiftExtensions\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Fuzi\"",
+				);
 				HEADER_SEARCH_PATHS = (
 					"Pods/**",
 					"$(SDKROOT)/usr/include/libxml2",
