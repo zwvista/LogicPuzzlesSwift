@@ -100,7 +100,7 @@ class ABCPathGameState: GridGameState {
                 pos2state[Position(r, c)] = .normal
             }
         }
-        var pos2ch = [(Position, Character)]()
+        var ch2rng = [Character: [Position]]()
         for r in 1..<rows - 1 {
             for c in 1..<cols - 1 {
                 let p = Position(r, c)
@@ -108,13 +108,13 @@ class ABCPathGameState: GridGameState {
                 if ch == " " {
                     isSolved = false
                 } else {
-                    pos2ch.append((p, ch))
+                    var rng = ch2rng[ch] ?? [Position]()
+                    rng.append(p)
+                    ch2rng[ch] = rng
                 }
             }
         }
-        let ch2rng = Dictionary(grouping: pos2ch, by: {$0.1})
-            .map{(ch, kvs) in (ch, kvs.map{$0.0})}
-            .filter{(ch, rng) in rng.count > 1}
+        ch2rng = ch2rng.filter{(ch, rng) in rng.count > 1}
         if !ch2rng.isEmpty {isSolved = false}
         for (_, rng) in ch2rng {
             for p in rng {
