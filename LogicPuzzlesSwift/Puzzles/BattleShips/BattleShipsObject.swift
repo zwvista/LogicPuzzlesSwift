@@ -14,6 +14,14 @@ enum BattleShipsObject: Int {
     init() {
         self = .empty
     }
+    func isShipPiece() -> Bool {
+        switch self {
+        case .empty, .forbidden, .marker:
+            return false
+        default:
+            return true
+        }
+    }
 }
 
 struct BattleShipsGameMove {

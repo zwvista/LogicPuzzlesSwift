@@ -138,8 +138,7 @@ class BootyIslandGameState: GridGameState {
                     self[p] = .treasure(state: s)
                     if s == .error {isSolved = false}
                 case .empty, .marker:
-                    guard allowedObjectsOnly && hasNeighbor() else {continue}
-                    self[p] = .forbidden
+                    if allowedObjectsOnly && hasNeighbor() {self[p] = .forbidden}
                 default:
                     break
                 }

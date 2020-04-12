@@ -135,12 +135,7 @@ class BattleShipsGameState: GridGameState {
             var n1 = 0
             let n2 = game.row2hint[r]
             for c in 0..<cols {
-                switch self[r, c] {
-                case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
-                    n1 += 1
-                default:
-                    break
-                }
+                if self[r, c].isShipPiece() {n1 += 1}
             }
             row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
@@ -150,12 +145,7 @@ class BattleShipsGameState: GridGameState {
             var n1 = 0
             let n2 = game.col2hint[c]
             for r in 0..<rows {
-                switch self[r, c] {
-                case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
-                    n1 += 1
-                default:
-                    break
-                }
+                if self[r, c].isShipPiece() {n1 += 1}
             }
             col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 {isSolved = false}
@@ -175,12 +165,9 @@ class BattleShipsGameState: GridGameState {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                switch self[r, c] {
-                case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
+                if self[r, c].isShipPiece() {
                     let node = g.addNode(p.description)
                     pos2node[p] = node
-                default:
-                    break
                 }
             }
         }
@@ -205,8 +192,7 @@ class BattleShipsGameState: GridGameState {
                     // 3. A ship or piece of ship can't touch another, not even diagonally.
                     let p2 = p + os
                     if !self.isValid(p: p2) || area.contains(p2) {continue}
-                    let o = self[p2]
-                    if !(o == .empty || o == .forbidden || o == .marker) {
+                    if self[p2].isShipPiece() {
                         isSolved = false
                     } else if allowedObjectsOnly {
                         self[p2] = .forbidden
