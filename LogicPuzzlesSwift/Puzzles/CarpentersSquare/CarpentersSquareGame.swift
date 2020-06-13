@@ -66,20 +66,12 @@ class CarpentersSquareGame: GridGame<CarpentersSquareGameViewController> {
     }
     
     subscript(p: Position) -> GridDotObject {
-        get {
-            return self[p.row, p.col]
-        }
-        set(newValue) {
-            self[p.row, p.col] = newValue
-        }
+        get { self[p.row, p.col] }
+        set { self[p.row, p.col] = newValue }
     }
     subscript(row: Int, col: Int) -> GridDotObject {
-        get {
-            return objArray[row * cols + col]
-        }
-        set(newValue) {
-            objArray[row * cols + col] = newValue
-        }
+        get { objArray[row * cols + col] }
+        set { objArray[row * cols + col] = newValue }
     }
     
     func switchObject(move: inout CarpentersSquareGameMove) -> Bool {

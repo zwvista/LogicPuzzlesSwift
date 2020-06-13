@@ -40,20 +40,12 @@ class GardenerGameState: GridGameState {
     }
     
     subscript(p: Position) -> GardenerObject {
-        get {
-            return self[p.row, p.col]
-        }
-        set(newValue) {
-            self[p.row, p.col] = newValue
-        }
+        get { self[p.row, p.col] }
+        set { self[p.row, p.col] = newValue }
     }
     subscript(row: Int, col: Int) -> GardenerObject {
-        get {
-            return objArray[row * cols + col]
-        }
-        set(newValue) {
-            objArray[row * cols + col] = newValue
-        }
+        get { objArray[row * cols + col] }
+        set { objArray[row * cols + col] = newValue }
     }
     
     func setObject(move: inout GardenerGameMove) -> Bool {

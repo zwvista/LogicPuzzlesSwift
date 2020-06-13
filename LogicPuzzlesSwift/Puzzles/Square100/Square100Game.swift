@@ -18,20 +18,12 @@ class Square100Game: GridGame<Square100GameViewController> {
 
     var objArray = [String]()
     subscript(p: Position) -> String {
-        get {
-            return self[p.row, p.col]
-        }
-        set(newValue) {
-            self[p.row, p.col] = newValue
-        }
+        get { self[p.row, p.col] }
+        set { self[p.row, p.col] = newValue }
     }
     subscript(row: Int, col: Int) -> String {
-        get {
-            return objArray[row * cols + col]
-        }
-        set(newValue) {
-            objArray[row * cols + col] = newValue
-        }
+        get { objArray[row * cols + col] }
+        set { objArray[row * cols + col] = newValue }
     }
     
     init(layout: [String], delegate: Square100GameViewController? = nil) {
