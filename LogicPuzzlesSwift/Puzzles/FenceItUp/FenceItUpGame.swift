@@ -77,11 +77,11 @@ class FenceItUpGame: GridGame<FenceItUpGameViewController> {
     }
     
     func switchObject(move: inout FenceItUpGameMove) -> Bool {
-        return changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
+        changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
     }
     
     func setObject(move: inout FenceItUpGameMove) -> Bool {
-        return changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
+        changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
     }
     
 }

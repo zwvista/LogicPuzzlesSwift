@@ -56,11 +56,11 @@ class DisconnectFourGame: GridGame<DisconnectFourGameViewController> {
     }
     
     func switchObject(move: inout DisconnectFourGameMove) -> Bool {
-        return changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
+        changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
     }
     
     func setObject(move: inout DisconnectFourGameMove) -> Bool {
-        return changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
+        changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
     }
     
 }

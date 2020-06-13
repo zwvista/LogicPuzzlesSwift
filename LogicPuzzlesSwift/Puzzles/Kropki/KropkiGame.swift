@@ -113,11 +113,11 @@ class KropkiGame: GridGame<KropkiGameViewController> {
     }
     
     func switchObject(move: inout KropkiGameMove) -> Bool {
-        return changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
+        changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
     }
     
     func setObject(move: inout KropkiGameMove) -> Bool {
-        return changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
+        changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
     }
     
 }

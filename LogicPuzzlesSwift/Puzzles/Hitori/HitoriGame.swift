@@ -53,11 +53,11 @@ class HitoriGame: GridGame<HitoriGameViewController> {
     }
     
     func switchObject(move: inout HitoriGameMove) -> Bool {
-        return changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
+        changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
     }
     
     func setObject(move: inout HitoriGameMove) -> Bool {
-        return changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
+        changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
     }
     
 }

@@ -42,7 +42,7 @@ class LineSweeperGame: GridGame<LineSweeperGameViewController> {
     }
     
     func setObject(move: inout LineSweeperGameMove) -> Bool {
-        return changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
+        changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
     }
     
 }
