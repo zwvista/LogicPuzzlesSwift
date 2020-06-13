@@ -18,7 +18,7 @@ class BWTapaGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: BWTapaGame {
-        get {return getGame() as! BWTapaGame}
+        get {getGame() as! BWTapaGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: BWTapaDocument { return BWTapaDocument.sharedInstance }

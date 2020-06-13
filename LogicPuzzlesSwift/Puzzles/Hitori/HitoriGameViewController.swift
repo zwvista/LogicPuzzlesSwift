@@ -18,7 +18,7 @@ class HitoriGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: HitoriGame {
-        get {return getGame() as! HitoriGame}
+        get {getGame() as! HitoriGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: HitoriDocument { return HitoriDocument.sharedInstance }

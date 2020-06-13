@@ -11,7 +11,7 @@ import Foundation
 class SlitherLinkGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: SlitherLinkGame {
-        get {return getGame() as! SlitherLinkGame}
+        get {getGame() as! SlitherLinkGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: SlitherLinkDocument { return SlitherLinkDocument.sharedInstance }

@@ -10,7 +10,7 @@ import SpriteKit
 
 class SnakeGameScene: GameScene<SnakeGameState> {
     var gridNode: SnakeGridNode {
-        get {return getGridNode() as! SnakeGridNode}
+        get {getGridNode() as! SnakeGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

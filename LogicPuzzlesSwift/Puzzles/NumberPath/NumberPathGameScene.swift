@@ -10,7 +10,7 @@ import SpriteKit
 
 class NumberPathGameScene: GameScene<NumberPathGameState> {
     var gridNode: NumberPathGridNode {
-        get {return getGridNode() as! NumberPathGridNode}
+        get {getGridNode() as! NumberPathGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

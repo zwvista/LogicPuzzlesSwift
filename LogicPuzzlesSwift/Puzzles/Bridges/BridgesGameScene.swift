@@ -10,7 +10,7 @@ import SpriteKit
 
 class BridgesGameScene: GameScene<BridgesGameState> {
     var gridNode: BridgesGridNode {
-        get {return getGridNode() as! BridgesGridNode}
+        get {getGridNode() as! BridgesGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

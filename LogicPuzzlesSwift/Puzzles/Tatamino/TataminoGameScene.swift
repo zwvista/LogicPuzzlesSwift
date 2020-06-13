@@ -10,7 +10,7 @@ import SpriteKit
 
 class TataminoGameScene: GameScene<TataminoGameState> {
     var gridNode: TataminoGridNode {
-        get {return getGridNode() as! TataminoGridNode}
+        get {getGridNode() as! TataminoGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

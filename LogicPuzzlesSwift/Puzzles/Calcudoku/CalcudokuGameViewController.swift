@@ -18,7 +18,7 @@ class CalcudokuGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: CalcudokuGame {
-        get {return getGame() as! CalcudokuGame}
+        get {getGame() as! CalcudokuGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: CalcudokuDocument { return CalcudokuDocument.sharedInstance }

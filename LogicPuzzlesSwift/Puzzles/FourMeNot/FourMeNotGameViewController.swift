@@ -18,7 +18,7 @@ class FourMeNotGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: FourMeNotGame {
-        get {return getGame() as! FourMeNotGame}
+        get {getGame() as! FourMeNotGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: FourMeNotDocument { return FourMeNotDocument.sharedInstance }

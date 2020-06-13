@@ -18,7 +18,7 @@ class SlitherLinkGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: SlitherLinkGame {
-        get {return getGame() as! SlitherLinkGame}
+        get {getGame() as! SlitherLinkGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: SlitherLinkDocument { return SlitherLinkDocument.sharedInstance }

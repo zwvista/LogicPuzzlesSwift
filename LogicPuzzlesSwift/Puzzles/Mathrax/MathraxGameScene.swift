@@ -10,7 +10,7 @@ import SpriteKit
 
 class MathraxGameScene: GameScene<MathraxGameState> {
     var gridNode: MathraxGridNode {
-        get {return getGridNode() as! MathraxGridNode}
+        get {getGridNode() as! MathraxGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

@@ -18,7 +18,7 @@ class TapDifferentlyGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: TapDifferentlyGame {
-        get {return getGame() as! TapDifferentlyGame}
+        get {getGame() as! TapDifferentlyGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: TapDifferentlyDocument { return TapDifferentlyDocument.sharedInstance }

@@ -18,7 +18,7 @@ class BridgesGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: BridgesGame {
-        get {return getGame() as! BridgesGame}
+        get {getGame() as! BridgesGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: BridgesDocument { return BridgesDocument.sharedInstance }

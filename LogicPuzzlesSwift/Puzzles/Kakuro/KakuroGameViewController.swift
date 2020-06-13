@@ -18,7 +18,7 @@ class KakuroGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: KakuroGame {
-        get {return getGame() as! KakuroGame}
+        get {getGame() as! KakuroGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: KakuroDocument { return KakuroDocument.sharedInstance }

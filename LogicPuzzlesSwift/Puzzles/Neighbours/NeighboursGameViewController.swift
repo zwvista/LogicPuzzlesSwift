@@ -18,7 +18,7 @@ class NeighboursGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: NeighboursGame {
-        get {return getGame() as! NeighboursGame}
+        get {getGame() as! NeighboursGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: NeighboursDocument { return NeighboursDocument.sharedInstance }

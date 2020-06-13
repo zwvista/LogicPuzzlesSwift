@@ -10,7 +10,7 @@ import SpriteKit
 
 class PataGameScene: GameScene<PataGameState> {
     var gridNode: PataGridNode {
-        get {return getGridNode() as! PataGridNode}
+        get {getGridNode() as! PataGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

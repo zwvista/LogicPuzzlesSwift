@@ -18,7 +18,7 @@ class LoopyGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: LoopyGame {
-        get {return getGame() as! LoopyGame}
+        get {getGame() as! LoopyGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: LoopyDocument { return LoopyDocument.sharedInstance }

@@ -18,7 +18,7 @@ class SnakeGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: SnakeGame {
-        get {return getGame() as! SnakeGame}
+        get {getGame() as! SnakeGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: SnakeDocument { return SnakeDocument.sharedInstance }

@@ -10,7 +10,7 @@ import SpriteKit
 
 class FourMeNotGameScene: GameScene<FourMeNotGameState> {
     var gridNode: FourMeNotGridNode {
-        get {return getGridNode() as! FourMeNotGridNode}
+        get {getGridNode() as! FourMeNotGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

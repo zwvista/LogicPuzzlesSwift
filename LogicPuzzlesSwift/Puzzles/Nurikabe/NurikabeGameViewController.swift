@@ -18,7 +18,7 @@ class NurikabeGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: NurikabeGame {
-        get {return getGame() as! NurikabeGame}
+        get {getGame() as! NurikabeGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: NurikabeDocument { return NurikabeDocument.sharedInstance }

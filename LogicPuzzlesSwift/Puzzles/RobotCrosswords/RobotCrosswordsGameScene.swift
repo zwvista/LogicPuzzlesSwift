@@ -10,7 +10,7 @@ import SpriteKit
 
 class RobotCrosswordsGameScene: GameScene<RobotCrosswordsGameState> {
     var gridNode: RobotCrosswordsGridNode {
-        get {return getGridNode() as! RobotCrosswordsGridNode}
+        get {getGridNode() as! RobotCrosswordsGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

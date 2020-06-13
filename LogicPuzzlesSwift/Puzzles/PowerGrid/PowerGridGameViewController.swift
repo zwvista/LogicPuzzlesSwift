@@ -18,7 +18,7 @@ class PowerGridGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: PowerGridGame {
-        get {return getGame() as! PowerGridGame}
+        get {getGame() as! PowerGridGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: PowerGridDocument { return PowerGridDocument.sharedInstance }

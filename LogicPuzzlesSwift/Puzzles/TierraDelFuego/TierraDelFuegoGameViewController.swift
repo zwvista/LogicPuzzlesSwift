@@ -18,7 +18,7 @@ class TierraDelFuegoGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: TierraDelFuegoGame {
-        get {return getGame() as! TierraDelFuegoGame}
+        get {getGame() as! TierraDelFuegoGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: TierraDelFuegoDocument { return TierraDelFuegoDocument.sharedInstance }

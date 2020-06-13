@@ -18,7 +18,7 @@ class WallSentinelsGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: WallSentinelsGame {
-        get {return getGame() as! WallSentinelsGame}
+        get {getGame() as! WallSentinelsGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: WallSentinelsDocument { return WallSentinelsDocument.sharedInstance }

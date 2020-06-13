@@ -10,7 +10,7 @@ import SpriteKit
 
 class MasyuGameScene: GameScene<MasyuGameState> {
     var gridNode: MasyuGridNode {
-        get {return getGridNode() as! MasyuGridNode}
+        get {getGridNode() as! MasyuGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

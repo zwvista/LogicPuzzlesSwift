@@ -18,7 +18,7 @@ class HolidayIslandGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: HolidayIslandGame {
-        get {return getGame() as! HolidayIslandGame}
+        get {getGame() as! HolidayIslandGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: HolidayIslandDocument { return HolidayIslandDocument.sharedInstance }

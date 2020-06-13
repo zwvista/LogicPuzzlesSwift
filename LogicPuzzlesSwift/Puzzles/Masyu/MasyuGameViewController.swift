@@ -18,7 +18,7 @@ class MasyuGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: MasyuGame {
-        get {return getGame() as! MasyuGame}
+        get {getGame() as! MasyuGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: MasyuDocument { return MasyuDocument.sharedInstance }

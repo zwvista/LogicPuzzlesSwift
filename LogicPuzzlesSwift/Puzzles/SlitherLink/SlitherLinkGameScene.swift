@@ -10,7 +10,7 @@ import SpriteKit
 
 class SlitherLinkGameScene: GameScene<SlitherLinkGameState> {
     var gridNode: SlitherLinkGridNode {
-        get {return getGridNode() as! SlitherLinkGridNode}
+        get {getGridNode() as! SlitherLinkGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

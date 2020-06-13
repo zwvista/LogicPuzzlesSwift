@@ -10,7 +10,7 @@ import SpriteKit
 
 class BoxItAgainGameScene: GameScene<BoxItAgainGameState> {
     var gridNode: BoxItAgainGridNode {
-        get {return getGridNode() as! BoxItAgainGridNode}
+        get {getGridNode() as! BoxItAgainGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

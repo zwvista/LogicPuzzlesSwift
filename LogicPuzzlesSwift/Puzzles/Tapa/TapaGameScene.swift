@@ -10,7 +10,7 @@ import SpriteKit
 
 class TapaGameScene: GameScene<TapaGameState> {
     var gridNode: TapaGridNode {
-        get {return getGridNode() as! TapaGridNode}
+        get {getGridNode() as! TapaGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

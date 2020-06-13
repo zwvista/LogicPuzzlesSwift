@@ -10,7 +10,7 @@ import SpriteKit
 
 class OverUnderGameScene: GameScene<OverUnderGameState> {
     var gridNode: OverUnderGridNode {
-        get {return getGridNode() as! OverUnderGridNode}
+        get {getGridNode() as! OverUnderGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

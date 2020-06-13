@@ -18,7 +18,7 @@ class BusySeasGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: BusySeasGame {
-        get {return getGame() as! BusySeasGame}
+        get {getGame() as! BusySeasGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: BusySeasDocument { return BusySeasDocument.sharedInstance }

@@ -10,7 +10,7 @@ import SpriteKit
 
 class WallsGameScene: GameScene<WallsGameState> {
     var gridNode: WallsGridNode {
-        get {return getGridNode() as! WallsGridNode}
+        get {getGridNode() as! WallsGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

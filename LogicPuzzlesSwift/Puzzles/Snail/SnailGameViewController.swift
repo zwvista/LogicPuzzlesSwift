@@ -18,7 +18,7 @@ class SnailGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: SnailGame {
-        get {return getGame() as! SnailGame}
+        get {getGame() as! SnailGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: SnailDocument { return SnailDocument.sharedInstance }

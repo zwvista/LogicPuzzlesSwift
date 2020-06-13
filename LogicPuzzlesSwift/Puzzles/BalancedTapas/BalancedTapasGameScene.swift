@@ -10,7 +10,7 @@ import SpriteKit
 
 class BalancedTapasGameScene: GameScene<BalancedTapasGameState> {
     var gridNode: BalancedTapasGridNode {
-        get {return getGridNode() as! BalancedTapasGridNode}
+        get {getGridNode() as! BalancedTapasGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

@@ -10,7 +10,7 @@ import SpriteKit
 
 class SkyscrapersGameScene: GameScene<SkyscrapersGameState> {
     var gridNode: SkyscrapersGridNode {
-        get {return getGridNode() as! SkyscrapersGridNode}
+        get {getGridNode() as! SkyscrapersGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

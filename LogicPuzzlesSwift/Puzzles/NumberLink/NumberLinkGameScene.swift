@@ -10,7 +10,7 @@ import SpriteKit
 
 class NumberLinkGameScene: GameScene<NumberLinkGameState> {
     var gridNode: NumberLinkGridNode {
-        get {return getGridNode() as! NumberLinkGridNode}
+        get {getGridNode() as! NumberLinkGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

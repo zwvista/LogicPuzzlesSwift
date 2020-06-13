@@ -18,7 +18,7 @@ class PataGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: PataGame {
-        get {return getGame() as! PataGame}
+        get {getGame() as! PataGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: PataDocument { return PataDocument.sharedInstance }

@@ -10,7 +10,7 @@ import SpriteKit
 
 class DisconnectFourGameScene: GameScene<DisconnectFourGameState> {
     var gridNode: DisconnectFourGridNode {
-        get {return getGridNode() as! DisconnectFourGridNode}
+        get {getGridNode() as! DisconnectFourGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

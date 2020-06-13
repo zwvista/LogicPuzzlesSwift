@@ -10,7 +10,7 @@ import SpriteKit
 
 class MiniLitsGameScene: GameScene<MiniLitsGameState> {
     var gridNode: MiniLitsGridNode {
-        get {return getGridNode() as! MiniLitsGridNode}
+        get {getGridNode() as! MiniLitsGridNode}
         set {setGridNode(gridNode: newValue)}
     }
 

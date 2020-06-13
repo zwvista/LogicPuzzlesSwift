@@ -18,7 +18,7 @@ class MinesweeperGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: MinesweeperGame {
-        get {return getGame() as! MinesweeperGame}
+        get {getGame() as! MinesweeperGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: MinesweeperDocument { return MinesweeperDocument.sharedInstance }

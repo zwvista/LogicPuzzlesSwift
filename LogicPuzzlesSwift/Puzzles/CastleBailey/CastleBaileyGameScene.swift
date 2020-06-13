@@ -10,7 +10,7 @@ import SpriteKit
 
 class CastleBaileyGameScene: GameScene<CastleBaileyGameState> {
     var gridNode: CastleBaileyGridNode {
-        get {return getGridNode() as! CastleBaileyGridNode}
+        get {getGridNode() as! CastleBaileyGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

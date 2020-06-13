@@ -10,7 +10,7 @@ import SpriteKit
 
 class LineSweeperGameScene: GameScene<LineSweeperGameState> {
     var gridNode: LineSweeperGridNode {
-        get {return getGridNode() as! LineSweeperGridNode}
+        get {getGridNode() as! LineSweeperGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

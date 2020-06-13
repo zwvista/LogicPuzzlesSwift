@@ -12,7 +12,7 @@ import EZSwiftExtensions
 class GalaxiesGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: GalaxiesGame {
-        get {return getGame() as! GalaxiesGame}
+        get {getGame() as! GalaxiesGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: GalaxiesDocument { return GalaxiesDocument.sharedInstance }

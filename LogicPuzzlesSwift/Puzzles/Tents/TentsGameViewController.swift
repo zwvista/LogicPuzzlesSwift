@@ -18,7 +18,7 @@ class TentsGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: TentsGame {
-        get {return getGame() as! TentsGame}
+        get {getGame() as! TentsGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: TentsDocument { return TentsDocument.sharedInstance }

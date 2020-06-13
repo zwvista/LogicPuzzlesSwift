@@ -18,7 +18,7 @@ class GardenerGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: GardenerGame {
-        get {return getGame() as! GardenerGame}
+        get {getGame() as! GardenerGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: GardenerDocument { return GardenerDocument.sharedInstance }

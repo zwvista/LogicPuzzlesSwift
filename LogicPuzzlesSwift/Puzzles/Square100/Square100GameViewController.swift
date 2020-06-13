@@ -18,7 +18,7 @@ class Square100GameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: Square100Game {
-        get {return getGame() as! Square100Game}
+        get {getGame() as! Square100Game}
         set {setGame(game: newValue)}
     }
     var gameDocument: Square100Document { return Square100Document.sharedInstance }

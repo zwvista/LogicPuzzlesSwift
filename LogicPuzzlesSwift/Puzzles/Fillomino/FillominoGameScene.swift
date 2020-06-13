@@ -10,7 +10,7 @@ import SpriteKit
 
 class FillominoGameScene: GameScene<FillominoGameState> {
     var gridNode: FillominoGridNode {
-        get {return getGridNode() as! FillominoGridNode}
+        get {getGridNode() as! FillominoGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

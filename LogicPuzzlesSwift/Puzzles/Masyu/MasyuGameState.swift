@@ -11,7 +11,7 @@ import Foundation
 class MasyuGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: MasyuGame {
-        get {return getGame() as! MasyuGame}
+        get {getGame() as! MasyuGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: MasyuDocument { return MasyuDocument.sharedInstance }

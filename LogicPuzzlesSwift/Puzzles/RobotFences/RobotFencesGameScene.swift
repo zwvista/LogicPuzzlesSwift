@@ -10,7 +10,7 @@ import SpriteKit
 
 class RobotFencesGameScene: GameScene<RobotFencesGameState> {
     var gridNode: RobotFencesGridNode {
-        get {return getGridNode() as! RobotFencesGridNode}
+        get {getGridNode() as! RobotFencesGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

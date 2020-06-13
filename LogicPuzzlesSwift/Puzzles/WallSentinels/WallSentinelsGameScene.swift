@@ -10,7 +10,7 @@ import SpriteKit
 
 class WallSentinelsGameScene: GameScene<WallSentinelsGameState> {
     var gridNode: WallSentinelsGridNode {
-        get {return getGridNode() as! WallSentinelsGridNode}
+        get {getGridNode() as! WallSentinelsGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

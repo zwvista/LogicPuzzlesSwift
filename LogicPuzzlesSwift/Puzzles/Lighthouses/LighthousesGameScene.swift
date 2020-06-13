@@ -10,7 +10,7 @@ import SpriteKit
 
 class LighthousesGameScene: GameScene<LighthousesGameState> {
     var gridNode: LighthousesGridNode {
-        get {return getGridNode() as! LighthousesGridNode}
+        get {getGridNode() as! LighthousesGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

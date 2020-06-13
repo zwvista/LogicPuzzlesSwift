@@ -18,7 +18,7 @@ class TapaIslandsGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: TapaIslandsGame {
-        get {return getGame() as! TapaIslandsGame}
+        get {getGame() as! TapaIslandsGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: TapaIslandsDocument { return TapaIslandsDocument.sharedInstance }

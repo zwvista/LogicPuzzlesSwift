@@ -10,7 +10,7 @@ import SpriteKit
 
 class FutoshikiGameScene: GameScene<FutoshikiGameState> {
     var gridNode: FutoshikiGridNode {
-        get {return getGridNode() as! FutoshikiGridNode}
+        get {getGridNode() as! FutoshikiGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

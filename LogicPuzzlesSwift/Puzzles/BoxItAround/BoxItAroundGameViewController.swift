@@ -18,7 +18,7 @@ class BoxItAroundGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: BoxItAroundGame {
-        get {return getGame() as! BoxItAroundGame}
+        get {getGame() as! BoxItAroundGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: BoxItAroundDocument { return BoxItAroundDocument.sharedInstance }

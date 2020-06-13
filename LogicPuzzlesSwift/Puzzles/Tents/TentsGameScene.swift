@@ -10,7 +10,7 @@ import SpriteKit
 
 class TentsGameScene: GameScene<TentsGameState> {
     var gridNode: TentsGridNode {
-        get {return getGridNode() as! TentsGridNode}
+        get {getGridNode() as! TentsGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

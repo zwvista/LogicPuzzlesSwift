@@ -10,7 +10,7 @@ import SpriteKit
 
 class AbstractPaintingGameScene: GameScene<AbstractPaintingGameState> {
     var gridNode: AbstractPaintingGridNode {
-        get {return getGridNode() as! AbstractPaintingGridNode}
+        get {getGridNode() as! AbstractPaintingGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

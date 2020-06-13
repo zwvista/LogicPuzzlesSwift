@@ -10,7 +10,7 @@ import SpriteKit
 
 class DominoGameScene: GameScene<DominoGameState> {
     var gridNode: DominoGridNode {
-        get {return getGridNode() as! DominoGridNode}
+        get {getGridNode() as! DominoGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

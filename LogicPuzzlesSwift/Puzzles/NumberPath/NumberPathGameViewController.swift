@@ -18,7 +18,7 @@ class NumberPathGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: NumberPathGame {
-        get {return getGame() as! NumberPathGame}
+        get {getGame() as! NumberPathGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: NumberPathDocument { return NumberPathDocument.sharedInstance }

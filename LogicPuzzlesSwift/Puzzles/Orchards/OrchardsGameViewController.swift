@@ -18,7 +18,7 @@ class OrchardsGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: OrchardsGame {
-        get {return getGame() as! OrchardsGame}
+        get {getGame() as! OrchardsGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: OrchardsDocument { return OrchardsDocument.sharedInstance }

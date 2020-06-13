@@ -10,7 +10,7 @@ import SpriteKit
 
 class TierraDelFuegoGameScene: GameScene<TierraDelFuegoGameState> {
     var gridNode: TierraDelFuegoGridNode {
-        get {return getGridNode() as! TierraDelFuegoGridNode}
+        get {getGridNode() as! TierraDelFuegoGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

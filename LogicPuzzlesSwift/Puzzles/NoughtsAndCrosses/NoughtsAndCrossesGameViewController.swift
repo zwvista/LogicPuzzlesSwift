@@ -18,7 +18,7 @@ class NoughtsAndCrossesGameViewController: GameGameViewController, GameDelegate 
         set {setScene(scene: newValue)}
     }
     var game: NoughtsAndCrossesGame {
-        get {return getGame() as! NoughtsAndCrossesGame}
+        get {getGame() as! NoughtsAndCrossesGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: NoughtsAndCrossesDocument { return NoughtsAndCrossesDocument.sharedInstance }

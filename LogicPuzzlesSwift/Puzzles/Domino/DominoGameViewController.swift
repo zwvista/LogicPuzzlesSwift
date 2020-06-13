@@ -18,7 +18,7 @@ class DominoGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: DominoGame {
-        get {return getGame() as! DominoGame}
+        get {getGame() as! DominoGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: DominoDocument { return DominoDocument.sharedInstance }

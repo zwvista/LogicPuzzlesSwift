@@ -10,7 +10,7 @@ import SpriteKit
 
 class LightenUpGameScene: GameScene<LightenUpGameState> {
     var gridNode: LightenUpGridNode {
-        get {return getGridNode() as! LightenUpGridNode}
+        get {getGridNode() as! LightenUpGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

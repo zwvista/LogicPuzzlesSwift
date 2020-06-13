@@ -18,7 +18,7 @@ class AbstractPaintingGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: AbstractPaintingGame {
-        get {return getGame() as! AbstractPaintingGame}
+        get {getGame() as! AbstractPaintingGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: AbstractPaintingDocument { return AbstractPaintingDocument.sharedInstance }

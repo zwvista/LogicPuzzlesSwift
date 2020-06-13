@@ -10,7 +10,7 @@ import SpriteKit
 
 class SnailGameScene: GameScene<SnailGameState> {
     var gridNode: SnailGridNode {
-        get {return getGridNode() as! SnailGridNode}
+        get {getGridNode() as! SnailGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

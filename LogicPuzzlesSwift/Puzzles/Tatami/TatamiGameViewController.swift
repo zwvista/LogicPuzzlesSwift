@@ -18,7 +18,7 @@ class TatamiGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: TatamiGame {
-        get {return getGame() as! TatamiGame}
+        get {getGame() as! TatamiGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: TatamiDocument { return TatamiDocument.sharedInstance }

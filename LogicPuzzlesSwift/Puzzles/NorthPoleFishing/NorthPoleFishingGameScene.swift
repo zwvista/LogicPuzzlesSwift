@@ -10,7 +10,7 @@ import SpriteKit
 
 class NorthPoleFishingGameScene: GameScene<NorthPoleFishingGameState> {
     var gridNode: NorthPoleFishingGridNode {
-        get {return getGridNode() as! NorthPoleFishingGridNode}
+        get {getGridNode() as! NorthPoleFishingGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

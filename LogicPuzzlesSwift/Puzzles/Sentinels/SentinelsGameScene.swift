@@ -10,7 +10,7 @@ import SpriteKit
 
 class SentinelsGameScene: GameScene<SentinelsGameState> {
     var gridNode: SentinelsGridNode {
-        get {return getGridNode() as! SentinelsGridNode}
+        get {getGridNode() as! SentinelsGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

@@ -10,7 +10,7 @@ import SpriteKit
 
 class RoomsGameScene: GameScene<RoomsGameState> {
     var gridNode: RoomsGridNode {
-        get {return getGridNode() as! RoomsGridNode}
+        get {getGridNode() as! RoomsGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

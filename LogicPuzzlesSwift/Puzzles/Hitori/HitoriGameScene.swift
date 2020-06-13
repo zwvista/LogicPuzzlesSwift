@@ -10,7 +10,7 @@ import SpriteKit
 
 class HitoriGameScene: GameScene<HitoriGameState> {
     var gridNode: HitoriGridNode {
-        get {return getGridNode() as! HitoriGridNode}
+        get {getGridNode() as! HitoriGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

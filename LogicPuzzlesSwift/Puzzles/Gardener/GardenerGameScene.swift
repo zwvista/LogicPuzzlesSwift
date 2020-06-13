@@ -10,7 +10,7 @@ import SpriteKit
 
 class GardenerGameScene: GameScene<GardenerGameState> {
     var gridNode: GardenerGridNode {
-        get {return getGridNode() as! GardenerGridNode}
+        get {getGridNode() as! GardenerGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

@@ -10,7 +10,7 @@ import SpriteKit
 
 class BusySeasGameScene: GameScene<BusySeasGameState> {
     var gridNode: BusySeasGridNode {
-        get {return getGridNode() as! BusySeasGridNode}
+        get {getGridNode() as! BusySeasGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

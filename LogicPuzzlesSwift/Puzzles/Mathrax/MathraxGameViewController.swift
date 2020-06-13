@@ -18,7 +18,7 @@ class MathraxGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: MathraxGame {
-        get {return getGame() as! MathraxGame}
+        get {getGame() as! MathraxGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: MathraxDocument { return MathraxDocument.sharedInstance }

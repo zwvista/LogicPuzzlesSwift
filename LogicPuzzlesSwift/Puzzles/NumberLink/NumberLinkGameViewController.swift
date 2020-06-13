@@ -18,7 +18,7 @@ class NumberLinkGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: NumberLinkGame {
-        get {return getGame() as! NumberLinkGame}
+        get {getGame() as! NumberLinkGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: NumberLinkDocument { return NumberLinkDocument.sharedInstance }

@@ -11,7 +11,7 @@ import Foundation
 class FutoshikiGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: FutoshikiGame {
-        get {return getGame() as! FutoshikiGame}
+        get {getGame() as! FutoshikiGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: FutoshikiDocument { return FutoshikiDocument.sharedInstance }

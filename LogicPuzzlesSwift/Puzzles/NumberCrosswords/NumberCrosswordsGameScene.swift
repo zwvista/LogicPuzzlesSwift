@@ -10,7 +10,7 @@ import SpriteKit
 
 class NumberCrosswordsGameScene: GameScene<NumberCrosswordsGameState> {
     var gridNode: NumberCrosswordsGridNode {
-        get {return getGridNode() as! NumberCrosswordsGridNode}
+        get {getGridNode() as! NumberCrosswordsGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

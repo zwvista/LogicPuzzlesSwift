@@ -10,7 +10,7 @@ import SpriteKit
 
 class MineShipsGameScene: GameScene<MineShipsGameState> {
     var gridNode: MineShipsGridNode {
-        get {return getGridNode() as! MineShipsGridNode}
+        get {getGridNode() as! MineShipsGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

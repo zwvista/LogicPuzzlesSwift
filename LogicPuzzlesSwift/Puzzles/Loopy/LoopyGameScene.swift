@@ -10,7 +10,7 @@ import SpriteKit
 
 class LoopyGameScene: GameScene<LoopyGameState> {
     var gridNode: LoopyGridNode {
-        get {return getGridNode() as! LoopyGridNode}
+        get {getGridNode() as! LoopyGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

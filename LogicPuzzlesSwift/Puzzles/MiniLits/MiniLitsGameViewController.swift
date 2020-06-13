@@ -18,7 +18,7 @@ class MiniLitsGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: MiniLitsGame {
-        get {return getGame() as! MiniLitsGame}
+        get {getGame() as! MiniLitsGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: MiniLitsDocument { return MiniLitsDocument.sharedInstance }

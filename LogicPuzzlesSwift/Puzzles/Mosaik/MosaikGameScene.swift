@@ -10,7 +10,7 @@ import SpriteKit
 
 class MosaikGameScene: GameScene<MosaikGameState> {
     var gridNode: MosaikGridNode {
-        get {return getGridNode() as! MosaikGridNode}
+        get {getGridNode() as! MosaikGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

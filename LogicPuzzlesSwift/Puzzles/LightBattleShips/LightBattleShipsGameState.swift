@@ -11,7 +11,7 @@ import Foundation
 class LightBattleShipsGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: LightBattleShipsGame {
-        get {return getGame() as! LightBattleShipsGame}
+        get {getGame() as! LightBattleShipsGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: LightBattleShipsDocument { return LightBattleShipsDocument.sharedInstance }

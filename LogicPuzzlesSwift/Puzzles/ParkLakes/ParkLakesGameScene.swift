@@ -10,7 +10,7 @@ import SpriteKit
 
 class ParkLakesGameScene: GameScene<ParkLakesGameState> {
     var gridNode: ParkLakesGridNode {
-        get {return getGridNode() as! ParkLakesGridNode}
+        get {getGridNode() as! ParkLakesGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

@@ -18,7 +18,7 @@ class GalaxiesGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: GalaxiesGame {
-        get {return getGame() as! GalaxiesGame}
+        get {getGame() as! GalaxiesGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: GalaxiesDocument { return GalaxiesDocument.sharedInstance }

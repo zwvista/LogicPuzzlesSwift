@@ -10,7 +10,7 @@ import SpriteKit
 
 class CloudsGameScene: GameScene<CloudsGameState> {
     var gridNode: CloudsGridNode {
-        get {return getGridNode() as! CloudsGridNode}
+        get {getGridNode() as! CloudsGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

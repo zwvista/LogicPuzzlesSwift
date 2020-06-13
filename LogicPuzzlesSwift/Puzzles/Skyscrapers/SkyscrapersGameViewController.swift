@@ -18,7 +18,7 @@ class SkyscrapersGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: SkyscrapersGame {
-        get {return getGame() as! SkyscrapersGame}
+        get {getGame() as! SkyscrapersGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: SkyscrapersDocument { return SkyscrapersDocument.sharedInstance }

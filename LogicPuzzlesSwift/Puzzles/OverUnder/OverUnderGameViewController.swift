@@ -18,7 +18,7 @@ class OverUnderGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: OverUnderGame {
-        get {return getGame() as! OverUnderGame}
+        get {getGame() as! OverUnderGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: OverUnderDocument { return OverUnderDocument.sharedInstance }

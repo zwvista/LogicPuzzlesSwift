@@ -10,7 +10,7 @@ import SpriteKit
 
 class NeighboursGameScene: GameScene<NeighboursGameState> {
     var gridNode: NeighboursGridNode {
-        get {return getGridNode() as! NeighboursGridNode}
+        get {getGridNode() as! NeighboursGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

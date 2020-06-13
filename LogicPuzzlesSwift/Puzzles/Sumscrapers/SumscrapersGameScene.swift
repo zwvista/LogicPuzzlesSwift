@@ -10,7 +10,7 @@ import SpriteKit
 
 class SumscrapersGameScene: GameScene<SumscrapersGameState> {
     var gridNode: SumscrapersGridNode {
-        get {return getGridNode() as! SumscrapersGridNode}
+        get {getGridNode() as! SumscrapersGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

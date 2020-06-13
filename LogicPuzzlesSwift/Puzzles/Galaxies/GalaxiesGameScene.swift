@@ -10,7 +10,7 @@ import SpriteKit
 
 class GalaxiesGameScene: GameScene<GalaxiesGameState> {
     var gridNode: GalaxiesGridNode {
-        get {return getGridNode() as! GalaxiesGridNode}
+        get {getGridNode() as! GalaxiesGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

@@ -18,7 +18,7 @@ class TapAlikeGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: TapAlikeGame {
-        get {return getGame() as! TapAlikeGame}
+        get {getGame() as! TapAlikeGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: TapAlikeDocument { return TapAlikeDocument.sharedInstance }

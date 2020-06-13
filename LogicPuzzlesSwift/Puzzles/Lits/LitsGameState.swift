@@ -18,7 +18,7 @@ class LitsAreaInfo {
 class LitsGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: LitsGame {
-        get {return getGame() as! LitsGame}
+        get {getGame() as! LitsGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: LitsDocument { return LitsDocument.sharedInstance }

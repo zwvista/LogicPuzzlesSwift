@@ -10,7 +10,7 @@ import SpriteKit
 
 class CalcudokuGameScene: GameScene<CalcudokuGameState> {
     var gridNode: CalcudokuGridNode {
-        get {return getGridNode() as! CalcudokuGridNode}
+        get {getGridNode() as! CalcudokuGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

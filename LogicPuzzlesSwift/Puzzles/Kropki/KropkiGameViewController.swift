@@ -18,7 +18,7 @@ class KropkiGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: KropkiGame {
-        get {return getGame() as! KropkiGame}
+        get {getGame() as! KropkiGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: KropkiDocument { return KropkiDocument.sharedInstance }

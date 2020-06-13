@@ -18,7 +18,7 @@ class ProductSentinelsGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: ProductSentinelsGame {
-        get {return getGame() as! ProductSentinelsGame}
+        get {getGame() as! ProductSentinelsGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: ProductSentinelsDocument { return ProductSentinelsDocument.sharedInstance }

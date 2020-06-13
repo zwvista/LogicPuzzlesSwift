@@ -18,7 +18,7 @@ class RobotCrosswordsGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: RobotCrosswordsGame {
-        get {return getGame() as! RobotCrosswordsGame}
+        get {getGame() as! RobotCrosswordsGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: RobotCrosswordsDocument { return RobotCrosswordsDocument.sharedInstance }

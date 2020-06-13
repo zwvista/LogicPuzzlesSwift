@@ -18,7 +18,7 @@ class RobotFencesGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: RobotFencesGame {
-        get {return getGame() as! RobotFencesGame}
+        get {getGame() as! RobotFencesGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: RobotFencesDocument { return RobotFencesDocument.sharedInstance }

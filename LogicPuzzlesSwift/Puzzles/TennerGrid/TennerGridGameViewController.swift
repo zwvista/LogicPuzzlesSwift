@@ -18,7 +18,7 @@ class TennerGridGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: TennerGridGame {
-        get {return getGame() as! TennerGridGame}
+        get {getGame() as! TennerGridGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: TennerGridDocument { return TennerGridDocument.sharedInstance }

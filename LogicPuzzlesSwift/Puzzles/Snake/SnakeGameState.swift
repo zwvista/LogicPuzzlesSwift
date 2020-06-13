@@ -11,7 +11,7 @@ import Foundation
 class SnakeGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: SnakeGame {
-        get {return getGame() as! SnakeGame}
+        get {getGame() as! SnakeGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: SnakeDocument { return SnakeDocument.sharedInstance }

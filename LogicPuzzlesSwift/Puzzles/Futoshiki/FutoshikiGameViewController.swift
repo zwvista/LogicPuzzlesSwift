@@ -18,7 +18,7 @@ class FutoshikiGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: FutoshikiGame {
-        get {return getGame() as! FutoshikiGame}
+        get {getGame() as! FutoshikiGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: FutoshikiDocument { return FutoshikiDocument.sharedInstance }

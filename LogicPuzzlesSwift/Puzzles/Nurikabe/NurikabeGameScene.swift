@@ -10,7 +10,7 @@ import SpriteKit
 
 class NurikabeGameScene: GameScene<NurikabeGameState> {
     var gridNode: NurikabeGridNode {
-        get {return getGridNode() as! NurikabeGridNode}
+        get {getGridNode() as! NurikabeGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

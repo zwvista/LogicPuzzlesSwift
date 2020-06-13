@@ -18,7 +18,7 @@ class TheOddBrickGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: TheOddBrickGame {
-        get {return getGame() as! TheOddBrickGame}
+        get {getGame() as! TheOddBrickGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: TheOddBrickDocument { return TheOddBrickDocument.sharedInstance }

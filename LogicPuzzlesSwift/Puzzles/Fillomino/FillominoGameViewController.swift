@@ -18,7 +18,7 @@ class FillominoGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: FillominoGame {
-        get {return getGame() as! FillominoGame}
+        get {getGame() as! FillominoGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: FillominoDocument { return FillominoDocument.sharedInstance }

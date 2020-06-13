@@ -10,7 +10,7 @@ import SpriteKit
 
 class KropkiGameScene: GameScene<KropkiGameState> {
     var gridNode: KropkiGridNode {
-        get {return getGridNode() as! KropkiGridNode}
+        get {getGridNode() as! KropkiGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

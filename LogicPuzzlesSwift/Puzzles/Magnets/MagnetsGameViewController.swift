@@ -18,7 +18,7 @@ class MagnetsGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: MagnetsGame {
-        get {return getGame() as! MagnetsGame}
+        get {getGame() as! MagnetsGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: MagnetsDocument { return MagnetsDocument.sharedInstance }

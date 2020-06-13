@@ -18,7 +18,7 @@ class RippleEffectGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: RippleEffectGame {
-        get {return getGame() as! RippleEffectGame}
+        get {getGame() as! RippleEffectGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: RippleEffectDocument { return RippleEffectDocument.sharedInstance }

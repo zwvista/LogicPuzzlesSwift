@@ -10,7 +10,7 @@ import SpriteKit
 
 class BootyIslandGameScene: GameScene<BootyIslandGameState> {
     var gridNode: BootyIslandGridNode {
-        get {return getGridNode() as! BootyIslandGridNode}
+        get {getGridNode() as! BootyIslandGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

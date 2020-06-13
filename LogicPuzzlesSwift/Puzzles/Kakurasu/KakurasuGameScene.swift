@@ -10,7 +10,7 @@ import SpriteKit
 
 class KakurasuGameScene: GameScene<KakurasuGameState> {
     var gridNode: KakurasuGridNode {
-        get {return getGridNode() as! KakurasuGridNode}
+        get {getGridNode() as! KakurasuGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

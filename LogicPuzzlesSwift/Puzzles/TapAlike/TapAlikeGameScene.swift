@@ -10,7 +10,7 @@ import SpriteKit
 
 class TapAlikeGameScene: GameScene<TapAlikeGameState> {
     var gridNode: TapAlikeGridNode {
-        get {return getGridNode() as! TapAlikeGridNode}
+        get {getGridNode() as! TapAlikeGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

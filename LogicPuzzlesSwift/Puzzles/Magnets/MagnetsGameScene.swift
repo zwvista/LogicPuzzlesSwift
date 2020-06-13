@@ -10,7 +10,7 @@ import SpriteKit
 
 class MagnetsGameScene: GameScene<MagnetsGameState> {
     var gridNode: MagnetsGridNode {
-        get {return getGridNode() as! MagnetsGridNode}
+        get {getGridNode() as! MagnetsGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

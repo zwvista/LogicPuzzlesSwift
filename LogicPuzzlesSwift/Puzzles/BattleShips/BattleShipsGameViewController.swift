@@ -18,7 +18,7 @@ class BattleShipsGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: BattleShipsGame {
-        get {return getGame() as! BattleShipsGame}
+        get {getGame() as! BattleShipsGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: BattleShipsDocument { return BattleShipsDocument.sharedInstance }

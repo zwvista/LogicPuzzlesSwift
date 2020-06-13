@@ -10,7 +10,7 @@ import SpriteKit
 
 class RippleEffectGameScene: GameScene<RippleEffectGameState> {
     var gridNode: RippleEffectGridNode {
-        get {return getGridNode() as! RippleEffectGridNode}
+        get {getGridNode() as! RippleEffectGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

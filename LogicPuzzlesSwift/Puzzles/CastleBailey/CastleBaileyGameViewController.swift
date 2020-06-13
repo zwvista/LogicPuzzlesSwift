@@ -18,7 +18,7 @@ class CastleBaileyGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: CastleBaileyGame {
-        get {return getGame() as! CastleBaileyGame}
+        get {getGame() as! CastleBaileyGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: CastleBaileyDocument { return CastleBaileyDocument.sharedInstance }

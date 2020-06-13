@@ -10,7 +10,7 @@ import SpriteKit
 
 class KakuroGameScene: GameScene<KakuroGameState> {
     var gridNode: KakuroGridNode {
-        get {return getGridNode() as! KakuroGridNode}
+        get {getGridNode() as! KakuroGridNode}
         set {setGridNode(gridNode: newValue)}
     }
 

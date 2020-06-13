@@ -18,7 +18,7 @@ class MineShipsGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: MineShipsGame {
-        get {return getGame() as! MineShipsGame}
+        get {getGame() as! MineShipsGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: MineShipsDocument { return MineShipsDocument.sharedInstance }

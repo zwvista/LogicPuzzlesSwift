@@ -18,7 +18,7 @@ class PaintTheNurikabeGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: PaintTheNurikabeGame {
-        get {return getGame() as! PaintTheNurikabeGame}
+        get {getGame() as! PaintTheNurikabeGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: PaintTheNurikabeDocument { return PaintTheNurikabeDocument.sharedInstance }

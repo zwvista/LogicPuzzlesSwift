@@ -10,7 +10,7 @@ import SpriteKit
 
 class MinesweeperGameScene: GameScene<MinesweeperGameState> {
     var gridNode: MinesweeperGridNode {
-        get {return getGridNode() as! MinesweeperGridNode}
+        get {getGridNode() as! MinesweeperGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

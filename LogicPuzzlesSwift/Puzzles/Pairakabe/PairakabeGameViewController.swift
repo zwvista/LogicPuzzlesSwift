@@ -18,7 +18,7 @@ class PairakabeGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: PairakabeGame {
-        get {return getGame() as! PairakabeGame}
+        get {getGame() as! PairakabeGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: PairakabeDocument { return PairakabeDocument.sharedInstance }

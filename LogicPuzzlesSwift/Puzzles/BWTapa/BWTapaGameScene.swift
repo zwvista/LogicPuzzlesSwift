@@ -10,7 +10,7 @@ import SpriteKit
 
 class BWTapaGameScene: GameScene<BWTapaGameState> {
     var gridNode: BWTapaGridNode {
-        get {return getGridNode() as! BWTapaGridNode}
+        get {getGridNode() as! BWTapaGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

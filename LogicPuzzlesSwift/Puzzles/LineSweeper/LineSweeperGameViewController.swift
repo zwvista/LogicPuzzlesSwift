@@ -18,7 +18,7 @@ class LineSweeperGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: LineSweeperGame {
-        get {return getGame() as! LineSweeperGame}
+        get {getGame() as! LineSweeperGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: LineSweeperDocument { return LineSweeperDocument.sharedInstance }

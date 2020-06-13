@@ -18,7 +18,7 @@ class SentinelsGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: SentinelsGame {
-        get {return getGame() as! SentinelsGame}
+        get {getGame() as! SentinelsGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: SentinelsDocument { return SentinelsDocument.sharedInstance }

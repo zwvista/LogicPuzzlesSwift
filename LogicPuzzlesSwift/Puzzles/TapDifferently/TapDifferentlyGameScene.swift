@@ -10,7 +10,7 @@ import SpriteKit
 
 class TapDifferentlyGameScene: GameScene<TapDifferentlyGameState> {
     var gridNode: TapDifferentlyGridNode {
-        get {return getGridNode() as! TapDifferentlyGridNode}
+        get {getGridNode() as! TapDifferentlyGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

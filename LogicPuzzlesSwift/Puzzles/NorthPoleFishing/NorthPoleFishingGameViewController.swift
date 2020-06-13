@@ -18,7 +18,7 @@ class NorthPoleFishingGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: NorthPoleFishingGame {
-        get {return getGame() as! NorthPoleFishingGame}
+        get {getGame() as! NorthPoleFishingGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: NorthPoleFishingDocument { return NorthPoleFishingDocument.sharedInstance }

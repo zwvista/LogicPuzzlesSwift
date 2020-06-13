@@ -11,7 +11,7 @@ import Foundation
 class CastleBaileyGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: CastleBaileyGame {
-        get {return getGame() as! CastleBaileyGame}
+        get {getGame() as! CastleBaileyGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: CastleBaileyDocument { return CastleBaileyDocument.sharedInstance }

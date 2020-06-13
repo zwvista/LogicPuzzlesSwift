@@ -11,7 +11,7 @@ import Foundation
 class RippleEffectGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: RippleEffectGame {
-        get {return getGame() as! RippleEffectGame}
+        get {getGame() as! RippleEffectGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: RippleEffectDocument { return RippleEffectDocument.sharedInstance }

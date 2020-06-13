@@ -10,7 +10,7 @@ import SpriteKit
 
 class LightBattleShipsGameScene: GameScene<LightBattleShipsGameState> {
     var gridNode: LightBattleShipsGridNode {
-        get {return getGridNode() as! LightBattleShipsGridNode}
+        get {getGridNode() as! LightBattleShipsGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

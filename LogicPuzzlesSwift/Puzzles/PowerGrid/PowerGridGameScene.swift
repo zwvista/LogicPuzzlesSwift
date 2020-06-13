@@ -10,7 +10,7 @@ import SpriteKit
 
 class PowerGridGameScene: GameScene<PowerGridGameState> {
     var gridNode: PowerGridGridNode {
-        get {return getGridNode() as! PowerGridGridNode}
+        get {getGridNode() as! PowerGridGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

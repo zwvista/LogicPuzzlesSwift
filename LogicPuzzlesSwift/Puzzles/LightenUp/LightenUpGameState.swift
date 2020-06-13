@@ -11,7 +11,7 @@ import Foundation
 class LightenUpGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: LightenUpGame {
-        get {return getGame() as! LightenUpGame}
+        get {getGame() as! LightenUpGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: LightenUpDocument { return LightenUpDocument.sharedInstance }

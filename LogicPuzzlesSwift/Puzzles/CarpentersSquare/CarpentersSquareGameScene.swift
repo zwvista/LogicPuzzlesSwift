@@ -10,7 +10,7 @@ import SpriteKit
 
 class CarpentersSquareGameScene: GameScene<CarpentersSquareGameState> {
     var gridNode: CarpentersSquareGridNode {
-        get {return getGridNode() as! CarpentersSquareGridNode}
+        get {getGridNode() as! CarpentersSquareGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

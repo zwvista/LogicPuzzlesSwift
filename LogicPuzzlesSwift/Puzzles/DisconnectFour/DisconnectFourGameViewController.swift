@@ -18,7 +18,7 @@ class DisconnectFourGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: DisconnectFourGame {
-        get {return getGame() as! DisconnectFourGame}
+        get {getGame() as! DisconnectFourGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: DisconnectFourDocument { return DisconnectFourDocument.sharedInstance }

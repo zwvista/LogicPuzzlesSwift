@@ -10,7 +10,7 @@ import SpriteKit
 
 class DigitalBattleShipsGameScene: GameScene<DigitalBattleShipsGameState> {
     var gridNode: DigitalBattleShipsGridNode {
-        get {return getGridNode() as! DigitalBattleShipsGridNode}
+        get {getGridNode() as! DigitalBattleShipsGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

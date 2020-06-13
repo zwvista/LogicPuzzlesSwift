@@ -18,7 +18,7 @@ class BalancedTapasGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: BalancedTapasGame {
-        get {return getGame() as! BalancedTapasGame}
+        get {getGame() as! BalancedTapasGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: BalancedTapasDocument { return BalancedTapasDocument.sharedInstance }

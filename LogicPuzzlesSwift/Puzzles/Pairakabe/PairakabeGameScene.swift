@@ -10,7 +10,7 @@ import SpriteKit
 
 class PairakabeGameScene: GameScene<PairakabeGameState> {
     var gridNode: PairakabeGridNode {
-        get {return getGridNode() as! PairakabeGridNode}
+        get {getGridNode() as! PairakabeGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

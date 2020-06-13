@@ -18,7 +18,7 @@ class LitsGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: LitsGame {
-        get {return getGame() as! LitsGame}
+        get {getGame() as! LitsGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: LitsDocument { return LitsDocument.sharedInstance }

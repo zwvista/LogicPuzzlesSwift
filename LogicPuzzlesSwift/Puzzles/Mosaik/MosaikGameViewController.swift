@@ -18,7 +18,7 @@ class MosaikGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: MosaikGame {
-        get {return getGame() as! MosaikGame}
+        get {getGame() as! MosaikGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: MosaikDocument { return MosaikDocument.sharedInstance }

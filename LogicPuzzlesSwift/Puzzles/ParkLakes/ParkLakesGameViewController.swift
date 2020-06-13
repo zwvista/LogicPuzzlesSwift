@@ -18,7 +18,7 @@ class ParkLakesGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: ParkLakesGame {
-        get {return getGame() as! ParkLakesGame}
+        get {getGame() as! ParkLakesGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: ParkLakesDocument { return ParkLakesDocument.sharedInstance }

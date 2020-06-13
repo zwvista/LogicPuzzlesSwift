@@ -10,7 +10,7 @@ import SpriteKit
 
 class TheOddBrickGameScene: GameScene<TheOddBrickGameState> {
     var gridNode: TheOddBrickGridNode {
-        get {return getGridNode() as! TheOddBrickGridNode}
+        get {getGridNode() as! TheOddBrickGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

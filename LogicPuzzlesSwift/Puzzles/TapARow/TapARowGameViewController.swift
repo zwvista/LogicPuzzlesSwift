@@ -18,7 +18,7 @@ class TapARowGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: TapARowGame {
-        get {return getGame() as! TapARowGame}
+        get {getGame() as! TapARowGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: TapARowDocument { return TapARowDocument.sharedInstance }

@@ -10,7 +10,7 @@ import SpriteKit
 
 class LitsGameScene: GameScene<LitsGameState> {
     var gridNode: LitsGridNode {
-        get {return getGridNode() as! LitsGridNode}
+        get {getGridNode() as! LitsGridNode}
         set {setGridNode(gridNode: newValue)}
     }
 

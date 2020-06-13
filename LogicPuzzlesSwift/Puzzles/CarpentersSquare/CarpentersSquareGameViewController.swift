@@ -18,7 +18,7 @@ class CarpentersSquareGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: CarpentersSquareGame {
-        get {return getGame() as! CarpentersSquareGame}
+        get {getGame() as! CarpentersSquareGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: CarpentersSquareDocument { return CarpentersSquareDocument.sharedInstance }

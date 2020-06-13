@@ -10,7 +10,7 @@ import SpriteKit
 
 class TennerGridGameScene: GameScene<TennerGridGameState> {
     var gridNode: TennerGridGridNode {
-        get {return getGridNode() as! TennerGridGridNode}
+        get {getGridNode() as! TennerGridGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

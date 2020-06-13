@@ -10,7 +10,7 @@ import SpriteKit
 
 class NoughtsAndCrossesGameScene: GameScene<NoughtsAndCrossesGameState> {
     var gridNode: NoughtsAndCrossesGridNode {
-        get {return getGridNode() as! NoughtsAndCrossesGridNode}
+        get {getGridNode() as! NoughtsAndCrossesGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

@@ -18,7 +18,7 @@ class LighthousesGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: LighthousesGame {
-        get {return getGame() as! LighthousesGame}
+        get {getGame() as! LighthousesGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: LighthousesDocument { return LighthousesDocument.sharedInstance }

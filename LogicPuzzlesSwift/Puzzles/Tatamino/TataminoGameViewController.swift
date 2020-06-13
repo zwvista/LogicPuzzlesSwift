@@ -18,7 +18,7 @@ class TataminoGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: TataminoGame {
-        get {return getGame() as! TataminoGame}
+        get {getGame() as! TataminoGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: TataminoDocument { return TataminoDocument.sharedInstance }

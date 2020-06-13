@@ -18,7 +18,7 @@ class LightenUpGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: LightenUpGame {
-        get {return getGame() as! LightenUpGame}
+        get {getGame() as! LightenUpGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: LightenUpDocument { return LightenUpDocument.sharedInstance }

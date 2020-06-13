@@ -18,7 +18,7 @@ class RoomsGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: RoomsGame {
-        get {return getGame() as! RoomsGame}
+        get {getGame() as! RoomsGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: RoomsDocument { return RoomsDocument.sharedInstance }

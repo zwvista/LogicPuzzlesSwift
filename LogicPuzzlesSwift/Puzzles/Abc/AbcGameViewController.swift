@@ -18,7 +18,7 @@ class AbcGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: AbcGame {
-        get {return getGame() as! AbcGame}
+        get {getGame() as! AbcGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: AbcDocument { return AbcDocument.sharedInstance }

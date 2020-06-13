@@ -10,7 +10,7 @@ import SpriteKit
 
 class OrchardsGameScene: GameScene<OrchardsGameState> {
     var gridNode: OrchardsGridNode {
-        get {return getGridNode() as! OrchardsGridNode}
+        get {getGridNode() as! OrchardsGridNode}
         set {setGridNode(gridNode: newValue)}
     }
 

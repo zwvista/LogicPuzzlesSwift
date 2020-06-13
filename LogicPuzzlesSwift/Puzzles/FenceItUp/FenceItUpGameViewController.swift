@@ -18,7 +18,7 @@ class FenceItUpGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: FenceItUpGame {
-        get {return getGame() as! FenceItUpGame}
+        get {getGame() as! FenceItUpGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: FenceItUpDocument { return FenceItUpDocument.sharedInstance }

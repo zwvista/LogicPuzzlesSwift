@@ -10,7 +10,7 @@ import SpriteKit
 
 class AbcGameScene: GameScene<AbcGameState> {
     var gridNode: AbcGridNode {
-        get {return getGridNode() as! AbcGridNode}
+        get {getGridNode() as! AbcGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

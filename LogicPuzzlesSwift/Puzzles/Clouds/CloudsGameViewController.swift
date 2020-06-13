@@ -18,7 +18,7 @@ class CloudsGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: CloudsGame {
-        get {return getGame() as! CloudsGame}
+        get {getGame() as! CloudsGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: CloudsDocument { return CloudsDocument.sharedInstance }

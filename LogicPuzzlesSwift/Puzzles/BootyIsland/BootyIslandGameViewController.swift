@@ -18,7 +18,7 @@ class BootyIslandGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: BootyIslandGame {
-        get {return getGame() as! BootyIslandGame}
+        get {getGame() as! BootyIslandGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: BootyIslandDocument { return BootyIslandDocument.sharedInstance }

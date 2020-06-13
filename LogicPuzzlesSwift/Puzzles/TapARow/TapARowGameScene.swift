@@ -10,7 +10,7 @@ import SpriteKit
 
 class TapARowGameScene: GameScene<TapARowGameState> {
     var gridNode: TapARowGridNode {
-        get {return getGridNode() as! TapARowGridNode}
+        get {getGridNode() as! TapARowGridNode}
         set {setGridNode(gridNode: newValue)}
     }
     

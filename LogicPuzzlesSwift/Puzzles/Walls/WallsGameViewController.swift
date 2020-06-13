@@ -18,7 +18,7 @@ class WallsGameViewController: GameGameViewController, GameDelegate {
         set {setScene(scene: newValue)}
     }
     var game: WallsGame {
-        get {return getGame() as! WallsGame}
+        get {getGame() as! WallsGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: WallsDocument { return WallsDocument.sharedInstance }

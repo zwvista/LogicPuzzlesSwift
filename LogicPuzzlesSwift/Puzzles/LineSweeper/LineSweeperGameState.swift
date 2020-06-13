@@ -11,7 +11,7 @@ import Foundation
 class LineSweeperGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: LineSweeperGame {
-        get {return getGame() as! LineSweeperGame}
+        get {getGame() as! LineSweeperGame}
         set {setGame(game: newValue)}
     }
     var gameDocument: LineSweeperDocument { return LineSweeperDocument.sharedInstance }
