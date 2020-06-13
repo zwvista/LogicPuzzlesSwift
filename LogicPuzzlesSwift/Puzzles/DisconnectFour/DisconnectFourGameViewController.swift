@@ -14,7 +14,7 @@ class DisconnectFourGameViewController: GameGameViewController, GameDelegate {
     typealias GS = DisconnectFourGameState
 
     var scene: DisconnectFourGameScene {
-        get { return getScene() as! DisconnectFourGameScene }
+        get { getScene() as! DisconnectFourGameScene }
         set { setScene(scene: newValue) }
     }
     var game: DisconnectFourGame {

@@ -14,7 +14,7 @@ class PataGameViewController: GameGameViewController, GameDelegate {
     typealias GS = PataGameState
 
     var scene: PataGameScene {
-        get { return getScene() as! PataGameScene }
+        get { getScene() as! PataGameScene }
         set { setScene(scene: newValue) }
     }
     var game: PataGame {

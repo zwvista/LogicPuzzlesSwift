@@ -14,7 +14,7 @@ class NumberCrosswordsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = NumberCrosswordsGameState
 
     var scene: NumberCrosswordsGameScene {
-        get { return getScene() as! NumberCrosswordsGameScene }
+        get { getScene() as! NumberCrosswordsGameScene }
         set { setScene(scene: newValue) }
     }
     var game: NumberCrosswordsGame {

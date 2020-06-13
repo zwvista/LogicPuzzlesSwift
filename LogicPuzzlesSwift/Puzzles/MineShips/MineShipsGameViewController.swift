@@ -14,7 +14,7 @@ class MineShipsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = MineShipsGameState
 
     var scene: MineShipsGameScene {
-        get { return getScene() as! MineShipsGameScene }
+        get { getScene() as! MineShipsGameScene }
         set { setScene(scene: newValue) }
     }
     var game: MineShipsGame {

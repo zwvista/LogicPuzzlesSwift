@@ -31,17 +31,17 @@ class GameState: GameStateBase {
 class GridGameState: GameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     private weak var game: GridGameBase?
-    func getGame() -> GridGameBase? { return game }
+    func getGame() -> GridGameBase? { game }
     func setGame(game: GridGameBase) { self.game = game }
-    private var gameDocument: GameDocumentBase! { return getGameDocument() }
-    func getGameDocument() -> GameDocumentBase! { return nil }
-    var gameOptions: GameProgress { return gameDocument.gameProgress }
-    var markerOption: Int { return gameOptions.option1?.toInt() ?? 0 }
-    var allowedObjectsOnly: Bool { return gameOptions.option2?.toBool() ?? false }
+    private var gameDocument: GameDocumentBase! { getGameDocument() }
+    func getGameDocument() -> GameDocumentBase! { nil }
+    var gameOptions: GameProgress { gameDocument.gameProgress }
+    var markerOption: Int { gameOptions.option1?.toInt() ?? 0 }
+    var allowedObjectsOnly: Bool { gameOptions.option2?.toBool() ?? false }
     
-    var size: Position { return game!.size }
-    var rows: Int { return size.row }
-    var cols: Int { return size.col }
+    var size: Position { game!.size }
+    var rows: Int { size.row }
+    var cols: Int { size.col }
     func isValid(p: Position) -> Bool {
         game!.isValid(row: p.row, col: p.col)
     }

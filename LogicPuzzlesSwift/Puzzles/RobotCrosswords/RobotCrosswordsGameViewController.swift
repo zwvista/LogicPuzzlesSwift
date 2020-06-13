@@ -14,7 +14,7 @@ class RobotCrosswordsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = RobotCrosswordsGameState
 
     var scene: RobotCrosswordsGameScene {
-        get { return getScene() as! RobotCrosswordsGameScene }
+        get { getScene() as! RobotCrosswordsGameScene }
         set { setScene(scene: newValue) }
     }
     var game: RobotCrosswordsGame {

@@ -14,7 +14,7 @@ class BWTapaGameViewController: GameGameViewController, GameDelegate {
     typealias GS = BWTapaGameState
 
     var scene: BWTapaGameScene {
-        get { return getScene() as! BWTapaGameScene }
+        get { getScene() as! BWTapaGameScene }
         set { setScene(scene: newValue) }
     }
     var game: BWTapaGame {

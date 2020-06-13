@@ -14,7 +14,7 @@ class SentinelsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = SentinelsGameState
 
     var scene: SentinelsGameScene {
-        get { return getScene() as! SentinelsGameScene }
+        get { getScene() as! SentinelsGameScene }
         set { setScene(scene: newValue) }
     }
     var game: SentinelsGame {

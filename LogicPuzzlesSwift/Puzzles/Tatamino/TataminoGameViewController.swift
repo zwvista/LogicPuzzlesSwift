@@ -14,7 +14,7 @@ class TataminoGameViewController: GameGameViewController, GameDelegate {
     typealias GS = TataminoGameState
 
     var scene: TataminoGameScene {
-        get { return getScene() as! TataminoGameScene }
+        get { getScene() as! TataminoGameScene }
         set { setScene(scene: newValue) }
     }
     var game: TataminoGame {

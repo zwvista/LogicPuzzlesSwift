@@ -14,7 +14,7 @@ class WallsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = WallsGameState
 
     var scene: WallsGameScene {
-        get { return getScene() as! WallsGameScene }
+        get { getScene() as! WallsGameScene }
         set { setScene(scene: newValue) }
     }
     var game: WallsGame {

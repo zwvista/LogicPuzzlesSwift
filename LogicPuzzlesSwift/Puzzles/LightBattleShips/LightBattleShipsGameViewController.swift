@@ -14,7 +14,7 @@ class LightBattleShipsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = LightBattleShipsGameState
 
     var scene: LightBattleShipsGameScene {
-        get { return getScene() as! LightBattleShipsGameScene }
+        get { getScene() as! LightBattleShipsGameScene }
         set { setScene(scene: newValue) }
     }
     var game: LightBattleShipsGame {

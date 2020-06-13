@@ -14,7 +14,7 @@ class CloudsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = CloudsGameState
 
     var scene: CloudsGameScene {
-        get { return getScene() as! CloudsGameScene }
+        get { getScene() as! CloudsGameScene }
         set { setScene(scene: newValue) }
     }
     var game: CloudsGame {

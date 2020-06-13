@@ -14,7 +14,7 @@ class PowerGridGameViewController: GameGameViewController, GameDelegate {
     typealias GS = PowerGridGameState
 
     var scene: PowerGridGameScene {
-        get { return getScene() as! PowerGridGameScene }
+        get { getScene() as! PowerGridGameScene }
         set { setScene(scene: newValue) }
     }
     var game: PowerGridGame {

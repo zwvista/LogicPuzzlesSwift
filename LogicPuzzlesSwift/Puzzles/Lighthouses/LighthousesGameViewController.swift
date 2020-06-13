@@ -14,7 +14,7 @@ class LighthousesGameViewController: GameGameViewController, GameDelegate {
     typealias GS = LighthousesGameState
 
     var scene: LighthousesGameScene {
-        get { return getScene() as! LighthousesGameScene }
+        get { getScene() as! LighthousesGameScene }
         set { setScene(scene: newValue) }
     }
     var game: LighthousesGame {

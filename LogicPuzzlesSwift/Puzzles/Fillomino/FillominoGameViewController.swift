@@ -14,7 +14,7 @@ class FillominoGameViewController: GameGameViewController, GameDelegate {
     typealias GS = FillominoGameState
 
     var scene: FillominoGameScene {
-        get { return getScene() as! FillominoGameScene }
+        get { getScene() as! FillominoGameScene }
         set { setScene(scene: newValue) }
     }
     var game: FillominoGame {

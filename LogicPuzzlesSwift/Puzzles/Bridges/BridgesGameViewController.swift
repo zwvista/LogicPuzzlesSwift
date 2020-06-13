@@ -14,7 +14,7 @@ class BridgesGameViewController: GameGameViewController, GameDelegate {
     typealias GS = BridgesGameState
 
     var scene: BridgesGameScene {
-        get { return getScene() as! BridgesGameScene }
+        get { getScene() as! BridgesGameScene }
         set { setScene(scene: newValue) }
     }
     var game: BridgesGame {

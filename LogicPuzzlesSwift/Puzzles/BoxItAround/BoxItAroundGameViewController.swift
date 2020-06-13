@@ -14,7 +14,7 @@ class BoxItAroundGameViewController: GameGameViewController, GameDelegate {
     typealias GS = BoxItAroundGameState
 
     var scene: BoxItAroundGameScene {
-        get { return getScene() as! BoxItAroundGameScene }
+        get { getScene() as! BoxItAroundGameScene }
         set { setScene(scene: newValue) }
     }
     var game: BoxItAroundGame {

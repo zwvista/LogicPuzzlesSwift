@@ -14,7 +14,7 @@ class RoomsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = RoomsGameState
 
     var scene: RoomsGameScene {
-        get { return getScene() as! RoomsGameScene }
+        get { getScene() as! RoomsGameScene }
         set { setScene(scene: newValue) }
     }
     var game: RoomsGame {

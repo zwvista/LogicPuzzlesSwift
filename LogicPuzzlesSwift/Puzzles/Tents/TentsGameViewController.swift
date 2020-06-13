@@ -14,7 +14,7 @@ class TentsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = TentsGameState
 
     var scene: TentsGameScene {
-        get { return getScene() as! TentsGameScene }
+        get { getScene() as! TentsGameScene }
         set { setScene(scene: newValue) }
     }
     var game: TentsGame {

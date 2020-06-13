@@ -14,7 +14,7 @@ class OrchardsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = OrchardsGameState
 
     var scene: OrchardsGameScene {
-        get { return getScene() as! OrchardsGameScene }
+        get { getScene() as! OrchardsGameScene }
         set { setScene(scene: newValue) }
     }
     var game: OrchardsGame {

@@ -14,7 +14,7 @@ class Square100GameViewController: GameGameViewController, GameDelegate {
     typealias GS = Square100GameState
 
     var scene: Square100GameScene {
-        get { return getScene() as! Square100GameScene }
+        get { getScene() as! Square100GameScene }
         set { setScene(scene: newValue) }
     }
     var game: Square100Game {

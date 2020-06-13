@@ -14,7 +14,7 @@ class CalcudokuGameViewController: GameGameViewController, GameDelegate {
     typealias GS = CalcudokuGameState
 
     var scene: CalcudokuGameScene {
-        get { return getScene() as! CalcudokuGameScene }
+        get { getScene() as! CalcudokuGameScene }
         set { setScene(scene: newValue) }
     }
     var game: CalcudokuGame {

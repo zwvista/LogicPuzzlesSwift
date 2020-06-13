@@ -14,7 +14,7 @@ class ProductSentinelsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = ProductSentinelsGameState
 
     var scene: ProductSentinelsGameScene {
-        get { return getScene() as! ProductSentinelsGameScene }
+        get { getScene() as! ProductSentinelsGameScene }
         set { setScene(scene: newValue) }
     }
     var game: ProductSentinelsGame {

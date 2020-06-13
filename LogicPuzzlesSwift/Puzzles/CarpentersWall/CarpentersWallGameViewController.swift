@@ -14,7 +14,7 @@ class CarpentersWallGameViewController: GameGameViewController, GameDelegate {
     typealias GS = CarpentersWallGameState
 
     var scene: CarpentersWallGameScene {
-        get { return getScene() as! CarpentersWallGameScene }
+        get { getScene() as! CarpentersWallGameScene }
         set { setScene(scene: newValue) }
     }
     var game: CarpentersWallGame {

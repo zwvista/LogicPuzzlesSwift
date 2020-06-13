@@ -14,7 +14,7 @@ class BattleShipsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = BattleShipsGameState
 
     var scene: BattleShipsGameScene {
-        get { return getScene() as! BattleShipsGameScene }
+        get { getScene() as! BattleShipsGameScene }
         set { setScene(scene: newValue) }
     }
     var game: BattleShipsGame {

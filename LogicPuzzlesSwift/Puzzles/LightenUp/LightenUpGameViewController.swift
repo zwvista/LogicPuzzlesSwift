@@ -14,7 +14,7 @@ class LightenUpGameViewController: GameGameViewController, GameDelegate {
     typealias GS = LightenUpGameState
 
     var scene: LightenUpGameScene {
-        get { return getScene() as! LightenUpGameScene }
+        get { getScene() as! LightenUpGameScene }
         set { setScene(scene: newValue) }
     }
     var game: LightenUpGame {

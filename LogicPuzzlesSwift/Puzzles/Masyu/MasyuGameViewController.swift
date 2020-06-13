@@ -14,7 +14,7 @@ class MasyuGameViewController: GameGameViewController, GameDelegate {
     typealias GS = MasyuGameState
 
     var scene: MasyuGameScene {
-        get { return getScene() as! MasyuGameScene }
+        get { getScene() as! MasyuGameScene }
         set { setScene(scene: newValue) }
     }
     var game: MasyuGame {

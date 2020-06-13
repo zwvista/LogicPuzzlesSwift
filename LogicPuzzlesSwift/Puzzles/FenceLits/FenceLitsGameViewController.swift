@@ -12,7 +12,7 @@ import SpriteKit
 class FenceLitsGameViewController: GameGameViewController, GameDelegate {
 
     var scene: FenceLitsGameScene {
-        get { return getScene() as! FenceLitsGameScene }
+        get { getScene() as! FenceLitsGameScene }
         set { setScene(scene: newValue) }
     }
     var game: FenceLitsGame {

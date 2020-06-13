@@ -14,7 +14,7 @@ class TapARowGameViewController: GameGameViewController, GameDelegate {
     typealias GS = TapARowGameState
 
     var scene: TapARowGameScene {
-        get { return getScene() as! TapARowGameScene }
+        get { getScene() as! TapARowGameScene }
         set { setScene(scene: newValue) }
     }
     var game: TapARowGame {

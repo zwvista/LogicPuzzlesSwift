@@ -14,7 +14,7 @@ class TapaGameViewController: GameGameViewController, GameDelegate {
     typealias GS = TapaGameState
 
     var scene: TapaGameScene {
-        get { return getScene() as! TapaGameScene }
+        get { getScene() as! TapaGameScene }
         set { setScene(scene: newValue) }
     }
     var game: TapaGame {

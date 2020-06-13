@@ -14,7 +14,7 @@ class SnakeGameViewController: GameGameViewController, GameDelegate {
     typealias GS = SnakeGameState
 
     var scene: SnakeGameScene {
-        get { return getScene() as! SnakeGameScene }
+        get { getScene() as! SnakeGameScene }
         set { setScene(scene: newValue) }
     }
     var game: SnakeGame {

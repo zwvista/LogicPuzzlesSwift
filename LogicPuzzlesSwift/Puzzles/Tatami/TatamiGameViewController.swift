@@ -14,7 +14,7 @@ class TatamiGameViewController: GameGameViewController, GameDelegate {
     typealias GS = TatamiGameState
 
     var scene: TatamiGameScene {
-        get { return getScene() as! TatamiGameScene }
+        get { getScene() as! TatamiGameScene }
         set { setScene(scene: newValue) }
     }
     var game: TatamiGame {

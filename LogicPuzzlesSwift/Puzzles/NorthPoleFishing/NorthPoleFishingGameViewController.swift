@@ -14,7 +14,7 @@ class NorthPoleFishingGameViewController: GameGameViewController, GameDelegate {
     typealias GS = NorthPoleFishingGameState
 
     var scene: NorthPoleFishingGameScene {
-        get { return getScene() as! NorthPoleFishingGameScene }
+        get { getScene() as! NorthPoleFishingGameScene }
         set { setScene(scene: newValue) }
     }
     var game: NorthPoleFishingGame {

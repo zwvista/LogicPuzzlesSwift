@@ -14,7 +14,7 @@ class LitsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = LitsGameState
 
     var scene: LitsGameScene {
-        get { return getScene() as! LitsGameScene }
+        get { getScene() as! LitsGameScene }
         set { setScene(scene: newValue) }
     }
     var game: LitsGame {

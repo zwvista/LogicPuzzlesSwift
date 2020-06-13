@@ -14,7 +14,7 @@ class RobotFencesGameViewController: GameGameViewController, GameDelegate {
     typealias GS = RobotFencesGameState
 
     var scene: RobotFencesGameScene {
-        get { return getScene() as! RobotFencesGameScene }
+        get { getScene() as! RobotFencesGameScene }
         set { setScene(scene: newValue) }
     }
     var game: RobotFencesGame {

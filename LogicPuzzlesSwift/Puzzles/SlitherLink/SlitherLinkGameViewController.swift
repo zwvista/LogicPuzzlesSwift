@@ -14,7 +14,7 @@ class SlitherLinkGameViewController: GameGameViewController, GameDelegate {
     typealias GS = SlitherLinkGameState
 
     var scene: SlitherLinkGameScene {
-        get { return getScene() as! SlitherLinkGameScene }
+        get { getScene() as! SlitherLinkGameScene }
         set { setScene(scene: newValue) }
     }
     var game: SlitherLinkGame {

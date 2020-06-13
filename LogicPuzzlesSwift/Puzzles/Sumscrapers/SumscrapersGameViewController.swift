@@ -14,7 +14,7 @@ class SumscrapersGameViewController: GameGameViewController, GameDelegate {
     typealias GS = SumscrapersGameState
 
     var scene: SumscrapersGameScene {
-        get { return getScene() as! SumscrapersGameScene }
+        get { getScene() as! SumscrapersGameScene }
         set { setScene(scene: newValue) }
     }
     var game: SumscrapersGame {

@@ -14,7 +14,7 @@ class NurikabeGameViewController: GameGameViewController, GameDelegate {
     typealias GS = NurikabeGameState
 
     var scene: NurikabeGameScene {
-        get { return getScene() as! NurikabeGameScene }
+        get { getScene() as! NurikabeGameScene }
         set { setScene(scene: newValue) }
     }
     var game: NurikabeGame {

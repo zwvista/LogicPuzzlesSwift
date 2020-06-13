@@ -14,7 +14,7 @@ class GardenerGameViewController: GameGameViewController, GameDelegate {
     typealias GS = GardenerGameState
 
     var scene: GardenerGameScene {
-        get { return getScene() as! GardenerGameScene }
+        get { getScene() as! GardenerGameScene }
         set { setScene(scene: newValue) }
     }
     var game: GardenerGame {

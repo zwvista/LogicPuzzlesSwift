@@ -14,7 +14,7 @@ class FutoshikiGameViewController: GameGameViewController, GameDelegate {
     typealias GS = FutoshikiGameState
 
     var scene: FutoshikiGameScene {
-        get { return getScene() as! FutoshikiGameScene }
+        get { getScene() as! FutoshikiGameScene }
         set { setScene(scene: newValue) }
     }
     var game: FutoshikiGame {

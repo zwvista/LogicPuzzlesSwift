@@ -14,7 +14,7 @@ class SkyscrapersGameViewController: GameGameViewController, GameDelegate {
     typealias GS = SkyscrapersGameState
 
     var scene: SkyscrapersGameScene {
-        get { return getScene() as! SkyscrapersGameScene }
+        get { getScene() as! SkyscrapersGameScene }
         set { setScene(scene: newValue) }
     }
     var game: SkyscrapersGame {

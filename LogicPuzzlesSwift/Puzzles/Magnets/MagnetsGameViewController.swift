@@ -14,7 +14,7 @@ class MagnetsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = MagnetsGameState
 
     var scene: MagnetsGameScene {
-        get { return getScene() as! MagnetsGameScene }
+        get { getScene() as! MagnetsGameScene }
         set { setScene(scene: newValue) }
     }
     var game: MagnetsGame {

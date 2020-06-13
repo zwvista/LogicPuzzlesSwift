@@ -14,7 +14,7 @@ class NoughtsAndCrossesGameViewController: GameGameViewController, GameDelegate 
     typealias GS = NoughtsAndCrossesGameState
 
     var scene: NoughtsAndCrossesGameScene {
-        get { return getScene() as! NoughtsAndCrossesGameScene }
+        get { getScene() as! NoughtsAndCrossesGameScene }
         set { setScene(scene: newValue) }
     }
     var game: NoughtsAndCrossesGame {

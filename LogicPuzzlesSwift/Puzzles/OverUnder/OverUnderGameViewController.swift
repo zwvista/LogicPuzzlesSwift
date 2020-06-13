@@ -14,7 +14,7 @@ class OverUnderGameViewController: GameGameViewController, GameDelegate {
     typealias GS = OverUnderGameState
 
     var scene: OverUnderGameScene {
-        get { return getScene() as! OverUnderGameScene }
+        get { getScene() as! OverUnderGameScene }
         set { setScene(scene: newValue) }
     }
     var game: OverUnderGame {

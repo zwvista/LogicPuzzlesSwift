@@ -14,7 +14,7 @@ class DominoGameViewController: GameGameViewController, GameDelegate {
     typealias GS = DominoGameState
 
     var scene: DominoGameScene {
-        get { return getScene() as! DominoGameScene }
+        get { getScene() as! DominoGameScene }
         set { setScene(scene: newValue) }
     }
     var game: DominoGame {

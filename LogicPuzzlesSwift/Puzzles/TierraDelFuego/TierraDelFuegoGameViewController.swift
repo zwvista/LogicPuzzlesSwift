@@ -14,7 +14,7 @@ class TierraDelFuegoGameViewController: GameGameViewController, GameDelegate {
     typealias GS = TierraDelFuegoGameState
 
     var scene: TierraDelFuegoGameScene {
-        get { return getScene() as! TierraDelFuegoGameScene }
+        get { getScene() as! TierraDelFuegoGameScene }
         set { setScene(scene: newValue) }
     }
     var game: TierraDelFuegoGame {

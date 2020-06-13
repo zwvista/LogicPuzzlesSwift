@@ -14,7 +14,7 @@ class FourMeNotGameViewController: GameGameViewController, GameDelegate {
     typealias GS = FourMeNotGameState
 
     var scene: FourMeNotGameScene {
-        get { return getScene() as! FourMeNotGameScene }
+        get { getScene() as! FourMeNotGameScene }
         set { setScene(scene: newValue) }
     }
     var game: FourMeNotGame {

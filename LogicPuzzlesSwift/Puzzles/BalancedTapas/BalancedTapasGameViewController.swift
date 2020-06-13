@@ -14,7 +14,7 @@ class BalancedTapasGameViewController: GameGameViewController, GameDelegate {
     typealias GS = BalancedTapasGameState
 
     var scene: BalancedTapasGameScene {
-        get { return getScene() as! BalancedTapasGameScene }
+        get { getScene() as! BalancedTapasGameScene }
         set { setScene(scene: newValue) }
     }
     var game: BalancedTapasGame {

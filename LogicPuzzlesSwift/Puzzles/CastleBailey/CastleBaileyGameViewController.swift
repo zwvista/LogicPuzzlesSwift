@@ -14,7 +14,7 @@ class CastleBaileyGameViewController: GameGameViewController, GameDelegate {
     typealias GS = CastleBaileyGameState
 
     var scene: CastleBaileyGameScene {
-        get { return getScene() as! CastleBaileyGameScene }
+        get { getScene() as! CastleBaileyGameScene }
         set { setScene(scene: newValue) }
     }
     var game: CastleBaileyGame {

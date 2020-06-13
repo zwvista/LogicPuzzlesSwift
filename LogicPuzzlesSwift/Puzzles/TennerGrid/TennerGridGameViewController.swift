@@ -14,7 +14,7 @@ class TennerGridGameViewController: GameGameViewController, GameDelegate {
     typealias GS = TennerGridGameState
 
     var scene: TennerGridGameScene {
-        get { return getScene() as! TennerGridGameScene }
+        get { getScene() as! TennerGridGameScene }
         set { setScene(scene: newValue) }
     }
     var game: TennerGridGame {

@@ -14,7 +14,7 @@ class HolidayIslandGameViewController: GameGameViewController, GameDelegate {
     typealias GS = HolidayIslandGameState
 
     var scene: HolidayIslandGameScene {
-        get { return getScene() as! HolidayIslandGameScene }
+        get { getScene() as! HolidayIslandGameScene }
         set { setScene(scene: newValue) }
     }
     var game: HolidayIslandGame {

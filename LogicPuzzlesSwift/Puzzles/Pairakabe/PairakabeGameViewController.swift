@@ -14,7 +14,7 @@ class PairakabeGameViewController: GameGameViewController, GameDelegate {
     typealias GS = PairakabeGameState
 
     var scene: PairakabeGameScene {
-        get { return getScene() as! PairakabeGameScene }
+        get { getScene() as! PairakabeGameScene }
         set { setScene(scene: newValue) }
     }
     var game: PairakabeGame {

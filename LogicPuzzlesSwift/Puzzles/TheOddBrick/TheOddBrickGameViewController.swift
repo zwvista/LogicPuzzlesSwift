@@ -14,7 +14,7 @@ class TheOddBrickGameViewController: GameGameViewController, GameDelegate {
     typealias GS = TheOddBrickGameState
 
     var scene: TheOddBrickGameScene {
-        get { return getScene() as! TheOddBrickGameScene }
+        get { getScene() as! TheOddBrickGameScene }
         set { setScene(scene: newValue) }
     }
     var game: TheOddBrickGame {

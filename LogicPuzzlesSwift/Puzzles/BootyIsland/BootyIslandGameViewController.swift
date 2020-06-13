@@ -14,7 +14,7 @@ class BootyIslandGameViewController: GameGameViewController, GameDelegate {
     typealias GS = BootyIslandGameState
 
     var scene: BootyIslandGameScene {
-        get { return getScene() as! BootyIslandGameScene }
+        get { getScene() as! BootyIslandGameScene }
         set { setScene(scene: newValue) }
     }
     var game: BootyIslandGame {

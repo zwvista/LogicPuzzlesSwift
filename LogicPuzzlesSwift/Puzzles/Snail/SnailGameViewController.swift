@@ -14,7 +14,7 @@ class SnailGameViewController: GameGameViewController, GameDelegate {
     typealias GS = SnailGameState
 
     var scene: SnailGameScene {
-        get { return getScene() as! SnailGameScene }
+        get { getScene() as! SnailGameScene }
         set { setScene(scene: newValue) }
     }
     var game: SnailGame {

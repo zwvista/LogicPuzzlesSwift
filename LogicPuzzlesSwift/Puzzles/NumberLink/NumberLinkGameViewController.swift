@@ -14,7 +14,7 @@ class NumberLinkGameViewController: GameGameViewController, GameDelegate {
     typealias GS = NumberLinkGameState
 
     var scene: NumberLinkGameScene {
-        get { return getScene() as! NumberLinkGameScene }
+        get { getScene() as! NumberLinkGameScene }
         set { setScene(scene: newValue) }
     }
     var game: NumberLinkGame {

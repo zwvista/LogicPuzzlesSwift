@@ -14,7 +14,7 @@ class KakuroGameViewController: GameGameViewController, GameDelegate {
     typealias GS = KakuroGameState
 
     var scene: KakuroGameScene {
-        get { return getScene() as! KakuroGameScene }
+        get { getScene() as! KakuroGameScene }
         set { setScene(scene: newValue) }
     }
     var game: KakuroGame {

@@ -14,7 +14,7 @@ class TapDifferentlyGameViewController: GameGameViewController, GameDelegate {
     typealias GS = TapDifferentlyGameState
 
     var scene: TapDifferentlyGameScene {
-        get { return getScene() as! TapDifferentlyGameScene }
+        get { getScene() as! TapDifferentlyGameScene }
         set { setScene(scene: newValue) }
     }
     var game: TapDifferentlyGame {

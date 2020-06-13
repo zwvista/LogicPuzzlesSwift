@@ -14,7 +14,7 @@ class MinesweeperGameViewController: GameGameViewController, GameDelegate {
     typealias GS = MinesweeperGameState
 
     var scene: MinesweeperGameScene {
-        get { return getScene() as! MinesweeperGameScene }
+        get { getScene() as! MinesweeperGameScene }
         set { setScene(scene: newValue) }
     }
     var game: MinesweeperGame {

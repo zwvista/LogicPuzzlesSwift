@@ -14,7 +14,7 @@ class HitoriGameViewController: GameGameViewController, GameDelegate {
     typealias GS = HitoriGameState
 
     var scene: HitoriGameScene {
-        get { return getScene() as! HitoriGameScene }
+        get { getScene() as! HitoriGameScene }
         set { setScene(scene: newValue) }
     }
     var game: HitoriGame {

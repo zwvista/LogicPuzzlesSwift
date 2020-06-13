@@ -14,7 +14,7 @@ class FenceSentinelsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = FenceSentinelsGameState
 
     var scene: FenceSentinelsGameScene {
-        get { return getScene() as! FenceSentinelsGameScene }
+        get { getScene() as! FenceSentinelsGameScene }
         set { setScene(scene: newValue) }
     }
     var game: FenceSentinelsGame {

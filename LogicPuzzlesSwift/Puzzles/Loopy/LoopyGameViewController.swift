@@ -14,7 +14,7 @@ class LoopyGameViewController: GameGameViewController, GameDelegate {
     typealias GS = LoopyGameState
 
     var scene: LoopyGameScene {
-        get { return getScene() as! LoopyGameScene }
+        get { getScene() as! LoopyGameScene }
         set { setScene(scene: newValue) }
     }
     var game: LoopyGame {

@@ -14,7 +14,7 @@ class NeighboursGameViewController: GameGameViewController, GameDelegate {
     typealias GS = NeighboursGameState
 
     var scene: NeighboursGameScene {
-        get { return getScene() as! NeighboursGameScene }
+        get { getScene() as! NeighboursGameScene }
         set { setScene(scene: newValue) }
     }
     var game: NeighboursGame {

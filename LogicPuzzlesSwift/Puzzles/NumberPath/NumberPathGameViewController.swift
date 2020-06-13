@@ -14,7 +14,7 @@ class NumberPathGameViewController: GameGameViewController, GameDelegate {
     typealias GS = NumberPathGameState
 
     var scene: NumberPathGameScene {
-        get { return getScene() as! NumberPathGameScene }
+        get { getScene() as! NumberPathGameScene }
         set { setScene(scene: newValue) }
     }
     var game: NumberPathGame {

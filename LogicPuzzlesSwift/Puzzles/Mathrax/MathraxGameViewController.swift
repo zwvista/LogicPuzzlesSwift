@@ -14,7 +14,7 @@ class MathraxGameViewController: GameGameViewController, GameDelegate {
     typealias GS = MathraxGameState
 
     var scene: MathraxGameScene {
-        get { return getScene() as! MathraxGameScene }
+        get { getScene() as! MathraxGameScene }
         set { setScene(scene: newValue) }
     }
     var game: MathraxGame {

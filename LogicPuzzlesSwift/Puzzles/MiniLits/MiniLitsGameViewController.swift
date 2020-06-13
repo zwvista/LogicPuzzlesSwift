@@ -14,7 +14,7 @@ class MiniLitsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = MiniLitsGameState
 
     var scene: MiniLitsGameScene {
-        get { return getScene() as! MiniLitsGameScene }
+        get { getScene() as! MiniLitsGameScene }
         set { setScene(scene: newValue) }
     }
     var game: MiniLitsGame {

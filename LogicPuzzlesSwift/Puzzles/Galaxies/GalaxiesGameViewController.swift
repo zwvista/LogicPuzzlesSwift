@@ -14,7 +14,7 @@ class GalaxiesGameViewController: GameGameViewController, GameDelegate {
     typealias GS = GalaxiesGameState
 
     var scene: GalaxiesGameScene {
-        get { return getScene() as! GalaxiesGameScene }
+        get { getScene() as! GalaxiesGameScene }
         set { setScene(scene: newValue) }
     }
     var game: GalaxiesGame {

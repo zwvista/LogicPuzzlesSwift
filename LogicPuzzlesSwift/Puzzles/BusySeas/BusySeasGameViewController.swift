@@ -14,7 +14,7 @@ class BusySeasGameViewController: GameGameViewController, GameDelegate {
     typealias GS = BusySeasGameState
 
     var scene: BusySeasGameScene {
-        get { return getScene() as! BusySeasGameScene }
+        get { getScene() as! BusySeasGameScene }
         set { setScene(scene: newValue) }
     }
     var game: BusySeasGame {

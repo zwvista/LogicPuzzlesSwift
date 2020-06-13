@@ -14,7 +14,7 @@ class RippleEffectGameViewController: GameGameViewController, GameDelegate {
     typealias GS = RippleEffectGameState
 
     var scene: RippleEffectGameScene {
-        get { return getScene() as! RippleEffectGameScene }
+        get { getScene() as! RippleEffectGameScene }
         set { setScene(scene: newValue) }
     }
     var game: RippleEffectGame {

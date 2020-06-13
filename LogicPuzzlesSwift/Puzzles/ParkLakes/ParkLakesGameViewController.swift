@@ -14,7 +14,7 @@ class ParkLakesGameViewController: GameGameViewController, GameDelegate {
     typealias GS = ParkLakesGameState
 
     var scene: ParkLakesGameScene {
-        get { return getScene() as! ParkLakesGameScene }
+        get { getScene() as! ParkLakesGameScene }
         set { setScene(scene: newValue) }
     }
     var game: ParkLakesGame {

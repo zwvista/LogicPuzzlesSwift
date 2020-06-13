@@ -14,7 +14,7 @@ class KropkiGameViewController: GameGameViewController, GameDelegate {
     typealias GS = KropkiGameState
 
     var scene: KropkiGameScene {
-        get { return getScene() as! KropkiGameScene }
+        get { getScene() as! KropkiGameScene }
         set { setScene(scene: newValue) }
     }
     var game: KropkiGame {

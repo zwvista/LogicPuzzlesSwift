@@ -14,7 +14,7 @@ class AbstractPaintingGameViewController: GameGameViewController, GameDelegate {
     typealias GS = AbstractPaintingGameState
 
     var scene: AbstractPaintingGameScene {
-        get { return getScene() as! AbstractPaintingGameScene }
+        get { getScene() as! AbstractPaintingGameScene }
         set { setScene(scene: newValue) }
     }
     var game: AbstractPaintingGame {

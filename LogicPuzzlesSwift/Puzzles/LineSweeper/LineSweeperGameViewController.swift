@@ -14,7 +14,7 @@ class LineSweeperGameViewController: GameGameViewController, GameDelegate {
     typealias GS = LineSweeperGameState
 
     var scene: LineSweeperGameScene {
-        get { return getScene() as! LineSweeperGameScene }
+        get { getScene() as! LineSweeperGameScene }
         set { setScene(scene: newValue) }
     }
     var game: LineSweeperGame {

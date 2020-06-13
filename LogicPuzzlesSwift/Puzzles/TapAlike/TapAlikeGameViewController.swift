@@ -14,7 +14,7 @@ class TapAlikeGameViewController: GameGameViewController, GameDelegate {
     typealias GS = TapAlikeGameState
 
     var scene: TapAlikeGameScene {
-        get { return getScene() as! TapAlikeGameScene }
+        get { getScene() as! TapAlikeGameScene }
         set { setScene(scene: newValue) }
     }
     var game: TapAlikeGame {

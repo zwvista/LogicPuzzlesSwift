@@ -14,7 +14,7 @@ class ABCPathGameViewController: GameGameViewController, GameDelegate {
     typealias GS = ABCPathGameState
 
     var scene: ABCPathGameScene {
-        get { return getScene() as! ABCPathGameScene }
+        get { getScene() as! ABCPathGameScene }
         set { setScene(scene: newValue) }
     }
     var game: ABCPathGame {

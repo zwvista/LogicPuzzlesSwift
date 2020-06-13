@@ -14,7 +14,7 @@ class MosaikGameViewController: GameGameViewController, GameDelegate {
     typealias GS = MosaikGameState
 
     var scene: MosaikGameScene {
-        get { return getScene() as! MosaikGameScene }
+        get { getScene() as! MosaikGameScene }
         set { setScene(scene: newValue) }
     }
     var game: MosaikGame {

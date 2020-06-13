@@ -14,7 +14,7 @@ class WallSentinelsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = WallSentinelsGameState
 
     var scene: WallSentinelsGameScene {
-        get { return getScene() as! WallSentinelsGameScene }
+        get { getScene() as! WallSentinelsGameScene }
         set { setScene(scene: newValue) }
     }
     var game: WallSentinelsGame {
