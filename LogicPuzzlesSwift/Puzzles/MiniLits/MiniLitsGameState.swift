@@ -140,7 +140,7 @@ class MiniLitsGameState: GridGameState {
         // 4. All the shaded cells should form a valid Nurikabe.
         if blocks.count != 1 {isSolved = false}
         // https://stackoverflow.com/questions/32921425/swift-creating-an-array-with-a-default-value-of-distinct-object-instances
-        var infos = game.areas.count.range.map{_ in MiniLitsAreaInfo()}
+        let infos = game.areas.count.range.map{_ in MiniLitsAreaInfo()}
         for i in 0..<blocks.count {
             let block = blocks[i]
             for p in block {

@@ -49,7 +49,7 @@ class GameGameViewController: UIViewController, SoundMixin {
         super.viewDidLoad()
         
         // Configure the view.
-        skView = view as! SKView
+        skView = view as? SKView
         skView.isMultipleTouchEnabled = false
 
         lblGameTitle.text = currentGameTitle

@@ -97,19 +97,19 @@ class KropkiGameState: GridGameState {
         isSolved = true
         // 1. The Goal is to enter numbers 1 to board size once in every row.
         for r in 0..<rows {
-            var nums = Set<Int>((0..<cols).map{self[r, $0]})
+            let nums = Set<Int>((0..<cols).map{self[r, $0]})
             if nums.contains(0) || nums.count != cols {isSolved = false}
         }
         // 1. The Goal is to enter numbers 1 to board size once in every column.
         for c in 0..<cols {
-            var nums = Set<Int>((0..<rows).map{self[$0, c]})
+            let nums = Set<Int>((0..<rows).map{self[$0, c]})
             if nums.contains(0) || nums.count != rows {isSolved = false}
         }
         // 7. In later 9*9 levels you will also have bordered and coloured areas,
         // which must also contain all the numbers 1 to 9.
         if game.bordered {
             for a in game.areas {
-                var nums = Set<Int>(a.map{self[$0]})
+                let nums = Set<Int>(a.map{self[$0]})
                 if nums.contains(0) || nums.count != a.count {isSolved = false}
             }
         }

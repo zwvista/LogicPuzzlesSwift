@@ -108,7 +108,7 @@ class TatamiGameState: GridGameState {
                 pos2state[p1] = .error
                 pos2state[p2] = .error
             }
-            var chars = (0..<cols).map{self[r, $0]}.sorted()
+            let chars = (0..<cols).map{self[r, $0]}.sorted()
             // 3. In one row, each number must appear the same number of times.
             if chars[0] != " " && chars != chars3 {
                 isSolved = false; lineSolved = false
@@ -133,7 +133,7 @@ class TatamiGameState: GridGameState {
                 pos2state[p1] = .error
                 pos2state[p2] = .error
             }
-            var chars = (0..<rows).map{self[$0, c]}.sorted()
+            let chars = (0..<rows).map{self[$0, c]}.sorted()
             // 3. In one column, each number must appear the same number of times.
             if chars[0] != " " && chars != chars3 {
                 isSolved = false; lineSolved = false
