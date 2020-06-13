@@ -17,7 +17,7 @@ class KakurasuGame: GridGame<KakurasuGameViewController> {
     ]
 
     override func isValid(row: Int, col: Int) -> Bool {
-        return 1..<rows - 1 ~= row && 1..<cols - 1 ~= col
+        1..<rows - 1 ~= row && 1..<cols - 1 ~= col
     }
 
     var row2hint = [Int]()
