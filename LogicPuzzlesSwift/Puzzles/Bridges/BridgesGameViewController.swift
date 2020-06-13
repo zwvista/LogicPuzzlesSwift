@@ -54,8 +54,8 @@ class BridgesGameViewController: GameGameViewController, GameDelegate {
             pLast = p; f()
         case .changed:
             guard isI && pLast != nil && pLast != p else {break}
-            let move = BridgesGameMove(pFrom: pLast!, pTo: p)
-            _ = game.switchBridges(move: move)
+            var move = BridgesGameMove(pFrom: pLast!, pTo: p)
+            _ = game.switchBridges(move: &move)
             pLast = p; f()
         case .ended:
             pLast = nil
@@ -76,8 +76,8 @@ class BridgesGameViewController: GameGameViewController, GameDelegate {
         
         // restore game state
         for case let rec as MoveProgress in gameDocument.moveProgress {
-            let move = gameDocument.loadMove(from: rec)!
-            _ = game.switchBridges(move: move)
+            var move = gameDocument.loadMove(from: rec)!
+            _ = game.switchBridges(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex
         if case 0..<game.moveCount = moveIndex {

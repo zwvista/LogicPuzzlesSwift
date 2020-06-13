@@ -58,26 +58,14 @@ class BridgesGame: GridGame<BridgesGameViewController> {
         levelInitilized(state: state)
     }
     
-    func switchBridges(move: BridgesGameMove) -> Bool {
+    func switchBridges(move: inout BridgesGameMove) -> Bool {
         var pFrom = move.pFrom, pTo = move.pTo
         guard let o = islandsInfo[pFrom], let _ = o.neighbors.filter({$0 == pTo}).first else {return false}
-        
-        if canRedo {
-            states.removeSubrange((stateIndex + 1)..<states.count)
-            moves.removeSubrange(stateIndex..<moves.count)
+        return changeObject(move: &move) { state, move in
+            if pTo < pFrom {swap(&pFrom, &pTo)}
+            let move = BridgesGameMove(pFrom: pFrom, pTo: pTo)
+            return state.switchBridges(move: move)
         }
-        // copy a state
-        let state = self.state.copy()
-        if pTo < pFrom {swap(&pFrom, &pTo)}
-        let move = BridgesGameMove(pFrom: pFrom, pTo: pTo)
-        guard state.switchBridges(move: move) else {return false}
-        
-        states.append(state)
-        stateIndex += 1
-        moves.append(move)
-        moveAdded(move: move)
-        levelUpdated(from: states[stateIndex - 1], to: state)
-        return true
     }
-        
+
 }
