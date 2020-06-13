@@ -70,7 +70,7 @@ class TentsGameViewController: GameGameViewController, GameDelegate {
                 game.undo()
             }
         }
-        scene.levelUpdated(from: game.states[0], to: game.state)
+        scene.levelUpdated(from: game.states[0], to: game.currentState)
     }
     
     func moveAdded(_ game: AnyObject, move: TentsGameMove) {

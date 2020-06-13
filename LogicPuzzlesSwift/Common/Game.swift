@@ -31,11 +31,10 @@ class Game<GD: GameDelegate>: GameBase {
     typealias GS = GD.GS
     var stateIndex = 0
     var states = [GS]()
-    var state: GS {return states[stateIndex]}
+    var currentState: GS {return states[stateIndex]}
     var moves = [GM]()
-    var move: GM {return moves[stateIndex - 1]}
     
-    var isSolved: Bool {state.isSolved}
+    var isSolved: Bool {currentState.isSolved}
     var canUndo: Bool {stateIndex > 0}
     var canRedo: Bool {stateIndex < states.count - 1}
     var moveIndex: Int {stateIndex}
@@ -65,13 +64,13 @@ class Game<GD: GameDelegate>: GameBase {
     func undo() {
         guard canUndo else {return}
         stateIndex -= 1
-        levelUpdated(from: states[stateIndex + 1], to: state)
+        levelUpdated(from: states[stateIndex + 1], to: currentState)
     }
     
     func redo() {
         guard canRedo else {return}
         stateIndex += 1
-        levelUpdated(from: states[stateIndex - 1], to: state)
+        levelUpdated(from: states[stateIndex - 1], to: currentState)
     }
     
     func changeObject(move: inout GM, f: (inout GS, inout GM) -> Bool) -> Bool {
@@ -80,7 +79,7 @@ class Game<GD: GameDelegate>: GameBase {
             moves.removeSubrange(stateIndex..<moves.count)
         }
         // copy a state
-        var state = self.state.copy() as! GD.GS
+        var state = currentState.copy() as! GD.GS
         guard f(&state, &move) else {return false}
         
         states.append(state)
@@ -104,12 +103,12 @@ protocol GridGameBase: GameBase {
 
 class GridGame<GD: GameDelegate>: Game<GD>, GridGameBase {
     var size: Position!
-    var rows: Int { return size.row }
-    var cols: Int { return size.col }
+    var rows: Int { size.row }
+    var cols: Int { size.col }
     func isValid(p: Position) -> Bool {
-        return isValid(row: p.row, col: p.col)
+        isValid(row: p.row, col: p.col)
     }
     func isValid(row: Int, col: Int) -> Bool {
-        return 0..<rows ~= row && 0..<cols ~= col
+        0..<rows ~= row && 0..<cols ~= col
     }
 }
