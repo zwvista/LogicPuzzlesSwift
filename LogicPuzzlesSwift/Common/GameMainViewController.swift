@@ -15,15 +15,15 @@ class GameMainViewController: UIViewController {
     @IBOutlet weak var btnPrevPage: UIButton!
     @IBOutlet weak var btnNextPage: UIButton!
     
-    override var prefersStatusBarHidden: Bool { return true }
+    override var prefersStatusBarHidden: Bool { true }
     
-    override var shouldAutorotate: Bool { return false}
+    override var shouldAutorotate: Bool { false}
 
-    private var gameDocument: GameDocumentBase! { return getGameDocument() }
-    func getGameDocument() -> GameDocumentBase! { return nil }
-    var gameOptions: GameProgress { return gameDocument.gameProgress }
-    var markerOption: Int { return gameOptions.option1?.toInt() ?? 0 }
-    var allowedObjectsOnly: Bool { return gameOptions.option2?.toBool() ?? false }
+    private var gameDocument: GameDocumentBase! { getGameDocument() }
+    func getGameDocument() -> GameDocumentBase! { nil }
+    var gameOptions: GameProgress { gameDocument.gameProgress }
+    var markerOption: Int { gameOptions.option1?.toInt() ?? 0 }
+    var allowedObjectsOnly: Bool { gameOptions.option2?.toBool() ?? false }
     
     var currentPage = 0
     let countPerPage = 12

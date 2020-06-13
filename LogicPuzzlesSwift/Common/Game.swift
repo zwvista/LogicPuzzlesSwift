@@ -35,11 +35,11 @@ class Game<GD: GameDelegate>: GameBase {
     var moves = [GM]()
     var move: GM {return moves[stateIndex - 1]}
     
-    var isSolved: Bool {return state.isSolved}
-    var canUndo: Bool {return stateIndex > 0}
-    var canRedo: Bool {return stateIndex < states.count - 1}
-    var moveIndex: Int {return stateIndex}
-    var moveCount: Int {return states.count - 1}
+    var isSolved: Bool {state.isSolved}
+    var canUndo: Bool {stateIndex > 0}
+    var canRedo: Bool {stateIndex < states.count - 1}
+    var moveIndex: Int {stateIndex}
+    var moveCount: Int {states.count - 1}
     
     weak var delegate: GD?
     

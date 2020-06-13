@@ -43,10 +43,10 @@ class GridGameState: GameState {
     var rows: Int { return size.row }
     var cols: Int { return size.col }
     func isValid(p: Position) -> Bool {
-        return game!.isValid(row: p.row, col: p.col)
+        game!.isValid(row: p.row, col: p.col)
     }
     func isValid(row: Int, col: Int) -> Bool {
-        return game!.isValid(row: row, col: col)
+        game!.isValid(row: row, col: col)
     }
     
     override func copy() -> GridGameState {

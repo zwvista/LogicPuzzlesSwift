@@ -58,13 +58,13 @@ class GameDocument<G: GameBase, GM>: GameDocumentBase {
             return result[0] as! LevelProgress
         }
     }
-    var levelProgress: LevelProgress { return getLevelProgress(levelID: selectedLevelID) }
-    var levelProgressSolution: LevelProgress { return getLevelProgress(levelID: selectedLevelIDSolution) }
+    var levelProgress: LevelProgress { getLevelProgress(levelID: selectedLevelID) }
+    var levelProgressSolution: LevelProgress { getLevelProgress(levelID: selectedLevelIDSolution) }
     private func getMoveProgress(levelID: String) -> SRKResultSet {
-        return MoveProgress.query().where(withFormat: "gameID = %@ AND levelID = %@", withParameters: [gameID!, levelID]).order("moveIndex").fetch()
+        MoveProgress.query().where(withFormat: "gameID = %@ AND levelID = %@", withParameters: [gameID!, levelID]).order("moveIndex").fetch()
     }
-    var moveProgress: SRKResultSet { return getMoveProgress(levelID: selectedLevelID) }
-    var moveProgressSolution: SRKResultSet { return getMoveProgress(levelID: selectedLevelIDSolution) }
+    var moveProgress: SRKResultSet { getMoveProgress(levelID: selectedLevelID) }
+    var moveProgressSolution: SRKResultSet { getMoveProgress(levelID: selectedLevelIDSolution) }
     
     init() {
         // http://stackoverflow.com/questions/24494784/get-class-name-of-object-as-string-in-swift
@@ -115,7 +115,7 @@ class GameDocument<G: GameBase, GM>: GameDocumentBase {
     
     func saveMove(_ move: GM, to rec: MoveProgress) {}
     
-    func loadMove(from rec: MoveProgress) -> GM? {return nil}
+    func loadMove(from rec: MoveProgress) -> GM? {nil}
     
     func resumeGame() {
         let rec = gameProgress

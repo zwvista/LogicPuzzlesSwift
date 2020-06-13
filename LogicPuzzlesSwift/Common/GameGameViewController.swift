@@ -21,24 +21,24 @@ class GameGameViewController: UIViewController, SoundMixin {
     @IBOutlet weak var btnDeleteSolution: UIButton!
     
     private var scene: SKScene?
-    func getScene() -> SKScene? {return scene}
+    func getScene() -> SKScene? {scene}
     func setScene(scene: SKScene?) {self.scene = scene}
     private var game: GridGameBase?
-    func getGame() -> GridGameBase? {return game}
+    func getGame() -> GridGameBase? {game}
     func setGame(game: GridGameBase?) {self.game = game}
-    private var gameDocument: GameDocumentBase! { return getGameDocument() }
-    func getGameDocument() -> GameDocumentBase! { return nil }
-    var gameOptions: GameProgress { return gameDocument.gameProgress }
-    var markerOption: Int { return gameOptions.option1?.toInt() ?? 0 }
-    var allowedObjectsOnly: Bool { return gameOptions.option2?.toBool() ?? false }
+    private var gameDocument: GameDocumentBase! { getGameDocument() }
+    func getGameDocument() -> GameDocumentBase! { nil }
+    var gameOptions: GameProgress { gameDocument.gameProgress }
+    var markerOption: Int { gameOptions.option1?.toInt() ?? 0 }
+    var allowedObjectsOnly: Bool { gameOptions.option2?.toBool() ?? false }
     
     weak var skView: SKView!
     var levelInitilizing = false
 
     // http://stackoverflow.com/questions/18979837/how-to-hide-ios-status-bar
-    override var prefersStatusBarHidden: Bool { return true }
+    override var prefersStatusBarHidden: Bool { true }
     
-    override var shouldAutorotate: Bool { return false}
+    override var shouldAutorotate: Bool { false}
     
     // http://stackoverflow.com/questions/14111572/how-to-use-single-storyboard-uiviewcontroller-for-multiple-subclass
     override func awakeFromNib() {

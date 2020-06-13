@@ -14,16 +14,16 @@ class GameOptionsViewController: UITableViewController {
     @IBOutlet weak var lblMarkerOption: UILabel!
     @IBOutlet weak var swAllowedObjectsOnly: UISwitch!
 
-    override var prefersStatusBarHidden: Bool { return true }
+    override var prefersStatusBarHidden: Bool { true }
     
-    override var shouldAutorotate: Bool { return false}
+    override var shouldAutorotate: Bool { false}
     
-    private var gameDocument: GameDocumentBase! { return getGameDocument() }
-    func getGameDocument() -> GameDocumentBase! { return nil }
-    var gameOptions: GameProgress { return gameDocument.gameProgress }
-    var markerOption: Int { return gameOptions.option1?.toInt() ?? 0 }
+    private var gameDocument: GameDocumentBase! { getGameDocument() }
+    func getGameDocument() -> GameDocumentBase! { nil }
+    var gameOptions: GameProgress { gameDocument.gameProgress }
+    var markerOption: Int { gameOptions.option1?.toInt() ?? 0 }
     func setMarkerOption(rec: GameProgress, newValue: Int) { rec.option1 = newValue.description }
-    var allowedObjectsOnly: Bool { return gameOptions.option2?.toBool() ?? false }
+    var allowedObjectsOnly: Bool { gameOptions.option2?.toBool() ?? false }
     func setAllowedObjectsOnly(rec: GameProgress, newValue: Bool) { rec.option2 = newValue.description }
     
     // http://stackoverflow.com/questions/14111572/how-to-use-single-storyboard-uiviewcontroller-for-multiple-subclass

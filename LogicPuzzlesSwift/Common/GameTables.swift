@@ -19,7 +19,7 @@ class GameProgress: SRKObject {
     dynamic var option4: String?
     
     override class func defaultValuesForEntity() -> [String : Any] {
-        return ["levelID": "1"]
+        ["levelID": "1"]
     }
 }
 
@@ -30,7 +30,7 @@ class LevelProgress: SRKObject {
     dynamic var moveIndex = 0
     
     override class func defaultValuesForEntity() -> [String : Any] {
-        return ["moveIndex": 0]
+        ["moveIndex": 0]
     }
 }
 
@@ -49,6 +49,6 @@ class MoveProgress: SRKObject {
     dynamic var strValue2: String?
     
     override class func defaultValuesForEntity() -> [String : Any] {
-        return ["moveIndex": 0]
+        ["moveIndex": 0]
     }
 }
