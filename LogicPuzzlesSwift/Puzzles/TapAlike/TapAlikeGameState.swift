@@ -117,7 +117,7 @@ class TapAlikeGameState: GridGameState {
             return h2.isSubset(of: h1)
         }
         for (p, arr2) in game.pos2hint {
-            let filled = [Int](0..<8).filter{
+            let filled = [Int](0..<8).filter {
                 let p2 = p + TapAlikeGame.offset[$0]
                 return isValid(p: p2) && String(describing: self[p2]) == String(describing: TapAlikeObject.wall)
             }

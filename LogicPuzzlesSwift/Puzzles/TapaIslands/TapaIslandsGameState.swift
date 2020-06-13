@@ -118,7 +118,7 @@ class TapaIslandsGameState: GridGameState {
             return h2.isSubset(of: h1)
         }
         for (p, arr2) in game.pos2hint {
-            let filled = [Int](0..<8).filter{
+            let filled = [Int](0..<8).filter {
                 let p2 = p + TapaIslandsGame.offset[$0]
                 return isValid(p: p2) && String(describing: self[p2]) == String(describing: TapaIslandsObject.wall)
             }
@@ -177,7 +177,7 @@ class TapaIslandsGameState: GridGameState {
         if rngWalls.count != nodesExplored.count { isSolved = false }
         while !rngEmpty.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node[rngEmpty.first!]!)
-            rngEmpty = rngEmpty.filter{ !nodesExplored.contains($0.description) }
+            rngEmpty = rngEmpty.filter { !nodesExplored.contains($0.description) }
             let n2 = nodesExplored.count
             var rng = [Position]()
             for p in game.pos2hint.keys {

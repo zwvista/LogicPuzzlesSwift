@@ -96,15 +96,15 @@ class RobotFencesGameState: GridGameState {
         }
         // 3. No same number can appear in the same row.
         for r in 0..<rows {
-            f(nums: (0..<cols).map{ self[r, $0] }, s: &row2state[r])
+            f(nums: (0..<cols).map { self[r, $0] } , s: &row2state[r])
         }
         // 3. No same number can appear in the same column.
         for c in 0..<cols {
-            f(nums: (0..<rows).map{ self[$0, c] }, s: &col2state[c])
+            f(nums: (0..<rows).map { self[$0, c] } , s: &col2state[c])
         }
         // 1. You need to fill each region with a randomly ordered sequence of numbers.
         for i in 0..<game.areas.count {
-            f(nums: game.areas[i].map{ self[$0] }, s: &area2state[i])
+            f(nums: game.areas[i].map { self[$0] } , s: &area2state[i])
         }
     }
 }

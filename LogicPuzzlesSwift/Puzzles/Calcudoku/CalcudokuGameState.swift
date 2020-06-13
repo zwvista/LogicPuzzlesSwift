@@ -101,14 +101,14 @@ class CalcudokuGameState: GridGameState {
         }
         // 6. All the numbers appear just one time in each row.
         for r in 0..<rows {
-            f(nums: (0..<cols).map{ self[r, $0] }, s: &row2state[r])
+            f(nums: (0..<cols).map { self[r, $0] } , s: &row2state[r])
         }
         // 6. All the numbers appear just one time in each column.
         for c in 0..<cols {
-            f(nums: (0..<rows).map{ self[$0, c] }, s: &col2state[c])
+            f(nums: (0..<rows).map { self[$0, c] } , s: &col2state[c])
         }
         for (p, h) in game.pos2hint {
-            let nums = game.areas[game.pos2area[p]!].map{ self[$0] }
+            let nums = game.areas[game.pos2area[p]!].map { self[$0] }
             func g() -> HintState {
                 if nums.contains(0) { return .normal }
                 let n = h.result

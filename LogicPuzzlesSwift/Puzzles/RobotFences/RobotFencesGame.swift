@@ -80,7 +80,7 @@ class RobotFencesGame: GridGame<RobotFencesGameViewController> {
         while !rng.isEmpty {
             let node = pos2node[rng.first!]!
             let nodesExplored = breadthFirstSearch(g, source: node)
-            let area = [Position](rng.filter{ nodesExplored.contains($0.description) })
+            let area = [Position](rng.filter { nodesExplored.contains($0.description) })
             let n = areas.count
             for p in area {
                 pos2area[p] = n

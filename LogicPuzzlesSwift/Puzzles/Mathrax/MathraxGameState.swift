@@ -94,11 +94,11 @@ class MathraxGameState: GridGameState {
         }
         // 2. A number must appear once for every row.
         for r in 0..<rows {
-            f(nums: (0..<cols).map{ self[r, $0] }, s: &row2state[r])
+            f(nums: (0..<cols).map { self[r, $0] } , s: &row2state[r])
         }
         // 2. A number must appear once for every column.
         for c in 0..<cols {
-            f(nums: (0..<rows).map{ self[$0, c] }, s: &col2state[c])
+            f(nums: (0..<rows).map { self[$0, c] } , s: &col2state[c])
         }
         for (p, h) in game.pos2hint {
             func g(n1: Int, n2: Int) -> HintState {
@@ -125,7 +125,7 @@ class MathraxGameState: GridGameState {
                     return .normal
                 }
             }
-            let nums = MathraxGame.offset2.map{ self[p + $0] }
+            let nums = MathraxGame.offset2.map { self[p + $0] }
             // 3. This is valid for both pairs of numbers surrounding the hint.
             let (s1, s2) = (g(n1: nums[0], n2: nums[1]), g(n1: nums[2], n2: nums[3]))
             let s: HintState = s1 == .error || s2 == .error ? .error :

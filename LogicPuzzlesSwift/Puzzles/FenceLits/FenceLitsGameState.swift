@@ -134,7 +134,7 @@ class FenceLitsGameState: GridGameState {
         // square one (differently from LITS).
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }.sorted()
+            let area = pos2node.filter { nodesExplored.contains($0.0.description) }.map { $0.0 }.sorted()
             guard area.count == 4 else { isSolved = false; return }
             var areaOffsets = [Position]()
             let p2 = Position(area.min(by: { $0.row < $1.row })!.row, area.min(by: { $0.col < $1.col })!.col)
@@ -142,7 +142,7 @@ class FenceLitsGameState: GridGameState {
                 areaOffsets.append(p - p2)
             }
             guard FenceLitsGame.tetrominoes.contains(where: { $0 == areaOffsets }) else { isSolved = false; return }
-            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
+            pos2node = pos2node.filter { !nodesExplored.contains($0.0.description) }
         }
     }
 }

@@ -82,7 +82,7 @@ class GameOptionsViewController: UITableViewController {
             self.setMarkerOption(rec: rec, newValue: selectedIndex)
             rec.commit()
             self.updateMarkerOption()
-        }, cancel: nil, origin: lblMarker)
+        } , cancel: nil, origin: lblMarker)
     }
 
     deinit {

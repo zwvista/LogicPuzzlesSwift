@@ -119,7 +119,7 @@ class OrchardsGameState: GridGameState {
         }
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let trees = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }
+            let trees = pos2node.filter { nodesExplored.contains($0.0.description) }.map { $0.0 }
             // 2. These are Apple Trees, which must cross-pollinate, thus must be planted
             // in pairs - horizontally or vertically touching.
             if trees.count != 2 { isSolved = false }
@@ -130,7 +130,7 @@ class OrchardsGameState: GridGameState {
                     self[p] = .tree(state: .error)
                 }
             }
-            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
+            pos2node = pos2node.filter { !nodesExplored.contains($0.0.description) }
         }
         for a in game.areas {
             var trees = [Position]()

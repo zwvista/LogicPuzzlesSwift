@@ -11,12 +11,12 @@ import Foundation
 // http://stackoverflow.com/questions/29835242/whats-the-simplest-way-to-convert-from-a-single-character-string-to-an-ascii-va
 extension String {
     var asciiArray: [UInt32] {
-        return unicodeScalars.filter{ $0.isASCII }.map{ $0.value }
+        return unicodeScalars.filter { $0.isASCII }.map { $0.value }
     }
 }
 extension Character {
     var asciiValue: UInt32? {
-        return String(self).unicodeScalars.filter{ $0.isASCII }.first?.value
+        return String(self).unicodeScalars.filter { $0.isASCII }.first?.value
     }
 }
 extension UIViewController {

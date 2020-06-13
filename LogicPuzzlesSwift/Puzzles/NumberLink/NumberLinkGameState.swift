@@ -89,11 +89,11 @@ class NumberLinkGameState: GridGameState {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let n = self[p].filter{ $0 }.count
+                let n = self[p].filter { $0 }.count
                 let b = game.pos2hint[p] != nil
                 pos2node[p] = g.addNode(p.description)
                 if b && n == 1 || !b && n == 2 {
-                    pos2indexes[p] = (0..<4).filter{ self[p][$0] }
+                    pos2indexes[p] = (0..<4).filter { self[p][$0] }
                 } else {
                     // 3. Lines must originate on a number and must end in the other equal
                     // number.
@@ -129,12 +129,12 @@ class NumberLinkGameState: GridGameState {
         }
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }
-            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
-            let rng1 = area.filter{ game.pos2hint[$0] != nil }
+            let area = pos2node.filter { nodesExplored.contains($0.0.description) }.map { $0.0 }
+            pos2node = pos2node.filter { !nodesExplored.contains($0.0.description) }
+            let rng1 = area.filter { game.pos2hint[$0] != nil }
             guard !rng1.isEmpty else { isSolved = false; continue }
             let rng2 = game.hint2rng[game.pos2hint[rng1[0]]!]!
-            let (b1, b2, b3) = (rng1.difference(rng2).isEmpty, rng2.difference(rng1).isEmpty, area.testAll{ self.pos2state[$0] != .error })
+            let (b1, b2, b3) = (rng1.difference(rng2).isEmpty, rng2.difference(rng1).isEmpty, area.testAll { self.pos2state[$0] != .error })
             // 3. Lines must originate on a number and must end in the other equal
             // number.
             // 4. At the end of the puzzle, you must have covered ALL the squares with

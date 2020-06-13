@@ -81,7 +81,7 @@ class TatamiGameState: GridGameState {
     private func updateIsSolved() {
         isSolved = true
         let chars2: [Character] = ["1", "2", "3"]
-        let chars3 = chars2.flatMap{ Array<Character>(repeating: $0, count: rows / 3) }
+        let chars3 = chars2.flatMap { Array<Character>(repeating: $0, count: rows / 3) }
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
@@ -100,7 +100,7 @@ class TatamiGameState: GridGameState {
                 pos2state[p1] = .error
                 pos2state[p2] = .error
             }
-            let chars = (0..<cols).map{ self[r, $0] }.sorted()
+            let chars = (0..<cols).map { self[r, $0] }.sorted()
             // 3. In one row, each number must appear the same number of times.
             if chars[0] != " " && chars != chars3 {
                 isSolved = false; lineSolved = false
@@ -125,7 +125,7 @@ class TatamiGameState: GridGameState {
                 pos2state[p1] = .error
                 pos2state[p2] = .error
             }
-            let chars = (0..<rows).map{ self[$0, c] }.sorted()
+            let chars = (0..<rows).map { self[$0, c] }.sorted()
             // 3. In one column, each number must appear the same number of times.
             if chars[0] != " " && chars != chars3 {
                 isSolved = false; lineSolved = false
@@ -141,7 +141,7 @@ class TatamiGameState: GridGameState {
         }
         // 2. Each number can appear only once in each Tatami.
         for a in game.areas {
-            let chars = a.map{ self[$0] }.sorted()
+            let chars = a.map { self[$0] }.sorted()
             guard chars[0] != " " && chars != chars2 else {continue}
             isSolved = false
             for p in a {

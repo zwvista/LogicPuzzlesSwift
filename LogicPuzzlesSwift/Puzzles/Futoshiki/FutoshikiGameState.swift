@@ -100,11 +100,11 @@ class FutoshikiGameState: GridGameState {
         }
         // 3. Remember you can't repeat the same number in a row.
         for r in stride(from: 0, to: rows, by: 2) {
-            f(nums: stride(from: 0, to: cols, by: 2).map{ self[r, $0] }, s: &row2state[r])
+            f(nums: stride(from: 0, to: cols, by: 2).map { self[r, $0] } , s: &row2state[r])
         }
         // 3. Remember you can't repeat the same number in a column.
         for c in stride(from: 0, to: cols, by: 2) {
-            f(nums: stride(from: 0, to: rows, by: 2).map{ self[$0, c] }, s: &col2state[c])
+            f(nums: stride(from: 0, to: rows, by: 2).map { self[$0, c] } , s: &col2state[c])
         }
         for (p, h) in game.pos2hint {
             let (r, c) = (p.row, p.col)

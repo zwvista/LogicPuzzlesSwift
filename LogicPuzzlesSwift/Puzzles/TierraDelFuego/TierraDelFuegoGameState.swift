@@ -129,8 +129,8 @@ class TierraDelFuegoGameState: GridGameState {
         while !pos2node.isEmpty {
             let kv = pos2node.first!
             let nodesExplored = breadthFirstSearch(g, source: kv.value)
-            let area = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }
-            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
+            let area = pos2node.filter { nodesExplored.contains($0.0.description) }.map { $0.0 }
+            pos2node = pos2node.filter { !nodesExplored.contains($0.0.description) }
             if case .tree = self[kv.key] {
                 // 3. The archipelago is peculiar because all bodies of water separating the
                 // islands are identical in shape and occupied a 2*1 or 1*2 space.

@@ -120,9 +120,9 @@ class NorthPoleFishingGameState: GridGameState {
         }
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }
-            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
-            let rng = area.filter{ p in game.holes.contains(p) }
+            let area = pos2node.filter { nodesExplored.contains($0.0.description) }.map { $0.0 }
+            pos2node = pos2node.filter { !nodesExplored.contains($0.0.description) }
+            let rng = area.filter { p in game.holes.contains(p) }
             // 2. They decide each one should have a piece of land of exactly 4 squares,
             // including one fishing hole.
             if rng.count != 1 {

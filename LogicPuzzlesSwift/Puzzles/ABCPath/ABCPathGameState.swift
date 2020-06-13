@@ -63,7 +63,7 @@ class ABCPathGameState: GridGameState {
         guard isValid(p: p), game[p] == " " else { return false }
         let o = self[p]
         // 1.  Enter every letter from A to Y into the grid.
-        var chars = (0...24).map{ succ(ch: "A", offset: $0) }
+        var chars = (0...24).map { succ(ch: "A", offset: $0) }
         for r in 1..<rows - 1 {
             for c in 1..<cols - 1 {
                 let p2 = Position(r, c)
@@ -106,7 +106,7 @@ class ABCPathGameState: GridGameState {
                 }
             }
         }
-        ch2rng = ch2rng.filter{ (ch, rng) in rng.count > 1 }
+        ch2rng = ch2rng.filter { (ch, rng) in rng.count > 1 }
         if !ch2rng.isEmpty { isSolved = false }
         for (_, rng) in ch2rng {
             for p in rng {

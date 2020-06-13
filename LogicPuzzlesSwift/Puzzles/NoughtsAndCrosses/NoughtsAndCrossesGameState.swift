@@ -105,11 +105,11 @@ class NoughtsAndCrossesGameState: GridGameState {
         }
         // 2. All numbers must appear just once on each row.
         for r in 0..<rows {
-            f(nums: (0..<cols).map{ self[r, $0] }, s: &row2state[r])
+            f(nums: (0..<cols).map { self[r, $0] } , s: &row2state[r])
         }
         // 2. All numbers must appear just once on each column.
         for c in 0..<cols {
-            f(nums: (0..<rows).map{ self[$0, c] }, s: &col2state[c])
+            f(nums: (0..<rows).map { self[$0, c] } , s: &col2state[c])
         }
         // 3. A circle marks where a number must go.
         for p in game.noughts {

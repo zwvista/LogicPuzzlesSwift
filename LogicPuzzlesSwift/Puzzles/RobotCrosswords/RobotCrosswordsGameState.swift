@@ -84,7 +84,7 @@ class RobotCrosswordsGameState: GridGameState {
         isSolved = true
         for i in 0..<game.areas.count {
             let a = game.areas[i]
-            let nums = a.map{ self[$0] }
+            let nums = a.map { self[$0] }
             let nums2 = Set<Int>(nums).sorted()
             // 2. Each 'word' is formed by an uninterrupted sequence of numbers,
             // but in any order.

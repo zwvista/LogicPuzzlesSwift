@@ -127,16 +127,16 @@ class GalaxiesGameState: GridGameState {
         var pos2area = [Position: Int]()
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }
+            let area = pos2node.filter { nodesExplored.contains($0.0.description) }.map { $0.0 }
             areas.append(area)
             for p in area {
                 pos2area[p] = areas.count
             }
-            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
+            pos2node = pos2node.filter { !nodesExplored.contains($0.0.description) }
         }
         var n1 = 0
         for area in areas {
-            let rng = game.galaxies.filter{ p in area.contains(Position(p.row / 2, p.col / 2)) }
+            let rng = game.galaxies.filter { p in area.contains(Position(p.row / 2, p.col / 2)) }
             if rng.count != 1 {
                 // 3. Galaxies can't overlap.
                 for p in rng {
@@ -148,7 +148,7 @@ class GalaxiesGameState: GridGameState {
                 // means that rotating the shape of the Galaxy by 180 degrees (half a
                 // full turn) around the center, will result in an identical shape.
                 let galaxy = rng.first!
-                let b = area.testAll{ p in area.contains(Position(galaxy.row - p.row - 1, galaxy.col - p.col - 1)) }
+                let b = area.testAll { p in area.contains(Position(galaxy.row - p.row - 1, galaxy.col - p.col - 1)) }
                 pos2state[galaxy] = b ? .complete : .error
                 if !b { isSolved = false }
             }

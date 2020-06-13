@@ -176,7 +176,7 @@ class GardenerGameState: GridGameState {
         // 7. In other words, a straight path of empty space can't pass through
         // three or more Flowerbeds.
         func checkSpaces(isHorz: Bool) {
-            if Set<Int>(spaces.map{ game.pos2area[$0]! }).count > 2 {
+            if Set<Int>(spaces.map { game.pos2area[$0]! }).count > 2 {
                 isSolved = false
                 if isHorz {
                     invalidSpacesHorz = invalidSpacesHorz.union(spaces)
