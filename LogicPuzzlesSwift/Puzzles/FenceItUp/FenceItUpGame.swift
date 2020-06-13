@@ -56,7 +56,6 @@ class FenceItUpGame: GridGame<FenceItUpGameViewController> {
         }
         
         let state = FenceItUpGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

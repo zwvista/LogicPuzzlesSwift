@@ -37,7 +37,6 @@ class LighthousesGame: GridGame<LighthousesGameViewController> {
         }
         
         let state = LighthousesGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

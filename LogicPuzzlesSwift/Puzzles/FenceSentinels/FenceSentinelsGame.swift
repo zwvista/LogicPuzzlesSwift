@@ -44,7 +44,6 @@ class FenceSentinelsGame: GridGame<FenceSentinelsGameViewController> {
         }
         
         let state = FenceSentinelsGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

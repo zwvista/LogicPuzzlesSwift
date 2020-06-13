@@ -44,7 +44,6 @@ class NumberLinkGame: GridGame<NumberLinkGameViewController> {
         }
         
         let state = NumberLinkGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

@@ -58,7 +58,6 @@ class LightBattleShipsGame: GridGame<LightBattleShipsGameViewController> {
         }
         
         let state = LightBattleShipsGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

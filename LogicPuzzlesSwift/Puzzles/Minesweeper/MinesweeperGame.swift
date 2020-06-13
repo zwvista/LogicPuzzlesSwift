@@ -37,7 +37,6 @@ class MinesweeperGame: GridGame<MinesweeperGameViewController> {
         }
         
         let state = MinesweeperGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

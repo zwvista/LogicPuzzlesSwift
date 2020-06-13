@@ -32,7 +32,6 @@ class HolidayIslandGame: GridGame<HolidayIslandGameViewController> {
         }
 
         let state = HolidayIslandGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

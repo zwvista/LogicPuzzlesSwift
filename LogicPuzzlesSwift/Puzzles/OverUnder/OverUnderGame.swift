@@ -58,7 +58,6 @@ class OverUnderGame: GridGame<OverUnderGameViewController> {
         }
         
         let state = OverUnderGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

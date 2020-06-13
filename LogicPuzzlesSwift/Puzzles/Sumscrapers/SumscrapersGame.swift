@@ -55,7 +55,6 @@ class SumscrapersGame: GridGame<SumscrapersGameViewController> {
         }
         
         let state = SumscrapersGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

@@ -55,7 +55,6 @@ class SkyscrapersGame: GridGame<SkyscrapersGameViewController> {
         }
         
         let state = SkyscrapersGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

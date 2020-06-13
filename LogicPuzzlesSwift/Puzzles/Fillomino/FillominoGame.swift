@@ -53,7 +53,6 @@ class FillominoGame: GridGame<FillominoGameViewController> {
         }
 
         let state = FillominoGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

@@ -91,7 +91,6 @@ class GardenerGame: GridGame<GardenerGameViewController> {
         }
         
         let state = GardenerGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

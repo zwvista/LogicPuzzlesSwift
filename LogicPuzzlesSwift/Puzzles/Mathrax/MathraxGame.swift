@@ -49,7 +49,6 @@ class MathraxGame: GridGame<MathraxGameViewController> {
         }
 
         let state = MathraxGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

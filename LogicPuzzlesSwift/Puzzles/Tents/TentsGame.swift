@@ -59,7 +59,6 @@ class TentsGame: GridGame<TentsGameViewController> {
         }
         
         let state = TentsGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

@@ -90,7 +90,6 @@ class RobotFencesGame: GridGame<RobotFencesGameViewController> {
         }
 
         let state = RobotFencesGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

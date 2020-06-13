@@ -34,7 +34,6 @@ class ParkLakesGame: GridGame<ParkLakesGameViewController> {
         }
 
         let state = ParkLakesGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

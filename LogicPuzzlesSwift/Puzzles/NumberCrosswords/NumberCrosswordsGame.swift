@@ -55,7 +55,6 @@ class NumberCrosswordsGame: GridGame<NumberCrosswordsGameViewController> {
         }
                 
         let state = NumberCrosswordsGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

@@ -90,7 +90,6 @@ class TheOddBrickGame: GridGame<TheOddBrickGameViewController> {
         }
 
         let state = TheOddBrickGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

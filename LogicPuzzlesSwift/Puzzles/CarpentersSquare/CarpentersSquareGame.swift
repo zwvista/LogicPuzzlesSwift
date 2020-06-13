@@ -62,7 +62,6 @@ class CarpentersSquareGame: GridGame<CarpentersSquareGameViewController> {
         }
         
         let state = CarpentersSquareGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

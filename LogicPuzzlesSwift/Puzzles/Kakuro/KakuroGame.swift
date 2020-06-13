@@ -41,7 +41,6 @@ class KakuroGame: GridGame<KakuroGameViewController> {
         }
 
         let state = KakuroGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

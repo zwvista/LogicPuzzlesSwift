@@ -52,6 +52,7 @@ class Game<GD: GameDelegate>: GameBase {
     }
     
     func levelInitilized(state: GS) {
+        states.append(state)
         delegate?.levelInitilized(self, state: state)
         if isSolved { delegate?.gameSolved(self) }
     }

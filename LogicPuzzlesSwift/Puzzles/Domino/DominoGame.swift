@@ -53,7 +53,6 @@ class DominoGame: GridGame<DominoGameViewController> {
         }
         
         let state = DominoGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

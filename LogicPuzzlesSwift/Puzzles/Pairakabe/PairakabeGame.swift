@@ -39,7 +39,6 @@ class PairakabeGame: GridGame<PairakabeGameViewController> {
         }
         
         let state = PairakabeGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

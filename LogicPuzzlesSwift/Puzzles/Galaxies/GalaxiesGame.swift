@@ -75,7 +75,6 @@ class GalaxiesGame: GridGame<GalaxiesGameViewController> {
         }
         
         let state = GalaxiesGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

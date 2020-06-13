@@ -93,7 +93,6 @@ class CalcudokuGame: GridGame<CalcudokuGameViewController> {
         }
 
         let state = CalcudokuGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

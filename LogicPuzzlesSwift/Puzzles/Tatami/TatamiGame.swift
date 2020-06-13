@@ -89,7 +89,6 @@ class TatamiGame: GridGame<TatamiGameViewController> {
         }
         
         let state = TatamiGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

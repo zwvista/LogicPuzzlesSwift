@@ -62,7 +62,6 @@ class SnailGame: GridGame<SnailGameViewController> {
         snailPathLine = snailPath(n: rows + 1)
         
         let state = SnailGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

@@ -51,7 +51,6 @@ class TataminoGame: GridGame<TataminoGameViewController> {
         }
 
         let state = TataminoGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

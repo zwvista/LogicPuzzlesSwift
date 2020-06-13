@@ -38,7 +38,6 @@ class MosaikGame: GridGame<MosaikGameViewController> {
         }
         
         let state = MosaikGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

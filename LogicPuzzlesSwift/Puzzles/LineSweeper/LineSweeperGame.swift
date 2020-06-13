@@ -38,7 +38,6 @@ class LineSweeperGame: GridGame<LineSweeperGameViewController> {
         }
         
         let state = LineSweeperGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

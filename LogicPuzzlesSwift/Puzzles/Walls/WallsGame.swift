@@ -32,7 +32,6 @@ class WallsGame: GridGame<WallsGameViewController> {
         }
         
         let state = WallsGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

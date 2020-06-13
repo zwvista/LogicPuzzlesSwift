@@ -49,7 +49,6 @@ class HitoriGame: GridGame<HitoriGameViewController> {
         }
                 
         let state = HitoriGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

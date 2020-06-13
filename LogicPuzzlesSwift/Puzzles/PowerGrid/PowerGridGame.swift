@@ -42,7 +42,6 @@ class PowerGridGame: GridGame<PowerGridGameViewController> {
         }
         
         let state = PowerGridGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

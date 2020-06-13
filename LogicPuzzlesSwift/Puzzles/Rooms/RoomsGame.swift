@@ -54,7 +54,6 @@ class RoomsGame: GridGame<RoomsGameViewController> {
         }
         
         let state = RoomsGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

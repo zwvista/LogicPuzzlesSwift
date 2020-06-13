@@ -33,7 +33,6 @@ class BusySeasGame: GridGame<BusySeasGameViewController> {
         }
         
         let state = BusySeasGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

@@ -56,7 +56,6 @@ class BoxItAgainGame: GridGame<BoxItAgainGameViewController> {
         }
         
         let state = BoxItAgainGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

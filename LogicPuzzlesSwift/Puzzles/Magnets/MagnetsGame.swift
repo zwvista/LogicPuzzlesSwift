@@ -55,7 +55,6 @@ class MagnetsGame: GridGame<MagnetsGameViewController> {
         }
         
         let state = MagnetsGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

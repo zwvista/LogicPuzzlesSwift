@@ -45,7 +45,6 @@ class LoopyGame: GridGame<LoopyGameViewController> {
         }
         
         let state = LoopyGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

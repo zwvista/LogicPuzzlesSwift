@@ -118,7 +118,6 @@ class LitsGame: GridGame<LitsGameViewController> {
         }
         
         let state = LitsGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

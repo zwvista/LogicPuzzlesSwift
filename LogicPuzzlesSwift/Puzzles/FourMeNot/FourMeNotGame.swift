@@ -41,7 +41,6 @@ class FourMeNotGame: GridGame<FourMeNotGameViewController> {
         }
 
         let state = FourMeNotGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

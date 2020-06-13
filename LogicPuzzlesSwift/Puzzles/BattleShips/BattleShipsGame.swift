@@ -65,7 +65,6 @@ class BattleShipsGame: GridGame<BattleShipsGameViewController> {
         }
         
         let state = BattleShipsGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

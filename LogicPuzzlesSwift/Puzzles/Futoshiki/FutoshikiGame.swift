@@ -38,7 +38,6 @@ class FutoshikiGame: GridGame<FutoshikiGameViewController> {
         }
 
         let state = FutoshikiGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

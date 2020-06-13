@@ -54,7 +54,6 @@ class BWTapaGame: GridGame<BWTapaGameViewController> {
         }
         
         let state = BWTapaGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

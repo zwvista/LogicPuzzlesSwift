@@ -32,7 +32,6 @@ class TierraDelFuegoGame: GridGame<TierraDelFuegoGameViewController> {
         }
 
         let state = TierraDelFuegoGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

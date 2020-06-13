@@ -40,7 +40,6 @@ class SlitherLinkGame: GridGame<SlitherLinkGameViewController> {
         }
         
         let state = SlitherLinkGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

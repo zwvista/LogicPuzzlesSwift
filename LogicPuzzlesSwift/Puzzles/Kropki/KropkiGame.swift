@@ -109,7 +109,6 @@ class KropkiGame: GridGame<KropkiGameViewController> {
         }
 
         let state = KropkiGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

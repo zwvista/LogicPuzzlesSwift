@@ -37,7 +37,6 @@ class MineShipsGame: GridGame<MineShipsGameViewController> {
         }
         
         let state = MineShipsGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

@@ -39,7 +39,6 @@ class NoughtsAndCrossesGame: GridGame<NoughtsAndCrossesGameViewController> {
         }
 
         let state = NoughtsAndCrossesGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

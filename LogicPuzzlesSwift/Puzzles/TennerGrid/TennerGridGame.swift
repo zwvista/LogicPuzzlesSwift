@@ -49,7 +49,6 @@ class TennerGridGame: GridGame<TennerGridGameViewController> {
         }
                 
         let state = TennerGridGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

@@ -54,7 +54,6 @@ class TapaGame: GridGame<TapaGameViewController> {
         }
         
         let state = TapaGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

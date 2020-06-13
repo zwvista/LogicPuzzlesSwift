@@ -37,7 +37,6 @@ class BootyIslandGame: GridGame<BootyIslandGameViewController> {
         }
         
         let state = BootyIslandGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

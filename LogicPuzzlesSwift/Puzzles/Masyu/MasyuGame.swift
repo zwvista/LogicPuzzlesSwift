@@ -49,7 +49,6 @@ class MasyuGame: GridGame<MasyuGameViewController> {
         }
         
         let state = MasyuGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

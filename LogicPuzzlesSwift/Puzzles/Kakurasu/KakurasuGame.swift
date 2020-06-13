@@ -45,7 +45,6 @@ class KakurasuGame: GridGame<KakurasuGameViewController> {
         }
         
         let state = KakurasuGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

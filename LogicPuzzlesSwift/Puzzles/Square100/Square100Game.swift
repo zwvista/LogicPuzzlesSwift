@@ -49,7 +49,6 @@ class Square100Game: GridGame<Square100GameViewController> {
         }
 
         let state = Square100GameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

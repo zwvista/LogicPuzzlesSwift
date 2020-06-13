@@ -33,7 +33,6 @@ class SentinelsGame: GridGame<SentinelsGameViewController> {
         }
         
         let state = SentinelsGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

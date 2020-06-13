@@ -35,7 +35,6 @@ class ProductSentinelsGame: GridGame<ProductSentinelsGameViewController> {
         }
         
         let state = ProductSentinelsGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

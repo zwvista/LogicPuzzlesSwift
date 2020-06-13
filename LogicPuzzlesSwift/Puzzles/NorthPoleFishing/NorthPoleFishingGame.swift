@@ -73,7 +73,6 @@ class NorthPoleFishingGame: GridGame<NorthPoleFishingGameViewController> {
         }
         
         let state = NorthPoleFishingGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

@@ -54,7 +54,6 @@ class TapARowGame: GridGame<TapARowGameViewController> {
         }
         
         let state = TapARowGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

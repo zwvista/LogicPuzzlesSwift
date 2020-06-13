@@ -89,7 +89,6 @@ class RippleEffectGame: GridGame<RippleEffectGameViewController> {
         }
         
         let state = RippleEffectGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

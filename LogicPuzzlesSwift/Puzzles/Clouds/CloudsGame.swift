@@ -49,7 +49,6 @@ class CloudsGame: GridGame<CloudsGameViewController> {
         }
         
         let state = CloudsGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

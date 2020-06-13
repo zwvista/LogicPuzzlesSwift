@@ -54,7 +54,6 @@ class TapDifferentlyGame: GridGame<TapDifferentlyGameViewController> {
         }
         
         let state = TapDifferentlyGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

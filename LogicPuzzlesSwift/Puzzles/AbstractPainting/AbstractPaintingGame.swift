@@ -103,7 +103,6 @@ class AbstractPaintingGame: GridGame<AbstractPaintingGameViewController> {
         }
         
         let state = AbstractPaintingGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

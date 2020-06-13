@@ -55,7 +55,6 @@ class SnakeGame: GridGame<SnakeGameViewController> {
         }
         
         let state = SnakeGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

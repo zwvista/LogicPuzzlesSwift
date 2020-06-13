@@ -49,7 +49,6 @@ class NumberPathGame: GridGame<NumberPathGameViewController> {
         }
         
         let state = NumberPathGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

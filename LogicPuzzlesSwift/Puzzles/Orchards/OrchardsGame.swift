@@ -86,7 +86,6 @@ class OrchardsGame: GridGame<OrchardsGameViewController> {
         }
         
         let state = OrchardsGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

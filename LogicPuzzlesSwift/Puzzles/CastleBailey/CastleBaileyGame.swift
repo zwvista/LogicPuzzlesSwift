@@ -39,7 +39,6 @@ class CastleBaileyGame: GridGame<CastleBaileyGameViewController> {
         }
 
         let state = CastleBaileyGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
         

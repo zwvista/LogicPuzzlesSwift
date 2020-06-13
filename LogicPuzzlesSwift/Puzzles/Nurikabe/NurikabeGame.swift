@@ -39,7 +39,6 @@ class NurikabeGame: GridGame<NurikabeGameViewController> {
         }
         
         let state = NurikabeGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

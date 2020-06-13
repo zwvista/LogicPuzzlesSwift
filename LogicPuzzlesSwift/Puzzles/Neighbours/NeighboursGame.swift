@@ -58,7 +58,6 @@ class NeighboursGame: GridGame<NeighboursGameViewController> {
         }
         
         let state = NeighboursGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

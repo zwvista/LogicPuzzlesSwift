@@ -41,7 +41,6 @@ class WallSentinelsGame: GridGame<WallSentinelsGameViewController> {
         }
         
         let state = WallSentinelsGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     

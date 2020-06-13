@@ -62,7 +62,6 @@ class ABCPathGame: GridGame<ABCPathGameViewController> {
         }
         
         let state = ABCPathGameState(game: self)
-        states.append(state)
         levelInitilized(state: state)
     }
     
