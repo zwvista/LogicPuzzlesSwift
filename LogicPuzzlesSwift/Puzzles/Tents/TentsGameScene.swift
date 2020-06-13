@@ -10,8 +10,8 @@ import SpriteKit
 
 class TentsGameScene: GameScene<TentsGameState> {
     var gridNode: TentsGridNode {
-        get {getGridNode() as! TentsGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! TentsGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(p: Position, n: Int, s: HintState) {

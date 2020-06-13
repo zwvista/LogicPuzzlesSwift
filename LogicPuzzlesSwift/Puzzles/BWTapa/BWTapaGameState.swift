@@ -11,8 +11,8 @@ import Foundation
 class BWTapaGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: BWTapaGame {
-        get {getGame() as! BWTapaGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! BWTapaGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: BWTapaDocument { BWTapaDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { BWTapaDocument.sharedInstance }
@@ -50,8 +50,8 @@ class BWTapaGameState: GridGameState {
     func setObject(move: inout BWTapaGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 {return false}
-        guard String(describing: o1) != String(describing: o2) else {return false}
+        if case .hint = o1 { return false }
+        guard String(describing: o1) != String(describing: o2) else { return false }
         self[p] = o2
         updateIsSolved()
         return true
@@ -92,7 +92,7 @@ class BWTapaGameState: GridGameState {
         // tile has more than one number, it hints at multiple separated groups
         // of filled tiles.
         func computeHint(filled: [Int]) -> [Int] {
-            if filled.isEmpty {return [0]}
+            if filled.isEmpty { return [0] }
             var hint = [Int]()
             for j in 0..<filled.count {
                 if j == 0 || filled[j] - filled[j - 1] != 1 {
@@ -107,8 +107,8 @@ class BWTapaGameState: GridGameState {
             return hint.sorted()
         }
         func isCompatible(computedHint: [Int], givenHint: [Int]) -> Bool {
-            if computedHint == givenHint {return true}
-            if computedHint.count != givenHint.count {return false}
+            if computedHint == givenHint { return true }
+            if computedHint.count != givenHint.count { return false }
             let h1 = Set(computedHint)
             var h2 = Set(givenHint)
             h2.remove(-1)
@@ -122,7 +122,7 @@ class BWTapaGameState: GridGameState {
             let arr = computeHint(filled: filled)
             let s: HintState = arr == [0] ? .normal : isCompatible(computedHint: arr, givenHint: arr2) ? .complete : .error
             self[p] = .hint(state: s)
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
         guard isSolved else {return}
         // 3. There can't be any 2*2 of white or black cells.
@@ -131,11 +131,11 @@ class BWTapaGameState: GridGameState {
                 let p = Position(r, c)
                 if BWTapaGame.offset2.testAll({os in
                     let o = self[p + os]
-                    if case .wall = o {return true} else {return false}
+                    if case .wall = o { return true } else { return false }
                 }) || BWTapaGame.offset2.testAll({os in
                     let o = self[p + os]
-                    if case .empty = o, case .hint = o {return true} else {return false}
-                }) {isSolved = false; return}
+                    if case .empty = o, case .hint = o { return true } else { return false }
+                }) { isSolved = false; return }
             }
         }
         let g = Graph()
@@ -172,8 +172,8 @@ class BWTapaGameState: GridGameState {
         }
         // 2. Both Black and White cells must form a single continuous region.
         let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
-        if rngWalls.count != nodesExplored.count {isSolved = false; return}
+        if rngWalls.count != nodesExplored.count { isSolved = false; return }
         let nodesExplored2 = breadthFirstSearch(g, source: pos2node[rngEmpty.first!]!)
-        if rngEmpty.count != nodesExplored2.count {isSolved = false; return}
+        if rngEmpty.count != nodesExplored2.count { isSolved = false; return }
     }
 }

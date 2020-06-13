@@ -10,8 +10,8 @@ import SpriteKit
 
 class MagnetsGameScene: GameScene<MagnetsGameState> {
     var gridNode: MagnetsGridNode {
-        get {getGridNode() as! MagnetsGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! MagnetsGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(p: Position, n: Int, s: HintState) {

@@ -14,12 +14,12 @@ class CalcudokuGameViewController: GameGameViewController, GameDelegate {
     typealias GS = CalcudokuGameState
 
     var scene: CalcudokuGameScene {
-        get {return getScene() as! CalcudokuGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! CalcudokuGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: CalcudokuGame {
-        get {getGame() as! CalcudokuGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! CalcudokuGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: CalcudokuDocument { CalcudokuDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { CalcudokuDocument.sharedInstance }
@@ -53,10 +53,10 @@ class CalcudokuGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = CalcudokuGame(layout: level.layout, delegate: self)
         
         // restore game state

@@ -14,12 +14,12 @@ class KropkiGameViewController: GameGameViewController, GameDelegate {
     typealias GS = KropkiGameState
 
     var scene: KropkiGameScene {
-        get {return getScene() as! KropkiGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! KropkiGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: KropkiGame {
-        get {getGame() as! KropkiGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! KropkiGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: KropkiDocument { KropkiDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { KropkiDocument.sharedInstance }
@@ -53,10 +53,10 @@ class KropkiGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = KropkiGame(layout: level.layout, bordered: level.settings["Bordered"] == "1", delegate: self)
         
         // restore game state

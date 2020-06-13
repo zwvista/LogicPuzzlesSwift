@@ -14,12 +14,12 @@ class RoomsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = RoomsGameState
 
     var scene: RoomsGameScene {
-        get {return getScene() as! RoomsGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! RoomsGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: RoomsGame {
-        get {getGame() as! RoomsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! RoomsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: RoomsDocument { RoomsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { RoomsDocument.sharedInstance }
@@ -54,10 +54,10 @@ class RoomsGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = RoomsGame(layout: level.layout, delegate: self)
         
         // restore game state

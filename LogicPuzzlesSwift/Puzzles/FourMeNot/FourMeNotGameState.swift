@@ -11,8 +11,8 @@ import Foundation
 class FourMeNotGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: FourMeNotGame {
-        get {getGame() as! FourMeNotGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! FourMeNotGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: FourMeNotDocument { FourMeNotDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { FourMeNotDocument.sharedInstance }
@@ -46,7 +46,7 @@ class FourMeNotGameState: GridGameState {
     
     func setObject(move: inout FourMeNotGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p), case .empty = game[p], String(describing: self[p]) != String(describing: move.obj) else {return false}
+        guard isValid(p: p), case .empty = game[p], String(describing: self[p]) != String(describing: move.obj) else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -67,7 +67,7 @@ class FourMeNotGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p), case .empty = game[p] else {return false}
+        guard isValid(p: p), case .empty = game[p] else { return false }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -118,7 +118,7 @@ class FourMeNotGameState: GridGameState {
         // them, creating a single path of flowers touching horizontally or
         // vertically.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count {isSolved = false}
+        if nodesExplored.count != pos2node.count { isSolved = false }
         
         var trees = [Position]()
         // 3. At the same time, you can't line up horizontally or vertically more
@@ -146,7 +146,7 @@ class FourMeNotGameState: GridGameState {
                     p2 += os
                 }
             }
-            if invalidTrees() {self[p] = .forbidden}
+            if invalidTrees() { self[p] = .forbidden }
             trees.removeAll()
         }
         for r in 0..<rows {

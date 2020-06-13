@@ -14,12 +14,12 @@ class MinesweeperGameViewController: GameGameViewController, GameDelegate {
     typealias GS = MinesweeperGameState
 
     var scene: MinesweeperGameScene {
-        get {return getScene() as! MinesweeperGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! MinesweeperGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: MinesweeperGame {
-        get {getGame() as! MinesweeperGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! MinesweeperGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: MinesweeperDocument { MinesweeperDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { MinesweeperDocument.sharedInstance }
@@ -53,10 +53,10 @@ class MinesweeperGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = MinesweeperGame(layout: level.layout, delegate: self)
         
         // restore game state

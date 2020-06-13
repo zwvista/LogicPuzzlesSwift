@@ -10,8 +10,8 @@ import SpriteKit
 
 class GameScene<GS: GameStateBase>: SKScene {
     private var gridNode: GridNode!
-    func getGridNode() -> GridNode! {return gridNode}
-    func setGridNode(gridNode: GridNode) {self.gridNode = gridNode}
+    func getGridNode() -> GridNode! { return gridNode }
+    func setGridNode(gridNode: GridNode) { self.gridNode = gridNode }
 
     func levelInitialized(_ game: AnyObject, state: GS, skView: SKView) {}
     func levelUpdated(from stateFrom: GS, to stateTo: GS) {}

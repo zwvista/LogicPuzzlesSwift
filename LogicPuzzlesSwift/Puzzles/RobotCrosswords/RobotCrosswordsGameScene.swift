@@ -10,8 +10,8 @@ import SpriteKit
 
 class RobotCrosswordsGameScene: GameScene<RobotCrosswordsGameState> {
     var gridNode: RobotCrosswordsGridNode {
-        get {getGridNode() as! RobotCrosswordsGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! RobotCrosswordsGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(p: Position, isHorz: Bool, s: HintState, point: CGPoint) {
@@ -58,7 +58,7 @@ class RobotCrosswordsGameScene: GameScene<RobotCrosswordsGameState> {
                     addLabel(text: String(n), fontColor: .gray, point: point, nodeName: numberNodeName)
                     for i in 0..<2 {
                         let s: HintState = i == 0 ? state.pos2horzState[p] ?? .normal : state.pos2vertState[p] ?? .normal
-                        if s != .normal {addHint(p: Position(r, c), isHorz: i == 0, s: s, point: point)}
+                        if s != .normal { addHint(p: Position(r, c), isHorz: i == 0, s: s, point: point) }
                     }
                 }
             }
@@ -74,15 +74,15 @@ class RobotCrosswordsGameScene: GameScene<RobotCrosswordsGameState> {
                 let numberNodeName = "number" + nodeNameSuffix
                 let (n1, n2) = (stateFrom[r, c], stateTo[r, c])
                 if stateFrom.game[p] == 0 && n1 != n2 {
-                    if n1 != 0 {removeNode(withName: numberNodeName)}
-                    if n2 != 0 {addLabel(text: String(n2), fontColor: .white, point: point, nodeName: numberNodeName)}
+                    if n1 != 0 { removeNode(withName: numberNodeName) }
+                    if n2 != 0 { addLabel(text: String(n2), fontColor: .white, point: point, nodeName: numberNodeName) }
                 }
                 for i in 0..<2 {
                     let nodeNameSuffix = "-\(p.row)-\(p.col)-" + (i == 0 ? "h" : "v")
                     let hintNodeName = "hint" + nodeNameSuffix
                     let (s1, s2) = ((i == 0 ? stateFrom.pos2horzState : stateFrom.pos2vertState)[p] ?? .normal, (i == 0 ? stateTo.pos2horzState : stateTo.pos2vertState)[p] ?? .normal)
-                    if s1 != .normal {removeNode(withName: hintNodeName)}
-                    if s2 != .normal {addHint(p: Position(r, c), isHorz: i == 0, s: s2, point: point)}
+                    if s1 != .normal { removeNode(withName: hintNodeName) }
+                    if s2 != .normal { addHint(p: Position(r, c), isHorz: i == 0, s: s2, point: point) }
                 }
             }
         }

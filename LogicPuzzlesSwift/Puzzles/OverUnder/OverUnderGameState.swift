@@ -11,8 +11,8 @@ import Foundation
 class OverUnderGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: OverUnderGame {
-        get {getGame() as! OverUnderGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! OverUnderGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: OverUnderDocument { OverUnderDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { OverUnderDocument.sharedInstance }
@@ -62,9 +62,9 @@ class OverUnderGameState: GridGameState {
         }
         let dir = move.dir, dir2 = (dir + 2) % 4
         let p = move.p, p2 = p + OverUnderGame.offset[dir]
-        guard isValid(p: p2) && game[p][dir] == .empty else {return false}
+        guard isValid(p: p2) && game[p][dir] == .empty else { return false }
         f(o1: &self[p][dir], o2: &self[p2][dir2])
-        if changed {updateIsSolved()}
+        if changed { updateIsSolved() }
         return changed
     }
     
@@ -120,12 +120,12 @@ class OverUnderGameState: GridGameState {
         var areas = [[Position]]()
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter{nodesExplored.contains($0.0.description)}.map{$0.0}
+            let area = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }
             areas.append(area)
-            pos2node = pos2node.filter{!nodesExplored.contains($0.0.description)}
+            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
         }
         for area in areas {
-            let rng = area.filter{p in game.pos2hint[p] != nil}
+            let rng = area.filter{ p in game.pos2hint[p] != nil }
             // 2. Each region must contain two numbers.
             if rng.count != 2 {
                 for p in rng {
@@ -136,11 +136,11 @@ class OverUnderGameState: GridGameState {
             let n1 = area.count
             let p2 = rng[0], p3 = rng[1]
             var n2 = game.pos2hint[p2]!, n3 = game.pos2hint[p3]!
-            if n2 > n3 {swap(&n2, &n3)}
+            if n2 > n3 { swap(&n2, &n3) }
             // 3. The region size must be between the two numbers.
             let s: HintState = n1 > n2 && n1 < n3 ? .complete : .error
             pos2state[p2] = s; pos2state[p3] = s
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
     }
 }

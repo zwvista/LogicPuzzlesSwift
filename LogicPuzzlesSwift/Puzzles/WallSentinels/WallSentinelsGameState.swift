@@ -11,8 +11,8 @@ import Foundation
 class WallSentinelsGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: WallSentinelsGame {
-        get {getGame() as! WallSentinelsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! WallSentinelsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: WallSentinelsDocument { WallSentinelsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { WallSentinelsDocument.sharedInstance }
@@ -51,7 +51,7 @@ class WallSentinelsGameState: GridGameState {
         case .hintLand, .hintWall: return false
         default: break
         }
-        guard String(describing: o1) != String(describing: o2) else {return false}
+        guard String(describing: o1) != String(describing: o2) else { return false }
         self[p] = o2
         updateIsSolved()
         return true
@@ -121,7 +121,7 @@ class WallSentinelsGameState: GridGameState {
                     // from there vertically and horizontally - of his type of tile.
                     let s: HintState = (isWall ? n1 < n2 : n1 > n2) ? .normal : n1 == n2 ? .complete : .error
                     self[p] = isWall ? .hintWall(tiles: n2, state: s) : .hintLand(tiles: n2, state: s)
-                    if s != .complete {isSolved = false}
+                    if s != .complete { isSolved = false }
                 }
                 switch self[p] {
                 case let .hintLand(n2, _):
@@ -145,12 +145,12 @@ class WallSentinelsGameState: GridGameState {
                     // 7. The Wall cannot contain 2*2 Wall tiles.
                     if WallSentinelsGame.offset2.testAll({os in
                         let p2 = p + os
-                        if !self.isValid(p: p2) {return false}
+                        if !self.isValid(p: p2) { return false }
                         switch self[p2] {
                         case .wall, .hintWall: return true
                         default: return false
                         }
-                    }) {isSolved = false; return}
+                    }) { isSolved = false; return }
                 default:
                     break
                 }
@@ -165,6 +165,6 @@ class WallSentinelsGameState: GridGameState {
         }
         // 7. Lastly there is a single, orthogonally contiguous, Wall - just like Nurikabe.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if pos2node.count != nodesExplored.count {isSolved = false}
+        if pos2node.count != nodesExplored.count { isSolved = false }
     }
 }

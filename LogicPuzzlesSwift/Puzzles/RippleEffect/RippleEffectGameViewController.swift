@@ -14,12 +14,12 @@ class RippleEffectGameViewController: GameGameViewController, GameDelegate {
     typealias GS = RippleEffectGameState
 
     var scene: RippleEffectGameScene {
-        get {return getScene() as! RippleEffectGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! RippleEffectGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: RippleEffectGame {
-        get {getGame() as! RippleEffectGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! RippleEffectGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: RippleEffectDocument { RippleEffectDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { RippleEffectDocument.sharedInstance }
@@ -53,10 +53,10 @@ class RippleEffectGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = RippleEffectGame(layout: level.layout, delegate: self)
         
         // restore game state

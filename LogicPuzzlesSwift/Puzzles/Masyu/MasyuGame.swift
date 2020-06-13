@@ -45,7 +45,7 @@ class MasyuGame: GridGame<MasyuGameViewController> {
     }
     
     func setObject(move: inout MasyuGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
     }
     
 }

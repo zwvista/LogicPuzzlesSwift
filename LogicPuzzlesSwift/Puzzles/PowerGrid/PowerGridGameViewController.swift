@@ -14,12 +14,12 @@ class PowerGridGameViewController: GameGameViewController, GameDelegate {
     typealias GS = PowerGridGameState
 
     var scene: PowerGridGameScene {
-        get {return getScene() as! PowerGridGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! PowerGridGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: PowerGridGame {
-        get {getGame() as! PowerGridGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! PowerGridGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: PowerGridDocument { PowerGridDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { PowerGridDocument.sharedInstance }
@@ -53,10 +53,10 @@ class PowerGridGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = PowerGridGame(layout: level.layout, delegate: self)
         
         // restore game state

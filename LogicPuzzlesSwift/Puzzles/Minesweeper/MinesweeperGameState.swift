@@ -11,8 +11,8 @@ import Foundation
 class MinesweeperGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: MinesweeperGame {
-        get {getGame() as! MinesweeperGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! MinesweeperGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: MinesweeperDocument { MinesweeperDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { MinesweeperDocument.sharedInstance }
@@ -47,8 +47,8 @@ class MinesweeperGameState: GridGameState {
     func setObject(move: inout MinesweeperGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 {return false}
-        guard String(describing: o1) != String(describing: o2) else {return false}
+        if case .hint = o1 { return false }
+        guard String(describing: o1) != String(describing: o2) else { return false }
         self[p] = o2
         updateIsSolved()
         return true
@@ -89,7 +89,7 @@ class MinesweeperGameState: GridGameState {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if case .forbidden = self[p] {self[p] = .empty}
+                if case .forbidden = self[p] { self[p] = .empty }
             }
         }
         for (p, n2) in game.pos2hint {

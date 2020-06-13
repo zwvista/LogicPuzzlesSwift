@@ -10,8 +10,8 @@ import SpriteKit
 
 class BootyIslandGameScene: GameScene<BootyIslandGameState> {
     var gridNode: BootyIslandGridNode {
-        get {getGridNode() as! BootyIslandGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! BootyIslandGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {

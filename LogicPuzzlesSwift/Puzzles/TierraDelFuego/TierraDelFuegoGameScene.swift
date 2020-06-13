@@ -10,8 +10,8 @@ import SpriteKit
 
 class TierraDelFuegoGameScene: GameScene<TierraDelFuegoGameState> {
     var gridNode: TierraDelFuegoGridNode {
-        get {getGridNode() as! TierraDelFuegoGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! TierraDelFuegoGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(p: Position, ch: Character, s: HintState) {

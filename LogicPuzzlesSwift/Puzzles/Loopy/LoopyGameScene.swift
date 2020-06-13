@@ -10,8 +10,8 @@ import SpriteKit
 
 class LoopyGameScene: GameScene<LoopyGameState> {
     var gridNode: LoopyGridNode {
-        get {getGridNode() as! LoopyGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! LoopyGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     override func levelInitialized(_ game: AnyObject, state: LoopyGameState, skView: SKView) {
@@ -41,8 +41,8 @@ class LoopyGameScene: GameScene<LoopyGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
-                if game[r, c][1] == .line {addHorzLine(objType: .line, color: .white, point: point, nodeName: "line")}
-                if game[r, c][2] == .line {addVertLine(objType: .line, color: .white, point: point, nodeName: "line")}
+                if game[r, c][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                if game[r, c][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
             }
         }
     }

@@ -58,11 +58,11 @@ class LoopyGame: GridGame<LoopyGameViewController> {
     }
     
     func switchObject(move: inout LoopyGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
     }
     
     func setObject(move: inout LoopyGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
     }
     
 }

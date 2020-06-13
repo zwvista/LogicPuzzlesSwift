@@ -14,12 +14,12 @@ class ParkLakesGameViewController: GameGameViewController, GameDelegate {
     typealias GS = ParkLakesGameState
 
     var scene: ParkLakesGameScene {
-        get {return getScene() as! ParkLakesGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! ParkLakesGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: ParkLakesGame {
-        get {getGame() as! ParkLakesGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! ParkLakesGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: ParkLakesDocument { ParkLakesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { ParkLakesDocument.sharedInstance }
@@ -53,10 +53,10 @@ class ParkLakesGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = ParkLakesGame(layout: level.layout, delegate: self)
         
         // restore game state

@@ -14,12 +14,12 @@ class ParksGameViewController: GameGameViewController, GameDelegate {
     typealias GS = ParksGameState
 
     var scene: ParksGameScene {
-        get {return getScene() as! ParksGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! ParksGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: ParksGame {
-        get {getGame() as! ParksGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! ParksGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: ParksDocument { ParksDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { ParksDocument.sharedInstance }
@@ -53,10 +53,10 @@ class ParksGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = ParksGame(layout: level.layout, treesInEachArea: (level.settings["TreesInEachArea"] ?? "1").toInt()!, delegate: self)
         
         // restore game state

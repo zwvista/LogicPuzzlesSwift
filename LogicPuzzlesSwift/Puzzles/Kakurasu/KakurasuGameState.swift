@@ -11,8 +11,8 @@ import Foundation
 class KakurasuGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: KakurasuGame {
-        get {getGame() as! KakurasuGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! KakurasuGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: KakurasuDocument { KakurasuDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { KakurasuDocument.sharedInstance }
@@ -60,7 +60,7 @@ class KakurasuGameState: GridGameState {
     
     func setObject(move: inout KakurasuGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else {return false}
+        guard isValid(p: p) && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -81,7 +81,7 @@ class KakurasuGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) else { return false }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -103,7 +103,7 @@ class KakurasuGameState: GridGameState {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                if self[r, c] == .forbidden {self[r, c] = .empty}
+                if self[r, c] == .forbidden { self[r, c] = .empty }
             }
         }
         for r in 1..<rows - 1 {
@@ -121,7 +121,7 @@ class KakurasuGameState: GridGameState {
             // 2. These numbers represent the sum of the values mentioned above.
             let s: HintState = n1 == 0 ? .normal : n1 == n2 ? .complete : .error
             row2state[r * 2] = s
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
             if n1 >= n2 && allowedObjectsOnly {
                 for c in 1..<cols - 1 {
                     switch self[r, c] {
@@ -148,7 +148,7 @@ class KakurasuGameState: GridGameState {
             // 2. These numbers represent the sum of the values mentioned above.
             let s: HintState = n1 == 0 ? .normal : n1 == n2 ? .complete : .error
             col2state[c * 2] = s
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
             if n1 >= n2 && allowedObjectsOnly {
                 for r in 1..<rows - 1 {
                     switch self[r, c] {

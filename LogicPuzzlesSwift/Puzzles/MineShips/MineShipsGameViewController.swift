@@ -14,12 +14,12 @@ class MineShipsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = MineShipsGameState
 
     var scene: MineShipsGameScene {
-        get {return getScene() as! MineShipsGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! MineShipsGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: MineShipsGame {
-        get {getGame() as! MineShipsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! MineShipsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: MineShipsDocument { MineShipsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { MineShipsDocument.sharedInstance }
@@ -53,10 +53,10 @@ class MineShipsGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = MineShipsGame(layout: level.layout, delegate: self)
         
         // restore game state

@@ -11,8 +11,8 @@ import Foundation
 class BoxItAgainGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: BoxItAgainGame {
-        get {getGame() as! BoxItAgainGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! BoxItAgainGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: BoxItAgainDocument { BoxItAgainDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { BoxItAgainDocument.sharedInstance }
@@ -62,9 +62,9 @@ class BoxItAgainGameState: GridGameState {
         }
         let dir = move.dir, dir2 = (dir + 2) % 4
         let p = move.p, p2 = p + BoxItAgainGame.offset[dir]
-        guard isValid(p: p2) && game[p][dir] == .empty else {return false}
+        guard isValid(p: p2) && game[p][dir] == .empty else { return false }
         f(o1: &self[p][dir], o2: &self[p2][dir2])
-        if changed {updateIsSolved()}
+        if changed { updateIsSolved() }
         return changed
     }
     
@@ -121,9 +121,9 @@ class BoxItAgainGameState: GridGameState {
         }
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter{nodesExplored.contains($0.0.description)}.map{$0.0}
-            pos2node = pos2node.filter{!nodesExplored.contains($0.0.description)}
-            let rng = area.filter{p in game.pos2hint[p] != nil}
+            let area = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }
+            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
+            let rng = area.filter{ p in game.pos2hint[p] != nil }
             // 3. Some tiles can be left unboxed, the board isn't entirely covered by boxes.
             if rng.count == 0 {continue}
             // 2. Each Box must contain one number.
@@ -137,17 +137,17 @@ class BoxItAgainGameState: GridGameState {
             let n1 = area.count, n2 = game.pos2hint[p2]!
             var r2 = 0, r1 = rows, c2 = 0, c1 = cols
             for p in area {
-                if r2 < p.row {r2 = p.row}
-                if r1 > p.row {r1 = p.row}
-                if c2 < p.col {c2 = p.col}
-                if c1 > p.col {c1 = p.col}
+                if r2 < p.row { r2 = p.row }
+                if r1 > p.row { r1 = p.row }
+                if c2 < p.col { c2 = p.col }
+                if c1 > p.col { c1 = p.col }
             }
             let rs = r2 - r1 + 1, cs = c2 - c1 + 1
             func hasLine() -> Bool {
                 for r in r1...r2 {
                     for c in c1...c2 {
                         let dotObj = self[r + 1, c + 1]
-                        if r < r2 && dotObj[3] == .line || c < c2 && dotObj[0] == .line {return true}
+                        if r < r2 && dotObj[3] == .line || c < c2 && dotObj[0] == .line { return true }
                     }
                 }
                 return false
@@ -155,7 +155,7 @@ class BoxItAgainGameState: GridGameState {
             // 1. Just like Box It Up, you have to divide the Board in Boxes (Rectangles).
             // 2. The number represents the area of that Box.
             pos2state[p2] = rs * cs == n1 && rs * cs == n2 && !hasLine() ? .complete : .error
-            if pos2state[p2] != .complete {isSolved = false}
+            if pos2state[p2] != .complete { isSolved = false }
         }
     }
 }

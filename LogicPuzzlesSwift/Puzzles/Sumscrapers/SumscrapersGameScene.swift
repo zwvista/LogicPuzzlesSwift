@@ -10,8 +10,8 @@ import SpriteKit
 
 class SumscrapersGameScene: GameScene<SumscrapersGameState> {
     var gridNode: SumscrapersGridNode {
-        get {getGridNode() as! SumscrapersGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! SumscrapersGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addNumber(n: Int, s: HintState, isHint: Bool, point: CGPoint, nodeName: String) {
@@ -53,8 +53,8 @@ class SumscrapersGameScene: GameScene<SumscrapersGameState> {
                 let (n1, n2) = (stateFrom[r, c], stateTo[r, c])
                 let (s1, s2) = (stateFrom.pos2state(row: r, col: c), stateTo.pos2state(row: r, col: c))
                 guard n1 != n2 || s1 != s2 else {continue}
-                if (n1 != 0) {removeNumber()}
-                if (n2 != 0) {addNumber(n: n2, s: s2, isHint: !stateFrom.game.isValid(p: p), point: point, nodeName: numNodeName)}
+                if (n1 != 0) { removeNumber() }
+                if (n2 != 0) { addNumber(n: n2, s: s2, isHint: !stateFrom.game.isValid(p: p), point: point, nodeName: numNodeName) }
             }
         }
     }

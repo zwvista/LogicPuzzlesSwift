@@ -67,11 +67,11 @@ class RoomsGame: GridGame<RoomsGameViewController> {
     }
     
     func switchObject(move: inout RoomsGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
     }
     
     func setObject(move: inout RoomsGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
     }
     
 }

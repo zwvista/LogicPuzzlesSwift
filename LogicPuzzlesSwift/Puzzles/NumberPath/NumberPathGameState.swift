@@ -11,8 +11,8 @@ import Foundation
 class NumberPathGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: NumberPathGame {
-        get {getGame() as! NumberPathGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! NumberPathGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: NumberPathDocument { NumberPathDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { NumberPathDocument.sharedInstance }
@@ -47,7 +47,7 @@ class NumberPathGameState: GridGameState {
     func setObject(move: inout NumberPathGameMove) -> Bool {
         let p = move.p, dir = move.dir
         let p2 = p + NumberPathGame.offset[dir], dir2 = (dir + 2) % 4
-        guard isValid(p: p2) else {return false}
+        guard isValid(p: p2) else { return false }
         self[p][dir].toggle()
         self[p2][dir2].toggle()
         updateIsSolved()
@@ -73,10 +73,10 @@ class NumberPathGameState: GridGameState {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let n = self[p].filter{$0}.count
+                let n = self[p].filter{ $0 }.count
                 if p == pStart || p == pEnd {
                     // 1. Connect the top left corner (1) to the bottom right corner (N).
-                    if n != 1 {isSolved = false; return}
+                    if n != 1 { isSolved = false; return }
                     pos2node[p] = g.addNode(p.description); continue
                 }
                 switch n {
@@ -103,6 +103,6 @@ class NumberPathGameState: GridGameState {
         // all the numbers between 1 and N, only once.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
         let n1 = game[pEnd], n2 = nums.count, n3 = pos2node.count, n4 = nodesExplored.count
-        if n1 != n2 || n1 != n3 || n1 != n4 {isSolved = false}
+        if n1 != n2 || n1 != n3 || n1 != n4 { isSolved = false }
     }
 }

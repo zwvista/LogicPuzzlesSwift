@@ -21,7 +21,7 @@ class LineSweeperGame: GridGame<LineSweeperGameViewController> {
     ]
 
     var pos2hint = [Position: Int]()
-    func isHint(p: Position) -> Bool {return pos2hint[p] != nil}
+    func isHint(p: Position) -> Bool { return pos2hint[p] != nil }
     
     init(layout: [String], delegate: LineSweeperGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -42,7 +42,7 @@ class LineSweeperGame: GridGame<LineSweeperGameViewController> {
     }
     
     func setObject(move: inout LineSweeperGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
     }
     
 }

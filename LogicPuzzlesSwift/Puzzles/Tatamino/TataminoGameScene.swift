@@ -10,8 +10,8 @@ import SpriteKit
 
 class TataminoGameScene: GameScene<TataminoGameState> {
     var gridNode: TataminoGridNode {
-        get {getGridNode() as! TataminoGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! TataminoGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addCharacter(ch: Character, s: HintState, isHint: Bool, point: CGPoint, nodeName: String) {

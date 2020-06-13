@@ -34,7 +34,7 @@ class BalancedTapasGame: GridGame<BalancedTapasGameViewController> {
         
         size = Position(layout.count, layout[0].length / 4)
         left = leftPart[0].toInt!; right = left
-        if leftPart.length > 1 {left += 1}
+        if leftPart.length > 1 { left += 1 }
         
         for r in 0..<rows {
             let str = layout[r]
@@ -61,11 +61,11 @@ class BalancedTapasGame: GridGame<BalancedTapasGameViewController> {
     }
     
     func switchObject(move: inout BalancedTapasGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
     }
     
     func setObject(move: inout BalancedTapasGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
     }
     
 }

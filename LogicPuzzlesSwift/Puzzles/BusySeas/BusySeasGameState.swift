@@ -11,8 +11,8 @@ import Foundation
 class BusySeasGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: BusySeasGame {
-        get {getGame() as! BusySeasGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! BusySeasGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: BusySeasDocument { BusySeasDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { BusySeasDocument.sharedInstance }
@@ -50,8 +50,8 @@ class BusySeasGameState: GridGameState {
     func setObject(move: inout BusySeasGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 {return false}
-        guard String(describing: o1) != String(describing: o2) else {return false}
+        if case .hint = o1 { return false }
+        guard String(describing: o1) != String(describing: o2) else { return false }
         self[p] = o2
         updateIsSolved()
         return true
@@ -110,7 +110,7 @@ class BusySeasGameState: GridGameState {
                     for os in BusySeasGame.offset {
                         var p2 = p + os
                         while game.isValid(p: p2) {
-                            if case .hint = self[p2] {return true}
+                            if case .hint = self[p2] { return true }
                             p2 += os
                         }
                     }
@@ -119,7 +119,7 @@ class BusySeasGameState: GridGameState {
                 if case let .lighthouse(state) = self[p] {
                     let s: AllowedObjectState = state == .normal && hasLightedBoat() ? .normal : .error
                     self[p] = .lighthouse(state: s)
-                    if s == .error {isSolved = false}
+                    if s == .error { isSolved = false }
                 }
             }
         }

@@ -10,8 +10,8 @@ import SpriteKit
 
 class NumberPathGameScene: GameScene<NumberPathGameState> {
     var gridNode: NumberPathGridNode {
-        get {getGridNode() as! NumberPathGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! NumberPathGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addNumber(n: String, s: HintState, point: CGPoint, nodeName: String) {
@@ -70,8 +70,8 @@ class NumberPathGameScene: GameScene<NumberPathGameState> {
                     }
                     let (o1, o2) = (stateFrom[p][dir], stateTo[p][dir])
                     guard o1 != o2 else {continue}
-                    if o1 {removeLine()}
-                    if o2 {addLine()}
+                    if o1 { removeLine() }
+                    if o2 { addLine() }
                  }
             }
         }

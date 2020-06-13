@@ -10,8 +10,8 @@ import SpriteKit
 
 class Square100GameScene: GameScene<Square100GameState> {
     var gridNode: Square100GridNode {
-        get {getGridNode() as! Square100GridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! Square100GridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addNumber(n: String, s: HintState, point: CGPoint, nodeName: String) {

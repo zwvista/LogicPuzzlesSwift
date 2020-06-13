@@ -11,8 +11,8 @@ import Foundation
 class ParkLakesGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: ParkLakesGame {
-        get {getGame() as! ParkLakesGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! ParkLakesGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: ParkLakesDocument { ParkLakesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { ParkLakesDocument.sharedInstance }
@@ -49,7 +49,7 @@ class ParkLakesGameState: GridGameState {
     
     func setObject(move: inout ParkLakesGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else {return false}
+        guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -70,7 +70,7 @@ class ParkLakesGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil else {return false}
+        guard isValid(p: p), game.pos2hint[p] == nil else { return false }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -127,14 +127,14 @@ class ParkLakesGameState: GridGameState {
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             var r2 = 0, r1 = rows, c2 = 0, c1 = cols
-            let area = pos2node.filter{nodesExplored.contains($0.0.description)}.map{$0.0}
-            pos2node = pos2node.filter{!nodesExplored.contains($0.0.description)}
+            let area = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }
+            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
             let n = areas.count
             for p in area {
-                if r2 < p.row {r2 = p.row}
-                if r1 > p.row {r1 = p.row}
-                if c2 < p.col {c2 = p.col}
-                if c1 > p.col {c1 = p.col}
+                if r2 < p.row { r2 = p.row }
+                if r1 > p.row { r1 = p.row }
+                if c2 < p.col { c2 = p.col }
+                if c1 > p.col { c1 = p.col }
                 pos2area[p] = n
             }
             areas.append(area)
@@ -158,7 +158,7 @@ class ParkLakesGameState: GridGameState {
             // touching it.
             let s: HintState = n1 == 0 ? .normal : n1 == n2 || n2 == -1 ? .complete : .error
             self[p] = .hint(tiles: n, state: s)
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
         g = Graph()
         for r in 0..<rows {
@@ -177,6 +177,6 @@ class ParkLakesGameState: GridGameState {
         }
         // 5. All the land tiles are connected horizontally or vertically.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count {isSolved = false}
+        if nodesExplored.count != pos2node.count { isSolved = false }
     }
 }

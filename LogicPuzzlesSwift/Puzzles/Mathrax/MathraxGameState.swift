@@ -11,8 +11,8 @@ import Foundation
 class MathraxGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: MathraxGame {
-        get {getGame() as! MathraxGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! MathraxGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: MathraxDocument { MathraxDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { MathraxDocument.sharedInstance }
@@ -54,7 +54,7 @@ class MathraxGameState: GridGameState {
     
     func setObject(move: inout MathraxGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else {return false}
+        guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -62,7 +62,7 @@ class MathraxGameState: GridGameState {
     
     func switchObject(move: inout MathraxGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] == 0 else {return false}
+        guard isValid(p: p) && game[p] == 0 else { return false }
         let o = self[p]
         move.obj = (o + 1) % (cols + 1)
         return setObject(move: &move)
@@ -90,19 +90,19 @@ class MathraxGameState: GridGameState {
             let nums2 = Set<Int>(nums).sorted()
             // 1. The goal is to input numbers 1 to N, where N is the board size.
             s = nums2.first! == 0 ? .normal : nums2.count == nums.count ? .complete : .error
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
         // 2. A number must appear once for every row.
         for r in 0..<rows {
-            f(nums: (0..<cols).map{self[r, $0]}, s: &row2state[r])
+            f(nums: (0..<cols).map{ self[r, $0] }, s: &row2state[r])
         }
         // 2. A number must appear once for every column.
         for c in 0..<cols {
-            f(nums: (0..<rows).map{self[$0, c]}, s: &col2state[c])
+            f(nums: (0..<rows).map{ self[$0, c] }, s: &col2state[c])
         }
         for (p, h) in game.pos2hint {
             func g(n1: Int, n2: Int) -> HintState {
-                if n1 == 0 || n2 == 0 {return .normal}
+                if n1 == 0 || n2 == 0 { return .normal }
                 let n = h.result
                 switch h.op {
                 // 3. The tiny numbers and sign in the intersections tell you the result of
@@ -125,13 +125,13 @@ class MathraxGameState: GridGameState {
                     return .normal
                 }
             }
-            let nums = MathraxGame.offset2.map{self[p + $0]}
+            let nums = MathraxGame.offset2.map{ self[p + $0] }
             // 3. This is valid for both pairs of numbers surrounding the hint.
             let (s1, s2) = (g(n1: nums[0], n2: nums[1]), g(n1: nums[2], n2: nums[3]))
             let s: HintState = s1 == .error || s2 == .error ? .error :
                 s1 == .complete && s2 == .complete ? .complete : .normal
             pos2state[p] = s
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
     }
 }

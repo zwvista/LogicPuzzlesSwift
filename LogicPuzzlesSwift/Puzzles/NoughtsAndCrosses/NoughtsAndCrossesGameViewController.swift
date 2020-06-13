@@ -14,12 +14,12 @@ class NoughtsAndCrossesGameViewController: GameGameViewController, GameDelegate 
     typealias GS = NoughtsAndCrossesGameState
 
     var scene: NoughtsAndCrossesGameScene {
-        get {return getScene() as! NoughtsAndCrossesGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! NoughtsAndCrossesGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: NoughtsAndCrossesGame {
-        get {getGame() as! NoughtsAndCrossesGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! NoughtsAndCrossesGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: NoughtsAndCrossesDocument { NoughtsAndCrossesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { NoughtsAndCrossesDocument.sharedInstance }
@@ -53,10 +53,10 @@ class NoughtsAndCrossesGameViewController: GameGameViewController, GameDelegate 
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = NoughtsAndCrossesGame(layout: level.layout, chMax: level.settings["num"]![0], delegate: self)
         
         // restore game state

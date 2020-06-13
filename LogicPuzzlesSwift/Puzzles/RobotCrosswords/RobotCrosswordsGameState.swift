@@ -11,8 +11,8 @@ import Foundation
 class RobotCrosswordsGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: RobotCrosswordsGame {
-        get {getGame() as! RobotCrosswordsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! RobotCrosswordsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: RobotCrosswordsDocument { RobotCrosswordsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { RobotCrosswordsDocument.sharedInstance }
@@ -55,7 +55,7 @@ class RobotCrosswordsGameState: GridGameState {
 
     func setObject(move: inout RobotCrosswordsGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else {return false}
+        guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -63,7 +63,7 @@ class RobotCrosswordsGameState: GridGameState {
     
     func switchObject(move: inout RobotCrosswordsGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] == 0 else {return false}
+        guard isValid(p: p) && game[p] == 0 else { return false }
         let o = self[p]
         move.obj = (o + 1) % 10
         return setObject(move: &move)
@@ -84,7 +84,7 @@ class RobotCrosswordsGameState: GridGameState {
         isSolved = true
         for i in 0..<game.areas.count {
             let a = game.areas[i]
-            let nums = a.map{self[$0]}
+            let nums = a.map{ self[$0] }
             let nums2 = Set<Int>(nums).sorted()
             // 2. Each 'word' is formed by an uninterrupted sequence of numbers,
             // but in any order.
@@ -96,7 +96,7 @@ class RobotCrosswordsGameState: GridGameState {
                     pos2vertState[p] = s
                 }
             }
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
     }
 }

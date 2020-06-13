@@ -10,8 +10,8 @@ import SpriteKit
 
 class RobotFencesGameScene: GameScene<RobotFencesGameState> {
     var gridNode: RobotFencesGridNode {
-        get {getGridNode() as! RobotFencesGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! RobotFencesGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(p: Position, isHorz: Bool, s: HintState, point: CGPoint) {
@@ -113,8 +113,8 @@ class RobotFencesGameScene: GameScene<RobotFencesGameState> {
             let c = stateFrom.cols - 1
             let p = Position(r, c)
             let point = gridNode.gridPosition(p: p)
-            if s1 != .normal {removeHint(p: p, isHorz: true)}
-            if s2 != .normal {addHint(p: p, isHorz: true, s: s2, point: point)}
+            if s1 != .normal { removeHint(p: p, isHorz: true) }
+            if s2 != .normal { addHint(p: p, isHorz: true, s: s2, point: point) }
         }
         for c in 0..<stateFrom.cols {
             let (s1, s2) = (stateFrom.col2state[c], stateTo.col2state[c])
@@ -122,8 +122,8 @@ class RobotFencesGameScene: GameScene<RobotFencesGameState> {
             let r = stateFrom.rows - 1
             let p = Position(r, c)
             let point = gridNode.gridPosition(p: p)
-            if s1 != .normal {removeHint(p: p, isHorz: false)}
-            if s2 != .normal {addHint(p: p, isHorz: false, s: s2, point: point)}
+            if s1 != .normal { removeHint(p: p, isHorz: false) }
+            if s2 != .normal { addHint(p: p, isHorz: false, s: s2, point: point) }
         }
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
@@ -136,8 +136,8 @@ class RobotFencesGameScene: GameScene<RobotFencesGameState> {
                 let i = stateFrom.game.pos2area[p]!
                 let (s1, s2) = (stateFrom.area2state[i], stateTo.area2state[i])
                 if n1 != n2 || s1 != s2 {
-                    if n1 != 0 {removeNode(withName: numberNodeName)}
-                    if n2 != 0 {addLabel(text: String(n2), fontColor: s2 == .normal ? .white : s2 == .complete ? .green : .red, point: point, nodeName: numberNodeName)}
+                    if n1 != 0 { removeNode(withName: numberNodeName) }
+                    if n2 != 0 { addLabel(text: String(n2), fontColor: s2 == .normal ? .white : s2 == .complete ? .green : .red, point: point, nodeName: numberNodeName) }
                 }
             }
         }

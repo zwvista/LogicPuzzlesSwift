@@ -11,8 +11,8 @@ import Foundation
 class NumberCrosswordsGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: NumberCrosswordsGame {
-        get {getGame() as! NumberCrosswordsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! NumberCrosswordsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: NumberCrosswordsDocument { NumberCrosswordsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { NumberCrosswordsDocument.sharedInstance }
@@ -52,7 +52,7 @@ class NumberCrosswordsGameState: GridGameState {
     
     func setObject(move: inout NumberCrosswordsGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else {return false}
+        guard isValid(p: p) && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -71,7 +71,7 @@ class NumberCrosswordsGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) else { return false }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -100,7 +100,7 @@ class NumberCrosswordsGameState: GridGameState {
                 sum += game[p]
             }
             row2state[r] = sum == game[r, cols - 1] ? .complete : .error
-            if row2state[r] != .complete {isSolved = false}
+            if row2state[r] != .complete { isSolved = false }
         }
         // 1. Blacken some tiles, so that some of the numbers remain visible.
         // 2. Numbers outside the grid show the states of the numbers in the
@@ -113,7 +113,7 @@ class NumberCrosswordsGameState: GridGameState {
                 sum += game[p]
             }
             col2state[c] = sum == game[rows - 1, c] ? .complete : .error
-            if col2state[c] != .complete {isSolved = false}
+            if col2state[c] != .complete { isSolved = false }
         }
     }
 }

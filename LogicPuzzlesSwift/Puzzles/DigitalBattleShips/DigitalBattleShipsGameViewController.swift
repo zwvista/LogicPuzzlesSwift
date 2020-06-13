@@ -14,12 +14,12 @@ class DigitalBattleShipsGameViewController: GameGameViewController, GameDelegate
     typealias GS = DigitalBattleShipsGameState
 
     var scene: DigitalBattleShipsGameScene {
-        get {return getScene() as! DigitalBattleShipsGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! DigitalBattleShipsGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: DigitalBattleShipsGame {
-        get {getGame() as! DigitalBattleShipsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! DigitalBattleShipsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: DigitalBattleShipsDocument { DigitalBattleShipsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { DigitalBattleShipsDocument.sharedInstance }
@@ -53,10 +53,10 @@ class DigitalBattleShipsGameViewController: GameGameViewController, GameDelegate
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = DigitalBattleShipsGame(layout: level.layout, delegate: self)
         
         // restore game state

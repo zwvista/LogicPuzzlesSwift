@@ -43,7 +43,7 @@ class GameMainViewController: UIViewController {
         
         lblGameTitle.text = currentGameTitle
         numPages = (gameDocument.levels.count + countPerPage - 1) / countPerPage
-        let index = gameDocument.levels.firstIndex(where: {$0.id == gameDocument.selectedLevelID}) ?? 0
+        let index = gameDocument.levels.firstIndex(where: { $0.id == gameDocument.selectedLevelID }) ?? 0
         currentPage = index / countPerPage
         if numPages == 1 {
             btnPrevPage.isHidden = true
@@ -51,7 +51,7 @@ class GameMainViewController: UIViewController {
         }
         showCurrentPage()
         let toResume = ((UIApplication.shared.keyWindow!.rootViewController! as! UINavigationController).topViewController as! HomeMainViewController).toResume
-        if toResume {resumGame(self)}
+        if toResume { resumGame(self) }
     }
  
     // http://stackoverflow.com/questions/845583/iphone-hide-navigation-bar-only-on-first-page
@@ -67,7 +67,7 @@ class GameMainViewController: UIViewController {
             let index = currentPage * countPerPage + i
             let b = index < gameDocument.levels.count
             button.isHidden = !b
-            if b {button.setTitle(gameDocument.levels[index].id, for: .normal)}
+            if b { button.setTitle(gameDocument.levels[index].id, for: .normal) }
         }
     }
     

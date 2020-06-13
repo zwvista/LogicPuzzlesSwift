@@ -10,8 +10,8 @@ import SpriteKit
 
 class FenceLitsGameScene: GameScene<FenceLitsGameState> {
     var gridNode: FenceLitsGridNode {
-        get {getGridNode() as! FenceLitsGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! FenceLitsGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
@@ -39,8 +39,8 @@ class FenceLitsGameScene: GameScene<FenceLitsGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
-                if game[r, c][1] == .line {addHorzLine(objType: .line, color: .white, point: point, nodeName: "line")}
-                if game[r, c][2] == .line {addVertLine(objType: .line, color: .white, point: point, nodeName: "line")}
+                if game[r, c][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                if game[r, c][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
             }
         }
     }

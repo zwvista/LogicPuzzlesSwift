@@ -14,12 +14,12 @@ class LineSweeperGameViewController: GameGameViewController, GameDelegate {
     typealias GS = LineSweeperGameState
 
     var scene: LineSweeperGameScene {
-        get {return getScene() as! LineSweeperGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! LineSweeperGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: LineSweeperGame {
-        get {getGame() as! LineSweeperGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! LineSweeperGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: LineSweeperDocument { LineSweeperDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { LineSweeperDocument.sharedInstance }
@@ -65,10 +65,10 @@ class LineSweeperGameViewController: GameGameViewController, GameDelegate {
             pLast = p; f()
         case .changed:
             guard !isH && pLast != nil && pLast != p else {break}
-            defer {pLast = p}
+            defer { pLast = p }
             guard let dir = LineSweeperGame.offset.firstIndex(of: p - pLast!) else {break}
             var move = LineSweeperGameMove(p: pLast!, dir: dir / 2)
-            if game.setObject(move: &move) {f()}
+            if game.setObject(move: &move) { f() }
         case .ended:
             pLast = nil
         default:
@@ -80,10 +80,10 @@ class LineSweeperGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = LineSweeperGame(layout: level.layout, delegate: self)
         
         // restore game state

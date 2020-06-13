@@ -14,12 +14,12 @@ class HitoriGameViewController: GameGameViewController, GameDelegate {
     typealias GS = HitoriGameState
 
     var scene: HitoriGameScene {
-        get {return getScene() as! HitoriGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! HitoriGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: HitoriGame {
-        get {getGame() as! HitoriGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! HitoriGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: HitoriDocument { HitoriDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { HitoriDocument.sharedInstance }
@@ -53,10 +53,10 @@ class HitoriGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = HitoriGame(layout: level.layout, delegate: self)
         
         // restore game state

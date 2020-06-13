@@ -14,12 +14,12 @@ class GalaxiesGameViewController: GameGameViewController, GameDelegate {
     typealias GS = GalaxiesGameState
 
     var scene: GalaxiesGameScene {
-        get {return getScene() as! GalaxiesGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! GalaxiesGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: GalaxiesGame {
-        get {getGame() as! GalaxiesGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! GalaxiesGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: GalaxiesDocument { GalaxiesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { GalaxiesDocument.sharedInstance }
@@ -54,10 +54,10 @@ class GalaxiesGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = GalaxiesGame(layout: level.layout, delegate: self)
         
         // restore game state

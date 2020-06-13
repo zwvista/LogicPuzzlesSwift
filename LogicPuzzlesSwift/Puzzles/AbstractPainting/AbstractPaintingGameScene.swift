@@ -10,8 +10,8 @@ import SpriteKit
 
 class AbstractPaintingGameScene: GameScene<AbstractPaintingGameState> {
     var gridNode: AbstractPaintingGridNode {
-        get {getGridNode() as! AbstractPaintingGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! AbstractPaintingGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(p: Position, n: Int, s: HintState) {

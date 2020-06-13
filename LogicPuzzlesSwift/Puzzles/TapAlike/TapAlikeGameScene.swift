@@ -10,8 +10,8 @@ import SpriteKit
 
 class TapAlikeGameScene: GameScene<TapAlikeGameState> {
     var gridNode: TapAlikeGridNode {
-        get {getGridNode() as! TapAlikeGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! TapAlikeGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(arr: [Int], s: HintState, point: CGPoint, nodeName: String) {

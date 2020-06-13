@@ -11,8 +11,8 @@ import Foundation
 class LightBattleShipsGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: LightBattleShipsGame {
-        get {getGame() as! LightBattleShipsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! LightBattleShipsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: LightBattleShipsDocument { LightBattleShipsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { LightBattleShipsDocument.sharedInstance }
@@ -50,8 +50,8 @@ class LightBattleShipsGameState: GridGameState {
     func setObject(move: inout LightBattleShipsGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 {return false}
-        guard String(describing: o1) != String(describing: o2) else {return false}
+        if case .hint = o1 { return false }
+        guard String(describing: o1) != String(describing: o2) else { return false }
         self[p] = o2
         updateIsSolved()
         return true
@@ -82,7 +82,7 @@ class LightBattleShipsGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) else { return false }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -114,7 +114,7 @@ class LightBattleShipsGameState: GridGameState {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                if case .forbidden = self[r, c] {self[r, c] = .empty}
+                if case .forbidden = self[r, c] { self[r, c] = .empty }
             }
         }
         // 3. Ships cannot touch Lighthouses. Not even diagonally.
@@ -127,9 +127,9 @@ class LightBattleShipsGameState: GridGameState {
                         guard isValid(p: p2) else {continue}
                         switch self[p2] {
                         case .hint:
-                            if !isHint {return true}
+                            if !isHint { return true }
                         case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
-                            if isHint {return true}
+                            if isHint { return true }
                         default:
                             break
                         }
@@ -140,7 +140,7 @@ class LightBattleShipsGameState: GridGameState {
                 case .hint:
                     let s: HintState = !hasNeighbor(isHint: true) ? .normal : .error
                     self[p] = .hint(state: s)
-                    if s == .error {isSolved = false}
+                    if s == .error { isSolved = false }
                 case .empty, .marker:
                     guard allowedObjectsOnly && hasNeighbor(isHint: false) else {continue}
                     self[p] = .forbidden
@@ -171,7 +171,7 @@ class LightBattleShipsGameState: GridGameState {
             }
             let n1 = nums.reduce(0, +)
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if case let .hint(state) = self[p], state != .error {self[p] = .hint(state: s)}
+            if case let .hint(state) = self[p], state != .error { self[p] = .hint(state: s) }
             if s != .complete {
                 isSolved = false
             } else if allowedObjectsOnly {
@@ -204,12 +204,12 @@ class LightBattleShipsGameState: GridGameState {
         var shipNumbers = Array<Int>(repeating: 0, count: 5)
         while pos2node.count > 0 {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter{nodesExplored.contains($0.0.description)}.map{$0.0}.sorted()
-            pos2node = pos2node.filter{!nodesExplored.contains($0.0.description)}
+            let area = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }.sorted()
+            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
             guard area.count == 1 && String(describing: self[area.first!]) == String(describing: LightBattleShipsObject.battleShipUnit) || area.count > 1 && area.count < 5 && (
-                area.testAll({$0.row == area.first!.row}) && String(describing: self[area.first!]) == String(describing: LightBattleShipsObject.battleShipLeft) && String(describing: self[area.last!]) == String(describing: LightBattleShipsObject.battleShipRight) ||
-                area.testAll({$0.col == area.first!.col}) && String(describing: self[area.first!]) == String(describing: LightBattleShipsObject.battleShipTop) && String(describing: self[area.last!]) == String(describing: LightBattleShipsObject.battleShipBottom)) &&
-                [Int](1..<area.count - 1).testAll({String(describing: self[area[$0]]) == String(describing: LightBattleShipsObject.battleShipMiddle)}) else {isSolved = false; continue}
+                area.testAll({ $0.row == area.first!.row }) && String(describing: self[area.first!]) == String(describing: LightBattleShipsObject.battleShipLeft) && String(describing: self[area.last!]) == String(describing: LightBattleShipsObject.battleShipRight) ||
+                area.testAll({ $0.col == area.first!.col }) && String(describing: self[area.first!]) == String(describing: LightBattleShipsObject.battleShipTop) && String(describing: self[area.last!]) == String(describing: LightBattleShipsObject.battleShipBottom)) &&
+                [Int](1..<area.count - 1).testAll({ String(describing: self[area[$0]]) == String(describing: LightBattleShipsObject.battleShipMiddle) }) else { isSolved = false; continue }
             for p in area {
                 for os in LightBattleShipsGame.offset {
                     // 3. Ships cannot touch each other. Not even diagonally.
@@ -217,7 +217,7 @@ class LightBattleShipsGameState: GridGameState {
                     if !self.isValid(p: p2) || area.contains(p2) {continue}
                     switch self[p2] {
                     case .empty, .marker, .forbidden:
-                        if allowedObjectsOnly {self[p2] = .forbidden}
+                        if allowedObjectsOnly { self[p2] = .forbidden }
                     default:
                         isSolved = false
                     }
@@ -230,6 +230,6 @@ class LightBattleShipsGameState: GridGameState {
         //    2 Destroyers (3 squares)
         //    3 Submarines (2 squares)
         //    4 Patrol boats (1 square)
-        if shipNumbers != [0, 4, 3, 2, 1] {isSolved = false}
+        if shipNumbers != [0, 4, 3, 2, 1] { isSolved = false }
     }
 }

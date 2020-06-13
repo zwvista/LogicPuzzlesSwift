@@ -10,8 +10,8 @@ import SpriteKit
 
 class FillominoGameScene: GameScene<FillominoGameState> {
     var gridNode: FillominoGridNode {
-        get {getGridNode() as! FillominoGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! FillominoGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addCharacter(ch: Character, s: HintState, isHint: Bool, point: CGPoint, nodeName: String) {

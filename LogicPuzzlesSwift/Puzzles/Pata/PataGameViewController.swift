@@ -14,12 +14,12 @@ class PataGameViewController: GameGameViewController, GameDelegate {
     typealias GS = PataGameState
 
     var scene: PataGameScene {
-        get {return getScene() as! PataGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! PataGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: PataGame {
-        get {getGame() as! PataGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! PataGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: PataDocument { PataDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { PataDocument.sharedInstance }
@@ -53,10 +53,10 @@ class PataGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = PataGame(layout: level.layout, delegate: self)
         
         // restore game state

@@ -18,8 +18,8 @@ class MiniLitsAreaInfo {
 class MiniLitsGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: MiniLitsGame {
-        get {getGame() as! MiniLitsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! MiniLitsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: MiniLitsDocument { MiniLitsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { MiniLitsDocument.sharedInstance }
@@ -55,7 +55,7 @@ class MiniLitsGameState: GridGameState {
     
     func setObject(move: inout MiniLitsGameMove) -> Bool {
         let p = move.p
-        guard String(describing: self[p]) != String(describing: move.obj) else {return false}
+        guard String(describing: self[p]) != String(describing: move.obj) else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -76,7 +76,7 @@ class MiniLitsGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) else { return false }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -125,14 +125,14 @@ class MiniLitsGameState: GridGameState {
         var blocks = [[Position]]()
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let block = pos2node.filter{nodesExplored.contains($0.0.description)}.map{$0.0}
+            let block = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }
             blocks.append(block)
-            pos2node = pos2node.filter{!nodesExplored.contains($0.0.description)}
+            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
         }
         // 4. All the shaded cells should form a valid Nurikabe.
-        if blocks.count != 1 {isSolved = false}
+        if blocks.count != 1 { isSolved = false }
         // https://stackoverflow.com/questions/32921425/swift-creating-an-array-with-a-default-value-of-distinct-object-instances
-        let infos = game.areas.count.range.map{_ in MiniLitsAreaInfo()}
+        let infos = game.areas.count.range.map{ _ in MiniLitsAreaInfo() }
         for i in 0..<blocks.count {
             let block = blocks[i]
             for p in block {
@@ -147,7 +147,7 @@ class MiniLitsGameState: GridGameState {
             for p in info.trees {
                 for os in MiniLitsGame.offset {
                     let p2 = p + os
-                    guard let index = infos.firstIndex(where: {$0.trees.contains(p2)}),
+                    guard let index = infos.firstIndex(where: { $0.trees.contains(p2) }),
                         index != i else {continue}
                     info.neighborIndexes.insert(index)
                 }
@@ -172,34 +172,34 @@ class MiniLitsGameState: GridGameState {
                     }
                 }
             }
-            if treeCount > 3 || treeCount == 3 && info.blockIndexes.count > 1 {notSolved(info: info)}
+            if treeCount > 3 || treeCount == 3 && info.blockIndexes.count > 1 { notSolved(info: info) }
             // 2. The board is divided into many areas. You have to place a triomino
             // into each area.
             if treeCount == 3 && info.blockIndexes.count == 1 {
                 info.trees.sort()
                 var treeOffsets = [Position]()
-                let p2 = Position(info.trees.min{$0.row < $1.row}!.row, info.trees.min{$0.col < $1.col}!.col)
+                let p2 = Position(info.trees.min{ $0.row < $1.row }!.row, info.trees.min{ $0.col < $1.col }!.col)
                 for p in info.trees {
                     treeOffsets.append(p - p2)
                 }
-                info.triominoIndex = MiniLitsGame.triominos.firstIndex{$0 == treeOffsets}
-                if info.triominoIndex == nil {notSolved(info: info)}
+                info.triominoIndex = MiniLitsGame.triominos.firstIndex{ $0 == treeOffsets }
+                if info.triominoIndex == nil { notSolved(info: info) }
             }
-            if treeCount < 3 {isSolved = false}
+            if treeCount < 3 { isSolved = false }
         }
         // 3. No two adjacent (touching horizontally / vertically) triominos should
         // be of equal shape & orientation.
         for i in 0..<infos.count {
             let info = infos[i]
             guard let index = info.triominoIndex else {continue}
-            if info.neighborIndexes.contains(where: {infos[$0].triominoIndex == index}) {notSolved(info: info)}
+            if info.neighborIndexes.contains(where: { infos[$0].triominoIndex == index }) { notSolved(info: info) }
         }
         guard isSolved else {return}
         // 4. All the shaded cells should form a valid Nurikabe.
         let block = blocks[0]
         rule2x2: for p in block {
             for os in MiniLitsGame.offset3 {
-                guard block.contains(p + os) else {continue rule2x2}
+                guard block.contains(p + os) else { continue rule2x2 }
             }
             isSolved = false
             for os in MiniLitsGame.offset3 {

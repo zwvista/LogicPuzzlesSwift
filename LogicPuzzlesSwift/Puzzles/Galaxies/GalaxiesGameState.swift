@@ -12,8 +12,8 @@ import EZSwiftExtensions
 class GalaxiesGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: GalaxiesGame {
-        get {getGame() as! GalaxiesGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! GalaxiesGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: GalaxiesDocument { GalaxiesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { GalaxiesDocument.sharedInstance }
@@ -63,9 +63,9 @@ class GalaxiesGameState: GridGameState {
         }
         let dir = move.dir, dir2 = (dir + 2) % 4
         let p = move.p, p2 = p + GalaxiesGame.offset[dir]
-        guard isValid(p: p2) && game[p][dir] == .empty else {return false}
+        guard isValid(p: p2) && game[p][dir] == .empty else { return false }
         f(o1: &self[p][dir], o2: &self[p2][dir2])
-        if changed {updateIsSolved()}
+        if changed { updateIsSolved() }
         return changed
     }
     
@@ -127,16 +127,16 @@ class GalaxiesGameState: GridGameState {
         var pos2area = [Position: Int]()
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter{nodesExplored.contains($0.0.description)}.map{$0.0}
+            let area = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }
             areas.append(area)
             for p in area {
                 pos2area[p] = areas.count
             }
-            pos2node = pos2node.filter{!nodesExplored.contains($0.0.description)}
+            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
         }
         var n1 = 0
         for area in areas {
-            let rng = game.galaxies.filter{p in area.contains(Position(p.row / 2, p.col / 2))}
+            let rng = game.galaxies.filter{ p in area.contains(Position(p.row / 2, p.col / 2)) }
             if rng.count != 1 {
                 // 3. Galaxies can't overlap.
                 for p in rng {
@@ -148,13 +148,13 @@ class GalaxiesGameState: GridGameState {
                 // means that rotating the shape of the Galaxy by 180 degrees (half a
                 // full turn) around the center, will result in an identical shape.
                 let galaxy = rng.first!
-                let b = area.testAll{p in area.contains(Position(galaxy.row - p.row - 1, galaxy.col - p.col - 1))}
+                let b = area.testAll{ p in area.contains(Position(galaxy.row - p.row - 1, galaxy.col - p.col - 1)) }
                 pos2state[galaxy] = b ? .complete : .error
-                if !b {isSolved = false}
+                if !b { isSolved = false }
             }
             n1 += area.count
         }
         // 3. In the end, all the space must be included in Galaxies
-        if n1 != rows * cols {isSolved = false}
+        if n1 != rows * cols { isSolved = false }
     }
 }

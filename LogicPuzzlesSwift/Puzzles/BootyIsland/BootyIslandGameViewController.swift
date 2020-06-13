@@ -14,12 +14,12 @@ class BootyIslandGameViewController: GameGameViewController, GameDelegate {
     typealias GS = BootyIslandGameState
 
     var scene: BootyIslandGameScene {
-        get {return getScene() as! BootyIslandGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! BootyIslandGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: BootyIslandGame {
-        get {getGame() as! BootyIslandGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! BootyIslandGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: BootyIslandDocument { BootyIslandDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { BootyIslandDocument.sharedInstance }
@@ -53,10 +53,10 @@ class BootyIslandGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = BootyIslandGame(layout: level.layout, delegate: self)
         
         // restore game state

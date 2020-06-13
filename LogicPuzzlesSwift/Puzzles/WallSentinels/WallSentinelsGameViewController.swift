@@ -14,12 +14,12 @@ class WallSentinelsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = WallSentinelsGameState
 
     var scene: WallSentinelsGameScene {
-        get {return getScene() as! WallSentinelsGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! WallSentinelsGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: WallSentinelsGame {
-        get {getGame() as! WallSentinelsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! WallSentinelsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: WallSentinelsDocument { WallSentinelsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { WallSentinelsDocument.sharedInstance }
@@ -53,10 +53,10 @@ class WallSentinelsGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = WallSentinelsGame(layout: level.layout, delegate: self)
         
         // restore game state

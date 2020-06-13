@@ -10,8 +10,8 @@ import SpriteKit
 
 class BusySeasGameScene: GameScene<BusySeasGameState> {
     var gridNode: BusySeasGridNode {
-        get {getGridNode() as! BusySeasGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! BusySeasGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {

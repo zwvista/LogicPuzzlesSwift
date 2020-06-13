@@ -10,8 +10,8 @@ import SpriteKit
 
 class AbcGameScene: GameScene<AbcGameState> {
     var gridNode: AbcGridNode {
-        get {getGridNode() as! AbcGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! AbcGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addCharacter(ch: Character, s: HintState, isHint: Bool, point: CGPoint, nodeName: String) {

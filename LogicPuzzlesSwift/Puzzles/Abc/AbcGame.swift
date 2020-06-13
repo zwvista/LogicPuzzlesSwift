@@ -42,7 +42,7 @@ class AbcGame: GridGame<AbcGameViewController> {
             for c in 0..<cols {
                 let ch = str[c]
                 self[r, c] = ch
-                if chMax < ch {chMax = ch}
+                if chMax < ch { chMax = ch }
             }
         }
         
@@ -51,11 +51,11 @@ class AbcGame: GridGame<AbcGameViewController> {
     }
     
     func switchObject(move: inout AbcGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
     }
     
     func setObject(move: inout AbcGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
     }
     
 }

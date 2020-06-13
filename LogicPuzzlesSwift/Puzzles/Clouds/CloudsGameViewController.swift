@@ -14,12 +14,12 @@ class CloudsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = CloudsGameState
 
     var scene: CloudsGameScene {
-        get {return getScene() as! CloudsGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! CloudsGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: CloudsGame {
-        get {getGame() as! CloudsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! CloudsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: CloudsDocument { CloudsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { CloudsDocument.sharedInstance }
@@ -53,10 +53,10 @@ class CloudsGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = CloudsGame(layout: level.layout, delegate: self)
         
         // restore game state

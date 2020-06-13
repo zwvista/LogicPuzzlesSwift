@@ -11,8 +11,8 @@ import Foundation
 class MosaikGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: MosaikGame {
-        get {getGame() as! MosaikGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! MosaikGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: MosaikDocument { MosaikDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { MosaikDocument.sharedInstance }
@@ -50,7 +50,7 @@ class MosaikGameState: GridGameState {
     }
     
     func setObject(move: inout MosaikGameMove) -> Bool {
-        if self[move.p] == move.obj {return false}
+        if self[move.p] == move.obj { return false }
         self[move.p] = move.obj
         updateIsSolved()
         return true
@@ -105,13 +105,13 @@ class MosaikGameState: GridGameState {
             var n1 = 0
             for os in MosaikGame.offset {
                 let p2 = p + os
-                if isValid(p: p2), self[p2] == .filled {n1 += 1}
+                if isValid(p: p2), self[p2] == .filled { n1 += 1 }
             }
             // 2. A number tells you how many tiles must be filled in the 3*3 area formed
             // by the tile itself and the ones surrounding it.
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             pos2state[p] = s
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
             if s != .normal && allowedObjectsOnly {
                 for os in MosaikGame.offset {
                     let p2 = p + os

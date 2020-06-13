@@ -11,8 +11,8 @@ import Foundation
 class MasyuGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: MasyuGame {
-        get {getGame() as! MasyuGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! MasyuGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: MasyuDocument { MasyuDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { MasyuDocument.sharedInstance }
@@ -47,7 +47,7 @@ class MasyuGameState: GridGameState {
     func setObject(move: inout MasyuGameMove) -> Bool {
         let p = move.p, dir = move.dir
         let p2 = p + MasyuGame.offset[dir], dir2 = (dir + 2) % 4
-        guard isValid(p: p2) else {return false}
+        guard isValid(p: p2) else { return false }
         self[p][dir].toggle()
         self[p2][dir2].toggle()
         updateIsSolved()
@@ -84,22 +84,22 @@ class MasyuGameState: GridGameState {
                 let ch = game[p]
                 var dirs = [Int]()
                 for i in 0..<4 {
-                    if o[i] {dirs.append(i)}
+                    if o[i] { dirs.append(i) }
                 }
                 switch dirs.count {
                 case 0:
                     // 1. The goal is to draw a single Loop(Necklace) through every circle(Pearl)
-                    guard ch == " " else {isSolved = false; return}
+                    guard ch == " " else { isSolved = false; return }
                 case 2:
                     pos2node[p] = g.addNode(p.description)
                     pos2Dirs[p] = dirs
                     switch ch {
                     case "B":
                         // 4. Lines passing through Black Pearls must do a 90 degree turn in them.
-                        guard dirs[1] - dirs[0] != 2 else {isSolved = false; return}
+                        guard dirs[1] - dirs[0] != 2 else { isSolved = false; return }
                     case "W":
                         // 3. Lines passing through White Pearls must go straight through them.
-                        guard dirs[1] - dirs[0] == 2 else {isSolved = false; return}
+                        guard dirs[1] - dirs[0] == 2 else { isSolved = false; return }
                     default:
                         break
                     }
@@ -116,26 +116,26 @@ class MasyuGameState: GridGameState {
             var bW = ch != "W"
             for i in dirs {
                 let p2 = p + MasyuGame.offset[i]
-                guard let node2 = pos2node[p2], let dirs2 = pos2Dirs[p2] else {isSolved = false; return}
+                guard let node2 = pos2node[p2], let dirs2 = pos2Dirs[p2] else { isSolved = false; return }
                 switch ch {
                 case "B":
                     // 4. Lines passing through Black Pearls must go straight
                     // in the next tile in both directions.
-                    guard (i == 0 || i == 2) && dirs2[0] == 0 && dirs2[1] == 2 || (i == 1 || i == 3) && dirs2[0] == 1 && dirs2[1] == 3 else {isSolved = false; return}
+                    guard (i == 0 || i == 2) && dirs2[0] == 0 && dirs2[1] == 2 || (i == 1 || i == 3) && dirs2[0] == 1 && dirs2[1] == 3 else { isSolved = false; return }
                 case "W":
                     // 3. At least at one side of the White Pearl(or both),
                     // Lines passing through White Pearls must do a 90 degree turn.
                     let n1 = (i + 1) % 4, n2 = (i + 3) % 4
-                    if dirs2[0] == n1 || dirs2[0] == n2 || dirs2[1] == n1 || dirs2[1] == n2 {bW = true}
+                    if dirs2[0] == n1 || dirs2[0] == n2 || dirs2[1] == n1 || dirs2[1] == n2 { bW = true }
                 default:
                     break
                 }
                 g.addEdge(node, neighbor: node2)
             }
-            guard bW else {isSolved = false; return}
+            guard bW else { isSolved = false; return }
         }
         // 1. The goal is to draw a single Loop(Necklace).
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count {isSolved = false}
+        if nodesExplored.count != pos2node.count { isSolved = false }
     }
 }

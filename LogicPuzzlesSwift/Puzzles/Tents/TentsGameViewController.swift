@@ -14,12 +14,12 @@ class TentsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = TentsGameState
 
     var scene: TentsGameScene {
-        get {return getScene() as! TentsGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! TentsGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: TentsGame {
-        get {getGame() as! TentsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! TentsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: TentsDocument { TentsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TentsDocument.sharedInstance }
@@ -53,10 +53,10 @@ class TentsGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = TentsGame(layout: level.layout, delegate: self)
         
         // restore game state

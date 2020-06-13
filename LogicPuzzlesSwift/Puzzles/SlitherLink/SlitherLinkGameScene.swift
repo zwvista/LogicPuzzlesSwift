@@ -10,8 +10,8 @@ import SpriteKit
 
 class SlitherLinkGameScene: GameScene<SlitherLinkGameState> {
     var gridNode: SlitherLinkGridNode {
-        get {getGridNode() as! SlitherLinkGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! SlitherLinkGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {

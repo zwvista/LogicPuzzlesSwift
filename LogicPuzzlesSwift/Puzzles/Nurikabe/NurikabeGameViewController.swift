@@ -14,12 +14,12 @@ class NurikabeGameViewController: GameGameViewController, GameDelegate {
     typealias GS = NurikabeGameState
 
     var scene: NurikabeGameScene {
-        get {return getScene() as! NurikabeGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! NurikabeGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: NurikabeGame {
-        get {getGame() as! NurikabeGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! NurikabeGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: NurikabeDocument { NurikabeDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { NurikabeDocument.sharedInstance }
@@ -53,10 +53,10 @@ class NurikabeGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = NurikabeGame(layout: level.layout, delegate: self)
         
         // restore game state

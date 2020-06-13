@@ -10,8 +10,8 @@ import SpriteKit
 
 class MineShipsGameScene: GameScene<MineShipsGameState> {
     var gridNode: MineShipsGridNode {
-        get {getGridNode() as! MineShipsGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! MineShipsGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addBattleShip(color: SKColor, point: CGPoint, obj: MineShipsObject, nodeName: String) {

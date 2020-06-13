@@ -10,8 +10,8 @@ import SpriteKit
 
 class LineSweeperGameScene: GameScene<LineSweeperGameState> {
     var gridNode: LineSweeperGridNode {
-        get {getGridNode() as! LineSweeperGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! LineSweeperGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
@@ -68,8 +68,8 @@ class LineSweeperGameScene: GameScene<LineSweeperGameState> {
                     }
                     let (o1, o2) = (stateFrom[p][dir], stateTo[p][dir])
                     if o1 != o2 {
-                        if o1 {removeLine()}
-                        if o2 {addLine()}
+                        if o1 { removeLine() }
+                        if o2 { addLine() }
                     }
                     guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
                     if s1 != s2 {

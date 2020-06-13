@@ -11,8 +11,8 @@ import Foundation
 class PataGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: PataGame {
-        get {getGame() as! PataGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! PataGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: PataDocument { PataDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { PataDocument.sharedInstance }
@@ -50,8 +50,8 @@ class PataGameState: GridGameState {
     func setObject(move: inout PataGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 {return false}
-        guard String(describing: o1) != String(describing: o2) else {return false}
+        if case .hint = o1 { return false }
+        guard String(describing: o1) != String(describing: o2) else { return false }
         self[p] = o2
         updateIsSolved()
         return true
@@ -95,7 +95,7 @@ class PataGameState: GridGameState {
         // 2. A number indicates the groups of connected empty tiles that are around
         // it, instead of filled ones.
         func computeHint(emptied: [Int]) -> [Int] {
-            if emptied.isEmpty {return [0]}
+            if emptied.isEmpty { return [0] }
             var hint = [Int]()
             for j in 0..<emptied.count {
                 if j == 0 || emptied[j] - emptied[j - 1] != 1 {
@@ -110,8 +110,8 @@ class PataGameState: GridGameState {
             return hint.sorted()
         }
         func isCompatible(computedHint: [Int], givenHint: [Int]) -> Bool {
-            if computedHint == givenHint {return true}
-            if computedHint.count != givenHint.count {return false}
+            if computedHint == givenHint { return true }
+            if computedHint.count != givenHint.count { return false }
             let h1 = Set(computedHint)
             var h2 = Set(givenHint)
             h2.remove(-1)
@@ -120,7 +120,7 @@ class PataGameState: GridGameState {
         for (p, arr2) in game.pos2hint {
             let emptied = [Int](0..<8).filter{
                 let p2 = p + PataGame.offset[$0]
-                guard isValid(p: p2) else {return false}
+                guard isValid(p: p2) else { return false }
                 switch self[p2] {
                 case .empty, .hint: return true
                 default: return false
@@ -129,12 +129,12 @@ class PataGameState: GridGameState {
             let arr = computeHint(emptied: emptied)
             let filled = [Int](0..<8).filter{
                 let p2 = p + PataGame.offset[$0]
-                if isValid(p: p2), case .wall = self[p2] {return true} else {return false}
+                if isValid(p: p2), case .wall = self[p2] { return true } else { return false }
             }
             let arr3 = computeHint(emptied: filled)
             let s: HintState = arr3 == [0] ? .normal : isCompatible(computedHint: arr, givenHint: arr2) ? .complete : .error
             self[p] = .hint(state: s)
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
         guard isSolved else {return}
         // 6. You can't have a 2*2 space of filled tiles.
@@ -143,8 +143,8 @@ class PataGameState: GridGameState {
                 let p = Position(r, c)
                 if PataGame.offset2.testAll({os in
                     let o = self[p + os]
-                    if case .wall = o {return true} else {return false}
-                }) {isSolved = false; return}
+                    if case .wall = o { return true } else { return false }
+                }) { isSolved = false; return }
             }
         }
         let g = Graph()
@@ -152,7 +152,7 @@ class PataGameState: GridGameState {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if case .wall = self[p] {pos2node[p] = g.addNode(p.description)}
+                if case .wall = self[p] { pos2node[p] = g.addNode(p.description) }
             }
         }
         for (p, node) in pos2node {
@@ -164,6 +164,6 @@ class PataGameState: GridGameState {
         }
         // 5. The filled tiles are continuous.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count {isSolved = false; return}
+        if nodesExplored.count != pos2node.count { isSolved = false; return }
     }
 }

@@ -14,12 +14,12 @@ class CastleBaileyGameViewController: GameGameViewController, GameDelegate {
     typealias GS = CastleBaileyGameState
 
     var scene: CastleBaileyGameScene {
-        get {return getScene() as! CastleBaileyGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! CastleBaileyGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: CastleBaileyGame {
-        get {getGame() as! CastleBaileyGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! CastleBaileyGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: CastleBaileyDocument { CastleBaileyDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { CastleBaileyDocument.sharedInstance }
@@ -53,10 +53,10 @@ class CastleBaileyGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = CastleBaileyGame(layout: level.layout, delegate: self)
         
         // restore game state

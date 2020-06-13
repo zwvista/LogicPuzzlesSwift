@@ -34,8 +34,8 @@ class KakuroGame: GridGame<KakuroGameViewController> {
                     pos2num[p] = 0
                 } else {
                     let (s1, s2) = (s[0..<2], s[2..<4])
-                    if s1 != "00" {pos2vertHint[p] = s1.toInt()!}
-                    if s2 != "00" {pos2horzHint[p] = s2.toInt()!}
+                    if s1 != "00" { pos2vertHint[p] = s1.toInt()! }
+                    if s2 != "00" { pos2horzHint[p] = s2.toInt()! }
                 }
             }
         }
@@ -45,11 +45,11 @@ class KakuroGame: GridGame<KakuroGameViewController> {
     }
     
     func switchObject(move: inout KakuroGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
     }
     
     func setObject(move: inout KakuroGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
     }
     
 }

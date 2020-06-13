@@ -11,8 +11,8 @@ import Foundation
 class FutoshikiGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: FutoshikiGame {
-        get {getGame() as! FutoshikiGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! FutoshikiGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: FutoshikiDocument { FutoshikiDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { FutoshikiDocument.sharedInstance }
@@ -54,7 +54,7 @@ class FutoshikiGameState: GridGameState {
     
     func setObject(move: inout FutoshikiGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && p.row % 2 == 0 && p.col % 2 == 0 && game[p] == " " && self[p] != move.obj else {return false}
+        guard isValid(p: p) && p.row % 2 == 0 && p.col % 2 == 0 && game[p] == " " && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -62,7 +62,7 @@ class FutoshikiGameState: GridGameState {
     
     func switchObject(move: inout FutoshikiGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && p.row % 2 == 0 && p.col % 2 == 0 && game[p] == " " else {return false}
+        guard isValid(p: p) && p.row % 2 == 0 && p.col % 2 == 0 && game[p] == " " else { return false }
         let o = self[p]
         move.obj = o == " " ? "1" : o == succ(ch: "1", offset: rows / 2) ? " " : succ(ch: o)
         return setObject(move: &move)
@@ -96,21 +96,21 @@ class FutoshikiGameState: GridGameState {
             // 1. You have to put in each row and column
             // numbers ranging from 1 to N, where N is the puzzle board size.
             s = nums2.first! == " " ? .normal : nums2.count == nums.count ? .complete : .error
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
         // 3. Remember you can't repeat the same number in a row.
         for r in stride(from: 0, to: rows, by: 2) {
-            f(nums: stride(from: 0, to: cols, by: 2).map{self[r, $0]}, s: &row2state[r])
+            f(nums: stride(from: 0, to: cols, by: 2).map{ self[r, $0] }, s: &row2state[r])
         }
         // 3. Remember you can't repeat the same number in a column.
         for c in stride(from: 0, to: cols, by: 2) {
-            f(nums: stride(from: 0, to: rows, by: 2).map{self[$0, c]}, s: &col2state[c])
+            f(nums: stride(from: 0, to: rows, by: 2).map{ self[$0, c] }, s: &col2state[c])
         }
         for (p, h) in game.pos2hint {
             let (r, c) = (p.row, p.col)
             let (ch1, ch2) = r % 2 == 0 ? (self[r, c - 1], self[r, c + 1]) : (self[r - 1, c], self[r + 1, c])
             func g() -> HintState {
-                if ch1 == " " || ch2 == " " {return .normal}
+                if ch1 == " " || ch2 == " " { return .normal }
                 let (n1, n2) = (ch1.toInt!, ch2.toInt!)
                 switch h {
                 // 2. The hints you have are the 'less than'/'greater than' signs between tiles.
@@ -124,7 +124,7 @@ class FutoshikiGameState: GridGameState {
             }
             let s = g()
             pos2state[p] = s
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
     }
 }

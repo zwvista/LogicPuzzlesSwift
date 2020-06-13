@@ -11,8 +11,8 @@ import Foundation
 class SkyscrapersGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: SkyscrapersGame {
-        get {getGame() as! SkyscrapersGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! SkyscrapersGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: SkyscrapersDocument { SkyscrapersDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { SkyscrapersDocument.sharedInstance }
@@ -65,7 +65,7 @@ class SkyscrapersGameState: GridGameState {
     
     func setObject(move: inout SkyscrapersGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else {return false}
+        guard isValid(p: p) && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -73,7 +73,7 @@ class SkyscrapersGameState: GridGameState {
     
     func switchObject(move: inout SkyscrapersGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) else { return false }
         let o = self[p]
         move.obj = (o + 1) % (game.intMax + 1)
         return setObject(move: &move)
@@ -106,8 +106,8 @@ class SkyscrapersGameState: GridGameState {
             nums = []
             for c in 1..<cols - 1 {
                 let (n12, n22) = (self[r, c], self[r, cols - 1 - c])
-                if n11 < n12 {n11 = n12; n1 += 1}
-                if n21 < n22 {n21 = n22; n2 += 1}
+                if n11 < n12 { n11 = n12; n1 += 1 }
+                if n21 < n22 { n21 = n22; n2 += 1 }
                 guard n12 != 0 else {continue}
                 // 2. Each row can't have two Skyscrapers of the same height.
                 if nums.contains(n12) {
@@ -122,10 +122,10 @@ class SkyscrapersGameState: GridGameState {
             let s1: HintState = n1 == 0 ? .normal : n1 == h1 ? .complete : .error
             let s2: HintState = n2 == 0 ? .normal : n2 == h2 ? .complete : .error
             row2state[r * 2] = s1; row2state[r * 2 + 1] = s2
-            if s1 != .complete || s2 != .complete {isSolved = false}
-            if nums.count != game.intMax {isSolved = false}
+            if s1 != .complete || s2 != .complete { isSolved = false }
+            if nums.count != game.intMax { isSolved = false }
             // 5. Each row and column can't have similar Skyscrapers.
-            if numss.contains(where: {$0 == nums}) {
+            if numss.contains(where: { $0 == nums }) {
                 isSolved = false
             } else {
                 numss.append(nums)
@@ -138,8 +138,8 @@ class SkyscrapersGameState: GridGameState {
             nums = []
             for r in 1..<rows - 1 {
                 let (n12, n22) = (self[r, c], self[rows - 1 - r, c])
-                if n11 < n12 {n11 = n12; n1 += 1}
-                if n21 < n22 {n21 = n22; n2 += 1}
+                if n11 < n12 { n11 = n12; n1 += 1 }
+                if n21 < n22 { n21 = n22; n2 += 1 }
                 guard n12 != 0 else {continue}
                 // 2. Each column can't have two Skyscrapers of the same height.
                 if nums.contains(n12) {
@@ -154,10 +154,10 @@ class SkyscrapersGameState: GridGameState {
             let s1: HintState = n1 == 0 ? .normal : n1 == h1 ? .complete : .error
             let s2: HintState = n2 == 0 ? .normal : n2 == h2 ? .complete : .error
             col2state[c * 2] = s1; col2state[c * 2 + 1] = s2
-            if s1 != .complete || s2 != .complete {isSolved = false}
-            if nums.count != game.intMax {isSolved = false}
+            if s1 != .complete || s2 != .complete { isSolved = false }
+            if nums.count != game.intMax { isSolved = false }
             // 5. Each row and column can't have similar Skyscrapers.
-            if numss.contains(where: {$0 == nums}) {
+            if numss.contains(where: { $0 == nums }) {
                 isSolved = false
             } else {
                 numss.append(nums)

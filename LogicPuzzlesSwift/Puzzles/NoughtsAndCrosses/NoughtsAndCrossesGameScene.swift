@@ -10,8 +10,8 @@ import SpriteKit
 
 class NoughtsAndCrossesGameScene: GameScene<NoughtsAndCrossesGameState> {
     var gridNode: NoughtsAndCrossesGridNode {
-        get {getGridNode() as! NoughtsAndCrossesGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! NoughtsAndCrossesGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(p: Position, isHorz: Bool, s: HintState, point: CGPoint) {
@@ -91,8 +91,8 @@ class NoughtsAndCrossesGameScene: GameScene<NoughtsAndCrossesGameState> {
             let c = stateFrom.cols - 1
             let p = Position(r, c)
             let point = gridNode.gridPosition(p: p)
-            if s1 != .normal {removeHint(p: p, isHorz: true)}
-            if s2 != .normal {addHint(p: p, isHorz: true, s: s2, point: point)}
+            if s1 != .normal { removeHint(p: p, isHorz: true) }
+            if s2 != .normal { addHint(p: p, isHorz: true, s: s2, point: point) }
         }
         for c in 0..<stateFrom.cols {
             let (s1, s2) = (stateFrom.col2state[c], stateTo.col2state[c])
@@ -100,8 +100,8 @@ class NoughtsAndCrossesGameScene: GameScene<NoughtsAndCrossesGameState> {
             let r = stateFrom.rows - 1
             let p = Position(r, c)
             let point = gridNode.gridPosition(p: p)
-            if s1 != .normal {removeHint(p: p, isHorz: false)}
-            if s2 != .normal {addHint(p: p, isHorz: false, s: s2, point: point)}
+            if s1 != .normal { removeHint(p: p, isHorz: false) }
+            if s2 != .normal { addHint(p: p, isHorz: false, s: s2, point: point) }
         }
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
@@ -113,8 +113,8 @@ class NoughtsAndCrossesGameScene: GameScene<NoughtsAndCrossesGameState> {
                 let (ch1, ch2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2state[p] ?? .normal, stateTo.pos2state[p] ?? .normal)
                 if ch1 != ch2 || s1 != s2 {
-                    if ch1 != " " {removeNode(withName: numberNodeName)}
-                    if ch2 != " " {addLabel(text: String(ch2), fontColor: s2 == .normal ? .white : s2 == .complete ? .green : .red, point: point, nodeName: numberNodeName)}
+                    if ch1 != " " { removeNode(withName: numberNodeName) }
+                    if ch2 != " " { addLabel(text: String(ch2), fontColor: s2 == .normal ? .white : s2 == .complete ? .green : .red, point: point, nodeName: numberNodeName) }
                 }
             }
         }

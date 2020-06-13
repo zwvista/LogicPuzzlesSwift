@@ -14,12 +14,12 @@ class TierraDelFuegoGameViewController: GameGameViewController, GameDelegate {
     typealias GS = TierraDelFuegoGameState
 
     var scene: TierraDelFuegoGameScene {
-        get {return getScene() as! TierraDelFuegoGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! TierraDelFuegoGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: TierraDelFuegoGame {
-        get {getGame() as! TierraDelFuegoGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! TierraDelFuegoGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: TierraDelFuegoDocument { TierraDelFuegoDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TierraDelFuegoDocument.sharedInstance }
@@ -53,10 +53,10 @@ class TierraDelFuegoGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = TierraDelFuegoGame(layout: level.layout, delegate: self)
         
         // restore game state

@@ -14,12 +14,12 @@ class OverUnderGameViewController: GameGameViewController, GameDelegate {
     typealias GS = OverUnderGameState
 
     var scene: OverUnderGameScene {
-        get {return getScene() as! OverUnderGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! OverUnderGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: OverUnderGame {
-        get {getGame() as! OverUnderGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! OverUnderGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: OverUnderDocument { OverUnderDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { OverUnderDocument.sharedInstance }
@@ -54,10 +54,10 @@ class OverUnderGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = OverUnderGame(layout: level.layout, delegate: self)
         
         // restore game state

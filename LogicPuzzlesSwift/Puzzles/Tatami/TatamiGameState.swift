@@ -11,8 +11,8 @@ import Foundation
 class TatamiGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: TatamiGame {
-        get {getGame() as! TatamiGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! TatamiGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: TatamiDocument { TatamiDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TatamiDocument.sharedInstance }
@@ -48,7 +48,7 @@ class TatamiGameState: GridGameState {
     
     func setObject(move: inout TatamiGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else {return false}
+        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -56,7 +56,7 @@ class TatamiGameState: GridGameState {
     
     func switchObject(move: inout TatamiGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " else {return false}
+        guard isValid(p: p) && game[p] == " " else { return false }
         let o = self[p]
         move.obj =
             o == " " ? "1" :
@@ -81,11 +81,11 @@ class TatamiGameState: GridGameState {
     private func updateIsSolved() {
         isSolved = true
         let chars2: [Character] = ["1", "2", "3"]
-        let chars3 = chars2.flatMap{Array<Character>(repeating: $0, count: rows / 3)}
+        let chars3 = chars2.flatMap{ Array<Character>(repeating: $0, count: rows / 3) }
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if self[p] == " " {isSolved = false}
+                if self[p] == " " { isSolved = false }
                 pos2state[p] = .normal
             }
         }
@@ -100,7 +100,7 @@ class TatamiGameState: GridGameState {
                 pos2state[p1] = .error
                 pos2state[p2] = .error
             }
-            let chars = (0..<cols).map{self[r, $0]}.sorted()
+            let chars = (0..<cols).map{ self[r, $0] }.sorted()
             // 3. In one row, each number must appear the same number of times.
             if chars[0] != " " && chars != chars3 {
                 isSolved = false; lineSolved = false
@@ -125,7 +125,7 @@ class TatamiGameState: GridGameState {
                 pos2state[p1] = .error
                 pos2state[p2] = .error
             }
-            let chars = (0..<rows).map{self[$0, c]}.sorted()
+            let chars = (0..<rows).map{ self[$0, c] }.sorted()
             // 3. In one column, each number must appear the same number of times.
             if chars[0] != " " && chars != chars3 {
                 isSolved = false; lineSolved = false
@@ -141,7 +141,7 @@ class TatamiGameState: GridGameState {
         }
         // 2. Each number can appear only once in each Tatami.
         for a in game.areas {
-            let chars = a.map{self[$0]}.sorted()
+            let chars = a.map{ self[$0] }.sorted()
             guard chars[0] != " " && chars != chars2 else {continue}
             isSolved = false
             for p in a {

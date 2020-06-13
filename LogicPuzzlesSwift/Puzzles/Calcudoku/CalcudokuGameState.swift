@@ -11,8 +11,8 @@ import Foundation
 class CalcudokuGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: CalcudokuGame {
-        get {getGame() as! CalcudokuGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! CalcudokuGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: CalcudokuDocument { CalcudokuDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { CalcudokuDocument.sharedInstance }
@@ -54,7 +54,7 @@ class CalcudokuGameState: GridGameState {
     
     func setObject(move: inout CalcudokuGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else {return false}
+        guard isValid(p: p) && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -62,7 +62,7 @@ class CalcudokuGameState: GridGameState {
     
     func switchObject(move: inout CalcudokuGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) else { return false }
         let o = self[p]
         move.obj = (o + 1) % (cols + 1)
         return setObject(move: &move)
@@ -97,20 +97,20 @@ class CalcudokuGameState: GridGameState {
             let nums2 = Set<Int>(nums).sorted()
             // 1. Write numbers ranging from 1 to board size.
             s = nums2.first! == 0 ? .normal : nums2.count == nums.count ? .complete : .error
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
         // 6. All the numbers appear just one time in each row.
         for r in 0..<rows {
-            f(nums: (0..<cols).map{self[r, $0]}, s: &row2state[r])
+            f(nums: (0..<cols).map{ self[r, $0] }, s: &row2state[r])
         }
         // 6. All the numbers appear just one time in each column.
         for c in 0..<cols {
-            f(nums: (0..<rows).map{self[$0, c]}, s: &col2state[c])
+            f(nums: (0..<rows).map{ self[$0, c] }, s: &col2state[c])
         }
         for (p, h) in game.pos2hint {
-            let nums = game.areas[game.pos2area[p]!].map{self[$0]}
+            let nums = game.areas[game.pos2area[p]!].map{ self[$0] }
             func g() -> HintState {
-                if nums.contains(0) {return .normal}
+                if nums.contains(0) { return .normal }
                 let n = h.result
                 switch h.op {
                 // 2. The tiny numbers and math signs in the corner of an area give you the
@@ -131,7 +131,7 @@ class CalcudokuGameState: GridGameState {
             }
             let s = g()
             pos2state[p] = s
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
     }
 }

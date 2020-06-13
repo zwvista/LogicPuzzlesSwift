@@ -11,8 +11,8 @@ import Foundation
 class LineSweeperGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: LineSweeperGame {
-        get {getGame() as! LineSweeperGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! LineSweeperGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: LineSweeperDocument { LineSweeperDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { LineSweeperDocument.sharedInstance }
@@ -51,9 +51,9 @@ class LineSweeperGameState: GridGameState {
     
     func setObject(move: inout LineSweeperGameMove) -> Bool {
         let p = move.p, dir = move.dir
-        guard isValid(p: p) && !game.isHint(p: p) else {return false}
+        guard isValid(p: p) && !game.isHint(p: p) else { return false }
         let p2 = p + LineSweeperGame.offset[dir * 2], dir2 = (dir + 2) % 4
-        guard isValid(p: p2) && !game.isHint(p: p2) else {return false}
+        guard isValid(p: p2) && !game.isHint(p: p2) else { return false }
         self[p][dir].toggle()
         self[p2][dir2].toggle()
         updateIsSolved()
@@ -85,12 +85,12 @@ class LineSweeperGameState: GridGameState {
                 guard isValid(p: p2) else {continue}
                 var hasLine = false
                 for b in self[p2] {
-                    if b {hasLine = true}
+                    if b { hasLine = true }
                 }
-                if hasLine {n1 += 1}
+                if hasLine { n1 += 1 }
             }
             pos2state[p] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 {isSolved = false}
+            if n1 != n2 { isSolved = false }
         }
         guard isSolved else {return}
         let g = Graph()
@@ -98,7 +98,7 @@ class LineSweeperGameState: GridGameState {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let n = self[p].filter{$0}.count
+                let n = self[p].filter{ $0 }.count
                 switch n {
                 case 0:
                     continue
@@ -121,6 +121,6 @@ class LineSweeperGameState: GridGameState {
         }
         // 1. Draw a single closed looping path that never crosses itself or branches off.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count {isSolved = false}
+        if nodesExplored.count != pos2node.count { isSolved = false }
     }
 }

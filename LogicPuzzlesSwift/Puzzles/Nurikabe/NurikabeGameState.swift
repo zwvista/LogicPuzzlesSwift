@@ -11,8 +11,8 @@ import Foundation
 class NurikabeGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: NurikabeGame {
-        get {getGame() as! NurikabeGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! NurikabeGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: NurikabeDocument { NurikabeDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { NurikabeDocument.sharedInstance }
@@ -50,8 +50,8 @@ class NurikabeGameState: GridGameState {
     func setObject(move: inout NurikabeGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 {return false}
-        guard String(describing: o1) != String(describing: o2) else {return false}
+        if case .hint = o1 { return false }
+        guard String(describing: o1) != String(describing: o2) else { return false }
         self[p] = o2
         updateIsSolved()
         return true
@@ -103,8 +103,8 @@ class NurikabeGameState: GridGameState {
                 let p = Position(r, c)
                 if NurikabeGame.offset2.testAll({os in
                     let o = self[p + os]
-                    if case .wall = o {return true} else {return false}
-                }) {isSolved = false}
+                    if case .wall = o { return true } else { return false }
+                }) { isSolved = false }
             }
         }
         let g = Graph()
@@ -146,12 +146,12 @@ class NurikabeGameState: GridGameState {
             // wall tiles on the board must be connected horizontally or vertically.
             // There can't be isolated walls.
             let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
-            if rngWalls.count != nodesExplored.count {isSolved = false}
+            if rngWalls.count != nodesExplored.count { isSolved = false }
         }
         while !rngEmpty.isEmpty {
             let node = pos2node[rngEmpty.first!]!
             let nodesExplored = breadthFirstSearch(g, source: node)
-            rngEmpty = rngEmpty.filter{!nodesExplored.contains($0.description)}
+            rngEmpty = rngEmpty.filter{ !nodesExplored.contains($0.description) }
             let n2 = nodesExplored.count
             var rng = [Position]()
             for p in game.pos2hint.keys {
@@ -171,7 +171,7 @@ class NurikabeGameState: GridGameState {
                 let n1 = game.pos2hint[p]!
                 let s: HintState = n1 == n2 ? .complete : .error
                 self[p] = .hint(state: s)
-                if s != .complete {isSolved = false}
+                if s != .complete { isSolved = false }
             default:
                 for p in rng {
                     self[p] = .hint(state: .normal)

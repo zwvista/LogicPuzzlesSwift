@@ -14,12 +14,12 @@ class TapAlikeGameViewController: GameGameViewController, GameDelegate {
     typealias GS = TapAlikeGameState
 
     var scene: TapAlikeGameScene {
-        get {return getScene() as! TapAlikeGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! TapAlikeGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: TapAlikeGame {
-        get {getGame() as! TapAlikeGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! TapAlikeGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: TapAlikeDocument { TapAlikeDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TapAlikeDocument.sharedInstance }
@@ -53,10 +53,10 @@ class TapAlikeGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = TapAlikeGame(layout: level.layout, delegate: self)
         
         // restore game state

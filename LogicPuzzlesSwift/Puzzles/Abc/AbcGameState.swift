@@ -11,8 +11,8 @@ import Foundation
 class AbcGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: AbcGame {
-        get {getGame() as! AbcGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! AbcGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: AbcDocument { AbcDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { AbcDocument.sharedInstance }
@@ -65,7 +65,7 @@ class AbcGameState: GridGameState {
     
     func setObject(move: inout AbcGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else {return false}
+        guard isValid(p: p) && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -73,7 +73,7 @@ class AbcGameState: GridGameState {
     
     func switchObject(move: inout AbcGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) else { return false }
         let o = self[p]
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         move.obj =
@@ -109,8 +109,8 @@ class AbcGameState: GridGameState {
             chars = []
             for c in 1..<cols - 1 {
                 let (ch12, ch22) = (self[r, c], self[r, cols - 1 - c])
-                if ch11 == " " && ch12 != " " {ch11 = ch12}
-                if ch21 == " " && ch22 != " " {ch21 = ch22}
+                if ch11 == " " && ch12 != " " { ch11 = ch12 }
+                if ch21 == " " && ch22 != " " { ch21 = ch22 }
                 guard ch12 != " " else {continue}
                 // 2. Each letter appears once in every row.
                 if chars.contains(ch12) {
@@ -123,9 +123,9 @@ class AbcGameState: GridGameState {
             let s1: HintState = ch11 == " " ? .normal : ch11 == h1 ? .complete : .error
             let s2: HintState = ch21 == " " ? .normal : ch21 == h2 ? .complete : .error
             row2state[r * 2] = s1; row2state[r * 2 + 1] = s2
-            if s1 != .complete || s2 != .complete {isSolved = false}
+            if s1 != .complete || s2 != .complete { isSolved = false }
             // 2. Each letter appears once in every row.
-            if chars.count != Int(game.chMax.asciiValue!) - Int(Character("A").asciiValue!) + 1 {isSolved = false}
+            if chars.count != Int(game.chMax.asciiValue!) - Int(Character("A").asciiValue!) + 1 { isSolved = false }
         }
         for c in 1..<cols - 1 {
             let (h1, h2) = (self[0, c], self[rows - 1, c])
@@ -133,8 +133,8 @@ class AbcGameState: GridGameState {
             chars = []
             for r in 1..<rows - 1 {
                 let (ch12, ch22) = (self[r, c], self[rows - 1 - r, c])
-                if ch11 == " " && ch12 != " " {ch11 = ch12}
-                if ch21 == " " && ch22 != " " {ch21 = ch22}
+                if ch11 == " " && ch12 != " " { ch11 = ch12 }
+                if ch21 == " " && ch22 != " " { ch21 = ch22 }
                 guard ch12 != " " else {continue}
                 // 2. Each letter appears once in every column.
                 if chars.contains(ch12) {
@@ -147,9 +147,9 @@ class AbcGameState: GridGameState {
             let s1: HintState = ch11 == " " ? .normal : ch11 == h1 ? .complete : .error
             let s2: HintState = ch21 == " " ? .normal : ch21 == h2 ? .complete : .error
             col2state[c * 2] = s1; col2state[c * 2 + 1] = s2
-            if s1 != .complete || s2 != .complete {isSolved = false}
+            if s1 != .complete || s2 != .complete { isSolved = false }
             // 2. Each letter appears once in every column.
-            if chars.count != Int(game.chMax.asciiValue!) - Int(Character("A").asciiValue!) + 1 {isSolved = false}
+            if chars.count != Int(game.chMax.asciiValue!) - Int(Character("A").asciiValue!) + 1 { isSolved = false }
         }
     }
 }

@@ -11,8 +11,8 @@ import Foundation
 class NoughtsAndCrossesGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: NoughtsAndCrossesGame {
-        get {getGame() as! NoughtsAndCrossesGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! NoughtsAndCrossesGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: NoughtsAndCrossesDocument { NoughtsAndCrossesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { NoughtsAndCrossesDocument.sharedInstance }
@@ -59,7 +59,7 @@ class NoughtsAndCrossesGameState: GridGameState {
 
     func setObject(move: inout NoughtsAndCrossesGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else {return false}
+        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -67,7 +67,7 @@ class NoughtsAndCrossesGameState: GridGameState {
     
     func switchObject(move: inout NoughtsAndCrossesGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " else {return false}
+        guard isValid(p: p) && game[p] == " " else { return false }
         let o = self[p]
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         move.obj =
@@ -101,21 +101,21 @@ class NoughtsAndCrossesGameState: GridGameState {
             nums.removeAll([" ", ".", "X"])
             // 2. All numbers must appear just once.
             s = nums.count == game.chMax.toInt! && nums.count == Set<Character>(nums).count ? .complete : .error
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
         // 2. All numbers must appear just once on each row.
         for r in 0..<rows {
-            f(nums: (0..<cols).map{self[r, $0]}, s: &row2state[r])
+            f(nums: (0..<cols).map{ self[r, $0] }, s: &row2state[r])
         }
         // 2. All numbers must appear just once on each column.
         for c in 0..<cols {
-            f(nums: (0..<rows).map{self[$0, c]}, s: &col2state[c])
+            f(nums: (0..<rows).map{ self[$0, c] }, s: &col2state[c])
         }
         // 3. A circle marks where a number must go.
         for p in game.noughts {
             let ch = self[p]
             pos2state[p] = ch == " " || ch == "." ? .normal : .complete
-            if pos2state[p] != .complete {isSolved = false}
+            if pos2state[p] != .complete { isSolved = false }
         }
     }
 }

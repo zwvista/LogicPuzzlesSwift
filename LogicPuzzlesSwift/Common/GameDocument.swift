@@ -17,13 +17,13 @@ struct GameLevel {
 }
 
 protocol GameDocumentBase: class {
-    var gameProgress: GameProgress {get}
-    var levels: [GameLevel] {get}
-    var help: [String] {get}
-    var selectedLevelID: String! {get set}
+    var gameProgress: GameProgress { get }
+    var levels: [GameLevel] { get }
+    var help: [String] { get }
+    var selectedLevelID: String! { get set }
     func resumeGame()
     func clearGame()
-    var levelProgressSolution: LevelProgress {get}
+    var levelProgressSolution: LevelProgress { get }
     func saveSolution(game: AnyObject)
     func loadSolution()
     func deleteSolution()
@@ -77,7 +77,7 @@ class GameDocument<G: GameBase, GM>: GameDocumentBase {
         for elemLevel in root.firstChild(tag: "levels")!.children {
             guard let key = elemLevel.attr("id") else {continue}
             let arr = elemLevel.stringValue.components(separatedBy: "\n")
-                .filter{!$0.isBlank}.map{$0[0..<$0.length - 1]}
+                .filter{ !$0.isBlank }.map{ $0[0..<$0.length - 1] }
             levels.append(GameLevel(id: key, layout: arr, settings: elemLevel.attributes))
         }
         if let elemHelp = root.firstChild(tag: "help") {
@@ -115,7 +115,7 @@ class GameDocument<G: GameBase, GM>: GameDocumentBase {
     
     func saveMove(_ move: GM, to rec: MoveProgress) {}
     
-    func loadMove(from rec: MoveProgress) -> GM? {nil}
+    func loadMove(from rec: MoveProgress) -> GM? { nil }
     
     func resumeGame() {
         let rec = gameProgress

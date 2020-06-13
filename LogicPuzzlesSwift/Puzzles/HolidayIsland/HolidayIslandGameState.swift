@@ -11,8 +11,8 @@ import Foundation
 class HolidayIslandGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: HolidayIslandGame {
-        get {getGame() as! HolidayIslandGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! HolidayIslandGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: HolidayIslandDocument { HolidayIslandDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { HolidayIslandDocument.sharedInstance }
@@ -49,7 +49,7 @@ class HolidayIslandGameState: GridGameState {
     
     func setObject(move: inout HolidayIslandGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else {return false}
+        guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -70,7 +70,7 @@ class HolidayIslandGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil else {return false}
+        guard isValid(p: p), game.pos2hint[p] == nil else { return false }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -124,7 +124,7 @@ class HolidayIslandGameState: GridGameState {
         do {
             // 4. There is only one, continuous island.
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            if nodesExplored.count != pos2node.count {isSolved = false}
+            if nodesExplored.count != pos2node.count { isSolved = false }
         }
         g = Graph()
         pos2node.removeAll()
@@ -151,8 +151,8 @@ class HolidayIslandGameState: GridGameState {
         var pos2area = [Position: Int]()
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter{nodesExplored.contains($0.0.description)}.map{$0.0}
-            pos2node = pos2node.filter{!nodesExplored.contains($0.0.description)}
+            let area = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }
+            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
             let n = areas.count
             for p in area {
                 pos2area[p] = n
@@ -172,7 +172,7 @@ class HolidayIslandGameState: GridGameState {
             // by moving horizontally or vertically.
             let s: HintState = n1 > n2 ? .normal : n1 == n2 ? .complete : .error
             self[p] = .hint(tiles: n2, state: s)
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
             if allowedObjectsOnly && n1 <= n2 {
                 for p2 in rng {
                     self[p2] = .forbidden

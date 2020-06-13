@@ -14,12 +14,12 @@ class Square100GameViewController: GameGameViewController, GameDelegate {
     typealias GS = Square100GameState
 
     var scene: Square100GameScene {
-        get {return getScene() as! Square100GameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! Square100GameScene }
+        set { setScene(scene: newValue) }
     }
     var game: Square100Game {
-        get {getGame() as! Square100Game}
-        set {setGame(game: newValue)}
+        get { getGame() as! Square100Game }
+        set { setGame(game: newValue) }
     }
     var gameDocument: Square100Document { Square100Document.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { Square100Document.sharedInstance }
@@ -53,10 +53,10 @@ class Square100GameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = Square100Game(layout: level.layout, delegate: self)
         
         // restore game state

@@ -14,12 +14,12 @@ class SlitherLinkGameViewController: GameGameViewController, GameDelegate {
     typealias GS = SlitherLinkGameState
 
     var scene: SlitherLinkGameScene {
-        get {return getScene() as! SlitherLinkGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! SlitherLinkGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: SlitherLinkGame {
-        get {getGame() as! SlitherLinkGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! SlitherLinkGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: SlitherLinkDocument { SlitherLinkDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { SlitherLinkDocument.sharedInstance }
@@ -54,10 +54,10 @@ class SlitherLinkGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = SlitherLinkGame(layout: level.layout, delegate: self)
         
         // restore game state

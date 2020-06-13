@@ -11,8 +11,8 @@ import Foundation
 class LighthousesGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: LighthousesGame {
-        get {getGame() as! LighthousesGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! LighthousesGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: LighthousesDocument { LighthousesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { LighthousesDocument.sharedInstance }
@@ -50,8 +50,8 @@ class LighthousesGameState: GridGameState {
     func setObject(move: inout LighthousesGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 {return false}
-        guard String(describing: o1) != String(describing: o2) else {return false}
+        if case .hint = o1 { return false }
+        guard String(describing: o1) != String(describing: o2) else { return false }
         self[p] = o2
         updateIsSolved()
         return true

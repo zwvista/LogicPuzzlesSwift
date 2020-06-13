@@ -19,9 +19,9 @@ protocol GameDelegate: class {
 }
 
 protocol GameBase: class {
-    var moveIndex: Int {get}
-    var isSolved: Bool {get}
-    var moveCount: Int {get}
+    var moveIndex: Int { get }
+    var isSolved: Bool { get }
+    var moveCount: Int { get }
     func undo()
     func redo()
 }
@@ -31,14 +31,14 @@ class Game<GD: GameDelegate>: GameBase {
     typealias GS = GD.GS
     var stateIndex = 0
     var states = [GS]()
-    var currentState: GS {return states[stateIndex]}
+    var currentState: GS { states[stateIndex] }
     var moves = [GM]()
     
-    var isSolved: Bool {currentState.isSolved}
-    var canUndo: Bool {stateIndex > 0}
-    var canRedo: Bool {stateIndex < states.count - 1}
-    var moveIndex: Int {stateIndex}
-    var moveCount: Int {states.count - 1}
+    var isSolved: Bool { currentState.isSolved }
+    var canUndo: Bool { stateIndex > 0 }
+    var canRedo: Bool { stateIndex < states.count - 1 }
+    var moveIndex: Int { stateIndex }
+    var moveCount: Int { states.count - 1 }
     
     weak var delegate: GD?
     
@@ -80,7 +80,7 @@ class Game<GD: GameDelegate>: GameBase {
         }
         // copy a state
         var state = currentState.copy() as! GD.GS
-        guard f(&state, &move) else {return false}
+        guard f(&state, &move) else { return false }
         
         states.append(state)
         stateIndex += 1
@@ -96,7 +96,7 @@ class Game<GD: GameDelegate>: GameBase {
 }
 
 protocol GridGameBase: GameBase {
-    var size: Position! {get}
+    var size: Position! { get }
     func isValid(p: Position) -> Bool
     func isValid(row: Int, col: Int) -> Bool
 }

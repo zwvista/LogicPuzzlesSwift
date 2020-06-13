@@ -14,12 +14,12 @@ class TatamiGameViewController: GameGameViewController, GameDelegate {
     typealias GS = TatamiGameState
 
     var scene: TatamiGameScene {
-        get {return getScene() as! TatamiGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! TatamiGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: TatamiGame {
-        get {getGame() as! TatamiGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! TatamiGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: TatamiDocument { TatamiDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TatamiDocument.sharedInstance }
@@ -53,10 +53,10 @@ class TatamiGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = TatamiGame(layout: level.layout, delegate: self)
         
         // restore game state

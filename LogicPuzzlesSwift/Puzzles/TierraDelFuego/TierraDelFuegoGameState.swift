@@ -11,8 +11,8 @@ import Foundation
 class TierraDelFuegoGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: TierraDelFuegoGame {
-        get {getGame() as! TierraDelFuegoGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! TierraDelFuegoGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: TierraDelFuegoDocument { TierraDelFuegoDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TierraDelFuegoDocument.sharedInstance }
@@ -49,7 +49,7 @@ class TierraDelFuegoGameState: GridGameState {
     
     func setObject(move: inout TierraDelFuegoGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else {return false}
+        guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -70,7 +70,7 @@ class TierraDelFuegoGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil else {return false}
+        guard isValid(p: p), game.pos2hint[p] == nil else { return false }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -115,12 +115,12 @@ class TierraDelFuegoGameState: GridGameState {
         }
         for (p, node) in pos2node {
             var b1 = false
-            if case .tree = self[p] {b1 = true}
+            if case .tree = self[p] { b1 = true }
             for os in TierraDelFuegoGame.offset {
                 let p2 = p + os
                 guard let node2 = pos2node[p2] else {continue}
                 var b2 = false
-                if case .tree = self[p2] {b2 = true}
+                if case .tree = self[p2] { b2 = true }
                 if b1 == b2 {
                     g.addEdge(node, neighbor: node2)
                 }
@@ -129,8 +129,8 @@ class TierraDelFuegoGameState: GridGameState {
         while !pos2node.isEmpty {
             let kv = pos2node.first!
             let nodesExplored = breadthFirstSearch(g, source: kv.value)
-            let area = pos2node.filter{nodesExplored.contains($0.0.description)}.map{$0.0}
-            pos2node = pos2node.filter{!nodesExplored.contains($0.0.description)}
+            let area = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }
+            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
             if case .tree = self[kv.key] {
                 // 3. The archipelago is peculiar because all bodies of water separating the
                 // islands are identical in shape and occupied a 2*1 or 1*2 space.

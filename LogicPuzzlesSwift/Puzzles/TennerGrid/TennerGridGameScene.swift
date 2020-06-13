@@ -10,8 +10,8 @@ import SpriteKit
 
 class TennerGridGameScene: GameScene<TennerGridGameState> {
     var gridNode: TennerGridGridNode {
-        get {getGridNode() as! TennerGridGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! TennerGridGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addNumber(n: Int, s: HintState, isFixed: Bool, point: CGPoint, nodeName: String) {
@@ -52,8 +52,8 @@ class TennerGridGameScene: GameScene<TennerGridGameState> {
                 let (n1, n2) = (stateFrom[r, c], stateTo[r, c])
                 let (s1, s2) = (stateFrom.pos2state[p] ?? .normal, stateTo.pos2state[p] ?? .normal)
                 guard n1 != n2 || s1 != s2 else {continue}
-                if (n1 != -1) {removeNumber()}
-                if (n2 != -1) {addNumber(n: n2, s: s2, isFixed: stateFrom.game[r, c] != -1, point: point, nodeName: numberNodeName)}
+                if (n1 != -1) { removeNumber() }
+                if (n2 != -1) { addNumber(n: n2, s: s2, isFixed: stateFrom.game[r, c] != -1, point: point, nodeName: numberNodeName) }
             }
         }
     }

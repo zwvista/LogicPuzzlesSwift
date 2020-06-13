@@ -11,8 +11,8 @@ import Foundation
 class DominoGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: DominoGame {
-        get {getGame() as! DominoGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! DominoGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: DominoDocument { DominoDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { DominoDocument.sharedInstance }
@@ -57,9 +57,9 @@ class DominoGameState: GridGameState {
         }
         let dir = move.dir, dir2 = (dir + 2) % 4
         let p = move.p, p2 = p + DominoGame.offset[dir]
-        guard isValid(p: p2) && game[p][dir] == .empty else {return false}
+        guard isValid(p: p2) && game[p][dir] == .empty else { return false }
         f(o1: &self[p][dir], o2: &self[p2][dir2])
-        if changed {updateIsSolved()}
+        if changed { updateIsSolved() }
         return changed
     }
     
@@ -124,14 +124,14 @@ class DominoGameState: GridGameState {
         var dominoes = [[Int]]()
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter{nodesExplored.contains($0.0.description)}.map{$0.0}
-            guard area.count == 2 else {isSolved = false; return}
+            let area = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }
+            guard area.count == 2 else { isSolved = false; return }
             let domino = [game.pos2hint[area[0]]!, game.pos2hint[area[1]]!].sorted()
             // 2. In early levels the board contains a smaller Domino set, of numbers ranging from 0 to 3.
             // 3. This means you will be looking for a Domino set composed of these combinations.
-            guard !dominoes.contains(where: {$0 == domino}) else {isSolved = false; return}
+            guard !dominoes.contains(where: { $0 == domino }) else { isSolved = false; return }
             dominoes.append(domino)
-            pos2node = pos2node.filter{!nodesExplored.contains($0.0.description)}
+            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
         }
     }
 }

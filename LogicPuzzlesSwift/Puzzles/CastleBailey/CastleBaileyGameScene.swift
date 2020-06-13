@@ -10,8 +10,8 @@ import SpriteKit
 
 class CastleBaileyGameScene: GameScene<CastleBaileyGameState> {
     var gridNode: CastleBaileyGridNode {
-        get {getGridNode() as! CastleBaileyGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! CastleBaileyGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addMath(n: Int, s: HintState, point: CGPoint, nodeName: String) {

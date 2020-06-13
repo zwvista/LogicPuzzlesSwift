@@ -10,8 +10,8 @@ import SpriteKit
 
 class FutoshikiGameScene: GameScene<FutoshikiGameState> {
     var gridNode: FutoshikiGridNode {
-        get {getGridNode() as! FutoshikiGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! FutoshikiGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(p: Position, isHorz: Bool, s: HintState, point: CGPoint) {
@@ -52,7 +52,7 @@ class FutoshikiGameScene: GameScene<FutoshikiGameState> {
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
                 let ch = state[p]
-                if ch != " " {addLabel(text: String(ch), fontColor: .gray, point: point, nodeName: numberNodeName)}
+                if ch != " " { addLabel(text: String(ch), fontColor: .gray, point: point, nodeName: numberNodeName) }
                 let cellNode = SKShapeNode(rectOf: CGSize(width: blockSize, height: blockSize))
                 cellNode.position = point
                 gridNode.addChild(cellNode)
@@ -95,8 +95,8 @@ class FutoshikiGameScene: GameScene<FutoshikiGameState> {
             let c = stateFrom.cols - 1
             let p = Position(r, c)
             let point = gridNode.gridPosition(p: p)
-            if s1 != .normal {removeHint(p: p, isHorz: true)}
-            if s2 != .normal {addHint(p: p, isHorz: true, s: s2, point: point)}
+            if s1 != .normal { removeHint(p: p, isHorz: true) }
+            if s2 != .normal { addHint(p: p, isHorz: true, s: s2, point: point) }
         }
         for c in 0..<stateFrom.cols {
             let (s1, s2) = (stateFrom.col2state[c], stateTo.col2state[c])
@@ -104,8 +104,8 @@ class FutoshikiGameScene: GameScene<FutoshikiGameState> {
             let r = stateFrom.rows - 1
             let p = Position(r, c)
             let point = gridNode.gridPosition(p: p)
-            if s1 != .normal {removeHint(p: p, isHorz: false)}
-            if s2 != .normal {addHint(p: p, isHorz: false, s: s2, point: point)}
+            if s1 != .normal { removeHint(p: p, isHorz: false) }
+            if s2 != .normal { addHint(p: p, isHorz: false, s: s2, point: point) }
         }
         for r in stride(from: 0, to: stateFrom.rows, by: 2) {
             for c in stride(from: 0, to: stateFrom.cols, by: 2) {
@@ -115,8 +115,8 @@ class FutoshikiGameScene: GameScene<FutoshikiGameState> {
                 let numberNodeName = "number" + nodeNameSuffix
                 let (ch1, ch2) = (stateFrom[p], stateTo[p])
                 if ch1 != ch2 {
-                    if ch1 != " " {removeNode(withName: numberNodeName)}
-                    if ch2 != " " {addLabel(text: String(ch2), fontColor: .white, point: point, nodeName: numberNodeName)}
+                    if ch1 != " " { removeNode(withName: numberNodeName) }
+                    if ch2 != " " { addLabel(text: String(ch2), fontColor: .white, point: point, nodeName: numberNodeName) }
                 }
             }
         }

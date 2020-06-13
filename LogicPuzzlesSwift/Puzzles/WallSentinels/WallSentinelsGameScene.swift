@@ -10,8 +10,8 @@ import SpriteKit
 
 class WallSentinelsGameScene: GameScene<WallSentinelsGameState> {
     var gridNode: WallSentinelsGridNode {
-        get {getGridNode() as! WallSentinelsGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! WallSentinelsGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addWall(point: CGPoint, nodeName: String) {

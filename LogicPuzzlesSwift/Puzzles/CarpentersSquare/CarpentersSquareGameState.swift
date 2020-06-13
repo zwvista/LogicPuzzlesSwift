@@ -11,8 +11,8 @@ import Foundation
 class CarpentersSquareGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: CarpentersSquareGame {
-        get {getGame() as! CarpentersSquareGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! CarpentersSquareGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: CarpentersSquareDocument { CarpentersSquareDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { CarpentersSquareDocument.sharedInstance }
@@ -62,9 +62,9 @@ class CarpentersSquareGameState: GridGameState {
         }
         let dir = move.dir, dir2 = (dir + 2) % 4
         let p = move.p, p2 = p + CarpentersSquareGame.offset[dir]
-        guard isValid(p: p2) && game[p][dir] == .empty else {return false}
+        guard isValid(p: p2) && game[p][dir] == .empty else { return false }
         f(o1: &self[p][dir], o2: &self[p2][dir2])
-        if changed {updateIsSolved()}
+        if changed { updateIsSolved() }
         return changed
     }
     
@@ -125,23 +125,23 @@ class CarpentersSquareGameState: GridGameState {
         }
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter{nodesExplored.contains($0.0.description)}.map{$0.0}
-            pos2node = pos2node.filter{!nodesExplored.contains($0.0.description)}
-            let rngHint = area.filter{game.pos2hint[$0] != nil}
+            let area = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }
+            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
+            let rngHint = area.filter{ game.pos2hint[$0] != nil }
             let n1 = nodesExplored.count
             var r2 = 0, r1 = rows, c2 = 0, c1 = cols
             for p in area {
-                if r2 < p.row {r2 = p.row}
-                if r1 > p.row {r1 = p.row}
-                if c2 < p.col {c2 = p.col}
-                if c1 > p.col {c1 = p.col}
+                if r2 < p.row { r2 = p.row }
+                if r1 > p.row { r1 = p.row }
+                if c2 < p.col { c2 = p.col }
+                if c1 > p.col { c1 = p.col }
             }
-            if r1 == r2 || c1 == c2 {isSolved = false; continue}
-            let cntR1 = area.filter{$0.row == r1}.count
-            let cntR2 = area.filter{$0.row == r2}.count
-            let cntC1 = area.filter{$0.col == c1}.count
-            let cntC2 = area.filter{$0.col == c2}.count
-            func f(_ a: Int, _ b: Int) -> Bool {return a > 1 && b > 1 && a + b - 1 == n1}
+            if r1 == r2 || c1 == c2 { isSolved = false; continue }
+            let cntR1 = area.filter{ $0.row == r1 }.count
+            let cntR2 = area.filter{ $0.row == r2 }.count
+            let cntC1 = area.filter{ $0.col == c1 }.count
+            let cntC2 = area.filter{ $0.col == c2 }.count
+            func f(_ a: Int, _ b: Int) -> Bool { return a > 1 && b > 1 && a + b - 1 == n1 }
             // 1. You just have to divide the board into many.Capenter's Squares (L shaped tools) of different size.
             let squareType =
                 f(cntR1, cntC1) ? 0 : // ┌
@@ -149,7 +149,7 @@ class CarpentersSquareGameState: GridGameState {
                 f(cntR2, cntC1) ? 2 : // └
                 f(cntR2, cntC2) ? 3 : -1 // ┘
             // 5. All the tiles in the board have to be part of a Carpenter's Square.
-            if squareType == -1 {isSolved = false}
+            if squareType == -1 { isSolved = false }
             for p in rngHint {
                 switch game.pos2hint[p]! {
                 case let .corner(n2):
@@ -158,31 +158,31 @@ class CarpentersSquareGameState: GridGameState {
                     // squares occupied by the L.
                     let s: HintState = squareType == -1 ? .normal : !(n1 == n2 || n2 == 0) ? .error : squareType == 0 && p == Position(r1, c1) || squareType == 1 && p == Position(r1, c2) || squareType == 2 && p == Position(r2, c1) || squareType == 3 && p == Position(r2, c2) ? .complete : .error
                     pos2state[p] = s
-                    if s != .complete {isSolved = false}
+                    if s != .complete { isSolved = false }
                 case .left:
                     // 4. The arrow always sits at the end of an arm and points to the corner of
                     // an L.
                     let s: HintState = squareType == -1 ? .normal : squareType == 0 && p == Position(r1, c2) || squareType == 2 && p == Position(r2, c2) ? .complete : .error
                     pos2state[p] = s
-                    if s != .complete {isSolved = false}
+                    if s != .complete { isSolved = false }
                 case .up:
                     // 4. The arrow always sits at the end of an arm and points to the corner of
                     // an L.
                     let s: HintState = squareType == -1 ? .normal : squareType == 0 && p == Position(r2, c1) || squareType == 1 && p == Position(r2, c2) ? .complete : .error
                     pos2state[p] = s
-                    if s != .complete {isSolved = false}
+                    if s != .complete { isSolved = false }
                 case .right:
                     // 4. The arrow always sits at the end of an arm and points to the corner of
                     // an L.
                     let s: HintState = squareType == -1 ? .normal : squareType == 1 && p == Position(r1, c1) || squareType == 3 && p == Position(r2, c1) ? .complete : .error
                     pos2state[p] = s
-                    if s != .complete {isSolved = false}
+                    if s != .complete { isSolved = false }
                 case .down:
                     // 4. The arrow always sits at the end of an arm and points to the corner of
                     // an L.
                     let s: HintState = squareType == -1 ? .normal : squareType == 2 && p == Position(r1, c1) || squareType == 3 && p == Position(r1, c2) ? .complete : .error
                     pos2state[p] = s
-                    if s != .complete {isSolved = false}
+                    if s != .complete { isSolved = false }
                 default:
                     break
                 }

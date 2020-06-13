@@ -10,8 +10,8 @@ import SpriteKit
 
 class KakurasuGameScene: GameScene<KakurasuGameState> {
     var gridNode: KakurasuGridNode {
-        get {getGridNode() as! KakurasuGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! KakurasuGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addCloud(color: SKColor, point: CGPoint, nodeName: String) {
@@ -53,7 +53,7 @@ class KakurasuGameScene: GameScene<KakurasuGameState> {
                 let p = Position(r, i == 0 ? 0 : game.cols - 1)
                 let n = state.game.row2hint[r * 2 + i]
                 addHint(p: p, n: n, s: state.row2state[r * 2 + i])
-                if i == 1 {addHintMarker(p: p)}
+                if i == 1 { addHintMarker(p: p) }
             }
         }
         for c in 1..<game.cols - 1 {
@@ -61,7 +61,7 @@ class KakurasuGameScene: GameScene<KakurasuGameState> {
                 let p = Position(i == 0 ? 0 : game.rows - 1, c)
                 let n = state.game.col2hint[c * 2 + i]
                 addHint(p: p, n: n, s: state.col2state[c * 2 + i])
-                if i == 1 {addHintMarker(p: p)}
+                if i == 1 { addHintMarker(p: p) }
             }
         }
     }

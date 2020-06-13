@@ -11,8 +11,8 @@ import Foundation
 class TapAlikeGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: TapAlikeGame {
-        get {getGame() as! TapAlikeGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! TapAlikeGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: TapAlikeDocument { TapAlikeDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TapAlikeDocument.sharedInstance }
@@ -50,8 +50,8 @@ class TapAlikeGameState: GridGameState {
     func setObject(move: inout TapAlikeGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 {return false}
-        guard String(describing: o1) != String(describing: o2) else {return false}
+        if case .hint = o1 { return false }
+        guard String(describing: o1) != String(describing: o2) else { return false }
         self[p] = o2
         updateIsSolved()
         return true
@@ -94,7 +94,7 @@ class TapAlikeGameState: GridGameState {
         // tile has more than one number, it hints at multiple separated groups
         // of filled tiles.
         func computeHint(filled: [Int]) -> [Int] {
-            if filled.isEmpty {return [0]}
+            if filled.isEmpty { return [0] }
             var hint = [Int]()
             for j in 0..<filled.count {
                 if j == 0 || filled[j] - filled[j - 1] != 1 {
@@ -109,8 +109,8 @@ class TapAlikeGameState: GridGameState {
             return hint.sorted()
         }
         func isCompatible(computedHint: [Int], givenHint: [Int]) -> Bool {
-            if computedHint == givenHint {return true}
-            if computedHint.count != givenHint.count {return false}
+            if computedHint == givenHint { return true }
+            if computedHint.count != givenHint.count { return false }
             let h1 = Set(computedHint)
             var h2 = Set(givenHint)
             h2.remove(-1)
@@ -124,7 +124,7 @@ class TapAlikeGameState: GridGameState {
             let arr = computeHint(filled: filled)
             let s: HintState = arr == [0] ? .normal : isCompatible(computedHint: arr, givenHint: arr2) ? .complete : .error
             self[p] = .hint(state: s)
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
         guard isSolved else {return}
         // Filled tiles can't cover an area of 2*2 or larger (just like Nurikabe).
@@ -134,8 +134,8 @@ class TapAlikeGameState: GridGameState {
                 let p = Position(r, c)
                 if TapAlikeGame.offset2.testAll({os in
                     let o = self[p + os]
-                    if case .wall = o {return true} else {return false}
-                }) {isSolved = false; return}
+                    if case .wall = o { return true } else { return false }
+                }) { isSolved = false; return }
             }
         }
         let g = Graph()
@@ -143,7 +143,7 @@ class TapAlikeGameState: GridGameState {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if case .wall = self[p] {pos2node[p] = g.addNode(p.description)}
+                if case .wall = self[p] { pos2node[p] = g.addNode(p.description) }
             }
         }
         for (p, node) in pos2node {
@@ -156,7 +156,7 @@ class TapAlikeGameState: GridGameState {
         // The goal is to fill some tiles forming a single orthogonally continuous
         // path. Just like Nurikabe.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count {isSolved = false; return}
+        if nodesExplored.count != pos2node.count { isSolved = false; return }
         // 2. At the end of the solution, the filled tiles will form an identical
         // pattern to the one formed by the empty tiles.
         // 3. It's basically like having the same figure rotated or reversed in the

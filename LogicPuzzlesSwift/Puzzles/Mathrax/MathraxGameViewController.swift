@@ -14,12 +14,12 @@ class MathraxGameViewController: GameGameViewController, GameDelegate {
     typealias GS = MathraxGameState
 
     var scene: MathraxGameScene {
-        get {return getScene() as! MathraxGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! MathraxGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: MathraxGame {
-        get {getGame() as! MathraxGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! MathraxGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: MathraxDocument { MathraxDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { MathraxDocument.sharedInstance }
@@ -53,10 +53,10 @@ class MathraxGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = MathraxGame(layout: level.layout, delegate: self)
         
         // restore game state

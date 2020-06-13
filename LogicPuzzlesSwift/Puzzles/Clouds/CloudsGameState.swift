@@ -11,8 +11,8 @@ import Foundation
 class CloudsGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: CloudsGame {
-        get {getGame() as! CloudsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! CloudsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: CloudsDocument { CloudsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { CloudsDocument.sharedInstance }
@@ -55,7 +55,7 @@ class CloudsGameState: GridGameState {
     
     func setObject(move: inout CloudsGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && !game.pos2cloud.contains(p) && self[p] != move.obj else {return false}
+        guard isValid(p: p) && !game.pos2cloud.contains(p) && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -76,7 +76,7 @@ class CloudsGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) else { return false }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -100,7 +100,7 @@ class CloudsGameState: GridGameState {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                if self[r, c] == .forbidden {self[r, c] = .empty}
+                if self[r, c] == .forbidden { self[r, c] = .empty }
             }
         }
         // 2. The hints on the borders tell you how many tiles are covered by Clouds
@@ -109,10 +109,10 @@ class CloudsGameState: GridGameState {
             var n1 = 0
             let n2 = game.row2hint[r]
             for c in 0..<cols {
-                if self[r, c] == .cloud {n1 += 1}
+                if self[r, c] == .cloud { n1 += 1 }
             }
             row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 {isSolved = false}
+            if n1 != n2 { isSolved = false }
         }
         // 2. The hints on the borders tell you how many tiles are covered by Clouds
         // in that column.
@@ -120,16 +120,16 @@ class CloudsGameState: GridGameState {
             var n1 = 0
             let n2 = game.col2hint[c]
             for r in 0..<rows {
-                if self[r, c] == .cloud {n1 += 1}
+                if self[r, c] == .cloud { n1 += 1 }
             }
             col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 {isSolved = false}
+            if n1 != n2 { isSolved = false }
         }
         for r in 0..<rows {
             for c in 0..<cols {
                 switch self[r, c] {
                 case .empty, .marker:
-                    if allowedObjectsOnly && (row2state[r] != .normal || col2state[c] != .normal) {self[r, c] = .forbidden}
+                    if allowedObjectsOnly && (row2state[r] != .normal || col2state[c] != .normal) { self[r, c] = .forbidden }
                 default:
                     break
                 }
@@ -156,13 +156,13 @@ class CloudsGameState: GridGameState {
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             var r2 = 0, r1 = rows, c2 = 0, c1 = cols
-            let area = pos2node.filter{nodesExplored.contains($0.0.description)}.map{$0.0}
-            pos2node = pos2node.filter{!nodesExplored.contains($0.0.description)}
+            let area = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }
+            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
             for p in area {
-                if r2 < p.row {r2 = p.row}
-                if r1 > p.row {r1 = p.row}
-                if c2 < p.col {c2 = p.col}
-                if c1 > p.col {c1 = p.col}
+                if r2 < p.row { r2 = p.row }
+                if r1 > p.row { r1 = p.row }
+                if c2 < p.col { c2 = p.col }
+                if c1 > p.col { c1 = p.col }
             }
             let rs = r2 - r1 + 1, cs = c2 - c1 + 1
             // 3. Clouds only appear in rectangular or square areas. Furthermore, their

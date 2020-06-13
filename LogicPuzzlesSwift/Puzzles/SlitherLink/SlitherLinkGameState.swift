@@ -11,8 +11,8 @@ import Foundation
 class SlitherLinkGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: SlitherLinkGame {
-        get {getGame() as! SlitherLinkGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! SlitherLinkGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: SlitherLinkDocument { SlitherLinkDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { SlitherLinkDocument.sharedInstance }
@@ -55,7 +55,7 @@ class SlitherLinkGameState: GridGameState {
     }
     
     func setObject(move: inout SlitherLinkGameMove) -> Bool {
-        guard isValidMove(move: &move) else {return false}
+        guard isValidMove(move: &move) else { return false }
         var changed = false
         func f(o1: inout GridLineObject, o2: inout GridLineObject) {
             if o1 != move.obj {
@@ -69,12 +69,12 @@ class SlitherLinkGameState: GridGameState {
         let p = move.p
         let dir = move.dir, dir2 = (dir + 2) % 4
         f(o1: &self[p][dir], o2: &self[p + SlitherLinkGame.offset[dir]][dir2])
-        if changed {updateIsSolved()}
+        if changed { updateIsSolved() }
         return changed
     }
     
     func switchObject(move: inout SlitherLinkGameMove) -> Bool {
-        guard isValidMove(move: &move) else {return false}
+        guard isValidMove(move: &move) else { return false }
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: GridLineObject) -> GridLineObject {
             switch o {
@@ -119,10 +119,10 @@ class SlitherLinkGameState: GridGameState {
         for (p, n2) in game.pos2hint {
             var n1 = 0
             for i in 0..<4 {
-                if self[p + SlitherLinkGame.offset2[i]][SlitherLinkGame.dirs[i]] == .line {n1 += 1}
+                if self[p + SlitherLinkGame.offset2[i]][SlitherLinkGame.dirs[i]] == .line { n1 += 1 }
             }
             pos2state[p] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 {isSolved = false}
+            if n1 != n2 { isSolved = false }
         }
         guard isSolved else {return}
         let g = Graph()
@@ -130,7 +130,7 @@ class SlitherLinkGameState: GridGameState {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let n = self[p].filter{$0 == .line}.count
+                let n = self[p].filter{ $0 == .line }.count
                 switch n {
                 case 0:
                     continue
@@ -153,6 +153,6 @@ class SlitherLinkGameState: GridGameState {
         }
         // 1. Draw a single looping path with the aid of the numbered hints.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count {isSolved = false}
+        if nodesExplored.count != pos2node.count { isSolved = false }
     }
 }

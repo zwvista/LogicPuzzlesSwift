@@ -11,8 +11,8 @@ import Foundation
 class SnailGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: SnailGame {
-        get {getGame() as! SnailGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! SnailGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: SnailDocument { SnailDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { SnailDocument.sharedInstance }
@@ -54,7 +54,7 @@ class SnailGameState: GridGameState {
     
     func setObject(move: inout SnailGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else {return false}
+        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -62,7 +62,7 @@ class SnailGameState: GridGameState {
     
     func switchObject(move: inout SnailGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " else {return false}
+        guard isValid(p: p) && game[p] == " " else { return false }
         let o = self[p]
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         move.obj =
@@ -108,7 +108,7 @@ class SnailGameState: GridGameState {
                 guard !chars.contains(ch) else {break}
                 chars.append(ch)
             }
-            if chars.count != 3 {row2state[r] = .error; isSolved = false}
+            if chars.count != 3 { row2state[r] = .error; isSolved = false }
         }
         // 5. Board Rule: Each column of the board (disregarding the snail
         // path) must have exactly one 1, one 2 and one 3.
@@ -121,7 +121,7 @@ class SnailGameState: GridGameState {
                 guard !chars.contains(ch) else {break}
                 chars.append(ch)
             }
-            if chars.count != 3 {col2state[c] = .error; isSolved = false}
+            if chars.count != 3 { col2state[c] = .error; isSolved = false }
         }
         var rng = [Position]()
         chars = []
@@ -138,8 +138,8 @@ class SnailGameState: GridGameState {
         // is a 1 and the last before ending in the center is a 3. In between,
         // the 1,2,3 sequence will repeat many times in this order, following the
         // snail path.
-        if chars[0] != "1" {pos2state[rng[0]] = .error; isSolved = false}
-        if chars[cnt - 1] != "3" {pos2state[rng[cnt - 1]] = .error; isSolved = false}
+        if chars[0] != "1" { pos2state[rng[0]] = .error; isSolved = false }
+        if chars[cnt - 1] != "3" { pos2state[rng[cnt - 1]] = .error; isSolved = false }
         for i in 0..<cnt - 1 {
             switch (chars[i], chars[i + 1]) {
             case ("1", "2"), ("2", "3"), ("3", "1"):

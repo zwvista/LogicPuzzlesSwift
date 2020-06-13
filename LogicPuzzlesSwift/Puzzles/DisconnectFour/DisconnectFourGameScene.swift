@@ -10,8 +10,8 @@ import SpriteKit
 
 class DisconnectFourGameScene: GameScene<DisconnectFourGameState> {
     var gridNode: DisconnectFourGridNode {
-        get {getGridNode() as! DisconnectFourGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! DisconnectFourGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addTree(isY: Bool, s: AllowedObjectState, point: CGPoint, nodeName: String) {
@@ -52,8 +52,8 @@ class DisconnectFourGameScene: GameScene<DisconnectFourGameState> {
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2state[p] ?? .normal, stateTo.pos2state[p] ?? .normal)
                 guard o1 != o2 || s1 != s2 else {continue}
-                if o1 != .empty {removeNode(withName: treeNodeName)}
-                if o2 != .empty {addTree(isY: o2 == .yellow, s: s2, point: point, nodeName: treeNodeName)}
+                if o1 != .empty { removeNode(withName: treeNodeName) }
+                if o2 != .empty { addTree(isY: o2 == .yellow, s: s2, point: point, nodeName: treeNodeName) }
             }
         }
     }

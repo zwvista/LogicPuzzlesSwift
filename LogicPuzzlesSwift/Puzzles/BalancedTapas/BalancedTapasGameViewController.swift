@@ -14,12 +14,12 @@ class BalancedTapasGameViewController: GameGameViewController, GameDelegate {
     typealias GS = BalancedTapasGameState
 
     var scene: BalancedTapasGameScene {
-        get {return getScene() as! BalancedTapasGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! BalancedTapasGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: BalancedTapasGame {
-        get {getGame() as! BalancedTapasGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! BalancedTapasGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: BalancedTapasDocument { BalancedTapasDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { BalancedTapasDocument.sharedInstance }
@@ -53,10 +53,10 @@ class BalancedTapasGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = BalancedTapasGame(layout: level.layout, leftPart: level.settings["LeftPart"]!, delegate: self)
         
         // restore game state

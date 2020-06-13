@@ -11,8 +11,8 @@ import Foundation
 class GardenerGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: GardenerGame {
-        get {getGame() as! GardenerGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! GardenerGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: GardenerDocument { GardenerDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { GardenerDocument.sharedInstance }
@@ -50,7 +50,7 @@ class GardenerGameState: GridGameState {
     
     func setObject(move: inout GardenerGameMove) -> Bool {
         let p = move.p
-        guard String(describing: self[p]) != String(describing: move.obj) else {return false}
+        guard String(describing: self[p]) != String(describing: move.obj) else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -71,7 +71,7 @@ class GardenerGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) else { return false }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -103,7 +103,7 @@ class GardenerGameState: GridGameState {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                if case .forbidden = self[r, c] {self[r, c] = .empty}
+                if case .forbidden = self[r, c] { self[r, c] = .empty }
             }
         }
         let g = Graph()
@@ -114,20 +114,20 @@ class GardenerGameState: GridGameState {
                 func hasNeighbor() -> Bool {
                     for os in GardenerGame.offset {
                         let p2 = p + os
-                        if isValid(p: p2), case .tree = self[p2] {return true}
+                        if isValid(p: p2), case .tree = self[p2] { return true }
                     }
                     return false
                 }
-                func f() {pos2node[p] = g.addNode(p.description)}
+                func f() { pos2node[p] = g.addNode(p.description) }
                 switch self[p] {
                 case .tree:
                     // 4. Flowers can't be horizontally or vertically touching.
                     let s: AllowedObjectState = !hasNeighbor() ? .normal : .error
                     self[p] = .tree(state: s)
-                    if s == .error {isSolved = false}
+                    if s == .error { isSolved = false }
                 case .empty, .marker:
                     // 4. Flowers can't be horizontally or vertically touching.
-                    if allowedObjectsOnly && hasNeighbor() {self[p] = .forbidden}
+                    if allowedObjectsOnly && hasNeighbor() { self[p] = .forbidden }
                     f()
                 default:
                     f()
@@ -145,7 +145,7 @@ class GardenerGameState: GridGameState {
         // interconnected (horizontally or vertically), as he wants to be able
         // to reach every part of the Garden without treading over Flowers.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count {isSolved = false}
+        if nodesExplored.count != pos2node.count { isSolved = false }
         
         // 3. A number tells you how many Flowers you must plant in that Flowerbed.
         // A Flowerbed without number can have any quantity of Flowers.
@@ -153,11 +153,11 @@ class GardenerGameState: GridGameState {
             let area = game.areas[i]
             var n1 = 0
             for p2 in area {
-                if case .tree = self[p2] {n1 += 1}
+                if case .tree = self[p2] { n1 += 1 }
             }
             let s: HintState = n1 < n2 ? .normal : n1 == n2 || n2 == -1 ? .complete : .error
             pos2state[p] = s
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
             if s != .normal && allowedObjectsOnly {
                 for p2 in area {
                     switch self[p2] {
@@ -176,7 +176,7 @@ class GardenerGameState: GridGameState {
         // 7. In other words, a straight path of empty space can't pass through
         // three or more Flowerbeds.
         func checkSpaces(isHorz: Bool) {
-            if Set<Int>(spaces.map{game.pos2area[$0]!}).count > 2 {
+            if Set<Int>(spaces.map{ game.pos2area[$0]! }).count > 2 {
                 isSolved = false
                 if isHorz {
                     invalidSpacesHorz = invalidSpacesHorz.union(spaces)

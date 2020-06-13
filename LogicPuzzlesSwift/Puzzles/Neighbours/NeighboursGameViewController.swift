@@ -14,12 +14,12 @@ class NeighboursGameViewController: GameGameViewController, GameDelegate {
     typealias GS = NeighboursGameState
 
     var scene: NeighboursGameScene {
-        get {return getScene() as! NeighboursGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! NeighboursGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: NeighboursGame {
-        get {getGame() as! NeighboursGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! NeighboursGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: NeighboursDocument { NeighboursDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { NeighboursDocument.sharedInstance }
@@ -54,10 +54,10 @@ class NeighboursGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = NeighboursGame(layout: level.layout, delegate: self)
         
         // restore game state

@@ -14,12 +14,12 @@ class PaintTheNurikabeGameViewController: GameGameViewController, GameDelegate {
     typealias GS = PaintTheNurikabeGameState
 
     var scene: PaintTheNurikabeGameScene {
-        get {return getScene() as! PaintTheNurikabeGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! PaintTheNurikabeGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: PaintTheNurikabeGame {
-        get {getGame() as! PaintTheNurikabeGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! PaintTheNurikabeGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: PaintTheNurikabeDocument { PaintTheNurikabeDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { PaintTheNurikabeDocument.sharedInstance }
@@ -53,10 +53,10 @@ class PaintTheNurikabeGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = PaintTheNurikabeGame(layout: level.layout, delegate: self)
         
         // restore game state

@@ -11,8 +11,8 @@ import Foundation
 class PowerGridGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: PowerGridGame {
-        get {getGame() as! PowerGridGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! PowerGridGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: PowerGridDocument { PowerGridDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { PowerGridDocument.sharedInstance }
@@ -53,7 +53,7 @@ class PowerGridGameState: GridGameState {
     func setObject(move: inout PowerGridGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
-        guard String(describing: o1) != String(describing: o2) else {return false}
+        guard String(describing: o1) != String(describing: o2) else { return false }
         self[p] = o2
         updateIsSolved()
         return true
@@ -74,7 +74,7 @@ class PowerGridGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) else { return false }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -117,7 +117,7 @@ class PowerGridGameState: GridGameState {
             var posts = [Position]()
             for c in 0..<cols {
                 let p = Position(r, c)
-                if case .post = self[p] {posts.append(p)}
+                if case .post = self[p] { posts.append(p) }
             }
             let n1 = posts.count, n2 = game.row2hint[r] + 1
             // 2. There are two Posts in each Row.
@@ -125,7 +125,7 @@ class PowerGridGameState: GridGameState {
             // the two Posts (in that Row).
             let s: HintState = n1 < 2 ? .normal : n1 == 2 && n2 == posts[1].col - posts[0].col ? .complete : .error
             row2state[r] = s
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
             if s == .error {
                 for p in posts {
                     self[p] = .post(state: .error)
@@ -142,7 +142,7 @@ class PowerGridGameState: GridGameState {
             var posts = [Position]()
             for r in 0..<rows {
                 let p = Position(r, c)
-                if case .post = self[p] {posts.append(p)}
+                if case .post = self[p] { posts.append(p) }
             }
             let n1 = posts.count, n2 = game.col2hint[c] + 1
             // 2. There are two Posts in each Column.
@@ -150,7 +150,7 @@ class PowerGridGameState: GridGameState {
             // the two Posts (in that Column).
             let s: HintState = n1 < 2 ? .normal : n1 == 2 && n2 == posts[1].row - posts[0].row ? .complete : .error
             col2state[c] = s
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
             if s == .error {
                 for p in posts {
                     self[p] = .post(state: .error)

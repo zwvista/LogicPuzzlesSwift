@@ -10,8 +10,8 @@ import SpriteKit
 
 class BridgesGameScene: GameScene<BridgesGameState> {
     var gridNode: BridgesGridNode {
-        get {getGridNode() as! BridgesGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! BridgesGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addIslandNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
@@ -47,7 +47,7 @@ class BridgesGameScene: GameScene<BridgesGameState> {
         for (p, info) in stateFrom.game.islandsInfo {
             let point = gridNode.gridPosition(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let bridgesNodeName = {(dir: Int) in "bridges" + nodeNameSuffix + "-\(dir)"}
+            let bridgesNodeName = { (dir: Int) in "bridges" + nodeNameSuffix + "-\(dir)" }
             let islandNumberNodeName = "islandNumber" + nodeNameSuffix
             func removeIslandNumber() { removeNode(withName: islandNumberNodeName) }
             func addBridges(dir: Int, bridges: Int) {

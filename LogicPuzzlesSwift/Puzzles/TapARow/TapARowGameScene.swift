@@ -10,8 +10,8 @@ import SpriteKit
 
 class TapARowGameScene: GameScene<TapARowGameState> {
     var gridNode: TapARowGridNode {
-        get {getGridNode() as! TapARowGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! TapARowGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(arr: [Int], s: HintState, point: CGPoint, nodeName: String) {

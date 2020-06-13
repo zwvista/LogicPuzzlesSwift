@@ -11,8 +11,8 @@ import Foundation
 class KropkiGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: KropkiGame {
-        get {getGame() as! KropkiGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! KropkiGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: KropkiDocument { KropkiDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { KropkiDocument.sharedInstance }
@@ -50,7 +50,7 @@ class KropkiGameState: GridGameState {
 
     func setObject(move: inout KropkiGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else {return false}
+        guard isValid(p: p) && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -58,7 +58,7 @@ class KropkiGameState: GridGameState {
     
     func switchObject(move: inout KropkiGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) else { return false }
         let o = self[p]
         move.obj = (o + 1) % (cols + 1)
         return setObject(move: &move)
@@ -89,20 +89,20 @@ class KropkiGameState: GridGameState {
         isSolved = true
         // 1. The Goal is to enter numbers 1 to board size once in every row.
         for r in 0..<rows {
-            let nums = Set<Int>((0..<cols).map{self[r, $0]})
-            if nums.contains(0) || nums.count != cols {isSolved = false}
+            let nums = Set<Int>((0..<cols).map{ self[r, $0] })
+            if nums.contains(0) || nums.count != cols { isSolved = false }
         }
         // 1. The Goal is to enter numbers 1 to board size once in every column.
         for c in 0..<cols {
-            let nums = Set<Int>((0..<rows).map{self[$0, c]})
-            if nums.contains(0) || nums.count != rows {isSolved = false}
+            let nums = Set<Int>((0..<rows).map{ self[$0, c] })
+            if nums.contains(0) || nums.count != rows { isSolved = false }
         }
         // 7. In later 9*9 levels you will also have bordered and coloured areas,
         // which must also contain all the numbers 1 to 9.
         if game.bordered {
             for a in game.areas {
-                let nums = Set<Int>(a.map{self[$0]})
-                if nums.contains(0) || nums.count != a.count {isSolved = false}
+                let nums = Set<Int>(a.map{ self[$0] })
+                if nums.contains(0) || nums.count != a.count { isSolved = false }
             }
         }
         for r in 0..<rows {
@@ -118,8 +118,8 @@ class KropkiGameState: GridGameState {
                     }
                     guard i == 0 && c != cols - 1 || i == 1 && r != rows - 1 else {continue}
                     var (n1, n2) = (self[p], self[r + i, c + 1 - i])
-                    if n1 == 0 || n2 == 0 {setState(s: .normal); isSolved = false; continue}
-                    if n1 > n2 {swap(&n1, &n2)}
+                    if n1 == 0 || n2 == 0 { setState(s: .normal); isSolved = false; continue }
+                    if n1 > n2 { swap(&n1, &n2) }
                     let kh = (i == 0 ? game.pos2horzHint : game.pos2vertHint)[p]!
                     // 3. Black Dot - one number is twice the other.
                     // 4. White Dot - the numbers are consecutive.
@@ -132,7 +132,7 @@ class KropkiGameState: GridGameState {
                         n2 == n1 + 1 && kh == .consecutive ||
                         n2 == n1 * 2 && kh == .twice ? .complete : .error
                     setState(s: s)
-                    if s != .complete {isSolved = false}
+                    if s != .complete { isSolved = false }
                 }
             }
         }

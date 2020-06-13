@@ -14,12 +14,12 @@ class NumberPathGameViewController: GameGameViewController, GameDelegate {
     typealias GS = NumberPathGameState
 
     var scene: NumberPathGameScene {
-        get {return getScene() as! NumberPathGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! NumberPathGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: NumberPathGame {
-        get {getGame() as! NumberPathGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! NumberPathGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: NumberPathDocument { NumberPathDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { NumberPathDocument.sharedInstance }
@@ -67,10 +67,10 @@ class NumberPathGameViewController: GameGameViewController, GameDelegate {
             pLast = p; f()
         case .changed:
             guard pLast != p else {break}
-            defer {pLast = p}
+            defer { pLast = p }
             guard let dir = NumberPathGame.offset.firstIndex(of: p - pLast!) else {break}
             var move = NumberPathGameMove(p: pLast!, dir: dir)
-            if game.setObject(move: &move) {f()}
+            if game.setObject(move: &move) { f() }
         default:
             break
         }
@@ -80,10 +80,10 @@ class NumberPathGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = NumberPathGame(layout: level.layout, delegate: self)
         
         // restore game state

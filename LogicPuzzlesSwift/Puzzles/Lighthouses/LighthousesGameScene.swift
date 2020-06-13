@@ -10,8 +10,8 @@ import SpriteKit
 
 class LighthousesGameScene: GameScene<LighthousesGameState> {
     var gridNode: LighthousesGridNode {
-        get {getGridNode() as! LighthousesGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! LighthousesGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {

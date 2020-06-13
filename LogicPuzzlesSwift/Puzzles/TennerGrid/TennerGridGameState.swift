@@ -11,8 +11,8 @@ import Foundation
 class TennerGridGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: TennerGridGame {
-        get {getGame() as! TennerGridGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! TennerGridGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: TennerGridDocument { TennerGridDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TennerGridDocument.sharedInstance }
@@ -53,7 +53,7 @@ class TennerGridGameState: GridGameState {
 
     func setObject(move: inout TennerGridGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] == -1 && self[p] != move.obj else {return false}
+        guard isValid(p: p) && game[p] == -1 && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -61,7 +61,7 @@ class TennerGridGameState: GridGameState {
     
     func switchObject(move: inout TennerGridGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] == -1 else {return false}
+        guard isValid(p: p) && game[p] == -1 else { return false }
         let o = self[p]
         move.obj = o == 9 ? -1 : o + 1
         return setObject(move: &move)
@@ -84,9 +84,9 @@ class TennerGridGameState: GridGameState {
         isSolved = true
         for r in 0..<rows - 1 {
             // https://stackoverflow.com/questions/31220002/how-to-group-by-the-elements-of-an-array-in-swift
-            let cs = Dictionary(grouping: 0..<cols, by: {self[r, $0]}).filter{$0.0 != -1 && $0.1.count > 1}.flatMap{$0.1}
+            let cs = Dictionary(grouping: 0..<cols, by: { self[r, $0] }).filter{ $0.0 != -1 && $0.1.count > 1 }.flatMap{ $0.1 }
             // 3. Obviously digits can't repeat on the same row.
-            if !cs.isEmpty {isSolved = false}
+            if !cs.isEmpty { isSolved = false }
             for c in 0..<cols - 1 {
                 pos2state[Position(r, c)] = cs.contains(c) ? .error : .normal
             }
@@ -109,7 +109,7 @@ class TennerGridGameState: GridGameState {
                 // 3. Digit can repeat on the same column, however digits in contiguous tiles
                 // must be different, even diagonally.
                 if r < rows - 2 {
-                    let rng = TennerGridGame.offset.map{p + $0}.filter{p2 in isValid(p: p2) && o2 == self[p2]}
+                    let rng = TennerGridGame.offset.map{ p + $0 }.filter{ p2 in isValid(p: p2) && o2 == self[p2] }
                     if !rng.isEmpty {
                         isSolved = false
                         pos2state[p] = .error
@@ -122,7 +122,7 @@ class TennerGridGameState: GridGameState {
             // 2. The number on the bottom row gives you the sum for that column.
             let s: HintState = !isDirty && !allFixed ? .normal : n == h ? .complete : .error
             pos2state[Position(rows - 1, c)] = s
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
     }
 }

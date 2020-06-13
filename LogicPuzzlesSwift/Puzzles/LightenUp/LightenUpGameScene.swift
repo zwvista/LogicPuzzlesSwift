@@ -10,8 +10,8 @@ import SpriteKit
 
 class LightenUpGameScene: GameScene<LightenUpGameState> {
     var gridNode: LightenUpGridNode {
-        get {getGridNode() as! LightenUpGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! LightenUpGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addWallNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {

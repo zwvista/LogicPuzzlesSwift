@@ -14,12 +14,12 @@ class TapaGameViewController: GameGameViewController, GameDelegate {
     typealias GS = TapaGameState
 
     var scene: TapaGameScene {
-        get {return getScene() as! TapaGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! TapaGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: TapaGame {
-        get {getGame() as! TapaGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! TapaGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: TapaDocument { TapaDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TapaDocument.sharedInstance }
@@ -53,10 +53,10 @@ class TapaGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = TapaGame(layout: level.layout, delegate: self)
         
         // restore game state

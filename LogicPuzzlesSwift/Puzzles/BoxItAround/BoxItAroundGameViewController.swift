@@ -14,12 +14,12 @@ class BoxItAroundGameViewController: GameGameViewController, GameDelegate {
     typealias GS = BoxItAroundGameState
 
     var scene: BoxItAroundGameScene {
-        get {return getScene() as! BoxItAroundGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! BoxItAroundGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: BoxItAroundGame {
-        get {getGame() as! BoxItAroundGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! BoxItAroundGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: BoxItAroundDocument { BoxItAroundDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { BoxItAroundDocument.sharedInstance }
@@ -54,10 +54,10 @@ class BoxItAroundGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = BoxItAroundGame(layout: level.layout, delegate: self)
         
         // restore game state

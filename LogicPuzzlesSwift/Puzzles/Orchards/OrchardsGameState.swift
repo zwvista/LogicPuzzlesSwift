@@ -11,8 +11,8 @@ import Foundation
 class OrchardsGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: OrchardsGame {
-        get {getGame() as! OrchardsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! OrchardsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: OrchardsDocument { OrchardsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { OrchardsDocument.sharedInstance }
@@ -48,7 +48,7 @@ class OrchardsGameState: GridGameState {
     
     func setObject(move: inout OrchardsGameMove) -> Bool {
         let p = move.p
-        guard String(describing: self[p]) != String(describing: move.obj) else {return false}
+        guard String(describing: self[p]) != String(describing: move.obj) else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -69,7 +69,7 @@ class OrchardsGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) else { return false }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -119,10 +119,10 @@ class OrchardsGameState: GridGameState {
         }
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let trees = pos2node.filter{nodesExplored.contains($0.0.description)}.map{$0.0}
+            let trees = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }
             // 2. These are Apple Trees, which must cross-pollinate, thus must be planted
             // in pairs - horizontally or vertically touching.
-            if trees.count != 2 {isSolved = false}
+            if trees.count != 2 { isSolved = false }
             // 3. A Tree must be touching just one other Tree: you can't put three or
             // more contiguous Trees.
             if trees.count > 2 {
@@ -130,24 +130,24 @@ class OrchardsGameState: GridGameState {
                     self[p] = .tree(state: .error)
                 }
             }
-            pos2node = pos2node.filter{!nodesExplored.contains($0.0.description)}
+            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
         }
         for a in game.areas {
             var trees = [Position]()
             let n2 = 2
             for p in a {
-                if case .tree = self[p] {trees.append(p)}
+                if case .tree = self[p] { trees.append(p) }
             }
             let n1 = trees.count
             // 4. At the same time, like in Parks, every country area must have exactly
             // two Trees in it.
-            if n1 != n2 {isSolved = false}
+            if n1 != n2 { isSolved = false }
             for p in a {
                 switch self[p] {
                 case let .tree(state):
                     self[p] = .tree(state: state == .normal && n1 <= n2 ? .normal : .error)
                 case .empty, .marker:
-                    if n1 == n2 && allowedObjectsOnly {self[p] = .forbidden}
+                    if n1 == n2 && allowedObjectsOnly { self[p] = .forbidden }
                 default:
                     break
                 }

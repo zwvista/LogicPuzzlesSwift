@@ -10,8 +10,8 @@ import SpriteKit
 
 class PaintTheNurikabeGameScene: GameScene<PaintTheNurikabeGameState> {
     var gridNode: PaintTheNurikabeGridNode {
-        get {getGridNode() as! PaintTheNurikabeGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! PaintTheNurikabeGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
@@ -114,9 +114,9 @@ class PaintTheNurikabeGameScene: GameScene<PaintTheNurikabeGameState> {
                     switch o2 {
                     case .painted:
                         let b = stateFrom.game.pos2hint[p] != nil
-                        if b {removeHint()}
+                        if b { removeHint() }
                         addPaintedCell()
-                        if b {addHint2()}
+                        if b { addHint2() }
                     case .marker:
                         addMarker()
                     default:

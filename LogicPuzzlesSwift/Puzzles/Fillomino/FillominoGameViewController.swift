@@ -14,12 +14,12 @@ class FillominoGameViewController: GameGameViewController, GameDelegate {
     typealias GS = FillominoGameState
 
     var scene: FillominoGameScene {
-        get {return getScene() as! FillominoGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! FillominoGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: FillominoGame {
-        get {getGame() as! FillominoGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! FillominoGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: FillominoDocument { FillominoDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { FillominoDocument.sharedInstance }
@@ -53,10 +53,10 @@ class FillominoGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = FillominoGame(layout: level.layout, delegate: self)
         
         // restore game state

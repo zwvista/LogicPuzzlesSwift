@@ -34,7 +34,7 @@ class CastleBaileyGame: GridGame<CastleBaileyGameViewController> {
             for c in 0..<cols + 1 {
                 let ch = str[c]
                 let p = Position(r, c)
-                if ch != " " {pos2hint[p] = ch.toInt!}
+                if ch != " " { pos2hint[p] = ch.toInt! }
             }
         }
 
@@ -43,11 +43,11 @@ class CastleBaileyGame: GridGame<CastleBaileyGameViewController> {
     }
         
     func switchObject(move: inout CastleBaileyGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
     }
     
     func setObject(move: inout CastleBaileyGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
     }
     
 }

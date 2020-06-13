@@ -14,12 +14,12 @@ class FenceItUpGameViewController: GameGameViewController, GameDelegate {
     typealias GS = FenceItUpGameState
 
     var scene: FenceItUpGameScene {
-        get {return getScene() as! FenceItUpGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! FenceItUpGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: FenceItUpGame {
-        get {getGame() as! FenceItUpGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! FenceItUpGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: FenceItUpDocument { FenceItUpDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { FenceItUpDocument.sharedInstance }
@@ -54,10 +54,10 @@ class FenceItUpGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = FenceItUpGame(layout: level.layout, delegate: self)
         
         // restore game state

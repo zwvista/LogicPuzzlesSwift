@@ -11,8 +11,8 @@ import Foundation
 class RippleEffectGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: RippleEffectGame {
-        get {getGame() as! RippleEffectGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! RippleEffectGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: RippleEffectDocument { RippleEffectDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { RippleEffectDocument.sharedInstance }
@@ -48,7 +48,7 @@ class RippleEffectGameState: GridGameState {
     
     func setObject(move: inout RippleEffectGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else {return false}
+        guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -56,7 +56,7 @@ class RippleEffectGameState: GridGameState {
     
     func switchObject(move: inout RippleEffectGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] == 0 else {return false}
+        guard isValid(p: p) && game[p] == 0 else { return false }
         let o = self[p]
         move.obj = (o + 1) % (game.areas[game.pos2area[p]!].count + 1)
         return setObject(move: &move)
@@ -88,9 +88,9 @@ class RippleEffectGameState: GridGameState {
             for (n, rng) in num2rng {
                 var indexes = Set<Int>()
                 for i in 0..<rng.count - 1 {
-                    if sameRow ? rng[i + 1].col - rng[i].col <= n : rng[i + 1].row - rng[i].row <= n {indexes.insert(i); indexes.insert(i + 1)}
+                    if sameRow ? rng[i + 1].col - rng[i].col <= n : rng[i + 1].row - rng[i].row <= n { indexes.insert(i); indexes.insert(i + 1) }
                 }
-                if !indexes.isEmpty {isSolved = false}
+                if !indexes.isEmpty { isSolved = false }
                 for i in 0..<rng.count {
                     if indexes.contains(i) {
                         pos2state[rng[i]] = .error
@@ -103,7 +103,7 @@ class RippleEffectGameState: GridGameState {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let n = self[p]
-                if n == 0 {isSolved = false; continue}
+                if n == 0 { isSolved = false; continue }
                 var rng = num2rng[n] ?? [Position]()
                 rng.append(p)
                 num2rng[n] = rng
@@ -115,7 +115,7 @@ class RippleEffectGameState: GridGameState {
             for r in 0..<rows {
                 let p = Position(r, c)
                 let n = self[p]
-                if n == 0 {isSolved = false; continue}
+                if n == 0 { isSolved = false; continue }
                 var rng = num2rng[n] ?? [Position]()
                 rng.append(p)
                 num2rng[n] = rng

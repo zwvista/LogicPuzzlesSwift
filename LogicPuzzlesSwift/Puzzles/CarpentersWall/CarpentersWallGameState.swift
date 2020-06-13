@@ -11,8 +11,8 @@ import Foundation
 class CarpentersWallGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: CarpentersWallGame {
-        get {getGame() as! CarpentersWallGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! CarpentersWallGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: CarpentersWallDocument { CarpentersWallDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { CarpentersWallDocument.sharedInstance }
@@ -47,7 +47,7 @@ class CarpentersWallGameState: GridGameState {
     func setObject(move: inout CarpentersWallGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
-        guard !o1.isHint() && String(describing: o1) != String(describing: o2) else {return false}
+        guard !o1.isHint() && String(describing: o1) != String(describing: o2) else { return false }
         self[p] = o2
         updateIsSolved()
         return true
@@ -68,7 +68,7 @@ class CarpentersWallGameState: GridGameState {
             }
         }
         let o = self[move.p]
-        guard !o.isHint() else {return false}
+        guard !o.isHint() else { return false }
         move.obj = f(o: o)
         return setObject(move: &move)
     }
@@ -100,8 +100,8 @@ class CarpentersWallGameState: GridGameState {
                 let p = Position(r, c)
                 if CarpentersWallGame.offset2.testAll({os in
                     let o = self[p + os]
-                    if case .wall = o {return true} else {return false}
-                }) {isSolved = false}
+                    if case .wall = o { return true } else { return false }
+                }) { isSolved = false }
             }
         }
         let g = Graph()
@@ -156,28 +156,28 @@ class CarpentersWallGameState: GridGameState {
             // wall tiles on the board must be connected horizontally or vertically.
             // There can't be isolated walls.
             let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
-            if rngWalls.count != nodesExplored.count {isSolved = false}
+            if rngWalls.count != nodesExplored.count { isSolved = false }
         }
         while !rngEmpty.isEmpty {
             let node = pos2node[rngEmpty.first!]!
             let nodesExplored = breadthFirstSearch(g, source: node)
-            let area = rngEmpty.filter{nodesExplored.contains($0.description)}
-            let rngHint = area.filter{self[$0].isHint()}
-            rngEmpty = rngEmpty.filter{!nodesExplored.contains($0.description)}
+            let area = rngEmpty.filter{ nodesExplored.contains($0.description) }
+            let rngHint = area.filter{ self[$0].isHint() }
+            rngEmpty = rngEmpty.filter{ !nodesExplored.contains($0.description) }
             let n1 = nodesExplored.count
             var r2 = 0, r1 = rows, c2 = 0, c1 = cols
             for p in area {
-                if r2 < p.row {r2 = p.row}
-                if r1 > p.row {r1 = p.row}
-                if c2 < p.col {c2 = p.col}
-                if c1 > p.col {c1 = p.col}
+                if r2 < p.row { r2 = p.row }
+                if r1 > p.row { r1 = p.row }
+                if c2 < p.col { c2 = p.col }
+                if c1 > p.col { c1 = p.col }
             }
-            if r1 == r2 || c1 == c2 {isSolved = false; continue}
-            let cntR1 = area.filter{$0.row == r1}.count
-            let cntR2 = area.filter{$0.row == r2}.count
-            let cntC1 = area.filter{$0.col == c1}.count
-            let cntC2 = area.filter{$0.col == c2}.count
-            func f(_ a: Int, _ b: Int) -> Bool {return a > 1 && b > 1 && a + b - 1 == n1}
+            if r1 == r2 || c1 == c2 { isSolved = false; continue }
+            let cntR1 = area.filter{ $0.row == r1 }.count
+            let cntR2 = area.filter{ $0.row == r2 }.count
+            let cntC1 = area.filter{ $0.col == c1 }.count
+            let cntC2 = area.filter{ $0.col == c2 }.count
+            func f(_ a: Int, _ b: Int) -> Bool { return a > 1 && b > 1 && a + b - 1 == n1 }
             // 2. In the end, the empty spaces left by the Nurikabe will form many Carpenter's
             // Squares (L shaped tools) of different size.
             let squareType =
@@ -193,31 +193,31 @@ class CarpentersWallGameState: GridGameState {
                     // squares occupied by the L.
                     let s: HintState = squareType == -1 ? .normal : !(n1 == n2 || n2 == 0) ? .error : squareType == 0 && p == Position(r1, c1) || squareType == 1 && p == Position(r1, c2) || squareType == 2 && p == Position(r2, c1) || squareType == 3 && p == Position(r2, c2) ? .complete : .error
                     self[p] = .corner(tiles: n2, state: s)
-                    if s != .complete {isSolved = false}
+                    if s != .complete { isSolved = false }
                 case .left:
                     // 5. The arrow always sits at the end of an arm and points to the corner of
                     // an L.
                     let s: HintState = squareType == -1 ? .normal : squareType == 0 && p == Position(r1, c2) || squareType == 2 && p == Position(r2, c2) ? .complete : .error
                     self[p] = .left(state: s)
-                    if s != .complete {isSolved = false}
+                    if s != .complete { isSolved = false }
                 case .up:
                     // 5. The arrow always sits at the end of an arm and points to the corner of
                     // an L.
                     let s: HintState = squareType == -1 ? .normal : squareType == 0 && p == Position(r2, c1) || squareType == 1 && p == Position(r2, c2) ? .complete : .error
                     self[p] = .up(state: s)
-                    if s != .complete {isSolved = false}
+                    if s != .complete { isSolved = false }
                 case .right:
                     // 5. The arrow always sits at the end of an arm and points to the corner of
                     // an L.
                     let s: HintState = squareType == -1 ? .normal : squareType == 1 && p == Position(r1, c1) || squareType == 3 && p == Position(r2, c1) ? .complete : .error
                     self[p] = .right(state: s)
-                    if s != .complete {isSolved = false}
+                    if s != .complete { isSolved = false }
                 case .down:
                     // 5. The arrow always sits at the end of an arm and points to the corner of
                     // an L.
                     let s: HintState = squareType == -1 ? .normal : squareType == 2 && p == Position(r1, c1) || squareType == 3 && p == Position(r1, c2) ? .complete : .error
                     self[p] = .down(state: s)
-                    if s != .complete {isSolved = false}
+                    if s != .complete { isSolved = false }
                 default:
                     break
                 }

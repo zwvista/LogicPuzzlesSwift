@@ -14,12 +14,12 @@ class WallsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = WallsGameState
 
     var scene: WallsGameScene {
-        get {return getScene() as! WallsGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! WallsGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: WallsGame {
-        get {getGame() as! WallsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! WallsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: WallsDocument { WallsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { WallsDocument.sharedInstance }
@@ -53,10 +53,10 @@ class WallsGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = WallsGame(layout: level.layout, delegate: self)
         
         // restore game state

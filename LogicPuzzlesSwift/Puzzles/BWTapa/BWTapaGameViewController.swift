@@ -14,12 +14,12 @@ class BWTapaGameViewController: GameGameViewController, GameDelegate {
     typealias GS = BWTapaGameState
 
     var scene: BWTapaGameScene {
-        get {return getScene() as! BWTapaGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! BWTapaGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: BWTapaGame {
-        get {getGame() as! BWTapaGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! BWTapaGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: BWTapaDocument { BWTapaDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { BWTapaDocument.sharedInstance }
@@ -53,10 +53,10 @@ class BWTapaGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = BWTapaGame(layout: level.layout, delegate: self)
         
         // restore game state

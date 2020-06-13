@@ -11,8 +11,8 @@ import Foundation
 class LightenUpGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: LightenUpGame {
-        get {getGame() as! LightenUpGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! LightenUpGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: LightenUpDocument { LightenUpDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { LightenUpDocument.sharedInstance }
@@ -154,7 +154,7 @@ class LightenUpGameState: GridGameState {
                     // 4. A lightbulb can't light another lightbulb.
                     let s: AllowedObjectState = o.lightness == 1 ? .normal : .error
                     self[r, c].objType = .lightbulb(state: s)
-                    if s == .error {isSolved = false}
+                    if s == .error { isSolved = false }
                 case .wall:
                     let lightbulbs = game.wall2Lightbulbs[p]!
                     // 6. Walls without a number can have any number of lightbulbs.
@@ -162,13 +162,13 @@ class LightenUpGameState: GridGameState {
                     var n = 0
                     for os in LightenUpGame.offset {
                         let p2 = p + os
-                        if isValid(p: p2), case .lightbulb = self[p2].objType {n += 1}
+                        if isValid(p: p2), case .lightbulb = self[p2].objType { n += 1 }
                     }
                     // 5. Walls with a number tell you how many lightbulbs
                     // are adjacent to it, horizontally and vertically.
                     let s: HintState = n < lightbulbs ? .normal : n == lightbulbs ? .complete : .error
                     self[r, c].objType = .wall(state: s)
-                    if s != .complete {isSolved = false}
+                    if s != .complete { isSolved = false }
                 default:
                     break
                 }

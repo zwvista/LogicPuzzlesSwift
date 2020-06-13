@@ -10,8 +10,8 @@ import SpriteKit
 
 class TapDifferentlyGameScene: GameScene<TapDifferentlyGameState> {
     var gridNode: TapDifferentlyGridNode {
-        get {getGridNode() as! TapDifferentlyGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! TapDifferentlyGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(arr: [Int], s: HintState, point: CGPoint, nodeName: String) {

@@ -11,8 +11,8 @@ import Foundation
 class TapaIslandsGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: TapaIslandsGame {
-        get {getGame() as! TapaIslandsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! TapaIslandsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: TapaIslandsDocument { TapaIslandsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TapaIslandsDocument.sharedInstance }
@@ -50,8 +50,8 @@ class TapaIslandsGameState: GridGameState {
     func setObject(move: inout TapaIslandsGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 {return false}
-        guard String(describing: o1) != String(describing: o2) else {return false}
+        if case .hint = o1 { return false }
+        guard String(describing: o1) != String(describing: o2) else { return false }
         self[p] = o2
         updateIsSolved()
         return true
@@ -95,7 +95,7 @@ class TapaIslandsGameState: GridGameState {
         // tile has more than one number, it hints at multiple separated groups
         // of filled tiles.
         func computeHint(filled: [Int]) -> [Int] {
-            if filled.isEmpty {return [0]}
+            if filled.isEmpty { return [0] }
             var hint = [Int]()
             for j in 0..<filled.count {
                 if j == 0 || filled[j] - filled[j - 1] != 1 {
@@ -110,8 +110,8 @@ class TapaIslandsGameState: GridGameState {
             return hint.sorted()
         }
         func isCompatible(computedHint: [Int], givenHint: [Int]) -> Bool {
-            if computedHint == givenHint {return true}
-            if computedHint.count != givenHint.count {return false}
+            if computedHint == givenHint { return true }
+            if computedHint.count != givenHint.count { return false }
             let h1 = Set(computedHint)
             var h2 = Set(givenHint)
             h2.remove(-1)
@@ -125,7 +125,7 @@ class TapaIslandsGameState: GridGameState {
             let arr = computeHint(filled: filled)
             let s: HintState = arr == [0] ? .normal : isCompatible(computedHint: arr, givenHint: arr2) ? .complete : .error
             self[p] = .hint(state: s)
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
         // Filled tiles can't cover an area of 2*2 or larger (just like Nurikabe).
         // Tiles with numbers can be considered 'empty'.
@@ -134,8 +134,8 @@ class TapaIslandsGameState: GridGameState {
                 let p = Position(r, c)
                 if TapaIslandsGame.offset2.testAll({os in
                     let o = self[p + os]
-                    if case .wall = o {return true} else {return false}
-                }) {isSolved = false}
+                    if case .wall = o { return true } else { return false }
+                }) { isSolved = false }
             }
         }
         let g = Graph()
@@ -170,14 +170,14 @@ class TapaIslandsGameState: GridGameState {
                 }
             }
         }
-        guard !rngWalls.isEmpty else {isSolved = false; return}
+        guard !rngWalls.isEmpty else { isSolved = false; return }
         // The goal is to fill some tiles forming a single orthogonally continuous
         // path. Just like Nurikabe.
         let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
-        if rngWalls.count != nodesExplored.count {isSolved = false}
+        if rngWalls.count != nodesExplored.count { isSolved = false }
         while !rngEmpty.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node[rngEmpty.first!]!)
-            rngEmpty = rngEmpty.filter{!nodesExplored.contains($0.description)}
+            rngEmpty = rngEmpty.filter{ !nodesExplored.contains($0.description) }
             let n2 = nodesExplored.count
             var rng = [Position]()
             for p in game.pos2hint.keys {
@@ -196,7 +196,7 @@ class TapaIslandsGameState: GridGameState {
                 let arr2 = game.pos2hint[p]!
                 let s: HintState = arr2.contains(n2) ? .complete : .error
                 self[p] = .hint(state: s)
-                if s != .complete {isSolved = false}
+                if s != .complete { isSolved = false }
             default:
                 for p in rng {
                     self[p] = .hint(state: .normal)

@@ -11,8 +11,8 @@ import Foundation
 class PaintTheNurikabeGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: PaintTheNurikabeGame {
-        get {getGame() as! PaintTheNurikabeGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! PaintTheNurikabeGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: PaintTheNurikabeDocument { PaintTheNurikabeDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { PaintTheNurikabeDocument.sharedInstance }
@@ -51,7 +51,7 @@ class PaintTheNurikabeGameState: GridGameState {
     
     func setObject(move: inout PaintTheNurikabeGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else {return false}
+        guard isValid(p: p) && self[p] != move.obj else { return false }
         self[p] = move.obj
         for p2 in game.areas[game.pos2area[p]!] {
             self[p2] = move.obj
@@ -75,7 +75,7 @@ class PaintTheNurikabeGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) else { return false }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -100,7 +100,7 @@ class PaintTheNurikabeGameState: GridGameState {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if case .forbidden = self[p] {self[p] = .empty}
+                if case .forbidden = self[p] { self[p] = .empty }
             }
         }
         // 2. A number indicates how many painted tiles are adjacent to it.
@@ -133,8 +133,8 @@ class PaintTheNurikabeGameState: GridGameState {
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                if PaintTheNurikabeGame.offset2.testAll({self[p + $0] == .painted}) ||
-                   PaintTheNurikabeGame.offset2.testAll({self[p + $0] == .empty}) {
+                if PaintTheNurikabeGame.offset2.testAll({ self[p + $0] == .painted }) ||
+                   PaintTheNurikabeGame.offset2.testAll({ self[p + $0] == .empty }) {
                     isSolved = false; return
                 }
             }
@@ -145,7 +145,7 @@ class PaintTheNurikabeGameState: GridGameState {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if self[p] == .painted {pos2node[p] = g.addNode(p.description)}
+                if self[p] == .painted { pos2node[p] = g.addNode(p.description) }
             }
         }
         for (p, node) in pos2node {
@@ -158,6 +158,6 @@ class PaintTheNurikabeGameState: GridGameState {
         // 3. The painted tiles form an orthogonally continuous area, like a
         // Nurikabe.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if pos2node.count != nodesExplored.count {isSolved = false}
+        if pos2node.count != nodesExplored.count { isSolved = false }
     }
 }

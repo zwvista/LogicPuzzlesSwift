@@ -11,8 +11,8 @@ import Foundation
 class BridgesGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: BridgesGame {
-        get {getGame() as! BridgesGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! BridgesGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: BridgesDocument { BridgesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { BridgesDocument.sharedInstance }
@@ -53,7 +53,7 @@ class BridgesGameState: GridGameState {
         guard pFrom < pTo,
             pFrom.row == pTo.row || pFrom.col == pTo.col,
             case .island(let state1, var bridges1) = self[pFrom],
-            case .island(let state2, var bridges2) = self[pTo] else {return false}
+            case .island(let state2, var bridges2) = self[pTo] else { return false }
         let n1 = pFrom.row == pTo.row ? 1 : 2
         let n2 = (n1 + 2) % 4
         let os = BridgesGame.offset[n1]
@@ -62,7 +62,7 @@ class BridgesGameState: GridGameState {
             switch bridges1[n1] {
             case 0:
                 // 4. Bridges can't cross each other.
-                guard case .empty = self[p] else {return false}
+                guard case .empty = self[p] else { return false }
                 self[p] = .bridge
             case 2:
                 self[p] = .empty
@@ -109,7 +109,7 @@ class BridgesGameState: GridGameState {
             let n1 = bridges.reduce(0, +)
             let n2 = info.bridges
             state = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 {isSolved = false}
+            if n1 != n2 { isSolved = false }
             self[p] = .island(state: state, bridges: bridges)
             pos2node[p] = g.addNode(p.description)
         }
@@ -124,6 +124,6 @@ class BridgesGameState: GridGameState {
         // 2. You must connect all the islands with Bridges, making sure every
         // island is connected to each other with a Bridges path.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count {isSolved = false}
+        if nodesExplored.count != pos2node.count { isSolved = false }
     }
 }

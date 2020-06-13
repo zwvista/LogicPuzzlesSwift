@@ -14,12 +14,12 @@ class AbstractPaintingGameViewController: GameGameViewController, GameDelegate {
     typealias GS = AbstractPaintingGameState
 
     var scene: AbstractPaintingGameScene {
-        get {return getScene() as! AbstractPaintingGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! AbstractPaintingGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: AbstractPaintingGame {
-        get {getGame() as! AbstractPaintingGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! AbstractPaintingGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: AbstractPaintingDocument { AbstractPaintingDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { AbstractPaintingDocument.sharedInstance }
@@ -53,10 +53,10 @@ class AbstractPaintingGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = AbstractPaintingGame(layout: level.layout, delegate: self)
         
         // restore game state

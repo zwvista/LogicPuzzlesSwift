@@ -10,8 +10,8 @@ import SpriteKit
 
 class TapaIslandsGameScene: GameScene<TapaIslandsGameState> {
     var gridNode: TapaIslandsGridNode {
-        get {getGridNode() as! TapaIslandsGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! TapaIslandsGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(arr: [Int], s: HintState, point: CGPoint, nodeName: String) {

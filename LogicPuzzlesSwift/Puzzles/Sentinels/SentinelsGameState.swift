@@ -11,8 +11,8 @@ import Foundation
 class SentinelsGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: SentinelsGame {
-        get {getGame() as! SentinelsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! SentinelsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: SentinelsDocument { SentinelsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { SentinelsDocument.sharedInstance }
@@ -50,8 +50,8 @@ class SentinelsGameState: GridGameState {
     func setObject(move: inout SentinelsGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 {return false}
-        guard String(describing: o1) != String(describing: o2) else {return false}
+        if case .hint = o1 { return false }
+        guard String(describing: o1) != String(describing: o2) else { return false }
         self[p] = o2
         updateIsSolved()
         return true
@@ -120,7 +120,7 @@ class SentinelsGameState: GridGameState {
                 func hasNeighbor() -> Bool {
                     for os in SentinelsGame.offset {
                         let p2 = p + os
-                        if isValid(p: p2), case .tower = self[p2] {return true}
+                        if isValid(p: p2), case .tower = self[p2] { return true }
                     }
                     return false
                 }
@@ -128,7 +128,7 @@ class SentinelsGameState: GridGameState {
                 case let .tower(state):
                     let s: AllowedObjectState = state == .normal && !hasNeighbor() ? .normal : .error
                     self[p] = .tower(state: s)
-                    if s == .error {isSolved = false}
+                    if s == .error { isSolved = false }
                 case .empty, .marker:
                     guard allowedObjectsOnly && hasNeighbor() else {continue}
                     self[p] = .forbidden
@@ -180,6 +180,6 @@ class SentinelsGameState: GridGameState {
         }
         // 4. There must be a single continuous Garden
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if pos2node.count != nodesExplored.count {isSolved = false}
+        if pos2node.count != nodesExplored.count { isSolved = false }
     }
 }

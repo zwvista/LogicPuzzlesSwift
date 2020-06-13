@@ -10,8 +10,8 @@ import SpriteKit
 
 class NorthPoleFishingGameScene: GameScene<NorthPoleFishingGameState> {
     var gridNode: NorthPoleFishingGridNode {
-        get {getGridNode() as! NorthPoleFishingGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! NorthPoleFishingGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHole(s: HintState, point: CGPoint, nodeName: String) {
@@ -51,8 +51,8 @@ class NorthPoleFishingGameScene: GameScene<NorthPoleFishingGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
-                if state[r, c][1] == .line {addHorzLine(objType: .line, color: .white, point: point, nodeName: "line")}
-                if state[r, c][2] == .line {addVertLine(objType: .line, color: .white, point: point, nodeName: "line")}
+                if state[r, c][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                if state[r, c][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
             }
         }
     }

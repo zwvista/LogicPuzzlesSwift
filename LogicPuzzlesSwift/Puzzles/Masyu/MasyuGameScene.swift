@@ -10,8 +10,8 @@ import SpriteKit
 
 class MasyuGameScene: GameScene<MasyuGameState> {
     var gridNode: MasyuGridNode {
-        get {getGridNode() as! MasyuGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! MasyuGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     override func levelInitialized(_ game: AnyObject, state: MasyuGameState, skView: SKView) {
@@ -71,8 +71,8 @@ class MasyuGameScene: GameScene<MasyuGameState> {
                     }
                     let (o1, o2) = (stateFrom[p][dir], stateTo[p][dir])
                     guard o1 != o2 else {continue}
-                    if o1 {removeLine()}
-                    if o2 {addLine()}
+                    if o1 { removeLine() }
+                    if o2 { addLine() }
                  }
             }
         }

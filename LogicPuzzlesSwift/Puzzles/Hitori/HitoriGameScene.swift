@@ -10,8 +10,8 @@ import SpriteKit
 
 class HitoriGameScene: GameScene<HitoriGameState> {
     var gridNode: HitoriGridNode {
-        get {getGridNode() as! HitoriGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! HitoriGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addNumber(n: String, s: HintState, point: CGPoint, nodeName: String) {

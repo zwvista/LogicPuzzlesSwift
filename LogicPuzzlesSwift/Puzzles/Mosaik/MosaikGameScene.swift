@@ -10,8 +10,8 @@ import SpriteKit
 
 class MosaikGameScene: GameScene<MosaikGameState> {
     var gridNode: MosaikGridNode {
-        get {getGridNode() as! MosaikGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! MosaikGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
@@ -70,9 +70,9 @@ class MosaikGameScene: GameScene<MosaikGameState> {
                     switch o2 {
                     case .filled:
                         let b = stateFrom.game.pos2hint[p] != nil
-                        if b {removeHint()}
+                        if b { removeHint() }
                         addFilledCell()
-                        if b {addHint2()}
+                        if b { addHint2() }
                     case .marker:
                         addMarker()
                     default:

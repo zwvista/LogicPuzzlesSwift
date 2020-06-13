@@ -10,8 +10,8 @@ import SpriteKit
 
 class KropkiGameScene: GameScene<KropkiGameState> {
     var gridNode: KropkiGridNode {
-        get {getGridNode() as! KropkiGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! KropkiGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(p: Position, isHorz: Bool, s: HintState, kh: KropkiHint) {
@@ -94,8 +94,8 @@ class KropkiGameScene: GameScene<KropkiGameState> {
                 let numberNodeName = "number" + nodeNameSuffix
                 let (n1, n2) = (stateFrom[r, c], stateTo[r, c])
                 if n1 != n2 {
-                    if n1 != 0 {removeNode(withName: numberNodeName)}
-                    if n2 != 0 {addLabel(text: String(n2), fontColor: .white, point: point, nodeName: numberNodeName)}
+                    if n1 != 0 { removeNode(withName: numberNodeName) }
+                    if n2 != 0 { addLabel(text: String(n2), fontColor: .white, point: point, nodeName: numberNodeName) }
                 }
                 for i in 0..<2 {
                     guard i == 0 && c != stateFrom.game.cols - 1 || i == 1 && r != stateFrom.game.rows - 1 else {continue}

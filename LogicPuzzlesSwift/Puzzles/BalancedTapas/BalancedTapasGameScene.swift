@@ -10,8 +10,8 @@ import SpriteKit
 
 class BalancedTapasGameScene: GameScene<BalancedTapasGameState> {
     var gridNode: BalancedTapasGridNode {
-        get {getGridNode() as! BalancedTapasGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! BalancedTapasGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(arr: [Int], s: HintState, point: CGPoint, nodeName: String) {

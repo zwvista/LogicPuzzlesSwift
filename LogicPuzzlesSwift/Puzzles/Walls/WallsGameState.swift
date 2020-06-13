@@ -11,8 +11,8 @@ import Foundation
 class WallsGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: WallsGame {
-        get {getGame() as! WallsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! WallsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: WallsDocument { WallsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { WallsDocument.sharedInstance }
@@ -49,7 +49,7 @@ class WallsGameState: GridGameState {
     
     func setObject(move: inout WallsGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else {return false}
+        guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -65,7 +65,7 @@ class WallsGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil else {return false}
+        guard isValid(p: p), game.pos2hint[p] == nil else { return false }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -124,7 +124,7 @@ class WallsGameState: GridGameState {
                     // 2. The number itself tells you the total length of Wall segments
                     // connected to it.
                     let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-                    if s != .complete {isSolved = false}
+                    if s != .complete { isSolved = false }
                     self[p] = .hint(walls: n2, state: s)
                 default:
                     break

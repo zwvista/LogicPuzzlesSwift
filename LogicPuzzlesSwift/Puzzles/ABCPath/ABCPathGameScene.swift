@@ -10,8 +10,8 @@ import SpriteKit
 
 class ABCPathGameScene: GameScene<ABCPathGameState> {
     var gridNode: ABCPathGridNode {
-        get {getGridNode() as! ABCPathGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! ABCPathGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addCharacter(ch: Character, s: HintState, isHint: Bool, point: CGPoint, nodeName: String) {
@@ -52,8 +52,8 @@ class ABCPathGameScene: GameScene<ABCPathGameState> {
                 let (ch1, ch2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
                 guard ch1 != ch2 || s1 != s2 else {continue}
-                if ch1 != " " {removeNode(withName: charNodeName)}
-                if ch2 != " " {addCharacter(ch: ch2, s: s2, isHint: stateFrom.game[p] != " ", point: point, nodeName: charNodeName)}
+                if ch1 != " " { removeNode(withName: charNodeName) }
+                if ch2 != " " { addCharacter(ch: ch2, s: s2, isHint: stateFrom.game[p] != " ", point: point, nodeName: charNodeName) }
             }
         }
     }

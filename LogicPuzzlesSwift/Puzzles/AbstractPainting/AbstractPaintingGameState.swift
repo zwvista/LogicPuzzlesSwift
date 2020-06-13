@@ -11,8 +11,8 @@ import Foundation
 class AbstractPaintingGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: AbstractPaintingGame {
-        get {getGame() as! AbstractPaintingGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! AbstractPaintingGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: AbstractPaintingDocument { AbstractPaintingDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { AbstractPaintingDocument.sharedInstance }
@@ -52,7 +52,7 @@ class AbstractPaintingGameState: GridGameState {
     
     func setObject(move: inout AbstractPaintingGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else {return false}
+        guard isValid(p: p) && self[p] != move.obj else { return false }
         // 3. The region of the painting can be entirely hidden or revealed.
         for p2 in game.areas[game.pos2area[p]!] {
             self[p2] = move.obj
@@ -76,7 +76,7 @@ class AbstractPaintingGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) else { return false }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -97,36 +97,36 @@ class AbstractPaintingGameState: GridGameState {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                if self[r, c] == .forbidden {self[r, c] = .empty}
+                if self[r, c] == .forbidden { self[r, c] = .empty }
             }
         }
         for r in 0..<rows {
             var n1 = 0
             let n2 = game.row2hint[r]
             for c in 0..<cols {
-                if self[r, c] == .painting {n1 += 1}
+                if self[r, c] == .painting { n1 += 1 }
             }
             // 2. Outer numbers tell how many tiles form the painting on the row.
             let s: HintState = n1 < n2 ? .normal : n1 == n2 || n2 == -1 ? .complete : .error
             row2state[r] = s
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
         for c in 0..<cols {
             var n1 = 0
             let n2 = game.col2hint[c]
             for r in 0..<rows {
-                if self[r, c] == .painting {n1 += 1}
+                if self[r, c] == .painting { n1 += 1 }
             }
             // 2. Outer numbers tell how many tiles form the painting on the column.
             let s: HintState = n1 < n2 ? .normal : n1 == n2 || n2 == -1 ? .complete : .error
             col2state[c] = s
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
         for r in 0..<rows {
             for c in 0..<cols {
                 switch self[r, c] {
                 case .empty, .marker:
-                    if allowedObjectsOnly && (row2state[r] != .normal && game.row2hint[r] != -1 || col2state[c] != .normal && game.col2hint[c] != -1) {self[r, c] = .forbidden}
+                    if allowedObjectsOnly && (row2state[r] != .normal && game.row2hint[r] != -1 || col2state[c] != .normal && game.col2hint[c] != -1) { self[r, c] = .forbidden }
                 default:
                     break
                 }

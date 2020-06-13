@@ -14,12 +14,12 @@ class DominoGameViewController: GameGameViewController, GameDelegate {
     typealias GS = DominoGameState
 
     var scene: DominoGameScene {
-        get {return getScene() as! DominoGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! DominoGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: DominoGame {
-        get {getGame() as! DominoGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! DominoGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: DominoDocument { DominoDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { DominoDocument.sharedInstance }
@@ -54,10 +54,10 @@ class DominoGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = DominoGame(layout: level.layout, delegate: self)
         
         // restore game state

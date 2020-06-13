@@ -10,8 +10,8 @@ import SpriteKit
 
 class RippleEffectGameScene: GameScene<RippleEffectGameState> {
     var gridNode: RippleEffectGridNode {
-        get {getGridNode() as! RippleEffectGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! RippleEffectGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addNumber(n: Int, s: HintState, isFixed: Bool, point: CGPoint, nodeName: String) {

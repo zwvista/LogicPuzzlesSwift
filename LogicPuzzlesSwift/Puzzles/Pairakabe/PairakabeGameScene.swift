@@ -10,8 +10,8 @@ import SpriteKit
 
 class PairakabeGameScene: GameScene<PairakabeGameState> {
     var gridNode: PairakabeGridNode {
-        get {getGridNode() as! PairakabeGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! PairakabeGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {

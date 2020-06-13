@@ -10,8 +10,8 @@ import SpriteKit
 
 class KakuroGameScene: GameScene<KakuroGameState> {
     var gridNode: KakuroGridNode {
-        get {getGridNode() as! KakuroGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! KakuroGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
 
     func addHint(p: Position, n: Int, isHorz: Bool, s: HintState) {
@@ -89,8 +89,8 @@ class KakuroGameScene: GameScene<KakuroGameState> {
             let nodeName = "num" + nodeNameSuffix
             let (n1, n2) = (stateFrom.pos2num[p]!, stateTo.pos2num[p]!)
             if n1 != n2 {
-                if n1 != 0 {removeNode(withName: nodeName)}
-                if n2 != 0 {addLabel(text: String(n2), fontColor: .white, point: point, nodeName: nodeName)}
+                if n1 != 0 { removeNode(withName: nodeName) }
+                if n2 != 0 { addLabel(text: String(n2), fontColor: .white, point: point, nodeName: nodeName) }
             }
         }
     }

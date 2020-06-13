@@ -11,8 +11,8 @@ import Foundation
 class FenceItUpGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: FenceItUpGame {
-        get {getGame() as! FenceItUpGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! FenceItUpGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: FenceItUpDocument { FenceItUpDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { FenceItUpDocument.sharedInstance }
@@ -62,9 +62,9 @@ class FenceItUpGameState: GridGameState {
         }
         let dir = move.dir, dir2 = (dir + 2) % 4
         let p = move.p, p2 = p + FenceItUpGame.offset[dir]
-        guard isValid(p: p2) && game[p][dir] == .empty else {return false}
+        guard isValid(p: p2) && game[p][dir] == .empty else { return false }
         f(o1: &self[p][dir], o2: &self[p2][dir2])
-        if changed {updateIsSolved()}
+        if changed { updateIsSolved() }
         return changed
     }
     
@@ -120,9 +120,9 @@ class FenceItUpGameState: GridGameState {
         }
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter{nodesExplored.contains($0.0.description)}.map{$0.0}
-            pos2node = pos2node.filter{!nodesExplored.contains($0.0.description)}
-            let rng = area.filter{p in game.pos2hint[p] != nil}
+            let area = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }
+            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
+            let rng = area.filter{ p in game.pos2hint[p] != nil }
             if rng.count != 1 {
                 for p in rng {
                     pos2state[p] = .normal
@@ -136,11 +136,11 @@ class FenceItUpGameState: GridGameState {
             // of the perimeter of the area.
             for p in area {
                 for i in 0..<4 {
-                    if self[p + FenceItUpGame.offset2[i]][FenceItUpGame.dirs[i]] == .line {n1 += 1}
+                    if self[p + FenceItUpGame.offset2[i]][FenceItUpGame.dirs[i]] == .line { n1 += 1 }
                 }
             }
             pos2state[p2] = n1 == n2 ? .complete : .error
-            if pos2state[p2] != .complete {isSolved = false}
+            if pos2state[p2] != .complete { isSolved = false }
         }
     }
 }

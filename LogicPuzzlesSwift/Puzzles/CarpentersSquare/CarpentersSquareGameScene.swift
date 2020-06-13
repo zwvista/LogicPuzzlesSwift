@@ -10,8 +10,8 @@ import SpriteKit
 
 class CarpentersSquareGameScene: GameScene<CarpentersSquareGameState> {
     var gridNode: CarpentersSquareGridNode {
-        get {getGridNode() as! CarpentersSquareGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! CarpentersSquareGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(text: String, s: HintState, point: CGPoint, nodeName: String) {
@@ -54,8 +54,8 @@ class CarpentersSquareGameScene: GameScene<CarpentersSquareGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
-                if game[r, c][1] == .line {addHorzLine(objType: .line, color: .white, point: point, nodeName: "line")}
-                if game[r, c][2] == .line {addVertLine(objType: .line, color: .white, point: point, nodeName: "line")}
+                if game[r, c][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                if game[r, c][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
             }
         }
     }

@@ -14,12 +14,12 @@ class SumscrapersGameViewController: GameGameViewController, GameDelegate {
     typealias GS = SumscrapersGameState
 
     var scene: SumscrapersGameScene {
-        get {return getScene() as! SumscrapersGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! SumscrapersGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: SumscrapersGame {
-        get {getGame() as! SumscrapersGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! SumscrapersGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: SumscrapersDocument { SumscrapersDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { SumscrapersDocument.sharedInstance }
@@ -53,10 +53,10 @@ class SumscrapersGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = SumscrapersGame(layout: level.layout, delegate: self)
         
         // restore game state

@@ -10,8 +10,8 @@ import SpriteKit
 
 class NumberLinkGameScene: GameScene<NumberLinkGameState> {
     var gridNode: NumberLinkGridNode {
-        get {getGridNode() as! NumberLinkGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! NumberLinkGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(n: String, s: HintState, point: CGPoint, nodeName: String) {
@@ -76,8 +76,8 @@ class NumberLinkGameScene: GameScene<NumberLinkGameState> {
                     }
                     let (o1, o2) = (stateFrom[p][dir], stateTo[p][dir])
                     guard o1 != o2 else {continue}
-                    if o1 {removeLine()}
-                    if o2 {addLine()}
+                    if o1 { removeLine() }
+                    if o2 { addLine() }
                  }
             }
         }

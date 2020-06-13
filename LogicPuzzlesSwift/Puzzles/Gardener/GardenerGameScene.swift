@@ -10,8 +10,8 @@ import SpriteKit
 
 class GardenerGameScene: GameScene<GardenerGameState> {
     var gridNode: GardenerGridNode {
-        get {getGridNode() as! GardenerGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! GardenerGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
@@ -152,13 +152,13 @@ class GardenerGameScene: GameScene<GardenerGameState> {
                 }
                 let (b1, b2) = (stateFrom.invalidSpacesHorz.contains(p), stateTo.invalidSpacesHorz.contains(p))
                 if b1 != b2 {
-                    if !b1 {addHint2(p: p, isHorz: true, s: .error, point: point)}
-                    if !b2 {removeNode(withName: hintNodeName(isHorz: true))}
+                    if !b1 { addHint2(p: p, isHorz: true, s: .error, point: point) }
+                    if !b2 { removeNode(withName: hintNodeName(isHorz: true)) }
                 }
                 let (b3, b4) = (stateFrom.invalidSpacesVert.contains(p), stateTo.invalidSpacesVert.contains(p))
                 if b3 != b4 {
-                    if !b3 {addHint2(p: p, isHorz: false, s: .error, point: point)}
-                    if !b4 {removeNode(withName: hintNodeName(isHorz: false))}
+                    if !b3 { addHint2(p: p, isHorz: false, s: .error, point: point) }
+                    if !b4 { removeNode(withName: hintNodeName(isHorz: false)) }
                 }
             }
         }

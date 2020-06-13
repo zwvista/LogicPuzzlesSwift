@@ -11,8 +11,8 @@ import Foundation
 class BalancedTapasGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: BalancedTapasGame {
-        get {getGame() as! BalancedTapasGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! BalancedTapasGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: BalancedTapasDocument { BalancedTapasDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { BalancedTapasDocument.sharedInstance }
@@ -50,8 +50,8 @@ class BalancedTapasGameState: GridGameState {
     func setObject(move: inout BalancedTapasGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 {return false}
-        guard String(describing: o1) != String(describing: o2) else {return false}
+        if case .hint = o1 { return false }
+        guard String(describing: o1) != String(describing: o2) else { return false }
         self[p] = o2
         updateIsSolved()
         return true
@@ -89,7 +89,7 @@ class BalancedTapasGameState: GridGameState {
     private func updateIsSolved() {
         isSolved = true
         func computeHint(filled: [Int]) -> [Int] {
-            if filled.isEmpty {return [0]}
+            if filled.isEmpty { return [0] }
             var hint = [Int]()
             for j in 0..<filled.count {
                 if j == 0 || filled[j] - filled[j - 1] != 1 {
@@ -104,8 +104,8 @@ class BalancedTapasGameState: GridGameState {
             return hint.sorted()
         }
         func isCompatible(computedHint: [Int], givenHint: [Int]) -> Bool {
-            if computedHint == givenHint {return true}
-            if computedHint.count != givenHint.count {return false}
+            if computedHint == givenHint { return true }
+            if computedHint.count != givenHint.count { return false }
             let h1 = Set(computedHint)
             var h2 = Set(givenHint)
             h2.remove(-1)
@@ -119,7 +119,7 @@ class BalancedTapasGameState: GridGameState {
             let arr = computeHint(filled: filled)
             let s: HintState = arr == [0] ? .normal : isCompatible(computedHint: arr, givenHint: arr2) ? .complete : .error
             self[p] = .hint(state: s)
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
         guard isSolved else {return}
         for r in 0..<rows - 1 {
@@ -127,8 +127,8 @@ class BalancedTapasGameState: GridGameState {
                 let p = Position(r, c)
                 if BalancedTapasGame.offset2.testAll({os in
                     let o = self[p + os]
-                    if case .wall = o {return true} else {return false}
-                }) {isSolved = false; return}
+                    if case .wall = o { return true } else { return false }
+                }) { isSolved = false; return }
             }
         }
         let g = Graph()
@@ -155,17 +155,17 @@ class BalancedTapasGameState: GridGameState {
             }
         }
         let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
-        if rngWalls.count != nodesExplored.count {isSolved = false; return}
+        if rngWalls.count != nodesExplored.count { isSolved = false; return }
         func computeWalls(from: Int, to: Int) -> Int {
             var n = 0
             for c in from..<to {
                 for r in 0..<rows {
-                    if case .wall = self[r, c] {n += 1}
+                    if case .wall = self[r, c] { n += 1 }
                 }
             }
             return n
         }
         let (n1, n2) = (computeWalls(from: 0, to: game.left), computeWalls(from: game.right, to: cols))
-        if n1 != n2 {isSolved = false}
+        if n1 != n2 { isSolved = false }
     }
 }

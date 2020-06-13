@@ -11,8 +11,8 @@ import Foundation
 class MagnetsGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: MagnetsGame {
-        get {getGame() as! MagnetsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! MagnetsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: MagnetsDocument { MagnetsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { MagnetsDocument.sharedInstance }
@@ -52,7 +52,7 @@ class MagnetsGameState: GridGameState {
     
     func setObject(move: inout MagnetsGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && !game.singles.contains(p) && self[p] != move.obj else {return false}
+        guard isValid(p: p) && !game.singles.contains(p) && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -73,7 +73,7 @@ class MagnetsGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) else { return false }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -112,7 +112,7 @@ class MagnetsGameState: GridGameState {
             }
             row2state[r * 2] = np1 < np2 ? .normal : np1 == np2 ? .complete : .error
             row2state[r * 2 + 1] = nn1 < nn2 ? .normal : nn1 == nn2 ? .complete : .error
-            if np1 != np2 || nn1 != nn2 {isSolved = false}
+            if np1 != np2 || nn1 != nn2 { isSolved = false }
         }
         // 3. The number on the board tells you how many positive and negative poles
         // you can see from there in a straight line.
@@ -131,7 +131,7 @@ class MagnetsGameState: GridGameState {
             }
             col2state[c * 2] = np1 < np2 ? .normal : np1 == np2 ? .complete : .error
             col2state[c * 2 + 1] = nn1 < nn2 ? .normal : nn1 == nn2 ? .complete : .error
-            if np1 != np2 || nn1 != nn2 {isSolved = false}
+            if np1 != np2 || nn1 != nn2 { isSolved = false }
         }
         guard isSolved else {return}
         // 2. Every rectangle can either contain a Magnet or be empty.

@@ -14,12 +14,12 @@ class LitsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = LitsGameState
 
     var scene: LitsGameScene {
-        get {return getScene() as! LitsGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! LitsGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: LitsGame {
-        get {getGame() as! LitsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! LitsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: LitsDocument { LitsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { LitsDocument.sharedInstance }
@@ -53,10 +53,10 @@ class LitsGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = LitsGame(layout: level.layout, delegate: self)
         
         // restore game state

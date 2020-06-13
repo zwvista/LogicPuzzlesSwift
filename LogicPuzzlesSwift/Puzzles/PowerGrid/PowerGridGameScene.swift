@@ -10,8 +10,8 @@ import SpriteKit
 
 class PowerGridGameScene: GameScene<PowerGridGameState> {
     var gridNode: PowerGridGridNode {
-        get {getGridNode() as! PowerGridGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! PowerGridGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(p: Position, n: Int, s: HintState) {

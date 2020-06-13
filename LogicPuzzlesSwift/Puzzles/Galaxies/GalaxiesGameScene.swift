@@ -10,8 +10,8 @@ import SpriteKit
 
 class GalaxiesGameScene: GameScene<GalaxiesGameState> {
     var gridNode: GalaxiesGridNode {
-        get {getGridNode() as! GalaxiesGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! GalaxiesGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addGalaxy(s: HintState, point: CGPoint, nodeName: String) {
@@ -39,8 +39,8 @@ class GalaxiesGameScene: GameScene<GalaxiesGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
-                if game[r, c][1] == .line {addHorzLine(objType: .line, color: .white, point: point, nodeName: "line")}
-                if game[r, c][2] == .line {addVertLine(objType: .line, color: .white, point: point, nodeName: "line")}
+                if game[r, c][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                if game[r, c][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
             }
         }
     }

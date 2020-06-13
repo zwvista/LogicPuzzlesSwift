@@ -14,12 +14,12 @@ class LighthousesGameViewController: GameGameViewController, GameDelegate {
     typealias GS = LighthousesGameState
 
     var scene: LighthousesGameScene {
-        get {return getScene() as! LighthousesGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! LighthousesGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: LighthousesGame {
-        get {getGame() as! LighthousesGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! LighthousesGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: LighthousesDocument { LighthousesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { LighthousesDocument.sharedInstance }
@@ -53,10 +53,10 @@ class LighthousesGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = LighthousesGame(layout: level.layout, delegate: self)
         
         // restore game state

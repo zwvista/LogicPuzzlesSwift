@@ -11,8 +11,8 @@ import Foundation
 class ProductSentinelsGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: ProductSentinelsGame {
-        get {getGame() as! ProductSentinelsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! ProductSentinelsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: ProductSentinelsDocument { ProductSentinelsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { ProductSentinelsDocument.sharedInstance }
@@ -50,8 +50,8 @@ class ProductSentinelsGameState: GridGameState {
     func setObject(move: inout ProductSentinelsGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 {return false}
-        guard String(describing: o1) != String(describing: o2) else {return false}
+        if case .hint = o1 { return false }
+        guard String(describing: o1) != String(describing: o2) else { return false }
         self[p] = o2
         updateIsSolved()
         return true
@@ -128,7 +128,7 @@ class ProductSentinelsGameState: GridGameState {
                 func hasNeighbor() -> Bool {
                     for os in ProductSentinelsGame.offset {
                         let p2 = p + os
-                        if isValid(p: p2), case .tower = self[p2] {return true}
+                        if isValid(p: p2), case .tower = self[p2] { return true }
                     }
                     return false
                 }
@@ -179,6 +179,6 @@ class ProductSentinelsGameState: GridGameState {
         guard isSolved else {return}
         // 4. There must be a single continuous Garden
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if pos2node.count != nodesExplored.count {isSolved = false}
+        if pos2node.count != nodesExplored.count { isSolved = false }
     }
 }

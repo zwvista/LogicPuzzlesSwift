@@ -10,8 +10,8 @@ import SpriteKit
 
 class DominoGameScene: GameScene<DominoGameState> {
     var gridNode: DominoGridNode {
-        get {getGridNode() as! DominoGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! DominoGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     override func levelInitialized(_ game: AnyObject, state: DominoGameState, skView: SKView) {
@@ -33,8 +33,8 @@ class DominoGameScene: GameScene<DominoGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
-                if game[r, c][1] == .line {addHorzLine(objType: .line, color: .white, point: point, nodeName: "line")}
-                if game[r, c][2] == .line {addVertLine(objType: .line, color: .white, point: point, nodeName: "line")}
+                if game[r, c][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                if game[r, c][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
             }
         }
     }

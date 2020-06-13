@@ -38,7 +38,7 @@ class RobotCrosswordsGame: GridGame<RobotCrosswordsGameViewController> {
             guard !area.isEmpty else {return}
             if area.count > 1 {
                 areas.append(area)
-                if isHorz {horzAreaCount += 1}
+                if isHorz { horzAreaCount += 1 }
             }
             area.removeAll()
         }
@@ -79,11 +79,11 @@ class RobotCrosswordsGame: GridGame<RobotCrosswordsGameViewController> {
     }
 
     func switchObject(move: inout RobotCrosswordsGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
     }
     
     func setObject(move: inout RobotCrosswordsGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
     }
     
 }

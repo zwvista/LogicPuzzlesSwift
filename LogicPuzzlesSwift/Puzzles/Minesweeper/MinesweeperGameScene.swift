@@ -10,8 +10,8 @@ import SpriteKit
 
 class MinesweeperGameScene: GameScene<MinesweeperGameState> {
     var gridNode: MinesweeperGridNode {
-        get {getGridNode() as! MinesweeperGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! MinesweeperGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {

@@ -10,8 +10,8 @@ import SpriteKit
 
 class CloudsGameScene: GameScene<CloudsGameState> {
     var gridNode: CloudsGridNode {
-        get {getGridNode() as! CloudsGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! CloudsGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addCloud(color: SKColor, point: CGPoint, nodeName: String) {

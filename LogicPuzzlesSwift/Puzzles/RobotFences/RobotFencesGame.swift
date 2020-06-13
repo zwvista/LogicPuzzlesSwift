@@ -80,7 +80,7 @@ class RobotFencesGame: GridGame<RobotFencesGameViewController> {
         while !rng.isEmpty {
             let node = pos2node[rng.first!]!
             let nodesExplored = breadthFirstSearch(g, source: node)
-            let area = [Position](rng.filter{nodesExplored.contains($0.description)})
+            let area = [Position](rng.filter{ nodesExplored.contains($0.description) })
             let n = areas.count
             for p in area {
                 pos2area[p] = n
@@ -103,11 +103,11 @@ class RobotFencesGame: GridGame<RobotFencesGameViewController> {
     }
 
     func switchObject(move: inout RobotFencesGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
     }
     
     func setObject(move: inout RobotFencesGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
     }
     
 }

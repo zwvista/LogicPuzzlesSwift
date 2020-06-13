@@ -10,8 +10,8 @@ import SpriteKit
 
 class BWTapaGameScene: GameScene<BWTapaGameState> {
     var gridNode: BWTapaGridNode {
-        get {getGridNode() as! BWTapaGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! BWTapaGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(arr: [Int], s: HintState, point: CGPoint, nodeName: String) {

@@ -11,8 +11,8 @@ import Foundation
 class RobotFencesGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: RobotFencesGame {
-        get {getGame() as! RobotFencesGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! RobotFencesGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: RobotFencesDocument { RobotFencesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { RobotFencesDocument.sharedInstance }
@@ -60,7 +60,7 @@ class RobotFencesGameState: GridGameState {
 
     func setObject(move: inout RobotFencesGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else {return false}
+        guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -68,7 +68,7 @@ class RobotFencesGameState: GridGameState {
     
     func switchObject(move: inout RobotFencesGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] == 0 else {return false}
+        guard isValid(p: p) && game[p] == 0 else { return false }
         let o = self[p]
         move.obj = (o + 1) % (cols + 1)
         return setObject(move: &move)
@@ -92,19 +92,19 @@ class RobotFencesGameState: GridGameState {
             let nums2 = Set<Int>(nums).sorted()
             // 2. Numbers can only be in range 1 to N where N is the board size.
             s = nums2.first! == 0 ? .normal : nums2.count == nums.count ? .complete : .error
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
         // 3. No same number can appear in the same row.
         for r in 0..<rows {
-            f(nums: (0..<cols).map{self[r, $0]}, s: &row2state[r])
+            f(nums: (0..<cols).map{ self[r, $0] }, s: &row2state[r])
         }
         // 3. No same number can appear in the same column.
         for c in 0..<cols {
-            f(nums: (0..<rows).map{self[$0, c]}, s: &col2state[c])
+            f(nums: (0..<rows).map{ self[$0, c] }, s: &col2state[c])
         }
         // 1. You need to fill each region with a randomly ordered sequence of numbers.
         for i in 0..<game.areas.count {
-            f(nums: game.areas[i].map{self[$0]}, s: &area2state[i])
+            f(nums: game.areas[i].map{ self[$0] }, s: &area2state[i])
         }
     }
 }

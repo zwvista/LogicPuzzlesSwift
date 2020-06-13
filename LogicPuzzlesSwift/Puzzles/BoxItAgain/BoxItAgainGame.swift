@@ -69,11 +69,11 @@ class BoxItAgainGame: GridGame<BoxItAgainGameViewController> {
     }
     
     func switchObject(move: inout BoxItAgainGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
     }
     
     func setObject(move: inout BoxItAgainGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
     }
     
 }

@@ -10,8 +10,8 @@ import SpriteKit
 
 class MiniLitsGameScene: GameScene<MiniLitsGameState> {
     var gridNode: MiniLitsGridNode {
-        get {getGridNode() as! MiniLitsGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! MiniLitsGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
 
     override func levelInitialized(_ game: AnyObject, state: MiniLitsGameState, skView: SKView) {

@@ -14,12 +14,12 @@ class BridgesGameViewController: GameGameViewController, GameDelegate {
     typealias GS = BridgesGameState
 
     var scene: BridgesGameScene {
-        get {return getScene() as! BridgesGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! BridgesGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: BridgesGame {
-        get {getGame() as! BridgesGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! BridgesGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: BridgesDocument { BridgesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { BridgesDocument.sharedInstance }
@@ -68,10 +68,10 @@ class BridgesGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = BridgesGame(layout: level.layout, delegate: self)
         
         // restore game state

@@ -33,7 +33,7 @@ class NoughtsAndCrossesGame: GridGame<NoughtsAndCrossesGameViewController> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let ch = str[c]
-                if ch == "O" {noughts.insert(p)}
+                if ch == "O" { noughts.insert(p) }
                 self[r, c] = ch == "O" ? " " : ch
             }
         }
@@ -52,11 +52,11 @@ class NoughtsAndCrossesGame: GridGame<NoughtsAndCrossesGameViewController> {
     }
 
     func switchObject(move: inout NoughtsAndCrossesGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
     }
     
     func setObject(move: inout NoughtsAndCrossesGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
     }
     
 }

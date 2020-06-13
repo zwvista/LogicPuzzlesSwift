@@ -11,8 +11,8 @@ import Foundation
 class FenceLitsGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: FenceLitsGame {
-        get {getGame() as! FenceLitsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! FenceLitsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: FenceLitsDocument { FenceLitsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { FenceLitsDocument.sharedInstance }
@@ -62,9 +62,9 @@ class FenceLitsGameState: GridGameState {
         }
         let dir = move.dir, dir2 = (dir + 2) % 4
         let p = move.p, p2 = p + FenceLitsGame.offset[dir]
-        guard isValid(p: p2) && game[p][dir] == .empty else {return false}
+        guard isValid(p: p2) && game[p][dir] == .empty else { return false }
         f(o1: &self[p][dir], o2: &self[p2][dir2])
-        if changed {updateIsSolved()}
+        if changed { updateIsSolved() }
         return changed
     }
     
@@ -107,10 +107,10 @@ class FenceLitsGameState: GridGameState {
         for (p, n2) in game.pos2hint {
             var n1 = 0
             for i in 0..<4 {
-                if self[p + FenceLitsGame.offset2[i]][FenceLitsGame.dirs[i]] == .line {n1 += 1}
+                if self[p + FenceLitsGame.offset2[i]][FenceLitsGame.dirs[i]] == .line { n1 += 1 }
             }
             pos2state[p] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 {isSolved = false}
+            if n1 != n2 { isSolved = false }
         }
         let g = Graph()
         var pos2node = [Position: Node]()
@@ -134,15 +134,15 @@ class FenceLitsGameState: GridGameState {
         // square one (differently from LITS).
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter{nodesExplored.contains($0.0.description)}.map{$0.0}.sorted()
-            guard area.count == 4 else {isSolved = false; return}
+            let area = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }.sorted()
+            guard area.count == 4 else { isSolved = false; return }
             var areaOffsets = [Position]()
-            let p2 = Position(area.min(by: {$0.row < $1.row})!.row, area.min(by: {$0.col < $1.col})!.col)
+            let p2 = Position(area.min(by: { $0.row < $1.row })!.row, area.min(by: { $0.col < $1.col })!.col)
             for p in area {
                 areaOffsets.append(p - p2)
             }
-            guard FenceLitsGame.tetrominoes.contains(where: {$0 == areaOffsets}) else {isSolved = false; return}
-            pos2node = pos2node.filter{!nodesExplored.contains($0.0.description)}
+            guard FenceLitsGame.tetrominoes.contains(where: { $0 == areaOffsets }) else { isSolved = false; return }
+            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
         }
     }
 }

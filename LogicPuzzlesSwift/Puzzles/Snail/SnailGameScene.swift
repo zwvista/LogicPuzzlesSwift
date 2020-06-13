@@ -10,8 +10,8 @@ import SpriteKit
 
 class SnailGameScene: GameScene<SnailGameState> {
     var gridNode: SnailGridNode {
-        get {getGridNode() as! SnailGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! SnailGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(p: Position) {
@@ -62,17 +62,17 @@ class SnailGameScene: GameScene<SnailGameState> {
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let charNodeName = "char" + nodeNameSuffix
                 addLabel(text: String(ch), fontColor: .gray, point: point, nodeName: charNodeName)
-                if state.pos2state[p] == .complete {addSnailMarker(p: p)}
+                if state.pos2state[p] == .complete { addSnailMarker(p: p) }
             }
         }
         
         for r in 0..<game.rows {
             let p = Position(r, game.cols)
-            if state.row2state[r] == .error {addHint(p: p)}
+            if state.row2state[r] == .error { addHint(p: p) }
         }
         for c in 0..<game.cols {
             let p = Position(game.rows, c)
-            if state.col2state[c] == .error {addHint(p: p)}
+            if state.col2state[c] == .error { addHint(p: p) }
         }
     }
     
@@ -85,15 +85,15 @@ class SnailGameScene: GameScene<SnailGameState> {
         for r in 0..<stateFrom.rows {
             let p = Position(r, stateFrom.cols)
             if stateFrom.row2state[r] != stateTo.row2state[r] {
-                if stateFrom.row2state[r] == .error {removeHint(p: p)}
-                if stateTo.row2state[r] == .error {addHint(p: p)}
+                if stateFrom.row2state[r] == .error { removeHint(p: p) }
+                if stateTo.row2state[r] == .error { addHint(p: p) }
             }
         }
         for c in 0..<stateFrom.cols {
             let p = Position(stateFrom.rows, c)
             if stateFrom.col2state[c] != stateTo.col2state[c] {
-                if stateFrom.col2state[c] == .error {removeHint(p: p)}
-                if stateTo.col2state[c] == .error {addHint(p: p)}
+                if stateFrom.col2state[c] == .error { removeHint(p: p) }
+                if stateTo.col2state[c] == .error { addHint(p: p) }
             }
         }
         for r in 0..<stateFrom.rows {
@@ -122,8 +122,8 @@ class SnailGameScene: GameScene<SnailGameState> {
                     }
                 }
                 if s1 != s2 {
-                    if s1 == .complete {removeSnailMarker()}
-                    if s2 == .complete {addSnailMarker(p: p)}
+                    if s1 == .complete { removeSnailMarker() }
+                    if s2 == .complete { addSnailMarker(p: p) }
                 }
             }
         }

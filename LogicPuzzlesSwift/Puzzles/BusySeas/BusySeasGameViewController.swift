@@ -14,12 +14,12 @@ class BusySeasGameViewController: GameGameViewController, GameDelegate {
     typealias GS = BusySeasGameState
 
     var scene: BusySeasGameScene {
-        get {return getScene() as! BusySeasGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! BusySeasGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: BusySeasGame {
-        get {getGame() as! BusySeasGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! BusySeasGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: BusySeasDocument { BusySeasDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { BusySeasDocument.sharedInstance }
@@ -53,10 +53,10 @@ class BusySeasGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = BusySeasGame(layout: level.layout, delegate: self)
         
         // restore game state

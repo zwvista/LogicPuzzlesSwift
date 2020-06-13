@@ -11,8 +11,8 @@ import Foundation
 class TapDifferentlyGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: TapDifferentlyGame {
-        get {getGame() as! TapDifferentlyGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! TapDifferentlyGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: TapDifferentlyDocument { TapDifferentlyDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TapDifferentlyDocument.sharedInstance }
@@ -50,8 +50,8 @@ class TapDifferentlyGameState: GridGameState {
     func setObject(move: inout TapDifferentlyGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 {return false}
-        guard String(describing: o1) != String(describing: o2) else {return false}
+        if case .hint = o1 { return false }
+        guard String(describing: o1) != String(describing: o2) else { return false }
         self[p] = o2
         updateIsSolved()
         return true
@@ -92,7 +92,7 @@ class TapDifferentlyGameState: GridGameState {
         // tile has more than one number, it hints at multiple separated groups
         // of filled tiles.
         func computeHint(filled: [Int]) -> [Int] {
-            if filled.isEmpty {return [0]}
+            if filled.isEmpty { return [0] }
             var hint = [Int]()
             for j in 0..<filled.count {
                 if j == 0 || filled[j] - filled[j - 1] != 1 {
@@ -107,8 +107,8 @@ class TapDifferentlyGameState: GridGameState {
             return hint.sorted()
         }
         func isCompatible(computedHint: [Int], givenHint: [Int]) -> Bool {
-            if computedHint == givenHint {return true}
-            if computedHint.count != givenHint.count {return false}
+            if computedHint == givenHint { return true }
+            if computedHint.count != givenHint.count { return false }
             let h1 = Set(computedHint)
             var h2 = Set(givenHint)
             h2.remove(-1)
@@ -122,7 +122,7 @@ class TapDifferentlyGameState: GridGameState {
             let arr = computeHint(filled: filled)
             let s: HintState = arr == [0] ? .normal : isCompatible(computedHint: arr, givenHint: arr2) ? .complete : .error
             self[p] = .hint(state: s)
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
         guard isSolved else {return}
         // Filled tiles can't cover an area of 2*2 or larger (just like Nurikabe).
@@ -132,8 +132,8 @@ class TapDifferentlyGameState: GridGameState {
                 let p = Position(r, c)
                 if TapDifferentlyGame.offset2.testAll({os in
                     let o = self[p + os]
-                    if case .wall = o {return true} else {return false}
-                }) {isSolved = false; return}
+                    if case .wall = o { return true } else { return false }
+                }) { isSolved = false; return }
             }
         }
         let g = Graph()
@@ -141,7 +141,7 @@ class TapDifferentlyGameState: GridGameState {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if case .wall = self[p] {pos2node[p] = g.addNode(p.description)}
+                if case .wall = self[p] { pos2node[p] = g.addNode(p.description) }
             }
         }
         for (p, node) in pos2node {
@@ -154,26 +154,26 @@ class TapDifferentlyGameState: GridGameState {
         // The goal is to fill some tiles forming a single orthogonally continuous
         // path. Just like Nurikabe.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count {isSolved = false; return}
+        if nodesExplored.count != pos2node.count { isSolved = false; return }
         // 2. Each row must have a different number of filled cells.
         var nums = Set<Int>()
         for r in 0..<rows {
             var n = 0
             for c in 0..<cols {
-                if case .wall = self[r, c] {n += 1}
+                if case .wall = self[r, c] { n += 1 }
             }
             nums.insert(n)
         }
-        if nums.count != rows {isSolved = false; return}
+        if nums.count != rows { isSolved = false; return }
         // 3. Each column must have a different number of filled cells.
         nums.removeAll()
         for c in 0..<cols {
             var n = 0
             for r in 0..<rows {
-                if case .wall = self[r, c] {n += 1}
+                if case .wall = self[r, c] { n += 1 }
             }
             nums.insert(n)
         }
-        if nums.count != cols {isSolved = false}
+        if nums.count != cols { isSolved = false }
     }
 }

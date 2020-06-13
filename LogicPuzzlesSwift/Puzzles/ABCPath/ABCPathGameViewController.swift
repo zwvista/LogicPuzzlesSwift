@@ -14,12 +14,12 @@ class ABCPathGameViewController: GameGameViewController, GameDelegate {
     typealias GS = ABCPathGameState
 
     var scene: ABCPathGameScene {
-        get {return getScene() as! ABCPathGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! ABCPathGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: ABCPathGame {
-        get {getGame() as! ABCPathGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! ABCPathGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: ABCPathDocument { ABCPathDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { ABCPathDocument.sharedInstance }
@@ -53,10 +53,10 @@ class ABCPathGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = ABCPathGame(layout: level.layout, delegate: self)
         
         // restore game state

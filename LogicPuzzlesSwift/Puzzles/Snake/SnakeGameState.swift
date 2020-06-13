@@ -11,8 +11,8 @@ import Foundation
 class SnakeGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: SnakeGame {
-        get {getGame() as! SnakeGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! SnakeGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: SnakeDocument { SnakeDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { SnakeDocument.sharedInstance }
@@ -55,7 +55,7 @@ class SnakeGameState: GridGameState {
     
     func setObject(move: inout SnakeGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && !game.pos2snake.contains(p) && self[p] != move.obj else {return false}
+        guard isValid(p: p) && !game.pos2snake.contains(p) && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -76,7 +76,7 @@ class SnakeGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p) && !game.pos2snake.contains(p) else {return false}
+        guard isValid(p: p) && !game.pos2snake.contains(p) else { return false }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -100,7 +100,7 @@ class SnakeGameState: GridGameState {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                if self[r, c] == .forbidden {self[r, c] = .empty}
+                if self[r, c] == .forbidden { self[r, c] = .empty }
             }
         }
         // 3. Numbers on the border tell you how many tiles the snake occupies in that row.
@@ -109,11 +109,11 @@ class SnakeGameState: GridGameState {
             guard n2 != -1 else {continue}
             var n1 = 0
             for c in 0..<cols {
-                if self[r, c] == .snake {n1 += 1}
+                if self[r, c] == .snake { n1 += 1 }
             }
             let s: HintState = n1 < n2 ? .normal : n1 == n2 || n2 == -1 ? .complete : .error
             row2state[r] = s
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
         // 3. Numbers on the border tell you how many tiles the snake occupies in that column.
         for c in 0..<cols {
@@ -121,17 +121,17 @@ class SnakeGameState: GridGameState {
             guard n2 != -1 else {continue}
             var n1 = 0
             for r in 0..<rows {
-                if self[r, c] == .snake {n1 += 1}
+                if self[r, c] == .snake { n1 += 1 }
             }
             let s: HintState = n1 < n2 ? .normal : n1 == n2 || n2 == -1 ? .complete : .error
             col2state[c] = s
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
         for r in 0..<rows {
             for c in 0..<cols {
                 switch self[r, c] {
                 case .empty, .marker:
-                    if allowedObjectsOnly && (row2state[r] != .normal && game.row2hint[r] != -1 || col2state[c] != .normal && game.col2hint[c] != -1) {self[r, c] = .forbidden}
+                    if allowedObjectsOnly && (row2state[r] != .normal && game.row2hint[r] != -1 || col2state[c] != .normal && game.col2hint[c] != -1) { self[r, c] = .forbidden }
                 default:
                     break
                 }
@@ -155,7 +155,7 @@ class SnakeGameState: GridGameState {
             }
         }
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count {isSolved = false}
+        if nodesExplored.count != pos2node.count { isSolved = false }
         for p in pos2node.keys {
             var (rngEmpty, rngSnake) = ([Position](), [Position]())
             for os in SnakeGame.offset {
@@ -176,9 +176,9 @@ class SnakeGameState: GridGameState {
             let cnt = rngSnake.count
             if b && cnt >= 1 || !b && cnt >= 2 {
                 for p2 in rngEmpty {
-                    if allowedObjectsOnly {self[p2] = .forbidden}
+                    if allowedObjectsOnly { self[p2] = .forbidden }
                 }
-                if b && cnt > 1 || !b && cnt > 2 {isSolved = false}
+                if b && cnt > 1 || !b && cnt > 2 { isSolved = false }
             }
         }
     }

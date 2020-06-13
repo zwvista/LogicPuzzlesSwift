@@ -22,7 +22,7 @@ class BridgesGame: GridGame<BridgesGameViewController> {
     ]
     
     var islandsInfo = [Position: IslandInfo]()
-    func isIsland(p: Position) -> Bool {return islandsInfo[p] != nil}
+    func isIsland(p: Position) -> Bool { return islandsInfo[p] != nil }
     
     init(layout: [String], delegate: BridgesGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -59,9 +59,9 @@ class BridgesGame: GridGame<BridgesGameViewController> {
     
     func switchBridges(move: inout BridgesGameMove) -> Bool {
         var pFrom = move.pFrom, pTo = move.pTo
-        guard let o = islandsInfo[pFrom], let _ = o.neighbors.filter({$0 == pTo}).first else {return false}
+        guard let o = islandsInfo[pFrom], let _ = o.neighbors.filter({ $0 == pTo }).first else { return false }
         return changeObject(move: &move) { state, move in
-            if pTo < pFrom {swap(&pFrom, &pTo)}
+            if pTo < pFrom { swap(&pFrom, &pTo) }
             let move = BridgesGameMove(pFrom: pFrom, pTo: pTo)
             return state.switchBridges(move: move)
         }

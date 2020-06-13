@@ -10,8 +10,8 @@ import SpriteKit
 
 class HolidayIslandGameScene: GameScene<HolidayIslandGameState> {
     var gridNode: HolidayIslandGridNode {
-        get {getGridNode() as! HolidayIslandGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! HolidayIslandGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(p: Position, n: Int, s: HintState) {

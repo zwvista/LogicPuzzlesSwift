@@ -21,7 +21,7 @@ class SkyscrapersGame: GridGame<SkyscrapersGameViewController> {
     }
 
     var objArray = [Int]()
-    var intMax: Int {return rows - 2}
+    var intMax: Int { return rows - 2 }
     subscript(p: Position) -> Int {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
@@ -51,11 +51,11 @@ class SkyscrapersGame: GridGame<SkyscrapersGameViewController> {
     }
     
     func switchObject(move: inout SkyscrapersGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
     }
     
     func setObject(move: inout SkyscrapersGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
     }
     
 }

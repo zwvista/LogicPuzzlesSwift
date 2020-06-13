@@ -10,8 +10,8 @@ import SpriteKit
 
 class NumberCrosswordsGameScene: GameScene<NumberCrosswordsGameState> {
     var gridNode: NumberCrosswordsGridNode {
-        get {getGridNode() as! NumberCrosswordsGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! NumberCrosswordsGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addNumber(n: String, s: HintState, point: CGPoint, nodeName: String) {

@@ -14,12 +14,12 @@ class TheOddBrickGameViewController: GameGameViewController, GameDelegate {
     typealias GS = TheOddBrickGameState
 
     var scene: TheOddBrickGameScene {
-        get {return getScene() as! TheOddBrickGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! TheOddBrickGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: TheOddBrickGame {
-        get {getGame() as! TheOddBrickGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! TheOddBrickGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: TheOddBrickDocument { TheOddBrickDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TheOddBrickDocument.sharedInstance }
@@ -53,10 +53,10 @@ class TheOddBrickGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = TheOddBrickGame(layout: level.layout, delegate: self)
         
         // restore game state

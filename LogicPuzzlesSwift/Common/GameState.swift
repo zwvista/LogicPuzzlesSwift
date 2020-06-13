@@ -9,7 +9,7 @@
 import Foundation
 
 protocol GameStateBase: Copyable {
-    var isSolved: Bool {get}
+    var isSolved: Bool { get }
 }
 
 class GameState: GameStateBase {
@@ -31,8 +31,8 @@ class GameState: GameStateBase {
 class GridGameState: GameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     private weak var game: GridGameBase?
-    func getGame() -> GridGameBase? {return game}
-    func setGame(game: GridGameBase) {self.game = game}
+    func getGame() -> GridGameBase? { return game }
+    func setGame(game: GridGameBase) { self.game = game }
     private var gameDocument: GameDocumentBase! { return getGameDocument() }
     func getGameDocument() -> GameDocumentBase! { return nil }
     var gameOptions: GameProgress { return gameDocument.gameProgress }

@@ -11,8 +11,8 @@ import Foundation
 class BattleShipsGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: BattleShipsGame {
-        get {getGame() as! BattleShipsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! BattleShipsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: BattleShipsDocument { BattleShipsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { BattleShipsDocument.sharedInstance }
@@ -55,7 +55,7 @@ class BattleShipsGameState: GridGameState {
     
     func setObject(move: inout BattleShipsGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game.pos2obj[p] == nil && self[p] != move.obj else {return false}
+        guard isValid(p: p) && game.pos2obj[p] == nil && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -86,7 +86,7 @@ class BattleShipsGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) else { return false }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -119,7 +119,7 @@ class BattleShipsGameState: GridGameState {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                if self[r, c] == .forbidden {self[r, c] = .empty}
+                if self[r, c] == .forbidden { self[r, c] = .empty }
             }
         }
         // 2. Each number tells you how many ship or ship pieces you're seeing in that row.
@@ -127,26 +127,26 @@ class BattleShipsGameState: GridGameState {
             var n1 = 0
             let n2 = game.row2hint[r]
             for c in 0..<cols {
-                if self[r, c].isShipPiece() {n1 += 1}
+                if self[r, c].isShipPiece() { n1 += 1 }
             }
             row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 {isSolved = false}
+            if n1 != n2 { isSolved = false }
         }
         // 2. Each number tells you how many ship or ship pieces you're seeing in that column.
         for c in 0..<cols {
             var n1 = 0
             let n2 = game.col2hint[c]
             for r in 0..<rows {
-                if self[r, c].isShipPiece() {n1 += 1}
+                if self[r, c].isShipPiece() { n1 += 1 }
             }
             col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 {isSolved = false}
+            if n1 != n2 { isSolved = false }
         }
         for r in 0..<rows {
             for c in 0..<cols {
                 switch self[r, c] {
                 case .empty, .marker:
-                    if allowedObjectsOnly && (row2state[r] != .normal || col2state[c] != .normal) {self[r, c] = .forbidden}
+                    if allowedObjectsOnly && (row2state[r] != .normal || col2state[c] != .normal) { self[r, c] = .forbidden }
                 default:
                     break
                 }
@@ -173,12 +173,12 @@ class BattleShipsGameState: GridGameState {
         var shipNumbers = Array<Int>(repeating: 0, count: 5)
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter{nodesExplored.contains($0.0.description)}.map({$0.0}).sorted()
-            pos2node = pos2node.filter{!nodesExplored.contains($0.0.description)}
+            let area = pos2node.filter{ nodesExplored.contains($0.0.description) }.map({ $0.0 }).sorted()
+            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
             guard area.count == 1 && self[area.first!] == .battleShipUnit || area.count > 1 && area.count < 5 && (
-                area.testAll({$0.row == area.first!.row}) && self[area.first!] == .battleShipLeft && self[area.last!] == .battleShipRight ||
-                area.testAll({$0.col == area.first!.col}) && self[area.first!] == .battleShipTop && self[area.last!] == .battleShipBottom) &&
-                [Int](1..<area.count - 1).testAll({self[area[$0]] == .battleShipMiddle}) else {isSolved = false; continue}
+                area.testAll({ $0.row == area.first!.row }) && self[area.first!] == .battleShipLeft && self[area.last!] == .battleShipRight ||
+                area.testAll({ $0.col == area.first!.col }) && self[area.first!] == .battleShipTop && self[area.last!] == .battleShipBottom) &&
+                [Int](1..<area.count - 1).testAll({ self[area[$0]] == .battleShipMiddle }) else { isSolved = false; continue }
             for p in area {
                 for os in BattleShipsGame.offset {
                     // 3. A ship or piece of ship can't touch another, not even diagonally.
@@ -198,6 +198,6 @@ class BattleShipsGameState: GridGameState {
         //    2 Destroyers (3 squares)
         //    3 Submarines (2 squares)
         //    4 Patrol boats (1 square)
-        if shipNumbers != [0, 4, 3, 2, 1] {isSolved = false}
+        if shipNumbers != [0, 4, 3, 2, 1] { isSolved = false }
     }
 }

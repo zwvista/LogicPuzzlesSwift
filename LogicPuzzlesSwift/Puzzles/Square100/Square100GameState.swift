@@ -11,8 +11,8 @@ import Foundation
 class Square100GameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: Square100Game {
-        get {getGame() as! Square100Game}
-        set {setGame(game: newValue)}
+        get { getGame() as! Square100Game }
+        set { setGame(game: newValue) }
     }
     var gameDocument: Square100Document { Square100Document.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { Square100Document.sharedInstance }
@@ -52,7 +52,7 @@ class Square100GameState: GridGameState {
     
     func setObject(move: inout Square100GameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else {return false}
+        guard isValid(p: p) && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -61,7 +61,7 @@ class Square100GameState: GridGameState {
     func switchObject(move: inout Square100GameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) else { return false }
         let n = self[p]
         var o = n[move.isRightPart ? 2 : 0]
         o =
@@ -69,7 +69,7 @@ class Square100GameState: GridGameState {
             o == "." ? markerOption == .markerFirst ? "0" : " " :
             o == "9" ? markerOption == .markerLast ? "." : " " :
             succ(ch: o)
-        if !move.isRightPart && o == "0" {o = "1"}
+        if !move.isRightPart && o == "0" { o = "1" }
         move.obj = move.isRightPart ? n[0...1] + String(o) :
             String(o) + n[1...2]
         return setObject(move: &move)
@@ -93,8 +93,8 @@ class Square100GameState: GridGameState {
             let o = self[r, c]
             var n = o[1].toInt!
             // 3. You can add digits before or after the given one.
-            if "0"..."9" ~= o[0] {n += o[0].toInt! * 10}
-            if "0"..."9" ~= o[2] {n = n * 10 + o[2].toInt!}
+            if "0"..."9" ~= o[0] { n += o[0].toInt! * 10 }
+            if "0"..."9" ~= o[2] { n = n * 10 + o[2].toInt! }
             return n
         }
         // 2. You have to add digits to some (or all) tiles, in order to produce
@@ -105,7 +105,7 @@ class Square100GameState: GridGameState {
                 n += f(r: r, c: c)
             }
             row2hint[r] = n
-            if n != 100 {isSolved = false}
+            if n != 100 { isSolved = false }
         }
         // 2. You have to add digits to some (or all) tiles, in order to produce
         // the sum of 100 for every column.
@@ -115,7 +115,7 @@ class Square100GameState: GridGameState {
                 n += f(r: r, c: c)
             }
             col2hint[c] = n
-            if n != 100 {isSolved = false}
+            if n != 100 { isSolved = false }
         }
     }
 }

@@ -11,8 +11,8 @@ import Foundation
 class TataminoGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: TataminoGame {
-        get {getGame() as! TataminoGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! TataminoGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: TataminoDocument { TataminoDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TataminoDocument.sharedInstance }
@@ -49,7 +49,7 @@ class TataminoGameState: GridGameState {
     
     func setObject(move: inout TataminoGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else {return false}
+        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -57,7 +57,7 @@ class TataminoGameState: GridGameState {
     
     func switchObject(move: inout TataminoGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " else {return false}
+        guard isValid(p: p) && game[p] == " " else { return false }
         let o = self[p]
         move.obj =
             o == " " ? "1" :
@@ -108,8 +108,8 @@ class TataminoGameState: GridGameState {
         dots = GridDots(x: game.dots)
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter{nodesExplored.contains($0.0.description)}.map{$0.0}
-            pos2node = pos2node.filter{!nodesExplored.contains($0.0.description)}
+            let area = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }
+            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
             let ch = self[area[0]]
             let (n1, n2) = (area.count, ch.toInt!)
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
@@ -123,7 +123,7 @@ class TataminoGameState: GridGameState {
                     }
                 }
             }
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
     }
 }

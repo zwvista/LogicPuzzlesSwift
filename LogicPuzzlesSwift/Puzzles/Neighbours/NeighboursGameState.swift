@@ -11,8 +11,8 @@ import Foundation
 class NeighboursGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: NeighboursGame {
-        get {getGame() as! NeighboursGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! NeighboursGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: NeighboursDocument { NeighboursDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { NeighboursDocument.sharedInstance }
@@ -62,9 +62,9 @@ class NeighboursGameState: GridGameState {
         }
         let dir = move.dir, dir2 = (dir + 2) % 4
         let p = move.p, p2 = p + NeighboursGame.offset[dir]
-        guard isValid(p: p2) && game[p][dir] == .empty else {return false}
+        guard isValid(p: p2) && game[p][dir] == .empty else { return false }
         f(o1: &self[p][dir], o2: &self[p2][dir2])
-        if changed {updateIsSolved()}
+        if changed { updateIsSolved() }
         return changed
     }
     
@@ -128,16 +128,16 @@ class NeighboursGameState: GridGameState {
         var pos2area = [Position: Int]()
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter{nodesExplored.contains($0.0.description)}.map{$0.0}
+            let area = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }
             areas.append(area)
             for p in area {
                 pos2area[p] = areas.count
             }
-            pos2node = pos2node.filter{!nodesExplored.contains($0.0.description)}
+            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
         }
         let n2 = game.areaSize
         for area in areas {
-            let rng = area.filter{p in game.pos2hint[p] != nil}
+            let rng = area.filter{ p in game.pos2hint[p] != nil }
             if rng.count != 1 {
                 for p in rng {
                     pos2state[p] = .normal
@@ -154,7 +154,7 @@ class NeighboursGameState: GridGameState {
                         guard self[p + NeighboursGame.offset2[i]][NeighboursGame.dirs[i]] == .line else {continue}
                         let p2 = p + NeighboursGame.offset[i]
                         guard let idx2 = pos2area[p2] else {continue}
-                        guard idx != idx2 else {return -1}
+                        guard idx != idx2 else { return -1 }
                         indexes.insert(idx2)
                     }
                 }
@@ -165,7 +165,7 @@ class NeighboursGameState: GridGameState {
             // 4. Divide the land so that each one has an equal number of squares and
             // the requested number of neighbours.
             pos2state[p3] = n1 == n2 && n3 == neighbours() ? .complete : .error
-            if pos2state[p3] != .complete {isSolved = false}
+            if pos2state[p3] != .complete { isSolved = false }
         }
     }
 }

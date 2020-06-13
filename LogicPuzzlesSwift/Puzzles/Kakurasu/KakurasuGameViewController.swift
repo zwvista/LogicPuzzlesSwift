@@ -14,12 +14,12 @@ class KakurasuGameViewController: GameGameViewController, GameDelegate {
     typealias GS = KakurasuGameState
 
     var scene: KakurasuGameScene {
-        get {return getScene() as! KakurasuGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! KakurasuGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: KakurasuGame {
-        get {getGame() as! KakurasuGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! KakurasuGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: KakurasuDocument { KakurasuDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { KakurasuDocument.sharedInstance }
@@ -53,10 +53,10 @@ class KakurasuGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = KakurasuGame(layout: level.layout, delegate: self)
         
         // restore game state

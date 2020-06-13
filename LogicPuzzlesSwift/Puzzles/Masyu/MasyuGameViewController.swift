@@ -14,12 +14,12 @@ class MasyuGameViewController: GameGameViewController, GameDelegate {
     typealias GS = MasyuGameState
 
     var scene: MasyuGameScene {
-        get {return getScene() as! MasyuGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! MasyuGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: MasyuGame {
-        get {getGame() as! MasyuGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! MasyuGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: MasyuDocument { MasyuDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { MasyuDocument.sharedInstance }
@@ -67,10 +67,10 @@ class MasyuGameViewController: GameGameViewController, GameDelegate {
             pLast = p; f()
         case .changed:
             guard pLast != p else {break}
-            defer {pLast = p}
+            defer { pLast = p }
             guard let dir = MasyuGame.offset.firstIndex(of: p - pLast!) else {break}
             var move = MasyuGameMove(p: pLast!, dir: dir)
-            if game.setObject(move: &move) {f()}
+            if game.setObject(move: &move) { f() }
         default:
             break
         }
@@ -80,10 +80,10 @@ class MasyuGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = MasyuGame(layout: level.layout, delegate: self)
         
         // restore game state

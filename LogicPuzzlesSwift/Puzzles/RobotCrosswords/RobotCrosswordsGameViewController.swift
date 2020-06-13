@@ -14,12 +14,12 @@ class RobotCrosswordsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = RobotCrosswordsGameState
 
     var scene: RobotCrosswordsGameScene {
-        get {return getScene() as! RobotCrosswordsGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! RobotCrosswordsGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: RobotCrosswordsGame {
-        get {getGame() as! RobotCrosswordsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! RobotCrosswordsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: RobotCrosswordsDocument { RobotCrosswordsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { RobotCrosswordsDocument.sharedInstance }
@@ -53,10 +53,10 @@ class RobotCrosswordsGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = RobotCrosswordsGame(layout: level.layout, delegate: self)
         
         // restore game state

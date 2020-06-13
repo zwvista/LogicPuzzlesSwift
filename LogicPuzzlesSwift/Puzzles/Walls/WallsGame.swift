@@ -27,7 +27,7 @@ class WallsGame: GridGame<WallsGameViewController> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let ch = str[c]
-                if ch != " " {pos2hint[p] = ch.toInt!}
+                if ch != " " { pos2hint[p] = ch.toInt! }
             }
         }
         
@@ -36,11 +36,11 @@ class WallsGame: GridGame<WallsGameViewController> {
     }
     
     func switchObject(move: inout WallsGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
     }
     
     func setObject(move: inout WallsGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
     }
     
 }

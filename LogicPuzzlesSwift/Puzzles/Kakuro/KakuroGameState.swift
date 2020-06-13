@@ -11,8 +11,8 @@ import Foundation
 class KakuroGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: KakuroGame {
-        get {getGame() as! KakuroGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! KakuroGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: KakuroDocument { KakuroDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { KakuroDocument.sharedInstance }
@@ -41,7 +41,7 @@ class KakuroGameState: GridGameState {
 
     func setObject(move: inout KakuroGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && pos2num[p] != nil && pos2num[p] != move.obj else {return false}
+        guard isValid(p: p) && pos2num[p] != nil && pos2num[p] != move.obj else { return false }
         pos2num[p] = move.obj
         updateIsSolved()
         return true
@@ -49,7 +49,7 @@ class KakuroGameState: GridGameState {
     
     func switchObject(move: inout KakuroGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && pos2num[p] != nil else {return false}
+        guard isValid(p: p) && pos2num[p] != nil else { return false }
         let o = pos2num[p]!
         move.obj = (o + 1) % 10
         return setObject(move: &move)
@@ -92,7 +92,7 @@ class KakuroGameState: GridGameState {
             // the sum of the numbers in that row.
             let s: HintState = n1 == 0 ? .normal : n1 == n2 ? .complete : .error
             pos2horzState[p] = s
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
         for (p, n2) in game.pos2vertHint {
             let os = KakuroGame.offset[2]
@@ -114,7 +114,7 @@ class KakuroGameState: GridGameState {
             // the sum of the numbers in that column.
             let s: HintState = n1 == 0 ? .normal : n1 == n2 ? .complete : .error
             pos2vertState[p] = s
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
     }
 }

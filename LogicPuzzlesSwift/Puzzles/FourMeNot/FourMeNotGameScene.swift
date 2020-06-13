@@ -10,8 +10,8 @@ import SpriteKit
 
 class FourMeNotGameScene: GameScene<FourMeNotGameState> {
     var gridNode: FourMeNotGridNode {
-        get {getGridNode() as! FourMeNotGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! FourMeNotGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addTree(s: AllowedObjectState, point: CGPoint, nodeName: String) {

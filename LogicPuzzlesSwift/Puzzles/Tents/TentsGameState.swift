@@ -11,8 +11,8 @@ import Foundation
 class TentsGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: TentsGame {
-        get {getGame() as! TentsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! TentsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: TentsDocument { TentsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TentsDocument.sharedInstance }
@@ -55,7 +55,7 @@ class TentsGameState: GridGameState {
     
     func setObject(move: inout TentsGameMove) -> Bool {
         let p = move.p
-        guard String(describing: self[p]) != String(describing: move.obj) else {return false}
+        guard String(describing: self[p]) != String(describing: move.obj) else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -76,7 +76,7 @@ class TentsGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) else { return false }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -106,25 +106,25 @@ class TentsGameState: GridGameState {
             var n1 = 0
             let n2 = game.row2hint[r]
             for c in 0..<cols {
-                if case .tent = self[r, c] {n1 += 1}
+                if case .tent = self[r, c] { n1 += 1 }
             }
             // 3. The numbers on the borders tell you how many Tents there are in that row.
             row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 {isSolved = false}
+            if n1 != n2 { isSolved = false }
         }
         for c in 0..<cols {
             var n1 = 0
             let n2 = game.col2hint[c]
             for r in 0..<rows {
-                if case .tent = self[r, c] {n1 += 1}
+                if case .tent = self[r, c] { n1 += 1 }
             }
             // 3. The numbers on the borders tell you how many Tents there are in that column.
             col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 {isSolved = false}
+            if n1 != n2 { isSolved = false }
         }
         for r in 0..<rows {
             for c in 0..<cols {
-                if case .forbidden = self[r, c] {self[r, c] = .empty}
+                if case .forbidden = self[r, c] { self[r, c] = .empty }
             }
         }
         for r in 0..<rows {
@@ -133,14 +133,14 @@ class TentsGameState: GridGameState {
                 func hasTree() -> Bool {
                     for os in TentsGame.offset {
                         let p2 = p + os
-                        if isValid(p: p2), case .tree = self[p2] {return true}
+                        if isValid(p: p2), case .tree = self[p2] { return true }
                     }
                     return false
                 }
                 func hasTent(isTree: Bool) -> Bool {
                     for os in isTree ? TentsGame.offset : TentsGame.offset2 {
                         let p2 = p + os
-                        if isValid(p: p2), case .tent = self[p2] {return true}
+                        if isValid(p: p2), case .tent = self[p2] { return true }
                     }
                     return false
                 }
@@ -153,16 +153,16 @@ class TentsGameState: GridGameState {
                     // Tents near them, not even diagonally.
                     let s: AllowedObjectState = hasTree() && !hasTent(isTree: false) ? .normal : .error
                     self[p] = .tent(state: s)
-                    if s == .error {isSolved = false}
+                    if s == .error { isSolved = false }
                 case .tree:
                     // 4. Finally, each Tree has at least one Tent touching it, horizontally or
                     // vertically.
                     let s: AllowedObjectState = hasTent(isTree: true) ? .normal : .error
                     self[p] = .tree(state: s)
-                    if s == .error {isSolved = false}
+                    if s == .error { isSolved = false }
                 case .empty, .marker:
                     guard allowedObjectsOnly else {break}
-                    if col2state[c] != .normal || row2state[r] != .normal || !hasTree() || hasTent(isTree: false) {self[p] = .forbidden}
+                    if col2state[c] != .normal || row2state[r] != .normal || !hasTree() || hasTent(isTree: false) { self[p] = .forbidden }
                 default:
                     break
                 }

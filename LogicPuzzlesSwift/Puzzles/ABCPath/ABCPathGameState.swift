@@ -11,8 +11,8 @@ import Foundation
 class ABCPathGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: ABCPathGame {
-        get {getGame() as! ABCPathGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! ABCPathGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: ABCPathDocument { ABCPathDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { ABCPathDocument.sharedInstance }
@@ -52,7 +52,7 @@ class ABCPathGameState: GridGameState {
     
     func setObject(move: inout ABCPathGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p), game[p] == " ", self[p] != move.obj else {return false}
+        guard isValid(p: p), game[p] == " ", self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -60,10 +60,10 @@ class ABCPathGameState: GridGameState {
     
     func switchObject(move: inout ABCPathGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p), game[p] == " " else {return false}
+        guard isValid(p: p), game[p] == " " else { return false }
         let o = self[p]
         // 1.  Enter every letter from A to Y into the grid.
-        var chars = (0...24).map{succ(ch: "A", offset: $0)}
+        var chars = (0...24).map{ succ(ch: "A", offset: $0) }
         for r in 1..<rows - 1 {
             for c in 1..<cols - 1 {
                 let p2 = Position(r, c)
@@ -106,8 +106,8 @@ class ABCPathGameState: GridGameState {
                 }
             }
         }
-        ch2rng = ch2rng.filter{(ch, rng) in rng.count > 1}
-        if !ch2rng.isEmpty {isSolved = false}
+        ch2rng = ch2rng.filter{ (ch, rng) in rng.count > 1 }
+        if !ch2rng.isEmpty { isSolved = false }
         for (_, rng) in ch2rng {
             for p in rng {
                 pos2state[p] = .error
@@ -131,7 +131,7 @@ class ABCPathGameState: GridGameState {
         // 3.  The clues around the edge tell you which row, column or diagonal each letter is in.
         for (ch, p) in game.ch2pos {
             let (r, c) = (p.row, p.col)
-            if (r == 0 || r == rows - 1) && r == c && (1..<rows - 1).contains(where: {self[$0, $0] == ch}) || (r == 0 || r == rows - 1) && r == rows - 1 - c && (1..<rows - 1).contains(where: {self[$0, rows - 1 - $0] == ch}) || (r == 0 || r == rows - 1) && (1..<rows - 1).contains(where: {self[$0, c] == ch})  || (c == 0 || c == cols - 1) && (1..<cols - 1).contains(where: {self[r, $0] == ch}) {
+            if (r == 0 || r == rows - 1) && r == c && (1..<rows - 1).contains(where: { self[$0, $0] == ch }) || (r == 0 || r == rows - 1) && r == rows - 1 - c && (1..<rows - 1).contains(where: { self[$0, rows - 1 - $0] == ch }) || (r == 0 || r == rows - 1) && (1..<rows - 1).contains(where: { self[$0, c] == ch })  || (c == 0 || c == cols - 1) && (1..<cols - 1).contains(where: { self[r, $0] == ch }) {
                 pos2state[p] = .complete
             } else {
                 isSolved = false

@@ -11,8 +11,8 @@ import Foundation
 class LoopyGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: LoopyGame {
-        get {getGame() as! LoopyGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! LoopyGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: LoopyDocument { LoopyDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { LoopyDocument.sharedInstance }
@@ -50,7 +50,7 @@ class LoopyGameState: GridGameState {
     }
     
     func setObject(move: inout LoopyGameMove) -> Bool {
-        guard isValidMove(move: &move) else {return false}
+        guard isValidMove(move: &move) else { return false }
         var changed = false
         func f(o1: inout GridLineObject, o2: inout GridLineObject) {
             if o1 != move.obj {
@@ -63,14 +63,14 @@ class LoopyGameState: GridGameState {
         }
         let dir = move.dir, dir2 = (dir + 2) % 4
         let p = move.p, p2 = p + LoopyGame.offset[dir]
-        guard isValid(p: p2) && game[p][dir] == .empty else {return false}
+        guard isValid(p: p2) && game[p][dir] == .empty else { return false }
         f(o1: &self[p][dir], o2: &self[p2][dir2])
-        if changed {updateIsSolved()}
+        if changed { updateIsSolved() }
         return changed
     }
     
     func switchObject(move: inout LoopyGameMove) -> Bool {
-        guard isValidMove(move: &move) else {return false}
+        guard isValidMove(move: &move) else { return false }
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: GridLineObject) -> GridLineObject {
             switch o {
@@ -106,7 +106,7 @@ class LoopyGameState: GridGameState {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let n = self[p].filter{$0 == .line}.count
+                let n = self[p].filter{ $0 == .line }.count
                 switch n {
                 case 2:
                     pos2node[p] = g.addNode(p.description)
@@ -128,6 +128,6 @@ class LoopyGameState: GridGameState {
         }
         // 1. Draw a single looping path.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count {isSolved = false}
+        if nodesExplored.count != pos2node.count { isSolved = false }
     }
 }

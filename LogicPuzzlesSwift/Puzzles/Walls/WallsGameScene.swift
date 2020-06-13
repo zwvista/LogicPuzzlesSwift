@@ -10,8 +10,8 @@ import SpriteKit
 
 class WallsGameScene: GameScene<WallsGameState> {
     var gridNode: WallsGridNode {
-        get {getGridNode() as! WallsGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! WallsGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {

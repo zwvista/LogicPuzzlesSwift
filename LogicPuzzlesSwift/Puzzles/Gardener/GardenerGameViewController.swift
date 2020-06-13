@@ -14,12 +14,12 @@ class GardenerGameViewController: GameGameViewController, GameDelegate {
     typealias GS = GardenerGameState
 
     var scene: GardenerGameScene {
-        get {return getScene() as! GardenerGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! GardenerGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: GardenerGame {
-        get {getGame() as! GardenerGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! GardenerGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: GardenerDocument { GardenerDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { GardenerDocument.sharedInstance }
@@ -53,10 +53,10 @@ class GardenerGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = GardenerGame(layout: level.layout, delegate: self)
         
         // restore game state

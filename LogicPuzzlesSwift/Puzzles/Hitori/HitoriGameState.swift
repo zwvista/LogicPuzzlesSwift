@@ -11,8 +11,8 @@ import Foundation
 class HitoriGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: HitoriGame {
-        get {getGame() as! HitoriGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! HitoriGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: HitoriDocument { HitoriDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { HitoriDocument.sharedInstance }
@@ -52,7 +52,7 @@ class HitoriGameState: GridGameState {
     
     func setObject(move: inout HitoriGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else {return false}
+        guard isValid(p: p) && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -71,7 +71,7 @@ class HitoriGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) else { return false }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -146,7 +146,7 @@ class HitoriGameState: GridGameState {
         for p in rngDarken {
             for os in HitoriGame.offset {
                 let p2 = p + os
-                guard !rngDarken.contains(p2) else {isSolved = false; return}
+                guard !rngDarken.contains(p2) else { isSolved = false; return }
             }
         }
         for (p, node) in pos2node {
@@ -158,6 +158,6 @@ class HitoriGameState: GridGameState {
         }
         // 3. In the end all the un-shaded squares must form a single continuous area.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if pos2node.count != nodesExplored.count {isSolved = false}
+        if pos2node.count != nodesExplored.count { isSolved = false }
     }
 }

@@ -11,8 +11,8 @@ import Foundation
 class ParksGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: ParksGame {
-        get {getGame() as! ParksGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! ParksGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: ParksDocument { ParksDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { ParksDocument.sharedInstance }
@@ -48,7 +48,7 @@ class ParksGameState: GridGameState {
     
     func setObject(move: inout ParksGameMove) -> Bool {
         let p = move.p
-        guard String(describing: self[p]) != String(describing: move.obj) else {return false}
+        guard String(describing: self[p]) != String(describing: move.obj) else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -69,7 +69,7 @@ class ParksGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) else { return false }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -95,7 +95,7 @@ class ParksGameState: GridGameState {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                if case .forbidden = self[r, c] {self[r, c] = .empty}
+                if case .forbidden = self[r, c] { self[r, c] = .empty }
             }
         }
         // 3. A Tree can't touch another Tree, not even diagonally.
@@ -105,7 +105,7 @@ class ParksGameState: GridGameState {
                 func hasNeighbor() -> Bool {
                     for os in ParksGame.offset {
                         let p2 = p + os
-                        if isValid(p: p2), case .tree = self[p2] {return true}
+                        if isValid(p: p2), case .tree = self[p2] { return true }
                     }
                     return false
                 }
@@ -113,9 +113,9 @@ class ParksGameState: GridGameState {
                 case .tree:
                     let s: AllowedObjectState = !hasNeighbor() ? .normal : .error
                     self[p] = .tree(state: s)
-                    if s == .error {isSolved = false}
+                    if s == .error { isSolved = false }
                 case .empty, .marker:
-                    if allowedObjectsOnly && hasNeighbor() {self[p] = .forbidden}
+                    if allowedObjectsOnly && hasNeighbor() { self[p] = .forbidden }
                 default:
                     break
                 }
@@ -126,15 +126,15 @@ class ParksGameState: GridGameState {
         for r in 0..<rows {
             var n1 = 0
             for c in 0..<cols {
-                if case .tree = self[r, c] {n1 += 1}
+                if case .tree = self[r, c] { n1 += 1 }
             }
-            if n1 != n2 {isSolved = false}
+            if n1 != n2 { isSolved = false }
             for c in 0..<cols {
                 switch self[r, c] {
                 case let .tree(state):
                     self[r, c] = .tree(state: state == .normal && n1 <= n2 ? .normal : .error)
                 case .empty, .marker:
-                    if n1 >= n2 && allowedObjectsOnly {self[r, c] = .forbidden}
+                    if n1 >= n2 && allowedObjectsOnly { self[r, c] = .forbidden }
                 default:
                     break
                 }
@@ -144,15 +144,15 @@ class ParksGameState: GridGameState {
         for c in 0..<cols {
             var n1 = 0
             for r in 0..<rows {
-                if case .tree = self[r, c] {n1 += 1}
+                if case .tree = self[r, c] { n1 += 1 }
             }
-            if n1 != n2 {isSolved = false}
+            if n1 != n2 { isSolved = false }
             for r in 0..<rows {
                 switch self[r, c] {
                 case let .tree(state):
                     self[r, c] = .tree(state: state == .normal && n1 <= n2 ? .normal : .error)
                 case .empty, .marker:
-                    if n1 >= n2 && allowedObjectsOnly {self[r, c] = .forbidden}
+                    if n1 >= n2 && allowedObjectsOnly { self[r, c] = .forbidden }
                 default:
                     break
                 }
@@ -162,15 +162,15 @@ class ParksGameState: GridGameState {
         for a in game.areas {
             var n1 = 0
             for p in a {
-                if case .tree = self[p] {n1 += 1}
+                if case .tree = self[p] { n1 += 1 }
             }
-            if n1 != n2 {isSolved = false}
+            if n1 != n2 { isSolved = false }
             for p in a {
                 switch self[p] {
                 case let .tree(state):
                     self[p] = .tree(state: state == .normal && n1 <= n2 ? .normal : .error)
                 case .empty, .marker:
-                    if n1 >= n2 && allowedObjectsOnly {self[p] = .forbidden}
+                    if n1 >= n2 && allowedObjectsOnly { self[p] = .forbidden }
                 default:
                     break
                 }

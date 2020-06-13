@@ -10,8 +10,8 @@ import SpriteKit
 
 class SentinelsGameScene: GameScene<SentinelsGameState> {
     var gridNode: SentinelsGridNode {
-        get {getGridNode() as! SentinelsGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! SentinelsGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {

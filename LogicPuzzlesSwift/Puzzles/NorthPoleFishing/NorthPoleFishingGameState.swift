@@ -11,8 +11,8 @@ import Foundation
 class NorthPoleFishingGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: NorthPoleFishingGame {
-        get {getGame() as! NorthPoleFishingGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! NorthPoleFishingGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: NorthPoleFishingDocument { NorthPoleFishingDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { NorthPoleFishingDocument.sharedInstance }
@@ -62,9 +62,9 @@ class NorthPoleFishingGameState: GridGameState {
         }
         let dir = move.dir, dir2 = (dir + 2) % 4
         let p = move.p, p2 = p + NorthPoleFishingGame.offset[dir]
-        guard isValid(p: p2) && game.dots[p][dir] == .empty else {return false}
+        guard isValid(p: p2) && game.dots[p][dir] == .empty else { return false }
         f(o1: &self[p][dir], o2: &self[p2][dir2])
-        if changed {updateIsSolved()}
+        if changed { updateIsSolved() }
         return changed
     }
     
@@ -120,9 +120,9 @@ class NorthPoleFishingGameState: GridGameState {
         }
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter{nodesExplored.contains($0.0.description)}.map{$0.0}
-            pos2node = pos2node.filter{!nodesExplored.contains($0.0.description)}
-            let rng = area.filter{p in game.holes.contains(p)}
+            let area = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }
+            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
+            let rng = area.filter{ p in game.holes.contains(p) }
             // 2. They decide each one should have a piece of land of exactly 4 squares,
             // including one fishing hole.
             if rng.count != 1 {
@@ -135,7 +135,7 @@ class NorthPoleFishingGameState: GridGameState {
             let n1 = area.count, n2 = 4
             let s: HintState = n1 == n2 ? .complete : .error
             pos2state[p2] = s
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
     }
 }

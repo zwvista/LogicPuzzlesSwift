@@ -14,12 +14,12 @@ class FenceSentinelsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = FenceSentinelsGameState
 
     var scene: FenceSentinelsGameScene {
-        get {return getScene() as! FenceSentinelsGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! FenceSentinelsGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: FenceSentinelsGame {
-        get {getGame() as! FenceSentinelsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! FenceSentinelsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: FenceSentinelsDocument { FenceSentinelsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { FenceSentinelsDocument.sharedInstance }
@@ -54,10 +54,10 @@ class FenceSentinelsGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = FenceSentinelsGame(layout: level.layout, delegate: self)
         
         // restore game state

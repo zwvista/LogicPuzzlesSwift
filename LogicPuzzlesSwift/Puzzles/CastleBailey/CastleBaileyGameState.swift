@@ -11,8 +11,8 @@ import Foundation
 class CastleBaileyGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: CastleBaileyGame {
-        get {getGame() as! CastleBaileyGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! CastleBaileyGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: CastleBaileyDocument { CastleBaileyDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { CastleBaileyDocument.sharedInstance }
@@ -48,7 +48,7 @@ class CastleBaileyGameState: GridGameState {
     
     func setObject(move: inout CastleBaileyGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else {return false}
+        guard isValid(p: p) && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -69,7 +69,7 @@ class CastleBaileyGameState: GridGameState {
             }
         }
         let p = move.p
-        guard isValid(p: p) else {return false}
+        guard isValid(p: p) else { return false }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -99,7 +99,7 @@ class CastleBaileyGameState: GridGameState {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if self[p] == .forbidden {self[p] = .empty}
+                if self[p] == .forbidden { self[p] = .empty }
             }
         }
         for (p, n2) in game.pos2hint {
@@ -124,7 +124,7 @@ class CastleBaileyGameState: GridGameState {
             // at most (or one in corners).
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             pos2state[p] = s
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
             if s != .normal && allowedObjectsOnly {
                 for p2 in rng {
                     self[p2] = .forbidden
@@ -137,7 +137,7 @@ class CastleBaileyGameState: GridGameState {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if self[p] != .wall {pos2node[p] = g.addNode(p.description)}
+                if self[p] != .wall { pos2node[p] = g.addNode(p.description) }
             }
         }
         for (p, node) in pos2node {
@@ -151,6 +151,6 @@ class CastleBaileyGameState: GridGameState {
         // 6. To facilitate movement in the castle, the Bailey must have a single
         // continuous area (Garden).
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if pos2node.count != nodesExplored.count {isSolved = false}
+        if pos2node.count != nodesExplored.count { isSolved = false }
     }
 }

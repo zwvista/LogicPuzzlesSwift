@@ -11,8 +11,8 @@ import Foundation
 class NumberLinkGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: NumberLinkGame {
-        get {getGame() as! NumberLinkGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! NumberLinkGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: NumberLinkDocument { NumberLinkDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { NumberLinkDocument.sharedInstance }
@@ -49,7 +49,7 @@ class NumberLinkGameState: GridGameState {
     func setObject(move: inout NumberLinkGameMove) -> Bool {
         let p = move.p, dir = move.dir
         let p2 = p + NumberLinkGame.offset[dir], dir2 = (dir + 2) % 4
-        guard isValid(p: p2) else {return false}
+        guard isValid(p: p2) else { return false }
         self[p][dir].toggle()
         self[p2][dir2].toggle()
         updateIsSolved()
@@ -89,11 +89,11 @@ class NumberLinkGameState: GridGameState {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let n = self[p].filter{$0}.count
+                let n = self[p].filter{ $0 }.count
                 let b = game.pos2hint[p] != nil
                 pos2node[p] = g.addNode(p.description)
                 if b && n == 1 || !b && n == 2 {
-                    pos2indexes[p] = (0..<4).filter{self[p][$0]}
+                    pos2indexes[p] = (0..<4).filter{ self[p][$0] }
                 } else {
                     // 3. Lines must originate on a number and must end in the other equal
                     // number.
@@ -120,27 +120,27 @@ class NumberLinkGameState: GridGameState {
                 let i3 = (i + 2) % 4
                 indexes2.removeFirst(i1)
                 let i4 = indexes2[0]
-                if isRight && (i3 + 3) % 4 == i4 || !isRight && (i3 + 1) % 4 == i4 {pos2state[p] = .error; isSolved = false}
+                if isRight && (i3 + 3) % 4 == i4 || !isRight && (i3 + 1) % 4 == i4 { pos2state[p] = .error; isSolved = false }
             }
-            if (i1 + 3) % 4 == i2 {f(i: i2, isRight: true)}
-            if (i2 + 3) % 4 == i1 {f(i: i1, isRight: true)}
-            if (i1 + 1) % 4 == i2 {f(i: i2, isRight: false)}
-            if (i2 + 1) % 4 == i1 {f(i: i1, isRight: false)}
+            if (i1 + 3) % 4 == i2 { f(i: i2, isRight: true) }
+            if (i2 + 3) % 4 == i1 { f(i: i1, isRight: true) }
+            if (i1 + 1) % 4 == i2 { f(i: i2, isRight: false) }
+            if (i2 + 1) % 4 == i1 { f(i: i1, isRight: false) }
         }
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter{nodesExplored.contains($0.0.description)}.map{$0.0}
-            pos2node = pos2node.filter{!nodesExplored.contains($0.0.description)}
-            let rng1 = area.filter{game.pos2hint[$0] != nil}
-            guard !rng1.isEmpty else {isSolved = false; continue}
+            let area = pos2node.filter{ nodesExplored.contains($0.0.description) }.map{ $0.0 }
+            pos2node = pos2node.filter{ !nodesExplored.contains($0.0.description) }
+            let rng1 = area.filter{ game.pos2hint[$0] != nil }
+            guard !rng1.isEmpty else { isSolved = false; continue }
             let rng2 = game.hint2rng[game.pos2hint[rng1[0]]!]!
-            let (b1, b2, b3) = (rng1.difference(rng2).isEmpty, rng2.difference(rng1).isEmpty, area.testAll{self.pos2state[$0] != .error})
+            let (b1, b2, b3) = (rng1.difference(rng2).isEmpty, rng2.difference(rng1).isEmpty, area.testAll{ self.pos2state[$0] != .error })
             // 3. Lines must originate on a number and must end in the other equal
             // number.
             // 4. At the end of the puzzle, you must have covered ALL the squares with
             // lines.
             let s: HintState = !b1 || !b3 ? .error : b2 ? .complete : .normal
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
             for p in rng1 {
                 pos2state[p] = s
             }

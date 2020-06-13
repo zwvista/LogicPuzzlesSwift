@@ -14,12 +14,12 @@ class CarpentersSquareGameViewController: GameGameViewController, GameDelegate {
     typealias GS = CarpentersSquareGameState
 
     var scene: CarpentersSquareGameScene {
-        get {return getScene() as! CarpentersSquareGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! CarpentersSquareGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: CarpentersSquareGame {
-        get {getGame() as! CarpentersSquareGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! CarpentersSquareGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: CarpentersSquareDocument { CarpentersSquareDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { CarpentersSquareDocument.sharedInstance }
@@ -54,10 +54,10 @@ class CarpentersSquareGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = CarpentersSquareGame(layout: level.layout, delegate: self)
         
         // restore game state

@@ -27,7 +27,7 @@ class TierraDelFuegoGame: GridGame<TierraDelFuegoGameViewController> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let ch = str[c]
-                if ch != " " {pos2hint[p] = ch}
+                if ch != " " { pos2hint[p] = ch }
             }
         }
 
@@ -36,11 +36,11 @@ class TierraDelFuegoGame: GridGame<TierraDelFuegoGameViewController> {
     }
     
     func switchObject(move: inout TierraDelFuegoGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
     }
     
     func setObject(move: inout TierraDelFuegoGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
     }
     
 }

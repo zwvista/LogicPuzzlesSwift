@@ -10,8 +10,8 @@ import SpriteKit
 
 class ParksGameScene: GameScene<ParksGameState> {
     var gridNode: ParksGridNode {
-        get {getGridNode() as! ParksGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! ParksGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
 
     override func levelInitialized(_ game: AnyObject, state: ParksGameState, skView: SKView) {

@@ -11,8 +11,8 @@ import Foundation
 class TheOddBrickGameState: GridGameState {
     // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
     var game: TheOddBrickGame {
-        get {getGame() as! TheOddBrickGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! TheOddBrickGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: TheOddBrickDocument { TheOddBrickDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TheOddBrickDocument.sharedInstance }
@@ -60,7 +60,7 @@ class TheOddBrickGameState: GridGameState {
 
     func setObject(move: inout TheOddBrickGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else {return false}
+        guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else { return false }
         self[p] = move.obj
         updateIsSolved()
         return true
@@ -68,7 +68,7 @@ class TheOddBrickGameState: GridGameState {
     
     func switchObject(move: inout TheOddBrickGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && game[p] == 0 else {return false}
+        guard isValid(p: p) && game[p] == 0 else { return false }
         let o = self[p]
         move.obj = (o + 1) % (cols + 1)
         return setObject(move: &move)
@@ -94,20 +94,20 @@ class TheOddBrickGameState: GridGameState {
             // 3. Each row and column contains numbers 1 to N, where N is the side of
             // the board.
             s = nums2.first! == 0 ? .normal : nums2.count == nums.count ? .complete : .error
-            if s != .complete {isSolved = false}
+            if s != .complete { isSolved = false }
         }
         for r in 0..<rows {
-            f(nums: (0..<cols).map{self[r, $0]}, s: &row2state[r])
+            f(nums: (0..<cols).map{ self[r, $0] }, s: &row2state[r])
         }
         for c in 0..<cols {
-            f(nums: (0..<rows).map{self[$0, c]}, s: &col2state[c])
+            f(nums: (0..<rows).map{ self[$0, c] }, s: &col2state[c])
         }
         for i in 0..<game.areas.count {
-            let nums = game.areas[i].map{self[$0]}
+            let nums = game.areas[i].map{ self[$0] }
             // 2. Each 2*1 brick contains and odd and an even number, while 1*1 bricks
             // can contain any number.
             area2state[i] = nums.contains(0) ? .normal : nums.count == 1 || nums[0] % 2 == 0 && nums[1] % 2 == 1 || nums[0] % 2 == 1 && nums[1] % 2 == 0 ? .complete : .error
-            if area2state[i] != .complete {isSolved = false}
+            if area2state[i] != .complete { isSolved = false }
         }
     }
 }

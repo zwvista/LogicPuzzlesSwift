@@ -14,12 +14,12 @@ class OrchardsGameViewController: GameGameViewController, GameDelegate {
     typealias GS = OrchardsGameState
 
     var scene: OrchardsGameScene {
-        get {return getScene() as! OrchardsGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! OrchardsGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: OrchardsGame {
-        get {getGame() as! OrchardsGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! OrchardsGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: OrchardsDocument { OrchardsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { OrchardsDocument.sharedInstance }
@@ -53,10 +53,10 @@ class OrchardsGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = OrchardsGame(layout: level.layout, delegate: self)
         
         // restore game state

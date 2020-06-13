@@ -86,11 +86,11 @@ class NorthPoleFishingGame: GridGame<NorthPoleFishingGameViewController> {
     }
     
     func switchObject(move: inout NorthPoleFishingGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
     }
     
     func setObject(move: inout NorthPoleFishingGameMove) -> Bool {
-        changeObject(move: &move, f: {state, move in state.setObject(move: &move)})
+        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
     }
     
 }

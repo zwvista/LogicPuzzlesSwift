@@ -10,8 +10,8 @@ import SpriteKit
 
 class SnakeGameScene: GameScene<SnakeGameState> {
     var gridNode: SnakeGridNode {
-        get {getGridNode() as! SnakeGridNode}
-        set {setGridNode(gridNode: newValue)}
+        get { getGridNode() as! SnakeGridNode }
+        set { setGridNode(gridNode: newValue) }
     }
     
     func addCloud(color: SKColor, point: CGPoint, nodeName: String) {

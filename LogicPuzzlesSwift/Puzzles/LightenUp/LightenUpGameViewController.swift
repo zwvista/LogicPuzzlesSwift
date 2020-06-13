@@ -14,12 +14,12 @@ class LightenUpGameViewController: GameGameViewController, GameDelegate {
     typealias GS = LightenUpGameState
 
     var scene: LightenUpGameScene {
-        get {return getScene() as! LightenUpGameScene}
-        set {setScene(scene: newValue)}
+        get { return getScene() as! LightenUpGameScene }
+        set { setScene(scene: newValue) }
     }
     var game: LightenUpGame {
-        get {getGame() as! LightenUpGame}
-        set {setGame(game: newValue)}
+        get { getGame() as! LightenUpGame }
+        set { setGame(game: newValue) }
     }
     var gameDocument: LightenUpDocument { LightenUpDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { LightenUpDocument.sharedInstance }
@@ -53,10 +53,10 @@ class LightenUpGameViewController: GameGameViewController, GameDelegate {
         lblLevel.text = gameDocument.selectedLevelID
         updateSolutionUI()
         
-        let level: GameLevel = gameDocument.levels.first(where: {$0.id == gameDocument.selectedLevelID}) ?? gameDocument.levels.first!
+        let level: GameLevel = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
         
         levelInitilizing = true
-        defer {levelInitilizing = false}
+        defer { levelInitilizing = false }
         game = LightenUpGame(layout: level.layout, delegate: self)
         
         // restore game state

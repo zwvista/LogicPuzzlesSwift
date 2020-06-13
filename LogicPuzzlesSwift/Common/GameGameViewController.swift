@@ -21,11 +21,11 @@ class GameGameViewController: UIViewController, SoundMixin {
     @IBOutlet weak var btnDeleteSolution: UIButton!
     
     private var scene: SKScene?
-    func getScene() -> SKScene? {scene}
-    func setScene(scene: SKScene?) {self.scene = scene}
+    func getScene() -> SKScene? { scene }
+    func setScene(scene: SKScene?) { self.scene = scene }
     private var game: GridGameBase?
-    func getGame() -> GridGameBase? {game}
-    func setGame(game: GridGameBase?) {self.game = game}
+    func getGame() -> GridGameBase? { game }
+    func setGame(game: GridGameBase?) { self.game = game }
     private var gameDocument: GameDocumentBase! { getGameDocument() }
     func getGameDocument() -> GameDocumentBase! { nil }
     var gameOptions: GameProgress { gameDocument.gameProgress }
