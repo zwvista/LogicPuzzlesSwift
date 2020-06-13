@@ -10,7 +10,7 @@ import UIKit
 
 class OverUnderHelpViewController: GameHelpViewController {
 
-    var gameDocument: OverUnderDocument { return OverUnderDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return OverUnderDocument.sharedInstance }
+    var gameDocument: OverUnderDocument { OverUnderDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { OverUnderDocument.sharedInstance }
 
 }

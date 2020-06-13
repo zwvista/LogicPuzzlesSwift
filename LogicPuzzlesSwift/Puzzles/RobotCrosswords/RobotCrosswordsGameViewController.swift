@@ -21,8 +21,8 @@ class RobotCrosswordsGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! RobotCrosswordsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: RobotCrosswordsDocument { return RobotCrosswordsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return RobotCrosswordsDocument.sharedInstance }
+    var gameDocument: RobotCrosswordsDocument { RobotCrosswordsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { RobotCrosswordsDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,7 +10,7 @@ import UIKit
 
 class BusySeasMainViewController: GameMainViewController {
 
-    var gameDocument: BusySeasDocument { return BusySeasDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return BusySeasDocument.sharedInstance }
+    var gameDocument: BusySeasDocument { BusySeasDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { BusySeasDocument.sharedInstance }
 
 }

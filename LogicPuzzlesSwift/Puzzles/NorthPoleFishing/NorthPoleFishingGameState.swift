@@ -14,8 +14,8 @@ class NorthPoleFishingGameState: GridGameState {
         get {getGame() as! NorthPoleFishingGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: NorthPoleFishingDocument { return NorthPoleFishingDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return NorthPoleFishingDocument.sharedInstance }
+    var gameDocument: NorthPoleFishingDocument { NorthPoleFishingDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { NorthPoleFishingDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
     

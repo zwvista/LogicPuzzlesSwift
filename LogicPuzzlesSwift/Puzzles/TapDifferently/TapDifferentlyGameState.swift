@@ -14,8 +14,8 @@ class TapDifferentlyGameState: GridGameState {
         get {getGame() as! TapDifferentlyGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: TapDifferentlyDocument { return TapDifferentlyDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return TapDifferentlyDocument.sharedInstance }
+    var gameDocument: TapDifferentlyDocument { TapDifferentlyDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { TapDifferentlyDocument.sharedInstance }
     var objArray = [TapDifferentlyObject]()
     
     override func copy() -> TapDifferentlyGameState {

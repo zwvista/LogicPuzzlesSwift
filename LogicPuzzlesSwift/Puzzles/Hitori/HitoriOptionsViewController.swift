@@ -10,7 +10,7 @@ import UIKit
 
 class HitoriOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: HitoriDocument { return HitoriDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return HitoriDocument.sharedInstance }
+    var gameDocument: HitoriDocument { HitoriDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { HitoriDocument.sharedInstance }
     
 }

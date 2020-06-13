@@ -21,8 +21,8 @@ class FourMeNotGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! FourMeNotGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: FourMeNotDocument { return FourMeNotDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return FourMeNotDocument.sharedInstance }
+    var gameDocument: FourMeNotDocument { FourMeNotDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { FourMeNotDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

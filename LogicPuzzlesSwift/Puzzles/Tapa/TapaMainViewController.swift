@@ -10,7 +10,7 @@ import UIKit
 
 class TapaMainViewController: GameMainViewController {
 
-    var gameDocument: TapaDocument { return TapaDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return TapaDocument.sharedInstance }
+    var gameDocument: TapaDocument { TapaDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { TapaDocument.sharedInstance }
 
 }

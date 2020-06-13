@@ -14,8 +14,8 @@ class MinesweeperGameState: GridGameState {
         get {getGame() as! MinesweeperGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: MinesweeperDocument { return MinesweeperDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return MinesweeperDocument.sharedInstance }
+    var gameDocument: MinesweeperDocument { MinesweeperDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { MinesweeperDocument.sharedInstance }
     var objArray = [MinesweeperObject]()
     
     override func copy() -> MinesweeperGameState {

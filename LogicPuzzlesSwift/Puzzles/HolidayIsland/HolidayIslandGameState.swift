@@ -14,8 +14,8 @@ class HolidayIslandGameState: GridGameState {
         get {getGame() as! HolidayIslandGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: HolidayIslandDocument { return HolidayIslandDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return HolidayIslandDocument.sharedInstance }
+    var gameDocument: HolidayIslandDocument { HolidayIslandDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { HolidayIslandDocument.sharedInstance }
     var objArray = [HolidayIslandObject]()
     
     override func copy() -> HolidayIslandGameState {

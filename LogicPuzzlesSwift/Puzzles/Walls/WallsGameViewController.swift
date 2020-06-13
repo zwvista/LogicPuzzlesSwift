@@ -21,8 +21,8 @@ class WallsGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! WallsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: WallsDocument { return WallsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return WallsDocument.sharedInstance }
+    var gameDocument: WallsDocument { WallsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { WallsDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

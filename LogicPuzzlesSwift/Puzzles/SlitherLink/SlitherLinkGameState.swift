@@ -14,8 +14,8 @@ class SlitherLinkGameState: GridGameState {
         get {getGame() as! SlitherLinkGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: SlitherLinkDocument { return SlitherLinkDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return SlitherLinkDocument.sharedInstance }
+    var gameDocument: SlitherLinkDocument { SlitherLinkDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { SlitherLinkDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
     

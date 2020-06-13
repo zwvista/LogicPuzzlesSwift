@@ -14,8 +14,8 @@ class SumscrapersGameState: GridGameState {
         get {getGame() as! SumscrapersGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: SumscrapersDocument { return SumscrapersDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return SumscrapersDocument.sharedInstance }
+    var gameDocument: SumscrapersDocument { SumscrapersDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { SumscrapersDocument.sharedInstance }
     var objArray = [Int]()
     var row2state = [HintState]()
     var col2state = [HintState]()

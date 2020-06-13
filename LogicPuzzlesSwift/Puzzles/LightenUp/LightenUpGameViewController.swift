@@ -21,8 +21,8 @@ class LightenUpGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! LightenUpGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: LightenUpDocument { return LightenUpDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return LightenUpDocument.sharedInstance }
+    var gameDocument: LightenUpDocument { LightenUpDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { LightenUpDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

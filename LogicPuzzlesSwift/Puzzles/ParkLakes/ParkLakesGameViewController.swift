@@ -21,8 +21,8 @@ class ParkLakesGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! ParkLakesGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: ParkLakesDocument { return ParkLakesDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return ParkLakesDocument.sharedInstance }
+    var gameDocument: ParkLakesDocument { ParkLakesDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { ParkLakesDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

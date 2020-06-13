@@ -21,8 +21,8 @@ class DigitalBattleShipsGameViewController: GameGameViewController, GameDelegate
         get {getGame() as! DigitalBattleShipsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: DigitalBattleShipsDocument { return DigitalBattleShipsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return DigitalBattleShipsDocument.sharedInstance }
+    var gameDocument: DigitalBattleShipsDocument { DigitalBattleShipsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { DigitalBattleShipsDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,7 +10,7 @@ import UIKit
 
 class Square100HelpViewController: GameHelpViewController {
 
-    var gameDocument: Square100Document { return Square100Document.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return Square100Document.sharedInstance }
+    var gameDocument: Square100Document { Square100Document.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { Square100Document.sharedInstance }
 
 }

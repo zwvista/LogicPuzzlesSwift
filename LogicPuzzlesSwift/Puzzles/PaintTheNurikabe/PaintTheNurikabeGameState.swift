@@ -14,8 +14,8 @@ class PaintTheNurikabeGameState: GridGameState {
         get {getGame() as! PaintTheNurikabeGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: PaintTheNurikabeDocument { return PaintTheNurikabeDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return PaintTheNurikabeDocument.sharedInstance }
+    var gameDocument: PaintTheNurikabeDocument { PaintTheNurikabeDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { PaintTheNurikabeDocument.sharedInstance }
     var objArray = [PaintTheNurikabeObject]()
     var pos2state = [Position: HintState]()
     

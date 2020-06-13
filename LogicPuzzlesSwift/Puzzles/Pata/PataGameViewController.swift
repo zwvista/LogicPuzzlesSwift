@@ -21,8 +21,8 @@ class PataGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! PataGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: PataDocument { return PataDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return PataDocument.sharedInstance }
+    var gameDocument: PataDocument { PataDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { PataDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

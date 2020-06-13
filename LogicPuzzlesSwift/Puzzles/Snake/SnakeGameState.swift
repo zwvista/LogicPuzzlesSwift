@@ -14,8 +14,8 @@ class SnakeGameState: GridGameState {
         get {getGame() as! SnakeGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: SnakeDocument { return SnakeDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return SnakeDocument.sharedInstance }
+    var gameDocument: SnakeDocument { SnakeDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { SnakeDocument.sharedInstance }
     var objArray = [SnakeObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()

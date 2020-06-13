@@ -10,7 +10,7 @@ import UIKit
 
 class BWTapaHelpViewController: GameHelpViewController {
 
-    var gameDocument: BWTapaDocument { return BWTapaDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return BWTapaDocument.sharedInstance }
+    var gameDocument: BWTapaDocument { BWTapaDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { BWTapaDocument.sharedInstance }
 
 }

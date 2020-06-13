@@ -10,7 +10,7 @@ import UIKit
 
 class ParksMainViewController: GameMainViewController {
 
-    var gameDocument: ParksDocument { return ParksDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return ParksDocument.sharedInstance }
+    var gameDocument: ParksDocument { ParksDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { ParksDocument.sharedInstance }
 
 }

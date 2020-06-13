@@ -21,8 +21,8 @@ class LineSweeperGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! LineSweeperGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: LineSweeperDocument { return LineSweeperDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return LineSweeperDocument.sharedInstance }
+    var gameDocument: LineSweeperDocument { LineSweeperDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { LineSweeperDocument.sharedInstance }
     var pLast: Position?
    
     override func viewDidLoad() {

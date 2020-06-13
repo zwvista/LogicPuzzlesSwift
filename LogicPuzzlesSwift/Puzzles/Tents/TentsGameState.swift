@@ -14,8 +14,8 @@ class TentsGameState: GridGameState {
         get {getGame() as! TentsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: TentsDocument { return TentsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return TentsDocument.sharedInstance }
+    var gameDocument: TentsDocument { TentsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { TentsDocument.sharedInstance }
     var objArray = [TentsObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()

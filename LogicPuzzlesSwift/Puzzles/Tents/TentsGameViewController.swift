@@ -21,8 +21,8 @@ class TentsGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! TentsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: TentsDocument { return TentsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return TentsDocument.sharedInstance }
+    var gameDocument: TentsDocument { TentsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { TentsDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

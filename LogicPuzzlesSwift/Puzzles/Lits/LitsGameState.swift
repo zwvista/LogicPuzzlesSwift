@@ -21,8 +21,8 @@ class LitsGameState: GridGameState {
         get {getGame() as! LitsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: LitsDocument { return LitsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return LitsDocument.sharedInstance }
+    var gameDocument: LitsDocument { LitsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { LitsDocument.sharedInstance }
     var objArray = [LitsObject]()
     var pos2state = [Position: HintState]()
     

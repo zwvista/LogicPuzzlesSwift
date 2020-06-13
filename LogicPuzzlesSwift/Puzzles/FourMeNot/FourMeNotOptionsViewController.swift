@@ -10,7 +10,7 @@ import UIKit
 
 class FourMeNotOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: FourMeNotDocument { return FourMeNotDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return FourMeNotDocument.sharedInstance }
+    var gameDocument: FourMeNotDocument { FourMeNotDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { FourMeNotDocument.sharedInstance }
 
 }

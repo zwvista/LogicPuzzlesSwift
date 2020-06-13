@@ -14,8 +14,8 @@ class MagnetsGameState: GridGameState {
         get {getGame() as! MagnetsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: MagnetsDocument { return MagnetsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return MagnetsDocument.sharedInstance }
+    var gameDocument: MagnetsDocument { MagnetsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { MagnetsDocument.sharedInstance }
     var objArray = [MagnetsObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()

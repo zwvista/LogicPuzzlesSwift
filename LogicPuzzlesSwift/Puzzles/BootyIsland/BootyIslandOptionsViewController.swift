@@ -10,7 +10,7 @@ import UIKit
 
 class BootyIslandOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: BootyIslandDocument { return BootyIslandDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return BootyIslandDocument.sharedInstance }
+    var gameDocument: BootyIslandDocument { BootyIslandDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { BootyIslandDocument.sharedInstance }
     
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class OrchardsOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: OrchardsDocument { return OrchardsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return OrchardsDocument.sharedInstance }
+    var gameDocument: OrchardsDocument { OrchardsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { OrchardsDocument.sharedInstance }
 
 }

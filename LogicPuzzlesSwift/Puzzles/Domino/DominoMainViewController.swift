@@ -10,7 +10,7 @@ import UIKit
 
 class DominoMainViewController: GameMainViewController {
 
-    var gameDocument: DominoDocument { return DominoDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return DominoDocument.sharedInstance }
+    var gameDocument: DominoDocument { DominoDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { DominoDocument.sharedInstance }
 
 }

@@ -14,8 +14,8 @@ class FillominoGameState: GridGameState {
         get {getGame() as! FillominoGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: FillominoDocument { return FillominoDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return FillominoDocument.sharedInstance }
+    var gameDocument: FillominoDocument { FillominoDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { FillominoDocument.sharedInstance }
     var objArray = [Character]()
     var dots: GridDots!
     var pos2state = [Position: HintState]()

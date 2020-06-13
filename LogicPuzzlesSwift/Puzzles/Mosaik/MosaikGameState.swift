@@ -14,8 +14,8 @@ class MosaikGameState: GridGameState {
         get {getGame() as! MosaikGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: MosaikDocument { return MosaikDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return MosaikDocument.sharedInstance }
+    var gameDocument: MosaikDocument { MosaikDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { MosaikDocument.sharedInstance }
     var objArray = [MosaikObject]()
     var pos2state = [Position: HintState]()
     

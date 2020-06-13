@@ -10,7 +10,7 @@ import UIKit
 
 class RoomsOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: RoomsDocument { return RoomsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return RoomsDocument.sharedInstance }
+    var gameDocument: RoomsDocument { RoomsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { RoomsDocument.sharedInstance }
     
 }

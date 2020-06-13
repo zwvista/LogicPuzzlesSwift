@@ -14,8 +14,8 @@ class NurikabeGameState: GridGameState {
         get {getGame() as! NurikabeGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: NurikabeDocument { return NurikabeDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return NurikabeDocument.sharedInstance }
+    var gameDocument: NurikabeDocument { NurikabeDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { NurikabeDocument.sharedInstance }
     var objArray = [NurikabeObject]()
     
     override func copy() -> NurikabeGameState {

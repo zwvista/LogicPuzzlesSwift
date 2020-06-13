@@ -14,8 +14,8 @@ class NumberLinkGameState: GridGameState {
         get {getGame() as! NumberLinkGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: NumberLinkDocument { return NumberLinkDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return NumberLinkDocument.sharedInstance }
+    var gameDocument: NumberLinkDocument { NumberLinkDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { NumberLinkDocument.sharedInstance }
     var objArray = [NumberLinkObject]()
     var pos2state = [Position: HintState]()
     

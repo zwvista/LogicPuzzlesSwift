@@ -21,8 +21,8 @@ class CloudsGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! CloudsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: CloudsDocument { return CloudsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return CloudsDocument.sharedInstance }
+    var gameDocument: CloudsDocument { CloudsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { CloudsDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

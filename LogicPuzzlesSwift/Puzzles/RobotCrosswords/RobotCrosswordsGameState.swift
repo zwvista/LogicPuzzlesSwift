@@ -14,8 +14,8 @@ class RobotCrosswordsGameState: GridGameState {
         get {getGame() as! RobotCrosswordsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: RobotCrosswordsDocument { return RobotCrosswordsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return RobotCrosswordsDocument.sharedInstance }
+    var gameDocument: RobotCrosswordsDocument { RobotCrosswordsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { RobotCrosswordsDocument.sharedInstance }
     var objArray = [Int]()
     var pos2horzState = [Position: HintState]()
     var pos2vertState = [Position: HintState]()

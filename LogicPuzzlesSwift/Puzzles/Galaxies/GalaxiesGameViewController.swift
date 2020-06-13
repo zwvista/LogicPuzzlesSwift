@@ -21,8 +21,8 @@ class GalaxiesGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! GalaxiesGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: GalaxiesDocument { return GalaxiesDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return GalaxiesDocument.sharedInstance }
+    var gameDocument: GalaxiesDocument { GalaxiesDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { GalaxiesDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -21,8 +21,8 @@ class BootyIslandGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! BootyIslandGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: BootyIslandDocument { return BootyIslandDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return BootyIslandDocument.sharedInstance }
+    var gameDocument: BootyIslandDocument { BootyIslandDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { BootyIslandDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

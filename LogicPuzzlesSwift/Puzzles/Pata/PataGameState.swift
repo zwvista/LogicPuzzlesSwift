@@ -14,8 +14,8 @@ class PataGameState: GridGameState {
         get {getGame() as! PataGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: PataDocument { return PataDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return PataDocument.sharedInstance }
+    var gameDocument: PataDocument { PataDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { PataDocument.sharedInstance }
     var objArray = [PataObject]()
     
     override func copy() -> PataGameState {

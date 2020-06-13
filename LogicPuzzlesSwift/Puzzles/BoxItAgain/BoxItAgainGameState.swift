@@ -14,8 +14,8 @@ class BoxItAgainGameState: GridGameState {
         get {getGame() as! BoxItAgainGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: BoxItAgainDocument { return BoxItAgainDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return BoxItAgainDocument.sharedInstance }
+    var gameDocument: BoxItAgainDocument { BoxItAgainDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { BoxItAgainDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
     

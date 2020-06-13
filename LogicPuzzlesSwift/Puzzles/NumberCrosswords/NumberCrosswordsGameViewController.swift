@@ -21,8 +21,8 @@ class NumberCrosswordsGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! NumberCrosswordsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: NumberCrosswordsDocument { return NumberCrosswordsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return NumberCrosswordsDocument.sharedInstance }
+    var gameDocument: NumberCrosswordsDocument { NumberCrosswordsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { NumberCrosswordsDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,7 +10,7 @@ import UIKit
 
 class TennerGridHelpViewController: GameHelpViewController {
 
-    var gameDocument: TennerGridDocument { return TennerGridDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return TennerGridDocument.sharedInstance }
+    var gameDocument: TennerGridDocument { TennerGridDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { TennerGridDocument.sharedInstance }
 
 }

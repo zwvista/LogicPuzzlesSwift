@@ -21,8 +21,8 @@ class NumberPathGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! NumberPathGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: NumberPathDocument { return NumberPathDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return NumberPathDocument.sharedInstance }
+    var gameDocument: NumberPathDocument { NumberPathDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { NumberPathDocument.sharedInstance }
     var pLast: Position?
     
     override func viewDidLoad() {

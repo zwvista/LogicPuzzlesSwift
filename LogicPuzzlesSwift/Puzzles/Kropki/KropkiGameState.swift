@@ -14,8 +14,8 @@ class KropkiGameState: GridGameState {
         get {getGame() as! KropkiGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: KropkiDocument { return KropkiDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return KropkiDocument.sharedInstance }
+    var gameDocument: KropkiDocument { KropkiDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { KropkiDocument.sharedInstance }
     var objArray = [Int]()
     var pos2horzState = [Position: HintState]()
     var pos2vertState = [Position: HintState]()

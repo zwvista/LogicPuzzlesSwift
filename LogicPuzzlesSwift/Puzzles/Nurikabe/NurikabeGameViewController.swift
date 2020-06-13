@@ -21,8 +21,8 @@ class NurikabeGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! NurikabeGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: NurikabeDocument { return NurikabeDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return NurikabeDocument.sharedInstance }
+    var gameDocument: NurikabeDocument { NurikabeDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { NurikabeDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

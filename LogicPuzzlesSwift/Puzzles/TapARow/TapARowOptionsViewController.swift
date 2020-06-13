@@ -10,7 +10,7 @@ import UIKit
 
 class TapARowOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: TapARowDocument { return TapARowDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return TapARowDocument.sharedInstance }
+    var gameDocument: TapARowDocument { TapARowDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { TapARowDocument.sharedInstance }
     
 }

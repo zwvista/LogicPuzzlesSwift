@@ -14,8 +14,8 @@ class SentinelsGameState: GridGameState {
         get {getGame() as! SentinelsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: SentinelsDocument { return SentinelsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return SentinelsDocument.sharedInstance }
+    var gameDocument: SentinelsDocument { SentinelsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { SentinelsDocument.sharedInstance }
     var objArray = [SentinelsObject]()
     
     override func copy() -> SentinelsGameState {

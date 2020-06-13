@@ -14,8 +14,8 @@ class BattleShipsGameState: GridGameState {
         get {getGame() as! BattleShipsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: BattleShipsDocument { return BattleShipsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return BattleShipsDocument.sharedInstance }
+    var gameDocument: BattleShipsDocument { BattleShipsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { BattleShipsDocument.sharedInstance }
     var objArray = [BattleShipsObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()

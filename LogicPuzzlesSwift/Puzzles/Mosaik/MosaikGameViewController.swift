@@ -21,8 +21,8 @@ class MosaikGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! MosaikGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: MosaikDocument { return MosaikDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return MosaikDocument.sharedInstance }
+    var gameDocument: MosaikDocument { MosaikDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { MosaikDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

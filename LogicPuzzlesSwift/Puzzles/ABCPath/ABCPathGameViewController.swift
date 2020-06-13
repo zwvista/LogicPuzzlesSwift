@@ -21,8 +21,8 @@ class ABCPathGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! ABCPathGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: ABCPathDocument { return ABCPathDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return ABCPathDocument.sharedInstance }
+    var gameDocument: ABCPathDocument { ABCPathDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { ABCPathDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

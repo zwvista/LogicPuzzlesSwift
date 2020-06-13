@@ -14,8 +14,8 @@ class PowerGridGameState: GridGameState {
         get {getGame() as! PowerGridGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: PowerGridDocument { return PowerGridDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return PowerGridDocument.sharedInstance }
+    var gameDocument: PowerGridDocument { PowerGridDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { PowerGridDocument.sharedInstance }
     var objArray = [PowerGridObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()

@@ -19,8 +19,8 @@ class FenceLitsGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! FenceLitsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: FenceLitsDocument { return FenceLitsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return FenceLitsDocument.sharedInstance }
+    var gameDocument: FenceLitsDocument { FenceLitsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { FenceLitsDocument.sharedInstance }
   
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -21,8 +21,8 @@ class TapARowGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! TapARowGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: TapARowDocument { return TapARowDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return TapARowDocument.sharedInstance }
+    var gameDocument: TapARowDocument { TapARowDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { TapARowDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

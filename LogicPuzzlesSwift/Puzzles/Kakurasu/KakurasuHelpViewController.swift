@@ -10,7 +10,7 @@ import UIKit
 
 class KakurasuHelpViewController: GameHelpViewController {
 
-    var gameDocument: KakurasuDocument { return KakurasuDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return KakurasuDocument.sharedInstance }
+    var gameDocument: KakurasuDocument { KakurasuDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { KakurasuDocument.sharedInstance }
 
 }

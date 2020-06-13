@@ -21,8 +21,8 @@ class TheOddBrickGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! TheOddBrickGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: TheOddBrickDocument { return TheOddBrickDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return TheOddBrickDocument.sharedInstance }
+    var gameDocument: TheOddBrickDocument { TheOddBrickDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { TheOddBrickDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

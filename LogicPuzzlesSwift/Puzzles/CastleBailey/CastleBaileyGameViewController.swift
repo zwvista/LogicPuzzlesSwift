@@ -21,8 +21,8 @@ class CastleBaileyGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! CastleBaileyGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: CastleBaileyDocument { return CastleBaileyDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return CastleBaileyDocument.sharedInstance }
+    var gameDocument: CastleBaileyDocument { CastleBaileyDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { CastleBaileyDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

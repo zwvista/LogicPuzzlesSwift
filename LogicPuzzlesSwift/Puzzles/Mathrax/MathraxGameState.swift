@@ -14,8 +14,8 @@ class MathraxGameState: GridGameState {
         get {getGame() as! MathraxGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: MathraxDocument { return MathraxDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return MathraxDocument.sharedInstance }
+    var gameDocument: MathraxDocument { MathraxDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { MathraxDocument.sharedInstance }
     var objArray = [Int]()
     var row2state = [HintState]()
     var col2state = [HintState]()

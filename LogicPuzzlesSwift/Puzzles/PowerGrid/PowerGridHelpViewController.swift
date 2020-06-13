@@ -10,7 +10,7 @@ import UIKit
 
 class PowerGridHelpViewController: GameHelpViewController {
 
-    var gameDocument: PowerGridDocument { return PowerGridDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return PowerGridDocument.sharedInstance }
+    var gameDocument: PowerGridDocument { PowerGridDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { PowerGridDocument.sharedInstance }
 
 }

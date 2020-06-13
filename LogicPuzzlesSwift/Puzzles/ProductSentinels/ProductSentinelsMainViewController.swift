@@ -10,7 +10,7 @@ import UIKit
 
 class ProductSentinelsMainViewController: GameMainViewController {
 
-    var gameDocument: ProductSentinelsDocument { return ProductSentinelsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return ProductSentinelsDocument.sharedInstance }
+    var gameDocument: ProductSentinelsDocument { ProductSentinelsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { ProductSentinelsDocument.sharedInstance }
 
 }

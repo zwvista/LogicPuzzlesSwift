@@ -10,7 +10,7 @@ import UIKit
 
 class BattleShipsHelpViewController: GameHelpViewController {
 
-    var gameDocument: BattleShipsDocument { return BattleShipsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return BattleShipsDocument.sharedInstance }
+    var gameDocument: BattleShipsDocument { BattleShipsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { BattleShipsDocument.sharedInstance }
 
 }

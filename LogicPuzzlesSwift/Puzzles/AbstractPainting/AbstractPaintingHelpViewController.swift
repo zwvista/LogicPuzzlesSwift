@@ -10,7 +10,7 @@ import UIKit
 
 class AbstractPaintingHelpViewController: GameHelpViewController {
 
-    var gameDocument: AbstractPaintingDocument { return AbstractPaintingDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return AbstractPaintingDocument.sharedInstance }
+    var gameDocument: AbstractPaintingDocument { AbstractPaintingDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { AbstractPaintingDocument.sharedInstance }
 
 }

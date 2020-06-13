@@ -14,8 +14,8 @@ class TierraDelFuegoGameState: GridGameState {
         get {getGame() as! TierraDelFuegoGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: TierraDelFuegoDocument { return TierraDelFuegoDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return TierraDelFuegoDocument.sharedInstance }
+    var gameDocument: TierraDelFuegoDocument { TierraDelFuegoDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { TierraDelFuegoDocument.sharedInstance }
     var objArray = [TierraDelFuegoObject]()
     
     override func copy() -> TierraDelFuegoGameState {

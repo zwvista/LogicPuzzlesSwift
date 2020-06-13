@@ -21,8 +21,8 @@ class TapAlikeGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! TapAlikeGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: TapAlikeDocument { return TapAlikeDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return TapAlikeDocument.sharedInstance }
+    var gameDocument: TapAlikeDocument { TapAlikeDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { TapAlikeDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

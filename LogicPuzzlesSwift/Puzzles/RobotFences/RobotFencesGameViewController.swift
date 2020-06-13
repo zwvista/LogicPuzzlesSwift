@@ -21,8 +21,8 @@ class RobotFencesGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! RobotFencesGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: RobotFencesDocument { return RobotFencesDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return RobotFencesDocument.sharedInstance }
+    var gameDocument: RobotFencesDocument { RobotFencesDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { RobotFencesDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

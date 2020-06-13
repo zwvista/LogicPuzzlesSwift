@@ -14,8 +14,8 @@ class SnailGameState: GridGameState {
         get {getGame() as! SnailGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: SnailDocument { return SnailDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return SnailDocument.sharedInstance }
+    var gameDocument: SnailDocument { SnailDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { SnailDocument.sharedInstance }
     var objArray = [Character]()
     var pos2state = [Position: HintState]()
     var row2state = [HintState]()

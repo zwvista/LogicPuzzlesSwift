@@ -21,8 +21,8 @@ class AbstractPaintingGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! AbstractPaintingGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: AbstractPaintingDocument { return AbstractPaintingDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return AbstractPaintingDocument.sharedInstance }
+    var gameDocument: AbstractPaintingDocument { AbstractPaintingDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { AbstractPaintingDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

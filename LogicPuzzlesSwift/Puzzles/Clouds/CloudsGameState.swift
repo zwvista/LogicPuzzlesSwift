@@ -14,8 +14,8 @@ class CloudsGameState: GridGameState {
         get {getGame() as! CloudsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: CloudsDocument { return CloudsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return CloudsDocument.sharedInstance }
+    var gameDocument: CloudsDocument { CloudsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { CloudsDocument.sharedInstance }
     var objArray = [CloudsObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()

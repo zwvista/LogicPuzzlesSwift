@@ -14,8 +14,8 @@ class LightBattleShipsGameState: GridGameState {
         get {getGame() as! LightBattleShipsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: LightBattleShipsDocument { return LightBattleShipsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return LightBattleShipsDocument.sharedInstance }
+    var gameDocument: LightBattleShipsDocument { LightBattleShipsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { LightBattleShipsDocument.sharedInstance }
     var objArray = [LightBattleShipsObject]()
     
     override func copy() -> LightBattleShipsGameState {

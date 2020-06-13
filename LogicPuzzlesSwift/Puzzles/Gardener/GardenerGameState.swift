@@ -14,8 +14,8 @@ class GardenerGameState: GridGameState {
         get {getGame() as! GardenerGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: GardenerDocument { return GardenerDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return GardenerDocument.sharedInstance }
+    var gameDocument: GardenerDocument { GardenerDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { GardenerDocument.sharedInstance }
     var objArray = [GardenerObject]()
     var pos2state = [Position: HintState]()
     var invalidSpacesHorz = Set<Position>()

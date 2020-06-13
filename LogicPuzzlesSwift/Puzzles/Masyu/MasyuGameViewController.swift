@@ -21,8 +21,8 @@ class MasyuGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! MasyuGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: MasyuDocument { return MasyuDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return MasyuDocument.sharedInstance }
+    var gameDocument: MasyuDocument { MasyuDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { MasyuDocument.sharedInstance }
     var pLast: Position?
     
     override func viewDidLoad() {

@@ -21,8 +21,8 @@ class SnailGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! SnailGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: SnailDocument { return SnailDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return SnailDocument.sharedInstance }
+    var gameDocument: SnailDocument { SnailDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { SnailDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

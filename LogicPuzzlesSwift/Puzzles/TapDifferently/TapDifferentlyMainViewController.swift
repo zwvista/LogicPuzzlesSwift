@@ -10,7 +10,7 @@ import UIKit
 
 class TapDifferentlyMainViewController: GameMainViewController {
 
-    var gameDocument: TapDifferentlyDocument { return TapDifferentlyDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return TapDifferentlyDocument.sharedInstance }
+    var gameDocument: TapDifferentlyDocument { TapDifferentlyDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { TapDifferentlyDocument.sharedInstance }
 
 }

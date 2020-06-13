@@ -14,8 +14,8 @@ class RobotFencesGameState: GridGameState {
         get {getGame() as! RobotFencesGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: RobotFencesDocument { return RobotFencesDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return RobotFencesDocument.sharedInstance }
+    var gameDocument: RobotFencesDocument { RobotFencesDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { RobotFencesDocument.sharedInstance }
     var objArray = [Int]()
     var row2state = [HintState]()
     var col2state = [HintState]()

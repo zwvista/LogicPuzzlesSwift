@@ -21,8 +21,8 @@ class BWTapaGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! BWTapaGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: BWTapaDocument { return BWTapaDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return BWTapaDocument.sharedInstance }
+    var gameDocument: BWTapaDocument { BWTapaDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { BWTapaDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

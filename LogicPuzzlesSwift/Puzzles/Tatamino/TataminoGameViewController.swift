@@ -21,8 +21,8 @@ class TataminoGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! TataminoGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: TataminoDocument { return TataminoDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return TataminoDocument.sharedInstance }
+    var gameDocument: TataminoDocument { TataminoDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { TataminoDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

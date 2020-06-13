@@ -21,8 +21,8 @@ class FutoshikiGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! FutoshikiGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: FutoshikiDocument { return FutoshikiDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return FutoshikiDocument.sharedInstance }
+    var gameDocument: FutoshikiDocument { FutoshikiDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { FutoshikiDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

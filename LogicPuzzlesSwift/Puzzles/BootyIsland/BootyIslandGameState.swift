@@ -14,8 +14,8 @@ class BootyIslandGameState: GridGameState {
         get {getGame() as! BootyIslandGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: BootyIslandDocument { return BootyIslandDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return BootyIslandDocument.sharedInstance }
+    var gameDocument: BootyIslandDocument { BootyIslandDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { BootyIslandDocument.sharedInstance }
     var objArray = [BootyIslandObject]()
     
     override func copy() -> BootyIslandGameState {

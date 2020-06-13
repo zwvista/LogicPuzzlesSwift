@@ -10,7 +10,7 @@ import UIKit
 
 class NumberPathMainViewController: GameMainViewController {
 
-    var gameDocument: NumberPathDocument { return NumberPathDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return NumberPathDocument.sharedInstance }
+    var gameDocument: NumberPathDocument { NumberPathDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { NumberPathDocument.sharedInstance }
 
 }

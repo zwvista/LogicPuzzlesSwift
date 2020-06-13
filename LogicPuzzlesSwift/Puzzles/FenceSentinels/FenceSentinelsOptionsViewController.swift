@@ -10,7 +10,7 @@ import UIKit
 
 class FenceSentinelsOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: FenceSentinelsDocument { return FenceSentinelsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return FenceSentinelsDocument.sharedInstance }
+    var gameDocument: FenceSentinelsDocument { FenceSentinelsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { FenceSentinelsDocument.sharedInstance }
     
 }

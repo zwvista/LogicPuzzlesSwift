@@ -14,8 +14,8 @@ class LighthousesGameState: GridGameState {
         get {getGame() as! LighthousesGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: LighthousesDocument { return LighthousesDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return LighthousesDocument.sharedInstance }
+    var gameDocument: LighthousesDocument { LighthousesDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { LighthousesDocument.sharedInstance }
     var objArray = [LighthousesObject]()
     
     override func copy() -> LighthousesGameState {

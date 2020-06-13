@@ -14,8 +14,8 @@ class CarpentersSquareGameState: GridGameState {
         get {getGame() as! CarpentersSquareGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: CarpentersSquareDocument { return CarpentersSquareDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return CarpentersSquareDocument.sharedInstance }
+    var gameDocument: CarpentersSquareDocument { CarpentersSquareDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { CarpentersSquareDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
     

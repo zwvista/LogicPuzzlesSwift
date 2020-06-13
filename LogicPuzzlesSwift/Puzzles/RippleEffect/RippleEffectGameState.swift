@@ -14,8 +14,8 @@ class RippleEffectGameState: GridGameState {
         get {getGame() as! RippleEffectGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: RippleEffectDocument { return RippleEffectDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return RippleEffectDocument.sharedInstance }
+    var gameDocument: RippleEffectDocument { RippleEffectDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { RippleEffectDocument.sharedInstance }
     var objArray = [Int]()
     var pos2state = [Position: HintState]()
     

@@ -14,8 +14,8 @@ class CalcudokuGameState: GridGameState {
         get {getGame() as! CalcudokuGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: CalcudokuDocument { return CalcudokuDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return CalcudokuDocument.sharedInstance }
+    var gameDocument: CalcudokuDocument { CalcudokuDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { CalcudokuDocument.sharedInstance }
     var objArray = [Int]()
     var row2state = [HintState]()
     var col2state = [HintState]()

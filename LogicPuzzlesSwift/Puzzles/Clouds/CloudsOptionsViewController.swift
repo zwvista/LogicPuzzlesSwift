@@ -10,7 +10,7 @@ import UIKit
 
 class CloudsOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: CloudsDocument { return CloudsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return CloudsDocument.sharedInstance }
+    var gameDocument: CloudsDocument { CloudsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { CloudsDocument.sharedInstance }
     
 }

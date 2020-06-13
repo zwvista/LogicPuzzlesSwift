@@ -21,8 +21,8 @@ class PaintTheNurikabeGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! PaintTheNurikabeGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: PaintTheNurikabeDocument { return PaintTheNurikabeDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return PaintTheNurikabeDocument.sharedInstance }
+    var gameDocument: PaintTheNurikabeDocument { PaintTheNurikabeDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { PaintTheNurikabeDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

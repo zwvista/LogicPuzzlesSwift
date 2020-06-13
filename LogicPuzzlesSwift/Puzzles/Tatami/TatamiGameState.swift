@@ -14,8 +14,8 @@ class TatamiGameState: GridGameState {
         get {getGame() as! TatamiGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: TatamiDocument { return TatamiDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return TatamiDocument.sharedInstance }
+    var gameDocument: TatamiDocument { TatamiDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { TatamiDocument.sharedInstance }
     var objArray = [Character]()
     var pos2state = [Position: HintState]()
     

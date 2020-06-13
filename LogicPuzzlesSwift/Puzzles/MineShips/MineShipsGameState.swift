@@ -14,8 +14,8 @@ class MineShipsGameState: GridGameState {
         get {getGame() as! MineShipsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: MineShipsDocument { return MineShipsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return MineShipsDocument.sharedInstance }
+    var gameDocument: MineShipsDocument { MineShipsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { MineShipsDocument.sharedInstance }
     var objArray = [MineShipsObject]()
     
     override func copy() -> MineShipsGameState {

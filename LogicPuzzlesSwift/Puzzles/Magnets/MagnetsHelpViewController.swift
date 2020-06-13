@@ -10,7 +10,7 @@ import UIKit
 
 class MagnetsHelpViewController: GameHelpViewController {
 
-    var gameDocument: MagnetsDocument { return MagnetsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return MagnetsDocument.sharedInstance }
+    var gameDocument: MagnetsDocument { MagnetsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { MagnetsDocument.sharedInstance }
 
 }

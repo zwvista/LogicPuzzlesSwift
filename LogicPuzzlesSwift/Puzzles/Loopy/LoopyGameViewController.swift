@@ -21,8 +21,8 @@ class LoopyGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! LoopyGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: LoopyDocument { return LoopyDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return LoopyDocument.sharedInstance }
+    var gameDocument: LoopyDocument { LoopyDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { LoopyDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

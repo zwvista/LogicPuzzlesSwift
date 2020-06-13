@@ -21,8 +21,8 @@ class MiniLitsGameState: GridGameState {
         get {getGame() as! MiniLitsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: MiniLitsDocument { return MiniLitsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return MiniLitsDocument.sharedInstance }
+    var gameDocument: MiniLitsDocument { MiniLitsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { MiniLitsDocument.sharedInstance }
     var objArray = [MiniLitsObject]()
     var pos2state = [Position: HintState]()
     

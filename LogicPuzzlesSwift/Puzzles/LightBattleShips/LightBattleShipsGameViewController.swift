@@ -21,8 +21,8 @@ class LightBattleShipsGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! LightBattleShipsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: LightBattleShipsDocument { return LightBattleShipsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return LightBattleShipsDocument.sharedInstance }
+    var gameDocument: LightBattleShipsDocument { LightBattleShipsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { LightBattleShipsDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -14,8 +14,8 @@ class DisconnectFourGameState: GridGameState {
         get {getGame() as! DisconnectFourGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: DisconnectFourDocument { return DisconnectFourDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return DisconnectFourDocument.sharedInstance }
+    var gameDocument: DisconnectFourDocument { DisconnectFourDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { DisconnectFourDocument.sharedInstance }
     var objArray = [DisconnectFourObject]()
     var pos2state = [Position: AllowedObjectState]()
 

@@ -10,7 +10,7 @@ import UIKit
 
 class MineShipsMainViewController: GameMainViewController {
 
-    var gameDocument: MineShipsDocument { return MineShipsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return MineShipsDocument.sharedInstance }
+    var gameDocument: MineShipsDocument { MineShipsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { MineShipsDocument.sharedInstance }
 
 }

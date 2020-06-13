@@ -14,8 +14,8 @@ class Square100GameState: GridGameState {
         get {getGame() as! Square100Game}
         set {setGame(game: newValue)}
     }
-    var gameDocument: Square100Document { return Square100Document.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return Square100Document.sharedInstance }
+    var gameDocument: Square100Document { Square100Document.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { Square100Document.sharedInstance }
     var objArray = [String]()
     var row2hint = [Int]()
     var col2hint = [Int]()

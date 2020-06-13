@@ -10,7 +10,7 @@ import UIKit
 
 class NorthPoleFishingHelpViewController: GameHelpViewController {
 
-    var gameDocument: NorthPoleFishingDocument { return NorthPoleFishingDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return NorthPoleFishingDocument.sharedInstance }
+    var gameDocument: NorthPoleFishingDocument { NorthPoleFishingDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { NorthPoleFishingDocument.sharedInstance }
 
 }

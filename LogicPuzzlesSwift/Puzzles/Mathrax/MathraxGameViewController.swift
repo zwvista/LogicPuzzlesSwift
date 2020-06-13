@@ -21,8 +21,8 @@ class MathraxGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! MathraxGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: MathraxDocument { return MathraxDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return MathraxDocument.sharedInstance }
+    var gameDocument: MathraxDocument { MathraxDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { MathraxDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

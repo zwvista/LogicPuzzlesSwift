@@ -14,8 +14,8 @@ class AbcGameState: GridGameState {
         get {getGame() as! AbcGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: AbcDocument { return AbcDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return AbcDocument.sharedInstance }
+    var gameDocument: AbcDocument { AbcDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { AbcDocument.sharedInstance }
     var objArray = [Character]()
     var row2state = [HintState]()
     var col2state = [HintState]()

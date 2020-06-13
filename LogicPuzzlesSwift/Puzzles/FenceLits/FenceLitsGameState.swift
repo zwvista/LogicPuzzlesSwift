@@ -14,8 +14,8 @@ class FenceLitsGameState: GridGameState {
         get {getGame() as! FenceLitsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: FenceLitsDocument { return FenceLitsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return FenceLitsDocument.sharedInstance }
+    var gameDocument: FenceLitsDocument { FenceLitsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { FenceLitsDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
     

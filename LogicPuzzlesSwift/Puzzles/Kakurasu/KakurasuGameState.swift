@@ -14,8 +14,8 @@ class KakurasuGameState: GridGameState {
         get {getGame() as! KakurasuGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: KakurasuDocument { return KakurasuDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return KakurasuDocument.sharedInstance }
+    var gameDocument: KakurasuDocument { KakurasuDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { KakurasuDocument.sharedInstance }
     var objArray = [KakurasuObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()

@@ -21,8 +21,8 @@ class KropkiGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! KropkiGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: KropkiDocument { return KropkiDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return KropkiDocument.sharedInstance }
+    var gameDocument: KropkiDocument { KropkiDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { KropkiDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

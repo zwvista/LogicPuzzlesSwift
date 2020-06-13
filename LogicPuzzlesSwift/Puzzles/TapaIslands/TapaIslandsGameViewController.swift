@@ -21,8 +21,8 @@ class TapaIslandsGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! TapaIslandsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: TapaIslandsDocument { return TapaIslandsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return TapaIslandsDocument.sharedInstance }
+    var gameDocument: TapaIslandsDocument { TapaIslandsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { TapaIslandsDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

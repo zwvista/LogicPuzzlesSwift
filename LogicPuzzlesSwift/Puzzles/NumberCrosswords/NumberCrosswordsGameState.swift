@@ -14,8 +14,8 @@ class NumberCrosswordsGameState: GridGameState {
         get {getGame() as! NumberCrosswordsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: NumberCrosswordsDocument { return NumberCrosswordsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return NumberCrosswordsDocument.sharedInstance }
+    var gameDocument: NumberCrosswordsDocument { NumberCrosswordsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { NumberCrosswordsDocument.sharedInstance }
     var objArray = [NumberCrosswordsObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()

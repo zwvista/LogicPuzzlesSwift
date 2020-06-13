@@ -21,8 +21,8 @@ class KakurasuGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! KakurasuGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: KakurasuDocument { return KakurasuDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return KakurasuDocument.sharedInstance }
+    var gameDocument: KakurasuDocument { KakurasuDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { KakurasuDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

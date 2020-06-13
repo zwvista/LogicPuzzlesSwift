@@ -10,7 +10,7 @@ import UIKit
 
 class RippleEffectOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: RippleEffectDocument { return RippleEffectDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return RippleEffectDocument.sharedInstance }
+    var gameDocument: RippleEffectDocument { RippleEffectDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { RippleEffectDocument.sharedInstance }
 
 }

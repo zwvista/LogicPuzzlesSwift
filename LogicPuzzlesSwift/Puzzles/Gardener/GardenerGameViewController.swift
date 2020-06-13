@@ -21,8 +21,8 @@ class GardenerGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! GardenerGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: GardenerDocument { return GardenerDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return GardenerDocument.sharedInstance }
+    var gameDocument: GardenerDocument { GardenerDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { GardenerDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

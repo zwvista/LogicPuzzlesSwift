@@ -14,8 +14,8 @@ class OverUnderGameState: GridGameState {
         get {getGame() as! OverUnderGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: OverUnderDocument { return OverUnderDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return OverUnderDocument.sharedInstance }
+    var gameDocument: OverUnderDocument { OverUnderDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { OverUnderDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
     

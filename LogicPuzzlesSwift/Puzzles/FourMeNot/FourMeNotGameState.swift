@@ -14,8 +14,8 @@ class FourMeNotGameState: GridGameState {
         get {getGame() as! FourMeNotGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: FourMeNotDocument { return FourMeNotDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return FourMeNotDocument.sharedInstance }
+    var gameDocument: FourMeNotDocument { FourMeNotDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { FourMeNotDocument.sharedInstance }
     var objArray = [FourMeNotObject]()
     
     override func copy() -> FourMeNotGameState {

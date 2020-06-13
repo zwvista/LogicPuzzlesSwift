@@ -21,8 +21,8 @@ class NumberLinkGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! NumberLinkGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: NumberLinkDocument { return NumberLinkDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return NumberLinkDocument.sharedInstance }
+    var gameDocument: NumberLinkDocument { NumberLinkDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { NumberLinkDocument.sharedInstance }
     var pLast: Position?
     
     override func viewDidLoad() {

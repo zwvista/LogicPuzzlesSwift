@@ -21,8 +21,8 @@ class DisconnectFourGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! DisconnectFourGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: DisconnectFourDocument { return DisconnectFourDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return DisconnectFourDocument.sharedInstance }
+    var gameDocument: DisconnectFourDocument { DisconnectFourDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { DisconnectFourDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

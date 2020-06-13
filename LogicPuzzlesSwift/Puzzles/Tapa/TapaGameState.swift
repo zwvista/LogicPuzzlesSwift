@@ -14,8 +14,8 @@ class TapaGameState: GridGameState {
         get {getGame() as! TapaGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: TapaDocument { return TapaDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return TapaDocument.sharedInstance }
+    var gameDocument: TapaDocument { TapaDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { TapaDocument.sharedInstance }
     var objArray = [TapaObject]()
     
     override func copy() -> TapaGameState {

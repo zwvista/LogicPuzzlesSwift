@@ -21,8 +21,8 @@ class SkyscrapersGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! SkyscrapersGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: SkyscrapersDocument { return SkyscrapersDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return SkyscrapersDocument.sharedInstance }
+    var gameDocument: SkyscrapersDocument { SkyscrapersDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { SkyscrapersDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

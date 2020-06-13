@@ -14,8 +14,8 @@ class WallSentinelsGameState: GridGameState {
         get {getGame() as! WallSentinelsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: WallSentinelsDocument { return WallSentinelsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return WallSentinelsDocument.sharedInstance }
+    var gameDocument: WallSentinelsDocument { WallSentinelsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { WallSentinelsDocument.sharedInstance }
     var objArray = [WallSentinelsObject]()
     
     override func copy() -> WallSentinelsGameState {

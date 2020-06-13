@@ -14,8 +14,8 @@ class NeighboursGameState: GridGameState {
         get {getGame() as! NeighboursGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: NeighboursDocument { return NeighboursDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return NeighboursDocument.sharedInstance }
+    var gameDocument: NeighboursDocument { NeighboursDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { NeighboursDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
     

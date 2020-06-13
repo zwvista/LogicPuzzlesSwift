@@ -14,8 +14,8 @@ class AbstractPaintingGameState: GridGameState {
         get {getGame() as! AbstractPaintingGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: AbstractPaintingDocument { return AbstractPaintingDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return AbstractPaintingDocument.sharedInstance }
+    var gameDocument: AbstractPaintingDocument { AbstractPaintingDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { AbstractPaintingDocument.sharedInstance }
     var objArray = [AbstractPaintingObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()

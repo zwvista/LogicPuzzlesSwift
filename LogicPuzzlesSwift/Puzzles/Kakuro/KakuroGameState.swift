@@ -14,8 +14,8 @@ class KakuroGameState: GridGameState {
         get {getGame() as! KakuroGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: KakuroDocument { return KakuroDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return KakuroDocument.sharedInstance }
+    var gameDocument: KakuroDocument { KakuroDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { KakuroDocument.sharedInstance }
     var pos2num = [Position: Int]()
     var pos2horzState = [Position: HintState]()
     var pos2vertState = [Position: HintState]()

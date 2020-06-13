@@ -14,8 +14,8 @@ class LineSweeperGameState: GridGameState {
         get {getGame() as! LineSweeperGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: LineSweeperDocument { return LineSweeperDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return LineSweeperDocument.sharedInstance }
+    var gameDocument: LineSweeperDocument { LineSweeperDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { LineSweeperDocument.sharedInstance }
     var objArray = [LineSweeperObject]()
     var pos2state = [Position: HintState]()
     

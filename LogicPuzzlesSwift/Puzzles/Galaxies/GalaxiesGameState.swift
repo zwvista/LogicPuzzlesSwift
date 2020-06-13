@@ -15,8 +15,8 @@ class GalaxiesGameState: GridGameState {
         get {getGame() as! GalaxiesGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: GalaxiesDocument { return GalaxiesDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return GalaxiesDocument.sharedInstance }
+    var gameDocument: GalaxiesDocument { GalaxiesDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { GalaxiesDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
     

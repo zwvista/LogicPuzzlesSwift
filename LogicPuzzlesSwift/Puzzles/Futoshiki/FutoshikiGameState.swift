@@ -14,8 +14,8 @@ class FutoshikiGameState: GridGameState {
         get {getGame() as! FutoshikiGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: FutoshikiDocument { return FutoshikiDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return FutoshikiDocument.sharedInstance }
+    var gameDocument: FutoshikiDocument { FutoshikiDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { FutoshikiDocument.sharedInstance }
     var objArray = [Character]()
     var row2state = [HintState]()
     var col2state = [HintState]()

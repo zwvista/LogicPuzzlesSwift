@@ -14,8 +14,8 @@ class TennerGridGameState: GridGameState {
         get {getGame() as! TennerGridGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: TennerGridDocument { return TennerGridDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return TennerGridDocument.sharedInstance }
+    var gameDocument: TennerGridDocument { TennerGridDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { TennerGridDocument.sharedInstance }
     var objArray = [Int]()
     var pos2state = [Position: HintState]()
 

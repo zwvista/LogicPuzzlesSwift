@@ -21,8 +21,8 @@ class WallSentinelsGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! WallSentinelsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: WallSentinelsDocument { return WallSentinelsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return WallSentinelsDocument.sharedInstance }
+    var gameDocument: WallSentinelsDocument { WallSentinelsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { WallSentinelsDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

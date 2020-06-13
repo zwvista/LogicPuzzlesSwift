@@ -14,8 +14,8 @@ class CarpentersWallGameState: GridGameState {
         get {getGame() as! CarpentersWallGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: CarpentersWallDocument { return CarpentersWallDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return CarpentersWallDocument.sharedInstance }
+    var gameDocument: CarpentersWallDocument { CarpentersWallDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { CarpentersWallDocument.sharedInstance }
     var objArray = [CarpentersWallObject]()
     
     override func copy() -> CarpentersWallGameState {

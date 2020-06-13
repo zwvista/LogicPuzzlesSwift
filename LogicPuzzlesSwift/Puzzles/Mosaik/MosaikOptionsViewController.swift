@@ -10,8 +10,8 @@ import UIKit
 
 class MosaikOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: MosaikDocument { return MosaikDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return MosaikDocument.sharedInstance }
+    var gameDocument: MosaikDocument { MosaikDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { MosaikDocument.sharedInstance }
     
 
 }

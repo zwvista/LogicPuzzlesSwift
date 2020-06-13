@@ -21,8 +21,8 @@ class MagnetsGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! MagnetsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: MagnetsDocument { return MagnetsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return MagnetsDocument.sharedInstance }
+    var gameDocument: MagnetsDocument { MagnetsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { MagnetsDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -21,8 +21,8 @@ class FillominoGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! FillominoGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: FillominoDocument { return FillominoDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return FillominoDocument.sharedInstance }
+    var gameDocument: FillominoDocument { FillominoDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { FillominoDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

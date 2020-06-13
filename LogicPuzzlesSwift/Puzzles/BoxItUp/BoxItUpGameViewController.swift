@@ -21,8 +21,8 @@ class BoxItUpGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! BoxItUpGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: BoxItUpDocument { return BoxItUpDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return BoxItUpDocument.sharedInstance }
+    var gameDocument: BoxItUpDocument { BoxItUpDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { BoxItUpDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

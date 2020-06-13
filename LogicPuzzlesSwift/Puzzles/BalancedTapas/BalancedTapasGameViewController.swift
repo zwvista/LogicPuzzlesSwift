@@ -21,8 +21,8 @@ class BalancedTapasGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! BalancedTapasGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: BalancedTapasDocument { return BalancedTapasDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return BalancedTapasDocument.sharedInstance }
+    var gameDocument: BalancedTapasDocument { BalancedTapasDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { BalancedTapasDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

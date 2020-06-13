@@ -21,8 +21,8 @@ class NoughtsAndCrossesGameViewController: GameGameViewController, GameDelegate 
         get {getGame() as! NoughtsAndCrossesGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: NoughtsAndCrossesDocument { return NoughtsAndCrossesDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return NoughtsAndCrossesDocument.sharedInstance }
+    var gameDocument: NoughtsAndCrossesDocument { NoughtsAndCrossesDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { NoughtsAndCrossesDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

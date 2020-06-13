@@ -14,8 +14,8 @@ class OrchardsGameState: GridGameState {
         get {getGame() as! OrchardsGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: OrchardsDocument { return OrchardsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return OrchardsDocument.sharedInstance }
+    var gameDocument: OrchardsDocument { OrchardsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { OrchardsDocument.sharedInstance }
     var objArray = [OrchardsObject]()
     var pos2state = [Position: HintState]()
     

@@ -10,7 +10,7 @@ import UIKit
 
 class BoxItAgainMainViewController: GameMainViewController {
 
-    var gameDocument: BoxItAgainDocument { return BoxItAgainDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return BoxItAgainDocument.sharedInstance }
+    var gameDocument: BoxItAgainDocument { BoxItAgainDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { BoxItAgainDocument.sharedInstance }
 
 }

@@ -21,8 +21,8 @@ class CarpentersSquareGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! CarpentersSquareGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: CarpentersSquareDocument { return CarpentersSquareDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return CarpentersSquareDocument.sharedInstance }
+    var gameDocument: CarpentersSquareDocument { CarpentersSquareDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { CarpentersSquareDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

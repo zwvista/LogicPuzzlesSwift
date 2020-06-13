@@ -14,8 +14,8 @@ class NumberPathGameState: GridGameState {
         get {getGame() as! NumberPathGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: NumberPathDocument { return NumberPathDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return NumberPathDocument.sharedInstance }
+    var gameDocument: NumberPathDocument { NumberPathDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { NumberPathDocument.sharedInstance }
     var objArray = [NumberPathObject]()
     
     override func copy() -> NumberPathGameState {

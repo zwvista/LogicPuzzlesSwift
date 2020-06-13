@@ -10,7 +10,7 @@ import UIKit
 
 class NurikabeHelpViewController: GameHelpViewController {
 
-    var gameDocument: NurikabeDocument { return NurikabeDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return NurikabeDocument.sharedInstance }
+    var gameDocument: NurikabeDocument { NurikabeDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { NurikabeDocument.sharedInstance }
 
 }

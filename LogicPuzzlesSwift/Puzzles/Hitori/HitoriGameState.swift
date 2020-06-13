@@ -14,8 +14,8 @@ class HitoriGameState: GridGameState {
         get {getGame() as! HitoriGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: HitoriDocument { return HitoriDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return HitoriDocument.sharedInstance }
+    var gameDocument: HitoriDocument { HitoriDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { HitoriDocument.sharedInstance }
     var objArray = [HitoriObject]()
     var row2hint = [String]()
     var col2hint = [String]()

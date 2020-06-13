@@ -14,8 +14,8 @@ class CastleBaileyGameState: GridGameState {
         get {getGame() as! CastleBaileyGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: CastleBaileyDocument { return CastleBaileyDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return CastleBaileyDocument.sharedInstance }
+    var gameDocument: CastleBaileyDocument { CastleBaileyDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { CastleBaileyDocument.sharedInstance }
     var objArray = [CastleBaileyObject]()
     var pos2state = [Position: HintState]()
     

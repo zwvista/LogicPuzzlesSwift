@@ -10,7 +10,7 @@ import UIKit
 
 class BalancedTapasHelpViewController: GameHelpViewController {
 
-    var gameDocument: BalancedTapasDocument { return BalancedTapasDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return BalancedTapasDocument.sharedInstance }
+    var gameDocument: BalancedTapasDocument { BalancedTapasDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { BalancedTapasDocument.sharedInstance }
 
 }

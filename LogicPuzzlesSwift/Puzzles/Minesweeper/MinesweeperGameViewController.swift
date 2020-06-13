@@ -21,8 +21,8 @@ class MinesweeperGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! MinesweeperGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: MinesweeperDocument { return MinesweeperDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return MinesweeperDocument.sharedInstance }
+    var gameDocument: MinesweeperDocument { MinesweeperDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { MinesweeperDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

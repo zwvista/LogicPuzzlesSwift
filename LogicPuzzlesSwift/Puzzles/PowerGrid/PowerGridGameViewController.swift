@@ -21,8 +21,8 @@ class PowerGridGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! PowerGridGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: PowerGridDocument { return PowerGridDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return PowerGridDocument.sharedInstance }
+    var gameDocument: PowerGridDocument { PowerGridDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { PowerGridDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

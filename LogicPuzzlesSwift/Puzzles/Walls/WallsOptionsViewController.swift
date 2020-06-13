@@ -10,7 +10,7 @@ import UIKit
 
 class WallsOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: WallsDocument { return WallsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return WallsDocument.sharedInstance }
+    var gameDocument: WallsDocument { WallsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { WallsDocument.sharedInstance }
 
 }

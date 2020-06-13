@@ -10,7 +10,7 @@ import UIKit
 
 class DisconnectFourOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: DisconnectFourDocument { return DisconnectFourDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return DisconnectFourDocument.sharedInstance }
+    var gameDocument: DisconnectFourDocument { DisconnectFourDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { DisconnectFourDocument.sharedInstance }
 
 }

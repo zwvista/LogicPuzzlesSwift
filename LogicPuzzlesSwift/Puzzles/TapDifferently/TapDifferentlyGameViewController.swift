@@ -21,8 +21,8 @@ class TapDifferentlyGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! TapDifferentlyGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: TapDifferentlyDocument { return TapDifferentlyDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return TapDifferentlyDocument.sharedInstance }
+    var gameDocument: TapDifferentlyDocument { TapDifferentlyDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { TapDifferentlyDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

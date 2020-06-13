@@ -21,8 +21,8 @@ class OverUnderGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! OverUnderGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: OverUnderDocument { return OverUnderDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return OverUnderDocument.sharedInstance }
+    var gameDocument: OverUnderDocument { OverUnderDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { OverUnderDocument.sharedInstance }
     
     override func viewDidLoad() {
         super.viewDidLoad()

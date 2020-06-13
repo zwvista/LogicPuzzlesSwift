@@ -10,7 +10,7 @@ import UIKit
 
 class WallSentinelsHelpViewController: GameHelpViewController {
 
-    var gameDocument: WallSentinelsDocument { return WallSentinelsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return WallSentinelsDocument.sharedInstance }
+    var gameDocument: WallSentinelsDocument { WallSentinelsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { WallSentinelsDocument.sharedInstance }
 
 }

@@ -21,8 +21,8 @@ class HolidayIslandGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! HolidayIslandGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: HolidayIslandDocument { return HolidayIslandDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return HolidayIslandDocument.sharedInstance }
+    var gameDocument: HolidayIslandDocument { HolidayIslandDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { HolidayIslandDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,7 +10,7 @@ import UIKit
 
 class NumberLinkMainViewController: GameMainViewController {
 
-    var gameDocument: NumberLinkDocument { return NumberLinkDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return NumberLinkDocument.sharedInstance }
+    var gameDocument: NumberLinkDocument { NumberLinkDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { NumberLinkDocument.sharedInstance }
 
 }

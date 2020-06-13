@@ -21,8 +21,8 @@ class TierraDelFuegoGameViewController: GameGameViewController, GameDelegate {
         get {getGame() as! TierraDelFuegoGame}
         set {setGame(game: newValue)}
     }
-    var gameDocument: TierraDelFuegoDocument { return TierraDelFuegoDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { return TierraDelFuegoDocument.sharedInstance }
+    var gameDocument: TierraDelFuegoDocument { TierraDelFuegoDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase! { TierraDelFuegoDocument.sharedInstance }
    
     override func viewDidLoad() {
         super.viewDidLoad()
