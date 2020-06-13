@@ -52,23 +52,6 @@ class CarpentersWallGame: GridGame<CarpentersWallGameViewController> {
         levelInitilized(state: state)
     }
     
-    private func changeObject(move: inout CarpentersWallGameMove, f: (inout CarpentersWallGameState, inout CarpentersWallGameMove) -> Bool) -> Bool {
-        if canRedo {
-            states.removeSubrange((stateIndex + 1)..<states.count)
-            moves.removeSubrange(stateIndex..<moves.count)
-        }
-        // copy a state
-        var state = self.state.copy()
-        guard f(&state, &move) else {return false}
-        
-        states.append(state)
-        stateIndex += 1
-        moves.append(move)
-        moveAdded(move: move)
-        levelUpdated(from: states[stateIndex - 1], to: state)
-        return true
-    }
-    
     subscript(p: Position) -> CarpentersWallObject {
         get {
             return self[p.row, p.col]

@@ -113,23 +113,6 @@ class KropkiGame: GridGame<KropkiGameViewController> {
         levelInitilized(state: state)
     }
     
-    private func changeObject(move: inout KropkiGameMove, f: (inout KropkiGameState, inout KropkiGameMove) -> Bool) -> Bool {
-        if canRedo {
-            states.removeSubrange((stateIndex + 1)..<states.count)
-            moves.removeSubrange(stateIndex..<moves.count)
-        }
-        // copy a state
-        var state = self.state.copy()
-        guard f(&state, &move) else {return false}
-        
-        states.append(state)
-        stateIndex += 1
-        moves.append(move)
-        moveAdded(move: move)
-        levelUpdated(from: states[stateIndex - 1], to: state)
-        return true
-    }
-    
     func switchObject(move: inout KropkiGameMove) -> Bool {
         return changeObject(move: &move, f: {state, move in state.switchObject(move: &move)})
     }

@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol GameStateBase: class {
+protocol GameStateBase: Copyable {
     var isSolved: Bool {get}
 }
 
-class GameState: Copyable, GameStateBase {
+class GameState: GameStateBase {
     var isSolved = false
     
     func copy() -> GameState {
