@@ -8,7 +8,11 @@
 
 import Foundation
 
-class BridgesGameState: GridGameState<BridgesGame, BridgesGameMove> {
+class BridgesGameState: GridGameState<BridgesGameMove> {
+    var game: BridgesGame {
+        get { getGame() as! BridgesGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { BridgesDocument.sharedInstance }
     var objArray = [BridgesObject]()
     

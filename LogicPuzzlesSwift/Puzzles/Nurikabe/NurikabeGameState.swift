@@ -8,7 +8,11 @@
 
 import Foundation
 
-class NurikabeGameState: GridGameState<NurikabeGame, NurikabeGameMove> {
+class NurikabeGameState: GridGameState<NurikabeGameMove> {
+    var game: NurikabeGame {
+        get { getGame() as! NurikabeGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { NurikabeDocument.sharedInstance }
     var objArray = [NurikabeObject]()
     

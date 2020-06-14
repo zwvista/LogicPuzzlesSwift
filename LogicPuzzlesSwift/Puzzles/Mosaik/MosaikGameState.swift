@@ -8,7 +8,11 @@
 
 import Foundation
 
-class MosaikGameState: GridGameState<MosaikGame, MosaikGameMove> {
+class MosaikGameState: GridGameState<MosaikGameMove> {
+    var game: MosaikGame {
+        get { getGame() as! MosaikGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { MosaikDocument.sharedInstance }
     var objArray = [MosaikObject]()
     var pos2state = [Position: HintState]()

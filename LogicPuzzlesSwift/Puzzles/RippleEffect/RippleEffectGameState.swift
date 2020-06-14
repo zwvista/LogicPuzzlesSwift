@@ -8,7 +8,11 @@
 
 import Foundation
 
-class RippleEffectGameState: GridGameState<RippleEffectGame, RippleEffectGameMove> {
+class RippleEffectGameState: GridGameState<RippleEffectGameMove> {
+    var game: RippleEffectGame {
+        get { getGame() as! RippleEffectGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { RippleEffectDocument.sharedInstance }
     var objArray = [Int]()
     var pos2state = [Position: HintState]()

@@ -8,7 +8,11 @@
 
 import Foundation
 
-class TapARowGameState: GridGameState<TapARowGame, TapARowGameMove> {
+class TapARowGameState: GridGameState<TapARowGameMove> {
+    var game: TapARowGame {
+        get { getGame() as! TapARowGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { TapARowDocument.sharedInstance }
     var objArray = [TapARowObject]()
     

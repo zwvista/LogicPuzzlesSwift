@@ -8,7 +8,11 @@
 
 import Foundation
 
-class FourMeNotGameState: GridGameState<FourMeNotGame, FourMeNotGameMove> {
+class FourMeNotGameState: GridGameState<FourMeNotGameMove> {
+    var game: FourMeNotGame {
+        get { getGame() as! FourMeNotGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { FourMeNotDocument.sharedInstance }
     var objArray = [FourMeNotObject]()
     

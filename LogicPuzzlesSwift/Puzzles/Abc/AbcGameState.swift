@@ -8,7 +8,11 @@
 
 import Foundation
 
-class AbcGameState: GridGameState<AbcGame, AbcGameMove> {
+class AbcGameState: GridGameState<AbcGameMove> {
+    var game: AbcGame {
+        get { getGame() as! AbcGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { AbcDocument.sharedInstance }
     var objArray = [Character]()
     var row2state = [HintState]()

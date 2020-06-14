@@ -8,7 +8,11 @@
 
 import Foundation
 
-class CarpentersWallGameState: GridGameState<CarpentersWallGame, CarpentersWallGameMove> {
+class CarpentersWallGameState: GridGameState<CarpentersWallGameMove> {
+    var game: CarpentersWallGame {
+        get { getGame() as! CarpentersWallGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { CarpentersWallDocument.sharedInstance }
     var objArray = [CarpentersWallObject]()
     

@@ -8,7 +8,11 @@
 
 import Foundation
 
-class BusySeasGameState: GridGameState<BusySeasGame, BusySeasGameMove> {
+class BusySeasGameState: GridGameState<BusySeasGameMove> {
+    var game: BusySeasGame {
+        get { getGame() as! BusySeasGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { BusySeasDocument.sharedInstance }
     var objArray = [BusySeasObject]()
     

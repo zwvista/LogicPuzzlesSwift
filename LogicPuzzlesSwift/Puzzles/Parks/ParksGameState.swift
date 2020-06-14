@@ -8,7 +8,11 @@
 
 import Foundation
 
-class ParksGameState: GridGameState<ParksGame, ParksGameMove> {
+class ParksGameState: GridGameState<ParksGameMove> {
+    var game: ParksGame {
+        get { getGame() as! ParksGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { ParksDocument.sharedInstance }
     var objArray = [ParksObject]()
     var pos2state = [Position: HintState]()

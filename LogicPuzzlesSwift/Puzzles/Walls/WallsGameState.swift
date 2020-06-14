@@ -8,7 +8,11 @@
 
 import Foundation
 
-class WallsGameState: GridGameState<WallsGame, WallsGameMove> {
+class WallsGameState: GridGameState<WallsGameMove> {
+    var game: WallsGame {
+        get { getGame() as! WallsGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { WallsDocument.sharedInstance }
     var objArray = [WallsObject]()
     

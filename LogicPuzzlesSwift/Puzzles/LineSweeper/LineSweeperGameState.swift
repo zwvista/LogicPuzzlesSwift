@@ -8,7 +8,11 @@
 
 import Foundation
 
-class LineSweeperGameState: GridGameState<LineSweeperGame, LineSweeperGameMove> {
+class LineSweeperGameState: GridGameState<LineSweeperGameMove> {
+    var game: LineSweeperGame {
+        get { getGame() as! LineSweeperGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { LineSweeperDocument.sharedInstance }
     var objArray = [LineSweeperObject]()
     var pos2state = [Position: HintState]()

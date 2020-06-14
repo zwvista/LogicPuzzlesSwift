@@ -8,7 +8,11 @@
 
 import Foundation
 
-class SnakeGameState: GridGameState<SnakeGame, SnakeGameMove> {
+class SnakeGameState: GridGameState<SnakeGameMove> {
+    var game: SnakeGame {
+        get { getGame() as! SnakeGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { SnakeDocument.sharedInstance }
     var objArray = [SnakeObject]()
     var row2state = [HintState]()

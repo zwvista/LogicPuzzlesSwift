@@ -8,7 +8,11 @@
 
 import Foundation
 
-class BWTapaGameState: GridGameState<BWTapaGame, BWTapaGameMove> {
+class BWTapaGameState: GridGameState<BWTapaGameMove> {
+    var game: BWTapaGame {
+        get { getGame() as! BWTapaGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { BWTapaDocument.sharedInstance }
     var objArray = [BWTapaObject]()
     

@@ -8,7 +8,11 @@
 
 import Foundation
 
-class HolidayIslandGameState: GridGameState<HolidayIslandGame, HolidayIslandGameMove> {
+class HolidayIslandGameState: GridGameState<HolidayIslandGameMove> {
+    var game: HolidayIslandGame {
+        get { getGame() as! HolidayIslandGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { HolidayIslandDocument.sharedInstance }
     var objArray = [HolidayIslandObject]()
     

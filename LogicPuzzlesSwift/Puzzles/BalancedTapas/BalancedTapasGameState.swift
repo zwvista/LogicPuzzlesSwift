@@ -8,7 +8,11 @@
 
 import Foundation
 
-class BalancedTapasGameState: GridGameState<BalancedTapasGame, BalancedTapasGameMove> {
+class BalancedTapasGameState: GridGameState<BalancedTapasGameMove> {
+    var game: BalancedTapasGame {
+        get { getGame() as! BalancedTapasGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { BalancedTapasDocument.sharedInstance }
     var objArray = [BalancedTapasObject]()
     

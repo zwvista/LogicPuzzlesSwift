@@ -15,7 +15,11 @@ class MiniLitsAreaInfo {
     var triominoIndex: Int?
 }
 
-class MiniLitsGameState: GridGameState<MiniLitsGame, MiniLitsGameMove> {
+class MiniLitsGameState: GridGameState<MiniLitsGameMove> {
+    var game: MiniLitsGame {
+        get { getGame() as! MiniLitsGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { MiniLitsDocument.sharedInstance }
     var objArray = [MiniLitsObject]()
     var pos2state = [Position: HintState]()

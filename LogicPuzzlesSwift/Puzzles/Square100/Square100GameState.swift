@@ -8,7 +8,11 @@
 
 import Foundation
 
-class Square100GameState: GridGameState<Square100Game, Square100GameMove> {
+class Square100GameState: GridGameState<Square100GameMove> {
+    var game: Square100Game {
+        get { getGame() as! Square100Game }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { Square100Document.sharedInstance }
     var objArray = [String]()
     var row2hint = [Int]()

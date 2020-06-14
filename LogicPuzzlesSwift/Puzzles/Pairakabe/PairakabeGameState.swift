@@ -8,7 +8,11 @@
 
 import Foundation
 
-class PairakabeGameState: GridGameState<PairakabeGame, PairakabeGameMove> {
+class PairakabeGameState: GridGameState<PairakabeGameMove> {
+    var game: PairakabeGame {
+        get { getGame() as! PairakabeGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { PairakabeDocument.sharedInstance }
     var objArray = [PairakabeObject]()
     

@@ -8,7 +8,11 @@
 
 import Foundation
 
-class PataGameState: GridGameState<PataGame, PataGameMove> {
+class PataGameState: GridGameState<PataGameMove> {
+    var game: PataGame {
+        get { getGame() as! PataGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { PataDocument.sharedInstance }
     var objArray = [PataObject]()
     

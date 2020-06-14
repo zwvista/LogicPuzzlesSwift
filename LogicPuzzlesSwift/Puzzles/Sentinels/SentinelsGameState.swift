@@ -8,7 +8,11 @@
 
 import Foundation
 
-class SentinelsGameState: GridGameState<SentinelsGame, SentinelsGameMove> {
+class SentinelsGameState: GridGameState<SentinelsGameMove> {
+    var game: SentinelsGame {
+        get { getGame() as! SentinelsGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { SentinelsDocument.sharedInstance }
     var objArray = [SentinelsObject]()
     

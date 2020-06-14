@@ -9,14 +9,13 @@
 import Foundation
 
 protocol GameStateBase: Copyable {
-    associatedtype G: GridGameBase
     associatedtype GM
     var isSolved: Bool { get }
     func setObject(move: inout GM) -> Bool
     func switchObject(move: inout GM) -> Bool
 }
 
-class GameState<G: GridGameBase, GM>: GameStateBase {
+class GameState<GM>: GameStateBase {
     var isSolved = false
     
     func copy() -> GameState {
@@ -34,8 +33,10 @@ class GameState<G: GridGameBase, GM>: GameStateBase {
     }
 }
 
-class GridGameState<G: GridGameBase, GM>: GameState<G, GM> {
-    weak var game: G!
+class GridGameState<GM>: GameState<GM> {
+    private weak var game: GridGameBase!
+    func getGame() -> GridGameBase { game }
+    func setGame(game: GridGameBase) { self.game = game }
     var gameDocument: GameDocumentBase! { nil }
     var gameOptions: GameProgress { gameDocument.gameProgress }
     var markerOption: Int { gameOptions.option1?.toInt() ?? 0 }
@@ -45,10 +46,10 @@ class GridGameState<G: GridGameBase, GM>: GameState<G, GM> {
     var rows: Int { size.row }
     var cols: Int { size.col }
     func isValid(p: Position) -> Bool {
-        game!.isValid(row: p.row, col: p.col)
+        game.isValid(row: p.row, col: p.col)
     }
     func isValid(row: Int, col: Int) -> Bool {
-        game!.isValid(row: row, col: col)
+        game.isValid(row: row, col: col)
     }
     
     override func copy() -> GridGameState {
@@ -60,7 +61,7 @@ class GridGameState<G: GridGameBase, GM>: GameState<G, GM> {
         return v
     }
     
-    init(game: G) {
+    init(game: GridGameBase) {
         self.game = game
     }
     

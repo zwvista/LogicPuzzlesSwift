@@ -8,7 +8,11 @@
 
 import Foundation
 
-class NorthPoleFishingGameState: GridGameState<NorthPoleFishingGame, NorthPoleFishingGameMove> {
+class NorthPoleFishingGameState: GridGameState<NorthPoleFishingGameMove> {
+    var game: NorthPoleFishingGame {
+        get { getGame() as! NorthPoleFishingGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { NorthPoleFishingDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()

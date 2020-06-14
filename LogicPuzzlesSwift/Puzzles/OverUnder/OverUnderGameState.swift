@@ -8,7 +8,11 @@
 
 import Foundation
 
-class OverUnderGameState: GridGameState<OverUnderGame, OverUnderGameMove> {
+class OverUnderGameState: GridGameState<OverUnderGameMove> {
+    var game: OverUnderGame {
+        get { getGame() as! OverUnderGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { OverUnderDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()

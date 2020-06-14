@@ -8,7 +8,11 @@
 
 import Foundation
 
-class SlitherLinkGameState: GridGameState<SlitherLinkGame, SlitherLinkGameMove> {
+class SlitherLinkGameState: GridGameState<SlitherLinkGameMove> {
+    var game: SlitherLinkGame {
+        get { getGame() as! SlitherLinkGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { SlitherLinkDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()

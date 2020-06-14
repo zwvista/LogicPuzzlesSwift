@@ -8,7 +8,11 @@
 
 import Foundation
 
-class DominoGameState: GridGameState<DominoGame, DominoGameMove> {
+class DominoGameState: GridGameState<DominoGameMove> {
+    var game: DominoGame {
+        get { getGame() as! DominoGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { DominoDocument.sharedInstance }
     var objArray = [GridDotObject]()
     

@@ -8,7 +8,11 @@
 
 import Foundation
 
-class LighthousesGameState: GridGameState<LighthousesGame, LighthousesGameMove> {
+class LighthousesGameState: GridGameState<LighthousesGameMove> {
+    var game: LighthousesGame {
+        get { getGame() as! LighthousesGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { LighthousesDocument.sharedInstance }
     var objArray = [LighthousesObject]()
     

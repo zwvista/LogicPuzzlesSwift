@@ -8,7 +8,11 @@
 
 import Foundation
 
-class TatamiGameState: GridGameState<TatamiGame, TatamiGameMove> {
+class TatamiGameState: GridGameState<TatamiGameMove> {
+    var game: TatamiGame {
+        get { getGame() as! TatamiGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { TatamiDocument.sharedInstance }
     var objArray = [Character]()
     var pos2state = [Position: HintState]()

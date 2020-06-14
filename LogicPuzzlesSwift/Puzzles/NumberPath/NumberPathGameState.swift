@@ -8,7 +8,11 @@
 
 import Foundation
 
-class NumberPathGameState: GridGameState<NumberPathGame, NumberPathGameMove> {
+class NumberPathGameState: GridGameState<NumberPathGameMove> {
+    var game: NumberPathGame {
+        get { getGame() as! NumberPathGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { NumberPathDocument.sharedInstance }
     var objArray = [NumberPathObject]()
     

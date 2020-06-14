@@ -8,7 +8,11 @@
 
 import Foundation
 
-class MinesweeperGameState: GridGameState<MinesweeperGame, MinesweeperGameMove> {
+class MinesweeperGameState: GridGameState<MinesweeperGameMove> {
+    var game: MinesweeperGame {
+        get { getGame() as! MinesweeperGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { MinesweeperDocument.sharedInstance }
     var objArray = [MinesweeperObject]()
     

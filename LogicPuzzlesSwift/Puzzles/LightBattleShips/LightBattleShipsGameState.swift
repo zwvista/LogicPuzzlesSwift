@@ -8,7 +8,11 @@
 
 import Foundation
 
-class LightBattleShipsGameState: GridGameState<LightBattleShipsGame, LightBattleShipsGameMove> {
+class LightBattleShipsGameState: GridGameState<LightBattleShipsGameMove> {
+    var game: LightBattleShipsGame {
+        get { getGame() as! LightBattleShipsGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { LightBattleShipsDocument.sharedInstance }
     var objArray = [LightBattleShipsObject]()
     

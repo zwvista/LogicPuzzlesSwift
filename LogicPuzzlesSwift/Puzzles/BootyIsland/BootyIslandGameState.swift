@@ -8,7 +8,11 @@
 
 import Foundation
 
-class BootyIslandGameState: GridGameState<BootyIslandGame, BootyIslandGameMove> {
+class BootyIslandGameState: GridGameState<BootyIslandGameMove> {
+    var game: BootyIslandGame {
+        get { getGame() as! BootyIslandGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { BootyIslandDocument.sharedInstance }
     var objArray = [BootyIslandObject]()
     

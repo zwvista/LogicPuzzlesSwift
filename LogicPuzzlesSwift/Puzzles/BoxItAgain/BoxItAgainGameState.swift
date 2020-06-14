@@ -8,7 +8,11 @@
 
 import Foundation
 
-class BoxItAgainGameState: GridGameState<BoxItAgainGame, BoxItAgainGameMove> {
+class BoxItAgainGameState: GridGameState<BoxItAgainGameMove> {
+    var game: BoxItAgainGame {
+        get { getGame() as! BoxItAgainGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { BoxItAgainDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()

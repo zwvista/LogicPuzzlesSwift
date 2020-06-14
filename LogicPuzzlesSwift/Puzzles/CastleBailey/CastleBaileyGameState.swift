@@ -8,7 +8,11 @@
 
 import Foundation
 
-class CastleBaileyGameState: GridGameState<CastleBaileyGame, CastleBaileyGameMove> {
+class CastleBaileyGameState: GridGameState<CastleBaileyGameMove> {
+    var game: CastleBaileyGame {
+        get { getGame() as! CastleBaileyGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { CastleBaileyDocument.sharedInstance }
     var objArray = [CastleBaileyObject]()
     var pos2state = [Position: HintState]()

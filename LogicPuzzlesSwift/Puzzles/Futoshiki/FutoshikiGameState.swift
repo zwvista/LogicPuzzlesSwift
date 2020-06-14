@@ -8,7 +8,11 @@
 
 import Foundation
 
-class FutoshikiGameState: GridGameState<FutoshikiGame, FutoshikiGameMove> {
+class FutoshikiGameState: GridGameState<FutoshikiGameMove> {
+    var game: FutoshikiGame {
+        get { getGame() as! FutoshikiGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { FutoshikiDocument.sharedInstance }
     var objArray = [Character]()
     var row2state = [HintState]()

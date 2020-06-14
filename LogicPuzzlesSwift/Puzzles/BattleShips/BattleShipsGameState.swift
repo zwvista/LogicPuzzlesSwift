@@ -8,7 +8,11 @@
 
 import Foundation
 
-class BattleShipsGameState: GridGameState<BattleShipsGame, BattleShipsGameMove> {
+class BattleShipsGameState: GridGameState<BattleShipsGameMove> {
+    var game: BattleShipsGame {
+        get { getGame() as! BattleShipsGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { BattleShipsDocument.sharedInstance }
     var objArray = [BattleShipsObject]()
     var row2state = [HintState]()

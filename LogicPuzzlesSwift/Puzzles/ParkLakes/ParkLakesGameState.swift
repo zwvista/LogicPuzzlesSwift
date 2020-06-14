@@ -8,7 +8,11 @@
 
 import Foundation
 
-class ParkLakesGameState: GridGameState<ParkLakesGame, ParkLakesGameMove> {
+class ParkLakesGameState: GridGameState<ParkLakesGameMove> {
+    var game: ParkLakesGame {
+        get { getGame() as! ParkLakesGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { ParkLakesDocument.sharedInstance }
     var objArray = [ParkLakesObject]()
     

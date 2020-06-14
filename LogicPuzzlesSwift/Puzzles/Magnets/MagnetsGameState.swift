@@ -8,7 +8,11 @@
 
 import Foundation
 
-class MagnetsGameState: GridGameState<MagnetsGame, MagnetsGameMove> {
+class MagnetsGameState: GridGameState<MagnetsGameMove> {
+    var game: MagnetsGame {
+        get { getGame() as! MagnetsGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { MagnetsDocument.sharedInstance }
     var objArray = [MagnetsObject]()
     var row2state = [HintState]()

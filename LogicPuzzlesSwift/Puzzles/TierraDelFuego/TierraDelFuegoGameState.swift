@@ -8,7 +8,11 @@
 
 import Foundation
 
-class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGame, TierraDelFuegoGameMove> {
+class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
+    var game: TierraDelFuegoGame {
+        get { getGame() as! TierraDelFuegoGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { TierraDelFuegoDocument.sharedInstance }
     var objArray = [TierraDelFuegoObject]()
     

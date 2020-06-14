@@ -8,7 +8,11 @@
 
 import Foundation
 
-class LoopyGameState: GridGameState<LoopyGame, LoopyGameMove> {
+class LoopyGameState: GridGameState<LoopyGameMove> {
+    var game: LoopyGame {
+        get { getGame() as! LoopyGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { LoopyDocument.sharedInstance }
     var objArray = [GridDotObject]()
     

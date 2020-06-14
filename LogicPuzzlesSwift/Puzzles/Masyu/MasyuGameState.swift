@@ -8,7 +8,11 @@
 
 import Foundation
 
-class MasyuGameState: GridGameState<MasyuGame, MasyuGameMove> {
+class MasyuGameState: GridGameState<MasyuGameMove> {
+    var game: MasyuGame {
+        get { getGame() as! MasyuGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { MasyuDocument.sharedInstance }
     var objArray = [MasyuObject]()
     

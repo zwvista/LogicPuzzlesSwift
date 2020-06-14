@@ -8,7 +8,11 @@
 
 import Foundation
 
-class RobotCrosswordsGameState: GridGameState<RobotCrosswordsGame, RobotCrosswordsGameMove> {
+class RobotCrosswordsGameState: GridGameState<RobotCrosswordsGameMove> {
+    var game: RobotCrosswordsGame {
+        get { getGame() as! RobotCrosswordsGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { RobotCrosswordsDocument.sharedInstance }
     var objArray = [Int]()
     var pos2horzState = [Position: HintState]()

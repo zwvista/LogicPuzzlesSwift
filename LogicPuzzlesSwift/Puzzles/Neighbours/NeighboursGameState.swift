@@ -8,7 +8,11 @@
 
 import Foundation
 
-class NeighboursGameState: GridGameState<NeighboursGame, NeighboursGameMove> {
+class NeighboursGameState: GridGameState<NeighboursGameMove> {
+    var game: NeighboursGame {
+        get { getGame() as! NeighboursGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { NeighboursDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()

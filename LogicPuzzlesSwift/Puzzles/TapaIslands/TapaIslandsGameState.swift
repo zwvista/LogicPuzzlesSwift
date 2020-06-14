@@ -8,7 +8,11 @@
 
 import Foundation
 
-class TapaIslandsGameState: GridGameState<TapaIslandsGame, TapaIslandsGameMove> {
+class TapaIslandsGameState: GridGameState<TapaIslandsGameMove> {
+    var game: TapaIslandsGame {
+        get { getGame() as! TapaIslandsGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { TapaIslandsDocument.sharedInstance }
     var objArray = [TapaIslandsObject]()
     

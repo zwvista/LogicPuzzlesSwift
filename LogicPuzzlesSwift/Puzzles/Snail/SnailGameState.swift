@@ -8,7 +8,11 @@
 
 import Foundation
 
-class SnailGameState: GridGameState<SnailGame, SnailGameMove> {
+class SnailGameState: GridGameState<SnailGameMove> {
+    var game: SnailGame {
+        get { getGame() as! SnailGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { SnailDocument.sharedInstance }
     var objArray = [Character]()
     var pos2state = [Position: HintState]()

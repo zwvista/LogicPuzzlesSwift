@@ -8,7 +8,11 @@
 
 import Foundation
 
-class MineShipsGameState: GridGameState<MineShipsGame, MineShipsGameMove> {
+class MineShipsGameState: GridGameState<MineShipsGameMove> {
+    var game: MineShipsGame {
+        get { getGame() as! MineShipsGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { MineShipsDocument.sharedInstance }
     var objArray = [MineShipsObject]()
     

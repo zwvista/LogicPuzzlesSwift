@@ -8,7 +8,11 @@
 
 import Foundation
 
-class KakuroGameState: GridGameState<KakuroGame, KakuroGameMove> {
+class KakuroGameState: GridGameState<KakuroGameMove> {
+    var game: KakuroGame {
+        get { getGame() as! KakuroGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { KakuroDocument.sharedInstance }
     var pos2num = [Position: Int]()
     var pos2horzState = [Position: HintState]()

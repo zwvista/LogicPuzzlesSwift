@@ -8,7 +8,11 @@
 
 import Foundation
 
-class KakurasuGameState: GridGameState<KakurasuGame, KakurasuGameMove> {
+class KakurasuGameState: GridGameState<KakurasuGameMove> {
+    var game: KakurasuGame {
+        get { getGame() as! KakurasuGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { KakurasuDocument.sharedInstance }
     var objArray = [KakurasuObject]()
     var row2state = [HintState]()

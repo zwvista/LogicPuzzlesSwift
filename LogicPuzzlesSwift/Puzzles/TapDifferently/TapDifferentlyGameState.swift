@@ -8,7 +8,11 @@
 
 import Foundation
 
-class TapDifferentlyGameState: GridGameState<TapDifferentlyGame, TapDifferentlyGameMove> {
+class TapDifferentlyGameState: GridGameState<TapDifferentlyGameMove> {
+    var game: TapDifferentlyGame {
+        get { getGame() as! TapDifferentlyGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { TapDifferentlyDocument.sharedInstance }
     var objArray = [TapDifferentlyObject]()
     

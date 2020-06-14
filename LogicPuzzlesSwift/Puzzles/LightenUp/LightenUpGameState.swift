@@ -8,7 +8,11 @@
 
 import Foundation
 
-class LightenUpGameState: GridGameState<LightenUpGame, LightenUpGameMove> {
+class LightenUpGameState: GridGameState<LightenUpGameMove> {
+    var game: LightenUpGame {
+        get { getGame() as! LightenUpGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { LightenUpDocument.sharedInstance }
     var objArray = [LightenUpObject]()
     

@@ -8,7 +8,11 @@
 
 import Foundation
 
-class PowerGridGameState: GridGameState<PowerGridGame, PowerGridGameMove> {
+class PowerGridGameState: GridGameState<PowerGridGameMove> {
+    var game: PowerGridGame {
+        get { getGame() as! PowerGridGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { PowerGridDocument.sharedInstance }
     var objArray = [PowerGridObject]()
     var row2state = [HintState]()

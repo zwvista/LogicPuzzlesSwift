@@ -8,7 +8,11 @@
 
 import Foundation
 
-class AbstractPaintingGameState: GridGameState<AbstractPaintingGame, AbstractPaintingGameMove> {
+class AbstractPaintingGameState: GridGameState<AbstractPaintingGameMove> {
+    var game: AbstractPaintingGame {
+        get { getGame() as! AbstractPaintingGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { AbstractPaintingDocument.sharedInstance }
     var objArray = [AbstractPaintingObject]()
     var row2state = [HintState]()

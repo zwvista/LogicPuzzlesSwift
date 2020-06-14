@@ -8,7 +8,11 @@
 
 import Foundation
 
-class NumberLinkGameState: GridGameState<NumberLinkGame, NumberLinkGameMove> {
+class NumberLinkGameState: GridGameState<NumberLinkGameMove> {
+    var game: NumberLinkGame {
+        get { getGame() as! NumberLinkGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { NumberLinkDocument.sharedInstance }
     var objArray = [NumberLinkObject]()
     var pos2state = [Position: HintState]()

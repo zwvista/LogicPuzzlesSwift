@@ -8,7 +8,11 @@
 
 import Foundation
 
-class GardenerGameState: GridGameState<GardenerGame, GardenerGameMove> {
+class GardenerGameState: GridGameState<GardenerGameMove> {
+    var game: GardenerGame {
+        get { getGame() as! GardenerGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { GardenerDocument.sharedInstance }
     var objArray = [GardenerObject]()
     var pos2state = [Position: HintState]()

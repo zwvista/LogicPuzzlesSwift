@@ -8,7 +8,11 @@
 
 import Foundation
 
-class HitoriGameState: GridGameState<HitoriGame, HitoriGameMove> {
+class HitoriGameState: GridGameState<HitoriGameMove> {
+    var game: HitoriGame {
+        get { getGame() as! HitoriGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { HitoriDocument.sharedInstance }
     var objArray = [HitoriObject]()
     var row2hint = [String]()

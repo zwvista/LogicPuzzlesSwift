@@ -8,7 +8,11 @@
 
 import Foundation
 
-class TapAlikeGameState: GridGameState<TapAlikeGame, TapAlikeGameMove> {
+class TapAlikeGameState: GridGameState<TapAlikeGameMove> {
+    var game: TapAlikeGame {
+        get { getGame() as! TapAlikeGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { TapAlikeDocument.sharedInstance }
     var objArray = [TapAlikeObject]()
     

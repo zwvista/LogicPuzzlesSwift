@@ -8,7 +8,11 @@
 
 import Foundation
 
-class TheOddBrickGameState: GridGameState<TheOddBrickGame, TheOddBrickGameMove> {
+class TheOddBrickGameState: GridGameState<TheOddBrickGameMove> {
+    var game: TheOddBrickGame {
+        get { getGame() as! TheOddBrickGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { TheOddBrickDocument.sharedInstance }
     var objArray = [Int]()
     var row2state = [HintState]()

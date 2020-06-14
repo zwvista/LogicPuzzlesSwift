@@ -8,7 +8,11 @@
 
 import Foundation
 
-class PaintTheNurikabeGameState: GridGameState<PaintTheNurikabeGame, PaintTheNurikabeGameMove> {
+class PaintTheNurikabeGameState: GridGameState<PaintTheNurikabeGameMove> {
+    var game: PaintTheNurikabeGame {
+        get { getGame() as! PaintTheNurikabeGame }
+        set { setGame(game: newValue) }
+    }
     override var gameDocument: GameDocumentBase { PaintTheNurikabeDocument.sharedInstance }
     var objArray = [PaintTheNurikabeObject]()
     var pos2state = [Position: HintState]()
