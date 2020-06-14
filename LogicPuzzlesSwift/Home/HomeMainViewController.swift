@@ -16,7 +16,7 @@ class HomeMainViewController: UIViewController, HomeMixin {
     public private(set) var toResume = false
     override var prefersStatusBarHidden: Bool { return true }
     
-    override var shouldAutorotate: Bool { return false}
+    override var shouldAutorotate: Bool { return false }
 
     override func viewDidLoad() {
         super.viewDidLoad()        

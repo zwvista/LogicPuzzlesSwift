@@ -17,7 +17,7 @@ class GameMainViewController: UIViewController {
     
     override var prefersStatusBarHidden: Bool { true }
     
-    override var shouldAutorotate: Bool { false}
+    override var shouldAutorotate: Bool { false }
 
     private var gameDocument: GameDocumentBase! { getGameDocument() }
     func getGameDocument() -> GameDocumentBase! { nil }

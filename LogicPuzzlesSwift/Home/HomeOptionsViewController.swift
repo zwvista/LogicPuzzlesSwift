@@ -41,7 +41,7 @@ class HomeOptionsViewController: UITableViewController, HomeMixin {
     
     override var prefersStatusBarHidden: Bool { return true }
     
-    override var shouldAutorotate: Bool { return false}
+    override var shouldAutorotate: Bool { return false }
     
     @IBAction func onDefault(_ sender: Any) {
         let alertController = UIAlertController(title: "Default Options", message: "Do you really want to reset the options?", preferredStyle: .alert)
