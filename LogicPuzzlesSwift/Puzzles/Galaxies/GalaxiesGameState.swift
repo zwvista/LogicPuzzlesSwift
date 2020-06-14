@@ -9,14 +9,8 @@
 import Foundation
 import EZSwiftExtensions
 
-class GalaxiesGameState: GridGameState {
-    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
-    var game: GalaxiesGame {
-        get { getGame() as! GalaxiesGame }
-        set { setGame(game: newValue) }
-    }
-    var gameDocument: GalaxiesDocument { GalaxiesDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { GalaxiesDocument.sharedInstance }
+class GalaxiesGameState: GridGameState<GalaxiesGame, GalaxiesDocument> {
+    override var gameDocument: GalaxiesDocument { GalaxiesDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
     

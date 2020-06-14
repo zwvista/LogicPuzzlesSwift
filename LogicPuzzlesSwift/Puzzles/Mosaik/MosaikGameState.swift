@@ -8,14 +8,8 @@
 
 import Foundation
 
-class MosaikGameState: GridGameState {
-    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
-    var game: MosaikGame {
-        get { getGame() as! MosaikGame }
-        set { setGame(game: newValue) }
-    }
-    var gameDocument: MosaikDocument { MosaikDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { MosaikDocument.sharedInstance }
+class MosaikGameState: GridGameState<MosaikGame, MosaikDocument> {
+    override var gameDocument: MosaikDocument { MosaikDocument.sharedInstance }
     var objArray = [MosaikObject]()
     var pos2state = [Position: HintState]()
     

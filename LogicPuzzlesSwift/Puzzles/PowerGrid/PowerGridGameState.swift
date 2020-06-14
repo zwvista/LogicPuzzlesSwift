@@ -8,14 +8,8 @@
 
 import Foundation
 
-class PowerGridGameState: GridGameState {
-    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
-    var game: PowerGridGame {
-        get { getGame() as! PowerGridGame }
-        set { setGame(game: newValue) }
-    }
-    var gameDocument: PowerGridDocument { PowerGridDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { PowerGridDocument.sharedInstance }
+class PowerGridGameState: GridGameState<PowerGridGame, PowerGridDocument> {
+    override var gameDocument: PowerGridDocument { PowerGridDocument.sharedInstance }
     var objArray = [PowerGridObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()

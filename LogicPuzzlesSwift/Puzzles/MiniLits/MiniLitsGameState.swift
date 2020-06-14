@@ -15,14 +15,8 @@ class MiniLitsAreaInfo {
     var triominoIndex: Int?
 }
 
-class MiniLitsGameState: GridGameState {
-    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
-    var game: MiniLitsGame {
-        get { getGame() as! MiniLitsGame }
-        set { setGame(game: newValue) }
-    }
-    var gameDocument: MiniLitsDocument { MiniLitsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { MiniLitsDocument.sharedInstance }
+class MiniLitsGameState: GridGameState<MiniLitsGame, MiniLitsDocument> {
+    override var gameDocument: MiniLitsDocument { MiniLitsDocument.sharedInstance }
     var objArray = [MiniLitsObject]()
     var pos2state = [Position: HintState]()
     

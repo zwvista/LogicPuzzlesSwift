@@ -8,14 +8,8 @@
 
 import Foundation
 
-class DigitalBattleShipsGameState: GridGameState {
-    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
-    var game: DigitalBattleShipsGame {
-        get { getGame() as! DigitalBattleShipsGame }
-        set { setGame(game: newValue) }
-    }
-    var gameDocument: DigitalBattleShipsDocument { DigitalBattleShipsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { DigitalBattleShipsDocument.sharedInstance }
+class DigitalBattleShipsGameState: GridGameState<DigitalBattleShipsGame, DigitalBattleShipsDocument> {
+    override var gameDocument: DigitalBattleShipsDocument { DigitalBattleShipsDocument.sharedInstance }
     var objArray = [DigitalBattleShipsObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()

@@ -8,14 +8,8 @@
 
 import Foundation
 
-class NoughtsAndCrossesGameState: GridGameState {
-    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
-    var game: NoughtsAndCrossesGame {
-        get { getGame() as! NoughtsAndCrossesGame }
-        set { setGame(game: newValue) }
-    }
-    var gameDocument: NoughtsAndCrossesDocument { NoughtsAndCrossesDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { NoughtsAndCrossesDocument.sharedInstance }
+class NoughtsAndCrossesGameState: GridGameState<NoughtsAndCrossesGame, NoughtsAndCrossesDocument> {
+    override var gameDocument: NoughtsAndCrossesDocument { NoughtsAndCrossesDocument.sharedInstance }
     var objArray = [Character]()
     var row2state = [HintState]()
     var col2state = [HintState]()

@@ -9,10 +9,12 @@
 import Foundation
 
 protocol GameStateBase: Copyable {
+    associatedtype G: GridGameBase
+    associatedtype GD: GameDocumentBase
     var isSolved: Bool { get }
 }
 
-class GameState: GameStateBase {
+class GameState<G: GridGameBase, GD: GameDocumentBase>: GameStateBase {
     var isSolved = false
     
     func copy() -> GameState {
@@ -28,13 +30,9 @@ class GameState: GameStateBase {
     }
 }
 
-class GridGameState: GameState {
-    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
-    private weak var game: GridGameBase?
-    func getGame() -> GridGameBase? { game }
-    func setGame(game: GridGameBase) { self.game = game }
-    private var gameDocument: GameDocumentBase! { getGameDocument() }
-    func getGameDocument() -> GameDocumentBase! { nil }
+class GridGameState<G: GridGameBase, GD: GameDocumentBase>: GameState<G, GD> {
+    weak var game: G!
+    var gameDocument: GD! { nil }
     var gameOptions: GameProgress { gameDocument.gameProgress }
     var markerOption: Int { gameOptions.option1?.toInt() ?? 0 }
     var allowedObjectsOnly: Bool { gameOptions.option2?.toBool() ?? false }
@@ -58,7 +56,7 @@ class GridGameState: GameState {
         return v
     }
     
-    init(game: GridGameBase?) {
+    init(game: G) {
         self.game = game
     }
     

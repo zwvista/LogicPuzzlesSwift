@@ -8,14 +8,8 @@
 
 import Foundation
 
-class DisconnectFourGameState: GridGameState {
-    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
-    var game: DisconnectFourGame {
-        get { getGame() as! DisconnectFourGame }
-        set { setGame(game: newValue) }
-    }
-    var gameDocument: DisconnectFourDocument { DisconnectFourDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { DisconnectFourDocument.sharedInstance }
+class DisconnectFourGameState: GridGameState<DisconnectFourGame, DisconnectFourDocument> {
+    override var gameDocument: DisconnectFourDocument { DisconnectFourDocument.sharedInstance }
     var objArray = [DisconnectFourObject]()
     var pos2state = [Position: AllowedObjectState]()
 

@@ -8,14 +8,8 @@
 
 import Foundation
 
-class NumberLinkGameState: GridGameState {
-    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
-    var game: NumberLinkGame {
-        get { getGame() as! NumberLinkGame }
-        set { setGame(game: newValue) }
-    }
-    var gameDocument: NumberLinkDocument { NumberLinkDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { NumberLinkDocument.sharedInstance }
+class NumberLinkGameState: GridGameState<NumberLinkGame, NumberLinkDocument> {
+    override var gameDocument: NumberLinkDocument { NumberLinkDocument.sharedInstance }
     var objArray = [NumberLinkObject]()
     var pos2state = [Position: HintState]()
     

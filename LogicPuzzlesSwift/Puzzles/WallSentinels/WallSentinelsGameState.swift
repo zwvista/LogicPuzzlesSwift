@@ -8,14 +8,8 @@
 
 import Foundation
 
-class WallSentinelsGameState: GridGameState {
-    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
-    var game: WallSentinelsGame {
-        get { getGame() as! WallSentinelsGame }
-        set { setGame(game: newValue) }
-    }
-    var gameDocument: WallSentinelsDocument { WallSentinelsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { WallSentinelsDocument.sharedInstance }
+class WallSentinelsGameState: GridGameState<WallSentinelsGame, WallSentinelsDocument> {
+    override var gameDocument: WallSentinelsDocument { WallSentinelsDocument.sharedInstance }
     var objArray = [WallSentinelsObject]()
     
     override func copy() -> WallSentinelsGameState {

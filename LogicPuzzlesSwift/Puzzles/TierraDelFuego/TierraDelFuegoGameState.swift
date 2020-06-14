@@ -8,14 +8,8 @@
 
 import Foundation
 
-class TierraDelFuegoGameState: GridGameState {
-    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
-    var game: TierraDelFuegoGame {
-        get { getGame() as! TierraDelFuegoGame }
-        set { setGame(game: newValue) }
-    }
-    var gameDocument: TierraDelFuegoDocument { TierraDelFuegoDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { TierraDelFuegoDocument.sharedInstance }
+class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGame, TierraDelFuegoDocument> {
+    override var gameDocument: TierraDelFuegoDocument { TierraDelFuegoDocument.sharedInstance }
     var objArray = [TierraDelFuegoObject]()
     
     override func copy() -> TierraDelFuegoGameState {

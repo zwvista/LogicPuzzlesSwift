@@ -8,14 +8,8 @@
 
 import Foundation
 
-class KakurasuGameState: GridGameState {
-    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
-    var game: KakurasuGame {
-        get { getGame() as! KakurasuGame }
-        set { setGame(game: newValue) }
-    }
-    var gameDocument: KakurasuDocument { KakurasuDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { KakurasuDocument.sharedInstance }
+class KakurasuGameState: GridGameState<KakurasuGame, KakurasuDocument> {
+    override var gameDocument: KakurasuDocument { KakurasuDocument.sharedInstance }
     var objArray = [KakurasuObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()

@@ -8,14 +8,8 @@
 
 import Foundation
 
-class FillominoGameState: GridGameState {
-    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
-    var game: FillominoGame {
-        get { getGame() as! FillominoGame }
-        set { setGame(game: newValue) }
-    }
-    var gameDocument: FillominoDocument { FillominoDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { FillominoDocument.sharedInstance }
+class FillominoGameState: GridGameState<FillominoGame, FillominoDocument> {
+    override var gameDocument: FillominoDocument { FillominoDocument.sharedInstance }
     var objArray = [Character]()
     var dots: GridDots!
     var pos2state = [Position: HintState]()

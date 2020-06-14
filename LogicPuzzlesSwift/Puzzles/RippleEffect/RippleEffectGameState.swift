@@ -8,14 +8,8 @@
 
 import Foundation
 
-class RippleEffectGameState: GridGameState {
-    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
-    var game: RippleEffectGame {
-        get { getGame() as! RippleEffectGame }
-        set { setGame(game: newValue) }
-    }
-    var gameDocument: RippleEffectDocument { RippleEffectDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { RippleEffectDocument.sharedInstance }
+class RippleEffectGameState: GridGameState<RippleEffectGame, RippleEffectDocument> {
+    override var gameDocument: RippleEffectDocument { RippleEffectDocument.sharedInstance }
     var objArray = [Int]()
     var pos2state = [Position: HintState]()
     

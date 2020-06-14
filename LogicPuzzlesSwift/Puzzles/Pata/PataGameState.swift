@@ -8,14 +8,8 @@
 
 import Foundation
 
-class PataGameState: GridGameState {
-    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
-    var game: PataGame {
-        get { getGame() as! PataGame }
-        set { setGame(game: newValue) }
-    }
-    var gameDocument: PataDocument { PataDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { PataDocument.sharedInstance }
+class PataGameState: GridGameState<PataGame, PataDocument> {
+    override var gameDocument: PataDocument { PataDocument.sharedInstance }
     var objArray = [PataObject]()
     
     override func copy() -> PataGameState {

@@ -8,14 +8,8 @@
 
 import Foundation
 
-class NurikabeGameState: GridGameState {
-    // http://stackoverflow.com/questions/24094158/overriding-superclass-property-with-different-type-in-swift
-    var game: NurikabeGame {
-        get { getGame() as! NurikabeGame }
-        set { setGame(game: newValue) }
-    }
-    var gameDocument: NurikabeDocument { NurikabeDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { NurikabeDocument.sharedInstance }
+class NurikabeGameState: GridGameState<NurikabeGame, NurikabeDocument> {
+    override var gameDocument: NurikabeDocument { NurikabeDocument.sharedInstance }
     var objArray = [NurikabeObject]()
     
     override func copy() -> NurikabeGameState {
