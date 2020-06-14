@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RippleEffectGame: GridGame<RippleEffectGameViewController> {
+class RippleEffectGame: GridGame<RippleEffectGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

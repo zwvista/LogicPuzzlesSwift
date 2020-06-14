@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TennerGridGame: GridGame<TennerGridGameViewController> {
+class TennerGridGame: GridGame<TennerGridGameState> {
     static let offset = [
         Position(1, -1),
         Position(1, 0),

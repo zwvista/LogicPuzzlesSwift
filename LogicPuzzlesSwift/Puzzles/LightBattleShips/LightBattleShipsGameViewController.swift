@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class LightBattleShipsGameViewController: GameGameViewController, GameDelegate {
+class LightBattleShipsGameViewController: GameGameViewController {
     typealias GS = LightBattleShipsGameState
 
     var scene: LightBattleShipsGameScene {
@@ -72,26 +72,26 @@ class LightBattleShipsGameViewController: GameGameViewController, GameDelegate {
         scene.levelUpdated(from: game.states[0], to: game.currentState)
     }
     
-    func moveAdded(_ game: AnyObject, move: LightBattleShipsGameMove) {
+    override func moveAdded(_ game: AnyObject, move: Any) {
         guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move)
+        gameDocument.moveAdded(game: game, move: move as! LightBattleShipsGameMove)
     }
     
-    func levelInitilized(_ game: AnyObject, state: LightBattleShipsGameState) {
+    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
         let game = game as! LightBattleShipsGame
         updateMovesUI(game)
-        scene.levelInitialized(game, state: state, skView: skView)
+        scene.levelInitialized(game, state: state as! LightBattleShipsGameState, skView: skView)
     }
     
-    func levelUpdated(_ game: AnyObject, from stateFrom: LightBattleShipsGameState, to stateTo: LightBattleShipsGameState) {
+    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
         let game = game as! LightBattleShipsGame
         updateMovesUI(game)
         guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom, to: stateTo)
+        scene.levelUpdated(from: stateFrom as! LightBattleShipsGameState, to: stateTo as! LightBattleShipsGameState)
         gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: AnyObject) {
+    override func gameSolved(_ game: AnyObject) {
         guard !levelInitilizing else {return}
         soundManager.playSoundSolved()
         gameDocument.gameSolved(game: game)

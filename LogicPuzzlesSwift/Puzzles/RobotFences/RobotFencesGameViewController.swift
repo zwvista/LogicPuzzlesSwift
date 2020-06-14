@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class RobotFencesGameViewController: GameGameViewController, GameDelegate {
+class RobotFencesGameViewController: GameGameViewController {
     typealias GS = RobotFencesGameState
 
     var scene: RobotFencesGameScene {
@@ -72,26 +72,26 @@ class RobotFencesGameViewController: GameGameViewController, GameDelegate {
         scene.levelUpdated(from: game.states[0], to: game.currentState)
     }
     
-    func moveAdded(_ game: AnyObject, move: RobotFencesGameMove) {
+    override func moveAdded(_ game: AnyObject, move: Any) {
         guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move)
+        gameDocument.moveAdded(game: game, move: move as! RobotFencesGameMove)
     }
     
-    func levelInitilized(_ game: AnyObject, state: RobotFencesGameState) {
+    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
         let game = game as! RobotFencesGame
         updateMovesUI(game)
-        scene.levelInitialized(game, state: state, skView: skView)
+        scene.levelInitialized(game, state: state as! RobotFencesGameState, skView: skView)
     }
     
-    func levelUpdated(_ game: AnyObject, from stateFrom: RobotFencesGameState, to stateTo: RobotFencesGameState) {
+    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
         let game = game as! RobotFencesGame
         updateMovesUI(game)
         guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom, to: stateTo)
+        scene.levelUpdated(from: stateFrom as! RobotFencesGameState, to: stateTo as! RobotFencesGameState)
         gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: AnyObject) {
+    override func gameSolved(_ game: AnyObject) {
         guard !levelInitilizing else {return}
         soundManager.playSoundSolved()
         gameDocument.gameSolved(game: game)

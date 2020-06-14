@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class TapARowGameViewController: GameGameViewController, GameDelegate {
+class TapARowGameViewController: GameGameViewController {
     typealias GS = TapARowGameState
 
     var scene: TapARowGameScene {
@@ -72,26 +72,26 @@ class TapARowGameViewController: GameGameViewController, GameDelegate {
         scene.levelUpdated(from: game.states[0], to: game.currentState)
     }
     
-    func moveAdded(_ game: AnyObject, move: TapARowGameMove) {
+    override func moveAdded(_ game: AnyObject, move: Any) {
         guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move)
+        gameDocument.moveAdded(game: game, move: move as! TapARowGameMove)
     }
     
-    func levelInitilized(_ game: AnyObject, state: TapARowGameState) {
+    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
         let game = game as! TapARowGame
         updateMovesUI(game)
-        scene.levelInitialized(game, state: state, skView: skView)
+        scene.levelInitialized(game, state: state as! TapARowGameState, skView: skView)
     }
     
-    func levelUpdated(_ game: AnyObject, from stateFrom: TapARowGameState, to stateTo: TapARowGameState) {
+    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
         let game = game as! TapARowGame
         updateMovesUI(game)
         guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom, to: stateTo)
+        scene.levelUpdated(from: stateFrom as! TapARowGameState, to: stateTo as! TapARowGameState)
         gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: AnyObject) {
+    override func gameSolved(_ game: AnyObject) {
         guard !levelInitilizing else {return}
         soundManager.playSoundSolved()
         gameDocument.gameSolved(game: game)

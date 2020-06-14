@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class BusySeasGameViewController: GameGameViewController, GameDelegate {
+class BusySeasGameViewController: GameGameViewController {
     typealias GS = BusySeasGameState
 
     var scene: BusySeasGameScene {
@@ -72,26 +72,26 @@ class BusySeasGameViewController: GameGameViewController, GameDelegate {
         scene.levelUpdated(from: game.states[0], to: game.currentState)
     }
     
-    func moveAdded(_ game: AnyObject, move: BusySeasGameMove) {
+    override func moveAdded(_ game: AnyObject, move: Any) {
         guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move)
+        gameDocument.moveAdded(game: game, move: move as! BusySeasGameMove)
     }
     
-    func levelInitilized(_ game: AnyObject, state: BusySeasGameState) {
+    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
         let game = game as! BusySeasGame
         updateMovesUI(game)
-        scene.levelInitialized(game, state: state, skView: skView)
+        scene.levelInitialized(game, state: state as! BusySeasGameState, skView: skView)
     }
     
-    func levelUpdated(_ game: AnyObject, from stateFrom: BusySeasGameState, to stateTo: BusySeasGameState) {
+    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
         let game = game as! BusySeasGame
         updateMovesUI(game)
         guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom, to: stateTo)
+        scene.levelUpdated(from: stateFrom as! BusySeasGameState, to: stateTo as! BusySeasGameState)
         gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: AnyObject) {
+    override func gameSolved(_ game: AnyObject) {
         guard !levelInitilizing else {return}
         soundManager.playSoundSolved()
         gameDocument.gameSolved(game: game)

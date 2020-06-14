@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class NoughtsAndCrossesGameViewController: GameGameViewController, GameDelegate {
+class NoughtsAndCrossesGameViewController: GameGameViewController {
     typealias GS = NoughtsAndCrossesGameState
 
     var scene: NoughtsAndCrossesGameScene {
@@ -72,26 +72,26 @@ class NoughtsAndCrossesGameViewController: GameGameViewController, GameDelegate 
         scene.levelUpdated(from: game.states[0], to: game.currentState)
     }
     
-    func moveAdded(_ game: AnyObject, move: NoughtsAndCrossesGameMove) {
+    override func moveAdded(_ game: AnyObject, move: Any) {
         guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move)
+        gameDocument.moveAdded(game: game, move: move as! NoughtsAndCrossesGameMove)
     }
     
-    func levelInitilized(_ game: AnyObject, state: NoughtsAndCrossesGameState) {
+    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
         let game = game as! NoughtsAndCrossesGame
         updateMovesUI(game)
-        scene.levelInitialized(game, state: state, skView: skView)
+        scene.levelInitialized(game, state: state as! NoughtsAndCrossesGameState, skView: skView)
     }
     
-    func levelUpdated(_ game: AnyObject, from stateFrom: NoughtsAndCrossesGameState, to stateTo: NoughtsAndCrossesGameState) {
+    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
         let game = game as! NoughtsAndCrossesGame
         updateMovesUI(game)
         guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom, to: stateTo)
+        scene.levelUpdated(from: stateFrom as! NoughtsAndCrossesGameState, to: stateTo as! NoughtsAndCrossesGameState)
         gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: AnyObject) {
+    override func gameSolved(_ game: AnyObject) {
         guard !levelInitilizing else {return}
         soundManager.playSoundSolved()
         gameDocument.gameSolved(game: game)

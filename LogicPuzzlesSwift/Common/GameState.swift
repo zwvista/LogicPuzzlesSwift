@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol GameStateBase: Copyable {
+protocol GameStateBase: class, Copyable {
     associatedtype GM
     var isSolved: Bool { get }
     func setObject(move: inout GM) -> Bool

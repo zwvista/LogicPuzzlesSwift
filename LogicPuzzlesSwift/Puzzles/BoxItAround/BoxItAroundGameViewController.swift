@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class BoxItAroundGameViewController: GameGameViewController, GameDelegate {
+class BoxItAroundGameViewController: GameGameViewController {
     typealias GS = BoxItAroundGameState
 
     var scene: BoxItAroundGameScene {
@@ -73,26 +73,26 @@ class BoxItAroundGameViewController: GameGameViewController, GameDelegate {
         scene.levelUpdated(from: game.states[0], to: game.currentState)
     }
     
-    func moveAdded(_ game: AnyObject, move: BoxItAroundGameMove) {
+    override func moveAdded(_ game: AnyObject, move: Any) {
         guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move)
+        gameDocument.moveAdded(game: game, move: move as! BoxItAroundGameMove)
     }
     
-    func levelInitilized(_ game: AnyObject, state: BoxItAroundGameState) {
+    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
         let game = game as! BoxItAroundGame
         updateMovesUI(game)
-        scene.levelInitialized(game, state: state, skView: skView)
+        scene.levelInitialized(game, state: state as! BoxItAroundGameState, skView: skView)
     }
     
-    func levelUpdated(_ game: AnyObject, from stateFrom: BoxItAroundGameState, to stateTo: BoxItAroundGameState) {
+    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
         let game = game as! BoxItAroundGame
         updateMovesUI(game)
         guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom, to: stateTo)
+        scene.levelUpdated(from: stateFrom as! BoxItAroundGameState, to: stateTo as! BoxItAroundGameState)
         gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: AnyObject) {
+    override func gameSolved(_ game: AnyObject) {
         guard !levelInitilizing else {return}
         soundManager.playSoundSolved()
         gameDocument.gameSolved(game: game)

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ABCPathGame: GridGame<ABCPathGameViewController> {
+class ABCPathGame: GridGame<ABCPathGameState> {
     static let offset = [
         Position(-1, 0),
         Position(-1, 1),

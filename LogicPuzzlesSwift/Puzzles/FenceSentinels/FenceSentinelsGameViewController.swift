@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class FenceSentinelsGameViewController: GameGameViewController, GameDelegate {
+class FenceSentinelsGameViewController: GameGameViewController {
     typealias GS = FenceSentinelsGameState
 
     var scene: FenceSentinelsGameScene {
@@ -73,26 +73,26 @@ class FenceSentinelsGameViewController: GameGameViewController, GameDelegate {
         scene.levelUpdated(from: game.states[0], to: game.currentState)
     }
     
-    func moveAdded(_ game: AnyObject, move: FenceSentinelsGameMove) {
+    override func moveAdded(_ game: AnyObject, move: Any) {
         guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move)
+        gameDocument.moveAdded(game: game, move: move as! FenceSentinelsGameMove)
     }
     
-    func levelInitilized(_ game: AnyObject, state: FenceSentinelsGameState) {
+    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
         let game = game as! FenceSentinelsGame
         updateMovesUI(game)
-        scene.levelInitialized(game, state: state, skView: skView)
+        scene.levelInitialized(game, state: state as! FenceSentinelsGameState, skView: skView)
     }
     
-    func levelUpdated(_ game: AnyObject, from stateFrom: FenceSentinelsGameState, to stateTo: FenceSentinelsGameState) {
+    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
         let game = game as! FenceSentinelsGame
         updateMovesUI(game)
         guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom, to: stateTo)
+        scene.levelUpdated(from: stateFrom as! FenceSentinelsGameState, to: stateTo as! FenceSentinelsGameState)
         gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: AnyObject) {
+    override func gameSolved(_ game: AnyObject) {
         guard !levelInitilizing else {return}
         soundManager.playSoundSolved()
         gameDocument.gameSolved(game: game)

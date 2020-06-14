@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BootyIslandGame: GridGame<BootyIslandGameViewController> {
+class BootyIslandGame: GridGame<BootyIslandGameState> {
     static let offset = [
         Position(-1, 0),
         Position(-1, 1),

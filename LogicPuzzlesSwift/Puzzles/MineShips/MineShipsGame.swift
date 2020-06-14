@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MineShipsGame: GridGame<MineShipsGameViewController> {
+class MineShipsGame: GridGame<MineShipsGameState> {
     static let offset = [
         Position(-1, 0),
         Position(-1, 1),

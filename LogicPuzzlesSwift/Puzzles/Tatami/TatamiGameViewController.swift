@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class TatamiGameViewController: GameGameViewController, GameDelegate {
+class TatamiGameViewController: GameGameViewController {
     typealias GS = TatamiGameState
 
     var scene: TatamiGameScene {
@@ -72,26 +72,26 @@ class TatamiGameViewController: GameGameViewController, GameDelegate {
         scene.levelUpdated(from: game.states[0], to: game.currentState)
     }
     
-    func moveAdded(_ game: AnyObject, move: TatamiGameMove) {
+    override func moveAdded(_ game: AnyObject, move: Any) {
         guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move)
+        gameDocument.moveAdded(game: game, move: move as! TatamiGameMove)
     }
     
-    func levelInitilized(_ game: AnyObject, state: TatamiGameState) {
+    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
         let game = game as! TatamiGame
         updateMovesUI(game)
-        scene.levelInitialized(game, state: state, skView: skView)
+        scene.levelInitialized(game, state: state as! TatamiGameState, skView: skView)
     }
     
-    func levelUpdated(_ game: AnyObject, from stateFrom: TatamiGameState, to stateTo: TatamiGameState) {
+    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
         let game = game as! TatamiGame
         updateMovesUI(game)
         guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom, to: stateTo)
+        scene.levelUpdated(from: stateFrom as! TatamiGameState, to: stateTo as! TatamiGameState)
         gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: AnyObject) {
+    override func gameSolved(_ game: AnyObject) {
         guard !levelInitilizing else {return}
         soundManager.playSoundSolved()
         gameDocument.gameSolved(game: game)

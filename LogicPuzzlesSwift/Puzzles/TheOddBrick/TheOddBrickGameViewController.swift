@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class TheOddBrickGameViewController: GameGameViewController, GameDelegate {
+class TheOddBrickGameViewController: GameGameViewController {
     typealias GS = TheOddBrickGameState
 
     var scene: TheOddBrickGameScene {
@@ -72,26 +72,26 @@ class TheOddBrickGameViewController: GameGameViewController, GameDelegate {
         scene.levelUpdated(from: game.states[0], to: game.currentState)
     }
     
-    func moveAdded(_ game: AnyObject, move: TheOddBrickGameMove) {
+    override func moveAdded(_ game: AnyObject, move: Any) {
         guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move)
+        gameDocument.moveAdded(game: game, move: move as! TheOddBrickGameMove)
     }
     
-    func levelInitilized(_ game: AnyObject, state: TheOddBrickGameState) {
+    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
         let game = game as! TheOddBrickGame
         updateMovesUI(game)
-        scene.levelInitialized(game, state: state, skView: skView)
+        scene.levelInitialized(game, state: state as! TheOddBrickGameState, skView: skView)
     }
     
-    func levelUpdated(_ game: AnyObject, from stateFrom: TheOddBrickGameState, to stateTo: TheOddBrickGameState) {
+    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
         let game = game as! TheOddBrickGame
         updateMovesUI(game)
         guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom, to: stateTo)
+        scene.levelUpdated(from: stateFrom as! TheOddBrickGameState, to: stateTo as! TheOddBrickGameState)
         gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: AnyObject) {
+    override func gameSolved(_ game: AnyObject) {
         guard !levelInitilizing else {return}
         soundManager.playSoundSolved()
         gameDocument.gameSolved(game: game)

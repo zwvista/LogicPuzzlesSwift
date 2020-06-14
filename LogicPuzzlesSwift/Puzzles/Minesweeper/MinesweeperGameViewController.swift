@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class MinesweeperGameViewController: GameGameViewController, GameDelegate {
+class MinesweeperGameViewController: GameGameViewController {
     typealias GS = MinesweeperGameState
 
     var scene: MinesweeperGameScene {
@@ -72,26 +72,26 @@ class MinesweeperGameViewController: GameGameViewController, GameDelegate {
         scene.levelUpdated(from: game.states[0], to: game.currentState)
     }
     
-    func moveAdded(_ game: AnyObject, move: MinesweeperGameMove) {
+    override func moveAdded(_ game: AnyObject, move: Any) {
         guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move)
+        gameDocument.moveAdded(game: game, move: move as! MinesweeperGameMove)
     }
     
-    func levelInitilized(_ game: AnyObject, state: MinesweeperGameState) {
+    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
         let game = game as! MinesweeperGame
         updateMovesUI(game)
-        scene.levelInitialized(game, state: state, skView: skView)
+        scene.levelInitialized(game, state: state as! MinesweeperGameState, skView: skView)
     }
     
-    func levelUpdated(_ game: AnyObject, from stateFrom: MinesweeperGameState, to stateTo: MinesweeperGameState) {
+    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
         let game = game as! MinesweeperGame
         updateMovesUI(game)
         guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom, to: stateTo)
+        scene.levelUpdated(from: stateFrom as! MinesweeperGameState, to: stateTo as! MinesweeperGameState)
         gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: AnyObject) {
+    override func gameSolved(_ game: AnyObject) {
         guard !levelInitilizing else {return}
         soundManager.playSoundSolved()
         gameDocument.gameSolved(game: game)

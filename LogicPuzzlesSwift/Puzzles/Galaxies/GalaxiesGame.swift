@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GalaxiesGame: GridGame<GalaxiesGameViewController> {
+class GalaxiesGame: GridGame<GalaxiesGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

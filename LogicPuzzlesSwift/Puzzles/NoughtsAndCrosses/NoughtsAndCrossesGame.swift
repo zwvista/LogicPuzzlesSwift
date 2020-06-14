@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NoughtsAndCrossesGame: GridGame<NoughtsAndCrossesGameViewController> {
+class NoughtsAndCrossesGame: GridGame<NoughtsAndCrossesGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

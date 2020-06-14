@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MathraxGame: GridGame<MathraxGameViewController> {
+class MathraxGame: GridGame<MathraxGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

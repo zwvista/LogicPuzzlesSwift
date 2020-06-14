@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class SumscrapersGameViewController: GameGameViewController, GameDelegate {
+class SumscrapersGameViewController: GameGameViewController {
     typealias GS = SumscrapersGameState
 
     var scene: SumscrapersGameScene {
@@ -72,26 +72,26 @@ class SumscrapersGameViewController: GameGameViewController, GameDelegate {
         scene.levelUpdated(from: game.states[0], to: game.currentState)
     }
     
-    func moveAdded(_ game: AnyObject, move: SumscrapersGameMove) {
+    override func moveAdded(_ game: AnyObject, move: Any) {
         guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move)
+        gameDocument.moveAdded(game: game, move: move as! SumscrapersGameMove)
     }
     
-    func levelInitilized(_ game: AnyObject, state: SumscrapersGameState) {
+    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
         let game = game as! SumscrapersGame
         updateMovesUI(game)
-        scene.levelInitialized(game, state: state, skView: skView)
+        scene.levelInitialized(game, state: state as! SumscrapersGameState, skView: skView)
     }
     
-    func levelUpdated(_ game: AnyObject, from stateFrom: SumscrapersGameState, to stateTo: SumscrapersGameState) {
+    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
         let game = game as! SumscrapersGame
         updateMovesUI(game)
         guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom, to: stateTo)
+        scene.levelUpdated(from: stateFrom as! SumscrapersGameState, to: stateTo as! SumscrapersGameState)
         gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: AnyObject) {
+    override func gameSolved(_ game: AnyObject) {
         guard !levelInitilizing else {return}
         soundManager.playSoundSolved()
         gameDocument.gameSolved(game: game)

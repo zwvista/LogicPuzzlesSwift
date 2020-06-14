@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class LineSweeperGameViewController: GameGameViewController, GameDelegate {
+class LineSweeperGameViewController: GameGameViewController {
     typealias GS = LineSweeperGameState
 
     var scene: LineSweeperGameScene {
@@ -99,26 +99,26 @@ class LineSweeperGameViewController: GameGameViewController, GameDelegate {
         scene.levelUpdated(from: game.states[0], to: game.currentState)
     }
     
-    func moveAdded(_ game: AnyObject, move: LineSweeperGameMove) {
+    override func moveAdded(_ game: AnyObject, move: Any) {
         guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move)
+        gameDocument.moveAdded(game: game, move: move as! LineSweeperGameMove)
     }
     
-    func levelInitilized(_ game: AnyObject, state: LineSweeperGameState) {
+    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
         let game = game as! LineSweeperGame
         updateMovesUI(game)
-        scene.levelInitialized(game, state: state, skView: skView)
+        scene.levelInitialized(game, state: state as! LineSweeperGameState, skView: skView)
     }
     
-    func levelUpdated(_ game: AnyObject, from stateFrom: LineSweeperGameState, to stateTo: LineSweeperGameState) {
+    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
         let game = game as! LineSweeperGame
         updateMovesUI(game)
         guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom, to: stateTo)
+        scene.levelUpdated(from: stateFrom as! LineSweeperGameState, to: stateTo as! LineSweeperGameState)
         gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: AnyObject) {
+    override func gameSolved(_ game: AnyObject) {
         guard !levelInitilizing else {return}
         soundManager.playSoundSolved()
         gameDocument.gameSolved(game: game)

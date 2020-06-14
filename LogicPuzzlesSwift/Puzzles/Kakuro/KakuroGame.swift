@@ -8,7 +8,7 @@
 
 import Foundation
 
-class KakuroGame: GridGame<KakuroGameViewController> {
+class KakuroGame: GridGame<KakuroGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

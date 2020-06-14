@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class PairakabeGameViewController: GameGameViewController, GameDelegate {
+class PairakabeGameViewController: GameGameViewController {
     typealias GS = PairakabeGameState
 
     var scene: PairakabeGameScene {
@@ -72,26 +72,26 @@ class PairakabeGameViewController: GameGameViewController, GameDelegate {
         scene.levelUpdated(from: game.states[0], to: game.currentState)
     }
     
-    func moveAdded(_ game: AnyObject, move: PairakabeGameMove) {
+    override func moveAdded(_ game: AnyObject, move: Any) {
         guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move)
+        gameDocument.moveAdded(game: game, move: move as! PairakabeGameMove)
     }
     
-    func levelInitilized(_ game: AnyObject, state: PairakabeGameState) {
+    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
         let game = game as! PairakabeGame
         updateMovesUI(game)
-        scene.levelInitialized(game, state: state, skView: skView)
+        scene.levelInitialized(game, state: state as! PairakabeGameState, skView: skView)
     }
     
-    func levelUpdated(_ game: AnyObject, from stateFrom: PairakabeGameState, to stateTo: PairakabeGameState) {
+    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
         let game = game as! PairakabeGame
         updateMovesUI(game)
         guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom, to: stateTo)
+        scene.levelUpdated(from: stateFrom as! PairakabeGameState, to: stateTo as! PairakabeGameState)
         gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: AnyObject) {
+    override func gameSolved(_ game: AnyObject) {
         guard !levelInitilizing else {return}
         soundManager.playSoundSolved()
         gameDocument.gameSolved(game: game)

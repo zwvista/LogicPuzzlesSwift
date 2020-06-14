@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FillominoGame: GridGame<FillominoGameViewController> {
+class FillominoGame: GridGame<FillominoGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

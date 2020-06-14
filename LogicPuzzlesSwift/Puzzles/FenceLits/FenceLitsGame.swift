@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FenceLitsGame: GridGame<FenceLitsGameViewController> {
+class FenceLitsGame: GridGame<FenceLitsGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

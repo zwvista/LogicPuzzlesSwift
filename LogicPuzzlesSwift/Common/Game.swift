@@ -8,16 +8,6 @@
 
 import Foundation
 
-// http://stackoverflow.com/questions/24066304/how-can-i-make-a-weak-protocol-reference-in-pure-swift-w-o-objc
-protocol GameDelegate: class {
-    associatedtype GS: GameStateBase
-    typealias GM = GS.GM
-    func moveAdded(_ game: AnyObject, move: GM)
-    func levelInitilized(_ game: AnyObject, state: GS)
-    func levelUpdated(_ game: AnyObject, from stateFrom: GS, to stateTo: GS)
-    func gameSolved(_ game: AnyObject)
-}
-
 protocol GameBase: class {
     var moveIndex: Int { get }
     var isSolved: Bool { get }
@@ -26,8 +16,7 @@ protocol GameBase: class {
     func redo()
 }
 
-class Game<GD: GameDelegate>: GameBase {
-    typealias GS = GD.GS
+class Game<GS: GameStateBase>: GameBase {
     typealias GM = GS.GM
     var stateIndex = 0
     var states = [GS]()
@@ -40,14 +29,10 @@ class Game<GD: GameDelegate>: GameBase {
     var moveIndex: Int { stateIndex }
     var moveCount: Int { states.count - 1 }
     
-    weak var delegate: GD?
+    weak var delegate: GameGameViewController?
     
-    init(delegate: GD? = nil) {
+    init(delegate: GameGameViewController? = nil) {
         self.delegate = delegate
-    }
-    
-    func moveAdded(move: GM) {
-        delegate?.moveAdded(self, move: move)
     }
     
     func levelInitilized(state: GS) {
@@ -79,13 +64,13 @@ class Game<GD: GameDelegate>: GameBase {
             moves.removeSubrange(stateIndex..<moves.count)
         }
         // copy a state
-        var state = currentState.copy() as! GD.GS
+        var state = currentState.copy() as! GS
         guard f(&state, &move) else { return false }
         
         states.append(state)
         stateIndex += 1
         moves.append(move)
-        moveAdded(move: move)
+        delegate?.moveAdded(self, move: move)
         levelUpdated(from: states[stateIndex - 1], to: state)
         return true
     }
@@ -109,7 +94,7 @@ protocol GridGameBase: GameBase {
     func isValid(row: Int, col: Int) -> Bool
 }
 
-class GridGame<GD: GameDelegate>: Game<GD>, GridGameBase {
+class GridGame<GS: GameStateBase>: Game<GS>, GridGameBase {
     var size: Position!
     var rows: Int { size.row }
     var cols: Int { size.col }

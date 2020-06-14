@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TapDifferentlyGame: GridGame<TapDifferentlyGameViewController> {
+class TapDifferentlyGame: GridGame<TapDifferentlyGameState> {
     static let offset = [
         Position(-1, 0),
         Position(-1, 1),

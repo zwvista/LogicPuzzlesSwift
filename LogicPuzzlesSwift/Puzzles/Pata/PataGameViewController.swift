@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class PataGameViewController: GameGameViewController, GameDelegate {
+class PataGameViewController: GameGameViewController {
     typealias GS = PataGameState
 
     var scene: PataGameScene {
@@ -72,26 +72,26 @@ class PataGameViewController: GameGameViewController, GameDelegate {
         scene.levelUpdated(from: game.states[0], to: game.currentState)
     }
     
-    func moveAdded(_ game: AnyObject, move: PataGameMove) {
+    override func moveAdded(_ game: AnyObject, move: Any) {
         guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move)
+        gameDocument.moveAdded(game: game, move: move as! PataGameMove)
     }
     
-    func levelInitilized(_ game: AnyObject, state: PataGameState) {
+    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
         let game = game as! PataGame
         updateMovesUI(game)
-        scene.levelInitialized(game, state: state, skView: skView)
+        scene.levelInitialized(game, state: state as! PataGameState, skView: skView)
     }
     
-    func levelUpdated(_ game: AnyObject, from stateFrom: PataGameState, to stateTo: PataGameState) {
+    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
         let game = game as! PataGame
         updateMovesUI(game)
         guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom, to: stateTo)
+        scene.levelUpdated(from: stateFrom as! PataGameState, to: stateTo as! PataGameState)
         gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: AnyObject) {
+    override func gameSolved(_ game: AnyObject) {
         guard !levelInitilizing else {return}
         soundManager.playSoundSolved()
         gameDocument.gameSolved(game: game)

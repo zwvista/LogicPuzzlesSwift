@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LineSweeperGame: GridGame<LineSweeperGameViewController> {
+class LineSweeperGame: GridGame<LineSweeperGameState> {
     static let offset = [
         Position(-1, 0),
         Position(-1, 1),

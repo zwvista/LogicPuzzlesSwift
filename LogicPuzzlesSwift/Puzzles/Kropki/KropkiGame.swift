@@ -8,7 +8,7 @@
 
 import Foundation
 
-class KropkiGame: GridGame<KropkiGameViewController> {
+class KropkiGame: GridGame<KropkiGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

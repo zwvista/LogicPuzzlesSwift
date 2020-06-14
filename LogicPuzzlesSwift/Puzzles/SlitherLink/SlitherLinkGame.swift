@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SlitherLinkGame: GridGame<SlitherLinkGameViewController> {
+class SlitherLinkGame: GridGame<SlitherLinkGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

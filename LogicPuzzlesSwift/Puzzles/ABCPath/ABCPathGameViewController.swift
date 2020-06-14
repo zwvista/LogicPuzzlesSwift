@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class ABCPathGameViewController: GameGameViewController, GameDelegate {
+class ABCPathGameViewController: GameGameViewController {
     typealias GS = ABCPathGameState
 
     var scene: ABCPathGameScene {
@@ -72,26 +72,26 @@ class ABCPathGameViewController: GameGameViewController, GameDelegate {
         scene.levelUpdated(from: game.states[0], to: game.currentState)
     }
     
-    func moveAdded(_ game: AnyObject, move: ABCPathGameMove) {
+    override func moveAdded(_ game: AnyObject, move: Any) {
         guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move)
+        gameDocument.moveAdded(game: game, move: move as! ABCPathGameMove)
     }
     
-    func levelInitilized(_ game: AnyObject, state: ABCPathGameState) {
+    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
         let game = game as! ABCPathGame
         updateMovesUI(game)
-        scene.levelInitialized(game, state: state, skView: skView)
+        scene.levelInitialized(game, state: state as! ABCPathGameState, skView: skView)
     }
     
-    func levelUpdated(_ game: AnyObject, from stateFrom: ABCPathGameState, to stateTo: ABCPathGameState) {
+    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
         let game = game as! ABCPathGame
         updateMovesUI(game)
         guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom, to: stateTo)
+        scene.levelUpdated(from: stateFrom as! ABCPathGameState, to: stateTo as! ABCPathGameState)
         gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: AnyObject) {
+    override func gameSolved(_ game: AnyObject) {
         guard !levelInitilizing else {return}
         soundManager.playSoundSolved()
         gameDocument.gameSolved(game: game)

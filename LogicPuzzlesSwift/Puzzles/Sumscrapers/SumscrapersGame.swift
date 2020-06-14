@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SumscrapersGame: GridGame<SumscrapersGameViewController> {
+class SumscrapersGame: GridGame<SumscrapersGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

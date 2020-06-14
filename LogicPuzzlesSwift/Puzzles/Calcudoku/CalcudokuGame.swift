@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CalcudokuGame: GridGame<CalcudokuGameViewController> {
+class CalcudokuGame: GridGame<CalcudokuGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

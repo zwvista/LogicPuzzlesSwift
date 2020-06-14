@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BalancedTapasGame: GridGame<BalancedTapasGameViewController> {
+class BalancedTapasGame: GridGame<BalancedTapasGameState> {
     static let offset = [
         Position(-1, 0),
         Position(-1, 1),

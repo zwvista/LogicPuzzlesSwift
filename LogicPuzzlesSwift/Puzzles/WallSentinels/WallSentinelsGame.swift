@@ -8,7 +8,7 @@
 
 import Foundation
 
-class WallSentinelsGame: GridGame<WallSentinelsGameViewController> {
+class WallSentinelsGame: GridGame<WallSentinelsGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

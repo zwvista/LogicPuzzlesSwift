@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NorthPoleFishingGame: GridGame<NorthPoleFishingGameViewController> {
+class NorthPoleFishingGame: GridGame<NorthPoleFishingGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

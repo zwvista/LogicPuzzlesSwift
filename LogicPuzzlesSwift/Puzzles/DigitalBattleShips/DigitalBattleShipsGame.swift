@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DigitalBattleShipsGame: GridGame<DigitalBattleShipsGameViewController> {
+class DigitalBattleShipsGame: GridGame<DigitalBattleShipsGameState> {
     static let offset = [
         Position(-1, 0),
         Position(-1, 1),

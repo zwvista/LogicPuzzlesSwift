@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PaintTheNurikabeGame: GridGame<PaintTheNurikabeGameViewController> {
+class PaintTheNurikabeGame: GridGame<PaintTheNurikabeGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

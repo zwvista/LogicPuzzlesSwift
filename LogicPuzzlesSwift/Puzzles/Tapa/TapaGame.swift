@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TapaGame: GridGame<TapaGameViewController> {
+class TapaGame: GridGame<TapaGameState> {
     static let offset = [
         Position(-1, 0),
         Position(-1, 1),

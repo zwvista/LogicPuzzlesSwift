@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AbstractPaintingGame: GridGame<AbstractPaintingGameViewController> {
+class AbstractPaintingGame: GridGame<AbstractPaintingGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

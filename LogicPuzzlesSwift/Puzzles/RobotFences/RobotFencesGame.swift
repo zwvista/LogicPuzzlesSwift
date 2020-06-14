@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RobotFencesGame: GridGame<RobotFencesGameViewController> {
+class RobotFencesGame: GridGame<RobotFencesGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

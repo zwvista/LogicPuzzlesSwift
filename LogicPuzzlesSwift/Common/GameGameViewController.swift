@@ -69,9 +69,6 @@ class GameGameViewController: UIViewController, SoundMixin {
         btnSaveSolution.isEnabled = game.isSolved
     }
     
-    func startGame() {
-    }
-
     @IBAction func handleTap(_ sender: UITapGestureRecognizer) {
     }
     
@@ -113,7 +110,13 @@ class GameGameViewController: UIViewController, SoundMixin {
     @IBAction func backToMain(_ sender: Any) {
         navigationController!.popViewController(animated: true)
     }
-    
+
+    func startGame() {}
+    func moveAdded(_ game: AnyObject, move: Any) {}
+    func levelInitilized(_ game: AnyObject, state: AnyObject) {}
+    func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {}
+    func gameSolved(_ game: AnyObject) {}
+
     deinit {
         print("deinit called: \(NSStringFromClass(type(of: self)))")
     }

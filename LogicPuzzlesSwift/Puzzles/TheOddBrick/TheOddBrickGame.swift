@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TheOddBrickGame: GridGame<TheOddBrickGameViewController> {
+class TheOddBrickGame: GridGame<TheOddBrickGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

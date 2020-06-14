@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class PowerGridGameViewController: GameGameViewController, GameDelegate {
+class PowerGridGameViewController: GameGameViewController {
     typealias GS = PowerGridGameState
 
     var scene: PowerGridGameScene {
@@ -72,26 +72,26 @@ class PowerGridGameViewController: GameGameViewController, GameDelegate {
         scene.levelUpdated(from: game.states[0], to: game.currentState)
     }
     
-    func moveAdded(_ game: AnyObject, move: PowerGridGameMove) {
+    override func moveAdded(_ game: AnyObject, move: Any) {
         guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move)
+        gameDocument.moveAdded(game: game, move: move as! PowerGridGameMove)
     }
     
-    func levelInitilized(_ game: AnyObject, state: PowerGridGameState) {
+    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
         let game = game as! PowerGridGame
         updateMovesUI(game)
-        scene.levelInitialized(game, state: state, skView: skView)
+        scene.levelInitialized(game, state: state as! PowerGridGameState, skView: skView)
     }
     
-    func levelUpdated(_ game: AnyObject, from stateFrom: PowerGridGameState, to stateTo: PowerGridGameState) {
+    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
         let game = game as! PowerGridGame
         updateMovesUI(game)
         guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom, to: stateTo)
+        scene.levelUpdated(from: stateFrom as! PowerGridGameState, to: stateTo as! PowerGridGameState)
         gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: AnyObject) {
+    override func gameSolved(_ game: AnyObject) {
         guard !levelInitilizing else {return}
         soundManager.playSoundSolved()
         gameDocument.gameSolved(game: game)

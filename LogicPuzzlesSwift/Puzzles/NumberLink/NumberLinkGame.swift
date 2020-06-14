@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NumberLinkGame: GridGame<NumberLinkGameViewController> {
+class NumberLinkGame: GridGame<NumberLinkGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

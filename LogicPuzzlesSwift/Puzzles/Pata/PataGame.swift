@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PataGame: GridGame<PataGameViewController> {
+class PataGame: GridGame<PataGameState> {
     static let offset = [
         Position(-1, 0),
         Position(-1, 1),

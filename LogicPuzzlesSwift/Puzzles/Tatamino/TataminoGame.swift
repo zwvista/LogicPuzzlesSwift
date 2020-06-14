@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TataminoGame: GridGame<TataminoGameViewController> {
+class TataminoGame: GridGame<TataminoGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

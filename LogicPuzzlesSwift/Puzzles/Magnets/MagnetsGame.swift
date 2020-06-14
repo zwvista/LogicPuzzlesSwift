@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MagnetsGame: GridGame<MagnetsGameViewController> {
+class MagnetsGame: GridGame<MagnetsGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

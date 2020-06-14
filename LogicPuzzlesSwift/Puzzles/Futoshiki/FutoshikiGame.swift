@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FutoshikiGame: GridGame<FutoshikiGameViewController> {
+class FutoshikiGame: GridGame<FutoshikiGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

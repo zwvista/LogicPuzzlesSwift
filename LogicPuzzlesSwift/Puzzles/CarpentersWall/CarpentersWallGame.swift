@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CarpentersWallGame: GridGame<CarpentersWallGameViewController> {
+class CarpentersWallGame: GridGame<CarpentersWallGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

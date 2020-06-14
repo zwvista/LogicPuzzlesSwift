@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DisconnectFourGame: GridGame<DisconnectFourGameViewController> {
+class DisconnectFourGame: GridGame<DisconnectFourGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TierraDelFuegoGame: GridGame<TierraDelFuegoGameViewController> {
+class TierraDelFuegoGame: GridGame<TierraDelFuegoGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

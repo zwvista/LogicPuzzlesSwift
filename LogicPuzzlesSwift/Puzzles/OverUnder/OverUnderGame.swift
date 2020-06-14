@@ -8,7 +8,7 @@
 
 import Foundation
 
-class OverUnderGame: GridGame<OverUnderGameViewController> {
+class OverUnderGame: GridGame<OverUnderGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),

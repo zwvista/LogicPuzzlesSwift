@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BWTapaGame: GridGame<BWTapaGameViewController> {
+class BWTapaGame: GridGame<BWTapaGameState> {
     static let offset = [
         Position(-1, 0),
         Position(-1, 1),

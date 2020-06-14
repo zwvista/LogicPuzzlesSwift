@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class MosaikGameViewController: GameGameViewController, GameDelegate {
+class MosaikGameViewController: GameGameViewController {
     typealias GS = MosaikGameState
 
     var scene: MosaikGameScene {
@@ -72,26 +72,26 @@ class MosaikGameViewController: GameGameViewController, GameDelegate {
         scene.levelUpdated(from: game.states[0], to: game.currentState)
     }
     
-    func moveAdded(_ game: AnyObject, move: MosaikGameMove) {
+    override func moveAdded(_ game: AnyObject, move: Any) {
         guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move)
+        gameDocument.moveAdded(game: game, move: move as! MosaikGameMove)
     }
     
-    func levelInitilized(_ game: AnyObject, state: MosaikGameState) {
+    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
         let game = game as! MosaikGame
         updateMovesUI(game)
-        scene.levelInitialized(game, state: state, skView: skView)
+        scene.levelInitialized(game, state: state as! MosaikGameState, skView: skView)
     }
     
-    func levelUpdated(_ game: AnyObject, from stateFrom: MosaikGameState, to stateTo: MosaikGameState) {
+    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
         let game = game as! MosaikGame
         updateMovesUI(game)
         guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom, to: stateTo)
+        scene.levelUpdated(from: stateFrom as! MosaikGameState, to: stateTo as! MosaikGameState)
         gameDocument.levelUpdated(game: game)
     }
     
-    func gameSolved(_ game: AnyObject) {
+    override func gameSolved(_ game: AnyObject) {
         guard !levelInitilizing else {return}
         soundManager.playSoundSolved()
         gameDocument.gameSolved(game: game)

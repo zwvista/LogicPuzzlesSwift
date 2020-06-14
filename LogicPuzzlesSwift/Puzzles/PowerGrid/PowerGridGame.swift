@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PowerGridGame: GridGame<PowerGridGameViewController> {
+class PowerGridGame: GridGame<PowerGridGameState> {
     static let offset = [
         Position(-1, 0),
         Position(0, 1),
