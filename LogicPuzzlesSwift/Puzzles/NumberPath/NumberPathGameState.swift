@@ -8,8 +8,8 @@
 
 import Foundation
 
-class NumberPathGameState: GridGameState<NumberPathGame, NumberPathDocument, NumberPathGameMove> {
-    override var gameDocument: NumberPathDocument { NumberPathDocument.sharedInstance }
+class NumberPathGameState: GridGameState<NumberPathGame, NumberPathGameMove> {
+    override var gameDocument: GameDocumentBase { NumberPathDocument.sharedInstance }
     var objArray = [NumberPathObject]()
     
     override func copy() -> NumberPathGameState {

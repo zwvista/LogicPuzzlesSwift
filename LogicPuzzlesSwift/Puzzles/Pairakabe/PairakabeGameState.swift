@@ -8,8 +8,8 @@
 
 import Foundation
 
-class PairakabeGameState: GridGameState<PairakabeGame, PairakabeDocument, PairakabeGameMove> {
-    override var gameDocument: PairakabeDocument { PairakabeDocument.sharedInstance }
+class PairakabeGameState: GridGameState<PairakabeGame, PairakabeGameMove> {
+    override var gameDocument: GameDocumentBase { PairakabeDocument.sharedInstance }
     var objArray = [PairakabeObject]()
     
     override func copy() -> PairakabeGameState {

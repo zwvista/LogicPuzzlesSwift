@@ -8,8 +8,8 @@
 
 import Foundation
 
-class LightenUpGameState: GridGameState<LightenUpGame, LightenUpDocument, LightenUpGameMove> {
-    override var gameDocument: LightenUpDocument { LightenUpDocument.sharedInstance }
+class LightenUpGameState: GridGameState<LightenUpGame, LightenUpGameMove> {
+    override var gameDocument: GameDocumentBase { LightenUpDocument.sharedInstance }
     var objArray = [LightenUpObject]()
     
     override func copy() -> LightenUpGameState {

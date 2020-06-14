@@ -8,8 +8,8 @@
 
 import Foundation
 
-class FenceSentinelsGameState: GridGameState<FenceSentinelsGame, FenceSentinelsDocument, FenceSentinelsGameMove> {
-    override var gameDocument: FenceSentinelsDocument { FenceSentinelsDocument.sharedInstance }
+class FenceSentinelsGameState: GridGameState<FenceSentinelsGame, FenceSentinelsGameMove> {
+    override var gameDocument: GameDocumentBase { FenceSentinelsDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
     

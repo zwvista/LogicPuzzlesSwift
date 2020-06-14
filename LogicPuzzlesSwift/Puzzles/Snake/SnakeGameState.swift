@@ -8,8 +8,8 @@
 
 import Foundation
 
-class SnakeGameState: GridGameState<SnakeGame, SnakeDocument, SnakeGameMove> {
-    override var gameDocument: SnakeDocument { SnakeDocument.sharedInstance }
+class SnakeGameState: GridGameState<SnakeGame, SnakeGameMove> {
+    override var gameDocument: GameDocumentBase { SnakeDocument.sharedInstance }
     var objArray = [SnakeObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()

@@ -8,8 +8,8 @@
 
 import Foundation
 
-class DigitalBattleShipsGameState: GridGameState<DigitalBattleShipsGame, DigitalBattleShipsDocument, DigitalBattleShipsGameMove> {
-    override var gameDocument: DigitalBattleShipsDocument { DigitalBattleShipsDocument.sharedInstance }
+class DigitalBattleShipsGameState: GridGameState<DigitalBattleShipsGame, DigitalBattleShipsGameMove> {
+    override var gameDocument: GameDocumentBase { DigitalBattleShipsDocument.sharedInstance }
     var objArray = [DigitalBattleShipsObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()

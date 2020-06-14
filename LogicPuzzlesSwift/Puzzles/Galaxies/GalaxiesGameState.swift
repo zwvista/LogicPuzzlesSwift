@@ -9,8 +9,8 @@
 import Foundation
 import EZSwiftExtensions
 
-class GalaxiesGameState: GridGameState<GalaxiesGame, GalaxiesDocument, GalaxiesGameMove> {
-    override var gameDocument: GalaxiesDocument { GalaxiesDocument.sharedInstance }
+class GalaxiesGameState: GridGameState<GalaxiesGame, GalaxiesGameMove> {
+    override var gameDocument: GameDocumentBase { GalaxiesDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
     

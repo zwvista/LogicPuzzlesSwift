@@ -8,8 +8,8 @@
 
 import Foundation
 
-class MathraxGameState: GridGameState<MathraxGame, MathraxDocument, MathraxGameMove> {
-    override var gameDocument: MathraxDocument { MathraxDocument.sharedInstance }
+class MathraxGameState: GridGameState<MathraxGame, MathraxGameMove> {
+    override var gameDocument: GameDocumentBase { MathraxDocument.sharedInstance }
     var objArray = [Int]()
     var row2state = [HintState]()
     var col2state = [HintState]()

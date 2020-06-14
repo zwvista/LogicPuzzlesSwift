@@ -8,8 +8,8 @@
 
 import Foundation
 
-class BusySeasGameState: GridGameState<BusySeasGame, BusySeasDocument, BusySeasGameMove> {
-    override var gameDocument: BusySeasDocument { BusySeasDocument.sharedInstance }
+class BusySeasGameState: GridGameState<BusySeasGame, BusySeasGameMove> {
+    override var gameDocument: GameDocumentBase { BusySeasDocument.sharedInstance }
     var objArray = [BusySeasObject]()
     
     override func copy() -> BusySeasGameState {

@@ -8,8 +8,8 @@
 
 import Foundation
 
-class OverUnderGameState: GridGameState<OverUnderGame, OverUnderDocument, OverUnderGameMove> {
-    override var gameDocument: OverUnderDocument { OverUnderDocument.sharedInstance }
+class OverUnderGameState: GridGameState<OverUnderGame, OverUnderGameMove> {
+    override var gameDocument: GameDocumentBase { OverUnderDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
     

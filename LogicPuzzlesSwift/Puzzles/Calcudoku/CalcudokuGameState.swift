@@ -8,8 +8,8 @@
 
 import Foundation
 
-class CalcudokuGameState: GridGameState<CalcudokuGame, CalcudokuDocument, CalcudokuGameMove> {
-    override var gameDocument: CalcudokuDocument { CalcudokuDocument.sharedInstance }
+class CalcudokuGameState: GridGameState<CalcudokuGame, CalcudokuGameMove> {
+    override var gameDocument: GameDocumentBase { CalcudokuDocument.sharedInstance }
     var objArray = [Int]()
     var row2state = [HintState]()
     var col2state = [HintState]()

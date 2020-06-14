@@ -8,8 +8,8 @@
 
 import Foundation
 
-class ABCPathGameState: GridGameState<ABCPathGame, ABCPathDocument, ABCPathGameMove> {
-    override var gameDocument: ABCPathDocument { ABCPathDocument.sharedInstance }
+class ABCPathGameState: GridGameState<ABCPathGame, ABCPathGameMove> {
+    override var gameDocument: GameDocumentBase { ABCPathDocument.sharedInstance }
     var objArray = [Character]()
     var pos2state = [Position: HintState]()
     

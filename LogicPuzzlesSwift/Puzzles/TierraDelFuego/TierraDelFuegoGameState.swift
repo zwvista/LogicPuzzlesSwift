@@ -8,8 +8,8 @@
 
 import Foundation
 
-class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGame, TierraDelFuegoDocument, TierraDelFuegoGameMove> {
-    override var gameDocument: TierraDelFuegoDocument { TierraDelFuegoDocument.sharedInstance }
+class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGame, TierraDelFuegoGameMove> {
+    override var gameDocument: GameDocumentBase { TierraDelFuegoDocument.sharedInstance }
     var objArray = [TierraDelFuegoObject]()
     
     override func copy() -> TierraDelFuegoGameState {

@@ -8,8 +8,8 @@
 
 import Foundation
 
-class CarpentersSquareGameState: GridGameState<CarpentersSquareGame, CarpentersSquareDocument, CarpentersSquareGameMove> {
-    override var gameDocument: CarpentersSquareDocument { CarpentersSquareDocument.sharedInstance }
+class CarpentersSquareGameState: GridGameState<CarpentersSquareGame, CarpentersSquareGameMove> {
+    override var gameDocument: GameDocumentBase { CarpentersSquareDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
     

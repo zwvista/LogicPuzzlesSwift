@@ -8,8 +8,8 @@
 
 import Foundation
 
-class FourMeNotGameState: GridGameState<FourMeNotGame, FourMeNotDocument, FourMeNotGameMove> {
-    override var gameDocument: FourMeNotDocument { FourMeNotDocument.sharedInstance }
+class FourMeNotGameState: GridGameState<FourMeNotGame, FourMeNotGameMove> {
+    override var gameDocument: GameDocumentBase { FourMeNotDocument.sharedInstance }
     var objArray = [FourMeNotObject]()
     
     override func copy() -> FourMeNotGameState {

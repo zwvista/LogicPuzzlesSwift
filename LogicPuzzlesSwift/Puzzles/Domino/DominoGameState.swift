@@ -8,8 +8,8 @@
 
 import Foundation
 
-class DominoGameState: GridGameState<DominoGame, DominoDocument, DominoGameMove> {
-    override var gameDocument: DominoDocument { DominoDocument.sharedInstance }
+class DominoGameState: GridGameState<DominoGame, DominoGameMove> {
+    override var gameDocument: GameDocumentBase { DominoDocument.sharedInstance }
     var objArray = [GridDotObject]()
     
     override func copy() -> DominoGameState {

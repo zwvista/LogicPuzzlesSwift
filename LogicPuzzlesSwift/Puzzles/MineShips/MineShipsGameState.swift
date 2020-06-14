@@ -8,8 +8,8 @@
 
 import Foundation
 
-class MineShipsGameState: GridGameState<MineShipsGame, MineShipsDocument, MineShipsGameMove> {
-    override var gameDocument: MineShipsDocument { MineShipsDocument.sharedInstance }
+class MineShipsGameState: GridGameState<MineShipsGame, MineShipsGameMove> {
+    override var gameDocument: GameDocumentBase { MineShipsDocument.sharedInstance }
     var objArray = [MineShipsObject]()
     
     override func copy() -> MineShipsGameState {

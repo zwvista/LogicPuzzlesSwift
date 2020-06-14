@@ -8,8 +8,8 @@
 
 import Foundation
 
-class CloudsGameState: GridGameState<CloudsGame, CloudsDocument, CloudsGameMove> {
-    override var gameDocument: CloudsDocument { CloudsDocument.sharedInstance }
+class CloudsGameState: GridGameState<CloudsGame, CloudsGameMove> {
+    override var gameDocument: GameDocumentBase { CloudsDocument.sharedInstance }
     var objArray = [CloudsObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()

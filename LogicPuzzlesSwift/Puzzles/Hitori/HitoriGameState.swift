@@ -8,8 +8,8 @@
 
 import Foundation
 
-class HitoriGameState: GridGameState<HitoriGame, HitoriDocument, HitoriGameMove> {
-    override var gameDocument: HitoriDocument { HitoriDocument.sharedInstance }
+class HitoriGameState: GridGameState<HitoriGame, HitoriGameMove> {
+    override var gameDocument: GameDocumentBase { HitoriDocument.sharedInstance }
     var objArray = [HitoriObject]()
     var row2hint = [String]()
     var col2hint = [String]()

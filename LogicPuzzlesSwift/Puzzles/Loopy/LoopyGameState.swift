@@ -8,8 +8,8 @@
 
 import Foundation
 
-class LoopyGameState: GridGameState<LoopyGame, LoopyDocument, LoopyGameMove> {
-    override var gameDocument: LoopyDocument { LoopyDocument.sharedInstance }
+class LoopyGameState: GridGameState<LoopyGame, LoopyGameMove> {
+    override var gameDocument: GameDocumentBase { LoopyDocument.sharedInstance }
     var objArray = [GridDotObject]()
     
     override func copy() -> LoopyGameState {

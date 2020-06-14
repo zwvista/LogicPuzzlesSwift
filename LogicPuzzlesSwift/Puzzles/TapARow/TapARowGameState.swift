@@ -8,8 +8,8 @@
 
 import Foundation
 
-class TapARowGameState: GridGameState<TapARowGame, TapARowDocument, TapARowGameMove> {
-    override var gameDocument: TapARowDocument { TapARowDocument.sharedInstance }
+class TapARowGameState: GridGameState<TapARowGame, TapARowGameMove> {
+    override var gameDocument: GameDocumentBase { TapARowDocument.sharedInstance }
     var objArray = [TapARowObject]()
     
     override func copy() -> TapARowGameState {

@@ -8,8 +8,8 @@
 
 import Foundation
 
-class PataGameState: GridGameState<PataGame, PataDocument, PataGameMove> {
-    override var gameDocument: PataDocument { PataDocument.sharedInstance }
+class PataGameState: GridGameState<PataGame, PataGameMove> {
+    override var gameDocument: GameDocumentBase { PataDocument.sharedInstance }
     var objArray = [PataObject]()
     
     override func copy() -> PataGameState {

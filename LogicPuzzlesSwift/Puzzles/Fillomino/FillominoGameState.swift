@@ -8,8 +8,8 @@
 
 import Foundation
 
-class FillominoGameState: GridGameState<FillominoGame, FillominoDocument, FillominoGameMove> {
-    override var gameDocument: FillominoDocument { FillominoDocument.sharedInstance }
+class FillominoGameState: GridGameState<FillominoGame, FillominoGameMove> {
+    override var gameDocument: GameDocumentBase { FillominoDocument.sharedInstance }
     var objArray = [Character]()
     var dots: GridDots!
     var pos2state = [Position: HintState]()

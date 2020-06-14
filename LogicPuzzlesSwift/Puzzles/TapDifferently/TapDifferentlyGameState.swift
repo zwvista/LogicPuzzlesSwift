@@ -8,8 +8,8 @@
 
 import Foundation
 
-class TapDifferentlyGameState: GridGameState<TapDifferentlyGame, TapDifferentlyDocument, TapDifferentlyGameMove> {
-    override var gameDocument: TapDifferentlyDocument { TapDifferentlyDocument.sharedInstance }
+class TapDifferentlyGameState: GridGameState<TapDifferentlyGame, TapDifferentlyGameMove> {
+    override var gameDocument: GameDocumentBase { TapDifferentlyDocument.sharedInstance }
     var objArray = [TapDifferentlyObject]()
     
     override func copy() -> TapDifferentlyGameState {

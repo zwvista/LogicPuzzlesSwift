@@ -8,8 +8,8 @@
 
 import Foundation
 
-class SumscrapersGameState: GridGameState<SumscrapersGame, SumscrapersDocument, SumscrapersGameMove> {
-    override var gameDocument: SumscrapersDocument { SumscrapersDocument.sharedInstance }
+class SumscrapersGameState: GridGameState<SumscrapersGame, SumscrapersGameMove> {
+    override var gameDocument: GameDocumentBase { SumscrapersDocument.sharedInstance }
     var objArray = [Int]()
     var row2state = [HintState]()
     var col2state = [HintState]()

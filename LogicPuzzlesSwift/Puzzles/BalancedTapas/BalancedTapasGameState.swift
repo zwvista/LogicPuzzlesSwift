@@ -8,8 +8,8 @@
 
 import Foundation
 
-class BalancedTapasGameState: GridGameState<BalancedTapasGame, BalancedTapasDocument, BalancedTapasGameMove> {
-    override var gameDocument: BalancedTapasDocument { BalancedTapasDocument.sharedInstance }
+class BalancedTapasGameState: GridGameState<BalancedTapasGame, BalancedTapasGameMove> {
+    override var gameDocument: GameDocumentBase { BalancedTapasDocument.sharedInstance }
     var objArray = [BalancedTapasObject]()
     
     override func copy() -> BalancedTapasGameState {

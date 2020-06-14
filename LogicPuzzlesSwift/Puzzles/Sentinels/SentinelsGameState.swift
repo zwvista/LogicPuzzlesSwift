@@ -8,8 +8,8 @@
 
 import Foundation
 
-class SentinelsGameState: GridGameState<SentinelsGame, SentinelsDocument, SentinelsGameMove> {
-    override var gameDocument: SentinelsDocument { SentinelsDocument.sharedInstance }
+class SentinelsGameState: GridGameState<SentinelsGame, SentinelsGameMove> {
+    override var gameDocument: GameDocumentBase { SentinelsDocument.sharedInstance }
     var objArray = [SentinelsObject]()
     
     override func copy() -> SentinelsGameState {

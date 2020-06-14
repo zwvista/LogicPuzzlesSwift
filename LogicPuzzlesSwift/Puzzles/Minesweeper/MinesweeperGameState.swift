@@ -8,8 +8,8 @@
 
 import Foundation
 
-class MinesweeperGameState: GridGameState<MinesweeperGame, MinesweeperDocument, MinesweeperGameMove> {
-    override var gameDocument: MinesweeperDocument { MinesweeperDocument.sharedInstance }
+class MinesweeperGameState: GridGameState<MinesweeperGame, MinesweeperGameMove> {
+    override var gameDocument: GameDocumentBase { MinesweeperDocument.sharedInstance }
     var objArray = [MinesweeperObject]()
     
     override func copy() -> MinesweeperGameState {

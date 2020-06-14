@@ -8,8 +8,8 @@
 
 import Foundation
 
-class KakuroGameState: GridGameState<KakuroGame, KakuroDocument, KakuroGameMove> {
-    override var gameDocument: KakuroDocument { KakuroDocument.sharedInstance }
+class KakuroGameState: GridGameState<KakuroGame, KakuroGameMove> {
+    override var gameDocument: GameDocumentBase { KakuroDocument.sharedInstance }
     var pos2num = [Position: Int]()
     var pos2horzState = [Position: HintState]()
     var pos2vertState = [Position: HintState]()

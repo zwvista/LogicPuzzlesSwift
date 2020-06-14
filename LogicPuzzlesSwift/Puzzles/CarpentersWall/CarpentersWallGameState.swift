@@ -8,8 +8,8 @@
 
 import Foundation
 
-class CarpentersWallGameState: GridGameState<CarpentersWallGame, CarpentersWallDocument, CarpentersWallGameMove> {
-    override var gameDocument: CarpentersWallDocument { CarpentersWallDocument.sharedInstance }
+class CarpentersWallGameState: GridGameState<CarpentersWallGame, CarpentersWallGameMove> {
+    override var gameDocument: GameDocumentBase { CarpentersWallDocument.sharedInstance }
     var objArray = [CarpentersWallObject]()
     
     override func copy() -> CarpentersWallGameState {

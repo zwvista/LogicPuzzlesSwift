@@ -8,8 +8,8 @@
 
 import Foundation
 
-class SkyscrapersGameState: GridGameState<SkyscrapersGame, SkyscrapersDocument, SkyscrapersGameMove> {
-    override var gameDocument: SkyscrapersDocument { SkyscrapersDocument.sharedInstance }
+class SkyscrapersGameState: GridGameState<SkyscrapersGame, SkyscrapersGameMove> {
+    override var gameDocument: GameDocumentBase { SkyscrapersDocument.sharedInstance }
     var objArray = [Int]()
     var row2state = [HintState]()
     var col2state = [HintState]()

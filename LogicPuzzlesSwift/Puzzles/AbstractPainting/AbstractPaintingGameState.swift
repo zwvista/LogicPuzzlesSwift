@@ -8,8 +8,8 @@
 
 import Foundation
 
-class AbstractPaintingGameState: GridGameState<AbstractPaintingGame, AbstractPaintingDocument, AbstractPaintingGameMove> {
-    override var gameDocument: AbstractPaintingDocument { AbstractPaintingDocument.sharedInstance }
+class AbstractPaintingGameState: GridGameState<AbstractPaintingGame, AbstractPaintingGameMove> {
+    override var gameDocument: GameDocumentBase { AbstractPaintingDocument.sharedInstance }
     var objArray = [AbstractPaintingObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()

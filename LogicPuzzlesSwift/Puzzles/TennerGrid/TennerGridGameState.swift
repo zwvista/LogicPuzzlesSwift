@@ -8,8 +8,8 @@
 
 import Foundation
 
-class TennerGridGameState: GridGameState<TennerGridGame, TennerGridDocument, TennerGridGameMove> {
-    override var gameDocument: TennerGridDocument { TennerGridDocument.sharedInstance }
+class TennerGridGameState: GridGameState<TennerGridGame, TennerGridGameMove> {
+    override var gameDocument: GameDocumentBase { TennerGridDocument.sharedInstance }
     var objArray = [Int]()
     var pos2state = [Position: HintState]()
 

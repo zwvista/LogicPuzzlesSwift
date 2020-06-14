@@ -8,8 +8,8 @@
 
 import Foundation
 
-class NurikabeGameState: GridGameState<NurikabeGame, NurikabeDocument, NurikabeGameMove> {
-    override var gameDocument: NurikabeDocument { NurikabeDocument.sharedInstance }
+class NurikabeGameState: GridGameState<NurikabeGame, NurikabeGameMove> {
+    override var gameDocument: GameDocumentBase { NurikabeDocument.sharedInstance }
     var objArray = [NurikabeObject]()
     
     override func copy() -> NurikabeGameState {

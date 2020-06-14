@@ -8,8 +8,8 @@
 
 import Foundation
 
-class WallSentinelsGameState: GridGameState<WallSentinelsGame, WallSentinelsDocument, WallSentinelsGameMove> {
-    override var gameDocument: WallSentinelsDocument { WallSentinelsDocument.sharedInstance }
+class WallSentinelsGameState: GridGameState<WallSentinelsGame, WallSentinelsGameMove> {
+    override var gameDocument: GameDocumentBase { WallSentinelsDocument.sharedInstance }
     var objArray = [WallSentinelsObject]()
     
     override func copy() -> WallSentinelsGameState {

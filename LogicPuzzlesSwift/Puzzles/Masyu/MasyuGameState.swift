@@ -8,8 +8,8 @@
 
 import Foundation
 
-class MasyuGameState: GridGameState<MasyuGame, MasyuDocument, MasyuGameMove> {
-    override var gameDocument: MasyuDocument { MasyuDocument.sharedInstance }
+class MasyuGameState: GridGameState<MasyuGame, MasyuGameMove> {
+    override var gameDocument: GameDocumentBase { MasyuDocument.sharedInstance }
     var objArray = [MasyuObject]()
     
     override func copy() -> MasyuGameState {

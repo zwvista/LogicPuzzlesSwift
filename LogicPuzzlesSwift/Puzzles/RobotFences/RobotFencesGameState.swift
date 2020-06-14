@@ -8,8 +8,8 @@
 
 import Foundation
 
-class RobotFencesGameState: GridGameState<RobotFencesGame, RobotFencesDocument, RobotFencesGameMove> {
-    override var gameDocument: RobotFencesDocument { RobotFencesDocument.sharedInstance }
+class RobotFencesGameState: GridGameState<RobotFencesGame, RobotFencesGameMove> {
+    override var gameDocument: GameDocumentBase { RobotFencesDocument.sharedInstance }
     var objArray = [Int]()
     var row2state = [HintState]()
     var col2state = [HintState]()

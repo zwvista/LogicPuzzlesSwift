@@ -15,8 +15,8 @@ class LitsAreaInfo {
     var tetrominoIndex: Int?
 }
 
-class LitsGameState: GridGameState<LitsGame, LitsDocument, LitsGameMove> {
-    override var gameDocument: LitsDocument { LitsDocument.sharedInstance }
+class LitsGameState: GridGameState<LitsGame, LitsGameMove> {
+    override var gameDocument: GameDocumentBase { LitsDocument.sharedInstance }
     var objArray = [LitsObject]()
     var pos2state = [Position: HintState]()
     

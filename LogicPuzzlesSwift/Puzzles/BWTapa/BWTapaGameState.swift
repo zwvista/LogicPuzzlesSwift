@@ -8,8 +8,8 @@
 
 import Foundation
 
-class BWTapaGameState: GridGameState<BWTapaGame, BWTapaDocument, BWTapaGameMove> {
-    override var gameDocument: BWTapaDocument { BWTapaDocument.sharedInstance }
+class BWTapaGameState: GridGameState<BWTapaGame, BWTapaGameMove> {
+    override var gameDocument: GameDocumentBase { BWTapaDocument.sharedInstance }
     var objArray = [BWTapaObject]()
     
     override func copy() -> BWTapaGameState {

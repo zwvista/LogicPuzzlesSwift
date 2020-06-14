@@ -8,8 +8,8 @@
 
 import Foundation
 
-class RoomsGameState: GridGameState<RoomsGame, RoomsDocument, RoomsGameMove> {
-    override var gameDocument: RoomsDocument { RoomsDocument.sharedInstance }
+class RoomsGameState: GridGameState<RoomsGame, RoomsGameMove> {
+    override var gameDocument: GameDocumentBase { RoomsDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
     

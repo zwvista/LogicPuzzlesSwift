@@ -8,8 +8,8 @@
 
 import Foundation
 
-class GardenerGameState: GridGameState<GardenerGame, GardenerDocument, GardenerGameMove> {
-    override var gameDocument: GardenerDocument { GardenerDocument.sharedInstance }
+class GardenerGameState: GridGameState<GardenerGame, GardenerGameMove> {
+    override var gameDocument: GameDocumentBase { GardenerDocument.sharedInstance }
     var objArray = [GardenerObject]()
     var pos2state = [Position: HintState]()
     var invalidSpacesHorz = Set<Position>()

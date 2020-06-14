@@ -8,8 +8,8 @@
 
 import Foundation
 
-class NorthPoleFishingGameState: GridGameState<NorthPoleFishingGame, NorthPoleFishingDocument, NorthPoleFishingGameMove> {
-    override var gameDocument: NorthPoleFishingDocument { NorthPoleFishingDocument.sharedInstance }
+class NorthPoleFishingGameState: GridGameState<NorthPoleFishingGame, NorthPoleFishingGameMove> {
+    override var gameDocument: GameDocumentBase { NorthPoleFishingDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
     

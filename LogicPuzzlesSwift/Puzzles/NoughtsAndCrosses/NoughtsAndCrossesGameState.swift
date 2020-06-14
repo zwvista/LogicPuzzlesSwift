@@ -8,8 +8,8 @@
 
 import Foundation
 
-class NoughtsAndCrossesGameState: GridGameState<NoughtsAndCrossesGame, NoughtsAndCrossesDocument, NoughtsAndCrossesGameMove> {
-    override var gameDocument: NoughtsAndCrossesDocument { NoughtsAndCrossesDocument.sharedInstance }
+class NoughtsAndCrossesGameState: GridGameState<NoughtsAndCrossesGame, NoughtsAndCrossesGameMove> {
+    override var gameDocument: GameDocumentBase { NoughtsAndCrossesDocument.sharedInstance }
     var objArray = [Character]()
     var row2state = [HintState]()
     var col2state = [HintState]()

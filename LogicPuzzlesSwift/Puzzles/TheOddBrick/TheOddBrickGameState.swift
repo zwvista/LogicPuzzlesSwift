@@ -8,8 +8,8 @@
 
 import Foundation
 
-class TheOddBrickGameState: GridGameState<TheOddBrickGame, TheOddBrickDocument, TheOddBrickGameMove> {
-    override var gameDocument: TheOddBrickDocument { TheOddBrickDocument.sharedInstance }
+class TheOddBrickGameState: GridGameState<TheOddBrickGame, TheOddBrickGameMove> {
+    override var gameDocument: GameDocumentBase { TheOddBrickDocument.sharedInstance }
     var objArray = [Int]()
     var row2state = [HintState]()
     var col2state = [HintState]()

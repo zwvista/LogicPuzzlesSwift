@@ -8,8 +8,8 @@
 
 import Foundation
 
-class DisconnectFourGameState: GridGameState<DisconnectFourGame, DisconnectFourDocument, DisconnectFourGameMove> {
-    override var gameDocument: DisconnectFourDocument { DisconnectFourDocument.sharedInstance }
+class DisconnectFourGameState: GridGameState<DisconnectFourGame, DisconnectFourGameMove> {
+    override var gameDocument: GameDocumentBase { DisconnectFourDocument.sharedInstance }
     var objArray = [DisconnectFourObject]()
     var pos2state = [Position: AllowedObjectState]()
 

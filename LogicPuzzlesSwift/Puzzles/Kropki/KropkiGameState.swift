@@ -8,8 +8,8 @@
 
 import Foundation
 
-class KropkiGameState: GridGameState<KropkiGame, KropkiDocument, KropkiGameMove> {
-    override var gameDocument: KropkiDocument { KropkiDocument.sharedInstance }
+class KropkiGameState: GridGameState<KropkiGame, KropkiGameMove> {
+    override var gameDocument: GameDocumentBase { KropkiDocument.sharedInstance }
     var objArray = [Int]()
     var pos2horzState = [Position: HintState]()
     var pos2vertState = [Position: HintState]()

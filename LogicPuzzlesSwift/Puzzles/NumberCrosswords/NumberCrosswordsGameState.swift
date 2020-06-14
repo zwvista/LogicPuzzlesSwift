@@ -8,8 +8,8 @@
 
 import Foundation
 
-class NumberCrosswordsGameState: GridGameState<NumberCrosswordsGame, NumberCrosswordsDocument, NumberCrosswordsGameMove> {
-    override var gameDocument: NumberCrosswordsDocument { NumberCrosswordsDocument.sharedInstance }
+class NumberCrosswordsGameState: GridGameState<NumberCrosswordsGame, NumberCrosswordsGameMove> {
+    override var gameDocument: GameDocumentBase { NumberCrosswordsDocument.sharedInstance }
     var objArray = [NumberCrosswordsObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()

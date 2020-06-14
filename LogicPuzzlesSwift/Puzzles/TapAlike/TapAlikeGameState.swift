@@ -8,8 +8,8 @@
 
 import Foundation
 
-class TapAlikeGameState: GridGameState<TapAlikeGame, TapAlikeDocument, TapAlikeGameMove> {
-    override var gameDocument: TapAlikeDocument { TapAlikeDocument.sharedInstance }
+class TapAlikeGameState: GridGameState<TapAlikeGame, TapAlikeGameMove> {
+    override var gameDocument: GameDocumentBase { TapAlikeDocument.sharedInstance }
     var objArray = [TapAlikeObject]()
     
     override func copy() -> TapAlikeGameState {

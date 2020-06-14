@@ -8,8 +8,8 @@
 
 import Foundation
 
-class LightBattleShipsGameState: GridGameState<LightBattleShipsGame, LightBattleShipsDocument, LightBattleShipsGameMove> {
-    override var gameDocument: LightBattleShipsDocument { LightBattleShipsDocument.sharedInstance }
+class LightBattleShipsGameState: GridGameState<LightBattleShipsGame, LightBattleShipsGameMove> {
+    override var gameDocument: GameDocumentBase { LightBattleShipsDocument.sharedInstance }
     var objArray = [LightBattleShipsObject]()
     
     override func copy() -> LightBattleShipsGameState {

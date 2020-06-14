@@ -8,8 +8,8 @@
 
 import Foundation
 
-class OrchardsGameState: GridGameState<OrchardsGame, OrchardsDocument, OrchardsGameMove> {
-    override var gameDocument: OrchardsDocument { OrchardsDocument.sharedInstance }
+class OrchardsGameState: GridGameState<OrchardsGame, OrchardsGameMove> {
+    override var gameDocument: GameDocumentBase { OrchardsDocument.sharedInstance }
     var objArray = [OrchardsObject]()
     var pos2state = [Position: HintState]()
     

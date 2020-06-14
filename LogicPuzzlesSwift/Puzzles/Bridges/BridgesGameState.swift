@@ -8,8 +8,8 @@
 
 import Foundation
 
-class BridgesGameState: GridGameState<BridgesGame, BridgesDocument, BridgesGameMove> {
-    override var gameDocument: BridgesDocument { BridgesDocument.sharedInstance }
+class BridgesGameState: GridGameState<BridgesGame, BridgesGameMove> {
+    override var gameDocument: GameDocumentBase { BridgesDocument.sharedInstance }
     var objArray = [BridgesObject]()
     
     override func copy() -> BridgesGameState {

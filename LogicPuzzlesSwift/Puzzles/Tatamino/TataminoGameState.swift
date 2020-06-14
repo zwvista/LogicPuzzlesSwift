@@ -8,8 +8,8 @@
 
 import Foundation
 
-class TataminoGameState: GridGameState<TataminoGame, TataminoDocument, TataminoGameMove> {
-    override var gameDocument: TataminoDocument { TataminoDocument.sharedInstance }
+class TataminoGameState: GridGameState<TataminoGame, TataminoGameMove> {
+    override var gameDocument: GameDocumentBase { TataminoDocument.sharedInstance }
     var objArray = [Character]()
     var dots: GridDots!
     var pos2state = [Position: HintState]()

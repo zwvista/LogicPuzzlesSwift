@@ -8,8 +8,8 @@
 
 import Foundation
 
-class TentsGameState: GridGameState<TentsGame, TentsDocument, TentsGameMove> {
-    override var gameDocument: TentsDocument { TentsDocument.sharedInstance }
+class TentsGameState: GridGameState<TentsGame, TentsGameMove> {
+    override var gameDocument: GameDocumentBase { TentsDocument.sharedInstance }
     var objArray = [TentsObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()

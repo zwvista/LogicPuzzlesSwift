@@ -8,8 +8,8 @@
 
 import Foundation
 
-class TapaGameState: GridGameState<TapaGame, TapaDocument, TapaGameMove> {
-    override var gameDocument: TapaDocument { TapaDocument.sharedInstance }
+class TapaGameState: GridGameState<TapaGame, TapaGameMove> {
+    override var gameDocument: GameDocumentBase { TapaDocument.sharedInstance }
     var objArray = [TapaObject]()
     
     override func copy() -> TapaGameState {

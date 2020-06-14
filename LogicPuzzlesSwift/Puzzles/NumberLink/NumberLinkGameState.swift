@@ -8,8 +8,8 @@
 
 import Foundation
 
-class NumberLinkGameState: GridGameState<NumberLinkGame, NumberLinkDocument, NumberLinkGameMove> {
-    override var gameDocument: NumberLinkDocument { NumberLinkDocument.sharedInstance }
+class NumberLinkGameState: GridGameState<NumberLinkGame, NumberLinkGameMove> {
+    override var gameDocument: GameDocumentBase { NumberLinkDocument.sharedInstance }
     var objArray = [NumberLinkObject]()
     var pos2state = [Position: HintState]()
     
