@@ -89,7 +89,6 @@ class BridgesGameViewController: GameGameViewController {
     
     override func moveAdded(_ game: AnyObject, move: Any) {
         guard !levelInitilizing else {return}
-        let game = game as! BridgesGame
         gameDocument.moveAdded(game: game, move: move as! BridgesGameMove)
     }
     
