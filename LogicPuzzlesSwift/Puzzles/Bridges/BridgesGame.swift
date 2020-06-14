@@ -67,4 +67,7 @@ class BridgesGame: GridGame<BridgesGameState> {
         }
     }
 
+    override func setObject(move: inout BridgesGameMove) -> Bool {
+        switchBridges(move: &move)
+    }
 }
