@@ -9,17 +9,7 @@
 import UIKit
 import SpriteKit
 
-class NoughtsAndCrossesGameViewController: GameGameViewController {
-    typealias GS = NoughtsAndCrossesGameState
-
-    var scene: NoughtsAndCrossesGameScene {
-        get { getScene() as! NoughtsAndCrossesGameScene }
-        set { setScene(scene: newValue) }
-    }
-    var game: NoughtsAndCrossesGame {
-        get { getGame() as! NoughtsAndCrossesGame }
-        set { setGame(game: newValue) }
-    }
+class NoughtsAndCrossesGameViewController: GameGameViewController2<NoughtsAndCrossesGameState, NoughtsAndCrossesGame, NoughtsAndCrossesDocument, NoughtsAndCrossesGameScene> {
     var gameDocument: NoughtsAndCrossesDocument { NoughtsAndCrossesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { NoughtsAndCrossesDocument.sharedInstance }
    

@@ -9,17 +9,7 @@
 import UIKit
 import SpriteKit
 
-class DisconnectFourGameViewController: GameGameViewController {
-    typealias GS = DisconnectFourGameState
-
-    var scene: DisconnectFourGameScene {
-        get { getScene() as! DisconnectFourGameScene }
-        set { setScene(scene: newValue) }
-    }
-    var game: DisconnectFourGame {
-        get { getGame() as! DisconnectFourGame }
-        set { setGame(game: newValue) }
-    }
+class DisconnectFourGameViewController: GameGameViewController2<DisconnectFourGameState, DisconnectFourGame, DisconnectFourDocument, DisconnectFourGameScene> {
     var gameDocument: DisconnectFourDocument { DisconnectFourDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { DisconnectFourDocument.sharedInstance }
    
@@ -48,53 +38,7 @@ class DisconnectFourGameViewController: GameGameViewController {
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
    
-    override func startGame() {
-        lblLevel.text = gameDocument.selectedLevelID
-        updateSolutionUI()
-        
-        let level = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
-        
-        levelInitilizing = true
-        defer { levelInitilizing = false }
-        game = DisconnectFourGame(layout: level.layout, delegate: self)
-        
-        // restore game state
-        for case let rec as MoveProgress in gameDocument.moveProgress {
-            var move = gameDocument.loadMove(from: rec)!
-            _ = game.setObject(move: &move)
-        }
-        let moveIndex = gameDocument.levelProgress.moveIndex
-        if case 0..<game.moveCount = moveIndex {
-            while moveIndex != game.moveIndex {
-                game.undo()
-            }
-        }
-        scene.levelUpdated(from: game.states[0], to: game.currentState)
-    }
-    
-    override func moveAdded(_ game: AnyObject, move: Any) {
-        guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move as! DisconnectFourGameMove)
-    }
-    
-    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
-        let game = game as! DisconnectFourGame
-        updateMovesUI(game)
-        scene.levelInitialized(game, state: state as! DisconnectFourGameState, skView: skView)
-    }
-    
-    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
-        let game = game as! DisconnectFourGame
-        updateMovesUI(game)
-        guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom as! DisconnectFourGameState, to: stateTo as! DisconnectFourGameState)
-        gameDocument.levelUpdated(game: game)
-    }
-    
-    override func gameSolved(_ game: AnyObject) {
-        guard !levelInitilizing else {return}
-        soundManager.playSoundSolved()
-        gameDocument.gameSolved(game: game)
-        updateSolutionUI()
+    override func newGame(level: GameLevel) -> DisconnectFourGame {
+        DisconnectFourGame(layout: level.layout, delegate: self)
     }
 }

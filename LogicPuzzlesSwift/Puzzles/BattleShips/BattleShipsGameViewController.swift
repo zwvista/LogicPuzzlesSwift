@@ -9,17 +9,7 @@
 import UIKit
 import SpriteKit
 
-class BattleShipsGameViewController: GameGameViewController {
-    typealias GS = BattleShipsGameState
-
-    var scene: BattleShipsGameScene {
-        get { getScene() as! BattleShipsGameScene }
-        set { setScene(scene: newValue) }
-    }
-    var game: BattleShipsGame {
-        get { getGame() as! BattleShipsGame }
-        set { setGame(game: newValue) }
-    }
+class BattleShipsGameViewController: GameGameViewController2<BattleShipsGameState, BattleShipsGame, BattleShipsDocument, BattleShipsGameScene> {
     var gameDocument: BattleShipsDocument { BattleShipsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { BattleShipsDocument.sharedInstance }
     
@@ -48,53 +38,7 @@ class BattleShipsGameViewController: GameGameViewController {
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     
-    override func startGame() {
-        lblLevel.text = gameDocument.selectedLevelID
-        updateSolutionUI()
-        
-        let level = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
-        
-        levelInitilizing = true
-        defer { levelInitilizing = false }
-        game = BattleShipsGame(layout: level.layout, delegate: self)
-        
-        // restore game state
-        for case let rec as MoveProgress in gameDocument.moveProgress {
-            var move = gameDocument.loadMove(from: rec)!
-            _ = game.setObject(move: &move)
-        }
-        let moveIndex = gameDocument.levelProgress.moveIndex
-        if case 0..<game.moveCount = moveIndex {
-            while moveIndex != game.moveIndex {
-                game.undo()
-            }
-        }
-        scene.levelUpdated(from: game.states[0], to: game.currentState)
-    }
-    
-    override func moveAdded(_ game: AnyObject, move: Any) {
-        guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move as! BattleShipsGameMove)
-    }
-    
-    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
-        let game = game as! BattleShipsGame
-        updateMovesUI(game)
-        scene.levelInitialized(game, state: state as! BattleShipsGameState, skView: skView)
-    }
-    
-    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
-        let game = game as! BattleShipsGame
-        updateMovesUI(game)
-        guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom as! BattleShipsGameState, to: stateTo as! BattleShipsGameState)
-        gameDocument.levelUpdated(game: game)
-    }
-    
-    override func gameSolved(_ game: AnyObject) {
-        guard !levelInitilizing else {return}
-        soundManager.playSoundSolved()
-        gameDocument.gameSolved(game: game)
-        updateSolutionUI()
+    override func newGame(level: GameLevel) -> BattleShipsGame {
+        BattleShipsGame(layout: level.layout, delegate: self)
     }
 }

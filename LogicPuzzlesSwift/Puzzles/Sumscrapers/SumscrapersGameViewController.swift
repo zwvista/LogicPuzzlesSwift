@@ -9,17 +9,7 @@
 import UIKit
 import SpriteKit
 
-class SumscrapersGameViewController: GameGameViewController {
-    typealias GS = SumscrapersGameState
-
-    var scene: SumscrapersGameScene {
-        get { getScene() as! SumscrapersGameScene }
-        set { setScene(scene: newValue) }
-    }
-    var game: SumscrapersGame {
-        get { getGame() as! SumscrapersGame }
-        set { setGame(game: newValue) }
-    }
+class SumscrapersGameViewController: GameGameViewController2<SumscrapersGameState, SumscrapersGame, SumscrapersDocument, SumscrapersGameScene> {
     var gameDocument: SumscrapersDocument { SumscrapersDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { SumscrapersDocument.sharedInstance }
     

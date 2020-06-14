@@ -9,17 +9,7 @@
 import UIKit
 import SpriteKit
 
-class KropkiGameViewController: GameGameViewController {
-    typealias GS = KropkiGameState
-
-    var scene: KropkiGameScene {
-        get { getScene() as! KropkiGameScene }
-        set { setScene(scene: newValue) }
-    }
-    var game: KropkiGame {
-        get { getGame() as! KropkiGame }
-        set { setGame(game: newValue) }
-    }
+class KropkiGameViewController: GameGameViewController2<KropkiGameState, KropkiGame, KropkiDocument, KropkiGameScene> {
     var gameDocument: KropkiDocument { KropkiDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { KropkiDocument.sharedInstance }
    

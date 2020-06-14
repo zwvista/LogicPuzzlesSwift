@@ -9,17 +9,7 @@
 import UIKit
 import SpriteKit
 
-class TheOddBrickGameViewController: GameGameViewController {
-    typealias GS = TheOddBrickGameState
-
-    var scene: TheOddBrickGameScene {
-        get { getScene() as! TheOddBrickGameScene }
-        set { setScene(scene: newValue) }
-    }
-    var game: TheOddBrickGame {
-        get { getGame() as! TheOddBrickGame }
-        set { setGame(game: newValue) }
-    }
+class TheOddBrickGameViewController: GameGameViewController2<TheOddBrickGameState, TheOddBrickGame, TheOddBrickDocument, TheOddBrickGameScene> {
     var gameDocument: TheOddBrickDocument { TheOddBrickDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TheOddBrickDocument.sharedInstance }
    

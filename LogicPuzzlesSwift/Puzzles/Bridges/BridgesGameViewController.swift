@@ -9,17 +9,7 @@
 import UIKit
 import SpriteKit
 
-class BridgesGameViewController: GameGameViewController {
-    typealias GS = BridgesGameState
-
-    var scene: BridgesGameScene {
-        get { getScene() as! BridgesGameScene }
-        set { setScene(scene: newValue) }
-    }
-    var game: BridgesGame {
-        get { getGame() as! BridgesGame }
-        set { setGame(game: newValue) }
-    }
+class BridgesGameViewController: GameGameViewController2<BridgesGameState, BridgesGame, BridgesDocument, BridgesGameScene> {
     var gameDocument: BridgesDocument { BridgesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { BridgesDocument.sharedInstance }
     var pLast: Position?

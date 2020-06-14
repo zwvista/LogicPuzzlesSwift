@@ -9,17 +9,7 @@
 import UIKit
 import SpriteKit
 
-class KakuroGameViewController: GameGameViewController {
-    typealias GS = KakuroGameState
-
-    var scene: KakuroGameScene {
-        get { getScene() as! KakuroGameScene }
-        set { setScene(scene: newValue) }
-    }
-    var game: KakuroGame {
-        get { getGame() as! KakuroGame }
-        set { setGame(game: newValue) }
-    }
+class KakuroGameViewController: GameGameViewController2<KakuroGameState, KakuroGame, KakuroDocument, KakuroGameScene> {
     var gameDocument: KakuroDocument { KakuroDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { KakuroDocument.sharedInstance }
    

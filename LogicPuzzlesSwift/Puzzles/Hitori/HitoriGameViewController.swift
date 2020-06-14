@@ -9,17 +9,7 @@
 import UIKit
 import SpriteKit
 
-class HitoriGameViewController: GameGameViewController {
-    typealias GS = HitoriGameState
-
-    var scene: HitoriGameScene {
-        get { getScene() as! HitoriGameScene }
-        set { setScene(scene: newValue) }
-    }
-    var game: HitoriGame {
-        get { getGame() as! HitoriGame }
-        set { setGame(game: newValue) }
-    }
+class HitoriGameViewController: GameGameViewController2<HitoriGameState, HitoriGame, HitoriDocument, HitoriGameScene> {
     var gameDocument: HitoriDocument { HitoriDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { HitoriDocument.sharedInstance }
    

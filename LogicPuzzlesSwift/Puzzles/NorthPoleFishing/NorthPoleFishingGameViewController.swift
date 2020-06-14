@@ -9,17 +9,7 @@
 import UIKit
 import SpriteKit
 
-class NorthPoleFishingGameViewController: GameGameViewController {
-    typealias GS = NorthPoleFishingGameState
-
-    var scene: NorthPoleFishingGameScene {
-        get { getScene() as! NorthPoleFishingGameScene }
-        set { setScene(scene: newValue) }
-    }
-    var game: NorthPoleFishingGame {
-        get { getGame() as! NorthPoleFishingGame }
-        set { setGame(game: newValue) }
-    }
+class NorthPoleFishingGameViewController: GameGameViewController2<NorthPoleFishingGameState, NorthPoleFishingGame, NorthPoleFishingDocument, NorthPoleFishingGameScene> {
     var gameDocument: NorthPoleFishingDocument { NorthPoleFishingDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { NorthPoleFishingDocument.sharedInstance }
     
@@ -49,53 +39,7 @@ class NorthPoleFishingGameViewController: GameGameViewController {
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     
-    override func startGame() {
-        lblLevel.text = gameDocument.selectedLevelID
-        updateSolutionUI()
-        
-        let level = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
-        
-        levelInitilizing = true
-        defer { levelInitilizing = false }
-        game = NorthPoleFishingGame(layout: level.layout, delegate: self)
-        
-        // restore game state
-        for case let rec as MoveProgress in gameDocument.moveProgress {
-            var move = gameDocument.loadMove(from: rec)!
-            _ = game.setObject(move: &move)
-        }
-        let moveIndex = gameDocument.levelProgress.moveIndex
-        if case 0..<game.moveCount = moveIndex {
-            while moveIndex != game.moveIndex {
-                game.undo()
-            }
-        }
-        scene.levelUpdated(from: game.states[0], to: game.currentState)
-    }
-    
-    override func moveAdded(_ game: AnyObject, move: Any) {
-        guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move as! NorthPoleFishingGameMove)
-    }
-    
-    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
-        let game = game as! NorthPoleFishingGame
-        updateMovesUI(game)
-        scene.levelInitialized(game, state: state as! NorthPoleFishingGameState, skView: skView)
-    }
-    
-    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
-        let game = game as! NorthPoleFishingGame
-        updateMovesUI(game)
-        guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom as! NorthPoleFishingGameState, to: stateTo as! NorthPoleFishingGameState)
-        gameDocument.levelUpdated(game: game)
-    }
-    
-    override func gameSolved(_ game: AnyObject) {
-        guard !levelInitilizing else {return}
-        soundManager.playSoundSolved()
-        gameDocument.gameSolved(game: game)
-        updateSolutionUI()
+    override func newGame(level: GameLevel) -> NorthPoleFishingGame {
+        NorthPoleFishingGame(layout: level.layout, delegate: self)
     }
 }

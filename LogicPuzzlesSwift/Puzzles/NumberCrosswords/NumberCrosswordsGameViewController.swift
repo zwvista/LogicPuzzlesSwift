@@ -9,17 +9,7 @@
 import UIKit
 import SpriteKit
 
-class NumberCrosswordsGameViewController: GameGameViewController {
-    typealias GS = NumberCrosswordsGameState
-
-    var scene: NumberCrosswordsGameScene {
-        get { getScene() as! NumberCrosswordsGameScene }
-        set { setScene(scene: newValue) }
-    }
-    var game: NumberCrosswordsGame {
-        get { getGame() as! NumberCrosswordsGame }
-        set { setGame(game: newValue) }
-    }
+class NumberCrosswordsGameViewController: GameGameViewController2<NumberCrosswordsGameState, NumberCrosswordsGame, NumberCrosswordsDocument, NumberCrosswordsGameScene> {
     var gameDocument: NumberCrosswordsDocument { NumberCrosswordsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { NumberCrosswordsDocument.sharedInstance }
    

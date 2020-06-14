@@ -9,17 +9,7 @@
 import UIKit
 import SpriteKit
 
-class BalancedTapasGameViewController: GameGameViewController {
-    typealias GS = BalancedTapasGameState
-
-    var scene: BalancedTapasGameScene {
-        get { getScene() as! BalancedTapasGameScene }
-        set { setScene(scene: newValue) }
-    }
-    var game: BalancedTapasGame {
-        get { getGame() as! BalancedTapasGame }
-        set { setGame(game: newValue) }
-    }
+class BalancedTapasGameViewController: GameGameViewController2<BalancedTapasGameState, BalancedTapasGame, BalancedTapasDocument, BalancedTapasGameScene> {
     var gameDocument: BalancedTapasDocument { BalancedTapasDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { BalancedTapasDocument.sharedInstance }
     
@@ -48,53 +38,7 @@ class BalancedTapasGameViewController: GameGameViewController {
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     
-    override func startGame() {
-        lblLevel.text = gameDocument.selectedLevelID
-        updateSolutionUI()
-        
-        let level = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
-        
-        levelInitilizing = true
-        defer { levelInitilizing = false }
-        game = BalancedTapasGame(layout: level.layout, leftPart: level.settings["LeftPart"]!, delegate: self)
-        
-        // restore game state
-        for case let rec as MoveProgress in gameDocument.moveProgress {
-            var move = gameDocument.loadMove(from: rec)!
-            _ = game.setObject(move: &move)
-        }
-        let moveIndex = gameDocument.levelProgress.moveIndex
-        if case 0..<game.moveCount = moveIndex {
-            while moveIndex != game.moveIndex {
-                game.undo()
-            }
-        }
-        scene.levelUpdated(from: game.states[0], to: game.currentState)
-    }
-    
-    override func moveAdded(_ game: AnyObject, move: Any) {
-        guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move as! BalancedTapasGameMove)
-    }
-    
-    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
-        let game = game as! BalancedTapasGame
-        updateMovesUI(game)
-        scene.levelInitialized(game, state: state as! BalancedTapasGameState, skView: skView)
-    }
-    
-    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
-        let game = game as! BalancedTapasGame
-        updateMovesUI(game)
-        guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom as! BalancedTapasGameState, to: stateTo as! BalancedTapasGameState)
-        gameDocument.levelUpdated(game: game)
-    }
-    
-    override func gameSolved(_ game: AnyObject) {
-        guard !levelInitilizing else {return}
-        soundManager.playSoundSolved()
-        gameDocument.gameSolved(game: game)
-        updateSolutionUI()
+    override func newGame(level: GameLevel) -> BalancedTapasGame {
+        BalancedTapasGame(layout: level.layout, leftPart: level.settings["LeftPart"]!, delegate: self)
     }
 }

@@ -9,17 +9,7 @@
 import UIKit
 import SpriteKit
 
-class RippleEffectGameViewController: GameGameViewController {
-    typealias GS = RippleEffectGameState
-
-    var scene: RippleEffectGameScene {
-        get { getScene() as! RippleEffectGameScene }
-        set { setScene(scene: newValue) }
-    }
-    var game: RippleEffectGame {
-        get { getGame() as! RippleEffectGame }
-        set { setGame(game: newValue) }
-    }
+class RippleEffectGameViewController: GameGameViewController2<RippleEffectGameState, RippleEffectGame, RippleEffectDocument, RippleEffectGameScene> {
     var gameDocument: RippleEffectDocument { RippleEffectDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { RippleEffectDocument.sharedInstance }
    
@@ -48,53 +38,7 @@ class RippleEffectGameViewController: GameGameViewController {
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
    
-    override func startGame() {
-        lblLevel.text = gameDocument.selectedLevelID
-        updateSolutionUI()
-        
-        let level = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
-        
-        levelInitilizing = true
-        defer { levelInitilizing = false }
-        game = RippleEffectGame(layout: level.layout, delegate: self)
-        
-        // restore game state
-        for case let rec as MoveProgress in gameDocument.moveProgress {
-            var move = gameDocument.loadMove(from: rec)!
-            _ = game.setObject(move: &move)
-        }
-        let moveIndex = gameDocument.levelProgress.moveIndex
-        if case 0..<game.moveCount = moveIndex {
-            while moveIndex != game.moveIndex {
-                game.undo()
-            }
-        }
-        scene.levelUpdated(from: game.states[0], to: game.currentState)
-    }
-    
-    override func moveAdded(_ game: AnyObject, move: Any) {
-        guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move as! RippleEffectGameMove)
-    }
-    
-    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
-        let game = game as! RippleEffectGame
-        updateMovesUI(game)
-        scene.levelInitialized(game, state: state as! RippleEffectGameState, skView: skView)
-    }
-    
-    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
-        let game = game as! RippleEffectGame
-        updateMovesUI(game)
-        guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom as! RippleEffectGameState, to: stateTo as! RippleEffectGameState)
-        gameDocument.levelUpdated(game: game)
-    }
-    
-    override func gameSolved(_ game: AnyObject) {
-        guard !levelInitilizing else {return}
-        soundManager.playSoundSolved()
-        gameDocument.gameSolved(game: game)
-        updateSolutionUI()
+    override func newGame(level: GameLevel) -> RippleEffectGame {
+        RippleEffectGame(layout: level.layout, delegate: self)
     }
 }

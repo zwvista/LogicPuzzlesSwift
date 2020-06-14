@@ -9,17 +9,7 @@
 import UIKit
 import SpriteKit
 
-class TierraDelFuegoGameViewController: GameGameViewController {
-    typealias GS = TierraDelFuegoGameState
-
-    var scene: TierraDelFuegoGameScene {
-        get { getScene() as! TierraDelFuegoGameScene }
-        set { setScene(scene: newValue) }
-    }
-    var game: TierraDelFuegoGame {
-        get { getGame() as! TierraDelFuegoGame }
-        set { setGame(game: newValue) }
-    }
+class TierraDelFuegoGameViewController: GameGameViewController2<TierraDelFuegoGameState, TierraDelFuegoGame, TierraDelFuegoDocument, TierraDelFuegoGameScene> {
     var gameDocument: TierraDelFuegoDocument { TierraDelFuegoDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TierraDelFuegoDocument.sharedInstance }
    
@@ -48,53 +38,7 @@ class TierraDelFuegoGameViewController: GameGameViewController {
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
    
-    override func startGame() {
-        lblLevel.text = gameDocument.selectedLevelID
-        updateSolutionUI()
-        
-        let level = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
-        
-        levelInitilizing = true
-        defer { levelInitilizing = false }
-        game = TierraDelFuegoGame(layout: level.layout, delegate: self)
-        
-        // restore game state
-        for case let rec as MoveProgress in gameDocument.moveProgress {
-            var move = gameDocument.loadMove(from: rec)!
-            _ = game.setObject(move: &move)
-        }
-        let moveIndex = gameDocument.levelProgress.moveIndex
-        if case 0..<game.moveCount = moveIndex {
-            while moveIndex != game.moveIndex {
-                game.undo()
-            }
-        }
-        scene.levelUpdated(from: game.states[0], to: game.currentState)
-    }
-    
-    override func moveAdded(_ game: AnyObject, move: Any) {
-        guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move as! TierraDelFuegoGameMove)
-    }
-    
-    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
-        let game = game as! TierraDelFuegoGame
-        updateMovesUI(game)
-        scene.levelInitialized(game, state: state as! TierraDelFuegoGameState, skView: skView)
-    }
-    
-    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
-        let game = game as! TierraDelFuegoGame
-        updateMovesUI(game)
-        guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom as! TierraDelFuegoGameState, to: stateTo as! TierraDelFuegoGameState)
-        gameDocument.levelUpdated(game: game)
-    }
-    
-    override func gameSolved(_ game: AnyObject) {
-        guard !levelInitilizing else {return}
-        soundManager.playSoundSolved()
-        gameDocument.gameSolved(game: game)
-        updateSolutionUI()
+    override func newGame(level: GameLevel) -> TierraDelFuegoGame {
+        TierraDelFuegoGame(layout: level.layout, delegate: self)
     }
 }

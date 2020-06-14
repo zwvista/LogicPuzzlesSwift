@@ -18,6 +18,8 @@ struct GameLevel {
 
 protocol GameDocumentBase: class {
     var gameProgress: GameProgress { get }
+    var levelProgress: LevelProgress { get }
+    var moveProgress: SRKResultSet { get }
     var levels: [GameLevel] { get }
     var help: [String] { get }
     var selectedLevelID: String! { get set }

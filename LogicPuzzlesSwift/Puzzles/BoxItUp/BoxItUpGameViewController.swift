@@ -9,17 +9,7 @@
 import UIKit
 import SpriteKit
 
-class BoxItUpGameViewController: GameGameViewController {
-    typealias GS = BoxItUpGameState
-
-    var scene: BoxItUpGameScene {
-        get { getScene() as! BoxItUpGameScene }
-        set { setScene(scene: newValue) }
-    }
-    var game: BoxItUpGame {
-        get { getGame() as! BoxItUpGame }
-        set { setGame(game: newValue) }
-    }
+class BoxItUpGameViewController: GameGameViewController2<BoxItUpGameState, BoxItUpGame, BoxItUpDocument, BoxItUpGameScene> {
     var gameDocument: BoxItUpDocument { BoxItUpDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { BoxItUpDocument.sharedInstance }
     
@@ -49,53 +39,7 @@ class BoxItUpGameViewController: GameGameViewController {
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     
-    override func startGame() {
-        lblLevel.text = gameDocument.selectedLevelID
-        updateSolutionUI()
-        
-        let level = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
-        
-        levelInitilizing = true
-        defer { levelInitilizing = false }
-        game = BoxItUpGame(layout: level.layout, delegate: self)
-        
-        // restore game state
-        for case let rec as MoveProgress in gameDocument.moveProgress {
-            var move = gameDocument.loadMove(from: rec)!
-            _ = game.setObject(move: &move)
-        }
-        let moveIndex = gameDocument.levelProgress.moveIndex
-        if case 0..<game.moveCount = moveIndex {
-            while moveIndex != game.moveIndex {
-                game.undo()
-            }
-        }
-        scene.levelUpdated(from: game.states[0], to: game.currentState)
-    }
-    
-    override func moveAdded(_ game: AnyObject, move: Any) {
-        guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move as! BoxItUpGameMove)
-    }
-    
-    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
-        let game = game as! BoxItUpGame
-        updateMovesUI(game)
-        scene.levelInitialized(game, state: state as! BoxItUpGameState, skView: skView)
-    }
-    
-    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
-        let game = game as! BoxItUpGame
-        updateMovesUI(game)
-        guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom as! BoxItUpGameState, to: stateTo as! BoxItUpGameState)
-        gameDocument.levelUpdated(game: game)
-    }
-    
-    override func gameSolved(_ game: AnyObject) {
-        guard !levelInitilizing else {return}
-        soundManager.playSoundSolved()
-        gameDocument.gameSolved(game: game)
-        updateSolutionUI()
+    override func newGame(level: GameLevel) -> BoxItUpGame {
+        BoxItUpGame(layout: level.layout, delegate: self)
     }
 }

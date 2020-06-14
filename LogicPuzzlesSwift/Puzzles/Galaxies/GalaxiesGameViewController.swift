@@ -9,17 +9,7 @@
 import UIKit
 import SpriteKit
 
-class GalaxiesGameViewController: GameGameViewController {
-    typealias GS = GalaxiesGameState
-
-    var scene: GalaxiesGameScene {
-        get { getScene() as! GalaxiesGameScene }
-        set { setScene(scene: newValue) }
-    }
-    var game: GalaxiesGame {
-        get { getGame() as! GalaxiesGame }
-        set { setGame(game: newValue) }
-    }
+class GalaxiesGameViewController: GameGameViewController2<GalaxiesGameState, GalaxiesGame, GalaxiesDocument, GalaxiesGameScene> {
     var gameDocument: GalaxiesDocument { GalaxiesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { GalaxiesDocument.sharedInstance }
     
@@ -49,53 +39,7 @@ class GalaxiesGameViewController: GameGameViewController {
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     
-    override func startGame() {
-        lblLevel.text = gameDocument.selectedLevelID
-        updateSolutionUI()
-        
-        let level = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
-        
-        levelInitilizing = true
-        defer { levelInitilizing = false }
-        game = GalaxiesGame(layout: level.layout, delegate: self)
-        
-        // restore game state
-        for case let rec as MoveProgress in gameDocument.moveProgress {
-            var move = gameDocument.loadMove(from: rec)!
-            _ = game.setObject(move: &move)
-        }
-        let moveIndex = gameDocument.levelProgress.moveIndex
-        if case 0..<game.moveCount = moveIndex {
-            while moveIndex != game.moveIndex {
-                game.undo()
-            }
-        }
-        scene.levelUpdated(from: game.states[0], to: game.currentState)
-    }
-    
-    override func moveAdded(_ game: AnyObject, move: Any) {
-        guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move as! GalaxiesGameMove)
-    }
-    
-    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
-        let game = game as! GalaxiesGame
-        updateMovesUI(game)
-        scene.levelInitialized(game, state: state as! GalaxiesGameState, skView: skView)
-    }
-    
-    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
-        let game = game as! GalaxiesGame
-        updateMovesUI(game)
-        guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom as! GalaxiesGameState, to: stateTo as! GalaxiesGameState)
-        gameDocument.levelUpdated(game: game)
-    }
-    
-    override func gameSolved(_ game: AnyObject) {
-        guard !levelInitilizing else {return}
-        soundManager.playSoundSolved()
-        gameDocument.gameSolved(game: game)
-        updateSolutionUI()
+    override func newGame(level: GameLevel) -> GalaxiesGame {
+        GalaxiesGame(layout: level.layout, delegate: self)
     }
 }

@@ -9,17 +9,7 @@
 import UIKit
 import SpriteKit
 
-class Square100GameViewController: GameGameViewController {
-    typealias GS = Square100GameState
-
-    var scene: Square100GameScene {
-        get { getScene() as! Square100GameScene }
-        set { setScene(scene: newValue) }
-    }
-    var game: Square100Game {
-        get { getGame() as! Square100Game }
-        set { setGame(game: newValue) }
-    }
+class Square100GameViewController: GameGameViewController2<Square100GameState, Square100Game, Square100Document, Square100GameScene> {
     var gameDocument: Square100Document { Square100Document.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { Square100Document.sharedInstance }
    

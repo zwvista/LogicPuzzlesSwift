@@ -9,17 +9,7 @@
 import UIKit
 import SpriteKit
 
-class RobotFencesGameViewController: GameGameViewController {
-    typealias GS = RobotFencesGameState
-
-    var scene: RobotFencesGameScene {
-        get { getScene() as! RobotFencesGameScene }
-        set { setScene(scene: newValue) }
-    }
-    var game: RobotFencesGame {
-        get { getGame() as! RobotFencesGame }
-        set { setGame(game: newValue) }
-    }
+class RobotFencesGameViewController: GameGameViewController2<RobotFencesGameState, RobotFencesGame, RobotFencesDocument, RobotFencesGameScene> {
     var gameDocument: RobotFencesDocument { RobotFencesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { RobotFencesDocument.sharedInstance }
    

@@ -9,17 +9,7 @@
 import UIKit
 import SpriteKit
 
-class MiniLitsGameViewController: GameGameViewController {
-    typealias GS = MiniLitsGameState
-
-    var scene: MiniLitsGameScene {
-        get { getScene() as! MiniLitsGameScene }
-        set { setScene(scene: newValue) }
-    }
-    var game: MiniLitsGame {
-        get { getGame() as! MiniLitsGame }
-        set { setGame(game: newValue) }
-    }
+class MiniLitsGameViewController: GameGameViewController2<MiniLitsGameState, MiniLitsGame, MiniLitsDocument, MiniLitsGameScene> {
     var gameDocument: MiniLitsDocument { MiniLitsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { MiniLitsDocument.sharedInstance }
    
@@ -48,53 +38,7 @@ class MiniLitsGameViewController: GameGameViewController {
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
    
-    override func startGame() {
-        lblLevel.text = gameDocument.selectedLevelID
-        updateSolutionUI()
-        
-        let level = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
-        
-        levelInitilizing = true
-        defer { levelInitilizing = false }
-        game = MiniLitsGame(layout: level.layout, delegate: self)
-        
-        // restore game state
-        for case let rec as MoveProgress in gameDocument.moveProgress {
-            var move = gameDocument.loadMove(from: rec)!
-            _ = game.setObject(move: &move)
-        }
-        let moveIndex = gameDocument.levelProgress.moveIndex
-        if case 0..<game.moveCount = moveIndex {
-            while moveIndex != game.moveIndex {
-                game.undo()
-            }
-        }
-        scene.levelUpdated(from: game.states[0], to: game.currentState)
-    }
-    
-    override func moveAdded(_ game: AnyObject, move: Any) {
-        guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move as! MiniLitsGameMove)
-    }
-    
-    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
-        let game = game as! MiniLitsGame
-        updateMovesUI(game)
-        scene.levelInitialized(game, state: state as! MiniLitsGameState, skView: skView)
-    }
-    
-    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
-        let game = game as! MiniLitsGame
-        updateMovesUI(game)
-        guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom as! MiniLitsGameState, to: stateTo as! MiniLitsGameState)
-        gameDocument.levelUpdated(game: game)
-    }
-    
-    override func gameSolved(_ game: AnyObject) {
-        guard !levelInitilizing else {return}
-        soundManager.playSoundSolved()
-        gameDocument.gameSolved(game: game)
-        updateSolutionUI()
+    override func newGame(level: GameLevel) -> MiniLitsGame {
+        MiniLitsGame(layout: level.layout, delegate: self)
     }
 }

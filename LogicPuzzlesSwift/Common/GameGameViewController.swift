@@ -23,9 +23,9 @@ class GameGameViewController: UIViewController, SoundMixin {
     private var scene: SKScene?
     func getScene() -> SKScene? { scene }
     func setScene(scene: SKScene?) { self.scene = scene }
-    private var game: GridGameBase?
-    func getGame() -> GridGameBase? { game }
-    func setGame(game: GridGameBase?) { self.game = game }
+    private var game: GridGameBase!
+    func getGame() -> GridGameBase { game }
+    func setGame(game: GridGameBase) { self.game = game }
     private var gameDocument: GameDocumentBase! { getGameDocument() }
     func getGameDocument() -> GameDocumentBase! { nil }
     var gameOptions: GameProgress { gameDocument.gameProgress }
@@ -76,11 +76,11 @@ class GameGameViewController: UIViewController, SoundMixin {
     }
 
     @IBAction func undoGame(_ sender: Any) {
-        game?.undo()
+        game.undo()
     }
     
     @IBAction func redoGame(_ sender: Any) {
-        game?.redo()
+        game.redo()
     }
     
     @IBAction func clearGame(_ sender: Any) {
@@ -120,4 +120,70 @@ class GameGameViewController: UIViewController, SoundMixin {
     deinit {
         print("deinit called: \(NSStringFromClass(type(of: self)))")
     }
+}
+
+class GameGameViewController2<GS: GameStateBase, G: GridGame<GS>, GD: GameDocument<GS.GM>, GSC: GameScene<GS>>: GameGameViewController {
+    typealias GM = GS.GM
+    
+    var scene: GSC {
+        get { getScene() as! GSC }
+        set { setScene(scene: newValue) }
+    }
+    var game: G {
+        get { getGame() as! G }
+        set { setGame(game: newValue) }
+    }
+    private var gameDocument: GD! { getGameDocument() as? GD }
+
+    override func startGame() {
+        lblLevel.text = gameDocument.selectedLevelID
+        updateSolutionUI()
+        
+        let level = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
+        
+        levelInitilizing = true
+        defer { levelInitilizing = false }
+        game = newGame(level: level)
+        
+        // restore game state
+        for case let rec as MoveProgress in gameDocument.moveProgress {
+            var move = gameDocument.loadMove(from: rec)!
+            _ = game.setObject(move: &move)
+        }
+        let moveIndex = gameDocument.levelProgress.moveIndex
+        if case 0..<game.moveCount = moveIndex {
+            while moveIndex != game.moveIndex {
+                game.undo()
+            }
+        }
+        scene.levelUpdated(from: game.states[0], to: game.currentState)
+    }
+    
+    override func moveAdded(_ game: AnyObject, move: Any) {
+        guard !levelInitilizing else {return}
+        gameDocument.moveAdded(game: game, move: move as! GM)
+    }
+    
+    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
+        let game = game as! AbcGame
+        updateMovesUI(game)
+        scene.levelInitialized(game, state: state as! GS, skView: skView)
+    }
+    
+    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
+        let game = game as! AbcGame
+        updateMovesUI(game)
+        guard !levelInitilizing else {return}
+        scene.levelUpdated(from: stateFrom as! GS, to: stateTo as! GS)
+        gameDocument.levelUpdated(game: game)
+    }
+    
+    override func gameSolved(_ game: AnyObject) {
+        guard !levelInitilizing else {return}
+        soundManager.playSoundSolved()
+        gameDocument.gameSolved(game: game)
+        updateSolutionUI()
+    }
+    
+    func newGame(level: GameLevel) -> G! { nil }
 }

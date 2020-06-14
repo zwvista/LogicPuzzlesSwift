@@ -9,17 +9,7 @@
 import UIKit
 import SpriteKit
 
-class NumberPathGameViewController: GameGameViewController {
-    typealias GS = NumberPathGameState
-
-    var scene: NumberPathGameScene {
-        get { getScene() as! NumberPathGameScene }
-        set { setScene(scene: newValue) }
-    }
-    var game: NumberPathGame {
-        get { getGame() as! NumberPathGame }
-        set { setGame(game: newValue) }
-    }
+class NumberPathGameViewController: GameGameViewController2<NumberPathGameState, NumberPathGame, NumberPathDocument, NumberPathGameScene> {
     var gameDocument: NumberPathDocument { NumberPathDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { NumberPathDocument.sharedInstance }
     var pLast: Position?

@@ -9,17 +9,7 @@
 import UIKit
 import SpriteKit
 
-class TentsGameViewController: GameGameViewController {
-    typealias GS = TentsGameState
-
-    var scene: TentsGameScene {
-        get { getScene() as! TentsGameScene }
-        set { setScene(scene: newValue) }
-    }
-    var game: TentsGame {
-        get { getGame() as! TentsGame }
-        set { setGame(game: newValue) }
-    }
+class TentsGameViewController: GameGameViewController2<TentsGameState, TentsGame, TentsDocument, TentsGameScene> {
     var gameDocument: TentsDocument { TentsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TentsDocument.sharedInstance }
     
@@ -48,53 +38,7 @@ class TentsGameViewController: GameGameViewController {
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
    
-    override func startGame() {
-        lblLevel.text = gameDocument.selectedLevelID
-        updateSolutionUI()
-        
-        let level = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
-        
-        levelInitilizing = true
-        defer { levelInitilizing = false }
-        game = TentsGame(layout: level.layout, delegate: self)
-        
-        // restore game state
-        for case let rec as MoveProgress in gameDocument.moveProgress {
-            var move = gameDocument.loadMove(from: rec)!
-            _ = game.setObject(move: &move)
-        }
-        let moveIndex = gameDocument.levelProgress.moveIndex
-        if case 0..<game.moveCount = moveIndex {
-            while moveIndex != game.moveIndex {
-                game.undo()
-            }
-        }
-        scene.levelUpdated(from: game.states[0], to: game.currentState)
-    }
-    
-    override func moveAdded(_ game: AnyObject, move: Any) {
-        guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move as! TentsGameMove)
-    }
-    
-    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
-        let game = game as! TentsGame
-        updateMovesUI(game)
-        scene.levelInitialized(game, state: state as! TentsGameState, skView: skView)
-    }
-    
-    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
-        let game = game as! TentsGame
-        updateMovesUI(game)
-        guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom as! TentsGameState, to: stateTo as! TentsGameState)
-        gameDocument.levelUpdated(game: game)
-    }
-    
-    override func gameSolved(_ game: AnyObject) {
-        guard !levelInitilizing else {return}
-        soundManager.playSoundSolved()
-        gameDocument.gameSolved(game: game)
-        updateSolutionUI()
+    override func newGame(level: GameLevel) -> TentsGame {
+        TentsGame(layout: level.layout, delegate: self)
     }
 }

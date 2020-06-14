@@ -9,17 +9,7 @@
 import UIKit
 import SpriteKit
 
-class MasyuGameViewController: GameGameViewController {
-    typealias GS = MasyuGameState
-
-    var scene: MasyuGameScene {
-        get { getScene() as! MasyuGameScene }
-        set { setScene(scene: newValue) }
-    }
-    var game: MasyuGame {
-        get { getGame() as! MasyuGame }
-        set { setGame(game: newValue) }
-    }
+class MasyuGameViewController: GameGameViewController2<MasyuGameState, MasyuGame, MasyuDocument, MasyuGameScene> {
     var gameDocument: MasyuDocument { MasyuDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { MasyuDocument.sharedInstance }
     var pLast: Position?

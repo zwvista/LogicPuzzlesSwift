@@ -9,17 +9,7 @@
 import UIKit
 import SpriteKit
 
-class TennerGridGameViewController: GameGameViewController {
-    typealias GS = TennerGridGameState
-
-    var scene: TennerGridGameScene {
-        get { getScene() as! TennerGridGameScene }
-        set { setScene(scene: newValue) }
-    }
-    var game: TennerGridGame {
-        get { getGame() as! TennerGridGame }
-        set { setGame(game: newValue) }
-    }
+class TennerGridGameViewController: GameGameViewController2<TennerGridGameState, TennerGridGame, TennerGridDocument, TennerGridGameScene> {
     var gameDocument: TennerGridDocument { TennerGridDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TennerGridDocument.sharedInstance }
    
