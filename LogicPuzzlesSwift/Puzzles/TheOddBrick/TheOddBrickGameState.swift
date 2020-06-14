@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TheOddBrickGameState: GridGameState<TheOddBrickGame, TheOddBrickDocument> {
+class TheOddBrickGameState: GridGameState<TheOddBrickGame, TheOddBrickDocument, TheOddBrickGameMove> {
     override var gameDocument: TheOddBrickDocument { TheOddBrickDocument.sharedInstance }
     var objArray = [Int]()
     var row2state = [HintState]()
@@ -52,7 +52,7 @@ class TheOddBrickGameState: GridGameState<TheOddBrickGame, TheOddBrickDocument> 
         set { objArray[row * cols + col] = newValue }
     }
 
-    func setObject(move: inout TheOddBrickGameMove) -> Bool {
+    override func setObject(move: inout TheOddBrickGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -60,7 +60,7 @@ class TheOddBrickGameState: GridGameState<TheOddBrickGame, TheOddBrickDocument> 
         return true
     }
     
-    func switchObject(move: inout TheOddBrickGameMove) -> Bool {
+    override func switchObject(move: inout TheOddBrickGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && game[p] == 0 else { return false }
         let o = self[p]

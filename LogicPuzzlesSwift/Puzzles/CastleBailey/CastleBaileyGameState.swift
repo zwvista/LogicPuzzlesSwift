@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CastleBaileyGameState: GridGameState<CastleBaileyGame, CastleBaileyDocument> {
+class CastleBaileyGameState: GridGameState<CastleBaileyGame, CastleBaileyDocument, CastleBaileyGameMove> {
     override var gameDocument: CastleBaileyDocument { CastleBaileyDocument.sharedInstance }
     var objArray = [CastleBaileyObject]()
     var pos2state = [Position: HintState]()
@@ -40,7 +40,7 @@ class CastleBaileyGameState: GridGameState<CastleBaileyGame, CastleBaileyDocumen
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout CastleBaileyGameMove) -> Bool {
+    override func setObject(move: inout CastleBaileyGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -48,7 +48,7 @@ class CastleBaileyGameState: GridGameState<CastleBaileyGame, CastleBaileyDocumen
         return true
     }
     
-    func switchObject(move: inout CastleBaileyGameMove) -> Bool {
+    override func switchObject(move: inout CastleBaileyGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: CastleBaileyObject) -> CastleBaileyObject {
             switch o {

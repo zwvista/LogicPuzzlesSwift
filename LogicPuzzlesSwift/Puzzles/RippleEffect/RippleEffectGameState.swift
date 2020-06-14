@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RippleEffectGameState: GridGameState<RippleEffectGame, RippleEffectDocument> {
+class RippleEffectGameState: GridGameState<RippleEffectGame, RippleEffectDocument, RippleEffectGameMove> {
     override var gameDocument: RippleEffectDocument { RippleEffectDocument.sharedInstance }
     var objArray = [Int]()
     var pos2state = [Position: HintState]()
@@ -40,7 +40,7 @@ class RippleEffectGameState: GridGameState<RippleEffectGame, RippleEffectDocumen
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout RippleEffectGameMove) -> Bool {
+    override func setObject(move: inout RippleEffectGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -48,7 +48,7 @@ class RippleEffectGameState: GridGameState<RippleEffectGame, RippleEffectDocumen
         return true
     }
     
-    func switchObject(move: inout RippleEffectGameMove) -> Bool {
+    override func switchObject(move: inout RippleEffectGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && game[p] == 0 else { return false }
         let o = self[p]

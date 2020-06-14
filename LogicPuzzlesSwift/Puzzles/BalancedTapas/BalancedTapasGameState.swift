@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BalancedTapasGameState: GridGameState<BalancedTapasGame, BalancedTapasDocument> {
+class BalancedTapasGameState: GridGameState<BalancedTapasGame, BalancedTapasDocument, BalancedTapasGameMove> {
     override var gameDocument: BalancedTapasDocument { BalancedTapasDocument.sharedInstance }
     var objArray = [BalancedTapasObject]()
     
@@ -41,7 +41,7 @@ class BalancedTapasGameState: GridGameState<BalancedTapasGame, BalancedTapasDocu
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout BalancedTapasGameMove) -> Bool {
+    override func setObject(move: inout BalancedTapasGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         if case .hint = o1 { return false }
@@ -51,7 +51,7 @@ class BalancedTapasGameState: GridGameState<BalancedTapasGame, BalancedTapasDocu
         return true
     }
     
-    func switchObject(move: inout BalancedTapasGameMove) -> Bool {
+    override func switchObject(move: inout BalancedTapasGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: BalancedTapasObject) -> BalancedTapasObject {
             switch o {

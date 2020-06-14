@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NumberLinkGameState: GridGameState<NumberLinkGame, NumberLinkDocument> {
+class NumberLinkGameState: GridGameState<NumberLinkGame, NumberLinkDocument, NumberLinkGameMove> {
     override var gameDocument: NumberLinkDocument { NumberLinkDocument.sharedInstance }
     var objArray = [NumberLinkObject]()
     var pos2state = [Position: HintState]()
@@ -40,7 +40,7 @@ class NumberLinkGameState: GridGameState<NumberLinkGame, NumberLinkDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout NumberLinkGameMove) -> Bool {
+    override func setObject(move: inout NumberLinkGameMove) -> Bool {
         let p = move.p, dir = move.dir
         let p2 = p + NumberLinkGame.offset[dir], dir2 = (dir + 2) % 4
         guard isValid(p: p2) else { return false }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TentsGameState: GridGameState<TentsGame, TentsDocument> {
+class TentsGameState: GridGameState<TentsGame, TentsDocument, TentsGameMove> {
     override var gameDocument: TentsDocument { TentsDocument.sharedInstance }
     var objArray = [TentsObject]()
     var row2state = [HintState]()
@@ -47,7 +47,7 @@ class TentsGameState: GridGameState<TentsGame, TentsDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout TentsGameMove) -> Bool {
+    override func setObject(move: inout TentsGameMove) -> Bool {
         let p = move.p
         guard String(describing: self[p]) != String(describing: move.obj) else { return false }
         self[p] = move.obj
@@ -55,7 +55,7 @@ class TentsGameState: GridGameState<TentsGame, TentsDocument> {
         return true
     }
     
-    func switchObject(move: inout TentsGameMove) -> Bool {
+    override func switchObject(move: inout TentsGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: TentsObject) -> TentsObject {
             switch o {

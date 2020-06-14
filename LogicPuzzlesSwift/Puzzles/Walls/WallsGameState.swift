@@ -8,7 +8,7 @@
 
 import Foundation
 
-class WallsGameState: GridGameState<WallsGame, WallsDocument> {
+class WallsGameState: GridGameState<WallsGame, WallsDocument, WallsGameMove> {
     override var gameDocument: WallsDocument { WallsDocument.sharedInstance }
     var objArray = [WallsObject]()
     
@@ -41,7 +41,7 @@ class WallsGameState: GridGameState<WallsGame, WallsDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout WallsGameMove) -> Bool {
+    override func setObject(move: inout WallsGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else { return false }
         self[p] = move.obj
@@ -49,7 +49,7 @@ class WallsGameState: GridGameState<WallsGame, WallsDocument> {
         return true
     }
     
-    func switchObject(move: inout WallsGameMove) -> Bool {
+    override func switchObject(move: inout WallsGameMove) -> Bool {
         func f(o: WallsObject) -> WallsObject {
             switch o {
             case .empty: return .horz

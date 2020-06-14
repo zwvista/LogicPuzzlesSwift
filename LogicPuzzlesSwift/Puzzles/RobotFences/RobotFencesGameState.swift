@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RobotFencesGameState: GridGameState<RobotFencesGame, RobotFencesDocument> {
+class RobotFencesGameState: GridGameState<RobotFencesGame, RobotFencesDocument, RobotFencesGameMove> {
     override var gameDocument: RobotFencesDocument { RobotFencesDocument.sharedInstance }
     var objArray = [Int]()
     var row2state = [HintState]()
@@ -52,7 +52,7 @@ class RobotFencesGameState: GridGameState<RobotFencesGame, RobotFencesDocument> 
         set { objArray[row * cols + col] = newValue }
     }
 
-    func setObject(move: inout RobotFencesGameMove) -> Bool {
+    override func setObject(move: inout RobotFencesGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -60,7 +60,7 @@ class RobotFencesGameState: GridGameState<RobotFencesGame, RobotFencesDocument> 
         return true
     }
     
-    func switchObject(move: inout RobotFencesGameMove) -> Bool {
+    override func switchObject(move: inout RobotFencesGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && game[p] == 0 else { return false }
         let o = self[p]

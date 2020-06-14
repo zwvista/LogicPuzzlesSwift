@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SlitherLinkGameState: GridGameState<SlitherLinkGame, SlitherLinkDocument> {
+class SlitherLinkGameState: GridGameState<SlitherLinkGame, SlitherLinkDocument, SlitherLinkGameMove> {
     override var gameDocument: SlitherLinkDocument { SlitherLinkDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
@@ -48,7 +48,7 @@ class SlitherLinkGameState: GridGameState<SlitherLinkGame, SlitherLinkDocument> 
             move.p.col == cols - 1 && move.dir == 1)
     }
     
-    func setObject(move: inout SlitherLinkGameMove) -> Bool {
+    override func setObject(move: inout SlitherLinkGameMove) -> Bool {
         guard isValidMove(move: &move) else { return false }
         var changed = false
         func f(o1: inout GridLineObject, o2: inout GridLineObject) {
@@ -67,7 +67,7 @@ class SlitherLinkGameState: GridGameState<SlitherLinkGame, SlitherLinkDocument> 
         return changed
     }
     
-    func switchObject(move: inout SlitherLinkGameMove) -> Bool {
+    override func switchObject(move: inout SlitherLinkGameMove) -> Bool {
         guard isValidMove(move: &move) else { return false }
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: GridLineObject) -> GridLineObject {

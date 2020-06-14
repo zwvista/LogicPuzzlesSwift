@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BWTapaGameState: GridGameState<BWTapaGame, BWTapaDocument> {
+class BWTapaGameState: GridGameState<BWTapaGame, BWTapaDocument, BWTapaGameMove> {
     override var gameDocument: BWTapaDocument { BWTapaDocument.sharedInstance }
     var objArray = [BWTapaObject]()
     
@@ -41,7 +41,7 @@ class BWTapaGameState: GridGameState<BWTapaGame, BWTapaDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout BWTapaGameMove) -> Bool {
+    override func setObject(move: inout BWTapaGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         if case .hint = o1 { return false }
@@ -51,7 +51,7 @@ class BWTapaGameState: GridGameState<BWTapaGame, BWTapaDocument> {
         return true
     }
     
-    func switchObject(move: inout BWTapaGameMove) -> Bool {
+    override func switchObject(move: inout BWTapaGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: BWTapaObject) -> BWTapaObject {
             switch o {

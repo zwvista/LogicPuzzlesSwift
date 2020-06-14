@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MineShipsGameState: GridGameState<MineShipsGame, MineShipsDocument> {
+class MineShipsGameState: GridGameState<MineShipsGame, MineShipsDocument, MineShipsGameMove> {
     override var gameDocument: MineShipsDocument { MineShipsDocument.sharedInstance }
     var objArray = [MineShipsObject]()
     
@@ -38,7 +38,7 @@ class MineShipsGameState: GridGameState<MineShipsGame, MineShipsDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout MineShipsGameMove) -> Bool {
+    override func setObject(move: inout MineShipsGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         if case .hint = o1 { return false }
@@ -48,7 +48,7 @@ class MineShipsGameState: GridGameState<MineShipsGame, MineShipsDocument> {
         return true
     }
     
-    func switchObject(move: inout MineShipsGameMove) -> Bool {
+    override func switchObject(move: inout MineShipsGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: MineShipsObject) -> MineShipsObject {
             switch o {

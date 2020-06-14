@@ -9,7 +9,7 @@
 import Foundation
 import EZSwiftExtensions
 
-class GalaxiesGameState: GridGameState<GalaxiesGame, GalaxiesDocument> {
+class GalaxiesGameState: GridGameState<GalaxiesGame, GalaxiesDocument, GalaxiesGameMove> {
     override var gameDocument: GalaxiesDocument { GalaxiesDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
@@ -44,7 +44,7 @@ class GalaxiesGameState: GridGameState<GalaxiesGame, GalaxiesDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout GalaxiesGameMove) -> Bool {
+    override func setObject(move: inout GalaxiesGameMove) -> Bool {
         var changed = false
         func f(o1: inout GridLineObject, o2: inout GridLineObject) {
             if o1 != move.obj {
@@ -63,7 +63,7 @@ class GalaxiesGameState: GridGameState<GalaxiesGame, GalaxiesDocument> {
         return changed
     }
     
-    func switchObject(move: inout GalaxiesGameMove) -> Bool {
+    override func switchObject(move: inout GalaxiesGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: GridLineObject) -> GridLineObject {
             switch o {

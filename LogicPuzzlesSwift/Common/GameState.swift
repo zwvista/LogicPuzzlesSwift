@@ -11,10 +11,13 @@ import Foundation
 protocol GameStateBase: Copyable {
     associatedtype G: GridGameBase
     associatedtype GD: GameDocumentBase
+    associatedtype GM
     var isSolved: Bool { get }
+    func setObject(move: inout GM) -> Bool
+    func switchObject(move: inout GM) -> Bool
 }
 
-class GameState<G: GridGameBase, GD: GameDocumentBase>: GameStateBase {
+class GameState<G: GridGameBase, GD: GameDocumentBase, GM>: GameStateBase {
     var isSolved = false
     
     func copy() -> GameState {
@@ -25,12 +28,14 @@ class GameState<G: GridGameBase, GD: GameDocumentBase>: GameStateBase {
         v.isSolved = isSolved
         return v
     }
+    func setObject(move: inout GM) -> Bool { false }
+    func switchObject(move: inout GM) -> Bool { false }
     deinit {
         // print("deinit called: \(NSStringFromClass(type(of: self)))")
     }
 }
 
-class GridGameState<G: GridGameBase, GD: GameDocumentBase>: GameState<G, GD> {
+class GridGameState<G: GridGameBase, GD: GameDocumentBase, GM>: GameState<G, GD, GM> {
     weak var game: G!
     var gameDocument: GD! { nil }
     var gameOptions: GameProgress { gameDocument.gameProgress }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TataminoGameState: GridGameState<TataminoGame, TataminoDocument> {
+class TataminoGameState: GridGameState<TataminoGame, TataminoDocument, TataminoGameMove> {
     override var gameDocument: TataminoDocument { TataminoDocument.sharedInstance }
     var objArray = [Character]()
     var dots: GridDots!
@@ -41,7 +41,7 @@ class TataminoGameState: GridGameState<TataminoGame, TataminoDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout TataminoGameMove) -> Bool {
+    override func setObject(move: inout TataminoGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && game[p] == " " && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -49,7 +49,7 @@ class TataminoGameState: GridGameState<TataminoGame, TataminoDocument> {
         return true
     }
     
-    func switchObject(move: inout TataminoGameMove) -> Bool {
+    override func switchObject(move: inout TataminoGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && game[p] == " " else { return false }
         let o = self[p]

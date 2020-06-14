@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NumberPathGameState: GridGameState<NumberPathGame, NumberPathDocument> {
+class NumberPathGameState: GridGameState<NumberPathGame, NumberPathDocument, NumberPathGameMove> {
     override var gameDocument: NumberPathDocument { NumberPathDocument.sharedInstance }
     var objArray = [NumberPathObject]()
     
@@ -38,7 +38,7 @@ class NumberPathGameState: GridGameState<NumberPathGame, NumberPathDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout NumberPathGameMove) -> Bool {
+    override func setObject(move: inout NumberPathGameMove) -> Bool {
         let p = move.p, dir = move.dir
         let p2 = p + NumberPathGame.offset[dir], dir2 = (dir + 2) % 4
         guard isValid(p: p2) else { return false }

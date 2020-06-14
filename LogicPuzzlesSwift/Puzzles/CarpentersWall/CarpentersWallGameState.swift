@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CarpentersWallGameState: GridGameState<CarpentersWallGame, CarpentersWallDocument> {
+class CarpentersWallGameState: GridGameState<CarpentersWallGame, CarpentersWallDocument, CarpentersWallGameMove> {
     override var gameDocument: CarpentersWallDocument { CarpentersWallDocument.sharedInstance }
     var objArray = [CarpentersWallObject]()
     
@@ -38,7 +38,7 @@ class CarpentersWallGameState: GridGameState<CarpentersWallGame, CarpentersWallD
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout CarpentersWallGameMove) -> Bool {
+    override func setObject(move: inout CarpentersWallGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         guard !o1.isHint() && String(describing: o1) != String(describing: o2) else { return false }
@@ -47,7 +47,7 @@ class CarpentersWallGameState: GridGameState<CarpentersWallGame, CarpentersWallD
         return true
     }
     
-    func switchObject(move: inout CarpentersWallGameMove) -> Bool {
+    override func switchObject(move: inout CarpentersWallGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: CarpentersWallObject) -> CarpentersWallObject {
             switch o {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LightenUpGameState: GridGameState<LightenUpGame, LightenUpDocument> {
+class LightenUpGameState: GridGameState<LightenUpGame, LightenUpDocument, LightenUpGameMove> {
     override var gameDocument: LightenUpDocument { LightenUpDocument.sharedInstance }
     var objArray = [LightenUpObject]()
     
@@ -41,7 +41,7 @@ class LightenUpGameState: GridGameState<LightenUpGame, LightenUpDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout LightenUpGameMove) -> Bool {
+    override func setObject(move: inout LightenUpGameMove) -> Bool {
         var changed = false
         let p = move.p
         
@@ -87,7 +87,7 @@ class LightenUpGameState: GridGameState<LightenUpGame, LightenUpDocument> {
         return changed
     }
     
-    func switchObject(move: inout LightenUpGameMove) -> Bool {
+    override func switchObject(move: inout LightenUpGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         let allowedObjectsOnly = self.allowedObjectsOnly
         func f(o: LightenUpObjectType) -> LightenUpObjectType {

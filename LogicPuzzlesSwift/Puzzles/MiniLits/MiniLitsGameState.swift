@@ -15,7 +15,7 @@ class MiniLitsAreaInfo {
     var triominoIndex: Int?
 }
 
-class MiniLitsGameState: GridGameState<MiniLitsGame, MiniLitsDocument> {
+class MiniLitsGameState: GridGameState<MiniLitsGame, MiniLitsDocument, MiniLitsGameMove> {
     override var gameDocument: MiniLitsDocument { MiniLitsDocument.sharedInstance }
     var objArray = [MiniLitsObject]()
     var pos2state = [Position: HintState]()
@@ -47,7 +47,7 @@ class MiniLitsGameState: GridGameState<MiniLitsGame, MiniLitsDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout MiniLitsGameMove) -> Bool {
+    override func setObject(move: inout MiniLitsGameMove) -> Bool {
         let p = move.p
         guard String(describing: self[p]) != String(describing: move.obj) else { return false }
         self[p] = move.obj
@@ -55,7 +55,7 @@ class MiniLitsGameState: GridGameState<MiniLitsGame, MiniLitsDocument> {
         return true
     }
     
-    func switchObject(move: inout MiniLitsGameMove) -> Bool {
+    override func switchObject(move: inout MiniLitsGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: MiniLitsObject) -> MiniLitsObject {
             switch o {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MagnetsGameState: GridGameState<MagnetsGame, MagnetsDocument> {
+class MagnetsGameState: GridGameState<MagnetsGame, MagnetsDocument, MagnetsGameMove> {
     override var gameDocument: MagnetsDocument { MagnetsDocument.sharedInstance }
     var objArray = [MagnetsObject]()
     var row2state = [HintState]()
@@ -44,7 +44,7 @@ class MagnetsGameState: GridGameState<MagnetsGame, MagnetsDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout MagnetsGameMove) -> Bool {
+    override func setObject(move: inout MagnetsGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && !game.singles.contains(p) && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -52,7 +52,7 @@ class MagnetsGameState: GridGameState<MagnetsGame, MagnetsDocument> {
         return true
     }
     
-    func switchObject(move: inout MagnetsGameMove) -> Bool {
+    override func switchObject(move: inout MagnetsGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: MagnetsObject) -> MagnetsObject {
             switch o {

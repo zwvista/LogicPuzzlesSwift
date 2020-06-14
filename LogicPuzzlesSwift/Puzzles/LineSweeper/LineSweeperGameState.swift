@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LineSweeperGameState: GridGameState<LineSweeperGame, LineSweeperDocument> {
+class LineSweeperGameState: GridGameState<LineSweeperGame, LineSweeperDocument, LineSweeperGameMove> {
     override var gameDocument: LineSweeperDocument { LineSweeperDocument.sharedInstance }
     var objArray = [LineSweeperObject]()
     var pos2state = [Position: HintState]()
@@ -43,7 +43,7 @@ class LineSweeperGameState: GridGameState<LineSweeperGame, LineSweeperDocument> 
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout LineSweeperGameMove) -> Bool {
+    override func setObject(move: inout LineSweeperGameMove) -> Bool {
         let p = move.p, dir = move.dir
         guard isValid(p: p) && !game.isHint(p: p) else { return false }
         let p2 = p + LineSweeperGame.offset[dir * 2], dir2 = (dir + 2) % 4

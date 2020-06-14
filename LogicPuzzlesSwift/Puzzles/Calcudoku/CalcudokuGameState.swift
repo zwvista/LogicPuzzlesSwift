@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CalcudokuGameState: GridGameState<CalcudokuGame, CalcudokuDocument> {
+class CalcudokuGameState: GridGameState<CalcudokuGame, CalcudokuDocument, CalcudokuGameMove> {
     override var gameDocument: CalcudokuDocument { CalcudokuDocument.sharedInstance }
     var objArray = [Int]()
     var row2state = [HintState]()
@@ -46,7 +46,7 @@ class CalcudokuGameState: GridGameState<CalcudokuGame, CalcudokuDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout CalcudokuGameMove) -> Bool {
+    override func setObject(move: inout CalcudokuGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -54,7 +54,7 @@ class CalcudokuGameState: GridGameState<CalcudokuGame, CalcudokuDocument> {
         return true
     }
     
-    func switchObject(move: inout CalcudokuGameMove) -> Bool {
+    override func switchObject(move: inout CalcudokuGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) else { return false }
         let o = self[p]

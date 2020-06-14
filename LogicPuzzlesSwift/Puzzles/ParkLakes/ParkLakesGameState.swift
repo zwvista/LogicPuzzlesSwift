@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ParkLakesGameState: GridGameState<ParkLakesGame, ParkLakesDocument> {
+class ParkLakesGameState: GridGameState<ParkLakesGame, ParkLakesDocument, ParkLakesGameMove> {
     override var gameDocument: ParkLakesDocument { ParkLakesDocument.sharedInstance }
     var objArray = [ParkLakesObject]()
     
@@ -41,7 +41,7 @@ class ParkLakesGameState: GridGameState<ParkLakesGame, ParkLakesDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout ParkLakesGameMove) -> Bool {
+    override func setObject(move: inout ParkLakesGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else { return false }
         self[p] = move.obj
@@ -49,7 +49,7 @@ class ParkLakesGameState: GridGameState<ParkLakesGame, ParkLakesDocument> {
         return true
     }
     
-    func switchObject(move: inout ParkLakesGameMove) -> Bool {
+    override func switchObject(move: inout ParkLakesGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: ParkLakesObject) -> ParkLakesObject {
             switch o {

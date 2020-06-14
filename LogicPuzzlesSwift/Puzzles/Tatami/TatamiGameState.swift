@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TatamiGameState: GridGameState<TatamiGame, TatamiDocument> {
+class TatamiGameState: GridGameState<TatamiGame, TatamiDocument, TatamiGameMove> {
     override var gameDocument: TatamiDocument { TatamiDocument.sharedInstance }
     var objArray = [Character]()
     var pos2state = [Position: HintState]()
@@ -40,7 +40,7 @@ class TatamiGameState: GridGameState<TatamiGame, TatamiDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout TatamiGameMove) -> Bool {
+    override func setObject(move: inout TatamiGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && game[p] == " " && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -48,7 +48,7 @@ class TatamiGameState: GridGameState<TatamiGame, TatamiDocument> {
         return true
     }
     
-    func switchObject(move: inout TatamiGameMove) -> Bool {
+    override func switchObject(move: inout TatamiGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && game[p] == " " else { return false }
         let o = self[p]

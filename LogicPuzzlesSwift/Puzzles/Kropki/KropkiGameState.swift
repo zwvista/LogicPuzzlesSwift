@@ -8,7 +8,7 @@
 
 import Foundation
 
-class KropkiGameState: GridGameState<KropkiGame, KropkiDocument> {
+class KropkiGameState: GridGameState<KropkiGame, KropkiDocument, KropkiGameMove> {
     override var gameDocument: KropkiDocument { KropkiDocument.sharedInstance }
     var objArray = [Int]()
     var pos2horzState = [Position: HintState]()
@@ -42,7 +42,7 @@ class KropkiGameState: GridGameState<KropkiGame, KropkiDocument> {
         set { objArray[row * cols + col] = newValue }
     }
 
-    func setObject(move: inout KropkiGameMove) -> Bool {
+    override func setObject(move: inout KropkiGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -50,7 +50,7 @@ class KropkiGameState: GridGameState<KropkiGame, KropkiDocument> {
         return true
     }
     
-    func switchObject(move: inout KropkiGameMove) -> Bool {
+    override func switchObject(move: inout KropkiGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) else { return false }
         let o = self[p]

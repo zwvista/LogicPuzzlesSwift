@@ -8,7 +8,7 @@
 
 import Foundation
 
-class HitoriGameState: GridGameState<HitoriGame, HitoriDocument> {
+class HitoriGameState: GridGameState<HitoriGame, HitoriDocument, HitoriGameMove> {
     override var gameDocument: HitoriDocument { HitoriDocument.sharedInstance }
     var objArray = [HitoriObject]()
     var row2hint = [String]()
@@ -44,7 +44,7 @@ class HitoriGameState: GridGameState<HitoriGame, HitoriDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout HitoriGameMove) -> Bool {
+    override func setObject(move: inout HitoriGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -52,7 +52,7 @@ class HitoriGameState: GridGameState<HitoriGame, HitoriDocument> {
         return true
     }
     
-    func switchObject(move: inout HitoriGameMove) -> Bool {
+    override func switchObject(move: inout HitoriGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: HitoriObject) -> HitoriObject {
             switch o {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ABCPathGameState: GridGameState<ABCPathGame, ABCPathDocument> {
+class ABCPathGameState: GridGameState<ABCPathGame, ABCPathDocument, ABCPathGameMove> {
     override var gameDocument: ABCPathDocument { ABCPathDocument.sharedInstance }
     var objArray = [Character]()
     var pos2state = [Position: HintState]()
@@ -44,7 +44,7 @@ class ABCPathGameState: GridGameState<ABCPathGame, ABCPathDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout ABCPathGameMove) -> Bool {
+    override func setObject(move: inout ABCPathGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p), game[p] == " ", self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -52,7 +52,7 @@ class ABCPathGameState: GridGameState<ABCPathGame, ABCPathDocument> {
         return true
     }
     
-    func switchObject(move: inout ABCPathGameMove) -> Bool {
+    override func switchObject(move: inout ABCPathGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p), game[p] == " " else { return false }
         let o = self[p]

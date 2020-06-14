@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FenceSentinelsGameState: GridGameState<FenceSentinelsGame, FenceSentinelsDocument> {
+class FenceSentinelsGameState: GridGameState<FenceSentinelsGame, FenceSentinelsDocument, FenceSentinelsGameMove> {
     override var gameDocument: FenceSentinelsDocument { FenceSentinelsDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
@@ -48,7 +48,7 @@ class FenceSentinelsGameState: GridGameState<FenceSentinelsGame, FenceSentinelsD
                 move.p.col == cols - 1 && move.dir == 1)
     }
     
-    func setObject(move: inout FenceSentinelsGameMove) -> Bool {
+    override func setObject(move: inout FenceSentinelsGameMove) -> Bool {
         guard isValidMove(move: &move) else { return false }
         var changed = false
         func f(o1: inout GridLineObject, o2: inout GridLineObject) {
@@ -67,7 +67,7 @@ class FenceSentinelsGameState: GridGameState<FenceSentinelsGame, FenceSentinelsD
         return changed
     }
     
-    func switchObject(move: inout FenceSentinelsGameMove) -> Bool {
+    override func switchObject(move: inout FenceSentinelsGameMove) -> Bool {
         guard isValidMove(move: &move) else { return false }
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: GridLineObject) -> GridLineObject {

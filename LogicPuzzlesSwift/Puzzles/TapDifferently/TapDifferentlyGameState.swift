@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TapDifferentlyGameState: GridGameState<TapDifferentlyGame, TapDifferentlyDocument> {
+class TapDifferentlyGameState: GridGameState<TapDifferentlyGame, TapDifferentlyDocument, TapDifferentlyGameMove> {
     override var gameDocument: TapDifferentlyDocument { TapDifferentlyDocument.sharedInstance }
     var objArray = [TapDifferentlyObject]()
     
@@ -41,7 +41,7 @@ class TapDifferentlyGameState: GridGameState<TapDifferentlyGame, TapDifferentlyD
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout TapDifferentlyGameMove) -> Bool {
+    override func setObject(move: inout TapDifferentlyGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         if case .hint = o1 { return false }
@@ -51,7 +51,7 @@ class TapDifferentlyGameState: GridGameState<TapDifferentlyGame, TapDifferentlyD
         return true
     }
     
-    func switchObject(move: inout TapDifferentlyGameMove) -> Bool {
+    override func switchObject(move: inout TapDifferentlyGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: TapDifferentlyObject) -> TapDifferentlyObject {
             switch o {

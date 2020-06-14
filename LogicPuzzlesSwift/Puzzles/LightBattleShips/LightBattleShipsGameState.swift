@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LightBattleShipsGameState: GridGameState<LightBattleShipsGame, LightBattleShipsDocument> {
+class LightBattleShipsGameState: GridGameState<LightBattleShipsGame, LightBattleShipsDocument, LightBattleShipsGameMove> {
     override var gameDocument: LightBattleShipsDocument { LightBattleShipsDocument.sharedInstance }
     var objArray = [LightBattleShipsObject]()
     
@@ -41,7 +41,7 @@ class LightBattleShipsGameState: GridGameState<LightBattleShipsGame, LightBattle
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout LightBattleShipsGameMove) -> Bool {
+    override func setObject(move: inout LightBattleShipsGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         if case .hint = o1 { return false }
@@ -51,7 +51,7 @@ class LightBattleShipsGameState: GridGameState<LightBattleShipsGame, LightBattle
         return true
     }
     
-    func switchObject(move: inout LightBattleShipsGameMove) -> Bool {
+    override func switchObject(move: inout LightBattleShipsGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: LightBattleShipsObject) -> LightBattleShipsObject {
             switch o {

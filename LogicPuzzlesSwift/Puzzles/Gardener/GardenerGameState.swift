@@ -8,7 +8,7 @@
 
 import Foundation
 
-class GardenerGameState: GridGameState<GardenerGame, GardenerDocument> {
+class GardenerGameState: GridGameState<GardenerGame, GardenerDocument, GardenerGameMove> {
     override var gameDocument: GardenerDocument { GardenerDocument.sharedInstance }
     var objArray = [GardenerObject]()
     var pos2state = [Position: HintState]()
@@ -42,7 +42,7 @@ class GardenerGameState: GridGameState<GardenerGame, GardenerDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout GardenerGameMove) -> Bool {
+    override func setObject(move: inout GardenerGameMove) -> Bool {
         let p = move.p
         guard String(describing: self[p]) != String(describing: move.obj) else { return false }
         self[p] = move.obj
@@ -50,7 +50,7 @@ class GardenerGameState: GridGameState<GardenerGame, GardenerDocument> {
         return true
     }
     
-    func switchObject(move: inout GardenerGameMove) -> Bool {
+    override func switchObject(move: inout GardenerGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: GardenerObject) -> GardenerObject {
             switch o {

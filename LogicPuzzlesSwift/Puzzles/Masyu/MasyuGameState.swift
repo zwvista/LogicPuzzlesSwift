@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MasyuGameState: GridGameState<MasyuGame, MasyuDocument> {
+class MasyuGameState: GridGameState<MasyuGame, MasyuDocument, MasyuGameMove> {
     override var gameDocument: MasyuDocument { MasyuDocument.sharedInstance }
     var objArray = [MasyuObject]()
     
@@ -38,7 +38,7 @@ class MasyuGameState: GridGameState<MasyuGame, MasyuDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout MasyuGameMove) -> Bool {
+    override func setObject(move: inout MasyuGameMove) -> Bool {
         let p = move.p, dir = move.dir
         let p2 = p + MasyuGame.offset[dir], dir2 = (dir + 2) % 4
         guard isValid(p: p2) else { return false }

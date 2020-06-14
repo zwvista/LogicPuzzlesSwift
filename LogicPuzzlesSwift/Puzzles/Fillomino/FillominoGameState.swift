@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FillominoGameState: GridGameState<FillominoGame, FillominoDocument> {
+class FillominoGameState: GridGameState<FillominoGame, FillominoDocument, FillominoGameMove> {
     override var gameDocument: FillominoDocument { FillominoDocument.sharedInstance }
     var objArray = [Character]()
     var dots: GridDots!
@@ -41,7 +41,7 @@ class FillominoGameState: GridGameState<FillominoGame, FillominoDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout FillominoGameMove) -> Bool {
+    override func setObject(move: inout FillominoGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && game[p] == " " && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -49,7 +49,7 @@ class FillominoGameState: GridGameState<FillominoGame, FillominoDocument> {
         return true
     }
     
-    func switchObject(move: inout FillominoGameMove) -> Bool {
+    override func switchObject(move: inout FillominoGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && game[p] == " " else { return false }
         let o = self[p]

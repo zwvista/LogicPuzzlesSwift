@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SnailGameState: GridGameState<SnailGame, SnailDocument> {
+class SnailGameState: GridGameState<SnailGame, SnailDocument, SnailGameMove> {
     override var gameDocument: SnailDocument { SnailDocument.sharedInstance }
     var objArray = [Character]()
     var pos2state = [Position: HintState]()
@@ -46,7 +46,7 @@ class SnailGameState: GridGameState<SnailGame, SnailDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout SnailGameMove) -> Bool {
+    override func setObject(move: inout SnailGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && game[p] == " " && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -54,7 +54,7 @@ class SnailGameState: GridGameState<SnailGame, SnailDocument> {
         return true
     }
     
-    func switchObject(move: inout SnailGameMove) -> Bool {
+    override func switchObject(move: inout SnailGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && game[p] == " " else { return false }
         let o = self[p]

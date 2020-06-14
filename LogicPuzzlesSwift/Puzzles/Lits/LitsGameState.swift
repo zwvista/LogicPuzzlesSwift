@@ -15,7 +15,7 @@ class LitsAreaInfo {
     var tetrominoIndex: Int?
 }
 
-class LitsGameState: GridGameState<LitsGame, LitsDocument> {
+class LitsGameState: GridGameState<LitsGame, LitsDocument, LitsGameMove> {
     override var gameDocument: LitsDocument { LitsDocument.sharedInstance }
     var objArray = [LitsObject]()
     var pos2state = [Position: HintState]()
@@ -47,7 +47,7 @@ class LitsGameState: GridGameState<LitsGame, LitsDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout LitsGameMove) -> Bool {
+    override func setObject(move: inout LitsGameMove) -> Bool {
         let p = move.p
         guard String(describing: self[p]) != String(describing: move.obj) else { return false }
         self[p] = move.obj
@@ -55,7 +55,7 @@ class LitsGameState: GridGameState<LitsGame, LitsDocument> {
         return true
     }
     
-    func switchObject(move: inout LitsGameMove) -> Bool {
+    override func switchObject(move: inout LitsGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: LitsObject) -> LitsObject {
             switch o {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TapARowGameState: GridGameState<TapARowGame, TapARowDocument> {
+class TapARowGameState: GridGameState<TapARowGame, TapARowDocument, TapARowGameMove> {
     override var gameDocument: TapARowDocument { TapARowDocument.sharedInstance }
     var objArray = [TapARowObject]()
     
@@ -41,7 +41,7 @@ class TapARowGameState: GridGameState<TapARowGame, TapARowDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout TapARowGameMove) -> Bool {
+    override func setObject(move: inout TapARowGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         if case .hint = o1 { return false }
@@ -51,7 +51,7 @@ class TapARowGameState: GridGameState<TapARowGame, TapARowDocument> {
         return true
     }
     
-    func switchObject(move: inout TapARowGameMove) -> Bool {
+    override func switchObject(move: inout TapARowGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: TapARowObject) -> TapARowObject {
             switch o {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PairakabeGameState: GridGameState<PairakabeGame, PairakabeDocument> {
+class PairakabeGameState: GridGameState<PairakabeGame, PairakabeDocument, PairakabeGameMove> {
     override var gameDocument: PairakabeDocument { PairakabeDocument.sharedInstance }
     var objArray = [PairakabeObject]()
     
@@ -41,7 +41,7 @@ class PairakabeGameState: GridGameState<PairakabeGame, PairakabeDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout PairakabeGameMove) -> Bool {
+    override func setObject(move: inout PairakabeGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         if case .hint = o1 { return false }
@@ -51,7 +51,7 @@ class PairakabeGameState: GridGameState<PairakabeGame, PairakabeDocument> {
         return true
     }
     
-    func switchObject(move: inout PairakabeGameMove) -> Bool {
+    override func switchObject(move: inout PairakabeGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: PairakabeObject) -> PairakabeObject {
             switch o {

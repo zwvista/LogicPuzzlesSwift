@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RobotCrosswordsGameState: GridGameState<RobotCrosswordsGame, RobotCrosswordsDocument> {
+class RobotCrosswordsGameState: GridGameState<RobotCrosswordsGame, RobotCrosswordsDocument, RobotCrosswordsGameMove> {
     override var gameDocument: RobotCrosswordsDocument { RobotCrosswordsDocument.sharedInstance }
     var objArray = [Int]()
     var pos2horzState = [Position: HintState]()
@@ -47,7 +47,7 @@ class RobotCrosswordsGameState: GridGameState<RobotCrosswordsGame, RobotCrosswor
         set { objArray[row * cols + col] = newValue }
     }
 
-    func setObject(move: inout RobotCrosswordsGameMove) -> Bool {
+    override func setObject(move: inout RobotCrosswordsGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -55,7 +55,7 @@ class RobotCrosswordsGameState: GridGameState<RobotCrosswordsGame, RobotCrosswor
         return true
     }
     
-    func switchObject(move: inout RobotCrosswordsGameMove) -> Bool {
+    override func switchObject(move: inout RobotCrosswordsGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && game[p] == 0 else { return false }
         let o = self[p]

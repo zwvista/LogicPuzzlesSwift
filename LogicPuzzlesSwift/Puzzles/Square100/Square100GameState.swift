@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Square100GameState: GridGameState<Square100Game, Square100Document> {
+class Square100GameState: GridGameState<Square100Game, Square100Document, Square100GameMove> {
     override var gameDocument: Square100Document { Square100Document.sharedInstance }
     var objArray = [String]()
     var row2hint = [Int]()
@@ -44,7 +44,7 @@ class Square100GameState: GridGameState<Square100Game, Square100Document> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout Square100GameMove) -> Bool {
+    override func setObject(move: inout Square100GameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -52,7 +52,7 @@ class Square100GameState: GridGameState<Square100Game, Square100Document> {
         return true
     }
     
-    func switchObject(move: inout Square100GameMove) -> Bool {
+    override func switchObject(move: inout Square100GameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         let p = move.p
         guard isValid(p: p) else { return false }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class WallSentinelsGameState: GridGameState<WallSentinelsGame, WallSentinelsDocument> {
+class WallSentinelsGameState: GridGameState<WallSentinelsGame, WallSentinelsDocument, WallSentinelsGameMove> {
     override var gameDocument: WallSentinelsDocument { WallSentinelsDocument.sharedInstance }
     var objArray = [WallSentinelsObject]()
     
@@ -38,7 +38,7 @@ class WallSentinelsGameState: GridGameState<WallSentinelsGame, WallSentinelsDocu
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout WallSentinelsGameMove) -> Bool {
+    override func setObject(move: inout WallSentinelsGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         switch o1 {
@@ -51,7 +51,7 @@ class WallSentinelsGameState: GridGameState<WallSentinelsGame, WallSentinelsDocu
         return true
     }
     
-    func switchObject(move: inout WallSentinelsGameMove) -> Bool {
+    override func switchObject(move: inout WallSentinelsGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: WallSentinelsObject) -> WallSentinelsObject {
             switch o {

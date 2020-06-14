@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGame, TierraDelFuegoDocument> {
+class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGame, TierraDelFuegoDocument, TierraDelFuegoGameMove> {
     override var gameDocument: TierraDelFuegoDocument { TierraDelFuegoDocument.sharedInstance }
     var objArray = [TierraDelFuegoObject]()
     
@@ -41,7 +41,7 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGame, TierraDelFuegoD
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout TierraDelFuegoGameMove) -> Bool {
+    override func setObject(move: inout TierraDelFuegoGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else { return false }
         self[p] = move.obj
@@ -49,7 +49,7 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGame, TierraDelFuegoD
         return true
     }
     
-    func switchObject(move: inout TierraDelFuegoGameMove) -> Bool {
+    override func switchObject(move: inout TierraDelFuegoGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: TierraDelFuegoObject) -> TierraDelFuegoObject {
             switch o {

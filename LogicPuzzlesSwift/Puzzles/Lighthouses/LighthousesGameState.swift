@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LighthousesGameState: GridGameState<LighthousesGame, LighthousesDocument> {
+class LighthousesGameState: GridGameState<LighthousesGame, LighthousesDocument, LighthousesGameMove> {
     override var gameDocument: LighthousesDocument { LighthousesDocument.sharedInstance }
     var objArray = [LighthousesObject]()
     
@@ -41,7 +41,7 @@ class LighthousesGameState: GridGameState<LighthousesGame, LighthousesDocument> 
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout LighthousesGameMove) -> Bool {
+    override func setObject(move: inout LighthousesGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         if case .hint = o1 { return false }
@@ -51,7 +51,7 @@ class LighthousesGameState: GridGameState<LighthousesGame, LighthousesDocument> 
         return true
     }
     
-    func switchObject(move: inout LighthousesGameMove) -> Bool {
+    override func switchObject(move: inout LighthousesGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: LighthousesObject) -> LighthousesObject {
             switch o {

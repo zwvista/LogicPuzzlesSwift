@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FourMeNotGameState: GridGameState<FourMeNotGame, FourMeNotDocument> {
+class FourMeNotGameState: GridGameState<FourMeNotGame, FourMeNotDocument, FourMeNotGameMove> {
     override var gameDocument: FourMeNotDocument { FourMeNotDocument.sharedInstance }
     var objArray = [FourMeNotObject]()
     
@@ -38,7 +38,7 @@ class FourMeNotGameState: GridGameState<FourMeNotGame, FourMeNotDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout FourMeNotGameMove) -> Bool {
+    override func setObject(move: inout FourMeNotGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p), case .empty = game[p], String(describing: self[p]) != String(describing: move.obj) else { return false }
         self[p] = move.obj
@@ -46,7 +46,7 @@ class FourMeNotGameState: GridGameState<FourMeNotGame, FourMeNotDocument> {
         return true
     }
     
-    func switchObject(move: inout FourMeNotGameMove) -> Bool {
+    override func switchObject(move: inout FourMeNotGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: FourMeNotObject) -> FourMeNotObject {
             switch o {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PaintTheNurikabeGameState: GridGameState<PaintTheNurikabeGame, PaintTheNurikabeDocument> {
+class PaintTheNurikabeGameState: GridGameState<PaintTheNurikabeGame, PaintTheNurikabeDocument, PaintTheNurikabeGameMove> {
     override var gameDocument: PaintTheNurikabeDocument { PaintTheNurikabeDocument.sharedInstance }
     var objArray = [PaintTheNurikabeObject]()
     var pos2state = [Position: HintState]()
@@ -43,7 +43,7 @@ class PaintTheNurikabeGameState: GridGameState<PaintTheNurikabeGame, PaintTheNur
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout PaintTheNurikabeGameMove) -> Bool {
+    override func setObject(move: inout PaintTheNurikabeGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -54,7 +54,7 @@ class PaintTheNurikabeGameState: GridGameState<PaintTheNurikabeGame, PaintTheNur
         return true
     }
     
-    func switchObject(move: inout PaintTheNurikabeGameMove) -> Bool {
+    override func switchObject(move: inout PaintTheNurikabeGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: PaintTheNurikabeObject) -> PaintTheNurikabeObject {
             switch o {

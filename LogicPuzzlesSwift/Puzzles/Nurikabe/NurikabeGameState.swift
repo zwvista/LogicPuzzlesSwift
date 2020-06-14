@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NurikabeGameState: GridGameState<NurikabeGame, NurikabeDocument> {
+class NurikabeGameState: GridGameState<NurikabeGame, NurikabeDocument, NurikabeGameMove> {
     override var gameDocument: NurikabeDocument { NurikabeDocument.sharedInstance }
     var objArray = [NurikabeObject]()
     
@@ -41,7 +41,7 @@ class NurikabeGameState: GridGameState<NurikabeGame, NurikabeDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout NurikabeGameMove) -> Bool {
+    override func setObject(move: inout NurikabeGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         if case .hint = o1 { return false }
@@ -51,7 +51,7 @@ class NurikabeGameState: GridGameState<NurikabeGame, NurikabeDocument> {
         return true
     }
     
-    func switchObject(move: inout NurikabeGameMove) -> Bool {
+    override func switchObject(move: inout NurikabeGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: NurikabeObject) -> NurikabeObject {
             switch o {

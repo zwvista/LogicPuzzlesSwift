@@ -8,7 +8,7 @@
 
 import Foundation
 
-class OrchardsGameState: GridGameState<OrchardsGame, OrchardsDocument> {
+class OrchardsGameState: GridGameState<OrchardsGame, OrchardsDocument, OrchardsGameMove> {
     override var gameDocument: OrchardsDocument { OrchardsDocument.sharedInstance }
     var objArray = [OrchardsObject]()
     var pos2state = [Position: HintState]()
@@ -40,7 +40,7 @@ class OrchardsGameState: GridGameState<OrchardsGame, OrchardsDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout OrchardsGameMove) -> Bool {
+    override func setObject(move: inout OrchardsGameMove) -> Bool {
         let p = move.p
         guard String(describing: self[p]) != String(describing: move.obj) else { return false }
         self[p] = move.obj
@@ -48,7 +48,7 @@ class OrchardsGameState: GridGameState<OrchardsGame, OrchardsDocument> {
         return true
     }
     
-    func switchObject(move: inout OrchardsGameMove) -> Bool {
+    override func switchObject(move: inout OrchardsGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: OrchardsObject) -> OrchardsObject {
             switch o {

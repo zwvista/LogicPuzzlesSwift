@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TapaIslandsGameState: GridGameState<TapaIslandsGame, TapaIslandsDocument> {
+class TapaIslandsGameState: GridGameState<TapaIslandsGame, TapaIslandsDocument, TapaIslandsGameMove> {
     override var gameDocument: TapaIslandsDocument { TapaIslandsDocument.sharedInstance }
     var objArray = [TapaIslandsObject]()
     
@@ -41,7 +41,7 @@ class TapaIslandsGameState: GridGameState<TapaIslandsGame, TapaIslandsDocument> 
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout TapaIslandsGameMove) -> Bool {
+    override func setObject(move: inout TapaIslandsGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         if case .hint = o1 { return false }
@@ -51,7 +51,7 @@ class TapaIslandsGameState: GridGameState<TapaIslandsGame, TapaIslandsDocument> 
         return true
     }
     
-    func switchObject(move: inout TapaIslandsGameMove) -> Bool {
+    override func switchObject(move: inout TapaIslandsGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: TapaIslandsObject) -> TapaIslandsObject {
             switch o {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BusySeasGameState: GridGameState<BusySeasGame, BusySeasDocument> {
+class BusySeasGameState: GridGameState<BusySeasGame, BusySeasDocument, BusySeasGameMove> {
     override var gameDocument: BusySeasDocument { BusySeasDocument.sharedInstance }
     var objArray = [BusySeasObject]()
     
@@ -41,7 +41,7 @@ class BusySeasGameState: GridGameState<BusySeasGame, BusySeasDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout BusySeasGameMove) -> Bool {
+    override func setObject(move: inout BusySeasGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         if case .hint = o1 { return false }
@@ -51,7 +51,7 @@ class BusySeasGameState: GridGameState<BusySeasGame, BusySeasDocument> {
         return true
     }
     
-    func switchObject(move: inout BusySeasGameMove) -> Bool {
+    override func switchObject(move: inout BusySeasGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: BusySeasObject) -> BusySeasObject {
             switch o {

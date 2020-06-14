@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CarpentersSquareGameState: GridGameState<CarpentersSquareGame, CarpentersSquareDocument> {
+class CarpentersSquareGameState: GridGameState<CarpentersSquareGame, CarpentersSquareDocument, CarpentersSquareGameMove> {
     override var gameDocument: CarpentersSquareDocument { CarpentersSquareDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
@@ -43,7 +43,7 @@ class CarpentersSquareGameState: GridGameState<CarpentersSquareGame, CarpentersS
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout CarpentersSquareGameMove) -> Bool {
+    override func setObject(move: inout CarpentersSquareGameMove) -> Bool {
         var changed = false
         func f(o1: inout GridLineObject, o2: inout GridLineObject) {
             if o1 != move.obj {
@@ -62,7 +62,7 @@ class CarpentersSquareGameState: GridGameState<CarpentersSquareGame, CarpentersS
         return changed
     }
     
-    func switchObject(move: inout CarpentersSquareGameMove) -> Bool {
+    override func switchObject(move: inout CarpentersSquareGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: GridLineObject) -> GridLineObject {
             switch o {

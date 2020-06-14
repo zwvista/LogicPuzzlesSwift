@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PataGameState: GridGameState<PataGame, PataDocument> {
+class PataGameState: GridGameState<PataGame, PataDocument, PataGameMove> {
     override var gameDocument: PataDocument { PataDocument.sharedInstance }
     var objArray = [PataObject]()
     
@@ -41,7 +41,7 @@ class PataGameState: GridGameState<PataGame, PataDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout PataGameMove) -> Bool {
+    override func setObject(move: inout PataGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         if case .hint = o1 { return false }
@@ -51,7 +51,7 @@ class PataGameState: GridGameState<PataGame, PataDocument> {
         return true
     }
     
-    func switchObject(move: inout PataGameMove) -> Bool {
+    override func switchObject(move: inout PataGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: PataObject) -> PataObject {
             switch o {

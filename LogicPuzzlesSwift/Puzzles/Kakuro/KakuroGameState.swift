@@ -8,7 +8,7 @@
 
 import Foundation
 
-class KakuroGameState: GridGameState<KakuroGame, KakuroDocument> {
+class KakuroGameState: GridGameState<KakuroGame, KakuroDocument, KakuroGameMove> {
     override var gameDocument: KakuroDocument { KakuroDocument.sharedInstance }
     var pos2num = [Position: Int]()
     var pos2horzState = [Position: HintState]()
@@ -33,7 +33,7 @@ class KakuroGameState: GridGameState<KakuroGame, KakuroDocument> {
         updateIsSolved()
     }
 
-    func setObject(move: inout KakuroGameMove) -> Bool {
+    override func setObject(move: inout KakuroGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && pos2num[p] != nil && pos2num[p] != move.obj else { return false }
         pos2num[p] = move.obj
@@ -41,7 +41,7 @@ class KakuroGameState: GridGameState<KakuroGame, KakuroDocument> {
         return true
     }
     
-    func switchObject(move: inout KakuroGameMove) -> Bool {
+    override func switchObject(move: inout KakuroGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && pos2num[p] != nil else { return false }
         let o = pos2num[p]!

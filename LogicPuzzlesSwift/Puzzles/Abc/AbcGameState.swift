@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AbcGameState: GridGameState<AbcGame, AbcDocument> {
+class AbcGameState: GridGameState<AbcGame, AbcDocument, AbcGameMove> {
     override var gameDocument: AbcDocument { AbcDocument.sharedInstance }
     var objArray = [Character]()
     var row2state = [HintState]()
@@ -57,7 +57,7 @@ class AbcGameState: GridGameState<AbcGame, AbcDocument> {
             .normal
     }
     
-    func setObject(move: inout AbcGameMove) -> Bool {
+    override func setObject(move: inout AbcGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -65,7 +65,7 @@ class AbcGameState: GridGameState<AbcGame, AbcDocument> {
         return true
     }
     
-    func switchObject(move: inout AbcGameMove) -> Bool {
+    override func switchObject(move: inout AbcGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) else { return false }
         let o = self[p]

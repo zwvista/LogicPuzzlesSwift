@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BootyIslandGameState: GridGameState<BootyIslandGame, BootyIslandDocument> {
+class BootyIslandGameState: GridGameState<BootyIslandGame, BootyIslandDocument, BootyIslandGameMove> {
     override var gameDocument: BootyIslandDocument { BootyIslandDocument.sharedInstance }
     var objArray = [BootyIslandObject]()
     
@@ -41,7 +41,7 @@ class BootyIslandGameState: GridGameState<BootyIslandGame, BootyIslandDocument> 
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout BootyIslandGameMove) -> Bool {
+    override func setObject(move: inout BootyIslandGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         if case .hint = o1 { return false }
@@ -51,7 +51,7 @@ class BootyIslandGameState: GridGameState<BootyIslandGame, BootyIslandDocument> 
         return true
     }
     
-    func switchObject(move: inout BootyIslandGameMove) -> Bool {
+    override func switchObject(move: inout BootyIslandGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: BootyIslandObject) -> BootyIslandObject {
             switch o {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NoughtsAndCrossesGameState: GridGameState<NoughtsAndCrossesGame, NoughtsAndCrossesDocument> {
+class NoughtsAndCrossesGameState: GridGameState<NoughtsAndCrossesGame, NoughtsAndCrossesDocument, NoughtsAndCrossesGameMove> {
     override var gameDocument: NoughtsAndCrossesDocument { NoughtsAndCrossesDocument.sharedInstance }
     var objArray = [Character]()
     var row2state = [HintState]()
@@ -51,7 +51,7 @@ class NoughtsAndCrossesGameState: GridGameState<NoughtsAndCrossesGame, NoughtsAn
         set { objArray[row * cols + col] = newValue }
     }
 
-    func setObject(move: inout NoughtsAndCrossesGameMove) -> Bool {
+    override func setObject(move: inout NoughtsAndCrossesGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && game[p] == " " && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -59,7 +59,7 @@ class NoughtsAndCrossesGameState: GridGameState<NoughtsAndCrossesGame, NoughtsAn
         return true
     }
     
-    func switchObject(move: inout NoughtsAndCrossesGameMove) -> Bool {
+    override func switchObject(move: inout NoughtsAndCrossesGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && game[p] == " " else { return false }
         let o = self[p]

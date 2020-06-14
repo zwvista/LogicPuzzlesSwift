@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TennerGridGameState: GridGameState<TennerGridGame, TennerGridDocument> {
+class TennerGridGameState: GridGameState<TennerGridGame, TennerGridDocument, TennerGridGameMove> {
     override var gameDocument: TennerGridDocument { TennerGridDocument.sharedInstance }
     var objArray = [Int]()
     var pos2state = [Position: HintState]()
@@ -45,7 +45,7 @@ class TennerGridGameState: GridGameState<TennerGridGame, TennerGridDocument> {
         set { objArray[row * cols + col] = newValue }
     }
 
-    func setObject(move: inout TennerGridGameMove) -> Bool {
+    override func setObject(move: inout TennerGridGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && game[p] == -1 && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -53,7 +53,7 @@ class TennerGridGameState: GridGameState<TennerGridGame, TennerGridDocument> {
         return true
     }
     
-    func switchObject(move: inout TennerGridGameMove) -> Bool {
+    override func switchObject(move: inout TennerGridGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && game[p] == -1 else { return false }
         let o = self[p]

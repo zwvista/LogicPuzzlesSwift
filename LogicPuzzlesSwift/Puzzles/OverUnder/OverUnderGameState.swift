@@ -8,7 +8,7 @@
 
 import Foundation
 
-class OverUnderGameState: GridGameState<OverUnderGame, OverUnderDocument> {
+class OverUnderGameState: GridGameState<OverUnderGame, OverUnderDocument, OverUnderGameMove> {
     override var gameDocument: OverUnderDocument { OverUnderDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
@@ -43,7 +43,7 @@ class OverUnderGameState: GridGameState<OverUnderGame, OverUnderDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout OverUnderGameMove) -> Bool {
+    override func setObject(move: inout OverUnderGameMove) -> Bool {
         var changed = false
         func f(o1: inout GridLineObject, o2: inout GridLineObject) {
             if o1 != move.obj {
@@ -62,7 +62,7 @@ class OverUnderGameState: GridGameState<OverUnderGame, OverUnderDocument> {
         return changed
     }
     
-    func switchObject(move: inout OverUnderGameMove) -> Bool {
+    override func switchObject(move: inout OverUnderGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: GridLineObject) -> GridLineObject {
             switch o {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DisconnectFourGameState: GridGameState<DisconnectFourGame, DisconnectFourDocument> {
+class DisconnectFourGameState: GridGameState<DisconnectFourGame, DisconnectFourDocument, DisconnectFourGameMove> {
     override var gameDocument: DisconnectFourDocument { DisconnectFourDocument.sharedInstance }
     var objArray = [DisconnectFourObject]()
     var pos2state = [Position: AllowedObjectState]()
@@ -40,7 +40,7 @@ class DisconnectFourGameState: GridGameState<DisconnectFourGame, DisconnectFourD
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout DisconnectFourGameMove) -> Bool {
+    override func setObject(move: inout DisconnectFourGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p), game[p] == .empty, self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -48,7 +48,7 @@ class DisconnectFourGameState: GridGameState<DisconnectFourGame, DisconnectFourD
         return true
     }
     
-    func switchObject(move: inout DisconnectFourGameMove) -> Bool {
+    override func switchObject(move: inout DisconnectFourGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p), game[p] == .empty else { return false }
         let o = self[p]

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PowerGridGameState: GridGameState<PowerGridGame, PowerGridDocument> {
+class PowerGridGameState: GridGameState<PowerGridGame, PowerGridDocument, PowerGridGameMove> {
     override var gameDocument: PowerGridDocument { PowerGridDocument.sharedInstance }
     var objArray = [PowerGridObject]()
     var row2state = [HintState]()
@@ -44,7 +44,7 @@ class PowerGridGameState: GridGameState<PowerGridGame, PowerGridDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout PowerGridGameMove) -> Bool {
+    override func setObject(move: inout PowerGridGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         guard String(describing: o1) != String(describing: o2) else { return false }
@@ -53,7 +53,7 @@ class PowerGridGameState: GridGameState<PowerGridGame, PowerGridDocument> {
         return true
     }
     
-    func switchObject(move: inout PowerGridGameMove) -> Bool {
+    override func switchObject(move: inout PowerGridGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: PowerGridObject) -> PowerGridObject {
             switch o {

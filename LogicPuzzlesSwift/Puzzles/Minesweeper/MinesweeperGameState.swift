@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MinesweeperGameState: GridGameState<MinesweeperGame, MinesweeperDocument> {
+class MinesweeperGameState: GridGameState<MinesweeperGame, MinesweeperDocument, MinesweeperGameMove> {
     override var gameDocument: MinesweeperDocument { MinesweeperDocument.sharedInstance }
     var objArray = [MinesweeperObject]()
     
@@ -38,7 +38,7 @@ class MinesweeperGameState: GridGameState<MinesweeperGame, MinesweeperDocument> 
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout MinesweeperGameMove) -> Bool {
+    override func setObject(move: inout MinesweeperGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         if case .hint = o1 { return false }
@@ -48,7 +48,7 @@ class MinesweeperGameState: GridGameState<MinesweeperGame, MinesweeperDocument> 
         return true
     }
     
-    func switchObject(move: inout MinesweeperGameMove) -> Bool {
+    override func switchObject(move: inout MinesweeperGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: MinesweeperObject) -> MinesweeperObject {
             switch o {

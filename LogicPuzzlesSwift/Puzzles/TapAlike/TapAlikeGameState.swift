@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TapAlikeGameState: GridGameState<TapAlikeGame, TapAlikeDocument> {
+class TapAlikeGameState: GridGameState<TapAlikeGame, TapAlikeDocument, TapAlikeGameMove> {
     override var gameDocument: TapAlikeDocument { TapAlikeDocument.sharedInstance }
     var objArray = [TapAlikeObject]()
     
@@ -41,7 +41,7 @@ class TapAlikeGameState: GridGameState<TapAlikeGame, TapAlikeDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout TapAlikeGameMove) -> Bool {
+    override func setObject(move: inout TapAlikeGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         if case .hint = o1 { return false }
@@ -51,7 +51,7 @@ class TapAlikeGameState: GridGameState<TapAlikeGame, TapAlikeDocument> {
         return true
     }
     
-    func switchObject(move: inout TapAlikeGameMove) -> Bool {
+    override func switchObject(move: inout TapAlikeGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: TapAlikeObject) -> TapAlikeObject {
             switch o {

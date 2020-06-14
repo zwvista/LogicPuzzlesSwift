@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DigitalBattleShipsGameState: GridGameState<DigitalBattleShipsGame, DigitalBattleShipsDocument> {
+class DigitalBattleShipsGameState: GridGameState<DigitalBattleShipsGame, DigitalBattleShipsDocument, DigitalBattleShipsGameMove> {
     override var gameDocument: DigitalBattleShipsDocument { DigitalBattleShipsDocument.sharedInstance }
     var objArray = [DigitalBattleShipsObject]()
     var row2state = [HintState]()
@@ -44,7 +44,7 @@ class DigitalBattleShipsGameState: GridGameState<DigitalBattleShipsGame, Digital
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout DigitalBattleShipsGameMove) -> Bool {
+    override func setObject(move: inout DigitalBattleShipsGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -52,7 +52,7 @@ class DigitalBattleShipsGameState: GridGameState<DigitalBattleShipsGame, Digital
         return true
     }
     
-    func switchObject(move: inout DigitalBattleShipsGameMove) -> Bool {
+    override func switchObject(move: inout DigitalBattleShipsGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: DigitalBattleShipsObject) -> DigitalBattleShipsObject {
             switch o {

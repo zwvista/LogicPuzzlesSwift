@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NumberCrosswordsGameState: GridGameState<NumberCrosswordsGame, NumberCrosswordsDocument> {
+class NumberCrosswordsGameState: GridGameState<NumberCrosswordsGame, NumberCrosswordsDocument, NumberCrosswordsGameMove> {
     override var gameDocument: NumberCrosswordsDocument { NumberCrosswordsDocument.sharedInstance }
     var objArray = [NumberCrosswordsObject]()
     var row2state = [HintState]()
@@ -44,7 +44,7 @@ class NumberCrosswordsGameState: GridGameState<NumberCrosswordsGame, NumberCross
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout NumberCrosswordsGameMove) -> Bool {
+    override func setObject(move: inout NumberCrosswordsGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -52,7 +52,7 @@ class NumberCrosswordsGameState: GridGameState<NumberCrosswordsGame, NumberCross
         return true
     }
     
-    func switchObject(move: inout NumberCrosswordsGameMove) -> Bool {
+    override func switchObject(move: inout NumberCrosswordsGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: NumberCrosswordsObject) -> NumberCrosswordsObject {
             switch o {

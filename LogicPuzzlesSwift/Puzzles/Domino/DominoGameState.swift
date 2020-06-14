@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DominoGameState: GridGameState<DominoGame, DominoDocument> {
+class DominoGameState: GridGameState<DominoGame, DominoDocument, DominoGameMove> {
     override var gameDocument: DominoDocument { DominoDocument.sharedInstance }
     var objArray = [GridDotObject]()
     
@@ -38,7 +38,7 @@ class DominoGameState: GridGameState<DominoGame, DominoDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout DominoGameMove) -> Bool {
+    override func setObject(move: inout DominoGameMove) -> Bool {
         var changed = false
         func f(o1: inout GridLineObject, o2: inout GridLineObject) {
             if o1 != move.obj {
@@ -57,7 +57,7 @@ class DominoGameState: GridGameState<DominoGame, DominoDocument> {
         return changed
     }
     
-    func switchObject(move: inout DominoGameMove) -> Bool {
+    override func switchObject(move: inout DominoGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: GridLineObject) -> GridLineObject {
             switch o {

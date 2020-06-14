@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AbstractPaintingGameState: GridGameState<AbstractPaintingGame, AbstractPaintingDocument> {
+class AbstractPaintingGameState: GridGameState<AbstractPaintingGame, AbstractPaintingDocument, AbstractPaintingGameMove> {
     override var gameDocument: AbstractPaintingDocument { AbstractPaintingDocument.sharedInstance }
     var objArray = [AbstractPaintingObject]()
     var row2state = [HintState]()
@@ -44,7 +44,7 @@ class AbstractPaintingGameState: GridGameState<AbstractPaintingGame, AbstractPai
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout AbstractPaintingGameMove) -> Bool {
+    override func setObject(move: inout AbstractPaintingGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && self[p] != move.obj else { return false }
         // 3. The region of the painting can be entirely hidden or revealed.
@@ -55,7 +55,7 @@ class AbstractPaintingGameState: GridGameState<AbstractPaintingGame, AbstractPai
         return true
     }
     
-    func switchObject(move: inout AbstractPaintingGameMove) -> Bool {
+    override func switchObject(move: inout AbstractPaintingGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: AbstractPaintingObject) -> AbstractPaintingObject {
             switch o {

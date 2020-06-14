@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LoopyGameState: GridGameState<LoopyGame, LoopyDocument> {
+class LoopyGameState: GridGameState<LoopyGame, LoopyDocument, LoopyGameMove> {
     override var gameDocument: LoopyDocument { LoopyDocument.sharedInstance }
     var objArray = [GridDotObject]()
     
@@ -43,7 +43,7 @@ class LoopyGameState: GridGameState<LoopyGame, LoopyDocument> {
             move.p.col == cols - 1 && move.dir == 1)
     }
     
-    func setObject(move: inout LoopyGameMove) -> Bool {
+    override func setObject(move: inout LoopyGameMove) -> Bool {
         guard isValidMove(move: &move) else { return false }
         var changed = false
         func f(o1: inout GridLineObject, o2: inout GridLineObject) {
@@ -63,7 +63,7 @@ class LoopyGameState: GridGameState<LoopyGame, LoopyDocument> {
         return changed
     }
     
-    func switchObject(move: inout LoopyGameMove) -> Bool {
+    override func switchObject(move: inout LoopyGameMove) -> Bool {
         guard isValidMove(move: &move) else { return false }
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: GridLineObject) -> GridLineObject {

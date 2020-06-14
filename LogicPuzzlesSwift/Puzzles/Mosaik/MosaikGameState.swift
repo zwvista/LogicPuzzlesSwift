@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MosaikGameState: GridGameState<MosaikGame, MosaikDocument> {
+class MosaikGameState: GridGameState<MosaikGame, MosaikDocument, MosaikGameMove> {
     override var gameDocument: MosaikDocument { MosaikDocument.sharedInstance }
     var objArray = [MosaikObject]()
     var pos2state = [Position: HintState]()
@@ -43,14 +43,14 @@ class MosaikGameState: GridGameState<MosaikGame, MosaikDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout MosaikGameMove) -> Bool {
+    override func setObject(move: inout MosaikGameMove) -> Bool {
         if self[move.p] == move.obj { return false }
         self[move.p] = move.obj
         updateIsSolved()
         return true
     }
     
-    func switchObject(move: inout MosaikGameMove) -> Bool {
+    override func switchObject(move: inout MosaikGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: MosaikObject) -> MosaikObject {
             switch o {

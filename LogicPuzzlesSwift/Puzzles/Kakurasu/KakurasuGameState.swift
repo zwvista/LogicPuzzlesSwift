@@ -8,7 +8,7 @@
 
 import Foundation
 
-class KakurasuGameState: GridGameState<KakurasuGame, KakurasuDocument> {
+class KakurasuGameState: GridGameState<KakurasuGame, KakurasuDocument, KakurasuGameMove> {
     override var gameDocument: KakurasuDocument { KakurasuDocument.sharedInstance }
     var objArray = [KakurasuObject]()
     var row2state = [HintState]()
@@ -52,7 +52,7 @@ class KakurasuGameState: GridGameState<KakurasuGame, KakurasuDocument> {
             .normal
     }
     
-    func setObject(move: inout KakurasuGameMove) -> Bool {
+    override func setObject(move: inout KakurasuGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -60,7 +60,7 @@ class KakurasuGameState: GridGameState<KakurasuGame, KakurasuDocument> {
         return true
     }
     
-    func switchObject(move: inout KakurasuGameMove) -> Bool {
+    override func switchObject(move: inout KakurasuGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: KakurasuObject) -> KakurasuObject {
             switch o {

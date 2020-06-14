@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NorthPoleFishingGameState: GridGameState<NorthPoleFishingGame, NorthPoleFishingDocument> {
+class NorthPoleFishingGameState: GridGameState<NorthPoleFishingGame, NorthPoleFishingDocument, NorthPoleFishingGameMove> {
     override var gameDocument: NorthPoleFishingDocument { NorthPoleFishingDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
@@ -43,7 +43,7 @@ class NorthPoleFishingGameState: GridGameState<NorthPoleFishingGame, NorthPoleFi
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout NorthPoleFishingGameMove) -> Bool {
+    override func setObject(move: inout NorthPoleFishingGameMove) -> Bool {
         var changed = false
         func f(o1: inout GridLineObject, o2: inout GridLineObject) {
             if o1 != move.obj {
@@ -62,7 +62,7 @@ class NorthPoleFishingGameState: GridGameState<NorthPoleFishingGame, NorthPoleFi
         return changed
     }
     
-    func switchObject(move: inout NorthPoleFishingGameMove) -> Bool {
+    override func switchObject(move: inout NorthPoleFishingGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: GridLineObject) -> GridLineObject {
             switch o {

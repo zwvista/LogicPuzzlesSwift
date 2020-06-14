@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SnakeGameState: GridGameState<SnakeGame, SnakeDocument> {
+class SnakeGameState: GridGameState<SnakeGame, SnakeDocument, SnakeGameMove> {
     override var gameDocument: SnakeDocument { SnakeDocument.sharedInstance }
     var objArray = [SnakeObject]()
     var row2state = [HintState]()
@@ -47,7 +47,7 @@ class SnakeGameState: GridGameState<SnakeGame, SnakeDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout SnakeGameMove) -> Bool {
+    override func setObject(move: inout SnakeGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && !game.pos2snake.contains(p) && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -55,7 +55,7 @@ class SnakeGameState: GridGameState<SnakeGame, SnakeDocument> {
         return true
     }
     
-    func switchObject(move: inout SnakeGameMove) -> Bool {
+    override func switchObject(move: inout SnakeGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: SnakeObject) -> SnakeObject {
             switch o {

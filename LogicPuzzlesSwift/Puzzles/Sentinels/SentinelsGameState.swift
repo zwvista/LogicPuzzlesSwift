@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SentinelsGameState: GridGameState<SentinelsGame, SentinelsDocument> {
+class SentinelsGameState: GridGameState<SentinelsGame, SentinelsDocument, SentinelsGameMove> {
     override var gameDocument: SentinelsDocument { SentinelsDocument.sharedInstance }
     var objArray = [SentinelsObject]()
     
@@ -41,7 +41,7 @@ class SentinelsGameState: GridGameState<SentinelsGame, SentinelsDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout SentinelsGameMove) -> Bool {
+    override func setObject(move: inout SentinelsGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         if case .hint = o1 { return false }
@@ -51,7 +51,7 @@ class SentinelsGameState: GridGameState<SentinelsGame, SentinelsDocument> {
         return true
     }
     
-    func switchObject(move: inout SentinelsGameMove) -> Bool {
+    override func switchObject(move: inout SentinelsGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: SentinelsObject) -> SentinelsObject {
             switch o {

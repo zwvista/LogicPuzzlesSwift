@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FutoshikiGameState: GridGameState<FutoshikiGame, FutoshikiDocument> {
+class FutoshikiGameState: GridGameState<FutoshikiGame, FutoshikiDocument, FutoshikiGameMove> {
     override var gameDocument: FutoshikiDocument { FutoshikiDocument.sharedInstance }
     var objArray = [Character]()
     var row2state = [HintState]()
@@ -46,7 +46,7 @@ class FutoshikiGameState: GridGameState<FutoshikiGame, FutoshikiDocument> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout FutoshikiGameMove) -> Bool {
+    override func setObject(move: inout FutoshikiGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && p.row % 2 == 0 && p.col % 2 == 0 && game[p] == " " && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -54,7 +54,7 @@ class FutoshikiGameState: GridGameState<FutoshikiGame, FutoshikiDocument> {
         return true
     }
     
-    func switchObject(move: inout FutoshikiGameMove) -> Bool {
+    override func switchObject(move: inout FutoshikiGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && p.row % 2 == 0 && p.col % 2 == 0 && game[p] == " " else { return false }
         let o = self[p]

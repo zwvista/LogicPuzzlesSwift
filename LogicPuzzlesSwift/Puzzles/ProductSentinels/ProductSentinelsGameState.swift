@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ProductSentinelsGameState: GridGameState<ProductSentinelsGame, ProductSentinelsDocument> {
+class ProductSentinelsGameState: GridGameState<ProductSentinelsGame, ProductSentinelsDocument, ProductSentinelsGameMove> {
     override var gameDocument: ProductSentinelsDocument { ProductSentinelsDocument.sharedInstance }
     var objArray = [ProductSentinelsObject]()
     
@@ -41,7 +41,7 @@ class ProductSentinelsGameState: GridGameState<ProductSentinelsGame, ProductSent
         set { objArray[row * cols + col] = newValue }
     }
     
-    func setObject(move: inout ProductSentinelsGameMove) -> Bool {
+    override func setObject(move: inout ProductSentinelsGameMove) -> Bool {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         if case .hint = o1 { return false }
@@ -51,7 +51,7 @@ class ProductSentinelsGameState: GridGameState<ProductSentinelsGame, ProductSent
         return true
     }
     
-    func switchObject(move: inout ProductSentinelsGameMove) -> Bool {
+    override func switchObject(move: inout ProductSentinelsGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: ProductSentinelsObject) -> ProductSentinelsObject {
             switch o {

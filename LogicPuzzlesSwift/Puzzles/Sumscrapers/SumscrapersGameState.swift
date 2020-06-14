@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SumscrapersGameState: GridGameState<SumscrapersGame, SumscrapersDocument> {
+class SumscrapersGameState: GridGameState<SumscrapersGame, SumscrapersDocument, SumscrapersGameMove> {
     override var gameDocument: SumscrapersDocument { SumscrapersDocument.sharedInstance }
     var objArray = [Int]()
     var row2state = [HintState]()
@@ -57,7 +57,7 @@ class SumscrapersGameState: GridGameState<SumscrapersGame, SumscrapersDocument> 
             .normal
     }
     
-    func setObject(move: inout SumscrapersGameMove) -> Bool {
+    override func setObject(move: inout SumscrapersGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) && self[p] != move.obj else { return false }
         self[p] = move.obj
@@ -65,7 +65,7 @@ class SumscrapersGameState: GridGameState<SumscrapersGame, SumscrapersDocument> 
         return true
     }
     
-    func switchObject(move: inout SumscrapersGameMove) -> Bool {
+    override func switchObject(move: inout SumscrapersGameMove) -> Bool {
         let p = move.p
         guard isValid(p: p) else { return false }
         let o = self[p]
