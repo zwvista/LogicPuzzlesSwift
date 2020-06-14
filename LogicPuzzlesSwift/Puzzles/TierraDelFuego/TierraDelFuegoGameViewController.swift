@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class TierraDelFuegoGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = TierraDelFuegoGameMove
     typealias GS = TierraDelFuegoGameState
 
     var scene: TierraDelFuegoGameScene {

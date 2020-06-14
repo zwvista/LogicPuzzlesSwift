@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class OrchardsGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = OrchardsGameMove
     typealias GS = OrchardsGameState
 
     var scene: OrchardsGameScene {

@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class BalancedTapasGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = BalancedTapasGameMove
     typealias GS = BalancedTapasGameState
 
     var scene: BalancedTapasGameScene {

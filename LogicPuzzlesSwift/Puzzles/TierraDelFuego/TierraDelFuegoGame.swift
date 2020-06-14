@@ -35,12 +35,4 @@ class TierraDelFuegoGame: GridGame<TierraDelFuegoGameViewController> {
         levelInitilized(state: state)
     }
     
-    func switchObject(move: inout TierraDelFuegoGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
-    }
-    
-    func setObject(move: inout TierraDelFuegoGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
-    }
-    
 }

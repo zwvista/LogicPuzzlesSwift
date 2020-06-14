@@ -40,12 +40,4 @@ class BootyIslandGame: GridGame<BootyIslandGameViewController> {
         levelInitilized(state: state)
     }
     
-    func switchObject(move: inout BootyIslandGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
-    }
-    
-    func setObject(move: inout BootyIslandGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
-    }
-    
 }

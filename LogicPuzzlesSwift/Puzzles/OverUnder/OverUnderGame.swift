@@ -70,12 +70,4 @@ class OverUnderGame: GridGame<OverUnderGameViewController> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func switchObject(move: inout OverUnderGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
-    }
-    
-    func setObject(move: inout OverUnderGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
-    }
-    
 }

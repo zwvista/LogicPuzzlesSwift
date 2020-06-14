@@ -47,8 +47,4 @@ class NumberLinkGame: GridGame<NumberLinkGameViewController> {
         levelInitilized(state: state)
     }
     
-    func setObject(move: inout NumberLinkGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
-    }
-    
 }

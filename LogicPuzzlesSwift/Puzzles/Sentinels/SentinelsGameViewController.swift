@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class SentinelsGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = SentinelsGameMove
     typealias GS = SentinelsGameState
 
     var scene: SentinelsGameScene {

@@ -35,12 +35,4 @@ class WallsGame: GridGame<WallsGameViewController> {
         levelInitilized(state: state)
     }
     
-    func switchObject(move: inout WallsGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
-    }
-    
-    func setObject(move: inout WallsGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
-    }
-    
 }

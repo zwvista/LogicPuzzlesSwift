@@ -93,12 +93,4 @@ class FenceLitsGame: GridGame<FenceLitsGameViewController> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func switchObject(move: inout FenceLitsGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
-    }
-    
-    func setObject(move: inout FenceLitsGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
-    }
-    
 }

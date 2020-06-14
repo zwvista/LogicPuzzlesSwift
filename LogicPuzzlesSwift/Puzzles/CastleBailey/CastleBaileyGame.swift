@@ -41,13 +41,5 @@ class CastleBaileyGame: GridGame<CastleBaileyGameViewController> {
         let state = CastleBaileyGameState(game: self)
         levelInitilized(state: state)
     }
-        
-    func switchObject(move: inout CastleBaileyGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
-    }
-    
-    func setObject(move: inout CastleBaileyGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
-    }
     
 }

@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class NumberCrosswordsGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = NumberCrosswordsGameMove
     typealias GS = NumberCrosswordsGameState
 
     var scene: NumberCrosswordsGameScene {

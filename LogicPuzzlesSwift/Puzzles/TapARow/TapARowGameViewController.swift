@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class TapARowGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = TapARowGameMove
     typealias GS = TapARowGameState
 
     var scene: TapARowGameScene {

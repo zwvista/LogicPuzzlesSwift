@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class HitoriGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = HitoriGameMove
     typealias GS = HitoriGameState
 
     var scene: HitoriGameScene {

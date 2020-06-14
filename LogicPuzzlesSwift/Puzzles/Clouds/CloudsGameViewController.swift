@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class CloudsGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = CloudsGameMove
     typealias GS = CloudsGameState
 
     var scene: CloudsGameScene {

@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class SnakeGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = SnakeGameMove
     typealias GS = SnakeGameState
 
     var scene: SnakeGameScene {

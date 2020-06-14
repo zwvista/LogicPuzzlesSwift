@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class KropkiGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = KropkiGameMove
     typealias GS = KropkiGameState
 
     var scene: KropkiGameScene {

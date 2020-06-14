@@ -106,12 +106,4 @@ class AbstractPaintingGame: GridGame<AbstractPaintingGameViewController> {
         levelInitilized(state: state)
     }
     
-    func switchObject(move: inout AbstractPaintingGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
-    }
-    
-    func setObject(move: inout AbstractPaintingGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
-    }
-    
 }

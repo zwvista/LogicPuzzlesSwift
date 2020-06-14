@@ -41,8 +41,4 @@ class LineSweeperGame: GridGame<LineSweeperGameViewController> {
         levelInitilized(state: state)
     }
     
-    func setObject(move: inout LineSweeperGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
-    }
-    
 }

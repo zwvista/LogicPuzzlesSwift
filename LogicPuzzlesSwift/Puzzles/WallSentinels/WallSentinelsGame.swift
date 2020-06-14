@@ -53,12 +53,4 @@ class WallSentinelsGame: GridGame<WallSentinelsGameViewController> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func switchObject(move: inout WallSentinelsGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
-    }
-    
-    func setObject(move: inout WallSentinelsGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
-    }
-    
 }

@@ -57,12 +57,4 @@ class TapARowGame: GridGame<TapARowGameViewController> {
         levelInitilized(state: state)
     }
     
-    func switchObject(move: inout TapARowGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
-    }
-    
-    func setObject(move: inout TapARowGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
-    }
-    
 }

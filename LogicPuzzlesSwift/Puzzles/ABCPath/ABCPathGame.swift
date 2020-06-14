@@ -57,12 +57,4 @@ class ABCPathGame: GridGame<ABCPathGameViewController> {
         levelInitilized(state: state)
     }
     
-    func switchObject(move: inout ABCPathGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
-    }
-    
-    func setObject(move: inout ABCPathGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
-    }
-    
 }

@@ -47,12 +47,4 @@ class FenceSentinelsGame: GridGame<FenceSentinelsGameViewController> {
         levelInitilized(state: state)
     }
     
-    func switchObject(move: inout FenceSentinelsGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
-    }
-    
-    func setObject(move: inout FenceSentinelsGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
-    }
-    
 }

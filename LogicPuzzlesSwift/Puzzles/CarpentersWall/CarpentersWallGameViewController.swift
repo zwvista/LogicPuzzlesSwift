@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class CarpentersWallGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = CarpentersWallGameMove
     typealias GS = CarpentersWallGameState
 
     var scene: CarpentersWallGameScene {

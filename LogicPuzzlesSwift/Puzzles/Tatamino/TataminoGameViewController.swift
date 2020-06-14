@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class TataminoGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = TataminoGameMove
     typealias GS = TataminoGameState
 
     var scene: TataminoGameScene {

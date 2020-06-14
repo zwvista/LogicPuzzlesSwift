@@ -10,8 +10,8 @@ import Foundation
 
 // http://stackoverflow.com/questions/24066304/how-can-i-make-a-weak-protocol-reference-in-pure-swift-w-o-objc
 protocol GameDelegate: class {
-    associatedtype GM
     associatedtype GS: GameStateBase
+    typealias GM = GS.GM
     func moveAdded(_ game: AnyObject, move: GM)
     func levelInitilized(_ game: AnyObject, state: GS)
     func levelUpdated(_ game: AnyObject, from stateFrom: GS, to stateTo: GS)
@@ -27,8 +27,8 @@ protocol GameBase: class {
 }
 
 class Game<GD: GameDelegate>: GameBase {
-    typealias GM = GD.GM
     typealias GS = GD.GS
+    typealias GM = GS.GM
     var stateIndex = 0
     var states = [GS]()
     var currentState: GS { states[stateIndex] }
@@ -88,6 +88,14 @@ class Game<GD: GameDelegate>: GameBase {
         moveAdded(move: move)
         levelUpdated(from: states[stateIndex - 1], to: state)
         return true
+    }
+    
+    func switchObject(move: inout GM) -> Bool {
+        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
+    }
+    
+    func setObject(move: inout GM) -> Bool {
+        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
     }
 
     deinit {

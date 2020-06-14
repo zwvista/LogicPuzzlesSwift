@@ -41,12 +41,4 @@ class MosaikGame: GridGame<MosaikGameViewController> {
         levelInitilized(state: state)
     }
     
-    func switchObject(move: inout MosaikGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
-    }
-    
-    func setObject(move: inout MosaikGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
-    }
-    
 }

@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class TapaIslandsGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = TapaIslandsGameMove
     typealias GS = TapaIslandsGameState
 
     var scene: TapaIslandsGameScene {

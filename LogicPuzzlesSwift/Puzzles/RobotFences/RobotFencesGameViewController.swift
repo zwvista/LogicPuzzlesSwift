@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class RobotFencesGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = RobotFencesGameMove
     typealias GS = RobotFencesGameState
 
     var scene: RobotFencesGameScene {

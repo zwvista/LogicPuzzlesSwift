@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class LoopyGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = LoopyGameMove
     typealias GS = LoopyGameState
 
     var scene: LoopyGameScene {

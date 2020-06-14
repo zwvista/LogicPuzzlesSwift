@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class CalcudokuGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = CalcudokuGameMove
     typealias GS = CalcudokuGameState
 
     var scene: CalcudokuGameScene {

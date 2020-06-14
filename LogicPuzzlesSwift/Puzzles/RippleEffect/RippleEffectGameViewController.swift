@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class RippleEffectGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = RippleEffectGameMove
     typealias GS = RippleEffectGameState
 
     var scene: RippleEffectGameScene {

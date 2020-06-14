@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class PairakabeGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = PairakabeGameMove
     typealias GS = PairakabeGameState
 
     var scene: PairakabeGameScene {

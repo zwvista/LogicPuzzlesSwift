@@ -68,12 +68,4 @@ class BattleShipsGame: GridGame<BattleShipsGameViewController> {
         levelInitilized(state: state)
     }
     
-    func switchObject(move: inout BattleShipsGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
-    }
-    
-    func setObject(move: inout BattleShipsGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
-    }
-    
 }

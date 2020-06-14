@@ -57,12 +57,4 @@ class TapaIslandsGame: GridGame<TapaIslandsGameViewController> {
         levelInitilized(state: state)
     }
     
-    func switchObject(move: inout TapaIslandsGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
-    }
-    
-    func setObject(move: inout TapaIslandsGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
-    }
-    
 }

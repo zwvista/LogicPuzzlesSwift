@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class SkyscrapersGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = SkyscrapersGameMove
     typealias GS = SkyscrapersGameState
 
     var scene: SkyscrapersGameScene {

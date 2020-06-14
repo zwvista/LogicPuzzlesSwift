@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class GalaxiesGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = GalaxiesGameMove
     typealias GS = GalaxiesGameState
 
     var scene: GalaxiesGameScene {

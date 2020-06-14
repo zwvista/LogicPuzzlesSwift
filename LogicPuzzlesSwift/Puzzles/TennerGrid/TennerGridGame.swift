@@ -44,12 +44,4 @@ class TennerGridGame: GridGame<TennerGridGameViewController> {
         levelInitilized(state: state)
     }
     
-    func switchObject(move: inout TennerGridGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
-    }
-    
-    func setObject(move: inout TennerGridGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
-    }
-    
 }

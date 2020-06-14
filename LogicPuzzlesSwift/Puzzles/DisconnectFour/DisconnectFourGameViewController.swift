@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class DisconnectFourGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = DisconnectFourGameMove
     typealias GS = DisconnectFourGameState
 
     var scene: DisconnectFourGameScene {

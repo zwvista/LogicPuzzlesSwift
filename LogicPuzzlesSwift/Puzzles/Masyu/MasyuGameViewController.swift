@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class MasyuGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = MasyuGameMove
     typealias GS = MasyuGameState
 
     var scene: MasyuGameScene {

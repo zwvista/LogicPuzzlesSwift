@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class BWTapaGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = BWTapaGameMove
     typealias GS = BWTapaGameState
 
     var scene: BWTapaGameScene {

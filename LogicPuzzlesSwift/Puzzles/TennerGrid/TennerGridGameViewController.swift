@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class TennerGridGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = TennerGridGameMove
     typealias GS = TennerGridGameState
 
     var scene: TennerGridGameScene {

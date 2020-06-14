@@ -101,13 +101,5 @@ class TheOddBrickGame: GridGame<TheOddBrickGameViewController> {
         get { objArray[row * cols + col] }
         set { objArray[row * cols + col] = newValue }
     }
-
-    func switchObject(move: inout TheOddBrickGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
-    }
-    
-    func setObject(move: inout TheOddBrickGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
-    }
     
 }

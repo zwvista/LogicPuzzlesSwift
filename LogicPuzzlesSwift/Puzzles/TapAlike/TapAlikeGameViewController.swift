@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class TapAlikeGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = TapAlikeGameMove
     typealias GS = TapAlikeGameState
 
     var scene: TapAlikeGameScene {

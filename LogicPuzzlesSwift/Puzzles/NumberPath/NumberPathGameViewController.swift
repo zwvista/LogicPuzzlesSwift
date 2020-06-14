@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class NumberPathGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = NumberPathGameMove
     typealias GS = NumberPathGameState
 
     var scene: NumberPathGameScene {

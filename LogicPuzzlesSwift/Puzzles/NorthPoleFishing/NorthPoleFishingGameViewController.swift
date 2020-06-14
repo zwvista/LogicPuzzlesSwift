@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class NorthPoleFishingGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = NorthPoleFishingGameMove
     typealias GS = NorthPoleFishingGameState
 
     var scene: NorthPoleFishingGameScene {

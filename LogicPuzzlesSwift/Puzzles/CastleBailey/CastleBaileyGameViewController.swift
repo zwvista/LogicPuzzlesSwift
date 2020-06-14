@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class CastleBaileyGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = CastleBaileyGameMove
     typealias GS = CastleBaileyGameState
 
     var scene: CastleBaileyGameScene {

@@ -44,8 +44,4 @@ class NumberPathGame: GridGame<NumberPathGameViewController> {
         levelInitilized(state: state)
     }
     
-    func setObject(move: inout NumberPathGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
-    }
-    
 }

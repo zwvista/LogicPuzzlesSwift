@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class MathraxGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = MathraxGameMove
     typealias GS = MathraxGameState
 
     var scene: MathraxGameScene {

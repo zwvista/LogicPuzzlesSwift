@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class NurikabeGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = NurikabeGameMove
     typealias GS = NurikabeGameState
 
     var scene: NurikabeGameScene {

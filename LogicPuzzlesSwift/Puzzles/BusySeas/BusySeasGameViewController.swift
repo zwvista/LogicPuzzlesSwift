@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class BusySeasGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = BusySeasGameMove
     typealias GS = BusySeasGameState
 
     var scene: BusySeasGameScene {

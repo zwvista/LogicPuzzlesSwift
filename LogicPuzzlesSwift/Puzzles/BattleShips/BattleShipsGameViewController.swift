@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class BattleShipsGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = BattleShipsGameMove
     typealias GS = BattleShipsGameState
 
     var scene: BattleShipsGameScene {

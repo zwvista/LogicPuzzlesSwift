@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class FutoshikiGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = FutoshikiGameMove
     typealias GS = FutoshikiGameState
 
     var scene: FutoshikiGameScene {

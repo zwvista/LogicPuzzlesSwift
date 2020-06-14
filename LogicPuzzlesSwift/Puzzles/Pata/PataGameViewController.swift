@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class PataGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = PataGameMove
     typealias GS = PataGameState
 
     var scene: PataGameScene {

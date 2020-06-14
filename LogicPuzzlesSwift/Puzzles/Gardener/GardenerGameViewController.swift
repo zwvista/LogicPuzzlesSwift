@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class GardenerGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = GardenerGameMove
     typealias GS = GardenerGameState
 
     var scene: GardenerGameScene {

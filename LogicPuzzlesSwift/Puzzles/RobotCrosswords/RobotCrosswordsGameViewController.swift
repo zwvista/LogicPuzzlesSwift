@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class RobotCrosswordsGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = RobotCrosswordsGameMove
     typealias GS = RobotCrosswordsGameState
 
     var scene: RobotCrosswordsGameScene {

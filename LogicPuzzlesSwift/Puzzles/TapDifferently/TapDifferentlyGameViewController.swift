@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class TapDifferentlyGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = TapDifferentlyGameMove
     typealias GS = TapDifferentlyGameState
 
     var scene: TapDifferentlyGameScene {

@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class LighthousesGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = LighthousesGameMove
     typealias GS = LighthousesGameState
 
     var scene: LighthousesGameScene {

@@ -42,12 +42,4 @@ class PairakabeGame: GridGame<PairakabeGameViewController> {
         levelInitilized(state: state)
     }
     
-    func switchObject(move: inout PairakabeGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
-    }
-    
-    func setObject(move: inout PairakabeGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
-    }
-    
 }

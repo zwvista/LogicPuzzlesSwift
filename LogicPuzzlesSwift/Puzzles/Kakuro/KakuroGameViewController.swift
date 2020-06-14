@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class KakuroGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = KakuroGameMove
     typealias GS = KakuroGameState
 
     var scene: KakuroGameScene {

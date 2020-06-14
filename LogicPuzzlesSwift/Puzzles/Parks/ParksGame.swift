@@ -92,12 +92,4 @@ class ParksGame: GridGame<ParksGameViewController> {
         levelInitilized(state: state)
     }
     
-    func switchObject(move: inout ParksGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
-    }
-    
-    func setObject(move: inout ParksGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
-    }
-    
 }

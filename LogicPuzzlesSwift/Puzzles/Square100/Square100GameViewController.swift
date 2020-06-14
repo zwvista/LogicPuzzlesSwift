@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class Square100GameViewController: GameGameViewController, GameDelegate {
-    typealias GM = Square100GameMove
     typealias GS = Square100GameState
 
     var scene: Square100GameScene {

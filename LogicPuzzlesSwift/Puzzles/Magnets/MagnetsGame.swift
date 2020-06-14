@@ -58,12 +58,4 @@ class MagnetsGame: GridGame<MagnetsGameViewController> {
         levelInitilized(state: state)
     }
     
-    func switchObject(move: inout MagnetsGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
-    }
-    
-    func setObject(move: inout MagnetsGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
-    }
-    
 }

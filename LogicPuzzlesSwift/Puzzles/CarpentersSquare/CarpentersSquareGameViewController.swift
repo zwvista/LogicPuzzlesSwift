@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class CarpentersSquareGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = CarpentersSquareGameMove
     typealias GS = CarpentersSquareGameState
 
     var scene: CarpentersSquareGameScene {

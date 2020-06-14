@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class WallSentinelsGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = WallSentinelsGameMove
     typealias GS = WallSentinelsGameState
 
     var scene: WallSentinelsGameScene {

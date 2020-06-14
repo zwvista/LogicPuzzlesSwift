@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class NumberLinkGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = NumberLinkGameMove
     typealias GS = NumberLinkGameState
 
     var scene: NumberLinkGameScene {

@@ -36,12 +36,4 @@ class SentinelsGame: GridGame<SentinelsGameViewController> {
         levelInitilized(state: state)
     }
     
-    func switchObject(move: inout SentinelsGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.switchObject(move: &move) })
-    }
-    
-    func setObject(move: inout SentinelsGameMove) -> Bool {
-        changeObject(move: &move, f: { state, move in state.setObject(move: &move) })
-    }
-    
 }

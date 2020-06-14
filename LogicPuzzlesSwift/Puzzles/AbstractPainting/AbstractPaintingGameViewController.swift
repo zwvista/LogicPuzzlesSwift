@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class AbstractPaintingGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = AbstractPaintingGameMove
     typealias GS = AbstractPaintingGameState
 
     var scene: AbstractPaintingGameScene {

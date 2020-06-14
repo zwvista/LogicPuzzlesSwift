@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class BridgesGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = BridgesGameMove
     typealias GS = BridgesGameState
 
     var scene: BridgesGameScene {

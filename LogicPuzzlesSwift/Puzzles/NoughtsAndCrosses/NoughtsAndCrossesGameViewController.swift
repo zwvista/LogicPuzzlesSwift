@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class NoughtsAndCrossesGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = NoughtsAndCrossesGameMove
     typealias GS = NoughtsAndCrossesGameState
 
     var scene: NoughtsAndCrossesGameScene {

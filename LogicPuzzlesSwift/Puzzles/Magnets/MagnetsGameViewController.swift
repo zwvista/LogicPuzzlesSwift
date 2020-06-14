@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class MagnetsGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = MagnetsGameMove
     typealias GS = MagnetsGameState
 
     var scene: MagnetsGameScene {

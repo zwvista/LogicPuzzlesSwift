@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class OverUnderGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = OverUnderGameMove
     typealias GS = OverUnderGameState
 
     var scene: OverUnderGameScene {

@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class SlitherLinkGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = SlitherLinkGameMove
     typealias GS = SlitherLinkGameState
 
     var scene: SlitherLinkGameScene {

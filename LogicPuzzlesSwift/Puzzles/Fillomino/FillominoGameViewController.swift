@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class FillominoGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = FillominoGameMove
     typealias GS = FillominoGameState
 
     var scene: FillominoGameScene {

@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class KakurasuGameViewController: GameGameViewController, GameDelegate {
-    typealias GM = KakurasuGameMove
     typealias GS = KakurasuGameState
 
     var scene: KakurasuGameScene {
