@@ -9,7 +9,7 @@
 import UIKit
 import SharkORM
 
-class OverUnderDocument: GameDocument<OverUnderGame, OverUnderGameMove> {
+class OverUnderDocument: GameDocument<OverUnderGameMove> {
     static var sharedInstance = OverUnderDocument()
     
     override func saveMove(_ move: OverUnderGameMove, to rec: MoveProgress) {

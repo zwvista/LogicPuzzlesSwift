@@ -9,7 +9,7 @@
 import UIKit
 import SharkORM
 
-class NumberLinkDocument: GameDocument<NumberLinkGame, NumberLinkGameMove> {
+class NumberLinkDocument: GameDocument<NumberLinkGameMove> {
     static var sharedInstance = NumberLinkDocument()
     
     override func saveMove(_ move: NumberLinkGameMove, to rec: MoveProgress) {

@@ -9,7 +9,7 @@
 import UIKit
 import SharkORM
 
-class MasyuDocument: GameDocument<MasyuGame, MasyuGameMove> {
+class MasyuDocument: GameDocument<MasyuGameMove> {
     static var sharedInstance = MasyuDocument()
     
     override func saveMove(_ move: MasyuGameMove, to rec: MoveProgress) {

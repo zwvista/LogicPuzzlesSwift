@@ -9,7 +9,7 @@
 import UIKit
 import SharkORM
 
-class TierraDelFuegoDocument: GameDocument<TierraDelFuegoGame, TierraDelFuegoGameMove> {
+class TierraDelFuegoDocument: GameDocument<TierraDelFuegoGameMove> {
     static var sharedInstance = TierraDelFuegoDocument()
     
     override func saveMove(_ move: TierraDelFuegoGameMove, to rec: MoveProgress) {

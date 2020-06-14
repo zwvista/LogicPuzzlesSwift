@@ -9,7 +9,7 @@
 import UIKit
 import SharkORM
 
-class FutoshikiDocument: GameDocument<FutoshikiGame, FutoshikiGameMove> {
+class FutoshikiDocument: GameDocument<FutoshikiGameMove> {
     static var sharedInstance = FutoshikiDocument()
     
     override func saveMove(_ move: FutoshikiGameMove, to rec: MoveProgress) {

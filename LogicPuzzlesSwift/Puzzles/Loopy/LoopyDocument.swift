@@ -9,7 +9,7 @@
 import UIKit
 import SharkORM
 
-class LoopyDocument: GameDocument<LoopyGame, LoopyGameMove> {
+class LoopyDocument: GameDocument<LoopyGameMove> {
     static var sharedInstance = LoopyDocument()
     
     override func saveMove(_ move: LoopyGameMove, to rec: MoveProgress) {

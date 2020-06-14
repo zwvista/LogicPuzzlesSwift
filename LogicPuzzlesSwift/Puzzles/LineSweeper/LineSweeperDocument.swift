@@ -9,7 +9,7 @@
 import UIKit
 import SharkORM
 
-class LineSweeperDocument: GameDocument<LineSweeperGame, LineSweeperGameMove> {
+class LineSweeperDocument: GameDocument<LineSweeperGameMove> {
     static var sharedInstance = LineSweeperDocument()
     
     override func saveMove(_ move: LineSweeperGameMove, to rec: MoveProgress) {

@@ -9,7 +9,7 @@
 import UIKit
 import SharkORM
 
-class PowerGridDocument: GameDocument<PowerGridGame, PowerGridGameMove> {
+class PowerGridDocument: GameDocument<PowerGridGameMove> {
     static var sharedInstance = PowerGridDocument()
     
     override func saveMove(_ move: PowerGridGameMove, to rec: MoveProgress) {

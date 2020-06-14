@@ -9,7 +9,7 @@
 import UIKit
 import SharkORM
 
-class CalcudokuDocument: GameDocument<CalcudokuGame, CalcudokuGameMove> {
+class CalcudokuDocument: GameDocument<CalcudokuGameMove> {
     static var sharedInstance = CalcudokuDocument()
     
     override func saveMove(_ move: CalcudokuGameMove, to rec: MoveProgress) {

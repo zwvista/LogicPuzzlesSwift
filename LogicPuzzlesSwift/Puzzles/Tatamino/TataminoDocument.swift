@@ -9,7 +9,7 @@
 import UIKit
 import SharkORM
 
-class TataminoDocument: GameDocument<TataminoGame, TataminoGameMove> {
+class TataminoDocument: GameDocument<TataminoGameMove> {
     static var sharedInstance = TataminoDocument()
     
     override func saveMove(_ move: TataminoGameMove, to rec: MoveProgress) {

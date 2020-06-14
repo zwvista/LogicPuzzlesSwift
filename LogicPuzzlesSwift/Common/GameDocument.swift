@@ -30,7 +30,7 @@ protocol GameDocumentBase: class {
     func resetAllLevels()
 }
 
-class GameDocument<G: GameBase, GM>: GameDocumentBase {
+class GameDocument<GM>: GameDocumentBase {
     private(set) var levels = [GameLevel]()
     private(set) var help = [String]()
     var selectedLevelID: String!
@@ -68,8 +68,8 @@ class GameDocument<G: GameBase, GM>: GameDocumentBase {
     
     init() {
         // http://stackoverflow.com/questions/24494784/get-class-name-of-object-as-string-in-swift
-        let gameTypeName = String(describing: type(of: G.self))
-        gameID = gameTypeName[0..<gameTypeName.length - "Game.Type".length]
+        let gmTypeName = String(describing: type(of: GM.self))
+        gameID = gmTypeName[0..<gmTypeName.length - "GameMove.Type".length]
         let path = Bundle.main.path(forResource: gameID, ofType: "xml")!
         let xml = try! String(contentsOfFile: path)
         let doc = try! XMLDocument(string: xml)
@@ -89,7 +89,7 @@ class GameDocument<G: GameBase, GM>: GameDocumentBase {
     }
     
     func levelUpdated(game: AnyObject) {
-        let game = game as! G
+        let game = game as! GameBase
         let rec = levelProgress
         rec.moveIndex = game.moveIndex
         rec.commit()
@@ -103,7 +103,7 @@ class GameDocument<G: GameBase, GM>: GameDocumentBase {
     }
 
     func moveAdded(game: AnyObject, move: GM) {
-        let game = game as! G
+        let game = game as! GameBase
         MoveProgress.query().where(withFormat: "gameID = %@ AND levelID = %@ AND moveIndex >= %@", withParameters: [gameID!, selectedLevelID!, game.moveIndex]).fetch().remove()
         let rec = MoveProgress()
         rec.gameID = gameID
@@ -146,7 +146,7 @@ class GameDocument<G: GameBase, GM>: GameDocumentBase {
     
     func saveSolution(game: AnyObject) {
         copyMoves(moveProgressFrom: moveProgress, levelIDTo: selectedLevelIDSolution)
-        let game = game as! G
+        let game = game as! GameBase
         let rec = levelProgressSolution
         rec.moveIndex = game.moveIndex
         rec.commit()

@@ -9,7 +9,7 @@
 import UIKit
 import SharkORM
 
-class MosaikDocument: GameDocument<MosaikGame, MosaikGameMove> {
+class MosaikDocument: GameDocument<MosaikGameMove> {
     static var sharedInstance = MosaikDocument()
     
     override func saveMove(_ move: MosaikGameMove, to rec: MoveProgress) {

@@ -9,7 +9,7 @@
 import UIKit
 import SharkORM
 
-class RippleEffectDocument: GameDocument<RippleEffectGame, RippleEffectGameMove> {
+class RippleEffectDocument: GameDocument<RippleEffectGameMove> {
     static var sharedInstance = RippleEffectDocument()
     
     override func saveMove(_ move: RippleEffectGameMove, to rec: MoveProgress) {

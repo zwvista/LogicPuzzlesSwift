@@ -9,7 +9,7 @@
 import UIKit
 import SharkORM
 
-class BWTapaDocument: GameDocument<BWTapaGame, BWTapaGameMove> {
+class BWTapaDocument: GameDocument<BWTapaGameMove> {
     static var sharedInstance = BWTapaDocument()
     
     override func saveMove(_ move: BWTapaGameMove, to rec: MoveProgress) {

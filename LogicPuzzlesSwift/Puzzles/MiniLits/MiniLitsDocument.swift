@@ -9,7 +9,7 @@
 import UIKit
 import SharkORM
 
-class MiniLitsDocument: GameDocument<MiniLitsGame, MiniLitsGameMove> {
+class MiniLitsDocument: GameDocument<MiniLitsGameMove> {
     static var sharedInstance = MiniLitsDocument()
     
     override func saveMove(_ move: MiniLitsGameMove, to rec: MoveProgress) {

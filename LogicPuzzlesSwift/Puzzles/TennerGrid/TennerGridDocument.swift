@@ -9,7 +9,7 @@
 import UIKit
 import SharkORM
 
-class TennerGridDocument: GameDocument<TennerGridGame, TennerGridGameMove> {
+class TennerGridDocument: GameDocument<TennerGridGameMove> {
     static var sharedInstance = TennerGridDocument()
     
     override func saveMove(_ move: TennerGridGameMove, to rec: MoveProgress) {

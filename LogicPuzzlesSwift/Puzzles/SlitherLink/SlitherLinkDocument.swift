@@ -9,7 +9,7 @@
 import UIKit
 import SharkORM
 
-class SlitherLinkDocument: GameDocument<SlitherLinkGame, SlitherLinkGameMove> {
+class SlitherLinkDocument: GameDocument<SlitherLinkGameMove> {
     static var sharedInstance = SlitherLinkDocument()
     
     override func saveMove(_ move: SlitherLinkGameMove, to rec: MoveProgress) {

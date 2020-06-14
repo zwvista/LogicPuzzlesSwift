@@ -9,7 +9,7 @@
 import UIKit
 import SharkORM
 
-class DominoDocument: GameDocument<DominoGame, DominoGameMove> {
+class DominoDocument: GameDocument<DominoGameMove> {
     static var sharedInstance = DominoDocument()
     
     override func saveMove(_ move: DominoGameMove, to rec: MoveProgress) {

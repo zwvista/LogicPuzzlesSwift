@@ -9,7 +9,7 @@
 import UIKit
 import SharkORM
 
-class NoughtsAndCrossesDocument: GameDocument<NoughtsAndCrossesGame, NoughtsAndCrossesGameMove> {
+class NoughtsAndCrossesDocument: GameDocument<NoughtsAndCrossesGameMove> {
     static var sharedInstance = NoughtsAndCrossesDocument()
     
     override func saveMove(_ move: NoughtsAndCrossesGameMove, to rec: MoveProgress) {

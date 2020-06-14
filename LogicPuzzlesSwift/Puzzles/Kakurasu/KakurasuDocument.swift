@@ -9,7 +9,7 @@
 import UIKit
 import SharkORM
 
-class KakurasuDocument: GameDocument<KakurasuGame, KakurasuGameMove> {
+class KakurasuDocument: GameDocument<KakurasuGameMove> {
     static var sharedInstance = KakurasuDocument()
     
     override func saveMove(_ move: KakurasuGameMove, to rec: MoveProgress) {

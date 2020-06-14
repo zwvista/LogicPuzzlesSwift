@@ -9,7 +9,7 @@
 import UIKit
 import SharkORM
 
-class DisconnectFourDocument: GameDocument<DisconnectFourGame, DisconnectFourGameMove> {
+class DisconnectFourDocument: GameDocument<DisconnectFourGameMove> {
     static var sharedInstance = DisconnectFourDocument()
     
     override func saveMove(_ move: DisconnectFourGameMove, to rec: MoveProgress) {

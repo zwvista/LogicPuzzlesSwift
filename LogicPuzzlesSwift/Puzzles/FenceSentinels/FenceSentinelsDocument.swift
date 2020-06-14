@@ -9,7 +9,7 @@
 import UIKit
 import SharkORM
 
-class FenceSentinelsDocument: GameDocument<FenceSentinelsGame, FenceSentinelsGameMove> {
+class FenceSentinelsDocument: GameDocument<FenceSentinelsGameMove> {
     static var sharedInstance = FenceSentinelsDocument()
     
     override func saveMove(_ move: FenceSentinelsGameMove, to rec: MoveProgress) {
