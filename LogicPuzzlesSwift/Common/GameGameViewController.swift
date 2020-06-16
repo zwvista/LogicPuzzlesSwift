@@ -134,6 +134,20 @@ class GameGameViewController2<GS: GameStateBase, G: GridGame<GS>, GD: GameDocume
         set { setGame(game: newValue) }
     }
     private var gameDocument: GD! { getGameDocument() as? GD }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Create and configure the scene.
+        scene = GSC(size: skView.bounds.size)
+        scene.scaleMode = .aspectFill
+        scene.backgroundColor = UIColor.black
+        
+        // Present the scene.
+        skView.presentScene(scene)
+        
+        startGame()
+    }
 
     override func startGame() {
         lblLevel.text = gameDocument.selectedLevelID
