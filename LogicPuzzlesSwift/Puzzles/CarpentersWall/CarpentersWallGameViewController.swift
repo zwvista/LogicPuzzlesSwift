@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class CarpentersWallGameViewController: GameGameViewController2<CarpentersWallGameState, CarpentersWallGame, CarpentersWallDocument, CarpentersWallGameScene> {
-    var gameDocument: CarpentersWallDocument { CarpentersWallDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { CarpentersWallDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

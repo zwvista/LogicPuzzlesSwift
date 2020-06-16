@@ -10,7 +10,6 @@ import UIKit
 
 class FenceItUpMainViewController: GameMainViewController {
 
-    var gameDocument: FenceItUpDocument { FenceItUpDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { FenceItUpDocument.sharedInstance }
 
 }

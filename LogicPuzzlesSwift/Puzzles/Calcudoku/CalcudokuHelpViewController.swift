@@ -10,7 +10,6 @@ import UIKit
 
 class CalcudokuHelpViewController: GameHelpViewController {
 
-    var gameDocument: CalcudokuDocument { CalcudokuDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { CalcudokuDocument.sharedInstance }
 
 }

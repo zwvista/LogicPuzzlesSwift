@@ -10,7 +10,6 @@ import UIKit
 
 class Square100OptionsViewController: GameOptionsViewController {
 
-    var gameDocument: Square100Document { Square100Document.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { Square100Document.sharedInstance }
     
 }

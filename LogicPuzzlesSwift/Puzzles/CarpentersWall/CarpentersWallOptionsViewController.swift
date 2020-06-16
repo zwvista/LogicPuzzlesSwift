@@ -10,7 +10,6 @@ import UIKit
 
 class CarpentersWallOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: CarpentersWallDocument { CarpentersWallDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { CarpentersWallDocument.sharedInstance }
     
 }

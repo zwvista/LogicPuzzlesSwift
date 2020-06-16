@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class LightBattleShipsGameViewController: GameGameViewController2<LightBattleShipsGameState, LightBattleShipsGame, LightBattleShipsDocument, LightBattleShipsGameScene> {
-    var gameDocument: LightBattleShipsDocument { LightBattleShipsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { LightBattleShipsDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class PataGameViewController: GameGameViewController2<PataGameState, PataGame, PataDocument, PataGameScene> {
-    var gameDocument: PataDocument { PataDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { PataDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

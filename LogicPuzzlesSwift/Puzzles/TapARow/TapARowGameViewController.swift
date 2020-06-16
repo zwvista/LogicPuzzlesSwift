@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class TapARowGameViewController: GameGameViewController2<TapARowGameState, TapARowGame, TapARowDocument, TapARowGameScene> {
-    var gameDocument: TapARowDocument { TapARowDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { TapARowDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

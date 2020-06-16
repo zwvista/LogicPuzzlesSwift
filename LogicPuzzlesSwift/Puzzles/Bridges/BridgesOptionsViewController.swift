@@ -10,7 +10,6 @@ import UIKit
 
 class BridgesOptionsViewController: GameOptionsViewController {
     
-    var gameDocument: BridgesDocument { BridgesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { BridgesDocument.sharedInstance }
     
 }

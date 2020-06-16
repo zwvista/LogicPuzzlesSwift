@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class HolidayIslandGameViewController: GameGameViewController2<HolidayIslandGameState, HolidayIslandGame, HolidayIslandDocument, HolidayIslandGameScene> {
-    var gameDocument: HolidayIslandDocument { HolidayIslandDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { HolidayIslandDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

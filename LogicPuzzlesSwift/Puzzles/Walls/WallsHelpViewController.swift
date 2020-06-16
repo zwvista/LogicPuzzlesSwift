@@ -10,7 +10,6 @@ import UIKit
 
 class WallsHelpViewController: GameHelpViewController {
 
-    var gameDocument: WallsDocument { WallsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { WallsDocument.sharedInstance }
 
 }

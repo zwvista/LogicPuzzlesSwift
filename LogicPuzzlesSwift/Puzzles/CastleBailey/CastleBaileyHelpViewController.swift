@@ -10,7 +10,6 @@ import UIKit
 
 class CastleBaileyHelpViewController: GameHelpViewController {
 
-    var gameDocument: CastleBaileyDocument { CastleBaileyDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { CastleBaileyDocument.sharedInstance }
 
 }

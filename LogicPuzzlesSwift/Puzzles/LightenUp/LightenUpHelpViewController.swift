@@ -10,7 +10,6 @@ import UIKit
 
 class LightenUpHelpViewController: GameHelpViewController {
 
-    var gameDocument: LightenUpDocument { LightenUpDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { LightenUpDocument.sharedInstance }
 
 }

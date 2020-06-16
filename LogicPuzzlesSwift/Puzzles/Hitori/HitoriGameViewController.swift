@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class HitoriGameViewController: GameGameViewController2<HitoriGameState, HitoriGame, HitoriDocument, HitoriGameScene> {
-    var gameDocument: HitoriDocument { HitoriDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { HitoriDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

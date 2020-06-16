@@ -10,7 +10,6 @@ import UIKit
 
 class NeighboursOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: NeighboursDocument { NeighboursDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { NeighboursDocument.sharedInstance }
     
 }

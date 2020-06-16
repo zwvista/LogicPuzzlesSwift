@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class CloudsGameViewController: GameGameViewController2<CloudsGameState, CloudsGame, CloudsDocument, CloudsGameScene> {
-    var gameDocument: CloudsDocument { CloudsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { CloudsDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

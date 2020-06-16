@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class KropkiGameViewController: GameGameViewController2<KropkiGameState, KropkiGame, KropkiDocument, KropkiGameScene> {
-    var gameDocument: KropkiDocument { KropkiDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { KropkiDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

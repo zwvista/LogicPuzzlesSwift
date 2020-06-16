@@ -10,7 +10,6 @@ import UIKit
 
 class GalaxiesMainViewController: GameMainViewController {
 
-    var gameDocument: GalaxiesDocument { GalaxiesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { GalaxiesDocument.sharedInstance }
 
 }

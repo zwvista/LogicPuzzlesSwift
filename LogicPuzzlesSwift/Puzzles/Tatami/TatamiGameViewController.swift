@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class TatamiGameViewController: GameGameViewController2<TatamiGameState, TatamiGame, TatamiDocument, TatamiGameScene> {
-    var gameDocument: TatamiDocument { TatamiDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { TatamiDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

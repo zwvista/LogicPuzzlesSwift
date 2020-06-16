@@ -10,7 +10,6 @@ import UIKit
 
 class LighthousesOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: LighthousesDocument { LighthousesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { LighthousesDocument.sharedInstance }
     
 }

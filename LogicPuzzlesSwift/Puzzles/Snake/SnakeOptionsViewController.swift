@@ -10,7 +10,6 @@ import UIKit
 
 class SnakeOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: SnakeDocument { SnakeDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { SnakeDocument.sharedInstance }
     
 }

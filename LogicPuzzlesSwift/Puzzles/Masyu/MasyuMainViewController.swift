@@ -10,7 +10,6 @@ import UIKit
 
 class MasyuMainViewController: GameMainViewController {
 
-    var gameDocument: MasyuDocument { MasyuDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { MasyuDocument.sharedInstance }
 
 }

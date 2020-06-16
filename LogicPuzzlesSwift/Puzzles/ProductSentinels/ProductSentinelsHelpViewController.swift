@@ -10,7 +10,6 @@ import UIKit
 
 class ProductSentinelsHelpViewController: GameHelpViewController {
 
-    var gameDocument: ProductSentinelsDocument { ProductSentinelsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { ProductSentinelsDocument.sharedInstance }
 
 }

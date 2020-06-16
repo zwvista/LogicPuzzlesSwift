@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class MinesweeperGameViewController: GameGameViewController2<MinesweeperGameState, MinesweeperGame, MinesweeperDocument, MinesweeperGameScene> {
-    var gameDocument: MinesweeperDocument { MinesweeperDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { MinesweeperDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

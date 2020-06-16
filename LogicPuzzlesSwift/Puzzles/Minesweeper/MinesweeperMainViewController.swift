@@ -10,7 +10,6 @@ import UIKit
 
 class MinesweeperMainViewController: GameMainViewController {
 
-    var gameDocument: MinesweeperDocument { MinesweeperDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { MinesweeperDocument.sharedInstance }
 
 }

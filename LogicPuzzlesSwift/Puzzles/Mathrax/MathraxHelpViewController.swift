@@ -10,7 +10,6 @@ import UIKit
 
 class MathraxHelpViewController: GameHelpViewController {
 
-    var gameDocument: MathraxDocument { MathraxDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { MathraxDocument.sharedInstance }
 
 }

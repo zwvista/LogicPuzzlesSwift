@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class TapDifferentlyGameViewController: GameGameViewController2<TapDifferentlyGameState, TapDifferentlyGame, TapDifferentlyDocument, TapDifferentlyGameScene> {
-    var gameDocument: TapDifferentlyDocument { TapDifferentlyDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { TapDifferentlyDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

@@ -10,7 +10,6 @@ import UIKit
 
 class HitoriHelpViewController: GameHelpViewController {
 
-    var gameDocument: HitoriDocument { HitoriDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { HitoriDocument.sharedInstance }
 
 }

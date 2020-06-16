@@ -10,7 +10,6 @@ import UIKit
 
 class KakuroOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: KakuroDocument { KakuroDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { KakuroDocument.sharedInstance }
     
 }

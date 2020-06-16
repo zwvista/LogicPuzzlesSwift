@@ -10,7 +10,6 @@ import UIKit
 
 class ParksHelpViewController: GameHelpViewController {
 
-    var gameDocument: ParksDocument { ParksDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { ParksDocument.sharedInstance }
 
 }

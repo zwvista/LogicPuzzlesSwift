@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class SnakeGameViewController: GameGameViewController2<SnakeGameState, SnakeGame, SnakeDocument, SnakeGameScene> {
-    var gameDocument: SnakeDocument { SnakeDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { SnakeDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

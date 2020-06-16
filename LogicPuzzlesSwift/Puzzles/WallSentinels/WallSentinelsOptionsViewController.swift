@@ -10,7 +10,6 @@ import UIKit
 
 class WallSentinelsOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: WallSentinelsDocument { WallSentinelsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { WallSentinelsDocument.sharedInstance }
     
 }

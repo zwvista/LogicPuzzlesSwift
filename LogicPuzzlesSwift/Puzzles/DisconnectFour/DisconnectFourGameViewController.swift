@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class DisconnectFourGameViewController: GameGameViewController2<DisconnectFourGameState, DisconnectFourGame, DisconnectFourDocument, DisconnectFourGameScene> {
-    var gameDocument: DisconnectFourDocument { DisconnectFourDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { DisconnectFourDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

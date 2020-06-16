@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class SumscrapersGameViewController: GameGameViewController2<SumscrapersGameState, SumscrapersGame, SumscrapersDocument, SumscrapersGameScene> {
-    var gameDocument: SumscrapersDocument { SumscrapersDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { SumscrapersDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

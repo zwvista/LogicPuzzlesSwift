@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class PairakabeGameViewController: GameGameViewController2<PairakabeGameState, PairakabeGame, PairakabeDocument, PairakabeGameScene> {
-    var gameDocument: PairakabeDocument { PairakabeDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { PairakabeDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

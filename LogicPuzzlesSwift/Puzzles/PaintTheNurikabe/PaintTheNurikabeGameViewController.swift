@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class PaintTheNurikabeGameViewController: GameGameViewController2<PaintTheNurikabeGameState, PaintTheNurikabeGame, PaintTheNurikabeDocument, PaintTheNurikabeGameScene> {
-    var gameDocument: PaintTheNurikabeDocument { PaintTheNurikabeDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { PaintTheNurikabeDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

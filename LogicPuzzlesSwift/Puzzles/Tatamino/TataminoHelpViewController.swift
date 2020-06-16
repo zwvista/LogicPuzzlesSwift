@@ -10,7 +10,6 @@ import UIKit
 
 class TataminoHelpViewController: GameHelpViewController {
 
-    var gameDocument: TataminoDocument { TataminoDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { TataminoDocument.sharedInstance }
 
 }

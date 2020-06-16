@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class SlitherLinkGameViewController: GameGameViewController2<SlitherLinkGameState, SlitherLinkGame, SlitherLinkDocument, SlitherLinkGameScene> {
-    var gameDocument: SlitherLinkDocument { SlitherLinkDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { SlitherLinkDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

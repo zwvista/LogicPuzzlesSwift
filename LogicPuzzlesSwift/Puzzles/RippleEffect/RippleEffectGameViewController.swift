@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class RippleEffectGameViewController: GameGameViewController2<RippleEffectGameState, RippleEffectGame, RippleEffectDocument, RippleEffectGameScene> {
-    var gameDocument: RippleEffectDocument { RippleEffectDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { RippleEffectDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

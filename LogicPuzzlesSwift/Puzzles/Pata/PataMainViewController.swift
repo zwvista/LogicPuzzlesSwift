@@ -10,7 +10,6 @@ import UIKit
 
 class PataMainViewController: GameMainViewController {
 
-    var gameDocument: PataDocument { PataDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { PataDocument.sharedInstance }
 
 }

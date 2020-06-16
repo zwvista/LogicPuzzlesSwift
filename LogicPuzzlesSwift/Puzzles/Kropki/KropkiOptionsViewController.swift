@@ -10,7 +10,6 @@ import UIKit
 
 class KropkiOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: KropkiDocument { KropkiDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { KropkiDocument.sharedInstance }
     
 }

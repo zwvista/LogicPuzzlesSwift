@@ -10,7 +10,6 @@ import UIKit
 
 class TentsOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: TentsDocument { TentsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { TentsDocument.sharedInstance }
     
 }

@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class KakurasuGameViewController: GameGameViewController2<KakurasuGameState, KakurasuGame, KakurasuDocument, KakurasuGameScene> {
-    var gameDocument: KakurasuDocument { KakurasuDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { KakurasuDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

@@ -10,7 +10,6 @@ import UIKit
 
 class NumberCrosswordsHelpViewController: GameHelpViewController {
 
-    var gameDocument: NumberCrosswordsDocument { NumberCrosswordsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { NumberCrosswordsDocument.sharedInstance }
 
 }

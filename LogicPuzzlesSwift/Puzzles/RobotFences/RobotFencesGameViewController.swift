@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class RobotFencesGameViewController: GameGameViewController2<RobotFencesGameState, RobotFencesGame, RobotFencesDocument, RobotFencesGameScene> {
-    var gameDocument: RobotFencesDocument { RobotFencesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { RobotFencesDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

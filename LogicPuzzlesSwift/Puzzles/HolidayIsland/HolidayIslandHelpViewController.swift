@@ -10,7 +10,6 @@ import UIKit
 
 class HolidayIslandHelpViewController: GameHelpViewController {
 
-    var gameDocument: HolidayIslandDocument { HolidayIslandDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { HolidayIslandDocument.sharedInstance }
 
 }

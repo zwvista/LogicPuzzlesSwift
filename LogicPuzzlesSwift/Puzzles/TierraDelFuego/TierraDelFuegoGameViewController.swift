@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class TierraDelFuegoGameViewController: GameGameViewController2<TierraDelFuegoGameState, TierraDelFuegoGame, TierraDelFuegoDocument, TierraDelFuegoGameScene> {
-    var gameDocument: TierraDelFuegoDocument { TierraDelFuegoDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { TierraDelFuegoDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

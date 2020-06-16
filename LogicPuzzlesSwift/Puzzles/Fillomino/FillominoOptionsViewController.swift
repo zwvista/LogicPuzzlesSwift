@@ -10,7 +10,6 @@ import UIKit
 
 class FillominoOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: FillominoDocument { FillominoDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { FillominoDocument.sharedInstance }
 
 }

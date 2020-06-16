@@ -10,7 +10,6 @@ import UIKit
 
 class TierraDelFuegoOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: TierraDelFuegoDocument { TierraDelFuegoDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { TierraDelFuegoDocument.sharedInstance }
 
 }

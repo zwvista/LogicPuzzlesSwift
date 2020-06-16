@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class NeighboursGameViewController: GameGameViewController2<NeighboursGameState, NeighboursGame, NeighboursDocument, NeighboursGameScene> {
-    var gameDocument: NeighboursDocument { NeighboursDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { NeighboursDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

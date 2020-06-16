@@ -10,7 +10,6 @@ import UIKit
 
 class SnakeHelpViewController: GameHelpViewController {
 
-    var gameDocument: SnakeDocument { SnakeDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { SnakeDocument.sharedInstance }
 
 }

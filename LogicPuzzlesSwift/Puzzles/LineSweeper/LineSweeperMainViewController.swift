@@ -10,7 +10,6 @@ import UIKit
 
 class LineSweeperMainViewController: GameMainViewController {
 
-    var gameDocument: LineSweeperDocument { LineSweeperDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { LineSweeperDocument.sharedInstance }
 
 }

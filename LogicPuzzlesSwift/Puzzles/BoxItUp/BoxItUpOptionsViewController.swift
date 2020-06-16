@@ -10,7 +10,6 @@ import UIKit
 
 class BoxItUpOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: BoxItUpDocument { BoxItUpDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { BoxItUpDocument.sharedInstance }
     
 }

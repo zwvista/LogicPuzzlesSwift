@@ -10,7 +10,6 @@ import UIKit
 
 class SumscrapersHelpViewController: GameHelpViewController {
 
-    var gameDocument: SumscrapersDocument { SumscrapersDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { SumscrapersDocument.sharedInstance }
 
 }

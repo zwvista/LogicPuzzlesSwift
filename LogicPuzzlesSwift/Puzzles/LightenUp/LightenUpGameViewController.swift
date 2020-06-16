@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class LightenUpGameViewController: GameGameViewController2<LightenUpGameState, LightenUpGame, LightenUpDocument, LightenUpGameScene> {
-    var gameDocument: LightenUpDocument { LightenUpDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { LightenUpDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

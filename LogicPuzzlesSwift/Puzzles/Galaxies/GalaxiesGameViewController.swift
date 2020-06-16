@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class GalaxiesGameViewController: GameGameViewController2<GalaxiesGameState, GalaxiesGame, GalaxiesDocument, GalaxiesGameScene> {
-    var gameDocument: GalaxiesDocument { GalaxiesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { GalaxiesDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

@@ -10,7 +10,6 @@ import UIKit
 
 class NeighboursHelpViewController: GameHelpViewController {
 
-    var gameDocument: NeighboursDocument { NeighboursDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { NeighboursDocument.sharedInstance }
 
 }

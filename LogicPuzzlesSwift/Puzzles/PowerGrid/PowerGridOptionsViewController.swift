@@ -10,7 +10,6 @@ import UIKit
 
 class PowerGridOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: PowerGridDocument { PowerGridDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { PowerGridDocument.sharedInstance }
     
 }

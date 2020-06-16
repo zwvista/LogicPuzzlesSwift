@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class RoomsGameViewController: GameGameViewController2<RoomsGameState, RoomsGame, RoomsDocument, RoomsGameScene> {
-    var gameDocument: RoomsDocument { RoomsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { RoomsDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

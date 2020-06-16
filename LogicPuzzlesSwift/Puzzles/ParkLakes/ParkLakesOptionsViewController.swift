@@ -10,7 +10,6 @@ import UIKit
 
 class ParkLakesOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: ParkLakesDocument { ParkLakesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { ParkLakesDocument.sharedInstance }
 
 }

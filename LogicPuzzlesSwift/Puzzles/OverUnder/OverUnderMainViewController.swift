@@ -10,7 +10,6 @@ import UIKit
 
 class OverUnderMainViewController: GameMainViewController {
 
-    var gameDocument: OverUnderDocument { OverUnderDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { OverUnderDocument.sharedInstance }
 
 }

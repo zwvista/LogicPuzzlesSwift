@@ -10,7 +10,6 @@ import UIKit
 
 class TheOddBrickOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: TheOddBrickDocument { TheOddBrickDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { TheOddBrickDocument.sharedInstance }
     
 }

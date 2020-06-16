@@ -10,7 +10,6 @@ import UIKit
 
 class SentinelsOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: SentinelsDocument { SentinelsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { SentinelsDocument.sharedInstance }
     
 }

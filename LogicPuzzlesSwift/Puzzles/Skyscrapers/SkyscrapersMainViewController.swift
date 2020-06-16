@@ -10,7 +10,6 @@ import UIKit
 
 class SkyscrapersMainViewController: GameMainViewController {
 
-    var gameDocument: SkyscrapersDocument { SkyscrapersDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { SkyscrapersDocument.sharedInstance }
 
 }

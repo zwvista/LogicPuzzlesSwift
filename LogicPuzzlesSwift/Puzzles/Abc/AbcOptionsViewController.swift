@@ -10,7 +10,6 @@ import UIKit
 
 class AbcOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: AbcDocument { AbcDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { AbcDocument.sharedInstance }
     
 }

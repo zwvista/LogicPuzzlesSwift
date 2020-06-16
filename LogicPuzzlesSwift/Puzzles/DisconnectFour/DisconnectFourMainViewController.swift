@@ -10,7 +10,6 @@ import UIKit
 
 class DisconnectFourMainViewController: GameMainViewController {
 
-    var gameDocument: DisconnectFourDocument { DisconnectFourDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { DisconnectFourDocument.sharedInstance }
 
 }

@@ -10,7 +10,6 @@ import UIKit
 
 class RoomsHelpViewController: GameHelpViewController {
 
-    var gameDocument: RoomsDocument { RoomsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { RoomsDocument.sharedInstance }
 
 }

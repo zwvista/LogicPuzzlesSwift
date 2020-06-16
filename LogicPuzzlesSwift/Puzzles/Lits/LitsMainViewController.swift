@@ -10,7 +10,6 @@ import UIKit
 
 class LitsMainViewController: GameMainViewController {
 
-    var gameDocument: LitsDocument { LitsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { LitsDocument.sharedInstance }
 
 }

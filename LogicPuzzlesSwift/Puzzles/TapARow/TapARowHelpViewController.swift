@@ -10,7 +10,6 @@ import UIKit
 
 class TapARowHelpViewController: GameHelpViewController {
 
-    var gameDocument: TapARowDocument { TapARowDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { TapARowDocument.sharedInstance }
 
 }

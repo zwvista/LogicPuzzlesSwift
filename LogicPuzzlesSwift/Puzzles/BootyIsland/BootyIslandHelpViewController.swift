@@ -10,7 +10,6 @@ import UIKit
 
 class BootyIslandHelpViewController: GameHelpViewController {
 
-    var gameDocument: BootyIslandDocument { BootyIslandDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { BootyIslandDocument.sharedInstance }
 
 }

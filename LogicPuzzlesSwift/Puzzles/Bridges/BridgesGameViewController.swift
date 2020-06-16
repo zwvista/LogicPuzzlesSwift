@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class BridgesGameViewController: GameGameViewController2<BridgesGameState, BridgesGame, BridgesDocument, BridgesGameScene> {
-    var gameDocument: BridgesDocument { BridgesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { BridgesDocument.sharedInstance }
     var pLast: Position?
     

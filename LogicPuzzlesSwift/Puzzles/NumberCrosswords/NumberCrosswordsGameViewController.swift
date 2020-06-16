@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class NumberCrosswordsGameViewController: GameGameViewController2<NumberCrosswordsGameState, NumberCrosswordsGame, NumberCrosswordsDocument, NumberCrosswordsGameScene> {
-    var gameDocument: NumberCrosswordsDocument { NumberCrosswordsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { NumberCrosswordsDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

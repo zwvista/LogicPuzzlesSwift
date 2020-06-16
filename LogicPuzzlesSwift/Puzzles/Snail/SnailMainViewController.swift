@@ -10,7 +10,6 @@ import UIKit
 
 class SnailMainViewController: GameMainViewController {
 
-    var gameDocument: SnailDocument { SnailDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { SnailDocument.sharedInstance }
 
 }

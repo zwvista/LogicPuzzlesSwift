@@ -10,7 +10,6 @@ import UIKit
 
 class TapaIslandsMainViewController: GameMainViewController {
 
-    var gameDocument: TapaIslandsDocument { TapaIslandsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { TapaIslandsDocument.sharedInstance }
 
 }

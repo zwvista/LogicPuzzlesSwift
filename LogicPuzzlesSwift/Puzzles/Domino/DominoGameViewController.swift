@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class DominoGameViewController: GameGameViewController2<DominoGameState, DominoGame, DominoDocument, DominoGameScene> {
-    var gameDocument: DominoDocument { DominoDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { DominoDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

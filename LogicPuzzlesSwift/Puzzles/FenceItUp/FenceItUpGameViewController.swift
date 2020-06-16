@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class FenceItUpGameViewController: GameGameViewController2<FenceItUpGameState, FenceItUpGame, FenceItUpDocument, FenceItUpGameScene> {
-    var gameDocument: FenceItUpDocument { FenceItUpDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { FenceItUpDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

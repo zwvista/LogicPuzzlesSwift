@@ -10,7 +10,6 @@ import UIKit
 
 class TapAlikeOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: TapAlikeDocument { TapAlikeDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { TapAlikeDocument.sharedInstance }
     
 }

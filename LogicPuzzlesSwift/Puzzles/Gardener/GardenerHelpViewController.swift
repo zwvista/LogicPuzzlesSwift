@@ -10,7 +10,6 @@ import UIKit
 
 class GardenerHelpViewController: GameHelpViewController {
 
-    var gameDocument: GardenerDocument { GardenerDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { GardenerDocument.sharedInstance }
 
 }

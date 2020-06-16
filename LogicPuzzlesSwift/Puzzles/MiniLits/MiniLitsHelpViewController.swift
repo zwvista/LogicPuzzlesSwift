@@ -10,7 +10,6 @@ import UIKit
 
 class MiniLitsHelpViewController: GameHelpViewController {
 
-    var gameDocument: MiniLitsDocument { MiniLitsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { MiniLitsDocument.sharedInstance }
 
 }

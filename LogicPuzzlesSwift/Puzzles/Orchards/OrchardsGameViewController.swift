@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class OrchardsGameViewController: GameGameViewController2<OrchardsGameState, OrchardsGame, OrchardsDocument, OrchardsGameScene> {
-    var gameDocument: OrchardsDocument { OrchardsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { OrchardsDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

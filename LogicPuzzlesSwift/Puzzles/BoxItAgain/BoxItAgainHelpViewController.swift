@@ -10,7 +10,6 @@ import UIKit
 
 class BoxItAgainHelpViewController: GameHelpViewController {
 
-    var gameDocument: BoxItAgainDocument { BoxItAgainDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { BoxItAgainDocument.sharedInstance }
 
 }

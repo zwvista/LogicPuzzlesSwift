@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class ProductSentinelsGameViewController: GameGameViewController2<ProductSentinelsGameState, ProductSentinelsGame, ProductSentinelsDocument, ProductSentinelsGameScene> {
-    var gameDocument: ProductSentinelsDocument { ProductSentinelsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { ProductSentinelsDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

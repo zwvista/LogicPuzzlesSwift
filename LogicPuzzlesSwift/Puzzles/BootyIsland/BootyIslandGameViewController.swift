@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class BootyIslandGameViewController: GameGameViewController2<BootyIslandGameState, BootyIslandGame, BootyIslandDocument, BootyIslandGameScene> {
-    var gameDocument: BootyIslandDocument { BootyIslandDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { BootyIslandDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

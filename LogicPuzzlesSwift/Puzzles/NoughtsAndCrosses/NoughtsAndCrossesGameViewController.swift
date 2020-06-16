@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class NoughtsAndCrossesGameViewController: GameGameViewController2<NoughtsAndCrossesGameState, NoughtsAndCrossesGame, NoughtsAndCrossesDocument, NoughtsAndCrossesGameScene> {
-    var gameDocument: NoughtsAndCrossesDocument { NoughtsAndCrossesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { NoughtsAndCrossesDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

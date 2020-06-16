@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class LoopyGameViewController: GameGameViewController2<LoopyGameState, LoopyGame, LoopyDocument, LoopyGameScene> {
-    var gameDocument: LoopyDocument { LoopyDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { LoopyDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

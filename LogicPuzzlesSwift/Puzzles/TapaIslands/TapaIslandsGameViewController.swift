@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class TapaIslandsGameViewController: GameGameViewController2<TapaIslandsGameState, TapaIslandsGame, TapaIslandsDocument, TapaIslandsGameScene> {
-    var gameDocument: TapaIslandsDocument { TapaIslandsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { TapaIslandsDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

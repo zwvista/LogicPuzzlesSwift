@@ -10,7 +10,6 @@ import UIKit
 import SpriteKit
 
 class MasyuGameViewController: GameGameViewController2<MasyuGameState, MasyuGame, MasyuDocument, MasyuGameScene> {
-    var gameDocument: MasyuDocument { MasyuDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { MasyuDocument.sharedInstance }
     var pLast: Position?
     

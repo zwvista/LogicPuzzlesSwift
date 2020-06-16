@@ -10,7 +10,6 @@ import UIKit
 
 class FutoshikiMainViewController: GameMainViewController {
 
-    var gameDocument: FutoshikiDocument { FutoshikiDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { FutoshikiDocument.sharedInstance }
 
 }

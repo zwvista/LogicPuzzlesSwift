@@ -10,7 +10,6 @@ import UIKit
 
 class RobotFencesMainViewController: GameMainViewController {
 
-    var gameDocument: RobotFencesDocument { RobotFencesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { RobotFencesDocument.sharedInstance }
 
 }

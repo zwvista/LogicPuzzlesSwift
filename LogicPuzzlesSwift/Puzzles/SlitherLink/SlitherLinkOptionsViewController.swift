@@ -10,7 +10,6 @@ import UIKit
 
 class SlitherLinkOptionsViewController: GameOptionsViewController {
 
-    var gameDocument: SlitherLinkDocument { SlitherLinkDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase { SlitherLinkDocument.sharedInstance }
     
 }
