@@ -24,53 +24,7 @@ class NoughtsAndCrossesGameViewController: GameGameViewController2<NoughtsAndCro
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     
-    override func startGame() {
-        lblLevel.text = gameDocument.selectedLevelID
-        updateSolutionUI()
-        
-        let level = gameDocument.levels.first(where: { $0.id == gameDocument.selectedLevelID }) ?? gameDocument.levels.first!
-        
-        levelInitilizing = true
-        defer { levelInitilizing = false }
-        game = NoughtsAndCrossesGame(layout: level.layout, chMax: level.settings["num"]![0], delegate: self)
-        
-        // restore game state
-        for case let rec as MoveProgress in gameDocument.moveProgress {
-            var move = gameDocument.loadMove(from: rec)
-            _ = game.setObject(move: &move)
-        }
-        let moveIndex = gameDocument.levelProgress.moveIndex
-        if case 0..<game.moveCount = moveIndex {
-            while moveIndex != game.moveIndex {
-                game.undo()
-            }
-        }
-        scene.levelUpdated(from: game.states[0], to: game.currentState)
+    override func newGame(level: GameLevel) -> NoughtsAndCrossesGame {
+        NoughtsAndCrossesGame(layout: level.layout, chMax: level.settings["num"]![0], delegate: self)
     }
-    
-    override func moveAdded(_ game: AnyObject, move: Any) {
-        guard !levelInitilizing else {return}
-        gameDocument.moveAdded(game: game, move: move as! NoughtsAndCrossesGameMove)
-    }
-    
-    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
-        let game = game as! NoughtsAndCrossesGame
-        updateMovesUI(game)
-        scene.levelInitialized(game, state: state as! NoughtsAndCrossesGameState, skView: skView)
-    }
-    
-    override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
-        let game = game as! NoughtsAndCrossesGame
-        updateMovesUI(game)
-        guard !levelInitilizing else {return}
-        scene.levelUpdated(from: stateFrom as! NoughtsAndCrossesGameState, to: stateTo as! NoughtsAndCrossesGameState)
-        gameDocument.levelUpdated(game: game)
-    }
-    
-    override func gameSolved(_ game: AnyObject) {
-        guard !levelInitilizing else {return}
-        soundManager.playSoundSolved()
-        gameDocument.gameSolved(game: game)
-        updateSolutionUI()
-   }
 }
