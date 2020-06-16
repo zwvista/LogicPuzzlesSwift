@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class GameGameViewController: UIViewController, SoundMixin {
+class GameGameViewController: UIViewController, SoundMixin, GameDelegate {
     
     @IBOutlet weak var lblLevel: UILabel!
     @IBOutlet weak var lblSolved: UILabel!

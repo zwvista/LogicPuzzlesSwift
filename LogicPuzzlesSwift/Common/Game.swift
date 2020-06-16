@@ -8,6 +8,14 @@
 
 import Foundation
 
+// http://stackoverflow.com/questions/24066304/how-can-i-make-a-weak-protocol-reference-in-pure-swift-w-o-objc
+protocol GameDelegate: class {
+    func moveAdded(_ game: AnyObject, move: Any)
+    func levelInitilized(_ game: AnyObject, state: AnyObject)
+    func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject)
+    func gameSolved(_ game: AnyObject)
+}
+
 protocol GameBase: class {
     var moveIndex: Int { get }
     var isSolved: Bool { get }
@@ -29,9 +37,9 @@ class Game<GS: GameStateBase>: GameBase {
     var moveIndex: Int { stateIndex }
     var moveCount: Int { states.count - 1 }
     
-    weak var delegate: GameGameViewController?
+    weak var delegate: GameDelegate?
     
-    init(delegate: GameGameViewController? = nil) {
+    init(delegate: GameDelegate? = nil) {
         self.delegate = delegate
     }
     
