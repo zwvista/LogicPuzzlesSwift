@@ -187,7 +187,7 @@ class DigitalBattleShipsGameState: GridGameState<DigitalBattleShipsGameMove> {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter { nodesExplored.contains($0.0.description) }.map { $0.0 }.sorted()
             pos2node = pos2node.filter { !nodesExplored.contains($0.0.description) }
-            guard area.count == 1 && self[area.first!] == .battleShipUnit || area.count > 1 && area.count < 5 && (
+            guard area.count == 1 && self[area.first!] == .battleShipUnit || 2...4 ~= area.count && (
                 area.testAll({ $0.row == area.first!.row }) && self[area.first!] == .battleShipLeft && self[area.last!] == .battleShipRight ||
                 area.testAll({ $0.col == area.first!.col }) && self[area.first!] == .battleShipTop && self[area.last!] == .battleShipBottom) &&
                 [Int](1..<area.count - 1).testAll({ self[area[$0]] == .battleShipMiddle }) else { isSolved = false; continue }
