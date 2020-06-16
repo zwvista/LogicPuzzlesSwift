@@ -14,20 +14,6 @@ class BridgesGameViewController: GameGameViewController2<BridgesGameState, Bridg
     override func getGameDocument() -> GameDocumentBase! { BridgesDocument.sharedInstance }
     var pLast: Position?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = BridgesGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
-    
     override func handlePan(_ sender: UIPanGestureRecognizer) {
         guard !game.isSolved else {return}
         let touchLocation = sender.location(in: sender.view)

@@ -12,20 +12,6 @@ import SpriteKit
 class KropkiGameViewController: GameGameViewController2<KropkiGameState, KropkiGame, KropkiDocument, KropkiGameScene> {
     var gameDocument: KropkiDocument { KropkiDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { KropkiDocument.sharedInstance }
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = KropkiGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

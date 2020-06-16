@@ -12,20 +12,6 @@ import SpriteKit
 class FillominoGameViewController: GameGameViewController2<FillominoGameState, FillominoGame, FillominoDocument, FillominoGameScene> {
     var gameDocument: FillominoDocument { FillominoDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { FillominoDocument.sharedInstance }
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = FillominoGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

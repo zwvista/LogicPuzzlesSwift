@@ -14,20 +14,6 @@ class MasyuGameViewController: GameGameViewController2<MasyuGameState, MasyuGame
     override func getGameDocument() -> GameDocumentBase! { MasyuDocument.sharedInstance }
     var pLast: Position?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = MasyuGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-       
-        startGame()
-    }
-    
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }

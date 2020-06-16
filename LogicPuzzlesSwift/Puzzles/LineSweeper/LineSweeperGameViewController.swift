@@ -13,20 +13,6 @@ class LineSweeperGameViewController: GameGameViewController2<LineSweeperGameStat
     var gameDocument: LineSweeperDocument { LineSweeperDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { LineSweeperDocument.sharedInstance }
     var pLast: Position?
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = LineSweeperGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

@@ -12,20 +12,6 @@ import SpriteKit
 class TatamiGameViewController: GameGameViewController2<TatamiGameState, TatamiGame, TatamiDocument, TatamiGameScene> {
     var gameDocument: TatamiDocument { TatamiDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TatamiDocument.sharedInstance }
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = TatamiGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

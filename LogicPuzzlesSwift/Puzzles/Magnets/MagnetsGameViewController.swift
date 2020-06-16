@@ -13,20 +13,6 @@ class MagnetsGameViewController: GameGameViewController2<MagnetsGameState, Magne
     var gameDocument: MagnetsDocument { MagnetsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { MagnetsDocument.sharedInstance }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = MagnetsGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
-    
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}
         let touchLocation = sender.location(in: sender.view)

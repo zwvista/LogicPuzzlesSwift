@@ -12,20 +12,6 @@ import SpriteKit
 class HitoriGameViewController: GameGameViewController2<HitoriGameState, HitoriGame, HitoriDocument, HitoriGameScene> {
     var gameDocument: HitoriDocument { HitoriDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { HitoriDocument.sharedInstance }
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = HitoriGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

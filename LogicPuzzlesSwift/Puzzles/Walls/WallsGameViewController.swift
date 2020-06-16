@@ -12,20 +12,6 @@ import SpriteKit
 class WallsGameViewController: GameGameViewController2<WallsGameState, WallsGame, WallsDocument, WallsGameScene> {
     var gameDocument: WallsDocument { WallsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { WallsDocument.sharedInstance }
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = WallsGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

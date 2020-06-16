@@ -12,20 +12,6 @@ import SpriteKit
 class NoughtsAndCrossesGameViewController: GameGameViewController2<NoughtsAndCrossesGameState, NoughtsAndCrossesGame, NoughtsAndCrossesDocument, NoughtsAndCrossesGameScene> {
     var gameDocument: NoughtsAndCrossesDocument { NoughtsAndCrossesDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { NoughtsAndCrossesDocument.sharedInstance }
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = NoughtsAndCrossesGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

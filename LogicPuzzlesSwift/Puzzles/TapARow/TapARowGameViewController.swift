@@ -13,20 +13,6 @@ class TapARowGameViewController: GameGameViewController2<TapARowGameState, TapAR
     var gameDocument: TapARowDocument { TapARowDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TapARowDocument.sharedInstance }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = TapARowGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
-    
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}
         let touchLocation = sender.location(in: sender.view)

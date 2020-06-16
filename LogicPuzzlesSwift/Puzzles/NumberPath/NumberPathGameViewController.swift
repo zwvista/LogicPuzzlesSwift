@@ -14,20 +14,6 @@ class NumberPathGameViewController: GameGameViewController2<NumberPathGameState,
     override func getGameDocument() -> GameDocumentBase! { NumberPathDocument.sharedInstance }
     var pLast: Position?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = NumberPathGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-       
-        startGame()
-    }
-    
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }

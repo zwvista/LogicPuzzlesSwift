@@ -12,20 +12,6 @@ import SpriteKit
 class RippleEffectGameViewController: GameGameViewController2<RippleEffectGameState, RippleEffectGame, RippleEffectDocument, RippleEffectGameScene> {
     var gameDocument: RippleEffectDocument { RippleEffectDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { RippleEffectDocument.sharedInstance }
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = RippleEffectGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

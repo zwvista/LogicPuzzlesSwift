@@ -12,20 +12,6 @@ import SpriteKit
 class FutoshikiGameViewController: GameGameViewController2<FutoshikiGameState, FutoshikiGame, FutoshikiDocument, FutoshikiGameScene> {
     var gameDocument: FutoshikiDocument { FutoshikiDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { FutoshikiDocument.sharedInstance }
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = FutoshikiGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

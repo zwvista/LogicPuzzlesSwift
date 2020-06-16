@@ -12,20 +12,6 @@ import SpriteKit
 class HolidayIslandGameViewController: GameGameViewController2<HolidayIslandGameState, HolidayIslandGame, HolidayIslandDocument, HolidayIslandGameScene> {
     var gameDocument: HolidayIslandDocument { HolidayIslandDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { HolidayIslandDocument.sharedInstance }
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = HolidayIslandGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

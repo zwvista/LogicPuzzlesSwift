@@ -12,20 +12,6 @@ import SpriteKit
 class SentinelsGameViewController: GameGameViewController2<SentinelsGameState, SentinelsGame, SentinelsDocument, SentinelsGameScene> {
     var gameDocument: SentinelsDocument { SentinelsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { SentinelsDocument.sharedInstance }
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = SentinelsGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-       
-        startGame()
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

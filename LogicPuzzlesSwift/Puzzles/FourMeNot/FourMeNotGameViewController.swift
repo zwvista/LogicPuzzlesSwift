@@ -12,20 +12,6 @@ import SpriteKit
 class FourMeNotGameViewController: GameGameViewController2<FourMeNotGameState, FourMeNotGame, FourMeNotDocument, FourMeNotGameScene> {
     var gameDocument: FourMeNotDocument { FourMeNotDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { FourMeNotDocument.sharedInstance }
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = FourMeNotGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

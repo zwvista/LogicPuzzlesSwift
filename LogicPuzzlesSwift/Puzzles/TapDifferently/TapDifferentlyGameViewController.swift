@@ -13,20 +13,6 @@ class TapDifferentlyGameViewController: GameGameViewController2<TapDifferentlyGa
     var gameDocument: TapDifferentlyDocument { TapDifferentlyDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TapDifferentlyDocument.sharedInstance }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = TapDifferentlyGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
-    
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}
         let touchLocation = sender.location(in: sender.view)

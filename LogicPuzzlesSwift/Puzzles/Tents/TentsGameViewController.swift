@@ -13,20 +13,6 @@ class TentsGameViewController: GameGameViewController2<TentsGameState, TentsGame
     var gameDocument: TentsDocument { TentsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TentsDocument.sharedInstance }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = TentsGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-       
-        startGame()
-    }
-    
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}
         let touchLocation = sender.location(in: sender.view)

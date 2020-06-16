@@ -13,20 +13,6 @@ class CarpentersSquareGameViewController: GameGameViewController2<CarpentersSqua
     var gameDocument: CarpentersSquareDocument { CarpentersSquareDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { CarpentersSquareDocument.sharedInstance }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = CarpentersSquareGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
-    
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}
         let touchLocation = sender.location(in: sender.view)

@@ -12,20 +12,6 @@ import SpriteKit
 class SkyscrapersGameViewController: GameGameViewController2<SkyscrapersGameState, SkyscrapersGame, SkyscrapersDocument, SkyscrapersGameScene> {
     var gameDocument: SkyscrapersDocument { SkyscrapersDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { SkyscrapersDocument.sharedInstance }
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = SkyscrapersGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

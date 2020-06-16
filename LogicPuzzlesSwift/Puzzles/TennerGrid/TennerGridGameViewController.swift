@@ -12,20 +12,6 @@ import SpriteKit
 class TennerGridGameViewController: GameGameViewController2<TennerGridGameState, TennerGridGame, TennerGridDocument, TennerGridGameScene> {
     var gameDocument: TennerGridDocument { TennerGridDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TennerGridDocument.sharedInstance }
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = TennerGridGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

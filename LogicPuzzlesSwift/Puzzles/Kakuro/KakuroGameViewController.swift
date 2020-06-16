@@ -12,20 +12,6 @@ import SpriteKit
 class KakuroGameViewController: GameGameViewController2<KakuroGameState, KakuroGame, KakuroDocument, KakuroGameScene> {
     var gameDocument: KakuroDocument { KakuroDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { KakuroDocument.sharedInstance }
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = KakuroGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

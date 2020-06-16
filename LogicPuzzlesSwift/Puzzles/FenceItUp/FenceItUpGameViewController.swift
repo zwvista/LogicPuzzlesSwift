@@ -12,20 +12,6 @@ import SpriteKit
 class FenceItUpGameViewController: GameGameViewController2<FenceItUpGameState, FenceItUpGame, FenceItUpDocument, FenceItUpGameScene> {
     var gameDocument: FenceItUpDocument { FenceItUpDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { FenceItUpDocument.sharedInstance }
- 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = FenceItUpGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

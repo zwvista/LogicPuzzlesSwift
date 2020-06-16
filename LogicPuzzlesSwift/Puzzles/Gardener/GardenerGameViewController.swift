@@ -12,20 +12,6 @@ import SpriteKit
 class GardenerGameViewController: GameGameViewController2<GardenerGameState, GardenerGame, GardenerDocument, GardenerGameScene> {
     var gameDocument: GardenerDocument { GardenerDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { GardenerDocument.sharedInstance }
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = GardenerGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

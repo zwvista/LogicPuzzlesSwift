@@ -12,20 +12,6 @@ import SpriteKit
 class DisconnectFourGameViewController: GameGameViewController2<DisconnectFourGameState, DisconnectFourGame, DisconnectFourDocument, DisconnectFourGameScene> {
     var gameDocument: DisconnectFourDocument { DisconnectFourDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { DisconnectFourDocument.sharedInstance }
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = DisconnectFourGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

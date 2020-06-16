@@ -12,20 +12,6 @@ import SpriteKit
 class CastleBaileyGameViewController: GameGameViewController2<CastleBaileyGameState, CastleBaileyGame, CastleBaileyDocument, CastleBaileyGameScene> {
     var gameDocument: CastleBaileyDocument { CastleBaileyDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { CastleBaileyDocument.sharedInstance }
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = CastleBaileyGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

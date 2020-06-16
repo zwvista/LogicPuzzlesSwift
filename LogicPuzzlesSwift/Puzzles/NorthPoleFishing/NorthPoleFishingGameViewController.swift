@@ -13,20 +13,6 @@ class NorthPoleFishingGameViewController: GameGameViewController2<NorthPoleFishi
     var gameDocument: NorthPoleFishingDocument { NorthPoleFishingDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { NorthPoleFishingDocument.sharedInstance }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = NorthPoleFishingGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
-    
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}
         let touchLocation = sender.location(in: sender.view)

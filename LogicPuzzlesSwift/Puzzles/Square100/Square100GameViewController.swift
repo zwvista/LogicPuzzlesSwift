@@ -12,20 +12,6 @@ import SpriteKit
 class Square100GameViewController: GameGameViewController2<Square100GameState, Square100Game, Square100Document, Square100GameScene> {
     var gameDocument: Square100Document { Square100Document.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { Square100Document.sharedInstance }
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = Square100GameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

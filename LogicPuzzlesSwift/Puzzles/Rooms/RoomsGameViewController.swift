@@ -12,20 +12,6 @@ import SpriteKit
 class RoomsGameViewController: GameGameViewController2<RoomsGameState, RoomsGame, RoomsDocument, RoomsGameScene> {
     var gameDocument: RoomsDocument { RoomsDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { RoomsDocument.sharedInstance }
-  
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = RoomsGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

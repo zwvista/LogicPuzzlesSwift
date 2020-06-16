@@ -12,20 +12,6 @@ import SpriteKit
 class TierraDelFuegoGameViewController: GameGameViewController2<TierraDelFuegoGameState, TierraDelFuegoGame, TierraDelFuegoDocument, TierraDelFuegoGameScene> {
     var gameDocument: TierraDelFuegoDocument { TierraDelFuegoDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { TierraDelFuegoDocument.sharedInstance }
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = TierraDelFuegoGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

@@ -12,20 +12,6 @@ import SpriteKit
 class DominoGameViewController: GameGameViewController2<DominoGameState, DominoGame, DominoDocument, DominoGameScene> {
     var gameDocument: DominoDocument { DominoDocument.sharedInstance }
     override func getGameDocument() -> GameDocumentBase! { DominoDocument.sharedInstance }
-  
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Create and configure the scene.
-        scene = DominoGameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        scene.backgroundColor = UIColor.black
-        
-        // Present the scene.
-        skView.presentScene(scene)
-        
-        startGame()
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}
