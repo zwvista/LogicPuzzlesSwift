@@ -11,6 +11,6 @@ import UIKit
 class TapaHelpViewController: GameHelpViewController {
 
     var gameDocument: TapaDocument { TapaDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { TapaDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { TapaDocument.sharedInstance }
 
 }

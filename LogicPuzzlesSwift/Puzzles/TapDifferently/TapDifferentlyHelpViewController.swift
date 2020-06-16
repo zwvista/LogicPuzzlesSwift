@@ -11,6 +11,6 @@ import UIKit
 class TapDifferentlyHelpViewController: GameHelpViewController {
 
     var gameDocument: TapDifferentlyDocument { TapDifferentlyDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { TapDifferentlyDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { TapDifferentlyDocument.sharedInstance }
 
 }

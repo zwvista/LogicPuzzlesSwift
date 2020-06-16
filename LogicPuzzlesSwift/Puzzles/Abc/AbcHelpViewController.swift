@@ -11,6 +11,6 @@ import UIKit
 class AbcHelpViewController: GameHelpViewController {
 
     var gameDocument: AbcDocument { AbcDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { AbcDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { AbcDocument.sharedInstance }
 
 }

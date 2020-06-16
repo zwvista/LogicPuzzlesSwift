@@ -11,7 +11,7 @@ import SpriteKit
 
 class BusySeasGameViewController: GameGameViewController2<BusySeasGameState, BusySeasGame, BusySeasDocument, BusySeasGameScene> {
     var gameDocument: BusySeasDocument { BusySeasDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { BusySeasDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { BusySeasDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

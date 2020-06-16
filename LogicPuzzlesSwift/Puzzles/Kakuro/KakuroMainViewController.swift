@@ -11,6 +11,6 @@ import UIKit
 class KakuroMainViewController: GameMainViewController {
 
     var gameDocument: KakuroDocument { KakuroDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { KakuroDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { KakuroDocument.sharedInstance }
 
 }

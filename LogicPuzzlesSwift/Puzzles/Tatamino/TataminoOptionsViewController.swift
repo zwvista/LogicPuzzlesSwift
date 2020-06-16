@@ -11,6 +11,6 @@ import UIKit
 class TataminoOptionsViewController: GameOptionsViewController {
 
     var gameDocument: TataminoDocument { TataminoDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { TataminoDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { TataminoDocument.sharedInstance }
 
 }

@@ -11,6 +11,6 @@ import UIKit
 class LoopyHelpViewController: GameHelpViewController {
 
     var gameDocument: LoopyDocument { LoopyDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { LoopyDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { LoopyDocument.sharedInstance }
 
 }

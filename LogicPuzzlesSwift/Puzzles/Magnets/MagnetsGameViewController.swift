@@ -11,7 +11,7 @@ import SpriteKit
 
 class MagnetsGameViewController: GameGameViewController2<MagnetsGameState, MagnetsGame, MagnetsDocument, MagnetsGameScene> {
     var gameDocument: MagnetsDocument { MagnetsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { MagnetsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { MagnetsDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

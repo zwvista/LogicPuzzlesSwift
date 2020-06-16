@@ -11,6 +11,6 @@ import UIKit
 class CastleBaileyMainViewController: GameMainViewController {
 
     var gameDocument: CastleBaileyDocument { CastleBaileyDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { CastleBaileyDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { CastleBaileyDocument.sharedInstance }
 
 }

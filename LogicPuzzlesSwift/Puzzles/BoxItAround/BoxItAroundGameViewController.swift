@@ -11,7 +11,7 @@ import SpriteKit
 
 class BoxItAroundGameViewController: GameGameViewController2<BoxItAroundGameState, BoxItAroundGame, BoxItAroundDocument, BoxItAroundGameScene> {
     var gameDocument: BoxItAroundDocument { BoxItAroundDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { BoxItAroundDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { BoxItAroundDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

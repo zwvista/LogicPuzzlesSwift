@@ -11,7 +11,7 @@ import SpriteKit
 
 class MathraxGameViewController: GameGameViewController2<MathraxGameState, MathraxGame, MathraxDocument, MathraxGameScene> {
     var gameDocument: MathraxDocument { MathraxDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { MathraxDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { MathraxDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

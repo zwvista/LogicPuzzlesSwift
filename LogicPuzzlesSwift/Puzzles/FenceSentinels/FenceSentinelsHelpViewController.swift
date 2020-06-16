@@ -11,6 +11,6 @@ import UIKit
 class FenceSentinelsHelpViewController: GameHelpViewController {
 
     var gameDocument: FenceSentinelsDocument { FenceSentinelsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { FenceSentinelsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { FenceSentinelsDocument.sharedInstance }
 
 }

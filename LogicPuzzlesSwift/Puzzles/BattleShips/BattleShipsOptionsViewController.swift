@@ -11,6 +11,6 @@ import UIKit
 class BattleShipsOptionsViewController: GameOptionsViewController {
 
     var gameDocument: BattleShipsDocument { BattleShipsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { BattleShipsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { BattleShipsDocument.sharedInstance }
     
 }

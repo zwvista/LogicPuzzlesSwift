@@ -11,6 +11,6 @@ import UIKit
 class MinesweeperOptionsViewController: GameOptionsViewController {
 
     var gameDocument: MinesweeperDocument { MinesweeperDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { MinesweeperDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { MinesweeperDocument.sharedInstance }
     
 }

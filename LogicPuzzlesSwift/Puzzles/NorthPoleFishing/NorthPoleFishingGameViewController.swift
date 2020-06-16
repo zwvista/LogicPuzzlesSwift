@@ -11,7 +11,7 @@ import SpriteKit
 
 class NorthPoleFishingGameViewController: GameGameViewController2<NorthPoleFishingGameState, NorthPoleFishingGame, NorthPoleFishingDocument, NorthPoleFishingGameScene> {
     var gameDocument: NorthPoleFishingDocument { NorthPoleFishingDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { NorthPoleFishingDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { NorthPoleFishingDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

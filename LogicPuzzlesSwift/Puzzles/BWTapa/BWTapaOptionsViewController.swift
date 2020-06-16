@@ -11,6 +11,6 @@ import UIKit
 class BWTapaOptionsViewController: GameOptionsViewController {
 
     var gameDocument: BWTapaDocument { BWTapaDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { BWTapaDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { BWTapaDocument.sharedInstance }
     
 }

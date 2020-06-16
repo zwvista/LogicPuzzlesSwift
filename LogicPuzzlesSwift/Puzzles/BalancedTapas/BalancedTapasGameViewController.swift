@@ -11,7 +11,7 @@ import SpriteKit
 
 class BalancedTapasGameViewController: GameGameViewController2<BalancedTapasGameState, BalancedTapasGame, BalancedTapasDocument, BalancedTapasGameScene> {
     var gameDocument: BalancedTapasDocument { BalancedTapasDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { BalancedTapasDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { BalancedTapasDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

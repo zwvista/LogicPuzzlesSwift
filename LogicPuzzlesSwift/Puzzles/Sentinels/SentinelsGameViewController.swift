@@ -11,7 +11,7 @@ import SpriteKit
 
 class SentinelsGameViewController: GameGameViewController2<SentinelsGameState, SentinelsGame, SentinelsDocument, SentinelsGameScene> {
     var gameDocument: SentinelsDocument { SentinelsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { SentinelsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { SentinelsDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

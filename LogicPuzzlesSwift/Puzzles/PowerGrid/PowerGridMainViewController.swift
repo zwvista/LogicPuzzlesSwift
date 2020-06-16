@@ -11,6 +11,6 @@ import UIKit
 class PowerGridMainViewController: GameMainViewController {
 
     var gameDocument: PowerGridDocument { PowerGridDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { PowerGridDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { PowerGridDocument.sharedInstance }
 
 }

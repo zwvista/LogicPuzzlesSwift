@@ -11,6 +11,6 @@ import UIKit
 class TatamiHelpViewController: GameHelpViewController {
 
     var gameDocument: TatamiDocument { TatamiDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { TatamiDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { TatamiDocument.sharedInstance }
 
 }

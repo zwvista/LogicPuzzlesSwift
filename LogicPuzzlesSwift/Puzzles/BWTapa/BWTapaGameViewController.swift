@@ -11,7 +11,7 @@ import SpriteKit
 
 class BWTapaGameViewController: GameGameViewController2<BWTapaGameState, BWTapaGame, BWTapaDocument, BWTapaGameScene> {
     var gameDocument: BWTapaDocument { BWTapaDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { BWTapaDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { BWTapaDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

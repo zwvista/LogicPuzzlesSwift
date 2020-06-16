@@ -11,6 +11,6 @@ import UIKit
 class RobotCrosswordsMainViewController: GameMainViewController {
 
     var gameDocument: RobotCrosswordsDocument { RobotCrosswordsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { RobotCrosswordsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { RobotCrosswordsDocument.sharedInstance }
 
 }

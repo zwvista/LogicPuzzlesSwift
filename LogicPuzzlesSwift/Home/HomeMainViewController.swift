@@ -14,9 +14,9 @@ class HomeMainViewController: UIViewController, HomeMixin {
     @IBOutlet weak var btnResumeGame: UIButton!
     
     public private(set) var toResume = false
-    override var prefersStatusBarHidden: Bool { return true }
+    override var prefersStatusBarHidden: Bool { true }
     
-    override var shouldAutorotate: Bool { return false }
+    override var shouldAutorotate: Bool { false }
 
     override func viewDidLoad() {
         super.viewDidLoad()        

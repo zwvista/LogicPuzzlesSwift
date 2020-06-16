@@ -11,7 +11,7 @@ import SpriteKit
 
 class RobotCrosswordsGameViewController: GameGameViewController2<RobotCrosswordsGameState, RobotCrosswordsGame, RobotCrosswordsDocument, RobotCrosswordsGameScene> {
     var gameDocument: RobotCrosswordsDocument { RobotCrosswordsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { RobotCrosswordsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { RobotCrosswordsDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

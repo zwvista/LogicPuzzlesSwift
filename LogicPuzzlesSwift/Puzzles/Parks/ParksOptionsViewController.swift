@@ -11,6 +11,6 @@ import UIKit
 class ParksOptionsViewController: GameOptionsViewController {
 
     var gameDocument: ParksDocument { ParksDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { ParksDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { ParksDocument.sharedInstance }
 
 }

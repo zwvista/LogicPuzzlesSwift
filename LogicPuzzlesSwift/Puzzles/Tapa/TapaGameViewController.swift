@@ -11,7 +11,7 @@ import SpriteKit
 
 class TapaGameViewController: GameGameViewController2<TapaGameState, TapaGame, TapaDocument, TapaGameScene> {
     var gameDocument: TapaDocument { TapaDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { TapaDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { TapaDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

@@ -11,7 +11,7 @@ import SpriteKit
 
 class AbstractPaintingGameViewController: GameGameViewController2<AbstractPaintingGameState, AbstractPaintingGame, AbstractPaintingDocument, AbstractPaintingGameScene> {
     var gameDocument: AbstractPaintingDocument { AbstractPaintingDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { AbstractPaintingDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { AbstractPaintingDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

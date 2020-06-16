@@ -11,7 +11,7 @@ import SpriteKit
 
 class TapAlikeGameViewController: GameGameViewController2<TapAlikeGameState, TapAlikeGame, TapAlikeDocument, TapAlikeGameScene> {
     var gameDocument: TapAlikeDocument { TapAlikeDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { TapAlikeDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { TapAlikeDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

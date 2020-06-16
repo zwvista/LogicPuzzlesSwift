@@ -11,6 +11,6 @@ import UIKit
 class DominoHelpViewController: GameHelpViewController {
 
     var gameDocument: DominoDocument { DominoDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { DominoDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { DominoDocument.sharedInstance }
 
 }

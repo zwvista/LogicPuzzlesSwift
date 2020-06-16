@@ -11,6 +11,6 @@ import UIKit
 class MiniLitsOptionsViewController: GameOptionsViewController {
 
     var gameDocument: MiniLitsDocument { MiniLitsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { MiniLitsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { MiniLitsDocument.sharedInstance }
 
 }

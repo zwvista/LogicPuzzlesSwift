@@ -11,6 +11,6 @@ import UIKit
 class CalcudokuOptionsViewController: GameOptionsViewController {
 
     var gameDocument: CalcudokuDocument { CalcudokuDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { CalcudokuDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { CalcudokuDocument.sharedInstance }
 
 }

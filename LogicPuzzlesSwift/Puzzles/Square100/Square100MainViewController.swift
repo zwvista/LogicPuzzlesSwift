@@ -11,6 +11,6 @@ import UIKit
 class Square100MainViewController: GameMainViewController {
 
     var gameDocument: Square100Document { Square100Document.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { Square100Document.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { Square100Document.sharedInstance }
 
 }

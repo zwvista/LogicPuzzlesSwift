@@ -11,7 +11,7 @@ import SpriteKit
 
 class LighthousesGameViewController: GameGameViewController2<LighthousesGameState, LighthousesGame, LighthousesDocument, LighthousesGameScene> {
     var gameDocument: LighthousesDocument { LighthousesDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { LighthousesDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { LighthousesDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

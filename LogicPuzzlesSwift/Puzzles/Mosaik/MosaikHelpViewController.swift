@@ -11,6 +11,6 @@ import UIKit
 class MosaikHelpViewController: GameHelpViewController {
 
     var gameDocument: MosaikDocument { MosaikDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { MosaikDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { MosaikDocument.sharedInstance }
 
 }

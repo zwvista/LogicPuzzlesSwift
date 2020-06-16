@@ -11,7 +11,7 @@ import SpriteKit
 
 class MiniLitsGameViewController: GameGameViewController2<MiniLitsGameState, MiniLitsGame, MiniLitsDocument, MiniLitsGameScene> {
     var gameDocument: MiniLitsDocument { MiniLitsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { MiniLitsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { MiniLitsDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

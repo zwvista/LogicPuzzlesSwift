@@ -11,6 +11,6 @@ import UIKit
 class NumberLinkOptionsViewController: GameOptionsViewController {
     
     var gameDocument: NumberLinkDocument { NumberLinkDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { NumberLinkDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { NumberLinkDocument.sharedInstance }
     
 }

@@ -11,6 +11,6 @@ import UIKit
 class NorthPoleFishingOptionsViewController: GameOptionsViewController {
 
     var gameDocument: NorthPoleFishingDocument { NorthPoleFishingDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { NorthPoleFishingDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { NorthPoleFishingDocument.sharedInstance }
     
 }

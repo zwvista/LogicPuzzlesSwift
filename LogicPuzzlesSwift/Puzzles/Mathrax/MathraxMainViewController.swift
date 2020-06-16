@@ -11,6 +11,6 @@ import UIKit
 class MathraxMainViewController: GameMainViewController {
 
     var gameDocument: MathraxDocument { MathraxDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { MathraxDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { MathraxDocument.sharedInstance }
 
 }

@@ -11,6 +11,6 @@ import UIKit
 class BusySeasHelpViewController: GameHelpViewController {
 
     var gameDocument: BusySeasDocument { BusySeasDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { BusySeasDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { BusySeasDocument.sharedInstance }
 
 }

@@ -11,7 +11,7 @@ import SpriteKit
 
 class ParksGameViewController: GameGameViewController2<ParksGameState, ParksGame, ParksDocument, ParksGameScene> {
     var gameDocument: ParksDocument { ParksDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { ParksDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { ParksDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

@@ -11,7 +11,7 @@ import SpriteKit
 
 class MasyuGameViewController: GameGameViewController2<MasyuGameState, MasyuGame, MasyuDocument, MasyuGameScene> {
     var gameDocument: MasyuDocument { MasyuDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { MasyuDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { MasyuDocument.sharedInstance }
     var pLast: Position?
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {

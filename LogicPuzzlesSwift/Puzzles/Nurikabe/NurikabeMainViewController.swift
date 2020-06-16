@@ -11,6 +11,6 @@ import UIKit
 class NurikabeMainViewController: GameMainViewController {
 
     var gameDocument: NurikabeDocument { NurikabeDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { NurikabeDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { NurikabeDocument.sharedInstance }
 
 }

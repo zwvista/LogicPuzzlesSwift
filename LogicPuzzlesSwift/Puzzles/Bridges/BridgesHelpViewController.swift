@@ -11,6 +11,6 @@ import UIKit
 class BridgesHelpViewController: GameHelpViewController {
 
     var gameDocument: BridgesDocument { BridgesDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { BridgesDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { BridgesDocument.sharedInstance }
 
 }

@@ -11,7 +11,7 @@ import SpriteKit
 
 class KakuroGameViewController: GameGameViewController2<KakuroGameState, KakuroGame, KakuroDocument, KakuroGameScene> {
     var gameDocument: KakuroDocument { KakuroDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { KakuroDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { KakuroDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

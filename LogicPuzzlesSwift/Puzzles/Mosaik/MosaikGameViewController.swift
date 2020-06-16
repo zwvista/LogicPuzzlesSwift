@@ -11,7 +11,7 @@ import SpriteKit
 
 class MosaikGameViewController: GameGameViewController2<MosaikGameState, MosaikGame, MosaikDocument, MosaikGameScene> {
     var gameDocument: MosaikDocument { MosaikDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { MosaikDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { MosaikDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

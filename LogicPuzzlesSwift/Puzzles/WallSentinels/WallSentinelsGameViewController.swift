@@ -11,7 +11,7 @@ import SpriteKit
 
 class WallSentinelsGameViewController: GameGameViewController2<WallSentinelsGameState, WallSentinelsGame, WallSentinelsDocument, WallSentinelsGameScene> {
     var gameDocument: WallSentinelsDocument { WallSentinelsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { WallSentinelsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { WallSentinelsDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

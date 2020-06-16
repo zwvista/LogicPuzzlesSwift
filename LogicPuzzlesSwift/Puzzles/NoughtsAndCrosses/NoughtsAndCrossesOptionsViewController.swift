@@ -11,6 +11,6 @@ import UIKit
 class NoughtsAndCrossesOptionsViewController: GameOptionsViewController {
 
     var gameDocument: NoughtsAndCrossesDocument { NoughtsAndCrossesDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { NoughtsAndCrossesDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { NoughtsAndCrossesDocument.sharedInstance }
     
 }

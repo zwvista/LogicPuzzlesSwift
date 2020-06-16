@@ -11,7 +11,7 @@ import SpriteKit
 
 class CarpentersSquareGameViewController: GameGameViewController2<CarpentersSquareGameState, CarpentersSquareGame, CarpentersSquareDocument, CarpentersSquareGameScene> {
     var gameDocument: CarpentersSquareDocument { CarpentersSquareDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { CarpentersSquareDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { CarpentersSquareDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

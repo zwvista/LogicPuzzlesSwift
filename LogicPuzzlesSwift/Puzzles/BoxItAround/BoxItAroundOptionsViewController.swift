@@ -11,6 +11,6 @@ import UIKit
 class BoxItAroundOptionsViewController: GameOptionsViewController {
 
     var gameDocument: BoxItAroundDocument { BoxItAroundDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { BoxItAroundDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { BoxItAroundDocument.sharedInstance }
     
 }

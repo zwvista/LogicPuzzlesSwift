@@ -11,7 +11,7 @@ import SpriteKit
 
 class CalcudokuGameViewController: GameGameViewController2<CalcudokuGameState, CalcudokuGame, CalcudokuDocument, CalcudokuGameScene> {
     var gameDocument: CalcudokuDocument { CalcudokuDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { CalcudokuDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { CalcudokuDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

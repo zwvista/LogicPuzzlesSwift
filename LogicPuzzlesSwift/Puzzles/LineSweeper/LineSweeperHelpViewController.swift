@@ -11,6 +11,6 @@ import UIKit
 class LineSweeperHelpViewController: GameHelpViewController {
 
     var gameDocument: LineSweeperDocument { LineSweeperDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { LineSweeperDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { LineSweeperDocument.sharedInstance }
 
 }

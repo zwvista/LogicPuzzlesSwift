@@ -11,6 +11,6 @@ import UIKit
 class PaintTheNurikabeOptionsViewController: GameOptionsViewController {
 
     var gameDocument: PaintTheNurikabeDocument { PaintTheNurikabeDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { PaintTheNurikabeDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { PaintTheNurikabeDocument.sharedInstance }
     
 }

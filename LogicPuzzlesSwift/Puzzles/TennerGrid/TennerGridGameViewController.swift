@@ -11,7 +11,7 @@ import SpriteKit
 
 class TennerGridGameViewController: GameGameViewController2<TennerGridGameState, TennerGridGame, TennerGridDocument, TennerGridGameScene> {
     var gameDocument: TennerGridDocument { TennerGridDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { TennerGridDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { TennerGridDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

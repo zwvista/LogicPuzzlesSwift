@@ -11,7 +11,7 @@ import SpriteKit
 
 class NumberPathGameViewController: GameGameViewController2<NumberPathGameState, NumberPathGame, NumberPathDocument, NumberPathGameScene> {
     var gameDocument: NumberPathDocument { NumberPathDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { NumberPathDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { NumberPathDocument.sharedInstance }
     var pLast: Position?
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {

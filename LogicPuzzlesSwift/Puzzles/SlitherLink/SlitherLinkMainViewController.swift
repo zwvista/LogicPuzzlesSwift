@@ -11,6 +11,6 @@ import UIKit
 class SlitherLinkMainViewController: GameMainViewController {
 
     var gameDocument: SlitherLinkDocument { SlitherLinkDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { SlitherLinkDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { SlitherLinkDocument.sharedInstance }
 
 }

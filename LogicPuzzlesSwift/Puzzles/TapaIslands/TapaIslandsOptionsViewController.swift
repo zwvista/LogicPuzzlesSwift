@@ -11,6 +11,6 @@ import UIKit
 class TapaIslandsOptionsViewController: GameOptionsViewController {
 
     var gameDocument: TapaIslandsDocument { TapaIslandsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { TapaIslandsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { TapaIslandsDocument.sharedInstance }
     
 }

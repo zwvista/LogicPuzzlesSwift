@@ -11,6 +11,6 @@ import UIKit
 class MagnetsOptionsViewController: GameOptionsViewController {
 
     var gameDocument: MagnetsDocument { MagnetsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { MagnetsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { MagnetsDocument.sharedInstance }
     
 }

@@ -11,6 +11,6 @@ import UIKit
 class MasyuHelpViewController: GameHelpViewController {
 
     var gameDocument: MasyuDocument { MasyuDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { MasyuDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { MasyuDocument.sharedInstance }
 
 }

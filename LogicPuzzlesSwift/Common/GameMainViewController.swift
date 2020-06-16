@@ -19,7 +19,7 @@ class GameMainViewController: UIViewController {
     
     override var shouldAutorotate: Bool { false }
 
-    private var gameDocument: GameDocumentBase! { getGameDocument() }
+    private var gameDocument: GameDocumentBase { getGameDocument() }
     func getGameDocument() -> GameDocumentBase! { nil }
     var gameOptions: GameProgress { gameDocument.gameProgress }
     var markerOption: Int { gameOptions.option1?.toInt() ?? 0 }

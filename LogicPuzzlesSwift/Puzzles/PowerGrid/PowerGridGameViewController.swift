@@ -11,7 +11,7 @@ import SpriteKit
 
 class PowerGridGameViewController: GameGameViewController2<PowerGridGameState, PowerGridGame, PowerGridDocument, PowerGridGameScene> {
     var gameDocument: PowerGridDocument { PowerGridDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { PowerGridDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { PowerGridDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

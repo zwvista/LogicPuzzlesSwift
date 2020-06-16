@@ -11,6 +11,6 @@ import UIKit
 class CarpentersSquareMainViewController: GameMainViewController {
 
     var gameDocument: CarpentersSquareDocument { CarpentersSquareDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { CarpentersSquareDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { CarpentersSquareDocument.sharedInstance }
 
 }

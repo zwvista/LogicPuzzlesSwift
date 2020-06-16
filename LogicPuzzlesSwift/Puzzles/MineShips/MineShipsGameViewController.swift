@@ -11,7 +11,7 @@ import SpriteKit
 
 class MineShipsGameViewController: GameGameViewController2<MineShipsGameState, MineShipsGame, MineShipsDocument, MineShipsGameScene> {
     var gameDocument: MineShipsDocument { MineShipsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { MineShipsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { MineShipsDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

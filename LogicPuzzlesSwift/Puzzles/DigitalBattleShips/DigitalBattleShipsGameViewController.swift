@@ -11,7 +11,7 @@ import SpriteKit
 
 class DigitalBattleShipsGameViewController: GameGameViewController2<DigitalBattleShipsGameState, DigitalBattleShipsGame, DigitalBattleShipsDocument, DigitalBattleShipsGameScene> {
     var gameDocument: DigitalBattleShipsDocument { DigitalBattleShipsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { DigitalBattleShipsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { DigitalBattleShipsDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

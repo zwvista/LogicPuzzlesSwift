@@ -11,7 +11,7 @@ import SpriteKit
 
 class CastleBaileyGameViewController: GameGameViewController2<CastleBaileyGameState, CastleBaileyGame, CastleBaileyDocument, CastleBaileyGameScene> {
     var gameDocument: CastleBaileyDocument { CastleBaileyDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { CastleBaileyDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { CastleBaileyDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

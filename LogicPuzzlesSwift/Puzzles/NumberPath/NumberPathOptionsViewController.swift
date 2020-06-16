@@ -11,6 +11,6 @@ import UIKit
 class NumberPathOptionsViewController: GameOptionsViewController {
     
     var gameDocument: NumberPathDocument { NumberPathDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { NumberPathDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { NumberPathDocument.sharedInstance }
     
 }

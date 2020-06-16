@@ -11,6 +11,6 @@ import UIKit
 class FutoshikiHelpViewController: GameHelpViewController {
 
     var gameDocument: FutoshikiDocument { FutoshikiDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { FutoshikiDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { FutoshikiDocument.sharedInstance }
 
 }

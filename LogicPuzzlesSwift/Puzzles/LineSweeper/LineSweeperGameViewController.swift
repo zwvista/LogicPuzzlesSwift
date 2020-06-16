@@ -11,7 +11,7 @@ import SpriteKit
 
 class LineSweeperGameViewController: GameGameViewController2<LineSweeperGameState, LineSweeperGame, LineSweeperDocument, LineSweeperGameScene> {
     var gameDocument: LineSweeperDocument { LineSweeperDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { LineSweeperDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { LineSweeperDocument.sharedInstance }
     var pLast: Position?
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

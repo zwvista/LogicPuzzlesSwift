@@ -11,7 +11,7 @@ import SpriteKit
 
 class FillominoGameViewController: GameGameViewController2<FillominoGameState, FillominoGame, FillominoDocument, FillominoGameScene> {
     var gameDocument: FillominoDocument { FillominoDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { FillominoDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { FillominoDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

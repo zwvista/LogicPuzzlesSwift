@@ -11,6 +11,6 @@ import UIKit
 class NumberCrosswordsOptionsViewController: GameOptionsViewController {
 
     var gameDocument: NumberCrosswordsDocument { NumberCrosswordsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { NumberCrosswordsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { NumberCrosswordsDocument.sharedInstance }
     
 }

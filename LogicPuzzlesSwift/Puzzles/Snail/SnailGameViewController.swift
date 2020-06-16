@@ -11,7 +11,7 @@ import SpriteKit
 
 class SnailGameViewController: GameGameViewController2<SnailGameState, SnailGame, SnailDocument, SnailGameScene> {
     var gameDocument: SnailDocument { SnailDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { SnailDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { SnailDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

@@ -11,6 +11,6 @@ import UIKit
 class TapAlikeHelpViewController: GameHelpViewController {
 
     var gameDocument: TapAlikeDocument { TapAlikeDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { TapAlikeDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { TapAlikeDocument.sharedInstance }
 
 }

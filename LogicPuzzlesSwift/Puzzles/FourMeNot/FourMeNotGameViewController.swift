@@ -11,7 +11,7 @@ import SpriteKit
 
 class FourMeNotGameViewController: GameGameViewController2<FourMeNotGameState, FourMeNotGame, FourMeNotDocument, FourMeNotGameScene> {
     var gameDocument: FourMeNotDocument { FourMeNotDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { FourMeNotDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { FourMeNotDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

@@ -11,6 +11,6 @@ import UIKit
 class SentinelsHelpViewController: GameHelpViewController {
 
     var gameDocument: SentinelsDocument { SentinelsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { SentinelsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { SentinelsDocument.sharedInstance }
 
 }

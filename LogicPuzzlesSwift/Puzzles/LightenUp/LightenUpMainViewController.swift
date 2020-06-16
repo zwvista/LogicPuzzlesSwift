@@ -11,6 +11,6 @@ import UIKit
 class LightenUpMainViewController: GameMainViewController {
 
     var gameDocument: LightenUpDocument { LightenUpDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { LightenUpDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { LightenUpDocument.sharedInstance }
 
 }

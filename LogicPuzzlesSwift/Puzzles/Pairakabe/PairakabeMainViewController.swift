@@ -11,6 +11,6 @@ import UIKit
 class PairakabeMainViewController: GameMainViewController {
 
     var gameDocument: PairakabeDocument { PairakabeDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { PairakabeDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { PairakabeDocument.sharedInstance }
 
 }

@@ -11,6 +11,6 @@ import UIKit
 class RippleEffectMainViewController: GameMainViewController {
 
     var gameDocument: RippleEffectDocument { RippleEffectDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { RippleEffectDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { RippleEffectDocument.sharedInstance }
 
 }

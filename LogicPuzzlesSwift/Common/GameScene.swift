@@ -16,7 +16,7 @@ protocol GameSceneBase {
 
 class GameScene<GS: GameStateBase>: SKScene, GameSceneBase {
     private var gridNode: GridNode!
-    func getGridNode() -> GridNode! { gridNode }
+    func getGridNode() -> GridNode { gridNode }
     func setGridNode(gridNode: GridNode) { self.gridNode = gridNode }
 
     required public override init(size: CGSize) {

@@ -11,6 +11,6 @@ import UIKit
 class LitsOptionsViewController: GameOptionsViewController {
 
     var gameDocument: LitsDocument { LitsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { LitsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { LitsDocument.sharedInstance }
 
 }

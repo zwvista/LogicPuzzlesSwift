@@ -11,6 +11,6 @@ import UIKit
 class BoxItUpHelpViewController: GameHelpViewController {
 
     var gameDocument: BoxItUpDocument { BoxItUpDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { BoxItUpDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { BoxItUpDocument.sharedInstance }
 
 }

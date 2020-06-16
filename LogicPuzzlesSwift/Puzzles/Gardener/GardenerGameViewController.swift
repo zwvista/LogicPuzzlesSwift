@@ -11,7 +11,7 @@ import SpriteKit
 
 class GardenerGameViewController: GameGameViewController2<GardenerGameState, GardenerGame, GardenerDocument, GardenerGameScene> {
     var gameDocument: GardenerDocument { GardenerDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { GardenerDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { GardenerDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

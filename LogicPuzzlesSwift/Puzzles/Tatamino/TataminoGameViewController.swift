@@ -11,7 +11,7 @@ import SpriteKit
 
 class TataminoGameViewController: GameGameViewController2<TataminoGameState, TataminoGame, TataminoDocument, TataminoGameScene> {
     var gameDocument: TataminoDocument { TataminoDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { TataminoDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { TataminoDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

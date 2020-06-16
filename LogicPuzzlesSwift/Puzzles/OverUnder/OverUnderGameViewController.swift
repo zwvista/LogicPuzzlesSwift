@@ -11,7 +11,7 @@ import SpriteKit
 
 class OverUnderGameViewController: GameGameViewController2<OverUnderGameState, OverUnderGame, OverUnderDocument, OverUnderGameScene> {
     var gameDocument: OverUnderDocument { OverUnderDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { OverUnderDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { OverUnderDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

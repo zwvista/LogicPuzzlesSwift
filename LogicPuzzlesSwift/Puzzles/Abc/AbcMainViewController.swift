@@ -11,6 +11,6 @@ import UIKit
 class AbcMainViewController: GameMainViewController {
 
     var gameDocument: AbcDocument { AbcDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { AbcDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { AbcDocument.sharedInstance }
 
 }

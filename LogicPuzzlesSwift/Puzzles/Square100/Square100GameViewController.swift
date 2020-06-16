@@ -11,7 +11,7 @@ import SpriteKit
 
 class Square100GameViewController: GameGameViewController2<Square100GameState, Square100Game, Square100Document, Square100GameScene> {
     var gameDocument: Square100Document { Square100Document.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { Square100Document.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { Square100Document.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

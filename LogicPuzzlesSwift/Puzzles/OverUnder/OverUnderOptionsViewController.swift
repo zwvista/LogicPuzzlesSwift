@@ -11,6 +11,6 @@ import UIKit
 class OverUnderOptionsViewController: GameOptionsViewController {
 
     var gameDocument: OverUnderDocument { OverUnderDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { OverUnderDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { OverUnderDocument.sharedInstance }
     
 }

@@ -11,6 +11,6 @@ import UIKit
 class OrchardsMainViewController: GameMainViewController {
 
     var gameDocument: OrchardsDocument { OrchardsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { OrchardsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { OrchardsDocument.sharedInstance }
 
 }

@@ -11,6 +11,6 @@ import UIKit
 class HolidayIslandMainViewController: GameMainViewController {
 
     var gameDocument: HolidayIslandDocument { HolidayIslandDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { HolidayIslandDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { HolidayIslandDocument.sharedInstance }
 
 }

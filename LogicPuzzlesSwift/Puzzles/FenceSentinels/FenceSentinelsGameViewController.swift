@@ -11,7 +11,7 @@ import SpriteKit
 
 class FenceSentinelsGameViewController: GameGameViewController2<FenceSentinelsGameState, FenceSentinelsGame, FenceSentinelsDocument, FenceSentinelsGameScene> {
     var gameDocument: FenceSentinelsDocument { FenceSentinelsDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { FenceSentinelsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { FenceSentinelsDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}

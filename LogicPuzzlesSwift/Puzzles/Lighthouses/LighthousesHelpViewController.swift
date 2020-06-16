@@ -11,6 +11,6 @@ import UIKit
 class LighthousesHelpViewController: GameHelpViewController {
 
     var gameDocument: LighthousesDocument { LighthousesDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { LighthousesDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { LighthousesDocument.sharedInstance }
 
 }

@@ -11,6 +11,6 @@ import UIKit
 class TheOddBrickHelpViewController: GameHelpViewController {
 
     var gameDocument: TheOddBrickDocument { TheOddBrickDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { TheOddBrickDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { TheOddBrickDocument.sharedInstance }
 
 }

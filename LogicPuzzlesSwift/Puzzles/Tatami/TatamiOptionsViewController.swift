@@ -11,6 +11,6 @@ import UIKit
 class TatamiOptionsViewController: GameOptionsViewController {
 
     var gameDocument: TatamiDocument { TatamiDocument.sharedInstance }
-    override func getGameDocument() -> GameDocumentBase! { TatamiDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { TatamiDocument.sharedInstance }
 
 }
