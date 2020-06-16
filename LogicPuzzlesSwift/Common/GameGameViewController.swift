@@ -179,13 +179,13 @@ class GameGameViewController2<GS: GameStateBase, G: GridGame<GS>, GD: GameDocume
     }
     
     override func levelInitilized(_ game: AnyObject, state: AnyObject) {
-        let game = game as! AbcGame
+        let game = game as! G
         updateMovesUI(game)
         scene.levelInitialized(game, state: state as! GS, skView: skView)
     }
     
     override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
-        let game = game as! AbcGame
+        let game = game as! G
         updateMovesUI(game)
         guard !levelInitilizing else {return}
         scene.levelUpdated(from: stateFrom as! GS, to: stateTo as! GS)
