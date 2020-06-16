@@ -18,6 +18,6 @@ class TierraDelFuegoDocument: GameDocument<TierraDelFuegoGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> TierraDelFuegoGameMove? {
-        return TierraDelFuegoGameMove(p: Position(rec.row, rec.col), obj: TierraDelFuegoObject.fromString(str: rec.strValue1!))
+        TierraDelFuegoGameMove(p: Position(rec.row, rec.col), obj: TierraDelFuegoObject.fromString(str: rec.strValue1!))
     }
 }

@@ -18,6 +18,6 @@ class HitoriDocument: GameDocument<HitoriGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> HitoriGameMove? {
-        return HitoriGameMove(p: Position(rec.row, rec.col), obj: HitoriObject(rawValue: rec.intValue1)!)
+        HitoriGameMove(p: Position(rec.row, rec.col), obj: HitoriObject(rawValue: rec.intValue1)!)
     }
 }

@@ -18,6 +18,6 @@ class DigitalBattleShipsDocument: GameDocument<DigitalBattleShipsGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> DigitalBattleShipsGameMove? {
-        return DigitalBattleShipsGameMove(p: Position(rec.row, rec.col), obj: DigitalBattleShipsObject(rawValue: rec.intValue1)!)
+        DigitalBattleShipsGameMove(p: Position(rec.row, rec.col), obj: DigitalBattleShipsObject(rawValue: rec.intValue1)!)
     }
 }

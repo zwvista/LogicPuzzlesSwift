@@ -18,6 +18,6 @@ class TennerGridDocument: GameDocument<TennerGridGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> TennerGridGameMove? {
-        return TennerGridGameMove(p: Position(rec.row, rec.col), obj: rec.intValue1)
+        TennerGridGameMove(p: Position(rec.row, rec.col), obj: rec.intValue1)
     }
 }

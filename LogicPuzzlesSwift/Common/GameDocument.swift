@@ -36,7 +36,7 @@ class GameDocument<GM>: GameDocumentBase {
     private(set) var levels = [GameLevel]()
     private(set) var help = [String]()
     var selectedLevelID: String!
-    var selectedLevelIDSolution: String { return selectedLevelID + " Solution" }
+    var selectedLevelIDSolution: String { selectedLevelID + " Solution" }
     var gameID: String!
     var gameProgress: GameProgress {
         let result = GameProgress.query().where(withFormat: "gameID = %@", withParameters: [gameID!]).fetch()

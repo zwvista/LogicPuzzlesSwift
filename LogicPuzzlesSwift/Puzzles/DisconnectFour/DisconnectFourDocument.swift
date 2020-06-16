@@ -18,6 +18,6 @@ class DisconnectFourDocument: GameDocument<DisconnectFourGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> DisconnectFourGameMove? {
-        return DisconnectFourGameMove(p: Position(rec.row, rec.col), obj: DisconnectFourObject(rawValue: rec.intValue1)!)
+        DisconnectFourGameMove(p: Position(rec.row, rec.col), obj: DisconnectFourObject(rawValue: rec.intValue1)!)
     }
 }

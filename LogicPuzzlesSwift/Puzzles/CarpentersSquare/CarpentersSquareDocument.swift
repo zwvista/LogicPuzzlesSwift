@@ -19,6 +19,6 @@ class CarpentersSquareDocument: GameDocument<CarpentersSquareGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> CarpentersSquareGameMove? {
-        return CarpentersSquareGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
+        CarpentersSquareGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
     }
 }

@@ -18,6 +18,6 @@ class PairakabeDocument: GameDocument<PairakabeGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> PairakabeGameMove? {
-        return PairakabeGameMove(p: Position(rec.row, rec.col), obj: PairakabeObject.fromString(str: rec.strValue1!))
+        PairakabeGameMove(p: Position(rec.row, rec.col), obj: PairakabeObject.fromString(str: rec.strValue1!))
     }
 }

@@ -12,7 +12,7 @@ import AVFoundation
 // http://stackoverflow.com/questions/24043904/creating-and-playing-a-sound-in-swift
 class SoundManager: NSObject, AVAudioPlayerDelegate {
     static var sharedInstance = SoundManager()
-    var gameOptions: HomeGameProgress { return HomeDocument.sharedInstance.gameProgress }
+    var gameOptions: HomeGameProgress { HomeDocument.sharedInstance.gameProgress }
 
     // https://stackoverflow.com/questions/58360765/swift-5-1-error-plugin-addinstanceforfactory-no-factory-registered-for-id-c
     var apMusic: AVAudioPlayer!

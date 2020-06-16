@@ -54,7 +54,7 @@ class SkyscrapersGameState: GridGameState<SkyscrapersGameMove> {
     }
     
     func pos2state(row: Int, col: Int) -> HintState {
-        return row == 0 && 1..<cols - 1 ~= col ? col2state[col * 2] :
+        row == 0 && 1..<cols - 1 ~= col ? col2state[col * 2] :
             row == rows - 1 && 1..<cols - 1 ~= col ? col2state[col * 2 + 1] :
             col == 0 && 1..<rows - 1 ~= row ? row2state[row * 2] :
             col == cols - 1 && 1..<rows - 1 ~= row ? row2state[row * 2 + 1] :

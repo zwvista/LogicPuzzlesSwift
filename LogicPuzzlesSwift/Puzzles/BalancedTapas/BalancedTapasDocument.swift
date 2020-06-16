@@ -18,6 +18,6 @@ class BalancedTapasDocument: GameDocument<BalancedTapasGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> BalancedTapasGameMove? {
-        return BalancedTapasGameMove(p: Position(rec.row, rec.col), obj: BalancedTapasObject.fromString(str: rec.strValue1!))
+        BalancedTapasGameMove(p: Position(rec.row, rec.col), obj: BalancedTapasObject.fromString(str: rec.strValue1!))
     }
 }

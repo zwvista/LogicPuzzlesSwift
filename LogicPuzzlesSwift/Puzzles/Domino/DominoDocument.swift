@@ -19,6 +19,6 @@ class DominoDocument: GameDocument<DominoGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> DominoGameMove? {
-        return DominoGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
+        DominoGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
     }
 }

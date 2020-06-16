@@ -15,7 +15,7 @@ class NumberLinkGameViewController: GameGameViewController2<NumberLinkGameState,
     var pLast: Position?
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
+        true
     }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {

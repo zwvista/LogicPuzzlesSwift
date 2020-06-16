@@ -18,6 +18,6 @@ class SentinelsDocument: GameDocument<SentinelsGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> SentinelsGameMove? {
-        return SentinelsGameMove(p: Position(rec.row, rec.col), obj: SentinelsObject.fromString(str: rec.strValue1!))
+        SentinelsGameMove(p: Position(rec.row, rec.col), obj: SentinelsObject.fromString(str: rec.strValue1!))
     }
 }

@@ -18,6 +18,6 @@ class MagnetsDocument: GameDocument<MagnetsGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> MagnetsGameMove? {
-        return MagnetsGameMove(p: Position(rec.row, rec.col), obj: MagnetsObject(rawValue: rec.intValue1)!)
+        MagnetsGameMove(p: Position(rec.row, rec.col), obj: MagnetsObject(rawValue: rec.intValue1)!)
     }
 }

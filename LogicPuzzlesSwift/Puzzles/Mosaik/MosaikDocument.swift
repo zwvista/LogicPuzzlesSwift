@@ -18,6 +18,6 @@ class MosaikDocument: GameDocument<MosaikGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> MosaikGameMove? {
-        return MosaikGameMove(p: Position(rec.row, rec.col), obj: MosaikObject(rawValue: rec.intValue1)!)
+        MosaikGameMove(p: Position(rec.row, rec.col), obj: MosaikObject(rawValue: rec.intValue1)!)
     }
 }

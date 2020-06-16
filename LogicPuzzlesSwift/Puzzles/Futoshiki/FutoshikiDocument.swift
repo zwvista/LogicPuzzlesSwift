@@ -18,6 +18,6 @@ class FutoshikiDocument: GameDocument<FutoshikiGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> FutoshikiGameMove? {
-        return FutoshikiGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
+        FutoshikiGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
     }
 }

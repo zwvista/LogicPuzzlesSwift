@@ -18,6 +18,6 @@ class BusySeasDocument: GameDocument<BusySeasGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> BusySeasGameMove? {
-        return BusySeasGameMove(p: Position(rec.row, rec.col), obj: BusySeasObject.fromString(str: rec.strValue1!))
+        BusySeasGameMove(p: Position(rec.row, rec.col), obj: BusySeasObject.fromString(str: rec.strValue1!))
     }
 }

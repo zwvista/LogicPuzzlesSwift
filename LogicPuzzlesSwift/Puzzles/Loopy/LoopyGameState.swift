@@ -43,7 +43,7 @@ class LoopyGameState: GridGameState<LoopyGameMove> {
     }
     
     private func isValidMove(move: inout LoopyGameMove) -> Bool {
-        return !(move.p.row == rows - 1 && move.dir == 2 ||
+        !(move.p.row == rows - 1 && move.dir == 2 ||
             move.p.col == cols - 1 && move.dir == 1)
     }
     

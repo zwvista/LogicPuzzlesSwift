@@ -18,6 +18,6 @@ class MineShipsDocument: GameDocument<MineShipsGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> MineShipsGameMove? {
-        return MineShipsGameMove(p: Position(rec.row, rec.col), obj: MineShipsObject.fromString(str: rec.strValue1!))
+        MineShipsGameMove(p: Position(rec.row, rec.col), obj: MineShipsObject.fromString(str: rec.strValue1!))
     }
 }

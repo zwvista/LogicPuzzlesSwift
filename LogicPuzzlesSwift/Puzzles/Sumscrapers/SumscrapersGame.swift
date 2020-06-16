@@ -21,7 +21,7 @@ class SumscrapersGame: GridGame<SumscrapersGameState> {
     }
 
     var objArray = [Int]()
-    var intMax: Int { return rows - 2 }
+    var intMax: Int { rows - 2 }
     subscript(p: Position) -> Int {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }

@@ -19,6 +19,6 @@ class FenceLitsDocument: GameDocument<FenceLitsGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> FenceLitsGameMove? {
-        return FenceLitsGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
+        FenceLitsGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
     }
 }

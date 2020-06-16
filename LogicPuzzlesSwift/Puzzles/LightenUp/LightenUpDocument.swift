@@ -18,6 +18,6 @@ class LightenUpDocument: GameDocument<LightenUpGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> LightenUpGameMove? {
-        return LightenUpGameMove(p: Position(rec.row, rec.col), objType: LightenUpObjectType.fromString(str: rec.strValue1!))
+        LightenUpGameMove(p: Position(rec.row, rec.col), objType: LightenUpObjectType.fromString(str: rec.strValue1!))
     }
 }

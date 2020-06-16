@@ -18,6 +18,6 @@ class TentsDocument: GameDocument<TentsGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> TentsGameMove? {
-        return TentsGameMove(p: Position(rec.row, rec.col), obj: TentsObject.fromString(str: rec.strValue1!))
+        TentsGameMove(p: Position(rec.row, rec.col), obj: TentsObject.fromString(str: rec.strValue1!))
     }
 }

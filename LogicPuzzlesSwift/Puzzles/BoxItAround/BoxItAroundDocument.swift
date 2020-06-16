@@ -19,6 +19,6 @@ class BoxItAroundDocument: GameDocument<BoxItAroundGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> BoxItAroundGameMove? {
-        return BoxItAroundGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
+        BoxItAroundGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
     }
 }

@@ -22,7 +22,7 @@ class BridgesGame: GridGame<BridgesGameState> {
     ]
     
     var islandsInfo = [Position: IslandInfo]()
-    func isIsland(p: Position) -> Bool { return islandsInfo[p] != nil }
+    func isIsland(p: Position) -> Bool { islandsInfo[p] != nil }
     
     init(layout: [String], delegate: BridgesGameViewController? = nil) {
         super.init(delegate: delegate)

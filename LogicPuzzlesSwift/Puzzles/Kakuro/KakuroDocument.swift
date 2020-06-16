@@ -18,6 +18,6 @@ class KakuroDocument: GameDocument<KakuroGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> KakuroGameMove? {
-        return KakuroGameMove(p: Position(rec.row, rec.col), obj: rec.intValue1)
+        KakuroGameMove(p: Position(rec.row, rec.col), obj: rec.intValue1)
     }
 }

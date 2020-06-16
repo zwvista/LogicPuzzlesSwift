@@ -18,6 +18,6 @@ class FillominoDocument: GameDocument<FillominoGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> FillominoGameMove? {
-        return FillominoGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
+        FillominoGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
     }
 }

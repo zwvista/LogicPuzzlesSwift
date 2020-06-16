@@ -18,6 +18,6 @@ class MasyuDocument: GameDocument<MasyuGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> MasyuGameMove? {
-        return MasyuGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1)
+        MasyuGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1)
     }
 }

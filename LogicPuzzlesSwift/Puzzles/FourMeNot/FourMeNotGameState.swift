@@ -122,7 +122,7 @@ class FourMeNotGameState: GridGameState<FourMeNotGameMove> {
         // 3. At the same time, you can't line up horizontally or vertically more
         // than 3 flowers (thus Forbidden Four).
         func invalidTrees() -> Bool {
-            return trees.count > 3
+            trees.count > 3
         }
         func checkTrees() {
             if invalidTrees() {

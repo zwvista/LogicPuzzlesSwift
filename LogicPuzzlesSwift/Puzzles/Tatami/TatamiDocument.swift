@@ -18,6 +18,6 @@ class TatamiDocument: GameDocument<TatamiGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> TatamiGameMove? {
-        return TatamiGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
+        TatamiGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
     }
 }

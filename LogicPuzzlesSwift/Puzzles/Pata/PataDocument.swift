@@ -18,6 +18,6 @@ class PataDocument: GameDocument<PataGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> PataGameMove? {
-        return PataGameMove(p: Position(rec.row, rec.col), obj: PataObject.fromString(str: rec.strValue1!))
+        PataGameMove(p: Position(rec.row, rec.col), obj: PataObject.fromString(str: rec.strValue1!))
     }
 }

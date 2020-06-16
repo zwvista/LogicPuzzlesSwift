@@ -18,6 +18,6 @@ class SnailDocument: GameDocument<SnailGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> SnailGameMove? {
-        return SnailGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
+        SnailGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
     }
 }

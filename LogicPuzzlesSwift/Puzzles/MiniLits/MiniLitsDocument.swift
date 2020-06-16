@@ -18,6 +18,6 @@ class MiniLitsDocument: GameDocument<MiniLitsGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> MiniLitsGameMove? {
-        return MiniLitsGameMove(p: Position(rec.row, rec.col), obj: MiniLitsObject.fromString(str: rec.strValue1!))
+        MiniLitsGameMove(p: Position(rec.row, rec.col), obj: MiniLitsObject.fromString(str: rec.strValue1!))
     }
 }

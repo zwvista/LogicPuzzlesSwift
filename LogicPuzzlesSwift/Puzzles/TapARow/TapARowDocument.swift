@@ -18,6 +18,6 @@ class TapARowDocument: GameDocument<TapARowGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> TapARowGameMove? {
-        return TapARowGameMove(p: Position(rec.row, rec.col), obj: TapARowObject.fromString(str: rec.strValue1!))
+        TapARowGameMove(p: Position(rec.row, rec.col), obj: TapARowObject.fromString(str: rec.strValue1!))
     }
 }

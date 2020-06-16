@@ -18,6 +18,6 @@ class BWTapaDocument: GameDocument<BWTapaGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> BWTapaGameMove? {
-        return BWTapaGameMove(p: Position(rec.row, rec.col), obj: BWTapaObject.fromString(str: rec.strValue1!))
+        BWTapaGameMove(p: Position(rec.row, rec.col), obj: BWTapaObject.fromString(str: rec.strValue1!))
     }
 }

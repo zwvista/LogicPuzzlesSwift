@@ -19,6 +19,6 @@ class NeighboursDocument: GameDocument<NeighboursGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> NeighboursGameMove? {
-        return NeighboursGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
+        NeighboursGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
     }
 }

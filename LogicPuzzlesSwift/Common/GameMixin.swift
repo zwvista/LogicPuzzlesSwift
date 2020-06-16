@@ -11,5 +11,5 @@ protocol SoundMixin {
 }
 
 extension SoundMixin {
-    var soundManager: SoundManager { return SoundManager.sharedInstance }
+    var soundManager: SoundManager { SoundManager.sharedInstance }
 }

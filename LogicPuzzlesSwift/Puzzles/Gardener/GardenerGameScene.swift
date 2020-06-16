@@ -120,7 +120,7 @@ class GardenerGameScene: GameScene<GardenerGameState> {
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 func hintNodeName(isHorz: Bool) -> String {
-                    return "hint" + nodeNameSuffix + "-" + (isHorz ? "h" : "v");
+                    "hint" + nodeNameSuffix + "-" + (isHorz ? "h" : "v");
                 }
                 func addTree(s: AllowedObjectState) {
                     addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: treeNodeName)

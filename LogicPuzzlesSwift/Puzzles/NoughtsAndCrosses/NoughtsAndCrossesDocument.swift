@@ -18,6 +18,6 @@ class NoughtsAndCrossesDocument: GameDocument<NoughtsAndCrossesGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> NoughtsAndCrossesGameMove? {
-        return NoughtsAndCrossesGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
+        NoughtsAndCrossesGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
     }
 }

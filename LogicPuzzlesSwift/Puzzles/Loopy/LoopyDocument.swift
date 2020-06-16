@@ -19,6 +19,6 @@ class LoopyDocument: GameDocument<LoopyGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> LoopyGameMove? {
-        return LoopyGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
+        LoopyGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
     }
 }

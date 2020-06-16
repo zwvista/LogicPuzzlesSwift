@@ -12,7 +12,7 @@ struct MathraxHint {
     var op: Character = " "
     var result = 0
     func description() -> String {
-        return (result == 0 ? "" : String(result)) + String(op)
+        (result == 0 ? "" : String(result)) + String(op)
     }
 }
 

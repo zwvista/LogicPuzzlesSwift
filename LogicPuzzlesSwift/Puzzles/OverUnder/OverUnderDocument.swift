@@ -19,6 +19,6 @@ class OverUnderDocument: GameDocument<OverUnderGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> OverUnderGameMove? {
-        return OverUnderGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
+        OverUnderGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
     }
 }

@@ -18,6 +18,6 @@ class TapDifferentlyDocument: GameDocument<TapDifferentlyGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> TapDifferentlyGameMove? {
-        return TapDifferentlyGameMove(p: Position(rec.row, rec.col), obj: TapDifferentlyObject.fromString(str: rec.strValue1!))
+        TapDifferentlyGameMove(p: Position(rec.row, rec.col), obj: TapDifferentlyObject.fromString(str: rec.strValue1!))
     }
 }

@@ -18,6 +18,6 @@ class BridgesDocument: GameDocument<BridgesGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> BridgesGameMove? {
-        return BridgesGameMove(pFrom: Position(rec.row, rec.col), pTo: Position(rec.row2, rec.col2))
+        BridgesGameMove(pFrom: Position(rec.row, rec.col), pTo: Position(rec.row2, rec.col2))
     }
 }

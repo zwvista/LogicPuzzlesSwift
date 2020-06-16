@@ -18,6 +18,6 @@ class ABCPathDocument: GameDocument<ABCPathGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> ABCPathGameMove? {
-        return ABCPathGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
+        ABCPathGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
     }
 }

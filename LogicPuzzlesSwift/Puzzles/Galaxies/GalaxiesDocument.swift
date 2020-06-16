@@ -19,6 +19,6 @@ class GalaxiesDocument: GameDocument<GalaxiesGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> GalaxiesGameMove? {
-        return GalaxiesGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
+        GalaxiesGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
     }
 }

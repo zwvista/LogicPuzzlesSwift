@@ -18,6 +18,6 @@ class LighthousesDocument: GameDocument<LighthousesGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> LighthousesGameMove? {
-        return LighthousesGameMove(p: Position(rec.row, rec.col), obj: LighthousesObject.fromString(str: rec.strValue1!))
+        LighthousesGameMove(p: Position(rec.row, rec.col), obj: LighthousesObject.fromString(str: rec.strValue1!))
     }
 }

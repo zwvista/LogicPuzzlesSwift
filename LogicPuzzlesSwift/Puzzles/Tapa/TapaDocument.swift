@@ -18,6 +18,6 @@ class TapaDocument: GameDocument<TapaGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> TapaGameMove? {
-        return TapaGameMove(p: Position(rec.row, rec.col), obj: TapaObject.fromString(str: rec.strValue1!))
+        TapaGameMove(p: Position(rec.row, rec.col), obj: TapaObject.fromString(str: rec.strValue1!))
     }
 }

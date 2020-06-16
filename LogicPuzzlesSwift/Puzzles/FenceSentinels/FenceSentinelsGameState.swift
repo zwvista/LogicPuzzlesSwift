@@ -48,7 +48,7 @@ class FenceSentinelsGameState: GridGameState<FenceSentinelsGameMove> {
     }
     
     private func isValidMove(move: inout FenceSentinelsGameMove) -> Bool {
-        return !(move.p.row == rows - 1 && move.dir == 2 ||
+        !(move.p.row == rows - 1 && move.dir == 2 ||
                 move.p.col == cols - 1 && move.dir == 1)
     }
     

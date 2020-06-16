@@ -18,6 +18,6 @@ class FourMeNotDocument: GameDocument<FourMeNotGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> FourMeNotGameMove? {
-        return FourMeNotGameMove(p: Position(rec.row, rec.col), obj: FourMeNotObject.fromString(str: rec.strValue1!))
+        FourMeNotGameMove(p: Position(rec.row, rec.col), obj: FourMeNotObject.fromString(str: rec.strValue1!))
     }
 }

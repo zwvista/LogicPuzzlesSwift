@@ -18,6 +18,6 @@ class RippleEffectDocument: GameDocument<RippleEffectGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> RippleEffectGameMove? {
-        return RippleEffectGameMove(p: Position(rec.row, rec.col), obj: rec.intValue1)
+        RippleEffectGameMove(p: Position(rec.row, rec.col), obj: rec.intValue1)
     }
 }

@@ -12,6 +12,6 @@ protocol HomeMixin: SoundMixin {
 }
 
 extension HomeMixin {
-    var gameDocument: HomeDocument { return HomeDocument.sharedInstance }
-    var gameOptions: HomeGameProgress { return gameDocument.gameProgress }
+    var gameDocument: HomeDocument { HomeDocument.sharedInstance }
+    var gameOptions: HomeGameProgress { gameDocument.gameProgress }
 }

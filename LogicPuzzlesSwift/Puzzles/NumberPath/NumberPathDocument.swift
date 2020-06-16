@@ -18,6 +18,6 @@ class NumberPathDocument: GameDocument<NumberPathGameMove> {
     }
     
     override func loadMove(from rec: MoveProgress) -> NumberPathGameMove? {
-        return NumberPathGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1)
+        NumberPathGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1)
     }
 }
