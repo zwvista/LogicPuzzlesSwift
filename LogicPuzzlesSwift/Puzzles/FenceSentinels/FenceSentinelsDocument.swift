@@ -18,7 +18,7 @@ class FenceSentinelsDocument: GameDocument<FenceSentinelsGameMove> {
         rec.intValue2 = move.obj.rawValue
     }
     
-    override func loadMove(from rec: MoveProgress) -> FenceSentinelsGameMove? {
+    override func loadMove(from rec: MoveProgress) -> FenceSentinelsGameMove {
         FenceSentinelsGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
     }
 }

@@ -36,7 +36,7 @@ class KropkiGameViewController: GameGameViewController2<KropkiGameState, KropkiG
         
         // restore game state
         for case let rec as MoveProgress in gameDocument.moveProgress {
-            var move = gameDocument.loadMove(from: rec)!
+            var move = gameDocument.loadMove(from: rec)
             _ = game.setObject(move: &move)
         }
         let moveIndex = gameDocument.levelProgress.moveIndex

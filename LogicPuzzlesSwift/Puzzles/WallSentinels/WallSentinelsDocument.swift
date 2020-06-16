@@ -17,7 +17,7 @@ class WallSentinelsDocument: GameDocument<WallSentinelsGameMove> {
         rec.strValue1 = move.obj.toString()
     }
     
-    override func loadMove(from rec: MoveProgress) -> WallSentinelsGameMove? {
+    override func loadMove(from rec: MoveProgress) -> WallSentinelsGameMove {
         WallSentinelsGameMove(p: Position(rec.row, rec.col), obj: WallSentinelsObject.fromString(str: rec.strValue1!))
     }
 }

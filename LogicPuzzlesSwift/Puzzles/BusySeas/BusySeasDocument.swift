@@ -17,7 +17,7 @@ class BusySeasDocument: GameDocument<BusySeasGameMove> {
         rec.strValue1 = move.obj.toString()
     }
     
-    override func loadMove(from rec: MoveProgress) -> BusySeasGameMove? {
+    override func loadMove(from rec: MoveProgress) -> BusySeasGameMove {
         BusySeasGameMove(p: Position(rec.row, rec.col), obj: BusySeasObject.fromString(str: rec.strValue1!))
     }
 }

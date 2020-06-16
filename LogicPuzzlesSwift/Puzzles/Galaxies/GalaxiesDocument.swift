@@ -18,7 +18,7 @@ class GalaxiesDocument: GameDocument<GalaxiesGameMove> {
         rec.intValue2 = move.obj.rawValue
     }
     
-    override func loadMove(from rec: MoveProgress) -> GalaxiesGameMove? {
+    override func loadMove(from rec: MoveProgress) -> GalaxiesGameMove {
         GalaxiesGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
     }
 }

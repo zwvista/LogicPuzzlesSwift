@@ -17,7 +17,7 @@ class CloudsDocument: GameDocument<CloudsGameMove> {
         rec.intValue1 = move.obj.rawValue
     }
     
-    override func loadMove(from rec: MoveProgress) -> CloudsGameMove? {
+    override func loadMove(from rec: MoveProgress) -> CloudsGameMove {
         CloudsGameMove(p: Position(rec.row, rec.col), obj: CloudsObject(rawValue: rec.intValue1)!)
     }
 }

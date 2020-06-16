@@ -17,7 +17,7 @@ class LineSweeperDocument: GameDocument<LineSweeperGameMove> {
         rec.intValue1 = move.dir
     }
     
-    override func loadMove(from rec: MoveProgress) -> LineSweeperGameMove? {
+    override func loadMove(from rec: MoveProgress) -> LineSweeperGameMove {
         LineSweeperGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1)
     }
 }

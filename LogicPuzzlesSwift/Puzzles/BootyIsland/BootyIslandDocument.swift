@@ -17,7 +17,7 @@ class BootyIslandDocument: GameDocument<BootyIslandGameMove> {
         rec.strValue1 = move.obj.toString()
     }
     
-    override func loadMove(from rec: MoveProgress) -> BootyIslandGameMove? {
+    override func loadMove(from rec: MoveProgress) -> BootyIslandGameMove {
         BootyIslandGameMove(p: Position(rec.row, rec.col), obj: BootyIslandObject.fromString(str: rec.strValue1!))
     }
 }

@@ -17,7 +17,7 @@ class LitsDocument: GameDocument<LitsGameMove> {
         rec.strValue1 = move.obj.toString()
     }
     
-    override func loadMove(from rec: MoveProgress) -> LitsGameMove? {
+    override func loadMove(from rec: MoveProgress) -> LitsGameMove {
         LitsGameMove(p: Position(rec.row, rec.col), obj: LitsObject.fromString(str: rec.strValue1!))
     }
 }

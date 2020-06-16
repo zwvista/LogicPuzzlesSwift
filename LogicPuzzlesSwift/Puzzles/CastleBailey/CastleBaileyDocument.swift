@@ -17,7 +17,7 @@ class CastleBaileyDocument: GameDocument<CastleBaileyGameMove> {
         rec.intValue1 = move.obj.rawValue
     }
     
-    override func loadMove(from rec: MoveProgress) -> CastleBaileyGameMove? {
+    override func loadMove(from rec: MoveProgress) -> CastleBaileyGameMove {
         CastleBaileyGameMove(p: Position(rec.row, rec.col), obj: CastleBaileyObject(rawValue: rec.intValue1)!)
     }
 }

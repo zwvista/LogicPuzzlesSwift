@@ -17,7 +17,7 @@ class CalcudokuDocument: GameDocument<CalcudokuGameMove> {
         rec.intValue1 = move.obj
     }
     
-    override func loadMove(from rec: MoveProgress) -> CalcudokuGameMove? {
+    override func loadMove(from rec: MoveProgress) -> CalcudokuGameMove {
         CalcudokuGameMove(p: Position(rec.row, rec.col), obj: rec.intValue1)
     }
 }

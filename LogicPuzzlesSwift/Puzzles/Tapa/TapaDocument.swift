@@ -17,7 +17,7 @@ class TapaDocument: GameDocument<TapaGameMove> {
         rec.strValue1 = move.obj.toString()
     }
     
-    override func loadMove(from rec: MoveProgress) -> TapaGameMove? {
+    override func loadMove(from rec: MoveProgress) -> TapaGameMove {
         TapaGameMove(p: Position(rec.row, rec.col), obj: TapaObject.fromString(str: rec.strValue1!))
     }
 }

@@ -17,7 +17,7 @@ class BalancedTapasDocument: GameDocument<BalancedTapasGameMove> {
         rec.strValue1 = move.obj.toString()
     }
     
-    override func loadMove(from rec: MoveProgress) -> BalancedTapasGameMove? {
+    override func loadMove(from rec: MoveProgress) -> BalancedTapasGameMove {
         BalancedTapasGameMove(p: Position(rec.row, rec.col), obj: BalancedTapasObject.fromString(str: rec.strValue1!))
     }
 }

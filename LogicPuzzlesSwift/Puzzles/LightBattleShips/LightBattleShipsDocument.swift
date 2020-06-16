@@ -17,7 +17,7 @@ class LightBattleShipsDocument: GameDocument<LightBattleShipsGameMove> {
         rec.strValue1 = move.obj.toString()
     }
     
-    override func loadMove(from rec: MoveProgress) -> LightBattleShipsGameMove? {
+    override func loadMove(from rec: MoveProgress) -> LightBattleShipsGameMove {
         LightBattleShipsGameMove(p: Position(rec.row, rec.col), obj: LightBattleShipsObject.fromString(str: rec.strValue1!))
     }
 }

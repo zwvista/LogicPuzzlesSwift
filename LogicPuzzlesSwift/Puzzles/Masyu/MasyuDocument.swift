@@ -17,7 +17,7 @@ class MasyuDocument: GameDocument<MasyuGameMove> {
         rec.intValue1 = move.dir
     }
     
-    override func loadMove(from rec: MoveProgress) -> MasyuGameMove? {
+    override func loadMove(from rec: MoveProgress) -> MasyuGameMove {
         MasyuGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1)
     }
 }

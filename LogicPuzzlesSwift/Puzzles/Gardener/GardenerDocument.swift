@@ -17,7 +17,7 @@ class GardenerDocument: GameDocument<GardenerGameMove> {
         rec.strValue1 = move.obj.toString()
     }
     
-    override func loadMove(from rec: MoveProgress) -> GardenerGameMove? {
+    override func loadMove(from rec: MoveProgress) -> GardenerGameMove {
         GardenerGameMove(p: Position(rec.row, rec.col), obj: GardenerObject.fromString(str: rec.strValue1!))
     }
 }

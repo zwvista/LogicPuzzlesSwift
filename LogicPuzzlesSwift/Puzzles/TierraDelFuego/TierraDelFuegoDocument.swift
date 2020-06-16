@@ -17,7 +17,7 @@ class TierraDelFuegoDocument: GameDocument<TierraDelFuegoGameMove> {
         rec.strValue1 = move.obj.toString()
     }
     
-    override func loadMove(from rec: MoveProgress) -> TierraDelFuegoGameMove? {
+    override func loadMove(from rec: MoveProgress) -> TierraDelFuegoGameMove {
         TierraDelFuegoGameMove(p: Position(rec.row, rec.col), obj: TierraDelFuegoObject.fromString(str: rec.strValue1!))
     }
 }

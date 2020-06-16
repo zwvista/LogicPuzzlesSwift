@@ -17,7 +17,7 @@ class HitoriDocument: GameDocument<HitoriGameMove> {
         rec.intValue1 = move.obj.rawValue
     }
     
-    override func loadMove(from rec: MoveProgress) -> HitoriGameMove? {
+    override func loadMove(from rec: MoveProgress) -> HitoriGameMove {
         HitoriGameMove(p: Position(rec.row, rec.col), obj: HitoriObject(rawValue: rec.intValue1)!)
     }
 }

@@ -17,7 +17,7 @@ class ProductSentinelsDocument: GameDocument<ProductSentinelsGameMove> {
         rec.strValue1 = move.obj.toString()
     }
     
-    override func loadMove(from rec: MoveProgress) -> ProductSentinelsGameMove? {
+    override func loadMove(from rec: MoveProgress) -> ProductSentinelsGameMove {
         ProductSentinelsGameMove(p: Position(rec.row, rec.col), obj: ProductSentinelsObject.fromString(str: rec.strValue1!))
     }
 }

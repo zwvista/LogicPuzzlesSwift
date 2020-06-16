@@ -17,7 +17,7 @@ class PataDocument: GameDocument<PataGameMove> {
         rec.strValue1 = move.obj.toString()
     }
     
-    override func loadMove(from rec: MoveProgress) -> PataGameMove? {
+    override func loadMove(from rec: MoveProgress) -> PataGameMove {
         PataGameMove(p: Position(rec.row, rec.col), obj: PataObject.fromString(str: rec.strValue1!))
     }
 }

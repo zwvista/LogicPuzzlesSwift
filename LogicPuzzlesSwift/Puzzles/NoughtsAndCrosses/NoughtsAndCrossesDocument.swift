@@ -17,7 +17,7 @@ class NoughtsAndCrossesDocument: GameDocument<NoughtsAndCrossesGameMove> {
         rec.strValue1 = String(move.obj)
     }
     
-    override func loadMove(from rec: MoveProgress) -> NoughtsAndCrossesGameMove? {
+    override func loadMove(from rec: MoveProgress) -> NoughtsAndCrossesGameMove {
         NoughtsAndCrossesGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
     }
 }

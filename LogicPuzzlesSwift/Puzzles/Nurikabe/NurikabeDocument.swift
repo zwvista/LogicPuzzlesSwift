@@ -17,7 +17,7 @@ class NurikabeDocument: GameDocument<NurikabeGameMove> {
         rec.strValue1 = move.obj.toString()
     }
     
-    override func loadMove(from rec: MoveProgress) -> NurikabeGameMove? {
+    override func loadMove(from rec: MoveProgress) -> NurikabeGameMove {
         NurikabeGameMove(p: Position(rec.row, rec.col), obj: NurikabeObject.fromString(str: rec.strValue1!))
     }
 }

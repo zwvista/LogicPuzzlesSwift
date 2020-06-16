@@ -17,7 +17,7 @@ class MineShipsDocument: GameDocument<MineShipsGameMove> {
         rec.strValue1 = move.obj.toString()
     }
     
-    override func loadMove(from rec: MoveProgress) -> MineShipsGameMove? {
+    override func loadMove(from rec: MoveProgress) -> MineShipsGameMove {
         MineShipsGameMove(p: Position(rec.row, rec.col), obj: MineShipsObject.fromString(str: rec.strValue1!))
     }
 }

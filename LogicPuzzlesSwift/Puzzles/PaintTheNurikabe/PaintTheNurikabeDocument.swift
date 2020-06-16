@@ -17,7 +17,7 @@ class PaintTheNurikabeDocument: GameDocument<PaintTheNurikabeGameMove> {
         rec.intValue1 = move.obj.rawValue
     }
     
-    override func loadMove(from rec: MoveProgress) -> PaintTheNurikabeGameMove? {
+    override func loadMove(from rec: MoveProgress) -> PaintTheNurikabeGameMove {
         PaintTheNurikabeGameMove(p: Position(rec.row, rec.col), obj: PaintTheNurikabeObject(rawValue: rec.intValue1)!)
     }
 }

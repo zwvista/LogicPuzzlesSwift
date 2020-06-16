@@ -18,7 +18,7 @@ class BoxItAgainDocument: GameDocument<BoxItAgainGameMove> {
         rec.intValue2 = move.obj.rawValue
     }
     
-    override func loadMove(from rec: MoveProgress) -> BoxItAgainGameMove? {
+    override func loadMove(from rec: MoveProgress) -> BoxItAgainGameMove {
         BoxItAgainGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
     }
 }

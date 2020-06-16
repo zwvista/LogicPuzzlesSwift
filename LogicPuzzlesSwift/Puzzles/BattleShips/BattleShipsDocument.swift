@@ -17,7 +17,7 @@ class BattleShipsDocument: GameDocument<BattleShipsGameMove> {
         rec.intValue1 = move.obj.rawValue
     }
     
-    override func loadMove(from rec: MoveProgress) -> BattleShipsGameMove? {
+    override func loadMove(from rec: MoveProgress) -> BattleShipsGameMove {
         BattleShipsGameMove(p: Position(rec.row, rec.col), obj: BattleShipsObject(rawValue: rec.intValue1)!)
     }
 }

@@ -17,7 +17,7 @@ class TennerGridDocument: GameDocument<TennerGridGameMove> {
         rec.intValue1 = move.obj
     }
     
-    override func loadMove(from rec: MoveProgress) -> TennerGridGameMove? {
+    override func loadMove(from rec: MoveProgress) -> TennerGridGameMove {
         TennerGridGameMove(p: Position(rec.row, rec.col), obj: rec.intValue1)
     }
 }

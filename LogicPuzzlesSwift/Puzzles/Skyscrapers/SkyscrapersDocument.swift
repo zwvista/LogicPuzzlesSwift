@@ -17,7 +17,7 @@ class SkyscrapersDocument: GameDocument<SkyscrapersGameMove> {
         rec.intValue1 = move.obj
     }
     
-    override func loadMove(from rec: MoveProgress) -> SkyscrapersGameMove? {
+    override func loadMove(from rec: MoveProgress) -> SkyscrapersGameMove {
         SkyscrapersGameMove(p: Position(rec.row, rec.col), obj: rec.intValue1)
     }
 }

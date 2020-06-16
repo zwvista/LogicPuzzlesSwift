@@ -17,7 +17,7 @@ class TapaIslandsDocument: GameDocument<TapaIslandsGameMove> {
         rec.strValue1 = move.obj.toString()
     }
     
-    override func loadMove(from rec: MoveProgress) -> TapaIslandsGameMove? {
+    override func loadMove(from rec: MoveProgress) -> TapaIslandsGameMove {
         TapaIslandsGameMove(p: Position(rec.row, rec.col), obj: TapaIslandsObject.fromString(str: rec.strValue1!))
     }
 }

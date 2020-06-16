@@ -17,7 +17,7 @@ class AbcDocument: GameDocument<AbcGameMove> {
         rec.strValue1 = String(move.obj)
     }
     
-    override func loadMove(from rec: MoveProgress) -> AbcGameMove? {
+    override func loadMove(from rec: MoveProgress) -> AbcGameMove {
         AbcGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
     }
 }

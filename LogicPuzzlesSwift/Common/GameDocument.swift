@@ -117,7 +117,7 @@ class GameDocument<GM>: GameDocumentBase {
     
     func saveMove(_ move: GM, to rec: MoveProgress) {}
     
-    func loadMove(from rec: MoveProgress) -> GM? { nil }
+    func loadMove(from rec: MoveProgress) -> GM! { nil }
     
     func resumeGame() {
         let rec = gameProgress

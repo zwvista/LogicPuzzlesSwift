@@ -17,7 +17,7 @@ class PowerGridDocument: GameDocument<PowerGridGameMove> {
         rec.strValue1 = move.obj.toString()
     }
     
-    override func loadMove(from rec: MoveProgress) -> PowerGridGameMove? {
+    override func loadMove(from rec: MoveProgress) -> PowerGridGameMove {
         PowerGridGameMove(p: Position(rec.row, rec.col), obj: PowerGridObject.fromString(str: rec.strValue1!))
     }
 }

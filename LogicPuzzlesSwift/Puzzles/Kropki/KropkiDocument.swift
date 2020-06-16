@@ -17,7 +17,7 @@ class KropkiDocument: GameDocument<KropkiGameMove> {
         rec.intValue1 = move.obj
     }
     
-    override func loadMove(from rec: MoveProgress) -> KropkiGameMove? {
+    override func loadMove(from rec: MoveProgress) -> KropkiGameMove {
         KropkiGameMove(p: Position(rec.row, rec.col), obj: rec.intValue1)
     }
 }

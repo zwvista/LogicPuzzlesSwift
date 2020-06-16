@@ -18,7 +18,7 @@ class RoomsDocument: GameDocument<RoomsGameMove> {
         rec.intValue2 = move.obj.rawValue
     }
     
-    override func loadMove(from rec: MoveProgress) -> RoomsGameMove? {
+    override func loadMove(from rec: MoveProgress) -> RoomsGameMove {
         RoomsGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
     }
 }

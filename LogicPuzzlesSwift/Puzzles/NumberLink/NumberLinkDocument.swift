@@ -17,7 +17,7 @@ class NumberLinkDocument: GameDocument<NumberLinkGameMove> {
         rec.intValue1 = move.dir
     }
     
-    override func loadMove(from rec: MoveProgress) -> NumberLinkGameMove? {
+    override func loadMove(from rec: MoveProgress) -> NumberLinkGameMove {
         NumberLinkGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1)
     }
 }

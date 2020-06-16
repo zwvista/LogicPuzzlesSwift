@@ -17,7 +17,7 @@ class SnakeDocument: GameDocument<SnakeGameMove> {
         rec.intValue1 = move.obj.rawValue
     }
     
-    override func loadMove(from rec: MoveProgress) -> SnakeGameMove? {
+    override func loadMove(from rec: MoveProgress) -> SnakeGameMove {
         SnakeGameMove(p: Position(rec.row, rec.col), obj: SnakeObject(rawValue: rec.intValue1)!)
     }
 }

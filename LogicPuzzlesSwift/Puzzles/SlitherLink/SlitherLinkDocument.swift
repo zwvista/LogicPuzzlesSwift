@@ -18,7 +18,7 @@ class SlitherLinkDocument: GameDocument<SlitherLinkGameMove> {
         rec.intValue2 = move.obj.rawValue
     }
     
-    override func loadMove(from rec: MoveProgress) -> SlitherLinkGameMove? {
+    override func loadMove(from rec: MoveProgress) -> SlitherLinkGameMove {
         SlitherLinkGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
     }
 }

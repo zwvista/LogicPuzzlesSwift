@@ -18,7 +18,7 @@ class DominoDocument: GameDocument<DominoGameMove> {
         rec.intValue2 = move.obj.rawValue
     }
     
-    override func loadMove(from rec: MoveProgress) -> DominoGameMove? {
+    override func loadMove(from rec: MoveProgress) -> DominoGameMove {
         DominoGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
     }
 }

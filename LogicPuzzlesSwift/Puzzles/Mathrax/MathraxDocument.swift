@@ -17,7 +17,7 @@ class MathraxDocument: GameDocument<MathraxGameMove> {
         rec.intValue1 = move.obj
     }
     
-    override func loadMove(from rec: MoveProgress) -> MathraxGameMove? {
+    override func loadMove(from rec: MoveProgress) -> MathraxGameMove {
         MathraxGameMove(p: Position(rec.row, rec.col), obj: rec.intValue1)
     }
 }

@@ -17,7 +17,7 @@ class TapAlikeDocument: GameDocument<TapAlikeGameMove> {
         rec.strValue1 = move.obj.toString()
     }
     
-    override func loadMove(from rec: MoveProgress) -> TapAlikeGameMove? {
+    override func loadMove(from rec: MoveProgress) -> TapAlikeGameMove {
         TapAlikeGameMove(p: Position(rec.row, rec.col), obj: TapAlikeObject.fromString(str: rec.strValue1!))
     }
 }

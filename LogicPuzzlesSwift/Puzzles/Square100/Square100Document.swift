@@ -17,7 +17,7 @@ class Square100Document: GameDocument<Square100GameMove> {
         rec.strValue1 = move.obj
     }
     
-    override func loadMove(from rec: MoveProgress) -> Square100GameMove? {
+    override func loadMove(from rec: MoveProgress) -> Square100GameMove {
         Square100GameMove(p: Position(rec.row, rec.col), isRightPart: false, obj: rec.strValue1!)
     }
 }

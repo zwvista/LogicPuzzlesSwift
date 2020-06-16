@@ -17,7 +17,7 @@ class AbstractPaintingDocument: GameDocument<AbstractPaintingGameMove> {
         rec.intValue1 = move.obj.rawValue
     }
     
-    override func loadMove(from rec: MoveProgress) -> AbstractPaintingGameMove? {
+    override func loadMove(from rec: MoveProgress) -> AbstractPaintingGameMove {
         AbstractPaintingGameMove(p: Position(rec.row, rec.col), obj: AbstractPaintingObject(rawValue: rec.intValue1)!)
     }
 }

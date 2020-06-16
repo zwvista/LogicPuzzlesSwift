@@ -17,7 +17,7 @@ class MinesweeperDocument: GameDocument<MinesweeperGameMove> {
         rec.strValue1 = move.obj.toString()
     }
     
-    override func loadMove(from rec: MoveProgress) -> MinesweeperGameMove? {
+    override func loadMove(from rec: MoveProgress) -> MinesweeperGameMove {
         MinesweeperGameMove(p: Position(rec.row, rec.col), obj: MinesweeperObject.fromString(str: rec.strValue1!))
     }
 }

@@ -17,7 +17,7 @@ class RobotFencesDocument: GameDocument<RobotFencesGameMove> {
         rec.intValue1 = move.obj
     }
     
-    override func loadMove(from rec: MoveProgress) -> RobotFencesGameMove? {
+    override func loadMove(from rec: MoveProgress) -> RobotFencesGameMove {
         RobotFencesGameMove(p: Position(rec.row, rec.col), obj: rec.intValue1)
     }
 }

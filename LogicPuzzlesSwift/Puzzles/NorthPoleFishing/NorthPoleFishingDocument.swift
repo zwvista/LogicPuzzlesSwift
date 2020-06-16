@@ -18,7 +18,7 @@ class NorthPoleFishingDocument: GameDocument<NorthPoleFishingGameMove> {
         rec.intValue2 = move.obj.rawValue
     }
     
-    override func loadMove(from rec: MoveProgress) -> NorthPoleFishingGameMove? {
+    override func loadMove(from rec: MoveProgress) -> NorthPoleFishingGameMove {
         NorthPoleFishingGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
     }
 }
