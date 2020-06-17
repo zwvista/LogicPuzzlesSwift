@@ -13,3 +13,15 @@ class FenceLitsMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { FenceLitsDocument.sharedInstance }
 
 }
+
+class FenceLitsOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { FenceLitsDocument.sharedInstance }
+    
+}
+
+class FenceLitsHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { FenceLitsDocument.sharedInstance }
+
+}

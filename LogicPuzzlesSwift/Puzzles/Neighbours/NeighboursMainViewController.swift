@@ -13,3 +13,15 @@ class NeighboursMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { NeighboursDocument.sharedInstance }
 
 }
+
+class NeighboursOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { NeighboursDocument.sharedInstance }
+    
+}
+
+class NeighboursHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { NeighboursDocument.sharedInstance }
+
+}

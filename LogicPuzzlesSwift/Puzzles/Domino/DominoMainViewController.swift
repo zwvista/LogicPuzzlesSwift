@@ -13,3 +13,15 @@ class DominoMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { DominoDocument.sharedInstance }
 
 }
+
+class DominoOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { DominoDocument.sharedInstance }
+    
+}
+
+class DominoHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { DominoDocument.sharedInstance }
+
+}

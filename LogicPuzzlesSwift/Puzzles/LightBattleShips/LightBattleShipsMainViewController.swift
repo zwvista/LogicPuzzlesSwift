@@ -13,3 +13,15 @@ class LightBattleShipsMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { LightBattleShipsDocument.sharedInstance }
 
 }
+
+class LightBattleShipsOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { LightBattleShipsDocument.sharedInstance }
+    
+}
+
+class LightBattleShipsHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { LightBattleShipsDocument.sharedInstance }
+
+}

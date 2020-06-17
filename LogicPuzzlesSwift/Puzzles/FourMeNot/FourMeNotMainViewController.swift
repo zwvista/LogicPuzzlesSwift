@@ -13,3 +13,15 @@ class FourMeNotMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { FourMeNotDocument.sharedInstance }
 
 }
+
+class FourMeNotOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { FourMeNotDocument.sharedInstance }
+
+}
+
+class FourMeNotHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { FourMeNotDocument.sharedInstance }
+
+}

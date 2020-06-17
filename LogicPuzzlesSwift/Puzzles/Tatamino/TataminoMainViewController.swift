@@ -13,3 +13,15 @@ class TataminoMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { TataminoDocument.sharedInstance }
 
 }
+
+class TataminoOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { TataminoDocument.sharedInstance }
+
+}
+
+class TataminoHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { TataminoDocument.sharedInstance }
+
+}

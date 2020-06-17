@@ -13,3 +13,15 @@ class BootyIslandMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { BootyIslandDocument.sharedInstance }
 
 }
+
+class BootyIslandOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { BootyIslandDocument.sharedInstance }
+    
+}
+
+class BootyIslandHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { BootyIslandDocument.sharedInstance }
+
+}

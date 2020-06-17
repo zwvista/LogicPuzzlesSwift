@@ -13,3 +13,15 @@ class LoopyMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { LoopyDocument.sharedInstance }
 
 }
+
+class LoopyOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { LoopyDocument.sharedInstance }
+    
+}
+
+class LoopyHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { LoopyDocument.sharedInstance }
+
+}

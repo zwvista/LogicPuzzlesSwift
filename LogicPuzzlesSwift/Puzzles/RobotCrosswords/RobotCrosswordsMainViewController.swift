@@ -13,3 +13,15 @@ class RobotCrosswordsMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { RobotCrosswordsDocument.sharedInstance }
 
 }
+
+class RobotCrosswordsOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { RobotCrosswordsDocument.sharedInstance }
+    
+}
+
+class RobotCrosswordsHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { RobotCrosswordsDocument.sharedInstance }
+
+}

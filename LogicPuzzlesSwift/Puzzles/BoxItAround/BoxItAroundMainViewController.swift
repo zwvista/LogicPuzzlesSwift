@@ -13,3 +13,15 @@ class BoxItAroundMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { BoxItAroundDocument.sharedInstance }
 
 }
+
+class BoxItAroundOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { BoxItAroundDocument.sharedInstance }
+    
+}
+
+class BoxItAroundHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { BoxItAroundDocument.sharedInstance }
+
+}

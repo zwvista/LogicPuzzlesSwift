@@ -13,3 +13,15 @@ class MineShipsMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { MineShipsDocument.sharedInstance }
 
 }
+
+class MineShipsOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { MineShipsDocument.sharedInstance }
+    
+}
+
+class MineShipsHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { MineShipsDocument.sharedInstance }
+
+}

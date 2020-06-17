@@ -13,3 +13,15 @@ class BalancedTapasMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { BalancedTapasDocument.sharedInstance }
 
 }
+
+class BalancedTapasOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { BalancedTapasDocument.sharedInstance }
+    
+}
+
+class BalancedTapasHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { BalancedTapasDocument.sharedInstance }
+
+}

@@ -13,3 +13,15 @@ class BridgesMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { BridgesDocument.sharedInstance }
 
 }
+
+class BridgesOptionsViewController: GameOptionsViewController {
+    
+    override func getGameDocument() -> GameDocumentBase { BridgesDocument.sharedInstance }
+    
+}
+
+class BridgesHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { BridgesDocument.sharedInstance }
+
+}

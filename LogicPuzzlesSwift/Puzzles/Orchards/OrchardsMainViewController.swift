@@ -13,3 +13,15 @@ class OrchardsMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { OrchardsDocument.sharedInstance }
 
 }
+
+class OrchardsOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { OrchardsDocument.sharedInstance }
+
+}
+
+class OrchardsHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { OrchardsDocument.sharedInstance }
+
+}

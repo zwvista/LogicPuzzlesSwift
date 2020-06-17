@@ -13,3 +13,15 @@ class TapaMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { TapaDocument.sharedInstance }
 
 }
+
+class TapaOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { TapaDocument.sharedInstance }
+    
+}
+
+class TapaHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { TapaDocument.sharedInstance }
+
+}

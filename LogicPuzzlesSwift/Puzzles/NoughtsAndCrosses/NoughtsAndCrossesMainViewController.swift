@@ -13,3 +13,15 @@ class NoughtsAndCrossesMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { NoughtsAndCrossesDocument.sharedInstance }
 
 }
+
+class NoughtsAndCrossesOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { NoughtsAndCrossesDocument.sharedInstance }
+    
+}
+
+class NoughtsAndCrossesHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { NoughtsAndCrossesDocument.sharedInstance }
+
+}

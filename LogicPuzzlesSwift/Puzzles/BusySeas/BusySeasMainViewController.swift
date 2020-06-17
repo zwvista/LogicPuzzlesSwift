@@ -13,3 +13,15 @@ class BusySeasMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { BusySeasDocument.sharedInstance }
 
 }
+
+class BusySeasOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { BusySeasDocument.sharedInstance }
+    
+}
+
+class BusySeasHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { BusySeasDocument.sharedInstance }
+
+}

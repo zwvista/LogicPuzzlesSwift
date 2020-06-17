@@ -13,3 +13,15 @@ class CalcudokuMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { CalcudokuDocument.sharedInstance }
 
 }
+
+class CalcudokuOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { CalcudokuDocument.sharedInstance }
+
+}
+
+class CalcudokuHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { CalcudokuDocument.sharedInstance }
+
+}

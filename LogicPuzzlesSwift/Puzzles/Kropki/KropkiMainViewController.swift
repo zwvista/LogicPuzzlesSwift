@@ -13,3 +13,15 @@ class KropkiMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { KropkiDocument.sharedInstance }
 
 }
+
+class KropkiOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { KropkiDocument.sharedInstance }
+    
+}
+
+class KropkiHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { KropkiDocument.sharedInstance }
+
+}

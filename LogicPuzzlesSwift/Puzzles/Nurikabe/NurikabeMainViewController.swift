@@ -13,3 +13,15 @@ class NurikabeMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { NurikabeDocument.sharedInstance }
 
 }
+
+class NurikabeOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { NurikabeDocument.sharedInstance }
+    
+}
+
+class NurikabeHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { NurikabeDocument.sharedInstance }
+
+}

@@ -13,3 +13,15 @@ class CloudsMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { CloudsDocument.sharedInstance }
 
 }
+
+class CloudsOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { CloudsDocument.sharedInstance }
+    
+}
+
+class CloudsHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { CloudsDocument.sharedInstance }
+
+}

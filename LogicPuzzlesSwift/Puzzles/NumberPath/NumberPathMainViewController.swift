@@ -13,3 +13,15 @@ class NumberPathMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { NumberPathDocument.sharedInstance }
 
 }
+
+class NumberPathOptionsViewController: GameOptionsViewController {
+    
+    override func getGameDocument() -> GameDocumentBase { NumberPathDocument.sharedInstance }
+    
+}
+
+class NumberPathHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { NumberPathDocument.sharedInstance }
+
+}

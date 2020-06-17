@@ -13,3 +13,15 @@ class Square100MainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { Square100Document.sharedInstance }
 
 }
+
+class Square100OptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { Square100Document.sharedInstance }
+    
+}
+
+class Square100HelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { Square100Document.sharedInstance }
+
+}

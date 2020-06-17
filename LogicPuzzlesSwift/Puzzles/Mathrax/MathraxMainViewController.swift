@@ -13,3 +13,15 @@ class MathraxMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { MathraxDocument.sharedInstance }
 
 }
+
+class MathraxOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { MathraxDocument.sharedInstance }
+
+}
+
+class MathraxHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { MathraxDocument.sharedInstance }
+
+}

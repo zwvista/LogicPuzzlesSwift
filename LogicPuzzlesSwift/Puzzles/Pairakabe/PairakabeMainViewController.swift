@@ -13,3 +13,15 @@ class PairakabeMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { PairakabeDocument.sharedInstance }
 
 }
+
+class PairakabeOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { PairakabeDocument.sharedInstance }
+    
+}
+
+class PairakabeHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { PairakabeDocument.sharedInstance }
+
+}

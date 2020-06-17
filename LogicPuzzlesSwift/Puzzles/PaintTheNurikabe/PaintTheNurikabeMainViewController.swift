@@ -13,3 +13,15 @@ class PaintTheNurikabeMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { PaintTheNurikabeDocument.sharedInstance }
 
 }
+
+class PaintTheNurikabeOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { PaintTheNurikabeDocument.sharedInstance }
+    
+}
+
+class PaintTheNurikabeHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { PaintTheNurikabeDocument.sharedInstance }
+
+}

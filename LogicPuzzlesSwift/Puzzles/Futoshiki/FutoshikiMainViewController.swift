@@ -13,3 +13,15 @@ class FutoshikiMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { FutoshikiDocument.sharedInstance }
 
 }
+
+class FutoshikiOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { FutoshikiDocument.sharedInstance }
+
+}
+
+class FutoshikiHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { FutoshikiDocument.sharedInstance }
+
+}

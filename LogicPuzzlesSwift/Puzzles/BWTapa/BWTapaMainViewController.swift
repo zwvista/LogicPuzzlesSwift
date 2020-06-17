@@ -13,3 +13,15 @@ class BWTapaMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { BWTapaDocument.sharedInstance }
 
 }
+
+class BWTapaOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { BWTapaDocument.sharedInstance }
+    
+}
+
+class BWTapaHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { BWTapaDocument.sharedInstance }
+
+}

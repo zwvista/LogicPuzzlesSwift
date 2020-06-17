@@ -13,3 +13,15 @@ class SlitherLinkMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { SlitherLinkDocument.sharedInstance }
 
 }
+
+class SlitherLinkOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { SlitherLinkDocument.sharedInstance }
+    
+}
+
+class SlitherLinkHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { SlitherLinkDocument.sharedInstance }
+
+}

@@ -13,3 +13,15 @@ class LineSweeperMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { LineSweeperDocument.sharedInstance }
 
 }
+
+class LineSweeperOptionsViewController: GameOptionsViewController {
+    
+    override func getGameDocument() -> GameDocumentBase { LineSweeperDocument.sharedInstance }
+    
+}
+
+class LineSweeperHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { LineSweeperDocument.sharedInstance }
+
+}

@@ -13,3 +13,15 @@ class MinesweeperMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { MinesweeperDocument.sharedInstance }
 
 }
+
+class MinesweeperOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { MinesweeperDocument.sharedInstance }
+    
+}
+
+class MinesweeperHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { MinesweeperDocument.sharedInstance }
+
+}

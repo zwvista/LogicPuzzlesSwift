@@ -13,3 +13,15 @@ class RobotFencesMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { RobotFencesDocument.sharedInstance }
 
 }
+
+class RobotFencesOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { RobotFencesDocument.sharedInstance }
+    
+}
+
+class RobotFencesHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { RobotFencesDocument.sharedInstance }
+
+}

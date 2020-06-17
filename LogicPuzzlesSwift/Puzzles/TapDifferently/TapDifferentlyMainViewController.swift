@@ -13,3 +13,15 @@ class TapDifferentlyMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { TapDifferentlyDocument.sharedInstance }
 
 }
+
+class TapDifferentlyOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { TapDifferentlyDocument.sharedInstance }
+    
+}
+
+class TapDifferentlyHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { TapDifferentlyDocument.sharedInstance }
+
+}

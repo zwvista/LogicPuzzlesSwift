@@ -13,3 +13,15 @@ class MiniLitsMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { MiniLitsDocument.sharedInstance }
 
 }
+
+class MiniLitsOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { MiniLitsDocument.sharedInstance }
+
+}
+
+class MiniLitsHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { MiniLitsDocument.sharedInstance }
+
+}

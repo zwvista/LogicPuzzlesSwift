@@ -13,3 +13,15 @@ class TapARowMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { TapARowDocument.sharedInstance }
 
 }
+
+class TapARowOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { TapARowDocument.sharedInstance }
+    
+}
+
+class TapARowHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { TapARowDocument.sharedInstance }
+
+}

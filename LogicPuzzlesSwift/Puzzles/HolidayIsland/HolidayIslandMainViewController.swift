@@ -13,3 +13,15 @@ class HolidayIslandMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { HolidayIslandDocument.sharedInstance }
 
 }
+
+class HolidayIslandOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { HolidayIslandDocument.sharedInstance }
+
+}
+
+class HolidayIslandHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { HolidayIslandDocument.sharedInstance }
+
+}

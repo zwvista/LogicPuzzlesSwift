@@ -13,3 +13,15 @@ class LitsMainViewController: GameMainViewController {
     override func getGameDocument() -> GameDocumentBase { LitsDocument.sharedInstance }
 
 }
+
+class LitsOptionsViewController: GameOptionsViewController {
+
+    override func getGameDocument() -> GameDocumentBase { LitsDocument.sharedInstance }
+
+}
+
+class LitsHelpViewController: GameHelpViewController {
+
+    override func getGameDocument() -> GameDocumentBase { LitsDocument.sharedInstance }
+
+}
