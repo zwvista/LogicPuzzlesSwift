@@ -9,19 +9,13 @@
 import UIKit
 
 class SkyscrapersMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { SkyscrapersDocument.sharedInstance }
-
 }
 
 class SkyscrapersOptionsViewController: GameOptionsViewController {
-    
-    override func getGameDocument() -> GameDocumentBase { SkyscrapersDocument.sharedInstance }
-    
+        override func getGameDocument() -> GameDocumentBase { SkyscrapersDocument.sharedInstance }
 }
 
 class SkyscrapersHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { SkyscrapersDocument.sharedInstance }
-
 }

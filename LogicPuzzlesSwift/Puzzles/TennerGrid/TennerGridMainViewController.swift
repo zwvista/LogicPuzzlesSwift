@@ -9,19 +9,13 @@
 import UIKit
 
 class TennerGridMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { TennerGridDocument.sharedInstance }
-
 }
 
 class TennerGridOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { TennerGridDocument.sharedInstance }
-    
 }
 
 class TennerGridHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { TennerGridDocument.sharedInstance }
-
 }

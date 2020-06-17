@@ -9,19 +9,13 @@
 import UIKit
 
 class FenceItUpMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { FenceItUpDocument.sharedInstance }
-
 }
 
 class FenceItUpOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { FenceItUpDocument.sharedInstance }
-    
 }
 
 class FenceItUpHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { FenceItUpDocument.sharedInstance }
-
 }

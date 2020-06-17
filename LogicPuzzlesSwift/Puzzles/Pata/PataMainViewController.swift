@@ -9,19 +9,13 @@
 import UIKit
 
 class PataMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { PataDocument.sharedInstance }
-
 }
 
 class PataOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { PataDocument.sharedInstance }
-    
 }
 
 class PataHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { PataDocument.sharedInstance }
-
 }

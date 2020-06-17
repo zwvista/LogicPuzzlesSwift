@@ -9,19 +9,13 @@
 import UIKit
 
 class HitoriMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { HitoriDocument.sharedInstance }
-
 }
 
 class HitoriOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { HitoriDocument.sharedInstance }
-    
 }
 
 class HitoriHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { HitoriDocument.sharedInstance }
-
 }

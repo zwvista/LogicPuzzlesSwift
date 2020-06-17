@@ -9,19 +9,13 @@
 import UIKit
 
 class TentsMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { TentsDocument.sharedInstance }
-
 }
 
 class TentsOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { TentsDocument.sharedInstance }
-    
 }
 
 class TentsHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { TentsDocument.sharedInstance }
-
 }

@@ -9,19 +9,13 @@
 import UIKit
 
 class ParkLakesMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { ParkLakesDocument.sharedInstance }
-
 }
 
 class ParkLakesOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { ParkLakesDocument.sharedInstance }
-
 }
 
 class ParkLakesHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { ParkLakesDocument.sharedInstance }
-
 }

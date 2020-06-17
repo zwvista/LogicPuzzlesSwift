@@ -9,19 +9,13 @@
 import UIKit
 
 class TierraDelFuegoMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { TierraDelFuegoDocument.sharedInstance }
-
 }
 
 class TierraDelFuegoOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { TierraDelFuegoDocument.sharedInstance }
-
 }
 
 class TierraDelFuegoHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { TierraDelFuegoDocument.sharedInstance }
-
 }

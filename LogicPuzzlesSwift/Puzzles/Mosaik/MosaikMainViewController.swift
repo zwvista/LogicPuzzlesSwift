@@ -9,20 +9,13 @@
 import UIKit
 
 class MosaikMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { MosaikDocument.sharedInstance }
-
 }
 
 class MosaikOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { MosaikDocument.sharedInstance }
-    
-
 }
 
 class MosaikHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { MosaikDocument.sharedInstance }
-
 }

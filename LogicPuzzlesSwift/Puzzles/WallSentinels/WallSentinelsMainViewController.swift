@@ -9,19 +9,13 @@
 import UIKit
 
 class WallSentinelsMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { WallSentinelsDocument.sharedInstance }
-
 }
 
 class WallSentinelsOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { WallSentinelsDocument.sharedInstance }
-    
 }
 
 class WallSentinelsHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { WallSentinelsDocument.sharedInstance }
-
 }

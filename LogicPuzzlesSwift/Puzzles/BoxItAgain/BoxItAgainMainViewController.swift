@@ -9,19 +9,13 @@
 import UIKit
 
 class BoxItAgainMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { BoxItAgainDocument.sharedInstance }
-
 }
 
 class BoxItAgainOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { BoxItAgainDocument.sharedInstance }
-    
 }
 
 class BoxItAgainHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { BoxItAgainDocument.sharedInstance }
-
 }

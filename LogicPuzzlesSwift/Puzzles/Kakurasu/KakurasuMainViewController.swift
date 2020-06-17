@@ -9,19 +9,13 @@
 import UIKit
 
 class KakurasuMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { KakurasuDocument.sharedInstance }
-
 }
 
 class KakurasuOptionsViewController: GameOptionsViewController {
-    
-    override func getGameDocument() -> GameDocumentBase { KakurasuDocument.sharedInstance }
-    
+        override func getGameDocument() -> GameDocumentBase { KakurasuDocument.sharedInstance }
 }
 
 class KakurasuHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { KakurasuDocument.sharedInstance }
-
 }

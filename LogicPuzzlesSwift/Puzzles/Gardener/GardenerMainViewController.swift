@@ -9,19 +9,13 @@
 import UIKit
 
 class GardenerMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { GardenerDocument.sharedInstance }
-
 }
 
 class GardenerOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { GardenerDocument.sharedInstance }
-
 }
 
 class GardenerHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { GardenerDocument.sharedInstance }
-
 }

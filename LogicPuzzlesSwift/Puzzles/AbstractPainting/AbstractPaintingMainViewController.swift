@@ -9,19 +9,13 @@
 import UIKit
 
 class AbstractPaintingMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { AbstractPaintingDocument.sharedInstance }
-
 }
 
 class AbstractPaintingOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { AbstractPaintingDocument.sharedInstance }
-    
 }
 
 class AbstractPaintingHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { AbstractPaintingDocument.sharedInstance }
-
 }

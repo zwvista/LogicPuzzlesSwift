@@ -9,19 +9,13 @@
 import UIKit
 
 class SentinelsMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { SentinelsDocument.sharedInstance }
-
 }
 
 class SentinelsOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { SentinelsDocument.sharedInstance }
-    
 }
 
 class SentinelsHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { SentinelsDocument.sharedInstance }
-
 }

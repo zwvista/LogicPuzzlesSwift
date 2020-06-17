@@ -9,19 +9,13 @@
 import UIKit
 
 class PowerGridMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { PowerGridDocument.sharedInstance }
-
 }
 
 class PowerGridOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { PowerGridDocument.sharedInstance }
-    
 }
 
 class PowerGridHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { PowerGridDocument.sharedInstance }
-
 }

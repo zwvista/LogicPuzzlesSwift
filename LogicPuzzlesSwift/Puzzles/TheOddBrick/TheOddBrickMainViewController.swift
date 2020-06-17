@@ -9,19 +9,13 @@
 import UIKit
 
 class TheOddBrickMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { TheOddBrickDocument.sharedInstance }
-
 }
 
 class TheOddBrickOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { TheOddBrickDocument.sharedInstance }
-    
 }
 
 class TheOddBrickHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { TheOddBrickDocument.sharedInstance }
-
 }

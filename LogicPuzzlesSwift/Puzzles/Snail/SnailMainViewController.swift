@@ -9,19 +9,13 @@
 import UIKit
 
 class SnailMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { SnailDocument.sharedInstance }
-
 }
 
 class SnailOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { SnailDocument.sharedInstance }
-    
 }
 
 class SnailHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { SnailDocument.sharedInstance }
-
 }

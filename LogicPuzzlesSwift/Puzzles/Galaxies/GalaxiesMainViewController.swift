@@ -9,19 +9,13 @@
 import UIKit
 
 class GalaxiesMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { GalaxiesDocument.sharedInstance }
-
 }
 
 class GalaxiesOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { GalaxiesDocument.sharedInstance }
-    
 }
 
 class GalaxiesHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { GalaxiesDocument.sharedInstance }
-
 }

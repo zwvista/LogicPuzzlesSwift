@@ -9,19 +9,13 @@
 import UIKit
 
 class ABCPathMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { ABCPathDocument.sharedInstance }
-
 }
 
 class ABCPathOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { ABCPathDocument.sharedInstance }
-    
 }
 
 class ABCPathHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { ABCPathDocument.sharedInstance }
-
 }

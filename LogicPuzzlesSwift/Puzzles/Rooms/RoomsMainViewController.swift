@@ -9,19 +9,13 @@
 import UIKit
 
 class RoomsMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { RoomsDocument.sharedInstance }
-
 }
 
 class RoomsOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { RoomsDocument.sharedInstance }
-    
 }
 
 class RoomsHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { RoomsDocument.sharedInstance }
-
 }

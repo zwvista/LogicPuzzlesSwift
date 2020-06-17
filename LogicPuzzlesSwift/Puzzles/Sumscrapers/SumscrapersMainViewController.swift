@@ -9,19 +9,13 @@
 import UIKit
 
 class SumscrapersMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { SumscrapersDocument.sharedInstance }
-
 }
 
 class SumscrapersOptionsViewController: GameOptionsViewController {
-    
-    override func getGameDocument() -> GameDocumentBase { SumscrapersDocument.sharedInstance }
-    
+        override func getGameDocument() -> GameDocumentBase { SumscrapersDocument.sharedInstance }
 }
 
 class SumscrapersHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { SumscrapersDocument.sharedInstance }
-
 }

@@ -9,19 +9,13 @@
 import UIKit
 
 class FillominoMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { FillominoDocument.sharedInstance }
-
 }
 
 class FillominoOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { FillominoDocument.sharedInstance }
-
 }
 
 class FillominoHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { FillominoDocument.sharedInstance }
-
 }

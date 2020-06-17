@@ -9,19 +9,13 @@
 import UIKit
 
 class SnakeMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { SnakeDocument.sharedInstance }
-
 }
 
 class SnakeOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { SnakeDocument.sharedInstance }
-    
 }
 
 class SnakeHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { SnakeDocument.sharedInstance }
-
 }

@@ -9,19 +9,13 @@
 import UIKit
 
 class LighthousesMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { LighthousesDocument.sharedInstance }
-
 }
 
 class LighthousesOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { LighthousesDocument.sharedInstance }
-    
 }
 
 class LighthousesHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { LighthousesDocument.sharedInstance }
-
 }

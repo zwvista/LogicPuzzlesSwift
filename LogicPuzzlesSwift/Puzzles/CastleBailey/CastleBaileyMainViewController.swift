@@ -9,19 +9,13 @@
 import UIKit
 
 class CastleBaileyMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { CastleBaileyDocument.sharedInstance }
-
 }
 
 class CastleBaileyOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { CastleBaileyDocument.sharedInstance }
-
 }
 
 class CastleBaileyHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { CastleBaileyDocument.sharedInstance }
-
 }

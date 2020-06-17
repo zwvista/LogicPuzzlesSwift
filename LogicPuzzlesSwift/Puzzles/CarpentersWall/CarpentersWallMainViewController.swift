@@ -9,19 +9,13 @@
 import UIKit
 
 class CarpentersWallMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { CarpentersWallDocument.sharedInstance }
-
 }
 
 class CarpentersWallOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { CarpentersWallDocument.sharedInstance }
-    
 }
 
 class CarpentersWallHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { CarpentersWallDocument.sharedInstance }
-
 }

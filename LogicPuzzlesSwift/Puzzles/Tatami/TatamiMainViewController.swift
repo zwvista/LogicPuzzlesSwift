@@ -9,19 +9,13 @@
 import UIKit
 
 class TatamiMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { TatamiDocument.sharedInstance }
-
 }
 
 class TatamiOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { TatamiDocument.sharedInstance }
-
 }
 
 class TatamiHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { TatamiDocument.sharedInstance }
-
 }

@@ -9,19 +9,13 @@
 import UIKit
 
 class NumberLinkMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { NumberLinkDocument.sharedInstance }
-
 }
 
 class NumberLinkOptionsViewController: GameOptionsViewController {
-    
-    override func getGameDocument() -> GameDocumentBase { NumberLinkDocument.sharedInstance }
-    
+        override func getGameDocument() -> GameDocumentBase { NumberLinkDocument.sharedInstance }
 }
 
 class NumberLinkHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { NumberLinkDocument.sharedInstance }
-
 }

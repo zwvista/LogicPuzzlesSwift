@@ -9,19 +9,13 @@
 import UIKit
 
 class DigitalBattleShipsMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { DigitalBattleShipsDocument.sharedInstance }
-
 }
 
 class DigitalBattleShipsOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { DigitalBattleShipsDocument.sharedInstance }
-    
 }
 
 class DigitalBattleShipsHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { DigitalBattleShipsDocument.sharedInstance }
-
 }

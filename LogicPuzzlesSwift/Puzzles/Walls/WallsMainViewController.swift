@@ -9,19 +9,13 @@
 import UIKit
 
 class WallsMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { WallsDocument.sharedInstance }
-
 }
 
 class WallsOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { WallsDocument.sharedInstance }
-
 }
 
 class WallsHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { WallsDocument.sharedInstance }
-
 }

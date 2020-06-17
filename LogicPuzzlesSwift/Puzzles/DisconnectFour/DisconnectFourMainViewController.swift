@@ -9,19 +9,13 @@
 import UIKit
 
 class DisconnectFourMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { DisconnectFourDocument.sharedInstance }
-
 }
 
 class DisconnectFourOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { DisconnectFourDocument.sharedInstance }
-
 }
 
 class DisconnectFourHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { DisconnectFourDocument.sharedInstance }
-
 }

@@ -9,19 +9,13 @@
 import UIKit
 
 class LightenUpMainViewController: GameMainViewController {
-
     override func getGameDocument() -> GameDocumentBase { LightenUpDocument.sharedInstance }
-
 }
 
 class LightenUpOptionsViewController: GameOptionsViewController {
-
     override func getGameDocument() -> GameDocumentBase { LightenUpDocument.sharedInstance }
-    
 }
 
 class LightenUpHelpViewController: GameHelpViewController {
-
     override func getGameDocument() -> GameDocumentBase { LightenUpDocument.sharedInstance }
-
 }
