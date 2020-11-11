@@ -2,16 +2,24 @@ PODS:
   - ActionSheetPicker-3.0 (2.3.0)
   - EZSwiftExtensions (2.0)
   - Fuzi (2.1.0)
+  - Realm (5.3.3):
+    - Realm/Headers (= 5.3.3)
+  - Realm/Headers (5.3.3)
+  - RealmSwift (5.3.3):
+    - Realm (= 5.3.3)
 
 DEPENDENCIES:
   - ActionSheetPicker-3.0
   - EZSwiftExtensions (from `https://github.com/goktugyil/EZSwiftExtensions.git`)
   - Fuzi
+  - RealmSwift
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - ActionSheetPicker-3.0
     - Fuzi
+    - Realm
+    - RealmSwift
 
 EXTERNAL SOURCES:
   EZSwiftExtensions:
@@ -26,7 +34,9 @@ SPEC CHECKSUMS:
   ActionSheetPicker-3.0: eef157d75e151f255c5333d26656c7fbfe905a51
   EZSwiftExtensions: f73648a591e529a1dbd83c22b19fd3e57df6fb7d
   Fuzi: 8c57344debff6d3a0c76a9e0f549152defdaaa48
+  Realm: 2d57ea355bf8ca2a0964d6bfb38d28d7ff2addf6
+  RealmSwift: 0a709536ecea30eea1d3c514f6ade2ed078dee3c
 
-PODFILE CHECKSUM: a43c4f62ad02586f54d18337eb962c1da24d23f2
+PODFILE CHECKSUM: e3c92cc0a0348473f3bcf31da9adefa80cb961c3
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.10.0.beta.1

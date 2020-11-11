@@ -8,4 +8,5 @@ project 'LogicPuzzlesSwift'
 pod 'EZSwiftExtensions', :git => 'https://github.com/goktugyil/EZSwiftExtensions.git'
 pod 'Fuzi'
 pod 'ActionSheetPicker-3.0'
+pod 'RealmSwift'
 end
