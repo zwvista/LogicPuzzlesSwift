@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class TapaDocument: GameDocument<TapaGameMove> {
     static var sharedInstance = TapaDocument()

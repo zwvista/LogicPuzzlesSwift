@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class NoughtsAndCrossesDocument: GameDocument<NoughtsAndCrossesGameMove> {
     static var sharedInstance = NoughtsAndCrossesDocument()

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class NeighboursDocument: GameDocument<NeighboursGameMove> {
     static var sharedInstance = NeighboursDocument()

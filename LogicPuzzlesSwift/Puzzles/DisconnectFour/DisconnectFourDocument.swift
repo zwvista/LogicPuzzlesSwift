@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class DisconnectFourDocument: GameDocument<DisconnectFourGameMove> {
     static var sharedInstance = DisconnectFourDocument()

@@ -7,20 +7,23 @@
 //
 
 import UIKit
-import SharkORM
+import RealmSwift
 
 class HomeDocument {
     static var sharedInstance = HomeDocument()
+    let realm = try! Realm()
     var gameProgress: HomeGameProgress {
-        let result = HomeGameProgress.query().fetch()
-        return result.count == 0 ? HomeGameProgress() : (result[0] as! HomeGameProgress)
+        let result = realm.objects(HomeGameProgress.self)
+        return result.count == 0 ? HomeGameProgress() : result[0]
     }
     
     func resumeGame(gameName: String, gameTitle: String) {
         let rec = gameProgress
         rec.gameName = gameName
         rec.gameTitle = gameTitle
-        rec.commit()
+        try! realm.write {
+            realm.add(rec, update: .all)
+        }
     }
 
 }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class BootyIslandDocument: GameDocument<BootyIslandGameMove> {
     static var sharedInstance = BootyIslandDocument()

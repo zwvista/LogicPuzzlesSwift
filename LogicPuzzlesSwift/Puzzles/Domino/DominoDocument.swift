@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class DominoDocument: GameDocument<DominoGameMove> {
     static var sharedInstance = DominoDocument()

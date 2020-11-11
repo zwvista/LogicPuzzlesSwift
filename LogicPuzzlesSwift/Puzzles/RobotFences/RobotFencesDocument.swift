@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class RobotFencesDocument: GameDocument<RobotFencesGameMove> {
     static var sharedInstance = RobotFencesDocument()

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class CloudsDocument: GameDocument<CloudsGameMove> {
     static var sharedInstance = CloudsDocument()

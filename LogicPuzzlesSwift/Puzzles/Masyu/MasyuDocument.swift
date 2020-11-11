@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class MasyuDocument: GameDocument<MasyuGameMove> {
     static var sharedInstance = MasyuDocument()

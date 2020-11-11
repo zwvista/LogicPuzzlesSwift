@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class LightBattleShipsDocument: GameDocument<LightBattleShipsGameMove> {
     static var sharedInstance = LightBattleShipsDocument()

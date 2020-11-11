@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class CarpentersSquareDocument: GameDocument<CarpentersSquareGameMove> {
     static var sharedInstance = CarpentersSquareDocument()

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class MagnetsDocument: GameDocument<MagnetsGameMove> {
     static var sharedInstance = MagnetsDocument()

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class TheOddBrickDocument: GameDocument<TheOddBrickGameMove> {
     static var sharedInstance = TheOddBrickDocument()

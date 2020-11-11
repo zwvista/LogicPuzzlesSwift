@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class LineSweeperDocument: GameDocument<LineSweeperGameMove> {
     static var sharedInstance = LineSweeperDocument()

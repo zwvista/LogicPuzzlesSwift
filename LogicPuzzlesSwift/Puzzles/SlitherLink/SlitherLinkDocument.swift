@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class SlitherLinkDocument: GameDocument<SlitherLinkGameMove> {
     static var sharedInstance = SlitherLinkDocument()

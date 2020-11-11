@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class MinesweeperDocument: GameDocument<MinesweeperGameMove> {
     static var sharedInstance = MinesweeperDocument()

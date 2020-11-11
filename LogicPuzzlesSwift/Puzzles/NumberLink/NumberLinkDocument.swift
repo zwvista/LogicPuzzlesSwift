@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class NumberLinkDocument: GameDocument<NumberLinkGameMove> {
     static var sharedInstance = NumberLinkDocument()

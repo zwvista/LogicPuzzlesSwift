@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class MiniLitsDocument: GameDocument<MiniLitsGameMove> {
     static var sharedInstance = MiniLitsDocument()

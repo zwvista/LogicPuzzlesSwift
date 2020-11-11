@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class FutoshikiDocument: GameDocument<FutoshikiGameMove> {
     static var sharedInstance = FutoshikiDocument()

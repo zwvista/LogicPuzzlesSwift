@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class BWTapaDocument: GameDocument<BWTapaGameMove> {
     static var sharedInstance = BWTapaDocument()

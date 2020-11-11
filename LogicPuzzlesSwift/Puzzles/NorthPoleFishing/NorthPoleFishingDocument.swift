@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class NorthPoleFishingDocument: GameDocument<NorthPoleFishingGameMove> {
     static var sharedInstance = NorthPoleFishingDocument()

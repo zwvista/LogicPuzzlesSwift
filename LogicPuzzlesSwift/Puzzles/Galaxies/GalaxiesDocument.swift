@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class GalaxiesDocument: GameDocument<GalaxiesGameMove> {
     static var sharedInstance = GalaxiesDocument()

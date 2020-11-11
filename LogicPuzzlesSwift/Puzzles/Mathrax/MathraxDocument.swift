@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class MathraxDocument: GameDocument<MathraxGameMove> {
     static var sharedInstance = MathraxDocument()

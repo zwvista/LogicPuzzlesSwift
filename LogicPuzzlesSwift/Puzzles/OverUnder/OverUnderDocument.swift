@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class OverUnderDocument: GameDocument<OverUnderGameMove> {
     static var sharedInstance = OverUnderDocument()

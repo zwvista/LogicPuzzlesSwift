@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class KakuroDocument: GameDocument<KakuroGameMove> {
     static var sharedInstance = KakuroDocument()

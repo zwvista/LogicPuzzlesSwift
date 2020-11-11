@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class BalancedTapasDocument: GameDocument<BalancedTapasGameMove> {
     static var sharedInstance = BalancedTapasDocument()

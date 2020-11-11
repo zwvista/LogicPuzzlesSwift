@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class PowerGridDocument: GameDocument<PowerGridGameMove> {
     static var sharedInstance = PowerGridDocument()

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class SnakeDocument: GameDocument<SnakeGameMove> {
     static var sharedInstance = SnakeDocument()

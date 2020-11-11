@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class LightenUpDocument: GameDocument<LightenUpGameMove> {
     static var sharedInstance = LightenUpDocument()

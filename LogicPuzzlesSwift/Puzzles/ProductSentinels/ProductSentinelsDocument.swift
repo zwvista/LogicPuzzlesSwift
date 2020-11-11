@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class ProductSentinelsDocument: GameDocument<ProductSentinelsGameMove> {
     static var sharedInstance = ProductSentinelsDocument()

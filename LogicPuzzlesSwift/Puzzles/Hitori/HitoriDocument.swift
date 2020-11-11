@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class HitoriDocument: GameDocument<HitoriGameMove> {
     static var sharedInstance = HitoriDocument()

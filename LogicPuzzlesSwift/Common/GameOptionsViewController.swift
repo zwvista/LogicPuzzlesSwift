@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class GameOptionsViewController: UITableViewController {
     
@@ -20,6 +21,7 @@ class GameOptionsViewController: UITableViewController {
     
     private var gameDocument: GameDocumentBase { getGameDocument() }
     func getGameDocument() -> GameDocumentBase! { nil }
+    let realm = try! Realm()
     var gameOptions: GameProgress { gameDocument.gameProgress }
     var markerOption: Int { gameOptions.option1?.toInt() ?? 0 }
     func setMarkerOption(rec: GameProgress, newValue: Int) { rec.option1 = newValue.description }
@@ -40,7 +42,9 @@ class GameOptionsViewController: UITableViewController {
     @IBAction func allowedObjectsOnlyChanged(_ sender: Any) {
         let rec = gameOptions
         setAllowedObjectsOnly(rec: rec, newValue: swAllowedObjectsOnly.isOn)
-        rec.commit()
+        try! realm.write {
+            realm.add(rec, update: .all)
+        }
     }
     
     @IBAction func onDefault(_ sender: Any) {
@@ -62,7 +66,9 @@ class GameOptionsViewController: UITableViewController {
         let rec = gameOptions
         setMarkerOption(rec: rec, newValue: MarkerOptions.noMarker.rawValue)
         setAllowedObjectsOnly(rec: rec, newValue: false)
-        rec.commit()
+        try! realm.write {
+            realm.add(rec, update: .all)
+        }
         updateMarkerOption()
         updateAllowedObjectsOnly()
     }
@@ -80,7 +86,9 @@ class GameOptionsViewController: UITableViewController {
         ActionSheetStringPicker.show(withTitle: "Marker Options", rows: MarkerOptions.optionStrings, initialSelection: markerOption, doneBlock: { (picker, selectedIndex, selectedValue) in
             let rec = self.gameOptions
             self.setMarkerOption(rec: rec, newValue: selectedIndex)
-            rec.commit()
+            try! self.realm.write {
+                self.realm.add(rec, update: .all)
+            }
             self.updateMarkerOption()
         } , cancel: nil, origin: lblMarker)
     }

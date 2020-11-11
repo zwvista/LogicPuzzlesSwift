@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class SnailDocument: GameDocument<SnailGameMove> {
     static var sharedInstance = SnailDocument()

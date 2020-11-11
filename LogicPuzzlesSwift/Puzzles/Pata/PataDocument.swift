@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class PataDocument: GameDocument<PataGameMove> {
     static var sharedInstance = PataDocument()

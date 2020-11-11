@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class LoopyDocument: GameDocument<LoopyGameMove> {
     static var sharedInstance = LoopyDocument()

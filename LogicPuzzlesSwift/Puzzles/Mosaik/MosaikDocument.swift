@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class MosaikDocument: GameDocument<MosaikGameMove> {
     static var sharedInstance = MosaikDocument()

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class TierraDelFuegoDocument: GameDocument<TierraDelFuegoGameMove> {
     static var sharedInstance = TierraDelFuegoDocument()

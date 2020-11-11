@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class RippleEffectDocument: GameDocument<RippleEffectGameMove> {
     static var sharedInstance = RippleEffectDocument()

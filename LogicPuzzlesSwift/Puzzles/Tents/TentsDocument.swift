@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class TentsDocument: GameDocument<TentsGameMove> {
     static var sharedInstance = TentsDocument()

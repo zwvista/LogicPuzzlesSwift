@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class FenceSentinelsDocument: GameDocument<FenceSentinelsGameMove> {
     static var sharedInstance = FenceSentinelsDocument()

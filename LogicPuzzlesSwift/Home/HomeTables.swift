@@ -7,15 +7,17 @@
 //
 
 import Foundation
-import SharkORM
+import RealmSwift
 
-class HomeGameProgress: SRKObject {
-    @objc dynamic var gameName: String?
-    @objc dynamic var gameTitle: String?
-    @objc dynamic var playMusic = true
-    @objc dynamic var playSound = true
+@objcMembers
+class HomeGameProgress: Object {
+    dynamic var id: String = NSUUID().uuidString
+    dynamic var gameName: String? = "LightenUp"
+    dynamic var gameTitle: String? = "Lighten Up"
+    dynamic var playMusic = true
+    dynamic var playSound = true
     
-    override class func defaultValuesForEntity() -> [String : Any] {
-        ["gameName": "LightenUp", "gameTitle": "Lighten Up", "playMusic": true, "playSound": true]
+    override static func primaryKey() -> String? {
+        return "id"
     }
 }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class TatamiDocument: GameDocument<TatamiGameMove> {
     static var sharedInstance = TatamiDocument()

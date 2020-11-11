@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class BusySeasDocument: GameDocument<BusySeasGameMove> {
     static var sharedInstance = BusySeasDocument()

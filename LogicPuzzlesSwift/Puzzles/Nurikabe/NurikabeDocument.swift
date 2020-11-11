@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class NurikabeDocument: GameDocument<NurikabeGameMove> {
     static var sharedInstance = NurikabeDocument()

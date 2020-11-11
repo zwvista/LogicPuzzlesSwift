@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class NumberPathDocument: GameDocument<NumberPathGameMove> {
     static var sharedInstance = NumberPathDocument()

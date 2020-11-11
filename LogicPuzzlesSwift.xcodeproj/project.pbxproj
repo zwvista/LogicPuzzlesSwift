@@ -88,8 +88,6 @@
 		8C2AF84B1ED6084300EC84AB /* PaintTheNurikabeGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8401ED6084300EC84AB /* PaintTheNurikabeGridNode.swift */; };
 		8C2AF84D1ED6084300EC84AB /* PaintTheNurikabeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8421ED6084300EC84AB /* PaintTheNurikabeMainViewController.swift */; };
 		8C2AF84E1ED6084300EC84AB /* PaintTheNurikabeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8431ED6084300EC84AB /* PaintTheNurikabeObject.swift */; };
-		8C31FE6E1D90E415008793BF /* SharkORM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; };
-		8C31FE6F1D90E415008793BF /* SharkORM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C31FE6D1D90E415008793BF /* SharkORM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8C32D8DC1FC92B5F00BA2D07 /* RippleEffectGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8D01FC92B5F00BA2D07 /* RippleEffectGameViewController.swift */; };
 		8C32D8DD1FC92B5F00BA2D07 /* RippleEffectMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8D11FC92B5F00BA2D07 /* RippleEffectMainViewController.swift */; };
 		8C32D8DF1FC92B5F00BA2D07 /* RippleEffectGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8D31FC92B5F00BA2D07 /* RippleEffectGameScene.swift */; };
@@ -859,20 +857,6 @@
 			remoteInfo = LogicPuzzlesSwift;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		8C21641F1D8FBE9F00A39B47 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				8C31FE6F1D90E415008793BF /* SharkORM.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3CC1F29EA8EBB354D2BB9C39 /* Pods-LogicPuzzlesSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogicPuzzlesSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-LogicPuzzlesSwift/Pods-LogicPuzzlesSwift.release.xcconfig"; sourceTree = "<group>"; };
@@ -1726,7 +1710,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9514BA4F20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework in Frameworks */,
-				8C31FE6E1D90E415008793BF /* SharkORM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3417,7 +3400,6 @@
 				8C9F43D31D771915000139FC /* Sources */,
 				8C9F43D41D771915000139FC /* Frameworks */,
 				8C9F43D51D771915000139FC /* Resources */,
-				8C21641F1D8FBE9F00A39B47 /* Embed Frameworks */,
 				AD0B0337545AB5DC7929067B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (

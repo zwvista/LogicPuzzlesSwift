@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class TennerGridDocument: GameDocument<TennerGridGameMove> {
     static var sharedInstance = TennerGridDocument()

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class FillominoDocument: GameDocument<FillominoGameMove> {
     static var sharedInstance = FillominoDocument()

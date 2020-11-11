@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class AbstractPaintingDocument: GameDocument<AbstractPaintingGameMove> {
     static var sharedInstance = AbstractPaintingDocument()

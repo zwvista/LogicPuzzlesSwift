@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class KropkiDocument: GameDocument<KropkiGameMove> {
     static var sharedInstance = KropkiDocument()

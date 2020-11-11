@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class CastleBaileyDocument: GameDocument<CastleBaileyGameMove> {
     static var sharedInstance = CastleBaileyDocument()

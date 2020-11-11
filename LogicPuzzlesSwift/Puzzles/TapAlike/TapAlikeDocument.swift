@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class TapAlikeDocument: GameDocument<TapAlikeGameMove> {
     static var sharedInstance = TapAlikeDocument()

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class BoxItAroundDocument: GameDocument<BoxItAroundGameMove> {
     static var sharedInstance = BoxItAroundDocument()

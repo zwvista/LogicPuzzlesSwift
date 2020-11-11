@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class BridgesDocument: GameDocument<BridgesGameMove> {
     static var sharedInstance = BridgesDocument()

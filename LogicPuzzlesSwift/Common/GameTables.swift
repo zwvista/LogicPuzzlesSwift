@@ -1,5 +1,5 @@
 //
-//  AbcTables.swift
+//  GameTables.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/19.
@@ -7,35 +7,38 @@
 //
 
 import Foundation
-import SharkORM
+import RealmSwift
 
 @objcMembers
-class GameProgress: SRKObject {
+class GameProgress: Object {
+    dynamic var id: String = NSUUID().uuidString
     dynamic var gameID: String?
-    dynamic var levelID: String?
+    dynamic var levelID: String? = "1"
     dynamic var option1: String?
     dynamic var option2: String?
     dynamic var option3: String?
     dynamic var option4: String?
-    
-    override class func defaultValuesForEntity() -> [String : Any] {
-        ["levelID": "1"]
+
+    override static func primaryKey() -> String? {
+        return "id"
     }
 }
 
 @objcMembers
-class LevelProgress: SRKObject {
+class LevelProgress: Object {
+    dynamic var id: String = NSUUID().uuidString
     dynamic var gameID: String?
     dynamic var levelID: String?
     dynamic var moveIndex = 0
     
-    override class func defaultValuesForEntity() -> [String : Any] {
-        ["moveIndex": 0]
+    override static func primaryKey() -> String? {
+        return "id"
     }
 }
 
 @objcMembers
-class MoveProgress: SRKObject {
+class MoveProgress: Object {
+    dynamic var id: String = NSUUID().uuidString
     dynamic var gameID: String?
     dynamic var levelID: String?
     dynamic var moveIndex = 0
@@ -48,7 +51,7 @@ class MoveProgress: SRKObject {
     dynamic var strValue1: String?
     dynamic var strValue2: String?
     
-    override class func defaultValuesForEntity() -> [String : Any] {
-        ["moveIndex": 0]
+    override static func primaryKey() -> String? {
+        return "id"
     }
 }

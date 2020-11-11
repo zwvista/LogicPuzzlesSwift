@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class PairakabeDocument: GameDocument<PairakabeGameMove> {
     static var sharedInstance = PairakabeDocument()

@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
 class HomeOptionsViewController: UITableViewController, HomeMixin {
     
     @IBOutlet weak var swPlayMusic: UISwitch!
     @IBOutlet weak var swPlaySound: UISwitch!
+    let realm = try! Realm()
     func updatePlayMusic() {
         swPlayMusic.isOn = gameOptions.playMusic
     }
@@ -23,14 +25,18 @@ class HomeOptionsViewController: UITableViewController, HomeMixin {
     @IBAction func playMusicChanged(_ sender: Any) {
         let rec = gameOptions
         rec.playMusic = swPlayMusic.isOn
-        rec.commit()
+        try! realm.write {
+            realm.add(rec, update: .all)
+        }
         soundManager.playOrPauseMusic()
     }
     
     @IBAction func playSoundChanged(_ sender: Any) {
         let rec = gameOptions
         rec.playSound = swPlaySound.isOn
-        rec.commit()
+        try! realm.write {
+            realm.add(rec, update: .all)
+        }
     }
     
     override func viewDidLoad() {
@@ -51,7 +57,9 @@ class HomeOptionsViewController: UITableViewController, HomeMixin {
             let rec = self.gameOptions
             rec.playMusic = true
             rec.playSound = true
-            rec.commit()
+            try! self.realm.write {
+                self.realm.add(rec, update: .all)
+            }
             self.updatePlayMusic()
             self.soundManager.playOrPauseMusic()
             self.updatePlaySound()

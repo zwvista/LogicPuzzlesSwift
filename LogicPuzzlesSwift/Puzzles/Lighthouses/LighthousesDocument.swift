@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class LighthousesDocument: GameDocument<LighthousesGameMove> {
     static var sharedInstance = LighthousesDocument()

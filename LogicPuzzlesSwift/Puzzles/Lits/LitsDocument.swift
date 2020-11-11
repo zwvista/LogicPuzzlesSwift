@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class LitsDocument: GameDocument<LitsGameMove> {
     static var sharedInstance = LitsDocument()

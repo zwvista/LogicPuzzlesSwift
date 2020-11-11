@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SharkORM
 
 class TapDifferentlyDocument: GameDocument<TapDifferentlyGameMove> {
     static var sharedInstance = TapDifferentlyDocument()
