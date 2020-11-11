@@ -23,18 +23,18 @@ class HomeOptionsViewController: UITableViewController, HomeMixin {
     }
     
     @IBAction func playMusicChanged(_ sender: Any) {
-        let rec = gameOptions
-        rec.playMusic = swPlayMusic.isOn
         try! realm.write {
+            let rec = gameOptions
+            rec.playMusic = swPlayMusic.isOn
             realm.add(rec, update: .all)
         }
         soundManager.playOrPauseMusic()
     }
     
     @IBAction func playSoundChanged(_ sender: Any) {
-        let rec = gameOptions
-        rec.playSound = swPlaySound.isOn
         try! realm.write {
+            let rec = gameOptions
+            rec.playSound = swPlaySound.isOn
             realm.add(rec, update: .all)
         }
     }
@@ -54,10 +54,10 @@ class HomeOptionsViewController: UITableViewController, HomeMixin {
         let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
         alertController.addAction(noAction)
         let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
-            let rec = self.gameOptions
-            rec.playMusic = true
-            rec.playSound = true
             try! self.realm.write {
+                let rec = self.gameOptions
+                rec.playMusic = true
+                rec.playSound = true
                 self.realm.add(rec, update: .all)
             }
             self.updatePlayMusic()

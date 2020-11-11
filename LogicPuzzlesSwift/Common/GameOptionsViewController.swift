@@ -40,9 +40,9 @@ class GameOptionsViewController: UITableViewController {
     }
     
     @IBAction func allowedObjectsOnlyChanged(_ sender: Any) {
-        let rec = gameOptions
-        setAllowedObjectsOnly(rec: rec, newValue: swAllowedObjectsOnly.isOn)
         try! realm.write {
+            let rec = gameOptions
+            setAllowedObjectsOnly(rec: rec, newValue: swAllowedObjectsOnly.isOn)
             realm.add(rec, update: .all)
         }
     }
@@ -63,10 +63,10 @@ class GameOptionsViewController: UITableViewController {
     }
     
     func onDefault() {
-        let rec = gameOptions
-        setMarkerOption(rec: rec, newValue: MarkerOptions.noMarker.rawValue)
-        setAllowedObjectsOnly(rec: rec, newValue: false)
         try! realm.write {
+            let rec = gameOptions
+            setMarkerOption(rec: rec, newValue: MarkerOptions.noMarker.rawValue)
+            setAllowedObjectsOnly(rec: rec, newValue: false)
             realm.add(rec, update: .all)
         }
         updateMarkerOption()
@@ -84,9 +84,9 @@ class GameOptionsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row == 0 else {return}
         ActionSheetStringPicker.show(withTitle: "Marker Options", rows: MarkerOptions.optionStrings, initialSelection: markerOption, doneBlock: { (picker, selectedIndex, selectedValue) in
-            let rec = self.gameOptions
-            self.setMarkerOption(rec: rec, newValue: selectedIndex)
             try! self.realm.write {
+                let rec = self.gameOptions
+                self.setMarkerOption(rec: rec, newValue: selectedIndex)
                 self.realm.add(rec, update: .all)
             }
             self.updateMarkerOption()

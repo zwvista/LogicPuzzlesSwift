@@ -18,10 +18,10 @@ class HomeDocument {
     }
     
     func resumeGame(gameName: String, gameTitle: String) {
-        let rec = gameProgress
-        rec.gameName = gameName
-        rec.gameTitle = gameTitle
         try! realm.write {
+            let rec = gameProgress
+            rec.gameName = gameName
+            rec.gameTitle = gameTitle
             realm.add(rec, update: .all)
         }
     }

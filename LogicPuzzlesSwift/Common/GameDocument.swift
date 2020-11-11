@@ -110,7 +110,8 @@ class GameDocument<GM>: GameDocumentBase {
     func moveAdded(game: AnyObject, move: GM) {
         let game = game as! GameBase
         try! realm.write {
-            realm.delete(realm.objects(MoveProgress.self).filter(NSPredicate(format: "gameID = %@ AND levelID = %@ AND moveIndex >= %@", gameID!, selectedLevelID!, NSNumber(value: game.moveIndex))))
+            // https://stackoverflow.com/questions/28620794/swift-nspredicate-throwing-exc-bad-accesscode-1-address-0x1-when-compounding
+            realm.delete(realm.objects(MoveProgress.self).filter(NSPredicate(format: "gameID = %@ AND levelID = %@ AND moveIndex >= %ld", gameID!, selectedLevelID!, game.moveIndex)))
             let rec = MoveProgress()
             rec.gameID = gameID
             rec.levelID = selectedLevelID
@@ -144,15 +145,13 @@ class GameDocument<GM>: GameDocumentBase {
     private func copyMoves(moveProgressFrom: Results<MoveProgress>, levelIDTo: String) {
         try! realm.write {
             realm.delete(realm.objects(MoveProgress.self).filter(NSPredicate(format: "gameID = %@ AND levelID = %@", gameID!, levelIDTo)))
-        }
-        for recMP in moveProgressFrom {
-            let move = loadMove(from: recMP)!
-            let recMPS = MoveProgress()
-            recMPS.gameID = gameID
-            recMPS.levelID = levelIDTo
-            recMPS.moveIndex = recMP.moveIndex
-            saveMove(move, to: recMPS)
-            try! realm.write {
+            for recMP in moveProgressFrom {
+                let move = loadMove(from: recMP)!
+                let recMPS = MoveProgress()
+                recMPS.gameID = gameID
+                recMPS.levelID = levelIDTo
+                recMPS.moveIndex = recMP.moveIndex
+                saveMove(move, to: recMPS)
                 realm.add(recMPS, update: .all)
             }
         }
