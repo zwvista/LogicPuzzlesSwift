@@ -6,6 +6,5 @@
 //  Copyright © 2016年 趙偉. All rights reserved.
 //
 
-#include <SharkORM/SharkORM.h>
 #include "ActionSheetPicker.h"
 
