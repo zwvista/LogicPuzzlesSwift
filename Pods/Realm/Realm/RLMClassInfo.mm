@@ -19,24 +19,33 @@
 #import "RLMClassInfo.hpp"
 
 #import "RLMRealm_Private.hpp"
-#import "RLMObjectSchema_Private.h"
+#import "RLMObjectSchema_Private.hpp"
 #import "RLMSchema.h"
 #import "RLMProperty_Private.h"
 #import "RLMQueryUtil.hpp"
 #import "RLMUtil.hpp"
 
-#import "object_schema.hpp"
-#import "object_store.hpp"
-#import "schema.hpp"
-#import "shared_realm.hpp"
-
+#import <realm/object-store/object_schema.hpp>
+#import <realm/object-store/object_store.hpp>
+#import <realm/object-store/schema.hpp>
+#import <realm/object-store/shared_realm.hpp>
 #import <realm/table.hpp>
 
 using namespace realm;
 
-RLMClassInfo::RLMClassInfo(RLMRealm *realm, RLMObjectSchema *rlmObjectSchema,
+RLMClassInfo::RLMClassInfo(__unsafe_unretained RLMRealm *const realm,
+                           __unsafe_unretained RLMObjectSchema *const rlmObjectSchema,
                            const realm::ObjectSchema *objectSchema)
 : realm(realm), rlmObjectSchema(rlmObjectSchema), objectSchema(objectSchema) { }
+
+RLMClassInfo::RLMClassInfo(RLMRealm *realm, RLMObjectSchema *rlmObjectSchema,
+                           std::unique_ptr<realm::ObjectSchema> schema)
+: realm(realm)
+, rlmObjectSchema(rlmObjectSchema)
+, objectSchema(&*schema)
+, dynamicObjectSchema(std::move(schema))
+, dynamicRLMObjectSchema(rlmObjectSchema)
+{ }
 
 realm::TableRef RLMClassInfo::table() const {
     if (auto key = objectSchema->table_key) {
@@ -76,10 +85,16 @@ RLMClassInfo &RLMClassInfo::linkTargetType(realm::Property const& property) {
     return linkTargetType(&property - &objectSchema->persisted_properties[0]);
 }
 
-RLMClassInfo &RLMClassInfo::freeze(__unsafe_unretained RLMRealm *const frozenRealm) {
-    REALM_ASSERT(frozenRealm.frozen);
-    // FIXME
-    return frozenRealm->_info[rlmObjectSchema.className];
+RLMClassInfo &RLMClassInfo::resolve(__unsafe_unretained RLMRealm *const realm) {
+    return realm->_info[rlmObjectSchema.className];
+}
+
+bool RLMClassInfo::isSwiftClass() const noexcept {
+    return rlmObjectSchema.isSwiftClass;
+}
+
+bool RLMClassInfo::isDynamic() const noexcept {
+    return !!dynamicObjectSchema;
 }
 
 RLMSchemaInfo::impl::iterator RLMSchemaInfo::begin() noexcept { return m_objects.begin(); }
@@ -98,6 +113,14 @@ RLMClassInfo& RLMSchemaInfo::operator[](NSString *name) {
     return *&it->second;
 }
 
+RLMClassInfo* RLMSchemaInfo::operator[](realm::TableKey const& key) {
+    for (auto& pair : m_objects) {
+        if (pair.second.objectSchema->table_key == key)
+            return &pair.second;
+    }
+    return nullptr;
+}
+
 RLMSchemaInfo::RLMSchemaInfo(RLMRealm *realm) {
     RLMSchema *rlmSchema = realm.schema;
     realm::Schema const& schema = realm->_realm->schema();
@@ -106,10 +129,14 @@ RLMSchemaInfo::RLMSchemaInfo(RLMRealm *realm) {
 
     m_objects.reserve(schema.size());
     for (RLMObjectSchema *rlmObjectSchema in rlmSchema.objectSchema) {
+        auto it = schema.find(rlmObjectSchema.objectStoreName);
+        if (it == schema.end()) {
+            continue;
+        }
         m_objects.emplace(std::piecewise_construct,
                           std::forward_as_tuple(rlmObjectSchema.className),
                           std::forward_as_tuple(realm, rlmObjectSchema,
-                                                &*schema.find(rlmObjectSchema.objectName.UTF8String)));
+                                                &*it));
     }
 }
 
@@ -119,12 +146,26 @@ RLMSchemaInfo RLMSchemaInfo::clone(realm::Schema const& source_schema,
     info.m_objects.reserve(m_objects.size());
 
     auto& schema = target_realm->_realm->schema();
-    for (auto& pair : m_objects) {
-        size_t idx = pair.second.objectSchema - &*source_schema.begin();
+    REALM_ASSERT_DEBUG(schema == source_schema);
+    for (auto& [name, class_info] : m_objects) {
+        if (class_info.isDynamic()) {
+            continue;
+        }
+        size_t idx = class_info.objectSchema - &*source_schema.begin();
         info.m_objects.emplace(std::piecewise_construct,
-                               std::forward_as_tuple(pair.first),
-                               std::forward_as_tuple(target_realm, pair.second.rlmObjectSchema,
+                               std::forward_as_tuple(name),
+                               std::forward_as_tuple(target_realm, class_info.rlmObjectSchema,
                                                      &*schema.begin() + idx));
     }
     return info;
 }
+
+void RLMSchemaInfo::appendDynamicObjectSchema(std::unique_ptr<realm::ObjectSchema> schema,
+                                              RLMObjectSchema *objectSchema,
+                                              __unsafe_unretained RLMRealm *const target_realm) {
+    m_objects.emplace(std::piecewise_construct,
+                      std::forward_as_tuple(objectSchema.className),
+                      std::forward_as_tuple(target_realm, objectSchema,
+                                            std::move(schema)));
+}
+

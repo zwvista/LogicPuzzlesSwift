@@ -18,12 +18,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import "binding_context.hpp"
-
 #import <realm/obj.hpp>
+#import <realm/object-store/binding_context.hpp>
 #import <realm/table.hpp>
-
-#import <unordered_map>
 
 @class RLMObjectBase, RLMRealm, RLMSchema, RLMProperty, RLMObjectSchema;
 class RLMClassInfo;
@@ -35,7 +32,7 @@ namespace realm {
 }
 
 // RLMObservationInfo stores all of the KVO-related data for RLMObjectBase and
-// RLMArray. There is a one-to-one relationship between observed objects and
+// RLMSet/Array. There is a one-to-one relationship between observed objects and
 // RLMObservationInfo instances, so it could be folded into RLMObjectBase, and
 // is a separate class mostly to avoid making all accessor objects far larger.
 //
@@ -53,7 +50,7 @@ public:
     RLMObservationInfo(RLMClassInfo &objectSchema, realm::ObjKey row, id object);
     ~RLMObservationInfo();
 
-    realm::ConstObj const& getRow() const {
+    realm::Obj const& getRow() const {
         return row;
     }
 
@@ -87,14 +84,13 @@ public:
     id valueForKey(NSString *key);
 
     void prepareForInvalidation();
-
 private:
     // Doubly-linked-list of observed objects for the same row as this
     RLMObservationInfo *next = nullptr;
     RLMObservationInfo *prev = nullptr;
 
     // Row being observed
-    realm::ConstObj row;
+    realm::Obj row;
     RLMClassInfo *objectSchema = nullptr;
 
     // Object doing the observing
@@ -145,8 +141,39 @@ RLMObservationInfo *RLMGetObservationInfo(RLMObservationInfo *info, realm::ObjKe
 // delete all objects from a single table with change notifications
 void RLMClearTable(RLMClassInfo &realm);
 
-// invoke the block, sending notifications for cascading deletes/link nullifications
-void RLMTrackDeletions(RLMRealm *realm, dispatch_block_t block);
+class RLMObservationTracker {
+public:
+    RLMObservationTracker(RLMRealm *realm, bool trackDeletions=false);
+    ~RLMObservationTracker();
+
+    void trackDeletions();
+
+    void willChange(RLMObservationInfo *info, NSString *key,
+                    NSKeyValueChange kind=NSKeyValueChangeSetting,
+                    NSIndexSet *indexes=nil);
+    void didChange();
+
+private:
+    std::vector<std::vector<RLMObservationInfo *> *> _observedTables;
+    __unsafe_unretained RLMRealm const*_realm;
+    realm::Group& _group;
+    RLMObservationInfo *_info = nullptr;
+
+    NSString *_key;
+    NSKeyValueChange _kind = NSKeyValueChangeSetting;
+    NSIndexSet *_indexes;
+
+    struct Change {
+        RLMObservationInfo *info;
+        __unsafe_unretained NSString *property;
+        NSMutableIndexSet *indexes;
+    };
+    std::vector<Change> _changes;
+    std::vector<RLMObservationInfo *> _invalidated;
+
+    template<typename CascadeNotification>
+    void cascadeNotification(CascadeNotification const&);
+};
 
 std::vector<realm::BindingContext::ObserverState> RLMGetObservedRows(RLMSchemaInfo const& schema);
 void RLMWillChange(std::vector<realm::BindingContext::ObserverState> const& observed, std::vector<void *> const& invalidated);

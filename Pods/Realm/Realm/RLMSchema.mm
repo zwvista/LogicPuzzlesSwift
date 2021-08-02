@@ -27,14 +27,13 @@
 #import "RLMSwiftSupport.h"
 #import "RLMUtil.hpp"
 
-#import "object_schema.hpp"
-#import "object_store.hpp"
-#import "schema.hpp"
-
 #import <realm/group.hpp>
+#import <realm/object-store/object_schema.hpp>
+#import <realm/object-store/object_store.hpp>
+#import <realm/object-store/schema.hpp>
 
+#import <mutex>
 #import <objc/runtime.h>
-#include <mutex>
 
 using namespace realm;
 
@@ -84,7 +83,7 @@ static RLMObjectSchema *RLMRegisterClass(Class cls) {
     RLMObjectSchema *schema = [RLMObjectSchema schemaForObjectClass:cls];
     s_sharedSchemaState = prevState;
 
-    // set unmanaged class on shared shema for unmanaged object creation
+    // set unmanaged class on shared schema for unmanaged object creation
     schema.unmanagedClass = RLMUnmanagedAccessorClassForObjectClass(schema.objectClass, schema);
 
     // override sharedSchema class methods for performance
@@ -221,6 +220,11 @@ static void RLMRegisterClassLocalNames(Class *classes, NSUInteger count) {
         // We create instances of Swift objects during schema init, and they
         // obviously need to not also try to initialize the schema
         if (s_sharedSchemaState == SharedSchemaState::Initializing) {
+            return nil;
+        }
+        // Don't register the base classes in the schema even if someone calls
+        // sharedSchema on them directly
+        if (cls == [RLMObjectBase class] || class_getSuperclass(cls) == [RLMObjectBase class]) {
             return nil;
         }
 

@@ -6,6 +6,8 @@
 //  Copyright (c) 2016 Lucas Farah. All rights reserved.
 //
 
+import Foundation
+
 #if os(iOS) || os(tvOS)
 
 extension NSAttributedString {

@@ -34,6 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 // writable redeclaration
 @property (nonatomic, readwrite, copy) NSArray<RLMProperty *> *properties;
 @property (nonatomic, readwrite, assign) bool isSwiftClass;
+@property (nonatomic, readwrite, assign) BOOL isEmbedded;
 
 // class used for this object schema
 @property (nonatomic, readwrite, assign) Class objectClass;
@@ -43,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readwrite, nullable) RLMProperty *primaryKeyProperty;
 
 @property (nonatomic, copy) NSArray<RLMProperty *> *computedProperties;
-@property (nonatomic, readonly) NSArray<RLMProperty *> *swiftGenericProperties;
+@property (nonatomic, readonly, nullable) NSArray<RLMProperty *> *swiftGenericProperties;
 
 // returns a cached or new schema for a given object class
 + (instancetype)schemaForObjectClass:(Class)objectClass;

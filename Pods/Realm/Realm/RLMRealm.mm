@@ -20,6 +20,7 @@
 
 #import "RLMAnalytics.hpp"
 #import "RLMArray_Private.hpp"
+#import "RLMDictionary_Private.hpp"
 #import "RLMMigration_Private.h"
 #import "RLMObject_Private.h"
 #import "RLMObject_Private.hpp"
@@ -33,28 +34,28 @@
 #import "RLMRealmConfiguration_Private.hpp"
 #import "RLMRealmUtil.hpp"
 #import "RLMSchema_Private.hpp"
+#import "RLMSet_Private.hpp"
 #import "RLMThreadSafeReference_Private.hpp"
 #import "RLMUpdateChecker.hpp"
 #import "RLMUtil.hpp"
 
-#include "impl/realm_coordinator.hpp"
-#include "object_store.hpp"
-#include "schema.hpp"
-#include "shared_realm.hpp"
-#include "thread_safe_reference.hpp"
-#include "util/scheduler.hpp"
-
-#include <realm/disable_sync_to_disk.hpp>
-#include <realm/util/scope_exit.hpp>
-#include <realm/version.hpp>
+#import <realm/disable_sync_to_disk.hpp>
+#import <realm/object-store/impl/realm_coordinator.hpp>
+#import <realm/object-store/object_store.hpp>
+#import <realm/object-store/schema.hpp>
+#import <realm/object-store/shared_realm.hpp>
+#import <realm/object-store/thread_safe_reference.hpp>
+#import <realm/object-store/util/scheduler.hpp>
+#import <realm/util/scope_exit.hpp>
+#import <realm/version.hpp>
 
 #if REALM_ENABLE_SYNC
-#import "RLMSyncManager_Private.h"
+#import "RLMSyncManager_Private.hpp"
 #import "RLMSyncSession_Private.hpp"
 #import "RLMSyncUtil_Private.hpp"
 
-#import "sync/async_open_task.hpp"
-#import "sync/sync_session.hpp"
+#import <realm/object-store/sync/async_open_task.hpp>
+#import <realm/object-store/sync/sync_session.hpp>
 #endif
 
 using namespace realm;
@@ -81,6 +82,13 @@ void RLMSetSkipBackupAttribute(bool value) {
 
 static void RLMAddSkipBackupAttributeToItemAtPath(std::string_view path) {
     [[NSURL fileURLWithPath:@(path.data())] setResourceValue:@YES forKey:NSURLIsExcludedFromBackupKey error:nil];
+}
+
+void RLMWaitForRealmToClose(NSString *path) {
+    NSString *lockfilePath = [path stringByAppendingString:@".lock"];
+    File lockfile(lockfilePath.UTF8String, File::mode_Update);
+    lockfile.set_fifo_path([path stringByAppendingString:@".management"].UTF8String, "lock.fifo");
+    lockfile.lock_exclusive();
 }
 
 @implementation RLMRealmNotificationToken
@@ -140,12 +148,9 @@ NSData *RLMRealmValidatedEncryptionKey(NSData *key) {
 }
 
 @implementation RLMRealm {
+    std::mutex _collectionEnumeratorMutex;
     NSHashTable<RLMFastEnumerator *> *_collectionEnumerators;
     bool _sendingNotifications;
-}
-
-+ (BOOL)isCoreDebug {
-    return realm::Version::has_feature(realm::feature_Debug);
 }
 
 + (void)initialize {
@@ -218,52 +223,10 @@ void RLMSetAsyncOpenQueue(dispatch_queue_t queue) {
     s_async_open_queue = queue;
 }
 
-// The server doesn't send us the subscriptions for permission types until the
-// first subscription is created. This is fine for synchronous opens (if we're
-// creating a new Realm we create the permission objects ourselves), but it
-// causes issues for asyncOpen because it means that when our download completes
-// we don't actually have the full Realm state yet.
-static void waitForPartialSyncSubscriptions(dispatch_queue_t queue, Realm::Config config, void (^completion)()) {
-#if REALM_ENABLE_SYNC
-    config.scheduler = realm::util::Scheduler::make_dispatch((__bridge void *)queue);
-    auto realm = Realm::get_shared_realm(std::move(config));
-    auto table = ObjectStore::table_for_object_type(realm->read_group(), "__ResultSets");
-
-    realm->begin_transaction();
-    auto row = realm::sync::create_object(static_cast<Transaction&>(realm->read_group()), *table);
-
-    // Set expires_at to time 0 so that this object will be cleaned up the first
-    // time the user creates a subscription
-    auto expires_at_col = table->get_column_key("expires_at");
-    if (!expires_at_col) {
-        expires_at_col = table->add_column(type_Timestamp, "expires_at", true);
-    }
-    row.set(expires_at_col, Timestamp(0, 0));
-    realm->commit_transaction();
-
-    struct State {
-        std::shared_ptr<Realm> realm;
-        Results results;
-        NotificationToken token;
-    };
-    auto state = std::make_shared<State>(State{realm, Results(realm, table), {}});
-    state->token = state->results.add_notification_callback([=](CollectionChangeSet const&, std::exception_ptr) {
-        if (table->size() > 1) {
-            state->token = {};
-            completion();
-        }
-    });
-#else
-    static_cast<void>(queue);
-    static_cast<void>(config);
-    static_cast<void>(completion);
-#endif
-}
-
 + (RLMAsyncOpenTask *)asyncOpenWithConfiguration:(RLMRealmConfiguration *)configuration
                                    callbackQueue:(dispatch_queue_t)callbackQueue
                                         callback:(RLMAsyncOpenRealmCallback)callback {
-    auto openCompletion = [=](ThreadSafeReference ref, std::exception_ptr err) {
+    auto openCompletion = [=](ThreadSafeReference, std::exception_ptr err) {
         @autoreleasepool {
             if (err) {
                 try {
@@ -279,32 +242,15 @@ static void waitForPartialSyncSubscriptions(dispatch_queue_t queue, Realm::Confi
                 return;
             }
 
-            auto realm = Realm::get_shared_realm(std::move(ref));
-            auto complete = [=] {
-                dispatch_async(callbackQueue, [=]() mutable {
-                    @autoreleasepool {
-                        NSError *error;
-                        RLMRealm *localRealm = [RLMRealm realmWithConfiguration:configuration
-                                                                          queue:callbackQueue
-                                                                          error:&error];
-                        realm.reset();
-                        callback(localRealm, error);
-                    }
-                });
-            };
-
-            bool needsSubscriptions = realm->is_partial() && ObjectStore::table_for_object_type(realm->read_group(), "__ResultSets")->size() == 0;
-            if (needsSubscriptions) {
-                auto queue = dispatch_queue_create("io.realm.asyncOpenWaitForPartialSync", DISPATCH_QUEUE_SERIAL);
-                dispatch_sync(queue, ^{
-                    @autoreleasepool {
-                        waitForPartialSyncSubscriptions(queue, realm->config(), complete);
-                    }
-                });
-            }
-            else {
-                complete();
-            }
+            dispatch_async(callbackQueue, ^{
+                @autoreleasepool {
+                    NSError *error;
+                    RLMRealm *localRealm = [RLMRealm realmWithConfiguration:configuration
+                                                                      queue:callbackQueue
+                                                                      error:&error];
+                    callback(localRealm, error);
+                }
+            });
         }
     };
 
@@ -814,6 +760,9 @@ REALM_NOINLINE static void translateSharedGroupOpenException(NSError **error) {
 }
 
 - (BOOL)refresh {
+    if (_realm->config().immutable()) {
+        @throw RLMException(@"Read-only Realms do not change and cannot be refreshed.");
+    }
     try {
         return _realm->refresh();
     }
@@ -870,11 +819,28 @@ REALM_NOINLINE static void translateSharedGroupOpenException(NSError **error) {
         [idObjects deleteObjectsFromRealm];
         return;
     }
+
     if (auto array = RLMDynamicCast<RLMArray>(objects)) {
         if (array.type != RLMPropertyTypeObject) {
             @throw RLMException(@"Cannot delete objects from RLMArray<%@>: only RLMObjects can be deleted.",
                                 RLMTypeToString(array.type));
         }
+    }
+    else if (auto set = RLMDynamicCast<RLMSet>(objects)) {
+        if (set.type != RLMPropertyTypeObject) {
+            @throw RLMException(@"Cannot delete objects from RLMSet<%@>: only RLMObjects can be deleted.",
+                                RLMTypeToString(set.type));
+        }
+    }
+    else if (auto dictionary = RLMDynamicCast<RLMDictionary>(objects)) {
+        if (dictionary.type != RLMPropertyTypeObject) {
+            @throw RLMException(@"Cannot delete objects from RLMDictionary of type %@: only RLMObjects can be deleted.",
+                                RLMTypeToString(dictionary.type));
+        }
+        for (RLMObject *obj in dictionary.allValues) {
+            RLMDeleteObjectFromRealm(obj, self);
+        }
+        return;
     }
     for (RLMObject *obj in objects) {
         if (![obj isKindOfClass:RLMObjectBase.class]) {
@@ -1018,6 +984,11 @@ REALM_NOINLINE static void translateSharedGroupOpenException(NSError **error) {
     return self.isFrozen ? self : RLMGetFrozenRealmForSourceRealm(self);
 }
 
+- (RLMRealm *)thaw {
+    [self verifyThread];
+    return self.isFrozen ? [RLMRealm realmWithConfiguration:self.configuration error:nil] : self;
+}
+
 - (RLMRealm *)frozenCopy {
     try {
         RLMRealm *realm = [[RLMRealm alloc] initPrivate];
@@ -1034,53 +1005,8 @@ REALM_NOINLINE static void translateSharedGroupOpenException(NSError **error) {
     }
 }
 
-#if REALM_ENABLE_SYNC
-using Privilege = realm::ComputedPrivileges;
-static bool hasPrivilege(realm::ComputedPrivileges actual, realm::ComputedPrivileges expected) {
-    return (static_cast<int>(actual) & static_cast<int>(expected)) == static_cast<int>(expected);
-}
-
-- (RLMRealmPrivileges)privilegesForRealm {
-    auto p = _realm->get_privileges();
-    return {
-        .read = hasPrivilege(p, Privilege::Read),
-        .update = hasPrivilege(p, Privilege::Update),
-        .setPermissions = hasPrivilege(p, Privilege::SetPermissions),
-        .modifySchema = hasPrivilege(p, Privilege::ModifySchema),
-    };
-}
-
-- (RLMObjectPrivileges)privilegesForObject:(RLMObject *)object {
-    RLMVerifyAttached(object);
-    auto p = _realm->get_privileges(object->_row);
-    return {
-        .read = hasPrivilege(p, Privilege::Read),
-        .update = hasPrivilege(p, Privilege::Update),
-        .del = hasPrivilege(p, Privilege::Delete),
-        .setPermissions = hasPrivilege(p, Privilege::Delete),
-    };
-}
-
-- (RLMClassPrivileges)privilegesForClass:(Class)cls {
-    if (![cls respondsToSelector:@selector(_realmObjectName)]) {
-        @throw RLMException(@"Cannot get privileges for non-RLMObject class %@", cls);
-    }
-    return [self privilegesForClassNamed:[cls _realmObjectName] ?: [cls className]];
-}
-
-- (RLMClassPrivileges)privilegesForClassNamed:(NSString *)className {
-    auto p = _realm->get_privileges(className.UTF8String);
-    return {
-        .read = hasPrivilege(p, Privilege::Read),
-        .update = hasPrivilege(p, Privilege::Update),
-        .setPermissions = hasPrivilege(p, Privilege::SetPermissions),
-        .subscribe = hasPrivilege(p, Privilege::Query),
-        .create = hasPrivilege(p, Privilege::Create),
-    };
-}
-#endif
-
 - (void)registerEnumerator:(RLMFastEnumerator *)enumerator {
+    std::lock_guard lock(_collectionEnumeratorMutex);
     if (!_collectionEnumerators) {
         _collectionEnumerators = [NSHashTable hashTableWithOptions:NSPointerFunctionsWeakMemory];
     }
@@ -1088,10 +1014,12 @@ static bool hasPrivilege(realm::ComputedPrivileges actual, realm::ComputedPrivil
 }
 
 - (void)unregisterEnumerator:(RLMFastEnumerator *)enumerator {
+    std::lock_guard lock(_collectionEnumeratorMutex);
     [_collectionEnumerators removeObject:enumerator];
 }
 
 - (void)detachAllEnumerators {
+    std::lock_guard lock(_collectionEnumeratorMutex);
     for (RLMFastEnumerator *enumerator in _collectionEnumerators) {
         [enumerator detach];
     }

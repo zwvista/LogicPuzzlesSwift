@@ -30,10 +30,10 @@ NS_ASSUME_NONNULL_BEGIN
 
  When declaring an `RLMArray` property, the type must be marked as conforming to a
  protocol by the same name as the objects it should contain (see the
- `RLM_ARRAY_TYPE` macro). In addition, the property can be declared using Objective-C
+ `RLM_COLLECTION_TYPE` macro). In addition, the property can be declared using Objective-C
  generics for better compile-time type safety.
 
-     RLM_ARRAY_TYPE(ObjectType)
+     RLM_COLLECTION_TYPE(ObjectType)
      ...
      @property RLMArray<ObjectType *><ObjectType> *arrayOfObjectTypes;
 
@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
  object. Instead, you can call the mutation methods on the `RLMArray` directly.
  */
 
-@interface RLMArray<RLMObjectType> : NSObject<RLMCollection, NSFastEnumeration>
+@interface RLMArray<RLMObjectType> : NSObject<RLMCollection>
 
 #pragma mark - Properties
 
@@ -110,6 +110,16 @@ NS_ASSUME_NONNULL_BEGIN
  @return An object of the type contained in the array.
  */
 - (RLMObjectType)objectAtIndex:(NSUInteger)index;
+
+/**
+ Returns an array containing the objects in the array at the indexes specified by a given index set.
+ `nil` will be returned if the index set contains an index out of the arrays bounds.
+
+ @param indexes The indexes in the array to retrieve objects from.
+
+ @return The objects at the specified indexes.
+ */
+- (nullable NSArray<RLMObjectType> *)objectsAtIndexes:(NSIndexSet *)indexes;
 
 /**
  Returns the first object in the array.
@@ -491,6 +501,14 @@ __attribute__((warn_unused_result));
           for more information.
  */
 - (instancetype)freeze;
+
+/**
+ Returns a live version of this frozen collection.
+
+ This method resolves a reference to a live copy of the same frozen collection.
+ If called on a live collection, will return itself.
+*/
+- (instancetype)thaw;
 
 #pragma mark - Unavailable Methods
 

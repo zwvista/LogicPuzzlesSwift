@@ -28,7 +28,7 @@ extension Dictionary {
 
     /// EZSE: Intersection of self and the input dictionaries.
     /// Two dictionaries are considered equal if they contain the same [key: value] copules.
-    public func intersection<K: Equatable, V: Equatable>(_ dictionaries: [K: V]...) -> [K: V] {
+    public func intersection<K, V: Equatable>(_ dictionaries: [K: V]...) -> [K: V] {
         //  Casts self from [Key: Value] to [K: V]
         let filtered = mapFilter { (item, value) -> (K, V)? in
             if let item = item as? K, let value = value as? V {
@@ -103,17 +103,17 @@ extension Dictionary {
         return mapped
     }
 
-//    /// EZSE: Constructs a dictionary containing every [key: value] pair from self
-//    /// for which testFunction evaluates to true.
-//    public func filter(_ test: (Key, Value) -> Bool) -> Dictionary {
-//        var result = Dictionary()
-//        for (key, value) in self {
-//            if test(key, value) {
-//                result[key] = value
-//            }
-//        }
-//        return result
-//    }
+    /// EZSE: Constructs a dictionary containing every [key: value] pair from self
+    /// for which testFunction evaluates to true.
+    public func filter(_ test: (Key, Value) -> Bool) -> Dictionary {
+        var result = Dictionary()
+        for (key, value) in self {
+            if test(key, value) {
+                result[key] = value
+            }
+        }
+        return result
+    }
 
     /// EZSE: Checks if test evaluates true for all the elements in self.
     public func testAll(_ test: (Key, Value) -> (Bool)) -> Bool {
@@ -177,6 +177,6 @@ public func & <K, V: Equatable> (first: [K: V], second: [K: V]) -> [K: V] {
 }
 
 /// EZSE: Union operator
-public func | <K: Hashable, V> (first: [K: V], second: [K: V]) -> [K: V] {
+public func | <K, V> (first: [K: V], second: [K: V]) -> [K: V] {
     return first.union(second)
 }

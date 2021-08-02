@@ -141,7 +141,7 @@ public struct ez {
 
         #if os(iOS)
 
-        if screenOrientation.isPortrait {
+        if screenOrientation == .portrait || screenOrientation == .portraitUpsideDown {
             return UIScreen.main.bounds.size.width
         } else {
             return UIScreen.main.bounds.size.height
@@ -159,7 +159,7 @@ public struct ez {
 
         #if os(iOS)
 
-        if screenOrientation.isPortrait {
+        if screenOrientation == .portrait || screenOrientation == .portraitUpsideDown {
             return UIScreen.main.bounds.size.height
         } else {
             return UIScreen.main.bounds.size.width
@@ -183,7 +183,7 @@ public struct ez {
 
     /// EZSE: Return screen's height without StatusBar
     public static var screenHeightWithoutStatusBar: CGFloat {
-        if screenOrientation.isPortrait {
+        if screenOrientation == .portrait || screenOrientation == .portraitUpsideDown {
             return UIScreen.main.bounds.size.height - screenStatusBarHeight
         } else {
             return UIScreen.main.bounds.size.width - screenStatusBarHeight

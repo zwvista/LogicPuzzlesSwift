@@ -37,6 +37,8 @@ extension Int32: MinMaxType {}
 extension Int64: MinMaxType {}
 extension Date: MinMaxType {}
 extension NSDate: MinMaxType {}
+extension Decimal128: MinMaxType {}
+extension AnyRealmValue: MinMaxType {}
 
 // MARK: AddableType
 
@@ -57,6 +59,8 @@ extension Int8: AddableType {}
 extension Int16: AddableType {}
 extension Int32: AddableType {}
 extension Int64: AddableType {}
+extension Decimal128: AddableType {}
+extension AnyRealmValue: AddableType {}
 
 /**
  `Results` is an auto-updating container type in Realm returned from object queries.
@@ -78,7 +82,7 @@ extension Int64: AddableType {}
 
  Results instances cannot be directly instantiated.
  */
-public struct Results<Element: RealmCollectionValue>: Equatable {
+@frozen public struct Results<Element: RealmCollectionValue>: Equatable {
 
     internal let rlmResults: RLMResults<AnyObject>
 
@@ -150,6 +154,20 @@ public struct Results<Element: RealmCollectionValue>: Equatable {
 
     /// Returns the last object in the results, or `nil` if the results are empty.
     public var last: Element? { return rlmResults.lastObject().map(dynamicBridgeCast) }
+
+    /**
+     Returns an array containing the objects in the results at the indexes specified by a given index set.
+
+     - warning Throws if an index supplied in the IndexSet is out of bounds.
+
+     - parameter indexes: The indexes in the results to select objects from.
+     */
+    public func objects(at indexes: IndexSet) -> [Element] {
+        guard let r = rlmResults.objects(at: indexes) else {
+            throwRealmException("Indexes for Results are out of bounds")
+        }
+        return r.map(dynamicBridgeCast)
+    }
 
     // MARK: KVC
 
@@ -359,6 +377,10 @@ public struct Results<Element: RealmCollectionValue>: Equatable {
     public func freeze() -> Results {
         return Results(rlmResults.freeze())
     }
+
+    public func thaw() -> Results? {
+        return Results(rlmResults.thaw())
+    }
 }
 
 extension Results: RealmCollection {
@@ -367,13 +389,6 @@ extension Results: RealmCollection {
     /// Returns a `RLMIterator` that yields successive elements in the results.
     public func makeIterator() -> RLMIterator<Element> {
         return RLMIterator(collection: rlmResults)
-    }
-
-    /// :nodoc:
-    // swiftlint:disable:next identifier_name
-    public func _asNSFastEnumerator() -> Any {
-        return rlmResults
-
     }
 
     // MARK: Collection Support
@@ -419,5 +434,19 @@ extension Results: Encodable where Element: Encodable {
         for value in self {
             try container.encode(value)
         }
+    }
+}
+
+// MARK: KeyPath Distinct
+
+extension Results where Element: ObjectBase {
+    /**
+     Returns a `Results` containing distinct objects based on the specified key paths
+
+     - parameter keyPaths: The key paths used produce distinct results
+     */
+    public func distinct<S: Sequence>(by keyPaths: S) -> Results<Element>
+        where S.Iterator.Element == PartialKeyPath<Element> {
+            return Results<Element>(rlmResults.distinctResults(usingKeyPaths: keyPaths.map(_name(for:))))
     }
 }

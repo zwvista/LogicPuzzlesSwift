@@ -33,7 +33,7 @@ import Realm
  `LinkingObjects` can only be used as a property on `Object` models. Properties of this type must be declared as `let`
  and cannot be `dynamic`.
  */
-public struct LinkingObjects<Element: Object> {
+@frozen public struct LinkingObjects<Element: ObjectBase> where Element: RealmCollectionValue {
     /// The type of the objects represented by the linking objects.
     public typealias ElementType = Element
 
@@ -84,7 +84,7 @@ public struct LinkingObjects<Element: Object> {
      - parameter object: The object whose index is being queried.
      */
     public func index(of object: Element) -> Int? {
-        return notFoundToNil(index: rlmResults.index(of: object.unsafeCastToRLMObject()))
+        return notFoundToNil(index: rlmResults.index(of: object))
     }
 
     /**
@@ -104,6 +104,9 @@ public struct LinkingObjects<Element: Object> {
      - parameter index: The index.
      */
     public subscript(index: Int) -> Element {
+        if let lastAccessedNames = lastAccessedNames {
+            return Element._rlmKeyPathRecorder(with: lastAccessedNames)
+        }
         throwForNegativeIndex(index)
         return unsafeBitCast(rlmResults[UInt(index)], to: Element.self)
     }
@@ -113,6 +116,20 @@ public struct LinkingObjects<Element: Object> {
 
     /// Returns the last object in the linking objects, or `nil` if the linking objects are empty.
     public var last: Element? { return unsafeBitCast(rlmResults.lastObject(), to: Optional<Element>.self) }
+
+    /**
+     Returns an array containing the objects in the linking objects at the indexes specified by a given index set.
+
+     - warning Throws if an index supplied in the IndexSet is out of bounds.
+
+     - parameter indexes: The indexes in the linking objects to select objects from.
+     */
+    public func objects(at indexes: IndexSet) -> [Element] {
+        guard let r = rlmResults.objects(at: indexes) else {
+            throwRealmException("Indexes for Linking Objects are out of bounds.")
+        }
+        return r.map(dynamicBridgeCast)
+    }
 
     // MARK: KVC
 
@@ -328,9 +345,19 @@ public struct LinkingObjects<Element: Object> {
         return LinkingObjects(propertyName: propertyName, handle: handle?.freeze())
     }
 
+    /**
+     Returns a live version of this frozen collection.
+
+     This method resolves a reference to a live copy of the same frozen collection.
+     If called on a live collection, will return itself.
+    */
+    public func thaw() -> LinkingObjects<Element>? {
+        return LinkingObjects(propertyName: propertyName, handle: handle?.thaw())
+    }
+
     // MARK: Implementation
 
-    private init(propertyName: String, handle: RLMLinkingObjectsHandle?) {
+    internal init(propertyName: String, handle: RLMLinkingObjectsHandle?) {
         self.propertyName = propertyName
         self.handle = handle
     }
@@ -345,6 +372,7 @@ public struct LinkingObjects<Element: Object> {
 
     internal var propertyName: String
     internal var handle: RLMLinkingObjectsHandle?
+    internal var lastAccessedNames: NSMutableArray?
 }
 
 extension LinkingObjects: RealmCollection {
@@ -353,12 +381,6 @@ extension LinkingObjects: RealmCollection {
     /// Returns an iterator that yields successive elements in the linking objects.
     public func makeIterator() -> RLMIterator<Element> {
         return RLMIterator(collection: rlmResults)
-    }
-
-    /// :nodoc:
-    // swiftlint:disable:next identifier_name
-    public func _asNSFastEnumerator() -> Any {
-        return rlmResults
     }
 
     // MARK: Collection Support
@@ -399,5 +421,16 @@ extension LinkingObjects: AssistedObjectiveCBridgeable {
 
     internal var bridged: (objectiveCValue: Any, metadata: Any?) {
         return (objectiveCValue: handle!.results, metadata: nil)
+    }
+}
+
+// MARK: Key Path Strings
+
+extension LinkingObjects: PropertyNameConvertible {
+    var propertyInformation: (key: String, isLegacy: Bool)? {
+        guard let handle = handle else {
+            return nil
+        }
+        return (key: handle._propertyKey, isLegacy: handle._isLegacyProperty)
     }
 }
