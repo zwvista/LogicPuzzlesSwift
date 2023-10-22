@@ -38,28 +38,11 @@ class ListNotifier;
 namespace object_store {
 class Collection {
 public:
-    Collection() noexcept;
+    Collection(PropertyType type) noexcept;
     Collection(const Object& parent_obj, const Property* prop);
     Collection(std::shared_ptr<Realm> r, const Obj& parent_obj, ColKey col);
     Collection(std::shared_ptr<Realm> r, const CollectionBase& coll);
     Collection(std::shared_ptr<Realm> r, CollectionBasePtr coll);
-
-    // The Collection object has been invalidated (due to the Realm being invalidated,
-    // or the containing object being deleted)
-    // All non-noexcept functions can throw this
-    struct InvalidatedException : public std::logic_error {
-        InvalidatedException()
-            : std::logic_error("Access to invalidated List object")
-        {
-        }
-    };
-
-    // The input index parameter was out of bounds
-    struct OutOfBoundsIndexException : public std::out_of_range {
-        OutOfBoundsIndexException(size_t r, size_t c);
-        size_t requested;
-        size_t valid_count;
-    };
 
     const std::shared_ptr<Realm>& get_realm() const
     {
@@ -101,6 +84,15 @@ public:
     Results sort(SortDescriptor order) const;
     Results sort(std::vector<std::pair<std::string, bool>> const& keypaths) const;
 
+    // Get the min/max/average/sum of the given column
+    // All but sum() returns none when collection is empty, and sum() returns 0
+    // Throws UnsupportedColumnTypeException for sum/average on timestamp or non-numeric column
+    // Throws OutOfBoundsIndexException for an out-of-bounds column
+    util::Optional<Mixed> max(ColKey column = {}) const;
+    util::Optional<Mixed> min(ColKey column = {}) const;
+    util::Optional<Mixed> average(ColKey column = {}) const;
+    Mixed sum(ColKey column = {}) const;
+
     /**
      * Adds a `CollectionChangeCallback` to this `Collection`. The `CollectionChangeCallback` is exectuted when
      * insertions, modifications or deletions happen on this `Collection`.
@@ -113,15 +105,7 @@ public:
      * @return A `NotificationToken` that is used to identify this callback.
      */
     NotificationToken add_notification_callback(CollectionChangeCallback callback,
-                                                KeyPathArray key_path_array = {}) &;
-
-    // The object being added to the collection is already a managed embedded object
-    struct InvalidEmbeddedOperationException : public std::logic_error {
-        InvalidEmbeddedOperationException()
-            : std::logic_error("Cannot add an existing managed embedded object to a List.")
-        {
-        }
-    };
+                                                std::optional<KeyPathArray> key_path_array = std::nullopt) &;
 
     const CollectionBase& get_impl() const
     {
@@ -141,20 +125,27 @@ protected:
     Collection(Collection&&);
     Collection& operator=(Collection&&);
 
-    void verify_valid_row(size_t row_ndx, bool insertion = false) const;
     void validate(const Obj&) const;
 
     template <typename T, typename Context>
     void validate_embedded(Context& ctx, T&& value, CreatePolicy policy) const;
 
     size_t hash() const noexcept;
+
+    void record_audit_read(const Obj& obj) const;
+    void record_audit_read(const Mixed& obj) const;
+
+private:
+    Collection(std::shared_ptr<Realm>&& r, CollectionBasePtr&& coll, PropertyType type);
+
+    virtual const char* type_name() const noexcept = 0;
 };
 
 template <typename T, typename Context>
 void Collection::validate_embedded(Context& ctx, T&& value, CreatePolicy policy) const
 {
     if (!policy.copy && ctx.template unbox<Obj>(value, CreatePolicy::Skip).is_valid())
-        throw InvalidEmbeddedOperationException();
+        throw IllegalOperation(util::format("Cannot add an existing managed embedded object to a %1.", type_name()));
 }
 
 } // namespace object_store

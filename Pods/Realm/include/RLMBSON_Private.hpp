@@ -16,17 +16,17 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#import "RLMBSON.h"
+#import <Realm/RLMBSON.h>
 #import <realm/util/optional.hpp>
 
-namespace realm {
-namespace bson {
+namespace realm::bson {
 class Bson;
 template <typename> class IndexedMap;
 using BsonDocument = IndexedMap<Bson>;
 }
-}
 
 realm::bson::Bson RLMConvertRLMBSONToBson(id<RLMBSON> b);
+realm::bson::BsonDocument RLMConvertRLMBSONArrayToBsonDocument(NSArray<id<RLMBSON>> *array);
 id<RLMBSON> RLMConvertBsonToRLMBSON(const realm::bson::Bson& b);
-id<RLMBSON> RLMConvertBsonDocumentToRLMBSON(realm::util::Optional<realm::bson::BsonDocument> b);
+id<RLMBSON> RLMConvertBsonDocumentToRLMBSON(std::optional<realm::bson::BsonDocument> b);
+NSArray<id<RLMBSON>> *RLMConvertBsonDocumentToRLMBSONArray(std::optional<realm::bson::BsonDocument> b);

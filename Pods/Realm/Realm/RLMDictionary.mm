@@ -25,15 +25,6 @@
 #import "RLMThreadSafeReference_Private.hpp"
 #import "RLMUtil.hpp"
 
-// See -countByEnumeratingWithState:objects:count
-@interface RLMDictionaryHolder : NSObject {
-@public
-    std::unique_ptr<id[]> items;
-}
-@end
-@implementation RLMDictionaryHolder
-@end
-
 @interface RLMDictionary () <RLMThreadConfined_Private>
 @end
 
@@ -64,6 +55,7 @@
 
 - (instancetype)initWithObjectType:(RLMPropertyType)type optional:(BOOL)optional keyType:(RLMPropertyType)keyType {
     REALM_ASSERT(RLMValidateKeyType(keyType));
+    REALM_ASSERT(type != RLMPropertyTypeObject);
     self = [super init];
     if (self) {
         _type = type;
@@ -149,6 +141,32 @@ static void changeDictionary(__unsafe_unretained RLMDictionary *const dictionary
         f();
     }
 }
+
+// The compiler complains about the method's argument type not matching due to
+// it not having the generic type attached, but it doesn't seem to be possible
+// to actually include the generic type
+// http://www.openradar.me/radar?id=6135653276319744
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wmismatched-parameter-types"
+- (RLMNotificationToken *)addNotificationBlock:(void (^)(RLMDictionary *, RLMDictionaryChange *, NSError *))block {
+    return RLMAddNotificationBlock(self, block, nil, nil);
+}
+- (RLMNotificationToken *)addNotificationBlock:(void (^)(RLMDictionary *, RLMDictionaryChange *, NSError *))block
+                                         queue:(dispatch_queue_t)queue {
+    return RLMAddNotificationBlock(self, block, nil, queue);
+}
+
+- (RLMNotificationToken *)addNotificationBlock:(void (^)(RLMDictionary *, RLMDictionaryChange *, NSError *))block
+                                      keyPaths:(nullable NSArray<NSString *> *)keyPaths
+                                         queue:(dispatch_queue_t)queue {
+    return RLMAddNotificationBlock(self, block, keyPaths, queue);
+}
+
+- (RLMNotificationToken *)addNotificationBlock:(void (^)(RLMDictionary *, RLMDictionaryChange *, NSError *))block
+                                      keyPaths:(nullable NSArray<NSString *> *)keyPaths {
+    return RLMAddNotificationBlock(self, block, keyPaths, nil);
+}
+#pragma clang diagnostic pop
 
 #pragma mark - Unmanaged RLMDictionary implementation
 
@@ -287,28 +305,7 @@ static void changeDictionary(__unsafe_unretained RLMDictionary *const dictionary
 - (NSUInteger)countByEnumeratingWithState:(nonnull NSFastEnumerationState *)state
                                   objects:(__unsafe_unretained id  _Nullable * _Nonnull)buffer
                                     count:(NSUInteger)len {
-    if (state->state != 0) {
-        return 0;
-    }
-
-    // We need to enumerate a copy of the backing dictionary so that it doesn't
-    // reflect changes made during enumeration. This copy has to be autoreleased
-    // (since there's nowhere for us to store a strong reference).
-    __autoreleasing RLMDictionaryHolder *copy = [[RLMDictionaryHolder alloc] init];
-    copy->items = std::make_unique<id[]>(_backingCollection.allKeys.count);
-
-    NSUInteger i = 0;
-    for (id key in _backingCollection.allKeys) {
-        copy->items[i++] = key;
-    }
-
-    state->itemsPtr = (__unsafe_unretained id *)(void *)copy->items.get();
-    // needs to point to something valid, but the whole point of this is so
-    // that it can't be changed
-    state->mutationsPtr = state->extra;
-    state->state = i;
-
-    return i;
+    return RLMUnmanagedFastEnumerate(_backingCollection.allKeys, state);
 }
 
 #pragma mark - Aggregate operations
@@ -452,20 +449,6 @@ static void changeDictionary(__unsafe_unretained RLMDictionary *const dictionary
     @throw RLMException(@"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
 }
 
-// The compiler complains about the method's argument type not matching due to
-// it not having the generic type attached, but it doesn't seem to be possible
-// to actually include the generic type
-// http://www.openradar.me/radar?id=6135653276319744
-#pragma clang diagnostic ignored "-Wmismatched-parameter-types"
-- (nonnull RLMNotificationToken *)addNotificationBlock:(nonnull void (^)(RLMDictionary *, RLMCollectionChange *, NSError *))block {
-    @throw RLMException(@"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
-}
-
-- (RLMNotificationToken *)addNotificationBlock:(void (^)(RLMDictionary *, RLMCollectionChange *, NSError *))block
-                                         queue:(nullable dispatch_queue_t)queue {
-    @throw RLMException(@"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
-}
-
 - (instancetype)freeze {
     @throw RLMException(@"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
 }
@@ -479,6 +462,21 @@ static void changeDictionary(__unsafe_unretained RLMDictionary *const dictionary
 }
 
 - (id)objectAtIndex:(NSUInteger)index {
+    @throw RLMException(@"This method is not available on RLMDictionary.");
+}
+
+- (nullable NSArray *)objectsAtIndexes:(nonnull NSIndexSet *)indexes {
+    @throw RLMException(@"This method is not available on RLMDictionary.");
+}
+
+- (RLMSectionedResults *)sectionedResultsSortedUsingKeyPath:(NSString *)keyPath
+                                                  ascending:(BOOL)ascending
+                                                   keyBlock:(RLMSectionedResultsKeyBlock)keyBlock {
+    @throw RLMException(@"This method is not available on RLMDictionary.");
+}
+
+- (RLMSectionedResults *)sectionedResultsUsingSortDescriptors:(NSArray<RLMSortDescriptor *> *)sortDescriptors
+                                                     keyBlock:(RLMSectionedResultsKeyBlock)keyBlock {
     @throw RLMException(@"This method is not available on RLMDictionary.");
 }
 

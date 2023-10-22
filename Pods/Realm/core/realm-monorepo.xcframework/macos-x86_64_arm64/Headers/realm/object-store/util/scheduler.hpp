@@ -20,10 +20,12 @@
 #define REALM_OS_UTIL_SCHEDULER
 
 #include <realm/util/features.h>
+#include <realm/util/functional.hpp>
 #include <realm/version_id.hpp>
 
-#include <functional>
 #include <memory>
+#include <mutex>
+#include <vector>
 
 #if REALM_PLATFORM_APPLE
 #include <CoreFoundation/CoreFoundation.h>
@@ -42,8 +44,7 @@
 #define REALM_USE_ALOOPER 1
 #endif
 
-namespace realm {
-namespace util {
+namespace realm::util {
 
 // A Scheduler combines two related concepts related to our implementation of
 // thread confinement: checking if we are currently on the correct thread, and
@@ -52,10 +53,11 @@ class Scheduler {
 public:
     virtual ~Scheduler();
 
-    // Trigger a call to the registered notify callback on the scheduler's event loop.
+    // Invoke the given function on the scheduler's thread.
     //
     // This function can be called from any thread.
-    virtual void notify() = 0;
+    virtual void invoke(util::UniqueFunction<void()>&&) = 0;
+
     // Check if the caller is currently running on the scheduler's thread.
     //
     // This function can be called from any thread.
@@ -66,20 +68,13 @@ public:
     // caching may occur.
     virtual bool is_same_as(const Scheduler* other) const noexcept = 0;
 
-    // Check if this scehduler actually can support notify(). Notify may be
+    // Check if this scehduler actually can support invoke(). Invoking may be
     // either not implemented, not applicable to a scheduler type, or simply not
     // be possible currently (e.g. if the associated event loop is not actually
     // running).
     //
     // This function is not thread-safe.
-    virtual bool can_deliver_notifications() const noexcept = 0;
-    // Set the callback function which will be called by notify().
-    //
-    // This function is not thread-safe.
-    virtual void set_notify_callback(std::function<void()>) = 0;
-
-    [[deprecated("Use Scheduler::make_frozen() instead")]] static std::shared_ptr<Scheduler>
-    get_frozen(VersionID version);
+    virtual bool can_invoke() const noexcept = 0;
 
     /// Create a new instance of the scheduler type returned by the default
     /// scheduler factory. By default, the factory function is
@@ -108,6 +103,11 @@ public:
     /// notifications and does not perform any thread checking.
     static std::shared_ptr<Scheduler> make_frozen(VersionID version);
 
+    /// Create a dummy scheduler which does not support any scheduler
+    /// functionality. This should be used only for Realms opened internally
+    /// and not exposed in SDKs.
+    static std::shared_ptr<Scheduler> make_dummy();
+
 #if REALM_PLATFORM_APPLE
     /// Create a scheduler which is bound to the given run loop. Pass NULL to
     /// get a scheduler for the current thread's run loop.
@@ -126,11 +126,22 @@ public:
 
     /// Register a factory function which can produce custom schedulers when
     /// `Scheduler::make_default()` is called.
-    static void set_default_factory(std::function<std::shared_ptr<Scheduler>()>);
+    static void set_default_factory(util::UniqueFunction<std::shared_ptr<Scheduler>()>);
+};
+
+// A thread-safe queue of functions to invoke, used in the implemenation of
+// some of the schedulers
+class InvocationQueue {
+public:
+    void push(util::UniqueFunction<void()>&&);
+    void invoke_all();
+
+private:
+    std::mutex m_mutex;
+    std::vector<util::UniqueFunction<void()>> m_functions;
 };
 
 
-} // namespace util
-} // namespace realm
+} // namespace realm::util
 
 #endif // REALM_OS_UTIL_SCHEDULER

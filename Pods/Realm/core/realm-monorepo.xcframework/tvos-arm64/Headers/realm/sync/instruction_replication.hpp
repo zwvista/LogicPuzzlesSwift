@@ -21,80 +21,60 @@
 
 #include <realm/replication.hpp>
 #include <realm/sync/instructions.hpp>
-#include <realm/sync/object.hpp>
 #include <realm/sync/changeset_encoder.hpp>
 
 namespace realm {
 namespace sync {
 
 
-class SyncReplication : public TrivialReplication {
+class SyncReplication : public Replication {
 public:
-    explicit SyncReplication(const std::string& realm_path);
+    // This will be called for any instruction that mutates an object (instead of instructions that mutates
+    // schema) with the class name (without the "class_" prefix) of the object being modified. If The
+    // validator needs to reject the write, it should throw an exception.
+    using WriteValidator = void(const Table&);
+
     void set_short_circuit(bool) noexcept;
     bool is_short_circuited() const noexcept;
 
     // reset() resets the encoder, the selected tables and the cache. It is
     // called by do_initiate_transact(), but can be called at the other times
     // as well.
-    virtual void reset();
+    void reset();
 
     ChangesetEncoder& get_instruction_encoder() noexcept;
     const ChangesetEncoder& get_instruction_encoder() const noexcept;
 
-    //@{
-    /// Generate instructions for Object Store tables. These must be called
-    /// prior to calling the equivalent functions in Core's API. When creating a
-    /// class-like table, `add_class()` must be called prior to
-    /// `Group::insert_group_level_table()`. Similarly, `create_object()` or
-    /// `create_object_with_primary_key()` must be called prior to
-    /// `Table::insert_empty_row()` and/or `Table::set_int_unique()` or
-    /// `Table::set_string_unique()` or `Table::set_null_unique()`.
-    ///
-    /// If a class-like table is added, or an object-like row is inserted,
-    /// without calling these methods first, an exception will be thrown.
-    ///
-    /// A "class-like table" is defined as a table whose name begins with
-    /// "class_" (this is the convention used by Object Store). Non-class-like
-    /// tables can be created and modified using Core's API without calling
-    /// these functions, because they do not result in instructions being
-    /// emitted.
-    void prepare_erase_table(StringData table_name);
-    //@}
-
-    // TrivialReplication interface:
-    void initialize(DB&) override;
-
-    // TransactLogConvenientEncoder interface:
-    void add_class(TableKey tk, StringData table_name, bool is_embedded) override;
+    void add_class(TableKey tk, StringData table_name, Table::Type table_type = Table::Type::TopLevel) final;
     void add_class_with_primary_key(TableKey tk, StringData table_name, DataType pk_type, StringData pk_field,
-                                    bool nullable) override;
-    void create_object(const Table*, GlobalKey) override;
-    void create_object_with_primary_key(const Table*, ObjKey, Mixed) override;
-    void erase_group_level_table(TableKey table_key, size_t num_tables) override;
-    void rename_group_level_table(TableKey table_key, StringData new_name) override;
-    void insert_column(const Table*, ColKey col_key, DataType type, StringData name, Table* target_table) override;
-    void erase_column(const Table*, ColKey col_key) override;
-    void rename_column(const Table*, ColKey col_key, StringData name) override;
+                                    bool nullable, Table::Type table_type) final;
+    void create_object(const Table*, GlobalKey) final;
+    void create_object_with_primary_key(const Table*, ObjKey, Mixed) final;
 
-    void add_int(const Table*, ColKey col_key, ObjKey key, int_fast64_t value) override;
-    void set(const Table*, ColKey col_key, ObjKey key, Mixed value, _impl::Instruction variant) override;
+    void erase_class(TableKey table_key, size_t num_tables) final;
+    void rename_class(TableKey table_key, StringData new_name) final;
+    void insert_column(const Table*, ColKey col_key, DataType type, StringData name, Table* target_table) final;
+    void erase_column(const Table*, ColKey col_key) final;
+    void rename_column(const Table*, ColKey col_key, StringData name) final;
 
-    void list_set(const CollectionBase& list, size_t list_ndx, Mixed value) override;
-    void list_insert(const CollectionBase& list, size_t list_ndx, Mixed value) override;
-    void list_move(const CollectionBase&, size_t from_link_ndx, size_t to_link_ndx) override;
-    void list_erase(const CollectionBase&, size_t link_ndx) override;
-    void list_clear(const CollectionBase&) override;
+    void add_int(const Table*, ColKey col_key, ObjKey key, int_fast64_t value) final;
+    void set(const Table*, ColKey col_key, ObjKey key, Mixed value, _impl::Instruction variant) final;
 
-    void set_insert(const CollectionBase& list, size_t list_ndx, Mixed value) override;
-    void set_erase(const CollectionBase& list, size_t list_ndx, Mixed value) override;
-    void set_clear(const CollectionBase& list) override;
+    void list_set(const CollectionBase& list, size_t list_ndx, Mixed value) final;
+    void list_insert(const CollectionBase& list, size_t list_ndx, Mixed value, size_t prior_size) final;
+    void list_move(const CollectionBase&, size_t from_link_ndx, size_t to_link_ndx) final;
+    void list_erase(const CollectionBase&, size_t link_ndx) final;
+    void list_clear(const CollectionBase&) final;
 
-    void dictionary_insert(const CollectionBase&, size_t ndx, Mixed key, Mixed val) override;
-    void dictionary_set(const CollectionBase&, size_t ndx, Mixed key, Mixed val) override;
-    void dictionary_erase(const CollectionBase&, size_t ndx, Mixed key) override;
+    void set_insert(const CollectionBase& list, size_t list_ndx, Mixed value) final;
+    void set_erase(const CollectionBase& list, size_t list_ndx, Mixed value) final;
+    void set_clear(const CollectionBase& list) final;
 
-    void remove_object(const Table*, ObjKey) override;
+    void dictionary_insert(const CollectionBase&, size_t ndx, Mixed key, Mixed val) final;
+    void dictionary_set(const CollectionBase&, size_t ndx, Mixed key, Mixed val) final;
+    void dictionary_erase(const CollectionBase&, size_t ndx, Mixed key) final;
+
+    void remove_object(const Table*, ObjKey) final;
 
     //@{
 
@@ -105,9 +85,24 @@ public:
     /// (reactor pattern) to be explicitly notified about the implicit
     /// nullifications.
 
-    void nullify_link(const Table*, ColKey col_key, ObjKey key) override;
-    void link_list_nullify(const Lst<ObjKey>&, size_t link_ndx) override;
+    void nullify_link(const Table*, ColKey col_key, ObjKey key) final;
+    void link_list_nullify(const Lst<ObjKey>&, size_t link_ndx) final;
     //@}
+
+protected:
+    // Replication interface:
+    void do_initiate_transact(Group& group, version_type current_version, bool history_updated) override;
+
+    virtual util::UniqueFunction<WriteValidator> make_write_validator(Transaction&)
+    {
+        return {};
+    }
+
+private:
+    bool m_short_circuit = false;
+
+    ChangesetEncoder m_encoder;
+    Transaction* m_transaction;
 
     template <class T>
     void emit(T instruction);
@@ -115,20 +110,6 @@ public:
     // Returns true and populates m_last_table_name if instructions for the
     // table should be emitted.
     bool select_table(const Table&);
-
-protected:
-    // Replication interface:
-    void do_initiate_transact(Group& group, version_type current_version, bool history_updated) override;
-
-private:
-    bool m_short_circuit = false;
-
-    ChangesetEncoder m_encoder;
-    DB* m_sg = nullptr;
-    Transaction* m_transaction;
-
-    // Consistency checks:
-    std::string m_table_being_erased;
 
     REALM_NORETURN void unsupported_instruction() const; // Throws TransformError
 
@@ -160,6 +141,7 @@ private:
     InternString m_last_class_name;
     util::Optional<Instruction::PrimaryKey> m_last_primary_key;
     InternString m_last_field_name;
+    util::UniqueFunction<WriteValidator> m_write_validator;
 };
 
 inline void SyncReplication::set_short_circuit(bool b) noexcept

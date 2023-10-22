@@ -16,12 +16,12 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#import <Foundation/Foundation.h>
-
+#import <Realm/RLMConstants.h>
 #import <Realm/RLMCredentials.h>
 #import <Realm/RLMRealmConfiguration.h>
+#import <Realm/RLMSyncConfiguration.h>
 
-@class RLMUser, RLMSyncSession, RLMRealm, RLMUserIdentity, RLMAPIKeyAuth, RLMMongoClient, RLMMongoDatabase, RLMMongoCollection;
+@class RLMUser, RLMSyncSession, RLMRealm, RLMUserIdentity, RLMAPIKeyAuth, RLMMongoClient, RLMMongoDatabase, RLMMongoCollection, RLMUserProfile;
 @protocol RLMBSON;
 
 /**
@@ -30,41 +30,46 @@
 typedef NS_ENUM(NSUInteger, RLMUserState) {
     /// The user is logged out. Call `logInWithCredentials:...` with valid credentials to log the user back in.
     RLMUserStateLoggedOut,
-    /// The user is logged in, and any Realms associated with it are syncing with MongoDB Realm.
+    /// The user is logged in, and any Realms associated with it are syncing with Atlas App Services.
     RLMUserStateLoggedIn,
     /// The user has been removed, and cannot be used.
     RLMUserStateRemoved
 };
 
 /// A block type used to report an error related to a specific user.
+RLM_SWIFT_SENDABLE
 typedef void(^RLMOptionalUserBlock)(RLMUser * _Nullable, NSError * _Nullable);
 
 /// A block type used to report an error on a network request from the user.
+RLM_SWIFT_SENDABLE
 typedef void(^RLMUserOptionalErrorBlock)(NSError * _Nullable);
 
 /// A block which returns a dictionary should there be any custom data set for a user
+RLM_SWIFT_SENDABLE
 typedef void(^RLMUserCustomDataBlock)(NSDictionary * _Nullable, NSError * _Nullable);
 
 /// A block type for returning from function calls.
+RLM_SWIFT_SENDABLE
 typedef void(^RLMCallFunctionCompletionBlock)(id<RLMBSON> _Nullable, NSError * _Nullable);
 
-NS_ASSUME_NONNULL_BEGIN
+RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
 
 /**
  A `RLMUser` instance represents a single Realm App user account.
 
  A user may have one or more credentials associated with it. These credentials
  uniquely identify the user to the authentication provider, and are used to sign
- into a MongoDB Realm user account.
+ into an Atlas App Services user account.
 
  Note that user objects are only vended out via SDK APIs, and cannot be directly
  initialized. User objects can be accessed from any thread.
  */
+RLM_SWIFT_SENDABLE RLM_FINAL // internally thread-safe
 @interface RLMUser : NSObject
 
 /**
- The unique MongoDB Realm string identifying this user.
- Note this is different from an identitiy: A user may have multiple identities but has a single indentifier. See RLMUserIdentity.
+ The unique Atlas App Services string identifying this user.
+ Note this is different from an identity: A user may have multiple identities but has a single identifier. See RLMUserIdentity.
  */
 @property (nonatomic, readonly) NSString *identifier NS_SWIFT_NAME(id);
 
@@ -72,18 +77,25 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSArray<RLMUserIdentity *> *identities;
 
 /**
- The user's refresh token used to access the Realm Applcation.
+ The user's refresh token used to access App Services.
 
- This is required to make HTTP requests to the Realm App's REST API
- for functionality not exposed natively. It should be treated as sensitive data.
- */
+ By default, refresh tokens expire 60 days after they are issued.
+ You can configure this time for your App's refresh tokens to be
+ anywhere between 30 minutes and 180 days.
+
+ You can configure the refresh token expiration time for all sessions in
+ an App from the Admin UI or Admin API.
+*/
 @property (nullable, nonatomic, readonly) NSString *refreshToken;
 
 /**
- The user's refresh token used to access the Realm Application.
+ The user's access token used to access App Services.
 
- This is required to make HTTP requests to MongoDB Realm's REST API
- for functionality not exposed natively. It should be treated as sensitive data.
+ This is required to make HTTP requests to Atlas App Services like the Data API or GraphQL.
+ It should be treated as sensitive data.
+
+ The Realm SDK automatically manages access tokens and refreshes them
+ when they expire.
  */
 @property (nullable, nonatomic, readonly) NSString *accessToken;
 
@@ -100,12 +112,175 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Lifecycle
 
 /**
- Create a query-based configuration instance for the given url.
+ Create a partition-based sync configuration instance for the given partition value.
 
  @param partitionValue The `RLMBSON` value the Realm is partitioned on.
  @return A default configuration object with the sync configuration set to use the given partition value.
  */
 - (RLMRealmConfiguration *)configurationWithPartitionValue:(nullable id<RLMBSON>)partitionValue NS_REFINED_FOR_SWIFT;
+
+/**
+ Create a partition-based sync configuration instance for the given partition value.
+
+ @param partitionValue The `RLMBSON` value the Realm is partitioned on.
+ @param clientResetMode Determines file recovery behavior in the event of a client reset.
+                        See: https://docs.mongodb.com/realm/sync/error-handling/client-resets/
+ 
+ @return A configuration object with the sync configuration set to use the given partition value.
+ */
+- (RLMRealmConfiguration *)configurationWithPartitionValue:(nullable id<RLMBSON>)partitionValue
+                                           clientResetMode:(RLMClientResetMode)clientResetMode NS_REFINED_FOR_SWIFT;
+
+/**
+ Create a partition-based sync configuration instance for the given partition value.
+
+ @param partitionValue The `RLMBSON` value the Realm is partitioned on.
+ @param clientResetMode Determines file recovery behavior in the event of a client reset.
+                        See: https://docs.mongodb.com/realm/sync/error-handling/client-resets/
+ @param beforeResetBlock A callback which notifies prior to a client reset occurring. See: `RLMClientResetBeforeBlock`
+ @param afterResetBlock A callback which notifies after a client reset has occurred. See: `RLMClientResetAfterBlock`
+ 
+ @return A configuration object with the sync configuration set to use the given partition value.
+ */
+- (RLMRealmConfiguration *)configurationWithPartitionValue:(nullable id<RLMBSON>)partitionValue
+                                           clientResetMode:(RLMClientResetMode)clientResetMode
+                                         notifyBeforeReset:(nullable RLMClientResetBeforeBlock)beforeResetBlock
+                                          notifyAfterReset:(nullable RLMClientResetAfterBlock)afterResetBlock NS_REFINED_FOR_SWIFT;
+
+/**
+ Create a partition-based sync configuration instance for the given partition value.
+
+ @param partitionValue The `RLMBSON` value the Realm is partitioned on.
+ @param clientResetMode Determines file recovery behavior in the event of a client reset.
+                        See: https://docs.mongodb.com/realm/sync/error-handling/client-resets/
+ @param manualClientResetHandler An error reporting block that is invoked during a client reset.
+                                @See ``RLMSyncErrorReportingBlock`` and ``RLMClientResetInfo``
+ 
+ @return A configuration object with the sync configuration set to use the given partition value.
+ */
+- (RLMRealmConfiguration *)configurationWithPartitionValue:(nullable id<RLMBSON>)partitionValue
+                                           clientResetMode:(RLMClientResetMode)clientResetMode
+                                  manualClientResetHandler:(nullable RLMSyncErrorReportingBlock)manualClientResetHandler NS_REFINED_FOR_SWIFT;
+
+/**
+ Create a flexible sync configuration instance, which can be used to open a Realm that
+ supports flexible sync.
+ 
+ @note A single server-side Device Sync App can sync data with either partition-based realms or flexible sync based realms.
+ In order for an application to contain both partition-based and flexible sync realms, more than one
+ server-side Device Sync App must be used.
+
+ @return A ``RLMRealmConfiguration`` instance with a flexible sync configuration.
+ */
+- (RLMRealmConfiguration *)flexibleSyncConfiguration NS_REFINED_FOR_SWIFT;
+
+/**
+ Create a flexible sync configuration instance, which can be used to open a Realm that
+ supports flexible sync.
+ 
+ @note A single server-side Device Sync App can sync data with either partition-based realms or flexible sync based realms.
+ In order for an application to contain both partition-based and flexible sync realms, more than one
+ server-side Device Sync App must be used.
+ 
+ @param clientResetMode Determines file recovery behavior in the event of a client reset.
+                        See: https://docs.mongodb.com/realm/sync/error-handling/client-resets/
+ @param beforeResetBlock A callback which notifies prior to a client reset occurring. See: `RLMClientResetBeforeBlock`
+ @param afterResetBlock A callback which notifies after a client reset has occurred. See: `RLMClientResetAfterBlock`
+ 
+ @return A `RLMRealmConfiguration` instance with a flexible sync configuration.
+ */
+- (RLMRealmConfiguration *)flexibleSyncConfigurationWithClientResetMode:(RLMClientResetMode)clientResetMode
+                                                      notifyBeforeReset:(nullable RLMClientResetBeforeBlock)beforeResetBlock
+                                                       notifyAfterReset:(nullable RLMClientResetAfterBlock)afterResetBlock NS_REFINED_FOR_SWIFT;
+/**
+ Create a flexible sync configuration instance, which can be used to open a Realm that
+ supports flexible sync.
+
+ @note A single server-side Device Sync App can sync data with either partition-based realms or flexible sync based realms.
+ In order for an application to contain both partition-based and flexible sync realms, more than one
+ server-side Device Sync App must be used.
+
+ @param clientResetMode Determines file recovery behavior in the event of a client reset.
+                        See: https://docs.mongodb.com/realm/sync/error-handling/client-resets/
+ @param manualClientResetHandler An error reporting block that is invoked during a client reset.
+                                @See `RLMSyncErrorReportingBlock` and `RLMClientResetInfo`
+
+ @return A `RLMRealmConfiguration` instance with a flexible sync configuration.
+ */
+- (RLMRealmConfiguration *)flexibleSyncConfigurationWithClientResetMode:(RLMClientResetMode)clientResetMode
+                                               manualClientResetHandler:(nullable RLMSyncErrorReportingBlock)manualClientResetHandler NS_REFINED_FOR_SWIFT;
+
+/**
+ Create a flexible sync configuration instance, which can be used to open a Realm that
+ supports flexible sync.
+
+ @note A single server-side Device Sync App can sync data with either partition-based realms or flexible sync based realms.
+ In order for an application to contain both partition-based and flexible sync realms, more than one
+ server-side Device Sync App must be used.
+
+ @param initialSubscriptions A block which receives a subscription set instance, that can be
+                             used to add an initial set of subscriptions which will be executed
+                             when the Realm is first opened.
+ @param rerunOnOpen If true, allows to run the initial set of subscriptions specified, on every app startup.
+                    This can be used to re-run dynamic time ranges and other queries that require a
+                    re-computation of a static variable.
+
+ @return A `RLMRealmConfiguration` instance with a flexible sync configuration.
+ */
+- (RLMRealmConfiguration *)flexibleSyncConfigurationWithInitialSubscriptions:(RLMFlexibleSyncInitialSubscriptionsBlock)initialSubscriptions
+                                                                 rerunOnOpen:(BOOL)rerunOnOpen NS_REFINED_FOR_SWIFT;
+/**
+ Create a flexible sync configuration instance, which can be used to open a Realm that
+ supports flexible sync.
+
+ @note A single server-side Device Sync App can sync data with either partition-based realms or flexible sync based realms.
+ In order for an application to contain both partition-based and flexible sync realms, more than one
+ server-side Device Sync App must be used.
+
+ @param initialSubscriptions A block which receives a subscription set instance, that can be
+                             used to add an initial set of subscriptions which will be executed
+                             when the Realm is first opened.
+ @param rerunOnOpen If true, allows to run the initial set of subscriptions specified, on every app startup.
+                    This can be used to re-run dynamic time ranges and other queries that require a
+                    re-computation of a static variable.
+ @param clientResetMode Determines file recovery behavior in the event of a client reset.
+                        See: https://docs.mongodb.com/realm/sync/error-handling/client-resets/
+ @param beforeResetBlock A callback which notifies prior to a client reset occurring. See: `RLMClientResetBeforeBlock`
+ @param afterResetBlock A callback which notifies after a client reset has occurred. See: `RLMClientResetAfterBlock`
+
+ @return A `RLMRealmConfiguration` instance with a flexible sync configuration.
+ */
+- (RLMRealmConfiguration *)flexibleSyncConfigurationWithInitialSubscriptions:(RLMFlexibleSyncInitialSubscriptionsBlock)initialSubscriptions
+                                                                 rerunOnOpen:(BOOL)rerunOnOpen
+                                                             clientResetMode:(RLMClientResetMode)clientResetMode
+                                                           notifyBeforeReset:(nullable RLMClientResetBeforeBlock)beforeResetBlock
+                                                            notifyAfterReset:(nullable RLMClientResetAfterBlock)afterResetBlock NS_REFINED_FOR_SWIFT;
+
+/**
+ Create a flexible sync configuration instance, which can be used to open a Realm that
+ supports flexible sync.
+
+ @note A single server-side Device Sync App can sync data with either partition-based realms or flexible sync based realms.
+ In order for an application to contain both partition-based and flexible sync realms, more than one
+ server-side Device Sync App must be used.
+
+ @param initialSubscriptions A block which receives a subscription set instance, that can be
+                             used to add an initial set of subscriptions which will be executed
+                             when the Realm is first opened.
+ @param rerunOnOpen If true, allows to run the initial set of subscriptions specified, on every app startup.
+                    This can be used to re-run dynamic time ranges and other queries that require a
+                    re-computation of a static variable.
+ @param clientResetMode Determines file recovery behavior in the event of a client reset.
+                        See: https://docs.mongodb.com/realm/sync/error-handling/client-resets/
+ @param manualClientResetHandler An error reporting block that is invoked during a client reset.
+                                @See `RLMSyncErrorReportingBlock` and `RLMClientResetInfo`
+
+ @return A `RLMRealmConfiguration` instance with a flexible sync configuration.
+ */
+- (RLMRealmConfiguration *)flexibleSyncConfigurationWithInitialSubscriptions:(RLMFlexibleSyncInitialSubscriptionsBlock)initialSubscriptions
+                                                                 rerunOnOpen:(BOOL)rerunOnOpen
+                                                             clientResetMode:(RLMClientResetMode)clientResetMode
+                                                    manualClientResetHandler:(nullable RLMSyncErrorReportingBlock)manualClientResetHandler NS_REFINED_FOR_SWIFT;
 
 #pragma mark - Sessions
 
@@ -122,9 +297,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  The custom data of the user.
- This is configured in your MongoDB Realm App.
+ This is configured in your Atlas App Services app.
  */
 @property (nonatomic, readonly) NSDictionary *customData NS_REFINED_FOR_SWIFT;
+
+/**
+ The profile of the user.
+ */
+@property (nonatomic, readonly) RLMUserProfile *profile;
 
 /**
  Refresh a user's custom data. This will, in effect, refresh the user's auth session.
@@ -155,6 +335,16 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)removeWithCompletion:(RLMUserOptionalErrorBlock)completion;
 
 /**
+ Permanently deletes this user from your Atlas App Services app.
+
+ The users state will be set to `Removed` and the session will be destroyed.
+ If the delete request fails, the local authentication state will be untouched.
+
+ @param completion A callback invoked on completion
+*/
+- (void)deleteWithCompletion:(RLMUserOptionalErrorBlock)completion;
+
+/**
  Logs out the current user
 
  The users state will be set to `Removed` is they are an anonymous user or `LoggedOut` if they are authenticated by an email / password or third party auth clients
@@ -177,9 +367,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (RLMMongoClient *)mongoClientWithServiceName:(NSString *)serviceName NS_REFINED_FOR_SWIFT;
 
 /**
- Calls the MongoDB Realm function with the provided name and arguments.
+ Calls the Atlas App Services function with the provided name and arguments.
 
- @param name The name of the MongoDB Realm function to be called.
+ @param name The name of the Atlas App Services function to be called.
  @param arguments The `BSONArray` of arguments to be provided to the function.
  @param completion The completion handler to call when the function call is complete.
  This handler is executed on a non-main global `DispatchQueue`.
@@ -202,6 +392,7 @@ NS_ASSUME_NONNULL_BEGIN
  Note this is different from a user's unique identifier string.
  @seeAlso `RLMUser.identifier`
  */
+RLM_SWIFT_SENDABLE RLM_FINAL // immutable final class
 @interface RLMUserIdentity : NSObject
 
 /**
@@ -224,4 +415,33 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END
+/**
+ A profile for a given User.
+ */
+RLM_SWIFT_SENDABLE RLM_FINAL // immutable final class
+@interface RLMUserProfile : NSObject
+
+/// The full name of the user.
+@property (nonatomic, readonly, nullable) NSString *name;
+/// The email address of the user.
+@property (nonatomic, readonly, nullable) NSString *email;
+/// A URL to the user's profile picture.
+@property (nonatomic, readonly, nullable) NSString *pictureURL;
+/// The first name of the user.
+@property (nonatomic, readonly, nullable) NSString *firstName;
+/// The last name of the user.
+@property (nonatomic, readonly, nullable) NSString *lastName;
+/// The gender of the user.
+@property (nonatomic, readonly, nullable) NSString *gender;
+/// The birthdate of the user.
+@property (nonatomic, readonly, nullable) NSString *birthday;
+/// The minimum age of the user.
+@property (nonatomic, readonly, nullable) NSString *minAge;
+/// The maximum age of the user.
+@property (nonatomic, readonly, nullable) NSString *maxAge;
+/// The BSON dictionary of metadata associated with this user.
+@property (nonatomic, readonly) NSDictionary *metadata NS_REFINED_FOR_SWIFT;
+
+@end
+
+RLM_HEADER_AUDIT_END(nullability, sendability)

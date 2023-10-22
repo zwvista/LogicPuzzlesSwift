@@ -187,7 +187,7 @@ public protocol RealmKeyedCollection: Sequence, ThreadConfined, CustomStringConv
 
      - parameter property: The name of a property whose minimum value is desired.
      */
-    func min<T: MinMaxType>(ofProperty property: String) -> T?
+    func min<T: _HasPersistedType>(ofProperty property: String) -> T? where T.PersistedType: MinMaxType
 
     /**
      Returns the maximum (highest) value of the given property among all the objects in the dictionary, or `nil` if the
@@ -197,7 +197,7 @@ public protocol RealmKeyedCollection: Sequence, ThreadConfined, CustomStringConv
 
      - parameter property: The name of a property whose minimum value is desired.
      */
-    func max<T: MinMaxType>(ofProperty property: String) -> T?
+    func max<T: _HasPersistedType>(ofProperty property: String) -> T? where T.PersistedType: MinMaxType
 
     /**
     Returns the sum of the given property for objects in the dictionary, or `nil` if the dictionary is empty.
@@ -206,7 +206,7 @@ public protocol RealmKeyedCollection: Sequence, ThreadConfined, CustomStringConv
 
     - parameter property: The name of a property conforming to `AddableType` to calculate sum on.
     */
-    func sum<T: AddableType>(ofProperty property: String) -> T
+    func sum<T: _HasPersistedType>(ofProperty property: String) -> T where T.PersistedType: AddableType
 
     /**
      Returns the average value of a given property over all the objects in the dictionary, or `nil` if
@@ -216,7 +216,7 @@ public protocol RealmKeyedCollection: Sequence, ThreadConfined, CustomStringConv
 
      - parameter property: The name of a property whose values should be summed.
      */
-    func average<T: AddableType>(ofProperty property: String) -> T?
+    func average<T: _HasPersistedType>(ofProperty property: String) -> T? where T.PersistedType: AddableType
 
     // MARK: Notifications
 
@@ -265,19 +265,80 @@ public protocol RealmKeyedCollection: Sequence, ThreadConfined, CustomStringConv
      // end of run loop execution context
      ```
 
+     If no key paths are given, the block will be executed on any insertion,
+     modification, or deletion for all object properties and the properties of
+     any nested, linked objects. If a key path or key paths are provided,
+     then the block will be called for changes which occur only on the
+     provided key paths. For example, if:
+     ```swift
+     class Dog: Object {
+         @Persisted var name: String
+         @Persisted var age: Int
+         @Persisted var toys: List<Toy>
+     }
+     // ...
+     let dogs = myObject.mapOfDogs
+     let token = dogs.observe(keyPaths: ["name"]) { changes in
+         switch changes {
+         case .initial(let dogs):
+            // ...
+         case .update:
+            // This case is hit:
+            // - after the token is initialized
+            // - when the name property of an object in the
+            // collection is modified
+            // - when an element is inserted or removed
+            //   from the collection.
+            // This block is not triggered:
+            // - when a value other than name is modified on
+            //   one of the elements.
+         case .error:
+             // ...
+         }
+     }
+     // end of run loop execution context
+     ```
+     - If the observed key path were `["toys.brand"]`, then any insertion or
+     deletion to the `toys` list on any of the collection's elements would trigger the block.
+     Changes to the `brand` value on any `Toy` that is linked to a `Dog` in this
+     collection will trigger the block. Changes to a value other than `brand` on any `Toy` that
+     is linked to a `Dog` in this collection would not trigger the block.
+     Any insertion or removal to the `Dog` type collection being observed
+     would also trigger a notification.
+     - If the above example observed the `["toys"]` key path, then any insertion,
+     deletion, or modification to the `toys` list for any element in the collection
+     would trigger the block.
+     Changes to any value on any `Toy` that is linked to a `Dog` in this collection
+     would *not* trigger the block.
+     Any insertion or removal to the `Dog` type collection being observed
+     would still trigger a notification.
+
+     - note: Multiple notification tokens on the same object which filter for
+     separate key paths *do not* filter exclusively. If one key path
+     change is satisfied for one notification token, then all notification
+     token blocks for that object will execute.
+
      You must retain the returned token for as long as you want updates to be sent to the block. To stop receiving
      updates, call `invalidate()` on the token.
 
      - warning: This method cannot be called during a write transaction, or when the containing Realm is read-only.
 
+     - parameter keyPaths: Only properties contained in the key paths array will trigger
+                           the block when they are modified. If `nil`, notifications
+                           will be delivered for any property change on the object.
+                           String key paths which do not correspond to a valid a property
+                           will throw an exception.
+                           See description above for more detail on linked properties.
+     - note: The keyPaths parameter refers to object properties of the collection type and
+             *does not* refer to particular key/value pairs within the collection.
      - parameter queue: The serial dispatch queue to receive notification on. If
                         `nil`, notifications are delivered to the current thread.
      - parameter block: The block to be called whenever a change occurs.
      - returns: A token which must be held for as long as you want updates to be delivered.
      */
-    func observe(on queue: DispatchQueue?,
-                 _ block: @escaping (RealmMapChange<Self>) -> Void)
-    -> NotificationToken
+    func observe(keyPaths: [String]?,
+                 on queue: DispatchQueue?,
+                 _ block: @escaping (RealmMapChange<Self>) -> Void) -> NotificationToken
 
     // MARK: Frozen Objects
 
@@ -308,11 +369,19 @@ public protocol RealmKeyedCollection: Sequence, ThreadConfined, CustomStringConv
     func thaw() -> Self?
 }
 
+public extension RealmKeyedCollection {
+    func observe(keyPaths: [String]? = nil,
+                 on queue: DispatchQueue? = nil,
+                 _ block: @escaping (RealmMapChange<Self>) -> Void) -> NotificationToken {
+        observe(keyPaths: keyPaths, on: queue, block)
+    }
+}
+
 /**
  Protocol for RealmKeyedCollections where the Value is of an Object type that
  enables aggregatable operations.
  */
-public extension RealmKeyedCollection where Value: OptionalProtocol, Value.Wrapped: ObjectBase, Value.Wrapped: RealmCollectionValue {
+public extension RealmKeyedCollection where Value: OptionalProtocol, Value.Wrapped: ObjectBase {
     /**
      Returns the minimum (lowest) value of the given property among all the objects in the collection, or `nil` if the
      collection is empty.
@@ -321,7 +390,7 @@ public extension RealmKeyedCollection where Value: OptionalProtocol, Value.Wrapp
 
      - parameter keyPath: The keyPath of a property whose minimum value is desired.
      */
-    func min<T: MinMaxType>(of keyPath: KeyPath<Value.Wrapped, T>) -> T? {
+    func min<T: _HasPersistedType>(of keyPath: KeyPath<Value.Wrapped, T>) -> T? where T.PersistedType: MinMaxType {
         min(ofProperty: _name(for: keyPath))
     }
 
@@ -333,7 +402,7 @@ public extension RealmKeyedCollection where Value: OptionalProtocol, Value.Wrapp
 
      - parameter keyPath: The keyPath of a property whose minimum value is desired.
      */
-    func max<T: MinMaxType>(of keyPath: KeyPath<Value.Wrapped, T>) -> T? {
+    func max<T: _HasPersistedType>(of keyPath: KeyPath<Value.Wrapped, T>) -> T? where T.PersistedType: MinMaxType {
         max(ofProperty: _name(for: keyPath))
     }
 
@@ -344,7 +413,7 @@ public extension RealmKeyedCollection where Value: OptionalProtocol, Value.Wrapp
 
     - parameter keyPath: The keyPath of a property conforming to `AddableType` to calculate sum on.
     */
-    func sum<T: AddableType>(of keyPath: KeyPath<Value.Wrapped, T>) -> T {
+    func sum<T: _HasPersistedType>(of keyPath: KeyPath<Value.Wrapped, T>) -> T where T.PersistedType: AddableType {
         sum(ofProperty: _name(for: keyPath))
     }
 
@@ -356,7 +425,7 @@ public extension RealmKeyedCollection where Value: OptionalProtocol, Value.Wrapp
 
      - parameter keyPath: The keyPath of a property whose values should be summed.
      */
-    func average<T: AddableType>(of keyPath: KeyPath<Value.Wrapped, T>) -> T? {
+    func average<T: _HasPersistedType>(of keyPath: KeyPath<Value.Wrapped, T>) -> T? where T.PersistedType: AddableType {
         average(ofProperty: _name(for: keyPath))
     }
 }
@@ -381,12 +450,12 @@ public extension RealmKeyedCollection where Value: OptionalProtocol, Value.Wrapp
      - parameter keyPath:   The key path to sort by.
      - parameter ascending: The direction to sort in.
      */
-    func sorted<T: Comparable>(by keyPath: KeyPath<Value.Wrapped, T>, ascending: Bool) -> Results<Value> {
+    func sorted<T: _HasPersistedType>(by keyPath: KeyPath<Value.Wrapped, T>, ascending: Bool) -> Results<Value> where T.PersistedType: SortableType {
         sorted(byKeyPath: _name(for: keyPath), ascending: ascending)
     }
 }
 
-public extension RealmKeyedCollection where Value: MinMaxType {
+public extension RealmKeyedCollection where Value.PersistedType: MinMaxType {
     /**
      Returns the minimum (lowest) value of the collection, or `nil` if the collection is empty.
      */
@@ -401,22 +470,7 @@ public extension RealmKeyedCollection where Value: MinMaxType {
     }
 }
 
-public extension RealmKeyedCollection where Value: OptionalProtocol, Value.Wrapped: MinMaxType {
-    /**
-     Returns the minimum (lowest) value of the collection, or `nil` if the collection is empty.
-     */
-    func min() -> Value.Wrapped? {
-        return min(ofProperty: "self")
-    }
-    /**
-     Returns the maximum (highest) value of the collection, or `nil` if the collection is empty.
-     */
-    func max() -> Value.Wrapped? {
-        return max(ofProperty: "self")
-    }
-}
-
-public extension RealmKeyedCollection where Value: AddableType {
+public extension RealmKeyedCollection where Value.PersistedType: AddableType {
     /**
      Returns the sum of the values in the collection, or `nil` if the collection is empty.
      */
@@ -426,41 +480,12 @@ public extension RealmKeyedCollection where Value: AddableType {
     /**
      Returns the average of all of the values in the collection.
      */
-    func average<T: AddableType>() -> T? {
+    func average<T: _HasPersistedType>() -> T? where T.PersistedType: AddableType {
         return average(ofProperty: "self")
     }
 }
 
-public extension RealmKeyedCollection where Value: OptionalProtocol, Value.Wrapped: AddableType {
-    /**
-     Returns the sum of the values in the collection, or `nil` if the collection is empty.
-     */
-    func sum() -> Value.Wrapped {
-        return sum(ofProperty: "self")
-    }
-    /**
-     Returns the average of all of the values in the collection.
-     */
-    func average<T: AddableType>() -> T? {
-        return average(ofProperty: "self")
-    }
-}
-
-public extension RealmKeyedCollection where Value: Comparable {
-    /**
-     Returns a `Results` containing the objects in the collection, but sorted.
-
-     Objects are sorted based on their values. For example, to sort a collection of `Date`s from
-     neweset to oldest based, you might call `dates.sorted(ascending: true)`.
-
-     - parameter ascending: The direction to sort in.
-     */
-    func sorted(ascending: Bool = true) -> Results<Value> {
-        return sorted(byKeyPath: "self", ascending: ascending)
-    }
-}
-
-public extension RealmKeyedCollection where Value: OptionalProtocol, Value.Wrapped: Comparable {
+public extension RealmKeyedCollection where Value.PersistedType: SortableType {
     /**
      Returns a `Results` containing the objects in the collection, but sorted.
 

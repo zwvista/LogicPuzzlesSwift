@@ -19,7 +19,7 @@
 #ifndef REALM_OBJ_HPP
 #define REALM_OBJ_HPP
 
-#include <realm/array.hpp>
+#include <realm/node.hpp>
 #include <realm/table_ref.hpp>
 #include <realm/keys.hpp>
 #include <realm/mixed.hpp>
@@ -29,7 +29,7 @@
 
 namespace realm {
 
-class TableClusterTree;
+class ClusterTree;
 class Replication;
 class TableView;
 class CollectionBase;
@@ -73,10 +73,28 @@ enum JSONOutputMode {
     output_mode_xjson_plus, // extended json as described in the spec with additional modifier used for sync
 };
 
+/// The status of an accessor after a call to `update_if_needed()`.
+enum class UpdateStatus {
+    /// The owning object or column no longer exist, and the accessor could
+    /// not be updated. The accessor should be left in a detached state
+    /// after this, and further calls to `update_if_needed()` are not
+    /// guaranteed to reattach the accessor.
+    Detached,
+
+    /// The underlying data of the accessor was changed since the last call
+    /// to `update_if_needed()`. The accessor is still valid.
+    Updated,
+
+    /// The underlying data of the accessor did not change since the last
+    /// call to `update_if_needed()`, and the accessor is still valid in its
+    /// current state.
+    NoChange,
+};
+
 // 'Object' would have been a better name, but it clashes with a class in ObjectStore
 class Obj {
 public:
-    Obj()
+    constexpr Obj()
         : m_table(nullptr)
         , m_row_ndx(size_t(-1))
         , m_storage_version(-1)
@@ -110,22 +128,24 @@ public:
         return m_table != nullptr;
     }
 
-    // Check if the object is still alive
+    /// Check if the object is still alive
     bool is_valid() const noexcept;
-    // Will throw if object is not valid
-    void check_valid() const;
-    // Delete object from table. Object is invalid afterwards.
+    /// Delete object from table. Object is invalid afterwards.
     void remove();
-    // Invalidate
-    //  - this turns the object into a tombstone if links to the object exist.
-    //  - deletes the object is no links to the object exist.
-    //  - To be used by the Sync client.
+    /// Invalidate
+    ///  - this turns the object into a tombstone if links to the object exist.
+    ///  - deletes the object is no links to the object exist.
+    ///  - To be used by the Sync client.
     void invalidate();
 
     template <typename U>
     U get(ColKey col_key) const;
 
     Mixed get_any(ColKey col_key) const;
+    Mixed get_any(StringData col_name) const
+    {
+        return get_any(get_column_key(col_name));
+    }
     Mixed get_any(std::vector<std::string>::iterator path_start, std::vector<std::string>::iterator path_end) const;
     Mixed get_primary_key() const;
 
@@ -135,9 +155,9 @@ public:
         return get<U>(get_column_key(col_name));
     }
     bool is_unresolved(ColKey col_key) const;
-    int cmp(const Obj& other, ColKey col_key) const;
 
     size_t get_link_count(ColKey col_key) const;
+    TableRef get_target_table(ColKey col_key) const;
 
     bool is_null(ColKey col_key) const;
     bool is_null(StringData col_name) const
@@ -148,7 +168,7 @@ public:
     size_t get_backlink_count() const;
     size_t get_backlink_count(const Table& origin, ColKey origin_col_key) const;
     ObjKey get_backlink(const Table& origin, ColKey origin_col_key, size_t backlink_ndx) const;
-    TableView get_backlink_view(TableRef src_table, ColKey src_col_key);
+    TableView get_backlink_view(TableRef src_table, ColKey src_col_key) const;
 
     // To be used by the query system when a single object should
     // be tested. Will allow a function to be called in the context
@@ -157,11 +177,11 @@ public:
     bool evaluate(T func) const;
 
     void to_json(std::ostream& out, size_t link_depth, const std::map<std::string, std::string>& renames,
-                 std::vector<ColKey>& followed, JSONOutputMode output_mode) const;
+                 std::vector<ObjLink>& followed, JSONOutputMode output_mode) const;
     void to_json(std::ostream& out, size_t link_depth, const std::map<std::string, std::string>& renames,
                  JSONOutputMode output_mode = output_mode_json) const
     {
-        std::vector<ColKey> followed;
+        std::vector<ObjLink> followed;
         to_json(out, link_depth, renames, followed, output_mode);
     }
 
@@ -193,8 +213,8 @@ public:
     // Then there is one call for each object on that path, starting with the top level object
     // The embedded object itself is not considered part of the path.
     // Note: You should never provide the path_index for calls to traverse_path.
-    using Visitor = std::function<void(const Obj&, ColKey, Mixed)>;
-    using PathSizer = std::function<void(size_t)>;
+    using Visitor = util::FunctionRef<void(const Obj&, ColKey, Mixed)>;
+    using PathSizer = util::FunctionRef<void(size_t)>;
     void traverse_path(Visitor v, PathSizer ps, size_t path_index = 0) const;
 
     template <typename U>
@@ -210,6 +230,10 @@ public:
     // new object and link it. (To Be Implemented)
     Obj clear_linked_object(ColKey col_key);
     Obj& set_any(ColKey col_key, Mixed value, bool is_default = false);
+    Obj& set_any(StringData col_name, Mixed value, bool is_default = false)
+    {
+        return set_any(get_column_key(col_name), value, is_default);
+    }
 
     template <typename U>
     Obj& set(StringData col_name, U value, bool is_default = false)
@@ -238,10 +262,23 @@ public:
     template <class Head, class... Tail>
     Obj& set_all(Head v, Tail... tail);
 
-    void assign(const Obj& other);
+    // The main algorithm for handling schema migrations if we try to convert
+    // from TopLevel* to Embedded, in this case all the orphan objects are deleted
+    // and all the objects with multiple backlinks are cloned in order to avoid to
+    // get schema violations during the migration.
+    // By default this alogirithm is disabled. RealmConfig contains a boolean flag
+    // to enable it.
+    void handle_multiple_backlinks_during_schema_migration();
 
-    Obj get_linked_object(ColKey link_col_key) const;
-    Obj get_linked_object(StringData link_col_name) const;
+    Obj get_linked_object(ColKey link_col_key) const
+    {
+        return _get_linked_object(link_col_key, get_any(link_col_key));
+    }
+    Obj get_linked_object(StringData link_col_name) const
+    {
+        return get_linked_object(get_column_key(link_col_name));
+    }
+    Obj get_parent_object() const;
 
     template <typename U>
     Lst<U> get_list(ColKey col_key) const;
@@ -275,6 +312,7 @@ public:
     template <typename U>
     SetPtr<U> get_set_ptr(ColKey col_key) const;
     LnkSet get_linkset(ColKey col_key) const;
+    LnkSet get_linkset(StringData col_name) const;
     LnkSetPtr get_linkset_ptr(ColKey col_key) const;
     SetBasePtr get_setbase_ptr(ColKey col_key) const;
     Dictionary get_dictionary(ColKey col_key) const;
@@ -282,6 +320,7 @@ public:
     Dictionary get_dictionary(StringData col_name) const;
 
     CollectionBasePtr get_collection_ptr(ColKey col_key) const;
+    CollectionBasePtr get_collection_ptr(StringData col_name) const;
     LinkCollectionPtr get_linkcollection_ptr(ColKey col_key) const;
 
     void assign_pk_and_backlinks(const Obj& other);
@@ -298,7 +337,7 @@ private:
     friend class Cluster;
     friend class ColumnListBase;
     friend class CollectionBase;
-    friend class ConstTableView;
+    friend class TableView;
     template <class, class>
     friend class Collection;
     template <class>
@@ -306,6 +345,7 @@ private:
     template <class>
     friend class Lst;
     friend class LnkLst;
+    friend class LinkCount;
     friend class Dictionary;
     friend class LinkMap;
     template <class>
@@ -321,27 +361,32 @@ private:
     mutable bool m_valid;
 
     Allocator& _get_alloc() const noexcept;
+
+
+    /// Update the accessor. Returns true when the accessor was updated to
+    /// reflect new changes to the underlying state.
     bool update() const;
     // update if needed - with and without check of table instance version:
     bool update_if_needed() const;
     bool _update_if_needed() const; // no check, use only when already checked
+
+    /// Update the accessor (and return `UpdateStatus::Detached` if the Obj is
+    /// no longer valid, rather than throwing an exception).
+    UpdateStatus update_if_needed_with_status() const;
+
     template <class T>
     bool do_is_null(ColKey::Idx col_ndx) const;
 
-    const TableClusterTree* get_tree_top() const;
+    const ClusterTree* get_tree_top() const;
     ColKey get_column_key(StringData col_name) const;
     ColKey get_primary_key_column() const;
     TableKey get_table_key() const;
-    TableRef get_target_table(ColKey col_key) const;
     TableRef get_target_table(ObjLink link) const;
     const Spec& get_spec() const;
 
     template <typename U>
     U _get(ColKey::Idx col_ndx) const;
 
-    template <class T>
-    int cmp(const Obj& other, ColKey::Idx col_ndx) const;
-    int cmp(const Obj& other, ColKey::Idx col_ndx) const;
     ObjKey get_backlink(ColKey backlink_col, size_t backlink_ndx) const;
     // Return all backlinks from a specific backlink column
     std::vector<ObjKey> get_all_backlinks(ColKey backlink_col) const;
@@ -356,7 +401,7 @@ private:
     ColKey spec_ndx2colkey(size_t col_ndx);
     size_t colkey2spec_ndx(ColKey);
     bool ensure_writeable();
-    void sync(Array& arr);
+    void sync(Node& arr);
     int_fast64_t bump_content_version();
     void bump_both_versions();
     template <class T>
@@ -368,10 +413,16 @@ private:
         return m_row_ndx;
     }
 
+    Obj _get_linked_object(ColKey link_col_key, Mixed link) const;
+    Obj _get_linked_object(StringData link_col_name, Mixed link) const
+    {
+        return _get_linked_object(get_column_key(link_col_name), link);
+    }
+
     void set_int(ColKey col_key, int64_t value);
     void add_backlink(ColKey backlink_col, ObjKey origin_key);
     bool remove_one_backlink(ColKey backlink_col, ObjKey origin_key);
-    void nullify_link(ColKey origin_col, ObjLink target_key);
+    void nullify_link(ColKey origin_col, ObjLink target_key) &&;
     // Used when inserting a new link. You will not remove existing links in this process
     void set_backlink(ColKey col_key, ObjLink new_link) const;
     // Used when replacing a link, return true if CascadeState contains objects to remove
@@ -380,12 +431,27 @@ private:
     bool remove_backlink(ColKey col_key, ObjLink old_link, CascadeState& state) const;
     template <class T>
     inline void set_spec(T&, ColKey);
+    template <class ValueType>
+    inline void nullify_single_link(ColKey col, ValueType target);
+
+    void fix_linking_object_during_schema_migration(Obj linking_obj, Obj obj, ColKey opposite_col_key) const;
 };
 
 std::ostream& operator<<(std::ostream&, const Obj& obj);
 
 template <>
+int64_t Obj::get(ColKey) const;
+template <>
+bool Obj::get(ColKey) const;
+
+template <>
 int64_t Obj::_get(ColKey::Idx col_ndx) const;
+template <>
+StringData Obj::_get(ColKey::Idx col_ndx) const;
+template <>
+BinaryData Obj::_get(ColKey::Idx col_ndx) const;
+template <>
+ObjKey Obj::_get(ColKey::Idx col_ndx) const;
 
 struct Obj::FatPathElement {
     Obj obj;        // Object which embeds...
@@ -516,12 +582,6 @@ std::vector<U> Obj::get_list_values(ColKey col_key) const
         values.push_back(v);
 
     return values;
-}
-
-inline Obj Obj::get_linked_object(StringData link_col_name) const
-{
-    ColKey col = get_column_key(link_col_name);
-    return get_linked_object(col);
 }
 
 template <class Val>

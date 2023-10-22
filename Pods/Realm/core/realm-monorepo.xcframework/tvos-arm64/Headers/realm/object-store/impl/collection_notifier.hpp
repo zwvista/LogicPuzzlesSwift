@@ -20,9 +20,10 @@
 #define REALM_BACKGROUND_COLLECTION_HPP
 
 #include <realm/object-store/impl/deep_change_checker.hpp>
-#include <realm/object-store/util/checked_mutex.hpp>
 
 #include <realm/util/assert.hpp>
+#include <realm/util/checked_mutex.hpp>
+#include <realm/util/functional.hpp>
 #include <realm/version_id.hpp>
 #include <realm/table_ref.hpp>
 
@@ -33,8 +34,7 @@
 #include <mutex>
 #include <unordered_set>
 
-namespace realm {
-namespace _impl {
+namespace realm::_impl {
 
 // A `NotificationCallback` is added to a collection when observing it.
 // It contains all information necessary in case we need to notify about changes
@@ -51,9 +51,11 @@ struct NotificationCallback {
     // target thread.
     CollectionChangeBuilder changes_to_deliver;
     // The filter that this `NotificationCallback` is restricted to.
+    // if std::nullopt, then no restriction is enforced.
+    // if empty, then modifications to objects within the collection won't fire notifications.
     // If not empty, modifications of elements not part of the `key_path_array`
     // will not invoke a notification.
-    KeyPathArray key_path_array = {};
+    std::optional<KeyPathArray> key_path_array = std::nullopt;
     // A unique-per-notifier identifier used to unregister the callback.
     uint64_t token = 0;
     // We normally want to skip calling the callback if there's no changes,
@@ -94,7 +96,8 @@ public:
      *
      * @return A token which can be passed to `remove_callback()`.
      */
-    uint64_t add_callback(CollectionChangeCallback callback, KeyPathArray key_path_array) REQUIRES(!m_callback_mutex);
+    uint64_t add_callback(CollectionChangeCallback callback, std::optional<KeyPathArray> key_path_array)
+        REQUIRES(!m_callback_mutex);
 
     /**
      * Remove a previously added token.
@@ -117,13 +120,8 @@ public:
         return m_realm.get();
     }
 
-    // Get the Transaction version which this collection can attach to (if it's
-    // in handover mode), or can deliver to (if it's been handed over to the BG worker alredad)
     // precondition: RealmCoordinator::m_notifier_mutex is locked
-    VersionID version() const noexcept
-    {
-        return m_sg_version;
-    }
+    VersionID version() const noexcept;
 
     // Release references to all core types
     // This is called on the worker thread to ensure that non-thread-safe things
@@ -135,10 +133,6 @@ public:
     // Returns whether or not it has anything to deliver.
     // precondition: RealmCoordinator::m_notifier_mutex is locked
     bool package_for_delivery() REQUIRES(!m_callback_mutex);
-
-    // Pass the given error to all registered callbacks, then remove them
-    // precondition: RealmCoordinator::m_notifier_mutex is unlocked
-    void deliver_error(std::exception_ptr) REQUIRES(!m_callback_mutex);
 
     // Call each of the given callbacks with the changesets prepared by package_for_delivery()
     // precondition: RealmCoordinator::m_notifier_mutex is unlocked
@@ -153,9 +147,16 @@ public:
         return m_has_run;
     }
 
-    // Attach the handed-over query to `sg`. Must not be already attached to a Transaction.
+    // Detach from the source Realm's transaction and attach to either an existing
+    // transaction from another notifier (if any are the correct version) or a
+    // new one.
     // precondition: RealmCoordinator::m_notifier_mutex is locked
-    void attach_to(std::shared_ptr<Transaction> sg);
+    void set_initial_transaction(const std::vector<std::shared_ptr<CollectionNotifier>>& other_notifiers);
+
+    // Discard the notifier's Transaction and move the local data over to the
+    // given Transaction. Must be called before the notifier is ever run.
+    // precondition: RealmCoordinator::m_notifier_mutex is locked
+    void attach_to(std::shared_ptr<Transaction> transaction);
 
     // Set `info` as the new ChangeInfo that will be populated by the next
     // transaction advance, and register all required information in it
@@ -176,9 +177,13 @@ public:
         return m_have_callbacks;
     }
 
+    Transaction& transaction() const noexcept
+    {
+        return *m_transaction;
+    }
+
 protected:
     void add_changes(CollectionChangeBuilder change) REQUIRES(!m_callback_mutex);
-    void set_table(ConstTableRef table) REQUIRES(!m_callback_mutex);
     std::unique_lock<std::mutex> lock_target();
     Transaction& source_shared_group();
     // signal that the underlying source object of the collection has been deleted
@@ -188,41 +193,29 @@ protected:
     bool any_related_table_was_modified(TransactionChangeInfo const&) const noexcept;
 
     // Creates and returns a `DeepChangeChecker` or `KeyPathChecker` depending on the given KeyPathArray.
-    std::function<bool(ObjectChangeSet::ObjectKeyType)> get_modification_checker(TransactionChangeInfo const&,
-                                                                                 ConstTableRef)
+    util::UniqueFunction<bool(ObjKey)> get_modification_checker(TransactionChangeInfo const&, ConstTableRef)
         REQUIRES(!m_callback_mutex);
 
-    // Creates and returns a `ObjectKeyPathChangeChecker` which behaves slighty different that `DeepChangeChecker`
+    // Creates and returns a `ObjectKeyPathChangeChecker` which behaves slightly different that `DeepChangeChecker`
     // and `KeyPathChecker` which are used for `Collection`s.
-    std::function<std::vector<int64_t>(ObjectChangeSet::ObjectKeyType)>
-    get_object_modification_checker(TransactionChangeInfo const&, ConstTableRef) REQUIRES(m_callback_mutex);
+    util::UniqueFunction<std::vector<ColKey>(ObjKey)> get_object_modification_checker(TransactionChangeInfo const&,
+                                                                                      ConstTableRef)
+        REQUIRES(!m_callback_mutex);
 
-    // Returns a vector containing all `KeyPathArray`s from all `NotificationCallback`s attached to this notifier.
-    void recalculate_key_path_array() REQUIRES(m_callback_mutex);
     // Checks `KeyPathArray` filters on all `m_callbacks` and returns true if at least one key path
     // filter is attached to each of them.
-    bool any_callbacks_filtered() const noexcept REQUIRES(m_callback_mutex);
+    bool any_callbacks_filtered() const noexcept;
     // Checks `KeyPathArray` filters on all `m_callbacks` and returns true if at least one key path
     // filter is attached to all of them.
-    bool all_callbacks_filtered() const noexcept REQUIRES(m_callback_mutex);
+    bool all_callbacks_filtered() const noexcept;
 
     void update_related_tables(Table const& table) REQUIRES(m_callback_mutex);
-
-    // A summary of all `KeyPath`s attached to the `m_callbacks`.
-    KeyPathArray m_key_path_array;
-
-    // When updating `m_key_path_array` we need to also check if all callbacks have a filter.
-    // This information is later used in `DeepChangeChecker`.
-    bool m_all_callbacks_filtered = false;
 
     // The actual change, calculated in run() and delivered in prepare_handover()
     CollectionChangeBuilder m_change;
 
-    // A vector of all tables related to this table (including itself).
-    std::vector<DeepChangeChecker::RelatedTable> m_related_tables;
-
     // Due to the keypath filtered notifications we need to update the related tables every time the callbacks do see
-    // a change since the list of related tables is filtered by the key paths used for the notifcations.
+    // a change since the list of related tables is filtered by the key paths used for the notifications.
     bool m_did_modify_callbacks = true;
 
     // Currently registered callbacks and a mutex which must always be held
@@ -230,7 +223,7 @@ protected:
     util::CheckedMutex m_callback_mutex;
 
 private:
-    virtual void do_attach_to(Transaction&) {}
+    virtual void reattach() = 0;
     virtual void do_prepare_handover(Transaction&) {}
     virtual bool do_add_required_change_info(TransactionChangeInfo&) = 0;
     virtual bool prepare_to_deliver()
@@ -243,17 +236,29 @@ private:
     template <typename Fn>
     void for_each_callback(Fn&& fn) REQUIRES(!m_callback_mutex);
 
+    // Update `m_key_path_array` after callbacks have been added or removed
+    void recalculate_key_path_array() REQUIRES(m_callback_mutex);
+
     std::vector<NotificationCallback>::iterator find_callback(uint64_t token);
 
     mutable std::mutex m_realm_mutex;
     std::shared_ptr<Realm> m_realm;
 
-    VersionID m_sg_version;
-    std::shared_ptr<Transaction> m_sg;
+    std::shared_ptr<Transaction> m_transaction;
+
+    // A vector of all tables related to this table (including itself).
+    std::vector<DeepChangeChecker::RelatedTable> m_related_tables;
 
     bool m_has_run = false;
-    bool m_error = false;
     bool m_has_delivered_root_deletion_event = false;
+
+    // A summary of all `KeyPath`s attached to the `m_callbacks`.
+    KeyPathArray m_key_path_array;
+
+    // Cached check for if callbacks have keypath filters which can be used
+    // only on the worker thread, but without acquiring the callback mutex
+    bool m_all_callbacks_filtered = false;
+    bool m_any_callbacks_filtered = false;
 
     // All `NotificationCallback`s added to this `CollectionNotifier` via `add_callback()`.
     std::vector<NotificationCallback> m_callbacks;
@@ -267,14 +272,14 @@ private:
     // Iteration variable for looping over callbacks. remove_callback() will
     // sometimes update this to ensure that removing a callback while iterating
     // over the callbacks will not skip an unrelated callback.
-    size_t m_callback_index = -1;
+    size_t m_callback_index GUARDED_BY(m_callback_mutex) = -1;
     // The number of callbacks which were present when the notifier was packaged
     // for delivery which are still present.
     // Updated by packaged_for_delivery and remove_callback(), and used in
     // for_each_callback() to avoid calling callbacks registered during delivery.
-    size_t m_callback_count = -1;
+    size_t m_callback_count GUARDED_BY(m_callback_mutex) = -1;
 
-    uint64_t m_next_token = 0;
+    uint64_t m_next_token GUARDED_BY(m_callback_mutex) = 0;
 };
 
 // A smart pointer to a CollectionNotifier that unregisters the notifier when
@@ -333,8 +338,11 @@ public:
 class NotifierPackage {
 public:
     NotifierPackage() = default;
-    NotifierPackage(std::exception_ptr error, std::vector<std::shared_ptr<CollectionNotifier>> notifiers,
-                    RealmCoordinator* coordinator);
+
+    // Create a package which contains notifiers which have already been pacakged for delivery
+    NotifierPackage(std::vector<std::shared_ptr<CollectionNotifier>> notifiers, std::shared_ptr<Transaction> pin_tr);
+    // Create a package which can have package_and_wait() called on it later
+    NotifierPackage(std::vector<std::shared_ptr<CollectionNotifier>> notifiers, RealmCoordinator* coordinator);
 
     explicit operator bool() const noexcept
     {
@@ -343,16 +351,12 @@ public:
 
     // Get the version which this package can deliver into, or VersionID{} if
     // it has not yet been packaged
-    util::Optional<VersionID> version() const noexcept
-    {
-        return m_version;
-    }
+    util::Optional<VersionID> version() const noexcept;
 
-    // If a version is given, block until notifications are ready for that
-    // version, and then regardless of whether or not a version was given filter
-    // the notifiers to just the ones which have anything to deliver.
+    // Block until notifications are ready for the given version, and then filter
+    // out any notifiers which don't have anything to deliver.
     // No-op if called multiple times
-    void package_and_wait(util::Optional<VersionID::version_type> target_version);
+    void package_and_wait(VersionID::version_type target_version);
 
     // Send the before-change notifications
     void before_advance();
@@ -362,14 +366,11 @@ public:
     void after_advance();
 
 private:
-    util::Optional<VersionID> m_version;
+    std::shared_ptr<Transaction> m_pin_tr;
     std::vector<std::shared_ptr<CollectionNotifier>> m_notifiers;
-
     RealmCoordinator* m_coordinator = nullptr;
-    std::exception_ptr m_error;
 };
 
-} // namespace _impl
-} // namespace realm
+} // namespace realm::_impl
 
 #endif /* REALM_BACKGROUND_COLLECTION_HPP */

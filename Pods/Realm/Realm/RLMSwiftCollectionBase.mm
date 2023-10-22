@@ -23,7 +23,6 @@
 #import "RLMObject_Private.hpp"
 #import "RLMObservation.hpp"
 #import "RLMProperty_Private.h"
-#import "RLMRealm_Private.hpp"
 #import "RLMSet_Private.hpp"
 #import "RLMDictionary_Private.hpp"
 
@@ -139,18 +138,6 @@
     _results = linkingObjects;
 
     return self;
-}
-
-- (instancetype)freeze {
-    RLMLinkingObjectsHandle *frozen = [[self.class alloc] init];
-    frozen->_results = [self.results freeze];
-    return frozen;
-}
-
-- (instancetype)thaw {
-    RLMLinkingObjectsHandle *thawed = [[self.class alloc] init];
-    thawed->_results = [self.results thaw];
-    return thawed;
 }
 
 - (RLMResults *)results {

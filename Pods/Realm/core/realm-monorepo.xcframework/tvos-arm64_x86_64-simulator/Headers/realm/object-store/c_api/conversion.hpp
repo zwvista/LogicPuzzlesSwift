@@ -25,9 +25,18 @@ static inline realm_string_t to_capi(StringData data)
     return realm_string_t{data.data(), data.size()};
 }
 
+// Because this is often used as `return to_capi(...);` it is dangerous to pass a temporary string here. If you really
+// need to and know it is correct (eg passing to a C callback), you can explicitly create the StringData wrapper.
+realm_string_t to_capi(const std::string&& str) = delete; // temporary std::string would dangle.
+
 static inline realm_string_t to_capi(const std::string& str)
 {
     return to_capi(StringData{str});
+}
+
+static inline realm_string_t to_capi(std::string_view str_view)
+{
+    return realm_string_t{str_view.data(), str_view.size()};
 }
 
 static inline StringData from_capi(realm_string_t str)
@@ -225,10 +234,12 @@ static inline SchemaMode from_capi(realm_schema_mode_e mode)
             return SchemaMode::Automatic;
         case RLM_SCHEMA_MODE_IMMUTABLE:
             return SchemaMode::Immutable;
-        case RLM_SCHEMA_MODE_READ_ONLY_ALTERNATIVE:
-            return SchemaMode::ReadOnlyAlternative;
-        case RLM_SCHEMA_MODE_RESET_FILE:
-            return SchemaMode::ResetFile;
+        case RLM_SCHEMA_MODE_READ_ONLY:
+            return SchemaMode::ReadOnly;
+        case RLM_SCHEMA_MODE_SOFT_RESET_FILE:
+            return SchemaMode::SoftResetFile;
+        case RLM_SCHEMA_MODE_HARD_RESET_FILE:
+            return SchemaMode::HardResetFile;
         case RLM_SCHEMA_MODE_ADDITIVE_DISCOVERED:
             return SchemaMode::AdditiveDiscovered;
         case RLM_SCHEMA_MODE_ADDITIVE_EXPLICIT:
@@ -246,10 +257,12 @@ static inline realm_schema_mode_e to_capi(SchemaMode mode)
             return RLM_SCHEMA_MODE_AUTOMATIC;
         case SchemaMode::Immutable:
             return RLM_SCHEMA_MODE_IMMUTABLE;
-        case SchemaMode::ReadOnlyAlternative:
-            return RLM_SCHEMA_MODE_READ_ONLY_ALTERNATIVE;
-        case SchemaMode::ResetFile:
-            return RLM_SCHEMA_MODE_RESET_FILE;
+        case SchemaMode::ReadOnly:
+            return RLM_SCHEMA_MODE_READ_ONLY;
+        case SchemaMode::SoftResetFile:
+            return RLM_SCHEMA_MODE_SOFT_RESET_FILE;
+        case SchemaMode::HardResetFile:
+            return RLM_SCHEMA_MODE_HARD_RESET_FILE;
         case SchemaMode::AdditiveDiscovered:
             return RLM_SCHEMA_MODE_ADDITIVE_DISCOVERED;
         case SchemaMode::AdditiveExplicit:
@@ -258,6 +271,34 @@ static inline realm_schema_mode_e to_capi(SchemaMode mode)
             return RLM_SCHEMA_MODE_MANUAL;
     }
     REALM_TERMINATE("Invalid schema mode."); // LCOV_EXCL_LINE
+}
+
+static inline SchemaSubsetMode from_capi(realm_schema_subset_mode_e subset_mode)
+{
+    switch (subset_mode) {
+        case RLM_SCHEMA_SUBSET_MODE_ALL_CLASSES:
+            return SchemaSubsetMode::AllClasses;
+        case RLM_SCHEMA_SUBSET_MODE_ALL_PROPERTIES:
+            return SchemaSubsetMode::AllProperties;
+        case RLM_SCHEMA_SUBSET_MODE_COMPLETE:
+            return SchemaSubsetMode::Complete;
+        case RLM_SCHEMA_SUBSET_MODE_STRICT:
+            return SchemaSubsetMode::Strict;
+    }
+    REALM_TERMINATE("Invalid subset schema mode."); // LCOV_EXCL_LINE
+}
+
+static inline realm_schema_subset_mode_e to_capi(const SchemaSubsetMode& subset_mode)
+{
+    if (subset_mode == SchemaSubsetMode::AllClasses)
+        return RLM_SCHEMA_SUBSET_MODE_ALL_CLASSES;
+    else if (subset_mode == SchemaSubsetMode::AllProperties)
+        return RLM_SCHEMA_SUBSET_MODE_ALL_PROPERTIES;
+    else if (subset_mode == SchemaSubsetMode::Complete)
+        return RLM_SCHEMA_SUBSET_MODE_COMPLETE;
+    else if (subset_mode == SchemaSubsetMode::Strict)
+        return RLM_SCHEMA_SUBSET_MODE_STRICT;
+    REALM_TERMINATE("Invalid subset schema mode."); // LCOV_EXCL_LINE
 }
 
 static inline realm_property_type_e to_capi(PropertyType type) noexcept
@@ -353,6 +394,7 @@ static inline Property from_capi(const realm_property_info_t& p) noexcept
     prop.link_origin_property_name = p.link_origin_property_name;
     prop.is_primary = Property::IsPrimary{bool(p.flags & RLM_PROPERTY_PRIMARY_KEY)};
     prop.is_indexed = Property::IsIndexed{bool(p.flags & RLM_PROPERTY_INDEXED)};
+    prop.is_fulltext_indexed = Property::IsFulltextIndexed{bool(p.flags & RLM_PROPERTY_FULLTEXT_INDEXED)};
 
     if (bool(p.flags & RLM_PROPERTY_NULLABLE)) {
         prop.type |= PropertyType::Nullable;
@@ -388,6 +430,8 @@ static inline realm_property_info_t to_capi(const Property& prop) noexcept
     p.flags = RLM_PROPERTY_NORMAL;
     if (prop.is_indexed)
         p.flags |= RLM_PROPERTY_INDEXED;
+    if (prop.is_fulltext_indexed)
+        p.flags |= RLM_PROPERTY_FULLTEXT_INDEXED;
     if (prop.is_primary)
         p.flags |= RLM_PROPERTY_PRIMARY_KEY;
     if (bool(prop.type & PropertyType::Nullable))
@@ -414,11 +458,21 @@ static inline realm_class_info_t to_capi(const ObjectSchema& o)
     info.num_properties = o.persisted_properties.size();
     info.num_computed_properties = o.computed_properties.size();
     info.key = o.table_key.value;
-    if (o.is_embedded) {
-        info.flags = RLM_CLASS_EMBEDDED;
-    }
-    else {
-        info.flags = RLM_CLASS_NORMAL;
+    switch (o.table_type) {
+        case ObjectSchema::ObjectType::Embedded: {
+            info.flags = RLM_CLASS_EMBEDDED;
+            break;
+        }
+        case ObjectSchema::ObjectType::TopLevelAsymmetric: {
+            info.flags = RLM_CLASS_ASYMMETRIC;
+            break;
+        }
+        case ObjectSchema::ObjectType::TopLevel: {
+            info.flags = RLM_CLASS_NORMAL;
+            break;
+        }
+        default:
+            REALM_TERMINATE(util::format("Invalid table type: %1", uint8_t(o.table_type)).c_str());
     }
     return info;
 }
@@ -429,6 +483,15 @@ static inline realm_version_id_t to_capi(const VersionID& v)
     version_id.version = v.version;
     version_id.index = v.index;
     return version_id;
+}
+
+static inline realm_error_t to_capi(const Status& s)
+{
+    realm_error_t err;
+    err.error = static_cast<realm_errno_e>(s.code());
+    err.categories = static_cast<realm_error_category_e>(ErrorCodes::error_categories(s.code()).value());
+    err.message = s.reason().c_str();
+    return err;
 }
 
 } // namespace realm::c_api

@@ -16,23 +16,24 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-
 #ifndef APP_UTILS_HPP
 #define APP_UTILS_HPP
 
-#include <realm/object-store/sync/generic_network_transport.hpp>
-#include <realm/object-store/sync/auth_request_client.hpp>
 #include <realm/util/optional.hpp>
-#include <string>
 
-namespace realm {
-namespace app {
+#include <map>
+
+namespace realm::app {
+struct AppError;
+struct Response;
+
 
 class AppUtils {
 public:
     static util::Optional<AppError> check_for_errors(const Response& response);
+    static const std::pair<const std::string, std::string>*
+    find_header(const std::string& key_name, const std::map<std::string, std::string>& search_map);
 };
-} // namespace app
-} // namespace realm
+} // namespace realm::app
 
 #endif /* APP_UTILS_HPP */

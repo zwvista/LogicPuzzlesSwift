@@ -27,6 +27,7 @@
 #import "RLMQueryUtil.hpp"
 #import "RLMRealm_Private.hpp"
 #import "RLMSchema.h"
+#import "RLMSectionedResults_Private.hpp"
 #import "RLMThreadSafeReference_Private.hpp"
 #import "RLMUtil.hpp"
 
@@ -121,65 +122,10 @@ void RLMEnsureSetObservationInfo(std::unique_ptr<RLMObservationInfo>& info,
     }
 }
 
-//
-// validation helpers
-//
-[[gnu::noinline]]
-[[noreturn]]
-static void throwError(__unsafe_unretained RLMManagedSet *const ar, NSString *aggregateMethod) {
-    try {
-        throw;
-    }
-    catch (realm::InvalidTransactionException const&) {
-        @throw RLMException(@"Cannot modify managed RLMSet outside of a write transaction.");
-    }
-    catch (realm::IncorrectThreadException const&) {
-        @throw RLMException(@"Realm accessed from incorrect thread.");
-    }
-    catch (realm::object_store::Set::InvalidatedException const&) {
-        @throw RLMException(@"RLMSet has been invalidated or the containing object has been deleted.");
-    }
-    catch (realm::object_store::Set::InvalidEmbeddedOperationException const&) {
-        @throw RLMException(@"Cannot add an embedded object to an RLMSet.");
-    }
-    catch (realm::Results::UnsupportedColumnTypeException const& e) {
-        if (ar->_backingSet.get_type() == realm::PropertyType::Object) {
-            @throw RLMException(@"%@: is not supported for %s%s property '%s'.",
-                                aggregateMethod,
-                                string_for_property_type(e.property_type),
-                                is_nullable(e.property_type) ? "?" : "",
-                                e.column_name.data());
-        }
-        @throw RLMException(@"%@: is not supported for %s%s set '%@.%@'.",
-                            aggregateMethod,
-                            string_for_property_type(e.property_type),
-                            is_nullable(e.property_type) ? "?" : "",
-                            ar->_ownerInfo->rlmObjectSchema.className, ar->_key);
-    }
-    catch (std::logic_error const& e) {
-        @throw RLMException(e);
-    }
-}
-
 template<typename Function>
-static auto translateErrors(__unsafe_unretained RLMManagedSet *const set,
-                            Function&& f, NSString *aggregateMethod=nil) {
-    try {
-        return f();
-    }
-    catch (...) {
-        throwError(set, aggregateMethod);
-    }
-}
-
-template<typename Function>
+__attribute__((always_inline))
 static auto translateErrors(Function&& f) {
-    try {
-        return f();
-    }
-    catch (...) {
-        throwError(nil, nil);
-    }
+    return translateCollectionError(static_cast<Function&&>(f), @"Set");
 }
 
 static void changeSet(__unsafe_unretained RLMManagedSet *const set,
@@ -302,8 +248,18 @@ static void ensureInWriteTransaction(NSString *message, RLMManagedSet *set, RLMM
     if (!managedSet) {
         @throw RLMException(@"Right hand side value must be a managed Set.");
     }
-    if (_type != managedSet->_type || _objectInfo != managedSet->_objectInfo) {
-        @throw RLMException(@"Set must match type of \"self\" '%@'", RLMTypeToString(_type));
+    if (_type != managedSet->_type) {
+        @throw RLMException(@"Cannot intersect sets of type '%@' and '%@'.",
+                            RLMTypeToString(_type), RLMTypeToString(managedSet->_type));
+    }
+    if (_realm != managedSet->_realm) {
+        @throw RLMException(@"Cannot insersect sets managed by different Realms.");
+    }
+    if (_objectInfo != managedSet->_objectInfo) {
+        @throw RLMException(@"Cannot intersect sets of type '%@' and '%@'.",
+                            _objectInfo->rlmObjectSchema.className,
+                            managedSet->_objectInfo->rlmObjectSchema.className);
+
     }
     return managedSet;
 }
@@ -370,6 +326,34 @@ static void ensureInWriteTransaction(NSString *message, RLMManagedSet *set, RLMM
     });
 }
 
+- (NSArray *)objectsAtIndexes:(NSIndexSet *)indexes {
+    size_t count = self.count;
+    NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:indexes.count];
+    RLMAccessorContext context(*_objectInfo);
+    for (NSUInteger i = indexes.firstIndex; i != NSNotFound; i = [indexes indexGreaterThanIndex:i]) {
+        if (i >= count) {
+            return nil;
+        }
+        [result addObject:_backingSet.get(context, i)];
+    }
+    return result;
+}
+
+- (id)firstObject {
+    return translateErrors([&] {
+        RLMAccessorContext context(*_objectInfo);
+        return _backingSet.size() ? _backingSet.get(context, 0) : nil;
+    });
+}
+
+- (id)lastObject {
+    return translateErrors([&] {
+        RLMAccessorContext context(*_objectInfo);
+        size_t size = _backingSet.size();
+        return size ? _backingSet.get(context, size - 1) : nil;
+    });
+}
+
 - (id)valueForKeyPath:(NSString *)keyPath {
     if ([keyPath hasPrefix:@"@"]) {
         // Delegate KVC collection operators to RLMResults
@@ -420,24 +404,24 @@ static void ensureInWriteTransaction(NSString *message, RLMManagedSet *set, RLMM
 
 - (id)minOfProperty:(NSString *)property {
     auto column = columnForProperty(property, _backingSet, _objectInfo, _type, RLMCollectionTypeSet);
-    auto value = translateErrors(self, [&] { return _backingSet.min(column); }, @"minOfProperty");
+    auto value = translateErrors([&] { return _backingSet.min(column); });
     return value ? RLMMixedToObjc(*value) : nil;
 }
 
 - (id)maxOfProperty:(NSString *)property {
     auto column = columnForProperty(property, _backingSet, _objectInfo, _type, RLMCollectionTypeSet);
-    auto value = translateErrors(self, [&] { return _backingSet.max(column); }, @"maxOfProperty");
+    auto value = translateErrors([&] { return _backingSet.max(column); });
     return value ? RLMMixedToObjc(*value) : nil;
 }
 
 - (id)sumOfProperty:(NSString *)property {
     auto column = columnForProperty(property, _backingSet, _objectInfo, _type, RLMCollectionTypeSet);
-    return RLMMixedToObjc(translateErrors(self, [&] { return _backingSet.sum(column); }, @"sumOfProperty"));
+    return RLMMixedToObjc(translateErrors([&] { return _backingSet.sum(column); }));
 }
 
 - (id)averageOfProperty:(NSString *)property {
     auto column = columnForProperty(property, _backingSet, _objectInfo, _type, RLMCollectionTypeSet);
-    auto value = translateErrors(self, [&] { return _backingSet.average(column); }, @"averageOfProperty");
+    auto value = translateErrors([&] { return _backingSet.average(column); });
     return value ? RLMMixedToObjc(*value) : nil;
 }
 
@@ -473,6 +457,19 @@ static void ensureInWriteTransaction(NSString *message, RLMManagedSet *set, RLMM
     return [RLMResults resultsWithObjectInfo:*_objectInfo results:std::move(results)];
 }
 
+- (RLMSectionedResults *)sectionedResultsSortedUsingKeyPath:(NSString *)keyPath
+                                                  ascending:(BOOL)ascending
+                                                   keyBlock:(RLMSectionedResultsKeyBlock)keyBlock {
+    return [[RLMSectionedResults alloc] initWithResults:[self sortedResultsUsingKeyPath:keyPath ascending:ascending]
+                                               keyBlock:keyBlock];
+}
+
+- (RLMSectionedResults *)sectionedResultsUsingSortDescriptors:(NSArray<RLMSortDescriptor *> *)sortDescriptors
+                                                     keyBlock:(RLMSectionedResultsKeyBlock)keyBlock {
+    return [[RLMSectionedResults alloc] initWithResults:[self sortedResultsUsingDescriptors:sortDescriptors]
+                                               keyBlock:keyBlock];
+}
+
 - (void)addObserver:(id)observer
          forKeyPath:(NSString *)keyPath
             options:(NSKeyValueObservingOptions)options
@@ -497,50 +494,32 @@ static void ensureInWriteTransaction(NSString *message, RLMManagedSet *set, RLMM
     return _realm.isFrozen;
 }
 
+- (instancetype)resolveInRealm:(RLMRealm *)realm {
+    auto& parentInfo = _ownerInfo->resolve(realm);
+    return translateErrors([&] {
+        return [[self.class alloc] initWithBackingCollection:_backingSet.freeze(realm->_realm)
+                                                  parentInfo:&parentInfo
+                                                    property:parentInfo.rlmObjectSchema[_key]];
+    });
+}
+
 - (instancetype)freeze {
     if (self.frozen) {
         return self;
     }
-
-    RLMRealm *frozenRealm = [_realm freeze];
-    auto& parentInfo = _ownerInfo->resolve(frozenRealm);
-    return translateRLMResultsErrors([&] {
-        return [[self.class alloc] initWithBackingCollection:_backingSet.freeze(frozenRealm->_realm)
-                                                  parentInfo:&parentInfo
-                                                    property:parentInfo.rlmObjectSchema[_key]];
-    });
+    return [self resolveInRealm:_realm.freeze];
 }
 
 - (instancetype)thaw {
     if (!self.frozen) {
         return self;
     }
-
-    RLMRealm *liveRealm = [_realm thaw];
-    auto& parentInfo = _ownerInfo->resolve(liveRealm);
-    return translateRLMResultsErrors([&] {
-        return [[self.class alloc] initWithBackingCollection:_backingSet.freeze(liveRealm->_realm)
-                                                  parentInfo:&parentInfo
-                                                    property:parentInfo.rlmObjectSchema[_key]];
-    });
+    return [self resolveInRealm:_realm.thaw];
 }
 
-// The compiler complains about the method's argument type not matching due to
-// it not having the generic type attached, but it doesn't seem to be possible
-// to actually include the generic type
-// http://www.openradar.me/radar?id=6135653276319744
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wmismatched-parameter-types"
-- (RLMNotificationToken *)addNotificationBlock:(void (^)(RLMSet *, RLMCollectionChange *, NSError *))block {
-    return RLMAddNotificationBlock(self, block, nil);
-}
-- (RLMNotificationToken *)addNotificationBlock:(void (^)(RLMSet *, RLMCollectionChange *, NSError *))block queue:(dispatch_queue_t)queue {
-    return RLMAddNotificationBlock(self, block, queue);
-}
-#pragma clang diagnostic pop
-
-realm::object_store::Set& RLMGetBackingCollection(RLMManagedSet *self) {
-    return self->_backingSet;
+- (realm::NotificationToken)addNotificationCallback:(id)block
+keyPaths:(std::optional<std::vector<std::vector<std::pair<realm::TableKey, realm::ColKey>>>>&&)keyPaths {
+    return _backingSet.add_notification_callback(RLMWrapCollectionChangeCallback(block, self, false), std::move(keyPaths));
 }
 
 #pragma mark - Thread Confined Protocol Conformance

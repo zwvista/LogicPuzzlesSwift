@@ -18,7 +18,7 @@
 
 #import <Realm/RLMMongoDatabase.h>
 
-NS_ASSUME_NONNULL_BEGIN
+RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
 
 @class RLMApp;
 
@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///
 /// - SeeAlso:
 /// `RLMApp`, `RLMMongoDatabase`, `RLMMongoCollection`
+RLM_SWIFT_SENDABLE RLM_FINAL // immutable final class
 @interface RLMMongoClient : NSObject
 
 /// The name of the client
@@ -43,4 +44,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END
+RLM_HEADER_AUDIT_END(nullability, sendability)

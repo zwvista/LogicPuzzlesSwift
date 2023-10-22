@@ -42,66 +42,14 @@
 }
 @end
 
-@interface RLMDictionaryChange ()
-- (instancetype)initWithChanges:(realm::DictionaryChangeSet)changes;
-@end
-
-namespace {
-struct DictionaryCallbackWrapper {
-    void (^block)(id, RLMDictionaryChange *, NSError *);
-    RLMManagedDictionary *collection;
-    realm::TransactionRef previousTransaction;
-    std::shared_ptr<realm::Dictionary> previousDictionary;
-
-    DictionaryCallbackWrapper(void (^block)(id, RLMDictionaryChange *, NSError *), RLMManagedDictionary *dictionary)
-    : block(block)
-    , collection(dictionary)
-    {
-        previousTransaction = static_cast<realm::Transaction&>(collection.realm.group).duplicate();
-        previousDictionary.reset(static_cast<realm::Dictionary*>(previousTransaction->import_copy_of(collection->_backingCollection.get_impl()).release()));
-
-    }
-
-    void operator()(realm::DictionaryChangeSet const& changes, std::exception_ptr err) {
-        if (err) {
-            previousTransaction->end_read();
-            try {
-                rethrow_exception(err);
-            }
-            catch (...) {
-                NSError *error = nil;
-                RLMRealmTranslateException(&error);
-                block(nil, nil, error);
-                return;
-            }
-        }
-
-        if (changes.deletions.empty() &&
-            changes.insertions.empty() &&
-            changes.modifications.empty()) {
-            block(collection, nil, nil);
-        }
-        else {
-            block(collection, [[RLMDictionaryChange alloc] initWithChanges:changes], nil);
-        }
-        if (collection.isInvalidated) {
-            previousTransaction->end_read();
-        }
-        else {
-            previousTransaction->advance_read(static_cast<realm::Transaction&>(collection.realm.group).get_version_of_current_transaction());
-        }
-    }
-};
-} //anonymous namespace
-
 @implementation RLMDictionaryChange {
     realm::DictionaryChangeSet _changes;
 }
 
-- (instancetype)initWithChanges:(realm::DictionaryChangeSet)changes {
+- (instancetype)initWithChanges:(realm::DictionaryChangeSet const&)changes {
     self = [super init];
     if (self) {
-        _changes = std::move(changes);
+        _changes = changes;
     }
     return self;
 }
@@ -212,56 +160,10 @@ void RLMEnsureDictionaryObservationInfo(std::unique_ptr<RLMObservationInfo>& inf
 //
 // validation helpers
 //
-[[gnu::noinline]]
-[[noreturn]]
-static void throwError(__unsafe_unretained RLMManagedDictionary *const dict, NSString *aggregateMethod) {
-    try {
-        throw;
-    }
-    catch (realm::InvalidTransactionException const&) {
-        @throw RLMException(@"Cannot modify managed RLMDictionary outside of a write transaction.");
-    }
-    catch (realm::IncorrectThreadException const&) {
-        @throw RLMException(@"Realm accessed from incorrect thread.");
-    }
-    catch (realm::Results::UnsupportedColumnTypeException const& e) {
-        if (dict->_backingCollection.get_type() == realm::PropertyType::Object) {
-            @throw RLMException(@"%@: is not supported for %s%s property '%s'.",
-                                aggregateMethod,
-                                string_for_property_type(e.property_type),
-                                dict->_optional ? "?" : "",
-                                e.column_name.data());
-        }
-        @throw RLMException(@"%@: is not supported for %s%s dictionary '%@.%@'.",
-                            aggregateMethod,
-                            string_for_property_type(e.property_type),
-                            dict->_optional ? "?" : "",
-                            dict->_ownerInfo->rlmObjectSchema.className, dict->_key);
-    }
-    catch (std::logic_error const& e) {
-        @throw RLMException(e);
-    }
-}
-
 template<typename Function>
-static auto translateErrors(__unsafe_unretained RLMManagedDictionary *const dictionary,
-                            Function&& f, NSString *aggregateMethod=nil) {
-    try {
-        return f();
-    }
-    catch (...) {
-        throwError(dictionary, aggregateMethod);
-    }
-}
-
-template<typename Function>
+__attribute__((always_inline))
 static auto translateErrors(Function&& f) {
-    try {
-        return f();
-    }
-    catch (...) {
-        throwError(nil, nil);
-    }
+    return translateCollectionError(static_cast<Function&&>(f), @"Dictionary");
 }
 
 static void changeDictionary(__unsafe_unretained RLMManagedDictionary *const dict,
@@ -368,29 +270,16 @@ static NSMutableArray *resultsToArray(RLMClassInfo& info, realm::Results r) {
     RLMAccessorContext context(*_objectInfo);
     changeDictionary(self, [&] {
         for (id key in keyArray) {
-            try {
-                _backingCollection.erase(context.unbox<realm::StringData>(key));
-            }
-            catch (realm::KeyNotFound const&) {
-                continue;
-            }
+            _backingCollection.try_erase(context.unbox<realm::StringData>(key));
         }
     });
 }
 
 - (void)removeObjectForKey:(id)key {
-    try {
-        changeDictionary(self, ^{
-            RLMAccessorContext context(*_objectInfo);
-            _backingCollection.erase(context.unbox<realm::StringData>(key));
-        });
-    }
-    catch (realm::KeyNotFound const&) {
-        return;
-    }
-    catch (...) {
-        throwError(nil, nil);
-    }
+    changeDictionary(self, ^{
+        RLMAccessorContext context(*_objectInfo);
+        _backingCollection.try_erase(context.unbox<realm::StringData>(key));
+    });
 }
 
 - (void)enumerateKeysAndObjectsUsingBlock:(void (^)(id key, id obj, BOOL *stop))block {
@@ -463,33 +352,33 @@ static NSMutableArray *resultsToArray(RLMClassInfo& info, realm::Results r) {
 
 - (id)minOfProperty:(NSString *)property {
     auto column = columnForProperty(property, _backingCollection, _objectInfo, _type, RLMCollectionTypeDictionary);
-    auto value = translateErrors(self, [&] {
+    auto value = translateErrors([&] {
         return _backingCollection.as_results().min(column);
-    }, @"minOfProperty");
+    });
     return value ? RLMMixedToObjc(*value) : nil;
 }
 
 - (id)maxOfProperty:(NSString *)property {
     auto column = columnForProperty(property, _backingCollection, _objectInfo, _type, RLMCollectionTypeDictionary);
-    auto value = translateErrors(self, [&] {
+    auto value = translateErrors([&] {
         return _backingCollection.as_results().max(column);
-    }, @"maxOfProperty");
+    });
     return value ? RLMMixedToObjc(*value) : nil;
 }
 
 - (id)sumOfProperty:(NSString *)property {
     auto column = columnForProperty(property, _backingCollection, _objectInfo, _type, RLMCollectionTypeDictionary);
-    auto value = translateErrors(self, [&] {
+    auto value = translateErrors([&] {
         return _backingCollection.as_results().sum(column);
-    }, @"sumOfProperty");
+    });
     return value ? RLMMixedToObjc(*value) : @0;
 }
 
 - (id)averageOfProperty:(NSString *)property {
     auto column = columnForProperty(property, _backingCollection, _objectInfo, _type, RLMCollectionTypeDictionary);
-    auto value = translateErrors(self, [&] {
+    auto value = translateErrors([&] {
         return _backingCollection.as_results().average(column);
-    }, @"averageOfProperty");
+    });
     return value ? RLMMixedToObjc(*value) : nil;
 }
 
@@ -562,50 +451,63 @@ static NSMutableArray *resultsToArray(RLMClassInfo& info, realm::Results r) {
     return _realm.isFrozen;
 }
 
+- (instancetype)resolveInRealm:(RLMRealm *)realm {
+    auto& parentInfo = _ownerInfo->resolve(realm);
+    return translateErrors([&] {
+        return [[self.class alloc] initWithBackingCollection:_backingCollection.freeze(realm->_realm)
+                                                  parentInfo:&parentInfo
+                                                    property:parentInfo.rlmObjectSchema[_key]];
+    });
+}
+
 - (instancetype)freeze {
     if (self.frozen) {
         return self;
     }
-
-    RLMRealm *frozenRealm = [_realm freeze];
-    auto& parentInfo = _ownerInfo->resolve(frozenRealm);
-    return translateRLMResultsErrors([&] {
-        return [[self.class alloc] initWithBackingCollection:_backingCollection.freeze(frozenRealm->_realm)
-                                                  parentInfo:&parentInfo
-                                                    property:parentInfo.rlmObjectSchema[_key]];
-    });
+    return [self resolveInRealm:_realm.freeze];
 }
 
 - (instancetype)thaw {
     if (!self.frozen) {
         return self;
     }
-
-    RLMRealm *liveRealm = [_realm thaw];
-    auto& parentInfo = _ownerInfo->resolve(liveRealm);
-    return translateRLMResultsErrors([&] {
-        return [[self.class alloc] initWithBackingCollection:_backingCollection.freeze(liveRealm->_realm)
-                                                  parentInfo:&parentInfo
-                                                    property:parentInfo.rlmObjectSchema[_key]];
-    });
+    return [self resolveInRealm:_realm.thaw];
 }
 
-// The compiler complains about the method's argument type not matching due to
-// it not having the generic type attached, but it doesn't seem to be possible
-// to actually include the generic type
-// http://www.openradar.me/radar?id=6135653276319744
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wmismatched-parameter-types"
-- (RLMNotificationToken *)addNotificationBlock:(void (^)(RLMDictionary *, RLMDictionaryChange *, NSError *))block {
-    return RLMAddNotificationBlock(self, block, nil);
-}
-- (RLMNotificationToken *)addNotificationBlock:(void (^)(RLMDictionary *, RLMDictionaryChange *, NSError *))block queue:(dispatch_queue_t)queue {
-    return RLMAddNotificationBlock(self, block, queue);
-}
-#pragma clang diagnostic pop
+namespace {
+struct DictionaryCallbackWrapper {
+    void (^block)(id, RLMDictionaryChange *, NSError *);
+    RLMManagedDictionary *collection;
+    realm::TransactionRef previousTransaction;
 
-realm::object_store::Dictionary& RLMGetBackingCollection(RLMManagedDictionary *self) {
-    return self->_backingCollection;
+    DictionaryCallbackWrapper(void (^block)(id, RLMDictionaryChange *, NSError *), RLMManagedDictionary *dictionary)
+    : block(block)
+    , collection(dictionary)
+    , previousTransaction(static_cast<realm::Transaction&>(collection.realm.group).duplicate())
+    {
+    }
+
+    void operator()(realm::DictionaryChangeSet const& changes) {
+        if (changes.deletions.empty() && changes.insertions.empty() && changes.modifications.empty()) {
+            block(collection, nil, nil);
+        }
+        else {
+            block(collection, [[RLMDictionaryChange alloc] initWithChanges:changes], nil);
+        }
+        if (collection.isInvalidated) {
+            previousTransaction->end_read();
+        }
+        else {
+            previousTransaction->advance_read(static_cast<realm::Transaction&>(collection.realm.group).get_version_of_current_transaction());
+        }
+    }
+};
+} // anonymous namespace
+
+- (realm::NotificationToken)addNotificationCallback:(id)block
+keyPaths:(std::optional<std::vector<std::vector<std::pair<realm::TableKey, realm::ColKey>>>>&&)keyPaths {
+    return _backingCollection.add_key_based_notification_callback(DictionaryCallbackWrapper{block, self},
+                                                                  std::move(keyPaths));
 }
 
 #pragma mark - Thread Confined Protocol Conformance
@@ -632,39 +534,6 @@ realm::object_store::Dictionary& RLMGetBackingCollection(RLMManagedDictionary *s
     return [[RLMManagedDictionary alloc] initWithBackingCollection:std::move(dictionary)
                                                         parentInfo:parentInfo
                                                           property:parentInfo->rlmObjectSchema[metadata.key]];
-}
-
-static RLMNotificationToken *RLMAddNotificationBlock(RLMManagedDictionary *collection,
-                                                     void (^block)(id, RLMDictionaryChange *, NSError *),
-                                                     dispatch_queue_t queue) {
-    RLMRealm *realm = collection.realm;
-    auto token = [[RLMCancellationToken alloc] init];
-
-    if (!queue) {
-        [realm verifyNotificationsAreSupported:true];
-        token->_realm = realm;
-        token->_token = RLMGetBackingCollection(collection).add_key_based_notification_callback(DictionaryCallbackWrapper{block, collection});
-        return token;
-    }
-
-    RLMThreadSafeReference *tsr = [RLMThreadSafeReference referenceWithThreadConfined:collection];
-    token->_realm = realm;
-    RLMRealmConfiguration *config = realm.configuration;
-    dispatch_async(queue, ^{
-        std::lock_guard<std::mutex> lock(token->_mutex);
-        if (!token->_realm) {
-            return;
-        }
-        NSError *error;
-        RLMRealm *realm = token->_realm = [RLMRealm realmWithConfiguration:config queue:queue error:&error];
-        if (!realm) {
-            block(nil, nil, error);
-            return;
-        }
-        RLMManagedDictionary *collection = [realm resolveThreadSafeReference:tsr];
-        token->_token = RLMGetBackingCollection(collection).add_key_based_notification_callback(DictionaryCallbackWrapper{block, collection});
-    });
-    return token;
 }
 
 @end

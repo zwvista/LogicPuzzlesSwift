@@ -76,6 +76,20 @@ realm::ColKey RLMClassInfo::tableColumn(RLMProperty *property) const {
     return objectSchema->persisted_properties[property.index].column_key;
 }
 
+realm::ColKey RLMClassInfo::computedTableColumn(RLMProperty *property) const {
+    // Retrieve the table key and class info for the origin property
+    // that corresponds to the target property.
+    RLMClassInfo& originInfo = realm->_info[property.objectClassName];
+    TableKey originTableKey = originInfo.objectSchema->table_key;
+
+    TableRef originTable = realm.group.get_table(originTableKey);
+    // Get the column key for origin's forward link that links to the property on the target.
+    ColKey forwardLinkKey = originInfo.tableColumn(property.linkOriginPropertyName);
+
+    // The column key opposite of the origin's forward link is the target's backlink property.
+    return originTable->get_opposite_column(forwardLinkKey);
+}
+
 RLMClassInfo &RLMClassInfo::linkTargetType(size_t propertyIndex) {
     return realm->_info[rlmObjectSchema.properties[propertyIndex].objectClassName];
 }
@@ -97,6 +111,51 @@ bool RLMClassInfo::isDynamic() const noexcept {
     return !!dynamicObjectSchema;
 }
 
+static KeyPath keyPathFromString(RLMRealm *realm,
+                                 RLMSchema *schema,
+                                 const RLMClassInfo *info,
+                                 RLMObjectSchema *rlmObjectSchema,
+                                 NSString *keyPath) {
+    KeyPath keyPairs;
+
+    for (NSString *component in [keyPath componentsSeparatedByString:@"."]) {
+        RLMProperty *property = rlmObjectSchema[component];
+        if (!property) {
+            throw RLMException(@"Invalid property name: property '%@' not found in object of type '%@'",
+                               component, rlmObjectSchema.className);
+        }
+
+        TableKey tk = info->objectSchema->table_key;
+        ColKey ck;
+        if (property.type == RLMPropertyTypeObject) {
+            ck = info->tableColumn(property.name);
+            info = &realm->_info[property.objectClassName];
+            rlmObjectSchema = schema[property.objectClassName];
+        } else if (property.type == RLMPropertyTypeLinkingObjects) {
+            ck = info->computedTableColumn(property);
+            info = &realm->_info[property.objectClassName];
+            rlmObjectSchema = schema[property.objectClassName];
+        } else {
+            ck = info->tableColumn(property.name);
+        }
+
+        keyPairs.emplace_back(tk, ck);
+    }
+    return keyPairs;
+}
+
+std::optional<realm::KeyPathArray> RLMClassInfo::keyPathArrayFromStringArray(NSArray<NSString *> *keyPaths) const {
+    std::optional<KeyPathArray> keyPathArray;
+    if (keyPaths.count) {
+        keyPathArray.emplace();
+        for (NSString *keyPath in keyPaths) {
+            keyPathArray->push_back(keyPathFromString(realm, realm.schema, this,
+                                                      rlmObjectSchema, keyPath));
+        }
+    }
+    return keyPathArray;
+}
+
 RLMSchemaInfo::impl::iterator RLMSchemaInfo::begin() noexcept { return m_objects.begin(); }
 RLMSchemaInfo::impl::iterator RLMSchemaInfo::end() noexcept { return m_objects.end(); }
 RLMSchemaInfo::impl::const_iterator RLMSchemaInfo::begin() const noexcept { return m_objects.begin(); }
@@ -113,10 +172,10 @@ RLMClassInfo& RLMSchemaInfo::operator[](NSString *name) {
     return *&it->second;
 }
 
-RLMClassInfo* RLMSchemaInfo::operator[](realm::TableKey const& key) {
-    for (auto& pair : m_objects) {
-        if (pair.second.objectSchema->table_key == key)
-            return &pair.second;
+RLMClassInfo* RLMSchemaInfo::operator[](realm::TableKey key) {
+    for (auto& [name, info] : m_objects) {
+        if (info.objectSchema->table_key == key)
+            return &info;
     }
     return nullptr;
 }
@@ -168,4 +227,3 @@ void RLMSchemaInfo::appendDynamicObjectSchema(std::unique_ptr<realm::ObjectSchem
                       std::forward_as_tuple(target_realm, objectSchema,
                                             std::move(schema)));
 }
-

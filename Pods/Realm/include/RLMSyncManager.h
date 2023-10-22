@@ -16,14 +16,14 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#import <Foundation/Foundation.h>
-
-#import <Realm/RLMSyncUtil.h>
+#import <Realm/RLMConstants.h>
 
 @class RLMSyncSession, RLMSyncTimeoutOptions, RLMAppConfiguration;
 
-NS_ASSUME_NONNULL_BEGIN
+RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
 
+// NEXT-MAJOR: This enum needs to be removed when access to the logger is removed
+// from the sync manager. 
 /// An enum representing different levels of sync-related logging that can be configured.
 typedef RLM_CLOSED_ENUM(NSUInteger, RLMSyncLogLevel) {
     /// Nothing will ever be logged.
@@ -52,19 +52,25 @@ typedef RLM_CLOSED_ENUM(NSUInteger, RLMSyncLogLevel) {
     RLMSyncLogLevelAll
 };
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 /// A log callback function which can be set on RLMSyncManager.
 ///
 /// The log function may be called from multiple threads simultaneously, and is
 /// responsible for performing its own synchronization if any is required.
-typedef void (*RLMSyncLogFunction)(RLMSyncLogLevel level, NSString *message);
+RLM_SWIFT_SENDABLE // invoked on a background thread
+typedef void (^RLMSyncLogFunction)(RLMSyncLogLevel level, NSString *message);
+#pragma clang diagnostic pop
 
 /// A block type representing a block which can be used to report a sync-related error to the application. If the error
 /// pertains to a specific session, that session will also be passed into the block.
+RLM_SWIFT_SENDABLE // invoked on a background thread
 typedef void(^RLMSyncErrorReportingBlock)(NSError *, RLMSyncSession * _Nullable);
 
 /**
- A singleton manager which serves as a central point for sync-related configuration.
+ A manager which serves as a central point for sync-related configuration.
  */
+RLM_SWIFT_SENDABLE RLM_FINAL // is internally thread-safe
 @interface RLMSyncManager : NSObject
 
 /**
@@ -79,13 +85,11 @@ typedef void(^RLMSyncErrorReportingBlock)(NSError *, RLMSyncSession * _Nullable)
 
  @see `RLMSyncError`
  */
-@property (nullable, nonatomic, copy) RLMSyncErrorReportingBlock errorHandler;
+@property (nullable, atomic, copy) RLMSyncErrorReportingBlock errorHandler;
 
-/**
- A reverse-DNS string uniquely identifying this application. In most cases this
- is automatically set by the SDK, and does not have to be explicitly configured.
- */
-@property (nonatomic, copy) NSString *appID;
+/// :nodoc:
+@property (nonatomic, copy) NSString *appID
+__attribute__((deprecated("This property is not used for anything")));
 
 /**
  A string identifying this application which is included in the User-Agent
@@ -95,7 +99,7 @@ typedef void(^RLMSyncErrorReportingBlock)(NSError *, RLMSyncSession * _Nullable)
  This property must be set prior to opening a synchronized Realm for the first
  time. Any modifications made after opening a Realm will be ignored.
  */
-@property (nonatomic, copy) NSString *userAgent;
+@property (atomic, copy) NSString *userAgent;
 
 /**
  The logging threshold which newly opened synced Realms will use. Defaults to
@@ -107,7 +111,8 @@ typedef void(^RLMSyncErrorReportingBlock)(NSError *, RLMSyncSession * _Nullable)
  @warning This property must be set before any synced Realms are opened. Setting it after
           opening any synced Realm will do nothing.
  */
-@property (nonatomic) RLMSyncLogLevel logLevel;
+@property (atomic) RLMSyncLogLevel logLevel
+__attribute__((deprecated("Use `RLMLogger.default.level`/`Logger.shared.level` to set/get the default logger threshold level.")));
 
 /**
  The function which will be invoked whenever the sync client has a log message.
@@ -115,23 +120,24 @@ typedef void(^RLMSyncErrorReportingBlock)(NSError *, RLMSyncSession * _Nullable)
  If nil, log strings are output to Apple System Logger instead.
 
  @warning This property must be set before any synced Realms are opened. Setting
- it after opening any synced Realm will do nothing.
+          it after opening any synced Realm will do nothing.
  */
-@property (nonatomic, nullable) RLMSyncLogFunction logger;
+@property (atomic, nullable) RLMSyncLogFunction logger
+__attribute__((deprecated("Use `RLMLogger.default`/`Logger.shared` to set/get the default logger.")));
 
 /**
- The name of the HTTP header to send authorization data in when making requests to MongoDB Realm which has
+ The name of the HTTP header to send authorization data in when making requests to Atlas App Services which has
  been configured to expect a custom authorization header.
  */
-@property (nullable, nonatomic, copy) NSString *authorizationHeaderName;
+@property (nullable, atomic, copy) NSString *authorizationHeaderName;
 
 /**
- Extra HTTP headers to append to every request to MongoDB Realm.
+ Extra HTTP headers to append to every request to Atlas App Services.
 
  Modifying this property while sync sessions are active will result in all
  sessions disconnecting and reconnecting using the new headers.
  */
-@property (nullable, nonatomic, copy) NSDictionary<NSString *, NSString *> *customRequestHeaders;
+@property (nullable, atomic, copy) NSDictionary<NSString *, NSString *> *customRequestHeaders;
 
 /**
  Options for the assorted types of connection timeouts for sync connections.
@@ -141,7 +147,7 @@ typedef void(^RLMSyncErrorReportingBlock)(NSError *, RLMSyncSession * _Nullable)
  @warning This property must be set before any synced Realms are opened. Setting
  it after opening any synced Realm will do nothing.
  */
-@property (nullable, nonatomic, copy) RLMSyncTimeoutOptions *timeoutOptions;
+@property (nullable, atomic, copy) RLMSyncTimeoutOptions *timeoutOptions;
 
 /// :nodoc:
 - (instancetype)init __attribute__((unavailable("RLMSyncManager cannot be created directly")));
@@ -167,7 +173,7 @@ typedef void(^RLMSyncErrorReportingBlock)(NSError *, RLMSyncSession * _Nullable)
 /// sessions have been abandoned.
 ///
 /// After all synchronized Realms have been closed for a given server, the
-/// connection is kept open until the linger time has expire to avoid the
+/// connection is kept open until the linger time has expired to avoid the
 /// overhead of reestablishing the connection when Realms are being closed and
 /// reopened.
 ///
@@ -212,11 +218,6 @@ typedef void(^RLMSyncErrorReportingBlock)(NSError *, RLMSyncSession * _Nullable)
 ///
 /// Defaults to 1 minute.
 @property (nonatomic) NSUInteger fastReconnectLimit;
-
-/// The app configuration that has initialized this SyncManager.
-/// This can be set multiple times. This gives the SyncManager
-/// access to necessary app functionality.
-@property (nonatomic, readonly) RLMAppConfiguration *appConfiguration;
 @end
 
-NS_ASSUME_NONNULL_END
+RLM_HEADER_AUDIT_END(nullability, sendability)

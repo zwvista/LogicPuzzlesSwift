@@ -21,7 +21,7 @@ import Realm
 import Realm.Private
 
 /// :nodoc:
-public protocol _MapKey: Hashable {
+public protocol _MapKey: Hashable, _ObjcBridgeable {
     static var _rlmType: RLMPropertyType { get }
 }
 extension String: _MapKey { }
@@ -35,16 +35,14 @@ extension String: _MapKey { }
 
  - Note: Optional versions of the above types *except* `Object` are only supported in non-synchronized Realms.
  
- Map only supports String as a key.
- 
+ Map only supports `String` as a key.  Realm disallows the use of `.` or `$` characters within a dictionary key.
+
  Unlike Swift's native collections, `Map`s is a reference types, and are only immutable if the Realm that manages them
  is opened as read-only.
  
  A Map can be filtered and sorted with the same predicates as `Results<Value>`.
- 
- Properties of `Map` type defined on `Object` subclasses must be declared as `let` and cannot be `dynamic`.
 */
-public final class Map<Key, Value>: RLMSwiftCollectionBase where Key: _MapKey, Value: RealmCollectionValue {
+public final class Map<Key: _MapKey, Value: RealmCollectionValue>: RLMSwiftCollectionBase {
 
     // MARK: Properties
 
@@ -61,12 +59,12 @@ public final class Map<Key, Value>: RLMSwiftCollectionBase where Key: _MapKey, V
 
     /// Returns all of the keys in this map.
     public var keys: [Key] {
-        return rlmDictionary.allKeys.map(dynamicBridgeCast)
+        return rlmDictionary.allKeys.map(staticBridgeCast)
     }
 
     /// Returns all of the values in this map.
     public var values: [Value] {
-        return rlmDictionary.allValues.map(dynamicBridgeCast)
+        return rlmDictionary.allValues.map(staticBridgeCast)
     }
 
     // MARK: Initializers
@@ -75,7 +73,10 @@ public final class Map<Key, Value>: RLMSwiftCollectionBase where Key: _MapKey, V
     public override init() {
         super.init()
     }
-
+    /// :nodoc:
+    public override init(collection: RLMCollection) {
+        super.init(collection: collection)
+    }
     internal init(objc rlmDictionary: RLMDictionary<AnyObject, AnyObject>) {
         super.init(collection: rlmDictionary)
     }
@@ -99,7 +100,7 @@ public final class Map<Key, Value>: RLMSwiftCollectionBase where Key: _MapKey, V
      - parameter forKey: The direction to sort in.
      */
     public func updateValue(_ value: Value, forKey key: Key) {
-        rlmDictionary[objcKey(from: key)] = dynamicBridgeCast(fromSwift: value) as AnyObject
+        rlmDictionary[objcKey(from: key)] = staticBridgeCast(fromSwift: value) as AnyObject
     }
 
     /**
@@ -127,11 +128,11 @@ public final class Map<Key, Value>: RLMSwiftCollectionBase where Key: _MapKey, V
             let key = objcKey(from: key)
             var selectedValue: Value
             if let existing = rlmDictionary[key] {
-                selectedValue = try combine(dynamicBridgeCast(fromObjectiveC: existing), value)
+                selectedValue = try combine(staticBridgeCast(fromObjectiveC: existing), value)
             } else {
                 selectedValue = value
             }
-            rlmDictionary[key] = dynamicBridgeCast(fromSwift: selectedValue) as AnyObject
+            rlmDictionary[key] = staticBridgeCast(fromSwift: selectedValue) as AnyObject
         }
     }
 
@@ -192,15 +193,15 @@ public final class Map<Key, Value>: RLMSwiftCollectionBase where Key: _MapKey, V
     public subscript(key: Key) -> Value? {
         get {
             if let lastAccessedNames = lastAccessedNames {
-                return Value._rlmKeyPathRecorder(with: lastAccessedNames)
+                return ((Value.self as! KeypathRecorder.Type).keyPathRecorder(with: lastAccessedNames) as! Value)
             }
-            return rlmDictionary[objcKey(from: key)].map(dynamicBridgeCast)
+            return rlmDictionary[objcKey(from: key)].map(staticBridgeCast)
         }
         set {
             if newValue == nil {
                 rlmDictionary.removeObject(forKey: key as AnyObject)
             } else {
-                rlmDictionary[objcKey(from: key)] = dynamicBridgeCast(fromSwift: newValue) as AnyObject
+                rlmDictionary[objcKey(from: key)] = staticBridgeCast(fromSwift: newValue) as AnyObject
             }
         }
     }
@@ -235,7 +236,7 @@ public final class Map<Key, Value>: RLMSwiftCollectionBase where Key: _MapKey, V
      */
     @nonobjc public func value(forKeyPath keyPath: String) -> AnyObject? {
         return rlmDictionary.value(forKeyPath: keyPath)
-            .map { dynamicBridgeCast(fromObjectiveC: $0) }
+            .map(dynamicBridgeCast)
     }
 
     /**
@@ -264,6 +265,26 @@ public final class Map<Key, Value>: RLMSwiftCollectionBase where Key: _MapKey, V
     }
 
     /**
+     Returns a `Results` containing all matching values in the map with the given query.
+
+     - Note: This should only be used with classes using the `@Persistable` property declaration.
+
+     - Usage:
+     ```
+     myMap.where {
+        ($0.fooCol > 5) && ($0.barCol == "foobar")
+     }
+     ```
+
+     - Note: See ``Query`` for more information on what query operations are available.
+
+     - parameter isIncluded: The query closure with which to filter the objects.
+     */
+    public func `where`(_ isIncluded: ((Query<Value>) -> Query<Bool>)) -> Results<Value> {
+        return filter(isIncluded(Query()).predicate)
+    }
+
+    /**
      Returns a Boolean value indicating whether the Map contains the key-value pair
      satisfies the given predicate
 
@@ -272,7 +293,7 @@ public final class Map<Key, Value>: RLMSwiftCollectionBase where Key: _MapKey, V
     public func contains(where predicate: @escaping (_ key: Key, _ value: Value) -> Bool) -> Bool {
         var found = false
         rlmDictionary.enumerateKeysAndObjects { (k, v, shouldStop) in
-            if predicate(dynamicBridgeCast(fromObjectiveC: k), dynamicBridgeCast(fromObjectiveC: v)) {
+            if predicate(staticBridgeCast(fromObjectiveC: k), staticBridgeCast(fromObjectiveC: v)) {
                 found = true
                 shouldStop.pointee = true
             }
@@ -334,8 +355,8 @@ public final class Map<Key, Value>: RLMSwiftCollectionBase where Key: _MapKey, V
 
      - parameter property: The name of a property whose minimum value is desired.
      */
-    public func min<T: MinMaxType>(ofProperty property: String) -> T? {
-        return rlmDictionary.min(ofProperty: property).map(dynamicBridgeCast)
+    public func min<T: _HasPersistedType>(ofProperty property: String) -> T? where T.PersistedType: MinMaxType {
+        return rlmDictionary.min(ofProperty: property).map(staticBridgeCast)
     }
 
     /**
@@ -346,8 +367,8 @@ public final class Map<Key, Value>: RLMSwiftCollectionBase where Key: _MapKey, V
 
      - parameter property: The name of a property whose minimum value is desired.
      */
-    public func max<T: MinMaxType>(ofProperty property: String) -> T? {
-        return rlmDictionary.max(ofProperty: property).map(dynamicBridgeCast)
+    public func max<T: _HasPersistedType>(ofProperty property: String) -> T? where T.PersistedType: MinMaxType {
+        return rlmDictionary.max(ofProperty: property).map(staticBridgeCast)
     }
 
     /**
@@ -357,8 +378,8 @@ public final class Map<Key, Value>: RLMSwiftCollectionBase where Key: _MapKey, V
 
     - parameter property: The name of a property conforming to `AddableType` to calculate sum on.
     */
-    public func sum<T: AddableType>(ofProperty property: String) -> T {
-        return dynamicBridgeCast(fromObjectiveC: rlmDictionary.sum(ofProperty: property))
+    public func sum<T: _HasPersistedType>(ofProperty property: String) -> T where T.PersistedType: AddableType {
+        return staticBridgeCast(fromObjectiveC: rlmDictionary.sum(ofProperty: property))
     }
 
     /**
@@ -369,8 +390,8 @@ public final class Map<Key, Value>: RLMSwiftCollectionBase where Key: _MapKey, V
 
      - parameter property: The name of a property whose values should be summed.
      */
-    public func average<T: AddableType>(ofProperty property: String) -> T? {
-        return rlmDictionary.average(ofProperty: property).map(dynamicBridgeCast)
+    public func average<T: _HasPersistedType>(ofProperty property: String) -> T? where T.PersistedType: AddableType {
+        return rlmDictionary.average(ofProperty: property).map(staticBridgeCast)
     }
 
     // MARK: Notifications
@@ -383,10 +404,6 @@ public final class Map<Key, Value>: RLMSwiftCollectionBase where Key: _MapKey, V
 
      The `change` parameter that is passed to the block reports, in the form of keys within the map, which of
      the key-value pairs were added, removed, or modified during each write transaction.
-
-     At the time when the block is called, the map will be fully evaluated and up-to-date, and as long as you do
-     not perform a write transaction on the same thread or explicitly call `realm.refresh()`, accessing it will never
-     perform blocking work.
 
      If no queue is given, notifications are delivered via the standard run loop, and so can't be delivered while the
      run loop is blocked by other activity. If a queue is given, notifications are delivered to that queue instead. When
@@ -417,24 +434,272 @@ public final class Map<Key, Value>: RLMSwiftCollectionBase where Key: _MapKey, V
      try! realm.write {
          myStringMap["nameOfDog"] = "Rex"
      }
-     // end of run loop execution context
      ```
+
+     If no key paths are given, the block will be executed on any insertion,
+     modification, or deletion for all object properties and the properties of
+     any nested, linked objects. If a key path or key paths are provided,
+     then the block will be called for changes which occur only on the
+     provided key paths. For example, if:
+     ```swift
+     class Dog: Object {
+         @Persisted var name: String
+         @Persisted var age: Int
+         @Persisted var toys: List<Toy>
+     }
+     // ...
+     let dogs = myObject.mapOfDogs
+     let token = dogs.observe(keyPaths: ["name"]) { changes in
+         switch changes {
+         case .initial(let dogs):
+            // ...
+         case .update:
+            // This case is hit:
+            // - after the token is initialized
+            // - when the name property of an object in the
+            // collection is modified
+            // - when an element is inserted or removed
+            //   from the collection.
+            // This block is not triggered:
+            // - when a value other than name is modified on
+            //   one of the elements.
+         case .error:
+             // ...
+         }
+     }
+     ```
+     - If the observed key path were `["toys.brand"]`, then any insertion or
+     deletion to the `toys` list on any of the collection's elements would trigger the block.
+     Changes to the `brand` value on any `Toy` that is linked to a `Dog` in this
+     collection will trigger the block. Changes to a value other than `brand` on any `Toy` that
+     is linked to a `Dog` in this collection would not trigger the block.
+     Any insertion or removal to the `Dog` type collection being observed
+     would also trigger a notification.
+     - If the above example observed the `["toys"]` key path, then any insertion,
+     deletion, or modification to the `toys` list for any element in the collection
+     would trigger the block.
+     Changes to any value on any `Toy` that is linked to a `Dog` in this collection
+     would *not* trigger the block.
+     Any insertion or removal to the `Dog` type collection being observed
+     would still trigger a notification.
+
+     - note: Multiple notification tokens on the same object which filter for
+     separate key paths *do not* filter exclusively. If one key path
+     change is satisfied for one notification token, then all notification
+     token blocks for that object will execute.
 
      You must retain the returned token for as long as you want updates to be sent to the block. To stop receiving
      updates, call `invalidate()` on the token.
 
      - warning: This method cannot be called during a write transaction, or when the containing Realm is read-only.
 
+     - parameter keyPaths: Only properties contained in the key paths array will trigger
+                           the block when they are modified. If `nil`, notifications
+                           will be delivered for any property change on the object.
+                           String key paths which do not correspond to a valid a property
+                           will throw an exception.
+                           See description above for more detail on linked properties.
+     - note: The keyPaths parameter refers to object properties of the collection type and
+             *does not* refer to particular key/value pairs within the Map.
      - parameter queue: The serial dispatch queue to receive notification on. If
                         `nil`, notifications are delivered to the current thread.
      - parameter block: The block to be called whenever a change occurs.
      - returns: A token which must be held for as long as you want updates to be delivered.
      */
-    public func observe(on queue: DispatchQueue?,
+    public func observe(keyPaths: [String]? = nil,
+                        on queue: DispatchQueue? = nil,
                         _ block: @escaping (RealmMapChange<Map>) -> Void)
     -> NotificationToken {
-        return rlmDictionary.addNotificationBlock(wrapDictionaryObserveBlock(block), queue: queue)
+        var col: Map?
+        let wrapped = { (collection: RLMDictionary<AnyObject, AnyObject>?, change: RLMDictionaryChange?, error: Error?) in
+            if col == nil, let collection = collection {
+                col = collection === self._rlmCollection ? self : Self(objc: collection)
+            }
+            block(.fromObjc(value: col, change: change, error: error))
+        }
+        return rlmDictionary.addNotificationBlock(wrapped, keyPaths: keyPaths, queue: queue)
     }
+
+#if swift(>=5.8)
+    /**
+    Registers a block to be called each time the map changes.
+
+    The block will be asynchronously called on the actor with the initial map, and
+    then called again after each write transaction which changes either which keys
+    are present in the map or the values of any of the objects.
+
+    The `change` parameter that is passed to the block reports, in the form of keys
+    within the map, which of the key-value pairs were added, removed, or modified
+    during each write transaction.
+
+    Notifications are delivered to a function isolated to the given actor, on that
+    actors executor. If the actor is performing blocking work, multiple
+    notifications may be coalesced into a single notification. This can include the
+    notification with the initial collection, and changes are only reported for
+    writes which occur after the initial notification is delivered.
+
+    If no key paths are given, the block will be executed on any insertion,
+    modification, or deletion for all object properties and the properties of any
+    nested, linked objects. If a key path or key paths are provided, then the block
+    will be called for changes which occur only on the provided key paths. For
+    example, if:
+    ```swift
+    class Dog: Object {
+        @Persisted var name: String
+        @Persisted var age: Int
+        @Persisted var toys: List<Toy>
+    }
+    // ...
+    let dogs = myObject.mapOfDogs
+    let token = dogs.observe(keyPaths: ["name"], on: actor) { actor, changes in
+        switch changes {
+        case .initial(let dogs):
+            // ...
+        case .update:
+            // This case is hit:
+            // - after the token is initialized
+            // - when the name property of an object in the collection is modified
+            // - when an element is inserted or removed from the collection.
+            // This block is not triggered:
+            // - when a value other than name is modified on one of the elements.
+        case .error:
+            // No longer possible and left for backwards compatibility
+        }
+    }
+    ```
+    - If the observed key path were `["toys.brand"]`, then any insertion or
+      deletion to the `toys` list on any of the collection's elements would trigger
+      the block. Changes to the `brand` value on any `Toy` that is linked to a `Dog`
+      in this collection will trigger the block. Changes to a value other than
+      `brand` on any `Toy` that is linked to a `Dog` in this collection would not
+      trigger the block. Any insertion or removal to the `Dog` type collection being
+      observed would also trigger a notification.
+    - If the above example observed the `["toys"]` key path, then any insertion,
+      deletion, or modification to the `toys` list for any element in the collection
+      would trigger the block. Changes to any value on any `Toy` that is linked to a
+      `Dog` in this collection would *not* trigger the block. Any insertion or
+      removal to the `Dog` type collection being observed would still trigger a
+      notification.
+
+    You must retain the returned token for as long as you want updates to be sent
+    to the block. To stop receiving updates, call `invalidate()` on the token.
+
+    - warning: This method cannot be called during a write transaction, or when
+      the containing Realm is read-only.
+
+    - parameter keyPaths: Only properties contained in the key paths array will
+      trigger the block when they are modified. If `nil`, notifications will be
+      delivered for any property change on the object. String key paths which do not
+      correspond to a valid a property will throw an exception. See description above
+      for more detail on linked properties.
+    - note: The keyPaths parameter refers to object properties of the collection
+      type and *does not* refer to particular key/value pairs within the Map.
+    - parameter actor: The actor which notifications should be delivered on. The
+      block is passed this actor as an isolated parameter, allowing you to access the
+      actor synchronously from within the callback.
+    - parameter block: The block to be called whenever a change occurs.
+    - returns: A token which must be held for as long as you want updates to be delivered.
+     */
+    @available(macOS 10.15, tvOS 13.0, iOS 13.0, watchOS 6.0, *)
+    @_unsafeInheritExecutor
+    public func observe<A: Actor>(
+        keyPaths: [String]? = nil, on actor: A,
+        _ block: @Sendable @escaping (isolated A, RealmMapChange<Map>) -> Void
+    ) async -> NotificationToken {
+        await with(self, on: actor) { actor, collection in
+            collection.observe(keyPaths: keyPaths, on: nil) { change in
+                assumeOnActorExecutor(actor) { actor in
+                    block(actor, change)
+                }
+            }
+        } ?? NotificationToken()
+    }
+
+    /**
+    Registers a block to be called each time the map changes.
+
+    The block will be asynchronously called on the actor with the initial map, and
+    then called again after each write transaction which changes either which keys
+    are present in the map or the values of any of the objects.
+
+    The `change` parameter that is passed to the block reports, in the form of keys
+    within the map, which of the key-value pairs were added, removed, or modified
+    during each write transaction.
+
+    Notifications are delivered to a function isolated to the given actor, on that
+    actors executor. If the actor is performing blocking work, multiple
+    notifications may be coalesced into a single notification. This can include the
+    notification with the initial collection, and changes are only reported for
+    writes which occur after the initial notification is delivered.
+
+    The block will be called for changes which occur only on the provided key
+    paths. For example, if:
+    ```swift
+    class Dog: Object {
+        @Persisted var name: String
+        @Persisted var age: Int
+        @Persisted var toys: List<Toy>
+    }
+    // ...
+    let dogs = myObject.mapOfDogs
+    let token = dogs.observe(keyPaths: [\.name], on: actor) { actor, changes in
+        switch changes {
+        case .initial(let dogs):
+            // ...
+        case .update:
+            // This case is hit:
+            // - after the token is initialized
+            // - when the name property of an object in the collection is modified
+            // - when an element is inserted or removed from the collection.
+            // This block is not triggered:
+            // - when a value other than name is modified on one of the elements.
+        case .error:
+            // No longer possible and left for backwards compatibility
+        }
+    }
+    ```
+    - If the observed key path were `[\.toys.brand]`, then any insertion or
+      deletion to the `toys` list on any of the collection's elements would trigger
+      the block. Changes to the `brand` value on any `Toy` that is linked to a `Dog`
+      in this collection will trigger the block. Changes to a value other than
+      `brand` on any `Toy` that is linked to a `Dog` in this collection would not
+      trigger the block. Any insertion or removal to the `Dog` type collection being
+      observed would also trigger a notification.
+    - If the above example observed the `[\.toys]` key path, then any insertion,
+      deletion, or modification to the `toys` list for any element in the collection
+      would trigger the block. Changes to any value on any `Toy` that is linked to a
+      `Dog` in this collection would *not* trigger the block. Any insertion or
+      removal to the `Dog` type collection being observed would still trigger a
+      notification.
+
+    You must retain the returned token for as long as you want updates to be sent
+    to the block. To stop receiving updates, call `invalidate()` on the token.
+
+    - warning: This method cannot be called during a write transaction, or when
+      the containing Realm is read-only.
+
+    - parameter keyPaths: Only properties contained in the key paths array will
+      trigger the block when they are modified. If `nil`, notifications will be
+      delivered for any property change on the object. String key paths which do not
+      correspond to a valid a property will throw an exception. See description above
+      for more detail on linked properties.
+    - note: The keyPaths parameter refers to object properties of the collection
+      type and *does not* refer to particular key/value pairs within the Map.
+    - parameter actor: The actor which notifications should be delivered on. The
+      block is passed this actor as an isolated parameter, allowing you to access the
+      actor synchronously from within the callback.
+    - parameter block: The block to be called whenever a change occurs.
+    - returns: A token which must be held for as long as you want updates to be delivered.
+     */
+    @available(macOS 10.15, tvOS 13.0, iOS 13.0, watchOS 6.0, *)
+    @_unsafeInheritExecutor
+    public func observe<A: Actor>(
+        keyPaths: [PartialKeyPath<Value.Wrapped>], on actor: A,
+        _ block: @Sendable @escaping (isolated A, RealmMapChange<Map>) -> Void
+    ) async -> NotificationToken where Value: OptionalProtocol, Value.Wrapped: ObjectBase {
+        await observe(keyPaths: keyPaths.map(_name(for:)), on: actor, block)
+    }
+#endif
 
     // MARK: Frozen Objects
 
@@ -479,12 +744,14 @@ public final class Map<Key, Value>: RLMSwiftCollectionBase where Key: _MapKey, V
         return Map(objc: rlmDictionary.thaw())
     }
 
-    // swiftlint:disable:next identifier_name
     @objc class func _unmanagedCollection() -> RLMDictionary<AnyObject, AnyObject> {
-        if let type = Value.self as? OptionalObject.Type {
+        if let type = Value.self as? HasClassName.Type ?? Value.PersistedType.self as? HasClassName.Type {
             return RLMDictionary(objectClassName: type.className(), keyType: Key._rlmType)
         }
-        return RLMDictionary(objectType: Value._rlmType, optional: Value._rlmOptional, keyType: Key._rlmType)
+        if let type = Value.self as? _RealmSchemaDiscoverable.Type {
+            return RLMDictionary(objectType: type._rlmType, optional: type._rlmOptional, keyType: Key._rlmType)
+        }
+        fatalError("Collections of projections must be used with @Projected.")
     }
 
     /// :nodoc:
@@ -512,84 +779,31 @@ public final class Map<Key, Value>: RLMSwiftCollectionBase where Key: _MapKey, V
     }
 }
 
-extension Map where Value: MinMaxType {
-    /**
-     Returns the minimum (lowest) value in the map, or `nil` if the map is empty.
-     */
-    public func min() -> Value? {
-        return _rlmCollection.min(ofProperty: "self").map(dynamicBridgeCast)
-    }
+// MARK: - Codable
 
-    /**
-     Returns the maximum (highest) value in the map, or `nil` if the map is empty.
-     */
-    public func max() -> Value? {
-        return _rlmCollection.max(ofProperty: "self").map(dynamicBridgeCast)
+extension Map: Decodable where Key: Decodable, Value: Decodable {
+    public convenience init(from decoder: Decoder) throws {
+        self.init()
+        let container = try decoder.singleValueContainer()
+        for (key, value) in try container.decode([Key: Value].self) {
+            self[key] = value
+        }
     }
 }
 
-extension Map where Value: OptionalProtocol, Value.Wrapped: MinMaxType {
-    /**
-     Returns the minimum (lowest) value of the map, or `nil` if the map is empty.
-     */
-    public func min() -> Value.Wrapped? {
-        return _rlmCollection.min(ofProperty: "self").map(dynamicBridgeCast)
-    }
-    /**
-     Returns the maximum (highest) value of the map, or `nil` if the map is empty.
-     */
-    public func max() -> Value.Wrapped? {
-        return _rlmCollection.max(ofProperty: "self").map(dynamicBridgeCast)
-    }
-}
-
-extension Map where Value: AddableType {
-    /**
-     Returns the sum of the values in the map.
-     */
-    public func sum() -> Value {
-        return sum(ofProperty: "self")
-    }
-
-    /**
-     Returns the average of the values in the map, or `nil` if the map is empty.
-     */
-    public func average<T: AddableType>() -> T? {
-        return average(ofProperty: "self")
-    }
-}
-
-public extension Map where Value: OptionalProtocol, Value.Wrapped: AddableType {
-    /**
-     Returns the sum of the values in the map, or `nil` if the map is empty.
-     */
-    func sum() -> Value.Wrapped {
-        return sum(ofProperty: "self")
-    }
-    /**
-     Returns the average of all of the values in the collection.
-     */
-    func average<T: AddableType>() -> T? {
-        return average(ofProperty: "self")
-    }
-}
-
-// MARK: - AssistedObjectiveCBridgeable
-
-extension Map: AssistedObjectiveCBridgeable {
-    internal static func bridging(from objectiveCValue: Any, with metadata: Any?) -> Map {
-        guard let objectiveCValue = objectiveCValue as? RLMDictionary<AnyObject, AnyObject> else { preconditionFailure() }
-        return Map(objc: objectiveCValue)
-    }
-
-    internal var bridged: (objectiveCValue: Any, metadata: Any?) {
-        return (objectiveCValue: _rlmCollection, metadata: nil)
+extension Map: Encodable where Key: Encodable, Value: Encodable {
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(self.reduce(into: [Key: Value]()) { map, element in
+            map[element.key] = element.value
+        })
     }
 }
 
 // MARK: Sequence Support
 
 extension Map: Sequence {
+    // NEXT-MAJOR: change this to KeyValueSequence
     /// Returns a `RLMMapIterator` that yields successive elements in the `Map`.
     public func makeIterator() -> RLMMapIterator<SingleMapEntry<Key, Value>> {
         return RLMMapIterator(collection: rlmDictionary)
@@ -598,7 +812,7 @@ extension Map: Sequence {
 
 extension Map {
     /// An adaptor for Map which makes it a sequence of `(key: Key, value: Value)` instead of a sequence of `SingleMapEntry`.
-    public struct KeyValueSequence<Key: _MapKey, Value: RealmCollectionValue>: Sequence {
+    public struct KeyValueSequence: Sequence {
         private let map: Map<Key, Value>
         fileprivate init(_ map: Map<Key, Value>) {
             self.map = map
@@ -610,13 +824,14 @@ extension Map {
     }
 
     /// Returns this Map as a sequence of `(key: Key, value: Value)`
-    public func asKeyValueSequence() -> KeyValueSequence<Key, Value> {
-        return KeyValueSequence<Key, Value>(self)
+    public func asKeyValueSequence() -> KeyValueSequence {
+        return KeyValueSequence(self)
     }
 }
 
 // MARK: - Notifications
 
+// NEXT-MAJOR: remove this and make RealmCollectionChange get the key type from the collection
 /**
  A `RealmMapChange` value encapsulates information about changes to dictionaries
  that are reported by Realm notifications.
@@ -642,11 +857,8 @@ extension Map {
     case update(Collection, deletions: [Collection.Key], insertions: [Collection.Key], modifications: [Collection.Key])
 
     /**
-     If an error occurs, notification blocks are called one time with a `.error`
-     result and an `NSError` containing details about the error. This can only
-     currently happen if opening the Realm on a background thread to calcuate
-     the change set fails. The callback will never be called again after it is
-     invoked with a .error value.
+     Errors can no longer occur. This case is unused and will be removed in the
+     next major version.
      */
     case error(Error)
 
@@ -694,19 +906,12 @@ public struct SingleMapEntry<Key: _MapKey, Value: RealmCollectionValue>: _RealmM
     public var value: Self.Value
 }
 
-private protocol OptionalObject {
+private protocol HasClassName {
     static func className() -> String
 }
-extension Optional: OptionalObject where Wrapped: ObjectBase {
+extension ObjectBase: HasClassName {}
+extension Optional: HasClassName where Wrapped: ObjectBase {
     static func className() -> String {
         Wrapped.className()
-    }
-}
-
-// MARK: Key Path Strings
-
-extension Map: PropertyNameConvertible {
-    var propertyInformation: (key: String, isLegacy: Bool)? {
-        return (key: rlmDictionary.propertyKey, isLegacy: rlmDictionary.isLegacyProperty)
     }
 }

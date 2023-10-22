@@ -1755,8 +1755,7 @@
 				8C1D16A41DB8DE930056D407 /* README.markdown */,
 				8C1D16A51DB8DE930056D407 /* Tests */,
 			);
-			name = "Breadth-First Search";
-			path = "../../OSS/swift-algorithm-club/Breadth-First Search";
+			path = "Breadth-First Search";
 			sourceTree = "<group>";
 		};
 		8C1D169E1DB8DE930056D407 /* Images */ = {
@@ -4577,6 +4576,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LogicPuzzlesSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -4599,6 +4599,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LogicPuzzlesSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

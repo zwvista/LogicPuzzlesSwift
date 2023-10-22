@@ -23,7 +23,9 @@
 #import "RLMObjectSchema_Private.hpp"
 #import "RLMObject_Private.hpp"
 #import "RLMProperty_Private.h"
+#import "RLMQueryUtil.hpp"
 #import "RLMRealm_Private.hpp"
+#import "RLMSchema_Private.h"
 #import "RLMSet_Private.hpp"
 #import "RLMSwiftCollectionBase.h"
 #import "RLMSwiftValueStorage.h"
@@ -482,7 +484,7 @@ std::vector<realm::BindingContext::ObserverState> RLMGetObservedRows(RLMSchemaIn
                 continue;
             observers.push_back({
                 row.get_table()->get_key(),
-                row.get_key().value,
+                row.get_key(),
                 info});
         }
     }

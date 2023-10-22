@@ -355,6 +355,16 @@ Bson RLMConvertRLMBSONToBson(id<RLMBSON> b) {
     }
 }
 
+BsonDocument RLMConvertRLMBSONArrayToBsonDocument(NSArray<id<RLMBSON>> *array) {
+    BsonDocument bsonDocument = BsonDocument{};
+    for (NSDictionary<NSString *, id<RLMBSON>> *item in array) {
+        [item enumerateKeysAndObjectsUsingBlock:[&](NSString *key, id<RLMBSON> bson, BOOL *) {
+            bsonDocument[key.UTF8String] = RLMConvertRLMBSONToBson(bson);
+        }];
+    }
+    return bsonDocument;
+}
+
 #pragma mark BsonToRLMBSON
 
 id<RLMBSON> RLMConvertBsonToRLMBSON(const Bson& b) {
@@ -370,7 +380,7 @@ id<RLMBSON> RLMConvertBsonToRLMBSON(const Bson& b) {
         case realm::bson::Bson::Type::Double:
             return @(static_cast<double>(b));
         case realm::bson::Bson::Type::String:
-            return RLMStringDataToNSString(static_cast<std::string>(b).c_str());
+            return @(static_cast<std::string>(b).c_str());
         case realm::bson::Bson::Type::Binary:
             return [[NSData alloc] initWithBsonBinary:static_cast<std::vector<char>>(b)];
         case realm::bson::Bson::Type::Timestamp:
@@ -397,6 +407,17 @@ id<RLMBSON> RLMConvertBsonToRLMBSON(const Bson& b) {
     return nil;
 }
 
-id<RLMBSON> RLMConvertBsonDocumentToRLMBSON(realm::util::Optional<BsonDocument> b) {
+id<RLMBSON> RLMConvertBsonDocumentToRLMBSON(std::optional<BsonDocument> b) {
     return b ? RLMConvertBsonToRLMBSON(*b) : nil;
+}
+
+NSArray<id<RLMBSON>> *RLMConvertBsonDocumentToRLMBSONArray(std::optional<BsonDocument> b) {
+    if (!b) {
+        return @[];
+    }
+    NSMutableArray<id<RLMBSON>> *array = [[NSMutableArray alloc] init];
+    for (const auto& [key, value] : *b) {
+        [array addObject:@{@(key.c_str()): RLMConvertBsonToRLMBSON(value)}];
+    }
+    return array;
 }

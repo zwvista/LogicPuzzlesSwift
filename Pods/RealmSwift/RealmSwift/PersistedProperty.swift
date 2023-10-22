@@ -69,7 +69,7 @@ import Realm.Private
 ///  to the initializer. Compound primary keys are not supported, and setting
 ///  more than one property as the primary key will throw an exception at
 ///  runtime. Only Int, String, UUID and ObjectID properties can be made the
-///  primary key, and when using MongoDB Realm, the primary key must be named
+///  primary key, and when using Atlas App Services, the primary key must be named
 ///  `_id`. The primary key property can only be mutated on unmanaged objects,
 ///  and mutating it on an object which has been added to a Realm will throw an
 ///  exception.
@@ -159,19 +159,22 @@ public struct Persisted<Value: _Persistable> {
         case let .unmanaged(value, _, _):
             return value
         case .unmanagedNoDefault:
-            let value = Value._rlmDefaultValue(false)
+            let value = Value._rlmDefaultValue()
             storage = .unmanaged(value: value)
             return value
         case let .unmanagedObserved(value, key):
             if let lastAccessedNames = object.lastAccessedNames {
-                var name: String = ""
+                let name: String
                 if Value._rlmType == .linkingObjects {
                     name = RLMObjectBaseObjectSchema(object)!.computedProperties[Int(key)].name
                 } else {
                     name = RLMObjectBaseObjectSchema(object)!.properties[Int(key)].name
                 }
                 lastAccessedNames.add(name)
-                return Value._rlmKeyPathRecorder(with: lastAccessedNames)
+                if let type = Value.self as? KeypathRecorder.Type {
+                    return type.keyPathRecorder(with: lastAccessedNames) as! Value
+                }
+                return Value._rlmDefaultValue()
             }
             return value
         case let .managed(key):
@@ -214,7 +217,7 @@ public struct Persisted<Value: _Persistable> {
         case let .unmanaged(v, _, _):
             value = v
         case .unmanagedNoDefault:
-            value = Value._rlmDefaultValue(false)
+            value = Value._rlmDefaultValue()
         case .unmanagedObserved, .managed, .managedCached:
             return
         }
@@ -241,7 +244,7 @@ extension Persisted: Encodable where Value: Encodable {
         case .unmanagedObserved(let value, _):
             try value.encode(to: encoder)
         case .unmanagedNoDefault:
-            try Value._rlmDefaultValue(false).encode(to: encoder)
+            try Value._rlmDefaultValue().encode(to: encoder)
         default:
             // We need a reference to the parent object to be able to read from
             // a managed property. There's probably a way to do this with some
@@ -252,8 +255,26 @@ extension Persisted: Encodable where Value: Encodable {
     }
 }
 
+/// :nodoc:
+/// Protocol for a PropertyWrapper to properly handle Coding when the wrappedValue is Optional
+public protocol OptionalCodingWrapper {
+    associatedtype WrappedType: ExpressibleByNilLiteral
+    init(wrappedValue: WrappedType)
+}
+
+/// :nodoc:
+extension KeyedDecodingContainer {
+    // This is used to override the default decoding behaviour for OptionalCodingWrapper to allow a value to avoid a missing key Error
+    public func decode<T>(_ type: T.Type, forKey key: KeyedDecodingContainer<K>.Key) throws -> T where T: Decodable, T: OptionalCodingWrapper {
+        return try decodeIfPresent(T.self, forKey: key) ?? T(wrappedValue: nil)
+    }
+}
+
+extension Persisted: OptionalCodingWrapper where Value: ExpressibleByNilLiteral {
+}
+
 /**
- An enum type which can be used with @Persisted.
+ An enum type which can be used with @Persisted and Realm Collections.
 
  Persisting an enum in Realm requires that it have a raw value and that the raw value by a type which Realm can store.
  The enum also has to be explicitly marked as conforming to this protocol as Swift does not let us do so implicitly.
@@ -271,22 +292,34 @@ extension Persisted: Encodable where Value: Encodable {
  }
  ```
 
- If the Realm contains a value which is not a valid member of the enum (such as if it was written by a different sync client which disagrees on which values are valid), optional enum properties will return `nil`, and non-optional properties will abort the process.
+ If the Realm contains a value which is not a valid member of the enum (such as
+ if it was written by a different sync client which disagrees on which values
+ are valid), optional enum properties will return `nil`, and non-optional
+ properties will abort the process.
  */
-public protocol PersistableEnum: _OptionalPersistable, RawRepresentable, CaseIterable, RealmEnum { }
+public protocol PersistableEnum: _PersistableInsideOptional, RawRepresentable, CaseIterable, RealmEnum, _RealmCollectionValueInsideOptional, MinMaxType, Comparable where RawValue: Comparable {
+}
 
 extension PersistableEnum {
     /// :nodoc:
     public init() { self = Self.allCases.first! }
+    /// :nodoc:
+    public static func < (lhs: Self, rhs: Self) -> Bool {
+        return lhs.rawValue < rhs.rawValue
+    }
+    /// :nodoc:
+    public static func _rlmDefaultValue() -> Self {
+        Self.allCases.first!
+    }
 }
 
 /// A type which can be indexed.
 ///
 /// This protocol is merely a tag and declaring additional types as conforming
 /// to it will simply result in runtime errors rather than compile-time errors.
-public protocol _Indexable {}
+@_marker public protocol _Indexable {}
 
-extension Persisted where Value: _Indexable {
+extension Persisted where Value.PersistedType: _Indexable {
     /// Declares an indexed property which is lazily initialized to the type's default value.
     public init(indexed: Bool) {
         storage = .unmanagedNoDefault(indexed: indexed)
@@ -301,9 +334,9 @@ extension Persisted where Value: _Indexable {
 ///
 /// This protocol is merely a tag and declaring additional types as conforming
 /// to it will simply result in runtime errors rather than compile-time errors.
-public protocol _PrimaryKey {}
+@_marker public protocol _PrimaryKey {}
 
-extension Persisted where Value: _PrimaryKey {
+extension Persisted where Value.PersistedType: _PrimaryKey {
     /// Declares the primary key property which is lazily initialized to the type's default value.
     public init(primaryKey: Bool) {
         storage = .unmanagedNoDefault(primary: primaryKey)
@@ -314,9 +347,9 @@ extension Persisted where Value: _PrimaryKey {
     }
 }
 
-/// :nodoc:
 // Constraining the LinkingObjects initializer to only LinkingObjects require
 // doing so via a protocol which only that type conforms to.
+/// :nodoc:
 public protocol LinkingObjectsProtocol {
     init(fromType: Element.Type, property: String)
     associatedtype Element

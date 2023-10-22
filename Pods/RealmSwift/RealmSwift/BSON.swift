@@ -18,9 +18,14 @@
 
 import Realm
 
+/// A tag protocol which marks types that can be used as the partition value
+/// for synchronized Realms.
+public protocol PartitionValue {
+}
+
 /// Protocol representing a BSON value.
 /// - SeeAlso: bsonspec.org
-public protocol BSON: Equatable {
+public protocol BSON: PartitionValue, Equatable {
 }
 
 extension NSNull: BSON {
@@ -62,10 +67,10 @@ extension UUID: BSON {
 /// A Dictionary object representing a `BSON` document.
 public typealias Document = Dictionary<String, AnyBSON?>
 
-extension Dictionary: BSON where Key == String, Value == AnyBSON? {
+extension Dictionary: BSON, PartitionValue where Key == String, Value == AnyBSON? {
 }
 
-extension Array: BSON where Element == AnyBSON? {
+extension Array: BSON, PartitionValue where Element == AnyBSON? {
 }
 
 extension NSRegularExpression: BSON {
@@ -85,7 +90,7 @@ extension MinKey: BSON {
 
 /// Enum representing a BSON value.
 /// - SeeAlso: bsonspec.org
-@frozen public enum AnyBSON: BSON {
+@frozen public enum AnyBSON: BSON, Sendable {
     /// A BSON double.
     case double(Double)
 
@@ -152,45 +157,58 @@ extension MinKey: BSON {
         }
     }
 
-    /// Initialize a `BSON` from a type `T`. If this is not a valid `BSON` type,
-    /// if will be considered `BSON` null type and will return `nil`.
-    public init<T: BSON>(_ bson: T) {
+    /// :nodoc:
+    static func convert<T>(_ bson: T) -> AnyBSON {
         switch bson {
         case let val as Int:
-            self = .int64(Int64(val))
+            return .int64(Int64(val))
         case let val as Int32:
-            self = .int32(val)
+            return .int32(val)
         case let val as Int64:
-            self = .int64(val)
+            return .int64(val)
         case let val as Double:
-            self = .double(val)
+            return .double(val)
         case let val as String:
-            self = .string(val)
+            return .string(val)
         case let val as Data:
-            self = .binary(val)
+            return .binary(val)
         case let val as Date:
-            self = .datetime(val)
+            return .datetime(val)
         case let val as Decimal128:
-            self = .decimal128(val)
+            return .decimal128(val)
         case let val as UUID:
-            self = .uuid(val)
+            return .uuid(val)
         case let val as ObjectId:
-            self = .objectId(val)
+            return .objectId(val)
         case let val as Document:
-            self = .document(val)
+            return .document(val)
         case let val as Array<AnyBSON?>:
-            self = .array(val)
+            return .array(val)
         case let val as Bool:
-            self = .bool(val)
+            return .bool(val)
         case is MaxKey:
-            self = .maxKey
+            return .maxKey
         case is MinKey:
-            self = .minKey
+            return .minKey
         case let val as NSRegularExpression:
-            self = .regex(val)
+            return .regex(val)
+        case let val as AnyBSON:
+            return val
         default:
-            self = .null
+            return .null
         }
+    }
+
+    /// Initialize a `BSON` from a type `T`. If this is not a valid `BSON` type,
+    /// it will be considered `BSON` null type and will return `nil`.
+    public init<T: BSON>(_ bson: T) {
+        self = Self.convert(bson)
+    }
+
+    /// Initialize a `BSON` from type `PartitionValue`. If this is not a valid `BSON` type,
+    /// it will be considered `BSON` null type and will return `nil`.
+    init(partitionValue: PartitionValue) {
+        self = Self.convert(partitionValue)
     }
 
     /// If this `BSON` is an `.int32`, return it as an `Int32`. Otherwise, return nil.
@@ -372,18 +390,20 @@ extension MinKey: BSON {
     /// Return this BSON as a `Decimal128` if possible.
     /// This will coerce numeric cases (e.g. `.double`) into a `Decimal128` if such coercion would be lossless.
     public func asDecimal128() -> Decimal128? {
+        let str: String
         switch self {
         case let .decimal128(d):
             return d
         case let .int64(i):
-            return try? Decimal128(string: String(i))
+            str = String(i)
         case let .int32(i):
-            return try? Decimal128(string: String(i))
+            str = String(i)
         case let .double(d):
-            return try? Decimal128(string: String(d))
+            str = String(d)
         default:
             return nil
         }
+        return try? Decimal128(string: str)
     }
 
     /// Return this BSON as a `T` if possible, otherwise nil.

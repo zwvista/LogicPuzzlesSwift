@@ -1,4 +1,3 @@
-
 ////////////////////////////////////////////////////////////////////////////
 //
 // Copyright 2016 Realm Inc.
@@ -34,6 +33,7 @@
 #include <realm/object-store/shared_realm.hpp>
 
 #include <realm/util/assert.hpp>
+#include <realm/util/optional.hpp>
 #include <realm/table_view.hpp>
 
 #include <string>
@@ -44,6 +44,12 @@ void Object::set_property_value(ContextType& ctx, StringData prop_name, ValueTyp
 {
     auto& property = property_for_name(prop_name);
     validate_property_for_setter(property);
+    set_property_value_impl(ctx, property, value, policy, false);
+}
+
+template <typename ValueType, typename ContextType>
+void Object::set_property_value(ContextType& ctx, const Property& property, ValueType value, CreatePolicy policy)
+{
     set_property_value_impl(ctx, property, value, policy, false);
 }
 
@@ -77,7 +83,7 @@ struct ValueUpdater {
         policy2.create = false;
         auto link = child_ctx.template unbox<Obj>(value, policy2);
         if (!policy.copy && link && link.get_table()->is_embedded())
-            throw std::logic_error("Cannot set a link to an existing managed embedded object");
+            throw InvalidArgument("Cannot set a link to an existing managed embedded object");
 
         ObjKey curr_link;
         if (policy.diff)
@@ -205,7 +211,6 @@ ValueType Object::get_property_value_impl(ContextType& ctx, const Property& prop
                                               : ctx.box(m_obj.get<ObjectId>(column));
         case PropertyType::Decimal:
             return ctx.box(m_obj.get<Decimal>(column));
-            //        case PropertyType::Any:    return ctx.box(m_obj.get<Mixed>(column));
         case PropertyType::UUID:
             return is_nullable(property.type) ? ctx.box(m_obj.get<util::Optional<UUID>>(column))
                                               : ctx.box(m_obj.get<UUID>(column));
@@ -213,14 +218,13 @@ ValueType Object::get_property_value_impl(ContextType& ctx, const Property& prop
             return ctx.box(m_obj.get<Mixed>(column));
         case PropertyType::Object: {
             auto linkObjectSchema = m_realm->schema().find(property.object_type);
-            return ctx.box(Object(m_realm, *linkObjectSchema, const_cast<Obj&>(m_obj).get_linked_object(column)));
+            auto linked = const_cast<Obj&>(m_obj).get_linked_object(column);
+            return ctx.box(Object(m_realm, *linkObjectSchema, linked, m_obj, column));
         }
         case PropertyType::LinkingObjects: {
             auto target_object_schema = m_realm->schema().find(property.object_type);
             auto link_property = target_object_schema->property_for_name(property.link_origin_property_name);
-            auto table = m_realm->read_group().get_table(target_object_schema->table_key);
-            auto tv = const_cast<Obj&>(m_obj).get_backlink_view(table, ColKey(link_property->column_key));
-            return ctx.box(Results(m_realm, std::move(tv)));
+            return ctx.box(Results(m_realm, m_obj, target_object_schema->table_key, link_property->column_key));
         }
         default:
             REALM_UNREACHABLE();
@@ -258,12 +262,19 @@ Object Object::create(ContextType& ctx, std::shared_ptr<Realm> const& realm, Obj
     // considered a primary key by core, and so will need to be set.
     bool skip_primary = true;
     // If the input value is missing values for any of the properties we want to
-    // set the propery to the default value for new objects, but leave it
+    // set the property to the default value for new objects, but leave it
     // untouched for existing objects.
     bool created = false;
 
     Obj obj;
     auto table = realm->read_group().get_table(object_schema.table_key);
+
+    // Asymmetric objects cannot be updated through Object::create.
+    if (object_schema.table_type == ObjectSchema::ObjectType::TopLevelAsymmetric) {
+        REALM_ASSERT(!policy.update);
+        REALM_ASSERT(!current_obj);
+        REALM_ASSERT(object_schema.primary_key_property());
+    }
 
     // If there's a primary key, we need to first check if an object with the
     // same primary key already exists. If it does, we either update that object
@@ -293,9 +304,8 @@ Object Object::create(ContextType& ctx, std::shared_ptr<Realm> const& realm, Obj
             obj = table->create_object_with_primary_key(as_mixed(ctx, primary_value, primary_prop->type), &created);
             if (!created && !policy.update) {
                 if (!realm->is_in_migration()) {
-                    throw std::logic_error(util::format(
-                        "Attempting to create an object of type '%1' with an existing primary key value '%2'.",
-                        object_schema.name, primary_value ? ctx.print(*primary_value) : "null"));
+                    auto pk_val = primary_value ? ctx.print(*primary_value) : "null";
+                    throw ObjectAlreadyExists(object_schema.name, pk_val);
                 }
                 table->set_primary_key_column(ColKey{});
                 skip_primary = false;
@@ -311,7 +321,7 @@ Object Object::create(ContextType& ctx, std::shared_ptr<Realm> const& realm, Obj
     if (!obj) {
         if (current_obj)
             obj = table->get_object(current_obj);
-        else if (object_schema.is_embedded)
+        else if (object_schema.table_type == ObjectSchema::ObjectType::Embedded)
             obj = ctx.create_embedded_object();
         else
             obj = table->create_object();
@@ -322,7 +332,7 @@ Object Object::create(ContextType& ctx, std::shared_ptr<Realm> const& realm, Obj
     // KVO in Cocoa requires that the obj ivar on the wrapper object be set
     // *before* we start setting the properties, so it passes in a pointer to
     // that.
-    if (out_row)
+    if (out_row && object_schema.table_type != ObjectSchema::ObjectType::TopLevelAsymmetric)
         *out_row = obj;
     for (size_t i = 0; i < object_schema.persisted_properties.size(); ++i) {
         auto& prop = object_schema.persisted_properties[i];
@@ -348,6 +358,9 @@ Object Object::create(ContextType& ctx, std::shared_ptr<Realm> const& realm, Obj
         }
         if (v)
             object.set_property_value_impl(ctx, prop, *v, policy, is_default);
+    }
+    if (object_schema.table_type == ObjectSchema::ObjectType::TopLevelAsymmetric) {
+        return Object{};
     }
     return object;
 }
@@ -376,7 +389,8 @@ Object Object::get_for_primary_key(ContextType& ctx, std::shared_ptr<Realm> cons
     if (!table)
         return Object(realm, object_schema, Obj());
     if (ctx.is_null(primary_value) && !is_nullable(primary_prop->type))
-        throw std::logic_error("Invalid null value for non-nullable primary key.");
+        throw NotNullable(util::format("Invalid null value for non-nullable primary key '%1.%2'.", object_schema.name,
+                                       primary_prop->name));
 
     auto primary_key_value = switch_on_type(primary_prop->type, [&](auto* t) {
         return Mixed(ctx.template unbox<NonObjTypeT<decltype(*t)>>(primary_value));
@@ -391,7 +405,8 @@ ObjKey Object::get_for_primary_key_in_migration(ContextType& ctx, Table const& t
 {
     bool is_null = ctx.is_null(primary_value);
     if (is_null && !is_nullable(primary_prop.type))
-        throw std::logic_error("Invalid null value for non-nullable primary key.");
+        throw NotNullable(util::format("Invalid null value for non-nullable primary key '%1.%2'.",
+                                       table.get_class_name(), primary_prop.name));
     if (primary_prop.type == PropertyType::String) {
         return table.find_first(primary_prop.column_key, ctx.template unbox<StringData>(primary_value));
     }

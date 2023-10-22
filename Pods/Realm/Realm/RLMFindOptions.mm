@@ -18,6 +18,7 @@
 
 #import "RLMFindOptions_Private.hpp"
 #import "RLMBSON_Private.hpp"
+#import "RLMCollection.h"
 
 @interface RLMFindOptions() {
     realm::app::MongoCollection::FindOptions _options;
@@ -46,6 +47,26 @@
     return self;
 }
 
+- (instancetype)initWithLimit:(NSInteger)limit
+                   projection:(id<RLMBSON> _Nullable)projection
+                      sorting:(NSArray<id<RLMBSON>> *)sorting {
+    if (self = [super init]) {
+        self.projection = projection;
+        self.sorting = sorting;
+        self.limit = limit;
+    }
+    return self;
+}
+
+- (instancetype)initWithProjection:(id<RLMBSON> _Nullable)projection
+                           sorting:(NSArray<id<RLMBSON>> *)sorting {
+    if (self = [super init]) {
+        self.projection = projection;
+        self.sorting = sorting;
+    }
+    return self;
+}
+
 - (realm::app::MongoCollection::FindOptions)_findOptions {
     return _options;
 }
@@ -58,10 +79,14 @@
     return RLMConvertBsonDocumentToRLMBSON(_options.sort_bson);
 }
 
+- (NSArray<id<RLMBSON>> *)sorting {
+    return RLMConvertBsonDocumentToRLMBSONArray(_options.sort_bson);
+}
+
 - (void)setProjection:(id<RLMBSON>)projection {
     if (projection) {
         auto bson = realm::bson::BsonDocument(RLMConvertRLMBSONToBson(projection));
-        _options.projection_bson = realm::util::Optional<realm::bson::BsonDocument>(bson);
+        _options.projection_bson = std::optional<realm::bson::BsonDocument>(bson);
     } else {
         _options.projection_bson = realm::util::none;
     }
@@ -70,10 +95,14 @@
 - (void)setSort:(id<RLMBSON>)sort {
     if (sort) {
         auto bson = realm::bson::BsonDocument(RLMConvertRLMBSONToBson(sort));
-        _options.sort_bson = realm::util::Optional<realm::bson::BsonDocument>(bson);
+        _options.sort_bson = std::optional<realm::bson::BsonDocument>(bson);
     } else {
         _options.sort_bson = realm::util::none;
     }
+}
+
+- (void)setSorting:(NSArray<id<RLMBSON>> *)sorting {
+    _options.sort_bson = RLMConvertRLMBSONArrayToBsonDocument(sorting);
 }
 
 - (NSInteger)limit {
@@ -81,7 +110,7 @@
 }
 
 - (void)setLimit:(NSInteger)limit {
-    _options.limit = realm::util::Optional<int64_t>(limit);
+    _options.limit = std::optional<int64_t>(limit);
 }
 
 @end

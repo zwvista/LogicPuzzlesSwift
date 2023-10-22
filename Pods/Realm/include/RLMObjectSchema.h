@@ -16,9 +16,9 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#import <Foundation/Foundation.h>
+#import <Realm/RLMConstants.h>
 
-NS_ASSUME_NONNULL_BEGIN
+RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
 
 @class RLMProperty;
 
@@ -30,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  Object schemas map to tables in the core database.
  */
+RLM_SWIFT_SENDABLE RLM_FINAL // not actually immutable, but the public API kinda is
 @interface RLMObjectSchema : NSObject<NSCopying>
 
 #pragma mark - Properties
@@ -56,6 +57,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, readonly) BOOL isEmbedded;
 
+/**
+ Whether this object is asymmetric.
+ */
+@property (nonatomic, readonly) BOOL isAsymmetric;
+
 #pragma mark - Methods
 
 /**
@@ -74,4 +80,4 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END
+RLM_HEADER_AUDIT_END(nullability, sendability)

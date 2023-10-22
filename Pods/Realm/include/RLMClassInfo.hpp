@@ -16,7 +16,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#import <Foundation/Foundation.h>
+#import <Realm/RLMConstants.h>
 
 #import <realm/table_ref.hpp>
 #import <realm/util/optional.hpp>
@@ -35,7 +35,7 @@ namespace realm {
 class RLMObservationInfo;
 @class RLMRealm, RLMSchema, RLMObjectSchema, RLMProperty;
 
-NS_ASSUME_NONNULL_BEGIN
+RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
 
 namespace std {
 // Add specializations so that NSString can be used as the key for hash containers
@@ -84,6 +84,13 @@ public:
     // persisted property.
     realm::ColKey tableColumn(NSString *propertyName) const;
     realm::ColKey tableColumn(RLMProperty *property) const;
+    // Get the table column key for the given computed property. The property
+    // must be a valid computed property.
+    // Subscripting a `realm::ObjectSchema->computed_properties[property.index]`
+    // does not return a valid colKey, unlike subscripting persisted_properties.
+    // This method retrieves a valid column key for computed properties by
+    // getting the opposite table column of the origin's "forward" link.
+    realm::ColKey computedTableColumn(RLMProperty *property) const;
 
     // Get the info for the target of the link at the given property index.
     RLMClassInfo &linkTargetType(size_t propertyIndex);
@@ -100,6 +107,13 @@ public:
     // Returns true if this was a dynamically added type
     bool isDynamic() const noexcept;
 
+    // KeyPathFromString converts a string keypath to a vector of key
+    // pairs to be used for deep change checking across links.
+    // NEXT-MAJOR: This conflates a nil array and an empty array for backwards
+    // compatibility, but core now gives them different semantics
+    std::optional<std::vector<std::vector<std::pair<realm::TableKey, realm::ColKey>>>>
+    keyPathArrayFromStringArray(NSArray<NSString *> *keyPaths) const;
+
 private:
     // If the ObjectSchema is not owned by the realm instance
     // we need to manually manage the ownership of the object.
@@ -110,6 +124,7 @@ private:
 // A per-RLMRealm object schema map which stores RLMClassInfo keyed on the name
 class RLMSchemaInfo {
     using impl = std::unordered_map<NSString *, RLMClassInfo>;
+
 public:
     RLMSchemaInfo() = default;
     RLMSchemaInfo(RLMRealm *realm);
@@ -119,7 +134,7 @@ public:
     // Look up by name, throwing if it's not present
     RLMClassInfo& operator[](NSString *name);
     // Look up by table key, return none if its not present.
-    RLMClassInfo* operator[](realm::TableKey const& tableKey);
+    RLMClassInfo* operator[](realm::TableKey tableKey);
 
     // Emplaces a locally derived object schema into RLMSchemaInfo. This is used
     // when creating objects dynamically that are not registered in the Cocoa schema.
@@ -132,8 +147,9 @@ public:
     impl::iterator end() noexcept;
     impl::const_iterator begin() const noexcept;
     impl::const_iterator end() const noexcept;
+
 private:
     std::unordered_map<NSString *, RLMClassInfo> m_objects;
 };
 
-NS_ASSUME_NONNULL_END
+RLM_HEADER_AUDIT_END(nullability, sendability)

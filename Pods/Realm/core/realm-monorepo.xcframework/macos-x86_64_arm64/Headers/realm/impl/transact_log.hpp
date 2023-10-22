@@ -19,19 +19,13 @@
 #ifndef REALM_IMPL_TRANSACT_LOG_HPP
 #define REALM_IMPL_TRANSACT_LOG_HPP
 
-#include <stdexcept>
-
-#include <realm/string_data.hpp>
-#include <realm/data_type.hpp>
 #include <realm/binary_data.hpp>
-#include <realm/util/buffer.hpp>
-#include <realm/util/string_buffer.hpp>
-#include <realm/impl/input_stream.hpp>
-
-#include <realm/group.hpp>
 #include <realm/collection.hpp>
-
-#include <tuple>
+#include <realm/data_type.hpp>
+#include <realm/group.hpp>
+#include <realm/string_data.hpp>
+#include <realm/util/buffer.hpp>
+#include <realm/util/input_stream.hpp>
 
 namespace realm {
 
@@ -58,23 +52,24 @@ enum Instruction {
     instr_RenameColumn = 22, // Rename column in selected descriptor
     // instr_SetLinkType = 23,  Strong/weak (unused from file format 11)
 
-    instr_SelectList = 30,
-    instr_ListInsert = 31, // Insert list entry
-    instr_ListSet = 32,    // Assign to list entry
-    instr_ListMove = 33,   // Move an entry within a link list
+    instr_SelectCollection = 30,
+    instr_CollectionInsert = 31, // Insert collection entry
+    instr_CollectionSet = 32,    // Assign to collection entry
+    instr_CollectionMove = 33,   // Move an entry within an ordered collection
     // instr_ListSwap = 34,   Swap two entries within a list (unused from file format 11)
-    instr_ListErase = 35, // Remove an entry from a list
-    instr_ListClear = 36, // Remove all entries from a list
+    instr_CollectionErase = 35, // Remove an entry from a collection
+    instr_CollectionClear = 36, // Remove all entries from a collection
 
+    // No longer emitted, but supported for a file shared with an older version.
+    // Treated identically to the Collection versions.
     instr_DictionaryInsert = 37,
     instr_DictionarySet = 38,
     instr_DictionaryErase = 39,
+    instr_SetInsert = 40,
+    instr_SetErase = 41,
+    instr_SetClear = 42,
 
-    instr_SetInsert = 40, // Insert value into set
-    instr_SetErase = 41,  // Erase value from set
-    instr_SetClear = 42,  // Remove all values in a set
-
-    // An action involving TypedLinks has occured which caused
+    // An action involving TypedLinks has occurred which caused
     // the number of backlink columns to change. This can happen
     // when a TypedLink is created for the first time to a Table.
     instr_TypedLinkChange = 43,
@@ -136,19 +131,19 @@ public:
     {
         return true;
     }
-    bool select_link_list(ColKey, ObjKey)
-    {
-        return true;
-    }
     bool insert_group_level_table(TableKey)
     {
         return true;
     }
-    bool erase_group_level_table(TableKey)
+    bool erase_class(TableKey)
     {
         return true;
     }
-    bool rename_group_level_table(TableKey)
+    bool rename_class(TableKey)
+    {
+        return true;
+    }
+    bool typed_link_change(ColKey, TableKey)
     {
         return true;
     }
@@ -163,27 +158,6 @@ public:
         return true;
     }
     bool modify_object(ColKey, ObjKey)
-    {
-        return true;
-    }
-    bool list_set(size_t)
-    {
-        return true;
-    }
-    bool list_insert(size_t)
-    {
-        return true;
-    }
-
-    bool dictionary_insert(size_t, Mixed)
-    {
-        return true;
-    }
-    bool dictionary_set(size_t, Mixed)
-    {
-        return true;
-    }
-    bool dictionary_erase(size_t, Mixed)
     {
         return true;
     }
@@ -206,34 +180,24 @@ public:
         return true;
     }
 
-    // Must have linklist selected:
-    bool list_move(size_t, size_t)
+    // Must have collection selected:
+    bool collection_set(size_t)
     {
         return true;
     }
-    bool list_erase(size_t)
+    bool collection_insert(size_t)
     {
         return true;
     }
-    bool list_clear(size_t)
+    bool collection_move(size_t, size_t)
     {
         return true;
     }
-
-    bool set_insert(size_t)
+    bool collection_erase(size_t)
     {
         return true;
     }
-    bool set_erase(size_t)
-    {
-        return true;
-    }
-    bool set_clear(size_t)
-    {
-        return true;
-    }
-
-    bool typed_link_change(ColKey, TableKey)
+    bool collection_clear(size_t)
     {
         return true;
     }
@@ -243,7 +207,7 @@ public:
 // LCOV_EXCL_STOP (NullInstructionObserver)
 
 
-/// See TransactLogConvenientEncoder for information about the meaning of the
+/// See Replication for information about the meaning of the
 /// arguments of each of the functions in this class.
 class TransactLogEncoder {
 public:
@@ -253,8 +217,8 @@ public:
     // No selection needed:
     bool select_table(TableKey key);
     bool insert_group_level_table(TableKey table_key);
-    bool erase_group_level_table(TableKey table_key);
-    bool rename_group_level_table(TableKey table_key);
+    bool erase_class(TableKey table_key);
+    bool rename_class(TableKey table_key);
 
     /// Must have table selected.
     bool create_object(ObjKey key)
@@ -278,20 +242,11 @@ public:
 
     // Must have collection selected:
     bool select_collection(ColKey col_key, ObjKey key);
-    bool list_set(size_t list_ndx);
-    bool list_insert(size_t ndx);
-    bool list_move(size_t from_link_ndx, size_t to_link_ndx);
-    bool list_erase(size_t list_ndx);
-    bool list_clear(size_t old_list_size);
-
-    // Must have set selected:
-    bool set_insert(size_t set_ndx);
-    bool set_erase(size_t set_ndx);
-    bool set_clear(size_t set_ndx);
-
-    bool dictionary_insert(size_t dict_ndx, Mixed key);
-    bool dictionary_set(size_t dict_ndx, Mixed key);
-    bool dictionary_erase(size_t dict_ndx, Mixed key);
+    bool collection_set(size_t collection_ndx);
+    bool collection_insert(size_t ndx);
+    bool collection_move(size_t from_ndx, size_t to_ndx);
+    bool collection_erase(size_t collection_ndx);
+    bool collection_clear(size_t old_size);
 
     bool typed_link_change(ColKey col, TableKey dest);
 
@@ -369,129 +324,19 @@ private:
     friend class TransactLogParser;
 };
 
-class TransactLogConvenientEncoder {
-public:
-    virtual ~TransactLogConvenientEncoder();
-    virtual void add_class(TableKey table_key, StringData table_name, bool is_embedded);
-    virtual void add_class_with_primary_key(TableKey, StringData table_name, DataType pk_type, StringData pk_field,
-                                            bool nullable);
-    virtual void erase_group_level_table(TableKey table_key, size_t num_tables);
-    virtual void rename_group_level_table(TableKey table_key, StringData new_name);
-    virtual void insert_column(const Table*, ColKey col_key, DataType type, StringData name, Table* target_table);
-    virtual void erase_column(const Table*, ColKey col_key);
-    virtual void rename_column(const Table*, ColKey col_key, StringData name);
-
-    virtual void add_int(const Table*, ColKey col_key, ObjKey key, int_fast64_t value);
-    virtual void set(const Table*, ColKey col_key, ObjKey key, Mixed value, Instruction variant = instr_Set);
-
-    virtual void list_set(const CollectionBase& list, size_t list_ndx, Mixed value);
-    virtual void list_insert(const CollectionBase& list, size_t list_ndx, Mixed value);
-    virtual void list_move(const CollectionBase&, size_t from_link_ndx, size_t to_link_ndx);
-    virtual void list_erase(const CollectionBase&, size_t link_ndx);
-    virtual void list_clear(const CollectionBase&);
-
-    virtual void set_insert(const CollectionBase& set, size_t list_ndx, Mixed value);
-    virtual void set_erase(const CollectionBase& set, size_t list_ndx, Mixed value);
-    virtual void set_clear(const CollectionBase& set);
-
-    virtual void dictionary_insert(const CollectionBase& dict, size_t dict_ndx, Mixed key, Mixed value);
-    virtual void dictionary_set(const CollectionBase& dict, size_t dict_ndx, Mixed key, Mixed value);
-    virtual void dictionary_erase(const CollectionBase& dict, size_t dict_ndx, Mixed key);
-
-    virtual void create_object(const Table*, GlobalKey);
-    virtual void create_object_with_primary_key(const Table*, ObjKey, Mixed);
-    virtual void remove_object(const Table*, ObjKey);
-
-    virtual void typed_link_change(const Table*, ColKey, TableKey);
-
-    //@{
-
-    /// Implicit nullifications due to removal of target row. This is redundant
-    /// information from the point of view of replication, as the removal of the
-    /// target row will reproduce the implicit nullifications in the target
-    /// Realm anyway. The purpose of this instruction is to allow observers
-    /// (reactor pattern) to be explicitly notified about the implicit
-    /// nullifications.
-
-    virtual void nullify_link(const Table*, ColKey col_key, ObjKey key);
-    virtual void link_list_nullify(const Lst<ObjKey>&, size_t link_ndx);
-
-    //@}
-
-protected:
-    TransactLogConvenientEncoder(TransactLogStream& encoder);
-
-    void reset_selection_caches() noexcept;
-    void set_buffer(char* new_free_begin, char* new_free_end)
-    {
-        m_encoder.set_buffer(new_free_begin, new_free_end);
-    }
-    char* write_position() const
-    {
-        return m_encoder.write_position();
-    }
-
-private:
-    struct CollectionId {
-        TableKey table_key;
-        ObjKey object_key;
-        ColKey col_id;
-
-        CollectionId() = default;
-        CollectionId(const CollectionBase& list)
-            : table_key(list.get_table()->get_key())
-            , object_key(list.get_owner_key())
-            , col_id(list.get_col_key())
-        {
-        }
-        CollectionId(TableKey t, ObjKey k, ColKey c)
-            : table_key(t)
-            , object_key(k)
-            , col_id(c)
-        {
-        }
-        bool operator!=(const CollectionId& other)
-        {
-            return object_key != other.object_key || table_key != other.table_key || col_id != other.col_id;
-        }
-    };
-    TransactLogEncoder m_encoder;
-    mutable const Table* m_selected_table = nullptr;
-    mutable CollectionId m_selected_list;
-
-    void unselect_all() noexcept;
-    void select_table(const Table*); // unselects link list
-    void select_collection(const CollectionBase&);
-
-    void do_select_table(const Table*);
-    void do_select_collection(const CollectionBase&);
-
-    void do_set(const Table*, ColKey col_key, ObjKey key, Instruction variant = instr_Set);
-
-    friend class TransactReverser;
-};
-
 
 class TransactLogParser {
 public:
-    class BadTransactLog; // Exception
-
-    TransactLogParser();
-    ~TransactLogParser() noexcept;
-
     /// See `TransactLogEncoder` for a list of methods that the `InstructionHandler` must define.
     template <class InstructionHandler>
-    void parse(InputStream&, InstructionHandler&);
-
-    template <class InstructionHandler>
-    void parse(NoCopyInputStream&, InstructionHandler&);
+    void parse(util::InputStream&, InstructionHandler&);
 
 private:
-    util::Buffer<char> m_input_buffer;
+    util::Buffer<char> m_input_buffer{1024};
 
     // The input stream is assumed to consist of chunks of memory organised such that
     // every instruction resides in a single chunk only.
-    NoCopyInputStream* m_input;
+    util::InputStream* m_input;
     // pointer into transaction log, each instruction is parsed from m_input_begin and onwards.
     // Each instruction are assumed to be contiguous in memory.
     const char* m_input_begin;
@@ -500,9 +345,9 @@ private:
     // memory. Setting m_input_end to 0 disables this check, and is used if it is already known
     // that all of the instructions are in memory.
     const char* m_input_end;
-    util::StringBuffer m_string_buffer;
+    std::string m_string_buffer;
 
-    REALM_NORETURN void parser_error() const;
+    REALM_COLD REALM_NORETURN void parser_error() const;
 
     template <class InstructionHandler>
     void parse_one(InstructionHandler&);
@@ -512,9 +357,9 @@ private:
     T read_int();
 
     void read_bytes(char* data, size_t size);
-    BinaryData read_buffer(util::StringBuffer&, size_t size);
+    BinaryData read_buffer(std::string&, size_t size);
 
-    StringData read_string(util::StringBuffer&);
+    StringData read_string(std::string&);
 
     // Advance m_input_begin and m_input_end to reflect the next block of instructions
     // Returns false if no more input was available
@@ -522,15 +367,6 @@ private:
 
     // return true if input was available
     bool read_char(char&); // throws
-};
-
-
-class TransactLogParser::BadTransactLog : public std::exception {
-public:
-    const char* what() const noexcept override
-    {
-        return "Bad transaction log";
-    }
 };
 
 
@@ -580,11 +416,6 @@ inline void TransactLogEncoder::set_buffer(char* free_begin, char* free_end)
     REALM_ASSERT(free_begin <= free_end);
     m_transact_log_free_begin = free_begin;
     m_transact_log_free_end = free_end;
-}
-
-inline void TransactLogConvenientEncoder::reset_selection_caches() noexcept
-{
-    unselect_all();
 }
 
 inline char* TransactLogEncoder::reserve(size_t n)
@@ -744,54 +575,22 @@ void TransactLogEncoder::append_string_instr(Instruction instr, StringData strin
     advance(ptr);
 }
 
-inline void TransactLogConvenientEncoder::unselect_all() noexcept
-{
-    m_selected_table = nullptr;
-    m_selected_list = CollectionId();
-}
-
-inline void TransactLogConvenientEncoder::select_table(const Table* table)
-{
-    if (table != m_selected_table)
-        do_select_table(table); // Throws
-    m_selected_list = CollectionId();
-}
-
-inline void TransactLogConvenientEncoder::select_collection(const CollectionBase& list)
-{
-    if (CollectionId(list) != m_selected_list) {
-        do_select_collection(list); // Throws
-    }
-}
-
 inline bool TransactLogEncoder::insert_group_level_table(TableKey table_key)
 {
     append_simple_instr(instr_InsertGroupLevelTable, table_key); // Throws
     return true;
 }
 
-inline bool TransactLogEncoder::erase_group_level_table(TableKey table_key)
+inline bool TransactLogEncoder::erase_class(TableKey table_key)
 {
     append_simple_instr(instr_EraseGroupLevelTable, table_key); // Throws
     return true;
 }
 
-inline void TransactLogConvenientEncoder::erase_group_level_table(TableKey table_key, size_t)
-{
-    unselect_all();
-    m_encoder.erase_group_level_table(table_key); // Throws
-}
-
-inline bool TransactLogEncoder::rename_group_level_table(TableKey table_key)
+inline bool TransactLogEncoder::rename_class(TableKey table_key)
 {
     append_simple_instr(instr_RenameGroupLevelTable, table_key); // Throws
     return true;
-}
-
-inline void TransactLogConvenientEncoder::rename_group_level_table(TableKey table_key, StringData)
-{
-    unselect_all();
-    m_encoder.rename_group_level_table(table_key); // Throws
 }
 
 inline bool TransactLogEncoder::insert_column(ColKey col_key)
@@ -800,22 +599,10 @@ inline bool TransactLogEncoder::insert_column(ColKey col_key)
     return true;
 }
 
-inline void TransactLogConvenientEncoder::insert_column(const Table* t, ColKey col_key, DataType, StringData, Table*)
-{
-    select_table(t);                  // Throws
-    m_encoder.insert_column(col_key); // Throws
-}
-
 inline bool TransactLogEncoder::erase_column(ColKey col_key)
 {
     append_simple_instr(instr_EraseColumn, col_key); // Throws
     return true;
-}
-
-inline void TransactLogConvenientEncoder::erase_column(const Table* t, ColKey col_key)
-{
-    select_table(t);                 // Throws
-    m_encoder.erase_column(col_key); // Throws
 }
 
 inline bool TransactLogEncoder::rename_column(ColKey col_key)
@@ -824,13 +611,6 @@ inline bool TransactLogEncoder::rename_column(ColKey col_key)
     return true;
 }
 
-inline void TransactLogConvenientEncoder::rename_column(const Table* t, ColKey col_key, StringData)
-{
-    select_table(t);                  // Throws
-    m_encoder.rename_column(col_key); // Throws
-}
-
-
 inline bool TransactLogEncoder::modify_object(ColKey col_key, ObjKey key)
 {
     append_simple_instr(instr_Set, col_key, key); // Throws
@@ -838,141 +618,41 @@ inline bool TransactLogEncoder::modify_object(ColKey col_key, ObjKey key)
 }
 
 
-inline void TransactLogConvenientEncoder::do_set(const Table* t, ColKey col_key, ObjKey key, Instruction variant)
+/************************************ Collections ***********************************/
+
+inline bool TransactLogEncoder::collection_set(size_t ndx)
 {
-    if (variant != Instruction::instr_SetDefault) {
-        select_table(t);                       // Throws
-        m_encoder.modify_object(col_key, key); // Throws
+    append_simple_instr(instr_CollectionSet, ndx); // Throws
+    return true;
+}
+
+inline bool TransactLogEncoder::collection_insert(size_t ndx)
+{
+    append_simple_instr(instr_CollectionInsert, ndx); // Throws
+    return true;
+}
+
+
+inline bool TransactLogEncoder::collection_move(size_t from_ndx, size_t to_ndx)
+{
+    // This test is to prevent some fuzzy testing on the server to crash
+    if (from_ndx != to_ndx) {
+        append_simple_instr(instr_CollectionMove, from_ndx, to_ndx); // Throws
     }
-}
-
-
-inline void TransactLogConvenientEncoder::set(const Table* t, ColKey col_key, ObjKey key, Mixed, Instruction variant)
-{
-    do_set(t, col_key, key, variant); // Throws
-}
-
-
-inline void TransactLogConvenientEncoder::add_int(const Table* t, ColKey col_key, ObjKey key, int_fast64_t)
-{
-    do_set(t, col_key, key); // Throws
-}
-
-inline void TransactLogConvenientEncoder::nullify_link(const Table* t, ColKey col_key, ObjKey key)
-{
-    select_table(t);                       // Throws
-    m_encoder.modify_object(col_key, key); // Throws
-}
-
-
-/************************************ List ***********************************/
-
-inline bool TransactLogEncoder::list_set(size_t list_ndx)
-{
-    append_simple_instr(instr_ListSet, list_ndx); // Throws
     return true;
 }
 
-inline void TransactLogConvenientEncoder::list_set(const CollectionBase& list, size_t list_ndx, Mixed)
+inline bool TransactLogEncoder::collection_erase(size_t ndx)
 {
-    select_collection(list);      // Throws
-    m_encoder.list_set(list_ndx); // Throws
-}
-
-inline bool TransactLogEncoder::list_insert(size_t list_ndx)
-{
-    append_simple_instr(instr_ListInsert, list_ndx); // Throws
+    append_simple_instr(instr_CollectionErase, ndx); // Throws
     return true;
 }
 
-inline void TransactLogConvenientEncoder::list_insert(const CollectionBase& list, size_t list_ndx, Mixed)
+
+inline bool TransactLogEncoder::collection_clear(size_t old_size)
 {
-    select_collection(list);         // Throws
-    m_encoder.list_insert(list_ndx); // Throws
-}
-
-
-/************************************ Set ************************************/
-
-inline bool TransactLogEncoder::set_insert(size_t set_ndx)
-{
-    append_simple_instr(instr_SetInsert, set_ndx); // Throws
+    append_simple_instr(instr_CollectionClear, old_size); // Throws
     return true;
-}
-
-inline void TransactLogConvenientEncoder::set_insert(const CollectionBase& set, size_t set_ndx, Mixed)
-{
-    select_collection(set);        // Throws
-    m_encoder.set_insert(set_ndx); // Throws
-}
-
-inline bool TransactLogEncoder::set_erase(size_t set_ndx)
-{
-    append_simple_instr(instr_SetErase, set_ndx); // Throws
-    return true;
-}
-
-inline void TransactLogConvenientEncoder::set_erase(const CollectionBase& set, size_t set_ndx, Mixed)
-{
-    select_collection(set);       // Throws
-    m_encoder.set_erase(set_ndx); // Throws
-}
-
-inline bool TransactLogEncoder::set_clear(size_t set_size)
-{
-    append_simple_instr(instr_SetClear, set_size); // Throws
-    return true;
-}
-
-inline void TransactLogConvenientEncoder::set_clear(const CollectionBase& set)
-{
-    select_collection(set);          // Throws
-    m_encoder.set_clear(set.size()); // Throws
-}
-
-inline void TransactLogConvenientEncoder::remove_object(const Table* t, ObjKey key)
-{
-    select_table(t);              // Throws
-    m_encoder.remove_object(key); // Throws
-}
-
-inline bool TransactLogEncoder::list_move(size_t from_link_ndx, size_t to_link_ndx)
-{
-    REALM_ASSERT(from_link_ndx != to_link_ndx);
-    append_simple_instr(instr_ListMove, from_link_ndx, to_link_ndx); // Throws
-    return true;
-}
-
-inline void TransactLogConvenientEncoder::list_move(const CollectionBase& list, size_t from_link_ndx,
-                                                    size_t to_link_ndx)
-{
-    select_collection(list);                         // Throws
-    m_encoder.list_move(from_link_ndx, to_link_ndx); // Throws
-}
-
-inline bool TransactLogEncoder::list_erase(size_t list_ndx)
-{
-    append_simple_instr(instr_ListErase, list_ndx); // Throws
-    return true;
-}
-
-inline void TransactLogConvenientEncoder::list_erase(const CollectionBase& list, size_t link_ndx)
-{
-    select_collection(list);        // Throws
-    m_encoder.list_erase(link_ndx); // Throws
-}
-
-inline bool TransactLogEncoder::list_clear(size_t old_list_size)
-{
-    append_simple_instr(instr_ListClear, old_list_size); // Throws
-    return true;
-}
-
-inline void TransactLogConvenientEncoder::typed_link_change(const Table* source_table, ColKey col,
-                                                            TableKey dest_table)
-{
-    select_table(source_table);
-    m_encoder.typed_link_change(col, dest_table);
 }
 
 inline bool TransactLogEncoder::typed_link_change(ColKey col, TableKey dest)
@@ -982,30 +662,14 @@ inline bool TransactLogEncoder::typed_link_change(ColKey col, TableKey dest)
 }
 
 
-inline TransactLogParser::TransactLogParser()
-    : m_input_buffer(1024) // Throws
-{
-}
-
-
-inline TransactLogParser::~TransactLogParser() noexcept {}
-
-
 template <class InstructionHandler>
-void TransactLogParser::parse(NoCopyInputStream& in, InstructionHandler& handler)
+void TransactLogParser::parse(util::InputStream& in, InstructionHandler& handler)
 {
     m_input = &in;
     m_input_begin = m_input_end = nullptr;
 
     while (has_next())
         parse_one(handler); // Throws
-}
-
-template <class InstructionHandler>
-void TransactLogParser::parse(InputStream& in, InstructionHandler& handler)
-{
-    NoCopyInputStreamAdaptor in_2(in, m_input_buffer.data(), m_input_buffer.size());
-    parse(in_2, handler); // Throws
 }
 
 inline bool TransactLogParser::has_next() noexcept
@@ -1031,12 +695,6 @@ void TransactLogParser::parse_one(InstructionHandler& handler)
         case instr_SetDefault:
             // Should not appear in the transaction log
             parser_error();
-        case instr_ListSet: {
-            size_t list_ndx = read_int<size_t>();
-            if (!handler.list_set(list_ndx)) // Throws
-                parser_error();
-            return;
-        }
         case instr_CreateObject: {
             ObjKey key(read_int<int64_t>()); // Throws
             if (!handler.create_object(key)) // Throws
@@ -1057,77 +715,68 @@ void TransactLogParser::parse_one(InstructionHandler& handler)
                 parser_error();
             return;
         }
-        case instr_ListInsert: {
-            size_t list_ndx = read_int<size_t>();
-            if (!handler.list_insert(list_ndx)) // Throws
+        case instr_CollectionSet: {
+            size_t ndx = read_int<size_t>();
+            if (!handler.collection_set(ndx)) // Throws
                 parser_error();
             return;
         }
-        case instr_ListMove: {
-            size_t from_link_ndx = read_int<size_t>();          // Throws
-            size_t to_link_ndx = read_int<size_t>();            // Throws
-            if (!handler.list_move(from_link_ndx, to_link_ndx)) // Throws
+        case instr_SetInsert:
+        case instr_CollectionInsert: {
+            size_t ndx = read_int<size_t>();
+            if (!handler.collection_insert(ndx)) // Throws
                 parser_error();
             return;
         }
-        case instr_ListErase: {
-            size_t link_ndx = read_int<size_t>(); // Throws
-            if (!handler.list_erase(link_ndx))    // Throws
+        case instr_CollectionMove: {
+            size_t from_ndx = read_int<size_t>();           // Throws
+            size_t to_ndx = read_int<size_t>();             // Throws
+            if (!handler.collection_move(from_ndx, to_ndx)) // Throws
                 parser_error();
             return;
         }
-        case instr_ListClear: {
-            size_t old_list_size = read_int<size_t>(); // Throws
-            if (!handler.list_clear(old_list_size))    // Throws
+        case instr_SetErase:
+        case instr_CollectionErase: {
+            size_t ndx = read_int<size_t>();    // Throws
+            if (!handler.collection_erase(ndx)) // Throws
+                parser_error();
+            return;
+        }
+        case instr_SetClear:
+        case instr_CollectionClear: {
+            size_t old_size = read_int<size_t>();    // Throws
+            if (!handler.collection_clear(old_size)) // Throws
                 parser_error();
             return;
         }
         case instr_DictionaryInsert: {
             int type = read_int<int>(); // Throws
             REALM_ASSERT(type == int(type_String));
-            Mixed key = Mixed(read_string(m_string_buffer));
-            size_t dict_ndx = read_int<size_t>();          // Throws
-            if (!handler.dictionary_insert(dict_ndx, key)) // Throws
+            read_string(m_string_buffer);             // skip key
+            size_t dict_ndx = read_int<size_t>();     // Throws
+            if (!handler.collection_insert(dict_ndx)) // Throws
                 parser_error();
             return;
         }
         case instr_DictionarySet: {
             int type = read_int<int>(); // Throws
             REALM_ASSERT(type == int(type_String));
-            Mixed key = Mixed(read_string(m_string_buffer));
+            read_string(m_string_buffer);               // skip key
             size_t dict_ndx = read_int<size_t>();       // Throws
-            if (!handler.dictionary_set(dict_ndx, key)) // Throws
+            if (!handler.collection_set(dict_ndx))      // Throws
                 parser_error();
             return;
         }
         case instr_DictionaryErase: {
             int type = read_int<int>(); // Throws
             REALM_ASSERT(type == int(type_String));
-            Mixed key = Mixed(read_string(m_string_buffer));
+            read_string(m_string_buffer);                 // skip key
             size_t dict_ndx = read_int<size_t>();         // Throws
-            if (!handler.dictionary_erase(dict_ndx, key)) // Throws
+            if (!handler.collection_erase(dict_ndx))      // Throws
                 parser_error();
             return;
         }
-        case instr_SetInsert: {
-            size_t set_ndx = read_int<size_t>(); // Throws
-            if (!handler.set_insert(set_ndx))    // Throws
-                parser_error();
-            return;
-        }
-        case instr_SetErase: {
-            size_t set_ndx = read_int<size_t>(); // Throws
-            if (!handler.set_erase(set_ndx))     // Throws
-                parser_error();
-            return;
-        }
-        case instr_SetClear: {
-            size_t set_size = read_int<size_t>(); // Throws
-            if (!handler.set_clear(set_size))     // Throws
-                parser_error();
-            return;
-        }
-        case instr_SelectList: {
+        case instr_SelectCollection: {
             ColKey col_key = ColKey(read_int<int64_t>()); // Throws
             ObjKey key = ObjKey(read_int<int64_t>());     // Throws
             if (!handler.select_collection(col_key, key)) // Throws
@@ -1160,13 +809,13 @@ void TransactLogParser::parse_one(InstructionHandler& handler)
         }
         case instr_EraseGroupLevelTable: {
             TableKey table_key = TableKey(read_int<uint32_t>()); // Throws
-            if (!handler.erase_group_level_table(table_key))     // Throws
+            if (!handler.erase_class(table_key))                 // Throws
                 parser_error();
             return;
         }
         case instr_RenameGroupLevelTable: {
             TableKey table_key = TableKey(read_int<uint32_t>()); // Throws
-            if (!handler.rename_group_level_table(table_key))    // Throws
+            if (!handler.rename_class(table_key))                // Throws
                 parser_error();
             return;
         }
@@ -1179,7 +828,7 @@ void TransactLogParser::parse_one(InstructionHandler& handler)
         }
     }
 
-    throw BadTransactLog();
+    parser_error();
 }
 
 
@@ -1192,19 +841,19 @@ T TransactLogParser::read_int()
     for (int i = 0; i != max_bytes; ++i) {
         char c;
         if (!read_char(c))
-            goto bad_transact_log;
+            parser_error(); // Input ended early
         part = static_cast<unsigned char>(c);
         if (0xFF < part)
-            goto bad_transact_log; // Only the first 8 bits may be used in each byte
+            parser_error(); // Only the first 8 bits may be used in each byte
         if ((part & 0x80) == 0) {
             T p = part & 0x3F;
             if (util::int_shift_left_with_overflow_detect(p, i * 7))
-                goto bad_transact_log;
+                parser_error();
             value |= p;
             break;
         }
         if (i == max_bytes - 1)
-            goto bad_transact_log; // Too many bytes
+            parser_error(); // Too many bytes
         value |= T(part & 0x7F) << (i * 7);
     }
     if (part & 0x40) {
@@ -1216,12 +865,9 @@ T TransactLogParser::read_int()
         value = -value;
         REALM_DIAG_POP();
         if (util::int_subtract_with_overflow_detect(value, 1))
-            goto bad_transact_log;
+            parser_error();
     }
     return value;
-
-bad_transact_log:
-    throw BadTransactLog();
 }
 
 inline void TransactLogParser::read_bytes(char* data, size_t size)
@@ -1233,7 +879,7 @@ inline void TransactLogParser::read_bytes(char* data, size_t size)
         const char* to = m_input_begin + avail;
         std::copy(m_input_begin, to, data);
         if (!next_input_buffer())
-            throw BadTransactLog();
+            parser_error();
         data += avail;
         size -= avail;
     }
@@ -1242,7 +888,7 @@ inline void TransactLogParser::read_bytes(char* data, size_t size)
     m_input_begin = to;
 }
 
-inline BinaryData TransactLogParser::read_buffer(util::StringBuffer& buf, size_t size)
+inline BinaryData TransactLogParser::read_buffer(std::string& buf, size_t size)
 {
     const size_t avail = m_input_end - m_input_begin;
     if (avail >= size) {
@@ -1256,7 +902,7 @@ inline BinaryData TransactLogParser::read_buffer(util::StringBuffer& buf, size_t
     return BinaryData(buf.data(), size);
 }
 
-inline StringData TransactLogParser::read_string(util::StringBuffer& buf)
+inline StringData TransactLogParser::read_string(std::string& buf)
 {
     size_t size = read_int<size_t>(); // Throws
 
@@ -1269,7 +915,10 @@ inline StringData TransactLogParser::read_string(util::StringBuffer& buf)
 
 inline bool TransactLogParser::next_input_buffer()
 {
-    return m_input->next_block(m_input_begin, m_input_end);
+    auto buffer = m_input->next_block();
+    m_input_begin = buffer.begin();
+    m_input_end = buffer.end();
+    return m_input_begin != m_input_end;
 }
 
 
@@ -1281,270 +930,13 @@ inline bool TransactLogParser::read_char(char& c)
     return true;
 }
 
-
-class TransactReverser {
-public:
-    bool select_table(TableKey key)
-    {
-        sync_table();
-        m_encoder.select_table(key);
-        m_pending_ts_instr = get_inst();
-        return true;
-    }
-
-    bool insert_group_level_table(TableKey table_key)
-    {
-        sync_table();
-        m_encoder.erase_group_level_table(table_key);
-        append_instruction();
-        return true;
-    }
-
-    bool erase_group_level_table(TableKey table_key)
-    {
-        sync_table();
-        m_encoder.insert_group_level_table(table_key);
-        append_instruction();
-        return true;
-    }
-
-    bool rename_group_level_table(TableKey)
-    {
-        sync_table();
-        return true;
-    }
-
-    bool create_object(ObjKey key)
-    {
-        m_encoder.remove_object(key); // Throws
-        append_instruction();
-        return true;
-    }
-
-    bool remove_object(ObjKey key)
-    {
-        m_encoder.create_object(key); // Throws
-        append_instruction();
-        return true;
-    }
-
-    bool modify_object(ColKey col_key, ObjKey key)
-    {
-        m_encoder.modify_object(col_key, key);
-        append_instruction();
-        return true;
-    }
-
-    bool list_set(size_t ndx)
-    {
-        m_encoder.list_set(ndx);
-        append_instruction();
-        return true;
-    }
-
-    bool list_insert(size_t ndx)
-    {
-        m_encoder.list_erase(ndx);
-        append_instruction();
-        return true;
-    }
-
-    bool dictionary_insert(size_t dict_ndx, Mixed key)
-    {
-        m_encoder.dictionary_erase(dict_ndx, key);
-        return true;
-    }
-
-    bool dictionary_set(size_t dict_ndx, Mixed key)
-    {
-        m_encoder.dictionary_set(dict_ndx, key);
-        return true;
-    }
-
-    bool dictionary_erase(size_t dict_ndx, Mixed key)
-    {
-        m_encoder.dictionary_insert(dict_ndx, key);
-        return true;
-    }
-
-    bool set_link_type(ColKey key)
-    {
-        m_encoder.set_link_type(key);
-        return true;
-    }
-
-    bool insert_column(ColKey col_key)
-    {
-        m_encoder.erase_column(col_key);
-        append_instruction();
-        return true;
-    }
-
-    bool erase_column(ColKey col_key)
-    {
-        m_encoder.insert_column(col_key);
-        append_instruction();
-        return true;
-    }
-
-    bool rename_column(ColKey col_key)
-    {
-        m_encoder.rename_column(col_key);
-        return true;
-    }
-
-    bool select_collection(ColKey col_key, ObjKey key)
-    {
-        sync_list();
-        m_encoder.select_collection(col_key, key);
-        m_pending_ls_instr = get_inst();
-        return true;
-    }
-
-    bool list_move(size_t from_link_ndx, size_t to_link_ndx)
-    {
-        m_encoder.list_move(from_link_ndx, to_link_ndx);
-        append_instruction();
-        return true;
-    }
-
-    bool list_erase(size_t list_ndx)
-    {
-        m_encoder.list_insert(list_ndx);
-        append_instruction();
-        return true;
-    }
-
-    bool list_clear(size_t old_list_size)
-    {
-        // Append in reverse order because the reversed log is itself applied
-        // in reverse, and this way it generates all back-insertions rather than
-        // all front-insertions
-        for (size_t i = old_list_size; i > 0; --i) {
-            m_encoder.list_insert(i - 1);
-            append_instruction();
-        }
-        return true;
-    }
-
-    bool set_insert(size_t ndx)
-    {
-        m_encoder.set_erase(ndx);
-        append_instruction();
-        return true;
-    }
-
-    bool set_erase(size_t ndx)
-    {
-        m_encoder.set_insert(ndx);
-        append_instruction();
-        return true;
-    }
-
-    bool set_clear(size_t old_set_size)
-    {
-        for (size_t i = old_set_size; i > 0; --i) {
-            m_encoder.set_insert(i - 1);
-            append_instruction();
-        }
-        return true;
-    }
-
-    bool typed_link_change(ColKey col, TableKey dest)
-    {
-        m_encoder.typed_link_change(col, dest);
-        append_instruction();
-        return true;
-    }
-
-private:
-    _impl::TransactLogBufferStream m_buffer;
-    _impl::TransactLogEncoder m_encoder{m_buffer};
-    struct Instr {
-        size_t begin;
-        size_t end;
-    };
-    std::vector<Instr> m_instructions;
-    size_t current_instr_start = 0;
-    Instr m_pending_ts_instr{0, 0};
-    Instr m_pending_ls_instr{0, 0};
-
-    Instr get_inst()
-    {
-        Instr instr;
-        instr.begin = current_instr_start;
-        current_instr_start = transact_log_size();
-        instr.end = current_instr_start;
-        return instr;
-    }
-
-    size_t transact_log_size() const
-    {
-        REALM_ASSERT_3(m_encoder.write_position(), >=, m_buffer.get_data());
-        return m_encoder.write_position() - m_buffer.get_data();
-    }
-
-    void append_instruction()
-    {
-        m_instructions.push_back(get_inst());
-    }
-
-    void append_instruction(Instr instr)
-    {
-        m_instructions.push_back(instr);
-    }
-
-    void sync_select(Instr& pending_instr)
-    {
-        if (pending_instr.begin != pending_instr.end) {
-            append_instruction(pending_instr);
-            pending_instr = {0, 0};
-        }
-    }
-
-    void sync_list()
-    {
-        sync_select(m_pending_ls_instr);
-    }
-
-    void sync_table()
-    {
-        sync_list();
-        sync_select(m_pending_ts_instr);
-    }
-
-    friend class ReversedNoCopyInputStream;
-};
-
-
-class ReversedNoCopyInputStream : public NoCopyInputStream {
-public:
-    ReversedNoCopyInputStream(TransactReverser& reverser)
-        : m_instr_order(reverser.m_instructions)
-    {
-        // push any pending select_table into the buffer
-        reverser.sync_table();
-
-        m_buffer = reverser.m_buffer.get_data();
-        m_current = m_instr_order.size();
-    }
-
-    bool next_block(const char*& begin, const char*& end) override
-    {
-        if (m_current != 0) {
-            m_current--;
-            begin = m_buffer + m_instr_order[m_current].begin;
-            end = m_buffer + m_instr_order[m_current].end;
-            return (end > begin);
-        }
-        return false;
-    }
-
-private:
-    const char* m_buffer;
-    std::vector<TransactReverser::Instr>& m_instr_order;
-    size_t m_current;
-};
+template <typename Handler>
+void parse_transact_log(util::InputStream& is, Handler& handler)
+{
+    TransactLogParser parser;
+    parser.parse(is, handler);
+    handler.parse_complete();
+}
 
 } // namespace _impl
 } // namespace realm

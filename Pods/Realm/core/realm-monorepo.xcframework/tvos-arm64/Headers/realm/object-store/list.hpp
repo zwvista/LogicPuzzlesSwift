@@ -39,6 +39,10 @@ struct ObjKey;
 class List : public object_store::Collection {
 public:
     using object_store::Collection::Collection;
+    List()
+        : Collection(PropertyType::Array)
+    {
+    }
 
     List(const List&);
     List& operator=(const List&);
@@ -57,6 +61,7 @@ public:
 
     template <typename T = Obj>
     T get(size_t row_ndx) const;
+
     template <typename T>
     size_t find(T const& value) const;
 
@@ -77,18 +82,9 @@ public:
 
     Results filter(Query q) const;
 
-    // Returns a frozen copy of this result
-    List freeze(std::shared_ptr<Realm> const& realm) const;
-
-    // Get the min/max/average/sum of the given column
-    // All but sum() returns none when there are zero matching rows
-    // sum() returns 0,
-    // Throws UnsupportedColumnTypeException for sum/average on timestamp or non-numeric column
-    // Throws OutOfBoundsIndexException for an out-of-bounds column
-    util::Optional<Mixed> max(ColKey column = {}) const;
-    util::Optional<Mixed> min(ColKey column = {}) const;
-    util::Optional<Mixed> average(ColKey column = {}) const;
-    Mixed sum(ColKey column = {}) const;
+    // Returns a frozen copy of this List.
+    // Equivalent to producing a thread-safe reference and resolving it in the frozen realm.
+    List freeze(std::shared_ptr<Realm> const& frozen_realm) const;
 
     bool operator==(List const& rgt) const noexcept;
 
@@ -108,11 +104,18 @@ public:
     Obj set_embedded(size_t list_ndx);
     Obj insert_embedded(size_t list_ndx);
 
+    Obj get_object(size_t list_ndx);
+
     // Replace the values in this list with the values from an enumerable object
     template <typename T, typename Context>
     void assign(Context&, T&& value, CreatePolicy = CreatePolicy::SetLink);
 
 private:
+    const char* type_name() const noexcept override
+    {
+        return "List";
+    }
+
     LstBase& list_base() const noexcept
     {
         REALM_ASSERT_DEBUG(dynamic_cast<LstBase*>(m_coll_base.get()));
@@ -129,6 +132,9 @@ private:
 
     friend struct std::hash<List>;
 };
+
+template <>
+Obj List::get(size_t row_ndx) const;
 
 template <typename T>
 auto& List::as() const

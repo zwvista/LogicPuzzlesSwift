@@ -19,8 +19,6 @@
 #import "RLMSyncManager_Private.hpp"
 
 #import "RLMApp_Private.hpp"
-#import "RLMRealmConfiguration+Sync.h"
-#import "RLMSyncConfiguration_Private.hpp"
 #import "RLMSyncSession_Private.hpp"
 #import "RLMUser_Private.hpp"
 #import "RLMSyncUtil_Private.hpp"
@@ -34,12 +32,14 @@
 #import "RLMVersion.h"
 #endif
 
+#include <os/lock.h>
+
 using namespace realm;
 
+// NEXT-MAJOR: All the code associated to the logger from sync manager should be removed.
 using Level = realm::util::Logger::Level;
 
 namespace {
-
 Level levelForSyncLogLevel(RLMSyncLogLevel logLevel) {
     switch (logLevel) {
         case RLMSyncLogLevelOff:    return Level::off;
@@ -72,21 +72,19 @@ RLMSyncLogLevel logLevelForLevel(Level logLevel) {
 
 #pragma mark - Loggers
 
-struct CocoaSyncLogger : public realm::util::RootLogger {
+struct CocoaSyncLogger : public realm::util::Logger {
     void do_log(Level, const std::string& message) override {
         NSLog(@"Sync: %@", RLMStringDataToNSString(message));
     }
 };
 
-struct CocoaSyncLoggerFactory : public realm::SyncLoggerFactory {
-    std::unique_ptr<realm::util::Logger> make_logger(realm::util::Logger::Level level) override {
-        auto logger = std::make_unique<CocoaSyncLogger>();
-        logger->set_level_threshold(level);
-        return std::move(logger);
-    }
-} s_syncLoggerFactory;
+static std::unique_ptr<realm::util::Logger> defaultSyncLogger(realm::util::Logger::Level level) {
+    auto logger = std::make_unique<CocoaSyncLogger>();
+    logger->set_level_threshold(level);
+    return std::move(logger);
+}
 
-struct CallbackLogger : public realm::util::RootLogger {
+struct CallbackLogger : public realm::util::Logger {
     RLMSyncLogFunction logFn;
     void do_log(Level level, const std::string& message) override {
         @autoreleasepool {
@@ -94,31 +92,23 @@ struct CallbackLogger : public realm::util::RootLogger {
         }
     }
 };
-struct CallbackLoggerFactory : public realm::SyncLoggerFactory {
-    RLMSyncLogFunction logFn;
-    std::unique_ptr<realm::util::Logger> make_logger(realm::util::Logger::Level level) override {
-        auto logger = std::make_unique<CallbackLogger>();
-        logger->logFn = logFn;
-        logger->set_level_threshold(level);
-        return std::move(logger); // not a redundant move because it's a different type
-    }
-
-    CallbackLoggerFactory(RLMSyncLogFunction logFn) : logFn(logFn) { }
-};
 
 } // anonymous namespace
 
+std::shared_ptr<realm::util::Logger> RLMWrapLogFunction(RLMSyncLogFunction fn) {
+    auto logger = std::make_shared<CallbackLogger>();
+    logger->logFn = fn;
+    logger->set_level_threshold(Level::all);
+    return logger;
+}
+
 #pragma mark - RLMSyncManager
 
-@interface RLMSyncTimeoutOptions () {
-    @public
-    realm::SyncClientTimeouts _options;
-}
-@end
-
 @implementation RLMSyncManager {
-    std::unique_ptr<CallbackLoggerFactory> _loggerFactory;
+    RLMUnfairMutex _mutex;
     std::shared_ptr<SyncManager> _syncManager;
+    NSDictionary<NSString *,NSString *> *_customRequestHeaders;
+    RLMSyncLogFunction _logger;
 }
 
 - (instancetype)initWithSyncManager:(std::shared_ptr<realm::SyncManager>)syncManager {
@@ -130,44 +120,20 @@ struct CallbackLoggerFactory : public realm::SyncLoggerFactory {
     return nil;
 }
 
-+ (SyncClientConfig)configurationWithRootDirectory:(NSURL *)rootDirectory appId:(NSString *)appId {
-    SyncClientConfig config;
-    bool should_encrypt = !getenv("REALM_DISABLE_METADATA_ENCRYPTION") && !RLMIsRunningInPlayground();
-    config.logger_factory = &s_syncLoggerFactory;
-    config.metadata_mode = should_encrypt ? SyncManager::MetadataMode::Encryption
-                                          : SyncManager::MetadataMode::NoEncryption;
-    @autoreleasepool {
-        rootDirectory = rootDirectory ?: [NSURL fileURLWithPath:RLMDefaultDirectoryForBundleIdentifier(nil)];
-        config.base_file_path = rootDirectory.path.UTF8String;
-
-        bool isSwift = !!NSClassFromString(@"RealmSwiftObjectUtil");
-        config.user_agent_binding_info =
-            util::format("Realm%1/%2", isSwift ? "Swift" : "ObjectiveC",
-                         RLMStringDataWithNSString(REALM_COCOA_VERSION));
-        config.user_agent_application_info = RLMStringDataWithNSString(appId);
-    }
-
-    return config;
-}
-
 - (std::weak_ptr<realm::app::App>)app {
     return _syncManager->app();
 }
 
-- (NSString *)appID {
-    if (!_appID) {
-        _appID = [[NSBundle mainBundle] bundleIdentifier] ?: @"(none)";
-    }
-    return _appID;
-}
-
-- (void)setUserAgent:(NSString *)userAgent {
-    _syncManager->set_user_agent(RLMStringDataWithNSString(userAgent));
-    _userAgent = userAgent;
+- (NSDictionary<NSString *,NSString *> *)customRequestHeaders {
+    std::lock_guard lock(_mutex);
+    return _customRequestHeaders;
 }
 
 - (void)setCustomRequestHeaders:(NSDictionary<NSString *,NSString *> *)customRequestHeaders {
-    _customRequestHeaders = customRequestHeaders.copy;
+    {
+        std::lock_guard lock(_mutex);
+        _customRequestHeaders = customRequestHeaders.copy;
+    }
 
     for (auto&& user : _syncManager->all_users()) {
         for (auto&& session : user->all_sessions()) {
@@ -181,24 +147,46 @@ struct CallbackLoggerFactory : public realm::SyncLoggerFactory {
     }
 }
 
-- (void)setLogger:(RLMSyncLogFunction)logFn {
-    _logger = logFn;
-    if (_logger) {
-        _loggerFactory = std::make_unique<CallbackLoggerFactory>(logFn);
-        _syncManager->set_logger_factory(*_loggerFactory);
-    }
-    else {
-        _loggerFactory = nullptr;
-        _syncManager->set_logger_factory(s_syncLoggerFactory);
-    }
+- (RLMSyncLogFunction)logger {
+    std::lock_guard lock(_mutex);
+    return _logger;
 }
 
-- (void)setTimeoutOptions:(RLMSyncTimeoutOptions *)timeoutOptions {
-    _timeoutOptions = timeoutOptions;
-    _syncManager->set_timeouts(timeoutOptions->_options);
+- (void)setLogger:(RLMSyncLogFunction)logFn {
+    {
+        std::lock_guard lock(_mutex);
+        _logger = logFn;
+    }
+    if (logFn) {
+        _syncManager->set_logger_factory([logFn](realm::util::Logger::Level level) {
+            auto logger = std::make_unique<CallbackLogger>();
+            logger->logFn = logFn;
+            logger->set_level_threshold(level);
+            return logger;
+        });
+    }
+    else {
+        _syncManager->set_logger_factory(defaultSyncLogger);
+    }
 }
 
 #pragma mark - Passthrough properties
+
+- (NSString *)userAgent {
+    return @(_syncManager->config().user_agent_application_info.c_str());
+}
+
+- (void)setUserAgent:(NSString *)userAgent {
+    _syncManager->set_user_agent(RLMStringDataWithNSString(userAgent));
+}
+
+- (RLMSyncTimeoutOptions *)timeoutOptions {
+    return [[RLMSyncTimeoutOptions alloc] initWithOptions:_syncManager->config().timeouts];
+}
+
+- (void)setTimeoutOptions:(RLMSyncTimeoutOptions *)timeoutOptions {
+    _syncManager->set_timeouts(timeoutOptions->_options);
+}
 
 - (RLMSyncLogLevel)logLevel {
     return logLevelForLevel(_syncManager->log_level());
@@ -210,33 +198,44 @@ struct CallbackLoggerFactory : public realm::SyncLoggerFactory {
 
 #pragma mark - Private API
 
-- (void)_fireError:(NSError *)error {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.errorHandler) {
-            self.errorHandler(error, nil);
-        }
-    });
-}
-
 - (void)resetForTesting {
     _errorHandler = nil;
-    _appID = nil;
-    _userAgent = nil;
     _logger = nil;
     _authorizationHeaderName = nil;
     _customRequestHeaders = nil;
-    _timeoutOptions = nil;
     _syncManager->reset_for_testing();
 }
 
 - (std::shared_ptr<realm::SyncManager>)syncManager {
     return _syncManager;
 }
+
+- (void)waitForSessionTermination {
+    _syncManager->wait_for_sessions_to_terminate();
+}
+
+- (void)populateConfig:(realm::SyncConfig&)config {
+    @synchronized (self) {
+        if (_authorizationHeaderName) {
+            config.authorization_header_name.emplace(_authorizationHeaderName.UTF8String);
+        }
+        [_customRequestHeaders enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *header, BOOL *) {
+            config.custom_http_headers.emplace(key.UTF8String, header.UTF8String);
+        }];
+    }
+}
 @end
 
 #pragma mark - RLMSyncTimeoutOptions
 
 @implementation RLMSyncTimeoutOptions
+- (instancetype)initWithOptions:(realm::SyncClientTimeouts)options {
+    if (self = [super init]) {
+        _options = options;
+    }
+    return self;
+}
+
 - (NSUInteger)connectTimeout {
     return static_cast<NSUInteger>(_options.connect_timeout);
 }

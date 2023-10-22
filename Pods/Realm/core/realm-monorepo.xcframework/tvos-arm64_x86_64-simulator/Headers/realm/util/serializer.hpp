@@ -20,6 +20,7 @@
 #define REALM_UTIL_SERIALIZER_HPP
 
 #include <realm/table_ref.hpp>
+#include <realm/util/features.h>
 #include <realm/util/optional.hpp>
 
 #include <string>
@@ -39,11 +40,14 @@ class Timestamp;
 class LinkMap;
 class UUID;
 class TypeOfValue;
+class Group;
 enum class ExpressionComparisonType : unsigned char;
 
-namespace util {
-namespace serializer {
+#if REALM_ENABLE_GEOSPATIAL
+class Geospatial;
+#endif // REALM_ENABLE_GEOSPATIAL
 
+namespace util::serializer {
 
 // Definitions
 template <typename T>
@@ -52,7 +56,7 @@ std::string print_value(T value);
 template <typename T>
 std::string print_value(Optional<T> value);
 
-const static std::string value_separator = ".";
+constexpr static const char value_separator[] = ".";
 
 // Specializations declared here to be defined in the cpp file
 template <> std::string print_value<>(BinaryData);
@@ -68,12 +72,18 @@ template <>
 std::string print_value<>(realm::ObjectId);
 template <>
 std::string print_value<>(realm::ObjKey);
-template <>
-std::string print_value<>(realm::ObjLink);
+
+std::string print_value(realm::ObjLink, Group*);
+
 template <>
 std::string print_value<>(realm::UUID);
 template <>
 std::string print_value<>(realm::TypeOfValue);
+
+#if REALM_ENABLE_GEOSPATIAL
+template <>
+std::string print_value<>(const realm::Geospatial&);
+#endif // REALM_ENABLE_GEOSPATIAL
 
 // General implementation for most types
 template <typename T>
@@ -94,25 +104,23 @@ std::string print_value(Optional<T> value)
     }
 }
 
-StringData get_printable_table_name(StringData name, const std::string& prefix);
-
 struct SerialisationState {
-    SerialisationState(const std::string& prefix)
-        : class_prefix(prefix)
+    SerialisationState(Group* g = nullptr) noexcept
+        : group(g)
     {
     }
     std::string describe_column(ConstTableRef table, ColKey col_key);
     std::string describe_columns(const LinkMap& link_map, ColKey target_col_key);
-    std::string describe_expression_type(ExpressionComparisonType type);
+    std::string describe_expression_type(util::Optional<ExpressionComparisonType> type);
     std::string get_column_name(ConstTableRef table, ColKey col_key);
     std::string get_backlink_column_name(ConstTableRef from, ColKey col_key);
     std::string get_variable_name(ConstTableRef table);
     std::vector<std::string> subquery_prefix_list;
-    std::string class_prefix;
+    Group* group;
+    ConstTableRef target_table;
 };
 
-} // namespace serializer
-} // namespace util
+} // namespace util::serializer
 } // namespace realm
 
 #endif // REALM_UTIL_SERIALIZER_HPP

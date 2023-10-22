@@ -28,22 +28,13 @@
 #import "RLMThreadSafeReference_Private.hpp"
 #import "RLMUtil.hpp"
 
-// See -countByEnumeratingWithState:objects:count
-@interface RLMSetHolder : NSObject {
-@public
-    std::unique_ptr<id[]> items;
-}
-@end
-@implementation RLMSetHolder
-@end
-
 @interface RLMSet () <RLMThreadConfined_Private>
 @end
 
 @implementation RLMSet {
 @public
     // Backing set when this instance is unmanaged
-    NSMutableSet *_backingCollection;
+    NSMutableOrderedSet *_backingCollection;
 }
 
 #pragma mark - Initializers
@@ -107,7 +98,8 @@
         RLMSetValidateMatchingObjectType(self, obj);
     }
     changeSet(self, ^{
-        [_backingCollection setSet:set->_backingCollection];
+        [_backingCollection removeAllObjects];
+        [_backingCollection unionOrderedSet:set->_backingCollection];
     });
 }
 
@@ -116,7 +108,7 @@
         RLMSetValidateMatchingObjectType(self, obj);
     }
     changeSet(self, ^{
-        [_backingCollection intersectSet:set->_backingCollection];
+        [_backingCollection intersectOrderedSet:set->_backingCollection];
     });
 }
 
@@ -125,7 +117,7 @@
         RLMSetValidateMatchingObjectType(self, obj);
     }
     changeSet(self, ^{
-        [_backingCollection minusSet:set->_backingCollection];
+        [_backingCollection minusOrderedSet:set->_backingCollection];
     });
 }
 
@@ -134,7 +126,7 @@
         RLMSetValidateMatchingObjectType(self, obj);
     }
     changeSet(self, ^{
-        [_backingCollection unionSet:set->_backingCollection];
+        [_backingCollection unionOrderedSet:set->_backingCollection];
     });
 }
 
@@ -142,14 +134,14 @@
     for (id obj in set) {
         RLMSetValidateMatchingObjectType(self, obj);
     }
-    return [_backingCollection isSubsetOfSet:set->_backingCollection];
+    return [_backingCollection isSubsetOfOrderedSet:set->_backingCollection];
 }
 
 - (BOOL)intersectsSet:(RLMSet<id> *)set {
     for (id obj in set) {
         RLMSetValidateMatchingObjectType(self, obj);
     }
-    return [_backingCollection intersectsSet:set->_backingCollection];
+    return [_backingCollection intersectsOrderedSet:set->_backingCollection];
 }
 
 - (BOOL)containsObject:(id)obj {
@@ -161,16 +153,39 @@
     return [self isEqual:set];
 }
 
-// For use with MutableSet subscripting, NSSet does not support
-// subscripting while its Swift counterpart `Set` does.
-- (id)objectAtIndex:(NSUInteger)index {
-    validateSetBounds(self, index);
-    return _backingCollection.allObjects[index];
-}
-
 - (RLMResults *)sortedResultsUsingKeyPath:(NSString *)keyPath ascending:(BOOL)ascending {
     return [self sortedResultsUsingDescriptors:@[[RLMSortDescriptor sortDescriptorWithKeyPath:keyPath ascending:ascending]]];
 }
+
+- (nonnull id)objectAtIndexedSubscript:(NSUInteger)index {
+    return [self objectAtIndex:index];
+}
+
+// The compiler complains about the method's argument type not matching due to
+// it not having the generic type attached, but it doesn't seem to be possible
+// to actually include the generic type
+// http://www.openradar.me/radar?id=6135653276319744
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wmismatched-parameter-types"
+- (RLMNotificationToken *)addNotificationBlock:(void (^)(RLMArray *, RLMCollectionChange *, NSError *))block {
+    return RLMAddNotificationBlock(self, block, nil, nil);
+}
+- (RLMNotificationToken *)addNotificationBlock:(void (^)(RLMArray *, RLMCollectionChange *, NSError *))block
+                                         queue:(dispatch_queue_t)queue {
+    return RLMAddNotificationBlock(self, block, nil, queue);
+}
+
+- (RLMNotificationToken *)addNotificationBlock:(void (^)(RLMArray *, RLMCollectionChange *, NSError *))block
+                                      keyPaths:(NSArray<NSString *> *)keyPaths {
+    return RLMAddNotificationBlock(self, block, keyPaths,nil);
+}
+
+- (RLMNotificationToken *)addNotificationBlock:(void (^)(RLMArray *, RLMCollectionChange *, NSError *))block
+                                      keyPaths:(NSArray<NSString *> *)keyPaths
+                                         queue:(dispatch_queue_t)queue {
+    return RLMAddNotificationBlock(self, block, keyPaths, queue);
+}
+#pragma clang diagnostic pop
 
 #pragma mark - Unmanaged RLMSet implementation
 
@@ -183,7 +198,29 @@
 }
 
 - (NSArray<id> *)allObjects {
-    return _backingCollection.allObjects;
+    return _backingCollection.array;
+}
+
+// For use with MutableSet subscripting, NSSet does not support
+// subscripting while its Swift counterpart `Set` does.
+- (id)objectAtIndex:(NSUInteger)index {
+    validateSetBounds(self, index);
+    return _backingCollection[index];
+}
+
+- (NSArray *)objectsAtIndexes:(NSIndexSet *)indexes {
+    if ([indexes indexGreaterThanOrEqualToIndex:self.count] != NSNotFound) {
+        return nil;
+    }
+    return [_backingCollection objectsAtIndexes:indexes] ?: @[];
+}
+
+- (id)firstObject {
+    return _backingCollection.firstObject;
+}
+
+- (id)lastObject {
+    return _backingCollection.lastObject;
 }
 
 - (BOOL)isInvalidated {
@@ -193,38 +230,13 @@
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
                                   objects:(__unused __unsafe_unretained id [])buffer
                                     count:(__unused NSUInteger)len {
-    if (state->state != 0) {
-        return 0;
-    }
-
-    // We need to enumerate a copy of the backing set so that it doesn't
-    // reflect changes made during enumeration. This copy has to be autoreleased
-    // (since there's nowhere for us to store a strong reference), and uses
-    // RLMSetHolder rather than an NSArray because NSArray doesn't guarantee
-    // that it'll use a single contiguous block of memory, and if it doesn't
-    // we'd need to forward multiple calls to this method to the same NSArray,
-    // which would require holding a reference to it somewhere.
-    __autoreleasing RLMSetHolder *copy = [[RLMSetHolder alloc] init];
-    copy->items = std::make_unique<id[]>(self.count);
-
-    NSUInteger i = 0;
-    for (id object in _backingCollection) {
-        copy->items[i++] = object;
-    }
-
-    state->itemsPtr = (__unsafe_unretained id *)(void *)copy->items.get();
-    // needs to point to something valid, but the whole point of this is so
-    // that it can't be changed
-    state->mutationsPtr = state->extra;
-    state->state = i;
-
-    return i;
+    return RLMUnmanagedFastEnumerate(_backingCollection, state);
 }
 
 static void changeSet(__unsafe_unretained RLMSet *const set,
                       dispatch_block_t f) {
     if (!set->_backingCollection) {
-        set->_backingCollection = [NSMutableSet new];
+        set->_backingCollection = [NSMutableOrderedSet new];
     }
 
     if (RLMObjectBase *parent = set->_parentObject) {
@@ -291,7 +303,7 @@ static void validateSetBounds(__unsafe_unretained RLMSet *const set,
 
     RLMObjectSchema *objectSchema;
     if (_backingCollection.count) {
-        objectSchema = [_backingCollection.allObjects[0] objectSchema];
+        objectSchema = [_backingCollection[0] objectSchema];
     }
     else {
         objectSchema = [RLMSchema.partialPrivateSharedSchema schemaForClassName:_objectClassName];
@@ -342,7 +354,7 @@ static void validateSetBounds(__unsafe_unretained RLMSet *const set,
     // issue as the realm::object_store::Set aggregate methods will calculate
     // the result based on each element of a property regardless of uniqueness.
     // To get around this we will need to use the `array` property of the NSMutableOrderedSet
-    NSArray *values = [key isEqualToString:@"self"] ? _backingCollection.allObjects : [_backingCollection.allObjects valueForKey:key];
+    NSArray *values = [key isEqualToString:@"self"] ? _backingCollection.array : [_backingCollection.array valueForKey:key];
     if (_optional) {
         // Filter out NSNull values to match our behavior on managed arrays
         NSIndexSet *nonnull = [values indexesOfObjectsPassingTest:^BOOL(id obj, NSUInteger, BOOL *) {
@@ -357,13 +369,20 @@ static void validateSetBounds(__unsafe_unretained RLMSet *const set,
     return sum && !result ? @0 : result;
 }
 
+static NSSet *toUnorderedSet(id value) {
+    if (auto orderedSet = RLMDynamicCast<NSOrderedSet>(value)) {
+        return orderedSet.set;
+    }
+    return value;
+}
+
 - (id)valueForKeyPath:(NSString *)keyPath {
     if ([keyPath characterAtIndex:0] != '@') {
-        return _backingCollection ? [_backingCollection valueForKeyPath:keyPath] : [super valueForKeyPath:keyPath];
+        return toUnorderedSet(_backingCollection ? [_backingCollection valueForKeyPath:keyPath] : [super valueForKeyPath:keyPath]);
     }
 
     if (!_backingCollection) {
-        _backingCollection = [NSMutableSet new];
+        _backingCollection = [NSMutableOrderedSet new];
     }
 
     NSUInteger dot = [keyPath rangeOfString:@"."].location;
@@ -381,9 +400,9 @@ static void validateSetBounds(__unsafe_unretained RLMSet *const set,
         return @NO; // Unmanaged sets are never invalidated
     }
     if (!_backingCollection) {
-        _backingCollection = [NSMutableSet new];
+        _backingCollection = [NSMutableOrderedSet new];
     }
-    return [_backingCollection valueForKey:key];
+    return toUnorderedSet([_backingCollection valueForKey:key]);
 }
 
 - (void)setValue:(id)value forKey:(NSString *)key {
@@ -485,16 +504,14 @@ void RLMSetValidateMatchingObjectType(__unsafe_unretained RLMSet *const set,
     @throw RLMException(@"This method may only be called on RLMSet instances retrieved from an RLMRealm");
 }
 
-// The compiler complains about the method's argument type not matching due to
-// it not having the generic type attached, but it doesn't seem to be possible
-// to actually include the generic type
-// http://www.openradar.me/radar?id=6135653276319744
-#pragma clang diagnostic ignored "-Wmismatched-parameter-types"
-- (RLMNotificationToken *)addNotificationBlock:(void (^)(RLMSet *, RLMCollectionChange *, NSError *))block {
-    return [self addNotificationBlock:block queue:nil];
+- (RLMSectionedResults *)sectionedResultsSortedUsingKeyPath:(NSString *)keyPath
+                                                  ascending:(BOOL)ascending
+                                                   keyBlock:(RLMSectionedResultsKeyBlock)keyBlock {
+    @throw RLMException(@"This method may only be called on RLMSet instances retrieved from an RLMRealm");
 }
-- (RLMNotificationToken *)addNotificationBlock:(void (^)(RLMSet *, RLMCollectionChange *, NSError *))block
-                                         queue:(nullable dispatch_queue_t)queue {
+
+- (RLMSectionedResults *)sectionedResultsUsingSortDescriptors:(NSArray<RLMSortDescriptor *> *)sortDescriptors
+                                                     keyBlock:(RLMSectionedResultsKeyBlock)keyBlock {
     @throw RLMException(@"This method may only be called on RLMSet instances retrieved from an RLMRealm");
 }
 

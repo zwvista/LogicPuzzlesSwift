@@ -16,7 +16,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#import <Foundation/Foundation.h>
+#import <Realm/RLMConstants.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -30,19 +30,11 @@ typedef NS_ENUM(NSUInteger, RLMUpdatePolicy) {
     RLMUpdatePolicyUpdateAll = 2,
 };
 
-NS_ASSUME_NONNULL_BEGIN
+RLM_HEADER_AUDIT_BEGIN(nullability)
 
 void RLMVerifyHasPrimaryKey(Class cls);
 
 void RLMVerifyInWriteTransaction(RLMRealm *const realm);
-
-//
-// Accessor Creation
-//
-
-// create or get cached accessors for the given schema
-void RLMRealmCreateAccessors(RLMSchema *schema);
-
 
 //
 // Adding, Removing, Getting Objects
@@ -69,6 +61,9 @@ RLMObjectBase *RLMCreateObjectInRealmWithValue(RLMRealm *realm, NSString *classN
                                                id _Nullable value, RLMUpdatePolicy updatePolicy)
 NS_RETURNS_RETAINED;
 
+// creates an asymmetric object and doesn't return
+void RLMCreateAsymmetricObjectInRealm(RLMRealm *realm, NSString *className, id value);
+
 //
 // Accessor Creation
 //
@@ -83,8 +78,9 @@ void RLMInitializeSwiftAccessor(RLMObjectBase *object, bool promotingExisting);
 }
 
 namespace realm {
-    class Table;
     class Obj;
+    class Table;
+    struct ColKey;
     struct ObjLink;
 }
 class RLMClassInfo;
@@ -96,7 +92,7 @@ RLMObjectBase *RLMObjectFromObjLink(RLMRealm *realm,
 
 // Create accessors
 RLMObjectBase *RLMCreateObjectAccessor(RLMClassInfo& info, int64_t key) NS_RETURNS_RETAINED;
-RLMObjectBase *RLMCreateObjectAccessor(RLMClassInfo& info, realm::Obj&& obj) NS_RETURNS_RETAINED;
+RLMObjectBase *RLMCreateObjectAccessor(RLMClassInfo& info, const realm::Obj& obj) NS_RETURNS_RETAINED;
 #endif
 
-NS_ASSUME_NONNULL_END
+RLM_HEADER_AUDIT_END(nullability)

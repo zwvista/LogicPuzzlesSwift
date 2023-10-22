@@ -16,40 +16,48 @@
  *
  **************************************************************************/
 
-#ifndef REALM_GROUP_SHARED_HPP
-#define REALM_GROUP_SHARED_HPP
+#ifndef REALM_DB_HPP
+#define REALM_DB_HPP
+
+#include <realm/db_options.hpp>
+#include <realm/group.hpp>
+#include <realm/handover_defs.hpp>
+#include <realm/impl/changeset_input_stream.hpp>
+#include <realm/impl/transact_log.hpp>
+#include <realm/replication.hpp>
+#include <realm/util/checked_mutex.hpp>
+#include <realm/util/features.h>
+#include <realm/util/functional.hpp>
+#include <realm/util/interprocess_condvar.hpp>
+#include <realm/util/interprocess_mutex.hpp>
+#include <realm/util/encrypted_file_mapping.hpp>
+#include <realm/version_id.hpp>
 
 #include <functional>
 #include <cstdint>
 #include <limits>
-#include <unordered_map>
-#include <realm/util/features.h>
-#include <realm/util/thread.hpp>
-#include <realm/util/interprocess_condvar.hpp>
-#include <realm/util/interprocess_mutex.hpp>
-#include <realm/group.hpp>
-#include <realm/handover_defs.hpp>
-#include <realm/impl/transact_log.hpp>
-#include <realm/metrics/metrics.hpp>
-#include <realm/replication.hpp>
-#include <realm/version_id.hpp>
-#include <realm/db_options.hpp>
-#include <realm/util/logger.hpp>
+#include <condition_variable>
 
 namespace realm {
-
-namespace _impl {
-class WriteLogCollector;
-}
 
 class Transaction;
 using TransactionRef = std::shared_ptr<Transaction>;
 
 /// Thrown by DB::create() if the lock file is already open in another
 /// process which can't share mutexes with this process
-struct IncompatibleLockFile : std::runtime_error {
-    IncompatibleLockFile(const std::string& msg)
-        : std::runtime_error("Incompatible lock file. " + msg)
+struct IncompatibleLockFile : FileAccessError {
+    IncompatibleLockFile(const std::string& path, const std::string& msg)
+        : FileAccessError(
+              ErrorCodes::IncompatibleLockFile,
+              util::format(
+                  "Realm file '%1' is currently open in another process which cannot share access with this process. "
+                  "This could either be due to the existing process being a different architecture or due to the "
+                  "existing process using an incompatible version of Realm. "
+                  "If the other process is Realm Studio, you may need to update it (or update Realm if your Studio "
+                  "version is too new), and if using an iOS simulator, make sure that you are using a 64-bit "
+                  "simulator. Underlying problem: %2",
+                  path, msg),
+              path)
     {
     }
 };
@@ -63,9 +71,10 @@ struct IncompatibleLockFile : std::runtime_error {
 /// This exception will also be thrown if the history schema version is lower
 /// than required, and no migration is possible
 /// (Replication::is_upgradable_history_schema()).
-struct IncompatibleHistories : util::File::AccessError {
+struct IncompatibleHistories : FileAccessError {
     IncompatibleHistories(const std::string& msg, const std::string& path)
-        : util::File::AccessError("Incompatible histories. " + msg, path)
+        : FileAccessError(ErrorCodes::IncompatibleHistories,
+                          msg + " Synchronized Realms cannot be opened in non-sync mode, and vice versa.", path)
     {
     }
 };
@@ -78,9 +87,9 @@ struct IncompatibleHistories : util::File::AccessError {
 /// for read or write operations.
 /// It will also be thrown if a realm which requires upgrade is opened in read-only
 /// mode (Group::open).
-struct FileFormatUpgradeRequired : util::File::AccessError {
-    FileFormatUpgradeRequired(const std::string& msg, const std::string& path)
-        : util::File::AccessError(msg, path)
+struct FileFormatUpgradeRequired : FileAccessError {
+    FileFormatUpgradeRequired(const std::string& path)
+        : FileAccessError(ErrorCodes::FileFormatUpgradeRequired, "Database upgrade required but prohibited.", path, 0)
     {
     }
 };
@@ -110,14 +119,24 @@ class DB;
 using DBRef = std::shared_ptr<DB>;
 
 class DB : public std::enable_shared_from_this<DB> {
+    struct ReadLockInfo;
+
 public:
     // Create a DB and associate it with a file. DB Objects can only be associated with one file,
     // the association determined on creation of the DB Object. The association can be broken by
     // calling DB::close(), but after that no new association can be established. To reopen the
-    // file (or another file), a new DB object is needed.
-    static DBRef create(const std::string& file, bool no_create = false, const DBOptions options = DBOptions());
-    static DBRef create(Replication& repl, const DBOptions options = DBOptions());
+    // file (or another file), a new DB object is needed. The specified Replication instance, if
+    // any, must remain in existence for as long as the DB.
+    static DBRef create(const std::string& file, bool no_create = false, const DBOptions& options = DBOptions());
+    static DBRef create(Replication& repl, const std::string& file, const DBOptions& options = DBOptions());
+    static DBRef create(std::unique_ptr<Replication> repl, const std::string& file,
+                        const DBOptions& options = DBOptions());
     static DBRef create(BinaryData, bool take_ownership = true);
+    static DBRef create(std::unique_ptr<Replication> repl, const DBOptions& options = DBOptions());
+    // file is used to set the `db_path` used to register and associate a users's SyncSession with the Realm path (see
+    // SyncUser::register_session) SyncSession::path() relies on the registered `m_db->get_path`
+    static DBRef create_in_memory(std::unique_ptr<Replication> repl, const std::string& file,
+                                  const DBOptions& options = DBOptions());
 
     ~DB() noexcept;
 
@@ -142,7 +161,7 @@ public:
     ///  * for read or write transactions - but not frozen transactions, explicitly call
     ///    close() at earliest time possible
     ///  * explicitly nullify any DBRefs you may have.
-    void close(bool allow_open_read_transactions = false);
+    void close(bool allow_open_read_transactions = false) REQUIRES(!m_mutex);
 
     bool is_attached() const noexcept;
 
@@ -161,6 +180,24 @@ public:
         m_replication = repl;
     }
 
+    void set_logger(const std::shared_ptr<util::Logger>& logger) noexcept;
+    util::Logger* get_logger() const noexcept
+    {
+        return m_logger.get();
+    }
+
+    void create_new_history(Replication& repl) REQUIRES(!m_mutex);
+    void create_new_history(std::unique_ptr<Replication> repl) REQUIRES(!m_mutex);
+
+    const std::string& get_path() const noexcept
+    {
+        return m_db_path;
+    }
+
+    const char* get_encryption_key() const noexcept
+    {
+        return m_alloc.m_file.get_encryption_key();
+    }
 
 #ifdef REALM_DEBUG
     /// Deprecated method, only called from a unit test
@@ -194,7 +231,7 @@ public:
     /// and changes done by another thread in the same process as the caller.
     ///
     /// Has db been changed ?
-    bool has_changed(TransactionRef);
+    bool has_changed(TransactionRef&);
 
     /// The calling thread goes to sleep until the database is changed, or
     /// until wait_for_change_release() is called. After a call to
@@ -202,8 +239,7 @@ public:
     /// immediately. To restore the ability to wait for a change, a call to
     /// enable_wait_for_change() is required. Return true if the database has
     /// changed, false if it might have.
-    bool wait_for_change(TransactionRef);
-
+    bool wait_for_change(TransactionRef&);
     /// release any thread waiting in wait_for_change().
     void wait_for_change_release();
 
@@ -222,14 +258,17 @@ public:
     /// bound (AKA tethered) snapshot.
     struct BadVersion;
 
-
     /// Transactions are obtained from one of the following 3 methods:
-    TransactionRef start_read(VersionID = VersionID());
-    TransactionRef start_frozen(VersionID = VersionID());
+    TransactionRef start_read(VersionID = VersionID()) REQUIRES(!m_mutex);
+    TransactionRef start_frozen(VersionID = VersionID()) REQUIRES(!m_mutex);
     // If nonblocking is true and a write transaction is already active,
     // an invalid TransactionRef is returned.
-    TransactionRef start_write(bool nonblocking = false);
+    TransactionRef start_write(bool nonblocking = false) REQUIRES(!m_mutex);
 
+    // ask for write mutex. Callback takes place when mutex has been acquired.
+    // callback may occur on ANOTHER THREAD. Must not be called if write mutex
+    // has already been acquired.
+    void async_request_write_mutex(TransactionRef& tr, util::UniqueFunction<void()>&& when_acquired);
 
     // report statistics of last commit done on THIS DB.
     // The free space reported is what can be expected to be freed
@@ -240,7 +279,7 @@ public:
     // that is free in current version, but being used in still live versions.
     // Notice that we will always have two live versions - the current and the
     // previous.
-    void get_stats(size_t& free_space, size_t& used_space, util::Optional<size_t&> locked_space = util::none) const;
+    void get_stats(size_t& free_space, size_t& used_space, size_t* locked_space = nullptr) const REQUIRES(!m_mutex);
     //@}
 
     enum TransactStage {
@@ -250,7 +289,15 @@ public:
         transact_Frozen,
     };
 
-    /// Report the number of distinct versions currently stored in the database.
+    enum class EvacStage { idle, evacuating, waiting, blocked };
+
+    EvacStage get_evacuation_stage() const
+    {
+        return m_evac_stage;
+    }
+
+    /// Report the number of distinct versions stored in the database at the time
+    /// of latest commit.
     /// Note: the database only cleans up versions as part of commit, so ending
     /// a read transaction will not immediately release any versions.
     uint_fast64_t get_number_of_versions();
@@ -281,10 +328,10 @@ public:
     /// the file to the new 64 byte key.
     ///
     /// WARNING: Compact() is not thread-safe with respect to a concurrent close()
-    bool compact(bool bump_version_number = false, util::Optional<const char*> output_encryption_key = util::none);
+    bool compact(bool bump_version_number = false, util::Optional<const char*> output_encryption_key = util::none)
+        REQUIRES(!m_mutex);
 
-    void write_copy(StringData path, util::Optional<const char*> output_encryption_key = util::none,
-                    bool allow_overwrite = false);
+    void write_copy(StringData path, const char* output_encryption_key) REQUIRES(!m_mutex);
 
 #ifdef REALM_DEBUG
     void test_ringbuf();
@@ -343,104 +390,136 @@ public:
     /// On the importing side, the top-level accessor being created during
     /// import takes ownership of all other accessors (if any) being created as
     /// part of the import.
-    std::shared_ptr<metrics::Metrics> get_metrics()
-    {
-        return m_metrics;
-    }
 
-    // Try to grab a exclusive lock of the given realm path's lock file. If the lock
+    // Try to grab an exclusive lock of the given realm path's lock file. If the lock
     // can be acquired, the callback will be executed with the lock and then return true.
     // Otherwise false will be returned directly.
     // The lock taken precludes races with other threads or processes accessing the
     // files through a DB.
     // It is safe to delete/replace realm files inside the callback.
     // WARNING: It is not safe to delete the lock file in the callback.
-    using CallbackWithLock = std::function<void(const std::string& realm_path)>;
-    static bool call_with_lock(const std::string& realm_path, CallbackWithLock callback);
+    using CallbackWithLock = util::FunctionRef<void(const std::string& realm_path)>;
+    static bool call_with_lock(const std::string& realm_path, CallbackWithLock&& callback);
 
-    enum CoreFileType : uint64_t {
+    enum CoreFileType : uint8_t {
         Lock,
         Storage,
         Management,
         Note,
         Log,
-        LogA, // This is a legacy version of `Log`.
-        LogB, // This is a legacy version of `Log`.
     };
-    /// Return a list of files and directories core may use in the given realm file path.
-    /// The first element of the pair in the returned list is the path as string,
-    /// the second one indicates if the path is a directory or not.
-    /// It is safe to delete those returned files/directories in the call_with_lock's callback except for the lock
-    /// itself.
+
+    /// Get the path for the given type of file for a base Realm file path.
+    /// \param realm_path The path for the main Realm file.
+    /// \param type The type of associated file to get the path for.
+    /// \return The base path with the appropriate type-specific suffix appended to it.
+    static std::string get_core_file(const std::string& realm_path, CoreFileType type);
+
+    /// Delete a Realm file and all associated control files.
     ///
-    /// \param realm_path If provided the full path to the file including
-    ///                   the given path will be returned by this function.
+    /// This function does not perform any locking and requires external
+    /// synchronization to ensure that it is safe to call. If called within
+    /// call_with_lock(), \p delete_lockfile must be false as the lockfile is not
+    /// safe to delete while it is in use.
     ///
-    /// \return A map of all core files, providing the path (first) and an indicator
-    ///         if they are a folder or not (second).
-    static std::unordered_map<CoreFileType, std::pair<std::string, bool>>
-    get_core_files(const std::string& realm_path = "");
+    /// \param base_path The Realm file to delete, which auxiliary file paths will be derived from.
+    /// \param[out] did_delete_realm If non-null, will be set to true if the Realm file was deleted (even if a
+    ///             subsequent deletion failed)
+    /// \param delete_lockfile By default the lock file is not deleted as it is unsafe to
+    ///        do so. If this is true, the lock file is deleted along with the other files.
+    static void delete_files(const std::string& base_path, bool* did_delete_realm = nullptr,
+                             bool delete_lockfile = false);
+
+    /// Mark this DB as the sync agent for the file.
+    /// \throw MultipleSyncAgents if another DB is already the sync agent.
+    void claim_sync_agent();
+    void release_sync_agent();
+
+    /// Returns true if there are threads waiting to acquire the write lock, false otherwise.
+    /// To be used only when already holding the lock.
+    bool other_writers_waiting_for_lock() const;
+
+    struct CommitListener {
+        virtual ~CommitListener() = default;
+        virtual void on_commit(version_type new_version) = 0;
+    };
+
+    void add_commit_listener(CommitListener*);
+    void remove_commit_listener(CommitListener*);
 
 protected:
-    explicit DB(const DBOptions& options); // Is this ever used?
+    explicit DB(const DBOptions& options);
 
 private:
-    std::recursive_mutex m_mutex;
-    int m_transaction_count = 0;
-    SlabAlloc m_alloc;
-    Replication* m_replication = nullptr;
+    class AsyncCommitHelper;
+    class VersionManager;
+    class EncryptionMarkerObserver;
+    class FileVersionManager;
+    class InMemoryVersionManager;
     struct SharedInfo;
     struct ReadCount;
     struct ReadLockInfo {
+        enum Type { Frozen, Live, Full };
         uint_fast64_t m_version = std::numeric_limits<version_type>::max();
         uint_fast32_t m_reader_idx = 0;
         ref_type m_top_ref = 0;
         size_t m_file_size = 0;
-
+        Type m_type = Live;
         // a little helper
         static std::unique_ptr<ReadLockInfo> make_fake(ref_type top_ref, size_t file_size)
         {
             auto res = std::make_unique<ReadLockInfo>();
             res->m_top_ref = top_ref;
             res->m_file_size = file_size;
+            res->m_version = 1;
             return res;
+        }
+        void check() const noexcept
+        {
+            REALM_ASSERT_RELEASE_EX((m_top_ref & 7) == 0 && m_top_ref < m_file_size, m_version, m_reader_idx,
+                                    m_top_ref, m_file_size);
         }
     };
     class ReadLockGuard;
 
     // Member variables
-    size_t m_free_space = 0;
-    size_t m_locked_space = 0;
-    size_t m_used_space = 0;
-    uint_fast32_t m_local_max_entry = 0;          // highest version observed by this DB
-    std::vector<ReadLockInfo> m_local_locks_held; // tracks all read locks held by this DB
+    mutable util::CheckedMutex m_mutex;
+    int m_transaction_count GUARDED_BY(m_mutex) = 0;
+    SlabAlloc m_alloc;
+    std::unique_ptr<Replication> m_history;
+    std::unique_ptr<VersionManager> m_version_manager;
+    std::unique_ptr<EncryptionMarkerObserver> m_marker_observer;
+    Replication* m_replication = nullptr;
+    size_t m_free_space GUARDED_BY(m_mutex) = 0;
+    size_t m_locked_space GUARDED_BY(m_mutex) = 0;
+    size_t m_used_space GUARDED_BY(m_mutex) = 0;
+    std::vector<ReadLockInfo> m_local_locks_held GUARDED_BY(m_mutex); // tracks all read locks held by this DB
+    std::atomic<EvacStage> m_evac_stage = EvacStage::idle;
     util::File m_file;
-    util::File::Map<SharedInfo> m_file_map;   // Never remapped, provides access to everything but the ringbuffer
-    util::File::Map<SharedInfo> m_reader_map; // provides access to ringbuffer, remapped as needed when it grows
-    bool m_wait_for_change_enabled = true;    // Initially wait_for_change is enabled
-    bool m_write_transaction_open = false;
-    std::string m_lockfile_path;
-    std::string m_lockfile_prefix;
+    util::File::Map<SharedInfo> m_file_map; // Never remapped, provides access to everything but the ringbuffer
+    std::unique_ptr<SharedInfo> m_in_memory_info;
+    SharedInfo* m_info = nullptr;
+    bool m_wait_for_change_enabled = true; // Initially wait_for_change is enabled
+    bool m_write_transaction_open GUARDED_BY(m_mutex) = false;
     std::string m_db_path;
-    std::string m_coordination_dir;
-    const char* m_key;
     int m_file_format_version = 0;
     util::InterprocessMutex m_writemutex;
     std::unique_ptr<ReadLockInfo> m_fake_read_lock_if_immutable;
-#ifdef REALM_ASYNC_DAEMON
-    util::InterprocessMutex m_balancemutex;
-#endif
     util::InterprocessMutex m_controlmutex;
-#ifdef REALM_ASYNC_DAEMON
-    util::InterprocessCondVar m_room_to_write;
-    util::InterprocessCondVar m_work_to_do;
-    util::InterprocessCondVar m_daemon_becomes_ready;
-#endif
+    util::InterprocessMutex m_versionlist_mutex;
     util::InterprocessCondVar m_new_commit_available;
     util::InterprocessCondVar m_pick_next_writer;
     std::function<void(int, int)> m_upgrade_callback;
+    std::unique_ptr<AsyncCommitHelper> m_commit_helper;
+    std::shared_ptr<util::Logger> m_logger;
+    std::mutex m_commit_listener_mutex;
+    std::vector<CommitListener*> m_commit_listeners;
+    bool m_is_sync_agent = false;
+    // Id for this DB to be used in logging. We will just use some bits from the pointer.
+    // The path cannot be used as this would not allow us to distinguish between two DBs opening
+    // the same realm.
+    unsigned m_log_id;
 
-    std::shared_ptr<metrics::Metrics> m_metrics;
     /// Attach this DB instance to the specified database file.
     ///
     /// While at least one instance of DB exists for a specific
@@ -461,9 +540,9 @@ private:
     /// \param options See DBOptions for details of each option.
     /// Sensible defaults are provided if this parameter is left out.
     ///
-    /// \throw util::File::AccessError If the file could not be opened. If the
+    /// \throw FileAccessError If the file could not be opened. If the
     /// reason corresponds to one of the exception types that are derived from
-    /// util::File::AccessError, the derived exception type is thrown. Note that
+    /// FileAccessError, the derived exception type is thrown. Note that
     /// InvalidDatabase is among these derived exception types.
     ///
     /// \throw FileFormatUpgradeRequired if \a DBOptions::allow_upgrade
@@ -473,15 +552,13 @@ private:
     /// \throw UnsupportedFileFormatVersion if the file format version or
     /// history schema version is one which this version of Realm does not know
     /// how to migrate from.
-    void open(const std::string& file, bool no_create = false, const DBOptions options = DBOptions());
-    void open(BinaryData, bool take_ownership = true);
+    void open(const std::string& file, bool no_create = false, const DBOptions& options = DBOptions())
+        REQUIRES(!m_mutex);
+    void open(BinaryData, bool take_ownership = true) REQUIRES(!m_mutex);
+    void open(Replication&, const std::string& file, const DBOptions& options = DBOptions()) REQUIRES(!m_mutex);
+    void open(Replication& repl, const DBOptions options = DBOptions()) REQUIRES(!m_mutex);
 
-    /// Open this group in replication mode. The specified Replication instance
-    /// must remain in existence for as long as the DB.
-    void open(Replication&, const DBOptions options = DBOptions());
-
-
-    void do_open(const std::string& file, bool no_create, bool is_backend, const DBOptions options);
+    void do_open(const std::string& file, bool no_create, const DBOptions& options);
 
     Replication* const* get_repl() const noexcept
     {
@@ -508,51 +585,60 @@ private:
     ///
     /// As a side effect update memory mapping to ensure that the ringbuffer
     /// entries referenced in the readlock info is accessible.
-    void grab_read_lock(ReadLockInfo&, VersionID);
+    ReadLockInfo grab_read_lock(ReadLockInfo::Type, VersionID) REQUIRES(!m_mutex);
 
     // Release a specific read lock. The read lock MUST have been obtained by a
     // call to grab_read_lock().
-    void release_read_lock(ReadLockInfo&) noexcept;
+    void release_read_lock(ReadLockInfo&) noexcept REQUIRES(!m_mutex);
+    void do_release_read_lock(ReadLockInfo&) noexcept REQUIRES(m_mutex);
+    // Stop tracking a read lock without actually releasing it.
+    void leak_read_lock(ReadLockInfo&) noexcept REQUIRES(!m_mutex);
 
     // Release all read locks held by this DB object. After release, further calls to
     // release_read_lock for locks already released must be avoided.
-    void release_all_read_locks() noexcept;
+    void release_all_read_locks() noexcept REQUIRES(!m_mutex);
 
     /// return true if write transaction can commence, false otherwise.
-    bool do_try_begin_write();
-    void do_begin_write();
-    version_type do_commit(Transaction&);
-    void do_end_write() noexcept;
-
-    // make sure the given index is within the currently mapped area.
-    // if not, expand the mapped area. Returns true if the area is expanded.
-    bool grow_reader_mapping(uint_fast32_t index);
-
+    bool do_try_begin_write() REQUIRES(!m_mutex);
+    void do_begin_write() REQUIRES(!m_mutex);
+    void do_begin_possibly_async_write() REQUIRES(!m_mutex);
+    version_type do_commit(Transaction&, bool commit_to_disk = true) REQUIRES(!m_mutex);
+    void do_end_write() noexcept REQUIRES(!m_mutex);
+    void end_write_on_correct_thread() noexcept REQUIRES(!m_mutex);
     // Must be called only by someone that has a lock on the write mutex.
-    void low_level_commit(uint_fast64_t new_version, Transaction& transaction);
+    void low_level_commit(uint_fast64_t new_version, Transaction& transaction, bool commit_to_disk = true)
+        REQUIRES(!m_mutex);
 
     void do_async_commits();
 
     /// Upgrade file format and/or history schema
     void upgrade_file_format(bool allow_file_format_upgrade, int target_file_format_version,
-                             int current_hist_schema_version, int target_hist_schema_version);
+                             int current_hist_schema_version, int target_hist_schema_version) REQUIRES(!m_mutex);
 
     int get_file_format_version() const noexcept;
 
     /// finish up the process of starting a write transaction. Internal use only.
-    void finish_begin_write();
+    void finish_begin_write() REQUIRES(!m_mutex);
 
     void reset_free_space_tracking()
     {
         m_alloc.reset_free_space_tracking();
     }
 
-    void close_internal(std::unique_lock<util::InterprocessMutex>, bool allow_open_read_transactions);
+    void close_internal(std::unique_lock<util::InterprocessMutex>, bool allow_open_read_transactions)
+        REQUIRES(!m_mutex);
+
+    void async_begin_write(util::UniqueFunction<void()> fn);
+    void async_end_write();
+    void async_sync_to_disk(util::UniqueFunction<void()> fn);
+
+    friend class SlabAlloc;
     friend class Transaction;
 };
 
-inline void DB::get_stats(size_t& free_space, size_t& used_space, util::Optional<size_t&> locked_space) const
+inline void DB::get_stats(size_t& free_space, size_t& used_space, size_t* locked_space) const
 {
+    util::CheckedLockGuard lock(m_mutex);
     free_space = m_free_space;
     used_space = m_used_space;
     if (locked_space) {
@@ -561,142 +647,10 @@ inline void DB::get_stats(size_t& free_space, size_t& used_space, util::Optional
 }
 
 
-class Transaction : public Group {
-public:
-    Transaction(DBRef _db, SlabAlloc* alloc, DB::ReadLockInfo& rli, DB::TransactStage stage);
-    // convenience, so you don't need to carry a reference to the DB around
-    ~Transaction();
-
-    DB::version_type get_version() const noexcept
-    {
-        return m_read_lock.m_version;
-    }
-    DB::version_type get_version_of_latest_snapshot()
-    {
-        return db->get_version_of_latest_snapshot();
-    }
-    void close();
-    bool is_attached()
-    {
-        return m_transact_stage != DB::transact_Ready && db->is_attached();
-    }
-
-    /// Get the approximate size of the data that would be written to the file if
-    /// a commit were done at this point. The reported size will always be bigger
-    /// than what will eventually be needed as we reserve a bit more memory than
-    /// what will be needed.
-    size_t get_commit_size() const;
-
-    DB::version_type commit();
-    void rollback();
-    void end_read();
-
-    // Live transactions state changes, often taking an observer functor:
-    VersionID commit_and_continue_as_read();
-    template <class O>
-    void rollback_and_continue_as_read(O* observer);
-    void rollback_and_continue_as_read()
-    {
-        _impl::NullInstructionObserver* o = nullptr;
-        rollback_and_continue_as_read(o);
-    }
-    template <class O>
-    void advance_read(O* observer, VersionID target_version = VersionID());
-    void advance_read(VersionID target_version = VersionID())
-    {
-        _impl::NullInstructionObserver* o = nullptr;
-        advance_read(o, target_version);
-    }
-    template <class O>
-    bool promote_to_write(O* observer, bool nonblocking = false);
-    bool promote_to_write(bool nonblocking = false)
-    {
-        _impl::NullInstructionObserver* o = nullptr;
-        return promote_to_write(o, nonblocking);
-    }
-    TransactionRef freeze();
-    // Frozen transactions are created by freeze() or DB::start_frozen()
-    bool is_frozen() const noexcept override
-    {
-        return m_transact_stage == DB::transact_Frozen;
-    }
-    TransactionRef duplicate();
-
-    _impl::History* get_history() const;
-
-    // direct handover of accessor instances
-    Obj import_copy_of(const Obj& original);
-    TableRef import_copy_of(const ConstTableRef original);
-    LnkLst import_copy_of(const LnkLst& original);
-    LnkSet import_copy_of(const LnkSet& original);
-    LstBasePtr import_copy_of(const LstBase& original);
-    SetBasePtr import_copy_of(const SetBase& original);
-    CollectionBasePtr import_copy_of(const CollectionBase& original);
-    LnkLstPtr import_copy_of(const LnkLstPtr& original);
-    LnkSetPtr import_copy_of(const LnkSetPtr& original);
-    LinkCollectionPtr import_copy_of(const LinkCollectionPtr& original);
-
-    // handover of the heavier Query and TableView
-    std::unique_ptr<Query> import_copy_of(Query&, PayloadPolicy);
-    std::unique_ptr<TableView> import_copy_of(TableView&, PayloadPolicy);
-    std::unique_ptr<ConstTableView> import_copy_of(ConstTableView&, PayloadPolicy);
-
-    /// Get the current transaction type
-    DB::TransactStage get_transact_stage() const noexcept;
-
-    /// Get a version id which may be used to request a different transaction locked to specific version.
-    VersionID get_version_of_current_transaction();
-
-    void upgrade_file_format(int target_file_format_version);
-
-private:
-    DBRef get_db() const
-    {
-        return db;
-    }
-
-    Replication* const* get_repl() const final
-    {
-        return db->get_repl();
-    }
-
-    template <class O>
-    bool internal_advance_read(O* observer, VersionID target_version, _impl::History&, bool);
-    void set_transact_stage(DB::TransactStage stage) noexcept;
-    void do_end_read() noexcept;
-    void commit_and_continue_writing();
-    void initialize_replication();
-
-    DBRef db;
-    mutable std::unique_ptr<_impl::History> m_history_read;
-    mutable _impl::History* m_history = nullptr;
-
-    DB::ReadLockInfo m_read_lock;
-    DB::TransactStage m_transact_stage = DB::transact_Ready;
-
-    friend class DB;
-    friend class DisableReplication;
-};
-
 class DisableReplication {
 public:
-    DisableReplication(Transaction& t)
-        : m_tr(t)
-        , m_owner(t.get_db())
-        , m_repl(m_owner->get_replication())
-        , m_version(t.get_version())
-    {
-        m_owner->set_replication(nullptr);
-        t.get_version();
-        t.m_history = nullptr;
-    }
-
-    ~DisableReplication()
-    {
-        m_owner->set_replication(m_repl);
-        if (m_version != m_tr.get_version())
-            m_tr.initialize_replication();
-    }
+    DisableReplication(Transaction& t);
+    ~DisableReplication();
 
 private:
     Transaction& m_tr;
@@ -705,154 +659,32 @@ private:
     DB::version_type m_version;
 };
 
-
-/*
- * classes providing backward Compatibility with the older
- * ReadTransaction and WriteTransaction types.
- */
-
-class ReadTransaction {
-public:
-    ReadTransaction(DBRef sg)
-        : trans(sg->start_read())
-    {
-    }
-
-    ~ReadTransaction() noexcept {}
-
-    operator Transaction&()
-    {
-        return *trans;
-    }
-
-    bool has_table(StringData name) const noexcept
-    {
-        return trans->has_table(name);
-    }
-
-    ConstTableRef get_table(TableKey key) const
-    {
-        return trans->get_table(key); // Throws
-    }
-
-    ConstTableRef get_table(StringData name) const
-    {
-        return trans->get_table(name); // Throws
-    }
-
-    const Group& get_group() const noexcept
-    {
-        return *trans.get();
-    }
-
-    /// Get the version of the snapshot to which this read transaction is bound.
-    DB::version_type get_version() const noexcept
-    {
-        return trans->get_version();
-    }
-
-private:
-    TransactionRef trans;
-};
-
-
-class WriteTransaction {
-public:
-    WriteTransaction(DBRef sg)
-        : trans(sg->start_write())
-    {
-    }
-
-    ~WriteTransaction() noexcept {}
-
-    operator Transaction&()
-    {
-        return *trans;
-    }
-
-    bool has_table(StringData name) const noexcept
-    {
-        return trans->has_table(name);
-    }
-
-    TableRef get_table(TableKey key) const
-    {
-        return trans->get_table(key); // Throws
-    }
-
-    TableRef get_table(StringData name) const
-    {
-        return trans->get_table(name); // Throws
-    }
-
-    TableRef add_table(StringData name) const
-    {
-        return trans->add_table(name); // Throws
-    }
-
-    TableRef add_embedded_table(StringData name) const
-    {
-        return trans->add_embedded_table(name); // Throws
-    }
-
-    TableRef get_or_add_table(StringData name, bool* was_added = nullptr) const
-    {
-        return trans->get_or_add_table(name, was_added); // Throws
-    }
-
-    Group& get_group() const noexcept
-    {
-        return *trans.get();
-    }
-
-    /// Get the version of the snapshot on which this write transaction is
-    /// based.
-    DB::version_type get_version() const noexcept
-    {
-        return trans->get_version();
-    }
-
-    DB::version_type commit()
-    {
-        return trans->commit();
-    }
-
-    void rollback() noexcept
-    {
-        trans->rollback();
-    }
-
-private:
-    TransactionRef trans;
-};
-
-
 // Implementation:
 
-struct DB::BadVersion : std::exception {
+struct DB::BadVersion : Exception {
+    BadVersion(version_type version)
+        : Exception(ErrorCodes::BadVersion,
+                    util::format("Unable to lock version %1 as it does not exist or has been cleaned up.", version))
+    {
+    }
 };
 
 inline bool DB::is_attached() const noexcept
 {
-    return bool(m_fake_read_lock_if_immutable) || m_file_map.is_attached();
-}
-
-inline DB::TransactStage Transaction::get_transact_stage() const noexcept
-{
-    return m_transact_stage;
+    return bool(m_fake_read_lock_if_immutable) || m_info;
 }
 
 class DB::ReadLockGuard {
 public:
     ReadLockGuard(DB& shared_group, ReadLockInfo& read_lock) noexcept
-        : m_shared_group(shared_group)
+        : m_db(shared_group)
         , m_read_lock(&read_lock)
     {
     }
     ~ReadLockGuard() noexcept
     {
         if (m_read_lock)
-            m_shared_group.release_read_lock(*m_read_lock);
+            m_db.release_read_lock(*m_read_lock);
     }
     void release() noexcept
     {
@@ -860,170 +692,9 @@ public:
     }
 
 private:
-    DB& m_shared_group;
+    DB& m_db;
     ReadLockInfo* m_read_lock;
 };
-
-template <class O>
-inline void Transaction::advance_read(O* observer, VersionID version_id)
-{
-    if (m_transact_stage != DB::transact_Reading)
-        throw LogicError(LogicError::wrong_transact_state);
-
-    // It is an error if the new version precedes the currently bound one.
-    if (version_id.version < m_read_lock.m_version)
-        throw LogicError(LogicError::bad_version);
-
-    auto hist = get_history(); // Throws
-    if (!hist)
-        throw LogicError(LogicError::no_history);
-
-    internal_advance_read(observer, version_id, *hist, false); // Throws
-}
-
-template <class O>
-inline bool Transaction::promote_to_write(O* observer, bool nonblocking)
-{
-    if (m_transact_stage != DB::transact_Reading)
-        throw LogicError(LogicError::wrong_transact_state);
-
-    if (nonblocking) {
-        bool succes = db->do_try_begin_write();
-        if (!succes) {
-            return false;
-        }
-    }
-    else {
-        db->do_begin_write(); // Throws
-    }
-    try {
-        Replication* repl = db->get_replication();
-        if (!repl)
-            throw LogicError(LogicError::no_history);
-
-        VersionID version = VersionID(); // Latest
-        m_history = repl->_get_history_write();
-        bool history_updated = internal_advance_read(observer, version, *m_history, true); // Throws
-
-        REALM_ASSERT(repl); // Presence of `repl` follows from the presence of `hist`
-        DB::version_type current_version = m_read_lock.m_version;
-        m_alloc.init_mapping_management(current_version);
-        repl->initiate_transact(*this, current_version, history_updated); // Throws
-
-        // If the group has no top array (top_ref == 0), create a new node
-        // structure for an empty group now, to be ready for modifications. See
-        // also Group::attach_shared().
-        if (!m_top.is_attached())
-            create_empty_group(); // Throws
-    }
-    catch (...) {
-        db->do_end_write();
-        m_history = nullptr;
-        throw;
-    }
-
-    set_transact_stage(DB::transact_Writing);
-    return true;
-}
-
-template <class O>
-inline void Transaction::rollback_and_continue_as_read(O* observer)
-{
-    if (m_transact_stage != DB::transact_Writing)
-        throw LogicError(LogicError::wrong_transact_state);
-
-    Replication* repl = db->get_replication();
-    if (!repl)
-        throw LogicError(LogicError::no_history);
-
-    BinaryData uncommitted_changes = repl->get_uncommitted_changes();
-
-    // Possible optimization: We are currently creating two transaction log parsers, one here,
-    // and one in advance_transact(). That is wasteful as the parser creation is
-    // expensive.
-    _impl::SimpleInputStream in(uncommitted_changes.data(), uncommitted_changes.size());
-    _impl::TransactLogParser parser; // Throws
-    _impl::TransactReverser reverser;
-    parser.parse(in, reverser); // Throws
-
-    if (observer && uncommitted_changes.size()) {
-        _impl::ReversedNoCopyInputStream reversed_in(reverser);
-        parser.parse(reversed_in, *observer); // Throws
-        observer->parse_complete();           // Throws
-    }
-
-    // Mark all managed space (beyond the attached file) as free.
-    db->reset_free_space_tracking(); // Throws
-
-    ref_type top_ref = m_read_lock.m_top_ref;
-    size_t file_size = m_read_lock.m_file_size;
-    _impl::ReversedNoCopyInputStream reversed_in(reverser);
-    m_alloc.update_reader_view(file_size); // Throws
-    update_allocator_wrappers(false);
-    advance_transact(top_ref, reversed_in, false); // Throws
-
-    db->do_end_write();
-
-    repl->abort_transact();
-
-    m_history = nullptr;
-    set_transact_stage(DB::transact_Reading);
-}
-
-template <class O>
-inline bool Transaction::internal_advance_read(O* observer, VersionID version_id, _impl::History& hist, bool writable)
-{
-    DB::ReadLockInfo new_read_lock;
-    db->grab_read_lock(new_read_lock, version_id); // Throws
-    REALM_ASSERT(new_read_lock.m_version >= m_read_lock.m_version);
-    if (new_read_lock.m_version == m_read_lock.m_version) {
-        db->release_read_lock(new_read_lock);
-        // _impl::History::update_early_from_top_ref() was not called
-        // update allocator wrappers merely to update write protection
-        update_allocator_wrappers(writable);
-        return false;
-    }
-
-    DB::version_type old_version = m_read_lock.m_version;
-    DB::ReadLockGuard g(*db, new_read_lock);
-    DB::version_type new_version = new_read_lock.m_version;
-    size_t new_file_size = new_read_lock.m_file_size;
-    ref_type new_top_ref = new_read_lock.m_top_ref;
-
-    // Synchronize readers view of the file
-    SlabAlloc& alloc = m_alloc;
-    alloc.update_reader_view(new_file_size);
-    update_allocator_wrappers(writable);
-    using gf = _impl::GroupFriend;
-    ref_type hist_ref = gf::get_history_ref(alloc, new_top_ref);
-    hist.update_from_ref_and_version(hist_ref, new_version);
-
-    if (observer) {
-        // This has to happen in the context of the originally bound snapshot
-        // and while the read transaction is still in a fully functional state.
-        _impl::TransactLogParser parser;
-        _impl::ChangesetInputStream in(hist, old_version, new_version);
-        parser.parse(in, *observer); // Throws
-        observer->parse_complete();  // Throws
-    }
-
-    // The old read lock must be retained for as long as the change history is
-    // accessed (until Group::advance_transact() returns). This ensures that the
-    // oldest needed changeset remains in the history, even when the history is
-    // implemented as a separate unversioned entity outside the Realm (i.e., the
-    // old implementation and ShortCircuitHistory in
-    // test_lang_Bind_helper.cpp). On the other hand, if it had been the case,
-    // that the history was always implemented as a versioned entity, that was
-    // part of the Realm state, then it would not have been necessary to retain
-    // the old read lock beyond this point.
-    _impl::ChangesetInputStream in(hist, old_version, new_version);
-    advance_transact(new_top_ref, in, writable); // Throws
-    g.release();
-    db->release_read_lock(m_read_lock);
-    m_read_lock = new_read_lock;
-
-    return true; // _impl::History::update_early_from_top_ref() was called
-}
 
 inline int DB::get_file_format_version() const noexcept
 {
@@ -1032,4 +703,4 @@ inline int DB::get_file_format_version() const noexcept
 
 } // namespace realm
 
-#endif // REALM_GROUP_SHARED_HPP
+#endif // REALM_DB_HPP

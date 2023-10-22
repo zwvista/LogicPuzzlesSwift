@@ -28,14 +28,16 @@
 #include <realm/object-store/property.hpp>
 #include <realm/object-store/set.hpp>
 #include <realm/object-store/shared_realm.hpp>
-#include <realm/object-store/util/checked_mutex.hpp>
 #include <realm/object-store/util/copyable_atomic.hpp>
 
 #include <realm/table_view.hpp>
+#include <realm/util/checked_mutex.hpp>
 #include <realm/util/optional.hpp>
 
 namespace realm {
 class Mixed;
+class Class;
+class SectionedResults;
 
 namespace _impl {
 class ResultsNotifierBase;
@@ -47,9 +49,14 @@ public:
     // or a wrapper around a query and a sort order which creates and updates
     // the tableview as needed
     Results();
+    Results(const Class&);
     Results(std::shared_ptr<Realm> r, ConstTableRef table);
     Results(std::shared_ptr<Realm> r, Query q, DescriptorOrdering o = {});
     Results(std::shared_ptr<Realm> r, TableView tv, DescriptorOrdering o = {});
+    Results(std::shared_ptr<Realm> r, const Obj& obj, TableKey src_table, ColKey src_col_key)
+        : Results(r, obj.get_backlink_view(r->read_group().get_table(src_table), src_col_key))
+    {
+    }
     Results(std::shared_ptr<Realm> r, std::shared_ptr<CollectionBase> list, DescriptorOrdering o);
     Results(std::shared_ptr<Realm> r, std::shared_ptr<CollectionBase> collection, util::Optional<Query> q = {},
             SortDescriptor s = {});
@@ -62,7 +69,7 @@ public:
     Results& operator=(const Results&);
 
     // Get the Realm
-    std::shared_ptr<Realm> get_realm() const
+    const std::shared_ptr<Realm>& get_realm() const
     {
         return m_realm;
     }
@@ -76,6 +83,9 @@ public:
     // Get a query which will match the same rows as is contained in this Results
     // Returned query will not be valid if the current mode is Empty
     Query get_query() const REQUIRES(!m_mutex);
+
+    // Get ordering for the query associated with the result
+    const DescriptorOrdering& get_ordering() const;
 
     // Get the Collection this Results is derived from, if any
     const std::shared_ptr<CollectionBase>& get_collection() const
@@ -142,12 +152,20 @@ public:
 
     // Create a new Results by further filtering or sorting this Results
     Results filter(Query&& q) const REQUIRES(!m_mutex);
+    // Create a new Results by sorting this Result.
     Results sort(SortDescriptor&& sort) const REQUIRES(!m_mutex);
+    // Create a new Results by sorting this Result based on the specified key paths.
     Results sort(std::vector<std::pair<std::string, bool>> const& keypaths) const REQUIRES(!m_mutex);
 
-    // Create a new Results by removing duplicates
+    // Create a new Results by removing duplicates.
     Results distinct(DistinctDescriptor&& uniqueness) const REQUIRES(!m_mutex);
+    // Create a new Results by removing duplicates based on the specified key paths.
     Results distinct(std::vector<std::string> const& keypaths) const REQUIRES(!m_mutex);
+
+    // Create a new Results by filtering using a user supplied function.
+    // The user supplied function can be called from any thread, so it has
+    // to be a pure function or at least thread safe.
+    Results filter_by_method(std::function<bool(const Obj&)>&& predicate) const REQUIRES(!m_mutex);
 
     // Create a new Results with only the first `max_count` entries
     Results limit(size_t max_count) const REQUIRES(!m_mutex);
@@ -166,8 +184,9 @@ public:
     Results snapshot() const& REQUIRES(!m_mutex);
     Results snapshot() && REQUIRES(!m_mutex);
 
-    // Returns a frozen copy of this result.
-    Results freeze(std::shared_ptr<Realm> const& realm) REQUIRES(!m_mutex);
+    // Returns a frozen copy of this result
+    // Equivalent to producing a thread-safe reference and resolving it in the frozen realm.
+    Results freeze(std::shared_ptr<Realm> const& frozen_realm) REQUIRES(!m_mutex);
 
     // Returns whether or not this Results is frozen.
     bool is_frozen() const REQUIRES(!m_mutex);
@@ -200,11 +219,26 @@ public:
     }
 
     enum class Mode {
-        Empty,      // Backed by nothing (for missing tables)
-        Table,      // Backed directly by a Table
-        Collection, // Backed by a collection of links or primitives
-        Query,      // Backed by a query that has not yet been turned into a TableView
-        TableView,  // Backed by a TableView created from a Query
+        // A default-constructed Results which is backed by nothing. This
+        // behaves as if it was backed by an empty table/collection, and is
+        // inteded for read-only Realms which are missing tables.
+        Empty,
+        // Backed directly by a Table with no sort/filter/distinct.
+        Table,
+        // Backed by a Collection, possibly with sort/distinct (but no filter).
+        // Collections of Objects with a sort/distinct will transition to
+        // TableView the first time they're accessed, while collections of other
+        // types will remain in mode Collection and apply sort/distinct via
+        // m_list_indices.
+        Collection,
+        // Backed by a Query that has not yet been run. May have sort and distinct.
+        // Switches to mode TableView as soon as the query has to be run for
+        // the first time, except for size() with no distinct, which gets the
+        // count from the Query directly.
+        Query,
+        // Backed by a TableView of some sort, which encompases things like
+        // sort and distinct
+        TableView,
     };
     // Get the current mode of the Results
     // Ideally this would not be public but it's needed for some KVO stuff
@@ -212,59 +246,6 @@ public:
 
     // Is this Results associated with a Realm that has not been invalidated?
     bool is_valid() const;
-
-    // The Results object has been invalidated (due to the Realm being invalidated)
-    // All non-noexcept functions can throw this
-    struct InvalidatedException : public std::logic_error {
-        InvalidatedException()
-            : std::logic_error("Access to invalidated Results objects")
-        {
-        }
-    };
-
-    // The input index parameter was out of bounds
-    struct OutOfBoundsIndexException : public std::out_of_range {
-        OutOfBoundsIndexException(size_t r, size_t c);
-        const size_t requested;
-        const size_t valid_count;
-    };
-
-    // The input Row object is not attached
-    struct DetatchedAccessorException : public std::logic_error {
-        DetatchedAccessorException()
-            : std::logic_error("Attempting to access an invalid object")
-        {
-        }
-    };
-
-    // The input Row object belongs to a different table
-    struct IncorrectTableException : public std::logic_error {
-        IncorrectTableException(StringData e, StringData a);
-        const StringData expected;
-        const StringData actual;
-    };
-
-    // The requested aggregate operation is not supported for the column type
-    struct UnsupportedColumnTypeException : public std::logic_error {
-        ColKey column_key;
-        StringData column_name;
-        PropertyType property_type;
-
-        UnsupportedColumnTypeException(ColKey column, Table const& table, const char* operation);
-        UnsupportedColumnTypeException(ColKey column, TableView const& tv, const char* operation);
-    };
-
-    // The property request does not exist in the schema
-    struct InvalidPropertyException : public std::logic_error {
-        InvalidPropertyException(StringData object_type, StringData property_name);
-        const std::string object_type;
-        const std::string property_name;
-    };
-
-    // The requested operation is valid, but has not yet been implemented
-    struct UnimplementedOperationException : public std::logic_error {
-        UnimplementedOperationException(const char* message);
-    };
 
     /**
      * Create an async query from this Results
@@ -280,7 +261,7 @@ public:
      * callback via `remove_callback`.
      */
     NotificationToken add_notification_callback(CollectionChangeCallback callback,
-                                                KeyPathArray key_path_array = {}) &;
+                                                std::optional<KeyPathArray> key_path_array = std::nullopt) &;
 
     // Returns whether the rows are guaranteed to be in table order.
     bool is_in_table_order() const;
@@ -315,12 +296,40 @@ public:
         m_update_policy = policy;
     }
 
+    /**
+     * Creates a SectionedResults object by using a user defined sectioning algorithm to project the key for each
+     * section.
+     *
+     * @param section_key_func The callback to be iterated on each value in the underlying Results.
+     * This callback must return a value which defines the section key
+     *
+     * @return A SectionedResults object using a user defined sectioning algorithm.
+     */
+    SectionedResults sectioned_results(
+        util::UniqueFunction<Mixed(Mixed value, const std::shared_ptr<Realm>& realm)>&& section_key_func);
+    enum class SectionedResultsOperator {
+        FirstLetter // Section by the first letter of each string element. Note that col must be a string.
+    };
+
+    /**
+     * Creates a SectionedResults object by using a built in sectioning algorithm to help with efficiency and reduce
+     * overhead from the SDK level.
+     *
+     * @param op The `SectionedResultsOperator` operator to use
+     * @param property_name Takes a property name if sectioning on a collection of links, the property name needs to
+     * reference the column being sectioned on.
+     *
+     * @return A SectionedResults object with results sectioned based on the chosen built in operator.
+     */
+    SectionedResults sectioned_results(SectionedResultsOperator op,
+                                       util::Optional<StringData> property_name = util::none);
+
 private:
     std::shared_ptr<Realm> m_realm;
     mutable util::CopyableAtomic<const ObjectSchema*> m_object_schema = nullptr;
     Query m_query GUARDED_BY(m_mutex);
-    TableView m_table_view GUARDED_BY(m_mutex);
     ConstTableRef m_table;
+    TableView m_table_view GUARDED_BY(m_mutex);
     DescriptorOrdering m_descriptor_ordering;
     std::shared_ptr<CollectionBase> m_collection;
     util::Optional<std::vector<size_t>> m_list_indices GUARDED_BY(m_mutex);
@@ -328,7 +337,9 @@ private:
     _impl::CollectionNotifier::Handle<_impl::ResultsNotifierBase> m_notifier;
 
     Mode m_mode GUARDED_BY(m_mutex) = Mode::Empty;
+    friend class SectionedResults;
     UpdatePolicy m_update_policy = UpdatePolicy::Auto;
+    uint64_t m_last_collection_content_version GUARDED_BY(m_mutex) = 0;
 
     void validate_read() const;
     void validate_write() const;
@@ -341,19 +352,25 @@ private:
     void prepare_async(ForCallback);
 
     ColKey key(StringData) const;
+    size_t actual_index(size_t) const noexcept REQUIRES(m_mutex);
 
     template <typename T>
     util::Optional<T> try_get(size_t) REQUIRES(m_mutex);
 
     template <typename AggregateFunction>
     util::Optional<Mixed> aggregate(ColKey column, const char* name, AggregateFunction&& func) REQUIRES(!m_mutex);
-    DataType prepare_for_aggregate(ColKey column, const char* name) REQUIRES(m_mutex);
 
     template <typename Fn>
     auto dispatch(Fn&&) const REQUIRES(!m_mutex);
 
-    void evaluate_sort_and_distinct_on_collection() REQUIRES(m_mutex);
-    void do_evaluate_query_if_needed(bool wants_notifications = true) REQUIRES(m_mutex);
+    enum class EvaluateMode { Count, Snapshot, Normal };
+    /// Returns true if the underlying table_view or collection has changed, and is waiting
+    /// for `ensure_up_to_date` to run.
+    bool has_changed() REQUIRES(!m_mutex);
+    void ensure_up_to_date(EvaluateMode mode = EvaluateMode::Normal) REQUIRES(m_mutex);
+
+    // Shared logic between freezing and thawing Results as the Core API is the same.
+    Results import_copy_into_realm(std::shared_ptr<Realm> const& realm) REQUIRES(!m_mutex);
 
     class IteratorWrapper {
     public:
@@ -409,6 +426,17 @@ auto Results::last(Context& ctx)
         auto value = this->last<std::decay_t<decltype(*t)>>();
         return value ? static_cast<decltype(ctx.no_value())>(ctx.box(std::move(*value))) : ctx.no_value();
     });
+}
+
+template <>
+size_t Results::index_of(Obj const& obj);
+template <>
+size_t Results::index_of(Mixed const& value);
+
+template <typename T>
+inline size_t Results::index_of(T const& value)
+{
+    return index_of(Mixed(value));
 }
 
 template <typename Context, typename T>

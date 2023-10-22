@@ -16,18 +16,18 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#import <Realm/RLMSyncUtil.h>
+#import <Realm/RLMConstants.h>
 
-NS_ASSUME_NONNULL_BEGIN
+RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
 @protocol RLMBSON;
 
 /// A token representing an identity provider's credentials.
 typedef NSString *RLMCredentialsToken;
 
-/// A type representing the unique identifier of a MongoDB Realm identity provider.
+/// A type representing the unique identifier of an Atlas App Services identity provider.
 typedef NSString *RLMIdentityProvider NS_EXTENSIBLE_STRING_ENUM;
 
-/// The username/password identity provider. User accounts are handled by MongoDB Realm directly without the
+/// The username/password identity provider. User accounts are handled by Atlas App Services directly without the
 /// involvement of a third-party identity provider.
 extern RLMIdentityProvider const RLMIdentityProviderUsernamePassword;
 
@@ -58,10 +58,11 @@ extern RLMIdentityProvider const RLMIdentityProviderServerAPIKey;
 /**
  Opaque credentials representing a specific Realm App user.
  */
+RLM_SWIFT_SENDABLE RLM_FINAL // immutable final class
 @interface RLMCredentials : NSObject
 
 /// The name of the identity provider which generated the credentials token.
-@property (nonatomic) RLMIdentityProvider provider;
+@property (nonatomic, readonly) RLMIdentityProvider provider;
 
 /**
  Construct and return credentials from a Facebook account token.
@@ -84,7 +85,7 @@ extern RLMIdentityProvider const RLMIdentityProviderServerAPIKey;
 + (instancetype)credentialsWithAppleToken:(RLMCredentialsToken)token;
 
 /**
- Construct and return credentials for a MongoDB Realm function using a mongodb document as a json payload.
+ Construct and return credentials for an Atlas App Services function using a mongodb document as a json payload.
 */
 + (instancetype)credentialsWithFunctionPayload:(NSDictionary<NSString *, id<RLMBSON>> *)payload;
 
@@ -99,7 +100,7 @@ extern RLMIdentityProvider const RLMIdentityProviderServerAPIKey;
 + (instancetype)credentialsWithServerAPIKey:(NSString *)apiKey;
 
 /**
- Construct and return MongoDB Realm credentials from an email and password.
+ Construct and return Atlas App Services credentials from an email and password.
  */
 + (instancetype)credentialsWithEmail:(NSString *)email
                             password:(NSString *)password;
@@ -120,6 +121,6 @@ extern RLMIdentityProvider const RLMIdentityProviderServerAPIKey;
 /// :nodoc:
 + (instancetype)new __attribute__((unavailable("RLMAppCredentials cannot be created directly")));
 
-NS_ASSUME_NONNULL_END
-
 @end
+
+RLM_HEADER_AUDIT_END(nullability, sendability)

@@ -19,14 +19,13 @@
 #import "RLMUser_Private.h"
 
 #import "RLMSyncConfiguration.h"
-#import "RLMSyncUtil_Private.h"
 
 #import <realm/object-store/sync/sync_user.hpp>
 #import <realm/sync/config.hpp>
 
 @class RLMSyncConfiguration, RLMSyncSessionRefreshHandle, RLMApp;
 
-NS_ASSUME_NONNULL_BEGIN
+RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
 
 class CocoaSyncUserContext : public realm::SyncUserContext {
 public:
@@ -46,10 +45,15 @@ private:
 @interface RLMUser ()
 - (instancetype)initWithUser:(std::shared_ptr<realm::SyncUser>)user app:(RLMApp *)app;
 - (std::string)pathForPartitionValue:(std::string const&)partitionValue;
+- (std::string)pathForFlexibleSync;
 - (std::shared_ptr<realm::SyncUser>)_syncUser;
 + (void)_setUpBindingContextFactory;
 @property (weak, readonly) RLMApp *app;
 
 @end
 
-NS_ASSUME_NONNULL_END
+@interface RLMUserProfile ()
+- (instancetype)initWithUserProfile:(realm::SyncUserProfile)userProfile;
+@end
+
+RLM_HEADER_AUDIT_END(nullability, sendability)

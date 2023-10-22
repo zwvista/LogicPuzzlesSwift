@@ -71,11 +71,12 @@ struct CreatePolicy {
 class Object {
 public:
     Object();
-    Object(std::shared_ptr<Realm> r, Obj const& o);
-    Object(std::shared_ptr<Realm> r, ObjectSchema const& s, Obj const& o);
-    Object(std::shared_ptr<Realm> r, StringData object_type, ObjKey key);
-    Object(std::shared_ptr<Realm> r, StringData object_type, size_t index);
-    Object(std::shared_ptr<Realm> r, ObjLink link);
+    Object(const std::shared_ptr<Realm>& r, Obj const& o);
+    Object(const std::shared_ptr<Realm>& r, ObjectSchema const& s, Obj const& o, Obj const& parent = {},
+           ColKey incoming_column = {});
+    Object(const std::shared_ptr<Realm>& r, StringData object_type, ObjKey key);
+    Object(const std::shared_ptr<Realm>& r, StringData object_type, size_t index);
+    Object(const std::shared_ptr<Realm>& r, ObjLink link);
 
     Object(Object const&);
     Object(Object&&);
@@ -96,17 +97,25 @@ public:
     {
         return *m_object_schema;
     }
-    Obj obj() const
+    [[deprecated]] Obj obj() const
     {
         return m_obj;
     }
-
+    const Obj& get_obj() const
+    {
+        return m_obj;
+    }
+    Obj& get_obj()
+    {
+        return m_obj;
+    }
     bool is_valid() const
     {
         return m_obj.is_valid();
     }
 
-    // Returns a frozen copy of this object.
+    // Freeze a copy of this object in the context of the frozen Realm.
+    // Equivalent to producing a thread-safe reference and resolving it in the frozen realm.
     Object freeze(std::shared_ptr<Realm> frozen_realm) const;
 
     // Returns whether or not this Object is frozen.
@@ -125,7 +134,7 @@ public:
      * callback via `remove_callback`.
      */
     NotificationToken add_notification_callback(CollectionChangeCallback callback,
-                                                KeyPathArray key_path_array = {}) &;
+                                                std::optional<KeyPathArray> key_path_array = std::nullopt) &;
 
     template <typename ValueType>
     void set_column_value(StringData prop_name, ValueType&& value)
@@ -184,10 +193,14 @@ private:
     friend class Results;
 
     std::shared_ptr<Realm> m_realm;
-    const ObjectSchema* m_object_schema;
     Obj m_obj;
+    const ObjectSchema* m_object_schema;
     _impl::CollectionNotifier::Handle<_impl::ObjectNotifier> m_notifier;
 
+    Object(std::shared_ptr<Realm> r, const ObjectSchema* s, Obj const& o, Obj const& parent = {},
+           ColKey incoming_column = {});
+    template <typename Key>
+    Object(const std::shared_ptr<Realm>& r, const ObjectSchema* s, Key key);
 
     template <typename ValueType, typename ContextType>
     void set_property_value_impl(ContextType& ctx, const Property& property, ValueType value, CreatePolicy policy,
@@ -203,35 +216,35 @@ private:
     void validate_property_for_setter(Property const&) const;
 };
 
-struct InvalidatedObjectException : public std::logic_error {
+struct InvalidatedObjectException : public LogicError {
     InvalidatedObjectException(const std::string& object_type);
     const std::string object_type;
 };
 
-struct InvalidPropertyException : public std::logic_error {
+struct InvalidPropertyException : public LogicError {
     InvalidPropertyException(const std::string& object_type, const std::string& property_name);
     const std::string object_type;
     const std::string property_name;
 };
 
-struct MissingPropertyValueException : public std::logic_error {
+struct MissingPropertyValueException : public LogicError {
     MissingPropertyValueException(const std::string& object_type, const std::string& property_name);
     const std::string object_type;
     const std::string property_name;
 };
 
-struct MissingPrimaryKeyException : public std::logic_error {
+struct MissingPrimaryKeyException : public LogicError {
     MissingPrimaryKeyException(const std::string& object_type);
     const std::string object_type;
 };
 
-struct ReadOnlyPropertyException : public std::logic_error {
+struct ReadOnlyPropertyException : public LogicError {
     ReadOnlyPropertyException(const std::string& object_type, const std::string& property_name);
     const std::string object_type;
     const std::string property_name;
 };
 
-struct ModifyPrimaryKeyException : public std::logic_error {
+struct ModifyPrimaryKeyException : public LogicError {
     ModifyPrimaryKeyException(const std::string& object_type, const std::string& property_name);
     const std::string object_type;
     const std::string property_name;

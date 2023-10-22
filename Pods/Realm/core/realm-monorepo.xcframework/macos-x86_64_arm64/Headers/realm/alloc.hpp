@@ -52,8 +52,7 @@ int64_t to_int64(size_t value) noexcept;
 
 class MemRef {
 public:
-    MemRef() noexcept;
-    ~MemRef() noexcept;
+    MemRef() noexcept = default;
 
     MemRef(char* addr, ref_type ref, Allocator& alloc) noexcept;
     MemRef(ref_type ref, Allocator& alloc) noexcept;
@@ -64,15 +63,15 @@ public:
     void set_addr(char* addr);
 
 private:
-    char* m_addr;
-    ref_type m_ref;
+    char* m_addr = nullptr;
+    ref_type m_ref = 0;
 #if REALM_ENABLE_MEMDEBUG
     // Allocator that created m_ref. Used to verify that the ref is valid whenever you call
     // get_ref()/get_addr and that it e.g. has not been free'ed
     const Allocator* m_alloc = nullptr;
 #endif
 };
-
+static_assert(std::is_trivially_copyable_v<MemRef>);
 
 /// The common interface for Realm allocators.
 ///
@@ -131,7 +130,7 @@ public:
     /// therefore, is not part of an actual database.
     static Allocator& get_default() noexcept;
 
-    virtual ~Allocator() noexcept;
+    virtual ~Allocator() noexcept = default;
 
     // Disable copying. Copying an allocator can produce double frees.
     Allocator(const Allocator&) = delete;
@@ -281,7 +280,7 @@ protected:
     inline uint_fast64_t get_storage_version(uint64_t instance_version)
     {
         if (instance_version != m_instance_versioning_counter) {
-            throw LogicError(LogicError::detached_accessor);
+            throw StaleAccessor("Stale accessor version");
         }
         return m_storage_versioning_counter.load(std::memory_order_acquire);
     }
@@ -424,7 +423,7 @@ inline int_fast64_t from_ref(ref_type v) noexcept
 inline ref_type to_ref(int_fast64_t v) noexcept
 {
     // Check that v is divisible by 8 (64-bit aligned).
-    REALM_ASSERT_DEBUG(v % 8 == 0);
+    REALM_ASSERT_DEBUG_EX(v % 8 == 0, v);
 
     // C++11 standard, paragraph 4.7.2 [conv.integral]:
     // If the destination type is unsigned, the resulting value is the least unsigned integer congruent to the source
@@ -442,15 +441,6 @@ inline int64_t to_int64(size_t value) noexcept
     REALM_ASSERT_DEBUG(res >= 0);
     return static_cast<int64_t>(value);
 }
-
-
-inline MemRef::MemRef() noexcept
-    : m_addr(nullptr)
-    , m_ref(0)
-{
-}
-
-inline MemRef::~MemRef() noexcept {}
 
 inline MemRef::MemRef(char* addr, ref_type ref, Allocator& alloc) noexcept
     : m_addr(addr)
@@ -507,7 +497,8 @@ inline void MemRef::set_addr(char* addr)
 inline MemRef Allocator::alloc(size_t size)
 {
     if (m_is_read_only)
-        throw realm::LogicError(realm::LogicError::wrong_transact_state);
+        throw realm::LogicError(ErrorCodes::WrongTransactionState,
+                                "Trying to modify database while in read transaction");
     return do_alloc(size);
 }
 
@@ -518,7 +509,8 @@ inline MemRef Allocator::realloc_(ref_type ref, const char* addr, size_t old_siz
         REALM_TERMINATE("Allocator watch: Ref was reallocated");
 #endif
     if (m_is_read_only)
-        throw realm::LogicError(realm::LogicError::wrong_transact_state);
+        throw realm::LogicError(ErrorCodes::WrongTransactionState,
+                                "Trying to modify database while in read transaction");
     return do_realloc(ref, const_cast<char*>(addr), old_size, new_size);
 }
 
@@ -563,8 +555,6 @@ inline Allocator::Allocator() noexcept
     m_ref_translation_ptr = nullptr;
 }
 
-inline Allocator::~Allocator() noexcept {}
-
 // performance critical part of the translation process. Less critical code is in translate_less_critical.
 inline char* Allocator::translate_critical(RefTranslation* ref_translation_ptr, ref_type ref) const noexcept
 {
@@ -587,7 +577,7 @@ inline char* Allocator::translate_critical(RefTranslation* ref_translation_ptr, 
             return translate_less_critical(ref_translation_ptr, ref);
         }
     }
-    realm::util::terminate("Invalid ref translation entry", __FILE__, __LINE__, txl.cookie, 0x1234567890);
+    realm::util::terminate("Invalid ref translation entry", __FILE__, __LINE__, txl.cookie, 0x1234567890, ref, idx);
     return nullptr;
 }
 

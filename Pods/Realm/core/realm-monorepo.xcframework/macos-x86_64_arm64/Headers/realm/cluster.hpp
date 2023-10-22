@@ -38,16 +38,42 @@ class ColumnAttrMask;
 class CascadeState;
 
 struct FieldValue {
-    FieldValue(ColKey k, Mixed val)
+    FieldValue(ColKey k, Mixed val, bool is_default = false) noexcept
         : col_key(k)
         , value(val)
+        , is_default(is_default)
     {
     }
     ColKey col_key;
     Mixed value;
+    bool is_default;
 };
 
-using FieldValues = std::vector<FieldValue>;
+class FieldValues {
+public:
+    FieldValues() {}
+    FieldValues(std::initializer_list<FieldValue>);
+    void insert(ColKey k, Mixed val, bool is_default = false);
+    auto begin() const noexcept
+    {
+        return m_values.begin();
+    }
+    auto end() const noexcept
+    {
+        return m_values.end();
+    }
+    auto begin() noexcept
+    {
+        return m_values.begin();
+    }
+    auto end() noexcept
+    {
+        return m_values.end();
+    }
+
+private:
+    std::vector<FieldValue> m_values;
+};
 
 class ClusterNode : public Array {
 public:
@@ -101,6 +127,8 @@ public:
         return m_keys.get(ndx);
     }
 
+    const Table* get_owning_table() const noexcept;
+
     virtual void update_from_parent() noexcept = 0;
     virtual bool is_leaf() const = 0;
     virtual int get_sub_tree_depth() const = 0;
@@ -136,7 +164,7 @@ public:
     void get(ObjKey key, State& state) const;
     /// Locate object identified by 'key' and update 'state' accordingly
     /// Returns `false` if the object doesn't not exist.
-    virtual bool try_get(ObjKey key, State& state) const = 0;
+    virtual bool try_get(ObjKey key, State& state) const noexcept = 0;
     /// Locate object identified by 'ndx' and update 'state' accordingly
     virtual ObjKey get(size_t ndx, State& state) const = 0;
     /// Return the index at which key is stored
@@ -159,9 +187,9 @@ public:
     {
         return ObjKey(get_key_value(ndx) + m_offset);
     }
-    const ClusterKeyArray* get_key_array() const
+    const ArrayUnsigned* get_key_array() const
     {
-        return &m_keys;
+        return m_keys.is_attached() ? &m_keys : nullptr;
     }
     void set_offset(uint64_t offs)
     {
@@ -180,6 +208,16 @@ protected:
 #endif
 
     static constexpr size_t cluster_node_size = 1 << node_shift_factor;
+
+    class ClusterKeyArray : public ArrayUnsigned {
+    public:
+        using ArrayUnsigned::ArrayUnsigned;
+
+        uint64_t get(size_t ndx) const
+        {
+            return (m_data != nullptr) ? ArrayUnsigned::get(ndx) : uint64_t(ndx);
+        }
+    };
 
     const ClusterTree& m_tree_top;
     ClusterKeyArray m_keys;
@@ -253,7 +291,6 @@ public:
         m_keys.adjust(0, m_keys.size(), offset);
     }
 
-    const Table* get_owning_table() const;
     ColKey get_col_key(size_t ndx_in_parent) const;
 
     void ensure_general_form() override;
@@ -264,7 +301,7 @@ public:
         return size() - s_first_col_index;
     }
     ref_type insert(ObjKey k, const FieldValues& init_values, State& state) override;
-    bool try_get(ObjKey k, State& state) const override;
+    bool try_get(ObjKey k, State& state) const noexcept override;
     ObjKey get(size_t, State& state) const override;
     size_t get_ndx(ObjKey key, size_t ndx) const noexcept override;
     size_t erase(ObjKey k, CascadeState& state) override;
@@ -279,7 +316,6 @@ public:
 
 private:
     friend class ClusterTree;
-    friend class TableClusterTree;
 
     static constexpr size_t s_key_ref_or_size_index = 0;
     static constexpr size_t s_first_col_index = 1;
@@ -306,6 +342,7 @@ private:
     void do_erase_key(size_t ndx, ColKey col, CascadeState& state);
     void do_insert_key(size_t ndx, ColKey col, Mixed init_val, ObjKey origin_key);
     void do_insert_link(size_t ndx, ColKey col, Mixed init_val, ObjKey origin_key);
+    void do_insert_mixed(size_t ndx, ColKey col_key, Mixed init_value, ObjKey origin_key);
     template <class T>
     void set_spec(T&, ColKey::Idx) const;
     template <class ArrayType>

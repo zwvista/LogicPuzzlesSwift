@@ -18,6 +18,7 @@
 
 #import "RLMFindOneAndModifyOptions_Private.hpp"
 #import "RLMBSON_Private.hpp"
+#import "RLMCollection.h"
 
 @interface RLMFindOneAndModifyOptions() {
     realm::app::MongoCollection::FindOneAndModifyOptions _options;
@@ -39,6 +40,19 @@
     return self;
 }
 
+- (instancetype)initWithProjection:(id<RLMBSON> _Nullable)projection
+                           sorting:(NSArray<id<RLMBSON>> *)sorting
+                            upsert:(BOOL)upsert
+           shouldReturnNewDocument:(BOOL)shouldReturnNewDocument {
+    if (self = [super init]) {
+        self.upsert = upsert;
+        self.shouldReturnNewDocument = shouldReturnNewDocument;
+        self.projection = projection;
+        self.sorting = sorting;
+    }
+    return self;
+}
+
 - (realm::app::MongoCollection::FindOneAndModifyOptions)_findOneAndModifyOptions {
     return _options;
 }
@@ -49,6 +63,10 @@
 
 - (id<RLMBSON>)sort {
     return RLMConvertBsonDocumentToRLMBSON(_options.sort_bson);
+}
+
+- (NSArray<id<RLMBSON>> *)sorting {
+    return RLMConvertBsonDocumentToRLMBSONArray(_options.sort_bson);
 }
 
 - (BOOL)upsert {
@@ -62,7 +80,7 @@
 - (void)setProjection:(id<RLMBSON>)projection {
     if (projection) {
         auto bson = realm::bson::BsonDocument(RLMConvertRLMBSONToBson(projection));
-        _options.projection_bson = realm::util::Optional<realm::bson::BsonDocument>(bson);
+        _options.projection_bson = std::optional<realm::bson::BsonDocument>(bson);
     } else {
         _options.projection_bson = realm::util::none;
     }
@@ -71,10 +89,14 @@
 - (void)setSort:(id<RLMBSON>)sort {
     if (sort) {
         auto bson = realm::bson::BsonDocument(RLMConvertRLMBSONToBson(sort));
-        _options.sort_bson = realm::util::Optional<realm::bson::BsonDocument>(bson);
+        _options.sort_bson = std::optional<realm::bson::BsonDocument>(bson);
     } else {
         _options.sort_bson = realm::util::none;
     }
+}
+
+- (void)setSorting:(NSArray<id<RLMBSON>> *)sorting {
+    _options.sort_bson = RLMConvertRLMBSONArrayToBsonDocument(sorting);
 }
 
 - (void)setUpsert:(BOOL)upsert {

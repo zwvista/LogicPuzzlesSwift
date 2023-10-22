@@ -18,41 +18,49 @@
 
 #import <Realm/RLMCollection_Private.h>
 
+#import <Realm/RLMRealm.h>
+
+#import <realm/keys.hpp>
 #import <realm/object-store/collection_notifications.hpp>
 
 #import <vector>
 #import <mutex>
 
 namespace realm {
-    class List;
-    class Obj;
-    class Results;
-    class TableView;
-    struct CollectionChangeSet;
-    struct ColKey;
-    namespace object_store {
-        class Collection;
-        class Dictionary;
-        class Set;
-    }
+class CollectionChangeCallback;
+class List;
+class Obj;
+class Results;
+class TableView;
+struct CollectionChangeSet;
+struct ColKey;
+namespace object_store {
+class Collection;
+class Dictionary;
+class Set;
+}
 }
 class RLMClassInfo;
 @class RLMFastEnumerator, RLMManagedArray, RLMManagedSet, RLMManagedDictionary, RLMProperty, RLMObjectBase;
 
-@protocol RLMFastEnumerable
+RLM_HIDDEN_BEGIN
+
+@protocol RLMCollectionPrivate
 @property (nonatomic, readonly) RLMRealm *realm;
 @property (nonatomic, readonly) RLMClassInfo *objectInfo;
 @property (nonatomic, readonly) NSUInteger count;
 
 - (realm::TableView)tableView;
 - (RLMFastEnumerator *)fastEnumerator;
+- (realm::NotificationToken)addNotificationCallback:(id)block
+keyPaths:(std::optional<std::vector<std::vector<std::pair<realm::TableKey, realm::ColKey>>>>&&)keyPaths;
 @end
 
 // An object which encapsulates the shared logic for fast-enumerating RLMArray
 // RLMSet and RLMResults, and has a buffer to store strong references to the current
 // set of enumerated items
+RLM_DIRECT_MEMBERS
 @interface RLMFastEnumerator : NSObject
-
 - (instancetype)initWithBackingCollection:(realm::object_store::Collection const&)backingCollection
                                collection:(id)collection
                                 classInfo:(RLMClassInfo&)info;
@@ -72,7 +80,7 @@ class RLMClassInfo;
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state
                                     count:(NSUInteger)len;
 @end
-NSUInteger RLMFastEnumerate(NSFastEnumerationState *state, NSUInteger len, id<RLMFastEnumerable> collection);
+NSUInteger RLMFastEnumerate(NSFastEnumerationState *state, NSUInteger len, id<RLMCollectionPrivate> collection);
 
 @interface RLMNotificationToken ()
 - (void)suppressNextNotification;
@@ -83,23 +91,8 @@ NSUInteger RLMFastEnumerate(NSFastEnumerationState *state, NSUInteger len, id<RL
 - (instancetype)initWithChanges:(realm::CollectionChangeSet)indices;
 @end
 
-@interface RLMCancellationToken : RLMNotificationToken {
-@public
-    __unsafe_unretained RLMRealm *_realm;
-    realm::NotificationToken _token;
-    std::mutex _mutex;
-}
-@end
-
-realm::object_store::Set& RLMGetBackingCollection(RLMManagedSet *);
-realm::object_store::Dictionary& RLMGetBackingCollection(RLMManagedDictionary *);
-realm::List& RLMGetBackingCollection(RLMManagedArray *);
-realm::Results& RLMGetBackingCollection(RLMResults *);
-
-template<typename RLMCollection>
-RLMNotificationToken *RLMAddNotificationBlock(RLMCollection *collection,
-                                              void (^block)(id, RLMCollectionChange *, NSError *),
-                                              dispatch_queue_t queue);
+realm::CollectionChangeCallback RLMWrapCollectionChangeCallback(void (^block)(id, id, NSError *),
+                                                                id collection, bool skipFirst);
 
 template<typename Collection>
 NSArray *RLMCollectionValueForKey(Collection& collection, NSString *key, RLMClassInfo& info);
@@ -126,3 +119,7 @@ static inline bool canAggregate(RLMPropertyType type, bool allowDate) {
             return false;
     }
 }
+
+NSArray *RLMToIndexPathArray(realm::IndexSet const& set, NSUInteger section);
+
+RLM_HIDDEN_END

@@ -18,7 +18,7 @@
 
 #import <Realm/RLMConstants.h>
 
-NS_ASSUME_NONNULL_BEGIN
+RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
 
 /// Allowed HTTP methods to be used with `RLMNetworkTransport`.
 typedef RLM_CLOSED_ENUM(int32_t, RLMHTTPMethod) {
@@ -77,22 +77,23 @@ typedef RLM_CLOSED_ENUM(int32_t, RLMHTTPMethod) {
 /// Invoked when a change event has been received.
 /// @param event The change event encoded as NSData
 - (void)didReceiveEvent:(NSData *)event;
-/// A error has occured while subscribing to changes.
-/// @param error The error that has occured.
+/// A error has occurred while subscribing to changes.
+/// @param error The error that has occurred.
 - (void)didReceiveError:(NSError *)error;
 /// The stream was opened.
 - (void)didOpen;
 /// The stream has been closed.
-/// @param error The error that has occured.
-- (void)didCloseWithError:(NSError *)error;
-
+/// @param error The error that has occurred.
+- (void)didCloseWithError:(NSError *_Nullable)error;
 @end
 
 /// A block for receiving an `RLMResponse` from the `RLMNetworkTransport`.
+RLM_SWIFT_SENDABLE // invoked on a backgroun thread
 typedef void(^RLMNetworkTransportCompletionBlock)(RLMResponse *);
 
 /// Transporting protocol for foreign interfaces. Allows for custom
 /// request/response handling.
+RLM_SWIFT_SENDABLE // used from multiple threads so must be internally thread-safe
 @protocol RLMNetworkTransport <NSObject>
 
 /**
@@ -114,6 +115,7 @@ typedef void(^RLMNetworkTransportCompletionBlock)(RLMResponse *);
 
 /// Transporting protocol for foreign interfaces. Allows for custom
 /// request/response handling.
+RLM_SWIFT_SENDABLE // is internally thread-safe
 @interface RLMNetworkTransport : NSObject<RLMNetworkTransport>
 
 /**
@@ -127,4 +129,4 @@ typedef void(^RLMNetworkTransportCompletionBlock)(RLMResponse *);
 
 @end
 
-NS_ASSUME_NONNULL_END
+RLM_HEADER_AUDIT_END(nullability, sendability)

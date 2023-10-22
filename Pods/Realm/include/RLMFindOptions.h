@@ -16,9 +16,9 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#import <Foundation/Foundation.h>
+#import <Realm/RLMConstants.h>
 
-NS_ASSUME_NONNULL_BEGIN
+RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
 
 @protocol RLMBSON;
 
@@ -32,7 +32,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, nullable) id<RLMBSON> projection NS_REFINED_FOR_SWIFT;
 
 /// The order in which to return matching documents.
-@property (nonatomic, nullable) id<RLMBSON> sort NS_REFINED_FOR_SWIFT;
+@property (nonatomic, nullable) id<RLMBSON> sort NS_REFINED_FOR_SWIFT
+__attribute__((deprecated("Use `sorting` instead, which correctly sort more than one sort attribute", "sorting")));
+
+/// The order in which to return matching documents.
+@property (nonatomic) NSArray<id<RLMBSON>> *sorting NS_REFINED_FOR_SWIFT;
 
 /// Options to use when executing a `find` command on a `RLMMongoCollection`.
 /// @param limit The maximum number of documents to return. Specifying 0 will return all documents.
@@ -41,15 +45,33 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithLimit:(NSInteger)limit
                    projection:(id<RLMBSON> _Nullable)projection
                          sort:(id<RLMBSON> _Nullable)sort
-NS_SWIFT_UNAVAILABLE("Please see FindOption");
+__attribute__((deprecated("Please use `initWithLimit:projection:sorting:`")))
+    NS_SWIFT_UNAVAILABLE("Please see FindOption");
+
 
 /// Options to use when executing a `find` command on a `RLMMongoCollection`.
 /// @param projection Limits the fields to return for all matching documents.
 /// @param sort The order in which to return matching documents.
 - (instancetype)initWithProjection:(id<RLMBSON> _Nullable)projection
-                              sort:(id<RLMBSON> _Nullable)sort
-NS_SWIFT_UNAVAILABLE("Please see FindOption");
+                              sort:(id<RLMBSON> _Nullable)sort __deprecated
+__attribute__((deprecated("Please use `initWithProjection:sorting:`")))
+     NS_SWIFT_UNAVAILABLE("Please see FindOption");
+
+
+/// Options to use when executing a `find` command on a `RLMMongoCollection`.
+/// @param limit The maximum number of documents to return. Specifying 0 will return all documents.
+/// @param projection Limits the fields to return for all matching documents.
+/// @param sorting The order in which to return matching documents.
+- (instancetype)initWithLimit:(NSInteger)limit
+                   projection:(id<RLMBSON> _Nullable)projection
+                      sorting:(NSArray<id<RLMBSON>> *)sorting;
+
+/// Options to use when executing a `find` command on a `RLMMongoCollection`.
+/// @param projection Limits the fields to return for all matching documents.
+/// @param sorting The order in which to return matching documents.
+- (instancetype)initWithProjection:(id<RLMBSON> _Nullable)projection
+                           sorting:(NSArray<id<RLMBSON>> *)sorting;
 
 @end
 
-NS_ASSUME_NONNULL_END
+RLM_HEADER_AUDIT_END(nullability, sendability)

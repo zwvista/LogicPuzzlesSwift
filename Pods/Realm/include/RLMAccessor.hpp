@@ -31,7 +31,9 @@ class RLMClassInfo;
 class RLMObservationTracker;
 typedef NS_ENUM(NSUInteger, RLMUpdatePolicy);
 
-// realm::util::Optional<id> doesn't work because Objective-C types can't
+RLM_HIDDEN_BEGIN
+
+// std::optional<id> doesn't work because Objective-C types can't
 // be members of unions with ARC, so this covers the subset of Optional that we
 // actually need.
 struct RLMOptionalId {
@@ -56,12 +58,12 @@ struct RLMStatelessAccessorContext {
     static id box(realm::ObjectId v) { return [[RLMObjectId alloc] initWithValue:v]; }
     static id box(realm::UUID v) { return [[NSUUID alloc] initWithRealmUUID:v]; }
 
-    static id box(realm::util::Optional<bool> v) { return v ? @(*v) : NSNull.null; }
-    static id box(realm::util::Optional<double> v) { return v ? @(*v) : NSNull.null; }
-    static id box(realm::util::Optional<float> v) { return v ? @(*v) : NSNull.null; }
-    static id box(realm::util::Optional<int64_t> v) { return v ? @(*v) : NSNull.null; }
-    static id box(realm::util::Optional<realm::ObjectId> v) { return v ? box(*v) : NSNull.null; }
-    static id box(realm::util::Optional<realm::UUID> v) { return v ? box(*v) : NSNull.null; }
+    static id box(std::optional<bool> v) { return v ? @(*v) : NSNull.null; }
+    static id box(std::optional<double> v) { return v ? @(*v) : NSNull.null; }
+    static id box(std::optional<float> v) { return v ? @(*v) : NSNull.null; }
+    static id box(std::optional<int64_t> v) { return v ? @(*v) : NSNull.null; }
+    static id box(std::optional<realm::ObjectId> v) { return v ? box(*v) : NSNull.null; }
+    static id box(std::optional<realm::UUID> v) { return v ? box(*v) : NSNull.null; }
 
     template<typename T>
     static T unbox(id v);
@@ -111,7 +113,7 @@ public:
     id box(realm::Mixed);
 
     void will_change(realm::Obj const&, realm::Property const&);
-    void will_change(realm::Object& obj, realm::Property const& prop) { will_change(obj.obj(), prop); }
+    void will_change(realm::Object& obj, realm::Property const& prop) { will_change(obj.get_obj(), prop); }
     void did_change();
 
     RLMOptionalId value_for_property(id dict, realm::Property const&, size_t prop_index);
@@ -158,3 +160,5 @@ private:
     id defaultValue(NSString *key);
     id propertyValue(id obj, size_t propIndex, __unsafe_unretained RLMProperty *const prop);
 };
+
+RLM_HIDDEN_END

@@ -23,11 +23,8 @@
 #include <realm/obj.hpp>
 #include <realm/mixed.hpp>
 #include <realm/array_mixed.hpp>
-#include <realm/dictionary_cluster_tree.hpp>
 
 namespace realm {
-
-class DictionaryClusterTree;
 
 class Dictionary final : public CollectionBaseImpl<CollectionBase> {
 public:
@@ -45,11 +42,6 @@ public:
         *this = other;
     }
     Dictionary& operator=(const Dictionary& other);
-
-    bool operator==(const Dictionary& other) const noexcept
-    {
-        return CollectionBaseImpl<CollectionBase>::operator==(other);
-    }
 
     DataType get_key_data_type() const;
     DataType get_value_data_type() const;
@@ -75,8 +67,6 @@ public:
     void sort_keys(std::vector<size_t>& indices, bool ascending = true) const;
     void distinct_keys(std::vector<size_t>& indices, util::Optional<bool> sort_order = util::none) const;
 
-    void create();
-
     // first points to inserted/updated element.
     // second is true if the element was inserted
     std::pair<Iterator, bool> insert(Mixed key, Mixed value);
@@ -91,21 +81,14 @@ public:
     // adds entry if key is not found
     const Mixed operator[](Mixed key);
 
-    Obj get_object(StringData key)
-    {
-        auto val = try_get(key);
-        Obj obj;
-        if (val && (*val).is_type(type_Link)) {
-            return get_target_table()->get_object((*val).get<ObjKey>());
-        }
-        return obj;
-    }
+    Obj get_object(StringData key);
 
     bool contains(Mixed key) const noexcept;
     Iterator find(Mixed key) const noexcept;
 
     void erase(Mixed key);
-    void erase(Iterator it);
+    Iterator erase(Iterator it);
+    bool try_erase(Mixed key);
 
     void nullify(Mixed);
     void remove_backlinks(CascadeState& state) const;
@@ -115,39 +98,38 @@ public:
     template <class T>
     void for_all_values(T&& f)
     {
-        if (m_clusters) {
-            ArrayMixed leaf(m_obj.get_alloc());
-            // Iterate through cluster and call f on each value
-            auto trv_func = [&leaf, &f](const Cluster* cluster) {
-                size_t e = cluster->node_size();
-                cluster->init_leaf(DictionaryClusterTree::s_values_col, &leaf);
-                for (size_t i = 0; i < e; i++) {
-                    f(leaf.get(i));
+        if (update()) {
+            BPlusTree<Mixed> values(m_obj.get_alloc());
+            values.init_from_ref(m_dictionary_top->get_as_ref(1));
+            auto func = [&f](BPlusTreeNode* node, size_t) {
+                auto leaf = static_cast<BPlusTree<Mixed>::LeafNode*>(node);
+                size_t sz = leaf->size();
+                for (size_t i = 0; i < sz; i++) {
+                    f(leaf->get(i));
                 }
-                // Continue
-                return false;
+                return IteratorControl::AdvanceToNext;
             };
-            m_clusters->traverse(trv_func);
+
+            values.traverse(func);
         }
     }
 
     template <class T, class Func>
     void for_all_keys(Func&& f)
     {
-        if (m_clusters) {
-            typename ColumnTypeTraits<T>::cluster_leaf_type leaf(m_obj.get_alloc());
-            ColKey col = m_clusters->get_keys_column_key();
-            // Iterate through cluster and call f on each value
-            auto trv_func = [&leaf, &f, col](const Cluster* cluster) {
-                size_t e = cluster->node_size();
-                cluster->init_leaf(col, &leaf);
-                for (size_t i = 0; i < e; i++) {
-                    f(leaf.get(i));
+        if (update()) {
+            BPlusTree<T> keys(m_obj.get_alloc());
+            keys.init_from_ref(m_dictionary_top->get_as_ref(0));
+            auto func = [&f](BPlusTreeNode* node, size_t) {
+                auto leaf = static_cast<typename BPlusTree<T>::LeafNode*>(node);
+                size_t sz = leaf->size();
+                for (size_t i = 0; i < sz; i++) {
+                    f(leaf->get(i));
                 }
-                // Continue
-                return false;
+                return IteratorControl::AdvanceToNext;
             };
-            m_clusters->traverse(trv_func);
+
+            keys.traverse(func);
         }
     }
 
@@ -155,82 +137,153 @@ public:
     Iterator begin() const;
     Iterator end() const;
 
-    static ObjKey get_internal_obj_key(Mixed key)
-    {
-        return ObjKey{int64_t(key.hash() & s_hash_mask)};
-    }
-
-#ifdef REALM_DEBUG
-    static uint64_t set_hash_mask(uint64_t mask)
-    {
-        auto tmp = s_hash_mask;
-        s_hash_mask = mask;
-        return tmp;
-    }
-#else
-    static uint64_t set_hash_mask(uint64_t)
-    {
-        return 0;
-    }
-#endif
+    void migrate();
 
 private:
     template <typename T, typename Op>
     friend class CollectionColumnAggregate;
     friend class DictionaryLinkValues;
-    mutable DictionaryClusterTree* m_clusters = nullptr;
+    friend class Cluster;
+    friend void Obj::assign_pk_and_backlinks(const Obj& other);
+
+    mutable std::unique_ptr<Array> m_dictionary_top;
+    mutable std::unique_ptr<BPlusTreeBase> m_keys;
+    mutable std::unique_ptr<BPlusTree<Mixed>> m_values;
     DataType m_key_type = type_String;
 
-#ifdef REALM_DEBUG
-    static uint64_t s_hash_mask;
-#else
-    static constexpr uint64_t s_hash_mask = 0x7FFFFFFFFFFFFFFFULL;
-#endif
+    Dictionary(Allocator& alloc, ColKey col_key, ref_type ref);
 
-    bool init_from_parent() const final;
-    Mixed do_get(const ClusterNode::State&) const;
-    Mixed do_get_key(const ClusterNode::State&) const;
-    std::pair<Mixed, Mixed> do_get_pair(const ClusterNode::State&) const;
+    bool init_from_parent(bool allow_create) const;
+    Mixed do_get(size_t ndx) const;
+    void do_erase(size_t ndx, Mixed key);
+    Mixed do_get_key(size_t ndx) const;
+    size_t do_find_key(Mixed key) const noexcept;
+    std::pair<size_t, Mixed> find_impl(Mixed key) const noexcept;
+    std::pair<Mixed, Mixed> do_get_pair(size_t ndx) const;
     bool clear_backlink(Mixed value, CascadeState& state) const;
     void align_indices(std::vector<size_t>& indices) const;
     void swap_content(Array& fields1, Array& fields2, size_t index1, size_t index2);
-    ObjKey handle_collision_in_erase(const Mixed& key, ObjKey k, ClusterNode::State& state);
 
-    friend struct CollectionIterator<Dictionary>;
+    util::Optional<Mixed> do_min(size_t* return_ndx = nullptr) const;
+    util::Optional<Mixed> do_max(size_t* return_ndx = nullptr) const;
+    util::Optional<Mixed> do_sum(size_t* return_cnt = nullptr) const;
+    util::Optional<Mixed> do_avg(size_t* return_cnt = nullptr) const;
+
+    Mixed find_value(Mixed) const noexcept;
+
+    template <typename AggregateType>
+    void do_accumulate(size_t* return_ndx, AggregateType& agg) const;
+
+    UpdateStatus update_if_needed() const final;
+    UpdateStatus ensure_created() final;
+    inline bool update() const
+    {
+        return update_if_needed() != UpdateStatus::Detached;
+    }
+    void verify() const;
 };
 
-class Dictionary::Iterator : public ClusterTree::Iterator {
+class Dictionary::Iterator {
 public:
-    typedef std::forward_iterator_tag iterator_category;
-    typedef std::pair<const Mixed, Mixed> value_type;
-    typedef ptrdiff_t difference_type;
-    typedef const value_type* pointer;
-    typedef const value_type& reference;
+    using iterator_category = std::random_access_iterator_tag;
+    using value_type = std::pair<Mixed, Mixed>;
+    using difference_type = ptrdiff_t;
+    using pointer = const value_type*;
+    using reference = const value_type&;
 
-    value_type operator*() const;
+    pointer operator->() const
+    {
+        m_val = m_list->get_pair(m_ndx);
+        return &m_val;
+    }
 
-    Iterator& operator++()
+    reference operator*() const
     {
-        return static_cast<Iterator&>(ClusterTree::Iterator::operator++());
+        return *operator->();
     }
-    Iterator& operator+=(ptrdiff_t adj)
+
+    Iterator& operator++() noexcept
     {
-        return static_cast<Iterator&>(ClusterTree::Iterator::operator+=(adj));
+        ++m_ndx;
+        return *this;
     }
-    Iterator operator+(ptrdiff_t n) const
+
+    Iterator operator++(int) noexcept
     {
-        Iterator ret(*this);
-        ret += n;
-        return ret;
+        auto tmp = *this;
+        operator++();
+        return tmp;
+    }
+
+    Iterator& operator--() noexcept
+    {
+        --m_ndx;
+        return *this;
+    }
+
+    Iterator operator--(int) noexcept
+    {
+        auto tmp = *this;
+        operator--();
+        return tmp;
+    }
+
+    Iterator& operator+=(ptrdiff_t n) noexcept
+    {
+        m_ndx += n;
+        return *this;
+    }
+
+    Iterator& operator-=(ptrdiff_t n) noexcept
+    {
+        m_ndx -= n;
+        return *this;
+    }
+
+    friend ptrdiff_t operator-(const Iterator& lhs, const Iterator& rhs) noexcept
+    {
+        return ptrdiff_t(lhs.m_ndx) - ptrdiff_t(rhs.m_ndx);
+    }
+
+    friend Iterator operator+(Iterator lhs, ptrdiff_t rhs) noexcept
+    {
+        lhs.m_ndx += rhs;
+        return lhs;
+    }
+
+    friend Iterator operator+(ptrdiff_t lhs, Iterator rhs) noexcept
+    {
+        return rhs + lhs;
+    }
+
+    bool operator!=(const Iterator& rhs) const noexcept
+    {
+        REALM_ASSERT_DEBUG(m_list == rhs.m_list);
+        return m_ndx != rhs.m_ndx;
+    }
+
+    bool operator==(const Iterator& rhs) const noexcept
+    {
+        REALM_ASSERT_DEBUG(m_list == rhs.m_list);
+        return m_ndx == rhs.m_ndx;
+    }
+
+    size_t index() const noexcept
+    {
+        return m_ndx;
     }
 
 private:
+    Iterator(const Dictionary* l, size_t ndx) noexcept
+        : m_list(l)
+        , m_ndx(ndx)
+    {
+    }
+
     friend class Dictionary;
-    using ClusterTree::Iterator::get_position;
-
-    DataType m_key_type;
-
-    Iterator(const Dictionary* dict, size_t pos);
+    mutable value_type m_val;
+    const Dictionary* m_list;
+    size_t m_ndx = size_t(-1);
 };
 
 // An interface used when the value type of the dictionary consists of
@@ -245,7 +298,6 @@ public:
 
     // Overrides of ObjList:
     ObjKey get_key(size_t ndx) const final;
-    bool is_obj_valid(size_t ndx) const noexcept final;
     Obj get_object(size_t row_ndx) const final;
 
     // Overrides of CollectionBase, these simply forward to the underlying dictionary.
@@ -315,13 +367,9 @@ public:
     }
 
     // Overrides of ObjCollectionBase:
-    bool do_update_if_needed() const final
+    UpdateStatus do_update_if_needed() const final
     {
         return m_source.update_if_needed();
-    }
-    bool do_init_from_parent() const final
-    {
-        return m_source.init_from_parent();
     }
     BPlusTree<ObjKey>* get_mutable_tree() const
     {

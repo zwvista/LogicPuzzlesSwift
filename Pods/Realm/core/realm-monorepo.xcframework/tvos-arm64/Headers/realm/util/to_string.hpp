@@ -19,10 +19,13 @@
 #ifndef REALM_UTIL_TO_STRING_HPP
 #define REALM_UTIL_TO_STRING_HPP
 
+#include <cstdint>
 #include <iosfwd>
 #include <ostream>
 #include <string>
 #include <string_view>
+
+#include <realm/util/optional.hpp>
 
 namespace realm {
 class StringData;
@@ -111,7 +114,7 @@ public:
     Printable(T const& value)
         : m_type(Type::Callback)
         , m_callback({static_cast<const void*>(&value), [](std::ostream& os, const void* ptr) {
-                          os << *static_cast<const T*>(ptr);
+                          stream_possible_optional(os, *static_cast<const T*>(ptr));
                       }})
     {
     }

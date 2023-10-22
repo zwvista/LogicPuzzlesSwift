@@ -35,33 +35,28 @@ struct TableKey {
         : value(null_value)
     {
     }
-    explicit TableKey(uint32_t val) noexcept
+    constexpr explicit TableKey(uint32_t val) noexcept
         : value(val)
     {
     }
-    TableKey& operator=(uint32_t val) noexcept
-    {
-        value = val;
-        return *this;
-    }
-    bool operator==(const TableKey& rhs) const noexcept
+    constexpr bool operator==(const TableKey& rhs) const noexcept
     {
         return value == rhs.value;
     }
-    bool operator!=(const TableKey& rhs) const noexcept
+    constexpr bool operator!=(const TableKey& rhs) const noexcept
     {
         return value != rhs.value;
     }
-    bool operator<(const TableKey& rhs) const noexcept
+    constexpr bool operator<(const TableKey& rhs) const noexcept
     {
         return value < rhs.value;
     }
-    bool operator>(const TableKey& rhs) const noexcept
+    constexpr bool operator>(const TableKey& rhs) const noexcept
     {
         return value > rhs.value;
     }
 
-    explicit operator bool() const noexcept
+    constexpr explicit operator bool() const noexcept
     {
         return value != null_value;
     }
@@ -100,10 +95,7 @@ struct ColKey {
         unsigned val;
     };
 
-    constexpr ColKey() noexcept
-        : value(null_value)
-    {
-    }
+    constexpr ColKey() noexcept = default;
     constexpr explicit ColKey(int64_t val) noexcept
         : value(val)
     {
@@ -132,11 +124,6 @@ struct ColKey {
     bool is_collection() const
     {
         return get_attrs().test(col_attr_Collection);
-    }
-    ColKey& operator=(int64_t val) noexcept
-    {
-        value = val;
-        return *this;
     }
     bool operator==(const ColKey& rhs) const noexcept
     {
@@ -174,7 +161,7 @@ struct ColKey {
     {
         return (value >> 30) & 0xFFFFFFFFUL;
     }
-    int64_t value;
+    int64_t value = null_value;
 };
 
 static_assert(ColKey::null_value == 0x7fffffffffffffff, "Fix this");
@@ -201,11 +188,6 @@ struct ObjKey {
     ObjKey get_unresolved() const
     {
         return ObjKey(-2 - value);
-    }
-    ObjKey& operator=(int64_t val) noexcept
-    {
-        value = val;
-        return *this;
     }
     bool operator==(const ObjKey& rhs) const noexcept
     {
@@ -250,10 +232,17 @@ inline std::ostream& operator<<(std::ostream& ostr, ObjKey key)
 
 class ObjKeys : public std::vector<ObjKey> {
 public:
-    ObjKeys(const std::vector<int64_t>& init)
+    explicit ObjKeys(const std::vector<int64_t>& init)
     {
         reserve(init.size());
         for (auto i : init) {
+            emplace_back(i);
+        }
+    }
+    ObjKeys(const std::initializer_list<int64_t>& list)
+    {
+        reserve(list.size());
+        for (auto i : list) {
             emplace_back(i);
         }
     }
@@ -262,8 +251,8 @@ public:
 
 struct ObjLink {
 public:
-    ObjLink() {}
-    ObjLink(TableKey table_key, ObjKey obj_key)
+    constexpr ObjLink() = default;
+    constexpr ObjLink(TableKey table_key, ObjKey obj_key)
         : m_obj_key(obj_key)
         , m_table_key(table_key)
     {
@@ -321,9 +310,6 @@ private:
     TableKey m_table_key;
 };
 
-using TableKeyType = decltype(TableKey::value);
-using ObjKeyType = decltype(ObjKey::value);
-
 inline std::ostream& operator<<(std::ostream& os, ObjLink link)
 {
     os << '{' << link.get_table_key() << ',' << link.get_obj_key() << '}';
@@ -352,7 +338,13 @@ struct hash<realm::ObjKey> {
         return std::hash<uint64_t>{}(key.value);
     }
 };
-
+template <>
+struct hash<realm::ColKey> {
+    size_t operator()(realm::ColKey key) const
+    {
+        return std::hash<int64_t>{}(key.value);
+    }
+};
 template <>
 struct hash<realm::TableKey> {
     size_t operator()(realm::TableKey key) const

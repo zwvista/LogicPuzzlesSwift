@@ -16,16 +16,18 @@
 //
 ////////////////////////////////////////////////////////////////////////////
 
-#import <Foundation/Foundation.h>
+#import <Realm/RLMConstants.h>
 
-NS_ASSUME_NONNULL_BEGIN
+RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
 
 @class RLMApp, RLMUser;
 
 /// A block type used to report an error
+RLM_SWIFT_SENDABLE // invoked on a backgroun thread
 typedef void(^RLMOptionalErrorBlock)(NSError * _Nullable);
 
 /// A client which can be used to register devices with the server to receive push notificatons
+RLM_SWIFT_SENDABLE RLM_FINAL // immutable final class
 @interface RLMPushClient : NSObject
 
 /// The push notification service name the device will be registered with on the server
@@ -42,4 +44,4 @@ typedef void(^RLMOptionalErrorBlock)(NSError * _Nullable);
 
 @end
 
-NS_ASSUME_NONNULL_END
+RLM_HEADER_AUDIT_END(nullability, sendability)
