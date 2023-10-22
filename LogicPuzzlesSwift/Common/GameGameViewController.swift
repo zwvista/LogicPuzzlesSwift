@@ -160,7 +160,7 @@ class GameGameViewController2<GS: GameStateBase, G: GridGame<GS>, GD: GameDocume
         game = newGame(level: level)
         
         // restore game state
-        for case let rec as MoveProgress in gameDocument.moveProgress {
+        for case let rec in gameDocument.moveProgress {
             var move = gameDocument.loadMove(from: rec)!
             _ = game.setObject(move: &move)
         }

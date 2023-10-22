@@ -16,7 +16,7 @@ struct GameLevel {
     var settings: [String: String]
 }
 
-protocol GameDocumentBase: class {
+protocol GameDocumentBase: AnyObject {
     var gameProgress: GameProgress { get }
     var levelProgress: LevelProgress { get }
     var moveProgress: Results<MoveProgress> { get }

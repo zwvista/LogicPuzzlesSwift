@@ -38,7 +38,6 @@ class BootyIslandGameScene: GameScene<BootyIslandGameState> {
     }
     
     override func levelUpdated(from stateFrom: BootyIslandGameState, to stateTo: BootyIslandGameState) {
-        let markerOffset: CGFloat = 7.5
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)

@@ -40,7 +40,6 @@ class DominoGameScene: GameScene<DominoGameState> {
     }
     
     override func levelUpdated(from stateFrom: DominoGameState, to stateTo: DominoGameState) {
-        let markerOffset: CGFloat = 7.5
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)

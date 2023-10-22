@@ -39,7 +39,7 @@ public class Node: CustomStringConvertible, Equatable {
   }
 
   public func remove(edge: Edge) {
-    neighbors.remove(at: neighbors.index { $0 === edge }!)
+      neighbors.remove(at: neighbors.firstIndex { $0 === edge }!)
   }
 }
 

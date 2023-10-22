@@ -9,14 +9,14 @@
 import Foundation
 
 // http://stackoverflow.com/questions/24066304/how-can-i-make-a-weak-protocol-reference-in-pure-swift-w-o-objc
-protocol GameDelegate: class {
+protocol GameDelegate: AnyObject {
     func moveAdded(_ game: AnyObject, move: Any)
     func levelInitilized(_ game: AnyObject, state: AnyObject)
     func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject)
     func gameSolved(_ game: AnyObject)
 }
 
-protocol GameBase: class {
+protocol GameBase: AnyObject {
     var moveIndex: Int { get }
     var isSolved: Bool { get }
     var moveCount: Int { get }
