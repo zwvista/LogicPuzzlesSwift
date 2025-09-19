@@ -33,6 +33,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         "HolidayIsland": "Holiday Island",
         "LightBattleShips": "Light Battle Ships",
         "LightenUp": "Lighten Up",
+        "MaketheDifference": "Make the Difference",
         "MineShips": "Mine Ships",
         "MiniLits": "Mini-Lits",
         "NorthPoleFishing": "North Pole Fishing",

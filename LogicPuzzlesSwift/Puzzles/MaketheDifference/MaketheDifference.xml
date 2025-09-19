@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Divide the board in a rectangles. each containing one number.
+2. The number is the difference between the width and height of the Rectangle itself.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+  4  `
+  2  `
+    1`
+     `
+   21`
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+    4`
+4    `
+     `
+ 1   `
+200  `
+    ]]>
+  </level>
+</levels>
+</puzzle>

@@ -745,6 +745,15 @@
 		8CA043281FDBE77B00AF85E1 /* CarpentersSquareDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA043121FDBE77700AF85E1 /* CarpentersSquareDocument.swift */; };
 		8CA646241FF3EEB0004707E5 /* music1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8CA646211FF3EEAF004707E5 /* music1.wav */; };
 		8CA646251FF3EEB0004707E5 /* music2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8CA646231FF3EEB0004707E5 /* music2.wav */; };
+		8CBD5F932E7DBE11000CD5E3 /* MaketheDifferenceGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8E2E7DBE11000CD5E3 /* MaketheDifferenceGameViewController.swift */; };
+		8CBD5F942E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8A2E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift */; };
+		8CBD5F952E7DBE11000CD5E3 /* MaketheDifferenceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F912E7DBE11000CD5E3 /* MaketheDifferenceObject.swift */; };
+		8CBD5F962E7DBE11000CD5E3 /* MaketheDifferenceGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8F2E7DBE11000CD5E3 /* MaketheDifferenceGridNode.swift */; };
+		8CBD5F972E7DBE11000CD5E3 /* MaketheDifferenceGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8C2E7DBE11000CD5E3 /* MaketheDifferenceGameScene.swift */; };
+		8CBD5F982E7DBE11000CD5E3 /* MaketheDifferenceMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F902E7DBE11000CD5E3 /* MaketheDifferenceMainViewController.swift */; };
+		8CBD5F992E7DBE11000CD5E3 /* MaketheDifferenceGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8D2E7DBE11000CD5E3 /* MaketheDifferenceGameState.swift */; };
+		8CBD5F9A2E7DBE11000CD5E3 /* MaketheDifferenceGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8B2E7DBE11000CD5E3 /* MaketheDifferenceGame.swift */; };
+		8CBD5F9E2E7DBECF000CD5E3 /* MaketheDifference.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CBD5F9D2E7DBECF000CD5E3 /* MaketheDifference.xml */; };
 		8CC25CC21F87BB5A005560F7 /* Kakuro.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CC25CB61F87BB5A005560F7 /* Kakuro.xml */; };
 		8CC25CC31F87BB5A005560F7 /* KakuroDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CB71F87BB5A005560F7 /* KakuroDocument.swift */; };
 		8CC25CC41F87BB5A005560F7 /* KakuroGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CB81F87BB5A005560F7 /* KakuroGame.swift */; };
@@ -1611,6 +1620,15 @@
 		8CA043121FDBE77700AF85E1 /* CarpentersSquareDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarpentersSquareDocument.swift; sourceTree = "<group>"; };
 		8CA646211FF3EEAF004707E5 /* music1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music1.wav; sourceTree = "<group>"; };
 		8CA646231FF3EEB0004707E5 /* music2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music2.wav; sourceTree = "<group>"; };
+		8CBD5F8A2E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceDocument.swift; sourceTree = "<group>"; };
+		8CBD5F8B2E7DBE11000CD5E3 /* MaketheDifferenceGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceGame.swift; sourceTree = "<group>"; };
+		8CBD5F8C2E7DBE11000CD5E3 /* MaketheDifferenceGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceGameScene.swift; sourceTree = "<group>"; };
+		8CBD5F8D2E7DBE11000CD5E3 /* MaketheDifferenceGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceGameState.swift; sourceTree = "<group>"; };
+		8CBD5F8E2E7DBE11000CD5E3 /* MaketheDifferenceGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceGameViewController.swift; sourceTree = "<group>"; };
+		8CBD5F8F2E7DBE11000CD5E3 /* MaketheDifferenceGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceGridNode.swift; sourceTree = "<group>"; };
+		8CBD5F902E7DBE11000CD5E3 /* MaketheDifferenceMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceMainViewController.swift; sourceTree = "<group>"; };
+		8CBD5F912E7DBE11000CD5E3 /* MaketheDifferenceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceObject.swift; sourceTree = "<group>"; };
+		8CBD5F9D2E7DBECF000CD5E3 /* MaketheDifference.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MaketheDifference.xml; sourceTree = "<group>"; };
 		8CC25CB61F87BB5A005560F7 /* Kakuro.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kakuro.xml; sourceTree = "<group>"; };
 		8CC25CB71F87BB5A005560F7 /* KakuroDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroDocument.swift; sourceTree = "<group>"; };
 		8CC25CB81F87BB5A005560F7 /* KakuroGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroGame.swift; sourceTree = "<group>"; };
@@ -2041,6 +2059,7 @@
 				8C3A34BD1EC88D4100A914A5 /* Lits */,
 				8C3A34CA1EC88D4100A914A5 /* Loopy */,
 				8C3A34D71EC88D4100A914A5 /* Magnets */,
+				8CBD5F922E7DBE11000CD5E3 /* MaketheDifference */,
 				8C3A34E41EC88D4100A914A5 /* Masyu */,
 				8C6A35D21FAF4FFD00D2804D /* Mathrax */,
 				8C3A34F11EC88D4100A914A5 /* MineShips */,
@@ -3235,6 +3254,22 @@
 			path = CarpentersSquare;
 			sourceTree = "<group>";
 		};
+		8CBD5F922E7DBE11000CD5E3 /* MaketheDifference */ = {
+			isa = PBXGroup;
+			children = (
+				8CBD5F9D2E7DBECF000CD5E3 /* MaketheDifference.xml */,
+				8CBD5F8A2E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift */,
+				8CBD5F8B2E7DBE11000CD5E3 /* MaketheDifferenceGame.swift */,
+				8CBD5F8C2E7DBE11000CD5E3 /* MaketheDifferenceGameScene.swift */,
+				8CBD5F8D2E7DBE11000CD5E3 /* MaketheDifferenceGameState.swift */,
+				8CBD5F8E2E7DBE11000CD5E3 /* MaketheDifferenceGameViewController.swift */,
+				8CBD5F8F2E7DBE11000CD5E3 /* MaketheDifferenceGridNode.swift */,
+				8CBD5F902E7DBE11000CD5E3 /* MaketheDifferenceMainViewController.swift */,
+				8CBD5F912E7DBE11000CD5E3 /* MaketheDifferenceObject.swift */,
+			);
+			path = MaketheDifference;
+			sourceTree = "<group>";
+		};
 		8CC25CB51F87BB5A005560F7 /* Kakuro */ = {
 			isa = PBXGroup;
 			children = (
@@ -3545,6 +3580,7 @@
 				8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */,
 				8C3A360C1EC88D4200A914A5 /* BootyIsland.xml in Resources */,
 				8CA0431F1FDBE77B00AF85E1 /* CarpentersSquare.xml in Resources */,
+				8CBD5F9E2E7DBECF000CD5E3 /* MaketheDifference.xml in Resources */,
 				8CA042DA1FDB878800AF85E1 /* Fillomino.xml in Resources */,
 				8CF3FFD71FCB2A2700D41B67 /* DisconnectFour.xml in Resources */,
 				8C3A37441EC88D4300A914A5 /* Nurikabe.xml in Resources */,
@@ -3667,9 +3703,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LogicPuzzlesSwift/Pods-LogicPuzzlesSwift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LogicPuzzlesSwift/Pods-LogicPuzzlesSwift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3684,6 +3724,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C3A36C11EC88D4300A914A5 /* LighthousesDocument.swift in Sources */,
+				8CBD5F982E7DBE11000CD5E3 /* MaketheDifferenceMainViewController.swift in Sources */,
 				8C04671B1F8BA2BE00B5DE41 /* TataminoGameScene.swift in Sources */,
 				8CA043221FDBE77B00AF85E1 /* CarpentersSquareMainViewController.swift in Sources */,
 				8CA043281FDBE77B00AF85E1 /* CarpentersSquareDocument.swift in Sources */,
@@ -3757,6 +3798,7 @@
 				8C9F32591ED1FAF600E10965 /* PataDocument.swift in Sources */,
 				8C3A37391EC88D4300A914A5 /* NeighboursDocument.swift in Sources */,
 				8C3A36A01EC88D4200A914A5 /* HitoriGameState.swift in Sources */,
+				8CBD5F942E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift in Sources */,
 				8CA0431D1FDBE77B00AF85E1 /* CarpentersWallMainViewController.swift in Sources */,
 				8C2319F51FB88E3F0021C680 /* TierraDelFuegoGridNode.swift in Sources */,
 				8C6A36141FAF97AF00D2804D /* TheOddBrickGameViewController.swift in Sources */,
@@ -3786,6 +3828,7 @@
 				8C3A377A1EC88D4300A914A5 /* PowerGridGridNode.swift in Sources */,
 				8C0467201F8BA2BE00B5DE41 /* TataminoMainViewController.swift in Sources */,
 				8C3A378D1EC88D4400A914A5 /* RoomsDocument.swift in Sources */,
+				8CBD5F952E7DBE11000CD5E3 /* MaketheDifferenceObject.swift in Sources */,
 				8C3A36311EC88D4200A914A5 /* BoxItUpDocument.swift in Sources */,
 				8CA042E11FDB878800AF85E1 /* FillominoMainViewController.swift in Sources */,
 				8C3A37D01EC88D4400A914A5 /* SumscrapersMainViewController.swift in Sources */,
@@ -3852,6 +3895,7 @@
 				8C3A36BA1EC88D4300A914A5 /* LightenUpGridNode.swift in Sources */,
 				8C3A375A1EC88D4300A914A5 /* OrchardsObject.swift in Sources */,
 				8C506F0F1F6D2C9300BA4332 /* SnakeDocument.swift in Sources */,
+				8CBD5F962E7DBE11000CD5E3 /* MaketheDifferenceGridNode.swift in Sources */,
 				8C3A377E1EC88D4300A914A5 /* PowerGridObject.swift in Sources */,
 				8C2973E21EE7284C0022A18A /* GalaxiesDocument.swift in Sources */,
 				8C6A9BEB1F812743002A44FF /* KropkiGridNode.swift in Sources */,
@@ -3866,6 +3910,7 @@
 				8C6D37F51DC5AC520052202C /* Position.swift in Sources */,
 				8C6D373C1DC421180052202C /* HomeTables.swift in Sources */,
 				8C2AF8331ED5FB0000EC84AB /* NumberPathGridNode.swift in Sources */,
+				8CBD5F992E7DBE11000CD5E3 /* MaketheDifferenceGameState.swift in Sources */,
 				8CA042F31FDB930A00AF85E1 /* CalcudokuGameViewController.swift in Sources */,
 				8C2AF84E1ED6084300EC84AB /* PaintTheNurikabeObject.swift in Sources */,
 				8C3A36DA1EC88D4300A914A5 /* LitsGame.swift in Sources */,
@@ -4031,6 +4076,7 @@
 				8C3A36821EC88D4200A914A5 /* FenceItUpObject.swift in Sources */,
 				8C7E4B491F793C9800B57C60 /* TennerGridGridNode.swift in Sources */,
 				8C9F32B71ED1FB0700E10965 /* TapaIslandsGameScene.swift in Sources */,
+				8CBD5F972E7DBE11000CD5E3 /* MaketheDifferenceGameScene.swift in Sources */,
 				8C0467211F8BA2BE00B5DE41 /* TataminoObject.swift in Sources */,
 				8C3A36921EC88D4200A914A5 /* FenceSentinelsGame.swift in Sources */,
 				8C3A37961EC88D4400A914A5 /* RoomsObject.swift in Sources */,
@@ -4100,6 +4146,7 @@
 				8C35E3C01FC6DAE600A26EE3 /* NumberLinkMainViewController.swift in Sources */,
 				8C2319EF1FB88E3F0021C680 /* TierraDelFuegoObject.swift in Sources */,
 				8C3A37531EC88D4300A914A5 /* OrchardsGameScene.swift in Sources */,
+				8CBD5F9A2E7DBE11000CD5E3 /* MaketheDifferenceGame.swift in Sources */,
 				8C6ACC001DCAF8C20075F32C /* GameScene.swift in Sources */,
 				8C9F32601ED1FAF600E10965 /* PataMainViewController.swift in Sources */,
 				8C3A36FE1EC88D4300A914A5 /* MasyuGame.swift in Sources */,
@@ -4126,6 +4173,7 @@
 				8C3A37721EC88D4300A914A5 /* ParksObject.swift in Sources */,
 				8C3A36951EC88D4200A914A5 /* FenceSentinelsGameViewController.swift in Sources */,
 				8C3A363F1EC88D4200A914A5 /* BridgesGameScene.swift in Sources */,
+				8CBD5F932E7DBE11000CD5E3 /* MaketheDifferenceGameViewController.swift in Sources */,
 				8C3A378A1EC88D4400A914A5 /* ProductSentinelsObject.swift in Sources */,
 				8C9F325A1ED1FAF600E10965 /* PataGame.swift in Sources */,
 				8C32D8DC1FC92B5F00BA2D07 /* RippleEffectGameViewController.swift in Sources */,
