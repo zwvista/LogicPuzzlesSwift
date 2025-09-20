@@ -1,5 +1,5 @@
 //
-//  Grid.swift
+//  TatamiGridNode.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/09.
