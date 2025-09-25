@@ -432,6 +432,553 @@ W     2 `
         `
     ]]>
   </level>
+  <level id="42">
+    <![CDATA[
+0       0`
+ W10     `
+ 3   W   `
+  2W    0`
+         `
+  W      `
+1W      3`
+  W    3 `
+2    1   `
+    ]]>
+  </level>
+  <level id="43">
+    <![CDATA[
+  0 0    `
+ 0  2 2  `
+         `
+W   2   1`
+    W 0  `
+  2   0  `
+WW      1`
+   2 1 1 `
+         `
+    ]]>
+  </level>
+  <level id="44">
+    <![CDATA[
+        0`
+1    0  W`
+   2    W`
+11   1 10`
+         `
+  2 0W   `
+         `
+         `
+ 10  1  0`
+    ]]>
+  </level>
+  <level id="45">
+    <![CDATA[
+    W0   `
+ 0       `
+   11   1`
+   0W    `
+   W    0`
+         `
+ 2  2 W  `
+1   W  12`
+   0     `
+    ]]>
+  </level>
+  <level id="46">
+    <![CDATA[
+W W 0   0`
+0        `
+ WW     W`
+ W     0 `
+  2 0    `
+  1      `
+0    3 W `
+         `
+ 2      W`
+    ]]>
+  </level>
+  <level id="47">
+    <![CDATA[
+  0      `
+   2   1 `
+0   2W 11`
+     1   `
+   W     `
+ 3  0    `
+        W`
+  W      `
+ W0   1W `
+    ]]>
+  </level>
+  <level id="48">
+    <![CDATA[
+       WW`
+    W    `
+  12   2 `
+    3    `
+W        `
+1 W 1 2  `
+   WW  3 `
+  2      `
+ 1     1 `
+    ]]>
+  </level>
+  <level id="49">
+    <![CDATA[
+         `
+     W 3W`
+ 0      1`
+W1    0W `
+1 3  WW  `
+         `
+1W1   3  `
+   1     `
+         `
+    ]]>
+  </level>
+  <level id="50">
+    <![CDATA[
+  1     W `
+   W2    W`
+W      W  `
+W     1WW `
+W    W 2  `
+   W W3   `
+       2  `
+          `
+W W1    W `
+W  0   0  `
+    ]]>
+  </level>
+  <level id="51">
+    <![CDATA[
+          `
+ 1WW      `
+   W    1 `
+  W    0W `
+       0  `
+    1W  WW`
+ 3     W  `
+W    11W W`
+ W  W   1 `
+  3      W`
+    ]]>
+  </level>
+  <level id="52">
+    <![CDATA[
+          `
+     W W2 `
+   0      `
+W W1 1   1`
+ 3 2    W `
+        W `
+W       2 `
+W 01      `
+W    W  1W`
+W  W     1`
+    ]]>
+  </level>
+  <level id="53">
+    <![CDATA[
+ 0       W`
+    1     `
+      0   `
+ 3 0   W W`
+3    W    `
+    0    W`
+1 1   1 3 `
+   W      `
+     3    `
+0       W `
+    ]]>
+  </level>
+  <level id="54">
+    <![CDATA[
+      1 2 `
+    2     `
+1 0  2W1  `
+  W     W `
+  W WW    `
+W        W`
+ 2  2    W`
+   W   2  `
+      1   `
+W 3 W1    `
+    ]]>
+  </level>
+  <level id="55">
+    <![CDATA[
+1      1  `
+ 1   2    `
+  1      W`
+2 W   2   `
+ W     W1 `
+     1    `
+       2  `
+ 3   W W  `
+     2   W`
+    W     `
+    ]]>
+  </level>
+  <level id="56">
+    <![CDATA[
+     1  1 `
+00W1  W  W`
+          `
+    W1    `
+1   1   3 `
+      2W W`
+        W `
+    0    1`
+ 2W 0 2  0`
+ 0        `
+    ]]>
+  </level>
+  <level id="57">
+    <![CDATA[
+W1        `
+ W      W `
+1       1 `
+    3  0  `
+  01      `
+   0   1  `
+ 1        `
+ W 2  0  W`
+  4       `
+     1  W `
+    ]]>
+  </level>
+  <level id="58">
+    <![CDATA[
+      W 0 `
+      0   `
+      W   `
+ 3       W`
+ 1  2W    `
+  W   1 WW`
+   0 WW   `
+0  1   11 `
+ W        `
+ WW 1 1   `
+    ]]>
+  </level>
+  <level id="59">
+    <![CDATA[
+1   1     `
+    W   2 `
+    1 1   `
+  2     1 `
+          `
+ 1 W      `
+ 01   W  1`
+     WW   `
+W     1   `
+ 3 2      `
+    ]]>
+  </level>
+  <level id="60">
+    <![CDATA[
+          `
+WW  W   W `
+ W2 WW   0`
+   W 00   `
+1 W     2W`
+ W        `
+          `
+1   1 0   `
+    0 W  0`
+   10     `
+    ]]>
+  </level>
+  <level id="61">
+    <![CDATA[
+W      01 `
+WW        `
+          `
+ 0  1    W`
+    0    0`
+         0`
+ 02   1 W `
+ 1  1   W `
+          `
+  0W0W 0  `
+    ]]>
+  </level>
+  <level id="62">
+    <![CDATA[
+  WW   W  `
+ 3  2  W 1`
+   1      `
+        0 `
+ 0  1 W   `
+1   0 W3  `
+   W      `
+     10  1`
+        W `
+ 0    1   `
+    ]]>
+  </level>
+  <level id="63">
+    <![CDATA[
+    0 W   `
+         1`
+   1W     `
+0W   2 2  `
+   0     W`
+   1      `
+ 1 WW 0   `
+W  W1     `
+      0 1 `
+  2     W `
+    ]]>
+  </level>
+  <level id="64">
+    <![CDATA[
+      1   `
+W1 2 2    `
+    2 1 2 `
+      1  2`
+ W 0W     `
+          `
+      1   `
+W W2     1`
+      1   `
+1 1   00  `
+    ]]>
+  </level>
+  <level id="65">
+    <![CDATA[
+0  W      `
+  W 1     `
+1     1   `
+ 2 2 W  W `
+   W W1  0`
+  2 2     `
+      W1  `
+ W    3   `
+ W        `
+1       1 `
+    ]]>
+  </level>
+  <level id="66">
+    <![CDATA[
+ W 2 W  WW`
+     W  1 `
+W     0   `
+    2   2 `
+      W2  `
+ 0   0  W `
+1        W`
+    W     `
+         W`
+ 0 1   1  `
+    ]]>
+  </level>
+  <level id="67">
+    <![CDATA[
+  2 2  W0 `
+0       1 `
+W         `
+W         `
+01     0  `
+  2W     1`
+    W  2  `
+W   1 2 1 `
+          `
+  1   W 0 `
+    ]]>
+  </level>
+  <level id="68">
+    <![CDATA[
+    1     `
+W 1 W 1   `
+      2   `
+1        2`
+  1   W 2 `
+      1   `
+  W    11W`
+  W  W   W`
+          `
+    WW W  `
+    ]]>
+  </level>
+  <level id="69">
+    <![CDATA[
+ 1W     0W`
+  1 1  1  `
+          `
+1   W  W  `
+ 3    2   `
+   W   W  `
+  1  W  1 `
+ 2    2W  `
+  3    2  `
+      1   `
+    ]]>
+  </level>
+  <level id="70">
+    <![CDATA[
+WW1       `
+          `
+  1 0    2`
+          `
+1W  1  0  `
+    WW  W `
+ 3  W  2 W`
+  1       `
+     W  1 `
+    1     `
+    ]]>
+  </level>
+  <level id="71">
+    <![CDATA[
+        WW`
+  3 0    W`
+     1 0W `
+       W  `
+  W     2 `
+  W   0   `
+   1      `
+ 3 W 0W 0 `
+   0 2    `
+       W W`
+    ]]>
+  </level>
+  <level id="72">
+    <![CDATA[
+    01W W 1`
+    W   W  `
+  2W   0   `
+ W   1    0`
+           `
+ W       W `
+ WW0 1     `
+       00  `
+    W  1   `
+    2   1  `
+ 2 2       `
+    ]]>
+  </level>
+  <level id="73">
+    <![CDATA[
+W      W   `
+     0     `
+        W1 `
+ 11  1100  `
+   W     W `
+W W W1 2   `
+  W        `
+    2      `
+           `
+2 W0   0   `
+     W 0 W `
+    ]]>
+  </level>
+  <level id="74">
+    <![CDATA[
+ 1  3     W`
+           `
+   0W      `
+   0    0W0`
+     W  W  `
+1 2    1   `
+     1    W`
+    WW3 W  `
+    2   2  `
+ 10  1     `
+ W         `
+    ]]>
+  </level>
+  <level id="75">
+    <![CDATA[
+     W     `
+W11     3  `
+       10W `
+           `
+WW  1  1   `
+0      0   `
+         2W`
+ W  02     `
+       W   `
+   WW  1  1`
+ 0  W W    `
+    ]]>
+  </level>
+  <level id="76">
+    <![CDATA[
+W  W       `
+ 2  W    2 `
+      W    `
+    2 W 2W `
+ W   2    W`
+   2  W 02 `
+     3  2  `
+  WW       `
+     W   0 `
+  3W    0  `
+      W    `
+    ]]>
+  </level>
+  <level id="77">
+    <![CDATA[
+W 1 0  W1  `
+  W 0      `
+W        W `
+      0 2  `
+   0     W `
+           `
+  W 0  1 2 `
+2      2   `
+      W    `
+W     1  W `
+  1      WW`
+    ]]>
+  </level>
+  <level id="78">
+    <![CDATA[
+ 2W   1   W`
+     W  W  `
+      3  0 `
+ WWW       `
+   3 W 0  1`
+     0 W   `
+           `
+W       0  `
+2     1    `
+  W1   2 4 `
+      WW   `
+    ]]>
+  </level>
+  <level id="79">
+    <![CDATA[
+W       WWW`
+  0 1   W  `
+     W3  W `
+0 W0     1 `
+0   2      `
+W     W    `
+1     W    `
+  2 0 W    `
+    W  W   `
+    0   3  `
+           `
+    ]]>
+  </level>
+  <level id="80">
+    <![CDATA[
+W 2  1  0  `
+      1    `
+ 0     2 W `
+ 1 1W1    1`
+W        1 `
+        W  `
+  1  2 1   `
+ 1        1`
+0    2     `
+  1        `
+   WW     1`
+    ]]>
+  </level>
   <level id="81">
     <![CDATA[
 W       W  `
