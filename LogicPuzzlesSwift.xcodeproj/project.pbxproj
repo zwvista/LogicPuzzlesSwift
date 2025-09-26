@@ -916,6 +916,15 @@
 		8C8E77BC2E869852006BBF98 /* 128_flower_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C8E75B52E869852006BBF98 /* 128_flower_blue.png */; };
 		8C8E77BE2E86DE0F006BBF98 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E77BD2E86DE0F006BBF98 /* CustomButton.swift */; };
 		8C8E77C02E871CD2006BBF98 /* FourMeNot.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C8E77BF2E871CD2006BBF98 /* FourMeNot.xml */; };
+		8C8E77CB2E873A53006BBF98 /* BranchesGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E77C52E873A53006BBF98 /* BranchesGameState.swift */; };
+		8C8E77CC2E873A53006BBF98 /* BranchesGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E77C42E873A53006BBF98 /* BranchesGameScene.swift */; };
+		8C8E77CD2E873A53006BBF98 /* BranchesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E77C22E873A53006BBF98 /* BranchesDocument.swift */; };
+		8C8E77CE2E873A53006BBF98 /* BranchesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E77C32E873A53006BBF98 /* BranchesGame.swift */; };
+		8C8E77CF2E873A53006BBF98 /* BranchesGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E77C62E873A53006BBF98 /* BranchesGameViewController.swift */; };
+		8C8E77D02E873A53006BBF98 /* BranchesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E77C82E873A53006BBF98 /* BranchesMainViewController.swift */; };
+		8C8E77D12E873A53006BBF98 /* BranchesGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E77C72E873A53006BBF98 /* BranchesGridNode.swift */; };
+		8C8E77D22E873A53006BBF98 /* BranchesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E77C92E873A53006BBF98 /* BranchesObject.swift */; };
+		8C8E77D52E873AD7006BBF98 /* Branches.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C8E77D42E873AD7006BBF98 /* Branches.xml */; };
 		8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CC51DAB1E6000D9E62B /* tap.wav */; };
 		8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CCD1DAB35FC00D9E62B /* solved.wav */; };
 		8C9F32291ECF06C000E10965 /* Tapa.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F321E1ECF06BF00E10965 /* Tapa.xml */; };
@@ -2060,6 +2069,15 @@
 		8C8E76A22E869852006BBF98 /* wood1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood1.png; sourceTree = "<group>"; };
 		8C8E77BD2E86DE0F006BBF98 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		8C8E77BF2E871CD2006BBF98 /* FourMeNot.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FourMeNot.xml; sourceTree = "<group>"; };
+		8C8E77C22E873A53006BBF98 /* BranchesDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesDocument.swift; sourceTree = "<group>"; };
+		8C8E77C32E873A53006BBF98 /* BranchesGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesGame.swift; sourceTree = "<group>"; };
+		8C8E77C42E873A53006BBF98 /* BranchesGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesGameScene.swift; sourceTree = "<group>"; };
+		8C8E77C52E873A53006BBF98 /* BranchesGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesGameState.swift; sourceTree = "<group>"; };
+		8C8E77C62E873A53006BBF98 /* BranchesGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesGameViewController.swift; sourceTree = "<group>"; };
+		8C8E77C72E873A53006BBF98 /* BranchesGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesGridNode.swift; sourceTree = "<group>"; };
+		8C8E77C82E873A53006BBF98 /* BranchesMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesMainViewController.swift; sourceTree = "<group>"; };
+		8C8E77C92E873A53006BBF98 /* BranchesObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesObject.swift; sourceTree = "<group>"; };
+		8C8E77D42E873AD7006BBF98 /* Branches.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Branches.xml; sourceTree = "<group>"; };
 		8C916CC51DAB1E6000D9E62B /* tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tap.wav; sourceTree = "<group>"; };
 		8C916CCD1DAB35FC00D9E62B /* solved.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = solved.wav; sourceTree = "<group>"; };
 		8C9F321E1ECF06BF00E10965 /* Tapa.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tapa.xml; sourceTree = "<group>"; };
@@ -2578,6 +2596,7 @@
 				8C3A33ED1EC88D4100A914A5 /* BoxItAgain */,
 				8C3A33FA1EC88D4100A914A5 /* BoxItAround */,
 				8C3A34071EC88D4100A914A5 /* BoxItUp */,
+				8C8E77CA2E873A53006BBF98 /* Branches */,
 				8C3A34141EC88D4100A914A5 /* Bridges */,
 				8C3A34211EC88D4100A914A5 /* BusySeas */,
 				8C9F32351ED1FAD400E10965 /* BWTapa */,
@@ -3856,6 +3875,22 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		8C8E77CA2E873A53006BBF98 /* Branches */ = {
+			isa = PBXGroup;
+			children = (
+				8C8E77D42E873AD7006BBF98 /* Branches.xml */,
+				8C8E77C22E873A53006BBF98 /* BranchesDocument.swift */,
+				8C8E77C32E873A53006BBF98 /* BranchesGame.swift */,
+				8C8E77C42E873A53006BBF98 /* BranchesGameScene.swift */,
+				8C8E77C52E873A53006BBF98 /* BranchesGameState.swift */,
+				8C8E77C62E873A53006BBF98 /* BranchesGameViewController.swift */,
+				8C8E77C72E873A53006BBF98 /* BranchesGridNode.swift */,
+				8C8E77C82E873A53006BBF98 /* BranchesMainViewController.swift */,
+				8C8E77C92E873A53006BBF98 /* BranchesObject.swift */,
+			);
+			path = Branches;
+			sourceTree = "<group>";
+		};
 		8C916CC81DAB297A00D9E62B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -4473,6 +4508,7 @@
 				8C7E4B4E1F7940E300B57C60 /* TennerGrid.xml in Resources */,
 				8CA043161FDBE77B00AF85E1 /* CarpentersWall.xml in Resources */,
 				8C3A366C1EC88D4200A914A5 /* Domino.xml in Resources */,
+				8C8E77D52E873AD7006BBF98 /* Branches.xml in Resources */,
 				8C2319F81FB88E3F0021C680 /* TierraDelFuego.xml in Resources */,
 				8CDAE7EF1F5BFBD8000DE5AF /* OverUnder.xml in Resources */,
 				8CFAF9C220381D870095EFFC /* CastleBailey.xml in Resources */,
@@ -4956,6 +4992,7 @@
 				8C3A36311EC88D4200A914A5 /* BoxItUpDocument.swift in Sources */,
 				8CA042E11FDB878800AF85E1 /* FillominoMainViewController.swift in Sources */,
 				8C3A37D01EC88D4400A914A5 /* SumscrapersMainViewController.swift in Sources */,
+				8C8E77CB2E873A53006BBF98 /* BranchesGameState.swift in Sources */,
 				8C3A37E61EC88D4400A914A5 /* TentsGridNode.swift in Sources */,
 				8C3A35E91EC88D4200A914A5 /* AbcDocument.swift in Sources */,
 				8C3A37621EC88D4300A914A5 /* PairakabeGridNode.swift in Sources */,
@@ -5103,6 +5140,7 @@
 				8C506F111F6D2C9300BA4332 /* SnakeGameScene.swift in Sources */,
 				8C6ACBFE1DCAF8BA0075F32C /* GameDocument.swift in Sources */,
 				8C3A36401EC88D4200A914A5 /* BridgesGameState.swift in Sources */,
+				8C8E77D12E873A53006BBF98 /* BranchesGridNode.swift in Sources */,
 				8C7474411FBDEAD100C4112C /* HolidayIslandGame.swift in Sources */,
 				8C3A37121EC88D4300A914A5 /* MineShipsObject.swift in Sources */,
 				8C3A37601EC88D4300A914A5 /* PairakabeGameState.swift in Sources */,
@@ -5125,6 +5163,7 @@
 				8C2AF8351ED5FB0000EC84AB /* NumberPathMainViewController.swift in Sources */,
 				8C6A36281FAF9D8600D2804D /* NoughtsAndCrossesGame.swift in Sources */,
 				8C3A363E1EC88D4200A914A5 /* BridgesGame.swift in Sources */,
+				8C8E77CC2E873A53006BBF98 /* BranchesGameScene.swift in Sources */,
 				8C6A362E1FAF9D8600D2804D /* NoughtsAndCrossesMainViewController.swift in Sources */,
 				8C3A36331EC88D4200A914A5 /* BoxItUpGameScene.swift in Sources */,
 				8C7474551FBED8BD00C4112C /* ParkLakesMainViewController.swift in Sources */,
@@ -5153,6 +5192,7 @@
 				8C9F32431ED1FAD400E10965 /* BWTapaGame.swift in Sources */,
 				8C9F32B81ED1FB0700E10965 /* TapaIslandsGameState.swift in Sources */,
 				8C3A36911EC88D4200A914A5 /* FenceSentinelsDocument.swift in Sources */,
+				8C8E77D02E873A53006BBF98 /* BranchesMainViewController.swift in Sources */,
 				8C6A36151FAF97AF00D2804D /* TheOddBrickGridNode.swift in Sources */,
 				8C9F32BA1ED1FB0700E10965 /* TapaIslandsGridNode.swift in Sources */,
 				8CE9C3171F7914B800134093 /* KakurasuMainViewController.swift in Sources */,
@@ -5214,6 +5254,7 @@
 				8C3A37BA1EC88D4400A914A5 /* SlitherLinkObject.swift in Sources */,
 				8C7474511FBED8BD00C4112C /* ParkLakesGameScene.swift in Sources */,
 				8C3A35F61EC88D4200A914A5 /* AbstractPaintingGame.swift in Sources */,
+				8C8E77CF2E873A53006BBF98 /* BranchesGameViewController.swift in Sources */,
 				8C74743D1FBDEAD100C4112C /* HolidayIslandDocument.swift in Sources */,
 				8C7474521FBED8BD00C4112C /* ParkLakesDocument.swift in Sources */,
 				8C3A36CA1EC88D4300A914A5 /* LighthousesObject.swift in Sources */,
@@ -5251,11 +5292,13 @@
 				8C3A362E1EC88D4200A914A5 /* BoxItAroundObject.swift in Sources */,
 				8C3A37841EC88D4400A914A5 /* ProductSentinelsGameState.swift in Sources */,
 				8CA042F61FDB930A00AF85E1 /* CalcudokuGridNode.swift in Sources */,
+				8C8E77CD2E873A53006BBF98 /* BranchesDocument.swift in Sources */,
 				8C3A37AE1EC88D4400A914A5 /* SkyscrapersObject.swift in Sources */,
 				8C3A37811EC88D4300A914A5 /* ProductSentinelsDocument.swift in Sources */,
 				8CFAF9AC202615570095EFFC /* WallSentinelsGridNode.swift in Sources */,
 				8C3A36621EC88D4200A914A5 /* DigitalBattleShipsGame.swift in Sources */,
 				8C35E3BD1FC6DAE600A26EE3 /* NumberLinkGame.swift in Sources */,
+				8C8E77D22E873A53006BBF98 /* BranchesObject.swift in Sources */,
 				8CA043261FDBE77B00AF85E1 /* CarpentersSquareGame.swift in Sources */,
 				8C6A9BE71F812743002A44FF /* KropkiGame.swift in Sources */,
 				8C3A36AA1EC88D4300A914A5 /* LightBattleShipsGame.swift in Sources */,
@@ -5548,6 +5591,7 @@
 				8C9F32321ECF06C000E10965 /* TapaObject.swift in Sources */,
 				8C3A37061EC88D4300A914A5 /* MasyuObject.swift in Sources */,
 				8C3A371E1EC88D4300A914A5 /* MinesweeperObject.swift in Sources */,
+				8C8E77CE2E873A53006BBF98 /* BranchesGame.swift in Sources */,
 				8C2973E41EE7284C0022A18A /* GalaxiesGameScene.swift in Sources */,
 				8C2319F41FB88E3F0021C680 /* TierraDelFuegoGame.swift in Sources */,
 				8C3A37DA1EC88D4400A914A5 /* TatamiGridNode.swift in Sources */,
