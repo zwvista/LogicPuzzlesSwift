@@ -561,11 +561,11 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIk-Ig-UdF" customClass="CustomButton" customModule="LogicPuzzlesSwift" customModuleProvider="target">
-                                <rect key="frame" x="56" y="607.5" width="80" height="30"/>
+                                <rect key="frame" x="56" y="607.5" width="100" height="48"/>
                                 <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="6PL-s4-A8T"/>
-                                    <constraint firstAttribute="width" constant="80" id="um5-sn-CHe"/>
+                                    <constraint firstAttribute="height" constant="48" id="6PL-s4-A8T"/>
+                                    <constraint firstAttribute="width" constant="100" id="um5-sn-CHe"/>
                                 </constraints>
                                 <state key="normal" title="&lt; Prev">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -576,7 +576,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHK-Sl-fwE" customClass="CustomButton" customModule="LogicPuzzlesSwift" customModuleProvider="target">
-                                <rect key="frame" x="239" y="607.5" width="80" height="30"/>
+                                <rect key="frame" x="219" y="607.5" width="100" height="48"/>
                                 <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Next &gt;">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

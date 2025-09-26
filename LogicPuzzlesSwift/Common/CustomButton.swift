@@ -14,7 +14,7 @@ class CustomButton: UIButton {
     func initColors() {
         layer.cornerRadius = frame.size.height / 2
         layer.masksToBounds = true
-        setGradientBackground(colorOne: .blue, colorTwo: .red)
+        setGradientBackground(colorOne: .blue, colorTwo: .magenta)
     }
 
     func setGradientBackground(colorOne: UIColor, colorTwo: UIColor) {
