@@ -12,7 +12,7 @@ enum FourMeNotObject {
     case empty
     case forbidden
     case marker
-    case tree(state: AllowedObjectState)
+    case flower(state: AllowedObjectState)
     case block
     init() {
         self = .empty
@@ -21,8 +21,8 @@ enum FourMeNotObject {
         switch self {
         case .marker:
             return "marker"
-        case .tree:
-            return "tree"
+        case .flower:
+            return "flower"
         default:
             return "empty"
         }
@@ -31,8 +31,8 @@ enum FourMeNotObject {
         switch str {
         case "marker":
             return .marker
-        case "tree":
-            return .tree(state: .normal)
+        case "flower":
+            return .flower(state: .normal)
         default:
             return .empty
         }

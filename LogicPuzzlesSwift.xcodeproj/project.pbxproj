@@ -614,7 +614,6 @@
 		8C7474581FBED8BD00C4112C /* ParkLakesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74744D1FBED8BC00C4112C /* ParkLakesObject.swift */; };
 		8C7474591FBED8BD00C4112C /* ParkLakesGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74744E1FBED8BC00C4112C /* ParkLakesGridNode.swift */; };
 		8C7474671FBEFD5700C4112C /* FourMeNotGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74745C1FBEFD5700C4112C /* FourMeNotGameState.swift */; };
-		8C7474681FBEFD5700C4112C /* FourMeNot.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C74745D1FBEFD5700C4112C /* FourMeNot.xml */; };
 		8C74746A1FBEFD5700C4112C /* FourMeNotGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74745F1FBEFD5700C4112C /* FourMeNotGame.swift */; };
 		8C74746B1FBEFD5700C4112C /* FourMeNotMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7474601FBEFD5700C4112C /* FourMeNotMainViewController.swift */; };
 		8C74746C1FBEFD5700C4112C /* FourMeNotDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7474611FBEFD5700C4112C /* FourMeNotDocument.swift */; };
@@ -916,6 +915,7 @@
 		8C8E77BB2E869852006BBF98 /* currant.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C8E76512E869852006BBF98 /* currant.png */; };
 		8C8E77BC2E869852006BBF98 /* 128_flower_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C8E75B52E869852006BBF98 /* 128_flower_blue.png */; };
 		8C8E77BE2E86DE0F006BBF98 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E77BD2E86DE0F006BBF98 /* CustomButton.swift */; };
+		8C8E77C02E871CD2006BBF98 /* FourMeNot.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C8E77BF2E871CD2006BBF98 /* FourMeNot.xml */; };
 		8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CC51DAB1E6000D9E62B /* tap.wav */; };
 		8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CCD1DAB35FC00D9E62B /* solved.wav */; };
 		8C9F32291ECF06C000E10965 /* Tapa.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F321E1ECF06BF00E10965 /* Tapa.xml */; };
@@ -1757,7 +1757,6 @@
 		8C74744D1FBED8BC00C4112C /* ParkLakesObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkLakesObject.swift; sourceTree = "<group>"; };
 		8C74744E1FBED8BC00C4112C /* ParkLakesGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkLakesGridNode.swift; sourceTree = "<group>"; };
 		8C74745C1FBEFD5700C4112C /* FourMeNotGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourMeNotGameState.swift; sourceTree = "<group>"; };
-		8C74745D1FBEFD5700C4112C /* FourMeNot.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FourMeNot.xml; sourceTree = "<group>"; };
 		8C74745F1FBEFD5700C4112C /* FourMeNotGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourMeNotGame.swift; sourceTree = "<group>"; };
 		8C7474601FBEFD5700C4112C /* FourMeNotMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourMeNotMainViewController.swift; sourceTree = "<group>"; };
 		8C7474611FBEFD5700C4112C /* FourMeNotDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourMeNotDocument.swift; sourceTree = "<group>"; };
@@ -2060,6 +2059,7 @@
 		8C8E76A12E869852006BBF98 /* wood vertical.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "wood vertical.jpg"; sourceTree = "<group>"; };
 		8C8E76A22E869852006BBF98 /* wood1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood1.png; sourceTree = "<group>"; };
 		8C8E77BD2E86DE0F006BBF98 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		8C8E77BF2E871CD2006BBF98 /* FourMeNot.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FourMeNot.xml; sourceTree = "<group>"; };
 		8C916CC51DAB1E6000D9E62B /* tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tap.wav; sourceTree = "<group>"; };
 		8C916CCD1DAB35FC00D9E62B /* solved.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = solved.wav; sourceTree = "<group>"; };
 		8C9F321E1ECF06BF00E10965 /* Tapa.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tapa.xml; sourceTree = "<group>"; };
@@ -3524,7 +3524,7 @@
 		8C74745A1FBEFD5700C4112C /* FourMeNot */ = {
 			isa = PBXGroup;
 			children = (
-				8C74745D1FBEFD5700C4112C /* FourMeNot.xml */,
+				8C8E77BF2E871CD2006BBF98 /* FourMeNot.xml */,
 				8C7474611FBEFD5700C4112C /* FourMeNotDocument.swift */,
 				8C74745F1FBEFD5700C4112C /* FourMeNotGame.swift */,
 				8C7474641FBEFD5700C4112C /* FourMeNotGameScene.swift */,
@@ -4412,7 +4412,6 @@
 				8C3A375C1EC88D4300A914A5 /* Pairakabe.xml in Resources */,
 				8C3A37381EC88D4300A914A5 /* Neighbours.xml in Resources */,
 				8C6A360F1FAF97AF00D2804D /* TheOddBrick.xml in Resources */,
-				8C7474681FBEFD5700C4112C /* FourMeNot.xml in Resources */,
 				8C1D16B21DB8DE930056D407 /* TraversalTree.png in Resources */,
 				8C7474421FBDEAD100C4112C /* HolidayIsland.xml in Resources */,
 				8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */,
@@ -4446,6 +4445,7 @@
 				8C3A36A81EC88D4200A914A5 /* LightBattleShips.xml in Resources */,
 				8C32D8E51FC92B5F00BA2D07 /* RippleEffect.xml in Resources */,
 				8C3A36901EC88D4200A914A5 /* FenceSentinels.xml in Resources */,
+				8C8E77C02E871CD2006BBF98 /* FourMeNot.xml in Resources */,
 				8C3A37081EC88D4300A914A5 /* MineShips.xml in Resources */,
 				8C3A36541EC88D4200A914A5 /* Clouds.xml in Resources */,
 				8C7474541FBED8BD00C4112C /* ParkLakes.xml in Resources */,

@@ -31,7 +31,7 @@ class FourMeNotGame: GridGame<FourMeNotGameState> {
                 let ch = str[c]
                 switch ch {
                 case "F":
-                    self[p] = .tree(state: .normal)
+                    self[p] = .flower(state: .normal)
                 case "B":
                     self[p] = .block
                 default:

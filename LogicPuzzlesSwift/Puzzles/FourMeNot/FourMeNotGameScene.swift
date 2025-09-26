@@ -14,8 +14,8 @@ class FourMeNotGameScene: GameScene<FourMeNotGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addTree(s: AllowedObjectState, point: CGPoint, nodeName: String) {
-        addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
+    func addFlower(s: AllowedObjectState, point: CGPoint, nodeName: String) {
+        addImage(imageNamed: "flower_blue", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }
 
     func addForbidden(point: CGPoint, nodeName: String) { addForbiddenMarker(point: point, nodeName: nodeName) }
@@ -35,11 +35,11 @@ class FourMeNotGameScene: GameScene<FourMeNotGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let treeNodeName = "tree" + nodeNameSuffix
+                let flowerNodeName = "flower" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 switch state[p] {
-                case let .tree(s):
-                    addTree(s: s, point: point, nodeName: treeNodeName)
+                case let .flower(s):
+                    addFlower(s: s, point: point, nodeName: flowerNodeName)
                     addCircleMarker(color: .white, point: point, nodeName: "marker")
                 case .block:
                     let blockNode = SKSpriteNode(color: .white, size: coloredRectSize())
@@ -61,10 +61,10 @@ class FourMeNotGameScene: GameScene<FourMeNotGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let treeNodeName = "tree" + nodeNameSuffix
+                let flowerNodeName = "flower" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                func removeTree() { removeNode(withName: treeNodeName) }
+                func removeFlower() { removeNode(withName: flowerNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 func removeForbidden() { removeNode(withName: forbiddenNodeName) }
@@ -73,8 +73,8 @@ class FourMeNotGameScene: GameScene<FourMeNotGameState> {
                 switch o1 {
                 case .forbidden:
                     removeForbidden()
-                case .tree:
-                    removeTree()
+                case .flower:
+                    removeFlower()
                 case .marker:
                     removeMarker()
                 default:
@@ -83,8 +83,8 @@ class FourMeNotGameScene: GameScene<FourMeNotGameState> {
                 switch o2 {
                 case .forbidden:
                     addForbidden(point: point, nodeName: forbiddenNodeName)
-                case let .tree(s):
-                    addTree(s: s, point: point, nodeName: treeNodeName)
+                case let .flower(s):
+                    addFlower(s: s, point: point, nodeName: flowerNodeName)
                 case .marker:
                     addMarker()
                 default:

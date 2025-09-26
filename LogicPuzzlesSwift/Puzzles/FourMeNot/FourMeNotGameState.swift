@@ -55,11 +55,11 @@ class FourMeNotGameState: GridGameState<FourMeNotGameMove> {
         func f(o: FourMeNotObject) -> FourMeNotObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .tree(state: .normal)
-            case .tree:
+                return markerOption == .markerFirst ? .marker : .flower(state: .normal)
+            case .flower:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .tree(state: .normal) : .empty
+                return markerOption == .markerFirst ? .flower(state: .normal) : .empty
             default:
                 return o
             }
@@ -97,8 +97,8 @@ class FourMeNotGameState: GridGameState<FourMeNotGameMove> {
                 switch self[p] {
                 case .forbidden:
                     self[p] = .empty
-                case .tree:
-                    self[p] = .tree(state: .normal)
+                case .flower:
+                    self[p] = .flower(state: .normal)
                     pos2node[p] = g.addNode(p.description)
                 default:
                     break
@@ -118,20 +118,20 @@ class FourMeNotGameState: GridGameState<FourMeNotGameMove> {
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
         if nodesExplored.count != pos2node.count { isSolved = false }
         
-        var trees = [Position]()
+        var flowers = [Position]()
         // 3. At the same time, you can't line up horizontally or vertically more
         // than 3 flowers (thus Forbidden Four).
-        func invalidTrees() -> Bool {
-            trees.count > 3
+        func invalidFlowers() -> Bool {
+            flowers.count > 3
         }
-        func checkTrees() {
-            if invalidTrees() {
+        func checkFlowers() {
+            if invalidFlowers() {
                 isSolved = false
-                for p in trees {
-                    self[p] = .tree(state: .error)
+                for p in flowers {
+                    self[p] = .flower(state: .error)
                 }
             }
-            trees.removeAll()
+            flowers.removeAll()
         }
         func checkForbidden(p: Position, indexes: [Int]) {
             guard allowedObjectsOnly else {return}
@@ -139,43 +139,43 @@ class FourMeNotGameState: GridGameState<FourMeNotGameMove> {
                 let os = FourMeNotGame.offset[i]
                 var p2 = p + os
                 while isValid(p: p2) {
-                    guard case .tree = self[p2] else {break}
-                    trees.append(p2)
+                    guard case .flower = self[p2] else {break}
+                    flowers.append(p2)
                     p2 += os
                 }
             }
-            if invalidTrees() { self[p] = .forbidden }
-            trees.removeAll()
+            if invalidFlowers() { self[p] = .forbidden }
+            flowers.removeAll()
         }
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 switch self[p] {
-                case .tree:
-                    trees.append(p)
+                case .flower:
+                    flowers.append(p)
                 case .empty, .marker:
-                    checkTrees()
+                    checkFlowers()
                     checkForbidden(p: p, indexes: [1,3])
                 default:
-                    checkTrees()
+                    checkFlowers()
                 }
             }
-            checkTrees()
+            checkFlowers()
         }
         for c in 0..<cols {
             for r in 0..<rows {
                 let p = Position(r, c)
                 switch self[p] {
-                case .tree:
-                    trees.append(p)
+                case .flower:
+                    flowers.append(p)
                 case .empty, .marker:
-                    checkTrees()
+                    checkFlowers()
                     checkForbidden(p: p, indexes: [0,2])
                 default:
-                    checkTrees()
+                    checkFlowers()
                 }
             }
-            checkTrees()
+            checkFlowers()
         }
     }
 }

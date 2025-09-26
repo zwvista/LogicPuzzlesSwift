@@ -35,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logic Puzzles" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGx-Ts-pBn">
-                                <rect key="frame" x="85" y="226.5" width="205.5" height="42"/>
+                                <rect key="frame" x="85" y="217.5" width="205.5" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="7Yf-C1-JWa"/>
                                 </constraints>
@@ -44,10 +44,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dmc-8f-29m" customClass="CustomButton" customModule="LogicPuzzlesSwift" customModuleProvider="target">
-                                <rect key="frame" x="24" y="318.5" width="327" height="30"/>
+                                <rect key="frame" x="24" y="309.5" width="327" height="48"/>
                                 <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="rvI-OL-hMC"/>
+                                    <constraint firstAttribute="height" constant="48" id="rvI-OL-hMC"/>
                                 </constraints>
                                 <state key="normal" title="Resume Game">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -57,7 +57,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="Abc" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VH0-yb-haP" customClass="CustomButton" customModule="LogicPuzzlesSwift" customModuleProvider="target">
-                                <rect key="frame" x="24" y="368.5" width="327" height="30"/>
+                                <rect key="frame" x="24" y="377.5" width="327" height="48"/>
                                 <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Choose Game">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -69,7 +69,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PxK-QC-2Io" customClass="CustomButton" customModule="LogicPuzzlesSwift" customModuleProvider="target">
-                                <rect key="frame" x="24" y="418.5" width="327" height="30"/>
+                                <rect key="frame" x="24" y="445.5" width="327" height="48"/>
                                 <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Options">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -86,10 +86,12 @@
                             <constraint firstItem="PxK-QC-2Io" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="4Dj-lj-m8Y"/>
                             <constraint firstItem="PxK-QC-2Io" firstAttribute="top" secondItem="VH0-yb-haP" secondAttribute="bottom" constant="20" id="DJn-dp-wH7"/>
                             <constraint firstItem="Dmc-8f-29m" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="FO6-f1-hga"/>
+                            <constraint firstItem="PxK-QC-2Io" firstAttribute="height" secondItem="Dmc-8f-29m" secondAttribute="height" id="Krz-gr-YaP"/>
                             <constraint firstItem="VH0-yb-haP" firstAttribute="centerX" secondItem="Y0Z-hx-Q2p" secondAttribute="centerX" id="RjL-NU-G4C"/>
                             <constraint firstItem="VH0-yb-haP" firstAttribute="top" secondItem="Dmc-8f-29m" secondAttribute="bottom" constant="20" id="ULe-cu-v8x"/>
                             <constraint firstItem="Dmc-8f-29m" firstAttribute="top" secondItem="yGx-Ts-pBn" secondAttribute="bottom" constant="50" id="aO3-0K-mnH"/>
                             <constraint firstItem="PxK-QC-2Io" firstAttribute="trailing" secondItem="Dmc-8f-29m" secondAttribute="trailing" id="ehv-z2-8bB"/>
+                            <constraint firstItem="VH0-yb-haP" firstAttribute="height" secondItem="Dmc-8f-29m" secondAttribute="height" id="hF1-03-Xf5"/>
                             <constraint firstItem="Dmc-8f-29m" firstAttribute="leading" secondItem="Y0Z-hx-Q2p" secondAttribute="leadingMargin" constant="8" id="iqR-9X-Apa"/>
                             <constraint firstItem="VH0-yb-haP" firstAttribute="leading" secondItem="Dmc-8f-29m" secondAttribute="leading" id="l6N-3j-3Fx"/>
                             <constraint firstItem="Dmc-8f-29m" firstAttribute="centerY" secondItem="Y0Z-hx-Q2p" secondAttribute="centerY" id="mCg-MN-v3y"/>
