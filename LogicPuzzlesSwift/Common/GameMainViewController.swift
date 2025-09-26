@@ -26,7 +26,7 @@ class GameMainViewController: UIViewController {
     var allowedObjectsOnly: Bool { gameOptions.option2?.toBool() ?? false }
     
     var currentPage = 0
-    let countPerPage = 12
+    let countPerPage = 36
     var numPages = 1
 
     // http://stackoverflow.com/questions/14111572/how-to-use-single-storyboard-uiviewcontroller-for-multiple-subclass
@@ -36,9 +36,17 @@ class GameMainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        for subView in view.subviews {
-            guard let button = subView as? UIButton, button.titleColor(for: .normal) == .white else {continue}
+        
+        func initColors(subView: UIView) {
+            guard let button = subView as? UIButton, button.titleColor(for: .normal) == .white else {return}
             button.initColors()
+        }
+        
+        for subView in view.subviews {
+            initColors(subView: subView)
+            for subView2 in subView.subviews {
+                initColors(subView: subView2)
+            }
         }
         
         lblGameTitle.text = currentGameTitle
