@@ -64,7 +64,7 @@ class LightenUpGameScene: GameScene<LightenUpGameState> {
                 }
                 func removeLightCell() { removeNode(withName: lightCellNodeName) }
                 func addLightbulb(s: AllowedObjectState) {
-                    addImage(imageNamed: "lightbulb", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.2, point: point, nodeName: lightbulbNodeName)
+                    addImage(imageNamed: "lightbulb_on", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.2, point: point, nodeName: lightbulbNodeName)
                 }
                 func removeLightbulb() { removeNode(withName: lightbulbNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }

@@ -61,7 +61,7 @@ class BusySeasGameScene: GameScene<BusySeasGameState> {
                 let hintNodeName = "hint" + nodeNameSuffix
                 func removeHint() { removeNode(withName: hintNodeName) }
                 func addLighthouse(s: AllowedObjectState) {
-                    addImage(imageNamed: "lightbulb", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: lighthouseNodeName)
+                    addImage(imageNamed: "lightbulb_on", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: lighthouseNodeName)
                 }
                 func removeLighthouse() { removeNode(withName: lighthouseNodeName) }
                 func addMarker() { addCircleMarker(color: .white, point: point, nodeName: markerNodeName) }
