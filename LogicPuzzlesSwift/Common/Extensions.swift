@@ -29,11 +29,3 @@ extension UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
 }
-
-extension UIButton {
-    func initColors() {
-        layer.cornerRadius = frame.size.height/2
-        layer.masksToBounds = true
-        setGradientBackground(colorOne: UIColor.blue, colorTwo: UIColor.red)
-    }
-}

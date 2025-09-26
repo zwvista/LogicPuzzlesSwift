@@ -915,6 +915,7 @@
 		8C8E77BA2E869852006BBF98 /* watermelon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C8E769C2E869852006BBF98 /* watermelon.png */; };
 		8C8E77BB2E869852006BBF98 /* currant.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C8E76512E869852006BBF98 /* currant.png */; };
 		8C8E77BC2E869852006BBF98 /* 128_flower_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C8E75B52E869852006BBF98 /* 128_flower_blue.png */; };
+		8C8E77BE2E86DE0F006BBF98 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E77BD2E86DE0F006BBF98 /* CustomButton.swift */; };
 		8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CC51DAB1E6000D9E62B /* tap.wav */; };
 		8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CCD1DAB35FC00D9E62B /* solved.wav */; };
 		8C9F32291ECF06C000E10965 /* Tapa.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F321E1ECF06BF00E10965 /* Tapa.xml */; };
@@ -1087,7 +1088,6 @@
 		8CF3FFDB1FCB2A2700D41B67 /* DisconnectFourMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCF1FCB2A2600D41B67 /* DisconnectFourMainViewController.swift */; };
 		8CF3FFDC1FCB2A2700D41B67 /* DisconnectFourObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFD01FCB2A2600D41B67 /* DisconnectFourObject.swift */; };
 		8CF3FFDD1FCB2A2700D41B67 /* DisconnectFourDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFD11FCB2A2600D41B67 /* DisconnectFourDocument.swift */; };
-		8CF3FFE01FCF082A00D41B67 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFDF1FCF082900D41B67 /* UIView+Extension.swift */; };
 		8CFAF9A3202615570095EFFC /* WallSentinelsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFAF997202615560095EFFC /* WallSentinelsGameViewController.swift */; };
 		8CFAF9A4202615570095EFFC /* WallSentinelsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFAF998202615560095EFFC /* WallSentinelsObject.swift */; };
 		8CFAF9A5202615570095EFFC /* WallSentinelsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFAF999202615560095EFFC /* WallSentinelsMainViewController.swift */; };
@@ -2059,6 +2059,7 @@
 		8C8E76A02E869852006BBF98 /* wood horizontal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "wood horizontal.jpg"; sourceTree = "<group>"; };
 		8C8E76A12E869852006BBF98 /* wood vertical.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "wood vertical.jpg"; sourceTree = "<group>"; };
 		8C8E76A22E869852006BBF98 /* wood1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood1.png; sourceTree = "<group>"; };
+		8C8E77BD2E86DE0F006BBF98 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		8C916CC51DAB1E6000D9E62B /* tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tap.wav; sourceTree = "<group>"; };
 		8C916CCD1DAB35FC00D9E62B /* solved.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = solved.wav; sourceTree = "<group>"; };
 		8C9F321E1ECF06BF00E10965 /* Tapa.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tapa.xml; sourceTree = "<group>"; };
@@ -2237,7 +2238,6 @@
 		8CF3FFCF1FCB2A2600D41B67 /* DisconnectFourMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourMainViewController.swift; sourceTree = "<group>"; };
 		8CF3FFD01FCB2A2600D41B67 /* DisconnectFourObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourObject.swift; sourceTree = "<group>"; };
 		8CF3FFD11FCB2A2600D41B67 /* DisconnectFourDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourDocument.swift; sourceTree = "<group>"; };
-		8CF3FFDF1FCF082900D41B67 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		8CFAF997202615560095EFFC /* WallSentinelsGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallSentinelsGameViewController.swift; sourceTree = "<group>"; };
 		8CFAF998202615560095EFFC /* WallSentinelsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallSentinelsObject.swift; sourceTree = "<group>"; };
 		8CFAF999202615560095EFFC /* WallSentinelsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallSentinelsMainViewController.swift; sourceTree = "<group>"; };
@@ -3465,6 +3465,7 @@
 			isa = PBXGroup;
 			children = (
 				8C6D37EC1DC5A2F50052202C /* Copyable.swift */,
+				8C8E77BD2E86DE0F006BBF98 /* CustomButton.swift */,
 				8CD1558A1DD77C3400786F34 /* Extensions.swift */,
 				8C76090A1EC61A8A00DFCD7B /* Game.storyboard */,
 				8C6D37D01DC42FA40052202C /* Game.swift */,
@@ -3483,7 +3484,6 @@
 				8C5368831EA1DFCC0071D475 /* GridObject.swift */,
 				8C6D37F41DC5AC520052202C /* Position.swift */,
 				8C7609191EC7EB1C00DFCD7B /* SelfSizingTableViewCell.swift */,
-				8CF3FFDF1FCF082900D41B67 /* UIView+Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -5010,7 +5010,6 @@
 				8C3A37301EC88D4300A914A5 /* MosaikGameState.swift in Sources */,
 				8C3A36F41EC88D4300A914A5 /* MagnetsGameState.swift in Sources */,
 				8CC25CC81F87BB5A005560F7 /* KakuroGridNode.swift in Sources */,
-				8CF3FFE01FCF082A00D41B67 /* UIView+Extension.swift in Sources */,
 				8CF3FFD61FCB2A2700D41B67 /* DisconnectFourGameScene.swift in Sources */,
 				8C04671E1F8BA2BE00B5DE41 /* TataminoGridNode.swift in Sources */,
 				8C3A372A1EC88D4300A914A5 /* MiniLitsObject.swift in Sources */,
@@ -5196,6 +5195,7 @@
 				8C9F32B51ED1FB0700E10965 /* TapaIslandsDocument.swift in Sources */,
 				8C3A37461EC88D4300A914A5 /* NurikabeGame.swift in Sources */,
 				8C355CE41FE586F9002FC9D6 /* ABCPathGame.swift in Sources */,
+				8C8E77BE2E86DE0F006BBF98 /* CustomButton.swift in Sources */,
 				8C3A36701EC88D4200A914A5 /* DominoGameState.swift in Sources */,
 				8C3A36821EC88D4200A914A5 /* FenceItUpObject.swift in Sources */,
 				8C7E4B491F793C9800B57C60 /* TennerGridGridNode.swift in Sources */,

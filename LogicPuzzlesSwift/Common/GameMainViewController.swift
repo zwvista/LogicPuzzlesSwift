@@ -37,18 +37,6 @@ class GameMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        func initColors(subView: UIView) {
-            guard let button = subView as? UIButton, button.titleColor(for: .normal) == .white else {return}
-            button.initColors()
-        }
-        
-        for subView in view.subviews {
-            initColors(subView: subView)
-            for subView2 in subView.subviews {
-                initColors(subView: subView2)
-            }
-        }
-        
         lblGameTitle.text = currentGameTitle
         numPages = (gameDocument.levels.count + countPerPage - 1) / countPerPage
         let index = gameDocument.levels.firstIndex(where: { $0.id == gameDocument.selectedLevelID }) ?? 0
