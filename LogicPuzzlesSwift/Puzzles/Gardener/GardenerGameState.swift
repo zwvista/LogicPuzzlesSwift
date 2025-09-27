@@ -59,11 +59,11 @@ class GardenerGameState: GridGameState<GardenerGameMove> {
         func f(o: GardenerObject) -> GardenerObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .tree(state: .normal)
-            case .tree:
+                return markerOption == .markerFirst ? .marker : .flower(state: .normal)
+            case .flower:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .tree(state: .normal) : .empty
+                return markerOption == .markerFirst ? .flower(state: .normal) : .empty
             default:
                 return o
             }
@@ -112,16 +112,16 @@ class GardenerGameState: GridGameState<GardenerGameMove> {
                 func hasNeighbor() -> Bool {
                     for os in GardenerGame.offset {
                         let p2 = p + os
-                        if isValid(p: p2), case .tree = self[p2] { return true }
+                        if isValid(p: p2), case .flower = self[p2] { return true }
                     }
                     return false
                 }
                 func f() { pos2node[p] = g.addNode(p.description) }
                 switch self[p] {
-                case .tree:
+                case .flower:
                     // 4. Flowers can't be horizontally or vertically touching.
                     let s: AllowedObjectState = !hasNeighbor() ? .normal : .error
-                    self[p] = .tree(state: s)
+                    self[p] = .flower(state: s)
                     if s == .error { isSolved = false }
                 case .empty, .marker:
                     // 4. Flowers can't be horizontally or vertically touching.
@@ -151,7 +151,7 @@ class GardenerGameState: GridGameState<GardenerGameMove> {
             let area = game.areas[i]
             var n1 = 0
             for p2 in area {
-                if case .tree = self[p2] { n1 += 1 }
+                if case .flower = self[p2] { n1 += 1 }
             }
             let s: HintState = n1 < n2 ? .normal : n1 == n2 || n2 == -1 ? .complete : .error
             pos2state[p] = s
@@ -187,7 +187,7 @@ class GardenerGameState: GridGameState<GardenerGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if case .tree = self[p] {
+                if case .flower = self[p] {
                     checkSpaces(isHorz: true)
                 } else {
                     spaces.append(p)
@@ -198,7 +198,7 @@ class GardenerGameState: GridGameState<GardenerGameMove> {
         for c in 0..<cols {
             for r in 0..<rows {
                 let p = Position(r, c)
-                if case .tree = self[p] {
+                if case .flower = self[p] {
                     checkSpaces(isHorz: false)
                 } else {
                     spaces.append(p)

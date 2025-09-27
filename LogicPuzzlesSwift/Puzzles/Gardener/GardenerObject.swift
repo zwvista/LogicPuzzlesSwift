@@ -12,7 +12,7 @@ enum GardenerObject {
     case empty
     case forbidden
     case marker
-    case tree(state: AllowedObjectState)
+    case flower(state: AllowedObjectState)
     init() {
         self = .empty
     }
@@ -20,8 +20,8 @@ enum GardenerObject {
         switch self {
         case .marker:
             return "marker"
-        case .tree:
-            return "tree"
+        case .flower:
+            return "flower"
         default:
             return "empty"
         }
@@ -30,8 +30,8 @@ enum GardenerObject {
         switch str {
         case "marker":
             return .marker
-        case "tree":
-            return .tree(state: .normal)
+        case "flower":
+            return .flower(state: .normal)
         default:
             return .empty
         }

@@ -27,7 +27,11 @@ class WallsGame: GridGame<WallsGameState> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let ch = str[c]
-                if ch != " " { pos2hint[p] = ch.toInt! }
+                switch ch {
+                case "0"..."9": pos2hint[p] = ch.toInt!
+                case "A"..."Z": pos2hint[p] = Int(ch.asciiValue!) - Int(Character("A").asciiValue!) + 10
+                default: break
+                }
             }
         }
         

@@ -110,20 +110,20 @@ class GardenerGameScene: GameScene<GardenerGameState> {
                 addHint(n: n, s: s2, point: point, nodeName: hintNodeName)
             }
         }
-        var trees = Set<Position>()
+        var flowers = Set<Position>()
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let treeNodeName = "tree" + nodeNameSuffix
+                let flowerNodeName = "flower" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 func hintNodeName(isHorz: Bool) -> String {
                     "hint" + nodeNameSuffix + "-" + (isHorz ? "h" : "v");
                 }
-                func addTree(s: AllowedObjectState) {
-                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: treeNodeName)
+                func addFllower(s: AllowedObjectState) {
+                    addImage(imageNamed: "flower_red", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: flowerNodeName)
                 }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 let (o1, o2) = (stateFrom[p], stateTo[p])
@@ -131,8 +131,8 @@ class GardenerGameScene: GameScene<GardenerGameState> {
                     switch o1 {
                     case .forbidden:
                         removeNode(withName: forbiddenNodeName)
-                    case .tree:
-                        removeNode(withName: treeNodeName)
+                    case .flower:
+                        removeNode(withName: flowerNodeName)
                     case .marker:
                         removeNode(withName: markerNodeName)
                     default:
@@ -141,9 +141,9 @@ class GardenerGameScene: GameScene<GardenerGameState> {
                     switch o2 {
                     case .forbidden:
                         addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
-                    case let .tree(s):
-                        trees.insert(p)
-                        addTree(s: s)
+                    case let .flower(s):
+                        flowers.insert(p)
+                        addFllower(s: s)
                     case .marker:
                         addMarker()
                     default:
@@ -167,7 +167,7 @@ class GardenerGameScene: GameScene<GardenerGameState> {
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
-            if s1 != s2 || trees.contains(p) {
+            if s1 != s2 || flowers.contains(p) {
                 removeNode(withName: hintNodeName)
                 addHint(n: n, s: s2, point: point, nodeName: hintNodeName)
             }

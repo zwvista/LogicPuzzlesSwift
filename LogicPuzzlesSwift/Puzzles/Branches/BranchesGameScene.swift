@@ -44,22 +44,17 @@ class BranchesGameScene: GameScene<BranchesGameState> {
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let branchNodeName = "branch" + nodeNameSuffix
-                let markerNodeName = "marker" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
                 func addBranch(imageNamed: String) {
                     addImage(imageNamed: imageNamed, color: .red, colorBlendFactor: 0.0, point: point, nodeName: branchNodeName)
                 }
                 func removeBranch() { removeNode(withName: branchNodeName) }
                 func removeHint() { removeNode(withName: hintNodeName) }
-                func addMarker() { addCircleMarker(color: .white, point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
                 let (ot1, ot2) = (stateFrom[r, c], stateTo[r, c])
                 guard String(describing: ot1) != String(describing: ot2) else {continue}
                 switch ot1 {
                 case .up, .right, .down, .left, .horizontal, .vertical:
                     removeBranch()
-                case .marker:
-                    removeMarker()
                 case .hint:
                     removeHint()
                 default:
@@ -68,8 +63,6 @@ class BranchesGameScene: GameScene<BranchesGameState> {
                 switch ot2 {
                 case .up, .right, .down, .left, .horizontal, .vertical:
                     addBranch(imageNamed: "branch_" + ot2.toString())
-                case .marker:
-                    addMarker()
                 case let .hint(s):
                     let n = stateTo.game.pos2hint[Position(r, c)]!
                     addHint(n: n, s: s, point: point, nodeName: hintNodeName)
