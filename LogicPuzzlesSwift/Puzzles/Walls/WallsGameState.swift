@@ -31,7 +31,7 @@ class WallsGameState: GridGameState<WallsGameMove> {
         guard !isCopy else {return}
         objArray = Array<WallsObject>(repeating: .empty, count: rows * cols)
         for (p, n) in game.pos2hint {
-            self[p] = .hint(walls: n, state: .normal)
+            self[p] = .hint(state: .normal)
         }
         updateIsSolved()
     }
@@ -95,7 +95,8 @@ class WallsGameState: GridGameState<WallsGameMove> {
                     // 4. Not every wall piece must be connected with a number, but the
                     // board must be filled with wall pieces.
                     isSolved = false
-                case let .hint(n2, _):
+                case .hint:
+                    let n2 = game.pos2hint[p]!
                     var n1 = 0
                     for i in 0..<4 {
                         let os = WallsGame.offset[i]
@@ -123,7 +124,7 @@ class WallsGameState: GridGameState<WallsGameMove> {
                     // connected to it.
                     let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
                     if s != .complete { isSolved = false }
-                    self[p] = .hint(walls: n2, state: s)
+                    self[p] = .hint(state: s)
                 default:
                     break
                 }

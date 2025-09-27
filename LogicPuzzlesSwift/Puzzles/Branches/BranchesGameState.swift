@@ -99,74 +99,53 @@ class BranchesGameState: GridGameState<BranchesGameMove> {
            and can't make corners.
     */
     private func updateIsSolved() {
-//        isSolved = true
-//        var chars = ""
-//        // 1. The goal is to shade squares so that a number appears only once in a
-//        // row.
-//        for r in 0..<rows {
-//            chars = ""
-//            row2hint[r] = ""
-//            for c in 0..<cols {
-//                let p = Position(r, c)
-//                guard self[p] != .darken else {continue}
-//                let ch = game[p]
-//                if chars.contains(String(ch)) {
-//                    isSolved = false
-//                    row2hint[r].append(ch)
-//                } else {
-//                    chars.append(ch)
-//                }
-//            }
-//        }
-//        // 1. The goal is to shade squares so that a number appears only once in a
-//        // column.
-//        for c in 0..<cols {
-//            chars = ""
-//            col2hint[c] = ""
-//            for r in 0..<rows {
-//                let p = Position(r, c)
-//                guard self[p] != .darken else {continue}
-//                let ch = game[p]
-//                if chars.contains(String(ch)) {
-//                    isSolved = false
-//                    col2hint[c].append(ch)
-//                } else {
-//                    chars.append(ch)
-//                }
-//            }
-//        }
-//        guard isSolved else {return}
-//        let g = Graph()
-//        var pos2node = [Position: Node]()
-//        var rngDarken = [Position]()
-//        for r in 0..<rows {
-//            for c in 0..<cols {
-//                let p = Position(r, c)
-//                switch self[p] {
-//                case .darken:
-//                    rngDarken.append(p)
-//                default:
-//                    pos2node[p] = g.addNode(p.description)
-//                }
-//            }
-//        }
-//        // 2. While doing that, you must take care that shaded squares don't touch
-//        // horizontally or vertically between them.
-//        for p in rngDarken {
-//            for os in BranchesGame.offset {
-//                let p2 = p + os
-//                guard !rngDarken.contains(p2) else { isSolved = false; return }
-//            }
-//        }
-//        for (p, node) in pos2node {
-//            for os in BranchesGame.offset {
-//                let p2 = p + os
-//                guard let node2 = pos2node[p2] else {continue}
-//                g.addEdge(node, neighbor: node2)
-//            }
-//        }
-//        // 3. In the end all the un-shaded squares must form a single continuous area.
-//        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-//        if pos2node.count != nodesExplored.count { isSolved = false }
+        isSolved = true
+        for (p, n2) in game.pos2hint {
+            func f() -> HintState {
+                var n1 = 0
+                next: for i in 0..<4 {
+                    let os = BranchesGame.offset[i]
+                    var p2 = p + os
+                    while isValid(p: p2) {
+                        switch self[p2] {
+                        case .up:
+                            if i == 0 { n1 += 1 }
+                            continue next
+                        case .right:
+                            if i == 1 { n1 += 1 }
+                            continue next
+                        case .down:
+                            if i == 2 { n1 += 1 }
+                            continue next
+                        case .left:
+                            if i == 3 { n1 += 1 }
+                            continue next
+                        case .horizontal:
+                            if i % 2 == 1 { n1 += 1 } else { continue next }
+                        case .vertical:
+                            if i % 2 == 0 { n1 += 1 } else { continue next }
+                        default:
+                            break
+                        }
+                        p2 += os
+                    }
+                }
+                return n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            }
+            let s = f()
+            self[p] = .hint(state: s)
+            if s != .complete { isSolved = false }
+        }
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                switch self[p] {
+                case .empty:
+                    isSolved = false
+                default:
+                    break
+                }
+            }
+        }
     }
 }

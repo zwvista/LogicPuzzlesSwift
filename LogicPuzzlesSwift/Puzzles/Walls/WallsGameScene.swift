@@ -45,7 +45,7 @@ class WallsGameScene: GameScene<WallsGameState> {
                 let vertNodeName = "vert" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
                 func addWall(isHorz: Bool) {
-                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: 0.0, point: point, nodeName: isHorz ? horzNodeName : vertNodeName, zRotation: isHorz ? CGFloat(-Double.pi / 2) : 0.0)
+                    addImage(imageNamed: isHorz ? "wall_horizontal" : "wall_vertical", color: .red, colorBlendFactor: 0.0, point: point, nodeName: isHorz ? horzNodeName : vertNodeName)
                 }
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 guard String(describing: o1) != String(describing: o2) else {continue}
@@ -60,8 +60,8 @@ class WallsGameScene: GameScene<WallsGameState> {
                     break
                 }
                 switch o2 {
-                case let .hint(n, s):
-                    addHint(n: n, s: s, point: point, nodeName: hintNodeName)
+                case let .hint(s):
+                    addHint(n: stateTo.game.pos2hint[p]!, s: s, point: point, nodeName: hintNodeName)
                 case .horz:
                     addWall(isHorz: true)
                 case .vert:
