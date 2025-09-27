@@ -57,10 +57,11 @@ class BranchesGameState: GridGameState<BranchesGameMove> {
     
     override func switchObject(move: inout BranchesGameMove) -> Bool {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
+        // 3. Branches can't run over the numbers.
         func f(o: BranchesObject) -> BranchesObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .up
+                return .up
             case .up:
                 return .right
             case .right:
@@ -72,9 +73,7 @@ class BranchesGameState: GridGameState<BranchesGameMove> {
             case .horizontal:
                 return .vertical
             case .vertical:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .up : .empty
+                return .empty
             default:
                 return o
             }
@@ -100,6 +99,12 @@ class BranchesGameState: GridGameState<BranchesGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
+        // 1. In Branches you must fill the board with straight horizontal and
+        // vertical lines(Branches) that stem from each number.
+        // 2. The number itself tells you how many tiles its Branches fill up.
+        // The tile with the number doesn't count.
+        // 3. Branches can't overlap,
+        // Branches must be in a single straight line and can't make corners.
         for (p, n2) in game.pos2hint {
             func f() -> HintState {
                 var n1 = 0
@@ -136,12 +141,14 @@ class BranchesGameState: GridGameState<BranchesGameMove> {
             self[p] = .hint(state: s)
             if s != .complete { isSolved = false }
         }
+        // 3. There can't be blank tiles.
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 switch self[p] {
                 case .empty:
                     isSolved = false
+                    return
                 default:
                     break
                 }

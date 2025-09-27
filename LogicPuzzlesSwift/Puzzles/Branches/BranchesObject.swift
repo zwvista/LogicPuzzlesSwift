@@ -11,7 +11,6 @@ import Foundation
 enum BranchesObject {
     case empty
     case hint(state: HintState)
-    case marker
     case up
     case right
     case down
@@ -23,8 +22,6 @@ enum BranchesObject {
     }
     func toString() -> String {
         switch self {
-        case .marker:
-            return "marker"
         case .up:
             return "up"
         case .right:
@@ -43,8 +40,6 @@ enum BranchesObject {
     }
     static func fromString(str: String) -> BranchesObject {
         switch str {
-        case "marker":
-            return .marker
         case "up":
             return .up
         case "right":
