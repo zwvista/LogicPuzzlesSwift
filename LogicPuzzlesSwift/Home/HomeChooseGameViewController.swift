@@ -30,6 +30,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         "FenceItUp": "Fence It Up",
         "FenceSentinels": "Fence Sentinels",
         "FourMeNot": "Four-Me-Not",
+        "HiddenStars": "Hidden Stars",
         "HolidayIsland": "Holiday Island",
         "LightBattleShips": "Light Battle Ships",
         "LightenUp": "Lighten Up",

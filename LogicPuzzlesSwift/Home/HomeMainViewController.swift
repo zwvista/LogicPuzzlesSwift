@@ -28,15 +28,19 @@ class HomeMainViewController: UIViewController, HomeMixin {
         navigationController?.setNavigationBarHidden(true, animated: animated)
         currentGameName = gameDocument.gameProgress.gameName!
         currentGameTitle = gameDocument.gameProgress.gameTitle!
-        btnResumeGame.setTitle("Resume Game " + currentGameTitle, for: .normal)
+        updateGameTitle()
     }
     
     @IBAction func resumeGame(_ sender: Any) {
         toResume = true
+        updateGameTitle()
         // http://www.newventuresoftware.com/blog/organizing-xcode-projects-using-multiple-storyboards
         let storyboard = UIStoryboard(name: "Game", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "InitialController")
         self.present(controller, animated: true, completion: nil)
     }
-
+    
+    func updateGameTitle() {
+        btnResumeGame.setTitle("Resume Game " + currentGameTitle, for: .normal)
+    }
 }
