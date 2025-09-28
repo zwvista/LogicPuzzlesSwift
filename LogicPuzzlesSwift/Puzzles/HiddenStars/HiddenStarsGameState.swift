@@ -34,7 +34,7 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<HiddenStarsObject>(repeating: HiddenStarsObject(), count: rows * cols)
-        for p in game.pos2arrow {
+        for (p, _) in game.pos2arrow {
             self[p] = .arrow(state: .normal)
         }
         row2state = Array<HintState>(repeating: .normal, count: rows)
@@ -80,22 +80,21 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 1/HiddenStars
+        iOS Game: 100 Logic Games/Puzzle Set 2/Hidden Stars
 
         Summary
-        Each camper wants to put his Tent under the shade of a Tree. But he also
-        wants his privacy!
+        Each Arrow points to a Star and every Star has an arrow pointing at it
 
         Description
-        1. The board represents a camping field with many Trees. Campers want to set
-           their Tent in the shade, horizontally or vertically adjacent to a Tree(not
-           diagonally).
-        2. At the same time they need their privacy, so a Tent can't have any other
-           HiddenStars near them, not even diagonally.
-        3. The numbers on the borders tell you how many HiddenStars there are in that row
+        1. In the board you have to find hidden stars.
+        2. Each star is pointed at by at least one Arrow and each Arrow points
+           to at least one star.
+        3. The number on the borders tell you how many Stars there on that row
            or column.
-        4. Finally, each Tree has at least one Tent touching it, horizontally or
-           vertically.
+
+        Variant
+        4. Some levels have a variation of these rules: Stars must be pointed
+           by one and only one Arrow.
     */
     private func updateIsSolved() {
         let allowedObjectsOnly = self.allowedObjectsOnly
@@ -106,7 +105,7 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
             for c in 0..<cols {
                 if case .star = self[r, c] { n1 += 1 }
             }
-            // 3. The numbers on the borders tell you how many HiddenStars there are in that row.
+            // 3. The numbers on the borders tell you how many Stars there are on that row.
             row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 { isSolved = false }
         }
@@ -116,7 +115,7 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
             for r in 0..<rows {
                 if case .star = self[r, c] { n1 += 1 }
             }
-            // 3. The numbers on the borders tell you how many HiddenStars there are in that column.
+            // 3. The numbers on the borders tell you how many Stars there are on that column.
             col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 { isSolved = false }
         }
@@ -128,39 +127,40 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                func hasTree() -> Bool {
-                    for os in HiddenStarsGame.offset {
-                        let p2 = p + os
-                        if isValid(p: p2), case .arrow = self[p2] { return true }
+                func hasArrow() -> Bool {
+                    for i in 0..<8 {
+                        let os = HiddenStarsGame.offset2[i]
+                        var p2 = p + os
+                        while isValid(p: p2) {
+                            if case .arrow = self[p2], (game.pos2arrow[p2]! + 4) == i { return true }
+                            p2 += os
+                        }
                     }
                     return false
                 }
-                func hasTent(isTree: Bool) -> Bool {
-                    for os in isTree ? HiddenStarsGame.offset : HiddenStarsGame.offset2 {
-                        let p2 = p + os
-                        if isValid(p: p2), case .star = self[p2] { return true }
+                func hasStar() -> Bool {
+                    let os = HiddenStarsGame.offset2[game.pos2arrow[p]!]
+                    var p2 = p + os
+                    while isValid(p: p2) {
+                        if case .star = self[p2] { return true }
+                        p2 += os
                     }
                     return false
                 }
                 switch self[p] {
                 case .star:
-                    // 1. The board represents a camping field with many Trees. Campers want to set
-                    // their Tent in the shade, horizontally or vertically adjacent to a Tree(not
-                    // diagonally).
-                    // 2. At the same time they need their privacy, so a Tent can't have any other
-                    // HiddenStars near them, not even diagonally.
-                    let s: AllowedObjectState = hasTree() && !hasTent(isTree: false) ? .normal : .error
+                    // 2. Each star is pointed at by at least one Arrow.
+                    let s: AllowedObjectState = hasArrow() ? .normal : .error
                     self[p] = .star(state: s)
                     if s == .error { isSolved = false }
                 case .arrow:
-                    // 4. Finally, each Tree has at least one Tent touching it, horizontally or
-                    // vertically.
-                    let s: AllowedObjectState = hasTent(isTree: true) ? .normal : .error
+                    // 2. Each Arrow points to at least one star.
+                    let s: AllowedObjectState = hasStar() ? .normal : .error
                     self[p] = .arrow(state: s)
                     if s == .error { isSolved = false }
                 case .empty, .marker:
                     guard allowedObjectsOnly else {break}
-                    if col2state[c] != .normal || row2state[r] != .normal || !hasTree() || hasTent(isTree: false) { self[p] = .forbidden }
+                    if col2state[c] != .normal || row2state[r] != .normal || !hasArrow() { self[p] = .forbidden }
                 default:
                     break
                 }

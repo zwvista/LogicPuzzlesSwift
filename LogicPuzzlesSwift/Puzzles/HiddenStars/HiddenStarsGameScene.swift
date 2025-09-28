@@ -22,8 +22,8 @@ class HiddenStarsGameScene: GameScene<HiddenStarsGameState> {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: hintNodeName)
     }
     
-    func addTree(s: AllowedObjectState, point: CGPoint, nodeName: String) {
-        addImage(imageNamed: "arrow", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
+    func addArrow(n: Int, s: AllowedObjectState, point: CGPoint, nodeName: String) {
+        addImage(imageNamed: getArrowImageName(n: n), color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: HiddenStarsGameState, skView: SKView) {
@@ -59,7 +59,8 @@ class HiddenStarsGameScene: GameScene<HiddenStarsGameState> {
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case let .arrow(s):
                     let point = gridNode.gridPosition(p: p)
-                    addTree(s: s, point: point, nodeName: arrowNodeName)
+                    let n = game.pos2arrow[p]!
+                    addArrow(n: n, s: s, point: point, nodeName: arrowNodeName)
                 default:
                     break
                 }
@@ -116,9 +117,10 @@ class HiddenStarsGameScene: GameScene<HiddenStarsGameState> {
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case let .star(s):
-                    addImage(imageNamed: "star", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: starNodeName)
+                    addImage(imageNamed: "star_yellow", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: starNodeName)
                 case let .arrow(s):
-                    addTree(s: s, point: point, nodeName: arrowNodeName)
+                    let n = stateTo.game.pos2arrow[p]!
+                    addArrow(n: n, s: s, point: point, nodeName: arrowNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
                 default:

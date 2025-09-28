@@ -28,7 +28,7 @@ class HiddenStarsGame: GridGame<HiddenStarsGameState> {
 
     var row2hint = [Int]()
     var col2hint = [Int]()
-    var pos2arrow = [Position]()
+    var pos2arrow = [Position: Int]()
     
     init(layout: [String], delegate: HiddenStarsGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -42,18 +42,15 @@ class HiddenStarsGame: GridGame<HiddenStarsGameState> {
             for c in 0..<cols + 1 {
                 let p = Position(r, c)
                 let ch = str[c]
-                switch ch {
-                case "T":
-                    pos2arrow.append(p)
-                case "0"..."9":
+                if ch != " " {
                     let n = ch.toInt!
                     if r == rows {
                         col2hint[c] = n
                     } else if c == cols {
                         row2hint[r] = n
+                    } else {
+                        pos2arrow[p] = n
                     }
-                default:
-                    break
                 }
             }
         }

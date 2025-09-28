@@ -70,6 +70,10 @@ class GameScene<GS: GameStateBase>: SKScene, GameSceneBase {
         addLabel(text: text, fontColor: fontColor, point: point, nodeName: nodeName, size: CGSize(width: gridNode.blockSize, height: gridNode.blockSize), sampleText: sampleText)
     }
     
+    func getArrowImageName(n: Int) -> String {
+        return "arrow\("89632147"[n])"
+    }
+
     func addImage(imageNamed: String, color: SKColor, colorBlendFactor: CGFloat, point: CGPoint, nodeName: String, zRotation: CGFloat = 0) {
         let imageNode = SKSpriteNode(imageNamed: imageNamed)
         let scalingFactor = min(gridNode.blockSize / imageNode.frame.width, gridNode.blockSize / imageNode.frame.height)
