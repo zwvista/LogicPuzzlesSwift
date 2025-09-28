@@ -33,7 +33,6 @@ class HomeMainViewController: UIViewController, HomeMixin {
     
     @IBAction func resumeGame(_ sender: Any) {
         toResume = true
-        updateGameTitle()
         // http://www.newventuresoftware.com/blog/organizing-xcode-projects-using-multiple-storyboards
         let storyboard = UIStoryboard(name: "Game", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "InitialController")

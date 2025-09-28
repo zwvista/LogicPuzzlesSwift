@@ -99,6 +99,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         gameDocument.resumeGame(gameName: currentGameName, gameTitle: currentGameTitle)
         dismiss(animated: true, completion: {
             let vc = (UIApplication.shared.keyWindow!.rootViewController! as! UINavigationController).topViewController as! HomeMainViewController
+            vc.updateGameTitle()
             vc.resumeGame(vc)
         })
     }

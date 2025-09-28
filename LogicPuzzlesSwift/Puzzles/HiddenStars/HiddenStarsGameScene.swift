@@ -23,7 +23,7 @@ class HiddenStarsGameScene: GameScene<HiddenStarsGameState> {
     }
     
     func addTree(s: AllowedObjectState, point: CGPoint, nodeName: String) {
-        addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
+        addImage(imageNamed: "arrow", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: HiddenStarsGameState, skView: SKView) {
@@ -53,13 +53,13 @@ class HiddenStarsGameScene: GameScene<HiddenStarsGameState> {
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                let treeNodeName = "tree" + nodeNameSuffix
+                let arrowNodeName = "arrow" + nodeNameSuffix
                 switch state[p] {
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
-                case let .tree(s):
+                case let .arrow(s):
                     let point = gridNode.gridPosition(p: p)
-                    addTree(s: s, point: point, nodeName: treeNodeName)
+                    addTree(s: s, point: point, nodeName: arrowNodeName)
                 default:
                     break
                 }
@@ -94,19 +94,19 @@ class HiddenStarsGameScene: GameScene<HiddenStarsGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let tentNodeName = "tent" + nodeNameSuffix
+                let starNodeName = "star" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                let treeNodeName = "tree" + nodeNameSuffix
+                let arrowNodeName = "arrow" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
                 guard String(describing: o1) != String(describing: o2) else {continue}
                 switch o1 {
                 case .forbidden:
                     removeNode(withName: forbiddenNodeName)
-                case .tent:
-                    removeNode(withName: tentNodeName)
-                case .tree:
-                    removeNode(withName: treeNodeName)
+                case .star:
+                    removeNode(withName: starNodeName)
+                case .arrow:
+                    removeNode(withName: arrowNodeName)
                 case .marker:
                     removeNode(withName: markerNodeName)
                 default:
@@ -115,10 +115,10 @@ class HiddenStarsGameScene: GameScene<HiddenStarsGameState> {
                 switch o2 {
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
-                case let .tent(s):
-                    addImage(imageNamed: "tent", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: tentNodeName)
-                case let .tree(s):
-                    addTree(s: s, point: point, nodeName: treeNodeName)
+                case let .star(s):
+                    addImage(imageNamed: "star", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: starNodeName)
+                case let .arrow(s):
+                    addTree(s: s, point: point, nodeName: arrowNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
                 default:

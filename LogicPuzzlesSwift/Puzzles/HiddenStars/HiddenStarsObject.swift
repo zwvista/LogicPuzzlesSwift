@@ -12,8 +12,8 @@ enum HiddenStarsObject {
     case empty
     case forbidden
     case marker
-    case tent(state: AllowedObjectState)
-    case tree(state: AllowedObjectState)
+    case star(state: AllowedObjectState)
+    case arrow(state: AllowedObjectState)
     init() {
         self = .empty
     }
@@ -21,8 +21,8 @@ enum HiddenStarsObject {
         switch self {
         case .marker:
             return "marker"
-        case .tent:
-            return "tent"
+        case .star:
+            return "star"
         default:
             return "empty"
         }
@@ -31,8 +31,8 @@ enum HiddenStarsObject {
         switch str {
         case "marker":
             return .marker
-        case "tent":
-            return .tent(state: .normal)
+        case "star":
+            return .star(state: .normal)
         default:
             return .empty
         }

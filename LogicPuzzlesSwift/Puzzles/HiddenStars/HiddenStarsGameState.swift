@@ -34,8 +34,8 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<HiddenStarsObject>(repeating: HiddenStarsObject(), count: rows * cols)
-        for p in game.pos2tree {
-            self[p] = .tree(state: .normal)
+        for p in game.pos2arrow {
+            self[p] = .arrow(state: .normal)
         }
         row2state = Array<HintState>(repeating: .normal, count: rows)
         col2state = Array<HintState>(repeating: .normal, count: cols)
@@ -64,11 +64,11 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
         func f(o: HiddenStarsObject) -> HiddenStarsObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .tent(state: .normal)
-            case .tent:
+                return markerOption == .markerFirst ? .marker : .star(state: .normal)
+            case .star:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .tent(state: .normal) : .empty
+                return markerOption == .markerFirst ? .star(state: .normal) : .empty
             default:
                 return o
             }
@@ -104,7 +104,7 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
             var n1 = 0
             let n2 = game.row2hint[r]
             for c in 0..<cols {
-                if case .tent = self[r, c] { n1 += 1 }
+                if case .star = self[r, c] { n1 += 1 }
             }
             // 3. The numbers on the borders tell you how many HiddenStars there are in that row.
             row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
@@ -114,7 +114,7 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
             var n1 = 0
             let n2 = game.col2hint[c]
             for r in 0..<rows {
-                if case .tent = self[r, c] { n1 += 1 }
+                if case .star = self[r, c] { n1 += 1 }
             }
             // 3. The numbers on the borders tell you how many HiddenStars there are in that column.
             col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
@@ -131,32 +131,32 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
                 func hasTree() -> Bool {
                     for os in HiddenStarsGame.offset {
                         let p2 = p + os
-                        if isValid(p: p2), case .tree = self[p2] { return true }
+                        if isValid(p: p2), case .arrow = self[p2] { return true }
                     }
                     return false
                 }
                 func hasTent(isTree: Bool) -> Bool {
                     for os in isTree ? HiddenStarsGame.offset : HiddenStarsGame.offset2 {
                         let p2 = p + os
-                        if isValid(p: p2), case .tent = self[p2] { return true }
+                        if isValid(p: p2), case .star = self[p2] { return true }
                     }
                     return false
                 }
                 switch self[p] {
-                case .tent:
+                case .star:
                     // 1. The board represents a camping field with many Trees. Campers want to set
                     // their Tent in the shade, horizontally or vertically adjacent to a Tree(not
                     // diagonally).
                     // 2. At the same time they need their privacy, so a Tent can't have any other
                     // HiddenStars near them, not even diagonally.
                     let s: AllowedObjectState = hasTree() && !hasTent(isTree: false) ? .normal : .error
-                    self[p] = .tent(state: s)
+                    self[p] = .star(state: s)
                     if s == .error { isSolved = false }
-                case .tree:
+                case .arrow:
                     // 4. Finally, each Tree has at least one Tent touching it, horizontally or
                     // vertically.
                     let s: AllowedObjectState = hasTent(isTree: true) ? .normal : .error
-                    self[p] = .tree(state: s)
+                    self[p] = .arrow(state: s)
                     if s == .error { isSolved = false }
                 case .empty, .marker:
                     guard allowedObjectsOnly else {break}
