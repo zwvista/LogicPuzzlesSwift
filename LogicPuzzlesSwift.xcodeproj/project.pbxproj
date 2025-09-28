@@ -925,6 +925,15 @@
 		8C8E77D12E873A53006BBF98 /* BranchesGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E77C72E873A53006BBF98 /* BranchesGridNode.swift */; };
 		8C8E77D22E873A53006BBF98 /* BranchesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E77C92E873A53006BBF98 /* BranchesObject.swift */; };
 		8C8E77D52E873AD7006BBF98 /* Branches.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C8E77D42E873AD7006BBF98 /* Branches.xml */; };
+		8C8E77F72E89D537006BBF98 /* HiddenStarsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E77F52E89D537006BBF98 /* HiddenStarsMainViewController.swift */; };
+		8C8E77F82E89D537006BBF98 /* HiddenStarsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E77F32E89D537006BBF98 /* HiddenStarsGameViewController.swift */; };
+		8C8E77F92E89D537006BBF98 /* HiddenStarsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E77F12E89D537006BBF98 /* HiddenStarsGameScene.swift */; };
+		8C8E77FA2E89D537006BBF98 /* HiddenStarsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E77F62E89D537006BBF98 /* HiddenStarsObject.swift */; };
+		8C8E77FB2E89D537006BBF98 /* HiddenStarsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E77EF2E89D537006BBF98 /* HiddenStarsDocument.swift */; };
+		8C8E77FC2E89D537006BBF98 /* HiddenStarsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E77F42E89D537006BBF98 /* HiddenStarsGridNode.swift */; };
+		8C8E77FD2E89D537006BBF98 /* HiddenStarsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E77F22E89D537006BBF98 /* HiddenStarsGameState.swift */; };
+		8C8E77FE2E89D537006BBF98 /* HiddenStarsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E77F02E89D537006BBF98 /* HiddenStarsGame.swift */; };
+		8C8E78002E89D557006BBF98 /* HiddenStars.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C8E77FF2E89D557006BBF98 /* HiddenStars.xml */; };
 		8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CC51DAB1E6000D9E62B /* tap.wav */; };
 		8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CCD1DAB35FC00D9E62B /* solved.wav */; };
 		8C9F32291ECF06C000E10965 /* Tapa.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F321E1ECF06BF00E10965 /* Tapa.xml */; };
@@ -2078,6 +2087,15 @@
 		8C8E77C82E873A53006BBF98 /* BranchesMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesMainViewController.swift; sourceTree = "<group>"; };
 		8C8E77C92E873A53006BBF98 /* BranchesObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesObject.swift; sourceTree = "<group>"; };
 		8C8E77D42E873AD7006BBF98 /* Branches.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Branches.xml; sourceTree = "<group>"; };
+		8C8E77EF2E89D537006BBF98 /* HiddenStarsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenStarsDocument.swift; sourceTree = "<group>"; };
+		8C8E77F02E89D537006BBF98 /* HiddenStarsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenStarsGame.swift; sourceTree = "<group>"; };
+		8C8E77F12E89D537006BBF98 /* HiddenStarsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenStarsGameScene.swift; sourceTree = "<group>"; };
+		8C8E77F22E89D537006BBF98 /* HiddenStarsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenStarsGameState.swift; sourceTree = "<group>"; };
+		8C8E77F32E89D537006BBF98 /* HiddenStarsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenStarsGameViewController.swift; sourceTree = "<group>"; };
+		8C8E77F42E89D537006BBF98 /* HiddenStarsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenStarsGridNode.swift; sourceTree = "<group>"; };
+		8C8E77F52E89D537006BBF98 /* HiddenStarsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenStarsMainViewController.swift; sourceTree = "<group>"; };
+		8C8E77F62E89D537006BBF98 /* HiddenStarsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenStarsObject.swift; sourceTree = "<group>"; };
+		8C8E77FF2E89D557006BBF98 /* HiddenStars.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HiddenStars.xml; sourceTree = "<group>"; };
 		8C916CC51DAB1E6000D9E62B /* tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tap.wav; sourceTree = "<group>"; };
 		8C916CCD1DAB35FC00D9E62B /* solved.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = solved.wav; sourceTree = "<group>"; };
 		8C9F321E1ECF06BF00E10965 /* Tapa.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tapa.xml; sourceTree = "<group>"; };
@@ -2616,6 +2634,7 @@
 				8CE43BCB1FEE6C7B00DCCD91 /* Futoshiki */,
 				8C2973D51EE7284C0022A18A /* Galaxies */,
 				8C35E37E1FC2844E00A26EE3 /* Gardener */,
+				8C8E77E22E89D4CC006BBF98 /* HiddenStars */,
 				8C3A347C1EC88D4100A914A5 /* Hitori */,
 				8C74742B1FBDEAD100C4112C /* HolidayIsland */,
 				8CE9C3031F7914B800134093 /* Kakurasu */,
@@ -3891,6 +3910,22 @@
 			path = Branches;
 			sourceTree = "<group>";
 		};
+		8C8E77E22E89D4CC006BBF98 /* HiddenStars */ = {
+			isa = PBXGroup;
+			children = (
+				8C8E77FF2E89D557006BBF98 /* HiddenStars.xml */,
+				8C8E77EF2E89D537006BBF98 /* HiddenStarsDocument.swift */,
+				8C8E77F02E89D537006BBF98 /* HiddenStarsGame.swift */,
+				8C8E77F12E89D537006BBF98 /* HiddenStarsGameScene.swift */,
+				8C8E77F22E89D537006BBF98 /* HiddenStarsGameState.swift */,
+				8C8E77F32E89D537006BBF98 /* HiddenStarsGameViewController.swift */,
+				8C8E77F42E89D537006BBF98 /* HiddenStarsGridNode.swift */,
+				8C8E77F52E89D537006BBF98 /* HiddenStarsMainViewController.swift */,
+				8C8E77F62E89D537006BBF98 /* HiddenStarsObject.swift */,
+			);
+			path = HiddenStars;
+			sourceTree = "<group>";
+		};
 		8C916CC81DAB297A00D9E62B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -4773,6 +4808,7 @@
 				8C8E77922E869852006BBF98 /* tree.png in Resources */,
 				8C8E77932E869852006BBF98 /* thermometer1A.png in Resources */,
 				8C8E77942E869852006BBF98 /* A2-stone.jpg in Resources */,
+				8C8E78002E89D557006BBF98 /* HiddenStars.xml in Resources */,
 				8C8E77952E869852006BBF98 /* arrow1.png in Resources */,
 				8C8E77962E869852006BBF98 /* arrow_brown_up_down.png in Resources */,
 				8C8E77972E869852006BBF98 /* 128_branch_left.png in Resources */,
@@ -5050,6 +5086,14 @@
 				8CF3FFD61FCB2A2700D41B67 /* DisconnectFourGameScene.swift in Sources */,
 				8C04671E1F8BA2BE00B5DE41 /* TataminoGridNode.swift in Sources */,
 				8C3A372A1EC88D4300A914A5 /* MiniLitsObject.swift in Sources */,
+				8C8E77F72E89D537006BBF98 /* HiddenStarsMainViewController.swift in Sources */,
+				8C8E77F82E89D537006BBF98 /* HiddenStarsGameViewController.swift in Sources */,
+				8C8E77F92E89D537006BBF98 /* HiddenStarsGameScene.swift in Sources */,
+				8C8E77FA2E89D537006BBF98 /* HiddenStarsObject.swift in Sources */,
+				8C8E77FB2E89D537006BBF98 /* HiddenStarsDocument.swift in Sources */,
+				8C8E77FC2E89D537006BBF98 /* HiddenStarsGridNode.swift in Sources */,
+				8C8E77FD2E89D537006BBF98 /* HiddenStarsGameState.swift in Sources */,
+				8C8E77FE2E89D537006BBF98 /* HiddenStarsGame.swift in Sources */,
 				8C3A36B91EC88D4300A914A5 /* LightenUpGameViewController.swift in Sources */,
 				8C6A35E81FAF4FFD00D2804D /* MathraxObject.swift in Sources */,
 				8C3A36BA1EC88D4300A914A5 /* LightenUpGridNode.swift in Sources */,
