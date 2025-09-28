@@ -132,7 +132,7 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
                         let os = HiddenStarsGame.offset2[i]
                         var p2 = p + os
                         while isValid(p: p2) {
-                            if case .arrow = self[p2], (game.pos2arrow[p2]! + 4) == i { return true }
+                            if case .arrow = self[p2], (game.pos2arrow[p2]! + 4) % 8 == i { return true }
                             p2 += os
                         }
                     }
