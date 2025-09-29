@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7DF1B04F2E8A7EB6006008A3 /* HiddenPath.xml in Resources */ = {isa = PBXBuildFile; fileRef = 7DF1B0452E8A7EB6006008A3 /* HiddenPath.xml */; };
+		7DF1B0502E8A7EB6006008A3 /* HiddenPathDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF1B0462E8A7EB6006008A3 /* HiddenPathDocument.swift */; };
+		7DF1B0512E8A7EB6006008A3 /* HiddenPathGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF1B04A2E8A7EB6006008A3 /* HiddenPathGameViewController.swift */; };
+		7DF1B0522E8A7EB6006008A3 /* HiddenPathGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF1B0492E8A7EB6006008A3 /* HiddenPathGameState.swift */; };
+		7DF1B0532E8A7EB6006008A3 /* HiddenPathObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF1B04D2E8A7EB6006008A3 /* HiddenPathObject.swift */; };
+		7DF1B0542E8A7EB6006008A3 /* HiddenPathMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF1B04C2E8A7EB6006008A3 /* HiddenPathMainViewController.swift */; };
+		7DF1B0552E8A7EB6006008A3 /* HiddenPathGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF1B0482E8A7EB6006008A3 /* HiddenPathGameScene.swift */; };
+		7DF1B0562E8A7EB6006008A3 /* HiddenPathGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF1B0472E8A7EB6006008A3 /* HiddenPathGame.swift */; };
+		7DF1B0572E8A7EB6006008A3 /* HiddenPathGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF1B04B2E8A7EB6006008A3 /* HiddenPathGridNode.swift */; };
 		84EE6E9D1DD954280013A033 /* HomeChooseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EE6E9C1DD954280013A033 /* HomeChooseGameViewController.swift */; };
 		8C0467181F8BA2BE00B5DE41 /* Tatamino.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C04670C1F8BA2BD00B5DE41 /* Tatamino.xml */; };
 		8C0467191F8BA2BE00B5DE41 /* TataminoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C04670D1F8BA2BD00B5DE41 /* TataminoDocument.swift */; };
@@ -1162,6 +1171,15 @@
 
 /* Begin PBXFileReference section */
 		3CC1F29EA8EBB354D2BB9C39 /* Pods-LogicPuzzlesSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogicPuzzlesSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-LogicPuzzlesSwift/Pods-LogicPuzzlesSwift.release.xcconfig"; sourceTree = "<group>"; };
+		7DF1B0452E8A7EB6006008A3 /* HiddenPath.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HiddenPath.xml; sourceTree = "<group>"; };
+		7DF1B0462E8A7EB6006008A3 /* HiddenPathDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenPathDocument.swift; sourceTree = "<group>"; };
+		7DF1B0472E8A7EB6006008A3 /* HiddenPathGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenPathGame.swift; sourceTree = "<group>"; };
+		7DF1B0482E8A7EB6006008A3 /* HiddenPathGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenPathGameScene.swift; sourceTree = "<group>"; };
+		7DF1B0492E8A7EB6006008A3 /* HiddenPathGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenPathGameState.swift; sourceTree = "<group>"; };
+		7DF1B04A2E8A7EB6006008A3 /* HiddenPathGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenPathGameViewController.swift; sourceTree = "<group>"; };
+		7DF1B04B2E8A7EB6006008A3 /* HiddenPathGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenPathGridNode.swift; sourceTree = "<group>"; };
+		7DF1B04C2E8A7EB6006008A3 /* HiddenPathMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenPathMainViewController.swift; sourceTree = "<group>"; };
+		7DF1B04D2E8A7EB6006008A3 /* HiddenPathObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenPathObject.swift; sourceTree = "<group>"; };
 		84EE6E9C1DD954280013A033 /* HomeChooseGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeChooseGameViewController.swift; sourceTree = "<group>"; };
 		8C04670C1F8BA2BD00B5DE41 /* Tatamino.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tatamino.xml; sourceTree = "<group>"; };
 		8C04670D1F8BA2BD00B5DE41 /* TataminoDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TataminoDocument.swift; sourceTree = "<group>"; };
@@ -2334,6 +2352,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7DF1B04E2E8A7EB6006008A3 /* HiddenPath */ = {
+			isa = PBXGroup;
+			children = (
+				7DF1B0452E8A7EB6006008A3 /* HiddenPath.xml */,
+				7DF1B0462E8A7EB6006008A3 /* HiddenPathDocument.swift */,
+				7DF1B0472E8A7EB6006008A3 /* HiddenPathGame.swift */,
+				7DF1B0482E8A7EB6006008A3 /* HiddenPathGameScene.swift */,
+				7DF1B0492E8A7EB6006008A3 /* HiddenPathGameState.swift */,
+				7DF1B04A2E8A7EB6006008A3 /* HiddenPathGameViewController.swift */,
+				7DF1B04B2E8A7EB6006008A3 /* HiddenPathGridNode.swift */,
+				7DF1B04C2E8A7EB6006008A3 /* HiddenPathMainViewController.swift */,
+				7DF1B04D2E8A7EB6006008A3 /* HiddenPathObject.swift */,
+			);
+			path = HiddenPath;
+			sourceTree = "<group>";
+		};
 		8C04670B1F8BA2BD00B5DE41 /* Tatamino */ = {
 			isa = PBXGroup;
 			children = (
@@ -2634,6 +2668,7 @@
 				8CE43BCB1FEE6C7B00DCCD91 /* Futoshiki */,
 				8C2973D51EE7284C0022A18A /* Galaxies */,
 				8C35E37E1FC2844E00A26EE3 /* Gardener */,
+				7DF1B04E2E8A7EB6006008A3 /* HiddenPath */,
 				8C8E77E22E89D4CC006BBF98 /* HiddenStars */,
 				8C3A347C1EC88D4100A914A5 /* Hitori */,
 				8C74742B1FBDEAD100C4112C /* HolidayIsland */,
@@ -4846,6 +4881,7 @@
 				8C8E77B72E869852006BBF98 /* arrow_brown_left_right.png in Resources */,
 				8C8E77B82E869852006BBF98 /* wine_white_glass.png in Resources */,
 				8C8E77B92E869852006BBF98 /* 128_abacus.png in Resources */,
+				7DF1B04F2E8A7EB6006008A3 /* HiddenPath.xml in Resources */,
 				8C8E77BA2E869852006BBF98 /* watermelon.png in Resources */,
 				8C8E77BB2E869852006BBF98 /* currant.png in Resources */,
 				8C8E77BC2E869852006BBF98 /* 128_flower_blue.png in Resources */,
@@ -5615,6 +5651,14 @@
 				8CFAF9AA202615570095EFFC /* WallSentinelsGameState.swift in Sources */,
 				8CA043131FDBE77B00AF85E1 /* CarpentersWallDocument.swift in Sources */,
 				8C2963FA1FA20D620017A812 /* RobotCrosswordsGame.swift in Sources */,
+				7DF1B0502E8A7EB6006008A3 /* HiddenPathDocument.swift in Sources */,
+				7DF1B0512E8A7EB6006008A3 /* HiddenPathGameViewController.swift in Sources */,
+				7DF1B0522E8A7EB6006008A3 /* HiddenPathGameState.swift in Sources */,
+				7DF1B0532E8A7EB6006008A3 /* HiddenPathObject.swift in Sources */,
+				7DF1B0542E8A7EB6006008A3 /* HiddenPathMainViewController.swift in Sources */,
+				7DF1B0552E8A7EB6006008A3 /* HiddenPathGameScene.swift in Sources */,
+				7DF1B0562E8A7EB6006008A3 /* HiddenPathGame.swift in Sources */,
+				7DF1B0572E8A7EB6006008A3 /* HiddenPathGridNode.swift in Sources */,
 				8C9F32451ED1FAD400E10965 /* BWTapaGameState.swift in Sources */,
 				8CDAE80C1F646C29000DE5AF /* BalancedTapasGameState.swift in Sources */,
 				8C3A37C41EC88D4400A914A5 /* SnailMainViewController.swift in Sources */,
