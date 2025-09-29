@@ -29,8 +29,10 @@ class HiddenStarsGame: GridGame<HiddenStarsGameState> {
     var row2hint = [Int]()
     var col2hint = [Int]()
     var pos2arrow = [Position: Int]()
+    let onlyOneArrow: Bool
     
-    init(layout: [String], delegate: HiddenStarsGameViewController? = nil) {
+    init(layout: [String], onlyOneArrow: Bool, delegate: HiddenStarsGameViewController? = nil) {
+        self.onlyOneArrow = onlyOneArrow
         super.init(delegate: delegate)
         
         size = Position(layout.count - 1, layout[0].length - 1)

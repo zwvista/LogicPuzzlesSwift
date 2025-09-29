@@ -128,24 +128,26 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 func hasArrow() -> Bool {
+                    var n = 0
                     for i in 0..<8 {
                         let os = HiddenStarsGame.offset2[i]
                         var p2 = p + os
                         while isValid(p: p2) {
-                            if case .arrow = self[p2], (game.pos2arrow[p2]! + 4) % 8 == i { return true }
+                            if case .arrow = self[p2], (game.pos2arrow[p2]! + 4) % 8 == i { n += 1 }
                             p2 += os
                         }
                     }
-                    return false
+                    return game.onlyOneArrow && n == 1 || n >= 1
                 }
                 func hasStar() -> Bool {
+                    var n = 0
                     let os = HiddenStarsGame.offset2[game.pos2arrow[p]!]
                     var p2 = p + os
                     while isValid(p: p2) {
-                        if case .star = self[p2] { return true }
+                        if case .star = self[p2] { n += 1 }
                         p2 += os
                     }
-                    return false
+                    return game.onlyOneArrow && n == 1 || n >= 1
                 }
                 switch self[p] {
                 case .star:

@@ -24,6 +24,6 @@ class HiddenStarsGameViewController: GameGameViewController2<HiddenStarsGameStat
     }
    
     override func newGame(level: GameLevel) -> HiddenStarsGame {
-        HiddenStarsGame(layout: level.layout, delegate: self)
+        HiddenStarsGame(layout: level.layout, onlyOneArrow: (level.settings["OnlyOneArrow"] ?? "0") == "1", delegate: self)
     }
 }
