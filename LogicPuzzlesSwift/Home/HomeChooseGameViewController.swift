@@ -13,60 +13,26 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
     var gameNames: [String]!
     let name2title = [
         "ABCPath": "ABC Path",
-        "AbstractPainting": "Abstract Painting",
-        "BalancedTapas": "Balanced Tapas",
-        "BattleShips": "Battle Ships",
-        "BootyIsland": "Booty Island",
-        "BoxItAgain": "Box It Again",
-        "BoxItAround": "Box It Around",
-        "BoxItUp": "Box It Up",
-        "BusySeas": "Busy Seas",
         "BWTapa": "B&W Tapa",
         "CarpentersSquare": "Carpenter's Square",
         "CarpentersWall": "Carpenter's Wall",
-        "CastleBailey": "Castle Bailey",
-        "DigitalBattleShips": "Digital Battle Ships",
-        "DisconnectFour": "Disconnect Four",
-        "FenceItUp": "Fence It Up",
-        "FenceSentinels": "Fence Sentinels",
         "FourMeNot": "Four-Me-Not",
-        "HiddenPath": "Hidden Path",
-        "HiddenStars": "Hidden Stars",
-        "HolidayIsland": "Holiday Island",
-        "LightBattleShips": "Light Battle Ships",
-        "LightenUp": "Lighten Up",
         "MaketheDifference": "Make the Difference",
-        "MineShips": "Mine Ships",
         "MiniLits": "Mini-Lits",
-        "NorthPoleFishing": "North Pole Fishing",
         "NoughtsAndCrosses": "Noughts & Crosses",
-        "NumberCrosswords": "Number Crosswords",
-        "NumberPath": "Number Path",
-        "OverUnder": "Over Under",
-        "PaintTheNurikabe": "Paint The Nurikabe",
-        "ParkLakes": "Park Lakes",
-        "ProductSentinels": "Product Sentinels",
-        "RippleEffect": "Ripple Effect",
-        "RobotCrosswords": "Robot Crosswords",
-        "RobotFences": "Robot Fences",
         "Square100": "Square 100",
-        "TapaIslands": "Tapa Islands",
         "TapAlike": "Tap-Alike",
         "TapARow": "Tap-A-Row",
-        "TapDifferently": "Tap Differently",
-        "TennerGrid": "Tenner Grid",
-        "TheOddBrick": "The Odd Brick",
-        "TierraDelFuego": "Tierra Del Fuego",
-        "WallSentinels": "Wall Sentinels",
     ]
     var selectedRow: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // https://stackoverflow.com/questions/39887738/remove-suffix-from-filename-in-swift
         // https://stackoverflow.com/questions/32418917/sorting-a-string-array-and-ignoring-case
         gameNames = try! FileManager.default.contentsOfDirectory(atPath: Bundle.main.bundlePath)
-            .filter { s in s[s.length - ".xml".length..<s.length] == ".xml" }
-            .map { s in s[0..<s.length - ".xml".length] }
+            .filter { $0.hasSuffix(".xml") }
+            .map { ($0 as NSString).deletingPathExtension }
             .sorted { $0.localizedCompare($1) == .orderedAscending }
         
         selectedRow = gameNames.firstIndex(of: gameDocument.gameProgress.gameName!)!
@@ -86,7 +52,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath)
         let gameName = gameNames[indexPath.row]
-        let gameTitle = name2title[gameName] ?? gameName
+        let gameTitle = name2title[gameName] ?? splitAndJoinWords(input: gameName)
         cell.textLabel!.restorationIdentifier = gameName
         cell.textLabel!.text = gameTitle
         cell.textLabel!.backgroundColor = indexPath.row == selectedRow ? .yellow : .white
@@ -108,7 +74,22 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
     @IBAction func onCancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
+
+    func splitAndJoinWords(input: String) -> String {
+        let pattern = /([a-z])([A-Z])/
+        let result = input.replacing(pattern) { m in
+            "\(m.1) \(m.2)"
+        }
+        return result
+    }
+
+    // Cannot parse regular expression: lookbehind is not currently supported
+//    func splitAndJoinWords2(input: String) -> String {
+//        let pattern = /(?<=[a-z])(?=[A-Z])/
+//        let result = input.replacing(pattern, with: " ")
+//        return result
+//    }
+
     deinit {
         print("deinit called: \(NSStringFromClass(type(of: self)))")
     }
