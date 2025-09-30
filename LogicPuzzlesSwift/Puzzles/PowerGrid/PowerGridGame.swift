@@ -30,12 +30,13 @@ class PowerGridGame: GridGame<PowerGridGameState> {
         for r in 0..<rows + 1 {
             let str = layout[r]
             for c in 0..<cols + 1 {
+                let isHintRow = r == rows, isHintCol = c == cols
+                guard isHintRow != isHintCol else { continue }
                 let ch = str[c]
-                guard case "0"..."9" = ch else {continue}
-                let n = ch.toInt!
-                if r == rows {
+                let n = ch == " " ? -1 : ch.toInt!
+                if isHintRow {
                     col2hint[c] = n
-                } else if c == cols {
+                } else {
                     row2hint[r] = n
                 }
             }
