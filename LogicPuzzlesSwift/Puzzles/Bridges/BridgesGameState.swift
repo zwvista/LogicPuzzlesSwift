@@ -113,9 +113,10 @@ class BridgesGameState: GridGameState<BridgesGameMove> {
         }
         guard isSolved else {return}
         for (p, info) in game.islandsInfo {
-            for p2 in info.neighbors {
+            guard case .island(_, let bridges) = self[p] else {continue}
+            for i in 0..<4  {
                 // if the neighbor is not nil
-                guard let p2 = p2 else {continue}
+                guard let p2 = info.neighbors[i], bridges[i] > 0 else {continue}
                 g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
             }
         }
