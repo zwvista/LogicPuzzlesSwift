@@ -17,6 +17,8 @@ class HiddenPathGame: GridGame<HiddenPathGameState> {
     ]
 
     var objArray = [Int]()
+    var pos2hint = [Position: Int]()
+
     subscript(p: Position) -> Int {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
@@ -29,14 +31,15 @@ class HiddenPathGame: GridGame<HiddenPathGameState> {
     init(layout: [String], delegate: HiddenPathGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count, layout[0].length / 2)
+        size = Position(layout.count, layout[0].length / 3)
         objArray = Array<Int>(repeating: 0, count: rows * cols)
-        
+
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
-                let s = str[c * 2..<c * 2 + 2]
-                self[r, c] = Int(s.trimmed())!
+                let s = str[c * 3..<c * 3 + 2]
+                self[r, c] = s == "  " ? 0 : Int(s.trimmed())!
+                pos2hint[Position(r, c)] = str[c * 3 + 2].toInt!
             }
         }
         

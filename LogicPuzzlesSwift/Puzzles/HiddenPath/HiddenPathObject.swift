@@ -12,5 +12,5 @@ typealias HiddenPathObject = [Bool]
 
 struct HiddenPathGameMove {
     var p = Position()
-    var dir = 0
+    var obj = 0
 }

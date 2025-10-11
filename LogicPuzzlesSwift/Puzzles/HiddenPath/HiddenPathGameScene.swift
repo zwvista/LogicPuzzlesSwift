@@ -32,48 +32,50 @@ class HiddenPathGameScene: GameScene<HiddenPathGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
-                let n = state.game[p]
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
-                let numberNodeName = "number" + nodeNameSuffix
-                addNumber(n: String(n), s: .normal, point: point, nodeName: numberNodeName)
+                let n = state[p]
+                if n != 0 {
+                    let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                    let numberNodeName = "number" + nodeNameSuffix
+                    addNumber(n: String(n), s: .normal, point: point, nodeName: numberNodeName)
+                }
             }
         }
     }
     
     override func levelUpdated(from stateFrom: HiddenPathGameState, to stateTo: HiddenPathGameState) {
-        for r in 0..<stateFrom.rows {
-            for c in 0..<stateFrom.cols {
-                for dir in 1...2 {
-                    let p = Position(r, c)
-                    let point = gridNode.gridPosition(p: p)
-                    let nodeNameSuffix = "-\(r)-\(c)-\(dir)"
-                    let lineNodeName = "line" + nodeNameSuffix
-                    func removeLine() { removeNode(withName: lineNodeName) }
-                    func addLine() {
-                        let pathToDraw = CGMutablePath()
-                        let lineNode = SKShapeNode(path:pathToDraw)
-                        lineNode.glowWidth = 8
-                        switch dir {
-                        case 1:
-                            pathToDraw.move(to: CGPoint(x: point.x, y: point.y))
-                            pathToDraw.addLine(to: CGPoint(x: point.x + gridNode.blockSize, y: point.y))
-                        case 2:
-                            pathToDraw.move(to: CGPoint(x: point.x, y: point.y))
-                            pathToDraw.addLine(to: CGPoint(x: point.x, y: point.y - gridNode.blockSize))
-                        default:
-                            break
-                        }
-                        lineNode.path = pathToDraw
-                        lineNode.strokeColor = .green
-                        lineNode.name = lineNodeName
-                        gridNode.addChild(lineNode)
-                    }
-                    let (o1, o2) = (stateFrom[p][dir], stateTo[p][dir])
-                    guard o1 != o2 else {continue}
-                    if o1 { removeLine() }
-                    if o2 { addLine() }
-                 }
-            }
-        }
+//        for r in 0..<stateFrom.rows {
+//            for c in 0..<stateFrom.cols {
+//                for dir in 1...2 {
+//                    let p = Position(r, c)
+//                    let point = gridNode.gridPosition(p: p)
+//                    let nodeNameSuffix = "-\(r)-\(c)-\(dir)"
+//                    let lineNodeName = "line" + nodeNameSuffix
+//                    func removeLine() { removeNode(withName: lineNodeName) }
+//                    func addLine() {
+//                        let pathToDraw = CGMutablePath()
+//                        let lineNode = SKShapeNode(path:pathToDraw)
+//                        lineNode.glowWidth = 8
+//                        switch dir {
+//                        case 1:
+//                            pathToDraw.move(to: CGPoint(x: point.x, y: point.y))
+//                            pathToDraw.addLine(to: CGPoint(x: point.x + gridNode.blockSize, y: point.y))
+//                        case 2:
+//                            pathToDraw.move(to: CGPoint(x: point.x, y: point.y))
+//                            pathToDraw.addLine(to: CGPoint(x: point.x, y: point.y - gridNode.blockSize))
+//                        default:
+//                            break
+//                        }
+//                        lineNode.path = pathToDraw
+//                        lineNode.strokeColor = .green
+//                        lineNode.name = lineNodeName
+//                        gridNode.addChild(lineNode)
+//                    }
+//                    let (o1, o2) = (stateFrom[p][dir], stateTo[p][dir])
+//                    guard o1 != o2 else {continue}
+//                    if o1 { removeLine() }
+//                    if o2 { addLine() }
+//                 }
+//            }
+//        }
     }
 }
