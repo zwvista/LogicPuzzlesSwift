@@ -74,9 +74,11 @@ class GameScene<GS: GameStateBase>: SKScene, GameSceneBase {
         return "arrow\("89632147"[n])"
     }
 
-    func addImage(imageNamed: String, color: SKColor, colorBlendFactor: CGFloat, point: CGPoint, nodeName: String, zRotation: CGFloat = 0) {
+    func addImage(imageNamed: String, color: SKColor, colorBlendFactor: CGFloat, point: CGPoint, nodeName: String, zRotation: CGFloat = 0, size: CGSize = .zero) {
         let imageNode = SKSpriteNode(imageNamed: imageNamed)
-        let scalingFactor = min(gridNode.blockSize / imageNode.frame.width, gridNode.blockSize / imageNode.frame.height)
+        let imageWidth = size == .zero ? imageNode.size.width : size.width
+        let imageHeight = size == .zero ? imageNode.size.height : size.height
+        let scalingFactor = min(imageWidth / imageNode.frame.width, imageHeight / imageNode.frame.height)
         imageNode.setScale(scalingFactor)
         imageNode.position = point
         imageNode.name = nodeName

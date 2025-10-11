@@ -37,9 +37,10 @@ class HiddenPathGame: GridGame<HiddenPathGameState> {
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
+                let p = Position(r, c)
                 let s = str[c * 3..<c * 3 + 2]
-                self[r, c] = s == "  " ? 0 : Int(s.trimmed())!
-                pos2hint[Position(r, c)] = str[c * 3 + 2].toInt!
+                self[p] = s == "  " ? 0 : Int(s.trimmed())!
+                pos2hint[p] = str[c * 3 + 2].toInt!
             }
         }
         

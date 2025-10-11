@@ -17,6 +17,10 @@ class HiddenPathGameScene: GameScene<HiddenPathGameState> {
     func addNumber(n: String, s: HintState, point: CGPoint, nodeName: String) {
         addLabel(text: n, fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName, sampleText: "10")
     }
+    
+    func addArrow(n: Int, s: AllowedObjectState, point: CGPoint, nodeName: String) {
+        addImage(imageNamed: n == 8 ? "star_yellow" : getArrowImageName(n: n), color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName, size: CGSize(width: gridNode.blockSize / 2, height: gridNode.blockSize / 2))
+    }
 
     override func levelInitialized(_ game: AnyObject, state: HiddenPathGameState, skView: SKView) {
         let game = game as! HiddenPathGame
@@ -32,9 +36,14 @@ class HiddenPathGameScene: GameScene<HiddenPathGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
+                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let arrowNodeName = "arrow" + nodeNameSuffix
+                let n2 = game.pos2hint[p]!
+                let pointImage = CGPoint(x: point.x + blockSize / 4, y: point.y - blockSize / 4)
+                let s: AllowedObjectState = .normal
+                addArrow(n: n2, s: s, point: pointImage, nodeName: arrowNodeName)
                 let n = state[p]
                 if n != 0 {
-                    let nodeNameSuffix = "-\(p.row)-\(p.col)"
                     let numberNodeName = "number" + nodeNameSuffix
                     addNumber(n: String(n), s: .normal, point: point, nodeName: numberNodeName)
                 }
