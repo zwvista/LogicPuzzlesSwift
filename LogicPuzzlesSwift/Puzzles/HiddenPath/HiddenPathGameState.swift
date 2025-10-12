@@ -16,6 +16,7 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
     override var gameDocument: GameDocumentBase { HiddenPathDocument.sharedInstance }
     var objArray = [HiddenPathObject]()
     var nextNum = 0
+    var currentPos = Position()
     
     override func copy() -> HiddenPathGameState {
         let v = HiddenPathGameState(game: game, isCopy: true)
@@ -25,13 +26,17 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
         _ = super.setup(v: v)
         v.objArray = objArray
         v.nextNum = nextNum
+        v.currentPos = currentPos
         return v
     }
     
     required init(game: HiddenPathGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = game.objArray
+        objArray = Array(repeating: HiddenPathObject(), count: game.maxNum)
+        for i in 0..<game.maxNum {
+            objArray[i].obj = game.objArray[i]
+        }
         updateIsSolved()
     }
     
@@ -68,15 +73,15 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
         3. The goal is to jump on every tile, only once and reach the last tile.
     */
     private func updateIsSolved() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         var num2pos = [Int: Position]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let n = self[p].obj
-                if n != 0 {
-                    num2pos[n] = p
-                }
+                if n == -1 { self[p].obj = 0 } // forbidden
+                if n != 0 { num2pos[n] = p }
             }
         }
         nextNum = 0
@@ -85,17 +90,27 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
             if !num2pos.keys.contains(n + 1) {
                 isSolved = false
                 if nextNum == 0 {
+                    currentPos = p
                     nextNum = n + 1
                 }
                 self[p].state = .normal
             } else {
-                let d = num2pos[n + 1]! - p
-                let os = HiddenPathGame.offset[game.pos2hint[p]!]
-                let b = d.row.signum() == os.row && d.col.signum() == os.col
+                let p2 = num2pos[n + 1]!
+                let b = game.pos2range[p]!.contains(p2)
                 self[p].state = b ? .complete : .error
-                if !b {
-                    isSolved = false
+                if !b { isSolved = false }
+                if b && n + 1 == game.maxNum {
+                    self[p2].state = .complete
                 }
+            }
+        }
+        guard allowedObjectsOnly else {return}
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                guard self[p].obj == 0 else {continue}
+                let b = game.pos2range[currentPos]!.contains(p)
+                if !b { self[p].obj = -1 } // forbidden
             }
         }
     }

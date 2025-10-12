@@ -42,9 +42,15 @@ class HiddenPathGameScene: GameScene<HiddenPathGameState> {
                 let pointImage = CGPoint(x: point.x + blockSize / 4, y: point.y - blockSize / 4)
                 addArrow(n: hint, s: .normal, point: pointImage, nodeName: arrowNodeName)
                 let (n, s) = (state[p].destructured)
-                if n != 0 {
+                if n != 0 && n != -1 {
                     let numberNodeName = "number" + nodeNameSuffix
                     addNumber(n: String(n), s: s, point: point, nodeName: numberNodeName)
+                    let markerNodeName = "marker" + nodeNameSuffix
+                    addCircleMarker(color: .white, point: point, nodeName: markerNodeName)
+                }
+                if n == -1 {
+                    let forbiddenNodeName = "forbidden" + nodeNameSuffix
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 }
             }
         }
@@ -59,11 +65,18 @@ class HiddenPathGameScene: GameScene<HiddenPathGameState> {
                 let ((n1, s1), (n2, s2)) = (stateFrom[p].destructured, stateTo[p].destructured)
                 guard n1 != n2 || s1 != s2 else {continue}
                 let numberNodeName = "number" + nodeNameSuffix
-                if n1 != 0 {
-                    removeNode(withName: numberNodeName)
+                let forbiddenNodeName = "forbidden" + nodeNameSuffix
+                func removeNumber() { removeNode(withName: numberNodeName) }
+                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
+                switch n1 {
+                case 0: break
+                case -1: removeForbidden()
+                default: removeNumber()
                 }
-                if n2 != 0 {
-                    addNumber(n: String(n2), s: s2, point: point, nodeName: numberNodeName)
+                switch n2 {
+                case 0: break
+                case -1: addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
+                default: addNumber(n: String(n2), s: s2, point: point, nodeName: numberNodeName)
                 }
             }
         }
