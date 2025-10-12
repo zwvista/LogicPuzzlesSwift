@@ -14,6 +14,7 @@ protocol GameDelegate: AnyObject {
     func levelInitilized(_ game: AnyObject, state: AnyObject)
     func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject)
     func gameSolved(_ game: AnyObject)
+    func stateChanged(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject)
 }
 
 protocol GameBase: AnyObject {
@@ -22,6 +23,12 @@ protocol GameBase: AnyObject {
     var moveCount: Int { get }
     func undo()
     func redo()
+}
+
+enum GameChangeType {
+    case none
+    case internalState
+    case level
 }
 
 class Game<GS: GameStateBase>: GameBase {
@@ -66,21 +73,28 @@ class Game<GS: GameStateBase>: GameBase {
         levelUpdated(from: states[stateIndex - 1], to: currentState)
     }
     
-    func changeObject(move: inout GM, f: (inout GS, inout GM) -> Bool) -> Bool {
-        if canRedo {
-            states.removeSubrange((stateIndex + 1)..<states.count)
-            moves.removeSubrange(stateIndex..<moves.count)
-        }
+    func changeObject(move: inout GM, f: (inout GS, inout GM) -> GameChangeType) -> Bool {
         // copy a state
         var state = currentState.copy() as! GS
-        guard f(&state, &move) else { return false }
-        
-        states.append(state)
-        stateIndex += 1
-        moves.append(move)
-        delegate?.moveAdded(self, move: move)
-        levelUpdated(from: states[stateIndex - 1], to: state)
-        return true
+        switch f(&state, &move) {
+        case .none:
+            return false
+        case .internalState:
+            swap(&states[stateIndex], &state)
+            delegate?.stateChanged(self, from: state, to: currentState)
+            return false
+        case .level:
+            if canRedo {
+                states.removeSubrange((stateIndex + 1)..<states.count)
+                moves.removeSubrange(stateIndex..<moves.count)
+            }
+            states.append(state)
+            stateIndex += 1
+            moves.append(move)
+            delegate?.moveAdded(self, move: move)
+            levelUpdated(from: states[stateIndex - 1], to: state)
+            return true
+        }
     }
     
     func switchObject(move: inout GM) -> Bool {

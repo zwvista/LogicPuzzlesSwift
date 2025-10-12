@@ -12,7 +12,6 @@ class HidokuGame: GridGame<HidokuGameState> {
     static let offset = Position.Directions8
 
     var objArray = [Int]()
-    var pos2hint = [Position: Int]()
     var pos2range = [Position: [Position]]()
     var maxNum = 0
 
@@ -36,23 +35,25 @@ class HidokuGame: GridGame<HidokuGameState> {
             let str = layout[r]
             for c in 0..<cols {
                 let p = Position(r, c)
-                let s = str[c * 3..<c * 3 + 2]
-                self[p] = s == "  " ? 0 : Int(s.trimmed())!
-                pos2hint[p] = str[c * 3 + 2].toInt!
+                let s = str[c * 3..<c * 3 + 3]
+                self[p] = s == "   " ? 0 : Int(s.trimmed())!
             }
         }
         
-        for (p, hint) in pos2hint {
-            var range = [Position]()
-            if hint != 8 {
-                let os = HidokuGame.offset[hint]
-                var p2 = p + os
-                while isValid(p: p2) {
-                    range.append(p2)
-                    p2 += os
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                for i in 0..<8 {
+                    var range = [Position]()
+                    let os = HidokuGame.offset[i]
+                    var p2 = p + os
+                    while isValid(p: p2) {
+                        range.append(p2)
+                        p2 += os
+                    }
+                    pos2range[p] = range
                 }
             }
-            pos2range[p] = range
         }
         
         let state = HidokuGameState(game: self)

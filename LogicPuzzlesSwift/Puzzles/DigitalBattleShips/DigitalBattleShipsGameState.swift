@@ -48,15 +48,15 @@ class DigitalBattleShipsGameState: GridGameState<DigitalBattleShipsGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout DigitalBattleShipsGameMove) -> Bool {
+    override func setObject(move: inout DigitalBattleShipsGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else { return false }
+        guard isValid(p: p) && self[p] != move.obj else { return .none }
         self[p] = move.obj
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout DigitalBattleShipsGameMove) -> Bool {
+    override func switchObject(move: inout DigitalBattleShipsGameMove) -> GameChangeType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: DigitalBattleShipsObject) -> DigitalBattleShipsObject {
             switch o {
@@ -81,7 +81,7 @@ class DigitalBattleShipsGameState: GridGameState<DigitalBattleShipsGameMove> {
             }
         }
         let p = move.p
-        guard isValid(p: p) else { return false }
+        guard isValid(p: p) else { return .none }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }

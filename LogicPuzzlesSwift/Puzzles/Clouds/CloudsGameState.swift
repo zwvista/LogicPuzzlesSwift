@@ -51,15 +51,15 @@ class CloudsGameState: GridGameState<CloudsGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout CloudsGameMove) -> Bool {
+    override func setObject(move: inout CloudsGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && !game.pos2cloud.contains(p) && self[p] != move.obj else { return false }
+        guard isValid(p: p) && !game.pos2cloud.contains(p) && self[p] != move.obj else { return .none }
         self[p] = move.obj
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout CloudsGameMove) -> Bool {
+    override func switchObject(move: inout CloudsGameMove) -> GameChangeType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: CloudsObject) -> CloudsObject {
             switch o {
@@ -74,7 +74,7 @@ class CloudsGameState: GridGameState<CloudsGameMove> {
             }
         }
         let p = move.p
-        guard isValid(p: p) else { return false }
+        guard isValid(p: p) else { return .none }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }

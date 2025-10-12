@@ -51,15 +51,15 @@ class SnakeGameState: GridGameState<SnakeGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout SnakeGameMove) -> Bool {
+    override func setObject(move: inout SnakeGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && !game.pos2snake.contains(p) && self[p] != move.obj else { return false }
+        guard isValid(p: p) && !game.pos2snake.contains(p) && self[p] != move.obj else { return .none }
         self[p] = move.obj
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout SnakeGameMove) -> Bool {
+    override func switchObject(move: inout SnakeGameMove) -> GameChangeType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: SnakeObject) -> SnakeObject {
             switch o {
@@ -74,7 +74,7 @@ class SnakeGameState: GridGameState<SnakeGameMove> {
             }
         }
         let p = move.p
-        guard isValid(p: p) && !game.pos2snake.contains(p) else { return false }
+        guard isValid(p: p) && !game.pos2snake.contains(p) else { return .none }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }

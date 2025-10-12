@@ -37,17 +37,17 @@ class KakuroGameState: GridGameState<KakuroGameMove> {
         updateIsSolved()
     }
 
-    override func setObject(move: inout KakuroGameMove) -> Bool {
+    override func setObject(move: inout KakuroGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && pos2num[p] != nil && pos2num[p] != move.obj else { return false }
+        guard isValid(p: p) && pos2num[p] != nil && pos2num[p] != move.obj else { return .none }
         pos2num[p] = move.obj
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout KakuroGameMove) -> Bool {
+    override func switchObject(move: inout KakuroGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && pos2num[p] != nil else { return false }
+        guard isValid(p: p) && pos2num[p] != nil else { return .none }
         let o = pos2num[p]!
         move.obj = (o + 1) % 10
         return setObject(move: &move)

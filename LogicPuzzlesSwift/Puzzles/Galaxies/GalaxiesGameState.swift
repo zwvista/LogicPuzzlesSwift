@@ -48,7 +48,7 @@ class GalaxiesGameState: GridGameState<GalaxiesGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout GalaxiesGameMove) -> Bool {
+    override func setObject(move: inout GalaxiesGameMove) -> GameChangeType {
         var changed = false
         func f(o1: inout GridLineObject, o2: inout GridLineObject) {
             if o1 != move.obj {
@@ -67,7 +67,7 @@ class GalaxiesGameState: GridGameState<GalaxiesGameMove> {
         return changed
     }
     
-    override func switchObject(move: inout GalaxiesGameMove) -> Bool {
+    override func switchObject(move: inout GalaxiesGameMove) -> GameChangeType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: GridLineObject) -> GridLineObject {
             switch o {

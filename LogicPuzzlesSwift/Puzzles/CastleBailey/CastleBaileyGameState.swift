@@ -44,15 +44,15 @@ class CastleBaileyGameState: GridGameState<CastleBaileyGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout CastleBaileyGameMove) -> Bool {
+    override func setObject(move: inout CastleBaileyGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else { return false }
+        guard isValid(p: p) && self[p] != move.obj else { return .none }
         self[p] = move.obj
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout CastleBaileyGameMove) -> Bool {
+    override func switchObject(move: inout CastleBaileyGameMove) -> GameChangeType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: CastleBaileyObject) -> CastleBaileyObject {
             switch o {
@@ -67,7 +67,7 @@ class CastleBaileyGameState: GridGameState<CastleBaileyGameMove> {
             }
         }
         let p = move.p
-        guard isValid(p: p) else { return false }
+        guard isValid(p: p) else { return .none }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }

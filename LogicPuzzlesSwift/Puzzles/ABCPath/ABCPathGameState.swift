@@ -48,17 +48,17 @@ class ABCPathGameState: GridGameState<ABCPathGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout ABCPathGameMove) -> Bool {
+    override func setObject(move: inout ABCPathGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p), game[p] == " ", self[p] != move.obj else { return false }
+        guard isValid(p: p), game[p] == " ", self[p] != move.obj else { return .none }
         self[p] = move.obj
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout ABCPathGameMove) -> Bool {
+    override func switchObject(move: inout ABCPathGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p), game[p] == " " else { return false }
+        guard isValid(p: p), game[p] == " " else { return .none }
         let o = self[p]
         // 1.  Enter every letter from A to Y into the grid.
         var chars = (0...24).map { succ(ch: "A", offset: $0) }

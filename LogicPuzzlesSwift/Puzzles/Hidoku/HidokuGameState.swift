@@ -49,12 +49,12 @@ class HidokuGameState: GridGameState<HidokuGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout HidokuGameMove) -> Bool {
+    override func setObject(move: inout HidokuGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && self[p].obj == 0 else { return false }
+        guard isValid(p: p) && self[p].obj == 0 else { return .none }
         self[p].obj = nextNum
         updateIsSolved()
-        return true
+        return .level
     }
 
     

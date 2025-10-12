@@ -47,14 +47,14 @@ class MosaikGameState: GridGameState<MosaikGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout MosaikGameMove) -> Bool {
+    override func setObject(move: inout MosaikGameMove) -> GameChangeType {
         if self[move.p] == move.obj { return false }
         self[move.p] = move.obj
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout MosaikGameMove) -> Bool {
+    override func switchObject(move: inout MosaikGameMove) -> GameChangeType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: MosaikObject) -> MosaikObject {
             switch o {

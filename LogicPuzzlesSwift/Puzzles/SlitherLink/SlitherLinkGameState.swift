@@ -52,7 +52,7 @@ class SlitherLinkGameState: GridGameState<SlitherLinkGameMove> {
             move.p.col == cols - 1 && move.dir == 1)
     }
     
-    override func setObject(move: inout SlitherLinkGameMove) -> Bool {
+    override func setObject(move: inout SlitherLinkGameMove) -> GameChangeType {
         guard isValidMove(move: &move) else { return false }
         var changed = false
         func f(o1: inout GridLineObject, o2: inout GridLineObject) {
@@ -71,7 +71,7 @@ class SlitherLinkGameState: GridGameState<SlitherLinkGameMove> {
         return changed
     }
     
-    override func switchObject(move: inout SlitherLinkGameMove) -> Bool {
+    override func switchObject(move: inout SlitherLinkGameMove) -> GameChangeType {
         guard isValidMove(move: &move) else { return false }
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: GridLineObject) -> GridLineObject {

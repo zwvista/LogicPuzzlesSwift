@@ -48,18 +48,18 @@ class Square100GameState: GridGameState<Square100GameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout Square100GameMove) -> Bool {
+    override func setObject(move: inout Square100GameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else { return false }
+        guard isValid(p: p) && self[p] != move.obj else { return .none }
         self[p] = move.obj
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout Square100GameMove) -> Bool {
+    override func switchObject(move: inout Square100GameMove) -> GameChangeType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         let p = move.p
-        guard isValid(p: p) else { return false }
+        guard isValid(p: p) else { return .none }
         let n = self[p]
         var o = n[move.isRightPart ? 2 : 0]
         o =

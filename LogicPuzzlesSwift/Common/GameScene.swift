@@ -29,6 +29,7 @@ class GameScene<GS: GameStateBase>: SKScene, GameSceneBase {
     
     func levelInitialized(_ game: AnyObject, state: GS, skView: SKView) {}
     func levelUpdated(from stateFrom: GS, to stateTo: GS) {}
+    func stateChanged(state: GS) {}
     deinit {
         print("deinit called: \(NSStringFromClass(type(of: self)))")
     }

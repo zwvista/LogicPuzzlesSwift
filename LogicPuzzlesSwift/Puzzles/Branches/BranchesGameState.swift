@@ -45,17 +45,17 @@ class BranchesGameState: GridGameState<BranchesGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout BranchesGameMove) -> Bool {
+    override func setObject(move: inout BranchesGameMove) -> GameChangeType {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         if case .hint = o1 { return false }
         guard String(describing: o1) != String(describing: o2) else { return false }
         self[p] = o2
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout BranchesGameMove) -> Bool {
+    override func switchObject(move: inout BranchesGameMove) -> GameChangeType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         // 3. Branches can't run over the numbers.
         func f(o: BranchesObject) -> BranchesObject {

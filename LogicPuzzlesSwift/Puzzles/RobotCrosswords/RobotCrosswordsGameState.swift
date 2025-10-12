@@ -51,17 +51,17 @@ class RobotCrosswordsGameState: GridGameState<RobotCrosswordsGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
 
-    override func setObject(move: inout RobotCrosswordsGameMove) -> Bool {
+    override func setObject(move: inout RobotCrosswordsGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else { return false }
+        guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else { return .none }
         self[p] = move.obj
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout RobotCrosswordsGameMove) -> Bool {
+    override func switchObject(move: inout RobotCrosswordsGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && game[p] == 0 else { return false }
+        guard isValid(p: p) && game[p] == 0 else { return .none }
         let o = self[p]
         move.obj = (o + 1) % 10
         return setObject(move: &move)

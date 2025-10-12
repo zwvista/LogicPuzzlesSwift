@@ -45,17 +45,17 @@ class FillominoGameState: GridGameState<FillominoGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout FillominoGameMove) -> Bool {
+    override func setObject(move: inout FillominoGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else { return false }
+        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else { return .none }
         self[p] = move.obj
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout FillominoGameMove) -> Bool {
+    override func switchObject(move: inout FillominoGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " else { return false }
+        guard isValid(p: p) && game[p] == " " else { return .none }
         let o = self[p]
         move.obj =
             o == " " ? "1" :

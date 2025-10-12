@@ -61,17 +61,17 @@ class AbcGameState: GridGameState<AbcGameMove> {
             .normal
     }
     
-    override func setObject(move: inout AbcGameMove) -> Bool {
+    override func setObject(move: inout AbcGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else { return false }
+        guard isValid(p: p) && self[p] != move.obj else { return .none }
         self[p] = move.obj
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout AbcGameMove) -> Bool {
+    override func switchObject(move: inout AbcGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) else { return false }
+        guard isValid(p: p) else { return .none }
         let o = self[p]
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         move.obj =

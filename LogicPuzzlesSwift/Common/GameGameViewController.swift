@@ -116,6 +116,7 @@ class GameGameViewController: UIViewController, SoundMixin, GameDelegate {
     func levelInitilized(_ game: AnyObject, state: AnyObject) {}
     func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {}
     func gameSolved(_ game: AnyObject) {}
+    func stateChanged(_ game: AnyObject, state: AnyObject) {}
 
     deinit {
         print("deinit called: \(NSStringFromClass(type(of: self)))")
@@ -198,6 +199,10 @@ class GameGameViewController2<GS: GameStateBase, G: GridGame<GS>, GD: GameDocume
         gameDocument.gameSolved(game: game)
         updateSolutionUI()
     }
-    
+
+    override func stateChanged(_ game: AnyObject, state: AnyObject) {
+        scene.stateChanged(state: state as! GS)
+    }
+
     func newGame(level: GameLevel) -> G! { nil }
 }

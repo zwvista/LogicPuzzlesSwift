@@ -44,15 +44,15 @@ class ParksGameState: GridGameState<ParksGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout ParksGameMove) -> Bool {
+    override func setObject(move: inout ParksGameMove) -> GameChangeType {
         let p = move.p
         guard String(describing: self[p]) != String(describing: move.obj) else { return false }
         self[p] = move.obj
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout ParksGameMove) -> Bool {
+    override func switchObject(move: inout ParksGameMove) -> GameChangeType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: ParksObject) -> ParksObject {
             switch o {
@@ -67,7 +67,7 @@ class ParksGameState: GridGameState<ParksGameMove> {
             }
         }
         let p = move.p
-        guard isValid(p: p) else { return false }
+        guard isValid(p: p) else { return .none }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }

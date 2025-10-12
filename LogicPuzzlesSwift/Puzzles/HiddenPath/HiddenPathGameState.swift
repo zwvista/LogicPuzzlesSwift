@@ -17,6 +17,7 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
     var objArray = [HiddenPathObject]()
     var nextNum = 0
     var currentPos = Position()
+    var num2pos = [Int: Position]()
     
     override func copy() -> HiddenPathGameState {
         let v = HiddenPathGameState(game: game, isCopy: true)
@@ -27,6 +28,7 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
         v.objArray = objArray
         v.nextNum = nextNum
         v.currentPos = currentPos
+        v.num2pos = num2pos
         return v
     }
     
@@ -49,12 +51,17 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout HiddenPathGameMove) -> Bool {
+    override func setObject(move: inout HiddenPathGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && self[p].obj == 0 else { return false }
-        self[p].obj = nextNum
-        updateIsSolved()
-        return true
+        guard isValid(p: p) else {return .none}
+        if self[p].obj == 0 {
+            self[p].obj = nextNum
+            updateIsSolved()
+            return .level
+        } else {
+            updateState()
+            return .internalState
+        }
     }
 
     
@@ -75,7 +82,7 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
     private func updateIsSolved() {
         let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
-        var num2pos = [Int: Position]()
+        num2pos = [:]
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
@@ -113,5 +120,9 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
                 if !b { self[p].obj = -1 } // forbidden
             }
         }
+    }
+    
+    private func updateState() {
+        
     }
 }

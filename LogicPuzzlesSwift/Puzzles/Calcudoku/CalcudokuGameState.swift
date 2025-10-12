@@ -50,17 +50,17 @@ class CalcudokuGameState: GridGameState<CalcudokuGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout CalcudokuGameMove) -> Bool {
+    override func setObject(move: inout CalcudokuGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else { return false }
+        guard isValid(p: p) && self[p] != move.obj else { return .none }
         self[p] = move.obj
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout CalcudokuGameMove) -> Bool {
+    override func switchObject(move: inout CalcudokuGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) else { return false }
+        guard isValid(p: p) else { return .none }
         let o = self[p]
         move.obj = (o + 1) % (cols + 1)
         return setObject(move: &move)

@@ -47,7 +47,7 @@ class BoxItAgainGameState: GridGameState<BoxItAgainGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout BoxItAgainGameMove) -> Bool {
+    override func setObject(move: inout BoxItAgainGameMove) -> GameChangeType {
         var changed = false
         func f(o1: inout GridLineObject, o2: inout GridLineObject) {
             if o1 != move.obj {
@@ -66,7 +66,7 @@ class BoxItAgainGameState: GridGameState<BoxItAgainGameMove> {
         return changed
     }
     
-    override func switchObject(move: inout BoxItAgainGameMove) -> Bool {
+    override func switchObject(move: inout BoxItAgainGameMove) -> GameChangeType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: GridLineObject) -> GridLineObject {
             switch o {

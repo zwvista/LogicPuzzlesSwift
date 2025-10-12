@@ -11,8 +11,8 @@ import Foundation
 protocol GameStateBase: AnyObject, Copyable {
     associatedtype GM
     var isSolved: Bool { get }
-    func setObject(move: inout GM) -> Bool
-    func switchObject(move: inout GM) -> Bool
+    func setObject(move: inout GM) -> GameChangeType
+    func switchObject(move: inout GM) -> GameChangeType
 }
 
 class GameState<GM>: GameStateBase {
@@ -26,8 +26,8 @@ class GameState<GM>: GameStateBase {
         v.isSolved = isSolved
         return v
     }
-    func setObject(move: inout GM) -> Bool { false }
-    func switchObject(move: inout GM) -> Bool { false }
+    func setObject(move: inout GM) -> GameChangeType { .none }
+    func switchObject(move: inout GM) -> GameChangeType { .none }
     deinit {
         // print("deinit called: \(NSStringFromClass(type(of: self)))")
     }

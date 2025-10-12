@@ -55,17 +55,17 @@ class NoughtsAndCrossesGameState: GridGameState<NoughtsAndCrossesGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
 
-    override func setObject(move: inout NoughtsAndCrossesGameMove) -> Bool {
+    override func setObject(move: inout NoughtsAndCrossesGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else { return false }
+        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else { return .none }
         self[p] = move.obj
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout NoughtsAndCrossesGameMove) -> Bool {
+    override func switchObject(move: inout NoughtsAndCrossesGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " else { return false }
+        guard isValid(p: p) && game[p] == " " else { return .none }
         let o = self[p]
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         move.obj =

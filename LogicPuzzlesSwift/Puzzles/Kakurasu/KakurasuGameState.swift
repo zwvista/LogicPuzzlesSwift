@@ -56,15 +56,15 @@ class KakurasuGameState: GridGameState<KakurasuGameMove> {
             .normal
     }
     
-    override func setObject(move: inout KakurasuGameMove) -> Bool {
+    override func setObject(move: inout KakurasuGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else { return false }
+        guard isValid(p: p) && self[p] != move.obj else { return .none }
         self[p] = move.obj
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout KakurasuGameMove) -> Bool {
+    override func switchObject(move: inout KakurasuGameMove) -> GameChangeType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: KakurasuObject) -> KakurasuObject {
             switch o {
@@ -79,7 +79,7 @@ class KakurasuGameState: GridGameState<KakurasuGameMove> {
             }
         }
         let p = move.p
-        guard isValid(p: p) else { return false }
+        guard isValid(p: p) else { return .none }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }

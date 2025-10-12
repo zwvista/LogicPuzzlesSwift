@@ -42,17 +42,17 @@ class MineShipsGameState: GridGameState<MineShipsGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout MineShipsGameMove) -> Bool {
+    override func setObject(move: inout MineShipsGameMove) -> GameChangeType {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 { return false }
-        guard String(describing: o1) != String(describing: o2) else { return false }
+        if case .hint = o1 { return .none }
+        guard String(describing: o1) != String(describing: o2) else { return .none }
         self[p] = o2
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout MineShipsGameMove) -> Bool {
+    override func switchObject(move: inout MineShipsGameMove) -> GameChangeType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: MineShipsObject) -> MineShipsObject {
             switch o {
@@ -77,7 +77,7 @@ class MineShipsGameState: GridGameState<MineShipsGameMove> {
             }
         }
         let p = move.p
-        guard isValid(p: p) else { return false }
+        guard isValid(p: p) else { return .none }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }

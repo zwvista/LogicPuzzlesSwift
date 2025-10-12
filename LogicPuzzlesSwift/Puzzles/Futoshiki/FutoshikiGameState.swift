@@ -50,17 +50,17 @@ class FutoshikiGameState: GridGameState<FutoshikiGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout FutoshikiGameMove) -> Bool {
+    override func setObject(move: inout FutoshikiGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && p.row % 2 == 0 && p.col % 2 == 0 && game[p] == " " && self[p] != move.obj else { return false }
+        guard isValid(p: p) && p.row % 2 == 0 && p.col % 2 == 0 && game[p] == " " && self[p] != move.obj else { return .none }
         self[p] = move.obj
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout FutoshikiGameMove) -> Bool {
+    override func switchObject(move: inout FutoshikiGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && p.row % 2 == 0 && p.col % 2 == 0 && game[p] == " " else { return false }
+        guard isValid(p: p) && p.row % 2 == 0 && p.col % 2 == 0 && game[p] == " " else { return .none }
         let o = self[p]
         move.obj = o == " " ? "1" : o == succ(ch: "1", offset: rows / 2) ? " " : succ(ch: o)
         return setObject(move: &move)

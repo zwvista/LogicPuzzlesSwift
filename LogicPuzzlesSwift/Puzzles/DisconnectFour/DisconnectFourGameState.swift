@@ -44,17 +44,17 @@ class DisconnectFourGameState: GridGameState<DisconnectFourGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout DisconnectFourGameMove) -> Bool {
+    override func setObject(move: inout DisconnectFourGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p), game[p] == .empty, self[p] != move.obj else { return false }
+        guard isValid(p: p), game[p] == .empty, self[p] != move.obj else { return .none }
         self[p] = move.obj
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout DisconnectFourGameMove) -> Bool {
+    override func switchObject(move: inout DisconnectFourGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p), game[p] == .empty else { return false }
+        guard isValid(p: p), game[p] == .empty else { return .none }
         let o = self[p]
         move.obj = o == .empty ? .yellow : o == .yellow ? .red : .empty
         return setObject(move: &move)

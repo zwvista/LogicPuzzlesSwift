@@ -47,7 +47,7 @@ class LoopyGameState: GridGameState<LoopyGameMove> {
             move.p.col == cols - 1 && move.dir == 1)
     }
     
-    override func setObject(move: inout LoopyGameMove) -> Bool {
+    override func setObject(move: inout LoopyGameMove) -> GameChangeType {
         guard isValidMove(move: &move) else { return false }
         var changed = false
         func f(o1: inout GridLineObject, o2: inout GridLineObject) {
@@ -67,7 +67,7 @@ class LoopyGameState: GridGameState<LoopyGameMove> {
         return changed
     }
     
-    override func switchObject(move: inout LoopyGameMove) -> Bool {
+    override func switchObject(move: inout LoopyGameMove) -> GameChangeType {
         guard isValidMove(move: &move) else { return false }
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: GridLineObject) -> GridLineObject {

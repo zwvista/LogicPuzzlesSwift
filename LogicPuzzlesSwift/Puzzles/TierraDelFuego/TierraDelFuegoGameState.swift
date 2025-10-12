@@ -45,15 +45,15 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout TierraDelFuegoGameMove) -> Bool {
+    override func setObject(move: inout TierraDelFuegoGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else { return false }
+        guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else { return .none }
         self[p] = move.obj
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout TierraDelFuegoGameMove) -> Bool {
+    override func switchObject(move: inout TierraDelFuegoGameMove) -> GameChangeType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: TierraDelFuegoObject) -> TierraDelFuegoObject {
             switch o {
@@ -68,7 +68,7 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
             }
         }
         let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil else { return false }
+        guard isValid(p: p), game.pos2hint[p] == nil else { return .none }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }

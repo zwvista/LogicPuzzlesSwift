@@ -50,17 +50,17 @@ class MathraxGameState: GridGameState<MathraxGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout MathraxGameMove) -> Bool {
+    override func setObject(move: inout MathraxGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else { return false }
+        guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else { return .none }
         self[p] = move.obj
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout MathraxGameMove) -> Bool {
+    override func switchObject(move: inout MathraxGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && game[p] == 0 else { return false }
+        guard isValid(p: p) && game[p] == 0 else { return .none }
         let o = self[p]
         move.obj = (o + 1) % (cols + 1)
         return setObject(move: &move)

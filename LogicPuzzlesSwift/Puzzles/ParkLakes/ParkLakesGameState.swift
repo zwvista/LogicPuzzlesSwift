@@ -45,15 +45,15 @@ class ParkLakesGameState: GridGameState<ParkLakesGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout ParkLakesGameMove) -> Bool {
+    override func setObject(move: inout ParkLakesGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else { return false }
+        guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else { return .none }
         self[p] = move.obj
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout ParkLakesGameMove) -> Bool {
+    override func switchObject(move: inout ParkLakesGameMove) -> GameChangeType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: ParkLakesObject) -> ParkLakesObject {
             switch o {
@@ -68,7 +68,7 @@ class ParkLakesGameState: GridGameState<ParkLakesGameMove> {
             }
         }
         let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil else { return false }
+        guard isValid(p: p), game.pos2hint[p] == nil else { return .none }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }

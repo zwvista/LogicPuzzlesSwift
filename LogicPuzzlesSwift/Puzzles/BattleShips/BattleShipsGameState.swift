@@ -51,15 +51,15 @@ class BattleShipsGameState: GridGameState<BattleShipsGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout BattleShipsGameMove) -> Bool {
+    override func setObject(move: inout BattleShipsGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && game.pos2obj[p] == nil && self[p] != move.obj else { return false }
+        guard isValid(p: p) && game.pos2obj[p] == nil && self[p] != move.obj else { return .none }
         self[p] = move.obj
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout BattleShipsGameMove) -> Bool {
+    override func switchObject(move: inout BattleShipsGameMove) -> GameChangeType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: BattleShipsObject) -> BattleShipsObject {
             switch o {
@@ -84,7 +84,7 @@ class BattleShipsGameState: GridGameState<BattleShipsGameMove> {
             }
         }
         let p = move.p
-        guard isValid(p: p) else { return false }
+        guard isValid(p: p) else { return .none }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }

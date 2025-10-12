@@ -47,7 +47,7 @@ class NeighboursGameState: GridGameState<NeighboursGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout NeighboursGameMove) -> Bool {
+    override func setObject(move: inout NeighboursGameMove) -> GameChangeType {
         var changed = false
         func f(o1: inout GridLineObject, o2: inout GridLineObject) {
             if o1 != move.obj {
@@ -66,7 +66,7 @@ class NeighboursGameState: GridGameState<NeighboursGameMove> {
         return changed
     }
     
-    override func switchObject(move: inout NeighboursGameMove) -> Bool {
+    override func switchObject(move: inout NeighboursGameMove) -> GameChangeType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: GridLineObject) -> GridLineObject {
             switch o {

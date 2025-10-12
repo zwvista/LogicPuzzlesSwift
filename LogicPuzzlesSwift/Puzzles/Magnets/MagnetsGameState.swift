@@ -48,15 +48,15 @@ class MagnetsGameState: GridGameState<MagnetsGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout MagnetsGameMove) -> Bool {
+    override func setObject(move: inout MagnetsGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && !game.singles.contains(p) && self[p] != move.obj else { return false }
+        guard isValid(p: p) && !game.singles.contains(p) && self[p] != move.obj else { return .none }
         self[p] = move.obj
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout MagnetsGameMove) -> Bool {
+    override func switchObject(move: inout MagnetsGameMove) -> GameChangeType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: MagnetsObject) -> MagnetsObject {
             switch o {
@@ -71,7 +71,7 @@ class MagnetsGameState: GridGameState<MagnetsGameMove> {
             }
         }
         let p = move.p
-        guard isValid(p: p) else { return false }
+        guard isValid(p: p) else { return .none }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }

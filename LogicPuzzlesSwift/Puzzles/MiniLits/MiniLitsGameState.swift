@@ -51,15 +51,15 @@ class MiniLitsGameState: GridGameState<MiniLitsGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout MiniLitsGameMove) -> Bool {
+    override func setObject(move: inout MiniLitsGameMove) -> GameChangeType {
         let p = move.p
-        guard String(describing: self[p]) != String(describing: move.obj) else { return false }
+        guard String(describing: self[p]) != String(describing: move.obj) else { return .none }
         self[p] = move.obj
         updateIsSolved()
-        return true
+        return .level
     }
     
-    override func switchObject(move: inout MiniLitsGameMove) -> Bool {
+    override func switchObject(move: inout MiniLitsGameMove) -> GameChangeType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: MiniLitsObject) -> MiniLitsObject {
             switch o {
@@ -74,7 +74,7 @@ class MiniLitsGameState: GridGameState<MiniLitsGameMove> {
             }
         }
         let p = move.p
-        guard isValid(p: p) else { return false }
+        guard isValid(p: p) else { return .none }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
