@@ -53,7 +53,7 @@ class LitsGameState: GridGameState<LitsGameMove> {
     
     override func setObject(move: inout LitsGameMove) -> GameChangeType {
         let p = move.p
-        guard String(describing: self[p]) != String(describing: move.obj) else { return false }
+        guard String(describing: self[p]) != String(describing: move.obj) else { return .none }
         self[p] = move.obj
         updateIsSolved()
         return .level

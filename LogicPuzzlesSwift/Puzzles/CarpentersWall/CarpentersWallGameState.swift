@@ -45,7 +45,7 @@ class CarpentersWallGameState: GridGameState<CarpentersWallGameMove> {
     override func setObject(move: inout CarpentersWallGameMove) -> GameChangeType {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
-        guard !o1.isHint() && String(describing: o1) != String(describing: o2) else { return false }
+        guard !o1.isHint() && String(describing: o1) != String(describing: o2) else { return .none }
         self[p] = o2
         updateIsSolved()
         return .level
@@ -66,7 +66,7 @@ class CarpentersWallGameState: GridGameState<CarpentersWallGameMove> {
             }
         }
         let o = self[move.p]
-        guard !o.isHint() else { return false }
+        guard !o.isHint() else { return .none }
         move.obj = f(o: o)
         return setObject(move: &move)
     }

@@ -16,7 +16,6 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
     override var gameDocument: GameDocumentBase { HiddenPathDocument.sharedInstance }
     var objArray = [HiddenPathObject]()
     var nextNum = 0
-    var currentPos = Position()
     var num2pos = [Int: Position]()
     
     override func copy() -> HiddenPathGameState {
@@ -27,7 +26,6 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
         _ = super.setup(v: v)
         v.objArray = objArray
         v.nextNum = nextNum
-        v.currentPos = currentPos
         v.num2pos = num2pos
         return v
     }
@@ -83,6 +81,7 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
         let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         num2pos = [:]
+        var currentPos = Position()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)

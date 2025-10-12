@@ -45,7 +45,7 @@ class MasyuGameState: GridGameState<MasyuGameMove> {
     override func setObject(move: inout MasyuGameMove) -> GameChangeType {
         let p = move.p, dir = move.dir
         let p2 = p + MasyuGame.offset[dir], dir2 = (dir + 2) % 4
-        guard isValid(p: p2) else { return false }
+        guard isValid(p: p2) else { return .none }
         self[p][dir].toggle()
         self[p2][dir2].toggle()
         updateIsSolved()

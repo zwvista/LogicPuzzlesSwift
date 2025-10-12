@@ -53,7 +53,7 @@ class FenceSentinelsGameState: GridGameState<FenceSentinelsGameMove> {
     }
     
     override func setObject(move: inout FenceSentinelsGameMove) -> GameChangeType {
-        guard isValidMove(move: &move) else { return false }
+        guard isValidMove(move: &move) else { return .none }
         var changed = false
         func f(o1: inout GridLineObject, o2: inout GridLineObject) {
             if o1 != move.obj {
@@ -68,11 +68,11 @@ class FenceSentinelsGameState: GridGameState<FenceSentinelsGameMove> {
         let dir = move.dir, dir2 = (dir + 2) % 4
         f(o1: &self[p][dir], o2: &self[p + FenceSentinelsGame.offset[dir]][dir2])
         if changed { updateIsSolved() }
-        return changed
+        return changed ? .level : .none
     }
     
     override func switchObject(move: inout FenceSentinelsGameMove) -> GameChangeType {
-        guard isValidMove(move: &move) else { return false }
+        guard isValidMove(move: &move) else { return .none }
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: GridLineObject) -> GridLineObject {
             switch o {

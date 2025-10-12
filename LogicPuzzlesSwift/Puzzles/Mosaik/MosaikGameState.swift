@@ -48,7 +48,7 @@ class MosaikGameState: GridGameState<MosaikGameMove> {
     }
     
     override func setObject(move: inout MosaikGameMove) -> GameChangeType {
-        if self[move.p] == move.obj { return false }
+        if self[move.p] == move.obj { return .none }
         self[move.p] = move.obj
         updateIsSolved()
         return .level
