@@ -41,7 +41,7 @@ class HiddenPathGameScene: GameScene<HiddenPathGameState> {
                 let hint = game.pos2hint[p]!
                 let pointImage = CGPoint(x: point.x + blockSize / 4, y: point.y - blockSize / 4)
                 addArrow(n: hint, s: .normal, point: pointImage, nodeName: arrowNodeName)
-                let (n, s) = (state[p], state.pos2state[p]!)
+                let (n, s) = (state[p].destructured)
                 if n != 0 {
                     let numberNodeName = "number" + nodeNameSuffix
                     addNumber(n: String(n), s: s, point: point, nodeName: numberNodeName)
@@ -56,8 +56,7 @@ class HiddenPathGameScene: GameScene<HiddenPathGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let (n1, n2) = (stateFrom[p], stateTo[p])
-                let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
+                let ((n1, s1), (n2, s2)) = (stateFrom[p].destructured, stateTo[p].destructured)
                 guard n1 != n2 || s1 != s2 else {continue}
                 let numberNodeName = "number" + nodeNameSuffix
                 if n1 != 0 {

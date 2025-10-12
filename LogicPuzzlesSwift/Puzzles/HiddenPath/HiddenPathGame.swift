@@ -11,15 +11,15 @@ import Foundation
 class HiddenPathGame: GridGame<HiddenPathGameState> {
     static let offset = Position.Directions8
 
-    var objArray = [Int]()
+    var objArray = [HiddenPathObject]()
     var pos2hint = [Position: Int]()
     var maxNum = 0
 
-    subscript(p: Position) -> Int {
+    subscript(p: Position) -> HiddenPathObject {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
     }
-    subscript(row: Int, col: Int) -> Int {
+    subscript(row: Int, col: Int) -> HiddenPathObject {
         get { objArray[row * cols + col] }
         set { objArray[row * cols + col] = newValue }
     }
@@ -29,14 +29,14 @@ class HiddenPathGame: GridGame<HiddenPathGameState> {
         
         size = Position(layout.count, layout[0].length / 3)
         maxNum = rows * cols
-        objArray = Array<Int>(repeating: 0, count: maxNum)
+        objArray = Array(repeating: HiddenPathObject(), count: maxNum)
 
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
                 let p = Position(r, c)
                 let s = str[c * 3..<c * 3 + 2]
-                self[p] = s == "  " ? 0 : Int(s.trimmed())!
+                self[p].obj = s == "  " ? 0 : Int(s.trimmed())!
                 pos2hint[p] = str[c * 3 + 2].toInt!
             }
         }

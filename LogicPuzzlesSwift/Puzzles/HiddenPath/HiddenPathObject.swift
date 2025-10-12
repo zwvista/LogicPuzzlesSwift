@@ -8,6 +8,12 @@
 
 import Foundation
 
+struct HiddenPathObject {
+    var obj = 0
+    var state: HintState = .normal
+    var destructured: (Int, HintState) { (obj, state) }
+}
+
 struct HiddenPathGameMove {
     var p = Position()
 }

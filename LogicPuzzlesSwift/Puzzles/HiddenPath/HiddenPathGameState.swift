@@ -14,8 +14,7 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
         set { setGame(game: newValue) }
     }
     override var gameDocument: GameDocumentBase { HiddenPathDocument.sharedInstance }
-    var objArray = [Int]()
-    var pos2state = [Position: HintState]()
+    var objArray = [HiddenPathObject]()
     var nextNum = 0
     
     override func copy() -> HiddenPathGameState {
@@ -25,7 +24,6 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
     func setup(v: HiddenPathGameState) -> HiddenPathGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         v.nextNum = nextNum
         return v
     }
@@ -34,27 +32,22 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = game.objArray
-        for r in 0..<rows {
-            for c in 0..<cols {
-                pos2state[Position(r, c)] = .normal
-            }
-        }
         updateIsSolved()
     }
     
-    subscript(p: Position) -> Int {
+    subscript(p: Position) -> HiddenPathObject {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
     }
-    subscript(row: Int, col: Int) -> Int {
+    subscript(row: Int, col: Int) -> HiddenPathObject {
         get { objArray[row * cols + col] }
         set { objArray[row * cols + col] = newValue }
     }
     
     override func setObject(move: inout HiddenPathGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && self[p] == 0 else { return false }
-        self[p] = nextNum
+        guard isValid(p: p) && self[p].obj == 0 else { return false }
+        self[p].obj = nextNum
         updateIsSolved()
         return true
     }
@@ -80,7 +73,7 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let n = self[p]
+                let n = self[p].obj
                 if n != 0 {
                     num2pos[n] = p
                 }
@@ -94,12 +87,12 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
                 if nextNum == 0 {
                     nextNum = n + 1
                 }
-                pos2state[p] = .normal
+                self[p].state = .normal
             } else {
                 let d = num2pos[n + 1]! - p
                 let os = HiddenPathGame.offset[game.pos2hint[p]!]
                 let b = d.row.signum() == os.row && d.col.signum() == os.col
-                pos2state[p] = b ? .complete : .error
+                self[p].state = b ? .complete : .error
                 if !b {
                     isSolved = false
                 }
