@@ -98,7 +98,7 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
             } else {
                 let d = num2pos[n + 1]! - p
                 let os = HiddenPathGame.offset[game.pos2hint[p]!]
-                let b = (d.row == 0) == (os.row == 0) && (d.col == 0) == (os.col == 0)
+                let b = d.row.signum() == os.row && d.col.signum() == os.col
                 pos2state[p] = b ? .complete : .error
                 if !b {
                     isSolved = false

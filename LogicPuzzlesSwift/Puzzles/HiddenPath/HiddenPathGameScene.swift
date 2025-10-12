@@ -57,14 +57,14 @@ class HiddenPathGameScene: GameScene<HiddenPathGameState> {
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let (n1, n2) = (stateFrom[p], stateTo[p])
-                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
                 guard n1 != n2 || s1 != s2 else {continue}
                 let numberNodeName = "number" + nodeNameSuffix
                 if n1 != 0 {
                     removeNode(withName: numberNodeName)
                 }
                 if n2 != 0 {
-                    addNumber(n: String(n2), s: .normal, point: point, nodeName: numberNodeName)
+                    addNumber(n: String(n2), s: s2, point: point, nodeName: numberNodeName)
                 }
             }
         }
