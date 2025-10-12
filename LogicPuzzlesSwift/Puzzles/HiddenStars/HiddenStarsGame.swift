@@ -9,22 +9,8 @@
 import Foundation
 
 class HiddenStarsGame: GridGame<HiddenStarsGameState> {
-    static let offset = [
-        Position(-1, 0),
-        Position(0, 1),
-        Position(1, 0),
-        Position(0, -1),
-    ]
-    static let offset2 = [
-        Position(-1, 0),
-        Position(-1, 1),
-        Position(0, 1),
-        Position(1, 1),
-        Position(1, 0),
-        Position(1, -1),
-        Position(0, -1),
-        Position(-1, -1),
-    ]
+    static let offset = Position.Directions4
+    static let offset2 = Position.Directions8
 
     var row2hint = [Int]()
     var col2hint = [Int]()

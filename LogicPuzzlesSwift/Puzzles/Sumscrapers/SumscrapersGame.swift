@@ -9,12 +9,7 @@
 import Foundation
 
 class SumscrapersGame: GridGame<SumscrapersGameState> {
-    static let offset = [
-        Position(-1, 0),
-        Position(0, 1),
-        Position(1, 0),
-        Position(0, -1),
-    ]
+    static let offset = Position.Directions4
 
     override func isValid(row: Int, col: Int) -> Bool {
         1..<rows - 1 ~= row && 1..<cols - 1 ~= col

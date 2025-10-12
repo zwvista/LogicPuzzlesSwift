@@ -9,16 +9,7 @@
 import Foundation
 
 class BattleShipsGame: GridGame<BattleShipsGameState> {
-    static let offset = [
-        Position(-1, 0),
-        Position(-1, 1),
-        Position(0, 1),
-        Position(1, 1),
-        Position(1, 0),
-        Position(1, -1),
-        Position(0, -1),
-        Position(-1, -1),
-    ]
+    static let offset = Position.Directions8
 
     var row2hint = [Int]()
     var col2hint = [Int]()

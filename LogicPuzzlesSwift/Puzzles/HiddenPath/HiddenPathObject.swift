@@ -8,9 +8,6 @@
 
 import Foundation
 
-typealias HiddenPathObject = [Bool]
-
 struct HiddenPathGameMove {
     var p = Position()
-    var obj = 0
 }

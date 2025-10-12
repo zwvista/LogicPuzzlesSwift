@@ -65,5 +65,43 @@ struct Position: Equatable, Comparable, Hashable, CustomStringConvertible {
     static func < (left: Position, right: Position) -> Bool {
         (left.row, left.col) < (right.row, right.col)
     }
-}
 
+    static let North = Position(-1,  0)
+    static let NorthEast = Position(-1,  1)
+    static let East = Position(0,  1)
+    static let SouthEast = Position(1,  1)
+    static let South = Position(1,  0)
+    static let SouthWest = Position(1, -1)
+    static let West = Position(0, -1)
+    static let NorthWest = Position(-1, -1)
+    static let Zero = Position(0,  0)
+
+    static let Directions4 = [
+        Position.North,
+        Position.East,
+        Position.South,
+        Position.West,
+    ]
+    static let Directions8 = [
+        Position.North,
+        Position.NorthEast,
+        Position.East,
+        Position.SouthEast,
+        Position.South,
+        Position.SouthWest,
+        Position.West,
+        Position.NorthWest,
+    ]
+    static let WallsOffset4 = [
+        Position.Zero, // North
+        Position.East,
+        Position.South,
+        Position.Zero, // West
+    ]
+    static let Square2x2Offset = [
+        Position.Zero,        // 2*2 nw
+        Position.East,        // 2*2 ne
+        Position.South,       // 2*2 sw
+        Position.SouthEast,   // 2*2 se
+    ]
+}

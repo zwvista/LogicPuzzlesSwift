@@ -9,12 +9,7 @@
 import Foundation
 
 class NumberPathGame: GridGame<NumberPathGameState> {
-    static let offset = [
-        Position(-1, 0),
-        Position(0, 1),
-        Position(1, 0),
-        Position(0, -1),
-    ]
+    static let offset = Position.Directions4
 
     var objArray = [Int]()
     subscript(p: Position) -> Int {

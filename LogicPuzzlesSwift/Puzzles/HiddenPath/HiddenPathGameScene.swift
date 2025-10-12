@@ -38,53 +38,35 @@ class HiddenPathGameScene: GameScene<HiddenPathGameState> {
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let arrowNodeName = "arrow" + nodeNameSuffix
-                let n2 = game.pos2hint[p]!
+                let hint = game.pos2hint[p]!
                 let pointImage = CGPoint(x: point.x + blockSize / 4, y: point.y - blockSize / 4)
-                let s: AllowedObjectState = .normal
-                addArrow(n: n2, s: s, point: pointImage, nodeName: arrowNodeName)
-                let n = state[p]
+                addArrow(n: hint, s: .normal, point: pointImage, nodeName: arrowNodeName)
+                let (n, s) = (state[p], state.pos2state[p]!)
                 if n != 0 {
                     let numberNodeName = "number" + nodeNameSuffix
-                    addNumber(n: String(n), s: .normal, point: point, nodeName: numberNodeName)
+                    addNumber(n: String(n), s: s, point: point, nodeName: numberNodeName)
                 }
             }
         }
     }
     
     override func levelUpdated(from stateFrom: HiddenPathGameState, to stateTo: HiddenPathGameState) {
-//        for r in 0..<stateFrom.rows {
-//            for c in 0..<stateFrom.cols {
-//                for dir in 1...2 {
-//                    let p = Position(r, c)
-//                    let point = gridNode.gridPosition(p: p)
-//                    let nodeNameSuffix = "-\(r)-\(c)-\(dir)"
-//                    let lineNodeName = "line" + nodeNameSuffix
-//                    func removeLine() { removeNode(withName: lineNodeName) }
-//                    func addLine() {
-//                        let pathToDraw = CGMutablePath()
-//                        let lineNode = SKShapeNode(path:pathToDraw)
-//                        lineNode.glowWidth = 8
-//                        switch dir {
-//                        case 1:
-//                            pathToDraw.move(to: CGPoint(x: point.x, y: point.y))
-//                            pathToDraw.addLine(to: CGPoint(x: point.x + gridNode.blockSize, y: point.y))
-//                        case 2:
-//                            pathToDraw.move(to: CGPoint(x: point.x, y: point.y))
-//                            pathToDraw.addLine(to: CGPoint(x: point.x, y: point.y - gridNode.blockSize))
-//                        default:
-//                            break
-//                        }
-//                        lineNode.path = pathToDraw
-//                        lineNode.strokeColor = .green
-//                        lineNode.name = lineNodeName
-//                        gridNode.addChild(lineNode)
-//                    }
-//                    let (o1, o2) = (stateFrom[p][dir], stateTo[p][dir])
-//                    guard o1 != o2 else {continue}
-//                    if o1 { removeLine() }
-//                    if o2 { addLine() }
-//                 }
-//            }
-//        }
+        for r in 0..<stateFrom.rows {
+            for c in 0..<stateFrom.cols {
+                let p = Position(r, c)
+                let point = gridNode.gridPosition(p: p)
+                let nodeNameSuffix = "-\(r)-\(c)"
+                let (n1, n2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard n1 != n2 || s1 != s2 else {continue}
+                let numberNodeName = "number" + nodeNameSuffix
+                if n1 != 0 {
+                    removeNode(withName: numberNodeName)
+                }
+                if n2 != 0 {
+                    addNumber(n: String(n2), s: .normal, point: point, nodeName: numberNodeName)
+                }
+            }
+        }
     }
 }

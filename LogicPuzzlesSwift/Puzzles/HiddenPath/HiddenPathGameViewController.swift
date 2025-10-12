@@ -11,12 +11,7 @@ import SpriteKit
 
 class HiddenPathGameViewController: GameGameViewController2<HiddenPathGameState, HiddenPathGame, HiddenPathDocument, HiddenPathGameScene> {
     override func getGameDocument() -> GameDocumentBase { HiddenPathDocument.sharedInstance }
-    var pLast: Position?
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        true
-    }
-    
+
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}
         let touchLocation = sender.location(in: sender.view)
@@ -24,7 +19,7 @@ class HiddenPathGameViewController: GameGameViewController2<HiddenPathGameState,
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = HiddenPathGameMove(p: p, obj: 0)
+        var move = HiddenPathGameMove(p: p)
         if game.setObject(move: &move) { soundManager.playSoundTap() }
     }
 

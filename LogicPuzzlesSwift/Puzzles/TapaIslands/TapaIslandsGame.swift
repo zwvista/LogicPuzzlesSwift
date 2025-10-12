@@ -9,16 +9,7 @@
 import Foundation
 
 class TapaIslandsGame: GridGame<TapaIslandsGameState> {
-    static let offset = [
-        Position(-1, 0),
-        Position(-1, 1),
-        Position(0, 1),
-        Position(1, 1),
-        Position(1, 0),
-        Position(1, -1),
-        Position(0, -1),
-        Position(-1, -1),
-    ]
+    static let offset = Position.Directions8
     static let offset2 = [
         Position(0, 0),
         Position(0, 1),

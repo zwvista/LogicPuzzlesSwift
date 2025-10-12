@@ -9,12 +9,7 @@
 import Foundation
 
 class KakuroGame: GridGame<KakuroGameState> {
-    static let offset = [
-        Position(-1, 0),
-        Position(0, 1),
-        Position(1, 0),
-        Position(0, -1),
-    ]
+    static let offset = Position.Directions4
 
     var pos2horzHint = [Position: Int]()
     var pos2vertHint = [Position: Int]()

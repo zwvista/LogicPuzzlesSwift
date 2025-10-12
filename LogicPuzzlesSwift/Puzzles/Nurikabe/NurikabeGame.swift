@@ -9,12 +9,7 @@
 import Foundation
 
 class NurikabeGame: GridGame<NurikabeGameState> {
-    static let offset = [
-        Position(-1, 0),
-        Position(0, 1),
-        Position(1, 0),
-        Position(0, -1),
-    ]
+    static let offset = Position.Directions4
     static let offset2 = [
         Position(0, 0),
         Position(0, 1),

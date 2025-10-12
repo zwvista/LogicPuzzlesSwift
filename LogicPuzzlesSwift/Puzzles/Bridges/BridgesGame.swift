@@ -14,12 +14,7 @@ class IslandInfo {
 }
 
 class BridgesGame: GridGame<BridgesGameState> {
-    static let offset = [
-        Position(-1, 0),
-        Position(0, 1),
-        Position(1, 0),
-        Position(0, -1),
-    ]
+    static let offset = Position.Directions4
     
     var islandsInfo = [Position: IslandInfo]()
     func isIsland(p: Position) -> Bool { islandsInfo[p] != nil }

@@ -15,6 +15,8 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
     }
     override var gameDocument: GameDocumentBase { HiddenPathDocument.sharedInstance }
     var objArray = [Int]()
+    var pos2state = [Position: HintState]()
+    var nextNum = 0
     
     override func copy() -> HiddenPathGameState {
         let v = HiddenPathGameState(game: game, isCopy: true)
@@ -23,6 +25,8 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
     func setup(v: HiddenPathGameState) -> HiddenPathGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
+        v.pos2state = pos2state
+        v.nextNum = nextNum
         return v
     }
     
@@ -30,6 +34,11 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = game.objArray
+        for r in 0..<rows {
+            for c in 0..<cols {
+                pos2state[Position(r, c)] = .normal
+            }
+        }
         updateIsSolved()
     }
     
@@ -44,12 +53,12 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
     
     override func setObject(move: inout HiddenPathGameMove) -> Bool {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else { return false }
-        self[p] = move.obj
+        guard isValid(p: p) && self[p] == 0 else { return false }
+        self[p] = nextNum
         updateIsSolved()
         return true
     }
-    
+
     
     /*
         iOS Game: 100 Logic Games/Puzzle Set 3/Hidden Path
@@ -66,43 +75,35 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
         3. The goal is to jump on every tile, only once and reach the last tile.
     */
     private func updateIsSolved() {
-//        isSolved = true
-//        let g = Graph()
-//        var pos2node = [Position: Node]()
-//        let (pStart, pEnd) = (Position(0, 0), Position(rows - 1, cols - 1))
-//        for r in 0..<rows {
-//            for c in 0..<cols {
-//                let p = Position(r, c)
-//                let n = self[p].filter { $0 }.count
-//                if p == pStart || p == pEnd {
-//                    // 1. Connect the top left corner (1) to the bottom right corner (N).
-//                    if n != 1 { isSolved = false; return }
-//                    pos2node[p] = g.addNode(p.description); continue
-//                }
-//                switch n {
-//                case 0:
-//                    continue
-//                case 2:
-//                    pos2node[p] = g.addNode(p.description)
-//                default:
-//                    isSolved = false; return
-//                }
-//            }
-//        }
-//        var nums = Set<Int>()
-//        for p in pos2node.keys {
-//            let o = self[p]
-//            nums.insert(game[p])
-//            for i in 0..<4 {
-//                guard o[i] else {continue}
-//                let p2 = p + HiddenPathGame.offset[i]
-//                g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
-//            }
-//        }
-//        // 1. Connect the top left corner (1) to the bottom right corner (N), including
-//        // all the numbers between 1 and N, only once.
-//        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-//        let n1 = game[pEnd], n2 = nums.count, n3 = pos2node.count, n4 = nodesExplored.count
-//        if n1 != n2 || n1 != n3 || n1 != n4 { isSolved = false }
+        isSolved = true
+        var num2pos = [Int: Position]()
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                let n = self[p]
+                if n != 0 {
+                    num2pos[n] = p
+                }
+            }
+        }
+        nextNum = 0
+        for (n, p) in num2pos {
+            if n == game.maxNum {continue}
+            if !num2pos.keys.contains(n + 1) {
+                isSolved = false
+                if nextNum == 0 {
+                    nextNum = n + 1
+                }
+                pos2state[p] = .normal
+            } else {
+                let d = num2pos[n + 1]! - p
+                let os = HiddenPathGame.offset[game.pos2hint[p]!]
+                let b = (d.row == 0) == (os.row == 0) && (d.col == 0) == (os.col == 0)
+                pos2state[p] = b ? .complete : .error
+                if !b {
+                    isSolved = false
+                }
+            }
+        }
     }
 }

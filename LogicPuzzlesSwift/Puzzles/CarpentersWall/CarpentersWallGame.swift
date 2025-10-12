@@ -9,12 +9,7 @@
 import Foundation
 
 class CarpentersWallGame: GridGame<CarpentersWallGameState> {
-    static let offset = [
-        Position(-1, 0),
-        Position(0, 1),
-        Position(1, 0),
-        Position(0, -1),
-    ]
+    static let offset = Position.Directions4
     static let offset2 = [
         Position(0, 0),
         Position(0, 1),

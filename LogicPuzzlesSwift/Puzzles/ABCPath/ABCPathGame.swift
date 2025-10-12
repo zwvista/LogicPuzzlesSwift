@@ -9,16 +9,7 @@
 import Foundation
 
 class ABCPathGame: GridGame<ABCPathGameState> {
-    static let offset = [
-        Position(-1, 0),
-        Position(-1, 1),
-        Position(0, 1),
-        Position(1, 1),
-        Position(1, 0),
-        Position(1, -1),
-        Position(0, -1),
-        Position(-1, -1),
-    ]
+    static let offset = Position.Directions8
 
     override func isValid(row: Int, col: Int) -> Bool {
         1..<rows - 1 ~= row && 1..<cols - 1 ~= col
