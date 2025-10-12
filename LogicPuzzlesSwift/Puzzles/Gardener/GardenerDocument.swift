@@ -12,7 +12,7 @@ class GardenerDocument: GameDocument<GardenerGameMove> {
     static var sharedInstance = GardenerDocument()
     
     override func saveMove(_ move: GardenerGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = move.obj.toString()
     }
     

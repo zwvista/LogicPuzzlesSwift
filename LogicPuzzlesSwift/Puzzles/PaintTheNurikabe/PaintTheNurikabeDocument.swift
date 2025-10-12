@@ -12,7 +12,7 @@ class PaintTheNurikabeDocument: GameDocument<PaintTheNurikabeGameMove> {
     static var sharedInstance = PaintTheNurikabeDocument()
     
     override func saveMove(_ move: PaintTheNurikabeGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.intValue1 = move.obj.rawValue
     }
     

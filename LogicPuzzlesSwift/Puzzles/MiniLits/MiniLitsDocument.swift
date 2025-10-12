@@ -12,7 +12,7 @@ class MiniLitsDocument: GameDocument<MiniLitsGameMove> {
     static var sharedInstance = MiniLitsDocument()
     
     override func saveMove(_ move: MiniLitsGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = move.obj.toString()
     }
     

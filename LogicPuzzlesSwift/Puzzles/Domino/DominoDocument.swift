@@ -12,7 +12,7 @@ class DominoDocument: GameDocument<DominoGameMove> {
     static var sharedInstance = DominoDocument()
     
     override func saveMove(_ move: DominoGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.intValue1 = move.dir
         rec.intValue2 = move.obj.rawValue
     }

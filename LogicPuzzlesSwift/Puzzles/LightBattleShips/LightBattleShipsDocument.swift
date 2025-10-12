@@ -12,7 +12,7 @@ class LightBattleShipsDocument: GameDocument<LightBattleShipsGameMove> {
     static var sharedInstance = LightBattleShipsDocument()
     
     override func saveMove(_ move: LightBattleShipsGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = move.obj.toString()
     }
     

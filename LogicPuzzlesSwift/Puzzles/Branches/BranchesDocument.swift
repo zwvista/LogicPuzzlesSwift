@@ -12,7 +12,7 @@ class BranchesDocument: GameDocument<BranchesGameMove> {
     static var sharedInstance = BranchesDocument()
     
     override func saveMove(_ move: BranchesGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = move.obj.toString()
     }
     

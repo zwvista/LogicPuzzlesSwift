@@ -12,7 +12,7 @@ class CloudsDocument: GameDocument<CloudsGameMove> {
     static var sharedInstance = CloudsDocument()
     
     override func saveMove(_ move: CloudsGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.intValue1 = move.obj.rawValue
     }
     

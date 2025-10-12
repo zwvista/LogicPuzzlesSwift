@@ -12,7 +12,7 @@ class TapaDocument: GameDocument<TapaGameMove> {
     static var sharedInstance = TapaDocument()
     
     override func saveMove(_ move: TapaGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = move.obj.toString()
     }
     

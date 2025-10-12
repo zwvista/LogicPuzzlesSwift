@@ -12,7 +12,7 @@ class TatamiDocument: GameDocument<TatamiGameMove> {
     static var sharedInstance = TatamiDocument()
     
     override func saveMove(_ move: TatamiGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = String(move.obj)
     }
     

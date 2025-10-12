@@ -12,7 +12,7 @@ class MosaikDocument: GameDocument<MosaikGameMove> {
     static var sharedInstance = MosaikDocument()
     
     override func saveMove(_ move: MosaikGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.intValue1 = move.obj.rawValue
     }
     

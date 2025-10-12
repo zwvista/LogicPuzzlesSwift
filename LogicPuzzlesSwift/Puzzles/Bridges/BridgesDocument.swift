@@ -12,8 +12,8 @@ class BridgesDocument: GameDocument<BridgesGameMove> {
     static var sharedInstance = BridgesDocument()
     
     override func saveMove(_ move: BridgesGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.pFrom.unapply()
-        (rec.row2, rec.col2) = move.pTo.unapply()
+        (rec.row, rec.col) = move.pFrom.destructured
+        (rec.row2, rec.col2) = move.pTo.destructured
     }
     
     override func loadMove(from rec: MoveProgress) -> BridgesGameMove {

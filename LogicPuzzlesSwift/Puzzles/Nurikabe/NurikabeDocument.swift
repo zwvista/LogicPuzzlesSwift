@@ -12,7 +12,7 @@ class NurikabeDocument: GameDocument<NurikabeGameMove> {
     static var sharedInstance = NurikabeDocument()
     
     override func saveMove(_ move: NurikabeGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = move.obj.toString()
     }
     

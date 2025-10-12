@@ -12,7 +12,7 @@ class AbstractPaintingDocument: GameDocument<AbstractPaintingGameMove> {
     static var sharedInstance = AbstractPaintingDocument()
     
     override func saveMove(_ move: AbstractPaintingGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.intValue1 = move.obj.rawValue
     }
     

@@ -12,7 +12,7 @@ class BusySeasDocument: GameDocument<BusySeasGameMove> {
     static var sharedInstance = BusySeasDocument()
     
     override func saveMove(_ move: BusySeasGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = move.obj.toString()
     }
     

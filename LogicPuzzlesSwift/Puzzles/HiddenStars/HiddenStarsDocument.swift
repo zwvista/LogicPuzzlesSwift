@@ -12,7 +12,7 @@ class HiddenStarsDocument: GameDocument<HiddenStarsGameMove> {
     static var sharedInstance = HiddenStarsDocument()
     
     override func saveMove(_ move: HiddenStarsGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = move.obj.toString()
     }
     

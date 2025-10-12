@@ -12,7 +12,7 @@ class MineShipsDocument: GameDocument<MineShipsGameMove> {
     static var sharedInstance = MineShipsDocument()
     
     override func saveMove(_ move: MineShipsGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = move.obj.toString()
     }
     

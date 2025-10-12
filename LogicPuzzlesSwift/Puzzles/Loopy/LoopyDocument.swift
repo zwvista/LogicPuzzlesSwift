@@ -12,7 +12,7 @@ class LoopyDocument: GameDocument<LoopyGameMove> {
     static var sharedInstance = LoopyDocument()
     
     override func saveMove(_ move: LoopyGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.intValue1 = move.dir
         rec.intValue2 = move.obj.rawValue
     }

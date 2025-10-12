@@ -12,7 +12,7 @@ class FutoshikiDocument: GameDocument<FutoshikiGameMove> {
     static var sharedInstance = FutoshikiDocument()
     
     override func saveMove(_ move: FutoshikiGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = String(move.obj)
     }
     

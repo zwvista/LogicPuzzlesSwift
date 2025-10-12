@@ -12,7 +12,7 @@ class ProductSentinelsDocument: GameDocument<ProductSentinelsGameMove> {
     static var sharedInstance = ProductSentinelsDocument()
     
     override func saveMove(_ move: ProductSentinelsGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = move.obj.toString()
     }
     

@@ -12,7 +12,7 @@ class LightenUpDocument: GameDocument<LightenUpGameMove> {
     static var sharedInstance = LightenUpDocument()
     
     override func saveMove(_ move: LightenUpGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = move.objType.toString()
     }
     

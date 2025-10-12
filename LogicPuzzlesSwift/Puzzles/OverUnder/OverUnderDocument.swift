@@ -12,7 +12,7 @@ class OverUnderDocument: GameDocument<OverUnderGameMove> {
     static var sharedInstance = OverUnderDocument()
     
     override func saveMove(_ move: OverUnderGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.intValue1 = move.dir
         rec.intValue2 = move.obj.rawValue
     }

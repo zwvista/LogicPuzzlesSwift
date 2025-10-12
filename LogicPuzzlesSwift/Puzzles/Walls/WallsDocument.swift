@@ -12,7 +12,7 @@ class WallsDocument: GameDocument<WallsGameMove> {
     static var sharedInstance = WallsDocument()
     
     override func saveMove(_ move: WallsGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = move.obj.toString()
     }
     

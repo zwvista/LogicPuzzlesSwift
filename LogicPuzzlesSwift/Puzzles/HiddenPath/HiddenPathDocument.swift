@@ -12,7 +12,7 @@ class HiddenPathDocument: GameDocument<HiddenPathGameMove> {
     static var sharedInstance = HiddenPathDocument()
     
     override func saveMove(_ move: HiddenPathGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
     }
     
     override func loadMove(from rec: MoveProgress) -> HiddenPathGameMove {

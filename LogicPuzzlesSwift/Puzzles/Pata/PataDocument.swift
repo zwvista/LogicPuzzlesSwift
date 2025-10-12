@@ -12,7 +12,7 @@ class PataDocument: GameDocument<PataGameMove> {
     static var sharedInstance = PataDocument()
     
     override func saveMove(_ move: PataGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = move.obj.toString()
     }
     

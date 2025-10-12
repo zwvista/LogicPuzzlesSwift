@@ -12,7 +12,7 @@ class BootyIslandDocument: GameDocument<BootyIslandGameMove> {
     static var sharedInstance = BootyIslandDocument()
     
     override func saveMove(_ move: BootyIslandGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = move.obj.toString()
     }
     

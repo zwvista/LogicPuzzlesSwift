@@ -12,7 +12,7 @@ class MasyuDocument: GameDocument<MasyuGameMove> {
     static var sharedInstance = MasyuDocument()
     
     override func saveMove(_ move: MasyuGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.intValue1 = move.dir
     }
     

@@ -12,7 +12,7 @@ class RippleEffectDocument: GameDocument<RippleEffectGameMove> {
     static var sharedInstance = RippleEffectDocument()
     
     override func saveMove(_ move: RippleEffectGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.intValue1 = move.obj
     }
     

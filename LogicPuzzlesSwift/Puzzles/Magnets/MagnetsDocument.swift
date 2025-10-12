@@ -12,7 +12,7 @@ class MagnetsDocument: GameDocument<MagnetsGameMove> {
     static var sharedInstance = MagnetsDocument()
     
     override func saveMove(_ move: MagnetsGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.intValue1 = move.obj.rawValue
     }
     

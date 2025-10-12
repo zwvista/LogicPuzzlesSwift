@@ -12,7 +12,7 @@ class NumberLinkDocument: GameDocument<NumberLinkGameMove> {
     static var sharedInstance = NumberLinkDocument()
     
     override func saveMove(_ move: NumberLinkGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.intValue1 = move.dir
     }
     

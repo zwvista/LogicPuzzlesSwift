@@ -12,7 +12,7 @@ class DisconnectFourDocument: GameDocument<DisconnectFourGameMove> {
     static var sharedInstance = DisconnectFourDocument()
     
     override func saveMove(_ move: DisconnectFourGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.intValue1 = move.obj.rawValue
     }
     

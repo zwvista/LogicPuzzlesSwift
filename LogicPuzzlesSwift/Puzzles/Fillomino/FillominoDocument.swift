@@ -12,7 +12,7 @@ class FillominoDocument: GameDocument<FillominoGameMove> {
     static var sharedInstance = FillominoDocument()
     
     override func saveMove(_ move: FillominoGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = String(move.obj)
     }
     

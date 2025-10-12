@@ -12,7 +12,7 @@ class TapAlikeDocument: GameDocument<TapAlikeGameMove> {
     static var sharedInstance = TapAlikeDocument()
     
     override func saveMove(_ move: TapAlikeGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = move.obj.toString()
     }
     

@@ -12,7 +12,7 @@ class LighthousesDocument: GameDocument<LighthousesGameMove> {
     static var sharedInstance = LighthousesDocument()
     
     override func saveMove(_ move: LighthousesGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = move.obj.toString()
     }
     

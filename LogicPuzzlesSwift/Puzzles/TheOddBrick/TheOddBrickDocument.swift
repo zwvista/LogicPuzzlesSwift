@@ -12,7 +12,7 @@ class TheOddBrickDocument: GameDocument<TheOddBrickGameMove> {
     static var sharedInstance = TheOddBrickDocument()
     
     override func saveMove(_ move: TheOddBrickGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.intValue1 = move.obj
     }
     

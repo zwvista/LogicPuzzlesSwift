@@ -12,7 +12,7 @@ class NoughtsAndCrossesDocument: GameDocument<NoughtsAndCrossesGameMove> {
     static var sharedInstance = NoughtsAndCrossesDocument()
     
     override func saveMove(_ move: NoughtsAndCrossesGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = String(move.obj)
     }
     

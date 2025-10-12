@@ -12,7 +12,7 @@ class SumscrapersDocument: GameDocument<SumscrapersGameMove> {
     static var sharedInstance = SumscrapersDocument()
     
     override func saveMove(_ move: SumscrapersGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.intValue1 = move.obj
     }
     

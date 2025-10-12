@@ -12,7 +12,7 @@ class ABCPathDocument: GameDocument<ABCPathGameMove> {
     static var sharedInstance = ABCPathDocument()
     
     override func saveMove(_ move: ABCPathGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = String(move.obj)
     }
     

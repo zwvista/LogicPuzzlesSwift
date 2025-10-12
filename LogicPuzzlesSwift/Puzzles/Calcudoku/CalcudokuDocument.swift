@@ -12,7 +12,7 @@ class CalcudokuDocument: GameDocument<CalcudokuGameMove> {
     static var sharedInstance = CalcudokuDocument()
     
     override func saveMove(_ move: CalcudokuGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.intValue1 = move.obj
     }
     

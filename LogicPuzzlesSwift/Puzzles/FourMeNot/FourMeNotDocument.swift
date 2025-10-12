@@ -12,7 +12,7 @@ class FourMeNotDocument: GameDocument<FourMeNotGameMove> {
     static var sharedInstance = FourMeNotDocument()
     
     override func saveMove(_ move: FourMeNotGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = move.obj.toString()
     }
     

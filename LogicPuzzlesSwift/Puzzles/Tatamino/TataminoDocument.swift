@@ -12,7 +12,7 @@ class TataminoDocument: GameDocument<TataminoGameMove> {
     static var sharedInstance = TataminoDocument()
     
     override func saveMove(_ move: TataminoGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = String(move.obj)
     }
     

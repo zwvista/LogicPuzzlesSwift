@@ -12,7 +12,7 @@ class PowerGridDocument: GameDocument<PowerGridGameMove> {
     static var sharedInstance = PowerGridDocument()
     
     override func saveMove(_ move: PowerGridGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = move.obj.toString()
     }
     

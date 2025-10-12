@@ -12,7 +12,7 @@ class RobotFencesDocument: GameDocument<RobotFencesGameMove> {
     static var sharedInstance = RobotFencesDocument()
     
     override func saveMove(_ move: RobotFencesGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.intValue1 = move.obj
     }
     

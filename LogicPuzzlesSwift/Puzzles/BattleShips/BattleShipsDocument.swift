@@ -12,7 +12,7 @@ class BattleShipsDocument: GameDocument<BattleShipsGameMove> {
     static var sharedInstance = BattleShipsDocument()
     
     override func saveMove(_ move: BattleShipsGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.intValue1 = move.obj.rawValue
     }
     

@@ -12,7 +12,7 @@ class MathraxDocument: GameDocument<MathraxGameMove> {
     static var sharedInstance = MathraxDocument()
     
     override func saveMove(_ move: MathraxGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.intValue1 = move.obj
     }
     

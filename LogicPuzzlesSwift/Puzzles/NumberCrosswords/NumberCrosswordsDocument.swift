@@ -12,7 +12,7 @@ class NumberCrosswordsDocument: GameDocument<NumberCrosswordsGameMove> {
     static var sharedInstance = NumberCrosswordsDocument()
     
     override func saveMove(_ move: NumberCrosswordsGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.intValue1 = move.obj.rawValue
     }
     

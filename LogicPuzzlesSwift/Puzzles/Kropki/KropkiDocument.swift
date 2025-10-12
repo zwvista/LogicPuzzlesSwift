@@ -12,7 +12,7 @@ class KropkiDocument: GameDocument<KropkiGameMove> {
     static var sharedInstance = KropkiDocument()
     
     override func saveMove(_ move: KropkiGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.intValue1 = move.obj
     }
     

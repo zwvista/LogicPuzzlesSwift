@@ -12,7 +12,7 @@ class Square100Document: GameDocument<Square100GameMove> {
     static var sharedInstance = Square100Document()
     
     override func saveMove(_ move: Square100GameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = move.obj
     }
     

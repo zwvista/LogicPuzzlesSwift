@@ -12,7 +12,7 @@ class BWTapaDocument: GameDocument<BWTapaGameMove> {
     static var sharedInstance = BWTapaDocument()
     
     override func saveMove(_ move: BWTapaGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = move.obj.toString()
     }
     

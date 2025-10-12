@@ -12,7 +12,7 @@ class TapARowDocument: GameDocument<TapARowGameMove> {
     static var sharedInstance = TapARowDocument()
     
     override func saveMove(_ move: TapARowGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = move.obj.toString()
     }
     

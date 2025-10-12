@@ -12,7 +12,7 @@ class MinesweeperDocument: GameDocument<MinesweeperGameMove> {
     static var sharedInstance = MinesweeperDocument()
     
     override func saveMove(_ move: MinesweeperGameMove, to rec: MoveProgress) {
-        (rec.row, rec.col) = move.p.unapply()
+        (rec.row, rec.col) = move.p.destructured
         rec.strValue1 = move.obj.toString()
     }
     
