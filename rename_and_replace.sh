@@ -2,11 +2,11 @@
 set -e
 
 # 协程变量（源字符串和目标字符串）
-SRC="NumberPath"
-DST="HiddenPath"
+SRC="HiddenPath"
+DST="Hidoku"
 
 # 切换到 Branches 目录
-cd "$(dirname "$0")/LogicPuzzlesSwift/Puzzles/HiddenPath"
+cd "$(dirname "$0")/LogicPuzzlesSwift/Puzzles/Hidoku"
 
 # 1. 改文件名
 for f in ${SRC}*; do

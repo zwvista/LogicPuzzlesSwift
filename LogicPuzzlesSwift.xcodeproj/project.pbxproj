@@ -1051,6 +1051,15 @@
 		8CA043281FDBE77B00AF85E1 /* CarpentersSquareDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA043121FDBE77700AF85E1 /* CarpentersSquareDocument.swift */; };
 		8CA646241FF3EEB0004707E5 /* music1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8CA646211FF3EEAF004707E5 /* music1.wav */; };
 		8CA646251FF3EEB0004707E5 /* music2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8CA646231FF3EEB0004707E5 /* music2.wav */; };
+		8CACC92F2E9BC56E00F53475 /* HidokuGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CACC9292E9BC56E00F53475 /* HidokuGameState.swift */; };
+		8CACC9302E9BC56E00F53475 /* HidokuGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CACC92B2E9BC56E00F53475 /* HidokuGridNode.swift */; };
+		8CACC9312E9BC56E00F53475 /* HidokuMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CACC92C2E9BC56E00F53475 /* HidokuMainViewController.swift */; };
+		8CACC9322E9BC56E00F53475 /* HidokuObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CACC92D2E9BC56E00F53475 /* HidokuObject.swift */; };
+		8CACC9332E9BC56E00F53475 /* HidokuGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CACC9272E9BC56E00F53475 /* HidokuGame.swift */; };
+		8CACC9342E9BC56E00F53475 /* HidokuGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CACC92A2E9BC56E00F53475 /* HidokuGameViewController.swift */; };
+		8CACC9352E9BC56E00F53475 /* HidokuGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CACC9282E9BC56E00F53475 /* HidokuGameScene.swift */; };
+		8CACC9362E9BC56E00F53475 /* HidokuDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CACC9262E9BC56E00F53475 /* HidokuDocument.swift */; };
+		8CACC9372E9BC56E00F53475 /* Hidoku.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CACC9252E9BC56E00F53475 /* Hidoku.xml */; };
 		8CBD5F932E7DBE11000CD5E3 /* MaketheDifferenceGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8E2E7DBE11000CD5E3 /* MaketheDifferenceGameViewController.swift */; };
 		8CBD5F942E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8A2E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift */; };
 		8CBD5F952E7DBE11000CD5E3 /* MaketheDifferenceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F912E7DBE11000CD5E3 /* MaketheDifferenceObject.swift */; };
@@ -2228,6 +2237,15 @@
 		8CA043121FDBE77700AF85E1 /* CarpentersSquareDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarpentersSquareDocument.swift; sourceTree = "<group>"; };
 		8CA646211FF3EEAF004707E5 /* music1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music1.wav; sourceTree = "<group>"; };
 		8CA646231FF3EEB0004707E5 /* music2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music2.wav; sourceTree = "<group>"; };
+		8CACC9252E9BC56E00F53475 /* Hidoku.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Hidoku.xml; sourceTree = "<group>"; };
+		8CACC9262E9BC56E00F53475 /* HidokuDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidokuDocument.swift; sourceTree = "<group>"; };
+		8CACC9272E9BC56E00F53475 /* HidokuGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidokuGame.swift; sourceTree = "<group>"; };
+		8CACC9282E9BC56E00F53475 /* HidokuGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidokuGameScene.swift; sourceTree = "<group>"; };
+		8CACC9292E9BC56E00F53475 /* HidokuGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidokuGameState.swift; sourceTree = "<group>"; };
+		8CACC92A2E9BC56E00F53475 /* HidokuGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidokuGameViewController.swift; sourceTree = "<group>"; };
+		8CACC92B2E9BC56E00F53475 /* HidokuGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidokuGridNode.swift; sourceTree = "<group>"; };
+		8CACC92C2E9BC56E00F53475 /* HidokuMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidokuMainViewController.swift; sourceTree = "<group>"; };
+		8CACC92D2E9BC56E00F53475 /* HidokuObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidokuObject.swift; sourceTree = "<group>"; };
 		8CBD5F8A2E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceDocument.swift; sourceTree = "<group>"; };
 		8CBD5F8B2E7DBE11000CD5E3 /* MaketheDifferenceGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceGame.swift; sourceTree = "<group>"; };
 		8CBD5F8C2E7DBE11000CD5E3 /* MaketheDifferenceGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceGameScene.swift; sourceTree = "<group>"; };
@@ -2670,6 +2688,7 @@
 				8C35E37E1FC2844E00A26EE3 /* Gardener */,
 				7DF1B04E2E8A7EB6006008A3 /* HiddenPath */,
 				8C8E77E22E89D4CC006BBF98 /* HiddenStars */,
+				8CACC92E2E9BC56E00F53475 /* Hidoku */,
 				8C3A347C1EC88D4100A914A5 /* Hitori */,
 				8C74742B1FBDEAD100C4112C /* HolidayIsland */,
 				8CE9C3031F7914B800134093 /* Kakurasu */,
@@ -4208,6 +4227,22 @@
 			path = CarpentersSquare;
 			sourceTree = "<group>";
 		};
+		8CACC92E2E9BC56E00F53475 /* Hidoku */ = {
+			isa = PBXGroup;
+			children = (
+				8CACC9252E9BC56E00F53475 /* Hidoku.xml */,
+				8CACC9262E9BC56E00F53475 /* HidokuDocument.swift */,
+				8CACC9272E9BC56E00F53475 /* HidokuGame.swift */,
+				8CACC9282E9BC56E00F53475 /* HidokuGameScene.swift */,
+				8CACC9292E9BC56E00F53475 /* HidokuGameState.swift */,
+				8CACC92A2E9BC56E00F53475 /* HidokuGameViewController.swift */,
+				8CACC92B2E9BC56E00F53475 /* HidokuGridNode.swift */,
+				8CACC92C2E9BC56E00F53475 /* HidokuMainViewController.swift */,
+				8CACC92D2E9BC56E00F53475 /* HidokuObject.swift */,
+			);
+			path = Hidoku;
+			sourceTree = "<group>";
+		};
 		8CBD5F922E7DBE11000CD5E3 /* MaketheDifference */ = {
 			isa = PBXGroup;
 			children = (
@@ -4615,6 +4650,7 @@
 				8C8E76AE2E869852006BBF98 /* 128_theoddbrick.png in Resources */,
 				8C8E76AF2E869852006BBF98 /* 128_firewall.png in Resources */,
 				8C8E76B02E869852006BBF98 /* 128_navigate_plus_red.png in Resources */,
+				8CACC9372E9BC56E00F53475 /* Hidoku.xml in Resources */,
 				8C8E76B12E869852006BBF98 /* pear.png in Resources */,
 				8C8E76B22E869852006BBF98 /* 128_tree_apple.png in Resources */,
 				8C8E76B32E869852006BBF98 /* branch_down.png in Resources */,
@@ -5097,6 +5133,14 @@
 				8C3A36721EC88D4200A914A5 /* DominoGridNode.swift in Sources */,
 				8C3A360D1EC88D4200A914A5 /* BootyIslandDocument.swift in Sources */,
 				8C9F325B1ED1FAF600E10965 /* PataGameScene.swift in Sources */,
+				8CACC92F2E9BC56E00F53475 /* HidokuGameState.swift in Sources */,
+				8CACC9302E9BC56E00F53475 /* HidokuGridNode.swift in Sources */,
+				8CACC9312E9BC56E00F53475 /* HidokuMainViewController.swift in Sources */,
+				8CACC9322E9BC56E00F53475 /* HidokuObject.swift in Sources */,
+				8CACC9332E9BC56E00F53475 /* HidokuGame.swift in Sources */,
+				8CACC9342E9BC56E00F53475 /* HidokuGameViewController.swift in Sources */,
+				8CACC9352E9BC56E00F53475 /* HidokuGameScene.swift in Sources */,
+				8CACC9362E9BC56E00F53475 /* HidokuDocument.swift in Sources */,
 				8C6D373A1DC421180052202C /* HomeMixin.swift in Sources */,
 				8CDAE7F41F5BFBD9000DE5AF /* OverUnderGameViewController.swift in Sources */,
 				8C3A37791EC88D4300A914A5 /* PowerGridGameViewController.swift in Sources */,
