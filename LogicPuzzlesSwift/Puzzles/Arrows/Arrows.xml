@@ -1,0 +1,127 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. The goal is to detect the arrows directions that reside outside the board.
+2. Each Arrow points to at least one number inside the board.
+3. The numbers tell you how many arrows point at them.
+4. There is one arrow for each tile outside the board.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+352`
+423`
+441`
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+444`
+222`
+363`
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+4353`
+5114`
+3114`
+3153`
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+1231`
+6246`
+1223`
+3364`
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+34242`
+22335`
+02042`
+11214`
+35254`
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+22123`
+20412`
+22142`
+52435`
+34442`
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+213443`
+211234`
+321044`
+321224`
+213232`
+233444`
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+354422`
+447222`
+485424`
+445132`
+333315`
+122032`
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+1430122`
+3321212`
+5314333`
+3331543`
+3423353`
+6444535`
+2533332`
+    ]]>
+  </level>
+  <level id="10">
+    <![CDATA[
+2455314`
+1256003`
+5445323`
+4512323`
+3233035`
+1134116`
+2325433`
+    ]]>
+  </level>
+  <level id="11">
+    <![CDATA[
+31332533`
+42453455`
+32333235`
+31220313`
+62322243`
+54231324`
+51411112`
+44351225`
+    ]]>
+  </level>
+  <level id="12">
+    <![CDATA[
+31413232`
+52442344`
+55436256`
+52423433`
+31222232`
+32325144`
+51332423`
+22203031`
+    ]]>
+  </level>
+</levels>
+</puzzle>

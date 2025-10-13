@@ -1062,6 +1062,15 @@
 		8CACC9352E9BC56E00F53475 /* HidokuGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CACC9282E9BC56E00F53475 /* HidokuGameScene.swift */; };
 		8CACC9362E9BC56E00F53475 /* HidokuDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CACC9262E9BC56E00F53475 /* HidokuDocument.swift */; };
 		8CACC9372E9BC56E00F53475 /* Hidoku.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CACC9252E9BC56E00F53475 /* Hidoku.xml */; };
+		8CAFBFC72E9D9FE500C27D7C /* ArrowsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFBE2E9D9FE500C27D7C /* ArrowsDocument.swift */; };
+		8CAFBFC82E9D9FE500C27D7C /* ArrowsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFC32E9D9FE500C27D7C /* ArrowsGridNode.swift */; };
+		8CAFBFC92E9D9FE500C27D7C /* ArrowsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFC52E9D9FE500C27D7C /* ArrowsObject.swift */; };
+		8CAFBFCA2E9D9FE500C27D7C /* ArrowsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFC12E9D9FE500C27D7C /* ArrowsGameState.swift */; };
+		8CAFBFCB2E9D9FE500C27D7C /* ArrowsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFC42E9D9FE500C27D7C /* ArrowsMainViewController.swift */; };
+		8CAFBFCC2E9D9FE500C27D7C /* ArrowsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFBF2E9D9FE500C27D7C /* ArrowsGame.swift */; };
+		8CAFBFCD2E9D9FE500C27D7C /* ArrowsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFC02E9D9FE500C27D7C /* ArrowsGameScene.swift */; };
+		8CAFBFCE2E9D9FE500C27D7C /* ArrowsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFC22E9D9FE500C27D7C /* ArrowsGameViewController.swift */; };
+		8CAFBFCF2E9D9FE500C27D7C /* Arrows.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CAFBFBD2E9D9FE500C27D7C /* Arrows.xml */; };
 		8CBD5F932E7DBE11000CD5E3 /* MaketheDifferenceGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8E2E7DBE11000CD5E3 /* MaketheDifferenceGameViewController.swift */; };
 		8CBD5F942E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8A2E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift */; };
 		8CBD5F952E7DBE11000CD5E3 /* MaketheDifferenceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F912E7DBE11000CD5E3 /* MaketheDifferenceObject.swift */; };
@@ -2248,6 +2257,15 @@
 		8CACC92B2E9BC56E00F53475 /* HidokuGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidokuGridNode.swift; sourceTree = "<group>"; };
 		8CACC92C2E9BC56E00F53475 /* HidokuMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidokuMainViewController.swift; sourceTree = "<group>"; };
 		8CACC92D2E9BC56E00F53475 /* HidokuObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidokuObject.swift; sourceTree = "<group>"; };
+		8CAFBFBD2E9D9FE500C27D7C /* Arrows.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Arrows.xml; sourceTree = "<group>"; };
+		8CAFBFBE2E9D9FE500C27D7C /* ArrowsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowsDocument.swift; sourceTree = "<group>"; };
+		8CAFBFBF2E9D9FE500C27D7C /* ArrowsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowsGame.swift; sourceTree = "<group>"; };
+		8CAFBFC02E9D9FE500C27D7C /* ArrowsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowsGameScene.swift; sourceTree = "<group>"; };
+		8CAFBFC12E9D9FE500C27D7C /* ArrowsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowsGameState.swift; sourceTree = "<group>"; };
+		8CAFBFC22E9D9FE500C27D7C /* ArrowsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowsGameViewController.swift; sourceTree = "<group>"; };
+		8CAFBFC32E9D9FE500C27D7C /* ArrowsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowsGridNode.swift; sourceTree = "<group>"; };
+		8CAFBFC42E9D9FE500C27D7C /* ArrowsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowsMainViewController.swift; sourceTree = "<group>"; };
+		8CAFBFC52E9D9FE500C27D7C /* ArrowsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowsObject.swift; sourceTree = "<group>"; };
 		8CBD5F8A2E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceDocument.swift; sourceTree = "<group>"; };
 		8CBD5F8B2E7DBE11000CD5E3 /* MaketheDifferenceGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceGame.swift; sourceTree = "<group>"; };
 		8CBD5F8C2E7DBE11000CD5E3 /* MaketheDifferenceGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceGameScene.swift; sourceTree = "<group>"; };
@@ -2664,6 +2682,7 @@
 				8C3A33B91EC88D4100A914A5 /* Abc */,
 				8C355CD41FE586F8002FC9D6 /* ABCPath */,
 				8C3A33C61EC88D4100A914A5 /* AbstractPainting */,
+				8CAFBFC62E9D9FE500C27D7C /* Arrows */,
 				8CDAE7FC1F646C29000DE5AF /* BalancedTapas */,
 				8C3A33D31EC88D4100A914A5 /* BattleShips */,
 				8C3A33E01EC88D4100A914A5 /* BootyIsland */,
@@ -4247,6 +4266,22 @@
 			path = Hidoku;
 			sourceTree = "<group>";
 		};
+		8CAFBFC62E9D9FE500C27D7C /* Arrows */ = {
+			isa = PBXGroup;
+			children = (
+				8CAFBFBD2E9D9FE500C27D7C /* Arrows.xml */,
+				8CAFBFBE2E9D9FE500C27D7C /* ArrowsDocument.swift */,
+				8CAFBFBF2E9D9FE500C27D7C /* ArrowsGame.swift */,
+				8CAFBFC02E9D9FE500C27D7C /* ArrowsGameScene.swift */,
+				8CAFBFC12E9D9FE500C27D7C /* ArrowsGameState.swift */,
+				8CAFBFC22E9D9FE500C27D7C /* ArrowsGameViewController.swift */,
+				8CAFBFC32E9D9FE500C27D7C /* ArrowsGridNode.swift */,
+				8CAFBFC42E9D9FE500C27D7C /* ArrowsMainViewController.swift */,
+				8CAFBFC52E9D9FE500C27D7C /* ArrowsObject.swift */,
+			);
+			path = Arrows;
+			sourceTree = "<group>";
+		};
 		8CBD5F922E7DBE11000CD5E3 /* MaketheDifference */ = {
 			isa = PBXGroup;
 			children = (
@@ -4818,6 +4853,7 @@
 				8C8E774D2E869852006BBF98 /* eggplant.png in Resources */,
 				8C8E774E2E869852006BBF98 /* 128_brush1.png in Resources */,
 				8C8E774F2E869852006BBF98 /* 128_back.png in Resources */,
+				8CAFBFCF2E9D9FE500C27D7C /* Arrows.xml in Resources */,
 				8C8E77502E869852006BBF98 /* 128_layout_center.png in Resources */,
 				8C8E77512E869852006BBF98 /* 128_brush1_islands.png in Resources */,
 				8C8E77522E869852006BBF98 /* arrow6.png in Resources */,
@@ -5293,6 +5329,14 @@
 				8C3A37A51EC88D4400A914A5 /* SkyscrapersDocument.swift in Sources */,
 				8CA042F41FDB930A00AF85E1 /* CalcudokuMainViewController.swift in Sources */,
 				8C2AF8351ED5FB0000EC84AB /* NumberPathMainViewController.swift in Sources */,
+				8CAFBFC72E9D9FE500C27D7C /* ArrowsDocument.swift in Sources */,
+				8CAFBFC82E9D9FE500C27D7C /* ArrowsGridNode.swift in Sources */,
+				8CAFBFC92E9D9FE500C27D7C /* ArrowsObject.swift in Sources */,
+				8CAFBFCA2E9D9FE500C27D7C /* ArrowsGameState.swift in Sources */,
+				8CAFBFCB2E9D9FE500C27D7C /* ArrowsMainViewController.swift in Sources */,
+				8CAFBFCC2E9D9FE500C27D7C /* ArrowsGame.swift in Sources */,
+				8CAFBFCD2E9D9FE500C27D7C /* ArrowsGameScene.swift in Sources */,
+				8CAFBFCE2E9D9FE500C27D7C /* ArrowsGameViewController.swift in Sources */,
 				8C6A36281FAF9D8600D2804D /* NoughtsAndCrossesGame.swift in Sources */,
 				8C3A363E1EC88D4200A914A5 /* BridgesGame.swift in Sources */,
 				8C8E77CC2E873A53006BBF98 /* BranchesGameScene.swift in Sources */,
