@@ -31,7 +31,7 @@ class WallsGame: GridGame<WallsGameState> {
         }
         
         let state = WallsGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

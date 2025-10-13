@@ -85,7 +85,7 @@ class RobotFencesGame: GridGame<RobotFencesGameState> {
         }
 
         let state = RobotFencesGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> Int {

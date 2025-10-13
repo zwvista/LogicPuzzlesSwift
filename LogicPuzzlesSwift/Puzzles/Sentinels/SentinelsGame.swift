@@ -28,7 +28,7 @@ class SentinelsGame: GridGame<SentinelsGameState> {
         }
         
         let state = SentinelsGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

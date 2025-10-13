@@ -28,7 +28,7 @@ class MinesweeperGame: GridGame<MinesweeperGameState> {
         }
         
         let state = MinesweeperGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

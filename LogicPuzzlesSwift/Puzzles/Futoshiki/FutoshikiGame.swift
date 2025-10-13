@@ -33,7 +33,7 @@ class FutoshikiGame: GridGame<FutoshikiGameState> {
         }
 
         let state = FutoshikiGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> Character {

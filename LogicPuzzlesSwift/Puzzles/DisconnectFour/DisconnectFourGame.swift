@@ -30,7 +30,7 @@ class DisconnectFourGame: GridGame<DisconnectFourGameState> {
         }
         
         let state = DisconnectFourGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> DisconnectFourObject {

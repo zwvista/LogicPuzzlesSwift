@@ -11,7 +11,7 @@ import Foundation
 // http://stackoverflow.com/questions/24066304/how-can-i-make-a-weak-protocol-reference-in-pure-swift-w-o-objc
 protocol GameDelegate: AnyObject {
     func moveAdded(_ game: AnyObject, move: Any)
-    func levelInitilized(_ game: AnyObject, state: AnyObject)
+    func levelInitialized(_ game: AnyObject, state: AnyObject)
     func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject)
     func gameSolved(_ game: AnyObject)
     func stateChanged(_ game: AnyObject, from stateFrom: AnyObject?, to stateTo: AnyObject)
@@ -50,9 +50,9 @@ class Game<GS: GameStateBase>: GameBase {
         self.delegate = delegate
     }
     
-    func levelInitilized(state: GS) {
+    func levelInitialized(state: GS) {
         states.append(state)
-        delegate?.levelInitilized(self, state: state)
+        delegate?.levelInitialized(self, state: state)
         if isSolved { delegate?.gameSolved(self) }
     }
     

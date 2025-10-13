@@ -39,7 +39,7 @@ class FenceSentinelsGame: GridGame<FenceSentinelsGameState> {
         }
         
         let state = FenceSentinelsGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

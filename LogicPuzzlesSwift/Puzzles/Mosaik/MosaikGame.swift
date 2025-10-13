@@ -38,7 +38,7 @@ class MosaikGame: GridGame<MosaikGameState> {
         }
         
         let state = MosaikGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

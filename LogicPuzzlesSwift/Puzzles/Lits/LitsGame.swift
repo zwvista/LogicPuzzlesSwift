@@ -113,7 +113,7 @@ class LitsGame: GridGame<LitsGameState> {
         }
         
         let state = LitsGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

@@ -53,7 +53,7 @@ class OverUnderGame: GridGame<OverUnderGameState> {
         }
         
         let state = OverUnderGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> GridDotObject {

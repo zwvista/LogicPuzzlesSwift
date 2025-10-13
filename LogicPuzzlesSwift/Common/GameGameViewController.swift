@@ -113,7 +113,7 @@ class GameGameViewController: UIViewController, SoundMixin, GameDelegate {
 
     func startGame() {}
     func moveAdded(_ game: AnyObject, move: Any) {}
-    func levelInitilized(_ game: AnyObject, state: AnyObject) {}
+    func levelInitialized(_ game: AnyObject, state: AnyObject) {}
     func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {}
     func gameSolved(_ game: AnyObject) {}
     func stateChanged(_ game: AnyObject, from stateFrom: AnyObject?, to stateTo: AnyObject) {}
@@ -180,7 +180,7 @@ class GameGameViewController2<GS: GameStateBase, G: GridGame<GS>, GD: GameDocume
         gameDocument.moveAdded(game: game, move: move as! GM)
     }
     
-    override func levelInitilized(_ game: AnyObject, state: AnyObject) {
+    override func levelInitialized(_ game: AnyObject, state: AnyObject) {
         let game = game as! G
         updateMovesUI(game)
         scene.levelInitialized(game, state: state as! GS, skView: skView)

@@ -31,7 +31,7 @@ class BranchesGame: GridGame<BranchesGameState> {
         }
 
         let state = BranchesGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

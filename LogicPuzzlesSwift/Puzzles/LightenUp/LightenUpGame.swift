@@ -38,7 +38,7 @@ class LightenUpGame: GridGame<LightenUpGameState> {
         }
         
         let state = LightenUpGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

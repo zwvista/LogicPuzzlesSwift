@@ -45,7 +45,7 @@ class BWTapaGame: GridGame<BWTapaGameState> {
         }
         
         let state = BWTapaGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

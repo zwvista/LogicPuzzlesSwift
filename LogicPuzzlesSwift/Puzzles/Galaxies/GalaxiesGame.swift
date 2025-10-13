@@ -70,7 +70,7 @@ class GalaxiesGame: GridGame<GalaxiesGameState> {
         }
         
         let state = GalaxiesGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> GridDotObject {

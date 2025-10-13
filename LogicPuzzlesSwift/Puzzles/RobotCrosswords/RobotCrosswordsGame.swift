@@ -61,7 +61,7 @@ class RobotCrosswordsGame: GridGame<RobotCrosswordsGameState> {
         }
 
         let state = RobotCrosswordsGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> Int {

@@ -88,7 +88,7 @@ class CalcudokuGame: GridGame<CalcudokuGameState> {
         }
 
         let state = CalcudokuGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> Character {

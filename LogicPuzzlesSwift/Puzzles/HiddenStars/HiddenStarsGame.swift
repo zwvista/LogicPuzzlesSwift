@@ -44,7 +44,7 @@ class HiddenStarsGame: GridGame<HiddenStarsGameState> {
         }
         
         let state = HiddenStarsGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

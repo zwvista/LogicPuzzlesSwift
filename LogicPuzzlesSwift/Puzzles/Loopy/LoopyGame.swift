@@ -40,7 +40,7 @@ class LoopyGame: GridGame<LoopyGameState> {
         }
         
         let state = LoopyGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> GridDotObject {

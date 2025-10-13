@@ -45,7 +45,7 @@ class TapAlikeGame: GridGame<TapAlikeGameState> {
         }
         
         let state = TapAlikeGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

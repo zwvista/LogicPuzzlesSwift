@@ -36,7 +36,7 @@ class MasyuGame: GridGame<MasyuGameState> {
         }
         
         let state = MasyuGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

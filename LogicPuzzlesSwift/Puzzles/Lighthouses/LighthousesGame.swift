@@ -28,7 +28,7 @@ class LighthousesGame: GridGame<LighthousesGameState> {
         }
         
         let state = LighthousesGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

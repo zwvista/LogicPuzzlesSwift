@@ -57,7 +57,7 @@ class CarpentersSquareGame: GridGame<CarpentersSquareGameState> {
         }
         
         let state = CarpentersSquareGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> GridDotObject {

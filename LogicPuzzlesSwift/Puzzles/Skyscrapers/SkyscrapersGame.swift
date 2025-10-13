@@ -42,7 +42,7 @@ class SkyscrapersGame: GridGame<SkyscrapersGameState> {
         }
         
         let state = SkyscrapersGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

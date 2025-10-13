@@ -36,7 +36,7 @@ class Square100Game: GridGame<Square100GameState> {
         }
 
         let state = Square100GameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

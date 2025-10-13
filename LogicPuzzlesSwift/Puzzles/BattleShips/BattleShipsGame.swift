@@ -56,7 +56,7 @@ class BattleShipsGame: GridGame<BattleShipsGameState> {
         }
         
         let state = BattleShipsGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

@@ -34,7 +34,7 @@ class PairakabeGame: GridGame<PairakabeGameState> {
         }
         
         let state = PairakabeGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

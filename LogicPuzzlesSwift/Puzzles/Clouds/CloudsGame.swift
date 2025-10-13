@@ -44,7 +44,7 @@ class CloudsGame: GridGame<CloudsGameState> {
         }
         
         let state = CloudsGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

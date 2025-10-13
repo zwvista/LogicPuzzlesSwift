@@ -30,7 +30,7 @@ class ProductSentinelsGame: GridGame<ProductSentinelsGameState> {
         }
         
         let state = ProductSentinelsGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

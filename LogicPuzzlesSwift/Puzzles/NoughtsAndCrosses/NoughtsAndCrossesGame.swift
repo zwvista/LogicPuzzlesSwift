@@ -34,7 +34,7 @@ class NoughtsAndCrossesGame: GridGame<NoughtsAndCrossesGameState> {
         }
 
         let state = NoughtsAndCrossesGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> Character {

@@ -56,7 +56,7 @@ class HiddenPathGame: GridGame<HiddenPathGameState> {
         }
         
         let state = HiddenPathGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

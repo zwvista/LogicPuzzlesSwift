@@ -42,7 +42,7 @@ class SumscrapersGame: GridGame<SumscrapersGameState> {
         }
         
         let state = SumscrapersGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

@@ -27,7 +27,7 @@ class TierraDelFuegoGame: GridGame<TierraDelFuegoGameState> {
         }
 
         let state = TierraDelFuegoGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

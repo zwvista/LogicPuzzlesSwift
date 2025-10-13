@@ -36,7 +36,7 @@ class KakuroGame: GridGame<KakuroGameState> {
         }
 
         let state = KakuroGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

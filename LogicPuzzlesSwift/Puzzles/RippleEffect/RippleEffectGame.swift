@@ -84,7 +84,7 @@ class RippleEffectGame: GridGame<RippleEffectGameState> {
         }
         
         let state = RippleEffectGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> Int {

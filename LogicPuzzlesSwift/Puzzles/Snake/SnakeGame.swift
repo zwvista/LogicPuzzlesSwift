@@ -50,7 +50,7 @@ class SnakeGame: GridGame<SnakeGameState> {
         }
         
         let state = SnakeGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

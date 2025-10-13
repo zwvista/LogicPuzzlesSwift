@@ -29,7 +29,7 @@ class ParkLakesGame: GridGame<ParkLakesGameState> {
         }
 
         let state = ParkLakesGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

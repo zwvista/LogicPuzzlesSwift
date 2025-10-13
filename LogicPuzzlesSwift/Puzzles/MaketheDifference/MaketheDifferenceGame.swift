@@ -50,7 +50,7 @@ class MaketheDifferenceGame: GridGame<MaketheDifferenceGameState> {
         }
         
         let state = MaketheDifferenceGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> GridDotObject {

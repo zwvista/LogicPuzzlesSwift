@@ -28,7 +28,7 @@ class BootyIslandGame: GridGame<BootyIslandGameState> {
         }
         
         let state = BootyIslandGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

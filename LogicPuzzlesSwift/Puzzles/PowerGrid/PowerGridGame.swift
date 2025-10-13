@@ -38,7 +38,7 @@ class PowerGridGame: GridGame<PowerGridGameState> {
         }
         
         let state = PowerGridGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

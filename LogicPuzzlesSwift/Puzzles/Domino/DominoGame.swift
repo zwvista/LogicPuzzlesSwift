@@ -48,7 +48,7 @@ class DominoGame: GridGame<DominoGameState> {
         }
         
         let state = DominoGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> GridDotObject {

@@ -44,7 +44,7 @@ class MathraxGame: GridGame<MathraxGameState> {
         }
 
         let state = MathraxGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> Int {

@@ -57,7 +57,7 @@ class SnailGame: GridGame<SnailGameState> {
         snailPathLine = snailPath(n: rows + 1)
         
         let state = SnailGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> Character {

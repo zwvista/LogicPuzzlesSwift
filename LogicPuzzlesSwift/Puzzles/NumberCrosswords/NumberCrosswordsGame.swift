@@ -42,7 +42,7 @@ class NumberCrosswordsGame: GridGame<NumberCrosswordsGameState> {
         }
                 
         let state = NumberCrosswordsGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

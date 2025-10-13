@@ -49,7 +49,7 @@ class RoomsGame: GridGame<RoomsGameState> {
         }
         
         let state = RoomsGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> GridDotObject {

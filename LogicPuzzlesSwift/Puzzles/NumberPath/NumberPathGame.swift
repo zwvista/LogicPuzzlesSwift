@@ -36,7 +36,7 @@ class NumberPathGame: GridGame<NumberPathGameState> {
         }
         
         let state = NumberPathGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

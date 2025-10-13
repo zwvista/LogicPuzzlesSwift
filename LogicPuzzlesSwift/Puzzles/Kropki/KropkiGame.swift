@@ -104,7 +104,7 @@ class KropkiGame: GridGame<KropkiGameState> {
         }
 
         let state = KropkiGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

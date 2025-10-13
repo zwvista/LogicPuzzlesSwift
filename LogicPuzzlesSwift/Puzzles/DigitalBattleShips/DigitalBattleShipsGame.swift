@@ -40,7 +40,7 @@ class DigitalBattleShipsGame: GridGame<DigitalBattleShipsGameState> {
         }
         
         let state = DigitalBattleShipsGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> Int {

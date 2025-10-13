@@ -28,7 +28,7 @@ class BusySeasGame: GridGame<BusySeasGameState> {
         }
         
         let state = BusySeasGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

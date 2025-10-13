@@ -50,7 +50,7 @@ class MagnetsGame: GridGame<MagnetsGameState> {
         }
         
         let state = MagnetsGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

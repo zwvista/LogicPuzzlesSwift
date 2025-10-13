@@ -29,7 +29,7 @@ class LineSweeperGame: GridGame<LineSweeperGameState> {
         }
         
         let state = LineSweeperGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

@@ -36,7 +36,7 @@ class WallSentinelsGame: GridGame<WallSentinelsGameState> {
         }
         
         let state = WallSentinelsGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> WallSentinelsObject {

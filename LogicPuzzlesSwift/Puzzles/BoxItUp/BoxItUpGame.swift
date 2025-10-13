@@ -51,7 +51,7 @@ class BoxItUpGame: GridGame<BoxItUpGameState> {
         }
         
         let state = BoxItUpGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> GridDotObject {

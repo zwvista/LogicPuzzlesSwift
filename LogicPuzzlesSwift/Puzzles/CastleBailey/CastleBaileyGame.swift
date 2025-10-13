@@ -34,7 +34,7 @@ class CastleBaileyGame: GridGame<CastleBaileyGameState> {
         }
 
         let state = CastleBaileyGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

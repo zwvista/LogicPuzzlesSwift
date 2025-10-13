@@ -95,7 +95,7 @@ class MiniLitsGame: GridGame<MiniLitsGameState> {
         }
         
         let state = MiniLitsGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

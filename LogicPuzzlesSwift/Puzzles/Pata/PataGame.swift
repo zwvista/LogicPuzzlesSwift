@@ -45,7 +45,7 @@ class PataGame: GridGame<PataGameState> {
         }
         
         let state = PataGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

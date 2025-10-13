@@ -57,7 +57,7 @@ class HidokuGame: GridGame<HidokuGameState> {
         }
         
         let state = HidokuGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

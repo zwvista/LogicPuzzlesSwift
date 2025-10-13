@@ -36,7 +36,7 @@ class HitoriGame: GridGame<HitoriGameState> {
         }
                 
         let state = HitoriGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

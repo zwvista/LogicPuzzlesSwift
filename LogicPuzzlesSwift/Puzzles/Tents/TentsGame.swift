@@ -45,7 +45,7 @@ class TentsGame: GridGame<TentsGameState> {
         }
         
         let state = TentsGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

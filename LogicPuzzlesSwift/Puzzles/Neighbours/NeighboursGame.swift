@@ -53,7 +53,7 @@ class NeighboursGame: GridGame<NeighboursGameState> {
         }
         
         let state = NeighboursGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> GridDotObject {

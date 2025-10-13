@@ -48,7 +48,7 @@ class BalancedTapasGame: GridGame<BalancedTapasGameState> {
         }
         
         let state = BalancedTapasGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

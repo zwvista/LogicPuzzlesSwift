@@ -45,7 +45,7 @@ class ABCPathGame: GridGame<ABCPathGameState> {
         }
         
         let state = ABCPathGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

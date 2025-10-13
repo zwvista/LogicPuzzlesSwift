@@ -48,7 +48,7 @@ class FillominoGame: GridGame<FillominoGameState> {
         }
 
         let state = FillominoGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> Character {

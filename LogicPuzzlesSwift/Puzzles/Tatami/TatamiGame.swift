@@ -84,7 +84,7 @@ class TatamiGame: GridGame<TatamiGameState> {
         }
         
         let state = TatamiGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> Character {

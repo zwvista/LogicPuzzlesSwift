@@ -68,7 +68,7 @@ class NorthPoleFishingGame: GridGame<NorthPoleFishingGameState> {
         }
         
         let state = NorthPoleFishingGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> NorthPoleFishingObject {

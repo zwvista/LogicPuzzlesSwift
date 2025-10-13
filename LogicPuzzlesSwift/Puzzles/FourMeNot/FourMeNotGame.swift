@@ -36,7 +36,7 @@ class FourMeNotGame: GridGame<FourMeNotGameState> {
         }
 
         let state = FourMeNotGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> FourMeNotObject {

@@ -41,7 +41,7 @@ class TennerGridGame: GridGame<TennerGridGameState> {
         }
                 
         let state = TennerGridGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

@@ -39,7 +39,7 @@ class NumberLinkGame: GridGame<NumberLinkGameState> {
         }
         
         let state = NumberLinkGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

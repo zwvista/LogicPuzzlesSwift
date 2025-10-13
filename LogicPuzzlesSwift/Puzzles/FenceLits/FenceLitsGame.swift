@@ -76,7 +76,7 @@ class FenceLitsGame: GridGame<FenceLitsGameState> {
         }
         
         let state = FenceLitsGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> GridDotObject {

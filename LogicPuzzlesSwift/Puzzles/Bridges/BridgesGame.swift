@@ -49,7 +49,7 @@ class BridgesGame: GridGame<BridgesGameState> {
         }
         
         let state = BridgesGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     func switchBridges(move: inout BridgesGameMove) -> Bool {

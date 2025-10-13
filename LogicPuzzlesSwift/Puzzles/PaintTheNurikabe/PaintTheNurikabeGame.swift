@@ -82,7 +82,7 @@ class PaintTheNurikabeGame: GridGame<PaintTheNurikabeGameState> {
         }
         
         let state = PaintTheNurikabeGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }

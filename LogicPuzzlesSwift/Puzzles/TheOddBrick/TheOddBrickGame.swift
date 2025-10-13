@@ -85,7 +85,7 @@ class TheOddBrickGame: GridGame<TheOddBrickGameState> {
         }
 
         let state = TheOddBrickGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
     subscript(p: Position) -> Int {

@@ -40,7 +40,7 @@ class KakurasuGame: GridGame<KakurasuGameState> {
         }
         
         let state = KakurasuGameState(game: self)
-        levelInitilized(state: state)
+        levelInitialized(state: state)
     }
     
 }
