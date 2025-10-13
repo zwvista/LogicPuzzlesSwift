@@ -68,8 +68,10 @@ public:
     {
         return false;
     }
-    template <class cond, class Callback>
-    bool find(value_type value, size_t start, size_t end, QueryStateBase* state, Callback callback) const;
+    template <class cond>
+    bool find(value_type value, size_t start, size_t end, QueryStateBase* state) const;
+
+    size_t find_first_in_range(int64_t from, int64_t to, size_t start, size_t end) const;
 };
 
 class ArrayIntNull : public Array, public ArrayPayload {
@@ -125,8 +127,8 @@ public:
 
     bool find(int cond, value_type value, size_t start, size_t end, QueryStateBase* state) const;
 
-    template <class cond, class Callback>
-    bool find(value_type value, size_t start, size_t end, QueryStateBase* state, Callback callback) const;
+    template <class cond>
+    bool find(value_type value, size_t start, size_t end, QueryStateBase* state) const;
 
     // Wrappers for backwards compatibility and for simple use without
     // setting up state initialization etc
@@ -138,6 +140,7 @@ public:
 
 
     size_t find_first(value_type value, size_t begin = 0, size_t end = npos) const;
+    size_t find_first_in_range(int64_t from, int64_t to, size_t start, size_t end) const;
 
 protected:
     void avoid_null_collision(int64_t value);
@@ -147,11 +150,9 @@ private:
     void replace_nulls_with(int64_t new_null);
     bool can_use_as_null(int64_t value) const;
 
-    template <class Callback>
-    bool find_impl(int cond, value_type value, size_t start, size_t end, QueryStateBase* state,
-                   Callback callback) const;
-    template <class cond, class Callback>
-    bool find_impl(value_type value, size_t start, size_t end, QueryStateBase* state, Callback callback) const;
+    bool find_impl(int cond, value_type value, size_t start, size_t end, QueryStateBase* state) const;
+    template <class cond>
+    bool find_impl(value_type value, size_t start, size_t end, QueryStateBase* state) const;
 };
 
 

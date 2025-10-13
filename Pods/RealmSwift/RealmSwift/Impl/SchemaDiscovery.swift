@@ -39,6 +39,14 @@ public protocol _RealmSchemaDiscoverable {
     static func _rlmPopulateProperty(_ prop: RLMProperty)
 }
 
+extension RLMObjectBase {
+    /// Allow client code to generate properties (ie. via Swift Macros)
+    @_spi(RealmSwiftPrivate)
+    @objc open class func _customRealmProperties() -> [RLMProperty]? {
+        return nil
+    }
+}
+
 internal protocol SchemaDiscoverable: _RealmSchemaDiscoverable {}
 extension SchemaDiscoverable {
     public static var _rlmOptional: Bool { false }
@@ -47,8 +55,8 @@ extension SchemaDiscoverable {
     public static func _rlmPopulateProperty(_ prop: RLMProperty) { }
 }
 
-internal extension RLMProperty {
-    convenience init(name: String, value: _RealmSchemaDiscoverable) {
+extension RLMProperty {
+    internal convenience init(name: String, value: _RealmSchemaDiscoverable) {
         let valueType = Swift.type(of: value)
         self.init()
         self.name = name
@@ -59,6 +67,29 @@ internal extension RLMProperty {
         if valueType._rlmRequireObjc {
             self.updateAccessors()
         }
+    }
+
+    /// Exposed for Macros.
+    /// Important: Keep args in same order & default value as `@Persisted` property wrapper
+    @_spi(RealmSwiftPrivate)
+    public convenience init<O: ObjectBase, V: _Persistable>(
+        name: String,
+        objectType _: O.Type,
+        valueType _: V.Type,
+        indexed: Bool = false,
+        primaryKey: Bool = false,
+        originProperty: String? = nil
+    ) {
+        self.init()
+        self.name = name
+        self.type = V._rlmType
+        self.optional = V._rlmOptional
+        self.indexed = primaryKey || indexed
+        self.isPrimary = primaryKey
+        self.linkOriginPropertyName = originProperty
+        V._rlmPopulateProperty(self)
+        V._rlmSetAccessor(self)
+        self.swiftIvar = ivar_getOffset(class_getInstanceVariable(O.self, "_" + name)!)
     }
 }
 
@@ -91,10 +122,12 @@ private func getLegacyProperties(_ object: ObjectBase, _ cls: ObjectBase.Type) -
     let indexedProperties: Set<String>
     let ignoredPropNames: Set<String>
     let columnNames: [String: String] = type(of: object).propertiesMapping()
-    // FIXME: ignored properties on EmbeddedObject appear to not be supported?
     if let realmObject = object as? Object {
         indexedProperties = Set(type(of: realmObject).indexedProperties())
         ignoredPropNames = Set(type(of: realmObject).ignoredProperties())
+    } else if let realmEmbeddedObject = object as? EmbeddedObject {
+        indexedProperties = Set()
+        ignoredPropNames = Set(type(of: realmEmbeddedObject).ignoredProperties())
     } else {
         indexedProperties = Set()
         ignoredPropNames = Set()
@@ -123,7 +156,7 @@ private func getLegacyProperties(_ object: ObjectBase, _ cls: ObjectBase.Type) -
             if class_getProperty(cls, label) != nil {
                 throwRealmException("Property \(cls).\(label) is declared as \(type(of: prop.value)), which is not a supported managed Object property type. If it is not supposed to be a managed property, either add it to `ignoredProperties()` or do not declare it as `@objc dynamic`. See https://www.mongodb.com/docs/realm-sdks/swift/latest/Classes/Object.html for more information.")
             }
-            if prop.value as? RealmOptionalProtocol != nil {
+            if prop.value is RealmOptionalProtocol {
                 throwRealmException("Property \(cls).\(label) has unsupported RealmOptional type \(type(of: prop.value)). Extending RealmOptionalType with custom types is not currently supported. ")
             }
             return nil
@@ -179,6 +212,9 @@ private func getLegacyProperties(_ object: ObjectBase, _ cls: ObjectBase.Type) -
 }
 
 private func getProperties(_ cls: RLMObjectBase.Type) -> [RLMProperty] {
+    if let props = cls._customRealmProperties() {
+        return props
+    }
     // Check for any modern properties and only scan for legacy properties if
     // none are found.
     let object = cls.init()

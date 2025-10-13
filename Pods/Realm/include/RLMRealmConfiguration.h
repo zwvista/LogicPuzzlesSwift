@@ -18,8 +18,6 @@
 
 #import <Realm/RLMRealm.h>
 
-@class RLMEventConfiguration, RLMSyncConfiguration;
-
 RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
 
 /**
@@ -31,15 +29,8 @@ RLM_HEADER_AUDIT_BEGIN(nullability, sendability)
  Return `YES` to indicate that an attempt to compact the file should be made.
  The compaction will be skipped if another process is accessing it.
  */
-RLM_SWIFT_SENDABLE
+NS_SWIFT_SENDABLE
 typedef BOOL (^RLMShouldCompactOnLaunchBlock)(NSUInteger totalBytes, NSUInteger bytesUsed);
-
-/**
- A block which receives a subscription set instance, that can be used to add an initial set of subscriptions which will be executed
- when the Realm is first opened.
- */
-RLM_SWIFT_SENDABLE
-typedef void(^RLMFlexibleSyncInitialSubscriptionsBlock)(RLMSyncSubscriptionSet * _Nonnull subscriptions);
 
 /**
  An `RLMRealmConfiguration` instance describes the different options used to
@@ -79,9 +70,9 @@ typedef void(^RLMFlexibleSyncInitialSubscriptionsBlock)(RLMSyncSubscriptionSet *
 /// setting one of the two properties will automatically nil out the other.
 @property (nonatomic, copy, nullable) NSURL *fileURL;
 
-/// A string used to identify a particular in-memory Realm. Mutually exclusive with `fileURL`,
-/// `seedFilePath`and `syncConfiguration`;
-/// setting any one of the three properties will automatically nil out the other two.
+/// A string used to identify a particular in-memory Realm. Mutually exclusive
+/// with `fileURL` and `seedFilePath`.
+/// Setting an in-memory identifier will automatically nil out the other two.
 @property (nonatomic, copy, nullable) NSString *inMemoryIdentifier;
 
 /// A 64-byte key to use to encrypt the data, or `nil` if encryption is not enabled.
@@ -180,17 +171,6 @@ typedef void(^RLMFlexibleSyncInitialSubscriptionsBlock)(RLMSyncSubscriptionSet *
  will nil out the `inMemoryIdentifier`.
  */
 @property (nonatomic, copy, nullable) NSURL *seedFilePath;
-
-/**
- A configuration object representing configuration state for Realms intended
- to sync with Atlas Device Sync.
-
- This property is mutually exclusive with both `inMemoryIdentifier` and `fileURL`;
- setting any one of the three properties will automatically nil out the other two.
-
- @see `RLMSyncConfiguration`
- */
-@property (nullable, nonatomic) RLMSyncConfiguration *syncConfiguration;
 
 @end
 

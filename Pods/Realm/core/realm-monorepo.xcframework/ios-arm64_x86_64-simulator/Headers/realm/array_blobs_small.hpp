@@ -54,9 +54,7 @@ in set(), etc). This way no file format upgrade is needed to support nulls for B
 class ArraySmallBlobs : public Array {
 public:
     explicit ArraySmallBlobs(Allocator&) noexcept;
-    ~ArraySmallBlobs() noexcept override
-    {
-    }
+    ~ArraySmallBlobs() noexcept override {}
 
     // Disable copying, this is not allowed.
     ArraySmallBlobs& operator=(const ArraySmallBlobs&) = delete;
@@ -112,8 +110,6 @@ public:
     /// null or zero-length non-null (value with size > 0 is not allowed as
     /// initialization value).
     static MemRef create_array(size_t size, Allocator&, BinaryData defaults);
-
-    void update_from_parent() noexcept;
 
 private:
     friend class ArrayString;
@@ -258,14 +254,6 @@ inline size_t ArraySmallBlobs::get_size_from_header(const char* header, Allocato
     ref_type offsets_ref = to_ref(Array::get(header, 0));
     const char* offsets_header = alloc.translate(offsets_ref);
     return Array::get_size_from_header(offsets_header);
-}
-
-inline void ArraySmallBlobs::update_from_parent() noexcept
-{
-    Array::update_from_parent();
-    m_blob.update_from_parent();
-    m_offsets.update_from_parent();
-    m_nulls.update_from_parent();
 }
 
 } // namespace realm

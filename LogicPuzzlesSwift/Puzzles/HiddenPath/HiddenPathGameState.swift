@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import OrderedCollections
 
 class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
     var game: HiddenPathGame {
@@ -16,7 +17,7 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
     override var gameDocument: GameDocumentBase { HiddenPathDocument.sharedInstance }
     var objArray = [HiddenPathObject]()
     var nextNum = 0
-    var num2pos = [Int: Position]()
+    var num2pos = OrderedDictionary<Int, Position>()
     var selectedPos = Position(), hintPost = Position()
     
     override func copy() -> HiddenPathGameState {
@@ -132,6 +133,6 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
     private func updateState(p: Position) {
         selectedPos = p
         let n = self[p].obj
-        hintPost = num2pos.first { k, _ in k > n }!.value
+        hintPost = num2pos.first { k, _ in k > n }!.1
     }
 }

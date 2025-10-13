@@ -106,6 +106,7 @@ public:
     size_t find_first(Timestamp value, size_t begin, size_t end) const noexcept;
 
     size_t find_first(Timestamp value, size_t begin, size_t end) const noexcept;
+    size_t find_first_in_range(Timestamp from, Timestamp to, size_t start, size_t end) const;
 
     void verify() const;
 
@@ -132,6 +133,6 @@ inline size_t ArrayTimestamp::find_first(Timestamp value, size_t begin, size_t e
     return find_first<Equal>(value, begin, end);
 }
 
-}
+} // namespace realm
 
 #endif /* SRC_REALM_ARRAY_BINARY_HPP_ */

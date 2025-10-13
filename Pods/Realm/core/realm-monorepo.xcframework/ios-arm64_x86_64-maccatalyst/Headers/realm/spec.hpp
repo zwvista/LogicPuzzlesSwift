@@ -81,69 +81,48 @@ public:
     void destroy() noexcept;
 
     size_t get_ndx_in_parent() const noexcept;
-    void set_ndx_in_parent(size_t) noexcept;
 
     void verify() const;
 
 private:
     // Underlying array structure.
     //
+    static constexpr size_t s_types_ndx = 0;
+    static constexpr size_t s_names_ndx = 1;
+    static constexpr size_t s_attributes_ndx = 2;
+    static constexpr size_t s_vacant_1 = 3;
+    static constexpr size_t s_enum_keys_ndx = 4;
+    static constexpr size_t s_col_keys_ndx = 5;
+    static constexpr size_t s_spec_max_size = 6;
+
     Array m_top;
     Array m_types;            // 1st slot in m_top
     ArrayStringShort m_names; // 2nd slot in m_top
     Array m_attr;             // 3rd slot in m_top
-    // 4th slot in m_top is vacant
-    Array m_enumkeys; // 5th slot in m_top
-    Array m_keys;     // 6th slot in m_top
-    size_t m_num_public_columns;
+                              // 4th slot in m_top not cached
+    Array m_enumkeys;         // 5th slot in m_top
+    Array m_keys;             // 6th slot in m_top
+    size_t m_num_public_columns = 0;
 
     Spec(Allocator&) noexcept; // Unattached
 
-    bool init(ref_type) noexcept;
+    void init(ref_type) noexcept;
     void init(MemRef) noexcept;
-    void update_internals() noexcept;
 
-    // Returns true in case the ref has changed.
-    bool init_from_parent() noexcept;
+    void init_from_parent() noexcept;
 
     ref_type get_ref() const noexcept;
-
-    /// Called in the context of Group::commit() to ensure that
-    /// attached table accessors stay valid across a commit. Please
-    /// note that this works only for non-transactional commits. Table
-    /// accessors obtained during a transaction are always detached
-    /// when the transaction ends.
-    void update_from_parent() noexcept;
 
     void set_parent(ArrayParent*, size_t ndx_in_parent) noexcept;
 
     void set_column_attr(size_t column_ndx, ColumnAttrMask attr);
 
     // Migration
-    bool convert_column_attributes();
-    bool convert_column_keys(TableKey table_key);
-    void fix_column_keys(TableKey table_key);
-    bool has_subspec()
-    {
-        return m_top.get(3) != 0;
-    }
-    void destroy_subspec()
-    {
-        Node::destroy(m_top.get_as_ref(3), m_top.get_alloc());
-        m_top.set(3, 0);
-    }
-    TableKey get_opposite_link_table_key(size_t column_ndx) const noexcept;
-    size_t get_origin_column_ndx(size_t backlink_col_ndx) const noexcept;
-    ColKey find_backlink_column(TableKey origin_table_key, size_t spec_ndx) const noexcept;
+    bool migrate_column_keys();
 
-
-    // Generate a column key only from state in the spec.
-    ColKey update_colkey(ColKey existing_key, size_t spec_ndx, TableKey table_key);
     /// Construct an empty spec and return just the reference to the
     /// underlying memory.
     static MemRef create_empty_spec(Allocator&);
-
-    size_t get_subspec_ndx(size_t column_ndx) const noexcept;
 
     friend class Group;
     friend class Table;
@@ -165,17 +144,16 @@ inline Spec::Spec(Allocator& alloc) noexcept
     , m_enumkeys(alloc)
     , m_keys(alloc)
 {
-    m_types.set_parent(&m_top, 0);
-    m_names.set_parent(&m_top, 1);
-    m_attr.set_parent(&m_top, 2);
-    m_enumkeys.set_parent(&m_top, 4);
-    m_keys.set_parent(&m_top, 5);
+    m_types.set_parent(&m_top, s_types_ndx);
+    m_names.set_parent(&m_top, s_names_ndx);
+    m_attr.set_parent(&m_top, s_attributes_ndx);
+    m_enumkeys.set_parent(&m_top, s_enum_keys_ndx);
+    m_keys.set_parent(&m_top, s_col_keys_ndx);
 }
 
-inline bool Spec::init_from_parent() noexcept
+inline void Spec::init_from_parent() noexcept
 {
-    ref_type ref = m_top.get_ref_from_parent();
-    return init(ref);
+    init(m_top.get_ref_from_parent());
 }
 
 inline void Spec::destroy() noexcept
@@ -186,11 +164,6 @@ inline void Spec::destroy() noexcept
 inline size_t Spec::get_ndx_in_parent() const noexcept
 {
     return m_top.get_ndx_in_parent();
-}
-
-inline void Spec::set_ndx_in_parent(size_t ndx) noexcept
-{
-    m_top.set_ndx_in_parent(ndx);
 }
 
 inline ref_type Spec::get_ref() const noexcept
@@ -252,8 +225,6 @@ inline void Spec::set_column_attr(size_t column_ndx, ColumnAttrMask attr)
     // so setting it will overwrite existing. In the future
     // we will allow combinations.
     m_attr.set(column_ndx, attr.m_value);
-
-    update_internals();
 }
 
 inline StringData Spec::get_column_name(size_t ndx) const noexcept

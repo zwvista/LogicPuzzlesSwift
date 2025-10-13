@@ -120,6 +120,7 @@ using DBRef = std::shared_ptr<DB>;
 
 class DB : public std::enable_shared_from_this<DB> {
     struct ReadLockInfo;
+    struct Private {};
 
 public:
     // Create a DB and associate it with a file. DB Objects can only be associated with one file,
@@ -127,7 +128,7 @@ public:
     // calling DB::close(), but after that no new association can be established. To reopen the
     // file (or another file), a new DB object is needed. The specified Replication instance, if
     // any, must remain in existence for as long as the DB.
-    static DBRef create(const std::string& file, bool no_create = false, const DBOptions& options = DBOptions());
+    static DBRef create(const std::string& file, const DBOptions& options = DBOptions());
     static DBRef create(Replication& repl, const std::string& file, const DBOptions& options = DBOptions());
     static DBRef create(std::unique_ptr<Replication> repl, const std::string& file,
                         const DBOptions& options = DBOptions());
@@ -140,6 +141,7 @@ public:
 
     ~DB() noexcept;
 
+    explicit DB(Private, const DBOptions& options);
     // Disable copying to prevent accessor errors. If you really want another
     // instance, open another DB object on the same file. But you don't.
     DB(const DB&) = delete;
@@ -165,6 +167,8 @@ public:
 
     bool is_attached() const noexcept;
 
+    static bool needs_file_format_upgrade(const std::string& file, util::Span<const char> encryption_key);
+
     Allocator& get_alloc()
     {
         return m_alloc;
@@ -186,17 +190,9 @@ public:
         return m_logger.get();
     }
 
-    void create_new_history(Replication& repl) REQUIRES(!m_mutex);
-    void create_new_history(std::unique_ptr<Replication> repl) REQUIRES(!m_mutex);
-
     const std::string& get_path() const noexcept
     {
         return m_db_path;
-    }
-
-    const char* get_encryption_key() const noexcept
-    {
-        return m_alloc.m_file.get_encryption_key();
     }
 
 #ifdef REALM_DEBUG
@@ -328,10 +324,10 @@ public:
     /// the file to the new 64 byte key.
     ///
     /// WARNING: Compact() is not thread-safe with respect to a concurrent close()
-    bool compact(bool bump_version_number = false, util::Optional<const char*> output_encryption_key = util::none)
+    bool compact(bool bump_version_number = false, std::optional<const char*> output_encryption_key = util::none)
         REQUIRES(!m_mutex);
 
-    void write_copy(StringData path, const char* output_encryption_key) REQUIRES(!m_mutex);
+    void write_copy(std::string_view path, const char* output_encryption_key) REQUIRES(!m_mutex);
 
 #ifdef REALM_DEBUG
     void test_ringbuf();
@@ -433,6 +429,7 @@ public:
     /// Mark this DB as the sync agent for the file.
     /// \throw MultipleSyncAgents if another DB is already the sync agent.
     void claim_sync_agent();
+    bool try_claim_sync_agent();
     void release_sync_agent();
 
     /// Returns true if there are threads waiting to acquire the write lock, false otherwise.
@@ -446,9 +443,6 @@ public:
 
     void add_commit_listener(CommitListener*);
     void remove_commit_listener(CommitListener*);
-
-protected:
-    explicit DB(const DBOptions& options);
 
 private:
     class AsyncCommitHelper;
@@ -483,7 +477,7 @@ private:
     class ReadLockGuard;
 
     // Member variables
-    mutable util::CheckedMutex m_mutex;
+    util::CheckedMutex m_mutex;
     int m_transaction_count GUARDED_BY(m_mutex) = 0;
     SlabAlloc m_alloc;
     std::unique_ptr<Replication> m_history;
@@ -533,10 +527,6 @@ private:
     ///
     /// \param file Filesystem path to a Realm database file.
     ///
-    /// \param no_create If the database file does not already exist, it will be
-    /// created (unless this is set to true.) When multiple threads are involved,
-    /// it is safe to let the first thread, that gets to it, create the file.
-    ///
     /// \param options See DBOptions for details of each option.
     /// Sensible defaults are provided if this parameter is left out.
     ///
@@ -552,13 +542,12 @@ private:
     /// \throw UnsupportedFileFormatVersion if the file format version or
     /// history schema version is one which this version of Realm does not know
     /// how to migrate from.
-    void open(const std::string& file, bool no_create = false, const DBOptions& options = DBOptions())
-        REQUIRES(!m_mutex);
+    void open(const std::string& file, const DBOptions& options = DBOptions()) REQUIRES(!m_mutex);
     void open(BinaryData, bool take_ownership = true) REQUIRES(!m_mutex);
     void open(Replication&, const std::string& file, const DBOptions& options = DBOptions()) REQUIRES(!m_mutex);
-    void open(Replication& repl, const DBOptions options = DBOptions()) REQUIRES(!m_mutex);
+    void open(Replication& repl, const DBOptions& options = DBOptions()) REQUIRES(!m_mutex);
 
-    void do_open(const std::string& file, bool no_create, const DBOptions& options);
+    void do_open(const std::string& file, const DBOptions& options);
 
     Replication* const* get_repl() const noexcept
     {
@@ -700,6 +689,22 @@ inline int DB::get_file_format_version() const noexcept
 {
     return m_file_format_version;
 }
+
+inline std::ostream& operator<<(std::ostream& os, const DB::TransactStage& stage)
+{
+    switch (stage) {
+        case DB::TransactStage::transact_Ready:
+            return os << "transact_Ready";
+        case DB::TransactStage::transact_Reading:
+            return os << "transact_Reading";
+        case DB::TransactStage::transact_Frozen:
+            return os << "transact_Frozen";
+        case DB::TransactStage::transact_Writing:
+            return os << "transact_Writing";
+    }
+    REALM_UNREACHABLE();
+}
+
 
 } // namespace realm
 

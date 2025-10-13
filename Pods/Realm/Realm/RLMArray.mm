@@ -69,7 +69,7 @@
 
 - (void)setParent:(RLMObjectBase *)parentObject property:(RLMProperty *)property {
     _parentObject = parentObject;
-    _key = property.name;
+    _property = property;
     _isLegacyProperty = property.isLegacy;
 }
 
@@ -192,9 +192,9 @@ static void changeArray(__unsafe_unretained RLMArray *const ar,
 
     if (RLMObjectBase *parent = ar->_parentObject) {
         NSIndexSet *indexes = is();
-        [parent willChange:kind valuesAtIndexes:indexes forKey:ar->_key];
+        [parent willChange:kind valuesAtIndexes:indexes forKey:ar->_property.name];
         f();
-        [parent didChange:kind valuesAtIndexes:indexes forKey:ar->_key];
+        [parent didChange:kind valuesAtIndexes:indexes forKey:ar->_property.name];
     }
     else {
         f();
@@ -365,7 +365,10 @@ static void validateArrayBounds(__unsafe_unretained RLMArray *const ar,
     }
     changeArray(self, NSKeyValueChangeInsertion, NSMakeRange(0, objects.count), ^{
         for (id object in objects) {
-            [_backingCollection addObject:object];
+            // object should always be non-nil since it's a value stored in a
+            // NSArray, but as of Xcode 16.3 [Decimal128?] sometimes ends up
+            // with nil instead of NSNull when bridged from Swift.
+            [_backingCollection addObject:object ?: NSNull.null];
         }
     });
 }
@@ -608,7 +611,7 @@ static void validateArrayBounds(__unsafe_unretained RLMArray *const ar,
 #pragma mark - Key Path Strings
 
 - (NSString *)propertyKey {
-    return _key;
+    return _property.name;
 }
 
 @end

@@ -39,6 +39,7 @@ private func thawObjectIfFrozen<Value>(_ value: Value) -> Value where Value: Obj
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+@MainActor
 private func createBinding<T: ThreadConfined, V>(
     _ value: T,
     forKeyPath keyPath: ReferenceWritableKeyPath<T, V>) -> Binding<V> {
@@ -63,6 +64,7 @@ private func createBinding<T: ThreadConfined, V>(
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+@MainActor
 private func createCollectionBinding<T: ThreadConfined, V: RLMSwiftCollectionBase & ThreadConfined>(
     _ value: T,
     forKeyPath keyPath: ReferenceWritableKeyPath<T, V>) -> Binding<V> {
@@ -88,6 +90,7 @@ private func createCollectionBinding<T: ThreadConfined, V: RLMSwiftCollectionBas
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+@MainActor
 private func createEquatableBinding<T: ThreadConfined, V: Equatable>(
     _ value: T,
     forKeyPath keyPath: ReferenceWritableKeyPath<T, V>) -> Binding<V> {
@@ -117,10 +120,22 @@ private func createEquatableBinding<T: ThreadConfined, V: Equatable>(
     /// Objects must have observers removed before being added to a realm.
     /// They are stored here so that if they are appended through the Bound Property
     /// system, they can be de-observed before hand.
-    @Unchecked
-    fileprivate static var observedObjects = [NSObject: SwiftUIKVO.Subscription]()
+    private static let observedObjects = AllocatedUnfairLock([NSObject: Subscription]())
 
-    @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+    static func store(_ obj: NSObject, _ subscription: Subscription) {
+        SwiftUIKVO.observedObjects.withLock {
+            $0[obj] = subscription
+        }
+    }
+
+    static func cancel(_ obj: NSObject) {
+        SwiftUIKVO.observedObjects.withLock {
+            if let subscription: Subscription = $0.removeValue(forKey: obj) {
+                subscription.removeObservers()
+            }
+        }
+    }
+
     struct Subscription: Combine.Subscription {
         let observer: NSObject
         let value: NSObject
@@ -134,23 +149,16 @@ private func createEquatableBinding<T: ThreadConfined, V: Equatable>(
         }
 
         func cancel() {
-            removeObservers()
-            SwiftUIKVO.observedObjects.removeValue(forKey: value)
+            SwiftUIKVO.cancel(value)
         }
 
         fileprivate func removeObservers() {
-            guard SwiftUIKVO.observedObjects.keys.contains(value) else {
-                return
-            }
             keyPaths.forEach {
                 value.removeObserver(observer, forKeyPath: $0)
             }
         }
 
         fileprivate func addObservers() {
-            guard SwiftUIKVO.observedObjects.keys.contains(value) else {
-                return
-            }
             keyPaths.forEach {
                 value.addObserver(observer, forKeyPath: $0, options: .init(), context: nil)
             }
@@ -230,7 +238,7 @@ private final class ObservableStoragePublisher<ObjectType>: Publisher where Obje
             }
             let subscription = SwiftUIKVO.Subscription(observer: kvo, value: value, keyPaths: keyPaths)
             subscriber.receive(subscription: subscription)
-            SwiftUIKVO.observedObjects[value] = subscription
+            SwiftUIKVO.store(value, subscription)
         }
     }
 }
@@ -360,6 +368,7 @@ private class ObservableResultsStorage<T>: ObservableStorage<T> where T: RealmSu
 ///
 /// This will write the modified `isEnabled` property to the `model` object's Realm.
 @available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
+@MainActor
 @propertyWrapper public struct StateRealmObject<T: RealmSubscribable & ThreadConfined & Equatable>: DynamicProperty {
     @available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
     @StateObject private var storage: ObservableStorage<T>
@@ -616,7 +625,7 @@ extension Projection: _ObservedResultsValue { }
     }
 
     nonisolated public func update() {
-        assumeOnMainActorExecutor {
+        MainActor.assumeIsolated {
             // When the view updates, it will inject the @Environment
             // into the propertyWrapper
             if storage.configuration == nil {
@@ -639,7 +648,10 @@ extension Projection: _ObservedResultsValue { }
 @propertyWrapper public struct ObservedSectionedResults<Key: _Persistable & Hashable, ResultType>: DynamicProperty, BoundCollection where ResultType: _ObservedResultsValue & RealmFetchable & KeypathSortable & Identifiable {
     public typealias Element = ResultType
 
-    private class Storage: ObservableResultsStorage<SectionedResults<Key, ResultType>> {
+    private class Storage: ObservableResultsStorage<Results<ResultType>> {
+        var sectionedResults: SectionedResults<Key, ResultType>!
+        var token: AnyCancellable?
+
         override func updateValue() {
             let realm = try! Realm(configuration: configuration ?? Realm.Configuration.defaultConfiguration)
             var results = realm.objects(ResultType.self)
@@ -654,7 +666,24 @@ extension Projection: _ObservedResultsValue { }
                 sortDescriptors.append(.init(keyPath: keyPathString, ascending: true))
             }
 
-            value = results.sectioned(sortDescriptors: sortDescriptors, sectionBlock)
+            value = results
+
+            /*
+             Observing the sectioned results directly doesn't allow the SwiftUI diff to work
+             correctly as the previous state of the sectioned results will have the new values.
+
+             An example of when this is an issue is when an item is deleted in a List containing sectioned results,
+             the diff needs a stable state of the previous transaction but due to
+             the observation callback calling calculate_sections the collection will be brought up to date.
+
+             The solution around this is to store a frozen copy of the sectioned results and observe the parent `Results` instead.
+             Each time the results observation callback is invoked and the SwiftUI View is redrawn the sectioned results will be updated.
+             */
+            sectionedResults = value.sectioned(sortDescriptors: sortDescriptors, sectionBlock).freeze()
+            token = self.objectWillChange.sink { [weak self] _ in
+                guard let self = self else { return }
+                self.sectionedResults = self.value.sectioned(sortDescriptors: self.sortDescriptors, self.sectionBlock).freeze()
+            }
         }
 
         var sortDescriptors: [SortDescriptor] = [] {
@@ -679,7 +708,7 @@ extension Projection: _ObservedResultsValue { }
             if self.sortDescriptors.isEmpty {
                 throwRealmException("sortDescriptors must not be empty when sectioning ObservedSectionedResults with `sectionBlock`")
             }
-            super.init(value.sectioned(sortDescriptors: self.sortDescriptors, self.sectionBlock), keyPaths)
+            super.init(value, keyPaths)
         }
     }
 
@@ -712,11 +741,23 @@ extension Projection: _ObservedResultsValue { }
     /// :nodoc:
     public var wrappedValue: SectionedResults<Key, ResultType> {
         storage.setupValue()
-        return storage.value
+        return storage.sectionedResults
     }
     /// :nodoc:
     public var projectedValue: Self {
         return self
+    }
+
+    /// Removes items from an `@ObservedSectionedResults` collection
+    /// with a given `IndexSet` and `ResultsSection`.
+    /// - Parameters:
+    ///   - offsets: Index offsets in the section.
+    ///   - section: The section containing the items to remove.
+    public func remove(atOffsets offsets: IndexSet,
+                       section: ResultsSection<Key, ResultType>) where ResultType: ObjectBase & ThreadConfined {
+        write(wrappedValue) { collection in
+            collection.realm?.delete(offsets.compactMap { section[$0].thaw() ?? nil })
+        }
     }
 
     private init(type: ResultType.Type,
@@ -975,7 +1016,7 @@ extension Projection: _ObservedResultsValue { }
     }
 
     nonisolated public func update() {
-        assumeOnMainActorExecutor {
+        MainActor.assumeIsolated {
             // When the view updates, it will inject the @Environment
             // into the propertyWrapper
             if storage.configuration == nil {
@@ -991,9 +1032,12 @@ extension Projection: _ObservedResultsValue { }
 /// A property wrapper type that subscribes to an observable Realm `Object` or `List` and
 /// invalidates a view whenever the observable object changes.
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-@propertyWrapper public struct ObservedRealmObject<ObjectType>: DynamicProperty where ObjectType: RealmSubscribable & ThreadConfined & ObservableObject & Equatable {
+@MainActor
+@propertyWrapper public struct ObservedRealmObject<ObjectType>: DynamicProperty
+where ObjectType: RealmSubscribable & ThreadConfined & ObservableObject & Equatable {
     /// A wrapper of the underlying observable object that can create bindings to
     /// its properties using dynamic member lookup.
+    @MainActor
     @dynamicMemberLookup @frozen public struct Wrapper {
         /// :nodoc:
         public var wrappedValue: ObjectType
@@ -1081,14 +1125,17 @@ extension Projection: _ObservedResultsValue { }
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension Binding where Value: ObjectBase & ThreadConfined {
     /// :nodoc:
+    @MainActor
     public subscript<V>(dynamicMember member: ReferenceWritableKeyPath<Value, V>) -> Binding<V> where V: _Persistable {
         createBinding(wrappedValue, forKeyPath: member)
     }
     /// :nodoc:
+    @MainActor
     public subscript<V>(dynamicMember member: ReferenceWritableKeyPath<Value, V>) -> Binding<V> where V: _Persistable & RLMSwiftCollectionBase & ThreadConfined {
         createCollectionBinding(wrappedValue, forKeyPath: member)
     }
     /// :nodoc:
+    @MainActor
     public subscript<V>(dynamicMember member: ReferenceWritableKeyPath<Value, V>) -> Binding<V> where V: _Persistable & Equatable {
         createEquatableBinding(wrappedValue, forKeyPath: member)
     }
@@ -1163,7 +1210,7 @@ public extension BoundCollection where Value == List<Element>, Element: ObjectBa
     func append(_ value: Value.Element) {
         write { list in
             if value.realm == nil && list.realm != nil {
-                SwiftUIKVO.observedObjects[value]?.cancel()
+                SwiftUIKVO.cancel(value)
             }
             list.append(thawObjectIfFrozen(value))
         }
@@ -1217,7 +1264,7 @@ public extension BoundCollection where Value == MutableSet<Element>, Element: Ob
     func insert(_ value: Value.Element) {
         write { mutableSet in
             if value.realm == nil && mutableSet.realm != nil {
-                SwiftUIKVO.observedObjects[value]?.cancel()
+                SwiftUIKVO.cancel(value)
             }
             mutableSet.insert(thawObjectIfFrozen(value))
         }
@@ -1230,7 +1277,7 @@ public extension BoundCollection where Value == Results<Element>, Element: Objec
     func append(_ value: Value.Element) {
         write { results in
             if value.realm == nil && results.realm != nil {
-                SwiftUIKVO.observedObjects[value]?.cancel()
+                SwiftUIKVO.cancel(value)
             }
             results.realm?.add(thawObjectIfFrozen(value))
         }
@@ -1243,7 +1290,7 @@ public extension BoundCollection where Value == Results<Element>, Element: Proje
     func append(_ value: Value.Element) {
         write { results in
             if value.realm == nil && results.realm != nil {
-                SwiftUIKVO.observedObjects[value.rootObject]?.cancel()
+                SwiftUIKVO.cancel(value.rootObject)
             }
             results.realm?.add(thawObjectIfFrozen(value.rootObject))
         }
@@ -1305,7 +1352,7 @@ public extension BoundMap where Value.Value: ObjectBase & ThreadConfined {
         }
         // if the value is unmanaged but the map is managed, we are adding this value to the realm
         if value.realm == nil && self.wrappedValue.realm != nil {
-            SwiftUIKVO.observedObjects[value]?.cancel()
+            SwiftUIKVO.cancel(value)
         }
         write(self.wrappedValue) { map in
             var m = map
@@ -1351,10 +1398,12 @@ extension ThreadConfined where Self: ProjectionObservable {
      - parameter keyPath The key path to the member property.
      - returns A `Binding` to the member property.
      */
+    @MainActor
     public func bind<V: _Persistable & Equatable>(_ keyPath: ReferenceWritableKeyPath<Self, V>) -> Binding<V> {
         createEquatableBinding(self, forKeyPath: keyPath)
     }
     /// :nodoc:
+    @MainActor
     public func bind<V: _Persistable & RLMSwiftCollectionBase & ThreadConfined>(_ keyPath: ReferenceWritableKeyPath<Self, V>) -> Binding<V> {
         createCollectionBinding(self, forKeyPath: keyPath)
     }
@@ -1383,10 +1432,12 @@ extension ThreadConfined where Self: ObjectBase {
      - parameter keyPath The key path to the member property.
      - returns A `Binding` to the member property.
      */
+    @MainActor
     public func bind<V: _Persistable & Equatable>(_ keyPath: ReferenceWritableKeyPath<Self, V>) -> Binding<V> {
         createEquatableBinding(self, forKeyPath: keyPath)
     }
     /// :nodoc:
+    @MainActor
     public func bind<V: _Persistable & RLMSwiftCollectionBase & ThreadConfined>(_ keyPath: ReferenceWritableKeyPath<Self, V>) -> Binding<V> {
         createCollectionBinding(self, forKeyPath: keyPath)
     }
@@ -1394,10 +1445,6 @@ extension ThreadConfined where Self: ObjectBase {
 
 private struct RealmEnvironmentKey: EnvironmentKey {
     static let defaultValue = Realm.Configuration.defaultConfiguration
-}
-
-private struct PartitionValueEnvironmentKey: EnvironmentKey {
-    static let defaultValue: PartitionValue? = nil
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
@@ -1420,451 +1467,23 @@ extension EnvironmentValues {
             self[RealmEnvironmentKey.self] = newValue.configuration
         }
     }
-    /// The current `PartitionValue` that the view should use.
-    public var partitionValue: PartitionValue? {
-        get {
-            return self[PartitionValueEnvironmentKey.self]
-        }
-        set {
-            self[PartitionValueEnvironmentKey.self] = newValue
-        }
-    }
-}
-
-/**
-An enum representing different states from `AsyncOpen` and `AutoOpen` process
-*/
-public enum AsyncOpenState {
-    /// Starting the Realm.asyncOpen process.
-    case connecting
-    /// Waiting for a user to be logged in before executing Realm.asyncOpen.
-    case waitingForUser
-    /// The Realm has been opened and is ready for use. For AsyncOpen this means that the Realm has been fully downloaded, but for AutoOpen the existing local file may have been used if the device is offline.
-    case open(Realm)
-    /// The Realm is currently being downloaded from the server.
-    case progress(Progress)
-    /// Opening the Realm failed.
-    case error(Error)
-}
-
-private enum AsyncOpenKind {
-    case asyncOpen
-    case autoOpen
-}
-
-@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-private class ObservableAsyncOpenStorage: ObservableObject {
-    private var asyncOpenKind: AsyncOpenKind
-    private var app: App
-    var configuration: Realm.Configuration?
-    var partitionValue: AnyBSON?
-
-    // Tracks User State for App for Multi-User Support
-    enum AppState {
-        case loggedIn(User)
-        case loggedOut
-    }
-    private var appState: AppState = .loggedOut
-
-    // Cancellables
-    private var appCancellable = [AnyCancellable]()
-    private var asyncOpenCancellable = [AnyCancellable]()
-
-    @Published fileprivate var asyncOpenState: AsyncOpenState
-
-    init(asyncOpenKind: AsyncOpenKind, app: App, configuration: Realm.Configuration?, partitionValue: AnyBSON?) {
-        self.asyncOpenKind = asyncOpenKind
-        self.app = app
-        self.configuration = configuration
-        self.partitionValue = partitionValue
-
-        // Initialising the state value depending on the user status, before first rendering.
-        if let user = app.currentUser {
-            appState = .loggedIn(user)
-            asyncOpenState = .connecting
-        } else {
-            asyncOpenState = .waitingForUser
-        }
-    }
-
-    var setupHasRun = false
-    func setup() {
-        guard !setupHasRun else { return }
-        initAsyncOpen()
-        setupHasRun = true
-    }
-
-    private func initAsyncOpen() {
-        if case .loggedIn(let user) = appState {
-            // we only open the realm on initialisation if there is a user logged.
-            asyncOpenForUser(user)
-        }
-
-        // we observe the changes in the app state to check for user changes,
-        // we store an internal state, so we could react to those changes (user login, user change, logout).
-        app.objectWillChange.sink { [weak self] app in
-            guard let self = self else { return }
-            switch self.appState {
-            case .loggedIn(let user):
-                if let newUser = app.currentUser,
-                    user != newUser {
-                    self.appState = .loggedIn(newUser)
-                    self.asyncOpenState = .connecting
-                    self.asyncOpenForUser(user)
-                } else if app.currentUser == nil {
-                    self.asyncOpenState = .waitingForUser
-                    self.appState = .loggedOut
-                }
-            case .loggedOut:
-                if let user = app.currentUser {
-                    self.appState = .loggedIn(user)
-                    self.asyncOpenState = .connecting
-                    self.asyncOpenForUser(user)
-                }
-            }
-        }.store(in: &appCancellable)
-    }
-
-    private func asyncOpenForUser(_ user: User) {
-        // Set the `syncConfiguration` depending if there is partition value (pbs) or not (flx).
-        var config: Realm.Configuration
-        if let partitionValue = partitionValue {
-            config = user.configuration(partitionValue: partitionValue, cancelAsyncOpenOnNonFatalErrors: true)
-        } else {
-            config = user.flexibleSyncConfiguration(cancelAsyncOpenOnNonFatalErrors: true)
-        }
-
-        // Use the user configuration by default or set configuration with the current user `syncConfiguration`'s.
-        if var configuration = configuration {
-            // We want to throw if the configuration doesn't contain a `SyncConfiguration`
-            guard configuration.syncConfiguration != nil else {
-                throwRealmException("The used configuration was not configured with sync.")
-            }
-            let userSyncConfig = config.syncConfiguration
-            configuration.syncConfiguration = userSyncConfig
-            config = configuration
-        }
-
-        // Cancel any current subscriptions to asyncOpen if there is one
-        cancelAsyncOpen()
-        Realm.asyncOpen(configuration: config)
-            .onProgressNotification { asyncProgress in
-                // Do not change state to progress if the realm file is already opened or there is an error
-                switch self.asyncOpenState {
-                case .connecting, .waitingForUser, .progress:
-                    let progress = Progress(totalUnitCount: Int64(asyncProgress.transferredBytes))
-                    progress.completedUnitCount = Int64(asyncProgress.transferredBytes)
-                    self.asyncOpenState = .progress(progress)
-                default: break
-                }
-            }
-            .sink { completion in
-                if case .failure(let error) = completion {
-                    switch self.asyncOpenKind {
-                    case .asyncOpen:
-                        self.asyncOpenState = .error(error)
-                    case .autoOpen:
-                        if let realm = try? Realm(configuration: config) {
-                            self.asyncOpenState = .open(realm)
-                        } else {
-                            self.asyncOpenState = .error(error)
-                        }
-                    }
-                }
-            } receiveValue: { realm in
-                self.asyncOpenState = .open(realm)
-            }.store(in: &self.asyncOpenCancellable)
-    }
-
-    fileprivate func update(_ partitionValue: PartitionValue?, _ configuration: Realm.Configuration) {
-        if let partitionValue = partitionValue {
-            let bsonValue = AnyBSON(partitionValue: partitionValue)
-            if self.partitionValue != bsonValue {
-                self.partitionValue = bsonValue
-            }
-        }
-
-        // We don't want to use the `defaultConfiguration` from the environment, we only want to use this environment value in @AsyncOpen if is not the default one
-        if configuration != .defaultConfiguration, self.configuration != configuration {
-            if let partitionValue = configuration.syncConfiguration?.partitionValue {
-                self.partitionValue = partitionValue
-            }
-            self.configuration = configuration
-        }
-    }
-
-    private func cancelAsyncOpen() {
-        asyncOpenCancellable.forEach { $0.cancel() }
-        asyncOpenCancellable = []
-    }
-
-    func cancel() {
-        cancelAsyncOpen()
-        appCancellable.forEach { $0.cancel() }
-        appCancellable = []
-    }
-
-    // MARK: - AutoOpen & AsyncOpen Helper
-
-    class func configureApp(appId: String? = nil, timeout: UInt? = nil) -> App {
-        var app: App
-        if let appId = appId {
-            app = App(id: appId)
-        } else {
-            // Check if there is a singular cached app
-            let cachedApps = RLMApp.allApps()
-            if cachedApps.count > 1 {
-                throwRealmException("Cannot AsyncOpen the Realm because more than one appId was found. When using multiple Apps you must explicitly pass an appId to indicate which to use.")
-            }
-            guard let cachedApp = cachedApps.first else {
-                throwRealmException("Cannot AsyncOpen the Realm because no appId was found. You must either explicitly pass an appId or initialize an App before displaying your View.")
-            }
-            app = cachedApp
-        }
-
-        // Setup timeout if needed
-        if let timeout {
-            app.syncManager.timeoutOptions = SyncTimeoutOptions(connectTimeout: timeout)
-        }
-        return app
-    }
-}
-
-// MARK: - AsyncOpen
-
-/// A property wrapper type that initiates a `Realm.asyncOpen()` for the current user which asynchronously open a Realm,
-/// and notifies states for the given process
-///
-/// Add AsyncOpen to your ``SwiftUI/View`` or ``SwiftUI/App``,  after a user is already logged in,
-/// or if a user is going to be logged in
-///
-///     @AsyncOpen(appId: "app_id", partitionValue: <partition_value>) var asyncOpen
-///
-/// This will immediately initiates a `Realm.asyncOpen()` operation which will perform all work needed to get the Realm to
-/// a usable state. (see Realm.asyncOpen() documentation)
-///
-/// This property wrapper will publish states of the current `Realm.asyncOpen()` process like progress, errors and an opened realm,
-/// which can be used to update the view
-///
-///     struct AsyncOpenView: View {
-///         @AsyncOpen(appId: "app_id", partitionValue: <partition_value>) var asyncOpen
-///
-///         var body: some View {
-///            switch asyncOpen {
-///            case .notOpen:
-///                ProgressView()
-///            case .open(let realm):
-///                ListView()
-///                   .environment(\.realm, realm)
-///            case .error(_):
-///                ErrorView()
-///            case .progress(let progress):
-///                ProgressView(progress)
-///            }
-///         }
-///     }
-///
-/// This opened `realm` can be later injected to the view as an environment value which will be used by our property wrappers
-/// to populate the view with data from the opened realm
-///
-///     ListView()
-///        .environment(\.realm, realm)
-///
-@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-@propertyWrapper public struct AsyncOpen: DynamicProperty {
-    @Environment(\.realmConfiguration) var configuration
-    @Environment(\.partitionValue) var partitionValue
-    @ObservedObject private var storage: ObservableAsyncOpenStorage
-
-    /**
-     A Publisher for `AsyncOpenState`, emits a state each time the asyncOpen state changes.
-     */
-    public var projectedValue: Published<AsyncOpenState>.Publisher {
-        storage.$asyncOpenState
-    }
-
-    /// :nodoc:
-    public var wrappedValue: AsyncOpenState {
-        storage.setup()
-        return storage.asyncOpenState
-    }
-
-    /**
-     This will cancel any notification from the property wrapper states
-     */
-    public func cancel() {
-        storage.cancel()
-    }
-
-    /**
-     Initialize the property wrapper
-     - parameter appId: The unique identifier of your Realm app, if empty or `nil` will try to retrieve latest singular cached app.
-     - parameter partitionValue: The `BSON` value the Realm is partitioned on.
-     - parameter configuration: The `Realm.Configuration` used when creating the Realm,
-                 user's sync configuration for the given partition value will be set as the `syncConfiguration`,
-                 if empty the user configuration will be used.
-     - parameter timeout: The maximum number of milliseconds to allow for a connection to
-                 become fully established., if empty or `nil` no connection timeout is set.
-     */
-    public init<Partition>(appId: String? = nil,
-                           partitionValue: Partition,
-                           configuration: Realm.Configuration? = nil,
-                           timeout: UInt? = nil) where Partition: BSON {
-        let app = ObservableAsyncOpenStorage.configureApp(appId: appId, timeout: timeout)
-        // Store property wrapper values on the storage
-        storage = ObservableAsyncOpenStorage(asyncOpenKind: .asyncOpen, app: app, configuration: configuration, partitionValue: AnyBSON(partitionValue))
-    }
-
-    /**
-     Initialize the property wrapper for a flexible sync configuration.
-     - parameter appId: The unique identifier of your Realm app, if empty or `nil` will try to retrieve latest singular cached app.
-     - parameter configuration: The `Realm.Configuration` used when creating the Realm,
-                 user's sync configuration for the given partition value will be set as the `syncConfiguration`,
-                 if empty the user configuration will be used.
-     - parameter timeout: The maximum number of milliseconds to allow for a connection to
-                 become fully established., if empty or `nil` no connection timeout is set.
-     */
-    public init(appId: String? = nil,
-                configuration: Realm.Configuration? = nil,
-                timeout: UInt? = nil) {
-        let app = ObservableAsyncOpenStorage.configureApp(appId: appId, timeout: timeout)
-        // Store property wrapper values on the storage
-        storage = ObservableAsyncOpenStorage(asyncOpenKind: .asyncOpen, app: app, configuration: configuration, partitionValue: nil)
-    }
-
-    nonisolated public func update() {
-        assumeOnMainActorExecutor {
-            storage.update(partitionValue, configuration)
-        }
-    }
-}
-
-// MARK: - AutoOpen
-
-/// `AutoOpen` will try once to asynchronously open a Realm, but in case of no internet connection will return an opened realm
-/// for the given appId and partitionValue which can be used within our view.
-
-/// Add AutoOpen to your ``SwiftUI/View`` or ``SwiftUI/App``,  after a user is already logged in
-/// or if a user is going to be logged in
-///
-///     @AutoOpen(appId: "app_id", partitionValue: <partition_value>, timeout: 4000) var autoOpen
-///
-/// This will immediately initiates a `Realm.asyncOpen()` operation which will perform all work needed to get the Realm to
-/// a usable state. (see Realm.asyncOpen() documentation)
-///
-/// This property wrapper will publish states of the current `Realm.asyncOpen()` process like progress, errors and an opened realm,
-/// which can be used to update the view
-///
-///     struct AutoOpenView: View {
-///         @AutoOpen(appId: "app_id", partitionValue: <partition_value>) var autoOpen
-///
-///         var body: some View {
-///            switch autoOpen {
-///            case .notOpen:
-///                ProgressView()
-///            case .open(let realm):
-///                ListView()
-///                   .environment(\.realm, realm)
-///            case .error(_):
-///                ErrorView()
-///            case .progress(let progress):
-///                ProgressView(progress)
-///            }
-///         }
-///     }
-///
-/// This opened `realm` can be later injected to the view as an environment value which will be used by our property wrappers
-/// to populate the view with data from the opened realm
-///
-///     ListView()
-///        .environment(\.realm, realm)
-///
-/// This property wrapper behaves similar as `AsyncOpen`, and in terms of declaration and use is completely identical,
-/// but with the difference of a offline-first approach.
-///
-@available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *)
-@propertyWrapper public struct AutoOpen: DynamicProperty {
-    @Environment(\.realmConfiguration) var configuration
-    @Environment(\.partitionValue) var partitionValue
-    @ObservedObject private var storage: ObservableAsyncOpenStorage
-
-    /**
-     A Publisher for `AsyncOpenState`, emits a state each time the asyncOpen state changes.
-     */
-    public var projectedValue: Published<AsyncOpenState>.Publisher {
-        storage.$asyncOpenState
-    }
-
-    /// :nodoc:
-    public var wrappedValue: AsyncOpenState {
-        storage.setup()
-        return storage.asyncOpenState
-    }
-
-    /**
-     This will cancel any notification from the property wrapper states
-     */
-    public func cancel() {
-        storage.cancel()
-    }
-
-    /**
-     Initialize the property wrapper
-     - parameter appId: The unique identifier of your Realm app,  if empty or `nil` will try to retrieve latest singular cached app.
-     - parameter partitionValue: The `BSON` value the Realm is partitioned on.
-     - parameter configuration: The `Realm.Configuration` used when creating the Realm,
-                 user's sync configuration for the given partition value will be set as the `syncConfiguration`,
-                 if empty the user configuration will be used.
-     - parameter timeout: The maximum number of milliseconds to allow for a connection to
-                 become fully established, if empty or `nil` no connection timeout is set.
-     */
-    public init<Partition>(appId: String? = nil,
-                           partitionValue: Partition,
-                           configuration: Realm.Configuration? = nil,
-                           timeout: UInt? = nil) where Partition: BSON {
-        let app = ObservableAsyncOpenStorage.configureApp(appId: appId, timeout: timeout)
-        // Store property wrapper values on the storage
-        storage = ObservableAsyncOpenStorage(asyncOpenKind: .autoOpen, app: app, configuration: configuration, partitionValue: AnyBSON(partitionValue))
-    }
-
-    /**
-     Initialize the property wrapper for a flexible sync configuration.
-     - parameter appId: The unique identifier of your Realm app, if empty or `nil` will try to retrieve latest singular cached app.
-     - parameter configuration: The `Realm.Configuration` used when creating the Realm,
-                 user's sync configuration for the given partition value will be set as the `syncConfiguration`,
-                 if empty the user configuration will be used.
-     - parameter timeout: The maximum number of milliseconds to allow for a connection to
-                 become fully established., if empty or `nil` no connection timeout is set.
-     */
-    public init(appId: String? = nil,
-                configuration: Realm.Configuration? = nil,
-                timeout: UInt? = nil) {
-        let app = ObservableAsyncOpenStorage.configureApp(appId: appId, timeout: timeout)
-        // Store property wrapper values on the storage
-        storage = ObservableAsyncOpenStorage(asyncOpenKind: .autoOpen, app: app, configuration: configuration, partitionValue: nil)
-    }
-
-    nonisolated public func update() {
-        assumeOnMainActorExecutor {
-            storage.update(partitionValue, configuration)
-        }
-    }
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 extension SwiftUIKVO {
     @objc(removeObserversFromObject:) static func removeObservers(object: NSObject) -> Bool {
-        if let subscription = SwiftUIKVO.observedObjects[object] {
-            subscription.removeObservers()
-            return true
-        } else {
+        Self.observedObjects.withLock {
+            if let subscription = $0[object] {
+                subscription.removeObservers()
+                return true
+            }
             return false
         }
     }
 
     @objc(addObserversToObject:) static func addObservers(object: NSObject) {
-        if let subscription = SwiftUIKVO.observedObjects[object] {
-            subscription.addObservers()
+        Self.observedObjects.withLock {
+            $0[object]?.addObservers()
         }
     }
 }
@@ -2137,7 +1756,7 @@ extension View {
     }
 
     private func filterCollection<T: ObjectBase>(_ collection: ObservedResults<T>, for text: String, on keyPath: KeyPath<T, String>) {
-        assumeOnMainActorExecutor {
+        MainActor.assumeIsolated {
             collection.searchText(text, on: keyPath)
         }
     }
@@ -2432,7 +2051,7 @@ extension View {
     }
 
     private func filterCollection<Key, T: ObjectBase>(_ collection: ObservedSectionedResults<Key, T>, for text: String, on keyPath: KeyPath<T, String>) {
-        assumeOnMainActorExecutor {
+        MainActor.assumeIsolated {
             collection.searchText(text, on: keyPath)
         }
     }

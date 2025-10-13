@@ -18,7 +18,6 @@
 
 #import "RLMRealm_Private.hpp"
 
-#import "RLMAnalytics.hpp"
 #import "RLMAsyncTask_Private.h"
 #import "RLMArray_Private.hpp"
 #import "RLMDictionary_Private.hpp"
@@ -37,11 +36,8 @@
 #import "RLMRealmUtil.hpp"
 #import "RLMScheduler.h"
 #import "RLMSchema_Private.hpp"
-#import "RLMSyncConfiguration.h"
-#import "RLMSyncConfiguration_Private.hpp"
 #import "RLMSet_Private.hpp"
 #import "RLMThreadSafeReference_Private.hpp"
-#import "RLMUpdateChecker.hpp"
 #import "RLMUtil.hpp"
 
 #import <realm/disable_sync_to_disk.hpp>
@@ -51,16 +47,7 @@
 #import <realm/object-store/shared_realm.hpp>
 #import <realm/object-store/util/scheduler.hpp>
 #import <realm/util/scope_exit.hpp>
-#import <realm/version.hpp>
 
-#if REALM_ENABLE_SYNC
-#import "RLMSyncManager_Private.hpp"
-#import "RLMSyncSession_Private.hpp"
-#import "RLMSyncUtil_Private.hpp"
-#import "RLMSyncSubscription_Private.hpp"
-
-#import <realm/object-store/sync/sync_session.hpp>
-#endif
 
 using namespace realm;
 using util::File;
@@ -90,6 +77,10 @@ static void RLMAddSkipBackupAttributeToItemAtPath(std::string_view path) {
 
 void RLMWaitForRealmToClose(NSString *path) {
     NSString *lockfilePath = [path stringByAppendingString:@".lock"];
+    if (![NSFileManager.defaultManager fileExistsAtPath:lockfilePath]) {
+        return;
+    }
+
     File lockfile(lockfilePath.UTF8String, File::mode_Update);
     lockfile.set_fifo_path([path stringByAppendingString:@".management"].UTF8String, "lock.fifo");
     while (!lockfile.try_rw_lock_exclusive()) {
@@ -174,16 +165,6 @@ REALM_NOINLINE void RLMRealmTranslateException(NSError **error) {
 }
 
 namespace {
-// ARC tries to eliminate calls to autorelease when the value is then immediately
-// returned, but this results in significantly different semantics between debug
-// and release builds for RLMRealm, so force it to always autorelease.
-// NEXT-MAJOR: we should switch to NS_RETURNS_RETAINED, which did not exist yet
-// when we wrote this but is the correct thing.
-id autorelease(__unsafe_unretained id value) {
-    // +1 __bridge_retained, -1 CFAutorelease
-    return value ? (__bridge id)CFAutorelease((__bridge_retained CFTypeRef)value) : nil;
-}
-
 RLMRealm *getCachedRealm(RLMRealmConfiguration *configuration, RLMScheduler *options) NS_RETURNS_RETAINED {
     auto& config = configuration.configRef;
     if (!configuration.cache && !configuration.dynamic) {
@@ -208,25 +189,25 @@ RLMRealm *getCachedRealm(RLMRealmConfiguration *configuration, RLMScheduler *opt
     if (oldConfig.encryption_key != config.encryption_key) {
         @throw RLMException(@"Realm at path '%@' already opened with different encryption key", configuration.fileURL.path);
     }
-    return autorelease(realm);
+    return realm;
 }
 
 bool copySeedFile(RLMRealmConfiguration *configuration, NSError **error) {
     if (!configuration.seedFilePath) {
         return false;
     }
+    NSError *copyError;
+    bool didCopySeed = false;
     @autoreleasepool {
-        bool didCopySeed = false;
-        NSError *copyError;
         DB::call_with_lock(configuration.path, [&](auto const&) {
             didCopySeed = [[NSFileManager defaultManager] copyItemAtURL:configuration.seedFilePath
                                                                   toURL:configuration.fileURL
                                                                   error:&copyError];
         });
-        if (!didCopySeed && copyError != nil && copyError.code != NSFileWriteFileExistsError) {
-            RLMSetErrorOrThrow(copyError, error);
-            return true;
-        }
+    }
+    if (!didCopySeed && copyError && copyError.code != NSFileWriteFileExistsError) {
+        RLMSetErrorOrThrow(copyError, error);
+        return true;
     }
     return false;
 }
@@ -242,18 +223,6 @@ bool copySeedFile(RLMRealmConfiguration *configuration, NSError **error) {
     // In cases where we are not using a synced Realm, we initialise the default logger
     // before opening any realm.
     [RLMLogger class];
-}
-
-+ (void)runFirstCheckForConfiguration:(RLMRealmConfiguration *)configuration schema:(RLMSchema *)schema {
-    static bool initialized;
-    if (initialized) {
-        return;
-    }
-    initialized = true;
-
-    // Run Analytics on the very first any Realm open.
-    RLMSendAnalytics(configuration, schema);
-    RLMCheckForUpdates();
 }
 
 - (instancetype)initPrivate {
@@ -315,7 +284,7 @@ bool copySeedFile(RLMRealmConfiguration *configuration, NSError **error) {
                                         callback:(RLMAsyncOpenRealmCallback)callback {
     return [[RLMAsyncOpenTask alloc] initWithConfiguration:configuration
                                                 confinedTo:[RLMScheduler dispatchQueue:callbackQueue]
-                                                  download:true completion:callback];
+                                                completion:callback];
 }
 
 + (instancetype)realmWithSharedRealm:(SharedRealm)sharedRealm
@@ -329,7 +298,7 @@ bool copySeedFile(RLMRealmConfiguration *configuration, NSError **error) {
         realm->_realm->set_schema_subset(schema.objectStoreCopy);
     }
     realm->_info = RLMSchemaInfo(realm);
-    return autorelease(realm);
+    return realm;
 }
 
 + (instancetype)realmWithSharedRealm:(std::shared_ptr<Realm>)osRealm
@@ -380,17 +349,17 @@ bool copySeedFile(RLMRealmConfiguration *configuration, NSError **error) {
 }
 
 + (instancetype)realmWithConfiguration:(RLMRealmConfiguration *)configuration error:(NSError **)error {
-    return autorelease([self realmWithConfiguration:configuration
-                                         confinedTo:RLMScheduler.currentRunLoop
-                                              error:error]);
+    return [self realmWithConfiguration:configuration
+                             confinedTo:RLMScheduler.currentRunLoop
+                                  error:error];
 }
 
 + (instancetype)realmWithConfiguration:(RLMRealmConfiguration *)configuration
                                  queue:(dispatch_queue_t)queue
                                  error:(NSError **)error {
-    return autorelease([self realmWithConfiguration:configuration
-                                         confinedTo:[RLMScheduler dispatchQueue:queue]
-                                              error:error]);
+    return [self realmWithConfiguration:configuration
+                             confinedTo:[RLMScheduler dispatchQueue:queue]
+                                  error:error];
 }
 
 + (instancetype)realmWithConfiguration:(RLMRealmConfiguration *)configuration
@@ -430,7 +399,6 @@ bool copySeedFile(RLMRealmConfiguration *configuration, NSError **error) {
         return nil;
     }
 
-    bool realmIsCached = false;
     // if we have a cached realm on another thread we can skip a few steps and
     // just grab its schema
     @autoreleasepool {
@@ -439,11 +407,9 @@ bool copySeedFile(RLMRealmConfiguration *configuration, NSError **error) {
             realm->_realm->set_schema_subset(cachedRealm->_realm->schema());
             realm->_schema = cachedRealm.schema;
             realm->_info = cachedRealm->_info.clone(cachedRealm->_realm->schema(), realm);
-            realmIsCached = true;
         }
     }
 
-    bool isFirstOpen = false;
     if (realm->_schema) { }
     else if (dynamic) {
         realm->_schema = [RLMSchema dynamicSchemaFromObjectStoreSchema:realm->_realm->schema()];
@@ -478,16 +444,9 @@ bool copySeedFile(RLMRealmConfiguration *configuration, NSError **error) {
             };
         }
 
-        DataInitializationFunction initializationFunction;
-        if (!configuration.rerunOnOpen && configuration.initialSubscriptions) {
-            initializationFunction = [&isFirstOpen](SharedRealm) {
-                isFirstOpen = true;
-            };
-        }
-
         try {
             realm->_realm->update_schema(schema.objectStoreCopy, config.schema_version,
-                                         std::move(migrationFunction), std::move(initializationFunction));
+                                         std::move(migrationFunction));
         }
         catch (...) {
             RLMRealmTranslateException(error);
@@ -518,18 +477,6 @@ bool copySeedFile(RLMRealmConfiguration *configuration, NSError **error) {
         realm->_realm->m_binding_context->realm = realm->_realm;
     }
 
-#if REALM_ENABLE_SYNC
-    if (isFirstOpen || (configuration.rerunOnOpen && !realmIsCached)) {
-        RLMSyncSubscriptionSet *subscriptions = realm.subscriptions;
-        [subscriptions update:^{
-            configuration.initialSubscriptions(subscriptions);
-        }];
-    }
-#endif
-
-    // Run Analytics and Update checker, this will be run only the first any realm open
-    [self runFirstCheckForConfiguration:configuration schema:realm.schema];
-
     return realm;
 }
 
@@ -549,9 +496,6 @@ bool copySeedFile(RLMRealmConfiguration *configuration, NSError **error) {
     }
     if (_realm->config().automatic_change_notifications && !_realm->can_deliver_notifications()) {
         @throw RLMException(@"Can only add notification blocks from within runloops.");
-    }
-    if (isCollection && _realm->is_in_transaction()) {
-        @throw RLMException(@"Cannot register notification blocks from within write transactions.");
     }
 }
 
@@ -609,6 +553,14 @@ bool copySeedFile(RLMRealmConfiguration *configuration, NSError **error) {
     configuration.configRef = _realm->config();
     configuration.dynamic = _dynamic;
     configuration.customSchema = _schema;
+    return configuration;
+}
+
+- (RLMRealmConfiguration *)configurationSharingSchema {
+    RLMRealmConfiguration *configuration = [[RLMRealmConfiguration alloc] init];
+    configuration.configRef = _realm->config();
+    configuration.dynamic = _dynamic;
+    [configuration setCustomSchemaWithoutCopying:_schema];
     return configuration;
 }
 
@@ -1092,7 +1044,7 @@ bool copySeedFile(RLMRealmConfiguration *configuration, NSError **error) {
 
 - (RLMRealm *)thaw {
     [self verifyThread];
-    return self.isFrozen ? [RLMRealm realmWithConfiguration:self.configuration error:nil] : self;
+    return self.isFrozen ? [RLMRealm realmWithConfiguration:self.configurationSharingSchema error:nil] : self;
 }
 
 - (RLMRealm *)frozenCopy {
@@ -1129,24 +1081,5 @@ bool copySeedFile(RLMRealmConfiguration *configuration, NSError **error) {
         [enumerator detach];
     }
     _collectionEnumerators = nil;
-}
-
-- (bool)isFlexibleSync {
-#if REALM_ENABLE_SYNC
-    return _realm->config().sync_config && _realm->config().sync_config->flx_sync_requested;
-#else
-    return false;
-#endif
-}
-
-- (RLMSyncSubscriptionSet *)subscriptions {
-#if REALM_ENABLE_SYNC
-    if (!self.isFlexibleSync) {
-        @throw RLMException(@"This Realm was not configured with flexible sync");
-    }
-    return [[RLMSyncSubscriptionSet alloc] initWithSubscriptionSet:_realm->get_latest_subscription_set() realm:self];
-#else
-    @throw RLMException(@"Realm was not compiled with sync enabled");
-#endif
 }
 @end

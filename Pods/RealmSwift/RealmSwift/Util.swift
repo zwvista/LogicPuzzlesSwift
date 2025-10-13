@@ -160,34 +160,15 @@ internal func logRuntimeIssue(_ message: StaticString) {
     }
 }
 
-@_unavailableFromAsync
-internal func assumeOnMainActorExecutor<T>(_ operation: @MainActor () throws -> T,
-                                           file: StaticString = #fileID, line: UInt = #line
-) rethrows -> T {
-#if swift(>=5.9)
-    if #available(macOS 14.0, iOS 17.0, watchOS 10.0, tvOS 17.0, *) {
-        return try MainActor.assumeIsolated(operation)
-    }
-#endif
-
-    precondition(Thread.isMainThread, file: file, line: line)
-    return try withoutActuallyEscaping(operation) { fn in
-        try unsafeBitCast(fn, to: (() throws -> T).self)()
-    }
-}
-
-@_unavailableFromAsync
 @available(macOS 10.15, tvOS 13.0, iOS 13.0, watchOS 6.0, *)
-internal func assumeOnActorExecutor<A: Actor, T>(_ actor: A,
-                                                 _ operation: (isolated A) throws -> T
-) rethrows -> T {
-#if swift(>=5.9)
-    if #available(macOS 14.0, iOS 17.0, watchOS 10.0, tvOS 17.0, *) {
-        return try actor.assumeIsolated(operation)
-    }
-#endif
-
-    return try withoutActuallyEscaping(operation) { fn in
-        try unsafeBitCast(fn, to: ((A) throws -> T).self)(actor)
+extension Actor {
+    @_unavailableFromAsync
+    internal func invokeIsolated<Ret, Arg>(_ operation: (isolated Self, Arg) throws -> Ret, _ arg: Arg,
+                                           file: StaticString = #fileID, line: UInt = #line
+    ) rethrows -> Ret {
+        preconditionIsolated(file: file, line: line)
+        return try withoutActuallyEscaping(operation) { fn in
+            try unsafeBitCast(fn, to: ((Self, Arg) throws -> Ret).self)(self, arg)
+        }
     }
 }

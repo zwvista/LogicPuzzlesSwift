@@ -19,20 +19,18 @@
 #ifndef REALM_ALLOC_SLAB_HPP
 #define REALM_ALLOC_SLAB_HPP
 
-#include <cstdint> // unint8_t etc
-#include <vector>
-#include <map>
-#include <string>
 #include <atomic>
+#include <cstdint> // unint8_t etc
+#include <map>
 #include <mutex>
+#include <string>
+#include <vector>
 
 #include <realm/util/checked_mutex.hpp>
 #include <realm/util/features.h>
 #include <realm/util/file.hpp>
-#include <realm/util/functional.hpp>
 #include <realm/util/thread.hpp>
 #include <realm/alloc.hpp>
-#include <realm/disable_sync_to_disk.hpp>
 #include <realm/version_id.hpp>
 
 namespace realm {
@@ -40,10 +38,6 @@ namespace realm {
 // Pre-declarations
 class Group;
 class GroupWriter;
-
-namespace util {
-struct SharedFileInfo;
-} // namespace util
 
 /// Thrown by Group and DB constructors if the specified file
 /// (or memory buffer) does not appear to contain a valid Realm
@@ -108,15 +102,20 @@ public:
     /// Always initialize the file as if it was a newly
     /// created file and ignore any pre-existing contents. Requires that
     /// Config::session_initiator be true as well.
+    ///
+    /// \var Config::clear_file_on_error
+    /// If the file being opened is not a valid Realm file (possibly due to a
+    /// decryption failure), reinitialize it as if clear_file was set.
     struct Config {
+        const char* encryption_key = nullptr;
         bool is_shared = false;
         bool read_only = false;
         bool no_create = false;
         bool skip_validate = false;
         bool session_initiator = false;
         bool clear_file = false;
+        bool clear_file_on_error = false;
         bool disable_sync = false;
-        const char* encryption_key = nullptr;
     };
 
     struct Retry {};
@@ -148,8 +147,8 @@ public:
     /// This can happen if the conflicting thread (or process) terminates or
     /// crashes before the next retry.
     ///
-    /// \throw FileAccessError
-    /// \throw SlabAlloc::Retry
+    /// \throw FileAccessError if unable to access the file
+    /// \throw SlabAlloc::Retry if the request cannot be completed right now
     ref_type attach_file(const std::string& file_path, Config& cfg, util::WriteObserver* write_observer = nullptr);
 
     /// @brief Expand or contract file
@@ -180,7 +179,7 @@ public:
     ///
     /// \sa own_buffer()
     ///
-    /// \throw InvalidDatabase
+    /// \throw InvalidDatabase if an error occurs while attaching the allocator
     ref_type attach_buffer(const char* data, size_t size);
 
     void init_in_memory_buffer();
@@ -358,10 +357,10 @@ public:
     /// Returns total amount of slab for all slab allocators
     static size_t get_total_slab_size() noexcept;
 
-    /// Hooks used to keep the encryption layer informed of the start and stop
-    /// of transactions.
-    void note_reader_start(const void* reader_id);
-    void note_reader_end(const void* reader_id) noexcept;
+    /// Read the header (and possibly footer) from the file, returning the top ref if it's valid and throwing
+    /// InvalidDatabase otherwise.
+    static ref_type read_and_validate_header(util::File& file, const std::string& path, size_t size,
+                                             bool session_initiator, util::WriteObserver* write_observer);
 
     void verify() const override;
 #ifdef REALM_DEBUG
@@ -646,7 +645,6 @@ private:
     uint64_t m_youngest_live_version = 1;
     std::mutex m_mapping_mutex;
     util::File m_file;
-    util::SharedFileInfo* m_realm_file_info = nullptr;
     // vectors where old mappings, are held from deletion to ensure translations are
     // kept open and ref->ptr translations work for other threads..
     std::vector<OldMapping> m_old_mappings;
@@ -703,10 +701,10 @@ private:
     /// corrupted, or if the specified encryption key is incorrect. This
     /// function will not detect all forms of corruption, though.
     /// Returns the top_ref for the latest commit.
-    ref_type validate_header(const char* data, size_t len, const std::string& path);
-    ref_type validate_header(const Header* header, const StreamingFooter* footer, size_t size,
-                             const std::string& path, bool is_encrypted = false);
-    void throw_header_exception(std::string msg, const Header& header, const std::string& path);
+    static ref_type validate_header(const char* data, size_t len, const std::string& path);
+    static ref_type validate_header(const Header* header, const StreamingFooter* footer, size_t size,
+                                    const std::string& path, bool is_encrypted = false);
+    static void throw_header_exception(std::string msg, const Header& header, const std::string& path);
 
     static bool is_file_on_streaming_form(const Header& header);
     /// Read the top_ref from the given buffer and set m_file_on_streaming_form

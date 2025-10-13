@@ -42,6 +42,8 @@ class WeakRealmNotifier;
 // RealmCoordinator manages the weak cache of Realm instances and communication
 // between per-thread Realm instances for a given file
 class RealmCoordinator : public std::enable_shared_from_this<RealmCoordinator>, DB::CommitListener {
+    struct Private {};
+
 public:
     // Get the coordinator for the given path, creating it if neccesary
     static std::shared_ptr<RealmCoordinator> get_coordinator(StringData path);
@@ -64,21 +66,6 @@ public:
     // Return a frozen copy of the source Realm. May return a cached instance
     // if the source Realm has caching enabled.
     std::shared_ptr<Realm> freeze_realm(const Realm& source_realm) REQUIRES(!m_realm_mutex);
-
-#if REALM_ENABLE_SYNC
-    // Get a thread-local shared Realm with the given configuration
-    // If the Realm is not already present, it will be fully downloaded before being returned.
-    // If the Realm is already on disk, it will be fully synchronized before being returned.
-    // Timeouts and interruptions are not handled by this method and must be handled by upper layers.
-    std::shared_ptr<AsyncOpenTask> get_synchronized_realm(Realm::Config config)
-        REQUIRES(!m_realm_mutex, !m_schema_cache_mutex);
-
-    std::shared_ptr<SyncSession> sync_session() REQUIRES(!m_realm_mutex)
-    {
-        util::CheckedLockGuard lock(m_realm_mutex);
-        return m_sync_session;
-    }
-#endif
 
     // Get the existing cached Realm if it exists for the specified scheduler or config.scheduler
     std::shared_ptr<Realm> get_cached_realm(Realm::Config const& config,
@@ -153,8 +140,9 @@ public:
     // Verify that there are no Realms open for any paths
     static void assert_no_open_realms() noexcept;
 
-    // Explicit constructor/destructor needed for the unique_ptrs to forward-declared types
-    RealmCoordinator();
+    explicit RealmCoordinator(Private);
+    RealmCoordinator(const RealmCoordinator&) = delete;
+    RealmCoordinator& operator=(const RealmCoordinator&) = delete;
     ~RealmCoordinator();
 
     // Called by Realm's destructor to ensure the cache is cleaned up promptly
@@ -197,7 +185,7 @@ public:
 
     void close();
     bool compact();
-    void write_copy(StringData path, const char* key);
+    void write_copy(std::string_view path, const char* key);
 
     // Close the DB, delete the file, and then reopen it. This operation is *not*
     // implemented in a safe manner and will only work in fairly specific circumstances
@@ -225,12 +213,17 @@ public:
         return m_audit_context.get();
     }
 
+    bool try_claim_sync_agent()
+    {
+        return m_db->try_claim_sync_agent();
+    }
+
 private:
     friend Realm::Internal;
     Realm::Config m_config;
     std::shared_ptr<DB> m_db;
 
-    mutable util::CheckedMutex m_schema_cache_mutex;
+    util::CheckedMutex m_schema_cache_mutex;
     util::Optional<Schema> m_cached_schema GUARDED_BY(m_schema_cache_mutex);
     uint64_t m_schema_version GUARDED_BY(m_schema_cache_mutex) = -1;
     uint64_t m_schema_transaction_version_min GUARDED_BY(m_schema_cache_mutex) = 0;
@@ -253,10 +246,6 @@ private:
     std::shared_ptr<Transaction> m_notifier_handover_transaction;
 
     std::unique_ptr<_impl::ExternalCommitHelper> m_notifier;
-
-#if REALM_ENABLE_SYNC
-    std::shared_ptr<SyncSession> m_sync_session;
-#endif
 
     std::shared_ptr<AuditInterface> m_audit_context;
 

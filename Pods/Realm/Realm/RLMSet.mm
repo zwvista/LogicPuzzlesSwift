@@ -70,7 +70,7 @@
 
 - (void)setParent:(RLMObjectBase *)parentObject property:(RLMProperty *)property {
     _parentObject = parentObject;
-    _key = property.name;
+    _property = property;
     _isLegacyProperty = property.isLegacy;
 }
 
@@ -240,9 +240,9 @@ static void changeSet(__unsafe_unretained RLMSet *const set,
     }
 
     if (RLMObjectBase *parent = set->_parentObject) {
-        [parent willChangeValueForKey:set->_key];
+        [parent willChangeValueForKey:set->_property.name];
         f();
-        [parent didChangeValueForKey:set->_key];
+        [parent didChangeValueForKey:set->_property.name];
     }
     else {
         f();
@@ -279,7 +279,10 @@ static void validateSetBounds(__unsafe_unretained RLMSet *const set,
             return;
         }
         for (id object in objects) {
-            [_backingCollection addObject:object];
+            // object should always be non-nil since it's a value stored in a
+            // NSArray, but as of Xcode 16.3 [Decimal128?] sometimes ends up
+            // with nil instead of NSNull when bridged from Swift.
+            [_backingCollection addObject:object ?: NSNull.null];
         }
     });
 }
@@ -484,7 +487,7 @@ void RLMSetValidateMatchingObjectType(__unsafe_unretained RLMSet *const set,
 #pragma mark - Key Path Strings
 
 - (NSString *)propertyKey {
-    return _key;
+    return _property.name;
 }
 
 #pragma mark - Methods unsupported on unmanaged RLMSet instances

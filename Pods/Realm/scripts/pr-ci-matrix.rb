@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
-# A script to generate the .jenkins.yml file for the CI pull request job
-XCODE_VERSIONS = %w(14.1 14.2 14.3.1)
+XCODE_VERSIONS = %w(15.3 15.4 16.2 16.3 16.4)
+DOC_VERSION = '16.4'
 
 all = ->(v) { true }
 latest_only = ->(v) { v == XCODE_VERSIONS.last }
@@ -11,23 +11,19 @@ def minimum_version(major)
 end
 
 targets = {
-  'docs' => latest_only,
-  'swiftlint' => latest_only,
-
   'osx' => all,
   'osx-encryption' => latest_only,
-  'osx-object-server' => oldest_and_latest,
 
   'swiftpm' => oldest_and_latest,
   'swiftpm-debug' => all,
   'swiftpm-address' => latest_only,
   'swiftpm-thread' => latest_only,
-  'ios-xcode-spm' => all,
 
   'ios-static' => oldest_and_latest,
   'ios' => oldest_and_latest,
   'watchos' => oldest_and_latest,
   'tvos' => oldest_and_latest,
+  'visionos' => oldest_and_latest,
 
   'osx-swift' => all,
   'ios-swift' => oldest_and_latest,
@@ -48,33 +44,58 @@ targets = {
   'cocoapods-watchos' => latest_only,
   'cocoapods-tvos' => latest_only,
   'cocoapods-catalyst' => latest_only,
-  'swiftui-ios' => latest_only,
-  'swiftui-server-osx' => latest_only,
+  'ios-swiftui' => latest_only,
 }
 
 output_file = """
-# Yaml Axis Plugin
-# https://wiki.jenkins-ci.org/display/JENKINS/Yaml+Axis+Plugin
 # This is a generated file produced by scripts/pr-ci-matrix.rb.
+name: Pull request build and test
+on:
+  pull_request:
+    paths-ignore:
+      - '**.md'
+  workflow_dispatch:
 
-xcode_version:#{XCODE_VERSIONS.map { |v| "\n - #{v}" }.join()}
-target:#{targets.map { |k, v| "\n - #{k}" }.join()}
-configuration:
- - N/A
-
-exclude:
+jobs:
+  docs:
+    runs-on: macos-15
+    name: Test docs
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - run: sudo xcode-select -switch /Applications/Xcode_#{DOC_VERSION}.app
+      - run: bundle exec sh build.sh verify-docs
+  swiftlint:
+    runs-on: macos-15
+    name: Check swiftlint
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo xcode-select -switch /Applications/Xcode_#{DOC_VERSION}.app
+      - run: brew install swiftlint
+      - run: sh build.sh verify-swiftlint
 """
+
 targets.each { |name, filter|
   XCODE_VERSIONS.each { |version|
     if not filter.call(version)
-      output_file << """
-  - xcode_version: #{version}
-    target: #{name}
-"""
+      next
     end
+    image = version.start_with?('16') ? 'macos-15' : 'macos-14'
+    output_file << """
+  #{name}-#{version.gsub(' ', '_').gsub('.', '_')}:
+    runs-on: #{image}
+    name: Test #{name} on Xcode #{version}
+    env:
+      DEVELOPER_DIR: '/Applications/Xcode_#{version}.app/Contents/Developer'
+    steps:
+      - uses: actions/checkout@v4
+      - run: sh -x build.sh ci-pr #{name}
+"""
   }
 }
 
-File.open('.jenkins.yml', "w") do |file|
+File.open('.github/workflows/build-pr.yml', "w") do |file|
   file.puts output_file
 end

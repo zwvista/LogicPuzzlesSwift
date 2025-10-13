@@ -612,7 +612,7 @@ extension Realm {
 // MARK: - Object
 
 @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-extension Object: ObservableObject {
+extension Object {
     /// A publisher that emits Void each time the object changes.
     ///
     /// Despite the name, this actually emits *after* the object has changed.
@@ -621,7 +621,7 @@ extension Object: ObservableObject {
     }
 }
 @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-extension EmbeddedObject: ObservableObject {
+extension EmbeddedObject {
     /// A publisher that emits Void each time the object changes.
     ///
     /// Despite the name, this actually emits *after* the embedded object has changed.
@@ -646,6 +646,18 @@ extension ObjectBase: RealmSubscribable {
         return _observe(keyPaths: keyPaths, { _ = subscriber.receive() })
     }
 }
+
+#if compiler(>=6)
+@available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+extension Object: @retroactive ObservableObject {}
+@available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+extension EmbeddedObject: @retroactive ObservableObject {}
+#else
+@available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+extension Object: ObservableObject {}
+@available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+extension EmbeddedObject: ObservableObject {}
+#endif
 
 // MARK: - List
 
@@ -894,13 +906,8 @@ extension RealmKeyedCollection {
 @frozen public struct AsyncOpenSubscription: Subscription {
     private let task: Realm.AsyncOpenTask
 
-    internal init(task: Realm.AsyncOpenTask,
-                  callbackQueue: DispatchQueue,
-                  onProgressNotificationCallback: ((SyncSession.Progress) -> Void)?) {
+    internal init(task: Realm.AsyncOpenTask) {
         self.task = task
-        if let onProgressNotificationCallback = onProgressNotificationCallback {
-            self.task.addProgressNotification(queue: callbackQueue, block: onProgressNotificationCallback)
-        }
     }
 
     /// A unique identifier for identifying publisher streams.
@@ -932,65 +939,7 @@ public enum RealmPublishers {
         try? Realm(RLMRealm(configuration: config, queue: scheduler as? DispatchQueue))
     }
     static private func realm<S: Scheduler>(_ sourceRealm: Realm, _ scheduler: S) -> Realm? {
-        return realm(sourceRealm.rlmRealm.configuration, scheduler)
-    }
-
-    /// A publisher which emits an asynchronously opened Realm.
-    @frozen public struct AsyncOpenPublisher: Publisher {
-        /// This publisher can fail if there is an error opening the Realm.
-        public typealias Failure = Error
-        /// This publisher emits an opened Realm.
-        public typealias Output = Realm
-
-        private let configuration: Realm.Configuration
-        private let callbackQueue: DispatchQueue
-        private let onProgressNotificationCallback: ((SyncSession.Progress) -> Void)?
-
-        internal init(configuration: Realm.Configuration,
-                      callbackQueue: DispatchQueue = .main,
-                      onProgressNotificationCallback: ((SyncSession.Progress) -> Void)? = nil) {
-            self.configuration = configuration
-            self.callbackQueue = callbackQueue
-            self.onProgressNotificationCallback = onProgressNotificationCallback
-        }
-
-        /// Triggers an event when there is a notification on the async open progress.
-        ///
-        /// This should be called directly after invoking the publisher.
-        ///
-        /// - Parameter onProgressNotificationCallback: Callback which will be invoked when there is an update on progress.
-        /// - Returns: A publisher that emits an asynchronously opened Realm.
-        public func onProgressNotification(_ onProgressNotificationCallback: @escaping ((SyncSession.Progress) -> Void)) -> Self {
-            Self(configuration: configuration,
-                 callbackQueue: callbackQueue,
-                 onProgressNotificationCallback: onProgressNotificationCallback)
-        }
-
-        /// :nodoc:
-        public func receive<S>(subscriber: S) where S: Subscriber, S.Failure == Failure, Output == S.Input {
-            subscriber.receive(subscription: AsyncOpenSubscription(task: Realm.AsyncOpenTask(rlmTask: RLMRealm.asyncOpen(with: configuration.rlmConfiguration, callbackQueue: callbackQueue, callback: { rlmRealm, error in
-                if let realm = rlmRealm.flatMap(Realm.init) {
-                    _ = subscriber.receive(realm)
-                    subscriber.receive(completion: .finished)
-                } else {
-                    subscriber.receive(completion: .failure(error ?? Realm.Error.callFailed))
-                }
-            })), callbackQueue: callbackQueue, onProgressNotificationCallback: onProgressNotificationCallback))
-        }
-
-        /// Specifies the scheduler on which to perform the async open task.
-        ///
-        /// - parameter scheduler: The serial dispatch queue to receive values on.
-        /// - returns: A publisher which delivers values to the given scheduler.
-        public func receive<S: Scheduler>(on scheduler: S) -> Self {
-            guard let queue = scheduler as? DispatchQueue else {
-                fatalError("Cannot subscribe on scheduler \(scheduler): only serial dispatch queues are currently implemented.")
-            }
-
-            return Self(configuration: configuration,
-                        callbackQueue: queue,
-                        onProgressNotificationCallback: onProgressNotificationCallback)
-        }
+        return realm(sourceRealm.rlmRealm.configurationSharingSchema(), scheduler)
     }
 
     /// A publisher which emits Void each time the Realm is refreshed.
@@ -1287,7 +1236,7 @@ public enum RealmPublishers {
         private let scheduler: S
 
         internal init(_ upstream: Upstream, _ scheduler: S, _ realm: Realm) {
-            self.config = realm.rlmRealm.configuration
+            self.config = realm.rlmRealm.configurationSharingSchema()
             self.upstream = upstream
             self.scheduler = scheduler
         }
@@ -1364,7 +1313,7 @@ public enum RealmPublishers {
             self.upstream
                 .map { (obj: Output) -> Handover in
                     guard let realm = obj.realm, !realm.isFrozen else { return .object(obj) }
-                    return .tsr(ThreadSafeReference(to: obj), config: realm.rlmRealm.configuration)
+                    return .tsr(ThreadSafeReference(to: obj), config: realm.rlmRealm.configurationSharingSchema())
             }
             .receive(on: scheduler)
             .compactMap { (handover: Handover) -> Output? in

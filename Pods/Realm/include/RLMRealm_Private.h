@@ -61,7 +61,11 @@ FOUNDATION_EXTERN RLMAsyncRefreshTask *_Nullable RLMRealmRefreshAsync(RLMRealm *
 @property (nonatomic, readonly) BOOL dynamic;
 @property (nonatomic, readwrite) RLMSchema *schema;
 @property (nonatomic, readonly, nullable) id actor;
-@property (nonatomic, readonly) bool isFlexibleSync;
+
+// `-configuration` does a deep copy of the schema as if the user mutates the
+// RLMSchema in use by a RLMRealm things will break horribly. When we know that
+// the configuration won't be exposed we can skip the copy.
+- (RLMRealmConfiguration *)configurationSharingSchema NS_RETURNS_RETAINED;
 
 + (void)resetRealmState;
 
@@ -77,7 +81,7 @@ FOUNDATION_EXTERN RLMAsyncRefreshTask *_Nullable RLMRealmRefreshAsync(RLMRealm *
 
 + (nullable instancetype)realmWithConfiguration:(RLMRealmConfiguration *)configuration
                                      confinedTo:(RLMScheduler *)options
-                                          error:(NSError **)error;
+                                          error:(NSError **)error NS_RETURNS_RETAINED;
 
 - (RLMAsyncWriteTask *)beginAsyncWrite NS_RETURNS_RETAINED;
 - (void)commitAsyncWriteWithGrouping:(bool)allowGrouping

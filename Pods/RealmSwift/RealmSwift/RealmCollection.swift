@@ -61,8 +61,9 @@ public protocol _RealmMapValue {
         let next = generatorBase.next()
         if let next = next as? Element.Key {
             let key: Element.Key = next
-            let val: Element.Value = dynamicBridgeCast(fromObjectiveC: collection[key as AnyObject]!)
-            return SingleMapEntry(key: key, value: val) as? Element
+            if let val = collection[key as AnyObject].map(Element.Value._rlmFromObjc(_:)), let val {
+                return SingleMapEntry(key: key, value: val) as? Element
+            }
         }
         return nil
     }
@@ -85,7 +86,7 @@ public protocol _RealmMapValue {
     public mutating func next() -> Element? {
         let next = generatorBase.next()
         if let key = next as? Key,
-           let value = collection[key as AnyObject].map(dynamicBridgeCast) as? Value {
+           let value = collection[key as AnyObject].map(Value._rlmFromObjc(_:)), let value {
             return (key: key, value: value)
         }
         return nil
@@ -287,7 +288,7 @@ public protocol RealmCollection: RealmCollectionBase, Equatable where Iterator =
     /**
      Returns an array containing the objects in the collection at the indexes specified by a given index set.
 
-     - warning Throws if an index supplied in the IndexSet is out of bounds.
+     - warning: Throws if an index supplied in the IndexSet is out of bounds.
 
      - parameter indexes: The indexes in the collection to select objects from.
      */
@@ -523,7 +524,7 @@ public protocol RealmCollection: RealmCollectionBase, Equatable where Iterator =
                  on queue: DispatchQueue?,
                  _ block: @escaping (RealmCollectionChange<Self>) -> Void) -> NotificationToken
 
-#if swift(>=5.8)
+#if compiler(<6)
     /**
     Registers a block to be called each time the collection changes.
 
@@ -620,6 +621,104 @@ public protocol RealmCollection: RealmCollectionBase, Equatable where Iterator =
     @_unsafeInheritExecutor
     func observe<A: Actor>(keyPaths: [String]?,
                            on actor: A,
+                           _ block: @Sendable @escaping (isolated A, RealmCollectionChange<Self>) -> Void) async -> NotificationToken
+#else
+    /**
+    Registers a block to be called each time the collection changes.
+
+    The block will be asynchronously called with an initial version of the
+    collection, and then called again after each write transaction which changes
+    either any of the objects in the collection, or which objects are in the
+    collection.
+
+    The `actor` parameter passed to the block is the actor which you pass to this
+    function. This parameter is required to isolate the callback to the actor.
+
+    The `change` parameter that is passed to the block reports, in the form of
+    indices within the collection, which of the objects were added, removed, or
+    modified after the previous notification. The `collection` field in the change
+    enum will be isolated to the requested actor, and is safe to use within that
+    actor only. See the ``RealmCollectionChange`` documentation for more
+    information on the change information supplied and an example of how to use it
+    to update a `UITableView`.
+
+    Once the initial notification is delivered, the collection will be fully
+    evaluated and up-to-date, and accessing it will never perform any blocking
+    work. This guarantee holds only as long as you do not perform a write
+    transaction on the same actor as notifications are being delivered to. If you
+    do, accessing the collection before the next notification is delivered may need
+    to rerun the query.
+
+    Notifications are delivered to the given actor's executor. When notifications
+    can't be delivered instantly, multiple notifications may be coalesced into a
+    single notification. This can include the notification with the initial
+    collection: any writes which occur before the initial notification is delivered
+    may not produce change notifications.
+
+    Adding, removing or assigning objects in the collection always produces a
+    notification. By default, modifying the objects which a collection links to
+    (and the objects which those objects link to, if applicable) will also report
+    that index in the collection as being modified. If a non-empty array of
+    keypaths is provided, then only modifications to those keypaths will mark the
+    object as modified. For example:
+
+    ```swift
+    class Dog: Object {
+        @Persisted var name: String
+        @Persisted var age: Int
+        @Persisted var toys: List<Toy>
+    }
+
+    let dogs = realm.objects(Dog.self)
+    let token = await dogs.observe(keyPaths: ["name"], on: myActor) { actor, changes in
+        switch changes {
+        case .initial(let dogs):
+            // Query has finished running and dogs can not be used without blocking
+        case .update:
+            // This case is hit:
+            // - after the token is initialized
+            // - when the name property of an object in the collection is modified
+            // - when an element is inserted or removed from the collection.
+            // This block is not triggered:
+            // - when a value other than name is modified on one of the elements.
+        case .error:
+            // Can no longer happen but is left for backwards compatiblity
+        }
+    }
+    ```
+    - If the observed key path were `["toys.brand"]`, then any insertion or
+      deletion to the `toys` list on any of the collection's elements would trigger
+      the block. Changes to the `brand` value on any `Toy` that is linked to a `Dog`
+      in this collection will trigger the block. Changes to a value other than
+      `brand` on any `Toy` that is linked to a `Dog` in this collection would not
+      trigger the block. Any insertion or removal to the `Dog` type collection being
+      observed would also trigger a notification.
+    - If the above example observed the `["toys"]` key path, then any insertion,
+      deletion, or modification to the `toys` list for any element in the collection
+      would trigger the block. Changes to any value on any `Toy` that is linked to a
+      `Dog` in this collection would *not* trigger the block. Any insertion or
+      removal to the `Dog` type collection being observed would still trigger a
+      notification.
+
+    You must retain the returned token for as long as you want updates to be sent
+    to the block. To stop receiving updates, call `invalidate()` on the token.
+
+    - warning: This method cannot be called during a write transaction, or when the containing Realm is read-only.
+
+    - parameter keyPaths: Only properties contained in the key paths array will trigger
+                       the block when they are modified. If `nil` or empty, notifications
+                       will be delivered for any property change on the object.
+                       String key paths which do not correspond to a valid a property
+                       will throw an exception. See description above for
+                       more detail on linked properties.
+    - parameter actor: The actor to isolate the notifications to.
+    - parameter block: The block to be called whenever a change occurs.
+    - returns: A token which must be held for as long as you want updates to be delivered.
+    */
+    @available(macOS 10.15, tvOS 13.0, iOS 13.0, watchOS 6.0, *)
+    func observe<A: Actor>(keyPaths: [String]?,
+                           on actor: A,
+                           _isolation: isolated (any Actor)?,
                            _ block: @Sendable @escaping (isolated A, RealmCollectionChange<Self>) -> Void) async -> NotificationToken
 #endif
 
@@ -1128,7 +1227,7 @@ public extension RealmCollection {
         return self.observe(keyPaths: keyPaths, on: queue, block)
     }
 
-#if swift(>=5.8)
+#if compiler(<6)
     /**
     Registers a block to be called each time the collection changes.
 
@@ -1227,6 +1326,106 @@ public extension RealmCollection {
                            on actor: A,
                            _ block: @Sendable @escaping (isolated A, RealmCollectionChange<Self>) -> Void) async -> NotificationToken {
         await self.observe(keyPaths: keyPaths, on: actor, block)
+    }
+#else
+    /**
+    Registers a block to be called each time the collection changes.
+
+    The block will be asynchronously called with an initial version of the
+    collection, and then called again after each write transaction which changes
+    either any of the objects in the collection, or which objects are in the
+    collection.
+
+    The `actor` parameter passed to the block is the actor which you pass to this
+    function. This parameter is required to isolate the callback to the actor.
+
+    The `change` parameter that is passed to the block reports, in the form of
+    indices within the collection, which of the objects were added, removed, or
+    modified after the previous notification. The `collection` field in the change
+    enum will be isolated to the requested actor, and is safe to use within that
+    actor only. See the ``RealmCollectionChange`` documentation for more
+    information on the change information supplied and an example of how to use it
+    to update a `UITableView`.
+
+    Once the initial notification is delivered, the collection will be fully
+    evaluated and up-to-date, and accessing it will never perform any blocking
+    work. This guarantee holds only as long as you do not perform a write
+    transaction on the same actor as notifications are being delivered to. If you
+    do, accessing the collection before the next notification is delivered may need
+    to rerun the query.
+
+    Notifications are delivered to the given actor's executor. When notifications
+    can't be delivered instantly, multiple notifications may be coalesced into a
+    single notification. This can include the notification with the initial
+    collection: any writes which occur before the initial notification is delivered
+    may not produce change notifications.
+
+    Adding, removing or assigning objects in the collection always produces a
+    notification. By default, modifying the objects which a collection links to
+    (and the objects which those objects link to, if applicable) will also report
+    that index in the collection as being modified. If a non-empty array of
+    keypaths is provided, then only modifications to those keypaths will mark the
+    object as modified. For example:
+
+    ```swift
+    class Dog: Object {
+        @Persisted var name: String
+        @Persisted var age: Int
+        @Persisted var toys: List<Toy>
+    }
+
+    let dogs = realm.objects(Dog.self)
+    let token = await dogs.observe(keyPaths: ["name"], on: myActor) { actor, changes in
+        switch changes {
+        case .initial(let dogs):
+            // Query has finished running and dogs can not be used without blocking
+        case .update:
+            // This case is hit:
+            // - after the token is initialized
+            // - when the name property of an object in the collection is modified
+            // - when an element is inserted or removed from the collection.
+            // This block is not triggered:
+            // - when a value other than name is modified on one of the elements.
+        case .error:
+            // Can no longer happen but is left for backwards compatiblity
+        }
+    }
+    ```
+    - If the observed key path were `["toys.brand"]`, then any insertion or
+      deletion to the `toys` list on any of the collection's elements would trigger
+      the block. Changes to the `brand` value on any `Toy` that is linked to a `Dog`
+      in this collection will trigger the block. Changes to a value other than
+      `brand` on any `Toy` that is linked to a `Dog` in this collection would not
+      trigger the block. Any insertion or removal to the `Dog` type collection being
+      observed would also trigger a notification.
+    - If the above example observed the `["toys"]` key path, then any insertion,
+      deletion, or modification to the `toys` list for any element in the collection
+      would trigger the block. Changes to any value on any `Toy` that is linked to a
+      `Dog` in this collection would *not* trigger the block. Any insertion or
+      removal to the `Dog` type collection being observed would still trigger a
+      notification.
+
+    You must retain the returned token for as long as you want updates to be sent
+    to the block. To stop receiving updates, call `invalidate()` on the token.
+
+    - warning: This method cannot be called during a write transaction, or when the containing Realm is read-only.
+
+    - parameter keyPaths: Only properties contained in the key paths array will trigger
+                       the block when they are modified. If `nil` or empty, notifications
+                       will be delivered for any property change on the object.
+                       String key paths which do not correspond to a valid a property
+                       will throw an exception. See description above for
+                       more detail on linked properties.
+    - parameter actor: The actor to isolate the notifications to.
+    - parameter block: The block to be called whenever a change occurs.
+    - returns: A token which must be held for as long as you want updates to be delivered.
+    */
+    @available(macOS 10.15, tvOS 13.0, iOS 13.0, watchOS 6.0, *)
+    func observe<A: Actor>(keyPaths: [String]? = nil,
+                           on actor: A,
+                           _isolation: isolated (any Actor)? = #isolation,
+                           _ block: @Sendable @escaping (isolated A, RealmCollectionChange<Self>) -> Void) async -> NotificationToken {
+        await self.observe(keyPaths: keyPaths, on: actor, _isolation: _isolation, block)
     }
 #endif
 }
@@ -1352,7 +1551,7 @@ public extension RealmCollection where Element: ObjectBase {
         return self.observe(keyPaths: keyPaths.map(_name(for:)), on: queue, block)
     }
 
-#if swift(>=5.8)
+#if compiler(<6)
     /**
     Registers a block to be called each time the collection changes.
 
@@ -1448,6 +1647,105 @@ public extension RealmCollection where Element: ObjectBase {
     @available(macOS 10.15, tvOS 13.0, iOS 13.0, watchOS 6.0, *)
     @_unsafeInheritExecutor
     func observe<A: Actor>(keyPaths: [PartialKeyPath<Element>], on actor: A,
+                           _ block: @Sendable @escaping (isolated A, RealmCollectionChange<Self>) -> Void) async -> NotificationToken {
+        await observe(keyPaths: keyPaths.map(_name(for:)), on: actor, block)
+    }
+#else
+    /**
+    Registers a block to be called each time the collection changes.
+
+    The block will be asynchronously called with an initial version of the
+    collection, and then called again after each write transaction which changes
+    either any of the objects in the collection, or which objects are in the
+    collection.
+
+    The `actor` parameter passed to the block is the actor which you pass to this
+    function. This parameter is required to isolate the callback to the actor.
+
+    The `change` parameter that is passed to the block reports, in the form of
+    indices within the collection, which of the objects were added, removed, or
+    modified after the previous notification. The `collection` field in the change
+    enum will be isolated to the requested actor, and is safe to use within that
+    actor only. See the ``RealmCollectionChange`` documentation for more
+    information on the change information supplied and an example of how to use it
+    to update a `UITableView`.
+
+    Once the initial notification is delivered, the collection will be fully
+    evaluated and up-to-date, and accessing it will never perform any blocking
+    work. This guarantee holds only as long as you do not perform a write
+    transaction on the same actor as notifications are being delivered to. If you
+    do, accessing the collection before the next notification is delivered may need
+    to rerun the query.
+
+    Notifications are delivered to the given actor's executor. When notifications
+    can't be delivered instantly, multiple notifications may be coalesced into a
+    single notification. This can include the notification with the initial
+    collection: any writes which occur before the initial notification is delivered
+    may not produce change notifications.
+
+    Adding, removing or assigning objects in the collection always produces a
+    notification. By default, modifying the objects which a collection links to
+    (and the objects which those objects link to, if applicable) will also report
+    that index in the collection as being modified. If a non-empty array of
+    keypaths is provided, then only modifications to those keypaths will mark the
+    object as modified. For example:
+
+    ```swift
+    class Dog: Object {
+        @Persisted var name: String
+        @Persisted var age: Int
+        @Persisted var toys: List<Toy>
+    }
+
+    let dogs = realm.objects(Dog.self)
+    let token = await dogs.observe(keyPaths: [\.name], on: myActor) { actor, changes in
+        switch changes {
+        case .initial(let dogs):
+            // Query has finished running and dogs can not be used without blocking
+        case .update:
+            // This case is hit:
+            // - after the token is initialized
+            // - when the name property of an object in the collection is modified
+            // - when an element is inserted or removed from the collection.
+            // This block is not triggered:
+            // - when a value other than name is modified on one of the elements.
+        case .error:
+            // Can no longer happen but is left for backwards compatiblity
+        }
+    }
+    ```
+    - If the observed key path were `[\.toys.brand]`, then any insertion or
+      deletion to the `toys` list on any of the collection's elements would trigger
+      the block. Changes to the `brand` value on any `Toy` that is linked to a `Dog`
+      in this collection will trigger the block. Changes to a value other than
+      `brand` on any `Toy` that is linked to a `Dog` in this collection would not
+      trigger the block. Any insertion or removal to the `Dog` type collection being
+      observed would also trigger a notification.
+    - If the above example observed the `[\.toys]` key path, then any insertion,
+      deletion, or modification to the `toys` list for any element in the collection
+      would trigger the block. Changes to any value on any `Toy` that is linked to a
+      `Dog` in this collection would *not* trigger the block. Any insertion or
+      removal to the `Dog` type collection being observed would still trigger a
+      notification.
+
+    You must retain the returned token for as long as you want updates to be sent
+    to the block. To stop receiving updates, call `invalidate()` on the token.
+
+    - warning: This method cannot be called during a write transaction, or when the containing Realm is read-only.
+
+    - parameter keyPaths: Only properties contained in the key paths array will trigger
+                       the block when they are modified. If empty, notifications
+                       will be delivered for any property change on the object.
+                       String key paths which do not correspond to a valid a property
+                       will throw an exception. See description above for
+                       more detail on linked properties.
+    - parameter actor: The actor to isolate the notifications to.
+    - parameter block: The block to be called whenever a change occurs.
+    - returns: A token which must be held for as long as you want updates to be delivered.
+    */
+    @available(macOS 10.15, tvOS 13.0, iOS 13.0, watchOS 6.0, *)
+    func observe<A: Actor>(keyPaths: [PartialKeyPath<Element>], on actor: A,
+                           _isolation: isolated (any Actor)? = #isolation,
                            _ block: @Sendable @escaping (isolated A, RealmCollectionChange<Self>) -> Void) async -> NotificationToken {
         await observe(keyPaths: keyPaths.map(_name(for:)), on: actor, block)
     }

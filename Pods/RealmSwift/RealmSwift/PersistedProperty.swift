@@ -69,8 +69,7 @@ import Realm.Private
 ///  to the initializer. Compound primary keys are not supported, and setting
 ///  more than one property as the primary key will throw an exception at
 ///  runtime. Only Int, String, UUID and ObjectID properties can be made the
-///  primary key, and when using Atlas App Services, the primary key must be named
-///  `_id`. The primary key property can only be mutated on unmanaged objects,
+///  primary key. The primary key property can only be mutated on unmanaged objects,
 ///  and mutating it on an object which has been added to a Realm will throw an
 ///  exception.
 ///
@@ -238,13 +237,14 @@ extension Persisted: Decodable where Value: Decodable {
 
 extension Persisted: Encodable where Value: Encodable {
     public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
         switch storage {
         case .unmanaged(let value, _, _):
-            try value.encode(to: encoder)
+            try container.encode(value)
         case .unmanagedObserved(let value, _):
-            try value.encode(to: encoder)
+            try container.encode(value)
         case .unmanagedNoDefault:
-            try Value._rlmDefaultValue().encode(to: encoder)
+            try container.encode(Value._rlmDefaultValue())
         default:
             // We need a reference to the parent object to be able to read from
             // a managed property. There's probably a way to do this with some

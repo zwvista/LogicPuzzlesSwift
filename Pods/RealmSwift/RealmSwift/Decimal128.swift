@@ -59,12 +59,11 @@ public final class Decimal128: RLMDecimal128, Decodable, @unchecked Sendable {
 
     /// Parse the given string as a Decimal128.
     ///
-    /// This initializer never throws and is marked as `throws` only because removing it is a breaking
-    /// change. Strings which cannot be parsed as a Decimal128 return a value where `isNaN` is `true`.
+    /// Strings which cannot be parsed as a Decimal128 return a value where `isNaN` is `true`.
     ///
     /// - parameter string: The string to parse.
-    public override required init(string: String) throws {
-        try super.init(string: string)
+    public override required init(string: String) {
+        super.init(string: string)
     }
 
     /// Creates a new Decimal128 by decoding from the given decoder.
@@ -75,7 +74,7 @@ public final class Decimal128: RLMDecimal128, Decodable, @unchecked Sendable {
     public required init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         if let strValue = try? container.decode(String.self) {
-            try super.init(string: strValue)
+            super.init(string: strValue)
         } else if let intValue = try? container.decode(Int64.self) {
             super.init(number: intValue as NSNumber)
         } else if let doubleValue = try? container.decode(Double.self) {
@@ -85,7 +84,7 @@ public final class Decimal128: RLMDecimal128, Decodable, @unchecked Sendable {
         }
     }
 
-    /// The mininum value for Decimal128
+    /// The minimum value for Decimal128
     public static var min: Decimal128 {
         unsafeDowncast(__minimumDecimalNumber, to: Self.self)
     }
@@ -103,7 +102,8 @@ extension Decimal128: Encodable {
     ///
     /// - Parameter encoder: The encoder to write data to.
     public func encode(to encoder: Encoder) throws {
-        try self.stringValue.encode(to: encoder)
+        var container = encoder.singleValueContainer()
+        try container.encode(stringValue)
     }
 }
 
@@ -123,10 +123,8 @@ extension Decimal128: ExpressibleByFloatLiteral {
 
 extension Decimal128: ExpressibleByStringLiteral {
     /// Creates a new Decimal128 from the given string literal.
-    ///
-    /// Aborts if the string cannot be parsed as a Decimal128.
     public convenience init(stringLiteral value: String) {
-        try! self.init(string: value)
+        self.init(string: value)
     }
 }
 

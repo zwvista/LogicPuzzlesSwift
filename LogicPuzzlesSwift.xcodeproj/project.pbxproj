@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -97,6 +97,8 @@
 		8C2AF84B1ED6084300EC84AB /* PaintTheNurikabeGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8401ED6084300EC84AB /* PaintTheNurikabeGridNode.swift */; };
 		8C2AF84D1ED6084300EC84AB /* PaintTheNurikabeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8421ED6084300EC84AB /* PaintTheNurikabeMainViewController.swift */; };
 		8C2AF84E1ED6084300EC84AB /* PaintTheNurikabeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8431ED6084300EC84AB /* PaintTheNurikabeObject.swift */; };
+		8C2F116B2E9CEFA100D00078 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 8C2F116A2E9CEFA100D00078 /* OrderedCollections */; };
+		8C2F116D2E9CF09C00D00078 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 8C2F116C2E9CF09C00D00078 /* OrderedCollections */; };
 		8C32D8DC1FC92B5F00BA2D07 /* RippleEffectGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8D01FC92B5F00BA2D07 /* RippleEffectGameViewController.swift */; };
 		8C32D8DD1FC92B5F00BA2D07 /* RippleEffectMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8D11FC92B5F00BA2D07 /* RippleEffectMainViewController.swift */; };
 		8C32D8DF1FC92B5F00BA2D07 /* RippleEffectGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8D31FC92B5F00BA2D07 /* RippleEffectGameScene.swift */; };
@@ -2349,7 +2351,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C2F116B2E9CEFA100D00078 /* OrderedCollections in Frameworks */,
 				9514BA4F20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework in Frameworks */,
+				8C2F116D2E9CF09C00D00078 /* OrderedCollections in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4476,8 +4480,9 @@
 		8C9F43CF1D771915000139FC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 2600;
 				ORGANIZATIONNAME = "趙偉";
 				TargetAttributes = {
 					8C9F43D61D771915000139FC = {
@@ -4509,6 +4514,9 @@
 				Base,
 			);
 			mainGroup = 8C9F43CE1D771915000139FC;
+			packageReferences = (
+				8C2F11682E9CED1A00D00078 /* XCRemoteSwiftPackageReference "swift-collections" */,
+			);
 			productRefGroup = 8C9F43D81D771915000139FC /* Products */;
 			projectDirPath = "";
 			projectReferences = (
@@ -5839,6 +5847,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -5853,10 +5862,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -5898,6 +5907,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -5906,9 +5916,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -5924,7 +5934,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LogicPuzzlesSwift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -5947,7 +5956,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = LogicPuzzlesSwift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -6121,6 +6129,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8C2F11682E9CED1A00D00078 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8C2F116A2E9CEFA100D00078 /* OrderedCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C2F11682E9CED1A00D00078 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
+		};
+		8C2F116C2E9CF09C00D00078 /* OrderedCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C2F11682E9CED1A00D00078 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8C9F43CF1D771915000139FC /* Project object */;
 }

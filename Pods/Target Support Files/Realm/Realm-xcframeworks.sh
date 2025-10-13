@@ -17,28 +17,28 @@ RSYNC_PROTECT_TMP_FILES=(--filter "P .*.??????")
 variant_for_slice()
 {
   case "$1" in
-  "realm-monorepo.xcframework/macos-x86_64_arm64")
-    echo ""
-    ;;
   "realm-monorepo.xcframework/ios-arm64")
     echo ""
-    ;;
-  "realm-monorepo.xcframework/ios-arm64_x86_64-simulator")
-    echo "simulator"
     ;;
   "realm-monorepo.xcframework/ios-arm64_x86_64-maccatalyst")
     echo "maccatalyst"
     ;;
-  "realm-monorepo.xcframework/watchos-arm64_armv7k_arm64_32")
-    echo ""
-    ;;
-  "realm-monorepo.xcframework/watchos-arm64_i386_x86_64-simulator")
+  "realm-monorepo.xcframework/ios-arm64_x86_64-simulator")
     echo "simulator"
+    ;;
+  "realm-monorepo.xcframework/macos-x86_64_arm64")
+    echo ""
     ;;
   "realm-monorepo.xcframework/tvos-arm64")
     echo ""
     ;;
   "realm-monorepo.xcframework/tvos-arm64_x86_64-simulator")
+    echo "simulator"
+    ;;
+  "realm-monorepo.xcframework/watchos-arm64_armv7k_arm64_32")
+    echo ""
+    ;;
+  "realm-monorepo.xcframework/watchos-arm64_i386_x86_64-simulator")
     echo "simulator"
     ;;
   "realm-monorepo.xcframework/xros-arm64")
@@ -53,16 +53,22 @@ variant_for_slice()
 archs_for_slice()
 {
   case "$1" in
-  "realm-monorepo.xcframework/macos-x86_64_arm64")
-    echo "arm64 x86_64"
-    ;;
   "realm-monorepo.xcframework/ios-arm64")
     echo "arm64"
+    ;;
+  "realm-monorepo.xcframework/ios-arm64_x86_64-maccatalyst")
+    echo "arm64 x86_64"
     ;;
   "realm-monorepo.xcframework/ios-arm64_x86_64-simulator")
     echo "arm64 x86_64"
     ;;
-  "realm-monorepo.xcframework/ios-arm64_x86_64-maccatalyst")
+  "realm-monorepo.xcframework/macos-x86_64_arm64")
+    echo "arm64 x86_64"
+    ;;
+  "realm-monorepo.xcframework/tvos-arm64")
+    echo "arm64"
+    ;;
+  "realm-monorepo.xcframework/tvos-arm64_x86_64-simulator")
     echo "arm64 x86_64"
     ;;
   "realm-monorepo.xcframework/watchos-arm64_armv7k_arm64_32")
@@ -70,12 +76,6 @@ archs_for_slice()
     ;;
   "realm-monorepo.xcframework/watchos-arm64_i386_x86_64-simulator")
     echo "arm64 i386 x86_64"
-    ;;
-  "realm-monorepo.xcframework/tvos-arm64")
-    echo "arm64"
-    ;;
-  "realm-monorepo.xcframework/tvos-arm64_x86_64-simulator")
-    echo "arm64 x86_64"
     ;;
   "realm-monorepo.xcframework/xros-arm64")
     echo "arm64"
@@ -165,5 +165,5 @@ install_xcframework() {
   echo "Copied $source to $destination"
 }
 
-install_xcframework "${PODS_ROOT}/Realm/core/realm-monorepo.xcframework" "Realm" "library" "ios-arm64" "ios-arm64_x86_64-simulator" "ios-arm64_x86_64-maccatalyst"
+install_xcframework "${PODS_ROOT}/Realm/core/realm-monorepo.xcframework" "Realm" "library" "ios-arm64" "ios-arm64_x86_64-maccatalyst" "ios-arm64_x86_64-simulator"
 

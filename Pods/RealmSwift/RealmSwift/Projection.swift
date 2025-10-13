@@ -305,12 +305,7 @@ extension ProjectionObservable {
     public func observe(keyPaths: [String]? = nil,
                         on queue: DispatchQueue? = nil,
                         _ block: @escaping (ObjectChange<Self>) -> Void) -> NotificationToken {
-        var kps: [String] = schema.map(\.originPropertyKeyPathString)
-
-        // NEXT-MAJOR: stop conflating empty array and nil
-        if keyPaths?.isEmpty == false {
-            kps = kps.filter { keyPaths!.contains($0) }
-        }
+        let kps: [String] = schema.map(\.originPropertyKeyPathString)
 
         // If we're observing on a different queue, we need a projection which
         // wraps an object confined to that queue. We'll lazily create it the
@@ -458,7 +453,7 @@ extension ProjectionObservable {
         observe(keyPaths: map(keyPaths: keyPaths), on: queue, block)
     }
 
-#if swift(>=5.8)
+#if compiler(<6)
     /**
      Registers a block to be called each time the projection's underlying object changes.
 
@@ -537,11 +532,9 @@ extension ProjectionObservable {
     ) async -> NotificationToken {
         await with(self, on: actor) { actor, obj in
             obj.observe(keyPaths: keyPaths, on: nil) { (change: ObjectChange<Self>) in
-                assumeOnActorExecutor(actor) { actor in
-                    block(actor, change)
-                }
+                actor.invokeIsolated(block, change)
             }
-        } ?? NotificationToken()
+        }
     }
 
     /**
@@ -622,7 +615,6 @@ extension ProjectionObservable {
     ) async -> NotificationToken {
         await observe(keyPaths: map(keyPaths: keyPaths), on: actor, block)
     }
-#endif
 
     fileprivate var schema: [ProjectionProperty] {
         projectionSchemaCache.schema(for: self)
@@ -642,6 +634,188 @@ extension ProjectionObservable {
             return names.componentsJoined(by: ".")
         }
     }
+#else
+    /**
+     Registers a block to be called each time the projection's underlying object changes.
+
+     The block will be asynchronously called on the actor after each write transaction which
+     deletes the underlying object or modifies any of the projected properties of the object,
+     including self-assignments that set a property to its existing value.
+
+     For write transactions performed on different threads or in different
+     processes, the block will be called when the managing Realm is
+     (auto)refreshed to a version including the changes, while for local write
+     transactions it will be called at some point in the future after the write
+     transaction is committed.
+
+     If no key paths are given, the block will be executed on any insertion,
+     modification, or deletion for all projected  properties, including projected properties of
+     any nested, linked objects. If a key path or key paths are provided,
+     then the block will be called for changes which occur only on the
+     provided key paths. For example, if:
+
+     ```swift
+     class Person: Object {
+         @Persisted var firstName: String
+         @Persisted var lastName = ""
+         @Persisted public var friends: List<Person>
+     }
+
+     class PersonProjection: Projection<Person> {
+         @Projected(\Person.firstName) var name
+         @Projected(\Person.lastName.localizedUppercase) var lastNameCaps
+         @Projected(\Person.friends.projectTo.firstName) var firstFriendsName: ProjectedCollection<String>
+     }
+
+     let token = projectedPerson.observe(keyPaths: ["name"], { changes in
+        // ...
+     })
+     ```
+     - The above notification block fires for changes to the
+     `Person.firstName` property of the the projection's underlying `Person` Object,
+     but not for any changes made to `Person.lastName` or `Person.friends` list.
+     - The notification block fires for changes of `PersonProjection.name` property, but not  for
+     another projection's property change.
+     - If the observed key path were `["firstFriendsName"]`, then any insertion,
+     deletion, or modification of the `firstName` of the `friends` list will trigger the block. A change to
+     `someFriend.lastName` would not trigger the block (where `someFriend`
+     is an element contained in `friends`)
+
+     Notifications are delivered to a function isolated to the given actor, on that
+     actors executor. If the actor is performing blocking work, multiple
+     notifications may be coalesced into a single notification.
+
+     Unlike with Collection notifications, there is no "Initial" notification
+     and there is no gap between when this function returns and when changes
+     will first be captured.
+
+     You must retain the returned token for as long as you want updates to be sent
+     to the block. To stop receiving updates, call `invalidate()` on the token.
+
+     - warning: This method cannot be called during a write transaction, or when
+                the containing Realm is read-only.
+     - parameter keyPaths: Only properties contained in the key paths array will trigger
+                           the block when they are modified. If `nil`, notifications
+                           will be delivered for any projected property change on the object.
+                           String key paths which do not correspond to a valid projected property
+                           will throw an exception.
+     - parameter actor: The actor which notifications should be delivered on. The
+                        block is passed this actor as an isolated parameter,
+                        allowing you to access the actor synchronously from within the callback.
+     - parameter block: The block to call with information about changes to the object.
+     - returns: A token which must be held for as long as you want updates to be delivered.
+     */
+    @available(macOS 10.15, tvOS 13.0, iOS 13.0, watchOS 6.0, *)
+    public func observe<A: Actor>(
+        keyPaths: [String]? = nil, on actor: A,
+        _isolation: isolated (any Actor)? = #isolation,
+        _ block: @Sendable @escaping (isolated A, ObjectChange<Self>) -> Void
+    ) async -> NotificationToken {
+        await with(self, on: actor) { actor, obj in
+            obj.observe(keyPaths: keyPaths, on: nil) { (change: ObjectChange<Self>) in
+                actor.invokeIsolated(block, change)
+            }
+        }
+    }
+
+    /**
+     Registers a block to be called each time the projection's underlying object changes.
+
+     The block will be asynchronously called on the actor after each write transaction which
+     deletes the underlying object or modifies any of the projected properties of the object,
+     including self-assignments that set a property to its existing value.
+
+     For write transactions performed on different threads or in different
+     processes, the block will be called when the managing Realm is
+     (auto)refreshed to a version including the changes, while for local write
+     transactions it will be called at some point in the future after the write
+     transaction is committed.
+
+     If no key paths are given, the block will be executed on any insertion,
+     modification, or deletion for all projected  properties, including projected properties of
+     any nested, linked objects. If a key path or key paths are provided,
+     then the block will be called for changes which occur only on the
+     provided key paths. For example, if:
+
+     ```swift
+     class Person: Object {
+         @Persisted var firstName: String
+         @Persisted var lastName = ""
+         @Persisted public var friends: List<Person>
+     }
+
+     class PersonProjection: Projection<Person> {
+         @Projected(\Person.firstName) var name
+         @Projected(\Person.lastName.localizedUppercase) var lastNameCaps
+         @Projected(\Person.friends.projectTo.firstName) var firstFriendsName: ProjectedCollection<String>
+     }
+
+     let token = projectedPerson.observe(keyPaths: [\PersonProjection.name], { changes in
+        // ...
+     })
+     ```
+     - The above notification block fires for changes to the
+     `Person.firstName` property of the the projection's underlying `Person` Object,
+     but not for any changes made to `Person.lastName` or `Person.friends` list.
+     - The notification block fires for changes of `PersonProjection.name` property, but not  for
+     another projection's property change.
+     - If the observed key path were `[\.firstFriendsName]`, then any insertion,
+     deletion, or modification of the `firstName` of the `friends` list will trigger the block. A change to
+     `someFriend.lastName` would not trigger the block (where `someFriend`
+     is an element contained in `friends`)
+
+     Notifications are delivered to a function isolated to the given actor, on that
+     actors executor. If the actor is performing blocking work, multiple
+     notifications may be coalesced into a single notification.
+
+     Unlike with Collection notifications, there is no "Initial" notification
+     and there is no gap between when this function returns and when changes
+     will first be captured.
+
+     You must retain the returned token for as long as you want updates to be sent
+     to the block. To stop receiving updates, call `invalidate()` on the token.
+
+     - warning: This method cannot be called during a write transaction, or when
+                the containing Realm is read-only.
+     - parameter keyPaths: Only properties contained in the key paths array will trigger
+                           the block when they are modified. If `nil`, notifications
+                           will be delivered for any projected property change on the object.
+                           String key paths which do not correspond to a valid projected property
+                           will throw an exception.
+     - parameter actor: The actor which notifications should be delivered on. The
+                        block is passed this actor as an isolated parameter,
+                        allowing you to access the actor synchronously from within the callback.
+     - parameter block: The block to call with information about changes to the object.
+     - returns: A token which must be held for as long as you want updates to be delivered.
+     */
+    @available(macOS 10.15, tvOS 13.0, iOS 13.0, watchOS 6.0, *)
+    public func observe<A: Actor>(
+        keyPaths: [PartialKeyPath<Self>], on actor: A,
+        _isolation: isolated (any Actor)? = #isolation,
+        _ block: @Sendable @escaping (isolated A, ObjectChange<Self>) -> Void
+    ) async -> NotificationToken {
+        await observe(keyPaths: map(keyPaths: keyPaths), on: actor, block)
+    }
+
+    fileprivate var schema: [ProjectionProperty] {
+        projectionSchemaCache.schema(for: self)
+    }
+
+    private func map(keyPaths: [PartialKeyPath<Self>]) -> [String]? {
+        if keyPaths.isEmpty {
+            return nil
+        }
+
+        let names = NSMutableArray()
+        let root = Root.keyPathRecorder(with: names)
+        let projection = Self(projecting: root)
+        return keyPaths.map {
+            names.removeAllObjects()
+            _ = projection[keyPath: $0]
+            return names.componentsJoined(by: ".")
+        }
+    }
+#endif
 }
 /**
  Information about a specific property which changed in an `Object` change notification.
@@ -788,28 +962,22 @@ private struct ProjectionProperty: @unchecked Sendable {
     let label: String
 }
 
-// An adaptor for os_unfair_lock to make it implement NSLocking
-@available(OSX 10.12, watchOS 3.0, iOS 10.0, tvOS 10.0, *)
-private final class UnfairLock: NSLocking, Sendable {
-    func lock() {
-        os_unfair_lock_lock(impl)
-    }
-    func unlock() {
-        os_unfair_lock_unlock(impl)
-    }
-
+// A subset of OSAllocatedUnfairLock, which requires iOS 16
+internal final class AllocatedUnfairLock<Value>: @unchecked Sendable {
+    private var value: Value
     private let impl: os_unfair_lock_t = .allocate(capacity: 1)
-    init() {
-        impl.initialize(to: os_unfair_lock())
-    }
-}
 
-// We want to use os_unfair_lock when it's available, but fall back to NSLock otherwise
-private func createLock() -> NSLocking {
-    if #available(macOS 10.12, watchOS 3.0, iOS 10.0, tvOS 10.0, *) {
-        return UnfairLock()
+    init(_ value: Value) {
+        impl.initialize(to: os_unfair_lock())
+        self.value = value
     }
-    return NSLock()
+
+    func withLock<R>(_ body: (inout Value) -> R) -> R {
+        os_unfair_lock_lock(impl)
+        let ret = body(&value)
+        os_unfair_lock_unlock(impl)
+        return ret
+    }
 }
 
 // A property wrapper which unsafely disables concurrency checking for a property
@@ -828,12 +996,11 @@ internal struct Unchecked<Wrapped>: @unchecked Sendable {
 }
 
 private final class ProjectionSchemaCache: @unchecked Sendable {
-    @Unchecked private static var schema = [ObjectIdentifier: [ProjectionProperty]]()
-    private static let lock = createLock()
+    private static let schema = AllocatedUnfairLock([ObjectIdentifier: [ProjectionProperty]]())
 
     fileprivate func schema<T: ProjectionObservable>(for obj: T) -> [ProjectionProperty] {
         let identifier = ObjectIdentifier(type(of: obj))
-        if let schema = Self.lock.withLock({ Self.schema[identifier] }) {
+        if let schema = Self.schema.withLock({ $0[identifier] }) {
             return schema
         }
 
@@ -850,11 +1017,12 @@ private final class ProjectionSchemaCache: @unchecked Sendable {
                                     originPropertyKeyPathString: originPropertyLabel,
                                     label: String(label)))
         }
-        Self.lock.withLock {
+        let p = properties
+        Self.schema.withLock {
             // This might overwrite a schema generated by a different thread
             // if we happened to do the initialization on multiple threads at
             // once, but if so that's fine.
-            Self.schema[identifier] = properties
+            $0[identifier] = p
         }
         return properties
     }
