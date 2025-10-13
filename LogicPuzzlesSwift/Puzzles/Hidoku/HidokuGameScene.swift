@@ -37,8 +37,6 @@ class HidokuGameScene: GameScene<HidokuGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
-                let arrowNodeName = "arrow" + nodeNameSuffix
-                let pointImage = CGPoint(x: point.x + blockSize / 4, y: point.y - blockSize / 4)
                 let (n, s) = (state[p].destructured)
                 if n != 0 && n != -1 {
                     let numberNodeName = "number" + nodeNameSuffix

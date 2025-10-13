@@ -56,7 +56,6 @@ class BranchesGameState: GridGameState<BranchesGameMove> {
     }
     
     override func switchObject(move: inout BranchesGameMove) -> GameChangeType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
         // 3. Branches can't run over the numbers.
         func f(o: BranchesObject) -> BranchesObject {
             switch o {

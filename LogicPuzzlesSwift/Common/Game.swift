@@ -14,7 +14,7 @@ protocol GameDelegate: AnyObject {
     func levelInitilized(_ game: AnyObject, state: AnyObject)
     func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject)
     func gameSolved(_ game: AnyObject)
-    func stateChanged(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject)
+    func stateChanged(_ game: AnyObject, from stateFrom: AnyObject?, to stateTo: AnyObject)
 }
 
 protocol GameBase: AnyObject {

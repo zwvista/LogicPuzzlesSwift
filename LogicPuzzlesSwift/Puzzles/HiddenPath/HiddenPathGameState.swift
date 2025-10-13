@@ -17,6 +17,7 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
     var objArray = [HiddenPathObject]()
     var nextNum = 0
     var num2pos = [Int: Position]()
+    var selectedPos = Position(), hintPost = Position()
     
     override func copy() -> HiddenPathGameState {
         let v = HiddenPathGameState(game: game, isCopy: true)
@@ -27,6 +28,8 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
         v.objArray = objArray
         v.nextNum = nextNum
         v.num2pos = num2pos
+        v.selectedPos = selectedPos
+        v.hintPost = hintPost
         return v
     }
     
@@ -38,6 +41,7 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
             objArray[i].obj = game.objArray[i]
         }
         updateIsSolved()
+        updateState(p: num2pos[1]!)
     }
     
     subscript(p: Position) -> HiddenPathObject {
@@ -52,12 +56,16 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
     override func setObject(move: inout HiddenPathGameMove) -> GameChangeType {
         let p = move.p
         guard isValid(p: p) else {return .none}
-        if self[p].obj == 0 {
+        switch self[p].obj {
+        case 0:
             self[p].obj = nextNum
             updateIsSolved()
+            updateState(p: p)
             return .level
-        } else {
-            updateState()
+        case -1, game.maxNum:
+            return .none
+        default:
+            updateState(p: p)
             return .internalState
         }
     }
@@ -121,7 +129,9 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
         }
     }
     
-    private func updateState() {
-        
+    private func updateState(p: Position) {
+        selectedPos = p
+        let n = self[p].obj
+        hintPost = num2pos.first { k, _ in k > n }!.value
     }
 }

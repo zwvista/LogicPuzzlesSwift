@@ -81,4 +81,16 @@ class HiddenPathGameScene: GameScene<HiddenPathGameState> {
             }
         }
     }
+    
+    override func stateChanged(from stateFrom: HiddenPathGameState?, to stateTo: HiddenPathGameState) {
+        let (p1f, p1t) = (stateFrom?.selectedPos, stateTo.selectedPos)
+        if p1f != p1t {
+            let rectNodeName = "selectedRect"
+            removeNode(withName: rectNodeName)
+            let rectNode = SKShapeNode(rectOf: coloredRectSize())
+            rectNode.name = rectNodeName
+            rectNode.position = gridNode.gridPosition(p: p1t)
+            gridNode.addChild(rectNode)
+        }
+    }
 }

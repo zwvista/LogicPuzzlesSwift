@@ -30,7 +30,7 @@ class WallsGameState: GridGameState<WallsGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<WallsObject>(repeating: .empty, count: rows * cols)
-        for (p, n) in game.pos2hint {
+        for (p, _) in game.pos2hint {
             self[p] = .hint(state: .normal)
         }
         updateIsSolved()

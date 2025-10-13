@@ -78,8 +78,6 @@ class CarpentersSquareGameScene: GameScene<CarpentersSquareGameState> {
                     if o1 != .empty { removeNode(withName: vertlineNodeName) }
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
                 }
-                let hintNodeName = "hint" + nodeNameSuffix
-                func removeHint() {  }
             }
         }
         for (p, h) in stateFrom.game.pos2hint {

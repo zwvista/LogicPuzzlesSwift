@@ -116,7 +116,7 @@ class GameGameViewController: UIViewController, SoundMixin, GameDelegate {
     func levelInitilized(_ game: AnyObject, state: AnyObject) {}
     func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {}
     func gameSolved(_ game: AnyObject) {}
-    func stateChanged(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {}
+    func stateChanged(_ game: AnyObject, from stateFrom: AnyObject?, to stateTo: AnyObject) {}
 
     deinit {
         print("deinit called: \(NSStringFromClass(type(of: self)))")
@@ -172,6 +172,7 @@ class GameGameViewController2<GS: GameStateBase, G: GridGame<GS>, GD: GameDocume
             }
         }
         scene.levelUpdated(from: game.states[0], to: game.currentState)
+        scene.stateChanged(from: game.states[0], to: game.currentState)
     }
     
     override func moveAdded(_ game: AnyObject, move: Any) {
@@ -183,6 +184,7 @@ class GameGameViewController2<GS: GameStateBase, G: GridGame<GS>, GD: GameDocume
         let game = game as! G
         updateMovesUI(game)
         scene.levelInitialized(game, state: state as! GS, skView: skView)
+        scene.stateChanged(from: nil, to: state as! GS)
     }
     
     override func levelUpdated(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
@@ -190,6 +192,7 @@ class GameGameViewController2<GS: GameStateBase, G: GridGame<GS>, GD: GameDocume
         updateMovesUI(game)
         guard !levelInitilizing else {return}
         scene.levelUpdated(from: stateFrom as! GS, to: stateTo as! GS)
+        scene.stateChanged(from: stateFrom as? GS, to: stateTo as! GS)
         gameDocument.levelUpdated(game: game)
     }
     
@@ -200,8 +203,8 @@ class GameGameViewController2<GS: GameStateBase, G: GridGame<GS>, GD: GameDocume
         updateSolutionUI()
     }
 
-    override func stateChanged(_ game: AnyObject, from stateFrom: AnyObject, to stateTo: AnyObject) {
-        scene.stateChanged(from: stateFrom as! GS, to: stateTo as! GS)
+    override func stateChanged(_ game: AnyObject, from stateFrom: AnyObject?, to stateTo: AnyObject) {
+        scene.stateChanged(from: stateFrom as? GS, to: stateTo as! GS)
     }
 
     func newGame(level: GameLevel) -> G! { nil }
