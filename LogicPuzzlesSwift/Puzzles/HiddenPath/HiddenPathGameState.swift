@@ -18,8 +18,9 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
     var objArray = [HiddenPathObject]()
     var nextNum = 0
     var num2pos = OrderedDictionary<Int, Position>()
-    var selectedPos = Position(), hintPost = Position()
-    
+    var focusPos: Position!
+    var hintPos: Position? = nil
+
     override func copy() -> HiddenPathGameState {
         let v = HiddenPathGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -29,8 +30,8 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
         v.objArray = objArray
         v.nextNum = nextNum
         v.num2pos = num2pos
-        v.selectedPos = selectedPos
-        v.hintPost = hintPost
+        v.focusPos = focusPos
+        v.hintPos = hintPos
         return v
     }
     
@@ -42,7 +43,7 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
             objArray[i].obj = game.objArray[i]
         }
         updateIsSolved()
-        updateState(p: num2pos[1]!)
+        updateState()
     }
     
     subscript(p: Position) -> HiddenPathObject {
@@ -60,13 +61,15 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
         switch self[p].obj {
         case 0:
             self[p].obj = nextNum
+            focusPos = p
             updateIsSolved()
-            updateState(p: p)
+            updateState()
             return .level
-        case -1, game.maxNum:
+        case -1:
             return .none
         default:
-            updateState(p: p)
+            focusPos = p
+            updateState()
             return .internalState
         }
     }
@@ -90,16 +93,20 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
         let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         num2pos = [:]
-        var currentPos = Position()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let n = self[p].obj
                 if n == -1 { self[p].obj = 0 } // forbidden
-                if n != 0 { num2pos[n] = p }
+                if n != 0 && n != -1 { num2pos[n] = p }
             }
         }
+        num2pos.sort()
         nextNum = 0
+        if focusPos == nil {
+            focusPos = num2pos[1]!
+        }
+        var currentPos = focusPos!
         for (n, p) in num2pos {
             if n == game.maxNum {continue}
             if !num2pos.keys.contains(n + 1) {
@@ -130,9 +137,8 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
         }
     }
     
-    private func updateState(p: Position) {
-        selectedPos = p
-        let n = self[p].obj
-        hintPost = num2pos.first { k, _ in k > n }!.1
+    private func updateState() {
+        let n = self[focusPos].obj
+        hintPos = num2pos.first { k, _ in k > n }?.value
     }
 }

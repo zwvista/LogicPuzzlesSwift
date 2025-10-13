@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import OrderedCollections
 
 class HidokuGameState: GridGameState<HidokuGameMove> {
     var game: HidokuGame {
@@ -16,8 +17,10 @@ class HidokuGameState: GridGameState<HidokuGameMove> {
     override var gameDocument: GameDocumentBase { HidokuDocument.sharedInstance }
     var objArray = [HidokuObject]()
     var nextNum = 0
-    var currentPos = Position()
-    
+    var num2pos = OrderedDictionary<Int, Position>()
+    var focusPos: Position!
+    var hintPos: Position? = nil
+
     override func copy() -> HidokuGameState {
         let v = HidokuGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -26,7 +29,9 @@ class HidokuGameState: GridGameState<HidokuGameMove> {
         _ = super.setup(v: v)
         v.objArray = objArray
         v.nextNum = nextNum
-        v.currentPos = currentPos
+        v.num2pos = num2pos
+        v.focusPos = focusPos
+        v.hintPos = hintPos
         return v
     }
     
@@ -38,6 +43,7 @@ class HidokuGameState: GridGameState<HidokuGameMove> {
             objArray[i].obj = game.objArray[i]
         }
         updateIsSolved()
+        updateState()
     }
     
     subscript(p: Position) -> HidokuObject {
@@ -51,48 +57,56 @@ class HidokuGameState: GridGameState<HidokuGameMove> {
     
     override func setObject(move: inout HidokuGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && self[p].obj == 0 else { return .none }
-        self[p].obj = nextNum
-        updateIsSolved()
-        return .level
+        guard isValid(p: p) else {return .none}
+        switch self[p].obj {
+        case 0:
+            self[p].obj = nextNum
+            focusPos = p
+            updateIsSolved()
+            updateState()
+            return .level
+        case -1:
+            return .none
+        default:
+            focusPos = p
+            updateState()
+            return .internalState
+        }
     }
 
     
     /*
-        iOS Game: 100 Logic Games/Puzzle Set 3/Hidden Path
+        iOS Game: 100 Logic Games/Puzzle Set 4/Hidoku
 
         Summary
-        Jump once on every tile, following the arrows
+        Jump from one neighboring tile to another and fill the board
 
         Description
-        Starting at the tile number 1, reach the last tile by jumping from tile to tile.
-        1. When jumping from a tile, you have to follow the direction of the arrow and
-           land on a tile in that direction
-        2. Although you have to follow the direction of the arrow, you can land on any
-           tile in that direction, not just the one next to the current tile.
+        1. Starting at the tile number 1, reach the last tile by jumping from
+           tile to tile.
+        2. When jumping from a tile, you can land on any tile around it,
+           horizontally, vertically or diagonally touching.
         3. The goal is to jump on every tile, only once and reach the last tile.
     */
     private func updateIsSolved() {
-        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
-        var num2pos = [Int: Position]()
+        num2pos = [:]
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let n = self[p].obj
                 if n == -1 { self[p].obj = 0 } // forbidden
-                if n != 0 { num2pos[n] = p }
+                if n != 0 && n != -1 { num2pos[n] = p }
             }
         }
-        nextNum = 0
+        num2pos.sort()
+        if focusPos == nil {
+            focusPos = num2pos[1]!
+        }
         for (n, p) in num2pos {
             if n == game.maxNum {continue}
             if !num2pos.keys.contains(n + 1) {
                 isSolved = false
-                if nextNum == 0 {
-                    currentPos = p
-                    nextNum = n + 1
-                }
                 self[p].state = .normal
             } else {
                 let p2 = num2pos[n + 1]!
@@ -102,6 +116,24 @@ class HidokuGameState: GridGameState<HidokuGameMove> {
                 if b && n + 1 == game.maxNum {
                     self[p2].state = .complete
                 }
+            }
+        }
+    }
+    
+    private func updateState() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
+        var currentNum = self[focusPos].obj
+        hintPos = num2pos.first { k, _ in k > currentNum }?.value
+        var currentPos = focusPos!
+        nextNum = 0
+        for (n, p) in num2pos {
+            if n == game.maxNum {continue}
+            if currentNum + 1 == n && nextNum == 0 {
+                currentNum = n
+            }
+            if !num2pos.keys.contains(n + 1) && currentNum == n && nextNum == 0 {
+                currentPos = p
+                nextNum = n + 1
             }
         }
         guard allowedObjectsOnly else {return}

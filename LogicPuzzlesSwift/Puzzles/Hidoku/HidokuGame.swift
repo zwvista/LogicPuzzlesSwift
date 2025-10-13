@@ -43,16 +43,16 @@ class HidokuGame: GridGame<HidokuGameState> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
+                var range = [Position]()
                 for i in 0..<8 {
-                    var range = [Position]()
                     let os = HidokuGame.offset[i]
                     var p2 = p + os
                     while isValid(p: p2) {
                         range.append(p2)
                         p2 += os
                     }
-                    pos2range[p] = range
                 }
+                pos2range[p] = range
             }
         }
         
