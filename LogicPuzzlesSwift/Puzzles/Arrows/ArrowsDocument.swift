@@ -13,10 +13,10 @@ class ArrowsDocument: GameDocument<ArrowsGameMove> {
     
     override func saveMove(_ move: ArrowsGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = String(move.obj)
+        rec.intValue1 = move.obj
     }
     
     override func loadMove(from rec: MoveProgress) -> ArrowsGameMove {
-        ArrowsGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
+        ArrowsGameMove(p: Position(rec.row, rec.col), obj: rec.intValue1)
     }
 }

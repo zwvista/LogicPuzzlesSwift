@@ -33,11 +33,11 @@ class ArrowsGameScene: GameScene<ArrowsGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let ch = state[p]
-                guard ch != " " else {continue}
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
-                let charNodeName = "char" + nodeNameSuffix
-                let s = state.pos2state(row: r, col: c)
-                addCharacter(ch: ch, s: s, isHint: !game.isValid(p: p), point: point, nodeName: charNodeName)
+//                guard ch != " " else {continue}
+//                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+//                let charNodeName = "char" + nodeNameSuffix
+//                let s = state.pos2state(row: r, col: c)
+//                addCharacter(ch: ch, s: s, isHint: !game.isValid(p: p), point: point, nodeName: charNodeName)
             }
         }
     }
@@ -53,19 +53,19 @@ class ArrowsGameScene: GameScene<ArrowsGameState> {
                 func removeCharacter() { removeNode(withName: charNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
-                let (ch1, ch2) = (stateFrom[r, c], stateTo[r, c])
-                let (s1, s2) = (stateFrom.pos2state(row: r, col: c), stateTo.pos2state(row: r, col: c))
-                guard ch1 != ch2 || s1 != s2 else {continue}
-                if ch1 == "." {
-                    removeMarker()
-                } else if (ch1 != " ") {
-                    removeCharacter()
-                }
-                if ch2 == "." {
-                    addMarker()
-                } else if (ch2 != " ") {
-                    addCharacter(ch: ch2, s: s2, isHint: !stateFrom.game.isValid(p: p), point: point, nodeName: charNodeName)
-                }
+//                let (ch1, ch2) = (stateFrom[r, c], stateTo[r, c])
+//                let (s1, s2) = (stateFrom.pos2state(row: r, col: c), stateTo.pos2state(row: r, col: c))
+//                guard ch1 != ch2 || s1 != s2 else {continue}
+//                if ch1 == "." {
+//                    removeMarker()
+//                } else if (ch1 != " ") {
+//                    removeCharacter()
+//                }
+//                if ch2 == "." {
+//                    addMarker()
+//                } else if (ch2 != " ") {
+//                    addCharacter(ch: ch2, s: s2, isHint: !stateFrom.game.isValid(p: p), point: point, nodeName: charNodeName)
+//                }
             }
         }
     }
