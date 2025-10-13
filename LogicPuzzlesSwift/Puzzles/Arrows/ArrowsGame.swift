@@ -11,10 +11,16 @@ import Foundation
 class ArrowsGame: GridGame<ArrowsGameState> {
     static let PUZ_UNKNOWN = 8
     static let offset = Position.Directions4
-
-    override func isValid(row: Int, col: Int) -> Bool {
-        1..<rows - 1 ~= row && (col == 0 || col == cols - 1) ||
-        1..<cols - 1 ~= col && (row == 0 || row == rows - 1)
+    
+    func isCorner(p: Position) -> Bool {
+        let (row, col) = p.destructured
+        return (row == 0 || row == rows - 1) && (col == 0 || col == cols - 1)
+    }
+    
+    func isArrow(p: Position) -> Bool {
+        let (row, col) = p.destructured
+        return 1..<rows - 1 ~= row && (col == 0 || col == cols - 1) ||
+            1..<cols - 1 ~= col && (row == 0 || row == rows - 1)
     }
 
     var objArray = [Int]()
@@ -31,12 +37,12 @@ class ArrowsGame: GridGame<ArrowsGameState> {
         super.init(delegate: delegate)
         
         size = Position(layout.count + 2, layout[0].length + 2)
-        objArray = Array(repeating: -1, count: rows * cols)
+        objArray = Array(repeating: ArrowsGame.PUZ_UNKNOWN, count: rows * cols)
         
-        for r in 0..<rows {
-            let str = layout[r]
-            for c in 0..<cols {
-                let ch = str[c]
+        for r in 1..<rows - 1 {
+            let str = layout[r - 1]
+            for c in 1..<cols - 1 {
+                let ch = str[c - 1]
                 self[r, c] = ch.toInt!
             }
         }

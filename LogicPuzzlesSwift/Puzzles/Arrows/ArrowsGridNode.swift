@@ -12,7 +12,7 @@ import SpriteKit
 
 class ArrowsGridNode: GridNode {
     convenience init(blockSize: CGFloat, rows: Int, cols: Int) {
-        let texture = GridNode.gridTexture(blockSize: blockSize, rows: rows, cols: cols, verticalLinesRange: 1...cols - 1, horizontalLinesRange: 1...rows - 1)
+        let texture = GridNode.gridTexture(blockSize: blockSize, rows: rows, cols: cols, verticalLinesRange: 0...cols, horizontalLinesRange: 0...rows)
         self.init(texture: texture, color: .clear, size: texture.size())
         self.blockSize = blockSize
         self.rows = rows

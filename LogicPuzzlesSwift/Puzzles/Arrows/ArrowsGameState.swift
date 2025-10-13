@@ -42,10 +42,10 @@ class ArrowsGameState: GridGameState<ArrowsGameMove> {
         get { objArray[row * cols + col] }
         set { objArray[row * cols + col] = newValue }
     }
-    
+
     override func setObject(move: inout ArrowsGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else { return .none }
+        guard game.isArrow(p: p) && self[p] != move.obj else { return .none }
         self[p] = move.obj
         updateIsSolved()
         return .level
@@ -53,7 +53,7 @@ class ArrowsGameState: GridGameState<ArrowsGameMove> {
     
     override func switchObject(move: inout ArrowsGameMove) -> GameChangeType {
         let p = move.p
-        guard isValid(p: p) else { return .none }
+        guard game.isArrow(p: p) else { return .none }
         let o = self[p]
         move.obj = (o + 1) % 9
         return setObject(move: &move)

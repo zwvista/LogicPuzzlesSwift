@@ -14,10 +14,13 @@ class ArrowsGameScene: GameScene<ArrowsGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addCharacter(ch: Character, s: HintState, isHint: Bool, point: CGPoint, nodeName: String) {
-        addLabel(text: String(ch), fontColor: s == .normal ? isHint ? .gray : .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+    func addHint(p: Position, n: Int, s: HintState) {
+        let point = gridNode.gridPosition(p: p)
+        let nodeNameSuffix = "-\(p.row)-\(p.col)"
+        let hintNodeName = "hint" + nodeNameSuffix
+        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: hintNodeName)
     }
-    
+
     override func levelInitialized(_ game: AnyObject, state: ArrowsGameState, skView: SKView) {
         let game = game as! ArrowsGame
         removeAllChildren()
@@ -31,13 +34,9 @@ class ArrowsGameScene: GameScene<ArrowsGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
-                let ch = state[p]
-//                guard ch != " " else {continue}
-//                let nodeNameSuffix = "-\(p.row)-\(p.col)"
-//                let charNodeName = "char" + nodeNameSuffix
-//                let s = state.pos2state(row: r, col: c)
-//                addCharacter(ch: ch, s: s, isHint: !game.isValid(p: p), point: point, nodeName: charNodeName)
+                guard !game.isCorner(p: p) && !game.isArrow(p: p) else {continue}
+                let n = state[p]
+                addHint(p: p, n: n, s: .normal)
             }
         }
     }

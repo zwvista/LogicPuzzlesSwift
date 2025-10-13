@@ -62,11 +62,7 @@ class DigitalBattleShipsGameScene: GameScene<DigitalBattleShipsGameState> {
         guard n >= 0 else {return}
         let nodeNameSuffix = "-\(p.row)-\(p.col)"
         let hintNodeName = "hint" + nodeNameSuffix
-        addHintNumber(n: n, s: s, point: point, nodeName: hintNodeName)
-    }
-    
-    func addHintNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: hintNodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: DigitalBattleShipsGameState, skView: SKView) {
