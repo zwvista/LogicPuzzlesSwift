@@ -47,7 +47,7 @@ class NorthPoleFishingGameState: GridGameState<NorthPoleFishingGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout NorthPoleFishingGameMove) -> GameChangeType {
+    override func setObject(move: inout NorthPoleFishingGameMove) -> GameOperationType {
         var changed = false
         func f(o1: inout GridLineObject, o2: inout GridLineObject) {
             if o1 != move.obj {
@@ -60,13 +60,13 @@ class NorthPoleFishingGameState: GridGameState<NorthPoleFishingGameMove> {
         }
         let dir = move.dir, dir2 = (dir + 2) % 4
         let p = move.p, p2 = p + NorthPoleFishingGame.offset[dir]
-        guard isValid(p: p2) && game.dots[p][dir] == .empty else { return .none }
+        guard isValid(p: p2) && game.dots[p][dir] == .empty else { return .invalid }
         f(o1: &self[p][dir], o2: &self[p2][dir2])
         if changed { updateIsSolved() }
-        return changed ? .level : .none
+        return changed ? .moveComplete : .invalid
     }
     
-    override func switchObject(move: inout NorthPoleFishingGameMove) -> GameChangeType {
+    override func switchObject(move: inout NorthPoleFishingGameMove) -> GameOperationType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: GridLineObject) -> GridLineObject {
             switch o {

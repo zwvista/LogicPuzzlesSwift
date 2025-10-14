@@ -44,17 +44,17 @@ class TatamiGameState: GridGameState<TatamiGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout TatamiGameMove) -> GameChangeType {
+    override func setObject(move: inout TatamiGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else { return .none }
+        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
-        return .level
+        return .moveComplete
     }
     
-    override func switchObject(move: inout TatamiGameMove) -> GameChangeType {
+    override func switchObject(move: inout TatamiGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " else { return .none }
+        guard isValid(p: p) && game[p] == " " else { return .invalid }
         let o = self[p]
         move.obj =
             o == " " ? "1" :

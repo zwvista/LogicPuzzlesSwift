@@ -48,15 +48,15 @@ class NumberCrosswordsGameState: GridGameState<NumberCrosswordsGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout NumberCrosswordsGameMove) -> GameChangeType {
+    override func setObject(move: inout NumberCrosswordsGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else { return .none }
+        guard isValid(p: p) && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
-        return .level
+        return .moveComplete
     }
     
-    override func switchObject(move: inout NumberCrosswordsGameMove) -> GameChangeType {
+    override func switchObject(move: inout NumberCrosswordsGameMove) -> GameOperationType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: NumberCrosswordsObject) -> NumberCrosswordsObject {
             switch o {
@@ -69,7 +69,7 @@ class NumberCrosswordsGameState: GridGameState<NumberCrosswordsGameMove> {
             }
         }
         let p = move.p
-        guard isValid(p: p) else { return .none }
+        guard isValid(p: p) else { return .invalid }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }

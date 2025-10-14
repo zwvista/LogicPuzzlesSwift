@@ -61,17 +61,17 @@ class SkyscrapersGameState: GridGameState<SkyscrapersGameMove> {
             .normal
     }
     
-    override func setObject(move: inout SkyscrapersGameMove) -> GameChangeType {
+    override func setObject(move: inout SkyscrapersGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else { return .none }
+        guard isValid(p: p) && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
-        return .level
+        return .moveComplete
     }
     
-    override func switchObject(move: inout SkyscrapersGameMove) -> GameChangeType {
+    override func switchObject(move: inout SkyscrapersGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) else { return .none }
+        guard isValid(p: p) else { return .invalid }
         let o = self[p]
         move.obj = (o + 1) % (game.intMax + 1)
         return setObject(move: &move)

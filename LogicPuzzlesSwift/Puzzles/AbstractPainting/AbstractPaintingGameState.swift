@@ -48,18 +48,18 @@ class AbstractPaintingGameState: GridGameState<AbstractPaintingGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout AbstractPaintingGameMove) -> GameChangeType {
+    override func setObject(move: inout AbstractPaintingGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else { return .none }
+        guard isValid(p: p) && self[p] != move.obj else { return .invalid }
         // 3. The region of the painting can be entirely hidden or revealed.
         for p2 in game.areas[game.pos2area[p]!] {
             self[p2] = move.obj
         }
         updateIsSolved()
-        return .level
+        return .moveComplete
     }
     
-    override func switchObject(move: inout AbstractPaintingGameMove) -> GameChangeType {
+    override func switchObject(move: inout AbstractPaintingGameMove) -> GameOperationType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: AbstractPaintingObject) -> AbstractPaintingObject {
             switch o {
@@ -74,7 +74,7 @@ class AbstractPaintingGameState: GridGameState<AbstractPaintingGameMove> {
             }
         }
         let p = move.p
-        guard isValid(p: p) else { return .none }
+        guard isValid(p: p) else { return .invalid }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }

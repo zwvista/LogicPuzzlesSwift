@@ -47,15 +47,15 @@ class LineSweeperGameState: GridGameState<LineSweeperGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout LineSweeperGameMove) -> GameChangeType {
+    override func setObject(move: inout LineSweeperGameMove) -> GameOperationType {
         let p = move.p, dir = move.dir
-        guard isValid(p: p) && !game.isHint(p: p) else { return .none }
+        guard isValid(p: p) && !game.isHint(p: p) else { return .invalid }
         let p2 = p + LineSweeperGame.offset[dir * 2], dir2 = (dir + 2) % 4
-        guard isValid(p: p2) && !game.isHint(p: p2) else { return .none }
+        guard isValid(p: p2) && !game.isHint(p: p2) else { return .invalid }
         self[p][dir].toggle()
         self[p2][dir2].toggle()
         updateIsSolved()
-        return .level
+        return .moveComplete
     }
     
     /*

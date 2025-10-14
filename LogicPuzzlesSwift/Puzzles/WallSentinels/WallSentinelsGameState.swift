@@ -42,20 +42,20 @@ class WallSentinelsGameState: GridGameState<WallSentinelsGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout WallSentinelsGameMove) -> GameChangeType {
+    override func setObject(move: inout WallSentinelsGameMove) -> GameOperationType {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
         switch o1 {
-        case .hintLand, .hintWall: return .none
+        case .hintLand, .hintWall: return .invalid
         default: break
         }
-        guard String(describing: o1) != String(describing: o2) else { return .none }
+        guard String(describing: o1) != String(describing: o2) else { return .invalid }
         self[p] = o2
         updateIsSolved()
-        return .level
+        return .moveComplete
     }
     
-    override func switchObject(move: inout WallSentinelsGameMove) -> GameChangeType {
+    override func switchObject(move: inout WallSentinelsGameMove) -> GameOperationType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: WallSentinelsObject) -> WallSentinelsObject {
             switch o {

@@ -44,17 +44,17 @@ class RippleEffectGameState: GridGameState<RippleEffectGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout RippleEffectGameMove) -> GameChangeType {
+    override func setObject(move: inout RippleEffectGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else { return .none }
+        guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
-        return .level
+        return .moveComplete
     }
     
-    override func switchObject(move: inout RippleEffectGameMove) -> GameChangeType {
+    override func switchObject(move: inout RippleEffectGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] == 0 else { return .none }
+        guard isValid(p: p) && game[p] == 0 else { return .invalid }
         let o = self[p]
         move.obj = (o + 1) % (game.areas[game.pos2area[p]!].count + 1)
         return setObject(move: &move)

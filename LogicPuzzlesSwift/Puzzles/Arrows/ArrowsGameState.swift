@@ -43,17 +43,17 @@ class ArrowsGameState: GridGameState<ArrowsGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
 
-    override func setObject(move: inout ArrowsGameMove) -> GameChangeType {
+    override func setObject(move: inout ArrowsGameMove) -> GameOperationType {
         let p = move.p
-        guard game.isArrow(p: p) && self[p] != move.obj else { return .none }
+        guard game.isArrow(p: p) && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
-        return .level
+        return .moveComplete
     }
     
-    override func switchObject(move: inout ArrowsGameMove) -> GameChangeType {
+    override func switchObject(move: inout ArrowsGameMove) -> GameOperationType {
         let p = move.p
-        guard game.isArrow(p: p) else { return .none }
+        guard game.isArrow(p: p) else { return .invalid }
         let o = self[p]
         move.obj = (o + 1) % 9
         return setObject(move: &move)

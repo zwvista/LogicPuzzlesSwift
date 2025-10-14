@@ -45,17 +45,17 @@ class LighthousesGameState: GridGameState<LighthousesGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout LighthousesGameMove) -> GameChangeType {
+    override func setObject(move: inout LighthousesGameMove) -> GameOperationType {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 { return .none }
-        guard String(describing: o1) != String(describing: o2) else { return .none }
+        if case .hint = o1 { return .invalid }
+        guard String(describing: o1) != String(describing: o2) else { return .invalid }
         self[p] = o2
         updateIsSolved()
-        return .level
+        return .moveComplete
     }
     
-    override func switchObject(move: inout LighthousesGameMove) -> GameChangeType {
+    override func switchObject(move: inout LighthousesGameMove) -> GameOperationType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: LighthousesObject) -> LighthousesObject {
             switch o {

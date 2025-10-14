@@ -42,7 +42,7 @@ class DominoGameState: GridGameState<DominoGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout DominoGameMove) -> GameChangeType {
+    override func setObject(move: inout DominoGameMove) -> GameOperationType {
         var changed = false
         func f(o1: inout GridLineObject, o2: inout GridLineObject) {
             if o1 != move.obj {
@@ -55,13 +55,13 @@ class DominoGameState: GridGameState<DominoGameMove> {
         }
         let dir = move.dir, dir2 = (dir + 2) % 4
         let p = move.p, p2 = p + DominoGame.offset[dir]
-        guard isValid(p: p2) && game[p][dir] == .empty else { return .none }
+        guard isValid(p: p2) && game[p][dir] == .empty else { return .invalid }
         f(o1: &self[p][dir], o2: &self[p2][dir2])
         if changed { updateIsSolved() }
-        return changed ? .level : .none
+        return changed ? .moveComplete : .invalid
     }
     
-    override func switchObject(move: inout DominoGameMove) -> GameChangeType {
+    override func switchObject(move: inout DominoGameMove) -> GameOperationType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: GridLineObject) -> GridLineObject {
             switch o {

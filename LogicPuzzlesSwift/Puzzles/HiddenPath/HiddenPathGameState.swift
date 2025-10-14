@@ -55,22 +55,22 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout HiddenPathGameMove) -> GameChangeType {
+    override func setObject(move: inout HiddenPathGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) else {return .none}
+        guard isValid(p: p) else {return .invalid}
         switch self[p].obj {
         case 0:
             self[p].obj = nextNum
             focusPos = p
             updateIsSolved()
             updateState()
-            return .level
+            return .moveComplete
         case -1:
-            return .none
+            return .invalid
         default:
             focusPos = p
             updateState()
-            return .internalState
+            return .partialMove
         }
     }
 

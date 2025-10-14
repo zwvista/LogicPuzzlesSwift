@@ -45,7 +45,7 @@ class LightenUpGameState: GridGameState<LightenUpGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout LightenUpGameMove) -> GameChangeType {
+    override func setObject(move: inout LightenUpGameMove) -> GameOperationType {
         var changed = false
         let p = move.p
         
@@ -88,10 +88,10 @@ class LightenUpGameState: GridGameState<LightenUpGameMove> {
             break
         }
         
-        return changed ? .level : .none
+        return changed ? .moveComplete : .invalid
     }
     
-    override func switchObject(move: inout LightenUpGameMove) -> GameChangeType {
+    override func switchObject(move: inout LightenUpGameMove) -> GameOperationType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         let allowedObjectsOnly = self.allowedObjectsOnly
         func f(o: LightenUpObjectType) -> LightenUpObjectType {
@@ -116,7 +116,7 @@ class LightenUpGameState: GridGameState<LightenUpGameMove> {
             move.objType = allowedObjectsOnly && self[p].lightness > 0 ? f(o: o) : o
             return setObject(move: &move)
         case .wall:
-            return .none
+            return .invalid
         }
     }
     

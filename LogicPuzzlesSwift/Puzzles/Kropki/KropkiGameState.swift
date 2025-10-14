@@ -46,17 +46,17 @@ class KropkiGameState: GridGameState<KropkiGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
 
-    override func setObject(move: inout KropkiGameMove) -> GameChangeType {
+    override func setObject(move: inout KropkiGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else { return .none }
+        guard isValid(p: p) && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
-        return .level
+        return .moveComplete
     }
     
-    override func switchObject(move: inout KropkiGameMove) -> GameChangeType {
+    override func switchObject(move: inout KropkiGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) else { return .none }
+        guard isValid(p: p) else { return .invalid }
         let o = self[p]
         move.obj = (o + 1) % (cols + 1)
         return setObject(move: &move)
@@ -126,7 +126,7 @@ class KropkiGameState: GridGameState<KropkiGameMove> {
                     // 6. Please note that when two numbers are either consecutive or doubles,
                     // there MUST be a Dot between them!
                     let s: HintState =
-                        n2 != n1 + 1 && n2 != n1 * 2 && kh == .none ||
+                        n2 != n1 + 1 && n2 != n1 * 2 && kh == .invalid ||
                         n2 == n1 + 1 && kh == .consecutive ||
                         n2 == n1 * 2 && kh == .twice ? .complete : .error
                     setState(s: s)

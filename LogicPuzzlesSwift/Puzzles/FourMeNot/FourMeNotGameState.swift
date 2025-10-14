@@ -42,15 +42,15 @@ class FourMeNotGameState: GridGameState<FourMeNotGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout FourMeNotGameMove) -> GameChangeType {
+    override func setObject(move: inout FourMeNotGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p), case .empty = game[p], String(describing: self[p]) != String(describing: move.obj) else { return .none }
+        guard isValid(p: p), case .empty = game[p], String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
-        return .level
+        return .moveComplete
     }
     
-    override func switchObject(move: inout FourMeNotGameMove) -> GameChangeType {
+    override func switchObject(move: inout FourMeNotGameMove) -> GameOperationType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: FourMeNotObject) -> FourMeNotObject {
             switch o {
@@ -65,7 +65,7 @@ class FourMeNotGameState: GridGameState<FourMeNotGameMove> {
             }
         }
         let p = move.p
-        guard isValid(p: p), case .empty = game[p] else { return .none }
+        guard isValid(p: p), case .empty = game[p] else { return .invalid }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }

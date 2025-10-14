@@ -47,18 +47,18 @@ class PaintTheNurikabeGameState: GridGameState<PaintTheNurikabeGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout PaintTheNurikabeGameMove) -> GameChangeType {
+    override func setObject(move: inout PaintTheNurikabeGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else { return .none }
+        guard isValid(p: p) && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         for p2 in game.areas[game.pos2area[p]!] {
             self[p2] = move.obj
         }
         updateIsSolved()
-        return .level
+        return .moveComplete
     }
     
-    override func switchObject(move: inout PaintTheNurikabeGameMove) -> GameChangeType {
+    override func switchObject(move: inout PaintTheNurikabeGameMove) -> GameOperationType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: PaintTheNurikabeObject) -> PaintTheNurikabeObject {
             switch o {
@@ -73,7 +73,7 @@ class PaintTheNurikabeGameState: GridGameState<PaintTheNurikabeGameMove> {
             }
         }
         let p = move.p
-        guard isValid(p: p) else { return .none }
+        guard isValid(p: p) else { return .invalid }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }

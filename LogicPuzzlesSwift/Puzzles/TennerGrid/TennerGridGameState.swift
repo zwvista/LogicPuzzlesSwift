@@ -49,17 +49,17 @@ class TennerGridGameState: GridGameState<TennerGridGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
 
-    override func setObject(move: inout TennerGridGameMove) -> GameChangeType {
+    override func setObject(move: inout TennerGridGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] == -1 && self[p] != move.obj else { return .none }
+        guard isValid(p: p) && game[p] == -1 && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
-        return .level
+        return .moveComplete
     }
     
-    override func switchObject(move: inout TennerGridGameMove) -> GameChangeType {
+    override func switchObject(move: inout TennerGridGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] == -1 else { return .none }
+        guard isValid(p: p) && game[p] == -1 else { return .invalid }
         let o = self[p]
         move.obj = o == 9 ? -1 : o + 1
         return setObject(move: &move)

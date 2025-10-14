@@ -45,13 +45,13 @@ class BridgesGameState: GridGameState<BridgesGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    func switchBridges(move: BridgesGameMove) -> GameChangeType {
+    func switchBridges(move: BridgesGameMove) -> GameOperationType {
         let pFrom = move.pFrom, pTo = move.pTo
         // 4. Bridges can only run horizontally or vertically.
         guard pFrom < pTo,
             pFrom.row == pTo.row || pFrom.col == pTo.col,
             case .island(let state1, var bridges1) = self[pFrom],
-            case .island(let state2, var bridges2) = self[pTo] else { return .none }
+            case .island(let state2, var bridges2) = self[pTo] else { return .invalid }
         let n1 = pFrom.row == pTo.row ? 1 : 2
         let n2 = (n1 + 2) % 4
         let os = BridgesGame.offset[n1]
@@ -60,7 +60,7 @@ class BridgesGameState: GridGameState<BridgesGameMove> {
             switch bridges1[n1] {
             case 0:
                 // 4. Bridges can't cross each other.
-                guard case .empty = self[p] else { return .none }
+                guard case .empty = self[p] else { return .invalid }
                 self[p] = .bridge
             case 2:
                 self[p] = .empty
@@ -76,7 +76,7 @@ class BridgesGameState: GridGameState<BridgesGameMove> {
         self[pFrom] = .island(state: state1, bridges: bridges1)
         self[pTo] = .island(state: state2, bridges: bridges2)
         updateIsSolved()
-        return .level
+        return .moveComplete
     }
     
     /*

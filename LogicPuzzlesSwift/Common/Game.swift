@@ -25,10 +25,10 @@ protocol GameBase: AnyObject {
     func redo()
 }
 
-enum GameChangeType {
-    case none
-    case internalState
-    case level
+enum GameOperationType {
+    case invalid
+    case partialMove
+    case moveComplete
 }
 
 class Game<GS: GameStateBase>: GameBase {
@@ -73,17 +73,17 @@ class Game<GS: GameStateBase>: GameBase {
         levelUpdated(from: states[stateIndex - 1], to: currentState)
     }
     
-    func changeObject(move: inout GM, f: (inout GS, inout GM) -> GameChangeType) -> Bool {
+    func changeObject(move: inout GM, f: (inout GS, inout GM) -> GameOperationType) -> Bool {
         // copy a state
         var state = currentState.copy() as! GS
         switch f(&state, &move) {
-        case .none:
+        case .invalid:
             return false
-        case .internalState:
+        case .partialMove:
             swap(&states[stateIndex], &state)
             delegate?.stateChanged(self, from: state, to: currentState)
             return false
-        case .level:
+        case .moveComplete:
             if canRedo {
                 states.removeSubrange((stateIndex + 1)..<states.count)
                 moves.removeSubrange(stateIndex..<moves.count)

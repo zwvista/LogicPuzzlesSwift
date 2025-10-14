@@ -11,7 +11,7 @@ import Foundation
 enum KropkiHint: Int {
     case none, consecutive, twice
     init() {
-        self = .none
+        self = .invalid
     }
 }
 
