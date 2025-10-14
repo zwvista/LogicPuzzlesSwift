@@ -78,7 +78,7 @@ class KropkiGameScene: GameScene<KropkiGameState> {
                 for i in 0..<2 {
                     guard i == 0 && c != game.cols - 1 || i == 1 && r != game.rows - 1 else {continue}
                     let kh = (i == 0 ? game.pos2horzHint : game.pos2vertHint)[p]!
-                    guard kh != .invalid else {continue}
+                    guard kh != .none else {continue}
                     addHint(p: Position(r, c), isHorz: i == 0, s: .normal, kh: kh)
                 }
             }
@@ -102,7 +102,7 @@ class KropkiGameScene: GameScene<KropkiGameState> {
                     let nodeNameSuffix = "-\(p.row)-\(p.col)-" + (i == 0 ? "h" : "v")
                     let hintNodeName = "hint" + nodeNameSuffix
                     let kh = (i == 0 ? stateFrom.game.pos2horzHint : stateFrom.game.pos2vertHint)[p]!
-                    guard kh != .invalid else {continue}
+                    guard kh != .none else {continue}
                     let (s1, s2) = ((i == 0 ? stateFrom.pos2horzState : stateFrom.pos2vertState)[p] ?? .normal, (i == 0 ? stateTo.pos2horzState : stateTo.pos2vertState)[p] ?? .normal)
                     if s1 != s2 {
                         removeNode(withName: hintNodeName)

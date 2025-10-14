@@ -38,7 +38,7 @@ class KropkiGame: GridGame<KropkiGameState> {
                 let p = Position(r / 2, c)
                 let ch = str[c]
                 let kh: KropkiHint = ch == "W" ? .consecutive :
-                    ch == "B" ? .twice : .invalid
+                    ch == "B" ? .twice : .none
                 // Cannot assign through subscript:
                 // result of conditional operator '? :' is never mutable
                 // (r % 2 == 0 ? pos2horzHint : pos2vertHint)[p] = kh

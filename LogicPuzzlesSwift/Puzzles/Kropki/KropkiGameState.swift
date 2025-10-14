@@ -126,7 +126,7 @@ class KropkiGameState: GridGameState<KropkiGameMove> {
                     // 6. Please note that when two numbers are either consecutive or doubles,
                     // there MUST be a Dot between them!
                     let s: HintState =
-                        n2 != n1 + 1 && n2 != n1 * 2 && kh == .invalid ||
+                        n2 != n1 + 1 && n2 != n1 * 2 && kh == .none ||
                         n2 == n1 + 1 && kh == .consecutive ||
                         n2 == n1 * 2 && kh == .twice ? .complete : .error
                     setState(s: s)
