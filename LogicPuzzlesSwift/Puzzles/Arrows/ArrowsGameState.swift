@@ -88,7 +88,7 @@ class ArrowsGameState: GridGameState<ArrowsGameMove> {
                         var p2 = p + os
                         var n2 = 0
                         while isValid(p: p2) {
-                            if !(game.isBorder(p: p2) || game.isCorner(p: p2)) { n2 += 1 }
+                            if !(game.isCorner(p: p2) || game.isBorder(p: p2)) { n2 += 1 }
                             p2 += os
                         }
                         // 2. Each Arrow points to at least one number inside the board.
