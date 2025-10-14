@@ -38,13 +38,13 @@ class HidokuGameScene: GameScene<HidokuGameState> {
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let (n, s) = (state[p].destructured)
-                if n != 0 && n != -1 {
+                if n != HidokuGame.PUZ_UNKNOWN && n != HidokuGame.PUZ_FORBIDDEN {
                     let numberNodeName = "number" + nodeNameSuffix
                     addNumber(n: String(n), s: s, point: point, nodeName: numberNodeName)
                     let markerNodeName = "marker" + nodeNameSuffix
                     addCircleMarker(color: .white, point: point, nodeName: markerNodeName)
                 }
-                if n == -1 {
+                if n == HidokuGame.PUZ_FORBIDDEN {
                     let forbiddenNodeName = "forbidden" + nodeNameSuffix
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 }
@@ -77,13 +77,13 @@ class HidokuGameScene: GameScene<HidokuGameState> {
                 func removeNumber() { removeNode(withName: numberNodeName) }
                 func removeForbidden() { removeNode(withName: forbiddenNodeName) }
                 switch n1 {
-                case 0: break
-                case -1: removeForbidden()
+                case HidokuGame.PUZ_UNKNOWN: break
+                case HidokuGame.PUZ_FORBIDDEN: removeForbidden()
                 default: removeNumber()
                 }
                 switch n2 {
-                case 0: break
-                case -1: addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
+                case HidokuGame.PUZ_UNKNOWN: break
+                case HidokuGame.PUZ_FORBIDDEN: addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 default: addNumber(n: String(n2), s: s2, point: point, nodeName: numberNodeName)
                 }
             }

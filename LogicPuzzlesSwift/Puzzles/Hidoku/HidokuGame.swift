@@ -9,6 +9,8 @@
 import Foundation
 
 class HidokuGame: GridGame<HidokuGameState> {
+    static let PUZ_UNKNOWN = 0
+    static let PUZ_FORBIDDEN = -1
     static let offset = Position.Directions8
 
     var objArray = [Int]()

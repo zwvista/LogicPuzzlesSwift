@@ -16,4 +16,5 @@ struct HiddenPathObject {
 
 struct HiddenPathGameMove {
     var p = Position()
+    var obj = 0
 }

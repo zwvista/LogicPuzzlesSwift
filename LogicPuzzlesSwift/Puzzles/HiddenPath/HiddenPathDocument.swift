@@ -13,9 +13,10 @@ class HiddenPathDocument: GameDocument<HiddenPathGameMove> {
     
     override func saveMove(_ move: HiddenPathGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
+        rec.intValue1 = move.obj
     }
     
     override func loadMove(from rec: MoveProgress) -> HiddenPathGameMove {
-        HiddenPathGameMove(p: Position(rec.row, rec.col))
+        HiddenPathGameMove(p: Position(rec.row, rec.col), obj: rec.intValue1)
     }
 }

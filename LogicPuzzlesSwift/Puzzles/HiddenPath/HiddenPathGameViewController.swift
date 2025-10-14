@@ -20,7 +20,7 @@ class HiddenPathGameViewController: GameGameViewController2<HiddenPathGameState,
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
         var move = HiddenPathGameMove(p: p)
-        if game.setObject(move: &move) { soundManager.playSoundTap() }
+        if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
 
     override func newGame(level: GameLevel) -> HiddenPathGame {

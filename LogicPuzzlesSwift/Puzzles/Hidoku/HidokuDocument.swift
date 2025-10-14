@@ -13,9 +13,10 @@ class HidokuDocument: GameDocument<HidokuGameMove> {
     
     override func saveMove(_ move: HidokuGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
+        rec.intValue1 = move.obj
     }
     
     override func loadMove(from rec: MoveProgress) -> HidokuGameMove {
-        HidokuGameMove(p: Position(rec.row, rec.col))
+        HidokuGameMove(p: Position(rec.row, rec.col), obj: rec.intValue1)
     }
 }

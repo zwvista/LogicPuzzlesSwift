@@ -57,15 +57,22 @@ class HiddenPathGameState: GridGameState<HiddenPathGameMove> {
     
     override func setObject(move: inout HiddenPathGameMove) -> GameOperationType {
         let p = move.p
+        guard isValid(p: p) && self[p].obj == HiddenPathGame.PUZ_UNKNOWN else {return .invalid}
+        self[p].obj = nextNum
+        focusPos = p
+        updateIsSolved()
+        updateState()
+        return .moveComplete
+    }
+    
+    override func switchObject(move: inout HiddenPathGameMove) -> GameOperationType {
+        let p = move.p
         guard isValid(p: p) else {return .invalid}
         switch self[p].obj {
-        case 0:
-            self[p].obj = nextNum
-            focusPos = p
-            updateIsSolved()
-            updateState()
-            return .moveComplete
-        case -1:
+        case HiddenPathGame.PUZ_UNKNOWN:
+            move.obj = nextNum
+            return setObject(move: &move)
+        case HiddenPathGame.PUZ_FORBIDDEN:
             return .invalid
         default:
             focusPos = p

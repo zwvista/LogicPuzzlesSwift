@@ -16,4 +16,5 @@ struct HidokuObject {
 
 struct HidokuGameMove {
     var p = Position()
+    var obj = 0
 }

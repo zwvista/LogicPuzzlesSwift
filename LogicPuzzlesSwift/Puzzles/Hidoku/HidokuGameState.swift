@@ -57,15 +57,22 @@ class HidokuGameState: GridGameState<HidokuGameMove> {
     
     override func setObject(move: inout HidokuGameMove) -> GameOperationType {
         let p = move.p
+        guard isValid(p: p) && self[p].obj == HidokuGame.PUZ_UNKNOWN else {return .invalid}
+        self[p].obj = move.obj
+        focusPos = p
+        updateIsSolved()
+        updateState()
+        return .moveComplete
+    }
+
+    override func switchObject(move: inout HidokuGameMove) -> GameOperationType {
+        let p = move.p
         guard isValid(p: p) else {return .invalid}
         switch self[p].obj {
-        case 0:
-            self[p].obj = nextNum
-            focusPos = p
-            updateIsSolved()
-            updateState()
-            return .moveComplete
-        case -1:
+        case HidokuGame.PUZ_UNKNOWN:
+            move.obj = nextNum
+            return setObject(move: &move)
+        case HidokuGame.PUZ_FORBIDDEN:
             return .invalid
         default:
             focusPos = p
@@ -73,7 +80,6 @@ class HidokuGameState: GridGameState<HidokuGameMove> {
             return .partialMove
         }
     }
-
     
     /*
         iOS Game: 100 Logic Games/Puzzle Set 4/Hidoku
