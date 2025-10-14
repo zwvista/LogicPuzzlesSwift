@@ -17,10 +17,6 @@ class HidokuGameScene: GameScene<HidokuGameState> {
     func addNumber(n: String, s: HintState, point: CGPoint, nodeName: String) {
         addLabel(text: n, fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName, sampleText: "10")
     }
-    
-    func addArrow(n: Int, s: AllowedObjectState, point: CGPoint, nodeName: String) {
-        addImage(imageNamed: n == 8 ? "star_yellow" : getArrowImageName(n: n), color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName, size: CGSize(width: gridNode.blockSize / 2, height: gridNode.blockSize / 2))
-    }
 
     override func levelInitialized(_ game: AnyObject, state: HidokuGameState, skView: SKView) {
         let game = game as! HidokuGame

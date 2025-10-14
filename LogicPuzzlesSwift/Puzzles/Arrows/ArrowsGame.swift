@@ -10,14 +10,14 @@ import Foundation
 
 class ArrowsGame: GridGame<ArrowsGameState> {
     static let PUZ_UNKNOWN = 8
-    static let offset = Position.Directions4
+    static let offset = Position.Directions8
     
     func isCorner(p: Position) -> Bool {
         let (row, col) = p.destructured
         return (row == 0 || row == rows - 1) && (col == 0 || col == cols - 1)
     }
     
-    func isArrow(p: Position) -> Bool {
+    func isBorder(p: Position) -> Bool {
         let (row, col) = p.destructured
         return 1..<rows - 1 ~= row && (col == 0 || col == cols - 1) ||
             1..<cols - 1 ~= col && (row == 0 || row == rows - 1)

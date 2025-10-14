@@ -20,6 +20,10 @@ class ArrowsGameScene: GameScene<ArrowsGameState> {
         let hintNodeName = "hint" + nodeNameSuffix
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: hintNodeName)
     }
+    
+    func addArrow(n: Int, s: AllowedObjectState, point: CGPoint, nodeName: String) {
+        addImage(imageNamed: getArrowImageName(n: n), color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName, size: CGSize(width: gridNode.blockSize, height: gridNode.blockSize))
+    }
 
     override func levelInitialized(_ game: AnyObject, state: ArrowsGameState, skView: SKView) {
         let game = game as! ArrowsGame
@@ -30,11 +34,10 @@ class ArrowsGameScene: GameScene<ArrowsGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: ArrowsGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
-        // add Characters
-        for r in 0..<game.rows {
-            for c in 0..<game.cols {
+        // add Hints
+        for r in 1..<game.rows - 1 {
+            for c in 1..<game.cols - 1 {
                 let p = Position(r, c)
-                guard !game.isCorner(p: p) && !game.isArrow(p: p) else {continue}
                 let n = state[p]
                 addHint(p: p, n: n, s: .normal)
             }
@@ -45,26 +48,25 @@ class ArrowsGameScene: GameScene<ArrowsGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
+                if stateFrom.game.isCorner(p: p) {continue}
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let charNodeName = "char" + nodeNameSuffix
-                let markerNodeName = "marker" + nodeNameSuffix
-                func removeCharacter() { removeNode(withName: charNodeName) }
-                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-//                let (ch1, ch2) = (stateFrom[r, c], stateTo[r, c])
-//                let (s1, s2) = (stateFrom.pos2state(row: r, col: c), stateTo.pos2state(row: r, col: c))
-//                guard ch1 != ch2 || s1 != s2 else {continue}
-//                if ch1 == "." {
-//                    removeMarker()
-//                } else if (ch1 != " ") {
-//                    removeCharacter()
-//                }
-//                if ch2 == "." {
-//                    addMarker()
-//                } else if (ch2 != " ") {
-//                    addCharacter(ch: ch2, s: s2, isHint: !stateFrom.game.isValid(p: p), point: point, nodeName: charNodeName)
-//                }
+                let hintNodeName = "hint" + nodeNameSuffix
+                let arrowNodeName = "arrow" + nodeNameSuffix
+                if stateFrom.game.isBorder(p: p) {
+                    let (n1, n2) = (stateFrom[p], stateTo[p])
+                    let (s1, s2) = (stateFrom.arrow2state[p]!, stateTo.arrow2state[p]!)
+                    if n1 != n2 || s1 != s2 {
+                        if n1 != ArrowsGame.PUZ_UNKNOWN { removeNode(withName: arrowNodeName) }
+                        if n2 != ArrowsGame.PUZ_UNKNOWN { addArrow(n: n2, s: s2, point: point, nodeName: arrowNodeName) }
+                    }
+                } else {
+                    let (s1, s2) = (stateFrom.hint2state[p]!, stateTo.hint2state[p]!)
+                    if s1 != s2 {
+                        removeNode(withName: hintNodeName)
+                        addHint(p: p, n: stateTo[p], s: s2)
+                    }
+                }
             }
         }
     }

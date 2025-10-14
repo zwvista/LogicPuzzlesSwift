@@ -15,8 +15,9 @@ class ArrowsGameState: GridGameState<ArrowsGameMove> {
     }
     override var gameDocument: GameDocumentBase { ArrowsDocument.sharedInstance }
     var objArray = [Int]()
-    var pos2state = [Position: HintState]()
-    
+    var hint2state = [Position: HintState]()
+    var arrow2state = [Position: AllowedObjectState]()
+
     override func copy() -> ArrowsGameState {
         let v = ArrowsGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -45,7 +46,7 @@ class ArrowsGameState: GridGameState<ArrowsGameMove> {
 
     override func setObject(move: inout ArrowsGameMove) -> GameOperationType {
         let p = move.p
-        guard game.isArrow(p: p) && self[p] != move.obj else { return .invalid }
+        guard game.isBorder(p: p) && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -53,7 +54,7 @@ class ArrowsGameState: GridGameState<ArrowsGameMove> {
     
     override func switchObject(move: inout ArrowsGameMove) -> GameOperationType {
         let p = move.p
-        guard game.isArrow(p: p) else { return .invalid }
+        guard game.isBorder(p: p) else { return .invalid }
         let o = self[p]
         move.obj = (o + 1) % 9
         return setObject(move: &move)
@@ -73,54 +74,44 @@ class ArrowsGameState: GridGameState<ArrowsGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-//        var chars = [Character]()
-//        for r in 1..<rows - 1 {
-//            let (h1, h2) = (self[r, 0], self[r, cols - 1])
-//            var (ch11, ch21): (Character, Character) = (" ", " ")
-//            chars = []
-//            for c in 1..<cols - 1 {
-//                let (ch12, ch22) = (self[r, c], self[r, cols - 1 - c])
-//                if ch11 == " " && ch12 != " " { ch11 = ch12 }
-//                if ch21 == " " && ch22 != " " { ch21 = ch22 }
-//                guard ch12 != " " else {continue}
-//                // 2. Each letter appears once in every row.
-//                if chars.contains(ch12) {
-//                    isSolved = false
-//                } else {
-//                    chars.append(ch12)
-//                }
-//            }
-//            // 3. The letters on the borders tell you what letter you see from there.
-//            let s1: HintState = ch11 == " " ? .normal : ch11 == h1 ? .complete : .error
-//            let s2: HintState = ch21 == " " ? .normal : ch21 == h2 ? .complete : .error
-//            row2state[r * 2] = s1; row2state[r * 2 + 1] = s2
-//            if s1 != .complete || s2 != .complete { isSolved = false }
-//            // 2. Each letter appears once in every row.
-//            if chars.count != Int(game.chMax.asciiValue!) - Int(Character("A").asciiValue!) + 1 { isSolved = false }
-//        }
-//        for c in 1..<cols - 1 {
-//            let (h1, h2) = (self[0, c], self[rows - 1, c])
-//            var (ch11, ch21): (Character, Character) = (" ", " ")
-//            chars = []
-//            for r in 1..<rows - 1 {
-//                let (ch12, ch22) = (self[r, c], self[rows - 1 - r, c])
-//                if ch11 == " " && ch12 != " " { ch11 = ch12 }
-//                if ch21 == " " && ch22 != " " { ch21 = ch22 }
-//                guard ch12 != " " else {continue}
-//                // 2. Each letter appears once in every column.
-//                if chars.contains(ch12) {
-//                    isSolved = false
-//                } else {
-//                    chars.append(ch12)
-//                }
-//            }
-//            // 3. The letters on the borders tell you what letter you see from there.
-//            let s1: HintState = ch11 == " " ? .normal : ch11 == h1 ? .complete : .error
-//            let s2: HintState = ch21 == " " ? .normal : ch21 == h2 ? .complete : .error
-//            col2state[c * 2] = s1; col2state[c * 2 + 1] = s2
-//            if s1 != .complete || s2 != .complete { isSolved = false }
-//            // 2. Each letter appears once in every column.
-//            if chars.count != Int(game.chMax.asciiValue!) - Int(Character("A").asciiValue!) + 1 { isSolved = false }
-//        }
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                let n = self[p]
+                if game.isCorner(p: p) {
+                    //
+                } else if game.isBorder(p: p) {
+                    if n == ArrowsGame.PUZ_UNKNOWN {
+                        arrow2state[p] = .normal
+                    } else {
+                        let os = ArrowsGame.offset[n]
+                        var p2 = p + os
+                        var n2 = 0
+                        while isValid(p: p2) {
+                            if !(game.isBorder(p: p2) || game.isCorner(p: p2)) { n2 += 1 }
+                            p2 += os
+                        }
+                        // 2. Each Arrow points to at least one number inside the board.
+                        let s: AllowedObjectState = n2 > 0 ? .normal : .error
+                        arrow2state[p] = s
+                        if s == .error { isSolved = false }
+                    }
+                } else {
+                    var n2 = 0
+                    for i in 0..<8 {
+                        let os = ArrowsGame.offset[i]
+                        var p2 = p + os
+                        while isValid(p: p2) {
+                            if game.isBorder(p: p2) && self[p2] == (i + 4) % 8 { n2 += 1 }
+                            p2 += os
+                        }
+                    }
+                    // 3. The numbers tell you how many arrows point at them.
+                    let s: HintState = n2 < n ? .normal : n2 == n ? .complete : .error
+                    hint2state[p] = s
+                    if s != .complete { isSolved = false }
+                }
+            }
+        }
     }
 }
