@@ -18,8 +18,6 @@ class TurnTwiceGameScene: GameScene<TurnTwiceGameState> {
         addImage(imageNamed: "128_signpost", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }
 
-    func addForbidden(point: CGPoint, nodeName: String) { addForbiddenMarker(point: point, nodeName: nodeName) }
-
     override func levelInitialized(_ game: AnyObject, state: TurnTwiceGameState, skView: SKView) {
         let game = game as! TurnTwiceGame
         removeAllChildren()
@@ -36,15 +34,8 @@ class TurnTwiceGameScene: GameScene<TurnTwiceGameState> {
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let signpostNodeName = "signpost" + nodeNameSuffix
-                let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                switch state[p] {
-                case let .signpost(s):
+                if case .signpost(let s) = state[p] {
                     addsignpost(s: s, point: point, nodeName: signpostNodeName)
-                    addCircleMarker(color: .white, point: point, nodeName: "marker")
-                case .forbidden:
-                    addForbidden(point: point, nodeName: forbiddenNodeName)
-                default:
-                    break
                 }
             }
         }
@@ -59,29 +50,30 @@ class TurnTwiceGameScene: GameScene<TurnTwiceGameState> {
                 let signpostNodeName = "signpost" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                func removesignpost() { removeNode(withName: signpostNodeName) }
-                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
+                let wallNodeName = "wall" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 guard String(describing: o1) != String(describing: o2) else {continue}
                 switch o1 {
                 case .forbidden:
-                    removeForbidden()
-                case .signpost:
-                    removesignpost()
+                    removeNode(withName: forbiddenNodeName)
                 case .marker:
-                    removeMarker()
+                    removeNode(withName: markerNodeName)
+                case .signpost:
+                    removeNode(withName: signpostNodeName)
+                case .wall:
+                    removeNode(withName: wallNodeName)
                 default:
                     break
                 }
                 switch o2 {
                 case .forbidden:
-                    addForbidden(point: point, nodeName: forbiddenNodeName)
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
+                case .marker:
+                    addDotMarker(point: point, nodeName: markerNodeName)
                 case let .signpost(s):
                     addsignpost(s: s, point: point, nodeName: signpostNodeName)
-                case .marker:
-                    addMarker()
+                case let .wall(s):
+                    addImage(imageNamed: "tower_wall", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: wallNodeName)
                 default:
                     break
                 }

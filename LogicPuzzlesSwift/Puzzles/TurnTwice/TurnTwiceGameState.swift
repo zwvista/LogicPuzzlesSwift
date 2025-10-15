@@ -55,8 +55,8 @@ class TurnTwiceGameState: GridGameState<TurnTwiceGameMove> {
         func f(o: TurnTwiceObject) -> TurnTwiceObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .signpost(state: .normal)
-            case .signpost:
+                return markerOption == .markerFirst ? .marker : .wall(state: .normal)
+            case .wall:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
                 return markerOption == .markerFirst ? .signpost(state: .normal) : .empty
@@ -71,26 +71,33 @@ class TurnTwiceGameState: GridGameState<TurnTwiceGameMove> {
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 9/Four-Me-Not
+        iOS Game: 100 Logic Games/Puzzle Set 15/Turn Twice
 
         Summary
-        It seems we do a lot of gardening in this game!
+        Think and Turn Twice (or more)
 
         Description
-        1. In Four-Me-Not (or Forbidden Four) you need to create a continuous
-           signpost bed without putting four signposts in a row.
-        2. More exactly, you have to join the existing signposts by adding more of
-           them, creating a single path of signposts touching horizontally or
-           vertically.
-        3. At the same time, you can't line up horizontally or vertically more
-           than 3 signposts (thus Forbidden Four).
-        4. Some tiles are marked as squares and are just fixed blocks.
+        1. In an effort to complicate signposts, you're given the task to have
+           signposts reach other by no less than two turns.
+        2. In other words, you have to place walls on the board so that a maze of
+           signposts is formed. In this maze:
+        3. In order to go from one signpost to the other, you have to turn at least
+           twice.
+        4. Walls can't touch horizontally or vertically.
+        5. All the signposts and empty spaces must form an orthogonally continuous
+           area.
     */
     private func updateIsSolved() {
+        func isEmpty(p: Position) -> Bool {
+            if case .wall = self[p] { return false }
+            return true
+        }
+        
         let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         let g = Graph()
         var pos2node = [Position: Node]()
+        var walls = [Position]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
@@ -99,9 +106,14 @@ class TurnTwiceGameState: GridGameState<TurnTwiceGameMove> {
                     self[p] = .empty
                 case .signpost:
                     self[p] = .signpost(state: .normal)
-                    pos2node[p] = g.addNode(p.description)
+                case .wall:
+                    self[p] = .wall(state: .normal)
+                    walls.append(p)
                 default:
                     break
+                }
+                if isEmpty(p: p) {
+                    pos2node[p] = g.addNode(p.description)
                 }
             }
         }
@@ -112,70 +124,39 @@ class TurnTwiceGameState: GridGameState<TurnTwiceGameMove> {
                 g.addEdge(node, neighbor: node2)
             }
         }
-        // 2. More exactly, you have to join the existing signposts by adding more of
-        // them, creating a single path of signposts touching horizontally or
-        // vertically.
+        // 5. All the signposts and empty spaces must form an orthogonally continuous
+        // area.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
         if nodesExplored.count != pos2node.count { isSolved = false }
         
-        var signposts = [Position]()
-        // 3. At the same time, you can't line up horizontally or vertically more
-        // than 3 signposts (thus Forbidden Four).
-        func invalidsignposts() -> Bool {
-            signposts.count > 3
-        }
-        func checksignposts() {
-            if invalidsignposts() {
+        // 3. In order to go from one signpost to the other, you have to turn at least
+        // twice.
+        for (p1, p2, path) in game.paths {
+            if path.allSatisfy({ isEmpty(p: $0) }) {
                 isSolved = false
-                for p in signposts {
-                    self[p] = .signpost(state: .error)
-                }
+                self[p1] = .signpost(state: .error)
+                self[p2] = .signpost(state: .error)
             }
-            signposts.removeAll()
         }
-        func checkForbidden(p: Position, indexes: [Int]) {
-            guard allowedObjectsOnly else {return}
-            for i in indexes {
-                let os = TurnTwiceGame.offset[i]
-                var p2 = p + os
-                while isValid(p: p2) {
-                    guard case .signpost = self[p2] else {break}
-                    signposts.append(p2)
-                    p2 += os
+        
+        // 4. Walls can't touch horizontally or vertically.
+        for p in walls {
+            for os in TurnTwiceGame.offset {
+                let p2 = p + os
+                guard isValid(p: p2) else {continue}
+                switch self[p2] {
+                case .wall:
+                    isSolved = false
+                    self[p] = .wall(state: .error)
+                    self[p2] = .wall(state: .error)
+                case .empty:
+                    if allowedObjectsOnly {
+                        self[p2] = .forbidden
+                    }
+                default :
+                    break
                 }
             }
-            if invalidsignposts() { self[p] = .forbidden }
-            signposts.removeAll()
-        }
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                switch self[p] {
-                case .signpost:
-                    signposts.append(p)
-                case .empty, .marker:
-                    checksignposts()
-                    checkForbidden(p: p, indexes: [1,3])
-                default:
-                    checksignposts()
-                }
-            }
-            checksignposts()
-        }
-        for c in 0..<cols {
-            for r in 0..<rows {
-                let p = Position(r, c)
-                switch self[p] {
-                case .signpost:
-                    signposts.append(p)
-                case .empty, .marker:
-                    checksignposts()
-                    checkForbidden(p: p, indexes: [0,2])
-                default:
-                    checksignposts()
-                }
-            }
-            checksignposts()
         }
     }
 }
