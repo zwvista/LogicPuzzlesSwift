@@ -1071,6 +1071,15 @@
 		8CAFBFCD2E9D9FE500C27D7C /* ArrowsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFC02E9D9FE500C27D7C /* ArrowsGameScene.swift */; };
 		8CAFBFCE2E9D9FE500C27D7C /* ArrowsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFC22E9D9FE500C27D7C /* ArrowsGameViewController.swift */; };
 		8CAFBFCF2E9D9FE500C27D7C /* Arrows.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CAFBFBD2E9D9FE500C27D7C /* Arrows.xml */; };
+		8CAFBFED2E9F1A1400C27D7C /* TurnTwiceGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFE82E9F1A1400C27D7C /* TurnTwiceGameState.swift */; };
+		8CAFBFEE2E9F1A1400C27D7C /* TurnTwiceDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFE52E9F1A1400C27D7C /* TurnTwiceDocument.swift */; };
+		8CAFBFEF2E9F1A1400C27D7C /* TurnTwiceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFEC2E9F1A1400C27D7C /* TurnTwiceObject.swift */; };
+		8CAFBFF02E9F1A1400C27D7C /* TurnTwiceGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFEA2E9F1A1400C27D7C /* TurnTwiceGridNode.swift */; };
+		8CAFBFF12E9F1A1400C27D7C /* TurnTwiceGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFE72E9F1A1400C27D7C /* TurnTwiceGameScene.swift */; };
+		8CAFBFF22E9F1A1400C27D7C /* TurnTwiceGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFE92E9F1A1400C27D7C /* TurnTwiceGameViewController.swift */; };
+		8CAFBFF32E9F1A1400C27D7C /* TurnTwiceGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFE62E9F1A1400C27D7C /* TurnTwiceGame.swift */; };
+		8CAFBFF42E9F1A1400C27D7C /* TurnTwiceMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFEB2E9F1A1400C27D7C /* TurnTwiceMainViewController.swift */; };
+		8CAFBFF52E9F1A1400C27D7C /* TurnTwice.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CAFBFE42E9F1A1400C27D7C /* TurnTwice.xml */; };
 		8CBD5F932E7DBE11000CD5E3 /* MaketheDifferenceGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8E2E7DBE11000CD5E3 /* MaketheDifferenceGameViewController.swift */; };
 		8CBD5F942E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8A2E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift */; };
 		8CBD5F952E7DBE11000CD5E3 /* MaketheDifferenceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F912E7DBE11000CD5E3 /* MaketheDifferenceObject.swift */; };
@@ -2266,6 +2275,15 @@
 		8CAFBFC32E9D9FE500C27D7C /* ArrowsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowsGridNode.swift; sourceTree = "<group>"; };
 		8CAFBFC42E9D9FE500C27D7C /* ArrowsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowsMainViewController.swift; sourceTree = "<group>"; };
 		8CAFBFC52E9D9FE500C27D7C /* ArrowsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowsObject.swift; sourceTree = "<group>"; };
+		8CAFBFE42E9F1A1400C27D7C /* TurnTwice.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TurnTwice.xml; sourceTree = "<group>"; };
+		8CAFBFE52E9F1A1400C27D7C /* TurnTwiceDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnTwiceDocument.swift; sourceTree = "<group>"; };
+		8CAFBFE62E9F1A1400C27D7C /* TurnTwiceGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnTwiceGame.swift; sourceTree = "<group>"; };
+		8CAFBFE72E9F1A1400C27D7C /* TurnTwiceGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnTwiceGameScene.swift; sourceTree = "<group>"; };
+		8CAFBFE82E9F1A1400C27D7C /* TurnTwiceGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnTwiceGameState.swift; sourceTree = "<group>"; };
+		8CAFBFE92E9F1A1400C27D7C /* TurnTwiceGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnTwiceGameViewController.swift; sourceTree = "<group>"; };
+		8CAFBFEA2E9F1A1400C27D7C /* TurnTwiceGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnTwiceGridNode.swift; sourceTree = "<group>"; };
+		8CAFBFEB2E9F1A1400C27D7C /* TurnTwiceMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnTwiceMainViewController.swift; sourceTree = "<group>"; };
+		8CAFBFEC2E9F1A1400C27D7C /* TurnTwiceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnTwiceObject.swift; sourceTree = "<group>"; };
 		8CBD5F8A2E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceDocument.swift; sourceTree = "<group>"; };
 		8CBD5F8B2E7DBE11000CD5E3 /* MaketheDifferenceGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceGame.swift; sourceTree = "<group>"; };
 		8CBD5F8C2E7DBE11000CD5E3 /* MaketheDifferenceGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceGameScene.swift; sourceTree = "<group>"; };
@@ -2769,6 +2787,7 @@
 				8C3A35DB1EC88D4200A914A5 /* Tents */,
 				8C6A36031FAF97AF00D2804D /* TheOddBrick */,
 				8C2319E21FB88E3F0021C680 /* TierraDelFuego */,
+				8CAFBFDA2E9F19A500C27D7C /* TurnTwice */,
 				8C35E3971FC4839000A26EE3 /* Walls */,
 				8CFAF995202615560095EFFC /* WallSentinels */,
 			);
@@ -4282,6 +4301,22 @@
 			path = Arrows;
 			sourceTree = "<group>";
 		};
+		8CAFBFDA2E9F19A500C27D7C /* TurnTwice */ = {
+			isa = PBXGroup;
+			children = (
+				8CAFBFE42E9F1A1400C27D7C /* TurnTwice.xml */,
+				8CAFBFE52E9F1A1400C27D7C /* TurnTwiceDocument.swift */,
+				8CAFBFE62E9F1A1400C27D7C /* TurnTwiceGame.swift */,
+				8CAFBFE72E9F1A1400C27D7C /* TurnTwiceGameScene.swift */,
+				8CAFBFE82E9F1A1400C27D7C /* TurnTwiceGameState.swift */,
+				8CAFBFE92E9F1A1400C27D7C /* TurnTwiceGameViewController.swift */,
+				8CAFBFEA2E9F1A1400C27D7C /* TurnTwiceGridNode.swift */,
+				8CAFBFEB2E9F1A1400C27D7C /* TurnTwiceMainViewController.swift */,
+				8CAFBFEC2E9F1A1400C27D7C /* TurnTwiceObject.swift */,
+			);
+			path = TurnTwice;
+			sourceTree = "<group>";
+		};
 		8CBD5F922E7DBE11000CD5E3 /* MaketheDifference */ = {
 			isa = PBXGroup;
 			children = (
@@ -4927,6 +4962,7 @@
 				8C8E77952E869852006BBF98 /* arrow1.png in Resources */,
 				8C8E77962E869852006BBF98 /* arrow_brown_up_down.png in Resources */,
 				8C8E77972E869852006BBF98 /* 128_branch_left.png in Resources */,
+				8CAFBFF52E9F1A1400C27D7C /* TurnTwice.xml in Resources */,
 				8C8E77982E869852006BBF98 /* 128_die.png in Resources */,
 				8C8E77992E869852006BBF98 /* 128_hide.png in Resources */,
 				8C8E779A2E869852006BBF98 /* 128_flag_red.png in Resources */,
@@ -5366,6 +5402,14 @@
 				8C3A370C1EC88D4300A914A5 /* MineShipsGameState.swift in Sources */,
 				8CDAE8111F646C29000DE5AF /* BalancedTapasObject.swift in Sources */,
 				8C9F32431ED1FAD400E10965 /* BWTapaGame.swift in Sources */,
+				8CAFBFED2E9F1A1400C27D7C /* TurnTwiceGameState.swift in Sources */,
+				8CAFBFEE2E9F1A1400C27D7C /* TurnTwiceDocument.swift in Sources */,
+				8CAFBFEF2E9F1A1400C27D7C /* TurnTwiceObject.swift in Sources */,
+				8CAFBFF02E9F1A1400C27D7C /* TurnTwiceGridNode.swift in Sources */,
+				8CAFBFF12E9F1A1400C27D7C /* TurnTwiceGameScene.swift in Sources */,
+				8CAFBFF22E9F1A1400C27D7C /* TurnTwiceGameViewController.swift in Sources */,
+				8CAFBFF32E9F1A1400C27D7C /* TurnTwiceGame.swift in Sources */,
+				8CAFBFF42E9F1A1400C27D7C /* TurnTwiceMainViewController.swift in Sources */,
 				8C9F32B81ED1FB0700E10965 /* TapaIslandsGameState.swift in Sources */,
 				8C3A36911EC88D4200A914A5 /* FenceSentinelsDocument.swift in Sources */,
 				8C8E77D02E873A53006BBF98 /* BranchesMainViewController.swift in Sources */,
