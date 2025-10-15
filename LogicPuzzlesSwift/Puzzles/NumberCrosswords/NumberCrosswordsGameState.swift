@@ -97,7 +97,8 @@ class NumberCrosswordsGameState: GridGameState<NumberCrosswordsGameMove> {
                 guard self[p] != .darken else {continue}
                 sum += game[p]
             }
-            row2state[r] = sum == game[r, cols - 1] ? .complete : .error
+            let n = game[r, cols - 1]
+            row2state[r] = sum > n ? .normal : sum == n ? .complete : .error
             if row2state[r] != .complete { isSolved = false }
         }
         // 1. Blacken some tiles, so that some of the numbers remain visible.
@@ -110,7 +111,8 @@ class NumberCrosswordsGameState: GridGameState<NumberCrosswordsGameMove> {
                 guard self[p] != .darken else {continue}
                 sum += game[p]
             }
-            col2state[c] = sum == game[rows - 1, c] ? .complete : .error
+            let n = game[rows - 1, c]
+            col2state[c] = sum > n ? .normal : sum == n ? .complete : .error
             if col2state[c] != .complete { isSolved = false }
         }
     }
