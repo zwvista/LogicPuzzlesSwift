@@ -24,13 +24,8 @@ class TurnTwiceGame: GridGame<TurnTwiceGameState> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let ch = str[c]
-                switch ch {
-                case "F":
-                    self[p] = .flower(state: .normal)
-                case "B":
-                    self[p] = .block
-                default:
-                    break
+                if ch == "S" {
+                    self[p] = .signpost(state: .normal)
                 }
             }
         }

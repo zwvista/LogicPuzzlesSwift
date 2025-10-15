@@ -12,7 +12,7 @@ enum HolidayIslandObject {
     case empty
     case forbidden
     case marker
-    case tree
+    case water
     case hint(tiles: Int, state: HintState)
     init() {
         self = .empty
@@ -21,8 +21,8 @@ enum HolidayIslandObject {
         switch self {
         case .marker:
             return "marker"
-        case .tree:
-            return "tree"
+        case .water:
+            return "water"
         default:
             return "empty"
         }
@@ -31,8 +31,8 @@ enum HolidayIslandObject {
         switch str {
         case "marker":
             return .marker
-        case "tree":
-            return .tree
+        case "water":
+            return .water
         default:
             return .empty
         }

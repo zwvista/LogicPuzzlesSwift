@@ -42,21 +42,21 @@ class ParkLakesGameScene: GameScene<ParkLakesGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let treeNodeName = "tree" + nodeNameSuffix
+                let lakeNodeName = "lake" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                func addTree(s: AllowedObjectState) {
-                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: treeNodeName)
+                func addLake(s: AllowedObjectState) {
+                    addImage(imageNamed: "sea", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: lakeNodeName)
                 }
-                func removeTree() { removeNode(withName: treeNodeName) }
+                func removeLake() { removeNode(withName: lakeNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 func removeHint() { removeNode(withName: hintNodeName) }
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 guard String(describing: o1) != String(describing: o2) else {continue}
                 switch o1 {
-                case .tree:
-                    removeTree()
+                case .lake:
+                    removeLake()
                 case .hint:
                     removeHint()
                 case .marker:
@@ -65,8 +65,8 @@ class ParkLakesGameScene: GameScene<ParkLakesGameState> {
                     break
                 }
                 switch o2 {
-                case let .tree(s):
-                    addTree(s: s)
+                case let .lake(s):
+                    addLake(s: s)
                 case let .hint(n, s):
                     addHint(p: p, n: n, s: s)
                 case .marker:

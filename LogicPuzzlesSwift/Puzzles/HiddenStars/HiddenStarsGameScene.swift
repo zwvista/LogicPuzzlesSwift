@@ -23,7 +23,7 @@ class HiddenStarsGameScene: GameScene<HiddenStarsGameState> {
     }
     
     func addArrow(n: Int, s: AllowedObjectState, point: CGPoint, nodeName: String) {
-        addImage(imageNamed: getArrowImageName(n: n), color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName, size: CGSize(width: gridNode.blockSize, height: gridNode.blockSize))
+        addImage(imageNamed: getArrowImageName(n: n), color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: HiddenStarsGameState, skView: SKView) {

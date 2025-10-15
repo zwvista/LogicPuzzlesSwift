@@ -14,8 +14,8 @@ class TurnTwiceGameScene: GameScene<TurnTwiceGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addFlower(s: AllowedObjectState, point: CGPoint, nodeName: String) {
-        addImage(imageNamed: "flower_blue", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
+    func addsignpost(s: AllowedObjectState, point: CGPoint, nodeName: String) {
+        addImage(imageNamed: "128_signpost", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }
 
     func addForbidden(point: CGPoint, nodeName: String) { addForbiddenMarker(point: point, nodeName: nodeName) }
@@ -35,17 +35,12 @@ class TurnTwiceGameScene: GameScene<TurnTwiceGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let flowerNodeName = "flower" + nodeNameSuffix
+                let signpostNodeName = "signpost" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 switch state[p] {
-                case let .flower(s):
-                    addFlower(s: s, point: point, nodeName: flowerNodeName)
+                case let .signpost(s):
+                    addsignpost(s: s, point: point, nodeName: signpostNodeName)
                     addCircleMarker(color: .white, point: point, nodeName: "marker")
-                case .block:
-                    let blockNode = SKSpriteNode(color: .white, size: coloredRectSize())
-                    blockNode.position = point
-                    blockNode.name = "block"
-                    gridNode.addChild(blockNode)
                 case .forbidden:
                     addForbidden(point: point, nodeName: forbiddenNodeName)
                 default:
@@ -61,10 +56,10 @@ class TurnTwiceGameScene: GameScene<TurnTwiceGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let flowerNodeName = "flower" + nodeNameSuffix
+                let signpostNodeName = "signpost" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                func removeFlower() { removeNode(withName: flowerNodeName) }
+                func removesignpost() { removeNode(withName: signpostNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 func removeForbidden() { removeNode(withName: forbiddenNodeName) }
@@ -73,8 +68,8 @@ class TurnTwiceGameScene: GameScene<TurnTwiceGameState> {
                 switch o1 {
                 case .forbidden:
                     removeForbidden()
-                case .flower:
-                    removeFlower()
+                case .signpost:
+                    removesignpost()
                 case .marker:
                     removeMarker()
                 default:
@@ -83,8 +78,8 @@ class TurnTwiceGameScene: GameScene<TurnTwiceGameState> {
                 switch o2 {
                 case .forbidden:
                     addForbidden(point: point, nodeName: forbiddenNodeName)
-                case let .flower(s):
-                    addFlower(s: s, point: point, nodeName: flowerNodeName)
+                case let .signpost(s):
+                    addsignpost(s: s, point: point, nodeName: signpostNodeName)
                 case .marker:
                     addMarker()
                 default:

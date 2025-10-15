@@ -42,14 +42,14 @@ class HolidayIslandGameScene: GameScene<HolidayIslandGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let treeNodeName = "tree" + nodeNameSuffix
+                let waterNodeName = "water" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                func addTree() {
-                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: 0.0, point: point, nodeName: treeNodeName)
+                func addWater() {
+                    addImage(imageNamed: "sea", color: .red, colorBlendFactor: 0.0, point: point, nodeName: waterNodeName)
                 }
-                func removeTree() { removeNode(withName: treeNodeName) }
+                func removeWater() { removeNode(withName: waterNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 func addForbidden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
@@ -60,8 +60,8 @@ class HolidayIslandGameScene: GameScene<HolidayIslandGameState> {
                 switch o1 {
                 case .forbidden:
                     removeForbidden()
-                case .tree:
-                    removeTree()
+                case .water:
+                    removeWater()
                 case .hint:
                     removeHint()
                 case .marker:
@@ -72,8 +72,8 @@ class HolidayIslandGameScene: GameScene<HolidayIslandGameState> {
                 switch o2 {
                 case .forbidden:
                     addForbidden()
-                case .tree:
-                    addTree()
+                case .water:
+                    addWater()
                 case let .hint(n, s):
                     addHint(p: p, n: n, s: s)
                 case .marker:

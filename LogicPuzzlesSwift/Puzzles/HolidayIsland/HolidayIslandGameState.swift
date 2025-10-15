@@ -58,11 +58,11 @@ class HolidayIslandGameState: GridGameState<HolidayIslandGameMove> {
         func f(o: HolidayIslandObject) -> HolidayIslandObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .tree
-            case .tree:
+                return markerOption == .markerFirst ? .marker : .water
+            case .water:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .tree : .empty
+                return markerOption == .markerFirst ? .water : .empty
             default:
                 return o
             }
@@ -108,7 +108,7 @@ class HolidayIslandGameState: GridGameState<HolidayIslandGameMove> {
                 default:
                     break
                 }
-                if case .tree = self[p] {continue}
+                if case .water = self[p] {continue}
                 pos2node[p] = g.addNode(p.description)
             }
         }
@@ -130,7 +130,7 @@ class HolidayIslandGameState: GridGameState<HolidayIslandGameMove> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 switch self[p] {
-                case .tree, .hint:
+                case .water, .hint:
                     // 5. A camper can't cross water or other Tents.
                     break
                 default:

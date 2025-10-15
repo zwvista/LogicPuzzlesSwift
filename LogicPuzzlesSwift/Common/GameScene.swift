@@ -77,8 +77,8 @@ class GameScene<GS: GameStateBase>: SKScene, GameSceneBase {
 
     func addImage(imageNamed: String, color: SKColor, colorBlendFactor: CGFloat, point: CGPoint, nodeName: String, zRotation: CGFloat = 0, size: CGSize = .zero) {
         let imageNode = SKSpriteNode(imageNamed: imageNamed)
-        let imageWidth = size == .zero ? imageNode.size.width : size.width
-        let imageHeight = size == .zero ? imageNode.size.height : size.height
+        let imageWidth = size == .zero ? gridNode.blockSize! : size.width
+        let imageHeight = size == .zero ? gridNode.blockSize! : size.height
         let scalingFactor = min(imageWidth / imageNode.frame.width, imageHeight / imageNode.frame.height)
         imageNode.setScale(scalingFactor)
         imageNode.position = point

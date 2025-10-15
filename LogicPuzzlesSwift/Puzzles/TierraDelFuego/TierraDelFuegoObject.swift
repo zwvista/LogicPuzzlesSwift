@@ -12,7 +12,7 @@ enum TierraDelFuegoObject {
     case empty
     case forbidden
     case marker
-    case tree(state: AllowedObjectState)
+    case water(state: AllowedObjectState)
     case hint(id: Character, state: HintState)
     init() {
         self = .empty
@@ -21,8 +21,8 @@ enum TierraDelFuegoObject {
         switch self {
         case .marker:
             return "marker"
-        case .tree:
-            return "tree"
+        case .water:
+            return "water"
         default:
             return "empty"
         }
@@ -31,8 +31,8 @@ enum TierraDelFuegoObject {
         switch str {
         case "marker":
             return .marker
-        case "tree":
-            return .tree(state: .normal)
+        case "water":
+            return .water(state: .normal)
         default:
             return .empty
         }

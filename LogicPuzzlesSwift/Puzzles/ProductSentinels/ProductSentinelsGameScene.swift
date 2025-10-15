@@ -61,7 +61,7 @@ class ProductSentinelsGameScene: GameScene<ProductSentinelsGameState> {
                 let hintNodeName = "hint" + nodeNameSuffix
                 func removeHint() { removeNode(withName: hintNodeName) }
                 func addTower(s: AllowedObjectState) {
-                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: towerNodeName)
+                    addImage(imageNamed: "tower", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: towerNodeName)
                 }
                 func removeTower() { removeNode(withName: towerNodeName) }
                 func addMarker() { addCircleMarker(color: .white, point: point, nodeName: markerNodeName) }

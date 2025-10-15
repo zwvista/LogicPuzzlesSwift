@@ -58,11 +58,11 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
         func f(o: TierraDelFuegoObject) -> TierraDelFuegoObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .tree(state: .normal)
-            case .tree:
+                return markerOption == .markerFirst ? .marker : .water(state: .normal)
+            case .water:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .tree(state: .normal) : .empty
+                return markerOption == .markerFirst ? .water(state: .normal) : .empty
             default:
                 return o
             }
@@ -102,8 +102,8 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
                 switch self[p] {
                 case .forbidden:
                     self[p] = .empty
-                case .tree:
-                    self[p] = .tree(state: .normal)
+                case .water:
+                    self[p] = .water(state: .normal)
                 case let .hint(id, _):
                     self[p] = .hint(id: id, state: .normal)
                 default:
@@ -113,12 +113,12 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
         }
         for (p, node) in pos2node {
             var b1 = false
-            if case .tree = self[p] { b1 = true }
+            if case .water = self[p] { b1 = true }
             for os in TierraDelFuegoGame.offset {
                 let p2 = p + os
                 guard let node2 = pos2node[p2] else {continue}
                 var b2 = false
-                if case .tree = self[p2] { b2 = true }
+                if case .water = self[p2] { b2 = true }
                 if b1 == b2 {
                     g.addEdge(node, neighbor: node2)
                 }
@@ -129,7 +129,7 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
             let nodesExplored = breadthFirstSearch(g, source: kv.value)
             let area = pos2node.filter { nodesExplored.contains($0.0.description) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.0.description) }
-            if case .tree = self[kv.key] {
+            if case .water = self[kv.key] {
                 // 3. The archipelago is peculiar because all bodies of water separating the
                 // islands are identical in shape and occupied a 2*1 or 1*2 space.
                 // 4. These bodies of water can only touch diagonally.
@@ -151,8 +151,8 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
                 }
                 if area.count > 2 {
                     for p in area {
-                        if case .tree = self[p] {
-                            self[p] = .tree(state: .error)
+                        if case .water = self[p] {
+                            self[p] = .water(state: .error)
                         }
                     }
                 }

@@ -58,11 +58,11 @@ class ParkLakesGameState: GridGameState<ParkLakesGameMove> {
         func f(o: ParkLakesObject) -> ParkLakesObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .tree(state: .normal)
-            case .tree:
+                return markerOption == .markerFirst ? .marker : .lake(state: .normal)
+            case .lake:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .tree(state: .normal) : .empty
+                return markerOption == .markerFirst ? .lake(state: .normal) : .empty
             default:
                 return o
             }
@@ -95,8 +95,8 @@ class ParkLakesGameState: GridGameState<ParkLakesGameMove> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 switch self[p] {
-                case .tree:
-                    self[p] = .tree(state: .normal)
+                case .lake:
+                    self[p] = .lake(state: .normal)
                 case let .hint(tiles, _):
                     self[p] = .hint(tiles: tiles, state: .normal)
                 default:
@@ -109,7 +109,7 @@ class ParkLakesGameState: GridGameState<ParkLakesGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard case .tree = self[p] else {continue}
+                guard case .lake = self[p] else {continue}
                 pos2node[p] = g.addNode(p.description)
             }
         }
@@ -140,7 +140,7 @@ class ParkLakesGameState: GridGameState<ParkLakesGameMove> {
             if !(rs == cs && rs * cs == nodesExplored.count) {
                 isSolved = false
                 for p in area {
-                    self[p] = .tree(state: .error)
+                    self[p] = .lake(state: .error)
                 }
             }
         }
@@ -162,7 +162,7 @@ class ParkLakesGameState: GridGameState<ParkLakesGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if case .tree = self[p] {continue}
+                if case .lake = self[p] {continue}
                 pos2node[p] = g.addNode(p.description)
             }
         }

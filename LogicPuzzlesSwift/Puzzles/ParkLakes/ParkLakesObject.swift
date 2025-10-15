@@ -11,7 +11,7 @@ import Foundation
 enum ParkLakesObject {
     case empty
     case marker
-    case tree(state: AllowedObjectState)
+    case lake(state: AllowedObjectState)
     case hint(tiles: Int, state: HintState)
     init() {
         self = .empty
@@ -20,8 +20,8 @@ enum ParkLakesObject {
         switch self {
         case .marker:
             return "marker"
-        case .tree:
-            return "tree"
+        case .lake:
+            return "lake"
         default:
             return "empty"
         }
@@ -30,8 +30,8 @@ enum ParkLakesObject {
         switch str {
         case "marker":
             return .marker
-        case "tree":
-            return .tree(state: .normal)
+        case "lake":
+            return .lake(state: .normal)
         default:
             return .empty
         }

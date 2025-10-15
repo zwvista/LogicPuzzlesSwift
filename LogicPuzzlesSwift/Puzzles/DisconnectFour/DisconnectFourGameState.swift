@@ -81,15 +81,15 @@ class DisconnectFourGameState: GridGameState<DisconnectFourGameMove> {
             }
         }
         var oLast: DisconnectFourObject = .empty
-        var trees = [Position]()
-        func checkTrees() {
-            if trees.count > 3 {
+        var tokens = [Position]()
+        func checkTokens() {
+            if tokens.count > 3 {
                 isSolved = false
-                for p in trees {
+                for p in tokens {
                     pos2state[p] = .error
                 }
             }
-            trees.removeAll()
+            tokens.removeAll()
         }
         for r in 0..<rows {
             oLast = .empty
@@ -97,16 +97,16 @@ class DisconnectFourGameState: GridGameState<DisconnectFourGameMove> {
                 let p = Position(r, c)
                 let o = self[p]
                 if o != oLast {
-                    checkTrees()
+                    checkTokens()
                     oLast = o
                 }
                 if o == .empty {
                     isSolved = false
                 } else {
-                    trees.append(p)
+                    tokens.append(p)
                 }
             }
-            checkTrees()
+            checkTokens()
         }
         for c in 0..<cols {
             oLast = .empty
@@ -114,16 +114,16 @@ class DisconnectFourGameState: GridGameState<DisconnectFourGameMove> {
                 let p = Position(r, c)
                 let o = self[p]
                 if o != oLast {
-                    checkTrees()
+                    checkTokens()
                     oLast = o
                 }
                 if o == .empty {
                     isSolved = false
                 } else {
-                    trees.append(p)
+                    tokens.append(p)
                 }
             }
-            checkTrees()
+            checkTokens()
         }
     }
 }

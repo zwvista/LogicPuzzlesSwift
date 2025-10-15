@@ -42,14 +42,14 @@ class TierraDelFuegoGameScene: GameScene<TierraDelFuegoGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let treeNodeName = "tree" + nodeNameSuffix
+                let waterNodeName = "water" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                func addTree(s: AllowedObjectState) {
-                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: treeNodeName)
+                func addWater(s: AllowedObjectState) {
+                    addImage(imageNamed: "sea", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: waterNodeName)
                 }
-                func removeTree() { removeNode(withName: treeNodeName) }
+                func removeWater() { removeNode(withName: waterNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 func addForbidden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
@@ -60,8 +60,8 @@ class TierraDelFuegoGameScene: GameScene<TierraDelFuegoGameState> {
                 switch o1 {
                 case .forbidden:
                     removeForbidden()
-                case .tree:
-                    removeTree()
+                case .water:
+                    removeWater()
                 case .hint:
                     removeHint()
                 case .marker:
@@ -72,8 +72,8 @@ class TierraDelFuegoGameScene: GameScene<TierraDelFuegoGameState> {
                 switch o2 {
                 case .forbidden:
                     addForbidden()
-                case let .tree(s):
-                    addTree(s: s)
+                case let .water(s):
+                    addWater(s: s)
                 case let .hint(id, s):
                     addHint(p: p, ch: id, s: s)
                 case .marker:
