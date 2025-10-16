@@ -1,0 +1,1248 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. On the board a few Thermometers are laid down. Your goal is  to fill them according to the hints.
+2. In a Thermometer, mercury always starts at the bulb and can progressively fill the Thermometer towards the end.
+3. A Thermometer can also be completely empty, including the bulb.
+4. The numbers on the border tell you how many filled cells are present on that Row or Column.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+<ooo1`
+o>v+1`
+oo>v2`
+v<+o1`
+2012 `
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+oo^o1`
+++ov2`
+vvo>3`
+o>o>0`
+2112 `
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+oo^o1`
+++ov3`
+vvo>3`
+<o<o0`
+2212 `
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+^o+>2`
+o^oo1`
+o+++2`
+vovv1`
+2211 `
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+o+>o2`
+o+>+1`
+o+>v3`
+<oo>2`
+1322 `
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+^o+>2`
+oo>^2`
+o<o+1`
+vo>o2`
+1132 `
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+<+oo1`
+^^ov3`
++ovo1`
+oo>v1`
+1212 `
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+o^^o2`
+++ov2`
+voo^1`
+o>vo1`
+2121 `
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+o>o>1`
+oo>^1`
++o>o1`
+vo+>1`
+1111 `
+    ]]>
+  </level>
+  <level id="10">
+    <![CDATA[
+o>o>1`
+o^o>2`
+voo>1`
+<o<o1`
+1211 `
+    ]]>
+  </level>
+  <level id="11">
+    <![CDATA[
+oo><o1`
++^<+o1`
++oo+>0`
+v<oo>3`
+o><+o1`
+10311 `
+    ]]>
+  </level>
+  <level id="12">
+    <![CDATA[
+<oo+>0`
+<+oo^1`
+o+>++3`
+<+ov+1`
+<++oo2`
+11122 `
+    ]]>
+  </level>
+  <level id="13">
+    <![CDATA[
+<+oo>3`
+oo<+o1`
+++^oo2`
++vo++3`
+vo>vv2`
+43103 `
+    ]]>
+  </level>
+  <level id="14">
+    <![CDATA[
+o>o>o1`
+<++o+0`
+^o+>+3`
++^<ov1`
+ooo+>1`
+11211 `
+    ]]>
+  </level>
+  <level id="15">
+    <![CDATA[
+<oooo0`
+o>+++3`
+o>v+v3`
+oo>v^2`
+v<+oo1`
+11322 `
+    ]]>
+  </level>
+  <level id="16">
+    <![CDATA[
+o>o+>2`
+^oo^o1`
++vv++1`
++o>o+2`
+oo+>v3`
+20223 `
+    ]]>
+  </level>
+  <level id="17">
+    <![CDATA[
+<oo+>3`
+o<++o1`
++<+o^2`
+v<+o+3`
+<oo>o1`
+32122 `
+    ]]>
+  </level>
+  <level id="18">
+    <![CDATA[
+o<+o^2`
++o+>o3`
++ooo>1`
+vvv^^2`
+<+ooo1`
+42111 `
+    ]]>
+  </level>
+  <level id="19">
+    <![CDATA[
+<oo<o1`
+<o+o>1`
+oo+o^2`
+++vv+3`
+vv<oo1`
+12311 `
+    ]]>
+  </level>
+  <level id="20">
+    <![CDATA[
+^o>o>1`
+o<o^^3`
+<+o+o1`
+^oo+^1`
+ovvoo1`
+11131 `
+    ]]>
+  </level>
+  <level id="21">
+    <![CDATA[
+<+o<o^2`
+o^^o^o2`
+++o++^2`
+v+^+++2`
+ooovoo0`
+v<+++o3`
+322031 `
+    ]]>
+  </level>
+  <level id="22">
+    <![CDATA[
+o><++o2`
+o>o++>3`
+<o<o^o0`
+<++oov0`
+^<+o<o3`
+oo><+o1`
+112311 `
+    ]]>
+  </level>
+  <level id="23">
+    <![CDATA[
+<++ooo0`
+o<+o++3`
++<+ov+2`
++oo+>v4`
+++<o^^4`
+vvo>oo1`
+311144 `
+    ]]>
+  </level>
+  <level id="24">
+    <![CDATA[
+oo^o>^3`
++++<oo1`
+vvo^^o2`
+o^o+++3`
+vov+++2`
+o+>oov1`
+031143 `
+    ]]>
+  </level>
+  <level id="25">
+    <![CDATA[
+o><+o^3`
+<+o^^o1`
+ooo++^1`
++vvooo1`
++o+++>2`
+v<+o<o2`
+222031 `
+    ]]>
+  </level>
+  <level id="26">
+    <![CDATA[
+o+><oo1`
+o^o+>v2`
+v+o++>1`
+o+o++>1`
+++o>oo1`
+vo<ovv1`
+211201 `
+    ]]>
+  </level>
+  <level id="27">
+    <![CDATA[
+<oo>^o2`
+^<+oo+2`
+o<ooov2`
+o+>vvo4`
+o><+ov1`
+o+><+o1`
+041322 `
+    ]]>
+  </level>
+  <level id="28">
+    <![CDATA[
+o^<+o^3`
+++oo^+1`
+++++++3`
+++vv++3`
+vo<ooo1`
+<oo>o>1`
+313212 `
+    ]]>
+  </level>
+  <level id="29">
+    <![CDATA[
+oo+++>4`
++<++oo3`
++<+o^+4`
+v^o>o+3`
+oo<+ov1`
+vo+><o2`
+334223 `
+    ]]>
+  </level>
+  <level id="30">
+    <![CDATA[
+o<++oo3`
+vo><o+1`
+o+>o>v2`
+o>o>o>1`
+o<++oo3`
+v<++ov4`
+145211 `
+    ]]>
+  </level>
+  <level id="31">
+    <![CDATA[
+<+++oo>4`
+<+oo+>^2`
+o+++>o+2`
+oo++>v+1`
++o+++>o0`
++<oo++>0`
+vo++>o>1`
+2110303 `
+    ]]>
+  </level>
+  <level id="32">
+    <![CDATA[
+o+++>o>0`
+^^o+++>3`
+o+<+++o4`
+^+<oo+>1`
++o<+++o3`
++o>o><o0`
+o<o<oo>0`
+2222201 `
+    ]]>
+  </level>
+  <level id="33">
+    <![CDATA[
+o+>^<+o3`
+o>^ooo^0`
+o^o^+++2`
+++^+vvo0`
+v+o+^oo1`
+^+ooovv1`
+oovo++>0`
+1112110 `
+    ]]>
+  </level>
+  <level id="34">
+    <![CDATA[
+o++><+o2`
+<oo+><o3`
+o+++>oo0`
+o+><o++2`
+o++>^+v0`
+o++>ov^2`
+o++++>o1`
+1121230 `
+    ]]>
+  </level>
+  <level id="35">
+    <![CDATA[
+o>o+++>4`
+^^^<+oo0`
+o+o<oo+1`
+o+o^^+v3`
+vov+++o2`
+<+oo+++1`
+<o<oovv2`
+1002352 `
+    ]]>
+  </level>
+  <level id="36">
+    <![CDATA[
+o>o+++>0`
+o++++>^4`
+<o^o+>+2`
+^^+<+o+2`
++ooo+>+1`
++<ooo^+3`
+o<ovvoo0`
+2111115 `
+    ]]>
+  </level>
+  <level id="37">
+    <![CDATA[
+oo^^o>o2`
++v++^^v4`
+vo++oo^2`
+^vooo>+0`
++o+++>+1`
+o<+oo>+1`
+<++o<oo3`
+3211033 `
+    ]]>
+  </level>
+  <level id="38">
+    <![CDATA[
+^<+oo>^4`
++o++>o+2`
++^<o^++2`
++o<oovo0`
+o<++++o5`
+o+>o++>1`
+<oo>o+>2`
+3331231 `
+    ]]>
+  </level>
+  <level id="39">
+    <![CDATA[
+<+o^<o^2`
+oo^+ooo1`
+++++++^1`
++++++++2`
+++oov+o1`
+++<+o+^2`
+vv<+ovo4`
+1224211 `
+    ]]>
+  </level>
+  <level id="40">
+    <![CDATA[
+^o++++>1`
++o+++>o5`
++<+oo^+1`
++o+>+++3`
+o<+o+o+1`
+o<o^+o+2`
+v<oovvv2`
+5112114 `
+    ]]>
+  </level>
+  <level id="41">
+    <![CDATA[
+o+++>o>1`
+^<+++oo2`
+oo+><ov3`
+^oo++>^2`
++v<++o+2`
++o+++>+3`
+o<+++oo1`
+2223311 `
+    ]]>
+  </level>
+  <level id="42">
+    <![CDATA[
+o^^<++o4`
++o+<oo>1`
++^+oo>^4`
+++++^^+3`
++++++++3`
+voo+ooo2`
+o+>vo+>5`
+3453124 `
+    ]]>
+  </level>
+  <level id="43">
+    <![CDATA[
+^o++>^^4`
+oo+>^++2`
+o++>+++1`
+o++>oo+1`
+o+++>^+1`
+o+++>oo4`
+<+oo>o>2`
+1122414 `
+    ]]>
+  </level>
+  <level id="44">
+    <![CDATA[
+^<oo^^^4`
++o>++oo1`
++oo++oo1`
+++++++v4`
++++vo+o3`
+ovvo>v+2`
+<++++ov1`
+2432311 `
+    ]]>
+  </level>
+  <level id="45">
+    <![CDATA[
+^o>o+>o1`
++<++o^+2`
++<o<oo+1`
++o+++>+1`
++o+++>+5`
+oo+><ov1`
+<++o<+o1`
+1121142 `
+    ]]>
+  </level>
+  <level id="46">
+    <![CDATA[
+o^o^<+o2`
+++++o+>1`
++o++ooo2`
++^+++++3`
++ov++vv4`
+v<oovo>3`
+<++oo+>1`
+4124122 `
+    ]]>
+  </level>
+  <level id="47">
+    <![CDATA[
+^ooo^^o2`
+o++v++v2`
+^++o++o4`
+ovvv+++1`
+<oo>oo+1`
+<++++ov4`
+o+++>o>4`
+2143431 `
+    ]]>
+  </level>
+  <level id="48">
+    <![CDATA[
+o^^o<oo1`
+++++^o+1`
+++o++vv3`
+vo^++o^4`
+o>o+++o1`
+o+>vo+^3`
+<oo+>vo3`
+1322422 `
+    ]]>
+  </level>
+  <level id="49">
+    <![CDATA[
+^o++++>5`
++^^^^oo3`
+ooo++++3`
+^<o+ov+3`
+oo>+<ov1`
+o+>o<o^2`
+o++++>o3`
+2115434 `
+    ]]>
+  </level>
+  <level id="50">
+    <![CDATA[
+^o><ooo1`
++<oo>++1`
++o<+o++4`
+o+^<ov+4`
+o++ooo+2`
++vovvvv3`
+vo><++o4`
+5222143 `
+    ]]>
+  </level>
+  <level id="51">
+    <![CDATA[
+oo<o<+oo0`
+++<+++o+2`
+++<++o^+3`
+++<++oo+1`
+v+<+++o+1`
+ovo+++>v2`
+vo++>o^o3`
+o+++>vov0`
+04331001 `
+    ]]>
+  </level>
+  <level id="52">
+    <![CDATA[
+o++><+o^3`
+^o>o<+o+1`
++o>vo+>+0`
++^o+>^^o1`
+++o+>o+o0`
+o+<+ooov2`
+o+<+ovo>0`
+voo++++>2`
+21220011 `
+    ]]>
+  </level>
+  <level id="53">
+    <![CDATA[
+o>o++><o1`
+oo+++++>3`
+vooo++>^0`
+^vvo^o^+1`
++<ov++oo1`
++<+o+v^^3`
++<+oo^oo0`
+o<o<oo<o0`
+01103121 `
+    ]]>
+  </level>
+  <level id="54">
+    <![CDATA[
+<+++oo>^2`
+^o+>o+>+2`
++<oo++>+0`
+o^o+++>o0`
+oo<+++o^3`
+v<++++o+0`
+<+++o<o+2`
+<+o<++oo3`
+32121210 `
+    ]]>
+  </level>
+  <level id="55">
+    <![CDATA[
+oo>o++>o0`
++<++oo^+2`
++o>^^v++4`
+voo++o++2`
+^v+++vov1`
++^+++o>o1`
+oo+++o>+1`
+<ovoo<ov1`
+31413000 `
+    ]]>
+  </level>
+  <level id="56">
+    <![CDATA[
+oo>o><+o1`
+vo+++++>3`
+<++o^^oo4`
+^o<o++++0`
+++^ooo++1`
+ovov<o++1`
+<++++ov+1`
+<oo+++>v1`
+11200242 `
+    ]]>
+  </level>
+  <level id="57">
+    <![CDATA[
+<+o<+++o1`
+<+o<+++o0`
+o+++><o^2`
+o+>o++>o1`
+^^oo>o+>1`
+oovo++>^2`
+<+++++o+4`
+o+++++>o5`
+22321330 `
+    ]]>
+  </level>
+  <level id="58">
+    <![CDATA[
+o++++>oo2`
+^<++o^+v2`
+o<++oo+^2`
+oo+++>v+0`
++<++++o+3`
++<+++o^+2`
++o+>o>++2`
+v<oo+>oo1`
+13111232 `
+    ]]>
+  </level>
+  <level id="59">
+    <![CDATA[
+oo+>o+>^3`
++o>o++>o1`
++o+++++>5`
++<oo+++>0`
+v<oo+++>2`
+<+o<oo>o1`
+<+++++ov1`
+<+o<+++o2`
+32221221 `
+    ]]>
+  </level>
+  <level id="60">
+    <![CDATA[
+oo++++>^1`
++^^<++o+2`
+++oo>^^o3`
++oo>o++^1`
+v<+ovo++3`
+<++++oo+5`
+<+++++oo4`
+o++++>o>1`
+24321233 `
+    ]]>
+  </level>
+  <level id="61">
+    <![CDATA[
+o++++><o2`
+oo<++ooo1`
+vvo++>v+4`
+o+++++>+4`
+<+++++o+5`
+^o++>o>+1`
+oo++++>+1`
+<+++oo>v1`
+12232324 `
+    ]]>
+  </level>
+  <level id="62">
+    <![CDATA[
+^o+++++>3`
++^<++++o5`
+++^^o+>^4`
+oooo<oo+1`
+o++++>++3`
+<++++o++3`
+<oo++>vo3`
+o+++>o+>1`
+22233542 `
+    ]]>
+  </level>
+  <level id="63">
+    <![CDATA[
+^o><+++o4`
++<+++++o5`
++<++o^oo1`
+ooo^o+vv2`
+^++o++^^4`
++++o++++3`
+++++++++1`
+ovvvvooo2`
+52223431 `
+    ]]>
+  </level>
+  <level id="64">
+    <![CDATA[
+<++o<++o3`
+o++++>^o4`
+o+>^o>++2`
+o+>oo>o+2`
+<++++o^+3`
+o+><+oo+1`
+o>o>o+>+1`
+o+++++>v1`
+22221116 `
+    ]]>
+  </level>
+  <level id="65">
+    <![CDATA[
+o<+++++o5`
++^^<+++o4`
++o+^^^o^6`
++^++oovo3`
+v+++<++o5`
+^+++o^^o1`
+++oov+++1`
+oo<+ooov3`
+32564512 `
+    ]]>
+  </level>
+  <level id="66">
+    <![CDATA[
+^o+>o^<o1`
+oo^^++o^3`
+ovo+++++3`
++oo+++++4`
++++ov++o2`
++vv<oo+o3`
+v<+oo>++2`
+o++++>vv6`
+11351553 `
+    ]]>
+  </level>
+  <level id="67">
+    <![CDATA[
+o<o<o<oo2`
++o+++>o+4`
++^o^<o++2`
+++++^o++4`
+v+++++v+3`
+^+++o+^+3`
++ov+o+ov2`
+o<oovvo>1`
+42441132 `
+    ]]>
+  </level>
+  <level id="68">
+    <![CDATA[
+^o<o^o+>1`
+++^o+oo^1`
+ov+v++++2`
+o^+oo+++1`
+++++o++o1`
+++o++vvo3`
+voo+vo>v2`
+<ovv<++o6`
+53122112 `
+    ]]>
+  </level>
+  <level id="69">
+    <![CDATA[
+o<+++++o1`
++<o<++oo3`
++o^o^o^+5`
+vvo++v++3`
+o^o++^+v4`
+++++o+oo1`
+vovvo+^+4`
+o++>voov4`
+22253245 `
+    ]]>
+  </level>
+  <level id="70">
+    <![CDATA[
+^o^^<++o4`
+ov++^o>^2`
+o^+++<o+1`
+++oo+^^+4`
++oo>ooo+1`
+v<oo++>+5`
+<+++++oo1`
+<+o<+++o3`
+64221231 `
+    ]]>
+  </level>
+  <level id="71">
+    <![CDATA[
+^<+++++o^3`
++o<++o<o+1`
++v<o<++oo2`
++oo++>o+>2`
+o+o<+++oo0`
+^+v<++o^+1`
+++o+><o+v2`
++vo+><o+o0`
+o<++++oov4`
+022133022 `
+    ]]>
+  </level>
+  <level id="72">
+    <![CDATA[
+o<++oo++>0`
++oo+++++>4`
+++o+++++>6`
+++^<o<oo^1`
+++o<++o++3`
++vo>o+>v+2`
+vo+++++>+1`
+oo>o+++>+3`
+v<o<+oo>o0`
+420213332 `
+    ]]>
+  </level>
+  <level id="73">
+    <![CDATA[
+^o^<ooo^o4`
++++^^++++5`
++++++vv++7`
+ov++o^^++4`
+^^++^+o++4`
+o+++o+o+v2`
+ooo+oov+o0`
+vo>+v<oo+0`
+<+ooo++>v1`
+413503236 `
+    ]]>
+  </level>
+  <level id="74">
+    <![CDATA[
+o+>oo^<o^2`
+o>^+v+o>+2`
+^oo+o+oo+3`
++v^++++++3`
++^o+++vv+2`
+o+o+++<o+1`
+^++vv+<o+3`
+++vo>oo>o2`
+oo<+++oo>3`
+004613205 `
+    ]]>
+  </level>
+  <level id="75">
+    <![CDATA[
+<o<o<++o^5`
+^o><++oo+1`
++o++++>vo2`
++o+><+o^o3`
+oo++><o++1`
+o+++++>++6`
+^o<+++oo+3`
+++<++++o+6`
+ov<oo++>v4`
+323546413 `
+    ]]>
+  </level>
+  <level id="76">
+    <![CDATA[
+oo<++o^o^2`
++vo^^^+++2`
++o+o+++++3`
++++^++++o6`
+++v++o+v^5`
+++^++^+^o3`
+vvoo++++^2`
+<++oooooo0`
+<++o<+++o2`
+153161620 `
+    ]]>
+  </level>
+  <level id="77">
+    <![CDATA[
+o>o++++>^0`
+^^<++oo>o1`
+ooo+++++>3`
+o<+oo++>o2`
++<oo+>o^+2`
++<+++ovov2`
+vo++>o++>1`
+<oo>o+++>3`
+o><+++++o3`
+201121442 `
+    ]]>
+  </level>
+  <level id="78">
+    <![CDATA[
+o^o^^<+oo3`
+v+++oo>o+4`
+^+++oo>++4`
+++++voo++1`
+++++^+v++3`
+++++o+^++4`
+++++^+++v2`
++ovoo+++o3`
+oo++>vovv2`
+364312340 `
+    ]]>
+  </level>
+  <level id="79">
+    <![CDATA[
+^<+++++oo2`
++o><+++o+4`
++o++++>^+6`
+o<oo++>ov2`
+<++o<+o^o4`
+^^<+++o++3`
+ooo>o+>o+0`
+o++++>o>+1`
+<+++o<+ov4`
+423443114 `
+    ]]>
+  </level>
+  <level id="80">
+    <![CDATA[
+o><++++oo1`
+oo+><++o+1`
+vo+++++>+3`
+oo<++oo>+1`
+++o+++>o+5`
+++o+++>v+4`
+++<++++o+8`
+++o++><ov5`
+vvo><+++o6`
+642144427 `
+    ]]>
+  </level>
+  <level id="81">
+    <![CDATA[
+^^o>o+++>2`
+++o+++>^^3`
+++<+++o+o1`
+ooo>o+>+o3`
+<+++++o++6`
+oo+><+o++2`
+vo++><o++4`
+o+><++o++3`
+<+++++oov6`
+234321285 `
+    ]]>
+  </level>
+  <level id="82">
+    <![CDATA[
+o+>o+++>o2`
+<+++++o^+2`
+^<o^<+oov4`
++o>+^<o^^2`
++oo++<o++3`
++++++^o++3`
++vvooo+++3`
++<+++ovoo3`
+o<++++++o1`
+243232151 `
+    ]]>
+  </level>
+  <level id="83">
+    <![CDATA[
+^^<+++o<o4`
+ooo+++++>4`
+<oo++++>o1`
+<++++++o+3`
+^o+><+oo+2`
+oo><+oov+1`
+<++++o+o+3`
+<++++ov++5`
+<o<+++ovv6`
+543412235 `
+    ]]>
+  </level>
+  <level id="84">
+    <![CDATA[
+^<++++++o7`
++^<++oo+>3`
+++oo<+++o3`
+oo+vo+++>3`
+o>+<++++o2`
+^^+<+++o^2`
+oovo>o+>o1`
+o<++++++o1`
+vo+++>o+>4`
+333553121 `
+    ]]>
+  </level>
+  <level id="85">
+    <![CDATA[
+o++++++>^6`
+<++oo>o>o3`
+^oo+>o^o>2`
++v^^o++^o5`
++o++v+++v6`
++v++ov++^3`
++^+++o+++3`
++ooovvooo1`
+oo++++++>6`
+313354745 `
+    ]]>
+  </level>
+  <level id="86">
+    <![CDATA[
+^<+++++o^^1`
++o<+oo+>o+0`
+ov<+++++o+0`
+^<++++++o+0`
++o++++><o+2`
++^o+++++>+6`
+ooo>^^o+>+0`
+o><oooo+>o1`
+o++>o>o++>4`
+o>o++++++>2`
+2212122211 `
+    ]]>
+  </level>
+  <level id="87">
+    <![CDATA[
+o+>o+++++>0`
+oo++>^^oo>1`
++o^o>oovo^2`
++vo<+++ov+5`
++o++++++>o1`
++o><++++oo1`
++o++++++>v1`
++o^<o<o<o^1`
+++oo++><o+2`
+vvo+>o++>o2`
+4131202003 `
+    ]]>
+  </level>
+  <level id="88">
+    <![CDATA[
+<++++o<o<o4`
+oo><+++++o0`
++<++++o<oo1`
++^o^<o^oo+1`
+++++<o+vv+1`
+++++o>+^ov1`
+++++^o+++o2`
+++++++o++v3`
+++vo++^++o3`
+vo<oovoovv4`
+4441120301 `
+    ]]>
+  </level>
+  <level id="89">
+    <![CDATA[
+<oo++><++o0`
+<++++++oo^6`
+oo<++++o++2`
++v<oo^^^v+3`
++oo>+++o^+2`
+v+oov++^++2`
+o+++o+++++2`
+vvvvvooo++2`
+oo+++>o^++1`
+v<+++ovooo0`
+1221141107 `
+    ]]>
+  </level>
+  <level id="90">
+    <![CDATA[
+<++++oooo>2`
+<++++ov+^o0`
+o+++++>vo+0`
+<+oo++++>+8`
+^o++++><o+3`
+oo++++++>+1`
+o+++++++>+8`
+<+++++o<ov2`
+o<++++o<o^3`
+v<++++++oo8`
+4442444324 `
+    ]]>
+  </level>
+  <level id="91">
+    <![CDATA[
+<++o<++++o4`
+^^o^o>o^<o3`
++o++^ov+<o2`
++ovo++o+o^3`
+++^^++++++3`
++++o++v+++4`
++++o+vo+++4`
++++++^++vo4`
++vovoovo<o1`
+oo>o+++++>4`
+6400761251 `
+    ]]>
+  </level>
+  <level id="92">
+    <![CDATA[
+^^<+o<oo+>1`
+++<++++++o8`
+++oo++++>o5`
+++v<+ooo^v1`
++oo++>+++o3`
++<+o<ovv++1`
++<o<++oo++3`
+o<++++ovo+3`
+o+++++++>v2`
+<+oo><+++o0`
+0414342432 `
+    ]]>
+  </level>
+  <level id="93">
+    <![CDATA[
+<o<++++++o3`
+o<o<++++o^1`
++o++++>^^+1`
++oo<+oooo+0`
++vvo+>vo>o2`
++<+++++++o7`
++o+>o><++o2`
++o++++><+o2`
++o>o++><oo1`
+v<o<++++ov6`
+5124342301 `
+    ]]>
+  </level>
+  <level id="94">
+    <![CDATA[
+^o++++>o+>5`
++o+><++oo>3`
++^<++o<ooo3`
++o<++++o++1`
++o<oo+>o++1`
+++o+++>vv+3`
++vo+++++>+4`
+oo++++>o>v0`
+^<+++o<o<o1`
+o<oo>o+++>1`
+5113433110 `
+    ]]>
+  </level>
+  <level id="95">
+    <![CDATA[
+o+++++>o^o5`
+o<++o^o++v0`
+v<o^o++++^4`
+o<oov+v+++2`
+v<oo^+^+++2`
+^^^vo+++o+2`
++ooo>++vo+2`
+oo++>++o++1`
+<+++oo++++1`
+<++oo>ovvo1`
+1102121516 `
+    ]]>
+  </level>
+  <level id="96">
+    <![CDATA[
+^oo^^o+++>3`
++++oo<++oo1`
+++v<oo++>+2`
+++o+++++>+3`
+++<o<o^o>+0`
+++<oo>oo>+0`
+o+o++><+ov1`
+^v<oo++++>2`
++<++++++oo6`
+oo><++o<ov4`
+3112222432 `
+    ]]>
+  </level>
+  <level id="97">
+    <![CDATA[
+^o+++++>^^6`
++oo++>oo+o0`
++vo++>v+oo2`
+oo++++>+^+2`
+<oo>o^^+++0`
+oooo+o+v+v1`
++++++oo^+o1`
++vvvv+o+++3`
+vo>o>vvoov1`
+<+oo>o+><o1`
+2211142112 `
+    ]]>
+  </level>
+  <level id="98">
+    <![CDATA[
+^oo<+++++o6`
++++^<+oo>^1`
++vvo<+++o+2`
++<++oo^o^+3`
++<oo^v++++2`
++o>voo+v++1`
+oo++>v+^+o3`
+^o>o+>o++o4`
++o++++>oov4`
+oo+><oo++>1`
+7102232451 `
+    ]]>
+  </level>
+  <level id="99">
+    <![CDATA[
+<ooo^<+oo^1`
+^^+++^o^+o2`
+oo+v++++v^4`
+o^+o++++o+3`
++++++o++++4`
++++++o+++o4`
++++++vvovo4`
++++voo++>v4`
+++v<o<+++o5`
+vo<++++++o5`
+5234426334 `
+    ]]>
+  </level>
+  <level id="100">
+    <![CDATA[
+oo+++>o++>2`
++ooooooo^^1`
++++++++vo+4`
++++++v+oo+4`
++++++o+v++6`
+v++vv++o++8`
+o++o^++++o5`
+vvvvov+vv^5`
+<++++ovo>+2`
+o++><oo+>o3`
+1663625137 `
+    ]]>
+  </level>
+</levels>
+</puzzle>
