@@ -1080,6 +1080,15 @@
 		8CAFBFF32E9F1A1400C27D7C /* TurnTwiceGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFE62E9F1A1400C27D7C /* TurnTwiceGame.swift */; };
 		8CAFBFF42E9F1A1400C27D7C /* TurnTwiceMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFEB2E9F1A1400C27D7C /* TurnTwiceMainViewController.swift */; };
 		8CAFBFF52E9F1A1400C27D7C /* TurnTwice.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CAFBFE42E9F1A1400C27D7C /* TurnTwice.xml */; };
+		8CAFC0002EA0864F00C27D7C /* NumberCrossingGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFFA2EA0864F00C27D7C /* NumberCrossingGameState.swift */; };
+		8CAFC0012EA0864F00C27D7C /* NumberCrossingGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFF92EA0864F00C27D7C /* NumberCrossingGameScene.swift */; };
+		8CAFC0022EA0864F00C27D7C /* NumberCrossingObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFFE2EA0864F00C27D7C /* NumberCrossingObject.swift */; };
+		8CAFC0032EA0864F00C27D7C /* NumberCrossingGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFFB2EA0864F00C27D7C /* NumberCrossingGameViewController.swift */; };
+		8CAFC0042EA0864F00C27D7C /* NumberCrossingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFF82EA0864F00C27D7C /* NumberCrossingGame.swift */; };
+		8CAFC0052EA0864F00C27D7C /* NumberCrossingGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFFC2EA0864F00C27D7C /* NumberCrossingGridNode.swift */; };
+		8CAFC0062EA0864F00C27D7C /* NumberCrossingDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFF72EA0864F00C27D7C /* NumberCrossingDocument.swift */; };
+		8CAFC0072EA0864F00C27D7C /* NumberCrossingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFFD2EA0864F00C27D7C /* NumberCrossingMainViewController.swift */; };
+		8CAFC0082EA0864F00C27D7C /* NumberCrossing.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CAFBFF62EA0864F00C27D7C /* NumberCrossing.xml */; };
 		8CBD5F932E7DBE11000CD5E3 /* MaketheDifferenceGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8E2E7DBE11000CD5E3 /* MaketheDifferenceGameViewController.swift */; };
 		8CBD5F942E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8A2E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift */; };
 		8CBD5F952E7DBE11000CD5E3 /* MaketheDifferenceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F912E7DBE11000CD5E3 /* MaketheDifferenceObject.swift */; };
@@ -2284,6 +2293,15 @@
 		8CAFBFEA2E9F1A1400C27D7C /* TurnTwiceGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnTwiceGridNode.swift; sourceTree = "<group>"; };
 		8CAFBFEB2E9F1A1400C27D7C /* TurnTwiceMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnTwiceMainViewController.swift; sourceTree = "<group>"; };
 		8CAFBFEC2E9F1A1400C27D7C /* TurnTwiceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnTwiceObject.swift; sourceTree = "<group>"; };
+		8CAFBFF62EA0864F00C27D7C /* NumberCrossing.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = NumberCrossing.xml; sourceTree = "<group>"; };
+		8CAFBFF72EA0864F00C27D7C /* NumberCrossingDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCrossingDocument.swift; sourceTree = "<group>"; };
+		8CAFBFF82EA0864F00C27D7C /* NumberCrossingGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCrossingGame.swift; sourceTree = "<group>"; };
+		8CAFBFF92EA0864F00C27D7C /* NumberCrossingGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCrossingGameScene.swift; sourceTree = "<group>"; };
+		8CAFBFFA2EA0864F00C27D7C /* NumberCrossingGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCrossingGameState.swift; sourceTree = "<group>"; };
+		8CAFBFFB2EA0864F00C27D7C /* NumberCrossingGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCrossingGameViewController.swift; sourceTree = "<group>"; };
+		8CAFBFFC2EA0864F00C27D7C /* NumberCrossingGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCrossingGridNode.swift; sourceTree = "<group>"; };
+		8CAFBFFD2EA0864F00C27D7C /* NumberCrossingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCrossingMainViewController.swift; sourceTree = "<group>"; };
+		8CAFBFFE2EA0864F00C27D7C /* NumberCrossingObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCrossingObject.swift; sourceTree = "<group>"; };
 		8CBD5F8A2E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceDocument.swift; sourceTree = "<group>"; };
 		8CBD5F8B2E7DBE11000CD5E3 /* MaketheDifferenceGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceGame.swift; sourceTree = "<group>"; };
 		8CBD5F8C2E7DBE11000CD5E3 /* MaketheDifferenceGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceGameScene.swift; sourceTree = "<group>"; };
@@ -2752,6 +2770,7 @@
 				8C3A35251EC88D4100A914A5 /* Neighbours */,
 				8C610F11204159100087C545 /* NorthPoleFishing */,
 				8C6A361A1FAF9D8600D2804D /* NoughtsAndCrosses */,
+				8CAFBFFF2EA0864F00C27D7C /* NumberCrossing */,
 				95E2B4F3236598F400F4F95B /* NumberCrosswords */,
 				8C35E3AF1FC6DADD00A26EE3 /* NumberLink */,
 				8C2AF8211ED5FB0000EC84AB /* NumberPath */,
@@ -4317,6 +4336,22 @@
 			path = TurnTwice;
 			sourceTree = "<group>";
 		};
+		8CAFBFFF2EA0864F00C27D7C /* NumberCrossing */ = {
+			isa = PBXGroup;
+			children = (
+				8CAFBFF62EA0864F00C27D7C /* NumberCrossing.xml */,
+				8CAFBFF72EA0864F00C27D7C /* NumberCrossingDocument.swift */,
+				8CAFBFF82EA0864F00C27D7C /* NumberCrossingGame.swift */,
+				8CAFBFF92EA0864F00C27D7C /* NumberCrossingGameScene.swift */,
+				8CAFBFFA2EA0864F00C27D7C /* NumberCrossingGameState.swift */,
+				8CAFBFFB2EA0864F00C27D7C /* NumberCrossingGameViewController.swift */,
+				8CAFBFFC2EA0864F00C27D7C /* NumberCrossingGridNode.swift */,
+				8CAFBFFD2EA0864F00C27D7C /* NumberCrossingMainViewController.swift */,
+				8CAFBFFE2EA0864F00C27D7C /* NumberCrossingObject.swift */,
+			);
+			path = NumberCrossing;
+			sourceTree = "<group>";
+		};
 		8CBD5F922E7DBE11000CD5E3 /* MaketheDifference */ = {
 			isa = PBXGroup;
 			children = (
@@ -4905,6 +4940,7 @@
 				8C8E775D2E869852006BBF98 /* 128_fish.png in Resources */,
 				8C8E775E2E869852006BBF98 /* C1.jpg in Resources */,
 				8C8E775F2E869852006BBF98 /* pomegranate.png in Resources */,
+				8CAFC0082EA0864F00C27D7C /* NumberCrossing.xml in Resources */,
 				8C8E77602E869852006BBF98 /* mushroom3.png in Resources */,
 				8C8E77612E869852006BBF98 /* 128_selection.png in Resources */,
 				8C8E77622E869852006BBF98 /* A5-stone.jpg in Resources */,
@@ -5372,6 +5408,14 @@
 				8CAFBFCB2E9D9FE500C27D7C /* ArrowsMainViewController.swift in Sources */,
 				8CAFBFCC2E9D9FE500C27D7C /* ArrowsGame.swift in Sources */,
 				8CAFBFCD2E9D9FE500C27D7C /* ArrowsGameScene.swift in Sources */,
+				8CAFC0002EA0864F00C27D7C /* NumberCrossingGameState.swift in Sources */,
+				8CAFC0012EA0864F00C27D7C /* NumberCrossingGameScene.swift in Sources */,
+				8CAFC0022EA0864F00C27D7C /* NumberCrossingObject.swift in Sources */,
+				8CAFC0032EA0864F00C27D7C /* NumberCrossingGameViewController.swift in Sources */,
+				8CAFC0042EA0864F00C27D7C /* NumberCrossingGame.swift in Sources */,
+				8CAFC0052EA0864F00C27D7C /* NumberCrossingGridNode.swift in Sources */,
+				8CAFC0062EA0864F00C27D7C /* NumberCrossingDocument.swift in Sources */,
+				8CAFC0072EA0864F00C27D7C /* NumberCrossingMainViewController.swift in Sources */,
 				8CAFBFCE2E9D9FE500C27D7C /* ArrowsGameViewController.swift in Sources */,
 				8C6A36281FAF9D8600D2804D /* NoughtsAndCrossesGame.swift in Sources */,
 				8C3A363E1EC88D4200A914A5 /* BridgesGame.swift in Sources */,

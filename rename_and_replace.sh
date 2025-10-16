@@ -2,11 +2,11 @@
 set -e
 
 # 协程变量（源字符串和目标字符串）
-SRC="FourMeNot"
-DST="TurnTwice"
+SRC="Sumscrapers"
+DST="NumberCrossing"
 
 # 切换到 Branches 目录
-cd "$(dirname "$0")/LogicPuzzlesSwift/Puzzles/TurnTwice"
+cd "$(dirname "$0")/LogicPuzzlesSwift/Puzzles/NumberCrossing"
 
 # 1. 改文件名
 for f in ${SRC}*; do
