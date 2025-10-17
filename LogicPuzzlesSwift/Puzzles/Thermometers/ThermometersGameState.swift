@@ -61,11 +61,11 @@ class ThermometersGameState: GridGameState<ThermometersGameMove> {
         func f(o: ThermometersObject) -> ThermometersObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .filled
+                return markerOption == .markerFirst ? .marker : .filled(state: .normal)
             case .filled:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .filled : .empty
+                return markerOption == .markerFirst ? .filled(state: .normal) : .empty
             default:
                 return o
             }
@@ -77,93 +77,59 @@ class ThermometersGameState: GridGameState<ThermometersGameMove> {
     }
     
     /*
-        iOS Game: 100 Logic Games/Puzzle Set 2/Hidden Stars
+        iOS Game: 100 Logic Games/Puzzle Set 14/Thermometers
 
         Summary
-        Each Arrow points to a Star and every Star has an arrow pointing at it
+        Puzzle Fever
 
         Description
-        1. In the board you have to find hidden stars.
-        2. Each star is pointed at by at least one Arrow and each Arrow points
-           to at least one star.
-        3. The number on the borders tell you how many Stars there on that row
-           or column.
-
-        Variant
-        4. Some levels have a variation of these rules: Stars must be pointed
-           by one and only one Arrow.
+        1. On the board a few Thermometers are laid down. Your goal is  to fill
+           them according to the hints.
+        2. In a Thermometer, mercury always starts at the bulb and can progressively
+           fill the Thermometer towards the end.
+        3. A Thermometer can also be completely empty, including the bulb.
+        4. The numbers on the border tell you how many filled cells are present
+           on that Row or Column.
     */
     private func updateIsSolved() {
         let allowedObjectsOnly = self.allowedObjectsOnly
-//        isSolved = true
-//        for r in 0..<rows {
-//            var n1 = 0
-//            let n2 = game.row2hint[r]
-//            for c in 0..<cols {
-//                if case .star = self[r, c] { n1 += 1 }
-//            }
-//            // 3. The numbers on the borders tell you how many Stars there are on that row.
-//            row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-//            if n1 != n2 { isSolved = false }
-//        }
-//        for c in 0..<cols {
-//            var n1 = 0
-//            let n2 = game.col2hint[c]
-//            for r in 0..<rows {
-//                if case .star = self[r, c] { n1 += 1 }
-//            }
-//            // 3. The numbers on the borders tell you how many Stars there are on that column.
-//            col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-//            if n1 != n2 { isSolved = false }
-//        }
-//        for r in 0..<rows {
-//            for c in 0..<cols {
-//                if case .forbidden = self[r, c] { self[r, c] = .empty }
-//            }
-//        }
-//        for r in 0..<rows {
-//            for c in 0..<cols {
-//                let p = Position(r, c)
-//                func hasArrow() -> Bool {
-//                    var n = 0
-//                    for i in 0..<8 {
-//                        let os = ThermometersGame.offset2[i]
-//                        var p2 = p + os
-//                        while isValid(p: p2) {
-//                            if case .arrow = self[p2], (game.pos2arrow[p2]! + 4) % 8 == i { n += 1 }
-//                            p2 += os
-//                        }
-//                    }
-//                    return game.onlyOneArrow && n == 1 || n >= 1
-//                }
-//                func hasStar() -> Bool {
-//                    var n = 0
-//                    let os = ThermometersGame.offset2[game.pos2arrow[p]!]
-//                    var p2 = p + os
-//                    while isValid(p: p2) {
-//                        if case .star = self[p2] { n += 1 }
-//                        p2 += os
-//                    }
-//                    return game.onlyOneArrow && n == 1 || n >= 1
-//                }
-//                switch self[p] {
-//                case .star:
-//                    // 2. Each star is pointed at by at least one Arrow.
-//                    let s: AllowedObjectState = hasArrow() ? .normal : .error
-//                    self[p] = .star(state: s)
-//                    if s == .error { isSolved = false }
-//                case .arrow:
-//                    // 2. Each Arrow points to at least one star.
-//                    let s: AllowedObjectState = hasStar() ? .normal : .error
-//                    self[p] = .arrow(state: s)
-//                    if s == .error { isSolved = false }
-//                case .empty, .marker:
-//                    guard allowedObjectsOnly else {break}
-//                    if col2state[c] != .normal || row2state[r] != .normal || !hasArrow() { self[p] = .forbidden }
-//                default:
-//                    break
-//                }
-//            }
-//        }
+        isSolved = true
+        for r in 0..<rows {
+            var n1 = 0
+            let n2 = game.row2hint[r]
+            for c in 0..<cols {
+                if case .filled = self[r, c] { n1 += 1 }
+            }
+            // 4. The numbers on the border tell you how many filled cells are present
+            // on that Row.
+            row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            if n1 != n2 { isSolved = false }
+        }
+        for c in 0..<cols {
+            var n1 = 0
+            let n2 = game.col2hint[c]
+            for r in 0..<rows {
+                if case .filled = self[r, c] { n1 += 1 }
+            }
+            // 4. The numbers on the border tell you how many filled cells are present
+            // on that Column.
+            col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            if n1 != n2 { isSolved = false }
+        }
+        for thermometer in game.thermometerArray {
+            var canbeFilled = true
+            for p in thermometer {
+                if case .filled = self[p] {
+                    let s: AllowedObjectState = canbeFilled ? .normal : .error
+                    if s == .error { isSolved = false }
+                    self[p] = .filled(state: s)
+                } else {
+                    if allowedObjectsOnly && !canbeFilled {
+                        self[p] = .forbidden
+                    }
+                    canbeFilled = false
+                }
+            }
+        }
     }
 }

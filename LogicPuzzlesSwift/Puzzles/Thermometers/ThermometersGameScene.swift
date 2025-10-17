@@ -22,8 +22,11 @@ class ThermometersGameScene: GameScene<ThermometersGameState> {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: hintNodeName)
     }
     
-    func addArrow(n: Int, s: AllowedObjectState, point: CGPoint, nodeName: String) {
-        addImage(imageNamed: getArrowImageName(n: n), color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
+    func addThermometer(ch: Character, filled: Bool, s: AllowedObjectState, point: CGPoint, nodeName: String) {
+        let n = ThermometersGame.parts.getIndexOf(ch)!
+        let (m, degree) = n < 4 ? (1, (6 - n) % 4 * 90) : n < 8 ? (3, (8 - n) % 4 * 90) : (2, 90 * (n - 8))
+        let imageName = "thermometer\(m)\(filled ? "B" : "A")"
+        addImage(imageNamed: imageName, color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName, zRotation: (degree.toDouble * Double.pi / 180.0).toCGFloat)
     }
     
     override func levelInitialized(_ game: AnyObject, state: ThermometersGameState, skView: SKView) {
@@ -53,16 +56,10 @@ class ThermometersGameScene: GameScene<ThermometersGameState> {
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                let arrowNodeName = "arrow" + nodeNameSuffix
-                switch state[p] {
-                case .forbidden:
+                let thermometerNodeName = "thermometer" + nodeNameSuffix
+                addThermometer(ch: game[p], filled: false, s: .normal, point: point, nodeName: thermometerNodeName)
+                if case .forbidden = state[p] {
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
-//                case let .arrow(s):
-//                    let point = gridNode.gridPosition(p: p)
-//                    let n = game.pos2arrow[p]!
-//                    addArrow(n: n, s: s, point: point, nodeName: arrowNodeName)
-                default:
-                    break
                 }
             }
         }
@@ -95,32 +92,27 @@ class ThermometersGameScene: GameScene<ThermometersGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let starNodeName = "star" + nodeNameSuffix
+                let thermometerNodeName = "thermometer" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                let arrowNodeName = "arrow" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
                 guard String(describing: o1) != String(describing: o2) else {continue}
                 switch o1 {
+                case .filled:
+                    removeNode(withName: thermometerNodeName)
                 case .forbidden:
                     removeNode(withName: forbiddenNodeName)
-//                case .star:
-//                    removeNode(withName: starNodeName)
-//                case .arrow:
-//                    removeNode(withName: arrowNodeName)
                 case .marker:
                     removeNode(withName: markerNodeName)
                 default:
                     break
                 }
                 switch o2 {
+                case let .filled(s):
+                    break
+//                    addThermometer(ch: o2, filled: true, s: s, point: point, nodeName: thermometerNodeName)
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
-//                case let .star(s):
-//                    addImage(imageNamed: "star_yellow", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: starNodeName)
-//                case let .arrow(s):
-//                    let n = stateTo.game.pos2arrow[p]!
-//                    addArrow(n: n, s: s, point: point, nodeName: arrowNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
                 default:

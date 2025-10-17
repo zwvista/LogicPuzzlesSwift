@@ -8,16 +8,10 @@
 
 import Foundation
 
-enum ThermometersPart {
-    case bulb
-    case body
-    case end
-}
-
 enum ThermometersObject {
     case empty
     case forbidden
-    case filled
+    case filled(state: AllowedObjectState)
     case marker
     init() {
         self = .empty
@@ -35,7 +29,7 @@ enum ThermometersObject {
     static func fromString(str: String) -> ThermometersObject {
         switch str {
         case "filled":
-            return .filled
+            return .filled(state: .normal)
         case "marker":
             return .marker
         default:
