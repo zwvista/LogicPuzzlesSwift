@@ -94,6 +94,23 @@ class ThermometersGameState: GridGameState<ThermometersGameMove> {
     private func updateIsSolved() {
         let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
+        for thermometer in game.thermometerArray {
+            var canbeFilled = true
+            for p in thermometer {
+                if case .filled = self[p] {
+                    let s: AllowedObjectState = canbeFilled ? .normal : .error
+                    if s == .error { isSolved = false }
+                    self[p] = .filled(state: s)
+                } else {
+                    if allowedObjectsOnly && !canbeFilled {
+                        self[p] = .forbidden
+                    } else if case .forbidden = self[p] {
+                        self[p] = .empty
+                    }
+                    canbeFilled = false
+                }
+            }
+        }
         for r in 0..<rows {
             var n1 = 0
             let n2 = game.row2hint[r]
@@ -104,6 +121,14 @@ class ThermometersGameState: GridGameState<ThermometersGameMove> {
             // on that Row.
             row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 { isSolved = false }
+            if n1 == n2 && allowedObjectsOnly {
+                for c in 0..<cols {
+                    if case .filled = self[r, c] {
+                    } else {
+                        self[r, c] = .forbidden
+                    }
+                }
+            }
         }
         for c in 0..<cols {
             var n1 = 0
@@ -115,19 +140,12 @@ class ThermometersGameState: GridGameState<ThermometersGameMove> {
             // on that Column.
             col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 { isSolved = false }
-        }
-        for thermometer in game.thermometerArray {
-            var canbeFilled = true
-            for p in thermometer {
-                if case .filled = self[p] {
-                    let s: AllowedObjectState = canbeFilled ? .normal : .error
-                    if s == .error { isSolved = false }
-                    self[p] = .filled(state: s)
-                } else {
-                    if allowedObjectsOnly && !canbeFilled {
-                        self[p] = .forbidden
+            if n1 == n2 && allowedObjectsOnly {
+                for r in 0..<rows {
+                    if case .filled = self[r, c] {
+                    } else {
+                        self[r, c] = .forbidden
                     }
-                    canbeFilled = false
                 }
             }
         }

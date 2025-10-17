@@ -87,6 +87,10 @@ class ThermometersGameScene: GameScene<ThermometersGameState> {
                 addHint(p: p, n: n, s: stateTo.col2state[c])
             }
         }
+        func isFilled(o: ThermometersObject) -> Bool {
+            if case .filled = o {return true}
+            return false
+        }
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -97,9 +101,9 @@ class ThermometersGameScene: GameScene<ThermometersGameState> {
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
                 guard String(describing: o1) != String(describing: o2) else {continue}
+                let (isFilled1, isFilled2) = (isFilled(o: o1), isFilled(o: o2))
+                if isFilled1 != isFilled2 { removeNode(withName: thermometerNodeName) }
                 switch o1 {
-                case .filled:
-                    removeNode(withName: thermometerNodeName)
                 case .forbidden:
                     removeNode(withName: forbiddenNodeName)
                 case .marker:
@@ -107,17 +111,17 @@ class ThermometersGameScene: GameScene<ThermometersGameState> {
                 default:
                     break
                 }
+                if isFilled1 != isFilled2 && !isFilled2 { addThermometer(ch: stateFrom.game[p], filled: false, s: .normal, point: point, nodeName: thermometerNodeName) }
                 switch o2 {
                 case let .filled(s):
-                    break
-//                    addThermometer(ch: o2, filled: true, s: s, point: point, nodeName: thermometerNodeName)
+                    addThermometer(ch: stateFrom.game[p], filled: true, s: s, point: point, nodeName: thermometerNodeName)
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
                 default:
                     break
-                }                
+                }
             }
         }
     }
