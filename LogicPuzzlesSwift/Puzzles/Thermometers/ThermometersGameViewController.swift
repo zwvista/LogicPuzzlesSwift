@@ -24,6 +24,6 @@ class ThermometersGameViewController: GameGameViewController2<ThermometersGameSt
     }
    
     override func newGame(level: GameLevel) -> ThermometersGame {
-        ThermometersGame(layout: level.layout, onlyOneArrow: (level.settings["OnlyOneArrow"] ?? "0") == "1", delegate: self)
+        ThermometersGame(layout: level.layout, delegate: self)
     }
 }

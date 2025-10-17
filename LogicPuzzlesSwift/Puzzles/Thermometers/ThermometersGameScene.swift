@@ -57,10 +57,10 @@ class ThermometersGameScene: GameScene<ThermometersGameState> {
                 switch state[p] {
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
-                case let .arrow(s):
-                    let point = gridNode.gridPosition(p: p)
-                    let n = game.pos2arrow[p]!
-                    addArrow(n: n, s: s, point: point, nodeName: arrowNodeName)
+//                case let .arrow(s):
+//                    let point = gridNode.gridPosition(p: p)
+//                    let n = game.pos2arrow[p]!
+//                    addArrow(n: n, s: s, point: point, nodeName: arrowNodeName)
                 default:
                     break
                 }
@@ -104,10 +104,10 @@ class ThermometersGameScene: GameScene<ThermometersGameState> {
                 switch o1 {
                 case .forbidden:
                     removeNode(withName: forbiddenNodeName)
-                case .star:
-                    removeNode(withName: starNodeName)
-                case .arrow:
-                    removeNode(withName: arrowNodeName)
+//                case .star:
+//                    removeNode(withName: starNodeName)
+//                case .arrow:
+//                    removeNode(withName: arrowNodeName)
                 case .marker:
                     removeNode(withName: markerNodeName)
                 default:
@@ -116,11 +116,11 @@ class ThermometersGameScene: GameScene<ThermometersGameState> {
                 switch o2 {
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
-                case let .star(s):
-                    addImage(imageNamed: "star_yellow", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: starNodeName)
-                case let .arrow(s):
-                    let n = stateTo.game.pos2arrow[p]!
-                    addArrow(n: n, s: s, point: point, nodeName: arrowNodeName)
+//                case let .star(s):
+//                    addImage(imageNamed: "star_yellow", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: starNodeName)
+//                case let .arrow(s):
+//                    let n = stateTo.game.pos2arrow[p]!
+//                    addArrow(n: n, s: s, point: point, nodeName: arrowNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
                 default:
