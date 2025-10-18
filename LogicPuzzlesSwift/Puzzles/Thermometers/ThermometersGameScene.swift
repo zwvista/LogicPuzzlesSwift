@@ -24,9 +24,9 @@ class ThermometersGameScene: GameScene<ThermometersGameState> {
     
     func addThermometer(ch: Character, filled: Bool, s: AllowedObjectState, point: CGPoint, nodeName: String) {
         let n = ThermometersGame.parts.getIndexOf(ch)!
-        let (m, degree) = n < 4 ? (1, (6 - n) % 4 * 90) : n < 8 ? (3, (8 - n) % 4 * 90) : (2, 90 * (n - 8))
+        let (m, degrees) = n < 4 ? (1, (6 - n) % 4 * 90) : n < 8 ? (3, (8 - n) % 4 * 90) : (2, (n - 8) * 90)
         let imageName = "thermometer\(m)\(filled ? "B" : "A")"
-        addImage(imageNamed: imageName, color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName, zRotation: (degree.toDouble * Double.pi / 180.0).toCGFloat)
+        addImage(imageNamed: imageName, color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName, zRotation: (degrees.toDouble * Double.pi / 180.0).toCGFloat)
     }
     
     override func levelInitialized(_ game: AnyObject, state: ThermometersGameState, skView: SKView) {

@@ -94,7 +94,9 @@ class ThermometersGameState: GridGameState<ThermometersGameMove> {
     private func updateIsSolved() {
         let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
-        for thermometer in game.thermometerArray {
+        // 2. In a Thermometer, mercury always starts at the bulb and can progressively
+        // fill the Thermometer towards the end.
+        for thermometer in game.thermometers {
             var canbeFilled = true
             for p in thermometer {
                 if case .filled = self[p] {

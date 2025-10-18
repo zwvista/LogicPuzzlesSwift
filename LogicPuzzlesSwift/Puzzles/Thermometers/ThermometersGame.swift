@@ -17,7 +17,7 @@ class ThermometersGame: GridGame<ThermometersGameState> {
     var row2hint = [Int]()
     var col2hint = [Int]()
     var objArray = [Character]()
-    var thermometerArray = [[Position]]()
+    var thermometers = [[Position]]()
 
     subscript(p: Position) -> Character {
         get { self[p.row, p.col] }
@@ -49,21 +49,20 @@ class ThermometersGame: GridGame<ThermometersGameState> {
                         row2hint[r] = n
                     }
                 } else if ThermometersGame.bulbs.contains(ch) {
-                    thermometerArray.append(Array(repeating: p, count: 1))
+                    thermometers.append(Array(repeating: p, count: 1))
                 }
             }
         }
-        for i in thermometerArray.indices {
-            let p = thermometerArray[i][0]
-            let (r, c) = p.destructured
-            let ch = layout[r][c]
+        for i in thermometers.indices {
+            let p = thermometers[i][0]
+            let ch = layout[p.row][p.col]
             let d = ThermometersGame.bulbs.getIndexOf(ch)!
             self[p] = ThermometersGame.parts[d]
             let d2 = (d + 2) % 4
             let os = ThermometersGame.offset[d2]
             var p2 = p + os
             while isValid(p: p2) {
-                thermometerArray[i].append(p2)
+                thermometers[i].append(p2)
                 let ch2 = layout[p2.row][p2.col]
                 if ch2 == "+" {
                     self[p2] = d % 2 == 0 ? "|" : "-"
