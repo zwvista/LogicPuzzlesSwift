@@ -61,6 +61,13 @@ class GridNode : SKSpriteNode {
         return CGPoint(x: x, y: y)
     }
     
+    func dotPosition(p: Position) -> CGPoint {
+        let offset: CGFloat = 0.5
+        let x = CGFloat(p.col) * blockSize + offset
+        let y = -(CGFloat(p.row) * blockSize + offset)
+        return CGPoint(x: x, y: y)
+    }
+
     func cellPosition(point: CGPoint) -> Position {
         let row = Int(-point.y / blockSize)
         let col = Int(point.x / blockSize)

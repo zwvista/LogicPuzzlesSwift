@@ -54,6 +54,8 @@ class WarehouseGameScene: GameScene<WarehouseGameState> {
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let horzLineNodeName = "horzLine" + nodeNameSuffix
                 let vertlineNodeName = "vertline" + nodeNameSuffix
+                let symbolNodeName = "symbol" + nodeNameSuffix
+                let dotNodeName = "dot" + nodeNameSuffix
                 func removeHorzLine(objType: GridLineObject) {
                     if objType != .empty { removeNode(withName: horzLineNodeName) }
                 }
@@ -70,11 +72,16 @@ class WarehouseGameScene: GameScene<WarehouseGameState> {
                     removeVertLine(objType: o1)
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
                 }
-                let symbolNodeName = "symbol" + nodeNameSuffix
-                guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
-                if s1 != s2 {
+                if let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p], s1 != s2 {
                     removeNode(withName: symbolNodeName)
                     addSymbol(ch: stateFrom.game.pos2symbol[p]!, s: s2, point: point, nodeName: symbolNodeName)
+                }
+                if 1..<stateFrom.rows - 1 ~= r, 1..<stateFrom.cols - 1 ~= c {
+                    let (o3, o4) = (stateFrom.dot2state[p]!, stateTo.dot2state[p]!)
+                    if o3 != o4 {
+                        if o3 == .error { removeNode(withName: dotNodeName) }
+                        if o4 == .error { addDotMarker2(color: .red, point: gridNode.dotPosition(p: p), nodeName: dotNodeName) }
+                    }
                 }
             }
         }
