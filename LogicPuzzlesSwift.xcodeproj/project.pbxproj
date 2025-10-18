@@ -975,6 +975,7 @@
 		8C86644D2EA39DD00078CD64 /* arrow_yellow_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C8662362EA39DD00078CD64 /* arrow_yellow_down.png */; };
 		8C86644E2EA39DD00078CD64 /* arrow_green_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C86622D2EA39DD00078CD64 /* arrow_green_up.png */; };
 		8C86644F2EA39DD00078CD64 /* target.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C8663032EA39DD00078CD64 /* target.png */; };
+		8C8664512EA3A3BA0078CD64 /* telegraph.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C8664502EA3A3BA0078CD64 /* telegraph.png */; };
 		8C8E77BE2E86DE0F006BBF98 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E77BD2E86DE0F006BBF98 /* CustomButton.swift */; };
 		8C8E77C02E871CD2006BBF98 /* FourMeNot.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C8E77BF2E871CD2006BBF98 /* FourMeNot.xml */; };
 		8C8E77CB2E873A53006BBF98 /* BranchesGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E77C52E873A53006BBF98 /* BranchesGameState.swift */; };
@@ -2231,6 +2232,7 @@
 		8C8663272EA39DD00078CD64 /* wood vertical.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wood vertical.png"; sourceTree = "<group>"; };
 		8C8663282EA39DD00078CD64 /* wood1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood1.png; sourceTree = "<group>"; };
 		8C8663292EA39DD00078CD64 /* zebra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zebra.png; sourceTree = "<group>"; };
+		8C8664502EA3A3BA0078CD64 /* telegraph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = telegraph.png; sourceTree = "<group>"; };
 		8C886C451D9E8B72004A42BF /* LogicPuzzlesSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LogicPuzzlesSwift-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		8C8E77BD2E86DE0F006BBF98 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		8C8E77BF2E871CD2006BBF98 /* FourMeNot.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FourMeNot.xml; sourceTree = "<group>"; };
@@ -4133,6 +4135,7 @@
 				8C8663012EA39DD00078CD64 /* swan.png */,
 				8C8663022EA39DD00078CD64 /* sweetcorn.png */,
 				8C8663032EA39DD00078CD64 /* target.png */,
+				8C8664502EA3A3BA0078CD64 /* telegraph.png */,
 				8C8663042EA39DD00078CD64 /* tent.png */,
 				8C8663052EA39DD00078CD64 /* tetris_blue.png */,
 				8C8663062EA39DD00078CD64 /* tetris_cyan.png */,
@@ -5120,6 +5123,7 @@
 				8C8664362EA39DD00078CD64 /* lemonade_bottle.png in Resources */,
 				8C8664372EA39DD00078CD64 /* mushroom.png in Resources */,
 				8C8664382EA39DD00078CD64 /* arrow_green_right.png in Resources */,
+				8C8664512EA3A3BA0078CD64 /* telegraph.png in Resources */,
 				8C8664392EA39DD00078CD64 /* fox.png in Resources */,
 				8C86643A2EA39DD00078CD64 /* peach.png in Resources */,
 				8C86643B2EA39DD00078CD64 /* arrow4.png in Resources */,
