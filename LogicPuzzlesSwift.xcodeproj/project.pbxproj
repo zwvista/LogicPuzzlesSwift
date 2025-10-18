@@ -663,6 +663,15 @@
 		8C8661DB2EA31ABC0078CD64 /* ZenLandscaperMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661D22EA31ABC0078CD64 /* ZenLandscaperMainViewController.swift */; };
 		8C8661DC2EA31ABC0078CD64 /* ZenLandscaperDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661CC2EA31ABC0078CD64 /* ZenLandscaperDocument.swift */; };
 		8C8661DD2EA31ABC0078CD64 /* ZenLandscaper.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C8661CB2EA31ABC0078CD64 /* ZenLandscaper.xml */; };
+		8C8661E82EA35BDB0078CD64 /* WarehouseGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661E42EA35BDB0078CD64 /* WarehouseGridNode.swift */; };
+		8C8661E92EA35BDB0078CD64 /* WarehouseGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661E12EA35BDB0078CD64 /* WarehouseGameScene.swift */; };
+		8C8661EA2EA35BDB0078CD64 /* WarehouseDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661DF2EA35BDB0078CD64 /* WarehouseDocument.swift */; };
+		8C8661EB2EA35BDB0078CD64 /* WarehouseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661E32EA35BDB0078CD64 /* WarehouseGameViewController.swift */; };
+		8C8661EC2EA35BDB0078CD64 /* WarehouseGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661E02EA35BDB0078CD64 /* WarehouseGame.swift */; };
+		8C8661ED2EA35BDB0078CD64 /* WarehouseMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661E52EA35BDB0078CD64 /* WarehouseMainViewController.swift */; };
+		8C8661EE2EA35BDB0078CD64 /* WarehouseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661E62EA35BDB0078CD64 /* WarehouseObject.swift */; };
+		8C8661EF2EA35BDB0078CD64 /* WarehouseGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661E22EA35BDB0078CD64 /* WarehouseGameState.swift */; };
+		8C8661F02EA35BDB0078CD64 /* Warehouse.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C8661DE2EA35BDB0078CD64 /* Warehouse.xml */; };
 		8C8E76A52E869852006BBF98 /* tower.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C8E76952E869852006BBF98 /* tower.png */; };
 		8C8E76A62E869852006BBF98 /* 128_cow_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C8E75A42E869852006BBF98 /* 128_cow_wall.png */; };
 		8C8E76A72E869852006BBF98 /* 128__tent.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C8E758A2E869852006BBF98 /* 128__tent.png */; };
@@ -1887,6 +1896,15 @@
 		8C8661D12EA31ABC0078CD64 /* ZenLandscaperGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenLandscaperGridNode.swift; sourceTree = "<group>"; };
 		8C8661D22EA31ABC0078CD64 /* ZenLandscaperMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenLandscaperMainViewController.swift; sourceTree = "<group>"; };
 		8C8661D32EA31ABC0078CD64 /* ZenLandscaperObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenLandscaperObject.swift; sourceTree = "<group>"; };
+		8C8661DE2EA35BDB0078CD64 /* Warehouse.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Warehouse.xml; sourceTree = "<group>"; };
+		8C8661DF2EA35BDB0078CD64 /* WarehouseDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseDocument.swift; sourceTree = "<group>"; };
+		8C8661E02EA35BDB0078CD64 /* WarehouseGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseGame.swift; sourceTree = "<group>"; };
+		8C8661E12EA35BDB0078CD64 /* WarehouseGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseGameScene.swift; sourceTree = "<group>"; };
+		8C8661E22EA35BDB0078CD64 /* WarehouseGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseGameState.swift; sourceTree = "<group>"; };
+		8C8661E32EA35BDB0078CD64 /* WarehouseGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseGameViewController.swift; sourceTree = "<group>"; };
+		8C8661E42EA35BDB0078CD64 /* WarehouseGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseGridNode.swift; sourceTree = "<group>"; };
+		8C8661E52EA35BDB0078CD64 /* WarehouseMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseMainViewController.swift; sourceTree = "<group>"; };
+		8C8661E62EA35BDB0078CD64 /* WarehouseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarehouseObject.swift; sourceTree = "<group>"; };
 		8C886C451D9E8B72004A42BF /* LogicPuzzlesSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LogicPuzzlesSwift-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		8C8E758A2E869852006BBF98 /* 128__tent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 128__tent.png; sourceTree = "<group>"; };
 		8C8E758B2E869852006BBF98 /* 128_abacus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 128_abacus.png; sourceTree = "<group>"; };
@@ -2846,6 +2864,7 @@
 				8CAFBFDA2E9F19A500C27D7C /* TurnTwice */,
 				8C35E3971FC4839000A26EE3 /* Walls */,
 				8CFAF995202615560095EFFC /* WallSentinels */,
+				8C8661E72EA35BDB0078CD64 /* Warehouse */,
 				8C8661D42EA31ABC0078CD64 /* ZenLandscaper */,
 			);
 			path = Puzzles;
@@ -3774,6 +3793,22 @@
 				8C8661D32EA31ABC0078CD64 /* ZenLandscaperObject.swift */,
 			);
 			path = ZenLandscaper;
+			sourceTree = "<group>";
+		};
+		8C8661E72EA35BDB0078CD64 /* Warehouse */ = {
+			isa = PBXGroup;
+			children = (
+				8C8661DE2EA35BDB0078CD64 /* Warehouse.xml */,
+				8C8661DF2EA35BDB0078CD64 /* WarehouseDocument.swift */,
+				8C8661E02EA35BDB0078CD64 /* WarehouseGame.swift */,
+				8C8661E12EA35BDB0078CD64 /* WarehouseGameScene.swift */,
+				8C8661E22EA35BDB0078CD64 /* WarehouseGameState.swift */,
+				8C8661E32EA35BDB0078CD64 /* WarehouseGameViewController.swift */,
+				8C8661E42EA35BDB0078CD64 /* WarehouseGridNode.swift */,
+				8C8661E52EA35BDB0078CD64 /* WarehouseMainViewController.swift */,
+				8C8661E62EA35BDB0078CD64 /* WarehouseObject.swift */,
+			);
+			path = Warehouse;
 			sourceTree = "<group>";
 		};
 		8C8E760A2E869852006BBF98 /* 128 */ = {
@@ -4927,6 +4962,7 @@
 				8C8E77092E869852006BBF98 /* B2-f.jpg in Resources */,
 				8C8E770A2E869852006BBF98 /* 128_brush2.png in Resources */,
 				8C8E770B2E869852006BBF98 /* 128_bomb.png in Resources */,
+				8C8661F02EA35BDB0078CD64 /* Warehouse.xml in Resources */,
 				8C8E770C2E869852006BBF98 /* 128_element_selection.png in Resources */,
 				8C8E770D2E869852006BBF98 /* 128_fit_to_size.png in Resources */,
 				8C8E770E2E869852006BBF98 /* car_right.png in Resources */,
@@ -5968,6 +6004,14 @@
 				8C610F22204159110087C545 /* NorthPoleFishingObject.swift in Sources */,
 				8C3A36201EC88D4200A914A5 /* BoxItAgainMainViewController.swift in Sources */,
 				8C6A36101FAF97AF00D2804D /* TheOddBrickDocument.swift in Sources */,
+				8C8661E82EA35BDB0078CD64 /* WarehouseGridNode.swift in Sources */,
+				8C8661E92EA35BDB0078CD64 /* WarehouseGameScene.swift in Sources */,
+				8C8661EA2EA35BDB0078CD64 /* WarehouseDocument.swift in Sources */,
+				8C8661EB2EA35BDB0078CD64 /* WarehouseGameViewController.swift in Sources */,
+				8C8661EC2EA35BDB0078CD64 /* WarehouseGame.swift in Sources */,
+				8C8661ED2EA35BDB0078CD64 /* WarehouseMainViewController.swift in Sources */,
+				8C8661EE2EA35BDB0078CD64 /* WarehouseObject.swift in Sources */,
+				8C8661EF2EA35BDB0078CD64 /* WarehouseGameState.swift in Sources */,
 				8C9F32F21ED1FCFF00E10965 /* TapARowGameState.swift in Sources */,
 				8C3A37561EC88D4300A914A5 /* OrchardsGridNode.swift in Sources */,
 				8C3A37941EC88D4400A914A5 /* RoomsMainViewController.swift in Sources */,

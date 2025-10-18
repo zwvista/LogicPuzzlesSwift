@@ -1,0 +1,2295 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. The board represents a warehouse, packed with boxes which you must find.
+2. Each box contains a symbol:
+3. a cross means it's a square box.
+4. a horizontal bar means the box is wider than taller.
+5. a vertical bar means the box is taller than wider.
+6. A grid dot must not be shared by the corners of four boxes.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+    `
+   +`
+V   `
+ H++`
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+    `
+ + V`
+    `
+ H+ `
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+ +V+`
+V  +`
+ V  `
+H + `
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+  HV`
+ H  `
+ H +`
+++  `
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+V   `
+ H  `
+  + `
+ V+V`
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+    `
+V  +`
+  ++`
+H   `
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+    `
++ VV`
+   H`
++  H`
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+V   `
+  H `
+ +  `
+  + `
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+V   `
+   H`
+  V `
+ V V`
+    ]]>
+  </level>
+  <level id="10">
+    <![CDATA[
++   `
+    `
+    `
+ + V`
+    ]]>
+  </level>
+  <level id="11">
+    <![CDATA[
+H +H `
++  H `
+H   V`
+   H `
+H   +`
+    ]]>
+  </level>
+  <level id="12">
+    <![CDATA[
++  + `
+     `
+   H `
+V+  H`
+ H   `
+    ]]>
+  </level>
+  <level id="13">
+    <![CDATA[
+V   +`
+   H+`
+ +   `
+   H `
+H   H`
+    ]]>
+  </level>
+  <level id="14">
+    <![CDATA[
+   H `
++   +`
+   V `
++H   `
+  H+V`
+    ]]>
+  </level>
+  <level id="15">
+    <![CDATA[
+ HH  `
++ H  `
+    H`
++    `
++V +V`
+    ]]>
+  </level>
+  <level id="16">
+    <![CDATA[
+H   V`
+ V   `
+   +V`
+  H  `
+ H  H`
+    ]]>
+  </level>
+  <level id="17">
+    <![CDATA[
++   V`
++V   `
++  V `
+ H   `
+ H V `
+    ]]>
+  </level>
+  <level id="18">
+    <![CDATA[
+ V  +`
+  + V`
+V    `
+ V V `
++  +V`
+    ]]>
+  </level>
+  <level id="19">
+    <![CDATA[
+     `
+ +  +`
+     `
++ VVV`
+   + `
+    ]]>
+  </level>
+  <level id="20">
+    <![CDATA[
+H ++ `
+ H  V`
+H  + `
+V    `
+   H+`
+    ]]>
+  </level>
+  <level id="21">
+    <![CDATA[
+  H  `
+V    `
+  +H `
+ +  +`
+H + +`
+    ]]>
+  </level>
+  <level id="22">
+    <![CDATA[
++    `
+  + +`
+VVH  `
+  +  `
+  + +`
+    ]]>
+  </level>
+  <level id="23">
+    <![CDATA[
+  H +`
+V    `
+  V H`
+     `
++ HVV`
+    ]]>
+  </level>
+  <level id="24">
+    <![CDATA[
+     `
+    +`
+ V  +`
+V    `
+H   +`
+    ]]>
+  </level>
+  <level id="25">
+    <![CDATA[
+H    `
+  V  `
+ V + `
+ + ++`
+V  H `
+    ]]>
+  </level>
+  <level id="26">
+    <![CDATA[
+V   +`
+  H  `
+     `
+H    `
+H   V`
+    ]]>
+  </level>
+  <level id="27">
+    <![CDATA[
++V+V `
+  V  `
+ +   `
+   H `
+VH  +`
+    ]]>
+  </level>
+  <level id="28">
+    <![CDATA[
+H V  `
+H  V `
+  V  `
+V   V`
+    +`
+    ]]>
+  </level>
+  <level id="29">
+    <![CDATA[
+ H  H`
+  HV `
+    V`
+    +`
+ +VH `
+    ]]>
+  </level>
+  <level id="30">
+    <![CDATA[
+ HV  `
++   +`
+    +`
+H + +`
+  HH `
+    ]]>
+  </level>
+  <level id="31">
+    <![CDATA[
++H   `
+  H +`
+   VV`
+ + H `
+  + H`
+    ]]>
+  </level>
+  <level id="32">
+    <![CDATA[
+     `
+    V`
+V    `
+++VH `
+   H `
+    ]]>
+  </level>
+  <level id="33">
+    <![CDATA[
++    `
++  V `
+    V`
+V V +`
+ ++V+`
+    ]]>
+  </level>
+  <level id="34">
+    <![CDATA[
++ H V`
+H  H `
+   H `
+ ++V `
+  + +`
+    ]]>
+  </level>
+  <level id="35">
+    <![CDATA[
+ V   `
+  V  `
+     `
+ V+  `
+VH V `
+    ]]>
+  </level>
+  <level id="36">
+    <![CDATA[
+ +H  `
+   H `
+VH + `
+  H  `
++  H `
+    ]]>
+  </level>
+  <level id="37">
+    <![CDATA[
++  V `
+     `
+     `
+V+ VV`
+ +VH `
+    ]]>
+  </level>
+  <level id="38">
+    <![CDATA[
+  H+ `
+     `
+H   +`
+  H  `
+VH  H`
+    ]]>
+  </level>
+  <level id="39">
+    <![CDATA[
+V+  +`
+    +`
+V   +`
+ +V H`
+ H  H`
+    ]]>
+  </level>
+  <level id="40">
+    <![CDATA[
+ H+H `
+H   +`
+H    `
+     `
+VH   `
+    ]]>
+  </level>
+  <level id="41">
+    <![CDATA[
+V  H H`
+    V `
+ V +  `
+   V V`
+ +V  V`
+    + `
+    ]]>
+  </level>
+  <level id="42">
+    <![CDATA[
+ V H V`
+  H   `
+ H  + `
+VH    `
+H + +V`
++  H+ `
+    ]]>
+  </level>
+  <level id="43">
+    <![CDATA[
+  H + `
+  V   `
++    V`
+    + `
+ H  +V`
+ H   +`
+    ]]>
+  </level>
+  <level id="44">
+    <![CDATA[
+  H  +`
+H  H  `
+ + H  `
+V+ H  `
+      `
+H   ++`
+    ]]>
+  </level>
+  <level id="45">
+    <![CDATA[
+V V H+`
+ V  + `
+      `
+  VV +`
+ V  VV`
+++ H  `
+    ]]>
+  </level>
+  <level id="46">
+    <![CDATA[
+VH   +`
+ +VH  `
+      `
+V     `
+    VV`
+ H  + `
+    ]]>
+  </level>
+  <level id="47">
+    <![CDATA[
+      `
+ +H   `
+      `
++ H   `
+ V    `
+V  H++`
+    ]]>
+  </level>
+  <level id="48">
+    <![CDATA[
+      `
+H    V`
+V  H  `
+  H   `
+H   ++`
+   + H`
+    ]]>
+  </level>
+  <level id="49">
+    <![CDATA[
+H   VV`
+   H  `
+   H  `
+ H V V`
+     +`
+ +   H`
+    ]]>
+  </level>
+  <level id="50">
+    <![CDATA[
+VH V  `
+ VV  V`
+    VV`
+      `
+H V+V `
++H   +`
+    ]]>
+  </level>
+  <level id="51">
+    <![CDATA[
+ H  H `
+    V `
+ V H  `
+  V  V`
+     +`
+   VH `
+    ]]>
+  </level>
+  <level id="52">
+    <![CDATA[
+  H   `
+ +  H+`
+ +   V`
+   HV `
+H     `
+   V +`
+    ]]>
+  </level>
+  <level id="53">
+    <![CDATA[
+      `
+   V V`
+     +`
+VVVH  `
+H     `
+  H  V`
+    ]]>
+  </level>
+  <level id="54">
+    <![CDATA[
+      `
+      `
++   VV`
+ H   V`
+  V   `
++ + + `
+    ]]>
+  </level>
+  <level id="55">
+    <![CDATA[
+     +`
+H    +`
+     H`
+     H`
+ V    `
+  HH  `
+    ]]>
+  </level>
+  <level id="56">
+    <![CDATA[
+V+   +`
+ ++   `
+     V`
++  H +`
+   H  `
+ HH   `
+    ]]>
+  </level>
+  <level id="57">
+    <![CDATA[
+ +    `
+  V  +`
+  H   `
+  H   `
+H     `
+ HH V `
+    ]]>
+  </level>
+  <level id="58">
+    <![CDATA[
+   VV+`
+     V`
+ V    `
+V    +`
+   H  `
+VV H H`
+    ]]>
+  </level>
+  <level id="59">
+    <![CDATA[
+ + V V`
+      `
+V+   V`
+    V `
++ H  H`
+    H `
+    ]]>
+  </level>
+  <level id="60">
+    <![CDATA[
+  HV  `
++ V   `
+ V   V`
+  VV  `
+   H  `
+VH   +`
+    ]]>
+  </level>
+  <level id="61">
+    <![CDATA[
+     H`
+  +   `
+ VVVV `
+H   HV`
+  H H `
++H   +`
+    ]]>
+  </level>
+  <level id="62">
+    <![CDATA[
+   H  `
+  +  V`
+V  +  `
+  +  V`
+  H   `
+VH  V `
+    ]]>
+  </level>
+  <level id="63">
+    <![CDATA[
+  HH V`
+H   + `
+  H   `
++  H  `
+H   V+`
+++ + H`
+    ]]>
+  </level>
+  <level id="64">
+    <![CDATA[
++++ HV`
+      `
+    V `
+ H   V`
++ ++  `
+  H V `
+    ]]>
+  </level>
+  <level id="65">
+    <![CDATA[
+ + +  `
+ V    `
+V VH  `
+V H   `
+  H  V`
+ H+  H`
+    ]]>
+  </level>
+  <level id="66">
+    <![CDATA[
+ H + +`
+    VV`
+  +V  `
+V + + `
+      `
+V    H`
+    ]]>
+  </level>
+  <level id="67">
+    <![CDATA[
+    + `
+     V`
+ H  V `
+ + H V`
+     +`
++  H H`
+    ]]>
+  </level>
+  <level id="68">
+    <![CDATA[
+H H  V`
+    + `
+   HV `
+      `
+ + V +`
+   +  `
+    ]]>
+  </level>
+  <level id="69">
+    <![CDATA[
++    H`
+ +    `
+ V    `
+     +`
+V+V +V`
+H   + `
+    ]]>
+  </level>
+  <level id="70">
+    <![CDATA[
+ H   V`
+ H H  `
+    + `
++    V`
+      `
+ +   H`
+    ]]>
+  </level>
+  <level id="71">
+    <![CDATA[
+ V   +V`
+  V  + `
+      V`
+   V   `
++   V  `
+  + H  `
++H V   `
+    ]]>
+  </level>
+  <level id="72">
+    <![CDATA[
+V  +   `
+  V   V`
+VV     `
+ +V+  V`
+H      `
+      +`
+++ H+ H`
+    ]]>
+  </level>
+  <level id="73">
+    <![CDATA[
++ V    `
+      V`
+V    +V`
+H   V  `
+     V+`
+   H  +`
+    VH `
+    ]]>
+  </level>
+  <level id="74">
+    <![CDATA[
+H  V  +`
+    + +`
+ ++ +  `
+  V   +`
++  +V+ `
+V H    `
+ V H  V`
+    ]]>
+  </level>
+  <level id="75">
+    <![CDATA[
+ +   HV`
+  + H  `
+  + H  `
+VV  VVV`
+V    V `
+ +     `
+H      `
+    ]]>
+  </level>
+  <level id="76">
+    <![CDATA[
+V V++  `
+   V   `
+V V    `
+       `
+  H  H `
+ V H  V`
+H  H V `
+    ]]>
+  </level>
+  <level id="77">
+    <![CDATA[
+     V `
+ +     `
+++  V  `
+H V   +`
+   ++  `
+V+ H   `
+H   HVV`
+    ]]>
+  </level>
+  <level id="78">
+    <![CDATA[
+   H   `
+    V +`
+V  H  V`
+    +V `
+VH     `
+ H V+ +`
+ ++ + +`
+    ]]>
+  </level>
+  <level id="79">
+    <![CDATA[
+   + + `
+  V  + `
+   V   `
+V+   + `
+  V + V`
+ +   V `
+  H+  V`
+    ]]>
+  </level>
+  <level id="80">
+    <![CDATA[
+    + V`
+  +  V `
+      +`
+    V V`
++ +V   `
++   VV `
+   H   `
+    ]]>
+  </level>
+  <level id="81">
+    <![CDATA[
+    + +`
+  H VV `
++ H   V`
+ V    H`
+     + `
+   H + `
+  + H V`
+    ]]>
+  </level>
+  <level id="82">
+    <![CDATA[
+H   V  `
+  H+  +`
+H    ++`
+  H+  H`
+     H `
+  HH H `
+  H H +`
+    ]]>
+  </level>
+  <level id="83">
+    <![CDATA[
++VV+ H `
++  V H `
+V      `
+ H  V +`
+  +  + `
+       `
+   V   `
+    ]]>
+  </level>
+  <level id="84">
+    <![CDATA[
+H H   V`
+V  H   `
+   + + `
+  + H V`
+ H   H `
+++ H V `
+   H+ +`
+    ]]>
+  </level>
+  <level id="85">
+    <![CDATA[
+   + H `
+H      `
+V   HVV`
+     + `
+ V    H`
+H   V H`
+H    ++`
+    ]]>
+  </level>
+  <level id="86">
+    <![CDATA[
+ + +++ `
+ +VH   `
+V     H`
+    V +`
+H    VV`
+ H+    `
+ H +  H`
+    ]]>
+  </level>
+  <level id="87">
+    <![CDATA[
+    +V `
+   V+  `
+ +     `
+ HVV  V`
++     V`
+   +   `
+   HVH `
+    ]]>
+  </level>
+  <level id="88">
+    <![CDATA[
+ +V  V `
+ + +  V`
+  H   V`
+     V `
+   H  +`
+VH + H `
+ H  H  `
+    ]]>
+  </level>
+  <level id="89">
+    <![CDATA[
+  +   H`
+   + H `
+      H`
+   + V `
+ H V   `
+ H    V`
+    VH `
+    ]]>
+  </level>
+  <level id="90">
+    <![CDATA[
+   H +V`
++   V+ `
+     V `
++  V+  `
+     H `
+ V H  +`
+   H+H `
+    ]]>
+  </level>
+  <level id="91">
+    <![CDATA[
++  H   `
+    + V`
++ +   V`
+     H `
+ VV+   `
+V H  V `
+H   + +`
+    ]]>
+  </level>
+  <level id="92">
+    <![CDATA[
+  H   H`
+   +  H`
++   H+ `
+       `
+VVH   V`
+H   + H`
+H H    `
+    ]]>
+  </level>
+  <level id="93">
+    <![CDATA[
+ H  H  `
+V   +  `
+  H H V`
++   H  `
+H     +`
+     H+`
+   HH  `
+    ]]>
+  </level>
+  <level id="94">
+    <![CDATA[
+++ H+  `
+   +  +`
+     H `
+  +H  V`
+ H  V  `
+H      `
+    +V+`
+    ]]>
+  </level>
+  <level id="95">
+    <![CDATA[
+   H  H`
+   HV +`
++  + VV`
+VV     `
+   V+  `
+ H    +`
+ + H  +`
+    ]]>
+  </level>
+  <level id="96">
+    <![CDATA[
+V  HH V`
+     V `
+ +     `
+ ++    `
+  H  + `
+VH  V  `
+H      `
+    ]]>
+  </level>
+  <level id="97">
+    <![CDATA[
+V + V +`
+       `
+   H V `
+   + V `
+   V  V`
+  + V V`
++++  + `
+    ]]>
+  </level>
+  <level id="98">
+    <![CDATA[
+   H  H`
+V   +V `
+ H     `
+V  HH V`
+ V+ + H`
+ H   + `
++   H  `
+    ]]>
+  </level>
+  <level id="99">
+    <![CDATA[
++    ++`
+   H  H`
+H  +   `
+H   + V`
+V+  H+ `
+   H H `
+H H   +`
+    ]]>
+  </level>
+  <level id="100">
+    <![CDATA[
+H    ++`
+    H  `
++H   V `
+V ++   `
+     + `
+  V H V`
++   H H`
+    ]]>
+  </level>
+  <level id="101">
+    <![CDATA[
+    H+ V`
+VV +    `
+H       `
+ +   VVV`
+V       `
+   +  VV`
++   VH  `
+H +    H`
+    ]]>
+  </level>
+  <level id="102">
+    <![CDATA[
+ H  ++  `
+  HV V  `
+  V     `
+ +    VV`
+ H     H`
+    + V `
+   H+   `
++   HV V`
+    ]]>
+  </level>
+  <level id="103">
+    <![CDATA[
+   HV   `
+++     V`
++  V+V V`
+ HV     `
+ V  V  H`
+    H   `
+ H   H V`
+V  H+  H`
+    ]]>
+  </level>
+  <level id="104">
+    <![CDATA[
+    V  H`
+  H  V +`
+     V V`
+   +V   `
+ +   VV `
+    + H `
+  V V   `
+ V+V   +`
+    ]]>
+  </level>
+  <level id="105">
+    <![CDATA[
+H H   + `
++ H+   V`
+  +     `
+ +  H  H`
+ H   H V`
+V     + `
+ H  + V `
+ ++ HV +`
+    ]]>
+  </level>
+  <level id="106">
+    <![CDATA[
+  +  +  `
+      + `
+       V`
++  H +V `
+   H    `
++V    V+`
+V    HH `
+      ++`
+    ]]>
+  </level>
+  <level id="107">
+    <![CDATA[
+H   H +V`
+  H+ +  `
+        `
+H +    +`
+    + H `
+ H  +   `
+ H V  H `
+V+ H  H+`
+    ]]>
+  </level>
+  <level id="108">
+    <![CDATA[
+   H H V`
+    +   `
+    V V `
+ H +    `
+ V +  + `
+    H  +`
+   H  + `
+V V H   `
+    ]]>
+  </level>
+  <level id="109">
+    <![CDATA[
+ +V   + `
+ +  H   `
+     +  `
+VH  VVVV`
+   H    `
+V+ HV +V`
+ H    V `
+H  V H  `
+    ]]>
+  </level>
+  <level id="110">
+    <![CDATA[
+    +  +`
+ V V+ VV`
+      V `
+    VV  `
+V VH   +`
+V +    V`
+     +  `
++H  V  H`
+    ]]>
+  </level>
+  <level id="111">
+    <![CDATA[
+    HV+ `
++ H V   `
+  ++   V`
+ +  HV V`
+      V `
+H       `
+H + H+  `
+     HH `
+    ]]>
+  </level>
+  <level id="112">
+    <![CDATA[
+    H +V`
+      V `
+V   +V V`
+H    V  `
++   H   `
+  H H H `
+   H H  `
+H H  + H`
+    ]]>
+  </level>
+  <level id="113">
+    <![CDATA[
++  H    `
+       H`
+VH V  VV`
+H    V  `
+   V   H`
+ H    H `
+ HH   + `
+H  +++  `
+    ]]>
+  </level>
+  <level id="114">
+    <![CDATA[
+ H+   H+`
++ H+    `
+ V HV + `
+        `
+   V V V`
+   +  VV`
+ +VH V  `
++    HV `
+    ]]>
+  </level>
+  <level id="115">
+    <![CDATA[
+VH      `
+    V   `
+  H   + `
++   V  V`
+  VVV   `
+ V   VV `
+  V     `
+   + V H`
+    ]]>
+  </level>
+  <level id="116">
+    <![CDATA[
+  HVV  V`
+  +   V `
+ +  V   `
+      V `
+VV V   V`
+   V    `
+VVV H  V`
+  H H  H`
+    ]]>
+  </level>
+  <level id="117">
+    <![CDATA[
+   H+ H `
+V    + V`
+   V   V`
+VV  +   `
+  V   V `
+  H    H`
+  +  ++ `
+ V  V+  `
+    ]]>
+  </level>
+  <level id="118">
+    <![CDATA[
+    V HV`
+   V V  `
+        `
+V V  VV+`
+   +    `
+ +    VV`
+H   +  +`
+   +   H`
+    ]]>
+  </level>
+  <level id="119">
+    <![CDATA[
+  + V+ V`
++ +V V  `
++ H V V `
+  +     `
+      V `
+    H H `
+H   V  V`
+      + `
+    ]]>
+  </level>
+  <level id="120">
+    <![CDATA[
+ +V+H   `
+ V   V +`
+V +V   H`
+H     HV`
+VH  H   `
+      + `
++ H VV H`
+    H ++`
+    ]]>
+  </level>
+  <level id="121">
+    <![CDATA[
++      +`
+  V +   `
+  VV+   `
+        `
+   V+   `
+     VVV`
++H + +  `
+  H   HV`
+    ]]>
+  </level>
+  <level id="122">
+    <![CDATA[
+ ++ H  V`
+    H+  `
+V+ +    `
+ HV   + `
+ + V   +`
+  H V H `
+      HV`
+        `
+    ]]>
+  </level>
+  <level id="123">
+    <![CDATA[
+ +H  V  `
+    H   `
+H  V   V`
+        `
+V+ +V  V`
+V  H  H `
+       V`
+  +  HV `
+    ]]>
+  </level>
+  <level id="124">
+    <![CDATA[
+   H+   `
+     +  `
+VH VV   `
+H   H  V`
+H    H+ `
+   + +  `
+        `
+  +    H`
+    ]]>
+  </level>
+  <level id="125">
+    <![CDATA[
+ H     +`
+VV   H  `
+V +     `
+      V `
+ H     V`
+ V    V+`
+   + V H`
+ +V   H `
+    ]]>
+  </level>
+  <level id="126">
+    <![CDATA[
++      V`
+        `
+V + V   `
+ H    H `
+ H + +VV`
+     V +`
+V  H   H`
+ + HH  +`
+    ]]>
+  </level>
+  <level id="127">
+    <![CDATA[
+V+ H   +`
+ H VV   `
+H     V+`
+ +V ++  `
+  +    V`
+    +  V`
+  V H+  `
+V  +   H`
+    ]]>
+  </level>
+  <level id="128">
+    <![CDATA[
+  +V   +`
+     +  `
+        `
+H H     `
+ H +H   `
++   H HV`
+   V+  H`
++ V    H`
+    ]]>
+  </level>
+  <level id="129">
+    <![CDATA[
+ H + + V`
+H +  V  `
+    H VV`
+ H H  H `
+       H`
+  ++ +  `
+        `
+ H H    `
+    ]]>
+  </level>
+  <level id="130">
+    <![CDATA[
+  HH    `
+        `
+   H + V`
+H   V+ V`
++ +     `
++   V  V`
+  HV+   `
+H  H V  `
+    ]]>
+  </level>
+  <level id="131">
+    <![CDATA[
+H +H +   `
+VH  V    `
+         `
+V  +     `
+  H V H  `
+ V     H+`
+  H  H  H`
+ V+ +V   `
+    + H +`
+    ]]>
+  </level>
+  <level id="132">
+    <![CDATA[
+   H H  +`
+V        `
+V VH   H `
+ H      +`
+ +  + H +`
+    H + +`
+   V+H VV`
+H        `
+H      ++`
+    ]]>
+  </level>
+  <level id="133">
+    <![CDATA[
++     H  `
+     +   `
+ H  V+V +`
+ +   + + `
+   H H V `
++ H      `
++  + V  V`
+     +   `
+       HV`
+    ]]>
+  </level>
+  <level id="134">
+    <![CDATA[
++  HV VH `
+  +  V  V`
+ ++  V V `
+  +     V`
+   V +V  `
+V   +  V `
+  V     V`
++  V  H  `
++   H+ H+`
+    ]]>
+  </level>
+  <level id="135">
+    <![CDATA[
+  HV  H  `
+        H`
+ V+ +  V `
+V +      `
+ H    V V`
+ +     V+`
+     VV  `
+ + + H  +`
++H +H   H`
+    ]]>
+  </level>
+  <level id="136">
+    <![CDATA[
+     HVV `
+V  +     `
+         `
++    VH  `
+ +  H  V+`
+    VH  V`
+V H  H   `
+V   H  V `
+ H  H H +`
+    ]]>
+  </level>
+  <level id="137">
+    <![CDATA[
+ VH +  ++`
+         `
+V        `
+ H     V `
+   VVV  V`
+ + H V  +`
+ H +  VH `
++   H  H `
++     + H`
+    ]]>
+  </level>
+  <level id="138">
+    <![CDATA[
+  H+   V+`
+H  H V   `
+V      +V`
+        H`
+      H +`
++V    HH `
+  H    H+`
+    HH   `
+ V  H  H+`
+    ]]>
+  </level>
+  <level id="139">
+    <![CDATA[
+ V++  + +`
+       V `
+V+V   VVV`
+    V    `
+ H   V+ +`
+         `
+H  H  H+ `
+       HV`
+ HH H  + `
+    ]]>
+  </level>
+  <level id="140">
+    <![CDATA[
+ + V +   `
+     + + `
+V H  H VV`
+   H  +  `
+ V  +    `
+V+V    + `
+ H   +   `
++ H     V`
+H H H    `
+    ]]>
+  </level>
+  <level id="141">
+    <![CDATA[
+V H      `
+ VV V+ + `
+ + V     `
+H    V+H `
+ H VH    `
+V    H  +`
+V +V  +  `
+  +   H +`
+   HVV H `
+    ]]>
+  </level>
+  <level id="142">
+    <![CDATA[
+++     V `
+  H  +   `
+V       V`
+   H     `
+     H  +`
+ + +V+ V `
+   +   HV`
+  H      `
+   H+ H++`
+    ]]>
+  </level>
+  <level id="143">
+    <![CDATA[
+    H H  `
+++   H  V`
+   H    V`
+    VV   `
+    H   V`
+ H   +V  `
+   V     `
+    VH  +`
+V+ +    H`
+    ]]>
+  </level>
+  <level id="144">
+    <![CDATA[
+      + +`
+VVH     +`
+   +H + V`
+ VVH H V `
+  H      `
+H    +++ `
+ H  + H  `
+H H      `
+   H++VV+`
+    ]]>
+  </level>
+  <level id="145">
+    <![CDATA[
+  VV +  +`
+         `
+     + VV`
+VH    V H`
+H  + H   `
+   +     `
+ +H    +V`
+  +H  + +`
+ H  H    `
+    ]]>
+  </level>
+  <level id="146">
+    <![CDATA[
+      +  `
+     H   `
+  V   HV `
+  H   +  `
+V   V + V`
+H H      `
+   +  + V`
+     H  +`
++   H++V+`
+    ]]>
+  </level>
+  <level id="147">
+    <![CDATA[
+ H+    H `
+     +  H`
+ V       `
+    V V  `
+    H    `
+      HVV`
+ +   H   `
+    +V + `
+    +  HV`
+    ]]>
+  </level>
+  <level id="148">
+    <![CDATA[
+   V   HV`
++        `
++    H  H`
+V  +   + `
+ V       `
+       + `
+ V  H V  `
+  HH    V`
+++    H  `
+    ]]>
+  </level>
+  <level id="149">
+    <![CDATA[
+ HH H   V`
++   H H  `
+V +  HV  `
+ H      V`
+V   VV   `
+ H H    V`
+ H    H  `
+V H V VV `
+ +   H  +`
+    ]]>
+  </level>
+  <level id="150">
+    <![CDATA[
+    +  V `
+     +   `
+H        `
+  V VVV  `
+V   V   H`
+ V V    V`
+   + H   `
+H  H   V `
+  H +  HV`
+    ]]>
+  </level>
+  <level id="151">
+    <![CDATA[
+H VVV ++ `
+         `
+   + V   `
+    V V  `
+        V`
+ V       `
+    ++  V`
+      HH `
+ VH      `
+    ]]>
+  </level>
+  <level id="152">
+    <![CDATA[
+V   H+   `
+ + H+    `
+H  +   V `
+    H    `
+ +   H H `
+H   +V   `
+         `
+ +H H  + `
+V   HH   `
+    ]]>
+  </level>
+  <level id="153">
+    <![CDATA[
+      V  `
+  VH    V`
+     V   `
+   V     `
+   H   V `
++ +    V `
++    V  +`
+      +  `
+V+H VV HV`
+    ]]>
+  </level>
+  <level id="154">
+    <![CDATA[
++  V+ + +`
+  +    V `
+ H   HV V`
+      H +`
+    H    `
+ ++    H `
+  +  H ++`
+   +  H  `
+V     H H`
+    ]]>
+  </level>
+  <level id="155">
+    <![CDATA[
+    H ++ `
+      H  `
+ ++    ++`
+V       H`
+ V H H  V`
+      H  `
+ +      H`
+    +   H`
+H   +  H+`
+    ]]>
+  </level>
+  <level id="156">
+    <![CDATA[
+H   HV   `
++ H + V +`
+H    V   `
+ + H    V`
+  + +   +`
++H     V `
+H   + H  `
+ +H     V`
+  +H V+ +`
+    ]]>
+  </level>
+  <level id="157">
+    <![CDATA[
+  ++     `
+V       +`
+  H +    `
+V H     V`
+ H       `
+       V `
+ H+ H V+ `
+H    H  H`
+    +  H `
+    ]]>
+  </level>
+  <level id="158">
+    <![CDATA[
+ H     V+`
+H  +  V  `
+V    V +V`
+ V + + V `
+H  +  + V`
+H   H    `
+++   H  +`
+  H   + H`
+   H    +`
+    ]]>
+  </level>
+  <level id="159">
+    <![CDATA[
++       H`
+     V   `
+H     V  `
+     H  V`
+       + `
+      VH `
++V     ++`
+   VVV  H`
+V  + H  H`
+    ]]>
+  </level>
+  <level id="160">
+    <![CDATA[
+V      + `
+         `
+  +     H`
+    V  + `
+ +  ++ V `
+        V`
+     +   `
+    HH   `
+ + H   VV`
+    ]]>
+  </level>
+  <level id="161">
+    <![CDATA[
+    HV  +`
++   +    `
+   +V   V`
+       VV`
+  VVV    `
+   V +   `
+        +`
+V   HV H `
+  +H  H  `
+    ]]>
+  </level>
+  <level id="162">
+    <![CDATA[
+      +H `
+      +  `
+V   +   V`
++  +  H H`
+   H    +`
+   + H+H `
+V V  H   `
+         `
++ H + V+ `
+    ]]>
+  </level>
+  <level id="163">
+    <![CDATA[
++ H HH  V`
+H      + `
++H  H    `
+   ++ V V`
+      VV `
+     + V `
+         `
+ +  H  + `
+V  HH V  `
+    ]]>
+  </level>
+  <level id="164">
+    <![CDATA[
++  H   HV`
+    V    `
+ +       `
+ +     H `
+VH   + VV`
+      V +`
+    ++  +`
+         `
++   + H  `
+    ]]>
+  </level>
+  <level id="165">
+    <![CDATA[
+V     H  `
+   H +V  `
+ +  HV + `
+ H +     `
+       V `
+     HV  `
+ H+   H  `
+V   H H  `
+ +  H +  `
+    ]]>
+  </level>
+  <level id="166">
+    <![CDATA[
+   H  H  `
+ +   V  H`
+ H    V H`
+ ++ H    `
+     +  V`
+  V V    `
+ V  H V+ `
+  V+ V   `
+      + +`
+    ]]>
+  </level>
+  <level id="167">
+    <![CDATA[
+V    H + `
+      V V`
+  H V  V+`
++V      +`
+      +  `
+V  + V   `
+  V+     `
+  + V H +`
++    HH  `
+    ]]>
+  </level>
+  <level id="168">
+    <![CDATA[
++    HH +`
+H        `
+ + V    H`
+V     V  `
++    VVV `
+  VH V  V`
+   +V  V `
+V H     V`
+  + H +H `
+    ]]>
+  </level>
+  <level id="169">
+    <![CDATA[
+ +     H `
+V+H    H+`
+ +  +H   `
+   V    H`
+     H+  `
+ +V H+  V`
+  H    V `
+    HH   `
+  H   + +`
+    ]]>
+  </level>
+  <level id="170">
+    <![CDATA[
+    V H V`
+   H + + `
+     +   `
+ +   V  V`
+    +    `
+     HVV `
+ H      H`
+     +   `
+ ++ V  + `
+    ]]>
+  </level>
+  <level id="171">
+    <![CDATA[
+ ++    +  `
+  V   V + `
+ V V  + H `
+    V + V+`
+ H     V +`
+VH VV H   `
+     +   H`
+   + H + V`
++   H     `
+   H +H H `
+    ]]>
+  </level>
+  <level id="172">
+    <![CDATA[
+  ++ V V V`
+V  +      `
+H    + V  `
+H  HV V   `
+  H   V H `
+   H V  V+`
+H  HV     `
++    H  +V`
+  H   H  V`
+H   V+ H  `
+    ]]>
+  </level>
+  <level id="173">
+    <![CDATA[
+   +   H +`
+ H V VV   `
+  H     V `
+H  H H   V`
+    H  VV `
+   H     V`
+   H    ++`
+H   H+ +H `
+ +   VH   `
+V H     H `
+    ]]>
+  </level>
+  <level id="174">
+    <![CDATA[
+ + + + H  `
+     V H  `
+  HVV     `
++ V     HV`
+   H    V `
++   ++ + V`
++      +  `
++V       V`
+ +H       `
+      V   `
+    ]]>
+  </level>
+  <level id="175">
+    <![CDATA[
+VH +   H  `
+ +H  +VH +`
+H  H   H  `
+      +H  `
+V        V`
+      + VV`
+  +    H  `
+ V+ V  H  `
+  H    HV `
++H    H  H`
+    ]]>
+  </level>
+  <level id="176">
+    <![CDATA[
+   +   H +`
+      +   `
+    H V   `
+V        +`
+++     HV+`
+  H      +`
+    +VVV+ `
+ V        `
+    HV H  `
+  H   H  +`
+    ]]>
+  </level>
+  <level id="177">
+    <![CDATA[
+  V      H`
+ V  + +H V`
+          `
+H    V  V `
++    HV   `
+ + HV  H  `
+     V+VV+`
+V  +      `
+   HV V  +`
++V+H  H   `
+    ]]>
+  </level>
+  <level id="178">
+    <![CDATA[
++ +   H H `
+  + ++    `
+VV       V`
+H     ++  `
+ V++      `
+   + H H  `
+         H`
+H   VH H  `
+     H H V`
+++H H   V+`
+    ]]>
+  </level>
+  <level id="179">
+    <![CDATA[
+ + H  +  H`
+  ++   V  `
+  H    V +`
+   +      `
+   VV   + `
+ +  +    V`
+V H V+    `
+     + + +`
++V H    V+`
++     H H `
+    ]]>
+  </level>
+  <level id="180">
+    <![CDATA[
+H    HV   `
+V+  H   H `
+  V       `
+ V H +    `
+H    V V V`
+      V H `
+H       VV`
+VH +V  H  `
+ +  H    V`
+H  ++ H ++`
+    ]]>
+  </level>
+  <level id="181">
+    <![CDATA[
+   HVH  + `
+          `
+V  V   V  `
+          `
+ ++       `
+    H   V `
+ VH  +  + `
+ + V H    `
+V    HV + `
+ + H H +  `
+    ]]>
+  </level>
+  <level id="182">
+    <![CDATA[
+ H  H +  +`
+  H HV+  +`
+ H  V VVV+`
+  V       `
+         H`
+  H +    +`
+ V H     +`
+    ++ +  `
+  +  H  V `
+   V     V`
+    ]]>
+  </level>
+  <level id="183">
+    <![CDATA[
+         H`
+   H +  + `
++    V +  `
+  V   H  V`
+    V H  V`
+V   H  HV `
+  V    +  `
+ HV +     `
+   H V  H `
++  H+  ++ `
+    ]]>
+  </level>
+  <level id="184">
+    <![CDATA[
+    VH   H`
+V +  + VV+`
+  H       `
+ H + V  V `
+          `
+  VH   V V`
+VV +   H V`
+   +    H `
+       +  `
+ ++     V `
+    ]]>
+  </level>
+  <level id="185">
+    <![CDATA[
++   H H+  `
+ V   H  V `
+  +H + VVV`
+    H     `
+   H++   V`
+  VH     +`
+ H    + VV`
++     HV+ `
+V   H  H  `
+    H H + `
+    ]]>
+  </level>
+  <level id="186">
+    <![CDATA[
+ H   H  H `
+H ++    VV`
+H      V V`
+ V   V    `
+V  +V    +`
+     H  V `
+ ++       `
+      + + `
+    + +V V`
+  +H   HV+`
+    ]]>
+  </level>
+  <level id="187">
+    <![CDATA[
+V  +H +V H`
+    H   + `
+   H +   V`
+     H++  `
+ HH H   VV`
++    H   +`
+  H H  +  `
++  HH   HV`
+H  +    + `
+  H  H V  `
+    ]]>
+  </level>
+  <level id="188">
+    <![CDATA[
+ +     HVV`
+     ++   `
+V    V  H `
+V     +  +`
+ V+   H   `
+    H+    `
+H   H V  H`
+H +    H V`
+  H H +VV `
+H        H`
+    ]]>
+  </level>
+  <level id="189">
+    <![CDATA[
+     H    `
+     + V+ `
+ V V   V +`
+   +H     `
+   H      `
+      H   `
+VH V  +   `
+  +  V H  `
+ +    + VV`
++ H  H  H `
+    ]]>
+  </level>
+  <level id="190">
+    <![CDATA[
+ +      HV`
+        H `
++  HH H   `
+   H +  V `
+  +H     H`
+    H  VH `
+H H  H    `
+H    VVH  `
+H   + H   `
+ H +   H H`
+    ]]>
+  </level>
+  <level id="191">
+    <![CDATA[
+V ++      `
+   V H    `
+     H+ VV`
+ + H     H`
+V+ HV     `
+H    +  VV`
+   V+     `
+V   V     `
+          `
+   V VVVH `
+    ]]>
+  </level>
+  <level id="192">
+    <![CDATA[
+  H HV + V`
+ H        `
+  H +  + +`
+H +   VV  `
+     +  V+`
++      + +`
+   +     V`
+      H   `
+ H   H  V `
+          `
+    ]]>
+  </level>
+  <level id="193">
+    <![CDATA[
+    +   VV`
+  +  H    `
+    VV V  `
+H        +`
+   V V   V`
+ ++       `
+VH  +  + H`
+   H    V `
+VH  + +  V`
+  H  H  + `
+    ]]>
+  </level>
+  <level id="194">
+    <![CDATA[
+H   +    H`
++ HV  HVV `
+     V    `
+    H VH  `
+V +++    V`
+         V`
+ HV  H  + `
+V   H  V H`
+ V H+ +   `
+H    H H+ `
+    ]]>
+  </level>
+  <level id="195">
+    <![CDATA[
+ +V       `
+   VVVVV  `
+  H    V  `
+H + V +   `
+    V V   `
+        V `
+  V   + VV`
+    V     `
+ +   VH  V`
+  VH      `
+    ]]>
+  </level>
+  <level id="196">
+    <![CDATA[
+  +H     +`
+      V   `
+V  H +  V `
+H +       `
+    +   V `
+       +V `
+   +      `
+V  +   H  `
+  H     HV`
+V+ HVV    `
+    ]]>
+  </level>
+  <level id="197">
+    <![CDATA[
+H   +    +`
+  VH     V`
+ +    +   `
+         V`
+          `
+ +     +  `
++ V      H`
+     V ++ `
+  HV H    `
+ HH   HH V`
+    ]]>
+  </level>
+  <level id="198">
+    <![CDATA[
+H   + H   `
++     H   `
+ H  H     `
+V  + +   V`
+  + V     `
+  H      V`
+  V  H   V`
+V  VH     `
+      V  H`
+V H+ V    `
+    ]]>
+  </level>
+  <level id="199">
+    <![CDATA[
++ H   ++VV`
+  V+   H  `
+H  H   H V`
+ H      V `
+    H     `
++  +  +  V`
+          `
+     H  V `
+H +   V   `
+H   +V+H  `
+    ]]>
+  </level>
+  <level id="200">
+    <![CDATA[
+VV  H    +`
+  H   +  +`
+V + H + V `
+   H  H   `
+   V    VV`
+    +  H  `
+ H  V  H +`
+   H V H +`
+ +     V  `
+    H   +V`
+    ]]>
+  </level>
+</levels>
+</puzzle>
