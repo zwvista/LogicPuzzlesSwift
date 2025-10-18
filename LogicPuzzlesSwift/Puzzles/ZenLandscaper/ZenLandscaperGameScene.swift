@@ -16,7 +16,7 @@ class ZenLandscaperGameScene: GameScene<ZenLandscaperGameState> {
     
     func addTile(ch: Character, fixed: Bool, s: AllowedObjectState, point: CGPoint, nodeName: String) {
         let n = ch == " " ? 1 : ch.toInt! + 1
-        let imageName = "B\(n)\(fixed ? "-f" : "").jpg"
+        let imageName = "B\(n)\(fixed ? "-f" : "")"
         addImage(imageNamed: imageName, color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }
     
