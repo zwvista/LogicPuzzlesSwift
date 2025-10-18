@@ -45,7 +45,7 @@ class ZenLandscaperGameState: GridGameState<ZenLandscaperGameMove> {
     
     override func setObject(move: inout ZenLandscaperGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] != " " && self[p] != move.obj else { return .invalid }
+        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -53,14 +53,9 @@ class ZenLandscaperGameState: GridGameState<ZenLandscaperGameMove> {
     
     override func switchObject(move: inout ZenLandscaperGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] != " " else { return .invalid }
+        guard isValid(p: p) && game[p] == " " else { return .invalid }
         let o = self[p]
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
-        move.obj =
-            o == " " ? markerOption == .markerFirst ? "." : "1" :
-            o == "." ? markerOption == .markerFirst ? "1" : " " :
-            o == "3" ? markerOption == .markerLast ? "." : " " :
-            succ(ch: o)
+        move.obj = o == " " ? "1" : o == "3" ? " " : succ(ch: o)
         return setObject(move: &move)
     }
     
@@ -105,12 +100,12 @@ class ZenLandscaperGameState: GridGameState<ZenLandscaperGameMove> {
                         tiles.append(p2)
                         p2 += os
                     }
-                    if tiles.count < 3 {
+                    if tiles.count < 3 {continue}
+                    let chSet = Set(tiles.map { self[$0] })
+                    if chSet.contains(" ") {
                         isSolved = false
                         continue
                     }
-                    let chSet = Set(tiles.map { self[$0] })
-                    if chSet.contains(" ") {continue}
                     if chSet.count != 2 {
                         isSolved = false
                         for p2 in tiles {
