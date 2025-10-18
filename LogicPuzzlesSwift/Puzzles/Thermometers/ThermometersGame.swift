@@ -10,7 +10,6 @@ import Foundation
 
 class ThermometersGame: GridGame<ThermometersGameState> {
     static let offset = Position.Directions4
-    static let offset2 = Position.Directions8
     static let bulbs = "^>v<"
     static let parts = "URDLurdl|-"
 

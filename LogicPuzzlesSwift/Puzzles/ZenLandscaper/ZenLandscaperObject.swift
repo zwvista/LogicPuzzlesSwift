@@ -8,38 +8,7 @@
 
 import Foundation
 
-enum ZenLandscaperObject {
-    case empty
-    case forbidden
-    case filled(state: AllowedObjectState)
-    case marker
-    init() {
-        self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .filled:
-            return "filled"
-        case .marker:
-            return "marker"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> ZenLandscaperObject {
-        switch str {
-        case "filled":
-            return .filled(state: .normal)
-        case "marker":
-            return .marker
-        default:
-            return .empty
-        }
-    }
-}
-
 struct ZenLandscaperGameMove {
     var p = Position()
-    var obj = ZenLandscaperObject()
+    var obj: Character = " "
 }
-

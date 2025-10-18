@@ -14,10 +14,9 @@ class ZenLandscaperGameState: GridGameState<ZenLandscaperGameMove> {
         set { setGame(game: newValue) }
     }
     override var gameDocument: GameDocumentBase { ZenLandscaperDocument.sharedInstance }
-    var objArray = [ZenLandscaperObject]()
-    var row2state = [HintState]()
-    var col2state = [HintState]()
-    
+    var objArray = [Character]()
+    var pos2state = [Position: AllowedObjectState]()
+
     override func copy() -> ZenLandscaperGameState {
         let v = ZenLandscaperGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -25,128 +24,98 @@ class ZenLandscaperGameState: GridGameState<ZenLandscaperGameMove> {
     func setup(v: ZenLandscaperGameState) -> ZenLandscaperGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.row2state = row2state
-        v.col2state = col2state
         return v
     }
     
     required init(game: ZenLandscaperGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<ZenLandscaperObject>(repeating: ZenLandscaperObject(), count: rows * cols)
-        row2state = Array<HintState>(repeating: .normal, count: rows)
-        col2state = Array<HintState>(repeating: .normal, count: cols)
+        objArray = game.objArray
         updateIsSolved()
     }
     
-    subscript(p: Position) -> ZenLandscaperObject {
+    subscript(p: Position) -> Character {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
     }
-    subscript(row: Int, col: Int) -> ZenLandscaperObject {
+    subscript(row: Int, col: Int) -> Character {
         get { objArray[row * cols + col] }
         set { objArray[row * cols + col] = newValue }
     }
     
     override func setObject(move: inout ZenLandscaperGameMove) -> GameOperationType {
         let p = move.p
-        guard String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p) && game[p] != " " && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }
     
     override func switchObject(move: inout ZenLandscaperGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
-        func f(o: ZenLandscaperObject) -> ZenLandscaperObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .filled(state: .normal)
-            case .filled:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .filled(state: .normal) : .empty
-            default:
-                return o
-            }
-        }
         let p = move.p
-        guard isValid(p: p) else { return .invalid }
-        move.obj = f(o: self[p])
+        guard isValid(p: p) && game[p] != " " else { return .invalid }
+        let o = self[p]
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        move.obj =
+            o == " " ? markerOption == .markerFirst ? "." : "1" :
+            o == "." ? markerOption == .markerFirst ? "1" : " " :
+            o == "3" ? markerOption == .markerLast ? "." : " " :
+            succ(ch: o)
         return setObject(move: &move)
     }
     
     /*
-        iOS Game: 100 Logic Games/Puzzle Set 14/ZenLandscaper
+        iOS Game: 100 Logic Games/Puzzle Set 15/ZenLandscaper
 
         Summary
-        Puzzle Fever
+        Variety and Balance
 
         Description
-        1. On the board a few ZenLandscaper are laid down. Your goal is  to fill
-           them according to the hints.
-        2. In a Thermometer, mercury always starts at the bulb and can progressively
-           fill the Thermometer towards the end.
-        3. A Thermometer can also be completely empty, including the bulb.
-        4. The numbers on the border tell you how many filled cells are present
-           on that Row or Column.
+        1. The Zen master has been very stressed as of late, to the point that
+           yesterday he bolted for the Bahamas.
+        2. The sun proved so irresistible, that he didn't even complete the
+           Japanese Gardens he was working on.
+        3. Being the Zen Apprentice, you are given the task to complete all of
+           them following the master teaching of variety and continuity.
+        4. The teaching says that any three contiguous tiles vertically,
+           horizontally or diagonally must NOT be:
+           -> all different
+           -> all equal
     */
     private func updateIsSolved() {
-        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
-        // 2. In a Thermometer, mercury always starts at the bulb and can progressively
-        // fill the Thermometer towards the end.
-        for thermometer in game.thermometers {
-            var canbeFilled = true
-            for p in thermometer {
-                if case .filled = self[p] {
-                    let s: AllowedObjectState = canbeFilled ? .normal : .error
-                    if s == .error { isSolved = false }
-                    self[p] = .filled(state: s)
-                } else {
-                    if allowedObjectsOnly && !canbeFilled {
-                        self[p] = .forbidden
-                    } else if case .forbidden = self[p] {
-                        self[p] = .empty
-                    }
-                    canbeFilled = false
-                }
-            }
-        }
         for r in 0..<rows {
-            var n1 = 0
-            let n2 = game.row2hint[r]
             for c in 0..<cols {
-                if case .filled = self[r, c] { n1 += 1 }
-            }
-            // 4. The numbers on the border tell you how many filled cells are present
-            // on that Row.
-            row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 { isSolved = false }
-            if n1 == n2 && allowedObjectsOnly {
-                for c in 0..<cols {
-                    if case .filled = self[r, c] {
-                    } else {
-                        self[r, c] = .forbidden
-                    }
-                }
+                pos2state[Position(r, c)] = .normal
             }
         }
-        for c in 0..<cols {
-            var n1 = 0
-            let n2 = game.col2hint[c]
-            for r in 0..<rows {
-                if case .filled = self[r, c] { n1 += 1 }
-            }
-            // 4. The numbers on the border tell you how many filled cells are present
-            // on that Column.
-            col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 { isSolved = false }
-            if n1 == n2 && allowedObjectsOnly {
-                for r in 0..<rows {
-                    if case .filled = self[r, c] {
-                    } else {
-                        self[r, c] = .forbidden
+        // 4. The teaching says that any three contiguous tiles vertically,
+        //    horizontally or diagonally must NOT be:
+        //    -> all different
+        //    -> all equal
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                for i in 2...4 {
+                    let os = ZenLandscaperGame.offset[i]
+                    var tiles = [p]
+                    var p2 = p + os
+                    for _ in 1..<3 {
+                        guard isValid(p: p2) else {break}
+                        tiles.append(p2)
+                        p2 += os
+                    }
+                    if tiles.count < 3 {
+                        isSolved = false
+                        continue
+                    }
+                    let chSet = Set(tiles.map { self[$0] })
+                    if chSet.contains(" ") {continue}
+                    if chSet.count != 2 {
+                        isSolved = false
+                        for p2 in tiles {
+                            pos2state[p2] = .error
+                        }
                     }
                 }
             }
