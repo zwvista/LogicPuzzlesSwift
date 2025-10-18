@@ -15,7 +15,8 @@ class WarehouseGameState: GridGameState<WarehouseGameMove> {
     }
     override var gameDocument: GameDocumentBase { WarehouseDocument.sharedInstance }
     var objArray = [GridDotObject]()
-    var pos2state = [Position: HintState]()
+    var pos2state = [Position: AllowedObjectState]()
+    var dot2state = [Position: AllowedObjectState]()
     
     override func copy() -> WarehouseGameState {
         let v = WarehouseGameState(game: game, isCopy: true)
@@ -32,8 +33,8 @@ class WarehouseGameState: GridGameState<WarehouseGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = game.objArray
-        for p in game.pos2hint.keys {
-            pos2state[p] = .normal
+        for p in game.pos2symbol.keys {
+            pos2state[p] = .error
         }
         updateIsSolved()
     }
@@ -86,15 +87,18 @@ class WarehouseGameState: GridGameState<WarehouseGameMove> {
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 5/Box It Up
+        iOS Game: 100 Logic Games 2/Puzzle Set 8/Warehouse
 
         Summary
-        Numbered Areas Interval
+        Packed with crates
 
         Description
-        1. A simple puzzle where you have to divide the Board in Boxes (Rectangles).
-        2. Each Box must contain one number and the number represents the area of
-           that Box.
+        1. The board represents a warehouse, packed with boxes which you must find.
+        2. Each box contains a symbol:
+        3. a cross means it's a square box.
+        4. a horizontal bar means the box is wider than taller.
+        5. a vertical bar means the box is taller than wider.
+        6. A grid dot must not be shared by the corners of four boxes.
     */
     private func updateIsSolved() {
         isSolved = true
@@ -119,16 +123,16 @@ class WarehouseGameState: GridGameState<WarehouseGameMove> {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter { nodesExplored.contains($0.0.description) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.0.description) }
-            let rng = area.filter { p in game.pos2hint[p] != nil }
-            // 2. Each Box must contain one number.
+            let rng = area.filter { p in game.pos2symbol[p] != nil }
+            // 2. Each box contains a symbol:
             if rng.count != 1 {
                 for p in rng {
-                    pos2state[p] = .normal
+                    pos2state[p] = .error
                 }
                 isSolved = false; continue
             }
             let p2 = rng[0]
-            let n1 = area.count, n2 = game.pos2hint[p2]!
+            let n1 = area.count, n2 = game.pos2symbol[p2]!
             var r2 = 0, r1 = rows, c2 = 0, c1 = cols
             for p in area {
                 if r2 < p.row { r2 = p.row }
@@ -146,10 +150,22 @@ class WarehouseGameState: GridGameState<WarehouseGameMove> {
                 }
                 return false
             }
-            // 1. A simple puzzle where you have to divide the Board in Boxes (Rectangles).
-            // 2. The number represents the area of that Box.
-            pos2state[p2] = rs * cs == n1 && rs * cs == n2 && !hasLine() ? .complete : .error
-            if pos2state[p2] != .complete { isSolved = false }
+            // 3. a cross means it's a square box.
+            // 4. a horizontal bar means the box is wider than taller.
+            // 5. a vertical bar means the box is taller than wider.
+            let ch = game.pos2symbol[p2]!
+            pos2state[p2] = (ch == WarehouseGame.PUZ_HORZ ? rs < cs : ch == WarehouseGame.PUZ_VERT ? rs > cs : rs == cs) && !hasLine() ? .normal : .error
+            if pos2state[p2] != .normal { isSolved = false }
+        }
+        // 6. A grid dot must not be shared by the corners of four boxes.
+        dot2state.removeAll()
+        for r in 1..<rows - 1 {
+            for c in 1..<cols - 1 {
+                let p = Position(r, c)
+                let has4 = (0..<4).allSatisfy { self[p][$0] == .line }
+                dot2state[p] = has4 ? .error : .normal
+                if (has4) { isSolved = false }
+            }
         }
     }
 }

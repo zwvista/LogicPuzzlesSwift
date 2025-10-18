@@ -104,4 +104,10 @@ struct Position: Equatable, Comparable, Hashable, CustomStringConvertible {
         Position.South,       // 2*2 sw
         Position.SouthEast,   // 2*2 se
     ]
+    static let CellSideOffset = [
+        Position.Zero,        // North
+        Position.SouthEast,   // East
+        Position.SouthEast,   // South
+        Position.Zero,        // West
+    ]
 }

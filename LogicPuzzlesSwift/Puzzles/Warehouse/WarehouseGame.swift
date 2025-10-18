@@ -9,6 +9,9 @@
 import Foundation
 
 class WarehouseGame: GridGame<WarehouseGameState> {
+    static let PUZ_HORZ: Character = "H"
+    static let PUZ_VERT: Character = "V"
+    static let PUZ_CROSS: Character = "+"
     static let offset = Position.Directions4
     static let offset2 = [
         Position(0, 0),
@@ -19,22 +22,21 @@ class WarehouseGame: GridGame<WarehouseGameState> {
     static let dirs = [1, 0, 3, 2]
     
     var objArray = [GridDotObject]()
-    var pos2hint = [Position: Int]()
+    var pos2symbol = [Position: Character]()
     
     init(layout: [String], delegate: WarehouseGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count + 1, layout[0].length / 2 + 1)
+        size = Position(layout.count + 1, layout[0].length + 1)
         objArray = Array<GridDotObject>(repeating: Array<GridLineObject>(repeating: .empty, count: 4), count: rows * cols)
         
         for r in 0..<rows - 1 {
             let str = layout[r]
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                let s = str[c * 2...c * 2 + 1]
-                guard s != "  " else {continue}
-                let n = s.toInt()!
-                pos2hint[p] = n
+                let ch = str[c]
+                guard ch != " " else {continue}
+                pos2symbol[p] = ch
             }
         }
         for r in 0..<rows - 1 {

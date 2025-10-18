@@ -14,10 +14,11 @@ class WarehouseGameScene: GameScene<WarehouseGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+    func addSymbol(ch: Character, s: AllowedObjectState, point: CGPoint, nodeName: String) {
+        let imageName = ch == WarehouseGame.PUZ_HORZ ? "navigate_minus" : ch == WarehouseGame.PUZ_VERT ? "navigate_pipe" : "128_navigate_plus_red"
+        addImage(imageNamed: imageName, color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }
-    
+
     override func levelInitialized(_ game: AnyObject, state: WarehouseGameState, skView: SKView) {
         let game = game as! WarehouseGame
         removeAllChildren()
@@ -28,11 +29,11 @@ class WarehouseGameScene: GameScene<WarehouseGameState> {
         addGrid(gridNode: WarehouseGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset))
         
         // addHints
-        for (p, n) in game.pos2hint {
+        for (p, ch) in game.pos2symbol {
             let point = gridNode.gridPosition(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let hintNodeName = "hint" + nodeNameSuffix
-            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
+            let symbolNodeName = "symbol" + nodeNameSuffix
+            addSymbol(ch: ch, s: state.pos2state[p]!, point: point, nodeName: symbolNodeName)
         }
         
         for r in 0..<game.rows {
@@ -69,12 +70,11 @@ class WarehouseGameScene: GameScene<WarehouseGameState> {
                     removeVertLine(objType: o1)
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
                 }
-                let hintNodeName = "hint" + nodeNameSuffix
-                func removeHint() { removeNode(withName: hintNodeName) }
+                let symbolNodeName = "symbol" + nodeNameSuffix
                 guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
                 if s1 != s2 {
-                    removeHint()
-                    addHint(n: stateFrom.game.pos2hint[p]!, s: s2, point: point, nodeName: hintNodeName)
+                    removeNode(withName: symbolNodeName)
+                    addSymbol(ch: stateFrom.game.pos2symbol[p]!, s: s2, point: point, nodeName: symbolNodeName)
                 }
             }
         }
