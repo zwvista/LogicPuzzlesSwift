@@ -23,7 +23,7 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
     }
     
     func addPole(o: MagnetsObject, colorBlendFactor: CGFloat, point: CGPoint, nodeName: String) {
-        addImage(imageNamed: o == .positive ? "128_navigate_plus_red" : "128_navigate_minus", color: .black, colorBlendFactor: colorBlendFactor, point: point, nodeName: nodeName)
+        addImage(imageNamed: o == .positive ? "navigate_plus_red" : "navigate_minus", color: .black, colorBlendFactor: colorBlendFactor, point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: MagnetsGameState, skView: SKView) {

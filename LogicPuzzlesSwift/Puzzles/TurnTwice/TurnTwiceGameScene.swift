@@ -15,7 +15,7 @@ class TurnTwiceGameScene: GameScene<TurnTwiceGameState> {
     }
     
     func addsignpost(s: AllowedObjectState, point: CGPoint, nodeName: String) {
-        addImage(imageNamed: "128_signpost", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
+        addImage(imageNamed: "signpost", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }
 
     override func levelInitialized(_ game: AnyObject, state: TurnTwiceGameState, skView: SKView) {

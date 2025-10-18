@@ -15,7 +15,7 @@ class WarehouseGameScene: GameScene<WarehouseGameState> {
     }
     
     func addSymbol(ch: Character, s: AllowedObjectState, point: CGPoint, nodeName: String) {
-        let imageName = ch == WarehouseGame.PUZ_HORZ ? "navigate_minus" : ch == WarehouseGame.PUZ_VERT ? "navigate_pipe" : "128_navigate_plus_red"
+        let imageName = ch == WarehouseGame.PUZ_HORZ ? "navigate_minus" : ch == WarehouseGame.PUZ_VERT ? "navigate_pipe" : "navigate_plus_red"
         addImage(imageNamed: imageName, color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }
 

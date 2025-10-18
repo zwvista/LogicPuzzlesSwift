@@ -75,7 +75,7 @@ class PowerGridGameScene: GameScene<PowerGridGameState> {
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 func addPost(s: AllowedObjectState) {
-                    addImage(imageNamed: "128_telegraph", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: postNodeName)
+                    addImage(imageNamed: "telegraph", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: postNodeName)
                 }
                 func removePost() { removeNode(withName: postNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
