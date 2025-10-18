@@ -654,6 +654,15 @@
 		8C8661C72EA115FA0078CD64 /* ThermometersDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661B82EA115FA0078CD64 /* ThermometersDocument.swift */; };
 		8C8661C82EA115FA0078CD64 /* ThermometersGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661BD2EA115FA0078CD64 /* ThermometersGridNode.swift */; };
 		8C8661C92EA115FA0078CD64 /* Thermometers.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C8661B72EA115FA0078CD64 /* Thermometers.xml */; };
+		8C8661D52EA31ABC0078CD64 /* ZenLandscaperGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661D02EA31ABC0078CD64 /* ZenLandscaperGameViewController.swift */; };
+		8C8661D62EA31ABC0078CD64 /* ZenLandscaperGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661CE2EA31ABC0078CD64 /* ZenLandscaperGameScene.swift */; };
+		8C8661D72EA31ABC0078CD64 /* ZenLandscaperGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661CF2EA31ABC0078CD64 /* ZenLandscaperGameState.swift */; };
+		8C8661D82EA31ABC0078CD64 /* ZenLandscaperObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661D32EA31ABC0078CD64 /* ZenLandscaperObject.swift */; };
+		8C8661D92EA31ABC0078CD64 /* ZenLandscaperGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661D12EA31ABC0078CD64 /* ZenLandscaperGridNode.swift */; };
+		8C8661DA2EA31ABC0078CD64 /* ZenLandscaperGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661CD2EA31ABC0078CD64 /* ZenLandscaperGame.swift */; };
+		8C8661DB2EA31ABC0078CD64 /* ZenLandscaperMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661D22EA31ABC0078CD64 /* ZenLandscaperMainViewController.swift */; };
+		8C8661DC2EA31ABC0078CD64 /* ZenLandscaperDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661CC2EA31ABC0078CD64 /* ZenLandscaperDocument.swift */; };
+		8C8661DD2EA31ABC0078CD64 /* ZenLandscaper.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C8661CB2EA31ABC0078CD64 /* ZenLandscaper.xml */; };
 		8C8E76A52E869852006BBF98 /* tower.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C8E76952E869852006BBF98 /* tower.png */; };
 		8C8E76A62E869852006BBF98 /* 128_cow_wall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C8E75A42E869852006BBF98 /* 128_cow_wall.png */; };
 		8C8E76A72E869852006BBF98 /* 128__tent.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C8E758A2E869852006BBF98 /* 128__tent.png */; };
@@ -1869,6 +1878,15 @@
 		8C8661BD2EA115FA0078CD64 /* ThermometersGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThermometersGridNode.swift; sourceTree = "<group>"; };
 		8C8661BE2EA115FA0078CD64 /* ThermometersMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThermometersMainViewController.swift; sourceTree = "<group>"; };
 		8C8661BF2EA115FA0078CD64 /* ThermometersObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThermometersObject.swift; sourceTree = "<group>"; };
+		8C8661CB2EA31ABC0078CD64 /* ZenLandscaper.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ZenLandscaper.xml; sourceTree = "<group>"; };
+		8C8661CC2EA31ABC0078CD64 /* ZenLandscaperDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenLandscaperDocument.swift; sourceTree = "<group>"; };
+		8C8661CD2EA31ABC0078CD64 /* ZenLandscaperGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenLandscaperGame.swift; sourceTree = "<group>"; };
+		8C8661CE2EA31ABC0078CD64 /* ZenLandscaperGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenLandscaperGameScene.swift; sourceTree = "<group>"; };
+		8C8661CF2EA31ABC0078CD64 /* ZenLandscaperGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenLandscaperGameState.swift; sourceTree = "<group>"; };
+		8C8661D02EA31ABC0078CD64 /* ZenLandscaperGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenLandscaperGameViewController.swift; sourceTree = "<group>"; };
+		8C8661D12EA31ABC0078CD64 /* ZenLandscaperGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenLandscaperGridNode.swift; sourceTree = "<group>"; };
+		8C8661D22EA31ABC0078CD64 /* ZenLandscaperMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenLandscaperMainViewController.swift; sourceTree = "<group>"; };
+		8C8661D32EA31ABC0078CD64 /* ZenLandscaperObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenLandscaperObject.swift; sourceTree = "<group>"; };
 		8C886C451D9E8B72004A42BF /* LogicPuzzlesSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LogicPuzzlesSwift-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		8C8E758A2E869852006BBF98 /* 128__tent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 128__tent.png; sourceTree = "<group>"; };
 		8C8E758B2E869852006BBF98 /* 128_abacus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 128_abacus.png; sourceTree = "<group>"; };
@@ -2828,6 +2846,7 @@
 				8CAFBFDA2E9F19A500C27D7C /* TurnTwice */,
 				8C35E3971FC4839000A26EE3 /* Walls */,
 				8CFAF995202615560095EFFC /* WallSentinels */,
+				8C8661D42EA31ABC0078CD64 /* ZenLandscaper */,
 			);
 			path = Puzzles;
 			sourceTree = "<group>";
@@ -3739,6 +3758,22 @@
 				8C8661BF2EA115FA0078CD64 /* ThermometersObject.swift */,
 			);
 			path = Thermometers;
+			sourceTree = "<group>";
+		};
+		8C8661D42EA31ABC0078CD64 /* ZenLandscaper */ = {
+			isa = PBXGroup;
+			children = (
+				8C8661CB2EA31ABC0078CD64 /* ZenLandscaper.xml */,
+				8C8661CC2EA31ABC0078CD64 /* ZenLandscaperDocument.swift */,
+				8C8661CD2EA31ABC0078CD64 /* ZenLandscaperGame.swift */,
+				8C8661CE2EA31ABC0078CD64 /* ZenLandscaperGameScene.swift */,
+				8C8661CF2EA31ABC0078CD64 /* ZenLandscaperGameState.swift */,
+				8C8661D02EA31ABC0078CD64 /* ZenLandscaperGameViewController.swift */,
+				8C8661D12EA31ABC0078CD64 /* ZenLandscaperGridNode.swift */,
+				8C8661D22EA31ABC0078CD64 /* ZenLandscaperMainViewController.swift */,
+				8C8661D32EA31ABC0078CD64 /* ZenLandscaperObject.swift */,
+			);
+			path = ZenLandscaper;
 			sourceTree = "<group>";
 		};
 		8C8E760A2E869852006BBF98 /* 128 */ = {
@@ -4797,6 +4832,7 @@
 				8C8E76AC2E869852006BBF98 /* 128_box_new.png in Resources */,
 				8C8E76AD2E869852006BBF98 /* earth.png in Resources */,
 				8C8E76AE2E869852006BBF98 /* 128_theoddbrick.png in Resources */,
+				8C8661DD2EA31ABC0078CD64 /* ZenLandscaper.xml in Resources */,
 				8C8E76AF2E869852006BBF98 /* 128_firewall.png in Resources */,
 				8C8E76B02E869852006BBF98 /* 128_navigate_plus_red.png in Resources */,
 				8CACC9372E9BC56E00F53475 /* Hidoku.xml in Resources */,
@@ -5428,6 +5464,14 @@
 				8C32D8DD1FC92B5F00BA2D07 /* RippleEffectMainViewController.swift in Sources */,
 				8C9F322A1ECF06C000E10965 /* TapaDocument.swift in Sources */,
 				8C3A36501EC88D4200A914A5 /* BusySeasMainViewController.swift in Sources */,
+				8C8661D52EA31ABC0078CD64 /* ZenLandscaperGameViewController.swift in Sources */,
+				8C8661D62EA31ABC0078CD64 /* ZenLandscaperGameScene.swift in Sources */,
+				8C8661D72EA31ABC0078CD64 /* ZenLandscaperGameState.swift in Sources */,
+				8C8661D82EA31ABC0078CD64 /* ZenLandscaperObject.swift in Sources */,
+				8C8661D92EA31ABC0078CD64 /* ZenLandscaperGridNode.swift in Sources */,
+				8C8661DA2EA31ABC0078CD64 /* ZenLandscaperGame.swift in Sources */,
+				8C8661DB2EA31ABC0078CD64 /* ZenLandscaperMainViewController.swift in Sources */,
+				8C8661DC2EA31ABC0078CD64 /* ZenLandscaperDocument.swift in Sources */,
 				8C6A9BEE1F812743002A44FF /* KropkiObject.swift in Sources */,
 				8CFAF9A4202615570095EFFC /* WallSentinelsObject.swift in Sources */,
 				8CFAF9C320381D870095EFFC /* CastleBaileyGameState.swift in Sources */,
