@@ -14,7 +14,7 @@ class GemsGameScene: GameScene<GemsGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addNumber(n: Int, s: HintState, isHint: Bool, point: CGPoint, nodeName: String) {
+    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
@@ -32,12 +32,11 @@ class GemsGameScene: GameScene<GemsGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
-                let n = state[p]
-//                guard n != 0 else {continue}
-//                let nodeNameSuffix = "-\(p.row)-\(p.col)"
-//                let numNodeName = "num" + nodeNameSuffix
-//                let s = state.pos2state(row: r, col: c)
-//                addNumber(n: n, s: s, isHint: !game.isValid(p: p), point: point, nodeName: numNodeName)
+                let n = game.pos2hint[p]
+                guard let n else {continue}
+                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let tileNodeName = "tile" + nodeNameSuffix
+                addHint(n: n, s: .normal, point: point, nodeName: tileNodeName)
             }
         }
     }
@@ -48,13 +47,29 @@ class GemsGameScene: GameScene<GemsGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let numNodeName = "num" + nodeNameSuffix
-                func removeNumber() { removeNode(withName: numNodeName) }
-                let (n1, n2) = (stateFrom[r, c], stateTo[r, c])
-//                let (s1, s2) = (stateFrom.pos2state(row: r, col: c), stateTo.pos2state(row: r, col: c))
-//                guard n1 != n2 || s1 != s2 else {continue}
-//                if (n1 != 0) { removeNumber() }
-//                if (n2 != 0) { addNumber(n: n2, s: s2, isHint: !stateFrom.game.isValid(p: p), point: point, nodeName: numNodeName) }
+                let tileNodeName = "tile" + nodeNameSuffix
+                let n = stateFrom.game.pos2hint[p]
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard o1 != o2 || s1 != s2 else {continue}
+                removeNode(withName: tileNodeName)
+                func f(imageName: String) {
+                    addImage(imageNamed: imageName, color: .red, colorBlendFactor: s2 == .normal ? 0.0 : 0.5, point: point, nodeName: tileNodeName)
+                }
+                if 1..<stateFrom.rows - 1 ~= r && 1..<stateFrom.cols - 1 ~= c {
+                    switch o2 {
+                    case .gem:
+                        f(imageName: "bullet_ball_glass_blue")
+                    case .pebble:
+                        f(imageName: "bullet_ball_glass_grey")
+                    case .marker:
+                        addDotMarker(point: point, nodeName: tileNodeName)
+                    default:
+                        break
+                    }
+                } else {
+                    addHint(n: n!, s: s2 ?? .normal, point: point, nodeName: tileNodeName)
+                }
             }
         }
     }

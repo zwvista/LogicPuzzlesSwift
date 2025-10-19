@@ -9,7 +9,7 @@
 import Foundation
 
 enum GemsObject: Int {
-    case empty, forbidden, marker, gem, pebble
+    case empty, marker, gem, pebble
     init() {
         self = .empty
     }

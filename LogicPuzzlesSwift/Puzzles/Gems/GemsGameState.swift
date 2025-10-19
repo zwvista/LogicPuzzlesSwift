@@ -88,71 +88,53 @@ class GemsGameState: GridGameState<GemsGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-//        var numss = [[Int]]()
-//        var nums = [Int]()
-//        for r in 1..<rows - 1 {
-//            let (p1, p2) = (Position(r, 0), Position(r, cols - 1))
-//            let (h1, h2) = (game.pos2hint[p1], game.pos2hint[p2])
-//            var (n1, n2) = (0, 0)
-//            var (n11, n21) = (0, 0)
-//            nums = []
-//            for c in 1..<cols - 1 {
-//                let (n12, n22) = (self[r, c], self[r, cols - 1 - c])
-//                if n11 < n12 { n11 = n12; n1 += n12 }
-//                if n21 < n22 { n21 = n22; n2 += n22 }
-//                guard n12 != 0 else {continue}
-//                // 2. Each row can't have two Skyscrapers of the same height.
-//                if nums.contains(n12) {
-//                    isSolved = false
-//                } else {
-//                    nums.append(n12)
-//                }
-//            }
-//            // 4. The numbers on the boarders tell you the SUM of the heights skyscrapers
-//            // you see from there, keeping mind that a higher skyscraper hides a lower one.
-//            // Skyscrapers are numbered from 1(lowest) to the grid size(highest).
-//            let s1: HintState = n1 == 0 ? .normal : n1 == h1 ? .complete : .error
-//            let s2: HintState = n2 == 0 ? .normal : n2 == h2 ? .complete : .error
-//            row2state[r * 2] = s1; row2state[r * 2 + 1] = s2
-//            if s1 != .complete || s2 != .complete { isSolved = false }
-//            if nums.count != game.intMax { isSolved = false }
-//            // 5. Each row and column can't have similar Skyscrapers.
-//            if numss.contains(where: { $0 == nums }) {
-//                isSolved = false
-//            } else {
-//                numss.append(nums)
-//            }
-//        }
-//        for c in 1..<cols - 1 {
-//            let (p1, p2) = (Position(0, c), Position(rows - 1, c))
-//            let (h1, h2) = (game.pos2hint[p1], game.pos2hint[p2])
-//            var (n11, n21) = (0, 0)
-//            nums = []
-//            for r in 1..<rows - 1 {
-//                let (n12, n22) = (self[r, c], self[rows - 1 - r, c])
-//                if n11 < n12 { n11 = n12; n1 += n12 }
-//                if n21 < n22 { n21 = n22; n2 += n22 }
-//                guard n12 != 0 else {continue}
-//                if nums.contains(n12) {
-//                    isSolved = false
-//                } else {
-//                    nums.append(n12)
-//                }
-//            }
-//            // 4. The numbers on the boarders tell you the SUM of the heights skyscrapers
-//            // you see from there, keeping mind that a higher skyscraper hides a lower one.
-//            // Skyscrapers are numbered from 1(lowest) to the grid size(highest).
-//            let s1: HintState = n1 == 0 ? .normal : n1 == h1 ? .complete : .error
-//            let s2: HintState = n2 == 0 ? .normal : n2 == h2 ? .complete : .error
-//            col2state[c * 2] = s1; col2state[c * 2 + 1] = s2
-//            if s1 != .complete || s2 != .complete { isSolved = false }
-//            if nums.count != game.intMax { isSolved = false }
-//            // 5. Each row and column can't have similar Skyscrapers.
-//            if numss.contains(where: { $0 == nums }) {
-//                isSolved = false
-//            } else {
-//                numss.append(nums)
-//            }
-//        }
+        func f(_ r: Int, _ c: Int) -> Bool {
+            let o = self[r, c]
+            return o == .gem || o == .pebble
+        }
+        for r in 1..<rows - 1 {
+            let (p1, p2) = (Position(r, 0), Position(r, cols - 1))
+            let (h1, h2) = (game.pos2hint[p1]!, game.pos2hint[p2]!)
+            let gems = (1..<cols - 1).map { Position(r, $0) }.filter { self[$0] == .gem }
+            if gems.count == 1 {
+                // 1. The board contains one Sapphire (Blue Gem) on each row and column.
+                let p = gems.first!, c = p.col
+                pos2state[p] = .normal
+                // 2. There are also a random amount of Pebbles (in White) on the board.
+                // 3. A number on the border tells you how many stones you can see from
+                //    there, up to and including the Sapphire.
+                // 4. The Sapphire (blue) hide the Pebbles (white) behind them.
+                let (n1, n2) = ((1...c).count { f(r, $0) }, (c..<cols - 1).count { f(r, $0) })
+                let s1: HintState = n1 < h1 ? .normal : n1 == h1 ? .complete : .error
+                let s2: HintState = n2 < h2 ? .normal : n2 == h2 ? .complete : .error
+                pos2state[p1] = s1; pos2state[p2] = s2
+                if s1 != .complete || s2 != .complete { isSolved = false }
+            } else {
+                isSolved = false
+                gems.forEach { pos2state[$0] = .error }
+            }
+        }
+        for c in 1..<cols - 1 {
+            let (p1, p2) = (Position(0, c), Position(rows - 1, c))
+            let (h1, h2) = (game.pos2hint[p1]!, game.pos2hint[p2]!)
+            let gems = (1..<rows - 1).map { Position($0, c) }.filter { self[$0] == .gem }
+            if gems.count == 1 {
+                // 1. The board contains one Sapphire (Blue Gem) on each row and column.
+                let p = gems.first!, r = p.row
+                pos2state[p] = .normal
+                // 2. There are also a random amount of Pebbles (in White) on the board.
+                // 3. A number on the border tells you how many stones you can see from
+                //    there, up to and including the Sapphire.
+                // 4. The Sapphire (blue) hide the Pebbles (white) behind them.
+                let (n1, n2) = ((1...r).count { f($0, c) }, (r..<rows - 1).count { f($0, c) })
+                let s1: HintState = n1 < h1 ? .normal : n1 == h1 ? .complete : .error
+                let s2: HintState = n2 < h2 ? .normal : n2 == h2 ? .complete : .error
+                pos2state[p1] = s1; pos2state[p2] = s2
+                if s1 != .complete || s2 != .complete { isSolved = false }
+            } else {
+                isSolved = false
+                gems.forEach { pos2state[$0] = .error }
+            }
+        }
     }
 }
