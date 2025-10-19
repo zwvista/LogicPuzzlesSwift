@@ -57,7 +57,7 @@ class NumberCrossingGameState: GridGameState<NumberCrossingGameMove> {
         let o = self[p]
         move.obj =
             o == NumberCrossingGame.PUZ_UNKNOWN ? 1 :
-            o == game.intMax ? NumberCrossingGame.PUZ_UNKNOWN :
+            o == 9 ? NumberCrossingGame.PUZ_UNKNOWN :
             o + 1
         return setObject(move: &move)
     }
@@ -92,6 +92,7 @@ class NumberCrossingGameState: GridGameState<NumberCrossingGameMove> {
                 // 2. Numbers cannot touch each other, not even diagonally.
                 for os in NumberCrossingGame.offset {
                     let p2 = p + os
+                    guard isValid(p: p2) else {continue}
                     let o2 = self[p2]
                     if o2 > 0 {
                         pos2state[p] = .error
@@ -110,6 +111,13 @@ class NumberCrossingGameState: GridGameState<NumberCrossingGameMove> {
             let s2: HintState = n2 < h2 ? .normal : n2 == h2 ? .complete : .error
             pos2state[p1] = s1; pos2state[p2] = s2
             if s1 != .complete || s2 != .complete { isSolved = false }
+            if allowedObjectsOnly && (s1 != .normal || s2 != .normal) {
+                for c in 1..<cols - 1 {
+                    if self[r, c] == NumberCrossingGame.PUZ_UNKNOWN {
+                        self[r, c] = NumberCrossingGame.PUZ_FORBIDDEN
+                    }
+                }
+            }
         }
         for c in 1..<cols - 1 {
             let p1 = Position(0, c), p2 = Position(rows - 1, c)
@@ -124,6 +132,7 @@ class NumberCrossingGameState: GridGameState<NumberCrossingGameMove> {
                 // 2. Numbers cannot touch each other, not even diagonally.
                 for os in NumberCrossingGame.offset {
                     let p2 = p + os
+                    guard isValid(p: p2) else {continue}
                     let o2 = self[p2]
                     if o2 > 0 {
                         pos2state[p] = .error
@@ -142,6 +151,13 @@ class NumberCrossingGameState: GridGameState<NumberCrossingGameMove> {
             let s2: HintState = n2 < h2 ? .normal : n2 == h2 ? .complete : .error
             pos2state[p1] = s1; pos2state[p2] = s2
             if s1 != .complete || s2 != .complete { isSolved = false }
+            if allowedObjectsOnly && (s1 != .normal || s2 != .normal) {
+                for r in 1..<rows - 1 {
+                    if self[r, c] == NumberCrossingGame.PUZ_UNKNOWN {
+                        self[r, c] = NumberCrossingGame.PUZ_FORBIDDEN
+                    }
+                }
+            }
         }
     }
 }
