@@ -9,6 +9,7 @@
 import Foundation
 
 class NumberCrossingGame: GridGame<NumberCrossingGameState> {
+    static let PUZ_UNKNOWN = -1
     static let offset = Position.Directions4
 
     override func isValid(row: Int, col: Int) -> Bool {
@@ -36,7 +37,7 @@ class NumberCrossingGame: GridGame<NumberCrossingGameState> {
             let str = layout[r]
             for c in 0..<cols {
                 let s = str[c * 2...c * 2 + 1]
-                let n = s == "  " ? 0 : s.toInt()!
+                let n = s == "  " ? NumberCrossingGame.PUZ_UNKNOWN : s.toInt()!
                 self[r, c] = n
             }
         }

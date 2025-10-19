@@ -33,7 +33,7 @@ class NumberCrossingGameScene: GameScene<NumberCrossingGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let n = state[p]
-                guard n != 0 else {continue}
+                guard n != NumberCrossingGame.PUZ_UNKNOWN else {continue}
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let numNodeName = "num" + nodeNameSuffix
                 let s = state.pos2state(row: r, col: c)
@@ -53,8 +53,8 @@ class NumberCrossingGameScene: GameScene<NumberCrossingGameState> {
                 let (n1, n2) = (stateFrom[r, c], stateTo[r, c])
                 let (s1, s2) = (stateFrom.pos2state(row: r, col: c), stateTo.pos2state(row: r, col: c))
                 guard n1 != n2 || s1 != s2 else {continue}
-                if (n1 != 0) { removeNumber() }
-                if (n2 != 0) { addNumber(n: n2, s: s2, isHint: !stateFrom.game.isValid(p: p), point: point, nodeName: numNodeName) }
+                if (n1 != NumberCrossingGame.PUZ_UNKNOWN) { removeNumber() }
+                if (n2 != NumberCrossingGame.PUZ_UNKNOWN) { addNumber(n: n2, s: s2, isHint: !stateFrom.game.isValid(p: p), point: point, nodeName: numNodeName) }
             }
         }
     }
