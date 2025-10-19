@@ -14,7 +14,7 @@ class NumberCrossingGameScene: GameScene<NumberCrossingGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addNumber(n: Int, s: HintState, isHint: Bool, point: CGPoint, nodeName: String) {
+    func addNumber(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
@@ -33,11 +33,11 @@ class NumberCrossingGameScene: GameScene<NumberCrossingGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let n = state[p]
-                guard n != NumberCrossingGame.PUZ_UNKNOWN else {continue}
+                guard n >= 0 else {continue}
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let numNodeName = "num" + nodeNameSuffix
-                let s = state.pos2state(row: r, col: c)
-                addNumber(n: n, s: s, isHint: !game.isValid(p: p), point: point, nodeName: numNodeName)
+                let s = state.pos2state[p]!
+                addNumber(n: n, s: s, point: point, nodeName: numNodeName)
             }
         }
     }
@@ -49,12 +49,20 @@ class NumberCrossingGameScene: GameScene<NumberCrossingGameState> {
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let numNodeName = "num" + nodeNameSuffix
-                func removeNumber() { removeNode(withName: numNodeName) }
-                let (n1, n2) = (stateFrom[r, c], stateTo[r, c])
-                let (s1, s2) = (stateFrom.pos2state(row: r, col: c), stateTo.pos2state(row: r, col: c))
+                let forbiddenNodeName = "forbidden" + nodeNameSuffix
+                let (n1, n2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
                 guard n1 != n2 || s1 != s2 else {continue}
-                if (n1 != NumberCrossingGame.PUZ_UNKNOWN) { removeNumber() }
-                if (n2 != NumberCrossingGame.PUZ_UNKNOWN) { addNumber(n: n2, s: s2, isHint: !stateFrom.game.isValid(p: p), point: point, nodeName: numNodeName) }
+                if n1 == NumberCrossingGame.PUZ_FORBIDDEN {
+                    removeNode(withName: forbiddenNodeName)
+                } else if n1 != NumberCrossingGame.PUZ_UNKNOWN {
+                    removeNode(withName: numNodeName)
+                }
+                if n2 == NumberCrossingGame.PUZ_FORBIDDEN {
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
+                } else if n2 != NumberCrossingGame.PUZ_UNKNOWN {
+                    addNumber(n: n2, s: s2!, point: point, nodeName: numNodeName)
+                }
             }
         }
     }
