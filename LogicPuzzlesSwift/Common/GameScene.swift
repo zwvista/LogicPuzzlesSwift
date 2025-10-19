@@ -100,7 +100,7 @@ class GameScene<GS: GameStateBase>: SKScene, GameSceneBase {
     }
     
     func addDotMarker(point: CGPoint, nodeName: String) {
-        addDotMarker2(color: .black, point: point, nodeName: nodeName)
+        addDotMarker2(color: .white, point: point, nodeName: nodeName)
     }
     
     func addForbiddenMarker(point: CGPoint, nodeName: String) {

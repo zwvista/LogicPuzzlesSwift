@@ -118,7 +118,7 @@ class ThermometersGameScene: GameScene<ThermometersGameState> {
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case .marker:
-                    addDotMarker(point: point, nodeName: markerNodeName)
+                    addDotMarker2(color: .white, point: point, nodeName: markerNodeName)
                 default:
                     break
                 }

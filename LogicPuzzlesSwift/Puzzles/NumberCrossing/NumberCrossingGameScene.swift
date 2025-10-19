@@ -53,16 +53,21 @@ class NumberCrossingGameScene: GameScene<NumberCrossingGameState> {
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let numNodeName = "num" + nodeNameSuffix
+                let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let (n1, n2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
                 guard n1 != n2 || s1 != s2 else {continue}
-                if n1 == NumberCrossingGame.PUZ_FORBIDDEN {
+                if n1 == NumberCrossingGame.PUZ_MARKER {
+                    removeNode(withName: markerNodeName)
+                } else if n1 == NumberCrossingGame.PUZ_FORBIDDEN {
                     removeNode(withName: forbiddenNodeName)
                 } else if n1 != NumberCrossingGame.PUZ_UNKNOWN {
                     removeNode(withName: numNodeName)
                 }
-                if n2 == NumberCrossingGame.PUZ_FORBIDDEN {
+                if n2 == NumberCrossingGame.PUZ_MARKER {
+                    addDotMarker(point: point, nodeName: markerNodeName)
+                } else if n2 == NumberCrossingGame.PUZ_FORBIDDEN {
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 } else if n2 != NumberCrossingGame.PUZ_UNKNOWN {
                     addNumber(n: n2, s: s2!, point: point, nodeName: numNodeName)

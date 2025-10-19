@@ -10,7 +10,8 @@ import Foundation
 
 class NumberCrossingGame: GridGame<NumberCrossingGameState> {
     static let PUZ_UNKNOWN = -1
-    static let PUZ_FORBIDDEN = -2
+    static let PUZ_MARKER = -2
+    static let PUZ_FORBIDDEN = -3
     static let offset = Position.Directions8
 
     override func isValid(row: Int, col: Int) -> Bool {

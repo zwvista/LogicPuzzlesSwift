@@ -55,9 +55,11 @@ class NumberCrossingGameState: GridGameState<NumberCrossingGameMove> {
         let p = move.p
         guard isValid(p: p) && self[p] != NumberCrossingGame.PUZ_FORBIDDEN else { return .invalid }
         let o = self[p]
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
         move.obj =
-            o == NumberCrossingGame.PUZ_UNKNOWN ? 1 :
-            o == 9 ? NumberCrossingGame.PUZ_UNKNOWN :
+            o == NumberCrossingGame.PUZ_UNKNOWN ? markerOption == .markerFirst ? NumberCrossingGame.PUZ_MARKER : 1 :
+            o == NumberCrossingGame.PUZ_MARKER ? markerOption == .markerFirst ? 1 :  NumberCrossingGame.PUZ_UNKNOWN :
+            o == 9 ? markerOption == .markerLast ? NumberCrossingGame.PUZ_MARKER : NumberCrossingGame.PUZ_UNKNOWN :
             o + 1
         return setObject(move: &move)
     }
