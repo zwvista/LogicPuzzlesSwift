@@ -10,6 +10,7 @@ import Foundation
 
 class FieldsGame: GridGame<FieldsGameState> {
     static let offset = Position.Directions4
+    static let offset2 = Position.Square2x2Offset
 
     var objArray = [FieldsObject]()
 
@@ -22,8 +23,8 @@ class FieldsGame: GridGame<FieldsGameState> {
             let str = layout[r]
             for c in 0..<cols {
                 switch str[c] {
-                case "Y": self[r, c] = .yellow
-                case "R": self[r, c] = .red
+                case "M": self[r, c] = .meadow
+                case "S": self[r, c] = .soil
                 default: break
                 }
             }

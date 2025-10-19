@@ -14,8 +14,8 @@ class FieldsGameScene: GameScene<FieldsGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addToken(isY: Bool, s: AllowedObjectState, point: CGPoint, nodeName: String) {
-        addImage(imageNamed: isY ? "token_red" : "token_yellow", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
+    func addField(isM: Bool, s: AllowedObjectState, point: CGPoint, nodeName: String) {
+        addImage(imageNamed: isM ? "meadow_background" : "soil", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }
 
     override func levelInitialized(_ game: AnyObject, state: FieldsGameState, skView: SKView) {
@@ -33,10 +33,10 @@ class FieldsGameScene: GameScene<FieldsGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let tokenNodeName = "token" + nodeNameSuffix
+                let fieldNodeName = "field" + nodeNameSuffix
                 let o = state[p]
                 guard o != .empty else {continue}
-                addToken(isY: o == .yellow, s: state.pos2state[p] ?? .normal, point: point, nodeName: tokenNodeName)
+                addField(isM: o == .meadow, s: state.pos2state[p] ?? .normal, point: point, nodeName: fieldNodeName)
                 addCircleMarker(color: .white, point: point, nodeName: "marker")
             }
         }
@@ -48,12 +48,12 @@ class FieldsGameScene: GameScene<FieldsGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let tokenNodeName = "token" + nodeNameSuffix
+                let fieldNodeName = "field" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2state[p] ?? .normal, stateTo.pos2state[p] ?? .normal)
                 guard o1 != o2 || s1 != s2 else {continue}
-                if o1 != .empty { removeNode(withName: tokenNodeName) }
-                if o2 != .empty { addToken(isY: o2 == .yellow, s: s2, point: point, nodeName: tokenNodeName) }
+                if o1 != .empty { removeNode(withName: fieldNodeName) }
+                if o2 != .empty { addField(isM: o2 == .meadow, s: s2, point: point, nodeName: fieldNodeName) }
             }
         }
     }

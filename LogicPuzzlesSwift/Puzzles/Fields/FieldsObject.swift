@@ -9,7 +9,7 @@
 import Foundation
 
 enum FieldsObject: Int {
-    case empty, yellow, red
+    case empty, meadow, soil
     init() {
         self = .empty
     }

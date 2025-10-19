@@ -56,74 +56,74 @@ class FieldsGameState: GridGameState<FieldsGameMove> {
         let p = move.p
         guard isValid(p: p), game[p] == .empty else { return .invalid }
         let o = self[p]
-        move.obj = o == .empty ? .yellow : o == .yellow ? .red : .empty
+        move.obj = o == .empty ? .meadow : o == .meadow ? .soil : .empty
         return setObject(move: &move)
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 11/Disconnect Four
+        iOS Game: 100 Logic Games 2/Puzzle Set 1/Fields
 
         Summary
-        Win by not winning!
+        Twice of the blessings of a Nurikabe
 
         Description
-        1. The opposite of the famous game 'Connect Four', where you must line
-           up four tokens of the same colour.
-        2. In this puzzle you have to ensure that there are no more than three
-           tokens of the same colour lined up horizontally, vertically or
-           diagonally.
+        1. Fill the board with either meadows or soil, creating a path of soil
+           and a path of meadows, with the same rules for each of them.
+        2. The path is continuous and connected horizontally or vertically, but
+           cannot touch diagonally.
+        3. The path can't form 2x2 squares.
+        4. These type of paths are called Nurikabe.
     */
     private func updateIsSolved() {
         isSolved = true
+        var meadows = [Position](), soils = [Position]()
         for r in 0..<rows {
             for c in 0..<cols {
-                pos2state[Position(r, c)] = .normal
-            }
-        }
-        var oLast: FieldsObject = .empty
-        var tokens = [Position]()
-        func checkTokens() {
-            if tokens.count > 3 {
-                isSolved = false
-                for p in tokens {
-                    pos2state[p] = .error
-                }
-            }
-            tokens.removeAll()
-        }
-        for r in 0..<rows {
-            oLast = .empty
-            for c in 0..<cols {
                 let p = Position(r, c)
-                let o = self[p]
-                if o != oLast {
-                    checkTokens()
-                    oLast = o
-                }
-                if o == .empty {
+                pos2state[p] = .normal
+                switch self[p] {
+                case .empty:
                     isSolved = false
-                } else {
-                    tokens.append(p)
+                case .meadow:
+                    meadows.append(p)
+                case .soil:
+                    soils.append(p)
                 }
             }
-            checkTokens()
         }
-        for c in 0..<cols {
-            oLast = .empty
-            for r in 0..<rows {
+        // 3. The path can't form 2x2 squares.
+        for r in 0..<rows - 1 {
+            for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                let o = self[p]
-                if o != oLast {
-                    checkTokens()
-                    oLast = o
-                }
-                if o == .empty {
+                let square = FieldsGame.offset2.map { p + $0 }
+                let objSet = Set(square.map { self[$0] })
+                if objSet.count == 1 && objSet.first != .empty {
                     isSolved = false
-                } else {
-                    tokens.append(p)
+                    for p in square {
+                        pos2state[p] = .error
+                    }
                 }
             }
-            checkTokens()
+        }
+        // 1. Fill the board with either meadows or soil, creating a path of soil
+        //    and a path of meadows, with the same rules for each of them.
+        // 2. The path is continuous and connected horizontally or vertically, but
+        //    cannot touch diagonally.
+        for fields in [meadows, soils] {
+            let g = Graph()
+            var pos2node = [Position: Node]()
+            for p in fields {
+                pos2node[p] = g.addNode(p.description)
+            }
+            for (p, node) in pos2node {
+                for os in FieldsGame.offset {
+                    let p2 = p + os
+                    guard let node2 = pos2node[p2] else {continue}
+                    g.addEdge(node, neighbor: node2)
+                }
+            }
+            let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+            if nodesExplored.count != pos2node.count { isSolved = false }
         }
     }
 }
