@@ -645,6 +645,15 @@
 		8C7E4B4B1F793C9800B57C60 /* TennerGridMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7E4B401F793A6100B57C60 /* TennerGridMainViewController.swift */; };
 		8C7E4B4C1F793C9800B57C60 /* TennerGridObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7E4B411F793A6100B57C60 /* TennerGridObject.swift */; };
 		8C7E4B4E1F7940E300B57C60 /* TennerGrid.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C7E4B381F793A6100B57C60 /* TennerGrid.xml */; };
+		8C81BBFC2EA4A04F0083B936 /* GemsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BBF72EA4A04F0083B936 /* GemsGameViewController.swift */; };
+		8C81BBFD2EA4A04F0083B936 /* GemsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BBF82EA4A04F0083B936 /* GemsGridNode.swift */; };
+		8C81BBFE2EA4A04F0083B936 /* GemsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BBF32EA4A04F0083B936 /* GemsDocument.swift */; };
+		8C81BBFF2EA4A04F0083B936 /* GemsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BBFA2EA4A04F0083B936 /* GemsObject.swift */; };
+		8C81BC002EA4A04F0083B936 /* GemsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BBF52EA4A04F0083B936 /* GemsGameScene.swift */; };
+		8C81BC012EA4A04F0083B936 /* GemsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BBF42EA4A04F0083B936 /* GemsGame.swift */; };
+		8C81BC022EA4A04F0083B936 /* GemsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BBF62EA4A04F0083B936 /* GemsGameState.swift */; };
+		8C81BC032EA4A04F0083B936 /* GemsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BBF92EA4A04F0083B936 /* GemsMainViewController.swift */; };
+		8C81BC042EA4A04F0083B936 /* Gems.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C81BBF22EA4A04F0083B936 /* Gems.xml */; };
 		8C8661C12EA115FA0078CD64 /* ThermometersGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661BA2EA115FA0078CD64 /* ThermometersGameScene.swift */; };
 		8C8661C22EA115FA0078CD64 /* ThermometersGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661BC2EA115FA0078CD64 /* ThermometersGameViewController.swift */; };
 		8C8661C32EA115FA0078CD64 /* ThermometersGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661B92EA115FA0078CD64 /* ThermometersGame.swift */; };
@@ -1902,6 +1911,15 @@
 		8C7E4B3E1F793A6100B57C60 /* TennerGridGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennerGridGridNode.swift; sourceTree = "<group>"; };
 		8C7E4B401F793A6100B57C60 /* TennerGridMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennerGridMainViewController.swift; sourceTree = "<group>"; };
 		8C7E4B411F793A6100B57C60 /* TennerGridObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennerGridObject.swift; sourceTree = "<group>"; };
+		8C81BBF22EA4A04F0083B936 /* Gems.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Gems.xml; sourceTree = "<group>"; };
+		8C81BBF32EA4A04F0083B936 /* GemsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemsDocument.swift; sourceTree = "<group>"; };
+		8C81BBF42EA4A04F0083B936 /* GemsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemsGame.swift; sourceTree = "<group>"; };
+		8C81BBF52EA4A04F0083B936 /* GemsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemsGameScene.swift; sourceTree = "<group>"; };
+		8C81BBF62EA4A04F0083B936 /* GemsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemsGameState.swift; sourceTree = "<group>"; };
+		8C81BBF72EA4A04F0083B936 /* GemsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemsGameViewController.swift; sourceTree = "<group>"; };
+		8C81BBF82EA4A04F0083B936 /* GemsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemsGridNode.swift; sourceTree = "<group>"; };
+		8C81BBF92EA4A04F0083B936 /* GemsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemsMainViewController.swift; sourceTree = "<group>"; };
+		8C81BBFA2EA4A04F0083B936 /* GemsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemsObject.swift; sourceTree = "<group>"; };
 		8C8661B72EA115FA0078CD64 /* Thermometers.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Thermometers.xml; sourceTree = "<group>"; };
 		8C8661B82EA115FA0078CD64 /* ThermometersDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThermometersDocument.swift; sourceTree = "<group>"; };
 		8C8661B92EA115FA0078CD64 /* ThermometersGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThermometersGame.swift; sourceTree = "<group>"; };
@@ -2848,6 +2866,7 @@
 				8CE43BCB1FEE6C7B00DCCD91 /* Futoshiki */,
 				8C2973D51EE7284C0022A18A /* Galaxies */,
 				8C35E37E1FC2844E00A26EE3 /* Gardener */,
+				8C81BBFB2EA4A04F0083B936 /* Gems */,
 				7DF1B04E2E8A7EB6006008A3 /* HiddenPath */,
 				8C8E77E22E89D4CC006BBF98 /* HiddenStars */,
 				8CACC92E2E9BC56E00F53475 /* Hidoku */,
@@ -3810,6 +3829,22 @@
 				8C7E4B411F793A6100B57C60 /* TennerGridObject.swift */,
 			);
 			path = TennerGrid;
+			sourceTree = "<group>";
+		};
+		8C81BBFB2EA4A04F0083B936 /* Gems */ = {
+			isa = PBXGroup;
+			children = (
+				8C81BBF22EA4A04F0083B936 /* Gems.xml */,
+				8C81BBF32EA4A04F0083B936 /* GemsDocument.swift */,
+				8C81BBF42EA4A04F0083B936 /* GemsGame.swift */,
+				8C81BBF52EA4A04F0083B936 /* GemsGameScene.swift */,
+				8C81BBF62EA4A04F0083B936 /* GemsGameState.swift */,
+				8C81BBF72EA4A04F0083B936 /* GemsGameViewController.swift */,
+				8C81BBF82EA4A04F0083B936 /* GemsGridNode.swift */,
+				8C81BBF92EA4A04F0083B936 /* GemsMainViewController.swift */,
+				8C81BBFA2EA4A04F0083B936 /* GemsObject.swift */,
+			);
+			path = Gems;
 			sourceTree = "<group>";
 		};
 		8C8661C02EA115FA0078CD64 /* Thermometers */ = {
@@ -5061,6 +5096,7 @@
 				8C8663F82EA39DD00078CD64 /* B5.png in Resources */,
 				8C8663F92EA39DD00078CD64 /* thermometer2A.png in Resources */,
 				8C8663FA2EA39DD00078CD64 /* bullet_ball_glass_yellow.png in Resources */,
+				8C81BC042EA4A04F0083B936 /* Gems.xml in Resources */,
 				8C8663FB2EA39DD00078CD64 /* tomato.png in Resources */,
 				8C8663FC2EA39DD00078CD64 /* flower_blue.png in Resources */,
 				8C8663FD2EA39DD00078CD64 /* forest_lighter.png in Resources */,
@@ -5994,6 +6030,14 @@
 				8C3A366E1EC88D4200A914A5 /* DominoGame.swift in Sources */,
 				8C3A35F21EC88D4200A914A5 /* AbcObject.swift in Sources */,
 				8CA042F51FDB930A00AF85E1 /* CalcudokuGame.swift in Sources */,
+				8C81BBFC2EA4A04F0083B936 /* GemsGameViewController.swift in Sources */,
+				8C81BBFD2EA4A04F0083B936 /* GemsGridNode.swift in Sources */,
+				8C81BBFE2EA4A04F0083B936 /* GemsDocument.swift in Sources */,
+				8C81BBFF2EA4A04F0083B936 /* GemsObject.swift in Sources */,
+				8C81BC002EA4A04F0083B936 /* GemsGameScene.swift in Sources */,
+				8C81BC012EA4A04F0083B936 /* GemsGame.swift in Sources */,
+				8C81BC022EA4A04F0083B936 /* GemsGameState.swift in Sources */,
+				8C81BC032EA4A04F0083B936 /* GemsMainViewController.swift in Sources */,
 				8C2AF8321ED5FB0000EC84AB /* NumberPathGameViewController.swift in Sources */,
 				8C9F32E91ED1FCFF00E10965 /* TapAlikeGridNode.swift in Sources */,
 				8CE9C3181F7914B800134093 /* KakurasuObject.swift in Sources */,
