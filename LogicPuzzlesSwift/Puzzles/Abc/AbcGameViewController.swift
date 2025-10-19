@@ -19,7 +19,7 @@ class AbcGameViewController: GameGameViewController2<AbcGameState, AbcGame, AbcD
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = AbcGameMove(p: p, obj: " ")
+        var move = AbcGameMove(p: p)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     

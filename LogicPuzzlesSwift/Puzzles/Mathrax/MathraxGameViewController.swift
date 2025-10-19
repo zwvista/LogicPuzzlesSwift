@@ -19,7 +19,7 @@ class MathraxGameViewController: GameGameViewController2<MathraxGameState, Mathr
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = MathraxGameMove(p: p, obj: 0)
+        var move = MathraxGameMove(p: p)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
    

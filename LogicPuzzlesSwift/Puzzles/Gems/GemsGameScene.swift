@@ -33,11 +33,11 @@ class GemsGameScene: GameScene<GemsGameState> {
                 let p = Position(r, c)
                 let point = gridNode.gridPosition(p: p)
                 let n = state[p]
-                guard n != 0 else {continue}
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
-                let numNodeName = "num" + nodeNameSuffix
-                let s = state.pos2state(row: r, col: c)
-                addNumber(n: n, s: s, isHint: !game.isValid(p: p), point: point, nodeName: numNodeName)
+//                guard n != 0 else {continue}
+//                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+//                let numNodeName = "num" + nodeNameSuffix
+//                let s = state.pos2state(row: r, col: c)
+//                addNumber(n: n, s: s, isHint: !game.isValid(p: p), point: point, nodeName: numNodeName)
             }
         }
     }
@@ -51,10 +51,10 @@ class GemsGameScene: GameScene<GemsGameState> {
                 let numNodeName = "num" + nodeNameSuffix
                 func removeNumber() { removeNode(withName: numNodeName) }
                 let (n1, n2) = (stateFrom[r, c], stateTo[r, c])
-                let (s1, s2) = (stateFrom.pos2state(row: r, col: c), stateTo.pos2state(row: r, col: c))
-                guard n1 != n2 || s1 != s2 else {continue}
-                if (n1 != 0) { removeNumber() }
-                if (n2 != 0) { addNumber(n: n2, s: s2, isHint: !stateFrom.game.isValid(p: p), point: point, nodeName: numNodeName) }
+//                let (s1, s2) = (stateFrom.pos2state(row: r, col: c), stateTo.pos2state(row: r, col: c))
+//                guard n1 != n2 || s1 != s2 else {continue}
+//                if (n1 != 0) { removeNumber() }
+//                if (n2 != 0) { addNumber(n: n2, s: s2, isHint: !stateFrom.game.isValid(p: p), point: point, nodeName: numNodeName) }
             }
         }
     }

@@ -24,7 +24,7 @@ class MasyuGameViewController: GameGameViewController2<MasyuGameState, MasyuGame
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let (p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
-        var move = MasyuGameMove(p: p, dir: dir)
+        var move = MasyuGameMove(p: p)
         if game.setObject(move: &move) { soundManager.playSoundTap() }
     }
     
@@ -43,7 +43,7 @@ class MasyuGameViewController: GameGameViewController2<MasyuGameState, MasyuGame
             guard pLast != p else {break}
             defer { pLast = p }
             guard let dir = MasyuGame.offset.firstIndex(of: p - pLast!) else {break}
-            var move = MasyuGameMove(p: pLast!, dir: dir)
+            var move = MasyuGameMove(p: p)
             if game.setObject(move: &move) { f() }
         default:
             break

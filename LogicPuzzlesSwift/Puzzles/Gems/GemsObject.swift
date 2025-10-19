@@ -8,7 +8,14 @@
 
 import Foundation
 
+enum GemsObject: Int {
+    case empty, forbidden, marker, gem, pebble
+    init() {
+        self = .empty
+    }
+}
+
 struct GemsGameMove {
     var p = Position()
-    var obj = 0
+    var obj = GemsObject()
 }

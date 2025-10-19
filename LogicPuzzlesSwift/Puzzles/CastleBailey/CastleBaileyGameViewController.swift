@@ -19,7 +19,7 @@ class CastleBaileyGameViewController: GameGameViewController2<CastleBaileyGameSt
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = CastleBaileyGameMove(p: p, obj: .empty)
+        var move = CastleBaileyGameMove(p: p)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
    

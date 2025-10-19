@@ -20,7 +20,7 @@ class LineSweeperGameViewController: GameGameViewController2<LineSweeperGameStat
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let (p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
-        var move = LineSweeperGameMove(p: p, dir: dir)
+        var move = LineSweeperGameMove(p: p)
         if game.setObject(move: &move) { soundManager.playSoundTap() }
     }
     
@@ -41,7 +41,7 @@ class LineSweeperGameViewController: GameGameViewController2<LineSweeperGameStat
             guard !isH && pLast != nil && pLast != p else {break}
             defer { pLast = p }
             guard let dir = LineSweeperGame.offset.firstIndex(of: p - pLast!) else {break}
-            var move = LineSweeperGameMove(p: pLast!, dir: dir / 2)
+            var move = LineSweeperGameMove(p: p)
             if game.setObject(move: &move) { f() }
         case .ended:
             pLast = nil

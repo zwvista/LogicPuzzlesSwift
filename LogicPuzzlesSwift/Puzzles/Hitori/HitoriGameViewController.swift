@@ -19,7 +19,7 @@ class HitoriGameViewController: GameGameViewController2<HitoriGameState, HitoriG
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = HitoriGameMove(p: p, obj: .normal)
+        var move = HitoriGameMove(p: p)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     

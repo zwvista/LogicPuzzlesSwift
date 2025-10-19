@@ -19,7 +19,7 @@ class BalancedTapasGameViewController: GameGameViewController2<BalancedTapasGame
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = BalancedTapasGameMove(p: p, obj: .empty)
+        var move = BalancedTapasGameMove(p: p)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     

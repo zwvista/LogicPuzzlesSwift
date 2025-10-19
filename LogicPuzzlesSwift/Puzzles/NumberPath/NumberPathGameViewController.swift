@@ -24,7 +24,7 @@ class NumberPathGameViewController: GameGameViewController2<NumberPathGameState,
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let (p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
-        var move = NumberPathGameMove(p: p, dir: dir)
+        var move = NumberPathGameMove(p: p)
         if game.setObject(move: &move) { soundManager.playSoundTap() }
     }
     
@@ -43,7 +43,7 @@ class NumberPathGameViewController: GameGameViewController2<NumberPathGameState,
             guard pLast != p else {break}
             defer { pLast = p }
             guard let dir = NumberPathGame.offset.firstIndex(of: p - pLast!) else {break}
-            var move = NumberPathGameMove(p: pLast!, dir: dir)
+            var move = NumberPathGameMove(p: p)
             if game.setObject(move: &move) { f() }
         default:
             break

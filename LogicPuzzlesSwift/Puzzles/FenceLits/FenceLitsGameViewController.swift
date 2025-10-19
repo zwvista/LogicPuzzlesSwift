@@ -20,7 +20,7 @@ class FenceLitsGameViewController: GameGameViewController2<FenceLitsGameState, F
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let (b, p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
         guard b else {return}
-        var move = FenceLitsGameMove(p: p, dir: dir, obj: .empty)
+        var move = FenceLitsGameMove(p: p)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     

@@ -19,7 +19,7 @@ class LightenUpGameViewController: GameGameViewController2<LightenUpGameState, L
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = LightenUpGameMove(p: p, objType: .empty)
+        var move = LightenUpGameMove(p: p)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     

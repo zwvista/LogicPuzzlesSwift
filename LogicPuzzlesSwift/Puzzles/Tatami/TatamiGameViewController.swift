@@ -19,7 +19,7 @@ class TatamiGameViewController: GameGameViewController2<TatamiGameState, TatamiG
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = TatamiGameMove(p: p, obj: " ")
+        var move = TatamiGameMove(p: p)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
    

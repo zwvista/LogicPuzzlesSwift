@@ -19,7 +19,7 @@ class SkyscrapersGameViewController: GameGameViewController2<SkyscrapersGameStat
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = SkyscrapersGameMove(p: p, obj: 0)
+        var move = SkyscrapersGameMove(p: p)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     

@@ -19,7 +19,7 @@ class GemsGameViewController: GameGameViewController2<GemsGameState, GemsGame, G
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = GemsGameMove(p: p, obj: 0)
+        var move = GemsGameMove(p: p)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     

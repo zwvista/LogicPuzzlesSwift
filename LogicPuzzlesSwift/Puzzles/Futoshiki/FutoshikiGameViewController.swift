@@ -19,7 +19,7 @@ class FutoshikiGameViewController: GameGameViewController2<FutoshikiGameState, F
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = FutoshikiGameMove(p: p, obj: " ")
+        var move = FutoshikiGameMove(p: p)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
    

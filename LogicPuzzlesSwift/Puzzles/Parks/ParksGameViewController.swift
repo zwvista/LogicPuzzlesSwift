@@ -19,7 +19,7 @@ class ParksGameViewController: GameGameViewController2<ParksGameState, ParksGame
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = ParksGameMove(p: p, obj: .empty)
+        var move = ParksGameMove(p: p)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
    

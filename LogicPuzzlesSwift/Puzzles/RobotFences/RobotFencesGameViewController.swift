@@ -19,7 +19,7 @@ class RobotFencesGameViewController: GameGameViewController2<RobotFencesGameStat
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = RobotFencesGameMove(p: p, obj: -1)
+        var move = RobotFencesGameMove(p: p)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     

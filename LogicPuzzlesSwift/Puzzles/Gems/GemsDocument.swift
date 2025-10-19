@@ -13,10 +13,10 @@ class GemsDocument: GameDocument<GemsGameMove> {
     
     override func saveMove(_ move: GemsGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.intValue1 = move.obj
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> GemsGameMove {
-        GemsGameMove(p: Position(rec.row, rec.col), obj: rec.intValue1)
+        GemsGameMove(p: Position(rec.row, rec.col), obj: GemsObject(rawValue: rec.intValue1)!)
     }
 }

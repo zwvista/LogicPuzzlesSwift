@@ -20,7 +20,7 @@ class RoomsGameViewController: GameGameViewController2<RoomsGameState, RoomsGame
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let (b, p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
         guard b else {return}
-        var move = RoomsGameMove(p: p, dir: dir, obj: .empty)
+        var move = RoomsGameMove(p: p)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     

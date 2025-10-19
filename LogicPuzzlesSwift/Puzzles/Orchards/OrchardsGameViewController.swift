@@ -19,7 +19,7 @@ class OrchardsGameViewController: GameGameViewController2<OrchardsGameState, Orc
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = OrchardsGameMove(p: p, obj: .empty)
+        var move = OrchardsGameMove(p: p)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
    

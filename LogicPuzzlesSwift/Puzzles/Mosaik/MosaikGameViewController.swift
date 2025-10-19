@@ -19,7 +19,7 @@ class MosaikGameViewController: GameGameViewController2<MosaikGameState, MosaikG
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = MosaikGameMove(p: p, obj: .empty)
+        var move = MosaikGameMove(p: p)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     

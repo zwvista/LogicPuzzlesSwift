@@ -20,7 +20,7 @@ class GalaxiesGameViewController: GameGameViewController2<GalaxiesGameState, Gal
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let (b, p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
         guard b else {return}
-        var move = GalaxiesGameMove(p: p, dir: dir, obj: .empty)
+        var move = GalaxiesGameMove(p: p)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     

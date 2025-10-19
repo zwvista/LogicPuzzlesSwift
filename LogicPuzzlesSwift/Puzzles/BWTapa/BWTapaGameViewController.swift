@@ -19,7 +19,7 @@ class BWTapaGameViewController: GameGameViewController2<BWTapaGameState, BWTapaG
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = BWTapaGameMove(p: p, obj: .empty)
+        var move = BWTapaGameMove(p: p)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     

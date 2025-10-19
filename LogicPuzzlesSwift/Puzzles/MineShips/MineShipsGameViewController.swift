@@ -19,7 +19,7 @@ class MineShipsGameViewController: GameGameViewController2<MineShipsGameState, M
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = MineShipsGameMove(p: p, obj: .empty)
+        var move = MineShipsGameMove(p: p)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     
