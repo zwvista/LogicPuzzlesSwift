@@ -35,5 +35,5 @@ class GemsGame: GridGame<GemsGameState> {
         let state = GemsGameState(game: self)
         levelInitialized(state: state)
     }
-    
+
 }

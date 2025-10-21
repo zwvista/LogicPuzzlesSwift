@@ -50,25 +50,22 @@ class GemsGameScene: GameScene<GemsGameState> {
                 let tileNodeName = "tile" + nodeNameSuffix
                 let n = stateFrom.game.pos2hint[p]
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
-                guard o1 != o2 || s1 != s2 else {continue}
+                guard String(describing: o1) != String(describing: o2) else {continue}
                 removeNode(withName: tileNodeName)
-                func f(imageName: String) {
-                    addImage(imageNamed: imageName, color: .red, colorBlendFactor: s2 == .normal ? 0.0 : 0.5, point: point, nodeName: tileNodeName)
+                func f(imageName: String, s: AllowedObjectState) {
+                    addImage(imageNamed: imageName, color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: tileNodeName)
                 }
-                if 1..<stateFrom.rows - 1 ~= r && 1..<stateFrom.cols - 1 ~= c {
-                    switch o2 {
-                    case .gem:
-                        f(imageName: "bullet_ball_glass_blue")
-                    case .pebble:
-                        f(imageName: "bullet_ball_glass_grey")
-                    case .marker:
-                        addDotMarker(point: point, nodeName: tileNodeName)
-                    default:
-                        break
-                    }
-                } else {
-                    addHint(n: n!, s: s2 ?? .normal, point: point, nodeName: tileNodeName)
+                switch o2 {
+                case .gem(let s):
+                    f(imageName: "bullet_ball_glass_blue", s: s)
+                case .hint(let s):
+                    addHint(n: n!, s: s, point: point, nodeName: tileNodeName)
+                case .marker:
+                    addDotMarker(point: point, nodeName: tileNodeName)
+                case .pebble:
+                    f(imageName: "bullet_ball_glass_grey", s: .normal)
+                default:
+                    break
                 }
             }
         }
