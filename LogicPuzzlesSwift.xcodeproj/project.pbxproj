@@ -654,6 +654,15 @@
 		8C81BC022EA4A04F0083B936 /* GemsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BBF62EA4A04F0083B936 /* GemsGameState.swift */; };
 		8C81BC032EA4A04F0083B936 /* GemsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BBF92EA4A04F0083B936 /* GemsMainViewController.swift */; };
 		8C81BC042EA4A04F0083B936 /* Gems.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C81BBF22EA4A04F0083B936 /* Gems.xml */; };
+		8C81BC102EA84D010083B936 /* TraceNumbersGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BC0C2EA84D010083B936 /* TraceNumbersGridNode.swift */; };
+		8C81BC112EA84D010083B936 /* TraceNumbersGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BC0A2EA84D010083B936 /* TraceNumbersGameState.swift */; };
+		8C81BC122EA84D010083B936 /* TraceNumbersObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BC0E2EA84D010083B936 /* TraceNumbersObject.swift */; };
+		8C81BC132EA84D010083B936 /* TraceNumbersMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BC0D2EA84D010083B936 /* TraceNumbersMainViewController.swift */; };
+		8C81BC142EA84D010083B936 /* TraceNumbersDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BC072EA84D010083B936 /* TraceNumbersDocument.swift */; };
+		8C81BC152EA84D010083B936 /* TraceNumbersGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BC082EA84D010083B936 /* TraceNumbersGame.swift */; };
+		8C81BC162EA84D010083B936 /* TraceNumbersGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BC0B2EA84D010083B936 /* TraceNumbersGameViewController.swift */; };
+		8C81BC172EA84D010083B936 /* TraceNumbersGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BC092EA84D010083B936 /* TraceNumbersGameScene.swift */; };
+		8C81BC182EA84D010083B936 /* TraceNumbers.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C81BC062EA84D010083B936 /* TraceNumbers.xml */; };
 		8C8661C12EA115FA0078CD64 /* ThermometersGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661BA2EA115FA0078CD64 /* ThermometersGameScene.swift */; };
 		8C8661C22EA115FA0078CD64 /* ThermometersGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661BC2EA115FA0078CD64 /* ThermometersGameViewController.swift */; };
 		8C8661C32EA115FA0078CD64 /* ThermometersGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661B92EA115FA0078CD64 /* ThermometersGame.swift */; };
@@ -1920,6 +1929,15 @@
 		8C81BBF82EA4A04F0083B936 /* GemsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemsGridNode.swift; sourceTree = "<group>"; };
 		8C81BBF92EA4A04F0083B936 /* GemsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemsMainViewController.swift; sourceTree = "<group>"; };
 		8C81BBFA2EA4A04F0083B936 /* GemsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GemsObject.swift; sourceTree = "<group>"; };
+		8C81BC062EA84D010083B936 /* TraceNumbers.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TraceNumbers.xml; sourceTree = "<group>"; };
+		8C81BC072EA84D010083B936 /* TraceNumbersDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceNumbersDocument.swift; sourceTree = "<group>"; };
+		8C81BC082EA84D010083B936 /* TraceNumbersGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceNumbersGame.swift; sourceTree = "<group>"; };
+		8C81BC092EA84D010083B936 /* TraceNumbersGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceNumbersGameScene.swift; sourceTree = "<group>"; };
+		8C81BC0A2EA84D010083B936 /* TraceNumbersGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceNumbersGameState.swift; sourceTree = "<group>"; };
+		8C81BC0B2EA84D010083B936 /* TraceNumbersGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceNumbersGameViewController.swift; sourceTree = "<group>"; };
+		8C81BC0C2EA84D010083B936 /* TraceNumbersGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceNumbersGridNode.swift; sourceTree = "<group>"; };
+		8C81BC0D2EA84D010083B936 /* TraceNumbersMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceNumbersMainViewController.swift; sourceTree = "<group>"; };
+		8C81BC0E2EA84D010083B936 /* TraceNumbersObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceNumbersObject.swift; sourceTree = "<group>"; };
 		8C8661B72EA115FA0078CD64 /* Thermometers.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Thermometers.xml; sourceTree = "<group>"; };
 		8C8661B82EA115FA0078CD64 /* ThermometersDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThermometersDocument.swift; sourceTree = "<group>"; };
 		8C8661B92EA115FA0078CD64 /* ThermometersGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThermometersGame.swift; sourceTree = "<group>"; };
@@ -2929,6 +2947,7 @@
 				8C6A36031FAF97AF00D2804D /* TheOddBrick */,
 				8C8661C02EA115FA0078CD64 /* Thermometers */,
 				8C2319E21FB88E3F0021C680 /* TierraDelFuego */,
+				8C81BC0F2EA84D010083B936 /* TraceNumbers */,
 				8CAFBFDA2E9F19A500C27D7C /* TurnTwice */,
 				8C35E3971FC4839000A26EE3 /* Walls */,
 				8CFAF995202615560095EFFC /* WallSentinels */,
@@ -3845,6 +3864,22 @@
 				8C81BBFA2EA4A04F0083B936 /* GemsObject.swift */,
 			);
 			path = Gems;
+			sourceTree = "<group>";
+		};
+		8C81BC0F2EA84D010083B936 /* TraceNumbers */ = {
+			isa = PBXGroup;
+			children = (
+				8C81BC062EA84D010083B936 /* TraceNumbers.xml */,
+				8C81BC072EA84D010083B936 /* TraceNumbersDocument.swift */,
+				8C81BC082EA84D010083B936 /* TraceNumbersGame.swift */,
+				8C81BC092EA84D010083B936 /* TraceNumbersGameScene.swift */,
+				8C81BC0A2EA84D010083B936 /* TraceNumbersGameState.swift */,
+				8C81BC0B2EA84D010083B936 /* TraceNumbersGameViewController.swift */,
+				8C81BC0C2EA84D010083B936 /* TraceNumbersGridNode.swift */,
+				8C81BC0D2EA84D010083B936 /* TraceNumbersMainViewController.swift */,
+				8C81BC0E2EA84D010083B936 /* TraceNumbersObject.swift */,
+			);
+			path = TraceNumbers;
 			sourceTree = "<group>";
 		};
 		8C8661C02EA115FA0078CD64 /* Thermometers */ = {
@@ -5204,6 +5239,7 @@
 				8C7474541FBED8BD00C4112C /* ParkLakes.xml in Resources */,
 				8CDAE8081F646C29000DE5AF /* BalancedTapas.xml in Resources */,
 				8C9F32B41ED1FB0700E10965 /* TapaIslands.xml in Resources */,
+				8C81BC182EA84D010083B936 /* TraceNumbers.xml in Resources */,
 				8CA646241FF3EEB0004707E5 /* music1.wav in Resources */,
 				8C3A372C1EC88D4300A914A5 /* Mosaik.xml in Resources */,
 				8C8662032EA383740078CD64 /* Fields.xml in Resources */,
@@ -5760,6 +5796,14 @@
 				8C3A37CB1EC88D4400A914A5 /* SumscrapersGameScene.swift in Sources */,
 				8C3A36A11EC88D4200A914A5 /* HitoriGameViewController.swift in Sources */,
 				8C3A376A1EC88D4300A914A5 /* ParksGame.swift in Sources */,
+				8C81BC102EA84D010083B936 /* TraceNumbersGridNode.swift in Sources */,
+				8C81BC112EA84D010083B936 /* TraceNumbersGameState.swift in Sources */,
+				8C81BC122EA84D010083B936 /* TraceNumbersObject.swift in Sources */,
+				8C81BC132EA84D010083B936 /* TraceNumbersMainViewController.swift in Sources */,
+				8C81BC142EA84D010083B936 /* TraceNumbersDocument.swift in Sources */,
+				8C81BC152EA84D010083B936 /* TraceNumbersGame.swift in Sources */,
+				8C81BC162EA84D010083B936 /* TraceNumbersGameViewController.swift in Sources */,
+				8C81BC172EA84D010083B936 /* TraceNumbersGameScene.swift in Sources */,
 				8C6D37FE1DC5B4EB0052202C /* GameState.swift in Sources */,
 				8C3A37171EC88D4300A914A5 /* MinesweeperGameScene.swift in Sources */,
 				8C35E3901FC2844F00A26EE3 /* GardenerGameViewController.swift in Sources */,
