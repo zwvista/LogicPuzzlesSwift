@@ -104,7 +104,6 @@ class TraceNumbersGameState: GridGameState<TraceNumbersGameMove> {
             var os = TraceNumbersGame.offset[i]
             var p2 = p + os
             while true {
-                guard game.isValid(p: p2) else { isSolved = false; return }
                 let ch = game[p2]
                 if ch != " " { chars.append(ch) }
                 let j = (i + 2) % 4

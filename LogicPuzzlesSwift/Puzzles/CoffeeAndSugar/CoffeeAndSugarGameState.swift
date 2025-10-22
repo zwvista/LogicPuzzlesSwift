@@ -91,19 +91,21 @@ class CoffeeAndSugarGameState: GridGameState<CoffeeAndSugarGameMove> {
                     sugarArray.append(p)
                 default:
                     guard [0, 2, 3].contains(cnt) else { isSolved = false; return }
-                    emptyArray.append(p)
+                    if cnt != 0 { emptyArray.append(p) }
                 }
             }
         }
+        var sugarArray2 = [Position]()
+        var emptyArray2 = [Position]()
         for p in coffeeArray {
-            var i = ch2dirs[p]!.first!
+            let i = ch2dirs[p]!.first!
             var os = CoffeeAndSugarGame.offset[i]
             var p2 = p + os
             var dirs = [Int]()
             while true {
-                guard isValid(p: p2) else { isSolved = false; return }
                 let ch = game[p2]
                 guard ch == " " else { isSolved = false; return }
+                emptyArray2.append(p2)
                 let j = (i + 2) % 4
                 dirs = ch2dirs[p2]!
                 guard dirs.contains(j) else { isSolved = false; return }
@@ -114,12 +116,30 @@ class CoffeeAndSugarGameState: GridGameState<CoffeeAndSugarGameMove> {
                 }
                 let k = dirs.first!
                 guard k == i else { isSolved = false; return }
-                os = CoffeeAndSugarGame.offset[i]
                 p2 += os
             }
-            for j in dirs {
-                
+            for i in dirs {
+                os = CoffeeAndSugarGame.offset[i]
+                var p3 = p2 + os
+                while true {
+                    let ch = game[p3]
+                    guard ch == " " || ch == CoffeeAndSugarGame.PUZ_SUGAR else { isSolved = false; return }
+                    var dirs2 = ch2dirs[p3]!
+                    let j = (i + 2) % 4
+                    guard dirs2.contains(j) else { isSolved = false; return }
+                    if ch == CoffeeAndSugarGame.PUZ_SUGAR {
+                        sugarArray2.append(p3)
+                        break
+                    }
+                    emptyArray2.append(p3)
+                    dirs2 = dirs2.filter { $0 != j }
+                    guard dirs2.count == 1 else { isSolved = false; return }
+                    let k = dirs2.first!
+                    guard k == i else { isSolved = false; return }
+                    p3 += os
+                }
             }
         }
+        if (sugarArray.count, emptyArray.count) != (sugarArray2.count, emptyArray2.count) { isSolved = false }
     }
 }
