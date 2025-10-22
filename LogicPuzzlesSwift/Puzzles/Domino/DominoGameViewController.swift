@@ -20,7 +20,7 @@ class DominoGameViewController: GameGameViewController2<DominoGameState, DominoG
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let (b, p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
         guard b else {return}
-        var move = DominoGameMove(p: p)
+        var move = DominoGameMove(p: p, dir: dir)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     

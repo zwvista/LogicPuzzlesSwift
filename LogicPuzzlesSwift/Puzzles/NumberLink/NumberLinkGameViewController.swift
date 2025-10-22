@@ -24,7 +24,7 @@ class NumberLinkGameViewController: GameGameViewController2<NumberLinkGameState,
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let (p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
-        var move = NumberLinkGameMove(p: p)
+        var move = NumberLinkGameMove(p: p, dir: dir)
         if game.setObject(move: &move) { soundManager.playSoundTap() }
     }
     

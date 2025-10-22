@@ -20,7 +20,7 @@ class BoxItAroundGameViewController: GameGameViewController2<BoxItAroundGameStat
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let (b, p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
         guard b else {return}
-        var move = BoxItAroundGameMove(p: p)
+        var move = BoxItAroundGameMove(p: p, dir: dir)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
 

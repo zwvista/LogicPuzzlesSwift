@@ -20,7 +20,7 @@ class CarpentersSquareGameViewController: GameGameViewController2<CarpentersSqua
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let (b, p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
         guard b else {return}
-        var move = CarpentersSquareGameMove(p: p)
+        var move = CarpentersSquareGameMove(p: p, dir: dir)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     

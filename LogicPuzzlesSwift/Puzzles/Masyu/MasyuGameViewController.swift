@@ -24,7 +24,7 @@ class MasyuGameViewController: GameGameViewController2<MasyuGameState, MasyuGame
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let (p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
-        var move = MasyuGameMove(p: p)
+        var move = MasyuGameMove(p: p, dir: dir)
         if game.setObject(move: &move) { soundManager.playSoundTap() }
     }
     

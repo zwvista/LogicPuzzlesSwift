@@ -20,7 +20,7 @@ class MaketheDifferenceGameViewController: GameGameViewController2<MaketheDiffer
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let (b, p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
         guard b else {return}
-        var move = MaketheDifferenceGameMove(p: p)
+        var move = MaketheDifferenceGameMove(p: p, dir: dir)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     

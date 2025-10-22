@@ -20,7 +20,7 @@ class OverUnderGameViewController: GameGameViewController2<OverUnderGameState, O
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let (b, p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
         guard b else {return}
-        var move = OverUnderGameMove(p: p)
+        var move = OverUnderGameMove(p: p, dir: dir)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     

@@ -24,7 +24,7 @@ class TraceNumbersGameViewController: GameGameViewController2<TraceNumbersGameSt
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let (p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
-        var move = TraceNumbersGameMove(p: p)
+        var move = TraceNumbersGameMove(p: p, dir: dir)
         if game.setObject(move: &move) { soundManager.playSoundTap() }
     }
     
