@@ -104,9 +104,13 @@ class TraceNumbersGameState: GridGameState<TraceNumbersGameMove> {
             var os = TraceNumbersGame.offset[i]
             var p2 = p + os
             while true {
+                guard game.isValid(p: p2) else { isSolved = false; return }
                 let ch = game[p2]
                 if ch != " " { chars.append(ch) }
-                let dirs = ch2dirs[p2]!.filter { $0 != (i + 2) % 4 }
+                let j = (i + 2) % 4
+                var dirs = ch2dirs[p2]!
+                if !dirs.contains(j) { isSolved = false; return }
+                dirs = dirs.filter { $0 != j }
                 guard !dirs.isEmpty else {break}
                 i = dirs.first!
                 os = TraceNumbersGame.offset[i]

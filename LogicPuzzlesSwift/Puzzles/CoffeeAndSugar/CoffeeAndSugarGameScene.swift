@@ -1,5 +1,5 @@
 //
-//  TraceNumbersGameScene.swift
+//  CoffeeAndSugarGameScene.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/09.
@@ -8,34 +8,34 @@
 
 import SpriteKit
 
-class TraceNumbersGameScene: GameScene<TraceNumbersGameState> {
-    var gridNode: TraceNumbersGridNode {
-        get { getGridNode() as! TraceNumbersGridNode }
+class CoffeeAndSugarGameScene: GameScene<CoffeeAndSugarGameState> {
+    var gridNode: CoffeeAndSugarGridNode {
+        get { getGridNode() as! CoffeeAndSugarGridNode }
         set { setGridNode(gridNode: newValue) }
     }
     
-    override func levelInitialized(_ game: AnyObject, state: TraceNumbersGameState, skView: SKView) {
-        let game = game as! TraceNumbersGame
+    override func levelInitialized(_ game: AnyObject, state: CoffeeAndSugarGameState, skView: SKView) {
+        let game = game as! CoffeeAndSugarGame
         removeAllChildren()
         let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
         
         // add Grid
         let offset:CGFloat = 0.5
-        addGrid(gridNode: TraceNumbersGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
+        addGrid(gridNode: CoffeeAndSugarGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
-        // add Numbers
+        // add CoffeeAndSugar
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let ch = game[r, c]
                 guard ch != " " else {continue}
                 let point = gridNode.gridPosition(p: p)
-                addLabel(text: String(ch), fontColor: .white, point: point, nodeName: "number")
+                addImage(imageNamed: ch == CoffeeAndSugarGame.PUZ_COFFEE ? "cup" : "cube_white", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "coffee_sugar")
             }
         }
     }
     
-    override func levelUpdated(from stateFrom: TraceNumbersGameState, to stateTo: TraceNumbersGameState) {
+    override func levelUpdated(from stateFrom: CoffeeAndSugarGameState, to stateTo: CoffeeAndSugarGameState) {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 for dir in 1...2 {

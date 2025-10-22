@@ -663,6 +663,15 @@
 		8C81BC162EA84D010083B936 /* TraceNumbersGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BC0B2EA84D010083B936 /* TraceNumbersGameViewController.swift */; };
 		8C81BC172EA84D010083B936 /* TraceNumbersGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BC092EA84D010083B936 /* TraceNumbersGameScene.swift */; };
 		8C81BC182EA84D010083B936 /* TraceNumbers.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C81BC062EA84D010083B936 /* TraceNumbers.xml */; };
+		8C81BC232EA8A6BD0083B936 /* CoffeeAndSugarGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BC1B2EA8A6BD0083B936 /* CoffeeAndSugarGame.swift */; };
+		8C81BC242EA8A6BD0083B936 /* CoffeeAndSugarGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BC1E2EA8A6BD0083B936 /* CoffeeAndSugarGameViewController.swift */; };
+		8C81BC252EA8A6BD0083B936 /* CoffeeAndSugarGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BC1F2EA8A6BD0083B936 /* CoffeeAndSugarGridNode.swift */; };
+		8C81BC262EA8A6BD0083B936 /* CoffeeAndSugarMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BC202EA8A6BD0083B936 /* CoffeeAndSugarMainViewController.swift */; };
+		8C81BC272EA8A6BD0083B936 /* CoffeeAndSugarGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BC1C2EA8A6BD0083B936 /* CoffeeAndSugarGameScene.swift */; };
+		8C81BC282EA8A6BD0083B936 /* CoffeeAndSugarGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BC1D2EA8A6BD0083B936 /* CoffeeAndSugarGameState.swift */; };
+		8C81BC292EA8A6BD0083B936 /* CoffeeAndSugarObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BC212EA8A6BD0083B936 /* CoffeeAndSugarObject.swift */; };
+		8C81BC2A2EA8A6BD0083B936 /* CoffeeAndSugarDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81BC1A2EA8A6BD0083B936 /* CoffeeAndSugarDocument.swift */; };
+		8C81BC2B2EA8A6BD0083B936 /* CoffeeAndSugar.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C81BC192EA8A6BD0083B936 /* CoffeeAndSugar.xml */; };
 		8C8661C12EA115FA0078CD64 /* ThermometersGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661BA2EA115FA0078CD64 /* ThermometersGameScene.swift */; };
 		8C8661C22EA115FA0078CD64 /* ThermometersGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661BC2EA115FA0078CD64 /* ThermometersGameViewController.swift */; };
 		8C8661C32EA115FA0078CD64 /* ThermometersGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8661B92EA115FA0078CD64 /* ThermometersGame.swift */; };
@@ -1938,6 +1947,15 @@
 		8C81BC0C2EA84D010083B936 /* TraceNumbersGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceNumbersGridNode.swift; sourceTree = "<group>"; };
 		8C81BC0D2EA84D010083B936 /* TraceNumbersMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceNumbersMainViewController.swift; sourceTree = "<group>"; };
 		8C81BC0E2EA84D010083B936 /* TraceNumbersObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceNumbersObject.swift; sourceTree = "<group>"; };
+		8C81BC192EA8A6BD0083B936 /* CoffeeAndSugar.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CoffeeAndSugar.xml; sourceTree = "<group>"; };
+		8C81BC1A2EA8A6BD0083B936 /* CoffeeAndSugarDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeAndSugarDocument.swift; sourceTree = "<group>"; };
+		8C81BC1B2EA8A6BD0083B936 /* CoffeeAndSugarGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeAndSugarGame.swift; sourceTree = "<group>"; };
+		8C81BC1C2EA8A6BD0083B936 /* CoffeeAndSugarGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeAndSugarGameScene.swift; sourceTree = "<group>"; };
+		8C81BC1D2EA8A6BD0083B936 /* CoffeeAndSugarGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeAndSugarGameState.swift; sourceTree = "<group>"; };
+		8C81BC1E2EA8A6BD0083B936 /* CoffeeAndSugarGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeAndSugarGameViewController.swift; sourceTree = "<group>"; };
+		8C81BC1F2EA8A6BD0083B936 /* CoffeeAndSugarGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeAndSugarGridNode.swift; sourceTree = "<group>"; };
+		8C81BC202EA8A6BD0083B936 /* CoffeeAndSugarMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeAndSugarMainViewController.swift; sourceTree = "<group>"; };
+		8C81BC212EA8A6BD0083B936 /* CoffeeAndSugarObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeAndSugarObject.swift; sourceTree = "<group>"; };
 		8C8661B72EA115FA0078CD64 /* Thermometers.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Thermometers.xml; sourceTree = "<group>"; };
 		8C8661B82EA115FA0078CD64 /* ThermometersDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThermometersDocument.swift; sourceTree = "<group>"; };
 		8C8661B92EA115FA0078CD64 /* ThermometersGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThermometersGame.swift; sourceTree = "<group>"; };
@@ -2872,6 +2890,7 @@
 				8CA042FB1FDBE77700AF85E1 /* CarpentersWall */,
 				8CFAF9AD20381D850095EFFC /* CastleBailey */,
 				8C3A342E1EC88D4100A914A5 /* Clouds */,
+				8C81BC222EA8A6BD0083B936 /* CoffeeAndSugar */,
 				8C3A343B1EC88D4100A914A5 /* DigitalBattleShips */,
 				8CF3FFC71FCB2A2600D41B67 /* DisconnectFour */,
 				8C3A34481EC88D4100A914A5 /* Domino */,
@@ -3880,6 +3899,22 @@
 				8C81BC0E2EA84D010083B936 /* TraceNumbersObject.swift */,
 			);
 			path = TraceNumbers;
+			sourceTree = "<group>";
+		};
+		8C81BC222EA8A6BD0083B936 /* CoffeeAndSugar */ = {
+			isa = PBXGroup;
+			children = (
+				8C81BC192EA8A6BD0083B936 /* CoffeeAndSugar.xml */,
+				8C81BC1A2EA8A6BD0083B936 /* CoffeeAndSugarDocument.swift */,
+				8C81BC1B2EA8A6BD0083B936 /* CoffeeAndSugarGame.swift */,
+				8C81BC1C2EA8A6BD0083B936 /* CoffeeAndSugarGameScene.swift */,
+				8C81BC1D2EA8A6BD0083B936 /* CoffeeAndSugarGameState.swift */,
+				8C81BC1E2EA8A6BD0083B936 /* CoffeeAndSugarGameViewController.swift */,
+				8C81BC1F2EA8A6BD0083B936 /* CoffeeAndSugarGridNode.swift */,
+				8C81BC202EA8A6BD0083B936 /* CoffeeAndSugarMainViewController.swift */,
+				8C81BC212EA8A6BD0083B936 /* CoffeeAndSugarObject.swift */,
+			);
+			path = CoffeeAndSugar;
 			sourceTree = "<group>";
 		};
 		8C8661C02EA115FA0078CD64 /* Thermometers */ = {
@@ -5076,6 +5111,7 @@
 				8C8663C12EA39DD00078CD64 /* home.png in Resources */,
 				8C8663C22EA39DD00078CD64 /* navigate_pipe.png in Resources */,
 				8C8663C32EA39DD00078CD64 /* fence2.png in Resources */,
+				8C81BC2B2EA8A6BD0083B936 /* CoffeeAndSugar.xml in Resources */,
 				8C8663C42EA39DD00078CD64 /* arrow_red_down.png in Resources */,
 				8C8663C52EA39DD00078CD64 /* A3-stone.png in Resources */,
 				8C8663C62EA39DD00078CD64 /* arrow_blue_dr.png in Resources */,
@@ -6120,6 +6156,14 @@
 				8C3A36DD1EC88D4300A914A5 /* LitsGameViewController.swift in Sources */,
 				8C3A36521EC88D4200A914A5 /* BusySeasObject.swift in Sources */,
 				8C3A37231EC88D4300A914A5 /* MiniLitsGameScene.swift in Sources */,
+				8C81BC232EA8A6BD0083B936 /* CoffeeAndSugarGame.swift in Sources */,
+				8C81BC242EA8A6BD0083B936 /* CoffeeAndSugarGameViewController.swift in Sources */,
+				8C81BC252EA8A6BD0083B936 /* CoffeeAndSugarGridNode.swift in Sources */,
+				8C81BC262EA8A6BD0083B936 /* CoffeeAndSugarMainViewController.swift in Sources */,
+				8C81BC272EA8A6BD0083B936 /* CoffeeAndSugarGameScene.swift in Sources */,
+				8C81BC282EA8A6BD0083B936 /* CoffeeAndSugarGameState.swift in Sources */,
+				8C81BC292EA8A6BD0083B936 /* CoffeeAndSugarObject.swift in Sources */,
+				8C81BC2A2EA8A6BD0083B936 /* CoffeeAndSugarDocument.swift in Sources */,
 				8C2AF8481ED6084300EC84AB /* PaintTheNurikabeGameScene.swift in Sources */,
 				8C3A35F91EC88D4200A914A5 /* AbstractPaintingGameViewController.swift in Sources */,
 				8CA042E21FDB878800AF85E1 /* FillominoGameViewController.swift in Sources */,
