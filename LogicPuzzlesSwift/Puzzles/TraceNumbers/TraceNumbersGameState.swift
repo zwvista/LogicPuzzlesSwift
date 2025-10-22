@@ -70,68 +70,49 @@ class TraceNumbersGameState: GridGameState<TraceNumbersGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        let g = Graph()
-        var pos2node = [Position: Node]()
-        var pos2Dirs = [Position: [Int]]()
+        var chOneArray = [Position]()
+        var ch2dirs = [Position: [Int]]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let o = self[p]
                 let ch = game[p]
-                var dirs = [Int]()
-                for i in 0..<4 {
-                    if o[i] { dirs.append(i) }
-                }
+                let dirs = (0..<4).filter { o[$0] }
                 switch dirs.count {
-                case 0:
-                    // 1. The goal is to draw a single Loop(Necklace) through every circle(Pearl)
-                    guard ch == " " else { isSolved = false; return }
+                case 1:
+                    // 2. You should draw as many lines into the grid as number sets:
+                    //    a line starts with the number 1, goes through the numbers in
+                    //    order up to the highest, where it ends.
+                    guard ch == TraceNumbersGame.PUZ_ONE || ch == game.chMax else { isSolved = false; return }
+                    if ch == TraceNumbersGame.PUZ_ONE { chOneArray.append(p) }
+                    ch2dirs[p] = dirs
                 case 2:
-                    pos2node[p] = g.addNode(p.description)
-                    pos2Dirs[p] = dirs
-                    switch ch {
-                    case "B":
-                        // 4. Lines passing through Black Pearls must do a 90 degree turn in them.
-                        guard dirs[1] - dirs[0] != 2 else { isSolved = false; return }
-                    case "W":
-                        // 3. Lines passing through White Pearls must go straight through them.
-                        guard dirs[1] - dirs[0] == 2 else { isSolved = false; return }
-                    default:
-                        break
-                    }
+                    ch2dirs[p] = dirs
                 default:
-                    // 1. The goal is to draw a single Loop(Necklace)
-                    // that never branches-off or crosses itself.
+                    // 3. In doing this, you have to pass through all tiles on the board.
+                    //    Lines cannot cross.
                     isSolved = false; return
                 }
             }
         }
-        for (p, node) in pos2node {
-            let dirs = pos2Dirs[p]!
-            let ch = game[p]
-            var bW = ch != "W"
-            for i in dirs {
-                let p2 = p + TraceNumbersGame.offset[i]
-                guard let node2 = pos2node[p2], let dirs2 = pos2Dirs[p2] else { isSolved = false; return }
-                switch ch {
-                case "B":
-                    // 4. Lines passing through Black Pearls must go straight
-                    // in the next tile in both directions.
-                    guard (i == 0 || i == 2) && dirs2[0] == 0 && dirs2[1] == 2 || (i == 1 || i == 3) && dirs2[0] == 1 && dirs2[1] == 3 else { isSolved = false; return }
-                case "W":
-                    // 3. At least at one side of the White Pearl(or both),
-                    // Lines passing through White Pearls must do a 90 degree turn.
-                    let n1 = (i + 1) % 4, n2 = (i + 3) % 4
-                    if dirs2[0] == n1 || dirs2[0] == n2 || dirs2[1] == n1 || dirs2[1] == n2 { bW = true }
-                default:
-                    break
-                }
-                g.addEdge(node, neighbor: node2)
+        // 2. You should draw as many lines into the grid as number sets:
+        //    a line starts with the number 1, goes through the numbers in
+        //    order up to the highest, where it ends.
+        for p in chOneArray {
+            var chars = String(TraceNumbersGame.PUZ_ONE)
+            var i = ch2dirs[p]!.first!
+            var os = TraceNumbersGame.offset[i]
+            var p2 = p + os
+            while true {
+                let ch = game[p2]
+                if ch != " " { chars.append(ch) }
+                let dirs = ch2dirs[p2]!.filter { $0 != (i + 2) % 4 }
+                guard !dirs.isEmpty else {break}
+                i = dirs.first!
+                os = TraceNumbersGame.offset[i]
+                p2 += os
             }
-            guard bW else { isSolved = false; return }
+            if chars != game.expectedChars { isSolved = false; return }
         }
-        // 1. The goal is to draw a single Loop(Necklace).
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count { isSolved = false }
     }
 }
