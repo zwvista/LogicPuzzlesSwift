@@ -19,7 +19,7 @@ class Square100GameScene: GameScene<Square100GameState> {
     }
     
     func addHint(p: Position, n: Int) {
-        let point = gridNode.gridPosition(p: p)
+        let point = gridNode.gridPoint(p: p)
         let nodeNameSuffix = "-\(p.row)-\(p.col)"
         let hintNodeName = "hint" + nodeNameSuffix
         addNumber(n: String(n), s: n == 100 ? .complete : .error, point: point, nodeName: hintNodeName)
@@ -38,7 +38,7 @@ class Square100GameScene: GameScene<Square100GameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let n = state.game[p]
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let numberNodeName = "number" + nodeNameSuffix
@@ -84,7 +84,7 @@ class Square100GameScene: GameScene<Square100GameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[r, c], stateTo[r, c])

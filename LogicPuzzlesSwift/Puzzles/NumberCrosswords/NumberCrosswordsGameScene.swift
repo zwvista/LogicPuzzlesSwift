@@ -19,7 +19,7 @@ class NumberCrosswordsGameScene: GameScene<NumberCrosswordsGameState> {
     }
     
     func addHint(p: Position, n: Int, s: HintState) {
-        let point = gridNode.gridPosition(p: p)
+        let point = gridNode.gridPoint(p: p)
         let nodeNameSuffix = "-\(p.row)-\(p.col)"
         let hintNodeName = "hint" + nodeNameSuffix
         addNumber(n: String(n), s: s, point: point, nodeName: hintNodeName)
@@ -38,7 +38,7 @@ class NumberCrosswordsGameScene: GameScene<NumberCrosswordsGameState> {
         for r in 0..<game.rows - 1 {
             for c in 0..<game.cols - 1 {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let n = state.game[p]
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let numberNodeName = "number" + nodeNameSuffix
@@ -84,7 +84,7 @@ class NumberCrosswordsGameScene: GameScene<NumberCrosswordsGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
                 let darkenNodeName = "darken" + nodeNameSuffix

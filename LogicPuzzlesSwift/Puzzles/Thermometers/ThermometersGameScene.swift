@@ -15,7 +15,7 @@ class ThermometersGameScene: GameScene<ThermometersGameState> {
     }
     
     func addHint(p: Position, n: Int, s: HintState) {
-        let point = gridNode.gridPosition(p: p)
+        let point = gridNode.gridPoint(p: p)
         guard n >= 0 else {return}
         let nodeNameSuffix = "-\(p.row)-\(p.col)"
         let hintNodeName = "hint" + nodeNameSuffix
@@ -53,7 +53,7 @@ class ThermometersGameScene: GameScene<ThermometersGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let thermometerNodeName = "thermometer" + nodeNameSuffix
@@ -94,7 +94,7 @@ class ThermometersGameScene: GameScene<ThermometersGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let thermometerNodeName = "thermometer" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix

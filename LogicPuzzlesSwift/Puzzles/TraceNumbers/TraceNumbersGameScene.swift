@@ -29,7 +29,7 @@ class TraceNumbersGameScene: GameScene<TraceNumbersGameState> {
                 let p = Position(r, c)
                 let ch = game[r, c]
                 guard ch != " " else {continue}
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 addLabel(text: String(ch), fontColor: .white, point: point, nodeName: "number")
             }
         }
@@ -40,7 +40,7 @@ class TraceNumbersGameScene: GameScene<TraceNumbersGameState> {
             for c in 0..<stateFrom.cols {
                 for dir in 1...2 {
                     let p = Position(r, c)
-                    let point = gridNode.gridPosition(p: p)
+                    let point = gridNode.gridPoint(p: p)
                     let nodeNameSuffix = "-\(r)-\(c)-\(dir)"
                     let lineNodeName = "line" + nodeNameSuffix
                     func removeLine() { removeNode(withName: lineNodeName) }

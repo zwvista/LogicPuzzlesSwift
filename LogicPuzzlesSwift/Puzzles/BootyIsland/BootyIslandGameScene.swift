@@ -30,7 +30,7 @@ class BootyIslandGameScene: GameScene<BootyIslandGameState> {
         // addHints
         for (p, n) in game.pos2hint {
             guard case let .hint(state: s) = state[p] else {continue}
-            let point = gridNode.gridPosition(p: p)
+            let point = gridNode.gridPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             addHint(n: n, s: s, point: point, nodeName: hintNodeName)
@@ -41,7 +41,7 @@ class BootyIslandGameScene: GameScene<BootyIslandGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let treasureNodeName = "treasure" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix

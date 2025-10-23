@@ -29,7 +29,7 @@ class MasyuGameScene: GameScene<MasyuGameState> {
                 let p = Position(r, c)
                 let ch = game[r, c]
                 guard ch != " " else {continue}
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let pearlNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 2)
                 pearlNode.position = point
                 pearlNode.name = "pearl"
@@ -46,7 +46,7 @@ class MasyuGameScene: GameScene<MasyuGameState> {
             for c in 0..<stateFrom.cols {
                 for dir in 1...2 {
                     let p = Position(r, c)
-                    let point = gridNode.gridPosition(p: p)
+                    let point = gridNode.gridPoint(p: p)
                     let nodeNameSuffix = "-\(r)-\(c)-\(dir)"
                     let lineNodeName = "line" + nodeNameSuffix
                     func removeLine() { removeNode(withName: lineNodeName) }

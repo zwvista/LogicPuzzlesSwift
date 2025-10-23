@@ -22,7 +22,7 @@ class CloudsGameScene: GameScene<CloudsGameState> {
     }
     
     func addHint(p: Position, n: Int, s: HintState) {
-        let point = gridNode.gridPosition(p: p)
+        let point = gridNode.gridPoint(p: p)
         guard n >= 0 else {return}
         let nodeNameSuffix = "-\(p.row)-\(p.col)"
         let hintNodeName = "hint" + nodeNameSuffix
@@ -52,7 +52,7 @@ class CloudsGameScene: GameScene<CloudsGameState> {
         
         // add Clouds
         for p in game.pos2cloud {
-            let point = gridNode.gridPosition(p: p)
+            let point = gridNode.gridPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let cloudNodeName = "cloud" + nodeNameSuffix
             addCloud(color: .gray, point: point, nodeName: cloudNodeName)
@@ -60,7 +60,7 @@ class CloudsGameScene: GameScene<CloudsGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 switch state[p] {
@@ -98,7 +98,7 @@ class CloudsGameScene: GameScene<CloudsGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let cloudNodeName = "cloud" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix

@@ -30,7 +30,7 @@ class WarehouseGameScene: GameScene<WarehouseGameState> {
         
         // addHints
         for (p, ch) in game.pos2symbol {
-            let point = gridNode.gridPosition(p: p)
+            let point = gridNode.gridPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let symbolNodeName = "symbol" + nodeNameSuffix
             addSymbol(ch: ch, s: state.pos2state[p]!, point: point, nodeName: symbolNodeName)
@@ -39,7 +39,7 @@ class WarehouseGameScene: GameScene<WarehouseGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 if game[r, c][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
                 if game[r, c][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
             }
@@ -50,7 +50,7 @@ class WarehouseGameScene: GameScene<WarehouseGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let horzLineNodeName = "horzLine" + nodeNameSuffix
                 let vertlineNodeName = "vertline" + nodeNameSuffix
@@ -80,7 +80,7 @@ class WarehouseGameScene: GameScene<WarehouseGameState> {
                     let (o3, o4) = (stateFrom.dot2state[p]!, stateTo.dot2state[p]!)
                     if o3 != o4 {
                         if o3 == .error { removeNode(withName: dotNodeName) }
-                        if o4 == .error { addDotMarker2(color: .red, point: gridNode.dotPosition(p: p), nodeName: dotNodeName) }
+                        if o4 == .error { addDotMarker2(color: .red, point: gridNode.dotPoint(p: p), nodeName: dotNodeName) }
                     }
                 }
             }

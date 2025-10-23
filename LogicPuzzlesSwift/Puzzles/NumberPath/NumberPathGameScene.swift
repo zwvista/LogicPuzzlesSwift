@@ -31,7 +31,7 @@ class NumberPathGameScene: GameScene<NumberPathGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let n = state.game[p]
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let numberNodeName = "number" + nodeNameSuffix
@@ -45,7 +45,7 @@ class NumberPathGameScene: GameScene<NumberPathGameState> {
             for c in 0..<stateFrom.cols {
                 for dir in 1...2 {
                     let p = Position(r, c)
-                    let point = gridNode.gridPosition(p: p)
+                    let point = gridNode.gridPoint(p: p)
                     let nodeNameSuffix = "-\(r)-\(c)-\(dir)"
                     let lineNodeName = "line" + nodeNameSuffix
                     func removeLine() { removeNode(withName: lineNodeName) }

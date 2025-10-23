@@ -28,7 +28,7 @@ class WallsGameScene: GameScene<WallsGameState> {
         addGrid(gridNode: WallsGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
         for (p, n) in game.pos2hint {
-            let point = gridNode.gridPosition(p: p)
+            let point = gridNode.gridPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             addHint(n: n, s: .normal, point: point, nodeName: hintNodeName)
@@ -39,7 +39,7 @@ class WallsGameScene: GameScene<WallsGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let horzNodeName = "horz" + nodeNameSuffix
                 let vertNodeName = "vert" + nodeNameSuffix

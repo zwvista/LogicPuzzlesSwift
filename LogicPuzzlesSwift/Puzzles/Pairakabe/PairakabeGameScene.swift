@@ -30,7 +30,7 @@ class PairakabeGameScene: GameScene<PairakabeGameState> {
         // add Hints
         for (p, n) in game.pos2hint {
             guard case let .hint(state: s) = state[p] else {continue}
-            let point = gridNode.gridPosition(p: p)
+            let point = gridNode.gridPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             addHint(n: n, s: s, point: point, nodeName: hintNodeName)
@@ -40,7 +40,7 @@ class PairakabeGameScene: GameScene<PairakabeGameState> {
     override func levelUpdated(from stateFrom: PairakabeGameState, to stateTo: PairakabeGameState) {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
-                let point = gridNode.gridPosition(p: Position(r, c))
+                let point = gridNode.gridPoint(p: Position(r, c))
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let wallNodeName = "wall" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix

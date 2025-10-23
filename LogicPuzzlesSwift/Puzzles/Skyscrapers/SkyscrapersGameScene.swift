@@ -31,7 +31,7 @@ class SkyscrapersGameScene: GameScene<SkyscrapersGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let n = state[p]
                 guard n != 0 else {continue}
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
@@ -46,7 +46,7 @@ class SkyscrapersGameScene: GameScene<SkyscrapersGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let numNodeName = "num" + nodeNameSuffix
                 func removeNumber() { removeNode(withName: numNodeName) }

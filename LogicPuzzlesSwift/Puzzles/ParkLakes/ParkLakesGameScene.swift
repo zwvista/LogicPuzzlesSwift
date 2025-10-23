@@ -15,7 +15,7 @@ class ParkLakesGameScene: GameScene<ParkLakesGameState> {
     }
     
     func addHint(p: Position, n: Int, s: HintState) {
-        let point = gridNode.gridPosition(p: p)
+        let point = gridNode.gridPoint(p: p)
         let nodeNameSuffix = "-\(p.row)-\(p.col)"
         let hintNodeName = "hint" + nodeNameSuffix
         addLabel(text: n == -1 ? "?" : String(n), fontColor: s == .complete ? .green : .white, point: point, nodeName: hintNodeName, sampleText: "10")
@@ -40,7 +40,7 @@ class ParkLakesGameScene: GameScene<ParkLakesGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let lakeNodeName = "lake" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix

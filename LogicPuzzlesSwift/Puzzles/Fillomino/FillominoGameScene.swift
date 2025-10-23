@@ -24,7 +24,7 @@ class FillominoGameScene: GameScene<FillominoGameState> {
         for r in 0..<game.rows + 1 {
             for c in 0..<game.cols + 1 {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 for dir in 1...2 {
                     guard game.dots[r, c][dir] == .line else {continue}
                     switch dir {
@@ -62,7 +62,7 @@ class FillominoGameScene: GameScene<FillominoGameState> {
         for r in 0..<game.rows + 1 {
             for c in 0..<game.cols + 1 {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 if r < game.rows && c < game.cols {
                     let ch = game[p]
@@ -90,7 +90,7 @@ class FillominoGameScene: GameScene<FillominoGameState> {
         for r in 0..<stateFrom.rows + 1 {
             for c in 0..<stateFrom.cols + 1 {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let charNodeName = "char" + nodeNameSuffix
                 if r < stateFrom.rows && c < stateFrom.cols {

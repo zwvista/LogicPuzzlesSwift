@@ -15,7 +15,7 @@ class ArrowsGameScene: GameScene<ArrowsGameState> {
     }
     
     func addHint(p: Position, n: Int, s: HintState) {
-        let point = gridNode.gridPosition(p: p)
+        let point = gridNode.gridPoint(p: p)
         let nodeNameSuffix = "-\(p.row)-\(p.col)"
         let hintNodeName = "hint" + nodeNameSuffix
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: hintNodeName)
@@ -49,7 +49,7 @@ class ArrowsGameScene: GameScene<ArrowsGameState> {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
                 if stateFrom.game.isCorner(p: p) {continue}
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let hintNodeName = "hint" + nodeNameSuffix
                 let arrowNodeName = "arrow" + nodeNameSuffix

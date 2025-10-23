@@ -31,7 +31,7 @@ class TurnTwiceGameScene: GameScene<TurnTwiceGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let signpostNodeName = "signpost" + nodeNameSuffix
                 if case .signpost(let s) = state[p] {
@@ -45,7 +45,7 @@ class TurnTwiceGameScene: GameScene<TurnTwiceGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let signpostNodeName = "signpost" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix

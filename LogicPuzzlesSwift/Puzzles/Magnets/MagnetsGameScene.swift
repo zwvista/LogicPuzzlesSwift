@@ -15,7 +15,7 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
     }
     
     func addHint(p: Position, n: Int, s: HintState) {
-        let point = gridNode.gridPosition(p: p)
+        let point = gridNode.gridPoint(p: p)
         guard n >= 0 else {return}
         let nodeNameSuffix = "-\(p.row)-\(p.col)"
         let hintNodeName = "hint" + nodeNameSuffix
@@ -36,7 +36,7 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
         addGrid(gridNode: MagnetsGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols + 2) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows + 2) / 2 + offset))
         
         for a in game.areas {
-            let point = gridNode.gridPosition(p: a.p)
+            let point = gridNode.gridPoint(p: a.p)
             switch a.type {
             case .single:
                 let rectNode = SKShapeNode(rectOf: CGSize(width: blockSize, height: blockSize))
@@ -77,9 +77,9 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
         }
         
         let poleNodeName = "pole"
-        var point = gridNode.gridPosition(p: Position(game.rows, game.cols))
+        var point = gridNode.gridPoint(p: Position(game.rows, game.cols))
         addPole(o: .positive, colorBlendFactor: 0.5, point: point, nodeName: poleNodeName)
-        point = gridNode.gridPosition(p: Position(game.rows + 1, game.cols + 1))
+        point = gridNode.gridPoint(p: Position(game.rows + 1, game.cols + 1))
         addPole(o: .negative, colorBlendFactor: 0.5, point: point, nodeName: poleNodeName)
     }
     
@@ -114,7 +114,7 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let poleNodeName = "pole" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix

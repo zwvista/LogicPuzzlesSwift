@@ -15,7 +15,7 @@ class HiddenStarsGameScene: GameScene<HiddenStarsGameState> {
     }
     
     func addHint(p: Position, n: Int, s: HintState) {
-        let point = gridNode.gridPosition(p: p)
+        let point = gridNode.gridPoint(p: p)
         guard n >= 0 else {return}
         let nodeNameSuffix = "-\(p.row)-\(p.col)"
         let hintNodeName = "hint" + nodeNameSuffix
@@ -50,7 +50,7 @@ class HiddenStarsGameScene: GameScene<HiddenStarsGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let arrowNodeName = "arrow" + nodeNameSuffix
@@ -58,7 +58,7 @@ class HiddenStarsGameScene: GameScene<HiddenStarsGameState> {
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case let .arrow(s):
-                    let point = gridNode.gridPosition(p: p)
+                    let point = gridNode.gridPoint(p: p)
                     let n = game.pos2arrow[p]!
                     addArrow(n: n, s: s, point: point, nodeName: arrowNodeName)
                 default:
@@ -93,7 +93,7 @@ class HiddenStarsGameScene: GameScene<HiddenStarsGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let starNodeName = "star" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix

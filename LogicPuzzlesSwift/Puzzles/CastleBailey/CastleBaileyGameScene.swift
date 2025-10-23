@@ -28,7 +28,7 @@ class CastleBaileyGameScene: GameScene<CastleBaileyGameState> {
         addGrid(gridNode: CastleBaileyGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
                 
         for (p, n) in game.pos2hint {
-            var point = gridNode.gridPosition(p: p)
+            var point = gridNode.gridPoint(p: p)
             point.x -= blockSize / 2; point.y += blockSize / 2
             let markerNode = SKShapeNode(circleOfRadius: blockSize / 4)
             markerNode.position = point
@@ -47,7 +47,7 @@ class CastleBaileyGameScene: GameScene<CastleBaileyGameState> {
         for (p, n) in stateFrom.game.pos2hint {
             let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
             guard s1 != s2 else {continue}
-            var point = gridNode.gridPosition(p: p)
+            var point = gridNode.gridPoint(p: p)
             point.x -= gridNode.blockSize / 2; point.y += gridNode.blockSize / 2
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let mathNodeName = "math" + nodeNameSuffix
@@ -57,7 +57,7 @@ class CastleBaileyGameScene: GameScene<CastleBaileyGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPosition(p: p)
+                let point = gridNode.gridPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let wallNodeName = "wall" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
