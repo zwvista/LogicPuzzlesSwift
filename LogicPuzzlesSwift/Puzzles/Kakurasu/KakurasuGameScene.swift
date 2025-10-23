@@ -22,7 +22,7 @@ class KakurasuGameScene: GameScene<KakurasuGameState> {
     }
     
     func addHint(p: Position, n: Int, s: HintState) {
-        let point = gridNode.gridPoint(p: p)
+        let point = gridNode.centerPoint(p: p)
         guard n >= 0 else {return}
         let nodeNameSuffix = "-\(p.row)-\(p.col)"
         let hintNodeName = "hint" + nodeNameSuffix
@@ -30,7 +30,7 @@ class KakurasuGameScene: GameScene<KakurasuGameState> {
     }
     
     func addHintMarker(p: Position) {
-        let point = gridNode.gridPoint(p: p)
+        let point = gridNode.centerPoint(p: p)
         addCircleMarker(color: .white, point: point, nodeName: "hintMarker")
     }
 
@@ -87,7 +87,7 @@ class KakurasuGameScene: GameScene<KakurasuGameState> {
         for r in 1..<stateFrom.rows - 1 {
             for c in 1..<stateFrom.cols - 1 {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let cloudNodeName = "cloud" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix

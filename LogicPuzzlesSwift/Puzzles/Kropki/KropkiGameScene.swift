@@ -15,7 +15,7 @@ class KropkiGameScene: GameScene<KropkiGameState> {
     }
     
     func addHint(p: Position, isHorz: Bool, s: HintState, kh: KropkiHint) {
-        var point = gridNode.gridPoint(p: p)
+        var point = gridNode.centerPoint(p: p)
         if isHorz {
             point.x += gridNode.blockSize / 2
         } else {
@@ -47,7 +47,7 @@ class KropkiGameScene: GameScene<KropkiGameState> {
             for r in 0..<game.rows + 1 {
                 for c in 0..<game.cols + 1 {
                     let p = Position(r, c)
-                    let point = gridNode.gridPoint(p: p)
+                    let point = gridNode.centerPoint(p: p)
                     for dir in 1...2 {
                         guard game.dots[r, c][dir] == .line else {continue}
                         switch dir {
@@ -89,7 +89,7 @@ class KropkiGameScene: GameScene<KropkiGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
                 let (n1, n2) = (stateFrom[r, c], stateTo[r, c])

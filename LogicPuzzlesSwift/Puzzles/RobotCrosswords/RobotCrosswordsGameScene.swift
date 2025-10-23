@@ -46,7 +46,7 @@ class RobotCrosswordsGameScene: GameScene<RobotCrosswordsGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let n = game[p]
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
                 if n == -1 {
@@ -69,7 +69,7 @@ class RobotCrosswordsGameScene: GameScene<RobotCrosswordsGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
                 let (n1, n2) = (stateFrom[r, c], stateTo[r, c])

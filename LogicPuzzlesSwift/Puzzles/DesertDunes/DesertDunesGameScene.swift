@@ -29,13 +29,13 @@ class DesertDunesGameScene: GameScene<DesertDunesGameState> {
  
         for r in 0..<state.rows {
             for c in 0..<state.cols {
-                let point = gridNode.gridPoint(p: Position(r, c))
+                let point = gridNode.centerPoint(p: Position(r, c))
                 addImage(imageNamed: "C1", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "sand")
             }
         }
 
         for (p, n) in game.pos2hint {
-            let point = gridNode.gridPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             addImage(imageNamed: "palmtree", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "palmtree")
@@ -43,38 +43,52 @@ class DesertDunesGameScene: GameScene<DesertDunesGameState> {
                 addHint(n: n, s: s, point: point, nodeName: hintNodeName)
             }
         }
+        for p in state.emptyOfDunes {
+            let point = gridNode.cornerPoint(p: p)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let emptyNodeName = "empty" + nodeNameSuffix
+            addDotMarker2(color: .red, point: point, nodeName: emptyNodeName)
+        }
     }
     
     override func levelUpdated(from stateFrom: DesertDunesGameState, to stateTo: DesertDunesGameState) {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let duneNodeName = "dune" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
+                let emptyNodeName = "empty" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                guard String(describing: o1) != String(describing: o2) else {continue}
-                switch o1 {
-                case .dune: removeNode(withName: duneNodeName)
-                case .forbidden: removeNode(withName: forbiddenNodeName)
-                case .hint: removeNode(withName: hintNodeName)
-                case .marker: removeNode(withName: markerNodeName)
-                default: break
+                if String(describing: o1) != String(describing: o2) {
+                    switch o1 {
+                    case .dune: removeNode(withName: duneNodeName)
+                    case .forbidden: removeNode(withName: forbiddenNodeName)
+                    case .hint: removeNode(withName: hintNodeName)
+                    case .marker: removeNode(withName: markerNodeName)
+                    default: break
+                    }
+                    switch o2 {
+                    case .dune(let s):
+                        addImage(imageNamed: "dune", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: duneNodeName)
+                    case .forbidden:
+                        addDotMarker2(color: .red, point: point, nodeName: forbiddenNodeName)
+                    case .hint(let s):
+                        addHint(n: stateFrom.game.pos2hint[p]!, s: s, point: point, nodeName: hintNodeName)
+                    case .marker:
+                        addDotMarker(point: point, nodeName: markerNodeName)
+                    default:
+                        break
+                    }
                 }
-                switch o2 {
-                case .dune(let s):
-                    addImage(imageNamed: "dune", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: duneNodeName)
-                case .forbidden:
-                    addDotMarker2(color: .red, point: point, nodeName: forbiddenNodeName)
-                case .hint(let s):
-                    addHint(n: stateFrom.game.pos2hint[p]!, s: s, point: point, nodeName: hintNodeName)
-                case .marker:
-                    addDotMarker(point: point, nodeName: markerNodeName)
-                default:
-                    break
+                let (b1, b2) = (stateFrom.emptyOfDunes.contains(p), stateTo.emptyOfDunes.contains(p))
+                if b1 != b2 {
+                    let point = gridNode.cornerPoint(p: p)
+                    if b1 { removeNode(withName: emptyNodeName) }
+                    if b2 { addDotMarker2(color: .red, point: point, nodeName: emptyNodeName) }
                 }
             }
         }

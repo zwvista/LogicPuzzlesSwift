@@ -33,7 +33,7 @@ class LightenUpGameScene: GameScene<LightenUpGameState> {
                 let p = Position(r, c)
                 guard case let .wall(s) = state[p].objType else {continue}
                 let n = state.game.wall2Lightbulbs[p]!
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let wallNode = SKSpriteNode(color: .white, size: coloredRectSize())
                 wallNode.position = point
                 wallNode.name = "wall"
@@ -49,7 +49,7 @@ class LightenUpGameScene: GameScene<LightenUpGameState> {
     override func levelUpdated(from stateFrom: LightenUpGameState, to stateTo: LightenUpGameState) {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
-                let point = gridNode.gridPoint(p: Position(r, c))
+                let point = gridNode.centerPoint(p: Position(r, c))
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let lightCellNodeName = "lightCell" + nodeNameSuffix
                 let lightbulbNodeName = "lightbulb" + nodeNameSuffix

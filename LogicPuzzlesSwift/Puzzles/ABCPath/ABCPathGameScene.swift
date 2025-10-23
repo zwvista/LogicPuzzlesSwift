@@ -31,7 +31,7 @@ class ABCPathGameScene: GameScene<ABCPathGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let ch = state[p]
                 guard ch != " " else {continue}
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
@@ -46,7 +46,7 @@ class ABCPathGameScene: GameScene<ABCPathGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let charNodeName = "char" + nodeNameSuffix
                 let (ch1, ch2) = (stateFrom[p], stateTo[p])

@@ -31,7 +31,7 @@ class CarpentersWallGameScene: GameScene<CarpentersWallGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let hintNodeName = "hint" + nodeNameSuffix
                 switch state[p] {
@@ -56,7 +56,7 @@ class CarpentersWallGameScene: GameScene<CarpentersWallGameState> {
     override func levelUpdated(from stateFrom: CarpentersWallGameState, to stateTo: CarpentersWallGameState) {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
-                let point = gridNode.gridPoint(p: Position(r, c))
+                let point = gridNode.centerPoint(p: Position(r, c))
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let wallNodeName = "wall" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix

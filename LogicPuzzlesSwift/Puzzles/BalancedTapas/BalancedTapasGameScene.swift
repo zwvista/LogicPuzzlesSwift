@@ -54,7 +54,7 @@ class BalancedTapasGameScene: GameScene<BalancedTapasGameState> {
         // add Hints
         for (p, arr) in game.pos2hint {
             guard case let .hint(state: s) = state[p] else {continue}
-            let point = gridNode.gridPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             addHint(arr: arr, s: s, point: point, nodeName: hintNodeName)
@@ -64,7 +64,7 @@ class BalancedTapasGameScene: GameScene<BalancedTapasGameState> {
     override func levelUpdated(from stateFrom: BalancedTapasGameState, to stateTo: BalancedTapasGameState) {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
-                let point = gridNode.gridPoint(p: Position(r, c))
+                let point = gridNode.centerPoint(p: Position(r, c))
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let wallNodeName = "wall" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
@@ -111,7 +111,7 @@ class BalancedTapasGameScene: GameScene<BalancedTapasGameState> {
         let lineNode = SKShapeNode(path: pathToDraw)
         for r in 0..<stateFrom.rows {
             let c = stateFrom.game.left
-            let point = gridNode.gridPoint(p: Position(r, c))
+            let point = gridNode.centerPoint(p: Position(r, c))
             let x = point.x - gridNode.blockSize / 2 - (c > stateFrom.game.right ? gridNode.blockSize / 2 : 0)
             pathToDraw.move(to: CGPoint(x: x, y: point.y + gridNode.blockSize / 2))
             pathToDraw.addLine(to: CGPoint(x: x, y: point.y - gridNode.blockSize / 2))

@@ -50,7 +50,7 @@ class CalcudokuGameScene: GameScene<CalcudokuGameState> {
         for r in 0..<game.rows + 1 {
             for c in 0..<game.cols + 1 {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 for dir in 1...2 {
                     guard game.dots[r, c][dir] == .line else {continue}
                     switch dir {
@@ -79,7 +79,7 @@ class CalcudokuGameScene: GameScene<CalcudokuGameState> {
             guard s != .normal else {continue}
             let c = game.cols - 1
             let p = Position(r, c)
-            let point = gridNode.gridPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             addHint(p: Position(r, game.cols), isHorz: true, s: s, point: point)
         }
         for c in 0..<game.cols {
@@ -87,11 +87,11 @@ class CalcudokuGameScene: GameScene<CalcudokuGameState> {
             guard s != .normal else {continue}
             let r = game.rows - 1
             let p = Position(r, c)
-            let point = gridNode.gridPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             addHint(p: Position(r, game.cols), isHorz: false, s: s, point: point)
         }
         for (p, h) in game.pos2hint {
-            var point = gridNode.gridPoint(p: p)
+            var point = gridNode.centerPoint(p: p)
             point.x -= blockSize / 4; point.y += blockSize / 4
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let mathNodeName = "math" + nodeNameSuffix
@@ -110,7 +110,7 @@ class CalcudokuGameScene: GameScene<CalcudokuGameState> {
             guard s1 != s2 else {continue}
             let c = stateFrom.cols - 1
             let p = Position(r, c)
-            let point = gridNode.gridPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             if s1 != .normal { removeHint(p: p, isHorz: true) }
             if s2 != .normal { addHint(p: p, isHorz: true, s: s2, point: point) }
         }
@@ -119,14 +119,14 @@ class CalcudokuGameScene: GameScene<CalcudokuGameState> {
             guard s1 != s2 else {continue}
             let r = stateFrom.rows - 1
             let p = Position(r, c)
-            let point = gridNode.gridPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             if s1 != .normal { removeHint(p: p, isHorz: false) }
             if s2 != .normal { addHint(p: p, isHorz: false, s: s2, point: point) }
         }
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
                 let (n1, n2) = (stateFrom[p], stateTo[p])
@@ -139,7 +139,7 @@ class CalcudokuGameScene: GameScene<CalcudokuGameState> {
         for (p, h) in stateFrom.game.pos2hint {
             let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
             guard s1 != s2 else {continue}
-            var point = gridNode.gridPoint(p: p)
+            var point = gridNode.centerPoint(p: p)
             point.x -= gridNode.blockSize / 4; point.y += gridNode.blockSize / 4
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let mathNodeName = "math" + nodeNameSuffix

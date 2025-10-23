@@ -28,7 +28,7 @@ class ParksGameScene: GameScene<ParksGameState> {
         for r in 0..<game.rows + 1 {
             for c in 0..<game.cols + 1 {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 for dir in 1...2 {
                     guard game.dots[r, c][dir] == .line else {continue}
                     switch dir {
@@ -56,7 +56,7 @@ class ParksGameScene: GameScene<ParksGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let treeNodeName = "tree" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix

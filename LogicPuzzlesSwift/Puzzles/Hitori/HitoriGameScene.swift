@@ -19,7 +19,7 @@ class HitoriGameScene: GameScene<HitoriGameState> {
     }
     
     func addHint(p: Position, n: String) {
-        let point = gridNode.gridPoint(p: p)
+        let point = gridNode.centerPoint(p: p)
         guard !n.isEmpty else {return}
         let nodeNameSuffix = "-\(p.row)-\(p.col)"
         let hintNodeName = "hint" + nodeNameSuffix
@@ -39,7 +39,7 @@ class HitoriGameScene: GameScene<HitoriGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let n = state.game[p]
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let numberNodeName = "number" + nodeNameSuffix
@@ -85,7 +85,7 @@ class HitoriGameScene: GameScene<HitoriGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
                 let darkenNodeName = "darken" + nodeNameSuffix

@@ -31,7 +31,7 @@ class FieldsGameScene: GameScene<FieldsGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let fieldNodeName = "field" + nodeNameSuffix
                 let o = state[p]
@@ -46,7 +46,7 @@ class FieldsGameScene: GameScene<FieldsGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let fieldNodeName = "field" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])

@@ -29,7 +29,7 @@ class OverUnderGameScene: GameScene<OverUnderGameState> {
         
         // addHints
         for (p, n) in game.pos2hint {
-            let point = gridNode.gridPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
@@ -38,7 +38,7 @@ class OverUnderGameScene: GameScene<OverUnderGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 if game[r, c][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
                 if game[r, c][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
             }
@@ -49,7 +49,7 @@ class OverUnderGameScene: GameScene<OverUnderGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let horzLineNodeName = "horzLine" + nodeNameSuffix
                 let vertlineNodeName = "vertline" + nodeNameSuffix

@@ -54,7 +54,7 @@ class TapARowGameScene: GameScene<TapARowGameState> {
         // add Hints
         for (p, arr) in game.pos2hint {
             guard case let .hint(state: s) = state[p] else {continue}
-            let point = gridNode.gridPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             addHint(arr: arr, s: s, point: point, nodeName: hintNodeName)
@@ -64,7 +64,7 @@ class TapARowGameScene: GameScene<TapARowGameState> {
     override func levelUpdated(from stateFrom: TapARowGameState, to stateTo: TapARowGameState) {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
-                let point = gridNode.gridPoint(p: Position(r, c))
+                let point = gridNode.centerPoint(p: Position(r, c))
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let wallNodeName = "wall" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix

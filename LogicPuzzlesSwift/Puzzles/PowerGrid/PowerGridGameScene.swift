@@ -15,7 +15,7 @@ class PowerGridGameScene: GameScene<PowerGridGameState> {
     }
     
     func addHint(p: Position, n: Int, s: HintState) {
-        let point = gridNode.gridPoint(p: p)
+        let point = gridNode.centerPoint(p: p)
         guard n >= 0 else {return}
         let nodeNameSuffix = "-\(p.row)-\(p.col)"
         let hintNodeName = "hint" + nodeNameSuffix
@@ -69,7 +69,7 @@ class PowerGridGameScene: GameScene<PowerGridGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let postNodeName = "post" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix

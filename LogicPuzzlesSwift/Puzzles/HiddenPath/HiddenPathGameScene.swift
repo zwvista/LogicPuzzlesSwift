@@ -35,7 +35,7 @@ class HiddenPathGameScene: GameScene<HiddenPathGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let arrowNodeName = "arrow" + nodeNameSuffix
                 let hint = game.pos2hint[p]!
@@ -60,7 +60,7 @@ class HiddenPathGameScene: GameScene<HiddenPathGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let ((n1, s1), (n2, s2)) = (stateFrom[p].destructured, stateTo[p].destructured)
                 guard n1 != n2 || s1 != s2 else {continue}
@@ -89,7 +89,7 @@ class HiddenPathGameScene: GameScene<HiddenPathGameState> {
             removeNode(withName: rectNodeName)
             let rectNode = SKShapeNode(rectOf: coloredRectSize())
             rectNode.name = rectNodeName
-            rectNode.position = gridNode.gridPoint(p: p1t)
+            rectNode.position = gridNode.centerPoint(p: p1t)
             rectNode.strokeColor = UIColor(r: 232, g: 168, b: 108)
             rectNode.lineWidth = 4
             gridNode.addChild(rectNode)

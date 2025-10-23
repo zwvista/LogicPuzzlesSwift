@@ -33,7 +33,7 @@ class FourMeNotGameScene: GameScene<FourMeNotGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let flowerNodeName = "flower" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
@@ -59,7 +59,7 @@ class FourMeNotGameScene: GameScene<FourMeNotGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let flowerNodeName = "flower" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix

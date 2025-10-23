@@ -73,7 +73,7 @@ class MineShipsGameScene: GameScene<MineShipsGameState> {
         // add Hints
         for (p, n) in game.pos2hint {
             guard case let .hint(state: s) = state[p] else {continue}
-            let point = gridNode.gridPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             addHint(n: n, s: s, point: point, nodeName: hintNodeName)
@@ -84,7 +84,7 @@ class MineShipsGameScene: GameScene<MineShipsGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 guard case .forbidden = state[p] else {continue}
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
@@ -96,7 +96,7 @@ class MineShipsGameScene: GameScene<MineShipsGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let battleShipNodeName = "battleShip" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix

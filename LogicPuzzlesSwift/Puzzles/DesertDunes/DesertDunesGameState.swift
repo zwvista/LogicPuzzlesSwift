@@ -102,7 +102,7 @@ class DesertDunesGameState: GridGameState<DesertDunesGameMove> {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
                 let isEmptyOfDunes = DesertDunesGame.offset2.map { p + $0 }.allSatisfy { self[$0].toString() != "dune" }
-                if isEmptyOfDunes { emptyOfDunes.append(p); isSolved = false }
+                if isEmptyOfDunes { emptyOfDunes.append(p + Position.SouthEast); isSolved = false }
             }
         }
         // 4. Dunes cannot touch each other horizontally or vertically.
@@ -115,6 +115,7 @@ class DesertDunesGameState: GridGameState<DesertDunesGameMove> {
                     guard isValid(p: p2) else { continue }
                     switch self[p2] {
                     case .dune:
+                        isSolved = false
                         self[p] = .dune(state: .error)
                         self[p2] = .dune(state: .error)
                     case .empty:

@@ -32,7 +32,7 @@ class TennerGridGameScene: GameScene<TennerGridGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let n = state.game[p]
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let numberNodeName = "number" + nodeNameSuffix
@@ -45,7 +45,7 @@ class TennerGridGameScene: GameScene<TennerGridGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
                 func removeNumber() { removeNode(withName: numberNodeName) }

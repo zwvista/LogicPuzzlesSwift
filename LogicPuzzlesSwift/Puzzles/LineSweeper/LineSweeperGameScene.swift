@@ -29,7 +29,7 @@ class LineSweeperGameScene: GameScene<LineSweeperGameState> {
         
         // addHints
         for (p, n) in game.pos2hint {
-            let point = gridNode.gridPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
@@ -41,7 +41,7 @@ class LineSweeperGameScene: GameScene<LineSweeperGameState> {
             for c in 0..<stateFrom.cols {
                 for dir in 1...2 {
                     let p = Position(r, c)
-                    let point = gridNode.gridPoint(p: p)
+                    let point = gridNode.centerPoint(p: p)
                     let nodeNameSuffix = "-\(r)-\(c)-\(dir)"
                     let hintNodeName = "hint" + nodeNameSuffix
                     let lineNodeName = "line" + nodeNameSuffix

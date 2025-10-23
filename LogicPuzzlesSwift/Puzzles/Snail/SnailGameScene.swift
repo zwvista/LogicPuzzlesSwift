@@ -15,14 +15,14 @@ class SnailGameScene: GameScene<SnailGameState> {
     }
     
     func addHint(p: Position) {
-        let point = gridNode.gridPoint(p: p)
+        let point = gridNode.centerPoint(p: p)
         let nodeNameSuffix = "-\(p.row)-\(p.col)"
         let hintNodeName = "hint" + nodeNameSuffix
         addLabel(text: "123", fontColor: .red, point: point, nodeName: hintNodeName)
     }
     
     func addSnailMarker(p: Position) {
-        let point = gridNode.gridPoint(p: p)
+        let point = gridNode.centerPoint(p: p)
         let nodeNameSuffix = "-\(p.row)-\(p.col)"
         let snailMarkerNodeName = "snailMarker" + nodeNameSuffix
         addCircleMarker(color: .green, point: point, nodeName: snailMarkerNodeName)
@@ -40,10 +40,10 @@ class SnailGameScene: GameScene<SnailGameState> {
         // add Snail Path
         let pathToDraw = CGMutablePath()
         let lineNode = SKShapeNode(path: pathToDraw)
-        var point = gridNode.gridPoint(p: game.snailPathLine[0])
+        var point = gridNode.centerPoint(p: game.snailPathLine[0])
         pathToDraw.move(to: CGPoint(x: point.x - blockSize / 2, y: point.y + blockSize / 2))
         for i in 1..<game.snailPathLine.count {
-            point = gridNode.gridPoint(p: game.snailPathLine[i])
+            point = gridNode.centerPoint(p: game.snailPathLine[i])
             pathToDraw.addLine(to: CGPoint(x: point.x - blockSize / 2, y: point.y + blockSize / 2))
         }
         lineNode.glowWidth = 8
@@ -56,7 +56,7 @@ class SnailGameScene: GameScene<SnailGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let ch = game[p]
                 guard ch != " " else {continue}
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
@@ -99,7 +99,7 @@ class SnailGameScene: GameScene<SnailGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let charNodeName = "char" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix

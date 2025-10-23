@@ -29,7 +29,7 @@ class PaintTheNurikabeGameScene: GameScene<PaintTheNurikabeGameState> {
         
         // addHints
         for (p, n) in game.pos2hint {
-            let point = gridNode.gridPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
@@ -38,7 +38,7 @@ class PaintTheNurikabeGameScene: GameScene<PaintTheNurikabeGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 switch state[p] {
@@ -55,7 +55,7 @@ class PaintTheNurikabeGameScene: GameScene<PaintTheNurikabeGameState> {
         for r in 0..<game.rows + 1 {
             for c in 0..<game.cols + 1 {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 for dir in 1...2 {
                     guard game.dots[r, c][dir] == .line else {continue}
                     switch dir {
@@ -83,7 +83,7 @@ class PaintTheNurikabeGameScene: GameScene<PaintTheNurikabeGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let paintedCellNodeName = "paintedCell" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix

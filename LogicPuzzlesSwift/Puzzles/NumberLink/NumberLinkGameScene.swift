@@ -29,7 +29,7 @@ class NumberLinkGameScene: GameScene<NumberLinkGameState> {
         
         // addNumbers
         for (p, n) in game.pos2hint {
-            let point = gridNode.gridPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             addHint(n: String(n), s: .normal, point: point, nodeName: hintNodeName)
@@ -38,7 +38,7 @@ class NumberLinkGameScene: GameScene<NumberLinkGameState> {
     
     override func levelUpdated(from stateFrom: NumberLinkGameState, to stateTo: NumberLinkGameState) {
         for (p, n) in stateFrom.game.pos2hint {
-            let point = gridNode.gridPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
@@ -51,7 +51,7 @@ class NumberLinkGameScene: GameScene<NumberLinkGameState> {
             for c in 0..<stateFrom.cols {
                 for dir in 1...2 {
                     let p = Position(r, c)
-                    let point = gridNode.gridPoint(p: p)
+                    let point = gridNode.centerPoint(p: p)
                     let nodeNameSuffix = "-\(r)-\(c)-\(dir)"
                     let lineNodeName = "line" + nodeNameSuffix
                     func removeLine() { removeNode(withName: lineNodeName) }

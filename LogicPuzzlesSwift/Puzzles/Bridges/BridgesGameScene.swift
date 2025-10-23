@@ -30,7 +30,7 @@ class BridgesGameScene: GameScene<BridgesGameState> {
         // add islands
         for (p, info) in game.islandsInfo {
             let n = info.bridges
-            let point = gridNode.gridPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             let islandNode = SKShapeNode(circleOfRadius: blockSize / 2)
             islandNode.position = point
             islandNode.name = "island"
@@ -45,7 +45,7 @@ class BridgesGameScene: GameScene<BridgesGameState> {
     
     override func levelUpdated(from stateFrom: BridgesGameState, to stateTo: BridgesGameState) {
         for (p, info) in stateFrom.game.islandsInfo {
-            let point = gridNode.gridPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let bridgesNodeName = { (dir: Int) in "bridges" + nodeNameSuffix + "-\(dir)" }
             let islandNumberNodeName = "islandNumber" + nodeNameSuffix
@@ -54,7 +54,7 @@ class BridgesGameScene: GameScene<BridgesGameState> {
                 guard bridges > 0 else {return}
                 
                 let p2 = info.neighbors[dir]!
-                let point2 = gridNode.gridPoint(p: p2)
+                let point2 = gridNode.centerPoint(p: p2)
                 
                 // http://stackoverflow.com/questions/19092011/how-to-draw-a-line-in-sprite-kit
                 let pathToDraw = CGMutablePath()

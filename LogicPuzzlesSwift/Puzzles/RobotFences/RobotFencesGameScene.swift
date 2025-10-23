@@ -46,7 +46,7 @@ class RobotFencesGameScene: GameScene<RobotFencesGameState> {
         for r in 0..<game.rows + 1 {
             for c in 0..<game.cols + 1 {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 for dir in 1...2 {
                     guard game.dots[r, c][dir] == .line else {continue}
                     switch dir {
@@ -75,7 +75,7 @@ class RobotFencesGameScene: GameScene<RobotFencesGameState> {
                 let p = Position(r, c)
                 let n = game[p]
                 guard n != 0 else {continue}
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
                 addLabel(text: String(n), fontColor: .gray, point: point, nodeName: numberNodeName)
@@ -88,7 +88,7 @@ class RobotFencesGameScene: GameScene<RobotFencesGameState> {
             guard s != .normal else {continue}
             let c = game.cols - 1
             let p = Position(r, c)
-            let point = gridNode.gridPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             addHint(p: Position(r, game.cols), isHorz: true, s: s, point: point)
         }
         for c in 0..<game.cols {
@@ -96,7 +96,7 @@ class RobotFencesGameScene: GameScene<RobotFencesGameState> {
             guard s != .normal else {continue}
             let r = game.rows - 1
             let p = Position(r, c)
-            let point = gridNode.gridPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             addHint(p: Position(r, game.cols), isHorz: false, s: s, point: point)
         }
     }
@@ -112,7 +112,7 @@ class RobotFencesGameScene: GameScene<RobotFencesGameState> {
             guard s1 != s2 else {continue}
             let c = stateFrom.cols - 1
             let p = Position(r, c)
-            let point = gridNode.gridPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             if s1 != .normal { removeHint(p: p, isHorz: true) }
             if s2 != .normal { addHint(p: p, isHorz: true, s: s2, point: point) }
         }
@@ -121,7 +121,7 @@ class RobotFencesGameScene: GameScene<RobotFencesGameState> {
             guard s1 != s2 else {continue}
             let r = stateFrom.rows - 1
             let p = Position(r, c)
-            let point = gridNode.gridPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             if s1 != .normal { removeHint(p: p, isHorz: false) }
             if s2 != .normal { addHint(p: p, isHorz: false, s: s2, point: point) }
         }
@@ -129,7 +129,7 @@ class RobotFencesGameScene: GameScene<RobotFencesGameState> {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
                 guard stateFrom.game[p] == 0 else {continue}
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
                 let (n1, n2) = (stateFrom[p], stateTo[p])

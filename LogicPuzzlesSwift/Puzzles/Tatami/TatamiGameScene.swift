@@ -32,7 +32,7 @@ class TatamiGameScene: GameScene<TatamiGameState> {
         for r in 0..<game.rows + 1 {
             for c in 0..<game.cols + 1 {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 for dir in 1...2 {
                     guard game.dots[r, c][dir] == .line else {continue}
                     switch dir {
@@ -58,7 +58,7 @@ class TatamiGameScene: GameScene<TatamiGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let ch = game[p]
                 guard ch != " " else {continue}
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
@@ -73,7 +73,7 @@ class TatamiGameScene: GameScene<TatamiGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let charNodeName = "char" + nodeNameSuffix
                 let (ch1, ch2) = (stateFrom[p], stateTo[p])

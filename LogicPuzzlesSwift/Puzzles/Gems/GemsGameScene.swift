@@ -31,7 +31,7 @@ class GemsGameScene: GameScene<GemsGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let n = game.pos2hint[p]
                 guard let n else {continue}
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
@@ -45,7 +45,7 @@ class GemsGameScene: GameScene<GemsGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let tileNodeName = "tile" + nodeNameSuffix
                 let n = stateFrom.game.pos2hint[p]

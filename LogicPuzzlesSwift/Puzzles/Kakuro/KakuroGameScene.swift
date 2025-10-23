@@ -15,7 +15,7 @@ class KakuroGameScene: GameScene<KakuroGameState> {
     }
 
     func addHint(p: Position, n: Int, isHorz: Bool, s: HintState) {
-        var point = gridNode.gridPoint(p: p)
+        var point = gridNode.centerPoint(p: p)
         point.x += gridNode.blockSize / 4 * (isHorz ? 1 : -1)
         point.y -= gridNode.blockSize / 4 * (isHorz ? -1 : 1)
         let nodeNameSuffix = "-\(p.row)-\(p.col)-" + (isHorz ? "h" : "v")
@@ -48,7 +48,7 @@ class KakuroGameScene: GameScene<KakuroGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 guard game.pos2num[p] == nil else {continue}
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let borderNode = SKShapeNode(rectOf: CGSize(width: blockSize - 4, height: blockSize - 4))
                 borderNode.position = point
                 borderNode.fillColor = .lightGray
@@ -84,7 +84,7 @@ class KakuroGameScene: GameScene<KakuroGameState> {
             undateHint(p: p, n: n, isHorz: true, s1: stateFrom.pos2horzState[p]!, s2: stateTo.pos2horzState[p]!)
         }
         for p in stateFrom.pos2num.keys {
-            let point = gridNode.gridPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let nodeName = "num" + nodeNameSuffix
             let (n1, n2) = (stateFrom.pos2num[p]!, stateTo.pos2num[p]!)

@@ -50,7 +50,7 @@ class GardenerGameScene: GameScene<GardenerGameState> {
         for r in 0..<game.rows + 1 {
             for c in 0..<game.cols + 1 {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 for dir in 1...2 {
                     guard game.dots[r, c][dir] == .line else {continue}
                     switch dir {
@@ -75,7 +75,7 @@ class GardenerGameScene: GameScene<GardenerGameState> {
         
         // addHints
         for (p, (n, _)) in game.pos2hint {
-            let point = gridNode.gridPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
@@ -83,7 +83,7 @@ class GardenerGameScene: GameScene<GardenerGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 if case .forbidden = state[p] {
@@ -101,7 +101,7 @@ class GardenerGameScene: GameScene<GardenerGameState> {
     
     override func levelUpdated(from stateFrom: GardenerGameState, to stateTo: GardenerGameState) {
         for (p, (n, _)) in stateFrom.game.pos2hint {
-            let point = gridNode.gridPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
@@ -114,7 +114,7 @@ class GardenerGameScene: GameScene<GardenerGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.gridPoint(p: p)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let flowerNodeName = "flower" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
@@ -163,7 +163,7 @@ class GardenerGameScene: GameScene<GardenerGameState> {
             }
         }
         for (p, (n, _)) in stateFrom.game.pos2hint {
-            let point = gridNode.gridPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
