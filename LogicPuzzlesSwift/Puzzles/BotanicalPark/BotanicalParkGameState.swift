@@ -15,8 +15,6 @@ class BotanicalParkGameState: GridGameState<BotanicalParkGameMove> {
     }
     override var gameDocument: GameDocumentBase { BotanicalParkDocument.sharedInstance }
     var objArray = [BotanicalParkObject]()
-    var row2state = [HintState]()
-    var col2state = [HintState]()
     
     override func copy() -> BotanicalParkGameState {
         let v = BotanicalParkGameState(game: game, isCopy: true)
@@ -25,8 +23,6 @@ class BotanicalParkGameState: GridGameState<BotanicalParkGameMove> {
     func setup(v: BotanicalParkGameState) -> BotanicalParkGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.row2state = row2state
-        v.col2state = col2state
         return v
     }
     
@@ -37,8 +33,6 @@ class BotanicalParkGameState: GridGameState<BotanicalParkGameMove> {
         for (p, _) in game.pos2arrow {
             self[p] = .arrow(state: .normal)
         }
-        row2state = Array<HintState>(repeating: .normal, count: rows)
-        col2state = Array<HintState>(repeating: .normal, count: cols)
         updateIsSolved()
     }
     
@@ -99,26 +93,6 @@ class BotanicalParkGameState: GridGameState<BotanicalParkGameMove> {
         let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         for r in 0..<rows {
-            var n1 = 0
-            let n2 = game.row2hint[r]
-            for c in 0..<cols {
-                if case .tree = self[r, c] { n1 += 1 }
-            }
-            // 3. The numbers on the borders tell you how many Trees there are on that row.
-            row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 { isSolved = false }
-        }
-        for c in 0..<cols {
-            var n1 = 0
-            let n2 = game.col2hint[c]
-            for r in 0..<rows {
-                if case .tree = self[r, c] { n1 += 1 }
-            }
-            // 3. The numbers on the borders tell you how many Trees there are on that column.
-            col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 { isSolved = false }
-        }
-        for r in 0..<rows {
             for c in 0..<cols {
                 if case .forbidden = self[r, c] { self[r, c] = .empty }
             }
@@ -160,8 +134,7 @@ class BotanicalParkGameState: GridGameState<BotanicalParkGameMove> {
                     self[p] = .arrow(state: s)
                     if s == .error { isSolved = false }
                 case .empty, .marker:
-                    guard allowedObjectsOnly else {break}
-                    if col2state[c] != .normal || row2state[r] != .normal || !hasArrow() { self[p] = .forbidden }
+                    if allowedObjectsOnly && !hasArrow() { self[p] = .forbidden }
                 default:
                     break
                 }

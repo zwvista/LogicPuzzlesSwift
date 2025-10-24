@@ -14,14 +14,6 @@ class BotanicalParkGameScene: GameScene<BotanicalParkGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addHint(p: Position, n: Int, s: HintState) {
-        let point = gridNode.centerPoint(p: p)
-        guard n >= 0 else {return}
-        let nodeNameSuffix = "-\(p.row)-\(p.col)"
-        let hintNodeName = "hint" + nodeNameSuffix
-        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: hintNodeName)
-    }
-    
     func addArrow(n: Int, s: AllowedObjectState, point: CGPoint, nodeName: String) {
         addImage(imageNamed: getArrowImageName(n: n), color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }
@@ -29,23 +21,11 @@ class BotanicalParkGameScene: GameScene<BotanicalParkGameState> {
     override func levelInitialized(_ game: AnyObject, state: BotanicalParkGameState, skView: SKView) {
         let game = game as! BotanicalParkGame
         removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols + 1)
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
         
         // add Grid
         let offset:CGFloat = 0.5
-        addGrid(gridNode: BotanicalParkGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols + 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows + 1) / 2 + offset))
-        
-        // add Hints
-        for r in 0..<game.rows {
-            let p = Position(r, game.cols)
-            let n = state.game.row2hint[r]
-            addHint(p: p, n: n, s: state.row2state[r])
-        }
-        for c in 0..<game.cols {
-            let p = Position(game.rows, c)
-            let n = state.game.col2hint[c]
-            addHint(p: p, n: n, s: state.col2state[c])
-        }
+        addGrid(gridNode: BotanicalParkGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
         for r in 0..<game.rows {
             for c in 0..<game.cols {
@@ -75,22 +55,6 @@ class BotanicalParkGameScene: GameScene<BotanicalParkGameState> {
             removeNode(withName: hintNodeName)
         }
         for r in 0..<stateFrom.rows {
-            let p = Position(r, stateFrom.cols)
-            let n = stateFrom.game.row2hint[r]
-            if stateFrom.row2state[r] != stateTo.row2state[r] {
-                removeHint(p: p)
-                addHint(p: p, n: n, s: stateTo.row2state[r])
-            }
-        }
-        for c in 0..<stateFrom.cols {
-            let p = Position(stateFrom.rows, c)
-            let n = stateFrom.game.col2hint[c]
-            if stateFrom.col2state[c] != stateTo.col2state[c] {
-                removeHint(p: p)
-                addHint(p: p, n: n, s: stateTo.col2state[c])
-            }
-        }
-        for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
@@ -117,7 +81,7 @@ class BotanicalParkGameScene: GameScene<BotanicalParkGameState> {
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case let .tree(s):
-                    addImage(imageNamed: "tree_yellow", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: treeNodeName)
+                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: treeNodeName)
                 case let .arrow(s):
                     let n = stateTo.game.pos2arrow[p]!
                     addArrow(n: n, s: s, point: point, nodeName: arrowNodeName)

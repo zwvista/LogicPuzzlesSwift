@@ -12,8 +12,6 @@ class BotanicalParkGame: GridGame<BotanicalParkGameState> {
     static let offset = Position.Directions4
     static let offset2 = Position.Directions8
 
-    var row2hint = [Int]()
-    var col2hint = [Int]()
     var pos2arrow = [Position: Int]()
     let onlyOneArrow: Bool
     
@@ -21,25 +19,16 @@ class BotanicalParkGame: GridGame<BotanicalParkGameState> {
         self.onlyOneArrow = onlyOneArrow
         super.init(delegate: delegate)
         
-        size = Position(layout.count - 1, layout[0].length - 1)
-        row2hint = Array<Int>(repeating: 0, count: rows)
-        col2hint = Array<Int>(repeating: 0, count: cols)
+        size = Position(layout.count, layout[0].length)
         
-        for r in 0..<rows + 1 {
+        for r in 0..<rows {
             let str = layout[r]
-            for c in 0..<cols + 1 {
+            for c in 0..<cols {
                 let p = Position(r, c)
                 let ch = str[c]
-                if ch != " " {
-                    let n = ch.toInt!
-                    if r == rows {
-                        col2hint[c] = n
-                    } else if c == cols {
-                        row2hint[r] = n
-                    } else {
-                        pos2arrow[p] = n
-                    }
-                }
+                if ch == " " {continue}
+                let n = ch.toInt!
+                pos2arrow[p] = n
             }
         }
         
