@@ -59,7 +59,7 @@ class BotanicalParkGameScene: GameScene<BotanicalParkGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let treeNodeName = "tree" + nodeNameSuffix
+                let plantNodeName = "plant" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let arrowNodeName = "arrow" + nodeNameSuffix
@@ -68,8 +68,8 @@ class BotanicalParkGameScene: GameScene<BotanicalParkGameState> {
                 switch o1 {
                 case .forbidden:
                     removeNode(withName: forbiddenNodeName)
-                case .tree:
-                    removeNode(withName: treeNodeName)
+                case .plant:
+                    removeNode(withName: plantNodeName)
                 case .arrow:
                     removeNode(withName: arrowNodeName)
                 case .marker:
@@ -80,8 +80,8 @@ class BotanicalParkGameScene: GameScene<BotanicalParkGameState> {
                 switch o2 {
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
-                case let .tree(s):
-                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: treeNodeName)
+                case let .plant(s):
+                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: plantNodeName)
                 case let .arrow(s):
                     let n = stateTo.game.pos2arrow[p]!
                     addArrow(n: n, s: s, point: point, nodeName: arrowNodeName)

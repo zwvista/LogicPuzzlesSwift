@@ -24,6 +24,6 @@ class BotanicalParkGameViewController: GameGameViewController2<BotanicalParkGame
     }
    
     override func newGame(level: GameLevel) -> BotanicalParkGame {
-        BotanicalParkGame(layout: level.layout, onlyOneArrow: (level.settings["OnlyOneArrow"] ?? "0") == "1", delegate: self)
+        BotanicalParkGame(layout: level.layout, plantsInEachArea: (level.settings["PlantsInEachArea"] ?? "1").toInt()!, delegate: self)
     }
 }

@@ -12,7 +12,7 @@ enum BotanicalParkObject {
     case empty
     case forbidden
     case marker
-    case tree(state: AllowedObjectState)
+    case plant(state: AllowedObjectState)
     case arrow(state: AllowedObjectState)
     init() {
         self = .empty
@@ -21,8 +21,8 @@ enum BotanicalParkObject {
         switch self {
         case .marker:
             return "marker"
-        case .tree:
-            return "tree"
+        case .plant:
+            return "plant"
         default:
             return "empty"
         }
@@ -31,8 +31,8 @@ enum BotanicalParkObject {
         switch str {
         case "marker":
             return .marker
-        case "tree":
-            return .tree(state: .normal)
+        case "plant":
+            return .plant(state: .normal)
         default:
             return .empty
         }

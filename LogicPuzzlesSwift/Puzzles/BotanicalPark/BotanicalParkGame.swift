@@ -9,14 +9,13 @@
 import Foundation
 
 class BotanicalParkGame: GridGame<BotanicalParkGameState> {
-    static let offset = Position.Directions4
-    static let offset2 = Position.Directions8
+    static let offset = Position.Directions8
 
     var pos2arrow = [Position: Int]()
-    let onlyOneArrow: Bool
-    
-    init(layout: [String], onlyOneArrow: Bool, delegate: BotanicalParkGameViewController? = nil) {
-        self.onlyOneArrow = onlyOneArrow
+    let plantsInEachArea: Int
+
+    init(layout: [String], plantsInEachArea: Int, delegate: BotanicalParkGameViewController? = nil) {
+        self.plantsInEachArea = plantsInEachArea
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length)
