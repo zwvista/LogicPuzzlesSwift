@@ -1194,6 +1194,15 @@
 		8CB721F42EAB6C54001B25C5 /* BotanicalParkDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721E52EAB6C54001B25C5 /* BotanicalParkDocument.swift */; };
 		8CB721F52EAB6C54001B25C5 /* BotanicalParkGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721E72EAB6C54001B25C5 /* BotanicalParkGameScene.swift */; };
 		8CB721F62EAB6C54001B25C5 /* BotanicalPark.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB721E42EAB6C54001B25C5 /* BotanicalPark.xml */; };
+		8CB722012EAC44D6001B25C5 /* LandscaperMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721FE2EAC44D6001B25C5 /* LandscaperMainViewController.swift */; };
+		8CB722022EAC44D6001B25C5 /* LandscaperObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721FF2EAC44D6001B25C5 /* LandscaperObject.swift */; };
+		8CB722032EAC44D6001B25C5 /* LandscaperGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721FB2EAC44D6001B25C5 /* LandscaperGameState.swift */; };
+		8CB722042EAC44D6001B25C5 /* LandscaperDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721F82EAC44D6001B25C5 /* LandscaperDocument.swift */; };
+		8CB722052EAC44D6001B25C5 /* LandscaperGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721FD2EAC44D6001B25C5 /* LandscaperGridNode.swift */; };
+		8CB722062EAC44D6001B25C5 /* LandscaperGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721F92EAC44D6001B25C5 /* LandscaperGame.swift */; };
+		8CB722072EAC44D6001B25C5 /* LandscaperGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721FA2EAC44D6001B25C5 /* LandscaperGameScene.swift */; };
+		8CB722082EAC44D6001B25C5 /* LandscaperGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721FC2EAC44D6001B25C5 /* LandscaperGameViewController.swift */; };
+		8CB722092EAC44D6001B25C5 /* Landscaper.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB721F72EAC44D6001B25C5 /* Landscaper.xml */; };
 		8CBD5F932E7DBE11000CD5E3 /* MaketheDifferenceGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8E2E7DBE11000CD5E3 /* MaketheDifferenceGameViewController.swift */; };
 		8CBD5F942E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8A2E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift */; };
 		8CBD5F952E7DBE11000CD5E3 /* MaketheDifferenceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F912E7DBE11000CD5E3 /* MaketheDifferenceObject.swift */; };
@@ -2512,6 +2521,15 @@
 		8CB721EA2EAB6C54001B25C5 /* BotanicalParkGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotanicalParkGridNode.swift; sourceTree = "<group>"; };
 		8CB721EB2EAB6C54001B25C5 /* BotanicalParkMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotanicalParkMainViewController.swift; sourceTree = "<group>"; };
 		8CB721EC2EAB6C54001B25C5 /* BotanicalParkObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotanicalParkObject.swift; sourceTree = "<group>"; };
+		8CB721F72EAC44D6001B25C5 /* Landscaper.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Landscaper.xml; sourceTree = "<group>"; };
+		8CB721F82EAC44D6001B25C5 /* LandscaperDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscaperDocument.swift; sourceTree = "<group>"; };
+		8CB721F92EAC44D6001B25C5 /* LandscaperGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscaperGame.swift; sourceTree = "<group>"; };
+		8CB721FA2EAC44D6001B25C5 /* LandscaperGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscaperGameScene.swift; sourceTree = "<group>"; };
+		8CB721FB2EAC44D6001B25C5 /* LandscaperGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscaperGameState.swift; sourceTree = "<group>"; };
+		8CB721FC2EAC44D6001B25C5 /* LandscaperGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscaperGameViewController.swift; sourceTree = "<group>"; };
+		8CB721FD2EAC44D6001B25C5 /* LandscaperGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscaperGridNode.swift; sourceTree = "<group>"; };
+		8CB721FE2EAC44D6001B25C5 /* LandscaperMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscaperMainViewController.swift; sourceTree = "<group>"; };
+		8CB721FF2EAC44D6001B25C5 /* LandscaperObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscaperObject.swift; sourceTree = "<group>"; };
 		8CBD5F8A2E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceDocument.swift; sourceTree = "<group>"; };
 		8CBD5F8B2E7DBE11000CD5E3 /* MaketheDifferenceGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceGame.swift; sourceTree = "<group>"; };
 		8CBD5F8C2E7DBE11000CD5E3 /* MaketheDifferenceGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceGameScene.swift; sourceTree = "<group>"; };
@@ -2968,6 +2986,7 @@
 				8CE9C3031F7914B800134093 /* Kakurasu */,
 				8CC25CB51F87BB5A005560F7 /* Kakuro */,
 				8C6A9BD81F812742002A44FF /* Kropki */,
+				8CB722002EAC44D6001B25C5 /* Landscaper */,
 				8C3A34891EC88D4100A914A5 /* LightBattleShips */,
 				8C3A34961EC88D4100A914A5 /* LightenUp */,
 				8C3A34A31EC88D4100A914A5 /* Lighthouses */,
@@ -4731,6 +4750,22 @@
 			path = BotanicalPark;
 			sourceTree = "<group>";
 		};
+		8CB722002EAC44D6001B25C5 /* Landscaper */ = {
+			isa = PBXGroup;
+			children = (
+				8CB721F72EAC44D6001B25C5 /* Landscaper.xml */,
+				8CB721F82EAC44D6001B25C5 /* LandscaperDocument.swift */,
+				8CB721F92EAC44D6001B25C5 /* LandscaperGame.swift */,
+				8CB721FA2EAC44D6001B25C5 /* LandscaperGameScene.swift */,
+				8CB721FB2EAC44D6001B25C5 /* LandscaperGameState.swift */,
+				8CB721FC2EAC44D6001B25C5 /* LandscaperGameViewController.swift */,
+				8CB721FD2EAC44D6001B25C5 /* LandscaperGridNode.swift */,
+				8CB721FE2EAC44D6001B25C5 /* LandscaperMainViewController.swift */,
+				8CB721FF2EAC44D6001B25C5 /* LandscaperObject.swift */,
+			);
+			path = Landscaper;
+			sourceTree = "<group>";
+		};
 		8CBD5F922E7DBE11000CD5E3 /* MaketheDifference */ = {
 			isa = PBXGroup;
 			children = (
@@ -5290,6 +5325,7 @@
 				8C8664062EA39DD00078CD64 /* flower_light_blue.png in Resources */,
 				8C8664072EA39DD00078CD64 /* fish.png in Resources */,
 				8C8664082EA39DD00078CD64 /* car_bottom.png in Resources */,
+				8CB722092EAC44D6001B25C5 /* Landscaper.xml in Resources */,
 				8C8664092EA39DD00078CD64 /* branch_left.png in Resources */,
 				8C86640A2EA39DD00078CD64 /* ham_slice.png in Resources */,
 				8C86640B2EA39DD00078CD64 /* road_leftdown.png in Resources */,
@@ -6032,6 +6068,14 @@
 				8CBD5F9A2E7DBE11000CD5E3 /* MaketheDifferenceGame.swift in Sources */,
 				8C6ACC001DCAF8C20075F32C /* GameScene.swift in Sources */,
 				8C9F32601ED1FAF600E10965 /* PataMainViewController.swift in Sources */,
+				8CB722012EAC44D6001B25C5 /* LandscaperMainViewController.swift in Sources */,
+				8CB722022EAC44D6001B25C5 /* LandscaperObject.swift in Sources */,
+				8CB722032EAC44D6001B25C5 /* LandscaperGameState.swift in Sources */,
+				8CB722042EAC44D6001B25C5 /* LandscaperDocument.swift in Sources */,
+				8CB722052EAC44D6001B25C5 /* LandscaperGridNode.swift in Sources */,
+				8CB722062EAC44D6001B25C5 /* LandscaperGame.swift in Sources */,
+				8CB722072EAC44D6001B25C5 /* LandscaperGameScene.swift in Sources */,
+				8CB722082EAC44D6001B25C5 /* LandscaperGameViewController.swift in Sources */,
 				8C3A36FE1EC88D4300A914A5 /* MasyuGame.swift in Sources */,
 				8CFAF9C120381D870095EFFC /* CastleBaileyGridNode.swift in Sources */,
 				8C7474671FBEFD5700C4112C /* FourMeNotGameState.swift in Sources */,
