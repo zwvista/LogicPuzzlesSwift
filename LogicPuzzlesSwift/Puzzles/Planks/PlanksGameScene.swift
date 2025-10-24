@@ -53,8 +53,18 @@ class PlanksGameScene: GameScene<PlanksGameState> {
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let horzLineNodeName = "horzLine" + nodeNameSuffix
                 let vertlineNodeName = "vertline" + nodeNameSuffix
-                let hintNodeName = "hint" + nodeNameSuffix
-                func removeHint() { removeNode(withName: hintNodeName) }
+                let nailNodeName = "nail" + nodeNameSuffix
+                let plankNodeName = "plank" + nodeNameSuffix
+                let (e1, e2) = (stateFrom.pos2orient[p], stateTo.pos2orient[p])
+                let isNail = stateFrom.game.nails.contains(p)
+                if e1 != e2 {
+                    if e1 != nil { removeNode(withName: plankNodeName) }
+                    if let e2 {
+                        if isNail { removeNode(withName: nailNodeName) }
+                        addImage(imageNamed: "wood \(e2 ? "horizontal" : "vertical")", color: .red, colorBlendFactor: 0.0, point: point, nodeName: plankNodeName)
+                        if isNail { addNail(point: point, nodeName: nailNodeName) }
+                    }
+                }
                 func removeHorzLine(objType: GridLineObject) {
                     if objType != .empty { removeNode(withName: horzLineNodeName) }
                 }
@@ -71,11 +81,6 @@ class PlanksGameScene: GameScene<PlanksGameState> {
                     removeVertLine(objType: o1)
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
                 }
-//                guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
-//                if s1 != s2 {
-//                    removeHint()
-//                    addHint(n: stateFrom.game.pos2hint[p]!, s: s2, point: point, nodeName: hintNodeName)
-//                }
             }
         }
     }

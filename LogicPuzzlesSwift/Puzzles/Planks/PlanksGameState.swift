@@ -15,7 +15,7 @@ class PlanksGameState: GridGameState<PlanksGameMove> {
     }
     override var gameDocument: GameDocumentBase { PlanksDocument.sharedInstance }
     var objArray = [GridDotObject]()
-    var planks = [[Position]]()
+    var pos2orient = [Position: Bool]()
     
     override func copy() -> PlanksGameState {
         let v = PlanksGameState(game: game, isCopy: true)
@@ -120,36 +120,49 @@ class PlanksGameState: GridGameState<PlanksGameMove> {
                 }
             }
         }
-        planks.removeAll()
+        pos2orient.removeAll()
+        var planks = [[Position]]()
         var pos2plank = [Position: Int]()
         let g2 = Graph()
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             var area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
-            // 2. Planks are 3 tiles long and can be oriented vertically or
-            //    horizontally. The Nail can be in any of the 3 tiles.
+            let rng = area.filter { game.nails.contains($0) }
+            if rng.count == 0 {continue}
+            // 2. Planks are 3 tiles long.
             guard area.count == 3 else { isSolved = false; continue }
             area.sort(by: <)
             let (os1, os2) = (area[1] - area[0], area[2] - area[1])
+            // 2. Planks can be oriented vertically or horizontally.
             guard os1 == os2 && (os1 == PlanksGame.offset[1] || os1 == PlanksGame.offset[2]) else { isSolved = false; continue }
-            let rng = area.filter { game.nails.contains($0) }
             // 1. On the board there are a few nails. Each one nails a plank to
             //    the board.
+            // 2. The Nail can be in any of the 3 tiles.
             guard rng.count == 1 else { isSolved = false; continue }
             let n = planks.count
             planks.append(area)
-            for p in area { pos2plank[p] = n }
+            for p in area {
+                pos2plank[p] = n
+                pos2orient[p] = os1 == PlanksGame.offset[1]
+            }
             _ = g2.addNode(String(n))
         }
         for (i, plank) in planks.enumerated() {
+            var neighbors = Set<Int>()
             for p in plank {
                 for os in PlanksGame.offset {
-                    if let n = pos2plank[p + os] {
-                        g2.addEdge(g.nodes[i], neighbor: g.nodes[n])
-                    }
+                    guard let n = pos2plank[p + os], n != i else {continue}
+                    neighbors.insert(n)
                 }
             }
+            // 3. Each Plank touches orthogonally exactly two other Planks.
+            guard neighbors.count == 2 else { isSolved = false; return }
+            for n in neighbors { g2.addEdge(g2.nodes[i], neighbor: g2.nodes[n]) }
         }
+        guard isSolved else { return }
+        // 4. All the Planks form a ring, or a closed loop.
+        let nodesExplored = breadthFirstSearch(g2, source: g2.nodes[0])
+        if nodesExplored.count != g2.nodes.count { isSolved = false }
     }
 }
