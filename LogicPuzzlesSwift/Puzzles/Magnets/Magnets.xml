@@ -118,6 +118,78 @@ H H    `
 2 22  -`
     ]]>
   </level>
+  <level id="11">
+    <![CDATA[
+VH VH 12`
+ H  H 32`
+H VH V23`
+H  H  32`
+VVVVVV22`
+      22`
+222133+ `
+231133 -`
+    ]]>
+  </level>
+  <level id="12">
+    <![CDATA[
+VVH H 33`
+  H H 22`
+VVVVH 22`
+    H 11`
+H VH V13`
+H  H  20`
+133112+ `
+223112 -`
+    ]]>
+  </level>
+  <level id="13">
+    <![CDATA[
+VVVVVV32`
+      23`
+H H H 22`
+H H H 22`
+H H H 00`
+H H H 33`
+322122+ `
+232122 -`
+    ]]>
+  </level>
+  <level id="14">
+    <![CDATA[
+VVVVH   `
+    VV32`
+VH V    `
+ H  H 33`
+VH H V21`
+ H H  2 `
+   23 + `
+  223  -`
+    ]]>
+  </level>
+  <level id="15">
+    <![CDATA[
+VH H V22`
+ VVVV  2`
+V    V 3`
+ H VV  2`
+VVV  V23`
+   H  31`
+    0 + `
+       -`
+    ]]>
+  </level>
+  <level id="16">
+    <![CDATA[
+VVVH V23`
+   VV 31`
+VH   V13`
+ H H  21`
+H VVH 12`
+H   H 32`
+232221+ `
+322131 -`
+    ]]>
+  </level>
   <level id="17">
     <![CDATA[
 H H VV21`
@@ -140,6 +212,1468 @@ VH H V23`
 H H H 22`
 232130+ `
 322013 -`
+    ]]>
+  </level>
+  <level id="19">
+    <![CDATA[
+H VH V32`
+VV H  23`
+  VVH 32`
+VV  H 23`
+  H H 22`
+H H H 22`
+332123+ `
+331232 -`
+    ]]>
+  </level>
+  <level id="20">
+    <![CDATA[
+VVH VV32`
+  VV  22`
+VV  H 23`
+  VVH 21`
+VV  H 22`
+  H H 12`
+131223+ `
+132132 -`
+    ]]>
+  </level>
+  <level id="21">
+    <![CDATA[
+H VH V33`
+H  VV 33`
+H V  V22`
+H  VV 11`
+VVV  V11`
+   H  22`
+231132+ `
+231312 -`
+    ]]>
+  </level>
+  <level id="22">
+    <![CDATA[
+VH H V22`
+ H H  33`
+H H VV33`
+H H   33`
+VVH VV32`
+  H   12`
+323223+ `
+322233 -`
+    ]]>
+  </level>
+  <level id="23">
+    <![CDATA[
+H VH V11`
+VV H    `
+  VH V  `
+H  H  1 `
+VVVVH   `
+    H 23`
+33 2  + `
+33122  -`
+    ]]>
+  </level>
+  <level id="24">
+    <![CDATA[
+H H VV 2`
+VH V   2`
+ VV VV  `
+V  V  33`
+ H  H 2 `
+H H H   `
+3   2 + `
+1 23   -`
+    ]]>
+  </level>
+  <level id="25">
+    <![CDATA[
+VH VH 22`
+ VV VV32`
+V  V    `
+ H  VV32`
+VH V    `
+ H  H 32`
+232 13+ `
+ 23  2 -`
+    ]]>
+  </level>
+  <level id="26">
+    <![CDATA[
+H VVH  3`
+H   H  3`
+H H H   `
+VVVVH 12`
+    H  1`
+H H H  2`
+23 3 3+ `
+32 2   -`
+    ]]>
+  </level>
+  <level id="27">
+    <![CDATA[
+VVH H   `
+  H H 2 `
+VH VH  3`
+ H  VV31`
+VH V    `
+ H  H 32`
+  1   + `
+322    -`
+    ]]>
+  </level>
+  <level id="28">
+    <![CDATA[
+H VV.H 33`
+H   H V32`
+VH VH  11`
+ H  H V22`
+VVH VV 02`
+  VV  V31`
+H   H  34`
+1322223+ `
+3032214 -`
+    ]]>
+  </level>
+  <level id="29">
+    <![CDATA[
+VH H VV  `
+ .VH   20`
+VV H H 1 `
+  H H V3 `
+VVVH V  4`
+   H  V4 `
+H H H  34`
+231    + `
+     3  -`
+    ]]>
+  </level>
+  <level id="30">
+    <![CDATA[
+VVH VH 34`
+  VV H   `
+H   VVV3 `
+H VV     `
+VV  H V3 `
+  V.H  33`
+H  H H 3 `
+   23 3+ `
+      4 -`
+    ]]>
+  </level>
+  <level id="31">
+    <![CDATA[
+H VVH .33`
+VV  VH 33`
+  H  VV33`
+H VH   22`
+H  VVH 12`
+H V  VV32`
+H  H   33`
+3323133+ `
+3333123 -`
+    ]]>
+  </level>
+  <level id="32">
+    <![CDATA[
+H H H .11`
+H VH VV22`
+H  VV  33`
+VH   H 32`
+ H H VV23`
+H VVV  33`
+H    H 33`
+3203333+ `
+3213233 -`
+    ]]>
+  </level>
+  <level id="33">
+    <![CDATA[
+.H H VV  `
+H H V   3`
+H H  H 3 `
+VH VVVV3 `
+ H     3 `
+VH VH V20`
+ H  H    `
+  2 41 + `
+   2    -`
+    ]]>
+  </level>
+  <level id="34">
+    <![CDATA[
+H H .VV33`
+VVH V  3 `
+  VV H   `
+H   VH  2`
+H VV H 2 `
+H   H V 3`
+H H H  4 `
+4 3 3  + `
+2   2 3 -`
+    ]]>
+  </level>
+  <level id="35">
+    <![CDATA[
+VH H H 2 `
+ VVVVH   `
+V    VV  `
+ .VVV   3`
+H    H 22`
+H VVVVV32`
+H        `
+ 032204+ `
+ 1      -`
+    ]]>
+  </level>
+  <level id="36">
+    <![CDATA[
+VV.H H   `
+  VH H 4 `
+H  H H  4`
+H H H V  `
+H H VV 3 `
+H H   V  `
+H H H  2 `
+   3 23+ `
+22   3  -`
+    ]]>
+  </level>
+  <level id="37">
+    <![CDATA[
+VH H H   `
+ VH H V13`
+V .H V   `
+ H H  V1 `
+H H H  10`
+VH H H   `
+ H H H 33`
+ 223 1 + `
+2  2 0  -`
+    ]]>
+  </level>
+  <level id="38">
+    <![CDATA[
+VVH VH V33`
+  VV VV 44`
+H   V  V44`
+H H  VV 22`
+VH VV  V22`
+ VV  VV 22`
+V  VV  V32`
+ H   H  34`
+33232343+ `
+41332343 -`
+    ]]>
+  </level>
+  <level id="39">
+    <![CDATA[
+VH VH VV42`
+ H  VV  03`
+VVVV  H 31`
+    VVVV24`
+H H     32`
+H H H H 44`
+H H VH V43`
+H H  H  34`
+43322423+ `
+44314232 -`
+    ]]>
+  </level>
+  <level id="40">
+    <![CDATA[
+VH VVVH 3 `
+ H    H 33`
+H VH VVV22`
+VV VV   44`
+  V  H V 4`
+H  VH V  3`
+VH  H  V2 `
+ H H H   2`
+4  2 3  + `
+3   21   -`
+    ]]>
+  </level>
+  <level id="41">
+    <![CDATA[
+H H H H 44`
+VVVH H V  `
+   VVH  2 `
+H V  H V  `
+H  H H  42`
+VH H VH 24`
+ H H  VV42`
+H H H     `
+242214  + `
+  3 14 3 -`
+    ]]>
+  </level>
+  <level id="42">
+    <![CDATA[
+VH H H V22`
+ VVVH V 32`
+V   H  V13`
+ H H VV 31`
+H H V  V23`
+VH V H  32`
+ H  VVH 22`
+H H   H 34`
+22243222+ `
+41233123 -`
+    ]]>
+  </level>
+  <level id="43">
+    <![CDATA[
+VH H VH 43`
+ H H  VV33`
+VVH H   11`
+  VH VH 33`
+H  VV H 12`
+VH   VH 31`
+ H H  VV23`
+H H H   12`
+32412123+ `
+32331132 -`
+    ]]>
+  </level>
+  <level id="44">
+    <![CDATA[
+VVH VVH 33`
+  VV  H 23`
+H   H H 43`
+VVH H VV33`
+  VVVV  33`
+VV    H 34`
+  VH VH 21`
+H  H  H 44`
+21334443+ `
+03343434 -`
+    ]]>
+  </level>
+  <level id="45">
+    <![CDATA[
+VH H VH 42`
+ VH V VV23`
+V VV V  32`
+ V  V H 33`
+V H  H V23`
+ H VH V 33`
+H V H  V11`
+H  H H  23`
+33114323+ `
+24122333 -`
+    ]]>
+  </level>
+  <level id="46">
+    <![CDATA[
+H VH H V12`
+H  VH V 23`
+VH  VV V34`
+ VH   V 42`
+V VH V V22`
+ V H  V 32`
+V H H  V32`
+ H H H  23`
+33222233+ `
+24142223 -`
+    ]]>
+  </level>
+  <level id="47">
+    <![CDATA[
+VH H VVV32`
+ VH V   22`
+V H  H V23`
+ H H VV 11`
+H H V  V22`
+VH V H  11`
+ H  VVH 21`
+H H   H 23`
+32211312+ `
+14112213 -`
+    ]]>
+  </level>
+  <level id="48">
+    <![CDATA[
+VH VH VV 3`
+ VV H   2 `
+V  VH H  4`
+ H  VH V1 `
+H H  VV  2`
+VH H   V3 `
+ H H H   1`
+H H H H 2 `
+ 2 4 1 2+ `
+2 2 1 3  -`
+    ]]>
+  </level>
+  <level id="49">
+    <![CDATA[
+VH H VH 32`
+ VH V H 33`
+V H  H V11`
+ H VH V 13`
+H V VV V12`
+VV V  V 22`
+  V H  V31`
+H  H H  22`
+22232122+ `
+32211322 -`
+    ]]>
+  </level>
+  <level id="50">
+    <![CDATA[
+VH VH H 32`
+ H  H VV33`
+H VVH   02`
+H   VH V32`
+VVH  H  23`
+  H VVH 32`
+VVVV  H 34`
+    H H 32`
+42313223+ `
+33223214 -`
+    ]]>
+  </level>
+  <level id="51">
+    <![CDATA[
+H VH VH 22`
+H  VV H 44`
+VH   H V44`
+ H VVVV 44`
+VH     V43`
+ H H H  23`
+VVH VVH 22`
+  H   H 33`
+33432433+ `
+34233442 -`
+    ]]>
+  </level>
+  <level id="52">
+    <![CDATA[
+H H VH V24`
+H H  H  42`
+VVH H H 33`
+  H H H 33`
+H VH VVV24`
+H  VV   32`
+VH   VVV33`
+ H H    32`
+34441214+ `
+34433123 -`
+    ]]>
+  </level>
+  <level id="53">
+    <![CDATA[
+H H H H 33`
+VH VH H 12`
+ H  VH V43`
+H H  H  22`
+H VVH VV44`
+VV  H   32`
+  VH H V23`
+H  H H  44`
+32413343+ `
+32332334 -`
+    ]]>
+  </level>
+  <level id="54">
+    <![CDATA[
+H H VH V44`
+VH V H  44`
+ H  H H 22`
+VVH VH V33`
+  VV H  23`
+H   H H 32`
+VH VVH V23`
+ H   H  43`
+24243414+ `
+33334143 -`
+    ]]>
+  </level>
+  <level id="55">
+    <![CDATA[
+VH VH H 31`
+ VV H H 23`
+V  H VH 43`
+ H H  VV14`
+H H H   21`
+VVH H H 32`
+  VH VVV23`
+H  H    33`
+42141134+ `
+32232134 -`
+    ]]>
+  </level>
+  <level id="56">
+    <![CDATA[
+H H H H 44`
+VVVH H V34`
+   H VV 31`
+H H V  V11`
+H VV H  22`
+H   H H 23`
+H H VVH 32`
+H H   H 34`
+42233142+ `
+33223134 -`
+    ]]>
+  </level>
+  <level id="57">
+    <![CDATA[
+VH VH H   `
+ H  VH V44`
+H H  H  11`
+VH H H V23`
+ H VVH  1 `
+H V  H V32`
+VV H H    `
+  H H H  3`
+33 12  3+ `
+3   2 3  -`
+    ]]>
+  </level>
+  <level id="58">
+    <![CDATA[
+H H H H  2`
+VH H H V  `
+ H H H   2`
+H H H H   `
+VVVVH H  3`
+    H VV34`
+VVVH V  4 `
+   H  H   `
+ 41 4322+ `
+  0 2  1 -`
+    ]]>
+  </level>
+  <level id="59">
+    <![CDATA[
+H H H H 2 `
+H VVVVVV  `
+H       33`
+VVVH VH 2 `
+   VV H  2`
+VH   H V34`
+ H H H  43`
+H H H H 4 `
+2 323  2+ `
+ 34 3  1 -`
+    ]]>
+  </level>
+  <level id="60">
+    <![CDATA[
+H H H VV44`
+VVH H   44`
+  VVVVVV34`
+H         `
+VH VH VV 2`
+ H  H     `
+VH H H V3 `
+ H H H  34`
+23    33+ `
+     14  -`
+    ]]>
+  </level>
+  <level id="61">
+    <![CDATA[
+H VH VH 34`
+H  H  H  2`
+H H VVVV2 `
+H VV    0 `
+H   H VV42`
+VVH H     `
+  VH H V 2`
+H  H H   4`
+2 3211 3+ `
+  4  1 3 -`
+    ]]>
+  </level>
+  <level id="62">
+    <![CDATA[
+VH H VH   `
+ H VV VV0 `
+H V  V  2 `
+H  H  H 20`
+H VH VVV3 `
+VV H    2 `
+  VH H V33`
+H  H H   3`
+  32 313+ `
+13   3   -`
+    ]]>
+  </level>
+  <level id="63">
+    <![CDATA[
+VH H VH   `
+ VH V VV  `
+V H  V   2`
+ H H  VV22`
+VH VVV  34`
+ VV   H 33`
+V  H VH 33`
+ H H  H 33`
+3 0 33 3+ `
+  1 3    -`
+    ]]>
+  </level>
+  <level id="64">
+    <![CDATA[
+H H H H  3`
+VH H VVV  `
+ H VV   44`
+VVV  VH   `
+   H  VV 4`
+VVH H   3 `
+  VVH H 2 `
+H   H H 43`
+  4 3 42+ `
+433  3   -`
+    ]]>
+  </level>
+  <level id="65">
+    <![CDATA[
+VVVVH H 44`
+    VVH   `
+H H   H 2 `
+VH VH H 3 `
+ H  VH V  `
+H H  H   3`
+VH VH H  0`
+ H  H H   `
+1  22  4+ `
+ 3  4  2 -`
+    ]]>
+  </level>
+  <level id="66">
+    <![CDATA[
+H H VVVVV21`
+VVVV     11`
+    H VH 23`
+VVV.H  H 32`
+   VVH H 45`
+VH   VH V42`
+ VH V VV 35`
+V H  V  V54`
+ H H  H  34`
+433233342+ `
+423332424 -`
+    ]]>
+  </level>
+  <level id="67">
+    <![CDATA[
+H H H .H 44`
+H H H H V54`
+H H H H  34`
+VH VVVVVV54`
+ VV      45`
+V  H H VV32`
+ H VH V  33`
+VH  H  VV32`
+ H H H   24`
+354433343+ `
+445433234 -`
+    ]]>
+  </level>
+  <level id="68">
+    <![CDATA[
+.H H H H 44`
+VVH VVVH   `
+  H    VV 4`
+H H VVV    `
+VH V   VV  `
+ VV H V  23`
+V  H V H   `
+ H H  H V 3`
+H H H H    `
+42 1 4  5+ `
+4  125444 -`
+    ]]>
+  </level>
+  <level id="69">
+    <![CDATA[
+VV.H VVVV  `
+  VH     54`
+H  VH H V0 `
+H V H H   2`
+H  VH VH 3 `
+VH  H  VV 4`
+ H H VV    `
+VH H   VV45`
+ H H H    3`
+4  3 34 4+ `
+44 3   2  -`
+    ]]>
+  </level>
+  <level id="70">
+    <![CDATA[
+VH VH VVV44`
+ H  H      `
+VH H H H 4 `
+ VH H H V 3`
+. H VH V  3`
+H H  H  V  `
+H H VVVV  4`
+VVH     V4 `
+  H H H  3 `
+ 353 145 + `
+  4 2 3   -`
+    ]]>
+  </level>
+  <level id="71">
+    <![CDATA[
+H .H H H 44`
+H VH H H 33`
+H  VH H V33`
+VH  H H  45`
+ H H H H 32`
+H H VH VV24`
+H H  H   53`
+VH VH H V34`
+ H  H H  54`
+342353435+ `
+422534444 -`
+    ]]>
+  </level>
+  <level id="72">
+    <![CDATA[
+H H H VH 44`
+VVH H  VV11`
+  H .H   22`
+VH H H VV32`
+ H H VV  44`
+VH VV  H 34`
+ H   H H 44`
+H H H H V22`
+H H H H  44`
+343503333+ `
+425332332 -`
+    ]]>
+  </level>
+  <level id="73">
+    <![CDATA[
+VH VVVVV.23`
+ H      V33`
+VVH VVH  12`
+  H   VVV31`
+VH H V   42`
+ VH V H V33`
+V H  H V 23`
+ H H H  V24`
+H H H H  32`
+442033322+ `
+352042232 -`
+    ]]>
+  </level>
+  <level id="74">
+    <![CDATA[
+.H H H VV33`
+H H H V  34`
+H VVH  H 20`
+VV  VVH V03`
+  H   H  31`
+H H VVVH 32`
+H VV   H 33`
+VV  VVVH 34`
+  H    H 44`
+423213423+ `
+233314332 -`
+    ]]>
+  </level>
+  <level id="75">
+    <![CDATA[
+H VVVH VV23`
+VV   VV  34`
+  VV.  H 41`
+H   H H V24`
+VH VH H  30`
+ H  VH H 13`
+H VV VVVV42`
+VV  V    25`
+  H  H H 54`
+423332315+ `
+422423333 -`
+    ]]>
+  </level>
+  <level id="76">
+    <![CDATA[
+H VVVVVH 45`
+H      H   `
+H .VH VVV  `
+VH  H    32`
+ H H H H  4`
+VH H VH V4 `
+ H VV H  4 `
+H V  H H   `
+H  H H H 3 `
+4   422  + `
+5 4 423 4 -`
+    ]]>
+  </level>
+  <level id="77">
+    <![CDATA[
+.VVH VVVV33`
+V  VV      `
+ H   H H 43`
+H H VVH V  `
+VH V  VV 54`
+ H  VV  V34`
+VVH   H  3 `
+  H H H V 2`
+H H H H    `
+1334 2   + `
+ 1   33 4 -`
+    ]]>
+  </level>
+  <level id="78">
+    <![CDATA[
+H H H H V 5`
+VVH H V. 5 `
+  H H  H   `
+H VH H VV 2`
+VV H H   12`
+  H VVVVV43`
+H VV       `
+H   H H V  `
+H H H H  33`
+ 4333  5 + `
+ 3  1  3  -`
+    ]]>
+  </level>
+  <level id="79">
+    <![CDATA[
+H .H H H 2 `
+VH VH VH 23`
+ VV H  H 4 `
+V  H VH V34`
+ VVH  H  3 `
+V  VVH VV44`
+ H   VV    `
+VVVH   VV23`
+   H H     `
+ 5 4  12 + `
+3444 042  -`
+    ]]>
+  </level>
+  <level id="80">
+    <![CDATA[
+H H .VVH 4 `
+H VH   VV0 `
+H  H VV  11`
+VH H   H 3 `
+ H VVVVVV33`
+VVV        `
+   H H VV  `
+VVH VVV  44`
+  H    H 44`
+443    1 + `
+43  242 1 -`
+    ]]>
+  </level>
+  <level id="81">
+    <![CDATA[
+.VH VVVH   `
+V VV   H  1`
+ V  VVVH   `
+V H    H   `
+ VVVH VH  4`
+V   H  H   `
+ H H H H 33`
+VH VH H V44`
+ H  H H    `
+     4144+ `
+33 2341 5 -`
+    ]]>
+  </level>
+  <level id="82">
+    <![CDATA[
+H VVH H H 43`
+VV  VH VVV12`
+  H  H    33`
+H VH H H V53`
+H  VVH H  45`
+VH   VVVVV44`
+ VVH      44`
+V  VH H H 34`
+ H  VH H V24`
+H H  H H  53`
+5535313334+ `
+5535331244 -`
+    ]]>
+  </level>
+  <level id="83">
+    <![CDATA[
+VH VH H VV34`
+ VV H H   54`
+V  H H H V44`
+ H H H VV 55`
+H H VH   V21`
+VH V VVH  44`
+ H  V  H V33`
+VVH  H VV 43`
+  VVVVV  V34`
+H      H  34`
+5224554423+ `
+4333545423 -`
+    ]]>
+  </level>
+  <level id="84">
+    <![CDATA[
+H H H VVH 44`
+VH H V  VV34`
+ VVVV H   54`
+V    VVVVV55`
+ H H      44`
+VVVVH H H 55`
+    VVVVH 54`
+VVH     H 34`
+  H H H VV55`
+H H H H   22`
+5344535444+ `
+4435534544 -`
+    ]]>
+  </level>
+  <level id="85">
+    <![CDATA[
+H H H H H   `
+VH H H H V 3`
+ VH VVVH  3 `
+V H    H V 3`
+ VVVH H V 55`
+V   H H  V5 `
+ H H H H   4`
+H H VVH H 10`
+H VV  H VV3 `
+H   H H   33`
+  4 14  25+ `
+525  23  4 -`
+    ]]>
+  </level>
+  <level id="86">
+    <![CDATA[
+H H H H VV  `
+VH H VH   55`
+ H H  VH V 4`
+VVH VV H   3`
+  H   H H 55`
+H VH H VVV  `
+VV VH V   34`
+  V H  H V  `
+H  H H H  43`
+H H H H H   `
+5314 53 5 + `
+54 3  2    -`
+    ]]>
+  </level>
+  <level id="87">
+    <![CDATA[
+H VH H H V55`
+H  VH H V  5`
+VVV H VV V45`
+   H V  V 4 `
+H H V H  V12`
+VVH  H H  32`
+  H H H H 3 `
+VVH VH VH   `
+  VV H  VV02`
+H   H H     `
+5  34     + `
+5   2 42 3 -`
+    ]]>
+  </level>
+  <level id="88">
+    <![CDATA[
+H H VVH H  2`
+VVVV  VH V 1`
+    H  H  14`
+H VVH H VV55`
+VV  VH V    `
+  H  H  H  5`
+H H H H H 1 `
+VVVVH VVVV  `
+    VV    43`
+H H   H H  4`
+4   40  41+ `
+4        4 -`
+    ]]>
+  </level>
+  <level id="89">
+    <![CDATA[
+VH H VH VV 2`
+ VVVV VV  1 `
+V    V  H 3 `
+ H H  VH V55`
+H VVVV H  23`
+H     VVVV 3`
+VVVVVV    43`
+      VVH 22`
+H H H   H 3 `
+H H H H H  2`
+ 0 0543   + `
+1 1     34 -`
+    ]]>
+  </level>
+  <level id="90">
+    <![CDATA[
+VVVH VVVH  3`
+   H    VV  `
+VH VH VV   3`
+ H  H   VV00`
+H H VH V    `
+VH V H  VV 1`
+ H  VH V  45`
+VVVV H  H  2`
+    VH H V45`
+H H  H H   4`
+03    4 34+ `
+233  3243  -`
+    ]]>
+  </level>
+  <level id="91">
+    <![CDATA[
+VH H VH H 43`
+ H H  H VV45`
+H H VVH   54`
+H VV  H H 44`
+VV  H VH V44`
+  H H  VV 23`
+H H VH   V43`
+H H  VVVV 34`
+H VVV    V53`
+H    H H  35`
+5545423325+ `
+5545332335 -`
+    ]]>
+  </level>
+  <level id="92">
+    <![CDATA[
+VVH VH H V53`
+  VV H VV 12`
+H   H V  V33`
+VH VVV H  44`
+ H    H VV13`
+H H H H   32`
+H VH H VH 21`
+VV VH V VV44`
+  V H  V  23`
+H  H H  H 33`
+3234233224+ `
+3341323144 -`
+    ]]>
+  </level>
+  <level id="93">
+    <![CDATA[
+H VH VVH V45`
+VV VV  H  44`
+  V  H VH 33`
+H  VH V VV53`
+VH  H  V  23`
+ VH VH  H 23`
+V VV VH VV45`
+ V  V VV  54`
+V H  V  H 45`
+ H H  H H 53`
+4454144345+ `
+4543235354 -`
+    ]]>
+  </level>
+  <level id="94">
+    <![CDATA[
+VVVVH VH V42`
+    VV VV 24`
+VVH   V  V22`
+  H VV VV 21`
+VVVV  V  V35`
+    H  VV 54`
+VVVH H   V11`
+   H H VV 33`
+VH VH V  V55`
+ H  H  H  44`
+3343341523+ `
+3333342433 -`
+    ]]>
+  </level>
+  <level id="95">
+    <![CDATA[
+VH H VVVH 55`
+ H H    VV44`
+H H H H   33`
+VH H VH VV44`
+ H H  H   44`
+H H VH H V43`
+VVH  H H  33`
+  VVVVH H 34`
+H     VH V34`
+H H H  H  54`
+4545533144+ `
+4455452342 -`
+    ]]>
+  </level>
+  <level id="96">
+    <![CDATA[
+VH VH VVH 44`
+ H  H   H 22`
+H VH VVH V43`
+H  H   H  12`
+H VVVH H V33`
+VV   VH V 23`
+  H V H  V33`
+H H  H H  43`
+VH H VVH V55`
+ H H   H  55`
+4354133433+ `
+3544133352 -`
+    ]]>
+  </level>
+  <level id="97">
+    <![CDATA[
+H VH VH VV44`
+H  VV H   22`
+VH   VVH V42`
+ H H   H  13`
+H VVH VH V54`
+VV  H  H  24`
+  H H H VV43`
+VVH VVVV  44`
+  H     VV34`
+H H H H   54`
+4235553232+ `
+3335553232 -`
+    ]]>
+  </level>
+  <level id="98">
+    <![CDATA[
+H H H VH V45`
+VH H V H  32`
+ H H  H VV23`
+H H VVVV  44`
+VVVV    VV42`
+    VH V  23`
+VH V H  H 23`
+ H  H H H 43`
+VVVVH H H 45`
+    H H H 43`
+3434143335+ `
+3343432335 -`
+    ]]>
+  </level>
+  <level id="99">
+    <![CDATA[
+H H VVVH V33`
+VH V   H  45`
+ VV H H VV44`
+V  VVH V  35`
+ H   H  VV40`
+VVH H H   24`
+  H H VVH 54`
+H H H   H 44`
+H VVH H H 32`
+H   H H H 34`
+2243245445+ `
+2333433545 -`
+    ]]>
+  </level>
+  <level id="100">
+    <![CDATA[
+H H H VH V44`
+VVH H  VV 55`
+  VH VV  V32`
+VV H   H  24`
+  VVVH VH 22`
+VV   H  H 33`
+  VH VH H 44`
+H  H  H VV43`
+H VH VVV  33`
+H  H    H 33`
+3323445342+ `
+3324345333 -`
+    ]]>
+  </level>
+  <level id="101">
+    <![CDATA[
+VH H H H V43`
+ VH H VH  13`
+V H H  VH 44`
+ VH H V H 44`
+V VH V VH 34`
+ V H  V VV32`
+V H H  V  33`
+ H H VV H 31`
+VVVVV  H V44`
+     H H  34`
+4033454135+ `
+4134344045 -`
+    ]]>
+  </level>
+  <level id="102">
+    <![CDATA[
+H H H H VV23`
+H H H H   43`
+VH VH VH V23`
+ VV H  H  33`
+V  H VVH V32`
+ H H   H  55`
+VH VH VVH 55`
+ H  H   H 55`
+VH VVH H V54`
+ H   H H  45`
+4443335354+ `
+4525144544 -`
+    ]]>
+  </level>
+  <level id="103">
+    <![CDATA[
+VH H VH H 42`
+ H VV H H 24`
+VH   VVVVV21`
+ VH V     34`
+V VV VVVH 45`
+ V  V   H 43`
+V H  VH H 33`
+ H H  VVVV54`
+H VVH     44`
+H   H H H 45`
+4443454340+ `
+4534353422 -`
+    ]]>
+  </level>
+  <level id="104">
+    <![CDATA[
+H VH H VVV33`
+H  H H    44`
+VH VH H H 33`
+ H  H VH V01`
+VVVVH  H  54`
+    H H H 44`
+H VH H H V53`
+VV VVVVH  34`
+  V    VVV33`
+H  H H    34`
+3523454133+ `
+3434445132 -`
+    ]]>
+  </level>
+  <level id="105">
+    <![CDATA[
+VH VVVH H 5 `
+ H    VH V  `
+H H VV H  54`
+H VV  H H 1 `
+VV  VH VH 45`
+  VV H  H 4 `
+H   H H H 45`
+H VH H H V2 `
+VV H H H    `
+  H H H H 3 `
+4444 2  43+ `
+4  534   3 -`
+    ]]>
+  </level>
+  <level id="106">
+    <![CDATA[
+VH H VH H 4 `
+ VVVV VVH 42`
+V    V  H   `
+ H H  H VV53`
+H H H H   34`
+VH H H H V1 `
+ H H H H   5`
+H H H H H 5 `
+VH VVVVVH  4`
+ H      H  4`
+44  4 4 4 + `
+53  5 4 3  -`
+    ]]>
+  </level>
+  <level id="107">
+    <![CDATA[
+H H VH VVV43`
+VVH  VV   3 `
+  VH   VH  5`
+H  H H  H   `
+VVVH VVH V34`
+   H   H    `
+VH VH H H 44`
+ VV H H H  0`
+V  VH VH V  `
+ H  H  H  22`
+   4 425  + `
+34 4   4 3 -`
+    ]]>
+  </level>
+  <level id="108">
+    <![CDATA[
+VVVH H VH  5`
+   H H  H  1`
+VH VH VVH 45`
+ H  VV  VV  `
+H VV  VV  44`
+VV  H   H 4 `
+  VH VH H 33`
+H  VV VH V  `
+H V  V H   3`
+H  H  H H 4 `
+ 4 135  5 + `
+35 0 4 3   -`
+    ]]>
+  </level>
+  <level id="109">
+    <![CDATA[
+VVVH H H V  `
+   VH VH  3 `
+VH  H  VVV 3`
+ H VVH    21`
+VH   VH H 55`
+ VH V H H   `
+V H  H VH  3`
+ H H H  VV3 `
+VH H VH   43`
+ H H  H H 3 `
+43  523335+ `
+ 334  21 5 -`
+    ]]>
+  </level>
+  <level id="110">
+    <![CDATA[
+H H H H H  5`
+VVVH H VVV55`
+   H H    4 `
+VH H H H V44`
+ VH VH H  4 `
+V H  VVVH 2 `
+ H H    VV3 `
+VVH H H   4 `
+  VH H H V4 `
+H  H H H   5`
+ 5 54  3  + `
+ 4555 3    -`
+    ]]>
+  </level>
+  <level id="111">
+    <![CDATA[
+VVVVH H H 4 `
+    H VVH 3 `
+VVH H   H 3 `
+  VVH H H 4 `
+VV  VVH H 55`
+  VV  VH V 4`
+H   VV VV  2`
+H H   V  V 5`
+VVVVVV H  54`
+      H H 4 `
+   3  3 55+ `
+ 54   3 45 -`
+    ]]>
+  </level>
+  <level id="112">
+    <![CDATA[
+VH VH H VV55`
+ H  VVVV  44`
+VH V    H   `
+ H  VVVVH 13`
+H H     H 4 `
+H VVH H VV21`
+H   VH V  33`
+H H  H  H 3 `
+VVH VH VH 55`
+  H  H  H   `
+ 154  5  3+ `
+  25  44 5 -`
+    ]]>
+  </level>
+  <level id="113">
+    <![CDATA[
+H VH VH H  3`
+H  H  H H 45`
+VH H H H V4 `
+ H H H H  34`
+VVH H H H 34`
+  VVVVVVH  4`
+VV      H 33`
+  VH H H V  `
+H  H H H  4 `
+H H H H H   `
+ 35    444+ `
+  5513 435 -`
+    ]]>
+  </level>
+  <level id="114">
+    <![CDATA[
+VH VH H H  4`
+ H  H H H 1 `
+H VH H VH 35`
+H  VVH  H   `
+VVV  H H V  `
+   VVH H  52`
+VH   VVVVV34`
+ H H        `
+VVH H VH V 4`
+  H H  H  54`
+5  41 4  5+ `
+5 53  53 4 -`
+    ]]>
+  </level>
+  <level id="115">
+    <![CDATA[
+VVH H H H 45`
+  H VVH H 54`
+H VV  H H   `
+H   H H H   `
+H H VVVVH 35`
+H H     VV 1`
+VVH H H   44`
+  VVH H H 2 `
+VV  H H VV43`
+  H H H     `
+4 3  1 454+ `
+5 33 3 5   -`
+    ]]>
+  </level>
+  <level id="116">
+    <![CDATA[
+VVVH VVVH   `
+   VV   VV3 `
+VH   VH    3`
+ H H  VVH 53`
+VH H V  H 2 `
+ H VV VVH 4 `
+H V  V  VV  `
+H  VV VV  55`
+VVV  V  H 55`
+   H  H H   `
+  424  545+ `
+4    245 4 -`
+    ]]>
+  </level>
+  <level id="117">
+    <![CDATA[
+H H H H H   `
+VH VVVVH V34`
+ H     VV   `
+VVVVVVV  V  `
+       H   0`
+H VVH H H 54`
+H   VVVH V2 `
+H VV   VV   `
+VV  VH   V54`
+  H  H H    `
+ 5 5  0443+ `
+ 4  4 23   -`
+    ]]>
+  </level>
+  <level id="118">
+    <![CDATA[
+VVH H H H  4`
+  VH H VH 5 `
+VV H VV VV3 `
+  H V  V  4 `
+VH V H  H 2 `
+ VV H H H   `
+V  H H VVV 4`
+ H H VV    1`
+H VVV  H V4 `
+H    H H  45`
+44  03 44 + `
+5343  4    -`
     ]]>
   </level>
   <level id="119">
