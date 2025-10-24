@@ -1176,6 +1176,15 @@
 		8CAFC0062EA0864F00C27D7C /* NumberCrossingDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFF72EA0864F00C27D7C /* NumberCrossingDocument.swift */; };
 		8CAFC0072EA0864F00C27D7C /* NumberCrossingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFFD2EA0864F00C27D7C /* NumberCrossingMainViewController.swift */; };
 		8CAFC0082EA0864F00C27D7C /* NumberCrossing.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CAFBFF62EA0864F00C27D7C /* NumberCrossing.xml */; };
+		8CB721C72EAAE62D001B25C5 /* PlanksGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C02EAAE62D001B25C5 /* PlanksGameScene.swift */; };
+		8CB721C82EAAE62D001B25C5 /* PlanksGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C22EAAE62D001B25C5 /* PlanksGameViewController.swift */; };
+		8CB721C92EAAE62D001B25C5 /* PlanksObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C52EAAE62D001B25C5 /* PlanksObject.swift */; };
+		8CB721CA2EAAE62D001B25C5 /* PlanksGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721BF2EAAE62D001B25C5 /* PlanksGame.swift */; };
+		8CB721CB2EAAE62D001B25C5 /* PlanksMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C42EAAE62D001B25C5 /* PlanksMainViewController.swift */; };
+		8CB721CC2EAAE62D001B25C5 /* PlanksGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C12EAAE62D001B25C5 /* PlanksGameState.swift */; };
+		8CB721CD2EAAE62D001B25C5 /* PlanksGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C32EAAE62D001B25C5 /* PlanksGridNode.swift */; };
+		8CB721CE2EAAE62D001B25C5 /* PlanksDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721BE2EAAE62D001B25C5 /* PlanksDocument.swift */; };
+		8CB721CF2EAAE62D001B25C5 /* Planks.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB721BD2EAAE62D001B25C5 /* Planks.xml */; };
 		8CBD5F932E7DBE11000CD5E3 /* MaketheDifferenceGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8E2E7DBE11000CD5E3 /* MaketheDifferenceGameViewController.swift */; };
 		8CBD5F942E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8A2E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift */; };
 		8CBD5F952E7DBE11000CD5E3 /* MaketheDifferenceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F912E7DBE11000CD5E3 /* MaketheDifferenceObject.swift */; };
@@ -2476,6 +2485,15 @@
 		8CAFBFFC2EA0864F00C27D7C /* NumberCrossingGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCrossingGridNode.swift; sourceTree = "<group>"; };
 		8CAFBFFD2EA0864F00C27D7C /* NumberCrossingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCrossingMainViewController.swift; sourceTree = "<group>"; };
 		8CAFBFFE2EA0864F00C27D7C /* NumberCrossingObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCrossingObject.swift; sourceTree = "<group>"; };
+		8CB721BD2EAAE62D001B25C5 /* Planks.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Planks.xml; sourceTree = "<group>"; };
+		8CB721BE2EAAE62D001B25C5 /* PlanksDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksDocument.swift; sourceTree = "<group>"; };
+		8CB721BF2EAAE62D001B25C5 /* PlanksGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksGame.swift; sourceTree = "<group>"; };
+		8CB721C02EAAE62D001B25C5 /* PlanksGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksGameScene.swift; sourceTree = "<group>"; };
+		8CB721C12EAAE62D001B25C5 /* PlanksGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksGameState.swift; sourceTree = "<group>"; };
+		8CB721C22EAAE62D001B25C5 /* PlanksGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksGameViewController.swift; sourceTree = "<group>"; };
+		8CB721C32EAAE62D001B25C5 /* PlanksGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksGridNode.swift; sourceTree = "<group>"; };
+		8CB721C42EAAE62D001B25C5 /* PlanksMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksMainViewController.swift; sourceTree = "<group>"; };
+		8CB721C52EAAE62D001B25C5 /* PlanksObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksObject.swift; sourceTree = "<group>"; };
 		8CBD5F8A2E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceDocument.swift; sourceTree = "<group>"; };
 		8CBD5F8B2E7DBE11000CD5E3 /* MaketheDifferenceGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceGame.swift; sourceTree = "<group>"; };
 		8CBD5F8C2E7DBE11000CD5E3 /* MaketheDifferenceGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceGameScene.swift; sourceTree = "<group>"; };
@@ -2960,6 +2978,7 @@
 				8C7474431FBED8BC00C4112C /* ParkLakes */,
 				8C3A35591EC88D4100A914A5 /* Parks */,
 				8C9F324C1ED1FAF600E10965 /* Pata */,
+				8CB721C62EAAE62D001B25C5 /* Planks */,
 				8C3A35661EC88D4100A914A5 /* PowerGrid */,
 				8C3A35731EC88D4200A914A5 /* ProductSentinels */,
 				8C32D8CF1FC92B5F00BA2D07 /* RippleEffect */,
@@ -4661,6 +4680,22 @@
 			path = NumberCrossing;
 			sourceTree = "<group>";
 		};
+		8CB721C62EAAE62D001B25C5 /* Planks */ = {
+			isa = PBXGroup;
+			children = (
+				8CB721BD2EAAE62D001B25C5 /* Planks.xml */,
+				8CB721BE2EAAE62D001B25C5 /* PlanksDocument.swift */,
+				8CB721BF2EAAE62D001B25C5 /* PlanksGame.swift */,
+				8CB721C02EAAE62D001B25C5 /* PlanksGameScene.swift */,
+				8CB721C12EAAE62D001B25C5 /* PlanksGameState.swift */,
+				8CB721C22EAAE62D001B25C5 /* PlanksGameViewController.swift */,
+				8CB721C32EAAE62D001B25C5 /* PlanksGridNode.swift */,
+				8CB721C42EAAE62D001B25C5 /* PlanksMainViewController.swift */,
+				8CB721C52EAAE62D001B25C5 /* PlanksObject.swift */,
+			);
+			path = Planks;
+			sourceTree = "<group>";
+		};
 		8CBD5F922E7DBE11000CD5E3 /* MaketheDifference */ = {
 			isa = PBXGroup;
 			children = (
@@ -5001,6 +5036,7 @@
 				8C8663302EA39DD00078CD64 /* lemur.png in Resources */,
 				8C8663312EA39DD00078CD64 /* chocolate_square.png in Resources */,
 				8C8663322EA39DD00078CD64 /* arrow_bw_right.png in Resources */,
+				8CB721CF2EAAE62D001B25C5 /* Planks.xml in Resources */,
 				8C8663332EA39DD00078CD64 /* eggplant.png in Resources */,
 				8C8663342EA39DD00078CD64 /* signposts.png in Resources */,
 				8C8663352EA39DD00078CD64 /* arrow_blue_up.png in Resources */,
@@ -5740,6 +5776,14 @@
 				8C8661DA2EA31ABC0078CD64 /* ZenLandscaperGame.swift in Sources */,
 				8C8661DB2EA31ABC0078CD64 /* ZenLandscaperMainViewController.swift in Sources */,
 				8C8661DC2EA31ABC0078CD64 /* ZenLandscaperDocument.swift in Sources */,
+				8CB721C72EAAE62D001B25C5 /* PlanksGameScene.swift in Sources */,
+				8CB721C82EAAE62D001B25C5 /* PlanksGameViewController.swift in Sources */,
+				8CB721C92EAAE62D001B25C5 /* PlanksObject.swift in Sources */,
+				8CB721CA2EAAE62D001B25C5 /* PlanksGame.swift in Sources */,
+				8CB721CB2EAAE62D001B25C5 /* PlanksMainViewController.swift in Sources */,
+				8CB721CC2EAAE62D001B25C5 /* PlanksGameState.swift in Sources */,
+				8CB721CD2EAAE62D001B25C5 /* PlanksGridNode.swift in Sources */,
+				8CB721CE2EAAE62D001B25C5 /* PlanksDocument.swift in Sources */,
 				8C6A9BEE1F812743002A44FF /* KropkiObject.swift in Sources */,
 				8CFAF9A4202615570095EFFC /* WallSentinelsObject.swift in Sources */,
 				8CFAF9C320381D870095EFFC /* CastleBaileyGameState.swift in Sources */,
