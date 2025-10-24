@@ -15,7 +15,7 @@ class PlanksGameState: GridGameState<PlanksGameMove> {
     }
     override var gameDocument: GameDocumentBase { PlanksDocument.sharedInstance }
     var objArray = [GridDotObject]()
-    var pos2state = [Position: HintState]()
+    var planks = [[Position]]()
     
     override func copy() -> PlanksGameState {
         let v = PlanksGameState(game: game, isCopy: true)
@@ -24,14 +24,13 @@ class PlanksGameState: GridGameState<PlanksGameMove> {
     func setup(v: PlanksGameState) -> PlanksGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     
     required init(game: PlanksGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<GridDotObject>(repeating: Array<GridLineObject>(repeating: .empty, count: 4), count: rows * cols)
+        objArray = game.objArray
         updateIsSolved()
     }
     
@@ -89,23 +88,18 @@ class PlanksGameState: GridGameState<PlanksGameMove> {
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 3/Planks
+        iOS Game: 100 Logic Games/Puzzle Set 16/Planks
 
         Summary
-        Draw a loop a-la-minesweeper!
+        Planks and Nails
 
         Description
-        1. Draw a single looping path with the aid of the numbered hints. The path
-           cannot have branches or cross itself.
-        2. Each number in a tile tells you on how many of its four sides are touched
-           by the path.
-        3. For example:
-        4. A 0 tells you that the path doesn't touch that square at all.
-        5. A 1 tells you that the path touches that square ONLY one-side.
-        6. A 3 tells you that the path does a U-turn around that square.
-        7. There can't be tiles marked with 4 because that would form a single
-           closed loop in it.
-        8. Empty tiles can have any number of sides touched by that path.
+        1. On the board there are a few nails. Each one nails a plank to
+           the board.
+        2. Planks are 3 tiles long and can be oriented vertically or
+           horizontally. The Nail can be in any of the 3 tiles.
+        3. Each Plank touches orthogonally exactly two other Planks.
+        4. All the Planks form a ring, or a closed loop.
     */
     private func updateIsSolved() {
         isSolved = true

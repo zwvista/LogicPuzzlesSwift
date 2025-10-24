@@ -14,8 +14,8 @@ class PlanksGameScene: GameScene<PlanksGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+    func addNail(point: CGPoint, nodeName: String) {
+        addImage(imageNamed: "nail_head", color: .red, colorBlendFactor: 0.0, point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: PlanksGameState, skView: SKView) {
@@ -27,13 +27,22 @@ class PlanksGameScene: GameScene<PlanksGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: PlanksGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset))
         
-        // addHints
-//        for (p, n) in game.pos2hint {
-//            let point = gridNode.centerPoint(p: p)
-//            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-//            let hintNodeName = "hint" + nodeNameSuffix
-//            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
-//        }
+        // add Nails
+        for p in game.nails {
+            let point = gridNode.centerPoint(p: p)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let nailNodeName = "nail" + nodeNameSuffix
+            addNail(point: point, nodeName: nailNodeName)
+        }
+        
+        for r in 0..<game.rows {
+            for c in 0..<game.cols {
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: p)
+                if game[r, c][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                if game[r, c][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
+            }
+        }
     }
     
     override func levelUpdated(from stateFrom: PlanksGameState, to stateTo: PlanksGameState) {
@@ -62,7 +71,7 @@ class PlanksGameScene: GameScene<PlanksGameState> {
                     removeVertLine(objType: o1)
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
                 }
-                guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
+//                guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
 //                if s1 != s2 {
 //                    removeHint()
 //                    addHint(n: stateFrom.game.pos2hint[p]!, s: s2, point: point, nodeName: hintNodeName)
