@@ -103,45 +103,53 @@ class PlanksGameState: GridGameState<PlanksGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-//        // 2. Each number in a tile tells you on how many of its four sides are touched
-//        // by the path.
-//        for (p, n2) in game.pos2hint {
-//            var n1 = 0
-//            for i in 0..<4 {
-//                if self[p + PlanksGame.offset2[i]][PlanksGame.dirs[i]] == .line { n1 += 1 }
-//            }
-//            pos2state[p] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-//            if n1 != n2 { isSolved = false }
-//        }
-//        guard isSolved else {return}
-//        let g = Graph()
-//        var pos2node = [Position: Node]()
-//        for r in 0..<rows {
-//            for c in 0..<cols {
-//                let p = Position(r, c)
-//                let n = self[p].filter { $0 == .line }.count
-//                switch n {
-//                case 0:
-//                    continue
-//                case 2:
-//                    pos2node[p] = g.addNode(p.description)
-//                default:
-//                    // 1. The path cannot have branches or cross itself.
-//                    isSolved = false
-//                    return
-//                }
-//            }
-//        }
-//        for p in pos2node.keys {
-//            let dotObj = self[p]
-//            for i in 0..<4 {
-//                guard dotObj[i] == .line else {continue}
-//                let p2 = p + PlanksGame.offset[i]
-//                g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
-//            }
-//        }
-//        // 1. Draw a single looping path with the aid of the numbered hints.
-//        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-//        if nodesExplored.count != pos2node.count { isSolved = false }
+        let g = Graph()
+        var pos2node = [Position: Node]()
+        for r in 0..<rows - 1 {
+            for c in 0..<cols - 1 {
+                let p = Position(r, c)
+                pos2node[p] = g.addNode(p.description)
+            }
+        }
+        for r in 0..<rows - 1 {
+            for c in 0..<cols - 1 {
+                let p = Position(r, c)
+                for i in 0..<4 {
+                    guard self[p + PlanksGame.offset2[i]][PlanksGame.dirs[i]] != .line else {continue}
+                    g.addEdge(pos2node[p]!, neighbor: pos2node[p + PlanksGame.offset[i]]!)
+                }
+            }
+        }
+        planks.removeAll()
+        var pos2plank = [Position: Int]()
+        let g2 = Graph()
+        while !pos2node.isEmpty {
+            let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+            var area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
+            pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
+            // 2. Planks are 3 tiles long and can be oriented vertically or
+            //    horizontally. The Nail can be in any of the 3 tiles.
+            guard area.count == 3 else { isSolved = false; continue }
+            area.sort(by: <)
+            let (os1, os2) = (area[1] - area[0], area[2] - area[1])
+            guard os1 == os2 && (os1 == PlanksGame.offset[1] || os1 == PlanksGame.offset[2]) else { isSolved = false; continue }
+            let rng = area.filter { game.nails.contains($0) }
+            // 1. On the board there are a few nails. Each one nails a plank to
+            //    the board.
+            guard rng.count == 1 else { isSolved = false; continue }
+            let n = planks.count
+            planks.append(area)
+            for p in area { pos2plank[p] = n }
+            _ = g2.addNode(String(n))
+        }
+        for (i, plank) in planks.enumerated() {
+            for p in plank {
+                for os in PlanksGame.offset {
+                    if let n = pos2plank[p + os] {
+                        g2.addEdge(g.nodes[i], neighbor: g.nodes[n])
+                    }
+                }
+            }
+        }
     }
 }

@@ -159,10 +159,9 @@ class DesertDunesGameState: GridGameState<DesertDunesGameMove> {
                 .forEach { g.addEdge(pos2node[p]!, neighbor: pos2node[$0]!) }
             let nodesExplored = breadthFirstSearch(g, source: pos2node[p]!)
             pos2node[p]!.neighbors = []
-            nodesExplored
-                .map { s in pos2node.first { $0.value.label == s }!.key }
-                .filter { self[$0].toString() == "hint" }
-                .forEach { hints.insert($0) }
+            pos2node
+                .filter { nodesExplored.contains($0.1.label) && self[$0.0].toString() == "hint"}
+                .map { $0.0 }.forEach { hints.insert($0) }
             hints.remove(p)
             let n1 = hints.count
             let s: HintState = n1 > n2 ? .normal : n1 == n2 ? .complete : .error

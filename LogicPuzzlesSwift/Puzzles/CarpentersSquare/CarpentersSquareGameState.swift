@@ -123,8 +123,8 @@ class CarpentersSquareGameState: GridGameState<CarpentersSquareGameMove> {
         }
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter { nodesExplored.contains($0.0.description) }.map { $0.0 }
-            pos2node = pos2node.filter { !nodesExplored.contains($0.0.description) }
+            let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
+            pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
             let rngHint = area.filter { game.pos2hint[$0] != nil }
             let n1 = nodesExplored.count
             var r2 = 0, r1 = rows, c2 = 0, c1 = cols

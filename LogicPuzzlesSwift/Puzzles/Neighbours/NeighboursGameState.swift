@@ -126,12 +126,12 @@ class NeighboursGameState: GridGameState<NeighboursGameMove> {
         var pos2area = [Position: Int]()
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter { nodesExplored.contains($0.0.description) }.map { $0.0 }
+            let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             areas.append(area)
             for p in area {
                 pos2area[p] = areas.count
             }
-            pos2node = pos2node.filter { !nodesExplored.contains($0.0.description) }
+            pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
         }
         let n2 = game.areaSize
         for area in areas {

@@ -119,8 +119,8 @@ class BoxItAgainGameState: GridGameState<BoxItAgainGameMove> {
         }
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter { nodesExplored.contains($0.0.description) }.map { $0.0 }
-            pos2node = pos2node.filter { !nodesExplored.contains($0.0.description) }
+            let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
+            pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
             let rng = area.filter { p in game.pos2hint[p] != nil }
             // 3. Some tiles can be left unboxed, the board isn't entirely covered by boxes.
             if rng.count == 0 {continue}

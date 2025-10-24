@@ -202,8 +202,8 @@ class LightBattleShipsGameState: GridGameState<LightBattleShipsGameMove> {
         var shipNumbers = Array<Int>(repeating: 0, count: 5)
         while pos2node.count > 0 {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter { nodesExplored.contains($0.0.description) }.map { $0.0 }.sorted()
-            pos2node = pos2node.filter { !nodesExplored.contains($0.0.description) }
+            let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }.sorted()
+            pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
             guard area.count == 1 && String(describing: self[area.first!]) == String(describing: LightBattleShipsObject.battleShipUnit) || 2...4 ~= area.count && (
                 area.testAll({ $0.row == area.first!.row }) && String(describing: self[area.first!]) == String(describing: LightBattleShipsObject.battleShipLeft) && String(describing: self[area.last!]) == String(describing: LightBattleShipsObject.battleShipRight) ||
                 area.testAll({ $0.col == area.first!.col }) && String(describing: self[area.first!]) == String(describing: LightBattleShipsObject.battleShipTop) && String(describing: self[area.last!]) == String(describing: LightBattleShipsObject.battleShipBottom)) &&

@@ -171,8 +171,8 @@ class BattleShipsGameState: GridGameState<BattleShipsGameMove> {
         var shipNumbers = Array<Int>(repeating: 0, count: 5)
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter { nodesExplored.contains($0.0.description) }.map({ $0.0 }).sorted()
-            pos2node = pos2node.filter { !nodesExplored.contains($0.0.description) }
+            let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map({ $0.0 }).sorted()
+            pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
             guard area.count == 1 && self[area.first!] == .battleShipUnit || 2...4 ~= area.count && (
                 area.testAll({ $0.row == area.first!.row }) && self[area.first!] == .battleShipLeft && self[area.last!] == .battleShipRight ||
                 area.testAll({ $0.col == area.first!.col }) && self[area.first!] == .battleShipTop && self[area.last!] == .battleShipBottom) &&

@@ -74,8 +74,8 @@ class TatamiGame: GridGame<TatamiGameState> {
         }
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter { nodesExplored.contains($0.0.description) }.map { $0.0 }
-            pos2node = pos2node.filter { !nodesExplored.contains($0.0.description) }
+            let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
+            pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
             let n = areas.count
             for p in area {
                 pos2area[p] = n

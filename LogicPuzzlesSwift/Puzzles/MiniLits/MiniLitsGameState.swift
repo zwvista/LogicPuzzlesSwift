@@ -123,9 +123,9 @@ class MiniLitsGameState: GridGameState<MiniLitsGameMove> {
         var blocks = [[Position]]()
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let block = pos2node.filter { nodesExplored.contains($0.0.description) }.map { $0.0 }
+            let block = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             blocks.append(block)
-            pos2node = pos2node.filter { !nodesExplored.contains($0.0.description) }
+            pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
         }
         // 4. All the shaded cells should form a valid Nurikabe.
         if blocks.count != 1 { isSolved = false }
