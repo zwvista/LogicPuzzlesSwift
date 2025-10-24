@@ -129,7 +129,7 @@ class PlanksGameState: GridGameState<PlanksGameMove> {
             var area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
             let rng = area.filter { game.nails.contains($0) }
-            if rng.count == 0 {continue}
+            if rng.isEmpty {continue}
             // 2. Planks are 3 tiles long.
             guard area.count == 3 else { isSolved = false; continue }
             area.sort(by: <)

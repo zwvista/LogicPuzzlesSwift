@@ -1185,6 +1185,15 @@
 		8CB721CD2EAAE62D001B25C5 /* PlanksGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C32EAAE62D001B25C5 /* PlanksGridNode.swift */; };
 		8CB721CE2EAAE62D001B25C5 /* PlanksDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721BE2EAAE62D001B25C5 /* PlanksDocument.swift */; };
 		8CB721CF2EAAE62D001B25C5 /* Planks.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB721BD2EAAE62D001B25C5 /* Planks.xml */; };
+		8CB721EE2EAB6C54001B25C5 /* BotanicalParkGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721E82EAB6C54001B25C5 /* BotanicalParkGameState.swift */; };
+		8CB721EF2EAB6C54001B25C5 /* BotanicalParkGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721E92EAB6C54001B25C5 /* BotanicalParkGameViewController.swift */; };
+		8CB721F02EAB6C54001B25C5 /* BotanicalParkObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721EC2EAB6C54001B25C5 /* BotanicalParkObject.swift */; };
+		8CB721F12EAB6C54001B25C5 /* BotanicalParkGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721E62EAB6C54001B25C5 /* BotanicalParkGame.swift */; };
+		8CB721F22EAB6C54001B25C5 /* BotanicalParkGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721EA2EAB6C54001B25C5 /* BotanicalParkGridNode.swift */; };
+		8CB721F32EAB6C54001B25C5 /* BotanicalParkMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721EB2EAB6C54001B25C5 /* BotanicalParkMainViewController.swift */; };
+		8CB721F42EAB6C54001B25C5 /* BotanicalParkDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721E52EAB6C54001B25C5 /* BotanicalParkDocument.swift */; };
+		8CB721F52EAB6C54001B25C5 /* BotanicalParkGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721E72EAB6C54001B25C5 /* BotanicalParkGameScene.swift */; };
+		8CB721F62EAB6C54001B25C5 /* BotanicalPark.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB721E42EAB6C54001B25C5 /* BotanicalPark.xml */; };
 		8CBD5F932E7DBE11000CD5E3 /* MaketheDifferenceGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8E2E7DBE11000CD5E3 /* MaketheDifferenceGameViewController.swift */; };
 		8CBD5F942E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8A2E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift */; };
 		8CBD5F952E7DBE11000CD5E3 /* MaketheDifferenceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F912E7DBE11000CD5E3 /* MaketheDifferenceObject.swift */; };
@@ -2494,6 +2503,15 @@
 		8CB721C32EAAE62D001B25C5 /* PlanksGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksGridNode.swift; sourceTree = "<group>"; };
 		8CB721C42EAAE62D001B25C5 /* PlanksMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksMainViewController.swift; sourceTree = "<group>"; };
 		8CB721C52EAAE62D001B25C5 /* PlanksObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksObject.swift; sourceTree = "<group>"; };
+		8CB721E42EAB6C54001B25C5 /* BotanicalPark.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BotanicalPark.xml; sourceTree = "<group>"; };
+		8CB721E52EAB6C54001B25C5 /* BotanicalParkDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotanicalParkDocument.swift; sourceTree = "<group>"; };
+		8CB721E62EAB6C54001B25C5 /* BotanicalParkGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotanicalParkGame.swift; sourceTree = "<group>"; };
+		8CB721E72EAB6C54001B25C5 /* BotanicalParkGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotanicalParkGameScene.swift; sourceTree = "<group>"; };
+		8CB721E82EAB6C54001B25C5 /* BotanicalParkGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotanicalParkGameState.swift; sourceTree = "<group>"; };
+		8CB721E92EAB6C54001B25C5 /* BotanicalParkGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotanicalParkGameViewController.swift; sourceTree = "<group>"; };
+		8CB721EA2EAB6C54001B25C5 /* BotanicalParkGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotanicalParkGridNode.swift; sourceTree = "<group>"; };
+		8CB721EB2EAB6C54001B25C5 /* BotanicalParkMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotanicalParkMainViewController.swift; sourceTree = "<group>"; };
+		8CB721EC2EAB6C54001B25C5 /* BotanicalParkObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotanicalParkObject.swift; sourceTree = "<group>"; };
 		8CBD5F8A2E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceDocument.swift; sourceTree = "<group>"; };
 		8CBD5F8B2E7DBE11000CD5E3 /* MaketheDifferenceGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceGame.swift; sourceTree = "<group>"; };
 		8CBD5F8C2E7DBE11000CD5E3 /* MaketheDifferenceGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceGameScene.swift; sourceTree = "<group>"; };
@@ -2914,6 +2932,7 @@
 				8CDAE7FC1F646C29000DE5AF /* BalancedTapas */,
 				8C3A33D31EC88D4100A914A5 /* BattleShips */,
 				8C3A33E01EC88D4100A914A5 /* BootyIsland */,
+				8CB721ED2EAB6C54001B25C5 /* BotanicalPark */,
 				8C3A33ED1EC88D4100A914A5 /* BoxItAgain */,
 				8C3A33FA1EC88D4100A914A5 /* BoxItAround */,
 				8C3A34071EC88D4100A914A5 /* BoxItUp */,
@@ -4696,6 +4715,22 @@
 			path = Planks;
 			sourceTree = "<group>";
 		};
+		8CB721ED2EAB6C54001B25C5 /* BotanicalPark */ = {
+			isa = PBXGroup;
+			children = (
+				8CB721E42EAB6C54001B25C5 /* BotanicalPark.xml */,
+				8CB721E52EAB6C54001B25C5 /* BotanicalParkDocument.swift */,
+				8CB721E62EAB6C54001B25C5 /* BotanicalParkGame.swift */,
+				8CB721E72EAB6C54001B25C5 /* BotanicalParkGameScene.swift */,
+				8CB721E82EAB6C54001B25C5 /* BotanicalParkGameState.swift */,
+				8CB721E92EAB6C54001B25C5 /* BotanicalParkGameViewController.swift */,
+				8CB721EA2EAB6C54001B25C5 /* BotanicalParkGridNode.swift */,
+				8CB721EB2EAB6C54001B25C5 /* BotanicalParkMainViewController.swift */,
+				8CB721EC2EAB6C54001B25C5 /* BotanicalParkObject.swift */,
+			);
+			path = BotanicalPark;
+			sourceTree = "<group>";
+		};
 		8CBD5F922E7DBE11000CD5E3 /* MaketheDifference */ = {
 			isa = PBXGroup;
 			children = (
@@ -5217,6 +5252,7 @@
 				8C8663E22EA39DD00078CD64 /* hippopotamus.png in Resources */,
 				8C8663E32EA39DD00078CD64 /* pomegranate.png in Resources */,
 				8C8663E42EA39DD00078CD64 /* arrow_cyan_left.png in Resources */,
+				8CB721F62EAB6C54001B25C5 /* BotanicalPark.xml in Resources */,
 				8C8663E52EA39DD00078CD64 /* B3.png in Resources */,
 				8C8663E62EA39DD00078CD64 /* aubergine.png in Resources */,
 				8C8663E72EA39DD00078CD64 /* B3-f.png in Resources */,
@@ -5655,6 +5691,14 @@
 				8C8E77F92E89D537006BBF98 /* HiddenStarsGameScene.swift in Sources */,
 				8C8E77FA2E89D537006BBF98 /* HiddenStarsObject.swift in Sources */,
 				8C8E77FB2E89D537006BBF98 /* HiddenStarsDocument.swift in Sources */,
+				8CB721EE2EAB6C54001B25C5 /* BotanicalParkGameState.swift in Sources */,
+				8CB721EF2EAB6C54001B25C5 /* BotanicalParkGameViewController.swift in Sources */,
+				8CB721F02EAB6C54001B25C5 /* BotanicalParkObject.swift in Sources */,
+				8CB721F12EAB6C54001B25C5 /* BotanicalParkGame.swift in Sources */,
+				8CB721F22EAB6C54001B25C5 /* BotanicalParkGridNode.swift in Sources */,
+				8CB721F32EAB6C54001B25C5 /* BotanicalParkMainViewController.swift in Sources */,
+				8CB721F42EAB6C54001B25C5 /* BotanicalParkDocument.swift in Sources */,
+				8CB721F52EAB6C54001B25C5 /* BotanicalParkGameScene.swift in Sources */,
 				8C8E77FC2E89D537006BBF98 /* HiddenStarsGridNode.swift in Sources */,
 				8C8E77FD2E89D537006BBF98 /* HiddenStarsGameState.swift in Sources */,
 				8C8E77FE2E89D537006BBF98 /* HiddenStarsGame.swift in Sources */,
