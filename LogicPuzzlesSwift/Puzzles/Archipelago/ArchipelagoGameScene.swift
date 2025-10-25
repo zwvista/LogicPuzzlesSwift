@@ -45,34 +45,34 @@ class ArchipelagoGameScene: GameScene<ArchipelagoGameState> {
                 let waterNodeName = "water" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                func addWater(s: AllowedObjectState) {
-                    addImage(imageNamed: "sea", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: waterNodeName)
-                }
-                func removeWater() { removeNode(withName: waterNodeName) }
-                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                func removeHint() { removeNode(withName: hintNodeName) }
+                let invalid2x2NodeName = "invalid2x2" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 guard String(describing: o1) != String(describing: o2) else {continue}
                 switch o1 {
                 case .water:
-                    removeWater()
+                    removeNode(withName: waterNodeName)
                 case .hint:
-                    removeHint()
+                    removeNode(withName: hintNodeName)
                 case .marker:
-                    removeMarker()
+                    removeNode(withName: markerNodeName)
                 default:
                     break
                 }
                 switch o2 {
-                case let .water(s):
-                    addWater(s: s)
-                case let .hint(n, s):
-                    addHint(p: p, n: n, s: s)
+                case .water:
+                    addImage(imageNamed: "sea", color: .red, colorBlendFactor: 0.0, point: point, nodeName: waterNodeName)
+                case let .hint(s):
+                    addHint(p: p, n: stateFrom.game.pos2hint[p]!, s: s)
                 case .marker:
-                    addMarker()
+                    addDotMarker(point: point, nodeName: markerNodeName)
                 default:
                     break
+                }
+                let (b1, b2) = (stateFrom.invalid2x2Squares.contains(p), stateTo.invalid2x2Squares.contains(p))
+                if b1 != b2 {
+                    let point = gridNode.cornerPoint(p: p)
+                    if b1 { removeNode(withName: invalid2x2NodeName) }
+                    if b2 { addDotMarker2(color: .red, point: point, nodeName: invalid2x2NodeName) }
                 }
             }
         }

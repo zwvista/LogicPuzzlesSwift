@@ -46,8 +46,8 @@ class DesertDunesGameScene: GameScene<DesertDunesGameState> {
         for p in state.invalid2x2Squares {
             let point = gridNode.cornerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let emptyNodeName = "empty" + nodeNameSuffix
-            addDotMarker2(color: .red, point: point, nodeName: emptyNodeName)
+            let invalid2x2NodeName = "invalid2x2" + nodeNameSuffix
+            addDotMarker2(color: .red, point: point, nodeName: invalid2x2NodeName)
         }
     }
     
@@ -61,7 +61,7 @@ class DesertDunesGameScene: GameScene<DesertDunesGameState> {
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                let emptyNodeName = "empty" + nodeNameSuffix
+                let invalid2x2NodeName = "invalid2x2" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 if String(describing: o1) != String(describing: o2) {
                     switch o1 {
@@ -87,8 +87,8 @@ class DesertDunesGameScene: GameScene<DesertDunesGameState> {
                 let (b1, b2) = (stateFrom.invalid2x2Squares.contains(p), stateTo.invalid2x2Squares.contains(p))
                 if b1 != b2 {
                     let point = gridNode.cornerPoint(p: p)
-                    if b1 { removeNode(withName: emptyNodeName) }
-                    if b2 { addDotMarker2(color: .red, point: point, nodeName: emptyNodeName) }
+                    if b1 { removeNode(withName: invalid2x2NodeName) }
+                    if b2 { addDotMarker2(color: .red, point: point, nodeName: invalid2x2NodeName) }
                 }
             }
         }

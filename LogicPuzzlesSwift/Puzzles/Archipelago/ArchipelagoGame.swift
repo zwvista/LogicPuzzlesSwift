@@ -11,6 +11,12 @@ import Foundation
 class ArchipelagoGame: GridGame<ArchipelagoGameState> {
     static let offset = Position.Directions4
     static let offset2 = Position.Square2x2Offset
+    static let offset3 = [
+        Position.NorthEast,
+        Position.SouthEast,
+        Position.SouthWest,
+        Position.NorthWest,
+    ]
 
     var pos2hint = [Position: Int]()
 

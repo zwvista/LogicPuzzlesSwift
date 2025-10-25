@@ -22,6 +22,8 @@ enum ArchipelagoObject {
             return "marker"
         case .water:
             return "water"
+        case .hint:
+            return "hint"
         default:
             return "empty"
         }

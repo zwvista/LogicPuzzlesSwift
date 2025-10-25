@@ -99,61 +99,8 @@ class ArchipelagoGameState: GridGameState<ArchipelagoGameMove> {
                 if isFullOfWater { invalid2x2Squares.append(p + Position.SouthEast); isSolved = false }
             }
         }
-        var g = Graph()
+        let g = Graph()
         var pos2node = [Position: Node]()
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                guard case .water = self[p] else {continue}
-                pos2node[p] = g.addNode(p.description)
-            }
-        }
-        for (p, node) in pos2node {
-            for os in ArchipelagoGame.offset {
-                let p2 = p + os
-                guard let node2 = pos2node[p2] else {continue}
-                g.addEdge(node, neighbor: node2)
-            }
-        }
-        var areas = [[Position]]()
-        var pos2area = [Position: Int]()
-        while !pos2node.isEmpty {
-            let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            var r2 = 0, r1 = rows, c2 = 0, c1 = cols
-            let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
-            pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
-            let n = areas.count
-            for p in area {
-                if r2 < p.row { r2 = p.row }
-                if r1 > p.row { r1 = p.row }
-                if c2 < p.col { c2 = p.col }
-                if c1 > p.col { c1 = p.col }
-                pos2area[p] = n
-            }
-            areas.append(area)
-            let rs = r2 - r1 + 1, cs = c2 - c1 + 1
-            if !(rs == cs && rs * cs == nodesExplored.count) {
-                isSolved = false
-                for p in area {
-                    self[p] = .water(state: .error)
-                }
-            }
-        }
-        for (p, n2) in game.pos2hint {
-            guard case let .hint(n, _) = self[p] else {continue}
-            var n1 = 0
-            for os in ArchipelagoGame.offset {
-                guard let i = pos2area[p + os] else {continue}
-                n1 += areas[i].count
-            }
-            // 3. A number tells you the total size of any waters orthogonally touching it,
-            // while a question mark tells you that there is at least one water orthogonally
-            // touching it.
-            let s: HintState = n1 == 0 ? .normal : n1 == n2 || n2 == -1 ? .complete : .error
-            self[p] = .hint(tiles: n, state: s)
-            if s != .complete { isSolved = false }
-        }
-        g = Graph()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
@@ -168,8 +115,61 @@ class ArchipelagoGameState: GridGameState<ArchipelagoGameMove> {
                 g.addEdge(node, neighbor: node2)
             }
         }
+        var areas = [[Position]]()
+        var pos2area = [Position: Int]()
+        while !pos2node.isEmpty {
+            let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+            let n1 = nodesExplored.count
+            var r2 = 0, r1 = rows, c2 = 0, c1 = cols
+            let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
+            pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
+            let n = areas.count
+            for p in area {
+                if r2 < p.row { r2 = p.row }
+                if r1 > p.row { r1 = p.row }
+                if c2 < p.col { c2 = p.col }
+                if c1 > p.col { c1 = p.col }
+                pos2area[p] = n
+            }
+            areas.append(area)
+            let rs = r2 - r1 + 1, cs = c2 - c1 + 1
+            // 1. Each number represents a rectangular island in the Archipelago.
+            let isRect = rs * cs == n1
+            let hints = area.filter { self[$0].toString() == "hint" }
+            if hints.count > 1 {
+                isSolved = false
+                for p in hints { self[p] = .hint() }
+            } else if hints.count == 1 {
+                let p = hints.first!
+                let n2 = game.pos2hint[p]!
+                // 2. The number in itself identifies how many squares the island occupies.
+                let s: HintState = !isRect || n1 > n2 ? .normal : n1 == n2 ? .complete : .error
+                self[p] = .hint(state: s)
+                if s != .complete { isSolved = false }
+            }
+        }
+        guard isSolved else { return }
+        // 3. Islands can only touch each other diagonally and by touching they
+        //    must form a network where no island is isolated from the others.
+        // 4. In other words, every island must be touching another island diagonally
+        //    and no group of islands must be separated from the others.
+        let g2 = Graph()
+        for i in areas.indices {
+            _ = g2.addNode(String(i))
+        }
+        for (i, area) in areas.enumerated() {
+            var indexes = Set<Int>()
+            for p in area {
+                for os in ArchipelagoGame.offset3 {
+                    guard let j = pos2area[p + os], j != i else {continue}
+                    indexes.insert(j)
+                }
+            }
+            if indexes.isEmpty { isSolved = false; return }
+            for j in indexes { g2.addEdge(g2.nodes[i], neighbor: g2.nodes[j]) }
+        }
         // 5. All the land tiles are connected horizontally or vertically.
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count { isSolved = false }
+        let nodesExplored = breadthFirstSearch(g2, source: g2.nodes.first!)
+        if nodesExplored.count != g2.nodes.count { isSolved = false }
     }
 }
