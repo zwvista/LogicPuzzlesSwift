@@ -94,7 +94,7 @@ class LandscaperGameState: GridGameState<LandscaperGameMove> {
         var oLast: LandscaperObject = .empty
         var tokens = [Position]()
         func checkTokens() {
-            if tokens.count > 3 {
+            if tokens.count > 2 {
                 isSolved = false
                 for p in tokens {
                     pos2state[p] = .error
@@ -102,39 +102,69 @@ class LandscaperGameState: GridGameState<LandscaperGameMove> {
             }
             tokens.removeAll()
         }
+        var rowDispos = Set<String>()
+        var rowCounts = Set<[Int]>()
         for r in 0..<rows {
             oLast = .empty
+            var dispo = ""
+            var (nTree, nFlower) = (0, 0)
             for c in 0..<cols {
                 let p = Position(r, c)
                 let o = self[p]
+                dispo += String(o.rawValue)
                 if o != oLast {
                     checkTokens()
                     oLast = o
                 }
-                if o == .empty {
+                switch o {
+                case .empty:
                     isSolved = false
-                } else {
+                case .tree:
+                    nTree += 1
+                    tokens.append(p)
+                case .flower:
+                    nFlower += 1
                     tokens.append(p)
                 }
             }
             checkTokens()
+            rowDispos.insert(dispo)
+            rowCounts.insert([nTree, nFlower])
         }
+        var colDispos = Set<String>()
+        var colCounts = Set<[Int]>()
         for c in 0..<cols {
             oLast = .empty
+            var dispo = ""
+            var (nTree, nFlower) = (0, 0)
             for r in 0..<rows {
                 let p = Position(r, c)
                 let o = self[p]
+                dispo += String(o.rawValue)
                 if o != oLast {
                     checkTokens()
                     oLast = o
                 }
-                if o == .empty {
+                switch o {
+                case .empty:
                     isSolved = false
-                } else {
+                case .tree:
+                    nTree += 1
+                    tokens.append(p)
+                case .flower:
+                    nFlower += 1
                     tokens.append(p)
                 }
             }
             checkTokens()
+            colDispos.insert(dispo)
+            colCounts.insert([nTree, nFlower])
         }
+        guard isSolved else {return}
+        func checkCount(_ counts: [Int]) -> Bool {
+            let (nTree, nFlower) = (counts[0], counts[1])
+            return rows % 2 == 0 && nTree == nFlower || nTree == nFlower + 1
+        }
+        if !(rowDispos.count == rows && colDispos.count == cols && rowCounts.count == 1 && colCounts.count == 1 && checkCount(rowCounts.first!) && checkCount(colCounts.first!)) { isSolved = false }
     }
 }
