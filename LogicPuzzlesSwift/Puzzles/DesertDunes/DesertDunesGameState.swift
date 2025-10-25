@@ -15,7 +15,7 @@ class DesertDunesGameState: GridGameState<DesertDunesGameMove> {
     }
     override var gameDocument: GameDocumentBase { DesertDunesDocument.sharedInstance }
     var objArray = [DesertDunesObject]()
-    var emptyOfDunes = [Position]()
+    var invalid2x2Squares = [Position]()
     
     override func copy() -> DesertDunesGameState {
         let v = DesertDunesGameState(game: game, isCopy: true)
@@ -97,12 +97,12 @@ class DesertDunesGameState: GridGameState<DesertDunesGameMove> {
             }
         }
         // 5. No area of desert of 2x2 should be empty of Dunes.
-        emptyOfDunes.removeAll()
+        invalid2x2Squares.removeAll()
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
                 let isEmptyOfDunes = DesertDunesGame.offset2.map { p + $0 }.allSatisfy { self[$0].toString() != "dune" }
-                if isEmptyOfDunes { emptyOfDunes.append(p + Position.SouthEast); isSolved = false }
+                if isEmptyOfDunes { invalid2x2Squares.append(p + Position.SouthEast); isSolved = false }
             }
         }
         // 4. Dunes cannot touch each other horizontally or vertically.

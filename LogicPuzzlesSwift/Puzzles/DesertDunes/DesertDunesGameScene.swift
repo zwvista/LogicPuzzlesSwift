@@ -43,7 +43,7 @@ class DesertDunesGameScene: GameScene<DesertDunesGameState> {
                 addHint(n: n, s: s, point: point, nodeName: hintNodeName)
             }
         }
-        for p in state.emptyOfDunes {
+        for p in state.invalid2x2Squares {
             let point = gridNode.cornerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let emptyNodeName = "empty" + nodeNameSuffix
@@ -84,7 +84,7 @@ class DesertDunesGameScene: GameScene<DesertDunesGameState> {
                         break
                     }
                 }
-                let (b1, b2) = (stateFrom.emptyOfDunes.contains(p), stateTo.emptyOfDunes.contains(p))
+                let (b1, b2) = (stateFrom.invalid2x2Squares.contains(p), stateTo.invalid2x2Squares.contains(p))
                 if b1 != b2 {
                     let point = gridNode.cornerPoint(p: p)
                     if b1 { removeNode(withName: emptyNodeName) }

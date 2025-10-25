@@ -1203,6 +1203,15 @@
 		8CB722072EAC44D6001B25C5 /* LandscaperGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721FA2EAC44D6001B25C5 /* LandscaperGameScene.swift */; };
 		8CB722082EAC44D6001B25C5 /* LandscaperGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721FC2EAC44D6001B25C5 /* LandscaperGameViewController.swift */; };
 		8CB722092EAC44D6001B25C5 /* Landscaper.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB721F72EAC44D6001B25C5 /* Landscaper.xml */; };
+		8CB722142EAC8261001B25C5 /* ArchipelagoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB722122EAC8261001B25C5 /* ArchipelagoObject.swift */; };
+		8CB722152EAC8261001B25C5 /* ArchipelagoGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7220D2EAC8261001B25C5 /* ArchipelagoGameScene.swift */; };
+		8CB722162EAC8261001B25C5 /* ArchipelagoGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB722102EAC8261001B25C5 /* ArchipelagoGridNode.swift */; };
+		8CB722172EAC8261001B25C5 /* ArchipelagoMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB722112EAC8261001B25C5 /* ArchipelagoMainViewController.swift */; };
+		8CB722182EAC8261001B25C5 /* ArchipelagoGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7220C2EAC8261001B25C5 /* ArchipelagoGame.swift */; };
+		8CB722192EAC8261001B25C5 /* ArchipelagoGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7220F2EAC8261001B25C5 /* ArchipelagoGameViewController.swift */; };
+		8CB7221A2EAC8261001B25C5 /* ArchipelagoGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7220E2EAC8261001B25C5 /* ArchipelagoGameState.swift */; };
+		8CB7221B2EAC8261001B25C5 /* ArchipelagoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7220B2EAC8261001B25C5 /* ArchipelagoDocument.swift */; };
+		8CB7221C2EAC8261001B25C5 /* Archipelago.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB7220A2EAC8261001B25C5 /* Archipelago.xml */; };
 		8CBD5F932E7DBE11000CD5E3 /* MaketheDifferenceGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8E2E7DBE11000CD5E3 /* MaketheDifferenceGameViewController.swift */; };
 		8CBD5F942E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8A2E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift */; };
 		8CBD5F952E7DBE11000CD5E3 /* MaketheDifferenceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F912E7DBE11000CD5E3 /* MaketheDifferenceObject.swift */; };
@@ -2530,6 +2539,15 @@
 		8CB721FD2EAC44D6001B25C5 /* LandscaperGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscaperGridNode.swift; sourceTree = "<group>"; };
 		8CB721FE2EAC44D6001B25C5 /* LandscaperMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscaperMainViewController.swift; sourceTree = "<group>"; };
 		8CB721FF2EAC44D6001B25C5 /* LandscaperObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscaperObject.swift; sourceTree = "<group>"; };
+		8CB7220A2EAC8261001B25C5 /* Archipelago.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Archipelago.xml; sourceTree = "<group>"; };
+		8CB7220B2EAC8261001B25C5 /* ArchipelagoDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchipelagoDocument.swift; sourceTree = "<group>"; };
+		8CB7220C2EAC8261001B25C5 /* ArchipelagoGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchipelagoGame.swift; sourceTree = "<group>"; };
+		8CB7220D2EAC8261001B25C5 /* ArchipelagoGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchipelagoGameScene.swift; sourceTree = "<group>"; };
+		8CB7220E2EAC8261001B25C5 /* ArchipelagoGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchipelagoGameState.swift; sourceTree = "<group>"; };
+		8CB7220F2EAC8261001B25C5 /* ArchipelagoGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchipelagoGameViewController.swift; sourceTree = "<group>"; };
+		8CB722102EAC8261001B25C5 /* ArchipelagoGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchipelagoGridNode.swift; sourceTree = "<group>"; };
+		8CB722112EAC8261001B25C5 /* ArchipelagoMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchipelagoMainViewController.swift; sourceTree = "<group>"; };
+		8CB722122EAC8261001B25C5 /* ArchipelagoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchipelagoObject.swift; sourceTree = "<group>"; };
 		8CBD5F8A2E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceDocument.swift; sourceTree = "<group>"; };
 		8CBD5F8B2E7DBE11000CD5E3 /* MaketheDifferenceGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceGame.swift; sourceTree = "<group>"; };
 		8CBD5F8C2E7DBE11000CD5E3 /* MaketheDifferenceGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceGameScene.swift; sourceTree = "<group>"; };
@@ -2946,6 +2964,7 @@
 				8C3A33B91EC88D4100A914A5 /* Abc */,
 				8C355CD41FE586F8002FC9D6 /* ABCPath */,
 				8C3A33C61EC88D4100A914A5 /* AbstractPainting */,
+				8CB722132EAC8261001B25C5 /* Archipelago */,
 				8CAFBFC62E9D9FE500C27D7C /* Arrows */,
 				8CDAE7FC1F646C29000DE5AF /* BalancedTapas */,
 				8C3A33D31EC88D4100A914A5 /* BattleShips */,
@@ -4766,6 +4785,22 @@
 			path = Landscaper;
 			sourceTree = "<group>";
 		};
+		8CB722132EAC8261001B25C5 /* Archipelago */ = {
+			isa = PBXGroup;
+			children = (
+				8CB7220A2EAC8261001B25C5 /* Archipelago.xml */,
+				8CB7220B2EAC8261001B25C5 /* ArchipelagoDocument.swift */,
+				8CB7220C2EAC8261001B25C5 /* ArchipelagoGame.swift */,
+				8CB7220D2EAC8261001B25C5 /* ArchipelagoGameScene.swift */,
+				8CB7220E2EAC8261001B25C5 /* ArchipelagoGameState.swift */,
+				8CB7220F2EAC8261001B25C5 /* ArchipelagoGameViewController.swift */,
+				8CB722102EAC8261001B25C5 /* ArchipelagoGridNode.swift */,
+				8CB722112EAC8261001B25C5 /* ArchipelagoMainViewController.swift */,
+				8CB722122EAC8261001B25C5 /* ArchipelagoObject.swift */,
+			);
+			path = Archipelago;
+			sourceTree = "<group>";
+		};
 		8CBD5F922E7DBE11000CD5E3 /* MaketheDifference */ = {
 			isa = PBXGroup;
 			children = (
@@ -5389,6 +5424,7 @@
 				8C8664442EA39DD00078CD64 /* arrow_red_left.png in Resources */,
 				8C8664452EA39DD00078CD64 /* B2-f.png in Resources */,
 				8C8664462EA39DD00078CD64 /* cloud.png in Resources */,
+				8CB7221C2EAC8261001B25C5 /* Archipelago.xml in Resources */,
 				8C8664472EA39DD00078CD64 /* icecream.png in Resources */,
 				8C8664482EA39DD00078CD64 /* pipe_cross.png in Resources */,
 				8C8664492EA39DD00078CD64 /* ice_hole.png in Resources */,
@@ -5651,6 +5687,14 @@
 				8C3A36861EC88D4200A914A5 /* FenceLitsGame.swift in Sources */,
 				8C3A377A1EC88D4300A914A5 /* PowerGridGridNode.swift in Sources */,
 				8C0467201F8BA2BE00B5DE41 /* TataminoMainViewController.swift in Sources */,
+				8CB722142EAC8261001B25C5 /* ArchipelagoObject.swift in Sources */,
+				8CB722152EAC8261001B25C5 /* ArchipelagoGameScene.swift in Sources */,
+				8CB722162EAC8261001B25C5 /* ArchipelagoGridNode.swift in Sources */,
+				8CB722172EAC8261001B25C5 /* ArchipelagoMainViewController.swift in Sources */,
+				8CB722182EAC8261001B25C5 /* ArchipelagoGame.swift in Sources */,
+				8CB722192EAC8261001B25C5 /* ArchipelagoGameViewController.swift in Sources */,
+				8CB7221A2EAC8261001B25C5 /* ArchipelagoGameState.swift in Sources */,
+				8CB7221B2EAC8261001B25C5 /* ArchipelagoDocument.swift in Sources */,
 				8C3A378D1EC88D4400A914A5 /* RoomsDocument.swift in Sources */,
 				8CBD5F952E7DBE11000CD5E3 /* MaketheDifferenceObject.swift in Sources */,
 				8C3A36311EC88D4200A914A5 /* BoxItUpDocument.swift in Sources */,
