@@ -1,0 +1,1304 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Plays like SlitherLink:
+2. Draw a single looping path with the aid of the numbered hints. The path cannot have branches or cross itself.
+3. Each number tells you on how many of its four sides are touched by the path.
+4. With this added rule:
+5. In the end all the sheep must be corralled inside the loop, while all the wolves must be outside.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+WS WW`
+S12 S`
+1 S3 `
+W2S2S`
+ 222S`
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+3 12S`
+ 2S 1`
+3W1S `
+ 2 03`
+S2W3 `
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+ 13W `
+S2 32`
+S S S`
+SW 2 `
+ SS 1`
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+ 2 S `
+S W 0`
+W12S `
+S1 SS`
+ 32 W`
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+ SS 22`
+32WW 3`
+S 2 1W`
+ 2 S S`
+3 S 3 `
+ 0 323`
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+3 22 1`
+ 2W W0`
+W WW3 `
+ S WS3`
+311S W`
+ S22S1`
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+SS 3 W`
+2 120 `
+2S 222`
+ 0S SW`
+W SW S`
+ WS WS`
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+ S 2 3`
+3 S21 `
+ 2 W13`
+W221 3`
+S 3 1 `
+ 3 S W`
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+ 3S S `
+ 2W2 2`
+22 WS1`
+21S 2 `
+SW S 2`
+ 2S22 `
+    ]]>
+  </level>
+  <level id="10">
+    <![CDATA[
+ 3 S3 `
+S S WW`
+ W 3S3`
+S 0 S `
+2W W 0`
+ WS 3 `
+    ]]>
+  </level>
+  <level id="11">
+    <![CDATA[
+S 3 12 `
+S2 S 23`
+ 23 2S `
+ W 1 32`
+ WS W 2`
+S W2 S2`
+ 1 2W3 `
+    ]]>
+  </level>
+  <level id="12">
+    <![CDATA[
+ S W 2 `
+313 113`
+ 1 S S `
+S W 2 1`
+ W 1 2 `
+3S2S3 W`
+W 3 23 `
+    ]]>
+  </level>
+  <level id="13">
+    <![CDATA[
+ 32 S W`
+23 WS2 `
+1 SW W2`
+ SW22 3`
+2 W2 3 `
+SS S0 1`
+WSS3 W `
+    ]]>
+  </level>
+  <level id="14">
+    <![CDATA[
+SS W 1 `
+2 223 2`
+ W1 S12`
+S  SS S`
+ 21  W `
+22 21 2`
+ 1W0 11`
+    ]]>
+  </level>
+  <level id="15">
+    <![CDATA[
+ 1 2S  `
+3 W2 W `
+223   S`
+ 1 22W `
+  212 2`
+23S 22S`
+ 2 WS1 `
+    ]]>
+  </level>
+  <level id="16">
+    <![CDATA[
+ 2 22S `
+23S S21`
+2  02  `
+ W3 311`
+S 20 S2`
+ W3 32 `
+W3 S1 3`
+    ]]>
+  </level>
+  <level id="17">
+    <![CDATA[
+S S   S`
+  W13SS`
+WS 3 0 `
+3 1 S W`
+ W S S `
+2 S 1  `
+ WWS 1S`
+    ]]>
+  </level>
+  <level id="18">
+    <![CDATA[
+ 2    S`
+23   SS`
+S WS2  `
+ 0  S  `
+S S 3 3`
+ S 21 W`
+3 2 S3 `
+    ]]>
+  </level>
+  <level id="19">
+    <![CDATA[
+ 3 S 3 `
+S WW2  `
+S S S1 `
+ 1  WS `
+3S0 S 2`
+S 13 W `
+WW W3 3`
+    ]]>
+  </level>
+  <level id="20">
+    <![CDATA[
+  2 WS `
+ 3   12`
+ 22 3S `
+2 32 WS`
+212 S W`
+W  W 3 `
+3 W 1 S`
+    ]]>
+  </level>
+  <level id="21">
+    <![CDATA[
+1 S   2`
+S3 1WW `
+S 1S 21`
+ 32 W  `
+WW 22W `
+0 2   2`
+ 3 WW 2`
+    ]]>
+  </level>
+  <level id="22">
+    <![CDATA[
+ 33 33 `
+ SS0S  `
+22 222 `
+3S2S 1W`
+2 3  1 `
+ W 1  W`
+W 2 33 `
+    ]]>
+  </level>
+  <level id="23">
+    <![CDATA[
+ 3 S 2 S`
+2 SS111 `
+ 1S SW W`
+SS 1W S3`
+2 3W 1 W`
+0  W31S3`
+  1 1 S `
+ 1 W W3W`
+    ]]>
+  </level>
+  <level id="24">
+    <![CDATA[
+3 3 1 W `
+ 2 3W W3`
+S2S W S `
+ W W 1 S`
+2 SS2 1 `
+ S3 3WS1`
+2S 2 W 2`
+2 1 2   `
+    ]]>
+  </level>
+  <level id="25">
+    <![CDATA[
+ 1S1 2 S`
+W1 0S 1 `
+W W 2W 3`
+3S 22SW `
+  3S1S S`
+ 1 S 11S`
+WWS 2 S `
+ 2 S 1 0`
+    ]]>
+  </level>
+  <level id="26">
+    <![CDATA[
+3 2     `
+ 2 W3W 3`
+22 W 1S `
+  W S  S`
+ S W  2 `
+1W2W1 WS`
+S   23 2`
+ 23W WS `
+    ]]>
+  </level>
+  <level id="27">
+    <![CDATA[
+02 W 1 3`
+ 22 3   `
+2 W  WW `
+3 2 23  `
+2S 2 1  `
+2 S1S 3S`
+ 1 2 2 S`
+3 S S  1`
+    ]]>
+  </level>
+  <level id="28">
+    <![CDATA[
+21  2 S `
+ SW1 S 1`
+SS  0 2 `
+2 12 S 2`
+3W  WS3W`
+ 2  W 1 `
+S  1 1  `
+ 2312 31`
+    ]]>
+  </level>
+  <level id="29">
+    <![CDATA[
+SSW 1 1 `
+ 1 1S  3`
+ S1W 2S `
+3 2 31 W`
+ W 1 WSW`
+2 S 22 W`
+ W1  32 `
+1W 332 W`
+    ]]>
+  </level>
+  <level id="30">
+    <![CDATA[
+ W0 21S `
+W 1W 2 1`
+ SS S 0 `
+2 W202 S`
+ 2  S S `
+3W 2 1 W`
+W 2  11S`
+ 0 SW 2 `
+    ]]>
+  </level>
+  <level id="31">
+    <![CDATA[
+WWSSS12 `
+S   3S S`
+WW 11 S `
+S  S 3 2`
+WW  W  3`
+ 21  2 W`
+S31 111 `
+S  33 SS`
+    ]]>
+  </level>
+  <level id="32">
+    <![CDATA[
+W1 SS 3 `
+W S  1 S`
+21 22 32`
+ W 1 S 2`
+ 32   3 `
+12   S  `
+S WSW3SS`
+ S2   SW`
+    ]]>
+  </level>
+  <level id="33">
+    <![CDATA[
+WSS 3 W `
+ W 1S  2`
+ 0W  1 W`
+S S 1S1 `
+   1W W `
+ W 1 SW `
+3 1 S1W2`
+ S3SW W `
+    ]]>
+  </level>
+  <level id="34">
+    <![CDATA[
+S WSW 2W`
+W2    2W`
+W 3 3 1 `
+32S  S 1`
+W3 3W 2S`
+S    2  `
+WW S 0SS`
+1  3  WW`
+    ]]>
+  </level>
+  <level id="35">
+    <![CDATA[
+3  133 S`
+W  2 S1 `
+ S1 W  3`
+22 22   `
+  S SW 1`
+2S 22 S `
+  W 22 3`
+S2 S3 S `
+    ]]>
+  </level>
+  <level id="36">
+    <![CDATA[
+2 12 S  `
+ W2 S W `
+21 2 2  `
+ 2SS 2S2`
+W2 21S 2`
+ 1SSW WW`
+S1 SW1 S`
+3 W   1 `
+    ]]>
+  </level>
+  <level id="37">
+    <![CDATA[
+1SS  3WS`
+ WWS S S`
+SW 11 SW`
+S   3S 2`
+S3 WW W `
+  0S 2  `
+ 1 WS W `
+322 S2 2`
+    ]]>
+  </level>
+  <level id="38">
+    <![CDATA[
+32  S SW`
+  12S1S `
+  3 W S1`
+ 1  03 S`
+ 3    SW`
+S 131 1 `
+ W 2   S`
+3 1SS 3W`
+    ]]>
+  </level>
+  <level id="39">
+    <![CDATA[
+ 1S 2   3`
+3S32 W23S`
+S S W2   `
+SW 1 1S S`
+W 2   W1 `
+3S 21 2 2`
+  WS S 3 `
+SSS 2 WW1`
+ 1 3 S2 W`
+    ]]>
+  </level>
+  <level id="40">
+    <![CDATA[
+ S121W   `
+22 S SS22`
+3 S S   3`
+ W WW 0S `
+    2 112`
+ W S W S `
+ W21S   0`
+SWS 22 W0`
+1 SW 21  `
+    ]]>
+  </level>
+  <level id="41">
+    <![CDATA[
+W 2 SW 1 `
+SS11SSW W`
+ 3 3 W 1 `
+W   3 S 1`
+ 0   WSW `
+3S  11 WW`
+S 2   S 3`
+W  3 W 3 `
+ WS 2 S 2`
+    ]]>
+  </level>
+  <level id="42">
+    <![CDATA[
+ 3W3 2 2 `
+S  SS 2  `
+W  3 W1  `
+21 12 3 S`
+3 3 SS  2`
+ S 2W W S`
+22W 32 W `
+SS 0 S S `
+ 223 WS13`
+    ]]>
+  </level>
+  <level id="43">
+    <![CDATA[
+ 232 1  W`
+3 S 3 32 `
+ W 21  S3`
+W S3 SSW `
+ 0S 2 S S`
+ 23 SW12W`
+S1   S  1`
+ 2    1S2`
+1   1WWS `
+    ]]>
+  </level>
+  <level id="44">
+    <![CDATA[
+ 2   2 SW`
+S WW   W `
+ 1S 3 2 3`
+ W  3WS 2`
+S 0  2  S`
+2  1 S2W `
+     W1 2`
+S 2S  21 `
+W  3 1  S`
+    ]]>
+  </level>
+  <level id="45">
+    <![CDATA[
+3W SS S22`
+ W1 1WSS `
+2 S  2 WS`
+S   3 2  `
+  3S W2W3`
+  2 1   2`
+ S WS WS `
+W  3 1 0 `
+ 1 SS  32`
+    ]]>
+  </level>
+  <level id="46">
+    <![CDATA[
+   WSW W `
+223  W 3 `
+W  W  2 S`
+  2 S3 S3`
+3 3W1 WS `
+3  W 3 SW`
+ W W  W1 `
+SW 2 S  S`
+    3 S 3`
+    ]]>
+  </level>
+  <level id="47">
+    <![CDATA[
+1 WS W W `
+2 2 2 0  `
+2S1W  1 2`
+  2 S W  `
+  1S32 WS`
+  3  W  W`
+ 1  W212 `
+W W   1 1`
+ 2 W33 S `
+    ]]>
+  </level>
+  <level id="48">
+    <![CDATA[
+ 21 WW SS`
+ 2 2WWS2 `
+S     S3S`
+ 1 W3  2 `
+  S21 W 1`
+2   S  S `
+2 S  3   `
+WS3SW W3 `
+SS SW3 S `
+    ]]>
+  </level>
+  <level id="49">
+    <![CDATA[
+211 23  2`
+ S     S3`
+3 3 3 W  `
+   1  32 `
+S 2 21 W2`
+ W1SW 1 S`
+S  S 10 1`
+S  02 2  `
+ 0 3 S  3`
+    ]]>
+  </level>
+  <level id="50">
+    <![CDATA[
+0 SW WW S`
+ 1 20    `
+3 1 2 2 0`
+ W 1 1 S `
+S 3 3 0  `
+ 2  1 1 2`
+3  3 0   `
+1 S1  3 W`
+ 3  SW 2 `
+    ]]>
+  </level>
+  <level id="51">
+    <![CDATA[
+ S3 22S W`
+2  SS S0 `
+33 1 1  3`
+    2S1 3`
+S 3    1 `
+202 11  3`
+ 2   2SS `
+ 1 222 22`
+ 23   2 3`
+    ]]>
+  </level>
+  <level id="52">
+    <![CDATA[
+ 23W  S S`
+ 3 212  2`
+ S  2 S 2`
+32 0 S 1 `
+S 3 3 3 S`
+ 3 W 1  3`
+12 32 1  `
+ SS W 2 3`
+WWW2 S 2 `
+    ]]>
+  </level>
+  <level id="53">
+    <![CDATA[
+ 2 W 231 `
+213   S 0`
+ 0   1S  `
+1 2 10 3W`
+S 12 1W 0`
+    W 22 `
+3 S2 3 2 `
+ 1 21    `
+W S S2 3 `
+    ]]>
+  </level>
+  <level id="54">
+    <![CDATA[
+S   W 2W `
+ 202 S2 1`
+2  S S  1`
+  0 21SS `
+   S W W `
+ 21SW 2W `
+2 2 S S12`
+ S3  1 2 `
+W   1SW 0`
+    ]]>
+  </level>
+  <level id="55">
+    <![CDATA[
+ S  S  3 `
+3 S W 1 2`
+ 1W2W   3`
+23 2 S3S `
+ 1SSW W S`
+S W 1  1 `
+ 3 S  W2 `
+S 2 1WSWW`
+ 1   2  1`
+    ]]>
+  </level>
+  <level id="56">
+    <![CDATA[
+3 S WS2 S`
+ 2WSS  S2`
+22 1SW S2`
+3  S S   `
+ SW 0 S3 `
+S    W  2`
+ 1 3  3  `
+23S1 0   `
+ 22 W2 22`
+    ]]>
+  </level>
+  <level id="57">
+    <![CDATA[
+ 22S  W  `
+1 S 2 11 `
+ 1 12W SW`
+  W1 W1 S`
+  3   1  `
+ S  21 WS`
+  3  SS W`
+ 3    0  `
+2  12 222`
+    ]]>
+  </level>
+  <level id="58">
+    <![CDATA[
+S 11 S SS`
+ 3 1 2W W`
+3 0   S2 `
+  12322 S`
+   2 W  W`
+3     3  `
+ 2 13 2  `
+S S 1 2 1`
+ S W S 1 `
+    ]]>
+  </level>
+  <level id="59">
+    <![CDATA[
+ 1 23 W 12`
+2 SSS  SS `
+ 3 1  1  2`
+  0 S3   1`
+21 W 1 1 2`
+    1S 1 1`
+3 2    W 1`
+ 3 2 1 2  `
+W 0 3 S0 S`
+ 1 S WS WS`
+    ]]>
+  </level>
+  <level id="60">
+    <![CDATA[
+ 1 2 3S W `
+S 3 WWW  W`
+ S    3S0 `
+W 3 SS2  3`
+S2 W S   2`
+ 1 32 13  `
+S  1 S2  3`
+32 11  11 `
+ W  W  S S`
+S 1 SS2 WW`
+    ]]>
+  </level>
+  <level id="61">
+    <![CDATA[
+ 3 WS W 21`
+1 2  W 0  `
+WW   S1 22`
+ 2113 2W 3`
+1 3 2 2   `
+ S 03    2`
+W     W3 2`
+ 1 W SW   `
+2WSS2   W `
+ S S S 3 1`
+    ]]>
+  </level>
+  <level id="62">
+    <![CDATA[
+3 W S SS  `
+S 2 3W 1 S`
+S 3  S02 W`
+ 1 13S  1 `
+W2W       `
+ 2S   3 3 `
+S1 3 1 S S`
+ 2 2 W  W `
+SS  1 22 3`
+ 312 1 10 `
+    ]]>
+  </level>
+  <level id="63">
+    <![CDATA[
+2SSW  W 2 `
+3 W 31 11 `
+    2 313 `
+S 1 S0    `
+W2  S W  S`
+23 2 SS   `
+  S     21`
+SSSW3111 S`
+S 2  3 1W `
+W     S SW`
+    ]]>
+  </level>
+  <level id="64">
+    <![CDATA[
+ 3 2 1 SS `
+2SW2  3 32`
+1 2 1S 1 S`
+ 3 S W  S `
+1     31 1`
+ 1 22  WW `
+3 S   21 3`
+  W   1 3W`
+3 200   1 `
+ 3W  W 1 W`
+    ]]>
+  </level>
+  <level id="65">
+    <![CDATA[
+ 1 WW 2SW `
+S 1 1 W 13`
+ W W  1S 2`
+2 2 3 2   `
+W2 2 S   S`
+S2S 1 W 1 `
+ 2 2   3 2`
+S S 13W  3`
+ 1 11 2 3 `
+322 3W S S`
+    ]]>
+  </level>
+  <level id="66">
+    <![CDATA[
+22 3 3   1`
+    2 13  `
+ 122    W `
+S   1 1S S`
+ 11332SSW `
+3S       3`
+W 2 S 1 2 `
+ SSW 0  0S`
+ 3 1W S   `
+2 W  2 3 S`
+    ]]>
+  </level>
+  <level id="67">
+    <![CDATA[
+  2 S2 11 `
+2  1 1   3`
+103 3 1W W`
+S 30  1 2S`
+ 1 W3W    `
+  1 2 3 S3`
+3  S 3 1  `
+S W   0 S `
+ W 3 3 W 3`
+1 W 2 S 3 `
+    ]]>
+  </level>
+  <level id="68">
+    <![CDATA[
+ 3 3 3 223`
+S 2 S   S `
+W  1 1   W`
+ S1 1 2 3 `
+2  1 231 S`
+0  121  2S`
+ 21S W22 W`
+3 1  S S12`
+ 1 S2 S 1 `
+ 3 3 3  SW`
+    ]]>
+  </level>
+  <level id="69">
+    <![CDATA[
+ 1WSW 3 2 `
+       W S`
+1WS 23WS W`
+ 3 S S1 1 `
+  0 1 2S  `
+ 3 S  W S1`
+S  3 0 S3 `
+W 3   W   `
+   1S1 1S `
+2  1 WW W1`
+    ]]>
+  </level>
+  <level id="70">
+    <![CDATA[
+ S W  32 W`
+S 2   S11 `
+S2 1    1S`
+ SS 2SSS W`
+W 1W2S  0 `
+ S S  3 SS`
+3WS W  1S `
+   S 3 S 1`
+ SW 3 1 21`
+22 S S SW `
+    ]]>
+  </level>
+  <level id="71">
+    <![CDATA[
+ SW 21 W3 `
+3 S  00  S`
+ 1   2 2 W`
+  11  W2WW`
+S    2  SS`
+W S22 3 1 `
+ 3W2SW  1W`
+      0  S`
+ W   1 S3 `
+  232 3W W`
+    ]]>
+  </level>
+  <level id="72">
+    <![CDATA[
+S 1 3 SSWS`
+ 1 W 1    `
+S 3 S 3 SW`
+SS2  W 1W `
+1 W1 2   3`
+ S     1W `
+S2W  S 3 W`
+ 1S2S   S `
+ 3   2 WWS`
+  2 S1 S 1`
+    ]]>
+  </level>
+  <level id="73">
+    <![CDATA[
+3SS 2W 3 1`
+ 3 3    WS`
+ 2  1     `
+   2 S 2 3`
+ 32   31S `
+S WS 01 WS`
+SW2    W S`
+  1W 3  2 `
+  1 2W W W`
+3W W3 1 0 `
+    ]]>
+  </level>
+  <level id="74">
+    <![CDATA[
+31  W3 SW `
+3 S2 12 32`
+    2  1  `
+ 13 2 11 W`
+W 31  3 1 `
+W   S 2  3`
+ 0S   3 12`
+W  S S S W`
+ 1  2 W 0 `
+3SWW3S  3 `
+    ]]>
+  </level>
+  <level id="75">
+    <![CDATA[
+ 1S S 0   `
+S  0    13`
+S   3  20 `
+W 2   1   `
+ 0SS SS13 `
+1  2W 1   `
+  21   1 S`
+   W3 S   `
+W3  1W 2 3`
+3  S22 S2 `
+    ]]>
+  </level>
+  <level id="76">
+    <![CDATA[
+W 3  1SW 3`
+ 0  2 S  S`
+W SW 2  S `
+ 1  SW 2 3`
+2 3 S 0   `
+3W1  3 02S`
+W 2 S 3S 3`
+ S        `
+221322   2`
+  S   SWW `
+    ]]>
+  </level>
+  <level id="77">
+    <![CDATA[
+  3  1 2 W`
+ 21W 32S2 `
+S       2S`
+W  W  3 W `
+ S1 W  W  `
+SW 0 S3 12`
+  W 3  W  `
+ 1 SS 33 W`
+S 3 S1S   `
+WSWWS W3 S`
+    ]]>
+  </level>
+  <level id="78">
+    <![CDATA[
+WS S 2S 2 `
+ 13     W `
+S 1122  12`
+ 1   3 1 W`
+S 2 2   2 `
+SW1 W 132W`
+S1   2 1 2`
+3  WS S W `
+  0  S S  `
+ 3 W 1S1 3`
+    ]]>
+  </level>
+  <level id="79">
+    <![CDATA[
+3S 2  2 S3 `
+  W 2 10S  `
+S1  3W  S S`
+W    S2  1 `
+  S   WSW W`
+2SW2 S2  0 `
+S   SW S3 3`
+ 2S   S    `
+3 S  2 2 1 `
+ 2WSW W W 3`
+W  W 3 3 2 `
+    ]]>
+  </level>
+  <level id="80">
+    <![CDATA[
+WS 2W 22S1 `
+ 1W   W S S`
+S  2  S  3W`
+S1W 1 S1   `
+W S  2 S3 3`
+W1SSW SS   `
+3 W 22    2`
+ W  2 01 W `
+S W 32  112`
+20    3 1  `
+ SSS S S 22`
+    ]]>
+  </level>
+  <level id="81">
+    <![CDATA[
+ 2 S 3 W 3 `
+W2    2SSSW`
+2 1  1   SS`
+2 1 23S 3 S`
+WW S 1 W 3 `
+    W SS  W`
+33   S   3 `
+  W 201 2 3`
+ 0  W  312 `
+ 1 S2   S  `
+  WS W 3 2 `
+    ]]>
+  </level>
+  <level id="82">
+    <![CDATA[
+S   12S 2  `
+ W 2 2 21 3`
+3  3W  2 12`
+3   S 31S1 `
+  W  W 2   `
+   W 321 W3`
+W 2  S  1 2`
+  1 1 31 S `
+S 11   WW 3`
+ 2 S    2 2`
+3W22 33 1S `
+    ]]>
+  </level>
+  <level id="83">
+    <![CDATA[
+ 32S 3S 1S `
+   S1W S W2`
+  0  S 1S3 `
+  2  S     `
+2 SS  1 1W `
+ 22 221 32 `
+ W W   1 1W`
+31  W 3   3`
+ 2   S 1  1`
+  W  SW 1S `
+ 2  1W SW 1`
+    ]]>
+  </level>
+  <level id="84">
+    <![CDATA[
+S WWS  1  S`
+3  1W S 3 W`
+S S2 SW  W `
+W 1 W1 2 1 `
+S  2 SS WW3`
+WW W1 1W 1 `
+W 11 W SS 2`
+ 1S 1 SS   `
+312     S 3`
+2S 2  S  0 `
+SSW  3 2 2 `
+    ]]>
+  </level>
+  <level id="85">
+    <![CDATA[
+S 2 3 S  3 `
+WS2WSW W  1`
+S  S S0  W `
+   S S S2 2`
+ S1 S 1W SW`
+3  W  3 1W `
+S   3S   SW`
+ 111   W 2 `
+S0  1 0 2 S`
+ 2 3 S12 SS`
+    2   S2 `
+    ]]>
+  </level>
+  <level id="86">
+    <![CDATA[
+22 0    S  `
+  S 3 2W3S3`
+20 W W21 0 `
+  1 2     1`
+ 1     32 2`
+ 2  S1 1  3`
+S2 3    W  `
+ 3S   WS W `
+W 1W 0 10 1`
+ S 20    3 `
+3   SW 3 WS`
+    ]]>
+  </level>
+  <level id="87">
+    <![CDATA[
+ 3  3   S 3`
+S 3 S   3 S`
+S  1  3  S `
+W 1  0S W S`
+ 10 S  S SW`
+   1 1 W 1 `
+3 1   W 2 W`
+1  1 2  0 3`
+ SW W 21 S `
+SW S 3  1SW`
+ S 3  W 22S`
+    ]]>
+  </level>
+  <level id="88">
+    <![CDATA[
+ 2S 3 2112S`
+W         S`
+ S 2WS1 3W `
+          S`
+12 22 W2 S `
+ 0 W W 1S W`
+2 S 1 2 31 `
+2      2S S`
+  W 312S 1 `
+ W2  2  2  `
+3W  W S12 3`
+    ]]>
+  </level>
+  <level id="89">
+    <![CDATA[
+S W S  3 22`
+ 123    1  `
+2   2 1S  1`
+S 23 1  312`
+ 1     0 S `
+ 0  1   1 2`
+  3 S 2  3 `
+02   S  S  `
+W W W 1  1S`
+  10 0 3 1 `
+1 2 3 1 1 S`
+    ]]>
+  </level>
+  <level id="90">
+    <![CDATA[
+ 212 3  3 3`
+ S 1 WW2   `
+S W12   3 S`
+      21 2 `
+2 23S1    2`
+ 2 W S   1 `
+ 22 3  0 W `
+21 1 02 2 2`
+    S   3  `
+ 223 W 1 2S`
+12      3 3`
+    ]]>
+  </level>
+  <level id="91">
+    <![CDATA[
+3 2 S 10  0`
+2  3 SS 22 `
+ 1  22    1`
+3 11S 2   W`
+ 1 1 S S 0 `
+3  1 W  1 S`
+ W 32  1 S `
+  1    S3 3`
+  W2W 0 W  `
+ 2 21W 0 SS`
+S 3 2   3 S`
+    ]]>
+  </level>
+  <level id="92">
+    <![CDATA[
+S S SS 3 2 `
+W1 1 S0  02`
+   3W11S0  `
+2 1    W 1W`
+  0 2 2   S`
+ 0   1 S 2 `
+W 1 S  3 21`
+  0    2 1 `
+1  2     2 `
+2 20  W 1  `
+ 1 0 1 1W 0`
+    ]]>
+  </level>
+  <level id="93">
+    <![CDATA[
+ S 3  1 3 3`
+3 220 2  1 `
+ 2 S 31 S 2`
+  S   31   `
+2  1 2    2`
+1   S   2 3`
+3 1 2 11 WS`
+ S 3    0  `
+S S  1 3 0 `
+WW 2  1 S 3`
+W 3 23S2 1 `
+    ]]>
+  </level>
+  <level id="94">
+    <![CDATA[
+ 1 1  SS SS`
+  S 3  S2S `
+S 321 1   1`
+ W S S1 W1 `
+112  W W  1`
+SS12 2WS 0 `
+S   W 1 S S`
+  W    SWS `
+2S 223   12`
+ 2 3 1  1SS`
+ 0  WS  2 W`
+    ]]>
+  </level>
+  <level id="95">
+    <![CDATA[
+S S2 3 S 1 `
+WS  1   2  `
+S 122  1 3 `
+  2W 3S  2 `
+11 1  11 21`
+2 2 1S 11  `
+2S2S  2  WS`
+2 2S W 1   `
+ S2 1 WS S2`
+W  3 3W W  `
+W 1  1 2  S`
+    ]]>
+  </level>
+  <level id="96">
+    <![CDATA[
+  W  W 2 SS`
+3   322 23 `
+ 131 1S11 2`
+1  3   2   `
+S    WS 1  `
+ S2 1    SS`
+3222 3W S S`
+ 2 W  12 SS`
+S    W S2W `
+   31 W   W`
+1 23  S W2 `
+    ]]>
+  </level>
+  <level id="97">
+    <![CDATA[
+23 W  WS   `
+    01 W  3`
+ 1 3S   1 2`
+ 3  3  3 3 `
+S  21 3   W`
+S  1   3 WW`
+W S  1 S  S`
+ 1 1 11 1 3`
+3 W S 1 2  `
+  S2      S`
+1 S WS 1S1 `
+    ]]>
+  </level>
+  <level id="98">
+    <![CDATA[
+ 33 3 S1 SW`
+2  W32  22 `
+ W2 2 S    `
+S S  W   2 `
+3WW  SWSW 2`
+     2 S 2 `
+3 2 S 1 1 3`
+S W  1 3 32`
+ 0    S 2  `
+113 0     2`
+  1  W  2 3`
+    ]]>
+  </level>
+  <level id="99">
+    <![CDATA[
+ 2 21 S SWS`
+2  SS S2  2`
+1 22 1 2   `
+ 3 S3   3 3`
+ 2 0  0 2W `
+3  2SS 3   `
+    W 2  S `
+3W  1113  1`
+  0 W     S`
+S    2  12 `
+ 3 1     SS`
+    ]]>
+  </level>
+  <level id="100">
+    <![CDATA[
+1   3  S 2 `
+ 3 W 11 W 3`
+3 1 23 2  3`
+ 2 W  S  1 `
+ W  S SW SW`
+2 S 2   113`
+SW S W 1W  `
+ 20 3 1    `
+1  0 1 2WS3`
+2   S 3 2 1`
+  1 WS   S `
+    ]]>
+  </level>
+</levels>
+</puzzle>

@@ -1212,6 +1212,15 @@
 		8CB7221A2EAC8261001B25C5 /* ArchipelagoGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7220E2EAC8261001B25C5 /* ArchipelagoGameState.swift */; };
 		8CB7221B2EAC8261001B25C5 /* ArchipelagoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7220B2EAC8261001B25C5 /* ArchipelagoDocument.swift */; };
 		8CB7221C2EAC8261001B25C5 /* Archipelago.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB7220A2EAC8261001B25C5 /* Archipelago.xml */; };
+		8CB722272EACF705001B25C5 /* SheepAndWolvesGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB722222EACF705001B25C5 /* SheepAndWolvesGameViewController.swift */; };
+		8CB722282EACF705001B25C5 /* SheepAndWolvesGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB722202EACF705001B25C5 /* SheepAndWolvesGameScene.swift */; };
+		8CB722292EACF705001B25C5 /* SheepAndWolvesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB722242EACF705001B25C5 /* SheepAndWolvesMainViewController.swift */; };
+		8CB7222A2EACF705001B25C5 /* SheepAndWolvesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7221F2EACF705001B25C5 /* SheepAndWolvesGame.swift */; };
+		8CB7222B2EACF705001B25C5 /* SheepAndWolvesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB7221E2EACF705001B25C5 /* SheepAndWolvesDocument.swift */; };
+		8CB7222C2EACF705001B25C5 /* SheepAndWolvesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB722252EACF705001B25C5 /* SheepAndWolvesObject.swift */; };
+		8CB7222D2EACF705001B25C5 /* SheepAndWolvesGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB722212EACF705001B25C5 /* SheepAndWolvesGameState.swift */; };
+		8CB7222E2EACF705001B25C5 /* SheepAndWolvesGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB722232EACF705001B25C5 /* SheepAndWolvesGridNode.swift */; };
+		8CB7222F2EACF705001B25C5 /* SheepAndWolves.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB7221D2EACF705001B25C5 /* SheepAndWolves.xml */; };
 		8CBD5F932E7DBE11000CD5E3 /* MaketheDifferenceGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8E2E7DBE11000CD5E3 /* MaketheDifferenceGameViewController.swift */; };
 		8CBD5F942E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F8A2E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift */; };
 		8CBD5F952E7DBE11000CD5E3 /* MaketheDifferenceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBD5F912E7DBE11000CD5E3 /* MaketheDifferenceObject.swift */; };
@@ -2548,6 +2557,15 @@
 		8CB722102EAC8261001B25C5 /* ArchipelagoGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchipelagoGridNode.swift; sourceTree = "<group>"; };
 		8CB722112EAC8261001B25C5 /* ArchipelagoMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchipelagoMainViewController.swift; sourceTree = "<group>"; };
 		8CB722122EAC8261001B25C5 /* ArchipelagoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchipelagoObject.swift; sourceTree = "<group>"; };
+		8CB7221D2EACF705001B25C5 /* SheepAndWolves.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SheepAndWolves.xml; sourceTree = "<group>"; };
+		8CB7221E2EACF705001B25C5 /* SheepAndWolvesDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheepAndWolvesDocument.swift; sourceTree = "<group>"; };
+		8CB7221F2EACF705001B25C5 /* SheepAndWolvesGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheepAndWolvesGame.swift; sourceTree = "<group>"; };
+		8CB722202EACF705001B25C5 /* SheepAndWolvesGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheepAndWolvesGameScene.swift; sourceTree = "<group>"; };
+		8CB722212EACF705001B25C5 /* SheepAndWolvesGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheepAndWolvesGameState.swift; sourceTree = "<group>"; };
+		8CB722222EACF705001B25C5 /* SheepAndWolvesGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheepAndWolvesGameViewController.swift; sourceTree = "<group>"; };
+		8CB722232EACF705001B25C5 /* SheepAndWolvesGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheepAndWolvesGridNode.swift; sourceTree = "<group>"; };
+		8CB722242EACF705001B25C5 /* SheepAndWolvesMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheepAndWolvesMainViewController.swift; sourceTree = "<group>"; };
+		8CB722252EACF705001B25C5 /* SheepAndWolvesObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheepAndWolvesObject.swift; sourceTree = "<group>"; };
 		8CBD5F8A2E7DBE11000CD5E3 /* MaketheDifferenceDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceDocument.swift; sourceTree = "<group>"; };
 		8CBD5F8B2E7DBE11000CD5E3 /* MaketheDifferenceGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceGame.swift; sourceTree = "<group>"; };
 		8CBD5F8C2E7DBE11000CD5E3 /* MaketheDifferenceGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaketheDifferenceGameScene.swift; sourceTree = "<group>"; };
@@ -3043,6 +3061,7 @@
 				8C2963D51FA20D620017A812 /* RobotFences */,
 				8C3A35801EC88D4200A914A5 /* Rooms */,
 				8C3A358D1EC88D4200A914A5 /* Sentinels */,
+				8CB722262EACF705001B25C5 /* SheepAndWolves */,
 				8C3A359A1EC88D4200A914A5 /* Skyscrapers */,
 				8C3A35A71EC88D4200A914A5 /* SlitherLink */,
 				8C3A35B41EC88D4200A914A5 /* Snail */,
@@ -4801,6 +4820,22 @@
 			path = Archipelago;
 			sourceTree = "<group>";
 		};
+		8CB722262EACF705001B25C5 /* SheepAndWolves */ = {
+			isa = PBXGroup;
+			children = (
+				8CB7221D2EACF705001B25C5 /* SheepAndWolves.xml */,
+				8CB7221E2EACF705001B25C5 /* SheepAndWolvesDocument.swift */,
+				8CB7221F2EACF705001B25C5 /* SheepAndWolvesGame.swift */,
+				8CB722202EACF705001B25C5 /* SheepAndWolvesGameScene.swift */,
+				8CB722212EACF705001B25C5 /* SheepAndWolvesGameState.swift */,
+				8CB722222EACF705001B25C5 /* SheepAndWolvesGameViewController.swift */,
+				8CB722232EACF705001B25C5 /* SheepAndWolvesGridNode.swift */,
+				8CB722242EACF705001B25C5 /* SheepAndWolvesMainViewController.swift */,
+				8CB722252EACF705001B25C5 /* SheepAndWolvesObject.swift */,
+			);
+			path = SheepAndWolves;
+			sourceTree = "<group>";
+		};
 		8CBD5F922E7DBE11000CD5E3 /* MaketheDifference */ = {
 			isa = PBXGroup;
 			children = (
@@ -5152,6 +5187,7 @@
 				8C86633A2EA39DD00078CD64 /* sea.png in Resources */,
 				8C86633B2EA39DD00078CD64 /* arrow_brown_left_right.png in Resources */,
 				8C86633C2EA39DD00078CD64 /* dumbbell (1).png in Resources */,
+				8CB7222F2EACF705001B25C5 /* SheepAndWolves.xml in Resources */,
 				8C86633D2EA39DD00078CD64 /* balloon_red.png in Resources */,
 				8C86633E2EA39DD00078CD64 /* road_upright.png in Resources */,
 				8C86633F2EA39DD00078CD64 /* arrow_red_right.png in Resources */,
@@ -6180,6 +6216,14 @@
 				8C9F32EC1ED1FCFF00E10965 /* TapAlikeObject.swift in Sources */,
 				8C3A375F1EC88D4300A914A5 /* PairakabeGameScene.swift in Sources */,
 				8C3A37641EC88D4300A914A5 /* PairakabeMainViewController.swift in Sources */,
+				8CB722272EACF705001B25C5 /* SheepAndWolvesGameViewController.swift in Sources */,
+				8CB722282EACF705001B25C5 /* SheepAndWolvesGameScene.swift in Sources */,
+				8CB722292EACF705001B25C5 /* SheepAndWolvesMainViewController.swift in Sources */,
+				8CB7222A2EACF705001B25C5 /* SheepAndWolvesGame.swift in Sources */,
+				8CB7222B2EACF705001B25C5 /* SheepAndWolvesDocument.swift in Sources */,
+				8CB7222C2EACF705001B25C5 /* SheepAndWolvesObject.swift in Sources */,
+				8CB7222D2EACF705001B25C5 /* SheepAndWolvesGameState.swift in Sources */,
+				8CB7222E2EACF705001B25C5 /* SheepAndWolvesGridNode.swift in Sources */,
 				8C2973E31EE7284C0022A18A /* GalaxiesGame.swift in Sources */,
 				8C3A37D61EC88D4400A914A5 /* TatamiGame.swift in Sources */,
 				8CFAF9A5202615570095EFFC /* WallSentinelsMainViewController.swift in Sources */,
