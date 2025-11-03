@@ -34,6 +34,20 @@ class SheepAndWolvesGameScene: GameScene<SheepAndWolvesGameState> {
             let hintNodeName = "hint" + nodeNameSuffix
             addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
         }
+        
+        for p in game.sheep {
+            let point = gridNode.centerPoint(p: p)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let sheepNodeName = "sheep" + nodeNameSuffix
+            addImage(imageNamed: "sheep", color: .red, colorBlendFactor: 0.0, point: point, nodeName: sheepNodeName)
+        }
+        
+        for p in game.wolves {
+            let point = gridNode.centerPoint(p: p)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let wolfNodeName = "wolf" + nodeNameSuffix
+            addImage(imageNamed: "wolf", color: .red, colorBlendFactor: 0.0, point: point, nodeName: wolfNodeName)
+        }
     }
     
     override func levelUpdated(from stateFrom: SheepAndWolvesGameState, to stateTo: SheepAndWolvesGameState) {

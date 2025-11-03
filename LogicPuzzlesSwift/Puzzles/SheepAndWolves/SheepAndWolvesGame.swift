@@ -19,6 +19,8 @@ class SheepAndWolvesGame: GridGame<SheepAndWolvesGameState> {
     static let dirs = [1, 0, 3, 2]
 
     var pos2hint = [Position: Int]()
+    var sheep = [Position]()
+    var wolves = [Position]()
     
     init(layout: [String], delegate: SheepAndWolvesGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -29,8 +31,17 @@ class SheepAndWolvesGame: GridGame<SheepAndWolvesGameState> {
             let str = layout[r]
             for c in 0..<cols - 1 {
                 let ch = str[c]
-                guard case "0"..."9" = ch else {continue}
-                pos2hint[Position(r, c)] = ch.toInt!
+                let p = Position(r, c)
+                switch ch {
+                case "0"..."9":
+                    pos2hint[p] = ch.toInt!
+                case "S":
+                    sheep.append(p)
+                case "W":
+                    wolves.append(p)
+                default:
+                    break
+                }
             }
         }
         

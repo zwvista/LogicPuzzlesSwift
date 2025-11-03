@@ -24,7 +24,6 @@ class SheepAndWolvesGameState: GridGameState<SheepAndWolvesGameMove> {
     func setup(v: SheepAndWolvesGameState) -> SheepAndWolvesGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     
@@ -32,9 +31,6 @@ class SheepAndWolvesGameState: GridGameState<SheepAndWolvesGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<GridDotObject>(repeating: Array<GridLineObject>(repeating: .empty, count: 4), count: rows * cols)
-        for p in game.pos2hint.keys {
-            pos2state[p] = .normal
-        }
         updateIsSolved()
     }
     
@@ -92,28 +88,25 @@ class SheepAndWolvesGameState: GridGameState<SheepAndWolvesGameMove> {
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 3/SheepAndWolves
+        iOS Game: 100 Logic Games/Puzzle Set 12/Sheep & Wolves
 
         Summary
-        Draw a loop a-la-minesweeper!
+        Where's a dog when you need one?
 
         Description
-        1. Draw a single looping path with the aid of the numbered hints. The path
-           cannot have branches or cross itself.
-        2. Each number in a tile tells you on how many of its four sides are touched
-           by the path.
-        3. For example:
-        4. A 0 tells you that the path doesn't touch that square at all.
-        5. A 1 tells you that the path touches that square ONLY one-side.
-        6. A 3 tells you that the path does a U-turn around that square.
-        7. There can't be tiles marked with 4 because that would form a single
-           closed loop in it.
-        8. Empty tiles can have any number of sides touched by that path.
+        1. Plays like SlitherLink:
+        2. Draw a single looping path with the aid of the numbered hints. The
+           path cannot have branches or cross itself.
+        3. Each number tells you on how many of its four sides are touched by
+           the path.
+        4. With this added rule:
+        5. In the end all the sheep must be corralled inside the loop, while
+           all the wolves must be outside.
     */
     private func updateIsSolved() {
         isSolved = true
-        // 2. Each number in a tile tells you on how many of its four sides are touched
-        // by the path.
+        // 3. Each number tells you on how many of its four sides are touched by
+        //    the path.
         for (p, n2) in game.pos2hint {
             var n1 = 0
             for i in 0..<4 {
@@ -135,7 +128,7 @@ class SheepAndWolvesGameState: GridGameState<SheepAndWolvesGameMove> {
                 case 2:
                     pos2node[p] = g.addNode(p.description)
                 default:
-                    // 1. The path cannot have branches or cross itself.
+                    // 2. The path cannot have branches or cross itself.
                     isSolved = false
                     return
                 }
@@ -149,8 +142,40 @@ class SheepAndWolvesGameState: GridGameState<SheepAndWolvesGameMove> {
                 g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
             }
         }
-        // 1. Draw a single looping path with the aid of the numbered hints.
+        // 2. Draw a single looping path with the aid of the numbered hints.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
         if nodesExplored.count != pos2node.count { isSolved = false }
+        guard isSolved else {return}
+        let sheep0 = game.sheep[0]
+        let d = 0
+        var n = 0
+        let os = SheepAndWolvesGame.offset[d]
+        var p2 = sheep0
+        while isValid(p: p2) {
+            if self[p2 + SheepAndWolvesGame.offset2[d]][SheepAndWolvesGame.dirs[d]] == .line { n += 1 }
+            p2 += os
+        }
+        if n % 2 == 0 { isSolved = false }
+        guard isSolved else {return}
+        // 5. In the end all the sheep must be corralled inside the loop, while
+        //    all the wolves must be outside.
+        let g2 = Graph()
+        var pos2node2 = [Position: Node]()
+        for r in 0..<rows - 1 {
+            for c in 0..<cols - 1 {
+                let p = Position(r, c)
+                pos2node2[p] = g2.addNode(p.description)
+            }
+        }
+        for (p, node) in pos2node2 {
+            for i in 0..<4 {
+                guard self[p + SheepAndWolvesGame.offset2[i]][SheepAndWolvesGame.dirs[i]] != .line else {continue}
+                let p2 = p + SheepAndWolvesGame.offset[i]
+                guard let node2 = pos2node2[p2] else {continue}
+                g2.addEdge(node, neighbor: node2)
+            }
+        }
+        let nodesExplored2 = breadthFirstSearch(g2, source: pos2node2[sheep0]!)
+        if !game.sheep.allSatisfy({ nodesExplored2.contains($0.description) }) || game.wolves.contains(where: { nodesExplored2.contains($0.description) }) { isSolved = false }
     }
 }

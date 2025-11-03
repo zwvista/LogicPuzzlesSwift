@@ -353,6 +353,348 @@ A      C`
   ADB C `
     ]]>
   </level>
+  <level id="31">
+    <![CDATA[
+ A B DA `
+A       `
+D      A`
+        `
+       C`
+D      B`
+        `
+ D ACAC `
+    ]]>
+  </level>
+  <level id="32">
+    <![CDATA[
+ A B AC `
+A       `
+       A`
+B      D`
+B      D`
+       B`
+D      B`
+ D CD   `
+    ]]>
+  </level>
+  <level id="33">
+    <![CDATA[
+ B CCC  `
+B      C`
+C      B`
+A       `
+A       `
+C       `
+B       `
+ A BBAC `
+    ]]>
+  </level>
+  <level id="34">
+    <![CDATA[
+ B BCBC `
+B       `
+C       `
+        `
+A      C`
+       A`
+A      B`
+ AC BA  `
+    ]]>
+  </level>
+  <level id="35">
+    <![CDATA[
+ ABABCBA `
+B       A`
+A       B`
+A       C`
+B       A`
+C       B`
+B       C`
+B       A`
+ CABCAAC `
+    ]]>
+  </level>
+  <level id="36">
+    <![CDATA[
+ BCABDCD `
+B       D`
+C       B`
+B       D`
+A       B`
+D       B`
+B       C`
+C       A`
+ DDCDABA `
+    ]]>
+  </level>
+  <level id="37">
+    <![CDATA[
+   DEA A `
+B       A`
+C       E`
+E       D`
+F       C`
+         `
+B       C`
+D        `
+ D FA B  `
+    ]]>
+  </level>
+  <level id="38">
+    <![CDATA[
+  D AB   `
+F        `
+        A`
+C       E`
+B       C`
+A        `
+E       C`
+         `
+ A  BDD  `
+    ]]>
+  </level>
+  <level id="39">
+    <![CDATA[
+    EBAE `
+        E`
+B       D`
+        C`
+E       A`
+C       B`
+C        `
+D       C`
+  A FDE  `
+    ]]>
+  </level>
+  <level id="40">
+    <![CDATA[
+ ECCB D  `
+         `
+        A`
+        E`
+A       B`
+E        `
+B       D`
+         `
+  DDECBE `
+    ]]>
+  </level>
+  <level id="41">
+    <![CDATA[
+ DE  AD  `
+D        `
+C       E`
+        A`
+         `
+C       E`
+B       C`
+         `
+ E BDEB  `
+    ]]>
+  </level>
+  <level id="42">
+    <![CDATA[
+  A ECA  `
+        C`
+C       D`
+A        `
+E       C`
+C        `
+A       B`
+D        `
+ DBCBACE `
+    ]]>
+  </level>
+  <level id="43">
+    <![CDATA[
+ B C     `
+A        `
+B       E`
+D       E`
+        B`
+B        `
+C       B`
+        D`
+  C CDE  `
+    ]]>
+  </level>
+  <level id="44">
+    <![CDATA[
+  C A DC `
+A        `
+B        `
+        D`
+        A`
+         `
+B        `
+        D`
+ C CBC   `
+    ]]>
+  </level>
+  <level id="45">
+    <![CDATA[
+   EBDB  `
+        D`
+        A`
+E       C`
+        A`
+        B`
+B        `
+         `
+  B AAEB `
+    ]]>
+  </level>
+  <level id="46">
+    <![CDATA[
+ A C ACD `
+        A`
+A        `
+C       A`
+A       C`
+         `
+B       D`
+        A`
+  BDDD B `
+    ]]>
+  </level>
+  <level id="47">
+    <![CDATA[
+ ADDA CA `
+D       C`
+        D`
+C        `
+        B`
+A        `
+B       D`
+C       D`
+ CACB D  `
+    ]]>
+  </level>
+  <level id="48">
+    <![CDATA[
+ DC CBDB `
+A        `
+        C`
+        D`
+A       C`
+C        `
+C       B`
+        C`
+ CB BD   `
+    ]]>
+  </level>
+  <level id="49">
+    <![CDATA[
+ FCA   BG `
+    F    6G`
+         G`
+E     FC A`
+D        B`
+C G  BD  E`
+A     C  F`
+G   E    D`
+B         `
+   D CGE  `
+    ]]>
+  </level>
+  <level id="50">
+    <![CDATA[
+ EBAF C C `
+E        D`
+      F  C`
+F     BC D`
+A    F E B`
+   B      `
+B   6    A`
+         6`
+      D  F`
+ CAGD DBF `
+    ]]>
+  </level>
+  <level id="51">
+    <![CDATA[
+ DF C E B `
+D        6G`
+A C   D  B`
+G B      C`
+F         `
+E   G C   `
+       E D`
+  D F    6`
+C         `
+ CD EBFD  `
+    ]]>
+  </level>
+  <level id="52">
+    <![CDATA[
+ AEEAD FC `
+E         `
+A C D    F`
+F F EB    `
+F       EE`
+     F   B`
+C   F  A D`
+E B      C`
+B        E`
+  DFC A   `
+    ]]>
+  </level>
+  <level id="53">
+    <![CDATA[
+  ECDCBFA `
+B        A`
+A A    E  `
+D    BC  E`
+F   E A  B`
+B        D`
+A        C`
+E    D   B`
+C        D`
+  FA EDBC `
+    ]]>
+  </level>
+  <level id="54">
+    <![CDATA[
+ ADBBFC B `
+A        E`
+C        B`
+B        E`
+A         `
+E C      A`
+B   F  A D`
+F        C`
+          `
+  BC ADAF `
+    ]]>
+  </level>
+  <level id="55">
+    <![CDATA[
+ C DDEAE  `
+C        E`
+  AD    BB`
+    C  A  `
+  D      A`
+A   B E  C`
+C        E`
+D   A     `
+A         `
+ DEAEABCD `
+    ]]>
+  </level>
+  <level id="56">
+    <![CDATA[
+ DDC EDCB `
+D         `
+E  E     A`
+D B C     `
+      A  A`
+B         `
+A     E   `
+A  A     E`
+E         `
+  AD D EC `
+    ]]>
+  </level>
   <level id="57">
     <![CDATA[
   AAE DEB `
