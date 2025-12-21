@@ -76,17 +76,18 @@ class RomeGameState: GridGameState<RomeGameMove> {
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 11/Disconnect Four
+        iOS Game: 100 Logic Games 2/Puzzle Set 2/Rome
 
         Summary
-        Win by not winning!
+        All roads lead to ...
 
         Description
-        1. The opposite of the famous game 'Connect Four', where you must line
-           up four tokens of the same colour.
-        2. In this puzzle you have to ensure that there are no more than three
-           tokens of the same colour lined up horizontally, vertically or
-           diagonally.
+        1. All the roads lead to Rome.
+        2. Hence you should fill the remaining spaces with arrows and in the
+           end, starting at any tile and following the arrows, you should get
+           at the Rome icon.
+        3. Arrows in an area should all be different, i.e. there can't be two
+           similar arrows in an area.
     */
     private func updateIsSolved() {
         isSolved = true

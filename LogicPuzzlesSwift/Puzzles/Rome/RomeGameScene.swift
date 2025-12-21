@@ -14,8 +14,22 @@ class RomeGameScene: GameScene<RomeGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addToken(isY: Bool, s: AllowedObjectState, point: CGPoint, nodeName: String) {
-        addImage(imageNamed: isY ? "token_red" : "token_yellow", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
+    func addToken(o: RomeObject, s: AllowedObjectState, point: CGPoint, nodeName: String) {
+        func f(o: RomeObject) -> String {
+            switch o {
+            case .up:
+                return "arrow_bw_up"
+            case .right:
+                return "arrow_bw_right"
+            case .down:
+                return "arrow_bw_down"
+            case .left:
+                return "arrow_bw_left"
+            default:
+                return "rome"
+            }
+        }
+        addImage(imageNamed: f(o: o), color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }
 
     override func levelInitialized(_ game: AnyObject, state: RomeGameState, skView: SKView) {
@@ -27,7 +41,33 @@ class RomeGameScene: GameScene<RomeGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: RomeGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
-        // addHint
+        let pathToDraw = CGMutablePath()
+        let lineNode = SKShapeNode(path: pathToDraw)
+        for r in 0..<game.rows + 1 {
+            for c in 0..<game.cols + 1 {
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: p)
+                for dir in 1...2 {
+                    guard game.dots[r, c][dir] == .line else {continue}
+                    switch dir {
+                    case 1:
+                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
+                        pathToDraw.addLine(to: CGPoint(x: point.x + gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
+                        lineNode.glowWidth = 8
+                    case 2:
+                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
+                        pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y - gridNode.blockSize / 2))
+                        lineNode.glowWidth = 8
+                    default:
+                        break
+                    }
+                }
+            }
+        }
+        lineNode.path = pathToDraw
+        lineNode.name = "line"
+        gridNode.addChild(lineNode)
+        
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
@@ -36,7 +76,7 @@ class RomeGameScene: GameScene<RomeGameState> {
                 let tokenNodeName = "token" + nodeNameSuffix
                 let o = state[p]
                 guard o != .empty else {continue}
-                addToken(isY: o == .rome, s: state.pos2state[p] ?? .normal, point: point, nodeName: tokenNodeName)
+                addToken(o: o, s: state.pos2state[p] ?? .normal, point: point, nodeName: tokenNodeName)
                 addCircleMarker(color: .white, point: point, nodeName: "marker")
             }
         }
@@ -53,7 +93,7 @@ class RomeGameScene: GameScene<RomeGameState> {
                 let (s1, s2) = (stateFrom.pos2state[p] ?? .normal, stateTo.pos2state[p] ?? .normal)
                 guard o1 != o2 || s1 != s2 else {continue}
                 if o1 != .empty { removeNode(withName: tokenNodeName) }
-                if o2 != .empty { addToken(isY: o2 == .rome, s: s2, point: point, nodeName: tokenNodeName) }
+                if o2 != .empty { addToken(o: o2, s: s2, point: point, nodeName: tokenNodeName) }
             }
         }
     }
