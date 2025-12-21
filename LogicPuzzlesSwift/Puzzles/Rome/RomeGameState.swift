@@ -96,50 +96,44 @@ class RomeGameState: GridGameState<RomeGameMove> {
                 pos2state[Position(r, c)] = .normal
             }
         }
-        var oLast: RomeObject = .empty
-        var tokens = [Position]()
-        func checkTokens() {
-            if tokens.count > 3 {
-                isSolved = false
-                for p in tokens {
-                    pos2state[p] = .error
-                }
+        // 3. Arrows in an area should all be different, i.e. there can't be two
+        //    similar arrows in an area.
+        for area in game.areas {
+            var symbol2range = [RomeObject: [Position]]()
+            for p in area { symbol2range[self[p], default: []].append(p) }
+            for (_, range) in symbol2range where range.count > 1 {
+                for p in range { isSolved = false; pos2state[p] = .error }
             }
-            tokens.removeAll()
+            if symbol2range.keys.contains(RomeObject.empty) { isSolved = false }
         }
+        guard isSolved else {return}
+        // 1. All the roads lead to Rome.
+        // 2. Hence you should fill the remaining spaces with arrows and in the
+        //    end, starting at any tile and following the arrows, you should get
+        //    at the Rome icon.
+        var validRange = Set<Position>()
+        var invalidRange = Set<Position>()
         for r in 0..<rows {
-            oLast = .empty
             for c in 0..<cols {
-                let p = Position(r, c)
-                let o = self[p]
-                if o != oLast {
-                    checkTokens()
-                    oLast = o
-                }
-                if o == .empty {
-                    isSolved = false
-                } else {
-                    tokens.append(p)
-                }
-            }
-            checkTokens()
-        }
-        for c in 0..<cols {
-            oLast = .empty
-            for r in 0..<rows {
-                let p = Position(r, c)
-                let o = self[p]
-                if o != oLast {
-                    checkTokens()
-                    oLast = o
-                }
-                if o == .empty {
-                    isSolved = false
-                } else {
-                    tokens.append(p)
+                var p = Position(r, c)
+                var range = Set<Position>()
+                while true {
+                    let o = self[p]
+                    if o == .rome || validRange.contains(p) {
+                        for p2 in range { validRange.insert(p2) }
+                        break
+                    }
+                    if !isValid(p: p) || invalidRange.contains(p) || range.contains(p) {
+                        isSolved = false
+                        for p2 in range { invalidRange.insert(p2) }
+                        break
+                    }
+                    range.insert(p)
+                    let os = RomeGame.offset[o.rawValue - 2]
+                    p += os
                 }
             }
-            checkTokens()
         }
+        for p in invalidRange { pos2state[p] = .error }
     }
 }
