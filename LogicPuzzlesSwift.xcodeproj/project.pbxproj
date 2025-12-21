@@ -1312,6 +1312,15 @@
 		8CFB22132EF771C100E5F29D /* RomeGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22062EF771C100E5F29D /* RomeGameScene.swift */; };
 		8CFB22142EF771C100E5F29D /* RomeDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22042EF771C100E5F29D /* RomeDocument.swift */; };
 		8CFB22152EF771C100E5F29D /* RomeGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22092EF771C100E5F29D /* RomeGridNode.swift */; };
+		8CFB22202EF87D8E00E5F29D /* HeliumAndIron.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CFB22162EF87D8E00E5F29D /* HeliumAndIron.xml */; };
+		8CFB22212EF87D8E00E5F29D /* HeliumAndIronGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22182EF87D8E00E5F29D /* HeliumAndIronGame.swift */; };
+		8CFB22222EF87D8E00E5F29D /* HeliumAndIronGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB221C2EF87D8E00E5F29D /* HeliumAndIronGridNode.swift */; };
+		8CFB22232EF87D8E00E5F29D /* HeliumAndIronMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB221D2EF87D8E00E5F29D /* HeliumAndIronMainViewController.swift */; };
+		8CFB22242EF87D8E00E5F29D /* HeliumAndIronGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB221A2EF87D8E00E5F29D /* HeliumAndIronGameState.swift */; };
+		8CFB22252EF87D8E00E5F29D /* HeliumAndIronObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB221E2EF87D8E00E5F29D /* HeliumAndIronObject.swift */; };
+		8CFB22262EF87D8E00E5F29D /* HeliumAndIronGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22192EF87D8E00E5F29D /* HeliumAndIronGameScene.swift */; };
+		8CFB22272EF87D8E00E5F29D /* HeliumAndIronDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22172EF87D8E00E5F29D /* HeliumAndIronDocument.swift */; };
+		8CFB22282EF87D8E00E5F29D /* HeliumAndIronGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB221B2EF87D8E00E5F29D /* HeliumAndIronGameViewController.swift */; };
 		9514BA4F20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9514BA4E20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework */; };
 		95E2B500236598F400F4F95B /* NumberCrosswordsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B4F4236598F400F4F95B /* NumberCrosswordsMainViewController.swift */; };
 		95E2B501236598F400F4F95B /* NumberCrosswordsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B4F5236598F400F4F95B /* NumberCrosswordsGameViewController.swift */; };
@@ -2666,6 +2675,15 @@
 		8CFB22092EF771C100E5F29D /* RomeGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomeGridNode.swift; sourceTree = "<group>"; };
 		8CFB220A2EF771C100E5F29D /* RomeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomeMainViewController.swift; sourceTree = "<group>"; };
 		8CFB220B2EF771C100E5F29D /* RomeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomeObject.swift; sourceTree = "<group>"; };
+		8CFB22162EF87D8E00E5F29D /* HeliumAndIron.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HeliumAndIron.xml; sourceTree = "<group>"; };
+		8CFB22172EF87D8E00E5F29D /* HeliumAndIronDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeliumAndIronDocument.swift; sourceTree = "<group>"; };
+		8CFB22182EF87D8E00E5F29D /* HeliumAndIronGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeliumAndIronGame.swift; sourceTree = "<group>"; };
+		8CFB22192EF87D8E00E5F29D /* HeliumAndIronGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeliumAndIronGameScene.swift; sourceTree = "<group>"; };
+		8CFB221A2EF87D8E00E5F29D /* HeliumAndIronGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeliumAndIronGameState.swift; sourceTree = "<group>"; };
+		8CFB221B2EF87D8E00E5F29D /* HeliumAndIronGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeliumAndIronGameViewController.swift; sourceTree = "<group>"; };
+		8CFB221C2EF87D8E00E5F29D /* HeliumAndIronGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeliumAndIronGridNode.swift; sourceTree = "<group>"; };
+		8CFB221D2EF87D8E00E5F29D /* HeliumAndIronMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeliumAndIronMainViewController.swift; sourceTree = "<group>"; };
+		8CFB221E2EF87D8E00E5F29D /* HeliumAndIronObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeliumAndIronObject.swift; sourceTree = "<group>"; };
 		9514BA4E20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_LogicPuzzlesSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E2B4F4236598F400F4F95B /* NumberCrosswordsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberCrosswordsMainViewController.swift; sourceTree = "<group>"; };
 		95E2B4F5236598F400F4F95B /* NumberCrosswordsGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberCrosswordsGameViewController.swift; sourceTree = "<group>"; };
@@ -3033,6 +3051,7 @@
 				8C2973D51EE7284C0022A18A /* Galaxies */,
 				8C35E37E1FC2844E00A26EE3 /* Gardener */,
 				8C81BBFB2EA4A04F0083B936 /* Gems */,
+				8CFB221F2EF87D8E00E5F29D /* HeliumAndIron */,
 				7DF1B04E2E8A7EB6006008A3 /* HiddenPath */,
 				8C8E77E22E89D4CC006BBF98 /* HiddenStars */,
 				8CACC92E2E9BC56E00F53475 /* Hidoku */,
@@ -5015,6 +5034,22 @@
 			path = Rome;
 			sourceTree = "<group>";
 		};
+		8CFB221F2EF87D8E00E5F29D /* HeliumAndIron */ = {
+			isa = PBXGroup;
+			children = (
+				8CFB22162EF87D8E00E5F29D /* HeliumAndIron.xml */,
+				8CFB22172EF87D8E00E5F29D /* HeliumAndIronDocument.swift */,
+				8CFB22182EF87D8E00E5F29D /* HeliumAndIronGame.swift */,
+				8CFB22192EF87D8E00E5F29D /* HeliumAndIronGameScene.swift */,
+				8CFB221A2EF87D8E00E5F29D /* HeliumAndIronGameState.swift */,
+				8CFB221B2EF87D8E00E5F29D /* HeliumAndIronGameViewController.swift */,
+				8CFB221C2EF87D8E00E5F29D /* HeliumAndIronGridNode.swift */,
+				8CFB221D2EF87D8E00E5F29D /* HeliumAndIronMainViewController.swift */,
+				8CFB221E2EF87D8E00E5F29D /* HeliumAndIronObject.swift */,
+			);
+			path = HeliumAndIron;
+			sourceTree = "<group>";
+		};
 		95E2B4F3236598F400F4F95B /* NumberCrosswords */ = {
 			isa = PBXGroup;
 			children = (
@@ -5240,6 +5275,7 @@
 				8C86634A2EA39DD00078CD64 /* arrow6.png in Resources */,
 				8C86634B2EA39DD00078CD64 /* lightbulb_on.png in Resources */,
 				8C86634C2EA39DD00078CD64 /* arrow_red_up.png in Resources */,
+				8CFB22202EF87D8E00E5F29D /* HeliumAndIron.xml in Resources */,
 				8C86634D2EA39DD00078CD64 /* beer_glass.png in Resources */,
 				8C86634E2EA39DD00078CD64 /* donut.png in Resources */,
 				8C86634F2EA39DD00078CD64 /* raspberry.png in Resources */,
@@ -5783,6 +5819,14 @@
 				8C3A373E1EC88D4300A914A5 /* NeighboursGridNode.swift in Sources */,
 				8C3A36EE1EC88D4300A914A5 /* LoopyObject.swift in Sources */,
 				8C2AF8491ED6084300EC84AB /* PaintTheNurikabeGameState.swift in Sources */,
+				8CFB22212EF87D8E00E5F29D /* HeliumAndIronGame.swift in Sources */,
+				8CFB22222EF87D8E00E5F29D /* HeliumAndIronGridNode.swift in Sources */,
+				8CFB22232EF87D8E00E5F29D /* HeliumAndIronMainViewController.swift in Sources */,
+				8CFB22242EF87D8E00E5F29D /* HeliumAndIronGameState.swift in Sources */,
+				8CFB22252EF87D8E00E5F29D /* HeliumAndIronObject.swift in Sources */,
+				8CFB22262EF87D8E00E5F29D /* HeliumAndIronGameScene.swift in Sources */,
+				8CFB22272EF87D8E00E5F29D /* HeliumAndIronDocument.swift in Sources */,
+				8CFB22282EF87D8E00E5F29D /* HeliumAndIronGameViewController.swift in Sources */,
 				8C3A36551EC88D4200A914A5 /* CloudsDocument.swift in Sources */,
 				8C3A36611EC88D4200A914A5 /* DigitalBattleShipsDocument.swift in Sources */,
 				8CFAF9BA20381D870095EFFC /* CastleBaileyGameViewController.swift in Sources */,
