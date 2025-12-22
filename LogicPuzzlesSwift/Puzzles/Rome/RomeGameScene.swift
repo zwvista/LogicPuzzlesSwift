@@ -14,7 +14,7 @@ class RomeGameScene: GameScene<RomeGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addToken(o: RomeObject, s: AllowedObjectState, point: CGPoint, nodeName: String) {
+    func addObject(o: RomeObject, s: AllowedObjectState, point: CGPoint, nodeName: String) {
         func f(o: RomeObject) -> String {
             switch o {
             case .up:
@@ -73,10 +73,10 @@ class RomeGameScene: GameScene<RomeGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let tokenNodeName = "token" + nodeNameSuffix
+                let objectNodeName = "object" + nodeNameSuffix
                 let o = state[p]
                 guard o != .empty else {continue}
-                addToken(o: o, s: state.pos2state[p] ?? .normal, point: point, nodeName: tokenNodeName)
+                addObject(o: o, s: state.pos2state[p] ?? .normal, point: point, nodeName: objectNodeName)
                 addCircleMarker(color: .white, point: point, nodeName: "marker")
             }
         }
@@ -88,12 +88,12 @@ class RomeGameScene: GameScene<RomeGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let tokenNodeName = "token" + nodeNameSuffix
+                let objectNodeName = "object" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2state[p] ?? .normal, stateTo.pos2state[p] ?? .normal)
                 guard o1 != o2 || s1 != s2 else {continue}
-                if o1 != .empty { removeNode(withName: tokenNodeName) }
-                if o2 != .empty { addToken(o: o2, s: s2, point: point, nodeName: tokenNodeName) }
+                if o1 != .empty { removeNode(withName: objectNodeName) }
+                if o2 != .empty { addObject(o: o2, s: s2, point: point, nodeName: objectNodeName) }
             }
         }
     }

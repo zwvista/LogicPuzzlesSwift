@@ -17,7 +17,7 @@ class RomeGame: GridGame<RomeGameState> {
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
-    static let symbols = " R^>v<"
+    static let chars = " R^>v<"
 
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
@@ -50,7 +50,7 @@ class RomeGame: GridGame<RomeGameState> {
                 }
                 guard c < cols else {continue}
                 let ch2 = str[2 * c + 1]
-                self[r, c] = RomeObject(rawValue: RomeGame.symbols.getIndexOf(ch2)!)!
+                self[r, c] = RomeObject(rawValue: RomeGame.chars.getIndexOf(ch2)!)!
             }
         }
         let g = Graph()

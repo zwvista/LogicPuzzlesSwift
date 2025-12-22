@@ -14,7 +14,7 @@ class HeliumAndIronGameScene: GameScene<HeliumAndIronGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addToken(o: HeliumAndIronObject, s: AllowedObjectState, point: CGPoint, nodeName: String) {
+    func addObject(o: HeliumAndIronObject, s: AllowedObjectState, point: CGPoint, nodeName: String) {
         func f(o: HeliumAndIronObject) -> String {
             switch o {
             case .balloon:
@@ -69,10 +69,10 @@ class HeliumAndIronGameScene: GameScene<HeliumAndIronGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let tokenNodeName = "token" + nodeNameSuffix
+                let objectNodeName = "object" + nodeNameSuffix
                 let o = state[p]
                 guard o != .empty else {continue}
-                addToken(o: o, s: state.pos2state[p] ?? .normal, point: point, nodeName: tokenNodeName)
+                addObject(o: o, s: state.pos2state[p] ?? .normal, point: point, nodeName: objectNodeName)
             }
         }
     }
@@ -83,14 +83,14 @@ class HeliumAndIronGameScene: GameScene<HeliumAndIronGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let tokenNodeName = "token" + nodeNameSuffix
+                let objectNodeName = "object" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2state[p] ?? .normal, stateTo.pos2state[p] ?? .normal)
                 guard o1 != o2 || s1 != s2 else {continue}
                 switch o1 {
                 case .balloon, .weight:
-                    removeNode(withName: tokenNodeName)
+                    removeNode(withName: objectNodeName)
                 case .marker:
                     removeNode(withName: markerNodeName)
                 default:
@@ -98,7 +98,7 @@ class HeliumAndIronGameScene: GameScene<HeliumAndIronGameState> {
                 }
                 switch o2 {
                 case .balloon, .weight:
-                    addToken(o: o2, s: s2, point: point, nodeName: tokenNodeName)
+                    addObject(o: o2, s: s2, point: point, nodeName: objectNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
                 default:
