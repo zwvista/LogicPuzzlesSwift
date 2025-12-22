@@ -1321,6 +1321,15 @@
 		8CFB22262EF87D8E00E5F29D /* HeliumAndIronGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22192EF87D8E00E5F29D /* HeliumAndIronGameScene.swift */; };
 		8CFB22272EF87D8E00E5F29D /* HeliumAndIronDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22172EF87D8E00E5F29D /* HeliumAndIronDocument.swift */; };
 		8CFB22282EF87D8E00E5F29D /* HeliumAndIronGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB221B2EF87D8E00E5F29D /* HeliumAndIronGameViewController.swift */; };
+		8CFB22332EF8FF1000E5F29D /* DigitalPath.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CFB22292EF8FF1000E5F29D /* DigitalPath.xml */; };
+		8CFB22342EF8FF1000E5F29D /* DigitalPathGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB222F2EF8FF1000E5F29D /* DigitalPathGridNode.swift */; };
+		8CFB22352EF8FF1000E5F29D /* DigitalPathGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB222D2EF8FF1000E5F29D /* DigitalPathGameState.swift */; };
+		8CFB22362EF8FF1000E5F29D /* DigitalPathGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB222C2EF8FF1000E5F29D /* DigitalPathGameScene.swift */; };
+		8CFB22372EF8FF1000E5F29D /* DigitalPathGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB222B2EF8FF1000E5F29D /* DigitalPathGame.swift */; };
+		8CFB22382EF8FF1000E5F29D /* DigitalPathObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22312EF8FF1000E5F29D /* DigitalPathObject.swift */; };
+		8CFB22392EF8FF1000E5F29D /* DigitalPathDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB222A2EF8FF1000E5F29D /* DigitalPathDocument.swift */; };
+		8CFB223A2EF8FF1000E5F29D /* DigitalPathGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB222E2EF8FF1000E5F29D /* DigitalPathGameViewController.swift */; };
+		8CFB223B2EF8FF1000E5F29D /* DigitalPathMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22302EF8FF1000E5F29D /* DigitalPathMainViewController.swift */; };
 		9514BA4F20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9514BA4E20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework */; };
 		95E2B500236598F400F4F95B /* NumberCrosswordsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B4F4236598F400F4F95B /* NumberCrosswordsMainViewController.swift */; };
 		95E2B501236598F400F4F95B /* NumberCrosswordsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B4F5236598F400F4F95B /* NumberCrosswordsGameViewController.swift */; };
@@ -2684,6 +2693,15 @@
 		8CFB221C2EF87D8E00E5F29D /* HeliumAndIronGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeliumAndIronGridNode.swift; sourceTree = "<group>"; };
 		8CFB221D2EF87D8E00E5F29D /* HeliumAndIronMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeliumAndIronMainViewController.swift; sourceTree = "<group>"; };
 		8CFB221E2EF87D8E00E5F29D /* HeliumAndIronObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeliumAndIronObject.swift; sourceTree = "<group>"; };
+		8CFB22292EF8FF1000E5F29D /* DigitalPath.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = DigitalPath.xml; sourceTree = "<group>"; };
+		8CFB222A2EF8FF1000E5F29D /* DigitalPathDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalPathDocument.swift; sourceTree = "<group>"; };
+		8CFB222B2EF8FF1000E5F29D /* DigitalPathGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalPathGame.swift; sourceTree = "<group>"; };
+		8CFB222C2EF8FF1000E5F29D /* DigitalPathGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalPathGameScene.swift; sourceTree = "<group>"; };
+		8CFB222D2EF8FF1000E5F29D /* DigitalPathGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalPathGameState.swift; sourceTree = "<group>"; };
+		8CFB222E2EF8FF1000E5F29D /* DigitalPathGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalPathGameViewController.swift; sourceTree = "<group>"; };
+		8CFB222F2EF8FF1000E5F29D /* DigitalPathGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalPathGridNode.swift; sourceTree = "<group>"; };
+		8CFB22302EF8FF1000E5F29D /* DigitalPathMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalPathMainViewController.swift; sourceTree = "<group>"; };
+		8CFB22312EF8FF1000E5F29D /* DigitalPathObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalPathObject.swift; sourceTree = "<group>"; };
 		9514BA4E20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_LogicPuzzlesSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E2B4F4236598F400F4F95B /* NumberCrosswordsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberCrosswordsMainViewController.swift; sourceTree = "<group>"; };
 		95E2B4F5236598F400F4F95B /* NumberCrosswordsGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberCrosswordsGameViewController.swift; sourceTree = "<group>"; };
@@ -3039,6 +3057,7 @@
 				8C81BC222EA8A6BD0083B936 /* CoffeeAndSugar */,
 				8C81BC352EA8EF030083B936 /* DesertDunes */,
 				8C3A343B1EC88D4100A914A5 /* DigitalBattleShips */,
+				8CFB22322EF8FF1000E5F29D /* DigitalPath */,
 				8CF3FFC71FCB2A2600D41B67 /* DisconnectFour */,
 				8C3A34481EC88D4100A914A5 /* Domino */,
 				8C3A34551EC88D4100A914A5 /* FenceItUp */,
@@ -5050,6 +5069,22 @@
 			path = HeliumAndIron;
 			sourceTree = "<group>";
 		};
+		8CFB22322EF8FF1000E5F29D /* DigitalPath */ = {
+			isa = PBXGroup;
+			children = (
+				8CFB22292EF8FF1000E5F29D /* DigitalPath.xml */,
+				8CFB222A2EF8FF1000E5F29D /* DigitalPathDocument.swift */,
+				8CFB222B2EF8FF1000E5F29D /* DigitalPathGame.swift */,
+				8CFB222C2EF8FF1000E5F29D /* DigitalPathGameScene.swift */,
+				8CFB222D2EF8FF1000E5F29D /* DigitalPathGameState.swift */,
+				8CFB222E2EF8FF1000E5F29D /* DigitalPathGameViewController.swift */,
+				8CFB222F2EF8FF1000E5F29D /* DigitalPathGridNode.swift */,
+				8CFB22302EF8FF1000E5F29D /* DigitalPathMainViewController.swift */,
+				8CFB22312EF8FF1000E5F29D /* DigitalPathObject.swift */,
+			);
+			path = DigitalPath;
+			sourceTree = "<group>";
+		};
 		95E2B4F3236598F400F4F95B /* NumberCrosswords */ = {
 			isa = PBXGroup;
 			children = (
@@ -5599,6 +5634,7 @@
 				8C1D4F871F7D079F000D5FB3 /* Square100.xml in Resources */,
 				8C3A35E81EC88D4200A914A5 /* Abc.xml in Resources */,
 				95E2B505236598F400F4F95B /* NumberCrosswords.xml in Resources */,
+				8CFB22332EF8FF1000E5F29D /* DigitalPath.xml in Resources */,
 				8C35E3A51FC4839100A26EE3 /* Walls.xml in Resources */,
 				8C3A36F01EC88D4300A914A5 /* Magnets.xml in Resources */,
 				8C3A369C1EC88D4200A914A5 /* Hitori.xml in Resources */,
@@ -5833,6 +5869,14 @@
 				8C7474391FBDEAD100C4112C /* HolidayIslandObject.swift in Sources */,
 				8CFAF9BE20381D870095EFFC /* CastleBaileyDocument.swift in Sources */,
 				8C35E3AD1FC4839100A26EE3 /* WallsGameViewController.swift in Sources */,
+				8CFB22342EF8FF1000E5F29D /* DigitalPathGridNode.swift in Sources */,
+				8CFB22352EF8FF1000E5F29D /* DigitalPathGameState.swift in Sources */,
+				8CFB22362EF8FF1000E5F29D /* DigitalPathGameScene.swift in Sources */,
+				8CFB22372EF8FF1000E5F29D /* DigitalPathGame.swift in Sources */,
+				8CFB22382EF8FF1000E5F29D /* DigitalPathObject.swift in Sources */,
+				8CFB22392EF8FF1000E5F29D /* DigitalPathDocument.swift in Sources */,
+				8CFB223A2EF8FF1000E5F29D /* DigitalPathGameViewController.swift in Sources */,
+				8CFB223B2EF8FF1000E5F29D /* DigitalPathMainViewController.swift in Sources */,
 				8C3A37C11EC88D4400A914A5 /* SnailGameViewController.swift in Sources */,
 				8C3A37361EC88D4300A914A5 /* MosaikObject.swift in Sources */,
 				8C3A36581EC88D4200A914A5 /* CloudsGameState.swift in Sources */,
