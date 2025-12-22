@@ -50,7 +50,7 @@ class HeliumAndIronGame: GridGame<HeliumAndIronGameState> {
                 }
                 guard c < cols else {continue}
                 let ch2 = str[2 * c + 1]
-                self[r, c] = HeliumAndIronObject(rawValue: HeliumAndIronGame.symbols.getIndexOf(ch2)!)!
+                self[r, c] = ch2 == "B" ? .block : .empty
             }
         }
         let g = Graph()

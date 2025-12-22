@@ -102,7 +102,8 @@ class RomeGameState: GridGameState<RomeGameMove> {
             var symbol2range = [RomeObject: [Position]]()
             for p in area { symbol2range[self[p], default: []].append(p) }
             for (_, range) in symbol2range where range.count > 1 {
-                for p in range { isSolved = false; pos2state[p] = .error }
+                isSolved = false
+                for p in range { pos2state[p] = .error }
             }
             if symbol2range.keys.contains(RomeObject.empty) { isSolved = false }
         }

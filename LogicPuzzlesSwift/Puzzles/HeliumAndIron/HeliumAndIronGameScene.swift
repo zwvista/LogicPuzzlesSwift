@@ -17,16 +17,12 @@ class HeliumAndIronGameScene: GameScene<HeliumAndIronGameState> {
     func addToken(o: HeliumAndIronObject, s: AllowedObjectState, point: CGPoint, nodeName: String) {
         func f(o: HeliumAndIronObject) -> String {
             switch o {
-            case .up:
-                return "arrow_bw_up"
-            case .right:
-                return "arrow_bw_right"
-            case .down:
-                return "arrow_bw_down"
-            case .left:
-                return "arrow_bw_left"
+            case .balloon:
+                return "balloon (1)"
+            case .weight:
+                return "dumbbell (1)"
             default:
-                return "rome"
+                return "wood horizontal"
             }
         }
         addImage(imageNamed: f(o: o), color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
@@ -77,7 +73,6 @@ class HeliumAndIronGameScene: GameScene<HeliumAndIronGameState> {
                 let o = state[p]
                 guard o != .empty else {continue}
                 addToken(o: o, s: state.pos2state[p] ?? .normal, point: point, nodeName: tokenNodeName)
-                addCircleMarker(color: .white, point: point, nodeName: "marker")
             }
         }
     }
@@ -89,11 +84,26 @@ class HeliumAndIronGameScene: GameScene<HeliumAndIronGameState> {
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let tokenNodeName = "token" + nodeNameSuffix
+                let markerNodeName = "marker" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2state[p] ?? .normal, stateTo.pos2state[p] ?? .normal)
                 guard o1 != o2 || s1 != s2 else {continue}
-                if o1 != .empty { removeNode(withName: tokenNodeName) }
-                if o2 != .empty { addToken(o: o2, s: s2, point: point, nodeName: tokenNodeName) }
+                switch o1 {
+                case .balloon, .weight:
+                    removeNode(withName: tokenNodeName)
+                case .marker:
+                    removeNode(withName: markerNodeName)
+                default:
+                    break
+                }
+                switch o2 {
+                case .balloon, .weight:
+                    addToken(o: o2, s: s2, point: point, nodeName: tokenNodeName)
+                case .marker:
+                    addDotMarker(point: point, nodeName: markerNodeName)
+                default:
+                    break
+                }
             }
         }
     }

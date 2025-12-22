@@ -53,41 +53,41 @@ class HeliumAndIronGameState: GridGameState<HeliumAndIronGameMove> {
     }
     
     override func switchObject(move: inout HeliumAndIronGameMove) -> GameOperationType {
-        func f(o: HeliumAndIronObject) -> HeliumAndIronObject {
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
+       func f(o: HeliumAndIronObject) -> HeliumAndIronObject {
             switch o {
             case .empty:
-                return .up
-            case .up:
-                return .right
-            case .right:
-                return .down
-            case .down:
-                return .left
-            case .left:
-                return .empty
+                return markerOption == .markerFirst ? .marker : .balloon
+            case .balloon:
+                return .weight
+            case .weight:
+                return markerOption == .markerLast ? .marker : .empty
+            case .marker:
+                return markerOption == .markerFirst ? .balloon : .empty
             default:
                 return o
             }
         }
         let p = move.p
-        guard isValid(p: p), game[p] == .empty else { return .invalid }
+        guard isValid(p: p), self[p] != .block else { return .invalid }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
     
     /*
-        iOS Game: 100 Logic Games 2/Puzzle Set 2/HeliumAndIron
+        iOS Game: 100 Logic Games 2/Puzzle Set 2/Helium And Iron
 
         Summary
-        All roads lead to ...
+        One rises, the other falls
 
         Description
-        1. All the roads lead to HeliumAndIron.
-        2. Hence you should fill the remaining spaces with arrows and in the
-           end, starting at any tile and following the arrows, you should get
-           at the HeliumAndIron icon.
-        3. Arrows in an area should all be different, i.e. there can't be two
-           similar arrows in an area.
+        1. Place a Balloon and a Weight in each Area.
+        2. Helium Balloons ten to float to the top, while Iron Weight tend to fall
+           to the ground.
+        3. A Balloon can be placed on the top of the board, under another Balloon,
+           or under a Block.
+        4. A Weight can be placed on the bottom of the board, over another Weight,
+           or over a Block.
     */
     private func updateIsSolved() {
         isSolved = true
@@ -96,44 +96,44 @@ class HeliumAndIronGameState: GridGameState<HeliumAndIronGameMove> {
                 pos2state[Position(r, c)] = .normal
             }
         }
-        // 3. Arrows in an area should all be different, i.e. there can't be two
-        //    similar arrows in an area.
-        for area in game.areas {
+        // 1. Place a Balloon and a Weight in each Area.
+        for area in game.areas where area.count > 1 {
             var symbol2range = [HeliumAndIronObject: [Position]]()
-            for p in area { symbol2range[self[p], default: []].append(p) }
-            for (_, range) in symbol2range where range.count > 1 {
-                for p in range { isSolved = false; pos2state[p] = .error }
+            symbol2range[.balloon] = []
+            symbol2range[.weight] = []
+            for p in area {
+                let o = self[p]
+                guard o == .balloon || o == .weight else {continue}
+                symbol2range[o]!.append(p)
             }
-            if symbol2range.keys.contains(HeliumAndIronObject.empty) { isSolved = false }
+            for (_, range) in symbol2range where range.count != 1 {
+                isSolved = false
+                for p in range { pos2state[p] = .error }
+            }
         }
         guard isSolved else {return}
-        // 1. All the roads lead to HeliumAndIron.
-        // 2. Hence you should fill the remaining spaces with arrows and in the
-        //    end, starting at any tile and following the arrows, you should get
-        //    at the HeliumAndIron icon.
-        var validRange = Set<Position>()
-        var invalidRange = Set<Position>()
-        for r in 0..<rows {
-            for c in 0..<cols {
-                var p = Position(r, c)
-                var range = Set<Position>()
-                while true {
-                    let o = self[p]
-                    if o == .rome || validRange.contains(p) {
-                        for p2 in range { validRange.insert(p2) }
-                        break
-                    }
-                    if !isValid(p: p) || invalidRange.contains(p) || range.contains(p) {
+        // 2. Helium Balloons ten to float to the top, while Iron Weight tend to fall
+        //    to the ground.
+        for c in 0..<cols {
+            for r in 0..<rows {
+                let p = Position(r, c)
+                let o = self[p]
+                if o == .balloon {
+                    // 3. A Balloon can be placed on the top of the board, under another Balloon,
+                    //    or under a Block.
+                    if !(r == 0 || self[r - 1, c] == .balloon || self[r - 1, c] == .block) {
                         isSolved = false
-                        for p2 in range { invalidRange.insert(p2) }
-                        break
+                        pos2state[p] = .error
                     }
-                    range.insert(p)
-                    let os = HeliumAndIronGame.offset[o.rawValue - 2]
-                    p += os
+                } else if o == .weight {
+                    // 4. A Weight can be placed on the bottom of the board, over another Weight,
+                    //    or over a Block.
+                    if !(r == rows - 1 || self[r + 1, c] == .weight || self[r - 1, c] == .block) {
+                        isSolved = false
+                        pos2state[p] = .error
+                    }
                 }
             }
         }
-        for p in invalidRange { pos2state[p] = .error }
     }
 }

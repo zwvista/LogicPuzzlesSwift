@@ -9,7 +9,7 @@
 import Foundation
 
 enum HeliumAndIronObject: Int {
-    case empty, rome, up, right, down, left
+    case empty, marker, block, balloon, weight
     init() {
         self = .empty
     }
