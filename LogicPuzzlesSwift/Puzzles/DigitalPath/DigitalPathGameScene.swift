@@ -14,8 +14,8 @@ class DigitalPathGameScene: GameScene<DigitalPathGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addCharacter(ch: Character, s: HintState, isHint: Bool, point: CGPoint, nodeName: String) {
-        addLabel(text: String(ch), fontColor: isHint ? .gray : s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+    func addNumber(n: Int, s: HintState, isHint: Bool, point: CGPoint, nodeName: String) {
+        addLabel(text: String(n), fontColor: isHint ? .gray : s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
 
     override func levelInitialized(_ game: AnyObject, state: DigitalPathGameState, skView: SKView) {
@@ -59,11 +59,11 @@ class DigitalPathGameScene: GameScene<DigitalPathGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
-                let ch = game[p]
-                guard ch != " " else {continue}
+                let n = game[p]
+                guard n > 0 else {continue}
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
-                let charNodeName = "char" + nodeNameSuffix
-                addCharacter(ch: ch, s: state.pos2state[p] ?? .normal, isHint: game[p] != " ", point: point, nodeName: charNodeName)
+                let numberNodeName = "number" + nodeNameSuffix
+                addNumber(n: n, s: state.pos2state[p] ?? .normal, isHint: game[p] != DigitalPathGame.PUZ_EMPTY, point: point, nodeName: numberNodeName)
             }
         }
 
@@ -75,15 +75,15 @@ class DigitalPathGameScene: GameScene<DigitalPathGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let charNodeName = "char" + nodeNameSuffix
-                let (ch1, ch2) = (stateFrom[p], stateTo[p])
+                let numberNodeName = "number" + nodeNameSuffix
+                let (n1, n2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
-                if ch1 != ch2 || s1 != s2 {
-                    if (ch1 != " ") {
-                        removeNode(withName: charNodeName)
+                if n1 != n2 || s1 != s2 {
+                    if (n1 != DigitalPathGame.PUZ_EMPTY) {
+                        removeNode(withName: numberNodeName)
                     }
-                    if (ch2 != " ") {
-                        addCharacter(ch: ch2, s: stateTo.pos2state[p] ?? .normal, isHint: stateTo.game[p] != " ", point: point, nodeName: charNodeName)
+                    if (n2 != DigitalPathGame.PUZ_EMPTY) {
+                        addNumber(n: n2, s: stateTo.pos2state[p] ?? .normal, isHint: stateTo.game[p] != DigitalPathGame.PUZ_EMPTY, point: point, nodeName: numberNodeName)
                     }
                 }
             }

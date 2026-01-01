@@ -10,5 +10,5 @@ import Foundation
 
 struct DigitalPathGameMove {
     var p = Position()
-    var obj: Character = " "
+    var obj = 0
 }

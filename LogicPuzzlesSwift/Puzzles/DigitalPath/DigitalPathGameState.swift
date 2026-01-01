@@ -14,7 +14,7 @@ class DigitalPathGameState: GridGameState<DigitalPathGameMove> {
         set { setGame(game: newValue) }
     }
     override var gameDocument: GameDocumentBase { DigitalPathDocument.sharedInstance }
-    var objArray = [Character]()
+    var objArray = [Int]()
     var pos2state = [Position: HintState]()
     
     override func copy() -> DigitalPathGameState {
@@ -35,18 +35,18 @@ class DigitalPathGameState: GridGameState<DigitalPathGameMove> {
         updateIsSolved()
     }
     
-    subscript(p: Position) -> Character {
+    subscript(p: Position) -> Int {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
     }
-    subscript(row: Int, col: Int) -> Character {
+    subscript(row: Int, col: Int) -> Int {
         get { objArray[row * cols + col] }
         set { objArray[row * cols + col] = newValue }
     }
     
     override func setObject(move: inout DigitalPathGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else { return .invalid }
+        guard isValid(p: p) && game[p] == DigitalPathGame.PUZ_EMPTY && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -54,97 +54,105 @@ class DigitalPathGameState: GridGameState<DigitalPathGameMove> {
     
     override func switchObject(move: inout DigitalPathGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " else { return .invalid }
+        guard isValid(p: p) && game[p] == DigitalPathGame.PUZ_EMPTY else { return .invalid }
         let o = self[p]
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let nMax = rows
         move.obj =
-            o == " " ? "1" :
-            o == "3" ? " " :
-            succ(ch: o)
+            o == DigitalPathGame.PUZ_EMPTY ? markerOption == .markerFirst ? DigitalPathGame.PUZ_MARKER : 1 :
+            o == DigitalPathGame.PUZ_MARKER ? markerOption == .markerFirst ? 1 : DigitalPathGame.PUZ_EMPTY :
+            o == nMax ? markerOption == .markerLast ? DigitalPathGame.PUZ_MARKER : DigitalPathGame.PUZ_EMPTY :
+            o + 1
         return setObject(move: &move)
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 2/DigitalPath
+        iOS Game: 100 Logic Games 2/Puzzle Set 2/Digital Path
 
         Summary
-        1,2,3... 1,2,3... Fill the mats
+        Nurikabe for robots
 
         Description
-        1. Each rectangle represents a mat(DigitalPath) which is of the same size.
-           You must fill each DigitalPath with a number ranging from 1 to size.
-        2. Each number can appear only once in each DigitalPath.
-        3. In one row or column, each number must appear the same number of times.
-        4. You can't have two identical numbers touching horizontally or vertically.
+        1. Fill some tiles with numbers. The numbers form a Nurikabe, that is
+           a path interconnected horizontally or vertically and which can' t
+           cover a 2x2 area.
+        2. All numbers in an area must be the same and all of them must be
+           equal to the number of those numbers in the area.
+        3. All regions must have at least one number.
+        4. Two orthogonally adjacent tiles across areas must be different.
     */
     private func updateIsSolved() {
         isSolved = true
-        let chars2: [Character] = ["1", "2", "3"]
-        let chars3 = chars2.flatMap { Array<Character>(repeating: $0, count: rows / 3) }
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if self[p] == " " { isSolved = false }
                 pos2state[p] = .normal
+                guard self[p] == DigitalPathGame.PUZ_FORBIDDEN else {continue}
+                self[p] = DigitalPathGame.PUZ_EMPTY
             }
         }
-        for r in 0..<rows {
-            var lineSolved = true
+        for area in game.areas {
+            var num2range = [Int: [Position]]()
+            for p in area {
+                let n = self[p]
+                guard n > 0 else {continue}
+                num2range[n, default: []].append(p)
+                // 4. Two orthogonally adjacent tiles across areas must be different.
+                for os in DigitalPathGame.offset {
+                    let p2 = p + os
+                    guard isValid(p: p2) else {continue}
+                    let n2 = self[p2]
+                    if game.pos2area[p] != game.pos2area[p2] && n == n2 {
+                        isSolved = false
+                        pos2state[p] = .error
+                        pos2state[p2] = .error
+                    }
+                }
+            }
+            // 2. All numbers in an area must be the same and all of them must be
+            //    equal to the number of those numbers in the area.
+            // 3. All regions must have at least one number.
+            if num2range.count != 1 || num2range.keys.first != num2range.values.first!.count {
+                isSolved = false
+                for (_, range) in num2range {
+                    for p in range { pos2state[p] = .error }
+                }
+            }
+        }
+        // 1. The numbers can' t cover a 2x2 area.
+        for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
-                let (p1, p2) = (Position(r, c), Position(r, c + 1))
-                let (ch1, ch2) = (self[p1], self[p2])
-                guard ch1 != " " && ch2 != " " && ch1 == ch2 else {continue}
-                // 4. You can't have two identical numbers touching horizontally.
-                isSolved = false; lineSolved = false
-                pos2state[p1] = .error
-                pos2state[p2] = .error
-            }
-            let chars = (0..<cols).map { self[r, $0] }.sorted()
-            // 3. In one row, each number must appear the same number of times.
-            if chars[0] != " " && chars != chars3 {
-                isSolved = false; lineSolved = false
-                for c in 0..<cols {
-                    pos2state[Position(r, c)] = .error
-                }
-            }
-            if lineSolved {
-                for c in 0..<cols {
-                    pos2state[Position(r, c)] = .complete
+                let p = Position(r, c)
+                if DigitalPathGame.offset3.testAll({ self[p + $0] > 0 }) {
+                    isSolved = false
+                    for os in DigitalPathGame.offset3 {
+                        pos2state[p + os] = .error
+                    }
                 }
             }
         }
-        for c in 0..<cols {
-            var lineSolved = true
-            for r in 0..<rows - 1 {
-                let (p1, p2) = (Position(r, c), Position(r + 1, c))
-                let (ch1, ch2) = (self[p1], self[p2])
-                guard ch1 != " " && ch2 != " " && ch1 == ch2 else {continue}
-                // 4. You can't have two identical numbers touching vertically.
-                isSolved = false; lineSolved = false
-                pos2state[p1] = .error
-                pos2state[p2] = .error
-            }
-            let chars = (0..<rows).map { self[$0, c] }.sorted()
-            // 3. In one column, each number must appear the same number of times.
-            if chars[0] != " " && chars != chars3 {
-                isSolved = false; lineSolved = false
-                for r in 0..<rows {
-                    pos2state[Position(r, c)] = .error
-                }
-            }
-            if lineSolved {
-                for r in 0..<rows {
-                    pos2state[Position(r, c)] = .complete
-                }
+        guard isSolved else {return}
+        // 1. Fill some tiles with numbers. The numbers form a Nurikabe, that is
+        //    a path interconnected horizontally or vertically.
+        let g = Graph()
+        var pos2node = [Position: Node]()
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                let n = self[p]
+                guard n > 0 else {continue}
+                let node = g.addNode(p.description)
+                pos2node[p] = node
             }
         }
-        // 2. Each number can appear only once in each DigitalPath.
-        for a in game.areas {
-            let chars = a.map { self[$0] }.sorted()
-            guard chars[0] != " " && chars != chars2 else {continue}
-            isSolved = false
-            for p in a {
-                pos2state[p] = .error
+        for (p, node) in pos2node {
+            for i in 0..<4 {
+                let p2 = p + DigitalPathGame.offset[i]
+                guard let node2 = pos2node[p2] else {continue}
+                g.addEdge(node, neighbor: node2)
             }
         }
+        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+        if nodesExplored.count != pos2node.count { isSolved = false }
     }
 }
