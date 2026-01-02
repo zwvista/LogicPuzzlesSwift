@@ -10,7 +10,7 @@ import Foundation
 
 enum TapARowObject {
     case empty
-    case hint(state: HintState)
+    case hint(state: HintState = .normal)
     case marker
     case wall
     init() {

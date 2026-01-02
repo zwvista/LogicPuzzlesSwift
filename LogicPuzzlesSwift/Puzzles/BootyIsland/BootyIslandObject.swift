@@ -11,7 +11,7 @@ import Foundation
 enum BootyIslandObject {
     case empty
     case forbidden
-    case hint(state: HintState)
+    case hint(state: HintState = .normal)
     case marker
     case treasure(state: AllowedObjectState)
     init() {

@@ -27,7 +27,7 @@ class ProductSentinelsGameScene: GameScene<ProductSentinelsGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: ProductSentinelsGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
-        // addHints
+        // add Hints
         for (p, n) in game.pos2hint {
             guard case let .hint(state: s) = state[p] else {continue}
             let point = gridNode.centerPoint(p: p)

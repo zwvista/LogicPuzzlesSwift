@@ -27,7 +27,7 @@ class GalaxiesGameScene: GameScene<GalaxiesGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: GalaxiesGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset))
         
-        // addHints
+        // add Hints
         for p in game.galaxies {
             let point = gridNode.galaxyPosition(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"

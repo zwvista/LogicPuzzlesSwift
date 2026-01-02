@@ -27,7 +27,7 @@ class LandscaperGameScene: GameScene<LandscaperGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: LandscaperGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
-        // addHint
+        // add Hints
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)

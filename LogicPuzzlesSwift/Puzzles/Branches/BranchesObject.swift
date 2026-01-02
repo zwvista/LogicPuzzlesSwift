@@ -10,7 +10,7 @@ import Foundation
 
 enum BranchesObject {
     case empty
-    case hint(state: HintState)
+    case hint(state: HintState = .normal)
     case up
     case right
     case down

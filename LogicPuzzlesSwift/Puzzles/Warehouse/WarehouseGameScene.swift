@@ -28,7 +28,7 @@ class WarehouseGameScene: GameScene<WarehouseGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: WarehouseGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset))
         
-        // addHints
+        // add Hints
         for (p, ch) in game.pos2symbol {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"

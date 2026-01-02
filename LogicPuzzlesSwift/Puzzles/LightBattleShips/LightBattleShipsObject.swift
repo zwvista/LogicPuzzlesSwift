@@ -11,7 +11,7 @@ import Foundation
 enum LightBattleShipsObject {
     case empty
     case forbidden
-    case hint(state: HintState)
+    case hint(state: HintState = .normal)
     case marker
     case battleShipTop
     case battleShipBottom

@@ -14,8 +14,11 @@ class LiarLiarGameScene: GameScene<LiarLiarGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addCharacter(ch: Character, s: HintState, isHint: Bool, point: CGPoint, nodeName: String) {
-        addLabel(text: String(ch), fontColor: isHint ? .gray : s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+    func addHint(p: Position, n: Int, s: HintState) {
+        let point = gridNode.centerPoint(p: p)
+        let nodeNameSuffix = "-\(p.row)-\(p.col)"
+        let hintNodeName = "hint" + nodeNameSuffix
+        addLabel(text: String(n), fontColor: s == .complete ? .green : .white, point: point, nodeName: hintNodeName, sampleText: "10")
     }
 
     override func levelInitialized(_ game: AnyObject, state: LiarLiarGameState, skView: SKView) {
@@ -54,19 +57,10 @@ class LiarLiarGameScene: GameScene<LiarLiarGameState> {
         lineNode.name = "line"
         gridNode.addChild(lineNode)
         
-        // add Characters
-        for r in 0..<game.rows {
-            for c in 0..<game.cols {
-                let p = Position(r, c)
-                let point = gridNode.centerPoint(p: p)
-                let ch = game[p]
-                guard ch != " " else {continue}
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
-                let charNodeName = "char" + nodeNameSuffix
-                addCharacter(ch: ch, s: state.pos2state[p] ?? .normal, isHint: game[p] != " ", point: point, nodeName: charNodeName)
-            }
+        // add Hints
+        for (p, n) in game.pos2hint {
+            addHint(p: p, n: n, s: .normal)
         }
-
     }
     
     override func levelUpdated(from stateFrom: LiarLiarGameState, to stateTo: LiarLiarGameState) {
@@ -78,14 +72,6 @@ class LiarLiarGameScene: GameScene<LiarLiarGameState> {
                 let charNodeName = "char" + nodeNameSuffix
                 let (ch1, ch2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
-                if ch1 != ch2 || s1 != s2 {
-                    if (ch1 != " ") {
-                        removeNode(withName: charNodeName)
-                    }
-                    if (ch2 != " ") {
-                        addCharacter(ch: ch2, s: stateTo.pos2state[p] ?? .normal, isHint: stateTo.game[p] != " ", point: point, nodeName: charNodeName)
-                    }
-                }
             }
         }
     }

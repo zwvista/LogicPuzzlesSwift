@@ -11,7 +11,7 @@ import Foundation
 enum BusySeasObject {
     case empty
     case forbidden
-    case hint(state: HintState)
+    case hint(state: HintState = .normal)
     case marker
     case lighthouse(state: AllowedObjectState)
     init() {

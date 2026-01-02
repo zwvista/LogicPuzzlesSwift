@@ -10,7 +10,7 @@ import Foundation
 
 enum NurikabeObject {
     case empty
-    case hint(state: HintState)
+    case hint(state: HintState = .normal)
     case marker
     case wall
     init() {

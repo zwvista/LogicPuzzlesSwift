@@ -14,7 +14,7 @@ class LiarLiarGameState: GridGameState<LiarLiarGameMove> {
         set { setGame(game: newValue) }
     }
     override var gameDocument: GameDocumentBase { LiarLiarDocument.sharedInstance }
-    var objArray = [Character]()
+    var objArray = [LiarLiarObject]()
     var pos2state = [Position: HintState]()
     
     override func copy() -> LiarLiarGameState {
@@ -31,35 +31,48 @@ class LiarLiarGameState: GridGameState<LiarLiarGameMove> {
     required init(game: LiarLiarGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = game.objArray
+        objArray = Array<LiarLiarObject>(repeating: LiarLiarObject(), count: rows * cols)
+        for (p, _) in game.pos2hint {
+            self[p] = .hint()
+        }
         updateIsSolved()
     }
     
-    subscript(p: Position) -> Character {
+    subscript(p: Position) -> LiarLiarObject {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
     }
-    subscript(row: Int, col: Int) -> Character {
+    subscript(row: Int, col: Int) -> LiarLiarObject {
         get { objArray[row * cols + col] }
         set { objArray[row * cols + col] = newValue }
     }
     
     override func setObject(move: inout LiarLiarGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else { return .invalid }
+        guard isValid(p: p) && game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }
     
     override func switchObject(move: inout LiarLiarGameMove) -> GameOperationType {
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        func f(o: LiarLiarObject) -> LiarLiarObject {
+            switch o {
+            case .empty:
+                return markerOption == .markerFirst ? .marker : .marked
+            case .marked:
+                return markerOption == .markerLast ? .marker : .empty
+            case .marker:
+                return markerOption == .markerFirst ? .marked : .empty
+            default:
+                return o
+            }
+        }
         let p = move.p
-        guard isValid(p: p) && game[p] == " " else { return .invalid }
+        guard isValid(p: p) && game.pos2hint[p] == nil else { return .invalid }
         let o = self[p]
-        move.obj =
-            o == " " ? "1" :
-            o == "3" ? " " :
-            succ(ch: o)
+        move.obj = f(o: self[p])
         return setObject(move: &move)
     }
     
@@ -81,73 +94,5 @@ class LiarLiarGameState: GridGameState<LiarLiarGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        let chars2: [Character] = ["1", "2", "3"]
-        let chars3 = chars2.flatMap { Array<Character>(repeating: $0, count: rows / 3) }
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                if self[p] == " " { isSolved = false }
-                pos2state[p] = .normal
-            }
-        }
-        for r in 0..<rows {
-            var lineSolved = true
-            for c in 0..<cols - 1 {
-                let (p1, p2) = (Position(r, c), Position(r, c + 1))
-                let (ch1, ch2) = (self[p1], self[p2])
-                guard ch1 != " " && ch2 != " " && ch1 == ch2 else {continue}
-                // 4. You can't have two identical numbers touching horizontally.
-                isSolved = false; lineSolved = false
-                pos2state[p1] = .error
-                pos2state[p2] = .error
-            }
-            let chars = (0..<cols).map { self[r, $0] }.sorted()
-            // 3. In one row, each number must appear the same number of times.
-            if chars[0] != " " && chars != chars3 {
-                isSolved = false; lineSolved = false
-                for c in 0..<cols {
-                    pos2state[Position(r, c)] = .error
-                }
-            }
-            if lineSolved {
-                for c in 0..<cols {
-                    pos2state[Position(r, c)] = .complete
-                }
-            }
-        }
-        for c in 0..<cols {
-            var lineSolved = true
-            for r in 0..<rows - 1 {
-                let (p1, p2) = (Position(r, c), Position(r + 1, c))
-                let (ch1, ch2) = (self[p1], self[p2])
-                guard ch1 != " " && ch2 != " " && ch1 == ch2 else {continue}
-                // 4. You can't have two identical numbers touching vertically.
-                isSolved = false; lineSolved = false
-                pos2state[p1] = .error
-                pos2state[p2] = .error
-            }
-            let chars = (0..<rows).map { self[$0, c] }.sorted()
-            // 3. In one column, each number must appear the same number of times.
-            if chars[0] != " " && chars != chars3 {
-                isSolved = false; lineSolved = false
-                for r in 0..<rows {
-                    pos2state[Position(r, c)] = .error
-                }
-            }
-            if lineSolved {
-                for r in 0..<rows {
-                    pos2state[Position(r, c)] = .complete
-                }
-            }
-        }
-        // 2. Each number can appear only once in each LiarLiar.
-        for a in game.areas {
-            let chars = a.map { self[$0] }.sorted()
-            guard chars[0] != " " && chars != chars2 else {continue}
-            isSolved = false
-            for p in a {
-                pos2state[p] = .error
-            }
-        }
     }
 }

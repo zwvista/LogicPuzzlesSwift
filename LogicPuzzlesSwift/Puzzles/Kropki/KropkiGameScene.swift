@@ -71,7 +71,7 @@ class KropkiGameScene: GameScene<KropkiGameState> {
             gridNode.addChild(lineNode)
         }
 
-        // addHint
+        // add Hints
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)

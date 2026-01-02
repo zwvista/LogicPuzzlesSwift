@@ -11,7 +11,7 @@ import Foundation
 enum MinesweeperObject {
     case empty
     case forbidden
-    case hint(state: HintState)
+    case hint(state: HintState = .normal)
     case marker
     case mine
     init() {

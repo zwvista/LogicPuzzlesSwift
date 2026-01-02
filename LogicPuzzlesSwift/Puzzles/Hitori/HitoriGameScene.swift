@@ -47,7 +47,7 @@ class HitoriGameScene: GameScene<HitoriGameState> {
             }
         }
         
-        // addHints
+        // add Hints
         for r in 0..<game.rows {
             let p = Position(r, game.cols)
             let n = state.row2hint[r]

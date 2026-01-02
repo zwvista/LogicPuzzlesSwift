@@ -12,7 +12,7 @@ enum WallsObject {
     case empty
     case horz
     case vert
-    case hint(state: HintState)
+    case hint(state: HintState = .normal)
     init() {
         self = .empty
     }

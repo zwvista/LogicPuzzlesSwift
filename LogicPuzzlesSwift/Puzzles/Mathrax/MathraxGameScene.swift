@@ -58,7 +58,7 @@ class MathraxGameScene: GameScene<MathraxGameState> {
             }
         }
         
-        // addHints
+        // add Hints
         for r in 0..<game.rows {
             let s = state.row2state[r]
             guard s != .normal else {continue}

@@ -73,7 +73,7 @@ class GardenerGameScene: GameScene<GardenerGameState> {
         lineNode.name = "line"
         gridNode.addChild(lineNode)
         
-        // addHints
+        // add Hints
         for (p, (n, _)) in game.pos2hint {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"

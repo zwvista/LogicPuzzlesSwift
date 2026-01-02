@@ -13,10 +13,10 @@ class LiarLiarDocument: GameDocument<LiarLiarGameMove> {
     
     override func saveMove(_ move: LiarLiarGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = String(move.obj)
+        rec.strValue1 = move.obj.toString()
     }
     
     override func loadMove(from rec: MoveProgress) -> LiarLiarGameMove {
-        LiarLiarGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
+        LiarLiarGameMove(p: Position(rec.row, rec.col), obj: LiarLiarObject.fromString(str: rec.strValue1!))
     }
 }

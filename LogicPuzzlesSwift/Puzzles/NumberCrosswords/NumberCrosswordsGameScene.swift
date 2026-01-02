@@ -46,7 +46,7 @@ class NumberCrosswordsGameScene: GameScene<NumberCrosswordsGameState> {
             }
         }
         
-        // addHints
+        // add Hints
         for r in 0..<game.rows - 1 {
             let p = Position(r, game.cols - 1)
             let s = state.row2state[r]

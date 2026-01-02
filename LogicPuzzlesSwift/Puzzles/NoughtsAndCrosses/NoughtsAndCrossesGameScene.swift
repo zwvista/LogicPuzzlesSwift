@@ -60,7 +60,7 @@ class NoughtsAndCrossesGameScene: GameScene<NoughtsAndCrossesGameState> {
             }
         }
 
-        // addHints
+        // add Hints
         for r in 0..<game.rows {
             let s = state.row2state[r]
             guard s != .normal else {continue}

@@ -21,14 +21,13 @@ class LiarLiarGame: GridGame<LiarLiarGameState> {
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
     var dots: GridDots!
-    var objArray = [Character]()
-    
+    var pos2hint = [Position: Int]()
+
     init(layout: [String], delegate: LiarLiarGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count / 2, layout[0].length / 2)
         dots = GridDots(rows: rows + 1, cols: cols + 1)
-        objArray = Array<Character>(repeating: " ", count: rows * cols)
         
         for r in 0..<rows + 1 {
             var str = layout[2 * r]
@@ -50,7 +49,7 @@ class LiarLiarGame: GridGame<LiarLiarGameState> {
                 guard c < cols else {continue}
                 let ch2 = str[2 * c + 1]
                 if case "0"..."9" = ch2 {
-                    self[r, c] = ch2
+                    pos2hint[Position(r, c)] = ch2.toInt!
                 }
             }
         }
@@ -86,14 +85,4 @@ class LiarLiarGame: GridGame<LiarLiarGameState> {
         let state = LiarLiarGameState(game: self)
         levelInitialized(state: state)
     }
-    
-    subscript(p: Position) -> Character {
-        get { self[p.row, p.col] }
-        set { self[p.row, p.col] = newValue }
-    }
-    subscript(row: Int, col: Int) -> Character {
-        get { objArray[row * cols + col] }
-        set { objArray[row * cols + col] = newValue }
-    }
-    
 }

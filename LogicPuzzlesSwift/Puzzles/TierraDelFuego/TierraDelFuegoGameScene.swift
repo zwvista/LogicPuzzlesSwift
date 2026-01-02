@@ -30,7 +30,7 @@ class TierraDelFuegoGameScene: GameScene<TierraDelFuegoGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: TierraDelFuegoGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
-        // addHint
+        // add Hints
         for (p, ch) in game.pos2hint {
             addHint(p: p, ch: ch, s: .normal)
         }

@@ -30,7 +30,7 @@ class ArchipelagoGameScene: GameScene<ArchipelagoGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: ArchipelagoGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
-        // addHint
+        // add Hints
         for (p, n) in game.pos2hint {
             addHint(p: p, n: n, s: .normal)
         }

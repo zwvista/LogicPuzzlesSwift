@@ -11,7 +11,7 @@ import Foundation
 enum SentinelsObject {
     case empty
     case forbidden
-    case hint(state: HintState)
+    case hint(state: HintState = .normal)
     case marker
     case tower(state: AllowedObjectState)
     init() {
