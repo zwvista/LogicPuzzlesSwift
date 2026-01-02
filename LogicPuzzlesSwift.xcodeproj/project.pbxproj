@@ -1330,6 +1330,15 @@
 		8CFB22392EF8FF1000E5F29D /* DigitalPathDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB222A2EF8FF1000E5F29D /* DigitalPathDocument.swift */; };
 		8CFB223A2EF8FF1000E5F29D /* DigitalPathGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB222E2EF8FF1000E5F29D /* DigitalPathGameViewController.swift */; };
 		8CFB223B2EF8FF1000E5F29D /* DigitalPathMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22302EF8FF1000E5F29D /* DigitalPathMainViewController.swift */; };
+		8CFB22462F076ED400E5F29D /* LiarLiar.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CFB223C2F076ED400E5F29D /* LiarLiar.xml */; };
+		8CFB22472F076ED400E5F29D /* LiarLiarDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB223D2F076ED400E5F29D /* LiarLiarDocument.swift */; };
+		8CFB22482F076ED400E5F29D /* LiarLiarMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22432F076ED400E5F29D /* LiarLiarMainViewController.swift */; };
+		8CFB22492F076ED400E5F29D /* LiarLiarGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB223F2F076ED400E5F29D /* LiarLiarGameScene.swift */; };
+		8CFB224A2F076ED400E5F29D /* LiarLiarGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22412F076ED400E5F29D /* LiarLiarGameViewController.swift */; };
+		8CFB224B2F076ED400E5F29D /* LiarLiarGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22422F076ED400E5F29D /* LiarLiarGridNode.swift */; };
+		8CFB224C2F076ED400E5F29D /* LiarLiarGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22402F076ED400E5F29D /* LiarLiarGameState.swift */; };
+		8CFB224D2F076ED400E5F29D /* LiarLiarObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22442F076ED400E5F29D /* LiarLiarObject.swift */; };
+		8CFB224E2F076ED400E5F29D /* LiarLiarGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB223E2F076ED400E5F29D /* LiarLiarGame.swift */; };
 		9514BA4F20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9514BA4E20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework */; };
 		95E2B500236598F400F4F95B /* NumberCrosswordsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B4F4236598F400F4F95B /* NumberCrosswordsMainViewController.swift */; };
 		95E2B501236598F400F4F95B /* NumberCrosswordsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B4F5236598F400F4F95B /* NumberCrosswordsGameViewController.swift */; };
@@ -2702,6 +2711,15 @@
 		8CFB222F2EF8FF1000E5F29D /* DigitalPathGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalPathGridNode.swift; sourceTree = "<group>"; };
 		8CFB22302EF8FF1000E5F29D /* DigitalPathMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalPathMainViewController.swift; sourceTree = "<group>"; };
 		8CFB22312EF8FF1000E5F29D /* DigitalPathObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitalPathObject.swift; sourceTree = "<group>"; };
+		8CFB223C2F076ED400E5F29D /* LiarLiar.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LiarLiar.xml; sourceTree = "<group>"; };
+		8CFB223D2F076ED400E5F29D /* LiarLiarDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiarLiarDocument.swift; sourceTree = "<group>"; };
+		8CFB223E2F076ED400E5F29D /* LiarLiarGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiarLiarGame.swift; sourceTree = "<group>"; };
+		8CFB223F2F076ED400E5F29D /* LiarLiarGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiarLiarGameScene.swift; sourceTree = "<group>"; };
+		8CFB22402F076ED400E5F29D /* LiarLiarGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiarLiarGameState.swift; sourceTree = "<group>"; };
+		8CFB22412F076ED400E5F29D /* LiarLiarGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiarLiarGameViewController.swift; sourceTree = "<group>"; };
+		8CFB22422F076ED400E5F29D /* LiarLiarGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiarLiarGridNode.swift; sourceTree = "<group>"; };
+		8CFB22432F076ED400E5F29D /* LiarLiarMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiarLiarMainViewController.swift; sourceTree = "<group>"; };
+		8CFB22442F076ED400E5F29D /* LiarLiarObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiarLiarObject.swift; sourceTree = "<group>"; };
 		9514BA4E20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_LogicPuzzlesSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E2B4F4236598F400F4F95B /* NumberCrosswordsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberCrosswordsMainViewController.swift; sourceTree = "<group>"; };
 		95E2B4F5236598F400F4F95B /* NumberCrosswordsGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberCrosswordsGameViewController.swift; sourceTree = "<group>"; };
@@ -3080,6 +3098,7 @@
 				8CC25CB51F87BB5A005560F7 /* Kakuro */,
 				8C6A9BD81F812742002A44FF /* Kropki */,
 				8CB722002EAC44D6001B25C5 /* Landscaper */,
+				8CFB22452F076ED400E5F29D /* LiarLiar */,
 				8C3A34891EC88D4100A914A5 /* LightBattleShips */,
 				8C3A34961EC88D4100A914A5 /* LightenUp */,
 				8C3A34A31EC88D4100A914A5 /* Lighthouses */,
@@ -5085,6 +5104,22 @@
 			path = DigitalPath;
 			sourceTree = "<group>";
 		};
+		8CFB22452F076ED400E5F29D /* LiarLiar */ = {
+			isa = PBXGroup;
+			children = (
+				8CFB223C2F076ED400E5F29D /* LiarLiar.xml */,
+				8CFB223D2F076ED400E5F29D /* LiarLiarDocument.swift */,
+				8CFB223E2F076ED400E5F29D /* LiarLiarGame.swift */,
+				8CFB223F2F076ED400E5F29D /* LiarLiarGameScene.swift */,
+				8CFB22402F076ED400E5F29D /* LiarLiarGameState.swift */,
+				8CFB22412F076ED400E5F29D /* LiarLiarGameViewController.swift */,
+				8CFB22422F076ED400E5F29D /* LiarLiarGridNode.swift */,
+				8CFB22432F076ED400E5F29D /* LiarLiarMainViewController.swift */,
+				8CFB22442F076ED400E5F29D /* LiarLiarObject.swift */,
+			);
+			path = LiarLiar;
+			sourceTree = "<group>";
+		};
 		95E2B4F3236598F400F4F95B /* NumberCrosswords */ = {
 			isa = PBXGroup;
 			children = (
@@ -5413,6 +5448,7 @@
 				8C8663AF2EA39DD00078CD64 /* apricot.png in Resources */,
 				8C8663B02EA39DD00078CD64 /* pig.png in Resources */,
 				8C8663B12EA39DD00078CD64 /* tetris_blue.png in Resources */,
+				8CFB22462F076ED400E5F29D /* LiarLiar.xml in Resources */,
 				8C8663B22EA39DD00078CD64 /* gate.png in Resources */,
 				8C8663B32EA39DD00078CD64 /* icecube.png in Resources */,
 				8C8663B42EA39DD00078CD64 /* A4.png in Resources */,
@@ -5772,6 +5808,14 @@
 				95E2B509236598F400F4F95B /* NumberCrosswordsGridNode.swift in Sources */,
 				8CE9C3121F7914B800134093 /* KakurasuGameScene.swift in Sources */,
 				8C7E4B461F793C9800B57C60 /* TennerGridGameScene.swift in Sources */,
+				8CFB22472F076ED400E5F29D /* LiarLiarDocument.swift in Sources */,
+				8CFB22482F076ED400E5F29D /* LiarLiarMainViewController.swift in Sources */,
+				8CFB22492F076ED400E5F29D /* LiarLiarGameScene.swift in Sources */,
+				8CFB224A2F076ED400E5F29D /* LiarLiarGameViewController.swift in Sources */,
+				8CFB224B2F076ED400E5F29D /* LiarLiarGridNode.swift in Sources */,
+				8CFB224C2F076ED400E5F29D /* LiarLiarGameState.swift in Sources */,
+				8CFB224D2F076ED400E5F29D /* LiarLiarObject.swift in Sources */,
+				8CFB224E2F076ED400E5F29D /* LiarLiarGame.swift in Sources */,
 				8C7609101EC627E900DFCD7B /* Global.swift in Sources */,
 				8C3A379B1EC88D4400A914A5 /* SentinelsGameScene.swift in Sources */,
 				8C3A37C21EC88D4400A914A5 /* SnailGridNode.swift in Sources */,
