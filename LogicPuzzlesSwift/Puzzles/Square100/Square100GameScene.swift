@@ -30,7 +30,7 @@ class Square100GameScene: GameScene<Square100GameState> {
         removeAllChildren()
         let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols + 1)
         
-        // addGrid
+        // add Grid
         let offset:CGFloat = 0.5
         addGrid(gridNode: Square100GridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols + 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows + 1) / 2 + offset))
         

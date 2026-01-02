@@ -30,7 +30,7 @@ class NumberCrosswordsGameScene: GameScene<NumberCrosswordsGameState> {
         removeAllChildren()
         let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
         
-        // addGrid
+        // add Grid
         let offset:CGFloat = 0.5
         addGrid(gridNode: NumberCrosswordsGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         

@@ -41,7 +41,7 @@ class GardenerGameScene: GameScene<GardenerGameState> {
         removeAllChildren()
         let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
         
-        // addGrid
+        // add Grid
         let offset:CGFloat = 0.5
         addGrid(gridNode: GardenerGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
