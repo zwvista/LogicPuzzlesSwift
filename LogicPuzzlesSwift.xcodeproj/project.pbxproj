@@ -1339,6 +1339,15 @@
 		8CFB224C2F076ED400E5F29D /* LiarLiarGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22402F076ED400E5F29D /* LiarLiarGameState.swift */; };
 		8CFB224D2F076ED400E5F29D /* LiarLiarObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22442F076ED400E5F29D /* LiarLiarObject.swift */; };
 		8CFB224E2F076ED400E5F29D /* LiarLiarGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB223E2F076ED400E5F29D /* LiarLiarGame.swift */; };
+		8CFB22592F0772C100E5F29D /* PouringWater.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CFB224F2F0772C100E5F29D /* PouringWater.xml */; };
+		8CFB225A2F0772C200E5F29D /* PouringWaterGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22552F0772C100E5F29D /* PouringWaterGridNode.swift */; };
+		8CFB225B2F0772C200E5F29D /* PouringWaterGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22512F0772C100E5F29D /* PouringWaterGame.swift */; };
+		8CFB225C2F0772C200E5F29D /* PouringWaterDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22502F0772C100E5F29D /* PouringWaterDocument.swift */; };
+		8CFB225D2F0772C200E5F29D /* PouringWaterGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22542F0772C100E5F29D /* PouringWaterGameViewController.swift */; };
+		8CFB225E2F0772C200E5F29D /* PouringWaterMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22562F0772C100E5F29D /* PouringWaterMainViewController.swift */; };
+		8CFB225F2F0772C200E5F29D /* PouringWaterObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22572F0772C100E5F29D /* PouringWaterObject.swift */; };
+		8CFB22602F0772C200E5F29D /* PouringWaterGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22532F0772C100E5F29D /* PouringWaterGameState.swift */; };
+		8CFB22612F0772C200E5F29D /* PouringWaterGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFB22522F0772C100E5F29D /* PouringWaterGameScene.swift */; };
 		9514BA4F20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9514BA4E20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework */; };
 		95E2B500236598F400F4F95B /* NumberCrosswordsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B4F4236598F400F4F95B /* NumberCrosswordsMainViewController.swift */; };
 		95E2B501236598F400F4F95B /* NumberCrosswordsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E2B4F5236598F400F4F95B /* NumberCrosswordsGameViewController.swift */; };
@@ -2720,6 +2729,15 @@
 		8CFB22422F076ED400E5F29D /* LiarLiarGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiarLiarGridNode.swift; sourceTree = "<group>"; };
 		8CFB22432F076ED400E5F29D /* LiarLiarMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiarLiarMainViewController.swift; sourceTree = "<group>"; };
 		8CFB22442F076ED400E5F29D /* LiarLiarObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiarLiarObject.swift; sourceTree = "<group>"; };
+		8CFB224F2F0772C100E5F29D /* PouringWater.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PouringWater.xml; sourceTree = "<group>"; };
+		8CFB22502F0772C100E5F29D /* PouringWaterDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PouringWaterDocument.swift; sourceTree = "<group>"; };
+		8CFB22512F0772C100E5F29D /* PouringWaterGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PouringWaterGame.swift; sourceTree = "<group>"; };
+		8CFB22522F0772C100E5F29D /* PouringWaterGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PouringWaterGameScene.swift; sourceTree = "<group>"; };
+		8CFB22532F0772C100E5F29D /* PouringWaterGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PouringWaterGameState.swift; sourceTree = "<group>"; };
+		8CFB22542F0772C100E5F29D /* PouringWaterGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PouringWaterGameViewController.swift; sourceTree = "<group>"; };
+		8CFB22552F0772C100E5F29D /* PouringWaterGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PouringWaterGridNode.swift; sourceTree = "<group>"; };
+		8CFB22562F0772C100E5F29D /* PouringWaterMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PouringWaterMainViewController.swift; sourceTree = "<group>"; };
+		8CFB22572F0772C100E5F29D /* PouringWaterObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PouringWaterObject.swift; sourceTree = "<group>"; };
 		9514BA4E20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_LogicPuzzlesSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E2B4F4236598F400F4F95B /* NumberCrosswordsMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberCrosswordsMainViewController.swift; sourceTree = "<group>"; };
 		95E2B4F5236598F400F4F95B /* NumberCrosswordsGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberCrosswordsGameViewController.swift; sourceTree = "<group>"; };
@@ -3129,6 +3147,7 @@
 				8C3A35591EC88D4100A914A5 /* Parks */,
 				8C9F324C1ED1FAF600E10965 /* Pata */,
 				8CB721C62EAAE62D001B25C5 /* Planks */,
+				8CFB22582F0772C100E5F29D /* PouringWater */,
 				8C3A35661EC88D4100A914A5 /* PowerGrid */,
 				8C3A35731EC88D4200A914A5 /* ProductSentinels */,
 				8C32D8CF1FC92B5F00BA2D07 /* RippleEffect */,
@@ -5120,6 +5139,22 @@
 			path = LiarLiar;
 			sourceTree = "<group>";
 		};
+		8CFB22582F0772C100E5F29D /* PouringWater */ = {
+			isa = PBXGroup;
+			children = (
+				8CFB224F2F0772C100E5F29D /* PouringWater.xml */,
+				8CFB22502F0772C100E5F29D /* PouringWaterDocument.swift */,
+				8CFB22512F0772C100E5F29D /* PouringWaterGame.swift */,
+				8CFB22522F0772C100E5F29D /* PouringWaterGameScene.swift */,
+				8CFB22532F0772C100E5F29D /* PouringWaterGameState.swift */,
+				8CFB22542F0772C100E5F29D /* PouringWaterGameViewController.swift */,
+				8CFB22552F0772C100E5F29D /* PouringWaterGridNode.swift */,
+				8CFB22562F0772C100E5F29D /* PouringWaterMainViewController.swift */,
+				8CFB22572F0772C100E5F29D /* PouringWaterObject.swift */,
+			);
+			path = PouringWater;
+			sourceTree = "<group>";
+		};
 		95E2B4F3236598F400F4F95B /* NumberCrosswords */ = {
 			isa = PBXGroup;
 			children = (
@@ -5436,6 +5471,7 @@
 				8C8663A42EA39DD00078CD64 /* signpost.png in Resources */,
 				8C8663A52EA39DD00078CD64 /* A5-stone.png in Resources */,
 				8C8663A62EA39DD00078CD64 /* arrow_brown_left.png in Resources */,
+				8CFB22592F0772C100E5F29D /* PouringWater.xml in Resources */,
 				8C8663A72EA39DD00078CD64 /* blueberry.png in Resources */,
 				8C8663A82EA39DD00078CD64 /* pebbles.png in Resources */,
 				8C81BC3E2EA8EF030083B936 /* DesertDunes.xml in Resources */,
@@ -6070,6 +6106,14 @@
 				8C2963F31FA20D620017A812 /* RobotFencesGridNode.swift in Sources */,
 				95E2B502236598F400F4F95B /* NumberCrosswordsDocument.swift in Sources */,
 				8CA042F01FDB930A00AF85E1 /* CalcudokuDocument.swift in Sources */,
+				8CFB225A2F0772C200E5F29D /* PouringWaterGridNode.swift in Sources */,
+				8CFB225B2F0772C200E5F29D /* PouringWaterGame.swift in Sources */,
+				8CFB225C2F0772C200E5F29D /* PouringWaterDocument.swift in Sources */,
+				8CFB225D2F0772C200E5F29D /* PouringWaterGameViewController.swift in Sources */,
+				8CFB225E2F0772C200E5F29D /* PouringWaterMainViewController.swift in Sources */,
+				8CFB225F2F0772C200E5F29D /* PouringWaterObject.swift in Sources */,
+				8CFB22602F0772C200E5F29D /* PouringWaterGameState.swift in Sources */,
+				8CFB22612F0772C200E5F29D /* PouringWaterGameScene.swift in Sources */,
 				8C6A36181FAF97AF00D2804D /* TheOddBrickObject.swift in Sources */,
 				8C35E38F1FC2844F00A26EE3 /* GardenerMainViewController.swift in Sources */,
 				8C3A360A1EC88D4200A914A5 /* BattleShipsObject.swift in Sources */,
