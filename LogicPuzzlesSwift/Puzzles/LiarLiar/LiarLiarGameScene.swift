@@ -18,7 +18,7 @@ class LiarLiarGameScene: GameScene<LiarLiarGameState> {
         let point = gridNode.centerPoint(p: p)
         let nodeNameSuffix = "-\(p.row)-\(p.col)"
         let hintNodeName = "hint" + nodeNameSuffix
-        addLabel(text: String(n), fontColor: s == .complete ? .green : .white, point: point, nodeName: hintNodeName, sampleText: "10")
+        addLabel(text: String(n), fontColor: s == .complete ? .green : .red, point: point, nodeName: hintNodeName, sampleText: "10")
     }
 
     override func levelInitialized(_ game: AnyObject, state: LiarLiarGameState, skView: SKView) {
@@ -59,7 +59,8 @@ class LiarLiarGameScene: GameScene<LiarLiarGameState> {
         
         // add Hints
         for (p, n) in game.pos2hint {
-            addHint(p: p, n: n, s: .normal)
+            guard case .hint(state: let s) = state[p] else {continue}
+            addHint(p: p, n: n, s: s)
         }
     }
     
@@ -69,9 +70,39 @@ class LiarLiarGameScene: GameScene<LiarLiarGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let charNodeName = "char" + nodeNameSuffix
-                let (ch1, ch2) = (stateFrom[p], stateTo[p])
-                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                let forbiddenNodeName = "forbidden" + nodeNameSuffix
+                let hintNodeName = "hint" + nodeNameSuffix
+                let markedNodeName = "marked" + nodeNameSuffix
+                let markerNodeName = "marker" + nodeNameSuffix
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                guard String(describing: o1) != String(describing: o2) else {continue}
+                switch o1 {
+                case .forbidden:
+                    removeNode(withName: forbiddenNodeName)
+                case .hint:
+                    removeNode(withName: hintNodeName)
+                case .marked:
+                    removeNode(withName: markedNodeName)
+                case .marker:
+                    removeNode(withName: markerNodeName)
+                default:
+                    break
+                }
+                switch o2 {
+                case .forbidden:
+                    addDotMarker2(color: .red, point: point, nodeName: forbiddenNodeName)
+                case .hint(state: let s):
+                    addHint(p: p, n: stateFrom.game.pos2hint[p]!, s: s)
+                case .marked(state: let s):
+                    let markedNode = SKSpriteNode(color: s == .error ? .red : .lightGray, size: coloredRectSize())
+                    markedNode.position = point
+                    markedNode.name = markedNodeName
+                    gridNode.addChild(markedNode)
+                case .marker:
+                    addCircleMarker(color: .white, point: point, nodeName: markerNodeName)
+                default:
+                    break
+                }
             }
         }
     }

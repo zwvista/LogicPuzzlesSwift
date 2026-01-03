@@ -11,20 +11,20 @@ import Foundation
 enum LiarLiarObject {
     case empty
     case forbidden
-    case marked
-    case marker
     case hint(state: HintState = .normal)
+    case marked(state: AllowedObjectState = .normal)
+    case marker
     init() {
         self = .empty
     }
     func toString() -> String {
         switch self {
+        case .hint:
+            return "hint"
         case .marked:
             return "marked"
         case .marker:
             return "marker"
-        case .hint:
-            return "hint"
         default:
             return "empty"
         }
@@ -32,7 +32,7 @@ enum LiarLiarObject {
     static func fromString(str: String) -> LiarLiarObject {
         switch str {
         case "marked":
-            return .marked
+            return .marked()
         case "marker":
             return .marker
         default:

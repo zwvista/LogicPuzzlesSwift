@@ -15,7 +15,6 @@ class LiarLiarGameState: GridGameState<LiarLiarGameMove> {
     }
     override var gameDocument: GameDocumentBase { LiarLiarDocument.sharedInstance }
     var objArray = [LiarLiarObject]()
-    var pos2state = [Position: HintState]()
     
     override func copy() -> LiarLiarGameState {
         let v = LiarLiarGameState(game: game, isCopy: true)
@@ -24,7 +23,6 @@ class LiarLiarGameState: GridGameState<LiarLiarGameMove> {
     func setup(v: LiarLiarGameState) -> LiarLiarGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     
@@ -32,9 +30,6 @@ class LiarLiarGameState: GridGameState<LiarLiarGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<LiarLiarObject>(repeating: LiarLiarObject(), count: rows * cols)
-        for (p, _) in game.pos2hint {
-            self[p] = .hint()
-        }
         updateIsSolved()
     }
     
@@ -60,18 +55,17 @@ class LiarLiarGameState: GridGameState<LiarLiarGameMove> {
         func f(o: LiarLiarObject) -> LiarLiarObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .marked
+                return markerOption == .markerFirst ? .marker : .marked()
             case .marked:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .marked : .empty
+                return markerOption == .markerFirst ? .marked() : .empty
             default:
                 return o
             }
         }
         let p = move.p
         guard isValid(p: p) && game.pos2hint[p] == nil else { return .invalid }
-        let o = self[p]
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -93,6 +87,81 @@ class LiarLiarGameState: GridGameState<LiarLiarGameMove> {
         6. All of the non-marked cells must be connected.
     */
     private func updateIsSolved() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
+        for r in 0..<rows {
+            for c in 0..<cols {
+                if case .forbidden = self[r, c] { self[r, c] = .empty }
+            }
+        }
+        // 3. A number in a cell indicates how many marked cells must be placed.
+        //    adjacent to its four sides.
+        for (p, n1) in game.pos2hint {
+            let n2 = LiarLiarGame.offset.count {
+                let p2 = p + $0
+                return isValid(p: p2) && self[p2].toString() == "marked"
+            }
+            let s: HintState = n1 == n2 ? .complete : .error
+            self[p] = .hint(state: s)
+        }
+        for area in game.areas {
+            var nComplete = 0, nError = 0
+            for p in area {
+                let o = self[p]
+                if case .hint(state: let s) = o {
+                    switch s {
+                    case .complete: nComplete += 1
+                    default: nError += 1
+                    }
+                }
+            }
+            if nError != 1 { isSolved = false }
+        }
+        // 5. Two marked cells must not be orthogonally adjacent.
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                guard self[p].toString() == "marked" else {continue}
+                let rng = LiarLiarGame.offset.map { p + $0 }.filter { p in
+                    return isValid(p: p) && self[p].toString() == "marked"
+                }
+                if rng.isEmpty {
+                    self[p] = .marked()
+                    if allowedObjectsOnly {
+                        for p in rng {
+                            guard case .empty = self[p] else {continue}
+                            self[p] = .forbidden
+                        }
+                    }
+                } else {
+                    isSolved = false
+                    self[p] = .marked(state: .error)
+                    for p in rng {
+                        self[p] = .marked(state: .error)
+                    }
+                }
+            }
+        }
+        guard isSolved else {return}
+        // 6. All of the non-marked cells must be connected.
+        let g = Graph()
+        var pos2node = [Position: Node]()
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                guard self[p].toString() != "marked" else {continue}
+                let node = g.addNode(p.description)
+                pos2node[p] = node
+            }
+        }
+        for (p, node) in pos2node {
+            for i in 0..<4 {
+                let p2 = p + LiarLiarGame.offset[i]
+                guard let node2 = pos2node[p2] else {continue}
+                g.addEdge(node, neighbor: node2)
+            }
+        }
+        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+        if nodesExplored.count != pos2node.count { isSolved = false }
     }
 }
