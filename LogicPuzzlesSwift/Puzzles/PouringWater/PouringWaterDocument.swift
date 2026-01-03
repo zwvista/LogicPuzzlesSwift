@@ -13,10 +13,10 @@ class PouringWaterDocument: GameDocument<PouringWaterGameMove> {
     
     override func saveMove(_ move: PouringWaterGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = String(move.obj)
+        rec.strValue1 = move.obj.toString()
     }
     
     override func loadMove(from rec: MoveProgress) -> PouringWaterGameMove {
-        PouringWaterGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
+        PouringWaterGameMove(p: Position(rec.row, rec.col), obj: PouringWaterObject.fromString(str: rec.strValue1!))
     }
 }

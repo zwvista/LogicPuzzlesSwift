@@ -14,7 +14,7 @@ class PouringWaterGameState: GridGameState<PouringWaterGameMove> {
         set { setGame(game: newValue) }
     }
     override var gameDocument: GameDocumentBase { PouringWaterDocument.sharedInstance }
-    var objArray = [Character]()
+    var objArray = [PouringWaterObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()
 
@@ -33,37 +33,46 @@ class PouringWaterGameState: GridGameState<PouringWaterGameMove> {
     required init(game: PouringWaterGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<Character>(repeating: " ", count: rows * cols)
+        objArray = Array<PouringWaterObject>(repeating: PouringWaterObject(), count: rows * cols)
         row2state = Array<HintState>(repeating: .normal, count: rows)
         col2state = Array<HintState>(repeating: .normal, count: cols)
         updateIsSolved()
     }
     
-    subscript(p: Position) -> Character {
+    subscript(p: Position) -> PouringWaterObject {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
     }
-    subscript(row: Int, col: Int) -> Character {
+    subscript(row: Int, col: Int) -> PouringWaterObject {
         get { objArray[row * cols + col] }
         set { objArray[row * cols + col] = newValue }
     }
     
     override func setObject(move: inout PouringWaterGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else { return .invalid }
+        guard isValid(p: p) && String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }
     
     override func switchObject(move: inout PouringWaterGameMove) -> GameOperationType {
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        func f(o: PouringWaterObject) -> PouringWaterObject {
+            switch o {
+            case .empty:
+                return markerOption == .markerFirst ? .marker : .water()
+            case .water:
+                return markerOption == .markerLast ? .marker : .empty
+            case .marker:
+                return markerOption == .markerFirst ? .water() : .empty
+            default:
+                return o
+            }
+        }
         let p = move.p
         guard isValid(p: p) else { return .invalid }
-        let o = self[p]
-        move.obj =
-            o == " " ? "1" :
-            o == "3" ? " " :
-            succ(ch: o)
+        move.obj = f(o: self[p])
         return setObject(move: &move)
     }
     

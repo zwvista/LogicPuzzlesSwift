@@ -8,7 +8,37 @@
 
 import Foundation
 
+enum PouringWaterObject {
+    case empty
+    case forbidden
+    case marker
+    case water(state: AllowedObjectState = .normal)
+    init() {
+        self = .empty
+    }
+    func toString() -> String {
+        switch self {
+        case .marker:
+            return "marker"
+        case .water:
+            return "water"
+        default:
+            return "empty"
+        }
+    }
+    static func fromString(str: String) -> PouringWaterObject {
+        switch str {
+        case "marker":
+            return .marker
+        case "water":
+            return .water()
+        default:
+            return .empty
+        }
+    }
+}
+
 struct PouringWaterGameMove {
     var p = Position()
-    var obj: Character = " "
+    var obj = PouringWaterObject()
 }
