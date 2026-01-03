@@ -107,8 +107,7 @@ class LiarLiarGameState: GridGameState<LiarLiarGameMove> {
         for area in game.areas {
             var nComplete = 0, nError = 0
             for p in area {
-                let o = self[p]
-                if case .hint(state: let s) = o {
+                if case .hint(state: let s) = self[p] {
                     switch s {
                     case .complete: nComplete += 1
                     default: nError += 1
