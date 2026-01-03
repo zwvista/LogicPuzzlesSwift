@@ -126,17 +126,18 @@ class LiarLiarGameState: GridGameState<LiarLiarGameMove> {
                 }
                 if rng.isEmpty {
                     self[p] = .marked()
-                    if allowedObjectsOnly {
-                        for p in rng {
-                            guard case .empty = self[p] else {continue}
-                            self[p] = .forbidden
-                        }
-                    }
                 } else {
                     isSolved = false
                     self[p] = .marked(state: .error)
                     for p in rng {
                         self[p] = .marked(state: .error)
+                    }
+                }
+                if allowedObjectsOnly {
+                    for os in LiarLiarGame.offset {
+                        let p2 = p + os
+                        guard isValid(p: p2), case .empty = self[p2] else {continue}
+                        self[p2] = .forbidden
                     }
                 }
             }
