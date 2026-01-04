@@ -1133,6 +1133,15 @@
 		8C9BD59D2F0A7DFF00D1D915 /* StacksMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5942F0A7DFF00D1D915 /* StacksMainViewController.swift */; };
 		8C9BD59E2F0A7DFF00D1D915 /* StacksGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5932F0A7DFF00D1D915 /* StacksGridNode.swift */; };
 		8C9BD59F2F0A7DFF00D1D915 /* Stacks.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BD58D2F0A7DFF00D1D915 /* Stacks.xml */; };
+		8C9BD5AA2F0A7FC200D1D915 /* LoopAndBlocksMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5A72F0A7FC200D1D915 /* LoopAndBlocksMainViewController.swift */; };
+		8C9BD5AB2F0A7FC200D1D915 /* LoopAndBlocksGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5A42F0A7FC200D1D915 /* LoopAndBlocksGameState.swift */; };
+		8C9BD5AC2F0A7FC200D1D915 /* LoopAndBlocksGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5A22F0A7FC200D1D915 /* LoopAndBlocksGame.swift */; };
+		8C9BD5AD2F0A7FC200D1D915 /* LoopAndBlocksObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5A82F0A7FC200D1D915 /* LoopAndBlocksObject.swift */; };
+		8C9BD5AE2F0A7FC200D1D915 /* LoopAndBlocksGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5A62F0A7FC200D1D915 /* LoopAndBlocksGridNode.swift */; };
+		8C9BD5AF2F0A7FC200D1D915 /* LoopAndBlocksGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5A52F0A7FC200D1D915 /* LoopAndBlocksGameViewController.swift */; };
+		8C9BD5B02F0A7FC200D1D915 /* LoopAndBlocksGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5A32F0A7FC200D1D915 /* LoopAndBlocksGameScene.swift */; };
+		8C9BD5B12F0A7FC200D1D915 /* LoopAndBlocksDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5A12F0A7FC200D1D915 /* LoopAndBlocksDocument.swift */; };
+		8C9BD5B22F0A7FC200D1D915 /* LoopAndBlocks.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BD5A02F0A7FC200D1D915 /* LoopAndBlocks.xml */; };
 		8C9F32291ECF06C000E10965 /* Tapa.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F321E1ECF06BF00E10965 /* Tapa.xml */; };
 		8C9F322A1ECF06C000E10965 /* TapaDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F321F1ECF06BF00E10965 /* TapaDocument.swift */; };
 		8C9F322B1ECF06C000E10965 /* TapaGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F32201ECF06BF00E10965 /* TapaGame.swift */; };
@@ -2615,6 +2624,15 @@
 		8C9BD5932F0A7DFF00D1D915 /* StacksGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StacksGridNode.swift; sourceTree = "<group>"; };
 		8C9BD5942F0A7DFF00D1D915 /* StacksMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StacksMainViewController.swift; sourceTree = "<group>"; };
 		8C9BD5952F0A7DFF00D1D915 /* StacksObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StacksObject.swift; sourceTree = "<group>"; };
+		8C9BD5A02F0A7FC200D1D915 /* LoopAndBlocks.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LoopAndBlocks.xml; sourceTree = "<group>"; };
+		8C9BD5A12F0A7FC200D1D915 /* LoopAndBlocksDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopAndBlocksDocument.swift; sourceTree = "<group>"; };
+		8C9BD5A22F0A7FC200D1D915 /* LoopAndBlocksGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopAndBlocksGame.swift; sourceTree = "<group>"; };
+		8C9BD5A32F0A7FC200D1D915 /* LoopAndBlocksGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopAndBlocksGameScene.swift; sourceTree = "<group>"; };
+		8C9BD5A42F0A7FC200D1D915 /* LoopAndBlocksGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopAndBlocksGameState.swift; sourceTree = "<group>"; };
+		8C9BD5A52F0A7FC200D1D915 /* LoopAndBlocksGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopAndBlocksGameViewController.swift; sourceTree = "<group>"; };
+		8C9BD5A62F0A7FC200D1D915 /* LoopAndBlocksGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopAndBlocksGridNode.swift; sourceTree = "<group>"; };
+		8C9BD5A72F0A7FC200D1D915 /* LoopAndBlocksMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopAndBlocksMainViewController.swift; sourceTree = "<group>"; };
+		8C9BD5A82F0A7FC200D1D915 /* LoopAndBlocksObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopAndBlocksObject.swift; sourceTree = "<group>"; };
 		8C9F321E1ECF06BF00E10965 /* Tapa.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tapa.xml; sourceTree = "<group>"; };
 		8C9F321F1ECF06BF00E10965 /* TapaDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaDocument.swift; sourceTree = "<group>"; };
 		8C9F32201ECF06BF00E10965 /* TapaGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaGame.swift; sourceTree = "<group>"; };
@@ -3324,6 +3342,7 @@
 				8C3A34A31EC88D4100A914A5 /* Lighthouses */,
 				8C3A34B01EC88D4100A914A5 /* LineSweeper */,
 				8C3A34BD1EC88D4100A914A5 /* Lits */,
+				8C9BD5A92F0A7FC200D1D915 /* LoopAndBlocks */,
 				8C3A34CA1EC88D4100A914A5 /* Loopy */,
 				8C3A34D71EC88D4100A914A5 /* Magnets */,
 				8CBD5F922E7DBE11000CD5E3 /* MaketheDifference */,
@@ -4938,6 +4957,22 @@
 			path = Stacks;
 			sourceTree = "<group>";
 		};
+		8C9BD5A92F0A7FC200D1D915 /* LoopAndBlocks */ = {
+			isa = PBXGroup;
+			children = (
+				8C9BD5A02F0A7FC200D1D915 /* LoopAndBlocks.xml */,
+				8C9BD5A12F0A7FC200D1D915 /* LoopAndBlocksDocument.swift */,
+				8C9BD5A22F0A7FC200D1D915 /* LoopAndBlocksGame.swift */,
+				8C9BD5A32F0A7FC200D1D915 /* LoopAndBlocksGameScene.swift */,
+				8C9BD5A42F0A7FC200D1D915 /* LoopAndBlocksGameState.swift */,
+				8C9BD5A52F0A7FC200D1D915 /* LoopAndBlocksGameViewController.swift */,
+				8C9BD5A62F0A7FC200D1D915 /* LoopAndBlocksGridNode.swift */,
+				8C9BD5A72F0A7FC200D1D915 /* LoopAndBlocksMainViewController.swift */,
+				8C9BD5A82F0A7FC200D1D915 /* LoopAndBlocksObject.swift */,
+			);
+			path = LoopAndBlocks;
+			sourceTree = "<group>";
+		};
 		8C9F321D1ECF06BF00E10965 /* Tapa */ = {
 			isa = PBXGroup;
 			children = (
@@ -5996,6 +6031,7 @@
 				8C8664222EA39DD00078CD64 /* arrow_red2_left.png in Resources */,
 				8C8664232EA39DD00078CD64 /* mushroom3.png in Resources */,
 				8C8664242EA39DD00078CD64 /* arrow9.png in Resources */,
+				8C9BD5B22F0A7FC200D1D915 /* LoopAndBlocks.xml in Resources */,
 				8C8664252EA39DD00078CD64 /* elephant.png in Resources */,
 				8C8664262EA39DD00078CD64 /* shade_9.png in Resources */,
 				8C8664272EA39DD00078CD64 /* ship.png in Resources */,
@@ -6920,6 +6956,14 @@
 				8C3A36321EC88D4200A914A5 /* BoxItUpGame.swift in Sources */,
 				8C3A360F1EC88D4200A914A5 /* BootyIslandGameScene.swift in Sources */,
 				8C9F32E71ED1FCFF00E10965 /* TapAlikeGameState.swift in Sources */,
+				8C9BD5AA2F0A7FC200D1D915 /* LoopAndBlocksMainViewController.swift in Sources */,
+				8C9BD5AB2F0A7FC200D1D915 /* LoopAndBlocksGameState.swift in Sources */,
+				8C9BD5AC2F0A7FC200D1D915 /* LoopAndBlocksGame.swift in Sources */,
+				8C9BD5AD2F0A7FC200D1D915 /* LoopAndBlocksObject.swift in Sources */,
+				8C9BD5AE2F0A7FC200D1D915 /* LoopAndBlocksGridNode.swift in Sources */,
+				8C9BD5AF2F0A7FC200D1D915 /* LoopAndBlocksGameViewController.swift in Sources */,
+				8C9BD5B02F0A7FC200D1D915 /* LoopAndBlocksGameScene.swift in Sources */,
+				8C9BD5B12F0A7FC200D1D915 /* LoopAndBlocksDocument.swift in Sources */,
 				8C3A37D81EC88D4400A914A5 /* TatamiGameState.swift in Sources */,
 				8C3A37E11EC88D4400A914A5 /* TentsDocument.swift in Sources */,
 				8C9F322C1ECF06C000E10965 /* TapaGameScene.swift in Sources */,
