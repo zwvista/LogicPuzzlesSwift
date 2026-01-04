@@ -1,5 +1,5 @@
 //
-//  BoxItAgainGameState.swift
+//  MixedTatamisGameState.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/19.
@@ -8,27 +8,27 @@
 
 import Foundation
 
-class BoxItAgainGameState: GridGameState<BoxItAgainGameMove> {
-    var game: BoxItAgainGame {
-        get { getGame() as! BoxItAgainGame }
+class MixedTatamisGameState: GridGameState<MixedTatamisGameMove> {
+    var game: MixedTatamisGame {
+        get { getGame() as! MixedTatamisGame }
         set { setGame(game: newValue) }
     }
-    override var gameDocument: GameDocumentBase { BoxItAgainDocument.sharedInstance }
+    override var gameDocument: GameDocumentBase { MixedTatamisDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
     
-    override func copy() -> BoxItAgainGameState {
-        let v = BoxItAgainGameState(game: game, isCopy: true)
+    override func copy() -> MixedTatamisGameState {
+        let v = MixedTatamisGameState(game: game, isCopy: true)
         return setup(v: v)
     }
-    func setup(v: BoxItAgainGameState) -> BoxItAgainGameState {
+    func setup(v: MixedTatamisGameState) -> MixedTatamisGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
         v.pos2state = pos2state
         return v
     }
     
-    required init(game: BoxItAgainGame, isCopy: Bool = false) {
+    required init(game: MixedTatamisGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = game.objArray
@@ -47,7 +47,7 @@ class BoxItAgainGameState: GridGameState<BoxItAgainGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout BoxItAgainGameMove) -> GameOperationType {
+    override func setObject(move: inout MixedTatamisGameMove) -> GameOperationType {
         var changed = false
         func f(o1: inout GridLineObject, o2: inout GridLineObject) {
             if o1 != move.obj {
@@ -59,14 +59,14 @@ class BoxItAgainGameState: GridGameState<BoxItAgainGameMove> {
             }
         }
         let dir = move.dir, dir2 = (dir + 2) % 4
-        let p = move.p, p2 = p + BoxItAgainGame.offset[dir]
+        let p = move.p, p2 = p + MixedTatamisGame.offset[dir]
         guard isValid(p: p2) && game[p][dir] == .empty else { return .invalid }
         f(o1: &self[p][dir], o2: &self[p2][dir2])
         if changed { updateIsSolved() }
         return changed ? .moveComplete : .invalid
     }
     
-    override func switchObject(move: inout BoxItAgainGameMove) -> GameOperationType {
+    override func switchObject(move: inout MixedTatamisGameMove) -> GameOperationType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: GridLineObject) -> GridLineObject {
             switch o {
@@ -86,17 +86,20 @@ class BoxItAgainGameState: GridGameState<BoxItAgainGameMove> {
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 15/Box It Again
+        iOS Game: 100 Logic Games 2/Puzzle Set 4/Mixed Tatamis
 
         Summary
-        Harder Boxes
+        Just that long
 
         Description
-        1. Just like Box It Up, you have to divide the Board in Boxes (Rectangles).
-        2. Each Box must contain one number and the number represents the area of
-           that Box.
-        3. However this time, some tiles can be left unboxed, the board isn't 
-           entirely covered by boxes.
+        1. Divide the board into areas (Tatami).
+        2. Every Tatami must be exactly one cell wide and can be of length
+           from 1 to 4 cells.
+        3. A cell with a number indicates the length of the Tatami. Not all
+           Tatamis have to be marked by a number.
+        4. Two Tatamis of the same size must not be orthogonally adjacent.
+        5. A grid dot must not be shared by the corners of four Tatamis
+           (lines can't form 4-way crosses).
     */
     private func updateIsSolved() {
         isSolved = true
@@ -112,8 +115,8 @@ class BoxItAgainGameState: GridGameState<BoxItAgainGameMove> {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
                 for i in 0..<4 {
-                    guard self[p + BoxItAgainGame.offset2[i]][BoxItAgainGame.dirs[i]] != .line else {continue}
-                    g.addEdge(pos2node[p]!, neighbor: pos2node[p + BoxItAgainGame.offset[i]]!)
+                    guard self[p + MixedTatamisGame.offset2[i]][MixedTatamisGame.dirs[i]] != .line else {continue}
+                    g.addEdge(pos2node[p]!, neighbor: pos2node[p + MixedTatamisGame.offset[i]]!)
                 }
             }
         }

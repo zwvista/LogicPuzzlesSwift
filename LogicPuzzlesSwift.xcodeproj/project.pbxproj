@@ -1052,6 +1052,15 @@
 		8C9BD4E02F0A036B00D1D915 /* WallHintsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4D82F0A036B00D1D915 /* WallHintsObject.swift */; };
 		8C9BD4E12F0A036B00D1D915 /* WallHintsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4D62F0A036B00D1D915 /* WallHintsGridNode.swift */; };
 		8C9BD4E22F0A036B00D1D915 /* WallHints.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BD4D02F0A036B00D1D915 /* WallHints.xml */; };
+		8C9BD4ED2F0A092700D1D915 /* MixedTatamisGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4E92F0A092700D1D915 /* MixedTatamisGridNode.swift */; };
+		8C9BD4EE2F0A092700D1D915 /* MixedTatamisGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4E52F0A092700D1D915 /* MixedTatamisGame.swift */; };
+		8C9BD4EF2F0A092700D1D915 /* MixedTatamisGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4E72F0A092700D1D915 /* MixedTatamisGameState.swift */; };
+		8C9BD4F02F0A092700D1D915 /* MixedTatamisGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4E82F0A092700D1D915 /* MixedTatamisGameViewController.swift */; };
+		8C9BD4F12F0A092700D1D915 /* MixedTatamisGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4E62F0A092700D1D915 /* MixedTatamisGameScene.swift */; };
+		8C9BD4F22F0A092700D1D915 /* MixedTatamisMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4EA2F0A092700D1D915 /* MixedTatamisMainViewController.swift */; };
+		8C9BD4F32F0A092700D1D915 /* MixedTatamisObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4EB2F0A092700D1D915 /* MixedTatamisObject.swift */; };
+		8C9BD4F42F0A092700D1D915 /* MixedTatamisDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4E42F0A092700D1D915 /* MixedTatamisDocument.swift */; };
+		8C9BD4F52F0A092700D1D915 /* MixedTatamis.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BD4E32F0A092700D1D915 /* MixedTatamis.xml */; };
 		8C9F32291ECF06C000E10965 /* Tapa.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F321E1ECF06BF00E10965 /* Tapa.xml */; };
 		8C9F322A1ECF06C000E10965 /* TapaDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F321F1ECF06BF00E10965 /* TapaDocument.swift */; };
 		8C9F322B1ECF06C000E10965 /* TapaGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F32201ECF06BF00E10965 /* TapaGame.swift */; };
@@ -2454,6 +2463,15 @@
 		8C9BD4D62F0A036B00D1D915 /* WallHintsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallHintsGridNode.swift; sourceTree = "<group>"; };
 		8C9BD4D72F0A036B00D1D915 /* WallHintsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallHintsMainViewController.swift; sourceTree = "<group>"; };
 		8C9BD4D82F0A036B00D1D915 /* WallHintsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallHintsObject.swift; sourceTree = "<group>"; };
+		8C9BD4E32F0A092700D1D915 /* MixedTatamis.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MixedTatamis.xml; sourceTree = "<group>"; };
+		8C9BD4E42F0A092700D1D915 /* MixedTatamisDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixedTatamisDocument.swift; sourceTree = "<group>"; };
+		8C9BD4E52F0A092700D1D915 /* MixedTatamisGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixedTatamisGame.swift; sourceTree = "<group>"; };
+		8C9BD4E62F0A092700D1D915 /* MixedTatamisGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixedTatamisGameScene.swift; sourceTree = "<group>"; };
+		8C9BD4E72F0A092700D1D915 /* MixedTatamisGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixedTatamisGameState.swift; sourceTree = "<group>"; };
+		8C9BD4E82F0A092700D1D915 /* MixedTatamisGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixedTatamisGameViewController.swift; sourceTree = "<group>"; };
+		8C9BD4E92F0A092700D1D915 /* MixedTatamisGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixedTatamisGridNode.swift; sourceTree = "<group>"; };
+		8C9BD4EA2F0A092700D1D915 /* MixedTatamisMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixedTatamisMainViewController.swift; sourceTree = "<group>"; };
+		8C9BD4EB2F0A092700D1D915 /* MixedTatamisObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixedTatamisObject.swift; sourceTree = "<group>"; };
 		8C9F321E1ECF06BF00E10965 /* Tapa.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tapa.xml; sourceTree = "<group>"; };
 		8C9F321F1ECF06BF00E10965 /* TapaDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaDocument.swift; sourceTree = "<group>"; };
 		8C9F32201ECF06BF00E10965 /* TapaGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaGame.swift; sourceTree = "<group>"; };
@@ -3166,6 +3184,7 @@
 				8C3A34F11EC88D4100A914A5 /* MineShips */,
 				8C3A34FE1EC88D4100A914A5 /* Minesweeper */,
 				8C3A350B1EC88D4100A914A5 /* MiniLits */,
+				8C9BD4EC2F0A092700D1D915 /* MixedTatamis */,
 				8C3A35181EC88D4100A914A5 /* Mosaik */,
 				8C3A35251EC88D4100A914A5 /* Neighbours */,
 				8C610F11204159100087C545 /* NorthPoleFishing */,
@@ -4625,6 +4644,22 @@
 			path = WallHints;
 			sourceTree = "<group>";
 		};
+		8C9BD4EC2F0A092700D1D915 /* MixedTatamis */ = {
+			isa = PBXGroup;
+			children = (
+				8C9BD4E32F0A092700D1D915 /* MixedTatamis.xml */,
+				8C9BD4E42F0A092700D1D915 /* MixedTatamisDocument.swift */,
+				8C9BD4E52F0A092700D1D915 /* MixedTatamisGame.swift */,
+				8C9BD4E62F0A092700D1D915 /* MixedTatamisGameScene.swift */,
+				8C9BD4E72F0A092700D1D915 /* MixedTatamisGameState.swift */,
+				8C9BD4E82F0A092700D1D915 /* MixedTatamisGameViewController.swift */,
+				8C9BD4E92F0A092700D1D915 /* MixedTatamisGridNode.swift */,
+				8C9BD4EA2F0A092700D1D915 /* MixedTatamisMainViewController.swift */,
+				8C9BD4EB2F0A092700D1D915 /* MixedTatamisObject.swift */,
+			);
+			path = MixedTatamis;
+			sourceTree = "<group>";
+		};
 		8C9F321D1ECF06BF00E10965 /* Tapa */ = {
 			isa = PBXGroup;
 			children = (
@@ -5707,6 +5742,7 @@
 				8C8664402EA39DD00078CD64 /* step.png in Resources */,
 				8C8664412EA39DD00078CD64 /* navigate_right.png in Resources */,
 				8C8664422EA39DD00078CD64 /* C2.png in Resources */,
+				8C9BD4F52F0A092700D1D915 /* MixedTatamis.xml in Resources */,
 				8C8664432EA39DD00078CD64 /* salad.png in Resources */,
 				8C8664442EA39DD00078CD64 /* arrow_red_left.png in Resources */,
 				8C8664452EA39DD00078CD64 /* B2-f.png in Resources */,
@@ -6597,6 +6633,14 @@
 				8C2963FD1FA20D620017A812 /* RobotCrosswordsGameViewController.swift in Sources */,
 				8C3A379A1EC88D4400A914A5 /* SentinelsGame.swift in Sources */,
 				8C3A366A1EC88D4200A914A5 /* DigitalBattleShipsObject.swift in Sources */,
+				8C9BD4ED2F0A092700D1D915 /* MixedTatamisGridNode.swift in Sources */,
+				8C9BD4EE2F0A092700D1D915 /* MixedTatamisGame.swift in Sources */,
+				8C9BD4EF2F0A092700D1D915 /* MixedTatamisGameState.swift in Sources */,
+				8C9BD4F02F0A092700D1D915 /* MixedTatamisGameViewController.swift in Sources */,
+				8C9BD4F12F0A092700D1D915 /* MixedTatamisGameScene.swift in Sources */,
+				8C9BD4F22F0A092700D1D915 /* MixedTatamisMainViewController.swift in Sources */,
+				8C9BD4F32F0A092700D1D915 /* MixedTatamisObject.swift in Sources */,
+				8C9BD4F42F0A092700D1D915 /* MixedTatamisDocument.swift in Sources */,
 				8C3A36461EC88D4200A914A5 /* BridgesObject.swift in Sources */,
 				8C3A367D1EC88D4200A914A5 /* FenceItUpGameViewController.swift in Sources */,
 				8C6A9BEA1F812743002A44FF /* KropkiGameViewController.swift in Sources */,
