@@ -98,7 +98,6 @@
 		8C2AF84D1ED6084300EC84AB /* PaintTheNurikabeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8421ED6084300EC84AB /* PaintTheNurikabeMainViewController.swift */; };
 		8C2AF84E1ED6084300EC84AB /* PaintTheNurikabeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8431ED6084300EC84AB /* PaintTheNurikabeObject.swift */; };
 		8C2F116B2E9CEFA100D00078 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 8C2F116A2E9CEFA100D00078 /* OrderedCollections */; };
-		8C2F116D2E9CF09C00D00078 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 8C2F116C2E9CF09C00D00078 /* OrderedCollections */; };
 		8C32D8DC1FC92B5F00BA2D07 /* RippleEffectGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8D01FC92B5F00BA2D07 /* RippleEffectGameViewController.swift */; };
 		8C32D8DD1FC92B5F00BA2D07 /* RippleEffectMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8D11FC92B5F00BA2D07 /* RippleEffectMainViewController.swift */; };
 		8C32D8DF1FC92B5F00BA2D07 /* RippleEffectGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8D31FC92B5F00BA2D07 /* RippleEffectGameScene.swift */; };
@@ -1079,6 +1078,7 @@
 		8C9BD5192F0A32CA00D1D915 /* FreePlanksGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD50F2F0A32CA00D1D915 /* FreePlanksGridNode.swift */; };
 		8C9BD51A2F0A32CA00D1D915 /* FreePlanksGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD50D2F0A32CA00D1D915 /* FreePlanksGameState.swift */; };
 		8C9BD51B2F0A32CA00D1D915 /* FreePlanks.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BD5092F0A32CA00D1D915 /* FreePlanks.xml */; };
+		8C9BD52B2F0A4D1A00D1D915 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8C9BD52A2F0A4D1A00D1D915 /* RealmSwift */; };
 		8C9F32291ECF06C000E10965 /* Tapa.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F321E1ECF06BF00E10965 /* Tapa.xml */; };
 		8C9F322A1ECF06C000E10965 /* TapaDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F321F1ECF06BF00E10965 /* TapaDocument.swift */; };
 		8C9F322B1ECF06C000E10965 /* TapaGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F32201ECF06BF00E10965 /* TapaGame.swift */; };
@@ -2849,9 +2849,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C9BD52B2F0A4D1A00D1D915 /* RealmSwift in Frameworks */,
 				8C2F116B2E9CEFA100D00078 /* OrderedCollections in Frameworks */,
 				9514BA4F20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework in Frameworks */,
-				8C2F116D2E9CF09C00D00078 /* OrderedCollections in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5455,6 +5455,7 @@
 			mainGroup = 8C9F43CE1D771915000139FC;
 			packageReferences = (
 				8C2F11682E9CED1A00D00078 /* XCRemoteSwiftPackageReference "swift-collections" */,
+				8C9BD5292F0A4D1A00D1D915 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 8C9F43D81D771915000139FC /* Products */;
 			projectDirPath = "";
@@ -5959,13 +5960,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LogicPuzzlesSwift/Pods-LogicPuzzlesSwift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LogicPuzzlesSwift/Pods-LogicPuzzlesSwift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -7327,6 +7324,14 @@
 				minimumVersion = 1.3.0;
 			};
 		};
+		8C9BD5292F0A4D1A00D1D915 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -7335,10 +7340,10 @@
 			package = 8C2F11682E9CED1A00D00078 /* XCRemoteSwiftPackageReference "swift-collections" */;
 			productName = OrderedCollections;
 		};
-		8C2F116C2E9CF09C00D00078 /* OrderedCollections */ = {
+		8C9BD52A2F0A4D1A00D1D915 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8C2F11682E9CED1A00D00078 /* XCRemoteSwiftPackageReference "swift-collections" */;
-			productName = OrderedCollections;
+			package = 8C9BD5292F0A4D1A00D1D915 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
