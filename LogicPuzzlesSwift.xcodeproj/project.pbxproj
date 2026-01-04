@@ -1115,6 +1115,15 @@
 		8C9BD5772F0A608A00D1D915 /* ChocolateGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5692F0A608A00D1D915 /* ChocolateGame.swift */; };
 		8C9BD5782F0A608A00D1D915 /* ChocolateGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD56B2F0A608A00D1D915 /* ChocolateGameState.swift */; };
 		8C9BD5792F0A608A00D1D915 /* Chocolate.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BD5672F0A608A00D1D915 /* Chocolate.xml */; };
+		8C9BD5842F0A62A600D1D915 /* CaffelatteGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD57E2F0A62A600D1D915 /* CaffelatteGameState.swift */; };
+		8C9BD5852F0A62A600D1D915 /* CaffelatteGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD57C2F0A62A600D1D915 /* CaffelatteGame.swift */; };
+		8C9BD5862F0A62A600D1D915 /* CaffelatteGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD57F2F0A62A600D1D915 /* CaffelatteGameViewController.swift */; };
+		8C9BD5872F0A62A600D1D915 /* CaffelatteMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5812F0A62A600D1D915 /* CaffelatteMainViewController.swift */; };
+		8C9BD5882F0A62A600D1D915 /* CaffelatteObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5822F0A62A600D1D915 /* CaffelatteObject.swift */; };
+		8C9BD5892F0A62A600D1D915 /* CaffelatteGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD57D2F0A62A600D1D915 /* CaffelatteGameScene.swift */; };
+		8C9BD58A2F0A62A600D1D915 /* CaffelatteDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD57B2F0A62A600D1D915 /* CaffelatteDocument.swift */; };
+		8C9BD58B2F0A62A600D1D915 /* CaffelatteGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5802F0A62A600D1D915 /* CaffelatteGridNode.swift */; };
+		8C9BD58C2F0A62A600D1D915 /* Caffelatte.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BD57A2F0A62A600D1D915 /* Caffelatte.xml */; };
 		8C9F32291ECF06C000E10965 /* Tapa.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F321E1ECF06BF00E10965 /* Tapa.xml */; };
 		8C9F322A1ECF06C000E10965 /* TapaDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F321F1ECF06BF00E10965 /* TapaDocument.swift */; };
 		8C9F322B1ECF06C000E10965 /* TapaGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F32201ECF06BF00E10965 /* TapaGame.swift */; };
@@ -2579,6 +2588,15 @@
 		8C9BD56D2F0A608A00D1D915 /* ChocolateGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateGridNode.swift; sourceTree = "<group>"; };
 		8C9BD56E2F0A608A00D1D915 /* ChocolateMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMainViewController.swift; sourceTree = "<group>"; };
 		8C9BD56F2F0A608A00D1D915 /* ChocolateObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateObject.swift; sourceTree = "<group>"; };
+		8C9BD57A2F0A62A600D1D915 /* Caffelatte.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Caffelatte.xml; sourceTree = "<group>"; };
+		8C9BD57B2F0A62A600D1D915 /* CaffelatteDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffelatteDocument.swift; sourceTree = "<group>"; };
+		8C9BD57C2F0A62A600D1D915 /* CaffelatteGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffelatteGame.swift; sourceTree = "<group>"; };
+		8C9BD57D2F0A62A600D1D915 /* CaffelatteGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffelatteGameScene.swift; sourceTree = "<group>"; };
+		8C9BD57E2F0A62A600D1D915 /* CaffelatteGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffelatteGameState.swift; sourceTree = "<group>"; };
+		8C9BD57F2F0A62A600D1D915 /* CaffelatteGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffelatteGameViewController.swift; sourceTree = "<group>"; };
+		8C9BD5802F0A62A600D1D915 /* CaffelatteGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffelatteGridNode.swift; sourceTree = "<group>"; };
+		8C9BD5812F0A62A600D1D915 /* CaffelatteMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffelatteMainViewController.swift; sourceTree = "<group>"; };
+		8C9BD5822F0A62A600D1D915 /* CaffelatteObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffelatteObject.swift; sourceTree = "<group>"; };
 		8C9F321E1ECF06BF00E10965 /* Tapa.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tapa.xml; sourceTree = "<group>"; };
 		8C9F321F1ECF06BF00E10965 /* TapaDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaDocument.swift; sourceTree = "<group>"; };
 		8C9F32201ECF06BF00E10965 /* TapaGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaGame.swift; sourceTree = "<group>"; };
@@ -3245,6 +3263,7 @@
 				8C3A34141EC88D4100A914A5 /* Bridges */,
 				8C3A34211EC88D4100A914A5 /* BusySeas */,
 				8C9F32351ED1FAD400E10965 /* BWTapa */,
+				8C9BD5832F0A62A600D1D915 /* Caffelatte */,
 				8CA042E41FDB930900AF85E1 /* Calcudoku */,
 				8CA043071FDBE77700AF85E1 /* CarpentersSquare */,
 				8CA042FB1FDBE77700AF85E1 /* CarpentersWall */,
@@ -4868,6 +4887,22 @@
 			path = Chocolate;
 			sourceTree = "<group>";
 		};
+		8C9BD5832F0A62A600D1D915 /* Caffelatte */ = {
+			isa = PBXGroup;
+			children = (
+				8C9BD57A2F0A62A600D1D915 /* Caffelatte.xml */,
+				8C9BD57B2F0A62A600D1D915 /* CaffelatteDocument.swift */,
+				8C9BD57C2F0A62A600D1D915 /* CaffelatteGame.swift */,
+				8C9BD57D2F0A62A600D1D915 /* CaffelatteGameScene.swift */,
+				8C9BD57E2F0A62A600D1D915 /* CaffelatteGameState.swift */,
+				8C9BD57F2F0A62A600D1D915 /* CaffelatteGameViewController.swift */,
+				8C9BD5802F0A62A600D1D915 /* CaffelatteGridNode.swift */,
+				8C9BD5812F0A62A600D1D915 /* CaffelatteMainViewController.swift */,
+				8C9BD5822F0A62A600D1D915 /* CaffelatteObject.swift */,
+			);
+			path = Caffelatte;
+			sourceTree = "<group>";
+		};
 		8C9F321D1ECF06BF00E10965 /* Tapa */ = {
 			isa = PBXGroup;
 			children = (
@@ -5751,6 +5786,7 @@
 				8C86637F2EA39DD00078CD64 /* B1.png in Resources */,
 				8C8663802EA39DD00078CD64 /* dune.png in Resources */,
 				8C8663812EA39DD00078CD64 /* pipe_1.png in Resources */,
+				8C9BD58C2F0A62A600D1D915 /* Caffelatte.xml in Resources */,
 				8C8663822EA39DD00078CD64 /* coffeebean.png in Resources */,
 				8C8663832EA39DD00078CD64 /* A2.png in Resources */,
 				8C8663842EA39DD00078CD64 /* B4.png in Resources */,
@@ -6799,6 +6835,14 @@
 				8C35E38D1FC2844F00A26EE3 /* GardenerGame.swift in Sources */,
 				8CF3FFDC1FCB2A2700D41B67 /* DisconnectFourObject.swift in Sources */,
 				8C3A36941EC88D4200A914A5 /* FenceSentinelsGameState.swift in Sources */,
+				8C9BD5842F0A62A600D1D915 /* CaffelatteGameState.swift in Sources */,
+				8C9BD5852F0A62A600D1D915 /* CaffelatteGame.swift in Sources */,
+				8C9BD5862F0A62A600D1D915 /* CaffelatteGameViewController.swift in Sources */,
+				8C9BD5872F0A62A600D1D915 /* CaffelatteMainViewController.swift in Sources */,
+				8C9BD5882F0A62A600D1D915 /* CaffelatteObject.swift in Sources */,
+				8C9BD5892F0A62A600D1D915 /* CaffelatteGameScene.swift in Sources */,
+				8C9BD58A2F0A62A600D1D915 /* CaffelatteDocument.swift in Sources */,
+				8C9BD58B2F0A62A600D1D915 /* CaffelatteGridNode.swift in Sources */,
 				8C3A37CE1EC88D4400A914A5 /* SumscrapersGridNode.swift in Sources */,
 				8C35E3AE1FC4839100A26EE3 /* WallsMainViewController.swift in Sources */,
 				8C3A36651EC88D4200A914A5 /* DigitalBattleShipsGameViewController.swift in Sources */,
