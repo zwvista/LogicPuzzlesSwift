@@ -1043,6 +1043,15 @@
 		8C9BD4CC2F09F2B700D1D915 /* WishSandwichGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4C22F09F2B700D1D915 /* WishSandwichGridNode.swift */; };
 		8C9BD4CD2F09F2B700D1D915 /* WishSandwichMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4C32F09F2B700D1D915 /* WishSandwichMainViewController.swift */; };
 		8C9BD4CE2F09F2B700D1D915 /* WishSandwich.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BD4BC2F09F2B700D1D915 /* WishSandwich.xml */; };
+		8C9BD4DA2F0A036B00D1D915 /* WallHintsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4D12F0A036B00D1D915 /* WallHintsDocument.swift */; };
+		8C9BD4DB2F0A036B00D1D915 /* WallHintsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4D22F0A036B00D1D915 /* WallHintsGame.swift */; };
+		8C9BD4DC2F0A036B00D1D915 /* WallHintsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4D72F0A036B00D1D915 /* WallHintsMainViewController.swift */; };
+		8C9BD4DD2F0A036B00D1D915 /* WallHintsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4D32F0A036B00D1D915 /* WallHintsGameScene.swift */; };
+		8C9BD4DE2F0A036B00D1D915 /* WallHintsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4D42F0A036B00D1D915 /* WallHintsGameState.swift */; };
+		8C9BD4DF2F0A036B00D1D915 /* WallHintsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4D52F0A036B00D1D915 /* WallHintsGameViewController.swift */; };
+		8C9BD4E02F0A036B00D1D915 /* WallHintsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4D82F0A036B00D1D915 /* WallHintsObject.swift */; };
+		8C9BD4E12F0A036B00D1D915 /* WallHintsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4D62F0A036B00D1D915 /* WallHintsGridNode.swift */; };
+		8C9BD4E22F0A036B00D1D915 /* WallHints.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BD4D02F0A036B00D1D915 /* WallHints.xml */; };
 		8C9F32291ECF06C000E10965 /* Tapa.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F321E1ECF06BF00E10965 /* Tapa.xml */; };
 		8C9F322A1ECF06C000E10965 /* TapaDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F321F1ECF06BF00E10965 /* TapaDocument.swift */; };
 		8C9F322B1ECF06C000E10965 /* TapaGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F32201ECF06BF00E10965 /* TapaGame.swift */; };
@@ -2436,6 +2445,15 @@
 		8C9BD4C22F09F2B700D1D915 /* WishSandwichGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishSandwichGridNode.swift; sourceTree = "<group>"; };
 		8C9BD4C32F09F2B700D1D915 /* WishSandwichMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishSandwichMainViewController.swift; sourceTree = "<group>"; };
 		8C9BD4C42F09F2B700D1D915 /* WishSandwichObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishSandwichObject.swift; sourceTree = "<group>"; };
+		8C9BD4D02F0A036B00D1D915 /* WallHints.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WallHints.xml; sourceTree = "<group>"; };
+		8C9BD4D12F0A036B00D1D915 /* WallHintsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallHintsDocument.swift; sourceTree = "<group>"; };
+		8C9BD4D22F0A036B00D1D915 /* WallHintsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallHintsGame.swift; sourceTree = "<group>"; };
+		8C9BD4D32F0A036B00D1D915 /* WallHintsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallHintsGameScene.swift; sourceTree = "<group>"; };
+		8C9BD4D42F0A036B00D1D915 /* WallHintsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallHintsGameState.swift; sourceTree = "<group>"; };
+		8C9BD4D52F0A036B00D1D915 /* WallHintsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallHintsGameViewController.swift; sourceTree = "<group>"; };
+		8C9BD4D62F0A036B00D1D915 /* WallHintsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallHintsGridNode.swift; sourceTree = "<group>"; };
+		8C9BD4D72F0A036B00D1D915 /* WallHintsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallHintsMainViewController.swift; sourceTree = "<group>"; };
+		8C9BD4D82F0A036B00D1D915 /* WallHintsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallHintsObject.swift; sourceTree = "<group>"; };
 		8C9F321E1ECF06BF00E10965 /* Tapa.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tapa.xml; sourceTree = "<group>"; };
 		8C9F321F1ECF06BF00E10965 /* TapaDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaDocument.swift; sourceTree = "<group>"; };
 		8C9F32201ECF06BF00E10965 /* TapaGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaGame.swift; sourceTree = "<group>"; };
@@ -3195,6 +3213,7 @@
 				8C2319E21FB88E3F0021C680 /* TierraDelFuego */,
 				8C81BC0F2EA84D010083B936 /* TraceNumbers */,
 				8CAFBFDA2E9F19A500C27D7C /* TurnTwice */,
+				8C9BD4D92F0A036B00D1D915 /* WallHints */,
 				8C35E3971FC4839000A26EE3 /* Walls */,
 				8CFAF995202615560095EFFC /* WallSentinels */,
 				8C8661E72EA35BDB0078CD64 /* Warehouse */,
@@ -4590,6 +4609,22 @@
 			path = WishSandwich;
 			sourceTree = "<group>";
 		};
+		8C9BD4D92F0A036B00D1D915 /* WallHints */ = {
+			isa = PBXGroup;
+			children = (
+				8C9BD4D02F0A036B00D1D915 /* WallHints.xml */,
+				8C9BD4D12F0A036B00D1D915 /* WallHintsDocument.swift */,
+				8C9BD4D22F0A036B00D1D915 /* WallHintsGame.swift */,
+				8C9BD4D32F0A036B00D1D915 /* WallHintsGameScene.swift */,
+				8C9BD4D42F0A036B00D1D915 /* WallHintsGameState.swift */,
+				8C9BD4D52F0A036B00D1D915 /* WallHintsGameViewController.swift */,
+				8C9BD4D62F0A036B00D1D915 /* WallHintsGridNode.swift */,
+				8C9BD4D72F0A036B00D1D915 /* WallHintsMainViewController.swift */,
+				8C9BD4D82F0A036B00D1D915 /* WallHintsObject.swift */,
+			);
+			path = WallHints;
+			sourceTree = "<group>";
+		};
 		8C9F321D1ECF06BF00E10965 /* Tapa */ = {
 			isa = PBXGroup;
 			children = (
@@ -5606,6 +5641,7 @@
 				8C8664012EA39DD00078CD64 /* bomb.png in Resources */,
 				8C8664022EA39DD00078CD64 /* rome.png in Resources */,
 				8C8664032EA39DD00078CD64 /* thermometer2B.png in Resources */,
+				8C9BD4E22F0A036B00D1D915 /* WallHints.xml in Resources */,
 				8C8664042EA39DD00078CD64 /* cranberries.png in Resources */,
 				8C8664052EA39DD00078CD64 /* dumbbell (2).png in Resources */,
 				8C8664062EA39DD00078CD64 /* flower_light_blue.png in Resources */,
@@ -6000,6 +6036,14 @@
 				8CA043141FDBE77B00AF85E1 /* CarpentersWallGameState.swift in Sources */,
 				8C6ACBFF1DCAF8BA0075F32C /* GameMixin.swift in Sources */,
 				8CC25CC71F87BB5A005560F7 /* KakuroGameViewController.swift in Sources */,
+				8C9BD4DA2F0A036B00D1D915 /* WallHintsDocument.swift in Sources */,
+				8C9BD4DB2F0A036B00D1D915 /* WallHintsGame.swift in Sources */,
+				8C9BD4DC2F0A036B00D1D915 /* WallHintsMainViewController.swift in Sources */,
+				8C9BD4DD2F0A036B00D1D915 /* WallHintsGameScene.swift in Sources */,
+				8C9BD4DE2F0A036B00D1D915 /* WallHintsGameState.swift in Sources */,
+				8C9BD4DF2F0A036B00D1D915 /* WallHintsGameViewController.swift in Sources */,
+				8C9BD4E02F0A036B00D1D915 /* WallHintsObject.swift in Sources */,
+				8C9BD4E12F0A036B00D1D915 /* WallHintsGridNode.swift in Sources */,
 				8CE9C3101F7914B800134093 /* KakurasuDocument.swift in Sources */,
 				8C6A35E71FAF4FFD00D2804D /* MathraxMainViewController.swift in Sources */,
 				8C3A37021EC88D4300A914A5 /* MasyuGridNode.swift in Sources */,

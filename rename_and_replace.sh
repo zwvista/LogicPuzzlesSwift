@@ -2,11 +2,11 @@
 set -e
 
 # 协程变量（源字符串和目标字符串）
-SRC="PowerGrid"
-DST="WishSandwich"
+SRC="BoxItAgain"
+DST="WallHints"
 
 # 切换到 Branches 目录
-cd "$(dirname "$0")/LogicPuzzlesSwift/Puzzles/WishSandwich"
+cd "$(dirname "$0")/LogicPuzzlesSwift/Puzzles/WallHints"
 
 # 1. 改文件名
 for f in ${SRC}*; do
