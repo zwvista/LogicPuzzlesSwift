@@ -86,17 +86,15 @@ class WallHintsGameState: GridGameState<WallHintsGameMove> {
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 15/Box It Again
+        iOS Game: 100 Logic Games 2/Puzzle Set 4/Wall Hints
 
         Summary
-        Harder Boxes
+        Corner numbers
 
         Description
-        1. Just like Box It Up, you have to divide the Board in Boxes (Rectangles).
-        2. Each Box must contain one number and the number represents the area of
-           that Box.
-        3. However this time, some tiles can be left unboxed, the board isn't 
-           entirely covered by boxes.
+        1. Divide the board in rectangular areas, each with a number in it.
+        2. The number tells you how many sides on that tile are marked by a
+           border, including the board external border.
     */
     private func updateIsSolved() {
         isSolved = true
@@ -122,38 +120,24 @@ class WallHintsGameState: GridGameState<WallHintsGameMove> {
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
             let rng = area.filter { p in game.pos2hint[p] != nil }
-            // 3. Some tiles can be left unboxed, the board isn't entirely covered by boxes.
-            if rng.count == 0 {continue}
-            // 2. Each Box must contain one number.
+            // 1. Divide the board in rectangular areas, each with a number in it.
             if rng.count != 1 {
                 for p in rng {
                     pos2state[p] = .normal
                 }
                 isSolved = false; continue
             }
-            let p2 = rng[0]
-            let n1 = area.count, n2 = game.pos2hint[p2]!
-            var r2 = 0, r1 = rows, c2 = 0, c1 = cols
-            for p in area {
-                if r2 < p.row { r2 = p.row }
-                if r1 > p.row { r1 = p.row }
-                if c2 < p.col { c2 = p.col }
-                if c1 > p.col { c1 = p.col }
+            let p = rng[0]
+            let n2 = game.pos2hint[p]!
+            var n1 = 0
+            for i in 0..<4 {
+                if self[p + WallHintsGame.offset2[i]][WallHintsGame.dirs[i]] == .line { n1 += 1 }
             }
-            let rs = r2 - r1 + 1, cs = c2 - c1 + 1
-            func hasLine() -> Bool {
-                for r in r1...r2 {
-                    for c in c1...c2 {
-                        let dotObj = self[r + 1, c + 1]
-                        if r < r2 && dotObj[3] == .line || c < c2 && dotObj[0] == .line { return true }
-                    }
-                }
-                return false
-            }
-            // 1. Just like Box It Up, you have to divide the Board in Boxes (Rectangles).
-            // 2. The number represents the area of that Box.
-            pos2state[p2] = rs * cs == n1 && rs * cs == n2 && !hasLine() ? .complete : .error
-            if pos2state[p2] != .complete { isSolved = false }
+            // 2. The number tells you how many sides on that tile are marked by a
+            //    border, including the board external border.
+            let s: HintState = n1 == n2 ? .complete : .error
+            pos2state[p] = s
+            if s != .complete { isSolved = false }
         }
     }
 }
