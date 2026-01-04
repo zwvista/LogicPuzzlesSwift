@@ -80,6 +80,7 @@ class CaffelatteGameState: GridGameState<CaffelatteGameMove> {
                 ch2dirs[p] = dirs
                 let cnt = dirs.count
                 if ch == " " {
+                    // 2. Links must be straight lines, not crossing each other.
                     guard cnt == 0 || (cnt == 2 && (dirs[0] + 2) % 4 == dirs[1]) else { isSolved = false; return }
                     if cnt == 2 { rng.append(p) }
                 } else {
@@ -88,6 +89,9 @@ class CaffelatteGameState: GridGameState<CaffelatteGameMove> {
                 }
             }
         }
+        // 1. Make Cappuccino by linking each cup to one or more coffee beans and cows.
+        // 4. When linking multiple beans and cows, you can also link cows to cows and
+        //    beans to beans, other than linking them to the cup.
         let g = Graph()
         var pos2node = [Position: Node]()
         for p in rng {
@@ -107,7 +111,9 @@ class CaffelatteGameState: GridGameState<CaffelatteGameMove> {
             let nBean = area.count { game[$0] == CaffelatteGame.PUZ_BEAN }
             let nCup = area.count { game[$0] == CaffelatteGame.PUZ_CUP }
             let nMilk = area.count { game[$0] == CaffelatteGame.PUZ_MILK }
-            guard nCup == 1 && nBean == nMilk else { isSolved = false; return }
+            // 3. To each cup there must be linked an equal number of beans and cows. At
+            //    least one of each.
+            guard nCup == 1 && nBean > 0 && nBean == nMilk else { isSolved = false; return }
         }
     }
 }
