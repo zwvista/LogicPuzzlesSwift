@@ -53,6 +53,7 @@ class InsaneTatamisGameScene: GameScene<InsaneTatamisGameState> {
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let horzLineNodeName = "horzLine" + nodeNameSuffix
                 let vertlineNodeName = "vertline" + nodeNameSuffix
+                let invalidDotNodeName = "invalidDot" + nodeNameSuffix
                 func removeHorzLine(objType: GridLineObject) {
                     if objType != .empty { removeNode(withName: horzLineNodeName) }
                 }
@@ -68,6 +69,12 @@ class InsaneTatamisGameScene: GameScene<InsaneTatamisGameState> {
                 if o1 != o2 {
                     removeVertLine(objType: o1)
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
+                }
+                let (b1, b2) = (stateFrom.invalidDots.contains(p), stateTo.invalidDots.contains(p))
+                if b1 != b2 {
+                    let point = gridNode.cornerPoint(p: p)
+                    if b1 { removeNode(withName: invalidDotNodeName) }
+                    if b2 { addDotMarker2(color: .red, point: point, nodeName: invalidDotNodeName) }
                 }
                 let hintNodeName = "hint" + nodeNameSuffix
                 func removeHint() { removeNode(withName: hintNodeName) }

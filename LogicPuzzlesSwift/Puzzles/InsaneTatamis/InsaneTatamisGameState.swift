@@ -16,6 +16,7 @@ class InsaneTatamisGameState: GridGameState<InsaneTatamisGameMove> {
     override var gameDocument: GameDocumentBase { InsaneTatamisDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
+    var invalidDots = [Position]()
     
     override func copy() -> InsaneTatamisGameState {
         let v = InsaneTatamisGameState(game: game, isCopy: true)
@@ -149,6 +150,15 @@ class InsaneTatamisGameState: GridGameState<InsaneTatamisGameMove> {
             s = s == .complete && n1 != n2 ? .complete : .error
             pos2state[p2] = s
             if s != .complete { isSolved = false }
+        }
+        // 4. A grid dot must not be shared by the corners of four areas.
+        invalidDots.removeAll()
+        for r in 1..<rows - 1 {
+            for c in 1..<cols - 1 {
+                let p = Position(r, c)
+                guard (0..<4).allSatisfy({ self[p][$0] == .line }) else {continue}
+                invalidDots.append(p)
+            }
         }
     }
 }
