@@ -122,17 +122,14 @@ class BoxItAgainGameState: GridGameState<BoxItAgainGameMove> {
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
             let rng = area.filter { p in game.pos2hint[p] != nil }
-            // 3. Some tiles can be left unboxed, the board isn't entirely covered by boxes.
-            if rng.isEmpty {continue}
             // 2. Each Box must contain one number.
-            if rng.count != 1 {
+            if rng.count > 1 {
                 for p in rng {
                     pos2state[p] = .normal
                 }
                 isSolved = false; continue
             }
-            let p2 = rng[0]
-            let n1 = area.count, n2 = game.pos2hint[p2]!
+            let n1 = area.count
             var r2 = 0, r1 = rows, c2 = 0, c1 = cols
             for p in area {
                 if r2 < p.row { r2 = p.row }
@@ -141,6 +138,10 @@ class BoxItAgainGameState: GridGameState<BoxItAgainGameMove> {
                 if c1 > p.col { c1 = p.col }
             }
             let rs = r2 - r1 + 1, cs = c2 - c1 + 1
+            var s: HintState = rs * cs == n1 ? .complete : .error
+            if s != .complete { isSolved = false }
+            // 3. Some tiles can be left unboxed, the board isn't entirely covered by boxes.
+            guard !rng.isEmpty else {continue}
             func hasLine() -> Bool {
                 for r in r1...r2 {
                     for c in c1...c2 {
@@ -150,10 +151,13 @@ class BoxItAgainGameState: GridGameState<BoxItAgainGameMove> {
                 }
                 return false
             }
+            let p2 = rng[0]
+            let n2 = game.pos2hint[p2]!
             // 1. Just like Box It Up, you have to divide the Board in Boxes (Rectangles).
-            // 2. The number represents the area of that Box.
-            pos2state[p2] = rs * cs == n1 && rs * cs == n2 && !hasLine() ? .complete : .error
-            if pos2state[p2] != .complete { isSolved = false }
+            // 3. A cell with a number indicates the length of the Tatami.
+            s = s == .complete && n1 == n2 && !hasLine() ? .complete : .error
+            pos2state[p2] = s
+            if s != .complete { isSolved = false }
         }
     }
 }
