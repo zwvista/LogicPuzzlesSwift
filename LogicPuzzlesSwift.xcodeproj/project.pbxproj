@@ -1070,6 +1070,15 @@
 		8C9BD5062F0A178300D1D915 /* InsaneTatamisMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4FD2F0A178300D1D915 /* InsaneTatamisMainViewController.swift */; };
 		8C9BD5072F0A178300D1D915 /* InsaneTatamisObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4FE2F0A178300D1D915 /* InsaneTatamisObject.swift */; };
 		8C9BD5082F0A178300D1D915 /* InsaneTatamis.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BD4F62F0A178300D1D915 /* InsaneTatamis.xml */; };
+		8C9BD5132F0A32CA00D1D915 /* FreePlanksGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD50E2F0A32CA00D1D915 /* FreePlanksGameViewController.swift */; };
+		8C9BD5142F0A32CA00D1D915 /* FreePlanksDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD50A2F0A32CA00D1D915 /* FreePlanksDocument.swift */; };
+		8C9BD5152F0A32CA00D1D915 /* FreePlanksObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5112F0A32CA00D1D915 /* FreePlanksObject.swift */; };
+		8C9BD5162F0A32CA00D1D915 /* FreePlanksMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5102F0A32CA00D1D915 /* FreePlanksMainViewController.swift */; };
+		8C9BD5172F0A32CA00D1D915 /* FreePlanksGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD50C2F0A32CA00D1D915 /* FreePlanksGameScene.swift */; };
+		8C9BD5182F0A32CA00D1D915 /* FreePlanksGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD50B2F0A32CA00D1D915 /* FreePlanksGame.swift */; };
+		8C9BD5192F0A32CA00D1D915 /* FreePlanksGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD50F2F0A32CA00D1D915 /* FreePlanksGridNode.swift */; };
+		8C9BD51A2F0A32CA00D1D915 /* FreePlanksGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD50D2F0A32CA00D1D915 /* FreePlanksGameState.swift */; };
+		8C9BD51B2F0A32CA00D1D915 /* FreePlanks.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BD5092F0A32CA00D1D915 /* FreePlanks.xml */; };
 		8C9F32291ECF06C000E10965 /* Tapa.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F321E1ECF06BF00E10965 /* Tapa.xml */; };
 		8C9F322A1ECF06C000E10965 /* TapaDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F321F1ECF06BF00E10965 /* TapaDocument.swift */; };
 		8C9F322B1ECF06C000E10965 /* TapaGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F32201ECF06BF00E10965 /* TapaGame.swift */; };
@@ -2490,6 +2499,15 @@
 		8C9BD4FC2F0A178300D1D915 /* InsaneTatamisGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsaneTatamisGridNode.swift; sourceTree = "<group>"; };
 		8C9BD4FD2F0A178300D1D915 /* InsaneTatamisMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsaneTatamisMainViewController.swift; sourceTree = "<group>"; };
 		8C9BD4FE2F0A178300D1D915 /* InsaneTatamisObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsaneTatamisObject.swift; sourceTree = "<group>"; };
+		8C9BD5092F0A32CA00D1D915 /* FreePlanks.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FreePlanks.xml; sourceTree = "<group>"; };
+		8C9BD50A2F0A32CA00D1D915 /* FreePlanksDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreePlanksDocument.swift; sourceTree = "<group>"; };
+		8C9BD50B2F0A32CA00D1D915 /* FreePlanksGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreePlanksGame.swift; sourceTree = "<group>"; };
+		8C9BD50C2F0A32CA00D1D915 /* FreePlanksGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreePlanksGameScene.swift; sourceTree = "<group>"; };
+		8C9BD50D2F0A32CA00D1D915 /* FreePlanksGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreePlanksGameState.swift; sourceTree = "<group>"; };
+		8C9BD50E2F0A32CA00D1D915 /* FreePlanksGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreePlanksGameViewController.swift; sourceTree = "<group>"; };
+		8C9BD50F2F0A32CA00D1D915 /* FreePlanksGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreePlanksGridNode.swift; sourceTree = "<group>"; };
+		8C9BD5102F0A32CA00D1D915 /* FreePlanksMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreePlanksMainViewController.swift; sourceTree = "<group>"; };
+		8C9BD5112F0A32CA00D1D915 /* FreePlanksObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreePlanksObject.swift; sourceTree = "<group>"; };
 		8C9F321E1ECF06BF00E10965 /* Tapa.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tapa.xml; sourceTree = "<group>"; };
 		8C9F321F1ECF06BF00E10965 /* TapaDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaDocument.swift; sourceTree = "<group>"; };
 		8C9F32201ECF06BF00E10965 /* TapaGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaGame.swift; sourceTree = "<group>"; };
@@ -3174,6 +3192,7 @@
 				8C8661FA2EA383740078CD64 /* Fields */,
 				8CA042CC1FDB878700AF85E1 /* Fillomino */,
 				8C74745A1FBEFD5700C4112C /* FourMeNot */,
+				8C9BD5122F0A32CA00D1D915 /* FreePlanks */,
 				8CE43BCB1FEE6C7B00DCCD91 /* Futoshiki */,
 				8C2973D51EE7284C0022A18A /* Galaxies */,
 				8C35E37E1FC2844E00A26EE3 /* Gardener */,
@@ -4695,6 +4714,22 @@
 			path = InsaneTatamis;
 			sourceTree = "<group>";
 		};
+		8C9BD5122F0A32CA00D1D915 /* FreePlanks */ = {
+			isa = PBXGroup;
+			children = (
+				8C9BD5092F0A32CA00D1D915 /* FreePlanks.xml */,
+				8C9BD50A2F0A32CA00D1D915 /* FreePlanksDocument.swift */,
+				8C9BD50B2F0A32CA00D1D915 /* FreePlanksGame.swift */,
+				8C9BD50C2F0A32CA00D1D915 /* FreePlanksGameScene.swift */,
+				8C9BD50D2F0A32CA00D1D915 /* FreePlanksGameState.swift */,
+				8C9BD50E2F0A32CA00D1D915 /* FreePlanksGameViewController.swift */,
+				8C9BD50F2F0A32CA00D1D915 /* FreePlanksGridNode.swift */,
+				8C9BD5102F0A32CA00D1D915 /* FreePlanksMainViewController.swift */,
+				8C9BD5112F0A32CA00D1D915 /* FreePlanksObject.swift */,
+			);
+			path = FreePlanks;
+			sourceTree = "<group>";
+		};
 		8C9F321D1ECF06BF00E10965 /* Tapa */ = {
 			isa = PBXGroup;
 			children = (
@@ -5838,6 +5873,7 @@
 				8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */,
 				8C7E4B4E1F7940E300B57C60 /* TennerGrid.xml in Resources */,
 				8CA043161FDBE77B00AF85E1 /* CarpentersWall.xml in Resources */,
+				8C9BD51B2F0A32CA00D1D915 /* FreePlanks.xml in Resources */,
 				8C3A366C1EC88D4200A914A5 /* Domino.xml in Resources */,
 				8C8E77D52E873AD7006BBF98 /* Branches.xml in Resources */,
 				8C2319F81FB88E3F0021C680 /* TierraDelFuego.xml in Resources */,
@@ -5960,6 +5996,14 @@
 				8C3A36411EC88D4200A914A5 /* BridgesGameViewController.swift in Sources */,
 				8C355CEB1FE586F9002FC9D6 /* ABCPathDocument.swift in Sources */,
 				8C3A37A91EC88D4400A914A5 /* SkyscrapersGameViewController.swift in Sources */,
+				8C9BD5132F0A32CA00D1D915 /* FreePlanksGameViewController.swift in Sources */,
+				8C9BD5142F0A32CA00D1D915 /* FreePlanksDocument.swift in Sources */,
+				8C9BD5152F0A32CA00D1D915 /* FreePlanksObject.swift in Sources */,
+				8C9BD5162F0A32CA00D1D915 /* FreePlanksMainViewController.swift in Sources */,
+				8C9BD5172F0A32CA00D1D915 /* FreePlanksGameScene.swift in Sources */,
+				8C9BD5182F0A32CA00D1D915 /* FreePlanksGame.swift in Sources */,
+				8C9BD5192F0A32CA00D1D915 /* FreePlanksGridNode.swift in Sources */,
+				8C9BD51A2F0A32CA00D1D915 /* FreePlanksGameState.swift in Sources */,
 				8C9F324A1ED1FAD400E10965 /* BWTapaObject.swift in Sources */,
 				8C7E4B441F793C9800B57C60 /* TennerGridDocument.swift in Sources */,
 				8C3A35EC1EC88D4200A914A5 /* AbcGameState.swift in Sources */,
