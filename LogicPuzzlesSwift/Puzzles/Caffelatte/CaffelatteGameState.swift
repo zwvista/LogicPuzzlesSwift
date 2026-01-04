@@ -80,7 +80,7 @@ class CaffelatteGameState: GridGameState<CaffelatteGameMove> {
                 ch2dirs[p] = dirs
                 let cnt = dirs.count
                 if ch == " " {
-                    guard cnt == 0 || cnt == 2 else { isSolved = false; return }
+                    guard cnt == 0 || (cnt == 2 && (dirs[0] + 2) % 4 == dirs[1]) else { isSolved = false; return }
                     if cnt == 2 { rng.append(p) }
                 } else {
                     guard cnt > 0 else { isSolved = false; return }
@@ -96,7 +96,8 @@ class CaffelatteGameState: GridGameState<CaffelatteGameMove> {
         for p in rng {
             for i in 0..<4 {
                 guard self[p][i] else {continue}
-                g.addEdge(pos2node[p]!, neighbor: pos2node[p + CaffelatteGame.offset[i]]!)
+                guard let node2 = pos2node[p + CaffelatteGame.offset[i]] else { isSolved = false; return }
+                g.addEdge(pos2node[p]!, neighbor: node2)
             }
         }
         while !pos2node.isEmpty {
