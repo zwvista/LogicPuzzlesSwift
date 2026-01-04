@@ -1142,6 +1142,15 @@
 		8C9BD5B02F0A7FC200D1D915 /* LoopAndBlocksGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5A32F0A7FC200D1D915 /* LoopAndBlocksGameScene.swift */; };
 		8C9BD5B12F0A7FC200D1D915 /* LoopAndBlocksDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5A12F0A7FC200D1D915 /* LoopAndBlocksDocument.swift */; };
 		8C9BD5B22F0A7FC200D1D915 /* LoopAndBlocks.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BD5A02F0A7FC200D1D915 /* LoopAndBlocks.xml */; };
+		8C9BD5D02F0A830A00D1D915 /* StraightAndTurnGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5CA2F0A830A00D1D915 /* StraightAndTurnGameState.swift */; };
+		8C9BD5D12F0A830A00D1D915 /* StraightAndTurnObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5CE2F0A830A00D1D915 /* StraightAndTurnObject.swift */; };
+		8C9BD5D22F0A830A00D1D915 /* StraightAndTurnDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5C72F0A830A00D1D915 /* StraightAndTurnDocument.swift */; };
+		8C9BD5D32F0A830A00D1D915 /* StraightAndTurnMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5CD2F0A830A00D1D915 /* StraightAndTurnMainViewController.swift */; };
+		8C9BD5D42F0A830A00D1D915 /* StraightAndTurnGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5C82F0A830A00D1D915 /* StraightAndTurnGame.swift */; };
+		8C9BD5D52F0A830A00D1D915 /* StraightAndTurnGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5C92F0A830A00D1D915 /* StraightAndTurnGameScene.swift */; };
+		8C9BD5D62F0A830A00D1D915 /* StraightAndTurnGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5CB2F0A830A00D1D915 /* StraightAndTurnGameViewController.swift */; };
+		8C9BD5D72F0A830A00D1D915 /* StraightAndTurnGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5CC2F0A830A00D1D915 /* StraightAndTurnGridNode.swift */; };
+		8C9BD5D82F0A830A00D1D915 /* StraightAndTurn.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BD5C62F0A830A00D1D915 /* StraightAndTurn.xml */; };
 		8C9F32291ECF06C000E10965 /* Tapa.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F321E1ECF06BF00E10965 /* Tapa.xml */; };
 		8C9F322A1ECF06C000E10965 /* TapaDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F321F1ECF06BF00E10965 /* TapaDocument.swift */; };
 		8C9F322B1ECF06C000E10965 /* TapaGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F32201ECF06BF00E10965 /* TapaGame.swift */; };
@@ -2633,6 +2642,15 @@
 		8C9BD5A62F0A7FC200D1D915 /* LoopAndBlocksGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopAndBlocksGridNode.swift; sourceTree = "<group>"; };
 		8C9BD5A72F0A7FC200D1D915 /* LoopAndBlocksMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopAndBlocksMainViewController.swift; sourceTree = "<group>"; };
 		8C9BD5A82F0A7FC200D1D915 /* LoopAndBlocksObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopAndBlocksObject.swift; sourceTree = "<group>"; };
+		8C9BD5C62F0A830A00D1D915 /* StraightAndTurn.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = StraightAndTurn.xml; sourceTree = "<group>"; };
+		8C9BD5C72F0A830A00D1D915 /* StraightAndTurnDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightAndTurnDocument.swift; sourceTree = "<group>"; };
+		8C9BD5C82F0A830A00D1D915 /* StraightAndTurnGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightAndTurnGame.swift; sourceTree = "<group>"; };
+		8C9BD5C92F0A830A00D1D915 /* StraightAndTurnGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightAndTurnGameScene.swift; sourceTree = "<group>"; };
+		8C9BD5CA2F0A830A00D1D915 /* StraightAndTurnGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightAndTurnGameState.swift; sourceTree = "<group>"; };
+		8C9BD5CB2F0A830A00D1D915 /* StraightAndTurnGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightAndTurnGameViewController.swift; sourceTree = "<group>"; };
+		8C9BD5CC2F0A830A00D1D915 /* StraightAndTurnGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightAndTurnGridNode.swift; sourceTree = "<group>"; };
+		8C9BD5CD2F0A830A00D1D915 /* StraightAndTurnMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightAndTurnMainViewController.swift; sourceTree = "<group>"; };
+		8C9BD5CE2F0A830A00D1D915 /* StraightAndTurnObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightAndTurnObject.swift; sourceTree = "<group>"; };
 		8C9F321E1ECF06BF00E10965 /* Tapa.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tapa.xml; sourceTree = "<group>"; };
 		8C9F321F1ECF06BF00E10965 /* TapaDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaDocument.swift; sourceTree = "<group>"; };
 		8C9F32201ECF06BF00E10965 /* TapaGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaGame.swift; sourceTree = "<group>"; };
@@ -3386,6 +3404,7 @@
 				8C506F021F6D2C9300BA4332 /* Snake */,
 				8C1D4F7A1F7D079F000D5FB3 /* Square100 */,
 				8C9BD5962F0A7DFF00D1D915 /* Stacks */,
+				8C9BD5CF2F0A830A00D1D915 /* StraightAndTurn */,
 				8C3A35C11EC88D4200A914A5 /* Sumscrapers */,
 				8C9F321D1ECF06BF00E10965 /* Tapa */,
 				8C9F32871ED1FB0700E10965 /* TapaIslands */,
@@ -4973,6 +4992,22 @@
 			path = LoopAndBlocks;
 			sourceTree = "<group>";
 		};
+		8C9BD5CF2F0A830A00D1D915 /* StraightAndTurn */ = {
+			isa = PBXGroup;
+			children = (
+				8C9BD5C62F0A830A00D1D915 /* StraightAndTurn.xml */,
+				8C9BD5C72F0A830A00D1D915 /* StraightAndTurnDocument.swift */,
+				8C9BD5C82F0A830A00D1D915 /* StraightAndTurnGame.swift */,
+				8C9BD5C92F0A830A00D1D915 /* StraightAndTurnGameScene.swift */,
+				8C9BD5CA2F0A830A00D1D915 /* StraightAndTurnGameState.swift */,
+				8C9BD5CB2F0A830A00D1D915 /* StraightAndTurnGameViewController.swift */,
+				8C9BD5CC2F0A830A00D1D915 /* StraightAndTurnGridNode.swift */,
+				8C9BD5CD2F0A830A00D1D915 /* StraightAndTurnMainViewController.swift */,
+				8C9BD5CE2F0A830A00D1D915 /* StraightAndTurnObject.swift */,
+			);
+			path = StraightAndTurn;
+			sourceTree = "<group>";
+		};
 		8C9F321D1ECF06BF00E10965 /* Tapa */ = {
 			isa = PBXGroup;
 			children = (
@@ -5825,6 +5860,7 @@
 				8C8663612EA39DD00078CD64 /* currant.png in Resources */,
 				8C8663622EA39DD00078CD64 /* car_vertical.png in Resources */,
 				8C8663632EA39DD00078CD64 /* arrow_yellow_right.png in Resources */,
+				8C9BD5D82F0A830A00D1D915 /* StraightAndTurn.xml in Resources */,
 				8C8663642EA39DD00078CD64 /* fence1.png in Resources */,
 				8C8663652EA39DD00078CD64 /* lightbulb2.png in Resources */,
 				8C8663662EA39DD00078CD64 /* someberry.png in Resources */,
@@ -7175,6 +7211,14 @@
 				8C9BD4C92F09F2B700D1D915 /* WishSandwichGameViewController.swift in Sources */,
 				8C9BD4CA2F09F2B700D1D915 /* WishSandwichDocument.swift in Sources */,
 				8C9BD4CB2F09F2B700D1D915 /* WishSandwichGame.swift in Sources */,
+				8C9BD5D02F0A830A00D1D915 /* StraightAndTurnGameState.swift in Sources */,
+				8C9BD5D12F0A830A00D1D915 /* StraightAndTurnObject.swift in Sources */,
+				8C9BD5D22F0A830A00D1D915 /* StraightAndTurnDocument.swift in Sources */,
+				8C9BD5D32F0A830A00D1D915 /* StraightAndTurnMainViewController.swift in Sources */,
+				8C9BD5D42F0A830A00D1D915 /* StraightAndTurnGame.swift in Sources */,
+				8C9BD5D52F0A830A00D1D915 /* StraightAndTurnGameScene.swift in Sources */,
+				8C9BD5D62F0A830A00D1D915 /* StraightAndTurnGameViewController.swift in Sources */,
+				8C9BD5D72F0A830A00D1D915 /* StraightAndTurnGridNode.swift in Sources */,
 				8C9BD4CC2F09F2B700D1D915 /* WishSandwichGridNode.swift in Sources */,
 				8C9BD4CD2F09F2B700D1D915 /* WishSandwichMainViewController.swift in Sources */,
 				8CA042E21FDB878800AF85E1 /* FillominoGameViewController.swift in Sources */,
