@@ -135,9 +135,9 @@
 		0F86AE6ACC1D8691C2C9496DBCDC142D /* DoubleExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DoubleExtensions.swift; path = Sources/DoubleExtensions.swift; sourceTree = "<group>"; };
 		108BDAA10D193A91E63734CC388C31EB /* UIImageExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIImageExtensions.swift; path = Sources/UIImageExtensions.swift; sourceTree = "<group>"; };
 		12F305E615C46CB5E98890DAC91E430C /* UIEdgeInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIEdgeInsets.swift; path = Sources/UIEdgeInsets.swift; sourceTree = "<group>"; };
-		16F9BA2C012908B72858BA9252FD661F /* EZSwiftExtensions */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = EZSwiftExtensions; path = EZSwiftExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		16F9BA2C012908B72858BA9252FD661F /* EZSwiftExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EZSwiftExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		17DE6C65824B04C24366F303EE0BC708 /* ActionSheetPicker-3.0.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "ActionSheetPicker-3.0.debug.xcconfig"; sourceTree = "<group>"; };
-		1A7C2E118BAA3348A5A31EAC9A3B2EE2 /* Fuzi */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Fuzi; path = Fuzi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A7C2E118BAA3348A5A31EAC9A3B2EE2 /* Fuzi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fuzi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E34B619E7A764F2F80647D7B2478D3D /* UIColoredView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIColoredView.swift; path = Sources/UIColoredView.swift; sourceTree = "<group>"; };
 		1FEFAD24188C6225A7132D97FD556495 /* ActionSheetCustomPicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ActionSheetCustomPicker.h; path = CoreActionSheetPicker/CoreActionSheetPicker/Pickers/ActionSheetCustomPicker.h; sourceTree = "<group>"; };
 		21EA574C6B5E5056E27D361F5A23050F /* Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = Sources/Helpers.swift; sourceTree = "<group>"; };
@@ -200,8 +200,8 @@
 		9210F2CBC8A99BAB434E47B7568E99C9 /* EZSwiftExtensions-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EZSwiftExtensions-dummy.m"; sourceTree = "<group>"; };
 		93E514D1672C4DE44BBE17A79F5E2577 /* ActionSheetMultipleStringPicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ActionSheetMultipleStringPicker.h; path = CoreActionSheetPicker/CoreActionSheetPicker/Pickers/ActionSheetMultipleStringPicker.h; sourceTree = "<group>"; };
 		969ADEF61825A8A16B822A69C537939D /* ActionSheetLocalePicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ActionSheetLocalePicker.h; path = CoreActionSheetPicker/CoreActionSheetPicker/Pickers/ActionSheetLocalePicker.h; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9DF3DD2ECB1DBCC69C3D703A9B00905F /* Pods-LogicPuzzlesSwift */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-LogicPuzzlesSwift"; path = Pods_LogicPuzzlesSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9DF3DD2ECB1DBCC69C3D703A9B00905F /* Pods_LogicPuzzlesSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogicPuzzlesSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F2CD7944EC43B67BD31680B7465EF6D /* BlockTap.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlockTap.swift; path = Sources/BlockTap.swift; sourceTree = "<group>"; };
 		A172B1D37EBD4676D773B134DB87A5CB /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Error.swift; path = Sources/Error.swift; sourceTree = "<group>"; };
 		A5224B2862C624725696514BCBB0E874 /* EZSwiftFunctions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EZSwiftFunctions.swift; path = Sources/EZSwiftFunctions.swift; sourceTree = "<group>"; };
@@ -225,7 +225,7 @@
 		C69FA94DAD73DFEF6C4079B90CBE00DA /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIApplicationExtensions.swift; path = Sources/UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		C9BAE214B3A5F54471E39623DDAD4ADA /* BlockSwipe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BlockSwipe.swift; path = Sources/BlockSwipe.swift; sourceTree = "<group>"; };
 		CD1B45BCEA06EDE1947DF0999DB7EB7E /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserDefaultsExtension.swift; path = Sources/UserDefaultsExtension.swift; sourceTree = "<group>"; };
-		D6E470A0C684D4FBC08BDF7A28A2A38B /* ActionSheetPicker-3.0 */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "ActionSheetPicker-3.0"; path = ActionSheetPicker_3_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6E470A0C684D4FBC08BDF7A28A2A38B /* ActionSheetPicker_3_0.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ActionSheetPicker_3_0.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D74D688CEC78B83ED1F2EF423BF6330D /* BundleExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BundleExtensions.swift; path = Sources/BundleExtensions.swift; sourceTree = "<group>"; };
 		D87E0A3799D4884DEB02E44A06C268A8 /* UISwitchExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UISwitchExtensions.swift; path = Sources/UISwitchExtensions.swift; sourceTree = "<group>"; };
 		DD49DA48F39EF81E99B71F1234AF0931 /* HashableExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HashableExtensions.swift; path = Sources/HashableExtensions.swift; sourceTree = "<group>"; };
@@ -288,10 +288,10 @@
 		00BA1FB12CE3900758131EAE9FB18061 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D6E470A0C684D4FBC08BDF7A28A2A38B /* ActionSheetPicker-3.0 */,
-				16F9BA2C012908B72858BA9252FD661F /* EZSwiftExtensions */,
-				1A7C2E118BAA3348A5A31EAC9A3B2EE2 /* Fuzi */,
-				9DF3DD2ECB1DBCC69C3D703A9B00905F /* Pods-LogicPuzzlesSwift */,
+				D6E470A0C684D4FBC08BDF7A28A2A38B /* ActionSheetPicker_3_0.framework */,
+				16F9BA2C012908B72858BA9252FD661F /* EZSwiftExtensions.framework */,
+				1A7C2E118BAA3348A5A31EAC9A3B2EE2 /* Fuzi.framework */,
+				9DF3DD2ECB1DBCC69C3D703A9B00905F /* Pods_LogicPuzzlesSwift.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -395,7 +395,6 @@
 				CD1B45BCEA06EDE1947DF0999DB7EB7E /* UserDefaultsExtension.swift */,
 				2D6EE4EFDA1F2042E73732EC5837D1D1 /* Support Files */,
 			);
-			name = EZSwiftExtensions;
 			path = EZSwiftExtensions;
 			sourceTree = "<group>";
 		};
@@ -439,7 +438,6 @@
 				A8F55F932E1DCD833FAFF3B83ECF4C72 /* SWActionSheet.m */,
 				E27AA705C93D914AF80385A265BF1344 /* Support Files */,
 			);
-			name = "ActionSheetPicker-3.0";
 			path = "ActionSheetPicker-3.0";
 			sourceTree = "<group>";
 		};
@@ -476,7 +474,6 @@
 				0E4A295B8AD6102C7AE1DCFFF9C875BA /* Queryable.swift */,
 				5DC1AB722F1C60623C5C069A9C9D1F44 /* Support Files */,
 			);
-			name = Fuzi;
 			path = Fuzi;
 			sourceTree = "<group>";
 		};
@@ -576,7 +573,7 @@
 			);
 			name = "ActionSheetPicker-3.0";
 			productName = ActionSheetPicker_3_0;
-			productReference = D6E470A0C684D4FBC08BDF7A28A2A38B /* ActionSheetPicker-3.0 */;
+			productReference = D6E470A0C684D4FBC08BDF7A28A2A38B /* ActionSheetPicker_3_0.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		A77AA0BDCE93133F71426905A4A593BE /* Pods-LogicPuzzlesSwift */ = {
@@ -597,7 +594,7 @@
 			);
 			name = "Pods-LogicPuzzlesSwift";
 			productName = Pods_LogicPuzzlesSwift;
-			productReference = 9DF3DD2ECB1DBCC69C3D703A9B00905F /* Pods-LogicPuzzlesSwift */;
+			productReference = 9DF3DD2ECB1DBCC69C3D703A9B00905F /* Pods_LogicPuzzlesSwift.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		DA5D251995C8CA227693021778F92846 /* Fuzi */ = {
@@ -615,7 +612,7 @@
 			);
 			name = Fuzi;
 			productName = Fuzi;
-			productReference = 1A7C2E118BAA3348A5A31EAC9A3B2EE2 /* Fuzi */;
+			productReference = 1A7C2E118BAA3348A5A31EAC9A3B2EE2 /* Fuzi.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		EF1C217118CF22144902D022454149F9 /* EZSwiftExtensions */ = {
@@ -633,7 +630,7 @@
 			);
 			name = EZSwiftExtensions;
 			productName = EZSwiftExtensions;
-			productReference = 16F9BA2C012908B72858BA9252FD661F /* EZSwiftExtensions */;
+			productReference = 16F9BA2C012908B72858BA9252FD661F /* EZSwiftExtensions.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -654,8 +651,6 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			minimizedProjectReferenceProxies = 0;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = 00BA1FB12CE3900758131EAE9FB18061 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -883,7 +878,7 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/Fuzi/Fuzi-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -921,7 +916,7 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/ActionSheetPicker-3.0/ActionSheetPicker-3.0-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1026,7 +1021,7 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/Fuzi/Fuzi-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1065,7 +1060,7 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/EZSwiftExtensions/EZSwiftExtensions-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1166,7 +1161,7 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/EZSwiftExtensions/EZSwiftExtensions-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1244,7 +1239,7 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = "Target Support Files/ActionSheetPicker-3.0/ActionSheetPicker-3.0-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
