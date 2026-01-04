@@ -1,0 +1,2475 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Connect the islands with bridges.
+2. All the islands must be connected between them, forming a single path.
+3. Bridges are horizontal or vertical straight lines and cannot cross each other.
+4. Islands with numbers tell you how many bridges depart from it.
+5. Islands without a number can have any number of bridges.
+6. Shaded islands cannot be connected and should be avoided.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+1 21O2`
+     2`
+  O3 O`
+      `
+1 O 12`
+1  2 2`
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+O 1  1`
+    2O`
+O 221 `
+    2O`
+2  1 1`
+22 2O1`
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+2 O O2`
+     O`
+  112S`
+O    1`
+  2 1 `
+2 O 21`
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+2   22`
+     2`
+2 OO  `
+1   2O`
+  11  `
+O 2 21`
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+1 O O2`
+2 3 2 `
+     2`
+  2 2 `
+OS O22`
+1 1  2`
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+O O 21`
+2     `
+  O  2`
+2  1  `
+  O2  `
+11O 11`
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+1 O 21`
+    1 `
+2 2  1`
+O  1  `
+ 2 2  `
+22 2OO`
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+1 1O 2`
+O    O`
+  11 2`
+     1`
+  O 1 `
+2 O2 2`
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+12 211`
+      `
+2O 3 2`
+  OO  `
+2 2   `
+1S2O 1`
+    ]]>
+  </level>
+  <level id="10">
+    <![CDATA[
+1 O O2`
+2   O `
+ 1    `
+2 2 22`
+   2 2`
+221O 1`
+    ]]>
+  </level>
+  <level id="11">
+    <![CDATA[
+13 2O1`
+  O   `
+O   2 `
+    21`
+O 2   `
+222 O2`
+    ]]>
+  </level>
+  <level id="12">
+    <![CDATA[
+2O O 1`
+   O 1`
+22  O1`
+   1  `
+ 11 2 `
+O O O1`
+    ]]>
+  </level>
+  <level id="13">
+    <![CDATA[
+1 O 21`
+   O 2`
+22  1 `
+  2   `
+2  2O1`
+1OO OO`
+    ]]>
+  </level>
+  <level id="14">
+    <![CDATA[
+1 211O`
+2     `
+  O 2 `
+      `
+O 2 22`
+O 22 1`
+    ]]>
+  </level>
+  <level id="15">
+    <![CDATA[
+1 O222`
+      `
+2 2 1O`
+ O 2 3`
+   O O`
+2  112`
+    ]]>
+  </level>
+  <level id="16">
+    <![CDATA[
+11  O2`
+O 2   `
+2  1 O`
+  2   `
+OO2  O`
+2  1O2`
+    ]]>
+  </level>
+  <level id="17">
+    <![CDATA[
+O 2 11`
+  1  2`
+O 2 2 `
+ 1   3`
+2 2 O `
+1O  OO`
+    ]]>
+  </level>
+  <level id="18">
+    <![CDATA[
+1S OO2`
+  22  `
+O1   1`
+   11 `
+O1   1`
+2 OO O`
+    ]]>
+  </level>
+  <level id="19">
+    <![CDATA[
+1O 111`
+     2`
+1O  O2`
+2 2   `
+  2 O1`
+2 2  1`
+    ]]>
+  </level>
+  <level id="20">
+    <![CDATA[
+2   21`
+ O 2  `
+O 1 O `
+  1 S `
+    1O`
+2 OO 2`
+    ]]>
+  </level>
+  <level id="21">
+    <![CDATA[
+O12  2`
+2    O`
+  2 1 `
+1    O`
+O O2 2`
+2O 2 1`
+    ]]>
+  </level>
+  <level id="22">
+    <![CDATA[
+O 2O 1`
+ 2 O 2`
+O O O `
+     1`
+2 1 22`
+O2   O`
+    ]]>
+  </level>
+  <level id="23">
+    <![CDATA[
+O 1  1`
+   12O`
+O 2   `
+O  O21`
+  O  2`
+2O 2 2`
+    ]]>
+  </level>
+  <level id="24">
+    <![CDATA[
+O O 21`
+S   O2`
+O O  2`
+S 221 `
+O 2  2`
+O   O1`
+    ]]>
+  </level>
+  <level id="25">
+    <![CDATA[
+1O 2 2`
+  2  2`
+1   11`
+  O O `
+ 1 112`
+O OO 2`
+    ]]>
+  </level>
+  <level id="26">
+    <![CDATA[
+1 O  O`
+2 OO  `
+   S2O`
+O   2 `
+O  111`
+22 2 1`
+    ]]>
+  </level>
+  <level id="27">
+    <![CDATA[
+212 2O`
+    2O`
+2 21  `
+2 O O `
+1    1`
+2 2SO1`
+    ]]>
+  </level>
+  <level id="28">
+    <![CDATA[
+2O O21`
+2 21  `
+ 1    `
+O 3  2`
+O 3 1 `
+11O 11`
+    ]]>
+  </level>
+  <level id="29">
+    <![CDATA[
+2O  22`
+O 21 2`
+O21   `
+   21O`
+22    `
+111O 2`
+    ]]>
+  </level>
+  <level id="30">
+    <![CDATA[
+2 O 21`
+   O  `
+ O2   `
+1  22 `
+O 2  O`
+2O 2 O`
+    ]]>
+  </level>
+  <level id="31">
+    <![CDATA[
+O OO 21`
+  S 1 O`
+111    `
+   22  `
+ O2    `
+  2 O22`
+2O2 2 2`
+    ]]>
+  </level>
+  <level id="32">
+    <![CDATA[
+2 11 O2`
+      2`
+O 2 O2 `
+  S 1  `
+O OO 12`
+1      `
+1 2 2 2`
+    ]]>
+  </level>
+  <level id="33">
+    <![CDATA[
+O 2O 11`
+ 1 3 1 `
+S  22  `
+1 O OOO`
+1  2 22`
+2 2  2 `
+22  2 2`
+    ]]>
+  </level>
+  <level id="34">
+    <![CDATA[
+22 O 21`
+O 1   2`
+  2OSO `
+2   1 O`
+  221 O`
+  1  2O`
+11 O 21`
+    ]]>
+  </level>
+  <level id="35">
+    <![CDATA[
+2 2 O21`
+O 2 1 O`
+   1  O`
+O1 O O `
+ S11  2`
+OO  1 2`
+21   22`
+    ]]>
+  </level>
+  <level id="36">
+    <![CDATA[
+2    O1`
+  O   S`
+O1 12O2`
+2 2    `
+2    O1`
+ 1 2 O1`
+11 2 O1`
+    ]]>
+  </level>
+  <level id="37">
+    <![CDATA[
+2 2O  2`
+  1 1  `
+2    1O`
+O 1 O 2`
+ 1 O  2`
+O 2O 1 `
+2  11 2`
+    ]]>
+  </level>
+  <level id="38">
+    <![CDATA[
+2  2 22`
+O     1`
+  2O O2`
+OO     `
+ S 21  `
+1 12  2`
+12 22O1`
+    ]]>
+  </level>
+  <level id="39">
+    <![CDATA[
+222 O11`
+  1 O O`
+2 1O  O`
+O2     `
+     12`
+1  O1  `
+1O  122`
+    ]]>
+  </level>
+  <level id="40">
+    <![CDATA[
+12 22 1`
+  1 O21`
+2     O`
+ 1  O  `
+2SO2  2`
+O    1 `
+2 O O 2`
+    ]]>
+  </level>
+  <level id="41">
+    <![CDATA[
+O  2O 2`
+ 1   22`
+O  O   `
+ O   OO`
+1 2 1 2`
+1 2  O `
+O  2 21`
+    ]]>
+  </level>
+  <level id="42">
+    <![CDATA[
+2 22 12`
+ 1 O  O`
+    OO `
+2      `
+  12 O2`
+1   1 1`
+O OOS2O`
+    ]]>
+  </level>
+  <level id="43">
+    <![CDATA[
+2 11 O1`
+ O  1  `
+O    O2`
+   1  2`
+2O O 2 `
+1 O  2 `
+1O 2 O2`
+    ]]>
+  </level>
+  <level id="44">
+    <![CDATA[
+O2   2O`
+ 2  2 2`
+O OO   `
+    1 2`
+  O 1S `
+OSOS OO`
+2 22 21`
+    ]]>
+  </level>
+  <level id="45">
+    <![CDATA[
+2 2 2 O`
+   11  `
+O 1  22`
+O 2O   `
+  S1 O2`
+      1`
+O O 22O`
+    ]]>
+  </level>
+  <level id="46">
+    <![CDATA[
+11 O2 2`
+O O 1  `
+  2   2`
+O   2 2`
+  1 O O`
+  2 2  `
+O11   1`
+    ]]>
+  </level>
+  <level id="47">
+    <![CDATA[
+11 2 O1`
+      1`
+2 2  OO`
+O  2 O `
+   S1 2`
+O 222  `
+1  2 O1`
+    ]]>
+  </level>
+  <level id="48">
+    <![CDATA[
+O 12 22`
+  S    `
+2    2O`
+O OO  O`
+    122`
+ 1O O  `
+2 1O 21`
+    ]]>
+  </level>
+  <level id="49">
+    <![CDATA[
+2O 2  1`
+     1O`
+O 1O   `
+1  21 O`
+ O2    `
+    1 O`
+2 222 2`
+    ]]>
+  </level>
+  <level id="50">
+    <![CDATA[
+O O 112`
+ O O O `
+O  2  O`
+ OO  1 `
+   12 O`
+      2`
+222 1 1`
+    ]]>
+  </level>
+  <level id="51">
+    <![CDATA[
+2 1 1 O`
+ 22  1 `
+ O O  O`
+O   O  `
+ OO   1`
+O   O 2`
+O 22 2O`
+    ]]>
+  </level>
+  <level id="52">
+    <![CDATA[
+1O 2 21`
+  12  2`
+2O 2 O `
+ O3   2`
+2  O 21`
+1 S    `
+O O  O2`
+    ]]>
+  </level>
+  <level id="53">
+    <![CDATA[
+11O  O2`
+    O  `
+O O O  `
+O2   11`
+  2 2 2`
+O O  1 `
+112  11`
+    ]]>
+  </level>
+  <level id="54">
+    <![CDATA[
+2 O1SO2`
+OO  1  `
+  O1 12`
+23  O 2`
+  O   2`
+   2 1 `
+12 O  O`
+    ]]>
+  </level>
+  <level id="55">
+    <![CDATA[
+2 1 1 1`
+O 1  1 `
+   OO O`
+  1 S O`
+ 1O 2O `
+2  OO  `
+O OO  2`
+    ]]>
+  </level>
+  <level id="56">
+    <![CDATA[
+22  O2O`
+  O    `
+2 O OS2`
+    O1 `
+2SO1  1`
+ 1 2 2 `
+O    O1`
+    ]]>
+  </level>
+  <level id="57">
+    <![CDATA[
+O    O1`
+   1O 2`
+O 1 12 `
+ 1 2  2`
+O2 O O `
+O     3`
+O1 2  2`
+    ]]>
+  </level>
+  <level id="58">
+    <![CDATA[
+2O  O22`
+2 11   `
+2O   12`
+  OO   `
+O 2   2`
+1  O  O`
+2  O 11`
+    ]]>
+  </level>
+  <level id="59">
+    <![CDATA[
+2 OS221`
+2   O  `
+  1SO  `
+22 2 OO`
+O  S   `
+ O OO 2`
+O   211`
+    ]]>
+  </level>
+  <level id="60">
+    <![CDATA[
+12OO  O`
+S  2   `
+22S   O`
+  11   `
+    OOO`
+O O 2 2`
+1 1 321`
+    ]]>
+  </level>
+  <level id="61">
+    <![CDATA[
+2 O OO2`
+   1  1`
+O1   O `
+  O2  O`
+O  S 22`
+S  O  O`
+O O O22`
+    ]]>
+  </level>
+  <level id="62">
+    <![CDATA[
+2OO O 2`
+   1  1`
+12  O 2`
+O  O 1 `
+ 1OO 12`
+O O 1SO`
+2 2  11`
+    ]]>
+  </level>
+  <level id="63">
+    <![CDATA[
+1 22 21`
+2  OO 2`
+  1    `
+O O   2`
+      O`
+1 1 22 `
+12 O  2`
+    ]]>
+  </level>
+  <level id="64">
+    <![CDATA[
+12 O OO`
+   22 2`
+ O1    `
+2     2`
+ O  OO1`
+O  2   `
+11 2221`
+    ]]>
+  </level>
+  <level id="65">
+    <![CDATA[
+2O2S1O2`
+  1 2  `
+2O 1  O`
+O   O  `
+  O O 2`
+O   2 3`
+212  1O`
+    ]]>
+  </level>
+  <level id="66">
+    <![CDATA[
+O O2  1`
+  2 O O`
+     1 `
+2 1 2  `
+1  2 O `
+O 1  OO`
+2 22O O`
+    ]]>
+  </level>
+  <level id="67">
+    <![CDATA[
+2 O22 O`
+ 2   1 `
+   O  O`
+O2   2 `
+O  21 O`
+  1O   `
+212 OO2`
+    ]]>
+  </level>
+  <level id="68">
+    <![CDATA[
+2 O2 O1`
+ OS 1  `
+2  1  1`
+ O  21 `
+O  O  2`
+ O OO  `
+2 2 O 2`
+    ]]>
+  </level>
+  <level id="69">
+    <![CDATA[
+1 OO  1`
+2 3 2 1`
+     1 `
+O1 12 1`
+      2`
+ 2O 2  `
+22  2O2`
+    ]]>
+  </level>
+  <level id="70">
+    <![CDATA[
+O 22 21`
+       `
+O 1 211`
+  1SO  `
+O O O  `
+ 2 1  O`
+O2 2O O`
+    ]]>
+  </level>
+  <level id="71">
+    <![CDATA[
+1OO 2O O`
+   2  2 `
+    O 2O`
+S12    2`
+O O 2 1 `
+ O O O 2`
+2 O    1`
+1   2O 2`
+    ]]>
+  </level>
+  <level id="72">
+    <![CDATA[
+2   2OS1`
+2 22  22`
+ 1  1  O`
+  OO  OO`
+   2 2  `
+ 2 1  2 `
+  2  O 1`
+1O 2 O21`
+    ]]>
+  </level>
+  <level id="73">
+    <![CDATA[
+11 O O O`
+ S 1  O2`
+OO S11  `
+O 2 2   `
+       2`
+21  O O `
+O  22 2O`
+2O 1 222`
+    ]]>
+  </level>
+  <level id="74">
+    <![CDATA[
+1 22 O21`
+    1 2 `
+2 O SO O`
+ 1 2 O  `
+O   01O2S`
+ 231    `
+  O  21 `
+2  O O O`
+    ]]>
+  </level>
+  <level id="75">
+    <![CDATA[
+1    21O`
+22O1    `
+  O 2 22`
+2O  1  2`
+2 O  2  `
+  2 2 O `
+O 2  SO2`
+2 2 1 21`
+    ]]>
+  </level>
+  <level id="76">
+    <![CDATA[
+22S2 2 1`
+       1`
+ 1 O 2O `
+O 2 O SO`
+     1OO`
+  1OO O `
+O 2  2  `
+O 11 O21`
+    ]]>
+  </level>
+  <level id="77">
+    <![CDATA[
+2 21  22`
+2   O O `
+  1  1  `
+2   OO O`
+  2 O O `
+  1 S  1`
+22  O O1`
+O 11O  1`
+    ]]>
+  </level>
+  <level id="78">
+    <![CDATA[
+1 2O 2S1`
+    1 1 `
+O 2     `
+ O   1OO`
+1 1 22 O`
+22 OO 1 `
+    O 12`
+2 O O2 2`
+    ]]>
+  </level>
+  <level id="79">
+    <![CDATA[
+2OOS O21`
+  2 1   `
+1    O 1`
+1 O O   `
+  1  O 1`
+2 1 O  1`
+OO O O1 `
+2 12 2 O`
+    ]]>
+  </level>
+  <level id="80">
+    <![CDATA[
+12O2 211`
+   1    `
+O O  O  `
+  S22 S `
+O 1   OO`
+ O O1   `
+  1   12`
+O22 2O 2`
+    ]]>
+  </level>
+  <level id="81">
+    <![CDATA[
+O 2O O21`
+   1   1`
+2   132 `
+2 OO 3 O`
+      2O`
+  2  2  `
+21 O  22`
+11 O2 11`
+    ]]>
+  </level>
+  <level id="82">
+    <![CDATA[
+2 O12  O`
+ 1   2  `
+O O2 2SO`
+       O`
+ 1 O O O`
+3 3  3O `
+2 O1 1  `
+11O  111`
+    ]]>
+  </level>
+  <level id="83">
+    <![CDATA[
+O O  O 2`
+O  1 2  `
+2SOS2  O`
+ 2  O O `
+O O1 2 O`
+2 2    O`
+ 2 2 212`
+2O    O1`
+    ]]>
+  </level>
+  <level id="84">
+    <![CDATA[
+11 O O O`
+  1  S 2`
+O 3O O1 `
+   2 1  `
+  2 OO  `
+  S    O`
+O 1S2  2`
+2 22 2 1`
+    ]]>
+  </level>
+  <level id="85">
+    <![CDATA[
+1 2 O O2`
+O  O    `
+O O  122`
+ OO 1   `
+O    1S1`
+OS O 3O2`
+1  2    `
+1 OO 111`
+    ]]>
+  </level>
+  <level id="86">
+    <![CDATA[
+1  O  22`
+  2    O`
+1  222O `
+O O   22`
+  S1OO 2`
+  1    O`
+O O 311 `
+2 1 1 12`
+    ]]>
+  </level>
+  <level id="87">
+    <![CDATA[
+1 2 3 11`
+ O 1    `
+O 2 O OO`
+ 2O  2  `
+2   2  1`
+ 1O O  S`
+1 OO  O `
+1 OS2O O`
+    ]]>
+  </level>
+  <level id="88">
+    <![CDATA[
+O   2 O2`
+  1O 2  `
+       O`
+3   1O O`
+2 2 O   `
+1 2  O11`
+    2  1`
+1 O 22 O`
+    ]]>
+  </level>
+  <level id="89">
+    <![CDATA[
+O OO 2 2`
+O11   2O`
+    1   `
+2 11    `
+2   O O `
+O 1     `
+   1  12`
+11 OO1 2`
+    ]]>
+  </level>
+  <level id="90">
+    <![CDATA[
+O 22 2 O`
+ O   O  `
+OO 2 1O2`
+2 3   O `
+21     1`
+  2 1 2O`
+2   2  2`
+2 2 2  1`
+    ]]>
+  </level>
+  <level id="91">
+    <![CDATA[
+2 O22O O`
+    1  S`
+O  1 2 O`
+  O 2  O`
+O2 1 2O `
+ O     2`
+1 2 O O `
+2  O OO1`
+    ]]>
+  </level>
+  <level id="92">
+    <![CDATA[
+2 O OO 1`
+ 1   O 2`
+O   O   `
+     O11`
+2O 1    `
+  O 12 1`
+  2O 2 2`
+1O2 O1 2`
+    ]]>
+  </level>
+  <level id="93">
+    <![CDATA[
+1 OO O O`
+2O      `
+O 22 2  `
+      O `
+ 2 O01  O`
+2    122`
+ OSO    `
+12 12 O2`
+    ]]>
+  </level>
+  <level id="94">
+    <![CDATA[
+2  O 2OO`
+ 1  O2S `
+2 O32 2O`
+       S`
+  O 22OO`
+O 2   O `
+  1 2 11`
+OOS2 2 1`
+    ]]>
+  </level>
+  <level id="95">
+    <![CDATA[
+22 OO O2`
+  O    1`
+2 O   1 `
+O   O  O`
+  O O O `
+1  2 12 `
+    O   `
+1 O O 2O`
+    ]]>
+  </level>
+  <level id="96">
+    <![CDATA[
+O2 O 2 O`
+2   3 1 `
+ OO22  2`
+      21`
+O O2O  O`
+  O  OO `
+2 2 2  O`
+1  2  2O`
+    ]]>
+  </level>
+  <level id="97">
+    <![CDATA[
+2O  O  O`
+   1S O `
+O  OO  O`
+  2   22`
+O   2 O `
+ OO 2  2`
+O    O O`
+O 21 222`
+    ]]>
+  </level>
+  <level id="98">
+    <![CDATA[
+2 1 O O2`
+O 1     `
+O  2 O O`
+ 1 2   O`
+22    O `
+   O 1 1`
+O    2 2`
+OO O OS1`
+    ]]>
+  </level>
+  <level id="99">
+    <![CDATA[
+2 1 O 21`
+2   O121`
+       1`
+2 2 w O `
+2  122 2`
+     O2 `
+3 O 3   `
+2 1OO OO`
+    ]]>
+  </level>
+  <level id="100">
+    <![CDATA[
+O2 O2  O`
+22   OO `
+1  O    `
+ O    2 `
+O  1   O`
+ 11 OO  `
+    2S 2`
+O 2 O2 2`
+    ]]>
+  </level>
+  <level id="101">
+    <![CDATA[
+2 2O 2 O1`
+   O1SO 2`
+O12      `
+   O1   2`
+  1     1`
+OS O 2O O`
+ O1    OO`
+2O O 11  `
+1 2  2 21`
+    ]]>
+  </level>
+  <level id="102">
+    <![CDATA[
+O2 O   2O`
+  O  1   `
+O3 2   12`
+2  2    O`
+   1 2 12`
+  O O    `
+112  OOO `
+O  1  S O`
+22 2 O2 O`
+    ]]>
+  </level>
+  <level id="103">
+    <![CDATA[
+11  OO 11`
+  1O O 12`
+     S   `
+O  O O  O`
+ 1 3  2  `
+    1SOO2`
+O O    S `
+ O 2 12 2`
+2 O OO 21`
+    ]]>
+  </level>
+  <level id="104">
+    <![CDATA[
+2 O3 2 11`
+ 1 2  1  `
+22 1 2O O`
+O 4 2 O  `
+1 2  1  2`
+    S   2`
+2 3 1  O `
+1SO O 2  `
+1 2 22 2O`
+    ]]>
+  </level>
+  <level id="105">
+    <![CDATA[
+O1 2 O OO`
+  1   OO `
+2   21  1`
+1 2 2 1  `
+   22  O1`
+O121 O O `
+     2   `
+O1       `
+2 O O2 O2`
+    ]]>
+  </level>
+  <level id="106">
+    <![CDATA[
+2 22  OOO`
+3 O 2O  2`
+      2  `
+  O 2SO 2`
+2O  2  2 `
+     1  O`
+23 2 2   `
+  1 2 212`
+12  O 1 2`
+    ]]>
+  </level>
+  <level id="107">
+    <![CDATA[
+OO 2 2 O1`
+2 O O   1`
+ 13  O 21`
+O O O 1  `
+ 1  O 132`
+     22  `
+O 2 22   `
+  2O  221`
+O 1 222 1`
+    ]]>
+  </level>
+  <level id="108">
+    <![CDATA[
+2 O   121`
+ O    1 1`
+2 2 O  OO`
+  1      `
+  1 O 11 `
+OO S O2 O`
+ S1OO  2 `
+O2  21  1`
+O 2 2 2O1`
+    ]]>
+  </level>
+  <level id="109">
+    <![CDATA[
+2 1  1O 1`
+O22 2   1`
+    O 2  `
+ OOSO 2 2`
+O        `
+ O 22  S2`
+O    O2 2`
+ OSO O   `
+11 12  OO`
+    ]]>
+  </level>
+  <level id="110">
+    <![CDATA[
+O 2 12 11`
+  S   1  `
+2 O 12 1 `
+2O 2 OO O`
+    O1   `
+  21   22`
+ O      2`
+O O  2O2 `
+212 O O2O`
+    ]]>
+  </level>
+  <level id="111">
+    <![CDATA[
+O2 22 111`
+O 1  OOOO`
+  11    S`
+OO  O 22O`
+  O O 1SS`
+  OS   O2`
+ 2  O 2 O`
+  2 1  O `
+O 2 12O 2`
+    ]]>
+  </level>
+  <level id="112">
+    <![CDATA[
+12   O 11`
+  O 1 O O`
+  O  O O2`
+2   O   S`
+  O1   SO`
+22 SO  OO`
+ 12 OS22 `
+O   O11 2`
+1 2O   2O`
+    ]]>
+  </level>
+  <level id="113">
+    <![CDATA[
+2 2 O O O`
+  2 2    `
+     O O `
+  21  212`
+OO   2  O`
+   O OOO `
+ 1  2   2`
+O O2  11 `
+2 1 OO 11`
+    ]]>
+  </level>
+  <level id="114">
+    <![CDATA[
+2 O    O2`
+ 2 2  O  `
+1O OSO O `
+O     S O`
+O 1  3  1`
+ OO 2 O 1`
+22     2O`
+2 2 1O 2 `
+O 2 2 OOO`
+    ]]>
+  </level>
+  <level id="115">
+    <![CDATA[
+12 1SO 11`
+         `
+   1 O S2`
+OO   O O `
+O 2O3  1O`
+2    O 2O`
+2O O 21  `
+  1 1 O O`
+1 2OO O11`
+    ]]>
+  </level>
+  <level id="116">
+    <![CDATA[
+O1SOOO  2`
+  O S 1  `
+O1  12  O`
+O OO  O2 `
+O   OO  O`
+  1   1 1`
+O   2 2O2`
+O S O    `
+21OO  211`
+    ]]>
+  </level>
+  <level id="117">
+    <![CDATA[
+2  1O  22`
+ O   O 12`
+O  O   S `
+ 1 O O OO`
+ 1      1`
+1  OO 12 `
+2OS  O 21`
+   O O 21`
+12  O 2 1`
+    ]]>
+  </level>
+  <level id="118">
+    <![CDATA[
+2 O  O 11`
+ 2 2 O 2 `
+1 O O O  `
+  O 22   `
+1O2   2 2`
+2 SO2   2`
+ 2  2 O  `
+   O O 1 `
+22SO  O O`
+    ]]>
+  </level>
+  <level id="119">
+    <![CDATA[
+OS2O 2  2`
+O O 1    `
+    1 O1 `
+1SO 2 O 2`
+1 O  O   `
+1     O12`
+  2 1  12`
+ O   21  `
+O  O 2 O2`
+    ]]>
+  </level>
+  <level id="120">
+    <![CDATA[
+1 2O O OO`
+ O O1   O`
+ O    2  `
+O 2O O  O`
+  S OS2 2`
+O   O   2`
+ 21 2 2  `
+O  O  2 2`
+2O  2 211`
+    ]]>
+  </level>
+  <level id="121">
+    <![CDATA[
+1O 1SO OO`
+    2   O`
+1   O 1  `
+ OO O  22`
+OO 1   1 `
+ OS 11  O`
+O 11   OO`
+2 1      `
+O O1 1 21`
+    ]]>
+  </level>
+  <level id="122">
+    <![CDATA[
+1 22 OO11`
+2 22     `
+O 1 O O O`
+ 1 O  O2 `
+O1  2O1  `
+O 12 2 1 `
+         `
+21 11 2OO`
+1 2 OO  2`
+    ]]>
+  </level>
+  <level id="123">
+    <![CDATA[
+OO    2O1`
+O  OS1  2`
+ 12 2 1  `
+    1  SO`
+OOO O 2O `
+  2  O  O`
+O    2 2 `
+1 2  3 22`
+2O 11 OO2`
+    ]]>
+  </level>
+  <level id="124">
+    <![CDATA[
+11 O 22 O`
+    1 11 `
+O O     2`
+    O 3OO`
+OO  O 2  `
+2 1 2   1`
+   1  O 1`
+O OS1 O S`
+O2 O O  O`
+    ]]>
+  </level>
+  <level id="125">
+    <![CDATA[
+1   2 2S1`
+1O  O O1 `
+  1 32 12`
+22       `
+  2 2O O `
+O       2`
+O04 1 O21 `
+ O  1   O`
+1 1  22 O`
+    ]]>
+  </level>
+  <level id="126">
+    <![CDATA[
+O   O O 1`
+O  O  S11`
+   O O   `
+O1  2  O2`
+  2OS   2`
+2 O O O22`
+1    2 1 `
+O O2 O  2`
+O1 1 O  1`
+    ]]>
+  </level>
+  <level id="127">
+    <![CDATA[
+O11 O2  2`
+ S2 O O2 `
+OO    1 1`
+2  OO 2 O`
+ 2  S   O`
+2  OO    `
+2 2  2 1 `
+ O 21  OO`
+O   O2O 2`
+    ]]>
+  </level>
+  <level id="128">
+    <![CDATA[
+O  22 11O`
+ 1    S O`
+2  O  O  `
+ O1 O O O`
+2   O S  `
+    O 1 2`
+O   O 1S2`
+ 2 O     `
+11 OO 2O1`
+    ]]>
+  </level>
+  <level id="129">
+    <![CDATA[
+12O 2   1`
+   1  O 1`
+222 21   `
+      2 2`
+OO SO2  O`
+  O OSO S`
+23 2 O  1`
+23 1  3 O`
+12  2 O11`
+    ]]>
+  </level>
+  <level id="130">
+    <![CDATA[
+2 21 2 21`
+2S  O   1`
+ OO 2   O`
+22 2 O O `
+   O    O`
+21  1O  S`
+  OO O  1`
+1 O     2`
+1 O 11 OO`
+    ]]>
+  </level>
+  <level id="131">
+    <![CDATA[
+1  2 11 O`
+O O 1   2`
+    O2 O `
+  12O   O`
+2 2  2O2 `
+2  2O   O`
+OSO O2 2O`
+ O O  1  `
+11SO O  O`
+    ]]>
+  </level>
+  <level id="132">
+    <![CDATA[
+O  O   11`
+O O O 2  `
+   1 O   `
+1  1  O  `
+2O  2 O 2`
+  OO O O1`
+O O   O  `
+   OO  O `
+21 22 OO1`
+    ]]>
+  </level>
+  <level id="133">
+    <![CDATA[
+O OO 12 1`
+O2  O O 2`
+  O O  12`
+  S1  O  `
+O   O    `
+ 22   2 O`
+O   2 1 O`
+  2  1 O2`
+O O  O  2`
+    ]]>
+  </level>
+  <level id="134">
+    <![CDATA[
+1S2 1 11O`
+O O      `
+  O O O O`
+22 1     `
+   11  12`
+2OO 1    `
+  OO  1 O`
+    O 1 O`
+2 O O2 21`
+    ]]>
+  </level>
+  <level id="135">
+    <![CDATA[
+O22 21  1`
+   O O OO`
+ 1  1O 1 `
+  O2     `
+ 1    1 2`
+  O1 2 2 `
+22    O 2`
+  11 O   `
+OO 2 OO22`
+    ]]>
+  </level>
+  <level id="136">
+    <![CDATA[
+1  OO  OO`
+         `
+1 O O11  `
+1     O  `
+  1 2   2`
+     1OO1`
+O 2 1    `
+  1 2 211`
+2 2 OO 2O`
+    ]]>
+  </level>
+  <level id="137">
+    <![CDATA[
+O1  2 3 O`
+O 11S  1 `
+  S OO  2`
+O O   2O `
+3 1OO O O`
+         `
+O 11  2  `
+O 2 O 1 1`
+2 1OO O 1`
+    ]]>
+  </level>
+  <level id="138">
+    <![CDATA[
+O1 221S O`
+  1O2   O`
+O 1S O O `
+O  1    O`
+O 1  2  O`
+O1 21  1 `
+     21 O`
+O212 O  O`
+O  2    O`
+    ]]>
+  </level>
+  <level id="139">
+    <![CDATA[
+2 21 O122`
+ OO 1    `
+  SO O O2`
+ O       `
+O   O   1`
+2 2   132`
+    O    `
+  2 O 2  `
+211 O 221`
+    ]]>
+  </level>
+  <level id="140">
+    <![CDATA[
+O   O O11`
+211   O O`
+1 3 OO 1O`
+21    21 `
+  2 2   2`
+O  O  2O `
+    1    `
+O   2  O `
+1 2 OO O1`
+    ]]>
+  </level>
+  <level id="141">
+    <![CDATA[
+11 2 O O 1`
+  2 O  O 2`
+O  1 2    `
+O O   1O2 `
+ 22 2O   O`
+OO     O1 `
+ SO1 23S 2`
+2O S      `
+2 OO  1 OO`
+2 2 O 12 O`
+    ]]>
+  </level>
+  <level id="142">
+    <![CDATA[
+12  1 1  2`
+OO  2 O O `
+  1 2 O   `
+22 O O 1 2`
+ S  1 21 2`
+OO        `
+2  O SO2O2`
+ 2  OO   1`
+12 2OS2S  `
+O O 2SOO 2`
+    ]]>
+  </level>
+  <level id="143">
+    <![CDATA[
+2O O  O2 2`
+     O  1 `
+  O O  O 2`
+OS O O  2O`
+OO O   1  `
+  O  O 221`
+12 O 2   1`
+   2  1 O `
+2O   S O  `
+O 22 OO OO`
+    ]]>
+  </level>
+  <level id="144">
+    <![CDATA[
+11 O 1S21O`
+  OO  OO  `
+O   11O  O`
+O O    1  `
+   O  1 2O`
+     33O 1`
+ 12S   1  `
+22 1 1 2O1`
+ 1O O1   1`
+1 OO2 2 O2`
+    ]]>
+  </level>
+  <level id="145">
+    <![CDATA[
+21 1   O 2`
+  O     OO`
+2  OO 1   `
+ O S 11 22`
+S  2O3  2 `
+OO      2O`
+  O2O2S1 O`
+O S   2  2`
+ 11 O 3 O `
+O 2O2 2  2`
+    ]]>
+  </level>
+  <level id="146">
+    <![CDATA[
+2O   1 1 O`
+  11  O  2`
+  2 O O222`
+ O  O1  O `
+O     1  O`
+2  O 1  O `
+ O    2O O`
+2 2O 2  1 `
+   S 1S 21`
+O OO 2O O1`
+    ]]>
+  </level>
+  <level id="147">
+    <![CDATA[
+1    O O21`
+12 O1 O2 1`
+     22 1 `
+ 1  S 2  2`
+ S1 2O 1 2`
+OOO    1  `
+    2O    `
+  2   OO  `
+1 O 1   22`
+1O O OO O1`
+    ]]>
+  </level>
+  <level id="148">
+    <![CDATA[
+122 O 2O O`
+2        1`
+ O 211 O21`
+OS   1 O  `
+       S1 `
+O  O   1 2`
+ OO O  1  `
+O 2SO1 S O`
+ O 2  OO 2`
+2 O O O 22`
+    ]]>
+  </level>
+  <level id="149">
+    <![CDATA[
+O12S O  OO`
+     1 2 S`
+O O O O 2 `
+  OO 2 O  `
+21SS 2  O1`
+    1 2S 1`
+ O 1  2 O `
+2 1 OO  2 `
+O 2O  2  O`
+2OO O O221`
+    ]]>
+  </level>
+  <level id="150">
+    <![CDATA[
+2 11 2 221`
+ 1 OO 1   `
+O O    OO2`
+ 21 2 1   `
+   2    2 `
+OO 2 OO 22`
+2  S1  O 1`
+   O 2 O  `
+2     OO 1`
+2  2OO   1`
+    ]]>
+  </level>
+  <level id="151">
+    <![CDATA[
+1 2  212 1`
+2O O22  11`
+    1 2   `
+O OO    O2`
+ O  2 2   `
+2 1  1 OO2`
+O 2 OO   1`
+ OO   OO  `
+O   O   S2`
+2 1O  O  O`
+    ]]>
+  </level>
+  <level id="152">
+    <![CDATA[
+22      2O`
+3 2O O  22`
+3 O   O S `
+    O  O12`
+  2O  1   `
+2 2 2 12 O`
+O   2    O`
+ 1 O O2  O`
+ 1 O  2 1 `
+11 OO 221O`
+    ]]>
+  </level>
+  <level id="153">
+    <![CDATA[
+O 112 2O 2`
+O 2    11 `
+  1 2O  O1`
+OO O   O O`
+ S 2 OO  S`
+2OO    O 2`
+1  22  O 2`
+2O O    1 `
+  OO   11O`
+2 1O  O2 2`
+    ]]>
+  </level>
+  <level id="154">
+    <![CDATA[
+11  OO O 1`
+O OO  O2  `
+ OO O  221`
+O  O  2   `
+  1 O  O  `
+OO 1 O  O `
+   1  O  O`
+ 2 O 2  O `
+2     1 OO`
+21O O 11 2`
+    ]]>
+  </level>
+  <level id="155">
+    <![CDATA[
+2  1O 2  2`
+ 2  O 2 11`
+OO O 2  2 `
+  1   O   `
+O  21 O OO`
+  1O 2 O O`
+2   1 O O `
+2 2 1  OSO`
+O  O  22 O`
+11 2 2O SO`
+    ]]>
+  </level>
+  <level id="156">
+    <![CDATA[
+2 O O 22 O`
+      O 1 `
+1 1 2  O  `
+OO OS   O2`
+ O  21 2 S`
+O 2  O  OO`
+   1   2 O`
+2 1  1 1O `
+ O O2 1   `
+O  OO 2 O2`
+    ]]>
+  </level>
+  <level id="157">
+    <![CDATA[
+OO 112 1 1`
+  O 3O 2 O`
+O   2  SO `
+  O2 O1  2`
+2 O    OO `
+2  O 1  2 `
+ 1 O  O  2`
+O   22S 2 `
+ 12 2O O  `
+2 2  1O O1`
+    ]]>
+  </level>
+  <level id="158">
+    <![CDATA[
+2 2 OO 122`
+2O 2O 2 O `
+  O  22   `
+22    1 O1`
+  2 O1  2O`
+  2   2 3O`
+1   2  O  `
+1 O OOS 1S`
+ 11   1 2 `
+O  2O 2 O1`
+    ]]>
+  </level>
+  <level id="159">
+    <![CDATA[
+2 2    O O`
+   1O 121 `
+2  1      `
+O 2 O 11  `
+   1 O  OO`
+O 2 SO1  O`
+  S1   O2 `
+     O S O`
+O OO O 2S1`
+12 21  OO1`
+    ]]>
+  </level>
+  <level id="160">
+    <![CDATA[
+2 O 22 221`
+  O 33 1 1`
+32O1 O    `
+    O 212O`
+  O2  1  O`
+ 2   O  2 `
+O  1  O 3O`
+ O2  2S  O`
+2 O   1 2S`
+1 O 22 1OO`
+    ]]>
+  </level>
+  <level id="161">
+    <![CDATA[
+O  12OS OO`
+3 1       `
+O O O   21`
+    O O  2`
+  21 O SO1`
+      O   `
+O1 1 O   2`
+   SO2    `
+O2 O  O1 O`
+O   O12 OO`
+    ]]>
+  </level>
+  <level id="162">
+    <![CDATA[
+1 2 31O  O`
+O   2     `
+O 2   21 O`
+  1 2O  OO`
+2  2   O S`
+S1 OO O O1`
+    2   11`
+   2  O   `
+O   OSO  O`
+O OOSOOS1O`
+    ]]>
+  </level>
+  <level id="163">
+    <![CDATA[
+O 2 O2 1O1`
+  1   2 2 `
+    2 O O2`
+O O 2O   S`
+  S 2 O   `
+O 222    O`
+     1 12O`
+  1 1 2   `
+O 2  O1 22`
+O 11 2 OO1`
+    ]]>
+  </level>
+  <level id="164">
+    <![CDATA[
+11 O1 2O22`
+  OO 2  1 `
+         1`
+  1  1O 21`
+O 1     S `
+ 1 OOS2 O `
+ 222    OO`
+  O  22 2 `
+ O   2   1`
+221   O O1`
+    ]]>
+  </level>
+  <level id="165">
+    <![CDATA[
+O 21 OO O1`
+    O  1 2`
+2SO 22 2 O`
+2 O  O  1O`
+    O SO1 `
+1SO O   1 `
+2 22 O12  `
+1     SO  `
+S1   OO O2`
+O  2 O   1`
+    ]]>
+  </level>
+  <level id="166">
+    <![CDATA[
+12  O O OO`
+O  3 2    `
+  O   12O `
+21 1 3 O 1`
+  OSO    1`
+ O   1 22 `
+  OO    1 `
+  O  2 O O`
+  O O O 12`
+12  O2O 2O`
+    ]]>
+  </level>
+  <level id="167">
+    <![CDATA[
+O2 OO OO 1`
+2 SO    11`
+ 12 21 O2 `
+O   2    O`
+  2  SO OO`
+1 O O  OS2`
+2  O2  1  `
+  O  OS  O`
+2 O O   O `
+OO    O  O`
+    ]]>
+  </level>
+  <level id="168">
+    <![CDATA[
+11O O 2  2`
+ 2O  S  O `
+2  OO 21 1`
+ 12     O2`
+2  O 21   `
+O O    21 `
+   1SO O O`
+1SO     2 `
+1  1 O O2 `
+O O2  O 11`
+    ]]>
+  </level>
+  <level id="169">
+    <![CDATA[
+1 22 O O 2`
+1S     O  `
+  O     O2`
+OO O  O  S`
+  1  O  OO`
+O  O  O  O`
+ 22 12  O `
+S    O 2 O`
+2 2 O  2 O`
+O 11 O 22O`
+    ]]>
+  </level>
+  <level id="170">
+    <![CDATA[
+OO O O 2 1`
+  O 2 2 2O`
+2    OO O `
+2   2  O O`
+2 O  O  OO`
+   1  1 S `
+1 OOS 2 12`
+O O O     `
+1   2 2 32`
+O  O 21 O1`
+    ]]>
+  </level>
+  <level id="171">
+    <![CDATA[
+O  O 112 O`
+    23O   `
+O 11   OO `
+O   2 1 O `
+O 1  O O  `
+  1 1  S2 `
+2 O  O O  `
+2  O 32  O`
+ O O  1   `
+21 1 3O 2O`
+    ]]>
+  </level>
+  <level id="172">
+    <![CDATA[
+O  O1SO  2`
+O O  O O12`
+ O O      `
+  O    O  `
+OOSO  O 12`
+ 2   O O 2`
+O OO   2  `
+O   O    2`
+ 1 O O 4 O`
+O  O21 212`
+    ]]>
+  </level>
+  <level id="173">
+    <![CDATA[
+O22 OO2  O`
+       O 2`
+O OO S2 O `
+22     12 `
+     21O 2`
+O O O   O `
+1 2  OO  O`
+  O    O 2`
+2  O  O   `
+O11 OO OO2`
+    ]]>
+  </level>
+  <level id="174">
+    <![CDATA[
+O 1 2 O 11`
+O  OO  3 O`
+  O SO 1 2`
+3 2O O  2 `
+      O O1`
+O 111O    `
+ O2    21 `
+   O  2 1 `
+  S O O  O`
+OOO2 2 OO2`
+    ]]>
+  </level>
+  <level id="175">
+    <![CDATA[
+O     O O1`
+OO       2`
+  1 OO  O `
+O 2   O  1`
+ O OO    1`
+O   O 2   `
+O  SO 2 O2`
+  O  1 O  `
+O  OO  O  `
+OO1 212 O2`
+    ]]>
+  </level>
+  <level id="176">
+    <![CDATA[
+1 O 3 1O O`
+21 O O  1 `
+  1   O  2`
+O1 3O O 22`
+ 12O    1 `
+  1 S 212 `
+O    2O  O`
+  OOO  OO `
+O  O 2    `
+OOSO  O2 2`
+    ]]>
+  </level>
+  <level id="177">
+    <![CDATA[
+O OOSO   O`
+O      OOS`
+  2  OS 2 `
+2 2    O3O`
+2    2O  1`
+   S2 OO  `
+2  O    22`
+ OO 2 11 O`
+2   OS 22 `
+O 2   2O 2`
+    ]]>
+  </level>
+  <level id="178">
+    <![CDATA[
+O  12  O O`
+O 1SO   2 `
+  1 O 1   `
+O 11  311 `
+O   O   O3`
+O O2 OO   `
+ O      O `
+2 S 2 3 O2`
+2O O  O   `
+2   1O O21`
+    ]]>
+  </level>
+  <level id="179">
+    <![CDATA[
+O 21 OO2 O`
+1         `
+ O2 2 21  `
+2     1  O`
+OO  O 2 O `
+S    1  SO`
+OO 2 3O O `
+   1   O O`
+1SOO 21  2`
+1  O 2 OO1`
+    ]]>
+  </level>
+  <level id="180">
+    <![CDATA[
+1 2OO   OO`
+1   O O  1`
+2 22   O  `
+ 13 2 O  2`
+O       OO`
+2 O 212   `
+23 21  O 2`
+   2 2 12 `
+12   2   O`
+1O   OO 21`
+    ]]>
+  </level>
+  <level id="181">
+    <![CDATA[
+O 2  O OOO`
+O 2 O   1 `
+       O O`
+O S 2 1  O`
+O OO1   2S`
+    O2 2  `
+OOS2 2  O2`
+O O 1  O  `
+  11 OO O2`
+O2 1O 2  2`
+    ]]>
+  </level>
+  <level id="182">
+    <![CDATA[
+OO2  OO O1`
+  22    2 `
+1    OO  2`
+1SO1   1O `
+      21 O`
+O O2 O   O`
+2   O   O1`
+2 O   2   `
+  O    O2 `
+O   11 O32`
+    ]]>
+  </level>
+  <level id="183">
+    <![CDATA[
+OO  3 1 O1`
+O  1    O `
+ O1 O O O1`
+OO2  1O  1`
+O  13  O 2`
+ S 1 O OO `
+     2  2 `
+ O 2 SO  O`
+O   O OSO `
+OO 2   1 1`
+    ]]>
+  </level>
+  <level id="184">
+    <![CDATA[
+OO O O  OO`
+1  O  O   `
+ O   SO   `
+2 O 1  O O`
+     O2 12`
+113 2    O`
+     O 21 `
+  1SO O O2`
+2  O2 2  1`
+OO2 2 3 2O`
+    ]]>
+  </level>
+  <level id="185">
+    <![CDATA[
+2 2 11 OOO`
+O O   O   `
+22  1  2 1`
+ O O O O 2`
+ OS 2   1O`
+2   O O OO`
+     O 21 `
+O O 1  2 O`
+22 O1    1`
+O    O 2O1`
+    ]]>
+  </level>
+  <level id="186">
+    <![CDATA[
+O2 1 22 OO`
+  1 1 OO 1`
+22O O  2  `
+     22 2 `
+3 1 O   21`
+O O  OO1  `
+   O   OO `
+  1 212  O`
+O 1  1 O O`
+O  OO2  21`
+    ]]>
+  </level>
+  <level id="187">
+    <![CDATA[
+2  1 OO O1`
+O1 2O    2`
+  O  2  O `
+O O O1  2 `
+ 122  O   `
+OO S O  1O`
+  2O  2 2 `
+21  O OO O`
+     O   O`
+O O 22 OOO`
+    ]]>
+  </level>
+  <level id="188">
+    <![CDATA[
+O OO 2 1 O`
+ O       O`
+O  O O O  `
+O 2   2 2O`
+ 1 2O  2 2`
+  1     O `
+O2 11    O`
+ 1O   12OS`
+O O     O `
+OO O     O`
+    ]]>
+  </level>
+  <level id="189">
+    <![CDATA[
+1O2 O O 21`
+1 2 O  O2 `
+   O 11O  `
+  O O2  O2`
+  O  O   1`
+   OO 22  `
+O        2`
+O  11  11 `
+  2   O  O`
+OO2 OO O11`
+    ]]>
+  </level>
+  <level id="190">
+    <![CDATA[
+O  2 12 2O`
+ O  O    2`
+O OO  O O `
+OS2 2    1`
+  O O  O  `
+1  1 O  OO`
+1  OO 1   `
+O w 2 3 2 `
+   O112 11`
+OSOO O O 1`
+    ]]>
+  </level>
+  <level id="191">
+    <![CDATA[
+1 O 22 OOO`
+1   1 1  1`
+  2   O 2 `
+O O 1    2`
+O     2O  `
+  2 21 S22`
+O 2   2   `
+1   2 2 2O`
+1 O 2    2`
+1 O 2 OO 1`
+    ]]>
+  </level>
+  <level id="192">
+    <![CDATA[
+21 OO O 21`
+  O   OSOO`
+O   O     `
+O O S 1 22`
+   OO 1   `
+OO      11`
+  1SO 22 2`
+2   2  S  `
+2 2   OO O`
+1 O 21 O11`
+    ]]>
+  </level>
+  <level id="193">
+    <![CDATA[
+2O O O OOO`
+  O 1 O   `
+1   1   12`
+2 2   O 1 `
+  O O O  O`
+O   2   O `
+O O S 2  O`
+  2 12 OOO`
+2  2     S`
+OO O O1 OO`
+    ]]>
+  </level>
+  <level id="194">
+    <![CDATA[
+OO O 1 12O`
+  OSO O   `
+O 3 2   12`
+S    2O 12`
+O OO S    `
+O   O OO2O`
+  2 O    O`
+O    O O2 `
+2 31 O   O`
+O2 1 OO 21`
+    ]]>
+  </level>
+  <level id="195">
+    <![CDATA[
+12 22 O2 O`
+O O      1`
+    OO 1  `
+1SO    O 2`
+    11   S`
+1 OO  OO O`
+1   2   21`
+  1 O OS  `
+2 2 O  O O`
+O 2 21 2OO`
+    ]]>
+  </level>
+  <level id="196">
+    <![CDATA[
+2 OSO O 21`
+  2 3   O `
+1     O  O`
+O 2SO   12`
+  1 O O S `
+O      OOO`
+  O OO  S `
+O     O 12`
+O 1 1 O 11`
+12 O2 O 21`
+    ]]>
+  </level>
+  <level id="197">
+    <![CDATA[
+1 3 21 2OO`
+2 3 O 1  S`
+    S   2O`
+2 O 2 2  1`
+2 O 1   1 `
+      OO 2`
+1SO 11   O`
+1   S 21  `
+2 O O   O2`
+1 21 OO O1`
+    ]]>
+  </level>
+  <level id="198">
+    <![CDATA[
+OSO O O 11`
+O    O  S `
+  OO  3 O2`
+OO  2 2  1`
+  O     1 `
+O 2 1 O 22`
+        S1`
+2 2 1 O O `
+1 O 3 O  O`
+1 2 1 112O`
+    ]]>
+  </level>
+  <level id="199">
+    <![CDATA[
+12 O O O21`
+O O O 1   `
+  1   2 OO`
+OS  1   S `
+O 2 2 O122`
+  1      2`
+O   2O 1  `
+O 11   2 O`
+     OS  O`
+11 O O O11`
+    ]]>
+  </level>
+  <level id="200">
+    <![CDATA[
+O 1 2 O 11`
+O 1S3 2 2 `
+         O`
+O 2 O 2222`
+  1 O     `
+O    2 O2O`
+O 11S     `
+  S O1 O22`
+O O   1  O`
+11 OO 2 21`
+    ]]>
+  </level>
+</levels>
+</puzzle>
