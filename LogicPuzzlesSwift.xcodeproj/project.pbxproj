@@ -1088,6 +1088,15 @@
 		8C9BD53E2F0A52B400D1D915 /* RunInALoopGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5342F0A52B400D1D915 /* RunInALoopGridNode.swift */; };
 		8C9BD53F2F0A52B400D1D915 /* RunInALoopDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD52F2F0A52B400D1D915 /* RunInALoopDocument.swift */; };
 		8C9BD5402F0A52B400D1D915 /* RunInALoop.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BD52E2F0A52B400D1D915 /* RunInALoop.xml */; };
+		8C9BD54B2F0A5A6500D1D915 /* LakesAndMeadows.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BD5412F0A5A6500D1D915 /* LakesAndMeadows.xml */; };
+		8C9BD54C2F0A5A6500D1D915 /* LakesAndMeadowsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5472F0A5A6500D1D915 /* LakesAndMeadowsGridNode.swift */; };
+		8C9BD54D2F0A5A6500D1D915 /* LakesAndMeadowsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5462F0A5A6500D1D915 /* LakesAndMeadowsGameViewController.swift */; };
+		8C9BD54E2F0A5A6500D1D915 /* LakesAndMeadowsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5442F0A5A6500D1D915 /* LakesAndMeadowsGameScene.swift */; };
+		8C9BD54F2F0A5A6500D1D915 /* LakesAndMeadowsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5492F0A5A6500D1D915 /* LakesAndMeadowsObject.swift */; };
+		8C9BD5502F0A5A6500D1D915 /* LakesAndMeadowsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5482F0A5A6500D1D915 /* LakesAndMeadowsMainViewController.swift */; };
+		8C9BD5512F0A5A6500D1D915 /* LakesAndMeadowsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5422F0A5A6500D1D915 /* LakesAndMeadowsDocument.swift */; };
+		8C9BD5522F0A5A6500D1D915 /* LakesAndMeadowsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5452F0A5A6500D1D915 /* LakesAndMeadowsGameState.swift */; };
+		8C9BD5532F0A5A6500D1D915 /* LakesAndMeadowsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5432F0A5A6500D1D915 /* LakesAndMeadowsGame.swift */; };
 		8C9F32291ECF06C000E10965 /* Tapa.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F321E1ECF06BF00E10965 /* Tapa.xml */; };
 		8C9F322A1ECF06C000E10965 /* TapaDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F321F1ECF06BF00E10965 /* TapaDocument.swift */; };
 		8C9F322B1ECF06C000E10965 /* TapaGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F32201ECF06BF00E10965 /* TapaGame.swift */; };
@@ -2525,6 +2534,15 @@
 		8C9BD5342F0A52B400D1D915 /* RunInALoopGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunInALoopGridNode.swift; sourceTree = "<group>"; };
 		8C9BD5352F0A52B400D1D915 /* RunInALoopMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunInALoopMainViewController.swift; sourceTree = "<group>"; };
 		8C9BD5362F0A52B400D1D915 /* RunInALoopObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunInALoopObject.swift; sourceTree = "<group>"; };
+		8C9BD5412F0A5A6500D1D915 /* LakesAndMeadows.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LakesAndMeadows.xml; sourceTree = "<group>"; };
+		8C9BD5422F0A5A6500D1D915 /* LakesAndMeadowsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakesAndMeadowsDocument.swift; sourceTree = "<group>"; };
+		8C9BD5432F0A5A6500D1D915 /* LakesAndMeadowsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakesAndMeadowsGame.swift; sourceTree = "<group>"; };
+		8C9BD5442F0A5A6500D1D915 /* LakesAndMeadowsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakesAndMeadowsGameScene.swift; sourceTree = "<group>"; };
+		8C9BD5452F0A5A6500D1D915 /* LakesAndMeadowsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakesAndMeadowsGameState.swift; sourceTree = "<group>"; };
+		8C9BD5462F0A5A6500D1D915 /* LakesAndMeadowsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakesAndMeadowsGameViewController.swift; sourceTree = "<group>"; };
+		8C9BD5472F0A5A6500D1D915 /* LakesAndMeadowsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakesAndMeadowsGridNode.swift; sourceTree = "<group>"; };
+		8C9BD5482F0A5A6500D1D915 /* LakesAndMeadowsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakesAndMeadowsMainViewController.swift; sourceTree = "<group>"; };
+		8C9BD5492F0A5A6500D1D915 /* LakesAndMeadowsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LakesAndMeadowsObject.swift; sourceTree = "<group>"; };
 		8C9F321E1ECF06BF00E10965 /* Tapa.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tapa.xml; sourceTree = "<group>"; };
 		8C9F321F1ECF06BF00E10965 /* TapaDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaDocument.swift; sourceTree = "<group>"; };
 		8C9F32201ECF06BF00E10965 /* TapaGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaGame.swift; sourceTree = "<group>"; };
@@ -3223,6 +3241,7 @@
 				8CE9C3031F7914B800134093 /* Kakurasu */,
 				8CC25CB51F87BB5A005560F7 /* Kakuro */,
 				8C6A9BD81F812742002A44FF /* Kropki */,
+				8C9BD54A2F0A5A6500D1D915 /* LakesAndMeadows */,
 				8CB722002EAC44D6001B25C5 /* Landscaper */,
 				8CFB22452F076ED400E5F29D /* LiarLiar */,
 				8C3A34891EC88D4100A914A5 /* LightBattleShips */,
@@ -4763,6 +4782,22 @@
 			path = RunInALoop;
 			sourceTree = "<group>";
 		};
+		8C9BD54A2F0A5A6500D1D915 /* LakesAndMeadows */ = {
+			isa = PBXGroup;
+			children = (
+				8C9BD5412F0A5A6500D1D915 /* LakesAndMeadows.xml */,
+				8C9BD5422F0A5A6500D1D915 /* LakesAndMeadowsDocument.swift */,
+				8C9BD5432F0A5A6500D1D915 /* LakesAndMeadowsGame.swift */,
+				8C9BD5442F0A5A6500D1D915 /* LakesAndMeadowsGameScene.swift */,
+				8C9BD5452F0A5A6500D1D915 /* LakesAndMeadowsGameState.swift */,
+				8C9BD5462F0A5A6500D1D915 /* LakesAndMeadowsGameViewController.swift */,
+				8C9BD5472F0A5A6500D1D915 /* LakesAndMeadowsGridNode.swift */,
+				8C9BD5482F0A5A6500D1D915 /* LakesAndMeadowsMainViewController.swift */,
+				8C9BD5492F0A5A6500D1D915 /* LakesAndMeadowsObject.swift */,
+			);
+			path = LakesAndMeadows;
+			sourceTree = "<group>";
+		};
 		8C9F321D1ECF06BF00E10965 /* Tapa */ = {
 			isa = PBXGroup;
 			children = (
@@ -5619,6 +5654,7 @@
 				8C8663672EA39DD00078CD64 /* arrow_bw_up.png in Resources */,
 				8C8663682EA39DD00078CD64 /* navigate_minus.png in Resources */,
 				8C8663692EA39DD00078CD64 /* road_cross.png in Resources */,
+				8C9BD54B2F0A5A6500D1D915 /* LakesAndMeadows.xml in Resources */,
 				8C9BD5082F0A178300D1D915 /* InsaneTatamis.xml in Resources */,
 				8C86636A2EA39DD00078CD64 /* sweetcorn.png in Resources */,
 				8C86636B2EA39DD00078CD64 /* pipe_horizontal.png in Resources */,
@@ -6430,6 +6466,14 @@
 				8C6A362C1FAF9D8600D2804D /* NoughtsAndCrossesGridNode.swift in Sources */,
 				8C506F131F6D2C9300BA4332 /* SnakeGameViewController.swift in Sources */,
 				8C3A37C61EC88D4400A914A5 /* SnailObject.swift in Sources */,
+				8C9BD54C2F0A5A6500D1D915 /* LakesAndMeadowsGridNode.swift in Sources */,
+				8C9BD54D2F0A5A6500D1D915 /* LakesAndMeadowsGameViewController.swift in Sources */,
+				8C9BD54E2F0A5A6500D1D915 /* LakesAndMeadowsGameScene.swift in Sources */,
+				8C9BD54F2F0A5A6500D1D915 /* LakesAndMeadowsObject.swift in Sources */,
+				8C9BD5502F0A5A6500D1D915 /* LakesAndMeadowsMainViewController.swift in Sources */,
+				8C9BD5512F0A5A6500D1D915 /* LakesAndMeadowsDocument.swift in Sources */,
+				8C9BD5522F0A5A6500D1D915 /* LakesAndMeadowsGameState.swift in Sources */,
+				8C9BD5532F0A5A6500D1D915 /* LakesAndMeadowsGame.swift in Sources */,
 				8C32D8E31FC92B5F00BA2D07 /* RippleEffectGridNode.swift in Sources */,
 				8CDAE80E1F646C29000DE5AF /* BalancedTapasGridNode.swift in Sources */,
 				8C3A36EC1EC88D4300A914A5 /* LoopyMainViewController.swift in Sources */,
