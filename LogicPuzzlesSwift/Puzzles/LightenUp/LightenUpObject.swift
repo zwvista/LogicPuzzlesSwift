@@ -10,7 +10,7 @@ import Foundation
 
 enum LightenUpObjectType {
     case empty
-    case lightbulb(state: AllowedObjectState)
+    case lightbulb(state: AllowedObjectState = .normal)
     case marker
     case wall(state: HintState)
     init() {

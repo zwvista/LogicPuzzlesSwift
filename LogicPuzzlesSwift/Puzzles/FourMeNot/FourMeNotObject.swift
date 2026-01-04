@@ -12,7 +12,7 @@ enum FourMeNotObject {
     case empty
     case forbidden
     case marker
-    case flower(state: AllowedObjectState)
+    case flower(state: AllowedObjectState = .normal)
     case block
     init() {
         self = .empty

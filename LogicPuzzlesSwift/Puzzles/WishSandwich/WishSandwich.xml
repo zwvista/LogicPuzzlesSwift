@@ -2,7 +2,7 @@
 <puzzle>
 <help>
   <![CDATA[
-1. Each row and column contains two Slices of Bread and a number of Pieces of Ham, which is given in the top right corner.
+1. Each row and column contains two Slices of Bread and N-3 Pieces of Pieces of Ham (N being the board size). i.e. a board side 6, will have 3 Pieces of Ham.
 2. A number at the edge indicates how many Pieces of Ham you managed to put between the two Slices of Bread in that row or column.
   ]]>
 </help>

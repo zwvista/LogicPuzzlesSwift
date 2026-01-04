@@ -12,7 +12,7 @@ enum TierraDelFuegoObject {
     case empty
     case forbidden
     case marker
-    case water(state: AllowedObjectState)
+    case water(state: AllowedObjectState = .normal)
     case hint(id: Character, state: HintState)
     init() {
         self = .empty

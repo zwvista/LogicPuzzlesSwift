@@ -11,7 +11,7 @@ import Foundation
 enum ParkLakesObject {
     case empty
     case marker
-    case lake(state: AllowedObjectState)
+    case lake(state: AllowedObjectState = .normal)
     case hint(tiles: Int, state: HintState)
     init() {
         self = .empty

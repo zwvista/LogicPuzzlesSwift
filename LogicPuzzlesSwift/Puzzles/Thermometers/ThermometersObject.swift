@@ -11,7 +11,7 @@ import Foundation
 enum ThermometersObject {
     case empty
     case forbidden
-    case filled(state: AllowedObjectState)
+    case filled(state: AllowedObjectState = .normal)
     case marker
     init() {
         self = .empty

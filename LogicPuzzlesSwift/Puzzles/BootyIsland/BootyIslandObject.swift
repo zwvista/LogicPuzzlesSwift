@@ -13,7 +13,7 @@ enum BootyIslandObject {
     case forbidden
     case hint(state: HintState = .normal)
     case marker
-    case treasure(state: AllowedObjectState)
+    case treasure(state: AllowedObjectState = .normal)
     init() {
         self = .empty
     }

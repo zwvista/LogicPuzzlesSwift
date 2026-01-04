@@ -12,8 +12,8 @@ enum BotanicalParkObject {
     case empty
     case forbidden
     case marker
-    case plant(state: AllowedObjectState)
-    case arrow(state: AllowedObjectState)
+    case plant(state: AllowedObjectState = .normal)
+    case arrow(state: AllowedObjectState = .normal)
     init() {
         self = .empty
     }

@@ -71,36 +71,33 @@ class WishSandwichGameScene: GameScene<WishSandwichGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let postNodeName = "post" + nodeNameSuffix
+                let breadNodeName = "bread" + nodeNameSuffix
+                let hamNodeName = "ham" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                func addPost(s: AllowedObjectState) {
-                    addImage(imageNamed: "telegraph", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: postNodeName)
-                }
-                func removePost() { removeNode(withName: postNodeName) }
-                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                func addForbidden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
-                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
                 let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
                 guard String(describing: o1) != String(describing: o2) else {continue}
                 switch o1 {
                 case .forbidden:
-                    removeForbidden()
+                    removeNode(withName: forbiddenNodeName)
                 case .marker:
-                    removeMarker()
-                case .post:
-                    removePost()
+                    removeNode(withName: markerNodeName)
+                case .bread:
+                    removeNode(withName: breadNodeName)
+                case .ham:
+                    removeNode(withName: hamNodeName)
                 default:
                     break
                 }
                 switch o2 {
                 case .forbidden:
-                    addForbidden()
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case .marker:
-                    addMarker()
-                case let .post(s):
-                    addPost(s: s)
+                    addDotMarker(point: point, nodeName: markerNodeName)
+                case let .bread(s):
+                    addImage(imageNamed: "bread_slice", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: breadNodeName)
+                case let .ham(s):
+                    addImage(imageNamed: "ham_slice", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: hamNodeName)
                 default:
                     break
                 }                

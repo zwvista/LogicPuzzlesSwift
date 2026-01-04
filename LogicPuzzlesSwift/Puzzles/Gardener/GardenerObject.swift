@@ -12,7 +12,7 @@ enum GardenerObject {
     case empty
     case forbidden
     case marker
-    case flower(state: AllowedObjectState)
+    case flower(state: AllowedObjectState = .normal)
     init() {
         self = .empty
     }

@@ -13,7 +13,7 @@ enum SentinelsObject {
     case forbidden
     case hint(state: HintState = .normal)
     case marker
-    case tower(state: AllowedObjectState)
+    case tower(state: AllowedObjectState = .normal)
     init() {
         self = .empty
     }

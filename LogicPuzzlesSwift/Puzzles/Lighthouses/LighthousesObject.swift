@@ -13,7 +13,7 @@ enum LighthousesObject {
     case forbidden
     case hint(state: HintState = .normal)
     case marker
-    case lighthouse(state: AllowedObjectState)
+    case lighthouse(state: AllowedObjectState = .normal)
     init() {
         self = .empty
     }

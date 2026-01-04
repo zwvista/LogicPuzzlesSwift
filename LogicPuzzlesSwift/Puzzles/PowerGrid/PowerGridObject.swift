@@ -12,7 +12,7 @@ enum PowerGridObject {
     case empty
     case forbidden
     case marker
-    case post(state: AllowedObjectState)
+    case post(state: AllowedObjectState = .normal)
     init() {
         self = .empty
     }

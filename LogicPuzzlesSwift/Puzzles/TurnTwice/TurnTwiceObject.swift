@@ -12,8 +12,8 @@ enum TurnTwiceObject {
     case empty
     case forbidden
     case marker
-    case signpost(state: AllowedObjectState)
-    case wall(state: AllowedObjectState)
+    case signpost(state: AllowedObjectState = .normal)
+    case wall(state: AllowedObjectState = .normal)
     init() {
         self = .empty
     }

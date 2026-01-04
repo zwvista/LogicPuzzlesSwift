@@ -12,7 +12,7 @@ enum LitsObject {
     case empty
     case forbidden
     case marker
-    case tree(state: AllowedObjectState)
+    case tree(state: AllowedObjectState = .normal)
     init() {
         self = .empty
     }

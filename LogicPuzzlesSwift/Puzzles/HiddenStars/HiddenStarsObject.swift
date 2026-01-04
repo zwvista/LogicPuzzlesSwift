@@ -12,8 +12,8 @@ enum HiddenStarsObject {
     case empty
     case forbidden
     case marker
-    case star(state: AllowedObjectState)
-    case arrow(state: AllowedObjectState)
+    case star(state: AllowedObjectState = .normal)
+    case arrow(state: AllowedObjectState = .normal)
     init() {
         self = .empty
     }

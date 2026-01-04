@@ -62,11 +62,13 @@ class WishSandwichGameState: GridGameState<WishSandwichGameMove> {
         func f(o: WishSandwichObject) -> WishSandwichObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .post(state: .normal)
-            case .post:
+                return markerOption == .markerFirst ? .marker : .bread(state: .normal)
+            case .bread:
+                return .ham()
+            case .ham:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .post(state: .normal) : .empty
+                return markerOption == .markerFirst ? .bread() : .empty
             default:
                 return o
             }
@@ -84,8 +86,8 @@ class WishSandwichGameState: GridGameState<WishSandwichGameMove> {
         ...ever heard of it ?
 
         Description
-        1. Each row and column contains two Slices of Bread and a number of Pieces of
-           Ham, which is given in the top right corner.
+        1. Each row and column contains two Slices of Bread and N-3 Pieces of Pieces of Ham
+           (N being the board size). i.e. a board side 6, will have 3 Pieces of Ham.
         2. A number at the edge indicates how many Pieces of Ham you managed to put
            between the two Slices of Bread in that row or column.
     */
@@ -94,64 +96,87 @@ class WishSandwichGameState: GridGameState<WishSandwichGameMove> {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                let p = Position(r, c)
-                switch self[p] {
+                switch self[r, c] {
                 case .forbidden:
-                    self[p] = .empty
-                case .post:
-                    self[p] = .post(state: .normal)
+                    self[r, c] = .empty
+                case .bread:
+                    self[r, c] = .bread()
+                case .ham:
+                    self[r, c] = .ham()
                 default:
                     break
                 }
             }
         }
         for r in 0..<rows {
-            var posts = [Position]()
+            var breads = [Position](), hams = [Position]()
             for c in 0..<cols {
                 let p = Position(r, c)
-                if case .post = self[p] { posts.append(p) }
-            }
-            let n1 = posts.count, n2 = game.row2hint[r] + 1
-            // 2. There are two Posts in each Row.
-            // 3. The numbers on the side tell you the length of the cables between
-            // the two Posts (in that Row).
-            let s: HintState = n1 < 2 ? .normal : n1 == 2 && n2 == posts[1].col - posts[0].col ? .complete : .error
-            row2state[r] = s
-            if s != .complete { isSolved = false }
-            if s == .error {
-                for p in posts {
-                    self[p] = .post(state: .error)
+                switch self[p] {
+                case .bread:
+                    breads.append(p)
+                case .ham:
+                    hams.append(p)
+                default:
+                    break
                 }
             }
-            guard allowedObjectsOnly && n1 > 0 else {continue}
-            for c in 0..<cols {
-                if case .empty = self[r, c], n1 > 1 || n1 == 1 && n2 != abs(posts[0].col - c) {
-                    self[r, c] = .forbidden
+            if breads.count > 2 {
+                for p in breads { self[p] = .bread(state: .error) }
+            }
+            if hams.count > rows - 3 {
+                for p in hams { self[p] = .ham(state: .error) }
+            }
+            if breads.count != 2 {
+                isSolved = false
+                row2state[r] = .normal
+            } else {
+                let n2 = game.row2hint[r]
+                guard n2 >= 0 else {continue}
+                // 1. Each row and column contains two Slices of Bread and N-3 Pieces of Pieces of Ham
+                //    (N being the board size). i.e. a board side 6, will have 3 Pieces of Ham.
+                let n1 = hams.count { $0.col > breads[0].col && $0.col < breads[1].col }
+                let s: HintState = n1 == n2 ? .complete : .error
+                row2state[r] = s
+                guard allowedObjectsOnly && hams.count == rows - 3 else {continue}
+                (0..<cols).filter { self[r, $0].toString() == "empty" }.forEach {
+                    self[r, $0] = .forbidden
                 }
             }
         }
         for c in 0..<cols {
-            var posts = [Position]()
+            var breads = [Position](), hams = [Position]()
             for r in 0..<rows {
                 let p = Position(r, c)
-                if case .post = self[p] { posts.append(p) }
-            }
-            let n1 = posts.count, n2 = game.col2hint[c] + 1
-            // 2. There are two Posts in each Column.
-            // 3. The numbers on the side tell you the length of the cables between
-            // the two Posts (in that Column).
-            let s: HintState = n1 < 2 ? .normal : n1 == 2 && n2 == posts[1].row - posts[0].row ? .complete : .error
-            col2state[c] = s
-            if s != .complete { isSolved = false }
-            if s == .error {
-                for p in posts {
-                    self[p] = .post(state: .error)
+                switch self[p] {
+                case .bread:
+                    breads.append(p)
+                case .ham:
+                    hams.append(p)
+                default:
+                    break
                 }
             }
-            guard allowedObjectsOnly && n1 > 0 else {continue}
-            for r in 0..<rows {
-                if case .empty = self[r, c], n1 > 1 || n1 == 1 && n2 != abs(posts[0].row - r) {
-                    self[r, c] = .forbidden
+            if breads.count > 2 {
+                for p in breads { self[p] = .bread(state: .error) }
+            }
+            if hams.count > rows - 3 {
+                for p in hams { self[p] = .ham(state: .error) }
+            }
+            if breads.count != 2 {
+                isSolved = false
+                col2state[c] = .normal
+            } else {
+                let n2 = game.col2hint[c]
+                guard n2 >= 0 else {continue}
+                // 1. Each row and column contains two Slices of Bread and N-3 Pieces of Pieces of Ham
+                //    (N being the board size). i.e. a board side 6, will have 3 Pieces of Ham.
+                let n1 = hams.count { $0.row > breads[0].row && $0.row < breads[1].row }
+                let s: HintState = n1 == n2 ? .complete : .error
+                col2state[c] = s
+                guard allowedObjectsOnly && hams.count == rows - 3 else {continue}
+                (0..<rows).filter { self[$0, c].toString() == "empty" }.forEach {
+                    self[$0, c] = .forbidden
                 }
             }
         }

@@ -9,29 +9,34 @@
 import Foundation
 
 enum WishSandwichObject {
+    case bread(state: AllowedObjectState = .normal)
     case empty
     case forbidden
+    case ham(state: AllowedObjectState = .normal)
     case marker
-    case post(state: AllowedObjectState)
     init() {
         self = .empty
     }
     func toString() -> String {
         switch self {
+        case .bread:
+            return "bread"
         case .marker:
             return "marker"
-        case .post:
-            return "post"
+        case .ham:
+            return "ham"
         default:
             return "empty"
         }
     }
     static func fromString(str: String) -> WishSandwichObject {
         switch str {
+        case "bread":
+            return .bread(state: .normal)
         case "marker":
             return .marker
-        case "post":
-            return .post(state: .normal)
+        case "ham":
+            return .ham(state: .normal)
         default:
             return .empty
         }
