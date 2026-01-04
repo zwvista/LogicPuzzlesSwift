@@ -65,34 +65,32 @@ class RunInALoopGameState: GridGameState<RunInALoopGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        let g = Graph()
-        var pos2node = [Position: Node]()
+        var pos2Dirs = [Position: [Int]]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let n = self[p].filter { $0 }.count
-                switch n {
+                let dirs = (0..<4).filter { self[p][$0] }
+                switch dirs.count {
                 case 0:
+                    // 1. Draw a loop that runs through all tiles.
                     guard game[p] == RunInALoopGame.PUZ_BLOCK else { isSolved = false; return }
                 case 2:
-                    pos2node[p] = g.addNode(p.description)
+                    pos2Dirs[p] = dirs
                 default:
-                    // 1. Draw a loop that runs through all tiles.
                     // 2. The loop cannot cross itself.
                     isSolved = false; return
                 }
             }
         }
-        for p in pos2node.keys {
-            let o = self[p]
-            for i in 0..<4 {
-                guard o[i] else {continue}
-                let p2 = p + RunInALoopGame.offset[i]
-                g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
-            }
+        // Check the loop
+        let p = pos2Dirs.keys.first!
+        var p2 = p, n = -1
+        while true {
+            guard let dirs = pos2Dirs[p2] else { isSolved = false; return }
+            pos2Dirs.removeValue(forKey: p2)
+            n = dirs.first { ($0 + 2) % 4 != n }!
+            p2 += StraightAndTurnGame.offset[n]
+            guard p2 != p else {return}
         }
-        // 1. Draw a single looping path.
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count { isSolved = false }
     }
 }

@@ -73,68 +73,32 @@ class StraightAndTurnGameState: GridGameState<StraightAndTurnGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        let g = Graph()
-        var pos2node = [Position: Node]()
         var pos2Dirs = [Position: [Int]]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let o = self[p]
-                let ch = game[p]
-                var dirs = [Int]()
-                for i in 0..<4 {
-                    if o[i] { dirs.append(i) }
-                }
+                let dirs = (0..<4).filter { self[p][$0] }
                 switch dirs.count {
                 case 0:
-                    // 1. The goal is to draw a single Loop(Necklace) through every circle(Pearl)
-                    guard ch == " " else { isSolved = false; return }
+                    // 1. Draw a path that crosses all gems
+                    guard game[p] == " " else { isSolved = false; return }
                 case 2:
-                    pos2node[p] = g.addNode(p.description)
                     pos2Dirs[p] = dirs
-                    switch ch {
-                    case "B":
-                        // 4. Lines passing through Black Pearls must do a 90 degree turn in them.
-                        guard dirs[1] - dirs[0] != 2 else { isSolved = false; return }
-                    case "W":
-                        // 3. Lines passing through White Pearls must go straight through them.
-                        guard dirs[1] - dirs[0] == 2 else { isSolved = false; return }
-                    default:
-                        break
-                    }
                 default:
-                    // 1. The goal is to draw a single Loop(Necklace)
-                    // that never branches-off or crosses itself.
+                    // 1. Draw a path that crosses all gems
                     isSolved = false; return
                 }
             }
         }
-        for (p, node) in pos2node {
-            let dirs = pos2Dirs[p]!
-            let ch = game[p]
-            var bW = ch != "W"
-            for i in dirs {
-                let p2 = p + StraightAndTurnGame.offset[i]
-                guard let node2 = pos2node[p2], let dirs2 = pos2Dirs[p2] else { isSolved = false; return }
-                switch ch {
-                case "B":
-                    // 4. Lines passing through Black Pearls must go straight
-                    // in the next tile in both directions.
-                    guard (i == 0 || i == 2) && dirs2[0] == 0 && dirs2[1] == 2 || (i == 1 || i == 3) && dirs2[0] == 1 && dirs2[1] == 3 else { isSolved = false; return }
-                case "W":
-                    // 3. At least at one side of the White Pearl(or both),
-                    // Lines passing through White Pearls must do a 90 degree turn.
-                    let n1 = (i + 1) % 4, n2 = (i + 3) % 4
-                    if dirs2[0] == n1 || dirs2[0] == n2 || dirs2[1] == n1 || dirs2[1] == n2 { bW = true }
-                default:
-                    break
-                }
-                g.addEdge(node, neighbor: node2)
-            }
-            guard bW else { isSolved = false; return }
+        // Check the loop
+        let p = pos2Dirs.keys.first!
+        var p2 = p, n = -1
+        while true {
+            guard let dirs = pos2Dirs[p2] else { isSolved = false; return }
+            pos2Dirs.removeValue(forKey: p2)
+            n = dirs.first { ($0 + 2) % 4 != n }!
+            p2 += StraightAndTurnGame.offset[n]
+            guard p2 != p else {return}
         }
-        // 1. The goal is to draw a single Loop(Necklace).
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count { isSolved = false }
     }
 }

@@ -10,6 +10,8 @@ import Foundation
 
 class MasyuGame: GridGame<MasyuGameState> {
     static let offset = Position.Directions4
+    static let PUZ_BLACK_PEARL: Character = "B";
+    static let PUZ_WHITE_PEARL: Character = "W";
 
     var objArray = [Character]()
     subscript(p: Position) -> Character {

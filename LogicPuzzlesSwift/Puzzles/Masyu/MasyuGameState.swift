@@ -80,10 +80,7 @@ class MasyuGameState: GridGameState<MasyuGameMove> {
                 let p = Position(r, c)
                 let o = self[p]
                 let ch = game[p]
-                var dirs = [Int]()
-                for i in 0..<4 {
-                    if o[i] { dirs.append(i) }
-                }
+                var dirs = (0..<4).filter { o[$0] }
                 switch dirs.count {
                 case 0:
                     // 1. The goal is to draw a single Loop(Necklace) through every circle(Pearl)
@@ -92,10 +89,10 @@ class MasyuGameState: GridGameState<MasyuGameMove> {
                     pos2node[p] = g.addNode(p.description)
                     pos2Dirs[p] = dirs
                     switch ch {
-                    case "B":
+                    case MasyuGame.PUZ_BLACK_PEARL:
                         // 4. Lines passing through Black Pearls must do a 90 degree turn in them.
                         guard dirs[1] - dirs[0] != 2 else { isSolved = false; return }
-                    case "W":
+                    case MasyuGame.PUZ_WHITE_PEARL:
                         // 3. Lines passing through White Pearls must go straight through them.
                         guard dirs[1] - dirs[0] == 2 else { isSolved = false; return }
                     default:
@@ -116,11 +113,11 @@ class MasyuGameState: GridGameState<MasyuGameMove> {
                 let p2 = p + MasyuGame.offset[i]
                 guard let node2 = pos2node[p2], let dirs2 = pos2Dirs[p2] else { isSolved = false; return }
                 switch ch {
-                case "B":
+                case MasyuGame.PUZ_BLACK_PEARL:
                     // 4. Lines passing through Black Pearls must go straight
                     // in the next tile in both directions.
                     guard (i == 0 || i == 2) && dirs2[0] == 0 && dirs2[1] == 2 || (i == 1 || i == 3) && dirs2[0] == 1 && dirs2[1] == 3 else { isSolved = false; return }
-                case "W":
+                case MasyuGame.PUZ_WHITE_PEARL:
                     // 3. At least at one side of the White Pearl(or both),
                     // Lines passing through White Pearls must do a 90 degree turn.
                     let n1 = (i + 1) % 4, n2 = (i + 3) % 4
