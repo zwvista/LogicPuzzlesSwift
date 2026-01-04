@@ -9,12 +9,10 @@
 import Foundation
 
 class RunInALoopGame: GridGame<RunInALoopGameState> {
-    static let PUZ_ONE: Character = "1"
+    static let PUZ_BLOCK: Character = "B"
     static let offset = Position.Directions4
 
     var objArray = [Character]()
-    var chMax = RunInALoopGame.PUZ_ONE
-    var expectedChars = String(RunInALoopGame.PUZ_ONE)
     subscript(p: Position) -> Character {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
@@ -33,18 +31,10 @@ class RunInALoopGame: GridGame<RunInALoopGameState> {
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
-                let ch = str[c]
-                self[r, c] = ch
-                if chMax < ch { chMax = ch }
+                self[r, c] = str[c]
             }
-        }
-        var ch = RunInALoopGame.PUZ_ONE
-        while ch != chMax {
-            ch = succ(ch: ch)
-            expectedChars.append(ch)
         }
         let state = RunInALoopGameState(game: self)
         levelInitialized(state: state)
     }
-    
 }
