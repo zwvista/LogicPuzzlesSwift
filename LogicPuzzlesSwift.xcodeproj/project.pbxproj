@@ -1106,6 +1106,15 @@
 		8C9BD5642F0A5CF500D1D915 /* IslandConnectionsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5562F0A5CF500D1D915 /* IslandConnectionsGame.swift */; };
 		8C9BD5652F0A5CF500D1D915 /* IslandConnectionsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5552F0A5CF500D1D915 /* IslandConnectionsDocument.swift */; };
 		8C9BD5662F0A5CF500D1D915 /* IslandConnections.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BD5542F0A5CF500D1D915 /* IslandConnections.xml */; };
+		8C9BD5712F0A608A00D1D915 /* ChocolateGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD56A2F0A608A00D1D915 /* ChocolateGameScene.swift */; };
+		8C9BD5722F0A608A00D1D915 /* ChocolateGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD56D2F0A608A00D1D915 /* ChocolateGridNode.swift */; };
+		8C9BD5732F0A608A00D1D915 /* ChocolateObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD56F2F0A608A00D1D915 /* ChocolateObject.swift */; };
+		8C9BD5742F0A608A00D1D915 /* ChocolateDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5682F0A608A00D1D915 /* ChocolateDocument.swift */; };
+		8C9BD5752F0A608A00D1D915 /* ChocolateMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD56E2F0A608A00D1D915 /* ChocolateMainViewController.swift */; };
+		8C9BD5762F0A608A00D1D915 /* ChocolateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD56C2F0A608A00D1D915 /* ChocolateGameViewController.swift */; };
+		8C9BD5772F0A608A00D1D915 /* ChocolateGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5692F0A608A00D1D915 /* ChocolateGame.swift */; };
+		8C9BD5782F0A608A00D1D915 /* ChocolateGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD56B2F0A608A00D1D915 /* ChocolateGameState.swift */; };
+		8C9BD5792F0A608A00D1D915 /* Chocolate.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BD5672F0A608A00D1D915 /* Chocolate.xml */; };
 		8C9F32291ECF06C000E10965 /* Tapa.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F321E1ECF06BF00E10965 /* Tapa.xml */; };
 		8C9F322A1ECF06C000E10965 /* TapaDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F321F1ECF06BF00E10965 /* TapaDocument.swift */; };
 		8C9F322B1ECF06C000E10965 /* TapaGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F32201ECF06BF00E10965 /* TapaGame.swift */; };
@@ -2561,6 +2570,15 @@
 		8C9BD55A2F0A5CF500D1D915 /* IslandConnectionsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IslandConnectionsGridNode.swift; sourceTree = "<group>"; };
 		8C9BD55B2F0A5CF500D1D915 /* IslandConnectionsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IslandConnectionsMainViewController.swift; sourceTree = "<group>"; };
 		8C9BD55C2F0A5CF500D1D915 /* IslandConnectionsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IslandConnectionsObject.swift; sourceTree = "<group>"; };
+		8C9BD5672F0A608A00D1D915 /* Chocolate.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Chocolate.xml; sourceTree = "<group>"; };
+		8C9BD5682F0A608A00D1D915 /* ChocolateDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateDocument.swift; sourceTree = "<group>"; };
+		8C9BD5692F0A608A00D1D915 /* ChocolateGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateGame.swift; sourceTree = "<group>"; };
+		8C9BD56A2F0A608A00D1D915 /* ChocolateGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateGameScene.swift; sourceTree = "<group>"; };
+		8C9BD56B2F0A608A00D1D915 /* ChocolateGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateGameState.swift; sourceTree = "<group>"; };
+		8C9BD56C2F0A608A00D1D915 /* ChocolateGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateGameViewController.swift; sourceTree = "<group>"; };
+		8C9BD56D2F0A608A00D1D915 /* ChocolateGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateGridNode.swift; sourceTree = "<group>"; };
+		8C9BD56E2F0A608A00D1D915 /* ChocolateMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateMainViewController.swift; sourceTree = "<group>"; };
+		8C9BD56F2F0A608A00D1D915 /* ChocolateObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChocolateObject.swift; sourceTree = "<group>"; };
 		8C9F321E1ECF06BF00E10965 /* Tapa.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tapa.xml; sourceTree = "<group>"; };
 		8C9F321F1ECF06BF00E10965 /* TapaDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaDocument.swift; sourceTree = "<group>"; };
 		8C9F32201ECF06BF00E10965 /* TapaGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaGame.swift; sourceTree = "<group>"; };
@@ -3231,6 +3249,7 @@
 				8CA043071FDBE77700AF85E1 /* CarpentersSquare */,
 				8CA042FB1FDBE77700AF85E1 /* CarpentersWall */,
 				8CFAF9AD20381D850095EFFC /* CastleBailey */,
+				8C9BD5702F0A608A00D1D915 /* Chocolate */,
 				8C3A342E1EC88D4100A914A5 /* Clouds */,
 				8C81BC222EA8A6BD0083B936 /* CoffeeAndSugar */,
 				8C81BC352EA8EF030083B936 /* DesertDunes */,
@@ -4833,6 +4852,22 @@
 			path = IslandConnections;
 			sourceTree = "<group>";
 		};
+		8C9BD5702F0A608A00D1D915 /* Chocolate */ = {
+			isa = PBXGroup;
+			children = (
+				8C9BD5672F0A608A00D1D915 /* Chocolate.xml */,
+				8C9BD5682F0A608A00D1D915 /* ChocolateDocument.swift */,
+				8C9BD5692F0A608A00D1D915 /* ChocolateGame.swift */,
+				8C9BD56A2F0A608A00D1D915 /* ChocolateGameScene.swift */,
+				8C9BD56B2F0A608A00D1D915 /* ChocolateGameState.swift */,
+				8C9BD56C2F0A608A00D1D915 /* ChocolateGameViewController.swift */,
+				8C9BD56D2F0A608A00D1D915 /* ChocolateGridNode.swift */,
+				8C9BD56E2F0A608A00D1D915 /* ChocolateMainViewController.swift */,
+				8C9BD56F2F0A608A00D1D915 /* ChocolateObject.swift */,
+			);
+			path = Chocolate;
+			sourceTree = "<group>";
+		};
 		8C9F321D1ECF06BF00E10965 /* Tapa */ = {
 			isa = PBXGroup;
 			children = (
@@ -5664,6 +5699,7 @@
 				8C86634E2EA39DD00078CD64 /* donut.png in Resources */,
 				8C86634F2EA39DD00078CD64 /* raspberry.png in Resources */,
 				8C8663502EA39DD00078CD64 /* arrow1.png in Resources */,
+				8C9BD5792F0A608A00D1D915 /* Chocolate.xml in Resources */,
 				8C8663512EA39DD00078CD64 /* plum.png in Resources */,
 				8C8663522EA39DD00078CD64 /* cabbage.png in Resources */,
 				8C8663532EA39DD00078CD64 /* navigate_left.png in Resources */,
@@ -6724,6 +6760,14 @@
 				8C3A36A41EC88D4200A914A5 /* HitoriMainViewController.swift in Sources */,
 				8C3A375D1EC88D4300A914A5 /* PairakabeDocument.swift in Sources */,
 				8C3A36881EC88D4200A914A5 /* FenceLitsGameState.swift in Sources */,
+				8C9BD5712F0A608A00D1D915 /* ChocolateGameScene.swift in Sources */,
+				8C9BD5722F0A608A00D1D915 /* ChocolateGridNode.swift in Sources */,
+				8C9BD5732F0A608A00D1D915 /* ChocolateObject.swift in Sources */,
+				8C9BD5742F0A608A00D1D915 /* ChocolateDocument.swift in Sources */,
+				8C9BD5752F0A608A00D1D915 /* ChocolateMainViewController.swift in Sources */,
+				8C9BD5762F0A608A00D1D915 /* ChocolateGameViewController.swift in Sources */,
+				8C9BD5772F0A608A00D1D915 /* ChocolateGame.swift in Sources */,
+				8C9BD5782F0A608A00D1D915 /* ChocolateGameState.swift in Sources */,
 				8C3A37721EC88D4300A914A5 /* ParksObject.swift in Sources */,
 				8C3A36951EC88D4200A914A5 /* FenceSentinelsGameViewController.swift in Sources */,
 				8C3A363F1EC88D4200A914A5 /* BridgesGameScene.swift in Sources */,
