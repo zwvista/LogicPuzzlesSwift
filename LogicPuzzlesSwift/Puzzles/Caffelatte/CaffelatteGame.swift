@@ -9,8 +9,9 @@
 import Foundation
 
 class CaffelatteGame: GridGame<CaffelatteGameState> {
-    static let PUZ_COFFEE: Character = "C"
-    static let PUZ_SUGAR: Character = "S"
+    static let PUZ_BEAN: Character = "B"
+    static let PUZ_CUP: Character = "C"
+    static let PUZ_MILK: Character = "M"
     static let offset = Position.Directions4
 
     var objArray = [Character]()

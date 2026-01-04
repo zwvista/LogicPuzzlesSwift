@@ -30,7 +30,7 @@ class CaffelatteGameScene: GameScene<CaffelatteGameState> {
                 let ch = game[r, c]
                 guard ch != " " else {continue}
                 let point = gridNode.centerPoint(p: p)
-                addImage(imageNamed: ch == CaffelatteGame.PUZ_COFFEE ? "cup" : "cube_white", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "coffee_sugar")
+                addImage(imageNamed: ch == CaffelatteGame.PUZ_BEAN ? "coffeebean" : ch == CaffelatteGame.PUZ_CUP ? "cup" : "cow_face", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "caffelatte")
             }
         }
     }

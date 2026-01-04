@@ -8,11 +8,6 @@
 
 import Foundation
 
-class IslandInfo {
-    var bridges = 0
-    var neighbors: [Position?] = [nil, nil, nil, nil]
-}
-
 class IslandConnectionsGame: GridGame<IslandConnectionsGameState> {
     static let offset = Position.Directions4
     

@@ -82,10 +82,10 @@ class CaffelatteGameState: GridGameState<CaffelatteGameMove> {
                 ch2dirs[p] = dirs
                 let cnt = dirs.count
                 switch ch {
-                case CaffelatteGame.PUZ_COFFEE:
+                case CaffelatteGame.PUZ_CUP:
                     guard cnt == 1 else { isSolved = false; return }
                     coffeeArray.append(p)
-                case CaffelatteGame.PUZ_SUGAR:
+                case CaffelatteGame.PUZ_BEAN:
                     guard cnt == 1 else { isSolved = false; return }
                     sugarArray.append(p)
                 default:
@@ -122,11 +122,11 @@ class CaffelatteGameState: GridGameState<CaffelatteGameMove> {
                 var p3 = p2 + os
                 while true {
                     let ch = game[p3]
-                    guard ch == " " || ch == CaffelatteGame.PUZ_SUGAR else { isSolved = false; return }
+                    guard ch == " " || ch == CaffelatteGame.PUZ_BEAN else { isSolved = false; return }
                     var dirs2 = ch2dirs[p3]!
                     let j = (i + 2) % 4
                     guard dirs2.contains(j) else { isSolved = false; return }
-                    if ch == CaffelatteGame.PUZ_SUGAR {
+                    if ch == CaffelatteGame.PUZ_BEAN {
                         sugarArray2.append(p3)
                         break
                     }
