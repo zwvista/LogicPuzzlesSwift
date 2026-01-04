@@ -17,6 +17,7 @@ class PouringWaterGame: GridGame<PouringWaterGameState> {
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
+    static let PUZ_UNKNOWN = -1
 
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
@@ -51,15 +52,11 @@ class PouringWaterGame: GridGame<PouringWaterGameState> {
                     }
                 }
                 let ch2 = str[2 * cols + 1]
-                if ch2 != " " {
-                    row2hint[r] = ch2.toInt!
-                }
+                row2hint[r] = ch2 == " " ? PouringWaterGame.PUZ_UNKNOWN : ch2.toInt!
             } else {
                 for c in 0..<cols {
                     let ch2 = str[2 * c + 1]
-                    if ch2 != " " {
-                        col2hint[c] = ch2.toInt!
-                    }
+                    col2hint[c] = ch2 == " " ? PouringWaterGame.PUZ_UNKNOWN : ch2.toInt!
                 }
             }
         }

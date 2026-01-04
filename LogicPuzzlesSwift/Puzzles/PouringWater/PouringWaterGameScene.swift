@@ -72,22 +72,57 @@ class PouringWaterGameScene: GameScene<PouringWaterGameState> {
     }
     
     override func levelUpdated(from stateFrom: PouringWaterGameState, to stateTo: PouringWaterGameState) {
+        func removeHint(p: Position) {
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let hintNodeName = "hint" + nodeNameSuffix
+            removeNode(withName: hintNodeName)
+        }
+        for r in 0..<stateFrom.rows {
+            let p = Position(r, stateFrom.cols)
+            let n = stateFrom.game.row2hint[r]
+            if stateFrom.row2state[r] != stateTo.row2state[r] {
+                removeHint(p: p)
+                addHint(p: p, n: n, s: stateTo.row2state[r])
+            }
+        }
+        for c in 0..<stateFrom.cols {
+            let p = Position(stateFrom.rows, c)
+            let n = stateFrom.game.col2hint[c]
+            if stateFrom.col2state[c] != stateTo.col2state[c] {
+                removeHint(p: p)
+                addHint(p: p, n: n, s: stateTo.col2state[c])
+            }
+        }
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let charNodeName = "char" + nodeNameSuffix
-                let (ch1, ch2) = (stateFrom[p], stateTo[p])
-//                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
-//                if ch1 != ch2 || s1 != s2 {
-//                    if (ch1 != " ") {
-//                        removeNode(withName: charNodeName)
-//                    }
-//                    if (ch2 != " ") {
-//                        addCharacter(ch: ch2, s: stateTo.pos2state[p] ?? .normal, isHint: stateTo.game[p] != " ", point: point, nodeName: charNodeName)
-//                    }
-//                }
+                let waterNodeName = "water" + nodeNameSuffix
+                let markerNodeName = "marker" + nodeNameSuffix
+                let forbiddenNodeName = "forbidden" + nodeNameSuffix
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                guard String(describing: o1) != String(describing: o2) else {continue}
+                switch o1 {
+                case .forbidden:
+                    removeNode(withName: forbiddenNodeName)
+                case .marker:
+                    removeNode(withName: markerNodeName)
+                case .water:
+                    removeNode(withName: waterNodeName)
+                default:
+                    break
+                }
+                switch o2 {
+                case .forbidden:
+                    addDotMarker2(color: .red, point: point, nodeName: forbiddenNodeName)
+                case .marker:
+                    addDotMarker(point: point, nodeName: markerNodeName)
+                case .water(state: let s):
+                    addImage(imageNamed: "sea", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: waterNodeName)
+                default:
+                    break
+                }
             }
         }
     }
