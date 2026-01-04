@@ -158,7 +158,7 @@ class MixedTatamisGameState: GridGameState<MixedTatamisGameMove> {
             let p2 = rng[0]
             let n2 = game.pos2hint[p2]!
             // 1. Just like Box It Up, you have to divide the Board in Boxes (Rectangles).
-            // 2. The number represents the area of that Box.
+            // 3. A cell with a number indicates the length of the Tatami.
             s = s == .complete && n1 == n2 && !hasLine() ? .complete : .error
             pos2state[p2] = s
             if s != .complete { isSolved = false }

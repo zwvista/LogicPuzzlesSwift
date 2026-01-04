@@ -1,5 +1,5 @@
 //
-//  BoxItAgainGameState.swift
+//  InsaneTatamisGameState.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/19.
@@ -8,27 +8,27 @@
 
 import Foundation
 
-class BoxItAgainGameState: GridGameState<BoxItAgainGameMove> {
-    var game: BoxItAgainGame {
-        get { getGame() as! BoxItAgainGame }
+class InsaneTatamisGameState: GridGameState<InsaneTatamisGameMove> {
+    var game: InsaneTatamisGame {
+        get { getGame() as! InsaneTatamisGame }
         set { setGame(game: newValue) }
     }
-    override var gameDocument: GameDocumentBase { BoxItAgainDocument.sharedInstance }
+    override var gameDocument: GameDocumentBase { InsaneTatamisDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
     
-    override func copy() -> BoxItAgainGameState {
-        let v = BoxItAgainGameState(game: game, isCopy: true)
+    override func copy() -> InsaneTatamisGameState {
+        let v = InsaneTatamisGameState(game: game, isCopy: true)
         return setup(v: v)
     }
-    func setup(v: BoxItAgainGameState) -> BoxItAgainGameState {
+    func setup(v: InsaneTatamisGameState) -> InsaneTatamisGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
         v.pos2state = pos2state
         return v
     }
     
-    required init(game: BoxItAgainGame, isCopy: Bool = false) {
+    required init(game: InsaneTatamisGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = game.objArray
@@ -47,7 +47,7 @@ class BoxItAgainGameState: GridGameState<BoxItAgainGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout BoxItAgainGameMove) -> GameOperationType {
+    override func setObject(move: inout InsaneTatamisGameMove) -> GameOperationType {
         var changed = false
         func f(o1: inout GridLineObject, o2: inout GridLineObject) {
             if o1 != move.obj {
@@ -59,14 +59,14 @@ class BoxItAgainGameState: GridGameState<BoxItAgainGameMove> {
             }
         }
         let dir = move.dir, dir2 = (dir + 2) % 4
-        let p = move.p, p2 = p + BoxItAgainGame.offset[dir]
+        let p = move.p, p2 = p + InsaneTatamisGame.offset[dir]
         guard isValid(p: p2) && game[p][dir] == .empty else { return .invalid }
         f(o1: &self[p][dir], o2: &self[p2][dir2])
         if changed { updateIsSolved() }
         return changed ? .moveComplete : .invalid
     }
     
-    override func switchObject(move: inout BoxItAgainGameMove) -> GameOperationType {
+    override func switchObject(move: inout InsaneTatamisGameMove) -> GameOperationType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: GridLineObject) -> GridLineObject {
             switch o {
@@ -86,17 +86,17 @@ class BoxItAgainGameState: GridGameState<BoxItAgainGameMove> {
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 15/Box It Again
+        iOS Game: 100 Logic Games 2/Puzzle Set 5/Insane Tatamis
 
         Summary
-        Harder Boxes
+        Not that long
 
         Description
-        1. Just like Box It Up, you have to divide the Board in Boxes (Rectangles).
-        2. Each Box must contain one number and the number represents the area of
-           that Box.
-        3. However this time, some tiles can be left unboxed, the board isn't 
-           entirely covered by boxes.
+        1. Divide the board into rectangular areas, each containing a number.
+        2. Every area must be exactly one tile wide.
+        3. The length of the other side is NOT equal to the number of this
+           region.
+        4. A grid dot must not be shared by the corners of four areas.
     */
     private func updateIsSolved() {
         isSolved = true
@@ -112,8 +112,8 @@ class BoxItAgainGameState: GridGameState<BoxItAgainGameMove> {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
                 for i in 0..<4 {
-                    guard self[p + BoxItAgainGame.offset2[i]][BoxItAgainGame.dirs[i]] != .line else {continue}
-                    g.addEdge(pos2node[p]!, neighbor: pos2node[p + BoxItAgainGame.offset[i]]!)
+                    guard self[p + InsaneTatamisGame.offset2[i]][InsaneTatamisGame.dirs[i]] != .line else {continue}
+                    g.addEdge(pos2node[p]!, neighbor: pos2node[p + InsaneTatamisGame.offset[i]]!)
                 }
             }
         }
@@ -122,7 +122,7 @@ class BoxItAgainGameState: GridGameState<BoxItAgainGameMove> {
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
             let rng = area.filter { p in game.pos2hint[p] != nil }
-            // 2. Each Box must contain one number.
+            // 3. A cell with a number indicates the length of the Tatami.
             if rng.count > 1 {
                 for p in rng {
                     pos2state[p] = .normal
@@ -138,9 +138,10 @@ class BoxItAgainGameState: GridGameState<BoxItAgainGameMove> {
                 if c1 > p.col { c1 = p.col }
             }
             let rs = r2 - r1 + 1, cs = c2 - c1 + 1
-            var s: HintState = rs * cs == n1 ? .complete : .error
+            let (w, h) = rs < cs ? (rs, cs) : (cs, rs)
+            var s: HintState = w == 1 && h <= 4 && h == n1 ? .complete : .error
             if s != .complete { isSolved = false }
-            // 3. Some tiles can be left unboxed, the board isn't entirely covered by boxes.
+            // 3. Not all Tatamis have to be marked by a number.
             guard !rng.isEmpty else {continue}
             func hasLine() -> Bool {
                 for r in r1...r2 {
@@ -154,7 +155,7 @@ class BoxItAgainGameState: GridGameState<BoxItAgainGameMove> {
             let p2 = rng[0]
             let n2 = game.pos2hint[p2]!
             // 1. Just like Box It Up, you have to divide the Board in Boxes (Rectangles).
-            // 2. The number represents the area of that Box.
+            // 3. A cell with a number indicates the length of the Tatami.
             s = s == .complete && n1 == n2 && !hasLine() ? .complete : .error
             pos2state[p2] = s
             if s != .complete { isSolved = false }
