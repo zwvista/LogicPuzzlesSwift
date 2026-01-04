@@ -122,8 +122,8 @@ class InsaneTatamisGameState: GridGameState<InsaneTatamisGameMove> {
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
             let rng = area.filter { p in game.pos2hint[p] != nil }
-            // 3. A cell with a number indicates the length of the Tatami.
-            if rng.count > 1 {
+            // 1. Divide the board into rectangular areas, each containing a number.
+            if rng.count != 1 {
                 for p in rng {
                     pos2state[p] = .normal
                 }
@@ -139,24 +139,14 @@ class InsaneTatamisGameState: GridGameState<InsaneTatamisGameMove> {
             }
             let rs = r2 - r1 + 1, cs = c2 - c1 + 1
             let (w, h) = rs < cs ? (rs, cs) : (cs, rs)
-            var s: HintState = w == 1 && h <= 4 && h == n1 ? .complete : .error
+            // 2. Every area must be exactly one tile wide.
+            var s: HintState = w == 1 && h == n1 ? .complete : .error
             if s != .complete { isSolved = false }
-            // 3. Not all Tatamis have to be marked by a number.
-            guard !rng.isEmpty else {continue}
-            func hasLine() -> Bool {
-                for r in r1...r2 {
-                    for c in c1...c2 {
-                        let dotObj = self[r + 1, c + 1]
-                        if r < r2 && dotObj[3] == .line || c < c2 && dotObj[0] == .line { return true }
-                    }
-                }
-                return false
-            }
             let p2 = rng[0]
             let n2 = game.pos2hint[p2]!
-            // 1. Just like Box It Up, you have to divide the Board in Boxes (Rectangles).
-            // 3. A cell with a number indicates the length of the Tatami.
-            s = s == .complete && n1 == n2 && !hasLine() ? .complete : .error
+            // 3. The length of the other side is NOT equal to the number of this
+            //    region.
+            s = s == .complete && n1 != n2 ? .complete : .error
             pos2state[p2] = s
             if s != .complete { isSolved = false }
         }

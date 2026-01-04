@@ -146,20 +146,11 @@ class MixedTatamisGameState: GridGameState<MixedTatamisGameMove> {
             if s != .complete { isSolved = false }
             // 3. Not all Tatamis have to be marked by a number.
             guard !rng.isEmpty else {continue}
-            func hasLine() -> Bool {
-                for r in r1...r2 {
-                    for c in c1...c2 {
-                        let dotObj = self[r + 1, c + 1]
-                        if r < r2 && dotObj[3] == .line || c < c2 && dotObj[0] == .line { return true }
-                    }
-                }
-                return false
-            }
             let p2 = rng[0]
             let n2 = game.pos2hint[p2]!
             // 1. Just like Box It Up, you have to divide the Board in Boxes (Rectangles).
             // 3. A cell with a number indicates the length of the Tatami.
-            s = s == .complete && n1 == n2 && !hasLine() ? .complete : .error
+            s = s == .complete && n1 == n2 ? .complete : .error
             pos2state[p2] = s
             if s != .complete { isSolved = false }
         }
