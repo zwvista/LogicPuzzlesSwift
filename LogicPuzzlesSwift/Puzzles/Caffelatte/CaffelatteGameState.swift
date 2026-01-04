@@ -14,7 +14,7 @@ class CaffelatteGameState: GridGameState<CaffelatteGameMove> {
         set { setGame(game: newValue) }
     }
     override var gameDocument: GameDocumentBase { CaffelatteDocument.sharedInstance }
-    var objArray = [CaffelatteObject]()
+    var rng = [CaffelatteObject]()
     
     override func copy() -> CaffelatteGameState {
         let v = CaffelatteGameState(game: game, isCopy: true)
@@ -22,14 +22,14 @@ class CaffelatteGameState: GridGameState<CaffelatteGameMove> {
     }
     func setup(v: CaffelatteGameState) -> CaffelatteGameState {
         _ = super.setup(v: v)
-        v.objArray = objArray
+        v.rng = rng
         return v
     }
     
     required init(game: CaffelatteGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<CaffelatteObject>(repeating: CaffelatteObject(repeating: false, count: 4), count: rows * cols)
+        rng = Array<CaffelatteObject>(repeating: CaffelatteObject(repeating: false, count: 4), count: rows * cols)
         updateIsSolved()
     }
     
@@ -38,8 +38,8 @@ class CaffelatteGameState: GridGameState<CaffelatteGameMove> {
         set { self[p.row, p.col] = newValue }
     }
     subscript(row: Int, col: Int) -> CaffelatteObject {
-        get { objArray[row * cols + col] }
-        set { objArray[row * cols + col] = newValue }
+        get { rng[row * cols + col] }
+        set { rng[row * cols + col] = newValue }
     }
     
     override func setObject(move: inout CaffelatteGameMove) -> GameOperationType {
@@ -69,9 +69,7 @@ class CaffelatteGameState: GridGameState<CaffelatteGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        var coffeeArray = [Position]()
-        var sugarArray = [Position]()
-        var emptyArray = [Position]()
+        var rng = [Position]()
         var ch2dirs = [Position: [Int]]()
         for r in 0..<rows {
             for c in 0..<cols {
@@ -81,64 +79,34 @@ class CaffelatteGameState: GridGameState<CaffelatteGameMove> {
                 let dirs = (0..<4).filter { o[$0] }
                 ch2dirs[p] = dirs
                 let cnt = dirs.count
-                switch ch {
-                case CaffelatteGame.PUZ_CUP:
-                    guard cnt == 1 else { isSolved = false; return }
-                    coffeeArray.append(p)
-                case CaffelatteGame.PUZ_BEAN:
-                    guard cnt == 1 else { isSolved = false; return }
-                    sugarArray.append(p)
-                default:
-                    guard [0, 2, 3].contains(cnt) else { isSolved = false; return }
-                    if cnt != 0 { emptyArray.append(p) }
+                if ch == " " {
+                    guard cnt == 0 || cnt == 2 else { isSolved = false; return }
+                    if cnt == 2 { rng.append(p) }
+                } else {
+                    guard cnt > 0 else { isSolved = false; return }
+                    rng.append(p)
                 }
             }
         }
-        var sugarArray2 = [Position]()
-        var emptyArray2 = [Position]()
-        for p in coffeeArray {
-            let i = ch2dirs[p]!.first!
-            var os = CaffelatteGame.offset[i]
-            var p2 = p + os
-            var dirs = [Int]()
-            while true {
-                let ch = game[p2]
-                guard ch == " " else { isSolved = false; return }
-                emptyArray2.append(p2)
-                let j = (i + 2) % 4
-                dirs = ch2dirs[p2]!
-                guard dirs.contains(j) else { isSolved = false; return }
-                dirs = dirs.filter { $0 != j }
-                if dirs.count == 2 {
-                    guard !dirs.contains(i) else { isSolved = false; return }
-                    break
-                }
-                let k = dirs.first!
-                guard k == i else { isSolved = false; return }
-                p2 += os
-            }
-            for i in dirs {
-                os = CaffelatteGame.offset[i]
-                var p3 = p2 + os
-                while true {
-                    let ch = game[p3]
-                    guard ch == " " || ch == CaffelatteGame.PUZ_BEAN else { isSolved = false; return }
-                    var dirs2 = ch2dirs[p3]!
-                    let j = (i + 2) % 4
-                    guard dirs2.contains(j) else { isSolved = false; return }
-                    if ch == CaffelatteGame.PUZ_BEAN {
-                        sugarArray2.append(p3)
-                        break
-                    }
-                    emptyArray2.append(p3)
-                    dirs2 = dirs2.filter { $0 != j }
-                    guard dirs2.count == 1 else { isSolved = false; return }
-                    let k = dirs2.first!
-                    guard k == i else { isSolved = false; return }
-                    p3 += os
-                }
+        let g = Graph()
+        var pos2node = [Position: Node]()
+        for p in rng {
+            pos2node[p] = g.addNode(p.description)
+        }
+        for p in rng {
+            for i in 0..<4 {
+                guard self[p][i] else {continue}
+                g.addEdge(pos2node[p]!, neighbor: pos2node[p + CaffelatteGame.offset[i]]!)
             }
         }
-        if (sugarArray.count, emptyArray.count) != (sugarArray2.count, emptyArray2.count) { isSolved = false }
+        while !pos2node.isEmpty {
+            let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+            let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
+            pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
+            let nBean = area.count { game[$0] == CaffelatteGame.PUZ_BEAN }
+            let nCup = area.count { game[$0] == CaffelatteGame.PUZ_CUP }
+            let nMilk = area.count { game[$0] == CaffelatteGame.PUZ_MILK }
+            guard nCup == 1 && nBean == nMilk else { isSolved = false; return }
+        }
     }
 }
