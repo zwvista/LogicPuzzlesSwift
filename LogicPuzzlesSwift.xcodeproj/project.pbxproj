@@ -1079,6 +1079,15 @@
 		8C9BD51A2F0A32CA00D1D915 /* FreePlanksGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD50D2F0A32CA00D1D915 /* FreePlanksGameState.swift */; };
 		8C9BD51B2F0A32CA00D1D915 /* FreePlanks.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BD5092F0A32CA00D1D915 /* FreePlanks.xml */; };
 		8C9BD52B2F0A4D1A00D1D915 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8C9BD52A2F0A4D1A00D1D915 /* RealmSwift */; };
+		8C9BD5382F0A52B400D1D915 /* RunInALoopGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5332F0A52B400D1D915 /* RunInALoopGameViewController.swift */; };
+		8C9BD5392F0A52B400D1D915 /* RunInALoopGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5302F0A52B400D1D915 /* RunInALoopGame.swift */; };
+		8C9BD53A2F0A52B400D1D915 /* RunInALoopGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5312F0A52B400D1D915 /* RunInALoopGameScene.swift */; };
+		8C9BD53B2F0A52B400D1D915 /* RunInALoopMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5352F0A52B400D1D915 /* RunInALoopMainViewController.swift */; };
+		8C9BD53C2F0A52B400D1D915 /* RunInALoopGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5322F0A52B400D1D915 /* RunInALoopGameState.swift */; };
+		8C9BD53D2F0A52B400D1D915 /* RunInALoopObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5362F0A52B400D1D915 /* RunInALoopObject.swift */; };
+		8C9BD53E2F0A52B400D1D915 /* RunInALoopGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD5342F0A52B400D1D915 /* RunInALoopGridNode.swift */; };
+		8C9BD53F2F0A52B400D1D915 /* RunInALoopDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD52F2F0A52B400D1D915 /* RunInALoopDocument.swift */; };
+		8C9BD5402F0A52B400D1D915 /* RunInALoop.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9BD52E2F0A52B400D1D915 /* RunInALoop.xml */; };
 		8C9F32291ECF06C000E10965 /* Tapa.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9F321E1ECF06BF00E10965 /* Tapa.xml */; };
 		8C9F322A1ECF06C000E10965 /* TapaDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F321F1ECF06BF00E10965 /* TapaDocument.swift */; };
 		8C9F322B1ECF06C000E10965 /* TapaGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9F32201ECF06BF00E10965 /* TapaGame.swift */; };
@@ -1526,7 +1535,6 @@
 		8C2AF8401ED6084300EC84AB /* PaintTheNurikabeGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintTheNurikabeGridNode.swift; sourceTree = "<group>"; };
 		8C2AF8421ED6084300EC84AB /* PaintTheNurikabeMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintTheNurikabeMainViewController.swift; sourceTree = "<group>"; };
 		8C2AF8431ED6084300EC84AB /* PaintTheNurikabeObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintTheNurikabeObject.swift; sourceTree = "<group>"; };
-		8C31FE6D1D90E415008793BF /* SharkORM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SharkORM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C32D8D01FC92B5F00BA2D07 /* RippleEffectGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleEffectGameViewController.swift; sourceTree = "<group>"; };
 		8C32D8D11FC92B5F00BA2D07 /* RippleEffectMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleEffectMainViewController.swift; sourceTree = "<group>"; };
 		8C32D8D31FC92B5F00BA2D07 /* RippleEffectGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleEffectGameScene.swift; sourceTree = "<group>"; };
@@ -2508,6 +2516,15 @@
 		8C9BD50F2F0A32CA00D1D915 /* FreePlanksGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreePlanksGridNode.swift; sourceTree = "<group>"; };
 		8C9BD5102F0A32CA00D1D915 /* FreePlanksMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreePlanksMainViewController.swift; sourceTree = "<group>"; };
 		8C9BD5112F0A32CA00D1D915 /* FreePlanksObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreePlanksObject.swift; sourceTree = "<group>"; };
+		8C9BD52E2F0A52B400D1D915 /* RunInALoop.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = RunInALoop.xml; sourceTree = "<group>"; };
+		8C9BD52F2F0A52B400D1D915 /* RunInALoopDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunInALoopDocument.swift; sourceTree = "<group>"; };
+		8C9BD5302F0A52B400D1D915 /* RunInALoopGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunInALoopGame.swift; sourceTree = "<group>"; };
+		8C9BD5312F0A52B400D1D915 /* RunInALoopGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunInALoopGameScene.swift; sourceTree = "<group>"; };
+		8C9BD5322F0A52B400D1D915 /* RunInALoopGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunInALoopGameState.swift; sourceTree = "<group>"; };
+		8C9BD5332F0A52B400D1D915 /* RunInALoopGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunInALoopGameViewController.swift; sourceTree = "<group>"; };
+		8C9BD5342F0A52B400D1D915 /* RunInALoopGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunInALoopGridNode.swift; sourceTree = "<group>"; };
+		8C9BD5352F0A52B400D1D915 /* RunInALoopMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunInALoopMainViewController.swift; sourceTree = "<group>"; };
+		8C9BD5362F0A52B400D1D915 /* RunInALoopObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunInALoopObject.swift; sourceTree = "<group>"; };
 		8C9F321E1ECF06BF00E10965 /* Tapa.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Tapa.xml; sourceTree = "<group>"; };
 		8C9F321F1ECF06BF00E10965 /* TapaDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaDocument.swift; sourceTree = "<group>"; };
 		8C9F32201ECF06BF00E10965 /* TapaGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapaGame.swift; sourceTree = "<group>"; };
@@ -2968,7 +2985,6 @@
 			isa = PBXGroup;
 			children = (
 				9514BA4E20FE1E0200E5404E /* Pods_LogicPuzzlesSwift.framework */,
-				8C31FE6D1D90E415008793BF /* SharkORM.framework */,
 				F3AC06FD9C5A9A3F8A0CD64A /* Pods_LogicPuzzlesSwift.framework */,
 				DBA93331BB14FE671CFD4748 /* Pods_LogicPuzzlesSwiftTests.framework */,
 				CA124229BC409C1A67D792A6 /* Pods_LogicPuzzlesSwiftUITests.framework */,
@@ -3248,6 +3264,7 @@
 				8C2963D51FA20D620017A812 /* RobotFences */,
 				8CFB220C2EF771C100E5F29D /* Rome */,
 				8C3A35801EC88D4200A914A5 /* Rooms */,
+				8C9BD5372F0A52B400D1D915 /* RunInALoop */,
 				8C3A358D1EC88D4200A914A5 /* Sentinels */,
 				8CB722262EACF705001B25C5 /* SheepAndWolves */,
 				8C3A359A1EC88D4200A914A5 /* Skyscrapers */,
@@ -4730,6 +4747,22 @@
 			path = FreePlanks;
 			sourceTree = "<group>";
 		};
+		8C9BD5372F0A52B400D1D915 /* RunInALoop */ = {
+			isa = PBXGroup;
+			children = (
+				8C9BD52E2F0A52B400D1D915 /* RunInALoop.xml */,
+				8C9BD52F2F0A52B400D1D915 /* RunInALoopDocument.swift */,
+				8C9BD5302F0A52B400D1D915 /* RunInALoopGame.swift */,
+				8C9BD5312F0A52B400D1D915 /* RunInALoopGameScene.swift */,
+				8C9BD5322F0A52B400D1D915 /* RunInALoopGameState.swift */,
+				8C9BD5332F0A52B400D1D915 /* RunInALoopGameViewController.swift */,
+				8C9BD5342F0A52B400D1D915 /* RunInALoopGridNode.swift */,
+				8C9BD5352F0A52B400D1D915 /* RunInALoopMainViewController.swift */,
+				8C9BD5362F0A52B400D1D915 /* RunInALoopObject.swift */,
+			);
+			path = RunInALoop;
+			sourceTree = "<group>";
+		};
 		8C9F321D1ECF06BF00E10965 /* Tapa */ = {
 			isa = PBXGroup;
 			children = (
@@ -5745,6 +5778,7 @@
 				8C8663FE2EA39DD00078CD64 /* shoppingcart.png in Resources */,
 				8C8663FF2EA39DD00078CD64 /* swan.png in Resources */,
 				8C8664002EA39DD00078CD64 /* flower_orange.png in Resources */,
+				8C9BD5402F0A52B400D1D915 /* RunInALoop.xml in Resources */,
 				8C8664012EA39DD00078CD64 /* bomb.png in Resources */,
 				8C8664022EA39DD00078CD64 /* rome.png in Resources */,
 				8C8664032EA39DD00078CD64 /* thermometer2B.png in Resources */,
@@ -5960,9 +5994,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LogicPuzzlesSwift/Pods-LogicPuzzlesSwift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-LogicPuzzlesSwift/Pods-LogicPuzzlesSwift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -6824,6 +6862,14 @@
 				8C9F32471ED1FAD400E10965 /* BWTapaGridNode.swift in Sources */,
 				8C2AF8311ED5FB0000EC84AB /* NumberPathGameState.swift in Sources */,
 				8C3A36291EC88D4200A914A5 /* BoxItAroundGameViewController.swift in Sources */,
+				8C9BD5382F0A52B400D1D915 /* RunInALoopGameViewController.swift in Sources */,
+				8C9BD5392F0A52B400D1D915 /* RunInALoopGame.swift in Sources */,
+				8C9BD53A2F0A52B400D1D915 /* RunInALoopGameScene.swift in Sources */,
+				8C9BD53B2F0A52B400D1D915 /* RunInALoopMainViewController.swift in Sources */,
+				8C9BD53C2F0A52B400D1D915 /* RunInALoopGameState.swift in Sources */,
+				8C9BD53D2F0A52B400D1D915 /* RunInALoopObject.swift in Sources */,
+				8C9BD53E2F0A52B400D1D915 /* RunInALoopGridNode.swift in Sources */,
+				8C9BD53F2F0A52B400D1D915 /* RunInALoopDocument.swift in Sources */,
 				8CA043211FDBE77B00AF85E1 /* CarpentersSquareGameViewController.swift in Sources */,
 				8C32D8E11FC92B5F00BA2D07 /* RippleEffectGameState.swift in Sources */,
 				8C3A374C1EC88D4300A914A5 /* NurikabeMainViewController.swift in Sources */,
