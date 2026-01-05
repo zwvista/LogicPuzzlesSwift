@@ -78,26 +78,42 @@ class StraightAndTurnGameState: GridGameState<StraightAndTurnGameMove> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let dirs = (0..<4).filter { self[p][$0] }
-                switch dirs.count {
-                case 0:
+                if dirs.count == 2 {
                     // 1. Draw a path that crosses all gems
-                    guard game[p] == " " else { isSolved = false; return }
-                case 2:
                     pos2Dirs[p] = dirs
-                default:
-                    // 1. Draw a path that crosses all gems
+                } else if !dirs.isEmpty {
+                    // The loop cannot cross itself.
                     isSolved = false; return
                 }
             }
         }
         // Check the loop
-        let p = pos2Dirs.keys.first!
-        var p2 = p, n = -1
+        guard let p = pos2Dirs.keys.first(where: { game[$0] != " " }) else { isSolved = false; return }
+        var p2 = p
+        var n = -1, ns = [Int]()
+        var ch = game[p]
         while true {
             guard let dirs = pos2Dirs[p2] else { isSolved = false; return }
             pos2Dirs.removeValue(forKey: p2)
             n = dirs.first { ($0 + 2) % 4 != n }!
+            ns.append(n)
             p2 += StraightAndTurnGame.offset[n]
+            let ch2 = game[p2]
+            if ch2 != " " {
+                // 2. Crossing two adjacent gems:
+                // 3. The line cannot cross two adjacent gems if they are of different color.
+                // 4. The line is free to either go straight or turn when crossing two
+                //    adjacent gems of the same color.
+                // 5. Crossing a gem that is not adjacent to the last crossed:
+                // 6. The line should go straight in the space between two gems of the same
+                //    colour.
+                // 7. The line should make a single 90 degree turn in the space between
+                //    two gems of different colour.
+                let turns = (0..<ns.count - 1).count { ns[$0] != ns[$0 + 1] }
+                guard ch == ch2 && turns == 0 || ch != ch2 && turns == 1 else { isSolved = false; return }
+                ch = ch2
+                ns.removeAll()
+            }
             guard p2 != p else {return}
         }
     }
