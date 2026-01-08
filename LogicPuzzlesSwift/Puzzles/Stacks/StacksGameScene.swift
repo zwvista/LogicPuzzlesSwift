@@ -13,10 +13,6 @@ class StacksGameScene: GameScene<StacksGameState> {
         get { getGridNode() as! StacksGridNode }
         set { setGridNode(gridNode: newValue) }
     }
-    
-    func addCharacter(ch: Character, s: HintState, isHint: Bool, point: CGPoint, nodeName: String) {
-        addLabel(text: String(ch), fontColor: isHint ? .gray : s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
-    }
 
     override func levelInitialized(_ game: AnyObject, state: StacksGameState, skView: SKView) {
         let game = game as! StacksGame
@@ -59,11 +55,11 @@ class StacksGameScene: GameScene<StacksGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
-                let ch = game[p]
-                guard ch != " " else {continue}
+                let n = game[p]
+                guard n != StacksGame.PUZ_EMPTY else {continue}
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
-                let charNodeName = "char" + nodeNameSuffix
-                addCharacter(ch: ch, s: state.pos2state[p] ?? .normal, isHint: game[p] != " ", point: point, nodeName: charNodeName)
+                let numberNodeName = "number" + nodeNameSuffix
+                addLabel(text: String(n), fontColor: .gray, point: point, nodeName: numberNodeName)
             }
         }
 
@@ -75,15 +71,15 @@ class StacksGameScene: GameScene<StacksGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let charNodeName = "char" + nodeNameSuffix
-                let (ch1, ch2) = (stateFrom[p], stateTo[p])
+                let numberNodeName = "number" + nodeNameSuffix
+                let (n1, n2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
-                if ch1 != ch2 || s1 != s2 {
-                    if (ch1 != " ") {
-                        removeNode(withName: charNodeName)
+                if n1 != n2 || s1 != s2 {
+                    if (n1 != StacksGame.PUZ_EMPTY) {
+                        removeNode(withName: numberNodeName)
                     }
-                    if (ch2 != " ") {
-                        addCharacter(ch: ch2, s: stateTo.pos2state[p] ?? .normal, isHint: stateTo.game[p] != " ", point: point, nodeName: charNodeName)
+                    if (n2 != StacksGame.PUZ_EMPTY) {
+                        addLabel(text: String(n2), fontColor: stateFrom.game[p] != StacksGame.PUZ_EMPTY ? .gray : s2 == .normal ? .white : .red, point: point, nodeName: numberNodeName)
                     }
                 }
             }

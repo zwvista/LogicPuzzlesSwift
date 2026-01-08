@@ -17,18 +17,19 @@ class StacksGame: GridGame<StacksGameState> {
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
+    static let PUZ_EMPTY = 0
 
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
     var dots: GridDots!
-    var objArray = [Character]()
+    var objArray = [Int]()
     
     init(layout: [String], delegate: StacksGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count / 2, layout[0].length / 2)
         dots = GridDots(rows: rows + 1, cols: cols + 1)
-        objArray = Array<Character>(repeating: " ", count: rows * cols)
+        objArray = Array<Int>(repeating: 0, count: rows * cols)
         
         for r in 0..<rows + 1 {
             var str = layout[2 * r]
@@ -49,9 +50,7 @@ class StacksGame: GridGame<StacksGameState> {
                 }
                 guard c < cols else {continue}
                 let ch2 = str[2 * c + 1]
-                if case "0"..."9" = ch2 {
-                    self[r, c] = ch2
-                }
+                self[r, c] = ch2 == " " ? StacksGame.PUZ_EMPTY : ch2.toInt!
             }
         }
         let g = Graph()
@@ -87,11 +86,11 @@ class StacksGame: GridGame<StacksGameState> {
         levelInitialized(state: state)
     }
     
-    subscript(p: Position) -> Character {
+    subscript(p: Position) -> Int {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
     }
-    subscript(row: Int, col: Int) -> Character {
+    subscript(row: Int, col: Int) -> Int {
         get { objArray[row * cols + col] }
         set { objArray[row * cols + col] = newValue }
     }

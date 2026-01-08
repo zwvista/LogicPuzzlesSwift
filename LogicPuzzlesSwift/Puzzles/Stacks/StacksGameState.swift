@@ -14,8 +14,8 @@ class StacksGameState: GridGameState<StacksGameMove> {
         set { setGame(game: newValue) }
     }
     override var gameDocument: GameDocumentBase { StacksDocument.sharedInstance }
-    var objArray = [Character]()
-    var pos2state = [Position: HintState]()
+    var objArray = [Int]()
+    var pos2state = [Position: AllowedObjectState]()
     
     override func copy() -> StacksGameState {
         let v = StacksGameState(game: game, isCopy: true)
@@ -35,18 +35,18 @@ class StacksGameState: GridGameState<StacksGameMove> {
         updateIsSolved()
     }
     
-    subscript(p: Position) -> Character {
+    subscript(p: Position) -> Int {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
     }
-    subscript(row: Int, col: Int) -> Character {
+    subscript(row: Int, col: Int) -> Int {
         get { objArray[row * cols + col] }
         set { objArray[row * cols + col] = newValue }
     }
     
     override func setObject(move: inout StacksGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else { return .invalid }
+        guard isValid(p: p) && game[p] == StacksGame.PUZ_EMPTY && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -54,96 +54,69 @@ class StacksGameState: GridGameState<StacksGameMove> {
     
     override func switchObject(move: inout StacksGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " else { return .invalid }
+        guard isValid(p: p) && game[p] == StacksGame.PUZ_EMPTY else { return .invalid }
         let o = self[p]
-        move.obj =
-            o == " " ? "1" :
-            o == "3" ? " " :
-            succ(ch: o)
+        move.obj = o == game.areas[game.pos2area[p]!].count ? StacksGame.PUZ_EMPTY : o + 1
         return setObject(move: &move)
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 2/Stacks
+        iOS Game: 100 Logic Games 2/Puzzle Set 7/Stacks
 
         Summary
-        1,2,3... 1,2,3... Fill the mats
+        Bubbling up
 
         Description
-        1. Each rectangle represents a mat(Stacks) which is of the same size.
-           You must fill each Stacks with a number ranging from 1 to size.
-        2. Each number can appear only once in each Stacks.
-        3. In one row or column, each number must appear the same number of times.
-        4. You can't have two identical numbers touching horizontally or vertically.
+        1. Fill each area with every number ranging from 1 to the size of the area.
+        2. Two orthogonally adjacent numbers must be different.
+        3. In one area, if a number is right above another, the upper one must be
+           higher than the lower one. This only applies to numbers on top of each
+           other in the same area.
     */
     private func updateIsSolved() {
         isSolved = true
-        let chars2: [Character] = ["1", "2", "3"]
-        let chars3 = chars2.flatMap { Array<Character>(repeating: $0, count: rows / 3) }
+        for r in 0..<rows {
+            for c in 0..<cols {
+                pos2state[Position(r, c)] = .normal
+            }
+        }
+        // 2. Two orthogonally adjacent numbers must be different.
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if self[p] == " " { isSolved = false }
-                pos2state[p] = .normal
-            }
-        }
-        for r in 0..<rows {
-            var lineSolved = true
-            for c in 0..<cols - 1 {
-                let (p1, p2) = (Position(r, c), Position(r, c + 1))
-                let (ch1, ch2) = (self[p1], self[p2])
-                guard ch1 != " " && ch2 != " " && ch1 == ch2 else {continue}
-                // 4. You can't have two identical numbers touching horizontally.
-                isSolved = false; lineSolved = false
-                pos2state[p1] = .error
-                pos2state[p2] = .error
-            }
-            let chars = (0..<cols).map { self[r, $0] }.sorted()
-            // 3. In one row, each number must appear the same number of times.
-            if chars[0] != " " && chars != chars3 {
-                isSolved = false; lineSolved = false
-                for c in 0..<cols {
-                    pos2state[Position(r, c)] = .error
-                }
-            }
-            if lineSolved {
-                for c in 0..<cols {
-                    pos2state[Position(r, c)] = .complete
+                for os in StacksGame.offset {
+                    let p2 = p + os
+                    guard isValid(p: p2) && self[p] == self[p2] else {continue}
+                    isSolved = false
+                    pos2state[p] = .error
+                    pos2state[p2] = .error
                 }
             }
         }
-        for c in 0..<cols {
-            var lineSolved = true
-            for r in 0..<rows - 1 {
-                let (p1, p2) = (Position(r, c), Position(r + 1, c))
-                let (ch1, ch2) = (self[p1], self[p2])
-                guard ch1 != " " && ch2 != " " && ch1 == ch2 else {continue}
-                // 4. You can't have two identical numbers touching vertically.
-                isSolved = false; lineSolved = false
-                pos2state[p1] = .error
-                pos2state[p2] = .error
-            }
-            let chars = (0..<rows).map { self[$0, c] }.sorted()
-            // 3. In one column, each number must appear the same number of times.
-            if chars[0] != " " && chars != chars3 {
-                isSolved = false; lineSolved = false
-                for r in 0..<rows {
-                    pos2state[Position(r, c)] = .error
+        for area in game.areas {
+            var num2rng = [Int: [Position]]()
+            for p in area {
+                let n = self[p]
+                if n == StacksGame.PUZ_EMPTY {
+                    isSolved = false
+                } else {
+                    num2rng[n, default: []].append(p)
                 }
             }
-            if lineSolved {
-                for r in 0..<rows {
-                    pos2state[Position(r, c)] = .complete
-                }
+            // 1. Fill each area with every number ranging from 1 to the size of the area.
+            for (_, rng) in num2rng where rng.count > 1 {
+                isSolved = false
+                for p in rng { pos2state[p] = .error }
             }
-        }
-        // 2. Each number can appear only once in each Stacks.
-        for a in game.areas {
-            let chars = a.map { self[$0] }.sorted()
-            guard chars[0] != " " && chars != chars2 else {continue}
-            isSolved = false
-            for p in a {
-                pos2state[p] = .error
+            // 3. In one area, if a number is right above another, the upper one must be
+            //    higher than the lower one. This only applies to numbers on top of each
+            //    other in the same area.
+            for p1 in area {
+                for p2 in area where p1 - p2 == StacksGame.offset[0] && self[p1] <= self[p2] {
+                    isSolved = false
+                    pos2state[p1] = .error
+                    pos2state[p2] = .error
+                }
             }
         }
     }

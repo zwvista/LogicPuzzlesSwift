@@ -13,10 +13,10 @@ class StacksDocument: GameDocument<StacksGameMove> {
     
     override func saveMove(_ move: StacksGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = String(move.obj)
+        rec.intValue1 = move.obj
     }
     
     override func loadMove(from rec: MoveProgress) -> StacksGameMove {
-        StacksGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
+        StacksGameMove(p: Position(rec.row, rec.col), obj: rec.intValue1)
     }
 }
