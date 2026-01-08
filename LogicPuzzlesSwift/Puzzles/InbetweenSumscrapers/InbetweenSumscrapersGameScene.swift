@@ -71,39 +71,21 @@ class InbetweenSumscrapersGameScene: GameScene<InbetweenSumscrapersGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let postNodeName = "post" + nodeNameSuffix
-                let markerNodeName = "marker" + nodeNameSuffix
-                let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                func addPost(s: AllowedObjectState) {
-                    addImage(imageNamed: "telegraph", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: postNodeName)
+                let numberNodeName = "number" + nodeNameSuffix
+                let skyscraperNodeName = "skyscraper" + nodeNameSuffix
+                let (n1, n2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard n1 != n2 || s1 != s2 else {continue}
+                if n1 == InbetweenSumscrapersGame.PUZ_SKYSCRAPER {
+                    removeNode(withName: skyscraperNodeName)
+                } else if n1 != InbetweenSumscrapersGame.PUZ_EMPTY {
+                    removeNode(withName: numberNodeName)
                 }
-                func removePost() { removeNode(withName: postNodeName) }
-                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                func addForbidden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
-                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
-                let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
-                guard String(describing: o1) != String(describing: o2) else {continue}
-                switch o1 {
-                case .forbidden:
-                    removeForbidden()
-                case .marker:
-                    removeMarker()
-                case .post:
-                    removePost()
-                default:
-                    break
+                if n2 == InbetweenSumscrapersGame.PUZ_SKYSCRAPER {
+                    addImage(imageNamed: "office_building", color: .red, colorBlendFactor: s2 == .normal ? 0.0 : 0.5, point: point, nodeName: skyscraperNodeName)
+                } else if n2 != InbetweenSumscrapersGame.PUZ_EMPTY {
+                    addLabel(text: String(n2), fontColor: s2 == .normal ? .white : .red, point: point, nodeName: numberNodeName)
                 }
-                switch o2 {
-                case .forbidden:
-                    addForbidden()
-                case .marker:
-                    addMarker()
-                case let .post(s):
-                    addPost(s: s)
-                default:
-                    break
-                }                
             }
         }
     }

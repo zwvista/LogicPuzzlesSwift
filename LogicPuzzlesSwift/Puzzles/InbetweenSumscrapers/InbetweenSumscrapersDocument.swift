@@ -13,10 +13,10 @@ class InbetweenSumscrapersDocument: GameDocument<InbetweenSumscrapersGameMove> {
     
     override func saveMove(_ move: InbetweenSumscrapersGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.obj
     }
     
     override func loadMove(from rec: MoveProgress) -> InbetweenSumscrapersGameMove {
-        InbetweenSumscrapersGameMove(p: Position(rec.row, rec.col), obj: InbetweenSumscrapersObject.fromString(str: rec.strValue1!))
+        InbetweenSumscrapersGameMove(p: Position(rec.row, rec.col), obj:rec.intValue1)
     }
 }

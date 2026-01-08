@@ -14,9 +14,10 @@ class InbetweenSumscrapersGameState: GridGameState<InbetweenSumscrapersGameMove>
         set { setGame(game: newValue) }
     }
     override var gameDocument: GameDocumentBase { InbetweenSumscrapersDocument.sharedInstance }
-    var objArray = [InbetweenSumscrapersObject]()
+    var objArray = [Int]()
     var row2state = [HintState]()
     var col2state = [HintState]()
+    var pos2state = [Position: AllowedObjectState]()
     
     override func copy() -> InbetweenSumscrapersGameState {
         let v = InbetweenSumscrapersGameState(game: game, isCopy: true)
@@ -33,17 +34,17 @@ class InbetweenSumscrapersGameState: GridGameState<InbetweenSumscrapersGameMove>
     required init(game: InbetweenSumscrapersGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<InbetweenSumscrapersObject>(repeating: InbetweenSumscrapersObject(), count: rows * cols)
+        objArray = Array<Int>(repeating: 0, count: rows * cols)
         row2state = Array<HintState>(repeating: .normal, count: rows)
         col2state = Array<HintState>(repeating: .normal, count: cols)
         updateIsSolved()
     }
     
-    subscript(p: Position) -> InbetweenSumscrapersObject {
+    subscript(p: Position) -> Int {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
     }
-    subscript(row: Int, col: Int) -> InbetweenSumscrapersObject {
+    subscript(row: Int, col: Int) -> Int {
         get { objArray[row * cols + col] }
         set { objArray[row * cols + col] = newValue }
     }
@@ -58,108 +59,105 @@ class InbetweenSumscrapersGameState: GridGameState<InbetweenSumscrapersGameMove>
     }
     
     override func switchObject(move: inout InbetweenSumscrapersGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
-        func f(o: InbetweenSumscrapersObject) -> InbetweenSumscrapersObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .post(state: .normal)
-            case .post:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .post(state: .normal) : .empty
-            default:
-                return o
-            }
-        }
         let p = move.p
         guard isValid(p: p) else { return .invalid }
-        move.obj = f(o: self[p])
+        let o = self[p]
+        // 3. The remaining cells contain numbers increasing from 1 to N-2 (N being
+        //    the board size).
+        move.obj = o == rows - 2 ? InbetweenSumscrapersGame.PUZ_SKYSCRAPER : o + 1
         return setObject(move: &move)
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 14/Power Grid
+        iOS Game: 100 Logic Games 2/Puzzle Set 6/Inbetween Sumscrapers
 
         Summary
-        Utility Posts
+        Sumscrapers on the ground
 
         Description
-        1. Your task is to identify Utility Posts of a Power Grid.
-        2. There are two Posts in each Row and in each Column.
-        3. The numbers on the side tell you the length of the cables between
-           the two Posts (in that Row or Column).
-        4. Or in other words, the number of empty tiles between two Posts.
-        5. Posts cannot touch themselves, not even diagonally.
-        6. Posts don't have to form a single connected chain.
-
-        Variant
-        7. On some levels, there are exactly two Posts in each diagonal too.
+        1. Find two Skyscrapers and fill the remaining cells with numbers.
+        2. Each row and column contains two skyscrapers.
+        3. The remaining cells contain numbers increasing from 1 to N-2 (N being
+           the board size).
+        4. Numbers appear once in every row and column.
+        5. Hints on the border give you the sums of the numbers between the skyscrapers.
     */
     private func updateIsSolved() {
-        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                let p = Position(r, c)
-                switch self[p] {
-                case .forbidden:
-                    self[p] = .empty
-                case .post:
-                    self[p] = .post(state: .normal)
-                default:
-                    break
-                }
+                pos2state[Position(r, c)] = .normal
             }
         }
         for r in 0..<rows {
-            var posts = [Position]()
+            var skyscrapers = [Position]()
+            var num2rng = [Int: [Position]]()
             for c in 0..<cols {
                 let p = Position(r, c)
-                if case .post = self[p] { posts.append(p) }
+                let n = self[p]
+                switch n {
+                case InbetweenSumscrapersGame.PUZ_SKYSCRAPER:
+                    skyscrapers.append(p)
+                case InbetweenSumscrapersGame.PUZ_EMPTY:
+                    isSolved = false
+                default:
+                    num2rng[n, default: []].append(p)
+                }
             }
-            let n1 = posts.count, n2 = game.row2hint[r] + 1
-            // 2. There are two Posts in each Row.
-            // 3. The numbers on the side tell you the length of the cables between
-            // the two Posts (in that Row).
-            let s: HintState = n1 < 2 ? .normal : n1 == 2 && n2 == posts[1].col - posts[0].col ? .complete : .error
+            for (_, rng) in num2rng {
+                let cnt = rng.count
+                guard cnt > 1 else {continue}
+                isSolved = false
+                for p in rng { pos2state[p] = .error }
+            }
+            let n1 = skyscrapers.count, n2 = game.row2hint[r]
+            // 2. Each row and column contains two skyscrapers.
+            if n1 > 2 {
+                for p in skyscrapers { pos2state[p] = .error }
+            }
+            guard n2 != InbetweenSumscrapersGame.PUZ_UNKNOWN else {continue}
+            // 3. The remaining cells contain numbers increasing from 1 to N-2 (N being
+            //    the board size).
+            // 4. Numbers appear once in every row and column.
+            // 5. Hints on the border give you the sums of the numbers between the skyscrapers.
+            let s: HintState = n1 < 2 ? .normal : n1 == 2 && n2 == (skyscrapers[0].col + 1..<skyscrapers[1].col).reduce(0) { [unowned self] acc, c in acc + self[r, c] } ? .complete : .error
             row2state[r] = s
             if s != .complete { isSolved = false }
-            if s == .error {
-                for p in posts {
-                    self[p] = .post(state: .error)
-                }
-            }
-            guard allowedObjectsOnly && n1 > 0 else {continue}
-            for c in 0..<cols {
-                if case .empty = self[r, c], n1 > 1 || n1 == 1 && n2 != abs(posts[0].col - c) {
-                    self[r, c] = .forbidden
-                }
-            }
         }
         for c in 0..<cols {
-            var posts = [Position]()
+            var skyscrapers = [Position]()
+            var num2rng = [Int: [Position]]()
             for r in 0..<rows {
                 let p = Position(r, c)
-                if case .post = self[p] { posts.append(p) }
+                let n = self[p]
+                switch n {
+                case InbetweenSumscrapersGame.PUZ_SKYSCRAPER:
+                    skyscrapers.append(p)
+                case InbetweenSumscrapersGame.PUZ_EMPTY:
+                    isSolved = false
+                default:
+                    num2rng[n, default: []].append(p)
+                }
             }
-            let n1 = posts.count, n2 = game.col2hint[c] + 1
-            // 2. There are two Posts in each Column.
-            // 3. The numbers on the side tell you the length of the cables between
-            // the two Posts (in that Column).
-            let s: HintState = n1 < 2 ? .normal : n1 == 2 && n2 == posts[1].row - posts[0].row ? .complete : .error
+            for (_, rng) in num2rng {
+                let cnt = rng.count
+                guard cnt > 1 else {continue}
+                isSolved = false
+                for p in rng { pos2state[p] = .error }
+            }
+            let n1 = skyscrapers.count, n2 = game.col2hint[c]
+            // 2. Each row and column contains two skyscrapers.
+            if n1 > 2 {
+                for p in skyscrapers { pos2state[p] = .error }
+            }
+            guard n2 != InbetweenSumscrapersGame.PUZ_UNKNOWN else {continue}
+            // 3. The remaining cells contain numbers increasing from 1 to N-2 (N being
+            //    the board size).
+            // 4. Numbers appear once in every row and column.
+            // 5. Hints on the border give you the sums of the numbers between the skyscrapers.
+            let s: HintState = n1 < 2 ? .normal : n1 == 2 && n2 == (skyscrapers[0].row + 1..<skyscrapers[1].row).reduce(0) { [unowned self] acc, r in acc + self[r, c] } ? .complete : .error
             col2state[c] = s
             if s != .complete { isSolved = false }
-            if s == .error {
-                for p in posts {
-                    self[p] = .post(state: .error)
-                }
-            }
-            guard allowedObjectsOnly && n1 > 0 else {continue}
-            for r in 0..<rows {
-                if case .empty = self[r, c], n1 > 1 || n1 == 1 && n2 != abs(posts[0].row - r) {
-                    self[r, c] = .forbidden
-                }
-            }
         }
     }
 }

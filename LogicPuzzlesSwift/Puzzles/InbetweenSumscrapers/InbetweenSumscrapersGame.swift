@@ -10,15 +10,17 @@ import Foundation
 
 class InbetweenSumscrapersGame: GridGame<InbetweenSumscrapersGameState> {
     static let offset = Position.Directions4
+    static let PUZ_EMPTY = 0
+    static let PUZ_SKYSCRAPER = -1
+    static let PUZ_UNKNOWN = -1
 
     var row2hint = [Int]()
     var col2hint = [Int]()
-    var pos2post = [Position]()
     
     init(layout: [String], delegate: InbetweenSumscrapersGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count - 1, layout[0].length - 1)
+        size = Position(layout.count - 1, layout[0].length / 2 - 1)
         row2hint = Array<Int>(repeating: 0, count: rows)
         col2hint = Array<Int>(repeating: 0, count: cols)
         
@@ -27,8 +29,8 @@ class InbetweenSumscrapersGame: GridGame<InbetweenSumscrapersGameState> {
             for c in 0..<cols + 1 {
                 let isHintRow = r == rows, isHintCol = c == cols
                 guard isHintRow != isHintCol else { continue }
-                let ch = str[c]
-                let n = ch == " " ? -1 : ch.toInt!
+                let s = str[c * 2...c * 2 + 1]
+                let n = s == "  " ? InbetweenSumscrapersGame.PUZ_UNKNOWN : s.toInt()!
                 if isHintRow {
                     col2hint[c] = n
                 } else {

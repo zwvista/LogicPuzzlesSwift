@@ -8,38 +8,7 @@
 
 import Foundation
 
-enum InbetweenSumscrapersObject {
-    case empty
-    case forbidden
-    case marker
-    case post(state: AllowedObjectState = .normal)
-    init() {
-        self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .post:
-            return "post"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> InbetweenSumscrapersObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "post":
-            return .post(state: .normal)
-        default:
-            return .empty
-        }
-    }
-}
-
 struct InbetweenSumscrapersGameMove {
     var p = Position()
-    var obj = InbetweenSumscrapersObject()
+    var obj = 0
 }
-
