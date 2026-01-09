@@ -62,7 +62,7 @@ class IslandConnectionsGameState: GridGameState<IslandConnectionsGameMove> {
                 // 4. IslandConnections can't cross each other.
                 guard case .empty = self[p] else { return .invalid }
                 self[p] = .bridge
-            case 2:
+            case 1:
                 self[p] = .empty
             default:
                 break
@@ -71,7 +71,7 @@ class IslandConnectionsGameState: GridGameState<IslandConnectionsGameMove> {
         }
         // 5. Lastly, you can connect two islands with either one or two IslandConnections
         // (or none, of course)
-        let n = (bridges1[n1] + 1) % 3
+        let n = (bridges1[n1] + 1) % 2
         bridges1[n1] = n; bridges2[n2] = n
         self[pFrom] = .island(state: state1, bridges: bridges1)
         self[pTo] = .island(state: state2, bridges: bridges2)
@@ -103,8 +103,9 @@ class IslandConnectionsGameState: GridGameState<IslandConnectionsGameMove> {
             guard case .island(var state, let bridges) = self[p] else {continue}
             let n1 = bridges.reduce(0, +)
             let n2 = info.bridges
-            state = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 { isSolved = false }
+            let isUnknown = n2 == IslandConnectionsGame.PUZ_UNKNOWN
+            state = isUnknown && n1 == 0 || !isUnknown && n1 < n2 ? .normal : isUnknown || n1 == n2 ? .complete : .error
+            if state != .complete { isSolved = false }
             self[p] = .island(state: state, bridges: bridges)
             pos2node[p] = g.addNode(p.description)
         }

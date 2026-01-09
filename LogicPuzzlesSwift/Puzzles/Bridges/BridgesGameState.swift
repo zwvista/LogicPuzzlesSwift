@@ -107,7 +107,7 @@ class BridgesGameState: GridGameState<BridgesGameMove> {
             let n1 = bridges.reduce(0, +)
             let n2 = info.bridges
             state = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 { isSolved = false }
+            if state != .complete { isSolved = false }
             self[p] = .island(state: state, bridges: bridges)
             pos2node[p] = g.addNode(p.description)
         }

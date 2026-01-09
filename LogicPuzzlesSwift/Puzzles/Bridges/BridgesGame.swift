@@ -8,15 +8,10 @@
 
 import Foundation
 
-class IslandInfo {
-    var bridges = 0
-    var neighbors: [Position?] = [nil, nil, nil, nil]
-}
-
 class BridgesGame: GridGame<BridgesGameState> {
     static let offset = Position.Directions4
     
-    var islandsInfo = [Position: IslandInfo]()
+    var islandsInfo = [Position: BridgesIslandInfo]()
     func isIsland(p: Position) -> Bool { islandsInfo[p] != nil }
     
     init(layout: [String], delegate: BridgesGameViewController? = nil) {
@@ -29,9 +24,7 @@ class BridgesGame: GridGame<BridgesGameState> {
             for c in 0..<cols {
                 let ch = str[c]
                 guard case "0"..."9" = ch else {continue}
-                let info = IslandInfo()
-                info.bridges = ch.toInt!
-                islandsInfo[Position(r, c)] = info
+                islandsInfo[Position(r, c)] = BridgesIslandInfo(b: ch.toInt!)
             }
         }
         for (p, info) in islandsInfo {

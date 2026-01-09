@@ -17,8 +17,15 @@ enum BridgesObject {
     }
 }
 
+class BridgesIslandInfo {
+    var bridges = 0
+    var neighbors: [Position?] = [nil, nil, nil, nil]
+    init(b: Int) {
+        bridges = b
+    }
+}
+
 struct BridgesGameMove {
     var pFrom = Position()
     var pTo = Position()
 }
-

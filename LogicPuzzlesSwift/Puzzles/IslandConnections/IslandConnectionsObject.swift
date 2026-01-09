@@ -12,8 +12,17 @@ enum IslandConnectionsObject {
     case empty
     case island(state: HintState, bridges: [Int])
     case bridge
+    case shaded
     init() {
         self = .empty
+    }
+}
+
+class IslandConnectionsIslandInfo {
+    var bridges = 0
+    var neighbors: [Position?] = [nil, nil, nil, nil]
+    init(b: Int) {
+        bridges = b
     }
 }
 

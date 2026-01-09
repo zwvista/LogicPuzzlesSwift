@@ -27,6 +27,14 @@ class IslandConnectionsGameScene: GameScene<IslandConnectionsGameState> {
         let offset: CGFloat = 0.5
         addGrid(gridNode: IslandConnectionsGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
+        for r in 0..<game.rows {
+            for c in 0..<game.cols {
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: p)
+                addImage(imageNamed: "sea", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "sea")
+            }
+        }
+        
         // add islands
         for (p, info) in game.islandsInfo {
             let n = info.bridges
@@ -37,9 +45,20 @@ class IslandConnectionsGameScene: GameScene<IslandConnectionsGameState> {
             islandNode.strokeColor = .white
             islandNode.glowWidth = 1.0
             gridNode.addChild(islandNode)
+            guard n >= 0 else {continue}
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let islandNumberNodeName = "islandNumber" + nodeNameSuffix
             addIslandNumber(n: n, s: .normal, point: point, nodeName: islandNumberNodeName)
+        }
+        
+        for p in game.shaded {
+            let point = gridNode.centerPoint(p: p)
+            let shadedNode = SKShapeNode(circleOfRadius: blockSize / 2)
+            shadedNode.position = point
+            shadedNode.name = "shaded"
+            shadedNode.fillColor = .white
+            shadedNode.glowWidth = 1.0
+            gridNode.addChild(shadedNode)
         }
     }
     
@@ -63,19 +82,9 @@ class IslandConnectionsGameScene: GameScene<IslandConnectionsGameState> {
                 case (1, 1):
                     pathToDraw.move(to: CGPoint(x: point.x + gridNode.blockSize / 2, y: point.y))
                     pathToDraw.addLine(to: CGPoint(x: point2.x - gridNode.blockSize / 2, y: point2.y))
-                case (1, 2):
-                    pathToDraw.move(to: CGPoint(x: point.x + gridNode.blockSize / 2, y: point.y - 5))
-                    pathToDraw.addLine(to: CGPoint(x: point2.x - gridNode.blockSize / 2, y: point2.y - 5))
-                    pathToDraw.move(to: CGPoint(x: point.x + gridNode.blockSize / 2, y: point.y + 5))
-                    pathToDraw.addLine(to: CGPoint(x: point2.x - gridNode.blockSize / 2, y: point2.y + 5))
                 case (2, 1):
                     pathToDraw.move(to: CGPoint(x: point.x, y: point.y - gridNode.blockSize / 2))
                     pathToDraw.addLine(to: CGPoint(x: point2.x, y: point2.y + gridNode.blockSize / 2))
-                case (2, 2):
-                    pathToDraw.move(to: CGPoint(x: point.x - 5, y: point.y - gridNode.blockSize / 2))
-                    pathToDraw.addLine(to: CGPoint(x: point2.x - 5, y: point2.y + gridNode.blockSize / 2))
-                    pathToDraw.move(to: CGPoint(x: point.x + 5, y: point.y - gridNode.blockSize / 2))
-                    pathToDraw.addLine(to: CGPoint(x: point2.x + 5, y: point2.y + gridNode.blockSize / 2))
                 default:
                     break
                 }
@@ -91,7 +100,7 @@ class IslandConnectionsGameScene: GameScene<IslandConnectionsGameState> {
             }
             let (o1, o2) = (stateFrom[p], stateTo[p])
             guard case let .island(s1, b1) = o1, case let .island(s2, b2) = o2 else {continue}
-            if s1 != s2 {
+            if info.bridges != IslandConnectionsGame.PUZ_UNKNOWN && s1 != s2 {
                 removeIslandNumber()
                 addIslandNumber(n: info.bridges, s: s2, point: point, nodeName: islandNumberNodeName)
             }
