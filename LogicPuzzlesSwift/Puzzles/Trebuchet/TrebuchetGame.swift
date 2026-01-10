@@ -10,9 +10,9 @@ import Foundation
 
 class TrebuchetGame: GridGame<TrebuchetGameState> {
     static let offset = Position.Directions4
-    static let offset2 = Position.Square2x2Offset
 
     var pos2hint = [Position: Int]()
+    var pos2targets = [Position: [Position]]()
     
     init(layout: [String], delegate: TrebuchetGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -29,6 +29,13 @@ class TrebuchetGame: GridGame<TrebuchetGameState> {
                 default: break
                 }
             }
+        }
+        for (p, hint) in pos2hint {
+            pos2targets[p] = TrebuchetGame.offset.map { os in
+                var p2 = p
+                for _ in 0..<hint { p2 += os }
+                return p2
+            }.filter { isValid(p: $0) }
         }
         
         let state = TrebuchetGameState(game: self)

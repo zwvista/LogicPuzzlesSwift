@@ -15,7 +15,6 @@ class TrebuchetGameState: GridGameState<TrebuchetGameMove> {
     }
     override var gameDocument: GameDocumentBase { TrebuchetDocument.sharedInstance }
     var objArray = [TrebuchetObject]()
-    var invalid2x2Squares = [Position]()
     
     override func copy() -> TrebuchetGameState {
         let v = TrebuchetGameState(game: game, isCopy: true)
@@ -83,6 +82,7 @@ class TrebuchetGameState: GridGameState<TrebuchetGameMove> {
            the four directions can be marked with a target, the others should be empty.
         3. Two target cells must not be orthogonally adjacent.
         4. All of the non-targeted cells must be connected.
+        5. Please note you can't target other trebuchets (yes it's a pointless war maybe)
     */
     private func updateIsSolved() {
         let allowedObjectsOnly = self.allowedObjectsOnly
@@ -94,20 +94,13 @@ class TrebuchetGameState: GridGameState<TrebuchetGameMove> {
                 }
             }
         }
-        // 5. No area of desert of 2x2 should be empty of Dunes.
-        invalid2x2Squares.removeAll()
-        for r in 0..<rows - 1 {
-            for c in 0..<cols - 1 {
-                let p = Position(r, c)
-                let isEmptyOfDunes = TrebuchetGame.offset2.map { p + $0 }.allSatisfy { self[$0].toString() != "target" }
-                if isEmptyOfDunes { invalid2x2Squares.append(p + Position.SouthEast); isSolved = false }
-            }
-        }
-        // 4. Dunes cannot touch each other horizontally or vertically.
+        // 3. Two target cells must not be orthogonally adjacent.
+        var targets = Set<Position>()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 guard case .target = self[p] else { continue }
+                targets.insert(p)
                 for os in TrebuchetGame.offset {
                     let p2 = p + os
                     guard isValid(p: p2) else { continue }
@@ -124,8 +117,7 @@ class TrebuchetGameState: GridGameState<TrebuchetGameMove> {
                 }
             }
         }
-        // 2. The desert among targets (including oases) should be all connected
-        //    horizontally or vertically.
+        // 4. All of the non-targeted cells must be connected.
         let g = Graph()
         var pos2node = [Position: Node]()
         for r in 0..<rows {
@@ -147,25 +139,24 @@ class TrebuchetGameState: GridGameState<TrebuchetGameMove> {
             pos2node[p]!.neighbors = []
         }
         for node in g.nodes { node.visited = false }
-        // 1. Put some targets on the desert so that each Oasis dweller can reach the
-        //    number of Oases marked on it.
-        for (p, n2) in game.pos2hint {
-            var hints = Set<Position>()
-            // 3. Dwellers can move horizontally or vertically.
-            TrebuchetGame.offset.map { p + $0 }
-                .filter { isValid(p: $0) && self[$0].toString() != "target" }
-                .forEach { g.addEdge(pos2node[p]!, neighbor: pos2node[$0]!) }
-            let nodesExplored = breadthFirstSearch(g, source: pos2node[p]!)
-            pos2node[p]!.neighbors = []
-            pos2node
-                .filter { nodesExplored.contains($0.1.label) && self[$0.0].toString() == "hint"}
-                .map { $0.0 }.forEach { hints.insert($0) }
-            hints.remove(p)
-            let n1 = hints.count
-            let s: HintState = n1 > n2 ? .normal : n1 == n2 ? .complete : .error
+        // 2. The number on a Trebuchet indicates the distance it shoots. Only one of
+        //    the four directions can be marked with a target, the others should be empty.
+        // 5. Please note you can't target other trebuchets (yes it's a pointless war maybe)
+        for (p, _) in game.pos2hint {
+            let possibleTargets = game.pos2targets[p]!
+            let realTargets = possibleTargets.filter { self[$0].toString() == "target" }
+            let emptyTargets = possibleTargets.filter { self[$0].toString() == "empty" }
+            let n1 = realTargets.count
+            let s: HintState = n1 < 1 ? .normal : n1 == 1 ? .complete : .error
+            if s != .complete {
+                isSolved = false
+                for p2 in realTargets { self[p2] = .target(state: .error) }
+            }
             self[p] = .hint(state: s)
-            if s != .complete { isSolved = false }
-            for node in g.nodes { node.visited = false }
+            for p2 in realTargets { targets.remove(p2) }
+            guard allowedObjectsOnly && s != .normal else {continue}
+            for p2 in emptyTargets { self[p2] = .forbidden }
         }
+        for p in targets { self[p] = .target(state: .error) }
     }
 }

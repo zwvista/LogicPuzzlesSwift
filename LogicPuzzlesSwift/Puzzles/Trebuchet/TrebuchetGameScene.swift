@@ -36,12 +36,6 @@ class TrebuchetGameScene: GameScene<TrebuchetGameState> {
                 addHint(n: n, s: s, point: point, nodeName: hintNodeName)
             }
         }
-        for p in state.invalid2x2Squares {
-            let point = gridNode.cornerPoint(p: p)
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let invalid2x2NodeName = "invalid2x2" + nodeNameSuffix
-            addDotMarker2(color: .red, point: point, nodeName: invalid2x2NodeName)
-        }
     }
     
     override func levelUpdated(from stateFrom: TrebuchetGameState, to stateTo: TrebuchetGameState) {
@@ -54,7 +48,6 @@ class TrebuchetGameScene: GameScene<TrebuchetGameState> {
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                let invalid2x2NodeName = "invalid2x2" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 if String(describing: o1) != String(describing: o2) {
                     switch o1 {
@@ -76,12 +69,6 @@ class TrebuchetGameScene: GameScene<TrebuchetGameState> {
                     default:
                         break
                     }
-                }
-                let (b1, b2) = (stateFrom.invalid2x2Squares.contains(p), stateTo.invalid2x2Squares.contains(p))
-                if b1 != b2 {
-                    let point = gridNode.cornerPoint(p: p)
-                    if b1 { removeNode(withName: invalid2x2NodeName) }
-                    if b2 { addDotMarker2(color: .red, point: point, nodeName: invalid2x2NodeName) }
                 }
             }
         }
