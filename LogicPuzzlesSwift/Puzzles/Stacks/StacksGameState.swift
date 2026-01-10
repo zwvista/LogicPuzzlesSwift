@@ -84,7 +84,8 @@ class StacksGameState: GridGameState<StacksGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                for os in StacksGame.offset {
+                for i in [1, 2] {
+                    let os = StacksGame.offset[i]
                     let p2 = p + os
                     guard isValid(p: p2) && self[p] == self[p2] else {continue}
                     isSolved = false

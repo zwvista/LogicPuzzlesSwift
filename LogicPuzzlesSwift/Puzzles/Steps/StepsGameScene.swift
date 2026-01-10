@@ -50,19 +50,22 @@ class StepsGameScene: GameScene<StepsGameState> {
         lineNode.name = "line"
         gridNode.addChild(lineNode)
         
-        // add Characters
+        // add Numbers
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
-                let n = game[p]
-                guard n != StepsGame.PUZ_EMPTY else {continue}
+                let n = state[p]
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
-                let numberNodeName = "number" + nodeNameSuffix
-                addLabel(text: String(n), fontColor: .gray, point: point, nodeName: numberNodeName)
+                if n == StepsGame.PUZ_FORBIDDEN {
+                    let forbiddenNodeName = "forbidden" + nodeNameSuffix
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
+                } else if n != StepsGame.PUZ_EMPTY {
+                    let numberNodeName = "number" + nodeNameSuffix
+                    addLabel(text: String(n), fontColor: .gray, point: point, nodeName: numberNodeName)
+                }
             }
         }
-
     }
     
     override func levelUpdated(from stateFrom: StepsGameState, to stateTo: StepsGameState) {
@@ -72,15 +75,24 @@ class StepsGameScene: GameScene<StepsGameState> {
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
+                let markerNodeName = "marker" + nodeNameSuffix
+                let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let (n1, n2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
-                if n1 != n2 || s1 != s2 {
-                    if (n1 != StepsGame.PUZ_EMPTY) {
-                        removeNode(withName: numberNodeName)
-                    }
-                    if (n2 != StepsGame.PUZ_EMPTY) {
-                        addLabel(text: String(n2), fontColor: stateFrom.game[p] != StepsGame.PUZ_EMPTY ? .gray : s2 == .normal ? .white : .red, point: point, nodeName: numberNodeName)
-                    }
+                guard n1 != n2 || s1 != s2 else {continue}
+                if n1 == StepsGame.PUZ_MARKER {
+                    removeNode(withName: markerNodeName)
+                } else if n1 == StepsGame.PUZ_FORBIDDEN {
+                    removeNode(withName: forbiddenNodeName)
+                } else if n1 != StepsGame.PUZ_EMPTY {
+                    removeNode(withName: numberNodeName)
+                }
+                if n2 == StepsGame.PUZ_MARKER {
+                    addDotMarker(point: point, nodeName: forbiddenNodeName)
+                } else if n2 == StepsGame.PUZ_FORBIDDEN {
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
+                } else if n2 != StepsGame.PUZ_EMPTY {
+                    addLabel(text: String(n2), fontColor: stateFrom.game[p] != StepsGame.PUZ_EMPTY ? .gray : s2 == .normal ? .white : s2 == .complete ? .green : .red, point: point, nodeName: numberNodeName)
                 }
             }
         }

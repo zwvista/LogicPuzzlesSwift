@@ -62,7 +62,6 @@ class StacksGameScene: GameScene<StacksGameState> {
                 addLabel(text: String(n), fontColor: .gray, point: point, nodeName: numberNodeName)
             }
         }
-
     }
     
     override func levelUpdated(from stateFrom: StacksGameState, to stateTo: StacksGameState) {
@@ -74,13 +73,12 @@ class StacksGameScene: GameScene<StacksGameState> {
                 let numberNodeName = "number" + nodeNameSuffix
                 let (n1, n2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
-                if n1 != n2 || s1 != s2 {
-                    if (n1 != StacksGame.PUZ_EMPTY) {
-                        removeNode(withName: numberNodeName)
-                    }
-                    if (n2 != StacksGame.PUZ_EMPTY) {
-                        addLabel(text: String(n2), fontColor: stateFrom.game[p] != StacksGame.PUZ_EMPTY ? .gray : s2 == .normal ? .white : .red, point: point, nodeName: numberNodeName)
-                    }
+                guard n1 != n2 || s1 != s2 else {continue}
+                if n1 != StacksGame.PUZ_EMPTY {
+                    removeNode(withName: numberNodeName)
+                }
+                if n2 != StacksGame.PUZ_EMPTY {
+                    addLabel(text: String(n2), fontColor: stateFrom.game[p] != StacksGame.PUZ_EMPTY ? .gray : s2 == .normal ? .white : .red, point: point, nodeName: numberNodeName)
                 }
             }
         }

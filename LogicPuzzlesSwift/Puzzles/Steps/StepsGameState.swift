@@ -15,7 +15,7 @@ class StepsGameState: GridGameState<StepsGameMove> {
     }
     override var gameDocument: GameDocumentBase { StepsDocument.sharedInstance }
     var objArray = [Int]()
-    var pos2state = [Position: AllowedObjectState]()
+    var pos2state = [Position: HintState]()
     
     override func copy() -> StepsGameState {
         let v = StepsGameState(game: game, isCopy: true)
@@ -56,7 +56,13 @@ class StepsGameState: GridGameState<StepsGameMove> {
         let p = move.p
         guard isValid(p: p) && game[p] == StepsGame.PUZ_EMPTY else { return .invalid }
         let o = self[p]
-        move.obj = o == game.areas[game.pos2area[p]!].count ? StepsGame.PUZ_EMPTY : o + 1
+        let n = game.areas[game.pos2area[p]!].count
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        move.obj =
+            o == StepsGame.PUZ_EMPTY ? markerOption == .markerFirst ? StepsGame.PUZ_MARKER : n :
+            o == n ? markerOption == .markerLast ? StepsGame.PUZ_MARKER : StepsGame.PUZ_EMPTY :
+            o == StepsGame.PUZ_MARKER ? markerOption == .markerFirst ? n : StepsGame.PUZ_EMPTY :
+            o
         return setObject(move: &move)
     }
     
@@ -75,48 +81,56 @@ class StepsGameState: GridGameState<StepsGameMove> {
            in the same row or column, must equal the difference between those numbers.
     */
     private func updateIsSolved() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                pos2state[Position(r, c)] = .normal
-            }
-        }
-        // 2. Two orthogonally adjacent numbers must be different.
-        for r in 0..<rows {
-            for c in 0..<cols {
                 let p = Position(r, c)
-                for os in StepsGame.offset {
-                    let p2 = p + os
-                    guard isValid(p: p2) && self[p] == self[p2] else {continue}
-                    isSolved = false
-                    pos2state[p] = .error
-                    pos2state[p2] = .error
+                pos2state[p] = .normal
+                if self[p] == StepsGame.PUZ_FORBIDDEN {
+                    self[p] = StepsGame.PUZ_EMPTY
                 }
             }
         }
         for area in game.areas {
-            var num2rng = [Int: [Position]]()
+            var rng = [Position]()
             for p in area {
-                let n = self[p]
-                if n == StepsGame.PUZ_EMPTY {
-                    isSolved = false
-                } else {
-                    num2rng[n, default: []].append(p)
-                }
+                guard self[p] != StepsGame.PUZ_EMPTY else {continue}
+                rng.append(p)
             }
-            // 1. Fill each area with every number ranging from 1 to the size of the area.
-            for (_, rng) in num2rng where rng.count > 1 {
+            // 1. Each area has a single number in it, which is equal to the area size.
+            if !(rng.count == 1 && self[rng[0]] == area.count) {
                 isSolved = false
                 for p in rng { pos2state[p] = .error }
             }
-            // 3. In one area, if a number is right above another, the upper one must be
-            //    higher than the lower one. This only applies to numbers on top of each
-            //    other in the same area.
-            for p1 in area {
-                for p2 in area where p1 - p2 == StepsGame.offset[0] && self[p1] <= self[p2] {
-                    isSolved = false
-                    pos2state[p1] = .error
-                    pos2state[p2] = .error
+            guard allowedObjectsOnly && !rng.isEmpty else {continue}
+            for p in area where !rng.contains(p) {
+                self[p] = StepsGame.PUZ_FORBIDDEN
+            }
+        }
+        // 2. Its position should be such that, by moving horizontally and vertically,
+        //    the distance to another number should be the difference between the two
+        //    numbers.
+        // 3. Or in other words: The number of empty squares between any pair of numbers
+        //    in the same row or column, must equal the difference between those numbers.
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                let n = self[p]
+                guard n > 0 else {continue}
+                if pos2state[p] != .error { pos2state[p] = .complete }
+                next: for i in [1, 2] {
+                    let os = StepsGame.offset[i]
+                    var p2 = p + os, steps = 0
+                    while true {
+                        guard isValid(p: p2) else {continue next}
+                        guard self[p2] <= 0 else {break}
+                        p2 += os; steps += 1
+                    }
+                    let s: HintState = abs(self[p2] - n) == steps ? .complete : .error
+                    if s != .complete { isSolved = false }
+                    if pos2state[p] == .complete { pos2state[p] = s }
+                    if pos2state[p2] == .complete { pos2state[p2] = s }
                 }
             }
         }

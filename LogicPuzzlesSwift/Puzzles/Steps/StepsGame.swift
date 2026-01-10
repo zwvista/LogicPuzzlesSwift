@@ -18,6 +18,8 @@ class StepsGame: GridGame<StepsGameState> {
     ]
     static let dirs = [1, 0, 3, 2]
     static let PUZ_EMPTY = 0
+    static let PUZ_MARKER = -1
+    static let PUZ_FORBIDDEN = -2
 
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
