@@ -79,6 +79,15 @@
 		8C263E4A2F11EFA100158A2C /* TrebuchetGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E3D2F11EFA100158A2C /* TrebuchetGameScene.swift */; };
 		8C263E4B2F11EFA100158A2C /* TrebuchetGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E3E2F11EFA100158A2C /* TrebuchetGameState.swift */; };
 		8C263E4C2F11EFA100158A2C /* Trebuchet.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263E3A2F11EFA100158A2C /* Trebuchet.xml */; };
+		8C263E572F11F2A100158A2C /* PlugItInDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E4E2F11F2A100158A2C /* PlugItInDocument.swift */; };
+		8C263E582F11F2A100158A2C /* PlugItInGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E4F2F11F2A100158A2C /* PlugItInGame.swift */; };
+		8C263E592F11F2A100158A2C /* PlugItInGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E522F11F2A100158A2C /* PlugItInGameViewController.swift */; };
+		8C263E5A2F11F2A100158A2C /* PlugItInMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E542F11F2A100158A2C /* PlugItInMainViewController.swift */; };
+		8C263E5B2F11F2A100158A2C /* PlugItInGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E502F11F2A100158A2C /* PlugItInGameScene.swift */; };
+		8C263E5C2F11F2A100158A2C /* PlugItInObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E552F11F2A100158A2C /* PlugItInObject.swift */; };
+		8C263E5D2F11F2A100158A2C /* PlugItInGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E532F11F2A100158A2C /* PlugItInGridNode.swift */; };
+		8C263E5E2F11F2A100158A2C /* PlugItInGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E512F11F2A100158A2C /* PlugItInGameState.swift */; };
+		8C263E5F2F11F2A100158A2C /* PlugItIn.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263E4D2F11F2A100158A2C /* PlugItIn.xml */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -1616,6 +1625,15 @@
 		8C263E402F11EFA100158A2C /* TrebuchetGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrebuchetGridNode.swift; sourceTree = "<group>"; };
 		8C263E412F11EFA100158A2C /* TrebuchetMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrebuchetMainViewController.swift; sourceTree = "<group>"; };
 		8C263E422F11EFA100158A2C /* TrebuchetObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrebuchetObject.swift; sourceTree = "<group>"; };
+		8C263E4D2F11F2A100158A2C /* PlugItIn.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PlugItIn.xml; sourceTree = "<group>"; };
+		8C263E4E2F11F2A100158A2C /* PlugItInDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugItInDocument.swift; sourceTree = "<group>"; };
+		8C263E4F2F11F2A100158A2C /* PlugItInGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugItInGame.swift; sourceTree = "<group>"; };
+		8C263E502F11F2A100158A2C /* PlugItInGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugItInGameScene.swift; sourceTree = "<group>"; };
+		8C263E512F11F2A100158A2C /* PlugItInGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugItInGameState.swift; sourceTree = "<group>"; };
+		8C263E522F11F2A100158A2C /* PlugItInGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugItInGameViewController.swift; sourceTree = "<group>"; };
+		8C263E532F11F2A100158A2C /* PlugItInGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugItInGridNode.swift; sourceTree = "<group>"; };
+		8C263E542F11F2A100158A2C /* PlugItInMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugItInMainViewController.swift; sourceTree = "<group>"; };
+		8C263E552F11F2A100158A2C /* PlugItInObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugItInObject.swift; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -3255,6 +3273,22 @@
 			path = Trebuchet;
 			sourceTree = "<group>";
 		};
+		8C263E562F11F2A100158A2C /* PlugItIn */ = {
+			isa = PBXGroup;
+			children = (
+				8C263E4D2F11F2A100158A2C /* PlugItIn.xml */,
+				8C263E4E2F11F2A100158A2C /* PlugItInDocument.swift */,
+				8C263E4F2F11F2A100158A2C /* PlugItInGame.swift */,
+				8C263E502F11F2A100158A2C /* PlugItInGameScene.swift */,
+				8C263E512F11F2A100158A2C /* PlugItInGameState.swift */,
+				8C263E522F11F2A100158A2C /* PlugItInGameViewController.swift */,
+				8C263E532F11F2A100158A2C /* PlugItInGridNode.swift */,
+				8C263E542F11F2A100158A2C /* PlugItInMainViewController.swift */,
+				8C263E552F11F2A100158A2C /* PlugItInObject.swift */,
+			);
+			path = PlugItIn;
+			sourceTree = "<group>";
+		};
 		8C2963D51FA20D620017A812 /* RobotFences */ = {
 			isa = PBXGroup;
 			children = (
@@ -3509,6 +3543,7 @@
 				8C3A35591EC88D4100A914A5 /* Parks */,
 				8C9F324C1ED1FAF600E10965 /* Pata */,
 				8CB721C62EAAE62D001B25C5 /* Planks */,
+				8C263E562F11F2A100158A2C /* PlugItIn */,
 				8CFB22582F0772C100E5F29D /* PouringWater */,
 				8C3A35661EC88D4100A914A5 /* PowerGrid */,
 				8C3A35731EC88D4200A914A5 /* ProductSentinels */,
@@ -5992,6 +6027,7 @@
 				8C8663592EA39DD00078CD64 /* C4.png in Resources */,
 				8C86635A2EA39DD00078CD64 /* cube_white.png in Resources */,
 				8C86635B2EA39DD00078CD64 /* car_top.png in Resources */,
+				8C263E5F2F11F2A100158A2C /* PlugItIn.xml in Resources */,
 				8C86635C2EA39DD00078CD64 /* pebble2.png in Resources */,
 				8C86635D2EA39DD00078CD64 /* apple.png in Resources */,
 				8C86635E2EA39DD00078CD64 /* C1.png in Resources */,
@@ -7468,6 +7504,14 @@
 				8C3A37941EC88D4400A914A5 /* RoomsMainViewController.swift in Sources */,
 				8CA042DB1FDB878800AF85E1 /* FillominoObject.swift in Sources */,
 				8C3A363D1EC88D4200A914A5 /* BridgesDocument.swift in Sources */,
+				8C263E572F11F2A100158A2C /* PlugItInDocument.swift in Sources */,
+				8C263E582F11F2A100158A2C /* PlugItInGame.swift in Sources */,
+				8C263E592F11F2A100158A2C /* PlugItInGameViewController.swift in Sources */,
+				8C263E5A2F11F2A100158A2C /* PlugItInMainViewController.swift in Sources */,
+				8C263E5B2F11F2A100158A2C /* PlugItInGameScene.swift in Sources */,
+				8C263E5C2F11F2A100158A2C /* PlugItInObject.swift in Sources */,
+				8C263E5D2F11F2A100158A2C /* PlugItInGridNode.swift in Sources */,
+				8C263E5E2F11F2A100158A2C /* PlugItInGameState.swift in Sources */,
 				8C3A36E01EC88D4300A914A5 /* LitsMainViewController.swift in Sources */,
 				8CDAE7F21F5BFBD9000DE5AF /* OverUnderGameScene.swift in Sources */,
 				8C9F322D1ECF06C000E10965 /* TapaGameState.swift in Sources */,
