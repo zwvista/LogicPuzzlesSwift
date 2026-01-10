@@ -61,6 +61,15 @@
 		8C263E232F11EC0200158A2C /* StepsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E192F11EC0200158A2C /* StepsGridNode.swift */; };
 		8C263E242F11EC0200158A2C /* StepsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E1A2F11EC0200158A2C /* StepsMainViewController.swift */; };
 		8C263E252F11EC0300158A2C /* Steps.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263E132F11EC0200158A2C /* Steps.xml */; };
+		8C263E312F11EE2B00158A2C /* HiddenCloudsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E2D2F11EE2B00158A2C /* HiddenCloudsGridNode.swift */; };
+		8C263E322F11EE2B00158A2C /* HiddenCloudsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E282F11EE2B00158A2C /* HiddenCloudsDocument.swift */; };
+		8C263E332F11EE2B00158A2C /* HiddenCloudsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E292F11EE2B00158A2C /* HiddenCloudsGame.swift */; };
+		8C263E342F11EE2B00158A2C /* HiddenCloudsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E2F2F11EE2B00158A2C /* HiddenCloudsObject.swift */; };
+		8C263E352F11EE2B00158A2C /* HiddenCloudsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E2A2F11EE2B00158A2C /* HiddenCloudsGameScene.swift */; };
+		8C263E362F11EE2B00158A2C /* HiddenCloudsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E2C2F11EE2B00158A2C /* HiddenCloudsGameViewController.swift */; };
+		8C263E372F11EE2B00158A2C /* HiddenCloudsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E2E2F11EE2B00158A2C /* HiddenCloudsMainViewController.swift */; };
+		8C263E382F11EE2B00158A2C /* HiddenCloudsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E2B2F11EE2B00158A2C /* HiddenCloudsGameState.swift */; };
+		8C263E392F11EE2B00158A2C /* HiddenClouds.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263E272F11EE2B00158A2C /* HiddenClouds.xml */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -1580,6 +1589,15 @@
 		8C263E192F11EC0200158A2C /* StepsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsGridNode.swift; sourceTree = "<group>"; };
 		8C263E1A2F11EC0200158A2C /* StepsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsMainViewController.swift; sourceTree = "<group>"; };
 		8C263E1B2F11EC0200158A2C /* StepsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsObject.swift; sourceTree = "<group>"; };
+		8C263E272F11EE2B00158A2C /* HiddenClouds.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HiddenClouds.xml; sourceTree = "<group>"; };
+		8C263E282F11EE2B00158A2C /* HiddenCloudsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenCloudsDocument.swift; sourceTree = "<group>"; };
+		8C263E292F11EE2B00158A2C /* HiddenCloudsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenCloudsGame.swift; sourceTree = "<group>"; };
+		8C263E2A2F11EE2B00158A2C /* HiddenCloudsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenCloudsGameScene.swift; sourceTree = "<group>"; };
+		8C263E2B2F11EE2B00158A2C /* HiddenCloudsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenCloudsGameState.swift; sourceTree = "<group>"; };
+		8C263E2C2F11EE2B00158A2C /* HiddenCloudsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenCloudsGameViewController.swift; sourceTree = "<group>"; };
+		8C263E2D2F11EE2B00158A2C /* HiddenCloudsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenCloudsGridNode.swift; sourceTree = "<group>"; };
+		8C263E2E2F11EE2B00158A2C /* HiddenCloudsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenCloudsMainViewController.swift; sourceTree = "<group>"; };
+		8C263E2F2F11EE2B00158A2C /* HiddenCloudsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenCloudsObject.swift; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -3187,6 +3205,22 @@
 			path = Steps;
 			sourceTree = "<group>";
 		};
+		8C263E302F11EE2B00158A2C /* HiddenClouds */ = {
+			isa = PBXGroup;
+			children = (
+				8C263E272F11EE2B00158A2C /* HiddenClouds.xml */,
+				8C263E282F11EE2B00158A2C /* HiddenCloudsDocument.swift */,
+				8C263E292F11EE2B00158A2C /* HiddenCloudsGame.swift */,
+				8C263E2A2F11EE2B00158A2C /* HiddenCloudsGameScene.swift */,
+				8C263E2B2F11EE2B00158A2C /* HiddenCloudsGameState.swift */,
+				8C263E2C2F11EE2B00158A2C /* HiddenCloudsGameViewController.swift */,
+				8C263E2D2F11EE2B00158A2C /* HiddenCloudsGridNode.swift */,
+				8C263E2E2F11EE2B00158A2C /* HiddenCloudsMainViewController.swift */,
+				8C263E2F2F11EE2B00158A2C /* HiddenCloudsObject.swift */,
+			);
+			path = HiddenClouds;
+			sourceTree = "<group>";
+		};
 		8C2963D51FA20D620017A812 /* RobotFences */ = {
 			isa = PBXGroup;
 			children = (
@@ -3394,6 +3428,7 @@
 				8C35E37E1FC2844E00A26EE3 /* Gardener */,
 				8C81BBFB2EA4A04F0083B936 /* Gems */,
 				8CFB221F2EF87D8E00E5F29D /* HeliumAndIron */,
+				8C263E302F11EE2B00158A2C /* HiddenClouds */,
 				7DF1B04E2E8A7EB6006008A3 /* HiddenPath */,
 				8C8E77E22E89D4CC006BBF98 /* HiddenStars */,
 				8CACC92E2E9BC56E00F53475 /* Hidoku */,
@@ -6010,6 +6045,7 @@
 				8C8663AB2EA39DD00078CD64 /* flower_red_small.png in Resources */,
 				8C8663AC2EA39DD00078CD64 /* loopy_background.png in Resources */,
 				8C8663AD2EA39DD00078CD64 /* pipe_2.png in Resources */,
+				8C263E392F11EE2B00158A2C /* HiddenClouds.xml in Resources */,
 				8C8663AE2EA39DD00078CD64 /* wolf.png in Resources */,
 				8C8663AF2EA39DD00078CD64 /* apricot.png in Resources */,
 				8C8663B02EA39DD00078CD64 /* pig.png in Resources */,
@@ -7181,6 +7217,14 @@
 				8CA043181FDBE77B00AF85E1 /* CarpentersWallGameScene.swift in Sources */,
 				8C3A36D11EC88D4300A914A5 /* LineSweeperGameViewController.swift in Sources */,
 				8C3A364B1EC88D4200A914A5 /* BusySeasGameScene.swift in Sources */,
+				8C263E312F11EE2B00158A2C /* HiddenCloudsGridNode.swift in Sources */,
+				8C263E322F11EE2B00158A2C /* HiddenCloudsDocument.swift in Sources */,
+				8C263E332F11EE2B00158A2C /* HiddenCloudsGame.swift in Sources */,
+				8C263E342F11EE2B00158A2C /* HiddenCloudsObject.swift in Sources */,
+				8C263E352F11EE2B00158A2C /* HiddenCloudsGameScene.swift in Sources */,
+				8C263E362F11EE2B00158A2C /* HiddenCloudsGameViewController.swift in Sources */,
+				8C263E372F11EE2B00158A2C /* HiddenCloudsMainViewController.swift in Sources */,
+				8C263E382F11EE2B00158A2C /* HiddenCloudsGameState.swift in Sources */,
 				8C35E3AC1FC4839100A26EE3 /* WallsGameScene.swift in Sources */,
 				8C35E3931FC2844F00A26EE3 /* GardenerDocument.swift in Sources */,
 				8C3A37451EC88D4300A914A5 /* NurikabeDocument.swift in Sources */,
