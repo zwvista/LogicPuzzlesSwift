@@ -88,6 +88,15 @@
 		8C263E5D2F11F2A100158A2C /* PlugItInGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E532F11F2A100158A2C /* PlugItInGridNode.swift */; };
 		8C263E5E2F11F2A100158A2C /* PlugItInGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E512F11F2A100158A2C /* PlugItInGameState.swift */; };
 		8C263E5F2F11F2A100158A2C /* PlugItIn.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263E4D2F11F2A100158A2C /* PlugItIn.xml */; };
+		8C263E6A2F11F53000158A2C /* PipemaniaMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E672F11F53000158A2C /* PipemaniaMainViewController.swift */; };
+		8C263E6B2F11F53000158A2C /* PipemaniaGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E652F11F53000158A2C /* PipemaniaGameViewController.swift */; };
+		8C263E6C2F11F53000158A2C /* PipemaniaObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E682F11F53000158A2C /* PipemaniaObject.swift */; };
+		8C263E6D2F11F53000158A2C /* PipemaniaGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E622F11F53000158A2C /* PipemaniaGame.swift */; };
+		8C263E6E2F11F53000158A2C /* PipemaniaGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E662F11F53000158A2C /* PipemaniaGridNode.swift */; };
+		8C263E6F2F11F53000158A2C /* PipemaniaDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E612F11F53000158A2C /* PipemaniaDocument.swift */; };
+		8C263E702F11F53000158A2C /* PipemaniaGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E632F11F53000158A2C /* PipemaniaGameScene.swift */; };
+		8C263E712F11F53000158A2C /* PipemaniaGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E642F11F53000158A2C /* PipemaniaGameState.swift */; };
+		8C263E722F11F53000158A2C /* Pipemania.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263E602F11F53000158A2C /* Pipemania.xml */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -1634,6 +1643,15 @@
 		8C263E532F11F2A100158A2C /* PlugItInGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugItInGridNode.swift; sourceTree = "<group>"; };
 		8C263E542F11F2A100158A2C /* PlugItInMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugItInMainViewController.swift; sourceTree = "<group>"; };
 		8C263E552F11F2A100158A2C /* PlugItInObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugItInObject.swift; sourceTree = "<group>"; };
+		8C263E602F11F53000158A2C /* Pipemania.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Pipemania.xml; sourceTree = "<group>"; };
+		8C263E612F11F53000158A2C /* PipemaniaDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipemaniaDocument.swift; sourceTree = "<group>"; };
+		8C263E622F11F53000158A2C /* PipemaniaGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipemaniaGame.swift; sourceTree = "<group>"; };
+		8C263E632F11F53000158A2C /* PipemaniaGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipemaniaGameScene.swift; sourceTree = "<group>"; };
+		8C263E642F11F53000158A2C /* PipemaniaGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipemaniaGameState.swift; sourceTree = "<group>"; };
+		8C263E652F11F53000158A2C /* PipemaniaGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipemaniaGameViewController.swift; sourceTree = "<group>"; };
+		8C263E662F11F53000158A2C /* PipemaniaGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipemaniaGridNode.swift; sourceTree = "<group>"; };
+		8C263E672F11F53000158A2C /* PipemaniaMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipemaniaMainViewController.swift; sourceTree = "<group>"; };
+		8C263E682F11F53000158A2C /* PipemaniaObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipemaniaObject.swift; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -3289,6 +3307,22 @@
 			path = PlugItIn;
 			sourceTree = "<group>";
 		};
+		8C263E692F11F53000158A2C /* Pipemania */ = {
+			isa = PBXGroup;
+			children = (
+				8C263E602F11F53000158A2C /* Pipemania.xml */,
+				8C263E612F11F53000158A2C /* PipemaniaDocument.swift */,
+				8C263E622F11F53000158A2C /* PipemaniaGame.swift */,
+				8C263E632F11F53000158A2C /* PipemaniaGameScene.swift */,
+				8C263E642F11F53000158A2C /* PipemaniaGameState.swift */,
+				8C263E652F11F53000158A2C /* PipemaniaGameViewController.swift */,
+				8C263E662F11F53000158A2C /* PipemaniaGridNode.swift */,
+				8C263E672F11F53000158A2C /* PipemaniaMainViewController.swift */,
+				8C263E682F11F53000158A2C /* PipemaniaObject.swift */,
+			);
+			path = Pipemania;
+			sourceTree = "<group>";
+		};
 		8C2963D51FA20D620017A812 /* RobotFences */ = {
 			isa = PBXGroup;
 			children = (
@@ -3542,6 +3576,7 @@
 				8C7474431FBED8BC00C4112C /* ParkLakes */,
 				8C3A35591EC88D4100A914A5 /* Parks */,
 				8C9F324C1ED1FAF600E10965 /* Pata */,
+				8C263E692F11F53000158A2C /* Pipemania */,
 				8CB721C62EAAE62D001B25C5 /* Planks */,
 				8C263E562F11F2A100158A2C /* PlugItIn */,
 				8CFB22582F0772C100E5F29D /* PouringWater */,
@@ -6187,6 +6222,7 @@
 				8C8663EC2EA39DD00078CD64 /* branch_vertical.png in Resources */,
 				8C8663ED2EA39DD00078CD64 /* A2-stone.png in Resources */,
 				8C8663EE2EA39DD00078CD64 /* flower_purple.png in Resources */,
+				8C263E722F11F53000158A2C /* Pipemania.xml in Resources */,
 				8C8663EF2EA39DD00078CD64 /* atom.png in Resources */,
 				8C8663F02EA39DD00078CD64 /* meadow_background.png in Resources */,
 				8C8663F12EA39DD00078CD64 /* sand_background.png in Resources */,
@@ -6705,6 +6741,14 @@
 				8C9BD5062F0A178300D1D915 /* InsaneTatamisMainViewController.swift in Sources */,
 				8C9BD5072F0A178300D1D915 /* InsaneTatamisObject.swift in Sources */,
 				8CB721F42EAB6C54001B25C5 /* BotanicalParkDocument.swift in Sources */,
+				8C263E6A2F11F53000158A2C /* PipemaniaMainViewController.swift in Sources */,
+				8C263E6B2F11F53000158A2C /* PipemaniaGameViewController.swift in Sources */,
+				8C263E6C2F11F53000158A2C /* PipemaniaObject.swift in Sources */,
+				8C263E6D2F11F53000158A2C /* PipemaniaGame.swift in Sources */,
+				8C263E6E2F11F53000158A2C /* PipemaniaGridNode.swift in Sources */,
+				8C263E6F2F11F53000158A2C /* PipemaniaDocument.swift in Sources */,
+				8C263E702F11F53000158A2C /* PipemaniaGameScene.swift in Sources */,
+				8C263E712F11F53000158A2C /* PipemaniaGameState.swift in Sources */,
 				8CB721F52EAB6C54001B25C5 /* BotanicalParkGameScene.swift in Sources */,
 				8C8E77FC2E89D537006BBF98 /* HiddenStarsGridNode.swift in Sources */,
 				8C8E77FD2E89D537006BBF98 /* HiddenStarsGameState.swift in Sources */,
