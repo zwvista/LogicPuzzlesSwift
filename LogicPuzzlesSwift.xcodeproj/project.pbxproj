@@ -70,6 +70,15 @@
 		8C263E372F11EE2B00158A2C /* HiddenCloudsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E2E2F11EE2B00158A2C /* HiddenCloudsMainViewController.swift */; };
 		8C263E382F11EE2B00158A2C /* HiddenCloudsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E2B2F11EE2B00158A2C /* HiddenCloudsGameState.swift */; };
 		8C263E392F11EE2B00158A2C /* HiddenClouds.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263E272F11EE2B00158A2C /* HiddenClouds.xml */; };
+		8C263E442F11EFA100158A2C /* TrebuchetGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E402F11EFA100158A2C /* TrebuchetGridNode.swift */; };
+		8C263E452F11EFA100158A2C /* TrebuchetMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E412F11EFA100158A2C /* TrebuchetMainViewController.swift */; };
+		8C263E462F11EFA100158A2C /* TrebuchetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E3C2F11EFA100158A2C /* TrebuchetGame.swift */; };
+		8C263E472F11EFA100158A2C /* TrebuchetDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E3B2F11EFA100158A2C /* TrebuchetDocument.swift */; };
+		8C263E482F11EFA100158A2C /* TrebuchetGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E3F2F11EFA100158A2C /* TrebuchetGameViewController.swift */; };
+		8C263E492F11EFA100158A2C /* TrebuchetObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E422F11EFA100158A2C /* TrebuchetObject.swift */; };
+		8C263E4A2F11EFA100158A2C /* TrebuchetGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E3D2F11EFA100158A2C /* TrebuchetGameScene.swift */; };
+		8C263E4B2F11EFA100158A2C /* TrebuchetGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E3E2F11EFA100158A2C /* TrebuchetGameState.swift */; };
+		8C263E4C2F11EFA100158A2C /* Trebuchet.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263E3A2F11EFA100158A2C /* Trebuchet.xml */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -1598,6 +1607,15 @@
 		8C263E2D2F11EE2B00158A2C /* HiddenCloudsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenCloudsGridNode.swift; sourceTree = "<group>"; };
 		8C263E2E2F11EE2B00158A2C /* HiddenCloudsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenCloudsMainViewController.swift; sourceTree = "<group>"; };
 		8C263E2F2F11EE2B00158A2C /* HiddenCloudsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenCloudsObject.swift; sourceTree = "<group>"; };
+		8C263E3A2F11EFA100158A2C /* Trebuchet.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Trebuchet.xml; sourceTree = "<group>"; };
+		8C263E3B2F11EFA100158A2C /* TrebuchetDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrebuchetDocument.swift; sourceTree = "<group>"; };
+		8C263E3C2F11EFA100158A2C /* TrebuchetGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrebuchetGame.swift; sourceTree = "<group>"; };
+		8C263E3D2F11EFA100158A2C /* TrebuchetGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrebuchetGameScene.swift; sourceTree = "<group>"; };
+		8C263E3E2F11EFA100158A2C /* TrebuchetGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrebuchetGameState.swift; sourceTree = "<group>"; };
+		8C263E3F2F11EFA100158A2C /* TrebuchetGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrebuchetGameViewController.swift; sourceTree = "<group>"; };
+		8C263E402F11EFA100158A2C /* TrebuchetGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrebuchetGridNode.swift; sourceTree = "<group>"; };
+		8C263E412F11EFA100158A2C /* TrebuchetMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrebuchetMainViewController.swift; sourceTree = "<group>"; };
+		8C263E422F11EFA100158A2C /* TrebuchetObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrebuchetObject.swift; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -3221,6 +3239,22 @@
 			path = HiddenClouds;
 			sourceTree = "<group>";
 		};
+		8C263E432F11EFA100158A2C /* Trebuchet */ = {
+			isa = PBXGroup;
+			children = (
+				8C263E3A2F11EFA100158A2C /* Trebuchet.xml */,
+				8C263E3B2F11EFA100158A2C /* TrebuchetDocument.swift */,
+				8C263E3C2F11EFA100158A2C /* TrebuchetGame.swift */,
+				8C263E3D2F11EFA100158A2C /* TrebuchetGameScene.swift */,
+				8C263E3E2F11EFA100158A2C /* TrebuchetGameState.swift */,
+				8C263E3F2F11EFA100158A2C /* TrebuchetGameViewController.swift */,
+				8C263E402F11EFA100158A2C /* TrebuchetGridNode.swift */,
+				8C263E412F11EFA100158A2C /* TrebuchetMainViewController.swift */,
+				8C263E422F11EFA100158A2C /* TrebuchetObject.swift */,
+			);
+			path = Trebuchet;
+			sourceTree = "<group>";
+		};
 		8C2963D51FA20D620017A812 /* RobotFences */ = {
 			isa = PBXGroup;
 			children = (
@@ -3508,6 +3542,7 @@
 				8C8661C02EA115FA0078CD64 /* Thermometers */,
 				8C2319E21FB88E3F0021C680 /* TierraDelFuego */,
 				8C81BC0F2EA84D010083B936 /* TraceNumbers */,
+				8C263E432F11EFA100158A2C /* Trebuchet */,
 				8CAFBFDA2E9F19A500C27D7C /* TurnTwice */,
 				8C9BD4D92F0A036B00D1D915 /* WallHints */,
 				8C35E3971FC4839000A26EE3 /* Walls */,
@@ -6082,6 +6117,7 @@
 				8C8663CD2EA39DD00078CD64 /* shade_1.png in Resources */,
 				8C8663CE2EA39DD00078CD64 /* B4-f.png in Resources */,
 				8C8663CF2EA39DD00078CD64 /* lighthouse.png in Resources */,
+				8C263E4C2F11EFA100158A2C /* Trebuchet.xml in Resources */,
 				8C9BD4CE2F09F2B700D1D915 /* WishSandwich.xml in Resources */,
 				8C8663D02EA39DD00078CD64 /* walk_no.png in Resources */,
 				8C8663D12EA39DD00078CD64 /* branch_right.png in Resources */,
@@ -6423,6 +6459,14 @@
 				8CD1558B1DD77C3400786F34 /* Extensions.swift in Sources */,
 				95E2B506236598F400F4F95B /* NumberCrosswordsGameScene.swift in Sources */,
 				8C9F32F41ED1FCFF00E10965 /* TapARowGridNode.swift in Sources */,
+				8C263E442F11EFA100158A2C /* TrebuchetGridNode.swift in Sources */,
+				8C263E452F11EFA100158A2C /* TrebuchetMainViewController.swift in Sources */,
+				8C263E462F11EFA100158A2C /* TrebuchetGame.swift in Sources */,
+				8C263E472F11EFA100158A2C /* TrebuchetDocument.swift in Sources */,
+				8C263E482F11EFA100158A2C /* TrebuchetGameViewController.swift in Sources */,
+				8C263E492F11EFA100158A2C /* TrebuchetObject.swift in Sources */,
+				8C263E4A2F11EFA100158A2C /* TrebuchetGameScene.swift in Sources */,
+				8C263E4B2F11EFA100158A2C /* TrebuchetGameState.swift in Sources */,
 				8CE43BDB1FEE6C7B00DCCD91 /* FutoshikiGameScene.swift in Sources */,
 				95E2B509236598F400F4F95B /* NumberCrosswordsGridNode.swift in Sources */,
 				8CE9C3121F7914B800134093 /* KakurasuGameScene.swift in Sources */,
