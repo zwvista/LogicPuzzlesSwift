@@ -57,11 +57,11 @@ class TrebuchetGameState: GridGameState<TrebuchetGameMove> {
         func f(o: TrebuchetObject) -> TrebuchetObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .dune()
-            case .dune:
+                return markerOption == .markerFirst ? .marker : .target()
+            case .target:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .dune() : .empty
+                return markerOption == .markerFirst ? .target() : .empty
             default: return o
             }
         }
@@ -99,7 +99,7 @@ class TrebuchetGameState: GridGameState<TrebuchetGameMove> {
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                let isEmptyOfDunes = TrebuchetGame.offset2.map { p + $0 }.allSatisfy { self[$0].toString() != "dune" }
+                let isEmptyOfDunes = TrebuchetGame.offset2.map { p + $0 }.allSatisfy { self[$0].toString() != "target" }
                 if isEmptyOfDunes { invalid2x2Squares.append(p + Position.SouthEast); isSolved = false }
             }
         }
@@ -107,15 +107,15 @@ class TrebuchetGameState: GridGameState<TrebuchetGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard case .dune = self[p] else { continue }
+                guard case .target = self[p] else { continue }
                 for os in TrebuchetGame.offset {
                     let p2 = p + os
                     guard isValid(p: p2) else { continue }
                     switch self[p2] {
-                    case .dune:
+                    case .target:
                         isSolved = false
-                        self[p] = .dune(state: .error)
-                        self[p2] = .dune(state: .error)
+                        self[p] = .target(state: .error)
+                        self[p2] = .target(state: .error)
                     case .empty:
                         if allowedObjectsOnly { self[p2] = .forbidden }
                     default:
@@ -124,14 +124,14 @@ class TrebuchetGameState: GridGameState<TrebuchetGameMove> {
                 }
             }
         }
-        // 2. The desert among dunes (including oases) should be all connected
+        // 2. The desert among targets (including oases) should be all connected
         //    horizontally or vertically.
         let g = Graph()
         var pos2node = [Position: Node]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard self[p].toString() != "dune" else {continue}
+                guard self[p].toString() != "target" else {continue}
                 pos2node[p] = g.addNode(p.description)
             }
         }
@@ -147,13 +147,13 @@ class TrebuchetGameState: GridGameState<TrebuchetGameMove> {
             pos2node[p]!.neighbors = []
         }
         for node in g.nodes { node.visited = false }
-        // 1. Put some dunes on the desert so that each Oasis dweller can reach the
+        // 1. Put some targets on the desert so that each Oasis dweller can reach the
         //    number of Oases marked on it.
         for (p, n2) in game.pos2hint {
             var hints = Set<Position>()
             // 3. Dwellers can move horizontally or vertically.
             TrebuchetGame.offset.map { p + $0 }
-                .filter { isValid(p: $0) && self[$0].toString() != "dune" }
+                .filter { isValid(p: $0) && self[$0].toString() != "target" }
                 .forEach { g.addEdge(pos2node[p]!, neighbor: pos2node[$0]!) }
             let nodesExplored = breadthFirstSearch(g, source: pos2node[p]!)
             pos2node[p]!.neighbors = []

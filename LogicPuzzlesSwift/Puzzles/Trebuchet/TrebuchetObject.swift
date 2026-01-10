@@ -12,15 +12,15 @@ enum TrebuchetObject {
     case empty
     case marker
     case forbidden
-    case dune(state: AllowedObjectState = .normal)
+    case target(state: AllowedObjectState = .normal)
     case hint(state: HintState = .normal)
     init() {
         self = .empty
     }
     func toString() -> String {
         switch self {
-        case .dune:
-            return "dune"
+        case .target:
+            return "target"
         case .marker:
             return "marker"
         case .hint:
@@ -33,8 +33,8 @@ enum TrebuchetObject {
     }
     static func fromString(str: String) -> TrebuchetObject {
         switch str {
-        case "dune":
-            return .dune()
+        case "target":
+            return .target()
         case "marker":
             return .marker
         default:

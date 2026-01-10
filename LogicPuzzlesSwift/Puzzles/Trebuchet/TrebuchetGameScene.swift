@@ -26,19 +26,12 @@ class TrebuchetGameScene: GameScene<TrebuchetGameState> {
         // add Grid
         let offset:CGFloat = 0.5
         addGrid(gridNode: TrebuchetGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
- 
-        for r in 0..<state.rows {
-            for c in 0..<state.cols {
-                let point = gridNode.centerPoint(p: Position(r, c))
-                addImage(imageNamed: "C1", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "sand")
-            }
-        }
 
         for (p, n) in game.pos2hint {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
-            addImage(imageNamed: "palmtree", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "palmtree")
+            addImage(imageNamed: "trebuchet", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "trebuchet")
             if case .hint(let s) = state[p] {
                 addHint(n: n, s: s, point: point, nodeName: hintNodeName)
             }
@@ -57,7 +50,7 @@ class TrebuchetGameScene: GameScene<TrebuchetGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let duneNodeName = "dune" + nodeNameSuffix
+                let targetNodeName = "target" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
@@ -65,15 +58,15 @@ class TrebuchetGameScene: GameScene<TrebuchetGameState> {
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 if String(describing: o1) != String(describing: o2) {
                     switch o1 {
-                    case .dune: removeNode(withName: duneNodeName)
+                    case .target: removeNode(withName: targetNodeName)
                     case .forbidden: removeNode(withName: forbiddenNodeName)
                     case .hint: removeNode(withName: hintNodeName)
                     case .marker: removeNode(withName: markerNodeName)
                     default: break
                     }
                     switch o2 {
-                    case .dune(let s):
-                        addImage(imageNamed: "dune", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: duneNodeName)
+                    case .target(let s):
+                        addImage(imageNamed: "target", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: targetNodeName)
                     case .forbidden:
                         addDotMarker2(color: .red, point: point, nodeName: forbiddenNodeName)
                     case .hint(let s):

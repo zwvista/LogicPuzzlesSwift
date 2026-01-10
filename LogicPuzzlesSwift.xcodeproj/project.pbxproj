@@ -97,6 +97,7 @@
 		8C263E702F11F53000158A2C /* PipemaniaGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E632F11F53000158A2C /* PipemaniaGameScene.swift */; };
 		8C263E712F11F53000158A2C /* PipemaniaGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E642F11F53000158A2C /* PipemaniaGameState.swift */; };
 		8C263E722F11F53000158A2C /* Pipemania.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263E602F11F53000158A2C /* Pipemania.xml */; };
+		8C263E742F1282C500158A2C /* trebuchet.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C263E732F1282C500158A2C /* trebuchet.png */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -1652,6 +1653,7 @@
 		8C263E662F11F53000158A2C /* PipemaniaGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipemaniaGridNode.swift; sourceTree = "<group>"; };
 		8C263E672F11F53000158A2C /* PipemaniaMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipemaniaMainViewController.swift; sourceTree = "<group>"; };
 		8C263E682F11F53000158A2C /* PipemaniaObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipemaniaObject.swift; sourceTree = "<group>"; };
+		8C263E732F1282C500158A2C /* trebuchet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trebuchet.png; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -4928,6 +4930,7 @@
 				8C8663182EA39DD00078CD64 /* tower_wall.png */,
 				8C8663192EA39DD00078CD64 /* tower_wall_noborder.png */,
 				8C86631A2EA39DD00078CD64 /* tower_wall2.png */,
+				8C263E732F1282C500158A2C /* trebuchet.png */,
 				8C86631B2EA39DD00078CD64 /* tree.png */,
 				8C86631C2EA39DD00078CD64 /* turnips.png */,
 				8C86631D2EA39DD00078CD64 /* turtle.png */,
@@ -6319,6 +6322,7 @@
 				8C8664452EA39DD00078CD64 /* B2-f.png in Resources */,
 				8C8664462EA39DD00078CD64 /* cloud.png in Resources */,
 				8CB7221C2EAC8261001B25C5 /* Archipelago.xml in Resources */,
+				8C263E742F1282C500158A2C /* trebuchet.png in Resources */,
 				8C8664472EA39DD00078CD64 /* icecream.png in Resources */,
 				8C8664482EA39DD00078CD64 /* pipe_cross.png in Resources */,
 				8C8664492EA39DD00078CD64 /* ice_hole.png in Resources */,
