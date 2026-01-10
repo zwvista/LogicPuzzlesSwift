@@ -14,8 +14,11 @@ class ChocolateGameScene: GameScene<ChocolateGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addCharacter(ch: Character, s: HintState, isHint: Bool, point: CGPoint, nodeName: String) {
-        addLabel(text: String(ch), fontColor: isHint ? .gray : s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+    func addHint(p: Position, n: Int, s: HintState) {
+        let point = gridNode.centerPoint(p: p)
+        let nodeNameSuffix = "-\(p.row)-\(p.col)"
+        let hintNodeName = "hint" + nodeNameSuffix
+        addLabel(text: String(n), fontColor: s == .complete ? .green : .white, point: point, nodeName: hintNodeName)
     }
 
     override func levelInitialized(_ game: AnyObject, state: ChocolateGameState, skView: SKView) {
@@ -54,19 +57,21 @@ class ChocolateGameScene: GameScene<ChocolateGameState> {
         lineNode.name = "line"
         gridNode.addChild(lineNode)
         
-        // add Characters
-        for r in 0..<game.rows {
-            for c in 0..<game.cols {
-                let p = Position(r, c)
-                let point = gridNode.centerPoint(p: p)
-                let ch = game[p]
-                guard ch != " " else {continue}
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
-                let charNodeName = "char" + nodeNameSuffix
-                addCharacter(ch: ch, s: state.pos2state[p] ?? .normal, isHint: game[p] != " ", point: point, nodeName: charNodeName)
-            }
+        // add Hints
+        for (p, n) in game.pos2hint {
+            addHint(p: p, n: n, s: state.pos2state[p]!)
         }
 
+        for r in 0..<state.rows {
+            for c in 0..<state.cols {
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: p)
+                guard case .forbidden = state[p] else {continue}
+                let nodeNameSuffix = "-\(r)-\(c)"
+                let forbiddenNodeName = "forbidden" + nodeNameSuffix
+                addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
+            }
+        }
     }
     
     override func levelUpdated(from stateFrom: ChocolateGameState, to stateTo: ChocolateGameState) {
@@ -75,17 +80,37 @@ class ChocolateGameScene: GameScene<ChocolateGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let charNodeName = "char" + nodeNameSuffix
-                let (ch1, ch2) = (stateFrom[p], stateTo[p])
+                let markerNodeName = "marker" + nodeNameSuffix
+                let forbiddenNodeName = "forbidden" + nodeNameSuffix
+                let hintNodeName = "hint" + nodeNameSuffix
+                let chocolateNodeName = "chocolate" + nodeNameSuffix
+                let (o1, o2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
-                if ch1 != ch2 || s1 != s2 {
-                    if (ch1 != " ") {
-                        removeNode(withName: charNodeName)
+                if String(describing: o1) != String(describing: o2) {
+                    switch o1 {
+                    case .forbidden:
+                        removeNode(withName: forbiddenNodeName)
+                    case .marker:
+                        removeNode(withName: markerNodeName)
+                    case .chocolate:
+                        removeNode(withName: chocolateNodeName)
+                    default:
+                        break
                     }
-                    if (ch2 != " ") {
-                        addCharacter(ch: ch2, s: stateTo.pos2state[p] ?? .normal, isHint: stateTo.game[p] != " ", point: point, nodeName: charNodeName)
+                    switch o2 {
+                    case .forbidden:
+                        addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
+                    case .marker:
+                        addDotMarker(point: point, nodeName: markerNodeName)
+                    case let .chocolate(s):
+                        addImage(imageNamed: "chocolate_square", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: chocolateNodeName)
+                    default:
+                        break
                     }
                 }
+                guard s1 != s2 || s2 != nil && o2.toString() == "chocolate" else {continue}
+                removeNode(withName: hintNodeName)
+                addHint(p: p, n: stateFrom.game.pos2hint[p]!, s: s2!)
             }
         }
     }

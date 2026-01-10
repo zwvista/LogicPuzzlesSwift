@@ -14,7 +14,7 @@ class ChocolateGameState: GridGameState<ChocolateGameMove> {
         set { setGame(game: newValue) }
     }
     override var gameDocument: GameDocumentBase { ChocolateDocument.sharedInstance }
-    var objArray = [Character]()
+    var objArray = [ChocolateObject]()
     var pos2state = [Position: HintState]()
     
     override func copy() -> ChocolateGameState {
@@ -31,35 +31,43 @@ class ChocolateGameState: GridGameState<ChocolateGameMove> {
     required init(game: ChocolateGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = game.objArray
+        objArray = Array<ChocolateObject>(repeating: .empty, count: rows * cols)
         updateIsSolved()
     }
     
-    subscript(p: Position) -> Character {
+    subscript(p: Position) -> ChocolateObject {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
     }
-    subscript(row: Int, col: Int) -> Character {
+    subscript(row: Int, col: Int) -> ChocolateObject {
         get { objArray[row * cols + col] }
         set { objArray[row * cols + col] = newValue }
     }
     
     override func setObject(move: inout ChocolateGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else { return .invalid }
+        guard isValid(p: p), String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }
     
     override func switchObject(move: inout ChocolateGameMove) -> GameOperationType {
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        func f(o: ChocolateObject) -> ChocolateObject {
+            switch o {
+            case .empty:
+                return markerOption == .markerFirst ? .marker : .chocolate()
+            case .chocolate:
+                return markerOption == .markerLast ? .marker : .empty
+            case .marker:
+                return markerOption == .markerFirst ? .chocolate() : .empty
+            default: return o
+            }
+        }
         let p = move.p
-        guard isValid(p: p) && game[p] == " " else { return .invalid }
-        let o = self[p]
-        move.obj =
-            o == " " ? "1" :
-            o == "3" ? " " :
-            succ(ch: o)
+        guard isValid(p: p) else { return .invalid }
+        move.obj = f(o: self[p])
         return setObject(move: &move)
     }
     
@@ -79,74 +87,62 @@ class ChocolateGameState: GridGameState<ChocolateGameMove> {
         6. An area without number can have any number of tiles of chocolate.
     */
     private func updateIsSolved() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
-        let chars2: [Character] = ["1", "2", "3"]
-        let chars3 = chars2.flatMap { Array<Character>(repeating: $0, count: rows / 3) }
+        for r in 0..<rows {
+            for c in 0..<cols {
+                if case .forbidden = self[r, c] {
+                    self[r, c] = .empty
+                }
+            }
+        }
+        // 2. A Chocolate bar is a rectangular or a square.
+        // 3. Chocolate tiles form bars independently of the area borders.
+        // 4. Chocolate bars must not be orthogonally adjacent.
+        let g = Graph()
+        var pos2node = [Position: Node]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if self[p] == " " { isSolved = false }
-                pos2state[p] = .normal
+                guard self[p].toString() == "chocolate" else {continue}
+                pos2node[p] = g.addNode(p.description)
             }
         }
-        for r in 0..<rows {
-            var lineSolved = true
-            for c in 0..<cols - 1 {
-                let (p1, p2) = (Position(r, c), Position(r, c + 1))
-                let (ch1, ch2) = (self[p1], self[p2])
-                guard ch1 != " " && ch2 != " " && ch1 == ch2 else {continue}
-                // 4. You can't have two identical numbers touching horizontally.
-                isSolved = false; lineSolved = false
-                pos2state[p1] = .error
-                pos2state[p2] = .error
-            }
-            let chars = (0..<cols).map { self[r, $0] }.sorted()
-            // 3. In one row, each number must appear the same number of times.
-            if chars[0] != " " && chars != chars3 {
-                isSolved = false; lineSolved = false
-                for c in 0..<cols {
-                    pos2state[Position(r, c)] = .error
-                }
-            }
-            if lineSolved {
-                for c in 0..<cols {
-                    pos2state[Position(r, c)] = .complete
-                }
+        for (p, node) in pos2node {
+            for os in ChocolateGame.offset {
+                let p2 = p + os
+                if let node2 = pos2node[p2] { g.addEdge(node, neighbor: node2) }
             }
         }
-        for c in 0..<cols {
-            var lineSolved = true
-            for r in 0..<rows - 1 {
-                let (p1, p2) = (Position(r, c), Position(r + 1, c))
-                let (ch1, ch2) = (self[p1], self[p2])
-                guard ch1 != " " && ch2 != " " && ch1 == ch2 else {continue}
-                // 4. You can't have two identical numbers touching vertically.
-                isSolved = false; lineSolved = false
-                pos2state[p1] = .error
-                pos2state[p2] = .error
+        while !pos2node.isEmpty {
+            let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+            let bar = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
+            pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
+            var r2 = 0, r1 = rows, c2 = 0, c1 = cols
+            for p in bar {
+                if r2 < p.row { r2 = p.row }
+                if r1 > p.row { r1 = p.row }
+                if c2 < p.col { c2 = p.col }
+                if c1 > p.col { c1 = p.col }
             }
-            let chars = (0..<rows).map { self[$0, c] }.sorted()
-            // 3. In one column, each number must appear the same number of times.
-            if chars[0] != " " && chars != chars3 {
-                isSolved = false; lineSolved = false
-                for r in 0..<rows {
-                    pos2state[Position(r, c)] = .error
-                }
-            }
-            if lineSolved {
-                for r in 0..<rows {
-                    pos2state[Position(r, c)] = .complete
-                }
-            }
+            let rs = r2 - r1 + 1, cs = c2 - c1 + 1
+            let s: AllowedObjectState = rs * cs == bar.count ? .normal : .error
+            if s != .normal { isSolved = false }
+            for p in bar { self[p] = .chocolate(state: s) }
         }
-        // 2. Each number can appear only once in each Chocolate.
-        for a in game.areas {
-            let chars = a.map { self[$0] }.sorted()
-            guard chars[0] != " " && chars != chars2 else {continue}
-            isSolved = false
-            for p in a {
-                pos2state[p] = .error
-            }
+        // 5. A tile with a number indicates how many tiles in the area must
+        //    be chocolate.
+        // 6. An area without number can have any number of tiles of chocolate.
+        for area in game.areas {
+            guard let pHint = area.first(where: { game.pos2hint[$0] != nil }) else {continue}
+            let n2 = game.pos2hint[pHint]!
+            let n1 = area.filter { self[$0].toString() == "chocolate" }.count
+            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            if s != .complete { isSolved = false }
+            pos2state[pHint] = s
+            guard allowedObjectsOnly && s != .normal else {continue}
+            let empties = area.filter { self[$0].toString() == "empty" }
+            for p in empties { self[p] = .forbidden }
         }
     }
 }
