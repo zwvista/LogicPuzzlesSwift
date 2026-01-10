@@ -14,14 +14,14 @@ class LakesAndMeadowsGameScene: GameScene<LakesAndMeadowsGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addHole(s: HintState, point: CGPoint, nodeName: String) {
-        let holeNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 3)
-        holeNode.position = point
-        holeNode.name = nodeName
-        holeNode.strokeColor = s == .normal ? .white : s == .complete ? .green : .red
-        holeNode.glowWidth = 5.0
-        holeNode.fillColor = .gray
-        gridNode.addChild(holeNode)
+    func addLake(s: HintState, point: CGPoint, nodeName: String) {
+        let lakeNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 3)
+        lakeNode.position = point
+        lakeNode.name = nodeName
+        lakeNode.strokeColor = s == .normal ? .white : s == .complete ? .green : .red
+        lakeNode.glowWidth = 5.0
+        lakeNode.fillColor = .gray
+        gridNode.addChild(lakeNode)
     }
     
     override func levelInitialized(_ game: AnyObject, state: LakesAndMeadowsGameState, skView: SKView) {
@@ -33,18 +33,11 @@ class LakesAndMeadowsGameScene: GameScene<LakesAndMeadowsGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: LakesAndMeadowsGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset))
         
-        for p in game.blocks {
-            let point = gridNode.centerPoint(p: p)
-            let blockNode = SKSpriteNode(color: .gray, size: coloredRectSize())
-            blockNode.position = point
-            blockNode.name = "block"
-            gridNode.addChild(blockNode)
-        }
-        for p in game.holes {
+        for p in game.lakes {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let holeNodeName = "hole" + nodeNameSuffix
-            addHole(s: .normal, point: point, nodeName: holeNodeName)
+            let lakeNodeName = "lake" + nodeNameSuffix
+            addLake(s: .normal, point: point, nodeName: lakeNodeName)
         }
 
         for r in 0..<game.rows {
@@ -83,14 +76,14 @@ class LakesAndMeadowsGameScene: GameScene<LakesAndMeadowsGameState> {
                 }
             }
         }
-        for p in stateFrom.game.holes {
+        for p in stateFrom.game.lakes {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let holeNodeName = "hole" + nodeNameSuffix
+            let lakeNodeName = "lake" + nodeNameSuffix
             let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
             if s1 != s2 {
-                removeNode(withName: holeNodeName)
-                addHole(s: s2, point: point, nodeName: holeNodeName)
+                removeNode(withName: lakeNodeName)
+                addLake(s: s2, point: point, nodeName: lakeNodeName)
             }
         }
     }

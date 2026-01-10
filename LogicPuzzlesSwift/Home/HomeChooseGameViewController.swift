@@ -17,6 +17,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         "CarpentersSquare": "Carpenter's Square",
         "CarpentersWall": "Carpenter's Wall",
         "FourMeNot": "Four-Me-Not",
+        "LakesAndMeadows": "Lakes and Meadows",
         "MaketheDifference": "Make the Difference",
         "MiniLits": "Mini-Lits",
         "NoughtsAndCrosses": "Noughts & Crosses",

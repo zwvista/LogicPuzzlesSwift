@@ -32,7 +32,7 @@ class LakesAndMeadowsGameState: GridGameState<LakesAndMeadowsGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = game.dots.objArray
-        for p in game.holes {
+        for p in game.lakes {
             pos2state[p] = .normal
         }
         updateIsSolved()
@@ -103,7 +103,6 @@ class LakesAndMeadowsGameState: GridGameState<LakesAndMeadowsGameMove> {
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                guard game[p] != .block else {continue}
                 pos2node[p] = g.addNode(p.description)
             }
         }
@@ -117,9 +116,10 @@ class LakesAndMeadowsGameState: GridGameState<LakesAndMeadowsGameMove> {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
-            let rng = area.filter { p in game.holes.contains(p) }
-            // 2. They decide each one should have a piece of land of exactly 4 squares,
-            // including one fishing hole.
+            let rng = area.filter { p in game.lakes.contains(p) }
+            // 1. Some of the cells have lakes in them.
+            // 2. The aim is to divide the grid into square blocks such that each
+            //    block contains exactly one lake.
             if rng.count != 1 {
                 for p in rng {
                     pos2state[p] = .normal
@@ -127,8 +127,25 @@ class LakesAndMeadowsGameState: GridGameState<LakesAndMeadowsGameMove> {
                 isSolved = false; continue
             }
             let p2 = rng[0]
-            let n1 = area.count, n2 = 4
-            let s: HintState = n1 == n2 ? .complete : .error
+            let n1 = area.count
+            var r2 = 0, r1 = rows, c2 = 0, c1 = cols
+            for p in area {
+                if r2 < p.row { r2 = p.row }
+                if r1 > p.row { r1 = p.row }
+                if c2 < p.col { c2 = p.col }
+                if c1 > p.col { c1 = p.col }
+            }
+            let rs = r2 - r1 + 1, cs = c2 - c1 + 1
+            func hasLine() -> Bool {
+                for r in r1...r2 {
+                    for c in c1...c2 {
+                        let dotObj = self[r + 1, c + 1]
+                        if r < r2 && dotObj[3] == .line || c < c2 && dotObj[0] == .line { return true }
+                    }
+                }
+                return false
+            }
+            let s: HintState = rs * cs == n1 && !hasLine() ? .complete : .error
             pos2state[p2] = s
             if s != .complete { isSolved = false }
         }

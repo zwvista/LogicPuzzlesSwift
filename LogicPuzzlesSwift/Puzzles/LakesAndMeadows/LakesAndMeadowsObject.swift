@@ -9,7 +9,7 @@
 import Foundation
 
 enum LakesAndMeadowsObject: Int {
-    case empty, block, hole
+    case empty, lake
 }
 
 struct LakesAndMeadowsGameMove {

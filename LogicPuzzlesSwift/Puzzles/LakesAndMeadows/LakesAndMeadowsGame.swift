@@ -19,8 +19,7 @@ class LakesAndMeadowsGame: GridGame<LakesAndMeadowsGameState> {
     static let dirs = [1, 0, 3, 2]
     
     var objArray = [LakesAndMeadowsObject]()
-    var blocks = [Position]()
-    var holes = [Position]()
+    var lakes = [Position]()
     var dots: GridDots!
     
     init(layout: [String], delegate: LakesAndMeadowsGameViewController? = nil) {
@@ -34,24 +33,9 @@ class LakesAndMeadowsGame: GridGame<LakesAndMeadowsGameState> {
             let str = layout[r]
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                switch str[c] {
-                case "B":
-                    self[p] = .block
-                    blocks.append(p)
-                    dots[r, c][2] = .line
-                    dots[r + 1, c][0] = .line
-                    dots[r, c + 1][2] = .line
-                    dots[r + 1, c + 1][0] = .line
-                    dots[r, c][1] = .line
-                    dots[r, c + 1][3] = .line
-                    dots[r + 1, c][1] = .line
-                    dots[r + 1, c + 1][3] = .line
-                case "H":
-                    self[p] = .hole
-                    holes.append(p)
-                default:
-                    break
-                }
+                guard str[c] == "L" else {continue}
+                self[p] = .lake
+                lakes.append(p)
             }
         }
         for r in 0..<rows - 1 {
