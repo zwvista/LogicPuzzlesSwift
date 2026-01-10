@@ -52,6 +52,15 @@
 		8C2319F61FB88E3F0021C680 /* TierraDelFuegoGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2319EB1FB88E3F0021C680 /* TierraDelFuegoGameScene.swift */; };
 		8C2319F71FB88E3F0021C680 /* TierraDelFuegoGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2319EC1FB88E3F0021C680 /* TierraDelFuegoGameState.swift */; };
 		8C2319F81FB88E3F0021C680 /* TierraDelFuego.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2319ED1FB88E3F0021C680 /* TierraDelFuego.xml */; };
+		8C263E1D2F11EC0200158A2C /* StepsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E172F11EC0200158A2C /* StepsGameState.swift */; };
+		8C263E1E2F11EC0200158A2C /* StepsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E152F11EC0200158A2C /* StepsGame.swift */; };
+		8C263E1F2F11EC0200158A2C /* StepsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E1B2F11EC0200158A2C /* StepsObject.swift */; };
+		8C263E202F11EC0200158A2C /* StepsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E182F11EC0200158A2C /* StepsGameViewController.swift */; };
+		8C263E212F11EC0200158A2C /* StepsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E162F11EC0200158A2C /* StepsGameScene.swift */; };
+		8C263E222F11EC0200158A2C /* StepsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E142F11EC0200158A2C /* StepsDocument.swift */; };
+		8C263E232F11EC0200158A2C /* StepsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E192F11EC0200158A2C /* StepsGridNode.swift */; };
+		8C263E242F11EC0200158A2C /* StepsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E1A2F11EC0200158A2C /* StepsMainViewController.swift */; };
+		8C263E252F11EC0300158A2C /* Steps.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263E132F11EC0200158A2C /* Steps.xml */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -1562,6 +1571,15 @@
 		8C2319EB1FB88E3F0021C680 /* TierraDelFuegoGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TierraDelFuegoGameScene.swift; sourceTree = "<group>"; };
 		8C2319EC1FB88E3F0021C680 /* TierraDelFuegoGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TierraDelFuegoGameState.swift; sourceTree = "<group>"; };
 		8C2319ED1FB88E3F0021C680 /* TierraDelFuego.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TierraDelFuego.xml; sourceTree = "<group>"; };
+		8C263E132F11EC0200158A2C /* Steps.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Steps.xml; sourceTree = "<group>"; };
+		8C263E142F11EC0200158A2C /* StepsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsDocument.swift; sourceTree = "<group>"; };
+		8C263E152F11EC0200158A2C /* StepsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsGame.swift; sourceTree = "<group>"; };
+		8C263E162F11EC0200158A2C /* StepsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsGameScene.swift; sourceTree = "<group>"; };
+		8C263E172F11EC0200158A2C /* StepsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsGameState.swift; sourceTree = "<group>"; };
+		8C263E182F11EC0200158A2C /* StepsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsGameViewController.swift; sourceTree = "<group>"; };
+		8C263E192F11EC0200158A2C /* StepsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsGridNode.swift; sourceTree = "<group>"; };
+		8C263E1A2F11EC0200158A2C /* StepsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsMainViewController.swift; sourceTree = "<group>"; };
+		8C263E1B2F11EC0200158A2C /* StepsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsObject.swift; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -3153,6 +3171,22 @@
 			path = LogicPuzzlesSwift/Puzzles/TierraDelFuego;
 			sourceTree = SOURCE_ROOT;
 		};
+		8C263E1C2F11EC0200158A2C /* Steps */ = {
+			isa = PBXGroup;
+			children = (
+				8C263E132F11EC0200158A2C /* Steps.xml */,
+				8C263E142F11EC0200158A2C /* StepsDocument.swift */,
+				8C263E152F11EC0200158A2C /* StepsGame.swift */,
+				8C263E162F11EC0200158A2C /* StepsGameScene.swift */,
+				8C263E172F11EC0200158A2C /* StepsGameState.swift */,
+				8C263E182F11EC0200158A2C /* StepsGameViewController.swift */,
+				8C263E192F11EC0200158A2C /* StepsGridNode.swift */,
+				8C263E1A2F11EC0200158A2C /* StepsMainViewController.swift */,
+				8C263E1B2F11EC0200158A2C /* StepsObject.swift */,
+			);
+			path = Steps;
+			sourceTree = "<group>";
+		};
 		8C2963D51FA20D620017A812 /* RobotFences */ = {
 			isa = PBXGroup;
 			children = (
@@ -3423,6 +3457,7 @@
 				8C506F021F6D2C9300BA4332 /* Snake */,
 				8C1D4F7A1F7D079F000D5FB3 /* Square100 */,
 				8C9BD5962F0A7DFF00D1D915 /* Stacks */,
+				8C263E1C2F11EC0200158A2C /* Steps */,
 				8C9BD5CF2F0A830A00D1D915 /* StraightAndTurn */,
 				8C3A35C11EC88D4200A914A5 /* Sumscrapers */,
 				8C9F321D1ECF06BF00E10965 /* Tapa */,
@@ -6203,6 +6238,7 @@
 				8CDAE7EF1F5BFBD8000DE5AF /* OverUnder.xml in Resources */,
 				8CFAF9C220381D870095EFFC /* CastleBailey.xml in Resources */,
 				8C3A37741EC88D4300A914A5 /* PowerGrid.xml in Resources */,
+				8C263E252F11EC0300158A2C /* Steps.xml in Resources */,
 				8CA042FA1FDB930A00AF85E1 /* Calcudoku.xml in Resources */,
 				8C6A36261FAF9D8600D2804D /* NoughtsAndCrosses.xml in Resources */,
 				8C3A37501EC88D4300A914A5 /* Orchards.xml in Resources */,
@@ -6616,6 +6652,14 @@
 				8C81BC3A2EA8EF030083B936 /* DesertDunesGame.swift in Sources */,
 				8C81BC3B2EA8EF030083B936 /* DesertDunesGridNode.swift in Sources */,
 				8C81BC3C2EA8EF030083B936 /* DesertDunesObject.swift in Sources */,
+				8C263E1D2F11EC0200158A2C /* StepsGameState.swift in Sources */,
+				8C263E1E2F11EC0200158A2C /* StepsGame.swift in Sources */,
+				8C263E1F2F11EC0200158A2C /* StepsObject.swift in Sources */,
+				8C263E202F11EC0200158A2C /* StepsGameViewController.swift in Sources */,
+				8C263E212F11EC0200158A2C /* StepsGameScene.swift in Sources */,
+				8C263E222F11EC0200158A2C /* StepsDocument.swift in Sources */,
+				8C263E232F11EC0200158A2C /* StepsGridNode.swift in Sources */,
+				8C263E242F11EC0200158A2C /* StepsMainViewController.swift in Sources */,
 				8C81BC3D2EA8EF030083B936 /* DesertDunesDocument.swift in Sources */,
 				8C74746F1FBEFD5700C4112C /* FourMeNotGameScene.swift in Sources */,
 				8C3A363A1EC88D4200A914A5 /* BoxItUpObject.swift in Sources */,
