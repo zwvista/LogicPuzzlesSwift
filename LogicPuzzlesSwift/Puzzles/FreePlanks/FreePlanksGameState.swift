@@ -15,7 +15,7 @@ class FreePlanksGameState: GridGameState<FreePlanksGameMove> {
     }
     override var gameDocument: GameDocumentBase { FreePlanksDocument.sharedInstance }
     var objArray = [GridDotObject]()
-    var pos2orient = [Position: Bool]()
+    var woods = Set<Position>()
     
     override func copy() -> FreePlanksGameState {
         let v = FreePlanksGameState(game: game, isCopy: true)
@@ -119,49 +119,34 @@ class FreePlanksGameState: GridGameState<FreePlanksGameMove> {
                 }
             }
         }
-        pos2orient.removeAll()
+        woods.removeAll()
         var planks = [[Position]]()
         var pos2plank = [Position: Int]()
-        let g2 = Graph()
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            var area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
+            let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
             let rng = area.filter { game.nails.contains($0) }
             if rng.isEmpty {continue}
-            // 2. FreePlanks are 3 tiles long.
+            // 2. Planks are areas of exactly three cells and can be straight or angled.
             guard area.count == 3 else { isSolved = false; continue }
-            area.sort(by: <)
-            let (os1, os2) = (area[1] - area[0], area[2] - area[1])
-            // 2. FreePlanks can be oriented vertically or horizontally.
-            guard os1 == os2 && (os1 == FreePlanksGame.offset[1] || os1 == FreePlanksGame.offset[2]) else { isSolved = false; continue }
-            // 1. On the board there are a few nails. Each one nails a plank to
-            //    the board.
-            // 2. The Nail can be in any of the 3 tiles.
+            // 1. Locate some pieces of wood (Planks).
+            // 3. Each Plank contains one nail.
             guard rng.count == 1 else { isSolved = false; continue }
             let n = planks.count
             planks.append(area)
             for p in area {
                 pos2plank[p] = n
-                pos2orient[p] = os1 == FreePlanksGame.offset[1]
+                woods.insert(p)
             }
-            _ = g2.addNode(String(n))
         }
-        for (i, plank) in planks.enumerated() {
-            var neighbors = Set<Int>()
-            for p in plank {
-                for os in FreePlanksGame.offset {
-                    guard let n = pos2plank[p + os], n != i else {continue}
-                    neighbors.insert(n)
-                }
-            }
-            // 3. Each Plank touches orthogonally exactly two other FreePlanks.
-            guard neighbors.count == 2 else { isSolved = false; return }
-            for n in neighbors { g2.addEdge(g2.nodes[i], neighbor: g2.nodes[n]) }
+        // 4. After finding all the Planks, it must be possible to move each piece
+        //    by one cell in at least one direction.
+        for plank in planks {
+            if !FreePlanksGame.offset.contains(where: { os in
+                let area = plank.map { $0 + os }
+                return area.testAll { [unowned self] in plank.contains($0) || !woods.contains($0) }
+            }) { isSolved = false }
         }
-        guard isSolved else { return }
-        // 4. All the FreePlanks form a ring, or a closed loop.
-        let nodesExplored = breadthFirstSearch(g2, source: g2.nodes[0])
-        if nodesExplored.count != g2.nodes.count { isSolved = false }
     }
 }

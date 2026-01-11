@@ -55,16 +55,6 @@ class FreePlanksGameScene: GameScene<FreePlanksGameState> {
                 let vertlineNodeName = "vertline" + nodeNameSuffix
                 let nailNodeName = "nail" + nodeNameSuffix
                 let plankNodeName = "plank" + nodeNameSuffix
-                let (e1, e2) = (stateFrom.pos2orient[p], stateTo.pos2orient[p])
-                let isNail = stateFrom.game.nails.contains(p)
-                if e1 != e2 {
-                    if e1 != nil { removeNode(withName: plankNodeName) }
-                    if let e2 {
-                        if isNail { removeNode(withName: nailNodeName) }
-                        addImage(imageNamed: "wood \(e2 ? "horizontal" : "vertical")", color: .red, colorBlendFactor: 0.0, point: point, nodeName: plankNodeName)
-                        if isNail { addNail(point: point, nodeName: nailNodeName) }
-                    }
-                }
                 func removeHorzLine(objType: GridLineObject) {
                     if objType != .empty { removeNode(withName: horzLineNodeName) }
                 }
@@ -80,6 +70,16 @@ class FreePlanksGameScene: GameScene<FreePlanksGameState> {
                 if o1 != o2 {
                     removeVertLine(objType: o1)
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
+                }
+                let (b1, b2) = (stateFrom.woods.contains(p), stateTo.woods.contains(p))
+                let isNail = stateFrom.game.nails.contains(p)
+                if b1 != b2 {
+                    if b1 { removeNode(withName: plankNodeName) }
+                    if b2 {
+                        if isNail { removeNode(withName: nailNodeName) }
+                        addImage(imageNamed: "wood horizontal", color: .red, colorBlendFactor: 0.0, point: point, nodeName: plankNodeName)
+                        if isNail { addNail(point: point, nodeName: nailNodeName) }
+                    }
                 }
             }
         }
