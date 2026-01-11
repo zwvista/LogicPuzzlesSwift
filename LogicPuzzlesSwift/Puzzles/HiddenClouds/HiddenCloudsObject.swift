@@ -12,19 +12,16 @@ enum HiddenCloudsObject {
     case empty
     case marker
     case forbidden
-    case dune(state: AllowedObjectState = .normal)
-    case hint(state: HintState = .normal)
+    case cloud(state: AllowedObjectState = .normal)
     init() {
         self = .empty
     }
     func toString() -> String {
         switch self {
-        case .dune:
-            return "dune"
+        case .cloud:
+            return "cloud"
         case .marker:
             return "marker"
-        case .hint:
-            return "hint"
         case .forbidden:
             return "forbidden"
         default:
@@ -33,8 +30,8 @@ enum HiddenCloudsObject {
     }
     static func fromString(str: String) -> HiddenCloudsObject {
         switch str {
-        case "dune":
-            return .dune()
+        case "cloud":
+            return .cloud()
         case "marker":
             return .marker
         default:

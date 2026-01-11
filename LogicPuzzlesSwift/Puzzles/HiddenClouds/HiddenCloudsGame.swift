@@ -10,7 +10,13 @@ import Foundation
 
 class HiddenCloudsGame: GridGame<HiddenCloudsGameState> {
     static let offset = Position.Directions4
-    static let offset2 = Position.Square2x2Offset
+    static let offset2 = [
+        Position.North,
+        Position.East,
+        Position.South,
+        Position.West,
+        Position.Zero,
+    ]
 
     var pos2hint = [Position: Int]()
     
@@ -23,10 +29,8 @@ class HiddenCloudsGame: GridGame<HiddenCloudsGameState> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let ch = str[c]
-                switch ch {
-                case "0"..."9": pos2hint[p] = ch.toInt!
-                case "A"..."Z": pos2hint[p] = Int(ch.asciiValue!) - Int(Character("A").asciiValue!) + 10
-                default: break
+                if ch.isNumber {
+                    pos2hint[p] = ch.toInt!
                 }
             }
         }
