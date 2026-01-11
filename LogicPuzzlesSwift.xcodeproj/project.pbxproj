@@ -107,6 +107,15 @@
 		8C263E852F13DC5200158A2C /* CulturedBranchesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E762F13DC5200158A2C /* CulturedBranchesDocument.swift */; };
 		8C263E862F13DC5200158A2C /* CulturedBranchesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E7D2F13DC5200158A2C /* CulturedBranchesObject.swift */; };
 		8C263E872F13DC5200158A2C /* CulturedBranches.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263E752F13DC5200158A2C /* CulturedBranches.xml */; };
+		8C263E922F13E06C00158A2C /* FloorPlanGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E8C2F13E06C00158A2C /* FloorPlanGameState.swift */; };
+		8C263E932F13E06C00158A2C /* FloorPlanDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E892F13E06C00158A2C /* FloorPlanDocument.swift */; };
+		8C263E942F13E06C00158A2C /* FloorPlanGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E8D2F13E06C00158A2C /* FloorPlanGameViewController.swift */; };
+		8C263E952F13E06C00158A2C /* FloorPlanMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E8F2F13E06C00158A2C /* FloorPlanMainViewController.swift */; };
+		8C263E962F13E06C00158A2C /* FloorPlanGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E8E2F13E06C00158A2C /* FloorPlanGridNode.swift */; };
+		8C263E972F13E06C00158A2C /* FloorPlanObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E902F13E06C00158A2C /* FloorPlanObject.swift */; };
+		8C263E982F13E06C00158A2C /* FloorPlanGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E8B2F13E06C00158A2C /* FloorPlanGameScene.swift */; };
+		8C263E992F13E06C00158A2C /* FloorPlanGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263E8A2F13E06C00158A2C /* FloorPlanGame.swift */; };
+		8C263E9A2F13E06C00158A2C /* FloorPlan.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263E882F13E06C00158A2C /* FloorPlan.xml */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -1672,6 +1681,15 @@
 		8C263E7B2F13DC5200158A2C /* CulturedBranchesGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CulturedBranchesGridNode.swift; sourceTree = "<group>"; };
 		8C263E7C2F13DC5200158A2C /* CulturedBranchesMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CulturedBranchesMainViewController.swift; sourceTree = "<group>"; };
 		8C263E7D2F13DC5200158A2C /* CulturedBranchesObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CulturedBranchesObject.swift; sourceTree = "<group>"; };
+		8C263E882F13E06C00158A2C /* FloorPlan.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FloorPlan.xml; sourceTree = "<group>"; };
+		8C263E892F13E06C00158A2C /* FloorPlanDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorPlanDocument.swift; sourceTree = "<group>"; };
+		8C263E8A2F13E06C00158A2C /* FloorPlanGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorPlanGame.swift; sourceTree = "<group>"; };
+		8C263E8B2F13E06C00158A2C /* FloorPlanGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorPlanGameScene.swift; sourceTree = "<group>"; };
+		8C263E8C2F13E06C00158A2C /* FloorPlanGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorPlanGameState.swift; sourceTree = "<group>"; };
+		8C263E8D2F13E06C00158A2C /* FloorPlanGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorPlanGameViewController.swift; sourceTree = "<group>"; };
+		8C263E8E2F13E06C00158A2C /* FloorPlanGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorPlanGridNode.swift; sourceTree = "<group>"; };
+		8C263E8F2F13E06C00158A2C /* FloorPlanMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorPlanMainViewController.swift; sourceTree = "<group>"; };
+		8C263E902F13E06C00158A2C /* FloorPlanObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorPlanObject.swift; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -3359,6 +3377,22 @@
 			path = CulturedBranches;
 			sourceTree = "<group>";
 		};
+		8C263E912F13E06C00158A2C /* FloorPlan */ = {
+			isa = PBXGroup;
+			children = (
+				8C263E882F13E06C00158A2C /* FloorPlan.xml */,
+				8C263E892F13E06C00158A2C /* FloorPlanDocument.swift */,
+				8C263E8A2F13E06C00158A2C /* FloorPlanGame.swift */,
+				8C263E8B2F13E06C00158A2C /* FloorPlanGameScene.swift */,
+				8C263E8C2F13E06C00158A2C /* FloorPlanGameState.swift */,
+				8C263E8D2F13E06C00158A2C /* FloorPlanGameViewController.swift */,
+				8C263E8E2F13E06C00158A2C /* FloorPlanGridNode.swift */,
+				8C263E8F2F13E06C00158A2C /* FloorPlanMainViewController.swift */,
+				8C263E902F13E06C00158A2C /* FloorPlanObject.swift */,
+			);
+			path = FloorPlan;
+			sourceTree = "<group>";
+		};
 		8C2963D51FA20D620017A812 /* RobotFences */ = {
 			isa = PBXGroup;
 			children = (
@@ -3560,6 +3594,7 @@
 				8C3A346F1EC88D4100A914A5 /* FenceSentinels */,
 				8C8661FA2EA383740078CD64 /* Fields */,
 				8CA042CC1FDB878700AF85E1 /* Fillomino */,
+				8C263E912F13E06C00158A2C /* FloorPlan */,
 				8C74745A1FBEFD5700C4112C /* FourMeNot */,
 				8C9BD5122F0A32CA00D1D915 /* FreePlanks */,
 				8CE43BCB1FEE6C7B00DCCD91 /* Futoshiki */,
@@ -6454,6 +6489,7 @@
 				7DF1B04F2E8A7EB6006008A3 /* HiddenPath.xml in Resources */,
 				8C6A35DF1FAF4FFD00D2804D /* Mathrax.xml in Resources */,
 				8C3A36D81EC88D4300A914A5 /* Lits.xml in Resources */,
+				8C263E9A2F13E06C00158A2C /* FloorPlan.xml in Resources */,
 				8C3A37BC1EC88D4400A914A5 /* Snail.xml in Resources */,
 				8C35E3911FC2844F00A26EE3 /* Gardener.xml in Resources */,
 			);
@@ -7241,6 +7277,14 @@
 				8C3A36941EC88D4200A914A5 /* FenceSentinelsGameState.swift in Sources */,
 				8C9BD5842F0A62A600D1D915 /* CaffelatteGameState.swift in Sources */,
 				8C9BD5852F0A62A600D1D915 /* CaffelatteGame.swift in Sources */,
+				8C263E922F13E06C00158A2C /* FloorPlanGameState.swift in Sources */,
+				8C263E932F13E06C00158A2C /* FloorPlanDocument.swift in Sources */,
+				8C263E942F13E06C00158A2C /* FloorPlanGameViewController.swift in Sources */,
+				8C263E952F13E06C00158A2C /* FloorPlanMainViewController.swift in Sources */,
+				8C263E962F13E06C00158A2C /* FloorPlanGridNode.swift in Sources */,
+				8C263E972F13E06C00158A2C /* FloorPlanObject.swift in Sources */,
+				8C263E982F13E06C00158A2C /* FloorPlanGameScene.swift in Sources */,
+				8C263E992F13E06C00158A2C /* FloorPlanGame.swift in Sources */,
 				8C9BD5862F0A62A600D1D915 /* CaffelatteGameViewController.swift in Sources */,
 				8C9BD5872F0A62A600D1D915 /* CaffelatteMainViewController.swift in Sources */,
 				8C9BD5882F0A62A600D1D915 /* CaffelatteObject.swift in Sources */,
