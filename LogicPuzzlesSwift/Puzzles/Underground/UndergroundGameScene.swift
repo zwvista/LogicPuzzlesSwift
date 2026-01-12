@@ -74,9 +74,16 @@ class UndergroundGameScene: GameScene<UndergroundGameState> {
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let objectNodeName = "object" + nodeNameSuffix
+                let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let o = state[p]
-                guard o != .empty else {continue}
-                addObject(o: o, s: state.pos2state[p] ?? .normal, point: point, nodeName: objectNodeName)
+                switch o {
+                case .forbidden:
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
+                case .up, .right, .down, .left:
+                    addObject(o: o, s: state.pos2state[p]!, point: point, nodeName: objectNodeName)
+                default:
+                    break
+                }
             }
         }
     }
@@ -88,23 +95,28 @@ class UndergroundGameScene: GameScene<UndergroundGameState> {
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let objectNodeName = "object" + nodeNameSuffix
+                let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2state[p] ?? .normal, stateTo.pos2state[p] ?? .normal)
                 guard o1 != o2 || s1 != s2 else {continue}
                 switch o1 {
-                case .up, .right, .down, .left:
-                    removeNode(withName: objectNodeName)
+                case .forbidden:
+                    removeNode(withName: forbiddenNodeName)
                 case .marker:
                     removeNode(withName: markerNodeName)
+                case .up, .right, .down, .left:
+                    removeNode(withName: objectNodeName)
                 default:
                     break
                 }
                 switch o2 {
-                case .up, .right, .down, .left:
-                    addObject(o: o2, s: s2, point: point, nodeName: objectNodeName)
+                case .forbidden:
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
+                case .up, .right, .down, .left:
+                    addObject(o: o2, s: s2, point: point, nodeName: objectNodeName)
                 default:
                     break
                 }
