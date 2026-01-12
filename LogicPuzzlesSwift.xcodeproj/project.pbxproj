@@ -129,6 +129,15 @@
 		8C263EB32F14C8CC00158A2C /* stairs_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C263EB02F14C8CC00158A2C /* stairs_right.png */; };
 		8C263EB42F14C8CC00158A2C /* stairs_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C263EB12F14C8CC00158A2C /* stairs_up.png */; };
 		8C263EB52F14C8CC00158A2C /* stairs_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C263EAF2F14C8CC00158A2C /* stairs_left.png */; };
+		8C263EC02F15072900158A2C /* TheCityRisesGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EBB2F15072900158A2C /* TheCityRisesGameViewController.swift */; };
+		8C263EC12F15072900158A2C /* TheCityRisesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EBD2F15072900158A2C /* TheCityRisesMainViewController.swift */; };
+		8C263EC22F15072900158A2C /* TheCityRisesGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EBA2F15072900158A2C /* TheCityRisesGameState.swift */; };
+		8C263EC32F15072900158A2C /* TheCityRisesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EB72F15072900158A2C /* TheCityRisesDocument.swift */; };
+		8C263EC42F15072900158A2C /* TheCityRisesGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EBC2F15072900158A2C /* TheCityRisesGridNode.swift */; };
+		8C263EC52F15072900158A2C /* TheCityRisesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EB82F15072900158A2C /* TheCityRisesGame.swift */; };
+		8C263EC62F15072900158A2C /* TheCityRisesGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EB92F15072900158A2C /* TheCityRisesGameScene.swift */; };
+		8C263EC72F15072900158A2C /* TheCityRisesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EBE2F15072900158A2C /* TheCityRisesObject.swift */; };
+		8C263EC82F15072900158A2C /* TheCityRises.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263EB62F15072900158A2C /* TheCityRises.xml */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -1716,6 +1725,15 @@
 		8C263EAF2F14C8CC00158A2C /* stairs_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stairs_left.png; sourceTree = "<group>"; };
 		8C263EB02F14C8CC00158A2C /* stairs_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stairs_right.png; sourceTree = "<group>"; };
 		8C263EB12F14C8CC00158A2C /* stairs_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stairs_up.png; sourceTree = "<group>"; };
+		8C263EB62F15072900158A2C /* TheCityRises.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TheCityRises.xml; sourceTree = "<group>"; };
+		8C263EB72F15072900158A2C /* TheCityRisesDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCityRisesDocument.swift; sourceTree = "<group>"; };
+		8C263EB82F15072900158A2C /* TheCityRisesGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCityRisesGame.swift; sourceTree = "<group>"; };
+		8C263EB92F15072900158A2C /* TheCityRisesGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCityRisesGameScene.swift; sourceTree = "<group>"; };
+		8C263EBA2F15072900158A2C /* TheCityRisesGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCityRisesGameState.swift; sourceTree = "<group>"; };
+		8C263EBB2F15072900158A2C /* TheCityRisesGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCityRisesGameViewController.swift; sourceTree = "<group>"; };
+		8C263EBC2F15072900158A2C /* TheCityRisesGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCityRisesGridNode.swift; sourceTree = "<group>"; };
+		8C263EBD2F15072900158A2C /* TheCityRisesMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCityRisesMainViewController.swift; sourceTree = "<group>"; };
+		8C263EBE2F15072900158A2C /* TheCityRisesObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCityRisesObject.swift; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -3435,6 +3453,22 @@
 			path = Underground;
 			sourceTree = "<group>";
 		};
+		8C263EBF2F15072900158A2C /* TheCityRises */ = {
+			isa = PBXGroup;
+			children = (
+				8C263EB62F15072900158A2C /* TheCityRises.xml */,
+				8C263EB72F15072900158A2C /* TheCityRisesDocument.swift */,
+				8C263EB82F15072900158A2C /* TheCityRisesGame.swift */,
+				8C263EB92F15072900158A2C /* TheCityRisesGameScene.swift */,
+				8C263EBA2F15072900158A2C /* TheCityRisesGameState.swift */,
+				8C263EBB2F15072900158A2C /* TheCityRisesGameViewController.swift */,
+				8C263EBC2F15072900158A2C /* TheCityRisesGridNode.swift */,
+				8C263EBD2F15072900158A2C /* TheCityRisesMainViewController.swift */,
+				8C263EBE2F15072900158A2C /* TheCityRisesObject.swift */,
+			);
+			path = TheCityRises;
+			sourceTree = "<group>";
+		};
 		8C2963D51FA20D620017A812 /* RobotFences */ = {
 			isa = PBXGroup;
 			children = (
@@ -3722,6 +3756,7 @@
 				8C04670B1F8BA2BD00B5DE41 /* Tatamino */,
 				8C7E4B371F793A6100B57C60 /* TennerGrid */,
 				8C3A35DB1EC88D4200A914A5 /* Tents */,
+				8C263EBF2F15072900158A2C /* TheCityRises */,
 				8C6A36031FAF97AF00D2804D /* TheOddBrick */,
 				8C8661C02EA115FA0078CD64 /* Thermometers */,
 				8C2319E21FB88E3F0021C680 /* TierraDelFuego */,
@@ -6496,6 +6531,7 @@
 				8C506F0E1F6D2C9300BA4332 /* Snake.xml in Resources */,
 				8C3A37E01EC88D4400A914A5 /* Tents.xml in Resources */,
 				8CC25CC21F87BB5A005560F7 /* Kakuro.xml in Resources */,
+				8C263EC82F15072900158A2C /* TheCityRises.xml in Resources */,
 				8C8661C92EA115FA0078CD64 /* Thermometers.xml in Resources */,
 				8C3A37981EC88D4400A914A5 /* Sentinels.xml in Resources */,
 				8C3A37141EC88D4300A914A5 /* Minesweeper.xml in Resources */,
@@ -6737,6 +6773,14 @@
 				8C610F23204159110087C545 /* NorthPoleFishingGameViewController.swift in Sources */,
 				8C9F32FB1ED1FCFF00E10965 /* TapDifferentlyGame.swift in Sources */,
 				8C3A379D1EC88D4400A914A5 /* SentinelsGameViewController.swift in Sources */,
+				8C263EC02F15072900158A2C /* TheCityRisesGameViewController.swift in Sources */,
+				8C263EC12F15072900158A2C /* TheCityRisesMainViewController.swift in Sources */,
+				8C263EC22F15072900158A2C /* TheCityRisesGameState.swift in Sources */,
+				8C263EC32F15072900158A2C /* TheCityRisesDocument.swift in Sources */,
+				8C263EC42F15072900158A2C /* TheCityRisesGridNode.swift in Sources */,
+				8C263EC52F15072900158A2C /* TheCityRisesGame.swift in Sources */,
+				8C263EC62F15072900158A2C /* TheCityRisesGameScene.swift in Sources */,
+				8C263EC72F15072900158A2C /* TheCityRisesObject.swift in Sources */,
 				8C9F32E41ED1FCFF00E10965 /* TapAlikeDocument.swift in Sources */,
 				8CA042D91FDB878800AF85E1 /* FillominoGridNode.swift in Sources */,
 				8C35E3941FC2844F00A26EE3 /* GardenerGameScene.swift in Sources */,
