@@ -10,10 +10,11 @@ import Foundation
 
 class FloorPlanGame: GridGame<FloorPlanGameState> {
     static let offset = Position.Directions4
+    static let PUZ_EMPTY = 0
+    static let PUZ_MARKER = -1
+    static let PUZ_FORBIDDEN = -2
 
-    var areas = [[Position]]()
     var objArray = [Int]()
-    var horzAreaCount = 0
 
     init(layout: [String], delegate: FloorPlanGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -25,39 +26,8 @@ class FloorPlanGame: GridGame<FloorPlanGameState> {
             let str = layout[r]
             for c in 0..<cols {
                 let ch = str[c]
-                self[r, c] = ch == "." ? -1 : ch == " " ? 0 : ch.toInt!
+                self[r, c] = ch == " " ? FloorPlanGame.PUZ_EMPTY : ch.toInt!
             }
-        }
-        var area = [Position]()
-        func f(isHorz: Bool) {
-            guard !area.isEmpty else {return}
-            if area.count > 1 {
-                areas.append(area)
-                if isHorz { horzAreaCount += 1 }
-            }
-            area.removeAll()
-        }
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                if(self[p] == -1) {
-                    f(isHorz: true)
-                } else {
-                    area.append(p)
-                }
-            }
-            f(isHorz: true)
-        }
-        for c in 0..<cols {
-            for r in 0..<rows {
-                let p = Position(r, c)
-                if(self[p] == -1) {
-                    f(isHorz: false)
-                } else {
-                    area.append(p)
-                }
-            }
-            f(isHorz: false)
         }
 
         let state = FloorPlanGameState(game: self)

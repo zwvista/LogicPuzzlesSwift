@@ -15,8 +15,7 @@ class FloorPlanGameState: GridGameState<FloorPlanGameMove> {
     }
     override var gameDocument: GameDocumentBase { FloorPlanDocument.sharedInstance }
     var objArray = [Int]()
-    var pos2horzState = [Position: HintState]()
-    var pos2vertState = [Position: HintState]()
+    var pos2state = [Position: HintState]()
 
     override func copy() -> FloorPlanGameState {
         let v = FloorPlanGameState(game: game, isCopy: true)
@@ -25,8 +24,6 @@ class FloorPlanGameState: GridGameState<FloorPlanGameMove> {
     func setup(v: FloorPlanGameState) -> FloorPlanGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2horzState = pos2horzState
-        v.pos2vertState = pos2vertState
         return v
     }
     
@@ -53,7 +50,7 @@ class FloorPlanGameState: GridGameState<FloorPlanGameMove> {
 
     override func setObject(move: inout FloorPlanGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else { return .invalid }
+        guard isValid(p: p) && game[p] == FloorPlanGame.PUZ_EMPTY && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -61,9 +58,14 @@ class FloorPlanGameState: GridGameState<FloorPlanGameMove> {
     
     override func switchObject(move: inout FloorPlanGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] == 0 else { return .invalid }
+        guard isValid(p: p) && game[p] == FloorPlanGame.PUZ_EMPTY else { return .invalid }
         let o = self[p]
-        move.obj = (o + 1) % 10
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        move.obj =
+            o == DigitalPathGame.PUZ_EMPTY ? markerOption == .markerFirst ? DigitalPathGame.PUZ_MARKER : 1 :
+            o == DigitalPathGame.PUZ_MARKER ? markerOption == .markerFirst ? 1 : DigitalPathGame.PUZ_EMPTY :
+            o == 4 ? markerOption == .markerLast ? DigitalPathGame.PUZ_MARKER : DigitalPathGame.PUZ_EMPTY :
+            o + 1
         return setObject(move: &move)
     }
     
@@ -81,22 +83,58 @@ class FloorPlanGameState: GridGameState<FloorPlanGameMove> {
            offices with the same number can be adjacent.
     */
     private func updateIsSolved() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
-        for i in 0..<game.areas.count {
-            let a = game.areas[i]
-            let nums = a.map { self[$0] }
-            let nums2 = Set<Int>(nums).sorted()
-            // 2. Each 'word' is formed by an uninterrupted sequence of numbers,
-            // but in any order.
-            let s: HintState = nums2.first! == 0 ? .normal : nums2.count == nums.count ? .complete : .error
-            for p in a {
-                if i < game.horzAreaCount {
-                    pos2horzState[p] = s
-                } else {
-                    pos2vertState[p] = s
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                if self[p] == FloorPlanGame.PUZ_FORBIDDEN {
+                    self[p] = FloorPlanGame.PUZ_EMPTY
+                }
+                if self[p] > 0 {
+                    pos2state[p] = .normal
                 }
             }
-            if s != .complete { isSolved = false }
         }
+        // 2. Cells with a number represent an office. On the floor every office is
+        //    interconnected and can be reached by every other office.
+        let g = Graph()
+        var pos2node = [Position: Node]()
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                let n2 = self[p]
+                guard n2 > 0 else {continue}
+                pos2node[p] = g.addNode(p.description)
+                _ = pos2state[p, default: .normal]
+                // 3. The number on a cell indicates how many offices it connects to. No two
+                //    offices with the same number can be adjacent.
+                let rng = FloorPlanGame.offset.map { p + $0 }.filter { isValid(p: $0) }
+                let rng2 = rng.filter { self[$0] == n2 }
+                if !rng2.isEmpty {
+                    isSolved = false
+                    pos2state[p] = .error
+                    for p2 in rng2 { pos2state[p2] = .error }
+                }
+                guard pos2state[p] != .error else {continue}
+                let n1 = rng.filter { self[$0] > 0 }.count
+                let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+                if s != .complete { isSolved = false }
+                pos2state[p] = s
+                guard allowedObjectsOnly && s != .normal else {continue}
+                rng.filter { self[$0] == FloorPlanGame.PUZ_EMPTY }.forEach {
+                    self[$0] = FloorPlanGame.PUZ_FORBIDDEN
+                }
+            }
+        }
+        guard isSolved else {return}
+        for (p, node) in pos2node {
+            for os in FloorPlanGame.offset {
+                let p2 = p + os
+                if let node2 = pos2node[p2] { g.addEdge(node, neighbor: node2) }
+            }
+        }
+        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+        if nodesExplored.count != pos2node.count { isSolved = false }
     }
 }
