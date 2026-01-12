@@ -88,11 +88,9 @@ class FloorPlanGameState: GridGameState<FloorPlanGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
+                pos2state[p] = .normal
                 if self[p] == FloorPlanGame.PUZ_FORBIDDEN {
                     self[p] = FloorPlanGame.PUZ_EMPTY
-                }
-                if self[p] > 0 {
-                    pos2state[p] = .normal
                 }
             }
         }

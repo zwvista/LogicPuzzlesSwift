@@ -17,12 +17,16 @@ class UndergroundGameScene: GameScene<UndergroundGameState> {
     func addObject(o: UndergroundObject, s: AllowedObjectState, point: CGPoint, nodeName: String) {
         func f(o: UndergroundObject) -> String {
             switch o {
-            case .balloon:
-                return "balloon (1)"
-            case .weight:
-                return "dumbbell (1)"
+            case .up:
+                return "stairs_up"
+            case .right:
+                return "stairs_right"
+            case .down:
+                return "stairs_down"
+            case .left:
+                return "stairs_left"
             default:
-                return "wood horizontal"
+                return "stairs_up"
             }
         }
         addImage(imageNamed: f(o: o), color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
@@ -89,7 +93,7 @@ class UndergroundGameScene: GameScene<UndergroundGameState> {
                 let (s1, s2) = (stateFrom.pos2state[p] ?? .normal, stateTo.pos2state[p] ?? .normal)
                 guard o1 != o2 || s1 != s2 else {continue}
                 switch o1 {
-                case .balloon, .weight:
+                case .up, .right, .down, .left:
                     removeNode(withName: objectNodeName)
                 case .marker:
                     removeNode(withName: markerNodeName)
@@ -97,7 +101,7 @@ class UndergroundGameScene: GameScene<UndergroundGameState> {
                     break
                 }
                 switch o2 {
-                case .balloon, .weight:
+                case .up, .right, .down, .left:
                     addObject(o: o2, s: s2, point: point, nodeName: objectNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)

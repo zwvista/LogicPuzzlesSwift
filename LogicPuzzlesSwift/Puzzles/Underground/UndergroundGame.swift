@@ -17,7 +17,7 @@ class UndergroundGame: GridGame<UndergroundGameState> {
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
-    static let symbols = " R^>v<"
+    static let chars = "^>v<"
 
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
@@ -50,7 +50,7 @@ class UndergroundGame: GridGame<UndergroundGameState> {
                 }
                 guard c < cols else {continue}
                 let ch2 = str[2 * c + 1]
-                self[r, c] = ch2 == "B" ? .block : .empty
+                self[r, c] = ch2 == " " ? .empty : UndergroundObject(rawValue: UndergroundGame.chars.getIndexOf(ch2)! + 3)!
             }
         }
         let g = Graph()

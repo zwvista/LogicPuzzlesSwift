@@ -9,7 +9,7 @@
 import Foundation
 
 enum UndergroundObject: Int {
-    case empty, marker, block, balloon, weight
+    case empty, marker, forbidden, up, right, down, left
     init() {
         self = .empty
     }
