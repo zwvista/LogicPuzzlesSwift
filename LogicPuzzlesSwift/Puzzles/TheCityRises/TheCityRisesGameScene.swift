@@ -83,7 +83,7 @@ class TheCityRisesGameScene: GameScene<TheCityRisesGameState> {
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                let chocolateNodeName = "chocolate" + nodeNameSuffix
+                let blockNodeName = "block" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
                 if String(describing: o1) != String(describing: o2) {
@@ -92,8 +92,8 @@ class TheCityRisesGameScene: GameScene<TheCityRisesGameState> {
                         removeNode(withName: forbiddenNodeName)
                     case .marker:
                         removeNode(withName: markerNodeName)
-                    case .chocolate:
-                        removeNode(withName: chocolateNodeName)
+                    case .block:
+                        removeNode(withName: blockNodeName)
                     default:
                         break
                     }
@@ -102,13 +102,13 @@ class TheCityRisesGameScene: GameScene<TheCityRisesGameState> {
                         addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                     case .marker:
                         addDotMarker(point: point, nodeName: markerNodeName)
-                    case let .chocolate(s):
-                        addImage(imageNamed: "chocolate_square", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: chocolateNodeName)
+                    case let .block(s):
+                        addImage(imageNamed: "tower_wall", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: blockNodeName)
                     default:
                         break
                     }
                 }
-                guard s1 != s2 || s2 != nil && o2.toString() == "chocolate" else {continue}
+                guard s1 != s2 || s2 != nil && o2.toString() == "block" else {continue}
                 removeNode(withName: hintNodeName)
                 addHint(p: p, n: stateFrom.game.pos2hint[p]!, s: s2!)
             }

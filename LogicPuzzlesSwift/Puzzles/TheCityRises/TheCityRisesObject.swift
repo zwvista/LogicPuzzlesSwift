@@ -12,14 +12,14 @@ enum TheCityRisesObject {
     case empty
     case marker
     case forbidden
-    case chocolate(state: AllowedObjectState = .normal)
+    case block(state: AllowedObjectState = .normal)
     init() {
         self = .empty
     }
     func toString() -> String {
         switch self {
-        case .chocolate:
-            return "chocolate"
+        case .block:
+            return "block"
         case .marker:
             return "marker"
         case .forbidden:
@@ -30,8 +30,8 @@ enum TheCityRisesObject {
     }
     static func fromString(str: String) -> TheCityRisesObject {
         switch str {
-        case "chocolate":
-            return .chocolate()
+        case "block":
+            return .block()
         case "marker":
             return .marker
         default:

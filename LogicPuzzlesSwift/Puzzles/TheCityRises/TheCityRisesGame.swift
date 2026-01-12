@@ -22,6 +22,7 @@ class TheCityRisesGame: GridGame<TheCityRisesGameState> {
     var pos2area = [Position: Int]()
     var dots: GridDots!
     var pos2hint = [Position: Int]()
+    var area2areas = [[Int]]()
 
     init(layout: [String], delegate: TheCityRisesGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -80,6 +81,15 @@ class TheCityRisesGame: GridGame<TheCityRisesGameState> {
                 pos2area[p] = n
             }
             areas.append(area)
+        }
+        
+        area2areas = Array(repeating: [Int](), count: areas.count)
+        for (i, area) in areas.enumerated() {
+            area2areas[i] = Array(Set(area
+                .flatMap { p in TheCityRisesGame.offset.map { p + $0 } }
+                .filter { isValid(p: $0) }
+                .map { pos2area[$0]! }))
+                .sorted()
         }
         
         let state = TheCityRisesGameState(game: self)

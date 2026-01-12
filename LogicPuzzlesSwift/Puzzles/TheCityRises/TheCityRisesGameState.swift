@@ -57,11 +57,11 @@ class TheCityRisesGameState: GridGameState<TheCityRisesGameMove> {
         func f(o: TheCityRisesObject) -> TheCityRisesObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .chocolate()
-            case .chocolate:
+                return markerOption == .markerFirst ? .marker : .block()
+            case .block:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .chocolate() : .empty
+                return markerOption == .markerFirst ? .block() : .empty
             default: return o
             }
         }
@@ -105,7 +105,7 @@ class TheCityRisesGameState: GridGameState<TheCityRisesGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard self[p].toString() == "chocolate" else {continue}
+                guard self[p].toString() == "block" else {continue}
                 pos2node[p] = g.addNode(p.description)
             }
         }
@@ -129,15 +129,15 @@ class TheCityRisesGameState: GridGameState<TheCityRisesGameMove> {
             let rs = r2 - r1 + 1, cs = c2 - c1 + 1
             let s: AllowedObjectState = rs * cs == bar.count ? .normal : .error
             if s != .normal { isSolved = false }
-            for p in bar { self[p] = .chocolate(state: s) }
+            for p in bar { self[p] = .block(state: s) }
         }
         // 5. A tile with a number indicates how many tiles in the area must
-        //    be chocolate.
-        // 6. An area without number can have any number of tiles of chocolate.
+        //    be block.
+        // 6. An area without number can have any number of tiles of block.
         for area in game.areas {
             guard let pHint = area.first(where: { game.pos2hint[$0] != nil }) else {continue}
             let n2 = game.pos2hint[pHint]!
-            let n1 = area.filter { self[$0].toString() == "chocolate" }.count
+            let n1 = area.filter { self[$0].toString() == "block" }.count
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if s != .complete { isSolved = false }
             pos2state[pHint] = s
