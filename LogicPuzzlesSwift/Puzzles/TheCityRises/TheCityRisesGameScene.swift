@@ -14,11 +14,8 @@ class TheCityRisesGameScene: GameScene<TheCityRisesGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addHint(p: Position, n: Int, s: HintState) {
-        let point = gridNode.centerPoint(p: p)
-        let nodeNameSuffix = "-\(p.row)-\(p.col)"
-        let hintNodeName = "hint" + nodeNameSuffix
-        addLabel(text: String(n), fontColor: s == .complete ? .green : .white, point: point, nodeName: hintNodeName)
+    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
+        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
 
     override func levelInitialized(_ game: AnyObject, state: TheCityRisesGameState, skView: SKView) {
@@ -59,7 +56,10 @@ class TheCityRisesGameScene: GameScene<TheCityRisesGameState> {
         
         // add Hints
         for (p, n) in game.pos2hint {
-            addHint(p: p, n: n, s: state.pos2state[p]!)
+            let point = gridNode.centerPoint(p: p)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let hintNodeName = "hint" + nodeNameSuffix
+            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
         }
 
         for r in 0..<state.rows {
@@ -85,7 +85,7 @@ class TheCityRisesGameScene: GameScene<TheCityRisesGameState> {
                 let hintNodeName = "hint" + nodeNameSuffix
                 let blockNodeName = "block" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
                 if String(describing: o1) != String(describing: o2) {
                     switch o1 {
                     case .forbidden:
@@ -108,9 +108,10 @@ class TheCityRisesGameScene: GameScene<TheCityRisesGameState> {
                         break
                     }
                 }
-                guard s1 != s2 || s2 != nil && o2.toString() == "block" else {continue}
+                guard let n = stateFrom.game.pos2hint[p] else {continue}
+                guard s1 != s2 || o2.toString() == "block" else {continue}
                 removeNode(withName: hintNodeName)
-                addHint(p: p, n: stateFrom.game.pos2hint[p]!, s: s2!)
+                addHint(n: n, s: s2, point: point, nodeName: hintNodeName)
             }
         }
     }

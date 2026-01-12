@@ -92,14 +92,14 @@ class TheCityRisesGameState: GridGameState<TheCityRisesGameMove> {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                if case .forbidden = self[r, c] {
-                    self[r, c] = .empty
+                let p = Position(r, c)
+                pos2state[p] = .normal
+                if case .forbidden = self[p] {
+                    self[p] = .empty
                 }
             }
         }
-        // 2. A TheCityRises bar is a rectangular or a square.
-        // 3. TheCityRises tiles form bars independently of the area borders.
-        // 4. TheCityRises bars must not be orthogonally adjacent.
+        // 3. Town blocks inside an area are horizontally or vertically contiguous.
         let g = Graph()
         var pos2node = [Position: Node]()
         for r in 0..<rows {
@@ -117,33 +117,46 @@ class TheCityRisesGameState: GridGameState<TheCityRisesGameMove> {
         }
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let bar = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
+            let blocks = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
-            var r2 = 0, r1 = rows, c2 = 0, c1 = cols
-            for p in bar {
-                if r2 < p.row { r2 = p.row }
-                if r1 > p.row { r1 = p.row }
-                if c2 < p.col { c2 = p.col }
-                if c1 > p.col { c1 = p.col }
+            // 4. Blocks in different areas cannot touch horizontally or vertically.
+            let cnt = Set(blocks.map { game.pos2area[$0]! }).count
+            let s: AllowedObjectState = cnt == 1 ? .normal : .error
+            if s == .error {
+                isSolved = false
+                for p in blocks { self[p] = .block(state: s) }
             }
-            let rs = r2 - r1 + 1, cs = c2 - c1 + 1
-            let s: AllowedObjectState = rs * cs == bar.count ? .normal : .error
-            if s != .normal { isSolved = false }
-            for p in bar { self[p] = .block(state: s) }
-        }
-        // 5. A tile with a number indicates how many tiles in the area must
-        //    be block.
-        // 6. An area without number can have any number of tiles of block.
-        for area in game.areas {
-            guard let pHint = area.first(where: { game.pos2hint[$0] != nil }) else {continue}
+            guard s == .normal else {continue}
+            // 2. Each area describes a section of land, where the town concil has decided
+            //    to place as many city blocks as the number in it.
+            let nArea = game.pos2area[blocks[0]]!
+            let area = game.areas[nArea]
+            let n1 = blocks.count
+            // 5. Areas without number can have any number of blocks.
+            guard let pHint = game.area2hint[nArea] else {continue}
             let n2 = game.pos2hint[pHint]!
-            let n1 = area.filter { self[$0].toString() == "block" }.count
-            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if s != .complete { isSolved = false }
-            pos2state[pHint] = s
-            guard allowedObjectsOnly && s != .normal else {continue}
-            let empties = area.filter { self[$0].toString() == "empty" }
-            for p in empties { self[p] = .forbidden }
+            let s2: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            if s2 != .complete { isSolved = false }
+            pos2state[pHint] = s2
+            guard allowedObjectsOnly && s2 != .normal else {continue}
+            area.filter { self[$0].toString() == "empty" }.forEach {
+                self[$0] = .forbidden
+            }
         }
-    }
+        guard isSolved else {return}
+        let area2blocks = game.areas.map { $0.filter { self[$0].toString() == "block" }.count }
+        // 5. There can't be empty areas.
+        if area2blocks.contains(where: { $0 == 0 }) { isSolved = false }
+        // 6. Lastly, two neighbouring areas can't have the same number of blocks in them.
+        for (i, n) in area2blocks.enumerated() {
+            guard n > 0 else {continue}
+            let areas = game.area2areas[i].filter { area2blocks[$0] == n }
+            guard !areas.isEmpty else {continue}
+            isSolved = false
+            for nArea in [i] + areas {
+                guard let pHint = game.area2hint[nArea] else {continue}
+                pos2state[pHint] = .error
+            }
+        }
+   }
 }
