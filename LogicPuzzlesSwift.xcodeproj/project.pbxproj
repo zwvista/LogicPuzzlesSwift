@@ -138,6 +138,15 @@
 		8C263EC62F15072900158A2C /* TheCityRisesGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EB92F15072900158A2C /* TheCityRisesGameScene.swift */; };
 		8C263EC72F15072900158A2C /* TheCityRisesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EBE2F15072900158A2C /* TheCityRisesObject.swift */; };
 		8C263EC82F15072900158A2C /* TheCityRises.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263EB62F15072900158A2C /* TheCityRises.xml */; };
+		8C263ED32F1C85DD00158A2C /* RabbitsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263ECB2F1C85DD00158A2C /* RabbitsGame.swift */; };
+		8C263ED42F1C85DD00158A2C /* RabbitsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263ECC2F1C85DD00158A2C /* RabbitsGameScene.swift */; };
+		8C263ED52F1C85DD00158A2C /* RabbitsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263ECF2F1C85DD00158A2C /* RabbitsGridNode.swift */; };
+		8C263ED62F1C85DD00158A2C /* RabbitsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263ECA2F1C85DD00158A2C /* RabbitsDocument.swift */; };
+		8C263ED72F1C85DD00158A2C /* RabbitsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263ED02F1C85DD00158A2C /* RabbitsMainViewController.swift */; };
+		8C263ED82F1C85DD00158A2C /* RabbitsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263ECE2F1C85DD00158A2C /* RabbitsGameViewController.swift */; };
+		8C263ED92F1C85DD00158A2C /* RabbitsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263ECD2F1C85DD00158A2C /* RabbitsGameState.swift */; };
+		8C263EDA2F1C85DD00158A2C /* RabbitsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263ED12F1C85DD00158A2C /* RabbitsObject.swift */; };
+		8C263EDB2F1C85DD00158A2C /* Rabbits.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263EC92F1C85DD00158A2C /* Rabbits.xml */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -1734,6 +1743,15 @@
 		8C263EBC2F15072900158A2C /* TheCityRisesGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCityRisesGridNode.swift; sourceTree = "<group>"; };
 		8C263EBD2F15072900158A2C /* TheCityRisesMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCityRisesMainViewController.swift; sourceTree = "<group>"; };
 		8C263EBE2F15072900158A2C /* TheCityRisesObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheCityRisesObject.swift; sourceTree = "<group>"; };
+		8C263EC92F1C85DD00158A2C /* Rabbits.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Rabbits.xml; sourceTree = "<group>"; };
+		8C263ECA2F1C85DD00158A2C /* RabbitsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabbitsDocument.swift; sourceTree = "<group>"; };
+		8C263ECB2F1C85DD00158A2C /* RabbitsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabbitsGame.swift; sourceTree = "<group>"; };
+		8C263ECC2F1C85DD00158A2C /* RabbitsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabbitsGameScene.swift; sourceTree = "<group>"; };
+		8C263ECD2F1C85DD00158A2C /* RabbitsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabbitsGameState.swift; sourceTree = "<group>"; };
+		8C263ECE2F1C85DD00158A2C /* RabbitsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabbitsGameViewController.swift; sourceTree = "<group>"; };
+		8C263ECF2F1C85DD00158A2C /* RabbitsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabbitsGridNode.swift; sourceTree = "<group>"; };
+		8C263ED02F1C85DD00158A2C /* RabbitsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabbitsMainViewController.swift; sourceTree = "<group>"; };
+		8C263ED12F1C85DD00158A2C /* RabbitsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabbitsObject.swift; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -3469,6 +3487,22 @@
 			path = TheCityRises;
 			sourceTree = "<group>";
 		};
+		8C263ED22F1C85DD00158A2C /* Rabbits */ = {
+			isa = PBXGroup;
+			children = (
+				8C263EC92F1C85DD00158A2C /* Rabbits.xml */,
+				8C263ECA2F1C85DD00158A2C /* RabbitsDocument.swift */,
+				8C263ECB2F1C85DD00158A2C /* RabbitsGame.swift */,
+				8C263ECC2F1C85DD00158A2C /* RabbitsGameScene.swift */,
+				8C263ECD2F1C85DD00158A2C /* RabbitsGameState.swift */,
+				8C263ECE2F1C85DD00158A2C /* RabbitsGameViewController.swift */,
+				8C263ECF2F1C85DD00158A2C /* RabbitsGridNode.swift */,
+				8C263ED02F1C85DD00158A2C /* RabbitsMainViewController.swift */,
+				8C263ED12F1C85DD00158A2C /* RabbitsObject.swift */,
+			);
+			path = Rabbits;
+			sourceTree = "<group>";
+		};
 		8C2963D51FA20D620017A812 /* RobotFences */ = {
 			isa = PBXGroup;
 			children = (
@@ -3730,6 +3764,7 @@
 				8CFB22582F0772C100E5F29D /* PouringWater */,
 				8C3A35661EC88D4100A914A5 /* PowerGrid */,
 				8C3A35731EC88D4200A914A5 /* ProductSentinels */,
+				8C263ED22F1C85DD00158A2C /* Rabbits */,
 				8C32D8CF1FC92B5F00BA2D07 /* RippleEffect */,
 				8C2963E11FA20D620017A812 /* RobotCrosswords */,
 				8C2963D51FA20D620017A812 /* RobotFences */,
@@ -6390,6 +6425,7 @@
 				8C8663F62EA39DD00078CD64 /* tetris_orange.png in Resources */,
 				8C8663F72EA39DD00078CD64 /* arrow7.png in Resources */,
 				8C8663F82EA39DD00078CD64 /* B5.png in Resources */,
+				8C263EDB2F1C85DD00158A2C /* Rabbits.xml in Resources */,
 				8C8663F92EA39DD00078CD64 /* thermometer2A.png in Resources */,
 				8C8663FA2EA39DD00078CD64 /* bullet_ball_glass_yellow.png in Resources */,
 				8C81BC042EA4A04F0083B936 /* Gems.xml in Resources */,
@@ -6796,6 +6832,14 @@
 				8CB722172EAC8261001B25C5 /* ArchipelagoMainViewController.swift in Sources */,
 				8CB722182EAC8261001B25C5 /* ArchipelagoGame.swift in Sources */,
 				8CB722192EAC8261001B25C5 /* ArchipelagoGameViewController.swift in Sources */,
+				8C263ED32F1C85DD00158A2C /* RabbitsGame.swift in Sources */,
+				8C263ED42F1C85DD00158A2C /* RabbitsGameScene.swift in Sources */,
+				8C263ED52F1C85DD00158A2C /* RabbitsGridNode.swift in Sources */,
+				8C263ED62F1C85DD00158A2C /* RabbitsDocument.swift in Sources */,
+				8C263ED72F1C85DD00158A2C /* RabbitsMainViewController.swift in Sources */,
+				8C263ED82F1C85DD00158A2C /* RabbitsGameViewController.swift in Sources */,
+				8C263ED92F1C85DD00158A2C /* RabbitsGameState.swift in Sources */,
+				8C263EDA2F1C85DD00158A2C /* RabbitsObject.swift in Sources */,
 				8CB7221A2EAC8261001B25C5 /* ArchipelagoGameState.swift in Sources */,
 				8CB7221B2EAC8261001B25C5 /* ArchipelagoDocument.swift in Sources */,
 				8C3A378D1EC88D4400A914A5 /* RoomsDocument.swift in Sources */,

@@ -103,7 +103,7 @@ class TheCityRisesGameScene: GameScene<TheCityRisesGameState> {
                     case .marker:
                         addDotMarker(point: point, nodeName: markerNodeName)
                     case let .block(s):
-                        addImage(imageNamed: "tower_wall", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: blockNodeName)
+                        addImage(imageNamed: "tower_wall_noborder", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: blockNodeName)
                     default:
                         break
                     }

@@ -2,11 +2,11 @@
 set -e
 
 # 协程变量（源字符串和目标字符串）
-SRC="Chocolate"
-DST="TheCityRises"
+SRC="Sentinels"
+DST="Rabbits"
 
 # 切换到 Branches 目录
-cd "$(dirname "$0")/LogicPuzzlesSwift/Puzzles/TheCityRises"
+cd "$(dirname "$0")/LogicPuzzlesSwift/Puzzles/Rabbits"
 
 # 1. 改文件名
 for f in ${SRC}*; do
