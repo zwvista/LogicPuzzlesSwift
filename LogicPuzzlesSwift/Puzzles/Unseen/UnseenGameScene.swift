@@ -32,6 +32,7 @@ class UnseenGameScene: GameScene<UnseenGameState> {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
+            addImage(imageNamed: "see", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "see")
             addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
         }
         

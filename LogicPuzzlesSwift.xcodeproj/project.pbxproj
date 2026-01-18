@@ -157,6 +157,7 @@
 		8C263EF02F1CA32100158A2C /* UnseenGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EE62F1CA32100158A2C /* UnseenGridNode.swift */; };
 		8C263EF12F1CA32100158A2C /* UnseenGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EE52F1CA32100158A2C /* UnseenGameViewController.swift */; };
 		8C263EF22F1CA32100158A2C /* Unseen.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263EE02F1CA32100158A2C /* Unseen.xml */; };
+		8C263EF42F1CA89300158A2C /* see.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C263EF32F1CA89300158A2C /* see.png */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -1772,6 +1773,7 @@
 		8C263EE62F1CA32100158A2C /* UnseenGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnseenGridNode.swift; sourceTree = "<group>"; };
 		8C263EE72F1CA32100158A2C /* UnseenMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnseenMainViewController.swift; sourceTree = "<group>"; };
 		8C263EE82F1CA32100158A2C /* UnseenObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnseenObject.swift; sourceTree = "<group>"; };
+		8C263EF32F1CA89300158A2C /* see.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = see.png; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -5103,6 +5105,7 @@
 				8C8662E92EA39DD00078CD64 /* sand3.png */,
 				8C8662EA2EA39DD00078CD64 /* scales.png */,
 				8C8662EB2EA39DD00078CD64 /* sea.png */,
+				8C263EF32F1CA89300158A2C /* see.png */,
 				8C8662EC2EA39DD00078CD64 /* shade_1.png */,
 				8C8662ED2EA39DD00078CD64 /* shade_2.png */,
 				8C8662EE2EA39DD00078CD64 /* shade_3.png */,
@@ -6632,6 +6635,7 @@
 				8C35E3A51FC4839100A26EE3 /* Walls.xml in Resources */,
 				8C3A36F01EC88D4300A914A5 /* Magnets.xml in Resources */,
 				8C3A369C1EC88D4200A914A5 /* Hitori.xml in Resources */,
+				8C263EF42F1CA89300158A2C /* see.png in Resources */,
 				8C3A36C01EC88D4300A914A5 /* Lighthouses.xml in Resources */,
 				8C3A378C1EC88D4400A914A5 /* Rooms.xml in Resources */,
 				8C76090B1EC61A8A00DFCD7B /* Game.storyboard in Resources */,
