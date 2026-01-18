@@ -120,21 +120,25 @@ class UnseenGameState: GridGameState<UnseenGameMove> {
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
             let rng = area.filter { p in game.pos2hint[p] != nil }
-            // 1. Divide the board in rectangular areas, each with a number in it.
+            // 1. Divide the board to include one 'eye' (a number) in each region.
             if rng.count != 1 {
                 for p in rng {
                     pos2state[p] = .normal
                 }
                 isSolved = false; continue
             }
+            // 2. The eye can see in all four directions up to region borders.
+            // 3. The number tells you how many tiles the eye does NOT see in the region.
             let p = rng[0]
             let n2 = game.pos2hint[p]!
-            var n1 = 0
-            for i in 0..<4 {
-                if self[p + UnseenGame.offset2[i]][UnseenGame.dirs[i]] == .line { n1 += 1 }
+            var n1 = area.count - 1
+            for os in UnseenGame.offset {
+                var p2 = p + os
+                while area.contains(p2) {
+                    n1 -= 1
+                    p2 += os
+                }
             }
-            // 2. The number tells you how many sides on that tile are marked by a
-            //    border, including the board external border.
             let s: HintState = n1 == n2 ? .complete : .error
             pos2state[p] = s
             if s != .complete { isSolved = false }
