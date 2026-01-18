@@ -31,7 +31,7 @@ class NurikabeGameState: GridGameState<NurikabeGameMove> {
         guard !isCopy else {return}
         objArray = Array<NurikabeObject>(repeating: NurikabeObject(), count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint(state: .normal)
+            self[p] = .hint()
         }
         updateIsSolved()
     }
@@ -172,7 +172,7 @@ class NurikabeGameState: GridGameState<NurikabeGameMove> {
                 if s != .complete { isSolved = false }
             default:
                 for p in rng {
-                    self[p] = .hint(state: .normal)
+                    self[p] = .hint()
                 }
                 isSolved = false
             }

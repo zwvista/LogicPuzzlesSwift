@@ -61,11 +61,11 @@ class ThermometersGameState: GridGameState<ThermometersGameMove> {
         func f(o: ThermometersObject) -> ThermometersObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .filled(state: .normal)
+                return markerOption == .markerFirst ? .marker : .filled()
             case .filled:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .filled(state: .normal) : .empty
+                return markerOption == .markerFirst ? .filled() : .empty
             default:
                 return o
             }

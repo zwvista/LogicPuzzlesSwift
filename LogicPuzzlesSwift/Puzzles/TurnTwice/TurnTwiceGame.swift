@@ -28,7 +28,7 @@ class TurnTwiceGame: GridGame<TurnTwiceGameState> {
                 let p = Position(r, c)
                 let ch = str[c]
                 if ch == "S" {
-                    self[p] = .signpost(state: .normal)
+                    self[p] = .signpost()
                     signposts.append(p)
                 }
             }

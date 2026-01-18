@@ -58,11 +58,11 @@ class ParkLakesGameState: GridGameState<ParkLakesGameMove> {
         func f(o: ParkLakesObject) -> ParkLakesObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .lake(state: .normal)
+                return markerOption == .markerFirst ? .marker : .lake()
             case .lake:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .lake(state: .normal) : .empty
+                return markerOption == .markerFirst ? .lake() : .empty
             default:
                 return o
             }
@@ -96,7 +96,7 @@ class ParkLakesGameState: GridGameState<ParkLakesGameMove> {
                 let p = Position(r, c)
                 switch self[p] {
                 case .lake:
-                    self[p] = .lake(state: .normal)
+                    self[p] = .lake()
                 case let .hint(tiles, _):
                     self[p] = .hint(tiles: tiles, state: .normal)
                 default:

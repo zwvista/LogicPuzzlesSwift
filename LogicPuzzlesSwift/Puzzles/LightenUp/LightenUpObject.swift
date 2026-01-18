@@ -29,7 +29,7 @@ enum LightenUpObjectType {
     static func fromString(str: String) -> LightenUpObjectType {
         switch str {
         case "lightbulb":
-            return .lightbulb(state: .normal)
+            return .lightbulb()
         case "marker":
             return .marker
         default:

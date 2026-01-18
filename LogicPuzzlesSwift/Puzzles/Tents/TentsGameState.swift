@@ -35,7 +35,7 @@ class TentsGameState: GridGameState<TentsGameMove> {
         guard !isCopy else {return}
         objArray = Array<TentsObject>(repeating: TentsObject(), count: rows * cols)
         for p in game.pos2tree {
-            self[p] = .tree(state: .normal)
+            self[p] = .tree()
         }
         row2state = Array<HintState>(repeating: .normal, count: rows)
         col2state = Array<HintState>(repeating: .normal, count: cols)
@@ -64,11 +64,11 @@ class TentsGameState: GridGameState<TentsGameMove> {
         func f(o: TentsObject) -> TentsObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .tent(state: .normal)
+                return markerOption == .markerFirst ? .marker : .tent()
             case .tent:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .tent(state: .normal) : .empty
+                return markerOption == .markerFirst ? .tent() : .empty
             default:
                 return o
             }

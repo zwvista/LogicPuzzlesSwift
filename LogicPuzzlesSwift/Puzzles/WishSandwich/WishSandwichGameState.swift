@@ -62,7 +62,7 @@ class WishSandwichGameState: GridGameState<WishSandwichGameMove> {
         func f(o: WishSandwichObject) -> WishSandwichObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .bread(state: .normal)
+                return markerOption == .markerFirst ? .marker : .bread()
             case .bread:
                 return .ham()
             case .ham:

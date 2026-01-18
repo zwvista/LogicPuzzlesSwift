@@ -55,11 +55,11 @@ class TurnTwiceGameState: GridGameState<TurnTwiceGameMove> {
         func f(o: TurnTwiceObject) -> TurnTwiceObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .wall(state: .normal)
+                return markerOption == .markerFirst ? .marker : .wall()
             case .wall:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .signpost(state: .normal) : .empty
+                return markerOption == .markerFirst ? .signpost() : .empty
             default:
                 return o
             }
@@ -105,9 +105,9 @@ class TurnTwiceGameState: GridGameState<TurnTwiceGameMove> {
                 case .forbidden:
                     self[p] = .empty
                 case .signpost:
-                    self[p] = .signpost(state: .normal)
+                    self[p] = .signpost()
                 case .wall:
-                    self[p] = .wall(state: .normal)
+                    self[p] = .wall()
                     walls.append(p)
                 default:
                     break

@@ -31,7 +31,7 @@ enum ParkLakesObject {
         case "marker":
             return .marker
         case "lake":
-            return .lake(state: .normal)
+            return .lake()
         default:
             return .empty
         }

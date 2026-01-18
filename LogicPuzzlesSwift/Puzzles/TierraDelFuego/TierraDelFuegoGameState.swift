@@ -58,11 +58,11 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
         func f(o: TierraDelFuegoObject) -> TierraDelFuegoObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .water(state: .normal)
+                return markerOption == .markerFirst ? .marker : .water()
             case .water:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .water(state: .normal) : .empty
+                return markerOption == .markerFirst ? .water() : .empty
             default:
                 return o
             }
@@ -103,7 +103,7 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
                 case .forbidden:
                     self[p] = .empty
                 case .water:
-                    self[p] = .water(state: .normal)
+                    self[p] = .water()
                 case let .hint(id, _):
                     self[p] = .hint(id: id, state: .normal)
                 default:

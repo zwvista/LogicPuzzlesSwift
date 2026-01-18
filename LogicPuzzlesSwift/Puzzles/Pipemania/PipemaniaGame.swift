@@ -26,7 +26,7 @@ class PipemaniaGame: GridGame<PipemaniaGameState> {
                 let ch = str[c]
                 switch ch {
                 case "F":
-                    self[p] = .flower(state: .normal)
+                    self[p] = .flower()
                 case "B":
                     self[p] = .block
                 default:

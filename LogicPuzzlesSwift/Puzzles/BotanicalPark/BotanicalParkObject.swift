@@ -32,7 +32,7 @@ enum BotanicalParkObject {
         case "marker":
             return .marker
         case "plant":
-            return .plant(state: .normal)
+            return .plant()
         default:
             return .empty
         }

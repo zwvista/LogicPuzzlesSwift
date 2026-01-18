@@ -64,11 +64,11 @@ class LitsGameState: GridGameState<LitsGameMove> {
         func f(o: LitsObject) -> LitsObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .tree(state: .normal)
+                return markerOption == .markerFirst ? .marker : .tree()
             case .tree:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .tree(state: .normal) : .empty
+                return markerOption == .markerFirst ? .tree() : .empty
             default:
                 return o
             }
@@ -107,7 +107,7 @@ class LitsGameState: GridGameState<LitsGameMove> {
                 case .forbidden:
                     self[p] = .empty
                 case .tree:
-                    self[p] = .tree(state: .normal)
+                    self[p] = .tree()
                     pos2node[p] = g.addNode(p.description)
                 default:
                     break

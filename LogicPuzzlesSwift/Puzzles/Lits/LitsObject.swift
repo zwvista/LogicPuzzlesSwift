@@ -31,7 +31,7 @@ enum LitsObject {
         case "marker":
             return .marker
         case "tree":
-            return .tree(state: .normal)
+            return .tree()
         default:
             return .empty
         }

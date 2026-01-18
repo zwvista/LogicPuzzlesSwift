@@ -59,11 +59,11 @@ class GardenerGameState: GridGameState<GardenerGameMove> {
         func f(o: GardenerObject) -> GardenerObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .flower(state: .normal)
+                return markerOption == .markerFirst ? .marker : .flower()
             case .flower:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .flower(state: .normal) : .empty
+                return markerOption == .markerFirst ? .flower() : .empty
             default:
                 return o
             }

@@ -32,7 +32,7 @@ enum ProductSentinelsObject {
         case "marker":
             return .marker
         case "tower":
-            return .tower(state: .normal)
+            return .tower()
         default:
             return .empty
         }

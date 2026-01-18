@@ -31,7 +31,7 @@ class WallsGameState: GridGameState<WallsGameMove> {
         guard !isCopy else {return}
         objArray = Array<WallsObject>(repeating: .empty, count: rows * cols)
         for (p, _) in game.pos2hint {
-            self[p] = .hint(state: .normal)
+            self[p] = .hint()
         }
         updateIsSolved()
     }

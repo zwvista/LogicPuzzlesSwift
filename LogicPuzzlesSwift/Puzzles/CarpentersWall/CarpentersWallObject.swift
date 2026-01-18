@@ -13,10 +13,10 @@ enum CarpentersWallObject {
     case corner(tiles: Int, state: HintState)
     case marker
     case wall
-    case left(state: HintState)
-    case right(state: HintState)
-    case up(state: HintState)
-    case down(state: HintState)
+    case left(state: HintState = .normal)
+    case right(state: HintState = .normal)
+    case up(state: HintState = .normal)
+    case down(state: HintState = .normal)
     init() {
         self = .empty
     }

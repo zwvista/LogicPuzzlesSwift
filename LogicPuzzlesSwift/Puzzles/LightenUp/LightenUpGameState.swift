@@ -97,11 +97,11 @@ class LightenUpGameState: GridGameState<LightenUpGameMove> {
         func f(o: LightenUpObjectType) -> LightenUpObjectType {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .lightbulb(state: .normal)
+                return markerOption == .markerFirst ? .marker : .lightbulb()
             case .lightbulb:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .lightbulb(state: .normal) : .empty
+                return markerOption == .markerFirst ? .lightbulb() : .empty
             case .wall:
                 return o
             }

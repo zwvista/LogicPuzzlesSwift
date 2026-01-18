@@ -31,7 +31,7 @@ class ProductSentinelsGameState: GridGameState<ProductSentinelsGameMove> {
         guard !isCopy else {return}
         objArray = Array<ProductSentinelsObject>(repeating: .empty, count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint(state: .normal)
+            self[p] = .hint()
         }
         updateIsSolved()
     }
@@ -60,11 +60,11 @@ class ProductSentinelsGameState: GridGameState<ProductSentinelsGameMove> {
         func f(o: ProductSentinelsObject) -> ProductSentinelsObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .tower(state: .normal)
+                return markerOption == .markerFirst ? .marker : .tower()
             case .tower:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .tower(state: .normal) : .empty
+                return markerOption == .markerFirst ? .tower() : .empty
             default:
                 return o
             }
@@ -102,7 +102,7 @@ class ProductSentinelsGameState: GridGameState<ProductSentinelsGameMove> {
                 let p = Position(r, c)
                 switch self[p] {
                 case .tower:
-                    self[p] = .tower(state: .normal)
+                    self[p] = .tower()
                 case .forbidden:
                     self[p] = .empty
                     fallthrough

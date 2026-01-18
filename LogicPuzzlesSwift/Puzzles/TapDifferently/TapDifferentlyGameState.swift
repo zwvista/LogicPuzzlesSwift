@@ -31,7 +31,7 @@ class TapDifferentlyGameState: GridGameState<TapDifferentlyGameMove> {
         guard !isCopy else {return}
         objArray = Array<TapDifferentlyObject>(repeating: TapDifferentlyObject(), count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint(state: .normal)
+            self[p] = .hint()
         }
         updateIsSolved()
     }

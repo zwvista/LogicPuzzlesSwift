@@ -33,10 +33,10 @@ class CarpentersWallGame: GridGame<CarpentersWallGameState> {
                 switch ch {
                 case "0"..."9": self[p] = .corner(tiles: ch.toInt!, state: .normal)
                 case "O": self[p] = .corner(tiles: 0, state: .normal)
-                case "^": self[p] = .up(state: .normal)
-                case "v": self[p] = .down(state: .normal)
-                case "<": self[p] = .left(state: .normal)
-                case ">": self[p] = .right(state: .normal)
+                case "^": self[p] = .up()
+                case "v": self[p] = .down()
+                case "<": self[p] = .left()
+                case ">": self[p] = .right()
                 default: break
                 }
             }

@@ -32,7 +32,7 @@ enum HiddenStarsObject {
         case "marker":
             return .marker
         case "star":
-            return .star(state: .normal)
+            return .star()
         default:
             return .empty
         }

@@ -31,7 +31,7 @@ class RabbitsGameState: GridGameState<RabbitsGameMove> {
         guard !isCopy else {return}
         objArray = Array<RabbitsObject>(repeating: .empty, count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint(state: .normal)
+            self[p] = .hint()
         }
         updateIsSolved()
     }
@@ -60,11 +60,13 @@ class RabbitsGameState: GridGameState<RabbitsGameMove> {
         func f(o: RabbitsObject) -> RabbitsObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .tower(state: .normal)
-            case .tower:
+                return markerOption == .markerFirst ? .marker : .rabbit()
+            case .rabbit:
+                return .tree()
+            case .tree:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .tower(state: .normal) : .empty
+                return markerOption == .markerFirst ? .rabbit() : .empty
             default:
                 return o
             }
@@ -90,89 +92,64 @@ class RabbitsGameState: GridGameState<RabbitsGameMove> {
     private func updateIsSolved() {
         let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
-        let g = Graph()
-        var pos2node = [Position: Node]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 switch self[p] {
-                case .tower:
-                    self[p] = .tower(state: .normal)
+                case .rabbit:
+                    self[p] = .rabbit()
+                case .tree:
+                    self[p] = .tree()
                 case .forbidden:
                     self[p] = .empty
-                    fallthrough
-                default:
-                    pos2node[p] = g.addNode(p.description)
-                }
-            }
-        }
-        // 4. two Towers can't touch horizontally or vertically.
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                func hasNeighbor() -> Bool {
-                    for os in RabbitsGame.offset {
-                        let p2 = p + os
-                        if isValid(p: p2), case .tower = self[p2] { return true }
-                    }
-                    return false
-                }
-                switch self[p] {
-                case let .tower(state):
-                    let s: AllowedObjectState = state == .normal && !hasNeighbor() ? .normal : .error
-                    self[p] = .tower(state: s)
-                    if s == .error { isSolved = false }
-                case .empty, .marker:
-                    guard allowedObjectsOnly && hasNeighbor() else {continue}
-                    self[p] = .forbidden
                 default:
                     break
                 }
             }
         }
-        // 2. The number tells you how many tiles that Sentinel can control (see) from
-        // there vertically and horizontally. This includes the tile where he is
-        // located.
+        // 4. Each row and column has exactly one Tree and one Rabbit.
+        func f(rng: [Position]) {
+            let rngRabbit = rng.filter { self[$0].toString() == "rabbit" }
+            if rngRabbit.count != 1 {
+                isSolved = false
+                for p in rngRabbit { self[p] = .rabbit(state: .error) }
+            }
+            let rngTree = rng.filter { self[$0].toString() == "tree" }
+            if rngTree.count != 1 {
+                isSolved = false
+                for p in rngTree { self[p] = .tree(state: .error) }
+            }
+            guard allowedObjectsOnly && rngRabbit.count >= 1 && rngTree.count >= 1 else {return}
+            let rngEmpty = rng.filter { self[$0].toString() == "empty" }
+            for p in rngEmpty { self[p] = .forbidden }
+        }
+        for r in 0..<rows {
+            let rng = (0..<cols).map { Position(r, $0) }
+            f(rng: rng)
+        }
+        for c in 0..<cols {
+            let rng = (0..<rows).map { Position($0, c) }
+            f(rng: rng)
+        }
+        // 2. Each number tells you how many Rabbits can be seen from that tile,
+        //    in an horizontal and vertical line.
+        // 3. Tree hide Rabbits, numbers don't.
         for (p, n2) in game.pos2hint {
-            var nums = [0, 0, 0, 0]
-            var rng = [Position]()
-            next: for i in 0..<4 {
-                let os = RabbitsGame.offset[i]
+            var n1 = 0
+            next: for os in RabbitsGame.offset {
                 var p2 = p + os
-                while game.isValid(p: p2) {
+                while isValid(p: p2) {
                     switch self[p2] {
-                    case .tower:
-                        continue next
-                    case .empty:
-                        rng.append(p2)
-                    default:
-                        break
+                    case .rabbit: n1 += 1; continue next
+                    case .tree: continue next
+                    default: break
                     }
-                    nums[i] += 1
                     p2 += os
                 }
             }
-            let n1 = nums[0] + nums[1] + nums[2] + nums[3] + 1
-            let s: HintState = n1 > n2 ? .normal : n1 == n2 ? .complete : .error
+            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             self[p] = .hint(state: s)
-            if s != .complete {
-                isSolved = false
-            } else {
-                for p2 in rng {
-                    self[p2] = .forbidden
-                }
-            }
+            if s != .complete { isSolved = false }
         }
-        guard isSolved else {return}
-        for (p, node) in pos2node {
-            for os in RabbitsGame.offset {
-                let p2 = p + os
-                guard let node2 = pos2node[p2] else {continue}
-                g.addEdge(node, neighbor: node2)
-            }
-        }
-        // 4. There must be a single continuous Garden
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if pos2node.count != nodesExplored.count { isSolved = false }
     }
 }

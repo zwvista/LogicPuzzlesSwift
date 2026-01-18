@@ -31,7 +31,7 @@ class BusySeasGameState: GridGameState<BusySeasGameMove> {
         guard !isCopy else {return}
         objArray = Array<BusySeasObject>(repeating: .empty, count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint(state: .normal)
+            self[p] = .hint()
         }
         updateIsSolved()
     }
@@ -60,11 +60,11 @@ class BusySeasGameState: GridGameState<BusySeasGameMove> {
         func f(o: BusySeasObject) -> BusySeasObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .lighthouse(state: .normal)
+                return markerOption == .markerFirst ? .marker : .lighthouse()
             case .lighthouse:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .lighthouse(state: .normal) : .empty
+                return markerOption == .markerFirst ? .lighthouse() : .empty
             default:
                 return o
             }
@@ -93,7 +93,7 @@ class BusySeasGameState: GridGameState<BusySeasGameMove> {
                 let p = Position(r, c)
                 switch self[p] {
                 case .lighthouse:
-                    self[p] = .lighthouse(state: .normal)
+                    self[p] = .lighthouse()
                 case .forbidden:
                     self[p] = .empty
                 default:

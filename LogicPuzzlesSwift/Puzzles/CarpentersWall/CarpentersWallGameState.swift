@@ -119,13 +119,13 @@ class CarpentersWallGameState: GridGameState<CarpentersWallGameMove> {
                 case let .corner(n, _):
                     self[p] = .corner(tiles: n, state: .normal)
                 case .left:
-                    self[p] = .left(state: .normal)
+                    self[p] = .left()
                 case .up:
-                    self[p] = .up(state: .normal)
+                    self[p] = .up()
                 case .right:
-                    self[p] = .right(state: .normal)
+                    self[p] = .right()
                 case .down:
-                    self[p] = .down(state: .normal)
+                    self[p] = .down()
                 default:
                     break
                 }

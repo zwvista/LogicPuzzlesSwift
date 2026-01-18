@@ -31,7 +31,7 @@ class PairakabeGameState: GridGameState<PairakabeGameMove> {
         guard !isCopy else {return}
         objArray = Array<PairakabeObject>(repeating: PairakabeObject(), count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint(state: .normal)
+            self[p] = .hint()
         }
         updateIsSolved()
     }
@@ -165,7 +165,7 @@ class PairakabeGameState: GridGameState<PairakabeGameMove> {
                 if s != .complete { isSolved = false }
             default:
                 for p in rng {
-                    self[p] = .hint(state: .normal)
+                    self[p] = .hint()
                 }
                 isSolved = false
             }

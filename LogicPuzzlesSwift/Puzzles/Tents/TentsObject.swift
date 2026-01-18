@@ -32,7 +32,7 @@ enum TentsObject {
         case "marker":
             return .marker
         case "tent":
-            return .tent(state: .normal)
+            return .tent()
         default:
             return .empty
         }

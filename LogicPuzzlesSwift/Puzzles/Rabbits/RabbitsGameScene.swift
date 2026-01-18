@@ -55,40 +55,36 @@ class RabbitsGameScene: GameScene<RabbitsGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let towerNodeName = "tower" + nodeNameSuffix
+                let rabbitNodeName = "rabbit" + nodeNameSuffix
+                let treeNodeName = "tree" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                func removeHint() { removeNode(withName: hintNodeName) }
-                func addTower(s: AllowedObjectState) {
-                    addImage(imageNamed: "tower", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: towerNodeName)
-                }
-                func removeTower() { removeNode(withName: towerNodeName) }
-                func addMarker() { addCircleMarker(color: .white, point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                func addForbidden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
-                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
                 let (ot1, ot2) = (stateFrom[r, c], stateTo[r, c])
                 guard String(describing: ot1) != String(describing: ot2) else {continue}
                 switch ot1 {
                 case .forbidden:
-                    removeForbidden()
-                case .tower:
-                    removeTower()
+                    removeNode(withName: forbiddenNodeName)
+                case .rabbit:
+                    removeNode(withName: rabbitNodeName)
+                case .tree:
+                    removeNode(withName: treeNodeName)
                 case .marker:
-                    removeMarker()
+                    removeNode(withName: markerNodeName)
                 case .hint:
-                    removeHint()
+                    removeNode(withName: hintNodeName)
                 default:
                     break
                 }
                 switch ot2 {
                 case .forbidden:
-                    addForbidden()
-                case let .tower(s):
-                    addTower(s: s)
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
+                case let .rabbit(s):
+                    addImage(imageNamed: "rabbit", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: rabbitNodeName)
+                case let .tree(s):
+                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: treeNodeName)
                 case .marker:
-                    addMarker()
+                    addCircleMarker(color: .white, point: point, nodeName: markerNodeName)
                 case let .hint(s):
                     let n = stateTo.game.pos2hint[Position(r, c)]!
                     addHint(n: n, s: s, point: point, nodeName: hintNodeName)

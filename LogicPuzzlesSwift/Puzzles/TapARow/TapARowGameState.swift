@@ -31,7 +31,7 @@ class TapARowGameState: GridGameState<TapARowGameMove> {
         guard !isCopy else {return}
         objArray = Array<TapARowObject>(repeating: TapARowObject(), count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint(state: .normal)
+            self[p] = .hint()
         }
         updateIsSolved()
     }

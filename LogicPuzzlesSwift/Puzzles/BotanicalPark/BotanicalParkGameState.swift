@@ -31,7 +31,7 @@ class BotanicalParkGameState: GridGameState<BotanicalParkGameMove> {
         guard !isCopy else {return}
         objArray = Array<BotanicalParkObject>(repeating: BotanicalParkObject(), count: rows * cols)
         for (p, _) in game.pos2arrow {
-            self[p] = .arrow(state: .normal)
+            self[p] = .arrow()
         }
         updateIsSolved()
     }
@@ -58,11 +58,11 @@ class BotanicalParkGameState: GridGameState<BotanicalParkGameMove> {
         func f(o: BotanicalParkObject) -> BotanicalParkObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .plant(state: .normal)
+                return markerOption == .markerFirst ? .marker : .plant()
             case .plant:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .plant(state: .normal) : .empty
+                return markerOption == .markerFirst ? .plant() : .empty
             default:
                 return o
             }

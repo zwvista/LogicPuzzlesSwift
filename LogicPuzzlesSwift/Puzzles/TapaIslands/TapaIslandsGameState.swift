@@ -31,7 +31,7 @@ class TapaIslandsGameState: GridGameState<TapaIslandsGameMove> {
         guard !isCopy else {return}
         objArray = Array<TapaIslandsObject>(repeating: TapaIslandsObject(), count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint(state: .normal)
+            self[p] = .hint()
         }
         updateIsSolved()
     }
@@ -197,7 +197,7 @@ class TapaIslandsGameState: GridGameState<TapaIslandsGameMove> {
                 if s != .complete { isSolved = false }
             default:
                 for p in rng {
-                    self[p] = .hint(state: .normal)
+                    self[p] = .hint()
                 }
                 isSolved = false
             }

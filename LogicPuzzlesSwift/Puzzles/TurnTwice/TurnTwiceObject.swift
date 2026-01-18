@@ -34,9 +34,9 @@ enum TurnTwiceObject {
         case "marker":
             return .marker
         case "signpost":
-            return .signpost(state: .normal)
+            return .signpost()
         case "wall":
-            return .wall(state: .normal)
+            return .wall()
         default:
             return .empty
         }

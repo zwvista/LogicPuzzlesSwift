@@ -29,7 +29,7 @@ enum ThermometersObject {
     static func fromString(str: String) -> ThermometersObject {
         switch str {
         case "filled":
-            return .filled(state: .normal)
+            return .filled()
         case "marker":
             return .marker
         default:

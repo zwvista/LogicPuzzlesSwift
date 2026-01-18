@@ -32,7 +32,7 @@ enum BusySeasObject {
         case "marker":
             return .marker
         case "lighthouse":
-            return .lighthouse(state: .normal)
+            return .lighthouse()
         default:
             return .empty
         }

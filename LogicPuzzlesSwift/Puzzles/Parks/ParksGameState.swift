@@ -57,11 +57,11 @@ class ParksGameState: GridGameState<ParksGameMove> {
         func f(o: ParksObject) -> ParksObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .tree(state: .normal)
+                return markerOption == .markerFirst ? .marker : .tree()
             case .tree:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .tree(state: .normal) : .empty
+                return markerOption == .markerFirst ? .tree() : .empty
             default:
                 return o
             }

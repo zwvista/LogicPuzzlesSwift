@@ -55,11 +55,11 @@ class PipemaniaGameState: GridGameState<PipemaniaGameMove> {
         func f(o: PipemaniaObject) -> PipemaniaObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .flower(state: .normal)
+                return markerOption == .markerFirst ? .marker : .flower()
             case .flower:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .flower(state: .normal) : .empty
+                return markerOption == .markerFirst ? .flower() : .empty
             default:
                 return o
             }
@@ -98,7 +98,7 @@ class PipemaniaGameState: GridGameState<PipemaniaGameMove> {
                 case .forbidden:
                     self[p] = .empty
                 case .flower:
-                    self[p] = .flower(state: .normal)
+                    self[p] = .flower()
                     pos2node[p] = g.addNode(p.description)
                 default:
                     break

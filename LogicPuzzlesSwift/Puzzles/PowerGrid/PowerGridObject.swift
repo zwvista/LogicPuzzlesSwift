@@ -31,7 +31,7 @@ enum PowerGridObject {
         case "marker":
             return .marker
         case "post":
-            return .post(state: .normal)
+            return .post()
         default:
             return .empty
         }

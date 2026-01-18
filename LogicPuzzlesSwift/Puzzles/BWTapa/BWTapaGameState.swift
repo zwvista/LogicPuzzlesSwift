@@ -31,7 +31,7 @@ class BWTapaGameState: GridGameState<BWTapaGameMove> {
         guard !isCopy else {return}
         objArray = Array<BWTapaObject>(repeating: BWTapaObject(), count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint(state: .normal)
+            self[p] = .hint()
         }
         updateIsSolved()
     }

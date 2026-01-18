@@ -32,11 +32,11 @@ enum WishSandwichObject {
     static func fromString(str: String) -> WishSandwichObject {
         switch str {
         case "bread":
-            return .bread(state: .normal)
+            return .bread()
         case "marker":
             return .marker
         case "ham":
-            return .ham(state: .normal)
+            return .ham()
         default:
             return .empty
         }

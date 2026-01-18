@@ -62,11 +62,11 @@ class PowerGridGameState: GridGameState<PowerGridGameMove> {
         func f(o: PowerGridObject) -> PowerGridObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .post(state: .normal)
+                return markerOption == .markerFirst ? .marker : .post()
             case .post:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .post(state: .normal) : .empty
+                return markerOption == .markerFirst ? .post() : .empty
             default:
                 return o
             }
@@ -105,7 +105,7 @@ class PowerGridGameState: GridGameState<PowerGridGameMove> {
                 case .forbidden:
                     self[p] = .empty
                 case .post:
-                    self[p] = .post(state: .normal)
+                    self[p] = .post()
                 default:
                     break
                 }

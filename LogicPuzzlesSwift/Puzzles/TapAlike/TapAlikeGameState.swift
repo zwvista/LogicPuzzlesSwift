@@ -31,7 +31,7 @@ class TapAlikeGameState: GridGameState<TapAlikeGameMove> {
         guard !isCopy else {return}
         objArray = Array<TapAlikeObject>(repeating: TapAlikeObject(), count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint(state: .normal)
+            self[p] = .hint()
         }
         updateIsSolved()
     }

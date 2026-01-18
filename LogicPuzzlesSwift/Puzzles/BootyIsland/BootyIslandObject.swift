@@ -32,7 +32,7 @@ enum BootyIslandObject {
         case "marker":
             return .marker
         case "treasure":
-            return .treasure(state: .normal)
+            return .treasure()
         default:
             return .empty
         }

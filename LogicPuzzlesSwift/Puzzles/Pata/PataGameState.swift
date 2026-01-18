@@ -31,7 +31,7 @@ class PataGameState: GridGameState<PataGameMove> {
         guard !isCopy else {return}
         objArray = Array<PataObject>(repeating: PataObject(), count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint(state: .normal)
+            self[p] = .hint()
         }
         updateIsSolved()
     }

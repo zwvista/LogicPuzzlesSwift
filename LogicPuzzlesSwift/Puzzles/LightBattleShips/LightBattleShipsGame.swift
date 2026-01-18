@@ -40,7 +40,7 @@ class LightBattleShipsGame: GridGame<LightBattleShipsGameState> {
                 case ".":
                     pos2obj[p] = .marker
                 case "0"..."9":
-                    pos2obj[p] = .hint(state: .normal)
+                    pos2obj[p] = .hint()
                     pos2hint[p] = ch.toInt!
                 default:
                     break

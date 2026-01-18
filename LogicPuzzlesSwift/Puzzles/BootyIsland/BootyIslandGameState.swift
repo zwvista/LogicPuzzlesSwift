@@ -31,7 +31,7 @@ class BootyIslandGameState: GridGameState<BootyIslandGameMove> {
         guard !isCopy else {return}
         objArray = Array<BootyIslandObject>(repeating: .empty, count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint(state: .normal)
+            self[p] = .hint()
         }
         updateIsSolved()
     }
@@ -60,11 +60,11 @@ class BootyIslandGameState: GridGameState<BootyIslandGameMove> {
         func f(o: BootyIslandObject) -> BootyIslandObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .treasure(state: .normal)
+                return markerOption == .markerFirst ? .marker : .treasure()
             case .treasure:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .treasure(state: .normal) : .empty
+                return markerOption == .markerFirst ? .treasure() : .empty
             default:
                 return o
             }
@@ -105,7 +105,7 @@ class BootyIslandGameState: GridGameState<BootyIslandGameMove> {
                 case .forbidden:
                     self[p] = .empty
                 case .treasure:
-                    self[p] = .treasure(state: .normal)
+                    self[p] = .treasure()
                 default:
                     break
                 }

@@ -32,7 +32,7 @@ enum PipemaniaObject {
         case "marker":
             return .marker
         case "flower":
-            return .flower(state: .normal)
+            return .flower()
         default:
             return .empty
         }

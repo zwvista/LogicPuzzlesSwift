@@ -13,7 +13,8 @@ enum RabbitsObject {
     case forbidden
     case hint(state: HintState = .normal)
     case marker
-    case tower(state: AllowedObjectState = .normal)
+    case rabbit(state: AllowedObjectState = .normal)
+    case tree(state: AllowedObjectState = .normal)
     init() {
         self = .empty
     }
@@ -21,8 +22,10 @@ enum RabbitsObject {
         switch self {
         case .marker:
             return "marker"
-        case .tower:
-            return "tower"
+        case .rabbit:
+            return "rabbit"
+        case .tree:
+            return "tree"
         default:
             return "empty"
         }
@@ -31,8 +34,10 @@ enum RabbitsObject {
         switch str {
         case "marker":
             return .marker
-        case "tower":
-            return .tower(state: .normal)
+        case "rabbit":
+            return .rabbit()
+        case "tree":
+            return .tree()
         default:
             return .empty
         }

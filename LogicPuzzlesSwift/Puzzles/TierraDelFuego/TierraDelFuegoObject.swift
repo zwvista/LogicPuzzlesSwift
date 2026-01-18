@@ -32,7 +32,7 @@ enum TierraDelFuegoObject {
         case "marker":
             return .marker
         case "water":
-            return .water(state: .normal)
+            return .water()
         default:
             return .empty
         }

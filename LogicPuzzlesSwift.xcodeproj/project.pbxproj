@@ -147,6 +147,7 @@
 		8C263ED92F1C85DD00158A2C /* RabbitsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263ECD2F1C85DD00158A2C /* RabbitsGameState.swift */; };
 		8C263EDA2F1C85DD00158A2C /* RabbitsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263ED12F1C85DD00158A2C /* RabbitsObject.swift */; };
 		8C263EDB2F1C85DD00158A2C /* Rabbits.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263EC92F1C85DD00158A2C /* Rabbits.xml */; };
+		8C263EDF2F1C92ED00158A2C /* rabbit.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C263EDE2F1C92ED00158A2C /* rabbit.png */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -1752,6 +1753,7 @@
 		8C263ECF2F1C85DD00158A2C /* RabbitsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabbitsGridNode.swift; sourceTree = "<group>"; };
 		8C263ED02F1C85DD00158A2C /* RabbitsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabbitsMainViewController.swift; sourceTree = "<group>"; };
 		8C263ED12F1C85DD00158A2C /* RabbitsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabbitsObject.swift; sourceTree = "<group>"; };
+		8C263EDE2F1C92ED00158A2C /* rabbit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rabbit.png; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -5050,6 +5052,7 @@
 				8C8662DA2EA39DD00078CD64 /* pizza.png */,
 				8C8662DB2EA39DD00078CD64 /* plum.png */,
 				8C8662DC2EA39DD00078CD64 /* pomegranate.png */,
+				8C263EDE2F1C92ED00158A2C /* rabbit.png */,
 				8C8662DD2EA39DD00078CD64 /* raspberry.png */,
 				8C8662DE2EA39DD00078CD64 /* recycle.png */,
 				8C8662DF2EA39DD00078CD64 /* road_cross.png */,
@@ -6168,6 +6171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */,
+				8C263EDF2F1C92ED00158A2C /* rabbit.png in Resources */,
 				8C3A37A41EC88D4400A914A5 /* Skyscrapers.xml in Resources */,
 				8C3A37C81EC88D4400A914A5 /* Sumscrapers.xml in Resources */,
 				8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */,

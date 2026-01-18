@@ -35,7 +35,7 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
         guard !isCopy else {return}
         objArray = Array<HiddenStarsObject>(repeating: HiddenStarsObject(), count: rows * cols)
         for (p, _) in game.pos2arrow {
-            self[p] = .arrow(state: .normal)
+            self[p] = .arrow()
         }
         row2state = Array<HintState>(repeating: .normal, count: rows)
         col2state = Array<HintState>(repeating: .normal, count: cols)
@@ -64,11 +64,11 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
         func f(o: HiddenStarsObject) -> HiddenStarsObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .star(state: .normal)
+                return markerOption == .markerFirst ? .marker : .star()
             case .star:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .star(state: .normal) : .empty
+                return markerOption == .markerFirst ? .star() : .empty
             default:
                 return o
             }
