@@ -2,11 +2,11 @@
 set -e
 
 # 协程变量（源字符串和目标字符串）
-SRC="FreePlanks"
-DST="DirectionalPlanks"
+SRC="PouringWater"
+DST="FunnyNumbers"
 
 # 切换到 Branches 目录
-cd "$(dirname "$0")/LogicPuzzlesSwift/Puzzles/DirectionalPlanks"
+cd "$(dirname "$0")/LogicPuzzlesSwift/Puzzles/FunnyNumbers"
 
 # 1. 改文件名
 for f in ${SRC}*; do

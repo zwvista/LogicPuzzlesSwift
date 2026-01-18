@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Fill each region with numbers 1 to X where the X is the region area.
+2. Same numbers can't touch each other horizontally or vertically across regions.
+3. The numbers outside tell you the sum of the row or column.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+ - - - -   `
+|4 2    |10`
+ - - - -   `
+|2  |  3|10`
+ - - -     `
+|     | |17`
+           `
+|1   2| | 7`
+ - - - -   `
+121015 7   `
+    ]]>
+  </level>
+  <level id="400">
+    <![CDATA[
+ - - - - - - - - - -   `
+|       |   |   |   |27`
+ -   - -     -   - -   `
+| | |   |   | | |   |24`
+   - -   - -   - - -   `
+|    5| |   |  4| | |31`
+   - - - -     -       `
+| | |     | | | | | |  `
+     -       -   -     `
+| |   |  2|   |   | |29`
+ -   - - - - - -   -   `
+|4  |3      |   | | |32`
+   -   - - -   - -     `
+| |5| | |6    |3    |27`
+ -   -     - - - - -   `
+|    2  | |         |31`
+ - - - - - - - - - -   `
+|   |         |     |36`
+     - - - - -         `
+|2   1  |     |2   5|  `
+ - - - - - - - - - -   `
+3530  34392024331827   `
+    ]]>
+  </level>
+</levels>
+</puzzle>

@@ -186,6 +186,15 @@
 		8C263F2D2F1D08A700158A2C /* DirectionalPlanksGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F1F2F1D08A700158A2C /* DirectionalPlanksGame.swift */; };
 		8C263F2E2F1D08A700158A2C /* DirectionalPlanksMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F242F1D08A700158A2C /* DirectionalPlanksMainViewController.swift */; };
 		8C263F2F2F1D08A700158A2C /* DirectionalPlanks.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263F1D2F1D08A700158A2C /* DirectionalPlanks.xml */; };
+		8C263F3A2F1D0DB100158A2C /* FunnyNumbersGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F352F1D0DB100158A2C /* FunnyNumbersGameViewController.swift */; };
+		8C263F3B2F1D0DB100158A2C /* FunnyNumbersGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F362F1D0DB100158A2C /* FunnyNumbersGridNode.swift */; };
+		8C263F3C2F1D0DB100158A2C /* FunnyNumbersDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F312F1D0DB100158A2C /* FunnyNumbersDocument.swift */; };
+		8C263F3D2F1D0DB100158A2C /* FunnyNumbersGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F322F1D0DB100158A2C /* FunnyNumbersGame.swift */; };
+		8C263F3E2F1D0DB100158A2C /* FunnyNumbersObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F382F1D0DB100158A2C /* FunnyNumbersObject.swift */; };
+		8C263F3F2F1D0DB100158A2C /* FunnyNumbersMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F372F1D0DB100158A2C /* FunnyNumbersMainViewController.swift */; };
+		8C263F402F1D0DB100158A2C /* FunnyNumbersGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F332F1D0DB100158A2C /* FunnyNumbersGameScene.swift */; };
+		8C263F412F1D0DB100158A2C /* FunnyNumbersGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F342F1D0DB100158A2C /* FunnyNumbersGameState.swift */; };
+		8C263F422F1D0DB100158A2C /* FunnyNumbers.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263F302F1D0DB100158A2C /* FunnyNumbers.xml */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -1830,6 +1839,15 @@
 		8C263F232F1D08A700158A2C /* DirectionalPlanksGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalPlanksGridNode.swift; sourceTree = "<group>"; };
 		8C263F242F1D08A700158A2C /* DirectionalPlanksMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalPlanksMainViewController.swift; sourceTree = "<group>"; };
 		8C263F252F1D08A700158A2C /* DirectionalPlanksObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalPlanksObject.swift; sourceTree = "<group>"; };
+		8C263F302F1D0DB100158A2C /* FunnyNumbers.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FunnyNumbers.xml; sourceTree = "<group>"; };
+		8C263F312F1D0DB100158A2C /* FunnyNumbersDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyNumbersDocument.swift; sourceTree = "<group>"; };
+		8C263F322F1D0DB100158A2C /* FunnyNumbersGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyNumbersGame.swift; sourceTree = "<group>"; };
+		8C263F332F1D0DB100158A2C /* FunnyNumbersGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyNumbersGameScene.swift; sourceTree = "<group>"; };
+		8C263F342F1D0DB100158A2C /* FunnyNumbersGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyNumbersGameState.swift; sourceTree = "<group>"; };
+		8C263F352F1D0DB100158A2C /* FunnyNumbersGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyNumbersGameViewController.swift; sourceTree = "<group>"; };
+		8C263F362F1D0DB100158A2C /* FunnyNumbersGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyNumbersGridNode.swift; sourceTree = "<group>"; };
+		8C263F372F1D0DB100158A2C /* FunnyNumbersMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyNumbersMainViewController.swift; sourceTree = "<group>"; };
+		8C263F382F1D0DB100158A2C /* FunnyNumbersObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyNumbersObject.swift; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -3645,6 +3663,22 @@
 			path = DirectionalPlanks;
 			sourceTree = "<group>";
 		};
+		8C263F392F1D0DB100158A2C /* FunnyNumbers */ = {
+			isa = PBXGroup;
+			children = (
+				8C263F302F1D0DB100158A2C /* FunnyNumbers.xml */,
+				8C263F312F1D0DB100158A2C /* FunnyNumbersDocument.swift */,
+				8C263F322F1D0DB100158A2C /* FunnyNumbersGame.swift */,
+				8C263F332F1D0DB100158A2C /* FunnyNumbersGameScene.swift */,
+				8C263F342F1D0DB100158A2C /* FunnyNumbersGameState.swift */,
+				8C263F352F1D0DB100158A2C /* FunnyNumbersGameViewController.swift */,
+				8C263F362F1D0DB100158A2C /* FunnyNumbersGridNode.swift */,
+				8C263F372F1D0DB100158A2C /* FunnyNumbersMainViewController.swift */,
+				8C263F382F1D0DB100158A2C /* FunnyNumbersObject.swift */,
+			);
+			path = FunnyNumbers;
+			sourceTree = "<group>";
+		};
 		8C2963D51FA20D620017A812 /* RobotFences */ = {
 			isa = PBXGroup;
 			children = (
@@ -3850,6 +3884,7 @@
 				8C263E912F13E06C00158A2C /* FloorPlan */,
 				8C74745A1FBEFD5700C4112C /* FourMeNot */,
 				8C9BD5122F0A32CA00D1D915 /* FreePlanks */,
+				8C263F392F1D0DB100158A2C /* FunnyNumbers */,
 				8CE43BCB1FEE6C7B00DCCD91 /* Futoshiki */,
 				8C2973D51EE7284C0022A18A /* Galaxies */,
 				8C35E37E1FC2844E00A26EE3 /* Gardener */,
@@ -6317,6 +6352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */,
+				8C263F422F1D0DB100158A2C /* FunnyNumbers.xml in Resources */,
 				8C263EDF2F1C92ED00158A2C /* rabbit.png in Resources */,
 				8C3A37A41EC88D4400A914A5 /* Skyscrapers.xml in Resources */,
 				8C3A37C81EC88D4400A914A5 /* Sumscrapers.xml in Resources */,
@@ -7291,6 +7327,14 @@
 				8C8661DA2EA31ABC0078CD64 /* ZenLandscaperGame.swift in Sources */,
 				8C8661DB2EA31ABC0078CD64 /* ZenLandscaperMainViewController.swift in Sources */,
 				8C8661DC2EA31ABC0078CD64 /* ZenLandscaperDocument.swift in Sources */,
+				8C263F3A2F1D0DB100158A2C /* FunnyNumbersGameViewController.swift in Sources */,
+				8C263F3B2F1D0DB100158A2C /* FunnyNumbersGridNode.swift in Sources */,
+				8C263F3C2F1D0DB100158A2C /* FunnyNumbersDocument.swift in Sources */,
+				8C263F3D2F1D0DB100158A2C /* FunnyNumbersGame.swift in Sources */,
+				8C263F3E2F1D0DB100158A2C /* FunnyNumbersObject.swift in Sources */,
+				8C263F3F2F1D0DB100158A2C /* FunnyNumbersMainViewController.swift in Sources */,
+				8C263F402F1D0DB100158A2C /* FunnyNumbersGameScene.swift in Sources */,
+				8C263F412F1D0DB100158A2C /* FunnyNumbersGameState.swift in Sources */,
 				8CB721C72EAAE62D001B25C5 /* PlanksGameScene.swift in Sources */,
 				8CB721C82EAAE62D001B25C5 /* PlanksGameViewController.swift in Sources */,
 				8CB721C92EAAE62D001B25C5 /* PlanksObject.swift in Sources */,
