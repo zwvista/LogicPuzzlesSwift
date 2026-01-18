@@ -81,7 +81,7 @@ class StraightAndTurnGameState: GridGameState<StraightAndTurnGameMove> {
                 if dirs.count == 2 {
                     // 1. Draw a path that crosses all gems
                     pos2Dirs[p] = dirs
-                } else if !dirs.isEmpty {
+                } else if !(dirs.isEmpty && game[p] == " ") {
                     // The loop cannot cross itself.
                     isSolved = false; return
                 }

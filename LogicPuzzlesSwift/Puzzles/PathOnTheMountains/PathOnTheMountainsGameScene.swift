@@ -30,10 +30,7 @@ class PathOnTheMountainsGameScene: GameScene<PathOnTheMountainsGameState> {
                 let ch = game[r, c]
                 guard ch != " " else {continue}
                 let point = gridNode.centerPoint(p: p)
-                let blockNode = SKSpriteNode(color: .lightGray, size: coloredRectSize())
-                blockNode.position = point
-                blockNode.name = "block"
-                gridNode.addChild(blockNode)
+                addImage(imageNamed: "mountains", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "mountains")
             }
         }
     }

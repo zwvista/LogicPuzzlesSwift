@@ -176,6 +176,7 @@
 		8C263F182F1CEA2700158A2C /* PathOnTheMountainsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F0B2F1CEA2700158A2C /* PathOnTheMountainsGameScene.swift */; };
 		8C263F192F1CEA2700158A2C /* PathOnTheMountainsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F0A2F1CEA2700158A2C /* PathOnTheMountainsGame.swift */; };
 		8C263F1A2F1CEA2700158A2C /* PathOnTheMountains.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263F082F1CEA2700158A2C /* PathOnTheMountains.xml */; };
+		8C263F1C2F1D042F00158A2C /* mountains.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C263F1B2F1D042F00158A2C /* mountains.png */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -1810,6 +1811,7 @@
 		8C263F0E2F1CEA2700158A2C /* PathOnTheMountainsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathOnTheMountainsGridNode.swift; sourceTree = "<group>"; };
 		8C263F0F2F1CEA2700158A2C /* PathOnTheMountainsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathOnTheMountainsMainViewController.swift; sourceTree = "<group>"; };
 		8C263F102F1CEA2700158A2C /* PathOnTheMountainsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathOnTheMountainsObject.swift; sourceTree = "<group>"; };
+		8C263F1B2F1D042F00158A2C /* mountains.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mountains.png; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -5120,6 +5122,7 @@
 				8C8662B32EA39DD00078CD64 /* loopy_background.png */,
 				8C8662B42EA39DD00078CD64 /* meadow_background.png */,
 				8C8662B52EA39DD00078CD64 /* monkey.png */,
+				8C263F1B2F1D042F00158A2C /* mountains.png */,
 				8C8662B62EA39DD00078CD64 /* museum2.png */,
 				8C8662B72EA39DD00078CD64 /* mushroom.png */,
 				8C8662B82EA39DD00078CD64 /* mushroom2.png */,
@@ -6347,6 +6350,7 @@
 				8C86634B2EA39DD00078CD64 /* lightbulb_on.png in Resources */,
 				8C86634C2EA39DD00078CD64 /* arrow_red_up.png in Resources */,
 				8CFB22202EF87D8E00E5F29D /* HeliumAndIron.xml in Resources */,
+				8C263F1C2F1D042F00158A2C /* mountains.png in Resources */,
 				8C86634D2EA39DD00078CD64 /* beer_glass.png in Resources */,
 				8C86634E2EA39DD00078CD64 /* donut.png in Resources */,
 				8C86634F2EA39DD00078CD64 /* raspberry.png in Resources */,

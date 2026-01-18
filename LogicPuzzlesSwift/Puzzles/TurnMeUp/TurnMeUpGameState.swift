@@ -101,7 +101,7 @@ class TurnMeUpGameState: GridGameState<TurnMeUpGameMove> {
             var i = ch2dirs[p]!.first!
             var os = TurnMeUpGame.offset[i]
             var p2 = p + os
-            var nTurn = 0
+            var turns = 0
             while true {
                 let j = (i + 2) % 4
                 var dirs = ch2dirs[p2]!
@@ -109,14 +109,14 @@ class TurnMeUpGameState: GridGameState<TurnMeUpGameMove> {
                 guard !dirs.isEmpty else {break}
                 let k = dirs.first!
                 if k != i {
-                    nTurn += 1
+                    turns += 1
                     i = k
                 }
                 os = TurnMeUpGame.offset[i]
                 p2 += os
             }
             let ch2 = game[p2]
-            guard ch1 == TurnMeUpGame.PUZ_QM || ch2 == TurnMeUpGame.PUZ_QM || ch1 == ch2 && ch1.toInt! == nTurn else { isSolved = false; return }
+            guard ch1 == TurnMeUpGame.PUZ_QM || ch2 == TurnMeUpGame.PUZ_QM || ch1 == ch2 && ch1.toInt! == turns else { isSolved = false; return }
             circles.remove(p); circles.remove(p2)
         }
     }

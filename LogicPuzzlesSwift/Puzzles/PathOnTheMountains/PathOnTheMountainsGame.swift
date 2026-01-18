@@ -9,7 +9,6 @@
 import Foundation
 
 class PathOnTheMountainsGame: GridGame<PathOnTheMountainsGameState> {
-    static let PUZ_BLOCK: Character = "B"
     static let offset = Position.Directions4
 
     var objArray = [Character]()

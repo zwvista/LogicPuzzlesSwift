@@ -78,14 +78,9 @@ class MasyuGameState: GridGameState<MasyuGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let o = self[p]
                 let ch = game[p]
-                var dirs = (0..<4).filter { o[$0] }
-                switch dirs.count {
-                case 0:
-                    // 1. The goal is to draw a single Loop(Necklace) through every circle(Pearl)
-                    guard ch == " " else { isSolved = false; return }
-                case 2:
+                let dirs = (0..<4).filter { self[p][$0] }
+                if dirs.count == 2 {
                     pos2node[p] = g.addNode(p.description)
                     pos2Dirs[p] = dirs
                     switch ch {
@@ -98,9 +93,9 @@ class MasyuGameState: GridGameState<MasyuGameMove> {
                     default:
                         break
                     }
-                default:
-                    // 1. The goal is to draw a single Loop(Necklace)
-                    // that never branches-off or crosses itself.
+                } else if !(dirs.isEmpty && ch == " ") {
+                    // 1. The goal is to draw a single Loop(Necklace) through every circle(Pearl)
+                    //    that never branches-off or crosses itself.
                     isSolved = false; return
                 }
             }
