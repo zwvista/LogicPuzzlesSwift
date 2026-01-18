@@ -177,6 +177,15 @@
 		8C263F192F1CEA2700158A2C /* PathOnTheMountainsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F0A2F1CEA2700158A2C /* PathOnTheMountainsGame.swift */; };
 		8C263F1A2F1CEA2700158A2C /* PathOnTheMountains.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263F082F1CEA2700158A2C /* PathOnTheMountains.xml */; };
 		8C263F1C2F1D042F00158A2C /* mountains.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C263F1B2F1D042F00158A2C /* mountains.png */; };
+		8C263F272F1D08A700158A2C /* DirectionalPlanksGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F202F1D08A700158A2C /* DirectionalPlanksGameScene.swift */; };
+		8C263F282F1D08A700158A2C /* DirectionalPlanksGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F212F1D08A700158A2C /* DirectionalPlanksGameState.swift */; };
+		8C263F292F1D08A700158A2C /* DirectionalPlanksGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F222F1D08A700158A2C /* DirectionalPlanksGameViewController.swift */; };
+		8C263F2A2F1D08A700158A2C /* DirectionalPlanksDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F1E2F1D08A700158A2C /* DirectionalPlanksDocument.swift */; };
+		8C263F2B2F1D08A700158A2C /* DirectionalPlanksObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F252F1D08A700158A2C /* DirectionalPlanksObject.swift */; };
+		8C263F2C2F1D08A700158A2C /* DirectionalPlanksGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F232F1D08A700158A2C /* DirectionalPlanksGridNode.swift */; };
+		8C263F2D2F1D08A700158A2C /* DirectionalPlanksGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F1F2F1D08A700158A2C /* DirectionalPlanksGame.swift */; };
+		8C263F2E2F1D08A700158A2C /* DirectionalPlanksMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F242F1D08A700158A2C /* DirectionalPlanksMainViewController.swift */; };
+		8C263F2F2F1D08A700158A2C /* DirectionalPlanks.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263F1D2F1D08A700158A2C /* DirectionalPlanks.xml */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -1812,6 +1821,15 @@
 		8C263F0F2F1CEA2700158A2C /* PathOnTheMountainsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathOnTheMountainsMainViewController.swift; sourceTree = "<group>"; };
 		8C263F102F1CEA2700158A2C /* PathOnTheMountainsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathOnTheMountainsObject.swift; sourceTree = "<group>"; };
 		8C263F1B2F1D042F00158A2C /* mountains.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mountains.png; sourceTree = "<group>"; };
+		8C263F1D2F1D08A700158A2C /* DirectionalPlanks.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = DirectionalPlanks.xml; sourceTree = "<group>"; };
+		8C263F1E2F1D08A700158A2C /* DirectionalPlanksDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalPlanksDocument.swift; sourceTree = "<group>"; };
+		8C263F1F2F1D08A700158A2C /* DirectionalPlanksGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalPlanksGame.swift; sourceTree = "<group>"; };
+		8C263F202F1D08A700158A2C /* DirectionalPlanksGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalPlanksGameScene.swift; sourceTree = "<group>"; };
+		8C263F212F1D08A700158A2C /* DirectionalPlanksGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalPlanksGameState.swift; sourceTree = "<group>"; };
+		8C263F222F1D08A700158A2C /* DirectionalPlanksGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalPlanksGameViewController.swift; sourceTree = "<group>"; };
+		8C263F232F1D08A700158A2C /* DirectionalPlanksGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalPlanksGridNode.swift; sourceTree = "<group>"; };
+		8C263F242F1D08A700158A2C /* DirectionalPlanksMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalPlanksMainViewController.swift; sourceTree = "<group>"; };
+		8C263F252F1D08A700158A2C /* DirectionalPlanksObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionalPlanksObject.swift; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -3611,6 +3629,22 @@
 			path = PathOnTheMountains;
 			sourceTree = "<group>";
 		};
+		8C263F262F1D08A700158A2C /* DirectionalPlanks */ = {
+			isa = PBXGroup;
+			children = (
+				8C263F1D2F1D08A700158A2C /* DirectionalPlanks.xml */,
+				8C263F1E2F1D08A700158A2C /* DirectionalPlanksDocument.swift */,
+				8C263F1F2F1D08A700158A2C /* DirectionalPlanksGame.swift */,
+				8C263F202F1D08A700158A2C /* DirectionalPlanksGameScene.swift */,
+				8C263F212F1D08A700158A2C /* DirectionalPlanksGameState.swift */,
+				8C263F222F1D08A700158A2C /* DirectionalPlanksGameViewController.swift */,
+				8C263F232F1D08A700158A2C /* DirectionalPlanksGridNode.swift */,
+				8C263F242F1D08A700158A2C /* DirectionalPlanksMainViewController.swift */,
+				8C263F252F1D08A700158A2C /* DirectionalPlanksObject.swift */,
+			);
+			path = DirectionalPlanks;
+			sourceTree = "<group>";
+		};
 		8C2963D51FA20D620017A812 /* RobotFences */ = {
 			isa = PBXGroup;
 			children = (
@@ -3805,6 +3839,7 @@
 				8C81BC352EA8EF030083B936 /* DesertDunes */,
 				8C3A343B1EC88D4100A914A5 /* DigitalBattleShips */,
 				8CFB22322EF8FF1000E5F29D /* DigitalPath */,
+				8C263F262F1D08A700158A2C /* DirectionalPlanks */,
 				8CF3FFC71FCB2A2600D41B67 /* DisconnectFour */,
 				8C3A34481EC88D4100A914A5 /* Domino */,
 				8C3A34551EC88D4100A914A5 /* FenceItUp */,
@@ -6580,6 +6615,7 @@
 				8C8664142EA39DD00078CD64 /* arrow3.png in Resources */,
 				8C8664152EA39DD00078CD64 /* battery.png in Resources */,
 				8C8664162EA39DD00078CD64 /* kangaroo.png in Resources */,
+				8C263F2F2F1D08A700158A2C /* DirectionalPlanks.xml in Resources */,
 				8C8664172EA39DD00078CD64 /* tetris_green.png in Resources */,
 				8C8664182EA39DD00078CD64 /* tetris_purple.png in Resources */,
 				8C8664192EA39DD00078CD64 /* wine_white_glass.png in Resources */,
@@ -7427,6 +7463,14 @@
 				8C3A37171EC88D4300A914A5 /* MinesweeperGameScene.swift in Sources */,
 				8C35E3901FC2844F00A26EE3 /* GardenerGameViewController.swift in Sources */,
 				8CFB220E2EF771C100E5F29D /* RomeGameState.swift in Sources */,
+				8C263F272F1D08A700158A2C /* DirectionalPlanksGameScene.swift in Sources */,
+				8C263F282F1D08A700158A2C /* DirectionalPlanksGameState.swift in Sources */,
+				8C263F292F1D08A700158A2C /* DirectionalPlanksGameViewController.swift in Sources */,
+				8C263F2A2F1D08A700158A2C /* DirectionalPlanksDocument.swift in Sources */,
+				8C263F2B2F1D08A700158A2C /* DirectionalPlanksObject.swift in Sources */,
+				8C263F2C2F1D08A700158A2C /* DirectionalPlanksGridNode.swift in Sources */,
+				8C263F2D2F1D08A700158A2C /* DirectionalPlanksGame.swift in Sources */,
+				8C263F2E2F1D08A700158A2C /* DirectionalPlanksMainViewController.swift in Sources */,
 				8CFB220F2EF771C100E5F29D /* RomeObject.swift in Sources */,
 				8CFB22102EF771C100E5F29D /* RomeGameViewController.swift in Sources */,
 				8CFB22112EF771C100E5F29D /* RomeGame.swift in Sources */,
