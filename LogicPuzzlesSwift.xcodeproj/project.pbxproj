@@ -195,6 +195,15 @@
 		8C263F402F1D0DB100158A2C /* FunnyNumbersGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F332F1D0DB100158A2C /* FunnyNumbersGameScene.swift */; };
 		8C263F412F1D0DB100158A2C /* FunnyNumbersGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F342F1D0DB100158A2C /* FunnyNumbersGameState.swift */; };
 		8C263F422F1D0DB100158A2C /* FunnyNumbers.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263F302F1D0DB100158A2C /* FunnyNumbers.xml */; };
+		8C263F4D2F1D169F00158A2C /* JoinMeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F452F1D169F00158A2C /* JoinMeGame.swift */; };
+		8C263F4E2F1D169F00158A2C /* JoinMeGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F462F1D169F00158A2C /* JoinMeGameScene.swift */; };
+		8C263F4F2F1D169F00158A2C /* JoinMeGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F472F1D169F00158A2C /* JoinMeGameState.swift */; };
+		8C263F502F1D169F00158A2C /* JoinMeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F4A2F1D169F00158A2C /* JoinMeMainViewController.swift */; };
+		8C263F512F1D169F00158A2C /* JoinMeGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F492F1D169F00158A2C /* JoinMeGridNode.swift */; };
+		8C263F522F1D169F00158A2C /* JoinMeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F4B2F1D169F00158A2C /* JoinMeObject.swift */; };
+		8C263F532F1D169F00158A2C /* JoinMeDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F442F1D169F00158A2C /* JoinMeDocument.swift */; };
+		8C263F542F1D169F00158A2C /* JoinMeGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F482F1D169F00158A2C /* JoinMeGameViewController.swift */; };
+		8C263F552F1D169F00158A2C /* JoinMe.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263F432F1D169E00158A2C /* JoinMe.xml */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -1848,6 +1857,15 @@
 		8C263F362F1D0DB100158A2C /* FunnyNumbersGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyNumbersGridNode.swift; sourceTree = "<group>"; };
 		8C263F372F1D0DB100158A2C /* FunnyNumbersMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyNumbersMainViewController.swift; sourceTree = "<group>"; };
 		8C263F382F1D0DB100158A2C /* FunnyNumbersObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunnyNumbersObject.swift; sourceTree = "<group>"; };
+		8C263F432F1D169E00158A2C /* JoinMe.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = JoinMe.xml; sourceTree = "<group>"; };
+		8C263F442F1D169F00158A2C /* JoinMeDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinMeDocument.swift; sourceTree = "<group>"; };
+		8C263F452F1D169F00158A2C /* JoinMeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinMeGame.swift; sourceTree = "<group>"; };
+		8C263F462F1D169F00158A2C /* JoinMeGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinMeGameScene.swift; sourceTree = "<group>"; };
+		8C263F472F1D169F00158A2C /* JoinMeGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinMeGameState.swift; sourceTree = "<group>"; };
+		8C263F482F1D169F00158A2C /* JoinMeGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinMeGameViewController.swift; sourceTree = "<group>"; };
+		8C263F492F1D169F00158A2C /* JoinMeGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinMeGridNode.swift; sourceTree = "<group>"; };
+		8C263F4A2F1D169F00158A2C /* JoinMeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinMeMainViewController.swift; sourceTree = "<group>"; };
+		8C263F4B2F1D169F00158A2C /* JoinMeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinMeObject.swift; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -3679,6 +3697,22 @@
 			path = FunnyNumbers;
 			sourceTree = "<group>";
 		};
+		8C263F4C2F1D169F00158A2C /* JoinMe */ = {
+			isa = PBXGroup;
+			children = (
+				8C263F432F1D169E00158A2C /* JoinMe.xml */,
+				8C263F442F1D169F00158A2C /* JoinMeDocument.swift */,
+				8C263F452F1D169F00158A2C /* JoinMeGame.swift */,
+				8C263F462F1D169F00158A2C /* JoinMeGameScene.swift */,
+				8C263F472F1D169F00158A2C /* JoinMeGameState.swift */,
+				8C263F482F1D169F00158A2C /* JoinMeGameViewController.swift */,
+				8C263F492F1D169F00158A2C /* JoinMeGridNode.swift */,
+				8C263F4A2F1D169F00158A2C /* JoinMeMainViewController.swift */,
+				8C263F4B2F1D169F00158A2C /* JoinMeObject.swift */,
+			);
+			path = JoinMe;
+			sourceTree = "<group>";
+		};
 		8C2963D51FA20D620017A812 /* RobotFences */ = {
 			isa = PBXGroup;
 			children = (
@@ -3899,6 +3933,7 @@
 				8C9BD5E22F0C0D2900D1D915 /* InbetweenSumscrapers */,
 				8C9BD4FF2F0A178300D1D915 /* InsaneTatamis */,
 				8C9BD55D2F0A5CF500D1D915 /* IslandConnections */,
+				8C263F4C2F1D169F00158A2C /* JoinMe */,
 				8CE9C3031F7914B800134093 /* Kakurasu */,
 				8CC25CB51F87BB5A005560F7 /* Kakuro */,
 				8C6A9BD81F812742002A44FF /* Kropki */,
@@ -6414,6 +6449,7 @@
 				8C8663442EA39DD00078CD64 /* add.png in Resources */,
 				8C8663452EA39DD00078CD64 /* road_leftup.png in Resources */,
 				8C8663462EA39DD00078CD64 /* thermometer3A.png in Resources */,
+				8C263F552F1D169F00158A2C /* JoinMe.xml in Resources */,
 				8C8663472EA39DD00078CD64 /* shade_8.png in Resources */,
 				8C8663482EA39DD00078CD64 /* tower.png in Resources */,
 				8C8663492EA39DD00078CD64 /* drink_blue.png in Resources */,
@@ -7776,6 +7812,14 @@
 				8C2963FD1FA20D620017A812 /* RobotCrosswordsGameViewController.swift in Sources */,
 				8C3A379A1EC88D4400A914A5 /* SentinelsGame.swift in Sources */,
 				8C3A366A1EC88D4200A914A5 /* DigitalBattleShipsObject.swift in Sources */,
+				8C263F4D2F1D169F00158A2C /* JoinMeGame.swift in Sources */,
+				8C263F4E2F1D169F00158A2C /* JoinMeGameScene.swift in Sources */,
+				8C263F4F2F1D169F00158A2C /* JoinMeGameState.swift in Sources */,
+				8C263F502F1D169F00158A2C /* JoinMeMainViewController.swift in Sources */,
+				8C263F512F1D169F00158A2C /* JoinMeGridNode.swift in Sources */,
+				8C263F522F1D169F00158A2C /* JoinMeObject.swift in Sources */,
+				8C263F532F1D169F00158A2C /* JoinMeDocument.swift in Sources */,
+				8C263F542F1D169F00158A2C /* JoinMeGameViewController.swift in Sources */,
 				8C9BD4ED2F0A092700D1D915 /* MixedTatamisGridNode.swift in Sources */,
 				8C9BD4EE2F0A092700D1D915 /* MixedTatamisGame.swift in Sources */,
 				8C9BD4EF2F0A092700D1D915 /* MixedTatamisGameState.swift in Sources */,

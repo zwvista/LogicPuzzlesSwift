@@ -1,0 +1,105 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Connect the different patches with one stitch (more in later levels).
+2. The numbers on the outside tell you how many stitches you can see from there in the row/column.
+3. A cell can contain only one stitch.
+4. Later levels will show you in the top right how many stitches you have to put between patches.
+  ]]>
+</help>
+<levels>
+  <level id="1" Stitches="1">
+    <![CDATA[
+ - - - - -  `
+| |       |3`
+   - - - -  `
+|   |     |2`
+ -   - -    `
+| |     | |2`
+   -        `
+| | |   | |3`
+            `
+| | |   | |2`
+ - - - - -  `
+ 4 4 2 1 1  `
+    ]]>
+  </level>
+  <level id="2" Stitches="1">
+    <![CDATA[
+ - - - - -  `
+| |   |   |2`
+   - -   -  `
+|       | |1`
+ - -        `
+|   |   | |1`
+ - -        `
+|       | |3`
+ -   - -    `
+| | |   | |5`
+ - - - - -  `
+ 3 1 3 3 2  `
+    ]]>
+  </level>
+  <level id="6" Stitches="2">
+    <![CDATA[
+ - - - - -  `
+| | | |   |4`
+       - -  `
+| | |     |4`
+     - -    `
+| |     | | `
+ -   -      `
+|   | | | |4`
+ - -        `
+|     | | |4`
+ - - - - -  `
+ 4 4   4 4  `
+    ]]>
+  </level>
+  <level id="36" Stitches="2">
+    <![CDATA[
+ - - - - - -  `
+| | |   |   |3`
+         - -  `
+| | |       | `
+     - - -    `
+| |       | |5`
+     - -   -  `
+| | |   |   |1`
+   -   -      `
+| |   |     |5`
+         - -  `
+| |   | |   |6`
+ - - - - - -  `
+ 4 4 3   4 5  `
+    ]]>
+  </level>
+  <level id="400" Stitches="4">
+    <![CDATA[
+ - - - - - - - - - -  `
+|     |     |       |6`
+ - -   - -   - - -    `
+|   |     |       | |7`
+     - -   - -   -    `
+|       |     | |   |5`
+ - -     -       - -  `
+|   |     |   |     | `
+   -   - -     - - -  `
+| |   |             | `
+   -   - - - - - -    `
+|   |             | | `
+ - -       - - - -    `
+|         |         |8`
+     - - - - - - - -  `
+|   |               | `
+ - -   - - - - - -    `
+|     |           | | `
+   - -   - - - -   -  `
+| |     |       |   |7`
+ - - - - - - - - - -  `
+   5 9 3   8   5   7  `
+    ]]>
+  </level>
+</levels>
+</puzzle>
