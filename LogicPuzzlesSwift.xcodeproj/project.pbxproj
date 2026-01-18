@@ -148,6 +148,15 @@
 		8C263EDA2F1C85DD00158A2C /* RabbitsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263ED12F1C85DD00158A2C /* RabbitsObject.swift */; };
 		8C263EDB2F1C85DD00158A2C /* Rabbits.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263EC92F1C85DD00158A2C /* Rabbits.xml */; };
 		8C263EDF2F1C92ED00158A2C /* rabbit.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C263EDE2F1C92ED00158A2C /* rabbit.png */; };
+		8C263EEA2F1CA32100158A2C /* UnseenGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EE42F1CA32100158A2C /* UnseenGameState.swift */; };
+		8C263EEB2F1CA32100158A2C /* UnseenDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EE12F1CA32100158A2C /* UnseenDocument.swift */; };
+		8C263EEC2F1CA32100158A2C /* UnseenMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EE72F1CA32100158A2C /* UnseenMainViewController.swift */; };
+		8C263EED2F1CA32100158A2C /* UnseenObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EE82F1CA32100158A2C /* UnseenObject.swift */; };
+		8C263EEE2F1CA32100158A2C /* UnseenGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EE32F1CA32100158A2C /* UnseenGameScene.swift */; };
+		8C263EEF2F1CA32100158A2C /* UnseenGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EE22F1CA32100158A2C /* UnseenGame.swift */; };
+		8C263EF02F1CA32100158A2C /* UnseenGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EE62F1CA32100158A2C /* UnseenGridNode.swift */; };
+		8C263EF12F1CA32100158A2C /* UnseenGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EE52F1CA32100158A2C /* UnseenGameViewController.swift */; };
+		8C263EF22F1CA32100158A2C /* Unseen.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263EE02F1CA32100158A2C /* Unseen.xml */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -1754,6 +1763,15 @@
 		8C263ED02F1C85DD00158A2C /* RabbitsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabbitsMainViewController.swift; sourceTree = "<group>"; };
 		8C263ED12F1C85DD00158A2C /* RabbitsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabbitsObject.swift; sourceTree = "<group>"; };
 		8C263EDE2F1C92ED00158A2C /* rabbit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rabbit.png; sourceTree = "<group>"; };
+		8C263EE02F1CA32100158A2C /* Unseen.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Unseen.xml; sourceTree = "<group>"; };
+		8C263EE12F1CA32100158A2C /* UnseenDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnseenDocument.swift; sourceTree = "<group>"; };
+		8C263EE22F1CA32100158A2C /* UnseenGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnseenGame.swift; sourceTree = "<group>"; };
+		8C263EE32F1CA32100158A2C /* UnseenGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnseenGameScene.swift; sourceTree = "<group>"; };
+		8C263EE42F1CA32100158A2C /* UnseenGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnseenGameState.swift; sourceTree = "<group>"; };
+		8C263EE52F1CA32100158A2C /* UnseenGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnseenGameViewController.swift; sourceTree = "<group>"; };
+		8C263EE62F1CA32100158A2C /* UnseenGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnseenGridNode.swift; sourceTree = "<group>"; };
+		8C263EE72F1CA32100158A2C /* UnseenMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnseenMainViewController.swift; sourceTree = "<group>"; };
+		8C263EE82F1CA32100158A2C /* UnseenObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnseenObject.swift; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -3505,6 +3523,22 @@
 			path = Rabbits;
 			sourceTree = "<group>";
 		};
+		8C263EE92F1CA32100158A2C /* Unseen */ = {
+			isa = PBXGroup;
+			children = (
+				8C263EE02F1CA32100158A2C /* Unseen.xml */,
+				8C263EE12F1CA32100158A2C /* UnseenDocument.swift */,
+				8C263EE22F1CA32100158A2C /* UnseenGame.swift */,
+				8C263EE32F1CA32100158A2C /* UnseenGameScene.swift */,
+				8C263EE42F1CA32100158A2C /* UnseenGameState.swift */,
+				8C263EE52F1CA32100158A2C /* UnseenGameViewController.swift */,
+				8C263EE62F1CA32100158A2C /* UnseenGridNode.swift */,
+				8C263EE72F1CA32100158A2C /* UnseenMainViewController.swift */,
+				8C263EE82F1CA32100158A2C /* UnseenObject.swift */,
+			);
+			path = Unseen;
+			sourceTree = "<group>";
+		};
 		8C2963D51FA20D620017A812 /* RobotFences */ = {
 			isa = PBXGroup;
 			children = (
@@ -3801,6 +3835,7 @@
 				8C263E432F11EFA100158A2C /* Trebuchet */,
 				8CAFBFDA2E9F19A500C27D7C /* TurnTwice */,
 				8C263EA42F13E29500158A2C /* Underground */,
+				8C263EE92F1CA32100158A2C /* Unseen */,
 				8C9BD4D92F0A036B00D1D915 /* WallHints */,
 				8C35E3971FC4839000A26EE3 /* Walls */,
 				8CFAF995202615560095EFFC /* WallSentinels */,
@@ -6582,6 +6617,7 @@
 				8C3A366C1EC88D4200A914A5 /* Domino.xml in Resources */,
 				8C8E77D52E873AD7006BBF98 /* Branches.xml in Resources */,
 				8C2319F81FB88E3F0021C680 /* TierraDelFuego.xml in Resources */,
+				8C263EF22F1CA32100158A2C /* Unseen.xml in Resources */,
 				8CDAE7EF1F5BFBD8000DE5AF /* OverUnder.xml in Resources */,
 				8CFAF9C220381D870095EFFC /* CastleBailey.xml in Resources */,
 				8C3A37741EC88D4300A914A5 /* PowerGrid.xml in Resources */,
@@ -6719,6 +6755,14 @@
 				8C3A36141EC88D4200A914A5 /* BootyIslandMainViewController.swift in Sources */,
 				8CA042F81FDB930A00AF85E1 /* CalcudokuGameScene.swift in Sources */,
 				8C3A37861EC88D4400A914A5 /* ProductSentinelsGridNode.swift in Sources */,
+				8C263EEA2F1CA32100158A2C /* UnseenGameState.swift in Sources */,
+				8C263EEB2F1CA32100158A2C /* UnseenDocument.swift in Sources */,
+				8C263EEC2F1CA32100158A2C /* UnseenMainViewController.swift in Sources */,
+				8C263EED2F1CA32100158A2C /* UnseenObject.swift in Sources */,
+				8C263EEE2F1CA32100158A2C /* UnseenGameScene.swift in Sources */,
+				8C263EEF2F1CA32100158A2C /* UnseenGame.swift in Sources */,
+				8C263EF02F1CA32100158A2C /* UnseenGridNode.swift in Sources */,
+				8C263EF12F1CA32100158A2C /* UnseenGameViewController.swift in Sources */,
 				8C35E3C21FC6DAE600A26EE3 /* NumberLinkGameViewController.swift in Sources */,
 				8C3A369A1EC88D4200A914A5 /* FenceSentinelsObject.swift in Sources */,
 				8C04671D1F8BA2BE00B5DE41 /* TataminoGameViewController.swift in Sources */,
