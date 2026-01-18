@@ -158,6 +158,15 @@
 		8C263EF12F1CA32100158A2C /* UnseenGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EE52F1CA32100158A2C /* UnseenGameViewController.swift */; };
 		8C263EF22F1CA32100158A2C /* Unseen.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263EE02F1CA32100158A2C /* Unseen.xml */; };
 		8C263EF42F1CA89300158A2C /* see.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C263EF32F1CA89300158A2C /* see.png */; };
+		8C263EFF2F1CAAD400158A2C /* TurnMeUpGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EFB2F1CAAD400158A2C /* TurnMeUpGridNode.swift */; };
+		8C263F002F1CAAD400158A2C /* TurnMeUpGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EF82F1CAAD400158A2C /* TurnMeUpGameScene.swift */; };
+		8C263F012F1CAAD400158A2C /* TurnMeUpMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EFC2F1CAAD400158A2C /* TurnMeUpMainViewController.swift */; };
+		8C263F022F1CAAD400158A2C /* TurnMeUpGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EF72F1CAAD400158A2C /* TurnMeUpGame.swift */; };
+		8C263F032F1CAAD400158A2C /* TurnMeUpGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EFA2F1CAAD400158A2C /* TurnMeUpGameViewController.swift */; };
+		8C263F042F1CAAD400158A2C /* TurnMeUpDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EF62F1CAAD400158A2C /* TurnMeUpDocument.swift */; };
+		8C263F052F1CAAD400158A2C /* TurnMeUpObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EFD2F1CAAD400158A2C /* TurnMeUpObject.swift */; };
+		8C263F062F1CAAD400158A2C /* TurnMeUpGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EF92F1CAAD400158A2C /* TurnMeUpGameState.swift */; };
+		8C263F072F1CAAD500158A2C /* TurnMeUp.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263EF52F1CAAD400158A2C /* TurnMeUp.xml */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -1774,6 +1783,15 @@
 		8C263EE72F1CA32100158A2C /* UnseenMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnseenMainViewController.swift; sourceTree = "<group>"; };
 		8C263EE82F1CA32100158A2C /* UnseenObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnseenObject.swift; sourceTree = "<group>"; };
 		8C263EF32F1CA89300158A2C /* see.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = see.png; sourceTree = "<group>"; };
+		8C263EF52F1CAAD400158A2C /* TurnMeUp.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TurnMeUp.xml; sourceTree = "<group>"; };
+		8C263EF62F1CAAD400158A2C /* TurnMeUpDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnMeUpDocument.swift; sourceTree = "<group>"; };
+		8C263EF72F1CAAD400158A2C /* TurnMeUpGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnMeUpGame.swift; sourceTree = "<group>"; };
+		8C263EF82F1CAAD400158A2C /* TurnMeUpGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnMeUpGameScene.swift; sourceTree = "<group>"; };
+		8C263EF92F1CAAD400158A2C /* TurnMeUpGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnMeUpGameState.swift; sourceTree = "<group>"; };
+		8C263EFA2F1CAAD400158A2C /* TurnMeUpGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnMeUpGameViewController.swift; sourceTree = "<group>"; };
+		8C263EFB2F1CAAD400158A2C /* TurnMeUpGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnMeUpGridNode.swift; sourceTree = "<group>"; };
+		8C263EFC2F1CAAD400158A2C /* TurnMeUpMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnMeUpMainViewController.swift; sourceTree = "<group>"; };
+		8C263EFD2F1CAAD400158A2C /* TurnMeUpObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnMeUpObject.swift; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -3541,6 +3559,22 @@
 			path = Unseen;
 			sourceTree = "<group>";
 		};
+		8C263EFE2F1CAAD400158A2C /* TurnMeUp */ = {
+			isa = PBXGroup;
+			children = (
+				8C263EF52F1CAAD400158A2C /* TurnMeUp.xml */,
+				8C263EF62F1CAAD400158A2C /* TurnMeUpDocument.swift */,
+				8C263EF72F1CAAD400158A2C /* TurnMeUpGame.swift */,
+				8C263EF82F1CAAD400158A2C /* TurnMeUpGameScene.swift */,
+				8C263EF92F1CAAD400158A2C /* TurnMeUpGameState.swift */,
+				8C263EFA2F1CAAD400158A2C /* TurnMeUpGameViewController.swift */,
+				8C263EFB2F1CAAD400158A2C /* TurnMeUpGridNode.swift */,
+				8C263EFC2F1CAAD400158A2C /* TurnMeUpMainViewController.swift */,
+				8C263EFD2F1CAAD400158A2C /* TurnMeUpObject.swift */,
+			);
+			path = TurnMeUp;
+			sourceTree = "<group>";
+		};
 		8C2963D51FA20D620017A812 /* RobotFences */ = {
 			isa = PBXGroup;
 			children = (
@@ -3835,6 +3869,7 @@
 				8C2319E21FB88E3F0021C680 /* TierraDelFuego */,
 				8C81BC0F2EA84D010083B936 /* TraceNumbers */,
 				8C263E432F11EFA100158A2C /* Trebuchet */,
+				8C263EFE2F1CAAD400158A2C /* TurnMeUp */,
 				8CAFBFDA2E9F19A500C27D7C /* TurnTwice */,
 				8C263EA42F13E29500158A2C /* Underground */,
 				8C263EE92F1CA32100158A2C /* Unseen */,
@@ -6511,6 +6546,7 @@
 				8C8664192EA39DD00078CD64 /* wine_white_glass.png in Resources */,
 				8C86641A2EA39DD00078CD64 /* arrow_brown_up.png in Resources */,
 				8C86641B2EA39DD00078CD64 /* A3.png in Resources */,
+				8C263F072F1CAAD500158A2C /* TurnMeUp.xml in Resources */,
 				8C86641C2EA39DD00078CD64 /* bullet_ball_glass_blue.png in Resources */,
 				8C86641D2EA39DD00078CD64 /* tetris_red.png in Resources */,
 				8C86641E2EA39DD00078CD64 /* shade_5.png in Resources */,
@@ -6763,6 +6799,14 @@
 				8C263EEB2F1CA32100158A2C /* UnseenDocument.swift in Sources */,
 				8C263EEC2F1CA32100158A2C /* UnseenMainViewController.swift in Sources */,
 				8C263EED2F1CA32100158A2C /* UnseenObject.swift in Sources */,
+				8C263EFF2F1CAAD400158A2C /* TurnMeUpGridNode.swift in Sources */,
+				8C263F002F1CAAD400158A2C /* TurnMeUpGameScene.swift in Sources */,
+				8C263F012F1CAAD400158A2C /* TurnMeUpMainViewController.swift in Sources */,
+				8C263F022F1CAAD400158A2C /* TurnMeUpGame.swift in Sources */,
+				8C263F032F1CAAD400158A2C /* TurnMeUpGameViewController.swift in Sources */,
+				8C263F042F1CAAD400158A2C /* TurnMeUpDocument.swift in Sources */,
+				8C263F052F1CAAD400158A2C /* TurnMeUpObject.swift in Sources */,
+				8C263F062F1CAAD400158A2C /* TurnMeUpGameState.swift in Sources */,
 				8C263EEE2F1CA32100158A2C /* UnseenGameScene.swift in Sources */,
 				8C263EEF2F1CA32100158A2C /* UnseenGame.swift in Sources */,
 				8C263EF02F1CA32100158A2C /* UnseenGridNode.swift in Sources */,

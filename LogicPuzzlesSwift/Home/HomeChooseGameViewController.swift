@@ -27,6 +27,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         "Square100": "Square 100",
         "TapAlike": "Tap-Alike",
         "TapARow": "Tap-A-Row",
+        "TurnMeUp": "Turn me up",
     ]
     var selectedRow: Int!
     
