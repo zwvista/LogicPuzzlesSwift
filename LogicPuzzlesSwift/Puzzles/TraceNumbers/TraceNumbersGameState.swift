@@ -108,7 +108,6 @@ class TraceNumbersGameState: GridGameState<TraceNumbersGameMove> {
                 if ch != " " { chars.append(ch) }
                 let j = (i + 2) % 4
                 var dirs = ch2dirs[p2]!
-                if !dirs.contains(j) { isSolved = false; return }
                 dirs = dirs.filter { $0 != j }
                 guard !dirs.isEmpty else {break}
                 i = dirs.first!

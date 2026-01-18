@@ -68,7 +68,7 @@ class TurnMeUpGameState: GridGameState<TurnMeUpGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        var chOneArray = [Position]()
+        var circles = Set<Position>()
         var ch2dirs = [Position: [Int]]()
         for r in 0..<rows {
             for c in 0..<cols {
@@ -76,19 +76,18 @@ class TurnMeUpGameState: GridGameState<TurnMeUpGameMove> {
                 let o = self[p]
                 let ch = game[p]
                 let dirs = (0..<4).filter { o[$0] }
+                // 2. The number on the circle tells you how many turns the connection
+                //    does between circles.
                 switch dirs.count {
                 case 1:
-                    // 2. You should draw as many lines into the grid as number sets:
-                    //    a line starts with the number 1, goes through the numbers in
-                    //    order up to the highest, where it ends.
-                    guard ch == TurnMeUpGame.PUZ_ONE || ch == game.chMax else { isSolved = false; return }
-                    if ch == TurnMeUpGame.PUZ_ONE { chOneArray.append(p) }
+                    guard ch != " " else { isSolved = false; return }
+                    circles.insert(p)
                     ch2dirs[p] = dirs
                 case 2:
+                    guard ch == " " else { isSolved = false; return }
                     ch2dirs[p] = dirs
                 default:
-                    // 3. In doing this, you have to pass through all tiles on the board.
-                    //    Lines cannot cross.
+                    // 4. All tiles on the board must be used
                     isSolved = false; return
                 }
             }
@@ -96,24 +95,29 @@ class TurnMeUpGameState: GridGameState<TurnMeUpGameMove> {
         // 2. You should draw as many lines into the grid as number sets:
         //    a line starts with the number 1, goes through the numbers in
         //    order up to the highest, where it ends.
-        for p in chOneArray {
-            var chars = String(TurnMeUpGame.PUZ_ONE)
+        while !circles.isEmpty {
+            let p = circles.first!
+            let ch1 = game[p]
             var i = ch2dirs[p]!.first!
             var os = TurnMeUpGame.offset[i]
             var p2 = p + os
+            var nTurn = 0
             while true {
-                let ch = game[p2]
-                if ch != " " { chars.append(ch) }
                 let j = (i + 2) % 4
                 var dirs = ch2dirs[p2]!
-                if !dirs.contains(j) { isSolved = false; return }
                 dirs = dirs.filter { $0 != j }
                 guard !dirs.isEmpty else {break}
-                i = dirs.first!
+                let k = dirs.first!
+                if k != i {
+                    nTurn += 1
+                    i = k
+                }
                 os = TurnMeUpGame.offset[i]
                 p2 += os
             }
-            if chars != game.expectedChars { isSolved = false; return }
+            let ch2 = game[p2]
+            guard ch1 == TurnMeUpGame.PUZ_QM || ch2 == TurnMeUpGame.PUZ_QM || ch1 == ch2 && ch1.toInt! == nTurn else { isSolved = false; return }
+            circles.remove(p); circles.remove(p2)
         }
     }
 }
