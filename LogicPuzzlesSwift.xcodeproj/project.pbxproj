@@ -167,6 +167,15 @@
 		8C263F052F1CAAD400158A2C /* TurnMeUpObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EFD2F1CAAD400158A2C /* TurnMeUpObject.swift */; };
 		8C263F062F1CAAD400158A2C /* TurnMeUpGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263EF92F1CAAD400158A2C /* TurnMeUpGameState.swift */; };
 		8C263F072F1CAAD500158A2C /* TurnMeUp.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263EF52F1CAAD400158A2C /* TurnMeUp.xml */; };
+		8C263F122F1CEA2700158A2C /* PathOnTheMountainsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F102F1CEA2700158A2C /* PathOnTheMountainsObject.swift */; };
+		8C263F132F1CEA2700158A2C /* PathOnTheMountainsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F0D2F1CEA2700158A2C /* PathOnTheMountainsGameViewController.swift */; };
+		8C263F142F1CEA2700158A2C /* PathOnTheMountainsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F0F2F1CEA2700158A2C /* PathOnTheMountainsMainViewController.swift */; };
+		8C263F152F1CEA2700158A2C /* PathOnTheMountainsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F0C2F1CEA2700158A2C /* PathOnTheMountainsGameState.swift */; };
+		8C263F162F1CEA2700158A2C /* PathOnTheMountainsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F092F1CEA2700158A2C /* PathOnTheMountainsDocument.swift */; };
+		8C263F172F1CEA2700158A2C /* PathOnTheMountainsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F0E2F1CEA2700158A2C /* PathOnTheMountainsGridNode.swift */; };
+		8C263F182F1CEA2700158A2C /* PathOnTheMountainsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F0B2F1CEA2700158A2C /* PathOnTheMountainsGameScene.swift */; };
+		8C263F192F1CEA2700158A2C /* PathOnTheMountainsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F0A2F1CEA2700158A2C /* PathOnTheMountainsGame.swift */; };
+		8C263F1A2F1CEA2700158A2C /* PathOnTheMountains.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263F082F1CEA2700158A2C /* PathOnTheMountains.xml */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -1792,6 +1801,15 @@
 		8C263EFB2F1CAAD400158A2C /* TurnMeUpGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnMeUpGridNode.swift; sourceTree = "<group>"; };
 		8C263EFC2F1CAAD400158A2C /* TurnMeUpMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnMeUpMainViewController.swift; sourceTree = "<group>"; };
 		8C263EFD2F1CAAD400158A2C /* TurnMeUpObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnMeUpObject.swift; sourceTree = "<group>"; };
+		8C263F082F1CEA2700158A2C /* PathOnTheMountains.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PathOnTheMountains.xml; sourceTree = "<group>"; };
+		8C263F092F1CEA2700158A2C /* PathOnTheMountainsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathOnTheMountainsDocument.swift; sourceTree = "<group>"; };
+		8C263F0A2F1CEA2700158A2C /* PathOnTheMountainsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathOnTheMountainsGame.swift; sourceTree = "<group>"; };
+		8C263F0B2F1CEA2700158A2C /* PathOnTheMountainsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathOnTheMountainsGameScene.swift; sourceTree = "<group>"; };
+		8C263F0C2F1CEA2700158A2C /* PathOnTheMountainsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathOnTheMountainsGameState.swift; sourceTree = "<group>"; };
+		8C263F0D2F1CEA2700158A2C /* PathOnTheMountainsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathOnTheMountainsGameViewController.swift; sourceTree = "<group>"; };
+		8C263F0E2F1CEA2700158A2C /* PathOnTheMountainsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathOnTheMountainsGridNode.swift; sourceTree = "<group>"; };
+		8C263F0F2F1CEA2700158A2C /* PathOnTheMountainsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathOnTheMountainsMainViewController.swift; sourceTree = "<group>"; };
+		8C263F102F1CEA2700158A2C /* PathOnTheMountainsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathOnTheMountainsObject.swift; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -3575,6 +3593,22 @@
 			path = TurnMeUp;
 			sourceTree = "<group>";
 		};
+		8C263F112F1CEA2700158A2C /* PathOnTheMountains */ = {
+			isa = PBXGroup;
+			children = (
+				8C263F082F1CEA2700158A2C /* PathOnTheMountains.xml */,
+				8C263F092F1CEA2700158A2C /* PathOnTheMountainsDocument.swift */,
+				8C263F0A2F1CEA2700158A2C /* PathOnTheMountainsGame.swift */,
+				8C263F0B2F1CEA2700158A2C /* PathOnTheMountainsGameScene.swift */,
+				8C263F0C2F1CEA2700158A2C /* PathOnTheMountainsGameState.swift */,
+				8C263F0D2F1CEA2700158A2C /* PathOnTheMountainsGameViewController.swift */,
+				8C263F0E2F1CEA2700158A2C /* PathOnTheMountainsGridNode.swift */,
+				8C263F0F2F1CEA2700158A2C /* PathOnTheMountainsMainViewController.swift */,
+				8C263F102F1CEA2700158A2C /* PathOnTheMountainsObject.swift */,
+			);
+			path = PathOnTheMountains;
+			sourceTree = "<group>";
+		};
 		8C2963D51FA20D620017A812 /* RobotFences */ = {
 			isa = PBXGroup;
 			children = (
@@ -3830,6 +3864,7 @@
 				8C7474431FBED8BC00C4112C /* ParkLakes */,
 				8C3A35591EC88D4100A914A5 /* Parks */,
 				8C9F324C1ED1FAF600E10965 /* Pata */,
+				8C263F112F1CEA2700158A2C /* PathOnTheMountains */,
 				8C263E692F11F53000158A2C /* Pipemania */,
 				8CB721C62EAAE62D001B25C5 /* Planks */,
 				8C263E562F11F2A100158A2C /* PlugItIn */,
@@ -6671,6 +6706,7 @@
 				8C35E3A51FC4839100A26EE3 /* Walls.xml in Resources */,
 				8C3A36F01EC88D4300A914A5 /* Magnets.xml in Resources */,
 				8C3A369C1EC88D4200A914A5 /* Hitori.xml in Resources */,
+				8C263F1A2F1CEA2700158A2C /* PathOnTheMountains.xml in Resources */,
 				8C263EF42F1CA89300158A2C /* see.png in Resources */,
 				8C3A36C01EC88D4300A914A5 /* Lighthouses.xml in Resources */,
 				8C3A378C1EC88D4400A914A5 /* Rooms.xml in Resources */,
@@ -6789,6 +6825,14 @@
 				8C9BD51A2F0A32CA00D1D915 /* FreePlanksGameState.swift in Sources */,
 				8C9F324A1ED1FAD400E10965 /* BWTapaObject.swift in Sources */,
 				8C7E4B441F793C9800B57C60 /* TennerGridDocument.swift in Sources */,
+				8C263F122F1CEA2700158A2C /* PathOnTheMountainsObject.swift in Sources */,
+				8C263F132F1CEA2700158A2C /* PathOnTheMountainsGameViewController.swift in Sources */,
+				8C263F142F1CEA2700158A2C /* PathOnTheMountainsMainViewController.swift in Sources */,
+				8C263F152F1CEA2700158A2C /* PathOnTheMountainsGameState.swift in Sources */,
+				8C263F162F1CEA2700158A2C /* PathOnTheMountainsDocument.swift in Sources */,
+				8C263F172F1CEA2700158A2C /* PathOnTheMountainsGridNode.swift in Sources */,
+				8C263F182F1CEA2700158A2C /* PathOnTheMountainsGameScene.swift in Sources */,
+				8C263F192F1CEA2700158A2C /* PathOnTheMountainsGame.swift in Sources */,
 				8C3A35EC1EC88D4200A914A5 /* AbcGameState.swift in Sources */,
 				8C6D373B1DC421180052202C /* HomeOptionsViewController.swift in Sources */,
 				8C3A37E81EC88D4400A914A5 /* TentsMainViewController.swift in Sources */,

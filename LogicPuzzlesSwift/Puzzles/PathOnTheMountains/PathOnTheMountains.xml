@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Fill the board with a loop that passes through all tiles.
+2. The path should make 90 degrees turns on the spots.
+3. Between spots, the path makes one more 90 degrees turn.
+4. So the path alternates turning on spots and outside them.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+ O O O`
+  O   `
+O   O `
+  OO  `
+O   O `
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+O O   `
+    O `
+     O`
+ O O  `
+     O`
+    ]]>
+  </level>
+  <level id="300">
+    <![CDATA[
+ O      O O`
+  OO       `
+ O     O O `
+   OO      `
+ O     O  O`
+  O O O  O `
+  O O   O O`
+O     O O  `
+ O O O     `
+O      O O `
+    ]]>
+  </level>
+</levels>
+</puzzle>
