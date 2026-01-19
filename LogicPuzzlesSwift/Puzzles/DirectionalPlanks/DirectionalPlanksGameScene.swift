@@ -14,10 +14,10 @@ class DirectionalPlanksGameScene: GameScene<DirectionalPlanksGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addNail(point: CGPoint, nodeName: String) {
-        addImage(imageNamed: "nail_head", color: .red, colorBlendFactor: 0.0, point: point, nodeName: nodeName)
+    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
+        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
-    
+
     override func levelInitialized(_ game: AnyObject, state: DirectionalPlanksGameState, skView: SKView) {
         let game = game as! DirectionalPlanksGame
         removeAllChildren()
@@ -28,11 +28,11 @@ class DirectionalPlanksGameScene: GameScene<DirectionalPlanksGameState> {
         addGrid(gridNode: DirectionalPlanksGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset))
         
         // add Nails
-        for p in game.nails {
+        for (p, n) in game.pos2hint {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let nailNodeName = "nail" + nodeNameSuffix
-            addNail(point: point, nodeName: nailNodeName)
+            let hintNodeName = "hint" + nodeNameSuffix
+            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
         }
         
         for r in 0..<game.rows {
@@ -53,7 +53,7 @@ class DirectionalPlanksGameScene: GameScene<DirectionalPlanksGameState> {
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let horzLineNodeName = "horzLine" + nodeNameSuffix
                 let vertlineNodeName = "vertline" + nodeNameSuffix
-                let nailNodeName = "nail" + nodeNameSuffix
+                let hintNodeName = "hint" + nodeNameSuffix
                 let plankNodeName = "plank" + nodeNameSuffix
                 func removeHorzLine(objType: GridLineObject) {
                     if objType != .empty { removeNode(withName: horzLineNodeName) }
@@ -72,15 +72,12 @@ class DirectionalPlanksGameScene: GameScene<DirectionalPlanksGameState> {
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
                 }
                 let (b1, b2) = (stateFrom.woods.contains(p), stateTo.woods.contains(p))
-                let isNail = stateFrom.game.nails.contains(p)
-                if b1 != b2 {
-                    if b1 { removeNode(withName: plankNodeName) }
-                    if b2 {
-                        if isNail { removeNode(withName: nailNodeName) }
-                        addImage(imageNamed: "wood horizontal", color: .red, colorBlendFactor: 0.0, point: point, nodeName: plankNodeName)
-                        if isNail { addNail(point: point, nodeName: nailNodeName) }
-                    }
-                }
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                let isHint = stateFrom.pos2state.keys.contains(p)
+                if b1 != b2 && b1 { removeNode(withName: plankNodeName) }
+                if b1 != b2 && isHint || s1 != s2 { removeNode(withName: hintNodeName) }
+                if b1 != b2 && b2 { addImage(imageNamed: "wood horizontal", color: .red, colorBlendFactor: 0.0, point: point, nodeName: plankNodeName) }
+                if b1 != b2 && isHint || s1 != s2 { addHint(n: stateFrom.game.pos2hint[p]!, s: stateTo.pos2state[p]!, point: point, nodeName: hintNodeName) }
             }
         }
     }

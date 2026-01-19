@@ -16,6 +16,7 @@ class DirectionalPlanksGameState: GridGameState<DirectionalPlanksGameMove> {
     override var gameDocument: GameDocumentBase { DirectionalPlanksDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var woods = Set<Position>()
+    var pos2state = [Position: HintState]()
     
     override func copy() -> DirectionalPlanksGameState {
         let v = DirectionalPlanksGameState(game: game, isCopy: true)
@@ -106,6 +107,8 @@ class DirectionalPlanksGameState: GridGameState<DirectionalPlanksGameMove> {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
                 pos2node[p] = g.addNode(p.description)
+                guard game.pos2hint.keys.contains(p) else {continue}
+                pos2state[p] = .normal
             }
         }
         for r in 0..<rows - 1 {
@@ -117,34 +120,35 @@ class DirectionalPlanksGameState: GridGameState<DirectionalPlanksGameMove> {
                 }
             }
         }
-        woods.removeAll()
         var planks = [[Position]]()
-        var pos2plank = [Position: Int]()
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
-            let rng = area.filter { game.nails.contains($0) }
+            let rng = area.filter { game.pos2hint.keys.contains($0) }
             if rng.isEmpty {continue}
-            // 2. Planks are areas of exactly three cells and can be straight or angled.
-            guard area.count == 3 else { isSolved = false; continue }
-            // 1. Locate some pieces of wood (Planks).
-            // 3. Each Plank contains one nail.
-            guard rng.count == 1 else { isSolved = false; continue }
-            let n = planks.count
+            // 1. Divide the board in areas of three tiles (planks_offset).
+            guard area.count == 3, rng.count == 1 else { isSolved = false; continue }
             planks.append(area)
             for p in area {
-                pos2plank[p] = n
                 woods.insert(p)
             }
         }
-        // 4. After finding all the Planks, it must be possible to move each piece
-        //    by one cell in at least one direction.
+        func isValidWood(p: Position) -> Bool {
+            0..<rows - 1 ~= p.row && 0..<cols - 1 ~= p.col
+        }
+        // 2. Each plank contains one number and the number tells you how many
+        //    directions the Plank can move, when the board is completed.
         for plank in planks {
-            if !DirectionalPlanksGame.offset.contains(where: { os in
+            let pHint = plank.first { game.pos2hint.keys.contains($0) }!
+            let n2 = game.pos2hint[pHint]!
+            let n1 = DirectionalPlanksGame.offset.count { os in
                 let area = plank.map { $0 + os }
-                return area.testAll { [unowned self] in plank.contains($0) || !woods.contains($0) }
-            }) { isSolved = false }
+                return area.testAll { [unowned self] in plank.contains($0) || isValidWood(p: $0) && !woods.contains($0) }
+            }
+            let s: HintState = n1 == n2 ? .complete : .error
+            pos2state[pHint] = s
+            if s != .complete { isSolved = false }
         }
     }
 }

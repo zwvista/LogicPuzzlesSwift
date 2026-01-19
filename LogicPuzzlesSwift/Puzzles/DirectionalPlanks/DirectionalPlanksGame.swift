@@ -19,7 +19,7 @@ class DirectionalPlanksGame: GridGame<DirectionalPlanksGameState> {
     static let dirs = [1, 0, 3, 2]
 
     var objArray = [GridDotObject]()
-    var nails = Set<Position>()
+    var pos2hint = [Position: Int]()
     
     init(layout: [String], delegate: DirectionalPlanksGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -32,7 +32,7 @@ class DirectionalPlanksGame: GridGame<DirectionalPlanksGameState> {
             for c in 0..<cols - 1 {
                 let ch = str[c]
                 guard ch != " " else {continue}
-                nails.insert(Position(r, c))
+                pos2hint[Position(r, c)] = ch.toInt!
             }
         }
         for r in 0..<rows - 1 {
