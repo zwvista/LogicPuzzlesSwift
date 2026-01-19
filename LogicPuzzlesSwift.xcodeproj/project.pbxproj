@@ -213,6 +213,15 @@
 		8C263F662F1E7DE600158A2C /* CrossroadsXGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F5B2F1E7DE600158A2C /* CrossroadsXGameViewController.swift */; };
 		8C263F672F1E7DE600158A2C /* CrossroadsXMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F5D2F1E7DE600158A2C /* CrossroadsXMainViewController.swift */; };
 		8C263F682F1E7DE600158A2C /* CrossroadsX.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263F562F1E7DE600158A2C /* CrossroadsX.xml */; };
+		8C263F732F1E812D00158A2C /* DigitWormsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F6B2F1E812D00158A2C /* DigitWormsGame.swift */; };
+		8C263F742F1E812D00158A2C /* DigitWormsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F6E2F1E812D00158A2C /* DigitWormsGameViewController.swift */; };
+		8C263F752F1E812D00158A2C /* DigitWormsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F6A2F1E812D00158A2C /* DigitWormsDocument.swift */; };
+		8C263F762F1E812D00158A2C /* DigitWormsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F6F2F1E812D00158A2C /* DigitWormsGridNode.swift */; };
+		8C263F772F1E812D00158A2C /* DigitWormsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F702F1E812D00158A2C /* DigitWormsMainViewController.swift */; };
+		8C263F782F1E812D00158A2C /* DigitWormsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F712F1E812D00158A2C /* DigitWormsObject.swift */; };
+		8C263F792F1E812D00158A2C /* DigitWormsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F6C2F1E812D00158A2C /* DigitWormsGameScene.swift */; };
+		8C263F7A2F1E812D00158A2C /* DigitWormsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F6D2F1E812D00158A2C /* DigitWormsGameState.swift */; };
+		8C263F7B2F1E812D00158A2C /* DigitWorms.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263F692F1E812D00158A2C /* DigitWorms.xml */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -1884,6 +1893,15 @@
 		8C263F5C2F1E7DE600158A2C /* CrossroadsXGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossroadsXGridNode.swift; sourceTree = "<group>"; };
 		8C263F5D2F1E7DE600158A2C /* CrossroadsXMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossroadsXMainViewController.swift; sourceTree = "<group>"; };
 		8C263F5E2F1E7DE600158A2C /* CrossroadsXObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossroadsXObject.swift; sourceTree = "<group>"; };
+		8C263F692F1E812D00158A2C /* DigitWorms.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = DigitWorms.xml; sourceTree = "<group>"; };
+		8C263F6A2F1E812D00158A2C /* DigitWormsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitWormsDocument.swift; sourceTree = "<group>"; };
+		8C263F6B2F1E812D00158A2C /* DigitWormsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitWormsGame.swift; sourceTree = "<group>"; };
+		8C263F6C2F1E812D00158A2C /* DigitWormsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitWormsGameScene.swift; sourceTree = "<group>"; };
+		8C263F6D2F1E812D00158A2C /* DigitWormsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitWormsGameState.swift; sourceTree = "<group>"; };
+		8C263F6E2F1E812D00158A2C /* DigitWormsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitWormsGameViewController.swift; sourceTree = "<group>"; };
+		8C263F6F2F1E812D00158A2C /* DigitWormsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitWormsGridNode.swift; sourceTree = "<group>"; };
+		8C263F702F1E812D00158A2C /* DigitWormsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitWormsMainViewController.swift; sourceTree = "<group>"; };
+		8C263F712F1E812D00158A2C /* DigitWormsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitWormsObject.swift; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -3747,6 +3765,22 @@
 			path = CrossroadsX;
 			sourceTree = "<group>";
 		};
+		8C263F722F1E812D00158A2C /* DigitWorms */ = {
+			isa = PBXGroup;
+			children = (
+				8C263F692F1E812D00158A2C /* DigitWorms.xml */,
+				8C263F6A2F1E812D00158A2C /* DigitWormsDocument.swift */,
+				8C263F6B2F1E812D00158A2C /* DigitWormsGame.swift */,
+				8C263F6C2F1E812D00158A2C /* DigitWormsGameScene.swift */,
+				8C263F6D2F1E812D00158A2C /* DigitWormsGameState.swift */,
+				8C263F6E2F1E812D00158A2C /* DigitWormsGameViewController.swift */,
+				8C263F6F2F1E812D00158A2C /* DigitWormsGridNode.swift */,
+				8C263F702F1E812D00158A2C /* DigitWormsMainViewController.swift */,
+				8C263F712F1E812D00158A2C /* DigitWormsObject.swift */,
+			);
+			path = DigitWorms;
+			sourceTree = "<group>";
+		};
 		8C2963D51FA20D620017A812 /* RobotFences */ = {
 			isa = PBXGroup;
 			children = (
@@ -3942,6 +3976,7 @@
 				8C81BC352EA8EF030083B936 /* DesertDunes */,
 				8C3A343B1EC88D4100A914A5 /* DigitalBattleShips */,
 				8CFB22322EF8FF1000E5F29D /* DigitalPath */,
+				8C263F722F1E812D00158A2C /* DigitWorms */,
 				8C263F262F1D08A700158A2C /* DirectionalPlanks */,
 				8CF3FFC71FCB2A2600D41B67 /* DisconnectFour */,
 				8C3A34481EC88D4100A914A5 /* Domino */,
@@ -6611,6 +6646,7 @@
 				8C8663B32EA39DD00078CD64 /* icecube.png in Resources */,
 				8C8663B42EA39DD00078CD64 /* A4.png in Resources */,
 				8C8663B52EA39DD00078CD64 /* A4-stone.png in Resources */,
+				8C263F7B2F1E812D00158A2C /* DigitWorms.xml in Resources */,
 				8C8663B62EA39DD00078CD64 /* arrow_red2_down.png in Resources */,
 				8C8663B72EA39DD00078CD64 /* arrow_cyan_down.png in Resources */,
 				8C8663B82EA39DD00078CD64 /* arrow_blue_dl.png in Resources */,
@@ -7090,6 +7126,14 @@
 				8CDAE80D1F646C29000DE5AF /* BalancedTapasGameViewController.swift in Sources */,
 				8C3A37101EC88D4300A914A5 /* MineShipsMainViewController.swift in Sources */,
 				8C3A373C1EC88D4300A914A5 /* NeighboursGameState.swift in Sources */,
+				8C263F732F1E812D00158A2C /* DigitWormsGame.swift in Sources */,
+				8C263F742F1E812D00158A2C /* DigitWormsGameViewController.swift in Sources */,
+				8C263F752F1E812D00158A2C /* DigitWormsDocument.swift in Sources */,
+				8C263F762F1E812D00158A2C /* DigitWormsGridNode.swift in Sources */,
+				8C263F772F1E812D00158A2C /* DigitWormsMainViewController.swift in Sources */,
+				8C263F782F1E812D00158A2C /* DigitWormsObject.swift in Sources */,
+				8C263F792F1E812D00158A2C /* DigitWormsGameScene.swift in Sources */,
+				8C263F7A2F1E812D00158A2C /* DigitWormsGameState.swift in Sources */,
 				8C3A37511EC88D4300A914A5 /* OrchardsDocument.swift in Sources */,
 				8CA042E31FDB878800AF85E1 /* FillominoGameState.swift in Sources */,
 				8C1D4F901F7D079F000D5FB3 /* Square100Object.swift in Sources */,
