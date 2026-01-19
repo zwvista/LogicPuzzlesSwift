@@ -204,6 +204,15 @@
 		8C263F532F1D169F00158A2C /* JoinMeDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F442F1D169F00158A2C /* JoinMeDocument.swift */; };
 		8C263F542F1D169F00158A2C /* JoinMeGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F482F1D169F00158A2C /* JoinMeGameViewController.swift */; };
 		8C263F552F1D169F00158A2C /* JoinMe.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263F432F1D169E00158A2C /* JoinMe.xml */; };
+		8C263F602F1E7DE600158A2C /* CrossroadsXGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F5A2F1E7DE600158A2C /* CrossroadsXGameState.swift */; };
+		8C263F612F1E7DE600158A2C /* CrossroadsXDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F572F1E7DE600158A2C /* CrossroadsXDocument.swift */; };
+		8C263F622F1E7DE600158A2C /* CrossroadsXObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F5E2F1E7DE600158A2C /* CrossroadsXObject.swift */; };
+		8C263F632F1E7DE600158A2C /* CrossroadsXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F582F1E7DE600158A2C /* CrossroadsXGame.swift */; };
+		8C263F642F1E7DE600158A2C /* CrossroadsXGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F5C2F1E7DE600158A2C /* CrossroadsXGridNode.swift */; };
+		8C263F652F1E7DE600158A2C /* CrossroadsXGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F592F1E7DE600158A2C /* CrossroadsXGameScene.swift */; };
+		8C263F662F1E7DE600158A2C /* CrossroadsXGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F5B2F1E7DE600158A2C /* CrossroadsXGameViewController.swift */; };
+		8C263F672F1E7DE600158A2C /* CrossroadsXMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F5D2F1E7DE600158A2C /* CrossroadsXMainViewController.swift */; };
+		8C263F682F1E7DE600158A2C /* CrossroadsX.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263F562F1E7DE600158A2C /* CrossroadsX.xml */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -1866,6 +1875,15 @@
 		8C263F492F1D169F00158A2C /* JoinMeGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinMeGridNode.swift; sourceTree = "<group>"; };
 		8C263F4A2F1D169F00158A2C /* JoinMeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinMeMainViewController.swift; sourceTree = "<group>"; };
 		8C263F4B2F1D169F00158A2C /* JoinMeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinMeObject.swift; sourceTree = "<group>"; };
+		8C263F562F1E7DE600158A2C /* CrossroadsX.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CrossroadsX.xml; sourceTree = "<group>"; };
+		8C263F572F1E7DE600158A2C /* CrossroadsXDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossroadsXDocument.swift; sourceTree = "<group>"; };
+		8C263F582F1E7DE600158A2C /* CrossroadsXGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossroadsXGame.swift; sourceTree = "<group>"; };
+		8C263F592F1E7DE600158A2C /* CrossroadsXGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossroadsXGameScene.swift; sourceTree = "<group>"; };
+		8C263F5A2F1E7DE600158A2C /* CrossroadsXGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossroadsXGameState.swift; sourceTree = "<group>"; };
+		8C263F5B2F1E7DE600158A2C /* CrossroadsXGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossroadsXGameViewController.swift; sourceTree = "<group>"; };
+		8C263F5C2F1E7DE600158A2C /* CrossroadsXGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossroadsXGridNode.swift; sourceTree = "<group>"; };
+		8C263F5D2F1E7DE600158A2C /* CrossroadsXMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossroadsXMainViewController.swift; sourceTree = "<group>"; };
+		8C263F5E2F1E7DE600158A2C /* CrossroadsXObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossroadsXObject.swift; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -3713,6 +3731,22 @@
 			path = JoinMe;
 			sourceTree = "<group>";
 		};
+		8C263F5F2F1E7DE600158A2C /* CrossroadsX */ = {
+			isa = PBXGroup;
+			children = (
+				8C263F562F1E7DE600158A2C /* CrossroadsX.xml */,
+				8C263F572F1E7DE600158A2C /* CrossroadsXDocument.swift */,
+				8C263F582F1E7DE600158A2C /* CrossroadsXGame.swift */,
+				8C263F592F1E7DE600158A2C /* CrossroadsXGameScene.swift */,
+				8C263F5A2F1E7DE600158A2C /* CrossroadsXGameState.swift */,
+				8C263F5B2F1E7DE600158A2C /* CrossroadsXGameViewController.swift */,
+				8C263F5C2F1E7DE600158A2C /* CrossroadsXGridNode.swift */,
+				8C263F5D2F1E7DE600158A2C /* CrossroadsXMainViewController.swift */,
+				8C263F5E2F1E7DE600158A2C /* CrossroadsXObject.swift */,
+			);
+			path = CrossroadsX;
+			sourceTree = "<group>";
+		};
 		8C2963D51FA20D620017A812 /* RobotFences */ = {
 			isa = PBXGroup;
 			children = (
@@ -3903,6 +3937,7 @@
 				8C9BD5702F0A608A00D1D915 /* Chocolate */,
 				8C3A342E1EC88D4100A914A5 /* Clouds */,
 				8C81BC222EA8A6BD0083B936 /* CoffeeAndSugar */,
+				8C263F5F2F1E7DE600158A2C /* CrossroadsX */,
 				8C263E7E2F13DC5200158A2C /* CulturedBranches */,
 				8C81BC352EA8EF030083B936 /* DesertDunes */,
 				8C3A343B1EC88D4100A914A5 /* DigitalBattleShips */,
@@ -6533,6 +6568,7 @@
 				8C86638D2EA39DD00078CD64 /* hamburger.png in Resources */,
 				8C86638E2EA39DD00078CD64 /* hedgehog.png in Resources */,
 				8C86638F2EA39DD00078CD64 /* arrow_brown_right.png in Resources */,
+				8C263F682F1E7DE600158A2C /* CrossroadsX.xml in Resources */,
 				8C8663902EA39DD00078CD64 /* arrow_blue_ur.png in Resources */,
 				8C8663912EA39DD00078CD64 /* toucan.png in Resources */,
 				8C8663922EA39DD00078CD64 /* arrow_yellow_up.png in Resources */,
@@ -7379,6 +7415,14 @@
 				8CB721CC2EAAE62D001B25C5 /* PlanksGameState.swift in Sources */,
 				8CB721CD2EAAE62D001B25C5 /* PlanksGridNode.swift in Sources */,
 				8CB721CE2EAAE62D001B25C5 /* PlanksDocument.swift in Sources */,
+				8C263F602F1E7DE600158A2C /* CrossroadsXGameState.swift in Sources */,
+				8C263F612F1E7DE600158A2C /* CrossroadsXDocument.swift in Sources */,
+				8C263F622F1E7DE600158A2C /* CrossroadsXObject.swift in Sources */,
+				8C263F632F1E7DE600158A2C /* CrossroadsXGame.swift in Sources */,
+				8C263F642F1E7DE600158A2C /* CrossroadsXGridNode.swift in Sources */,
+				8C263F652F1E7DE600158A2C /* CrossroadsXGameScene.swift in Sources */,
+				8C263F662F1E7DE600158A2C /* CrossroadsXGameViewController.swift in Sources */,
+				8C263F672F1E7DE600158A2C /* CrossroadsXMainViewController.swift in Sources */,
 				8C6A9BEE1F812743002A44FF /* KropkiObject.swift in Sources */,
 				8CFAF9A4202615570095EFFC /* WallSentinelsObject.swift in Sources */,
 				8CFAF9C320381D870095EFFC /* CastleBaileyGameState.swift in Sources */,
