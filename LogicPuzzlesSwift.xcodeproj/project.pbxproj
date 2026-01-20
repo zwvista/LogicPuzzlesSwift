@@ -222,6 +222,15 @@
 		8C263F792F1E812D00158A2C /* DigitWormsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F6C2F1E812D00158A2C /* DigitWormsGameScene.swift */; };
 		8C263F7A2F1E812D00158A2C /* DigitWormsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F6D2F1E812D00158A2C /* DigitWormsGameState.swift */; };
 		8C263F7B2F1E812D00158A2C /* DigitWorms.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263F692F1E812D00158A2C /* DigitWorms.xml */; };
+		8C263F862F20425300158A2C /* PondCampingGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F812F20425300158A2C /* PondCampingGameViewController.swift */; };
+		8C263F872F20425300158A2C /* PondCampingGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F822F20425300158A2C /* PondCampingGridNode.swift */; };
+		8C263F882F20425300158A2C /* PondCampingDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F7D2F20425300158A2C /* PondCampingDocument.swift */; };
+		8C263F892F20425300158A2C /* PondCampingObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F842F20425300158A2C /* PondCampingObject.swift */; };
+		8C263F8A2F20425300158A2C /* PondCampingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F832F20425300158A2C /* PondCampingMainViewController.swift */; };
+		8C263F8B2F20425300158A2C /* PondCampingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F7E2F20425300158A2C /* PondCampingGame.swift */; };
+		8C263F8C2F20425300158A2C /* PondCampingGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F7F2F20425300158A2C /* PondCampingGameScene.swift */; };
+		8C263F8D2F20425300158A2C /* PondCampingGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F802F20425300158A2C /* PondCampingGameState.swift */; };
+		8C263F8E2F20425300158A2C /* PondCamping.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263F7C2F20425300158A2C /* PondCamping.xml */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -1902,6 +1911,15 @@
 		8C263F6F2F1E812D00158A2C /* DigitWormsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitWormsGridNode.swift; sourceTree = "<group>"; };
 		8C263F702F1E812D00158A2C /* DigitWormsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitWormsMainViewController.swift; sourceTree = "<group>"; };
 		8C263F712F1E812D00158A2C /* DigitWormsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DigitWormsObject.swift; sourceTree = "<group>"; };
+		8C263F7C2F20425300158A2C /* PondCamping.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PondCamping.xml; sourceTree = "<group>"; };
+		8C263F7D2F20425300158A2C /* PondCampingDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PondCampingDocument.swift; sourceTree = "<group>"; };
+		8C263F7E2F20425300158A2C /* PondCampingGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PondCampingGame.swift; sourceTree = "<group>"; };
+		8C263F7F2F20425300158A2C /* PondCampingGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PondCampingGameScene.swift; sourceTree = "<group>"; };
+		8C263F802F20425300158A2C /* PondCampingGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PondCampingGameState.swift; sourceTree = "<group>"; };
+		8C263F812F20425300158A2C /* PondCampingGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PondCampingGameViewController.swift; sourceTree = "<group>"; };
+		8C263F822F20425300158A2C /* PondCampingGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PondCampingGridNode.swift; sourceTree = "<group>"; };
+		8C263F832F20425300158A2C /* PondCampingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PondCampingMainViewController.swift; sourceTree = "<group>"; };
+		8C263F842F20425300158A2C /* PondCampingObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PondCampingObject.swift; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -3781,6 +3799,22 @@
 			path = DigitWorms;
 			sourceTree = "<group>";
 		};
+		8C263F852F20425300158A2C /* PondCamping */ = {
+			isa = PBXGroup;
+			children = (
+				8C263F7C2F20425300158A2C /* PondCamping.xml */,
+				8C263F7D2F20425300158A2C /* PondCampingDocument.swift */,
+				8C263F7E2F20425300158A2C /* PondCampingGame.swift */,
+				8C263F7F2F20425300158A2C /* PondCampingGameScene.swift */,
+				8C263F802F20425300158A2C /* PondCampingGameState.swift */,
+				8C263F812F20425300158A2C /* PondCampingGameViewController.swift */,
+				8C263F822F20425300158A2C /* PondCampingGridNode.swift */,
+				8C263F832F20425300158A2C /* PondCampingMainViewController.swift */,
+				8C263F842F20425300158A2C /* PondCampingObject.swift */,
+			);
+			path = PondCamping;
+			sourceTree = "<group>";
+		};
 		8C2963D51FA20D620017A812 /* RobotFences */ = {
 			isa = PBXGroup;
 			children = (
@@ -4045,6 +4079,7 @@
 				8C263E692F11F53000158A2C /* Pipemania */,
 				8CB721C62EAAE62D001B25C5 /* Planks */,
 				8C263E562F11F2A100158A2C /* PlugItIn */,
+				8C263F852F20425300158A2C /* PondCamping */,
 				8CFB22582F0772C100E5F29D /* PouringWater */,
 				8C3A35661EC88D4100A914A5 /* PowerGrid */,
 				8C3A35731EC88D4200A914A5 /* ProductSentinels */,
@@ -6812,6 +6847,7 @@
 				8C8664442EA39DD00078CD64 /* arrow_red_left.png in Resources */,
 				8C8664452EA39DD00078CD64 /* B2-f.png in Resources */,
 				8C8664462EA39DD00078CD64 /* cloud.png in Resources */,
+				8C263F8E2F20425300158A2C /* PondCamping.xml in Resources */,
 				8CB7221C2EAC8261001B25C5 /* Archipelago.xml in Resources */,
 				8C263E742F1282C500158A2C /* trebuchet.png in Resources */,
 				8C8664472EA39DD00078CD64 /* icecream.png in Resources */,
@@ -7084,6 +7120,14 @@
 				8C3A364E1EC88D4200A914A5 /* BusySeasGridNode.swift in Sources */,
 				8C32D8DF1FC92B5F00BA2D07 /* RippleEffectGameScene.swift in Sources */,
 				8C3A37BD1EC88D4400A914A5 /* SnailDocument.swift in Sources */,
+				8C263F862F20425300158A2C /* PondCampingGameViewController.swift in Sources */,
+				8C263F872F20425300158A2C /* PondCampingGridNode.swift in Sources */,
+				8C263F882F20425300158A2C /* PondCampingDocument.swift in Sources */,
+				8C263F892F20425300158A2C /* PondCampingObject.swift in Sources */,
+				8C263F8A2F20425300158A2C /* PondCampingMainViewController.swift in Sources */,
+				8C263F8B2F20425300158A2C /* PondCampingGame.swift in Sources */,
+				8C263F8C2F20425300158A2C /* PondCampingGameScene.swift in Sources */,
+				8C263F8D2F20425300158A2C /* PondCampingGameState.swift in Sources */,
 				8C9F32B61ED1FB0700E10965 /* TapaIslandsGame.swift in Sources */,
 				8C3A36E21EC88D4300A914A5 /* LitsObject.swift in Sources */,
 				8C3A36B21EC88D4300A914A5 /* LightBattleShipsObject.swift in Sources */,
