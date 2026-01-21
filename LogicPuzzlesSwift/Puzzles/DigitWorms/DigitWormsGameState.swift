@@ -15,7 +15,7 @@ class DigitWormsGameState: GridGameState<DigitWormsGameMove> {
     }
     override var gameDocument: GameDocumentBase { DigitWormsDocument.sharedInstance }
     var objArray = [Int]()
-    var pos2state = [Position: AllowedObjectState]()
+    var pos2state = [Position: HintState]()
     
     override func copy() -> DigitWormsGameState {
         let v = DigitWormsGameState(game: game, isCopy: true)
@@ -79,44 +79,30 @@ class DigitWormsGameState: GridGameState<DigitWormsGameMove> {
                 pos2state[Position(r, c)] = .normal
             }
         }
-        // 2. Two orthogonally adjacent numbers must be different.
+        // 2. No number must be orthogonally or diagonally touching the same number
+        //    from another area.
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                for i in [1, 2] {
-                    let os = DigitWormsGame.offset[i]
-                    let p2 = p + os
-                    guard isValid(p: p2) && self[p] == self[p2] else {continue}
-                    isSolved = false
-                    pos2state[p] = .error
-                    pos2state[p2] = .error
-                }
+                let n = self[p]
+                guard n != DigitWormsGame.PUZ_EMPTY else { isSolved = false; continue }
+                let rng = DigitWormsGame.offset.map { p + $0 }.filter { isValid(p: $0) && self[$0] == n }
+                guard !rng.isEmpty else {continue}
+                isSolved = false
+                for p2 in [p] + rng { pos2state[p2] = .error }
             }
         }
-        for area in game.areas {
+        next: for area in game.areas {
             var num2rng = [Int: [Position]]()
             for p in area {
                 let n = self[p]
-                if n == DigitWormsGame.PUZ_EMPTY {
-                    isSolved = false
-                } else {
-                    num2rng[n, default: []].append(p)
-                }
+                guard n != DigitWormsGame.PUZ_EMPTY else { continue next }
+                num2rng[n, default: []].append(p)
             }
-            // 1. Fill each area with every number ranging from 1 to the size of the area.
-            for (_, rng) in num2rng where rng.count > 1 {
-                isSolved = false
-                for p in rng { pos2state[p] = .error }
-            }
-            // 3. In one area, if a number is right above another, the upper one must be
-            //    higher than the lower one. This only applies to numbers on top of each
-            //    other in the same area.
-            for p1 in area {
-                for p2 in area where p1 - p2 == DigitWormsGame.offset[0] && self[p1] <= self[p2] {
-                    isSolved = false
-                    pos2state[p1] = .error
-                    pos2state[p2] = .error
-                }
+            let s: HintState = num2rng.count == area.count && (1..<area.count).allSatisfy { i in DigitWormsGame.offset.contains((num2rng[i + 1]![0] - num2rng[i]![0])) } ? .complete : .error
+            if s != .complete { isSolved = false }
+            for (_, rng) in num2rng {
+                for p in rng where pos2state[p] != .error { pos2state[p] = s }
             }
         }
     }

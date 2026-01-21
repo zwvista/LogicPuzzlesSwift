@@ -78,7 +78,7 @@ class DigitWormsGameScene: GameScene<DigitWormsGameState> {
                     removeNode(withName: numberNodeName)
                 }
                 if n2 != DigitWormsGame.PUZ_EMPTY {
-                    addLabel(text: String(n2), fontColor: stateFrom.game[p] != DigitWormsGame.PUZ_EMPTY ? .gray : s2 == .normal ? .white : .red, point: point, nodeName: numberNodeName)
+                    addLabel(text: String(n2), fontColor: stateFrom.game[p] != DigitWormsGame.PUZ_EMPTY ? .gray : s2 == .normal ? .white : s2 == .complete ? .green : .red, point: point, nodeName: numberNodeName)
                 }
             }
         }
