@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Draw a single path which passes in each area exactly twice.
+2. Every square in the board must be passed through, except for brown areas, which are to be avoided entirely.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+ - - - - `
+|     | |`
+ - - -   `
+| |   | |`
+   - -   `
+|   |   |`
+     - - `
+|       |`
+ - - - - `
+    ]]>
+  </level>
+</levels>
+</puzzle>
