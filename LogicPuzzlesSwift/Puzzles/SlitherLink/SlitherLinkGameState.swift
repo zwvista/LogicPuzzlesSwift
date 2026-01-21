@@ -143,7 +143,7 @@ class SlitherLinkGameState: GridGameState<SlitherLinkGameMove> {
             guard let dirs = pos2Dirs[p2] else { isSolved = false; return }
             pos2Dirs.removeValue(forKey: p2)
             n = dirs.first { ($0 + 2) % 4 != n }!
-            p2 += StraightAndTurnGame.offset[n]
+            p2 += SlitherLinkGame.offset[n]
             guard p2 != p else {return}
         }
     }
