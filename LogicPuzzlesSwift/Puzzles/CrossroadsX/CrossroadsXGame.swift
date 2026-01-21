@@ -76,8 +76,10 @@ class CrossroadsXGame: GridGame<CrossroadsXGameState> {
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
             let n = areas.count
+            let p2 = area.first { self[$0] != CrossroadsXGame.PUZ_EMPTY }
             for p in area {
                 pos2area[p] = n
+                if p2 != nil { self[p] = self[p2!] }
             }
             areas.append(area)
         }

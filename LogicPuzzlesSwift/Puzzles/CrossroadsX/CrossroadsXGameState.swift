@@ -47,7 +47,9 @@ class CrossroadsXGameState: GridGameState<CrossroadsXGameMove> {
     override func setObject(move: inout CrossroadsXGameMove) -> GameOperationType {
         let p = move.p
         guard isValid(p: p) && game[p] == CrossroadsXGame.PUZ_EMPTY && self[p] != move.obj else { return .invalid }
-        self[p] = move.obj
+        for p2 in game.areas[game.pos2area[p]!] {
+            self[p2] = move.obj
+        }
         updateIsSolved()
         return .moveComplete
     }
@@ -56,7 +58,7 @@ class CrossroadsXGameState: GridGameState<CrossroadsXGameMove> {
         let p = move.p
         guard isValid(p: p) && game[p] == CrossroadsXGame.PUZ_EMPTY else { return .invalid }
         let o = self[p]
-        move.obj = o == game.areas[game.pos2area[p]!].count ? CrossroadsXGame.PUZ_EMPTY : o + 1
+        move.obj = o == 9 ? CrossroadsXGame.PUZ_EMPTY : o + 1
         return setObject(move: &move)
     }
     
