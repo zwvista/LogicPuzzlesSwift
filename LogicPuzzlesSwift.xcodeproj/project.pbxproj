@@ -240,6 +240,15 @@
 		8C263F9F2F2084FE00158A2C /* PleaseComeBackGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F932F2084FE00158A2C /* PleaseComeBackGameState.swift */; };
 		8C263FA02F2084FE00158A2C /* PleaseComeBackGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263F942F2084FE00158A2C /* PleaseComeBackGameViewController.swift */; };
 		8C263FA12F2084FE00158A2C /* PleaseComeBack.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263F8F2F2084FE00158A2C /* PleaseComeBack.xml */; };
+		8C263FAC2F20FBF700158A2C /* SlitherCornerMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263FA92F20FBF700158A2C /* SlitherCornerMainViewController.swift */; };
+		8C263FAD2F20FBF700158A2C /* SlitherCornerGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263FA52F20FBF700158A2C /* SlitherCornerGameScene.swift */; };
+		8C263FAE2F20FBF700158A2C /* SlitherCornerGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263FA62F20FBF700158A2C /* SlitherCornerGameState.swift */; };
+		8C263FAF2F20FBF700158A2C /* SlitherCornerDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263FA32F20FBF700158A2C /* SlitherCornerDocument.swift */; };
+		8C263FB02F20FBF700158A2C /* SlitherCornerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263FA42F20FBF700158A2C /* SlitherCornerGame.swift */; };
+		8C263FB12F20FBF700158A2C /* SlitherCornerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263FAA2F20FBF700158A2C /* SlitherCornerObject.swift */; };
+		8C263FB22F20FBF700158A2C /* SlitherCornerGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263FA82F20FBF700158A2C /* SlitherCornerGridNode.swift */; };
+		8C263FB32F20FBF700158A2C /* SlitherCornerGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C263FA72F20FBF700158A2C /* SlitherCornerGameViewController.swift */; };
+		8C263FB42F20FBF700158A2C /* SlitherCorner.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C263FA22F20FBF700158A2C /* SlitherCorner.xml */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -1938,6 +1947,15 @@
 		8C263F952F2084FE00158A2C /* PleaseComeBackGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PleaseComeBackGridNode.swift; sourceTree = "<group>"; };
 		8C263F962F2084FE00158A2C /* PleaseComeBackMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PleaseComeBackMainViewController.swift; sourceTree = "<group>"; };
 		8C263F972F2084FE00158A2C /* PleaseComeBackObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PleaseComeBackObject.swift; sourceTree = "<group>"; };
+		8C263FA22F20FBF700158A2C /* SlitherCorner.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SlitherCorner.xml; sourceTree = "<group>"; };
+		8C263FA32F20FBF700158A2C /* SlitherCornerDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlitherCornerDocument.swift; sourceTree = "<group>"; };
+		8C263FA42F20FBF700158A2C /* SlitherCornerGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlitherCornerGame.swift; sourceTree = "<group>"; };
+		8C263FA52F20FBF700158A2C /* SlitherCornerGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlitherCornerGameScene.swift; sourceTree = "<group>"; };
+		8C263FA62F20FBF700158A2C /* SlitherCornerGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlitherCornerGameState.swift; sourceTree = "<group>"; };
+		8C263FA72F20FBF700158A2C /* SlitherCornerGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlitherCornerGameViewController.swift; sourceTree = "<group>"; };
+		8C263FA82F20FBF700158A2C /* SlitherCornerGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlitherCornerGridNode.swift; sourceTree = "<group>"; };
+		8C263FA92F20FBF700158A2C /* SlitherCornerMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlitherCornerMainViewController.swift; sourceTree = "<group>"; };
+		8C263FAA2F20FBF700158A2C /* SlitherCornerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlitherCornerObject.swift; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -3849,6 +3867,22 @@
 			path = PleaseComeBack;
 			sourceTree = "<group>";
 		};
+		8C263FAB2F20FBF700158A2C /* SlitherCorner */ = {
+			isa = PBXGroup;
+			children = (
+				8C263FA22F20FBF700158A2C /* SlitherCorner.xml */,
+				8C263FA32F20FBF700158A2C /* SlitherCornerDocument.swift */,
+				8C263FA42F20FBF700158A2C /* SlitherCornerGame.swift */,
+				8C263FA52F20FBF700158A2C /* SlitherCornerGameScene.swift */,
+				8C263FA62F20FBF700158A2C /* SlitherCornerGameState.swift */,
+				8C263FA72F20FBF700158A2C /* SlitherCornerGameViewController.swift */,
+				8C263FA82F20FBF700158A2C /* SlitherCornerGridNode.swift */,
+				8C263FA92F20FBF700158A2C /* SlitherCornerMainViewController.swift */,
+				8C263FAA2F20FBF700158A2C /* SlitherCornerObject.swift */,
+			);
+			path = SlitherCorner;
+			sourceTree = "<group>";
+		};
 		8C2963D51FA20D620017A812 /* RobotFences */ = {
 			isa = PBXGroup;
 			children = (
@@ -4128,6 +4162,7 @@
 				8C3A358D1EC88D4200A914A5 /* Sentinels */,
 				8CB722262EACF705001B25C5 /* SheepAndWolves */,
 				8C3A359A1EC88D4200A914A5 /* Skyscrapers */,
+				8C263FAB2F20FBF700158A2C /* SlitherCorner */,
 				8C3A35A71EC88D4200A914A5 /* SlitherLink */,
 				8C3A35B41EC88D4200A914A5 /* Snail */,
 				8C506F021F6D2C9300BA4332 /* Snake */,
@@ -6618,6 +6653,7 @@
 				8C263E5F2F11F2A100158A2C /* PlugItIn.xml in Resources */,
 				8C86635C2EA39DD00078CD64 /* pebble2.png in Resources */,
 				8C86635D2EA39DD00078CD64 /* apple.png in Resources */,
+				8C263FB42F20FBF700158A2C /* SlitherCorner.xml in Resources */,
 				8C86635E2EA39DD00078CD64 /* C1.png in Resources */,
 				8C86635F2EA39DD00078CD64 /* flower_pink.png in Resources */,
 				8C8663602EA39DD00078CD64 /* arrow_yellow_left.png in Resources */,
@@ -7102,6 +7138,14 @@
 				8C263EFF2F1CAAD400158A2C /* TurnMeUpGridNode.swift in Sources */,
 				8C263F002F1CAAD400158A2C /* TurnMeUpGameScene.swift in Sources */,
 				8C263F012F1CAAD400158A2C /* TurnMeUpMainViewController.swift in Sources */,
+				8C263FAC2F20FBF700158A2C /* SlitherCornerMainViewController.swift in Sources */,
+				8C263FAD2F20FBF700158A2C /* SlitherCornerGameScene.swift in Sources */,
+				8C263FAE2F20FBF700158A2C /* SlitherCornerGameState.swift in Sources */,
+				8C263FAF2F20FBF700158A2C /* SlitherCornerDocument.swift in Sources */,
+				8C263FB02F20FBF700158A2C /* SlitherCornerGame.swift in Sources */,
+				8C263FB12F20FBF700158A2C /* SlitherCornerObject.swift in Sources */,
+				8C263FB22F20FBF700158A2C /* SlitherCornerGridNode.swift in Sources */,
+				8C263FB32F20FBF700158A2C /* SlitherCornerGameViewController.swift in Sources */,
 				8C263F022F1CAAD400158A2C /* TurnMeUpGame.swift in Sources */,
 				8C263F032F1CAAD400158A2C /* TurnMeUpGameViewController.swift in Sources */,
 				8C263F042F1CAAD400158A2C /* TurnMeUpDocument.swift in Sources */,
