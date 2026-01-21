@@ -112,12 +112,12 @@ class SlitherCornerGameState: GridGameState<SlitherCornerGameMove> {
         for (p, n2) in game.pos2hint {
             let pDots = SlitherCornerGame.offset2.map { p + $0 }
             let counts = pDots.map { p2 in (0..<4).count { self[p2][$0] == .line } }
-            if counts.allSatisfy({ $0 == 0 }) || !counts.allSatisfy({ $0 == 2 || $0 == 0 }) {
+            if !counts.allSatisfy({ $0 == 2 || $0 == 0 }) {
                 pos2state[p] = .normal
             } else {
                 let dirs2D = pDots.map { p2 in (0..<4).filter { self[p2][$0] == .line } }.filter { $0.count == 2 }
                 let n1 = dirs2D.count { $0[1] - $0[0] != 2 }
-                pos2state[p] = n1 == n2 ? .complete : .error
+                pos2state[p] = n1 == n2 ? .complete : counts.allSatisfy({ $0 == 0 }) ? .normal : .error
             }
             if pos2state[p] != .complete { isSolved = false }
         }
