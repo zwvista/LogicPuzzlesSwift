@@ -112,45 +112,39 @@ class SlitherLinkGameState: GridGameState<SlitherLinkGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
+        // 1. Draw a single looping path with the aid of the numbered hints.
         // 2. Each number in a tile tells you on how many of its four sides are touched
-        // by the path.
+        //    by the path.
         for (p, n2) in game.pos2hint {
-            var n1 = 0
-            for i in 0..<4 {
-                if self[p + SlitherLinkGame.offset2[i]][SlitherLinkGame.dirs[i]] == .line { n1 += 1 }
-            }
+            let n1 = (0..<4).count { i in self[p + SlitherLinkGame.offset2[i]][SlitherLinkGame.dirs[i]] == .line }
             pos2state[p] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 { isSolved = false }
         }
         guard isSolved else {return}
-        let g = Graph()
-        var pos2node = [Position: Node]()
+        var pos2Dirs = [Position: [Int]]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let n = self[p].filter { $0 == .line }.count
-                switch n {
-                case 0:
-                    continue
-                case 2:
-                    pos2node[p] = g.addNode(p.description)
-                default:
+                let dirs = (0..<4).filter { self[p][$0] == .line }
+                if dirs.count == 2 {
+                    // 1. Draw a single looping path
+                    pos2Dirs[p] = dirs
+                } else if !dirs.isEmpty {
                     // 1. The path cannot have branches or cross itself.
-                    isSolved = false
-                    return
+                    isSolved = false; return
                 }
             }
         }
-        for p in pos2node.keys {
-            let dotObj = self[p]
-            for i in 0..<4 {
-                guard dotObj[i] == .line else {continue}
-                let p2 = p + SlitherLinkGame.offset[i]
-                g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
-            }
+        // Check the loop
+        guard let p = pos2Dirs.keys.first else { isSolved = false; return }
+        var p2 = p
+        var n = -1
+        while true {
+            guard let dirs = pos2Dirs[p2] else { isSolved = false; return }
+            pos2Dirs.removeValue(forKey: p2)
+            n = dirs.first { ($0 + 2) % 4 != n }!
+            p2 += StraightAndTurnGame.offset[n]
+            guard p2 != p else {return}
         }
-        // 1. Draw a single looping path with the aid of the numbered hints.
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count { isSolved = false }
     }
 }

@@ -92,23 +92,17 @@ class SlitherCornerGameState: GridGameState<SlitherCornerGameMove> {
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 3/SlitherCorner
+        iOS Game: 100 Logic Games 4/Puzzle Set 2/SlitherCorner
 
         Summary
-        Draw a loop a-la-minesweeper!
+        Corners instead of sides
 
         Description
-        1. Draw a single looping path with the aid of the numbered hints. The path
-           cannot have branches or cross itself.
-        2. Each number in a tile tells you on how many of its four sides are touched
-           by the path.
-        3. For example:
-        4. A 0 tells you that the path doesn't touch that square at all.
-        5. A 1 tells you that the path touches that square ONLY one-side.
-        6. A 3 tells you that the path does a U-turn around that square.
-        7. There can't be tiles marked with 4 because that would form a single
-           closed loop in it.
-        8. Empty tiles can have any number of sides touched by that path.
+        1. Draw a path like a SlitherLink (non intercepting loop) with the
+           following hints:
+        2. The number in a cell tells you how many tiles the path turn by 90
+           degrees around it.
+        3. Note that around 0s that can be a line but it just don't won't turn.
     */
     private func updateIsSolved() {
         isSolved = true
