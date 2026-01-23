@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Connect pairs of houses with roads that can't go straight! :)
+2. Each house must be connected with another house. The road connecting them can't have straights, but has to turn on every tile it passes through.
+3. Roads cannot cross and cannot go over other houses.
+4. The entire board must be filled with roads! (asphalt lobby rule)
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+O OO `
+    O`
+O   O`
+OO OO`
+OO OO`
+    ]]>
+  </level>
+  <level id="400">
+    <![CDATA[
+  OO    O `
+OOO O    O`
+      OO  `
+OO  O  O O`
+    O  O O`
+OO      O `
+  O  O   O`
+O  O      `
+    O   OO`
+OO O OOOO `
+    ]]>
+  </level>
+</levels>
+</puzzle>

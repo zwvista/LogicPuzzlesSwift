@@ -1526,6 +1526,15 @@
 		8CB418812F23B21B005C7FDF /* GardenTunnelsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418782F23B21B005C7FDF /* GardenTunnelsMainViewController.swift */; };
 		8CB418822F23B21B005C7FDF /* GardenTunnelsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418732F23B21B005C7FDF /* GardenTunnelsGame.swift */; };
 		8CB418832F23B21B005C7FDF /* GardenTunnels.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB418712F23B21B005C7FDF /* GardenTunnels.xml */; };
+		8CB4188E2F23C43E005C7FDF /* OnlyBendsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4188C2F23C43E005C7FDF /* OnlyBendsObject.swift */; };
+		8CB4188F2F23C43E005C7FDF /* OnlyBendsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418882F23C43E005C7FDF /* OnlyBendsGameState.swift */; };
+		8CB418902F23C43E005C7FDF /* OnlyBendsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418862F23C43E005C7FDF /* OnlyBendsGame.swift */; };
+		8CB418912F23C43E005C7FDF /* OnlyBendsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418892F23C43E005C7FDF /* OnlyBendsGameViewController.swift */; };
+		8CB418922F23C43E005C7FDF /* OnlyBendsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4188B2F23C43E005C7FDF /* OnlyBendsMainViewController.swift */; };
+		8CB418932F23C43E005C7FDF /* OnlyBendsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418852F23C43E005C7FDF /* OnlyBendsDocument.swift */; };
+		8CB418942F23C43E005C7FDF /* OnlyBendsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4188A2F23C43E005C7FDF /* OnlyBendsGridNode.swift */; };
+		8CB418952F23C43E005C7FDF /* OnlyBendsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418872F23C43E005C7FDF /* OnlyBendsGameScene.swift */; };
+		8CB418962F23C43E005C7FDF /* OnlyBends.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB418842F23C43E005C7FDF /* OnlyBends.xml */; };
 		8CB721C72EAAE62D001B25C5 /* PlanksGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C02EAAE62D001B25C5 /* PlanksGameScene.swift */; };
 		8CB721C82EAAE62D001B25C5 /* PlanksGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C22EAAE62D001B25C5 /* PlanksGameViewController.swift */; };
 		8CB721C92EAAE62D001B25C5 /* PlanksObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C52EAAE62D001B25C5 /* PlanksObject.swift */; };
@@ -3256,6 +3265,15 @@
 		8CB418772F23B21B005C7FDF /* GardenTunnelsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenTunnelsGridNode.swift; sourceTree = "<group>"; };
 		8CB418782F23B21B005C7FDF /* GardenTunnelsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenTunnelsMainViewController.swift; sourceTree = "<group>"; };
 		8CB418792F23B21B005C7FDF /* GardenTunnelsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenTunnelsObject.swift; sourceTree = "<group>"; };
+		8CB418842F23C43E005C7FDF /* OnlyBends.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = OnlyBends.xml; sourceTree = "<group>"; };
+		8CB418852F23C43E005C7FDF /* OnlyBendsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyBendsDocument.swift; sourceTree = "<group>"; };
+		8CB418862F23C43E005C7FDF /* OnlyBendsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyBendsGame.swift; sourceTree = "<group>"; };
+		8CB418872F23C43E005C7FDF /* OnlyBendsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyBendsGameScene.swift; sourceTree = "<group>"; };
+		8CB418882F23C43E005C7FDF /* OnlyBendsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyBendsGameState.swift; sourceTree = "<group>"; };
+		8CB418892F23C43E005C7FDF /* OnlyBendsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyBendsGameViewController.swift; sourceTree = "<group>"; };
+		8CB4188A2F23C43E005C7FDF /* OnlyBendsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyBendsGridNode.swift; sourceTree = "<group>"; };
+		8CB4188B2F23C43E005C7FDF /* OnlyBendsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyBendsMainViewController.swift; sourceTree = "<group>"; };
+		8CB4188C2F23C43E005C7FDF /* OnlyBendsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyBendsObject.swift; sourceTree = "<group>"; };
 		8CB721BD2EAAE62D001B25C5 /* Planks.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Planks.xml; sourceTree = "<group>"; };
 		8CB721BE2EAAE62D001B25C5 /* PlanksDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksDocument.swift; sourceTree = "<group>"; };
 		8CB721BF2EAAE62D001B25C5 /* PlanksGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksGame.swift; sourceTree = "<group>"; };
@@ -4173,6 +4191,7 @@
 				8C35E3AF1FC6DADD00A26EE3 /* NumberLink */,
 				8C2AF8211ED5FB0000EC84AB /* NumberPath */,
 				8C3A35321EC88D4100A914A5 /* Nurikabe */,
+				8CB4188D2F23C43E005C7FDF /* OnlyBends */,
 				8C3A353F1EC88D4100A914A5 /* Orchards */,
 				8CDAE7E31F5BFBD8000DE5AF /* OverUnder */,
 				8C2AF8391ED6084300EC84AB /* PaintTheNurikabe */,
@@ -6184,6 +6203,22 @@
 			path = GardenTunnels;
 			sourceTree = "<group>";
 		};
+		8CB4188D2F23C43E005C7FDF /* OnlyBends */ = {
+			isa = PBXGroup;
+			children = (
+				8CB418842F23C43E005C7FDF /* OnlyBends.xml */,
+				8CB418852F23C43E005C7FDF /* OnlyBendsDocument.swift */,
+				8CB418862F23C43E005C7FDF /* OnlyBendsGame.swift */,
+				8CB418872F23C43E005C7FDF /* OnlyBendsGameScene.swift */,
+				8CB418882F23C43E005C7FDF /* OnlyBendsGameState.swift */,
+				8CB418892F23C43E005C7FDF /* OnlyBendsGameViewController.swift */,
+				8CB4188A2F23C43E005C7FDF /* OnlyBendsGridNode.swift */,
+				8CB4188B2F23C43E005C7FDF /* OnlyBendsMainViewController.swift */,
+				8CB4188C2F23C43E005C7FDF /* OnlyBendsObject.swift */,
+			);
+			path = OnlyBends;
+			sourceTree = "<group>";
+		};
 		8CB721C62EAAE62D001B25C5 /* Planks */ = {
 			isa = PBXGroup;
 			children = (
@@ -6843,6 +6878,7 @@
 				8C8663C62EA39DD00078CD64 /* arrow_blue_dr.png in Resources */,
 				8C8663C72EA39DD00078CD64 /* arrow_brown_down.png in Resources */,
 				8C8663C82EA39DD00078CD64 /* branch_horizontal.png in Resources */,
+				8CB418962F23C43E005C7FDF /* OnlyBends.xml in Resources */,
 				8C8663C92EA39DD00078CD64 /* chick.png in Resources */,
 				8C8663CA2EA39DD00078CD64 /* museum2.png in Resources */,
 				8C8663CB2EA39DD00078CD64 /* navigate_down.png in Resources */,
@@ -7320,6 +7356,14 @@
 				8CDAE80D1F646C29000DE5AF /* BalancedTapasGameViewController.swift in Sources */,
 				8C3A37101EC88D4300A914A5 /* MineShipsMainViewController.swift in Sources */,
 				8C3A373C1EC88D4300A914A5 /* NeighboursGameState.swift in Sources */,
+				8CB4188E2F23C43E005C7FDF /* OnlyBendsObject.swift in Sources */,
+				8CB4188F2F23C43E005C7FDF /* OnlyBendsGameState.swift in Sources */,
+				8CB418902F23C43E005C7FDF /* OnlyBendsGame.swift in Sources */,
+				8CB418912F23C43E005C7FDF /* OnlyBendsGameViewController.swift in Sources */,
+				8CB418922F23C43E005C7FDF /* OnlyBendsMainViewController.swift in Sources */,
+				8CB418932F23C43E005C7FDF /* OnlyBendsDocument.swift in Sources */,
+				8CB418942F23C43E005C7FDF /* OnlyBendsGridNode.swift in Sources */,
+				8CB418952F23C43E005C7FDF /* OnlyBendsGameScene.swift in Sources */,
 				8C263F732F1E812D00158A2C /* DigitWormsGame.swift in Sources */,
 				8C263F742F1E812D00158A2C /* DigitWormsGameViewController.swift in Sources */,
 				8C263F752F1E812D00158A2C /* DigitWormsDocument.swift in Sources */,
