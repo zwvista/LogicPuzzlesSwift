@@ -1,5 +1,5 @@
 //
-//  MaketheDifferenceMainViewController.swift
+//  MakeTheDifferenceMainViewController.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/21.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-class MaketheDifferenceMainViewController: GameMainViewController {
-    override func getGameDocument() -> GameDocumentBase { MaketheDifferenceDocument.sharedInstance }
+class MakeTheDifferenceMainViewController: GameMainViewController {
+    override func getGameDocument() -> GameDocumentBase { MakeTheDifferenceDocument.sharedInstance }
 }
 
-class MaketheDifferenceOptionsViewController: GameOptionsViewController {
-    override func getGameDocument() -> GameDocumentBase { MaketheDifferenceDocument.sharedInstance }
+class MakeTheDifferenceOptionsViewController: GameOptionsViewController {
+    override func getGameDocument() -> GameDocumentBase { MakeTheDifferenceDocument.sharedInstance }
 }
 
-class MaketheDifferenceHelpViewController: GameHelpViewController {
-    override func getGameDocument() -> GameDocumentBase { MaketheDifferenceDocument.sharedInstance }
+class MakeTheDifferenceHelpViewController: GameHelpViewController {
+    override func getGameDocument() -> GameDocumentBase { MakeTheDifferenceDocument.sharedInstance }
 }

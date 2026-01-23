@@ -1,5 +1,5 @@
 //
-//  MaketheDifferenceObject.swift
+//  MakeTheDifferenceObject.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/26.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MaketheDifferenceGameMove {
+struct MakeTheDifferenceGameMove {
     var p = Position()
     var dir = 0
     var obj = GridLineObject()

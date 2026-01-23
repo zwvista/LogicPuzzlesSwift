@@ -1,5 +1,5 @@
 //
-//  MaketheDifferenceGameState.swift
+//  MakeTheDifferenceGameState.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/19.
@@ -8,27 +8,27 @@
 
 import Foundation
 
-class MaketheDifferenceGameState: GridGameState<MaketheDifferenceGameMove> {
-    var game: MaketheDifferenceGame {
-        get { getGame() as! MaketheDifferenceGame }
+class MakeTheDifferenceGameState: GridGameState<MakeTheDifferenceGameMove> {
+    var game: MakeTheDifferenceGame {
+        get { getGame() as! MakeTheDifferenceGame }
         set { setGame(game: newValue) }
     }
-    override var gameDocument: GameDocumentBase { MaketheDifferenceDocument.sharedInstance }
+    override var gameDocument: GameDocumentBase { MakeTheDifferenceDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
     
-    override func copy() -> MaketheDifferenceGameState {
-        let v = MaketheDifferenceGameState(game: game, isCopy: true)
+    override func copy() -> MakeTheDifferenceGameState {
+        let v = MakeTheDifferenceGameState(game: game, isCopy: true)
         return setup(v: v)
     }
-    func setup(v: MaketheDifferenceGameState) -> MaketheDifferenceGameState {
+    func setup(v: MakeTheDifferenceGameState) -> MakeTheDifferenceGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
         v.pos2state = pos2state
         return v
     }
     
-    required init(game: MaketheDifferenceGame, isCopy: Bool = false) {
+    required init(game: MakeTheDifferenceGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = game.objArray
@@ -47,7 +47,7 @@ class MaketheDifferenceGameState: GridGameState<MaketheDifferenceGameMove> {
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout MaketheDifferenceGameMove) -> GameOperationType {
+    override func setObject(move: inout MakeTheDifferenceGameMove) -> GameOperationType {
         var changed = false
         func f(o1: inout GridLineObject, o2: inout GridLineObject) {
             if o1 != move.obj {
@@ -59,14 +59,14 @@ class MaketheDifferenceGameState: GridGameState<MaketheDifferenceGameMove> {
             }
         }
         let dir = move.dir, dir2 = (dir + 2) % 4
-        let p = move.p, p2 = p + MaketheDifferenceGame.offset[dir]
+        let p = move.p, p2 = p + MakeTheDifferenceGame.offset[dir]
         guard isValid(p: p2) && game[p][dir] == .empty else { return .invalid }
         f(o1: &self[p][dir], o2: &self[p2][dir2])
         if changed { updateIsSolved() }
         return changed ? .moveComplete : .invalid
     }
     
-    override func switchObject(move: inout MaketheDifferenceGameMove) -> GameOperationType {
+    override func switchObject(move: inout MakeTheDifferenceGameMove) -> GameOperationType {
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: GridLineObject) -> GridLineObject {
             switch o {
@@ -110,8 +110,8 @@ class MaketheDifferenceGameState: GridGameState<MaketheDifferenceGameMove> {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
                 for i in 0..<4 {
-                    guard self[p + MaketheDifferenceGame.offset2[i]][MaketheDifferenceGame.dirs[i]] != .line else {continue}
-                    g.addEdge(pos2node[p]!, neighbor: pos2node[p + MaketheDifferenceGame.offset[i]]!)
+                    guard self[p + MakeTheDifferenceGame.offset2[i]][MakeTheDifferenceGame.dirs[i]] != .line else {continue}
+                    g.addEdge(pos2node[p]!, neighbor: pos2node[p + MakeTheDifferenceGame.offset[i]]!)
                 }
             }
         }

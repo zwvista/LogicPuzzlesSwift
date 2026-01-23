@@ -1,5 +1,5 @@
 //
-//  MaketheDifferenceGameScene.swift
+//  MakeTheDifferenceGameScene.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/09.
@@ -8,9 +8,9 @@
 
 import SpriteKit
 
-class MaketheDifferenceGameScene: GameScene<MaketheDifferenceGameState> {
-    var gridNode: MaketheDifferenceGridNode {
-        get { getGridNode() as! MaketheDifferenceGridNode }
+class MakeTheDifferenceGameScene: GameScene<MakeTheDifferenceGameState> {
+    var gridNode: MakeTheDifferenceGridNode {
+        get { getGridNode() as! MakeTheDifferenceGridNode }
         set { setGridNode(gridNode: newValue) }
     }
     
@@ -18,14 +18,14 @@ class MaketheDifferenceGameScene: GameScene<MaketheDifferenceGameState> {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
-    override func levelInitialized(_ game: AnyObject, state: MaketheDifferenceGameState, skView: SKView) {
-        let game = game as! MaketheDifferenceGame
+    override func levelInitialized(_ game: AnyObject, state: MakeTheDifferenceGameState, skView: SKView) {
+        let game = game as! MakeTheDifferenceGame
         removeAllChildren()
         let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols - 1)
         
         // add Grid
         let offset:CGFloat = 0.5
-        addGrid(gridNode: MaketheDifferenceGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset))
+        addGrid(gridNode: MakeTheDifferenceGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset))
         
         // add Hints
         for (p, n) in game.pos2hint {
@@ -45,7 +45,7 @@ class MaketheDifferenceGameScene: GameScene<MaketheDifferenceGameState> {
         }
     }
     
-    override func levelUpdated(from stateFrom: MaketheDifferenceGameState, to stateTo: MaketheDifferenceGameState) {
+    override func levelUpdated(from stateFrom: MakeTheDifferenceGameState, to stateTo: MakeTheDifferenceGameState) {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)

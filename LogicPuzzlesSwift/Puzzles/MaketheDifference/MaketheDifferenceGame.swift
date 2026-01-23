@@ -1,5 +1,5 @@
 //
-//  MaketheDifferenceGame.swift
+//  MakeTheDifferenceGame.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/10.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MaketheDifferenceGame: GridGame<MaketheDifferenceGameState> {
+class MakeTheDifferenceGame: GridGame<MakeTheDifferenceGameState> {
     static let offset = Position.Directions4
     static let offset2 = [
         Position(0, 0),
@@ -21,7 +21,7 @@ class MaketheDifferenceGame: GridGame<MaketheDifferenceGameState> {
     var objArray = [GridDotObject]()
     var pos2hint = [Position: Int]()
     
-    init(layout: [String], delegate: MaketheDifferenceGameViewController? = nil) {
+    init(layout: [String], delegate: MakeTheDifferenceGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count + 1, layout[0].length + 1)
@@ -49,7 +49,7 @@ class MaketheDifferenceGame: GridGame<MaketheDifferenceGameState> {
             self[rows - 1, c + 1][3] = .line
         }
         
-        let state = MaketheDifferenceGameState(game: self)
+        let state = MakeTheDifferenceGameState(game: self)
         levelInitialized(state: state)
     }
     

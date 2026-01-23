@@ -1,5 +1,5 @@
 //
-//  MaketheDifferenceGameViewController.swift
+//  MakeTheDifferenceGameViewController.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/08/31.
@@ -9,8 +9,8 @@
 import UIKit
 import SpriteKit
 
-class MaketheDifferenceGameViewController: GameGameViewController2<MaketheDifferenceGameState, MaketheDifferenceGame, MaketheDifferenceDocument, MaketheDifferenceGameScene> {
-    override func getGameDocument() -> GameDocumentBase { MaketheDifferenceDocument.sharedInstance }
+class MakeTheDifferenceGameViewController: GameGameViewController2<MakeTheDifferenceGameState, MakeTheDifferenceGame, MakeTheDifferenceDocument, MakeTheDifferenceGameScene> {
+    override func getGameDocument() -> GameDocumentBase { MakeTheDifferenceDocument.sharedInstance }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}
@@ -20,11 +20,11 @@ class MaketheDifferenceGameViewController: GameGameViewController2<MaketheDiffer
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let (b, p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
         guard b else {return}
-        var move = MaketheDifferenceGameMove(p: p, dir: dir)
+        var move = MakeTheDifferenceGameMove(p: p, dir: dir)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     
-    override func newGame(level: GameLevel) -> MaketheDifferenceGame {
-        MaketheDifferenceGame(layout: level.layout, delegate: self)
+    override func newGame(level: GameLevel) -> MakeTheDifferenceGame {
+        MakeTheDifferenceGame(layout: level.layout, delegate: self)
     }
 }
