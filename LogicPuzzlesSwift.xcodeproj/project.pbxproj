@@ -1499,6 +1499,15 @@
 		8CAFC0062EA0864F00C27D7C /* NumberCrossingDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFF72EA0864F00C27D7C /* NumberCrossingDocument.swift */; };
 		8CAFC0072EA0864F00C27D7C /* NumberCrossingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFFD2EA0864F00C27D7C /* NumberCrossingMainViewController.swift */; };
 		8CAFC0082EA0864F00C27D7C /* NumberCrossing.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CAFBFF62EA0864F00C27D7C /* NumberCrossing.xml */; };
+		8CB418412F23AC3D005C7FDF /* PathOnTheHillsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418382F23AC3D005C7FDF /* PathOnTheHillsDocument.swift */; };
+		8CB418422F23AC3D005C7FDF /* PathOnTheHillsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4183C2F23AC3D005C7FDF /* PathOnTheHillsGameViewController.swift */; };
+		8CB418432F23AC3D005C7FDF /* PathOnTheHillsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418392F23AC3D005C7FDF /* PathOnTheHillsGame.swift */; };
+		8CB418442F23AC3D005C7FDF /* PathOnTheHillsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4183F2F23AC3D005C7FDF /* PathOnTheHillsObject.swift */; };
+		8CB418452F23AC3D005C7FDF /* PathOnTheHillsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4183B2F23AC3D005C7FDF /* PathOnTheHillsGameState.swift */; };
+		8CB418462F23AC3D005C7FDF /* PathOnTheHillsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4183D2F23AC3D005C7FDF /* PathOnTheHillsGridNode.swift */; };
+		8CB418472F23AC3D005C7FDF /* PathOnTheHillsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4183A2F23AC3D005C7FDF /* PathOnTheHillsGameScene.swift */; };
+		8CB418482F23AC3D005C7FDF /* PathOnTheHillsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4183E2F23AC3D005C7FDF /* PathOnTheHillsMainViewController.swift */; };
+		8CB418492F23AC3D005C7FDF /* PathOnTheHills.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB418372F23AC3D005C7FDF /* PathOnTheHills.xml */; };
 		8CB721C72EAAE62D001B25C5 /* PlanksGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C02EAAE62D001B25C5 /* PlanksGameScene.swift */; };
 		8CB721C82EAAE62D001B25C5 /* PlanksGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C22EAAE62D001B25C5 /* PlanksGameViewController.swift */; };
 		8CB721C92EAAE62D001B25C5 /* PlanksObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C52EAAE62D001B25C5 /* PlanksObject.swift */; };
@@ -3211,6 +3220,15 @@
 		8CAFBFFC2EA0864F00C27D7C /* NumberCrossingGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCrossingGridNode.swift; sourceTree = "<group>"; };
 		8CAFBFFD2EA0864F00C27D7C /* NumberCrossingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCrossingMainViewController.swift; sourceTree = "<group>"; };
 		8CAFBFFE2EA0864F00C27D7C /* NumberCrossingObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberCrossingObject.swift; sourceTree = "<group>"; };
+		8CB418372F23AC3D005C7FDF /* PathOnTheHills.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PathOnTheHills.xml; sourceTree = "<group>"; };
+		8CB418382F23AC3D005C7FDF /* PathOnTheHillsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathOnTheHillsDocument.swift; sourceTree = "<group>"; };
+		8CB418392F23AC3D005C7FDF /* PathOnTheHillsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathOnTheHillsGame.swift; sourceTree = "<group>"; };
+		8CB4183A2F23AC3D005C7FDF /* PathOnTheHillsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathOnTheHillsGameScene.swift; sourceTree = "<group>"; };
+		8CB4183B2F23AC3D005C7FDF /* PathOnTheHillsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathOnTheHillsGameState.swift; sourceTree = "<group>"; };
+		8CB4183C2F23AC3D005C7FDF /* PathOnTheHillsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathOnTheHillsGameViewController.swift; sourceTree = "<group>"; };
+		8CB4183D2F23AC3D005C7FDF /* PathOnTheHillsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathOnTheHillsGridNode.swift; sourceTree = "<group>"; };
+		8CB4183E2F23AC3D005C7FDF /* PathOnTheHillsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathOnTheHillsMainViewController.swift; sourceTree = "<group>"; };
+		8CB4183F2F23AC3D005C7FDF /* PathOnTheHillsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathOnTheHillsObject.swift; sourceTree = "<group>"; };
 		8CB721BD2EAAE62D001B25C5 /* Planks.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Planks.xml; sourceTree = "<group>"; };
 		8CB721BE2EAAE62D001B25C5 /* PlanksDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksDocument.swift; sourceTree = "<group>"; };
 		8CB721BF2EAAE62D001B25C5 /* PlanksGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksGame.swift; sourceTree = "<group>"; };
@@ -4143,6 +4161,7 @@
 				8C7474431FBED8BC00C4112C /* ParkLakes */,
 				8C3A35591EC88D4100A914A5 /* Parks */,
 				8C9F324C1ED1FAF600E10965 /* Pata */,
+				8CB418402F23AC3D005C7FDF /* PathOnTheHills */,
 				8C263F112F1CEA2700158A2C /* PathOnTheMountains */,
 				8C263E692F11F53000158A2C /* Pipemania */,
 				8CB721C62EAAE62D001B25C5 /* Planks */,
@@ -6098,6 +6117,22 @@
 			path = NumberCrossing;
 			sourceTree = "<group>";
 		};
+		8CB418402F23AC3D005C7FDF /* PathOnTheHills */ = {
+			isa = PBXGroup;
+			children = (
+				8CB418372F23AC3D005C7FDF /* PathOnTheHills.xml */,
+				8CB418382F23AC3D005C7FDF /* PathOnTheHillsDocument.swift */,
+				8CB418392F23AC3D005C7FDF /* PathOnTheHillsGame.swift */,
+				8CB4183A2F23AC3D005C7FDF /* PathOnTheHillsGameScene.swift */,
+				8CB4183B2F23AC3D005C7FDF /* PathOnTheHillsGameState.swift */,
+				8CB4183C2F23AC3D005C7FDF /* PathOnTheHillsGameViewController.swift */,
+				8CB4183D2F23AC3D005C7FDF /* PathOnTheHillsGridNode.swift */,
+				8CB4183E2F23AC3D005C7FDF /* PathOnTheHillsMainViewController.swift */,
+				8CB4183F2F23AC3D005C7FDF /* PathOnTheHillsObject.swift */,
+			);
+			path = PathOnTheHills;
+			sourceTree = "<group>";
+		};
 		8CB721C62EAAE62D001B25C5 /* Planks */ = {
 			isa = PBXGroup;
 			children = (
@@ -7017,6 +7052,7 @@
 				8CAFBFCF2E9D9FE500C27D7C /* Arrows.xml in Resources */,
 				8CAFC0082EA0864F00C27D7C /* NumberCrossing.xml in Resources */,
 				8C8E78002E89D557006BBF98 /* HiddenStars.xml in Resources */,
+				8CB418492F23AC3D005C7FDF /* PathOnTheHills.xml in Resources */,
 				8CAFBFF52E9F1A1400C27D7C /* TurnTwice.xml in Resources */,
 				7DF1B04F2E8A7EB6006008A3 /* HiddenPath.xml in Resources */,
 				8C6A35DF1FAF4FFD00D2804D /* Mathrax.xml in Resources */,
@@ -8269,6 +8305,14 @@
 				8CDAE8091F646C29000DE5AF /* BalancedTapasDocument.swift in Sources */,
 				8C35E3A91FC4839100A26EE3 /* WallsGameState.swift in Sources */,
 				8C610F22204159110087C545 /* NorthPoleFishingObject.swift in Sources */,
+				8CB418412F23AC3D005C7FDF /* PathOnTheHillsDocument.swift in Sources */,
+				8CB418422F23AC3D005C7FDF /* PathOnTheHillsGameViewController.swift in Sources */,
+				8CB418432F23AC3D005C7FDF /* PathOnTheHillsGame.swift in Sources */,
+				8CB418442F23AC3D005C7FDF /* PathOnTheHillsObject.swift in Sources */,
+				8CB418452F23AC3D005C7FDF /* PathOnTheHillsGameState.swift in Sources */,
+				8CB418462F23AC3D005C7FDF /* PathOnTheHillsGridNode.swift in Sources */,
+				8CB418472F23AC3D005C7FDF /* PathOnTheHillsGameScene.swift in Sources */,
+				8CB418482F23AC3D005C7FDF /* PathOnTheHillsMainViewController.swift in Sources */,
 				8C3A36201EC88D4200A914A5 /* BoxItAgainMainViewController.swift in Sources */,
 				8C6A36101FAF97AF00D2804D /* TheOddBrickDocument.swift in Sources */,
 				8C8661E82EA35BDB0078CD64 /* WarehouseGridNode.swift in Sources */,
