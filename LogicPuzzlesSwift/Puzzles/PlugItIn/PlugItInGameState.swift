@@ -70,24 +70,20 @@ class PlugItInGameState: GridGameState<PlugItInGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let o = self[p]
-                let ch = game[p]
-                let dirs = (0..<4).filter { o[$0] }
+                let dirs = (0..<4).filter { self[p][$0] }
                 ch2dirs[p] = dirs
                 let cnt = dirs.count
-                if ch == " " {
-                    // 2. Links must be straight lines, not crossing each other.
+                if game[p] == " " {
+                    // 2. Cables are not allowed to cross other cables.
                     guard cnt == 0 || (cnt == 2 && (dirs[0] + 2) % 4 == dirs[1]) else { isSolved = false; return }
                     if cnt == 2 { rng.append(p) }
                 } else {
-                    guard cnt > 0 else { isSolved = false; return }
+                    guard cnt == 1 else { isSolved = false; return }
                     rng.append(p)
                 }
             }
         }
-        // 1. Make Cappuccino by linking each cup to one or more coffee beans and cows.
-        // 4. When linking multiple beans and cows, you can also link cows to cows and
-        //    beans to beans, other than linking them to the cup.
+        // 1. Connect each battery with a lightbulb by a horizontal or vertical cable.
         let g = Graph()
         var pos2node = [Position: Node]()
         for p in rng {
@@ -104,12 +100,9 @@ class PlugItInGameState: GridGameState<PlugItInGameMove> {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
-            let nBean = area.count { game[$0] == PlugItInGame.PUZ_BEAN }
-            let nCup = area.count { game[$0] == PlugItInGame.PUZ_CUP }
-            let nMilk = area.count { game[$0] == PlugItInGame.PUZ_MILK }
-            // 3. To each cup there must be linked an equal number of beans and cows. At
-            //    least one of each.
-            guard nCup == 1 && nBean > 0 && nBean == nMilk else { isSolved = false; return }
+            let nLightBulb = area.count { game[$0] == PlugItInGame.PUZ_LIGHTBULB }
+            let nBattery = area.count { game[$0] == PlugItInGame.PUZ_BATTERY }
+            guard nLightBulb == 1 && nBattery == 1 else { isSolved = false; return }
         }
     }
 }

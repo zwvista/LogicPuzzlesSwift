@@ -9,9 +9,8 @@
 import Foundation
 
 class PlugItInGame: GridGame<PlugItInGameState> {
-    static let PUZ_BEAN: Character = "B"
-    static let PUZ_CUP: Character = "C"
-    static let PUZ_MILK: Character = "M"
+    static let PUZ_LIGHTBULB: Character = "L"
+    static let PUZ_BATTERY: Character = "B"
     static let offset = Position.Directions4
 
     var objArray = [Character]()

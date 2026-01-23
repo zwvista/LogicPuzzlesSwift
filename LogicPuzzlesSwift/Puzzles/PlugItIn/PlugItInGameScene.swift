@@ -30,7 +30,7 @@ class PlugItInGameScene: GameScene<PlugItInGameState> {
                 let ch = game[r, c]
                 guard ch != " " else {continue}
                 let point = gridNode.centerPoint(p: p)
-                addImage(imageNamed: ch == PlugItInGame.PUZ_BEAN ? "coffeebean" : ch == PlugItInGame.PUZ_CUP ? "cup" : "cow_face", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "caffelatte")
+                addImage(imageNamed: ch == PlugItInGame.PUZ_LIGHTBULB ? "lightbulb2" : "battery", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "plugitin")
             }
         }
     }
