@@ -1535,6 +1535,15 @@
 		8CB418942F23C43E005C7FDF /* OnlyBendsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4188A2F23C43E005C7FDF /* OnlyBendsGridNode.swift */; };
 		8CB418952F23C43E005C7FDF /* OnlyBendsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418872F23C43E005C7FDF /* OnlyBendsGameScene.swift */; };
 		8CB418962F23C43E005C7FDF /* OnlyBends.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB418842F23C43E005C7FDF /* OnlyBends.xml */; };
+		8CB418A12F23C552005C7FDF /* OnlyStraightsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4189C2F23C552005C7FDF /* OnlyStraightsGameViewController.swift */; };
+		8CB418A22F23C552005C7FDF /* OnlyStraightsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4189E2F23C552005C7FDF /* OnlyStraightsMainViewController.swift */; };
+		8CB418A32F23C552005C7FDF /* OnlyStraightsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418982F23C552005C7FDF /* OnlyStraightsDocument.swift */; };
+		8CB418A42F23C552005C7FDF /* OnlyStraightsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4189D2F23C552005C7FDF /* OnlyStraightsGridNode.swift */; };
+		8CB418A52F23C552005C7FDF /* OnlyStraightsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4189A2F23C552005C7FDF /* OnlyStraightsGameScene.swift */; };
+		8CB418A62F23C552005C7FDF /* OnlyStraightsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4189B2F23C552005C7FDF /* OnlyStraightsGameState.swift */; };
+		8CB418A72F23C552005C7FDF /* OnlyStraightsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4189F2F23C552005C7FDF /* OnlyStraightsObject.swift */; };
+		8CB418A82F23C552005C7FDF /* OnlyStraightsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418992F23C552005C7FDF /* OnlyStraightsGame.swift */; };
+		8CB418A92F23C552005C7FDF /* OnlyStraights.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB418972F23C552005C7FDF /* OnlyStraights.xml */; };
 		8CB721C72EAAE62D001B25C5 /* PlanksGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C02EAAE62D001B25C5 /* PlanksGameScene.swift */; };
 		8CB721C82EAAE62D001B25C5 /* PlanksGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C22EAAE62D001B25C5 /* PlanksGameViewController.swift */; };
 		8CB721C92EAAE62D001B25C5 /* PlanksObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C52EAAE62D001B25C5 /* PlanksObject.swift */; };
@@ -3274,6 +3283,15 @@
 		8CB4188A2F23C43E005C7FDF /* OnlyBendsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyBendsGridNode.swift; sourceTree = "<group>"; };
 		8CB4188B2F23C43E005C7FDF /* OnlyBendsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyBendsMainViewController.swift; sourceTree = "<group>"; };
 		8CB4188C2F23C43E005C7FDF /* OnlyBendsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyBendsObject.swift; sourceTree = "<group>"; };
+		8CB418972F23C552005C7FDF /* OnlyStraights.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = OnlyStraights.xml; sourceTree = "<group>"; };
+		8CB418982F23C552005C7FDF /* OnlyStraightsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyStraightsDocument.swift; sourceTree = "<group>"; };
+		8CB418992F23C552005C7FDF /* OnlyStraightsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyStraightsGame.swift; sourceTree = "<group>"; };
+		8CB4189A2F23C552005C7FDF /* OnlyStraightsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyStraightsGameScene.swift; sourceTree = "<group>"; };
+		8CB4189B2F23C552005C7FDF /* OnlyStraightsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyStraightsGameState.swift; sourceTree = "<group>"; };
+		8CB4189C2F23C552005C7FDF /* OnlyStraightsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyStraightsGameViewController.swift; sourceTree = "<group>"; };
+		8CB4189D2F23C552005C7FDF /* OnlyStraightsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyStraightsGridNode.swift; sourceTree = "<group>"; };
+		8CB4189E2F23C552005C7FDF /* OnlyStraightsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyStraightsMainViewController.swift; sourceTree = "<group>"; };
+		8CB4189F2F23C552005C7FDF /* OnlyStraightsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyStraightsObject.swift; sourceTree = "<group>"; };
 		8CB721BD2EAAE62D001B25C5 /* Planks.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Planks.xml; sourceTree = "<group>"; };
 		8CB721BE2EAAE62D001B25C5 /* PlanksDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksDocument.swift; sourceTree = "<group>"; };
 		8CB721BF2EAAE62D001B25C5 /* PlanksGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksGame.swift; sourceTree = "<group>"; };
@@ -4192,6 +4210,7 @@
 				8C2AF8211ED5FB0000EC84AB /* NumberPath */,
 				8C3A35321EC88D4100A914A5 /* Nurikabe */,
 				8CB4188D2F23C43E005C7FDF /* OnlyBends */,
+				8CB418A02F23C552005C7FDF /* OnlyStraights */,
 				8C3A353F1EC88D4100A914A5 /* Orchards */,
 				8CDAE7E31F5BFBD8000DE5AF /* OverUnder */,
 				8C2AF8391ED6084300EC84AB /* PaintTheNurikabe */,
@@ -6219,6 +6238,22 @@
 			path = OnlyBends;
 			sourceTree = "<group>";
 		};
+		8CB418A02F23C552005C7FDF /* OnlyStraights */ = {
+			isa = PBXGroup;
+			children = (
+				8CB418972F23C552005C7FDF /* OnlyStraights.xml */,
+				8CB418982F23C552005C7FDF /* OnlyStraightsDocument.swift */,
+				8CB418992F23C552005C7FDF /* OnlyStraightsGame.swift */,
+				8CB4189A2F23C552005C7FDF /* OnlyStraightsGameScene.swift */,
+				8CB4189B2F23C552005C7FDF /* OnlyStraightsGameState.swift */,
+				8CB4189C2F23C552005C7FDF /* OnlyStraightsGameViewController.swift */,
+				8CB4189D2F23C552005C7FDF /* OnlyStraightsGridNode.swift */,
+				8CB4189E2F23C552005C7FDF /* OnlyStraightsMainViewController.swift */,
+				8CB4189F2F23C552005C7FDF /* OnlyStraightsObject.swift */,
+			);
+			path = OnlyStraights;
+			sourceTree = "<group>";
+		};
 		8CB721C62EAAE62D001B25C5 /* Planks */ = {
 			isa = PBXGroup;
 			children = (
@@ -6743,6 +6778,7 @@
 				8C86634F2EA39DD00078CD64 /* raspberry.png in Resources */,
 				8C9BD59F2F0A7DFF00D1D915 /* Stacks.xml in Resources */,
 				8C8663502EA39DD00078CD64 /* arrow1.png in Resources */,
+				8CB418A92F23C552005C7FDF /* OnlyStraights.xml in Resources */,
 				8C9BD5792F0A608A00D1D915 /* Chocolate.xml in Resources */,
 				8C8663512EA39DD00078CD64 /* plum.png in Resources */,
 				8C8663522EA39DD00078CD64 /* cabbage.png in Resources */,
@@ -7199,6 +7235,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C3A36C11EC88D4300A914A5 /* LighthousesDocument.swift in Sources */,
+				8CB418A12F23C552005C7FDF /* OnlyStraightsGameViewController.swift in Sources */,
+				8CB418A22F23C552005C7FDF /* OnlyStraightsMainViewController.swift in Sources */,
+				8CB418A32F23C552005C7FDF /* OnlyStraightsDocument.swift in Sources */,
+				8CB418A42F23C552005C7FDF /* OnlyStraightsGridNode.swift in Sources */,
+				8CB418A52F23C552005C7FDF /* OnlyStraightsGameScene.swift in Sources */,
+				8CB418A62F23C552005C7FDF /* OnlyStraightsGameState.swift in Sources */,
+				8CB418A72F23C552005C7FDF /* OnlyStraightsObject.swift in Sources */,
+				8CB418A82F23C552005C7FDF /* OnlyStraightsGame.swift in Sources */,
 				8C04671B1F8BA2BE00B5DE41 /* TataminoGameScene.swift in Sources */,
 				8CA043221FDBE77B00AF85E1 /* CarpentersSquareMainViewController.swift in Sources */,
 				8CA043281FDBE77B00AF85E1 /* CarpentersSquareDocument.swift in Sources */,

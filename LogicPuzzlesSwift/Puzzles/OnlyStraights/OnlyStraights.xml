@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Draw a non-intersecting loop that visits all towns.
+2. This time, you must go straight while passing a town.
+3. Branches of a road coming off a town must be of equal length.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+ 42 4`
+6 41 `
+2424 `
+6  24`
+  1  `
+    ]]>
+  </level>
+  <level id="400">
+    <![CDATA[
+  1  1   1 `
+     4 2  1`
+ 42        `
+ 2 4 4     `
+2       14 `
+  2 2  1   `
+2 2     1  `
+4   412  6 `
+ 1         `
+4      1   `
+         1 `
+    ]]>
+  </level>
+</levels>
+</puzzle>
