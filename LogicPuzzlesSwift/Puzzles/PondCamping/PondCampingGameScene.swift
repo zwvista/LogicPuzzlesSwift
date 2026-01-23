@@ -14,11 +14,8 @@ class PondCampingGameScene: GameScene<PondCampingGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addHint(p: Position, n: Int, s: HintState) {
-        let point = gridNode.centerPoint(p: p)
-        let nodeNameSuffix = "-\(p.row)-\(p.col)"
-        let hintNodeName = "hint" + nodeNameSuffix
-        addLabel(text: String(n), fontColor: s == .complete ? .green : .white, point: point, nodeName: hintNodeName)
+    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
+        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
 
     override func levelInitialized(_ game: AnyObject, state: PondCampingGameState, skView: SKView) {
@@ -32,7 +29,10 @@ class PondCampingGameScene: GameScene<PondCampingGameState> {
         
         // add Hints
         for (p, n) in game.pos2hint {
-            addHint(p: p, n: n, s: .normal)
+            let point = gridNode.centerPoint(p: p)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let hintNodeName = "hint" + nodeNameSuffix
+            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
         }
     }
     
@@ -42,42 +42,34 @@ class PondCampingGameScene: GameScene<PondCampingGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let waterNodeName = "water" + nodeNameSuffix
+                let forestNodeName = "forest" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                func addWater() {
-                    addImage(imageNamed: "sea", color: .red, colorBlendFactor: 0.0, point: point, nodeName: waterNodeName)
-                }
-                func removeWater() { removeNode(withName: waterNodeName) }
-                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                func addForbidden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
-                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
-                func removeHint() { removeNode(withName: hintNodeName) }
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                guard String(describing: o1) != String(describing: o2) else {continue}
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard o1 != o2 || s1 != s2 else {continue}
                 switch o1 {
                 case .forbidden:
-                    removeForbidden()
-                case .water:
-                    removeWater()
+                    removeNode(withName: forbiddenNodeName)
+                case .forest:
+                    removeNode(withName: forestNodeName)
                 case .hint:
-                    removeHint()
+                    removeNode(withName: hintNodeName)
                 case .marker:
-                    removeMarker()
+                    removeNode(withName: markerNodeName)
                 default:
                     break
                 }
                 switch o2 {
                 case .forbidden:
-                    addForbidden()
-                case .water:
-                    addWater()
-                case let .hint(n, s):
-                    addHint(p: p, n: n, s: s)
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
+                case .forest:
+                    addImage(imageNamed: "forest_lighter", color: .red, colorBlendFactor: 0.0, point: point, nodeName: forestNodeName)
+                case .hint:
+                    addHint(n: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
                 case .marker:
-                    addMarker()
+                    addDotMarker(point: point, nodeName: markerNodeName)
                 default:
                     break
                 }

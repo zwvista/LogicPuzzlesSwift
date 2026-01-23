@@ -8,34 +8,10 @@
 
 import Foundation
 
-enum HolidayIslandObject {
-    case empty
-    case forbidden
-    case marker
-    case water
-    case hint(tiles: Int, state: HintState)
+enum HolidayIslandObject: Int {
+    case empty, forbidden, marker, hint, water
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .water:
-            return "water"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> HolidayIslandObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "water":
-            return .water
-        default:
-            return .empty
-        }
     }
 }
 

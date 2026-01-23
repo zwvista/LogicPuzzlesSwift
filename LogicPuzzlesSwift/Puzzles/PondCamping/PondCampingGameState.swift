@@ -15,7 +15,8 @@ class PondCampingGameState: GridGameState<PondCampingGameMove> {
     }
     override var gameDocument: GameDocumentBase { PondCampingDocument.sharedInstance }
     var objArray = [PondCampingObject]()
-    
+    var pos2state = [Position: HintState]()
+
     override func copy() -> PondCampingGameState {
         let v = PondCampingGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -30,8 +31,8 @@ class PondCampingGameState: GridGameState<PondCampingGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<PondCampingObject>(repeating: .empty, count: rows * cols)
-        for (p, n) in game.pos2hint {
-            self[p] = .hint(tiles: n, state: .normal)
+        for (p, _) in game.pos2hint {
+            self[p] = .hint
         }
         updateIsSolved()
     }
@@ -58,11 +59,11 @@ class PondCampingGameState: GridGameState<PondCampingGameMove> {
         func f(o: PondCampingObject) -> PondCampingObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .water
-            case .water:
+                return markerOption == .markerFirst ? .marker : .forest
+            case .forest:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .water : .empty
+                return markerOption == .markerFirst ? .forest : .empty
             default:
                 return o
             }
@@ -86,45 +87,14 @@ class PondCampingGameState: GridGameState<PondCampingGameMove> {
     private func updateIsSolved() {
         let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
-        var g = Graph()
+        let g = Graph()
         var pos2node = [Position: Node]()
-        var rngHints = [Position]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 switch self[p] {
-                case .forbidden:
-                    self[p] = .empty
-                case let .hint(tiles, _):
-                    self[p] = .hint(tiles: tiles, state: .normal)
-                    rngHints.append(p)
-                default:
-                    break
-                }
-                if case .water = self[p] {continue}
-                pos2node[p] = g.addNode(p.description)
-            }
-        }
-        for (p, node) in pos2node {
-            for os in PondCampingGame.offset {
-                let p2 = p + os
-                guard let node2 = pos2node[p2] else {continue}
-                g.addEdge(node, neighbor: node2)
-            }
-        }
-        do {
-            // 4. There is only one, continuous island.
-            let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            if nodesExplored.count != pos2node.count { isSolved = false }
-        }
-        g = Graph()
-        pos2node.removeAll()
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                switch self[p] {
-                case .water, .hint:
-                    // 5. A camper can't cross water or other Tents.
+                case .forest, .hint:
+                    // A camper can't cross forest or other Ponds.
                     break
                 default:
                     pos2node[p] = g.addNode(p.description)
@@ -150,8 +120,7 @@ class PondCampingGameState: GridGameState<PondCampingGameMove> {
             }
             areas.append(area)
         }
-        for p in rngHints {
-            let n2 = game.pos2hint[p]!
+        for (p, n2) in game.pos2hint {
             var rng = Set<Position>()
             for os in PondCampingGame.offset {
                 let p2 = p + os
@@ -162,7 +131,7 @@ class PondCampingGameState: GridGameState<PondCampingGameMove> {
             // 5. The numbers tell you how many tiles that camper can walk from his Tent,
             // by moving horizontally or vertically.
             let s: HintState = n1 > n2 ? .normal : n1 == n2 ? .complete : .error
-            self[p] = .hint(tiles: n2, state: s)
+            pos2state[p] = s
             if s != .complete { isSolved = false }
             if allowedObjectsOnly && n1 <= n2 {
                 for p2 in rng {

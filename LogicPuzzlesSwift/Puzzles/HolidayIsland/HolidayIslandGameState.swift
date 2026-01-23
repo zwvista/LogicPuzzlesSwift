@@ -15,7 +15,8 @@ class HolidayIslandGameState: GridGameState<HolidayIslandGameMove> {
     }
     override var gameDocument: GameDocumentBase { HolidayIslandDocument.sharedInstance }
     var objArray = [HolidayIslandObject]()
-    
+    var pos2state = [Position: HintState]()
+
     override func copy() -> HolidayIslandGameState {
         let v = HolidayIslandGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -30,8 +31,8 @@ class HolidayIslandGameState: GridGameState<HolidayIslandGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<HolidayIslandObject>(repeating: .empty, count: rows * cols)
-        for (p, n) in game.pos2hint {
-            self[p] = .hint(tiles: n, state: .normal)
+        for (p, _) in game.pos2hint {
+            self[p] = .hint
         }
         updateIsSolved()
     }
@@ -95,21 +96,15 @@ class HolidayIslandGameState: GridGameState<HolidayIslandGameMove> {
         isSolved = true
         var g = Graph()
         var pos2node = [Position: Node]()
-        var rngHints = [Position]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                switch self[p] {
-                case .forbidden:
+                if self[p] == .forbidden {
                     self[p] = .empty
-                case let .hint(tiles, _):
-                    self[p] = .hint(tiles: tiles, state: .normal)
-                    rngHints.append(p)
-                default:
-                    break
                 }
-                if case .water = self[p] {continue}
-                pos2node[p] = g.addNode(p.description)
+                if self[p] != .water {
+                    pos2node[p] = g.addNode(p.description)
+                }
             }
         }
         for (p, node) in pos2node {
@@ -157,8 +152,7 @@ class HolidayIslandGameState: GridGameState<HolidayIslandGameMove> {
             }
             areas.append(area)
         }
-        for p in rngHints {
-            let n2 = game.pos2hint[p]!
+        for (p, n2) in game.pos2hint {
             var rng = Set<Position>()
             for os in HolidayIslandGame.offset {
                 let p2 = p + os
@@ -169,7 +163,7 @@ class HolidayIslandGameState: GridGameState<HolidayIslandGameMove> {
             // 5. The numbers tell you how many tiles that camper can walk from his Tent,
             // by moving horizontally or vertically.
             let s: HintState = n1 > n2 ? .normal : n1 == n2 ? .complete : .error
-            self[p] = .hint(tiles: n2, state: s)
+            pos2state[p] = s
             if s != .complete { isSolved = false }
             if allowedObjectsOnly && n1 <= n2 {
                 for p2 in rng {

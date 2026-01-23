@@ -23,6 +23,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         "MiniLits": "Mini-Lits",
         "NoughtsAndCrosses": "Noughts & Crosses",
         "PlugItIn": "Plug it in",
+        "PondCamping": "Pond camping",
         "RunInALoop": "Run in a Loop",
         "Square100": "Square 100",
         "TapAlike": "Tap-Alike",

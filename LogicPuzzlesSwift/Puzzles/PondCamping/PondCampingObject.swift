@@ -8,34 +8,10 @@
 
 import Foundation
 
-enum PondCampingObject {
-    case empty
-    case forbidden
-    case marker
-    case water
-    case hint(tiles: Int, state: HintState)
+enum PondCampingObject: Int {
+    case empty, forbidden, marker, forest, hint
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .water:
-            return "water"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> PondCampingObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "water":
-            return .water
-        default:
-            return .empty
-        }
     }
 }
 
