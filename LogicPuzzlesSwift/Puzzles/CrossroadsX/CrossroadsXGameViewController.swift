@@ -24,6 +24,6 @@ class CrossroadsXGameViewController: GameGameViewController2<CrossroadsXGameStat
     }
    
     override func newGame(level: GameLevel) -> CrossroadsXGame {
-        CrossroadsXGame(layout: level.layout, delegate: self)
+        CrossroadsXGame(layout: level.layout, sum: (level.settings["sum"] ?? "10").toInt()!, delegate: self)
     }
 }

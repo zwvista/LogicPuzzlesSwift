@@ -50,16 +50,22 @@ class CrossroadsXGameScene: GameScene<CrossroadsXGameState> {
         lineNode.name = "line"
         gridNode.addChild(lineNode)
         
-        // add Characters
+        // add Numbers
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
-                let n = game[p]
-                guard n != CrossroadsXGame.PUZ_EMPTY else {continue}
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
-                let numberNodeName = "number" + nodeNameSuffix
-                addLabel(text: String(n), fontColor: .gray, point: point, nodeName: numberNodeName)
+                let n = game[p]
+                if n != CrossroadsXGame.PUZ_EMPTY {
+                    let numberNodeName = "number" + nodeNameSuffix
+                    addLabel(text: String(n), fontColor: .gray, point: point, nodeName: numberNodeName)
+                }
+                if game.crossroads.contains(p) {
+                    let point = gridNode.cornerPoint(p: p)
+                    let invalidCrossroadsNodeName = "invalidCrossroads" + nodeNameSuffix
+                    addDotMarker2(color: state.invalidCrossroads.contains(p) ? .red : .green, point: point, nodeName: invalidCrossroadsNodeName)
+                }
             }
         }
     }
@@ -71,14 +77,23 @@ class CrossroadsXGameScene: GameScene<CrossroadsXGameState> {
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
+                let invalidCrossroadsNodeName = "invalidCrossroads" + nodeNameSuffix
                 let (n1, n2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
-                guard n1 != n2 || s1 != s2 else {continue}
-                if n1 != CrossroadsXGame.PUZ_EMPTY {
-                    removeNode(withName: numberNodeName)
+                if n1 != n2 || s1 != s2 {
+                    if n1 != CrossroadsXGame.PUZ_EMPTY {
+                        removeNode(withName: numberNodeName)
+                    }
+                    if n2 != CrossroadsXGame.PUZ_EMPTY {
+                        addLabel(text: String(n2), fontColor: stateFrom.game[p] != CrossroadsXGame.PUZ_EMPTY ? .gray : s2 == .normal ? .white : .red, point: point, nodeName: numberNodeName)
+                    }
                 }
-                if n2 != CrossroadsXGame.PUZ_EMPTY {
-                    addLabel(text: String(n2), fontColor: stateFrom.game[p] != CrossroadsXGame.PUZ_EMPTY ? .gray : s2 == .normal ? .white : .red, point: point, nodeName: numberNodeName)
+                guard stateFrom.game.crossroads.contains(p) else {continue}
+                let (b1, b2) = (stateFrom.invalidCrossroads.contains(p), stateTo.invalidCrossroads.contains(p))
+                if b1 != b2 {
+                    let point = gridNode.cornerPoint(p: p)
+                    removeNode(withName: invalidCrossroadsNodeName)
+                    addDotMarker2(color: b2 ? .red : .green, point: point, nodeName: invalidCrossroadsNodeName)
                 }
             }
         }

@@ -16,6 +16,7 @@ class CrossroadsXGameState: GridGameState<CrossroadsXGameMove> {
     override var gameDocument: GameDocumentBase { CrossroadsXDocument.sharedInstance }
     var objArray = [Int]()
     var pos2state = [Position: AllowedObjectState]()
+    var invalidCrossroads = [Position]()
     
     override func copy() -> CrossroadsXGameState {
         let v = CrossroadsXGameState(game: game, isCopy: true)
@@ -75,48 +76,25 @@ class CrossroadsXGameState: GridGameState<CrossroadsXGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        for r in 0..<rows {
-            for c in 0..<cols {
-                pos2state[Position(r, c)] = .normal
-            }
+        // 2. When four regions borders intersect (a spot where four lines meet),
+        //    the sum of those 4 regions must be 10.
+        invalidCrossroads = game.crossroads.filter { p in
+            let rng = CrossroadsXGame.offset3.map { p + $0 }
+            return !(rng.allSatisfy({ self[$0] != CrossroadsXGame.PUZ_EMPTY }) && rng.reduce(0) { $0 + self[$1] } == game.sum)
         }
-        // 2. Two orthogonally adjacent numbers must be different.
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                for i in [1, 2] {
-                    let os = CrossroadsXGame.offset[i]
-                    let p2 = p + os
-                    guard isValid(p: p2) && self[p] == self[p2] else {continue}
-                    isSolved = false
-                    pos2state[p] = .error
-                    pos2state[p2] = .error
-                }
-            }
-        }
-        for area in game.areas {
-            var num2rng = [Int: [Position]]()
-            for p in area {
-                let n = self[p]
-                if n == CrossroadsXGame.PUZ_EMPTY {
-                    isSolved = false
-                } else {
-                    num2rng[n, default: []].append(p)
-                }
-            }
-            // 1. Fill each area with every number ranging from 1 to the size of the area.
-            for (_, rng) in num2rng where rng.count > 1 {
+        if !invalidCrossroads.isEmpty { isSolved = false }
+        // 3. No two orthogonally adjacent regions can have the same number.
+        for (i, area) in game.areas.enumerated() {
+            let n = self[area[0]]
+            let areas = game.area2areas[i]
+                .map { self.game.areas[$0] }
+                .filter { self[$0[0]] == n }
+            if areas.isEmpty {
+                for p in area { pos2state[p] = .normal }
+            } else {
                 isSolved = false
-                for p in rng { pos2state[p] = .error }
-            }
-            // 3. In one area, if a number is right above another, the upper one must be
-            //    higher than the lower one. This only applies to numbers on top of each
-            //    other in the same area.
-            for p1 in area {
-                for p2 in area where p1 - p2 == CrossroadsXGame.offset[0] && self[p1] <= self[p2] {
-                    isSolved = false
-                    pos2state[p1] = .error
-                    pos2state[p2] = .error
+                for area2 in [area] + areas {
+                    for p in area2 { pos2state[p] = .error }
                 }
             }
         }
