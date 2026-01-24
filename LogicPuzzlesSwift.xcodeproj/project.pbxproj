@@ -1572,6 +1572,15 @@
 		8CB418E22F251C7E005C7FDF /* StraightAndBendLandsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418D52F251C7E005C7FDF /* StraightAndBendLandsGameScene.swift */; };
 		8CB418E32F251C7E005C7FDF /* StraightAndBendLandsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418DA2F251C7E005C7FDF /* StraightAndBendLandsObject.swift */; };
 		8CB418E42F251C7E005C7FDF /* StraightAndBendLands.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB418D22F251C7E005C7FDF /* StraightAndBendLands.xml */; };
+		8CB418EF2F2532AD005C7FDF /* YouTurnMeOnGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418EA2F2532AD005C7FDF /* YouTurnMeOnGameViewController.swift */; };
+		8CB418F02F2532AD005C7FDF /* YouTurnMeOnGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418E92F2532AD005C7FDF /* YouTurnMeOnGameState.swift */; };
+		8CB418F12F2532AD005C7FDF /* YouTurnMeOnGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418E72F2532AD005C7FDF /* YouTurnMeOnGame.swift */; };
+		8CB418F22F2532AD005C7FDF /* YouTurnMeOnObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418ED2F2532AD005C7FDF /* YouTurnMeOnObject.swift */; };
+		8CB418F32F2532AD005C7FDF /* YouTurnMeOnMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418EC2F2532AD005C7FDF /* YouTurnMeOnMainViewController.swift */; };
+		8CB418F42F2532AD005C7FDF /* YouTurnMeOnGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418E82F2532AD005C7FDF /* YouTurnMeOnGameScene.swift */; };
+		8CB418F52F2532AD005C7FDF /* YouTurnMeOnGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418EB2F2532AD005C7FDF /* YouTurnMeOnGridNode.swift */; };
+		8CB418F62F2532AD005C7FDF /* YouTurnMeOnDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418E62F2532AD005C7FDF /* YouTurnMeOnDocument.swift */; };
+		8CB418F72F2532AD005C7FDF /* YouTurnMeOn.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB418E52F2532AD005C7FDF /* YouTurnMeOn.xml */; };
 		8CB721C72EAAE62D001B25C5 /* PlanksGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C02EAAE62D001B25C5 /* PlanksGameScene.swift */; };
 		8CB721C82EAAE62D001B25C5 /* PlanksGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C22EAAE62D001B25C5 /* PlanksGameViewController.swift */; };
 		8CB721C92EAAE62D001B25C5 /* PlanksObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C52EAAE62D001B25C5 /* PlanksObject.swift */; };
@@ -3348,6 +3357,15 @@
 		8CB418D82F251C7E005C7FDF /* StraightAndBendLandsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightAndBendLandsGridNode.swift; sourceTree = "<group>"; };
 		8CB418D92F251C7E005C7FDF /* StraightAndBendLandsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightAndBendLandsMainViewController.swift; sourceTree = "<group>"; };
 		8CB418DA2F251C7E005C7FDF /* StraightAndBendLandsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightAndBendLandsObject.swift; sourceTree = "<group>"; };
+		8CB418E52F2532AD005C7FDF /* YouTurnMeOn.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = YouTurnMeOn.xml; sourceTree = "<group>"; };
+		8CB418E62F2532AD005C7FDF /* YouTurnMeOnDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTurnMeOnDocument.swift; sourceTree = "<group>"; };
+		8CB418E72F2532AD005C7FDF /* YouTurnMeOnGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTurnMeOnGame.swift; sourceTree = "<group>"; };
+		8CB418E82F2532AD005C7FDF /* YouTurnMeOnGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTurnMeOnGameScene.swift; sourceTree = "<group>"; };
+		8CB418E92F2532AD005C7FDF /* YouTurnMeOnGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTurnMeOnGameState.swift; sourceTree = "<group>"; };
+		8CB418EA2F2532AD005C7FDF /* YouTurnMeOnGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTurnMeOnGameViewController.swift; sourceTree = "<group>"; };
+		8CB418EB2F2532AD005C7FDF /* YouTurnMeOnGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTurnMeOnGridNode.swift; sourceTree = "<group>"; };
+		8CB418EC2F2532AD005C7FDF /* YouTurnMeOnMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTurnMeOnMainViewController.swift; sourceTree = "<group>"; };
+		8CB418ED2F2532AD005C7FDF /* YouTurnMeOnObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTurnMeOnObject.swift; sourceTree = "<group>"; };
 		8CB721BD2EAAE62D001B25C5 /* Planks.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Planks.xml; sourceTree = "<group>"; };
 		8CB721BE2EAAE62D001B25C5 /* PlanksDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksDocument.swift; sourceTree = "<group>"; };
 		8CB721BF2EAAE62D001B25C5 /* PlanksGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksGame.swift; sourceTree = "<group>"; };
@@ -4330,6 +4348,7 @@
 				8CFAF995202615560095EFFC /* WallSentinels */,
 				8C8661E72EA35BDB0078CD64 /* Warehouse */,
 				8C9BD4C52F09F2B700D1D915 /* WishSandwich */,
+				8CB418EE2F2532AD005C7FDF /* YouTurnMeOn */,
 				8C8661D42EA31ABC0078CD64 /* ZenLandscaper */,
 			);
 			path = Puzzles;
@@ -6362,6 +6381,22 @@
 			path = StraightAndBendLands;
 			sourceTree = "<group>";
 		};
+		8CB418EE2F2532AD005C7FDF /* YouTurnMeOn */ = {
+			isa = PBXGroup;
+			children = (
+				8CB418E52F2532AD005C7FDF /* YouTurnMeOn.xml */,
+				8CB418E62F2532AD005C7FDF /* YouTurnMeOnDocument.swift */,
+				8CB418E72F2532AD005C7FDF /* YouTurnMeOnGame.swift */,
+				8CB418E82F2532AD005C7FDF /* YouTurnMeOnGameScene.swift */,
+				8CB418E92F2532AD005C7FDF /* YouTurnMeOnGameState.swift */,
+				8CB418EA2F2532AD005C7FDF /* YouTurnMeOnGameViewController.swift */,
+				8CB418EB2F2532AD005C7FDF /* YouTurnMeOnGridNode.swift */,
+				8CB418EC2F2532AD005C7FDF /* YouTurnMeOnMainViewController.swift */,
+				8CB418ED2F2532AD005C7FDF /* YouTurnMeOnObject.swift */,
+			);
+			path = YouTurnMeOn;
+			sourceTree = "<group>";
+		};
 		8CB721C62EAAE62D001B25C5 /* Planks */ = {
 			isa = PBXGroup;
 			children = (
@@ -7252,6 +7287,7 @@
 				8CFB22332EF8FF1000E5F29D /* DigitalPath.xml in Resources */,
 				8C35E3A51FC4839100A26EE3 /* Walls.xml in Resources */,
 				8C3A36F01EC88D4300A914A5 /* Magnets.xml in Resources */,
+				8CB418F72F2532AD005C7FDF /* YouTurnMeOn.xml in Resources */,
 				8C3A369C1EC88D4200A914A5 /* Hitori.xml in Resources */,
 				8C263F1A2F1CEA2700158A2C /* PathOnTheMountains.xml in Resources */,
 				8C263EF42F1CA89300158A2C /* see.png in Resources */,
@@ -8389,6 +8425,14 @@
 				8C3A371C1EC88D4300A914A5 /* MinesweeperMainViewController.swift in Sources */,
 				8C3A36D41EC88D4300A914A5 /* LineSweeperMainViewController.swift in Sources */,
 				8CFAF9A3202615570095EFFC /* WallSentinelsGameViewController.swift in Sources */,
+				8CB418EF2F2532AD005C7FDF /* YouTurnMeOnGameViewController.swift in Sources */,
+				8CB418F02F2532AD005C7FDF /* YouTurnMeOnGameState.swift in Sources */,
+				8CB418F12F2532AD005C7FDF /* YouTurnMeOnGame.swift in Sources */,
+				8CB418F22F2532AD005C7FDF /* YouTurnMeOnObject.swift in Sources */,
+				8CB418F32F2532AD005C7FDF /* YouTurnMeOnMainViewController.swift in Sources */,
+				8CB418F42F2532AD005C7FDF /* YouTurnMeOnGameScene.swift in Sources */,
+				8CB418F52F2532AD005C7FDF /* YouTurnMeOnGridNode.swift in Sources */,
+				8CB418F62F2532AD005C7FDF /* YouTurnMeOnDocument.swift in Sources */,
 				8C3A36B71EC88D4300A914A5 /* LightenUpGameScene.swift in Sources */,
 				8C3A37901EC88D4400A914A5 /* RoomsGameState.swift in Sources */,
 				8C3A37701EC88D4300A914A5 /* ParksMainViewController.swift in Sources */,
