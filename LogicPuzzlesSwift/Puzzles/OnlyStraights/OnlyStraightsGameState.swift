@@ -74,33 +74,39 @@ class OnlyStraightsGameState: GridGameState<OnlyStraightsGameMove> {
                 if dirs.count == 2 {
                     pos2dirs[p] = dirs
                     if game[p] != " " {
-                        // 2. The path should make 90 degrees turns on the spots.
-                        guard dirs[1] - dirs[0] != 2 else { isSolved = false; return }
+                        // 2. This time, you must go straight while passing a town.
+                        guard dirs[1] - dirs[0] == 2 else { isSolved = false; return }
                     }
-                } else {
-                    // 1. Fill the board with a loop that passes through all tiles.
+                } else if !dirs.isEmpty {
                     // The loop cannot cross itself.
                     isSolved = false; return
                 }
             }
         }
         // Check the loop
-        guard let p = pos2dirs.keys.first(where: { game[$0] != " " }) else { isSolved = false; return }
+        guard let p = pos2dirs.keys.first else { isSolved = false; return }
         var p2 = p
-        var n = -1, ns = [Int]()
+        var n = -1
         while true {
             guard let dirs = pos2dirs[p2] else { isSolved = false; return }
             pos2dirs.removeValue(forKey: p2)
             n = dirs.first { ($0 + 2) % 4 != n }!
-            ns.append(n)
             p2 += OnlyStraightsGame.offset[n]
-            if game[p2] != " " {
-                // 3. Between spots, the path makes one more 90 degrees turn.
-                let turns = (0..<ns.count - 1).count { ns[$0] != ns[$0 + 1] }
-                guard turns == 1 else { isSolved = false; return }
-                ns.removeAll()
-            }
-            guard p2 != p else {return}
+            guard p2 != p else {break}
         }
+        // 3. Branches of a road coming off a town must be of equal length.
+        if !pos2dirs.allSatisfy({ (p, dirs) in
+            func f(d: Int) -> Int {
+                let os = OnlyStraightsGame.offset[d]
+                var p2 = p + os
+                var n = 0
+                while pos2dirs[p2]!.contains(d) {
+                    n += 1
+                    p2 += os
+                }
+                return n
+            }
+            return game[p] == " " || f(d: dirs[0]) == f(d: dirs[1])
+        }) { isSolved = false }
     }
 }

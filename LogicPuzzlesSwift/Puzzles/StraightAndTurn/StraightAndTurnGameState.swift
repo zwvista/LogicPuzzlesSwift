@@ -114,7 +114,7 @@ class StraightAndTurnGameState: GridGameState<StraightAndTurnGameMove> {
                 ch = ch2
                 ns.removeAll()
             }
-            guard p2 != p else {return}
+            guard p2 != p else {break}
         }
     }
 }

@@ -87,7 +87,7 @@ class RunInALoopGameState: GridGameState<RunInALoopGameMove> {
             pos2dirs.removeValue(forKey: p2)
             n = dirs.first { ($0 + 2) % 4 != n }!
             p2 += RunInALoopGame.offset[n]
-            guard p2 != p else {return}
+            guard p2 != p else {break}
         }
     }
 }

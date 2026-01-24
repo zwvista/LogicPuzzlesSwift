@@ -101,7 +101,7 @@ class PathOnTheMountainsGameState: GridGameState<PathOnTheMountainsGameMove> {
                 guard turns == 1 else { isSolved = false; return }
                 ns.removeAll()
             }
-            guard p2 != p else {return}
+            guard p2 != p else {break}
         }
     }
 }
