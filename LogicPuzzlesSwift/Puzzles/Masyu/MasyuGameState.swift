@@ -94,6 +94,7 @@ class MasyuGameState: GridGameState<MasyuGameMove> {
                 }
             }
         }
+        let pos2dirs2 = pos2dirs
         // Check the loop
         guard let p = pos2dirs.keys.first else { isSolved = false; return }
         var p2 = p
@@ -108,7 +109,7 @@ class MasyuGameState: GridGameState<MasyuGameMove> {
         // 3. At least at one side of the White Pearl(or both), they must do a 90 degree turn.
         // 4. Lines passing through Black Pearls must go straight in the next tile in both directions.
         // 5. Lines passing where there are no Pearls can do what they want.
-        if !pos2dirs.testAll({ p, dirs in
+        if !pos2dirs2.testAll({ p, dirs in
             let ch = game[p]
             guard ch != " " else { return true }
             let turns = dirs.reduce(0) { acc, d in

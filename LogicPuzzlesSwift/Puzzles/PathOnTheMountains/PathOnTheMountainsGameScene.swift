@@ -23,7 +23,7 @@ class PathOnTheMountainsGameScene: GameScene<PathOnTheMountainsGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: PathOnTheMountainsGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
-        // add Numbers
+        // add Images
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)

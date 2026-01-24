@@ -15,7 +15,6 @@ class StraightAndBendLandsGameState: GridGameState<StraightAndBendLandsGameMove>
     }
     override var gameDocument: GameDocumentBase { StraightAndBendLandsDocument.sharedInstance }
     var objArray = [StraightAndBendLandsObject]()
-    var pos2state = [Position: HintState]()
 
     override func copy() -> StraightAndBendLandsGameState {
         let v = StraightAndBendLandsGameState(game: game, isCopy: true)
@@ -46,7 +45,7 @@ class StraightAndBendLandsGameState: GridGameState<StraightAndBendLandsGameMove>
     override func setObject(move: inout StraightAndBendLandsGameMove) -> GameOperationType {
         let p = move.p, dir = move.dir
         let p2 = p + StraightAndBendLandsGame.offset[dir], dir2 = (dir + 2) % 4
-        guard isValid(p: p2) else { return .invalid }
+        guard isValid(p: p2) && game[p] != StraightAndBendLandsGame.PUZ_TREE && game[p2] != StraightAndBendLandsGame.PUZ_TREE else { return .invalid }
         self[p][dir].toggle()
         self[p2][dir2].toggle()
         updateIsSolved()
@@ -76,57 +75,42 @@ class StraightAndBendLandsGameState: GridGameState<StraightAndBendLandsGameMove>
             for c in 0..<cols {
                 let p = Position(r, c)
                 let dirs = (0..<4).filter { self[p][$0] }
-                pos2dirs[p] = dirs
-                if !(dirs.count == 2 || dirs.isEmpty) { isSolved = false }
+                if dirs.count == 2 {
+                    // 2. Draw a loop that goes through villages (houses), but avoid trees.
+                    pos2dirs[p] = dirs
+                } else if !(dirs.isEmpty && game[p] == StraightAndBendLandsGame.PUZ_TREE) {
+                    // The loop cannot cross itself.
+                    isSolved = false; return
+                }
             }
         }
-        // 3. the number on a Field tells you how many tiles you should go through it.
-        for (p, n2) in game.pos2hint {
-            let area = game.areas[game.pos2area[p]!]
-            let n1 = area.reduce(0) { acc, p in acc + (pos2dirs[p]!.isEmpty ? 0 : 1) }
-            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if s != .complete { isSolved = false }
-            pos2state[p] = s
-        }
-        guard isSolved else {return}
+        let pos2dirs2 = pos2dirs
         // Check the loop
         guard let p = pos2dirs.keys.first else { isSolved = false; return }
         var p2 = p
         var n = -1
-        var lastArea = -1
-        var area2count = [Int: Int]()
         while true {
             guard let dirs = pos2dirs[p2] else { isSolved = false; return }
-            let area = game.pos2area[p2]!
-            if area != lastArea {
-                area2count[area] = (area2count[area] ?? 0) + 1
-                lastArea = area
-            }
             pos2dirs.removeValue(forKey: p2)
             n = dirs.first { ($0 + 2) % 4 != n }!
             p2 += StraightAndBendLandsGame.offset[n]
-            guard p2 != p else {
-                area2count[area] = area2count[area]! - 1
-                break
-            }
+            guard p2 != p else {break}
         }
-        // 1. The board represents a map of the Countryside, divided in Fields.
-        // 2. The object is to have a walk around the Countryside, passing through
-        //    each Field just once.
-        // 4. A Field with no number can be passed through in any number of tiles,
-        //    at least one.
-        if !(area2count.count == game.areas.count && area2count.testAll { $1 == 1 }) { isSolved = false; return }
-        // 5. If you avoid two adjacent tiles in your path, they should be in the
-        //    same Fields.
-        // 6. Or in other words, two adjacent empty tiles cannot be in two different
-        //    Fields.
-        let rng = pos2dirs.filter { p, dirs in dirs.isEmpty }.keys
-        if rng.contains(where: { p in
-            let area = game.pos2area[p]!
-            return StraightAndBendLandsGame.offset.contains {
-                let p2 = p + $0
-                return rng.contains(p2) && area != game.pos2area[p2]!
-            }
-        }) { isSolved = false }
+        // 1. This odd nation is divided into two types of regions. One where roads
+        //    always turn on villages, and one where roads always go straight!
+        // 3. While passing on villages, the road might turn or not, but if it turns
+        //    then the road will turn on all villages in that region.
+        // 4. Conversely if it goes straight, all villages of that region will have
+        //    the road go straight through them.
+        if !(game.areas.allSatisfy({ area in
+            let rng = area.filter { game[$0] == StraightAndBendLandsGame.PUZ_HOUSE }
+            return rng.allSatisfy({
+                let dirs = pos2dirs2[$0]!
+                return dirs[1] - dirs[0] == 2
+            }) || rng.allSatisfy({
+                let dirs = pos2dirs2[$0]!
+                return dirs[1] - dirs[0] != 2
+            })
+        })) { isSolved = false }
     }
 }

@@ -17,17 +17,20 @@ class StraightAndBendLandsGame: GridGame<StraightAndBendLandsGameState> {
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
+    static let PUZ_HOUSE: Character = "O"
+    static let PUZ_TREE: Character = "T"
 
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
     var dots: GridDots!
-    var pos2hint = [Position: Int]()
+    var objArray = [Character]()
 
     init(layout: [String], delegate: StraightAndBendLandsGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count / 2, layout[0].length / 2)
         dots = GridDots(rows: rows + 1, cols: cols + 1)
+        objArray = Array<Character>(repeating: " ", count: rows * cols)
 
         for r in 0..<rows + 1 {
             var str = layout[2 * r]
@@ -47,10 +50,7 @@ class StraightAndBendLandsGame: GridGame<StraightAndBendLandsGameState> {
                     dots[r + 1, c][0] = .line
                 }
                 guard c < cols else {continue}
-                let ch2 = str[2 * c + 1]
-                if case "0"..."9" = ch2 {
-                    pos2hint[Position(r, c)] = ch2.toInt!
-                }
+                self[r, c] = str[2 * c + 1]
             }
         }
         let g = Graph()
@@ -84,5 +84,14 @@ class StraightAndBendLandsGame: GridGame<StraightAndBendLandsGameState> {
 
         let state = StraightAndBendLandsGameState(game: self)
         levelInitialized(state: state)
+    }
+
+    subscript(p: Position) -> Character {
+        get { self[p.row, p.col] }
+        set { self[p.row, p.col] = newValue }
+    }
+    subscript(row: Int, col: Int) -> Character {
+        get { objArray[row * cols + col] }
+        set { objArray[row * cols + col] = newValue }
     }
 }

@@ -92,6 +92,7 @@ class PathOnTheHillsGameState: GridGameState<PathOnTheHillsGameMove> {
             pos2state[p] = s
         }
         guard isSolved else {return}
+        let pos2dirs2 = pos2dirs
         // Check the loop
         guard let p = pos2dirs.keys.first else { isSolved = false; return }
         var p2 = p
@@ -123,7 +124,7 @@ class PathOnTheHillsGameState: GridGameState<PathOnTheHillsGameMove> {
         //    same Fields.
         // 6. Or in other words, two adjacent empty tiles cannot be in two different
         //    Fields.
-        let rng = pos2dirs.filter { p, dirs in dirs.isEmpty }.keys
+        let rng = pos2dirs2.filter { p, dirs in dirs.isEmpty }.keys
         if rng.contains(where: { p in
             let area = game.pos2area[p]!
             return PathOnTheHillsGame.offset.contains {

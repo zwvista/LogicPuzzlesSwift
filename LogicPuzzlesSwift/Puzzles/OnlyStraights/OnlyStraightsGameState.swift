@@ -83,6 +83,7 @@ class OnlyStraightsGameState: GridGameState<OnlyStraightsGameMove> {
                 }
             }
         }
+        let pos2dirs2 = pos2dirs
         // Check the loop
         guard let p = pos2dirs.keys.first else { isSolved = false; return }
         var p2 = p
@@ -95,12 +96,12 @@ class OnlyStraightsGameState: GridGameState<OnlyStraightsGameMove> {
             guard p2 != p else {break}
         }
         // 3. Branches of a road coming off a town must be of equal length.
-        if !pos2dirs.allSatisfy({ (p, dirs) in
+        if !pos2dirs2.allSatisfy({ (p, dirs) in
             func f(d: Int) -> Int {
                 let os = OnlyStraightsGame.offset[d]
                 var p2 = p + os
                 var n = 0
-                while pos2dirs[p2]!.contains(d) {
+                while pos2dirs2[p2]!.contains(d) {
                     n += 1
                     p2 += os
                 }
