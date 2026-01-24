@@ -30,12 +30,7 @@ class FloorPlanGameState: GridGameState<FloorPlanGameMove> {
     required init(game: FloorPlanGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<Int>(repeating: 0, count: rows * cols)
-        for r in 0..<rows {
-            for c in 0..<cols {
-                self[r, c] = game[r, c]
-            }
-        }
+        objArray = game.objArray
         updateIsSolved()
     }
     

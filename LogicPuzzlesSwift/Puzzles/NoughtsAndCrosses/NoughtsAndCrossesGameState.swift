@@ -34,12 +34,7 @@ class NoughtsAndCrossesGameState: GridGameState<NoughtsAndCrossesGameMove> {
     required init(game: NoughtsAndCrossesGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<Character>(repeating: " ", count: rows * cols)
-        for r in 0..<rows {
-            for c in 0..<cols {
-                self[r, c] = game[r, c]
-            }
-        }
+        objArray = game.objArray
         row2state = Array<HintState>(repeating: .normal, count: rows)
         col2state = Array<HintState>(repeating: .normal, count: cols)
         updateIsSolved()

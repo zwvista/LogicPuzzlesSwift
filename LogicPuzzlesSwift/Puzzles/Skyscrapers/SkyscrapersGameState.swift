@@ -33,14 +33,9 @@ class SkyscrapersGameState: GridGameState<SkyscrapersGameMove> {
     required init(game: SkyscrapersGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<Int>(repeating: 0, count: rows * cols)
+        objArray = game.objArray
         row2state = Array<HintState>(repeating: .normal, count: rows * 2)
         col2state = Array<HintState>(repeating: .normal, count: cols * 2)
-        for r in 0..<rows {
-            for c in 0..<cols {
-                self[r, c] = game[r, c]
-            }
-        }
         updateIsSolved()
     }
     

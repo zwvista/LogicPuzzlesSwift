@@ -30,12 +30,7 @@ class TennerGridGameState: GridGameState<TennerGridGameMove> {
     required init(game: TennerGridGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<Int>(repeating: -1, count: rows * cols)
-        for r in 0..<rows {
-            for c in 0..<cols {
-                self[r, c] = game[r, c]
-            }
-        }
+        objArray = game.objArray
         updateIsSolved()
     }
     

@@ -33,14 +33,9 @@ class AbcGameState: GridGameState<AbcGameMove> {
     required init(game: AbcGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<Character>(repeating: " ", count: rows * cols)
+        objArray = game.objArray
         row2state = Array<HintState>(repeating: .normal, count: rows * 2)
         col2state = Array<HintState>(repeating: .normal, count: cols * 2)
-        for r in 0..<rows {
-            for c in 0..<cols {
-                self[r, c] = game[r, c]
-            }
-        }
         updateIsSolved()
     }
     

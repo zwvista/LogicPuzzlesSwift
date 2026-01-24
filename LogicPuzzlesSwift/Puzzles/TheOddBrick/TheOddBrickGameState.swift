@@ -35,12 +35,7 @@ class TheOddBrickGameState: GridGameState<TheOddBrickGameMove> {
     required init(game: TheOddBrickGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<Int>(repeating: 0, count: rows * cols)
-        for r in 0..<rows {
-            for c in 0..<cols {
-                self[r, c] = game[r, c]
-            }
-        }
+        objArray = game.objArray
         row2state = Array<HintState>(repeating: .normal, count: rows)
         col2state = Array<HintState>(repeating: .normal, count: cols)
         area2state = Array<HintState>(repeating: .normal, count: game.areas.count)
