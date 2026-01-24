@@ -83,6 +83,7 @@ class PathOnTheHillsGameState: GridGameState<PathOnTheHillsGameMove> {
                 if !(dirs.count == 2 || dirs.isEmpty) { isSolved = false }
             }
         }
+        // 3. the number on a Field tells you how many tiles you should go through it.
         for (p, n2) in game.pos2hint {
             let area = game.areas[game.pos2area[p]!]
             let n1 = area.reduce(0) { acc, p in acc + (pos2dirs[p]!.isEmpty ? 0 : 1) }
@@ -95,12 +96,40 @@ class PathOnTheHillsGameState: GridGameState<PathOnTheHillsGameMove> {
         guard let p = pos2dirs.keys.first else { isSolved = false; return }
         var p2 = p
         var n = -1
+        var lastArea = -1
+        var area2count = [Int: Int]()
         while true {
             guard let dirs = pos2dirs[p2] else { isSolved = false; return }
+            let area = game.pos2area[p2]!
+            if area != lastArea {
+                area2count[area] = (area2count[area] ?? 0) + 1
+                lastArea = area
+            }
             pos2dirs.removeValue(forKey: p2)
             n = dirs.first { ($0 + 2) % 4 != n }!
             p2 += PathOnTheHillsGame.offset[n]
-            guard p2 != p else {break}
+            guard p2 != p else {
+                area2count[area] = area2count[area]! - 1
+                break
+            }
         }
+        // 1. The board represents a map of the Countryside, divided in Fields.
+        // 2. The object is to have a walk around the Countryside, passing through
+        //    each Field just once.
+        // 4. A Field with no number can be passed through in any number of tiles,
+        //    at least one.
+        if !(area2count.count == game.areas.count && area2count.testAll { $1 == 1 }) { isSolved = false; return }
+        // 5. If you avoid two adjacent tiles in your path, they should be in the
+        //    same Fields.
+        // 6. Or in other words, two adjacent empty tiles cannot be in two different
+        //    Fields.
+        let rng = pos2dirs.filter { p, dirs in dirs.isEmpty }.keys
+        if rng.contains(where: { p in
+            let area = game.pos2area[p]!
+            return PathOnTheHillsGame.offset.contains {
+                let p2 = p + $0
+                return rng.contains(p2) && area != game.pos2area[p2]!
+            }
+        }) { isSolved = false }
     }
 }
