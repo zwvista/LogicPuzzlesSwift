@@ -15,7 +15,8 @@ class GardenTunnelsGameState: GridGameState<GardenTunnelsGameMove> {
     }
     override var gameDocument: GameDocumentBase { GardenTunnelsDocument.sharedInstance }
     var objArray = [GardenTunnelsObject]()
-    
+    var pos2state = [Position: HintState]()
+
     override func copy() -> GardenTunnelsGameState {
         let v = GardenTunnelsGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -70,41 +71,57 @@ class GardenTunnelsGameState: GridGameState<GardenTunnelsGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
+        var rng = [Position]()
         var pos2dirs = [Position: [Int]]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let dirs = (0..<4).filter { self[p][$0] }
-                if dirs.count == 2 {
-                    pos2dirs[p] = dirs
-                    if game[p] != " " {
-                        // 2. The path should make 90 degrees turns on the spots.
-                        guard dirs[1] - dirs[0] != 2 else { isSolved = false; return }
+                pos2dirs[p] = dirs
+                let cnt = dirs.count
+                if cnt == 1 || cnt == 2 {
+                    rng.append(p)
+                    if cnt == 2 {
+                        // 1. the board represents a few gardens where some moles are digging
+                        //    straight line tunnels.
+                        if dirs[1] - dirs[0] != 2 { isSolved = false }
                     }
                 } else {
-                    // 1. Fill the board with a loop that passes through all tiles.
-                    // The loop cannot cross itself.
-                    isSolved = false; return
+                    // 4. The entire board must be filled with tunnels.
+                    isSolved = false
                 }
             }
         }
-        // Check the loop
-        guard let p = pos2dirs.keys.first(where: { game[$0] != " " }) else { isSolved = false; return }
-        var p2 = p
-        var n = -1, ns = [Int]()
-        while true {
-            guard let dirs = pos2dirs[p2] else { isSolved = false; return }
-            pos2dirs.removeValue(forKey: p2)
-            n = dirs.first { ($0 + 2) % 4 != n }!
-            ns.append(n)
-            p2 += GardenTunnelsGame.offset[n]
-            if game[p2] != " " {
-                // 3. Between spots, the path makes one more 90 degrees turn.
-                let turns = (0..<ns.count - 1).count { ns[$0] != ns[$0 + 1] }
-                guard turns == 1 else { isSolved = false; return }
-                ns.removeAll()
+        // 3. The number in the garden tells you how many tunnels start/end in that
+        //    garden.
+        for area in game.areas {
+            guard let pHint = area.first(where: { game.pos2hint[$0] != nil }) else {continue}
+            let n2 = game.pos2hint[pHint]!
+            let n1 = area.count { pos2dirs[$0]!.count == 1 }
+            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            if s != .complete { isSolved = false }
+            pos2state[pHint] = s
+        }
+        guard !isSolved else {return}
+        // 2. Each tunnel starts in the garden and ends in a different garden,
+        //    and can pass through other gardens.
+        let g = Graph()
+        var pos2node = [Position: Node]()
+        for p in rng {
+            pos2node[p] = g.addNode(p.description)
+        }
+        for p in rng {
+            for i in 0..<4 {
+                guard self[p][i] else {continue}
+                guard let node2 = pos2node[p + GardenTunnelsGame.offset[i]] else { isSolved = false; return }
+                g.addEdge(pos2node[p]!, neighbor: node2)
             }
-            guard p2 != p else {break}
+        }
+        while !pos2node.isEmpty {
+            let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+            let tunnel = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
+            pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
+            guard tunnel.count(where: { !pos2dirs[$0]!.isEmpty }) >= 2 else { isSolved = false; return }
         }
     }
 }

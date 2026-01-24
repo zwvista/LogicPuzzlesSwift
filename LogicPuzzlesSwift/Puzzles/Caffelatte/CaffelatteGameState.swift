@@ -74,12 +74,10 @@ class CaffelatteGameState: GridGameState<CaffelatteGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let o = self[p]
-                let ch = game[p]
-                let dirs = (0..<4).filter { o[$0] }
+                let dirs = (0..<4).filter { self[p][$0] }
                 pos2dirs[p] = dirs
                 let cnt = dirs.count
-                if ch == " " {
+                if game[p] == " " {
                     // 2. Links must be straight lines, not crossing each other.
                     guard cnt == 0 || (cnt == 2 && (dirs[0] + 2) % 4 == dirs[1]) else { isSolved = false; return }
                     if cnt == 2 { rng.append(p) }
