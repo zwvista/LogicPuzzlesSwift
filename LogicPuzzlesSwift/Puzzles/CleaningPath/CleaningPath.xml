@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. You are a Roomba! And this is office floor you have to clean tonight.
+2. The floor is divided in rooms. You can enter (and exit) the room only once.
+3. Follow a path that allows you to clean all the tiles on the floor.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+ - - - - `
+|   |   |`
+ - - - - `
+| |   | |`
+   - -   `
+| |   | |`
+   - -   `
+| | |   |`
+ - - - - `
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+ - - - - `
+|     | |`
+   - -   `
+| | | | |`
+ - -     `
+| |   | |`
+ - - -   `
+|     | |`
+ - - - - `
+    ]]>
+  </level>
+  <level id="12">
+    <![CDATA[
+ - - - - - `
+| |   | | |`
+   -   -   `
+|   |   | |`
+         - `
+|   |   | |`
+   - - -   `
+| |       |`
+ - - - - - `
+    ]]>
+  </level>
+  <level id="36">
+    <![CDATA[
+ - - - - - - `
+| | | | |   |`
+   - -   - - `
+| | | | | | |`
+       -     `
+| | | | | | |`
+ -       -   `
+| | | | | | |`
+       -     `
+| | | |   | |`
+   - - - - - `
+| |   |     |`
+ - - - - - - `
+    ]]>
+  </level>
+  <level id="300">
+    <![CDATA[
+ - - - - - - - - - - - `
+|     |             | |`
+   - - - - - - - - -   `
+| |           |     | |`
+ - - - - - - -         `
+|   |       |       | |`
+   - - - - - - - - -   `
+| |       |   |     | |`
+   - - -       - - -   `
+| |     | |   |   | | |`
+   - -           -     `
+| |   | | |   | | | | |`
+     -   -     -       `
+| | | |   |   | | | | |`
+ - -   -   - -         `
+|   |   | |     | | | |`
+     -   - - - -     - `
+|     | |       | |   |`
+         -     -       `
+|     |   |   |   |   |`
+ - - - - - - - - - - - `
+    ]]>
+  </level>
+</levels>
+</puzzle>

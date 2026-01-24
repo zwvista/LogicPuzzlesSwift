@@ -1554,6 +1554,15 @@
 		8CB418BC2F251707005C7FDF /* VeniceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418B42F251707005C7FDF /* VeniceObject.swift */; };
 		8CB418BD2F251707005C7FDF /* VeniceGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418AF2F251707005C7FDF /* VeniceGameScene.swift */; };
 		8CB418BE2F251707005C7FDF /* Venice.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB418AC2F251707005C7FDF /* Venice.xml */; };
+		8CB418C92F251920005C7FDF /* CleaningPath.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB418BF2F251920005C7FDF /* CleaningPath.xml */; };
+		8CB418CA2F251920005C7FDF /* CleaningPathGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418C32F251920005C7FDF /* CleaningPathGameState.swift */; };
+		8CB418CB2F251920005C7FDF /* CleaningPathGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418C12F251920005C7FDF /* CleaningPathGame.swift */; };
+		8CB418CC2F251920005C7FDF /* CleaningPathGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418C42F251920005C7FDF /* CleaningPathGameViewController.swift */; };
+		8CB418CD2F251920005C7FDF /* CleaningPathObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418C72F251920005C7FDF /* CleaningPathObject.swift */; };
+		8CB418CE2F251920005C7FDF /* CleaningPathDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418C02F251920005C7FDF /* CleaningPathDocument.swift */; };
+		8CB418CF2F251920005C7FDF /* CleaningPathGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418C52F251920005C7FDF /* CleaningPathGridNode.swift */; };
+		8CB418D02F251920005C7FDF /* CleaningPathMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418C62F251920005C7FDF /* CleaningPathMainViewController.swift */; };
+		8CB418D12F251920005C7FDF /* CleaningPathGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418C22F251920005C7FDF /* CleaningPathGameScene.swift */; };
 		8CB721C72EAAE62D001B25C5 /* PlanksGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C02EAAE62D001B25C5 /* PlanksGameScene.swift */; };
 		8CB721C82EAAE62D001B25C5 /* PlanksGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C22EAAE62D001B25C5 /* PlanksGameViewController.swift */; };
 		8CB721C92EAAE62D001B25C5 /* PlanksObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C52EAAE62D001B25C5 /* PlanksObject.swift */; };
@@ -3312,6 +3321,15 @@
 		8CB418B22F251707005C7FDF /* VeniceGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeniceGridNode.swift; sourceTree = "<group>"; };
 		8CB418B32F251707005C7FDF /* VeniceMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeniceMainViewController.swift; sourceTree = "<group>"; };
 		8CB418B42F251707005C7FDF /* VeniceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeniceObject.swift; sourceTree = "<group>"; };
+		8CB418BF2F251920005C7FDF /* CleaningPath.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CleaningPath.xml; sourceTree = "<group>"; };
+		8CB418C02F251920005C7FDF /* CleaningPathDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningPathDocument.swift; sourceTree = "<group>"; };
+		8CB418C12F251920005C7FDF /* CleaningPathGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningPathGame.swift; sourceTree = "<group>"; };
+		8CB418C22F251920005C7FDF /* CleaningPathGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningPathGameScene.swift; sourceTree = "<group>"; };
+		8CB418C32F251920005C7FDF /* CleaningPathGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningPathGameState.swift; sourceTree = "<group>"; };
+		8CB418C42F251920005C7FDF /* CleaningPathGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningPathGameViewController.swift; sourceTree = "<group>"; };
+		8CB418C52F251920005C7FDF /* CleaningPathGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningPathGridNode.swift; sourceTree = "<group>"; };
+		8CB418C62F251920005C7FDF /* CleaningPathMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningPathMainViewController.swift; sourceTree = "<group>"; };
+		8CB418C72F251920005C7FDF /* CleaningPathObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningPathObject.swift; sourceTree = "<group>"; };
 		8CB721BD2EAAE62D001B25C5 /* Planks.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Planks.xml; sourceTree = "<group>"; };
 		8CB721BE2EAAE62D001B25C5 /* PlanksDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksDocument.swift; sourceTree = "<group>"; };
 		8CB721BF2EAAE62D001B25C5 /* PlanksGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksGame.swift; sourceTree = "<group>"; };
@@ -4163,6 +4181,7 @@
 				8CA042FB1FDBE77700AF85E1 /* CarpentersWall */,
 				8CFAF9AD20381D850095EFFC /* CastleBailey */,
 				8C9BD5702F0A608A00D1D915 /* Chocolate */,
+				8CB418C82F251920005C7FDF /* CleaningPath */,
 				8C3A342E1EC88D4100A914A5 /* Clouds */,
 				8C81BC222EA8A6BD0083B936 /* CoffeeAndSugar */,
 				8C263F5F2F1E7DE600158A2C /* CrossroadsX */,
@@ -6292,6 +6311,22 @@
 			path = Venice;
 			sourceTree = "<group>";
 		};
+		8CB418C82F251920005C7FDF /* CleaningPath */ = {
+			isa = PBXGroup;
+			children = (
+				8CB418BF2F251920005C7FDF /* CleaningPath.xml */,
+				8CB418C02F251920005C7FDF /* CleaningPathDocument.swift */,
+				8CB418C12F251920005C7FDF /* CleaningPathGame.swift */,
+				8CB418C22F251920005C7FDF /* CleaningPathGameScene.swift */,
+				8CB418C32F251920005C7FDF /* CleaningPathGameState.swift */,
+				8CB418C42F251920005C7FDF /* CleaningPathGameViewController.swift */,
+				8CB418C52F251920005C7FDF /* CleaningPathGridNode.swift */,
+				8CB418C62F251920005C7FDF /* CleaningPathMainViewController.swift */,
+				8CB418C72F251920005C7FDF /* CleaningPathObject.swift */,
+			);
+			path = CleaningPath;
+			sourceTree = "<group>";
+		};
 		8CB721C62EAAE62D001B25C5 /* Planks */ = {
 			isa = PBXGroup;
 			children = (
@@ -6914,6 +6949,7 @@
 				8C8663A52EA39DD00078CD64 /* A5-stone.png in Resources */,
 				8C8663A62EA39DD00078CD64 /* arrow_brown_left.png in Resources */,
 				8CFB22592F0772C100E5F29D /* PouringWater.xml in Resources */,
+				8CB418C92F251920005C7FDF /* CleaningPath.xml in Resources */,
 				8C8663A72EA39DD00078CD64 /* blueberry.png in Resources */,
 				8CB418AB2F23C875005C7FDF /* lodge.png in Resources */,
 				8C8663A82EA39DD00078CD64 /* pebbles.png in Resources */,
@@ -7792,6 +7828,14 @@
 				8CB721CA2EAAE62D001B25C5 /* PlanksGame.swift in Sources */,
 				8CB721CB2EAAE62D001B25C5 /* PlanksMainViewController.swift in Sources */,
 				8CB721CC2EAAE62D001B25C5 /* PlanksGameState.swift in Sources */,
+				8CB418CA2F251920005C7FDF /* CleaningPathGameState.swift in Sources */,
+				8CB418CB2F251920005C7FDF /* CleaningPathGame.swift in Sources */,
+				8CB418CC2F251920005C7FDF /* CleaningPathGameViewController.swift in Sources */,
+				8CB418CD2F251920005C7FDF /* CleaningPathObject.swift in Sources */,
+				8CB418CE2F251920005C7FDF /* CleaningPathDocument.swift in Sources */,
+				8CB418CF2F251920005C7FDF /* CleaningPathGridNode.swift in Sources */,
+				8CB418D02F251920005C7FDF /* CleaningPathMainViewController.swift in Sources */,
+				8CB418D12F251920005C7FDF /* CleaningPathGameScene.swift in Sources */,
 				8CB721CD2EAAE62D001B25C5 /* PlanksGridNode.swift in Sources */,
 				8CB721CE2EAAE62D001B25C5 /* PlanksDocument.swift in Sources */,
 				8C263F602F1E7DE600158A2C /* CrossroadsXGameState.swift in Sources */,
