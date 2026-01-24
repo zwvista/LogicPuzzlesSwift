@@ -15,7 +15,8 @@ class PathOnTheHillsGameState: GridGameState<PathOnTheHillsGameMove> {
     }
     override var gameDocument: GameDocumentBase { PathOnTheHillsDocument.sharedInstance }
     var objArray = [PathOnTheHillsObject]()
-    
+    var pos2state = [Position: HintState]()
+
     override func copy() -> PathOnTheHillsGameState {
         let v = PathOnTheHillsGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -78,36 +79,28 @@ class PathOnTheHillsGameState: GridGameState<PathOnTheHillsGameMove> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let dirs = (0..<4).filter { self[p][$0] }
-                if dirs.count == 2 {
-                    pos2dirs[p] = dirs
-                    if game[p] != " " {
-                        // 2. The path should make 90 degrees turns on the spots.
-                        guard dirs[1] - dirs[0] != 2 else { isSolved = false; return }
-                    }
-                } else {
-                    // 1. Fill the board with a loop that passes through all tiles.
-                    // The loop cannot cross itself.
-                    isSolved = false; return
-                }
+                pos2dirs[p] = dirs
+                if !(dirs.count == 2 || dirs.isEmpty) { isSolved = false }
             }
         }
+        for (p, n2) in game.pos2hint {
+            let area = game.areas[game.pos2area[p]!]
+            let n1 = area.reduce(0) { acc, p in acc + (pos2dirs[p]!.isEmpty ? 0 : 1) }
+            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            if s != .complete { isSolved = false }
+            pos2state[p] = s
+        }
+        guard isSolved else {return}
         // Check the loop
-        guard let p = pos2dirs.keys.first(where: { game[$0] != " " }) else { isSolved = false; return }
+        guard let p = pos2dirs.keys.first else { isSolved = false; return }
         var p2 = p
-        var n = -1, ns = [Int]()
+        var n = -1
         while true {
             guard let dirs = pos2dirs[p2] else { isSolved = false; return }
             pos2dirs.removeValue(forKey: p2)
             n = dirs.first { ($0 + 2) % 4 != n }!
-            ns.append(n)
             p2 += PathOnTheHillsGame.offset[n]
-            if game[p2] != " " {
-                // 3. Between spots, the path makes one more 90 degrees turn.
-                let turns = (0..<ns.count - 1).count { ns[$0] != ns[$0 + 1] }
-                guard turns == 1 else { isSolved = false; return }
-                ns.removeAll()
-            }
-            guard p2 != p else {return}
+            guard p2 != p else {break}
         }
     }
 }
