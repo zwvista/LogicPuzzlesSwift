@@ -24,7 +24,6 @@ class FenceSentinelsGameState: GridGameState<FenceSentinelsGameMove> {
     func setup(v: FenceSentinelsGameState) -> FenceSentinelsGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     
@@ -32,9 +31,6 @@ class FenceSentinelsGameState: GridGameState<FenceSentinelsGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<GridDotObject>(repeating: Array<GridLineObject>(repeating: .empty, count: 4), count: rows * cols)
-        for p in game.pos2hint.keys {
-            pos2state[p] = .normal
-        }
         updateIsSolved()
     }
     

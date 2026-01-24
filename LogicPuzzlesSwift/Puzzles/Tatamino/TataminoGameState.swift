@@ -25,7 +25,6 @@ class TataminoGameState: GridGameState<TataminoGameMove> {
     func setup(v: TataminoGameState) -> TataminoGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     

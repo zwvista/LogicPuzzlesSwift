@@ -24,7 +24,6 @@ class UndergroundGameState: GridGameState<UndergroundGameMove> {
     func setup(v: UndergroundGameState) -> UndergroundGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     

@@ -31,7 +31,6 @@ class MiniLitsGameState: GridGameState<MiniLitsGameMove> {
     func setup(v: MiniLitsGameState) -> MiniLitsGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     

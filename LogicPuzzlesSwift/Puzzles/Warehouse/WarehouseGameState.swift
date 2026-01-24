@@ -25,7 +25,6 @@ class WarehouseGameState: GridGameState<WarehouseGameMove> {
     func setup(v: WarehouseGameState) -> WarehouseGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     
@@ -33,9 +32,6 @@ class WarehouseGameState: GridGameState<WarehouseGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = game.objArray
-        for p in game.pos2symbol.keys {
-            pos2state[p] = .error
-        }
         updateIsSolved()
     }
     

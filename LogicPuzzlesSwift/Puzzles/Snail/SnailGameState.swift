@@ -26,7 +26,6 @@ class SnailGameState: GridGameState<SnailGameMove> {
     func setup(v: SnailGameState) -> SnailGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         v.row2state = row2state
         v.col2state = col2state
         return v

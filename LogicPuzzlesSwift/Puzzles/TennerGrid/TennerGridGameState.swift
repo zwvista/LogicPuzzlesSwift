@@ -24,7 +24,6 @@ class TennerGridGameState: GridGameState<TennerGridGameMove> {
     func setup(v: TennerGridGameState) -> TennerGridGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     

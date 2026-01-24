@@ -50,7 +50,7 @@ class PleaseComeBackGameScene: GameScene<PleaseComeBackGameState> {
         lineNode.name = "line"
         gridNode.addChild(lineNode)
 
-        // add Numbers
+        // add Blocks
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)

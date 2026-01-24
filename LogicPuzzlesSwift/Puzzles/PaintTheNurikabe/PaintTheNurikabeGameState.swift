@@ -24,7 +24,6 @@ class PaintTheNurikabeGameState: GridGameState<PaintTheNurikabeGameMove> {
     func setup(v: PaintTheNurikabeGameState) -> PaintTheNurikabeGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     
@@ -32,9 +31,6 @@ class PaintTheNurikabeGameState: GridGameState<PaintTheNurikabeGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<PaintTheNurikabeObject>(repeating: .empty, count: rows * cols)
-        for p in game.pos2hint.keys {
-            pos2state[p] = .normal
-        }
         updateIsSolved()
     }
     

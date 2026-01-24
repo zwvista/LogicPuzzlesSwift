@@ -24,7 +24,6 @@ class DisconnectFourGameState: GridGameState<DisconnectFourGameMove> {
     func setup(v: DisconnectFourGameState) -> DisconnectFourGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     

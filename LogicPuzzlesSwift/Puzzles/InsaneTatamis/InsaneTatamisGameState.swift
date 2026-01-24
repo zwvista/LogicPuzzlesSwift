@@ -25,7 +25,6 @@ class InsaneTatamisGameState: GridGameState<InsaneTatamisGameMove> {
     func setup(v: InsaneTatamisGameState) -> InsaneTatamisGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     
@@ -33,9 +32,6 @@ class InsaneTatamisGameState: GridGameState<InsaneTatamisGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = game.objArray
-        for p in game.pos2hint.keys {
-            pos2state[p] = .normal
-        }
         updateIsSolved()
     }
     

@@ -31,7 +31,6 @@ class LitsGameState: GridGameState<LitsGameMove> {
     func setup(v: LitsGameState) -> LitsGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     

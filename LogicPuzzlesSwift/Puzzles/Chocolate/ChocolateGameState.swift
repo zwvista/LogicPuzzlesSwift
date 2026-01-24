@@ -24,7 +24,6 @@ class ChocolateGameState: GridGameState<ChocolateGameMove> {
     func setup(v: ChocolateGameState) -> ChocolateGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     

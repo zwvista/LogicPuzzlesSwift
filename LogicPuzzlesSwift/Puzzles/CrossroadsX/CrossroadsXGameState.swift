@@ -24,7 +24,6 @@ class CrossroadsXGameState: GridGameState<CrossroadsXGameMove> {
     func setup(v: CrossroadsXGameState) -> CrossroadsXGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     

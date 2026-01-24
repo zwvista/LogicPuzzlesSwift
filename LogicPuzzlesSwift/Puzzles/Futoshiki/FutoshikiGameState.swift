@@ -28,7 +28,6 @@ class FutoshikiGameState: GridGameState<FutoshikiGameMove> {
         v.objArray = objArray
         v.row2state = row2state
         v.col2state = col2state
-        v.pos2state = pos2state
         return v
     }
     

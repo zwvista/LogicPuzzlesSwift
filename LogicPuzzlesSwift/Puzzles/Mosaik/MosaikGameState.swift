@@ -24,7 +24,6 @@ class MosaikGameState: GridGameState<MosaikGameMove> {
     func setup(v: MosaikGameState) -> MosaikGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     
@@ -32,9 +31,6 @@ class MosaikGameState: GridGameState<MosaikGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<MosaikObject>(repeating: .empty, count: rows * cols)
-        for p in game.pos2hint.keys {
-            pos2state[p] = .normal
-        }
         updateIsSolved()
     }
     

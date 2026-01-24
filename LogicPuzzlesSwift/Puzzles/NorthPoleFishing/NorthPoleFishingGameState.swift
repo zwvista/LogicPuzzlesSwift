@@ -24,7 +24,6 @@ class NorthPoleFishingGameState: GridGameState<NorthPoleFishingGameMove> {
     func setup(v: NorthPoleFishingGameState) -> NorthPoleFishingGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     
@@ -32,9 +31,6 @@ class NorthPoleFishingGameState: GridGameState<NorthPoleFishingGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = game.dots.objArray
-        for p in game.holes {
-            pos2state[p] = .normal
-        }
         updateIsSolved()
     }
     

@@ -24,7 +24,6 @@ class LakesAndMeadowsGameState: GridGameState<LakesAndMeadowsGameMove> {
     func setup(v: LakesAndMeadowsGameState) -> LakesAndMeadowsGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     
@@ -32,9 +31,6 @@ class LakesAndMeadowsGameState: GridGameState<LakesAndMeadowsGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = game.dots.objArray
-        for p in game.lakes {
-            pos2state[p] = .normal
-        }
         updateIsSolved()
     }
     

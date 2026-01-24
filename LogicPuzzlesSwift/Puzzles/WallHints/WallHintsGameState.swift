@@ -24,7 +24,6 @@ class WallHintsGameState: GridGameState<WallHintsGameMove> {
     func setup(v: WallHintsGameState) -> WallHintsGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     
@@ -32,9 +31,6 @@ class WallHintsGameState: GridGameState<WallHintsGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = game.objArray
-        for p in game.pos2hint.keys {
-            pos2state[p] = .normal
-        }
         updateIsSolved()
     }
     

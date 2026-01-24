@@ -24,7 +24,6 @@ class DigitWormsGameState: GridGameState<DigitWormsGameMove> {
     func setup(v: DigitWormsGameState) -> DigitWormsGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     

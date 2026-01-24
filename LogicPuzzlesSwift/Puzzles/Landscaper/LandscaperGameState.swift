@@ -24,7 +24,6 @@ class LandscaperGameState: GridGameState<LandscaperGameMove> {
     func setup(v: LandscaperGameState) -> LandscaperGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     

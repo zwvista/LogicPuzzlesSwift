@@ -24,7 +24,6 @@ class TheCityRisesGameState: GridGameState<TheCityRisesGameMove> {
     func setup(v: TheCityRisesGameState) -> TheCityRisesGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.pos2state = pos2state
         return v
     }
     
