@@ -1545,6 +1545,15 @@
 		8CB418A82F23C552005C7FDF /* OnlyStraightsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418992F23C552005C7FDF /* OnlyStraightsGame.swift */; };
 		8CB418A92F23C552005C7FDF /* OnlyStraights.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB418972F23C552005C7FDF /* OnlyStraights.xml */; };
 		8CB418AB2F23C875005C7FDF /* lodge.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CB418AA2F23C875005C7FDF /* lodge.png */; };
+		8CB418B62F251707005C7FDF /* VeniceMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418B32F251707005C7FDF /* VeniceMainViewController.swift */; };
+		8CB418B72F251707005C7FDF /* VeniceGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418B22F251707005C7FDF /* VeniceGridNode.swift */; };
+		8CB418B82F251707005C7FDF /* VeniceGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418AE2F251707005C7FDF /* VeniceGame.swift */; };
+		8CB418B92F251707005C7FDF /* VeniceDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418AD2F251707005C7FDF /* VeniceDocument.swift */; };
+		8CB418BA2F251707005C7FDF /* VeniceGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418B02F251707005C7FDF /* VeniceGameState.swift */; };
+		8CB418BB2F251707005C7FDF /* VeniceGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418B12F251707005C7FDF /* VeniceGameViewController.swift */; };
+		8CB418BC2F251707005C7FDF /* VeniceObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418B42F251707005C7FDF /* VeniceObject.swift */; };
+		8CB418BD2F251707005C7FDF /* VeniceGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418AF2F251707005C7FDF /* VeniceGameScene.swift */; };
+		8CB418BE2F251707005C7FDF /* Venice.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB418AC2F251707005C7FDF /* Venice.xml */; };
 		8CB721C72EAAE62D001B25C5 /* PlanksGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C02EAAE62D001B25C5 /* PlanksGameScene.swift */; };
 		8CB721C82EAAE62D001B25C5 /* PlanksGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C22EAAE62D001B25C5 /* PlanksGameViewController.swift */; };
 		8CB721C92EAAE62D001B25C5 /* PlanksObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C52EAAE62D001B25C5 /* PlanksObject.swift */; };
@@ -3294,6 +3303,15 @@
 		8CB4189E2F23C552005C7FDF /* OnlyStraightsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyStraightsMainViewController.swift; sourceTree = "<group>"; };
 		8CB4189F2F23C552005C7FDF /* OnlyStraightsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyStraightsObject.swift; sourceTree = "<group>"; };
 		8CB418AA2F23C875005C7FDF /* lodge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lodge.png; sourceTree = "<group>"; };
+		8CB418AC2F251707005C7FDF /* Venice.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Venice.xml; sourceTree = "<group>"; };
+		8CB418AD2F251707005C7FDF /* VeniceDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeniceDocument.swift; sourceTree = "<group>"; };
+		8CB418AE2F251707005C7FDF /* VeniceGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeniceGame.swift; sourceTree = "<group>"; };
+		8CB418AF2F251707005C7FDF /* VeniceGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeniceGameScene.swift; sourceTree = "<group>"; };
+		8CB418B02F251707005C7FDF /* VeniceGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeniceGameState.swift; sourceTree = "<group>"; };
+		8CB418B12F251707005C7FDF /* VeniceGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeniceGameViewController.swift; sourceTree = "<group>"; };
+		8CB418B22F251707005C7FDF /* VeniceGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeniceGridNode.swift; sourceTree = "<group>"; };
+		8CB418B32F251707005C7FDF /* VeniceMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeniceMainViewController.swift; sourceTree = "<group>"; };
+		8CB418B42F251707005C7FDF /* VeniceObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VeniceObject.swift; sourceTree = "<group>"; };
 		8CB721BD2EAAE62D001B25C5 /* Planks.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Planks.xml; sourceTree = "<group>"; };
 		8CB721BE2EAAE62D001B25C5 /* PlanksDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksDocument.swift; sourceTree = "<group>"; };
 		8CB721BF2EAAE62D001B25C5 /* PlanksGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksGame.swift; sourceTree = "<group>"; };
@@ -4268,6 +4286,7 @@
 				8CAFBFDA2E9F19A500C27D7C /* TurnTwice */,
 				8C263EA42F13E29500158A2C /* Underground */,
 				8C263EE92F1CA32100158A2C /* Unseen */,
+				8CB418B52F251707005C7FDF /* Venice */,
 				8C9BD4D92F0A036B00D1D915 /* WallHints */,
 				8C35E3971FC4839000A26EE3 /* Walls */,
 				8CFAF995202615560095EFFC /* WallSentinels */,
@@ -6257,6 +6276,22 @@
 			path = OnlyStraights;
 			sourceTree = "<group>";
 		};
+		8CB418B52F251707005C7FDF /* Venice */ = {
+			isa = PBXGroup;
+			children = (
+				8CB418AC2F251707005C7FDF /* Venice.xml */,
+				8CB418AD2F251707005C7FDF /* VeniceDocument.swift */,
+				8CB418AE2F251707005C7FDF /* VeniceGame.swift */,
+				8CB418AF2F251707005C7FDF /* VeniceGameScene.swift */,
+				8CB418B02F251707005C7FDF /* VeniceGameState.swift */,
+				8CB418B12F251707005C7FDF /* VeniceGameViewController.swift */,
+				8CB418B22F251707005C7FDF /* VeniceGridNode.swift */,
+				8CB418B32F251707005C7FDF /* VeniceMainViewController.swift */,
+				8CB418B42F251707005C7FDF /* VeniceObject.swift */,
+			);
+			path = Venice;
+			sourceTree = "<group>";
+		};
 		8CB721C62EAAE62D001B25C5 /* Planks */ = {
 			isa = PBXGroup;
 			children = (
@@ -6797,6 +6832,7 @@
 				8C263E5F2F11F2A100158A2C /* PlugItIn.xml in Resources */,
 				8C86635C2EA39DD00078CD64 /* pebble2.png in Resources */,
 				8C86635D2EA39DD00078CD64 /* apple.png in Resources */,
+				8CB418BE2F251707005C7FDF /* Venice.xml in Resources */,
 				8C263FB42F20FBF700158A2C /* SlitherCorner.xml in Resources */,
 				8C86635E2EA39DD00078CD64 /* C1.png in Resources */,
 				8C86635F2EA39DD00078CD64 /* flower_pink.png in Resources */,
@@ -7702,6 +7738,14 @@
 				8CFB22612F0772C200E5F29D /* PouringWaterGameScene.swift in Sources */,
 				8C6A36181FAF97AF00D2804D /* TheOddBrickObject.swift in Sources */,
 				8C35E38F1FC2844F00A26EE3 /* GardenerMainViewController.swift in Sources */,
+				8CB418B62F251707005C7FDF /* VeniceMainViewController.swift in Sources */,
+				8CB418B72F251707005C7FDF /* VeniceGridNode.swift in Sources */,
+				8CB418B82F251707005C7FDF /* VeniceGame.swift in Sources */,
+				8CB418B92F251707005C7FDF /* VeniceDocument.swift in Sources */,
+				8CB418BA2F251707005C7FDF /* VeniceGameState.swift in Sources */,
+				8CB418BB2F251707005C7FDF /* VeniceGameViewController.swift in Sources */,
+				8CB418BC2F251707005C7FDF /* VeniceObject.swift in Sources */,
+				8CB418BD2F251707005C7FDF /* VeniceGameScene.swift in Sources */,
 				8C3A360A1EC88D4200A914A5 /* BattleShipsObject.swift in Sources */,
 				8C3A36FA1EC88D4300A914A5 /* MagnetsObject.swift in Sources */,
 				8C3A36D91EC88D4300A914A5 /* LitsDocument.swift in Sources */,
