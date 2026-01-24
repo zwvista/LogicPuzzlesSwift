@@ -72,8 +72,6 @@ class MasyuGameState: GridGameState<MasyuGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        let g = Graph()
-        var pos2node = [Position: Node]()
         var pos2dirs = [Position: [Int]]()
         for r in 0..<rows {
             for c in 0..<cols {
@@ -81,17 +79,13 @@ class MasyuGameState: GridGameState<MasyuGameMove> {
                 let ch = game[p]
                 let dirs = (0..<4).filter { self[p][$0] }
                 if dirs.count == 2 {
-                    pos2node[p] = g.addNode(p.description)
                     pos2dirs[p] = dirs
-                    switch ch {
-                    case MasyuGame.PUZ_BLACK_PEARL:
+                    if ch == MasyuGame.PUZ_BLACK_PEARL {
                         // 4. Lines passing through Black Pearls must do a 90 degree turn in them.
                         guard dirs[1] - dirs[0] != 2 else { isSolved = false; return }
-                    case MasyuGame.PUZ_WHITE_PEARL:
+                    } else if ch == MasyuGame.PUZ_WHITE_PEARL {
                         // 3. Lines passing through White Pearls must go straight through them.
                         guard dirs[1] - dirs[0] == 2 else { isSolved = false; return }
-                    default:
-                        break
                     }
                 } else if !(dirs.isEmpty && ch == " ") {
                     // 1. The goal is to draw a single Loop(Necklace) through every circle(Pearl)
@@ -100,32 +94,28 @@ class MasyuGameState: GridGameState<MasyuGameMove> {
                 }
             }
         }
-        for (p, node) in pos2node {
-            let dirs = pos2dirs[p]!
-            let ch = game[p]
-            var bW = ch != "W"
-            for i in dirs {
-                let p2 = p + MasyuGame.offset[i]
-                guard let node2 = pos2node[p2], let dirs2 = pos2dirs[p2] else { isSolved = false; return }
-                switch ch {
-                case MasyuGame.PUZ_BLACK_PEARL:
-                    // 4. Lines passing through Black Pearls must go straight
-                    // in the next tile in both directions.
-                    guard (i == 0 || i == 2) && dirs2[0] == 0 && dirs2[1] == 2 || (i == 1 || i == 3) && dirs2[0] == 1 && dirs2[1] == 3 else { isSolved = false; return }
-                case MasyuGame.PUZ_WHITE_PEARL:
-                    // 3. At least at one side of the White Pearl(or both),
-                    // Lines passing through White Pearls must do a 90 degree turn.
-                    let n1 = (i + 1) % 4, n2 = (i + 3) % 4
-                    if dirs2[0] == n1 || dirs2[0] == n2 || dirs2[1] == n1 || dirs2[1] == n2 { bW = true }
-                default:
-                    break
-                }
-                g.addEdge(node, neighbor: node2)
-            }
-            guard bW else { isSolved = false; return }
+        // Check the loop
+        guard let p = pos2dirs.keys.first else { isSolved = false; return }
+        var p2 = p
+        var n = -1
+        while true {
+            guard let dirs = pos2dirs[p2] else { isSolved = false; return }
+            pos2dirs.removeValue(forKey: p2)
+            n = dirs.first { ($0 + 2) % 4 != n }!
+            p2 += MasyuGame.offset[n]
+            guard p2 != p else {break}
         }
-        // 1. The goal is to draw a single Loop(Necklace).
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count { isSolved = false }
+        // 3. At least at one side of the White Pearl(or both), they must do a 90 degree turn.
+        // 4. Lines passing through Black Pearls must go straight in the next tile in both directions.
+        // 5. Lines passing where there are no Pearls can do what they want.
+        if !pos2dirs.testAll({ p, dirs in
+            let ch = game[p]
+            guard ch != " " else { return true }
+            let turns = dirs.reduce(0) { acc, d in
+                let dirs2 = pos2dirs[p + MasyuGame.offset[d]]!
+                return acc + (dirs2[1] - dirs2[0] != 2 ? 1 : 0)
+            }
+            return ch == MasyuGame.PUZ_BLACK_PEARL && turns == 0 || ch == MasyuGame.PUZ_WHITE_PEARL && turns > 0
+        }) { isSolved = false }
     }
 }

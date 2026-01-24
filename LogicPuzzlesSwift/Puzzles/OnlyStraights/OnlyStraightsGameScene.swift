@@ -30,7 +30,7 @@ class OnlyStraightsGameScene: GameScene<OnlyStraightsGameState> {
                 let ch = game[r, c]
                 guard ch != " " else {continue}
                 let point = gridNode.centerPoint(p: p)
-                addImage(imageNamed: "mountains", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "mountains")
+                addImage(imageNamed: "lodge", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "lodge")
             }
         }
     }
