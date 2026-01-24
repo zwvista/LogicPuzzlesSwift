@@ -1563,6 +1563,15 @@
 		8CB418CF2F251920005C7FDF /* CleaningPathGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418C52F251920005C7FDF /* CleaningPathGridNode.swift */; };
 		8CB418D02F251920005C7FDF /* CleaningPathMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418C62F251920005C7FDF /* CleaningPathMainViewController.swift */; };
 		8CB418D12F251920005C7FDF /* CleaningPathGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418C22F251920005C7FDF /* CleaningPathGameScene.swift */; };
+		8CB418DC2F251C7E005C7FDF /* StraightAndBendLandsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418D92F251C7E005C7FDF /* StraightAndBendLandsMainViewController.swift */; };
+		8CB418DD2F251C7E005C7FDF /* StraightAndBendLandsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418D32F251C7E005C7FDF /* StraightAndBendLandsDocument.swift */; };
+		8CB418DE2F251C7E005C7FDF /* StraightAndBendLandsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418D82F251C7E005C7FDF /* StraightAndBendLandsGridNode.swift */; };
+		8CB418DF2F251C7E005C7FDF /* StraightAndBendLandsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418D72F251C7E005C7FDF /* StraightAndBendLandsGameViewController.swift */; };
+		8CB418E02F251C7E005C7FDF /* StraightAndBendLandsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418D62F251C7E005C7FDF /* StraightAndBendLandsGameState.swift */; };
+		8CB418E12F251C7E005C7FDF /* StraightAndBendLandsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418D42F251C7E005C7FDF /* StraightAndBendLandsGame.swift */; };
+		8CB418E22F251C7E005C7FDF /* StraightAndBendLandsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418D52F251C7E005C7FDF /* StraightAndBendLandsGameScene.swift */; };
+		8CB418E32F251C7E005C7FDF /* StraightAndBendLandsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418DA2F251C7E005C7FDF /* StraightAndBendLandsObject.swift */; };
+		8CB418E42F251C7E005C7FDF /* StraightAndBendLands.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB418D22F251C7E005C7FDF /* StraightAndBendLands.xml */; };
 		8CB721C72EAAE62D001B25C5 /* PlanksGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C02EAAE62D001B25C5 /* PlanksGameScene.swift */; };
 		8CB721C82EAAE62D001B25C5 /* PlanksGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C22EAAE62D001B25C5 /* PlanksGameViewController.swift */; };
 		8CB721C92EAAE62D001B25C5 /* PlanksObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C52EAAE62D001B25C5 /* PlanksObject.swift */; };
@@ -3330,6 +3339,15 @@
 		8CB418C52F251920005C7FDF /* CleaningPathGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningPathGridNode.swift; sourceTree = "<group>"; };
 		8CB418C62F251920005C7FDF /* CleaningPathMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningPathMainViewController.swift; sourceTree = "<group>"; };
 		8CB418C72F251920005C7FDF /* CleaningPathObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleaningPathObject.swift; sourceTree = "<group>"; };
+		8CB418D22F251C7E005C7FDF /* StraightAndBendLands.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = StraightAndBendLands.xml; sourceTree = "<group>"; };
+		8CB418D32F251C7E005C7FDF /* StraightAndBendLandsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightAndBendLandsDocument.swift; sourceTree = "<group>"; };
+		8CB418D42F251C7E005C7FDF /* StraightAndBendLandsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightAndBendLandsGame.swift; sourceTree = "<group>"; };
+		8CB418D52F251C7E005C7FDF /* StraightAndBendLandsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightAndBendLandsGameScene.swift; sourceTree = "<group>"; };
+		8CB418D62F251C7E005C7FDF /* StraightAndBendLandsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightAndBendLandsGameState.swift; sourceTree = "<group>"; };
+		8CB418D72F251C7E005C7FDF /* StraightAndBendLandsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightAndBendLandsGameViewController.swift; sourceTree = "<group>"; };
+		8CB418D82F251C7E005C7FDF /* StraightAndBendLandsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightAndBendLandsGridNode.swift; sourceTree = "<group>"; };
+		8CB418D92F251C7E005C7FDF /* StraightAndBendLandsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightAndBendLandsMainViewController.swift; sourceTree = "<group>"; };
+		8CB418DA2F251C7E005C7FDF /* StraightAndBendLandsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightAndBendLandsObject.swift; sourceTree = "<group>"; };
 		8CB721BD2EAAE62D001B25C5 /* Planks.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Planks.xml; sourceTree = "<group>"; };
 		8CB721BE2EAAE62D001B25C5 /* PlanksDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksDocument.swift; sourceTree = "<group>"; };
 		8CB721BF2EAAE62D001B25C5 /* PlanksGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksGame.swift; sourceTree = "<group>"; };
@@ -4284,6 +4302,7 @@
 				8C1D4F7A1F7D079F000D5FB3 /* Square100 */,
 				8C9BD5962F0A7DFF00D1D915 /* Stacks */,
 				8C263E1C2F11EC0200158A2C /* Steps */,
+				8CB418DB2F251C7E005C7FDF /* StraightAndBendLands */,
 				8C9BD5CF2F0A830A00D1D915 /* StraightAndTurn */,
 				8C3A35C11EC88D4200A914A5 /* Sumscrapers */,
 				8C9F321D1ECF06BF00E10965 /* Tapa */,
@@ -6327,6 +6346,22 @@
 			path = CleaningPath;
 			sourceTree = "<group>";
 		};
+		8CB418DB2F251C7E005C7FDF /* StraightAndBendLands */ = {
+			isa = PBXGroup;
+			children = (
+				8CB418D22F251C7E005C7FDF /* StraightAndBendLands.xml */,
+				8CB418D32F251C7E005C7FDF /* StraightAndBendLandsDocument.swift */,
+				8CB418D42F251C7E005C7FDF /* StraightAndBendLandsGame.swift */,
+				8CB418D52F251C7E005C7FDF /* StraightAndBendLandsGameScene.swift */,
+				8CB418D62F251C7E005C7FDF /* StraightAndBendLandsGameState.swift */,
+				8CB418D72F251C7E005C7FDF /* StraightAndBendLandsGameViewController.swift */,
+				8CB418D82F251C7E005C7FDF /* StraightAndBendLandsGridNode.swift */,
+				8CB418D92F251C7E005C7FDF /* StraightAndBendLandsMainViewController.swift */,
+				8CB418DA2F251C7E005C7FDF /* StraightAndBendLandsObject.swift */,
+			);
+			path = StraightAndBendLands;
+			sourceTree = "<group>";
+		};
 		8CB721C62EAAE62D001B25C5 /* Planks */ = {
 			isa = PBXGroup;
 			children = (
@@ -6963,6 +6998,7 @@
 				8C8663AE2EA39DD00078CD64 /* wolf.png in Resources */,
 				8C8663AF2EA39DD00078CD64 /* apricot.png in Resources */,
 				8C8663B02EA39DD00078CD64 /* pig.png in Resources */,
+				8CB418E42F251C7E005C7FDF /* StraightAndBendLands.xml in Resources */,
 				8C8663B12EA39DD00078CD64 /* tetris_blue.png in Resources */,
 				8CFB22462F076ED400E5F29D /* LiarLiar.xml in Resources */,
 				8C8663B22EA39DD00078CD64 /* gate.png in Resources */,
@@ -7785,6 +7821,14 @@
 				8C3A360A1EC88D4200A914A5 /* BattleShipsObject.swift in Sources */,
 				8C3A36FA1EC88D4300A914A5 /* MagnetsObject.swift in Sources */,
 				8C3A36D91EC88D4300A914A5 /* LitsDocument.swift in Sources */,
+				8CB418DC2F251C7E005C7FDF /* StraightAndBendLandsMainViewController.swift in Sources */,
+				8CB418DD2F251C7E005C7FDF /* StraightAndBendLandsDocument.swift in Sources */,
+				8CB418DE2F251C7E005C7FDF /* StraightAndBendLandsGridNode.swift in Sources */,
+				8CB418DF2F251C7E005C7FDF /* StraightAndBendLandsGameViewController.swift in Sources */,
+				8CB418E02F251C7E005C7FDF /* StraightAndBendLandsGameState.swift in Sources */,
+				8CB418E12F251C7E005C7FDF /* StraightAndBendLandsGame.swift in Sources */,
+				8CB418E22F251C7E005C7FDF /* StraightAndBendLandsGameScene.swift in Sources */,
+				8CB418E32F251C7E005C7FDF /* StraightAndBendLandsObject.swift in Sources */,
 				8C3A376B1EC88D4300A914A5 /* ParksGameScene.swift in Sources */,
 				8C9F32EB1ED1FCFF00E10965 /* TapAlikeMainViewController.swift in Sources */,
 				8C3A370D1EC88D4300A914A5 /* MineShipsGameViewController.swift in Sources */,
