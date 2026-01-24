@@ -73,14 +73,14 @@ class CoffeeAndSugarGameState: GridGameState<CoffeeAndSugarGameMove> {
         var coffeeArray = [Position]()
         var sugarArray = [Position]()
         var emptyArray = [Position]()
-        var ch2dirs = [Position: [Int]]()
+        var pos2dirs = [Position: [Int]]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let o = self[p]
                 let ch = game[p]
                 let dirs = (0..<4).filter { o[$0] }
-                ch2dirs[p] = dirs
+                pos2dirs[p] = dirs
                 let cnt = dirs.count
                 switch ch {
                 case CoffeeAndSugarGame.PUZ_COFFEE:
@@ -98,7 +98,7 @@ class CoffeeAndSugarGameState: GridGameState<CoffeeAndSugarGameMove> {
         var sugarArray2 = [Position]()
         var emptyArray2 = [Position]()
         for p in coffeeArray {
-            let i = ch2dirs[p]!.first!
+            let i = pos2dirs[p]!.first!
             var os = CoffeeAndSugarGame.offset[i]
             var p2 = p + os
             var dirs = [Int]()
@@ -107,7 +107,7 @@ class CoffeeAndSugarGameState: GridGameState<CoffeeAndSugarGameMove> {
                 guard ch == " " else { isSolved = false; return }
                 emptyArray2.append(p2)
                 let j = (i + 2) % 4
-                dirs = ch2dirs[p2]!
+                dirs = pos2dirs[p2]!
                 guard dirs.contains(j) else { isSolved = false; return }
                 dirs = dirs.filter { $0 != j }
                 if dirs.count == 2 {
@@ -124,7 +124,7 @@ class CoffeeAndSugarGameState: GridGameState<CoffeeAndSugarGameMove> {
                 while true {
                     let ch = game[p3]
                     guard ch == " " || ch == CoffeeAndSugarGame.PUZ_SUGAR else { isSolved = false; return }
-                    var dirs2 = ch2dirs[p3]!
+                    var dirs2 = pos2dirs[p3]!
                     let j = (i + 2) % 4
                     guard dirs2.contains(j) else { isSolved = false; return }
                     if ch == CoffeeAndSugarGame.PUZ_SUGAR {

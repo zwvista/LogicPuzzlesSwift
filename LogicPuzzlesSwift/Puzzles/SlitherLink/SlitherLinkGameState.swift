@@ -121,14 +121,14 @@ class SlitherLinkGameState: GridGameState<SlitherLinkGameMove> {
             if n1 != n2 { isSolved = false }
         }
         guard isSolved else {return}
-        var pos2Dirs = [Position: [Int]]()
+        var pos2dirs = [Position: [Int]]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let dirs = (0..<4).filter { self[p][$0] == .line }
                 if dirs.count == 2 {
                     // 1. Draw a single looping path
-                    pos2Dirs[p] = dirs
+                    pos2dirs[p] = dirs
                 } else if !dirs.isEmpty {
                     // 1. The path cannot have branches or cross itself.
                     isSolved = false; return
@@ -136,12 +136,12 @@ class SlitherLinkGameState: GridGameState<SlitherLinkGameMove> {
             }
         }
         // Check the loop
-        guard let p = pos2Dirs.keys.first else { isSolved = false; return }
+        guard let p = pos2dirs.keys.first else { isSolved = false; return }
         var p2 = p
         var n = -1
         while true {
-            guard let dirs = pos2Dirs[p2] else { isSolved = false; return }
-            pos2Dirs.removeValue(forKey: p2)
+            guard let dirs = pos2dirs[p2] else { isSolved = false; return }
+            pos2dirs.removeValue(forKey: p2)
             n = dirs.first { ($0 + 2) % 4 != n }!
             p2 += SlitherLinkGame.offset[n]
             guard p2 != p else {return}

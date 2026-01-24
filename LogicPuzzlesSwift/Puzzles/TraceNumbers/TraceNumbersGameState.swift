@@ -71,7 +71,7 @@ class TraceNumbersGameState: GridGameState<TraceNumbersGameMove> {
     private func updateIsSolved() {
         isSolved = true
         var chOneArray = [Position]()
-        var ch2dirs = [Position: [Int]]()
+        var pos2dirs = [Position: [Int]]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
@@ -85,9 +85,9 @@ class TraceNumbersGameState: GridGameState<TraceNumbersGameMove> {
                     //    order up to the highest, where it ends.
                     guard ch == TraceNumbersGame.PUZ_ONE || ch == game.chMax else { isSolved = false; return }
                     if ch == TraceNumbersGame.PUZ_ONE { chOneArray.append(p) }
-                    ch2dirs[p] = dirs
+                    pos2dirs[p] = dirs
                 case 2:
-                    ch2dirs[p] = dirs
+                    pos2dirs[p] = dirs
                 default:
                     // 3. In doing this, you have to pass through all tiles on the board.
                     //    Lines cannot cross.
@@ -100,14 +100,14 @@ class TraceNumbersGameState: GridGameState<TraceNumbersGameMove> {
         //    order up to the highest, where it ends.
         for p in chOneArray {
             var chars = String(TraceNumbersGame.PUZ_ONE)
-            var i = ch2dirs[p]!.first!
+            var i = pos2dirs[p]!.first!
             var os = TraceNumbersGame.offset[i]
             var p2 = p + os
             while true {
                 let ch = game[p2]
                 if ch != " " { chars.append(ch) }
                 let j = (i + 2) % 4
-                var dirs = ch2dirs[p2]!
+                var dirs = pos2dirs[p2]!
                 dirs = dirs.filter { $0 != j }
                 guard !dirs.isEmpty else {break}
                 i = dirs.first!

@@ -67,13 +67,13 @@ class PathOnTheMountainsGameState: GridGameState<PathOnTheMountainsGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        var pos2Dirs = [Position: [Int]]()
+        var pos2dirs = [Position: [Int]]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let dirs = (0..<4).filter { self[p][$0] }
                 if dirs.count == 2 {
-                    pos2Dirs[p] = dirs
+                    pos2dirs[p] = dirs
                     if game[p] != " " {
                         // 2. The path should make 90 degrees turns on the spots.
                         guard dirs[1] - dirs[0] != 2 else { isSolved = false; return }
@@ -86,12 +86,12 @@ class PathOnTheMountainsGameState: GridGameState<PathOnTheMountainsGameMove> {
             }
         }
         // Check the loop
-        guard let p = pos2Dirs.keys.first(where: { game[$0] != " " }) else { isSolved = false; return }
+        guard let p = pos2dirs.keys.first(where: { game[$0] != " " }) else { isSolved = false; return }
         var p2 = p
         var n = -1, ns = [Int]()
         while true {
-            guard let dirs = pos2Dirs[p2] else { isSolved = false; return }
-            pos2Dirs.removeValue(forKey: p2)
+            guard let dirs = pos2dirs[p2] else { isSolved = false; return }
+            pos2dirs.removeValue(forKey: p2)
             n = dirs.first { ($0 + 2) % 4 != n }!
             ns.append(n)
             p2 += PathOnTheMountainsGame.offset[n]

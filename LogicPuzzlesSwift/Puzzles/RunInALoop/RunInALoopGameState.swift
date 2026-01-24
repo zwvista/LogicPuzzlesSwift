@@ -65,14 +65,14 @@ class RunInALoopGameState: GridGameState<RunInALoopGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        var pos2Dirs = [Position: [Int]]()
+        var pos2dirs = [Position: [Int]]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let dirs = (0..<4).filter { self[p][$0] }
                 if dirs.count == 2 {
                     // 1. Draw a loop that runs through all tiles.
-                    pos2Dirs[p] = dirs
+                    pos2dirs[p] = dirs
                 } else if !(dirs.isEmpty && game[p] == RunInALoopGame.PUZ_BLOCK) {
                     // 2. The loop cannot cross itself.
                     isSolved = false; return
@@ -80,11 +80,11 @@ class RunInALoopGameState: GridGameState<RunInALoopGameMove> {
             }
         }
         // Check the loop
-        let p = pos2Dirs.keys.first!
+        let p = pos2dirs.keys.first!
         var p2 = p, n = -1
         while true {
-            guard let dirs = pos2Dirs[p2] else { isSolved = false; return }
-            pos2Dirs.removeValue(forKey: p2)
+            guard let dirs = pos2dirs[p2] else { isSolved = false; return }
+            pos2dirs.removeValue(forKey: p2)
             n = dirs.first { ($0 + 2) % 4 != n }!
             p2 += RunInALoopGame.offset[n]
             guard p2 != p else {return}

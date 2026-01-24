@@ -74,7 +74,7 @@ class MasyuGameState: GridGameState<MasyuGameMove> {
         isSolved = true
         let g = Graph()
         var pos2node = [Position: Node]()
-        var pos2Dirs = [Position: [Int]]()
+        var pos2dirs = [Position: [Int]]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
@@ -82,7 +82,7 @@ class MasyuGameState: GridGameState<MasyuGameMove> {
                 let dirs = (0..<4).filter { self[p][$0] }
                 if dirs.count == 2 {
                     pos2node[p] = g.addNode(p.description)
-                    pos2Dirs[p] = dirs
+                    pos2dirs[p] = dirs
                     switch ch {
                     case MasyuGame.PUZ_BLACK_PEARL:
                         // 4. Lines passing through Black Pearls must do a 90 degree turn in them.
@@ -101,12 +101,12 @@ class MasyuGameState: GridGameState<MasyuGameMove> {
             }
         }
         for (p, node) in pos2node {
-            let dirs = pos2Dirs[p]!
+            let dirs = pos2dirs[p]!
             let ch = game[p]
             var bW = ch != "W"
             for i in dirs {
                 let p2 = p + MasyuGame.offset[i]
-                guard let node2 = pos2node[p2], let dirs2 = pos2Dirs[p2] else { isSolved = false; return }
+                guard let node2 = pos2node[p2], let dirs2 = pos2dirs[p2] else { isSolved = false; return }
                 switch ch {
                 case MasyuGame.PUZ_BLACK_PEARL:
                     // 4. Lines passing through Black Pearls must go straight

@@ -70,14 +70,14 @@ class CaffelatteGameState: GridGameState<CaffelatteGameMove> {
     private func updateIsSolved() {
         isSolved = true
         var rng = [Position]()
-        var ch2dirs = [Position: [Int]]()
+        var pos2dirs = [Position: [Int]]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let o = self[p]
                 let ch = game[p]
                 let dirs = (0..<4).filter { o[$0] }
-                ch2dirs[p] = dirs
+                pos2dirs[p] = dirs
                 let cnt = dirs.count
                 if ch == " " {
                     // 2. Links must be straight lines, not crossing each other.

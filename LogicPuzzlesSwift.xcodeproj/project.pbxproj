@@ -1544,6 +1544,7 @@
 		8CB418A72F23C552005C7FDF /* OnlyStraightsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4189F2F23C552005C7FDF /* OnlyStraightsObject.swift */; };
 		8CB418A82F23C552005C7FDF /* OnlyStraightsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418992F23C552005C7FDF /* OnlyStraightsGame.swift */; };
 		8CB418A92F23C552005C7FDF /* OnlyStraights.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB418972F23C552005C7FDF /* OnlyStraights.xml */; };
+		8CB418AB2F23C875005C7FDF /* lodge.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CB418AA2F23C875005C7FDF /* lodge.png */; };
 		8CB721C72EAAE62D001B25C5 /* PlanksGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C02EAAE62D001B25C5 /* PlanksGameScene.swift */; };
 		8CB721C82EAAE62D001B25C5 /* PlanksGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C22EAAE62D001B25C5 /* PlanksGameViewController.swift */; };
 		8CB721C92EAAE62D001B25C5 /* PlanksObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C52EAAE62D001B25C5 /* PlanksObject.swift */; };
@@ -3292,6 +3293,7 @@
 		8CB4189D2F23C552005C7FDF /* OnlyStraightsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyStraightsGridNode.swift; sourceTree = "<group>"; };
 		8CB4189E2F23C552005C7FDF /* OnlyStraightsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyStraightsMainViewController.swift; sourceTree = "<group>"; };
 		8CB4189F2F23C552005C7FDF /* OnlyStraightsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlyStraightsObject.swift; sourceTree = "<group>"; };
+		8CB418AA2F23C875005C7FDF /* lodge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lodge.png; sourceTree = "<group>"; };
 		8CB721BD2EAAE62D001B25C5 /* Planks.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Planks.xml; sourceTree = "<group>"; };
 		8CB721BE2EAAE62D001B25C5 /* PlanksDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksDocument.swift; sourceTree = "<group>"; };
 		8CB721BF2EAAE62D001B25C5 /* PlanksGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksGame.swift; sourceTree = "<group>"; };
@@ -5475,6 +5477,7 @@
 				8C8662B02EA39DD00078CD64 /* lightbulb2.png */,
 				8C8662B12EA39DD00078CD64 /* lighthouse.png */,
 				8C8662B22EA39DD00078CD64 /* lion.png */,
+				8CB418AA2F23C875005C7FDF /* lodge.png */,
 				8C8662B32EA39DD00078CD64 /* loopy_background.png */,
 				8C8662B42EA39DD00078CD64 /* meadow_background.png */,
 				8C8662B52EA39DD00078CD64 /* monkey.png */,
@@ -6876,6 +6879,7 @@
 				8C8663A62EA39DD00078CD64 /* arrow_brown_left.png in Resources */,
 				8CFB22592F0772C100E5F29D /* PouringWater.xml in Resources */,
 				8C8663A72EA39DD00078CD64 /* blueberry.png in Resources */,
+				8CB418AB2F23C875005C7FDF /* lodge.png in Resources */,
 				8C8663A82EA39DD00078CD64 /* pebbles.png in Resources */,
 				8C81BC3E2EA8EF030083B936 /* DesertDunes.xml in Resources */,
 				8C8663A92EA39DD00078CD64 /* tetris_cyan.png in Resources */,

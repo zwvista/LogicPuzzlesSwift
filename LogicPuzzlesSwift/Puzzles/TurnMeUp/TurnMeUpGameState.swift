@@ -69,7 +69,7 @@ class TurnMeUpGameState: GridGameState<TurnMeUpGameMove> {
     private func updateIsSolved() {
         isSolved = true
         var circles = Set<Position>()
-        var ch2dirs = [Position: [Int]]()
+        var pos2dirs = [Position: [Int]]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
@@ -82,10 +82,10 @@ class TurnMeUpGameState: GridGameState<TurnMeUpGameMove> {
                 case 1:
                     guard ch != " " else { isSolved = false; return }
                     circles.insert(p)
-                    ch2dirs[p] = dirs
+                    pos2dirs[p] = dirs
                 case 2:
                     guard ch == " " else { isSolved = false; return }
-                    ch2dirs[p] = dirs
+                    pos2dirs[p] = dirs
                 default:
                     // 4. All tiles on the board must be used
                     isSolved = false; return
@@ -98,13 +98,13 @@ class TurnMeUpGameState: GridGameState<TurnMeUpGameMove> {
         while !circles.isEmpty {
             let p = circles.first!
             let ch1 = game[p]
-            var i = ch2dirs[p]!.first!
+            var i = pos2dirs[p]!.first!
             var os = TurnMeUpGame.offset[i]
             var p2 = p + os
             var turns = 0
             while true {
                 let j = (i + 2) % 4
-                var dirs = ch2dirs[p2]!
+                var dirs = pos2dirs[p2]!
                 dirs = dirs.filter { $0 != j }
                 guard !dirs.isEmpty else {break}
                 let k = dirs.first!

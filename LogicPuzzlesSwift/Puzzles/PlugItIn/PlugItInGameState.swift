@@ -66,12 +66,12 @@ class PlugItInGameState: GridGameState<PlugItInGameMove> {
     private func updateIsSolved() {
         isSolved = true
         var rng = [Position]()
-        var ch2dirs = [Position: [Int]]()
+        var pos2dirs = [Position: [Int]]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let dirs = (0..<4).filter { self[p][$0] }
-                ch2dirs[p] = dirs
+                pos2dirs[p] = dirs
                 let cnt = dirs.count
                 if game[p] == " " {
                     // 2. Cables are not allowed to cross other cables.
