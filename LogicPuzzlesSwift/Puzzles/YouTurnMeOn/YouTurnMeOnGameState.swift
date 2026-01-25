@@ -15,7 +15,8 @@ class YouTurnMeOnGameState: GridGameState<YouTurnMeOnGameMove> {
     }
     override var gameDocument: GameDocumentBase { YouTurnMeOnDocument.sharedInstance }
     var objArray = [YouTurnMeOnObject]()
-    
+    var pos2state = [Position: HintState]()
+
     override func copy() -> YouTurnMeOnGameState {
         let v = YouTurnMeOnGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -45,7 +46,7 @@ class YouTurnMeOnGameState: GridGameState<YouTurnMeOnGameMove> {
     override func setObject(move: inout YouTurnMeOnGameMove) -> GameOperationType {
         let p = move.p, dir = move.dir
         let p2 = p + YouTurnMeOnGame.offset[dir], dir2 = (dir + 2) % 4
-        guard isValid(p: p2) && game[p] != YouTurnMeOnGame.PUZ_BLOCK && game[p2] != YouTurnMeOnGame.PUZ_BLOCK else { return .invalid }
+        guard isValid(p: p2) else { return .invalid }
         self[p][dir].toggle()
         self[p2][dir2].toggle()
         updateIsSolved()
@@ -71,38 +72,35 @@ class YouTurnMeOnGameState: GridGameState<YouTurnMeOnGameMove> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let dirs = (0..<4).filter { self[p][$0] }
-                if dirs.count == 2 {
-                    // 1. Draw a single path
-                    pos2dirs[p] = dirs
-                } else if !dirs.isEmpty {
-                    // The loop cannot cross itself.
-                    isSolved = false; return
+                pos2dirs[p] = dirs
+                if dirs.count != 2 {
+                    // 1. Draw a single, no intersecting loop.
+                    isSolved = false
                 }
             }
         }
+        // 2. The number on each region tells you how many turns the path does
+        //    in that region.
+        for (p, n2) in game.pos2hint {
+            let area = game.areas[game.pos2area[p]!]
+            let n1 = area.reduce(0) { acc, p in
+                let dirs = pos2dirs[p]!
+                return acc + (dirs.count == 2 && dirs[1] - dirs[0] != 2 ? 1 : 0)
+            }
+            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            if s != .complete { isSolved = false }
+            pos2state[p] = s
+        }
+        guard isSolved else {return}
         // Check the loop
         guard let p = pos2dirs.keys.first else { isSolved = false; return }
         var p2 = p, n = -1
-        var lastArea = -1
-        var area2count = [Int: Int]()
         while true {
             guard let dirs = pos2dirs[p2] else { isSolved = false; return }
-            let area = game.pos2area[p2]!
-            if area != lastArea {
-                area2count[area] = (area2count[area] ?? 0) + 1
-                lastArea = area
-            }
             pos2dirs.removeValue(forKey: p2)
             n = dirs.first { ($0 + 2) % 4 != n }!
             p2 += YouTurnMeOnGame.offset[n]
-            guard p2 != p else {
-                area2count[area] = area2count[area]! - 1
-                break
-            }
+            guard p2 != p else {break}
         }
-        // 1. Draw a single path which passes in each area exactly twice.
-        // 2. Every square in the board must be passed through, except for brown
-        //    areas, which are to be avoided entirely.
-        if !(area2count.count == game.areas.count && area2count.testAll { $1 == 2 }) { isSolved = false }
     }
 }
