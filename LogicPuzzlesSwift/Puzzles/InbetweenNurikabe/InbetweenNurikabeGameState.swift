@@ -151,22 +151,17 @@ class InbetweenNurikabeGameState: GridGameState<InbetweenNurikabeGameMove> {
                     rng.append(p)
                 }
             }
-            switch rng.count {
-            case 0:
+            if rng.count == 2 {
+                // 2. The area of the garden must be between the two numbers.
+                let nums = rng.map { game.pos2hint[$0]! }.sorted()
+                let s: HintState = nums[0] < n2 && n2 < nums[1] ? .complete : .error
+                for p in rng { pos2state[p] = s }
+                if s != .complete { isSolved = false }
+            } else {
                 // 5. All the gardens in the puzzle are numbered at the start, there are no
                 //    hidden gardens.
                 isSolved = false
-            case 1:
-                // 1. Each number on the grid indicates a garden, occupying as many tiles
-                //    as the number itself.
-                let p = rng[0]
-                let n1 = game.pos2hint[p]!
-                let s: HintState = n1 == n2 ? .complete : .error
-                pos2state[p] = s
-                if s != .complete { isSolved = false }
-            default:
                 for p in rng { pos2state[p] = .normal }
-                isSolved = false
             }
         }
     }
