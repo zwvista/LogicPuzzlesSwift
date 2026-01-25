@@ -13,10 +13,10 @@ class ArchipelagoDocument: GameDocument<ArchipelagoGameMove> {
     
     override func saveMove(_ move: ArchipelagoGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> ArchipelagoGameMove {
-        ArchipelagoGameMove(p: Position(rec.row, rec.col), obj: ArchipelagoObject.fromString(str: rec.strValue1!))
+        ArchipelagoGameMove(p: Position(rec.row, rec.col), obj: ArchipelagoObject(rawValue: rec.intValue1)!)
     }
 }

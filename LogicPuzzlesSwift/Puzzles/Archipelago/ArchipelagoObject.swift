@@ -8,35 +8,10 @@
 
 import Foundation
 
-enum ArchipelagoObject {
-    case empty
-    case marker
-    case water
-    case hint(state: HintState = .normal)
+enum ArchipelagoObject: Int {
+    case empty, hint, marker, water
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .water:
-            return "water"
-        case .hint:
-            return "hint"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> ArchipelagoObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "water":
-            return .water
-        default:
-            return .empty
-        }
     }
 }
 

@@ -15,6 +15,7 @@ class ArchipelagoGameState: GridGameState<ArchipelagoGameMove> {
     }
     override var gameDocument: GameDocumentBase { ArchipelagoDocument.sharedInstance }
     var objArray = [ArchipelagoObject]()
+    var pos2state = [Position: HintState]()
     var invalid2x2Squares = [Position]()
 
     override func copy() -> ArchipelagoGameState {
@@ -31,7 +32,9 @@ class ArchipelagoGameState: GridGameState<ArchipelagoGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<ArchipelagoObject>(repeating: .empty, count: rows * cols)
-        for (p, _) in game.pos2hint { self[p] = .hint() }
+        for p in game.pos2hint.keys {
+            self[p] = .hint
+        }
         updateIsSolved()
     }
     
@@ -95,8 +98,9 @@ class ArchipelagoGameState: GridGameState<ArchipelagoGameMove> {
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                let isFullOfWater = ArchipelagoGame.offset2.map { p + $0 }.allSatisfy { self[$0].toString() == "water" }
-                if isFullOfWater { invalid2x2Squares.append(p + Position.SouthEast); isSolved = false }
+                if ArchipelagoGame.offset2.map({ p + $0 }).allSatisfy({ self[$0] == .water }) {
+                    invalid2x2Squares.append(p + Position.SouthEast); isSolved = false
+                }
             }
         }
         let g = Graph()
@@ -135,16 +139,16 @@ class ArchipelagoGameState: GridGameState<ArchipelagoGameMove> {
             let rs = r2 - r1 + 1, cs = c2 - c1 + 1
             // 1. Each number represents a rectangular island in the Archipelago.
             let isRect = rs * cs == n1
-            let hints = area.filter { self[$0].toString() == "hint" }
+            let hints = area.filter { self[$0] == .hint }
             if hints.count > 1 {
                 isSolved = false
-                for p in hints { self[p] = .hint() }
+                for p in hints { pos2state[p] = .normal }
             } else if hints.count == 1 {
                 let p = hints.first!
                 let n2 = game.pos2hint[p]!
                 // 2. The number in itself identifies how many squares the island occupies.
                 let s: HintState = !isRect || n1 > n2 ? .normal : n1 == n2 ? .complete : .error
-                self[p] = .hint(state: s)
+                pos2state[p] = s
                 if s != .complete { isSolved = false }
             }
         }

@@ -14,11 +14,8 @@ class ArchipelagoGameScene: GameScene<ArchipelagoGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addHint(p: Position, n: Int, s: HintState) {
-        let point = gridNode.centerPoint(p: p)
-        let nodeNameSuffix = "-\(p.row)-\(p.col)"
-        let hintNodeName = "hint" + nodeNameSuffix
-        addLabel(text: n == -1 ? "?" : String(n), fontColor: s == .complete ? .green : .white, point: point, nodeName: hintNodeName, sampleText: "10")
+    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
+        addLabel(text: n == -1 ? "?" : String(n), fontColor: s == .complete ? .green : .white, point: point, nodeName: nodeName, sampleText: "10")
     }
 
     override func levelInitialized(_ game: AnyObject, state: ArchipelagoGameState, skView: SKView) {
@@ -32,7 +29,10 @@ class ArchipelagoGameScene: GameScene<ArchipelagoGameState> {
         
         // add Hints
         for (p, n) in game.pos2hint {
-            addHint(p: p, n: n, s: .normal)
+            let point = gridNode.centerPoint(p: p)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let hintNodeName = "hint" + nodeNameSuffix
+            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
         }
     }
     
@@ -47,26 +47,28 @@ class ArchipelagoGameScene: GameScene<ArchipelagoGameState> {
                 let hintNodeName = "hint" + nodeNameSuffix
                 let invalid2x2NodeName = "invalid2x2" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                guard String(describing: o1) != String(describing: o2) else {continue}
-                switch o1 {
-                case .water:
-                    removeNode(withName: waterNodeName)
-                case .hint:
-                    removeNode(withName: hintNodeName)
-                case .marker:
-                    removeNode(withName: markerNodeName)
-                default:
-                    break
-                }
-                switch o2 {
-                case .water:
-                    addImage(imageNamed: "sea", color: .red, colorBlendFactor: 0.0, point: point, nodeName: waterNodeName)
-                case let .hint(s):
-                    addHint(p: p, n: stateFrom.game.pos2hint[p]!, s: s)
-                case .marker:
-                    addDotMarker(point: point, nodeName: markerNodeName)
-                default:
-                    break
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                if o1 != o2 || s1 != s2 {
+                    switch o1 {
+                    case .water:
+                        removeNode(withName: waterNodeName)
+                    case .hint:
+                        removeNode(withName: hintNodeName)
+                    case .marker:
+                        removeNode(withName: markerNodeName)
+                    default:
+                        break
+                    }
+                    switch o2 {
+                    case .water:
+                        addImage(imageNamed: "sea", color: .red, colorBlendFactor: 0.0, point: point, nodeName: waterNodeName)
+                    case .hint:
+                        addHint(n: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
+                    case .marker:
+                        addDotMarker(point: point, nodeName: markerNodeName)
+                    default:
+                        break
+                    }
                 }
                 let (b1, b2) = (stateFrom.invalid2x2Squares.contains(p), stateTo.invalid2x2Squares.contains(p))
                 if b1 != b2 {
