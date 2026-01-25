@@ -1653,6 +1653,19 @@
 		8CC25CC81F87BB5A005560F7 /* KakuroGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CBC1F87BB5A005560F7 /* KakuroGridNode.swift */; };
 		8CC25CCA1F87BB5A005560F7 /* KakuroMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CBE1F87BB5A005560F7 /* KakuroMainViewController.swift */; };
 		8CC25CCB1F87BB5A005560F7 /* KakuroObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CBF1F87BB5A005560F7 /* KakuroObject.swift */; };
+		8CCFC4492F262F5000546A04 /* FingerPointing.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CCFC43F2F262F5000546A04 /* FingerPointing.xml */; };
+		8CCFC44A2F262F5000546A04 /* FingerPointingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC4462F262F5000546A04 /* FingerPointingMainViewController.swift */; };
+		8CCFC44B2F262F5000546A04 /* FingerPointingGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC4452F262F5000546A04 /* FingerPointingGridNode.swift */; };
+		8CCFC44C2F262F5000546A04 /* FingerPointingGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC4432F262F5000546A04 /* FingerPointingGameState.swift */; };
+		8CCFC44D2F262F5000546A04 /* FingerPointingGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC4422F262F5000546A04 /* FingerPointingGameScene.swift */; };
+		8CCFC44E2F262F5000546A04 /* FingerPointingDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC4402F262F5000546A04 /* FingerPointingDocument.swift */; };
+		8CCFC44F2F262F5000546A04 /* FingerPointingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC4412F262F5000546A04 /* FingerPointingGame.swift */; };
+		8CCFC4502F262F5000546A04 /* FingerPointingObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC4472F262F5000546A04 /* FingerPointingObject.swift */; };
+		8CCFC4512F262F5000546A04 /* FingerPointingGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC4442F262F5000546A04 /* FingerPointingGameViewController.swift */; };
+		8CCFC4572F26538500546A04 /* finger_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCFC4542F26538500546A04 /* finger_left.png */; };
+		8CCFC4582F26538500546A04 /* finger_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCFC4532F26538500546A04 /* finger_down.png */; };
+		8CCFC4592F26538500546A04 /* finger_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCFC4552F26538500546A04 /* finger_right.png */; };
+		8CCFC45A2F26538500546A04 /* finger_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCFC4562F26538500546A04 /* finger_up.png */; };
 		8CD1558B1DD77C3400786F34 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD1558A1DD77C3400786F34 /* Extensions.swift */; };
 		8CDAE7EF1F5BFBD8000DE5AF /* OverUnder.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CDAE7E41F5BFBD8000DE5AF /* OverUnder.xml */; };
 		8CDAE7F01F5BFBD8000DE5AF /* OverUnderDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDAE7E51F5BFBD8000DE5AF /* OverUnderDocument.swift */; };
@@ -3456,6 +3469,19 @@
 		8CC25CBC1F87BB5A005560F7 /* KakuroGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroGridNode.swift; sourceTree = "<group>"; };
 		8CC25CBE1F87BB5A005560F7 /* KakuroMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroMainViewController.swift; sourceTree = "<group>"; };
 		8CC25CBF1F87BB5A005560F7 /* KakuroObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroObject.swift; sourceTree = "<group>"; };
+		8CCFC43F2F262F5000546A04 /* FingerPointing.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FingerPointing.xml; sourceTree = "<group>"; };
+		8CCFC4402F262F5000546A04 /* FingerPointingDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerPointingDocument.swift; sourceTree = "<group>"; };
+		8CCFC4412F262F5000546A04 /* FingerPointingGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerPointingGame.swift; sourceTree = "<group>"; };
+		8CCFC4422F262F5000546A04 /* FingerPointingGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerPointingGameScene.swift; sourceTree = "<group>"; };
+		8CCFC4432F262F5000546A04 /* FingerPointingGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerPointingGameState.swift; sourceTree = "<group>"; };
+		8CCFC4442F262F5000546A04 /* FingerPointingGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerPointingGameViewController.swift; sourceTree = "<group>"; };
+		8CCFC4452F262F5000546A04 /* FingerPointingGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerPointingGridNode.swift; sourceTree = "<group>"; };
+		8CCFC4462F262F5000546A04 /* FingerPointingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerPointingMainViewController.swift; sourceTree = "<group>"; };
+		8CCFC4472F262F5000546A04 /* FingerPointingObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FingerPointingObject.swift; sourceTree = "<group>"; };
+		8CCFC4532F26538500546A04 /* finger_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finger_down.png; sourceTree = "<group>"; };
+		8CCFC4542F26538500546A04 /* finger_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finger_left.png; sourceTree = "<group>"; };
+		8CCFC4552F26538500546A04 /* finger_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finger_right.png; sourceTree = "<group>"; };
+		8CCFC4562F26538500546A04 /* finger_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finger_up.png; sourceTree = "<group>"; };
 		8CD1558A1DD77C3400786F34 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8CDAE7E41F5BFBD8000DE5AF /* OverUnder.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = OverUnder.xml; sourceTree = "<group>"; };
 		8CDAE7E51F5BFBD8000DE5AF /* OverUnderDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverUnderDocument.swift; sourceTree = "<group>"; };
@@ -4270,6 +4296,7 @@
 				8C3A346F1EC88D4100A914A5 /* FenceSentinels */,
 				8C8661FA2EA383740078CD64 /* Fields */,
 				8CA042CC1FDB878700AF85E1 /* Fillomino */,
+				8CCFC4482F262F5000546A04 /* FingerPointing */,
 				8C263E912F13E06C00158A2C /* FloorPlan */,
 				8C74745A1FBEFD5700C4112C /* FourMeNot */,
 				8C9BD5122F0A32CA00D1D915 /* FreePlanks */,
@@ -5553,6 +5580,10 @@
 				8C86628A2EA39DD00078CD64 /* exhibition.png */,
 				8C86628B2EA39DD00078CD64 /* fence1.png */,
 				8C86628C2EA39DD00078CD64 /* fence2.png */,
+				8CCFC4532F26538500546A04 /* finger_down.png */,
+				8CCFC4542F26538500546A04 /* finger_left.png */,
+				8CCFC4552F26538500546A04 /* finger_right.png */,
+				8CCFC4562F26538500546A04 /* finger_up.png */,
 				8C86628D2EA39DD00078CD64 /* fish.png */,
 				8C86628E2EA39DD00078CD64 /* flag_checkered.png */,
 				8C86628F2EA39DD00078CD64 /* flower_blue.png */,
@@ -6563,6 +6594,22 @@
 			path = Kakuro;
 			sourceTree = "<group>";
 		};
+		8CCFC4482F262F5000546A04 /* FingerPointing */ = {
+			isa = PBXGroup;
+			children = (
+				8CCFC43F2F262F5000546A04 /* FingerPointing.xml */,
+				8CCFC4402F262F5000546A04 /* FingerPointingDocument.swift */,
+				8CCFC4412F262F5000546A04 /* FingerPointingGame.swift */,
+				8CCFC4422F262F5000546A04 /* FingerPointingGameScene.swift */,
+				8CCFC4432F262F5000546A04 /* FingerPointingGameState.swift */,
+				8CCFC4442F262F5000546A04 /* FingerPointingGameViewController.swift */,
+				8CCFC4452F262F5000546A04 /* FingerPointingGridNode.swift */,
+				8CCFC4462F262F5000546A04 /* FingerPointingMainViewController.swift */,
+				8CCFC4472F262F5000546A04 /* FingerPointingObject.swift */,
+			);
+			path = FingerPointing;
+			sourceTree = "<group>";
+		};
 		8CDAE7E31F5BFBD8000DE5AF /* OverUnder */ = {
 			isa = PBXGroup;
 			children = (
@@ -7080,6 +7127,7 @@
 				8C86639C2EA39DD00078CD64 /* B5-f.png in Resources */,
 				8C86639D2EA39DD00078CD64 /* earth.png in Resources */,
 				8C86639E2EA39DD00078CD64 /* flower_yellow.png in Resources */,
+				8CCFC4492F262F5000546A04 /* FingerPointing.xml in Resources */,
 				8C86639F2EA39DD00078CD64 /* flower_white.png in Resources */,
 				8C8663A02EA39DD00078CD64 /* exhibition.png in Resources */,
 				8C8663A12EA39DD00078CD64 /* thermometer1B.png in Resources */,
@@ -7186,6 +7234,10 @@
 				8C8663F62EA39DD00078CD64 /* tetris_orange.png in Resources */,
 				8C8663F72EA39DD00078CD64 /* arrow7.png in Resources */,
 				8C8663F82EA39DD00078CD64 /* B5.png in Resources */,
+				8CCFC4572F26538500546A04 /* finger_left.png in Resources */,
+				8CCFC4582F26538500546A04 /* finger_down.png in Resources */,
+				8CCFC4592F26538500546A04 /* finger_right.png in Resources */,
+				8CCFC45A2F26538500546A04 /* finger_up.png in Resources */,
 				8C263EDB2F1C85DD00158A2C /* Rabbits.xml in Resources */,
 				8C8663F92EA39DD00078CD64 /* thermometer2A.png in Resources */,
 				8C8663FA2EA39DD00078CD64 /* bullet_ball_glass_yellow.png in Resources */,
@@ -7892,6 +7944,14 @@
 				8C3A361A1EC88D4200A914A5 /* BoxItAgainGame.swift in Sources */,
 				8C3A35F01EC88D4200A914A5 /* AbcMainViewController.swift in Sources */,
 				8C3A37DE1EC88D4400A914A5 /* TatamiObject.swift in Sources */,
+				8CCFC44A2F262F5000546A04 /* FingerPointingMainViewController.swift in Sources */,
+				8CCFC44B2F262F5000546A04 /* FingerPointingGridNode.swift in Sources */,
+				8CCFC44C2F262F5000546A04 /* FingerPointingGameState.swift in Sources */,
+				8CCFC44D2F262F5000546A04 /* FingerPointingGameScene.swift in Sources */,
+				8CCFC44E2F262F5000546A04 /* FingerPointingDocument.swift in Sources */,
+				8CCFC44F2F262F5000546A04 /* FingerPointingGame.swift in Sources */,
+				8CCFC4502F262F5000546A04 /* FingerPointingObject.swift in Sources */,
+				8CCFC4512F262F5000546A04 /* FingerPointingGameViewController.swift in Sources */,
 				8C3A369E1EC88D4200A914A5 /* HitoriGame.swift in Sources */,
 				8C3A35F81EC88D4200A914A5 /* AbstractPaintingGameState.swift in Sources */,
 				8C3A35EE1EC88D4200A914A5 /* AbcGridNode.swift in Sources */,
