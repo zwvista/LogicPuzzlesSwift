@@ -45,32 +45,40 @@ class NurikabeGameScene: GameScene<NurikabeGameState> {
                 let wallNodeName = "wall" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
+                let invalid2x2NodeName = "invalid2x2" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
-                guard o1 != o2 || s1 != s2 else {continue}
-                switch o1 {
-                case .hint:
-                    removeNode(withName: hintNodeName)
-                case .marker:
-                    removeNode(withName: markerNodeName)
-                case .wall:
-                    removeNode(withName: wallNodeName)
-                default:
-                    break
+                if o1 != o2 || s1 != s2 {
+                    switch o1 {
+                    case .hint:
+                        removeNode(withName: hintNodeName)
+                    case .marker:
+                        removeNode(withName: markerNodeName)
+                    case .wall:
+                        removeNode(withName: wallNodeName)
+                    default:
+                        break
+                    }
+                    switch o2 {
+                    case .hint:
+                        let n = stateTo.game.pos2hint[Position(r, c)]!
+                        addHint(n: n, s: s2!, point: point, nodeName: hintNodeName)
+                    case .marker:
+                        addDotMarker(point: point, nodeName: markerNodeName)
+                    case .wall:
+                        let wallNode = SKSpriteNode(color: .white, size: coloredRectSize())
+                        wallNode.position = point
+                        wallNode.name = wallNodeName
+                        gridNode.addChild(wallNode)
+                    default:
+                        break
+                    }
                 }
-                switch o2 {
-                case .hint:
-                    let n = stateTo.game.pos2hint[Position(r, c)]!
-                    addHint(n: n, s: s2!, point: point, nodeName: hintNodeName)
-                case .marker:
-                    addDotMarker(point: point, nodeName: markerNodeName)
-                case .wall:
-                    let wallNode = SKSpriteNode(color: .white, size: coloredRectSize())
-                    wallNode.position = point
-                    wallNode.name = wallNodeName
-                    gridNode.addChild(wallNode)
-                default:
-                    break
+                let (b1, b2) = (stateFrom.invalid2x2Squares.contains(p), stateTo.invalid2x2Squares.contains(p))
+                if b1 != b2 {
+                    let point = gridNode.cornerPoint(p: p)
+                    if b1 { removeNode(withName: invalid2x2NodeName) }
+                    if b2 { addDotMarker2(color: .red, point: point, nodeName: invalid2x2NodeName) }
                 }
             }
         }

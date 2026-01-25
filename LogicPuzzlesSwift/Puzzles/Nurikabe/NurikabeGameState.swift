@@ -16,6 +16,7 @@ class NurikabeGameState: GridGameState<NurikabeGameMove> {
     override var gameDocument: GameDocumentBase { NurikabeDocument.sharedInstance }
     var objArray = [NurikabeObject]()
     var pos2state = [Position: HintState]()
+    var invalid2x2Squares = [Position]()
 
     override func copy() -> NurikabeGameState {
         let v = NurikabeGameState(game: game, isCopy: true)
@@ -100,10 +101,11 @@ class NurikabeGameState: GridGameState<NurikabeGameMove> {
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                if NurikabeGame.offset2.testAll({os in
-                    let o = self[p + os]
-                    if case .wall = o { return true } else { return false }
-                }) { isSolved = false }
+                let rng = NurikabeGame.offset2.map { p + $0 }.filter { self[$0] == .wall }
+                if rng.count == 4 {
+                    isSolved = false
+                    invalid2x2Squares.append(p + Position.SouthEast)
+                }
             }
         }
         let g = Graph()
@@ -114,10 +116,9 @@ class NurikabeGameState: GridGameState<NurikabeGameMove> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 pos2node[p] = g.addNode(p.description)
-                switch self[p] {
-                case .wall:
+                if self[p] == .wall {
                     rngWalls.append(p)
-                default:
+                } else {
                     rngEmpty.append(p)
                 }
             }
@@ -142,8 +143,8 @@ class NurikabeGameState: GridGameState<NurikabeGameMove> {
             isSolved = false
         } else {
             // 3. The garden is separated by a single continuous wall. This means all
-            // wall tiles on the board must be connected horizontally or vertically.
-            // There can't be isolated walls.
+            //    wall tiles on the board must be connected horizontally or vertically.
+            //    There can't be isolated walls.
             let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
             if rngWalls.count != nodesExplored.count { isSolved = false }
         }
@@ -161,11 +162,11 @@ class NurikabeGameState: GridGameState<NurikabeGameMove> {
             switch rng.count {
             case 0:
                 // 5. All the gardens in the puzzle are numbered at the start, there are no
-                // hidden gardens.
+                //    hidden gardens.
                 isSolved = false
             case 1:
                 // 1. Each number on the grid indicates a garden, occupying as many tiles
-                // as the number itself.
+                //    as the number itself.
                 let p = rng[0]
                 let n1 = game.pos2hint[p]!
                 let s: HintState = n1 == n2 ? .complete : .error
