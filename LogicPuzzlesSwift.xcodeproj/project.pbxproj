@@ -1590,6 +1590,15 @@
 		8CB419082F25EC73005C7FDF /* InbetweenNurikabeGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418FC2F25EC73005C7FDF /* InbetweenNurikabeGameState.swift */; };
 		8CB419092F25EC73005C7FDF /* InbetweenNurikabeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418FA2F25EC73005C7FDF /* InbetweenNurikabeGame.swift */; };
 		8CB4190A2F25EC73005C7FDF /* InbetweenNurikabe.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB418F82F25EC73005C7FDF /* InbetweenNurikabe.xml */; };
+		8CB419152F25F396005C7FDF /* SuspendedGravityGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4190D2F25F396005C7FDF /* SuspendedGravityGame.swift */; };
+		8CB419162F25F396005C7FDF /* SuspendedGravityGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4190E2F25F396005C7FDF /* SuspendedGravityGameScene.swift */; };
+		8CB419172F25F396005C7FDF /* SuspendedGravityDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4190C2F25F396005C7FDF /* SuspendedGravityDocument.swift */; };
+		8CB419182F25F396005C7FDF /* SuspendedGravityGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB4190F2F25F396005C7FDF /* SuspendedGravityGameState.swift */; };
+		8CB419192F25F396005C7FDF /* SuspendedGravityMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB419122F25F396005C7FDF /* SuspendedGravityMainViewController.swift */; };
+		8CB4191A2F25F396005C7FDF /* SuspendedGravityGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB419112F25F396005C7FDF /* SuspendedGravityGridNode.swift */; };
+		8CB4191B2F25F396005C7FDF /* SuspendedGravityObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB419132F25F396005C7FDF /* SuspendedGravityObject.swift */; };
+		8CB4191C2F25F396005C7FDF /* SuspendedGravityGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB419102F25F396005C7FDF /* SuspendedGravityGameViewController.swift */; };
+		8CB4191D2F25F396005C7FDF /* SuspendedGravity.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB4190B2F25F396005C7FDF /* SuspendedGravity.xml */; };
 		8CB721C72EAAE62D001B25C5 /* PlanksGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C02EAAE62D001B25C5 /* PlanksGameScene.swift */; };
 		8CB721C82EAAE62D001B25C5 /* PlanksGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C22EAAE62D001B25C5 /* PlanksGameViewController.swift */; };
 		8CB721C92EAAE62D001B25C5 /* PlanksObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C52EAAE62D001B25C5 /* PlanksObject.swift */; };
@@ -3384,6 +3393,15 @@
 		8CB418FE2F25EC73005C7FDF /* InbetweenNurikabeGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InbetweenNurikabeGridNode.swift; sourceTree = "<group>"; };
 		8CB418FF2F25EC73005C7FDF /* InbetweenNurikabeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InbetweenNurikabeMainViewController.swift; sourceTree = "<group>"; };
 		8CB419002F25EC73005C7FDF /* InbetweenNurikabeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InbetweenNurikabeObject.swift; sourceTree = "<group>"; };
+		8CB4190B2F25F396005C7FDF /* SuspendedGravity.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SuspendedGravity.xml; sourceTree = "<group>"; };
+		8CB4190C2F25F396005C7FDF /* SuspendedGravityDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuspendedGravityDocument.swift; sourceTree = "<group>"; };
+		8CB4190D2F25F396005C7FDF /* SuspendedGravityGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuspendedGravityGame.swift; sourceTree = "<group>"; };
+		8CB4190E2F25F396005C7FDF /* SuspendedGravityGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuspendedGravityGameScene.swift; sourceTree = "<group>"; };
+		8CB4190F2F25F396005C7FDF /* SuspendedGravityGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuspendedGravityGameState.swift; sourceTree = "<group>"; };
+		8CB419102F25F396005C7FDF /* SuspendedGravityGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuspendedGravityGameViewController.swift; sourceTree = "<group>"; };
+		8CB419112F25F396005C7FDF /* SuspendedGravityGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuspendedGravityGridNode.swift; sourceTree = "<group>"; };
+		8CB419122F25F396005C7FDF /* SuspendedGravityMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuspendedGravityMainViewController.swift; sourceTree = "<group>"; };
+		8CB419132F25F396005C7FDF /* SuspendedGravityObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuspendedGravityObject.swift; sourceTree = "<group>"; };
 		8CB721BD2EAAE62D001B25C5 /* Planks.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Planks.xml; sourceTree = "<group>"; };
 		8CB721BE2EAAE62D001B25C5 /* PlanksDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksDocument.swift; sourceTree = "<group>"; };
 		8CB721BF2EAAE62D001B25C5 /* PlanksGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksGame.swift; sourceTree = "<group>"; };
@@ -4342,6 +4360,7 @@
 				8CB418DB2F251C7E005C7FDF /* StraightAndBendLands */,
 				8C9BD5CF2F0A830A00D1D915 /* StraightAndTurn */,
 				8C3A35C11EC88D4200A914A5 /* Sumscrapers */,
+				8CB419142F25F396005C7FDF /* SuspendedGravity */,
 				8C9F321D1ECF06BF00E10965 /* Tapa */,
 				8C9F32871ED1FB0700E10965 /* TapaIslands */,
 				8C9F32BF1ED1FCFF00E10965 /* TapAlike */,
@@ -6432,6 +6451,22 @@
 			path = InbetweenNurikabe;
 			sourceTree = "<group>";
 		};
+		8CB419142F25F396005C7FDF /* SuspendedGravity */ = {
+			isa = PBXGroup;
+			children = (
+				8CB4190B2F25F396005C7FDF /* SuspendedGravity.xml */,
+				8CB4190C2F25F396005C7FDF /* SuspendedGravityDocument.swift */,
+				8CB4190D2F25F396005C7FDF /* SuspendedGravityGame.swift */,
+				8CB4190E2F25F396005C7FDF /* SuspendedGravityGameScene.swift */,
+				8CB4190F2F25F396005C7FDF /* SuspendedGravityGameState.swift */,
+				8CB419102F25F396005C7FDF /* SuspendedGravityGameViewController.swift */,
+				8CB419112F25F396005C7FDF /* SuspendedGravityGridNode.swift */,
+				8CB419122F25F396005C7FDF /* SuspendedGravityMainViewController.swift */,
+				8CB419132F25F396005C7FDF /* SuspendedGravityObject.swift */,
+			);
+			path = SuspendedGravity;
+			sourceTree = "<group>";
+		};
 		8CB721C62EAAE62D001B25C5 /* Planks */ = {
 			isa = PBXGroup;
 			children = (
@@ -7319,6 +7354,7 @@
 				8C1D4F871F7D079F000D5FB3 /* Square100.xml in Resources */,
 				8C3A35E81EC88D4200A914A5 /* Abc.xml in Resources */,
 				8C263FA12F2084FE00158A2C /* PleaseComeBack.xml in Resources */,
+				8CB4191D2F25F396005C7FDF /* SuspendedGravity.xml in Resources */,
 				95E2B505236598F400F4F95B /* NumberCrosswords.xml in Resources */,
 				8CFB22332EF8FF1000E5F29D /* DigitalPath.xml in Resources */,
 				8C35E3A51FC4839100A26EE3 /* Walls.xml in Resources */,
@@ -8607,6 +8643,14 @@
 				8C263F9D2F2084FE00158A2C /* PleaseComeBackDocument.swift in Sources */,
 				8C263F9E2F2084FE00158A2C /* PleaseComeBackGameScene.swift in Sources */,
 				8C263F9F2F2084FE00158A2C /* PleaseComeBackGameState.swift in Sources */,
+				8CB419152F25F396005C7FDF /* SuspendedGravityGame.swift in Sources */,
+				8CB419162F25F396005C7FDF /* SuspendedGravityGameScene.swift in Sources */,
+				8CB419172F25F396005C7FDF /* SuspendedGravityDocument.swift in Sources */,
+				8CB419182F25F396005C7FDF /* SuspendedGravityGameState.swift in Sources */,
+				8CB419192F25F396005C7FDF /* SuspendedGravityMainViewController.swift in Sources */,
+				8CB4191A2F25F396005C7FDF /* SuspendedGravityGridNode.swift in Sources */,
+				8CB4191B2F25F396005C7FDF /* SuspendedGravityObject.swift in Sources */,
+				8CB4191C2F25F396005C7FDF /* SuspendedGravityGameViewController.swift in Sources */,
 				8C263FA02F2084FE00158A2C /* PleaseComeBackGameViewController.swift in Sources */,
 				8C3A367C1EC88D4200A914A5 /* FenceItUpGameState.swift in Sources */,
 				8C3A37491EC88D4300A914A5 /* NurikabeGameViewController.swift in Sources */,
