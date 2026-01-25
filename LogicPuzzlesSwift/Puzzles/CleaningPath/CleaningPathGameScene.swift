@@ -49,20 +49,6 @@ class CleaningPathGameScene: GameScene<CleaningPathGameState> {
         lineNode.path = pathToDraw
         lineNode.name = "line"
         gridNode.addChild(lineNode)
-
-        // add Blocks
-        for r in 0..<game.rows {
-            for c in 0..<game.cols {
-                let p = Position(r, c)
-                let ch = game[r, c]
-                guard ch != " " else {continue}
-                let point = gridNode.centerPoint(p: p)
-                let blockNode = SKSpriteNode(color: .lightGray, size: coloredRectSize())
-                blockNode.position = point
-                blockNode.name = "block"
-                gridNode.addChild(blockNode)
-            }
-        }
     }
     
     override func levelUpdated(from stateFrom: CleaningPathGameState, to stateTo: CleaningPathGameState) {

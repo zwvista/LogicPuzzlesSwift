@@ -45,7 +45,7 @@ class CleaningPathGameState: GridGameState<CleaningPathGameMove> {
     override func setObject(move: inout CleaningPathGameMove) -> GameOperationType {
         let p = move.p, dir = move.dir
         let p2 = p + CleaningPathGame.offset[dir], dir2 = (dir + 2) % 4
-        guard isValid(p: p2) && game[p] != CleaningPathGame.PUZ_BLOCK && game[p2] != CleaningPathGame.PUZ_BLOCK else { return .invalid }
+        guard isValid(p: p2) else { return .invalid }
         self[p][dir].toggle()
         self[p2][dir2].toggle()
         updateIsSolved()
@@ -72,9 +72,9 @@ class CleaningPathGameState: GridGameState<CleaningPathGameMove> {
                 let p = Position(r, c)
                 let dirs = (0..<4).filter { self[p][$0] }
                 if dirs.count == 2 {
-                    // 1. Draw a single path
+                    // 3. Follow a path that allows you to clean all the tiles on the floor.
                     pos2dirs[p] = dirs
-                } else if !dirs.isEmpty {
+                } else {
                     // The loop cannot cross itself.
                     isSolved = false; return
                 }
@@ -96,13 +96,14 @@ class CleaningPathGameState: GridGameState<CleaningPathGameMove> {
             n = dirs.first { ($0 + 2) % 4 != n }!
             p2 += CleaningPathGame.offset[n]
             guard p2 != p else {
-                area2count[area] = area2count[area]! - 1
+                if area == game.pos2area[p]! {
+                    area2count[area] = area2count[area]! - 1
+                }
                 break
             }
         }
-        // 1. Draw a single path which passes in each area exactly twice.
-        // 2. Every square in the board must be passed through, except for brown
-        //    areas, which are to be avoided entirely.
-        if !(area2count.count == game.areas.count && area2count.testAll { $1 == 2 }) { isSolved = false }
+        // 1. You are a Roomba! And this is office floor you have to clean tonight.
+        // 2. The floor is divided in rooms. You can enter (and exit) the room only once.
+        if !(area2count.count == game.areas.count && area2count.testAll { $1 == 1 }) { isSolved = false }
     }
 }

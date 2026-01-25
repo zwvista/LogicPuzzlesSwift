@@ -9,7 +9,6 @@
 import Foundation
 
 class YouTurnMeOnGame: GridGame<YouTurnMeOnGameState> {
-    static let PUZ_BLOCK: Character = "B"
     static let offset = Position.Directions4
     static let offset2 = [
         Position(0, 0),

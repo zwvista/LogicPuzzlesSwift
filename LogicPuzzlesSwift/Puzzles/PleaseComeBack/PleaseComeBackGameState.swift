@@ -96,7 +96,9 @@ class PleaseComeBackGameState: GridGameState<PleaseComeBackGameMove> {
             n = dirs.first { ($0 + 2) % 4 != n }!
             p2 += PleaseComeBackGame.offset[n]
             guard p2 != p else {
-                area2count[area] = area2count[area]! - 1
+                if area == game.pos2area[p]! {
+                    area2count[area] = area2count[area]! - 1
+                }
                 break
             }
         }

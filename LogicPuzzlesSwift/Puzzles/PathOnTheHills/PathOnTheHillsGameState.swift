@@ -110,7 +110,9 @@ class PathOnTheHillsGameState: GridGameState<PathOnTheHillsGameMove> {
             n = dirs.first { ($0 + 2) % 4 != n }!
             p2 += PathOnTheHillsGame.offset[n]
             guard p2 != p else {
-                area2count[area] = area2count[area]! - 1
+                if area == game.pos2area[p]! {
+                    area2count[area] = area2count[area]! - 1
+                }
                 break
             }
         }
