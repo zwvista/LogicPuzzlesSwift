@@ -42,7 +42,7 @@ class OnlyBendsGameViewController: GameGameViewController2<OnlyBendsGameState, O
         case .changed:
             guard pLast != p else {break}
             defer { pLast = p }
-            guard let dir = OnlyBendsGame.offset.firstIndex(of: p - pLast!) else {break}
+            guard OnlyBendsGame.offset.firstIndex(of: p - pLast!) != nil else {break}
             var move = OnlyBendsGameMove(p: p)
             if game.setObject(move: &move) { f() }
         default:

@@ -49,7 +49,7 @@ class RippleEffectGame: GridGame<RippleEffectGameState> {
                 }
                 guard c < cols else {continue}
                 let ch2 = str[2 * c + 1]
-                if case "0"..."9" = ch2 {
+                if ch2.isNumber {
                     self[r, c] = ch2.toInt!
                 }
             }

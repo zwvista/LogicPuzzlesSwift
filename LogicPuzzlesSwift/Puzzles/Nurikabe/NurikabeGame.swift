@@ -10,12 +10,7 @@ import Foundation
 
 class NurikabeGame: GridGame<NurikabeGameState> {
     static let offset = Position.Directions4
-    static let offset2 = [
-        Position(0, 0),
-        Position(0, 1),
-        Position(1, 0),
-        Position(1, 1),
-    ]
+    static let offset2 = Position.Square2x2Offset
 
     var pos2hint = [Position: Int]()
     
@@ -28,7 +23,7 @@ class NurikabeGame: GridGame<NurikabeGameState> {
             let str = layout[r]
             for c in 0..<cols {
                 let ch = str[c]
-                guard case "0"..."9" = ch else {continue}
+                guard ch.isNumber else {continue}
                 pos2hint[Position(r, c)] = ch.toInt!
             }
         }

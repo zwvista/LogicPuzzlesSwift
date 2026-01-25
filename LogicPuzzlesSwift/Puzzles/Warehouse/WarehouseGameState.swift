@@ -128,7 +128,6 @@ class WarehouseGameState: GridGameState<WarehouseGameMove> {
                 isSolved = false; continue
             }
             let p2 = rng[0]
-            let n1 = area.count, n2 = game.pos2symbol[p2]!
             var r2 = 0, r1 = rows, c2 = 0, c1 = cols
             for p in area {
                 if r2 < p.row { r2 = p.row }

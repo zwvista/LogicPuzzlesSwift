@@ -42,7 +42,7 @@ class TurnMeUpGameViewController: GameGameViewController2<TurnMeUpGameState, Tur
         case .changed:
             guard pLast != p else {break}
             defer { pLast = p }
-            guard let dir = TurnMeUpGame.offset.firstIndex(of: p - pLast!) else {break}
+            guard TurnMeUpGame.offset.firstIndex(of: p - pLast!) != nil else {break}
             var move = TurnMeUpGameMove(p: p)
             if game.setObject(move: &move) { f() }
         default:

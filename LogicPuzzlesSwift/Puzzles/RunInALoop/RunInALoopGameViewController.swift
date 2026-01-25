@@ -42,7 +42,7 @@ class RunInALoopGameViewController: GameGameViewController2<RunInALoopGameState,
         case .changed:
             guard pLast != p else {break}
             defer { pLast = p }
-            guard let dir = RunInALoopGame.offset.firstIndex(of: p - pLast!) else {break}
+            guard RunInALoopGame.offset.firstIndex(of: p - pLast!) != nil else {break}
             var move = RunInALoopGameMove(p: p)
             if game.setObject(move: &move) { f() }
         default:

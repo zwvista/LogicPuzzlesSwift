@@ -48,7 +48,7 @@ class ChocolateGame: GridGame<ChocolateGameState> {
                 }
                 guard c < cols else {continue}
                 let ch2 = str[2 * c + 1]
-                if case "0"..."9" = ch2 {
+                if ch2.isNumber {
                     pos2hint[Position(r, c)] = ch2.toInt!
                 }
             }

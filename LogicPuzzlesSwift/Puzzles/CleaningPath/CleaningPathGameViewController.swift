@@ -42,7 +42,7 @@ class CleaningPathGameViewController: GameGameViewController2<CleaningPathGameSt
         case .changed:
             guard pLast != p else {break}
             defer { pLast = p }
-            guard let dir = CleaningPathGame.offset.firstIndex(of: p - pLast!) else {break}
+            guard CleaningPathGame.offset.firstIndex(of: p - pLast!) != nil else {break}
             var move = CleaningPathGameMove(p: p)
             if game.setObject(move: &move) { f() }
         default:

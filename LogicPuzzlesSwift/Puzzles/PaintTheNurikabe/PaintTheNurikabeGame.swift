@@ -48,7 +48,7 @@ class PaintTheNurikabeGame: GridGame<PaintTheNurikabeGameState> {
                 }
                 guard c < cols else {break}
                 let ch2 = str[2 * c + 1]
-                guard case "0"..."9" = ch2 else {continue}
+                guard ch2.isNumber else {continue}
                 pos2hint[Position(r, c)] = ch2.toInt!
             }
         }

@@ -31,7 +31,7 @@ class RoomsGame: GridGame<RoomsGameState> {
             let str = layout[r]
             for c in 0..<cols - 1 {
                 let ch = str[c]
-                guard case "0"..."9" = ch else {continue}
+                guard ch.isNumber else {continue}
                 pos2hint[Position(r, c)] = ch.toInt!
             }
         }

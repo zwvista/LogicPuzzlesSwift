@@ -42,7 +42,7 @@ class PathOnTheHillsGameViewController: GameGameViewController2<PathOnTheHillsGa
         case .changed:
             guard pLast != p else {break}
             defer { pLast = p }
-            guard let dir = PathOnTheHillsGame.offset.firstIndex(of: p - pLast!) else {break}
+            guard PathOnTheHillsGame.offset.firstIndex(of: p - pLast!) != nil else {break}
             var move = PathOnTheHillsGameMove(p: p)
             if game.setObject(move: &move) { f() }
         default:

@@ -23,7 +23,7 @@ class BridgesGame: GridGame<BridgesGameState> {
             let str = layout[r]
             for c in 0..<cols {
                 let ch = str[c]
-                guard case "0"..."9" = ch else {continue}
+                guard ch.isNumber else {continue}
                 islandsInfo[Position(r, c)] = BridgesIslandInfo(b: ch.toInt!)
             }
         }
