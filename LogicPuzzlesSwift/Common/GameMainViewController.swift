@@ -46,7 +46,13 @@ class GameMainViewController: UIViewController {
             btnNextPage.isHidden = true
         }
         showCurrentPage()
-        let toResume = ((UIApplication.shared.keyWindow!.rootViewController! as! UINavigationController).topViewController as! HomeMainViewController).toResume
+        // https://stackoverflow.com/questions/57134259/how-to-resolve-keywindow-was-deprecated-in-ios-13-0
+        let keyWindow = UIApplication
+            .shared
+            .connectedScenes
+            .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
+            .last { $0.isKeyWindow }!
+        let toResume = ((keyWindow.rootViewController! as! UINavigationController).topViewController as! HomeMainViewController).toResume
         if toResume { resumGame(self) }
     }
  

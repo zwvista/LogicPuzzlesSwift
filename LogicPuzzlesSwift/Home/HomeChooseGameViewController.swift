@@ -75,7 +75,13 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         currentGameTitle = cell.textLabel!.text!
         gameDocument.resumeGame(gameName: currentGameName, gameTitle: currentGameTitle)
         dismiss(animated: true, completion: {
-            let vc = (UIApplication.shared.keyWindow!.rootViewController! as! UINavigationController).topViewController as! HomeMainViewController
+            // https://stackoverflow.com/questions/57134259/how-to-resolve-keywindow-was-deprecated-in-ios-13-0
+            let keyWindow = UIApplication
+                .shared
+                .connectedScenes
+                .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
+                .last { $0.isKeyWindow }!
+            let vc = (keyWindow.rootViewController! as! UINavigationController).topViewController as! HomeMainViewController
             vc.updateGameTitle()
             vc.resumeGame(vc)
         })

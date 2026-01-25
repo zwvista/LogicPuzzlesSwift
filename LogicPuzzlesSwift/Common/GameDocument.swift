@@ -74,7 +74,7 @@ class GameDocument<GM>: GameDocumentBase {
         let gmTypeName = String(describing: type(of: GM.self))
         gameID = gmTypeName[0..<gmTypeName.length - "GameMove.Type".length]
         let path = Bundle.main.path(forResource: gameID, ofType: "xml")!
-        let xml = try! String(contentsOfFile: path)
+        let xml = try! String(contentsOfFile: path, encoding: String.Encoding.utf8)
         let doc = try! XMLDocument(string: xml)
         let root = doc.root!
         for elemLevel in root.firstChild(tag: "levels")!.children {
