@@ -13,10 +13,10 @@ class NurikabeDocument: GameDocument<NurikabeGameMove> {
     
     override func saveMove(_ move: NurikabeGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> NurikabeGameMove {
-        NurikabeGameMove(p: Position(rec.row, rec.col), obj: NurikabeObject.fromString(str: rec.strValue1!))
+        NurikabeGameMove(p: Position(rec.row, rec.col), obj: NurikabeObject(rawValue: rec.intValue1)!)
     }
 }

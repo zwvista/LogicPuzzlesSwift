@@ -29,52 +29,46 @@ class NurikabeGameScene: GameScene<NurikabeGameState> {
         
         // add Hints
         for (p, n) in game.pos2hint {
-            guard case let .hint(state: s) = state[p] else {continue}
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
-            addHint(n: n, s: s, point: point, nodeName: hintNodeName)
+            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
         }
     }
     
     override func levelUpdated(from stateFrom: NurikabeGameState, to stateTo: NurikabeGameState) {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
-                let point = gridNode.centerPoint(p: Position(r, c))
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let wallNodeName = "wall" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                func removeHint() { removeNode(withName: hintNodeName) }
-                func addWall() {
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard o1 != o2 || s1 != s2 else {continue}
+                switch o1 {
+                case .hint:
+                    removeNode(withName: hintNodeName)
+                case .marker:
+                    removeNode(withName: markerNodeName)
+                case .wall:
+                    removeNode(withName: wallNodeName)
+                default:
+                    break
+                }
+                switch o2 {
+                case .hint:
+                    let n = stateTo.game.pos2hint[Position(r, c)]!
+                    addHint(n: n, s: s2!, point: point, nodeName: hintNodeName)
+                case .marker:
+                    addDotMarker(point: point, nodeName: markerNodeName)
+                case .wall:
                     let wallNode = SKSpriteNode(color: .white, size: coloredRectSize())
                     wallNode.position = point
                     wallNode.name = wallNodeName
                     gridNode.addChild(wallNode)
-                }
-                func removeWall() { removeNode(withName: wallNodeName) }
-                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                let (ot1, ot2) = (stateFrom[r, c], stateTo[r, c])
-                guard String(describing: ot1) != String(describing: ot2) else {continue}
-                switch ot1 {
-                case .wall:
-                    removeWall()
-                case .marker:
-                    removeMarker()
-                case .hint:
-                    removeHint()
-                default:
-                    break
-                }
-                switch ot2 {
-                case .wall:
-                    addWall()
-                case .marker:
-                    addMarker()
-                case let .hint(s):
-                    let n = stateTo.game.pos2hint[Position(r, c)]!
-                    addHint(n: n, s: s, point: point, nodeName: hintNodeName)
                 default:
                     break
                 }

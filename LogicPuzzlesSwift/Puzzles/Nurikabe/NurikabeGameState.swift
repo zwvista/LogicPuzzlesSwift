@@ -15,7 +15,8 @@ class NurikabeGameState: GridGameState<NurikabeGameMove> {
     }
     override var gameDocument: GameDocumentBase { NurikabeDocument.sharedInstance }
     var objArray = [NurikabeObject]()
-    
+    var pos2state = [Position: HintState]()
+
     override func copy() -> NurikabeGameState {
         let v = NurikabeGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -31,7 +32,7 @@ class NurikabeGameState: GridGameState<NurikabeGameMove> {
         guard !isCopy else {return}
         objArray = Array<NurikabeObject>(repeating: NurikabeObject(), count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint()
+            self[p] = .hint
         }
         updateIsSolved()
     }
@@ -47,15 +48,15 @@ class NurikabeGameState: GridGameState<NurikabeGameMove> {
     
     override func setObject(move: inout NurikabeGameMove) -> GameOperationType {
         let p = move.p
-        let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 { return .invalid }
-        guard String(describing: o1) != String(describing: o2) else { return .invalid }
-        self[p] = o2
+        guard isValid(p: p), self[p] != .hint, self[p] != move.obj else { return .invalid }
+        self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }
     
     override func switchObject(move: inout NurikabeGameMove) -> GameOperationType {
+        let p = move.p
+        guard isValid(p: p), self[p] != .hint else { return .invalid }
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: NurikabeObject) -> NurikabeObject {
             switch o {
@@ -69,7 +70,7 @@ class NurikabeGameState: GridGameState<NurikabeGameMove> {
                 return o
             }
         }
-        move.obj = f(o: self[move.p])
+        move.obj = f(o: self[p])
         return setObject(move: &move)
     }
     
@@ -168,12 +169,10 @@ class NurikabeGameState: GridGameState<NurikabeGameMove> {
                 let p = rng[0]
                 let n1 = game.pos2hint[p]!
                 let s: HintState = n1 == n2 ? .complete : .error
-                self[p] = .hint(state: s)
+                pos2state[p] = s
                 if s != .complete { isSolved = false }
             default:
-                for p in rng {
-                    self[p] = .hint()
-                }
+                for p in rng { pos2state[p] = .normal }
                 isSolved = false
             }
         }
