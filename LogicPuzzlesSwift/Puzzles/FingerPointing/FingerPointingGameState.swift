@@ -86,10 +86,12 @@ class FingerPointingGameState: GridGameState<FingerPointingGameMove> {
                 if o == .empty { isSolved = false; continue }
                 if o == .block || o == .hint {continue}
                 pos2state[p] = pos2state[p] ?? .normal
+                // 1. Fill the board with fingers. Two fingers pointing in the same direction
+                //    can't be orthogonally adjacent.
                 let rng = FingerPointingGame.offset.map { p + $0 }.filter { isValid(p: $0) && self[$0] == o }
                 if !rng.isEmpty {
                     isSolved = false
-                    for p in rng { pos2state[p] = .error }
+                    for p2 in rng { pos2state[p2] = .error }
                 }
                 var p2 = p
                 var rng2 = [Position]()
@@ -107,8 +109,9 @@ class FingerPointingGameState: GridGameState<FingerPointingGameMove> {
                 }
             }
         }
+        // 2. the number tells you how many fingers and finger 'trails' point to that tile.
         for (p, n2) in game.pos2hint {
-            let n1 = (pos2rng[p] ?? []).count
+            let n1 = pos2rng[p]?.count ?? 0
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if s != .complete { isSolved = false }
             pos2state[p] = s
