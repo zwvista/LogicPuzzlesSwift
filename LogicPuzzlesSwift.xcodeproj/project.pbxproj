@@ -1581,6 +1581,15 @@
 		8CB418F52F2532AD005C7FDF /* YouTurnMeOnGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418EB2F2532AD005C7FDF /* YouTurnMeOnGridNode.swift */; };
 		8CB418F62F2532AD005C7FDF /* YouTurnMeOnDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418E62F2532AD005C7FDF /* YouTurnMeOnDocument.swift */; };
 		8CB418F72F2532AD005C7FDF /* YouTurnMeOn.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB418E52F2532AD005C7FDF /* YouTurnMeOn.xml */; };
+		8CB419022F25EC73005C7FDF /* InbetweenNurikabeGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418FE2F25EC73005C7FDF /* InbetweenNurikabeGridNode.swift */; };
+		8CB419032F25EC73005C7FDF /* InbetweenNurikabeGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418FD2F25EC73005C7FDF /* InbetweenNurikabeGameViewController.swift */; };
+		8CB419042F25EC73005C7FDF /* InbetweenNurikabeGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418FB2F25EC73005C7FDF /* InbetweenNurikabeGameScene.swift */; };
+		8CB419052F25EC73005C7FDF /* InbetweenNurikabeDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418F92F25EC73005C7FDF /* InbetweenNurikabeDocument.swift */; };
+		8CB419062F25EC73005C7FDF /* InbetweenNurikabeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB419002F25EC73005C7FDF /* InbetweenNurikabeObject.swift */; };
+		8CB419072F25EC73005C7FDF /* InbetweenNurikabeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418FF2F25EC73005C7FDF /* InbetweenNurikabeMainViewController.swift */; };
+		8CB419082F25EC73005C7FDF /* InbetweenNurikabeGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418FC2F25EC73005C7FDF /* InbetweenNurikabeGameState.swift */; };
+		8CB419092F25EC73005C7FDF /* InbetweenNurikabeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB418FA2F25EC73005C7FDF /* InbetweenNurikabeGame.swift */; };
+		8CB4190A2F25EC73005C7FDF /* InbetweenNurikabe.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB418F82F25EC73005C7FDF /* InbetweenNurikabe.xml */; };
 		8CB721C72EAAE62D001B25C5 /* PlanksGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C02EAAE62D001B25C5 /* PlanksGameScene.swift */; };
 		8CB721C82EAAE62D001B25C5 /* PlanksGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C22EAAE62D001B25C5 /* PlanksGameViewController.swift */; };
 		8CB721C92EAAE62D001B25C5 /* PlanksObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB721C52EAAE62D001B25C5 /* PlanksObject.swift */; };
@@ -3366,6 +3375,15 @@
 		8CB418EB2F2532AD005C7FDF /* YouTurnMeOnGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTurnMeOnGridNode.swift; sourceTree = "<group>"; };
 		8CB418EC2F2532AD005C7FDF /* YouTurnMeOnMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTurnMeOnMainViewController.swift; sourceTree = "<group>"; };
 		8CB418ED2F2532AD005C7FDF /* YouTurnMeOnObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTurnMeOnObject.swift; sourceTree = "<group>"; };
+		8CB418F82F25EC73005C7FDF /* InbetweenNurikabe.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = InbetweenNurikabe.xml; sourceTree = "<group>"; };
+		8CB418F92F25EC73005C7FDF /* InbetweenNurikabeDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InbetweenNurikabeDocument.swift; sourceTree = "<group>"; };
+		8CB418FA2F25EC73005C7FDF /* InbetweenNurikabeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InbetweenNurikabeGame.swift; sourceTree = "<group>"; };
+		8CB418FB2F25EC73005C7FDF /* InbetweenNurikabeGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InbetweenNurikabeGameScene.swift; sourceTree = "<group>"; };
+		8CB418FC2F25EC73005C7FDF /* InbetweenNurikabeGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InbetweenNurikabeGameState.swift; sourceTree = "<group>"; };
+		8CB418FD2F25EC73005C7FDF /* InbetweenNurikabeGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InbetweenNurikabeGameViewController.swift; sourceTree = "<group>"; };
+		8CB418FE2F25EC73005C7FDF /* InbetweenNurikabeGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InbetweenNurikabeGridNode.swift; sourceTree = "<group>"; };
+		8CB418FF2F25EC73005C7FDF /* InbetweenNurikabeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InbetweenNurikabeMainViewController.swift; sourceTree = "<group>"; };
+		8CB419002F25EC73005C7FDF /* InbetweenNurikabeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InbetweenNurikabeObject.swift; sourceTree = "<group>"; };
 		8CB721BD2EAAE62D001B25C5 /* Planks.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Planks.xml; sourceTree = "<group>"; };
 		8CB721BE2EAAE62D001B25C5 /* PlanksDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksDocument.swift; sourceTree = "<group>"; };
 		8CB721BF2EAAE62D001B25C5 /* PlanksGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanksGame.swift; sourceTree = "<group>"; };
@@ -4250,6 +4268,7 @@
 				8CACC92E2E9BC56E00F53475 /* Hidoku */,
 				8C3A347C1EC88D4100A914A5 /* Hitori */,
 				8C74742B1FBDEAD100C4112C /* HolidayIsland */,
+				8CB419012F25EC73005C7FDF /* InbetweenNurikabe */,
 				8C9BD5E22F0C0D2900D1D915 /* InbetweenSumscrapers */,
 				8C9BD4FF2F0A178300D1D915 /* InsaneTatamis */,
 				8C9BD55D2F0A5CF500D1D915 /* IslandConnections */,
@@ -6397,6 +6416,22 @@
 			path = YouTurnMeOn;
 			sourceTree = "<group>";
 		};
+		8CB419012F25EC73005C7FDF /* InbetweenNurikabe */ = {
+			isa = PBXGroup;
+			children = (
+				8CB418F82F25EC73005C7FDF /* InbetweenNurikabe.xml */,
+				8CB418F92F25EC73005C7FDF /* InbetweenNurikabeDocument.swift */,
+				8CB418FA2F25EC73005C7FDF /* InbetweenNurikabeGame.swift */,
+				8CB418FB2F25EC73005C7FDF /* InbetweenNurikabeGameScene.swift */,
+				8CB418FC2F25EC73005C7FDF /* InbetweenNurikabeGameState.swift */,
+				8CB418FD2F25EC73005C7FDF /* InbetweenNurikabeGameViewController.swift */,
+				8CB418FE2F25EC73005C7FDF /* InbetweenNurikabeGridNode.swift */,
+				8CB418FF2F25EC73005C7FDF /* InbetweenNurikabeMainViewController.swift */,
+				8CB419002F25EC73005C7FDF /* InbetweenNurikabeObject.swift */,
+			);
+			path = InbetweenNurikabe;
+			sourceTree = "<group>";
+		};
 		8CB721C62EAAE62D001B25C5 /* Planks */ = {
 			isa = PBXGroup;
 			children = (
@@ -7199,6 +7234,7 @@
 				8C86643C2EA39DD00078CD64 /* stop.png in Resources */,
 				8C86643D2EA39DD00078CD64 /* wood1.png in Resources */,
 				8C86643E2EA39DD00078CD64 /* cow_face.png in Resources */,
+				8CB4190A2F25EC73005C7FDF /* InbetweenNurikabe.xml in Resources */,
 				8C86643F2EA39DD00078CD64 /* arrow_blue_ul.png in Resources */,
 				8C8664402EA39DD00078CD64 /* step.png in Resources */,
 				8C8664412EA39DD00078CD64 /* navigate_right.png in Resources */,
@@ -7745,6 +7781,14 @@
 				8C506F0F1F6D2C9300BA4332 /* SnakeDocument.swift in Sources */,
 				8C3A377E1EC88D4300A914A5 /* PowerGridObject.swift in Sources */,
 				8C2973E21EE7284C0022A18A /* GalaxiesDocument.swift in Sources */,
+				8CB419022F25EC73005C7FDF /* InbetweenNurikabeGridNode.swift in Sources */,
+				8CB419032F25EC73005C7FDF /* InbetweenNurikabeGameViewController.swift in Sources */,
+				8CB419042F25EC73005C7FDF /* InbetweenNurikabeGameScene.swift in Sources */,
+				8CB419052F25EC73005C7FDF /* InbetweenNurikabeDocument.swift in Sources */,
+				8CB419062F25EC73005C7FDF /* InbetweenNurikabeObject.swift in Sources */,
+				8CB419072F25EC73005C7FDF /* InbetweenNurikabeMainViewController.swift in Sources */,
+				8CB419082F25EC73005C7FDF /* InbetweenNurikabeGameState.swift in Sources */,
+				8CB419092F25EC73005C7FDF /* InbetweenNurikabeGame.swift in Sources */,
 				8C6A9BEB1F812743002A44FF /* KropkiGridNode.swift in Sources */,
 				8C3A36661EC88D4200A914A5 /* DigitalBattleShipsGridNode.swift in Sources */,
 				8C3A37D21EC88D4400A914A5 /* SumscrapersObject.swift in Sources */,

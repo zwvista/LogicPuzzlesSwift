@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Create a Nurikabe, where each Garden has two numbers.
+2. The area of the garden must be between the two numbers.
+3. For example 2 and 4 give you an area of 3 tiles. 1 and 5 give you an area that can be 2, 3 or 4 tiles big.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+   42`
+3    `
+    4`
+ 5   `
+   6 `
+    ]]>
+  </level>
+</levels>
+</puzzle>
