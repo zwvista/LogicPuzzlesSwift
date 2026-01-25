@@ -10,6 +10,7 @@ import Foundation
 
 class VeniceGame: GridGame<VeniceGameState> {
     static let offset = Position.Directions4
+    static let offset2 = Position.Square2x2Offset
 
     var pos2hint = [Position: Int]()
     

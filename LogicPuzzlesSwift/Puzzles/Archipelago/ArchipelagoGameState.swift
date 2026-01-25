@@ -49,13 +49,15 @@ class ArchipelagoGameState: GridGameState<ArchipelagoGameMove> {
     
     override func setObject(move: inout ArchipelagoGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p), game.pos2hint[p] == nil, self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }
     
     override func switchObject(move: inout ArchipelagoGameMove) -> GameOperationType {
+        let p = move.p
+        guard isValid(p: p), game.pos2hint[p] == nil else { return .invalid }
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: ArchipelagoObject) -> ArchipelagoObject {
             switch o {
@@ -69,8 +71,6 @@ class ArchipelagoGameState: GridGameState<ArchipelagoGameMove> {
                 return o
             }
         }
-        let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil else { return .invalid }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }

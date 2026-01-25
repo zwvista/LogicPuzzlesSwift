@@ -15,7 +15,7 @@ class ArchipelagoGameScene: GameScene<ArchipelagoGameState> {
     }
     
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(text: n == -1 ? "?" : String(n), fontColor: s == .complete ? .green : .white, point: point, nodeName: nodeName, sampleText: "10")
+        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
 
     override func levelInitialized(_ game: AnyObject, state: ArchipelagoGameState, skView: SKView) {
@@ -50,22 +50,22 @@ class ArchipelagoGameScene: GameScene<ArchipelagoGameState> {
                 let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
                 if o1 != o2 || s1 != s2 {
                     switch o1 {
-                    case .water:
-                        removeNode(withName: waterNodeName)
                     case .hint:
                         removeNode(withName: hintNodeName)
                     case .marker:
                         removeNode(withName: markerNodeName)
+                    case .water:
+                        removeNode(withName: waterNodeName)
                     default:
                         break
                     }
                     switch o2 {
-                    case .water:
-                        addImage(imageNamed: "sea", color: .red, colorBlendFactor: 0.0, point: point, nodeName: waterNodeName)
                     case .hint:
                         addHint(n: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
                     case .marker:
                         addDotMarker(point: point, nodeName: markerNodeName)
+                    case .water:
+                        addImage(imageNamed: "sea", color: .red, colorBlendFactor: 0.0, point: point, nodeName: waterNodeName)
                     default:
                         break
                     }

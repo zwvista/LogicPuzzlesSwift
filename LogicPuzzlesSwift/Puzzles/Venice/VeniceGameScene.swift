@@ -29,23 +29,10 @@ class VeniceGameScene: GameScene<VeniceGameState> {
         
         // add Hints
         for (p, n) in game.pos2hint {
-            guard case let .hint(state: s) = state[p] else {continue}
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
-            addHint(n: n, s: s, point: point, nodeName: hintNodeName)
-        }
-        
-        // addForbidden
-        for r in 0..<game.rows {
-            for c in 0..<game.cols {
-                let p = Position(r, c)
-                guard case .forbidden = state[p] else {continue}
-                let point = gridNode.centerPoint(p: p)
-                let nodeNameSuffix = "-\(r)-\(c)"
-                let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
-            }
+            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
         }
     }
     
@@ -55,45 +42,45 @@ class VeniceGameScene: GameScene<VeniceGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let towerNodeName = "tower" + nodeNameSuffix
+                let waterNodeName = "water" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
-                let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                func removeHint() { removeNode(withName: hintNodeName) }
+                let invalid2x2NodeName = "invalid2x2" + nodeNameSuffix
+                func removeHint() {  }
                 func addTower(s: AllowedObjectState) {
-                    addImage(imageNamed: "tower", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: towerNodeName)
                 }
-                func removeTower() { removeNode(withName: towerNodeName) }
-                func addMarker() { addCircleMarker(color: .white, point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                func addForbidden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
-                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
-                let (ot1, ot2) = (stateFrom[r, c], stateTo[r, c])
-                guard String(describing: ot1) != String(describing: ot2) else {continue}
-                switch ot1 {
-                case .forbidden:
-                    removeForbidden()
-                case .tower:
-                    removeTower()
-                case .marker:
-                    removeMarker()
-                case .hint:
-                    removeHint()
-                default:
-                    break
+                func removeTower() {  }
+                func addMarker() {  }
+                func removeMarker() {  }
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                if o1 != o2 || s1 != s2 {
+                    switch o1 {
+                    case .hint:
+                        removeNode(withName: hintNodeName)
+                    case .marker:
+                        removeNode(withName: markerNodeName)
+                    case .water:
+                        removeNode(withName: waterNodeName)
+                    default:
+                        break
+                    }
+                    switch o2 {
+                    case .hint:
+                        addHint(n: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
+                    case .marker:
+                        addCircleMarker(color: .white, point: point, nodeName: markerNodeName)
+                    case .water:
+                        addImage(imageNamed: "sea", color: .red, colorBlendFactor: 0.0, point: point, nodeName: waterNodeName)
+                    default:
+                        break
+                    }
                 }
-                switch ot2 {
-                case .forbidden:
-                    addForbidden()
-                case let .tower(s):
-                    addTower(s: s)
-                case .marker:
-                    addMarker()
-                case let .hint(s):
-                    let n = stateTo.game.pos2hint[Position(r, c)]!
-                    addHint(n: n, s: s, point: point, nodeName: hintNodeName)
-                default:
-                    break
+                let (b1, b2) = (stateFrom.invalid2x2Squares.contains(p), stateTo.invalid2x2Squares.contains(p))
+                if b1 != b2 {
+                    let point = gridNode.cornerPoint(p: p)
+                    if b1 { removeNode(withName: invalid2x2NodeName) }
+                    if b2 { addDotMarker2(color: .red, point: point, nodeName: invalid2x2NodeName) }
                 }
             }
         }

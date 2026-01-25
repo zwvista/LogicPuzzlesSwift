@@ -61,8 +61,7 @@ class NurikabeGameScene: GameScene<NurikabeGameState> {
                     }
                     switch o2 {
                     case .hint:
-                        let n = stateTo.game.pos2hint[Position(r, c)]!
-                        addHint(n: n, s: s2!, point: point, nodeName: hintNodeName)
+                        addHint(n: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
                     case .marker:
                         addDotMarker(point: point, nodeName: markerNodeName)
                     case .wall:

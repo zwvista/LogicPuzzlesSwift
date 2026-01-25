@@ -8,34 +8,10 @@
 
 import Foundation
 
-enum VeniceObject {
-    case empty
-    case forbidden
-    case hint(state: HintState = .normal)
-    case marker
-    case tower(state: AllowedObjectState = .normal)
+enum VeniceObject: Int {
+    case empty, hint, marker, water
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .tower:
-            return "tower"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> VeniceObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "tower":
-            return .tower()
-        default:
-            return .empty
-        }
     }
 }
 

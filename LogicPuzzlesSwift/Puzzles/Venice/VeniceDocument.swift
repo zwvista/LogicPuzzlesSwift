@@ -13,10 +13,10 @@ class VeniceDocument: GameDocument<VeniceGameMove> {
     
     override func saveMove(_ move: VeniceGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> VeniceGameMove {
-        VeniceGameMove(p: Position(rec.row, rec.col), obj: VeniceObject.fromString(str: rec.strValue1!))
+        VeniceGameMove(p: Position(rec.row, rec.col), obj: VeniceObject(rawValue: rec.intValue1)!)
     }
 }
