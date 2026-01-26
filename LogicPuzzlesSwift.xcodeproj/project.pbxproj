@@ -1666,6 +1666,15 @@
 		8CCFC4582F26538500546A04 /* finger_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCFC4532F26538500546A04 /* finger_down.png */; };
 		8CCFC4592F26538500546A04 /* finger_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCFC4552F26538500546A04 /* finger_right.png */; };
 		8CCFC45A2F26538500546A04 /* finger_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CCFC4562F26538500546A04 /* finger_up.png */; };
+		8CCFC4652F27660A00546A04 /* MineSlither.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CCFC45B2F27660A00546A04 /* MineSlither.xml */; };
+		8CCFC4662F27660A00546A04 /* MineSlitherGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC45E2F27660A00546A04 /* MineSlitherGameScene.swift */; };
+		8CCFC4672F27660A00546A04 /* MineSlitherGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC4612F27660A00546A04 /* MineSlitherGridNode.swift */; };
+		8CCFC4682F27660A00546A04 /* MineSlitherDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC45C2F27660A00546A04 /* MineSlitherDocument.swift */; };
+		8CCFC4692F27660A00546A04 /* MineSlitherMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC4622F27660A00546A04 /* MineSlitherMainViewController.swift */; };
+		8CCFC46A2F27660A00546A04 /* MineSlitherObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC4632F27660A00546A04 /* MineSlitherObject.swift */; };
+		8CCFC46B2F27660A00546A04 /* MineSlitherGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC4602F27660A00546A04 /* MineSlitherGameViewController.swift */; };
+		8CCFC46C2F27660A00546A04 /* MineSlitherGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC45F2F27660A00546A04 /* MineSlitherGameState.swift */; };
+		8CCFC46D2F27660A00546A04 /* MineSlitherGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC45D2F27660A00546A04 /* MineSlitherGame.swift */; };
 		8CD1558B1DD77C3400786F34 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD1558A1DD77C3400786F34 /* Extensions.swift */; };
 		8CDAE7EF1F5BFBD8000DE5AF /* OverUnder.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CDAE7E41F5BFBD8000DE5AF /* OverUnder.xml */; };
 		8CDAE7F01F5BFBD8000DE5AF /* OverUnderDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDAE7E51F5BFBD8000DE5AF /* OverUnderDocument.swift */; };
@@ -3482,6 +3491,15 @@
 		8CCFC4542F26538500546A04 /* finger_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finger_left.png; sourceTree = "<group>"; };
 		8CCFC4552F26538500546A04 /* finger_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finger_right.png; sourceTree = "<group>"; };
 		8CCFC4562F26538500546A04 /* finger_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finger_up.png; sourceTree = "<group>"; };
+		8CCFC45B2F27660A00546A04 /* MineSlither.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MineSlither.xml; sourceTree = "<group>"; };
+		8CCFC45C2F27660A00546A04 /* MineSlitherDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineSlitherDocument.swift; sourceTree = "<group>"; };
+		8CCFC45D2F27660A00546A04 /* MineSlitherGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineSlitherGame.swift; sourceTree = "<group>"; };
+		8CCFC45E2F27660A00546A04 /* MineSlitherGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineSlitherGameScene.swift; sourceTree = "<group>"; };
+		8CCFC45F2F27660A00546A04 /* MineSlitherGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineSlitherGameState.swift; sourceTree = "<group>"; };
+		8CCFC4602F27660A00546A04 /* MineSlitherGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineSlitherGameViewController.swift; sourceTree = "<group>"; };
+		8CCFC4612F27660A00546A04 /* MineSlitherGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineSlitherGridNode.swift; sourceTree = "<group>"; };
+		8CCFC4622F27660A00546A04 /* MineSlitherMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineSlitherMainViewController.swift; sourceTree = "<group>"; };
+		8CCFC4632F27660A00546A04 /* MineSlitherObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineSlitherObject.swift; sourceTree = "<group>"; };
 		8CD1558A1DD77C3400786F34 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8CDAE7E41F5BFBD8000DE5AF /* OverUnder.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = OverUnder.xml; sourceTree = "<group>"; };
 		8CDAE7E51F5BFBD8000DE5AF /* OverUnderDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverUnderDocument.swift; sourceTree = "<group>"; };
@@ -4336,6 +4354,7 @@
 				8C3A34E41EC88D4100A914A5 /* Masyu */,
 				8C6A35D21FAF4FFD00D2804D /* Mathrax */,
 				8C3A34F11EC88D4100A914A5 /* MineShips */,
+				8CCFC4642F27660A00546A04 /* MineSlither */,
 				8C3A34FE1EC88D4100A914A5 /* Minesweeper */,
 				8C3A350B1EC88D4100A914A5 /* MiniLits */,
 				8C9BD4EC2F0A092700D1D915 /* MixedTatamis */,
@@ -6610,6 +6629,22 @@
 			path = FingerPointing;
 			sourceTree = "<group>";
 		};
+		8CCFC4642F27660A00546A04 /* MineSlither */ = {
+			isa = PBXGroup;
+			children = (
+				8CCFC45B2F27660A00546A04 /* MineSlither.xml */,
+				8CCFC45C2F27660A00546A04 /* MineSlitherDocument.swift */,
+				8CCFC45D2F27660A00546A04 /* MineSlitherGame.swift */,
+				8CCFC45E2F27660A00546A04 /* MineSlitherGameScene.swift */,
+				8CCFC45F2F27660A00546A04 /* MineSlitherGameState.swift */,
+				8CCFC4602F27660A00546A04 /* MineSlitherGameViewController.swift */,
+				8CCFC4612F27660A00546A04 /* MineSlitherGridNode.swift */,
+				8CCFC4622F27660A00546A04 /* MineSlitherMainViewController.swift */,
+				8CCFC4632F27660A00546A04 /* MineSlitherObject.swift */,
+			);
+			path = MineSlither;
+			sourceTree = "<group>";
+		};
 		8CDAE7E31F5BFBD8000DE5AF /* OverUnder */ = {
 			isa = PBXGroup;
 			children = (
@@ -6979,6 +7014,7 @@
 				8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */,
 				8C3A36B41EC88D4300A914A5 /* LightenUp.xml in Resources */,
 				8C9F43E71D771915000139FC /* LaunchScreen.storyboard in Resources */,
+				8CCFC4652F27660A00546A04 /* MineSlither.xml in Resources */,
 				8C3A37681EC88D4300A914A5 /* Parks.xml in Resources */,
 				8C9F32581ED1FAF600E10965 /* Pata.xml in Resources */,
 				8C9F32F91ED1FCFF00E10965 /* TapDifferently.xml in Resources */,
@@ -8244,6 +8280,14 @@
 				8CFB22132EF771C100E5F29D /* RomeGameScene.swift in Sources */,
 				8CFB22142EF771C100E5F29D /* RomeDocument.swift in Sources */,
 				8CFB22152EF771C100E5F29D /* RomeGridNode.swift in Sources */,
+				8CCFC4662F27660A00546A04 /* MineSlitherGameScene.swift in Sources */,
+				8CCFC4672F27660A00546A04 /* MineSlitherGridNode.swift in Sources */,
+				8CCFC4682F27660A00546A04 /* MineSlitherDocument.swift in Sources */,
+				8CCFC4692F27660A00546A04 /* MineSlitherMainViewController.swift in Sources */,
+				8CCFC46A2F27660A00546A04 /* MineSlitherObject.swift in Sources */,
+				8CCFC46B2F27660A00546A04 /* MineSlitherGameViewController.swift in Sources */,
+				8CCFC46C2F27660A00546A04 /* MineSlitherGameState.swift in Sources */,
+				8CCFC46D2F27660A00546A04 /* MineSlitherGame.swift in Sources */,
 				8C3A36FD1EC88D4300A914A5 /* MasyuDocument.swift in Sources */,
 				8C3A36381EC88D4200A914A5 /* BoxItUpMainViewController.swift in Sources */,
 				8C6A35E31FAF4FFD00D2804D /* MathraxGameState.swift in Sources */,
