@@ -26,7 +26,7 @@ class TrafficWardenGame: GridGame<TrafficWardenGameState> {
             for c in 0..<cols {
                 let (ch1, ch2) = (str[c * 2], str[c * 2 + 1])
                 guard ch1 != " " else {continue}
-                let n = ch2.isNumber ? Int(String(ch2))! : Int(ch2.asciiValue!) - Int(Character("A").asciiValue!) + 10
+                let n = ch2.isNumber ? ch2.toInt! : Int(ch2.asciiValue!) - Int(Character("A").asciiValue!) + 10
                 pos2hint[Position(r, c)] = TrafficWardenHint(light: ch1, len: n)
             }
         }
