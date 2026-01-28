@@ -27,7 +27,7 @@ class TrafficWardenRevengeGame: GridGame<TrafficWardenRevengeGameState> {
             for c in 0..<cols {
                 let (ch1, ch2) = (str[c * 2], str[c * 2 + 1])
                 guard ch1 != " " else {continue}
-                let n = ch2.isNumber ? Int(String(ch2))! : Int(ch2.asciiValue!) - Int(Character("A").asciiValue!) + 10
+                let n = ch2 == "1" ? TrafficWardenRevengeGame.PUZ_UNKNOWN_10 : ch2.isNumber ? Int(String(ch2))! : TrafficWardenRevengeGame.PUZ_UNKNOWN
                 pos2hint[Position(r, c)] = TrafficWardenRevengeHint(light: ch1, len: n)
             }
         }
