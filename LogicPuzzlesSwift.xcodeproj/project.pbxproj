@@ -26,6 +26,15 @@
 		8C04671E1F8BA2BE00B5DE41 /* TataminoGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0467121F8BA2BD00B5DE41 /* TataminoGridNode.swift */; };
 		8C0467201F8BA2BE00B5DE41 /* TataminoMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0467141F8BA2BD00B5DE41 /* TataminoMainViewController.swift */; };
 		8C0467211F8BA2BE00B5DE41 /* TataminoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0467151F8BA2BD00B5DE41 /* TataminoObject.swift */; };
+		8C1ACF432F2A2AAD004832E2 /* TrafficWardenGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF3E2F2A2AAD004832E2 /* TrafficWardenGameViewController.swift */; };
+		8C1ACF442F2A2AAD004832E2 /* TrafficWardenDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF3A2F2A2AAD004832E2 /* TrafficWardenDocument.swift */; };
+		8C1ACF452F2A2AAD004832E2 /* TrafficWardenGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF3C2F2A2AAD004832E2 /* TrafficWardenGameScene.swift */; };
+		8C1ACF462F2A2AAD004832E2 /* TrafficWardenGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF3F2F2A2AAD004832E2 /* TrafficWardenGridNode.swift */; };
+		8C1ACF472F2A2AAD004832E2 /* TrafficWardenGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF3B2F2A2AAD004832E2 /* TrafficWardenGame.swift */; };
+		8C1ACF482F2A2AAD004832E2 /* TrafficWardenGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF3D2F2A2AAD004832E2 /* TrafficWardenGameState.swift */; };
+		8C1ACF492F2A2AAD004832E2 /* TrafficWardenObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF412F2A2AAD004832E2 /* TrafficWardenObject.swift */; };
+		8C1ACF4A2F2A2AAD004832E2 /* TrafficWardenMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF402F2A2AAD004832E2 /* TrafficWardenMainViewController.swift */; };
+		8C1ACF4B2F2A2AAD004832E2 /* TrafficWarden.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACF392F2A2AAD004832E2 /* TrafficWarden.xml */; };
 		8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */; };
 		8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */; };
 		8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A01DB8DE930056D407 /* AnimatedExample.graffle */; };
@@ -1841,6 +1850,15 @@
 		8C0467121F8BA2BD00B5DE41 /* TataminoGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TataminoGridNode.swift; sourceTree = "<group>"; };
 		8C0467141F8BA2BD00B5DE41 /* TataminoMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TataminoMainViewController.swift; sourceTree = "<group>"; };
 		8C0467151F8BA2BD00B5DE41 /* TataminoObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TataminoObject.swift; sourceTree = "<group>"; };
+		8C1ACF392F2A2AAD004832E2 /* TrafficWarden.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TrafficWarden.xml; sourceTree = "<group>"; };
+		8C1ACF3A2F2A2AAD004832E2 /* TrafficWardenDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenDocument.swift; sourceTree = "<group>"; };
+		8C1ACF3B2F2A2AAD004832E2 /* TrafficWardenGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenGame.swift; sourceTree = "<group>"; };
+		8C1ACF3C2F2A2AAD004832E2 /* TrafficWardenGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenGameScene.swift; sourceTree = "<group>"; };
+		8C1ACF3D2F2A2AAD004832E2 /* TrafficWardenGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenGameState.swift; sourceTree = "<group>"; };
+		8C1ACF3E2F2A2AAD004832E2 /* TrafficWardenGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenGameViewController.swift; sourceTree = "<group>"; };
+		8C1ACF3F2F2A2AAD004832E2 /* TrafficWardenGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenGridNode.swift; sourceTree = "<group>"; };
+		8C1ACF402F2A2AAD004832E2 /* TrafficWardenMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenMainViewController.swift; sourceTree = "<group>"; };
+		8C1ACF412F2A2AAD004832E2 /* TrafficWardenObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenObject.swift; sourceTree = "<group>"; };
 		8C1D169C1DB8DE930056D407 /* BreadthFirstSearch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BreadthFirstSearch.playground; sourceTree = "<group>"; };
 		8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadthFirstSearch.swift; sourceTree = "<group>"; };
 		8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimatedExample.gif; sourceTree = "<group>"; };
@@ -3685,6 +3703,22 @@
 			path = Tatamino;
 			sourceTree = "<group>";
 		};
+		8C1ACF422F2A2AAD004832E2 /* TrafficWarden */ = {
+			isa = PBXGroup;
+			children = (
+				8C1ACF392F2A2AAD004832E2 /* TrafficWarden.xml */,
+				8C1ACF3A2F2A2AAD004832E2 /* TrafficWardenDocument.swift */,
+				8C1ACF3B2F2A2AAD004832E2 /* TrafficWardenGame.swift */,
+				8C1ACF3C2F2A2AAD004832E2 /* TrafficWardenGameScene.swift */,
+				8C1ACF3D2F2A2AAD004832E2 /* TrafficWardenGameState.swift */,
+				8C1ACF3E2F2A2AAD004832E2 /* TrafficWardenGameViewController.swift */,
+				8C1ACF3F2F2A2AAD004832E2 /* TrafficWardenGridNode.swift */,
+				8C1ACF402F2A2AAD004832E2 /* TrafficWardenMainViewController.swift */,
+				8C1ACF412F2A2AAD004832E2 /* TrafficWardenObject.swift */,
+			);
+			path = TrafficWarden;
+			sourceTree = "<group>";
+		};
 		8C1D169B1DB8DE930056D407 /* Breadth-First Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -4421,6 +4455,7 @@
 				8C8661C02EA115FA0078CD64 /* Thermometers */,
 				8C2319E21FB88E3F0021C680 /* TierraDelFuego */,
 				8C81BC0F2EA84D010083B936 /* TraceNumbers */,
+				8C1ACF422F2A2AAD004832E2 /* TrafficWarden */,
 				8C263E432F11EFA100158A2C /* Trebuchet */,
 				8C263EFE2F1CAAD400158A2C /* TurnMeUp */,
 				8CAFBFDA2E9F19A500C27D7C /* TurnTwice */,
@@ -7315,6 +7350,7 @@
 				8C8664162EA39DD00078CD64 /* kangaroo.png in Resources */,
 				8C263F2F2F1D08A700158A2C /* DirectionalPlanks.xml in Resources */,
 				8C8664172EA39DD00078CD64 /* tetris_green.png in Resources */,
+				8C1ACF4B2F2A2AAD004832E2 /* TrafficWarden.xml in Resources */,
 				8C8664182EA39DD00078CD64 /* tetris_purple.png in Resources */,
 				8C8664192EA39DD00078CD64 /* wine_white_glass.png in Resources */,
 				8C86641A2EA39DD00078CD64 /* arrow_brown_up.png in Resources */,
@@ -7640,6 +7676,14 @@
 				8C263E4B2F11EFA100158A2C /* TrebuchetGameState.swift in Sources */,
 				8CE43BDB1FEE6C7B00DCCD91 /* FutoshikiGameScene.swift in Sources */,
 				95E2B509236598F400F4F95B /* NumberCrosswordsGridNode.swift in Sources */,
+				8C1ACF432F2A2AAD004832E2 /* TrafficWardenGameViewController.swift in Sources */,
+				8C1ACF442F2A2AAD004832E2 /* TrafficWardenDocument.swift in Sources */,
+				8C1ACF452F2A2AAD004832E2 /* TrafficWardenGameScene.swift in Sources */,
+				8C1ACF462F2A2AAD004832E2 /* TrafficWardenGridNode.swift in Sources */,
+				8C1ACF472F2A2AAD004832E2 /* TrafficWardenGame.swift in Sources */,
+				8C1ACF482F2A2AAD004832E2 /* TrafficWardenGameState.swift in Sources */,
+				8C1ACF492F2A2AAD004832E2 /* TrafficWardenObject.swift in Sources */,
+				8C1ACF4A2F2A2AAD004832E2 /* TrafficWardenMainViewController.swift in Sources */,
 				8CE9C3121F7914B800134093 /* KakurasuGameScene.swift in Sources */,
 				8C7E4B461F793C9800B57C60 /* TennerGridGameScene.swift in Sources */,
 				8CFB22472F076ED400E5F29D /* LiarLiarDocument.swift in Sources */,
