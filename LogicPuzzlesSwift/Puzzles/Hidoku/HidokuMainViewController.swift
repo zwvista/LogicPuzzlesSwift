@@ -13,7 +13,7 @@ class HidokuMainViewController: GameMainViewController {
 }
 
 class HidokuOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { HidokuDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { HidokuDocument.sharedInstance }
 }
 
 class HidokuHelpViewController: GameHelpViewController {

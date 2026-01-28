@@ -13,7 +13,7 @@ class LoopAndBlocksMainViewController: GameMainViewController {
 }
 
 class LoopAndBlocksOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { LoopAndBlocksDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { LoopAndBlocksDocument.sharedInstance }
 }
 
 class LoopAndBlocksHelpViewController: GameHelpViewController {

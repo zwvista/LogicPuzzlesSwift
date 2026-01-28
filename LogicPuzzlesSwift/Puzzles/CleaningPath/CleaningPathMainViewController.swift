@@ -13,7 +13,7 @@ class CleaningPathMainViewController: GameMainViewController {
 }
 
 class CleaningPathOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { CleaningPathDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { CleaningPathDocument.sharedInstance }
 }
 
 class CleaningPathHelpViewController: GameHelpViewController {

@@ -13,7 +13,7 @@ class GardenTunnelsMainViewController: GameMainViewController {
 }
 
 class GardenTunnelsOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { GardenTunnelsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { GardenTunnelsDocument.sharedInstance }
 }
 
 class GardenTunnelsHelpViewController: GameHelpViewController {

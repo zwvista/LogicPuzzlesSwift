@@ -13,7 +13,7 @@ class CaffelatteMainViewController: GameMainViewController {
 }
 
 class CaffelatteOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { CaffelatteDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { CaffelatteDocument.sharedInstance }
 }
 
 class CaffelatteHelpViewController: GameHelpViewController {

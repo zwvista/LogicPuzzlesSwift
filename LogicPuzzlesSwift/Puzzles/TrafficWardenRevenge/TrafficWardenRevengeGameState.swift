@@ -83,29 +83,28 @@ class TrafficWardenRevengeGameState: GridGameState<TrafficWardenRevengeGameMove>
         for (p, hint) in game.pos2hint {
             let ch = hint.light
             let dirs = pos2dirs[p]!
-            // 2. While passing on green lights, the road must go straight, it can't turn.
-            // 3. While passing on red lights, the road must turn 90 degrees.
-            // 4. While passing on yellow lights, the road might turn 90 degrees or
-            //    go straight.
-            if !(dirs.count == 2 && ((ch == TrafficWardenRevengeGame.PUZ_GREEN || ch == TrafficWardenRevengeGame.PUZ_YELLOW) && dirs[1] - dirs[0] == 2 || (ch == TrafficWardenRevengeGame.PUZ_RED || ch == TrafficWardenRevengeGame.PUZ_YELLOW) && dirs[1] - dirs[0] != 2)) {
+            if dirs.count != 2 {
                 isSolved = false; pos2state[p] = .normal
             } else {
-                // 5. A number on the light tells you the length of the straights coming
-                //    out of that tile.
+                // 4. A number tells you the sum of the length or road extending from that
+                //    traffic light, be it green or red.
                 let n2 = hint.len
-                var n1 = 0
-                for d in dirs {
+                var ns = [Int](repeating: 1, count: 2)
+                for i in 0..<2 {
+                    let d = dirs[i]
                     let os = TrafficWardenRevengeGame.offset[d]
                     var p2 = p + os
-                    n1 += 1
                     while true {
                         let dirs2 = pos2dirs[p2]!
                         if !dirs2.contains(d) {break}
                         p2 += os
-                        n1 += 1
+                        ns[i] += 1
                     }
                 }
-                let s: HintState = n1 == n2 ? .complete : .error
+                // 2. Green light means the road that extends from there is of equal length
+                //    in both directions.
+                // 3. Red light means they are not.
+                let s: HintState = (ns[0] == ns[1]) != (ch == TrafficWardenRevengeGame.PUZ_GREEN) ? .normal : n2 == TrafficWardenRevengeGame.PUZ_UNKNOWN || n2 == TrafficWardenRevengeGame.PUZ_UNKNOWN_10 && ns[0] + ns[1] >= 10 || ns[0] + ns[1] == n2 ? .complete : .error
                 if s != .complete { isSolved = false }
                 pos2state[p] = s
             }

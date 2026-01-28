@@ -13,7 +13,7 @@ class OnlyBendsMainViewController: GameMainViewController {
 }
 
 class OnlyBendsOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { OnlyBendsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { OnlyBendsDocument.sharedInstance }
 }
 
 class OnlyBendsHelpViewController: GameHelpViewController {

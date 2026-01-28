@@ -13,7 +13,7 @@ class NumberLinkMainViewController: GameMainViewController {
 }
 
 class NumberLinkOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { NumberLinkDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { NumberLinkDocument.sharedInstance }
 }
 
 class NumberLinkHelpViewController: GameHelpViewController {

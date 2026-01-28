@@ -13,7 +13,7 @@ class YouTurnMeOnMainViewController: GameMainViewController {
 }
 
 class YouTurnMeOnOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { YouTurnMeOnDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { YouTurnMeOnDocument.sharedInstance }
 }
 
 class YouTurnMeOnHelpViewController: GameHelpViewController {

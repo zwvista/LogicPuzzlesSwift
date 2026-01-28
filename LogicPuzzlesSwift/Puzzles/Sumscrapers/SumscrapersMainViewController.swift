@@ -13,7 +13,7 @@ class SumscrapersMainViewController: GameMainViewController {
 }
 
 class SumscrapersOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { SumscrapersDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { SumscrapersDocument.sharedInstance }
 }
 
 class SumscrapersHelpViewController: GameHelpViewController {

@@ -13,7 +13,7 @@ class HiddenPathMainViewController: GameMainViewController {
 }
 
 class HiddenPathOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { HiddenPathDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { HiddenPathDocument.sharedInstance }
 }
 
 class HiddenPathHelpViewController: GameHelpViewController {

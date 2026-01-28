@@ -13,7 +13,7 @@ class MasyuMainViewController: GameMainViewController {
 }
 
 class MasyuOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { MasyuDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { MasyuDocument.sharedInstance }
 }
 
 class MasyuHelpViewController: GameHelpViewController {

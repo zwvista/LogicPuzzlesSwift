@@ -15,7 +15,7 @@ class TrafficWardenRevengeGameScene: GameScene<TrafficWardenRevengeGameState> {
     }
     
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(text: String(n), fontColor: s == .normal ? .black : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+        addLabel(text: n == TrafficWardenRevengeGame.PUZ_UNKNOWN ? "?" : n == TrafficWardenRevengeGame.PUZ_UNKNOWN_10 ? "1?" : String(n), fontColor: s == .normal ? .black : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
 
     override func levelInitialized(_ game: AnyObject, state: TrafficWardenRevengeGameState, skView: SKView) {
@@ -33,7 +33,7 @@ class TrafficWardenRevengeGameScene: GameScene<TrafficWardenRevengeGameState> {
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             let ch = hint.light
-            addImage(imageNamed: "nav_plain_" + (ch == TrafficWardenRevengeGame.PUZ_GREEN ? "green" : ch == TrafficWardenRevengeGame.PUZ_RED ? "red" : "yellow") , color: .red, colorBlendFactor: 0.0, point: point, nodeName: "trafficwarden")
+            addImage(imageNamed: "nav_plain_" + (ch == TrafficWardenRevengeGame.PUZ_GREEN ? "green" : "red") , color: .red, colorBlendFactor: 0.0, point: point, nodeName: "trafficwarden")
             addHint(n: hint.len, s: .normal, point: point, nodeName: hintNodeName)
         }
     }

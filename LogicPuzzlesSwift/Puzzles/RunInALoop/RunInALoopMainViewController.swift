@@ -13,7 +13,7 @@ class RunInALoopMainViewController: GameMainViewController {
 }
 
 class RunInALoopOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { RunInALoopDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { RunInALoopDocument.sharedInstance }
 }
 
 class RunInALoopHelpViewController: GameHelpViewController {

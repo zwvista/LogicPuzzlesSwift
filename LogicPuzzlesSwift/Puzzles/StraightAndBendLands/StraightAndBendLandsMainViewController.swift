@@ -13,7 +13,7 @@ class StraightAndBendLandsMainViewController: GameMainViewController {
 }
 
 class StraightAndBendLandsOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { StraightAndBendLandsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { StraightAndBendLandsDocument.sharedInstance }
 }
 
 class StraightAndBendLandsHelpViewController: GameHelpViewController {

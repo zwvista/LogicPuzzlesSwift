@@ -13,7 +13,7 @@ class StraightAndTurnMainViewController: GameMainViewController {
 }
 
 class StraightAndTurnOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { StraightAndTurnDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { StraightAndTurnDocument.sharedInstance }
 }
 
 class StraightAndTurnHelpViewController: GameHelpViewController {

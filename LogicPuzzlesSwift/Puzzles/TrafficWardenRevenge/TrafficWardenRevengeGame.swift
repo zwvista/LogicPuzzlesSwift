@@ -12,7 +12,8 @@ class TrafficWardenRevengeGame: GridGame<TrafficWardenRevengeGameState> {
     static let offset = Position.Directions4
     static let PUZ_GREEN: Character = "G"
     static let PUZ_RED: Character = "R"
-    static let PUZ_YELLOW: Character = "Y"
+    static let PUZ_UNKNOWN = -1
+    static let PUZ_UNKNOWN_10 = -2
 
     var pos2hint = [Position: TrafficWardenRevengeHint]()
 

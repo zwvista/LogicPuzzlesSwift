@@ -13,7 +13,7 @@ class TrafficWardenMainViewController: GameMainViewController {
 }
 
 class TrafficWardenOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { TrafficWardenDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { TrafficWardenDocument.sharedInstance }
 }
 
 class TrafficWardenHelpViewController: GameHelpViewController {

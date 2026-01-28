@@ -13,7 +13,7 @@ class TraceNumbersMainViewController: GameMainViewController {
 }
 
 class TraceNumbersOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { TraceNumbersDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { TraceNumbersDocument.sharedInstance }
 }
 
 class TraceNumbersHelpViewController: GameHelpViewController {

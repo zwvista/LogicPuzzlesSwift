@@ -13,7 +13,7 @@ class KakurasuMainViewController: GameMainViewController {
 }
 
 class KakurasuOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { KakurasuDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { KakurasuDocument.sharedInstance }
 }
 
 class KakurasuHelpViewController: GameHelpViewController {

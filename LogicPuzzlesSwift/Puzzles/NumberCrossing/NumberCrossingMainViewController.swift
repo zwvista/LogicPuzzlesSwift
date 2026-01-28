@@ -13,7 +13,7 @@ class NumberCrossingMainViewController: GameMainViewController {
 }
 
 class NumberCrossingOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { NumberCrossingDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { NumberCrossingDocument.sharedInstance }
 }
 
 class NumberCrossingHelpViewController: GameHelpViewController {

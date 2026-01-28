@@ -13,7 +13,7 @@ class PathOnTheMountainsMainViewController: GameMainViewController {
 }
 
 class PathOnTheMountainsOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { PathOnTheMountainsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { PathOnTheMountainsDocument.sharedInstance }
 }
 
 class PathOnTheMountainsHelpViewController: GameHelpViewController {

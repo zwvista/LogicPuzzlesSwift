@@ -13,7 +13,7 @@ class PleaseComeBackMainViewController: GameMainViewController {
 }
 
 class PleaseComeBackOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { PleaseComeBackDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { PleaseComeBackDocument.sharedInstance }
 }
 
 class PleaseComeBackHelpViewController: GameHelpViewController {

@@ -13,7 +13,7 @@ class PlugItInMainViewController: GameMainViewController {
 }
 
 class PlugItInOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { PlugItInDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { PlugItInDocument.sharedInstance }
 }
 
 class PlugItInHelpViewController: GameHelpViewController {

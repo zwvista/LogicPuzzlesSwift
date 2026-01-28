@@ -13,7 +13,7 @@ class CoffeeAndSugarMainViewController: GameMainViewController {
 }
 
 class CoffeeAndSugarOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { CoffeeAndSugarDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { CoffeeAndSugarDocument.sharedInstance }
 }
 
 class CoffeeAndSugarHelpViewController: GameHelpViewController {

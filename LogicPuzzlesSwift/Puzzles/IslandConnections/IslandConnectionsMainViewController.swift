@@ -13,7 +13,7 @@ class IslandConnectionsMainViewController: GameMainViewController {
 }
 
 class IslandConnectionsOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { IslandConnectionsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { IslandConnectionsDocument.sharedInstance }
 }
 
 class IslandConnectionsHelpViewController: GameHelpViewController {

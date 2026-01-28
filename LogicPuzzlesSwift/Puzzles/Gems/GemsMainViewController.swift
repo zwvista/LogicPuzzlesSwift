@@ -13,7 +13,7 @@ class GemsMainViewController: GameMainViewController {
 }
 
 class GemsOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { GemsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { GemsDocument.sharedInstance }
 }
 
 class GemsHelpViewController: GameHelpViewController {

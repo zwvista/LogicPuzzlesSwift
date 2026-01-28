@@ -13,7 +13,7 @@ class OnlyStraightsMainViewController: GameMainViewController {
 }
 
 class OnlyStraightsOptionsViewController: GameOptionsViewController {
-        override func getGameDocument() -> GameDocumentBase { OnlyStraightsDocument.sharedInstance }
+    override func getGameDocument() -> GameDocumentBase { OnlyStraightsDocument.sharedInstance }
 }
 
 class OnlyStraightsHelpViewController: GameHelpViewController {
