@@ -35,6 +35,9 @@
 		8C1ACF492F2A2AAD004832E2 /* TrafficWardenObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF412F2A2AAD004832E2 /* TrafficWardenObject.swift */; };
 		8C1ACF4A2F2A2AAD004832E2 /* TrafficWardenMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF402F2A2AAD004832E2 /* TrafficWardenMainViewController.swift */; };
 		8C1ACF4B2F2A2AAD004832E2 /* TrafficWarden.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACF392F2A2AAD004832E2 /* TrafficWarden.xml */; };
+		8C1ACF4F2F2A31DA004832E2 /* nav_plain_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACF4E2F2A31DA004832E2 /* nav_plain_yellow.png */; };
+		8C1ACF502F2A31DA004832E2 /* nav_plain_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACF4D2F2A31DA004832E2 /* nav_plain_red.png */; };
+		8C1ACF512F2A31DA004832E2 /* nav_plain_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACF4C2F2A31DA004832E2 /* nav_plain_green.png */; };
 		8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */; };
 		8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */; };
 		8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A01DB8DE930056D407 /* AnimatedExample.graffle */; };
@@ -1859,6 +1862,9 @@
 		8C1ACF3F2F2A2AAD004832E2 /* TrafficWardenGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenGridNode.swift; sourceTree = "<group>"; };
 		8C1ACF402F2A2AAD004832E2 /* TrafficWardenMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenMainViewController.swift; sourceTree = "<group>"; };
 		8C1ACF412F2A2AAD004832E2 /* TrafficWardenObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenObject.swift; sourceTree = "<group>"; };
+		8C1ACF4C2F2A31DA004832E2 /* nav_plain_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_plain_green.png; sourceTree = "<group>"; };
+		8C1ACF4D2F2A31DA004832E2 /* nav_plain_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_plain_red.png; sourceTree = "<group>"; };
+		8C1ACF4E2F2A31DA004832E2 /* nav_plain_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_plain_yellow.png; sourceTree = "<group>"; };
 		8C1D169C1DB8DE930056D407 /* BreadthFirstSearch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BreadthFirstSearch.playground; sourceTree = "<group>"; };
 		8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadthFirstSearch.swift; sourceTree = "<group>"; };
 		8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimatedExample.gif; sourceTree = "<group>"; };
@@ -5686,6 +5692,9 @@
 				8C8662B82EA39DD00078CD64 /* mushroom2.png */,
 				8C8662B92EA39DD00078CD64 /* mushroom3.png */,
 				8C8662BA2EA39DD00078CD64 /* nail_head.png */,
+				8C1ACF4C2F2A31DA004832E2 /* nav_plain_green.png */,
+				8C1ACF4D2F2A31DA004832E2 /* nav_plain_red.png */,
+				8C1ACF4E2F2A31DA004832E2 /* nav_plain_yellow.png */,
 				8C8662BB2EA39DD00078CD64 /* navigate_down.png */,
 				8C8662BC2EA39DD00078CD64 /* navigate_left.png */,
 				8C8662BD2EA39DD00078CD64 /* navigate_left_right.png */,
@@ -7111,6 +7120,9 @@
 				8C8663502EA39DD00078CD64 /* arrow1.png in Resources */,
 				8CB418A92F23C552005C7FDF /* OnlyStraights.xml in Resources */,
 				8C9BD5792F0A608A00D1D915 /* Chocolate.xml in Resources */,
+				8C1ACF4F2F2A31DA004832E2 /* nav_plain_yellow.png in Resources */,
+				8C1ACF502F2A31DA004832E2 /* nav_plain_red.png in Resources */,
+				8C1ACF512F2A31DA004832E2 /* nav_plain_green.png in Resources */,
 				8C8663512EA39DD00078CD64 /* plum.png in Resources */,
 				8C8663522EA39DD00078CD64 /* cabbage.png in Resources */,
 				8C8663532EA39DD00078CD64 /* navigate_left.png in Resources */,

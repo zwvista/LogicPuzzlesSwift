@@ -9,29 +9,25 @@
 import Foundation
 
 class TrafficWardenGame: GridGame<TrafficWardenGameState> {
-    static let PUZ_BLOCK: Character = "B"
     static let offset = Position.Directions4
+    static let PUZ_GREEN: Character = "G"
+    static let PUZ_RED: Character = "R"
+    static let PUZ_YELLOW: Character = "Y"
 
-    var objArray = [Character]()
-    subscript(p: Position) -> Character {
-        get { self[p.row, p.col] }
-        set { self[p.row, p.col] = newValue }
-    }
-    subscript(row: Int, col: Int) -> Character {
-        get { objArray[row * cols + col] }
-        set { objArray[row * cols + col] = newValue }
-    }
-    
+    var pos2hint = [Position: TrafficWardenHint]()
+
     init(layout: [String], delegate: TrafficWardenGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count, layout[0].length)
-        objArray = Array<Character>(repeating: " ", count: rows * cols)
+        size = Position(layout.count, layout[0].length / 2)
         
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
-                self[r, c] = str[c]
+                let (ch1, ch2) = (str[c * 2], str[c * 2 + 1])
+                guard ch1 != " " else {continue}
+                let n = ch2.isNumber ? Int(String(ch2))! : Int(ch2.asciiValue!) - Int(Character("A").asciiValue!) + 10
+                pos2hint[Position(r, c)] = TrafficWardenHint(light: ch1, len: n)
             }
         }
         let state = TrafficWardenGameState(game: self)

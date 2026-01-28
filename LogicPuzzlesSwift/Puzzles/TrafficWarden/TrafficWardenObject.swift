@@ -10,6 +10,11 @@ import Foundation
 
 typealias TrafficWardenObject = [Bool]
 
+struct TrafficWardenHint {
+    var light: Character = " "
+    var len: Int = 0
+}
+
 struct TrafficWardenGameMove {
     var p = Position()
     var dir = 0

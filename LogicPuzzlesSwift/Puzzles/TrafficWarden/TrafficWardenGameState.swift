@@ -15,6 +15,7 @@ class TrafficWardenGameState: GridGameState<TrafficWardenGameMove> {
     }
     override var gameDocument: GameDocumentBase { TrafficWardenDocument.sharedInstance }
     var objArray = [TrafficWardenObject]()
+    var pos2state = [Position: HintState]()
     
     override func copy() -> TrafficWardenGameState {
         let v = TrafficWardenGameState(game: game, isCopy: true)
@@ -45,7 +46,7 @@ class TrafficWardenGameState: GridGameState<TrafficWardenGameMove> {
     override func setObject(move: inout TrafficWardenGameMove) -> GameOperationType {
         let p = move.p, dir = move.dir
         let p2 = p + TrafficWardenGame.offset[dir], dir2 = (dir + 2) % 4
-        guard isValid(p: p2) && game[p] != TrafficWardenGame.PUZ_BLOCK && game[p2] != TrafficWardenGame.PUZ_BLOCK else { return .invalid }
+        guard isValid(p: p2) else { return .invalid }
         self[p][dir].toggle()
         self[p2][dir2].toggle()
         updateIsSolved()
@@ -54,14 +55,20 @@ class TrafficWardenGameState: GridGameState<TrafficWardenGameMove> {
     
     
     /*
-        iOS Game: 100 Logic Games 2/Puzzle Set 3/Run in a Loop
+        iOS Game: 100 Logic Games 4/Puzzle Set 2/Traffic Warden
 
         Summary
-        Loop a loop
+        But the light was green!
 
         Description
-        1. Draw a loop that runs through all tiles.
-        2. The loop cannot cross itself.
+        1. Draw a single non intersecting, continuous looping path which must
+           follow these rules at every traffic light:
+        2. While passing on green lights, the road must go straight, it can't turn.
+        3. While passing on red lights, the road must turn 90 degrees.
+        4. While passing on yellow lights, the road might turn 90 degrees or
+           go straight.
+        5. A number on the light tells you the length of the straights coming
+           out of that tile.
     */
     private func updateIsSolved() {
         isSolved = true
@@ -70,17 +77,44 @@ class TrafficWardenGameState: GridGameState<TrafficWardenGameMove> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let dirs = (0..<4).filter { self[p][$0] }
-                if dirs.count == 2 {
-                    // 1. Draw a loop that runs through all tiles.
-                    pos2dirs[p] = dirs
-                } else if !(dirs.isEmpty && game[p] == TrafficWardenGame.PUZ_BLOCK) {
-                    // 2. The loop cannot cross itself.
-                    isSolved = false; return
-                }
+                pos2dirs[p] = dirs
+                // 1. Draw a single non intersecting, continuous looping path
+                if !(dirs.count == 2 || dirs.isEmpty && game.pos2hint[p] == nil) { isSolved = false }
             }
         }
+        for (p, hint) in game.pos2hint {
+            let ch = hint.light
+            let dirs = pos2dirs[p]!
+            // 2. While passing on green lights, the road must go straight, it can't turn.
+            // 3. While passing on red lights, the road must turn 90 degrees.
+            // 4. While passing on yellow lights, the road might turn 90 degrees or
+            //    go straight.
+            if !(dirs.count == 2 && ((ch == TrafficWardenGame.PUZ_GREEN || ch == TrafficWardenGame.PUZ_YELLOW) && dirs[1] - dirs[0] == 2 || (ch == TrafficWardenGame.PUZ_RED || ch == TrafficWardenGame.PUZ_YELLOW) && dirs[1] - dirs[0] != 2)) {
+                isSolved = false; pos2state[p] = .normal
+            } else {
+                // 5. A number on the light tells you the length of the straights coming
+                //    out of that tile.
+                let n2 = hint.len
+                var n1 = 0
+                for d in dirs {
+                    let os = TrafficWardenGame.offset[d]
+                    var p2 = p + os
+                    n1 += 1
+                    while true {
+                        let dirs2 = pos2dirs[p2]!
+                        if !dirs2.contains(d) {break}
+                        p2 += os
+                        n1 += 1
+                    }
+                }
+                let s: HintState = n1 == n2 ? .complete : .error
+                if s != .complete { isSolved = false }
+                pos2state[p] = s
+            }
+        }
+        guard isSolved else {return}
         // Check the loop
-        let p = pos2dirs.keys.first!
+        guard let p = pos2dirs.keys.first else { isSolved = false; return }
         var p2 = p, n = -1
         while true {
             guard let dirs = pos2dirs[p2] else { isSolved = false; return }

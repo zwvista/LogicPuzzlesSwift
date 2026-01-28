@@ -14,6 +14,10 @@ class TrafficWardenGameScene: GameScene<TrafficWardenGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
+    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
+        addLabel(text: String(n), fontColor: s == .normal ? .black : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+    }
+
     override func levelInitialized(_ game: AnyObject, state: TrafficWardenGameState, skView: SKView) {
         let game = game as! TrafficWardenGame
         removeAllChildren()
@@ -23,22 +27,28 @@ class TrafficWardenGameScene: GameScene<TrafficWardenGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: TrafficWardenGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
-        // add Numbers
-        for r in 0..<game.rows {
-            for c in 0..<game.cols {
-                let p = Position(r, c)
-                let ch = game[r, c]
-                guard ch != " " else {continue}
-                let point = gridNode.centerPoint(p: p)
-                let blockNode = SKSpriteNode(color: .lightGray, size: coloredRectSize())
-                blockNode.position = point
-                blockNode.name = "block"
-                gridNode.addChild(blockNode)
-            }
+        // add Hints
+        for (p, hint) in game.pos2hint {
+            let point = gridNode.centerPoint(p: p)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let hintNodeName = "hint" + nodeNameSuffix
+            let ch = hint.light
+            addImage(imageNamed: "nav_plain_" + (ch == TrafficWardenGame.PUZ_GREEN ? "green" : ch == TrafficWardenGame.PUZ_RED ? "red" : "yellow") , color: .red, colorBlendFactor: 0.0, point: point, nodeName: "trafficwarden")
+            addHint(n: hint.len, s: .normal, point: point, nodeName: hintNodeName)
         }
     }
     
     override func levelUpdated(from stateFrom: TrafficWardenGameState, to stateTo: TrafficWardenGameState) {
+        for (p, hint) in stateFrom.game.pos2hint {
+            let point = gridNode.centerPoint(p: p)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let hintNodeName = "hint" + nodeNameSuffix
+            let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
+            if s1 != s2 {
+                removeNode(withName: hintNodeName)
+                addHint(n: hint.len, s: s2, point: point, nodeName: hintNodeName)
+            }
+        }
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 for dir in 1...2 {
@@ -70,7 +80,7 @@ class TrafficWardenGameScene: GameScene<TrafficWardenGameState> {
                     guard o1 != o2 else {continue}
                     if o1 { removeLine() }
                     if o2 { addLine() }
-                 }
+                }
             }
         }
     }
