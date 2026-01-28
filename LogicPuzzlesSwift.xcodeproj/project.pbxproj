@@ -38,6 +38,15 @@
 		8C1ACF4F2F2A31DA004832E2 /* nav_plain_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACF4E2F2A31DA004832E2 /* nav_plain_yellow.png */; };
 		8C1ACF502F2A31DA004832E2 /* nav_plain_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACF4D2F2A31DA004832E2 /* nav_plain_red.png */; };
 		8C1ACF512F2A31DA004832E2 /* nav_plain_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACF4C2F2A31DA004832E2 /* nav_plain_green.png */; };
+		8C1ACF5C2F2A624B004832E2 /* TrafficWardenRevengeGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF562F2A624B004832E2 /* TrafficWardenRevengeGameState.swift */; };
+		8C1ACF5D2F2A624B004832E2 /* TrafficWardenRevengeDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF532F2A624B004832E2 /* TrafficWardenRevengeDocument.swift */; };
+		8C1ACF5E2F2A624B004832E2 /* TrafficWardenRevengeGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF572F2A624B004832E2 /* TrafficWardenRevengeGameViewController.swift */; };
+		8C1ACF5F2F2A624B004832E2 /* TrafficWardenRevengeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF592F2A624B004832E2 /* TrafficWardenRevengeMainViewController.swift */; };
+		8C1ACF602F2A624B004832E2 /* TrafficWardenRevengeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF542F2A624B004832E2 /* TrafficWardenRevengeGame.swift */; };
+		8C1ACF612F2A624B004832E2 /* TrafficWardenRevengeGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF552F2A624B004832E2 /* TrafficWardenRevengeGameScene.swift */; };
+		8C1ACF622F2A624B004832E2 /* TrafficWardenRevengeGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF582F2A624B004832E2 /* TrafficWardenRevengeGridNode.swift */; };
+		8C1ACF632F2A624B004832E2 /* TrafficWardenRevengeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF5A2F2A624B004832E2 /* TrafficWardenRevengeObject.swift */; };
+		8C1ACF642F2A624B004832E2 /* TrafficWardenRevenge.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACF522F2A624B004832E2 /* TrafficWardenRevenge.xml */; };
 		8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */; };
 		8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */; };
 		8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A01DB8DE930056D407 /* AnimatedExample.graffle */; };
@@ -1865,6 +1874,15 @@
 		8C1ACF4C2F2A31DA004832E2 /* nav_plain_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_plain_green.png; sourceTree = "<group>"; };
 		8C1ACF4D2F2A31DA004832E2 /* nav_plain_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_plain_red.png; sourceTree = "<group>"; };
 		8C1ACF4E2F2A31DA004832E2 /* nav_plain_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_plain_yellow.png; sourceTree = "<group>"; };
+		8C1ACF522F2A624B004832E2 /* TrafficWardenRevenge.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TrafficWardenRevenge.xml; sourceTree = "<group>"; };
+		8C1ACF532F2A624B004832E2 /* TrafficWardenRevengeDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenRevengeDocument.swift; sourceTree = "<group>"; };
+		8C1ACF542F2A624B004832E2 /* TrafficWardenRevengeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenRevengeGame.swift; sourceTree = "<group>"; };
+		8C1ACF552F2A624B004832E2 /* TrafficWardenRevengeGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenRevengeGameScene.swift; sourceTree = "<group>"; };
+		8C1ACF562F2A624B004832E2 /* TrafficWardenRevengeGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenRevengeGameState.swift; sourceTree = "<group>"; };
+		8C1ACF572F2A624B004832E2 /* TrafficWardenRevengeGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenRevengeGameViewController.swift; sourceTree = "<group>"; };
+		8C1ACF582F2A624B004832E2 /* TrafficWardenRevengeGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenRevengeGridNode.swift; sourceTree = "<group>"; };
+		8C1ACF592F2A624B004832E2 /* TrafficWardenRevengeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenRevengeMainViewController.swift; sourceTree = "<group>"; };
+		8C1ACF5A2F2A624B004832E2 /* TrafficWardenRevengeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenRevengeObject.swift; sourceTree = "<group>"; };
 		8C1D169C1DB8DE930056D407 /* BreadthFirstSearch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BreadthFirstSearch.playground; sourceTree = "<group>"; };
 		8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadthFirstSearch.swift; sourceTree = "<group>"; };
 		8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimatedExample.gif; sourceTree = "<group>"; };
@@ -3725,6 +3743,22 @@
 			path = TrafficWarden;
 			sourceTree = "<group>";
 		};
+		8C1ACF5B2F2A624B004832E2 /* TrafficWardenRevenge */ = {
+			isa = PBXGroup;
+			children = (
+				8C1ACF522F2A624B004832E2 /* TrafficWardenRevenge.xml */,
+				8C1ACF532F2A624B004832E2 /* TrafficWardenRevengeDocument.swift */,
+				8C1ACF542F2A624B004832E2 /* TrafficWardenRevengeGame.swift */,
+				8C1ACF552F2A624B004832E2 /* TrafficWardenRevengeGameScene.swift */,
+				8C1ACF562F2A624B004832E2 /* TrafficWardenRevengeGameState.swift */,
+				8C1ACF572F2A624B004832E2 /* TrafficWardenRevengeGameViewController.swift */,
+				8C1ACF582F2A624B004832E2 /* TrafficWardenRevengeGridNode.swift */,
+				8C1ACF592F2A624B004832E2 /* TrafficWardenRevengeMainViewController.swift */,
+				8C1ACF5A2F2A624B004832E2 /* TrafficWardenRevengeObject.swift */,
+			);
+			path = TrafficWardenRevenge;
+			sourceTree = "<group>";
+		};
 		8C1D169B1DB8DE930056D407 /* Breadth-First Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -4462,6 +4496,7 @@
 				8C2319E21FB88E3F0021C680 /* TierraDelFuego */,
 				8C81BC0F2EA84D010083B936 /* TraceNumbers */,
 				8C1ACF422F2A2AAD004832E2 /* TrafficWarden */,
+				8C1ACF5B2F2A624B004832E2 /* TrafficWardenRevenge */,
 				8C263E432F11EFA100158A2C /* Trebuchet */,
 				8C263EFE2F1CAAD400158A2C /* TurnMeUp */,
 				8CAFBFDA2E9F19A500C27D7C /* TurnTwice */,
@@ -7412,6 +7447,7 @@
 				8C8664422EA39DD00078CD64 /* C2.png in Resources */,
 				8C9BD4F52F0A092700D1D915 /* MixedTatamis.xml in Resources */,
 				8C8664432EA39DD00078CD64 /* salad.png in Resources */,
+				8C1ACF642F2A624B004832E2 /* TrafficWardenRevenge.xml in Resources */,
 				8C8664442EA39DD00078CD64 /* arrow_red_left.png in Resources */,
 				8C8664452EA39DD00078CD64 /* B2-f.png in Resources */,
 				8C8664462EA39DD00078CD64 /* cloud.png in Resources */,
@@ -8832,6 +8868,14 @@
 				7DF1B0572E8A7EB6006008A3 /* HiddenPathGridNode.swift in Sources */,
 				8C9F32451ED1FAD400E10965 /* BWTapaGameState.swift in Sources */,
 				8CDAE80C1F646C29000DE5AF /* BalancedTapasGameState.swift in Sources */,
+				8C1ACF5C2F2A624B004832E2 /* TrafficWardenRevengeGameState.swift in Sources */,
+				8C1ACF5D2F2A624B004832E2 /* TrafficWardenRevengeDocument.swift in Sources */,
+				8C1ACF5E2F2A624B004832E2 /* TrafficWardenRevengeGameViewController.swift in Sources */,
+				8C1ACF5F2F2A624B004832E2 /* TrafficWardenRevengeMainViewController.swift in Sources */,
+				8C1ACF602F2A624B004832E2 /* TrafficWardenRevengeGame.swift in Sources */,
+				8C1ACF612F2A624B004832E2 /* TrafficWardenRevengeGameScene.swift in Sources */,
+				8C1ACF622F2A624B004832E2 /* TrafficWardenRevengeGridNode.swift in Sources */,
+				8C1ACF632F2A624B004832E2 /* TrafficWardenRevengeObject.swift in Sources */,
 				8C3A37C41EC88D4400A914A5 /* SnailMainViewController.swift in Sources */,
 				8C6A362F1FAF9D8600D2804D /* NoughtsAndCrossesObject.swift in Sources */,
 				8C3A36A21EC88D4200A914A5 /* HitoriGridNode.swift in Sources */,
