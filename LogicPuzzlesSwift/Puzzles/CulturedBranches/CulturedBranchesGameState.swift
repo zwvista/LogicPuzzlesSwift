@@ -160,6 +160,11 @@ class CulturedBranchesGameState: GridGameState<CulturedBranchesGameMove> {
                 }
             }
         }
+        // 2. Each Letter stands for a number and no two Letters stand for the same number.
+        // 3. The number tells you the total length of the Branches coming out of
+        //    that Tree.
+        // 5. Every Tree having the same number must have a different number of Branches
+        //    (1 to 4 in the possible directions around it).
         for (ch, rng) in ch2rng {
             let lens = ch2lens[ch]!
             let nums = ch2nums[ch]!

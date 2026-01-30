@@ -47,6 +47,15 @@
 		8C1ACF622F2A624B004832E2 /* TrafficWardenRevengeGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF582F2A624B004832E2 /* TrafficWardenRevengeGridNode.swift */; };
 		8C1ACF632F2A624B004832E2 /* TrafficWardenRevengeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF5A2F2A624B004832E2 /* TrafficWardenRevengeObject.swift */; };
 		8C1ACF642F2A624B004832E2 /* TrafficWardenRevenge.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACF522F2A624B004832E2 /* TrafficWardenRevenge.xml */; };
+		8C1ACF6F2F2D6322004832E2 /* NewCarpenterSquareMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF6C2F2D6322004832E2 /* NewCarpenterSquareMainViewController.swift */; };
+		8C1ACF702F2D6322004832E2 /* NewCarpenterSquareDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF662F2D6322004832E2 /* NewCarpenterSquareDocument.swift */; };
+		8C1ACF712F2D6322004832E2 /* NewCarpenterSquareGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF692F2D6322004832E2 /* NewCarpenterSquareGameState.swift */; };
+		8C1ACF722F2D6322004832E2 /* NewCarpenterSquareGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF682F2D6322004832E2 /* NewCarpenterSquareGameScene.swift */; };
+		8C1ACF732F2D6322004832E2 /* NewCarpenterSquareGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF672F2D6322004832E2 /* NewCarpenterSquareGame.swift */; };
+		8C1ACF742F2D6322004832E2 /* NewCarpenterSquareObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF6D2F2D6322004832E2 /* NewCarpenterSquareObject.swift */; };
+		8C1ACF752F2D6322004832E2 /* NewCarpenterSquareGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF6B2F2D6322004832E2 /* NewCarpenterSquareGridNode.swift */; };
+		8C1ACF762F2D6322004832E2 /* NewCarpenterSquareGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF6A2F2D6322004832E2 /* NewCarpenterSquareGameViewController.swift */; };
+		8C1ACF772F2D6322004832E2 /* NewCarpenterSquare.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACF652F2D6322004832E2 /* NewCarpenterSquare.xml */; };
 		8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */; };
 		8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */; };
 		8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A01DB8DE930056D407 /* AnimatedExample.graffle */; };
@@ -1883,6 +1892,15 @@
 		8C1ACF582F2A624B004832E2 /* TrafficWardenRevengeGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenRevengeGridNode.swift; sourceTree = "<group>"; };
 		8C1ACF592F2A624B004832E2 /* TrafficWardenRevengeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenRevengeMainViewController.swift; sourceTree = "<group>"; };
 		8C1ACF5A2F2A624B004832E2 /* TrafficWardenRevengeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenRevengeObject.swift; sourceTree = "<group>"; };
+		8C1ACF652F2D6322004832E2 /* NewCarpenterSquare.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = NewCarpenterSquare.xml; sourceTree = "<group>"; };
+		8C1ACF662F2D6322004832E2 /* NewCarpenterSquareDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarpenterSquareDocument.swift; sourceTree = "<group>"; };
+		8C1ACF672F2D6322004832E2 /* NewCarpenterSquareGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarpenterSquareGame.swift; sourceTree = "<group>"; };
+		8C1ACF682F2D6322004832E2 /* NewCarpenterSquareGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarpenterSquareGameScene.swift; sourceTree = "<group>"; };
+		8C1ACF692F2D6322004832E2 /* NewCarpenterSquareGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarpenterSquareGameState.swift; sourceTree = "<group>"; };
+		8C1ACF6A2F2D6322004832E2 /* NewCarpenterSquareGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarpenterSquareGameViewController.swift; sourceTree = "<group>"; };
+		8C1ACF6B2F2D6322004832E2 /* NewCarpenterSquareGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarpenterSquareGridNode.swift; sourceTree = "<group>"; };
+		8C1ACF6C2F2D6322004832E2 /* NewCarpenterSquareMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarpenterSquareMainViewController.swift; sourceTree = "<group>"; };
+		8C1ACF6D2F2D6322004832E2 /* NewCarpenterSquareObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarpenterSquareObject.swift; sourceTree = "<group>"; };
 		8C1D169C1DB8DE930056D407 /* BreadthFirstSearch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BreadthFirstSearch.playground; sourceTree = "<group>"; };
 		8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadthFirstSearch.swift; sourceTree = "<group>"; };
 		8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimatedExample.gif; sourceTree = "<group>"; };
@@ -3759,6 +3777,22 @@
 			path = TrafficWardenRevenge;
 			sourceTree = "<group>";
 		};
+		8C1ACF6E2F2D6322004832E2 /* NewCarpenterSquare */ = {
+			isa = PBXGroup;
+			children = (
+				8C1ACF652F2D6322004832E2 /* NewCarpenterSquare.xml */,
+				8C1ACF662F2D6322004832E2 /* NewCarpenterSquareDocument.swift */,
+				8C1ACF672F2D6322004832E2 /* NewCarpenterSquareGame.swift */,
+				8C1ACF682F2D6322004832E2 /* NewCarpenterSquareGameScene.swift */,
+				8C1ACF692F2D6322004832E2 /* NewCarpenterSquareGameState.swift */,
+				8C1ACF6A2F2D6322004832E2 /* NewCarpenterSquareGameViewController.swift */,
+				8C1ACF6B2F2D6322004832E2 /* NewCarpenterSquareGridNode.swift */,
+				8C1ACF6C2F2D6322004832E2 /* NewCarpenterSquareMainViewController.swift */,
+				8C1ACF6D2F2D6322004832E2 /* NewCarpenterSquareObject.swift */,
+			);
+			path = NewCarpenterSquare;
+			sourceTree = "<group>";
+		};
 		8C1D169B1DB8DE930056D407 /* Breadth-First Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -4434,6 +4468,7 @@
 				8C9BD4EC2F0A092700D1D915 /* MixedTatamis */,
 				8C3A35181EC88D4100A914A5 /* Mosaik */,
 				8C3A35251EC88D4100A914A5 /* Neighbours */,
+				8C1ACF6E2F2D6322004832E2 /* NewCarpenterSquare */,
 				8C610F11204159100087C545 /* NorthPoleFishing */,
 				8C6A361A1FAF9D8600D2804D /* NoughtsAndCrosses */,
 				8CAFBFFF2EA0864F00C27D7C /* NumberCrossing */,
@@ -7359,6 +7394,7 @@
 				8C263EDB2F1C85DD00158A2C /* Rabbits.xml in Resources */,
 				8C8663F92EA39DD00078CD64 /* thermometer2A.png in Resources */,
 				8C8663FA2EA39DD00078CD64 /* bullet_ball_glass_yellow.png in Resources */,
+				8C1ACF772F2D6322004832E2 /* NewCarpenterSquare.xml in Resources */,
 				8C81BC042EA4A04F0083B936 /* Gems.xml in Resources */,
 				8C263EB22F14C8CC00158A2C /* stairs_down.png in Resources */,
 				8C263EB32F14C8CC00158A2C /* stairs_right.png in Resources */,
@@ -8245,6 +8281,14 @@
 				8C3A36B51EC88D4300A914A5 /* LightenUpDocument.swift in Sources */,
 				8C9F43DB1D771915000139FC /* AppDelegate.swift in Sources */,
 				8C9F322E1ECF06C000E10965 /* TapaGameViewController.swift in Sources */,
+				8C1ACF6F2F2D6322004832E2 /* NewCarpenterSquareMainViewController.swift in Sources */,
+				8C1ACF702F2D6322004832E2 /* NewCarpenterSquareDocument.swift in Sources */,
+				8C1ACF712F2D6322004832E2 /* NewCarpenterSquareGameState.swift in Sources */,
+				8C1ACF722F2D6322004832E2 /* NewCarpenterSquareGameScene.swift in Sources */,
+				8C1ACF732F2D6322004832E2 /* NewCarpenterSquareGame.swift in Sources */,
+				8C1ACF742F2D6322004832E2 /* NewCarpenterSquareObject.swift in Sources */,
+				8C1ACF752F2D6322004832E2 /* NewCarpenterSquareGridNode.swift in Sources */,
+				8C1ACF762F2D6322004832E2 /* NewCarpenterSquareGameViewController.swift in Sources */,
 				8C3A376D1EC88D4300A914A5 /* ParksGameViewController.swift in Sources */,
 				8C3A36BE1EC88D4300A914A5 /* LightenUpObject.swift in Sources */,
 				8C9F32611ED1FAF600E10965 /* PataObject.swift in Sources */,
