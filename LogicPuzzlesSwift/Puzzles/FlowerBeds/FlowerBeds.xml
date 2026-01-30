@@ -1,0 +1,2318 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. The board represents a garden where flowers are scattered around.
+2. Your task as a gardener is to divide the garden in rectangular (or square) flower beds.
+3. Each flower bed should contain exactly one flower.
+4. Contiguous flower beds can't have the same area extension.
+5. Green squares are hedges that can't be included in flower beds.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+FFHF`
+H F `
+FF H`
+ H F`
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+HF H`
+F   `
+    `
+HF H`
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+ FHF`
+HF  `
+F  H`
+ HF `
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+  H `
+F  F`
+  F `
+FHF `
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+F   `
+ F H`
+H   `
+F FF`
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+FHF `
+ F H`
+HFF `
+ FHF`
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+FFHF`
+H F `
+ F H`
+FHF `
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+F  F`
+FFFH`
+H   `
+F  F`
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+FH FF`
+   FH`
+  F  `
+H F F`
+ FFHF`
+    ]]>
+  </level>
+  <level id="10">
+    <![CDATA[
+FH  F`
+  F H`
+ F F `
+HF FF`
+ FFHF`
+    ]]>
+  </level>
+  <level id="11">
+    <![CDATA[
+  HF `
+F FFH`
+F  F `
+H    `
+FFHFF`
+    ]]>
+  </level>
+  <level id="12">
+    <![CDATA[
+H  F `
+    F`
+  H  `
+ F FF`
+  F H`
+    ]]>
+  </level>
+  <level id="13">
+    <![CDATA[
+   FF`
+H F  `
+     `
+  F H`
+F   F`
+    ]]>
+  </level>
+  <level id="14">
+    <![CDATA[
+ F  H`
+H   F`
+     `
+F   H`
+HFF F`
+    ]]>
+  </level>
+  <level id="15">
+    <![CDATA[
+   F `
+F   H`
+FF   `
+HF  F`
+  FF `
+    ]]>
+  </level>
+  <level id="16">
+    <![CDATA[
+F FHF`
+  F  `
+H   H`
+ FF  `
+FH  F`
+    ]]>
+  </level>
+  <level id="17">
+    <![CDATA[
+HF   `
+F   H`
+    F`
+H FF `
+F FFH`
+    ]]>
+  </level>
+  <level id="18">
+    <![CDATA[
+F FH `
+H  F `
+ FF F`
+ F  H`
+FH F `
+    ]]>
+  </level>
+  <level id="19">
+    <![CDATA[
+H   H`
+     `
+F    `
+F F F`
+HFFFH`
+    ]]>
+  </level>
+  <level id="20">
+    <![CDATA[
+ H FH`
+   F `
+FF   `
+FF  F`
+H FHF`
+    ]]>
+  </level>
+  <level id="21">
+    <![CDATA[
+F H F`
+H  FF`
+   F `
+ F  H`
+F H F`
+    ]]>
+  </level>
+  <level id="22">
+    <![CDATA[
+  F H`
+   F `
+ FH  `
+   FF`
+HFF F`
+    ]]>
+  </level>
+  <level id="23">
+    <![CDATA[
+  H  `
+F  F `
+HFF H`
+  F F`
+FFHF `
+    ]]>
+  </level>
+  <level id="24">
+    <![CDATA[
+H F  `
+F   F`
+  H F`
+F FF `
+    H`
+    ]]>
+  </level>
+  <level id="25">
+    <![CDATA[
+H   H`
+     `
+F    `
+  F F`
+HFFFH`
+    ]]>
+  </level>
+  <level id="26">
+    <![CDATA[
+H   H`
+   F `
+     `
+F F F`
+H FFH`
+    ]]>
+  </level>
+  <level id="27">
+    <![CDATA[
+F HF `
+   F `
+H F H`
+FF FF`
+  H  `
+    ]]>
+  </level>
+  <level id="28">
+    <![CDATA[
+ H FF`
+   F `
+  FF `
+F  FF`
+ FFH `
+    ]]>
+  </level>
+  <level id="29">
+    <![CDATA[
+ FFH `
+H  FF`
+   F `
+F  FH`
+FH  F`
+    ]]>
+  </level>
+  <level id="30">
+    <![CDATA[
+ F  H`
+HF   `
+    F`
+  F H`
+H FFF`
+    ]]>
+  </level>
+  <level id="31">
+    <![CDATA[
+ H  H`
+FF  F`
+     `
+  F F`
+H FHF`
+    ]]>
+  </level>
+  <level id="32">
+    <![CDATA[
+H    `
+ FF F`
+FFHF `
+  FF `
+F  FH`
+    ]]>
+  </level>
+  <level id="33">
+    <![CDATA[
+ FH  `
+   FF`
+H F H`
+F F  `
+ FHFF`
+    ]]>
+  </level>
+  <level id="34">
+    <![CDATA[
+H FH `
+    F`
+ FF  `
+   FF`
+FHF H`
+    ]]>
+  </level>
+  <level id="35">
+    <![CDATA[
+ H F `
+F FFH`
+  F  `
+H   F`
+ FFHF`
+    ]]>
+  </level>
+  <level id="36">
+    <![CDATA[
+ F   `
+H   F`
+  H F`
+ FF H`
+   FF`
+    ]]>
+  </level>
+  <level id="37">
+    <![CDATA[
+FH F `
+  F F`
+HF  H`
+ F  F`
+   HF`
+    ]]>
+  </level>
+  <level id="38">
+    <![CDATA[
+ H FF`
+F  F `
+H F H`
+ F FF`
+  FH `
+    ]]>
+  </level>
+  <level id="39">
+    <![CDATA[
+ FH F `
+H FF H`
+FF    `
+  F F `
+H FF H`
+  FHFF`
+    ]]>
+  </level>
+  <level id="40">
+    <![CDATA[
+    H `
+F  FF `
+ HF   `
+F  FH `
+ F   F`
+FH F F`
+    ]]>
+  </level>
+  <level id="41">
+    <![CDATA[
+FFHF F`
+   FFH`
+FH  F `
+F  FH `
+H F FF`
+ FFHF `
+    ]]>
+  </level>
+  <level id="42">
+    <![CDATA[
+ F   F`
+H FHFF`
+ F F  `
+    FF`
+  H FH`
+F  F F`
+    ]]>
+  </level>
+  <level id="43">
+    <![CDATA[
+ H  H `
+FFF  F`
+F   FH`
+H     `
+F  F F`
+FH FHF`
+    ]]>
+  </level>
+  <level id="44">
+    <![CDATA[
+ H FHF`
+      `
+F    H`
+H F F `
+F  F F`
+FH FHF`
+    ]]>
+  </level>
+  <level id="45">
+    <![CDATA[
+ F H F`
+H F   `
+    H `
+ H FFF`
+F   FH`
+F H FF`
+    ]]>
+  </level>
+  <level id="46">
+    <![CDATA[
+    FH`
+ HFF  `
+FF FFF`
+F     `
+    H `
+H  F  `
+    ]]>
+  </level>
+  <level id="47">
+    <![CDATA[
+ FF  H`
+ F    `
+FH    `
+    H `
+F     `
+H FFFF`
+    ]]>
+  </level>
+  <level id="48">
+    <![CDATA[
+H  F F`
+  H FH`
+F   F `
+ FF   `
+H FHF `
+  F FH`
+    ]]>
+  </level>
+  <level id="49">
+    <![CDATA[
+  H FF`
+F   FH`
+  FF  `
+    F `
+H FF F`
+  FH F`
+    ]]>
+  </level>
+  <level id="50">
+    <![CDATA[
+ F   H`
+H    F`
+     F`
+F     `
+   F H`
+HFFFFF`
+    ]]>
+  </level>
+  <level id="51">
+    <![CDATA[
+  FH F`
+ HFF H`
+ F  F `
+F  FFF`
+HF  H `
+ FH F `
+    ]]>
+  </level>
+  <level id="52">
+    <![CDATA[
+ H  F `
+F   HF`
+H  FFF`
+ FF  H`
+ H   F`
+F FFH `
+    ]]>
+  </level>
+  <level id="53">
+    <![CDATA[
+  FFH `
+F H   `
+ F FF `
+      `
+FF HFF`
+FHF  F`
+    ]]>
+  </level>
+  <level id="54">
+    <![CDATA[
+ F  H `
+H    F`
+    F `
+F    F`
+ F F H`
+ HFFFF`
+    ]]>
+  </level>
+  <level id="55">
+    <![CDATA[
+HF F  `
+  HF H`
+FF    `
+      `
+HF HF `
+  F FH`
+    ]]>
+  </level>
+  <level id="56">
+    <![CDATA[
+ H  F `
+F  H  `
+ F F  `
+     F`
+F HF  `
+FFF HF`
+    ]]>
+  </level>
+  <level id="57">
+    <![CDATA[
+ HF   `
+FF HFF`
+F  F H`
+HF   F`
+ FH  F`
+  FFHF`
+    ]]>
+  </level>
+  <level id="58">
+    <![CDATA[
+ FH  F`
+H FF F`
+ F FF `
+   F  `
+F FF H`
+   HFF`
+    ]]>
+  </level>
+  <level id="59">
+    <![CDATA[
+ FH FF`
+HF  H `
+  F FF`
+      `
+FHFFFH`
+ F H F`
+    ]]>
+  </level>
+  <level id="60">
+    <![CDATA[
+F  F H`
+H     `
+ FFF  `
+F F F `
+    FH`
+HF    `
+    ]]>
+  </level>
+  <level id="61">
+    <![CDATA[
+H  FF `
+    H `
+  FFF `
+  F FF`
+ HF  F`
+F   FH`
+    ]]>
+  </level>
+  <level id="62">
+    <![CDATA[
+F  HF `
+H  F  `
+      `
+F   F `
+     H`
+FFHFFF`
+    ]]>
+  </level>
+  <level id="63">
+    <![CDATA[
+H  H  `
+    F `
+  F   `
+F FF F`
+     F`
+FFHFFH`
+    ]]>
+  </level>
+  <level id="64">
+    <![CDATA[
+ HF H `
+F    F`
+     H`
+HF F F`
+ F    `
+FHF H `
+    ]]>
+  </level>
+  <level id="65">
+    <![CDATA[
+ FFFH `
+F H F `
+H    F`
+ F   H`
+F FHF `
+FHF  F`
+    ]]>
+  </level>
+  <level id="66">
+    <![CDATA[
+ F HF `
+H F  H`
+F    F`
+FFF   `
+H F  H`
+F HF F`
+    ]]>
+  </level>
+  <level id="67">
+    <![CDATA[
+H    F`
+    FH`
+   F  `
+      `
+H   FF`
+FF F H`
+    ]]>
+  </level>
+  <level id="68">
+    <![CDATA[
+ H  HF`
+FF    `
+    FH`
+H  F  `
+F    F`
+ H FHF`
+    ]]>
+  </level>
+  <level id="69">
+    <![CDATA[
+  FH  `
+FHF F `
+F    H`
+H  FFF`
+F  FH `
+ FHF  `
+    ]]>
+  </level>
+  <level id="70">
+    <![CDATA[
+   F H`
+ F HF `
+H F   `
+ F   H`
+F H F `
+H F  F`
+    ]]>
+  </level>
+  <level id="71">
+    <![CDATA[
+  FH   `
+H    F `
+F     H`
+ FF F  `
+H  FF F`
+      H`
+F FH FF`
+    ]]>
+  </level>
+  <level id="72">
+    <![CDATA[
+ FH   H`
+F  F   `
+     HF`
+F     F`
+FH F   `
+  FF F `
+H  FHF `
+    ]]>
+  </level>
+  <level id="73">
+    <![CDATA[
+ FH  H `
+H      `
+ F F FF`
+  F  F `
+     F `
+F F FFH`
+FHF HF `
+    ]]>
+  </level>
+  <level id="74">
+    <![CDATA[
+  H FH `
+ F    F`
+  F  FF`
+H     H`
+   F   `
+F F FFF`
+FH FH F`
+    ]]>
+  </level>
+  <level id="75">
+    <![CDATA[
+FH  H  `
+F F F  `
+H F    `
+  FF  F`
+    FFH`
+      F`
+ FH  HF`
+    ]]>
+  </level>
+  <level id="76">
+    <![CDATA[
+  FH   `
+H  F  F`
+  FF H `
+  F F F`
+ H  FF `
+F F   H`
+ FFHF F`
+    ]]>
+  </level>
+  <level id="77">
+    <![CDATA[
+ F  FH `
+  H   F`
+H F  F `
+ F FF  `
+FF   FH`
+    HF `
+ HF F F`
+    ]]>
+  </level>
+  <level id="78">
+    <![CDATA[
+H  H F `
+F  F  H`
+       `
+F     F`
+    F  `
+HFF  F `
+F FHFFH`
+    ]]>
+  </level>
+  <level id="79">
+    <![CDATA[
+ F H F `
+FH FF  `
+    FF `
+HFF   H`
+ F     `
+ FF  HF`
+  FH F `
+    ]]>
+  </level>
+  <level id="80">
+    <![CDATA[
+   HF F`
+    FH `
+  F    `
+H FF  H`
+   FFF `
+ H F   `
+FFFHF F`
+    ]]>
+  </level>
+  <level id="81">
+    <![CDATA[
+ F    H`
+ F H  F`
+F F    `
+H F FFH`
+  FF   `
+ F HFFF`
+HF    F`
+    ]]>
+  </level>
+  <level id="82">
+    <![CDATA[
+H    H `
+  F  FF`
+ H    F`
+     FF`
+     H `
+F  FFF `
+FH  F H`
+    ]]>
+  </level>
+  <level id="83">
+    <![CDATA[
+  FH  F`
+H FF  H`
+       `
+   F   `
+   F  F`
+H F   H`
+ FFHFFF`
+    ]]>
+  </level>
+  <level id="84">
+    <![CDATA[
+   H  F`
+ F  FFH`
+F   FF `
+ H   HF`
+    FF `
+HFFF FF`
+F FHF  `
+    ]]>
+  </level>
+  <level id="85">
+    <![CDATA[
+  H F  `
+ F    H`
+H F  F `
+FF    F`
+ F  FFH`
+H F  F `
+  F HFF`
+    ]]>
+  </level>
+  <level id="86">
+    <![CDATA[
+ F   H `
+H FF   `
+ F  FF `
+FH  FHF`
+  F  F `
+F  FF H`
+ HF  FF`
+    ]]>
+  </level>
+  <level id="87">
+    <![CDATA[
+HF  H  `
+  H  F `
+  F    `
+   F F `
+  F  FF`
+FF  HFF`
+ FHFF H`
+    ]]>
+  </level>
+  <level id="88">
+    <![CDATA[
+ FH  FF`
+  F H  `
+H     F`
+ F    F`
+F    FH`
+  H F  `
+  FFHFF`
+    ]]>
+  </level>
+  <level id="89">
+    <![CDATA[
+H  FF  `
+  HFFF `
+ F F HF`
+F     F`
+FH   F `
+    H F`
+  FFFFH`
+    ]]>
+  </level>
+  <level id="90">
+    <![CDATA[
+  F  FH`
+    H  `
+FHF  FF`
+  FFF  `
+ FF  HF`
+F H FF `
+H FF   `
+    ]]>
+  </level>
+  <level id="91">
+    <![CDATA[
+F     H`
+ FFH  F`
+ H     `
+F F    `
+ F  FHF`
+  FH F `
+HF  FF `
+    ]]>
+  </level>
+  <level id="92">
+    <![CDATA[
+FH FF H`
+  FF   `
+H F  FF`
+  FH   `
+    F H`
+ FFF  F`
+H  FFHF`
+    ]]>
+  </level>
+  <level id="93">
+    <![CDATA[
+ F HF H`
+       `
+F  F HF`
+ FF F  `
+FH F   `
+   F   `
+HFFH FF`
+    ]]>
+  </level>
+  <level id="94">
+    <![CDATA[
+  HF  H`
+  FFH  `
+   FF  `
+ F     `
+F F FF `
+F H   F`
+H FFHFF`
+    ]]>
+  </level>
+  <level id="95">
+    <![CDATA[
+ F H   `
+H   F  `
+F F  F `
+FF HFFF`
+    F  `
+F F   H`
+F FHFF `
+    ]]>
+  </level>
+  <level id="96">
+    <![CDATA[
+H    H `
+F    F `
+ F  F F`
+FHFF H `
+F     F`
+F  FFFF`
+FH F  H`
+    ]]>
+  </level>
+  <level id="97">
+    <![CDATA[
+     FF`
+HFF   H`
+ FFFF  `
+   H  F`
+     FF`
+H     H`
+FF FFFF`
+    ]]>
+  </level>
+  <level id="98">
+    <![CDATA[
+F H   H`
+H      `
+F   FF `
+   F   `
+   F  F`
+ F F  H`
+H F HFF`
+    ]]>
+  </level>
+  <level id="99">
+    <![CDATA[
+   F  H`
+ FH    `
+   F FF`
+HFFH FH`
+ F   F `
+  F H  `
+H  F FF`
+    ]]>
+  </level>
+  <level id="100">
+    <![CDATA[
+FF H  H`
+ H  F  `
+    F F`
+F F    `
+   F  F`
+ F   H `
+HFFHFF `
+    ]]>
+  </level>
+  <level id="101">
+    <![CDATA[
+F H F F `
+    H  H`
+HF      `
+  F F  F`
+FF F   F`
+F  F   H`
+HFFH FF `
+   FFHFF`
+    ]]>
+  </level>
+  <level id="102">
+    <![CDATA[
+F  H  FH`
+ F   F  `
+  FF  HF`
+H    F  `
+F  F   H`
+ H    F `
+  FFFF  `
+H FFHF  `
+    ]]>
+  </level>
+  <level id="103">
+    <![CDATA[
+FFF   H `
+   F    `
+FH  FF F`
+ F F HFF`
+  H  F  `
+    F HF`
+F F  F F`
+FHFF  FF`
+    ]]>
+  </level>
+  <level id="104">
+    <![CDATA[
+   F  H `
+F H F   `
+F  FFH F`
+H   F F `
+     FFH`
+F H   F `
+F   FHF `
+FH FF F `
+    ]]>
+  </level>
+  <level id="105">
+    <![CDATA[
+F    FHF`
+FH   FF `
+ F    FH`
+F HF    `
+ F   H  `
+H F  F F`
+F  FFFHF`
+FH F  F `
+    ]]>
+  </level>
+  <level id="106">
+    <![CDATA[
+F   HF  `
+ HFF    `
+     H  `
+        `
+ FF F FF`
+FFH  FF `
+F     H `
+FF HFFFF`
+    ]]>
+  </level>
+  <level id="107">
+    <![CDATA[
+ H FF  H`
+FF   H  `
+F H   FF`
+H    F  `
+  F FFFH`
+F    H F`
+F H   F `
+HF FFFHF`
+    ]]>
+  </level>
+  <level id="108">
+    <![CDATA[
+ H FFFH `
+F   H F `
+  F F FF`
+ H F F  `
+  F  FH `
+      FF`
+   H  F `
+FH  FFHF`
+    ]]>
+  </level>
+  <level id="109">
+    <![CDATA[
+    FH  `
+H FH  FF`
+     F H`
+        `
+ F   F F`
+H  F F  `
+F   HFFH`
+F HFF  F`
+    ]]>
+  </level>
+  <level id="110">
+    <![CDATA[
+ FH  FFH`
+     F  `
+ F F  H `
+ FH  FF `
+F F  H  `
+ H  F  F`
+FF F  F `
+HF FFHFF`
+    ]]>
+  </level>
+  <level id="111">
+    <![CDATA[
+FH    H `
+ FF     `
+H  F  F `
+FF    HF`
+ H  F  F`
+ F  FF H`
+FFF F FF`
+FH   FH `
+    ]]>
+  </level>
+  <level id="112">
+    <![CDATA[
+ H  F F `
+  F   HF`
+ FFFHF  `
+F H    H`
+HF   HF `
+ F HFF F`
+ H   FF `
+F  F FHF`
+    ]]>
+  </level>
+  <level id="113">
+    <![CDATA[
+ FH   F `
+  FFH   `
+  F  FF `
+ F   HF `
+ FH  F  `
+  F  F F`
+FF H    `
+   F H  `
+    ]]>
+  </level>
+  <level id="114">
+    <![CDATA[
+H F  FH `
+   HF   `
+FH    F `
+  F     `
+     FFF`
+FF F  HF`
+ FF H F `
+ HF FFFH`
+    ]]>
+  </level>
+  <level id="115">
+    <![CDATA[
+   FF H `
+FH  H  F`
+F F    F`
+F     FH`
+HF  F F `
+    F F `
+F  H  H `
+FHF  FFF`
+    ]]>
+  </level>
+  <level id="116">
+    <![CDATA[
+ H    F `
+F FHF   `
+  F  H F`
+FHF   FF`
+      H `
+  H  F F`
+ F  H   `
+  F FFHF`
+    ]]>
+  </level>
+  <level id="117">
+    <![CDATA[
+    F H `
+   F   F`
+F  H   F`
+ F    FH`
+HFF  F  `
+ F FH   `
+ F   FF `
+FHFFF FF`
+    ]]>
+  </level>
+  <level id="118">
+    <![CDATA[
+ H   HF `
+F F   FH`
+  H  F F`
+HF  F F `
+F   F  H`
+ FF FHF `
+H FF F  `
+FFHF FHF`
+    ]]>
+  </level>
+  <level id="119">
+    <![CDATA[
+H     H `
+ F  F F `
+F  H   F`
+ FF     `
+    F F `
+FF  H F `
+F FF F  `
+FH FF  H`
+    ]]>
+  </level>
+  <level id="120">
+    <![CDATA[
+      HF`
+  F  F  `
+HF  HF H`
+ FF    F`
+      F `
+HF H   H`
+  F    F`
+FHFFF FF`
+    ]]>
+  </level>
+  <level id="121">
+    <![CDATA[
+     F F`
+H  FFH F`
+  H    F`
+FF   FFH`
+H  F F F`
+ F   H  `
+FFHFFFFH`
+  F FF F`
+    ]]>
+  </level>
+  <level id="122">
+    <![CDATA[
+FH F  F `
+ FFH   H`
+   F   F`
+H       `
+    F FH`
+  F FF  `
+H  FHFFF`
+F F F HF`
+    ]]>
+  </level>
+  <level id="123">
+    <![CDATA[
+  H  FH `
+F      F`
+ F HF F `
+ F  F H `
+FHF FFFF`
+ F FH F `
+  F  F F`
+FH FFHF `
+    ]]>
+  </level>
+  <level id="124">
+    <![CDATA[
+     FH `
+ FFH F F`
+FH    FF`
+  F FH  `
+FFH     `
+ FFFFFH `
+ F  HF F`
+FH F   F`
+    ]]>
+  </level>
+  <level id="125">
+    <![CDATA[
+ H     H`
+F F    F`
+ F H  F `
+HF  F F `
+ F  FF H`
+  FFHFF `
+F  F  FF`
+H     H `
+    ]]>
+  </level>
+  <level id="126">
+    <![CDATA[
+F HF    `
+FFFFFH F`
+   H F H`
+F  F F  `
+   F FFF`
+H F H   `
+F H FFF `
+ F  FH F`
+    ]]>
+  </level>
+  <level id="127">
+    <![CDATA[
+   HF   `
+   F  FH`
+    HFF `
+  FF FHF`
+FH  F   `
+F  H F  `
+H F  FFF`
+FF FH  F`
+    ]]>
+  </level>
+  <level id="128">
+    <![CDATA[
+   F   H`
+    HF  `
+ FFFF   `
+H F  HFF`
+  H   FH`
+F F     `
+ F HF FF`
+H  FFFF `
+    ]]>
+  </level>
+  <level id="129">
+    <![CDATA[
+H F     `
+    F  H`
+ F F H  `
+F       `
+      FF`
+  H     `
+HFF F FF`
+ F FFFFH`
+    ]]>
+  </level>
+  <level id="130">
+    <![CDATA[
+H    F F`
+F    FHF`
+ H      `
+   FFHF `
+ FH  FFF`
+ F    HF`
+ HF F  F`
+FF FF  H`
+    ]]>
+  </level>
+  <level id="131">
+    <![CDATA[
+ F  FH  H`
+   H   F `
+H    FH  `
+       FF`
+   F     `
+F FF  FF `
+F H     H`
+ FFF H  F`
+H FHFFFF `
+    ]]>
+  </level>
+  <level id="132">
+    <![CDATA[
+  H     F`
+    FFHFF`
+ FF H F H`
+H FF    F`
+ FHFF H  `
+F  F FF H`
+H F HF   `
+ FHF F F `
+  FF  H  `
+    ]]>
+  </level>
+  <level id="133">
+    <![CDATA[
+  H   F  `
+F      HF`
+       F `
+ H F   FH`
+FFF HF   `
+H FF F HF`
+F     F  `
+ H F F FF`
+FF FFFHF `
+    ]]>
+  </level>
+  <level id="134">
+    <![CDATA[
+ H   H  F`
+FF  F  H `
+ F  HFF  `
+HF     F `
+ FHFFFHFF`
+F  F  FFH`
+  FFH   F`
+FH F   F `
+F FH F HF`
+    ]]>
+  </level>
+  <level id="135">
+    <![CDATA[
+ H FHF   `
+      H  `
+      F  `
+  HFF    `
+F   H    `
+F FFF H  `
+  F    F `
+  H FFF F`
+ FFFH FHF`
+    ]]>
+  </level>
+  <level id="136">
+    <![CDATA[
+F F      `
+ H  H  HF`
+F F   F  `
+FF  F HF `
+H  FF FFH`
+F H      `
+F F  F  F`
+ H  HF H `
+ FF  F   `
+    ]]>
+  </level>
+  <level id="137">
+    <![CDATA[
+  F H   F`
+HF    FH `
+     H FF`
+F        `
+ H FF  H `
+F FF  FF `
+   H    F`
+ HFFF   H`
+FF  HFFFF`
+    ]]>
+  </level>
+  <level id="138">
+    <![CDATA[
+  FFH FF `
+HF F  H  `
+FF H   FH`
+ F  F   F`
+ H   F H `
+  F F   F`
+HFF  HFFF`
+  H  F  H`
+ FFFHF FF`
+    ]]>
+  </level>
+  <level id="139">
+    <![CDATA[
+ H     FH`
+F FH F   `
+H     H  `
+F       F`
+         `
+   F   F `
+  H FFF H`
+  F FHF  `
+HF F FFHF`
+    ]]>
+  </level>
+  <level id="140">
+    <![CDATA[
+H  F FHFF`
+    H F H`
+ F  F    `
+H F F HF `
+  FF F F `
+ FH  F  H`
+  F  F   `
+H   HFFF `
+FFHF   FH`
+    ]]>
+  </level>
+  <level id="141">
+    <![CDATA[
+  H F  HF`
+ FF  H F `
+  F FFF  `
+ H   FHFF`
+      F  `
+F H    HF`
+ FF  F   `
+F FH     `
+FH F FH F`
+    ]]>
+  </level>
+  <level id="142">
+    <![CDATA[
+H F     F`
+F F   H  `
+  H      `
+H  F F   `
+    HFF  `
+   F  FFH`
+ FFF  H F`
+F HFFF F `
+FFF  FF H`
+    ]]>
+  </level>
+  <level id="143">
+    <![CDATA[
+ FH F H  `
+H FFH  F `
+   F    H`
+F H  FF  `
+    F F  `
+  FF  H F`
+H  F FF  `
+FF  H FFH`
+F HF FHF `
+    ]]>
+  </level>
+  <level id="144">
+    <![CDATA[
+FH   FH  `
+   H    F`
+  FFF  H `
+H  F    F`
+ F   F F `
+    F  FH`
+ HFF FFF `
+   F H   `
+FFHFFFFHF`
+    ]]>
+  </level>
+  <level id="145">
+    <![CDATA[
+  FH F H `
+FF  F    `
+FHF H  F `
+   F  H F`
+ FF FF   `
+  H F F  `
+   FH  H `
+F F     F`
+FHFFFH FF`
+    ]]>
+  </level>
+  <level id="146">
+    <![CDATA[
+F  F     `
+ HF FFH  `
+   H FFF `
+ F     H `
+  FFHF  F`
+ H   F  F`
+F F FH   `
+FFH FFFH `
+    F F F`
+    ]]>
+  </level>
+  <level id="147">
+    <![CDATA[
+  FF H  H`
+H     F  `
+ F HF F  `
+F      H `
+        F`
+ H FFF   `
+  F FH FF`
+FFF F F H`
+H  HF  FF`
+    ]]>
+  </level>
+  <level id="148">
+    <![CDATA[
+  FFF  H `
+FHF  HF  `
+   HF FF `
+  F   H  `
+ FFF   F `
+FFH  F  F`
+     H   `
+  FHFFFH `
+FH   F FF`
+    ]]>
+  </level>
+  <level id="149">
+    <![CDATA[
+H  F HF  `
+ F F F   `
+    H FFF`
+ H   FH  `
+  F   F  `
+  H  FFH `
+ F  H   F`
+F  F FFFF`
+FF HF F H`
+    ]]>
+  </level>
+  <level id="150">
+    <![CDATA[
+FFH  F   `
+H      FH`
+     H   `
+ HF F    `
+FF  FFF  `
+ F    FHF`
+   H F  F`
+H       H`
+ FFFFFH F`
+    ]]>
+  </level>
+  <level id="151">
+    <![CDATA[
+  H   FF `
+F   F F H`
+   HF H  `
+  F F  F `
+HF  FF FH`
+   F  F  `
+FFHF H   `
+H      FF`
+F  FF HF `
+    ]]>
+  </level>
+  <level id="152">
+    <![CDATA[
+  F   H  `
+ F  H   F`
+    F    `
+H   FF HF`
+FFFF  F  `
+ HF FF  H`
+FF   F   `
+FF  HF   `
+ FHF FFFF`
+    ]]>
+  </level>
+  <level id="153">
+    <![CDATA[
+F   F  FH`
+ H   H   `
+F FH F F `
+H  F     `
+F F  FF  `
+     FF H`
+FFFF HFF `
+   HF  HF`
+HF  FF F `
+    ]]>
+  </level>
+  <level id="154">
+    <![CDATA[
+H  F    F`
+   H FFH `
+ F  FH F `
+  H   F F`
+FF FFF F `
+  F   H F`
+ F HFFF F`
+FH F H F `
+F  F F FH`
+    ]]>
+  </level>
+  <level id="155">
+    <![CDATA[
+H       F`
+ F F  FF `
+ H   H   `
+     FF F`
+ FH   H F`
+    F    `
+F  HF  H `
+ F  FF F `
+FF  F FFH`
+    ]]>
+  </level>
+  <level id="156">
+    <![CDATA[
+F FHF  H `
+ H  F   F`
+  F  H   `
+    F   F`
+H  F   FH`
+ F    F  `
+  FH FF  `
+FF  F  HF`
+FHFFFH FF`
+    ]]>
+  </level>
+  <level id="157">
+    <![CDATA[
+H F     F`
+ FF F F  `
+  H  HFFH`
+H  F    F`
+ FF    FF`
+    F   H`
+HF H  H F`
+ F  FF FF`
+        H`
+    ]]>
+  </level>
+  <level id="158">
+    <![CDATA[
+  F  HF H`
+      FF `
+HF  H    `
+     F H `
+    FF  F`
+FHFF  F F`
+   FHFF H`
+FF   F FF`
+HFFH F   `
+    ]]>
+  </level>
+  <level id="159">
+    <![CDATA[
+F    H  H`
+ H   F   `
+F   FFF F`
+H  FF FH `
+     F   `
+ HF   FFH`
+F  F   F `
+ FF  FFH `
+H FHF F F`
+    ]]>
+  </level>
+  <level id="160">
+    <![CDATA[
+H  H  H F`
+ F  F   F`
+ H FHF  H`
+ FF   F F`
+ F   F F `
+FF    F F`
+H FFH  HF`
+ F   F F `
+F HFFHF H`
+    ]]>
+  </level>
+  <level id="161">
+    <![CDATA[
+F H   H F `
+ F F F   H`
+ HFF FFF  `
+F F H   F `
+  FF F  HF`
+ H  F F F `
+ F  FH  F `
+  FFFF FHF`
+HF        `
+ F HF  HFF`
+    ]]>
+  </level>
+  <level id="162">
+    <![CDATA[
+HF  FH  H `
+       F F`
+F         `
+  H   HF F`
+  FF   F H`
+H  F   FFF`
+FFFH   H  `
+F  F     F`
+     F F F`
+FH FH FFFH`
+    ]]>
+  </level>
+  <level id="163">
+    <![CDATA[
+F     HFF `
+FFFHF   F `
+ H  FH  H `
+ F   F    `
+FFF  FFHF `
+  H F   FF`
+    F     `
+FH FHFFFHF`
+   FF H  F`
+FFFH  F F `
+    ]]>
+  </level>
+  <level id="164">
+    <![CDATA[
+F     FH  `
+F   HF    `
+      H  F`
+H  H    F `
+  FFFFFFHF`
+ H F FFFFF`
+F  F  H  H`
+ FFHF F   `
+     H    `
+  HFF   FF`
+    ]]>
+  </level>
+  <level id="165">
+    <![CDATA[
+F  FH  HF `
+FH      FH`
+ F        `
+F  H FF  F`
+ H    F  F`
+  F F   HF`
+F F FFH F `
+  FFF  F  `
+HF    FFHF`
+ FH FH F F`
+    ]]>
+  </level>
+  <level id="166">
+    <![CDATA[
+HF      H `
+         F`
+F   F  H  `
+H   F FF H`
+ FH FFF   `
+       HFF`
+H    F   H`
+FFH F     `
+F      F F`
+FH F FFFFH`
+    ]]>
+  </level>
+  <level id="167">
+    <![CDATA[
+   H  HF  `
+ FF  F  F `
+H  F  FH  `
+F  H    F `
+      FF H`
+HF  FFF  F`
+      H F `
+ FH F  F H`
+FF   FF   `
+FF H FH FF`
+    ]]>
+  </level>
+  <level id="168">
+    <![CDATA[
+   HF F   `
+F     HF H`
+HF FH  F  `
+FFF    H F`
+  FF F    `
+  F FFF   `
+ FHF  FFFF`
+  FFFH   H`
+HF H    F `
+ F   FHF F`
+    ]]>
+  </level>
+  <level id="169">
+    <![CDATA[
+ H   H F H`
+ F F      `
+FF  H F   `
+  HF   H F`
+ F FF    H`
+HF   F  FF`
+ FHF   H  `
+F    HF FF`
+   FF   F `
+H   H F HF`
+    ]]>
+  </level>
+  <level id="170">
+    <![CDATA[
+ F  H    H`
+F       F `
+  HF   HFF`
+FF       H`
+ H        `
+ F  FF  H `
+HFF F   F `
+  H FF H  `
+FF   FF FF`
+H FF HFF F`
+    ]]>
+  </level>
+  <level id="171">
+    <![CDATA[
+  HF H  FH`
+   F   H  `
+  FHF   FF`
+  F   FF  `
+F H FF    `
+     FFH  `
+F  F   F  `
+FFF  FHF  `
+ FHFF     `
+H FFHFFH F`
+    ]]>
+  </level>
+  <level id="172">
+    <![CDATA[
+ HF    FHF`
+FF    H  F`
+ F    FF  `
+  HFF   HF`
+H FF  H   `
+ F HFFF FH`
+ H    FH  `
+F F  FF   `
+  FH F FFF`
+FH    FFHF`
+    ]]>
+  </level>
+  <level id="173">
+    <![CDATA[
+HF F F  H `
+ F  HFF   `
+  H  F   F`
+F      F  `
+ H    H FF`
+   HFFF H `
+F      FFF`
+ FF    HF `
+F    H    `
+FH FFFF FH`
+    ]]>
+  </level>
+  <level id="174">
+    <![CDATA[
+F        H`
+F FHF    F`
+H     FHF `
+  F H   FH`
+F F  F  F `
+ F  FF F  `
+H    H F  `
+FFH  F   H`
+   FFFH   `
+HFF  F  FF`
+    ]]>
+  </level>
+  <level id="175">
+    <![CDATA[
+FF    H  F`
+ F H      `
+H FF F    `
+  H FFH   `
+   F FF HF`
+ HF      F`
+F  H   H F`
+   F FF  H`
+  F FFH   `
+  FHF FF F`
+    ]]>
+  </level>
+  <level id="176">
+    <![CDATA[
+ F      H `
+ F  H     `
+H   F FF F`
+ F H F F H`
+F  F  FH  `
+F HF  FF F`
+HF    H  F`
+    FF F H`
+F   FHFFF `
+ H F    FF`
+    ]]>
+  </level>
+  <level id="177">
+    <![CDATA[
+  FF    FH`
+   FH     `
+ HF   H   `
+FF HFF   F`
+     F FFH`
+H F    F  `
+    FFH  F`
+F FH    HF`
+FF   H   F`
+HF FF F   `
+    ]]>
+  </level>
+  <level id="178">
+    <![CDATA[
+F    H F  `
+    F FHF `
+  FH     H`
+      HF F`
+HFF    F  `
+     FFF H`
+FF H FF   `
+H FF  H FF`
+ FHFF FF  `
+F F H F FF`
+    ]]>
+  </level>
+  <level id="179">
+    <![CDATA[
+ HF      H`
+F    F H  `
+ F   FF   `
+HFFF H   F`
+  FH FF  F`
+   F  H F `
+ F FH  F H`
+   F  F   `
+ FH  F FFF`
+H FF   FHF`
+    ]]>
+  </level>
+  <level id="180">
+    <![CDATA[
+  HF  F  H`
+ F   H    `
+H  F  F H `
+FF H F  FF`
+ H F      `
+FF    FFHF`
+    FFH FF`
+ H FF    H`
+  F H     `
+HFFFFFFHFF`
+    ]]>
+  </level>
+  <level id="181">
+    <![CDATA[
+H   FH    `
+ FH       `
+F FF     F`
+ H F  HF H`
+         F`
+ F  FF    `
+H  H  F H `
+      F FF`
+  FFFFFH  `
+  FFH FFFH`
+    ]]>
+  </level>
+  <level id="182">
+    <![CDATA[
+FF H     F`
+FH FF  F  `
+    F  FH `
+   FH F   `
+HF F FFH  `
+  H F    H`
+F    H    `
+ H  F  FFF`
+F FF FFFHF`
+ FF  FH F `
+    ]]>
+  </level>
+  <level id="183">
+    <![CDATA[
+F FF H   H`
+ FF  F  F `
+  H    H  `
+H FFH  F  `
+  F    F F`
+FFF  F  FF`
+ F F HF  H`
+  H    H  `
+  F  FF FF`
+HFF HF   F`
+    ]]>
+  </level>
+  <level id="184">
+    <![CDATA[
+ FH      F`
+H  F FH   `
+ FF H  FF `
+      F   `
+  HFF  F  `
+   FFF H  `
+ F  FF    `
+ F   HFFFF`
+ F H     H`
+F F FFFHFF`
+    ]]>
+  </level>
+  <level id="185">
+    <![CDATA[
+ H     FF `
+F   F     `
+HFF HFFHF `
+  F   F FH`
+F  H  FF  `
+ F    H   `
+H    FF   `
+  H  H   H`
+FFF   FF F`
+    FF FH `
+    ]]>
+  </level>
+  <level id="186">
+    <![CDATA[
+  F F   H `
+H  H      `
+      HFF `
+ F      FF`
+F   FF  H `
+ H F     F`
+F  FF FFF `
+ FFH   F F`
+ FF FFHFFH`
+ H    F  F`
+    ]]>
+  </level>
+  <level id="187">
+    <![CDATA[
+F     FF F`
+  H      H`
+H  FF  H  `
+ F H   FF `
+F F    FH `
+ HFFF    F`
+F     H FF`
+F H F FF H`
+H   FFFHF `
+FFF  F  F `
+    ]]>
+  </level>
+  <level id="188">
+    <![CDATA[
+   H   H  `
+ F      FF`
+  HFF F  H`
+   F H  F `
+   HFF F  `
+ F F  HF  `
+   FH FF F`
+H F   FHF `
+ F FFF  FF`
+F HF  H  F`
+    ]]>
+  </level>
+  <level id="189">
+    <![CDATA[
+  H       `
+   F    F `
+  F HFF   `
+F FF  F FH`
+FHF FFH   `
+   H    H `
+H FF F F F`
+   FFHFFF `
+          `
+FF   FFHFF`
+    ]]>
+  </level>
+  <level id="190">
+    <![CDATA[
+ FH   FFFH`
+F      H  `
+ H   F    `
+F   H F  F`
+F FFF   HF`
+ H  FFF   `
+F F  HF F `
+       FH `
+  H   FFF `
+H FFFFFH  `
+    ]]>
+  </level>
+  <level id="191">
+    <![CDATA[
+H   F H  HF`
+  F F FF   `
+  H  H  HF `
+   F   F   `
+F FF F FFH `
+FFFH   H   `
+FHF FF FFF `
+ F        F`
+ FH  H FHF `
+ F FF F  FF`
+ HF H F F H`
+    ]]>
+  </level>
+  <level id="192">
+    <![CDATA[
+ H F F H   `
+   F HF  F `
+  H    FF H`
+F   F HFF F`
+F F     H  `
+HFF   F   H`
+ FHF F   F `
+ F  H F FF `
+HF F F FH  `
+ F  FH  FFF`
+   HF F FHF`
+    ]]>
+  </level>
+  <level id="193">
+    <![CDATA[
+F H      FH`
+H   HF  FF `
+   F   FH F`
+    FH    F`
+ F   FFH  H`
+F F    F F `
+H  HFFFFF  `
+FFFF H     `
+ FH    FFFF`
+   FFFHF  H`
+H F  F  HFF`
+    ]]>
+  </level>
+  <level id="194">
+    <![CDATA[
+F   FHF F H`
+ H     H   `
+  FH  F FF `
+    FH     `
+F FF FF    `
+F  HFF H   `
+FF    F  F `
+   F HF F  `
+ FFF  FH F `
+ FFH FFFFHF`
+H F  H F  F`
+    ]]>
+  </level>
+  <level id="195">
+    <![CDATA[
+ FF F H FHF`
+F H        `
+   F       `
+H   H  H  H`
+  F F     F`
+        FF `
+ F F F     `
+H FHF HFFFH`
+ FF    FF  `
+        H  `
+FHF H   FFF`
+    ]]>
+  </level>
+  <level id="196">
+    <![CDATA[
+  H     F  `
+ F         `
+ FF  FHFFF `
+ H  H F  H `
+F  F F H   `
+FFFFFH FF F`
+  FH   F F `
+ H FF H FH `
+FF FH F   F`
+   F     F `
+   FFF FHFF`
+    ]]>
+  </level>
+  <level id="197">
+    <![CDATA[
+ HF   F H F`
+      H  FF`
+    F F    `
+ H F FFF FH`
+F  F  F H F`
+F   FH FF  `
+ FH F    FF`
+HF FF FF H `
+ F     F   `
+    H FFF  `
+F H  FF FH `
+    ]]>
+  </level>
+  <level id="198">
+    <![CDATA[
+   FH F    `
+H    F FFH `
+  H   HF  F`
+F   F   H  `
+FHF       F`
+  F    F   `
+       FFH `
+  H FF F  F`
+F FFHFFFH  `
+FH     F  H`
+    FFHFFFF`
+    ]]>
+  </level>
+  <level id="199">
+    <![CDATA[
+     H FFF `
+  F F  F H `
+ H       F `
+   H F H F `
+  F  F F FF`
+ HF FH  FH `
+ F F  F  FF`
+ FFH  FH   `
+F    FFF HF`
+FH    F F F`
+  F  H  F F`
+    ]]>
+  </level>
+  <level id="200">
+    <![CDATA[
+ H  F FF FH`
+ F    H    `
+F H        `
+F     F H F`
+  FH  F FFF`
+ H F F   H `
+   F   HF F`
+  H  FF    `
+FF F  FFHF `
+F F H      `
+H FF F FFHF`
+    ]]>
+  </level>
+</levels>
+</puzzle>

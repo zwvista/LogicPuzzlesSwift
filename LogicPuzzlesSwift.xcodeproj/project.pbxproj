@@ -56,6 +56,15 @@
 		8C1ACF752F2D6322004832E2 /* NewCarpenterSquareGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF6B2F2D6322004832E2 /* NewCarpenterSquareGridNode.swift */; };
 		8C1ACF762F2D6322004832E2 /* NewCarpenterSquareGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF6A2F2D6322004832E2 /* NewCarpenterSquareGameViewController.swift */; };
 		8C1ACF772F2D6322004832E2 /* NewCarpenterSquare.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACF652F2D6322004832E2 /* NewCarpenterSquare.xml */; };
+		8C1ACF822F2D7548004832E2 /* FlowerBedsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF802F2D7548004832E2 /* FlowerBedsObject.swift */; };
+		8C1ACF832F2D7548004832E2 /* FlowerBedsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF7C2F2D7548004832E2 /* FlowerBedsGameState.swift */; };
+		8C1ACF842F2D7548004832E2 /* FlowerBedsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF7F2F2D7548004832E2 /* FlowerBedsMainViewController.swift */; };
+		8C1ACF852F2D7548004832E2 /* FlowerBedsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF7D2F2D7548004832E2 /* FlowerBedsGameViewController.swift */; };
+		8C1ACF862F2D7548004832E2 /* FlowerBedsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF792F2D7548004832E2 /* FlowerBedsDocument.swift */; };
+		8C1ACF872F2D7548004832E2 /* FlowerBedsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF7A2F2D7548004832E2 /* FlowerBedsGame.swift */; };
+		8C1ACF882F2D7548004832E2 /* FlowerBedsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF7B2F2D7548004832E2 /* FlowerBedsGameScene.swift */; };
+		8C1ACF892F2D7548004832E2 /* FlowerBedsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF7E2F2D7548004832E2 /* FlowerBedsGridNode.swift */; };
+		8C1ACF8A2F2D7548004832E2 /* FlowerBeds.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACF782F2D7548004832E2 /* FlowerBeds.xml */; };
 		8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */; };
 		8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */; };
 		8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A01DB8DE930056D407 /* AnimatedExample.graffle */; };
@@ -1901,6 +1910,15 @@
 		8C1ACF6B2F2D6322004832E2 /* NewCarpenterSquareGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarpenterSquareGridNode.swift; sourceTree = "<group>"; };
 		8C1ACF6C2F2D6322004832E2 /* NewCarpenterSquareMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarpenterSquareMainViewController.swift; sourceTree = "<group>"; };
 		8C1ACF6D2F2D6322004832E2 /* NewCarpenterSquareObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCarpenterSquareObject.swift; sourceTree = "<group>"; };
+		8C1ACF782F2D7548004832E2 /* FlowerBeds.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FlowerBeds.xml; sourceTree = "<group>"; };
+		8C1ACF792F2D7548004832E2 /* FlowerBedsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerBedsDocument.swift; sourceTree = "<group>"; };
+		8C1ACF7A2F2D7548004832E2 /* FlowerBedsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerBedsGame.swift; sourceTree = "<group>"; };
+		8C1ACF7B2F2D7548004832E2 /* FlowerBedsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerBedsGameScene.swift; sourceTree = "<group>"; };
+		8C1ACF7C2F2D7548004832E2 /* FlowerBedsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerBedsGameState.swift; sourceTree = "<group>"; };
+		8C1ACF7D2F2D7548004832E2 /* FlowerBedsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerBedsGameViewController.swift; sourceTree = "<group>"; };
+		8C1ACF7E2F2D7548004832E2 /* FlowerBedsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerBedsGridNode.swift; sourceTree = "<group>"; };
+		8C1ACF7F2F2D7548004832E2 /* FlowerBedsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerBedsMainViewController.swift; sourceTree = "<group>"; };
+		8C1ACF802F2D7548004832E2 /* FlowerBedsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerBedsObject.swift; sourceTree = "<group>"; };
 		8C1D169C1DB8DE930056D407 /* BreadthFirstSearch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BreadthFirstSearch.playground; sourceTree = "<group>"; };
 		8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadthFirstSearch.swift; sourceTree = "<group>"; };
 		8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimatedExample.gif; sourceTree = "<group>"; };
@@ -3793,6 +3811,22 @@
 			path = NewCarpenterSquare;
 			sourceTree = "<group>";
 		};
+		8C1ACF812F2D7548004832E2 /* FlowerBeds */ = {
+			isa = PBXGroup;
+			children = (
+				8C1ACF782F2D7548004832E2 /* FlowerBeds.xml */,
+				8C1ACF792F2D7548004832E2 /* FlowerBedsDocument.swift */,
+				8C1ACF7A2F2D7548004832E2 /* FlowerBedsGame.swift */,
+				8C1ACF7B2F2D7548004832E2 /* FlowerBedsGameScene.swift */,
+				8C1ACF7C2F2D7548004832E2 /* FlowerBedsGameState.swift */,
+				8C1ACF7D2F2D7548004832E2 /* FlowerBedsGameViewController.swift */,
+				8C1ACF7E2F2D7548004832E2 /* FlowerBedsGridNode.swift */,
+				8C1ACF7F2F2D7548004832E2 /* FlowerBedsMainViewController.swift */,
+				8C1ACF802F2D7548004832E2 /* FlowerBedsObject.swift */,
+			);
+			path = FlowerBeds;
+			sourceTree = "<group>";
+		};
 		8C1D169B1DB8DE930056D407 /* Breadth-First Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -4424,6 +4458,7 @@
 				8CA042CC1FDB878700AF85E1 /* Fillomino */,
 				8CCFC4482F262F5000546A04 /* FingerPointing */,
 				8C263E912F13E06C00158A2C /* FloorPlan */,
+				8C1ACF812F2D7548004832E2 /* FlowerBeds */,
 				8C74745A1FBEFD5700C4112C /* FourMeNot */,
 				8C9BD5122F0A32CA00D1D915 /* FreePlanks */,
 				8C263F392F1D0DB100158A2C /* FunnyNumbers */,
@@ -7246,6 +7281,7 @@
 				8C86637C2EA39DD00078CD64 /* B2.png in Resources */,
 				8C86637D2EA39DD00078CD64 /* pipe_vertical.png in Resources */,
 				8C86637E2EA39DD00078CD64 /* tent.png in Resources */,
+				8C1ACF8A2F2D7548004832E2 /* FlowerBeds.xml in Resources */,
 				8C86637F2EA39DD00078CD64 /* B1.png in Resources */,
 				8C8663802EA39DD00078CD64 /* dune.png in Resources */,
 				8C8663812EA39DD00078CD64 /* pipe_1.png in Resources */,
@@ -7663,6 +7699,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C3A36C11EC88D4300A914A5 /* LighthousesDocument.swift in Sources */,
+				8C1ACF822F2D7548004832E2 /* FlowerBedsObject.swift in Sources */,
+				8C1ACF832F2D7548004832E2 /* FlowerBedsGameState.swift in Sources */,
+				8C1ACF842F2D7548004832E2 /* FlowerBedsMainViewController.swift in Sources */,
+				8C1ACF852F2D7548004832E2 /* FlowerBedsGameViewController.swift in Sources */,
+				8C1ACF862F2D7548004832E2 /* FlowerBedsDocument.swift in Sources */,
+				8C1ACF872F2D7548004832E2 /* FlowerBedsGame.swift in Sources */,
+				8C1ACF882F2D7548004832E2 /* FlowerBedsGameScene.swift in Sources */,
+				8C1ACF892F2D7548004832E2 /* FlowerBedsGridNode.swift in Sources */,
 				8CB418A12F23C552005C7FDF /* OnlyStraightsGameViewController.swift in Sources */,
 				8CB418A22F23C552005C7FDF /* OnlyStraightsMainViewController.swift in Sources */,
 				8CB418A32F23C552005C7FDF /* OnlyStraightsDocument.swift in Sources */,
