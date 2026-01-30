@@ -8,53 +8,10 @@
 
 import Foundation
 
-enum BranchesObject {
-    case empty
-    case hint(state: HintState = .normal)
-    case up
-    case right
-    case down
-    case left
-    case horizontal
-    case vertical
+enum BranchesObject: Int {
+    case empty, hint, up, right, down, left, horizontal, vertical
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .up:
-            return "up"
-        case .right:
-            return "right"
-        case .down:
-            return "down"
-        case .left:
-            return "left"
-        case .horizontal:
-            return "horizontal"
-        case .vertical:
-            return "vertical"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> BranchesObject {
-        switch str {
-        case "up":
-            return .up
-        case "right":
-            return .right
-        case "down":
-            return .down
-        case "left":
-            return .left
-        case "horizontal":
-            return .horizontal
-        case "vertical":
-            return .vertical
-        default:
-            return .empty
-        }
     }
 }
 

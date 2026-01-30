@@ -11,7 +11,7 @@ import Foundation
 class CulturedBranchesGame: GridGame<CulturedBranchesGameState> {
     static let offset = Position.Directions4
 
-    var pos2hint = [Position: Int]()
+    var pos2hint = [Position: Character]()
     
     init(layout: [String], delegate: CulturedBranchesGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -22,11 +22,8 @@ class CulturedBranchesGame: GridGame<CulturedBranchesGameState> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let ch = str[c]
-                switch ch {
-                case "0"..."9": pos2hint[p] = ch.toInt!
-                case "A"..."Z": pos2hint[p] = Int(ch.asciiValue!) - Int(Character("A").asciiValue!) + 10
-                default: break
-                }
+                guard ch != " " else {continue}
+                pos2hint[p] = ch
             }
         }
 

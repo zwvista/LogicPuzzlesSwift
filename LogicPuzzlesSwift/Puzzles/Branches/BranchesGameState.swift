@@ -15,7 +15,8 @@ class BranchesGameState: GridGameState<BranchesGameMove> {
     }
     override var gameDocument: GameDocumentBase { BranchesDocument.sharedInstance }
     var objArray = [BranchesObject]()
-    
+    var pos2state = [Position: HintState]()
+
     override func copy() -> BranchesGameState {
         let v = BranchesGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -31,7 +32,7 @@ class BranchesGameState: GridGameState<BranchesGameMove> {
         guard !isCopy else {return}
         objArray = Array<BranchesObject>(repeating: .empty, count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint()
+            self[p] = .hint
         }
         updateIsSolved()
     }
@@ -47,15 +48,15 @@ class BranchesGameState: GridGameState<BranchesGameMove> {
     
     override func setObject(move: inout BranchesGameMove) -> GameOperationType {
         let p = move.p
-        let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 { return .invalid }
-        guard String(describing: o1) != String(describing: o2) else { return .invalid }
-        self[p] = o2
+        guard isValid(p: p), self[p] != .hint, self[p] != move.obj else { return .invalid }
+        self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }
     
     override func switchObject(move: inout BranchesGameMove) -> GameOperationType {
+        let p = move.p
+        guard isValid(p: p), self[p] != .hint else { return .invalid }
         // 3. Branches can't run over the numbers.
         func f(o: BranchesObject) -> BranchesObject {
             switch o {
@@ -77,7 +78,7 @@ class BranchesGameState: GridGameState<BranchesGameMove> {
                 return o
             }
         }
-        move.obj = f(o: self[move.p])
+        move.obj = f(o: self[p])
         return setObject(move: &move)
     }
     
@@ -105,44 +106,43 @@ class BranchesGameState: GridGameState<BranchesGameMove> {
                 case .empty:
                     // 3. There can't be blank tiles.
                     isSolved = false
-                    return
-                case .hint(_):
+                case .hint:
                     // 1. In Branches you must fill the board with straight horizontal and
                     // vertical lines(Branches) that stem from each number.
                     // The tile with the number doesn't count.
                     var n1 = 0, n2 = game.pos2hint[p]!
-                    next: for i in 0..<4 {
+                    for i in 0..<4 {
                         let os = BranchesGame.offset[i]
                         var p2 = p + os
                         // 3. Branches can't overlap,
                         // Branches must be in a single straight line and can't make corners.
-                        while isValid(p: p2) {
+                        next: while isValid(p: p2) {
                             switch self[p2] {
                             case .up:
                                 if i == 0 { n1 += 1 }
-                                continue next
+                                break next
                             case .right:
                                 if i == 1 { n1 += 1 }
-                                continue next
+                                break next
                             case .down:
                                 if i == 2 { n1 += 1 }
-                                continue next
+                                break next
                             case .left:
                                 if i == 3 { n1 += 1 }
-                                continue next
+                                break next
                             case .horizontal:
-                                if i % 2 == 1 { n1 += 1 } else { continue next }
+                                if i % 2 == 1 { n1 += 1 } else { break next }
                             case .vertical:
-                                if i % 2 == 0 { n1 += 1 } else { continue next }
+                                if i % 2 == 0 { n1 += 1 } else { break next }
                             default:
-                                break
+                                break next
                             }
                             p2 += os
                         }
                     }
                     // 2. The number itself tells you how many tiles its Branches fill up.
                     let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-                    self[p] = .hint(state: s)
+                    pos2state[p] = s
                     if s != .complete { isSolved = false }
                 default:
                     break

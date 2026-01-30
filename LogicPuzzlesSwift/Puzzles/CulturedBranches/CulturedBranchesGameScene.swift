@@ -14,8 +14,8 @@ class CulturedBranchesGameScene: GameScene<CulturedBranchesGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+    func addHint(ch: Character, s: HintState, point: CGPoint, nodeName: String) {
+        addLabel(text: String(ch), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
 
     override func levelInitialized(_ game: AnyObject, state: CulturedBranchesGameState, skView: SKView) {
@@ -28,12 +28,11 @@ class CulturedBranchesGameScene: GameScene<CulturedBranchesGameState> {
         addGrid(gridNode: CulturedBranchesGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
         // add Hints
-        for (p, n) in game.pos2hint {
-            guard case let .hint(state: s) = state[p] else {continue}
+        for (p, ch) in game.pos2hint {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
-            addHint(n: n, s: s, point: point, nodeName: hintNodeName)
+            addHint(ch: ch, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
         }
     }
 
@@ -45,27 +44,22 @@ class CulturedBranchesGameScene: GameScene<CulturedBranchesGameState> {
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let branchNodeName = "branch" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                func addBranch(imageNamed: String) {
-                    addImage(imageNamed: imageNamed, color: .red, colorBlendFactor: 0.0, point: point, nodeName: branchNodeName)
-                }
-                func removeBranch() { removeNode(withName: branchNodeName) }
-                func removeHint() { removeNode(withName: hintNodeName) }
-                let (ot1, ot2) = (stateFrom[r, c], stateTo[r, c])
-                guard String(describing: ot1) != String(describing: ot2) else {continue}
-                switch ot1 {
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard o1 != o2 || s1 != s2 else {continue}
+                switch o1 {
                 case .up, .right, .down, .left, .horizontal, .vertical:
-                    removeBranch()
+                    removeNode(withName: branchNodeName)
                 case .hint:
-                    removeHint()
+                    removeNode(withName: hintNodeName)
                 default:
                     break
                 }
-                switch ot2 {
+                switch o2 {
                 case .up, .right, .down, .left, .horizontal, .vertical:
-                    addBranch(imageNamed: "branch_" + ot2.toString())
-                case let .hint(s):
-                    let n = stateTo.game.pos2hint[Position(r, c)]!
-                    addHint(n: n, s: s, point: point, nodeName: hintNodeName)
+                    addImage(imageNamed: "branch_" + String(describing: o2), color: .red, colorBlendFactor: 0.0, point: point, nodeName: branchNodeName)
+                case .hint:
+                    addHint(ch: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
                 default:
                     break
                 }

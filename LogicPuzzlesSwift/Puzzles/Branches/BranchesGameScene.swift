@@ -29,11 +29,10 @@ class BranchesGameScene: GameScene<BranchesGameState> {
         
         // add Hints
         for (p, n) in game.pos2hint {
-            guard case let .hint(state: s) = state[p] else {continue}
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
-            addHint(n: n, s: s, point: point, nodeName: hintNodeName)
+            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
         }
     }
 
@@ -45,27 +44,22 @@ class BranchesGameScene: GameScene<BranchesGameState> {
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let branchNodeName = "branch" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                func addBranch(imageNamed: String) {
-                    addImage(imageNamed: imageNamed, color: .red, colorBlendFactor: 0.0, point: point, nodeName: branchNodeName)
-                }
-                func removeBranch() { removeNode(withName: branchNodeName) }
-                func removeHint() { removeNode(withName: hintNodeName) }
-                let (ot1, ot2) = (stateFrom[r, c], stateTo[r, c])
-                guard String(describing: ot1) != String(describing: ot2) else {continue}
-                switch ot1 {
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard o1 != o2 || s1 != s2 else {continue}
+                switch o1 {
                 case .up, .right, .down, .left, .horizontal, .vertical:
-                    removeBranch()
+                    removeNode(withName: branchNodeName)
                 case .hint:
-                    removeHint()
+                    removeNode(withName: hintNodeName)
                 default:
                     break
                 }
-                switch ot2 {
+                switch o2 {
                 case .up, .right, .down, .left, .horizontal, .vertical:
-                    addBranch(imageNamed: "branch_" + ot2.toString())
-                case let .hint(s):
-                    let n = stateTo.game.pos2hint[Position(r, c)]!
-                    addHint(n: n, s: s, point: point, nodeName: hintNodeName)
+                    addImage(imageNamed: "branch_" + String(describing: o2), color: .red, colorBlendFactor: 0.0, point: point, nodeName: branchNodeName)
+                case .hint:
+                    addHint(n: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
                 default:
                     break
                 }

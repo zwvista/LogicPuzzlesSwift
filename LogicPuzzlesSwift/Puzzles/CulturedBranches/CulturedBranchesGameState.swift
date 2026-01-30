@@ -15,7 +15,8 @@ class CulturedBranchesGameState: GridGameState<CulturedBranchesGameMove> {
     }
     override var gameDocument: GameDocumentBase { CulturedBranchesDocument.sharedInstance }
     var objArray = [CulturedBranchesObject]()
-    
+    var pos2state = [Position: HintState]()
+
     override func copy() -> CulturedBranchesGameState {
         let v = CulturedBranchesGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -31,7 +32,7 @@ class CulturedBranchesGameState: GridGameState<CulturedBranchesGameMove> {
         guard !isCopy else {return}
         objArray = Array<CulturedBranchesObject>(repeating: .empty, count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint()
+            self[p] = .hint
         }
         updateIsSolved()
     }
@@ -47,15 +48,15 @@ class CulturedBranchesGameState: GridGameState<CulturedBranchesGameMove> {
     
     override func setObject(move: inout CulturedBranchesGameMove) -> GameOperationType {
         let p = move.p
-        let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 { return .invalid }
-        guard String(describing: o1) != String(describing: o2) else { return .invalid }
-        self[p] = o2
+        guard isValid(p: p), self[p] != .hint, self[p] != move.obj else { return .invalid }
+        self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }
     
     override func switchObject(move: inout CulturedBranchesGameMove) -> GameOperationType {
+        let p = move.p
+        guard isValid(p: p), self[p] != .hint else { return .invalid }
         // 3. CulturedBranches can't run over the numbers.
         func f(o: CulturedBranchesObject) -> CulturedBranchesObject {
             switch o {
@@ -77,7 +78,7 @@ class CulturedBranchesGameState: GridGameState<CulturedBranchesGameMove> {
                 return o
             }
         }
-        move.obj = f(o: self[move.p])
+        move.obj = f(o: self[p])
         return setObject(move: &move)
     }
     
@@ -101,6 +102,9 @@ class CulturedBranchesGameState: GridGameState<CulturedBranchesGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
+        var ch2rng = [Character: [Position]]()
+        var ch2lens = [Character: Set<Int>]()
+        var ch2nums = [Character: Set<Int>]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
@@ -108,49 +112,60 @@ class CulturedBranchesGameState: GridGameState<CulturedBranchesGameMove> {
                 case .empty:
                     // 3. There can't be blank tiles.
                     isSolved = false
-                    return
-                case .hint(_):
+                case .hint:
                     // 1. In CulturedBranches you must fill the board with straight horizontal and
                     // vertical lines(CulturedBranches) that stem from each number.
                     // The tile with the number doesn't count.
-                    var n1 = 0, n2 = game.pos2hint[p]!
-                    next: for i in 0..<4 {
+                    let ch = game.pos2hint[p]!
+                    var len = 0, num = 0
+                    for i in 0..<4 {
                         let os = CulturedBranchesGame.offset[i]
                         var p2 = p + os
+                        var n = 0
                         // 3. CulturedBranches can't overlap,
                         // CulturedBranches must be in a single straight line and can't make corners.
-                        while isValid(p: p2) {
+                        next: while isValid(p: p2) {
                             switch self[p2] {
                             case .up:
-                                if i == 0 { n1 += 1 }
-                                continue next
+                                if i == 0 { n += 1 }
+                                break next
                             case .right:
-                                if i == 1 { n1 += 1 }
-                                continue next
+                                if i == 1 { n += 1 }
+                                break next
                             case .down:
-                                if i == 2 { n1 += 1 }
-                                continue next
+                                if i == 2 { n += 1 }
+                                break next
                             case .left:
-                                if i == 3 { n1 += 1 }
-                                continue next
+                                if i == 3 { n += 1 }
+                                break next
                             case .horizontal:
-                                if i % 2 == 1 { n1 += 1 } else { continue next }
+                                if i % 2 == 1 { n += 1 } else { break next }
                             case .vertical:
-                                if i % 2 == 0 { n1 += 1 } else { continue next }
+                                if i % 2 == 0 { n += 1 } else { break next }
                             default:
-                                break
+                                break next
                             }
                             p2 += os
                         }
+                        if n > 0 {
+                            len += n
+                            num += 1
+                        }
                     }
-                    // 2. The number itself tells you how many tiles its CulturedBranches fill up.
-                    let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-                    self[p] = .hint(state: s)
-                    if s != .complete { isSolved = false }
+                    ch2rng[ch, default: []].append(p)
+                    ch2lens[ch, default: []].insert(len)
+                    ch2nums[ch, default: []].insert(num)
                 default:
                     break
                 }
             }
+        }
+        for (ch, rng) in ch2rng {
+            let lens = ch2lens[ch]!
+            let nums = ch2nums[ch]!
+            let s: HintState = lens.allSatisfy({ $0 == 0 }) ? .normal : lens.count == 1 && nums.count == rng.count ? .complete : .error
+            if s != .complete { isSolved = false }
+            for p in rng { pos2state[p] = s }
         }
     }
 }
