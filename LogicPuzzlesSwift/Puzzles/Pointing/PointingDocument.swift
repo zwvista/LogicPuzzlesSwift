@@ -13,10 +13,9 @@ class PointingDocument: GameDocument<PointingGameMove> {
     
     override func saveMove(_ move: PointingGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.intValue1 = move.obj
     }
     
     override func loadMove(from rec: MoveProgress) -> PointingGameMove {
-        PointingGameMove(p: Position(rec.row, rec.col), obj: rec.intValue1)
+        PointingGameMove(p: Position(rec.row, rec.col))
     }
 }

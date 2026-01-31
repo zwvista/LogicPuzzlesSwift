@@ -10,5 +10,4 @@ import Foundation
 
 struct PointingGameMove {
     var p = Position()
-    var obj = 0
 }

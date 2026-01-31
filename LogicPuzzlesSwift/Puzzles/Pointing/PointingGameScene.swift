@@ -14,15 +14,8 @@ class PointingGameScene: GameScene<PointingGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addHint(p: Position, n: Int, s: HintState) {
-        let point = gridNode.centerPoint(p: p)
-        let nodeNameSuffix = "-\(p.row)-\(p.col)"
-        let hintNodeName = "hint" + nodeNameSuffix
-        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: hintNodeName)
-    }
-    
-    func addArrow(n: Int, s: AllowedObjectState, point: CGPoint, nodeName: String) {
-        addImage(imageNamed: getArrowImageName(n: n), color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
+    func addArrow(n: Int, isBW: Bool, s: AllowedObjectState, point: CGPoint, nodeName: String) {
+        addImage(imageNamed: getArrowImageName(n: n) + (isBW ? "_bw" : ""), color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }
 
     override func levelInitialized(_ game: AnyObject, state: PointingGameState, skView: SKView) {
@@ -35,11 +28,13 @@ class PointingGameScene: GameScene<PointingGameState> {
         addGrid(gridNode: PointingGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
         // add Hints
-        for r in 1..<game.rows - 1 {
-            for c in 1..<game.cols - 1 {
+        for r in 0..<game.rows {
+            for c in 0..<game.cols {
                 let p = Position(r, c)
-                let n = state[p]
-                addHint(p: p, n: n, s: .normal)
+                let point = gridNode.centerPoint(p: p)
+                let nodeNameSuffix = "-\(r)-\(c)"
+                let arrowNodeName = "arrow" + nodeNameSuffix
+                addArrow(n: game[p], isBW: !state.markedArrows.contains(p), s: state.nonPointingArrows.contains(p) ? .error : .normal, point: point, nodeName: arrowNodeName)
             }
         }
     }
@@ -48,24 +43,14 @@ class PointingGameScene: GameScene<PointingGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                if stateFrom.game.isCorner(p: p) {continue}
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let hintNodeName = "hint" + nodeNameSuffix
                 let arrowNodeName = "arrow" + nodeNameSuffix
-                if stateFrom.game.isBorder(p: p) {
-                    let (n1, n2) = (stateFrom[p], stateTo[p])
-                    let (s1, s2) = (stateFrom.arrow2state[p]!, stateTo.arrow2state[p]!)
-                    if n1 != n2 || s1 != s2 {
-                        if n1 != PointingGame.PUZ_UNKNOWN { removeNode(withName: arrowNodeName) }
-                        if n2 != PointingGame.PUZ_UNKNOWN { addArrow(n: n2, s: s2, point: point, nodeName: arrowNodeName) }
-                    }
-                } else {
-                    let (s1, s2) = (stateFrom.hint2state[p]!, stateTo.hint2state[p]!)
-                    if s1 != s2 {
-                        removeNode(withName: hintNodeName)
-                        addHint(p: p, n: stateTo[p], s: s2)
-                    }
+                let (b1, b2) = (stateFrom.markedArrows.contains(p), stateTo.markedArrows.contains(p))
+                let (b3, b4) = (stateFrom.nonPointingArrows.contains(p), stateTo.nonPointingArrows.contains(p))
+                if b1 != b2 || b3 != b4 {
+                    removeNode(withName: arrowNodeName)
+                    addArrow(n: stateFrom.game[p], isBW: !b2, s: b4 ? .error : .normal, point: point, nodeName: arrowNodeName)
                 }
             }
         }

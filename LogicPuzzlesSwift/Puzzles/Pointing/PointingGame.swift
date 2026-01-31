@@ -9,21 +9,10 @@
 import Foundation
 
 class PointingGame: GridGame<PointingGameState> {
-    static let PUZ_UNKNOWN = 8
     static let offset = Position.Directions8
-    
-    func isCorner(p: Position) -> Bool {
-        let (row, col) = p.destructured
-        return (row == 0 || row == rows - 1) && (col == 0 || col == cols - 1)
-    }
-    
-    func isBorder(p: Position) -> Bool {
-        let (row, col) = p.destructured
-        return 1..<rows - 1 ~= row && (col == 0 || col == cols - 1) ||
-            1..<cols - 1 ~= col && (row == 0 || row == rows - 1)
-    }
 
     var objArray = [Int]()
+    var arrow2rng = [Position: [Position]]()
     subscript(p: Position) -> Int {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
@@ -36,14 +25,23 @@ class PointingGame: GridGame<PointingGameState> {
     init(layout: [String], delegate: PointingGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count + 2, layout[0].length + 2)
-        objArray = Array(repeating: PointingGame.PUZ_UNKNOWN, count: rows * cols)
+        size = Position(layout.count, layout[0].length)
+        objArray = Array(repeating: 0, count: rows * cols)
         
-        for r in 1..<rows - 1 {
-            let str = layout[r - 1]
-            for c in 1..<cols - 1 {
-                let ch = str[c - 1]
-                self[r, c] = ch.toInt!
+        for r in 0..<rows {
+            let str = layout[r]
+            for c in 0..<cols {
+                let n = str[c].toInt!
+                let p = Position(r, c)
+                self[p] = n
+                let os = PointingGame.offset[n]
+                var p2 = p + os
+                var rng = [Position]()
+                while isValid(p: p2) {
+                    rng.append(p2)
+                    p2 += os
+                }
+                arrow2rng[p] = rng
             }
         }
         
