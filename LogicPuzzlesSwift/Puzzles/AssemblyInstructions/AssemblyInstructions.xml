@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Divide the board so that every letter corresponds to a 'part' which has the same shape and orientation everywhere it is found.
+2. So for example if letter 'A' is a 2x3 rectangle, every 'A' on the board will correspond to a 2x3 rectangle and 'A' will appear in the same position in the rectangle itself.
+3. If letter 'B' has an L shape with the letter on the top left, every 'B' will have an L shape with the letter on the top left, etc.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+    `
+A B `
+    `
+ B A`
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+A   `
+   B`
+ A  `
+B   `
+    ]]>
+  </level>
+  <level id="36">
+    <![CDATA[
+      `
+A BC  `
+      `
+  B BA`
+      `
+C   B `
+    ]]>
+  </level>
+  <level id="400">
+    <![CDATA[
+F      H G `
+ IC        `
+       D L `
+H  J L    K`
+   D   B   `
+ G   IK E M`
+   A  J J  `
+ A       BM`
+          H`
+     C     `
+E  F       `
+    ]]>
+  </level>
+</levels>
+</puzzle>

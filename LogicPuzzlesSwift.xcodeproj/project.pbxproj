@@ -92,6 +92,15 @@
 		8C1ACFC02F2DFB06004832E2 /* arrow6_bw.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACFB72F2DFB06004832E2 /* arrow6_bw.png */; };
 		8C1ACFC12F2DFB06004832E2 /* arrow8_bw.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACFB92F2DFB06004832E2 /* arrow8_bw.png */; };
 		8C1ACFC22F2DFB06004832E2 /* arrow9_bw.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACFBA2F2DFB06004832E2 /* arrow9_bw.png */; };
+		8C1ACFCD2F2E45AC004832E2 /* AssemblyInstructionsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACFC62F2E45AC004832E2 /* AssemblyInstructionsGameScene.swift */; };
+		8C1ACFCE2F2E45AC004832E2 /* AssemblyInstructionsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACFCB2F2E45AC004832E2 /* AssemblyInstructionsObject.swift */; };
+		8C1ACFCF2F2E45AC004832E2 /* AssemblyInstructionsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACFC52F2E45AC004832E2 /* AssemblyInstructionsGame.swift */; };
+		8C1ACFD02F2E45AC004832E2 /* AssemblyInstructionsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACFCA2F2E45AC004832E2 /* AssemblyInstructionsMainViewController.swift */; };
+		8C1ACFD12F2E45AC004832E2 /* AssemblyInstructionsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACFC92F2E45AC004832E2 /* AssemblyInstructionsGridNode.swift */; };
+		8C1ACFD22F2E45AC004832E2 /* AssemblyInstructionsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACFC42F2E45AC004832E2 /* AssemblyInstructionsDocument.swift */; };
+		8C1ACFD32F2E45AC004832E2 /* AssemblyInstructionsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACFC82F2E45AC004832E2 /* AssemblyInstructionsGameViewController.swift */; };
+		8C1ACFD42F2E45AC004832E2 /* AssemblyInstructionsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACFC72F2E45AC004832E2 /* AssemblyInstructionsGameState.swift */; };
+		8C1ACFD52F2E45AC004832E2 /* AssemblyInstructions.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACFC32F2E45AC004832E2 /* AssemblyInstructions.xml */; };
 		8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */; };
 		8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */; };
 		8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A01DB8DE930056D407 /* AnimatedExample.graffle */; };
@@ -1973,6 +1982,15 @@
 		8C1ACFB82F2DFB06004832E2 /* arrow7_bw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow7_bw.png; sourceTree = "<group>"; };
 		8C1ACFB92F2DFB06004832E2 /* arrow8_bw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow8_bw.png; sourceTree = "<group>"; };
 		8C1ACFBA2F2DFB06004832E2 /* arrow9_bw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow9_bw.png; sourceTree = "<group>"; };
+		8C1ACFC32F2E45AC004832E2 /* AssemblyInstructions.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AssemblyInstructions.xml; sourceTree = "<group>"; };
+		8C1ACFC42F2E45AC004832E2 /* AssemblyInstructionsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyInstructionsDocument.swift; sourceTree = "<group>"; };
+		8C1ACFC52F2E45AC004832E2 /* AssemblyInstructionsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyInstructionsGame.swift; sourceTree = "<group>"; };
+		8C1ACFC62F2E45AC004832E2 /* AssemblyInstructionsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyInstructionsGameScene.swift; sourceTree = "<group>"; };
+		8C1ACFC72F2E45AC004832E2 /* AssemblyInstructionsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyInstructionsGameState.swift; sourceTree = "<group>"; };
+		8C1ACFC82F2E45AC004832E2 /* AssemblyInstructionsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyInstructionsGameViewController.swift; sourceTree = "<group>"; };
+		8C1ACFC92F2E45AC004832E2 /* AssemblyInstructionsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyInstructionsGridNode.swift; sourceTree = "<group>"; };
+		8C1ACFCA2F2E45AC004832E2 /* AssemblyInstructionsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyInstructionsMainViewController.swift; sourceTree = "<group>"; };
+		8C1ACFCB2F2E45AC004832E2 /* AssemblyInstructionsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyInstructionsObject.swift; sourceTree = "<group>"; };
 		8C1D169C1DB8DE930056D407 /* BreadthFirstSearch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BreadthFirstSearch.playground; sourceTree = "<group>"; };
 		8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadthFirstSearch.swift; sourceTree = "<group>"; };
 		8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimatedExample.gif; sourceTree = "<group>"; };
@@ -3913,6 +3931,22 @@
 			path = Pointing;
 			sourceTree = "<group>";
 		};
+		8C1ACFCC2F2E45AC004832E2 /* AssemblyInstructions */ = {
+			isa = PBXGroup;
+			children = (
+				8C1ACFC32F2E45AC004832E2 /* AssemblyInstructions.xml */,
+				8C1ACFC42F2E45AC004832E2 /* AssemblyInstructionsDocument.swift */,
+				8C1ACFC52F2E45AC004832E2 /* AssemblyInstructionsGame.swift */,
+				8C1ACFC62F2E45AC004832E2 /* AssemblyInstructionsGameScene.swift */,
+				8C1ACFC72F2E45AC004832E2 /* AssemblyInstructionsGameState.swift */,
+				8C1ACFC82F2E45AC004832E2 /* AssemblyInstructionsGameViewController.swift */,
+				8C1ACFC92F2E45AC004832E2 /* AssemblyInstructionsGridNode.swift */,
+				8C1ACFCA2F2E45AC004832E2 /* AssemblyInstructionsMainViewController.swift */,
+				8C1ACFCB2F2E45AC004832E2 /* AssemblyInstructionsObject.swift */,
+			);
+			path = AssemblyInstructions;
+			sourceTree = "<group>";
+		};
 		8C1D169B1DB8DE930056D407 /* Breadth-First Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -4508,6 +4542,7 @@
 				8C3A33C61EC88D4100A914A5 /* AbstractPainting */,
 				8CB722132EAC8261001B25C5 /* Archipelago */,
 				8CAFBFC62E9D9FE500C27D7C /* Arrows */,
+				8C1ACFCC2F2E45AC004832E2 /* AssemblyInstructions */,
 				8CDAE7FC1F646C29000DE5AF /* BalancedTapas */,
 				8C3A33D31EC88D4100A914A5 /* BattleShips */,
 				8C3A33E01EC88D4100A914A5 /* BootyIsland */,
@@ -7405,6 +7440,7 @@
 				8C86638C2EA39DD00078CD64 /* bread_slice.png in Resources */,
 				8C86638D2EA39DD00078CD64 /* hamburger.png in Resources */,
 				8C86638E2EA39DD00078CD64 /* hedgehog.png in Resources */,
+				8C1ACFD52F2E45AC004832E2 /* AssemblyInstructions.xml in Resources */,
 				8C86638F2EA39DD00078CD64 /* arrow_brown_right.png in Resources */,
 				8C263F682F1E7DE600158A2C /* CrossroadsX.xml in Resources */,
 				8C8663902EA39DD00078CD64 /* arrow_blue_ur.png in Resources */,
@@ -8416,6 +8452,14 @@
 				8CAFC0072EA0864F00C27D7C /* NumberCrossingMainViewController.swift in Sources */,
 				8CAFBFCE2E9D9FE500C27D7C /* ArrowsGameViewController.swift in Sources */,
 				8C6A36281FAF9D8600D2804D /* NoughtsAndCrossesGame.swift in Sources */,
+				8C1ACFCD2F2E45AC004832E2 /* AssemblyInstructionsGameScene.swift in Sources */,
+				8C1ACFCE2F2E45AC004832E2 /* AssemblyInstructionsObject.swift in Sources */,
+				8C1ACFCF2F2E45AC004832E2 /* AssemblyInstructionsGame.swift in Sources */,
+				8C1ACFD02F2E45AC004832E2 /* AssemblyInstructionsMainViewController.swift in Sources */,
+				8C1ACFD12F2E45AC004832E2 /* AssemblyInstructionsGridNode.swift in Sources */,
+				8C1ACFD22F2E45AC004832E2 /* AssemblyInstructionsDocument.swift in Sources */,
+				8C1ACFD32F2E45AC004832E2 /* AssemblyInstructionsGameViewController.swift in Sources */,
+				8C1ACFD42F2E45AC004832E2 /* AssemblyInstructionsGameState.swift in Sources */,
 				8C3A363E1EC88D4200A914A5 /* BridgesGame.swift in Sources */,
 				8C8E77CC2E873A53006BBF98 /* BranchesGameScene.swift in Sources */,
 				8C6A362E1FAF9D8600D2804D /* NoughtsAndCrossesMainViewController.swift in Sources */,
