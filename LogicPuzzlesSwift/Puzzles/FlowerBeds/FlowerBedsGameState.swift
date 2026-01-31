@@ -150,6 +150,7 @@ class FlowerBedsGameState: GridGameState<FlowerBedsGameMove> {
             }
         }
         guard isSolved else {return}
+        // 4. Contiguous flower beds can't have the same area extension.
         if !((0..<rects.count).allSatisfy { n in
             let rect = rects[n]
             return rect.area.allSatisfy { p in

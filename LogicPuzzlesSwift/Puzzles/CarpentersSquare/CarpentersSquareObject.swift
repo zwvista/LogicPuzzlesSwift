@@ -9,15 +9,11 @@
 import Foundation
 
 enum CarpentersSquareHint {
-    case empty
     case corner(tiles: Int)
     case left
     case right
     case up
     case down
-    init() {
-        self = .empty
-    }
 }
 
 struct CarpentersSquareGameMove {

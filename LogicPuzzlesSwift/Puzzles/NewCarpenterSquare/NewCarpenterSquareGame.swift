@@ -33,12 +33,9 @@ class NewCarpenterSquareGame: GridGame<NewCarpenterSquareGameState> {
                 let p = Position(r, c)
                 let ch = str[c]
                 switch ch {
-                case "0"..."9": pos2hint[p] = .corner(tiles: ch.toInt!)
-                case "O": pos2hint[p] = .corner(tiles: 0)
-                case "^": pos2hint[p] = .up
-                case "v": pos2hint[p] = .down
-                case "<": pos2hint[p] = .left
-                case ">": pos2hint[p] = .right
+                case "=": pos2hint[p] = .equal
+                case "/": pos2hint[p] = .notEqual
+                case "?": pos2hint[p] = .unknown
                 default: break
                 }
             }

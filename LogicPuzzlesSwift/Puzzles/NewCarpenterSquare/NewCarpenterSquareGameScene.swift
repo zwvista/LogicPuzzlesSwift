@@ -34,19 +34,12 @@ class NewCarpenterSquareGameScene: GameScene<NewCarpenterSquareGameState> {
             let hintNodeName = "hint" + nodeNameSuffix
             let s = state.pos2state[p]!
             switch h {
-            case let .corner(n):
-                addCircleMarker(color: .white, point: point, nodeName: "marker")
-                addHint(text: n == 0 ? "?" : String(n), s: s, point: point, nodeName: hintNodeName)
-            case .left:
-                addHint(text: "<", s: s, point: point, nodeName: hintNodeName)
-            case .up:
-                addHint(text: "^", s: s, point: point, nodeName: hintNodeName)
-            case .right:
-                addHint(text: ">", s: s, point: point, nodeName: hintNodeName)
-            case .down:
-                addHint(text: "v", s: s, point: point, nodeName: hintNodeName)
-            default:
-                break
+            case .equal:
+                addHint(text: "=", s: s, point: point, nodeName: hintNodeName)
+            case .notEqual:
+                addHint(text: "/", s: s, point: point, nodeName: hintNodeName)
+            case .unknown:
+                addHint(text: "?", s: s, point: point, nodeName: hintNodeName)
             }
         }
         
@@ -88,19 +81,12 @@ class NewCarpenterSquareGameScene: GameScene<NewCarpenterSquareGameState> {
             guard s1 != s2 else {continue}
             removeNode(withName: hintNodeName)
             switch h {
-            case let .corner(n):
-                addCircleMarker(color: .white, point: point, nodeName: "marker")
-                addHint(text: n == 0 ? "?" : String(n), s: s2, point: point, nodeName: hintNodeName)
-            case .left:
-                addHint(text: "<", s: s2, point: point, nodeName: hintNodeName)
-            case .up:
-                addHint(text: "^", s: s2, point: point, nodeName: hintNodeName)
-            case .right:
-                addHint(text: ">", s: s2, point: point, nodeName: hintNodeName)
-            case .down:
-                addHint(text: "v", s: s2, point: point, nodeName: hintNodeName)
-            default:
-                break
+            case .equal:
+                addHint(text: "=", s: s2, point: point, nodeName: hintNodeName)
+            case .notEqual:
+                addHint(text: "/", s: s2, point: point, nodeName: hintNodeName)
+            case .unknown:
+                addHint(text: "?", s: s2, point: point, nodeName: hintNodeName)
             }
         }
     }

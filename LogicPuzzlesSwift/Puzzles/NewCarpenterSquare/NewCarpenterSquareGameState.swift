@@ -120,6 +120,14 @@ class NewCarpenterSquareGameState: GridGameState<NewCarpenterSquareGameMove> {
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
             let rngHint = area.filter { game.pos2hint[$0] != nil }
+            // 2. Every symbol on the board represents the corner of an L.
+            //    there are no hidden L's.
+            if rngHint.count != 1 {
+                isSolved = false
+                for p in rngHint { pos2state[p] = .normal }
+                continue
+            }
+            let pHint = rngHint.first!
             let n1 = nodesExplored.count
             var r2 = 0, r1 = rows, c2 = 0, c1 = cols
             for p in area {
@@ -134,51 +142,26 @@ class NewCarpenterSquareGameState: GridGameState<NewCarpenterSquareGameMove> {
             let cntC1 = area.filter { $0.col == c1 }.count
             let cntC2 = area.filter { $0.col == c2 }.count
             func f(_ a: Int, _ b: Int) -> Bool { a > 1 && b > 1 && a + b - 1 == n1 }
-            // 1. You just have to divide the board into many.Capenter's Squares (L shaped tools) of different size.
+            // 1. Divide the board in 'L'-shaped figures, with one cell wide 'legs'.
             let squareType =
                 f(cntR1, cntC1) ? 0 : // ┌
                 f(cntR1, cntC2) ? 1 : // ┐
                 f(cntR2, cntC1) ? 2 : // └
                 f(cntR2, cntC2) ? 3 : -1 // ┘
-            // 5. All the tiles in the board have to be part of a Carpenter's Square.
+            let equalArms =
+                squareType == 0 && cntR1 == cntC1 ||
+                squareType == 1 && cntR1 == cntC2 ||
+                squareType == 2 && cntR2 == cntC1 ||
+                squareType == 3 && cntR2 == cntC2
             if squareType == -1 { isSolved = false }
-            for p in rngHint {
-                switch game.pos2hint[p]! {
-                case let .corner(n2):
-                    // 2. The circled numbers on the board indicate the corner of the L.
-                    // 3. When a number is inside the circle, that indicates the total number of
-                    // squares occupied by the L.
-                    let s: HintState = squareType == -1 ? .normal : !(n1 == n2 || n2 == 0) ? .error : squareType == 0 && p == Position(r1, c1) || squareType == 1 && p == Position(r1, c2) || squareType == 2 && p == Position(r2, c1) || squareType == 3 && p == Position(r2, c2) ? .complete : .error
-                    pos2state[p] = s
-                    if s != .complete { isSolved = false }
-                case .left:
-                    // 4. The arrow always sits at the end of an arm and points to the corner of
-                    // an L.
-                    let s: HintState = squareType == -1 ? .normal : squareType == 0 && p == Position(r1, c2) || squareType == 2 && p == Position(r2, c2) ? .complete : .error
-                    pos2state[p] = s
-                    if s != .complete { isSolved = false }
-                case .up:
-                    // 4. The arrow always sits at the end of an arm and points to the corner of
-                    // an L.
-                    let s: HintState = squareType == -1 ? .normal : squareType == 0 && p == Position(r2, c1) || squareType == 1 && p == Position(r2, c2) ? .complete : .error
-                    pos2state[p] = s
-                    if s != .complete { isSolved = false }
-                case .right:
-                    // 4. The arrow always sits at the end of an arm and points to the corner of
-                    // an L.
-                    let s: HintState = squareType == -1 ? .normal : squareType == 1 && p == Position(r1, c1) || squareType == 3 && p == Position(r2, c1) ? .complete : .error
-                    pos2state[p] = s
-                    if s != .complete { isSolved = false }
-                case .down:
-                    // 4. The arrow always sits at the end of an arm and points to the corner of
-                    // an L.
-                    let s: HintState = squareType == -1 ? .normal : squareType == 2 && p == Position(r1, c1) || squareType == 3 && p == Position(r1, c2) ? .complete : .error
-                    pos2state[p] = s
-                    if s != .complete { isSolved = false }
-                default:
-                    break
-                }
-            }
+            let h = game.pos2hint[pHint]!
+            // 3. A = symbol tells you that the legs have equal length.
+            // 4. A ÅÇ symbol tells you that the legs have different lengths.
+            // 5. A ? symbol tells you that the legs could have different lengths
+            //    or equal length.
+            let s: HintState = squareType == -1 ? .normal : !(h == .unknown || (h == .equal) == equalArms) ? .error : squareType == 0 && pHint == Position(r1, c1) || squareType == 1 && pHint == Position(r1, c2) || squareType == 2 && pHint == Position(r2, c1) || squareType == 3 && pHint == Position(r2, c2) ? .complete : .error
+            pos2state[pHint] = s
+            if s != .complete { isSolved = false }
         }
     }
 }
