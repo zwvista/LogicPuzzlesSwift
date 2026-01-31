@@ -71,10 +71,16 @@ class FlowerbedShrubsGameScene: GameScene<FlowerbedShrubsGameState> {
                 }
                 let hintNodeName = "hint" + nodeNameSuffix
                 func removeHint() { removeNode(withName: hintNodeName) }
-                guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
                 if s1 != s2 {
                     removeHint()
-                    addHint(n: stateFrom.game.pos2hint[p]!, s: s2, point: point, nodeName: hintNodeName)
+                    addHint(n: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
+                }
+                let shrubNodeName = "shrub" + nodeNameSuffix
+                let (b1, b2) = (stateFrom.shrubs.contains(p), stateTo.shrubs.contains(p))
+                if b1 != b2 {
+                    if b1 { removeNode(withName: shrubNodeName) }
+                    if b2 { addImage(imageNamed: "lawn_background", color: .red, colorBlendFactor: 0.0, point: point, nodeName: shrubNodeName) }
                 }
             }
         }

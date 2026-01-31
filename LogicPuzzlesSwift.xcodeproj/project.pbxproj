@@ -74,6 +74,7 @@
 		8C1ACF9B2F2DD1DB004832E2 /* FlowerbedShrubsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF932F2DD1DB004832E2 /* FlowerbedShrubsObject.swift */; };
 		8C1ACF9C2F2DD1DB004832E2 /* FlowerbedShrubsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF922F2DD1DB004832E2 /* FlowerbedShrubsMainViewController.swift */; };
 		8C1ACF9D2F2DD1DB004832E2 /* FlowerbedShrubs.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACF8B2F2DD1DB004832E2 /* FlowerbedShrubs.xml */; };
+		8C1ACF9F2F2DD7FE004832E2 /* lawn_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACF9E2F2DD7FE004832E2 /* lawn_background.png */; };
 		8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */; };
 		8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */; };
 		8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A01DB8DE930056D407 /* AnimatedExample.graffle */; };
@@ -1937,6 +1938,7 @@
 		8C1ACF912F2DD1DB004832E2 /* FlowerbedShrubsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerbedShrubsGridNode.swift; sourceTree = "<group>"; };
 		8C1ACF922F2DD1DB004832E2 /* FlowerbedShrubsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerbedShrubsMainViewController.swift; sourceTree = "<group>"; };
 		8C1ACF932F2DD1DB004832E2 /* FlowerbedShrubsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerbedShrubsObject.swift; sourceTree = "<group>"; };
+		8C1ACF9E2F2DD7FE004832E2 /* lawn_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lawn_background.png; sourceTree = "<group>"; };
 		8C1D169C1DB8DE930056D407 /* BreadthFirstSearch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BreadthFirstSearch.playground; sourceTree = "<group>"; };
 		8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadthFirstSearch.swift; sourceTree = "<group>"; };
 		8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimatedExample.gif; sourceTree = "<group>"; };
@@ -5816,6 +5818,7 @@
 				8C8662AA2EA39DD00078CD64 /* kangaroo.png */,
 				8C8662AB2EA39DD00078CD64 /* kiwi.png */,
 				8C8662AC2EA39DD00078CD64 /* koala.png */,
+				8C1ACF9E2F2DD7FE004832E2 /* lawn_background.png */,
 				8C8662AD2EA39DD00078CD64 /* lemonade_bottle.png */,
 				8C8662AE2EA39DD00078CD64 /* lemur.png */,
 				8C8662AF2EA39DD00078CD64 /* lightbulb_on.png */,
@@ -7391,6 +7394,7 @@
 				8C8663BA2EA39DD00078CD64 /* cup.png in Resources */,
 				8C8663BB2EA39DD00078CD64 /* wall_vertical.png in Resources */,
 				8C8663BC2EA39DD00078CD64 /* shade_2.png in Resources */,
+				8C1ACF9F2F2DD7FE004832E2 /* lawn_background.png in Resources */,
 				8C8663BD2EA39DD00078CD64 /* arrow8.png in Resources */,
 				8C8663BE2EA39DD00078CD64 /* balloon_blue.png in Resources */,
 				8C8663BF2EA39DD00078CD64 /* carrot.png in Resources */,

@@ -16,6 +16,7 @@ class FlowerbedShrubsGameState: GridGameState<FlowerbedShrubsGameMove> {
     override var gameDocument: GameDocumentBase { FlowerbedShrubsDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2state = [Position: HintState]()
+    var shrubs = Set<Position>()
     
     override func copy() -> FlowerbedShrubsGameState {
         let v = FlowerbedShrubsGameState(game: game, isCopy: true)
@@ -96,6 +97,7 @@ class FlowerbedShrubsGameState: GridGameState<FlowerbedShrubsGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
+        var flowerbeds = [[Position]]()
         let g = Graph()
         var pos2node = [Position: Node]()
         for r in 0..<rows - 1 {
@@ -118,41 +120,32 @@ class FlowerbedShrubsGameState: GridGameState<FlowerbedShrubsGameMove> {
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
             let rng = area.filter { p in game.pos2hint[p] != nil }
-            // 2. Each Box must contain one number.
-            if rng.count > 1 {
+            // 1. Divide the board in Flowerbeds of exactly three tiles. Each Flowerbed
+            //    contains a number.
+            let cnt = area.count
+            if rng.isEmpty {
+                if cnt == 1 {
+                    shrubs.insert(area[0])
+                } else {
+                    isSolved = false
+                }
+            } else if rng.count > 1 || cnt != 3 {
                 for p in rng {
                     pos2state[p] = .normal
                 }
-                isSolved = false; continue
+                isSolved = false
+            } else {
+                flowerbeds.append(area)
             }
-            let n1 = area.count
-            var r2 = 0, r1 = rows, c2 = 0, c1 = cols
-            for p in area {
-                if r2 < p.row { r2 = p.row }
-                if r1 > p.row { r1 = p.row }
-                if c2 < p.col { c2 = p.col }
-                if c1 > p.col { c1 = p.col }
-            }
-            let rs = r2 - r1 + 1, cs = c2 - c1 + 1
-            var s: HintState = rs * cs == n1 ? .complete : .error
-            if s != .complete { isSolved = false }
-            // 3. Some tiles can be left unboxed, the board isn't entirely covered by boxes.
-            guard !rng.isEmpty else {continue}
-            func hasLine() -> Bool {
-                for r in r1...r2 {
-                    for c in c1...c2 {
-                        let dotObj = self[r + 1, c + 1]
-                        if r < r2 && dotObj[3] == .line || c < c2 && dotObj[0] == .line { return true }
-                    }
-                }
-                return false
-            }
-            let p2 = rng[0]
-            let n2 = game.pos2hint[p2]!
-            // 1. Just like Box It Up, you have to divide the Board in Boxes (Rectangles).
-            // 2. The number represents the area of that Box.
-            s = s == .complete && n1 == n2 && !hasLine() ? .complete : .error
-            pos2state[p2] = s
+        }
+        // 3. The number on each Flowerbed tells you how many Shrubs are adjacent to it.
+        for area in flowerbeds {
+            let pHint = area.first { game.pos2hint[$0] != nil }!
+            let n1 = game.pos2hint[pHint]!
+            let shrubs2 = Set(area.flatMap { p in FlowerbedShrubsGame.offset.map { p + $0 } }.filter { shrubs.contains($0) })
+            let n2 = shrubs2.count
+            let s: HintState = n1 == n2 ? .complete : .error
+            pos2state[pHint] = s
             if s != .complete { isSolved = false }
         }
     }
