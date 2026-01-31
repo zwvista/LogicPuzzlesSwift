@@ -75,6 +75,15 @@
 		8C1ACF9C2F2DD1DB004832E2 /* FlowerbedShrubsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF922F2DD1DB004832E2 /* FlowerbedShrubsMainViewController.swift */; };
 		8C1ACF9D2F2DD1DB004832E2 /* FlowerbedShrubs.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACF8B2F2DD1DB004832E2 /* FlowerbedShrubs.xml */; };
 		8C1ACF9F2F2DD7FE004832E2 /* lawn_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACF9E2F2DD7FE004832E2 /* lawn_background.png */; };
+		8C1ACFAA2F2DE7A4004832E2 /* PointingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACFA72F2DE7A4004832E2 /* PointingMainViewController.swift */; };
+		8C1ACFAB2F2DE7A4004832E2 /* PointingDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACFA12F2DE7A4004832E2 /* PointingDocument.swift */; };
+		8C1ACFAC2F2DE7A4004832E2 /* PointingGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACFA52F2DE7A4004832E2 /* PointingGameViewController.swift */; };
+		8C1ACFAD2F2DE7A4004832E2 /* PointingGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACFA32F2DE7A4004832E2 /* PointingGameScene.swift */; };
+		8C1ACFAE2F2DE7A4004832E2 /* PointingGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACFA42F2DE7A4004832E2 /* PointingGameState.swift */; };
+		8C1ACFAF2F2DE7A4004832E2 /* PointingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACFA22F2DE7A4004832E2 /* PointingGame.swift */; };
+		8C1ACFB02F2DE7A4004832E2 /* PointingObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACFA82F2DE7A4004832E2 /* PointingObject.swift */; };
+		8C1ACFB12F2DE7A4004832E2 /* PointingGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACFA62F2DE7A4004832E2 /* PointingGridNode.swift */; };
+		8C1ACFB22F2DE7A4004832E2 /* Pointing.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACFA02F2DE7A4004832E2 /* Pointing.xml */; };
 		8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */; };
 		8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */; };
 		8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A01DB8DE930056D407 /* AnimatedExample.graffle */; };
@@ -1939,6 +1948,15 @@
 		8C1ACF922F2DD1DB004832E2 /* FlowerbedShrubsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerbedShrubsMainViewController.swift; sourceTree = "<group>"; };
 		8C1ACF932F2DD1DB004832E2 /* FlowerbedShrubsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerbedShrubsObject.swift; sourceTree = "<group>"; };
 		8C1ACF9E2F2DD7FE004832E2 /* lawn_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lawn_background.png; sourceTree = "<group>"; };
+		8C1ACFA02F2DE7A4004832E2 /* Pointing.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Pointing.xml; sourceTree = "<group>"; };
+		8C1ACFA12F2DE7A4004832E2 /* PointingDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointingDocument.swift; sourceTree = "<group>"; };
+		8C1ACFA22F2DE7A4004832E2 /* PointingGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointingGame.swift; sourceTree = "<group>"; };
+		8C1ACFA32F2DE7A4004832E2 /* PointingGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointingGameScene.swift; sourceTree = "<group>"; };
+		8C1ACFA42F2DE7A4004832E2 /* PointingGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointingGameState.swift; sourceTree = "<group>"; };
+		8C1ACFA52F2DE7A4004832E2 /* PointingGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointingGameViewController.swift; sourceTree = "<group>"; };
+		8C1ACFA62F2DE7A4004832E2 /* PointingGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointingGridNode.swift; sourceTree = "<group>"; };
+		8C1ACFA72F2DE7A4004832E2 /* PointingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointingMainViewController.swift; sourceTree = "<group>"; };
+		8C1ACFA82F2DE7A4004832E2 /* PointingObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointingObject.swift; sourceTree = "<group>"; };
 		8C1D169C1DB8DE930056D407 /* BreadthFirstSearch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BreadthFirstSearch.playground; sourceTree = "<group>"; };
 		8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadthFirstSearch.swift; sourceTree = "<group>"; };
 		8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimatedExample.gif; sourceTree = "<group>"; };
@@ -3863,6 +3881,22 @@
 			path = FlowerbedShrubs;
 			sourceTree = "<group>";
 		};
+		8C1ACFA92F2DE7A4004832E2 /* Pointing */ = {
+			isa = PBXGroup;
+			children = (
+				8C1ACFA02F2DE7A4004832E2 /* Pointing.xml */,
+				8C1ACFA12F2DE7A4004832E2 /* PointingDocument.swift */,
+				8C1ACFA22F2DE7A4004832E2 /* PointingGame.swift */,
+				8C1ACFA32F2DE7A4004832E2 /* PointingGameScene.swift */,
+				8C1ACFA42F2DE7A4004832E2 /* PointingGameState.swift */,
+				8C1ACFA52F2DE7A4004832E2 /* PointingGameViewController.swift */,
+				8C1ACFA62F2DE7A4004832E2 /* PointingGridNode.swift */,
+				8C1ACFA72F2DE7A4004832E2 /* PointingMainViewController.swift */,
+				8C1ACFA82F2DE7A4004832E2 /* PointingObject.swift */,
+			);
+			path = Pointing;
+			sourceTree = "<group>";
+		};
 		8C1D169B1DB8DE930056D407 /* Breadth-First Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -4563,6 +4597,7 @@
 				8CB721C62EAAE62D001B25C5 /* Planks */,
 				8C263F982F2084FE00158A2C /* PleaseComeBack */,
 				8C263E562F11F2A100158A2C /* PlugItIn */,
+				8C1ACFA92F2DE7A4004832E2 /* Pointing */,
 				8C263F852F20425300158A2C /* PondCamping */,
 				8CFB22582F0772C100E5F29D /* PouringWater */,
 				8C3A35661EC88D4100A914A5 /* PowerGrid */,
@@ -7590,6 +7625,7 @@
 				8C3A36A81EC88D4200A914A5 /* LightBattleShips.xml in Resources */,
 				8C9BD5E32F0C0D2A00D1D915 /* InbetweenSumscrapers.xml in Resources */,
 				8C32D8E51FC92B5F00BA2D07 /* RippleEffect.xml in Resources */,
+				8C1ACFB22F2DE7A4004832E2 /* Pointing.xml in Resources */,
 				8C3A36901EC88D4200A914A5 /* FenceSentinels.xml in Resources */,
 				8C8E77C02E871CD2006BBF98 /* FourMeNot.xml in Resources */,
 				8C3A37081EC88D4300A914A5 /* MineShips.xml in Resources */,
@@ -8436,6 +8472,14 @@
 				8C506F121F6D2C9300BA4332 /* SnakeGameState.swift in Sources */,
 				8C3A36C31EC88D4300A914A5 /* LighthousesGameScene.swift in Sources */,
 				8C3A36441EC88D4200A914A5 /* BridgesMainViewController.swift in Sources */,
+				8C1ACFAA2F2DE7A4004832E2 /* PointingMainViewController.swift in Sources */,
+				8C1ACFAB2F2DE7A4004832E2 /* PointingDocument.swift in Sources */,
+				8C1ACFAC2F2DE7A4004832E2 /* PointingGameViewController.swift in Sources */,
+				8C1ACFAD2F2DE7A4004832E2 /* PointingGameScene.swift in Sources */,
+				8C1ACFAE2F2DE7A4004832E2 /* PointingGameState.swift in Sources */,
+				8C1ACFAF2F2DE7A4004832E2 /* PointingGame.swift in Sources */,
+				8C1ACFB02F2DE7A4004832E2 /* PointingObject.swift in Sources */,
+				8C1ACFB12F2DE7A4004832E2 /* PointingGridNode.swift in Sources */,
 				8C9F325C1ED1FAF600E10965 /* PataGameState.swift in Sources */,
 				8C5368841EA1DFCC0071D475 /* GridObject.swift in Sources */,
 				8C6A36131FAF97AF00D2804D /* TheOddBrickGameState.swift in Sources */,
