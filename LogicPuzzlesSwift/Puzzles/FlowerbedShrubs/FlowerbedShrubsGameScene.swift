@@ -32,7 +32,7 @@ class FlowerbedShrubsGameScene: GameScene<FlowerbedShrubsGameState> {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
-            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
+            addHint(n: n, s: state.pos2stateHint[p]!, point: point, nodeName: hintNodeName)
         }
         
         for r in 0..<game.rows {
@@ -71,16 +71,17 @@ class FlowerbedShrubsGameScene: GameScene<FlowerbedShrubsGameState> {
                 }
                 let hintNodeName = "hint" + nodeNameSuffix
                 func removeHint() { removeNode(withName: hintNodeName) }
-                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                let (s1, s2) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
                 if s1 != s2 {
                     removeHint()
                     addHint(n: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
                 }
                 let shrubNodeName = "shrub" + nodeNameSuffix
                 let (b1, b2) = (stateFrom.shrubs.contains(p), stateTo.shrubs.contains(p))
-                if b1 != b2 {
+                let (s3, s4) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
+                if b1 != b2 || s3 != s4 {
                     if b1 { removeNode(withName: shrubNodeName) }
-                    if b2 { addImage(imageNamed: "lawn_background", color: .red, colorBlendFactor: 0.0, point: point, nodeName: shrubNodeName) }
+                    if b2 { addImage(imageNamed: "lawn_background", color: .red, colorBlendFactor: s4 == .normal ? 0.0 : 0.5, point: point, nodeName: shrubNodeName) }
                 }
             }
         }

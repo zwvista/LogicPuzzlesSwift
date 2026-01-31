@@ -15,8 +15,9 @@ class FlowerbedShrubsGameState: GridGameState<FlowerbedShrubsGameMove> {
     }
     override var gameDocument: GameDocumentBase { FlowerbedShrubsDocument.sharedInstance }
     var objArray = [GridDotObject]()
-    var pos2state = [Position: HintState]()
+    var pos2stateHint = [Position: HintState]()
     var shrubs = Set<Position>()
+    var pos2stateAllowed = [Position: AllowedObjectState]()
     
     override func copy() -> FlowerbedShrubsGameState {
         let v = FlowerbedShrubsGameState(game: game, isCopy: true)
@@ -131,12 +132,18 @@ class FlowerbedShrubsGameState: GridGameState<FlowerbedShrubsGameMove> {
                 }
             } else if rng.count > 1 || cnt != 3 {
                 for p in rng {
-                    pos2state[p] = .normal
+                    pos2stateHint[p] = .normal
                 }
                 isSolved = false
             } else {
                 flowerbeds.append(area)
             }
+        }
+        // 2. Single tiles left outside Flowerbeds are Shrubs. Shrubs cannot touch
+        //    each other orthogonally.
+        for p in shrubs {
+            let rng = FlowerbedShrubsGame.offset.map { p + $0 }.filter { shrubs.contains($0) }
+            pos2stateAllowed[p] = rng.isEmpty ? .normal : .error
         }
         // 3. The number on each Flowerbed tells you how many Shrubs are adjacent to it.
         for area in flowerbeds {
@@ -145,7 +152,7 @@ class FlowerbedShrubsGameState: GridGameState<FlowerbedShrubsGameMove> {
             let shrubs2 = Set(area.flatMap { p in FlowerbedShrubsGame.offset.map { p + $0 } }.filter { shrubs.contains($0) })
             let n2 = shrubs2.count
             let s: HintState = n1 == n2 ? .complete : .error
-            pos2state[pHint] = s
+            pos2stateHint[pHint] = s
             if s != .complete { isSolved = false }
         }
     }
