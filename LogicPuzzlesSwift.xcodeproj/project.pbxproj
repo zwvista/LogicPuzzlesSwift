@@ -65,6 +65,15 @@
 		8C1ACF882F2D7548004832E2 /* FlowerBedsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF7B2F2D7548004832E2 /* FlowerBedsGameScene.swift */; };
 		8C1ACF892F2D7548004832E2 /* FlowerBedsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF7E2F2D7548004832E2 /* FlowerBedsGridNode.swift */; };
 		8C1ACF8A2F2D7548004832E2 /* FlowerBeds.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACF782F2D7548004832E2 /* FlowerBeds.xml */; };
+		8C1ACF952F2DD1DB004832E2 /* FlowerbedShrubsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF8E2F2DD1DB004832E2 /* FlowerbedShrubsGameScene.swift */; };
+		8C1ACF962F2DD1DB004832E2 /* FlowerbedShrubsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF902F2DD1DB004832E2 /* FlowerbedShrubsGameViewController.swift */; };
+		8C1ACF972F2DD1DB004832E2 /* FlowerbedShrubsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF8F2F2DD1DB004832E2 /* FlowerbedShrubsGameState.swift */; };
+		8C1ACF982F2DD1DB004832E2 /* FlowerbedShrubsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF8C2F2DD1DB004832E2 /* FlowerbedShrubsDocument.swift */; };
+		8C1ACF992F2DD1DB004832E2 /* FlowerbedShrubsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF8D2F2DD1DB004832E2 /* FlowerbedShrubsGame.swift */; };
+		8C1ACF9A2F2DD1DB004832E2 /* FlowerbedShrubsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF912F2DD1DB004832E2 /* FlowerbedShrubsGridNode.swift */; };
+		8C1ACF9B2F2DD1DB004832E2 /* FlowerbedShrubsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF932F2DD1DB004832E2 /* FlowerbedShrubsObject.swift */; };
+		8C1ACF9C2F2DD1DB004832E2 /* FlowerbedShrubsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF922F2DD1DB004832E2 /* FlowerbedShrubsMainViewController.swift */; };
+		8C1ACF9D2F2DD1DB004832E2 /* FlowerbedShrubs.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C1ACF8B2F2DD1DB004832E2 /* FlowerbedShrubs.xml */; };
 		8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */; };
 		8C1D16AE1DB8DE930056D407 /* AnimatedExample.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */; };
 		8C1D16AF1DB8DE930056D407 /* AnimatedExample.graffle in Resources */ = {isa = PBXBuildFile; fileRef = 8C1D16A01DB8DE930056D407 /* AnimatedExample.graffle */; };
@@ -1919,6 +1928,15 @@
 		8C1ACF7E2F2D7548004832E2 /* FlowerBedsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerBedsGridNode.swift; sourceTree = "<group>"; };
 		8C1ACF7F2F2D7548004832E2 /* FlowerBedsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerBedsMainViewController.swift; sourceTree = "<group>"; };
 		8C1ACF802F2D7548004832E2 /* FlowerBedsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerBedsObject.swift; sourceTree = "<group>"; };
+		8C1ACF8B2F2DD1DB004832E2 /* FlowerbedShrubs.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FlowerbedShrubs.xml; sourceTree = "<group>"; };
+		8C1ACF8C2F2DD1DB004832E2 /* FlowerbedShrubsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerbedShrubsDocument.swift; sourceTree = "<group>"; };
+		8C1ACF8D2F2DD1DB004832E2 /* FlowerbedShrubsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerbedShrubsGame.swift; sourceTree = "<group>"; };
+		8C1ACF8E2F2DD1DB004832E2 /* FlowerbedShrubsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerbedShrubsGameScene.swift; sourceTree = "<group>"; };
+		8C1ACF8F2F2DD1DB004832E2 /* FlowerbedShrubsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerbedShrubsGameState.swift; sourceTree = "<group>"; };
+		8C1ACF902F2DD1DB004832E2 /* FlowerbedShrubsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerbedShrubsGameViewController.swift; sourceTree = "<group>"; };
+		8C1ACF912F2DD1DB004832E2 /* FlowerbedShrubsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerbedShrubsGridNode.swift; sourceTree = "<group>"; };
+		8C1ACF922F2DD1DB004832E2 /* FlowerbedShrubsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerbedShrubsMainViewController.swift; sourceTree = "<group>"; };
+		8C1ACF932F2DD1DB004832E2 /* FlowerbedShrubsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerbedShrubsObject.swift; sourceTree = "<group>"; };
 		8C1D169C1DB8DE930056D407 /* BreadthFirstSearch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BreadthFirstSearch.playground; sourceTree = "<group>"; };
 		8C1D169D1DB8DE930056D407 /* BreadthFirstSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadthFirstSearch.swift; sourceTree = "<group>"; };
 		8C1D169F1DB8DE930056D407 /* AnimatedExample.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimatedExample.gif; sourceTree = "<group>"; };
@@ -3827,6 +3845,22 @@
 			path = FlowerBeds;
 			sourceTree = "<group>";
 		};
+		8C1ACF942F2DD1DB004832E2 /* FlowerbedShrubs */ = {
+			isa = PBXGroup;
+			children = (
+				8C1ACF8B2F2DD1DB004832E2 /* FlowerbedShrubs.xml */,
+				8C1ACF8C2F2DD1DB004832E2 /* FlowerbedShrubsDocument.swift */,
+				8C1ACF8D2F2DD1DB004832E2 /* FlowerbedShrubsGame.swift */,
+				8C1ACF8E2F2DD1DB004832E2 /* FlowerbedShrubsGameScene.swift */,
+				8C1ACF8F2F2DD1DB004832E2 /* FlowerbedShrubsGameState.swift */,
+				8C1ACF902F2DD1DB004832E2 /* FlowerbedShrubsGameViewController.swift */,
+				8C1ACF912F2DD1DB004832E2 /* FlowerbedShrubsGridNode.swift */,
+				8C1ACF922F2DD1DB004832E2 /* FlowerbedShrubsMainViewController.swift */,
+				8C1ACF932F2DD1DB004832E2 /* FlowerbedShrubsObject.swift */,
+			);
+			path = FlowerbedShrubs;
+			sourceTree = "<group>";
+		};
 		8C1D169B1DB8DE930056D407 /* Breadth-First Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -4459,6 +4493,7 @@
 				8CCFC4482F262F5000546A04 /* FingerPointing */,
 				8C263E912F13E06C00158A2C /* FloorPlan */,
 				8C1ACF812F2D7548004832E2 /* FlowerBeds */,
+				8C1ACF942F2DD1DB004832E2 /* FlowerbedShrubs */,
 				8C74745A1FBEFD5700C4112C /* FourMeNot */,
 				8C9BD5122F0A32CA00D1D915 /* FreePlanks */,
 				8C263F392F1D0DB100158A2C /* FunnyNumbers */,
@@ -7204,6 +7239,7 @@
 				8C86633F2EA39DD00078CD64 /* arrow_red_right.png in Resources */,
 				8C8663402EA39DD00078CD64 /* cocktail.png in Resources */,
 				8C8663412EA39DD00078CD64 /* scales.png in Resources */,
+				8C1ACF9D2F2DD1DB004832E2 /* FlowerbedShrubs.xml in Resources */,
 				8C8663422EA39DD00078CD64 /* squirrel.png in Resources */,
 				8C8663432EA39DD00078CD64 /* shade_3.png in Resources */,
 				8C8663442EA39DD00078CD64 /* add.png in Resources */,
@@ -7732,6 +7768,14 @@
 				8C3A37A91EC88D4400A914A5 /* SkyscrapersGameViewController.swift in Sources */,
 				8C9BD5132F0A32CA00D1D915 /* FreePlanksGameViewController.swift in Sources */,
 				8C9BD5142F0A32CA00D1D915 /* FreePlanksDocument.swift in Sources */,
+				8C1ACF952F2DD1DB004832E2 /* FlowerbedShrubsGameScene.swift in Sources */,
+				8C1ACF962F2DD1DB004832E2 /* FlowerbedShrubsGameViewController.swift in Sources */,
+				8C1ACF972F2DD1DB004832E2 /* FlowerbedShrubsGameState.swift in Sources */,
+				8C1ACF982F2DD1DB004832E2 /* FlowerbedShrubsDocument.swift in Sources */,
+				8C1ACF992F2DD1DB004832E2 /* FlowerbedShrubsGame.swift in Sources */,
+				8C1ACF9A2F2DD1DB004832E2 /* FlowerbedShrubsGridNode.swift in Sources */,
+				8C1ACF9B2F2DD1DB004832E2 /* FlowerbedShrubsObject.swift in Sources */,
+				8C1ACF9C2F2DD1DB004832E2 /* FlowerbedShrubsMainViewController.swift in Sources */,
 				8C9BD5152F0A32CA00D1D915 /* FreePlanksObject.swift in Sources */,
 				8C9BD5162F0A32CA00D1D915 /* FreePlanksMainViewController.swift in Sources */,
 				8C9BD5172F0A32CA00D1D915 /* FreePlanksGameScene.swift in Sources */,
