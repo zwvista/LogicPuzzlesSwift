@@ -9,7 +9,13 @@
 import Foundation
 
 enum FlowerBedsObject: Int {
-    case empty, block, hole
+    case empty, hedge, flower
+}
+
+struct FlowerBedsRect {
+    var area = [Position]()
+    var rows = 0
+    var cols = 0
 }
 
 struct FlowerBedsGameMove {

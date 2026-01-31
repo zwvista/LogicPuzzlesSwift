@@ -14,14 +14,14 @@ class FlowerBedsGameScene: GameScene<FlowerBedsGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addHole(s: HintState, point: CGPoint, nodeName: String) {
-        let holeNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 3)
-        holeNode.position = point
-        holeNode.name = nodeName
-        holeNode.strokeColor = s == .normal ? .white : s == .complete ? .green : .red
-        holeNode.glowWidth = 5.0
-        holeNode.fillColor = .gray
-        gridNode.addChild(holeNode)
+    func addFlower(s: HintState, point: CGPoint, nodeName: String) {
+        let flowerNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 3)
+        flowerNode.position = point
+        flowerNode.name = nodeName
+        flowerNode.strokeColor = s == .normal ? .white : s == .complete ? .green : .red
+        flowerNode.glowWidth = 5.0
+        flowerNode.fillColor = .gray
+        gridNode.addChild(flowerNode)
     }
     
     override func levelInitialized(_ game: AnyObject, state: FlowerBedsGameState, skView: SKView) {
@@ -33,18 +33,18 @@ class FlowerBedsGameScene: GameScene<FlowerBedsGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: FlowerBedsGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset))
         
-        for p in game.blocks {
+        for p in game.hedges {
             let point = gridNode.centerPoint(p: p)
-            let blockNode = SKSpriteNode(color: .gray, size: coloredRectSize())
-            blockNode.position = point
-            blockNode.name = "block"
-            gridNode.addChild(blockNode)
+            let hedgeNode = SKSpriteNode(color: .gray, size: coloredRectSize())
+            hedgeNode.position = point
+            hedgeNode.name = "hedge"
+            gridNode.addChild(hedgeNode)
         }
-        for p in game.holes {
+        for p in game.flowers {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let holeNodeName = "hole" + nodeNameSuffix
-            addHole(s: .normal, point: point, nodeName: holeNodeName)
+            let flowerNodeName = "flower" + nodeNameSuffix
+            addFlower(s: .normal, point: point, nodeName: flowerNodeName)
         }
 
         for r in 0..<game.rows {
@@ -83,14 +83,14 @@ class FlowerBedsGameScene: GameScene<FlowerBedsGameState> {
                 }
             }
         }
-        for p in stateFrom.game.holes {
+        for p in stateFrom.game.flowers {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let holeNodeName = "hole" + nodeNameSuffix
+            let flowerNodeName = "flower" + nodeNameSuffix
             let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
             if s1 != s2 {
-                removeNode(withName: holeNodeName)
-                addHole(s: s2, point: point, nodeName: holeNodeName)
+                removeNode(withName: flowerNodeName)
+                addFlower(s: s2, point: point, nodeName: flowerNodeName)
             }
         }
     }

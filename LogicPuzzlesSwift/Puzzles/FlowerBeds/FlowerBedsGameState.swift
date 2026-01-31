@@ -97,12 +97,15 @@ class FlowerBedsGameState: GridGameState<FlowerBedsGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
+        var rects = [FlowerBedsRect]()
+        var pos2rect = [Position: Int]()
         let g = Graph()
         var pos2node = [Position: Node]()
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                guard game[p] != .block else {continue}
+                // 5. Green squares are hedges that can't be included in flower beds.
+                guard game[p] != .hedge else {continue}
                 pos2node[p] = g.addNode(p.description)
             }
         }
@@ -116,9 +119,10 @@ class FlowerBedsGameState: GridGameState<FlowerBedsGameMove> {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
-            let rng = area.filter { p in game.holes.contains(p) }
-            // 2. They decide each one should have a piece of land of exactly 4 squares,
-            // including one fishing hole.
+            let rng = area.filter { p in game.flowers.contains(p) }
+            // 2. Your task as a gardener is to divide the garden in rectangular (or square)
+            //    flower beds.
+            // 3. Each flower bed should contain exactly one flower.
             if rng.count != 1 {
                 for p in rng {
                     pos2state[p] = .normal
@@ -126,10 +130,35 @@ class FlowerBedsGameState: GridGameState<FlowerBedsGameMove> {
                 isSolved = false; continue
             }
             let p2 = rng[0]
-            let n1 = area.count, n2 = 4
-            let s: HintState = n1 == n2 ? .complete : .error
+            let n1 = area.count
+            var r2 = 0, r1 = rows, c2 = 0, c1 = cols
+            for p in area {
+                if r2 < p.row { r2 = p.row }
+                if r1 > p.row { r1 = p.row }
+                if c2 < p.col { c2 = p.col }
+                if c1 > p.col { c1 = p.col }
+            }
+            let rs = r2 - r1 + 1, cs = c2 - c1 + 1
+            let s: HintState = rs * cs == n1 ? .complete : .error
             pos2state[p2] = s
-            if s != .complete { isSolved = false }
+            if s == .complete {
+                let n = rects.count
+                rects.append(FlowerBedsRect(area: area, rows: rs, cols: cs))
+                for p in area { pos2rect[p] = n }
+            } else {
+                isSolved = false
+            }
         }
+        guard isSolved else {return}
+        if !((0..<rects.count).allSatisfy { n in
+            let rect = rects[n]
+            return rect.area.allSatisfy { p in
+                return FlowerBedsGame.offset.allSatisfy {
+                    guard let n2 = pos2rect[p + $0], n2 != n else { return true }
+                    let rect2 = rects[n2]
+                    return !(rect.rows == rect2.rows && rect.cols == rect2.cols)
+                }
+            }
+        }) { isSolved = false }
     }
 }

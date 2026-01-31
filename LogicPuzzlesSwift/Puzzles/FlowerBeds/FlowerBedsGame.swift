@@ -19,8 +19,8 @@ class FlowerBedsGame: GridGame<FlowerBedsGameState> {
     static let dirs = [1, 0, 3, 2]
     
     var objArray = [FlowerBedsObject]()
-    var blocks = [Position]()
-    var holes = [Position]()
+    var hedges = [Position]()
+    var flowers = [Position]()
     var dots: GridDots!
     
     init(layout: [String], delegate: FlowerBedsGameViewController? = nil) {
@@ -35,9 +35,9 @@ class FlowerBedsGame: GridGame<FlowerBedsGameState> {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
                 switch str[c] {
-                case "B":
-                    self[p] = .block
-                    blocks.append(p)
+                case "H":
+                    self[p] = .hedge
+                    hedges.append(p)
                     dots[r, c][2] = .line
                     dots[r + 1, c][0] = .line
                     dots[r, c + 1][2] = .line
@@ -46,9 +46,9 @@ class FlowerBedsGame: GridGame<FlowerBedsGameState> {
                     dots[r, c + 1][3] = .line
                     dots[r + 1, c][1] = .line
                     dots[r + 1, c + 1][3] = .line
-                case "H":
-                    self[p] = .hole
-                    holes.append(p)
+                case "F":
+                    self[p] = .flower
+                    flowers.append(p)
                 default:
                     break
                 }
