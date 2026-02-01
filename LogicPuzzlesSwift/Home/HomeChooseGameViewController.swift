@@ -31,6 +31,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         "PathOnTheMountains": "Path on the Mountains",
         "PleaseComeBack": "Please come back",
         "PlugItIn": "Plug it in",
+        "PondsAndFlowerbeds": "Ponds and Flowerbeds",
         "PondCamping": "Pond camping",
         "RunInALoop": "Run in a Loop",
         "SheepAndWolves": "Sheep & Wolves",
