@@ -14,8 +14,8 @@ class AssemblyInstructionsGameScene: GameScene<AssemblyInstructionsGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+    func addHint(ch: Character, s: HintState, point: CGPoint, nodeName: String) {
+        addLabel(text: String(ch), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: AssemblyInstructionsGameState, skView: SKView) {
@@ -28,11 +28,11 @@ class AssemblyInstructionsGameScene: GameScene<AssemblyInstructionsGameState> {
         addGrid(gridNode: AssemblyInstructionsGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset))
         
         // add Hints
-        for (p, n) in game.pos2hint {
+        for (p, ch) in game.pos2hint {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
-            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
+            addHint(ch: ch, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
         }
         
         for r in 0..<game.rows {
@@ -74,7 +74,7 @@ class AssemblyInstructionsGameScene: GameScene<AssemblyInstructionsGameState> {
                 guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
                 if s1 != s2 {
                     removeHint()
-                    addHint(n: stateFrom.game.pos2hint[p]!, s: s2, point: point, nodeName: hintNodeName)
+                    addHint(ch: stateFrom.game.pos2hint[p]!, s: s2, point: point, nodeName: hintNodeName)
                 }
             }
         }

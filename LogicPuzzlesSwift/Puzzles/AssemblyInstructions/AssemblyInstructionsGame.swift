@@ -19,7 +19,8 @@ class AssemblyInstructionsGame: GridGame<AssemblyInstructionsGameState> {
     static let dirs = [1, 0, 3, 2]
     
     var objArray = [GridDotObject]()
-    var pos2hint = [Position: Int]()
+    var pos2hint = [Position: Character]()
+    var ch2rng = [Character: [Position]]()
     
     init(layout: [String], delegate: AssemblyInstructionsGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -33,8 +34,8 @@ class AssemblyInstructionsGame: GridGame<AssemblyInstructionsGameState> {
                 let p = Position(r, c)
                 let ch = str[c]
                 guard ch != " " else {continue}
-                let n = ch.toInt!
-                pos2hint[p] = n
+                pos2hint[p] = ch
+                ch2rng[ch, default: []].append(p)
             }
         }
         for r in 0..<rows - 1 {

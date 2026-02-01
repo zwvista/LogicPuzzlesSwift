@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct AssemblyInstructionsPart: Hashable {
+    var part = [Position]()
+    var hint = Position()
+}
+
 struct AssemblyInstructionsGameMove {
     var p = Position()
     var dir = 0

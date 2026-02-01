@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import OrderedCollections
 
 class AssemblyInstructionsGameState: GridGameState<AssemblyInstructionsGameMove> {
     var game: AssemblyInstructionsGame {
@@ -98,6 +99,7 @@ class AssemblyInstructionsGameState: GridGameState<AssemblyInstructionsGameMove>
     */
     private func updateIsSolved() {
         isSolved = true
+        var ch2areas = [Character: [[Position]]]()
         let g = Graph()
         var pos2node = [Position: Node]()
         for r in 0..<rows - 1 {
@@ -120,42 +122,43 @@ class AssemblyInstructionsGameState: GridGameState<AssemblyInstructionsGameMove>
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
             let rng = area.filter { p in game.pos2hint[p] != nil }
-            // 2. Each Box must contain one number.
-            if rng.count > 1 {
+            // 1. Divide the board so that every letter corresponds to a 'part'
+            if rng.count != 1 {
                 for p in rng {
                     pos2state[p] = .normal
                 }
                 isSolved = false; continue
             }
-            let n1 = area.count
-            var r2 = 0, r1 = rows, c2 = 0, c1 = cols
-            for p in area {
-                if r2 < p.row { r2 = p.row }
-                if r1 > p.row { r1 = p.row }
-                if c2 < p.col { c2 = p.col }
-                if c1 > p.col { c1 = p.col }
-            }
-            let rs = r2 - r1 + 1, cs = c2 - c1 + 1
-            var s: HintState = rs * cs == n1 ? .complete : .error
-            if s != .complete { isSolved = false }
-            // 3. Some tiles can be left unboxed, the board isn't entirely covered by boxes.
-            guard !rng.isEmpty else {continue}
-            func hasLine() -> Bool {
-                for r in r1...r2 {
-                    for c in c1...c2 {
-                        let dotObj = self[r + 1, c + 1]
-                        if r < r2 && dotObj[3] == .line || c < c2 && dotObj[0] == .line { return true }
-                    }
+            let ch = game.pos2hint[rng[0]]!
+            ch2areas[ch, default: []].append(area)
+        }
+        for (ch, areas) in ch2areas {
+            if areas.count != game.ch2rng[ch]!.count {
+                isSolved = false
+                for area in areas {
+                    let pHint = area.first { game.pos2hint[$0] != nil }!
+                    pos2state[pHint] = .normal
                 }
-                return false
+                continue
             }
-            let p2 = rng[0]
-            let n2 = game.pos2hint[p2]!
-            // 1. Just like Box It Up, you have to divide the Board in Boxes (Rectangles).
-            // 2. The number represents the area of that Box.
-            s = s == .complete && n1 == n2 && !hasLine() ? .complete : .error
-            pos2state[p2] = s
+            // 1. every letter corresponds to a 'part' which
+            // has the same shape and orientation everywhere it is found.
+            let cnt = Set(areas.map { area in
+                var r1 = rows, c1 = cols
+                for p in area {
+                    if r1 > p.row { r1 = p.row }
+                    if c1 > p.col { c1 = p.col }
+                }
+                let p1 = Position(r1, c1)
+                let pHint = area.first { game.pos2hint[$0] != nil }!
+                return AssemblyInstructionsPart(part: area.map { $0 - p1 }.sorted(), hint: pHint - p1)
+            }).count
+            let s: HintState = cnt == 1 ? .complete : .error
             if s != .complete { isSolved = false }
+            for area in areas {
+                let pHint = area.first { game.pos2hint[$0] != nil }!
+                pos2state[pHint] = s
+            }
         }
     }
 }
