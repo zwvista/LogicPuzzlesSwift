@@ -15,7 +15,8 @@ class CrosstownTrafficGameState: GridGameState<CrosstownTrafficGameMove> {
     }
     override var gameDocument: GameDocumentBase { CrosstownTrafficDocument.sharedInstance }
     var objArray = [CrosstownTrafficObject]()
-    
+    var pos2state = [Position: HintState]()
+
     override func copy() -> CrosstownTrafficGameState {
         let v = CrosstownTrafficGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -30,7 +31,7 @@ class CrosstownTrafficGameState: GridGameState<CrosstownTrafficGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<CrosstownTrafficObject>(repeating: .empty, count: rows * cols)
-        for (p, _) in game.pos2hint { self[p] = .hint() }
+        for (p, _) in game.pos2hint { self[p] = .hint }
         updateIsSolved()
     }
     
@@ -45,30 +46,40 @@ class CrosstownTrafficGameState: GridGameState<CrosstownTrafficGameMove> {
     
     override func setObject(move: inout CrosstownTrafficGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p), self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }
     
     override func switchObject(move: inout CrosstownTrafficGameMove) -> GameOperationType {
+        let p = move.p
+        guard isValid(p: p) else { return .invalid }
         let markerOption = MarkerOptions(rawValue: self.markerOption)
         func f(o: CrosstownTrafficObject) -> CrosstownTrafficObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .pebble
-            case .pebble:
-                return .gem()
-            case .gem:
+                return markerOption == .markerFirst ? .marker : .upright
+            case .upright:
+                return .downright
+            case .downright:
+                return .leftdown
+            case .leftdown:
+                return .leftup
+            case .leftup:
+                return .horizontal
+            case .horizontal:
+                return .vertical
+            case .vertical:
+                return .cross
+            case .cross:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .pebble : .empty
+                return markerOption == .markerFirst ? .upright : .empty
             default:
                 return o
             }
         }
-        let p = move.p
-        guard isValid(p: p) else { return .invalid }
         move.obj = f(o: self[p])
         return setObject(move: &move)
     }
@@ -93,53 +104,123 @@ class CrosstownTrafficGameState: GridGameState<CrosstownTrafficGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        func f(_ r: Int, _ c: Int) -> Bool {
-            let str = self[r, c].toString()
-            return str == "gem" || str == "pebble"
-        }
+        var pos2dirs = [Position: [Int]]()
         for r in 1..<rows - 1 {
-            let (p1, p2) = (Position(r, 0), Position(r, cols - 1))
-            let (h1, h2) = (game.pos2hint[p1]!, game.pos2hint[p2]!)
-            let gems = (1..<cols - 1).map { Position(r, $0) }.filter { self[$0].toString() == "gem" }
-            if gems.count == 1 {
-                // 1. The board contains one Sapphire (Blue Gem) on each row and column.
-                let p = gems.first!, c = p.col
-                self[p] = .gem()
-                // 2. There are also a random amount of Pebbles (in White) on the board.
-                // 3. A number on the border tells you how many stones you can see from
-                //    there, up to and including the Sapphire.
-                // 4. The Sapphire (blue) hide the Pebbles (white) behind them.
-                let (n1, n2) = ((1...c).count { f(r, $0) }, (c..<cols - 1).count { f(r, $0) })
-                let s1: HintState = n1 < h1 ? .normal : n1 == h1 ? .complete : .error
-                let s2: HintState = n2 < h2 ? .normal : n2 == h2 ? .complete : .error
-                self[p1] = .hint(state: s1); self[p2] = .hint(state: s2)
-                if s1 != .complete || s2 != .complete { isSolved = false }
-            } else {
-                isSolved = false
-                gems.forEach { self[$0] = .gem(state: .error) }
+            for c in 1..<cols - 1 {
+                let p = Position(r, c)
+                switch self[p] {
+                case .upright:
+                    pos2dirs[p] = [0, 1]
+                case .downright:
+                    pos2dirs[p] = [1, 2]
+                case .leftdown:
+                    pos2dirs[p] = [2, 3]
+                case .leftup:
+                    pos2dirs[p] = [0, 3]
+                case .horizontal:
+                    pos2dirs[p] = [1, 3]
+                case .vertical:
+                    pos2dirs[p] = [0, 2]
+                case .cross:
+                    pos2dirs[p] = [0, 1, 2, 3]
+                default:
+                    break
+                }
             }
+        }
+        // 3. The numbers along the edge indicate the stretch of the nearest section
+        //    of road from that point, in corresponding row or column.
+        for r in 1..<rows - 1 {
+            var n1 = 0
+            var pHint = Position(r, 0)
+            var n2 = game.pos2hint[pHint]!
+            for c in 1..<cols - 1 {
+                let dirs = pos2dirs[Position(r, c)] ?? []
+                let (b1, b2) = (dirs.contains(1), dirs.contains(3))
+                if b1 && !b2 && n1 == 0 || b1 && b2 && n1 > 0 {
+                    n1 += 1
+                } else if !b1 && b2 && n1 > 0 {
+                    n1 += 1
+                    break
+                } else if n1 > 0 {
+                    break
+                }
+            }
+            var s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            pos2state[pHint] = s
+            if s != .complete { isSolved = false }
+            n1 = 0
+            pHint = Position(r, cols - 1)
+            n2 = game.pos2hint[pHint]!
+            for c in stride(from: cols - 2, through: 1, by: -1) {
+                let dirs = pos2dirs[Position(r, c)] ?? []
+                let (b1, b2) = (dirs.contains(3), dirs.contains(1))
+                if b1 && !b2 && n1 == 0 || b1 && b2 && n1 > 0 {
+                    n1 += 1
+                } else if !b1 && b2 && n1 > 0 {
+                    n1 += 1
+                    break
+                } else if n1 > 0 {
+                    break
+                }
+            }
+            s = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            pos2state[pHint] = s
+            if s != .complete { isSolved = false }
         }
         for c in 1..<cols - 1 {
-            let (p1, p2) = (Position(0, c), Position(rows - 1, c))
-            let (h1, h2) = (game.pos2hint[p1]!, game.pos2hint[p2]!)
-            let gems = (1..<rows - 1).map { Position($0, c) }.filter { self[$0].toString() == "gem" }
-            if gems.count == 1 {
-                // 1. The board contains one Sapphire (Blue Gem) on each row and column.
-                let p = gems.first!, r = p.row
-                self[p] = .gem()
-                // 2. There are also a random amount of Pebbles (in White) on the board.
-                // 3. A number on the border tells you how many stones you can see from
-                //    there, up to and including the Sapphire.
-                // 4. The Sapphire (blue) hide the Pebbles (white) behind them.
-                let (n1, n2) = ((1...r).count { f($0, c) }, (r..<rows - 1).count { f($0, c) })
-                let s1: HintState = n1 < h1 ? .normal : n1 == h1 ? .complete : .error
-                let s2: HintState = n2 < h2 ? .normal : n2 == h2 ? .complete : .error
-                self[p1] = .hint(state: s1); self[p2] = .hint(state: s2)
-                if s1 != .complete || s2 != .complete { isSolved = false }
-            } else {
-                isSolved = false
-                gems.forEach { self[$0] = .gem(state: .error) }
+            var n1 = 0
+            var pHint = Position(0, c)
+            var n2 = game.pos2hint[pHint]!
+            for r in 1..<rows - 1 {
+                let dirs = pos2dirs[Position(r, c)] ?? []
+                let (b1, b2) = (dirs.contains(2), dirs.contains(0))
+                if b1 && !b2 && n1 == 0 || b1 && b2 && n1 > 0 {
+                    n1 += 1
+                } else if !b1 && b2 && n1 > 0 {
+                    n1 += 1
+                    break
+                } else if n1 > 0 {
+                    break
+                }
             }
+            var s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            pos2state[pHint] = s
+            if s != .complete { isSolved = false }
+            n1 = 0
+            pHint = Position(rows - 1, c)
+            n2 = game.pos2hint[pHint]!
+            for r in stride(from: rows - 2, through: 1, by: -1) {
+                let dirs = pos2dirs[Position(r, c)] ?? []
+                let (b1, b2) = (dirs.contains(0), dirs.contains(2))
+                if b1 && !b2 && n1 == 0 || b1 && b2 && n1 > 0 {
+                    n1 += 1
+                } else if !b1 && b2 && n1 > 0 {
+                    n1 += 1
+                    break
+                } else if n1 > 0 {
+                    break
+                }
+            }
+            s = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            pos2state[pHint] = s
+            if s != .complete { isSolved = false }
+        }
+        guard isSolved else {return}
+        // Check the loop
+        let p = pos2dirs.keys.first!
+        var p2 = p, n = -1
+        while true {
+            guard var dirs = pos2dirs[p2] else { isSolved = false; return }
+            if dirs.count == 2 {
+                pos2dirs.removeValue(forKey: p2)
+                n = dirs.first { ($0 + 2) % 4 != n }!
+            } else {
+                dirs.removeAll(n)
+                dirs.removeAll((n + 2) % 4)
+            }
+            p2 += CrosstownTrafficGame.offset[n]
+            guard p2 != p else {break}
         }
     }
 }

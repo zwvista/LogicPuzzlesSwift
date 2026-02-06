@@ -48,24 +48,19 @@ class CrosstownTrafficGameScene: GameScene<CrosstownTrafficGameState> {
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let tileNodeName = "tile" + nodeNameSuffix
-                let n = stateFrom.game.pos2hint[p]
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                guard String(describing: o1) != String(describing: o2) else {continue}
-                removeNode(withName: tileNodeName)
-                func f(imageName: String, s: AllowedObjectState) {
-                    addImage(imageNamed: imageName, color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: tileNodeName)
-                }
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard o1 != o2 || s1 != s2 else {continue}
+                if o1 != .empty { removeNode(withName: tileNodeName) }
                 switch o2 {
-                case .gem(let s):
-                    f(imageName: "bullet_ball_glass_blue", s: s)
-                case .hint(let s):
-                    addHint(n: n!, s: s, point: point, nodeName: tileNodeName)
+                case .empty:
+                    break
+                case .hint:
+                    addHint(n: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: tileNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: tileNodeName)
-                case .pebble:
-                    f(imageName: "bullet_ball_glass_grey", s: .normal)
                 default:
-                    break
+                    addImage(imageNamed: "road_\(String(describing: o2))", color: .red, colorBlendFactor: 0.0, point: point, nodeName: tileNodeName)
                 }
             }
         }

@@ -13,10 +13,10 @@ class CrosstownTrafficDocument: GameDocument<CrosstownTrafficGameMove> {
     
     override func saveMove(_ move: CrosstownTrafficGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> CrosstownTrafficGameMove {
-        CrosstownTrafficGameMove(p: Position(rec.row, rec.col), obj: CrosstownTrafficObject.fromString(str: rec.strValue1!))
+        CrosstownTrafficGameMove(p: Position(rec.row, rec.col), obj: CrosstownTrafficObject(rawValue: rec.intValue1)!)
     }
 }
