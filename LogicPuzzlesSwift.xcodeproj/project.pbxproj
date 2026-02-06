@@ -1787,6 +1787,15 @@
 		8CE9C3151F7914B800134093 /* KakurasuGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE9C30A1F7914B800134093 /* KakurasuGridNode.swift */; };
 		8CE9C3171F7914B800134093 /* KakurasuMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE9C30C1F7914B800134093 /* KakurasuMainViewController.swift */; };
 		8CE9C3181F7914B800134093 /* KakurasuObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE9C30D1F7914B800134093 /* KakurasuObject.swift */; };
+		8CF17F762F367FE0000F1F7D /* CrosstownTrafficDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F6D2F367FE0000F1F7D /* CrosstownTrafficDocument.swift */; };
+		8CF17F772F367FE0000F1F7D /* CrosstownTrafficGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F712F367FE0000F1F7D /* CrosstownTrafficGameViewController.swift */; };
+		8CF17F782F367FE0000F1F7D /* CrosstownTrafficGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F6E2F367FE0000F1F7D /* CrosstownTrafficGame.swift */; };
+		8CF17F792F367FE0000F1F7D /* CrosstownTrafficGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F722F367FE0000F1F7D /* CrosstownTrafficGridNode.swift */; };
+		8CF17F7A2F367FE0000F1F7D /* CrosstownTrafficGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F702F367FE0000F1F7D /* CrosstownTrafficGameState.swift */; };
+		8CF17F7B2F367FE0000F1F7D /* CrosstownTrafficMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F732F367FE0000F1F7D /* CrosstownTrafficMainViewController.swift */; };
+		8CF17F7C2F367FE0000F1F7D /* CrosstownTrafficGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F6F2F367FE0000F1F7D /* CrosstownTrafficGameScene.swift */; };
+		8CF17F7D2F367FE0000F1F7D /* CrosstownTrafficObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F742F367FE0000F1F7D /* CrosstownTrafficObject.swift */; };
+		8CF17F7E2F367FE0000F1F7D /* CrosstownTraffic.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17F6C2F367FE0000F1F7D /* CrosstownTraffic.xml */; };
 		8CF3FFD51FCB2A2700D41B67 /* DisconnectFourGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */; };
 		8CF3FFD61FCB2A2700D41B67 /* DisconnectFourGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */; };
 		8CF3FFD71FCB2A2700D41B67 /* DisconnectFour.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */; };
@@ -3687,6 +3696,15 @@
 		8CE9C30A1F7914B800134093 /* KakurasuGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakurasuGridNode.swift; sourceTree = "<group>"; };
 		8CE9C30C1F7914B800134093 /* KakurasuMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakurasuMainViewController.swift; sourceTree = "<group>"; };
 		8CE9C30D1F7914B800134093 /* KakurasuObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakurasuObject.swift; sourceTree = "<group>"; };
+		8CF17F6C2F367FE0000F1F7D /* CrosstownTraffic.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CrosstownTraffic.xml; sourceTree = "<group>"; };
+		8CF17F6D2F367FE0000F1F7D /* CrosstownTrafficDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrosstownTrafficDocument.swift; sourceTree = "<group>"; };
+		8CF17F6E2F367FE0000F1F7D /* CrosstownTrafficGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrosstownTrafficGame.swift; sourceTree = "<group>"; };
+		8CF17F6F2F367FE0000F1F7D /* CrosstownTrafficGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrosstownTrafficGameScene.swift; sourceTree = "<group>"; };
+		8CF17F702F367FE0000F1F7D /* CrosstownTrafficGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrosstownTrafficGameState.swift; sourceTree = "<group>"; };
+		8CF17F712F367FE0000F1F7D /* CrosstownTrafficGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrosstownTrafficGameViewController.swift; sourceTree = "<group>"; };
+		8CF17F722F367FE0000F1F7D /* CrosstownTrafficGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrosstownTrafficGridNode.swift; sourceTree = "<group>"; };
+		8CF17F732F367FE0000F1F7D /* CrosstownTrafficMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrosstownTrafficMainViewController.swift; sourceTree = "<group>"; };
+		8CF17F742F367FE0000F1F7D /* CrosstownTrafficObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrosstownTrafficObject.swift; sourceTree = "<group>"; };
 		8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameState.swift; sourceTree = "<group>"; };
 		8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameScene.swift; sourceTree = "<group>"; };
 		8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DisconnectFour.xml; sourceTree = "<group>"; };
@@ -4564,6 +4582,7 @@
 				8C3A342E1EC88D4100A914A5 /* Clouds */,
 				8C81BC222EA8A6BD0083B936 /* CoffeeAndSugar */,
 				8C263F5F2F1E7DE600158A2C /* CrossroadsX */,
+				8CF17F752F367FE0000F1F7D /* CrosstownTraffic */,
 				8C263E7E2F13DC5200158A2C /* CulturedBranches */,
 				8C81BC352EA8EF030083B936 /* DesertDunes */,
 				8C3A343B1EC88D4100A914A5 /* DigitalBattleShips */,
@@ -6990,6 +7009,22 @@
 			path = Kakurasu;
 			sourceTree = "<group>";
 		};
+		8CF17F752F367FE0000F1F7D /* CrosstownTraffic */ = {
+			isa = PBXGroup;
+			children = (
+				8CF17F6C2F367FE0000F1F7D /* CrosstownTraffic.xml */,
+				8CF17F6D2F367FE0000F1F7D /* CrosstownTrafficDocument.swift */,
+				8CF17F6E2F367FE0000F1F7D /* CrosstownTrafficGame.swift */,
+				8CF17F6F2F367FE0000F1F7D /* CrosstownTrafficGameScene.swift */,
+				8CF17F702F367FE0000F1F7D /* CrosstownTrafficGameState.swift */,
+				8CF17F712F367FE0000F1F7D /* CrosstownTrafficGameViewController.swift */,
+				8CF17F722F367FE0000F1F7D /* CrosstownTrafficGridNode.swift */,
+				8CF17F732F367FE0000F1F7D /* CrosstownTrafficMainViewController.swift */,
+				8CF17F742F367FE0000F1F7D /* CrosstownTrafficObject.swift */,
+			);
+			path = CrosstownTraffic;
+			sourceTree = "<group>";
+		};
 		8CF3FFC71FCB2A2600D41B67 /* DisconnectFour */ = {
 			isa = PBXGroup;
 			children = (
@@ -7621,6 +7656,7 @@
 				8C86641C2EA39DD00078CD64 /* bullet_ball_glass_blue.png in Resources */,
 				8C86641D2EA39DD00078CD64 /* tetris_red.png in Resources */,
 				8C86641E2EA39DD00078CD64 /* shade_5.png in Resources */,
+				8CF17F7E2F367FE0000F1F7D /* CrosstownTraffic.xml in Resources */,
 				8C86641F2EA39DD00078CD64 /* monkey.png in Resources */,
 				8C8664202EA39DD00078CD64 /* footstep.png in Resources */,
 				8C8664212EA39DD00078CD64 /* arrow_blue_right.png in Resources */,
@@ -9043,6 +9079,14 @@
 				8C7E4B471F793C9800B57C60 /* TennerGridGameState.swift in Sources */,
 				8C3A36801EC88D4200A914A5 /* FenceItUpMainViewController.swift in Sources */,
 				8C8661C12EA115FA0078CD64 /* ThermometersGameScene.swift in Sources */,
+				8CF17F762F367FE0000F1F7D /* CrosstownTrafficDocument.swift in Sources */,
+				8CF17F772F367FE0000F1F7D /* CrosstownTrafficGameViewController.swift in Sources */,
+				8CF17F782F367FE0000F1F7D /* CrosstownTrafficGame.swift in Sources */,
+				8CF17F792F367FE0000F1F7D /* CrosstownTrafficGridNode.swift in Sources */,
+				8CF17F7A2F367FE0000F1F7D /* CrosstownTrafficGameState.swift in Sources */,
+				8CF17F7B2F367FE0000F1F7D /* CrosstownTrafficMainViewController.swift in Sources */,
+				8CF17F7C2F367FE0000F1F7D /* CrosstownTrafficGameScene.swift in Sources */,
+				8CF17F7D2F367FE0000F1F7D /* CrosstownTrafficObject.swift in Sources */,
 				8C8661C22EA115FA0078CD64 /* ThermometersGameViewController.swift in Sources */,
 				8C8661C32EA115FA0078CD64 /* ThermometersGame.swift in Sources */,
 				8C8661C42EA115FA0078CD64 /* ThermometersGameState.swift in Sources */,
