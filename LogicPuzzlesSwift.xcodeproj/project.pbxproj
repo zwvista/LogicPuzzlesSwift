@@ -1796,6 +1796,15 @@
 		8CF17F7C2F367FE0000F1F7D /* CrosstownTrafficGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F6F2F367FE0000F1F7D /* CrosstownTrafficGameScene.swift */; };
 		8CF17F7D2F367FE0000F1F7D /* CrosstownTrafficObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F742F367FE0000F1F7D /* CrosstownTrafficObject.swift */; };
 		8CF17F7E2F367FE0000F1F7D /* CrosstownTraffic.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17F6C2F367FE0000F1F7D /* CrosstownTraffic.xml */; };
+		8CF17F8A2F36BC87000F1F7D /* CastlePatrol.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17F802F36BC87000F1F7D /* CastlePatrol.xml */; };
+		8CF17F8B2F36BC87000F1F7D /* CastlePatrolGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F832F36BC87000F1F7D /* CastlePatrolGameScene.swift */; };
+		8CF17F8C2F36BC87000F1F7D /* CastlePatrolGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F852F36BC87000F1F7D /* CastlePatrolGameViewController.swift */; };
+		8CF17F8D2F36BC87000F1F7D /* CastlePatrolGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F862F36BC87000F1F7D /* CastlePatrolGridNode.swift */; };
+		8CF17F8E2F36BC87000F1F7D /* CastlePatrolGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F842F36BC87000F1F7D /* CastlePatrolGameState.swift */; };
+		8CF17F8F2F36BC87000F1F7D /* CastlePatrolDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F812F36BC87000F1F7D /* CastlePatrolDocument.swift */; };
+		8CF17F902F36BC87000F1F7D /* CastlePatrolObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F882F36BC87000F1F7D /* CastlePatrolObject.swift */; };
+		8CF17F912F36BC87000F1F7D /* CastlePatrolMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F872F36BC87000F1F7D /* CastlePatrolMainViewController.swift */; };
+		8CF17F922F36BC87000F1F7D /* CastlePatrolGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F822F36BC87000F1F7D /* CastlePatrolGame.swift */; };
 		8CF3FFD51FCB2A2700D41B67 /* DisconnectFourGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */; };
 		8CF3FFD61FCB2A2700D41B67 /* DisconnectFourGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */; };
 		8CF3FFD71FCB2A2700D41B67 /* DisconnectFour.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */; };
@@ -3705,6 +3714,15 @@
 		8CF17F722F367FE0000F1F7D /* CrosstownTrafficGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrosstownTrafficGridNode.swift; sourceTree = "<group>"; };
 		8CF17F732F367FE0000F1F7D /* CrosstownTrafficMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrosstownTrafficMainViewController.swift; sourceTree = "<group>"; };
 		8CF17F742F367FE0000F1F7D /* CrosstownTrafficObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrosstownTrafficObject.swift; sourceTree = "<group>"; };
+		8CF17F802F36BC87000F1F7D /* CastlePatrol.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CastlePatrol.xml; sourceTree = "<group>"; };
+		8CF17F812F36BC87000F1F7D /* CastlePatrolDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastlePatrolDocument.swift; sourceTree = "<group>"; };
+		8CF17F822F36BC87000F1F7D /* CastlePatrolGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastlePatrolGame.swift; sourceTree = "<group>"; };
+		8CF17F832F36BC87000F1F7D /* CastlePatrolGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastlePatrolGameScene.swift; sourceTree = "<group>"; };
+		8CF17F842F36BC87000F1F7D /* CastlePatrolGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastlePatrolGameState.swift; sourceTree = "<group>"; };
+		8CF17F852F36BC87000F1F7D /* CastlePatrolGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastlePatrolGameViewController.swift; sourceTree = "<group>"; };
+		8CF17F862F36BC87000F1F7D /* CastlePatrolGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastlePatrolGridNode.swift; sourceTree = "<group>"; };
+		8CF17F872F36BC87000F1F7D /* CastlePatrolMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastlePatrolMainViewController.swift; sourceTree = "<group>"; };
+		8CF17F882F36BC87000F1F7D /* CastlePatrolObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastlePatrolObject.swift; sourceTree = "<group>"; };
 		8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameState.swift; sourceTree = "<group>"; };
 		8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameScene.swift; sourceTree = "<group>"; };
 		8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DisconnectFour.xml; sourceTree = "<group>"; };
@@ -4577,6 +4595,7 @@
 				8CA043071FDBE77700AF85E1 /* CarpentersSquare */,
 				8CA042FB1FDBE77700AF85E1 /* CarpentersWall */,
 				8CFAF9AD20381D850095EFFC /* CastleBailey */,
+				8CF17F892F36BC87000F1F7D /* CastlePatrol */,
 				8C9BD5702F0A608A00D1D915 /* Chocolate */,
 				8CB418C82F251920005C7FDF /* CleaningPath */,
 				8C3A342E1EC88D4100A914A5 /* Clouds */,
@@ -7025,6 +7044,22 @@
 			path = CrosstownTraffic;
 			sourceTree = "<group>";
 		};
+		8CF17F892F36BC87000F1F7D /* CastlePatrol */ = {
+			isa = PBXGroup;
+			children = (
+				8CF17F802F36BC87000F1F7D /* CastlePatrol.xml */,
+				8CF17F812F36BC87000F1F7D /* CastlePatrolDocument.swift */,
+				8CF17F822F36BC87000F1F7D /* CastlePatrolGame.swift */,
+				8CF17F832F36BC87000F1F7D /* CastlePatrolGameScene.swift */,
+				8CF17F842F36BC87000F1F7D /* CastlePatrolGameState.swift */,
+				8CF17F852F36BC87000F1F7D /* CastlePatrolGameViewController.swift */,
+				8CF17F862F36BC87000F1F7D /* CastlePatrolGridNode.swift */,
+				8CF17F872F36BC87000F1F7D /* CastlePatrolMainViewController.swift */,
+				8CF17F882F36BC87000F1F7D /* CastlePatrolObject.swift */,
+			);
+			path = CastlePatrol;
+			sourceTree = "<group>";
+		};
 		8CF3FFC71FCB2A2600D41B67 /* DisconnectFour */ = {
 			isa = PBXGroup;
 			children = (
@@ -7316,6 +7351,7 @@
 				8C263F422F1D0DB100158A2C /* FunnyNumbers.xml in Resources */,
 				8C263EDF2F1C92ED00158A2C /* rabbit.png in Resources */,
 				8C3A37A41EC88D4400A914A5 /* Skyscrapers.xml in Resources */,
+				8CF17F8A2F36BC87000F1F7D /* CastlePatrol.xml in Resources */,
 				8C3A37C81EC88D4400A914A5 /* Sumscrapers.xml in Resources */,
 				8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */,
 				8C6A9BE51F812743002A44FF /* Kropki.xml in Resources */,
@@ -8190,6 +8226,14 @@
 				8CACC9312E9BC56E00F53475 /* HidokuMainViewController.swift in Sources */,
 				8CACC9322E9BC56E00F53475 /* HidokuObject.swift in Sources */,
 				8CACC9332E9BC56E00F53475 /* HidokuGame.swift in Sources */,
+				8CF17F8B2F36BC87000F1F7D /* CastlePatrolGameScene.swift in Sources */,
+				8CF17F8C2F36BC87000F1F7D /* CastlePatrolGameViewController.swift in Sources */,
+				8CF17F8D2F36BC87000F1F7D /* CastlePatrolGridNode.swift in Sources */,
+				8CF17F8E2F36BC87000F1F7D /* CastlePatrolGameState.swift in Sources */,
+				8CF17F8F2F36BC87000F1F7D /* CastlePatrolDocument.swift in Sources */,
+				8CF17F902F36BC87000F1F7D /* CastlePatrolObject.swift in Sources */,
+				8CF17F912F36BC87000F1F7D /* CastlePatrolMainViewController.swift in Sources */,
+				8CF17F922F36BC87000F1F7D /* CastlePatrolGame.swift in Sources */,
 				8CACC9342E9BC56E00F53475 /* HidokuGameViewController.swift in Sources */,
 				8CACC9352E9BC56E00F53475 /* HidokuGameScene.swift in Sources */,
 				8CACC9362E9BC56E00F53475 /* HidokuDocument.swift in Sources */,
