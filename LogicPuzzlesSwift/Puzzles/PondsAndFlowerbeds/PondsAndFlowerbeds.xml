@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. The aim is to locate some Flowerbeds and Ponds in the field.
+2. A Flowerbed is an area of 3 cells, containing one flower.
+3. A Pond is an area of any size without flower.
+4. Each 2x2 area must contain at least a Hedge or a Pond.
+5. Hedges when presents, are given in light green.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+ *  `
+    `
+  * `
+* * `
+    ]]>
+  </level>
+  <level id="72">
+    <![CDATA[
+ *    *`
+    * .`
+*      `
+ **  * `
+  *  * `
+      *`
+ * . * `
+    ]]>
+  </level>
+</levels>
+</puzzle>

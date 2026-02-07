@@ -1814,6 +1814,15 @@
 		8CF17FA32F37291A000F1F7D /* ShopAndGasGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F992F37291A000F1F7D /* ShopAndGasGridNode.swift */; };
 		8CF17FA42F37291A000F1F7D /* ShopAndGasGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F952F37291A000F1F7D /* ShopAndGasGame.swift */; };
 		8CF17FA52F37291B000F1F7D /* ShopAndGas.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17F932F37291A000F1F7D /* ShopAndGas.xml */; };
+		8CF17FB02F373DB6000F1F7D /* PondsAndFlowerbedsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FAE2F373DB6000F1F7D /* PondsAndFlowerbedsObject.swift */; };
+		8CF17FB12F373DB6000F1F7D /* PondsAndFlowerbedsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FAC2F373DB6000F1F7D /* PondsAndFlowerbedsGridNode.swift */; };
+		8CF17FB22F373DB6000F1F7D /* PondsAndFlowerbedsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FAB2F373DB6000F1F7D /* PondsAndFlowerbedsGameViewController.swift */; };
+		8CF17FB32F373DB6000F1F7D /* PondsAndFlowerbedsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FA72F373DB6000F1F7D /* PondsAndFlowerbedsDocument.swift */; };
+		8CF17FB42F373DB6000F1F7D /* PondsAndFlowerbedsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FAD2F373DB6000F1F7D /* PondsAndFlowerbedsMainViewController.swift */; };
+		8CF17FB52F373DB6000F1F7D /* PondsAndFlowerbedsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FAA2F373DB6000F1F7D /* PondsAndFlowerbedsGameState.swift */; };
+		8CF17FB62F373DB6000F1F7D /* PondsAndFlowerbedsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FA82F373DB6000F1F7D /* PondsAndFlowerbedsGame.swift */; };
+		8CF17FB72F373DB6000F1F7D /* PondsAndFlowerbedsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FA92F373DB6000F1F7D /* PondsAndFlowerbedsGameScene.swift */; };
+		8CF17FB82F373DB6000F1F7D /* PondsAndFlowerbeds.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17FA62F373DB6000F1F7D /* PondsAndFlowerbeds.xml */; };
 		8CF3FFD51FCB2A2700D41B67 /* DisconnectFourGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */; };
 		8CF3FFD61FCB2A2700D41B67 /* DisconnectFourGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */; };
 		8CF3FFD71FCB2A2700D41B67 /* DisconnectFour.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */; };
@@ -3741,6 +3750,15 @@
 		8CF17F992F37291A000F1F7D /* ShopAndGasGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAndGasGridNode.swift; sourceTree = "<group>"; };
 		8CF17F9A2F37291A000F1F7D /* ShopAndGasMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAndGasMainViewController.swift; sourceTree = "<group>"; };
 		8CF17F9B2F37291A000F1F7D /* ShopAndGasObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAndGasObject.swift; sourceTree = "<group>"; };
+		8CF17FA62F373DB6000F1F7D /* PondsAndFlowerbeds.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PondsAndFlowerbeds.xml; sourceTree = "<group>"; };
+		8CF17FA72F373DB6000F1F7D /* PondsAndFlowerbedsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PondsAndFlowerbedsDocument.swift; sourceTree = "<group>"; };
+		8CF17FA82F373DB6000F1F7D /* PondsAndFlowerbedsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PondsAndFlowerbedsGame.swift; sourceTree = "<group>"; };
+		8CF17FA92F373DB6000F1F7D /* PondsAndFlowerbedsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PondsAndFlowerbedsGameScene.swift; sourceTree = "<group>"; };
+		8CF17FAA2F373DB6000F1F7D /* PondsAndFlowerbedsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PondsAndFlowerbedsGameState.swift; sourceTree = "<group>"; };
+		8CF17FAB2F373DB6000F1F7D /* PondsAndFlowerbedsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PondsAndFlowerbedsGameViewController.swift; sourceTree = "<group>"; };
+		8CF17FAC2F373DB6000F1F7D /* PondsAndFlowerbedsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PondsAndFlowerbedsGridNode.swift; sourceTree = "<group>"; };
+		8CF17FAD2F373DB6000F1F7D /* PondsAndFlowerbedsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PondsAndFlowerbedsMainViewController.swift; sourceTree = "<group>"; };
+		8CF17FAE2F373DB6000F1F7D /* PondsAndFlowerbedsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PondsAndFlowerbedsObject.swift; sourceTree = "<group>"; };
 		8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameState.swift; sourceTree = "<group>"; };
 		8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameScene.swift; sourceTree = "<group>"; };
 		8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DisconnectFour.xml; sourceTree = "<group>"; };
@@ -4706,6 +4724,7 @@
 				8C263E562F11F2A100158A2C /* PlugItIn */,
 				8C1ACFA92F2DE7A4004832E2 /* Pointing */,
 				8C263F852F20425300158A2C /* PondCamping */,
+				8CF17FAF2F373DB6000F1F7D /* PondsAndFlowerbeds */,
 				8CFB22582F0772C100E5F29D /* PouringWater */,
 				8C3A35661EC88D4100A914A5 /* PowerGrid */,
 				8C3A35731EC88D4200A914A5 /* ProductSentinels */,
@@ -7095,6 +7114,22 @@
 			path = ShopAndGas;
 			sourceTree = "<group>";
 		};
+		8CF17FAF2F373DB6000F1F7D /* PondsAndFlowerbeds */ = {
+			isa = PBXGroup;
+			children = (
+				8CF17FA62F373DB6000F1F7D /* PondsAndFlowerbeds.xml */,
+				8CF17FA72F373DB6000F1F7D /* PondsAndFlowerbedsDocument.swift */,
+				8CF17FA82F373DB6000F1F7D /* PondsAndFlowerbedsGame.swift */,
+				8CF17FA92F373DB6000F1F7D /* PondsAndFlowerbedsGameScene.swift */,
+				8CF17FAA2F373DB6000F1F7D /* PondsAndFlowerbedsGameState.swift */,
+				8CF17FAB2F373DB6000F1F7D /* PondsAndFlowerbedsGameViewController.swift */,
+				8CF17FAC2F373DB6000F1F7D /* PondsAndFlowerbedsGridNode.swift */,
+				8CF17FAD2F373DB6000F1F7D /* PondsAndFlowerbedsMainViewController.swift */,
+				8CF17FAE2F373DB6000F1F7D /* PondsAndFlowerbedsObject.swift */,
+			);
+			path = PondsAndFlowerbeds;
+			sourceTree = "<group>";
+		};
 		8CF3FFC71FCB2A2600D41B67 /* DisconnectFour */ = {
 			isa = PBXGroup;
 			children = (
@@ -7811,6 +7846,7 @@
 				8C9F32B41ED1FB0700E10965 /* TapaIslands.xml in Resources */,
 				8C81BC182EA84D010083B936 /* TraceNumbers.xml in Resources */,
 				8CA646241FF3EEB0004707E5 /* music1.wav in Resources */,
+				8CF17FB82F373DB6000F1F7D /* PondsAndFlowerbeds.xml in Resources */,
 				8C3A372C1EC88D4300A914A5 /* Mosaik.xml in Resources */,
 				8C9BD5662F0A5CF500D1D915 /* IslandConnections.xml in Resources */,
 				8C8662032EA383740078CD64 /* Fields.xml in Resources */,
@@ -8730,6 +8766,14 @@
 				8C35E3901FC2844F00A26EE3 /* GardenerGameViewController.swift in Sources */,
 				8CFB220E2EF771C100E5F29D /* RomeGameState.swift in Sources */,
 				8C263F272F1D08A700158A2C /* DirectionalPlanksGameScene.swift in Sources */,
+				8CF17FB02F373DB6000F1F7D /* PondsAndFlowerbedsObject.swift in Sources */,
+				8CF17FB12F373DB6000F1F7D /* PondsAndFlowerbedsGridNode.swift in Sources */,
+				8CF17FB22F373DB6000F1F7D /* PondsAndFlowerbedsGameViewController.swift in Sources */,
+				8CF17FB32F373DB6000F1F7D /* PondsAndFlowerbedsDocument.swift in Sources */,
+				8CF17FB42F373DB6000F1F7D /* PondsAndFlowerbedsMainViewController.swift in Sources */,
+				8CF17FB52F373DB6000F1F7D /* PondsAndFlowerbedsGameState.swift in Sources */,
+				8CF17FB62F373DB6000F1F7D /* PondsAndFlowerbedsGame.swift in Sources */,
+				8CF17FB72F373DB6000F1F7D /* PondsAndFlowerbedsGameScene.swift in Sources */,
 				8C263F282F1D08A700158A2C /* DirectionalPlanksGameState.swift in Sources */,
 				8C263F292F1D08A700158A2C /* DirectionalPlanksGameViewController.swift in Sources */,
 				8C263F2A2F1D08A700158A2C /* DirectionalPlanksDocument.swift in Sources */,
