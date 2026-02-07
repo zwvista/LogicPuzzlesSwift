@@ -1823,6 +1823,15 @@
 		8CF17FB62F373DB6000F1F7D /* PondsAndFlowerbedsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FA82F373DB6000F1F7D /* PondsAndFlowerbedsGame.swift */; };
 		8CF17FB72F373DB6000F1F7D /* PondsAndFlowerbedsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FA92F373DB6000F1F7D /* PondsAndFlowerbedsGameScene.swift */; };
 		8CF17FB82F373DB6000F1F7D /* PondsAndFlowerbeds.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17FA62F373DB6000F1F7D /* PondsAndFlowerbeds.xml */; };
+		8CF17FC32F375E0F000F1F7D /* GuesstrisDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FBA2F375E0F000F1F7D /* GuesstrisDocument.swift */; };
+		8CF17FC42F375E0F000F1F7D /* GuesstrisGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FBB2F375E0F000F1F7D /* GuesstrisGame.swift */; };
+		8CF17FC52F375E0F000F1F7D /* GuesstrisMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FC02F375E0F000F1F7D /* GuesstrisMainViewController.swift */; };
+		8CF17FC62F375E0F000F1F7D /* GuesstrisGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FBC2F375E0F000F1F7D /* GuesstrisGameScene.swift */; };
+		8CF17FC72F375E0F000F1F7D /* GuesstrisGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FBE2F375E0F000F1F7D /* GuesstrisGameViewController.swift */; };
+		8CF17FC82F375E0F000F1F7D /* GuesstrisGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FBD2F375E0F000F1F7D /* GuesstrisGameState.swift */; };
+		8CF17FC92F375E0F000F1F7D /* GuesstrisGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FBF2F375E0F000F1F7D /* GuesstrisGridNode.swift */; };
+		8CF17FCA2F375E0F000F1F7D /* GuesstrisObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FC12F375E0F000F1F7D /* GuesstrisObject.swift */; };
+		8CF17FCB2F375E0F000F1F7D /* Guesstris.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17FB92F375E0F000F1F7D /* Guesstris.xml */; };
 		8CF3FFD51FCB2A2700D41B67 /* DisconnectFourGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */; };
 		8CF3FFD61FCB2A2700D41B67 /* DisconnectFourGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */; };
 		8CF3FFD71FCB2A2700D41B67 /* DisconnectFour.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */; };
@@ -3759,6 +3768,15 @@
 		8CF17FAC2F373DB6000F1F7D /* PondsAndFlowerbedsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PondsAndFlowerbedsGridNode.swift; sourceTree = "<group>"; };
 		8CF17FAD2F373DB6000F1F7D /* PondsAndFlowerbedsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PondsAndFlowerbedsMainViewController.swift; sourceTree = "<group>"; };
 		8CF17FAE2F373DB6000F1F7D /* PondsAndFlowerbedsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PondsAndFlowerbedsObject.swift; sourceTree = "<group>"; };
+		8CF17FB92F375E0F000F1F7D /* Guesstris.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Guesstris.xml; sourceTree = "<group>"; };
+		8CF17FBA2F375E0F000F1F7D /* GuesstrisDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuesstrisDocument.swift; sourceTree = "<group>"; };
+		8CF17FBB2F375E0F000F1F7D /* GuesstrisGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuesstrisGame.swift; sourceTree = "<group>"; };
+		8CF17FBC2F375E0F000F1F7D /* GuesstrisGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuesstrisGameScene.swift; sourceTree = "<group>"; };
+		8CF17FBD2F375E0F000F1F7D /* GuesstrisGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuesstrisGameState.swift; sourceTree = "<group>"; };
+		8CF17FBE2F375E0F000F1F7D /* GuesstrisGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuesstrisGameViewController.swift; sourceTree = "<group>"; };
+		8CF17FBF2F375E0F000F1F7D /* GuesstrisGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuesstrisGridNode.swift; sourceTree = "<group>"; };
+		8CF17FC02F375E0F000F1F7D /* GuesstrisMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuesstrisMainViewController.swift; sourceTree = "<group>"; };
+		8CF17FC12F375E0F000F1F7D /* GuesstrisObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuesstrisObject.swift; sourceTree = "<group>"; };
 		8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameState.swift; sourceTree = "<group>"; };
 		8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameScene.swift; sourceTree = "<group>"; };
 		8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DisconnectFour.xml; sourceTree = "<group>"; };
@@ -4663,6 +4681,7 @@
 				8C35E37E1FC2844E00A26EE3 /* Gardener */,
 				8CB4187A2F23B21B005C7FDF /* GardenTunnels */,
 				8C81BBFB2EA4A04F0083B936 /* Gems */,
+				8CF17FC22F375E0F000F1F7D /* Guesstris */,
 				8CFB221F2EF87D8E00E5F29D /* HeliumAndIron */,
 				8C263E302F11EE2B00158A2C /* HiddenClouds */,
 				7DF1B04E2E8A7EB6006008A3 /* HiddenPath */,
@@ -7130,6 +7149,22 @@
 			path = PondsAndFlowerbeds;
 			sourceTree = "<group>";
 		};
+		8CF17FC22F375E0F000F1F7D /* Guesstris */ = {
+			isa = PBXGroup;
+			children = (
+				8CF17FB92F375E0F000F1F7D /* Guesstris.xml */,
+				8CF17FBA2F375E0F000F1F7D /* GuesstrisDocument.swift */,
+				8CF17FBB2F375E0F000F1F7D /* GuesstrisGame.swift */,
+				8CF17FBC2F375E0F000F1F7D /* GuesstrisGameScene.swift */,
+				8CF17FBD2F375E0F000F1F7D /* GuesstrisGameState.swift */,
+				8CF17FBE2F375E0F000F1F7D /* GuesstrisGameViewController.swift */,
+				8CF17FBF2F375E0F000F1F7D /* GuesstrisGridNode.swift */,
+				8CF17FC02F375E0F000F1F7D /* GuesstrisMainViewController.swift */,
+				8CF17FC12F375E0F000F1F7D /* GuesstrisObject.swift */,
+			);
+			path = Guesstris;
+			sourceTree = "<group>";
+		};
 		8CF3FFC71FCB2A2600D41B67 /* DisconnectFour */ = {
 			isa = PBXGroup;
 			children = (
@@ -7822,6 +7857,7 @@
 				8C86644E2EA39DD00078CD64 /* arrow_green_up.png in Resources */,
 				8C86644F2EA39DD00078CD64 /* target.png in Resources */,
 				8C3A37441EC88D4300A914A5 /* Nurikabe.xml in Resources */,
+				8CF17FCB2F375E0F000F1F7D /* Guesstris.xml in Resources */,
 				8C3A36841EC88D4200A914A5 /* FenceLits.xml in Resources */,
 				8C3A36E41EC88D4300A914A5 /* Loopy.xml in Resources */,
 				8C3A37201EC88D4300A914A5 /* MiniLits.xml in Resources */,
@@ -9247,6 +9283,14 @@
 				8C3A35F91EC88D4200A914A5 /* AbstractPaintingGameViewController.swift in Sources */,
 				8C9BD4C62F09F2B700D1D915 /* WishSandwichObject.swift in Sources */,
 				8C9BD4C72F09F2B700D1D915 /* WishSandwichGameState.swift in Sources */,
+				8CF17FC32F375E0F000F1F7D /* GuesstrisDocument.swift in Sources */,
+				8CF17FC42F375E0F000F1F7D /* GuesstrisGame.swift in Sources */,
+				8CF17FC52F375E0F000F1F7D /* GuesstrisMainViewController.swift in Sources */,
+				8CF17FC62F375E0F000F1F7D /* GuesstrisGameScene.swift in Sources */,
+				8CF17FC72F375E0F000F1F7D /* GuesstrisGameViewController.swift in Sources */,
+				8CF17FC82F375E0F000F1F7D /* GuesstrisGameState.swift in Sources */,
+				8CF17FC92F375E0F000F1F7D /* GuesstrisGridNode.swift in Sources */,
+				8CF17FCA2F375E0F000F1F7D /* GuesstrisObject.swift in Sources */,
 				8C9BD4C82F09F2B700D1D915 /* WishSandwichGameScene.swift in Sources */,
 				8C9BD4C92F09F2B700D1D915 /* WishSandwichGameViewController.swift in Sources */,
 				8C9BD4CA2F09F2B700D1D915 /* WishSandwichDocument.swift in Sources */,
