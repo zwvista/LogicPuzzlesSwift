@@ -1849,6 +1849,15 @@
 		8CF17FEC2F3781CD000F1F7D /* ZenGardensObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FE42F3781CD000F1F7D /* ZenGardensObject.swift */; };
 		8CF17FED2F3781CD000F1F7D /* ZenGardensGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FDF2F3781CD000F1F7D /* ZenGardensGameScene.swift */; };
 		8CF17FEE2F3781CD000F1F7D /* ZenGardens.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17FDC2F3781CD000F1F7D /* ZenGardens.xml */; };
+		8CF17FF92F37832A000F1F7D /* ZenSolitaireGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FF52F37832A000F1F7D /* ZenSolitaireGridNode.swift */; };
+		8CF17FFA2F37832A000F1F7D /* ZenSolitaireGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FF42F37832A000F1F7D /* ZenSolitaireGameViewController.swift */; };
+		8CF17FFB2F37832A000F1F7D /* ZenSolitaireGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FF22F37832A000F1F7D /* ZenSolitaireGameScene.swift */; };
+		8CF17FFC2F37832A000F1F7D /* ZenSolitaireGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FF12F37832A000F1F7D /* ZenSolitaireGame.swift */; };
+		8CF17FFD2F37832A000F1F7D /* ZenSolitaireMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FF62F37832A000F1F7D /* ZenSolitaireMainViewController.swift */; };
+		8CF17FFE2F37832A000F1F7D /* ZenSolitaireDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FF02F37832A000F1F7D /* ZenSolitaireDocument.swift */; };
+		8CF17FFF2F37832A000F1F7D /* ZenSolitaireGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FF32F37832A000F1F7D /* ZenSolitaireGameState.swift */; };
+		8CF180002F37832A000F1F7D /* ZenSolitaireObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FF72F37832A000F1F7D /* ZenSolitaireObject.swift */; };
+		8CF180012F37832A000F1F7D /* ZenSolitaire.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17FEF2F37832A000F1F7D /* ZenSolitaire.xml */; };
 		8CF3FFD51FCB2A2700D41B67 /* DisconnectFourGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */; };
 		8CF3FFD61FCB2A2700D41B67 /* DisconnectFourGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */; };
 		8CF3FFD71FCB2A2700D41B67 /* DisconnectFour.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */; };
@@ -3811,6 +3820,15 @@
 		8CF17FE22F3781CD000F1F7D /* ZenGardensGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenGardensGridNode.swift; sourceTree = "<group>"; };
 		8CF17FE32F3781CD000F1F7D /* ZenGardensMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenGardensMainViewController.swift; sourceTree = "<group>"; };
 		8CF17FE42F3781CD000F1F7D /* ZenGardensObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenGardensObject.swift; sourceTree = "<group>"; };
+		8CF17FEF2F37832A000F1F7D /* ZenSolitaire.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ZenSolitaire.xml; sourceTree = "<group>"; };
+		8CF17FF02F37832A000F1F7D /* ZenSolitaireDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenSolitaireDocument.swift; sourceTree = "<group>"; };
+		8CF17FF12F37832A000F1F7D /* ZenSolitaireGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenSolitaireGame.swift; sourceTree = "<group>"; };
+		8CF17FF22F37832A000F1F7D /* ZenSolitaireGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenSolitaireGameScene.swift; sourceTree = "<group>"; };
+		8CF17FF32F37832A000F1F7D /* ZenSolitaireGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenSolitaireGameState.swift; sourceTree = "<group>"; };
+		8CF17FF42F37832A000F1F7D /* ZenSolitaireGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenSolitaireGameViewController.swift; sourceTree = "<group>"; };
+		8CF17FF52F37832A000F1F7D /* ZenSolitaireGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenSolitaireGridNode.swift; sourceTree = "<group>"; };
+		8CF17FF62F37832A000F1F7D /* ZenSolitaireMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenSolitaireMainViewController.swift; sourceTree = "<group>"; };
+		8CF17FF72F37832A000F1F7D /* ZenSolitaireObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenSolitaireObject.swift; sourceTree = "<group>"; };
 		8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameState.swift; sourceTree = "<group>"; };
 		8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameScene.swift; sourceTree = "<group>"; };
 		8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DisconnectFour.xml; sourceTree = "<group>"; };
@@ -4833,6 +4851,7 @@
 				8CB418EE2F2532AD005C7FDF /* YouTurnMeOn */,
 				8CF17FE52F3781CD000F1F7D /* ZenGardens */,
 				8C8661D42EA31ABC0078CD64 /* ZenLandscaper */,
+				8CF17FF82F37832A000F1F7D /* ZenSolitaire */,
 			);
 			path = Puzzles;
 			sourceTree = "<group>";
@@ -7224,6 +7243,22 @@
 			path = ZenGardens;
 			sourceTree = "<group>";
 		};
+		8CF17FF82F37832A000F1F7D /* ZenSolitaire */ = {
+			isa = PBXGroup;
+			children = (
+				8CF17FEF2F37832A000F1F7D /* ZenSolitaire.xml */,
+				8CF17FF02F37832A000F1F7D /* ZenSolitaireDocument.swift */,
+				8CF17FF12F37832A000F1F7D /* ZenSolitaireGame.swift */,
+				8CF17FF22F37832A000F1F7D /* ZenSolitaireGameScene.swift */,
+				8CF17FF32F37832A000F1F7D /* ZenSolitaireGameState.swift */,
+				8CF17FF42F37832A000F1F7D /* ZenSolitaireGameViewController.swift */,
+				8CF17FF52F37832A000F1F7D /* ZenSolitaireGridNode.swift */,
+				8CF17FF62F37832A000F1F7D /* ZenSolitaireMainViewController.swift */,
+				8CF17FF72F37832A000F1F7D /* ZenSolitaireObject.swift */,
+			);
+			path = ZenSolitaire;
+			sourceTree = "<group>";
+		};
 		8CF3FFC71FCB2A2600D41B67 /* DisconnectFour */ = {
 			isa = PBXGroup;
 			children = (
@@ -7611,6 +7646,7 @@
 				8C8663542EA39DD00078CD64 /* pizza.png in Resources */,
 				8C8663552EA39DD00078CD64 /* dictionary.png in Resources */,
 				8C8663562EA39DD00078CD64 /* road_horizontal.png in Resources */,
+				8CF180012F37832A000F1F7D /* ZenSolitaire.xml in Resources */,
 				8C8663572EA39DD00078CD64 /* thermometer3B.png in Resources */,
 				8C8663582EA39DD00078CD64 /* wood vertical.png in Resources */,
 				8C8663592EA39DD00078CD64 /* C4.png in Resources */,
@@ -9341,6 +9377,14 @@
 				8C1D4F8F1F7D079F000D5FB3 /* Square100MainViewController.swift in Sources */,
 				8C3A365A1EC88D4200A914A5 /* CloudsGridNode.swift in Sources */,
 				8C3A37BF1EC88D4400A914A5 /* SnailGameScene.swift in Sources */,
+				8CF17FF92F37832A000F1F7D /* ZenSolitaireGridNode.swift in Sources */,
+				8CF17FFA2F37832A000F1F7D /* ZenSolitaireGameViewController.swift in Sources */,
+				8CF17FFB2F37832A000F1F7D /* ZenSolitaireGameScene.swift in Sources */,
+				8CF17FFC2F37832A000F1F7D /* ZenSolitaireGame.swift in Sources */,
+				8CF17FFD2F37832A000F1F7D /* ZenSolitaireMainViewController.swift in Sources */,
+				8CF17FFE2F37832A000F1F7D /* ZenSolitaireDocument.swift in Sources */,
+				8CF17FFF2F37832A000F1F7D /* ZenSolitaireGameState.swift in Sources */,
+				8CF180002F37832A000F1F7D /* ZenSolitaireObject.swift in Sources */,
 				8C7474561FBED8BD00C4112C /* ParkLakesGameViewController.swift in Sources */,
 				8C3A367B1EC88D4200A914A5 /* FenceItUpGameScene.swift in Sources */,
 				8C3A374A1EC88D4300A914A5 /* NurikabeGridNode.swift in Sources */,
