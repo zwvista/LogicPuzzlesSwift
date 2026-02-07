@@ -10,10 +10,12 @@ import Foundation
 
 class ShopAndGasGame: GridGame<ShopAndGasGameState> {
     static let offset = Position.Directions4
-    static let PUZ_BLACK_PEARL: Character = "B"
-    static let PUZ_WHITE_PEARL: Character = "W"
+    static let PUZ_HOME: Character = "H"
+    static let PUZ_SHOP: Character = "S"
+    static let PUZ_GAS: Character = "G"
 
     var objArray = [Character]()
+    var home = Position.Zero
     subscript(p: Position) -> Character {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
@@ -33,7 +35,11 @@ class ShopAndGasGame: GridGame<ShopAndGasGameState> {
             let str = layout[r]
             for c in 0..<cols {
                 let ch = str[c]
-                self[r, c] = ch
+                let p = Position(r, c)
+                self[p] = ch
+                if ch == ShopAndGasGame.PUZ_HOME {
+                    home = p
+                }
             }
         }
         

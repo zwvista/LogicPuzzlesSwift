@@ -93,43 +93,48 @@ class ShopAndGasGameState: GridGameState<ShopAndGasGameMove> {
                 let dirs = (0..<4).filter { self[p][$0] }
                 if dirs.count == 2 {
                     pos2dirs[p] = dirs
-                    if ch == ShopAndGasGame.PUZ_BLACK_PEARL {
-                        // 4. Lines passing through Black Pearls must do a 90 degree turn in them.
+                    if ch == ShopAndGasGame.PUZ_GAS {
+                        // 6. All these prototype fuel stations are shaped like corners. Don't
+                        //    ask why. You just have to turn on those tiles.
                         guard dirs[1] - dirs[0] != 2 else { isSolved = false; return }
-                    } else if ch == ShopAndGasGame.PUZ_WHITE_PEARL {
-                        // 3. Lines passing through White Pearls must go straight through them.
+                    } else if ch == ShopAndGasGame.PUZ_SHOP {
+                        // 8. Shopping malls are a lot more consumer friendly and have straight
+                        //    roads. So you have to go straight on those tiles.
                         guard dirs[1] - dirs[0] == 2 else { isSolved = false; return }
                     }
                 } else if !(dirs.isEmpty && ch == " ") {
-                    // 1. The goal is to draw a single Loop(Necklace) through every circle(Pearl)
-                    //    that never branches-off or crosses itself.
+                    // 5. You start from your house.
+                    // 11.The last thing is going back home.
+                    // 10.After you passed all the shopping malls and gas station, you have
+                    //    to go back to your house, forming a closed path.
                     isSolved = false; return
                 }
             }
         }
-        let pos2dirs2 = pos2dirs
         // Check the loop
-        guard let p = pos2dirs.keys.first else { isSolved = false; return }
+        let p = game.home
+        guard pos2dirs.keys.contains(p) else { isSolved = false; return }
         var p2 = p
         var n = -1
+        var ch = game[p]
         while true {
             guard let dirs = pos2dirs[p2] else { isSolved = false; return }
             pos2dirs.removeValue(forKey: p2)
             n = dirs.first { ($0 + 2) % 4 != n }!
             p2 += ShopAndGasGame.offset[n]
+            let ch2 = game[p2]
+            if ch2 != " " {
+                // 5. You start from your house. Right away, you're low on fuel so you
+                //    must pass a fuel station.
+                // 7. Each time you pass a gas station, you then have to go shopping.
+                // 9. After a shopping mall you are almost empty again. The next thing
+                //    you must pass is a gas station. Then shopping, gas, etc.
+                // 11.The last thing you have to pass before going back home, is a gas
+                //    station.
+                guard (ch == ShopAndGasGame.PUZ_HOME || ch == ShopAndGasGame.PUZ_SHOP) && ch2 == ShopAndGasGame.PUZ_GAS || ch == ShopAndGasGame.PUZ_GAS && (ch2 == ShopAndGasGame.PUZ_SHOP || ch2 == ShopAndGasGame.PUZ_HOME) else { isSolved = false; return }
+                ch = ch2
+            }
             guard p2 != p else {break}
         }
-        // 3. At least at one side of the White Pearl(or both), they must do a 90 degree turn.
-        // 4. Lines passing through Black Pearls must go straight in the next tile in both directions.
-        // 5. Lines passing where there are no Pearls can do what they want.
-        if !pos2dirs2.testAll({ p, dirs in
-            let ch = game[p]
-            guard ch != " " else { return true }
-            let turns = dirs.reduce(0) { acc, d in
-                let dirs2 = pos2dirs[p + ShopAndGasGame.offset[d]]!
-                return acc + (dirs2[1] - dirs2[0] != 2 ? 1 : 0)
-            }
-            return ch == ShopAndGasGame.PUZ_BLACK_PEARL && turns == 0 || ch == ShopAndGasGame.PUZ_WHITE_PEARL && turns > 0
-        }) { isSolved = false }
     }
 }

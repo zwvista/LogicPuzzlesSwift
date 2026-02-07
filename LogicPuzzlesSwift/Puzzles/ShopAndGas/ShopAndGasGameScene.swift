@@ -30,13 +30,7 @@ class ShopAndGasGameScene: GameScene<ShopAndGasGameState> {
                 let ch = game[r, c]
                 guard ch != " " else {continue}
                 let point = gridNode.centerPoint(p: p)
-                let pearlNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 2)
-                pearlNode.position = point
-                pearlNode.name = "pearl"
-                pearlNode.strokeColor = .white
-                pearlNode.fillColor = ch == "W" ? .white : .black
-                pearlNode.glowWidth = 1.0
-                gridNode.addChild(pearlNode)
+                addImage(imageNamed: ch == ShopAndGasGame.PUZ_SHOP ? "shoppingcart" : ch == ShopAndGasGame.PUZ_GAS ? "gauge" : "home", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "shopandgas")
             }
         }
     }
