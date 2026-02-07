@@ -1805,6 +1805,15 @@
 		8CF17F902F36BC87000F1F7D /* CastlePatrolObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F882F36BC87000F1F7D /* CastlePatrolObject.swift */; };
 		8CF17F912F36BC87000F1F7D /* CastlePatrolMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F872F36BC87000F1F7D /* CastlePatrolMainViewController.swift */; };
 		8CF17F922F36BC87000F1F7D /* CastlePatrolGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F822F36BC87000F1F7D /* CastlePatrolGame.swift */; };
+		8CF17F9D2F37291A000F1F7D /* ShopAndGasDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F942F37291A000F1F7D /* ShopAndGasDocument.swift */; };
+		8CF17F9E2F37291A000F1F7D /* ShopAndGasMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F9A2F37291A000F1F7D /* ShopAndGasMainViewController.swift */; };
+		8CF17F9F2F37291A000F1F7D /* ShopAndGasGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F962F37291A000F1F7D /* ShopAndGasGameScene.swift */; };
+		8CF17FA02F37291A000F1F7D /* ShopAndGasObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F9B2F37291A000F1F7D /* ShopAndGasObject.swift */; };
+		8CF17FA12F37291A000F1F7D /* ShopAndGasGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F982F37291A000F1F7D /* ShopAndGasGameViewController.swift */; };
+		8CF17FA22F37291A000F1F7D /* ShopAndGasGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F972F37291A000F1F7D /* ShopAndGasGameState.swift */; };
+		8CF17FA32F37291A000F1F7D /* ShopAndGasGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F992F37291A000F1F7D /* ShopAndGasGridNode.swift */; };
+		8CF17FA42F37291A000F1F7D /* ShopAndGasGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17F952F37291A000F1F7D /* ShopAndGasGame.swift */; };
+		8CF17FA52F37291B000F1F7D /* ShopAndGas.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17F932F37291A000F1F7D /* ShopAndGas.xml */; };
 		8CF3FFD51FCB2A2700D41B67 /* DisconnectFourGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */; };
 		8CF3FFD61FCB2A2700D41B67 /* DisconnectFourGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */; };
 		8CF3FFD71FCB2A2700D41B67 /* DisconnectFour.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */; };
@@ -3723,6 +3732,15 @@
 		8CF17F862F36BC87000F1F7D /* CastlePatrolGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastlePatrolGridNode.swift; sourceTree = "<group>"; };
 		8CF17F872F36BC87000F1F7D /* CastlePatrolMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastlePatrolMainViewController.swift; sourceTree = "<group>"; };
 		8CF17F882F36BC87000F1F7D /* CastlePatrolObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastlePatrolObject.swift; sourceTree = "<group>"; };
+		8CF17F932F37291A000F1F7D /* ShopAndGas.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ShopAndGas.xml; sourceTree = "<group>"; };
+		8CF17F942F37291A000F1F7D /* ShopAndGasDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAndGasDocument.swift; sourceTree = "<group>"; };
+		8CF17F952F37291A000F1F7D /* ShopAndGasGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAndGasGame.swift; sourceTree = "<group>"; };
+		8CF17F962F37291A000F1F7D /* ShopAndGasGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAndGasGameScene.swift; sourceTree = "<group>"; };
+		8CF17F972F37291A000F1F7D /* ShopAndGasGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAndGasGameState.swift; sourceTree = "<group>"; };
+		8CF17F982F37291A000F1F7D /* ShopAndGasGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAndGasGameViewController.swift; sourceTree = "<group>"; };
+		8CF17F992F37291A000F1F7D /* ShopAndGasGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAndGasGridNode.swift; sourceTree = "<group>"; };
+		8CF17F9A2F37291A000F1F7D /* ShopAndGasMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAndGasMainViewController.swift; sourceTree = "<group>"; };
+		8CF17F9B2F37291A000F1F7D /* ShopAndGasObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAndGasObject.swift; sourceTree = "<group>"; };
 		8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameState.swift; sourceTree = "<group>"; };
 		8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameScene.swift; sourceTree = "<group>"; };
 		8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DisconnectFour.xml; sourceTree = "<group>"; };
@@ -4700,6 +4718,7 @@
 				8C9BD5372F0A52B400D1D915 /* RunInALoop */,
 				8C3A358D1EC88D4200A914A5 /* Sentinels */,
 				8CB722262EACF705001B25C5 /* SheepAndWolves */,
+				8CF17F9C2F37291A000F1F7D /* ShopAndGas */,
 				8C3A359A1EC88D4200A914A5 /* Skyscrapers */,
 				8C263FAB2F20FBF700158A2C /* SlitherCorner */,
 				8C3A35A71EC88D4200A914A5 /* SlitherLink */,
@@ -7060,6 +7079,22 @@
 			path = CastlePatrol;
 			sourceTree = "<group>";
 		};
+		8CF17F9C2F37291A000F1F7D /* ShopAndGas */ = {
+			isa = PBXGroup;
+			children = (
+				8CF17F932F37291A000F1F7D /* ShopAndGas.xml */,
+				8CF17F942F37291A000F1F7D /* ShopAndGasDocument.swift */,
+				8CF17F952F37291A000F1F7D /* ShopAndGasGame.swift */,
+				8CF17F962F37291A000F1F7D /* ShopAndGasGameScene.swift */,
+				8CF17F972F37291A000F1F7D /* ShopAndGasGameState.swift */,
+				8CF17F982F37291A000F1F7D /* ShopAndGasGameViewController.swift */,
+				8CF17F992F37291A000F1F7D /* ShopAndGasGridNode.swift */,
+				8CF17F9A2F37291A000F1F7D /* ShopAndGasMainViewController.swift */,
+				8CF17F9B2F37291A000F1F7D /* ShopAndGasObject.swift */,
+			);
+			path = ShopAndGas;
+			sourceTree = "<group>";
+		};
 		8CF3FFC71FCB2A2600D41B67 /* DisconnectFour */ = {
 			isa = PBXGroup;
 			children = (
@@ -7602,6 +7637,7 @@
 				8C8663D62EA39DD00078CD64 /* pebble5.png in Resources */,
 				8C8663D72EA39DD00078CD64 /* tower_wall2.png in Resources */,
 				8C8663D82EA39DD00078CD64 /* arrow_red2_up.png in Resources */,
+				8CF17FA52F37291B000F1F7D /* ShopAndGas.xml in Resources */,
 				8C8663D92EA39DD00078CD64 /* bullet_ball_glass_grey.png in Resources */,
 				8C8663DA2EA39DD00078CD64 /* shade_7.png in Resources */,
 				8C8663DB2EA39DD00078CD64 /* wine_red_glass.png in Resources */,
@@ -9084,6 +9120,14 @@
 				8C9F33011ED1FCFF00E10965 /* TapDifferentlyMainViewController.swift in Sources */,
 				8C3A366E1EC88D4200A914A5 /* DominoGame.swift in Sources */,
 				8C3A35F21EC88D4200A914A5 /* AbcObject.swift in Sources */,
+				8CF17F9D2F37291A000F1F7D /* ShopAndGasDocument.swift in Sources */,
+				8CF17F9E2F37291A000F1F7D /* ShopAndGasMainViewController.swift in Sources */,
+				8CF17F9F2F37291A000F1F7D /* ShopAndGasGameScene.swift in Sources */,
+				8CF17FA02F37291A000F1F7D /* ShopAndGasObject.swift in Sources */,
+				8CF17FA12F37291A000F1F7D /* ShopAndGasGameViewController.swift in Sources */,
+				8CF17FA22F37291A000F1F7D /* ShopAndGasGameState.swift in Sources */,
+				8CF17FA32F37291A000F1F7D /* ShopAndGasGridNode.swift in Sources */,
+				8CF17FA42F37291A000F1F7D /* ShopAndGasGame.swift in Sources */,
 				8CA042F51FDB930A00AF85E1 /* CalcudokuGame.swift in Sources */,
 				8C81BBFC2EA4A04F0083B936 /* GemsGameViewController.swift in Sources */,
 				8C81BBFD2EA4A04F0083B936 /* GemsGridNode.swift in Sources */,

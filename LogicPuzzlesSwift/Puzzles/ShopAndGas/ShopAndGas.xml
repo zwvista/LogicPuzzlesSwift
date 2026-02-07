@@ -1,0 +1,444 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. In Shop & Gas you take the typical day at shopping. By the way: you just bought a new hyper-ecological car.
+2. This car goes on a ultra-green combustible, which is the saviour of the environment. It costs close to zero, it does not pollute and is found in abundance everywhere.
+3. The only small problem is that the car consumes about 10 liter per Km. Yes, that's a problem.
+4. So while shopping you have to constantly refuel your car. Thus, Shop & Gas rules are as follows:
+5. You start from your house. Right away, you're low on fuel so you must pass a fuel station.
+6. All these prototype fuel stations are shaped like corners. Don't ask why. You just have to turn on those tiles.
+7. Each time you pass a gas station, you then have to go shopping.
+8. Shopping malls are a lot more consumer friendly and have straight roads. So you have to go straight on those tiles.
+9. After a shopping mall you are almost empty again. The next thing you must pass is a gas station. Then shopping, gas, etc. 10.After you passed all the shopping malls and gas station, you have to go back to your house, forming a closed path. 11.The last thing you have to pass before going back home, is a gas station.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+G  SG`
+S    `
+G  H `
+ S G `
+ G S `
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+G SG `
+ SGS `
+GH  G`
+SGS S`
+    G`
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+G  G `
+ S SS`
+SGSG `
+  GHG`
+GS   `
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+G GS `
+ SS G`
+SG HG`
+    S`
+GS  G`
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+G S  G`
+     S`
+S GH G`
+  S  G`
+  GS S`
+G S  G`
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+GSG G `
+  S SS`
+S GSG `
+  GH G`
+   S G`
+G   S `
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+ G  G `
+SS SH `
+ GSG G`
+GSG  S`
+  S   `
+  GS G`
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+ GGS G`
+S S G `
+ HGS  `
+ GSGSS`
+     G`
+GS    `
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+G  GS G`
+S S    `
+      S`
+GSGHGSG`
+GS GS G`
+SGSG  S`
+    S G`
+    ]]>
+  </level>
+  <level id="10">
+    <![CDATA[
+GS G  G`
+   S S `
+S  GHGS`
+GS G   `
+G S GSG`
+S   S  `
+G  SG  `
+    ]]>
+  </level>
+  <level id="11">
+    <![CDATA[
+GS GGSG`
+SGS    `
+ S  H  `
+ G SG S`
+   G  G`
+  SS S `
+GSGGSG `
+    ]]>
+  </level>
+  <level id="12">
+    <![CDATA[
+GSGG G `
+  S SSS`
+S GSG  `
+    GSG`
+    H G`
+G SG  S`
+    S G`
+    ]]>
+  </level>
+  <level id="13">
+    <![CDATA[
+ SGGS  `
+ GSSGSG`
+ S  H  `
+ G GGSG`
+S  G  S`
+   SS  `
+ GSGGSG`
+    ]]>
+  </level>
+  <level id="14">
+    <![CDATA[
+GSG    `
+S HGS  `
+   GGSG`
+GS S  S`
+G SG G `
+S    S `
+G  S G `
+    ]]>
+  </level>
+  <level id="15">
+    <![CDATA[
+GSG  SG`
+   SG S`
+    GHG`
+S   S  `
+ G SG  `
+  S    `
+  G    `
+    ]]>
+  </level>
+  <level id="16">
+    <![CDATA[
+GS   GG `
+     S S`
+ SGH GS `
+ G SG   `
+ S  SG  `
+GSG  S G`
+S  GSGS `
+G  S  G `
+    ]]>
+  </level>
+  <level id="17">
+    <![CDATA[
+G   GS  `
+S SGSGSG`
+GSGS S  `
+ S  GGSG`
+ G   G S`
+ SG  S  `
+  SGHGSG`
+GSG S   `
+    ]]>
+  </level>
+  <level id="18">
+    <![CDATA[
+GSGGS   `
+S  SGS G`
+ H   GSG`
+    SS  `
+ GSG G S`
+G GSG G `
+ SS S S `
+ G  GSG `
+    ]]>
+  </level>
+  <level id="19">
+    <![CDATA[
+ GGS    `
+  S GSGS`
+ S  G   `
+ GSGSGSG`
+     S G`
+ SGSG  S`
+  H S  G`
+GS GGS  `
+    ]]>
+  </level>
+  <level id="20">
+    <![CDATA[
+GSGG SG `
+  SS  S `
+SG GSG G`
+ H GS   `
+   SGS S`
+ GSGS  G`
+    G S `
+G   S  G`
+    ]]>
+  </level>
+  <level id="21">
+    <![CDATA[
+G SGGSG `
+ SGSS   `
+GS  GG S`
+S   GSS `
+ S G   G`
+ GSS GSG`
+GSGGH  S`
+   S   G`
+    ]]>
+  </level>
+  <level id="22">
+    <![CDATA[
+GSG GS  `
+  S SGSG`
+S GHGS  `
+G SG GS `
+GSGSGS G`
+S S S   `
+   GGSGS`
+ G S   G`
+    ]]>
+  </level>
+  <level id="23">
+    <![CDATA[
+ S G  S G`
+GSG SG  S`
+  HG S  G`
+GSGS  S  `
+   GSG  G`
+SG SGG  S`
+  SGSS SG`
+   S GS G`
+GS GGS   `
+    ]]>
+  </level>
+  <level id="24">
+    <![CDATA[
+ G  GS  G`
+SS  S   S`
+ GS GSGSG`
+  GSGGS G`
+    SG  S`
+  H  SS  `
+   GSGGSG`
+  GS     `
+G S     G`
+    ]]>
+  </level>
+  <level id="25">
+    <![CDATA[
+G  SGGS G`
+S  GSSG  `
+GS SG SS `
+G SGGSG S`
+S      G `
+ SGS     `
+ GH  G S `
+GSGGS  SG`
+   S  G  `
+    ]]>
+  </level>
+  <level id="26">
+    <![CDATA[
+G SGG S G`
+ SGSS   S`
+  S   GSG`
+GSGGSGS  `
+SGS  GGSG`
+   SGS  S`
+GSG HG G `
+SGSG   S `
+    S  G `
+    ]]>
+  </level>
+  <level id="27">
+    <![CDATA[
+G SG GS  `
+S     GSG`
+GSGS SS  `
+  S   GS `
+GSG   GSG`
+ SG   S  `
+GS GSGGHG`
+S   SG  S`
+G SG  S G`
+    ]]>
+  </level>
+  <level id="28">
+    <![CDATA[
+GSG GG SG`
+  SS S  S`
+SG  S  G `
+ S  GSGS `
+    G SG `
+ GHGS GSG`
+G G GS  S`
+ SSS     `
+ G GS   G`
+    ]]>
+  </level>
+  <level id="29">
+    <![CDATA[
+GS    GG `
+      S S`
+ H    GS `
+ GSGSS   `
+GS  GGSG `
+   GS  G `
+   S   S `
+S SGSGSG `
+G   GS  G`
+    ]]>
+  </level>
+  <level id="30">
+    <![CDATA[
+G  G  G G `
+ S SS SS S`
+SGSGGSG   `
+  G   HGS `
+ GS  G SG `
+ SGSGS GSG`
+ GSGS GS  `
+   S  SGSG`
+SGSGGSGGS `
+GS        `
+    ]]>
+  </level>
+  <level id="31">
+    <![CDATA[
+    G GS G`
+SGS S S  S`
+GS GGSGGSG`
+   S  GS  `
+SGSG S GSG`
+GS   GSGS `
+GS GSG S  `
+S GSGH GSG`
+ GS  G   S`
+       S G`
+    ]]>
+  </level>
+  <level id="32">
+    <![CDATA[
+G  GSG GSG`
+ S S S S  `
+SGSG GSG S`
+ GGS   GSG`
+   SGGS G `
+     SG SS`
+       SG `
+ SGSG G SG`
+ GS  H S G`
+ SG  G  S `
+    ]]>
+  </level>
+  <level id="33">
+    <![CDATA[
+GSG GGS  G`
+  SS     S`
+  G H SGSG`
+S SG SGSG `
+GSGG GSG  `
+ S S SGS  `
+ G G     S`
+ SGS GS G `
+  S  S GS `
+GSG  G SG `
+    ]]>
+  </level>
+  <level id="34">
+    <![CDATA[
+GSGGSG GSG`
+  SS S H  `
+  G    G  `
+S S G GS S`
+G   S GGSG`
+G  G S S  `
+ S S GSGSG`
+SGSGSG   S`
+     S    `
+GS G G SG `
+    ]]>
+  </level>
+  <level id="35">
+    <![CDATA[
+ G  GG S G`
+SS S     S`
+ GSGS  GSG`
+GSG GS S  `
+ G S  GGSG`
+SSSG  S   `
+ G  H G  S`
+  G  G    `
+  SS SS   `
+GSGGSGGS G`
+    ]]>
+  </level>
+  <level id="36">
+    <![CDATA[
+G  G GSG  `
+ S SS  S  `
+SGSG S GSG`
+GS   GSG S`
+GSG G  S G`
+S  S GSGS `
+GS   SGHG `
+GSGGSGS  G`
+S S   GS S`
+G  G  S  G`
+    ]]>
+  </level>
+</levels>
+</puzzle>
