@@ -143,7 +143,9 @@ class FlowerbedShrubsGameState: GridGameState<FlowerbedShrubsGameMove> {
         //    each other orthogonally.
         for p in shrubs {
             let rng = FlowerbedShrubsGame.offset.map { p + $0 }.filter { shrubs.contains($0) }
-            pos2stateAllowed[p] = rng.isEmpty ? .normal : .error
+            let s: AllowedObjectState = rng.isEmpty ? .normal : .error
+            if s == .error { isSolved = false }
+            pos2stateAllowed[p] = s
         }
         // 3. The number on each Flowerbed tells you how many Shrubs are adjacent to it.
         for area in flowerbeds {

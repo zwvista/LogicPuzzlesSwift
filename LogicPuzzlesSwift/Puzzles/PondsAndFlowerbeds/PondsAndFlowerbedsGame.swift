@@ -17,9 +17,13 @@ class PondsAndFlowerbedsGame: GridGame<PondsAndFlowerbedsGameState> {
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
-    
+    static let offset3 = Position.Square2x2Offset
+    static let PUZ_FLOWER: Character = "*"
+    static let PUZ_HEDGE: Character = "."
+
     var objArray = [GridDotObject]()
-    var pos2hint = [Position: Int]()
+    var flowers = [Position]()
+    var hedges = [Position]()
     
     init(layout: [String], delegate: PondsAndFlowerbedsGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -32,9 +36,11 @@ class PondsAndFlowerbedsGame: GridGame<PondsAndFlowerbedsGameState> {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
                 let ch = str[c]
-                guard ch != " " else {continue}
-                let n = ch.toInt!
-                pos2hint[p] = n
+                if ch == PondsAndFlowerbedsGame.PUZ_FLOWER {
+                    flowers.append(p)
+                } else if ch == PondsAndFlowerbedsGame.PUZ_HEDGE {
+                    hedges.append(p)
+                }
             }
         }
         for r in 0..<rows - 1 {

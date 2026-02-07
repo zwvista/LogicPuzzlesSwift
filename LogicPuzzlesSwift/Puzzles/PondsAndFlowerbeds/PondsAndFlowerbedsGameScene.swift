@@ -14,10 +14,6 @@ class PondsAndFlowerbedsGameScene: GameScene<PondsAndFlowerbedsGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
-    }
-    
     override func levelInitialized(_ game: AnyObject, state: PondsAndFlowerbedsGameState, skView: SKView) {
         let game = game as! PondsAndFlowerbedsGame
         removeAllChildren()
@@ -27,12 +23,13 @@ class PondsAndFlowerbedsGameScene: GameScene<PondsAndFlowerbedsGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: PondsAndFlowerbedsGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset))
         
-        // add Hints
-        for (p, n) in game.pos2hint {
+        for p in game.flowers {
             let point = gridNode.centerPoint(p: p)
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let hintNodeName = "hint" + nodeNameSuffix
-            addHint(n: n, s: state.pos2stateHint[p]!, point: point, nodeName: hintNodeName)
+            addImage(imageNamed: "flower_pink", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "flower")
+        }
+        for p in game.hedges {
+            let point = gridNode.centerPoint(p: p)
+            addImage(imageNamed: "forest", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "forest")
         }
         
         for r in 0..<game.rows {
@@ -69,19 +66,18 @@ class PondsAndFlowerbedsGameScene: GameScene<PondsAndFlowerbedsGameState> {
                     removeVertLine(objType: o1)
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
                 }
-                let hintNodeName = "hint" + nodeNameSuffix
-                func removeHint() { removeNode(withName: hintNodeName) }
-                let (s1, s2) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
-                if s1 != s2 {
-                    removeHint()
-                    addHint(n: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
+                let pondNodeName = "pond" + nodeNameSuffix
+                let invalid2x2NodeName = "invalid2x2" + nodeNameSuffix
+                let (b1, b2) = (stateFrom.ponds.contains { $0.contains(p) }, stateTo.ponds.contains { $0.contains(p) })
+                if b1 != b2 {
+                    if b1 { removeNode(withName: pondNodeName) }
+                    if b2 { addImage(imageNamed: "sea", color: .red, colorBlendFactor: 0.0, point: point, nodeName: pondNodeName) }
                 }
-                let shrubNodeName = "shrub" + nodeNameSuffix
-                let (b1, b2) = (stateFrom.shrubs.contains(p), stateTo.shrubs.contains(p))
-                let (s3, s4) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
-                if b1 != b2 || s3 != s4 {
-                    if b1 { removeNode(withName: shrubNodeName) }
-                    if b2 { addImage(imageNamed: "lawn_background", color: .red, colorBlendFactor: s4 == .normal ? 0.0 : 0.5, point: point, nodeName: shrubNodeName) }
+                let (b3, b4) = (stateFrom.invalid2x2Squares.contains(p), stateTo.invalid2x2Squares.contains(p))
+                if b3 != b4 {
+                    let point = gridNode.cornerPoint(p: p)
+                    if b3 { removeNode(withName: invalid2x2NodeName) }
+                    if b4 { addDotMarker2(color: .red, point: point, nodeName: invalid2x2NodeName) }
                 }
             }
         }

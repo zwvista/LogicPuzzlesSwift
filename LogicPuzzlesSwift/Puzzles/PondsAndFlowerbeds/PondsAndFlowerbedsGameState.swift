@@ -15,10 +15,9 @@ class PondsAndFlowerbedsGameState: GridGameState<PondsAndFlowerbedsGameMove> {
     }
     override var gameDocument: GameDocumentBase { PondsAndFlowerbedsDocument.sharedInstance }
     var objArray = [GridDotObject]()
-    var pos2stateHint = [Position: HintState]()
-    var shrubs = Set<Position>()
-    var pos2stateAllowed = [Position: AllowedObjectState]()
-    
+    var ponds = [[Position]]()
+    var invalid2x2Squares = [Position]()
+
     override func copy() -> PondsAndFlowerbedsGameState {
         let v = PondsAndFlowerbedsGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -98,7 +97,19 @@ class PondsAndFlowerbedsGameState: GridGameState<PondsAndFlowerbedsGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
+        // 4. Each 2x2 area must contain at least a Hedge or a Pond.
+        for r in 0..<rows - 1 {
+            for c in 0..<cols - 1 {
+                let p = Position(r, c)
+                if PondsAndFlowerbedsGame.offset3.map({ p + $0 }).allSatisfy({ p2 in
+                    game.hedges.contains(p2) || ponds.contains { $0.contains(p2) }
+                }) {
+                    invalid2x2Squares.append(p + Position.SouthEast); isSolved = false
+                }
+            }
+        }
         var flowerbeds = [[Position]]()
+        var pos2pond = [Position: Int]()
         let g = Graph()
         var pos2node = [Position: Node]()
         for r in 0..<rows - 1 {
@@ -120,40 +131,30 @@ class PondsAndFlowerbedsGameState: GridGameState<PondsAndFlowerbedsGameMove> {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
-            let rng = area.filter { p in game.pos2hint[p] != nil }
-            // 1. Divide the board in Flowerbeds of exactly three tiles. Each Flowerbed
-            //    contains a number.
+            let rng = area.filter { game.flowers.contains($0) }
+            // 2. A Flowerbed is an area of 3 cells, containing one flower.
+            // 3. A Pond is an area of any size without flower.
             let cnt = area.count
             if rng.isEmpty {
-                if cnt == 1 {
-                    shrubs.insert(area[0])
-                } else {
-                    isSolved = false
-                }
+                let n = ponds.count
+                ponds.append(area)
+                for p in area { pos2pond[p] = n }
             } else if rng.count > 1 || cnt != 3 {
-                for p in rng {
-                    pos2stateHint[p] = .normal
-                }
                 isSolved = false
             } else {
                 flowerbeds.append(area)
             }
         }
-        // 2. Single tiles left outside Flowerbeds are Shrubs. Shrubs cannot touch
-        //    each other orthogonally.
-        for p in shrubs {
-            let rng = PondsAndFlowerbedsGame.offset.map { p + $0 }.filter { shrubs.contains($0) }
-            pos2stateAllowed[p] = rng.isEmpty ? .normal : .error
-        }
-        // 3. The number on each Flowerbed tells you how many Shrubs are adjacent to it.
-        for area in flowerbeds {
-            let pHint = area.first { game.pos2hint[$0] != nil }!
-            let n1 = game.pos2hint[pHint]!
-            let shrubs2 = Set(area.flatMap { p in PondsAndFlowerbedsGame.offset.map { p + $0 } }.filter { shrubs.contains($0) })
-            let n2 = shrubs2.count
-            let s: HintState = n1 == n2 ? .complete : .error
-            pos2stateHint[pHint] = s
-            if s != .complete { isSolved = false }
-        }
+        guard isSolved else {return}
+        // Ponds cannot touch each other orthogonally.
+        if !(ponds.allSatisfy { pond in
+            let n = pos2pond[pond.first!]!
+            return pond.allSatisfy { p in
+                return PondsAndFlowerbedsGame.offset.allSatisfy {
+                    guard let n2 = pos2pond[p + $0] else { return true }
+                    return n == n2
+                }
+            }
+        }) { isSolved = false }
     }
 }
