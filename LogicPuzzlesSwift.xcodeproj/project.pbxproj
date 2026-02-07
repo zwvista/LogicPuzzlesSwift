@@ -1840,6 +1840,15 @@
 		8CF17FD92F37732F000F1F7D /* bullet_ball_glass_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17FCF2F37732F000F1F7D /* bullet_ball_glass_red.png */; };
 		8CF17FDA2F37732F000F1F7D /* bullet_square_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17FD22F37732F000F1F7D /* bullet_square_green.png */; };
 		8CF17FDB2F37732F000F1F7D /* bullet_triangle_yellow_flat.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17FD32F37732F000F1F7D /* bullet_triangle_yellow_flat.png */; };
+		8CF17FE62F3781CD000F1F7D /* ZenGardensGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FDE2F3781CD000F1F7D /* ZenGardensGame.swift */; };
+		8CF17FE72F3781CD000F1F7D /* ZenGardensGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FE12F3781CD000F1F7D /* ZenGardensGameViewController.swift */; };
+		8CF17FE82F3781CD000F1F7D /* ZenGardensGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FE02F3781CD000F1F7D /* ZenGardensGameState.swift */; };
+		8CF17FE92F3781CD000F1F7D /* ZenGardensGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FE22F3781CD000F1F7D /* ZenGardensGridNode.swift */; };
+		8CF17FEA2F3781CD000F1F7D /* ZenGardensDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FDD2F3781CD000F1F7D /* ZenGardensDocument.swift */; };
+		8CF17FEB2F3781CD000F1F7D /* ZenGardensMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FE32F3781CD000F1F7D /* ZenGardensMainViewController.swift */; };
+		8CF17FEC2F3781CD000F1F7D /* ZenGardensObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FE42F3781CD000F1F7D /* ZenGardensObject.swift */; };
+		8CF17FED2F3781CD000F1F7D /* ZenGardensGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FDF2F3781CD000F1F7D /* ZenGardensGameScene.swift */; };
+		8CF17FEE2F3781CD000F1F7D /* ZenGardens.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17FDC2F3781CD000F1F7D /* ZenGardens.xml */; };
 		8CF3FFD51FCB2A2700D41B67 /* DisconnectFourGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */; };
 		8CF3FFD61FCB2A2700D41B67 /* DisconnectFourGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */; };
 		8CF3FFD71FCB2A2700D41B67 /* DisconnectFour.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */; };
@@ -3793,6 +3802,15 @@
 		8CF17FD12F37732F000F1F7D /* bullet_rhombus_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_rhombus_blue.png; sourceTree = "<group>"; };
 		8CF17FD22F37732F000F1F7D /* bullet_square_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_square_green.png; sourceTree = "<group>"; };
 		8CF17FD32F37732F000F1F7D /* bullet_triangle_yellow_flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_triangle_yellow_flat.png; sourceTree = "<group>"; };
+		8CF17FDC2F3781CD000F1F7D /* ZenGardens.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ZenGardens.xml; sourceTree = "<group>"; };
+		8CF17FDD2F3781CD000F1F7D /* ZenGardensDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenGardensDocument.swift; sourceTree = "<group>"; };
+		8CF17FDE2F3781CD000F1F7D /* ZenGardensGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenGardensGame.swift; sourceTree = "<group>"; };
+		8CF17FDF2F3781CD000F1F7D /* ZenGardensGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenGardensGameScene.swift; sourceTree = "<group>"; };
+		8CF17FE02F3781CD000F1F7D /* ZenGardensGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenGardensGameState.swift; sourceTree = "<group>"; };
+		8CF17FE12F3781CD000F1F7D /* ZenGardensGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenGardensGameViewController.swift; sourceTree = "<group>"; };
+		8CF17FE22F3781CD000F1F7D /* ZenGardensGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenGardensGridNode.swift; sourceTree = "<group>"; };
+		8CF17FE32F3781CD000F1F7D /* ZenGardensMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenGardensMainViewController.swift; sourceTree = "<group>"; };
+		8CF17FE42F3781CD000F1F7D /* ZenGardensObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenGardensObject.swift; sourceTree = "<group>"; };
 		8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameState.swift; sourceTree = "<group>"; };
 		8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameScene.swift; sourceTree = "<group>"; };
 		8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DisconnectFour.xml; sourceTree = "<group>"; };
@@ -4813,6 +4831,7 @@
 				8C8661E72EA35BDB0078CD64 /* Warehouse */,
 				8C9BD4C52F09F2B700D1D915 /* WishSandwich */,
 				8CB418EE2F2532AD005C7FDF /* YouTurnMeOn */,
+				8CF17FE52F3781CD000F1F7D /* ZenGardens */,
 				8C8661D42EA31ABC0078CD64 /* ZenLandscaper */,
 			);
 			path = Puzzles;
@@ -7189,6 +7208,22 @@
 			path = Guesstris;
 			sourceTree = "<group>";
 		};
+		8CF17FE52F3781CD000F1F7D /* ZenGardens */ = {
+			isa = PBXGroup;
+			children = (
+				8CF17FDC2F3781CD000F1F7D /* ZenGardens.xml */,
+				8CF17FDD2F3781CD000F1F7D /* ZenGardensDocument.swift */,
+				8CF17FDE2F3781CD000F1F7D /* ZenGardensGame.swift */,
+				8CF17FDF2F3781CD000F1F7D /* ZenGardensGameScene.swift */,
+				8CF17FE02F3781CD000F1F7D /* ZenGardensGameState.swift */,
+				8CF17FE12F3781CD000F1F7D /* ZenGardensGameViewController.swift */,
+				8CF17FE22F3781CD000F1F7D /* ZenGardensGridNode.swift */,
+				8CF17FE32F3781CD000F1F7D /* ZenGardensMainViewController.swift */,
+				8CF17FE42F3781CD000F1F7D /* ZenGardensObject.swift */,
+			);
+			path = ZenGardens;
+			sourceTree = "<group>";
+		};
 		8CF3FFC71FCB2A2600D41B67 /* DisconnectFour */ = {
 			isa = PBXGroup;
 			children = (
@@ -7570,6 +7605,7 @@
 				8C1ACFC02F2DFB06004832E2 /* arrow6_bw.png in Resources */,
 				8C1ACFC12F2DFB06004832E2 /* arrow8_bw.png in Resources */,
 				8C1ACFC22F2DFB06004832E2 /* arrow9_bw.png in Resources */,
+				8CF17FEE2F3781CD000F1F7D /* ZenGardens.xml in Resources */,
 				8C8663522EA39DD00078CD64 /* cabbage.png in Resources */,
 				8C8663532EA39DD00078CD64 /* navigate_left.png in Resources */,
 				8C8663542EA39DD00078CD64 /* pizza.png in Resources */,
@@ -8323,6 +8359,14 @@
 				8CFB22262EF87D8E00E5F29D /* HeliumAndIronGameScene.swift in Sources */,
 				8CFB22272EF87D8E00E5F29D /* HeliumAndIronDocument.swift in Sources */,
 				8CFB22282EF87D8E00E5F29D /* HeliumAndIronGameViewController.swift in Sources */,
+				8CF17FE62F3781CD000F1F7D /* ZenGardensGame.swift in Sources */,
+				8CF17FE72F3781CD000F1F7D /* ZenGardensGameViewController.swift in Sources */,
+				8CF17FE82F3781CD000F1F7D /* ZenGardensGameState.swift in Sources */,
+				8CF17FE92F3781CD000F1F7D /* ZenGardensGridNode.swift in Sources */,
+				8CF17FEA2F3781CD000F1F7D /* ZenGardensDocument.swift in Sources */,
+				8CF17FEB2F3781CD000F1F7D /* ZenGardensMainViewController.swift in Sources */,
+				8CF17FEC2F3781CD000F1F7D /* ZenGardensObject.swift in Sources */,
+				8CF17FED2F3781CD000F1F7D /* ZenGardensGameScene.swift in Sources */,
 				8C3A36551EC88D4200A914A5 /* CloudsDocument.swift in Sources */,
 				8C3A36611EC88D4200A914A5 /* DigitalBattleShipsDocument.swift in Sources */,
 				8CFAF9BA20381D870095EFFC /* CastleBaileyGameViewController.swift in Sources */,
