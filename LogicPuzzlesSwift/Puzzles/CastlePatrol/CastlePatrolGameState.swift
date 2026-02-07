@@ -15,7 +15,8 @@ class CastlePatrolGameState: GridGameState<CastlePatrolGameMove> {
     }
     override var gameDocument: GameDocumentBase { CastlePatrolDocument.sharedInstance }
     var objArray = [CastlePatrolObject]()
-    
+    var pos2state = [Position: HintState]()
+
     override func copy() -> CastlePatrolGameState {
         let v = CastlePatrolGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -30,8 +31,8 @@ class CastlePatrolGameState: GridGameState<CastlePatrolGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<CastlePatrolObject>(repeating: CastlePatrolObject(), count: rows * cols)
-        for (p, lightbulbs) in game.wall2Lightbulbs {
-            self[p].objType = .wall(state: lightbulbs <= 0 ? .complete : .normal)
+        for (p, obj) in game.pos2obj {
+            self[p] = obj
         }
         updateIsSolved()
     }
@@ -46,78 +47,31 @@ class CastlePatrolGameState: GridGameState<CastlePatrolGameMove> {
     }
     
     override func setObject(move: inout CastlePatrolGameMove) -> GameOperationType {
-        var changed = false
         let p = move.p
-        
-        func adjustLightness(tolighten: Bool) {
-            func f(lightness: inout Int) {
-                lightness = tolighten ? lightness + 1 : max(0, lightness - 1)
-            }
-            f(lightness: &self[p].lightness)
-            // 3. Lightbulbs light all free, unblocked squares horizontally and vertically.
-            for os in CastlePatrolGame.offset {
-                var p2 = p + os
-                while isValid(p: p2) {
-                    // 5. Walls block light.
-                    if case .wall = self[p2].objType {break}
-                    f(lightness: &self[p2].lightness)
-                    p2 += os
-                }
-            }
-            updateIsSolved()
-        }
-        
-        func objChanged() {
-            changed = true
-            self[p].objType = move.objType
-        }
-        
-        switch (self[p].objType, move.objType) {
-        case (_, .wall):
-            self[p] = CastlePatrolObject(objType: move.objType, lightness: 0)
-        case (.empty, .marker), (.marker, .empty):
-            objChanged()
-        case (.empty, .lightbulb), (.marker, .lightbulb):
-            if allowedObjectsOnly && self[p].lightness > 0 {break}
-            objChanged()
-            adjustLightness(tolighten: true)
-        case (.lightbulb, .empty), (.lightbulb, .marker):
-            objChanged()
-            adjustLightness(tolighten: false)
-        default:
-            break
-        }
-        
-        return changed ? .moveComplete : .invalid
+        guard isValid(p: p), !self[p].isHint(), self[p] != move.obj else { return .invalid }
+        self[p] = move.obj
+        updateIsSolved()
+        return .moveComplete
     }
     
     override func switchObject(move: inout CastlePatrolGameMove) -> GameOperationType {
+        let p = move.p
+        guard isValid(p: p), !self[p].isHint() else { return .invalid }
         let markerOption = MarkerOptions(rawValue: self.markerOption)
-        let allowedObjectsOnly = self.allowedObjectsOnly
-        func f(o: CastlePatrolObjectType) -> CastlePatrolObjectType {
+        func f(o: CastlePatrolObject) -> CastlePatrolObject {
             switch o {
             case .empty:
-                return markerOption == .markerFirst ? .marker : .lightbulb()
-            case .lightbulb:
+                return markerOption == .markerFirst ? .marker : .wall
+            case .wall:
                 return markerOption == .markerLast ? .marker : .empty
             case .marker:
-                return markerOption == .markerFirst ? .lightbulb() : .empty
-            case .wall:
+                return markerOption == .markerFirst ? .wall : .empty
+            default:
                 return o
             }
         }
-        let p = move.p
-        let o = f(o: self[p].objType)
-        switch o {
-        case .empty, .marker:
-            move.objType = o
-            return setObject(move: &move)
-        case .lightbulb:
-            move.objType = allowedObjectsOnly && self[p].lightness > 0 ? f(o: o) : o
-            return setObject(move: &move)
-        case .wall:
-            return .invalid
-        }
+        move.obj = f(o: self[p])
+        return setObject(move: &move)
     }
     
     /*
@@ -134,38 +88,80 @@ class CastlePatrolGameState: GridGameState<CastlePatrolGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
+        let g = Graph()
+        var pos2node = [Position: Node]()
+        var rngWalls = [Position]()
+        var rngEmpty = [Position]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let o = self[r, c]
-                switch o.objType {
-                case .empty where o.lightness == 0, .marker where o.lightness == 0:
-                    // 2. The goal is to put lightbulbs in the room so that all the blank(non-wall)
-                    // squares are lit.
-                    isSolved = false
-                case .lightbulb:
-                    // 4. A lightbulb can't light another lightbulb.
-                    let s: AllowedObjectState = o.lightness == 1 ? .normal : .error
-                    self[r, c].objType = .lightbulb(state: s)
-                    if s == .error { isSolved = false }
-                case .wall:
-                    let lightbulbs = game.wall2Lightbulbs[p]!
-                    // 6. Walls without a number can have any number of lightbulbs.
-                    guard lightbulbs >= 0 else {break}
-                    var n = 0
-                    for os in CastlePatrolGame.offset {
-                        let p2 = p + os
-                        if isValid(p: p2), case .lightbulb = self[p2].objType { n += 1 }
-                    }
-                    // 5. Walls with a number tell you how many lightbulbs
-                    // are adjacent to it, horizontally and vertically.
-                    let s: HintState = n < lightbulbs ? .normal : n == lightbulbs ? .complete : .error
-                    self[r, c].objType = .wall(state: s)
-                    if s != .complete { isSolved = false }
+                pos2node[p] = g.addNode(p.description)
+                switch self[p] {
+                case .wall, .wallHint:
+                    rngWalls.append(p)
+                case .empty, .emptyHint:
+                    rngEmpty.append(p)
                 default:
                     break
                 }
             }
         }
+        for p in rngWalls {
+            for os in NurikabeGame.offset {
+                let p2 = p + os
+                if rngWalls.contains(p2) {
+                    g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
+                }
+            }
+        }
+        for p in rngEmpty {
+            for os in NurikabeGame.offset {
+                let p2 = p + os
+                if rngEmpty.contains(p2) {
+                    g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
+                }
+            }
+        }
+        var areas = [[Position]]()
+        var pos2area = [Position: Int]()
+        func f(rngWE: inout [Position], hint: CastlePatrolObject) {
+            while !rngWE.isEmpty {
+                let node = pos2node[rngWE.first!]!
+                let nodesExplored = breadthFirstSearch(g, source: node)
+                let area = rngWE.filter { nodesExplored.contains($0.description) }
+                let rng = area.filter { self[$0].isHint() }
+                rngWE = rngWE.filter { !nodesExplored.contains($0.description) }
+                let n2 = nodesExplored.count
+                if rng.count == 1 && self[rng[0]] == hint {
+                    // 1. Divide the grid into walls and empty areas. Every area contains one number.
+                    let p = rng[0]
+                    let n1 = game.pos2hint[p]!
+                    let s: HintState = n1 == n2 ? .complete : .error
+                    pos2state[p] = s
+                    if s != .complete { isSolved = false }
+                    let n = areas.count
+                    areas.append(area)
+                    for p in area { pos2area[p] = n }
+                } else {
+                    isSolved = false
+                    for p in rng { pos2state[p] = .normal }
+                }
+            }
+        }
+        f(rngWE: &rngWalls, hint: .wallHint)
+        f(rngWE: &rngEmpty, hint: .emptyHint)
+        guard isSolved else {return}
+        // 3. Areas of the same type cannot share an edge.
+        if !areas.allSatisfy({ area in
+            let p0 = area[0]
+            let n = pos2area[p0]!
+            let obj = self[p0]
+            return area.allSatisfy({ p in
+                return CastlePatrolGame.offset.allSatisfy({
+                    guard let n2 = pos2area[p + $0], n2 != n else { return true }
+                    return self[areas[n2][0]] != obj
+                })
+            })
+        }) { isSolved = false }
     }
 }

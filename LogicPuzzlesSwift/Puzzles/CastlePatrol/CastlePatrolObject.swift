@@ -8,43 +8,17 @@
 
 import Foundation
 
-enum CastlePatrolObjectType {
-    case empty
-    case lightbulb(state: AllowedObjectState = .normal)
-    case marker
-    case wall(state: HintState)
+enum CastlePatrolObject: Int {
+    case empty, marker, wall, emptyHint, wallHint
     init() {
         self = .empty
     }
-    func toString() -> String {
-        switch self {
-        case .lightbulb:
-            return "lightbulb"
-        case .marker:
-            return "marker"
-        default:
-            return "empty"
-        }
+    func isHint() -> Bool {
+        self == .emptyHint || self == .wallHint
     }
-    static func fromString(str: String) -> CastlePatrolObjectType {
-        switch str {
-        case "lightbulb":
-            return .lightbulb()
-        case "marker":
-            return .marker
-        default:
-            return .empty
-        }
-    }
-}
-
-struct CastlePatrolObject {
-    var objType = CastlePatrolObjectType()
-    var lightness = 0
 }
 
 struct CastlePatrolGameMove {
     var p = Position()
-    var objType = CastlePatrolObjectType()
+    var obj = CastlePatrolObject()
 }
-

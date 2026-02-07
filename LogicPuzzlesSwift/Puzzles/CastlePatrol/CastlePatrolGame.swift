@@ -11,26 +11,28 @@ import Foundation
 class CastlePatrolGame: GridGame<CastlePatrolGameState> {
     static let offset = Position.Directions4
 
-    var wall2Lightbulbs = [Position: Int]()
+    var pos2obj = [Position: CastlePatrolObject]()
+    var pos2hint = [Position: Int]()
     
     init(layout: [String], delegate: CastlePatrolGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count, layout[0].length)
-        
-        func addWall(row: Int, col: Int, lightbulbs: Int) {
-            wall2Lightbulbs[Position(row, col)] = lightbulbs
-        }
-        
+        size = Position(layout.count, layout[0].length / 2)
+
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
-                let ch = str[c]
-                switch ch {
+                let (ch1, ch2) = (str[c * 2], str[c * 2 + 1])
+                let p = Position(r, c)
+                func f(obj: CastlePatrolObject) {
+                    pos2obj[p] = obj
+                    pos2hint[p] = ch1.isNumber ? ch1.toInt! : Int(ch1.asciiValue!) - Int(Character("A").asciiValue!) + 10
+                }
+                switch ch2 {
+                case ".":
+                    f(obj: .emptyHint)
                 case "W":
-                    addWall(row: r, col: c, lightbulbs: -1)
-                case "0"..."9":
-                    addWall(row: r, col: c, lightbulbs: ch.toInt!)
+                    f(obj: .wallHint)
                 default:
                     break
                 }
@@ -40,5 +42,4 @@ class CastlePatrolGame: GridGame<CastlePatrolGameState> {
         let state = CastlePatrolGameState(game: self)
         levelInitialized(state: state)
     }
-    
 }

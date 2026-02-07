@@ -2,2270 +2,996 @@
 <puzzle>
 <help>
   <![CDATA[
-1. Divide the grid into walls and empty areas. Every area contains one number.
-2. The number indicates the size of the area. Numbers in wall tiles are part of wall areas; numbers in empty tiles are part of empty areas.
-3. Areas of the same type cannot share an edge.
+1. What you see from above is a room and the marked squares are walls.
+2. The goal is to put lightbulbs in the room so that all the blank(non-wall) squares are lit, following these rules.
+3. Lightbulbs light all free, unblocked squares horizontally and vertically.
+4. A lightbulb can't light another lightbulb.
+5. Walls block light. Also walls with a number tell you how many lightbulbs are adjacent to it, horizontally and vertically.
+6. Walls without a number can have any number of lightbulbs. However, lightbulbs don't need to be adjacent to a wall.
   ]]>
 </help>
 <levels>
   <level id="1">
     <![CDATA[
-      2.`
-8W      `
-      4.`
-    2W  `
+  W W`
+   4 `
+  4  `
+     `
+ 0   `
     ]]>
   </level>
   <level id="2">
     <![CDATA[
-        `
-  2W  4.`
-        `
-  7.  3W`
+  W  `
+     `
+ 3   `
+  W 3`
+   W `
     ]]>
   </level>
   <level id="3">
     <![CDATA[
-      4W`
-5W  2.  `
-  5.    `
-        `
+     `
+   2 `
+ 2   `
+  4 W`
+   W `
     ]]>
   </level>
   <level id="4">
     <![CDATA[
-      4W`
-4.      `
-  3.    `
-      5W`
+     `
+ 1   `
+ 3  1`
+3 2  `
+     `
     ]]>
   </level>
   <level id="5">
     <![CDATA[
-        `
-  3.  3.`
-5W      `
-    5W  `
+    2`
+     `
+W    `
+  3 W`
+   W `
     ]]>
   </level>
   <level id="6">
     <![CDATA[
-  2W    `
-2.      `
-  4.  8W`
-        `
+    W`
+ 1  W`
+     `
+   3 `
+    1`
     ]]>
   </level>
   <level id="7">
     <![CDATA[
-        `
-2.    6W`
-  3.    `
-      5W`
+  0  `
+     `
+W   1`
+     `
+ 00  `
     ]]>
   </level>
   <level id="8">
     <![CDATA[
-      8.`
-        `
-  4W  2.`
-    2W  `
+ 2   `
+     `
+ 1  1`
+1W   `
+     `
     ]]>
   </level>
   <level id="9">
     <![CDATA[
-5.  6.  `
-        `
-  3W    `
-      2W`
+  W  `
+ 2   `
+    2`
+     `
+ W 2 `
     ]]>
   </level>
   <level id="10">
     <![CDATA[
-4.      `
-      3W`
-7W  2.  `
-        `
+     `
+     `
+00  1`
+     `
+ 1 1 `
     ]]>
   </level>
   <level id="11">
     <![CDATA[
-    5.  `
-2W      `
-  6.  3W`
-        `
+ 1   `
+     `
+   0 `
+1    `
+  W1 `
     ]]>
   </level>
   <level id="12">
     <![CDATA[
-      3.`
-3W      `
-  3.  7W`
-        `
+   1 `
+ 2 W `
+   0 `
+    1`
+     `
     ]]>
   </level>
   <level id="13">
     <![CDATA[
-3.      `
-  3W    `
-      8.`
-2W      `
+  W W`
+  2  `
+1    `
+     `
+   2 `
     ]]>
   </level>
   <level id="14">
     <![CDATA[
-4W      `
-      3.`
-    2W  `
-  7.    `
+   00`
+   1 `
+     `
+   1 `
+0    `
     ]]>
   </level>
   <level id="15">
     <![CDATA[
-2.      `
-  2W  7.`
-        `
-  5W    `
+     `
+ 1  0`
+     `
+  2 2`
+  W  `
     ]]>
   </level>
   <level id="16">
     <![CDATA[
-  2W    `
-    3W  `
-      5.`
-  6.    `
+0 0  1`
+      `
+1   0 `
+  3   `
+ 1    `
+      `
     ]]>
   </level>
   <level id="17">
     <![CDATA[
-    2W  `
-  4W  2.`
-8.      `
-        `
+     2`
+      `
+     2`
+2  W  `
+   1 W`
+ 1    `
     ]]>
   </level>
   <level id="18">
     <![CDATA[
-  3.    `
-      2W`
-  9W    `
-      2.`
+  0   `
+1   3 `
+ 01   `
+      `
+     W`
+ 0    `
     ]]>
   </level>
   <level id="19">
     <![CDATA[
-4.  4W  `
-        `
-  2W    `
-6.      `
+ 2  2 `
+      `
+   1  `
+  1   `
+  02  `
+     0`
     ]]>
   </level>
   <level id="20">
     <![CDATA[
-    2W  `
-6.      `
-    6.  `
-  2W    `
+ W  2 `
+ W 1  `
+      `
+  4   `
+     0`
+ 1    `
     ]]>
   </level>
   <level id="21">
     <![CDATA[
-      6.  `
-  2W      `
-    3.  9W`
-4W        `
-  1.      `
+1     `
+  0 3 `
+ W    `
+     W`
+      `
+   1 1`
     ]]>
   </level>
   <level id="22">
     <![CDATA[
-   W      `
-        2W`
-4.        `
-      2W  `
-    4.  6.`
+ 2   W`
+ 0    `
+    1 `
+      `
+   12 `
+     1`
     ]]>
   </level>
   <level id="23">
     <![CDATA[
-        2W`
-    2W    `
-9.        `
-      5W  `
- .        `
+1     `
+1  0  `
+      `
+      `
+0   2 `
+0  1  `
     ]]>
   </level>
   <level id="24">
     <![CDATA[
-    4.    `
-3.        `
-  5W    6W`
-    4.    `
-3W        `
+W W    `
+     1 `
+  2   W`
+      W`
+ 2 0W W`
+    2  `
+ 0     `
     ]]>
   </level>
   <level id="25">
     <![CDATA[
-8W      3W`
-          `
-4.  5.    `
-        1.`
-      4W  `
+W      `
+ 12 2  `
+   4 WW`
+1W     `
+      1`
+1      `
+  W    `
     ]]>
   </level>
   <level id="26">
     <![CDATA[
-3.        `
-    3W    `
-5.      4W`
-    4W    `
-6.        `
+ 1     `
+   2   `
+    2 1`
+  WW   `
+0W 2  1`
+       `
+1    1 `
     ]]>
   </level>
   <level id="27">
     <![CDATA[
-          `
-  5W  8.  `
-1W        `
-       .  `
-  2W    2W`
+   W   `
+0 2    `
+    W0 `
+W      `
+W 1    `
+2    WW`
+   1   `
     ]]>
   </level>
   <level id="28">
     <![CDATA[
- .    1W  `
-          `
-    3W  4.`
-8W    2.  `
-          `
+W  1  W`
+     W `
+      3`
+    W  `
+3      `
+      W`
+   2   `
     ]]>
   </level>
   <level id="29">
     <![CDATA[
-    5W    `
-          `
-  8.  2.  `
-3W        `
-    2.  5W`
+    0 1`
+    0  `
+1   1  `
+   W   `
+1   W  `
+1 2 2  `
+      W`
     ]]>
   </level>
   <level id="30">
     <![CDATA[
-  4W    5.`
-      5W  `
-          `
-  5.      `
-3W      3.`
+ W    1`
+  1   W`
+       `
+ 0001  `
+       `
+  W    `
+ W  1 1`
     ]]>
   </level>
   <level id="31">
     <![CDATA[
-        1.`
-  9W      `
-      5.  `
-  2.    4W`
-    4W    `
+0  W 1 `
+       `
+ 2  2  `
+W 2    `
+      W`
+   1  1`
+ 01    `
     ]]>
   </level>
   <level id="32">
     <![CDATA[
-3W    3.  `
-          `
-      8.  `
-         W`
-3W    1.  `
+      1`
+W   W2 `
+   0   `
+  0W   `
+ 2   1 `
+       `
+WW 2   `
     ]]>
   </level>
   <level id="33">
     <![CDATA[
-     W    `
-        5.`
-     W    `
-  3.      `
-1.      2.`
+W0   0 `
+       `
+  00   `
+     10`
+       `
+ 1 1  1`
+0W     `
     ]]>
   </level>
   <level id="34">
     <![CDATA[
-3W    2W  `
-    4W    `
-        6.`
-     .    `
-3W        `
+ 2  W   `
+    1   `
+ 3      `
+   1    `
+  1    2`
+1  W  3 `
+  10    `
+      1W`
     ]]>
   </level>
   <level id="35">
     <![CDATA[
-      3W  `
-5W       .`
-          `
-  4W      `
-      6.  `
+    0 0 `
+ 1 0    `
+       W`
+   0 2  `
+        `
+  0 100 `
+ 0  W   `
+     1  `
     ]]>
   </level>
   <level id="36">
     <![CDATA[
-  2.      `
-    4.  6W`
-3W        `
-    2W    `
-      8.  `
+   0  20`
+  0     `
+W       `
+1      1`
+     1  `
+01     W`
+    2   `
+0  2    `
     ]]>
   </level>
   <level id="37">
     <![CDATA[
-    4W    `
-1.    2W  `
-  3.      `
-      6.  `
-    9W    `
+ 1     W`
+ 1   3 W`
+ 110   0`
+   1    `
+        `
+        `
+W   2  0`
+   2    `
     ]]>
   </level>
   <level id="38">
     <![CDATA[
-        5W`
-    6.    `
-          `
-          `
-6.  5W  3W`
+  1  1 0`
+W       `
+      11`
+ 1 0    `
+        `
+W1    0 `
+2    W  `
+   W    `
     ]]>
   </level>
   <level id="39">
     <![CDATA[
-          `
-8.    5.  `
-    3W    `
-4W        `
-        5W`
+ 00     `
+ 1     0`
+  2 2   `
+      1 `
+    1   `
+W   0  3`
+    0 3 `
+1       `
     ]]>
   </level>
   <level id="40">
     <![CDATA[
-  8.    1W`
-      3W  `
-5W        `
-          `
-  3W  5.  `
+   1    `
+W    0  `
+  0  0  `
+       W`
+0   3  W`
+W     2 `
+        `
+ W  02  `
     ]]>
   </level>
   <level id="41">
     <![CDATA[
-    9W      `
-  1.        `
-        A.  `
-  2.      5W`
-            `
-    7W    2W`
+ 10     `
+  1   1 `
+        `
+    1 0 `
+ 3  0 1 `
+  W 0 W1`
+      1 `
+        `
     ]]>
   </level>
   <level id="42">
     <![CDATA[
-  5W        `
-        7.  `
-2W    5.    `
-            `
-    7.  6W  `
-3W        1W`
+0       0`
+ W10     `
+ 3   W   `
+  2W    0`
+         `
+  W      `
+1W      3`
+  W    3 `
+2    1   `
     ]]>
   </level>
   <level id="43">
     <![CDATA[
-6.          `
-  3W        `
-      6W  A.`
-            `
-5.    1.  5W`
-            `
+  0 0    `
+ 0  2 2  `
+         `
+W   2   1`
+    W 0  `
+  2   0  `
+WW      1`
+   2 1 1 `
+         `
     ]]>
   </level>
   <level id="44">
     <![CDATA[
-    3W      `
-          4.`
-    9W  1.  `
-            `
-4W  2W    5.`
-  8.        `
+        0`
+1    0  W`
+   2    W`
+11   1 10`
+         `
+  2 0W   `
+         `
+         `
+ 10  1  0`
     ]]>
   </level>
   <level id="45">
     <![CDATA[
-  4W        `
-1.    8.    `
-            `
-  3.    CW  `
-    3W      `
-  5W        `
+    W0   `
+ 0       `
+   11   1`
+   0W    `
+   W    0`
+         `
+ 2  2 W  `
+1   W  12`
+   0     `
     ]]>
   </level>
   <level id="46">
     <![CDATA[
-        BW  `
-  2W        `
-7.    4.    `
-            `
-    3W    6.`
-  3W        `
+W W 0   0`
+0        `
+ WW     W`
+ W     0 `
+  2 0    `
+  1      `
+0    3 W `
+         `
+ 2      W`
     ]]>
   </level>
   <level id="47">
     <![CDATA[
-  2.        `
-6W      8.  `
-      1.    `
-    B.      `
-        6W  `
-    2W      `
+  0      `
+   2   1 `
+0   2W 11`
+     1   `
+   W     `
+ 3  0    `
+        W`
+  W      `
+ W0   1W `
     ]]>
   </level>
   <level id="48">
     <![CDATA[
-3W          `
-      C.    `
-  3.        `
-4W    4W    `
-        4W  `
-      6.    `
+       WW`
+    W    `
+  12   2 `
+    3    `
+W        `
+1 W 1 2  `
+   WW  3 `
+  2      `
+ 1     1 `
     ]]>
   </level>
   <level id="49">
     <![CDATA[
-  9.  2W    `
-          6W`
-      7.    `
-  3W        `
-1W  8.      `
-            `
+         `
+     W 3W`
+ 0      1`
+W1    0W `
+1 3  WW  `
+         `
+1W1   3  `
+   1     `
+         `
     ]]>
   </level>
   <level id="50">
     <![CDATA[
-  9W        `
-      2.  8W`
-            `
-  5.        `
-3.  5W      `
-          4.`
+  1     W `
+   W2    W`
+W      W  `
+W     1WW `
+W    W 2  `
+   W W3   `
+       2  `
+          `
+W W1    W `
+W  0   0  `
     ]]>
   </level>
   <level id="51">
     <![CDATA[
-  6W  7.    `
-            `
-            `
-      5.  4W`
-        6W  `
-3.  5.      `
+          `
+ 1WW      `
+   W    1 `
+  W    0W `
+       0  `
+    1W  WW`
+ 3     W  `
+W    11W W`
+ W  W   1 `
+  3      W`
     ]]>
   </level>
   <level id="52">
     <![CDATA[
-      1W    `
-    7W      `
-6.        9.`
-            `
-  3.    7W  `
-3W          `
+          `
+     W W2 `
+   0      `
+W W1 1   1`
+ 3 2    W `
+        W `
+W       2 `
+W 01      `
+W    W  1W`
+W  W     1`
     ]]>
   </level>
   <level id="53">
     <![CDATA[
-  4.      2.`
-        6W  `
-  3.  4.    `
-            `
-    5W    5.`
-7W          `
+ 0       W`
+    1     `
+      0   `
+ 3 0   W W`
+3    W    `
+    0    W`
+1 1   1 3 `
+   W      `
+     3    `
+0       W `
     ]]>
   </level>
   <level id="54">
     <![CDATA[
-    5W      `
-  2.      4W`
-      6W    `
-            `
-  5.      7.`
-7W          `
+      1 2 `
+    2     `
+1 0  2W1  `
+  W     W `
+  W WW    `
+W        W`
+ 2  2    W`
+   W   2  `
+      1   `
+W 3 W1    `
     ]]>
   </level>
   <level id="55">
     <![CDATA[
-    7W      `
-        6W  `
-2.          `
-    3.      `
-4.    9.    `
-        5W  `
+1      1  `
+ 1   2    `
+  1      W`
+2 W   2   `
+ W     W1 `
+     1    `
+       2  `
+ 3   W W  `
+     2   W`
+    W     `
     ]]>
   </level>
   <level id="56">
     <![CDATA[
-        6W  `
-            `
-    4W      `
-  3W        `
-          1.`
-B.  6.  5W  `
+     1  1 `
+00W1  W  W`
+          `
+    W1    `
+1   1   3 `
+      2W W`
+        W `
+    0    1`
+ 2W 0 2  0`
+ 0        `
     ]]>
   </level>
   <level id="57">
     <![CDATA[
-      7.    `
-  4W      4.`
-      4W    `
-    2W      `
-4W      6W  `
-      5.    `
+W1        `
+ W      W `
+1       1 `
+    3  0  `
+  01      `
+   0   1  `
+ 1        `
+ W 2  0  W`
+  4       `
+     1  W `
     ]]>
   </level>
   <level id="58">
     <![CDATA[
-  4W      3.`
-      6W    `
-  2W        `
-2.          `
-    9.  AW  `
-            `
+      W 0 `
+      0   `
+      W   `
+ 3       W`
+ 1  2W    `
+  W   1 WW`
+   0 WW   `
+0  1   11 `
+ W        `
+ WW 1 1   `
     ]]>
   </level>
   <level id="59">
     <![CDATA[
-1W    4.  8W`
-            `
-      5.    `
-5.        3W`
-      6.    `
-    4W      `
+1   1     `
+    W   2 `
+    1 1   `
+  2     1 `
+          `
+ 1 W      `
+ 01   W  1`
+     WW   `
+W     1   `
+ 3 2      `
     ]]>
   </level>
   <level id="60">
     <![CDATA[
-    4.      `
-      2.    `
-    5W    8W`
-5W          `
-            `
-      A.  2W`
+          `
+WW  W   W `
+ W2 WW   0`
+   W 00   `
+1 W     2W`
+ W        `
+          `
+1   1 0   `
+    0 W  0`
+   10     `
     ]]>
   </level>
   <level id="61">
     <![CDATA[
-9W          `
-    2W  8.  `
-      5.    `
-2.        8W`
-    2.      `
-            `
+W      01 `
+WW        `
+          `
+ 0  1    W`
+    0    0`
+         0`
+ 02   1 W `
+ 1  1   W `
+          `
+  0W0W 0  `
     ]]>
   </level>
   <level id="62">
     <![CDATA[
-2W        4.`
-    5W      `
-  3W    4.  `
-            `
-    4.  7W  `
-  7.        `
+  WW   W  `
+ 3  2  W 1`
+   1      `
+        0 `
+ 0  1 W   `
+1   0 W3  `
+   W      `
+     10  1`
+        W `
+ 0    1   `
     ]]>
   </level>
   <level id="63">
     <![CDATA[
-    7.      `
-  1.      2W`
-            `
-    7.  AW  `
-      4.    `
-        5W  `
+    0 W   `
+         1`
+   1W     `
+0W   2 2  `
+   0     W`
+   1      `
+ 1 WW 0   `
+W  W1     `
+      0 1 `
+  2     W `
     ]]>
   </level>
   <level id="64">
     <![CDATA[
-  1.  2W    `
-        4W  `
-            `
-  7W      5.`
-3.      7.  `
-    7W      `
+      1   `
+W1 2 2    `
+    2 1 2 `
+      1  2`
+ W 0W     `
+          `
+      1   `
+W W2     1`
+      1   `
+1 1   00  `
     ]]>
   </level>
   <level id="65">
     <![CDATA[
-3W          `
-    AW    1W`
-  3.    4W  `
-            `
-            `
-3.    8.  4.`
+0  W      `
+  W 1     `
+1     1   `
+ 2 2 W  W `
+   W W1  0`
+  2 2     `
+      W1  `
+ W    3   `
+ W        `
+1       1 `
     ]]>
   </level>
   <level id="66">
     <![CDATA[
-    3.      `
-5.          `
-      4.  6W`
-  AW        `
-          7.`
-1W          `
+ W 2 W  WW`
+     W  1 `
+W     0   `
+    2   2 `
+      W2  `
+ 0   0  W `
+1        W`
+    W     `
+         W`
+ 0 1   1  `
     ]]>
   </level>
   <level id="67">
     <![CDATA[
-          6.`
-2W          `
-    8W  1.  `
-  6.        `
-    4W    6.`
-  3W        `
+  2 2  W0 `
+0       1 `
+W         `
+W         `
+01     0  `
+  2W     1`
+    W  2  `
+W   1 2 1 `
+          `
+  1   W 0 `
     ]]>
   </level>
   <level id="68">
     <![CDATA[
-    5.  2.  `
-            `
-      9W  5.`
-2W          `
-  6.        `
-1.        6W`
+    1     `
+W 1 W 1   `
+      2   `
+1        2`
+  1   W 2 `
+      1   `
+  W    11W`
+  W  W   W`
+          `
+    WW W  `
     ]]>
   </level>
   <level id="69">
     <![CDATA[
-          2.`
-            `
-  CW  3.    `
-    6W      `
-        6.  `
-    6W    1.`
+ 1W     0W`
+  1 1  1  `
+          `
+1   W  W  `
+ 3    2   `
+   W   W  `
+  1  W  1 `
+ 2    2W  `
+  3    2  `
+      1   `
     ]]>
   </level>
   <level id="70">
     <![CDATA[
-            `
-        8W  `
-    4W      `
-4W    4.    `
-    7.      `
-5W      4.  `
+WW1       `
+          `
+  1 0    2`
+          `
+1W  1  0  `
+    WW  W `
+ 3  W  2 W`
+  1       `
+     W  1 `
+    1     `
     ]]>
   </level>
   <level id="71">
     <![CDATA[
-              `
-    7.    5.  `
-6W          4W`
-  1W      6.  `
-              `
-      9W      `
-  7.    4.    `
+        WW`
+  3 0    W`
+     1 0W `
+       W  `
+  W     2 `
+  W   0   `
+   1      `
+ 3 W 0W 0 `
+   0 2    `
+       W W`
     ]]>
   </level>
   <level id="72">
     <![CDATA[
-    7.        `
-      5W      `
-4W      3.    `
-            A.`
-              `
-C.      4W    `
-    2W      2W`
+    01W W 1`
+    W   W  `
+  2W   0   `
+ W   1    0`
+           `
+ W       W `
+ WW0 1     `
+       00  `
+    W  1   `
+    2   1  `
+ 2 2       `
     ]]>
   </level>
   <level id="73">
     <![CDATA[
-2.    2W    A.`
-  8W          `
-      CW      `
-              `
-        2.    `
-  4.        5W`
-      4.      `
+W      W   `
+     0     `
+        W1 `
+ 11  1100  `
+   W     W `
+W W W1 2   `
+  W        `
+    2      `
+           `
+2 W0   0   `
+     W 0 W `
     ]]>
   </level>
   <level id="74">
     <![CDATA[
-    4.        `
-      6W      `
-  5.      7W  `
-              `
-4.  8W    3W  `
-            6.`
-  1W  5.      `
+ 1  3     W`
+           `
+   0W      `
+   0    0W0`
+     W  W  `
+1 2    1   `
+     1    W`
+    WW3 W  `
+    2   2  `
+ 10  1     `
+ W         `
     ]]>
   </level>
   <level id="75">
     <![CDATA[
-7.    5W  1.  `
-    6.      3W`
-      2W      `
-    8.    3W  `
-              `
-    8W    6W  `
-              `
+     W     `
+W11     3  `
+       10W `
+           `
+WW  1  1   `
+0      0   `
+         2W`
+ W  02     `
+       W   `
+   WW  1  1`
+ 0  W W    `
     ]]>
   </level>
   <level id="76">
     <![CDATA[
-          7.  `
-  7W          `
-          9.  `
-5W    5W      `
-          1.  `
-  2.    3.    `
-    5W      5W`
+W  W       `
+ 2  W    2 `
+      W    `
+    2 W 2W `
+ W   2    W`
+   2  W 02 `
+     3  2  `
+  WW       `
+     W   0 `
+  3W    0  `
+      W    `
     ]]>
   </level>
   <level id="77">
     <![CDATA[
-  7.    1W    `
-      7W      `
-            8W`
-  AW  3.      `
-2.      8.    `
-              `
-    3.        `
+W 1 0  W1  `
+  W 0      `
+W        W `
+      0 2  `
+   0     W `
+           `
+  W 0  1 2 `
+2      2   `
+      W    `
+W     1  W `
+  1      WW`
     ]]>
   </level>
   <level id="78">
     <![CDATA[
-  C.        A.`
-    5.  5W    `
-              `
-        3W    `
-  7W          `
-        1W  3W`
-  3W          `
+ 2W   1   W`
+     W  W  `
+      3  0 `
+ WWW       `
+   3 W 0  1`
+     0 W   `
+           `
+W       0  `
+2     1    `
+  W1   2 4 `
+      WW   `
     ]]>
   </level>
   <level id="79">
     <![CDATA[
-          7.  `
-        2W    `
-    7W        `
-6.      6W    `
-      9W      `
-  1.          `
-    7.    4W  `
+W       WWW`
+  0 1   W  `
+     W3  W `
+0 W0     1 `
+0   2      `
+W     W    `
+1     W    `
+  2 0 W    `
+    W  W   `
+    0   3  `
+           `
     ]]>
   </level>
   <level id="80">
     <![CDATA[
-2W  4.        `
-          BW  `
-  9W  6.      `
-              `
-        2W    `
-  5.      9W  `
-1.            `
+W 2  1  0  `
+      1    `
+ 0     2 W `
+ 1 1W1    1`
+W        1 `
+        W  `
+  1  2 1   `
+ 1        1`
+0    2     `
+  1        `
+   WW     1`
     ]]>
   </level>
   <level id="81">
     <![CDATA[
-      5.      `
-  AW    7W    `
-              `
-    4.      3.`
-      6W      `
-3W            `
-  5.  6W      `
-    ]]>
-  </level>
-  <level id="82">
-    <![CDATA[
-  5W    1.    `
-      B.      `
-2W          8W`
-              `
-        7.    `
-2W          8W`
-    5W        `
-    ]]>
-  </level>
-  <level id="83">
-    <![CDATA[
-          BW  `
-6W    2.      `
-              `
-4.            `
-  4.  9W    5.`
-3W            `
-    1W      4.`
-    ]]>
-  </level>
-  <level id="84">
-    <![CDATA[
-        4W    `
-    B.      2W`
-          1W  `
-      9.      `
-          8W  `
-9W    3.      `
-            2.`
-    ]]>
-  </level>
-  <level id="85">
-    <![CDATA[
-  B.          `
-            6.`
-    8W        `
-            5.`
-    5W        `
-      8.  3W  `
-2.          1W`
-    ]]>
-  </level>
-  <level id="86">
-    <![CDATA[
-            4W`
-  3W  8.      `
-          1.  `
-7.    AW      `
-          8.  `
-  6W          `
-2.            `
-    ]]>
-  </level>
-  <level id="87">
-    <![CDATA[
-      4.      `
-            5W`
-8.    5W  4.  `
-    2W        `
-1W          2.`
-    8W  A.    `
-              `
-    ]]>
-  </level>
-  <level id="88">
-    <![CDATA[
-              `
-  7W        6.`
-      BW      `
-  4.        6W`
-    1.  6.    `
-            5W`
-      3.      `
-    ]]>
-  </level>
-  <level id="89">
-    <![CDATA[
-  4.  5.      `
-            8W`
-6W      2.    `
-              `
-CW      8.    `
-    2.      2.`
-              `
-    ]]>
-  </level>
-  <level id="90">
-    <![CDATA[
-8W    3W      `
-  4.      1W  `
-              `
-    3W  3W  6W`
-              `
-          A.  `
-        B.    `
-    ]]>
-  </level>
-  <level id="91">
-    <![CDATA[
-7W        4.  `
-  2.        4W`
-8.    6.      `
-    3W        `
-          8.  `
-              `
-      7W      `
-    ]]>
-  </level>
-  <level id="92">
-    <![CDATA[
-    5W    6W  `
-1.      3.    `
-              `
-  8.    AW  3.`
-              `
-  7W  3W      `
-          3.  `
-    ]]>
-  </level>
-  <level id="93">
-    <![CDATA[
-              `
-    A.    1.  `
-            8W`
-2.  4.  2.    `
-            5.`
-        6W    `
-    BW        `
-    ]]>
-  </level>
-  <level id="94">
-    <![CDATA[
-  7.        8W`
-4W            `
-        9W    `
-          2.  `
-  7W  2.      `
-        1.  2.`
-      7.      `
-    ]]>
-  </level>
-  <level id="95">
-    <![CDATA[
-        1.    `
-  4.        6W`
-      DW      `
-4.            `
-    8W    6.  `
-              `
-  2W    3.  2.`
-    ]]>
-  </level>
-  <level id="96">
-    <![CDATA[
-              `
-      3W  6W  `
-6W  1.        `
-        A.  4.`
-    A.        `
-            5.`
-      4W      `
-    ]]>
-  </level>
-  <level id="97">
-    <![CDATA[
-  5W        2.`
-      8.      `
-              `
-      5.      `
-    8W      AW`
-3W    1W      `
-          7.  `
-    ]]>
-  </level>
-  <level id="98">
-    <![CDATA[
-  2.          `
-      6.  CW  `
-5.            `
-      3W      `
-    1W      3W`
-              `
-8W          9.`
-    ]]>
-  </level>
-  <level id="99">
-    <![CDATA[
-              `
-      BW  6.  `
-7.  5W        `
-      4W      `
-  4.          `
-    8W  2.    `
-          2.  `
-    ]]>
-  </level>
-  <level id="100">
-    <![CDATA[
-  6W      3.  `
-      9W      `
-          2.  `
-    6.        `
-8W      3.    `
-            BW`
-    1.        `
-    ]]>
-  </level>
-  <level id="101">
-    <![CDATA[
-2.            `
-        AW    `
-4W    7.      `
-              `
-3.  BW  4W    `
-          8.  `
-              `
-    ]]>
-  </level>
-  <level id="102">
-    <![CDATA[
-              `
-            9.`
-5W    4W  2.  `
-  2W          `
-        9W  E.`
-              `
-  4W          `
-    ]]>
-  </level>
-  <level id="103">
-    <![CDATA[
-7W            `
-    8.  2W  3W`
-              `
-    2W        `
-        6W    `
-              `
-  5W    6.  A.`
-    ]]>
-  </level>
-  <level id="104">
-    <![CDATA[
-              `
-6W    8.  3.  `
-        FW    `
-9W            `
-          3.  `
-              `
-      2.    3W`
-    ]]>
-  </level>
-  <level id="105">
-    <![CDATA[
-  8W        3W`
-          B.  `
-    3.        `
-        8W    `
-      3.    4W`
-  4.          `
-      5W      `
-    ]]>
-  </level>
-  <level id="106">
-    <![CDATA[
-          5W  `
-    5W        `
-6.    8.      `
-              `
-  3.          `
-            6W`
-  EW      2.  `
-    ]]>
-  </level>
-  <level id="107">
-    <![CDATA[
-3W        6W  `
-  E.  4.      `
-              `
-            7W`
-              `
-    6W  6.    `
-      3W      `
-    ]]>
-  </level>
-  <level id="108">
-    <![CDATA[
-4.      6W    `
-  8W          `
-              `
-    3W      7.`
-              `
-2.  6.      DW`
-              `
-    ]]>
-  </level>
-  <level id="109">
-    <![CDATA[
-              `
-9.            `
-        3W  4W`
-  4W      8.  `
-              `
-              `
-  8.  7W    6.`
-    ]]>
-  </level>
-  <level id="110">
-    <![CDATA[
-      AW      `
-  AW          `
-    3.      2.`
-              `
-  5.      8W  `
-2.  6W        `
-          3.  `
-    ]]>
-  </level>
-  <level id="111">
-    <![CDATA[
-  4.          2.`
-    5W    3.    `
-1W              `
-      C.  7W    `
-2W            5W`
-          5.    `
-      7.        `
-6.  5W          `
-    ]]>
-  </level>
-  <level id="112">
-    <![CDATA[
-      8.  3W    `
-5W              `
-        7W  4.  `
-              3W`
-    5W    4.    `
-8.          7W  `
-          2.    `
-2W  6W          `
-    ]]>
-  </level>
-  <level id="113">
-    <![CDATA[
-  5.            `
-    9W          `
-  9.    2.    6.`
-          1.    `
-      3W        `
-    2W        9W`
-        9.  5.  `
-    4W          `
-    ]]>
-  </level>
-  <level id="114">
-    <![CDATA[
-  3.  3W        `
-              3W`
-  AW  8.  9.    `
-                `
-        8.  1W  `
-    2W          `
-  4W        8W  `
-      5.        `
-    ]]>
-  </level>
-  <level id="115">
-    <![CDATA[
-2W  3.    BW    `
-              6.`
-2W    5W        `
-          4.    `
-      9.        `
-          3W    `
-              5W`
-9W  5.          `
-    ]]>
-  </level>
-  <level id="116">
-    <![CDATA[
-  3W      8W    `
-            4.  `
-    4W  8.      `
-            8.  `
-    3.          `
-  5W        4W  `
-8.  7.          `
-      2W        `
-    ]]>
-  </level>
-  <level id="117">
-    <![CDATA[
-2W    7W        `
-  4.      3.    `
-                `
-8W    6.      4W`
-                `
-        1.  BW  `
-  7.            `
-    5W    2.  4.`
-    ]]>
-  </level>
-  <level id="118">
-    <![CDATA[
-                `
-  1W        4W  `
-    2W  4W      `
-  C.          4.`
-            4W  `
-  8W  9.      3W`
-          4.    `
-4.      5W      `
-    ]]>
-  </level>
-  <level id="119">
-    <![CDATA[
-2W  9.          `
-              3W`
-  AW            `
-              7.`
-    4W  8.  1W  `
-  6.            `
-      5.        `
-    3W    6W    `
-    ]]>
-  </level>
-  <level id="120">
-    <![CDATA[
-                `
-        2.    2.`
-  5.  CW    6W  `
-              7W`
-                `
-      AW  6.    `
-4.  1W      7.  `
-  2W            `
-    ]]>
-  </level>
-  <level id="121">
-    <![CDATA[
-            8W  `
-                `
-5.      5.    6W`
-            6.  `
-  3.            `
-    1W    8.    `
-DW          5.  `
-      4W        `
-    ]]>
-  </level>
-  <level id="122">
-    <![CDATA[
-      5.        `
-1W  6W  3.    8W`
-            2.  `
-7.              `
-      8.      9.`
-                `
-    7W  8W      `
-                `
-    ]]>
-  </level>
-  <level id="123">
-    <![CDATA[
-    3W    5.    `
-      7W        `
-              E.`
-2W  1W          `
-          3W    `
-    A.  7W      `
-8W              `
-          4.    `
-    ]]>
-  </level>
-  <level id="124">
-    <![CDATA[
-4.        4.    `
-      6W    2W  `
-2W              `
-            4W  `
-      8.        `
-  3W      9.  5.`
-        CW      `
-    5.          `
-    ]]>
-  </level>
-  <level id="125">
-    <![CDATA[
-      E.  2W    `
-                `
-4W  3.          `
-  3W    5W  6W  `
-                `
-            6W  `
-      9.        `
-  9W        3.  `
-    ]]>
-  </level>
-  <level id="126">
-    <![CDATA[
-    6W  8W    C.`
-  7.            `
-                `
-      6W        `
-  5.            `
-    1W  7.  4W  `
-  5W            `
-          3W    `
-    ]]>
-  </level>
-  <level id="127">
-    <![CDATA[
-3.      1.      `
-          7.    `
-  AW            `
-2W  7.      9W  `
-                `
-    7W  5.  AW  `
-                `
-  3W            `
-    ]]>
-  </level>
-  <level id="128">
-    <![CDATA[
-              3W`
-        6W      `
-    1.          `
-  A.  7.    7W  `
-                `
-  4.    8W      `
-                `
-6W      8.    4W`
-    ]]>
-  </level>
-  <level id="129">
-    <![CDATA[
-  6W            `
-        9.      `
-  2W            `
-    4W  8W      `
-            3W  `
-    9.        1.`
-        5.      `
-  8.          9W`
-    ]]>
-  </level>
-  <level id="130">
-    <![CDATA[
-4.    EW    2.  `
-    2W  5.      `
-                `
-AW          2.  `
-    5.  6.      `
-                `
-      7W        `
-            7.  `
-    ]]>
-  </level>
-  <level id="131">
-    <![CDATA[
-        5W    4.`
-2.  E.    4W    `
-                `
-                `
-    7W  8W  6.  `
-              3W`
-          4.    `
-      7.        `
-    ]]>
-  </level>
-  <level id="132">
-    <![CDATA[
-        8W    2.`
-7.              `
-      A.      4W`
-  7W            `
-            3W  `
-2W  4.          `
-      6W      8.`
-3W              `
-    ]]>
-  </level>
-  <level id="133">
-    <![CDATA[
-  8W            `
-            6.  `
-                `
-    6W    4W  4W`
-        D.      `
-            4W  `
-    8W          `
-2.    2.  7.    `
-    ]]>
-  </level>
-  <level id="134">
-    <![CDATA[
-AW    5.      6W`
-                `
-        4W      `
-            E.  `
-        4W    2.`
-  4W            `
-    8.  4W    3W`
-                `
-    ]]>
-  </level>
-  <level id="135">
-    <![CDATA[
-        6.      `
-  4.        7W  `
-          3.    `
-3W  7.  7W      `
-                `
-BW      6.      `
-          2W    `
-              8.`
-    ]]>
-  </level>
-  <level id="136">
-    <![CDATA[
-2.    AW        `
-            6W  `
-  3.            `
-      9.        `
-4W          DW  `
-    5.    2.    `
-      5W        `
-  3W    2.      `
-    ]]>
-  </level>
-  <level id="137">
-    <![CDATA[
-3W    4W    2W  `
-              2.`
-            C.  `
-      5W      4W`
-7W              `
-    9.          `
-      7.      9W`
-                `
-    ]]>
-  </level>
-  <level id="138">
-    <![CDATA[
-  3.        2.  `
-                `
-    HW    6.    `
-              AW`
-          7W    `
-    4.        3.`
-7W              `
-      3.    2.  `
-    ]]>
-  </level>
-  <level id="139">
-    <![CDATA[
-  D.            `
-                `
-    2W  9W    2W`
-3W          9.  `
-      5W      5.`
-                `
-                `
-8.      6.    2W`
-    ]]>
-  </level>
-  <level id="140">
-    <![CDATA[
-2W  4.        8W`
-                `
-8W      4.    5.`
-                `
-2.  2.  9W      `
-      9.      2W`
-                `
-          9W    `
-    ]]>
-  </level>
-  <level id="141">
-    <![CDATA[
-        AW      2W`
-    2.        9.  `
-2.                `
-              7W  `
-1W  AW            `
-            6.  1W`
-5.      A.    4W  `
-                  `
-  AW            2W`
-    ]]>
-  </level>
-  <level id="142">
-    <![CDATA[
-    3W            `
-        9W      3.`
-                  `
-3W          8.    `
-    9W  C.    7W  `
-                  `
-            8.    `
-9.  2.  1.        `
-  2W      1.  4W  `
-    ]]>
-  </level>
-  <level id="143">
-    <![CDATA[
-      7W        A.`
-  3.              `
-      3W          `
-C.        3W      `
-                9W`
-  1.  4W          `
-            3W  3W`
-7W    5.      6.  `
-          5W      `
-    ]]>
-  </level>
-  <level id="144">
-    <![CDATA[
-3.    5.        4.`
-              5W  `
-    CW            `
-        1.    4W  `
-8W          2.    `
-          9W      `
-      8.          `
-        7.    BW  `
-2.                `
-    ]]>
-  </level>
-  <level id="145">
-    <![CDATA[
-                  `
-    4.      8W    `
-  5.              `
-      2.      E.  `
-                  `
-  CW  3.  1W  3W  `
-                  `
-  5W      4.    7.`
-7.    6W          `
-    ]]>
-  </level>
-  <level id="146">
-    <![CDATA[
-          6W      `
-                3W`
-      A.    7W    `
-                2.`
-  DW  7.          `
-            4W    `
-1.      6W      6.`
-  6.              `
-        6W      4W`
-    ]]>
-  </level>
-  <level id="147">
-    <![CDATA[
-            2.    `
-4.    8.        BW`
-  5W        7.    `
-                  `
-1W    7.      3W  `
-        4.      1W`
-            6.    `
-    6W          8W`
-        8.        `
-    ]]>
-  </level>
-  <level id="148">
-    <![CDATA[
-  3W  3.      5W  `
-            1.    `
-7.    8W  6.  6.  `
-                  `
-      2W        2W`
-                  `
-    7W  BW      6W`
-E.                `
-                  `
-    ]]>
-  </level>
-  <level id="149">
-    <![CDATA[
-8W                `
-                5.`
-          3.      `
-        D.        `
-  5W              `
-        2W  DW    `
-7.  3W            `
-        2W  8.  7.`
-2W  3.            `
-    ]]>
-  </level>
-  <level id="150">
-    <![CDATA[
-          2W      `
-3.    A.      1W  `
-        7W  7W    `
-                4W`
-5W  B.            `
-      5W  4.  4.  `
-                  `
-  7W    7W      4.`
-                  `
-    ]]>
-  </level>
-  <level id="151">
-    <![CDATA[
-        AW        `
-  4W  6.          `
-              6W  `
-  3W  E.        8.`
-                  `
-4W      4W    4W  `
-                  `
-    2W          5W`
-2W          9.    `
-    ]]>
-  </level>
-  <level id="152">
-    <![CDATA[
-        5.        `
-6W        BW    7W`
-              2.  `
-                  `
-  3W  B.    5.    `
-          5.      `
-      4W          `
-    5.          AW`
-3W      4W        `
-    ]]>
-  </level>
-  <level id="153">
-    <![CDATA[
-    B.            `
-        3W  8W  A.`
-                  `
-  4W              `
-                  `
-3W            3.  `
-    4W  2.  AW    `
-              3.  `
-  3W  A.        7W`
-    ]]>
-  </level>
-  <level id="154">
-    <![CDATA[
-3.    DW          `
-    4W      D.    `
-6.                `
-                  `
-2W    5W          `
-  2.    8.    2.  `
-      7W          `
-  6.      6W      `
-                4.`
-    ]]>
-  </level>
-  <level id="155">
-    <![CDATA[
-    5.          4.`
-5W            8W  `
-        4.        `
-3.    6W        3W`
-            4W    `
-  4W              `
-7.        E.      `
-    5W            `
-        6W  3.    `
-    ]]>
-  </level>
-  <level id="156">
-    <![CDATA[
-  2W  7.          `
-              7.  `
-      2.  8W    2W`
-  5W              `
-          5.      `
-  D.        4W  6.`
-                  `
-    EW      2.    `
-        4.        `
-    ]]>
-  </level>
-  <level id="157">
-    <![CDATA[
-        4W  5W    `
-  5.      4.      `
-2W    8.      9.  `
-                  `
-9.        CW      `
-    3W          2W`
-                  `
-      3W          `
-  4W        B.    `
-    ]]>
-  </level>
-  <level id="158">
-    <![CDATA[
-  A.              `
-      BW          `
-  2W              `
-      8.          `
-3W              B.`
-      4.      6W  `
-9.  2W            `
-        6.    2W  `
-    3W          4.`
-    ]]>
-  </level>
-  <level id="159">
-    <![CDATA[
-3.      3.    7W  `
-      5W          `
-  5W      2W  7.  `
-      7.          `
-        3W        `
-                  `
-        7.    AW  `
-    CW    6.    4W`
-                  `
-    ]]>
-  </level>
-  <level id="160">
-    <![CDATA[
-        6W        `
-  B.  7W        A.`
-                  `
-5W        4.      `
-                  `
-      3W    6W    `
-4W      2.      5W`
-            4.    `
-4.  AW            `
-    ]]>
-  </level>
-  <level id="161">
-    <![CDATA[
-        6W      7.  `
-      7.          3W`
-  4.                `
-8W      3W    5W    `
-                  A.`
-          3W        `
-              9.    `
-7.  9.  3W        4W`
-                    `
-          AW    2W  `
-    ]]>
-  </level>
-  <level id="162">
-    <![CDATA[
-  8.  5W      6.  3W`
-                    `
-      3W    5W      `
-    4.  7.    8.  5W`
-                    `
-      AW            `
-  A.                `
-                  4.`
-  7W  3W      6W    `
-          3W      3.`
-    ]]>
-  </level>
-  <level id="163">
-    <![CDATA[
-        4W        9W`
-    3W              `
-6.        5.        `
-            5W      `
-      8.            `
-7W          4W    4.`
-        J.          `
-    9W      2.    7W`
-          4W        `
-2W              2.  `
-    ]]>
-  </level>
-  <level id="164">
-    <![CDATA[
-6.                  `
-    6W            B.`
-          8.  7W    `
-  5.                `
-3W          7W      `
-    8.        3W    `
-      3W            `
-            D.      `
-  3W      3W    4W  `
-      7.    3.      `
-    ]]>
-  </level>
-  <level id="165">
-    <![CDATA[
-      6W  7.    2W  `
-  6.          3W    `
-                  4.`
-4W              5W  `
-  E.        9.      `
-                  4.`
-          2W        `
-    5W  BW    5.    `
-                  2.`
-    5W    6.        `
-    ]]>
-  </level>
-  <level id="166">
-    <![CDATA[
-              2.    `
-          3.        `
-GW  3.        6W    `
-                2W  `
-  4.          3.    `
-3.        CW        `
-      7W    2.      `
-        8.        A.`
-7W                  `
-              2.  AW`
-    ]]>
-  </level>
-  <level id="167">
-    <![CDATA[
-              CW    `
-  7W    EW          `
-      3.    6.      `
-  2.                `
-      2.            `
-          6.      2.`
-        2.          `
-  6.        9W  2.  `
-        6W        6W`
-  9W        6.      `
-    ]]>
-  </level>
-  <level id="168">
-    <![CDATA[
-  2W  2W    3.      `
-2.                  `
-      A.    9W  A.  `
-2W                  `
-      7.        5W  `
-7.                  `
-          9W      9.`
-      6W            `
-2W          D.      `
-                  2.`
-    ]]>
-  </level>
-  <level id="169">
-    <![CDATA[
-              2W    `
-      9.  5W        `
-  6.    4W    7.  6W`
-                    `
-  7W      5.        `
-        4.          `
-5.          5.      `
-        8W      2W  `
-    9W              `
-  4.          C.    `
-    ]]>
-  </level>
-  <level id="170">
-    <![CDATA[
-    6W        5W    `
-3.          9.      `
-      3W          A.`
-    5.        7W    `
-  5W                `
-        4W        4W`
-  4.          EW    `
-    3W              `
-  8W  6.          2.`
-          2.        `
-    ]]>
-  </level>
-  <level id="171">
-    <![CDATA[
-    3W  5.      4.  `
-2.                  `
-            7.      `
-  9.    7.          `
-          3W      6W`
-                    `
-        CW    4W    `
-    8W    7W      7.`
-                    `
-        D.        3.`
-    ]]>
-  </level>
-  <level id="172">
-    <![CDATA[
-6W            2W  4W`
-        5W          `
-    3.    2W        `
-8.    9.            `
-          4W      G.`
-  9W                `
-          5.  8W    `
-                    `
-          3.        `
-        9W      7W  `
-    ]]>
-  </level>
-  <level id="173">
-    <![CDATA[
-AW                  `
-    2.      5.      `
-        6.          `
-    5W            9W`
-3.            4W    `
-    3.    7W        `
-4W            4W    `
-    A.            5W`
-  4W                `
-        8W      B.  `
-    ]]>
-  </level>
-  <level id="174">
-    <![CDATA[
-    5.        5W    `
-                    `
-            8.  6W  `
-  4.                `
-          BW        `
-      2W    5.    6.`
-EW  5.              `
-              3W    `
-2.      AW          `
-    7.          7W  `
-    ]]>
-  </level>
-  <level id="175">
-    <![CDATA[
-        6.      6.  `
-EW                  `
-                  8W`
-2.            AW    `
-      5.            `
-    2.              `
-          3W  9.    `
-M.    CW        3W  `
-                    `
-  2.  9.          7W`
-    ]]>
-  </level>
-  <level id="176">
-    <![CDATA[
-  4W  2.  2.        `
-2.                9W`
-  2W                `
-        7W        2W`
-  5W                `
-    8.        G.    `
-  3.    HW          `
-            4W      `
-              7W    `
-A.                  `
-    ]]>
-  </level>
-  <level id="177">
-    <![CDATA[
-        3W        A.`
-            3W  4W  `
-BW  7.              `
-          5.        `
-      7W            `
-  4.      3.  7W    `
-                3.  `
-M.        EW        `
-        4.          `
-    8W        5.    `
-    ]]>
-  </level>
-  <level id="178">
-    <![CDATA[
-4.                  `
-      5W  E.        `
-BW            3W    `
-            2W      `
-      A.      6.    `
-          7W      4W`
-    5.              `
-          2W  9.  3.`
-                    `
-  5.    AW          `
-    ]]>
-  </level>
-  <level id="179">
-    <![CDATA[
-    7W              `
-            FW      `
-                    `
-      G.  2.      2.`
-5W      4W    6.    `
-                    `
-        4W    4W    `
-  6W                `
-      4W          8W`
-  2.    2.  4W  9.  `
-    ]]>
-  </level>
-  <level id="180">
-    <![CDATA[
-  C.            3W  `
-        2W          `
-4W        2W      9.`
-                3W  `
-    6.  EW          `
-8.                  `
-        4.      8W  `
-            7.      `
-  2W  8.          8.`
-                    `
-    ]]>
-  </level>
-  <level id="181">
-    <![CDATA[
-  3W        7.      `
-3.              9W  `
-                    `
-2.      IW          `
-            6.  2.  `
-7W  4.  6W          `
-                  2.`
-  7.                `
-        CW    8W  2.`
-            2.      `
-    ]]>
-  </level>
-  <level id="182">
-    <![CDATA[
-                  4W`
-    3W              `
-      7.    3W    7.`
-  7.      9.    EW  `
-      8W            `
-7.                4.`
-          5W        `
-5W              3.  `
-  4.  A.            `
-                    `
-    ]]>
-  </level>
-  <level id="183">
-    <![CDATA[
-        2W      6.  `
-6.        2.        `
-      6.            `
-  9W              3.`
-            6.      `
-        G.          `
-          2W        `
-    3W          GW  `
-                  9.`
-  2W    9.  3W      `
-    ]]>
-  </level>
-  <level id="184">
-    <![CDATA[
-  3.                `
-      6.    6W    A.`
-4W                  `
-                    `
-    7W              `
-          2W        `
-    D.      7.  6.  `
-9W                  `
-              DW  2.`
-  4.  2.    6.      `
-    ]]>
-  </level>
-  <level id="185">
-    <![CDATA[
-5W                2.`
-        A.    2.    `
-    4W      8W      `
-                8W  `
-  9W      5.        `
-      7.          2.`
-                GW  `
-3.            4.    `
-                    `
-        DW    2.    `
-    ]]>
-  </level>
-  <level id="186">
-    <![CDATA[
-                  3W`
-  DW    3.  4.      `
-              5W    `
-        5W          `
-7W  6.          7.  `
-              8W    `
-      E.  2W        `
-                7.  `
-        7W          `
-          7W      2.`
-    ]]>
-  </level>
-  <level id="187">
-    <![CDATA[
-2.        8.    3.  `
-                    `
-      GW    AW      `
-          2W        `
-7.    4.            `
-            F.      `
-                    `
-    5.            6.`
-4W    3W    6W      `
-  3.    6.          `
-    ]]>
-  </level>
-  <level id="188">
-    <![CDATA[
-      4.    3.    3.`
-          BW        `
-9W            5W    `
-        8.          `
-            6.      `
-3W                8W`
-      9W  7.    4.  `
-                    `
-          4W        `
-      9.          7W`
-    ]]>
-  </level>
-  <level id="189">
-    <![CDATA[
-                A.  `
-    6W              `
-  2W            3W  `
-    E.              `
-            6W    4W`
-    7W              `
-  B.          8.  7.`
-      2.            `
-            4W      `
-6W      8.      2W  `
-    ]]>
-  </level>
-  <level id="190">
-    <![CDATA[
-  6.          5.    `
-      3.          9W`
-                    `
-  7W  7W    4.      `
-        5.          `
-2W              AW  `
-  4.        8.      `
-      AW            `
-4W  3.              `
-          DW        `
-    ]]>
-  </level>
-  <level id="191">
-    <![CDATA[
-      9W  5.        `
-                    `
-  B.      6.        `
-    2W              `
-                  A.`
-      CW      5W    `
-            9.      `
-  9W            8.  `
-      8.    2W      `
-          2.    2W  `
-    ]]>
-  </level>
-  <level id="192">
-    <![CDATA[
-8W                  `
-        9.          `
-  A.              4.`
-8W              9W  `
-          9W        `
-      2W            `
-        AW      4.  `
-M.                  `
-    7.    5.      8W`
-  5W                `
-    ]]>
-  </level>
-  <level id="193">
-    <![CDATA[
-  5W                `
-    2W  6.    2.    `
-                  8W`
-  9.                `
-          GW      3.`
-            4.      `
-    GW            6.`
-            AW      `
-4.    3.        6W  `
-                    `
-    ]]>
-  </level>
-  <level id="194">
-    <![CDATA[
-3W        4.        `
-                4.  `
-3.    9W  8.        `
-                    `
-        2W    7.  AW`
-  AW      5W        `
-              2W    `
-  3.                `
-      8W          6W`
-  G.                `
-    ]]>
-  </level>
-  <level id="195">
-    <![CDATA[
-2.  2W              `
-        4W          `
-                    `
-9W    7.    8W      `
-          7W      D.`
-                3W  `
-    5.      5W      `
-      B.            `
-        4W  7.    4W`
-9W                  `
-    ]]>
-  </level>
-  <level id="196">
-    <![CDATA[
-D.                  `
-          2.  6.    `
-                    `
-                  4.`
-              JW    `
-  4W  3.  7.        `
-                    `
-    AW      4.    8.`
-      4.  5W    4W  `
-7.                  `
-    ]]>
-  </level>
-  <level id="197">
-    <![CDATA[
-                    `
-AW          8W      `
-  7.                `
-        4W  8.    C.`
-                    `
-            5W    8W`
-3W    6W      3.    `
-                  C.`
-    3W              `
-6.        2W  3W    `
-    ]]>
-  </level>
-  <level id="198">
-    <![CDATA[
-              7W    `
-  5W    7W      A.  `
-    4.              `
-                    `
-  6W              2.`
-    5.      5W      `
-  3W            7W  `
-                  3.`
-            FW      `
-6W    F.            `
-    ]]>
-  </level>
-  <level id="199">
-    <![CDATA[
-    3W        9W    `
-                    `
-9W    6.    B.    2.`
-        3W          `
-                  8.`
-4.          5W      `
-      HW            `
-          9.        `
-                9W  `
-    2.    3W        `
-    ]]>
-  </level>
-  <level id="200">
-    <![CDATA[
-    9W    8W        `
-              4.  2.`
-3.    7.            `
-                    `
-      AW            `
-  3.      9.    CW  `
-                    `
-    3.  7W          `
-                  2.`
-  9W    4.      8W  `
+W       W  `
+   W  W   1`
+2  2 2 3  W`
+    WW     `
+W        1 `
+W 0   W    `
+        1W `
+   3     W `
+ W      2  `
+1    2     `
+   1    W  `
     ]]>
   </level>
 </levels>

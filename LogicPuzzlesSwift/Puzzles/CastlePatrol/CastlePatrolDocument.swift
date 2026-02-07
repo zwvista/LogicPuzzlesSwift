@@ -13,10 +13,10 @@ class CastlePatrolDocument: GameDocument<CastlePatrolGameMove> {
     
     override func saveMove(_ move: CastlePatrolGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.objType.toString()
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> CastlePatrolGameMove {
-        CastlePatrolGameMove(p: Position(rec.row, rec.col), objType: CastlePatrolObjectType.fromString(str: rec.strValue1!))
+        CastlePatrolGameMove(p: Position(rec.row, rec.col), obj: CastlePatrolObject(rawValue: rec.intValue1)!)
     }
 }
