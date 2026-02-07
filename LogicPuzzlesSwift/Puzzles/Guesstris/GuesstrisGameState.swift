@@ -15,8 +15,6 @@ class GuesstrisGameState: GridGameState<GuesstrisGameMove> {
     }
     override var gameDocument: GameDocumentBase { GuesstrisDocument.sharedInstance }
     var objArray = [GridDotObject]()
-    var ponds = [[Position]]()
-    var invalid2x2Squares = [Position]()
 
     override func copy() -> GuesstrisGameState {
         let v = GuesstrisGameState(game: game, isCopy: true)
@@ -97,19 +95,7 @@ class GuesstrisGameState: GridGameState<GuesstrisGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        // 4. Each 2x2 area must contain at least a Hedge or a Pond.
-        for r in 0..<rows - 1 {
-            for c in 0..<cols - 1 {
-                let p = Position(r, c)
-                if GuesstrisGame.offset3.map({ p + $0 }).allSatisfy({ p2 in
-                    game.hedges.contains(p2) || ponds.contains { $0.contains(p2) }
-                }) {
-                    invalid2x2Squares.append(p + Position.SouthEast); isSolved = false
-                }
-            }
-        }
-        var flowerbeds = [[Position]]()
-        var pos2pond = [Position: Int]()
+        var areas = [[Position]]()
         let g = Graph()
         var pos2node = [Position: Node]()
         for r in 0..<rows - 1 {
@@ -131,30 +117,33 @@ class GuesstrisGameState: GridGameState<GuesstrisGameMove> {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
-            let rng = area.filter { game.flowers.contains($0) }
-            // 2. A Flowerbed is an area of 3 cells, containing one flower.
-            // 3. A Pond is an area of any size without flower.
-            let cnt = area.count
-            if rng.isEmpty {
-                let n = ponds.count
-                ponds.append(area)
-                for p in area { pos2pond[p] = n }
-            } else if rng.count > 1 || cnt != 3 {
-                isSolved = false
+            let rng = area.filter { game.pos2char[$0] != " " }
+            // 1. Divide the board in Tetrominoes (Tetris-like shapes of four cells).
+            // 2. Each Tetromino contains two different symbols.
+            if rng.count == 2 && area.count == 4 {
+                areas.append(area)
             } else {
-                flowerbeds.append(area)
+                isSolved = false; return
             }
         }
-        guard isSolved else {return}
-        // Ponds cannot touch each other orthogonally.
-        if !(ponds.allSatisfy { pond in
-            let n = pos2pond[pond.first!]!
-            return pond.allSatisfy { p in
-                return GuesstrisGame.offset.allSatisfy {
-                    guard let n2 = pos2pond[p + $0] else { return true }
-                    return n == n2
-                }
+        // 3. Tetrominoes of the same shape have the same couple of symbols inside
+        //    them, although not necessarily in the same positions.
+        // 4. Tetrominoes with the same symbols can be rotated or mirrored.
+        let area2D = Dictionary(grouping: areas) { area in
+            var r1 = rows, c1 = cols
+            for p in area {
+                if r1 > p.row { r1 = p.row }
+                if c1 > p.col { c1 = p.col }
             }
+            let p1 = Position(r1, c1)
+            let area2 = area.map { $0 - p1 }.sorted()
+            return GuesstrisGame.tetrominoes.indices.first {
+                GuesstrisGame.tetrominoes[$0].contains(area2)
+            }!
+        }.values
+        if (!area2D.allSatisfy {
+            let lst = $0.map { Array(Set($0.map { game.pos2char[$0]! }.filter { $0 != " " })).sorted() }
+            return Set(lst).count == 1
         }) { isSolved = false }
     }
 }

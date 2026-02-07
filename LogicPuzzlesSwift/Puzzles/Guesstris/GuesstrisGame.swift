@@ -18,12 +18,42 @@ class GuesstrisGame: GridGame<GuesstrisGameState> {
     ]
     static let dirs = [1, 0, 3, 2]
     static let offset3 = Position.Square2x2Offset
-    static let PUZ_FLOWER: Character = "*"
-    static let PUZ_HEDGE: Character = "."
+    static let PUZ_SQUARE: Character = "S"
+    static let PUZ_TRIANGLE: Character = "T"
+    static let PUZ_CIRCLE: Character = "C"
+    static let PUZ_DIAMOND: Character = "D"
+
+    static let tetrominoes = [
+        [ // L
+            [Position(0, 0), Position(1, 0), Position(2, 0), Position(2, 1)],
+            [Position(0, 1), Position(1, 1), Position(2, 0), Position(2, 1)],
+            [Position(0, 0), Position(0, 1), Position(0, 2), Position(1, 0)],
+            [Position(0, 0), Position(0, 1), Position(0, 2), Position(1, 2)],
+            [Position(0, 0), Position(0, 1), Position(1, 0), Position(2, 0)],
+            [Position(0, 0), Position(0, 1), Position(1, 1), Position(2, 1)],
+            [Position(0, 0), Position(1, 0), Position(1, 1), Position(1, 2)],
+            [Position(0, 2), Position(1, 0), Position(1, 1), Position(1, 2)],
+        ],
+        [ // I
+            [Position(0, 0), Position(1, 0), Position(2, 0), Position(3, 0)],
+            [Position(0, 0), Position(0, 1), Position(0, 2), Position(0, 3)],
+        ],
+        [ // T
+            [Position(0, 0), Position(0, 1), Position(0, 2), Position(1, 1)],
+            [Position(0, 1), Position(1, 0), Position(1, 1), Position(2, 1)],
+            [Position(0, 1), Position(1, 0), Position(1, 1), Position(1, 2)],
+            [Position(0, 0), Position(1, 0), Position(1, 1), Position(2, 0)],
+        ],
+        [ // S
+            [Position(0, 0), Position(0, 1), Position(1, 1), Position(1, 2)],
+            [Position(0, 1), Position(0, 2), Position(1, 0), Position(1, 1)],
+            [Position(0, 0), Position(1, 0), Position(1, 1), Position(2, 1)],
+            [Position(0, 1), Position(1, 0), Position(1, 1), Position(2, 0)],
+        ],
+    ]
 
     var objArray = [GridDotObject]()
-    var flowers = [Position]()
-    var hedges = [Position]()
+    var pos2char: [Position: Character] = [:]
     
     init(layout: [String], delegate: GuesstrisGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -36,11 +66,7 @@ class GuesstrisGame: GridGame<GuesstrisGameState> {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
                 let ch = str[c]
-                if ch == GuesstrisGame.PUZ_FLOWER {
-                    flowers.append(p)
-                } else if ch == GuesstrisGame.PUZ_HEDGE {
-                    hedges.append(p)
-                }
+                pos2char[p] = ch
             }
         }
         for r in 0..<rows - 1 {

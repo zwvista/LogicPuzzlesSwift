@@ -1832,6 +1832,14 @@
 		8CF17FC92F375E0F000F1F7D /* GuesstrisGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FBF2F375E0F000F1F7D /* GuesstrisGridNode.swift */; };
 		8CF17FCA2F375E0F000F1F7D /* GuesstrisObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FC12F375E0F000F1F7D /* GuesstrisObject.swift */; };
 		8CF17FCB2F375E0F000F1F7D /* Guesstris.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17FB92F375E0F000F1F7D /* Guesstris.xml */; };
+		8CF17FD42F37732F000F1F7D /* bullet_ball_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17FD02F37732F000F1F7D /* bullet_ball_red.png */; };
+		8CF17FD52F37732F000F1F7D /* bullet_ball_glass_blue 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17FCC2F37732F000F1F7D /* bullet_ball_glass_blue 2.png */; };
+		8CF17FD62F37732F000F1F7D /* bullet_ball_glass_purple.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17FCE2F37732F000F1F7D /* bullet_ball_glass_purple.png */; };
+		8CF17FD72F37732F000F1F7D /* bullet_ball_glass_grey 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17FCD2F37732F000F1F7D /* bullet_ball_glass_grey 2.png */; };
+		8CF17FD82F37732F000F1F7D /* bullet_rhombus_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17FD12F37732F000F1F7D /* bullet_rhombus_blue.png */; };
+		8CF17FD92F37732F000F1F7D /* bullet_ball_glass_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17FCF2F37732F000F1F7D /* bullet_ball_glass_red.png */; };
+		8CF17FDA2F37732F000F1F7D /* bullet_square_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17FD22F37732F000F1F7D /* bullet_square_green.png */; };
+		8CF17FDB2F37732F000F1F7D /* bullet_triangle_yellow_flat.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17FD32F37732F000F1F7D /* bullet_triangle_yellow_flat.png */; };
 		8CF3FFD51FCB2A2700D41B67 /* DisconnectFourGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */; };
 		8CF3FFD61FCB2A2700D41B67 /* DisconnectFourGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */; };
 		8CF3FFD71FCB2A2700D41B67 /* DisconnectFour.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */; };
@@ -3777,6 +3785,14 @@
 		8CF17FBF2F375E0F000F1F7D /* GuesstrisGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuesstrisGridNode.swift; sourceTree = "<group>"; };
 		8CF17FC02F375E0F000F1F7D /* GuesstrisMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuesstrisMainViewController.swift; sourceTree = "<group>"; };
 		8CF17FC12F375E0F000F1F7D /* GuesstrisObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuesstrisObject.swift; sourceTree = "<group>"; };
+		8CF17FCC2F37732F000F1F7D /* bullet_ball_glass_blue 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bullet_ball_glass_blue 2.png"; sourceTree = "<group>"; };
+		8CF17FCD2F37732F000F1F7D /* bullet_ball_glass_grey 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bullet_ball_glass_grey 2.png"; sourceTree = "<group>"; };
+		8CF17FCE2F37732F000F1F7D /* bullet_ball_glass_purple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_ball_glass_purple.png; sourceTree = "<group>"; };
+		8CF17FCF2F37732F000F1F7D /* bullet_ball_glass_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_ball_glass_red.png; sourceTree = "<group>"; };
+		8CF17FD02F37732F000F1F7D /* bullet_ball_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_ball_red.png; sourceTree = "<group>"; };
+		8CF17FD12F37732F000F1F7D /* bullet_rhombus_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_rhombus_blue.png; sourceTree = "<group>"; };
+		8CF17FD22F37732F000F1F7D /* bullet_square_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_square_green.png; sourceTree = "<group>"; };
+		8CF17FD32F37732F000F1F7D /* bullet_triangle_yellow_flat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet_triangle_yellow_flat.png; sourceTree = "<group>"; };
 		8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameState.swift; sourceTree = "<group>"; };
 		8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameScene.swift; sourceTree = "<group>"; };
 		8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DisconnectFour.xml; sourceTree = "<group>"; };
@@ -5927,8 +5943,16 @@
 				8C86625E2EA39DD00078CD64 /* bread_slice.png */,
 				8C86625F2EA39DD00078CD64 /* bull.png */,
 				8C8662602EA39DD00078CD64 /* bullet_ball_glass_blue.png */,
+				8CF17FCC2F37732F000F1F7D /* bullet_ball_glass_blue 2.png */,
 				8C8662612EA39DD00078CD64 /* bullet_ball_glass_grey.png */,
+				8CF17FCD2F37732F000F1F7D /* bullet_ball_glass_grey 2.png */,
+				8CF17FCE2F37732F000F1F7D /* bullet_ball_glass_purple.png */,
+				8CF17FCF2F37732F000F1F7D /* bullet_ball_glass_red.png */,
 				8C8662622EA39DD00078CD64 /* bullet_ball_glass_yellow.png */,
+				8CF17FD02F37732F000F1F7D /* bullet_ball_red.png */,
+				8CF17FD12F37732F000F1F7D /* bullet_rhombus_blue.png */,
+				8CF17FD22F37732F000F1F7D /* bullet_square_green.png */,
+				8CF17FD32F37732F000F1F7D /* bullet_triangle_yellow_flat.png */,
 				8C8662632EA39DD00078CD64 /* C1.png */,
 				8C8662642EA39DD00078CD64 /* C2.png */,
 				8C8662652EA39DD00078CD64 /* C3.png */,
@@ -7667,6 +7691,14 @@
 				8C8663B52EA39DD00078CD64 /* A4-stone.png in Resources */,
 				8C263F7B2F1E812D00158A2C /* DigitWorms.xml in Resources */,
 				8C8663B62EA39DD00078CD64 /* arrow_red2_down.png in Resources */,
+				8CF17FD42F37732F000F1F7D /* bullet_ball_red.png in Resources */,
+				8CF17FD52F37732F000F1F7D /* bullet_ball_glass_blue 2.png in Resources */,
+				8CF17FD62F37732F000F1F7D /* bullet_ball_glass_purple.png in Resources */,
+				8CF17FD72F37732F000F1F7D /* bullet_ball_glass_grey 2.png in Resources */,
+				8CF17FD82F37732F000F1F7D /* bullet_rhombus_blue.png in Resources */,
+				8CF17FD92F37732F000F1F7D /* bullet_ball_glass_red.png in Resources */,
+				8CF17FDA2F37732F000F1F7D /* bullet_square_green.png in Resources */,
+				8CF17FDB2F37732F000F1F7D /* bullet_triangle_yellow_flat.png in Resources */,
 				8C8663B72EA39DD00078CD64 /* arrow_cyan_down.png in Resources */,
 				8C8663B82EA39DD00078CD64 /* arrow_blue_dl.png in Resources */,
 				8C8663B92EA39DD00078CD64 /* road_vertical.png in Resources */,

@@ -23,21 +23,16 @@ class GuesstrisGameScene: GameScene<GuesstrisGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: GuesstrisGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset))
         
-        for p in game.flowers {
-            let point = gridNode.centerPoint(p: p)
-            addImage(imageNamed: "flower_pink", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "flower")
-        }
-        for p in game.hedges {
-            let point = gridNode.centerPoint(p: p)
-            addImage(imageNamed: "forest", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "forest")
-        }
-        
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 if game[r, c][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
                 if game[r, c][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                guard r < game.rows - 1, c < game.cols - 1 else {continue}
+                let ch = game.pos2char[p]!
+                guard ch != " " else {continue}
+                addImage(imageNamed: ch == GuesstrisGame.PUZ_SQUARE ? "bullet_square_green" : ch == GuesstrisGame.PUZ_TRIANGLE ? "bullet_triangle_yellow_flat" : ch == GuesstrisGame.PUZ_CIRCLE ? "bullet_ball_red" : "bullet_rhombus_blue", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "guesstris")
             }
         }
     }
@@ -65,19 +60,6 @@ class GuesstrisGameScene: GameScene<GuesstrisGameState> {
                 if o1 != o2 {
                     removeVertLine(objType: o1)
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
-                }
-                let pondNodeName = "pond" + nodeNameSuffix
-                let invalid2x2NodeName = "invalid2x2" + nodeNameSuffix
-                let (b1, b2) = (stateFrom.ponds.contains { $0.contains(p) }, stateTo.ponds.contains { $0.contains(p) })
-                if b1 != b2 {
-                    if b1 { removeNode(withName: pondNodeName) }
-                    if b2 { addImage(imageNamed: "sea", color: .red, colorBlendFactor: 0.0, point: point, nodeName: pondNodeName) }
-                }
-                let (b3, b4) = (stateFrom.invalid2x2Squares.contains(p), stateTo.invalid2x2Squares.contains(p))
-                if b3 != b4 {
-                    let point = gridNode.cornerPoint(p: p)
-                    if b3 { removeNode(withName: invalid2x2NodeName) }
-                    if b4 { addDotMarker2(color: .red, point: point, nodeName: invalid2x2NodeName) }
                 }
             }
         }
