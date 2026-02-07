@@ -14,7 +14,7 @@ class ZenGardensGameState: GridGameState<ZenGardensGameMove> {
         set { setGame(game: newValue) }
     }
     override var gameDocument: GameDocumentBase { ZenGardensDocument.sharedInstance }
-    var objArray = [Character]()
+    var objArray = [ZenGardensObject]()
     var pos2state = [Position: AllowedObjectState]()
 
     override func copy() -> ZenGardensGameState {
@@ -34,18 +34,19 @@ class ZenGardensGameState: GridGameState<ZenGardensGameMove> {
         updateIsSolved()
     }
     
-    subscript(p: Position) -> Character {
+    subscript(p: Position) -> ZenGardensObject {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
     }
-    subscript(row: Int, col: Int) -> Character {
+    subscript(row: Int, col: Int) -> ZenGardensObject {
         get { objArray[row * cols + col] }
         set { objArray[row * cols + col] = newValue }
     }
     
     override func setObject(move: inout ZenGardensGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else { return .invalid }
+        // 2. A Leaf can only be on a Rock.
+        guard isValid(p: p) && game[p] == .stone && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -53,9 +54,10 @@ class ZenGardensGameState: GridGameState<ZenGardensGameMove> {
     
     override func switchObject(move: inout ZenGardensGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " else { return .invalid }
+        // 2. A Leaf can only be on a Rock.
+        guard isValid(p: p) && game[p] == .stone else { return .invalid }
         let o = self[p]
-        move.obj = o == " " ? "1" : o == "3" ? " " : succ(ch: o)
+        move.obj = o == .stone ? .leaf : .stone
         return setObject(move: &move)
     }
     
@@ -78,15 +80,21 @@ class ZenGardensGameState: GridGameState<ZenGardensGameMove> {
                 pos2state[Position(r, c)] = .normal
             }
         }
-        // 4. The teaching says that any three contiguous tiles vertically,
-        //    horizontally or diagonally must NOT be:
-        //    -> all different
-        //    -> all equal
+        // 1. Put a leaf on every Zen Garden (area).
+        for area in game.areas {
+            let rng = area.filter { self[$0] == .leaf }
+            if rng.count != 1 {
+                isSolved = false
+                for p in rng { pos2state[p] = .error }
+            }
+        }
+        // 3. Three Rocks in a row (horizontally, vertically or diagonally) can't
+        //    have all the leaves or no leaves.
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 for i in 2...4 {
-                    let os = ZenGardensGame.offset[i]
+                    let os = ZenGardensGame.offset3[i]
                     var tiles = [p]
                     var p2 = p + os
                     for _ in 1..<3 {
@@ -94,17 +102,12 @@ class ZenGardensGameState: GridGameState<ZenGardensGameMove> {
                         tiles.append(p2)
                         p2 += os
                     }
-                    if tiles.count < 3 {continue}
-                    let chSet = Set(tiles.map { self[$0] })
-                    if chSet.contains(" ") {
+                    guard tiles.count == 3 else {continue}
+                    let objSet = Set(tiles.map { self[$0] })
+                    guard !objSet.contains(.empty) else {continue}
+                    if objSet.count != 2 {
                         isSolved = false
-                        continue
-                    }
-                    if chSet.count != 2 {
-                        isSolved = false
-                        for p2 in tiles {
-                            pos2state[p2] = .error
-                        }
+                        for p2 in tiles { pos2state[p2] = .error }
                     }
                 }
             }

@@ -8,7 +8,14 @@
 
 import Foundation
 
+enum ZenGardensObject: Int {
+    case empty, stone, leaf
+    init() {
+        self = .empty
+    }
+}
+
 struct ZenGardensGameMove {
     var p = Position()
-    var obj: Character = " "
+    var obj = ZenGardensObject()
 }

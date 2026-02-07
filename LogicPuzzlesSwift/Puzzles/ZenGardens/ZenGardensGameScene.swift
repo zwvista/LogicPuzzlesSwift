@@ -14,10 +14,37 @@ class ZenGardensGameScene: GameScene<ZenGardensGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addTile(ch: Character, fixed: Bool, s: AllowedObjectState, point: CGPoint, nodeName: String) {
-        let n = ch == " " ? 1 : ch.toInt! + 1
-        let imageName = "B\(n)\(fixed ? "-f" : "")"
-        addImage(imageNamed: imageName, color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
+    func addTile(o: ZenGardensObject, s: AllowedObjectState, point: CGPoint, nodeName: String) {
+        addImage(imageNamed: o == .empty ? "C2" : o == .stone ? "C3" : "C4", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
+    }
+    
+    func addLine(game: ZenGardensGame) {
+        let pathToDraw = CGMutablePath()
+        let lineNode = SKShapeNode(path: pathToDraw)
+        for r in 0..<game.rows + 1 {
+            for c in 0..<game.cols + 1 {
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: p)
+                for dir in 1...2 {
+                    guard game.dots[r, c][dir] == .line else {continue}
+                    switch dir {
+                    case 1:
+                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
+                        pathToDraw.addLine(to: CGPoint(x: point.x + gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
+                        lineNode.glowWidth = 8
+                    case 2:
+                        pathToDraw.move(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y + gridNode.blockSize / 2))
+                        pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y - gridNode.blockSize / 2))
+                        lineNode.glowWidth = 8
+                    default:
+                        break
+                    }
+                }
+            }
+        }
+        lineNode.path = pathToDraw
+        lineNode.name = "line"
+        gridNode.addChild(lineNode)
     }
     
     override func levelInitialized(_ game: AnyObject, state: ZenGardensGameState, skView: SKView) {
@@ -35,10 +62,11 @@ class ZenGardensGameScene: GameScene<ZenGardensGameState> {
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let tileNodeName = "tile" + nodeNameSuffix
-                let ch = game[p]
-                addTile(ch: ch, fixed: ch != " ", s: .normal, point: point, nodeName: tileNodeName)
+                addTile(o: game[p], s: state.pos2state[p]!, point: point, nodeName: tileNodeName)
             }
         }
+        
+        addLine(game: game)
     }
     
     override func levelUpdated(from stateFrom: ZenGardensGameState, to stateTo: ZenGardensGameState) {
@@ -52,8 +80,11 @@ class ZenGardensGameScene: GameScene<ZenGardensGameState> {
                 let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
                 guard o1 != o2 || s1 != s2 else {continue}
                 removeNode(withName: tileNodeName)
-                addTile(ch: o2, fixed: stateFrom.game[p] != " ", s: s2, point: point, nodeName: tileNodeName)
+                addTile(o: o2, s: s2, point: point, nodeName: tileNodeName)
             }
         }
+
+        gridNode.childNode(withName: "line")?.removeFromParent()
+        addLine(game: stateFrom.game)
     }
 }
