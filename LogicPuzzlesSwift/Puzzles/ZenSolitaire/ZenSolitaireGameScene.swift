@@ -14,12 +14,6 @@ class ZenSolitaireGameScene: GameScene<ZenSolitaireGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addTile(ch: Character, fixed: Bool, s: AllowedObjectState, point: CGPoint, nodeName: String) {
-        let n = ch == " " ? 1 : ch.toInt! + 1
-        let imageName = "B\(n)\(fixed ? "-f" : "")"
-        addImage(imageNamed: imageName, color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
-    }
-    
     override func levelInitialized(_ game: AnyObject, state: ZenSolitaireGameState, skView: SKView) {
         let game = game as! ZenSolitaireGame
         removeAllChildren()
@@ -33,10 +27,10 @@ class ZenSolitaireGameScene: GameScene<ZenSolitaireGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
-                let nodeNameSuffix = "-\(r)-\(c)"
-                let tileNodeName = "tile" + nodeNameSuffix
-                let ch = game[p]
-                addTile(ch: ch, fixed: ch != " ", s: .normal, point: point, nodeName: tileNodeName)
+                let n = state[p]
+                addImage(imageNamed: "sand_background", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "background")
+                guard n == ZenSolitaireGame.PUZ_STONE else {continue}
+                addImage(imageNamed: "pebble1", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "stone")
             }
         }
     }
@@ -47,12 +41,11 @@ class ZenSolitaireGameScene: GameScene<ZenSolitaireGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let tileNodeName = "tile" + nodeNameSuffix
+                let numberNodeName = "number" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
-                guard o1 != o2 || s1 != s2 else {continue}
-                removeNode(withName: tileNodeName)
-                addTile(ch: o2, fixed: stateFrom.game[p] != " ", s: s2, point: point, nodeName: tileNodeName)
+                guard o1 != o2 else {continue}
+                if o1 != ZenSolitaireGame.PUZ_STONE { removeNode(withName: numberNodeName) }
+                if o2 != ZenSolitaireGame.PUZ_STONE { addLabel(text: String(o2), fontColor: .black, point: point, nodeName: numberNodeName) }
             }
         }
     }

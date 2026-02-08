@@ -9,34 +9,27 @@
 import Foundation
 
 class ZenSolitaireGame: GridGame<ZenSolitaireGameState> {
-    static let offset = Position.Directions8
+    static let offset = Position.Directions4
+    static let PUZ_STONE = -1
+    static let PUZ_EMPTY = 0
 
-    var objArray = [Character]()
-
-    subscript(p: Position) -> Character {
-        get { self[p.row, p.col] }
-        set { self[p.row, p.col] = newValue }
-    }
-    subscript(row: Int, col: Int) -> Character {
-        get { objArray[row * cols + col] }
-        set { objArray[row * cols + col] = newValue }
-    }
+    var stones = [Position]()
 
     init(layout: [String], delegate: ZenSolitaireGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length)
-        objArray = Array(repeating: " ", count: rows * cols)
         
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
-                self[r, c] = str[c]
+                if str[c] != " " {
+                    stones.append(Position(r, c))
+                }
             }
         }
         
         let state = ZenSolitaireGameState(game: self)
         levelInitialized(state: state)
     }
-    
 }

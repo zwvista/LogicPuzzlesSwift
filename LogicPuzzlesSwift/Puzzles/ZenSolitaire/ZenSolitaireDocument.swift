@@ -13,10 +13,11 @@ class ZenSolitaireDocument: GameDocument<ZenSolitaireGameMove> {
     
     override func saveMove(_ move: ZenSolitaireGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = String(move.obj)
+        rec.intValue1 = move.obj
+        rec.intValue2 = move.dir
     }
     
     override func loadMove(from rec: MoveProgress) -> ZenSolitaireGameMove {
-        ZenSolitaireGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
+        ZenSolitaireGameMove(p: Position(rec.row, rec.col), obj: rec.intValue1, dir: rec.intValue2)
     }
 }

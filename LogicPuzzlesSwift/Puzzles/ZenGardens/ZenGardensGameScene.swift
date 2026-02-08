@@ -84,7 +84,7 @@ class ZenGardensGameScene: GameScene<ZenGardensGameState> {
             }
         }
 
-        gridNode.childNode(withName: "line")?.removeFromParent()
+        removeNode(withName: "line")
         addLine(game: stateFrom.game)
     }
 }

@@ -10,5 +10,6 @@ import Foundation
 
 struct ZenSolitaireGameMove {
     var p = Position()
-    var obj: Character = " "
+    var obj: Int = 0
+    var dir: Int = 0
 }
