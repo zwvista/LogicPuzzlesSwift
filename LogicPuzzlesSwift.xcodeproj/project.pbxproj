@@ -1858,6 +1858,15 @@
 		8CF17FFF2F37832A000F1F7D /* ZenSolitaireGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FF32F37832A000F1F7D /* ZenSolitaireGameState.swift */; };
 		8CF180002F37832A000F1F7D /* ZenSolitaireObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF17FF72F37832A000F1F7D /* ZenSolitaireObject.swift */; };
 		8CF180012F37832A000F1F7D /* ZenSolitaire.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF17FEF2F37832A000F1F7D /* ZenSolitaire.xml */; };
+		8CF180162F3A961F000F1F7D /* CultureTripGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180102F3A961E000F1F7D /* CultureTripGameState.swift */; };
+		8CF180172F3A961F000F1F7D /* CultureTripObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180142F3A961E000F1F7D /* CultureTripObject.swift */; };
+		8CF180182F3A961F000F1F7D /* CultureTripGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1800E2F3A961E000F1F7D /* CultureTripGame.swift */; };
+		8CF180192F3A961F000F1F7D /* CultureTripGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180112F3A961E000F1F7D /* CultureTripGameViewController.swift */; };
+		8CF1801A2F3A961F000F1F7D /* CultureTripGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180122F3A961E000F1F7D /* CultureTripGridNode.swift */; };
+		8CF1801B2F3A961F000F1F7D /* CultureTripGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1800F2F3A961E000F1F7D /* CultureTripGameScene.swift */; };
+		8CF1801C2F3A961F000F1F7D /* CultureTripMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180132F3A961E000F1F7D /* CultureTripMainViewController.swift */; };
+		8CF1801D2F3A961F000F1F7D /* CultureTripDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1800D2F3A961E000F1F7D /* CultureTripDocument.swift */; };
+		8CF1801E2F3A961F000F1F7D /* CultureTrip.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF1800C2F3A961E000F1F7D /* CultureTrip.xml */; };
 		8CF3FFD51FCB2A2700D41B67 /* DisconnectFourGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */; };
 		8CF3FFD61FCB2A2700D41B67 /* DisconnectFourGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */; };
 		8CF3FFD71FCB2A2700D41B67 /* DisconnectFour.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */; };
@@ -3829,6 +3838,15 @@
 		8CF17FF52F37832A000F1F7D /* ZenSolitaireGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenSolitaireGridNode.swift; sourceTree = "<group>"; };
 		8CF17FF62F37832A000F1F7D /* ZenSolitaireMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenSolitaireMainViewController.swift; sourceTree = "<group>"; };
 		8CF17FF72F37832A000F1F7D /* ZenSolitaireObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenSolitaireObject.swift; sourceTree = "<group>"; };
+		8CF1800C2F3A961E000F1F7D /* CultureTrip.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CultureTrip.xml; sourceTree = "<group>"; };
+		8CF1800D2F3A961E000F1F7D /* CultureTripDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureTripDocument.swift; sourceTree = "<group>"; };
+		8CF1800E2F3A961E000F1F7D /* CultureTripGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureTripGame.swift; sourceTree = "<group>"; };
+		8CF1800F2F3A961E000F1F7D /* CultureTripGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureTripGameScene.swift; sourceTree = "<group>"; };
+		8CF180102F3A961E000F1F7D /* CultureTripGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureTripGameState.swift; sourceTree = "<group>"; };
+		8CF180112F3A961E000F1F7D /* CultureTripGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureTripGameViewController.swift; sourceTree = "<group>"; };
+		8CF180122F3A961E000F1F7D /* CultureTripGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureTripGridNode.swift; sourceTree = "<group>"; };
+		8CF180132F3A961E000F1F7D /* CultureTripMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureTripMainViewController.swift; sourceTree = "<group>"; };
+		8CF180142F3A961E000F1F7D /* CultureTripObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureTripObject.swift; sourceTree = "<group>"; };
 		8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameState.swift; sourceTree = "<group>"; };
 		8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameScene.swift; sourceTree = "<group>"; };
 		8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DisconnectFour.xml; sourceTree = "<group>"; };
@@ -4709,6 +4727,7 @@
 				8C263F5F2F1E7DE600158A2C /* CrossroadsX */,
 				8CF17F752F367FE0000F1F7D /* CrosstownTraffic */,
 				8C263E7E2F13DC5200158A2C /* CulturedBranches */,
+				8CF180152F3A961E000F1F7D /* CultureTrip */,
 				8C81BC352EA8EF030083B936 /* DesertDunes */,
 				8C3A343B1EC88D4100A914A5 /* DigitalBattleShips */,
 				8CFB22322EF8FF1000E5F29D /* DigitalPath */,
@@ -7259,6 +7278,22 @@
 			path = ZenSolitaire;
 			sourceTree = "<group>";
 		};
+		8CF180152F3A961E000F1F7D /* CultureTrip */ = {
+			isa = PBXGroup;
+			children = (
+				8CF1800C2F3A961E000F1F7D /* CultureTrip.xml */,
+				8CF1800D2F3A961E000F1F7D /* CultureTripDocument.swift */,
+				8CF1800E2F3A961E000F1F7D /* CultureTripGame.swift */,
+				8CF1800F2F3A961E000F1F7D /* CultureTripGameScene.swift */,
+				8CF180102F3A961E000F1F7D /* CultureTripGameState.swift */,
+				8CF180112F3A961E000F1F7D /* CultureTripGameViewController.swift */,
+				8CF180122F3A961E000F1F7D /* CultureTripGridNode.swift */,
+				8CF180132F3A961E000F1F7D /* CultureTripMainViewController.swift */,
+				8CF180142F3A961E000F1F7D /* CultureTripObject.swift */,
+			);
+			path = CultureTrip;
+			sourceTree = "<group>";
+		};
 		8CF3FFC71FCB2A2600D41B67 /* DisconnectFour */ = {
 			isa = PBXGroup;
 			children = (
@@ -7858,6 +7893,7 @@
 				8C81BC042EA4A04F0083B936 /* Gems.xml in Resources */,
 				8C263EB22F14C8CC00158A2C /* stairs_down.png in Resources */,
 				8C263EB32F14C8CC00158A2C /* stairs_right.png in Resources */,
+				8CF1801E2F3A961F000F1F7D /* CultureTrip.xml in Resources */,
 				8C263EB42F14C8CC00158A2C /* stairs_up.png in Resources */,
 				8C263EB52F14C8CC00158A2C /* stairs_left.png in Resources */,
 				8C8663FB2EA39DD00078CD64 /* tomato.png in Resources */,
@@ -8902,6 +8938,14 @@
 				8C3A36A11EC88D4200A914A5 /* HitoriGameViewController.swift in Sources */,
 				8C3A376A1EC88D4300A914A5 /* ParksGame.swift in Sources */,
 				8C81BC102EA84D010083B936 /* TraceNumbersGridNode.swift in Sources */,
+				8CF180162F3A961F000F1F7D /* CultureTripGameState.swift in Sources */,
+				8CF180172F3A961F000F1F7D /* CultureTripObject.swift in Sources */,
+				8CF180182F3A961F000F1F7D /* CultureTripGame.swift in Sources */,
+				8CF180192F3A961F000F1F7D /* CultureTripGameViewController.swift in Sources */,
+				8CF1801A2F3A961F000F1F7D /* CultureTripGridNode.swift in Sources */,
+				8CF1801B2F3A961F000F1F7D /* CultureTripGameScene.swift in Sources */,
+				8CF1801C2F3A961F000F1F7D /* CultureTripMainViewController.swift in Sources */,
+				8CF1801D2F3A961F000F1F7D /* CultureTripDocument.swift in Sources */,
 				8C81BC112EA84D010083B936 /* TraceNumbersGameState.swift in Sources */,
 				8C81BC122EA84D010083B936 /* TraceNumbersObject.swift in Sources */,
 				8C81BC132EA84D010083B936 /* TraceNumbersMainViewController.swift in Sources */,
