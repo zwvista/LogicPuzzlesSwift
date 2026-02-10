@@ -9,8 +9,8 @@
 import Foundation
 
 class TraceNumbersGame: GridGame<TraceNumbersGameState> {
-    static let PUZ_ONE: Character = "1"
     static let offset = Position.Directions4
+    static let PUZ_ONE: Character = "1"
 
     var objArray = [Character]()
     var chMax = TraceNumbersGame.PUZ_ONE

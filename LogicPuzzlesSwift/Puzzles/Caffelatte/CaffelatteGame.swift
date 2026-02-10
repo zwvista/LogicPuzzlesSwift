@@ -9,10 +9,10 @@
 import Foundation
 
 class CaffelatteGame: GridGame<CaffelatteGameState> {
+    static let offset = Position.Directions4
     static let PUZ_BEAN: Character = "B"
     static let PUZ_CUP: Character = "C"
     static let PUZ_MILK: Character = "M"
-    static let offset = Position.Directions4
 
     var objArray = [Character]()
     subscript(p: Position) -> Character {

@@ -9,9 +9,9 @@
 import Foundation
 
 class ArrowsGame: GridGame<ArrowsGameState> {
-    static let PUZ_UNKNOWN = 8
     static let offset = Position.Directions8
-    
+    static let PUZ_UNKNOWN = 8
+
     func isCorner(p: Position) -> Bool {
         let (row, col) = p.destructured
         return (row == 0 || row == rows - 1) && (col == 0 || col == cols - 1)

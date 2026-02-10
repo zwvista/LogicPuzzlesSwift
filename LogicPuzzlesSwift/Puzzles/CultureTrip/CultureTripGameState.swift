@@ -45,7 +45,7 @@ class CultureTripGameState: GridGameState<CultureTripGameMove> {
     override func setObject(move: inout CultureTripGameMove) -> GameOperationType {
         let p = move.p, dir = move.dir
         let p2 = p + CultureTripGame.offset[dir], dir2 = (dir + 2) % 4
-        guard isValid(p: p2) && game[p] != CultureTripGame.PUZ_BLOCK && game[p2] != CultureTripGame.PUZ_BLOCK else { return .invalid }
+        guard isValid(p: p2) else { return .invalid }
         self[p][dir].toggle()
         self[p2][dir2].toggle()
         updateIsSolved()
@@ -80,9 +80,10 @@ class CultureTripGameState: GridGameState<CultureTripGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let dirs = (0..<4).filter { self[p][$0] }
+                    let dirs = (0..<4).filter { self[p][$0] }
                 if dirs.count == 2 {
-                    // 1. Draw a single path
+                    // 9. The Trip must form a closed loop, in the end returning to the starting
+                    //    neighborhood.
                     pos2dirs[p] = dirs
                 } else if !dirs.isEmpty {
                     // The loop cannot cross itself.
@@ -91,13 +92,24 @@ class CultureTripGameState: GridGameState<CultureTripGameMove> {
             }
         }
         // Check the loop
-        guard let p = pos2dirs.keys.first else { isSolved = false; return }
+        guard let p = pos2dirs.keys.first(where: { game[$0] != " " }) else { isSolved = false; return }
         var p2 = p, n = -1
         var lastArea = -1
         var area2count = [Int: Int]()
+        var area2chars = [Int: [Character]]()
+        var ch: Character = " "
         while true {
             guard let dirs = pos2dirs[p2] else { isSolved = false; return }
             let area = game.pos2area[p2]!
+            let ch2 = game[p2]
+            if ch2 != " " {
+                area2chars[area, default: []].append(ch2)
+                // 7. You have to alternate between neighborhoods where you visit Museums and
+                //    those where you visit Monuments.
+                // 8. After visiting Museums, you should visit Monuments, then Museums again, etc.
+                if area != lastArea && ch2 == ch { isSolved = false; return }
+                ch = ch2
+            }
             if area != lastArea {
                 area2count[area] = (area2count[area] ?? 0) + 1
                 lastArea = area
@@ -112,9 +124,17 @@ class CultureTripGameState: GridGameState<CultureTripGameMove> {
                 break
             }
         }
-        // 1. Draw a single path which passes in each area exactly twice.
-        // 2. Every square in the board must be passed through, except for brown
-        //    areas, which are to be avoided entirely.
-        if !(area2count.count == game.areas.count && area2count.testAll { $1 == 2 }) { isSolved = false }
+        // 3. All neighborhoods must be visited exactly and only once.
+        // 4. You have to set foot in a neighborhood only once and can't come back after
+        //    you leave it.
+        // 5. In a neighborhood, you either visit All Museums or All Monuments.
+        // 6. If you visit Monuments, you can't pass over Museums and vice-versa.
+        if !(area2count.count == game.areas.count && area2count.testAll { $1 == 1 } &&
+             area2chars.count == game.areas.count && area2chars.testAll { (area, chars) in
+            let s = Set(chars)
+            if s.count != 1 { return false }
+            let ch = s.first!
+            return chars.count == game.areas[area].count { game[$0] == ch }
+        }) { isSolved = false }
     }
 }

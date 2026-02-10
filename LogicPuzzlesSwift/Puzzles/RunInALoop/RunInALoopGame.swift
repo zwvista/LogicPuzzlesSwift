@@ -9,8 +9,8 @@
 import Foundation
 
 class RunInALoopGame: GridGame<RunInALoopGameState> {
-    static let PUZ_BLOCK: Character = "B"
     static let offset = Position.Directions4
+    static let PUZ_BLOCK: Character = "B"
 
     var objArray = [Character]()
     subscript(p: Position) -> Character {

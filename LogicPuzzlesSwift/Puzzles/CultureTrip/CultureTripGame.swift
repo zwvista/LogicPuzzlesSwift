@@ -9,7 +9,6 @@
 import Foundation
 
 class CultureTripGame: GridGame<CultureTripGameState> {
-    static let PUZ_BLOCK: Character = "B"
     static let offset = Position.Directions4
     static let offset2 = [
         Position(0, 0),
@@ -18,7 +17,9 @@ class CultureTripGame: GridGame<CultureTripGameState> {
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
-    
+    static let PUZ_MUSEUM: Character = "M"
+    static let PUZ_MONUMENT: Character = "T"
+
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
     var dots: GridDots!
@@ -58,7 +59,6 @@ class CultureTripGame: GridGame<CultureTripGameState> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard self[p] == " " else {continue}
                 pos2node[p] = g.addNode(p.description)
             }
         }

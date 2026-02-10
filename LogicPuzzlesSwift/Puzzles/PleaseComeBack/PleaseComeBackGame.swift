@@ -9,7 +9,6 @@
 import Foundation
 
 class PleaseComeBackGame: GridGame<PleaseComeBackGameState> {
-    static let PUZ_BLOCK: Character = "B"
     static let offset = Position.Directions4
     static let offset2 = [
         Position(0, 0),
@@ -18,7 +17,8 @@ class PleaseComeBackGame: GridGame<PleaseComeBackGameState> {
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
-    
+    static let PUZ_BLOCK: Character = "B"
+
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
     var dots: GridDots!

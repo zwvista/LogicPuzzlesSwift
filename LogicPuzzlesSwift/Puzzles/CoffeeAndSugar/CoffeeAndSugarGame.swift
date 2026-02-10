@@ -9,9 +9,9 @@
 import Foundation
 
 class CoffeeAndSugarGame: GridGame<CoffeeAndSugarGameState> {
+    static let offset = Position.Directions4
     static let PUZ_COFFEE: Character = "C"
     static let PUZ_SUGAR: Character = "S"
-    static let offset = Position.Directions4
 
     var objArray = [Character]()
     subscript(p: Position) -> Character {

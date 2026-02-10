@@ -9,8 +9,8 @@
 import Foundation
 
 class TurnMeUpGame: GridGame<TurnMeUpGameState> {
-    static let PUZ_QM: Character = "?"
     static let offset = Position.Directions4
+    static let PUZ_QM: Character = "?"
 
     var objArray = [Character]()
     subscript(p: Position) -> Character {

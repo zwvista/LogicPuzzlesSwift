@@ -9,9 +9,6 @@
 import Foundation
 
 class WarehouseGame: GridGame<WarehouseGameState> {
-    static let PUZ_HORZ: Character = "H"
-    static let PUZ_VERT: Character = "V"
-    static let PUZ_CROSS: Character = "+"
     static let offset = Position.Directions4
     static let offset2 = [
         Position(0, 0),
@@ -20,7 +17,10 @@ class WarehouseGame: GridGame<WarehouseGameState> {
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
-    
+    static let PUZ_HORZ: Character = "H"
+    static let PUZ_VERT: Character = "V"
+    static let PUZ_CROSS: Character = "+"
+
     var objArray = [GridDotObject]()
     var pos2symbol = [Position: Character]()
     

@@ -9,8 +9,8 @@
 import Foundation
 
 class LoopAndBlocksGame: GridGame<LoopAndBlocksGameState> {
-    static let PUZ_ONE: Character = "1"
     static let offset = Position.Directions4
+    static let PUZ_ONE: Character = "1"
 
     var objArray = [Character]()
     var chMax = LoopAndBlocksGame.PUZ_ONE

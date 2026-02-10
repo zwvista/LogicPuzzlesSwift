@@ -57,10 +57,9 @@ class CultureTripGameScene: GameScene<CultureTripGameState> {
                 let ch = game[r, c]
                 guard ch != " " else {continue}
                 let point = gridNode.centerPoint(p: p)
-                let blockNode = SKSpriteNode(color: .lightGray, size: coloredRectSize())
-                blockNode.position = point
-                blockNode.name = "block"
-                gridNode.addChild(blockNode)
+                let nodeNameSuffix = "-\(r)-\(c)"
+                let imageNodeName = "imageNodeName" + nodeNameSuffix
+                addImage(imageNamed: ch == CultureTripGame.PUZ_MUSEUM ? "museum2" : "exhibition", color: .red, colorBlendFactor: 0.0, point: point, nodeName: imageNodeName)
             }
         }
     }
