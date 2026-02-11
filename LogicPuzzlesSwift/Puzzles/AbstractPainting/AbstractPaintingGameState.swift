@@ -80,15 +80,17 @@ class AbstractPaintingGameState: GridGameState<AbstractPaintingGameMove> {
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 16/Abstract Painting
+        iOS Game: 100 Logic Games 4/Puzzle Set 4/Abstract Mirror Painting
 
         Summary
-        Abstract Logic
+        Aliens, move over, the Next Trend is here!
 
         Description
-        1. The goal is to reveal part of the abstract painting behind the board.
-        2. Outer numbers tell how many tiles form the painting on the row and column.
-        3. The region of the painting can be entirely hidden or revealed.
+        1. Diagonal mirrors are out, the new trend is orthogonal mirror abstract painting!
+        2. You should paint areas that span two adjacent regions. The area is symmetrical with respect
+           to the regions border.
+        3. Numbers tell you how many tiles in that region are painted.
+        4. Areas can't touch orthogonally.
     */
     private func updateIsSolved() {
         let allowedObjectsOnly = self.allowedObjectsOnly
