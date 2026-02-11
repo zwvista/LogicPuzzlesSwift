@@ -1905,6 +1905,15 @@
 		8CF1806E2F3D3B49000F1F7D /* MirrorsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180612F3D3B49000F1F7D /* MirrorsGameScene.swift */; };
 		8CF1806F2F3D3B49000F1F7D /* MirrorsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180662F3D3B49000F1F7D /* MirrorsObject.swift */; };
 		8CF180702F3D3B49000F1F7D /* Mirrors.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF1805E2F3D3B49000F1F7D /* Mirrors.xml */; };
+		8CF1807B2F3D3E5A000F1F7D /* YalooniqDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180722F3D3E59000F1F7D /* YalooniqDocument.swift */; };
+		8CF1807C2F3D3E5A000F1F7D /* YalooniqGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180772F3D3E59000F1F7D /* YalooniqGridNode.swift */; };
+		8CF1807D2F3D3E5A000F1F7D /* YalooniqObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180792F3D3E59000F1F7D /* YalooniqObject.swift */; };
+		8CF1807E2F3D3E5A000F1F7D /* YalooniqGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180762F3D3E59000F1F7D /* YalooniqGameViewController.swift */; };
+		8CF1807F2F3D3E5A000F1F7D /* YalooniqGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180742F3D3E59000F1F7D /* YalooniqGameScene.swift */; };
+		8CF180802F3D3E5A000F1F7D /* YalooniqGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180732F3D3E59000F1F7D /* YalooniqGame.swift */; };
+		8CF180812F3D3E5A000F1F7D /* YalooniqGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180752F3D3E59000F1F7D /* YalooniqGameState.swift */; };
+		8CF180822F3D3E5A000F1F7D /* YalooniqMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180782F3D3E59000F1F7D /* YalooniqMainViewController.swift */; };
+		8CF180832F3D3E5A000F1F7D /* Yalooniq.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF180712F3D3E59000F1F7D /* Yalooniq.xml */; };
 		8CF3FFD51FCB2A2700D41B67 /* DisconnectFourGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */; };
 		8CF3FFD61FCB2A2700D41B67 /* DisconnectFourGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */; };
 		8CF3FFD71FCB2A2700D41B67 /* DisconnectFour.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */; };
@@ -3923,6 +3932,15 @@
 		8CF180642F3D3B49000F1F7D /* MirrorsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorsGridNode.swift; sourceTree = "<group>"; };
 		8CF180652F3D3B49000F1F7D /* MirrorsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorsMainViewController.swift; sourceTree = "<group>"; };
 		8CF180662F3D3B49000F1F7D /* MirrorsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorsObject.swift; sourceTree = "<group>"; };
+		8CF180712F3D3E59000F1F7D /* Yalooniq.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Yalooniq.xml; sourceTree = "<group>"; };
+		8CF180722F3D3E59000F1F7D /* YalooniqDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YalooniqDocument.swift; sourceTree = "<group>"; };
+		8CF180732F3D3E59000F1F7D /* YalooniqGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YalooniqGame.swift; sourceTree = "<group>"; };
+		8CF180742F3D3E59000F1F7D /* YalooniqGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YalooniqGameScene.swift; sourceTree = "<group>"; };
+		8CF180752F3D3E59000F1F7D /* YalooniqGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YalooniqGameState.swift; sourceTree = "<group>"; };
+		8CF180762F3D3E59000F1F7D /* YalooniqGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YalooniqGameViewController.swift; sourceTree = "<group>"; };
+		8CF180772F3D3E59000F1F7D /* YalooniqGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YalooniqGridNode.swift; sourceTree = "<group>"; };
+		8CF180782F3D3E59000F1F7D /* YalooniqMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YalooniqMainViewController.swift; sourceTree = "<group>"; };
+		8CF180792F3D3E59000F1F7D /* YalooniqObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YalooniqObject.swift; sourceTree = "<group>"; };
 		8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameState.swift; sourceTree = "<group>"; };
 		8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameScene.swift; sourceTree = "<group>"; };
 		8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DisconnectFour.xml; sourceTree = "<group>"; };
@@ -4947,6 +4965,7 @@
 				8C8661E72EA35BDB0078CD64 /* Warehouse */,
 				8CF180412F3CF080000F1F7D /* WildlifePark */,
 				8C9BD4C52F09F2B700D1D915 /* WishSandwich */,
+				8CF1807A2F3D3E59000F1F7D /* Yalooniq */,
 				8CB418EE2F2532AD005C7FDF /* YouTurnMeOn */,
 				8CF17FE52F3781CD000F1F7D /* ZenGardens */,
 				8C8661D42EA31ABC0078CD64 /* ZenLandscaper */,
@@ -7440,6 +7459,22 @@
 			path = Mirrors;
 			sourceTree = "<group>";
 		};
+		8CF1807A2F3D3E59000F1F7D /* Yalooniq */ = {
+			isa = PBXGroup;
+			children = (
+				8CF180712F3D3E59000F1F7D /* Yalooniq.xml */,
+				8CF180722F3D3E59000F1F7D /* YalooniqDocument.swift */,
+				8CF180732F3D3E59000F1F7D /* YalooniqGame.swift */,
+				8CF180742F3D3E59000F1F7D /* YalooniqGameScene.swift */,
+				8CF180752F3D3E59000F1F7D /* YalooniqGameState.swift */,
+				8CF180762F3D3E59000F1F7D /* YalooniqGameViewController.swift */,
+				8CF180772F3D3E59000F1F7D /* YalooniqGridNode.swift */,
+				8CF180782F3D3E59000F1F7D /* YalooniqMainViewController.swift */,
+				8CF180792F3D3E59000F1F7D /* YalooniqObject.swift */,
+			);
+			path = Yalooniq;
+			sourceTree = "<group>";
+		};
 		8CF3FFC71FCB2A2600D41B67 /* DisconnectFour */ = {
 			isa = PBXGroup;
 			children = (
@@ -7796,6 +7831,7 @@
 				8C263F552F1D169F00158A2C /* JoinMe.xml in Resources */,
 				8C8663472EA39DD00078CD64 /* shade_8.png in Resources */,
 				8C8663482EA39DD00078CD64 /* tower.png in Resources */,
+				8CF180832F3D3E5A000F1F7D /* Yalooniq.xml in Resources */,
 				8C8663492EA39DD00078CD64 /* drink_blue.png in Resources */,
 				8C86634A2EA39DD00078CD64 /* arrow6.png in Resources */,
 				8C86634B2EA39DD00078CD64 /* lightbulb_on.png in Resources */,
@@ -8843,6 +8879,14 @@
 				8CF180442F3CF080000F1F7D /* WildlifeParkGameState.swift in Sources */,
 				8CF180452F3CF080000F1F7D /* WildlifeParkGameViewController.swift in Sources */,
 				8CF180462F3CF080000F1F7D /* WildlifeParkGameScene.swift in Sources */,
+				8CF1807B2F3D3E5A000F1F7D /* YalooniqDocument.swift in Sources */,
+				8CF1807C2F3D3E5A000F1F7D /* YalooniqGridNode.swift in Sources */,
+				8CF1807D2F3D3E5A000F1F7D /* YalooniqObject.swift in Sources */,
+				8CF1807E2F3D3E5A000F1F7D /* YalooniqGameViewController.swift in Sources */,
+				8CF1807F2F3D3E5A000F1F7D /* YalooniqGameScene.swift in Sources */,
+				8CF180802F3D3E5A000F1F7D /* YalooniqGame.swift in Sources */,
+				8CF180812F3D3E5A000F1F7D /* YalooniqGameState.swift in Sources */,
+				8CF180822F3D3E5A000F1F7D /* YalooniqMainViewController.swift in Sources */,
 				8CF180472F3CF080000F1F7D /* WildlifeParkGridNode.swift in Sources */,
 				8CF180482F3CF080000F1F7D /* WildlifeParkObject.swift in Sources */,
 				8CF180492F3CF080000F1F7D /* WildlifeParkMainViewController.swift in Sources */,
