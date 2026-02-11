@@ -34,15 +34,17 @@ class FencingSheepGame: GridGame<FencingSheepGameState> {
         
         for r in 0..<rows {
             var str = layout[2 * r]
-            for c in 0..<cols - 1 {
-                let ch = str[2 * c + 1]
-                if ch == "-" {
+            for c in 0..<cols {
+                let ch = str[2 * c]
+                if ch != " " {
+                    posts.append(Position(r, c))
+                }
+                guard c < cols - 1 else {continue}
+                let ch2 = str[2 * c + 1]
+                if ch2 == "-" {
                     self[r, c][1] = .line
                     self[r, c + 1][3] = .line
                 }
-                let ch2 = str[2 * c]
-                guard ch2 == FencingSheepGame.PUZ_POST else {continue}
-                posts.append(Position(r, c))
             }
             guard r < rows - 1 else {break}
             str = layout[2 * r + 1]

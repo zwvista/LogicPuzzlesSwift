@@ -17,13 +17,10 @@ class WildlifeParkGame: GridGame<WildlifeParkGameState> {
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
-    static let PUZ_POST: Character = "O"
-    static let PUZ_SHEEP: Character = "S"
-    static let PUZ_WOLF: Character = "W"
+    static let PUZ_POST: Character = "x"
     
     var objArray = [GridDotObject]()
-    var wolves = [Position]()
-    var sheep = [Position]()
+    var animals = [[Position]]()
     var posts = [Position]()
     
     init(layout: [String], delegate: WildlifeParkGameViewController? = nil) {
@@ -34,15 +31,17 @@ class WildlifeParkGame: GridGame<WildlifeParkGameState> {
         
         for r in 0..<rows {
             var str = layout[2 * r]
-            for c in 0..<cols - 1 {
-                let ch = str[2 * c + 1]
-                if ch == "-" {
+            for c in 0..<cols {
+                let ch = str[2 * c]
+                if ch != " " {
+                    posts.append(Position(r, c))
+                }
+                guard c < cols - 1 else {continue}
+                let ch2 = str[2 * c + 1]
+                if ch2 == "-" {
                     self[r, c][1] = .line
                     self[r, c + 1][3] = .line
                 }
-                let ch2 = str[2 * c]
-                guard ch2 == WildlifeParkGame.PUZ_POST else {continue}
-                posts.append(Position(r, c))
             }
             guard r < rows - 1 else {break}
             str = layout[2 * r + 1]
@@ -53,12 +52,13 @@ class WildlifeParkGame: GridGame<WildlifeParkGameState> {
                     self[r + 1, c][0] = .line
                 }
                 guard c < cols - 1 else {continue}
-                let p = Position(r, c)
-                switch str[2 * c + 1] {
-                case WildlifeParkGame.PUZ_WOLF: wolves.append(p)
-                case WildlifeParkGame.PUZ_SHEEP: sheep.append(p)
-                default: break
+                let ch2 = str[2 * c + 1]
+                guard ch2 != " " else {continue}
+                let n = Int(ch2.asciiValue!) - Int(Character("A").asciiValue!)
+                while animals.count <= n {
+                    animals.append([])
                 }
+                animals[n].append(Position(r, c))
             }
         }
 

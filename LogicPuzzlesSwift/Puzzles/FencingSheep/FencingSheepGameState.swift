@@ -100,32 +100,32 @@ class FencingSheepGameState: GridGameState<FencingSheepGameMove> {
         isSolved = true
         var pos2dirs = [Position: [Int]]()
         func isBorder(_ p: Position) -> Bool {
-            return p.row == 0 || p.col == 0 || p.row == rows - 1 || p.col == cols - 1
+            p.row == 0 || p.col == 0 || p.row == rows - 1 || p.col == cols - 1
         }
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let isB = isBorder(p)
                 var dirs = (0..<4).filter { self[p][$0] == .line }
-                if !{
+                let isValidPoint =
                     switch dirs.count {
                     case 0:
-                        return true
+                        true
                     case 2:
                         // 4. Lines only turn at posts (dots).
                         // 6. Not all posts must be used.
-                        return isB || dirs[1] - dirs[0] == 2 || game.posts.contains(p)
+                        isB || dirs[1] - dirs[0] == 2 || game.posts.contains(p)
                     case 3:
                         // 3. The lines (fencing) of the enclosures start and end on the edges of the
                         //    grid.
-                        return isB
+                        isB
                     case 4:
                         // 5. Lines can cross each other except posts (dots).
-                        return !game.posts.contains(p)
+                        !game.posts.contains(p)
                     default:
-                        return false
+                        false
                     }
-                }() { isSolved = false; return }
+                if !isValidPoint { isSolved = false; return }
                 if isB {
                     dirs.removeAll { isBorder(p + FencingSheepGame.offset[$0]) }
                 }
@@ -139,7 +139,7 @@ class FencingSheepGameState: GridGameState<FencingSheepGameMove> {
             guard let p = (pos2dirs.first { $1.count == 1 }?.key) else { isSolved = false; return }
             var p2 = p, n = -1
             while true {
-            guard var dirs = pos2dirs[p2] else { isSolved = false; return }
+                guard var dirs = pos2dirs[p2] else { isSolved = false; return }
                 if dirs.count == 4 {
                     dirs.removeAll(n)
                     dirs.removeAll((n + 2) % 4)
