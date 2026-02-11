@@ -1914,6 +1914,15 @@
 		8CF180812F3D3E5A000F1F7D /* YalooniqGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180752F3D3E59000F1F7D /* YalooniqGameState.swift */; };
 		8CF180822F3D3E5A000F1F7D /* YalooniqMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180782F3D3E59000F1F7D /* YalooniqMainViewController.swift */; };
 		8CF180832F3D3E5A000F1F7D /* Yalooniq.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF180712F3D3E59000F1F7D /* Yalooniq.xml */; };
+		8CF1808E2F3D4040000F1F7D /* TetrominoPegsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1808B2F3D4040000F1F7D /* TetrominoPegsMainViewController.swift */; };
+		8CF1808F2F3D4040000F1F7D /* TetrominoPegsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180872F3D4040000F1F7D /* TetrominoPegsGameScene.swift */; };
+		8CF180902F3D4040000F1F7D /* TetrominoPegsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180892F3D4040000F1F7D /* TetrominoPegsGameViewController.swift */; };
+		8CF180912F3D4040000F1F7D /* TetrominoPegsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180882F3D4040000F1F7D /* TetrominoPegsGameState.swift */; };
+		8CF180922F3D4040000F1F7D /* TetrominoPegsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1808A2F3D4040000F1F7D /* TetrominoPegsGridNode.swift */; };
+		8CF180932F3D4040000F1F7D /* TetrominoPegsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1808C2F3D4040000F1F7D /* TetrominoPegsObject.swift */; };
+		8CF180942F3D4040000F1F7D /* TetrominoPegsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180852F3D4040000F1F7D /* TetrominoPegsDocument.swift */; };
+		8CF180952F3D4040000F1F7D /* TetrominoPegsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180862F3D4040000F1F7D /* TetrominoPegsGame.swift */; };
+		8CF180962F3D4040000F1F7D /* TetrominoPegs.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF180842F3D4040000F1F7D /* TetrominoPegs.xml */; };
 		8CF3FFD51FCB2A2700D41B67 /* DisconnectFourGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */; };
 		8CF3FFD61FCB2A2700D41B67 /* DisconnectFourGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */; };
 		8CF3FFD71FCB2A2700D41B67 /* DisconnectFour.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */; };
@@ -3941,6 +3950,15 @@
 		8CF180772F3D3E59000F1F7D /* YalooniqGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YalooniqGridNode.swift; sourceTree = "<group>"; };
 		8CF180782F3D3E59000F1F7D /* YalooniqMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YalooniqMainViewController.swift; sourceTree = "<group>"; };
 		8CF180792F3D3E59000F1F7D /* YalooniqObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YalooniqObject.swift; sourceTree = "<group>"; };
+		8CF180842F3D4040000F1F7D /* TetrominoPegs.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TetrominoPegs.xml; sourceTree = "<group>"; };
+		8CF180852F3D4040000F1F7D /* TetrominoPegsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrominoPegsDocument.swift; sourceTree = "<group>"; };
+		8CF180862F3D4040000F1F7D /* TetrominoPegsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrominoPegsGame.swift; sourceTree = "<group>"; };
+		8CF180872F3D4040000F1F7D /* TetrominoPegsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrominoPegsGameScene.swift; sourceTree = "<group>"; };
+		8CF180882F3D4040000F1F7D /* TetrominoPegsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrominoPegsGameState.swift; sourceTree = "<group>"; };
+		8CF180892F3D4040000F1F7D /* TetrominoPegsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrominoPegsGameViewController.swift; sourceTree = "<group>"; };
+		8CF1808A2F3D4040000F1F7D /* TetrominoPegsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrominoPegsGridNode.swift; sourceTree = "<group>"; };
+		8CF1808B2F3D4040000F1F7D /* TetrominoPegsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrominoPegsMainViewController.swift; sourceTree = "<group>"; };
+		8CF1808C2F3D4040000F1F7D /* TetrominoPegsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TetrominoPegsObject.swift; sourceTree = "<group>"; };
 		8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameState.swift; sourceTree = "<group>"; };
 		8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameScene.swift; sourceTree = "<group>"; };
 		8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DisconnectFour.xml; sourceTree = "<group>"; };
@@ -4946,6 +4964,7 @@
 				8C04670B1F8BA2BD00B5DE41 /* Tatamino */,
 				8C7E4B371F793A6100B57C60 /* TennerGrid */,
 				8C3A35DB1EC88D4200A914A5 /* Tents */,
+				8CF1808D2F3D4040000F1F7D /* TetrominoPegs */,
 				8C263EBF2F15072900158A2C /* TheCityRises */,
 				8C6A36031FAF97AF00D2804D /* TheOddBrick */,
 				8C8661C02EA115FA0078CD64 /* Thermometers */,
@@ -7475,6 +7494,22 @@
 			path = Yalooniq;
 			sourceTree = "<group>";
 		};
+		8CF1808D2F3D4040000F1F7D /* TetrominoPegs */ = {
+			isa = PBXGroup;
+			children = (
+				8CF180842F3D4040000F1F7D /* TetrominoPegs.xml */,
+				8CF180852F3D4040000F1F7D /* TetrominoPegsDocument.swift */,
+				8CF180862F3D4040000F1F7D /* TetrominoPegsGame.swift */,
+				8CF180872F3D4040000F1F7D /* TetrominoPegsGameScene.swift */,
+				8CF180882F3D4040000F1F7D /* TetrominoPegsGameState.swift */,
+				8CF180892F3D4040000F1F7D /* TetrominoPegsGameViewController.swift */,
+				8CF1808A2F3D4040000F1F7D /* TetrominoPegsGridNode.swift */,
+				8CF1808B2F3D4040000F1F7D /* TetrominoPegsMainViewController.swift */,
+				8CF1808C2F3D4040000F1F7D /* TetrominoPegsObject.swift */,
+			);
+			path = TetrominoPegs;
+			sourceTree = "<group>";
+		};
 		8CF3FFC71FCB2A2600D41B67 /* DisconnectFour */ = {
 			isa = PBXGroup;
 			children = (
@@ -7831,6 +7866,7 @@
 				8C263F552F1D169F00158A2C /* JoinMe.xml in Resources */,
 				8C8663472EA39DD00078CD64 /* shade_8.png in Resources */,
 				8C8663482EA39DD00078CD64 /* tower.png in Resources */,
+				8CF180962F3D4040000F1F7D /* TetrominoPegs.xml in Resources */,
 				8CF180832F3D3E5A000F1F7D /* Yalooniq.xml in Resources */,
 				8C8663492EA39DD00078CD64 /* drink_blue.png in Resources */,
 				8C86634A2EA39DD00078CD64 /* arrow6.png in Resources */,
@@ -9222,6 +9258,14 @@
 				8C8662012EA383740078CD64 /* FieldsGameScene.swift in Sources */,
 				8C8662022EA383740078CD64 /* FieldsMainViewController.swift in Sources */,
 				8C6D37391DC421180052202C /* HomeMainViewController.swift in Sources */,
+				8CF1808E2F3D4040000F1F7D /* TetrominoPegsMainViewController.swift in Sources */,
+				8CF1808F2F3D4040000F1F7D /* TetrominoPegsGameScene.swift in Sources */,
+				8CF180902F3D4040000F1F7D /* TetrominoPegsGameViewController.swift in Sources */,
+				8CF180912F3D4040000F1F7D /* TetrominoPegsGameState.swift in Sources */,
+				8CF180922F3D4040000F1F7D /* TetrominoPegsGridNode.swift in Sources */,
+				8CF180932F3D4040000F1F7D /* TetrominoPegsObject.swift in Sources */,
+				8CF180942F3D4040000F1F7D /* TetrominoPegsDocument.swift in Sources */,
+				8CF180952F3D4040000F1F7D /* TetrominoPegsGame.swift in Sources */,
 				8C1D4F881F7D079F000D5FB3 /* Square100Document.swift in Sources */,
 				8C2963FE1FA20D620017A812 /* RobotCrosswordsGridNode.swift in Sources */,
 				8C3A370A1EC88D4300A914A5 /* MineShipsGame.swift in Sources */,
