@@ -14,10 +14,6 @@ class FencingSheepGameScene: GameScene<FencingSheepGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
-    }
-    
     override func levelInitialized(_ game: AnyObject, state: FencingSheepGameState, skView: SKView) {
         let game = game as! FencingSheepGame
         removeAllChildren()
@@ -27,12 +23,18 @@ class FencingSheepGameScene: GameScene<FencingSheepGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: FencingSheepGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset))
         
-        // add Hints
-        for (p, n) in game.pos2hint {
+        // add Images
+        for p in game.wolves {
             let point = gridNode.centerPoint(p: p)
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let hintNodeName = "hint" + nodeNameSuffix
-            addHint(n: n, s: state.pos2stateHint[p]!, point: point, nodeName: hintNodeName)
+            addImage(imageNamed: "wolf2", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "wolf")
+        }
+        for p in game.sheep {
+            let point = gridNode.centerPoint(p: p)
+            addImage(imageNamed: "sheep2", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "sheep")
+        }
+        for p in game.posts {
+            let point = gridNode.cornerPoint(p: p)
+            addDotMarker2(color: .white, point: point, nodeName: "post")
         }
         
         for r in 0..<game.rows {
@@ -68,20 +70,6 @@ class FencingSheepGameScene: GameScene<FencingSheepGameState> {
                 if o1 != o2 {
                     removeVertLine(objType: o1)
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
-                }
-                let hintNodeName = "hint" + nodeNameSuffix
-                func removeHint() { removeNode(withName: hintNodeName) }
-                let (s1, s2) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
-                if s1 != s2 {
-                    removeHint()
-                    addHint(n: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
-                }
-                let shrubNodeName = "shrub" + nodeNameSuffix
-                let (b1, b2) = (stateFrom.shrubs.contains(p), stateTo.shrubs.contains(p))
-                let (s3, s4) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
-                if b1 != b2 || s3 != s4 {
-                    if b1 { removeNode(withName: shrubNodeName) }
-                    if b2 { addImage(imageNamed: "lawn_background", color: .red, colorBlendFactor: s4 == .normal ? 0.0 : 0.5, point: point, nodeName: shrubNodeName) }
                 }
             }
         }

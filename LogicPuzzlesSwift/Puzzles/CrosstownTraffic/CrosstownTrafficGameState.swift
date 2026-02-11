@@ -218,6 +218,7 @@ class CrosstownTrafficGameState: GridGameState<CrosstownTrafficGameMove> {
             } else {
                 dirs.removeAll(n)
                 dirs.removeAll((n + 2) % 4)
+                pos2dirs[p2] = dirs
             }
             p2 += CrosstownTrafficGame.offset[n]
             guard p2 != p else {break}

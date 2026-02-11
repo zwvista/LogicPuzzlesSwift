@@ -15,9 +15,6 @@ class FencingSheepGameState: GridGameState<FencingSheepGameMove> {
     }
     override var gameDocument: GameDocumentBase { FencingSheepDocument.sharedInstance }
     var objArray = [GridDotObject]()
-    var pos2stateHint = [Position: HintState]()
-    var shrubs = Set<Position>()
-    var pos2stateAllowed = [Position: AllowedObjectState]()
     
     override func copy() -> FencingSheepGameState {
         let v = FencingSheepGameState(game: game, isCopy: true)
@@ -101,7 +98,61 @@ class FencingSheepGameState: GridGameState<FencingSheepGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        var flowerbeds = [[Position]]()
+        var pos2dirs = [Position: [Int]]()
+        func isBorder(_ p: Position) -> Bool {
+            return p.row == 0 || p.col == 0 || p.row == rows - 1 || p.col == cols - 1
+        }
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                let isB = isBorder(p)
+                var dirs = (0..<4).filter { self[p][$0] == .line }
+                if !{
+                    switch dirs.count {
+                    case 0:
+                        return true
+                    case 2:
+                        // 4. Lines only turn at posts (dots).
+                        // 6. Not all posts must be used.
+                        return isB || dirs[1] - dirs[0] == 2 || game.posts.contains(p)
+                    case 3:
+                        // 3. The lines (fencing) of the enclosures start and end on the edges of the
+                        //    grid.
+                        return isB
+                    case 4:
+                        // 5. Lines can cross each other except posts (dots).
+                        return !game.posts.contains(p)
+                    default:
+                        return false
+                    }
+                }() { isSolved = false; return }
+                if isB {
+                    dirs.removeAll { isBorder(p + FencingSheepGame.offset[$0]) }
+                }
+                if !dirs.isEmpty {
+                    pos2dirs[p] = dirs
+                }
+            }
+        }
+        // Check the lines
+        while !pos2dirs.isEmpty {
+            guard let p = (pos2dirs.first { $1.count == 1 }?.key) else { isSolved = false; return }
+            var p2 = p, n = -1
+            while true {
+            guard var dirs = pos2dirs[p2] else { isSolved = false; return }
+                if dirs.count == 4 {
+                    dirs.removeAll(n)
+                    dirs.removeAll((n + 2) % 4)
+                    pos2dirs[p2] = dirs
+                } else {
+                    pos2dirs.removeValue(forKey: p2)
+                    if p2 != p && dirs.count == 1 {break}
+                    n = dirs.first { ($0 + 2) % 4 != n }!
+                }
+                p2 += FencingSheepGame.offset[n]
+            }
+        }
+
         let g = Graph()
         var pos2node = [Position: Node]()
         for r in 0..<rows - 1 {
@@ -123,42 +174,11 @@ class FencingSheepGameState: GridGameState<FencingSheepGameMove> {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
-            let rng = area.filter { p in game.pos2hint[p] != nil }
-            // 1. Divide the board in Flowerbeds of exactly three tiles. Each Flowerbed
-            //    contains a number.
-            let cnt = area.count
-            if rng.isEmpty {
-                if cnt == 1 {
-                    shrubs.insert(area[0])
-                } else {
-                    isSolved = false
-                }
-            } else if rng.count > 1 || cnt != 3 {
-                for p in rng {
-                    pos2stateHint[p] = .normal
-                }
-                isSolved = false
-            } else {
-                flowerbeds.append(area)
-            }
-        }
-        // 2. Single tiles left outside Flowerbeds are Shrubs. Shrubs cannot touch
-        //    each other orthogonally.
-        for p in shrubs {
-            let rng = FencingSheepGame.offset.map { p + $0 }.filter { shrubs.contains($0) }
-            let s: AllowedObjectState = rng.isEmpty ? .normal : .error
-            if s == .error { isSolved = false }
-            pos2stateAllowed[p] = s
-        }
-        // 3. The number on each Flowerbed tells you how many Shrubs are adjacent to it.
-        for area in flowerbeds {
-            let pHint = area.first { game.pos2hint[$0] != nil }!
-            let n1 = game.pos2hint[pHint]!
-            let shrubs2 = Set(area.flatMap { p in FencingSheepGame.offset.map { p + $0 } }.filter { shrubs.contains($0) })
-            let n2 = shrubs2.count
-            let s: HintState = n1 == n2 ? .complete : .error
-            pos2stateHint[pHint] = s
-            if s != .complete { isSolved = false }
+            let rngWolves = area.filter { game.wolves.contains($0) }
+            let rngSheep = area.filter { game.sheep.contains($0) }
+            // 2. Each enclosure must contain either sheep or wolves (but not both) and
+            //    must not be empty.
+            guard rngSheep.isEmpty != rngWolves.isEmpty else { isSolved = false; return }
         }
     }
 }

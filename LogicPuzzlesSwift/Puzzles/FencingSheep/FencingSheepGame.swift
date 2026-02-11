@@ -17,39 +17,51 @@ class FencingSheepGame: GridGame<FencingSheepGameState> {
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
+    static let PUZ_POST: Character = "O"
+    static let PUZ_SHEEP: Character = "S"
+    static let PUZ_WOLF: Character = "W"
     
     var objArray = [GridDotObject]()
-    var pos2hint = [Position: Int]()
+    var wolves = [Position]()
+    var sheep = [Position]()
+    var posts = [Position]()
     
     init(layout: [String], delegate: FencingSheepGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count + 1, layout[0].length + 1)
+        size = Position(layout.count / 2 + 1, layout[0].length / 2 + 1)
         objArray = Array<GridDotObject>(repeating: Array<GridLineObject>(repeating: .empty, count: 4), count: rows * cols)
         
-        for r in 0..<rows - 1 {
-            let str = layout[r]
+        for r in 0..<rows {
+            var str = layout[2 * r]
             for c in 0..<cols - 1 {
+                let ch = str[2 * c + 1]
+                if ch == "-" {
+                    self[r, c][1] = .line
+                    self[r, c + 1][3] = .line
+                }
+                let ch2 = str[2 * c]
+                guard ch2 == FencingSheepGame.PUZ_POST else {continue}
+                posts.append(Position(r, c))
+            }
+            guard r < rows - 1 else {break}
+            str = layout[2 * r + 1]
+            for c in 0..<cols {
+                let ch = str[2 * c]
+                if ch == "|" {
+                    self[r, c][2] = .line
+                    self[r + 1, c][0] = .line
+                }
+                guard c < cols - 1 else {continue}
                 let p = Position(r, c)
-                let ch = str[c]
-                guard ch != " " else {continue}
-                let n = ch.toInt!
-                pos2hint[p] = n
+                switch str[2 * c + 1] {
+                case FencingSheepGame.PUZ_WOLF: wolves.append(p)
+                case FencingSheepGame.PUZ_SHEEP: sheep.append(p)
+                default: break
+                }
             }
         }
-        for r in 0..<rows - 1 {
-            self[r, 0][2] = .line
-            self[r + 1, 0][0] = .line
-            self[r, cols - 1][2] = .line
-            self[r + 1, cols - 1][0] = .line
-        }
-        for c in 0..<cols - 1 {
-            self[0, c][1] = .line
-            self[0, c + 1][3] = .line
-            self[rows - 1, c][1] = .line
-            self[rows - 1, c + 1][3] = .line
-        }
-        
+
         let state = FencingSheepGameState(game: self)
         levelInitialized(state: state)
     }

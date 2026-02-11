@@ -1876,6 +1876,8 @@
 		8CF1802F2F3C5D7F000F1F7D /* FencingSheepGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180242F3C5D7F000F1F7D /* FencingSheepGameViewController.swift */; };
 		8CF180302F3C5D7F000F1F7D /* FencingSheepGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180212F3C5D7F000F1F7D /* FencingSheepGame.swift */; };
 		8CF180312F3C5D7F000F1F7D /* FencingSheepGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180222F3C5D7F000F1F7D /* FencingSheepGameScene.swift */; };
+		8CF180342F3CA6BF000F1F7D /* sheep2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF180322F3CA6BF000F1F7D /* sheep2.png */; };
+		8CF180372F3CA6EB000F1F7D /* wolf2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF180362F3CA6EB000F1F7D /* wolf2.png */; };
 		8CF3FFD51FCB2A2700D41B67 /* DisconnectFourGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */; };
 		8CF3FFD61FCB2A2700D41B67 /* DisconnectFourGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */; };
 		8CF3FFD71FCB2A2700D41B67 /* DisconnectFour.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */; };
@@ -3865,6 +3867,8 @@
 		8CF180252F3C5D7F000F1F7D /* FencingSheepGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FencingSheepGridNode.swift; sourceTree = "<group>"; };
 		8CF180262F3C5D7F000F1F7D /* FencingSheepMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FencingSheepMainViewController.swift; sourceTree = "<group>"; };
 		8CF180272F3C5D7F000F1F7D /* FencingSheepObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FencingSheepObject.swift; sourceTree = "<group>"; };
+		8CF180322F3CA6BF000F1F7D /* sheep2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheep2.png; sourceTree = "<group>"; };
+		8CF180362F3CA6EB000F1F7D /* wolf2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wolf2.png; sourceTree = "<group>"; };
 		8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameState.swift; sourceTree = "<group>"; };
 		8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameScene.swift; sourceTree = "<group>"; };
 		8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DisconnectFour.xml; sourceTree = "<group>"; };
@@ -6188,6 +6192,7 @@
 				8C8662F32EA39DD00078CD64 /* shade_8.png */,
 				8C8662F42EA39DD00078CD64 /* shade_9.png */,
 				8C8662F52EA39DD00078CD64 /* sheep.png */,
+				8CF180322F3CA6BF000F1F7D /* sheep2.png */,
 				8C8662F62EA39DD00078CD64 /* ship.png */,
 				8C8662F72EA39DD00078CD64 /* shoppingcart.png */,
 				8C8662F82EA39DD00078CD64 /* signpost.png */,
@@ -6242,6 +6247,7 @@
 				8C8663232EA39DD00078CD64 /* wine_red_glass.png */,
 				8C8663242EA39DD00078CD64 /* wine_white_glass.png */,
 				8C8663252EA39DD00078CD64 /* wolf.png */,
+				8CF180362F3CA6EB000F1F7D /* wolf2.png */,
 				8C8663262EA39DD00078CD64 /* wood horizontal.png */,
 				8C8663272EA39DD00078CD64 /* wood vertical.png */,
 				8C8663282EA39DD00078CD64 /* wood1.png */,
@@ -7827,6 +7833,7 @@
 				8CB418E42F251C7E005C7FDF /* StraightAndBendLands.xml in Resources */,
 				8C8663B12EA39DD00078CD64 /* tetris_blue.png in Resources */,
 				8CFB22462F076ED400E5F29D /* LiarLiar.xml in Resources */,
+				8CF180342F3CA6BF000F1F7D /* sheep2.png in Resources */,
 				8C8663B22EA39DD00078CD64 /* gate.png in Resources */,
 				8C8663B32EA39DD00078CD64 /* icecube.png in Resources */,
 				8C8663B42EA39DD00078CD64 /* A4.png in Resources */,
@@ -7975,6 +7982,7 @@
 				8C86641D2EA39DD00078CD64 /* tetris_red.png in Resources */,
 				8C86641E2EA39DD00078CD64 /* shade_5.png in Resources */,
 				8CF17F7E2F367FE0000F1F7D /* CrosstownTraffic.xml in Resources */,
+				8CF180372F3CA6EB000F1F7D /* wolf2.png in Resources */,
 				8C86641F2EA39DD00078CD64 /* monkey.png in Resources */,
 				8C8664202EA39DD00078CD64 /* footstep.png in Resources */,
 				8C8664212EA39DD00078CD64 /* arrow_blue_right.png in Resources */,
