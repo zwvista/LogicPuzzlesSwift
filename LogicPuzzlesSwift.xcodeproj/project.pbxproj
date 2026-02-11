@@ -1887,6 +1887,15 @@
 		8CF180482F3CF080000F1F7D /* WildlifeParkObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180402F3CF080000F1F7D /* WildlifeParkObject.swift */; };
 		8CF180492F3CF080000F1F7D /* WildlifeParkMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1803F2F3CF080000F1F7D /* WildlifeParkMainViewController.swift */; };
 		8CF1804A2F3CF080000F1F7D /* WildlifePark.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF180382F3CF080000F1F7D /* WildlifePark.xml */; };
+		8CF180552F3D312C000F1F7D /* MondrianLoopGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1804D2F3D312C000F1F7D /* MondrianLoopGame.swift */; };
+		8CF180562F3D312C000F1F7D /* MondrianLoopGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180502F3D312C000F1F7D /* MondrianLoopGameViewController.swift */; };
+		8CF180572F3D312C000F1F7D /* MondrianLoopDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1804C2F3D312C000F1F7D /* MondrianLoopDocument.swift */; };
+		8CF180582F3D312C000F1F7D /* MondrianLoopGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1804E2F3D312C000F1F7D /* MondrianLoopGameScene.swift */; };
+		8CF180592F3D312C000F1F7D /* MondrianLoopGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180512F3D312C000F1F7D /* MondrianLoopGridNode.swift */; };
+		8CF1805A2F3D312C000F1F7D /* MondrianLoopMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180522F3D312C000F1F7D /* MondrianLoopMainViewController.swift */; };
+		8CF1805B2F3D312C000F1F7D /* MondrianLoopGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1804F2F3D312C000F1F7D /* MondrianLoopGameState.swift */; };
+		8CF1805C2F3D312C000F1F7D /* MondrianLoopObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180532F3D312C000F1F7D /* MondrianLoopObject.swift */; };
+		8CF1805D2F3D312C000F1F7D /* MondrianLoop.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF1804B2F3D312C000F1F7D /* MondrianLoop.xml */; };
 		8CF3FFD51FCB2A2700D41B67 /* DisconnectFourGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */; };
 		8CF3FFD61FCB2A2700D41B67 /* DisconnectFourGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */; };
 		8CF3FFD71FCB2A2700D41B67 /* DisconnectFour.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */; };
@@ -3887,6 +3896,15 @@
 		8CF1803E2F3CF080000F1F7D /* WildlifeParkGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildlifeParkGridNode.swift; sourceTree = "<group>"; };
 		8CF1803F2F3CF080000F1F7D /* WildlifeParkMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildlifeParkMainViewController.swift; sourceTree = "<group>"; };
 		8CF180402F3CF080000F1F7D /* WildlifeParkObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildlifeParkObject.swift; sourceTree = "<group>"; };
+		8CF1804B2F3D312C000F1F7D /* MondrianLoop.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MondrianLoop.xml; sourceTree = "<group>"; };
+		8CF1804C2F3D312C000F1F7D /* MondrianLoopDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondrianLoopDocument.swift; sourceTree = "<group>"; };
+		8CF1804D2F3D312C000F1F7D /* MondrianLoopGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondrianLoopGame.swift; sourceTree = "<group>"; };
+		8CF1804E2F3D312C000F1F7D /* MondrianLoopGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondrianLoopGameScene.swift; sourceTree = "<group>"; };
+		8CF1804F2F3D312C000F1F7D /* MondrianLoopGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondrianLoopGameState.swift; sourceTree = "<group>"; };
+		8CF180502F3D312C000F1F7D /* MondrianLoopGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondrianLoopGameViewController.swift; sourceTree = "<group>"; };
+		8CF180512F3D312C000F1F7D /* MondrianLoopGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondrianLoopGridNode.swift; sourceTree = "<group>"; };
+		8CF180522F3D312C000F1F7D /* MondrianLoopMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondrianLoopMainViewController.swift; sourceTree = "<group>"; };
+		8CF180532F3D312C000F1F7D /* MondrianLoopObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondrianLoopObject.swift; sourceTree = "<group>"; };
 		8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameState.swift; sourceTree = "<group>"; };
 		8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameScene.swift; sourceTree = "<group>"; };
 		8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DisconnectFour.xml; sourceTree = "<group>"; };
@@ -4828,6 +4846,7 @@
 				8C3A34FE1EC88D4100A914A5 /* Minesweeper */,
 				8C3A350B1EC88D4100A914A5 /* MiniLits */,
 				8C9BD4EC2F0A092700D1D915 /* MixedTatamis */,
+				8CF180542F3D312C000F1F7D /* MondrianLoop */,
 				8C3A35181EC88D4100A914A5 /* Mosaik */,
 				8C3A35251EC88D4100A914A5 /* Neighbours */,
 				8C1ACF6E2F2D6322004832E2 /* NewCarpenterSquare */,
@@ -7370,6 +7389,22 @@
 			path = WildlifePark;
 			sourceTree = "<group>";
 		};
+		8CF180542F3D312C000F1F7D /* MondrianLoop */ = {
+			isa = PBXGroup;
+			children = (
+				8CF1804B2F3D312C000F1F7D /* MondrianLoop.xml */,
+				8CF1804C2F3D312C000F1F7D /* MondrianLoopDocument.swift */,
+				8CF1804D2F3D312C000F1F7D /* MondrianLoopGame.swift */,
+				8CF1804E2F3D312C000F1F7D /* MondrianLoopGameScene.swift */,
+				8CF1804F2F3D312C000F1F7D /* MondrianLoopGameState.swift */,
+				8CF180502F3D312C000F1F7D /* MondrianLoopGameViewController.swift */,
+				8CF180512F3D312C000F1F7D /* MondrianLoopGridNode.swift */,
+				8CF180522F3D312C000F1F7D /* MondrianLoopMainViewController.swift */,
+				8CF180532F3D312C000F1F7D /* MondrianLoopObject.swift */,
+			);
+			path = MondrianLoop;
+			sourceTree = "<group>";
+		};
 		8CF3FFC71FCB2A2600D41B67 /* DisconnectFour */ = {
 			isa = PBXGroup;
 			children = (
@@ -8002,6 +8037,7 @@
 				8C8664112EA39DD00078CD64 /* cherries.png in Resources */,
 				8C8664122EA39DD00078CD64 /* recycle.png in Resources */,
 				8C8664132EA39DD00078CD64 /* tower_wall_noborder.png in Resources */,
+				8CF1805D2F3D312C000F1F7D /* MondrianLoop.xml in Resources */,
 				8C8664142EA39DD00078CD64 /* arrow3.png in Resources */,
 				8C8664152EA39DD00078CD64 /* battery.png in Resources */,
 				8C8664162EA39DD00078CD64 /* kangaroo.png in Resources */,
@@ -9443,6 +9479,14 @@
 				8CA0431C1FDBE77B00AF85E1 /* CarpentersWallGameViewController.swift in Sources */,
 				8C3A378F1EC88D4400A914A5 /* RoomsGameScene.swift in Sources */,
 				8C1D16AD1DB8DE930056D407 /* BreadthFirstSearch.swift in Sources */,
+				8CF180552F3D312C000F1F7D /* MondrianLoopGame.swift in Sources */,
+				8CF180562F3D312C000F1F7D /* MondrianLoopGameViewController.swift in Sources */,
+				8CF180572F3D312C000F1F7D /* MondrianLoopDocument.swift in Sources */,
+				8CF180582F3D312C000F1F7D /* MondrianLoopGameScene.swift in Sources */,
+				8CF180592F3D312C000F1F7D /* MondrianLoopGridNode.swift in Sources */,
+				8CF1805A2F3D312C000F1F7D /* MondrianLoopMainViewController.swift in Sources */,
+				8CF1805B2F3D312C000F1F7D /* MondrianLoopGameState.swift in Sources */,
+				8CF1805C2F3D312C000F1F7D /* MondrianLoopObject.swift in Sources */,
 				8C3A36571EC88D4200A914A5 /* CloudsGameScene.swift in Sources */,
 				8C3A36E51EC88D4300A914A5 /* LoopyDocument.swift in Sources */,
 				8C3A362C1EC88D4200A914A5 /* BoxItAroundMainViewController.swift in Sources */,
