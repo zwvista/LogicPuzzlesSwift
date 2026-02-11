@@ -1,0 +1,629 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. The goal is to draw a single, continuous, non-crossing path that fills the entire board.
+2. Some tiles are already given and can contain Mirrors, which force the path to make a turn. Other tiles already contain a fixed piece of straight path.
+3. Your task is to fill the remaining board tiles with straight or 90 degree path lines, in the end connecting a single, continuous line.
+4. Please note you can make 90 degree turn even there are no mirrors.  Variant
+5. In the Maze variant, the path isn't closed. You have two spots on the board which represent the start and end of the path.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+       `
+ C 5 9 `
+  3 O  `
+ A OO  `
+       `
+ 6 55  `
+       `
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+  O    `
+ 3 5   `
+  3 O  `
+O  6   `
+    5  `
+ 6 55  `
+       `
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+    O  `
+ 3 5 9 `
+       `
+ A 6  O`
+  O A  `
+     C `
+       `
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+       `
+ O   55`
+  CO3 5`
+   6   `
+S 9 A S`
+      5`
+       `
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+      S`
+ 3     `
+  A C  `
+     55`
+5 9OO  `
+ 6     `
+      S`
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+       `
+ C 5 9 `
+  3 6  `
+  O6   `
+  O C  `
+ A    5`
+S   S  `
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+    S  `
+ C  A 5`
+  3  A `
+5  CO  `
+  6 O 5`
+       `
+    S  `
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+        `
+ 3 55 9 `
+  C  O  `
+ A   O  `
+ A 3  A `
+ A      `
+   55 C `
+        `
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+        `
+      9 `
+ A O    `
+ A O 5  `
+ A    A `
+     A  `
+ 6    C `
+        `
+    ]]>
+  </level>
+  <level id="10">
+    <![CDATA[
+        `
+ 3 55 9 `
+  C  6  `
+ A 39 A `
+  O     `
+  O  9  `
+    5   `
+        `
+    ]]>
+  </level>
+  <level id="11">
+    <![CDATA[
+  S    S`
+5       `
+  3 O6  `
+   9O A `
+5  6C  5`
+  C  5  `
+ A    A `
+        `
+    ]]>
+  </level>
+  <level id="12">
+    <![CDATA[
+        `
+ 6 55 C `
+  5  5  `
+ A OO A `
+ A 6   5`
+  9  C  `
+        `
+S      S`
+    ]]>
+  </level>
+  <level id="13">
+    <![CDATA[
+   S    `
+ C    C `
+     5  `
+   93   `
+  OO6 55`
+  6  5  `
+ 9 A    `
+       S`
+    ]]>
+  </level>
+  <level id="14">
+    <![CDATA[
+        `
+ A 55 9 `
+  5  6  `
+S5 39   `
+   CO   `
+5 A  9 S`
+ 3      `
+    O   `
+    ]]>
+  </level>
+  <level id="15">
+    <![CDATA[
+         `
+   555 9 `
+  3   6  `
+ A O C A `
+ A O   A `
+ A O   A `
+  9      `
+   55  3 `
+         `
+    ]]>
+  </level>
+  <level id="16">
+    <![CDATA[
+O  O     `
+    5    `
+ A   OO  `
+ A 3 O A `
+       A `
+  555 AA `
+  55     `
+ 9 5   C `
+         `
+    ]]>
+  </level>
+  <level id="17">
+    <![CDATA[
+         `
+ 3   55  `
+  A   5  `
+O  55    `
+      O  `
+  O  6 A `
+  O 5 A  `
+ 6 5   C `
+    O    `
+    ]]>
+  </level>
+  <level id="18">
+    <![CDATA[
+        S`
+ 3 55  55`
+  O   6 5`
+  O  9  5`
+ A  9OO 5`
+ A OO6 5 `
+ AA   5  `
+       A `
+S        `
+    ]]>
+  </level>
+  <level id="19">
+    <![CDATA[
+       S `
+ C       `
+   O  O  `
+   CO6 A `
+O   6    `
+   O   O `
+  3  OO  `
+S   5  3 `
+         `
+    ]]>
+  </level>
+  <level id="20">
+    <![CDATA[
+  O      `
+ 3   5 6 `
+5 9   5 O`
+  O3 3   `
+5 OO3   S`
+5  6 3   `
+  5  OO  `
+S5555  3 `
+         `
+    ]]>
+  </level>
+  <level id="21">
+    <![CDATA[
+S        `
+5 A    9 `
+ AA O A  `
+S  OO  A `
+    O    `
+   9 CO  `
+5 9   6 5`
+ 6 5   55`
+         `
+    ]]>
+  </level>
+  <level id="22">
+    <![CDATA[
+          `
+ 6 555  6 `
+    55 A O`
+ A O  3 A `
+O  O 9O A `
+    COO A `
+   C  6 A `
+  O    A  `
+ 6  5   C `
+          `
+    ]]>
+  </level>
+  <level id="23">
+    <![CDATA[
+O  O      `
+     55   `
+  3 O  6  `
+  O6 55 A `
+ A  5   A `
+O    OO A `
+   9   AA `
+  6   AA  `
+   5    6 `
+         O`
+    ]]>
+  </level>
+  <level id="24">
+    <![CDATA[
+          `
+ 3   55   `
+   OO  O  `
+ A 6  5  O`
+  O     A `
+    3  AA `
+ A   O  A `
+  AA O C  `
+ 6      3 `
+      O   `
+    ]]>
+  </level>
+  <level id="25">
+    <![CDATA[
+  S       `
+5 AA 55 C `
+ AA  5 6 5`
+S  O  3 O `
+    39O   `
+    6   A `
+ A O  3 A `
+  5    A  `
+ 3 55   C `
+          `
+    ]]>
+  </level>
+  <level id="26">
+    <![CDATA[
+          `
+ 3      9 `
+  A  O C  `
+ A 6 O    `
+    6   A `
+  OO3     `
+ A CO C  S`
+  A    A  `
+ 6 O    C `
+     S    `
+    ]]>
+  </level>
+  <level id="27">
+    <![CDATA[
+          `
+ O      C `
+  3  5 C 5`
+  OOO 9 55`
+ A OO6 555`
+ A   9   5`
+ A 3  3  S`
+  9O   C  `
+ 6 O    6 `
+      S  O`
+    ]]>
+  </level>
+  <level id="28">
+    <![CDATA[
+      S   `
+ 3   5  55`
+  A  5 C  `
+      C  S`
+ A  OO    `
+    6 AAA `
+5  O      `
+5 A A OO  `
+ 5 AA   3 `
+          `
+    ]]>
+  </level>
+  <level id="29">
+    <![CDATA[
+     O     `
+  55  555  `
+  5 O 5 5  `
+   9O  3   `
+O   6 9 A O`
+  AA OO AA `
+ A  A CO A `
+ A     O A `
+  6 5 O C  `
+   55  5   `
+     O     `
+    ]]>
+  </level>
+  <level id="30">
+    <![CDATA[
+  OO      O`
+ 3   555 3 `
+  5        `
+   A   OO  `
+ A  6    A `
+     A 5 A `
+  A O   O  `
+ A  O  5  O`
+  6   5 3  `
+ 9 555   6 `
+       O  O`
+    ]]>
+  </level>
+  <level id="31">
+    <![CDATA[
+  O  O     `
+      5  6 `
+ AAA    A O`
+  AA OO  A `
+    A COO  `
+ AAA       `
+    O A  A `
+ A 9O  C A `
+  6 O      `
+     55  3 `
+   O       `
+    ]]>
+  </level>
+  <level id="32">
+    <![CDATA[
+S          `
+ A  AA   C `
+  5 A   6 5`
+      OO  5`
+ A OOO6 A 5`
+ A OOO     `
+ AA O C  5 `
+ A 9   C   `
+ AA 5 A 3  `
+ A       9 `
+ S         `
+    ]]>
+  </level>
+  <level id="33">
+    <![CDATA[
+    S   O  `
+ 3    A   S`
+  9OOO  3  `
+   6   3  5`
+5   5 C    `
+ AA  6  5  `
+ AA C OO  5`
+ A C   C A `
+  A OO  3  `
+ 6 O  55 6 `
+           `
+    ]]>
+  </level>
+  <level id="34">
+    <![CDATA[
+    S      `
+ 3 5     C `
+  O  A  9 5`
+  O    CO  `
+5   3 6  A `
+555    O  5`
+    OO6  55`
+ A 9   C  5`
+  6 5 O   5`
+ 9 55   O 5`
+          S`
+    ]]>
+  </level>
+  <level id="35">
+    <![CDATA[
+           `
+ 3 5     9 `
+  9   OOO  `
+ A 5 OOOO  `
+5   9    A `
+   A 5    S`
+ A  555    `
+5  3   O A `
+  3     5  `
+ A  555555S`
+           `
+    ]]>
+  </level>
+  <level id="36">
+    <![CDATA[
+    O       `
+ 3   5555 6 `
+  C   55 5  `
+ A 3    3   `
+ A OOOOOO  O`
+ A      O A `
+  A   55 A  `
+O   9O      `
+   C    6   `
+  5 5555 5  `
+     5 55 6 `
+           O`
+    ]]>
+  </level>
+  <level id="37">
+    <![CDATA[
+    O      O`
+ 3   5  5   `
+    5 A  9  `
+ A 9    OO  `
+ AA 6  COO  `
+  A   C O  O`
+  A  5  O A `
+ A  3   OO  `
+  AA    OO  `
+ A A   5 C  `
+      555 3 `
+O           `
+    ]]>
+  </level>
+  <level id="38">
+    <![CDATA[
+O           `
+ 9 5  55  6 `
+  5  O   6 O`
+   A O  5 A `
+ AAAA  3 O  `
+  A   9OOO  `
+ A OO6    A `
+O      5   O`
+      5 CO  `
+  5 A    O  `
+ 9 5  55    `
+            `
+    ]]>
+  </level>
+  <level id="39">
+    <![CDATA[
+     S      `
+ 3 O   AA A `
+  C A    C  `
+   5    9  5`
+5   9O 6   5`
+  O   9 5555`
+  O     5555`
+ OOOOO C  55`
+  OO    6   `
+  6      3  `
+ A  A  A  C `
+S           `
+    ]]>
+  </level>
+  <level id="40">
+    <![CDATA[
+           S`
+ A O 555  55`
+  9O 5  O6 5`
+5  C  OOO  5`
+    5       `
+ A O 6 A    `
+5  O 96 OO 5`
+  5 C  5   5`
+ A 5 5  3   `
+5 C 555  5  `
+55  5 5555  `
+           S`
+    ]]>
+  </level>
+  <level id="41">
+    <![CDATA[
+            `
+S5555     A `
+      A  C  `
+5  6    9 55`
+5 O C  OO   `
+  OO 96   O `
+ A OOO 55   `
+   O6 55 AA `
+        O A `
+  6     O   `
+ 9  AA    9 `
+       S    `
+    ]]>
+  </level>
+  <level id="42">
+    <![CDATA[
+            `
+ O  55  O 9 `
+  A   O  A  `
+ A 9O   AA  `
+5 A C  C  O `
+   A 3C     `
+ A   C3   A `
+ AA 6 O  O  `
+ A A OO 9O  `
+  A   O  6 5`
+ A     5    `
+ S         S`
+    ]]>
+  </level>
+  <level id="43">
+    <![CDATA[
+            `
+ 6 5  555 C `
+5 C OO   A 5`
+   9O  O6  5`
+S A O  O    `
+5   O 3 O A `
+  OOO 6     `
+       C 5  `
+ A  A   5   `
+  AAAA 555  `
+ C   A 5  O `
+O    S      `
+    ]]>
+  </level>
+  <level id="44">
+    <![CDATA[
+    O      S`
+ 3   5      `
+  A   A  3  `
+55 CO  O6  5`
+5      O    `
+   A C  A   `
+S    39   55`
+ AA 9OO3 555`
+   CO   O  5`
+  A O  5 C  `
+ 6   O 55 3 `
+            `
+    ]]>
+  </level>
+  <level id="45">
+    <![CDATA[
+  S        O`
+      A   3 `
+  C  A OO3 5`
+   5   O6   `
+5   9O      `
+ AAA C3  55 `
+ AAA  OO    `
+ AA 5  C    `
+ A 9    CO 5`
+  CO 5 A O 5`
+    5   A 9 `
+S           `
+    ]]>
+  </level>
+</levels>
+</puzzle>

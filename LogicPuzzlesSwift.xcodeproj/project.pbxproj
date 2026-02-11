@@ -1896,6 +1896,15 @@
 		8CF1805B2F3D312C000F1F7D /* MondrianLoopGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1804F2F3D312C000F1F7D /* MondrianLoopGameState.swift */; };
 		8CF1805C2F3D312C000F1F7D /* MondrianLoopObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180532F3D312C000F1F7D /* MondrianLoopObject.swift */; };
 		8CF1805D2F3D312C000F1F7D /* MondrianLoop.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF1804B2F3D312C000F1F7D /* MondrianLoop.xml */; };
+		8CF180682F3D3B49000F1F7D /* MirrorsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180602F3D3B49000F1F7D /* MirrorsGame.swift */; };
+		8CF180692F3D3B49000F1F7D /* MirrorsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1805F2F3D3B49000F1F7D /* MirrorsDocument.swift */; };
+		8CF1806A2F3D3B49000F1F7D /* MirrorsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180642F3D3B49000F1F7D /* MirrorsGridNode.swift */; };
+		8CF1806B2F3D3B49000F1F7D /* MirrorsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180622F3D3B49000F1F7D /* MirrorsGameState.swift */; };
+		8CF1806C2F3D3B49000F1F7D /* MirrorsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180632F3D3B49000F1F7D /* MirrorsGameViewController.swift */; };
+		8CF1806D2F3D3B49000F1F7D /* MirrorsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180652F3D3B49000F1F7D /* MirrorsMainViewController.swift */; };
+		8CF1806E2F3D3B49000F1F7D /* MirrorsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180612F3D3B49000F1F7D /* MirrorsGameScene.swift */; };
+		8CF1806F2F3D3B49000F1F7D /* MirrorsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180662F3D3B49000F1F7D /* MirrorsObject.swift */; };
+		8CF180702F3D3B49000F1F7D /* Mirrors.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF1805E2F3D3B49000F1F7D /* Mirrors.xml */; };
 		8CF3FFD51FCB2A2700D41B67 /* DisconnectFourGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */; };
 		8CF3FFD61FCB2A2700D41B67 /* DisconnectFourGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */; };
 		8CF3FFD71FCB2A2700D41B67 /* DisconnectFour.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */; };
@@ -3905,6 +3914,15 @@
 		8CF180512F3D312C000F1F7D /* MondrianLoopGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondrianLoopGridNode.swift; sourceTree = "<group>"; };
 		8CF180522F3D312C000F1F7D /* MondrianLoopMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondrianLoopMainViewController.swift; sourceTree = "<group>"; };
 		8CF180532F3D312C000F1F7D /* MondrianLoopObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MondrianLoopObject.swift; sourceTree = "<group>"; };
+		8CF1805E2F3D3B49000F1F7D /* Mirrors.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Mirrors.xml; sourceTree = "<group>"; };
+		8CF1805F2F3D3B49000F1F7D /* MirrorsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorsDocument.swift; sourceTree = "<group>"; };
+		8CF180602F3D3B49000F1F7D /* MirrorsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorsGame.swift; sourceTree = "<group>"; };
+		8CF180612F3D3B49000F1F7D /* MirrorsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorsGameScene.swift; sourceTree = "<group>"; };
+		8CF180622F3D3B49000F1F7D /* MirrorsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorsGameState.swift; sourceTree = "<group>"; };
+		8CF180632F3D3B49000F1F7D /* MirrorsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorsGameViewController.swift; sourceTree = "<group>"; };
+		8CF180642F3D3B49000F1F7D /* MirrorsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorsGridNode.swift; sourceTree = "<group>"; };
+		8CF180652F3D3B49000F1F7D /* MirrorsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorsMainViewController.swift; sourceTree = "<group>"; };
+		8CF180662F3D3B49000F1F7D /* MirrorsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorsObject.swift; sourceTree = "<group>"; };
 		8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameState.swift; sourceTree = "<group>"; };
 		8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameScene.swift; sourceTree = "<group>"; };
 		8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DisconnectFour.xml; sourceTree = "<group>"; };
@@ -4845,6 +4863,7 @@
 				8CCFC4642F27660A00546A04 /* MineSlither */,
 				8C3A34FE1EC88D4100A914A5 /* Minesweeper */,
 				8C3A350B1EC88D4100A914A5 /* MiniLits */,
+				8CF180672F3D3B49000F1F7D /* Mirrors */,
 				8C9BD4EC2F0A092700D1D915 /* MixedTatamis */,
 				8CF180542F3D312C000F1F7D /* MondrianLoop */,
 				8C3A35181EC88D4100A914A5 /* Mosaik */,
@@ -7405,6 +7424,22 @@
 			path = MondrianLoop;
 			sourceTree = "<group>";
 		};
+		8CF180672F3D3B49000F1F7D /* Mirrors */ = {
+			isa = PBXGroup;
+			children = (
+				8CF1805E2F3D3B49000F1F7D /* Mirrors.xml */,
+				8CF1805F2F3D3B49000F1F7D /* MirrorsDocument.swift */,
+				8CF180602F3D3B49000F1F7D /* MirrorsGame.swift */,
+				8CF180612F3D3B49000F1F7D /* MirrorsGameScene.swift */,
+				8CF180622F3D3B49000F1F7D /* MirrorsGameState.swift */,
+				8CF180632F3D3B49000F1F7D /* MirrorsGameViewController.swift */,
+				8CF180642F3D3B49000F1F7D /* MirrorsGridNode.swift */,
+				8CF180652F3D3B49000F1F7D /* MirrorsMainViewController.swift */,
+				8CF180662F3D3B49000F1F7D /* MirrorsObject.swift */,
+			);
+			path = Mirrors;
+			sourceTree = "<group>";
+		};
 		8CF3FFC71FCB2A2600D41B67 /* DisconnectFour */ = {
 			isa = PBXGroup;
 			children = (
@@ -8153,6 +8188,7 @@
 				8C3A36601EC88D4200A914A5 /* DigitalBattleShips.xml in Resources */,
 				8C2973E11EE7284C0022A18A /* Galaxies.xml in Resources */,
 				8C3A36001EC88D4200A914A5 /* BattleShips.xml in Resources */,
+				8CF180702F3D3B49000F1F7D /* Mirrors.xml in Resources */,
 				8C506F0E1F6D2C9300BA4332 /* Snake.xml in Resources */,
 				8C3A37E01EC88D4400A914A5 /* Tents.xml in Resources */,
 				8CC25CC21F87BB5A005560F7 /* Kakuro.xml in Resources */,
@@ -9362,6 +9398,14 @@
 				8C3A35F71EC88D4200A914A5 /* AbstractPaintingGameScene.swift in Sources */,
 				8C3A36E71EC88D4300A914A5 /* LoopyGameScene.swift in Sources */,
 				8C3A37B41EC88D4400A914A5 /* SlitherLinkGameState.swift in Sources */,
+				8CF180682F3D3B49000F1F7D /* MirrorsGame.swift in Sources */,
+				8CF180692F3D3B49000F1F7D /* MirrorsDocument.swift in Sources */,
+				8CF1806A2F3D3B49000F1F7D /* MirrorsGridNode.swift in Sources */,
+				8CF1806B2F3D3B49000F1F7D /* MirrorsGameState.swift in Sources */,
+				8CF1806C2F3D3B49000F1F7D /* MirrorsGameViewController.swift in Sources */,
+				8CF1806D2F3D3B49000F1F7D /* MirrorsMainViewController.swift in Sources */,
+				8CF1806E2F3D3B49000F1F7D /* MirrorsGameScene.swift in Sources */,
+				8CF1806F2F3D3B49000F1F7D /* MirrorsObject.swift in Sources */,
 				8C9F325E1ED1FAF600E10965 /* PataGridNode.swift in Sources */,
 				8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */,
 				8C32D8E61FC92B5F00BA2D07 /* RippleEffectDocument.swift in Sources */,
