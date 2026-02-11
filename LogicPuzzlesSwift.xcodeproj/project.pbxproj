@@ -1878,6 +1878,15 @@
 		8CF180312F3C5D7F000F1F7D /* FencingSheepGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180222F3C5D7F000F1F7D /* FencingSheepGameScene.swift */; };
 		8CF180342F3CA6BF000F1F7D /* sheep2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF180322F3CA6BF000F1F7D /* sheep2.png */; };
 		8CF180372F3CA6EB000F1F7D /* wolf2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CF180362F3CA6EB000F1F7D /* wolf2.png */; };
+		8CF180422F3CF080000F1F7D /* WildlifeParkDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180392F3CF080000F1F7D /* WildlifeParkDocument.swift */; };
+		8CF180432F3CF080000F1F7D /* WildlifeParkGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1803A2F3CF080000F1F7D /* WildlifeParkGame.swift */; };
+		8CF180442F3CF080000F1F7D /* WildlifeParkGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1803C2F3CF080000F1F7D /* WildlifeParkGameState.swift */; };
+		8CF180452F3CF080000F1F7D /* WildlifeParkGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1803D2F3CF080000F1F7D /* WildlifeParkGameViewController.swift */; };
+		8CF180462F3CF080000F1F7D /* WildlifeParkGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1803B2F3CF080000F1F7D /* WildlifeParkGameScene.swift */; };
+		8CF180472F3CF080000F1F7D /* WildlifeParkGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1803E2F3CF080000F1F7D /* WildlifeParkGridNode.swift */; };
+		8CF180482F3CF080000F1F7D /* WildlifeParkObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180402F3CF080000F1F7D /* WildlifeParkObject.swift */; };
+		8CF180492F3CF080000F1F7D /* WildlifeParkMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1803F2F3CF080000F1F7D /* WildlifeParkMainViewController.swift */; };
+		8CF1804A2F3CF080000F1F7D /* WildlifePark.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF180382F3CF080000F1F7D /* WildlifePark.xml */; };
 		8CF3FFD51FCB2A2700D41B67 /* DisconnectFourGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */; };
 		8CF3FFD61FCB2A2700D41B67 /* DisconnectFourGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */; };
 		8CF3FFD71FCB2A2700D41B67 /* DisconnectFour.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */; };
@@ -3869,6 +3878,15 @@
 		8CF180272F3C5D7F000F1F7D /* FencingSheepObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FencingSheepObject.swift; sourceTree = "<group>"; };
 		8CF180322F3CA6BF000F1F7D /* sheep2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sheep2.png; sourceTree = "<group>"; };
 		8CF180362F3CA6EB000F1F7D /* wolf2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wolf2.png; sourceTree = "<group>"; };
+		8CF180382F3CF080000F1F7D /* WildlifePark.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WildlifePark.xml; sourceTree = "<group>"; };
+		8CF180392F3CF080000F1F7D /* WildlifeParkDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildlifeParkDocument.swift; sourceTree = "<group>"; };
+		8CF1803A2F3CF080000F1F7D /* WildlifeParkGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildlifeParkGame.swift; sourceTree = "<group>"; };
+		8CF1803B2F3CF080000F1F7D /* WildlifeParkGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildlifeParkGameScene.swift; sourceTree = "<group>"; };
+		8CF1803C2F3CF080000F1F7D /* WildlifeParkGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildlifeParkGameState.swift; sourceTree = "<group>"; };
+		8CF1803D2F3CF080000F1F7D /* WildlifeParkGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildlifeParkGameViewController.swift; sourceTree = "<group>"; };
+		8CF1803E2F3CF080000F1F7D /* WildlifeParkGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildlifeParkGridNode.swift; sourceTree = "<group>"; };
+		8CF1803F2F3CF080000F1F7D /* WildlifeParkMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildlifeParkMainViewController.swift; sourceTree = "<group>"; };
+		8CF180402F3CF080000F1F7D /* WildlifeParkObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildlifeParkObject.swift; sourceTree = "<group>"; };
 		8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameState.swift; sourceTree = "<group>"; };
 		8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameScene.swift; sourceTree = "<group>"; };
 		8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DisconnectFour.xml; sourceTree = "<group>"; };
@@ -4889,6 +4907,7 @@
 				8C35E3971FC4839000A26EE3 /* Walls */,
 				8CFAF995202615560095EFFC /* WallSentinels */,
 				8C8661E72EA35BDB0078CD64 /* Warehouse */,
+				8CF180412F3CF080000F1F7D /* WildlifePark */,
 				8C9BD4C52F09F2B700D1D915 /* WishSandwich */,
 				8CB418EE2F2532AD005C7FDF /* YouTurnMeOn */,
 				8CF17FE52F3781CD000F1F7D /* ZenGardens */,
@@ -7335,6 +7354,22 @@
 			path = FencingSheep;
 			sourceTree = "<group>";
 		};
+		8CF180412F3CF080000F1F7D /* WildlifePark */ = {
+			isa = PBXGroup;
+			children = (
+				8CF180382F3CF080000F1F7D /* WildlifePark.xml */,
+				8CF180392F3CF080000F1F7D /* WildlifeParkDocument.swift */,
+				8CF1803A2F3CF080000F1F7D /* WildlifeParkGame.swift */,
+				8CF1803B2F3CF080000F1F7D /* WildlifeParkGameScene.swift */,
+				8CF1803C2F3CF080000F1F7D /* WildlifeParkGameState.swift */,
+				8CF1803D2F3CF080000F1F7D /* WildlifeParkGameViewController.swift */,
+				8CF1803E2F3CF080000F1F7D /* WildlifeParkGridNode.swift */,
+				8CF1803F2F3CF080000F1F7D /* WildlifeParkMainViewController.swift */,
+				8CF180402F3CF080000F1F7D /* WildlifeParkObject.swift */,
+			);
+			path = WildlifePark;
+			sourceTree = "<group>";
+		};
 		8CF3FFC71FCB2A2600D41B67 /* DisconnectFour */ = {
 			isa = PBXGroup;
 			children = (
@@ -8058,6 +8093,7 @@
 				8C32D8E51FC92B5F00BA2D07 /* RippleEffect.xml in Resources */,
 				8C1ACFB22F2DE7A4004832E2 /* Pointing.xml in Resources */,
 				8C3A36901EC88D4200A914A5 /* FenceSentinels.xml in Resources */,
+				8CF1804A2F3CF080000F1F7D /* WildlifePark.xml in Resources */,
 				8C8E77C02E871CD2006BBF98 /* FourMeNot.xml in Resources */,
 				8C3A37081EC88D4300A914A5 /* MineShips.xml in Resources */,
 				8C3A36541EC88D4200A914A5 /* Clouds.xml in Resources */,
@@ -8730,6 +8766,14 @@
 				8CB418B72F251707005C7FDF /* VeniceGridNode.swift in Sources */,
 				8CB418B82F251707005C7FDF /* VeniceGame.swift in Sources */,
 				8CB418B92F251707005C7FDF /* VeniceDocument.swift in Sources */,
+				8CF180422F3CF080000F1F7D /* WildlifeParkDocument.swift in Sources */,
+				8CF180432F3CF080000F1F7D /* WildlifeParkGame.swift in Sources */,
+				8CF180442F3CF080000F1F7D /* WildlifeParkGameState.swift in Sources */,
+				8CF180452F3CF080000F1F7D /* WildlifeParkGameViewController.swift in Sources */,
+				8CF180462F3CF080000F1F7D /* WildlifeParkGameScene.swift in Sources */,
+				8CF180472F3CF080000F1F7D /* WildlifeParkGridNode.swift in Sources */,
+				8CF180482F3CF080000F1F7D /* WildlifeParkObject.swift in Sources */,
+				8CF180492F3CF080000F1F7D /* WildlifeParkMainViewController.swift in Sources */,
 				8CB418BA2F251707005C7FDF /* VeniceGameState.swift in Sources */,
 				8CB418BB2F251707005C7FDF /* VeniceGameViewController.swift in Sources */,
 				8CB418BC2F251707005C7FDF /* VeniceObject.swift in Sources */,

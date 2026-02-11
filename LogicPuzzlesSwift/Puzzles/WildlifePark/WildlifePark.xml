@@ -1,0 +1,4254 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. At the last game of Wildlife Football, Lemurs accused Giraffes of cheating, Monkeys ran away with the coin after the toss and Lions ate the ball.
+2. So you're given the task to raise some fencing between the different species, while spirits cool down.
+3. Fences should encompass at least one animal of a certain species, and all animals of a certain species must be in the same enclosure.
+4. There can't be empty enclosures.
+5. Where three or four fences meet, a fence post is put in place. On the Park all posts are already marked with a dot.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+ - -x- - - `
+|A        |`
+    x      `
+|  B   C D|`
+      x   x`
+|A B   C  |`
+           `
+|  B B B  |`
+x          `
+|  B B    |`
+ - - - -x- `
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+ - -x- - - `
+|  A   B B|`
+x          `
+|C     B  |`
+  x   x    `
+|      B  |`
+           `
+|C D   D  |`
+x          `
+|  D   B B|`
+ - - -x- - `
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+ - - -x- - `
+|A   A B  |`
+      x    `
+|A     C  |`
+x x   x   x`
+|  D E    |`
+          x`
+|      E E|`
+  x        `
+|F   E    |`
+ -x- - - - `
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+ - -x- - - `
+|A A B    |`
+x x x      `
+|    C    |`
+  x       x`
+|D B   B  |`
+  x        `
+|      E  |`
+x   x      `
+|F   E    |`
+ - -x- - - `
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+ -x- -x- - `
+|A   B   C|`
+      x   x`
+|  A B D  |`
+x x   x   x`
+|         |`
+           `
+|    B E  |`
+    x x    `
+|F   G    |`
+ -x- -x- - `
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+ - - - -x- `
+|  A   A B|`
+           `
+|    B B B|`
+    x      `
+|    B C B|`
+x   x     x`
+|      C  |`
+           `
+|  D   C  |`
+ - -x- - - `
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+ - - - - - `
+|A   A    |`
+x       x x`
+|B B      |`
+x x x      `
+|C     D E|`
+    x      `
+|C C      |`
+           `
+|    C    |`
+ - - -x- - `
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+ -x-x-x-x- `
+|A     B  |`
+           `
+|  C   B D|`
+x x x x x x`
+|      E E|`
+           `
+|F F G E  |`
+x          `
+|      E  |`
+ - - -x- - `
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+ - -x-x- - `
+|  A B   C|`
+           `
+|  B B B  |`
+    x      `
+|  A      |`
+           `
+|  C C D C|`
+    x     x`
+|A   D    |`
+ - -x- - - `
+    ]]>
+  </level>
+  <level id="10">
+    <![CDATA[
+ - - - -x- `
+|A A      |`
+x          `
+|  A B    |`
+      x    `
+|  A      |`
+      x    `
+|B   B   C|`
+x         x`
+|  D   D D|`
+ - - - - - `
+    ]]>
+  </level>
+  <level id="11">
+    <![CDATA[
+ - - -x- -x- `
+|      A   B|`
+             `
+|C C A      |`
+    x x x   x`
+|  C   D   E|`
+x   x        `
+|    F   B E|`
+    x     x x`
+|G D D   D  |`
+x            `
+|    D     H|`
+ - - - -x- - `
+    ]]>
+  </level>
+  <level id="12">
+    <![CDATA[
+ -x- -x- - - `
+|A     B   B|`
+      x     x`
+|  C A D    |`
+            x`
+|A A     D  |`
+      x x    `
+|A E E   F  |`
+x x   x      `
+|  E   G    |`
+             `
+|  H   E    |`
+ - -x- -x-x- `
+    ]]>
+  </level>
+  <level id="13">
+    <![CDATA[
+ -x- -x- - - `
+|A B   C   C|`
+        x    `
+|      B   C|`
+    x x     x`
+|A   D E    |`
+x     x   x x`
+|    F E    |`
+x            `
+|           |`
+             `
+|G       H H|`
+ -x- -x-x- - `
+    ]]>
+  </level>
+  <level id="14">
+    <![CDATA[
+ - -x- - -x- `
+|  A        |`
+    x        `
+|A     B C  |`
+x x          `
+|D   E   B  |`
+    x        `
+|  D   E E  |`
+x   x       x`
+|F D F E    |`
+            x`
+|      F F F|`
+ - - - - - - `
+    ]]>
+  </level>
+  <level id="15">
+    <![CDATA[
+ - -x- - -x- `
+|  A B     C|`
+x x          `
+|D B B C B  |`
+      x      `
+|        C  |`
+x x x x     x`
+|E E        |`
+x   x        `
+|  F G H G  |`
+x            `
+|        G  |`
+ - - - - -x- `
+    ]]>
+  </level>
+  <level id="16">
+    <![CDATA[
+ - - - -x- - `
+|  A A   B B|`
+x       x   x`
+|  C   D    |`
+    x     x  `
+|  E   D D  |`
+    x   x    `
+|      F    |`
+        x    `
+|  E     G H|`
+x x         x`
+|F     I    |`
+ - - -x-x- - `
+    ]]>
+  </level>
+  <level id="17">
+    <![CDATA[
+ - -x-x- -x- `
+|A       B  |`
+             `
+|  A   C   D|`
+x x     x x x`
+|E   C      |`
+      x      `
+|E       F  |`
+x x x x      `
+|  G       H|`
+      x x    `
+|  I I   I H|`
+ - - - - -x- `
+    ]]>
+  </level>
+  <level id="18">
+    <![CDATA[
+ - - -x- - - `
+|          A|`
+             `
+|      A A  |`
+x   x       x`
+|  B     C  |`
+  x     x x x`
+|D       E F|`
+  x          `
+|  G C     F|`
+x   x     x x`
+|G   H   H  |`
+ - -x- - - - `
+    ]]>
+  </level>
+  <level id="19">
+    <![CDATA[
+ - -x- -x-x- `
+|A     B C  |`
+      x      `
+|  A A C C  |`
+             `
+|      C   D|`
+x   x   x x x`
+|  A     E  |`
+    x        `
+|  F F     G|`
+      x x   x`
+|  F   H H  |`
+ - - -x- - - `
+    ]]>
+  </level>
+  <level id="20">
+    <![CDATA[
+ - - -x- - - `
+|    A B    |`
+             `
+|  A   B C  |`
+x x   x      `
+|  D   C C B|`
+      x     x`
+|  D E E    |`
+  x          `
+|F   E E C C|`
+x           x`
+|  E        |`
+ - - - - - - `
+    ]]>
+  </level>
+  <level id="21">
+    <![CDATA[
+ - - -x-x- - `
+|A     B    |`
+x            `
+|    B   B  |`
+    x        `
+|C   C     D|`
+    x       x`
+|    B B    |`
+x   x   x    `
+|E       F F|`
+             `
+|  E E   F F|`
+ - - -x- - - `
+    ]]>
+  </level>
+  <level id="22">
+    <![CDATA[
+ - - -x-x- - `
+|  A   B    |`
+x   x        `
+|  C     B  |`
+    x   x    `
+|  D     E  |`
+x x x   x    `
+|      D F  |`
+            x`
+|G F F F    |`
+            x`
+|    G F H H|`
+ - - -x-x- - `
+    ]]>
+  </level>
+  <level id="23">
+    <![CDATA[
+ - - -x- - - `
+|      A   A|`
+          x x`
+|  B B      |`
+x         x  `
+|  B C      |`
+    x        `
+|  D     C  |`
+x   x x x    `
+|  E   F    |`
+    x   x    `
+|  E   G H  |`
+ - -x- -x- - `
+    ]]>
+  </level>
+  <level id="24">
+    <![CDATA[
+ -x-x- - -x- `
+|        A B|`
+    x     x  `
+|  C D     B|`
+             `
+|E C     B  |`
+      x x    `
+|    F      |`
+    x     x  `
+|           |`
+x x   x     x`
+|G G     H H|`
+ - - -x- - - `
+    ]]>
+  </level>
+  <level id="25">
+    <![CDATA[
+ -x- -x-x- - `
+|  A        |`
+             `
+|B B     C C|`
+             `
+|  A   D C C|`
+  x   x x    `
+|      E C C|`
+        x    `
+|      F C  |`
+x   x        `
+|      F    |`
+ - - - - -x- `
+    ]]>
+  </level>
+  <level id="26">
+    <![CDATA[
+ - - -x- - - `
+|A A     B  |`
+x     x x    `
+|    C   D  |`
+             `
+|  E   D D  |`
+    x x   x x`
+|      D   F|`
+x     x x x x`
+|    G H H  |`
+        x    `
+|      G I  |`
+ - -x- -x- - `
+    ]]>
+  </level>
+  <level id="27">
+    <![CDATA[
+ -x-x-x- - - `
+|A B C   D  |`
+             `
+|A   C D D  |`
+    x       x`
+|        D  |`
+x   x   x    `
+|        D  |`
+             `
+|  E E   F F|`
+             `
+|      F F  |`
+ - -x- - - - `
+    ]]>
+  </level>
+  <level id="28">
+    <![CDATA[
+ - - -x-x- - `
+|      A    |`
+             `
+|B C     A  |`
+x            `
+|  C   A D  |`
+x   x   x   x`
+|E C A A F  |`
+    x   x   x`
+|      G F G|`
+    x        `
+|           |`
+ -x- - - - - `
+    ]]>
+  </level>
+  <level id="29">
+    <![CDATA[
+ - -x- -x- - `
+|      A B  |`
+    x x x    `
+|  C   D    |`
+      x   x  `
+|C E     F B|`
+          x x`
+|C     E   G|`
+      x x    `
+|  E H     G|`
+x x          `
+|        H  |`
+ - - - - -x- `
+    ]]>
+  </level>
+  <level id="30">
+    <![CDATA[
+ - -x- - -x- `
+|  A B B   C|`
+    x   x    `
+|    B      |`
+x   x       x`
+|    D      |`
+      x x x  `
+|E E       F|`
+             `
+|  E G G F F|`
+             `
+|        F F|`
+ - - -x-x- - `
+    ]]>
+  </level>
+  <level id="31">
+    <![CDATA[
+ -x- -x-x- - `
+|A     B C  |`
+          x x`
+|    B B    |`
+          x  `
+|    D     E|`
+      x     x`
+|    F      |`
+          x x`
+|A          |`
+             `
+|    D   G H|`
+ - -x-x-x-x- `
+    ]]>
+  </level>
+  <level id="32">
+    <![CDATA[
+ - - - -x- - `
+|A     A B  |`
+             `
+|A A     B  |`
+      x     x`
+|  C A      |`
+x x          `
+|      C    |`
+  x     x x  `
+|  D     E  |`
+      x x    `
+|F       G  |`
+ -x- - -x- - `
+    ]]>
+  </level>
+  <level id="33">
+    <![CDATA[
+ - - - - -x- `
+|  A        |`
+        x    `
+|A B        |`
+x   x        `
+|  B     C  |`
+             `
+|B D   C C  |`
+      x     x`
+|  B   E    |`
+    x x     x`
+|    F F   F|`
+ - -x- - - - `
+    ]]>
+  </level>
+  <level id="34">
+    <![CDATA[
+ - - -x- -x- `
+|    A   B C|`
+x     x x x  `
+|  D D D    |`
+x         x x`
+|E     F    |`
+x   x x      `
+|  G   G    |`
+        x    `
+|  H G H    |`
+             `
+|      H   I|`
+ -x- - - -x- `
+    ]]>
+  </level>
+  <level id="35">
+    <![CDATA[
+ -x- -x- - - `
+|        A  |`
+             `
+|  B       A|`
+    x       x`
+|C B   A    |`
+    x x   x  `
+|C   D   E  |`
+    x x x    `
+|  F   G   H|`
+x   x   x    `
+|F       I  |`
+ - -x- - -x- `
+    ]]>
+  </level>
+  <level id="36">
+    <![CDATA[
+ - -x-x- -x- `
+|A          |`
+             `
+|  A     B B|`
+        x    `
+|A A C D    |`
+    x x     x`
+|  E       F|`
+x           x`
+|      G   H|`
+    x   x    `
+|  G   G    |`
+ -x- - -x- - `
+    ]]>
+  </level>
+  <level id="37">
+    <![CDATA[
+ - -x-x- - - `
+|  A B   C  |`
+      x     x`
+|  A       D|`
+      x x   x`
+|A B       E|`
+x       x x x`
+|B     F G H|`
+x     x      `
+|  I I      |`
+      x      `
+|           |`
+ - - -x- - - `
+    ]]>
+  </level>
+  <level id="38">
+    <![CDATA[
+ - -x- - - - `
+|  A   B B  |`
+            x`
+|A A A      |`
+        x    `
+|      B   C|`
+x   x   x   x`
+|D     E   F|`
+             `
+|    D   F  |`
+             `
+|          F|`
+ - -x- -x- - `
+    ]]>
+  </level>
+  <level id="39">
+    <![CDATA[
+ -x- - - - - `
+|           |`
+            x`
+|  A   B B C|`
+x   x        `
+|  D B      |`
+    x x      `
+|  E F G G  |`
+x           x`
+|E     G    |`
+    x x      `
+|        H G|`
+ - -x- - -x- `
+    ]]>
+  </level>
+  <level id="40">
+    <![CDATA[
+ - -x- - - - `
+|  A     B  |`
+x   x   x   x`
+|  A     C  |`
+    x       x`
+|D D C E C  |`
+x x x        `
+|           |`
+    x        `
+|  F     G G|`
+      x x   x`
+|  H H I    |`
+ - - -x- - - `
+    ]]>
+  </level>
+  <level id="41">
+    <![CDATA[
+ - -x- - - -x- `
+|      A   A  |`
+        x      `
+|B A   C D   D|`
+               `
+|            D|`
+x     x       x`
+|        E    |`
+      x x      `
+|    F   E C  |`
+    x       x x`
+|             |`
+    x     x    `
+|F G     H I I|`
+ -x-x- - -x- - `
+    ]]>
+  </level>
+  <level id="42">
+    <![CDATA[
+ - - - -x- -x- `
+|             |`
+               `
+|  A B C     D|`
+    x x   x   x`
+|          E E|`
+x   x     x   x`
+|      F G H  |`
+x       x x    `
+|  A   F I J  |`
+        x      `
+|  K          |`
+    x       x  `
+|K       I I H|`
+ - -x- - - -x- `
+    ]]>
+  </level>
+  <level id="43">
+    <![CDATA[
+ - -x- -x-x- - `
+|A       B    |`
+               `
+|A C C B   D  |`
+            x x`
+|      C   B E|`
+x   x x     x  `
+|F F G        |`
+    x x   x    `
+|  H     I    |`
+x   x x x x   x`
+|  H J     K  |`
+              x`
+|          L  |`
+ -x- -x- - - - `
+    ]]>
+  </level>
+  <level id="44">
+    <![CDATA[
+ -x- - - - -x- `
+|      A   A  |`
+  x            `
+|    B   C A  |`
+        x      `
+|D       C    |`
+x   x         x`
+|E     C   F  |`
+  x x x x x    `
+|      G   F  |`
+x              `
+|  H I   J F  |`
+    x x x x    `
+|    K   L    |`
+ -x- -x- - -x- `
+    ]]>
+  </level>
+  <level id="45">
+    <![CDATA[
+ -x-x- -x- -x- `
+|      A B    |`
+               `
+|          C  |`
+      x       x`
+|D E         F|`
+  x       x    `
+|      B G    |`
+x x       x   x`
+|    G G     H|`
+    x     x   x`
+|  I   I   J  |`
+               `
+|K K I        |`
+ - -x-x- - -x- `
+    ]]>
+  </level>
+  <level id="46">
+    <![CDATA[
+ - -x-x-x- - - `
+|A           B|`
+x         x   x`
+|  C C     D  |`
+    x          `
+|    E   D    |`
+        x      `
+|  F     D D D|`
+x x x x x x    `
+|  F   G      |`
+      x x     x`
+|    H I J K  |`
+x       x      `
+|      I      |`
+ - - - -x- - - `
+    ]]>
+  </level>
+  <level id="47">
+    <![CDATA[
+ - -x- -x- - - `
+|      A      |`
+    x          `
+|B   C        |`
+x x   x     x  `
+|  D   D A   E|`
+        x x    `
+|D F          |`
+x           x x`
+|    G F   G  |`
+               `
+|  F   G G   H|`
+x         x   x`
+|            I|`
+ - - -x- - - - `
+    ]]>
+  </level>
+  <level id="48">
+    <![CDATA[
+ - - - -x-x- - `
+|    A     B  |`
+    x         x`
+|            C|`
+              x`
+|      D      |`
+x         x    `
+|D   E D F    |`
+        x      `
+|  E   E   G  |`
+  x   x     x  `
+|  H         F|`
+x x x x   x   x`
+|  I J J   K K|`
+ - -x- - -x- - `
+    ]]>
+  </level>
+  <level id="49">
+    <![CDATA[
+ - - -x- -x- - `
+|  A     B C  |`
+          x    `
+|          D  |`
+      x x      `
+|        D C  |`
+x   x   x x   x`
+|E E F G      |`
+x x x x   x    `
+|        H C I|`
+    x x   x    `
+|J   K L      |`
+               `
+|          I  |`
+ -x- -x-x- - - `
+    ]]>
+  </level>
+  <level id="50">
+    <![CDATA[
+ - -x- - - - - `
+|A     B B   B|`
+              x`
+|      C C B  |`
+x x            `
+|  D   C C C  |`
+    x     x   x`
+|D         E  |`
+               `
+|  F F   G    |`
+    x x x x x  `
+|             |`
+               `
+|    D H   I  |`
+ - - -x-x- -x- `
+    ]]>
+  </level>
+  <level id="51">
+    <![CDATA[
+ - -x- -x- - - `
+|  A   B      |`
+x       x      `
+|      B     C|`
+            x x`
+|D         E  |`
+x   x x        `
+|F   G       E|`
+    x          `
+|F         H  |`
+            x x`
+|F F   I     G|`
+    x          `
+|F F I        |`
+ - -x- - -x- - `
+    ]]>
+  </level>
+  <level id="52">
+    <![CDATA[
+ -x- -x- - - - `
+|            A|`
+      x        `
+|  B   C   D  |`
+  x x   x     x`
+|E   F        |`
+x x       x   x`
+|  F   C C   G|`
+               `
+|             |`
+    x   x   x  `
+|H I I F   J  |`
+x           x x`
+|  I       K  |`
+ - - -x-x-x- - `
+    ]]>
+  </level>
+  <level id="53">
+    <![CDATA[
+ - - - -x- - - `
+|    A        |`
+              x`
+|  A B       C|`
+          x   x`
+|        D    |`
+x   x         x`
+|          E  |`
+        x      `
+|F       G    |`
+x       x x    `
+|  F H H   I  |`
+    x   x x   x`
+|J       K    |`
+ - - -x-x- - - `
+    ]]>
+  </level>
+  <level id="54">
+    <![CDATA[
+ - -x- - -x- - `
+|A            |`
+              x`
+|A B   B C   D|`
+            x  `
+|  B B        |`
+        x   x x`
+|  A     E   F|`
+      x x x x  `
+|          G  |`
+x x       x    `
+|H H   I J    |`
+    x       x  `
+|      J   J  |`
+ - -x- - - -x- `
+    ]]>
+  </level>
+  <level id="55">
+    <![CDATA[
+ - - - - - -x- `
+|  A   A      |`
+               `
+|  B   C      |`
+x     x x      `
+|B B     D    |`
+x             x`
+|        E D  |`
+  x x       x x`
+|      F      |`
+      x x      `
+|G   H   I    |`
+    x          `
+|    H   J    |`
+ - -x-x- -x- - `
+    ]]>
+  </level>
+  <level id="56">
+    <![CDATA[
+ -x- - - -x- - `
+|A B          |`
+               `
+|    B B B C  |`
+x x            `
+|    D        |`
+  x   x x      `
+|  D   E E    |`
+    x     x   x`
+|  F E        |`
+        x     x`
+|  E   G G H  |`
+          x    `
+|  F       I  |`
+ - -x-x- -x- - `
+    ]]>
+  </level>
+  <level id="57">
+    <![CDATA[
+ -x-x- - - -x- `
+|    A        |`
+          x    `
+|B     C      |`
+        x     x`
+|B     D   E  |`
+x   x x x x    `
+|    F       G|`
+    x   x      `
+|  H       I  |`
+    x         x`
+|  J   F      |`
+x         x   x`
+|      K     L|`
+ - -x- - -x- - `
+    ]]>
+  </level>
+  <level id="58">
+    <![CDATA[
+ - -x- -x- -x- `
+|      A   B  |`
+    x   x x    `
+|C     D     E|`
+  x   x x   x x`
+|          F  |`
+x x            `
+|  G H   F I  |`
+               `
+|J G     F F  |`
+    x x        `
+|      K   I  |`
+x x            `
+|             |`
+ - - - -x- -x- `
+    ]]>
+  </level>
+  <level id="59">
+    <![CDATA[
+ -x- - - -x- - `
+|A B       C  |`
+          x    `
+|        D D  |`
+x   x          `
+|E           C|`
+    x   x     x`
+|             |`
+x x x x   x x  `
+|F G   G H   I|`
+  x       x    `
+|  J       K  |`
+      x   x x x`
+|            L|`
+ - - - -x-x- - `
+    ]]>
+  </level>
+  <level id="60">
+    <![CDATA[
+ - - - -x- - - `
+|    A     B  |`
+      x x      `
+|    C   B B  |`
+x           x x`
+|    D        |`
+    x x        `
+|  E   F      |`
+      x   x    `
+|          F G|`
+x              `
+|  E H   G    |`
+x   x x        `
+|    I F      |`
+ - - -x- -x- - `
+    ]]>
+  </level>
+  <level id="61">
+    <![CDATA[
+ -x-x- - - - - `
+|A            |`
+               `
+|  B     C C  |`
+x x       x    `
+|    D   B E  |`
+    x     x   x`
+|  F     D    |`
+    x     x   x`
+|  G     H I  |`
+x x   x   x    `
+|J   G   G I  |`
+      x        `
+|    J        |`
+ - - -x- - - - `
+    ]]>
+  </level>
+  <level id="62">
+    <![CDATA[
+ - -x- - -x- - `
+|  A   B   C  |`
+        x x x x`
+|        D    |`
+        x      `
+|  A   E F    |`
+        x     x`
+|        F F  |`
+x         x    `
+|        G H  |`
+    x x        `
+|  I I I G G  |`
+        x      `
+|          H  |`
+ - - - -x- - - `
+    ]]>
+  </level>
+  <level id="63">
+    <![CDATA[
+ - - - - - -x- `
+|    A       B|`
+               `
+|  A C C      |`
+x   x     x   x`
+|  D     C    |`
+    x   x x    `
+|      E     F|`
+x   x   x     x`
+|    G G      |`
+      x        `
+|            H|`
+          x    `
+|    I I      |`
+ - - - -x-x- - `
+    ]]>
+  </level>
+  <level id="64">
+    <![CDATA[
+ - - -x- - - - `
+|             |`
+x           x x`
+|  A B     C  |`
+      x x   x  `
+|D           E|`
+x              `
+|    F     E  |`
+    x          `
+|      G     E|`
+               `
+|  H G   H    |`
+x              `
+|          G  |`
+ - - - -x- -x- `
+    ]]>
+  </level>
+  <level id="65">
+    <![CDATA[
+ - - -x- -x- - `
+|  A       B  |`
+               `
+|  C     B    |`
+        x     x`
+|A   C   B B  |`
+x   x          `
+|    D        |`
+    x x x      `
+|E F          |`
+    x x x     x`
+|      G   H  |`
+      x       x`
+|    I J      |`
+ -x- -x- - - - `
+    ]]>
+  </level>
+  <level id="66">
+    <![CDATA[
+ -x- - -x- - - `
+|A B          |`
+    x x x      `
+|      C D C  |`
+               `
+|  E          |`
+x x   x x   x x`
+|F   E G H C  |`
+    x          `
+|             |`
+x x     x      `
+|  I     H J  |`
+    x         x`
+|            J|`
+ - -x- - - - - `
+    ]]>
+  </level>
+  <level id="67">
+    <![CDATA[
+ -x- - - -x- - `
+|        A    |`
+          x    `
+|          B  |`
+      x        `
+|  C     D    |`
+      x        `
+|  E     F    |`
+x   x x       x`
+|  E   F      |`
+      x   x    `
+|  E G   F H  |`
+              x`
+|             |`
+ - - -x- - - - `
+    ]]>
+  </level>
+  <level id="68">
+    <![CDATA[
+ -x- - -x- -x- `
+|A     B   C  |`
+  x x          `
+|  D     B   E|`
+      x     x x`
+|    F        |`
+  x   x        `
+|             |`
+x x x x       x`
+|G   H I     J|`
+          x   x`
+|  H          |`
+          x    `
+|        K    |`
+ -x- - -x- - - `
+    ]]>
+  </level>
+  <level id="69">
+    <![CDATA[
+ - -x- -x- -x- `
+|A   B     C  |`
+               `
+|      B   B  |`
+      x       x`
+|  D       E  |`
+x x       x    `
+|    F     G  |`
+    x     x   x`
+|  H          |`
+x         x   x`
+|  F     I    |`
+x   x x     x  `
+|  J         K|`
+ - -x- - - -x- `
+    ]]>
+  </level>
+  <level id="70">
+    <![CDATA[
+ -x- - -x- - - `
+|  A          |`
+  x x   x      `
+|    B   C D  |`
+              x`
+|E   F B      |`
+x x   x   x    `
+|          D  |`
+          x    `
+|G   H     D  |`
+  x   x        `
+|    H     I  |`
+               `
+|      I      |`
+ -x-x- - - -x- `
+    ]]>
+  </level>
+  <level id="71">
+    <![CDATA[
+ - - - - -x-x- - `
+|            A  |`
+                x`
+|B   C B   D   E|`
+x   x   x     x  `
+|  F   C G      |`
+        x        `
+|      F G   E  |`
+        x x      `
+|  F   H   D    |`
+x   x     x x   x`
+|  F     I     J|`
+        x   x   x`
+|  K     L     M|`
+      x   x x   x`
+|K         N N  |`
+ - - -x- -x- - - `
+    ]]>
+  </level>
+  <level id="72">
+    <![CDATA[
+ - -x- - - - - - `
+|A A B   B B B B|`
+    x           x`
+|  C B D B E E E|`
+x     x x x   x x`
+|C C C   F C C G|`
+x     x       x  `
+|H H C I   F F  |`
+        x x   x  `
+|H C C I J K K G|`
+    x x x       x`
+|H H L M J J K K|`
+    x            `
+|  N   M J J J K|`
+    x x x        `
+|  N   O   J K K|`
+ -x-x- - -x-x- - `
+    ]]>
+  </level>
+  <level id="73">
+    <![CDATA[
+ -x- - - - -x-x- `
+|A B   B        |`
+                 `
+|      B        |`
+    x     x      `
+|  C   C   D E  |`
+          x x x x`
+|    C C C      |`
+    x            `
+|A F C G   G   H|`
+x     x x   x   x`
+|      I     J  |`
+      x         x`
+|  K       L L  |`
+x     x          `
+|               |`
+ - - - -x- -x- - `
+    ]]>
+  </level>
+  <level id="74">
+    <![CDATA[
+ - -x-x- -x-x- - `
+|        A   B  |`
+          x     x`
+|C C D          |`
+                x`
+|  C C     E F  |`
+                 `
+|          F    |`
+x   x   x x x    `
+|      G H   I F|`
+x x         x    `
+|J K            |`
+      x     x   x`
+|  J     G   I  |`
+x               x`
+|            L  |`
+ - - -x- - - - - `
+    ]]>
+  </level>
+  <level id="75">
+    <![CDATA[
+ - - -x- - - - - `
+|A A A          |`
+      x         x`
+|  A B   C C    |`
+          x x x  `
+|            D E|`
+    x x       x x`
+|A F            |`
+x       x       x`
+|    G B G   H  |`
+    x     x x    `
+|  I G     J    |`
+x   x       x    `
+|      K       L|`
+          x     x`
+|  I         M  |`
+ - -x- - -x-x- - `
+    ]]>
+  </level>
+  <level id="76">
+    <![CDATA[
+ - -x-x- - - - - `
+|A   B C C C C C|`
+    x           x`
+|A D B B C E C E|`
+x         x      `
+|D D B B B E E E|`
+        x       x`
+|D D B F   E   G|`
+    x     x x x x`
+|  D   F F H H I|`
+x   x            `
+|J J K F H H I I|`
+    x     x x    `
+|J L F F   M M I|`
+x         x   x x`
+|L L F     N N N|`
+ - -x- - -x- - - `
+    ]]>
+  </level>
+  <level id="77">
+    <![CDATA[
+ - - -x- -x- -x- `
+|  A A   B C    |`
+      x x        `
+|  D A         E|`
+            x   x`
+|        F      |`
+    x     x      `
+|          C   G|`
+x   x   x     x  `
+|      H I      |`
+x   x   x     x  `
+|    J   I      |`
+    x     x x    `
+|K              |`
+  x       x     x`
+|    L J M N   O|`
+ -x- -x-x-x-x- - `
+    ]]>
+  </level>
+  <level id="78">
+    <![CDATA[
+ - - -x- - -x- - `
+|A   A B       C|`
+x     x   x x x x`
+|  D     E   F G|`
+    x            `
+|  D E   H      |`
+        x   x x x`
+|      I     J  |`
+    x x          `
+|    K   I   L  |`
+x     x x x     x`
+|      M N     J|`
+                x`
+|  O            |`
+x     x     x    `
+|        P     Q|`
+ - -x-x- - -x-x- `
+    ]]>
+  </level>
+  <level id="79">
+    <![CDATA[
+ -x- - -x- - - - `
+|    A          |`
+                x`
+|B A B     A C  |`
+                 `
+|          C    |`
+    x   x        `
+|  D     E E    |`
+      x x        `
+|      F G      |`
+x x   x x x   x  `
+|    H H I      |`
+      x         x`
+|  J       K K  |`
+x     x          `
+|      L   K K  |`
+ - -x- -x-x- - - `
+    ]]>
+  </level>
+  <level id="80">
+    <![CDATA[
+ - - -x- - - - - `
+|A         B    |`
+x     x   x      `
+|C              |`
+x       x       x`
+|      C D      |`
+x   x   x   x   x`
+|  E F         G|`
+  x x         x x`
+|  H       I I  |`
+      x          `
+|  J   K   K   L|`
+      x          `
+|J H     K      |`
+x         x   x x`
+|  H   M   N    |`
+ - - -x- -x- - - `
+    ]]>
+  </level>
+  <level id="81">
+    <![CDATA[
+ - -x- -x-x- -x- `
+|A       B   C  |`
+x         x      `
+|      D   E   F|`
+      x x x x    `
+|      D G E    |`
+  x x     x x x x`
+|H I       J    |`
+x                `
+|      K     L  |`
+    x   x        `
+|               |`
+            x    `
+|    M K     N N|`
+x       x        `
+|              N|`
+ - -x- - - -x- - `
+    ]]>
+  </level>
+  <level id="82">
+    <![CDATA[
+ - - - - - -x- - `
+|    A       B  |`
+x       x   x   x`
+|C       D      |`
+x               x`
+|    E     A    |`
+  x     x        `
+|F E            |`
+x x     x        `
+|      G H   I  |`
+        x x x    `
+|  J   K     I  |`
+x   x x         x`
+|    H     L   L|`
+          x      `
+|            M  |`
+ - -x-x- - - -x- `
+    ]]>
+  </level>
+  <level id="83">
+    <![CDATA[
+ -x- - - -x- - - `
+|  A            |`
+                 `
+|      B     C  |`
+x x x         x x`
+|D           E  |`
+x     x   x x    `
+|    F     G   H|`
+x x x x     x x  `
+|    I     J    |`
+    x   x        `
+|  K   L     M  |`
+    x   x x x x  `
+|N   L   O     H|`
+      x   x   x x`
+|      P       Q|`
+ -x- -x- -x- - - `
+    ]]>
+  </level>
+  <level id="84">
+    <![CDATA[
+ -x- - - -x- - - `
+|  A            |`
+  x       x      `
+|B C   D D   E  |`
+x x x x x        `
+|F G G   H   E  |`
+    x            `
+|  F       H   E|`
+x x x     x x   x`
+|I   J K L   E  |`
+                 `
+|    K          |`
+    x           x`
+|      K     M  |`
+x x x     x      `
+|  N L         O|`
+ - -x- - -x- - - `
+    ]]>
+  </level>
+  <level id="85">
+    <![CDATA[
+ - - - - -x- - - `
+|A       A B    |`
+                 `
+|    C       D  |`
+x x x x x       x`
+|E     F   D    |`
+x       x   x    `
+|G   C       H  |`
+x   x           x`
+|        I      |`
+        x x     x`
+|  F J     K    |`
+x     x     x    `
+|  J     K   L  |`
+      x     x    `
+|J       M   L  |`
+ - - -x- - -x- - `
+    ]]>
+  </level>
+  <level id="86">
+    <![CDATA[
+ - - - -x- -x- - `
+|          A B  |`
+                x`
+|C   D         E|`
+    x     x x    `
+|        D E    |`
+x               x`
+|  F F          |`
+x x x x x       x`
+|        G   H  |`
+      x x x x    `
+|I   J   G K    |`
+x   x     x      `
+|            L  |`
+                 `
+|M         N    |`
+ - -x- - - -x- - `
+    ]]>
+  </level>
+  <level id="87">
+    <![CDATA[
+ - - - -x- - - - `
+|    A   B      |`
+x       x   x    `
+|        C      |`
+      x x x     x`
+|  D E E   F    |`
+      x   x     x`
+|D   D          |`
+x x       x     x`
+|G         H I  |`
+  x x            `
+|  J   K       L|`
+x         x   x x`
+|      H   M I  |`
+x   x            `
+|  N            |`
+ - -x- -x-x- - - `
+    ]]>
+  </level>
+  <level id="88">
+    <![CDATA[
+ - -x-x- -x- - - `
+|  A     B C    |`
+x   x x         x`
+|    D E        |`
+x     x   x   x x`
+|F   G     H    |`
+  x       x      `
+|        I      |`
+x x           x x`
+|  J            |`
+x     x x x      `
+|        K   K  |`
+          x      `
+|L M           N|`
+            x x x`
+|          O P  |`
+ -x- -x- - -x- - `
+    ]]>
+  </level>
+  <level id="89">
+    <![CDATA[
+ -x- -x-x-x- - - `
+|               |`
+                x`
+|  A     B B C D|`
+  x x         x  `
+|E   F   G   B  |`
+x             x x`
+|          B H  |`
+      x x        `
+|  F I   J B B H|`
+      x   x x    `
+|F F            |`
+                 `
+|  I     K      |`
+                x`
+|          J    |`
+ -x- -x- - -x- - `
+    ]]>
+  </level>
+  <level id="90">
+    <![CDATA[
+ - - -x- - - -x- `
+|A   A     B    |`
+                 `
+|  C       B D  |`
+x x   x          `
+|E              |`
+    x   x     x x`
+|      C   B F  |`
+x x     x       x`
+|    G         H|`
+  x     x        `
+|I       F J F  |`
+x     x     x x  `
+|K           L H|`
+            x    `
+|K     J        |`
+ - -x- -x- - - - `
+    ]]>
+  </level>
+  <level id="91">
+    <![CDATA[
+ - - -x- -x-x- - `
+|    A B   C D  |`
+x   x x   x x    `
+|            E  |`
+            x x x`
+|F   G H I      |`
+x x x   x   x    `
+|  J           K|`
+        x   x x  `
+|    J H   L M  |`
+        x   x   x`
+|  J            |`
+    x   x       x`
+|        N   O  |`
+x                `
+|  P            |`
+ - - -x-x- - - - `
+    ]]>
+  </level>
+  <level id="92">
+    <![CDATA[
+ -x- - -x- -x- - `
+|        A     B|`
+  x     x   x   x`
+|  C D   E A    |`
+          x      `
+|F       E G    |`
+  x x   x x      `
+|      C H      |`
+x           x   x`
+|  I   H   J J  |`
+    x   x x      `
+|  K   L   J   J|`
+x                `
+|    K     M J  |`
+    x            `
+|  N           J|`
+ -x-x- -x-x- - - `
+    ]]>
+  </level>
+  <level id="93">
+    <![CDATA[
+ - -x-x-x- -x- - `
+|    A     B    |`
+          x x    `
+|  C       D D  |`
+                 `
+|  A   E     F  |`
+    x x x        `
+|        G      |`
+x   x x x     x x`
+|H              |`
+x   x   x        `
+|    I J   K    |`
+    x x x   x   x`
+|L     M N      |`
+x     x x        `
+|O     P        |`
+ - -x- - - -x- - `
+    ]]>
+  </level>
+  <level id="94">
+    <![CDATA[
+ - -x- - - -x-x- `
+|    A          |`
+    x     x x    `
+|  B   A   C D E|`
+          x x    `
+|  B   F        |`
+      x       x  `
+|  B   G        |`
+        x x     x`
+|  H         I  |`
+x x   x x       x`
+|        H     J|`
+    x x   x     x`
+|  K L       M  |`
+                 `
+|        N      |`
+ - -x-x- -x- - - `
+    ]]>
+  </level>
+  <level id="95">
+    <![CDATA[
+ - -x- - - - - - `
+|      A A   A  |`
+x               x`
+|  B     A   C  |`
+      x     x    `
+|  D B       E  |`
+      x     x    `
+|  D     E      |`
+    x   x   x    `
+|  D     F      |`
+x       x       x`
+|      G     H  |`
+      x x        `
+|  I     F   J  |`
+x       x x     x`
+|K              |`
+ - - -x- - - - - `
+    ]]>
+  </level>
+  <level id="96">
+    <![CDATA[
+ - - -x- - -x- - `
+|               |`
+x       x        `
+|  A            |`
+        x x      `
+|    B   C D E  |`
+  x   x          `
+|      F        |`
+  x     x x x    `
+|    G   H      |`
+    x   x x      `
+|  I     J     D|`
+      x         x`
+|            K  |`
+x   x x     x   x`
+|L   M   N      |`
+ - -x-x- - - - - `
+    ]]>
+  </level>
+  <level id="97">
+    <![CDATA[
+ -x- - - - - - - `
+|              A|`
+    x     x x   x`
+|B       C     D|`
+            x    `
+|  B E     F   D|`
+        x       x`
+|      E        |`
+          x      `
+|    G E     H  |`
+x x   x x     x  `
+|    G       I  |`
+                x`
+|J       K      |`
+x x x     x x    `
+|  L     M      |`
+ - -x- - - - -x- `
+    ]]>
+  </level>
+  <level id="98">
+    <![CDATA[
+ - - -x-x-x-x- - `
+|        A B C  |`
+          x x   x`
+|  D E   E B F  |`
+          x      `
+|      E G      |`
+x x x x          `
+|  H       G F  |`
+            x    `
+|        I      |`
+  x     x   x   x`
+|          J    |`
+x                `
+|    K     I J  |`
+      x          `
+|    L   I   J  |`
+ - - - -x-x- - - `
+    ]]>
+  </level>
+  <level id="99">
+    <![CDATA[
+ - -x-x- - - - - `
+|      A        |`
+                x`
+|  B            |`
+x   x       x    `
+|C     D E D    |`
+x         x x    `
+|        E F G  |`
+    x            `
+|  H H          |`
+x       x x   x  `
+|        H      |`
+              x x`
+|  I I     I J  |`
+    x       x    `
+|    K          |`
+ - -x- - - -x- - `
+    ]]>
+  </level>
+  <level id="100">
+    <![CDATA[
+ - - -x- -x- -x- `
+|    A       B  |`
+x                `
+|  C   D     E  |`
+x     x x        `
+|F     G H   B  |`
+  x              `
+|               |`
+  x       x x   x`
+|      H   I J  |`
+x   x x   x x    `
+|          K K  |`
+x                `
+|  L   M   K K  |`
+      x     x    `
+|N         O    |`
+ -x- -x- - -x- - `
+    ]]>
+  </level>
+  <level id="101">
+    <![CDATA[
+ - -x- - - - - - `
+|          A    |`
+x       x       x`
+|    B     C   D|`
+  x x x       x x`
+|E         A    |`
+          x      `
+|        F G    |`
+          x   x x`
+|  H         I  |`
+  x   x       x  `
+|  J            |`
+x                `
+|    K   L   M  |`
+      x          `
+|          K    |`
+ - - -x- -x- -x- `
+    ]]>
+  </level>
+  <level id="102">
+    <![CDATA[
+ - -x-x-x- - -x- `
+|    A   B      |`
+            x    `
+|               |`
+  x   x          `
+|      C     D E|`
+          x x    `
+|  F G          |`
+x x   x x       x`
+|          H   I|`
+    x x   x x    `
+|    J   K L    |`
+x   x     x x   x`
+|M N            |`
+          x      `
+|            O  |`
+ - - -x-x- - - - `
+    ]]>
+  </level>
+  <level id="103">
+    <![CDATA[
+ - - -x-x-x-x- - `
+|               |`
+                 `
+|            A  |`
+    x         x x`
+|    B   C   D E|`
+          x   x x`
+|F       G   H  |`
+x x x     x      `
+|               |`
+            x    `
+|    B I D      |`
+          x     x`
+|J              |`
+    x x   x      `
+|      K     L  |`
+ -x- - - -x- - - `
+    ]]>
+  </level>
+  <level id="104">
+    <![CDATA[
+ - - -x- - -x- - `
+|              A|`
+x x         x   x`
+|        B     C|`
+            x    `
+|    B D        |`
+      x     x   x`
+|    E F        |`
+  x   x x        `
+|  G   F     H  |`
+  x x            `
+|I         H J  |`
+x x x            `
+|      K     H  |`
+        x       x`
+|L M            |`
+ -x-x- -x- - - - `
+    ]]>
+  </level>
+  <level id="105">
+    <![CDATA[
+ -x- -x-x- - -x- `
+|A   B C   D D E|`
+                 `
+|A   B C C D E E|`
+x   x x          `
+|  A F F   D D E|`
+    x x x        `
+|G G H D D D E  |`
+            x   x`
+|  H H H D I I I|`
+x x x     x      `
+|J J   H H K K  |`
+x         x     x`
+|L L L L H M K K|`
+          x      `
+|L L L   H K K  |`
+ - - -x- -x- - - `
+    ]]>
+  </level>
+  <level id="106">
+    <![CDATA[
+ -x-x- - -x-x- - `
+|A   B         C|`
+x   x x          `
+|D   E          |`
+x x              `
+|F           G  |`
+      x x        `
+|    H   I   C  |`
+x x x     x   x x`
+|J       K      |`
+x   x x x        `
+|      L   K    |`
+                 `
+|    J     M   N|`
+  x       x      `
+|O              |`
+ -x- - - - -x-x- `
+    ]]>
+  </level>
+  <level id="107">
+    <![CDATA[
+ - - -x-x- - - - `
+|      A        |`
+x       x        `
+|  B       C D  |`
+      x x     x x`
+|  E            |`
+  x x x x        `
+|  F   G H   D  |`
+        x        `
+|    I   J      |`
+x x x   x       x`
+|      K       L|`
+    x     x x x  `
+|    M     N    |`
+                 `
+|               |`
+ -x- - -x- -x- - `
+    ]]>
+  </level>
+  <level id="108">
+    <![CDATA[
+ - - - - - -x-x- `
+|            A B|`
+x     x     x x  `
+|  C   D        |`
+              x x`
+|  E         F  |`
+x x              `
+|            G  |`
+  x   x x x x    `
+|H   I          |`
+x       x        `
+|    J          |`
+x       x       x`
+|    K   K L    |`
+  x              `
+|M              |`
+ -x- - -x- - -x- `
+    ]]>
+  </level>
+  <level id="109">
+    <![CDATA[
+ -x- -x-x- -x- - `
+|      A   B C  |`
+  x   x x   x   x`
+|D   E     F   G|`
+x   x     x     x`
+|  H           I|`
+    x   x x   x  `
+|  J K   L F    |`
+x     x     x x x`
+|               |`
+x   x x   x      `
+|        M      |`
+          x      `
+|  N   N   O    |`
+                 `
+|  P            |`
+ - -x- - - -x- - `
+    ]]>
+  </level>
+  <level id="110">
+    <![CDATA[
+ - -x- -x-x-x- - `
+|    A     B C  |`
+    x   x   x    `
+|D   E   F   C  |`
+                 `
+|    G          |`
+        x x     x`
+|        F      |`
+x x     x x x    `
+|G              |`
+x   x            `
+|    H     I J  |`
+x           x   x`
+|K   L   M     N|`
+      x x        `
+|               |`
+ - - - -x-x- - - `
+    ]]>
+  </level>
+  <level id="111">
+    <![CDATA[
+ -x-x- - -x- -x- - `
+|                 |`
+                   `
+|A   B   C   D    |`
+x     x            `
+|    E   F C   C  |`
+x                  `
+|      F          |`
+    x x     x   x  `
+|G   G G F   C    |`
+        x   x      `
+|  H G G          |`
+x       x          `
+|      H I   J    |`
+    x x           x`
+|    K     J L L  |`
+      x            `
+|  M   I   J     L|`
+ -x- -x-x- - -x- - `
+    ]]>
+  </level>
+  <level id="112">
+    <![CDATA[
+ - -x- - -x- -x- - `
+|        A     B  |`
+      x       x   x`
+|            C    |`
+        x   x x    `
+|  D D E   F   G  |`
+    x         x   x`
+|          F H    |`
+x   x              `
+|                 |`
+        x x   x   x`
+|  I     J       K|`
+x             x    `
+|      J L   K H  |`
+x x       x        `
+|M N     L     K  |`
+x         x        `
+|  N   N N        |`
+ - - - - - -x- - - `
+    ]]>
+  </level>
+  <level id="113">
+    <![CDATA[
+ - - -x- - -x- - - `
+|A                |`
+x     x     x      `
+|    B B C   D D  |`
+  x x       x     x`
+|    B         E  |`
+        x          `
+|F       G B      |`
+  x x       x     x`
+|      H          |`
+x x     x     x x  `
+|I                |`
+x         x        `
+|      J   J   K  |`
+      x x          `
+|L M M M     N    |`
+x       x       x  `
+|  M M     O      |`
+ - - - -x- - - -x- `
+    ]]>
+  </level>
+  <level id="114">
+    <![CDATA[
+ - - -x-x- - -x- - `
+|    A     B     C|`
+              x    `
+|  D A D   E      |`
+x x                `
+|F         B B    |`
+        x         x`
+|      G G   E    |`
+x   x x     x      `
+|H   H     G   I  |`
+      x     x      `
+|  H J     K   E  |`
+          x     x x`
+|H                |`
+      x     x      `
+|  H L L J       M|`
+x         x x      `
+|        L        |`
+ - - - - - - -x- - `
+    ]]>
+  </level>
+  <level id="115">
+    <![CDATA[
+ - - - - -x- - -x- `
+|A A A       B    |`
+x                  `
+|  C   A   A   D  |`
+                   `
+|  C   E   B   D  |`
+    x     x        `
+|  C         B D  |`
+    x x            `
+|  C   B          |`
+x       x   x     x`
+|    F            |`
+        x       x  `
+|      G G H I    |`
+x x         x      `
+|J             K  |`
+    x              `
+|  J     K   K    |`
+ - - -x-x- - - - - `
+    ]]>
+  </level>
+  <level id="116">
+    <![CDATA[
+ - - -x- - -x-x- - `
+|        A     B  |`
+              x   x`
+|C       D        |`
+x     x       x   x`
+|E   F D D     G  |`
+  x x   x   x      `
+|        H   I    |`
+            x     x`
+|    J F   K   K  |`
+      x x          `
+|    J L       M  |`
+x x       x   x   x`
+|          L      |`
+  x x              `
+|N   L O   M M   M|`
+x         x        `
+|                 |`
+ - - - - -x- - - - `
+    ]]>
+  </level>
+  <level id="117">
+    <![CDATA[
+ - - - -x- - - -x- `
+|                 |`
+      x x          `
+|  A   B C C     D|`
+x               x x`
+|  E     C B   F F|`
+x     x            `
+|  E       B      |`
+            x     x`
+|G       H       I|`
+      x     x x x  `
+|          H      |`
+      x       x    `
+|    J J   K      |`
+x                 x`
+|  L   J H H     M|`
+x x                `
+|N             K  |`
+ -x- -x- -x- - -x- `
+    ]]>
+  </level>
+  <level id="118">
+    <![CDATA[
+ - -x- - -x-x- - - `
+|  A       B     C|`
+x   x       x      `
+|    D E   B F    |`
+x     x x         x`
+|G D   H I   F C  |`
+          x x x    `
+|G   G   I J   C  |`
+    x     x        `
+|          K      |`
+x x x x     x   x x`
+|      K       L  |`
+                   `
+|  M         L N N|`
+  x x   x x        `
+|O     P   Q L L  |`
+                   `
+|                 |`
+ - -x- - - -x- -x- `
+    ]]>
+  </level>
+  <level id="119">
+    <![CDATA[
+ - -x- - - -x- - - `
+|  A   B B       C|`
+x   x       x     x`
+|  D E         F  |`
+    x   x x x     x`
+|  G         H   I|`
+              x    `
+|          J      |`
+    x x   x        `
+|  K   K         I|`
+x x     x          `
+|L   M       N I  |`
+            x     x`
+|        H H      |`
+x x     x         x`
+|O   K         P  |`
+x   x              `
+|    Q            |`
+ - - -x-x-x- - - - `
+    ]]>
+  </level>
+  <level id="120">
+    <![CDATA[
+ - - - -x- -x- - - `
+|                 |`
+                   `
+|    A         B C|`
+    x     x x     x`
+|  D D   E E     B|`
+        x         x`
+|  F     E   E    |`
+x   x         x    `
+|  G G   D     B  |`
+          x x      `
+|  D     D   H    |`
+    x   x          `
+|  G I           H|`
+    x x x       x  `
+|G G     J K L    |`
+          x       x`
+|  G M            |`
+ - -x-x-x- - - - - `
+    ]]>
+  </level>
+  <level id="121">
+    <![CDATA[
+ - -x- -x-x- -x- - `
+|A         B      |`
+x                  `
+|  C       D   E  |`
+x     x   x x      `
+|F     D       E  |`
+  x                `
+|              E  |`
+          x        `
+|  G F     H     E|`
+      x x       x x`
+|  F       I I   J|`
+x                  `
+|  K     H        |`
+    x   x   x     x`
+|    L   M   N    |`
+    x              `
+|  O         N    |`
+ -x- -x-x-x- - - - `
+    ]]>
+  </level>
+  <level id="122">
+    <![CDATA[
+ - -x- - - -x- - - `
+|          A B    |`
+            x      `
+|        C A   C  |`
+      x            `
+|  D C            |`
+    x x           x`
+|  D   E         F|`
+    x     x x      `
+|          G F    |`
+x   x             x`
+|  H I J       F  |`
+x     x   x        `
+|                 |`
+      x     x     x`
+|  K K           L|`
+x           x     x`
+|      K   M      |`
+ - - - -x- - - - - `
+    ]]>
+  </level>
+  <level id="123">
+    <![CDATA[
+ - - -x- - -x- - - `
+|A             B  |`
+          x x      `
+|    C     D   B  |`
+    x             x`
+|        E     F  |`
+x             x   x`
+|      G          |`
+x         x        `
+|H   I            |`
+    x   x x   x    `
+|          J     K|`
+x   x     x     x  `
+|    L   M M      |`
+            x x    `
+|  L I            |`
+      x x   x     x`
+|          N   O  |`
+ - - -x- - -x- - - `
+    ]]>
+  </level>
+  <level id="124">
+    <![CDATA[
+ - - - -x-x- -x- - `
+|          A      |`
+                   `
+|  B   C   A     D|`
+                x  `
+|    B B   B A    |`
+x x x     x       x`
+|  E E   F        |`
+      x       x   x`
+|  E     F     G  |`
+      x x x x x    `
+|H   I     J      |`
+    x         x    `
+|  H   I K   L    |`
+x x     x   x      `
+|      M K        |`
+    x   x   x      `
+|N   O         P  |`
+ - -x- - - - -x- - `
+    ]]>
+  </level>
+  <level id="125">
+    <![CDATA[
+ - - - -x- -x- - - `
+|A       B     C  |`
+                   `
+|  A A   B        |`
+    x   x   x     x`
+|  D E     F F   G|`
+  x x     x   x    `
+|    E   E F      |`
+x     x       x    `
+|H             I  |`
+x                  `
+|  J     F I   G  |`
+        x x     x x`
+|  H   K   I      |`
+                   `
+|  J   H   K   L L|`
+      x            `
+|                 |`
+ - - -x- -x- - -x- `
+    ]]>
+  </level>
+  <level id="126">
+    <![CDATA[
+ - - -x- -x-x- -x- `
+|    A B     C   D|`
+      x   x        `
+|  E     F        |`
+    x x       x x x`
+|  E   G       C H|`
+            x      `
+|      E          |`
+x     x x     x   x`
+|            I J  |`
+x x     x         x`
+|    K            |`
+            x      `
+|  L L K M        |`
+      x x          `
+|    L     I I N  |`
+            x      `
+|      O          |`
+ - -x- -x- -x- - - `
+    ]]>
+  </level>
+  <level id="127">
+    <![CDATA[
+ - - - -x- -x- - - `
+|    A   B        |`
+x       x   x      `
+|          B   C  |`
+    x              `
+|    D E     F    |`
+              x   x`
+|  D              |`
+          x x      `
+|G D     H H I    |`
+        x x   x    `
+|  G         I    |`
+x x       x   x    `
+|    D J       K  |`
+    x x     x x    `
+|  L     J M     N|`
+x     x           x`
+|O               K|`
+ - - -x- - -x- - - `
+    ]]>
+  </level>
+  <level id="128">
+    <![CDATA[
+ - - -x-x- - - - - `
+|  A              |`
+x                 x`
+|    B       C C  |`
+        x x x x    `
+|        D D   E  |`
+  x   x         x x`
+|        D D F    |`
+  x                `
+|      G     F H  |`
+          x     x x`
+|I         J   F  |`
+x         x x x    `
+|      D     K    |`
+    x x     x     x`
+|  L L         M  |`
+                   `
+|N     K   K      |`
+ - -x-x- - - - - - `
+    ]]>
+  </level>
+  <level id="129">
+    <![CDATA[
+ - -x-x- - - - -x- `
+|              A B|`
+        x          `
+|  C         D    |`
+          x     x x`
+|  E C         A  |`
+      x            `
+|      F       D  |`
+x x                `
+|        F   G    |`
+x               x x`
+|H H   G     I I J|`
+          x     x x`
+|              I  |`
+    x   x          `
+|    F   I   I   K|`
+x                  `
+|            L I  |`
+ - - - - - - -x-x- `
+    ]]>
+  </level>
+  <level id="130">
+    <![CDATA[
+ - -x- - - - - -x- `
+|          A      |`
+    x   x          `
+|  B              |`
+            x x    `
+|  B   C   D A    |`
+          x        `
+|      B     D    |`
+    x x x x        `
+|E   F     G   H  |`
+x x   x           x`
+|I       G        |`
+x     x     x     x`
+|    J     G K    |`
+      x     x     x`
+|  J L   M   N N N|`
+            x      `
+|    J            |`
+ - - -x- - -x- - - `
+    ]]>
+  </level>
+  <level id="131">
+    <![CDATA[
+ - - -x- - - - -x- `
+|A         B     C|`
+x   x x       x    `
+|      D          |`
+x   x       x      `
+|  E   F       G  |`
+                x x`
+|      D       H I|`
+        x x x x   x`
+|  J              |`
+x       x          `
+|    F   J     K  |`
+x               x x`
+|                L|`
+    x              `
+|    M     L L N  |`
+        x x        `
+|O                |`
+ - -x- - -x- - - - `
+    ]]>
+  </level>
+  <level id="132">
+    <![CDATA[
+ - - -x- - - - -x- `
+|                A|`
+x     x            `
+|  B B     C      |`
+              x   x`
+|    B            |`
+              x    `
+|        C D     E|`
+    x       x      `
+|F   F       G    |`
+x     x     x     x`
+|    H D I        |`
+x x   x           x`
+|          I     J|`
+                   `
+|K L I   G        |`
+x                  `
+|              M  |`
+ - -x-x- - -x- -x- `
+    ]]>
+  </level>
+  <level id="133">
+    <![CDATA[
+ - -x- -x- -x- - - `
+|    A            |`
+x       x          `
+|B     C   D   D  |`
+    x x           x`
+|  E           F  |`
+x x x       x      `
+|G   H I       D  |`
+  x   x     x      `
+|    J            |`
+                   `
+|      K L     F  |`
+    x x            `
+|          K      |`
+x     x         x x`
+|  M N   K   L O O|`
+            x      `
+|                 |`
+ - - -x- - -x- - - `
+    ]]>
+  </level>
+  <level id="134">
+    <![CDATA[
+ - - - - -x- -x- - `
+|    A       B    |`
+x                  `
+|    C         D  |`
+  x     x   x      `
+|            E    |`
+        x         x`
+|        C   D    |`
+x                  `
+|F G       E      |`
+      x         x  `
+|      C   H      |`
+      x x x        `
+|    I J   H      |`
+x x   x       x   x`
+|K I     L        |`
+            x      `
+|          M     N|`
+ - - -x-x- -x- - - `
+    ]]>
+  </level>
+  <level id="135">
+    <![CDATA[
+ - - - -x- - - - - `
+|            A    |`
+        x         x`
+|  B B            |`
+        x x        `
+|  C C   D E   F  |`
+x     x x x   x    `
+|      G   E   F  |`
+x x   x         x x`
+|      G   H H    |`
+      x x          `
+|    I I J        |`
+            x     x`
+|              J  |`
+      x            `
+|K K   J   L   M  |`
+        x     x   x`
+|    N           O|`
+ - -x- -x- - -x- - `
+    ]]>
+  </level>
+  <level id="136">
+    <![CDATA[
+ -x- - -x- -x- - - `
+|A   B     C     D|`
+        x   x   x x`
+|      E          |`
+x         x x      `
+|F       G H I    |`
+    x x         x  `
+|                 |`
+          x x      `
+|  J F         K  |`
+      x            `
+|    J J   L   I  |`
+            x x    `
+|    J            |`
+                   `
+|    L J   M      |`
+  x         x     x`
+|            N    |`
+ -x- - - - -x-x- - `
+    ]]>
+  </level>
+  <level id="137">
+    <![CDATA[
+ - -x- - - -x-x- - `
+|            A    |`
+                  x`
+|  B   C       D  |`
+x         x        `
+|                 |`
+x     x     x      `
+|  E F     G   H  |`
+          x x   x x`
+|  E              |`
+    x x            `
+|  E   I H        |`
+        x     x    `
+|E I   I     J    |`
+                   `
+|  I   K       L  |`
+      x            `
+|      J          |`
+ - -x-x- - -x- - - `
+    ]]>
+  </level>
+  <level id="138">
+    <![CDATA[
+ -x- - -x- - - -x- `
+|                 |`
+  x                `
+|  A B   B   C D  |`
+      x            `
+|            D    |`
+            x      `
+|E           D    |`
+    x   x         x`
+|    F   G        |`
+x x     x     x    `
+|H   A         I  |`
+        x          `
+|        J G   K  |`
+    x       x x   x`
+|      F     L    |`
+        x          `
+|  M              |`
+ -x- - -x-x- -x- - `
+    ]]>
+  </level>
+  <level id="139">
+    <![CDATA[
+ -x- - -x- - - -x- `
+|              A B|`
+        x          `
+|    C D          |`
+      x x     x x x`
+|E       F   G   H|`
+x           x   x  `
+|      F       I  |`
+                x x`
+|        C F   J  |`
+x x       x   x    `
+|  C K   L        |`
+          x       x`
+|          M I    |`
+      x x x       x`
+|      N         O|`
+x x                `
+|  P   Q          |`
+ - -x- -x- -x-x- - `
+    ]]>
+  </level>
+  <level id="140">
+    <![CDATA[
+ - -x- -x-x- - - - `
+|                A|`
+          x       x`
+|  B     C        |`
+      x       x x  `
+|    B     D      |`
+  x         x      `
+|    E         F  |`
+    x              `
+|G                |`
+          x   x    `
+|              H  |`
+  x     x     x x x`
+|    I           J|`
+x     x     x      `
+|        H     K  |`
+                x x`
+|L             M  |`
+ - -x- - - - - - - `
+    ]]>
+  </level>
+  <level id="141">
+    <![CDATA[
+ - -x-x- - -x- - - `
+|  A       B   C  |`
+            x     x`
+|            D   E|`
+    x     x x x    `
+|  F G H   G I    |`
+              x    `
+|A         I      |`
+    x x           x`
+|    J     G   K  |`
+        x     x x x`
+|  J             L|`
+  x x       x      `
+|              M  |`
+x   x       x      `
+|      N   O      |`
+                x x`
+|P         Q      |`
+ -x- -x- - -x- - - `
+    ]]>
+  </level>
+  <level id="142">
+    <![CDATA[
+ - - - -x-x- - - - `
+|    A   B C      |`
+    x x     x x   x`
+|    D       E    |`
+      x x   x x    `
+|  F           G  |`
+                   `
+|        H H      |`
+    x x   x     x  `
+|  F     I   J K  |`
+          x        `
+|                 |`
+x     x x     x   x`
+|    L   L        |`
+              x    `
+|F L   L M   N N  |`
+            x     x`
+|                 |`
+ -x- - - - -x- - - `
+    ]]>
+  </level>
+  <level id="143">
+    <![CDATA[
+ - - -x-x- - - - - `
+|              A  |`
+            x   x x`
+|  B B            |`
+            x      `
+|  C         D   E|`
+x x                `
+|  F   D   G      |`
+            x   x x`
+|  C           G  |`
+        x          `
+|      F D        |`
+    x     x       x`
+|            H    |`
+      x         x  `
+|    I   J        |`
+                   `
+|                K|`
+ -x-x- - - - -x- - `
+    ]]>
+  </level>
+  <level id="144">
+    <![CDATA[
+ - - -x-x-x- - - - `
+|                A|`
+x                 x`
+|    B       C A  |`
+      x   x        `
+|  D              |`
+    x     x x x   x`
+|E     F G        |`
+x   x   x          `
+|  H   I J     J  |`
+x x                `
+|                 |`
+    x x   x       x`
+|            K L  |`
+          x        `
+|  M N N K     K  |`
+                   `
+|              K  |`
+ - -x- - - -x- - - `
+    ]]>
+  </level>
+  <level id="145">
+    <![CDATA[
+ - - -x- - -x- - - `
+|      A          |`
+                   `
+|  B           C  |`
+          x x     x`
+|  D B       E    |`
+                  x`
+|        E        |`
+x x       x       x`
+|  F D     G   H  |`
+          x   x   x`
+|          I      |`
+      x x         x`
+|  J   J I K   L  |`
+x       x   x x x x`
+|  M J   K   N    |`
+                   `
+|                O|`
+ - - - - -x-x-x- - `
+    ]]>
+  </level>
+  <level id="146">
+    <![CDATA[
+ - -x- -x- - - -x- `
+|          A      |`
+        x          `
+|  B   C       D  |`
+            x     x`
+|  E   B     F    |`
+          x        `
+|  B   B          |`
+              x    `
+|      C       G  |`
+    x x     x x   x`
+|    B H   C     I|`
+x x       x x     x`
+|J         K   L  |`
+  x   x     x      `
+|  M   N          |`
+      x   x x      `
+|          O      |`
+ - - - -x-x-x- - - `
+    ]]>
+  </level>
+  <level id="147">
+    <![CDATA[
+ -x- - -x- - -x- - `
+|A                |`
+  x                `
+|    B   C D D E E|`
+x x x x            `
+|        C D D    |`
+              x    `
+|  F   C     D    |`
+        x          `
+|      G   D      |`
+x   x           x  `
+|H F   I       J  |`
+    x x   x        `
+|    K   L M      |`
+x   x       x x   x`
+|  L L            |`
+                  x`
+|          N      |`
+ - - - -x-x- - - - `
+    ]]>
+  </level>
+  <level id="148">
+    <![CDATA[
+ - - - - - -x- - - `
+|                 |`
+x                  `
+|    A B A        |`
+    x           x  `
+|C           A    |`
+            x      `
+|  A   D       E  |`
+x x x x x          `
+|        F        |`
+                x x`
+|  G         H    |`
+            x      `
+|  I           J  |`
+x   x   x          `
+|            J    |`
+    x              `
+|K   L D     F    |`
+ - -x-x- -x- -x- - `
+    ]]>
+  </level>
+  <level id="149">
+    <![CDATA[
+ - -x-x- - -x- - - `
+|                 |`
+                   `
+|  A B       C D  |`
+          x x      `
+|          A      |`
+x   x     x x     x`
+|            E    |`
+      x       x x x`
+|  F G H   I   J  |`
+x         x        `
+|                 |`
+    x x           x`
+|K       L        |`
+  x       x        `
+|      M     N O  |`
+x                 x`
+|  M             O|`
+ - -x- - -x- - - - `
+    ]]>
+  </level>
+  <level id="150">
+    <![CDATA[
+ - - -x- - - - - - `
+|          A      |`
+      x x x       x`
+|B             C  |`
+x x               x`
+|  D E     F   G  |`
+            x   x x`
+|  D     E        |`
+x         x x      `
+|  H           I  |`
+            x      `
+|        J        |`
+      x            `
+|  H K J     I I  |`
+      x x   x x   x`
+|  K   L   M   N  |`
+        x x        `
+|            O    |`
+ - -x- - -x- - -x- `
+    ]]>
+  </level>
+  <level id="151">
+    <![CDATA[
+ - - - -x- -x-x- - - `
+|      A            |`
+x     x x            `
+|  B   C   D       E|`
+x     x           x  `
+|  B     F       G  |`
+              x x x  `
+|          H        |`
+x     x x x       x x`
+|  I J     K   L    |`
+    x x       x x    `
+|                M  |`
+            x   x   x`
+|N                 O|`
+x       x       x    `
+|            P      |`
+  x   x             x`
+|Q         L       R|`
+x               x   x`
+|  S   J           T|`
+ - -x- -x- - -x-x- - `
+    ]]>
+  </level>
+  <level id="152">
+    <![CDATA[
+ - -x- - -x- - -x-x- `
+|  A         B      |`
+          x          `
+|  C                |`
+      x     x        `
+|  A   D E     F    |`
+x     x     x   x    `
+|G               H  |`
+x x         x        `
+|      I     H   J J|`
+            x     x x`
+|K   K K   E        |`
+    x     x     x    `
+|          L        |`
+x x       x   x     x`
+|        M N   O   P|`
+          x     x    `
+|  M M             P|`
+                x   x`
+|Q         R     S  |`
+ - - - -x- -x-x- - - `
+    ]]>
+  </level>
+  <level id="153">
+    <![CDATA[
+ -x- - - - - -x-x- - `
+|        A     B    |`
+                    x`
+|        C         D|`
+      x     x   x    `
+|E C E       F   G  |`
+            x x x    `
+|        H C I      |`
+x x x     x          `
+|J               I  |`
+x                    `
+|      K       I    |`
+    x     x     x    `
+|L   H       I I    |`
+    x x             x`
+|  L   M            |`
+        x           x`
+|  L         N   O  |`
+x           x   x    `
+|    P K         Q  |`
+ - - -x- -x-x- - - - `
+    ]]>
+  </level>
+  <level id="154">
+    <![CDATA[
+ - -x- -x-x- -x- - - `
+|  A       B        |`
+x                    `
+|              C    |`
+x         x x        `
+|  D D E     B   C  |`
+            x   x    `
+|F         G        |`
+  x x   x   x   x    `
+|  H     I     J    |`
+x               x x x`
+|      K       L    |`
+    x     x x   x   x`
+|  K           M    |`
+            x        `
+|      N   O        |`
+x x x     x x x      `
+|P   N         Q R  |`
+x x   x         x    `
+|S         O     T  |`
+ - - -x- - - -x-x- - `
+    ]]>
+  </level>
+  <level id="155">
+    <![CDATA[
+ - -x- -x- - - -x- - `
+|  A B     C        |`
+          x     x    `
+|    A         D E  |`
+      x         x    `
+|  A A           E  |`
+x x   x             x`
+|      F     G      |`
+          x   x      `
+|H     I F          |`
+    x   x            `
+|      J         K L|`
+x x     x   x        `
+|          M G L   L|`
+            x x     x`
+|    N M O   P      |`
+x   x x   x x       x`
+|        O N     K  |`
+                     `
+|  Q   N         P  |`
+ - -x- - - - -x- - - `
+    ]]>
+  </level>
+  <level id="156">
+    <![CDATA[
+ - - -x- -x- -x-x- - `
+|A                 B|`
+                x   x`
+|    C   C   D   E  |`
+x               x    `
+|        F       F  |`
+  x x x     x   x    `
+|  G     C          |`
+        x   x       x`
+|        H   I J    |`
+x   x   x   x   x    `
+|K     L M         N|`
+        x x x       x`
+|  O         I      |`
+x x                  `
+|  O P   Q       R  |`
+        x x x x x    `
+|  P           S T  |`
+                    x`
+|                   |`
+ - -x- - - -x- - - - `
+    ]]>
+  </level>
+  <level id="157">
+    <![CDATA[
+ - -x- - -x- - -x- - `
+|              A   B|`
+x         x     x    `
+|    C   D   E A    |`
+      x x x   x     x`
+|      F     G H   H|`
+x         x   x     x`
+|  I   J F   K   L  |`
+          x x x x    `
+|    J     M N O L  |`
+          x   x      `
+|                   |`
+    x               x`
+|                  P|`
+    x       x        `
+|      I Q M   O    |`
+      x       x x x x`
+|  R R           S  |`
+                     `
+|I       Q         T|`
+ -x- - -x-x- - - -x- `
+    ]]>
+  </level>
+  <level id="158">
+    <![CDATA[
+ - - -x-x- -x-x- - - `
+|A     B C   D   E  |`
+        x x x x     x`
+|  A   B   F     E  |`
+          x          `
+|    B   G          |`
+x x   x       x     x`
+|  B B   H   F      |`
+    x       x        `
+|  I   H J H   K    |`
+x         x          `
+|    I         L    |`
+      x       x   x  `
+|  I I     J   J    |`
+    x         x x    `
+|M M J   N N        |`
+                     `
+|  M M J N N N   O P|`
+      x              `
+|            O     P|`
+ - - -x- - -x- -x- - `
+    ]]>
+  </level>
+  <level id="159">
+    <![CDATA[
+ - - - -x- - -x- -x- `
+|    A       B      |`
+        x            `
+|    A   B C     D  |`
+x           x   x x  `
+|  A A E   C F     G|`
+    x   x           x`
+|H     E         I  |`
+    x   x       x   x`
+|  J                |`
+  x         x x x    `
+|    K   L     M   M|`
+        x     x x    `
+|      K   J   N    |`
+x                   x`
+|    L     L     O  |`
+x   x x       x x   x`
+|P       Q Q   R R  |`
+              x      `
+|  Q                |`
+ -x- - - - - -x- - - `
+    ]]>
+  </level>
+  <level id="160">
+    <![CDATA[
+ - - - -x-x- - -x- - `
+|            A   B B|`
+x               x    `
+|      C       D    |`
+  x     x     x      `
+|  E   F F G   H D  |`
+    x         x   x x`
+|    C   F G        |`
+x     x         x    `
+|  I         F     H|`
+  x           x   x x`
+|                J  |`
+        x x x x x    `
+|  K K   L       M  |`
+                     `
+|      N     O   M  |`
+x             x      `
+|  P   L N       Q M|`
+      x              `
+|            Q      |`
+ - - -x- - -x- -x- - `
+    ]]>
+  </level>
+  <level id="161">
+    <![CDATA[
+ - -x-x- - - - -x- - `
+|                A  |`
+                    x`
+|  B     B   C D    |`
+        x x   x x    `
+|  E   F         G  |`
+x x x     x       x x`
+|        H   C G    |`
+              x      `
+|    H       I      |`
+    x     x          `
+|J       K     L   M|`
+x x x       x     x  `
+|N O O   H          |`
+      x       x x x  `
+|  O     K     P    |`
+                    x`
+|          O     Q  |`
+x   x         x x    `
+|R             S    |`
+ - - -x-x- - -x-x- - `
+    ]]>
+  </level>
+  <level id="162">
+    <![CDATA[
+ - -x- -x- -x- - -x- `
+|    A   B          |`
+        x x          `
+|    C           D  |`
+      x x            `
+|  C E         D   F|`
+x x               x x`
+|          E     G  |`
+      x           x  `
+|          G        |`
+        x x          `
+|H I   J   K        |`
+      x     x       x`
+|    I K   K     L  |`
+x     x     x        `
+|      M K          |`
+x               x    `
+|              N   O|`
+                    x`
+|P Q             R  |`
+ -x-x-x-x- - -x- - - `
+    ]]>
+  </level>
+  <level id="163">
+    <![CDATA[
+ - - - -x- - -x-x- - `
+|      A   B   C    |`
+        x            `
+|  A D A         E  |`
+x x       x x        `
+|          F        |`
+        x x     x   x`
+|  D G              |`
+                  x  `
+|      H     I F   J|`
+x     x   x       x  `
+|      H H K   F    |`
+    x                `
+|                   |`
+    x     x x        `
+|  L   K            |`
+x x     x         x x`
+|M           N   I  |`
+x                    `
+|  O               P|`
+ - -x- - -x- - - - - `
+    ]]>
+  </level>
+  <level id="164">
+    <![CDATA[
+ - -x- -x- -x- -x-x- `
+|      A   B C     D|`
+x       x   x     x x`
+|E     F   G        |`
+  x   x     x     x  `
+|  H           G    |`
+                     `
+|            I   I  |`
+    x   x x     x    `
+|  J           K L  |`
+x x         x        `
+|M       J K        |`
+x x     x x       x x`
+|      M     N N    |`
+      x         x    `
+|O P       N   N    |`
+  x                  `
+|    Q Q R   N S    |`
+        x            `
+|                S  |`
+ -x- - -x- -x- - - - `
+    ]]>
+  </level>
+  <level id="165">
+    <![CDATA[
+ -x- - -x- -x- - - - `
+|            A      |`
+            x     x x`
+|B   C   D E       F|`
+x   x x   x          `
+|        G   H      |`
+x               x   x`
+|  I                |`
+      x       x x    `
+|    I E J     H   K|`
+      x       x     x`
+|    L J   J   M    |`
+      x x           x`
+|  N L N            |`
+        x       x    `
+|  N       O P      |`
+          x x        `
+|    Q       P P R  |`
+x                    `
+|                  P|`
+ - -x- -x- - - - -x- `
+    ]]>
+  </level>
+  <level id="166">
+    <![CDATA[
+ - -x-x- -x- - -x- - `
+|    A         B    |`
+x   x x       x      `
+|  C D   E          |`
+    x                `
+|F   D              |`
+    x     x x       x`
+|      G G H   I J  |`
+x x     x            `
+|                  I|`
+        x       x    `
+|  K L   H M   M    |`
+            x x     x`
+|                   |`
+x     x x     x     x`
+|    N           O  |`
+  x                  `
+|      L   H       P|`
+          x          `
+|Q             R    |`
+ - -x- - -x- - -x- - `
+    ]]>
+  </level>
+  <level id="167">
+    <![CDATA[
+ - - - - - -x- - - - `
+|      A         B  |`
+          x x        `
+|  C   C   D     E  |`
+x x     x x         x`
+|F C C   G H D   E  |`
+        x x   x x   x`
+|  F   F   H        |`
+x       x            `
+|  F I   J   K   L  |`
+        x x         x`
+|      M            |`
+x             x      `
+|  N   I   H   K L  |`
+          x x        `
+|  N     M          |`
+      x       x     x`
+|        O     P L  |`
+      x              `
+|N                  |`
+ - -x- - - - -x- - - `
+    ]]>
+  </level>
+  <level id="168">
+    <![CDATA[
+ - -x- - -x- - -x- - `
+|      A            |`
+    x     x         x`
+|B           C      |`
+x     x     x x      `
+|  D     E   C   F G|`
+            x        `
+|  H     E          |`
+x   x         x     x`
+|    I         J    |`
+    x     x   x      `
+|      K         G  |`
+                     `
+|      I K J        |`
+x     x     x        `
+|  L             M  |`
+x     x       x     x`
+|  N     O   P      |`
+x   x x   x   x   x x`
+|      Q         R S|`
+ - - - -x-x- -x- -x- `
+    ]]>
+  </level>
+  <level id="169">
+    <![CDATA[
+ - - - -x-x-x-x- -x- `
+|          A   B    |`
+          x       x  `
+|    C   D       E F|`
+x     x   x       x  `
+|      G            |`
+    x             x x`
+|H     D   I     I  |`
+          x x        `
+|  G       J   K    |`
+                    x`
+|      J G   L      |`
+x x x                `
+|    G              |`
+      x       x   x  `
+|M         N        |`
+x       x           x`
+|    O   J   N P    |`
+x         x          `
+|    Q              |`
+ - - - - -x-x- - - - `
+    ]]>
+  </level>
+  <level id="170">
+    <![CDATA[
+ - -x- - - - - -x-x- `
+|        A          |`
+                     `
+|          B A C    |`
+        x            `
+|  D     A     A    |`
+    x         x      `
+|      B           E|`
+x       x   x x     x`
+|  D       F   G    |`
+    x       x   x    `
+|      F   H   I    |`
+          x x       x`
+|              G    |`
+  x       x          `
+|                I  |`
+            x        `
+|    J J K          |`
+    x   x       x    `
+|L M       N   O    |`
+ -x- - -x- -x- - -x- `
+    ]]>
+  </level>
+  <level id="171">
+    <![CDATA[
+ - - - -x-x- - - - - `
+|    A             B|`
+x       x x     x    `
+|        C          |`
+    x   x   x        `
+|    D   E   F   G  |`
+        x x x   x x x`
+|  D H       I      |`
+          x       x  `
+|        J       K  |`
+      x x   x x      `
+|D               L  |`
+x x                  `
+|  M N   O M     K  |`
+      x       x x x x`
+|              P   Q|`
+        x   x x x   x`
+|N R           S S S|`
+x       x            `
+|        T          |`
+ - - - -x-x- - - - - `
+    ]]>
+  </level>
+  <level id="172">
+    <![CDATA[
+ - -x-x- - - -x- - - `
+|A                 B|`
+          x   x     x`
+|  C     D E F      |`
+x       x            `
+|                G  |`
+x   x   x           x`
+|H     I            |`
+              x x x x`
+|        D J        |`
+x x   x              `
+|  K I           L  |`
+          x x x      `
+|  K       M        |`
+x x   x     x        `
+|        M       N  |`
+      x         x   x`
+|  O   M M M P      |`
+        x x          `
+|  Q     R          |`
+ - - - -x-x- -x- - - `
+    ]]>
+  </level>
+  <level id="173">
+    <![CDATA[
+ - -x- -x- - -x-x- - `
+|  A             B  |`
+    x             x x`
+|    C             D|`
+      x   x          `
+|  E   F D   G G    |`
+  x     x           x`
+|                  H|`
+x           x x   x x`
+|I             J    |`
+x x x x              `
+|    K K   L        |`
+      x x           x`
+|        M     N L  |`
+            x        `
+|O       P          |`
+x x           x      `
+|  P Q   R     S N  |`
+        x x x        `
+|                   |`
+ - - - -x-x- - - -x- `
+    ]]>
+  </level>
+  <level id="174">
+    <![CDATA[
+ -x- - -x- - - - -x- `
+|            A      |`
+    x                `
+|  B             C  |`
+    x         x x x x`
+|      D E     F   G|`
+                     `
+|  H           I    |`
+    x   x x         x`
+|          D F      |`
+    x       x   x    `
+|    E     J     J  |`
+x     x x            `
+|    K     L   J    |`
+x         x   x x   x`
+|    M   M   L   N  |`
+    x                `
+|O       P          |`
+              x      `
+|                   |`
+ - - -x- - - - -x- - `
+    ]]>
+  </level>
+  <level id="175">
+    <![CDATA[
+ - - - -x- -x- - - - `
+|        A          |`
+        x   x        `
+|  B C C   D   E E  |`
+x       x   x        `
+|      C       F    |`
+x           x     x  `
+|G       H       I  |`
+x     x   x     x   x`
+|          F J      |`
+      x     x   x   x`
+|  K   H L   J      |`
+x     x     x   x   x`
+|  M K     L N     O|`
+    x x              `
+|  P Q Q       R    |`
+x x       x     x    `
+|S   Q     T        |`
+            x        `
+|          Q        |`
+ -x- - -x- -x- - - - `
+    ]]>
+  </level>
+  <level id="176">
+    <![CDATA[
+ - - - - - -x- -x-x- `
+|                   |`
+x   x                `
+|      A B     C    |`
+    x     x          `
+|  D         E C C  |`
+              x x    `
+|  D   F       G H  |`
+x         x   x x   x`
+|        A         I|`
+x     x              `
+|    J     K L   M  |`
+    x       x x x   x`
+|N     J   O        |`
+                    x`
+|            O      |`
+x x   x   x x        `
+|P   Q Q       M R  |`
+              x      `
+|                   |`
+ - -x- - -x- - - - - `
+    ]]>
+  </level>
+  <level id="177">
+    <![CDATA[
+ -x-x- -x- - - - - - `
+|      A            |`
+                     `
+|    A       B C    |`
+            x x      `
+|D     E     F   B  |`
+  x     x x         x`
+|      E     C      |`
+    x       x x      `
+|                C  |`
+x   x x              `
+|      G   H I H C  |`
+      x x           x`
+|  J   K I H H      |`
+          x         x`
+|          K H K    |`
+x   x x         x    `
+|  L M N K     K O  |`
+              x      `
+|                   |`
+ - - -x- - - -x- - - `
+    ]]>
+  </level>
+  <level id="178">
+    <![CDATA[
+ - - - -x-x- - - - - `
+|      A            |`
+x x     x x          `
+|  B     C   D D D  |`
+                     `
+|E                  |`
+    x x           x x`
+|    F   G H     I  |`
+  x   x     x        `
+|              I    |`
+x x   x x x          `
+|J   F           I  |`
+        x           x`
+|  K     L   M N    |`
+            x   x    `
+|                O N|`
+    x x x       x    `
+|      P            |`
+x           x       x`
+|  P Q         O    |`
+ - -x- - - -x- - - - `
+    ]]>
+  </level>
+  <level id="179">
+    <![CDATA[
+ - -x- -x- - -x-x- - `
+|                   |`
+                     `
+|    A         B   C|`
+        x     x x x x`
+|  A   D   E F G    |`
+      x       x   x  `
+|  H             I J|`
+                  x  `
+|        F H        |`
+  x           x      `
+|              K    |`
+x     x     x x x    `
+|  L   H M   N      |`
+x   x       x     x x`
+|  O       M        |`
+x x x   x            `
+|  P M   N       Q  |`
+    x x              `
+|  R     S       T  |`
+ - - -x- - -x-x- -x- `
+    ]]>
+  </level>
+  <level id="180">
+    <![CDATA[
+ -x- - -x-x- - - - - `
+|      A     B      |`
+                    x`
+|    C C       D    |`
+      x       x   x  `
+|        E          |`
+  x x x           x  `
+|  F   E   E        |`
+    x       x        `
+|  G       E   H    |`
+x       x            `
+|I   J              |`
+    x x   x   x     x`
+|  I     E   H   K  |`
+x x           x x    `
+|    L         M    |`
+      x     x x     x`
+|N   O O P         Q|`
+x x x                `
+|  R                |`
+ - -x- - - - - -x- - `
+    ]]>
+  </level>
+  <level id="181">
+    <![CDATA[
+ - -x- - - -x-x- - - `
+|                   |`
+        x   x       x`
+|  A       B C D    |`
+    x     x          `
+|  E           C    |`
+x     x   x x   x    `
+|        F          |`
+                x   x`
+|  G             H  |`
+    x x         x x  `
+|  G     I I J J K  |`
+        x       x    `
+|    L   I       M  |`
+    x       x        `
+|    N           J  |`
+x     x   x x        `
+|    O     P     M  |`
+      x         x    `
+|  Q           R    |`
+ -x- -x-x- - - -x- - `
+    ]]>
+  </level>
+  <level id="182">
+    <![CDATA[
+ - - -x-x- -x- - - - `
+|A     B C   D      |`
+      x x x x       x`
+|  E               F|`
+    x x             x`
+|          G     H  |`
+                     `
+|    E     I        |`
+x       x   x x      `
+|      J I       F  |`
+x       x x          `
+|          K        |`
+    x x   x   x      `
+|  L   M N       O  |`
+x         x          `
+|      N       P    |`
+      x     x     x  `
+|  M Q Q Q          |`
+                    x`
+|                   |`
+ - -x- - - - - -x- - `
+    ]]>
+  </level>
+  <level id="183">
+    <![CDATA[
+ - -x- - -x-x- - - - `
+|        A B        |`
+    x     x x        `
+|  C D   E     F    |`
+      x x     x     x`
+|              F F  |`
+x   x   x       x    `
+|    D             G|`
+x   x     x     x    `
+|  H       I   J    |`
+  x x   x           x`
+|    K     L        |`
+          x x        `
+|          M N     J|`
+                  x x`
+|O   M P       N   Q|`
+            x x   x  `
+|          R        |`
+    x x   x          `
+|      S            |`
+ - - -x- - - - -x- - `
+    ]]>
+  </level>
+  <level id="184">
+    <![CDATA[
+ - - - -x-x- - - - - `
+|                   |`
+        x x          `
+|  A   B C   D D    |`
+        x x   x     x`
+|  E       F        |`
+x   x x   x          `
+|        G          |`
+x       x x     x    `
+|    E     H I     I|`
+                x    `
+|J   K           L  |`
+    x x              `
+|      M            |`
+            x     x x`
+|          K N   O  |`
+x     x x     x x    `
+|      M       P O  |`
+        x     x      `
+|  Q       R N      |`
+ - -x- - - -x-x- - - `
+    ]]>
+  </level>
+  <level id="185">
+    <![CDATA[
+ - -x- - - - - -x- - `
+|A               B  |`
+            x        `
+|              C    |`
+x       x x         x`
+|  D   E   F        |`
+      x     x        `
+|      G         H H|`
+x     x x       x x x`
+|              I    |`
+    x                `
+|      J   E   K K L|`
+x       x         x x`
+|  M N              |`
+  x x     x       x  `
+|              O   P|`
+                    x`
+|  Q Q Q       I    |`
+              x      `
+|          J        |`
+ - - - - -x- -x- - - `
+    ]]>
+  </level>
+  <level id="186">
+    <![CDATA[
+ - -x- - -x- -x- - - `
+|A   B     C        |`
+    x     x   x      `
+|                D  |`
+x     x             x`
+|        E   F G    |`
+            x        `
+|  H     F E     I  |`
+    x       x       x`
+|                   |`
+x   x                `
+|    J E J       G  |`
+  x       x x   x    `
+|K         L        |`
+  x             x x x`
+|    M       N   O P|`
+        x   x        `
+|        Q Q        |`
+x x       x x   x    `
+|    R     S     T  |`
+ - - -x- -x-x-x- -x- `
+    ]]>
+  </level>
+  <level id="187">
+    <![CDATA[
+ - - -x-x-x- -x- -x- `
+|    A     B   C    |`
+                     `
+|  D   E   F     G  |`
+x x   x     x x     x`
+|H                  |`
+      x x            `
+|    I J   J K   L  |`
+x x     x       x   x`
+|  D                |`
+    x   x            `
+|  M N   N   O   K  |`
+x   x       x x      `
+|      N            |`
+              x      `
+|  P   Q   O        |`
+                     `
+|    P     N   O    |`
+        x           x`
+|  Q               R|`
+ -x- - -x- - -x- - - `
+    ]]>
+  </level>
+  <level id="188">
+    <![CDATA[
+ - - -x- - - - - - - `
+|    A              |`
+      x     x       x`
+|  A     B   C      |`
+        x   x        `
+|  D A           E  |`
+x x         x   x    `
+|        F   G      |`
+        x     x x   x`
+|    D     H        |`
+x       x            `
+|I     D J       K  |`
+x     x         x    `
+|              L    |`
+          x x   x    `
+|M         N L     E|`
+x x       x x   x    `
+|  O P   O   Q   R  |`
+      x       x     x`
+|                   |`
+ - - -x- - - -x- - - `
+    ]]>
+  </level>
+  <level id="189">
+    <![CDATA[
+ -x- - - - -x-x- - - `
+|    A             B|`
+                x   x`
+|C     D           E|`
+    x     x x        `
+|    D           F  |`
+      x           x x`
+|  G   H   I     J  |`
+x     x     x        `
+|    K K       F   J|`
+          x x   x    `
+|    K       L   L  |`
+x   x       x     x x`
+|    K K   I M   L  |`
+      x   x x x      `
+|                   |`
+        x     x      `
+|  N O     P     Q  |`
+    x   x   x        `
+|  N       R     S  |`
+ - -x- - - - -x-x- - `
+    ]]>
+  </level>
+  <level id="190">
+    <![CDATA[
+ -x- -x- -x- - -x- - `
+|    A         B    |`
+              x x    `
+|  C     D       E E|`
+        x   x        `
+|          F   G E  |`
+        x            `
+|    H              |`
+x   x     x   x     x`
+|          I   G    |`
+    x   x       x    `
+|  J   K I K        |`
+    x       x        `
+|L               M  |`
+x   x         x      `
+|                   |`
+    x         x     x`
+|  J     N O P   Q  |`
+    x     x x x      `
+|      R            |`
+ - -x- - - -x-x- - - `
+    ]]>
+  </level>
+  <level id="191">
+    <![CDATA[
+ - -x-x- - - - -x- - `
+|        A          |`
+              x x    `
+|  B C     A   D D E|`
+                     `
+|      F            |`
+x x     x     x x    `
+|  F           G    |`
+    x   x x          `
+|      F         H  |`
+              x   x x`
+|I I       J G   K  |`
+x x       x x x      `
+|        L L M      |`
+  x   x     x     x x`
+|    N O       P    |`
+    x x              `
+|Q R S   S     M M  |`
+    x     x          `
+|    T             U|`
+ - -x- -x-x- - -x-x- `
+    ]]>
+  </level>
+  <level id="192">
+    <![CDATA[
+ -x- - -x- - - - - - `
+|                   |`
+          x         x`
+|  A A         B B  |`
+            x   x    `
+|    A   C   D      |`
+              x x    `
+|        E       F G|`
+x   x     x          `
+|H   I       F   G  |`
+x     x     x     x x`
+|        J   F      |`
+      x x            `
+|I   K   L         M|`
+        x       x x  `
+|    N   L          |`
+x x     x x x       x`
+|O     P   P Q P    |`
+      x              `
+|    N   R          |`
+ - -x-x- -x- - -x- - `
+    ]]>
+  </level>
+  <level id="193">
+    <![CDATA[
+ - - -x- -x- - - - - `
+|                A  |`
+              x      `
+|  B   C     D   E  |`
+x x           x   x x`
+|          F   E    |`
+    x         x      `
+|          D        |`
+        x x          `
+|    G     F   H H I|`
+        x         x  `
+|J                  |`
+    x             x x`
+|          K        |`
+x     x x x     x    `
+|                  L|`
+    x   x x          `
+|M N N   O   L P P  |`
+          x         x`
+|                   |`
+ - - -x- -x- - - - - `
+    ]]>
+  </level>
+  <level id="194">
+    <![CDATA[
+ - - - - -x- -x- - - `
+|                  A|`
+x x                  `
+|    B C C          |`
+        x x       x x`
+|  B       D   E    |`
+            x x     x`
+|  F       D     G  |`
+      x              `
+|  H   D   I       J|`
+      x       x x    `
+|      H     I K    |`
+        x     x   x x`
+|    H   I       L  |`
+x x x     x          `
+|              M L  |`
+x   x                `
+|  N   O   P   L    |`
+                     `
+|                   |`
+ - - -x- -x- - - -x- `
+    ]]>
+  </level>
+  <level id="195">
+    <![CDATA[
+ - -x- - -x- -x- -x- `
+|    A              |`
+        x x          `
+|    B     C D   E  |`
+            x x      `
+|  F       G   H E  |`
+x     x x x x        `
+|      F   I        |`
+              x x   x`
+|  F J             K|`
+      x   x   x      `
+|  F             L  |`
+x         x x x x   x`
+|  J     M N O      |`
+    x         x   x x`
+|        N       P  |`
+x         x          `
+|                   |`
+      x         x    `
+|  Q     R         S|`
+ - -x- - - -x- - -x- `
+    ]]>
+  </level>
+  <level id="196">
+    <![CDATA[
+ - -x- -x- -x-x- - - `
+|            A      |`
+            x        `
+|  B   C   D A      |`
+          x   x      `
+|  E   B     D   F  |`
+    x x x           x`
+|  E         G      |`
+x           x x      `
+|          H     G  |`
+x     x     x     x x`
+|  I I           J  |`
+          x     x    `
+|    K       J      |`
+x                    `
+|                L  |`
+    x   x x          `
+|M   N O   O     L  |`
+x             x      `
+|              P    |`
+ - - - - -x-x- - - - `
+    ]]>
+  </level>
+  <level id="197">
+    <![CDATA[
+ - - -x-x- - -x- - - `
+|                   |`
+    x                `
+|A         B   C    |`
+                    x`
+|  D B           E F|`
+          x       x x`
+|      B   G       H|`
+  x x       x x x   x`
+|  I       J J K   K|`
+x     x       x x   x`
+|      I G J        |`
+x   x   x     x      `
+|  L                |`
+x             x   x  `
+|M   M G G N        |`
+      x       x      `
+|  N M         O   P|`
+x             x     x`
+|            Q     R|`
+ - - - -x- - -x- - - `
+    ]]>
+  </level>
+  <level id="198">
+    <![CDATA[
+ - - - - -x-x-x- -x- `
+|          A        |`
+          x          `
+|B   C   C       D D|`
+x x     x x          `
+|  E       F     G  |`
+    x       x        `
+|    H     I        |`
+x   x   x   x x     x`
+|            J      |`
+              x     x`
+|  K     L J M      |`
+        x            `
+|            J      |`
+x   x   x x x       x`
+|  L             N  |`
+          x     x x  `
+|  O         P     Q|`
+                     `
+|  O   R            |`
+ - - -x-x- - - -x- - `
+    ]]>
+  </level>
+  <level id="199">
+    <![CDATA[
+ - - -x- - - - - - - `
+|                A  |`
+x       x           x`
+|  B       C C   D  |`
+        x       x    `
+|    E   C C     C  |`
+    x             x x`
+|    E   F F F C C  |`
+x   x x         x    `
+|      G   F        |`
+                    x`
+|  H G         I    |`
+          x x        `
+|          G J   K  |`
+      x              `
+|  L             I  |`
+x     x       x      `
+|          M        |`
+    x         x     x`
+|  N             O  |`
+ -x- -x-x- -x- - - - `
+    ]]>
+  </level>
+  <level id="200">
+    <![CDATA[
+ - -x- -x- -x-x-x-x- `
+|    A           B  |`
+                  x  `
+|          C     D E|`
+      x             x`
+|  F                |`
+      x     x   x   x`
+|G   F F H   C I   J|`
+x x     x x     x    `
+|  F   F K          |`
+                  x x`
+|  F                |`
+      x   x          `
+|    L         K    |`
+                x x  `
+|  M     N          |`
+x             x      `
+|    O       N   P  |`
+      x x     x      `
+|            Q   R  |`
+ -x- -x- - - -x- -x- `
+    ]]>
+  </level>
+</levels>
+</puzzle>
