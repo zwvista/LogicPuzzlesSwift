@@ -1867,6 +1867,15 @@
 		8CF1801C2F3A961F000F1F7D /* CultureTripMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180132F3A961E000F1F7D /* CultureTripMainViewController.swift */; };
 		8CF1801D2F3A961F000F1F7D /* CultureTripDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF1800D2F3A961E000F1F7D /* CultureTripDocument.swift */; };
 		8CF1801E2F3A961F000F1F7D /* CultureTrip.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF1800C2F3A961E000F1F7D /* CultureTrip.xml */; };
+		8CF180292F3C5D7F000F1F7D /* FencingSheep.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF1801F2F3C5D7F000F1F7D /* FencingSheep.xml */; };
+		8CF1802A2F3C5D7F000F1F7D /* FencingSheepMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180262F3C5D7F000F1F7D /* FencingSheepMainViewController.swift */; };
+		8CF1802B2F3C5D7F000F1F7D /* FencingSheepDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180202F3C5D7F000F1F7D /* FencingSheepDocument.swift */; };
+		8CF1802C2F3C5D7F000F1F7D /* FencingSheepGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180252F3C5D7F000F1F7D /* FencingSheepGridNode.swift */; };
+		8CF1802D2F3C5D7F000F1F7D /* FencingSheepGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180232F3C5D7F000F1F7D /* FencingSheepGameState.swift */; };
+		8CF1802E2F3C5D7F000F1F7D /* FencingSheepObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180272F3C5D7F000F1F7D /* FencingSheepObject.swift */; };
+		8CF1802F2F3C5D7F000F1F7D /* FencingSheepGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180242F3C5D7F000F1F7D /* FencingSheepGameViewController.swift */; };
+		8CF180302F3C5D7F000F1F7D /* FencingSheepGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180212F3C5D7F000F1F7D /* FencingSheepGame.swift */; };
+		8CF180312F3C5D7F000F1F7D /* FencingSheepGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF180222F3C5D7F000F1F7D /* FencingSheepGameScene.swift */; };
 		8CF3FFD51FCB2A2700D41B67 /* DisconnectFourGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */; };
 		8CF3FFD61FCB2A2700D41B67 /* DisconnectFourGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */; };
 		8CF3FFD71FCB2A2700D41B67 /* DisconnectFour.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */; };
@@ -3847,6 +3856,15 @@
 		8CF180122F3A961E000F1F7D /* CultureTripGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureTripGridNode.swift; sourceTree = "<group>"; };
 		8CF180132F3A961E000F1F7D /* CultureTripMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureTripMainViewController.swift; sourceTree = "<group>"; };
 		8CF180142F3A961E000F1F7D /* CultureTripObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureTripObject.swift; sourceTree = "<group>"; };
+		8CF1801F2F3C5D7F000F1F7D /* FencingSheep.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FencingSheep.xml; sourceTree = "<group>"; };
+		8CF180202F3C5D7F000F1F7D /* FencingSheepDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FencingSheepDocument.swift; sourceTree = "<group>"; };
+		8CF180212F3C5D7F000F1F7D /* FencingSheepGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FencingSheepGame.swift; sourceTree = "<group>"; };
+		8CF180222F3C5D7F000F1F7D /* FencingSheepGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FencingSheepGameScene.swift; sourceTree = "<group>"; };
+		8CF180232F3C5D7F000F1F7D /* FencingSheepGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FencingSheepGameState.swift; sourceTree = "<group>"; };
+		8CF180242F3C5D7F000F1F7D /* FencingSheepGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FencingSheepGameViewController.swift; sourceTree = "<group>"; };
+		8CF180252F3C5D7F000F1F7D /* FencingSheepGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FencingSheepGridNode.swift; sourceTree = "<group>"; };
+		8CF180262F3C5D7F000F1F7D /* FencingSheepMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FencingSheepMainViewController.swift; sourceTree = "<group>"; };
+		8CF180272F3C5D7F000F1F7D /* FencingSheepObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FencingSheepObject.swift; sourceTree = "<group>"; };
 		8CF3FFC91FCB2A2600D41B67 /* DisconnectFourGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameState.swift; sourceTree = "<group>"; };
 		8CF3FFCA1FCB2A2600D41B67 /* DisconnectFourGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisconnectFourGameScene.swift; sourceTree = "<group>"; };
 		8CF3FFCB1FCB2A2600D41B67 /* DisconnectFour.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DisconnectFour.xml; sourceTree = "<group>"; };
@@ -4738,6 +4756,7 @@
 				8C3A34551EC88D4100A914A5 /* FenceItUp */,
 				8C3A34621EC88D4100A914A5 /* FenceLits */,
 				8C3A346F1EC88D4100A914A5 /* FenceSentinels */,
+				8CF180282F3C5D7F000F1F7D /* FencingSheep */,
 				8C8661FA2EA383740078CD64 /* Fields */,
 				8CA042CC1FDB878700AF85E1 /* Fillomino */,
 				8CCFC4482F262F5000546A04 /* FingerPointing */,
@@ -7294,6 +7313,22 @@
 			path = CultureTrip;
 			sourceTree = "<group>";
 		};
+		8CF180282F3C5D7F000F1F7D /* FencingSheep */ = {
+			isa = PBXGroup;
+			children = (
+				8CF1801F2F3C5D7F000F1F7D /* FencingSheep.xml */,
+				8CF180202F3C5D7F000F1F7D /* FencingSheepDocument.swift */,
+				8CF180212F3C5D7F000F1F7D /* FencingSheepGame.swift */,
+				8CF180222F3C5D7F000F1F7D /* FencingSheepGameScene.swift */,
+				8CF180232F3C5D7F000F1F7D /* FencingSheepGameState.swift */,
+				8CF180242F3C5D7F000F1F7D /* FencingSheepGameViewController.swift */,
+				8CF180252F3C5D7F000F1F7D /* FencingSheepGridNode.swift */,
+				8CF180262F3C5D7F000F1F7D /* FencingSheepMainViewController.swift */,
+				8CF180272F3C5D7F000F1F7D /* FencingSheepObject.swift */,
+			);
+			path = FencingSheep;
+			sourceTree = "<group>";
+		};
 		8CF3FFC71FCB2A2600D41B67 /* DisconnectFour */ = {
 			isa = PBXGroup;
 			children = (
@@ -7851,6 +7886,7 @@
 				8C8663DA2EA39DD00078CD64 /* shade_7.png in Resources */,
 				8C8663DB2EA39DD00078CD64 /* wine_red_glass.png in Resources */,
 				8C8663DC2EA39DD00078CD64 /* turnips.png in Resources */,
+				8CF180292F3C5D7F000F1F7D /* FencingSheep.xml in Resources */,
 				8C8663DD2EA39DD00078CD64 /* arrow2.png in Resources */,
 				8C8663DE2EA39DD00078CD64 /* whale.png in Resources */,
 				8C8663DF2EA39DD00078CD64 /* arrow_blue_down.png in Resources */,
@@ -8695,6 +8731,14 @@
 				8C3A36D91EC88D4300A914A5 /* LitsDocument.swift in Sources */,
 				8CB418DC2F251C7E005C7FDF /* StraightAndBendLandsMainViewController.swift in Sources */,
 				8CB418DD2F251C7E005C7FDF /* StraightAndBendLandsDocument.swift in Sources */,
+				8CF1802A2F3C5D7F000F1F7D /* FencingSheepMainViewController.swift in Sources */,
+				8CF1802B2F3C5D7F000F1F7D /* FencingSheepDocument.swift in Sources */,
+				8CF1802C2F3C5D7F000F1F7D /* FencingSheepGridNode.swift in Sources */,
+				8CF1802D2F3C5D7F000F1F7D /* FencingSheepGameState.swift in Sources */,
+				8CF1802E2F3C5D7F000F1F7D /* FencingSheepObject.swift in Sources */,
+				8CF1802F2F3C5D7F000F1F7D /* FencingSheepGameViewController.swift in Sources */,
+				8CF180302F3C5D7F000F1F7D /* FencingSheepGame.swift in Sources */,
+				8CF180312F3C5D7F000F1F7D /* FencingSheepGameScene.swift in Sources */,
 				8CB418DE2F251C7E005C7FDF /* StraightAndBendLandsGridNode.swift in Sources */,
 				8CB418DF2F251C7E005C7FDF /* StraightAndBendLandsGameViewController.swift in Sources */,
 				8CB418E02F251C7E005C7FDF /* StraightAndBendLandsGameState.swift in Sources */,
