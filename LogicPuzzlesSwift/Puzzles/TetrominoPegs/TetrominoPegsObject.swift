@@ -8,6 +8,11 @@
 
 import Foundation
 
+struct TetrominoPegsObject {
+    var rng = [Position]()
+    var kind = 0
+}
+
 struct TetrominoPegsGameMove {
     var p = Position()
     var dir = 0

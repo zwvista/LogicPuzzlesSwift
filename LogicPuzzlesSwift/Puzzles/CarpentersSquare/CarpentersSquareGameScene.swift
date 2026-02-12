@@ -45,8 +45,6 @@ class CarpentersSquareGameScene: GameScene<CarpentersSquareGameState> {
                 addHint(text: ">", s: s, point: point, nodeName: hintNodeName)
             case .down:
                 addHint(text: "v", s: s, point: point, nodeName: hintNodeName)
-            default:
-                break
             }
         }
         
@@ -99,8 +97,6 @@ class CarpentersSquareGameScene: GameScene<CarpentersSquareGameState> {
                 addHint(text: ">", s: s2, point: point, nodeName: hintNodeName)
             case .down:
                 addHint(text: "v", s: s2, point: point, nodeName: hintNodeName)
-            default:
-                break
             }
         }
     }

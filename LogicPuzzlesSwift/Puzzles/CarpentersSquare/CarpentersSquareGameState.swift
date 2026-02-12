@@ -177,8 +177,6 @@ class CarpentersSquareGameState: GridGameState<CarpentersSquareGameMove> {
                     let s: HintState = squareType == -1 ? .normal : squareType == 2 && p == Position(r1, c1) || squareType == 3 && p == Position(r1, c2) ? .complete : .error
                     pos2state[p] = s
                     if s != .complete { isSolved = false }
-                default:
-                    break
                 }
             }
         }

@@ -15,9 +15,7 @@ class TetrominoPegsGameState: GridGameState<TetrominoPegsGameMove> {
     }
     override var gameDocument: GameDocumentBase { TetrominoPegsDocument.sharedInstance }
     var objArray = [GridDotObject]()
-    var pos2stateHint = [Position: HintState]()
-    var shrubs = Set<Position>()
-    var pos2stateAllowed = [Position: AllowedObjectState]()
+    var tetros = [TetrominoPegsObject]()
     
     override func copy() -> TetrominoPegsGameState {
         let v = TetrominoPegsGameState(game: game, isCopy: true)
@@ -98,7 +96,6 @@ class TetrominoPegsGameState: GridGameState<TetrominoPegsGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        var flowerbeds = [[Position]]()
         let g = Graph()
         var pos2node = [Position: Node]()
         for r in 0..<rows - 1 {
@@ -120,42 +117,36 @@ class TetrominoPegsGameState: GridGameState<TetrominoPegsGameMove> {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
-            let rng = area.filter { p in game.pos2hint[p] != nil }
-            // 1. Divide the board in Flowerbeds of exactly three tiles. Each Flowerbed
-            //    contains a number.
-            let cnt = area.count
-            if rng.isEmpty {
-                if cnt == 1 {
-                    shrubs.insert(area[0])
-                } else {
-                    isSolved = false
-                }
-            } else if rng.count > 1 || cnt != 3 {
-                for p in rng {
-                    pos2stateHint[p] = .normal
-                }
-                isSolved = false
-            } else {
-                flowerbeds.append(area)
+            // 2. Wood cells are fixed pegs and aren't part of Tetrominoes.
+            if area.count == 1 && game.pegs.contains(area[0]) {continue}
+            guard area.count == 4 else { isSolved = false; continue }
+            // 1. Divide the board into Tetrominoes, area of exactly four tiles, of a shape
+            //    like the pieces of Tetris, that is: L, I, T, S or O.
+            // 3. Tetrominoes may be rotated or mirrored.
+            var r1 = rows, c1 = cols
+            for p in area {
+                if r1 > p.row { r1 = p.row }
+                if c1 > p.col { c1 = p.col }
             }
+            let p1 = Position(r1, c1)
+            let area2 = area.map { $0 - p1 }.sorted()
+            let n = TetrominoPegsGame.tetrominoes.indices.first {
+                TetrominoPegsGame.tetrominoes[$0].contains(area2)
+            }!
+            tetros.append(TetrominoPegsObject(rng: area, kind: n))
         }
-        // 2. Single tiles left outside Flowerbeds are Shrubs. Shrubs cannot touch
-        //    each other orthogonally.
-        for p in shrubs {
-            let rng = TetrominoPegsGame.offset.map { p + $0 }.filter { shrubs.contains($0) }
-            let s: AllowedObjectState = rng.isEmpty ? .normal : .error
-            if s == .error { isSolved = false }
-            pos2stateAllowed[p] = s
-        }
-        // 3. The number on each Flowerbed tells you how many Shrubs are adjacent to it.
-        for area in flowerbeds {
-            let pHint = area.first { game.pos2hint[$0] != nil }!
-            let n1 = game.pos2hint[pHint]!
-            let shrubs2 = Set(area.flatMap { p in TetrominoPegsGame.offset.map { p + $0 } }.filter { shrubs.contains($0) })
-            let n2 = shrubs2.count
-            let s: HintState = n1 == n2 ? .complete : .error
-            pos2stateHint[pHint] = s
-            if s != .complete { isSolved = false }
-        }
+        // 4. Two Tetrominoes sharing an edge must be different.
+        if (tetros.indices.contains { index in
+            let t = tetros[index]
+            return t.rng.contains { p in
+                TetrominoPegsGame.offset.contains {
+                    let p2 = p + $0
+                    guard let index2 = (tetros.indices.first {
+                        tetros[$0].rng.contains(p2)
+                    }), index2 != index else { return false }
+                    return tetros[index2].kind == t.kind
+                }
+            }
+        }) { isSolved = false }
     }
 }

@@ -50,6 +50,9 @@ class GuesstrisGame: GridGame<GuesstrisGameState> {
             [Position(0, 0), Position(1, 0), Position(1, 1), Position(2, 1)],
             [Position(0, 1), Position(1, 0), Position(1, 1), Position(2, 0)],
         ],
+        [ // O
+            [Position(0, 0), Position(0, 1), Position(1, 0), Position(1, 1)],
+        ]
     ]
 
     var objArray = [GridDotObject]()

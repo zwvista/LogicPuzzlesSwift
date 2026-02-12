@@ -14,10 +14,6 @@ class TetrominoPegsGameScene: GameScene<TetrominoPegsGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
-    }
-    
     override func levelInitialized(_ game: AnyObject, state: TetrominoPegsGameState, skView: SKView) {
         let game = game as! TetrominoPegsGame
         removeAllChildren()
@@ -27,20 +23,15 @@ class TetrominoPegsGameScene: GameScene<TetrominoPegsGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: TetrominoPegsGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset))
         
-        // add Hints
-        for (p, n) in game.pos2hint {
-            let point = gridNode.centerPoint(p: p)
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let hintNodeName = "hint" + nodeNameSuffix
-            addHint(n: n, s: state.pos2stateHint[p]!, point: point, nodeName: hintNodeName)
-        }
-        
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 if game[r, c][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
                 if game[r, c][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                if game.pegs.contains(p) {
+                    addImage(imageNamed: "wood vertical", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "peg")
+                }
             }
         }
     }
@@ -69,20 +60,13 @@ class TetrominoPegsGameScene: GameScene<TetrominoPegsGameState> {
                     removeVertLine(objType: o1)
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
                 }
-                let hintNodeName = "hint" + nodeNameSuffix
-                func removeHint() { removeNode(withName: hintNodeName) }
-                let (s1, s2) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
-                if s1 != s2 {
-                    removeHint()
-                    addHint(n: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
-                }
-                let shrubNodeName = "shrub" + nodeNameSuffix
-                let (b1, b2) = (stateFrom.shrubs.contains(p), stateTo.shrubs.contains(p))
-                let (s3, s4) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
-                if b1 != b2 || s3 != s4 {
-                    if b1 { removeNode(withName: shrubNodeName) }
-                    if b2 { addImage(imageNamed: "lawn_background", color: .red, colorBlendFactor: s4 == .normal ? 0.0 : 0.5, point: point, nodeName: shrubNodeName) }
-                }
+                let tetroNodeName = "tetro" + nodeNameSuffix
+//                let (b1, b2) = (stateFrom.shrubs.contains(p), stateTo.shrubs.contains(p))
+//                let (s3, s4) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
+//                if b1 != b2 || s3 != s4 {
+//                    if b1 { removeNode(withName: shrubNodeName) }
+//                    if b2 { addImage(imageNamed: "lawn_background", color: .red, colorBlendFactor: s4 == .normal ? 0.0 : 0.5, point: point, nodeName: shrubNodeName) }
+//                }
             }
         }
     }

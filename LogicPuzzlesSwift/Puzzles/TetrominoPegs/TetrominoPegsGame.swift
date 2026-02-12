@@ -18,8 +18,40 @@ class TetrominoPegsGame: GridGame<TetrominoPegsGameState> {
     ]
     static let dirs = [1, 0, 3, 2]
     
+    static let tetrominoes = [
+        [ // L
+            [Position(0, 0), Position(1, 0), Position(2, 0), Position(2, 1)],
+            [Position(0, 1), Position(1, 1), Position(2, 0), Position(2, 1)],
+            [Position(0, 0), Position(0, 1), Position(0, 2), Position(1, 0)],
+            [Position(0, 0), Position(0, 1), Position(0, 2), Position(1, 2)],
+            [Position(0, 0), Position(0, 1), Position(1, 0), Position(2, 0)],
+            [Position(0, 0), Position(0, 1), Position(1, 1), Position(2, 1)],
+            [Position(0, 0), Position(1, 0), Position(1, 1), Position(1, 2)],
+            [Position(0, 2), Position(1, 0), Position(1, 1), Position(1, 2)],
+        ],
+        [ // I
+            [Position(0, 0), Position(1, 0), Position(2, 0), Position(3, 0)],
+            [Position(0, 0), Position(0, 1), Position(0, 2), Position(0, 3)],
+        ],
+        [ // T
+            [Position(0, 0), Position(0, 1), Position(0, 2), Position(1, 1)],
+            [Position(0, 1), Position(1, 0), Position(1, 1), Position(2, 1)],
+            [Position(0, 1), Position(1, 0), Position(1, 1), Position(1, 2)],
+            [Position(0, 0), Position(1, 0), Position(1, 1), Position(2, 0)],
+        ],
+        [ // S
+            [Position(0, 0), Position(0, 1), Position(1, 1), Position(1, 2)],
+            [Position(0, 1), Position(0, 2), Position(1, 0), Position(1, 1)],
+            [Position(0, 0), Position(1, 0), Position(1, 1), Position(2, 1)],
+            [Position(0, 1), Position(1, 0), Position(1, 1), Position(2, 0)],
+        ],
+        [ // O
+            [Position(0, 0), Position(0, 1), Position(1, 0), Position(1, 1)],
+        ]
+    ]
+
     var objArray = [GridDotObject]()
-    var pos2hint = [Position: Int]()
+    var pegs = [Position]()
     
     init(layout: [String], delegate: TetrominoPegsGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -33,8 +65,15 @@ class TetrominoPegsGame: GridGame<TetrominoPegsGameState> {
                 let p = Position(r, c)
                 let ch = str[c]
                 guard ch != " " else {continue}
-                let n = ch.toInt!
-                pos2hint[p] = n
+                pegs.append(p)
+                self[r, c][1] = .line
+                self[r, c][2] = .line
+                self[r, c + 1][3] = .line
+                self[r, c + 1][2] = .line
+                self[r + 1, c][0] = .line
+                self[r + 1, c][1] = .line
+                self[r + 1, c + 1][0] = .line
+                self[r + 1, c + 1][3] = .line
             }
         }
         for r in 0..<rows - 1 {
