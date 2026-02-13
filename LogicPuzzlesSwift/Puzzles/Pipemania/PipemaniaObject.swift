@@ -8,34 +8,11 @@
 
 import Foundation
 
-enum PipemaniaObject {
-    case empty
-    case forbidden
-    case marker
-    case flower(state: AllowedObjectState = .normal)
-    case block
+enum PipemaniaObject: Int {
+    case empty, marker, hint
+    case upright, downright, leftdown, leftup, horizontal, vertical, cross
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .flower:
-            return "flower"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> PipemaniaObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "flower":
-            return .flower()
-        default:
-            return .empty
-        }
     }
 }
 

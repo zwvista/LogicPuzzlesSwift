@@ -52,21 +52,16 @@ class TrebuchetGameState: GridGameState<TrebuchetGameMove> {
     }
     
     override func switchObject(move: inout TrebuchetGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: markerOption)
-        func f(o: TrebuchetObject) -> TrebuchetObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .target()
-            case .target:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .target() : .empty
-            default: return o
-            }
-        }
         let p = move.p
         guard isValid(p: p), game.pos2hint[p] == nil else { return .invalid }
-        move.obj = f(o: self[p])
+        let markerOption = MarkerOptions(rawValue: markerOption)
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .target()
+        case .target: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .target() : .empty
+        default: o
+        }
         return setObject(move: &move)
     }
     

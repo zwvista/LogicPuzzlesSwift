@@ -56,22 +56,17 @@ class RabbitsGameState: GridGameState<RabbitsGameMove> {
     }
     
     override func switchObject(move: inout RabbitsGameMove) -> GameOperationType {
+        let p = move.p
+        guard isValid(p: p) else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
-        func f(o: RabbitsObject) -> RabbitsObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .rabbit()
-            case .rabbit:
-                return .tree()
-            case .tree:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .rabbit() : .empty
-            default:
-                return o
-            }
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .rabbit()
+        case .rabbit: .tree()
+        case .tree: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .rabbit() : .empty
+        default: o
         }
-        move.obj = f(o: self[move.p])
         return setObject(move: &move)
     }
     

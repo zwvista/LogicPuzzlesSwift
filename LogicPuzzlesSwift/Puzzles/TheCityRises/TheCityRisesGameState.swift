@@ -52,21 +52,16 @@ class TheCityRisesGameState: GridGameState<TheCityRisesGameMove> {
     }
     
     override func switchObject(move: inout TheCityRisesGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: markerOption)
-        func f(o: TheCityRisesObject) -> TheCityRisesObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .block()
-            case .block:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .block() : .empty
-            default: return o
-            }
-        }
         let p = move.p
         guard isValid(p: p) else { return .invalid }
-        move.obj = f(o: self[p])
+        let markerOption = MarkerOptions(rawValue: markerOption)
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .block()
+        case .block: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .block() : .empty
+        default: o
+        }
         return setObject(move: &move)
     }
     

@@ -55,22 +55,16 @@ class PaintTheNurikabeGameState: GridGameState<PaintTheNurikabeGameMove> {
     }
     
     override func switchObject(move: inout PaintTheNurikabeGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: markerOption)
-        func f(o: PaintTheNurikabeObject) -> PaintTheNurikabeObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .painted
-            case .painted:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .painted : .empty
-            default:
-                return o
-            }
-        }
         let p = move.p
         guard isValid(p: p) else { return .invalid }
-        move.obj = f(o: self[p])
+        let markerOption = MarkerOptions(rawValue: markerOption)
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .painted
+        case .painted: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .painted : .empty
+        default: o
+        }
         return setObject(move: &move)
     }
     

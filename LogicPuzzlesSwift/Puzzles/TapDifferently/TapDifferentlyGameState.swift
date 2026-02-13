@@ -56,20 +56,16 @@ class TapDifferentlyGameState: GridGameState<TapDifferentlyGameMove> {
     }
     
     override func switchObject(move: inout TapDifferentlyGameMove) -> GameOperationType {
+        let p = move.p
+        guard isValid(p: p) else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
-        func f(o: TapDifferentlyObject) -> TapDifferentlyObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .wall
-            case .wall:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .wall : .empty
-            case .hint:
-                return o
-            }
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .wall
+        case .wall: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .wall : .empty
+        case .hint: o
         }
-        move.obj = f(o: self[move.p])
         return setObject(move: &move)
     }
     

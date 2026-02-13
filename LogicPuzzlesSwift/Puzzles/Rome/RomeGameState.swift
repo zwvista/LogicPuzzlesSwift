@@ -52,25 +52,17 @@ class RomeGameState: GridGameState<RomeGameMove> {
     }
     
     override func switchObject(move: inout RomeGameMove) -> GameOperationType {
-        func f(o: RomeObject) -> RomeObject {
-            switch o {
-            case .empty:
-                return .up
-            case .up:
-                return .right
-            case .right:
-                return .down
-            case .down:
-                return .left
-            case .left:
-                return .empty
-            default:
-                return o
-            }
-        }
         let p = move.p
         guard isValid(p: p), game[p] == .empty else { return .invalid }
-        move.obj = f(o: self[p])
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: .up
+        case .up: .right
+        case .right: .down
+        case .down: .left
+        case .left: .empty
+        default: o
+        }
         return setObject(move: &move)
     }
     

@@ -56,11 +56,11 @@ class MirrorsGameState: GridGameState<MirrorsGameMove> {
         guard isValid(p: p) && game[p] == .empty else { return .invalid }
         let o = self[p]
         move.obj = switch o {
-        case .empty: .upRight
-        case .upRight: .downRight
-        case .downRight: .downLeft
-        case .downLeft: .upLeft
-        case .upLeft: .horizontal
+        case .empty: .upright
+        case .upright: .downright
+        case .downright: .leftdown
+        case .leftdown: .leftup
+        case .leftup: .horizontal
         case .horizontal: .vertical
         case .vertical: .empty
         default: o
@@ -102,10 +102,10 @@ class MirrorsGameState: GridGameState<MirrorsGameMove> {
                 let o = self[p]
                 if o == .empty { isSolved = false }
                 pos2dirs[p] = switch o {
-                case .upRight: [0, 1]
-                case .downRight: [1, 2]
-                case .downLeft: [2, 3]
-                case .upLeft: [0, 3]
+                case .upright: [0, 1]
+                case .downright: [1, 2]
+                case .leftdown: [2, 3]
+                case .leftup: [0, 3]
                 case .horizontal: [1, 3]
                 case .vertical: [0, 2]
                 default: []

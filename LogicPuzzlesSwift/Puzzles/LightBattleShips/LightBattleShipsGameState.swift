@@ -56,32 +56,21 @@ class LightBattleShipsGameState: GridGameState<LightBattleShipsGameMove> {
     }
     
     override func switchObject(move: inout LightBattleShipsGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: markerOption)
-        func f(o: LightBattleShipsObject) -> LightBattleShipsObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .battleShipUnit
-            case .battleShipUnit:
-                return .battleShipMiddle
-            case .battleShipMiddle:
-                return .battleShipLeft
-            case .battleShipLeft:
-                return .battleShipTop
-            case .battleShipTop:
-                return .battleShipRight
-            case .battleShipRight:
-                return .battleShipBottom
-            case .battleShipBottom:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .battleShipUnit : .empty
-            default:
-                return o
-            }
-        }
         let p = move.p
         guard isValid(p: p) else { return .invalid }
-        move.obj = f(o: self[p])
+        let markerOption = MarkerOptions(rawValue: markerOption)
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .battleShipUnit
+        case .battleShipUnit: .battleShipMiddle
+        case .battleShipMiddle: .battleShipLeft
+        case .battleShipLeft: .battleShipTop
+        case .battleShipTop: .battleShipRight
+        case .battleShipRight: .battleShipBottom
+        case .battleShipBottom: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .battleShipUnit : .empty
+        default: o
+        }
         return setObject(move: &move)
     }
     

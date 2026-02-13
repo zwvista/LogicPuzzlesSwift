@@ -57,20 +57,15 @@ class NumberCrosswordsGameState: GridGameState<NumberCrosswordsGameMove> {
     }
     
     override func switchObject(move: inout NumberCrosswordsGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: markerOption)
-        func f(o: NumberCrosswordsObject) -> NumberCrosswordsObject {
-            switch o {
-            case .normal:
-                return markerOption == .markerFirst ? .marker : .darken
-            case .darken:
-                return markerOption == .markerLast ? .marker : .normal
-            case .marker:
-                return markerOption == .markerFirst ? .darken : .normal
-            }
-        }
         let p = move.p
         guard isValid(p: p) else { return .invalid }
-        move.obj = f(o: self[p])
+        let markerOption = MarkerOptions(rawValue: markerOption)
+        let o = self[p]
+        move.obj = switch o {
+        case .normal: markerOption == .markerFirst ? .marker : .darken
+        case .darken: markerOption == .markerLast ? .marker : .normal
+        case .marker: markerOption == .markerFirst ? .darken : .normal
+        }
         return setObject(move: &move)
     }
     

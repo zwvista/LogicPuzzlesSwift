@@ -15,21 +15,14 @@ class RomeGameScene: GameScene<RomeGameState> {
     }
     
     func addObject(o: RomeObject, s: AllowedObjectState, point: CGPoint, nodeName: String) {
-        func f(o: RomeObject) -> String {
-            switch o {
-            case .up:
-                return "arrow_bw_up"
-            case .right:
-                return "arrow_bw_right"
-            case .down:
-                return "arrow_bw_down"
-            case .left:
-                return "arrow_bw_left"
-            default:
-                return "rome"
-            }
+        let imageName = switch o {
+        case .up: "arrow_bw_up"
+        case .right: "arrow_bw_right"
+        case .down: "arrow_bw_down"
+        case .left: "arrow_bw_left"
+        default: "rome"
         }
-        addImage(imageNamed: f(o: o), color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
+        addImage(imageNamed: imageName, color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }
 
     override func levelInitialized(_ game: AnyObject, state: RomeGameState, skView: SKView) {

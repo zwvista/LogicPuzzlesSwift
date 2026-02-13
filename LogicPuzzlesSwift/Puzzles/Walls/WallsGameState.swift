@@ -54,17 +54,15 @@ class WallsGameState: GridGameState<WallsGameMove> {
     }
     
     override func switchObject(move: inout WallsGameMove) -> GameOperationType {
-        func f(o: WallsObject) -> WallsObject {
-            switch o {
-            case .empty: return .horz
-            case .horz: return .vert
-            case .vert: return .empty
-            default: return o
-            }
-        }
         let p = move.p
         guard isValid(p: p), game.pos2hint[p] == nil else { return .invalid }
-        move.obj = f(o: self[p])
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: .horz
+        case .horz: .vert
+        case .vert: .empty
+        default: o
+        }
         return setObject(move: &move)
     }
     

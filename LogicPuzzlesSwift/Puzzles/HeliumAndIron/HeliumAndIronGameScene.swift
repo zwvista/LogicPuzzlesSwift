@@ -15,17 +15,12 @@ class HeliumAndIronGameScene: GameScene<HeliumAndIronGameState> {
     }
     
     func addObject(o: HeliumAndIronObject, s: AllowedObjectState, point: CGPoint, nodeName: String) {
-        func f(o: HeliumAndIronObject) -> String {
-            switch o {
-            case .balloon:
-                return "balloon (1)"
-            case .weight:
-                return "dumbbell (1)"
-            default:
-                return "wood horizontal"
-            }
+        let imageName = switch o {
+        case .balloon: "balloon (1)"
+        case .weight: "dumbbell (1)"
+        default: "wood horizontal"
         }
-        addImage(imageNamed: f(o: o), color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
+        addImage(imageNamed: imageName, color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }
 
     override func levelInitialized(_ game: AnyObject, state: HeliumAndIronGameState, skView: SKView) {

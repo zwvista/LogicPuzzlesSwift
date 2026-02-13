@@ -14,11 +14,18 @@ class PipemaniaGameScene: GameScene<PipemaniaGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addFlower(s: AllowedObjectState, point: CGPoint, nodeName: String) {
-        addImage(imageNamed: "flower_blue", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
+    func addPipe(o: PipemaniaObject, point: CGPoint, nodeName: String) {
+        let imageName = switch o {
+        case .upright: "pipe_1"
+        case .downright: "pipe_2"
+        case .leftdown: "pipe_3"
+        case .leftup: "pipe_4"
+        case .horizontal: "pipe_horizontal"
+        case .vertical: "pipe_vertical"
+        default: "pipe_cross"
+        }
+        addImage(imageNamed: imageName, color: .red, colorBlendFactor: 0.0, point: point, nodeName: nodeName)
     }
-
-    func addForbidden(point: CGPoint, nodeName: String) { addForbiddenMarker(point: point, nodeName: nodeName) }
 
     override func levelInitialized(_ game: AnyObject, state: PipemaniaGameState, skView: SKView) {
         let game = game as! PipemaniaGame
@@ -34,22 +41,9 @@ class PipemaniaGameScene: GameScene<PipemaniaGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
-                let nodeNameSuffix = "-\(r)-\(c)"
-                let flowerNodeName = "flower" + nodeNameSuffix
-                let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                switch state[p] {
-                case let .flower(s):
-                    addFlower(s: s, point: point, nodeName: flowerNodeName)
-                    addCircleMarker(color: .white, point: point, nodeName: "marker")
-                case .block:
-                    let blockNode = SKSpriteNode(color: .white, size: coloredRectSize())
-                    blockNode.position = point
-                    blockNode.name = "block"
-                    gridNode.addChild(blockNode)
-                case .forbidden:
-                    addForbidden(point: point, nodeName: forbiddenNodeName)
-                default:
-                    break
+                let o = state[p]
+                if o != .empty {
+                    addPipe(o: o, point: point, nodeName: "tile")
                 }
             }
         }
@@ -61,35 +55,11 @@ class PipemaniaGameScene: GameScene<PipemaniaGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let flowerNodeName = "flower" + nodeNameSuffix
-                let markerNodeName = "marker" + nodeNameSuffix
-                let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                func removeFlower() { removeNode(withName: flowerNodeName) }
-                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
+                let tileNodeName = "tile" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                guard String(describing: o1) != String(describing: o2) else {continue}
-                switch o1 {
-                case .forbidden:
-                    removeForbidden()
-                case .flower:
-                    removeFlower()
-                case .marker:
-                    removeMarker()
-                default:
-                    break
-                }
-                switch o2 {
-                case .forbidden:
-                    addForbidden(point: point, nodeName: forbiddenNodeName)
-                case let .flower(s):
-                    addFlower(s: s, point: point, nodeName: flowerNodeName)
-                case .marker:
-                    addMarker()
-                default:
-                    break
-                }
+                guard o1 != o2 else {continue}
+                if o1 != .empty { removeNode(withName: tileNodeName) }
+                if o2 != .empty { addPipe(o: o2, point: point, nodeName: tileNodeName) }
             }
         }
     }

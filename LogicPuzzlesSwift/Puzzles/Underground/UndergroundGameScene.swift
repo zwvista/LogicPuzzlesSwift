@@ -15,21 +15,14 @@ class UndergroundGameScene: GameScene<UndergroundGameState> {
     }
     
     func addObject(o: UndergroundObject, s: AllowedObjectState, point: CGPoint, nodeName: String) {
-        func f(o: UndergroundObject) -> String {
-            switch o {
-            case .up:
-                return "stairs_up"
-            case .right:
-                return "stairs_right"
-            case .down:
-                return "stairs_down"
-            case .left:
-                return "stairs_left"
-            default:
-                return "stairs_up"
-            }
+        let imageName = switch o {
+        case .up: "stairs_up"
+        case .right: "stairs_right"
+        case .down: "stairs_down"
+        case .left: "stairs_left"
+        default: "stairs_up"
         }
-        addImage(imageNamed: f(o: o), color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
+        addImage(imageNamed: imageName, color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }
 
     override func levelInitialized(_ game: AnyObject, state: UndergroundGameState, skView: SKView) {

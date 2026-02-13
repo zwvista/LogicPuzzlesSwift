@@ -52,28 +52,19 @@ class UndergroundGameState: GridGameState<UndergroundGameMove> {
     }
     
     override func switchObject(move: inout UndergroundGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: markerOption)
-       func f(o: UndergroundObject) -> UndergroundObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .up
-            case .up:
-                return .right
-            case .right:
-                return .down
-            case .down:
-                return .left
-            case .left:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .up : .empty
-            default:
-                return o
-            }
-        }
         let p = move.p
         guard isValid(p: p), game[p] == .empty else { return .invalid }
-        move.obj = f(o: self[p])
+        let markerOption = MarkerOptions(rawValue: markerOption)
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .up
+        case .up: .right
+        case .right: .down
+        case .down: .left
+        case .left: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .up : .empty
+        default: o
+        }
         return setObject(move: &move)
     }
     

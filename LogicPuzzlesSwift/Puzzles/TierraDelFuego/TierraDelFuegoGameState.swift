@@ -54,22 +54,16 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
     }
     
     override func switchObject(move: inout TierraDelFuegoGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: markerOption)
-        func f(o: TierraDelFuegoObject) -> TierraDelFuegoObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .water()
-            case .water:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .water() : .empty
-            default:
-                return o
-            }
-        }
         let p = move.p
         guard isValid(p: p), game.pos2hint[p] == nil else { return .invalid }
-        move.obj = f(o: self[p])
+        let markerOption = MarkerOptions(rawValue: markerOption)
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .water()
+        case .water: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .water() : .empty
+        default: o
+        }
         return setObject(move: &move)
     }
     

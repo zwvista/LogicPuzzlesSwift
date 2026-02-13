@@ -10,7 +10,7 @@ import Foundation
 
 enum MirrorsObject: Int {
     case empty, block
-    case upRight, downRight, downLeft, upLeft, horizontal, vertical
+    case upright, downright, leftdown, leftup, horizontal, vertical
     init() {
         self = .empty
     }

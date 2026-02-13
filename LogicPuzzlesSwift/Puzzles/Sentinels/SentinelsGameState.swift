@@ -56,20 +56,16 @@ class SentinelsGameState: GridGameState<SentinelsGameMove> {
     }
     
     override func switchObject(move: inout SentinelsGameMove) -> GameOperationType {
+        let p = move.p
+        guard isValid(p: p) else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
-        func f(o: SentinelsObject) -> SentinelsObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .tower()
-            case .tower:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .tower() : .empty
-            default:
-                return o
-            }
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .tower()
+        case .tower: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .tower() : .empty
+        default: o
         }
-        move.obj = f(o: self[move.p])
         return setObject(move: &move)
     }
     

@@ -60,22 +60,16 @@ class SnakeGameState: GridGameState<SnakeGameMove> {
     }
     
     override func switchObject(move: inout SnakeGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: markerOption)
-        func f(o: SnakeObject) -> SnakeObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .snake
-            case .snake:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .snake : .empty
-            default:
-                return o
-            }
-        }
         let p = move.p
         guard isValid(p: p) && !game.pos2snake.contains(p) else { return .invalid }
-        move.obj = f(o: self[p])
+        let markerOption = MarkerOptions(rawValue: markerOption)
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .snake
+        case .snake: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .snake : .empty
+        default: o
+        }
         return setObject(move: &move)
     }
     

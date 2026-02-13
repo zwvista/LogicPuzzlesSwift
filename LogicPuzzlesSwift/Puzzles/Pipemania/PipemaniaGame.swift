@@ -22,17 +22,17 @@ class PipemaniaGame: GridGame<PipemaniaGameState> {
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
-                let p = Position(r, c)
                 let ch = str[c]
-                switch ch {
-                case "F":
-                    self[p] = .flower()
-                case "B":
-                    self[p] = .block
-                default:
-                    break
+                self[r, c] = switch ch {
+                case "3": .upright
+                case "6": .downright
+                case "C": .leftdown
+                case "9": .leftup
+                case "A": .horizontal
+                case "5": .vertical
+                default: .empty
                 }
-            }
+             }
         }
 
         let state = PipemaniaGameState(game: self)

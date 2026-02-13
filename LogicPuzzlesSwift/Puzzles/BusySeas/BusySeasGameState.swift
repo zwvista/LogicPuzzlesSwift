@@ -56,20 +56,16 @@ class BusySeasGameState: GridGameState<BusySeasGameMove> {
     }
     
     override func switchObject(move: inout BusySeasGameMove) -> GameOperationType {
+        let p = move.p
+        guard isValid(p: p) else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
-        func f(o: BusySeasObject) -> BusySeasObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .lighthouse()
-            case .lighthouse:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .lighthouse() : .empty
-            default:
-                return o
-            }
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .lighthouse()
+        case .lighthouse: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .lighthouse() : .empty
+        default: o
         }
-        move.obj = f(o: self[move.p])
         return setObject(move: &move)
     }
     

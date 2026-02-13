@@ -54,22 +54,16 @@ class GardenerGameState: GridGameState<GardenerGameMove> {
     }
     
     override func switchObject(move: inout GardenerGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: markerOption)
-        func f(o: GardenerObject) -> GardenerObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .flower()
-            case .flower:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .flower() : .empty
-            default:
-                return o
-            }
-        }
         let p = move.p
         guard isValid(p: p) else { return .invalid }
-        move.obj = f(o: self[p])
+        let markerOption = MarkerOptions(rawValue: markerOption)
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .flower()
+        case .flower: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .flower() : .empty
+        default: o
+        }
         return setObject(move: &move)
     }
     

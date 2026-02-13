@@ -58,27 +58,17 @@ class BranchesGameState: GridGameState<BranchesGameMove> {
         let p = move.p
         guard isValid(p: p), self[p] != .hint else { return .invalid }
         // 3. Branches can't run over the numbers.
-        func f(o: BranchesObject) -> BranchesObject {
-            switch o {
-            case .empty:
-                return .up
-            case .up:
-                return .right
-            case .right:
-                return .down
-            case .down:
-                return .left
-            case .left:
-                return .horizontal
-            case .horizontal:
-                return .vertical
-            case .vertical:
-                return .empty
-            default:
-                return o
-            }
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: .up
+        case .up: .right
+        case .right: .down
+        case .down: .left
+        case .left: .horizontal
+        case .horizontal: .vertical
+        case .vertical: .empty
+        default: o
         }
-        move.obj = f(o: self[p])
         return setObject(move: &move)
     }
     

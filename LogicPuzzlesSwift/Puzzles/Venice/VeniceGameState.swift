@@ -59,19 +59,13 @@ class VeniceGameState: GridGameState<VeniceGameMove> {
         let p = move.p
         guard isValid(p: p), self[p] != .hint else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
-        func f(o: VeniceObject) -> VeniceObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .water
-            case .water:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .water : .empty
-            default:
-                return o
-            }
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .water
+        case .water: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .water : .empty
+        default: o
         }
-        move.obj = f(o: self[p])
         return setObject(move: &move)
     }
     

@@ -51,22 +51,16 @@ class TurnTwiceGameState: GridGameState<TurnTwiceGameMove> {
     }
     
     override func switchObject(move: inout TurnTwiceGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: markerOption)
-        func f(o: TurnTwiceObject) -> TurnTwiceObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .wall()
-            case .wall:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .signpost() : .empty
-            default:
-                return o
-            }
-        }
         let p = move.p
         guard isValid(p: p), case .empty = game[p] else { return .invalid }
-        move.obj = f(o: self[p])
+        let markerOption = MarkerOptions(rawValue: markerOption)
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .wall()
+        case .wall: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .signpost() : .empty
+        default: o
+        }
         return setObject(move: &move)
     }
     

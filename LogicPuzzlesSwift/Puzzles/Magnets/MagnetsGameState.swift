@@ -57,22 +57,16 @@ class MagnetsGameState: GridGameState<MagnetsGameMove> {
     }
     
     override func switchObject(move: inout MagnetsGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: markerOption)
-        func f(o: MagnetsObject) -> MagnetsObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .positive
-            case .positive:
-                return .negative
-            case .negative:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .positive : .empty
-            }
-        }
         let p = move.p
         guard isValid(p: p) else { return .invalid }
-        move.obj = f(o: self[p])
+        let markerOption = MarkerOptions(rawValue: markerOption)
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .positive
+        case .positive: .negative
+        case .negative: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .positive : .empty
+        }
         return setObject(move: &move)
     }
     

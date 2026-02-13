@@ -33,10 +33,10 @@ class MirrorsGame: GridGame<MirrorsGameState> {
                 let ch = str[c]
                 self[r, c] = switch ch {
                 case "O": .block
-                case "3": .upRight
-                case "6": .downRight
-                case "C": .downLeft
-                case "9": .upLeft
+                case "3": .upright
+                case "6": .downright
+                case "C": .leftdown
+                case "9": .leftup
                 case "A": .horizontal
                 case "5": .vertical
                 default: .empty

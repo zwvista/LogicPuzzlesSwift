@@ -51,22 +51,20 @@ class PipemaniaGameState: GridGameState<PipemaniaGameMove> {
     }
     
     override func switchObject(move: inout PipemaniaGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: markerOption)
-        func f(o: PipemaniaObject) -> PipemaniaObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .flower()
-            case .flower:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .flower() : .empty
-            default:
-                return o
-            }
-        }
         let p = move.p
-        guard isValid(p: p), case .empty = game[p] else { return .invalid }
-        move.obj = f(o: self[p])
+        guard isValid(p: p), game[p] == .empty else { return .invalid }
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: .upright
+        case .upright: .downright
+        case .downright: .leftdown
+        case .leftdown: .leftup
+        case .leftup: .horizontal
+        case .horizontal: .vertical
+        case .vertical: .cross
+        case .cross: .empty
+        default: o
+        }
         return setObject(move: &move)
     }
     
@@ -87,95 +85,61 @@ class PipemaniaGameState: GridGameState<PipemaniaGameMove> {
            (not turning at crossings).
     */
     private func updateIsSolved() {
-        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
-        let g = Graph()
-        var pos2node = [Position: Node]()
+        var pos2dirs = [Position: [Int]]()
+        // 1. The former contractor for your present client left the work unfinished.
+        //    In order not to waste what has bee done, you should complete the pipe
+        //    loop, using the pieces available.
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                switch self[p] {
-                case .forbidden:
-                    self[p] = .empty
-                case .flower:
-                    self[p] = .flower()
-                    pos2node[p] = g.addNode(p.description)
-                default:
-                    break
+                let o = self[p]
+                if o == .empty { isSolved = false }
+                pos2dirs[p] = switch o {
+                case .upright: [0, 1]
+                case .downright: [1, 2]
+                case .leftdown: [2, 3]
+                case .leftup: [0, 3]
+                case .horizontal: [1, 3]
+                case .vertical: [0, 2]
+                case .cross: [0, 1, 2, 3]
+                default: []
                 }
             }
         }
-        for (p, node) in pos2node {
-            for os in PipemaniaGame.offset {
-                let p2 = p + os
-                guard let node2 = pos2node[p2] else {continue}
-                g.addEdge(node, neighbor: node2)
-            }
-        }
-        // 2. More exactly, you have to join the existing flowers by adding more of
-        // them, creating a single path of flowers touching horizontally or
-        // vertically.
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count { isSolved = false }
-        
-        var flowers = [Position]()
-        // 3. At the same time, you can't line up horizontally or vertically more
-        // than 3 flowers (thus Forbidden Four).
-        func invalidFlowers() -> Bool {
-            flowers.count > 3
-        }
-        func checkFlowers() {
-            if invalidFlowers() {
-                isSolved = false
-                for p in flowers {
-                    self[p] = .flower(state: .error)
-                }
-            }
-            flowers.removeAll()
-        }
-        func checkForbidden(p: Position, indexes: [Int]) {
-            guard allowedObjectsOnly else {return}
-            for i in indexes {
-                let os = PipemaniaGame.offset[i]
-                var p2 = p + os
-                while isValid(p: p2) {
-                    guard case .flower = self[p2] else {break}
-                    flowers.append(p2)
-                    p2 += os
-                }
-            }
-            if invalidFlowers() { self[p] = .forbidden }
-            flowers.removeAll()
-        }
+        guard isSolved else {return}
+        // 2. Complete the board using all the tiles and form a single closed loop.
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                switch self[p] {
-                case .flower:
-                    flowers.append(p)
-                case .empty, .marker:
-                    checkFlowers()
-                    checkForbidden(p: p, indexes: [1,3])
-                default:
-                    checkFlowers()
-                }
+                let dirs = pos2dirs[p]!
+                guard (dirs.allSatisfy {
+                    let p2 = p + MirrorsGame.offset[$0]
+                    guard let dirs2 = pos2dirs[p2] else { return false }
+                    return dirs2.contains(($0 + 2) % 4)
+                }) else { isSolved = false; return }
             }
-            checkFlowers()
         }
-        for c in 0..<cols {
-            for r in 0..<rows {
-                let p = Position(r, c)
-                switch self[p] {
-                case .flower:
-                    flowers.append(p)
-                case .empty, .marker:
-                    checkFlowers()
-                    checkForbidden(p: p, indexes: [0,2])
-                default:
-                    checkFlowers()
-                }
+        // 3. The loop can cross itself.
+        // 4. please note “a single closed loop" means that assuming the flow is straight
+        //    even when the pipe crosses itself, i.e. following the pipe in straight lines
+        //    (not turning at crossings).
+        guard isSolved else {return}
+        // Check the loop
+        let p = pos2dirs.keys.first!
+        var p2 = p, n = -1
+        while true {
+            guard var dirs = pos2dirs[p2] else { isSolved = false; return }
+            if dirs.count == 2 {
+                pos2dirs.removeValue(forKey: p2)
+                n = dirs.first { ($0 + 2) % 4 != n }!
+            } else {
+                dirs.removeAll(n)
+                dirs.removeAll((n + 2) % 4)
+                pos2dirs[p2] = dirs
             }
-            checkFlowers()
+            p2 += PipemaniaGame.offset[n]
+            guard p2 != p else {break}
         }
     }
 }
