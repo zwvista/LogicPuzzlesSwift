@@ -114,7 +114,7 @@ class PipemaniaGameState: GridGameState<PipemaniaGameMove> {
                 let p = Position(r, c)
                 let dirs = pos2dirs[p]!
                 guard (dirs.allSatisfy {
-                    let p2 = p + MirrorsGame.offset[$0]
+                    let p2 = p + PipemaniaGame.offset[$0]
                     guard let dirs2 = pos2dirs[p2] else { return false }
                     return dirs2.contains(($0 + 2) % 4)
                 }) else { isSolved = false; return }
@@ -124,7 +124,6 @@ class PipemaniaGameState: GridGameState<PipemaniaGameMove> {
         // 4. please note “a single closed loop" means that assuming the flow is straight
         //    even when the pipe crosses itself, i.e. following the pipe in straight lines
         //    (not turning at crossings).
-        guard isSolved else {return}
         // Check the loop
         let p = pos2dirs.keys.first!
         var p2 = p, n = -1
