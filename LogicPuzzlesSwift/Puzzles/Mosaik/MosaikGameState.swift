@@ -51,21 +51,16 @@ class MosaikGameState: GridGameState<MosaikGameMove> {
     }
     
     override func switchObject(move: inout MosaikGameMove) -> GameOperationType {
+        let p = move.p
+        guard isValid(p: p) else { return .invalid }
         let markerOption = MarkerOptions(rawValue: self.markerOption)
-        func f(o: MosaikObject) -> MosaikObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .filled
-            case .filled:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .filled : .empty
-            default:
-                return o
-            }
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .filled
+        case .filled: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .filled : .empty
+        default: o
         }
-        let o = f(o: self[move.p])
-        move.obj = o
         return setObject(move: &move)
     }
     

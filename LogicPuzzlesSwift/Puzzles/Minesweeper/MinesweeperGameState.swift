@@ -53,20 +53,16 @@ class MinesweeperGameState: GridGameState<MinesweeperGameMove> {
     }
     
     override func switchObject(move: inout MinesweeperGameMove) -> GameOperationType {
+        let p = move.p
+        guard isValid(p: p) else { return .invalid }
         let markerOption = MarkerOptions(rawValue: self.markerOption)
-        func f(o: MinesweeperObject) -> MinesweeperObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .mine
-            case .mine:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .mine : .empty
-            default:
-                return o
-            }
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .mine
+        case .mine: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .mine : .empty
+        default: o
         }
-        move.obj = f(o: self[move.p])
         return setObject(move: &move)
     }
     

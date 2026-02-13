@@ -8,9 +8,15 @@
 
 import Foundation
 
-typealias MirrorsObject = [Bool]
+enum MirrorsObject: Int {
+    case empty, block
+    case upRight, downRight, downLeft, upLeft, horizontal, vertical
+    init() {
+        self = .empty
+    }
+}
 
 struct MirrorsGameMove {
     var p = Position()
-    var dir = 0
+    var obj = MirrorsObject()
 }

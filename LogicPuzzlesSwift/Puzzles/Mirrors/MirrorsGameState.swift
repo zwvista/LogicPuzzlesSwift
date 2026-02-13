@@ -15,7 +15,8 @@ class MirrorsGameState: GridGameState<MirrorsGameMove> {
     }
     override var gameDocument: GameDocumentBase { MirrorsDocument.sharedInstance }
     var objArray = [MirrorsObject]()
-    
+    var pos2dirsAll = [Position: [Int]]()
+
     override func copy() -> MirrorsGameState {
         let v = MirrorsGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -29,7 +30,7 @@ class MirrorsGameState: GridGameState<MirrorsGameMove> {
     required init(game: MirrorsGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<MirrorsObject>(repeating: MirrorsObject(repeating: false, count: 4), count: rows * cols)
+        objArray = game.objArray
         updateIsSolved()
     }
     
@@ -43,15 +44,30 @@ class MirrorsGameState: GridGameState<MirrorsGameMove> {
     }
     
     override func setObject(move: inout MirrorsGameMove) -> GameOperationType {
-        let p = move.p, dir = move.dir
-        let p2 = p + MirrorsGame.offset[dir], dir2 = (dir + 2) % 4
-        guard isValid(p: p2) && game[p] != MirrorsGame.PUZ_BLOCK && game[p2] != MirrorsGame.PUZ_BLOCK else { return .invalid }
-        self[p][dir].toggle()
-        self[p2][dir2].toggle()
+        let p = move.p
+        guard isValid(p: p) && game[p] == .empty && self[p] != move.obj else { return .invalid }
+        self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }
     
+    override func switchObject(move: inout MirrorsGameMove) -> GameOperationType {
+        let p = move.p
+        guard isValid(p: p) && game[p] == .empty else { return .invalid }
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: .upRight
+        case .upRight: .downRight
+        case .downRight: .downLeft
+        case .downLeft: .upLeft
+        case .upLeft: .horizontal
+        case .horizontal: .vertical
+        case .vertical: .empty
+        default: o
+        }
+        return setObject(move: &move)
+    }
+
     
     /*
         iOS Game: 100 Logic Games/Puzzle Set 10/Mirrors
@@ -75,18 +91,40 @@ class MirrorsGameState: GridGameState<MirrorsGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        var pos2dirs = [Position: [Int]]()
+        // 2. Some tiles are already given and can contain Mirrors, which force the
+        //    path to make a turn. Other tiles already contain a fixed piece of straight
+        //    path.
+        // 3. Your task is to fill the remaining board tiles with straight or 90 degree
+        //    path lines, in the end connecting a single, continuous line.
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let dirs = (0..<4).filter { self[p][$0] }
-                if dirs.count == 2 {
-                    // 1. Draw a loop that runs through all tiles.
-                    pos2dirs[p] = dirs
-                } else if !(dirs.isEmpty && game[p] == MirrorsGame.PUZ_BLOCK) {
-                    // 2. The loop cannot cross itself.
-                    isSolved = false; return
+                let o = self[p]
+                if o == .empty { isSolved = false }
+                pos2dirsAll[p] = switch o {
+                case .upRight: [0, 1]
+                case .downRight: [1, 2]
+                case .downLeft: [2, 3]
+                case .upLeft: [0, 3]
+                case .horizontal: [1, 3]
+                case .vertical: [0, 2]
+                default: []
                 }
+            }
+        }
+        guard isSolved else {return}
+        var pos2dirs = pos2dirsAll
+        // 1. The goal is to draw a single, continuous, non-crossing path that fills
+        //    the entire board.
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                let dirs = pos2dirs[p]!
+                guard (dirs.allSatisfy {
+                    let p2 = p + MirrorsGame.offset[$0]
+                    guard let dirs2 = pos2dirs[p2] else { return false }
+                    return dirs2.contains(($0 + 2) % 4)
+                }) else { isSolved = false; return }
             }
         }
         // Check the loop

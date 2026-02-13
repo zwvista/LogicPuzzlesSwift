@@ -59,22 +59,16 @@ class LitsGameState: GridGameState<LitsGameMove> {
     }
     
     override func switchObject(move: inout LitsGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
-        func f(o: LitsObject) -> LitsObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .tree()
-            case .tree:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .tree() : .empty
-            default:
-                return o
-            }
-        }
         let p = move.p
         guard isValid(p: p) else { return .invalid }
-        move.obj = f(o: self[p])
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .tree()
+        case .tree: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .tree() : .empty
+        default: o
+        }
         return setObject(move: &move)
     }
     

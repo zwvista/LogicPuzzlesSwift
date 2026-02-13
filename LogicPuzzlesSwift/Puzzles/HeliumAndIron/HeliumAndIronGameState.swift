@@ -52,24 +52,17 @@ class HeliumAndIronGameState: GridGameState<HeliumAndIronGameMove> {
     }
     
     override func switchObject(move: inout HeliumAndIronGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
-       func f(o: HeliumAndIronObject) -> HeliumAndIronObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .balloon
-            case .balloon:
-                return .weight
-            case .weight:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .balloon : .empty
-            default:
-                return o
-            }
-        }
         let p = move.p
         guard isValid(p: p), self[p] != .block else { return .invalid }
-        move.obj = f(o: self[p])
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .balloon
+        case .balloon: .weight
+        case .weight: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .balloon : .empty
+        default: o
+        }
         return setObject(move: &move)
     }
     

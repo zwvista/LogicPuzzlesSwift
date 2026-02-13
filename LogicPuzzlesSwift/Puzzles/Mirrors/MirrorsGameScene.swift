@@ -13,7 +13,33 @@ class MirrorsGameScene: GameScene<MirrorsGameState> {
         get { getGridNode() as! MirrorsGridNode }
         set { setGridNode(gridNode: newValue) }
     }
-    
+
+    func addLine(dir: Int, color: SKColor, point: CGPoint, nodeName: String) {
+        let pathToDraw = CGMutablePath()
+        let lineNode = SKShapeNode(path:pathToDraw)
+        lineNode.glowWidth = 8
+        switch dir {
+        case 0:
+            pathToDraw.move(to: CGPoint(x: point.x, y: point.y))
+            pathToDraw.addLine(to: CGPoint(x: point.x, y: point.y + gridNode.blockSize / 2))
+        case 1:
+            pathToDraw.move(to: CGPoint(x: point.x, y: point.y))
+            pathToDraw.addLine(to: CGPoint(x: point.x + gridNode.blockSize / 2, y: point.y))
+        case 2:
+            pathToDraw.move(to: CGPoint(x: point.x, y: point.y))
+            pathToDraw.addLine(to: CGPoint(x: point.x, y: point.y - gridNode.blockSize / 2))
+        case 3:
+            pathToDraw.move(to: CGPoint(x: point.x, y: point.y))
+            pathToDraw.addLine(to: CGPoint(x: point.x - gridNode.blockSize / 2, y: point.y))
+        default:
+            break
+        }
+        lineNode.path = pathToDraw
+        lineNode.strokeColor = color
+        lineNode.name = nodeName
+        gridNode.addChild(lineNode)
+    }
+
     override func levelInitialized(_ game: AnyObject, state: MirrorsGameState, skView: SKView) {
         let game = game as! MirrorsGame
         removeAllChildren()
@@ -27,13 +53,19 @@ class MirrorsGameScene: GameScene<MirrorsGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let ch = game[r, c]
-                guard ch != " " else {continue}
                 let point = gridNode.centerPoint(p: p)
-                let blockNode = SKSpriteNode(color: .lightGray, size: coloredRectSize())
-                blockNode.position = point
-                blockNode.name = "block"
-                gridNode.addChild(blockNode)
+                switch state[p] {
+                case .block:
+                    let blockNode = SKSpriteNode(color: .lightGray, size: coloredRectSize())
+                    blockNode.position = point
+                    blockNode.name = "block"
+                    gridNode.addChild(blockNode)
+                case .empty: break
+                default:
+                    for dir in state.pos2dirsAll[p]! {
+                        addLine(dir: dir, color: .white, point: point, nodeName: "line")
+                    }
+                }
             }
         }
     }
@@ -41,35 +73,17 @@ class MirrorsGameScene: GameScene<MirrorsGameState> {
     override func levelUpdated(from stateFrom: MirrorsGameState, to stateTo: MirrorsGameState) {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
-                for dir in 1...2 {
-                    let p = Position(r, c)
-                    let point = gridNode.centerPoint(p: p)
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: p)
+                let (dirs1, dirs2) = (stateFrom.pos2dirsAll[p]!, stateTo.pos2dirsAll[p]!)
+                for dir in 0..<4 {
                     let nodeNameSuffix = "-\(r)-\(c)-\(dir)"
                     let lineNodeName = "line" + nodeNameSuffix
                     func removeLine() { removeNode(withName: lineNodeName) }
-                    func addLine() {
-                        let pathToDraw = CGMutablePath()
-                        let lineNode = SKShapeNode(path:pathToDraw)
-                        lineNode.glowWidth = 8
-                        switch dir {
-                        case 1:
-                            pathToDraw.move(to: CGPoint(x: point.x, y: point.y))
-                            pathToDraw.addLine(to: CGPoint(x: point.x + gridNode.blockSize, y: point.y))
-                        case 2:
-                            pathToDraw.move(to: CGPoint(x: point.x, y: point.y))
-                            pathToDraw.addLine(to: CGPoint(x: point.x, y: point.y - gridNode.blockSize))
-                        default:
-                            break
-                        }
-                        lineNode.path = pathToDraw
-                        lineNode.strokeColor = .green
-                        lineNode.name = lineNodeName
-                        gridNode.addChild(lineNode)
-                    }
-                    let (o1, o2) = (stateFrom[p][dir], stateTo[p][dir])
-                    guard o1 != o2 else {continue}
-                    if o1 { removeLine() }
-                    if o2 { addLine() }
+                    let (b1, b2) = (dirs1.contains(dir), dirs2.contains(dir))
+                    guard b1 != b2 else {continue}
+                    if b1 { removeLine() }
+                    if b2 { addLine(dir: dir, color: .green, point: point, nodeName: lineNodeName) }
                  }
             }
         }

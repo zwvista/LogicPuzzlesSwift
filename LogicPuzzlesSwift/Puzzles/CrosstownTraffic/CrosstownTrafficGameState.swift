@@ -56,31 +56,19 @@ class CrosstownTrafficGameState: GridGameState<CrosstownTrafficGameMove> {
         let p = move.p
         guard isValid(p: p) else { return .invalid }
         let markerOption = MarkerOptions(rawValue: self.markerOption)
-        func f(o: CrosstownTrafficObject) -> CrosstownTrafficObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .upright
-            case .upright:
-                return .downright
-            case .downright:
-                return .leftdown
-            case .leftdown:
-                return .leftup
-            case .leftup:
-                return .horizontal
-            case .horizontal:
-                return .vertical
-            case .vertical:
-                return .cross
-            case .cross:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .upright : .empty
-            default:
-                return o
-            }
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .upright
+        case .upright: .downright
+        case .downright: .leftdown
+        case .leftdown: .leftup
+        case .leftup: .horizontal
+        case .horizontal: .vertical
+        case .vertical: .cross
+        case .cross: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .upright : .empty
+        default: o
         }
-        move.obj = f(o: self[p])
         return setObject(move: &move)
     }
     
@@ -108,24 +96,28 @@ class CrosstownTrafficGameState: GridGameState<CrosstownTrafficGameMove> {
         for r in 1..<rows - 1 {
             for c in 1..<cols - 1 {
                 let p = Position(r, c)
-                switch self[p] {
-                case .upright:
-                    pos2dirs[p] = [0, 1]
-                case .downright:
-                    pos2dirs[p] = [1, 2]
-                case .leftdown:
-                    pos2dirs[p] = [2, 3]
-                case .leftup:
-                    pos2dirs[p] = [0, 3]
-                case .horizontal:
-                    pos2dirs[p] = [1, 3]
-                case .vertical:
-                    pos2dirs[p] = [0, 2]
-                case .cross:
-                    pos2dirs[p] = [0, 1, 2, 3]
-                default:
-                    break
+                pos2dirs[p] = switch self[p] {
+                case .upright: [0, 1]
+                case .downright: [1, 2]
+                case .leftdown: [2, 3]
+                case .leftup: [0, 3]
+                case .horizontal: [1, 3]
+                case .vertical: [0, 2]
+                case .cross: [0, 1, 2, 3]
+                default: []
                 }
+            }
+        }
+        // 1. Draw a circuit (looping road)
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                let dirs = pos2dirs[p]!
+                guard (dirs.allSatisfy {
+                    let p2 = p + CrosstownTrafficGame.offset[$0]
+                    guard let dirs2 = pos2dirs[p2] else { return false }
+                    return dirs2.contains(($0 + 2) % 4)
+                }) else { isSolved = false; return }
             }
         }
         // 3. The numbers along the edge indicate the stretch of the nearest section

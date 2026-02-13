@@ -11,11 +11,6 @@ import SpriteKit
 
 class MirrorsGameViewController: GameGameViewController2<MirrorsGameState, MirrorsGame, MirrorsDocument, MirrorsGameScene> {
     override func getGameDocument() -> GameDocumentBase { MirrorsDocument.sharedInstance }
-    var pLast: Position?
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        true
-    }
     
     override func handleTap(_ sender: UITapGestureRecognizer) {
         guard !game.isSolved else {return}
@@ -23,31 +18,9 @@ class MirrorsGameViewController: GameGameViewController2<MirrorsGameState, Mirro
         let touchLocationInScene = scene.convertPoint(fromView: touchLocation)
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
-        let (p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
-        var move = MirrorsGameMove(p: p, dir: dir)
-        if game.setObject(move: &move) { soundManager.playSoundTap() }
-    }
-    
-    override func handlePan(_ sender: UIPanGestureRecognizer) {
-        guard !game.isSolved else {return}
-        let touchLocation = sender.location(in: sender.view)
-        let touchLocationInScene = scene.convertPoint(fromView: touchLocation)
-        guard scene.gridNode.contains(touchLocationInScene) else {return}
-        let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        let f = { self.soundManager.playSoundTap() }
-        switch sender.state {
-        case .began:
-            pLast = p; f()
-        case .changed:
-            guard pLast != p else {break}
-            defer { pLast = p }
-            guard MirrorsGame.offset.firstIndex(of: p - pLast!) != nil else {break}
-            var move = MirrorsGameMove(p: p)
-            if game.setObject(move: &move) { f() }
-        default:
-            break
-        }
+        var move = MirrorsGameMove(p: p)
+        if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
 
     override func newGame(level: GameLevel) -> MirrorsGame {

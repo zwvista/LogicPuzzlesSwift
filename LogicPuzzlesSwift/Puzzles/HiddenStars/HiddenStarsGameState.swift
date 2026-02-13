@@ -60,22 +60,16 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
     }
     
     override func switchObject(move: inout HiddenStarsGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
-        func f(o: HiddenStarsObject) -> HiddenStarsObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .star()
-            case .star:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .star() : .empty
-            default:
-                return o
-            }
-        }
         let p = move.p
         guard isValid(p: p) else { return .invalid }
-        move.obj = f(o: self[p])
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .star()
+        case .star: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .star() : .empty
+        default: o
+        }
         return setObject(move: &move)
     }
     

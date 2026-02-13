@@ -51,22 +51,16 @@ class LiarLiarGameState: GridGameState<LiarLiarGameMove> {
     }
     
     override func switchObject(move: inout LiarLiarGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
-        func f(o: LiarLiarObject) -> LiarLiarObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .marked()
-            case .marked:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .marked() : .empty
-            default:
-                return o
-            }
-        }
         let p = move.p
         guard isValid(p: p) && game.pos2hint[p] == nil else { return .invalid }
-        move.obj = f(o: self[p])
+        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .marked()
+        case .marked: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .marked() : .empty
+        default: o
+        }
         return setObject(move: &move)
     }
     
