@@ -56,7 +56,7 @@ class TapaGameState: GridGameState<TapaGameMove> {
     }
     
     override func switchObject(move: inout TapaGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: TapaObject) -> TapaObject {
             switch o {
             case .empty:

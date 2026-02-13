@@ -52,7 +52,7 @@ class TrebuchetGameState: GridGameState<TrebuchetGameMove> {
     }
     
     override func switchObject(move: inout TrebuchetGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: TrebuchetObject) -> TrebuchetObject {
             switch o {
             case .empty:

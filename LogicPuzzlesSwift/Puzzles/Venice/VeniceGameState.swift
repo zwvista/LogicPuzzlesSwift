@@ -58,7 +58,7 @@ class VeniceGameState: GridGameState<VeniceGameMove> {
     override func switchObject(move: inout VeniceGameMove) -> GameOperationType {
         let p = move.p
         guard isValid(p: p), self[p] != .hint else { return .invalid }
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: VeniceObject) -> VeniceObject {
             switch o {
             case .empty:

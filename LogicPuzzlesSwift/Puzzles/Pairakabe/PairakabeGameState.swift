@@ -56,7 +56,7 @@ class PairakabeGameState: GridGameState<PairakabeGameMove> {
     }
     
     override func switchObject(move: inout PairakabeGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: PairakabeObject) -> PairakabeObject {
             switch o {
             case .empty:

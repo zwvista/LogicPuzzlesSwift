@@ -65,7 +65,7 @@ class KakurasuGameState: GridGameState<KakurasuGameMove> {
     }
     
     override func switchObject(move: inout KakurasuGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: KakurasuObject) -> KakurasuObject {
             switch o {
             case .empty:

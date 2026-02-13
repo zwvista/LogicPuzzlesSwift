@@ -52,21 +52,16 @@ class ChocolateGameState: GridGameState<ChocolateGameMove> {
     }
     
     override func switchObject(move: inout ChocolateGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
-        func f(o: ChocolateObject) -> ChocolateObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .chocolate()
-            case .chocolate:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .chocolate() : .empty
-            default: return o
-            }
-        }
         let p = move.p
         guard isValid(p: p) else { return .invalid }
-        move.obj = f(o: self[p])
+        let markerOption = MarkerOptions(rawValue: markerOption)
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .chocolate()
+        case .chocolate: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .chocolate() : .empty
+        default: o
+        }
         return setObject(move: &move)
     }
     

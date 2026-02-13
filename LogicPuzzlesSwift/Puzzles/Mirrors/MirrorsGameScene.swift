@@ -62,7 +62,7 @@ class MirrorsGameScene: GameScene<MirrorsGameState> {
                     gridNode.addChild(blockNode)
                 case .empty: break
                 default:
-                    for dir in state.pos2dirsAll[p]! {
+                    for dir in state.pos2dirs[p]! {
                         addLine(dir: dir, color: .white, point: point, nodeName: "line")
                     }
                 }
@@ -75,7 +75,7 @@ class MirrorsGameScene: GameScene<MirrorsGameState> {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
-                let (dirs1, dirs2) = (stateFrom.pos2dirsAll[p]!, stateTo.pos2dirsAll[p]!)
+                let (dirs1, dirs2) = (stateFrom.pos2dirs[p]!, stateTo.pos2dirs[p]!)
                 for dir in 0..<4 {
                     let nodeNameSuffix = "-\(r)-\(c)-\(dir)"
                     let lineNodeName = "line" + nodeNameSuffix

@@ -56,7 +56,7 @@ class BusySeasGameState: GridGameState<BusySeasGameMove> {
     }
     
     override func switchObject(move: inout BusySeasGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: BusySeasObject) -> BusySeasObject {
             switch o {
             case .empty:

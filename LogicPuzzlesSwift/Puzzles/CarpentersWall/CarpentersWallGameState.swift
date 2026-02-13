@@ -54,7 +54,7 @@ class CarpentersWallGameState: GridGameState<CarpentersWallGameMove> {
     override func switchObject(move: inout CarpentersWallGameMove) -> GameOperationType {
         let p = move.p
         guard isValid(p: p) && !self[p].isHint() else { return .invalid }
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
         case .empty: markerOption == .markerFirst ? .marker : .wall

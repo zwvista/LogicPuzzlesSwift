@@ -51,7 +51,7 @@ class FourMeNotGameState: GridGameState<FourMeNotGameMove> {
     }
     
     override func switchObject(move: inout FourMeNotGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: FourMeNotObject) -> FourMeNotObject {
             switch o {
             case .empty:

@@ -55,7 +55,7 @@ class PondCampingGameState: GridGameState<PondCampingGameMove> {
     }
     
     override func switchObject(move: inout PondCampingGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: PondCampingObject) -> PondCampingObject {
             switch o {
             case .empty:

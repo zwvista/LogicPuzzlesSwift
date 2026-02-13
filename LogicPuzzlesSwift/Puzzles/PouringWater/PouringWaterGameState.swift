@@ -58,7 +58,7 @@ class PouringWaterGameState: GridGameState<PouringWaterGameMove> {
     }
     
     override func switchObject(move: inout PouringWaterGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: PouringWaterObject) -> PouringWaterObject {
             switch o {
             case .empty:

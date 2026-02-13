@@ -51,7 +51,7 @@ class PipemaniaGameState: GridGameState<PipemaniaGameMove> {
     }
     
     override func switchObject(move: inout PipemaniaGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: PipemaniaObject) -> PipemaniaObject {
             switch o {
             case .empty:

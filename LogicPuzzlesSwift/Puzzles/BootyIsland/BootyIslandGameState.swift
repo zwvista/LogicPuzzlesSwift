@@ -56,20 +56,16 @@ class BootyIslandGameState: GridGameState<BootyIslandGameMove> {
     }
     
     override func switchObject(move: inout BootyIslandGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
-        func f(o: BootyIslandObject) -> BootyIslandObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .treasure()
-            case .treasure:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .treasure() : .empty
-            default:
-                return o
-            }
+        let p = move.p
+        guard isValid(p: p) else { return .invalid }
+        let markerOption = MarkerOptions(rawValue: markerOption)
+        let o = self[p]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .treasure()
+        case .treasure: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .treasure() : .empty
+        default: o
         }
-        move.obj = f(o: self[move.p])
         return setObject(move: &move)
     }
     

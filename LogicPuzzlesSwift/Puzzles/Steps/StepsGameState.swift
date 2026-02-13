@@ -56,7 +56,7 @@ class StepsGameState: GridGameState<StepsGameMove> {
         guard isValid(p: p) && game[p] == StepsGame.PUZ_EMPTY else { return .invalid }
         let o = self[p]
         let n = game.areas[game.pos2area[p]!].count
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         move.obj =
             o == StepsGame.PUZ_EMPTY ? markerOption == .markerFirst ? StepsGame.PUZ_MARKER : n :
             o == n ? markerOption == .markerLast ? StepsGame.PUZ_MARKER : StepsGame.PUZ_EMPTY :

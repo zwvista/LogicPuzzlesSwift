@@ -57,7 +57,7 @@ class ThermometersGameState: GridGameState<ThermometersGameMove> {
     }
     
     override func switchObject(move: inout ThermometersGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: ThermometersObject) -> ThermometersObject {
             switch o {
             case .empty:

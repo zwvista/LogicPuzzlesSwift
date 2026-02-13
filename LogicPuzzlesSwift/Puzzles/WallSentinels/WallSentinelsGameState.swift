@@ -56,7 +56,7 @@ class WallSentinelsGameState: GridGameState<WallSentinelsGameMove> {
     }
     
     override func switchObject(move: inout WallSentinelsGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: WallSentinelsObject) -> WallSentinelsObject {
             switch o {
             case .empty:

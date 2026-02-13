@@ -59,7 +59,7 @@ class MiniLitsGameState: GridGameState<MiniLitsGameMove> {
     }
     
     override func switchObject(move: inout MiniLitsGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: MiniLitsObject) -> MiniLitsObject {
             switch o {
             case .empty:

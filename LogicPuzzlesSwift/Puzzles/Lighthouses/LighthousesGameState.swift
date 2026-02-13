@@ -56,7 +56,7 @@ class LighthousesGameState: GridGameState<LighthousesGameMove> {
     }
     
     override func switchObject(move: inout LighthousesGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: LighthousesObject) -> LighthousesObject {
             switch o {
             case .empty:

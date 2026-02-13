@@ -54,7 +54,7 @@ class ParkLakesGameState: GridGameState<ParkLakesGameMove> {
     }
     
     override func switchObject(move: inout ParkLakesGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: ParkLakesObject) -> ParkLakesObject {
             switch o {
             case .empty:

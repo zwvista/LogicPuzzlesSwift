@@ -56,7 +56,7 @@ class SentinelsGameState: GridGameState<SentinelsGameMove> {
     }
     
     override func switchObject(move: inout SentinelsGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: SentinelsObject) -> SentinelsObject {
             switch o {
             case .empty:

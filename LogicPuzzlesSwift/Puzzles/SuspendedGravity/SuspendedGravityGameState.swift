@@ -52,7 +52,7 @@ class SuspendedGravityGameState: GridGameState<SuspendedGravityGameMove> {
     }
     
     override func switchObject(move: inout SuspendedGravityGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: SuspendedGravityObject) -> SuspendedGravityObject {
             switch o {
             case .empty:

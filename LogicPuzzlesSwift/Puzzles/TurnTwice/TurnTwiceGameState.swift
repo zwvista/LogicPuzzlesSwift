@@ -51,7 +51,7 @@ class TurnTwiceGameState: GridGameState<TurnTwiceGameMove> {
     }
     
     override func switchObject(move: inout TurnTwiceGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: TurnTwiceObject) -> TurnTwiceObject {
             switch o {
             case .empty:

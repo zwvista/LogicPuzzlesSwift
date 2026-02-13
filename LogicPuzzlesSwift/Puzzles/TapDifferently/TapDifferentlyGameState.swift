@@ -56,7 +56,7 @@ class TapDifferentlyGameState: GridGameState<TapDifferentlyGameMove> {
     }
     
     override func switchObject(move: inout TapDifferentlyGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: TapDifferentlyObject) -> TapDifferentlyObject {
             switch o {
             case .empty:

@@ -92,7 +92,7 @@ class LightenUpGameState: GridGameState<LightenUpGameMove> {
     }
     
     override func switchObject(move: inout LightenUpGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         let allowedObjectsOnly = self.allowedObjectsOnly
         func f(o: LightenUpObjectType) -> LightenUpObjectType {
             switch o {

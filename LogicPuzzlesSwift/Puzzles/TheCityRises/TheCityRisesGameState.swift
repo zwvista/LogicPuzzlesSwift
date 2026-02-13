@@ -52,7 +52,7 @@ class TheCityRisesGameState: GridGameState<TheCityRisesGameMove> {
     }
     
     override func switchObject(move: inout TheCityRisesGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: TheCityRisesObject) -> TheCityRisesObject {
             switch o {
             case .empty:

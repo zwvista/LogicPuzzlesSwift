@@ -68,7 +68,7 @@ class AbcGameState: GridGameState<AbcGameMove> {
         let p = move.p
         guard isValid(p: p) else { return .invalid }
         let o = self[p]
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         move.obj =
             o == " " ? markerOption == .markerFirst ? "." : "A" :
             o == "." ? markerOption == .markerFirst ? "A" : " " :

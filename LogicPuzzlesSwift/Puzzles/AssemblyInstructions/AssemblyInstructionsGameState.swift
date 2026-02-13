@@ -64,7 +64,7 @@ class AssemblyInstructionsGameState: GridGameState<AssemblyInstructionsGameMove>
     }
     
     override func switchObject(move: inout AssemblyInstructionsGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[move.p][move.dir]
         move.obj = switch o {
         case .empty: markerOption == .markerFirst ? .marker : .line

@@ -58,7 +58,7 @@ class FunnyNumbersGameState: GridGameState<FunnyNumbersGameMove> {
     }
     
     override func switchObject(move: inout FunnyNumbersGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: FunnyNumbersObject) -> FunnyNumbersObject {
             switch o {
             case .empty:

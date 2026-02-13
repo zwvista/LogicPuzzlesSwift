@@ -56,7 +56,7 @@ class PataGameState: GridGameState<PataGameMove> {
     }
     
     override func switchObject(move: inout PataGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: PataObject) -> PataObject {
             switch o {
             case .empty:

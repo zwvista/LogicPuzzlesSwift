@@ -58,7 +58,7 @@ class PowerGridGameState: GridGameState<PowerGridGameMove> {
     }
     
     override func switchObject(move: inout PowerGridGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: PowerGridObject) -> PowerGridObject {
             switch o {
             case .empty:

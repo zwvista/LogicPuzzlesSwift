@@ -57,7 +57,7 @@ class NumberCrosswordsGameState: GridGameState<NumberCrosswordsGameMove> {
     }
     
     override func switchObject(move: inout NumberCrosswordsGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: NumberCrosswordsObject) -> NumberCrosswordsObject {
             switch o {
             case .normal:

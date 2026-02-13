@@ -60,7 +60,7 @@ class SnakeGameState: GridGameState<SnakeGameMove> {
     }
     
     override func switchObject(move: inout SnakeGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: SnakeObject) -> SnakeObject {
             switch o {
             case .empty:

@@ -61,7 +61,7 @@ class SnailGameState: GridGameState<SnailGameMove> {
         let p = move.p
         guard isValid(p: p) && game[p] == " " else { return .invalid }
         let o = self[p]
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         move.obj =
             o == " " ? markerOption == .markerFirst ? "." : "1" :
             o == "." ? markerOption == .markerFirst ? "1" : " " :

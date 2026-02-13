@@ -62,7 +62,7 @@ class GuesstrisGameState: GridGameState<GuesstrisGameMove> {
     }
     
     override func switchObject(move: inout GuesstrisGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[move.p][move.dir]
         move.obj = switch o {
         case .empty: markerOption == .markerFirst ? .marker : .line

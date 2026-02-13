@@ -55,7 +55,7 @@ class FloorPlanGameState: GridGameState<FloorPlanGameMove> {
         let p = move.p
         guard isValid(p: p) && game[p] == FloorPlanGame.PUZ_EMPTY else { return .invalid }
         let o = self[p]
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         move.obj =
             o == DigitalPathGame.PUZ_EMPTY ? markerOption == .markerFirst ? DigitalPathGame.PUZ_MARKER : 1 :
             o == DigitalPathGame.PUZ_MARKER ? markerOption == .markerFirst ? 1 : DigitalPathGame.PUZ_EMPTY :

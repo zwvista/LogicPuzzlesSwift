@@ -62,21 +62,14 @@ class FencingSheepGameState: GridGameState<FencingSheepGameMove> {
     }
     
     override func switchObject(move: inout FencingSheepGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
-        func f(o: GridLineObject) -> GridLineObject {
-            switch o {
-            case .empty:
-                return markerOption == .markerFirst ? .marker : .line
-            case .line:
-                return markerOption == .markerLast ? .marker : .empty
-            case .marker:
-                return markerOption == .markerFirst ? .line : .empty
-            default:
-                return o
-            }
+        let markerOption = MarkerOptions(rawValue: markerOption)
+        let o = self[move.p][move.dir]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .line
+        case .line: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .line : .empty
+        default: o
         }
-        let o = f(o: self[move.p][move.dir])
-        move.obj = o
         return setObject(move: &move)
     }
     

@@ -55,7 +55,7 @@ class PaintTheNurikabeGameState: GridGameState<PaintTheNurikabeGameMove> {
     }
     
     override func switchObject(move: inout PaintTheNurikabeGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: PaintTheNurikabeObject) -> PaintTheNurikabeObject {
             switch o {
             case .empty:

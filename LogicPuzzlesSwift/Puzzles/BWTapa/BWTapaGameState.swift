@@ -56,7 +56,7 @@ class BWTapaGameState: GridGameState<BWTapaGameMove> {
     }
     
     override func switchObject(move: inout BWTapaGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: BWTapaObject) -> BWTapaObject {
             switch o {
             case .empty:

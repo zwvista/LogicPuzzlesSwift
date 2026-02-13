@@ -57,7 +57,7 @@ class MagnetsGameState: GridGameState<MagnetsGameMove> {
     }
     
     override func switchObject(move: inout MagnetsGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: MagnetsObject) -> MagnetsObject {
             switch o {
             case .empty:

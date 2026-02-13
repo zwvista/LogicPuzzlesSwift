@@ -58,7 +58,7 @@ class JoinMeGameState: GridGameState<JoinMeGameMove> {
     }
     
     override func switchObject(move: inout JoinMeGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: JoinMeObject) -> JoinMeObject {
             switch o {
             case .empty:

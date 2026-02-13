@@ -54,7 +54,7 @@ class HiddenCloudsGameState: GridGameState<HiddenCloudsGameMove> {
     override func switchObject(move: inout HiddenCloudsGameMove) -> GameOperationType {
         let p = move.p
         guard isValid(p: p) else { return .invalid }
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
         case .empty: markerOption == .markerFirst ? .marker : .cloud()

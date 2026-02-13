@@ -52,7 +52,7 @@ class UndergroundGameState: GridGameState<UndergroundGameMove> {
     }
     
     override func switchObject(move: inout UndergroundGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
        func f(o: UndergroundObject) -> UndergroundObject {
             switch o {
             case .empty:

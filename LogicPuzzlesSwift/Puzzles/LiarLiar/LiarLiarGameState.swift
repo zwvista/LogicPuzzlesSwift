@@ -53,7 +53,7 @@ class LiarLiarGameState: GridGameState<LiarLiarGameMove> {
     override func switchObject(move: inout LiarLiarGameMove) -> GameOperationType {
         let p = move.p
         guard isValid(p: p) && game.pos2hint[p] == nil else { return .invalid }
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
         case .empty: markerOption == .markerFirst ? .marker : .marked()

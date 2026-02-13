@@ -57,7 +57,7 @@ class Square100GameState: GridGameState<Square100GameMove> {
     }
     
     override func switchObject(move: inout Square100GameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         let p = move.p
         guard isValid(p: p) else { return .invalid }
         let n = self[p]

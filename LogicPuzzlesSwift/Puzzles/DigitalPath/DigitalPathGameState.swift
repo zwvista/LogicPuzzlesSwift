@@ -55,7 +55,7 @@ class DigitalPathGameState: GridGameState<DigitalPathGameMove> {
         let p = move.p
         guard isValid(p: p) && game[p] == DigitalPathGame.PUZ_EMPTY else { return .invalid }
         let o = self[p]
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         let nMax = rows
         move.obj =
             o == DigitalPathGame.PUZ_EMPTY ? markerOption == .markerFirst ? DigitalPathGame.PUZ_MARKER : 1 :

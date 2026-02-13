@@ -54,7 +54,7 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
     }
     
     override func switchObject(move: inout TierraDelFuegoGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: TierraDelFuegoObject) -> TierraDelFuegoObject {
             switch o {
             case .empty:

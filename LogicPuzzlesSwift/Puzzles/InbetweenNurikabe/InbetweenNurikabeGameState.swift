@@ -58,7 +58,7 @@ class InbetweenNurikabeGameState: GridGameState<InbetweenNurikabeGameMove> {
     override func switchObject(move: inout InbetweenNurikabeGameMove) -> GameOperationType {
         let p = move.p
         guard isValid(p: p), self[p] != .hint else { return .invalid }
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: InbetweenNurikabeObject) -> InbetweenNurikabeObject {
             switch o {
             case .empty:

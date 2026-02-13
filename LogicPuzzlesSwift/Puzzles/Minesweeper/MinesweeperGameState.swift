@@ -55,7 +55,7 @@ class MinesweeperGameState: GridGameState<MinesweeperGameMove> {
     override func switchObject(move: inout MinesweeperGameMove) -> GameOperationType {
         let p = move.p
         guard isValid(p: p) else { return .invalid }
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
         case .empty: markerOption == .markerFirst ? .marker : .mine

@@ -60,7 +60,7 @@ class AbstractPaintingGameState: GridGameState<AbstractPaintingGameMove> {
     }
     
     override func switchObject(move: inout AbstractPaintingGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         let p = move.p
         guard isValid(p: p) else { return .invalid }
         let o = self[p]

@@ -52,7 +52,7 @@ class GemsGameState: GridGameState<GemsGameMove> {
     }
     
     override func switchObject(move: inout GemsGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: GemsObject) -> GemsObject {
             switch o {
             case .empty:

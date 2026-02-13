@@ -60,7 +60,7 @@ class TentsGameState: GridGameState<TentsGameMove> {
     }
     
     override func switchObject(move: inout TentsGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: TentsObject) -> TentsObject {
             switch o {
             case .empty:

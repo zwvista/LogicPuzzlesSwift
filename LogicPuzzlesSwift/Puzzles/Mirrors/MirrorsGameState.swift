@@ -15,7 +15,7 @@ class MirrorsGameState: GridGameState<MirrorsGameMove> {
     }
     override var gameDocument: GameDocumentBase { MirrorsDocument.sharedInstance }
     var objArray = [MirrorsObject]()
-    var pos2dirsAll = [Position: [Int]]()
+    var pos2dirs = [Position: [Int]]()
 
     override func copy() -> MirrorsGameState {
         let v = MirrorsGameState(game: game, isCopy: true)
@@ -101,7 +101,7 @@ class MirrorsGameState: GridGameState<MirrorsGameMove> {
                 let p = Position(r, c)
                 let o = self[p]
                 if o == .empty { isSolved = false }
-                pos2dirsAll[p] = switch o {
+                pos2dirs[p] = switch o {
                 case .upRight: [0, 1]
                 case .downRight: [1, 2]
                 case .downLeft: [2, 3]
@@ -113,7 +113,7 @@ class MirrorsGameState: GridGameState<MirrorsGameMove> {
             }
         }
         guard isSolved else {return}
-        var pos2dirs = pos2dirsAll
+        var pos2dirs = pos2dirs
         // 1. The goal is to draw a single, continuous, non-crossing path that fills
         //    the entire board.
         for r in 0..<rows {

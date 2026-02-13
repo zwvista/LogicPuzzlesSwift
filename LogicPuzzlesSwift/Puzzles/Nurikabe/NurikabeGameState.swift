@@ -58,7 +58,7 @@ class NurikabeGameState: GridGameState<NurikabeGameMove> {
     override func switchObject(move: inout NurikabeGameMove) -> GameOperationType {
         let p = move.p
         guard isValid(p: p), self[p] != .hint else { return .invalid }
-        let markerOption = MarkerOptions(rawValue: self.markerOption)
+        let markerOption = MarkerOptions(rawValue: markerOption)
         func f(o: NurikabeObject) -> NurikabeObject {
             switch o {
             case .empty:
