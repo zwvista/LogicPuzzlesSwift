@@ -1,5 +1,5 @@
 //
-//  ParkingLotGameState.swift
+//  CloudsAndClearsGameState.swift
 //  LogicPuzzlesSwift
 //
 //  Created by 趙偉 on 2016/09/19.
@@ -8,43 +8,43 @@
 
 import Foundation
 
-class ParkingLotGameState: GridGameState<ParkingLotGameMove> {
-    var game: ParkingLotGame {
-        get { getGame() as! ParkingLotGame }
+class CloudsAndClearsGameState: GridGameState<CloudsAndClearsGameMove> {
+    var game: CloudsAndClearsGame {
+        get { getGame() as! CloudsAndClearsGame }
         set { setGame(game: newValue) }
     }
-    override var gameDocument: GameDocumentBase { ParkingLotDocument.sharedInstance }
-    var objArray = [ParkingLotObject]()
+    override var gameDocument: GameDocumentBase { CloudsAndClearsDocument.sharedInstance }
+    var objArray = [CloudsAndClearsObject]()
     var pos2stateHint = [Position: HintState]()
     var pos2stateAllowed = [Position: AllowedObjectState]()
     
-    override func copy() -> ParkingLotGameState {
-        let v = ParkingLotGameState(game: game, isCopy: true)
+    override func copy() -> CloudsAndClearsGameState {
+        let v = CloudsAndClearsGameState(game: game, isCopy: true)
         return setup(v: v)
     }
-    func setup(v: ParkingLotGameState) -> ParkingLotGameState {
+    func setup(v: CloudsAndClearsGameState) -> CloudsAndClearsGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
         return v
     }
     
-    required init(game: ParkingLotGame, isCopy: Bool = false) {
+    required init(game: CloudsAndClearsGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<ParkingLotObject>(repeating: .empty, count: rows * cols)
+        objArray = Array<CloudsAndClearsObject>(repeating: .empty, count: rows * cols)
         updateIsSolved()
     }
     
-    subscript(p: Position) -> ParkingLotObject {
+    subscript(p: Position) -> CloudsAndClearsObject {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
     }
-    subscript(row: Int, col: Int) -> ParkingLotObject {
+    subscript(row: Int, col: Int) -> CloudsAndClearsObject {
         get { objArray[row * cols + col] }
         set { objArray[row * cols + col] = newValue }
     }
     
-    override func setObject(move: inout ParkingLotGameMove) -> GameOperationType {
+    override func setObject(move: inout CloudsAndClearsGameMove) -> GameOperationType {
         let p = move.p
         guard isValid(p: p) && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
@@ -52,7 +52,7 @@ class ParkingLotGameState: GridGameState<ParkingLotGameMove> {
         return .moveComplete
     }
     
-    override func switchObject(move: inout ParkingLotGameMove) -> GameOperationType {
+    override func switchObject(move: inout CloudsAndClearsGameMove) -> GameOperationType {
         let p = move.p
         guard isValid(p: p) else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
@@ -71,22 +71,17 @@ class ParkingLotGameState: GridGameState<ParkingLotGameMove> {
     }
     
     /*
-        iOS Game: 100 Logic Games/Puzzle Set 11/Parking Lot
+        iOS Game: 100 Logic Games 4/Puzzle Set 3/Clouds and Clears
 
         Summary
-        BEEEEP BEEEEEEP !!!
+        Holes in the sky
 
         Description
-        1. The board represents a parking lot seen from above.
-        2. Each number identifies a car and all cars are identified by a number,
-           there are no hidden cars.
-        3. Cars can be regular sports cars (2*1 tiles) or limousines (3*1 tiles)
-           and can be oriented horizontally or vertically.
-        4. The number in itself specifies how far the car can move forward or
-           backward, in tiles.
-        5. For example, a car that has one tile free in front and one tile free
-           in the back, would be marked with a '2'.
-        6. Find all the cars !!
+        1. Paint the clouds according to the numbers.
+        2. Each cloud or empty Sky move contains a single number that is the extension of the region
+           itself.
+        3. On a region there can be other numbers. These will indicate how many empty (non-cloud) tiles
+           around it (diagonal too) including itself.
     */
     private func updateIsSolved() {
         isSolved = true
@@ -94,15 +89,15 @@ class ParkingLotGameState: GridGameState<ParkingLotGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard let n = (ParkingLotGame.car_offset.indices.first { i in
-                    let offset = ParkingLotGame.car_offset[i]
-                    let obj = ParkingLotGame.car_objects[i]
+                guard let n = (CloudsAndClearsGame.car_offset.indices.first { i in
+                    let offset = CloudsAndClearsGame.car_offset[i]
+                    let obj = CloudsAndClearsGame.car_objects[i]
                     return offset.indices.allSatisfy {
                         let p2 = p + offset[$0]
                         return isValid(p: p2) && self[p2] == obj[$0]
                     }
                 }) else {continue}
-                let car = ParkingLotGame.car_offset[n].map { p + $0 }
+                let car = CloudsAndClearsGame.car_offset[n].map { p + $0 }
                 cars.append(car)
             }
         }

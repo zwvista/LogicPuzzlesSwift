@@ -379,6 +379,15 @@
 		8C2F284F2F4093F4004B3C93 /* ParkingLotGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F28442F4093F4004B3C93 /* ParkingLotGameViewController.swift */; };
 		8C2F28502F4093F4004B3C93 /* ParkingLotDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F28402F4093F4004B3C93 /* ParkingLotDocument.swift */; };
 		8C2F28512F4093F4004B3C93 /* ParkingLot.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2F283F2F4093F4004B3C93 /* ParkingLot.xml */; };
+		8C2F285D2F40FE29004B3C93 /* CloudsAndClearsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F28582F40FE28004B3C93 /* CloudsAndClearsGameViewController.swift */; };
+		8C2F285E2F40FE29004B3C93 /* CloudsAndClearsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F285A2F40FE28004B3C93 /* CloudsAndClearsMainViewController.swift */; };
+		8C2F285F2F40FE29004B3C93 /* CloudsAndClearsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F28562F40FE28004B3C93 /* CloudsAndClearsGameScene.swift */; };
+		8C2F28602F40FE29004B3C93 /* CloudsAndClearsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F28552F40FE28004B3C93 /* CloudsAndClearsGame.swift */; };
+		8C2F28612F40FE29004B3C93 /* CloudsAndClearsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F28592F40FE28004B3C93 /* CloudsAndClearsGridNode.swift */; };
+		8C2F28622F40FE29004B3C93 /* CloudsAndClearsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F28542F40FE28004B3C93 /* CloudsAndClearsDocument.swift */; };
+		8C2F28632F40FE29004B3C93 /* CloudsAndClearsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F285B2F40FE28004B3C93 /* CloudsAndClearsObject.swift */; };
+		8C2F28642F40FE29004B3C93 /* CloudsAndClearsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F28572F40FE28004B3C93 /* CloudsAndClearsGameState.swift */; };
+		8C2F28652F40FE29004B3C93 /* CloudsAndClears.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2F28532F40FE28004B3C93 /* CloudsAndClears.xml */; };
 		8C32D8DC1FC92B5F00BA2D07 /* RippleEffectGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8D01FC92B5F00BA2D07 /* RippleEffectGameViewController.swift */; };
 		8C32D8DD1FC92B5F00BA2D07 /* RippleEffectMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8D11FC92B5F00BA2D07 /* RippleEffectMainViewController.swift */; };
 		8C32D8DF1FC92B5F00BA2D07 /* RippleEffectGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C32D8D31FC92B5F00BA2D07 /* RippleEffectGameScene.swift */; };
@@ -2418,6 +2427,15 @@
 		8C2F28452F4093F4004B3C93 /* ParkingLotGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLotGridNode.swift; sourceTree = "<group>"; };
 		8C2F28462F4093F4004B3C93 /* ParkingLotMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLotMainViewController.swift; sourceTree = "<group>"; };
 		8C2F28472F4093F4004B3C93 /* ParkingLotObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLotObject.swift; sourceTree = "<group>"; };
+		8C2F28532F40FE28004B3C93 /* CloudsAndClears.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CloudsAndClears.xml; sourceTree = "<group>"; };
+		8C2F28542F40FE28004B3C93 /* CloudsAndClearsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudsAndClearsDocument.swift; sourceTree = "<group>"; };
+		8C2F28552F40FE28004B3C93 /* CloudsAndClearsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudsAndClearsGame.swift; sourceTree = "<group>"; };
+		8C2F28562F40FE28004B3C93 /* CloudsAndClearsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudsAndClearsGameScene.swift; sourceTree = "<group>"; };
+		8C2F28572F40FE28004B3C93 /* CloudsAndClearsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudsAndClearsGameState.swift; sourceTree = "<group>"; };
+		8C2F28582F40FE28004B3C93 /* CloudsAndClearsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudsAndClearsGameViewController.swift; sourceTree = "<group>"; };
+		8C2F28592F40FE28004B3C93 /* CloudsAndClearsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudsAndClearsGridNode.swift; sourceTree = "<group>"; };
+		8C2F285A2F40FE28004B3C93 /* CloudsAndClearsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudsAndClearsMainViewController.swift; sourceTree = "<group>"; };
+		8C2F285B2F40FE28004B3C93 /* CloudsAndClearsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudsAndClearsObject.swift; sourceTree = "<group>"; };
 		8C32D8D01FC92B5F00BA2D07 /* RippleEffectGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleEffectGameViewController.swift; sourceTree = "<group>"; };
 		8C32D8D11FC92B5F00BA2D07 /* RippleEffectMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleEffectMainViewController.swift; sourceTree = "<group>"; };
 		8C32D8D31FC92B5F00BA2D07 /* RippleEffectGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleEffectGameScene.swift; sourceTree = "<group>"; };
@@ -4760,6 +4778,22 @@
 			path = ParkingLot;
 			sourceTree = "<group>";
 		};
+		8C2F285C2F40FE28004B3C93 /* CloudsAndClears */ = {
+			isa = PBXGroup;
+			children = (
+				8C2F28532F40FE28004B3C93 /* CloudsAndClears.xml */,
+				8C2F28542F40FE28004B3C93 /* CloudsAndClearsDocument.swift */,
+				8C2F28552F40FE28004B3C93 /* CloudsAndClearsGame.swift */,
+				8C2F28562F40FE28004B3C93 /* CloudsAndClearsGameScene.swift */,
+				8C2F28572F40FE28004B3C93 /* CloudsAndClearsGameState.swift */,
+				8C2F28582F40FE28004B3C93 /* CloudsAndClearsGameViewController.swift */,
+				8C2F28592F40FE28004B3C93 /* CloudsAndClearsGridNode.swift */,
+				8C2F285A2F40FE28004B3C93 /* CloudsAndClearsMainViewController.swift */,
+				8C2F285B2F40FE28004B3C93 /* CloudsAndClearsObject.swift */,
+			);
+			path = CloudsAndClears;
+			sourceTree = "<group>";
+		};
 		8C32D8CF1FC92B5F00BA2D07 /* RippleEffect */ = {
 			isa = PBXGroup;
 			children = (
@@ -4869,6 +4903,7 @@
 				8C9BD5702F0A608A00D1D915 /* Chocolate */,
 				8CB418C82F251920005C7FDF /* CleaningPath */,
 				8C3A342E1EC88D4100A914A5 /* Clouds */,
+				8C2F285C2F40FE28004B3C93 /* CloudsAndClears */,
 				8C81BC222EA8A6BD0083B936 /* CoffeeAndSugar */,
 				8C263F5F2F1E7DE600158A2C /* CrossroadsX */,
 				8CF17F752F367FE0000F1F7D /* CrosstownTraffic */,
@@ -7935,6 +7970,7 @@
 				8C8663552EA39DD00078CD64 /* dictionary.png in Resources */,
 				8C8663562EA39DD00078CD64 /* road_horizontal.png in Resources */,
 				8CF180012F37832A000F1F7D /* ZenSolitaire.xml in Resources */,
+				8C2F28652F40FE29004B3C93 /* CloudsAndClears.xml in Resources */,
 				8C8663572EA39DD00078CD64 /* thermometer3B.png in Resources */,
 				8C8663582EA39DD00078CD64 /* wood vertical.png in Resources */,
 				8C8663592EA39DD00078CD64 /* C4.png in Resources */,
@@ -9799,6 +9835,14 @@
 				8CB419162F25F396005C7FDF /* SuspendedGravityGameScene.swift in Sources */,
 				8CB419172F25F396005C7FDF /* SuspendedGravityDocument.swift in Sources */,
 				8CB419182F25F396005C7FDF /* SuspendedGravityGameState.swift in Sources */,
+				8C2F285D2F40FE29004B3C93 /* CloudsAndClearsGameViewController.swift in Sources */,
+				8C2F285E2F40FE29004B3C93 /* CloudsAndClearsMainViewController.swift in Sources */,
+				8C2F285F2F40FE29004B3C93 /* CloudsAndClearsGameScene.swift in Sources */,
+				8C2F28602F40FE29004B3C93 /* CloudsAndClearsGame.swift in Sources */,
+				8C2F28612F40FE29004B3C93 /* CloudsAndClearsGridNode.swift in Sources */,
+				8C2F28622F40FE29004B3C93 /* CloudsAndClearsDocument.swift in Sources */,
+				8C2F28632F40FE29004B3C93 /* CloudsAndClearsObject.swift in Sources */,
+				8C2F28642F40FE29004B3C93 /* CloudsAndClearsGameState.swift in Sources */,
 				8CB419192F25F396005C7FDF /* SuspendedGravityMainViewController.swift in Sources */,
 				8CB4191A2F25F396005C7FDF /* SuspendedGravityGridNode.swift in Sources */,
 				8CB4191B2F25F396005C7FDF /* SuspendedGravityObject.swift in Sources */,
