@@ -15,8 +15,7 @@ class CloudsAndClearsGameState: GridGameState<CloudsAndClearsGameMove> {
     }
     override var gameDocument: GameDocumentBase { CloudsAndClearsDocument.sharedInstance }
     var objArray = [CloudsAndClearsObject]()
-    var pos2stateHint = [Position: HintState]()
-    var pos2stateAllowed = [Position: AllowedObjectState]()
+    var pos2state = [Position: HintState]()
     
     override func copy() -> CloudsAndClearsGameState {
         let v = CloudsAndClearsGameState(game: game, isCopy: true)
@@ -58,14 +57,9 @@ class CloudsAndClearsGameState: GridGameState<CloudsAndClearsGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .left
-        case .left: .right
-        case .right: .horizontal
-        case .horizontal: .top
-        case .top: .bottom
-        case .bottom: .vertical
-        case .vertical: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .left : .empty
+        case .empty: markerOption == .markerFirst ? .marker : .cloud
+        case .cloud: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .cloud : .empty
         }
         return setObject(move: &move)
     }
@@ -85,60 +79,48 @@ class CloudsAndClearsGameState: GridGameState<CloudsAndClearsGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        var cars = [[Position]]()
+        var clouds = [[Position]]()
+        var empties = [[Position]]()
+        let g = Graph()
+        var pos2node = [Position: Node]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard let n = (CloudsAndClearsGame.car_offset.indices.first { i in
-                    let offset = CloudsAndClearsGame.car_offset[i]
-                    let obj = CloudsAndClearsGame.car_objects[i]
-                    return offset.indices.allSatisfy {
-                        let p2 = p + offset[$0]
-                        return isValid(p: p2) && self[p2] == obj[$0]
-                    }
-                }) else {continue}
-                let car = CloudsAndClearsGame.car_offset[n].map { p + $0 }
-                cars.append(car)
+                let node = g.addNode(p.description)
+                pos2node[p] = node
             }
         }
-        for car in cars {
-            let rng = car.filter { game.pos2hint[$0] != nil }
-            guard rng.count == 1 else {
-                isSolved = false
-                for p in rng { pos2stateHint[p] = .error }
-                continue
+        for (p, node) in pos2node {
+            for i in 0..<4  {
+                let p2 = p + CloudsAndClearsGame.offset[i]
+                guard let node2 = pos2node[p2], (self[p2] == .cloud) == (self[p] == .cloud) else {continue}
+                g.addEdge(node, neighbor: node2)
             }
-            let pHint = rng[0]
-            let n2 = game.pos2hint[pHint]!
-            let isHorz = car[1] - car[0] == Position.East
-            let deltaMin = isHorz ? -car[0].col : -car[0].row
-            let deltaMax = isHorz ? cols - 1 - car.last!.col : rows - 1 - car.last!.row
-            let deltas = (deltaMin...deltaMax).filter { d in
-                car.allSatisfy {
-                    let p2 = $0 + (isHorz ? Position(0, d) : Position(d, 0))
-                    return car.contains(p2) || !self[p2].isCar()
-                }
-            }
-            let n1 = deltas.last! - deltas[0]
-            let s: HintState = n1 == n2 ? .complete : .error
-            pos2stateHint[pHint] = s
-            if s == .error { isSolved = false }
         }
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                if self[p].isCar() {
-                    let s: AllowedObjectState = (cars.contains {
-                        $0.contains(p)
-                    }) ? .normal : .error
-                    pos2stateAllowed[p] = s
-                    if s == .error { isSolved = false }
-                }
-                if game.pos2hint[p] != nil && pos2stateHint[p] == nil {
-                    isSolved = false
-                    pos2stateHint[p] = .normal
-                }
+        while !pos2node.isEmpty {
+            let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+            let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map({ $0.0 }).sorted()
+            pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
+            if self[area[0]] == .cloud {
+                clouds.append(area)
+            } else {
+                empties.append(area)
             }
+        }
+        // 2. Each cloud or empty Sky move contains a single number that is the extension of the region
+        //    itself.
+        // 3. On a region there can be other numbers. These will indicate how many empty (non-cloud) tiles
+        //    around it (diagonal too) including itself.
+        for (p, n2) in game.pos2hint {
+            let area = clouds.first { $0.contains(p) } ?? empties.first { $0.contains(p) }!
+            let n3 = area.count
+            let n1 = CloudsAndClearsGame.offset2.count {
+                let p2 = p + $0
+                return isValid(p: p2) && self[p2] != .cloud
+            }
+            let s: HintState = n1 == n2 || n3 == n2 ? .complete : n1 > n2 ? .normal : .error
+            pos2state[p] = s
+            if s != .complete {isSolved = false}
         }
     }
 }

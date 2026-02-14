@@ -10,12 +10,9 @@ import Foundation
 
 enum CloudsAndClearsObject: Int {
     case empty, marker
-    case left, right, horizontal, top, bottom, vertical
+    case cloud
     init() {
         self = .empty
-    }
-    func isCar() -> Bool {
-        self != .empty && self != .marker
     }
 }
 

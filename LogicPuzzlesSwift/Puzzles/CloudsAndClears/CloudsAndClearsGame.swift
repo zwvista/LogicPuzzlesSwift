@@ -11,22 +11,15 @@ import Foundation
 class CloudsAndClearsGame: GridGame<CloudsAndClearsGameState> {
     static let offset = Position.Directions4
     static let offset2 = [
-        Position(-1, -1),
-        Position(-1, 0),
-        Position(0, 0),
-        Position(0, -1),
-    ]
-    static let car_offset = [
-        [Position(0, 0), Position(0, 1)],
-        [Position(0, 0), Position(0, 1), Position(0, 2)],
-        [Position(0, 0), Position(1, 0)],
-        [Position(0, 0), Position(1, 0), Position(2, 0)],
-    ]
-    static let car_objects: [[CloudsAndClearsObject]] = [
-        [.left, .right],
-        [.left, .horizontal, .right],
-        [.top, .bottom],
-        [.top, .vertical, .bottom],
+        Position.North,
+        Position.NorthEast,
+        Position.East,
+        Position.SouthEast,
+        Position.South,
+        Position.SouthWest,
+        Position.West,
+        Position.NorthWest,
+        Position.Zero,
     ]
 
     var pos2hint = [Position: Int]()

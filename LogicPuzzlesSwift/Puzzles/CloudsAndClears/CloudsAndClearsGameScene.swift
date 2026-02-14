@@ -28,10 +28,10 @@ class CloudsAndClearsGameScene: GameScene<CloudsAndClearsGameState> {
         addGrid(gridNode: CloudsAndClearsGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
                 
         for (p, n) in game.pos2hint {
-            var point = gridNode.centerPoint(p: p)
+            let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
-            addHint(n: n, s: state.pos2stateHint[p]!, point: point, nodeName: hintNodeName)
+            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
         }
     }
     
@@ -43,26 +43,25 @@ class CloudsAndClearsGameScene: GameScene<CloudsAndClearsGameState> {
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let markerNodeName = "marker" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                let carNodeName = "car" + nodeNameSuffix
+                let cloudNodeName = "cloud" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                let (s1, s2) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
-                let (s3, s4) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
-                if o1 != o2 || s3 != s4 {
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                if o1 != o2 {
                     switch o1 {
-                    case .empty:
-                        break
                     case .marker:
                         removeNode(withName: markerNodeName)
+                    case .cloud:
+                        removeNode(withName: cloudNodeName)
                     default:
-                        removeNode(withName: carNodeName)
+                        break
                     }
                     switch o2 {
-                    case .empty:
-                        break
                     case .marker:
                         addDotMarker(point: point, nodeName: markerNodeName)
+                    case .cloud:
+                        addImage(imageNamed: "cloud", color: .red, colorBlendFactor: 0.0, point: point, nodeName: cloudNodeName)
                     default:
-                        addImage(imageNamed: "car_\(String(describing: o2))", color: .green, colorBlendFactor: stateTo.pos2stateAllowed[p]! == .normal ? 0.0 : 0.5, point: point, nodeName: carNodeName)
+                        break
                     }
                 }
                 if s1 != s2 || s1 != nil && o1 != o2 {
