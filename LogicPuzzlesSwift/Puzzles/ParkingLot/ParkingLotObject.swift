@@ -9,10 +9,13 @@
 import Foundation
 
 enum ParkingLotObject: Int {
-    case empty, forbidden, marker
+    case empty, marker
     case left, right, horizontal, top, bottom, vertical
     init() {
         self = .empty
+    }
+    func isCar() -> Bool {
+        self != .empty && self != .marker
     }
 }
 
