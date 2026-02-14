@@ -93,7 +93,7 @@ class CloudsAndClearsGameState: GridGameState<CloudsAndClearsGameMove> {
         for (p, node) in pos2node {
             for i in 0..<4  {
                 let p2 = p + CloudsAndClearsGame.offset[i]
-                guard let node2 = pos2node[p2], (self[p2] == .cloud) == (self[p] == .cloud) else {continue}
+                guard let node2 = pos2node[p2], self[p2].isCloud == self[p].isCloud else {continue}
                 g.addEdge(node, neighbor: node2)
             }
         }
@@ -101,7 +101,7 @@ class CloudsAndClearsGameState: GridGameState<CloudsAndClearsGameMove> {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map({ $0.0 }).sorted()
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
-            if self[area[0]] == .cloud {
+            if self[area[0]].isCloud {
                 clouds.append(area)
             } else {
                 empties.append(area)
@@ -116,7 +116,7 @@ class CloudsAndClearsGameState: GridGameState<CloudsAndClearsGameMove> {
             let n3 = area.count
             let n1 = CloudsAndClearsGame.offset2.count {
                 let p2 = p + $0
-                return isValid(p: p2) && self[p2] != .cloud
+                return isValid(p: p2) && !self[p2].isCloud
             }
             let s: HintState = n1 == n2 || n3 == n2 ? .complete : n1 > n2 ? .normal : .error
             pos2state[p] = s

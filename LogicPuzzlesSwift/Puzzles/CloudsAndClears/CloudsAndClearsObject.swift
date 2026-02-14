@@ -14,6 +14,7 @@ enum CloudsAndClearsObject: Int {
     init() {
         self = .empty
     }
+    var isCloud: Bool { self == .cloud }
 }
 
 struct CloudsAndClearsGameMove {
