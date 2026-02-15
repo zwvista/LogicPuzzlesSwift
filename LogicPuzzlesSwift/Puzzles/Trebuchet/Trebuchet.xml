@@ -6,6 +6,7 @@
 2. The number on a Trebuchet indicates the distance it shoots. Only one of the four directions can be marked with a target, the others should be empty.
 3. Two target cells must not be orthogonally adjacent.
 4. All of the non-targeted cells must be connected.
+5. Please note you can't target other trebuchets (yes it's a pointless war maybe)
   ]]>
 </help>
 <levels>

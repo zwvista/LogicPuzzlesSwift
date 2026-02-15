@@ -1,4 +1,14 @@
 <?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. The grid in the center represents a city from above. Each cell contain a skyscraper, of different height.
+2. The goal is to guess the height of each Skyscraper.
+3. Each row and column can't have two Skyscrapers of the same height.
+4. The numbers on the boarders tell the SUM of the heights of the Skyscrapers you see from there, keeping mind that a higher skyscraper hides a lower one. Skyscrapers are numbered from 1 (lowest) to the grid size (highest).
+5. Each row and column can't have similar Skyscrapers.
+  ]]>
+</help>
 <levels>
   <level id="1">
     <![CDATA[
@@ -223,3 +233,4 @@
     ]]>
   </level>
 </levels>
+</puzzle>

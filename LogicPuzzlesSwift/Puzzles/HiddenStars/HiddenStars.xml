@@ -4,8 +4,8 @@
   <![CDATA[
 1. In the board you have to find hidden stars.
 2. Each star is pointed at by at least one Arrow and each Arrow points to at least one star.
-3. The number on the borders tell you how many Stars there are on that row or column.  Variant
-4. Some levels have a variation of these rules: Stars must be pointed by one and only one Arrow.
+3. The number on the borders tell you how many Stars there on that row or column.  Variant
+4. Some levels have a variation of these rules: Stars must be pointed to by exactly one Arrow and Arrows must point to exactly one Star.
   ]]>
 </help>
 <levels>
@@ -78,7 +78,7 @@
 1211111 `
     ]]>
   </level>
-  <level id="7" OnlyOneArrow="1">
+  <level id="7" ExactlyOne="1">
     <![CDATA[
    6  42`
 42     1`
@@ -90,7 +90,7 @@
 1112211 `
     ]]>
   </level>
-  <level id="8" OnlyOneArrow="1">
+  <level id="8" ExactlyOne="1">
     <![CDATA[
    2    1`
  3     61`
@@ -131,7 +131,7 @@
 112123112 `
     ]]>
   </level>
-  <level id="11" OnlyOneArrow="1">
+  <level id="11" ExactlyOne="1">
     <![CDATA[
 43      3`
  2      1`

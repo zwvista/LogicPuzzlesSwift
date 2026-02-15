@@ -586,7 +586,7 @@ C       B`
   <level id="49">
     <![CDATA[
  FCA   BG `
-    F    6G`
+    F    G`
          G`
 E     FC A`
 D        B`
@@ -605,8 +605,8 @@ E        D`
 F     BC D`
 A    F E B`
    B      `
-B   6    A`
-         6`
+B   G    A`
+         G`
       D  F`
  CAGD DBF `
     ]]>
@@ -614,13 +614,13 @@ B   6    A`
   <level id="51">
     <![CDATA[
  DF C E B `
-D        6G`
+D        G`
 A C   D  B`
 G B      C`
 F         `
 E   G C   `
        E D`
-  D F    6`
+  D F    G`
 C         `
  CD EBFD  `
     ]]>

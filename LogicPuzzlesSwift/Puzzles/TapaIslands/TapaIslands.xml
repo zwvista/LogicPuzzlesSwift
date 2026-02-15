@@ -6,14 +6,6 @@
 2. Empty tiles from 'islands', or separated areas, are surrounded by the filled tiles.
 3. Each separated area may contain at most one clue tile.
 4. If there is a clue tile in an area, at least one digit should give the size of that area in unit squares.
-1. The goal is to fill some tiles forming a single orthogonally continuous path. Just like Nurikabe.
-2. A number indicates how many of the surrounding tiles are filled. If a tile has more than one number, it hints at multiple separated groups of filled tiles.
-3. For example, a cell with a 1 and 3 means there is a continuous group of 3 filled cells around it and one more single filled cell, separated from the other 3. The order of the numbers in this case is irrelevant.
-4. Filled tiles can't cover an area of 2*2 or larger (just like Nurikabe). Tiles with numbers can be considered 'empty'.  Variations
-5. Tapa has plenty of variations. Some are available in the levels of this game. Stronger variations are B-W Tapa, Island Tapa and Pata and have their own game.
-6. Equal Tapa - The board contains an equal number of white and black tiles. Tiles with numbers or question marks are NOT counted as empty or filled for this rule (i.e. they're left out of the count).
-7. Four-Me-Tapa - Four-Me-Not rule apply: you can't have more than three filled tiles in line.
-8. No Square Tapa - No 2*2 area of the board can be left empty.
   ]]>
 </help>
 <levels>
@@ -131,10 +123,335 @@
                 ??      `
     ]]>
   </level>
+  <level id="13">
+    <![CDATA[
+            ?               `
+                            `
+    1?              5       `
+                            `
+                    5       `
+3                           `
+        ??                  `
+    ]]>
+  </level>
+  <level id="14">
+    <![CDATA[
+            4               `
+                            `
+                1?          `
+        5                   `
+??                          `
+        14                  `
+                    ??      `
+    ]]>
+  </level>
+  <level id="15">
+    <![CDATA[
+                        2   `
+2?          33              `
+                            `
+    ??      5               `
+                            `
+                        ??  `
+            4               `
+    ]]>
+  </level>
+  <level id="16">
+    <![CDATA[
+    22                          `
+                    ??          `
+                            ?   `
+            ?                   `
+                                `
+                        24      `
+4                               `
+        ?           4           `
+    ]]>
+  </level>
+  <level id="17">
+    <![CDATA[
+                                `
+4                       5       `
+        ??      5               `
+                                `
+                                `
+    4?                  ??      `
+                                `
+    ?           4               `
+    ]]>
+  </level>
+  <level id="18">
+    <![CDATA[
+    3                           `
+                4?              `
+    5       ??                  `
+                                `
+                    23          `
+                            ?   `
+                                `
+    ?           4               `
+    ]]>
+  </level>
+  <level id="19">
+    <![CDATA[
+                                ?   `
+        5           14              `
+                        24          `
+                                ?   `
+    ?                               `
+                        15          `
+    ?           23                  `
+                                    `
+                                ?   `
+    ]]>
+  </level>
+  <level id="20">
+    <![CDATA[
+        2                           `
+                    ?               `
+    3?                      5       `
+                                    `
+        12?                     ?7  `
+                                    `
+    ??              15              `
+                                ?   `
+                        4           `
+    ]]>
+  </level>
+  <level id="21">
+    <![CDATA[
+                                    `
+                1?                  `
+4                                   `
+        ??2         24              `
+    4?      ??              ??      `
+                    ??              `
+                        ??          `
+        14                          `
+                    ?           ?   `
+    ]]>
+  </level>
+  <level id="22">
+    <![CDATA[
+    ??          ?                   `
+                                    `
+            1?              15      `
+        ??                          `
+                                ?7  `
+            24              14      `
+3                                   `
+                    ??          22  `
+                                    `
+    ]]>
+  </level>
+  <level id="23">
+    <![CDATA[
+?                                   `
+        3?      ??      3?      3   `
+                                    `
+??                                  `
+                6       1?          `
+                                    `
+                                    `
+    5                               `
+                        4           `
+    ]]>
+  </level>
+  <level id="24">
+    <![CDATA[
+?                                   `
+                            ?       `
+        ??      3?                  `
+                            ??      `
+        ??                          `
+??                  ??              `
+                                    `
+        ?               5       4   `
+                                    `
+    ]]>
+  </level>
+  <level id="25">
+    <![CDATA[
+                                        `
+                        3?              `
+    ???                         14      `
+        14              ??              `
+?                                   ??  `
+                ??                      `
+        ??                          ??  `
+                                        `
+    14          ??                      `
+                            ??      ?   `
+    ]]>
+  </level>
+  <level id="26">
+    <![CDATA[
+                            ??  `
+    ??                          `
+2?                      ?       `
+            5                   `
+                        ??      `
+                                `
+?               ?               `
+                        ??      `
+    ]]>
+  </level>
+  <level id="27">
+    <![CDATA[
+                    ?           `
+    5                       3?  `
+                    5           `
+        ??                      `
+                                `
+                                `
+            ?                   `
+?                   ??      ?   `
+    ]]>
+  </level>
+  <level id="28">
+    <![CDATA[
+                        3?          ?   `
+?                                       `
+        ??                      15      `
+                5                       `
+                                        `
+?                               ??      `
+            ??                          `
+                    ???             ??  `
+        ?                               `
+?                       ?               `
+    ]]>
+  </level>
+  <level id="29">
+    <![CDATA[
+                                `
+    1?              1?          `
+            ??                  `
+                12?             `
+                                `
+    ?                           `
+                            4   `
+?           4                   `
+    ]]>
+  </level>
+  <level id="30">
+    <![CDATA[
+                                `
+                ??              `
+                        ??      `
+    ?           4?          ??  `
+                                `
+                                `
+                            ??  `
+        ?       ??              `
+    ]]>
+  </level>
+  <level id="31">
+    <![CDATA[
+                4               `
+    3?                          `
+                    ??          `
+        ??                      `
+                        ?       `
+                ??              `
+    1?                      ??  `
+                                `
+    ]]>
+  </level>
+  <level id="32">
+    <![CDATA[
+            ?                   `
+                                `
+    ?                   14      `
+                                `
+                        ??      `
+    ?                           `
+            ??              ?   `
+        2?          ??          `
+    ]]>
+  </level>
+  <level id="33">
+    <![CDATA[
+?               ?       ?       `
+                                `
+                                `
+        2?              ?       `
+                                `
+                        3?      `
+?       ??                      `
+            ??          ?       `
+    ]]>
+  </level>
+  <level id="34">
+    <![CDATA[
+                                    `
+                    6               `
+    6                               `
+            3?              ??      `
+    ?                               `
+                                    `
+        6                   1?      `
+                                    `
+                    ?               `
+    ]]>
+  </level>
+  <level id="35">
+    <![CDATA[
+                                    `
+            5                       `
+    ??                      15      `
+            ??                      `
+???                     3?          `
+                                    `
+                ??          ?       `
+        14                          `
+                    ?               `
+    ]]>
+  </level>
+  <level id="36">
+    <![CDATA[
+                            ?       `
+                                    `
+                    5           ?7  `
+?           3?                      `
+                    ??              `
+4           ??                      `
+                            ?       `
+                                    `
+                ?                   `
+    ]]>
+  </level>
+  <level id="37">
+    <![CDATA[
+                                    `
+    7                               `
+                                    `
+    14                  1?      4   `
+                                    `
+                            ??      `
+                                    `
+    1?          7                   `
+                        ??      ?   `
+    ]]>
+  </level>
+  <level id="38">
+    <![CDATA[
+                                    `
+        ??                  15      `
+?                                   `
+                        ???         `
+    1?                              `
+            ??                      `
+4                       6           `
+            ??                      `
+                            ?       `
+    ]]>
+  </level>
   <level id="39">
     <![CDATA[
                                     `
         1?                          `
+                    ???     5       `
 ?                                   `
                                 ?   `
 ?                   ?               `

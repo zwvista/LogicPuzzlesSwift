@@ -122,6 +122,173 @@ x v     o`
   o >  o `
     ]]>
   </level>
+  <level id="12">
+    <![CDATA[
+     x   `
+v o o  o `
+         `
+ v >  v v`
+  >      `
+   v o   `
+vv    o  `
+    v  v `
+      o o`
+    ]]>
+  </level>
+  <level id="13">
+    <![CDATA[
+  o v o  o`
+ v o o  o `
+     >    `
+v x   x  v`
+        o `
+    v >   `
+ ov  o   o`
+   >   o  `
+x   v    o`
+  >    >  `
+    ]]>
+  </level>
+  <level id="14">
+    <![CDATA[
+  vx o    `
+oo    o  o`
+    o  ov `
+ox  o     `
+    o    o`
+o    >  v `
+ ov o >   `
+     x    `
+>      o o`
+ o >   o  `
+    ]]>
+  </level>
+  <level id="15">
+    <![CDATA[
+v v   x > `
+ o  x     `
+x v   >  o`
+          `
+ox  > vo o`
+   >    x `
+ ox   o   `
+     o x  `
+v o v     `
+ o   o o  `
+    ]]>
+  </level>
+  <level id="16">
+    <![CDATA[
+> x    x  `
+      v   `
+x    o    `
+       o  `
+     o  ov`
+ >        `
+  v o     `
+   o    x `
+  x       `
+o   o o  o`
+    ]]>
+  </level>
+  <level id="17">
+    <![CDATA[
+        v `
+x  x      `
+       o o`
+       o  `
+>  x      `
+o     v   `
+  v     o `
+   o >    `
+ x  v  v> `
+     >    `
+    ]]>
+  </level>
+  <level id="18">
+    <![CDATA[
+  x > > > `
+oo        `
+  o   o o `
+ ox   o   `
+x    o  x `
+   >   o  `
+o > >   x `
+ o        `
+ x  o  >  `
+          `
+    ]]>
+  </level>
+  <level id="19">
+    <![CDATA[
+x     o  v`
+  o       `
+     >   v`
+ >        `
+    v     `
+ox        `
+   >  >   `
+v       > `
+ >  x    o`
+       >  `
+    ]]>
+  </level>
+  <level id="20">
+    <![CDATA[
+   o v o  `
+x >     x `
+  ox      `
+     o    `
+v   >  >  `
+ v        `
+   x      `
+          `
+      > v `
+o >      o`
+    ]]>
+  </level>
+  <level id="21">
+    <![CDATA[
+ x  vo    `
+     x    `
+x v       `
+       >  `
+x  x      `
+       > o`
+ x        `
+o    >    `
+x  v v oov`
+      o   `
+    ]]>
+  </level>
+  <level id="22">
+    <![CDATA[
+  >       `
+   >  >   `
+ o  x  x  `
+x         `
+  o v   > `
+o         `
+       o  `
+  x  > x  `
+v   o    v`
+    >   o `
+    ]]>
+  </level>
+  <level id="23">
+    <![CDATA[
+ x  x     `
+      x   `
+ v v    x `
+          `
+  o  x ox `
+ >  o     `
+     v  x `
+x v    o  `
+     v   v`
+ o      o `
+    ]]>
+  </level>
   <level id="24">
     <![CDATA[
  > x   v>  `
