@@ -37,10 +37,8 @@ class BotanicalParkGameScene: GameScene<BotanicalParkGameState> {
                 switch state[p] {
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
-                case let .arrow(s):
-                    let point = gridNode.centerPoint(p: p)
-                    let n = game.pos2arrow[p]!
-                    addArrow(n: n, s: s, point: point, nodeName: arrowNodeName)
+                case .arrow:
+                    addArrow(n: game.pos2arrow[p]!, s: state.pos2state[p]!, point: point, nodeName: arrowNodeName)
                 default:
                     break
                 }
@@ -64,7 +62,8 @@ class BotanicalParkGameScene: GameScene<BotanicalParkGameState> {
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let arrowNodeName = "arrow" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
-                guard String(describing: o1) != String(describing: o2) else {continue}
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard o1 != o2 || s1 != s2 else {continue}
                 switch o1 {
                 case .forbidden:
                     removeNode(withName: forbiddenNodeName)
@@ -80,16 +79,15 @@ class BotanicalParkGameScene: GameScene<BotanicalParkGameState> {
                 switch o2 {
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
-                case let .plant(s):
-                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: plantNodeName)
-                case let .arrow(s):
-                    let n = stateTo.game.pos2arrow[p]!
-                    addArrow(n: n, s: s, point: point, nodeName: arrowNodeName)
+                case .plant:
+                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: s2 == .normal ? 0.0 : 0.5, point: point, nodeName: plantNodeName)
+                case .arrow:
+                    addArrow(n: stateFrom.game.pos2arrow[p]!, s: s2!, point: point, nodeName: arrowNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
                 default:
                     break
-                }                
+                }
             }
         }
     }

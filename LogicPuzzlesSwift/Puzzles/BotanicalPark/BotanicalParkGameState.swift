@@ -15,6 +15,7 @@ class BotanicalParkGameState: GridGameState<BotanicalParkGameMove> {
     }
     override var gameDocument: GameDocumentBase { BotanicalParkDocument.sharedInstance }
     var objArray = [BotanicalParkObject]()
+    var pos2state = [Position: AllowedObjectState]()
     
     override func copy() -> BotanicalParkGameState {
         let v = BotanicalParkGameState(game: game, isCopy: true)
@@ -30,8 +31,8 @@ class BotanicalParkGameState: GridGameState<BotanicalParkGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<BotanicalParkObject>(repeating: BotanicalParkObject(), count: rows * cols)
-        for (p, _) in game.pos2arrow {
-            self[p] = .arrow()
+        for p in game.pos2arrow.keys {
+            self[p] = .arrow
         }
         updateIsSolved()
     }
@@ -59,9 +60,9 @@ class BotanicalParkGameState: GridGameState<BotanicalParkGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .plant()
+        case .empty: markerOption == .markerFirst ? .marker : .plant
         case .plant: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .plant() : .empty
+        case .marker: markerOption == .markerFirst ? .plant : .empty
         default: o
         }
         return setObject(move: &move)
@@ -88,27 +89,30 @@ class BotanicalParkGameState: GridGameState<BotanicalParkGameMove> {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                if case .forbidden = self[r, c] { self[r, c] = .empty }
+                if self[r, c] == .forbidden {
+                    self[r, c] = .empty
+                }
             }
         }
         // 3. Plants cannot touch, not even diagonally.
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                func hasNeighbor() -> Bool {
-                    for os in BotanicalParkGame.offset {
-                        let p2 = p + os
-                        if isValid(p: p2), case .plant = self[p2] { return true }
+                func touchPlant() -> Bool {
+                    BotanicalParkGame.offset.contains {
+                        let p2 = p + $0
+                        return isValid(p: p2) && self[p2] == .plant
                     }
-                    return false
                 }
                 switch self[p] {
                 case .plant:
-                    let s: AllowedObjectState = !hasNeighbor() ? .normal : .error
-                    self[p] = .plant(state: s)
+                    let s: AllowedObjectState = !touchPlant() ? .normal : .error
+                    pos2state[p] = s
                     if s == .error { isSolved = false }
                 case .empty, .marker:
-                    if allowedObjectsOnly && hasNeighbor() { self[p] = .forbidden }
+                    if allowedObjectsOnly && touchPlant() {
+                        self[p] = .forbidden
+                    }
                 default:
                     break
                 }
@@ -117,17 +121,17 @@ class BotanicalParkGameState: GridGameState<BotanicalParkGameMove> {
         let n2 = game.plantsInEachArea
         // 2. There is exactly one plant in every row.
         for r in 0..<rows {
-            var n1 = 0
-            for c in 0..<cols {
-                if case .plant = self[r, c] { n1 += 1 }
-            }
+            var n1 = (0..<cols).count { self[r, $0] == .plant }
             if n1 != n2 { isSolved = false }
             for c in 0..<cols {
-                switch self[r, c] {
-                case let .plant(state):
-                    self[r, c] = .plant(state: state == .normal && n1 <= n2 ? .normal : .error)
+                let p = Position(r, c)
+                switch self[p] {
+                case .plant:
+                    pos2state[p] = pos2state[p] == .normal && n1 <= n2 ? .normal : .error
                 case .empty, .marker:
-                    if n1 >= n2 && allowedObjectsOnly { self[r, c] = .forbidden }
+                    if n1 >= n2 && allowedObjectsOnly {
+                        self[p] = .forbidden
+                    }
                 default:
                     break
                 }
@@ -135,17 +139,17 @@ class BotanicalParkGameState: GridGameState<BotanicalParkGameMove> {
         }
         // 2. There is exactly one plant in every column.
         for c in 0..<cols {
-            var n1 = 0
-            for r in 0..<rows {
-                if case .plant = self[r, c] { n1 += 1 }
-            }
+            var n1 = (0..<rows).count { self[$0, c] == .plant }
             if n1 != n2 { isSolved = false }
             for r in 0..<rows {
-                switch self[r, c] {
-                case let .plant(state):
-                    self[r, c] = .plant(state: state == .normal && n1 <= n2 ? .normal : .error)
+                let p = Position(r, c)
+                switch self[p] {
+                case .plant:
+                    pos2state[p] = pos2state[p] == .normal && n1 <= n2 ? .normal : .error
                 case .empty, .marker:
-                    if n1 >= n2 && allowedObjectsOnly { self[r, c] = .forbidden }
+                    if n1 >= n2 && allowedObjectsOnly {
+                        self[p] = .forbidden
+                    }
                 default:
                     break
                 }
@@ -155,22 +159,20 @@ class BotanicalParkGameState: GridGameState<BotanicalParkGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                func hasPlant() -> Bool {
+                guard self[p] == .arrow else {continue}
+                // 2. Each Arrow points to at least one plant.
+                let s: AllowedObjectState = ({
                     var n = 0
                     let os = BotanicalParkGame.offset[game.pos2arrow[p]!]
                     var p2 = p + os
                     while isValid(p: p2) {
-                        if case .plant = self[p2] { n += 1 }
+                        if self[p2] == .plant { n += 1 }
                         p2 += os
                     }
                     return n >= 1
-                }
-                if case .arrow = self[p] {
-                    // 2. Each Arrow points to at least one plant.
-                    let s: AllowedObjectState = hasPlant() ? .normal : .error
-                    self[p] = .arrow(state: s)
-                    if s == .error { isSolved = false }
-                }
+                }()) ? .normal : .error
+                pos2state[p] = s
+                if s == .error { isSolved = false }
             }
         }
     }

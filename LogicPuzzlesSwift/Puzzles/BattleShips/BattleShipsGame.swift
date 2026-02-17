@@ -27,31 +27,26 @@ class BattleShipsGame: GridGame<BattleShipsGameState> {
             for c in 0..<cols + 1 {
                 let p = Position(r, c)
                 let ch = str[c]
-                switch ch {
-                case "^":
-                    pos2obj[p] = .battleShipTop
-                case "v":
-                    pos2obj[p] = .battleShipBottom
-                case "<":
-                    pos2obj[p] = .battleShipLeft
-                case ">":
-                    pos2obj[p] = .battleShipRight
-                case "+":
-                    pos2obj[p] = .battleShipMiddle
-                case "o":
-                    pos2obj[p] = .battleShipUnit
-                case ".":
-                    pos2obj[p] = .marker
-                case "0"..."9":
+                if ch.isNumber {
                     let n = ch.toInt!
                     if r == rows {
                         col2hint[c] = n
                     } else if c == cols {
                         row2hint[r] = n
                     }
-                default:
-                    break
+                } else {
+                    pos2obj[p] = switch ch {
+                    case "^": .battleShipTop
+                    case "v": .battleShipBottom
+                    case "<": .battleShipLeft
+                    case ">": .battleShipRight
+                    case "+": .battleShipMiddle
+                    case "o": .battleShipUnit
+                    case ".": .marker
+                    default: .empty
+                    }
                 }
+                
             }
         }
         
