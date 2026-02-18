@@ -14,6 +14,9 @@ enum DigitalBattleShipsObject: Int {
     init() {
         self = .empty
     }
+    var isShipPiece: Bool {
+        [.battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit].contains(self)
+    }
 }
 
 struct DigitalBattleShipsGameMove {

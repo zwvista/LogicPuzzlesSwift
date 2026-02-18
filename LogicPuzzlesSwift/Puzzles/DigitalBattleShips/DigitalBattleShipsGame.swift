@@ -9,7 +9,8 @@
 import Foundation
 
 class DigitalBattleShipsGame: GridGame<DigitalBattleShipsGameState> {
-    static let offset = Position.Directions8
+    static let offset = Position.Directions4
+    static let offset2 = Position.Directions8
 
     var objArray = [Int]()
     var row2hint = [Int]()

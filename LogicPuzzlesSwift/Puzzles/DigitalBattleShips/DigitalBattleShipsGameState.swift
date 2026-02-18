@@ -112,12 +112,9 @@ class DigitalBattleShipsGameState: GridGameState<DigitalBattleShipsGameMove> {
             var n1 = 0
             let n2 = game.row2hint[r]
             for c in 0..<cols {
-                switch self[r, c] {
-                case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
+                if self[r, c].isShipPiece {
                     // 3. A ship or ship piece is worth the number it occupies on the board.
                     n1 += game[r, c]
-                default:
-                    break
                 }
             }
             row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
@@ -129,12 +126,9 @@ class DigitalBattleShipsGameState: GridGameState<DigitalBattleShipsGameMove> {
             var n1 = 0
             let n2 = game.col2hint[c]
             for r in 0..<rows {
-                switch self[r, c] {
-                case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
+                if self[r, c].isShipPiece {
                     // 3. A ship or ship piece is worth the number it occupies on the board.
                     n1 += game[r, c]
-                default:
-                    break
                 }
             }
             col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
@@ -155,18 +149,15 @@ class DigitalBattleShipsGameState: GridGameState<DigitalBattleShipsGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                switch self[r, c] {
-                case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
+                if self[r, c].isShipPiece {
                     let node = g.addNode(p.description)
                     pos2node[p] = node
-                default:
-                    break
                 }
             }
         }
         for (p, node) in pos2node {
-            for i in 0..<4 {
-                let p2 = p + DigitalBattleShipsGame.offset[i * 2]
+            for os in DigitalBattleShipsGame.offset {
+                let p2 = p + os
                 guard let node2 = pos2node[p2] else {continue}
                 g.addEdge(node, neighbor: node2)
             }
@@ -181,12 +172,11 @@ class DigitalBattleShipsGameState: GridGameState<DigitalBattleShipsGameMove> {
                 area.testAll({ $0.col == area.first!.col }) && self[area.first!] == .battleShipTop && self[area.last!] == .battleShipBottom) &&
                 [Int](1..<area.count - 1).testAll({ self[area[$0]] == .battleShipMiddle }) else { isSolved = false; continue }
             for p in area {
-                for os in DigitalBattleShipsGame.offset {
+                for os in DigitalBattleShipsGame.offset2 {
                     // 4. A ship or piece of ship can't touch another, not even diagonally.
                     let p2 = p + os
                     if !self.isValid(p: p2) || area.contains(p2) {continue}
-                    let o = self[p2]
-                    if !(o == .empty || o == .forbidden || o == .marker) {
+                    if self[p2].isShipPiece {
                         isSolved = false
                     } else if allowedObjectsOnly {
                         self[p2] = .forbidden
