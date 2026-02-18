@@ -9,7 +9,8 @@
 import Foundation
 
 class BattleShipsGame: GridGame<BattleShipsGameState> {
-    static let offset = Position.Directions8
+    static let offset = Position.Directions4
+    static let offset2 = Position.Directions8
 
     var row2hint = [Int]()
     var col2hint = [Int]()
@@ -43,7 +44,7 @@ class BattleShipsGame: GridGame<BattleShipsGameState> {
                     case "+": .battleShipMiddle
                     case "o": .battleShipUnit
                     case ".": .marker
-                    default: .empty
+                    default: nil
                     }
                 }
                 

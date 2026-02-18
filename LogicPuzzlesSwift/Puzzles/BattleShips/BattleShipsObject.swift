@@ -14,13 +14,8 @@ enum BattleShipsObject: Int {
     init() {
         self = .empty
     }
-    func isShipPiece() -> Bool {
-        switch self {
-        case .empty, .forbidden, .marker:
-            return false
-        default:
-            return true
-        }
+    var isShipPiece: Bool {
+        [.battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit].contains(self)
     }
 }
 

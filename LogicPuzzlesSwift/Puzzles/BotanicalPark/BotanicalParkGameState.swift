@@ -121,7 +121,7 @@ class BotanicalParkGameState: GridGameState<BotanicalParkGameMove> {
         let n2 = game.plantsInEachArea
         // 2. There is exactly one plant in every row.
         for r in 0..<rows {
-            var n1 = (0..<cols).count { self[r, $0] == .plant }
+            let n1 = (0..<cols).count { self[r, $0] == .plant }
             if n1 != n2 { isSolved = false }
             for c in 0..<cols {
                 let p = Position(r, c)
@@ -139,7 +139,7 @@ class BotanicalParkGameState: GridGameState<BotanicalParkGameMove> {
         }
         // 2. There is exactly one plant in every column.
         for c in 0..<cols {
-            var n1 = (0..<rows).count { self[$0, c] == .plant }
+            let n1 = (0..<rows).count { self[$0, c] == .plant }
             if n1 != n2 { isSolved = false }
             for r in 0..<rows {
                 let p = Position(r, c)

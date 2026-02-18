@@ -15,7 +15,8 @@ class LightBattleShipsGameState: GridGameState<LightBattleShipsGameMove> {
     }
     override var gameDocument: GameDocumentBase { LightBattleShipsDocument.sharedInstance }
     var objArray = [LightBattleShipsObject]()
-    
+    var pos2state = [Position: HintState]()
+
     override func copy() -> LightBattleShipsGameState {
         let v = LightBattleShipsGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -47,17 +48,15 @@ class LightBattleShipsGameState: GridGameState<LightBattleShipsGameMove> {
     
     override func setObject(move: inout LightBattleShipsGameMove) -> GameOperationType {
         let p = move.p
-        let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 { return .invalid }
-        guard String(describing: o1) != String(describing: o2) else { return .invalid }
-        self[p] = o2
+        guard isValid(p: p) && game.pos2obj[p] == nil && self[p] != move.obj else { return .invalid }
+        self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }
     
     override func switchObject(move: inout LightBattleShipsGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) else { return .invalid }
+        guard isValid(p: p) && game.pos2obj[p] == nil else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
@@ -101,35 +100,28 @@ class LightBattleShipsGameState: GridGameState<LightBattleShipsGameMove> {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                if case .forbidden = self[r, c] { self[r, c] = .empty }
+                if self[r, c] == .forbidden { self[r, c] = .empty }
             }
         }
         // 3. Ships cannot touch Lighthouses. Not even diagonally.
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                func hasNeighbor(isHint: Bool) -> Bool {
-                    for os in LightBattleShipsGame.offset {
-                        let p2 = p + os
-                        guard isValid(p: p2) else {continue}
-                        switch self[p2] {
-                        case .hint:
-                            if !isHint { return true }
-                        case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
-                            if isHint { return true }
-                        default:
-                            break
-                        }
+                func touchHint(isHint: Bool) -> Bool {
+                    LightBattleShipsGame.offset2.contains {
+                        let p2 = p + $0
+                        guard isValid(p: p2) else {return false}
+                        let o = self[p2]
+                        return !isHint && o == .hint || isHint && o.isShipPiece
                     }
-                    return false
                 }
                 switch self[p] {
                 case .hint:
-                    let s: HintState = !hasNeighbor(isHint: true) ? .normal : .error
-                    self[p] = .hint(state: s)
+                    let s: HintState = !touchHint(isHint: true) ? .normal : .error
+                    pos2state[p] = s
                     if s == .error { isSolved = false }
                 case .empty, .marker:
-                    guard allowedObjectsOnly && hasNeighbor(isHint: false) else {continue}
+                    guard allowedObjectsOnly && touchHint(isHint: false) else {continue}
                     self[p] = .forbidden
                 default:
                     break
@@ -139,26 +131,22 @@ class LightBattleShipsGameState: GridGameState<LightBattleShipsGameMove> {
         // 2. Each number is a Lighthouse, telling you how many pieces of ship
         // there are in that row and column, summed together.
         for (p, n2) in game.pos2hint {
-            var nums = [0, 0, 0, 0]
+            var n1 = 0
             var rng = [Position]()
-            for i in 0..<4 {
-                let os = LightBattleShipsGame.offset[i * 2]
+            for os in LightBattleShipsGame.offset {
                 var p2 = p + os
                 while game.isValid(p: p2) {
-                    switch self[p2] {
-                    case .empty:
+                    let o = self[p2]
+                    if o == .empty {
                         rng.append(p2)
-                    case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
-                        nums[i] += 1
-                    default:
-                        break
+                    } else if o.isShipPiece {
+                        n1 += 1
                     }
                     p2 += os
                 }
             }
-            let n1 = nums.reduce(0, +)
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if case let .hint(state) = self[p], state != .error { self[p] = .hint(state: s) }
+            if pos2state[p] != .error { pos2state[p] = s }
             if s != .complete {
                 isSolved = false
             } else if allowedObjectsOnly {
@@ -172,18 +160,16 @@ class LightBattleShipsGameState: GridGameState<LightBattleShipsGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                switch self[r, c] {
-                case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
+                let o = self[p]
+                if o.isShipPiece {
                     let node = g.addNode(p.description)
                     pos2node[p] = node
-                default:
-                    break
                 }
             }
         }
         for (p, node) in pos2node {
-            for i in 0..<4 {
-                let p2 = p + LightBattleShipsGame.offset[i * 2]
+            for os in LightBattleShipsGame.offset {
+                let p2 = p + os
                 guard let node2 = pos2node[p2] else {continue}
                 g.addEdge(node, neighbor: node2)
             }
@@ -198,7 +184,7 @@ class LightBattleShipsGameState: GridGameState<LightBattleShipsGameMove> {
                 area.testAll({ $0.col == area.first!.col }) && String(describing: self[area.first!]) == String(describing: LightBattleShipsObject.battleShipTop) && String(describing: self[area.last!]) == String(describing: LightBattleShipsObject.battleShipBottom)) &&
                 [Int](1..<area.count - 1).testAll({ String(describing: self[area[$0]]) == String(describing: LightBattleShipsObject.battleShipMiddle) }) else { isSolved = false; continue }
             for p in area {
-                for os in LightBattleShipsGame.offset {
+                for os in LightBattleShipsGame.offset2 {
                     // 3. Ships cannot touch each other. Not even diagonally.
                     let p2 = p + os
                     if !self.isValid(p: p2) || area.contains(p2) {continue}

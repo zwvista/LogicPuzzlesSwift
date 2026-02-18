@@ -150,25 +150,21 @@ class BattleShipsGameScene: GameScene<BattleShipsGameState> {
                 let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
                 guard o1 != o2 else {continue}
                 switch o1 {
-                case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
-                    removeBattleShip()
                 case .forbidden:
                     removeForbidden()
                 case .marker:
                     removeMarker()
                 default:
-                    break
+                    if o1.isShipPiece { removeBattleShip() }
                 }
                 switch o2 {
-                case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
-                    addBattleShip(color: .white, point: point, obj: o2, nodeName: battleShipNodeName)
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case .marker:
                     addMarker()
                 default:
-                    break
-                }                
+                    if o2.isShipPiece { addBattleShip(color: .white, point: point, obj: o2, nodeName: battleShipNodeName) }
+                }
             }
         }
     }

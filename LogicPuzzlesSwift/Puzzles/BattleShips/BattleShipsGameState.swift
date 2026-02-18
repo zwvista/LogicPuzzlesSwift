@@ -61,7 +61,7 @@ class BattleShipsGameState: GridGameState<BattleShipsGameMove> {
     
     override func switchObject(move: inout BattleShipsGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) else { return .invalid }
+        guard isValid(p: p) && game.pos2obj[p] == nil else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
@@ -114,7 +114,7 @@ class BattleShipsGameState: GridGameState<BattleShipsGameMove> {
             var n1 = 0
             let n2 = game.row2hint[r]
             for c in 0..<cols {
-                if self[r, c].isShipPiece() { n1 += 1 }
+                if self[r, c].isShipPiece { n1 += 1 }
             }
             row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 { isSolved = false }
@@ -124,7 +124,7 @@ class BattleShipsGameState: GridGameState<BattleShipsGameMove> {
             var n1 = 0
             let n2 = game.col2hint[c]
             for r in 0..<rows {
-                if self[r, c].isShipPiece() { n1 += 1 }
+                if self[r, c].isShipPiece { n1 += 1 }
             }
             col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if n1 != n2 { isSolved = false }
@@ -144,15 +144,15 @@ class BattleShipsGameState: GridGameState<BattleShipsGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if self[r, c].isShipPiece() {
+                if self[r, c].isShipPiece {
                     let node = g.addNode(p.description)
                     pos2node[p] = node
                 }
             }
         }
         for (p, node) in pos2node {
-            for i in 0..<4  {
-                let p2 = p + BattleShipsGame.offset[i * 2]
+            for os in BattleShipsGame.offset {
+                let p2 = p + os
                 guard let node2 = pos2node[p2] else {continue}
                 g.addEdge(node, neighbor: node2)
             }
@@ -167,11 +167,11 @@ class BattleShipsGameState: GridGameState<BattleShipsGameMove> {
                 area.testAll({ $0.col == area.first!.col }) && self[area.first!] == .battleShipTop && self[area.last!] == .battleShipBottom) &&
                 [Int](1..<area.count - 1).testAll({ self[area[$0]] == .battleShipMiddle }) else { isSolved = false; continue }
             for p in area {
-                for os in BattleShipsGame.offset {
+                for os in BattleShipsGame.offset2 {
                     // 3. A ship or piece of ship can't touch another, not even diagonally.
                     let p2 = p + os
                     if !self.isValid(p: p2) || area.contains(p2) {continue}
-                    if self[p2].isShipPiece() {
+                    if self[p2].isShipPiece {
                         isSolved = false
                     } else if allowedObjectsOnly {
                         self[p2] = .forbidden

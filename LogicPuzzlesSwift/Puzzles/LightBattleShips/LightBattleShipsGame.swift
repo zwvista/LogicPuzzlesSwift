@@ -9,7 +9,8 @@
 import Foundation
 
 class LightBattleShipsGame: GridGame<LightBattleShipsGameState> {
-    static let offset = Position.Directions8
+    static let offset = Position.Directions4
+    static let offset2 = Position.Directions8
 
     var pos2hint = [Position: Int]()
     var pos2obj = [Position: LightBattleShipsObject]()
@@ -24,26 +25,20 @@ class LightBattleShipsGame: GridGame<LightBattleShipsGameState> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let ch = str[c]
-                switch ch {
-                case "^":
-                    pos2obj[p] = .battleShipTop
-                case "v":
-                    pos2obj[p] = .battleShipBottom
-                case "<":
-                    pos2obj[p] = .battleShipLeft
-                case ">":
-                    pos2obj[p] = .battleShipRight
-                case "+":
-                    pos2obj[p] = .battleShipMiddle
-                case "o":
-                    pos2obj[p] = .battleShipUnit
-                case ".":
-                    pos2obj[p] = .marker
-                case "0"..."9":
-                    pos2obj[p] = .hint()
+                if ch.isNumber {
+                    pos2obj[p] = .hint
                     pos2hint[p] = ch.toInt!
-                default:
-                    break
+                } else {
+                    pos2obj[p] = switch ch {
+                    case "^": .battleShipTop
+                    case "v": .battleShipBottom
+                    case "<": .battleShipLeft
+                    case ">": .battleShipRight
+                    case "+": .battleShipMiddle
+                    case "o": .battleShipUnit
+                    case ".": .marker
+                    default: nil
+                    }
                 }
             }
         }

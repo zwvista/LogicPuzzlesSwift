@@ -13,10 +13,10 @@ class LightBattleShipsDocument: GameDocument<LightBattleShipsGameMove> {
     
     override func saveMove(_ move: LightBattleShipsGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> LightBattleShipsGameMove {
-        LightBattleShipsGameMove(p: Position(rec.row, rec.col), obj: LightBattleShipsObject.fromString(str: rec.strValue1!))
+        LightBattleShipsGameMove(p: Position(rec.row, rec.col), obj: LightBattleShipsObject(rawValue: rec.intValue1)!)
     }
 }
