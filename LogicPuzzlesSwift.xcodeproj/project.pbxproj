@@ -905,6 +905,15 @@
 		8C71CA1C2F46B27B00A74B7B /* NooksMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71CA122F46B27B00A74B7B /* NooksMainViewController.swift */; };
 		8C71CA1D2F46B27B00A74B7B /* NooksGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71CA0F2F46B27B00A74B7B /* NooksGameState.swift */; };
 		8C71CA202F47123B00A74B7B /* hide.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C71CA1F2F47123B00A74B7B /* hide.png */; };
+		8C71CA2B2F47B92E00A74B7B /* UnreliableHints.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C71CA212F47B92E00A74B7B /* UnreliableHints.xml */; };
+		8C71CA2C2F47B92E00A74B7B /* UnreliableHintsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71CA232F47B92E00A74B7B /* UnreliableHintsGame.swift */; };
+		8C71CA2D2F47B92E00A74B7B /* UnreliableHintsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71CA252F47B92E00A74B7B /* UnreliableHintsGameState.swift */; };
+		8C71CA2E2F47B92E00A74B7B /* UnreliableHintsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71CA222F47B92E00A74B7B /* UnreliableHintsDocument.swift */; };
+		8C71CA2F2F47B92E00A74B7B /* UnreliableHintsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71CA292F47B92E00A74B7B /* UnreliableHintsObject.swift */; };
+		8C71CA302F47B92E00A74B7B /* UnreliableHintsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71CA242F47B92E00A74B7B /* UnreliableHintsGameScene.swift */; };
+		8C71CA312F47B92E00A74B7B /* UnreliableHintsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71CA262F47B92E00A74B7B /* UnreliableHintsGameViewController.swift */; };
+		8C71CA322F47B92E00A74B7B /* UnreliableHintsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71CA272F47B92E00A74B7B /* UnreliableHintsGridNode.swift */; };
+		8C71CA332F47B92E00A74B7B /* UnreliableHintsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71CA282F47B92E00A74B7B /* UnreliableHintsMainViewController.swift */; };
 		8C7474381FBDEAD100C4112C /* HolidayIslandGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74742C1FBDEAD100C4112C /* HolidayIslandGameScene.swift */; };
 		8C7474391FBDEAD100C4112C /* HolidayIslandObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74742D1FBDEAD100C4112C /* HolidayIslandObject.swift */; };
 		8C74743A1FBDEAD100C4112C /* HolidayIslandGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74742E1FBDEAD100C4112C /* HolidayIslandGameViewController.swift */; };
@@ -2963,6 +2972,15 @@
 		8C71CA122F46B27B00A74B7B /* NooksMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NooksMainViewController.swift; sourceTree = "<group>"; };
 		8C71CA132F46B27B00A74B7B /* NooksObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NooksObject.swift; sourceTree = "<group>"; };
 		8C71CA1F2F47123B00A74B7B /* hide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hide.png; sourceTree = "<group>"; };
+		8C71CA212F47B92E00A74B7B /* UnreliableHints.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = UnreliableHints.xml; sourceTree = "<group>"; };
+		8C71CA222F47B92E00A74B7B /* UnreliableHintsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreliableHintsDocument.swift; sourceTree = "<group>"; };
+		8C71CA232F47B92E00A74B7B /* UnreliableHintsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreliableHintsGame.swift; sourceTree = "<group>"; };
+		8C71CA242F47B92E00A74B7B /* UnreliableHintsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreliableHintsGameScene.swift; sourceTree = "<group>"; };
+		8C71CA252F47B92E00A74B7B /* UnreliableHintsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreliableHintsGameState.swift; sourceTree = "<group>"; };
+		8C71CA262F47B92E00A74B7B /* UnreliableHintsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreliableHintsGameViewController.swift; sourceTree = "<group>"; };
+		8C71CA272F47B92E00A74B7B /* UnreliableHintsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreliableHintsGridNode.swift; sourceTree = "<group>"; };
+		8C71CA282F47B92E00A74B7B /* UnreliableHintsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreliableHintsMainViewController.swift; sourceTree = "<group>"; };
+		8C71CA292F47B92E00A74B7B /* UnreliableHintsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreliableHintsObject.swift; sourceTree = "<group>"; };
 		8C74742C1FBDEAD100C4112C /* HolidayIslandGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayIslandGameScene.swift; sourceTree = "<group>"; };
 		8C74742D1FBDEAD100C4112C /* HolidayIslandObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayIslandObject.swift; sourceTree = "<group>"; };
 		8C74742E1FBDEAD100C4112C /* HolidayIslandGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayIslandGameViewController.swift; sourceTree = "<group>"; };
@@ -5067,6 +5085,7 @@
 				8C263EFE2F1CAAD400158A2C /* TurnMeUp */,
 				8CAFBFDA2E9F19A500C27D7C /* TurnTwice */,
 				8C263EA42F13E29500158A2C /* Underground */,
+				8C71CA2A2F47B92E00A74B7B /* UnreliableHints */,
 				8C263EE92F1CA32100158A2C /* Unseen */,
 				8CB418B52F251707005C7FDF /* Venice */,
 				8C9BD4D92F0A036B00D1D915 /* WallHints */,
@@ -5926,6 +5945,22 @@
 				8C71CA132F46B27B00A74B7B /* NooksObject.swift */,
 			);
 			path = Nooks;
+			sourceTree = "<group>";
+		};
+		8C71CA2A2F47B92E00A74B7B /* UnreliableHints */ = {
+			isa = PBXGroup;
+			children = (
+				8C71CA212F47B92E00A74B7B /* UnreliableHints.xml */,
+				8C71CA222F47B92E00A74B7B /* UnreliableHintsDocument.swift */,
+				8C71CA232F47B92E00A74B7B /* UnreliableHintsGame.swift */,
+				8C71CA242F47B92E00A74B7B /* UnreliableHintsGameScene.swift */,
+				8C71CA252F47B92E00A74B7B /* UnreliableHintsGameState.swift */,
+				8C71CA262F47B92E00A74B7B /* UnreliableHintsGameViewController.swift */,
+				8C71CA272F47B92E00A74B7B /* UnreliableHintsGridNode.swift */,
+				8C71CA282F47B92E00A74B7B /* UnreliableHintsMainViewController.swift */,
+				8C71CA292F47B92E00A74B7B /* UnreliableHintsObject.swift */,
+			);
+			path = UnreliableHints;
 			sourceTree = "<group>";
 		};
 		8C74742B1FBDEAD100C4112C /* HolidayIsland */ = {
@@ -7980,6 +8015,7 @@
 				8C8663492EA39DD00078CD64 /* drink_blue.png in Resources */,
 				8C86634A2EA39DD00078CD64 /* arrow6.png in Resources */,
 				8C86634B2EA39DD00078CD64 /* lightbulb_on.png in Resources */,
+				8C71CA2B2F47B92E00A74B7B /* UnreliableHints.xml in Resources */,
 				8C86634C2EA39DD00078CD64 /* arrow_red_up.png in Resources */,
 				8CFB22202EF87D8E00E5F29D /* HeliumAndIron.xml in Resources */,
 				8C263F1C2F1D042F00158A2C /* mountains.png in Resources */,
@@ -9274,6 +9310,14 @@
 				8C9F32EF1ED1FCFF00E10965 /* TapARowDocument.swift in Sources */,
 				8C3A37E31EC88D4400A914A5 /* TentsGameScene.swift in Sources */,
 				8CFAF9C020381D870095EFFC /* CastleBaileyGameScene.swift in Sources */,
+				8C71CA2C2F47B92E00A74B7B /* UnreliableHintsGame.swift in Sources */,
+				8C71CA2D2F47B92E00A74B7B /* UnreliableHintsGameState.swift in Sources */,
+				8C71CA2E2F47B92E00A74B7B /* UnreliableHintsDocument.swift in Sources */,
+				8C71CA2F2F47B92E00A74B7B /* UnreliableHintsObject.swift in Sources */,
+				8C71CA302F47B92E00A74B7B /* UnreliableHintsGameScene.swift in Sources */,
+				8C71CA312F47B92E00A74B7B /* UnreliableHintsGameViewController.swift in Sources */,
+				8C71CA322F47B92E00A74B7B /* UnreliableHintsGridNode.swift in Sources */,
+				8C71CA332F47B92E00A74B7B /* UnreliableHintsMainViewController.swift in Sources */,
 				8CF3FFDB1FCB2A2700D41B67 /* DisconnectFourMainViewController.swift in Sources */,
 				8C6A35E01FAF4FFD00D2804D /* MathraxDocument.swift in Sources */,
 				8C7474581FBED8BD00C4112C /* ParkLakesObject.swift in Sources */,
