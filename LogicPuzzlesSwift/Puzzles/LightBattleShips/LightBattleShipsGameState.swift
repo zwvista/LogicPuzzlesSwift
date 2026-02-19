@@ -179,10 +179,10 @@ class LightBattleShipsGameState: GridGameState<LightBattleShipsGameMove> {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }.sorted()
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
-            guard area.count == 1 && String(describing: self[area.first!]) == String(describing: LightBattleShipsObject.battleShipUnit) || 2...4 ~= area.count && (
-                area.testAll({ $0.row == area.first!.row }) && String(describing: self[area.first!]) == String(describing: LightBattleShipsObject.battleShipLeft) && String(describing: self[area.last!]) == String(describing: LightBattleShipsObject.battleShipRight) ||
-                area.testAll({ $0.col == area.first!.col }) && String(describing: self[area.first!]) == String(describing: LightBattleShipsObject.battleShipTop) && String(describing: self[area.last!]) == String(describing: LightBattleShipsObject.battleShipBottom)) &&
-                [Int](1..<area.count - 1).testAll({ String(describing: self[area[$0]]) == String(describing: LightBattleShipsObject.battleShipMiddle) }) else { isSolved = false; continue }
+            guard area.count == 1 && self[area.first!] == .battleShipUnit || 2...4 ~= area.count && (
+                area.testAll({ $0.row == area.first!.row }) && self[area.first!] == .battleShipLeft && self[area.last!] == .battleShipRight ||
+                area.testAll({ $0.col == area.first!.col }) && self[area.first!] == .battleShipTop && self[area.last!] == .battleShipBottom) &&
+                [Int](1..<area.count - 1).testAll({ self[area[$0]] == .battleShipMiddle }) else { isSolved = false; continue }
             for p in area {
                 for os in LightBattleShipsGame.offset2 {
                     // 3. Ships cannot touch each other. Not even diagonally.

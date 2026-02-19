@@ -904,6 +904,7 @@
 		8C71CA1B2F46B27B00A74B7B /* NooksGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71CA0D2F46B27B00A74B7B /* NooksGame.swift */; };
 		8C71CA1C2F46B27B00A74B7B /* NooksMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71CA122F46B27B00A74B7B /* NooksMainViewController.swift */; };
 		8C71CA1D2F46B27B00A74B7B /* NooksGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71CA0F2F46B27B00A74B7B /* NooksGameState.swift */; };
+		8C71CA202F47123B00A74B7B /* hide.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C71CA1F2F47123B00A74B7B /* hide.png */; };
 		8C7474381FBDEAD100C4112C /* HolidayIslandGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74742C1FBDEAD100C4112C /* HolidayIslandGameScene.swift */; };
 		8C7474391FBDEAD100C4112C /* HolidayIslandObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74742D1FBDEAD100C4112C /* HolidayIslandObject.swift */; };
 		8C74743A1FBDEAD100C4112C /* HolidayIslandGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74742E1FBDEAD100C4112C /* HolidayIslandGameViewController.swift */; };
@@ -2961,6 +2962,7 @@
 		8C71CA112F46B27B00A74B7B /* NooksGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NooksGridNode.swift; sourceTree = "<group>"; };
 		8C71CA122F46B27B00A74B7B /* NooksMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NooksMainViewController.swift; sourceTree = "<group>"; };
 		8C71CA132F46B27B00A74B7B /* NooksObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NooksObject.swift; sourceTree = "<group>"; };
+		8C71CA1F2F47123B00A74B7B /* hide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hide.png; sourceTree = "<group>"; };
 		8C74742C1FBDEAD100C4112C /* HolidayIslandGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayIslandGameScene.swift; sourceTree = "<group>"; };
 		8C74742D1FBDEAD100C4112C /* HolidayIslandObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayIslandObject.swift; sourceTree = "<group>"; };
 		8C74742E1FBDEAD100C4112C /* HolidayIslandGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayIslandGameViewController.swift; sourceTree = "<group>"; };
@@ -6303,6 +6305,7 @@
 				8C8662A22EA39DD00078CD64 /* ham_slice.png */,
 				8C8662A32EA39DD00078CD64 /* hamburger.png */,
 				8C8662A42EA39DD00078CD64 /* hedgehog.png */,
+				8C71CA1F2F47123B00A74B7B /* hide.png */,
 				8C8662A52EA39DD00078CD64 /* hippopotamus.png */,
 				8C8662A62EA39DD00078CD64 /* home.png */,
 				8C8662A72EA39DD00078CD64 /* ice_hole.png */,
@@ -8144,6 +8147,7 @@
 				8C8663BF2EA39DD00078CD64 /* carrot.png in Resources */,
 				8C8663C02EA39DD00078CD64 /* A6-stone.png in Resources */,
 				8C8663C12EA39DD00078CD64 /* home.png in Resources */,
+				8C71CA202F47123B00A74B7B /* hide.png in Resources */,
 				8C8663C22EA39DD00078CD64 /* navigate_pipe.png in Resources */,
 				8C8663C32EA39DD00078CD64 /* fence2.png in Resources */,
 				8C81BC2B2EA8A6BD0083B936 /* CoffeeAndSugar.xml in Resources */,

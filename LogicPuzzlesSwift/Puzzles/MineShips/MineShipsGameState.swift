@@ -143,10 +143,10 @@ class MineShipsGameState: GridGameState<MineShipsGameMove> {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }.sorted()
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
-            guard area.count == 1 && String(describing: self[area.first!]) == String(describing: MineShipsObject.battleShipUnit) || 2...4 ~= area.count && (
-                area.testAll({ $0.row == area.first!.row }) && String(describing: self[area.first!]) == String(describing: MineShipsObject.battleShipLeft) && String(describing: self[area.last!]) == String(describing: MineShipsObject.battleShipRight) ||
-                area.testAll({ $0.col == area.first!.col }) && String(describing: self[area.first!]) == String(describing: MineShipsObject.battleShipTop) && String(describing: self[area.last!]) == String(describing: MineShipsObject.battleShipBottom)) &&
-                [Int](1..<area.count - 1).testAll({ String(describing: self[area[$0]]) == String(describing: MineShipsObject.battleShipMiddle) }) else { isSolved = false; continue }
+            guard area.count == 1 && self[area.first!] == .battleShipUnit || 2...4 ~= area.count && (
+                area.testAll({ $0.row == area.first!.row }) && self[area.first!] == .battleShipLeft && self[area.last!] == .battleShipRight ||
+                area.testAll({ $0.col == area.first!.col }) && self[area.first!] == .battleShipTop && self[area.last!] == .battleShipBottom) &&
+                [Int](1..<area.count - 1).testAll({ self[area[$0]] == .battleShipMiddle }) else { isSolved = false; continue }
             for p in area {
                 for os in MineShipsGame.offset2 {
                     // A ship or piece of ship can't touch another, not even diagonally.

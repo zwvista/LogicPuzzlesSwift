@@ -14,93 +14,74 @@ class NooksGameScene: GameScene<NooksGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addHint(p: Position, n: Int, s: HintState) {
-        let point = gridNode.centerPoint(p: p)
-        guard n >= 0 else {return}
-        let nodeNameSuffix = "-\(p.row)-\(p.col)"
-        let hintNodeName = "hint" + nodeNameSuffix
-        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: hintNodeName)
+    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
+        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
-    
+
     override func levelInitialized(_ game: AnyObject, state: NooksGameState, skView: SKView) {
         let game = game as! NooksGame
         removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols + 1)
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
         
         // add Grid
         let offset:CGFloat = 0.5
-        addGrid(gridNode: NooksGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols + 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows + 1) / 2 + offset))
-        
-        // add Hints
-        for r in 0..<game.rows {
-            let p = Position(r, game.cols)
-            let n = state.game.row2hint[r]
-            addHint(p: p, n: n, s: state.row2state[r])
+        addGrid(gridNode: NooksGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
+
+        for (p, n) in game.pos2hint {
+            let point = gridNode.centerPoint(p: p)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let hintNodeName = "hint" + nodeNameSuffix
+            addImage(imageNamed: "hide", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "hide")
+            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
         }
-        for c in 0..<game.cols {
-            let p = Position(game.rows, c)
-            let n = state.game.col2hint[c]
-            addHint(p: p, n: n, s: state.col2state[c])
+        for p in state.invalid2x2Squares {
+            let point = gridNode.cornerPoint(p: p)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let invalid2x2NodeName = "invalid2x2" + nodeNameSuffix
+            addDotMarker2(color: .red, point: point, nodeName: invalid2x2NodeName)
         }
     }
     
     override func levelUpdated(from stateFrom: NooksGameState, to stateTo: NooksGameState) {
-        func removeHint(p: Position) {
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let hintNodeName = "hint" + nodeNameSuffix
-            removeNode(withName: hintNodeName)
-        }
-        for r in 0..<stateFrom.rows {
-            let p = Position(r, stateFrom.cols)
-            let n = stateFrom.game.row2hint[r]
-            if stateFrom.row2state[r] != stateTo.row2state[r] {
-                removeHint(p: p)
-                addHint(p: p, n: n, s: stateTo.row2state[r])
-            }
-        }
-        for c in 0..<stateFrom.cols {
-            let p = Position(stateFrom.rows, c)
-            let n = stateFrom.game.col2hint[c]
-            if stateFrom.col2state[c] != stateTo.col2state[c] {
-                removeHint(p: p)
-                addHint(p: p, n: n, s: stateTo.col2state[c])
-            }
-        }
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let breadNodeName = "bread" + nodeNameSuffix
-                let hamNodeName = "ham" + nodeNameSuffix
+                let hedgeNodeName = "hedge" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
-                let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
-                guard String(describing: o1) != String(describing: o2) else {continue}
-                switch o1 {
-                case .forbidden:
-                    removeNode(withName: forbiddenNodeName)
-                case .marker:
-                    removeNode(withName: markerNodeName)
-                case .bread:
-                    removeNode(withName: breadNodeName)
-                case .ham:
-                    removeNode(withName: hamNodeName)
-                default:
-                    break
+                let hintNodeName = "hint" + nodeNameSuffix
+                let invalid2x2NodeName = "invalid2x2" + nodeNameSuffix
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                if o1 != o2 || s1 != s2 {
+                    switch o1 {
+                    case .hedge:
+                        removeNode(withName: hedgeNodeName)
+                    case .hint:
+                        removeNode(withName: hintNodeName)
+                    case .marker:
+                        removeNode(withName: markerNodeName)
+                    default:
+                        break
+                    }
+                    switch o2 {
+                    case .hedge:
+                        addImage(imageNamed: "forest_lighter", color: .red, colorBlendFactor: 0.0, point: point, nodeName: hedgeNodeName)
+                    case .hint:
+                        addHint(n: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
+                    case .marker:
+                        addDotMarker(point: point, nodeName: markerNodeName)
+                    default:
+                        break
+                    }
                 }
-                switch o2 {
-                case .forbidden:
-                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
-                case .marker:
-                    addDotMarker(point: point, nodeName: markerNodeName)
-                case let .bread(s):
-                    addImage(imageNamed: "bread_slice", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: breadNodeName)
-                case let .ham(s):
-                    addImage(imageNamed: "ham_slice", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: hamNodeName)
-                default:
-                    break
-                }                
+                let (b1, b2) = (stateFrom.invalid2x2Squares.contains(p), stateTo.invalid2x2Squares.contains(p))
+                if b1 != b2 {
+                    let point = gridNode.cornerPoint(p: p)
+                    if b1 { removeNode(withName: invalid2x2NodeName) }
+                    if b2 { addDotMarker2(color: .red, point: point, nodeName: invalid2x2NodeName) }
+                }
             }
         }
     }

@@ -13,10 +13,10 @@ class NooksDocument: GameDocument<NooksGameMove> {
     
     override func saveMove(_ move: NooksGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> NooksGameMove {
-        NooksGameMove(p: Position(rec.row, rec.col), obj: NooksObject.fromString(str: rec.strValue1!))
+        NooksGameMove(p: Position(rec.row, rec.col), obj: NooksObject(rawValue: rec.intValue1)!)
     }
 }

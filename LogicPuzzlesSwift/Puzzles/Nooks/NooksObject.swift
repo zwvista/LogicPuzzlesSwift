@@ -8,43 +8,17 @@
 
 import Foundation
 
-enum NooksObject {
-    case bread(state: AllowedObjectState = .normal)
-    case empty
-    case forbidden
-    case ham(state: AllowedObjectState = .normal)
-    case marker
+enum NooksObject: Int {
+    case empty, hint, marker
+    case hedge
     init() {
         self = .empty
     }
-    func toString() -> String {
-        switch self {
-        case .bread:
-            return "bread"
-        case .marker:
-            return "marker"
-        case .ham:
-            return "ham"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> NooksObject {
-        switch str {
-        case "bread":
-            return .bread()
-        case "marker":
-            return .marker
-        case "ham":
-            return .ham()
-        default:
-            return .empty
-        }
-    }
+    var isHedge: Bool { self == .hedge }
+    var isEmpty: Bool { self != .hedge }
 }
 
 struct NooksGameMove {
     var p = Position()
     var obj = NooksObject()
 }
-
