@@ -895,6 +895,15 @@
 		8C6D37FB1DC5ACDB0052202C /* Copyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37EC1DC5A2F50052202C /* Copyable.swift */; };
 		8C6D37FC1DC5B4DC0052202C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D01DC42FA40052202C /* Game.swift */; };
 		8C6D37FE1DC5B4EB0052202C /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D21DC42FA40052202C /* GameState.swift */; };
+		8C71CA152F46B27B00A74B7B /* Nooks.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C71CA0B2F46B27B00A74B7B /* Nooks.xml */; };
+		8C71CA162F46B27B00A74B7B /* NooksDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71CA0C2F46B27B00A74B7B /* NooksDocument.swift */; };
+		8C71CA172F46B27B00A74B7B /* NooksGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71CA0E2F46B27B00A74B7B /* NooksGameScene.swift */; };
+		8C71CA182F46B27B00A74B7B /* NooksObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71CA132F46B27B00A74B7B /* NooksObject.swift */; };
+		8C71CA192F46B27B00A74B7B /* NooksGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71CA112F46B27B00A74B7B /* NooksGridNode.swift */; };
+		8C71CA1A2F46B27B00A74B7B /* NooksGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71CA102F46B27B00A74B7B /* NooksGameViewController.swift */; };
+		8C71CA1B2F46B27B00A74B7B /* NooksGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71CA0D2F46B27B00A74B7B /* NooksGame.swift */; };
+		8C71CA1C2F46B27B00A74B7B /* NooksMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71CA122F46B27B00A74B7B /* NooksMainViewController.swift */; };
+		8C71CA1D2F46B27B00A74B7B /* NooksGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71CA0F2F46B27B00A74B7B /* NooksGameState.swift */; };
 		8C7474381FBDEAD100C4112C /* HolidayIslandGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74742C1FBDEAD100C4112C /* HolidayIslandGameScene.swift */; };
 		8C7474391FBDEAD100C4112C /* HolidayIslandObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74742D1FBDEAD100C4112C /* HolidayIslandObject.swift */; };
 		8C74743A1FBDEAD100C4112C /* HolidayIslandGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74742E1FBDEAD100C4112C /* HolidayIslandGameViewController.swift */; };
@@ -2943,6 +2952,15 @@
 		8C6D37EC1DC5A2F50052202C /* Copyable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Copyable.swift; sourceTree = "<group>"; };
 		8C6D37F21DC5AC310052202C /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		8C6D37F41DC5AC520052202C /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		8C71CA0B2F46B27B00A74B7B /* Nooks.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Nooks.xml; sourceTree = "<group>"; };
+		8C71CA0C2F46B27B00A74B7B /* NooksDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NooksDocument.swift; sourceTree = "<group>"; };
+		8C71CA0D2F46B27B00A74B7B /* NooksGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NooksGame.swift; sourceTree = "<group>"; };
+		8C71CA0E2F46B27B00A74B7B /* NooksGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NooksGameScene.swift; sourceTree = "<group>"; };
+		8C71CA0F2F46B27B00A74B7B /* NooksGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NooksGameState.swift; sourceTree = "<group>"; };
+		8C71CA102F46B27B00A74B7B /* NooksGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NooksGameViewController.swift; sourceTree = "<group>"; };
+		8C71CA112F46B27B00A74B7B /* NooksGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NooksGridNode.swift; sourceTree = "<group>"; };
+		8C71CA122F46B27B00A74B7B /* NooksMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NooksMainViewController.swift; sourceTree = "<group>"; };
+		8C71CA132F46B27B00A74B7B /* NooksObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NooksObject.swift; sourceTree = "<group>"; };
 		8C74742C1FBDEAD100C4112C /* HolidayIslandGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayIslandGameScene.swift; sourceTree = "<group>"; };
 		8C74742D1FBDEAD100C4112C /* HolidayIslandObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayIslandObject.swift; sourceTree = "<group>"; };
 		8C74742E1FBDEAD100C4112C /* HolidayIslandGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayIslandGameViewController.swift; sourceTree = "<group>"; };
@@ -4974,6 +4992,7 @@
 				8C3A35181EC88D4100A914A5 /* Mosaik */,
 				8C3A35251EC88D4100A914A5 /* Neighbours */,
 				8C1ACF6E2F2D6322004832E2 /* NewCarpenterSquare */,
+				8C71CA142F46B27B00A74B7B /* Nooks */,
 				8C610F11204159100087C545 /* NorthPoleFishing */,
 				8C6A361A1FAF9D8600D2804D /* NoughtsAndCrosses */,
 				8CAFBFFF2EA0864F00C27D7C /* NumberCrossing */,
@@ -5889,6 +5908,22 @@
 				8C7609191EC7EB1C00DFCD7B /* SelfSizingTableViewCell.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		8C71CA142F46B27B00A74B7B /* Nooks */ = {
+			isa = PBXGroup;
+			children = (
+				8C71CA0B2F46B27B00A74B7B /* Nooks.xml */,
+				8C71CA0C2F46B27B00A74B7B /* NooksDocument.swift */,
+				8C71CA0D2F46B27B00A74B7B /* NooksGame.swift */,
+				8C71CA0E2F46B27B00A74B7B /* NooksGameScene.swift */,
+				8C71CA0F2F46B27B00A74B7B /* NooksGameState.swift */,
+				8C71CA102F46B27B00A74B7B /* NooksGameViewController.swift */,
+				8C71CA112F46B27B00A74B7B /* NooksGridNode.swift */,
+				8C71CA122F46B27B00A74B7B /* NooksMainViewController.swift */,
+				8C71CA132F46B27B00A74B7B /* NooksObject.swift */,
+			);
+			path = Nooks;
 			sourceTree = "<group>";
 		};
 		8C74742B1FBDEAD100C4112C /* HolidayIsland */ = {
@@ -7921,6 +7956,7 @@
 				8C86633B2EA39DD00078CD64 /* arrow_brown_left_right.png in Resources */,
 				8C86633C2EA39DD00078CD64 /* dumbbell (1).png in Resources */,
 				8CB7222F2EACF705001B25C5 /* SheepAndWolves.xml in Resources */,
+				8C71CA152F46B27B00A74B7B /* Nooks.xml in Resources */,
 				8C86633D2EA39DD00078CD64 /* balloon_red.png in Resources */,
 				8CB418832F23B21B005C7FDF /* GardenTunnels.xml in Resources */,
 				8C86633E2EA39DD00078CD64 /* road_upright.png in Resources */,
@@ -8700,6 +8736,14 @@
 				8CB722152EAC8261001B25C5 /* ArchipelagoGameScene.swift in Sources */,
 				8CB722162EAC8261001B25C5 /* ArchipelagoGridNode.swift in Sources */,
 				8CB722172EAC8261001B25C5 /* ArchipelagoMainViewController.swift in Sources */,
+				8C71CA162F46B27B00A74B7B /* NooksDocument.swift in Sources */,
+				8C71CA172F46B27B00A74B7B /* NooksGameScene.swift in Sources */,
+				8C71CA182F46B27B00A74B7B /* NooksObject.swift in Sources */,
+				8C71CA192F46B27B00A74B7B /* NooksGridNode.swift in Sources */,
+				8C71CA1A2F46B27B00A74B7B /* NooksGameViewController.swift in Sources */,
+				8C71CA1B2F46B27B00A74B7B /* NooksGame.swift in Sources */,
+				8C71CA1C2F46B27B00A74B7B /* NooksMainViewController.swift in Sources */,
+				8C71CA1D2F46B27B00A74B7B /* NooksGameState.swift in Sources */,
 				8CB722182EAC8261001B25C5 /* ArchipelagoGame.swift in Sources */,
 				8CB722192EAC8261001B25C5 /* ArchipelagoGameViewController.swift in Sources */,
 				8C263ED32F1C85DD00158A2C /* RabbitsGame.swift in Sources */,
