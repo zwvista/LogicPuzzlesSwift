@@ -15,7 +15,9 @@ class GemsGameState: GridGameState<GemsGameMove> {
     }
     override var gameDocument: GameDocumentBase { GemsDocument.sharedInstance }
     var objArray = [GemsObject]()
-    
+    var pos2stateHint = [Position: HintState]()
+    var pos2stateAllowed = [Position: AllowedObjectState]()
+
     override func copy() -> GemsGameState {
         let v = GemsGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -30,7 +32,9 @@ class GemsGameState: GridGameState<GemsGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<GemsObject>(repeating: .empty, count: rows * cols)
-        for (p, _) in game.pos2hint { self[p] = .hint() }
+        for p in game.pos2hint.keys {
+            self[p] = .hint
+        }
         updateIsSolved()
     }
     
@@ -45,7 +49,7 @@ class GemsGameState: GridGameState<GemsGameMove> {
     
     override func setObject(move: inout GemsGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p) && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -58,7 +62,7 @@ class GemsGameState: GridGameState<GemsGameMove> {
         let o = self[p]
         move.obj = switch o {
         case .empty: markerOption == .markerFirst ? .marker : .pebble
-        case .pebble: .gem()
+        case .pebble: .gem
         case .gem: markerOption == .markerLast ? .marker : .empty
         case .marker: markerOption == .markerFirst ? .pebble : .empty
         default: o
@@ -82,17 +86,17 @@ class GemsGameState: GridGameState<GemsGameMove> {
     private func updateIsSolved() {
         isSolved = true
         func f(_ r: Int, _ c: Int) -> Bool {
-            let str = self[r, c].toString()
-            return str == "gem" || str == "pebble"
+            let o = self[r, c]
+            return o == .gem || o == .pebble
         }
         for r in 1..<rows - 1 {
             let (p1, p2) = (Position(r, 0), Position(r, cols - 1))
             let (h1, h2) = (game.pos2hint[p1]!, game.pos2hint[p2]!)
-            let gems = (1..<cols - 1).map { Position(r, $0) }.filter { self[$0].toString() == "gem" }
+            let gems = (1..<cols - 1).map { Position(r, $0) }.filter { self[$0] == .gem }
             if gems.count == 1 {
                 // 1. The board contains one Sapphire (Blue Gem) on each row and column.
                 let p = gems.first!, c = p.col
-                self[p] = .gem()
+                pos2stateAllowed[p] = .normal
                 // 2. There are also a random amount of Pebbles (in White) on the board.
                 // 3. A number on the border tells you how many stones you can see from
                 //    there, up to and including the Sapphire.
@@ -100,21 +104,21 @@ class GemsGameState: GridGameState<GemsGameMove> {
                 let (n1, n2) = ((1...c).count { f(r, $0) }, (c..<cols - 1).count { f(r, $0) })
                 let s1: HintState = n1 < h1 ? .normal : n1 == h1 ? .complete : .error
                 let s2: HintState = n2 < h2 ? .normal : n2 == h2 ? .complete : .error
-                self[p1] = .hint(state: s1); self[p2] = .hint(state: s2)
+                pos2stateHint[p1] = s1; pos2stateHint[p2] = s2
                 if s1 != .complete || s2 != .complete { isSolved = false }
             } else {
                 isSolved = false
-                gems.forEach { self[$0] = .gem(state: .error) }
+                gems.forEach { pos2stateAllowed[$0] = .error }
             }
         }
         for c in 1..<cols - 1 {
             let (p1, p2) = (Position(0, c), Position(rows - 1, c))
             let (h1, h2) = (game.pos2hint[p1]!, game.pos2hint[p2]!)
-            let gems = (1..<rows - 1).map { Position($0, c) }.filter { self[$0].toString() == "gem" }
+            let gems = (1..<rows - 1).map { Position($0, c) }.filter { self[$0] == .gem }
             if gems.count == 1 {
                 // 1. The board contains one Sapphire (Blue Gem) on each row and column.
                 let p = gems.first!, r = p.row
-                self[p] = .gem()
+                pos2stateAllowed[p] = .normal
                 // 2. There are also a random amount of Pebbles (in White) on the board.
                 // 3. A number on the border tells you how many stones you can see from
                 //    there, up to and including the Sapphire.
@@ -122,11 +126,11 @@ class GemsGameState: GridGameState<GemsGameMove> {
                 let (n1, n2) = ((1...r).count { f($0, c) }, (r..<rows - 1).count { f($0, c) })
                 let s1: HintState = n1 < h1 ? .normal : n1 == h1 ? .complete : .error
                 let s2: HintState = n2 < h2 ? .normal : n2 == h2 ? .complete : .error
-                self[p1] = .hint(state: s1); self[p2] = .hint(state: s2)
+                pos2stateHint[p1] = s1; pos2stateHint[p2] = s2
                 if s1 != .complete || s2 != .complete { isSolved = false }
             } else {
                 isSolved = false
-                gems.forEach { self[$0] = .gem(state: .error) }
+                gems.forEach { pos2stateAllowed[$0] = .error }
             }
         }
     }

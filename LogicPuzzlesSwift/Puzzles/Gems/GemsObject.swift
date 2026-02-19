@@ -8,38 +8,11 @@
 
 import Foundation
 
-enum GemsObject {
-    case empty
-    case gem(state: AllowedObjectState = .normal)
-    case hint(state: HintState = .normal)
-    case marker
-    case pebble
+enum GemsObject: Int {
+    case empty, hint, marker
+    case pebble, gem
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .pebble:
-            return "pebble"
-        case .gem:
-            return "gem"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> GemsObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "pebble":
-            return .pebble
-        case "gem":
-            return .gem()
-        default:
-            return .empty
-        }
     }
 }
 

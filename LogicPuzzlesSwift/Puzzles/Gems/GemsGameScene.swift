@@ -50,16 +50,18 @@ class GemsGameScene: GameScene<GemsGameState> {
                 let tileNodeName = "tile" + nodeNameSuffix
                 let n = stateFrom.game.pos2hint[p]
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                guard String(describing: o1) != String(describing: o2) else {continue}
+                let (s1, s2) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
+                let (s3, s4) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
+                guard o1 != o2 || s1 != s2 || s3 != s4 else {continue}
                 removeNode(withName: tileNodeName)
                 func f(imageName: String, s: AllowedObjectState) {
                     addImage(imageNamed: imageName, color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: tileNodeName)
                 }
                 switch o2 {
-                case .gem(let s):
-                    f(imageName: "bullet_ball_glass_blue", s: s)
-                case .hint(let s):
-                    addHint(n: n!, s: s, point: point, nodeName: tileNodeName)
+                case .gem:
+                    f(imageName: "bullet_ball_glass_blue", s: s2!)
+                case .hint:
+                    addHint(n: n!, s: s4!, point: point, nodeName: tileNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: tileNodeName)
                 case .pebble:
