@@ -17,7 +17,8 @@ class WishSandwichGameState: GridGameState<WishSandwichGameMove> {
     var objArray = [WishSandwichObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()
-    
+    var pos2state = [Position: AllowedObjectState]()
+
     override func copy() -> WishSandwichGameState {
         let v = WishSandwichGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -63,10 +64,10 @@ class WishSandwichGameState: GridGameState<WishSandwichGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .bread()
-        case .bread: .ham()
+        case .empty: markerOption == .markerFirst ? .marker : .bread
+        case .bread: .ham
         case .ham: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .bread() : .empty
+        case .marker: markerOption == .markerFirst ? .bread : .empty
         default: o
         }
         return setObject(move: &move)
@@ -89,13 +90,12 @@ class WishSandwichGameState: GridGameState<WishSandwichGameMove> {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                switch self[r, c] {
+                let p = Position(r, c)
+                switch self[p] {
                 case .forbidden:
-                    self[r, c] = .empty
-                case .bread:
-                    self[r, c] = .bread()
-                case .ham:
-                    self[r, c] = .ham()
+                    self[p] = .empty
+                case .bread, .ham:
+                    pos2state[p] = .normal
                 default:
                     break
                 }
@@ -115,10 +115,10 @@ class WishSandwichGameState: GridGameState<WishSandwichGameMove> {
                 }
             }
             if breads.count > 2 {
-                for p in breads { self[p] = .bread(state: .error) }
+                for p in breads { pos2state[p] = .error }
             }
             if hams.count > rows - 3 {
-                for p in hams { self[p] = .ham(state: .error) }
+                for p in hams { pos2state[p] = .error }
             }
             if breads.count != 2 {
                 isSolved = false
@@ -132,7 +132,7 @@ class WishSandwichGameState: GridGameState<WishSandwichGameMove> {
                 let s: HintState = n1 == n2 ? .complete : .error
                 row2state[r] = s
                 guard allowedObjectsOnly && hams.count == rows - 3 else {continue}
-                (0..<cols).filter { self[r, $0].toString() == "empty" }.forEach {
+                (0..<cols).filter { self[r, $0] == .empty }.forEach {
                     self[r, $0] = .forbidden
                 }
             }
@@ -151,10 +151,10 @@ class WishSandwichGameState: GridGameState<WishSandwichGameMove> {
                 }
             }
             if breads.count > 2 {
-                for p in breads { self[p] = .bread(state: .error) }
+                for p in breads { pos2state[p] = .error }
             }
             if hams.count > rows - 3 {
-                for p in hams { self[p] = .ham(state: .error) }
+                for p in hams { pos2state[p] = .error }
             }
             if breads.count != 2 {
                 isSolved = false
@@ -168,7 +168,7 @@ class WishSandwichGameState: GridGameState<WishSandwichGameMove> {
                 let s: HintState = n1 == n2 ? .complete : .error
                 col2state[c] = s
                 guard allowedObjectsOnly && hams.count == rows - 3 else {continue}
-                (0..<rows).filter { self[$0, c].toString() == "empty" }.forEach {
+                (0..<rows).filter { self[$0, c] == .empty }.forEach {
                     self[$0, c] = .forbidden
                 }
             }

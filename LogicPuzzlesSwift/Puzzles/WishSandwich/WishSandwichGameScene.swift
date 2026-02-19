@@ -75,8 +75,9 @@ class WishSandwichGameScene: GameScene<WishSandwichGameState> {
                 let hamNodeName = "ham" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
-                guard String(describing: o1) != String(describing: o2) else {continue}
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard o1 != o2 || s1 != s2 else {continue}
                 switch o1 {
                 case .forbidden:
                     removeNode(withName: forbiddenNodeName)
@@ -94,10 +95,10 @@ class WishSandwichGameScene: GameScene<WishSandwichGameState> {
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
-                case let .bread(s):
-                    addImage(imageNamed: "bread_slice", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: breadNodeName)
-                case let .ham(s):
-                    addImage(imageNamed: "ham_slice", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: hamNodeName)
+                case .bread:
+                    addImage(imageNamed: "bread_slice", color: .red, colorBlendFactor: s2 == .normal ? 0.0 : 0.5, point: point, nodeName: breadNodeName)
+                case .ham:
+                    addImage(imageNamed: "ham_slice", color: .red, colorBlendFactor: s2 == .normal ? 0.0 : 0.5, point: point, nodeName: hamNodeName)
                 default:
                     break
                 }                
