@@ -120,7 +120,7 @@ class WishSandwichGameState: GridGameState<WishSandwichGameMove> {
             if hams.count > rows - 3 {
                 for p in hams { pos2state[p] = .error }
             }
-            if breads.count != 2 {
+            if breads.count != 2 || hams.count != rows - 3 {
                 isSolved = false
                 row2state[r] = .normal
             } else {
@@ -156,7 +156,7 @@ class WishSandwichGameState: GridGameState<WishSandwichGameMove> {
             if hams.count > rows - 3 {
                 for p in hams { pos2state[p] = .error }
             }
-            if breads.count != 2 {
+            if breads.count != 2 || hams.count != rows - 3 {
                 isSolved = false
                 col2state[c] = .normal
             } else {
