@@ -157,5 +157,83 @@ class SuspendedGravityGameState: GridGameState<SuspendedGravityGameMove> {
         //    half of the board.
         // 6. Think "Tetris": all the blocks will fall as they are
         //    (they won't break into single stones)
+        let objArrayTemp = objArray
+
+        // key: index of the area
+        // value.elem: position of the stone
+        var area2stones = [Int: [Position]]()
+        // key: index of the area where stones should fall later
+        // value.elem: index of the area where stones should fall sooner
+        var area2areas = [Int: [Int]]()
+        for c in 0..<cols {
+            var n1 = -1
+            for r in 0..<rows {
+                let p = Position(r, c)
+                guard self[p] == .stone else {continue}
+                let n2 = game.pos2area[p]!
+                area2stones[n2, default: []].append(p)
+                if n1 == -1 {
+                    n1 = n2
+                } else if n1 != n2 {
+                    area2areas[n1, default: []].append(n2)
+                    n1 = n2
+                }
+            }
+        }
+
+        // make the stones fall down
+        while !area2stones.isEmpty {
+            for (i, stones) in area2stones {
+                if area2areas.keys.contains(i) {continue}
+
+                var j = 0
+                while true {
+                    guard (stones.allSatisfy {
+                        let p2 = $0 + Position(j + 1, 0)
+                        return stones.contains(p2) || isValid(p: p2) && self[p2] != .stone
+                    }) else {break}
+                    j += 1
+                }
+            
+                if j > 0 {
+                    for p in stones {
+                        self[p] = .empty
+                    }
+                    for p in stones {
+                        self[p + Position(j, 0)] = .stone
+                    }
+                }
+
+                for (area, areas) in area2areas {
+                    let areas = areas.filter { $0 != i }
+                    area2areas[area] = areas.isEmpty ? nil : areas
+                }
+                area2stones[i] = nil
+                break;
+            }
+        }
+
+        if !({
+            // After falling down, they fit together exactly and
+            // cover the bottom half of the board.
+            for c in 0..<cols {
+                var r = 0
+                while r < rows / 2 {
+                    if self[r, c] == .stone {
+                        return false
+                    }
+                    r += 1
+                }
+                while r < rows {
+                    if self[r, c] != .stone {
+                        return false
+                    }
+                    r += 1
+                }
+            }
+            return true
+        }()) { isSolved = false }
+
+        objArray = objArrayTemp
     }
 }
