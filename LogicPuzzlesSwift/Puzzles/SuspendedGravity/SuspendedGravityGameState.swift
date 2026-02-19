@@ -150,6 +150,10 @@ class SuspendedGravityGameState: GridGameState<SuspendedGravityGameMove> {
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             pos2stateHint[pHint] = s
             if s != .complete { isSolved = false }
+            if s != .normal && allowedObjectsOnly {
+                let rng = game.areas[nArea].filter { self[$0] == .empty }
+                for p in rng { self[p] = .forbidden }
+            }
         }
         guard isSolved else {return}
         // 5. Lastly, if we apply gravity to the puzzle and the stones fall down to
@@ -209,7 +213,7 @@ class SuspendedGravityGameState: GridGameState<SuspendedGravityGameMove> {
                     area2areas[area] = areas.isEmpty ? nil : areas
                 }
                 area2stones[i] = nil
-                break;
+                break
             }
         }
 
