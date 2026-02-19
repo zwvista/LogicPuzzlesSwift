@@ -15,7 +15,8 @@ class SuspendedGravityGameState: GridGameState<SuspendedGravityGameMove> {
     }
     override var gameDocument: GameDocumentBase { SuspendedGravityDocument.sharedInstance }
     var objArray = [SuspendedGravityObject]()
-    var pos2state = [Position: HintState]()
+    var pos2stateHint = [Position: HintState]()
+    var pos2stateAllowed = [Position: AllowedObjectState]()
     
     override func copy() -> SuspendedGravityGameState {
         let v = SuspendedGravityGameState(game: game, isCopy: true)
@@ -45,7 +46,7 @@ class SuspendedGravityGameState: GridGameState<SuspendedGravityGameMove> {
     
     override func setObject(move: inout SuspendedGravityGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p), String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p) && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -57,9 +58,9 @@ class SuspendedGravityGameState: GridGameState<SuspendedGravityGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .block()
-        case .block: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .block() : .empty
+        case .empty: markerOption == .markerFirst ? .marker : .stone
+        case .stone: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .stone : .empty
         default: o
         }
         return setObject(move: &move)
@@ -85,23 +86,24 @@ class SuspendedGravityGameState: GridGameState<SuspendedGravityGameMove> {
     private func updateIsSolved() {
         let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                pos2state[p] = .normal
-                if case .forbidden = self[p] {
-                    self[p] = .empty
-                }
-            }
-        }
-        // 3. Town blocks inside an area are horizontally or vertically contiguous.
+        // 3. Stones inside a region are all connected either vertically or horizontally.
         let g = Graph()
         var pos2node = [Position: Node]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard self[p].toString() == "block" else {continue}
-                pos2node[p] = g.addNode(p.description)
+                switch self[p] {
+                case .forbidden:
+                    self[p] = .empty
+                case .stone:
+                    pos2stateAllowed[p] = .normal
+                    pos2node[p] = g.addNode(p.description)
+                default:
+                    break
+                }
+                if game.pos2hint[p] != nil {
+                    pos2stateHint[p] = .normal
+                }
             }
         }
         for (p, node) in pos2node {
@@ -110,48 +112,50 @@ class SuspendedGravityGameState: GridGameState<SuspendedGravityGameMove> {
                 if let node2 = pos2node[p2] { g.addEdge(node, neighbor: node2) }
             }
         }
+        var area2blocks = [Int: [[Position]]]()
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let blocks = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
+            let block = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
-            // 4. Blocks in different areas cannot touch horizontally or vertically.
-            let cnt = Set(blocks.map { game.pos2area[$0]! }).count
-            let s: AllowedObjectState = cnt == 1 ? .normal : .error
-            if s == .error {
+            // 4. Stones in two adjacent regions cannot touch horizontally or vertically.
+            let nArea = game.pos2area[block[0]]!
+            guard block.allSatisfy({ game.pos2area[$0] == nArea }) else {
+                for p in block { pos2stateAllowed[p] = .error }
                 isSolved = false
-                for p in blocks { self[p] = .block(state: s) }
+                continue
             }
-            guard s == .normal else {continue}
-            // 2. Each area describes a section of land, where the town concil has decided
-            //    to place as many city blocks as the number in it.
-            let nArea = game.pos2area[blocks[0]]!
-            let area = game.areas[nArea]
-            let n1 = blocks.count
-            // 5. Areas without number can have any number of blocks.
+            area2blocks[nArea, default: []].append(block)
+        }
+        // 3. Stones inside a region are all connected either vertically or horizontally.
+        for nArea in game.areas.indices {
+            // 2. Regions without a number contain at least one stone.
+            guard let blocks = area2blocks[nArea] else { isSolved = false; continue }
+            if blocks.count != 1 {
+                for block in blocks {
+                    for p in block { pos2stateAllowed[p] = .error }
+                }
+                isSolved = false
+            }
+            // 4. Stones in two adjacent regions cannot touch horizontally or vertically.
+            if allowedObjectsOnly {
+                let rng = Set(blocks.flatMap { $0 }
+                    .flatMap { p in SuspendedGravityGame.offset.map { p + $0 } }
+                    .filter { isValid(p: $0) && self[$0] == .empty && game.pos2area[$0] != nArea })
+                for p in rng { self[p] = .forbidden }
+            }
+            // 1. Each region contains the number of stones, which can be indicated by a number.
+            let n1 = blocks.reduce(0) { $0 + $1.count }
             guard let pHint = game.area2hint[nArea] else {continue}
             let n2 = game.pos2hint[pHint]!
-            let s2: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if s2 != .complete { isSolved = false }
-            pos2state[pHint] = s2
-            guard allowedObjectsOnly && s2 != .normal else {continue}
-            area.filter { self[$0].toString() == "empty" }.forEach {
-                self[$0] = .forbidden
-            }
+            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            pos2stateHint[pHint] = s
+            if s != .complete { isSolved = false }
         }
         guard isSolved else {return}
-        let area2blocks = game.areas.map { $0.filter { self[$0].toString() == "block" }.count }
-        // 5. There can't be empty areas.
-        if area2blocks.contains(where: { $0 == 0 }) { isSolved = false }
-        // 6. Lastly, two neighbouring areas can't have the same number of blocks in them.
-        for (i, n) in area2blocks.enumerated() {
-            guard n > 0 else {continue}
-            let areas = game.area2areas[i].filter { area2blocks[$0] == n }
-            guard !areas.isEmpty else {continue}
-            isSolved = false
-            for nArea in [i] + areas {
-                guard let pHint = game.area2hint[nArea] else {continue}
-                pos2state[pHint] = .error
-            }
-        }
-   }
+        // 5. Lastly, if we apply gravity to the puzzle and the stones fall down to
+        //    the bottom of the board they fit together exactly and cover the bottom
+        //    half of the board.
+        // 6. Think "Tetris": all the blocks will fall as they are
+        //    (they won't break into single stones)
+    }
 }

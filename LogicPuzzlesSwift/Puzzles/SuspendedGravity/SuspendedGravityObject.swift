@@ -8,35 +8,11 @@
 
 import Foundation
 
-enum SuspendedGravityObject {
-    case empty
-    case marker
-    case forbidden
-    case block(state: AllowedObjectState = .normal)
+enum SuspendedGravityObject: Int {
+    case empty, forbidden, marker
+    case stone
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .block:
-            return "block"
-        case .marker:
-            return "marker"
-        case .forbidden:
-            return "forbidden"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> SuspendedGravityObject {
-        switch str {
-        case "block":
-            return .block()
-        case "marker":
-            return .marker
-        default:
-            return .empty
-        }
     }
 }
 
