@@ -15,7 +15,8 @@ class MineShipsGameState: GridGameState<MineShipsGameMove> {
     }
     override var gameDocument: GameDocumentBase { MineShipsDocument.sharedInstance }
     var objArray = [MineShipsObject]()
-    
+    var pos2state = [Position: HintState]()
+
     override func copy() -> MineShipsGameState {
         let v = MineShipsGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -30,6 +31,9 @@ class MineShipsGameState: GridGameState<MineShipsGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<MineShipsObject>(repeating: MineShipsObject(), count: rows * cols)
+        for p in game.pos2hint.keys {
+            self[p] = .hint
+        }
         updateIsSolved()
     }
     
@@ -44,17 +48,15 @@ class MineShipsGameState: GridGameState<MineShipsGameMove> {
     
     override func setObject(move: inout MineShipsGameMove) -> GameOperationType {
         let p = move.p
-        let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 { return .invalid }
-        guard String(describing: o1) != String(describing: o2) else { return .invalid }
-        self[p] = o2
+        guard isValid(p: p) && game.pos2hint[p] == nil && self[p] != move.obj else { return .invalid }
+        self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }
     
     override func switchObject(move: inout MineShipsGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) else { return .invalid }
+        guard isValid(p: p) && game.pos2hint[p] == nil else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
@@ -98,20 +100,18 @@ class MineShipsGameState: GridGameState<MineShipsGameMove> {
         for (p, n2) in game.pos2hint {
             var n1 = 0
             var rng = [Position]()
-            for os in MineShipsGame.offset {
+            for os in MineShipsGame.offset2 {
                 let p2 = p + os
                 guard game.isValid(p: p2) else {continue}
-                switch self[p2] {
-                case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
+                let o = self[p2]
+                if o.isShipPiece {
                     n1 += 1
-                case .empty:
+                } else if o == .empty {
                     rng.append(p2)
-                default:
-                    break
                 }
             }
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            self[p] = .hint(state: s)
+            pos2state[p] = s
             if s != .complete {
                 isSolved = false
             } else if allowedObjectsOnly {
@@ -125,18 +125,15 @@ class MineShipsGameState: GridGameState<MineShipsGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                switch self[r, c] {
-                case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
+                if self[p].isShipPiece {
                     let node = g.addNode(p.description)
                     pos2node[p] = node
-                default:
-                    break
                 }
             }
         }
         for (p, node) in pos2node {
-            for i in 0..<4 {
-                let p2 = p + MineShipsGame.offset[i * 2]
+            for os in MineShipsGame.offset {
+                let p2 = p + os
                 guard let node2 = pos2node[p2] else {continue}
                 g.addEdge(node, neighbor: node2)
             }
@@ -151,7 +148,7 @@ class MineShipsGameState: GridGameState<MineShipsGameMove> {
                 area.testAll({ $0.col == area.first!.col }) && String(describing: self[area.first!]) == String(describing: MineShipsObject.battleShipTop) && String(describing: self[area.last!]) == String(describing: MineShipsObject.battleShipBottom)) &&
                 [Int](1..<area.count - 1).testAll({ String(describing: self[area[$0]]) == String(describing: MineShipsObject.battleShipMiddle) }) else { isSolved = false; continue }
             for p in area {
-                for os in MineShipsGame.offset {
+                for os in MineShipsGame.offset2 {
                     // A ship or piece of ship can't touch another, not even diagonally.
                     let p2 = p + os
                     if !self.isValid(p: p2) || area.contains(p2) {continue}

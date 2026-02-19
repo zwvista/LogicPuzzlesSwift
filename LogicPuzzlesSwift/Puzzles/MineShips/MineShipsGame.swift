@@ -9,7 +9,8 @@
 import Foundation
 
 class MineShipsGame: GridGame<MineShipsGameState> {
-    static let offset = Position.Directions8
+    static let offset = Position.Directions4
+    static let offset2 = Position.Directions8
 
     var pos2hint = [Position: Int]()
     

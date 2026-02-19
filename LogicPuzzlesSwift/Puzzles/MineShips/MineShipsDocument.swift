@@ -13,10 +13,10 @@ class MineShipsDocument: GameDocument<MineShipsGameMove> {
     
     override func saveMove(_ move: MineShipsGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> MineShipsGameMove {
-        MineShipsGameMove(p: Position(rec.row, rec.col), obj: MineShipsObject.fromString(str: rec.strValue1!))
+        MineShipsGameMove(p: Position(rec.row, rec.col), obj: MineShipsObject(rawValue: rec.intValue1)!)
     }
 }

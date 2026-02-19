@@ -72,7 +72,7 @@ class MineShipsGameScene: GameScene<MineShipsGameState> {
         
         // add Hints
         for (p, n) in game.pos2hint {
-            guard case let .hint(state: s) = state[p] else {continue}
+            let s = state.pos2state[p]!
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
@@ -83,7 +83,7 @@ class MineShipsGameScene: GameScene<MineShipsGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                guard case .forbidden = state[p] else {continue}
+                guard state[p] == .forbidden else {continue}
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
@@ -107,11 +107,10 @@ class MineShipsGameScene: GameScene<MineShipsGameState> {
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 func removeForbidden() { removeNode(withName: forbiddenNodeName) }
-                let (ot1, ot2) = (stateFrom[r, c], stateTo[r, c])
-                guard String(describing: ot1) != String(describing: ot2) else {continue}
-                switch ot1 {
-                case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
-                    removeBattleShip()
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard o1 != o2 || s1 != s2 else {continue}
+                switch o1 {
                 case .forbidden:
                     removeForbidden()
                 case .marker:
@@ -119,21 +118,19 @@ class MineShipsGameScene: GameScene<MineShipsGameState> {
                 case .hint:
                     removeHint()
                 default:
-                    break
+                    if o1.isShipPiece { removeBattleShip() }
                 }
-                switch ot2 {
-                case .battleShipTop, .battleShipBottom, .battleShipLeft, .battleShipRight, .battleShipMiddle, .battleShipUnit:
-                    addBattleShip(color: .white, point: point, obj: ot2, nodeName: battleShipNodeName)
+                switch o2 {
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case .marker:
                     addMarker()
-                case let .hint(s):
+                case .hint:
                     let n = stateTo.game.pos2hint[Position(r, c)]!
-                    addHint(n: n, s: s, point: point, nodeName: hintNodeName)
+                    addHint(n: n, s: s2!, point: point, nodeName: hintNodeName)
                 default:
-                    break
-                }                
+                    if o2.isShipPiece { addBattleShip(color: .white, point: point, obj: o2, nodeName: battleShipNodeName) }
+                }
             }
         }
     }
