@@ -42,8 +42,8 @@ class YouTurnMeOnGameViewController: GameGameViewController2<YouTurnMeOnGameStat
         case .changed:
             guard pLast != p else {break}
             defer { pLast = p }
-            guard YouTurnMeOnGame.offset.firstIndex(of: p - pLast!) != nil else {break}
-            var move = YouTurnMeOnGameMove(p: p)
+            guard let dir = YouTurnMeOnGame.offset.firstIndex(of: p - pLast!) else {break}
+            var move = YouTurnMeOnGameMove(p: pLast!, dir: dir)
             if game.setObject(move: &move) { f() }
         default:
             break

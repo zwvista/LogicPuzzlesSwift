@@ -42,8 +42,8 @@ class CoffeeAndSugarGameViewController: GameGameViewController2<CoffeeAndSugarGa
         case .changed:
             guard pLast != p else {break}
             defer { pLast = p }
-            guard CoffeeAndSugarGame.offset.firstIndex(of: p - pLast!) != nil else {break}
-            var move = CoffeeAndSugarGameMove(p: p)
+            guard let dir = CoffeeAndSugarGame.offset.firstIndex(of: p - pLast!) else {break}
+            var move = CoffeeAndSugarGameMove(p: pLast!, dir: dir)
             if game.setObject(move: &move) { f() }
         default:
             break

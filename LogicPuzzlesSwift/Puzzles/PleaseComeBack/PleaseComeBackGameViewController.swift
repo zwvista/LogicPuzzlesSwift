@@ -42,8 +42,8 @@ class PleaseComeBackGameViewController: GameGameViewController2<PleaseComeBackGa
         case .changed:
             guard pLast != p else {break}
             defer { pLast = p }
-            guard PleaseComeBackGame.offset.firstIndex(of: p - pLast!) != nil else {break}
-            var move = PleaseComeBackGameMove(p: p)
+            guard let dir = PleaseComeBackGame.offset.firstIndex(of: p - pLast!) else {break}
+            var move = PleaseComeBackGameMove(p: pLast!, dir: dir)
             if game.setObject(move: &move) { f() }
         default:
             break

@@ -42,8 +42,8 @@ class TrafficWardenRevengeGameViewController: GameGameViewController2<TrafficWar
         case .changed:
             guard pLast != p else {break}
             defer { pLast = p }
-            guard TrafficWardenRevengeGame.offset.firstIndex(of: p - pLast!) != nil else {break}
-            var move = TrafficWardenRevengeGameMove(p: p)
+            guard let dir = TrafficWardenRevengeGame.offset.firstIndex(of: p - pLast!) else {break}
+            var move = TrafficWardenRevengeGameMove(p: pLast!, dir: dir)
             if game.setObject(move: &move) { f() }
         default:
             break

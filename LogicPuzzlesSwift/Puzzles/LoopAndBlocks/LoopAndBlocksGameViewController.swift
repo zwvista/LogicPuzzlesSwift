@@ -42,8 +42,8 @@ class LoopAndBlocksGameViewController: GameGameViewController2<LoopAndBlocksGame
         case .changed:
             guard pLast != p else {break}
             defer { pLast = p }
-            guard LoopAndBlocksGame.offset.firstIndex(of: p - pLast!) != nil else {break}
-            var move = LoopAndBlocksGameMove(p: p)
+            guard let dir = LoopAndBlocksGame.offset.firstIndex(of: p - pLast!) else {break}
+            var move = LoopAndBlocksGameMove(p: pLast!, dir: dir)
             if game.setObject(move: &move) { f() }
         default:
             break

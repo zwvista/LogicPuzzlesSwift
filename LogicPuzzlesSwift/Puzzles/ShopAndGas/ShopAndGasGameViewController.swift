@@ -42,8 +42,8 @@ class ShopAndGasGameViewController: GameGameViewController2<ShopAndGasGameState,
         case .changed:
             guard pLast != p else {break}
             defer { pLast = p }
-            guard ShopAndGasGame.offset.firstIndex(of: p - pLast!) != nil else {break}
-            var move = ShopAndGasGameMove(p: p)
+            guard let dir = ShopAndGasGame.offset.firstIndex(of: p - pLast!) else {break}
+            var move = ShopAndGasGameMove(p: pLast!, dir: dir)
             if game.setObject(move: &move) { f() }
         default:
             break

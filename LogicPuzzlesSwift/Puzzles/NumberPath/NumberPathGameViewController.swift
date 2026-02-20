@@ -42,8 +42,8 @@ class NumberPathGameViewController: GameGameViewController2<NumberPathGameState,
         case .changed:
             guard pLast != p else {break}
             defer { pLast = p }
-            guard NumberPathGame.offset.firstIndex(of: p - pLast!) != nil else {break}
-            var move = NumberPathGameMove(p: p)
+            guard let dir = NumberPathGame.offset.firstIndex(of: p - pLast!) else {break}
+            var move = NumberPathGameMove(p: pLast!, dir: dir)
             if game.setObject(move: &move) { f() }
         default:
             break

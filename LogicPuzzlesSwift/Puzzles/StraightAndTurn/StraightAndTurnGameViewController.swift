@@ -42,8 +42,8 @@ class StraightAndTurnGameViewController: GameGameViewController2<StraightAndTurn
         case .changed:
             guard pLast != p else {break}
             defer { pLast = p }
-            guard StraightAndTurnGame.offset.firstIndex(of: p - pLast!) != nil else {break}
-            var move = StraightAndTurnGameMove(p: p)
+            guard let dir = StraightAndTurnGame.offset.firstIndex(of: p - pLast!) else {break}
+            var move = StraightAndTurnGameMove(p: pLast!, dir: dir)
             if game.setObject(move: &move) { f() }
         default:
             break

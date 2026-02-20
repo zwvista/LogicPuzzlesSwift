@@ -42,8 +42,8 @@ class CaffelatteGameViewController: GameGameViewController2<CaffelatteGameState,
         case .changed:
             guard pLast != p else {break}
             defer { pLast = p }
-            guard CaffelatteGame.offset.firstIndex(of: p - pLast!) != nil else {break}
-            var move = CaffelatteGameMove(p: p)
+            guard let dir = CaffelatteGame.offset.firstIndex(of: p - pLast!) else {break}
+            var move = CaffelatteGameMove(p: pLast!, dir: dir)
             if game.setObject(move: &move) { f() }
         default:
             break

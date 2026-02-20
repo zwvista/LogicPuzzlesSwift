@@ -42,8 +42,8 @@ class OnlyStraightsGameViewController: GameGameViewController2<OnlyStraightsGame
         case .changed:
             guard pLast != p else {break}
             defer { pLast = p }
-            guard OnlyStraightsGame.offset.firstIndex(of: p - pLast!) != nil else {break}
-            var move = OnlyStraightsGameMove(p: p)
+            guard let dir = OnlyStraightsGame.offset.firstIndex(of: p - pLast!) else {break}
+            var move = OnlyStraightsGameMove(p: pLast!, dir: dir)
             if game.setObject(move: &move) { f() }
         default:
             break

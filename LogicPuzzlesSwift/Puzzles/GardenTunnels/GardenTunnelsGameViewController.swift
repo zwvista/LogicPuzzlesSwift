@@ -42,8 +42,8 @@ class GardenTunnelsGameViewController: GameGameViewController2<GardenTunnelsGame
         case .changed:
             guard pLast != p else {break}
             defer { pLast = p }
-            guard GardenTunnelsGame.offset.firstIndex(of: p - pLast!) != nil else {break}
-            var move = GardenTunnelsGameMove(p: p)
+            guard let dir = GardenTunnelsGame.offset.firstIndex(of: p - pLast!) else {break}
+            var move = GardenTunnelsGameMove(p: pLast!, dir: dir)
             if game.setObject(move: &move) { f() }
         default:
             break

@@ -42,8 +42,8 @@ class PathOnTheMountainsGameViewController: GameGameViewController2<PathOnTheMou
         case .changed:
             guard pLast != p else {break}
             defer { pLast = p }
-            guard PathOnTheMountainsGame.offset.firstIndex(of: p - pLast!) != nil else {break}
-            var move = PathOnTheMountainsGameMove(p: p)
+            guard let dir = PathOnTheMountainsGame.offset.firstIndex(of: p - pLast!) else {break}
+            var move = PathOnTheMountainsGameMove(p: pLast!, dir: dir)
             if game.setObject(move: &move) { f() }
         default:
             break

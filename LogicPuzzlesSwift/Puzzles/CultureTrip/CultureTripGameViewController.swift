@@ -42,8 +42,8 @@ class CultureTripGameViewController: GameGameViewController2<CultureTripGameStat
         case .changed:
             guard pLast != p else {break}
             defer { pLast = p }
-            guard CultureTripGame.offset.firstIndex(of: p - pLast!) != nil else {break}
-            var move = CultureTripGameMove(p: p)
+            guard let dir = CultureTripGame.offset.firstIndex(of: p - pLast!) else {break}
+            var move = CultureTripGameMove(p: pLast!, dir: dir)
             if game.setObject(move: &move) { f() }
         default:
             break

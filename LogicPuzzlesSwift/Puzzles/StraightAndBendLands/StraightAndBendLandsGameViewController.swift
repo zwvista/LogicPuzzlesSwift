@@ -42,8 +42,8 @@ class StraightAndBendLandsGameViewController: GameGameViewController2<StraightAn
         case .changed:
             guard pLast != p else {break}
             defer { pLast = p }
-            guard StraightAndBendLandsGame.offset.firstIndex(of: p - pLast!) != nil else {break}
-            var move = StraightAndBendLandsGameMove(p: p)
+            guard let dir = StraightAndBendLandsGame.offset.firstIndex(of: p - pLast!) else {break}
+            var move = StraightAndBendLandsGameMove(p: pLast!, dir: dir)
             if game.setObject(move: &move) { f() }
         default:
             break

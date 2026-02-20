@@ -42,8 +42,8 @@ class NumberLinkGameViewController: GameGameViewController2<NumberLinkGameState,
         case .changed:
             guard pLast != p else {break}
             defer { pLast = p }
-            guard NumberLinkGame.offset.firstIndex(of: p - pLast!) != nil else {break}
-            var move = NumberLinkGameMove(p: p)
+            guard let dir = NumberLinkGame.offset.firstIndex(of: p - pLast!) else {break}
+            var move = NumberLinkGameMove(p: pLast!, dir: dir)
             if game.setObject(move: &move) { f() }
         default:
             break
