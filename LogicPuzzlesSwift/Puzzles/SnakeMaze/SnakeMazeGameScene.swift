@@ -15,54 +15,42 @@ class SnakeMazeGameScene: GameScene<SnakeMazeGameState> {
     }
     
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName, size: CGSize(width: gridNode.blockSize, height: gridNode.blockSize / 2))
+        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName, size: CGSize(width: gridNode.blockSize / 2, height: gridNode.blockSize / 2))
     }
     
-    func getHintPoint(p: Position) -> CGPoint {
+    func getCenterPoint(p: Position, dir: Int) -> CGPoint {
         let offset: CGFloat = 0.5
-        let x = (CGFloat(p.col) + CGFloat(0.25)) * gridNode.blockSize + offset
-        let y = -((CGFloat(p.row) + CGFloat(0.5)) * gridNode.blockSize + offset)
+        let x = switch dir {
+        case 0: (CGFloat(p.col) + CGFloat(0.5)) * gridNode.blockSize + offset
+        case 1: (CGFloat(p.col) + CGFloat(0.75)) * gridNode.blockSize + offset
+        case 2: (CGFloat(p.col) + CGFloat(0.5)) * gridNode.blockSize + offset
+        default: (CGFloat(p.col) + CGFloat(0.25)) * gridNode.blockSize + offset
+        }
+        let y = switch dir {
+        case 0: -((CGFloat(p.row) + CGFloat(0.25)) * gridNode.blockSize + offset)
+        case 1: -((CGFloat(p.row) + CGFloat(0.5)) * gridNode.blockSize + offset)
+        case 2: -((CGFloat(p.row) + CGFloat(0.75)) * gridNode.blockSize + offset)
+        default: -((CGFloat(p.row) + CGFloat(0.5)) * gridNode.blockSize + offset)
+        }
         return CGPoint(x: x, y: y)
     }
     
-    func addTriangle(in rect: CGRect, dir: Int) {
-        let cx = rect.midX
-        let cy = rect.midY
-        let w = rect.width
-        let h = rect.height
-        
-        let side = min(w, h)
-        let path = CGMutablePath()
-        
-        var v1, v2, v3: CGPoint
-        
+    func getImageName(dir: Int) -> String {
         switch dir {
-        case 0: // up
-            v1 = CGPoint(x: cx, y: cy + side/2)
-            v2 = CGPoint(x: cx - w/2, y: cy - side/2)
-            v3 = CGPoint(x: cx + w/2, y: cy - side/2)
-        case 2: // down
-            v1 = CGPoint(x: cx, y: cy - side/2)
-            v2 = CGPoint(x: cx - w/2, y: cy + side/2)
-            v3 = CGPoint(x: cx + w/2, y: cy + side/2)
-        case 3: // left
-            v1 = CGPoint(x: cx - w/2, y: cy)
-            v2 = CGPoint(x: cx + w/2, y: cy + side/2)
-            v3 = CGPoint(x: cx + w/2, y: cy - side/2)
-        default: // right
-            v1 = CGPoint(x: cx + w/2, y: cy)
-            v2 = CGPoint(x: cx - w/2, y: cy + side/2)
-            v3 = CGPoint(x: cx - w/2, y: cy - side/2)
+        case 0: "arrow_cyan_up"
+        case 1: "arrow_cyan_right"
+        case 2: "arrow_cyan_down"
+        default: "arrow_cyan_left"
         }
-        
-        path.move(to: v1)
-        path.addLine(to: v2)
-        path.addLine(to: v3)
-        path.closeSubpath()
-        
-        let triangle = SKShapeNode(path: path)
-        triangle.fillColor = .lightGray
-        gridNode.addChild(triangle)
+    }
+    
+    func getHintSize(dir: Int) -> CGSize {
+        switch dir {
+        case 0: CGSize(width: gridNode.blockSize, height: gridNode.blockSize / 2)
+        case 1: CGSize(width: gridNode.blockSize / 2, height: gridNode.blockSize)
+        case 2: CGSize(width: gridNode.blockSize, height: gridNode.blockSize / 2)
+        default: CGSize(width: gridNode.blockSize / 2, height: gridNode.blockSize)
+        }
     }
 
     override func levelInitialized(_ game: AnyObject, state: SnakeMazeGameState, skView: SKView) {
@@ -76,11 +64,14 @@ class SnakeMazeGameScene: GameScene<SnakeMazeGameState> {
         
         // add Hints
         for (p, hint) in game.pos2hint {
-            let point = getHintPoint(p: p)
+            let dir2 = hint.dir, dir1 = (dir2 + 2) % 4
+            let point = gridNode.centerPoint(p: p)
+            let point1 = getCenterPoint(p: p, dir: dir1)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
-            addHint(n: hint.num, s: state.pos2stateHint[p]!, point: point, nodeName: hintNodeName)
-            addTriangle(in: CGRect(x: point.x + blockSize / 4, y: point.y - blockSize / 2, w: blockSize / 2, h: blockSize), dir: hint.dir)
+            let arrowNodeName = "arrow" + nodeNameSuffix
+            addHint(n: hint.num, s: state.pos2stateHint[p]!, point: point1, nodeName: hintNodeName)
+            addImage(imageNamed: getImageName(dir: dir2), color: .red, colorBlendFactor: 0.0, point: point, nodeName: arrowNodeName)
         }
     }
     
@@ -89,52 +80,43 @@ class SnakeMazeGameScene: GameScene<SnakeMazeGameState> {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
-                for dir in 1...2 {
-                    let nodeNameSuffix = "-\(r)-\(c)-\(dir)"
-                    let lineNodeName = "line" + nodeNameSuffix
-                    func removeLine() { removeNode(withName: lineNodeName) }
-                    func addLine() {
-                        let pathToDraw = CGMutablePath()
-                        let lineNode = SKShapeNode(path:pathToDraw)
-                        lineNode.glowWidth = 8
-                        switch dir {
-                        case 1:
-                            pathToDraw.move(to: CGPoint(x: point.x, y: point.y))
-                            pathToDraw.addLine(to: CGPoint(x: point.x + gridNode.blockSize, y: point.y))
-                        case 2:
-                            pathToDraw.move(to: CGPoint(x: point.x, y: point.y))
-                            pathToDraw.addLine(to: CGPoint(x: point.x, y: point.y - gridNode.blockSize))
-                        default:
-                            break
-                        }
-                        lineNode.path = pathToDraw
-                        lineNode.strokeColor = .green
-                        lineNode.name = lineNodeName
-                        gridNode.addChild(lineNode)
-                    }
-                    let (o1, o2) = (stateFrom[p][dir], stateTo[p][dir])
-                    guard o1 != o2 else {continue}
-                    if o1 { removeLine() }
-                    if o2 { addLine() }
-                }
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let squareNodeName = "square" + nodeNameSuffix
+                let shadedNodeName = "shaded" + nodeNameSuffix
+                let markerNodeName = "marker" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                let (b1, b2) = (stateFrom.squares.contains(p), stateTo.squares.contains(p))
+                let arrowNodeName = "arrow" + nodeNameSuffix
+                let (o1, o2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
-                if b1 != b2 || s1 != s2 {
-                    if b1 { removeNode(withName: squareNodeName) }
-                    if b2 {
-                        let squareNode = SKSpriteNode(color: s2 == .error ? .red : .white, size: coloredRectSize())
-                        squareNode.position = point
-                        squareNode.name = squareNodeName
-                        gridNode.addChild(squareNode)
+                let (s3, s4) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
+                if o1 != o2 || s1 != s2 {
+                    switch o1 {
+                    case .shaded:
+                        removeNode(withName: shadedNodeName)
+                    case .marker:
+                        removeNode(withName: markerNodeName)
+                    default:
+                        break
+                    }
+                    switch o2 {
+                    case .shaded:
+                        let shadedNode = SKSpriteNode(color: .lightGray, size: coloredRectSize())
+                        shadedNode.position = point
+                        shadedNode.name = shadedNodeName
+                        gridNode.addChild(shadedNode)
+                    case .marker:
+                        addCircleMarker(color: .white, point: point, nodeName: markerNodeName)
+                    default:
+                        break
                     }
                 }
-                let (s3, s4) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
-                if s3 != s4 {
+                if s3 != s4 || s3 != nil && (o1 == .shaded || o2 == .shaded) {
                     removeNode(withName: hintNodeName)
-                    addHint(n: stateFrom.game.pos2hint[p]!.num, s: s4!, point: getHintPoint(p: p), nodeName: hintNodeName)
+                    removeNode(withName: arrowNodeName)
+                    let hint = stateFrom.game.pos2hint[p]!
+                    let dir2 = hint.dir, dir1 = (dir2 + 2) % 4
+                    let point1 = getCenterPoint(p: p, dir: dir1)
+                    addHint(n: hint.num, s: s4!, point: point1, nodeName: hintNodeName)
+                    addImage(imageNamed: getImageName(dir: dir2), color: .red, colorBlendFactor: 0.0, point: point, nodeName: arrowNodeName)
                 }
             }
         }

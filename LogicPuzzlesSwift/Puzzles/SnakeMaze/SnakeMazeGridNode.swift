@@ -18,15 +18,4 @@ class SnakeMazeGridNode: GridNode {
         self.rows = rows
         self.cols = cols
     }
-
-    func linePosition(point: CGPoint) -> (Position, Int) {
-        let r = Int(-point.y / blockSize)
-        let c = Int(point.x / blockSize)
-        let p = Position(r, c)
-        let dx = point.x - (CGFloat(c) + 0.5) * blockSize
-        let dy = -(point.y + (CGFloat(r) + 0.5) * blockSize)
-        let dx2 = abs(dx), dy2 = abs(dy)
-        return (p, dx2 <= dy2 ? dy > 0 ? 2 : 0 :
-            dy2 <= dx2 ? dx > 0 ? 1 : 3 : 0)
-    }
 }

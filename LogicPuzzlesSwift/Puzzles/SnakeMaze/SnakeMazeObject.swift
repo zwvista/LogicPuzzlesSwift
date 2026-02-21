@@ -8,7 +8,13 @@
 
 import Foundation
 
-typealias SnakeMazeObject = [Bool]
+enum SnakeMazeObject: Int {
+    case normal, forbidden, marker, shaded
+    init() {
+        self = .normal
+    }
+    var isShaded: Bool { return self == .shaded }
+}
 
 struct SnakeMazeHint {
     var num = 0
@@ -17,5 +23,6 @@ struct SnakeMazeHint {
 
 struct SnakeMazeGameMove {
     var p = Position()
-    var dir = 0
+    var obj = SnakeMazeObject()
 }
+

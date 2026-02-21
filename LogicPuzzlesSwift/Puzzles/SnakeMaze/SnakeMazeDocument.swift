@@ -13,10 +13,10 @@ class SnakeMazeDocument: GameDocument<SnakeMazeGameMove> {
     
     override func saveMove(_ move: SnakeMazeGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.intValue1 = move.dir
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> SnakeMazeGameMove {
-        SnakeMazeGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1)
+        SnakeMazeGameMove(p: Position(rec.row, rec.col), obj: SnakeMazeObject(rawValue: rec.intValue1)!)
     }
 }

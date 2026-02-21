@@ -15,10 +15,9 @@ class SnakeMazeGameState: GridGameState<SnakeMazeGameMove> {
     }
     override var gameDocument: GameDocumentBase { SnakeMazeDocument.sharedInstance }
     var objArray = [SnakeMazeObject]()
-    var squares = Set<Position>()
     var pos2stateHint = [Position: HintState]()
     var pos2stateAllowed = [Position: AllowedObjectState]()
-    
+
     override func copy() -> SnakeMazeGameState {
         let v = SnakeMazeGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -26,14 +25,13 @@ class SnakeMazeGameState: GridGameState<SnakeMazeGameMove> {
     func setup(v: SnakeMazeGameState) -> SnakeMazeGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.squares = squares
         return v
     }
     
     required init(game: SnakeMazeGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<SnakeMazeObject>(repeating: SnakeMazeObject(repeating: false, count: 4), count: rows * cols)
+        objArray = Array<SnakeMazeObject>(repeating: SnakeMazeObject(), count: rows * cols)
         updateIsSolved()
     }
     
@@ -47,21 +45,26 @@ class SnakeMazeGameState: GridGameState<SnakeMazeGameMove> {
     }
     
     override func setObject(move: inout SnakeMazeGameMove) -> GameOperationType {
-        let p = move.p, dir = move.dir
-        guard isValid(p: p) else { return .invalid }
-        if dir == SnakeMazeGame.PUZ_DIR_SQUARE {
-            guard self[p].testAll(is: false) else { return .invalid }
-            if squares.remove(p) == nil { squares.insert(p) }
-        } else {
-            let p2 = p + SnakeMazeGame.offset[dir], dir2 = (dir + 2) % 4
-            guard isValid(p: p2) && game.pos2hint[p] == nil && !squares.contains(p) && !squares.contains(p2) else { return .invalid }
-            self[p][dir].toggle()
-            self[p2][dir2].toggle()
-        }
+        let p = move.p
+        guard isValid(p: p) && self[p] != move.obj else { return .invalid }
+        self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }
     
+    override func switchObject(move: inout SnakeMazeGameMove) -> GameOperationType {
+        let p = move.p
+        guard isValid(p: p) else { return .invalid }
+        let markerOption = MarkerOptions(rawValue: markerOption)
+        let o = self[p]
+        move.obj = switch o {
+        case .normal: markerOption == .markerFirst ? .marker : .shaded
+        case .shaded: markerOption == .markerLast ? .marker : .normal
+        case .marker: markerOption == .markerFirst ? .shaded : .normal
+        default: o
+        }
+        return setObject(move: &move)
+    }
     
     /*
         iOS Game: 100 Logic Games 2/Puzzle Set 7/Snake Maze
@@ -81,54 +84,60 @@ class SnakeMazeGameState: GridGameState<SnakeMazeGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        // 4. It is up to you to find the Squares, which are pointed at by the Arrows!
-        // 5. The numbers beside the Arrows tell you how many Squares are present
-        //    in that direction, from that point.
+        // 3. You can shade tiles with arrows and numbers.
+        // 5. A cell containing a number and an arrow tells you how many tiles are shaded
+        //    in that direction.
+        // 6. However not all tiles that are shaded tell you lies.
         for (p, hint) in game.pos2hint {
+            guard !self[p].isShaded else {
+                pos2stateHint[p] = .complete
+                continue
+            }
             let n2 = hint.num
             let os = SnakeMazeGame.offset[hint.dir]
             var n1 = 0
             var p2 = p + os
             while isValid(p: p2) {
-                if squares.contains(p2) { n1 += 1 }
+                if self[p2].isShaded { n1 += 1 }
                 p2 += os
             }
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             pos2stateHint[p] = s
             if s != .complete { isSolved = false }
         }
-        // 6. The Squares can't touch horizontally or vertically.
-        for p in squares {
-            let s: AllowedObjectState = (!SnakeMazeGame.offset.contains {
-                squares.contains(p + $0)
-            }) ? .normal : .error
-            pos2stateAllowed[p] = s
-            if s == .error { isSolved = false }
-        }
-        guard isSolved else {return}
-        var pos2dirs = [Position: [Int]]()
+        // 2. Shaded tiles must not be orthogonally connected.
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let dirs = (0..<4).filter { self[p][$0] }
-                if dirs.count == 2 {
-                    // 1. Draw a loop that runs through all tiles.
-                    pos2dirs[p] = dirs
-                } else if !(dirs.isEmpty && (game.pos2hint[p] != nil || squares.contains(p))) {
-                    // 2. The loop cannot cross itself.
-                    isSolved = false; return
+                guard self[p].isShaded else { continue }
+                let s: AllowedObjectState = (!SnakeMazeGame.offset.contains {
+                    let p2 = p + $0
+                    return isValid(p: p2) && self[p2].isShaded
+                }) ? .normal : .error
+                pos2stateAllowed[p] = s
+                if s == .error { isSolved = false }
+            }
+        }
+        guard isSolved else {return}
+        // 4. All tiles which are not shaded must form an orthogonally continuous area.
+        let g = Graph()
+        var pos2node = [Position: Node]()
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                if !self[p].isShaded {
+                    pos2node[p] = g.addNode(p.description)
                 }
             }
         }
-        // Check the loop
-        let p = pos2dirs.keys.first!
-        var p2 = p, n = -1
-        while true {
-            guard let dirs = pos2dirs[p2] else { isSolved = false; return }
-            pos2dirs.removeValue(forKey: p2)
-            n = dirs.first { ($0 + 2) % 4 != n }!
-            p2 += SnakeMazeGame.offset[n]
-            guard p2 != p else {break}
+        for (p, node) in pos2node {
+            for os in SnakeMazeGame.offset {
+                let p2 = p + os
+                guard let node2 = pos2node[p2] else {continue}
+                g.addEdge(node, neighbor: node2)
+            }
         }
+        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+        if pos2node.count != nodesExplored.count { isSolved = false }
     }
 }

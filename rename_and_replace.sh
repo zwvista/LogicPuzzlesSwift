@@ -2,7 +2,7 @@
 set -e
 
 # 协程变量（源字符串和目标字符串）
-SRC="Yalooniq"
+SRC="UnreliableHints"
 DST="SnakeMaze"
 
 # 切换到 Branches 目录
