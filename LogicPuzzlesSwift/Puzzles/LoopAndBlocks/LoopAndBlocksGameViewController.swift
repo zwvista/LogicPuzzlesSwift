@@ -49,6 +49,23 @@ class LoopAndBlocksGameViewController: GameGameViewController2<LoopAndBlocksGame
             break
         }
     }
+    
+    override func handleLongPress(_ sender: UILongPressGestureRecognizer) {
+        guard !game.isSolved else {return}
+        let touchLocation = sender.location(in: sender.view)
+        let touchLocationInScene = scene.convertPoint(fromView: touchLocation)
+        guard scene.gridNode.contains(touchLocationInScene) else {return}
+        let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
+        let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
+        let f = { self.soundManager.playSoundTap() }
+        switch sender.state {
+        case .ended:
+            var move = LoopAndBlocksGameMove(p: p, dir: -1)
+            if game.setObject(move: &move) { f() }
+        default:
+            break
+        }
+    }
 
     override func newGame(level: GameLevel) -> LoopAndBlocksGame {
         LoopAndBlocksGame(layout: level.layout, delegate: self)

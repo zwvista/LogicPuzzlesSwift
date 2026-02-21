@@ -1,6 +1,6 @@
 #!/bin/bash
 # 自动生成的Swift拷贝XML脚本
-# 生成时间: 2026-02-19 21:33:56
+# 生成时间: 2026-02-21 14:05:07
 
 echo "开始拷贝XML文件到Swift项目..."
 
@@ -1624,6 +1624,15 @@ else
     echo "❌ 源文件不存在: ../PSL/PuzzlesR/Puzzles/RobotFences.xml"
 fi
 
+# 拷贝 UnreliableHints (来自: PuzzlesU/Puzzles)
+mkdir -p LogicPuzzlesSwift/Puzzles/UnreliableHints
+if [ -f "../PSL/PuzzlesU/Puzzles/UnreliableHints.xml" ]; then
+    cp "../PSL/PuzzlesU/Puzzles/UnreliableHints.xml" "LogicPuzzlesSwift/Puzzles/UnreliableHints/UnreliableHints.xml"
+    echo "✓ 已拷贝到Swift: UnreliableHints"
+else
+    echo "❌ 源文件不存在: ../PSL/PuzzlesU/Puzzles/UnreliableHints.xml"
+fi
+
 # 拷贝 Unseen (来自: PuzzlesU/Puzzles)
 mkdir -p LogicPuzzlesSwift/Puzzles/Unseen
 if [ -f "../PSL/PuzzlesU/Puzzles/Unseen.xml" ]; then
@@ -1642,4 +1651,4 @@ else
     echo "❌ 源文件不存在: ../PSL/PuzzlesU/Puzzles/Underground.xml"
 fi
 
-echo "\nSwift拷贝完成，共处理 182 个游戏"
+echo "\nSwift拷贝完成，共处理 183 个游戏"
