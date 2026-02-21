@@ -9,10 +9,16 @@
 import Foundation
 
 enum UnreliableHintsObject: Int {
-    case normal, darken, marker
+    case normal, forbidden, marker, shaded
     init() {
         self = .normal
     }
+    var isShaded: Bool { return self == .shaded }
+}
+
+struct UnreliableHintsHint {
+    var num = 0
+    var dir = 0
 }
 
 struct UnreliableHintsGameMove {

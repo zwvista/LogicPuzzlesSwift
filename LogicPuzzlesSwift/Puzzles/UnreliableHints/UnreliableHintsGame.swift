@@ -10,28 +10,23 @@ import Foundation
 
 class UnreliableHintsGame: GridGame<UnreliableHintsGameState> {
     static let offset = Position.Directions4
+    static let chars = "^>v<"
 
-    var objArray = [Character]()
-    subscript(p: Position) -> Character {
-        get { self[p.row, p.col] }
-        set { self[p.row, p.col] = newValue }
-    }
-    subscript(row: Int, col: Int) -> Character {
-        get { objArray[row * cols + col] }
-        set { objArray[row * cols + col] = newValue }
-    }
-    
+    var pos2hint = [Position: UnreliableHintsHint]()
+
     init(layout: [String], delegate: UnreliableHintsGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count, layout[0].length)
-        objArray = Array<Character>(repeating: " ", count: rows * cols)
+        size = Position(layout.count, layout[0].length / 2)
         
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
-                let ch = str[c]
-                self[r, c] = ch
+                let s = str[c * 2...c * 2 + 1].trimmed()
+                guard !s.isEmpty else {continue}
+                let num = s[0].toInt!
+                let dir = YalooniqGame.chars.getIndexOf(s[1])!
+                pos2hint[Position(r, c)] = UnreliableHintsHint(num: num, dir: dir)
             }
         }
                 

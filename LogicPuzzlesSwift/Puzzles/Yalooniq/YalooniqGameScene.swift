@@ -15,10 +15,10 @@ class YalooniqGameScene: GameScene<YalooniqGameState> {
     }
     
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName, size: CGSize(width: gridNode.blockSize, height: gridNode.blockSize / 2))
     }
     
-    func leftCenterPoint(p: Position) -> CGPoint {
+    func getHintPoint(p: Position) -> CGPoint {
         let offset: CGFloat = 0.5
         let x = (CGFloat(p.col) + CGFloat(0.25)) * gridNode.blockSize + offset
         let y = -((CGFloat(p.row) + CGFloat(0.5)) * gridNode.blockSize + offset)
@@ -76,7 +76,7 @@ class YalooniqGameScene: GameScene<YalooniqGameState> {
         
         // add Hints
         for (p, hint) in game.pos2hint {
-            let point = leftCenterPoint(p: p)
+            let point = getHintPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             addHint(n: hint.num, s: state.pos2stateHint[p]!, point: point, nodeName: hintNodeName)
@@ -134,7 +134,7 @@ class YalooniqGameScene: GameScene<YalooniqGameState> {
                 let (s3, s4) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
                 if s3 != s4 {
                     removeNode(withName: hintNodeName)
-                    addHint(n: stateFrom.game.pos2hint[p]!.num, s: s4!, point: leftCenterPoint(p: p), nodeName: hintNodeName)
+                    addHint(n: stateFrom.game.pos2hint[p]!.num, s: s4!, point: getHintPoint(p: p), nodeName: hintNodeName)
                 }
             }
         }

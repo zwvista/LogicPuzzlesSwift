@@ -14,113 +14,110 @@ class UnreliableHintsGameScene: GameScene<UnreliableHintsGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addNumber(n: String, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(text: n, fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
+        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName, size: CGSize(width: gridNode.blockSize / 2, height: gridNode.blockSize / 2))
     }
     
-    func addHint(p: Position, n: String) {
-        let point = gridNode.centerPoint(p: p)
-        guard !n.isEmpty else {return}
-        let nodeNameSuffix = "-\(p.row)-\(p.col)"
-        let hintNodeName = "hint" + nodeNameSuffix
-        addNumber(n: n, s: .error, point: point, nodeName: hintNodeName)
+    func getCenterPoint(p: Position, dir: Int) -> CGPoint {
+        let offset: CGFloat = 0.5
+        let x = switch dir {
+        case 0: (CGFloat(p.col) + CGFloat(0.5)) * gridNode.blockSize + offset
+        case 1: (CGFloat(p.col) + CGFloat(0.75)) * gridNode.blockSize + offset
+        case 2: (CGFloat(p.col) + CGFloat(0.5)) * gridNode.blockSize + offset
+        default: (CGFloat(p.col) + CGFloat(0.25)) * gridNode.blockSize + offset
+        }
+        let y = switch dir {
+        case 0: -((CGFloat(p.row) + CGFloat(0.25)) * gridNode.blockSize + offset)
+        case 1: -((CGFloat(p.row) + CGFloat(0.5)) * gridNode.blockSize + offset)
+        case 2: -((CGFloat(p.row) + CGFloat(0.75)) * gridNode.blockSize + offset)
+        default: -((CGFloat(p.row) + CGFloat(0.5)) * gridNode.blockSize + offset)
+        }
+        return CGPoint(x: x, y: y)
     }
     
+    func getImageName(dir: Int) -> String {
+        switch dir {
+        case 0: "arrow_cyan_up"
+        case 1: "arrow_cyan_right"
+        case 2: "arrow_cyan_down"
+        default: "arrow_cyan_left"
+        }
+    }
+    
+    func getHintSize(dir: Int) -> CGSize {
+        switch dir {
+        case 0: CGSize(width: gridNode.blockSize, height: gridNode.blockSize / 2)
+        case 1: CGSize(width: gridNode.blockSize / 2, height: gridNode.blockSize)
+        case 2: CGSize(width: gridNode.blockSize, height: gridNode.blockSize / 2)
+        default: CGSize(width: gridNode.blockSize / 2, height: gridNode.blockSize)
+        }
+    }
+
     override func levelInitialized(_ game: AnyObject, state: UnreliableHintsGameState, skView: SKView) {
         let game = game as! UnreliableHintsGame
         removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols + 1)
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
         
         // add Grid
         let offset:CGFloat = 0.5
-        addGrid(gridNode: UnreliableHintsGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols + 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows + 1) / 2 + offset))
-        
-        // addNumbers
-        for r in 0..<game.rows {
-            for c in 0..<game.cols {
-                let p = Position(r, c)
-                let point = gridNode.centerPoint(p: p)
-                let n = state.game[p]
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
-                let numberNodeName = "number" + nodeNameSuffix
-                addNumber(n: String(n), s: .normal, point: point, nodeName: numberNodeName)
-            }
-        }
+        addGrid(gridNode: UnreliableHintsGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
         // add Hints
-        for r in 0..<game.rows {
-            let p = Position(r, game.cols)
-            let n = state.row2hint[r]
-            addHint(p: p, n: n)
-        }
-        for c in 0..<game.cols {
-            let p = Position(game.rows, c)
-            let n = state.col2hint[c]
-            addHint(p: p, n: n)
+        for (p, hint) in game.pos2hint {
+            let dir2 = hint.dir, dir1 = (dir2 + 2) % 4
+            let point = gridNode.centerPoint(p: p)
+            let point1 = getCenterPoint(p: p, dir: dir1)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let hintNodeName = "hint" + nodeNameSuffix
+            let arrowNodeName = "arrow" + nodeNameSuffix
+            addHint(n: hint.num, s: state.pos2stateHint[p]!, point: point1, nodeName: hintNodeName)
+            addImage(imageNamed: getImageName(dir: dir2), color: .red, colorBlendFactor: 0.0, point: point, nodeName: arrowNodeName)
         }
     }
     
     override func levelUpdated(from stateFrom: UnreliableHintsGameState, to stateTo: UnreliableHintsGameState) {
-        func removeHint(p: Position) {
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let hintNodeName = "hint" + nodeNameSuffix
-            removeNode(withName: hintNodeName)
-        }
-        for r in 0..<stateFrom.rows {
-            let p = Position(r, stateFrom.cols)
-            let n = stateTo.row2hint[r]
-            if stateFrom.row2hint[r] != n {
-                removeHint(p: p)
-                addHint(p: p, n: n)
-            }
-        }
-        for c in 0..<stateFrom.cols {
-            let p = Position(stateFrom.rows, c)
-            let n = stateTo.col2hint[c]
-            if stateFrom.col2hint[c] != n {
-                removeHint(p: p)
-                addHint(p: p, n: n)
-            }
-        }
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let numberNodeName = "number" + nodeNameSuffix
-                let darkenNodeName = "darken" + nodeNameSuffix
+                let shadedNodeName = "shaded" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
-                func addNumber2() { addNumber(n: String(stateFrom.game[p]), s: .normal, point: point, nodeName: numberNodeName) }
-                func removeNumber() { removeNode(withName: numberNodeName) }
-                func addDarken() {
-                    let darkenNode = SKSpriteNode(color: .lightGray, size: coloredRectSize())
-                    darkenNode.position = point
-                    darkenNode.name = darkenNodeName
-                    gridNode.addChild(darkenNode)
+                let hintNodeName = "hint" + nodeNameSuffix
+                let arrowNodeName = "arrow" + nodeNameSuffix
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
+                let (s3, s4) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
+                if o1 != o2 || s1 != s2 {
+                    switch o1 {
+                    case .shaded:
+                        removeNode(withName: shadedNodeName)
+                    case .marker:
+                        removeNode(withName: markerNodeName)
+                    default:
+                        break
+                    }
+                    switch o2 {
+                    case .shaded:
+                        let shadedNode = SKSpriteNode(color: .lightGray, size: coloredRectSize())
+                        shadedNode.position = point
+                        shadedNode.name = shadedNodeName
+                        gridNode.addChild(shadedNode)
+                    case .marker:
+                        addCircleMarker(color: .white, point: point, nodeName: markerNodeName)
+                    default:
+                        break
+                    }
                 }
-                func removeDarken() { removeNode(withName: darkenNodeName) }
-                func addMarker() { addCircleMarker(color: .white, point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
-                guard o1 != o2 else {continue}
-                switch o1 {
-                case .darken:
-                    removeDarken()
-                case .marker:
-                    removeMarker()
-                default:
-                    break
+                if s3 != s4 || s3 != nil && (o1 == .shaded || o2 == .shaded) {
+                    removeNode(withName: hintNodeName)
+                    removeNode(withName: arrowNodeName)
+                    let hint = stateFrom.game.pos2hint[p]!
+                    let dir2 = hint.dir, dir1 = (dir2 + 2) % 4
+                    let point1 = getCenterPoint(p: p, dir: dir1)
+                    addHint(n: hint.num, s: s4!, point: point1, nodeName: hintNodeName)
+                    addImage(imageNamed: getImageName(dir: dir2), color: .red, colorBlendFactor: 0.0, point: point, nodeName: arrowNodeName)
                 }
-                switch o2 {
-                case .darken:
-                    removeNumber()
-                    addDarken()
-                    addNumber2()
-                case .marker:
-                    addMarker()
-                default:
-                    break
-                }                
             }
         }
     }

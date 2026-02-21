@@ -15,9 +15,9 @@ class UnreliableHintsGameState: GridGameState<UnreliableHintsGameMove> {
     }
     override var gameDocument: GameDocumentBase { UnreliableHintsDocument.sharedInstance }
     var objArray = [UnreliableHintsObject]()
-    var row2hint = [String]()
-    var col2hint = [String]()
-    
+    var pos2stateHint = [Position: HintState]()
+    var pos2stateAllowed = [Position: AllowedObjectState]()
+
     override func copy() -> UnreliableHintsGameState {
         let v = UnreliableHintsGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -25,8 +25,6 @@ class UnreliableHintsGameState: GridGameState<UnreliableHintsGameMove> {
     func setup(v: UnreliableHintsGameState) -> UnreliableHintsGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.row2hint = row2hint
-        v.col2hint = col2hint
         return v
     }
     
@@ -34,8 +32,6 @@ class UnreliableHintsGameState: GridGameState<UnreliableHintsGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<UnreliableHintsObject>(repeating: UnreliableHintsObject(), count: rows * cols)
-        row2hint = Array<String>(repeating: "", count: rows)
-        col2hint = Array<String>(repeating: "", count: cols)
         updateIsSolved()
     }
     
@@ -62,9 +58,10 @@ class UnreliableHintsGameState: GridGameState<UnreliableHintsGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .normal: markerOption == .markerFirst ? .marker : .darken
-        case .darken: markerOption == .markerLast ? .marker : .normal
-        case .marker: markerOption == .markerFirst ? .darken : .normal
+        case .normal: markerOption == .markerFirst ? .marker : .shaded
+        case .shaded: markerOption == .markerLast ? .marker : .normal
+        case .marker: markerOption == .markerFirst ? .shaded : .normal
+        default: o
         }
         return setObject(move: &move)
     }
@@ -86,62 +83,50 @@ class UnreliableHintsGameState: GridGameState<UnreliableHintsGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        var chars = ""
-        // 1. The goal is to shade squares so that a number appears only once in a
-        // row.
+        // 3. You can shade tiles with arrows and numbers.
+        // 5. A cell containing a number and an arrow tells you how many tiles are shaded
+        //    in that direction.
+        // 6. However not all tiles that are shaded tell you lies.
+        for (p, hint) in game.pos2hint {
+            guard !self[p].isShaded else {
+                pos2stateHint[p] = .complete
+                continue
+            }
+            let n2 = hint.num
+            let os = UnreliableHintsGame.offset[hint.dir]
+            var n1 = 0
+            var p2 = p + os
+            while isValid(p: p2) {
+                if self[p2].isShaded { n1 += 1 }
+                p2 += os
+            }
+            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            pos2stateHint[p] = s
+            if s != .complete { isSolved = false }
+        }
+        // 2. Shaded tiles must not be orthogonally connected.
         for r in 0..<rows {
-            chars = ""
-            row2hint[r] = ""
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard self[p] != .darken else {continue}
-                let ch = game[p]
-                if chars.contains(String(ch)) {
-                    isSolved = false
-                    row2hint[r].append(ch)
-                } else {
-                    chars.append(ch)
-                }
-            }
-        }
-        // 1. The goal is to shade squares so that a number appears only once in a
-        // column.
-        for c in 0..<cols {
-            chars = ""
-            col2hint[c] = ""
-            for r in 0..<rows {
-                let p = Position(r, c)
-                guard self[p] != .darken else {continue}
-                let ch = game[p]
-                if chars.contains(String(ch)) {
-                    isSolved = false
-                    col2hint[c].append(ch)
-                } else {
-                    chars.append(ch)
-                }
+                guard self[p].isShaded else { continue }
+                let s: AllowedObjectState = (!UnreliableHintsGame.offset.contains {
+                    let p2 = p + $0
+                    return isValid(p: p2) && self[p2].isShaded
+                }) ? .normal : .error
+                pos2stateAllowed[p] = s
+                if s == .error { isSolved = false }
             }
         }
         guard isSolved else {return}
+        // 4. All tiles which are not shaded must form an orthogonally continuous area.
         let g = Graph()
         var pos2node = [Position: Node]()
-        var rngDarken = [Position]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                switch self[p] {
-                case .darken:
-                    rngDarken.append(p)
-                default:
+                if !self[p].isShaded {
                     pos2node[p] = g.addNode(p.description)
                 }
-            }
-        }
-        // 2. While doing that, you must take care that shaded squares don't touch
-        // horizontally or vertically between them.
-        for p in rngDarken {
-            for os in UnreliableHintsGame.offset {
-                let p2 = p + os
-                guard !rngDarken.contains(p2) else { isSolved = false; return }
             }
         }
         for (p, node) in pos2node {
@@ -151,7 +136,6 @@ class UnreliableHintsGameState: GridGameState<UnreliableHintsGameMove> {
                 g.addEdge(node, neighbor: node2)
             }
         }
-        // 3. In the end all the un-shaded squares must form a single continuous area.
         let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
         if pos2node.count != nodesExplored.count { isSolved = false }
     }
