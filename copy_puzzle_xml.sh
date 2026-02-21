@@ -1,6 +1,6 @@
 #!/bin/bash
 # 自动生成的Swift拷贝XML脚本
-# 生成时间: 2026-02-21 19:50:33
+# 生成时间: 2026-02-21 23:57:33
 
 echo "开始拷贝XML文件到Swift项目..."
 
@@ -704,6 +704,15 @@ if [ -f "../PSL/PuzzlesC/Puzzles/CleaningPath.xml" ]; then
     echo "✓ 已拷贝到Swift: CleaningPath"
 else
     echo "❌ 源文件不存在: ../PSL/PuzzlesC/Puzzles/CleaningPath.xml"
+fi
+
+# 拷贝 CrossroadBlocks (来自: PuzzlesC/Puzzles)
+mkdir -p LogicPuzzlesSwift/Puzzles/CrossroadBlocks
+if [ -f "../PSL/PuzzlesC/Puzzles/CrossroadBlocks.xml" ]; then
+    cp "../PSL/PuzzlesC/Puzzles/CrossroadBlocks.xml" "LogicPuzzlesSwift/Puzzles/CrossroadBlocks/CrossroadBlocks.xml"
+    echo "✓ 已拷贝到Swift: CrossroadBlocks"
+else
+    echo "❌ 源文件不存在: ../PSL/PuzzlesC/Puzzles/CrossroadBlocks.xml"
 fi
 
 # 拷贝 Caffelatte (来自: PuzzlesC/Puzzles)
@@ -1660,4 +1669,4 @@ else
     echo "❌ 源文件不存在: ../PSL/PuzzlesU/Puzzles/Underground.xml"
 fi
 
-echo "\nSwift拷贝完成，共处理 184 个游戏"
+echo "\nSwift拷贝完成，共处理 185 个游戏"

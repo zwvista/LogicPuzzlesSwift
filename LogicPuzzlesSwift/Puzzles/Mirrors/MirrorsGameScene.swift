@@ -60,6 +60,14 @@ class MirrorsGameScene: GameScene<MirrorsGameState> {
                     blockNode.position = point
                     blockNode.name = "block"
                     gridNode.addChild(blockNode)
+                case .spot:
+                    let spotNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 2)
+                    spotNode.position = point
+                    spotNode.name = "spot"
+                    spotNode.strokeColor = .white
+                    spotNode.glowWidth = 5.0
+                    spotNode.fillColor = .green
+                    gridNode.addChild(spotNode)
                 case .empty: break
                 default:
                     for dir in state.pos2dirs[p]! {

@@ -123,19 +123,37 @@ class MirrorsGameState: GridGameState<MirrorsGameMove> {
                 guard (dirs.allSatisfy {
                     let p2 = p + MirrorsGame.offset[$0]
                     guard let dirs2 = pos2dirs[p2] else { return false }
-                    return dirs2.contains(($0 + 2) % 4)
+                    return self[p2] == .spot || dirs2.contains(($0 + 2) % 4)
                 }) else { isSolved = false; return }
             }
         }
-        // Check the loop
-        let p = pos2dirs.keys.first!
-        var p2 = p, n = -1
-        while true {
-            guard let dirs = pos2dirs[p2] else { isSolved = false; return }
-            pos2dirs.removeValue(forKey: p2)
-            n = dirs.first { ($0 + 2) % 4 != n }!
-            p2 += MirrorsGame.offset[n]
-            guard p2 != p else {break}
+        if game.spots.isEmpty {
+            // Check the loop
+            let p = pos2dirs.keys.first!
+            var p2 = p, n = -1
+            while true {
+                guard let dirs = pos2dirs[p2] else { isSolved = false; return }
+                pos2dirs.removeValue(forKey: p2)
+                n = dirs.first { ($0 + 2) % 4 != n }!
+                p2 += MirrorsGame.offset[n]
+                guard p2 != p else {break}
+            }
+        } else {
+            // Check the path
+            let (ps0, ps1) = (game.spots[0], game.spots[1])
+            let rng = pos2dirs.filter { (p, dirs) in
+                dirs.contains { p + MirrorsGame.offset[$0] == ps0 }
+            }
+            guard rng.count == 1 else { isSolved = false; return }
+            var p2 = rng.first!.key
+            var n = rng.first!.value.first { p2 + MirrorsGame.offset[$0] == ps0 }!
+            while true {
+                guard let dirs = pos2dirs[p2] else { isSolved = false; return }
+                pos2dirs.removeValue(forKey: p2)
+                n = dirs.first { ($0 + 2) % 4 != n }!
+                p2 += MirrorsGame.offset[n]
+                guard p2 != ps1 else {break}
+            }
         }
     }
 }

@@ -11,6 +11,7 @@ import Foundation
 class MirrorsGame: GridGame<MirrorsGameState> {
     static let offset = Position.Directions4
 
+    var spots = [Position]()
     var objArray = [MirrorsObject]()
     subscript(p: Position) -> MirrorsObject {
         get { self[p.row, p.col] }
@@ -31,7 +32,8 @@ class MirrorsGame: GridGame<MirrorsGameState> {
             let str = layout[r]
             for c in 0..<cols {
                 let ch = str[c]
-                self[r, c] = switch ch {
+                let p = Position(r, c)
+                self[p] = switch ch {
                 case "O": .block
                 case "3": .upright
                 case "6": .downright
@@ -39,7 +41,11 @@ class MirrorsGame: GridGame<MirrorsGameState> {
                 case "9": .leftup
                 case "A": .horizontal
                 case "5": .vertical
+                case "S": .spot
                 default: .empty
+                }
+                if self[p] == .spot {
+                    spots.append(Position(r, c))
                 }
             }
         }
