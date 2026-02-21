@@ -75,9 +75,9 @@ class GardenTunnelsGameScene: GameScene<GardenTunnelsGameState> {
         }
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: p)
                 for dir in 1...2 {
-                    let p = Position(r, c)
-                    let point = gridNode.centerPoint(p: p)
                     let nodeNameSuffix = "-\(r)-\(c)-\(dir)"
                     let lineNodeName = "line" + nodeNameSuffix
                     func removeLine() { removeNode(withName: lineNodeName) }
@@ -104,7 +104,7 @@ class GardenTunnelsGameScene: GameScene<GardenTunnelsGameState> {
                     guard o1 != o2 else {continue}
                     if o1 { removeLine() }
                     if o2 { addLine() }
-                 }
+                }
             }
         }
     }

@@ -39,9 +39,9 @@ class LineSweeperGameScene: GameScene<LineSweeperGameState> {
     override func levelUpdated(from stateFrom: LineSweeperGameState, to stateTo: LineSweeperGameState) {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: p)
                 for dir in 1...2 {
-                    let p = Position(r, c)
-                    let point = gridNode.centerPoint(p: p)
                     let nodeNameSuffix = "-\(r)-\(c)-\(dir)"
                     let hintNodeName = "hint" + nodeNameSuffix
                     let lineNodeName = "line" + nodeNameSuffix

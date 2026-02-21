@@ -15,6 +15,9 @@ class YalooniqGameState: GridGameState<YalooniqGameMove> {
     }
     override var gameDocument: GameDocumentBase { YalooniqDocument.sharedInstance }
     var objArray = [YalooniqObject]()
+    var squares = Set<Position>()
+    var pos2stateHint = [Position: HintState]()
+    var pos2stateAllowed = [Position: AllowedObjectState]()
     
     override func copy() -> YalooniqGameState {
         let v = YalooniqGameState(game: game, isCopy: true)
@@ -23,6 +26,7 @@ class YalooniqGameState: GridGameState<YalooniqGameMove> {
     func setup(v: YalooniqGameState) -> YalooniqGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
+        v.squares = squares
         return v
     }
     
@@ -44,10 +48,16 @@ class YalooniqGameState: GridGameState<YalooniqGameMove> {
     
     override func setObject(move: inout YalooniqGameMove) -> GameOperationType {
         let p = move.p, dir = move.dir
-        let p2 = p + YalooniqGame.offset[dir], dir2 = (dir + 2) % 4
-        guard isValid(p: p2) && game[p] != YalooniqGame.PUZ_BLOCK && game[p2] != YalooniqGame.PUZ_BLOCK else { return .invalid }
-        self[p][dir].toggle()
-        self[p2][dir2].toggle()
+        guard isValid(p: p) else { return .invalid }
+        if dir == YalooniqGame.PUZ_DIR_SQUARE {
+            guard self[p].testAll(is: false) else { return .invalid }
+            if squares.remove(p) == nil { squares.insert(p) }
+        } else {
+            let p2 = p + YalooniqGame.offset[dir], dir2 = (dir + 2) % 4
+            guard isValid(p: p2) && game.pos2hint[p] == nil && !squares.contains(p) && !squares.contains(p2) else { return .invalid }
+            self[p][dir].toggle()
+            self[p2][dir2].toggle()
+        }
         updateIsSolved()
         return .moveComplete
     }
@@ -73,6 +83,31 @@ class YalooniqGameState: GridGameState<YalooniqGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
+        // 4. It is up to you to find the Squares, which are pointed at by the Arrows!
+        // 5. The numbers beside the Arrows tell you how many Squares are present
+        //    in that direction, from that point.
+        for (p, hint) in game.pos2hint {
+            let n2 = hint.num
+            let os = YalooniqGame.offset[hint.dir]
+            var n1 = 0
+            var p2 = p + os
+            while isValid(p: p2) {
+                if squares.contains(p2) { n1 += 1 }
+                p2 += os
+            }
+            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            pos2stateHint[p] = s
+            if s != .complete { isSolved = false }
+        }
+        // 6. The Squares can't touch horizontally or vertically.
+        for p in squares {
+            let s: AllowedObjectState = (!YalooniqGame.offset.contains {
+                squares.contains(p + $0)
+            }) ? .normal : .error
+            pos2stateAllowed[p] = s
+            if s == .error { isSolved = false }
+        }
+        guard isSolved else {return}
         var pos2dirs = [Position: [Int]]()
         for r in 0..<rows {
             for c in 0..<cols {
@@ -81,7 +116,7 @@ class YalooniqGameState: GridGameState<YalooniqGameMove> {
                 if dirs.count == 2 {
                     // 1. Draw a loop that runs through all tiles.
                     pos2dirs[p] = dirs
-                } else if !(dirs.isEmpty && game[p] == YalooniqGame.PUZ_BLOCK) {
+                } else if !(dirs.isEmpty && (game.pos2hint[p] != nil || squares.contains(p))) {
                     // 2. The loop cannot cross itself.
                     isSolved = false; return
                 }

@@ -84,7 +84,7 @@ class MirrorsGameScene: GameScene<MirrorsGameState> {
                     guard b1 != b2 else {continue}
                     if b1 { removeLine() }
                     if b2 { addLine(dir: dir, color: .green, point: point, nodeName: lineNodeName) }
-                 }
+                }
             }
         }
     }

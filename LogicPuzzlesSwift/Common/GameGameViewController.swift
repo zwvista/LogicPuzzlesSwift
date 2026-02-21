@@ -53,6 +53,11 @@ class GameGameViewController: UIViewController, SoundMixin, GameDelegate {
         skView.isMultipleTouchEnabled = false
 
         lblGameTitle.text = currentGameTitle
+
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+        longPressGesture.minimumPressDuration = 0.8
+        longPressGesture.allowableMovement = 10
+        self.view.addGestureRecognizer(longPressGesture)
     }
     
     func updateSolutionUI() {
@@ -73,6 +78,9 @@ class GameGameViewController: UIViewController, SoundMixin, GameDelegate {
     }
     
     @IBAction func handlePan(_ sender: UIPanGestureRecognizer) {
+    }
+    
+    @IBAction func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
     }
 
     @IBAction func undoGame(_ sender: Any) {

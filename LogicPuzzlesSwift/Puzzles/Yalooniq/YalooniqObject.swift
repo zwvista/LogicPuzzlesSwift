@@ -10,6 +10,11 @@ import Foundation
 
 typealias YalooniqObject = [Bool]
 
+struct YalooniqHint {
+    var num = 0
+    var dir = 0
+}
+
 struct YalooniqGameMove {
     var p = Position()
     var dir = 0
