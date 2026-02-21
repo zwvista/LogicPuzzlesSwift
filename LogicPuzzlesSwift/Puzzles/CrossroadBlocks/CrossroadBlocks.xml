@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Try to drive around the circuit without hitting the road blocks: draw a single closed non-intersecting loop.
+2. The arrows and numbers tell you the total number of cells borders the road crosses in that direction.
+3. In the example, looking at the top stretch, the road goes through 4 cells, hence it crosses 3 cell borders.
+4. Also on the top left, the road goes through 2 cells and so it crosses one cell border.
+5. Black cells must be inside the loop. White cells must be outside the loop.
+6. The number tells you the total tiles crossed in that direction. So that could be split in two stretches or more.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+W3>            `
+      B1<      `
+   B0>      W0<`
+      B1<      `
+W3>            `
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+W3>            `
+W              `
+      W1<      `
+               `
+               `
+    ]]>
+  </level>
+  <level id="11">
+    <![CDATA[
+      W1>      `
+               `
+   B     B     `
+      B1<      `
+W3^         W2<`
+    ]]>
+  </level>
+</levels>
+</puzzle>

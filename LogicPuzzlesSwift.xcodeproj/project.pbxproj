@@ -1575,6 +1575,24 @@
 		8CA043281FDBE77B00AF85E1 /* CarpentersSquareDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA043121FDBE77700AF85E1 /* CarpentersSquareDocument.swift */; };
 		8CA646241FF3EEB0004707E5 /* music1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8CA646211FF3EEAF004707E5 /* music1.wav */; };
 		8CA646251FF3EEB0004707E5 /* music2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8CA646231FF3EEB0004707E5 /* music2.wav */; };
+		8CA9D5F12F49C26A00EDF793 /* BentBridgesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D5EE2F49C26A00EDF793 /* BentBridgesMainViewController.swift */; };
+		8CA9D5F22F49C26A00EDF793 /* BentBridgesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D5E92F49C26A00EDF793 /* BentBridgesGame.swift */; };
+		8CA9D5F32F49C26A00EDF793 /* BentBridgesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D5E82F49C26A00EDF793 /* BentBridgesDocument.swift */; };
+		8CA9D5F42F49C26A00EDF793 /* BentBridgesGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D5ED2F49C26A00EDF793 /* BentBridgesGridNode.swift */; };
+		8CA9D5F52F49C26A00EDF793 /* BentBridgesGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D5EA2F49C26A00EDF793 /* BentBridgesGameScene.swift */; };
+		8CA9D5F62F49C26A00EDF793 /* BentBridgesGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D5EC2F49C26A00EDF793 /* BentBridgesGameViewController.swift */; };
+		8CA9D5F72F49C26A00EDF793 /* BentBridgesGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D5EB2F49C26A00EDF793 /* BentBridgesGameState.swift */; };
+		8CA9D5F82F49C26A00EDF793 /* BentBridgesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D5EF2F49C26A00EDF793 /* BentBridgesObject.swift */; };
+		8CA9D5F92F49C26A00EDF793 /* BentBridges.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CA9D5E72F49C26A00EDF793 /* BentBridges.xml */; };
+		8CA9D6052F49C74700EDF793 /* CrossroadBlocksGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D6012F49C74700EDF793 /* CrossroadBlocksGridNode.swift */; };
+		8CA9D6062F49C74700EDF793 /* CrossroadBlocksMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D6022F49C74700EDF793 /* CrossroadBlocksMainViewController.swift */; };
+		8CA9D6072F49C74700EDF793 /* CrossroadBlocksDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D5FC2F49C74700EDF793 /* CrossroadBlocksDocument.swift */; };
+		8CA9D6082F49C74700EDF793 /* CrossroadBlocksGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D6002F49C74700EDF793 /* CrossroadBlocksGameViewController.swift */; };
+		8CA9D6092F49C74700EDF793 /* CrossroadBlocksGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D5FD2F49C74700EDF793 /* CrossroadBlocksGame.swift */; };
+		8CA9D60A2F49C74700EDF793 /* CrossroadBlocksGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D5FE2F49C74700EDF793 /* CrossroadBlocksGameScene.swift */; };
+		8CA9D60B2F49C74700EDF793 /* CrossroadBlocksObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D6032F49C74700EDF793 /* CrossroadBlocksObject.swift */; };
+		8CA9D60C2F49C74700EDF793 /* CrossroadBlocksGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D5FF2F49C74700EDF793 /* CrossroadBlocksGameState.swift */; };
+		8CA9D60D2F49C74700EDF793 /* CrossroadBlocks.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CA9D5FB2F49C74700EDF793 /* CrossroadBlocks.xml */; };
 		8CACC92F2E9BC56E00F53475 /* HidokuGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CACC9292E9BC56E00F53475 /* HidokuGameState.swift */; };
 		8CACC9302E9BC56E00F53475 /* HidokuGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CACC92B2E9BC56E00F53475 /* HidokuGridNode.swift */; };
 		8CACC9312E9BC56E00F53475 /* HidokuMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CACC92C2E9BC56E00F53475 /* HidokuMainViewController.swift */; };
@@ -3648,6 +3666,24 @@
 		8CA043121FDBE77700AF85E1 /* CarpentersSquareDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarpentersSquareDocument.swift; sourceTree = "<group>"; };
 		8CA646211FF3EEAF004707E5 /* music1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music1.wav; sourceTree = "<group>"; };
 		8CA646231FF3EEB0004707E5 /* music2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music2.wav; sourceTree = "<group>"; };
+		8CA9D5E72F49C26A00EDF793 /* BentBridges.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BentBridges.xml; sourceTree = "<group>"; };
+		8CA9D5E82F49C26A00EDF793 /* BentBridgesDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BentBridgesDocument.swift; sourceTree = "<group>"; };
+		8CA9D5E92F49C26A00EDF793 /* BentBridgesGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BentBridgesGame.swift; sourceTree = "<group>"; };
+		8CA9D5EA2F49C26A00EDF793 /* BentBridgesGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BentBridgesGameScene.swift; sourceTree = "<group>"; };
+		8CA9D5EB2F49C26A00EDF793 /* BentBridgesGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BentBridgesGameState.swift; sourceTree = "<group>"; };
+		8CA9D5EC2F49C26A00EDF793 /* BentBridgesGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BentBridgesGameViewController.swift; sourceTree = "<group>"; };
+		8CA9D5ED2F49C26A00EDF793 /* BentBridgesGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BentBridgesGridNode.swift; sourceTree = "<group>"; };
+		8CA9D5EE2F49C26A00EDF793 /* BentBridgesMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BentBridgesMainViewController.swift; sourceTree = "<group>"; };
+		8CA9D5EF2F49C26A00EDF793 /* BentBridgesObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BentBridgesObject.swift; sourceTree = "<group>"; };
+		8CA9D5FB2F49C74700EDF793 /* CrossroadBlocks.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CrossroadBlocks.xml; sourceTree = "<group>"; };
+		8CA9D5FC2F49C74700EDF793 /* CrossroadBlocksDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossroadBlocksDocument.swift; sourceTree = "<group>"; };
+		8CA9D5FD2F49C74700EDF793 /* CrossroadBlocksGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossroadBlocksGame.swift; sourceTree = "<group>"; };
+		8CA9D5FE2F49C74700EDF793 /* CrossroadBlocksGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossroadBlocksGameScene.swift; sourceTree = "<group>"; };
+		8CA9D5FF2F49C74700EDF793 /* CrossroadBlocksGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossroadBlocksGameState.swift; sourceTree = "<group>"; };
+		8CA9D6002F49C74700EDF793 /* CrossroadBlocksGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossroadBlocksGameViewController.swift; sourceTree = "<group>"; };
+		8CA9D6012F49C74700EDF793 /* CrossroadBlocksGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossroadBlocksGridNode.swift; sourceTree = "<group>"; };
+		8CA9D6022F49C74700EDF793 /* CrossroadBlocksMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossroadBlocksMainViewController.swift; sourceTree = "<group>"; };
+		8CA9D6032F49C74700EDF793 /* CrossroadBlocksObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossroadBlocksObject.swift; sourceTree = "<group>"; };
 		8CACC9252E9BC56E00F53475 /* Hidoku.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Hidoku.xml; sourceTree = "<group>"; };
 		8CACC9262E9BC56E00F53475 /* HidokuDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidokuDocument.swift; sourceTree = "<group>"; };
 		8CACC9272E9BC56E00F53475 /* HidokuGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidokuGame.swift; sourceTree = "<group>"; };
@@ -4923,6 +4959,7 @@
 				8C1ACFCC2F2E45AC004832E2 /* AssemblyInstructions */,
 				8CDAE7FC1F646C29000DE5AF /* BalancedTapas */,
 				8C3A33D31EC88D4100A914A5 /* BattleShips */,
+				8CA9D5F02F49C26A00EDF793 /* BentBridges */,
 				8C3A33E01EC88D4100A914A5 /* BootyIsland */,
 				8CB721ED2EAB6C54001B25C5 /* BotanicalPark */,
 				8C3A33ED1EC88D4100A914A5 /* BoxItAgain */,
@@ -4943,6 +4980,7 @@
 				8C3A342E1EC88D4100A914A5 /* Clouds */,
 				8C2F285C2F40FE28004B3C93 /* CloudsAndClears */,
 				8C81BC222EA8A6BD0083B936 /* CoffeeAndSugar */,
+				8CA9D6042F49C74700EDF793 /* CrossroadBlocks */,
 				8C263F5F2F1E7DE600158A2C /* CrossroadsX */,
 				8CF17F752F367FE0000F1F7D /* CrosstownTraffic */,
 				8C263E7E2F13DC5200158A2C /* CulturedBranches */,
@@ -6997,6 +7035,38 @@
 			path = CarpentersSquare;
 			sourceTree = "<group>";
 		};
+		8CA9D5F02F49C26A00EDF793 /* BentBridges */ = {
+			isa = PBXGroup;
+			children = (
+				8CA9D5E72F49C26A00EDF793 /* BentBridges.xml */,
+				8CA9D5E82F49C26A00EDF793 /* BentBridgesDocument.swift */,
+				8CA9D5E92F49C26A00EDF793 /* BentBridgesGame.swift */,
+				8CA9D5EA2F49C26A00EDF793 /* BentBridgesGameScene.swift */,
+				8CA9D5EB2F49C26A00EDF793 /* BentBridgesGameState.swift */,
+				8CA9D5EC2F49C26A00EDF793 /* BentBridgesGameViewController.swift */,
+				8CA9D5ED2F49C26A00EDF793 /* BentBridgesGridNode.swift */,
+				8CA9D5EE2F49C26A00EDF793 /* BentBridgesMainViewController.swift */,
+				8CA9D5EF2F49C26A00EDF793 /* BentBridgesObject.swift */,
+			);
+			path = BentBridges;
+			sourceTree = "<group>";
+		};
+		8CA9D6042F49C74700EDF793 /* CrossroadBlocks */ = {
+			isa = PBXGroup;
+			children = (
+				8CA9D5FB2F49C74700EDF793 /* CrossroadBlocks.xml */,
+				8CA9D5FC2F49C74700EDF793 /* CrossroadBlocksDocument.swift */,
+				8CA9D5FD2F49C74700EDF793 /* CrossroadBlocksGame.swift */,
+				8CA9D5FE2F49C74700EDF793 /* CrossroadBlocksGameScene.swift */,
+				8CA9D5FF2F49C74700EDF793 /* CrossroadBlocksGameState.swift */,
+				8CA9D6002F49C74700EDF793 /* CrossroadBlocksGameViewController.swift */,
+				8CA9D6012F49C74700EDF793 /* CrossroadBlocksGridNode.swift */,
+				8CA9D6022F49C74700EDF793 /* CrossroadBlocksMainViewController.swift */,
+				8CA9D6032F49C74700EDF793 /* CrossroadBlocksObject.swift */,
+			);
+			path = CrossroadBlocks;
+			sourceTree = "<group>";
+		};
 		8CACC92E2E9BC56E00F53475 /* Hidoku */ = {
 			isa = PBXGroup;
 			children = (
@@ -7970,6 +8040,7 @@
 				8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */,
 				8C3A360C1EC88D4200A914A5 /* BootyIsland.xml in Resources */,
 				8CA0431F1FDBE77B00AF85E1 /* CarpentersSquare.xml in Resources */,
+				8CA9D60D2F49C74700EDF793 /* CrossroadBlocks.xml in Resources */,
 				8CFB220D2EF771C100E5F29D /* Rome.xml in Resources */,
 				8CA042DA1FDB878800AF85E1 /* Fillomino.xml in Resources */,
 				8CF3FFD71FCB2A2700D41B67 /* DisconnectFour.xml in Resources */,
@@ -8363,6 +8434,7 @@
 				8C86644A2EA39DD00078CD64 /* giraffe.png in Resources */,
 				8C86644B2EA39DD00078CD64 /* office_building.png in Resources */,
 				8C86644C2EA39DD00078CD64 /* arrow_green_down.png in Resources */,
+				8CA9D5F92F49C26A00EDF793 /* BentBridges.xml in Resources */,
 				8C86644D2EA39DD00078CD64 /* arrow_yellow_down.png in Resources */,
 				8C86644E2EA39DD00078CD64 /* arrow_green_up.png in Resources */,
 				8C86644F2EA39DD00078CD64 /* target.png in Resources */,
@@ -9190,6 +9262,14 @@
 				8CAFBFCB2E9D9FE500C27D7C /* ArrowsMainViewController.swift in Sources */,
 				8CAFBFCC2E9D9FE500C27D7C /* ArrowsGame.swift in Sources */,
 				8CAFBFCD2E9D9FE500C27D7C /* ArrowsGameScene.swift in Sources */,
+				8CA9D5F12F49C26A00EDF793 /* BentBridgesMainViewController.swift in Sources */,
+				8CA9D5F22F49C26A00EDF793 /* BentBridgesGame.swift in Sources */,
+				8CA9D5F32F49C26A00EDF793 /* BentBridgesDocument.swift in Sources */,
+				8CA9D5F42F49C26A00EDF793 /* BentBridgesGridNode.swift in Sources */,
+				8CA9D5F52F49C26A00EDF793 /* BentBridgesGameScene.swift in Sources */,
+				8CA9D5F62F49C26A00EDF793 /* BentBridgesGameViewController.swift in Sources */,
+				8CA9D5F72F49C26A00EDF793 /* BentBridgesGameState.swift in Sources */,
+				8CA9D5F82F49C26A00EDF793 /* BentBridgesObject.swift in Sources */,
 				8CAFC0002EA0864F00C27D7C /* NumberCrossingGameState.swift in Sources */,
 				8CAFC0012EA0864F00C27D7C /* NumberCrossingGameScene.swift in Sources */,
 				8CAFC0022EA0864F00C27D7C /* NumberCrossingObject.swift in Sources */,
@@ -9622,6 +9702,14 @@
 				8C3A35FC1EC88D4200A914A5 /* AbstractPaintingMainViewController.swift in Sources */,
 				8C3A37BE1EC88D4400A914A5 /* SnailGame.swift in Sources */,
 				8C3A37CD1EC88D4400A914A5 /* SumscrapersGameViewController.swift in Sources */,
+				8CA9D6052F49C74700EDF793 /* CrossroadBlocksGridNode.swift in Sources */,
+				8CA9D6062F49C74700EDF793 /* CrossroadBlocksMainViewController.swift in Sources */,
+				8CA9D6072F49C74700EDF793 /* CrossroadBlocksDocument.swift in Sources */,
+				8CA9D6082F49C74700EDF793 /* CrossroadBlocksGameViewController.swift in Sources */,
+				8CA9D6092F49C74700EDF793 /* CrossroadBlocksGame.swift in Sources */,
+				8CA9D60A2F49C74700EDF793 /* CrossroadBlocksGameScene.swift in Sources */,
+				8CA9D60B2F49C74700EDF793 /* CrossroadBlocksObject.swift in Sources */,
+				8CA9D60C2F49C74700EDF793 /* CrossroadBlocksGameState.swift in Sources */,
 				8CFAF9BF20381D870095EFFC /* CastleBaileyObject.swift in Sources */,
 				8CF3FFDD1FCB2A2700D41B67 /* DisconnectFourDocument.swift in Sources */,
 				8C1D4F8D1F7D079F000D5FB3 /* Square100GridNode.swift in Sources */,
