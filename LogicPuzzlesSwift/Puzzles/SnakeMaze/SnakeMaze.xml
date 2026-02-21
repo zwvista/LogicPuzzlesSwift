@@ -1,0 +1,2405 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. A Snake is a path of five tiles, numbered 1-2-3-4-5, where 1 is the head and 5 the tail. The snake's body segments are connected horizontally or vertically.
+2. A snake cannot see another snake or it would attack it. A snake sees straight in the direction 2-1, that is to say it sees in front of the number 1.
+3. A snake cannot touch another snake horizontally or vertically.
+4. Arrows show you the closest piece of Snake in that direction (before another arrow or the edge).
+5. Arrows with zero mean that there is no Snake in that direction.
+6. Arrows block snake sight and also block other arrows hints.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+    0>    `
+4v        `
+    1^  1<`
+  3>      `
+5^      4<`
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+          `
+0^1>  5>  `
+          `
+1^  3<0v  `
+        4<`
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+1v      0v`
+    4^    `
+5v    0>  `
+    0^  1v`
+          `
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+4v      1<`
+    2>    `
+          `
+      0v  `
+        0^`
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+1>        `
+    2>  0v`
+0^        `
+    4^  0<`
+0>        `
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+  1>    2<`
+          `
+  0>  0<  `
+0^        `
+    2^  5^`
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+      0v  `
+    4v    `
+          `
+3>    4>  `
+      2<  `
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+0>      0<`
+  2v      `
+      5<  `
+        1^`
+1>  0>    `
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+  4>      `
+          `
+1>    2<0^`
+    4>    `
+0^      5^`
+    ]]>
+  </level>
+  <level id="10">
+    <![CDATA[
+2>        `
+      1v  `
+          `
+        3<`
+0^        `
+    ]]>
+  </level>
+  <level id="11">
+    <![CDATA[
+  2v    0<`
+    0v    `
+1^    2>  `
+          `
+5^  5>  3^`
+    ]]>
+  </level>
+  <level id="12">
+    <![CDATA[
+  5v    4<`
+          `
+  1v    2<`
+    1>    `
+2^  0<  BB`
+    ]]>
+  </level>
+  <level id="13">
+    <![CDATA[
+  1>      `
+      3>  `
+  5>      `
+        5<`
+  4^      `
+    ]]>
+  </level>
+  <level id="14">
+    <![CDATA[
+    3v  0<`
+0v        `
+      4^  `
+          `
+1>  0>    `
+    ]]>
+  </level>
+  <level id="15">
+    <![CDATA[
+      1>  `
+  0v      `
+4>      BB`
+          `
+  0>      `
+    ]]>
+  </level>
+  <level id="16">
+    <![CDATA[
+    0<    `
+    4<  0<`
+          `
+1v  0<  0^`
+          `
+    ]]>
+  </level>
+  <level id="17">
+    <![CDATA[
+  0>    0v`
+      BB  `
+  1^      `
+    1v  0^`
+2>        `
+    ]]>
+  </level>
+  <level id="18">
+    <![CDATA[
+      2v  `
+  0v      `
+    0>  1^`
+  4>      `
+0^    BB  `
+    ]]>
+  </level>
+  <level id="19">
+    <![CDATA[
+0v    0<  `
+    4v    `
+          `
+  BB  0^  `
+  2>      `
+    ]]>
+  </level>
+  <level id="20">
+    <![CDATA[
+        BB`
+  3<      `
+    1v    `
+      3v  `
+2^        `
+    ]]>
+  </level>
+  <level id="21">
+    <![CDATA[
+  0<      5v`
+  0v  0<0^  `
+            `
+  1>    4^0v`
+0>          `
+      3^    `
+    ]]>
+  </level>
+  <level id="22">
+    <![CDATA[
+            `
+  0^    2^  `
+    1v4^    `
+0v      4>  `
+    0v      `
+0^        0<`
+    ]]>
+  </level>
+  <level id="23">
+    <![CDATA[
+0>    0<    `
+        0<  `
+        4<  `
+  5>        `
+        0<5^`
+    3^      `
+    ]]>
+  </level>
+  <level id="24">
+    <![CDATA[
+    0v  5>  `
+        4>  `
+  4<        `
+            `
+  2<0^  5>  `
+            `
+    ]]>
+  </level>
+  <level id="25">
+    <![CDATA[
+2>          `
+    1v  5<  `
+  4>        `
+  2>        `
+0v        1^`
+    0<      `
+    ]]>
+  </level>
+  <level id="26">
+    <![CDATA[
+  0v  0>    `
+          2v`
+0^          `
+        3<  `
+  4<        `
+        1^  `
+    ]]>
+  </level>
+  <level id="27">
+    <![CDATA[
+    5>  0>  `
+3>          `
+          3v`
+0v  2^      `
+        0v  `
+0>    5^    `
+    ]]>
+  </level>
+  <level id="28">
+    <![CDATA[
+  3v        `
+      0v2v  `
+            `
+0v          `
+    0>      `
+1>  0>    0<`
+    ]]>
+  </level>
+  <level id="29">
+    <![CDATA[
+       <    `
+0v        3<`
+    0v      `
+0^      3>  `
+    0^      `
+0^    0<  4^`
+    ]]>
+  </level>
+  <level id="30">
+    <![CDATA[
+5>        2<`
+    0<      `
+0v      0>  `
+  5v  3v    `
+        0^  `
+    2>     <`
+    ]]>
+  </level>
+  <level id="31">
+    <![CDATA[
+        0>  `
+5>          `
+      4<    `
+            `
+  5^  2^    `
+0^      1^  `
+    ]]>
+  </level>
+  <level id="32">
+    <![CDATA[
+      3<    `
+4>          `
+    5<    0<`
+0v    5^    `
+  2>    5^  `
+      1^    `
+    ]]>
+  </level>
+  <level id="33">
+    <![CDATA[
+BB      5>  `
+    1>      `
+    0>  0<  `
+0^    0<    `
+        1v2^`
+2>          `
+    ]]>
+  </level>
+  <level id="34">
+    <![CDATA[
+  1>  0>    `
+          2<`
+0v3>  5>    `
+      4>  BB`
+  0v        `
+    4^  0<  `
+    ]]>
+  </level>
+  <level id="35">
+    <![CDATA[
+0v  4v    2v`
+      3>    `
+0v          `
+    0<  0<  `
+1>          `
+      3^  1^`
+    ]]>
+  </level>
+  <level id="36">
+    <![CDATA[
+    0<  0v  `
+5>          `
+    0<      `
+  0<    0^  `
+      2^    `
+1>        4<`
+    ]]>
+  </level>
+  <level id="37">
+    <![CDATA[
+1v  0<      `
+    0<      `
+        0^  `
+  BB  5>    `
+  0<        `
+      0>  0^`
+    ]]>
+  </level>
+  <level id="38">
+    <![CDATA[
+            `
+  5^    3<0^`
+            `
+0^1>  4>    `
+        1v  `
+  0<        `
+    ]]>
+  </level>
+  <level id="39">
+    <![CDATA[
+1v    1>    `
+  3v    0v  `
+      4>    `
+0>      0^  `
+            `
+  5>  0^    `
+    ]]>
+  </level>
+  <level id="40">
+    <![CDATA[
+            `
+0v1^  3^3v  `
+            `
+        0<  `
+5v    0<    `
+          5^`
+    ]]>
+  </level>
+  <level id="41">
+    <![CDATA[
+  0v  0<  0v`
+            `
+  4>  4v  5v`
+            `
+  BB    5v  `
+            `
+    ]]>
+  </level>
+  <level id="42">
+    <![CDATA[
+      BB    `
+3v0^    0^  `
+    5^  0>  `
+            `
+  0>  0>    `
+      5<    `
+    ]]>
+  </level>
+  <level id="43">
+    <![CDATA[
+0v    0>    `
+    4v    BB`
+0v          `
+  0<  5<  BB`
+            `
+    BB  5^  `
+    ]]>
+  </level>
+  <level id="44">
+    <![CDATA[
+0v      2v  `
+    4v      `
+      3^    `
+0^BB      1^`
+      0>    `
+1^    0<    `
+    ]]>
+  </level>
+  <level id="45">
+    <![CDATA[
+3v  2>    0v`
+        1^  `
+    4<      `
+  BB      5<`
+      2v    `
+  5^      0^`
+    ]]>
+  </level>
+  <level id="46">
+    <![CDATA[
+    0>    0v`
+0>    0>    `
+          1v`
+      2>    `
+  0<    0<  `
+5>          `
+    ]]>
+  </level>
+  <level id="47">
+    <![CDATA[
+5v    4>    `
+  3>      0v`
+      1v    `
+  1>      0^`
+        5>  `
+2>          `
+    ]]>
+  </level>
+  <level id="48">
+    <![CDATA[
+    0>      `
+        2v1v`
+  1^        `
+  5>  4vBB  `
+            `
+2>          `
+    ]]>
+  </level>
+  <level id="49">
+    <![CDATA[
+1v          `
+    0>  4v  `
+4v        2v`
+      0v    `
+  5^        `
+      0^  1^`
+    ]]>
+  </level>
+  <level id="50">
+    <![CDATA[
+  0<  0>  BB`
+            `
+1>  BB      `
+        1>  `
+3>    4^    `
+    0^    2^`
+    ]]>
+  </level>
+  <level id="51">
+    <![CDATA[
+              `
+      5>    0v`
+  2^          `
+              `
+        1<  1v`
+  0^  1<      `
+        2<    `
+    ]]>
+  </level>
+  <level id="52">
+    <![CDATA[
+4>      0>  2v`
+    BB        `
+  BB      1^  `
+0v    0^      `
+            4^`
+  1>    0^    `
+2>          5<`
+    ]]>
+  </level>
+  <level id="53">
+    <![CDATA[
+  3>        5<`
+      0v  3v  `
+0^      BB    `
+      5<      `
+BB        1>  `
+    2^        `
+  3^    0>  BB`
+    ]]>
+  </level>
+  <level id="54">
+    <![CDATA[
+              `
+2v1v    4>  0v`
+    5>        `
+            BB`
+  2>  4v      `
+  BB    5>    `
+        0>    `
+    ]]>
+  </level>
+  <level id="55">
+    <![CDATA[
+3v  1<        `
+          BB  `
+      1<2^    `
+              `
+      5>  0^  `
+  0<  0>  BB  `
+5>          1<`
+    ]]>
+  </level>
+  <level id="56">
+    <![CDATA[
+1v      2<    `
+    BB        `
+5v        2>  `
+    5>        `
+        5^  5<`
+      3>      `
+    2^    BB  `
+    ]]>
+  </level>
+  <level id="57">
+    <![CDATA[
+1v  0<  0<  BB`
+              `
+    0^  0<  BB`
+3>            `
+      1^  BB  `
+  0<    3>    `
+5^    0<    2<`
+    ]]>
+  </level>
+  <level id="58">
+    <![CDATA[
+              `
+  1^    0<    `
+  0v      5v  `
+      2^    BB`
+    4<  0<    `
+          BB  `
+5^  0>    BB  `
+    ]]>
+  </level>
+  <level id="59">
+    <![CDATA[
+1v  0>    0>  `
+        3<    `
+0v0v  BB  0>  `
+      5v      `
+1v3v      3>  `
+        BB    `
+      BB    4^`
+    ]]>
+  </level>
+  <level id="60">
+    <![CDATA[
+BB    0<  BB  `
+    2>        `
+1>        BB5^`
+      0>      `
+  4<          `
+  1v  BB  2v0^`
+      3>      `
+    ]]>
+  </level>
+  <level id="61">
+    <![CDATA[
+    4<      BB`
+5^      BB    `
+      5^  BB  `
+    1v        `
+  3^    BB  0v`
+      0v      `
+  5<        2<`
+    ]]>
+  </level>
+  <level id="62">
+    <![CDATA[
+  5>        2v`
+        BB    `
+0>  BB    1v  `
+            1^`
+  4>  4^  4v  `
+2>            `
+      5>      `
+    ]]>
+  </level>
+  <level id="63">
+    <![CDATA[
+2>      BB    `
+    1<      5v`
+  5v          `
+      2>  4v  `
+BB            `
+    0^  0<    `
+0^    0^    0<`
+    ]]>
+  </level>
+  <level id="64">
+    <![CDATA[
+      1v    BB`
+  1^      0<  `
+              `
+        5^  3<`
+  1>          `
+        BB    `
+BB  2^    0>  `
+    ]]>
+  </level>
+  <level id="65">
+    <![CDATA[
+  BB      2v  `
+      0v      `
+              `
+0^  0<    0<  `
+    5>        `
+  1^    0>  BB`
+      4<      `
+    ]]>
+  </level>
+  <level id="66">
+    <![CDATA[
+  3>      0>  `
+        4>    `
+  0v4^        `
+      2^    1v`
+0^1>          `
+    2>  BB  BB`
+5>      3<    `
+    ]]>
+  </level>
+  <level id="67">
+    <![CDATA[
+0v  0>  0<  0<`
+              `
+  BB  2<  0>  `
+              `
+0^  BB  5^  0v`
+              `
+  1<  1>  BB  `
+    ]]>
+  </level>
+  <level id="68">
+    <![CDATA[
+4>    0v    BB`
+    5^        `
+0v    0>      `
+          3v  `
+0^  4>        `
+      4<  0>  `
+  0<          `
+    ]]>
+  </level>
+  <level id="69">
+    <![CDATA[
+            3<`
+      2>      `
+  1<        5<`
+        BB    `
+    2<        `
+3>    1>  3v  `
+    BB        `
+    ]]>
+  </level>
+  <level id="70">
+    <![CDATA[
+BB    4v    2v`
+  2v    BB    `
+              `
+5v  3^  0>    `
+            1^`
+  4^  5^  1>  `
+    5>        `
+    ]]>
+  </level>
+  <level id="71">
+    <![CDATA[
+  BB      0<  `
+          1>  `
+4^    0v      `
+  5<    0>    `
+        2<  BB`
+  BB  1<      `
+      0<  1>  `
+    ]]>
+  </level>
+  <level id="72">
+    <![CDATA[
+  BB    5>    `
+  0>      BB  `
+      BB      `
+5v2^    1^  BB`
+        0>    `
+      2^      `
+  BB  BB  1<  `
+    ]]>
+  </level>
+  <level id="73">
+    <![CDATA[
+  1>  0v  BB  `
+              `
+    0<    BB  `
+      5v5>    `
+BB0>      2v1v`
+              `
+  0<  BB      `
+    ]]>
+  </level>
+  <level id="74">
+    <![CDATA[
+  BB  2>    BB`
+              `
+      BB      `
+        3>    `
+5>  3^      4^`
+              `
+  BB      0>  `
+    ]]>
+  </level>
+  <level id="75">
+    <![CDATA[
+BB            `
+    4>    3>  `
+        5>    `
+BB  0>        `
+  BB      BB  `
+      1v      `
+0^  0^    0^  `
+    ]]>
+  </level>
+  <level id="76">
+    <![CDATA[
+    0v    4v  `
+              `
+  2^5v        `
+          BB3^`
+  0v  1>      `
+              `
+  BB  0<  0<  `
+    ]]>
+  </level>
+  <level id="77">
+    <![CDATA[
+  0>  0v      `
+  3>        5v`
+      2v1^    `
+            4<`
+          1>  `
+1^0v  0<      `
+      BB    BB`
+    ]]>
+  </level>
+  <level id="78">
+    <![CDATA[
+              `
+BB      4<BB  `
+    5>        `
+1>      BB  3^`
+    BB  1>    `
+              `
+  0>  2^    BB`
+    ]]>
+  </level>
+  <level id="79">
+    <![CDATA[
+BB  2v      2<`
+      BB      `
+  5<        5v`
+      BB      `
+  3^      2<  `
+1>            `
+    0<  0>  BB`
+    ]]>
+  </level>
+  <level id="80">
+    <![CDATA[
+1>    5>      `
+  0<      3>  `
+    BB  BB    `
+5v          1<`
+    BB  BB    `
+  5>        3<`
+0>      0>    `
+    ]]>
+  </level>
+  <level id="81">
+    <![CDATA[
+4v    1<  0<    `
+    BB          `
+        3>  4>  `
+1vBB  BB    4<  `
+          1>    `
+  BB    0<  BBBB`
+  3<            `
+    2^  5^  3^  `
+    ]]>
+  </level>
+  <level id="82">
+    <![CDATA[
+  0>      0>  0<`
+  0>  0<BB      `
+                `
+2v    2^  BB    `
+      5>      5^`
+  5v2>          `
+      4vBB  1<  `
+  5>            `
+    ]]>
+  </level>
+  <level id="83">
+    <![CDATA[
+      5>      1v`
+2v  4v          `
+        BB  BB  `
+  0v      4^  0<`
+        2v      `
+  0<        BB  `
+    BB          `
+0>    5^  1<  5^`
+    ]]>
+  </level>
+  <level id="84">
+    <![CDATA[
+0v  BB          `
+            2<0v`
+  0^    1^      `
+4>    4v    0v  `
+    5^        0v`
+        5^BB    `
+BB  0<        0^`
+        2^      `
+    ]]>
+  </level>
+  <level id="85">
+    <![CDATA[
+  1>  1>  0>  BB`
+      2<        `
+BB3^          0^`
+        2v3v    `
+                `
+  0^  5^  BB3v  `
+        BB      `
+0>  BB  5<    2<`
+    ]]>
+  </level>
+  <level id="86">
+    <![CDATA[
+          0<  0<`
+      1>        `
+  3^      BB    `
+1^  0<5v      2^`
+          0>    `
+  3^  0<5>  BB  `
+              BB`
+BB  1^  3^      `
+    ]]>
+  </level>
+  <level id="87">
+    <![CDATA[
+5>      5>    BB`
+    2>    4>    `
+0^    0<      5v`
+        BB  4v  `
+2v  BB    BB    `
+      3>      0v`
+    BB  0<      `
+1^          0<  `
+    ]]>
+  </level>
+  <level id="88">
+    <![CDATA[
+          4>    `
+0v0v      2v    `
+    3v          `
+                `
+        3>      `
+  4v    0v  BB  `
+                `
+    5>      BB  `
+    ]]>
+  </level>
+  <level id="89">
+    <![CDATA[
+        1>      `
+  2<1>          `
+        BB  4<  `
+1v              `
+    3<  0v  1v  `
+    2<          `
+        0<  0<  `
+BB              `
+    ]]>
+  </level>
+  <level id="90">
+    <![CDATA[
+  5<    5>  1>  `
+  4>            `
+    0^  1v      `
+          0>    `
+3^4>            `
+      0v  BB3^  `
+  2^            `
+      0^    2<  `
+    ]]>
+  </level>
+  <level id="91">
+    <![CDATA[
+2>    BB  0<    `
+              5v`
+  0>  0^2v      `
+  BB      2^    `
+          1v    `
+        3v  BB  `
+BB    3^        `
+    1<    0>  0<`
+    ]]>
+  </level>
+  <level id="92">
+    <![CDATA[
+  0<        5v  `
+  2v  4^BB      `
+    4<    BB    `
+        BB  BB  `
+1>  0>      0<  `
+                `
+1>      2v5>  BB`
+    0<          `
+    ]]>
+  </level>
+  <level id="93">
+    <![CDATA[
+2>    BB  0<    `
+    5>        0^`
+4>        3>    `
+    0^  0v      `
+BB        0>  0^`
+    5>  3v      `
+  0<      BB    `
+BB    BB      0^`
+    ]]>
+  </level>
+  <level id="94">
+    <![CDATA[
+  0>  2>        `
+              3<`
+  BB  BB  1v    `
+      5<      5^`
+BB      2<1>    `
+    2<      4^  `
+BB          3<  `
+    BB  BB      `
+    ]]>
+  </level>
+  <level id="95">
+    <![CDATA[
+    2v  0v      `
+4>        BB5v  `
+                `
+  3^BB  BB      `
+        0v    0^`
+    4v          `
+        BB  3<  `
+1^  0<        1<`
+    ]]>
+  </level>
+  <level id="96">
+    <![CDATA[
+    4v  BB      `
+BB          0^  `
+  BB    2^  5v  `
+      3<  1^    `
+0v4>        BB0v`
+      2>        `
+      BB  BB    `
+  1^          BB`
+    ]]>
+  </level>
+  <level id="97">
+    <![CDATA[
+        2v  BB  `
+      BB        `
+1^3^      3<  0^`
+      1>        `
+  BB1v  0<  0^  `
+                `
+  0>  4>      5<`
+0>    BB  BB    `
+    ]]>
+  </level>
+  <level id="98">
+    <![CDATA[
+          3v  1<`
+  2v  1<        `
+5^            4<`
+      BB        `
+        0^    3v`
+      4>        `
+                `
+1>          4<  `
+    ]]>
+  </level>
+  <level id="99">
+    <![CDATA[
+BB      1v  0v  `
+    0<          `
+          BB  0<`
+  2v            `
+        4<    2<`
+  0>  BB    0v  `
+    BB          `
+  0<      4^    `
+    ]]>
+  </level>
+  <level id="100">
+    <![CDATA[
+BB      0<      `
+  BB  BB  0<  0<`
+                `
+    0^  1v    0^`
+  4^        0^  `
+        2>      `
+  1v          BB`
+1^    BB  0>    `
+    ]]>
+  </level>
+  <level id="101">
+    <![CDATA[
+  1>    BB    BB`
+    5v          `
+5v    3^  5>    `
+  4^          BB`
+    1>          `
+3>        4>  0v`
+      1^        `
+  0<    0>  5^  `
+    ]]>
+  </level>
+  <level id="102">
+    <![CDATA[
+BB          5>  `
+    4^  1>  0v  `
+                `
+1v    BBBB  0^  `
+                `
+  0<0v  0^BB  BB`
+      1>        `
+    BB        2<`
+    ]]>
+  </level>
+  <level id="103">
+    <![CDATA[
+1>  BB    0<    `
+        BB    5v`
+  BB        1<  `
+      5<        `
+3>  1v      4<  `
+        BB      `
+5>          BB  `
+    0<  BB    2^`
+    ]]>
+  </level>
+  <level id="104">
+    <![CDATA[
+BB  BB    0<    `
+        BB      `
+  1^      4>  BB`
+  BB  3>        `
+      5<        `
+5v        0vBB  `
+    1^1v        `
+3>          BB  `
+    ]]>
+  </level>
+  <level id="105">
+    <![CDATA[
+0>      1v    BB`
+  1<            `
+      2>  BB  BB`
+    0<          `
+  4v    BB  0<  `
+      0>      BB`
+    3^  4>      `
+5^          0>  `
+    ]]>
+  </level>
+  <level id="106">
+    <![CDATA[
+0v        5<  5v`
+    1v  0^      `
+      5>    BB  `
+  BB            `
+        BB      `
+BB  5>    1^    `
+  5v    0<      `
+              3^`
+    ]]>
+  </level>
+  <level id="107">
+    <![CDATA[
+1>              `
+  BB  2>    BB  `
+  3>    4>      `
+        BB  3v0^`
+0>    0^        `
+      BB    BB  `
+  2>            `
+      3<  5^  BB`
+    ]]>
+  </level>
+  <level id="108">
+    <![CDATA[
+          2v    `
+  5v0^  4<    BB`
+        BB  BB  `
+    2>      0>  `
+1^      1^BB    `
+      4<    BB  `
+                `
+BB  2^    BB    `
+    ]]>
+  </level>
+  <level id="109">
+    <![CDATA[
+            5<  `
+  0<      0>    `
+              1<`
+4>        0>    `
+      4^      4<`
+1>          5<  `
+    2^  5v      `
+            0^  `
+    ]]>
+  </level>
+  <level id="110">
+    <![CDATA[
+  0>            `
+        BB  BB  `
+0v1>            `
+    5v    4^    `
+3>            0^`
+        1^BB    `
+    0>          `
+  0<    BB  0<  `
+    ]]>
+  </level>
+  <level id="111">
+    <![CDATA[
+  0>      BB    0<`
+      0^  0>      `
+  5^        0^  BB`
+2>    BB          `
+              BB  `
+  0>  BB  2^    5<`
+      3>          `
+1^  BB      4>  BB`
+    0>  2^        `
+    ]]>
+  </level>
+  <level id="112">
+    <![CDATA[
+      2<      5v  `
+  5<    4>        `
+        5<      0v`
+    4<    2^0v    `
+    5>  BB      5v`
+  3^        0^    `
+  BB    3v1v    3<`
+    5>      BB    `
+BB              1<`
+    ]]>
+  </level>
+  <level id="113">
+    <![CDATA[
+2>              BB`
+      0>    0<0v  `
+BB  BB            `
+    0v  BB  1^1>  `
+  1^              `
+  BB  3>        BB`
+    1<    BB4v    `
+0>      BB      BB`
+      BB    2<    `
+    ]]>
+  </level>
+  <level id="114">
+    <![CDATA[
+                3<`
+  BB        4^    `
+0^    0>  BB    0<`
+  4v        5<    `
+    2v  4^    0<  `
+0^    1v        0^`
+            4^    `
+        BB      BB`
+  BB  BB    2<    `
+    ]]>
+  </level>
+  <level id="115">
+    <![CDATA[
+BB    BB    0>    `
+    2>            `
+1v        BB  0>  `
+  3v  0>  0>      `
+      BB      0<5^`
+4v1>              `
+            5v    `
+  3^    3v    5^  `
+              0>  `
+    ]]>
+  </level>
+  <level id="116">
+    <![CDATA[
+  5<      BB      `
+      1>      2>  `
+        BB0v  BB  `
+                  `
+  BB      2v    0v`
+      1>    BB5^  `
+4^                `
+            BB  5v`
+  3^  0<          `
+    ]]>
+  </level>
+  <level id="117">
+    <![CDATA[
+  BB              `
+    5>    BB  4^  `
+  4>              `
+        2>        `
+BB4v        3^    `
+      3^0>        `
+    1^          1^`
+          5<2v    `
+BB    1^          `
+    ]]>
+  </level>
+  <level id="118">
+    <![CDATA[
+  5<        1<  BB`
+        0^        `
+2v  2^    4v  BB  `
+            2^    `
+  4v    0v      2<`
+BB    0^    0^    `
+    3v          0^`
+            0v    `
+0>  BB  0<      0<`
+    ]]>
+  </level>
+  <level id="119">
+    <![CDATA[
+BB  5>          BB`
+    2v  BB    0<  `
+  BB        BB    `
+  4v  0>  5^      `
+      0>    0^  0^`
+0v          BB    `
+    2<    0^    1^`
+0v      1^  BB    `
+    0^          1^`
+    ]]>
+  </level>
+  <level id="120">
+    <![CDATA[
+4v    BB    BB  BB`
+    BB            `
+  BB    1^  4^  BB`
+    0<4>          `
+        BB    5^  `
+0v0v  2v  2>  2v  `
+                0^`
+  0^5v  0>  4v    `
+        4<      BB`
+    ]]>
+  </level>
+  <level id="121">
+    <![CDATA[
+          3v  0<  `
+BB  BB            `
+        1>    2v  `
+  2v  0^          `
+            1<  0v`
+BB      0<        `
+  0<  BB        2<`
+        BB  0^    `
+5>  1>        BB  `
+    ]]>
+  </level>
+  <level id="122">
+    <![CDATA[
+    BB            `
+1v            1v  `
+  5^      4^5^    `
+    5>        BB2v`
+                  `
+2^    5^  5<      `
+      BB        BB`
+  BB1^            `
+          5<  1^  `
+    ]]>
+  </level>
+  <level id="123">
+    <![CDATA[
+      4>        BB`
+  0^  0<  5^0>    `
+                  `
+4^BB  BB  BB  1v0v`
+                  `
+1v      5<  1^    `
+    4v  4>        `
+      BB    BB    `
+3>                `
+    ]]>
+  </level>
+  <level id="124">
+    <![CDATA[
+                1<`
+0^BB  BB    BB    `
+            5<  0<`
+      3^4v    1>  `
+              BB  `
+  5<  1^  5>      `
+  2v  BB          `
+          0^0>  BB`
+      BB          `
+    ]]>
+  </level>
+  <level id="125">
+    <![CDATA[
+1>        5v      `
+      BB      BBBB`
+            BB    `
+BB1>  0>      1^  `
+      5>          `
+        4^    4v3v`
+  BB    4<        `
+  4<          5<  `
+    BB    0>  BB  `
+    ]]>
+  </level>
+  <level id="126">
+    <![CDATA[
+    0<  BB      0v`
+BB      3>        `
+    4<5>    BB  4<`
+            1<    `
+    BB            `
+5^3>      BB  BBBB`
+                  `
+    1>  BB  1<    `
+BB  0<          2^`
+    ]]>
+  </level>
+  <level id="127">
+    <![CDATA[
+  5v  0<  1<  5<  `
+      BB  BB      `
+BB  4>      BB  0^`
+        BB  BB    `
+  0v  BB      5v  `
+BB  0>    BB      `
+          BB      `
+      0^      1v0^`
+4>        2>      `
+    ]]>
+  </level>
+  <level id="128">
+    <![CDATA[
+2>        BB      `
+      2v      0v  `
+0v  BB  5>  4>    `
+            4v    `
+1>  3vBB  BB  0^  `
+              BB  `
+  BB    BB2>      `
+      5<          `
+  BB      5^  BB  `
+    ]]>
+  </level>
+  <level id="129">
+    <![CDATA[
+  0>  BB        0v`
+  BB  2>          `
+          BB3^  BB`
+  BB  4>      4^  `
+BB      0v  0>    `
+  4>  0^        BB`
+  0v    BB  2^    `
+        BB  BB    `
+0>  2^    BB    2<`
+    ]]>
+  </level>
+  <level id="130">
+    <![CDATA[
+1v              1v`
+    BB  BB  BB    `
+  2^      5>      `
+BB    3<      BB  `
+  2>      3>      `
+      0^      0v  `
+0v          2>    `
+    BB            `
+  0<    2^  0<  BB`
+    ]]>
+  </level>
+  <level id="131">
+    <![CDATA[
+    5>        0>  `
+3>    BB          `
+            4^    `
+  2<    3^    3^  `
+            0>    `
+4v  1v    BB    5<`
+        BB  4v    `
+    BB        BB  `
+  BB      1<      `
+    ]]>
+  </level>
+  <level id="132">
+    <![CDATA[
+      BB        2<`
+  0>    4v  BB    `
+      BB        BB`
+4^  3>            `
+      4<    BB2>  `
+  3>              `
+  BB        5^    `
+      0^      5v  `
+BB  BB    BB      `
+    ]]>
+  </level>
+  <level id="133">
+    <![CDATA[
+BB        0<    0<`
+  BB2v  BB        `
+          0^2>    `
+BB    5^          `
+            BB    `
+1>    1>  BB  5<1^`
+      0<          `
+            BB  0^`
+BB      0<  1>    `
+    ]]>
+  </level>
+  <level id="134">
+    <![CDATA[
+      BB          `
+  BB      5<      `
+                BB`
+3^5v        4^    `
+        0>  0<    `
+  BB  2v      1^  `
+    3v    BB  4>  `
+  BB      BB      `
+0^    4<        1<`
+    ]]>
+  </level>
+  <level id="135">
+    <![CDATA[
+    5v        1<  `
+  3<  3v  0^      `
+                1<`
+      BB    0<    `
+                BB`
+1^  1v  BB  BB    `
+      0<        4<`
+  5^          5>  `
+      0>  BB      `
+    ]]>
+  </level>
+  <level id="136">
+    <![CDATA[
+        0v        `
+      1v        5<`
+1^          2<    `
+    3<  0v      0v`
+                  `
+      2v          `
+        BB        `
+    3^    4>    1v`
+            3<    `
+    ]]>
+  </level>
+  <level id="137">
+    <![CDATA[
+  BB    4>      2<`
+            BB    `
+1vBB    BB        `
+                  `
+  1v  0^1v  BB  BB`
+                  `
+  0v          4<  `
+      0^  3>  0>  `
+                BB`
+    ]]>
+  </level>
+  <level id="138">
+    <![CDATA[
+0>  3>      0v    `
+        4^    2>  `
+0^  5v      BB    `
+          BB      `
+BB    2v      BB  `
+    3v      BB    `
+BB        0^    3^`
+    2v  5>    BB  `
+          4>      `
+    ]]>
+  </level>
+  <level id="139">
+    <![CDATA[
+3>          BB  BB`
+                  `
+    BB    0<  0>  `
+0>    1v2^        `
+          5^0>  0v`
+  3^  5>          `
+        BB        `
+  BB          BB5v`
+  BB  3>          `
+    ]]>
+  </level>
+  <level id="140">
+    <![CDATA[
+    2<          5<`
+    BB    2v      `
+BB            0^  `
+  BB  BB    4>    `
+      3>    2>    `
+  BB    BB        `
+      1<      0<  `
+3^      1<    BB  `
+        BB      BB`
+    ]]>
+  </level>
+  <level id="141">
+    <![CDATA[
+  5v        1>    `
+        4<  3>    `
+  BB          BB  `
+2>    4>          `
+      5v  0^  2v  `
+  BB              `
+  BB          2vBB`
+5^      5>  BB    `
+        2<        `
+    ]]>
+  </level>
+  <level id="142">
+    <![CDATA[
+2>        2>      `
+      BB  BB  3^  `
+  BB            0<`
+5^  1^    BBBB    `
+      2>        BB`
+  2^0^      2<    `
+      BB        BB`
+  0v    BB  BB    `
+2>              BB`
+    ]]>
+  </level>
+  <level id="143">
+    <![CDATA[
+BB                `
+    1>  BB    BB  `
+      1<  1<2^    `
+      3v      0^  `
+BB  BB    BB      `
+  BB          5>  `
+  BB    2>        `
+      2^  BB      `
+  BB            BB`
+    ]]>
+  </level>
+  <level id="144">
+    <![CDATA[
+    1>        2v  `
+BB        0<      `
+    5<  BB        `
+            1<  3^`
+  1>  0v  3<      `
+3v  1v      BB    `
+      BB        BB`
+  4<      0^      `
+      BB    BB  BB`
+    ]]>
+  </level>
+  <level id="145">
+    <![CDATA[
+  1<  0<          `
+          3>  0^  `
+    BB            `
+  BB              `
+2^  3>  5v    0^4v`
+                  `
+  4vBB  BB    BB  `
+        BB  1<    `
+5>  1>          BB`
+    ]]>
+  </level>
+  <level id="146">
+    <![CDATA[
+  BB      BB      `
+      5v        1v`
+5^  3^    1>      `
+    BB  5^        `
+1vBB    2v    0v  `
+      BB  3>      `
+              BB  `
+  5v    BB    BB  `
+            5<    `
+    ]]>
+  </level>
+  <level id="147">
+    <![CDATA[
+BB  5v      BB  BB`
+        1<  3v    `
+BB      BB      5v`
+    BB            `
+      BB      0>  `
+BB  1^    1>  BB  `
+      BBBB        `
+  BB            BB`
+BB    0<  1^      `
+    ]]>
+  </level>
+  <level id="148">
+    <![CDATA[
+        BB  BB    `
+  5^BB          3v`
+        5>        `
+0v  BB5>      2>  `
+  BB      BB  0v  `
+      BB          `
+5>        BB    BB`
+    3^      BB    `
+BB  0>    BB    BB`
+    ]]>
+  </level>
+  <level id="149">
+    <![CDATA[
+      0>  BB      `
+5v  BB    BB  BB  `
+      2<      3<  `
+  0v  1>    4v    `
+    0v  BB        `
+              BB0^`
+  BB  5v  BB      `
+                0^`
+        0<        `
+    ]]>
+  </level>
+  <level id="150">
+    <![CDATA[
+  BB    2>        `
+      BB    BB  BB`
+4^  0^            `
+    0>  BB  5>    `
+BB    2>      0>  `
+      BB  3^BB    `
+  BB    BB    BB  `
+              0>  `
+1>    1>  4>      `
+    ]]>
+  </level>
+  <level id="151">
+    <![CDATA[
+        0<        3<`
+0^      0<  0v4^    `
+  2v              5<`
+      0v  2v1v      `
+                4>  `
+      0<2>          `
+            0v  0^  `
+0^  3vBB          BB`
+  BB      5<BB      `
+      BB          2<`
+    ]]>
+  </level>
+  <level id="152">
+    <![CDATA[
+5>  5>              `
+        0v  5>  BB0^`
+  BB          4v    `
+        0^BB    BB  `
+5v  BB4v        2>  `
+          BBBB      `
+      BBBB        0v`
+3>  BB      3^BB    `
+    2<    3>        `
+1>            2<    `
+    ]]>
+  </level>
+  <level id="153">
+    <![CDATA[
+3>      0v          `
+    4<    0^  5^0^  `
+BB  5<  BB          `
+        1>    0v    `
+  0>  BB    BB  0<4^`
+        BB          `
+2>  4^      5v  BB  `
+      BB  BB  0<    `
+  5<BB            4^`
+        0>  3>      `
+    ]]>
+  </level>
+  <level id="154">
+    <![CDATA[
+    BB    2v        `
+    BB      5<  0^3v`
+  0<    BB  5>      `
+  BB  1<      4>    `
+        3<      5<  `
+0v                  `
+    1<      4^  BB  `
+0^  BB  BB      BB  `
+            2<1^    `
+    0>    BB      0<`
+    ]]>
+  </level>
+  <level id="155">
+    <![CDATA[
+    BB    4<    3v  `
+  1^  BB  BB        `
+            2<5v    `
+3v  0^5v          BB`
+  5v    3v    BB0>  `
+    0<              `
+    0>  0<  BB   ^0^`
+        BB  0v      `
+  5>      1^      5<`
+  1<  BB    0>      `
+    ]]>
+  </level>
+  <level id="156">
+    <![CDATA[
+  0>    0<          `
+      0^  BB0^  BB  `
+                    `
+  5^  4v      5^    `
+  3<      0^    0<BB`
+          1v  0^    `
+1v  3^  2<      BB  `
+          BBBB      `
+3>      0v      0<  `
+    0>      BB    BB`
+    ]]>
+  </level>
+  <level id="157">
+    <![CDATA[
+    4v    0<        `
+3>      BB  2>      `
+    BB          BB  `
+0^      BB  5^      `
+    2>          BB  `
+      BB  0^      0v`
+0>  0<        2>    `
+  BB    2>  BB    BB`
+      3<      BB    `
+  0^      1<    0<  `
+    ]]>
+  </level>
+  <level id="158">
+    <![CDATA[
+    0<      1<    0<`
+BB      BB    0v    `
+    BB      0^    4<`
+  5<    5^    3>    `
+    0v      BB    2v`
+4^    1>  0v    3v  `
+        BB          `
+  BB      BB  3v    `
+      0<          BB`
+BB  BB    5<  5<    `
+    ]]>
+  </level>
+  <level id="159">
+    <![CDATA[
+          BB      1v`
+4>  BB  2>    2>    `
+                  BB`
+BB    1^    5>  BB  `
+                    `
+BB  BB  5^  0<    4^`
+                    `
+  3<  2^    BB    4v`
+          3^  0v    `
+2^    0<        BB  `
+    ]]>
+  </level>
+  <level id="160">
+    <![CDATA[
+2v    3v  BB        `
+  BB          BB  4<`
+      2v  0^        `
+  0>    1^  BB  5^  `
+              BB  5v`
+  BB  0v            `
+          5v  1<  BB`
+0>    BB        5<  `
+          BB        `
+  BB  5<    0>  1>  `
+    ]]>
+  </level>
+  <level id="161">
+    <![CDATA[
+        BB        BB`
+BB1>        1v2>    `
+      BB          BB`
+  5>  5v  BB  BB    `
+0v          BB  BB  `
+    0v  0>          `
+BB      BB  0^0^  1<`
+    BB              `
+  4^    BB4v    0>  `
+5^    2^          BB`
+    ]]>
+  </level>
+  <level id="162">
+    <![CDATA[
+BB    0>      5>    `
+    5>        3<    `
+0v    BBBB          `
+    0^          1<  `
+      BB  BB  0>  0^`
+0^2^      1>        `
+      0v      BB  0v`
+BB0^      BB  5v    `
+      1v    BB      `
+0>  5^        2<  BB`
+    ]]>
+  </level>
+  <level id="163">
+    <![CDATA[
+1>    2<  0v  0>    `
+  BB                `
+    0>          BB  `
+5^      BB  BB  1>  `
+    0>  BB  BB    0<`
+5v2^      BB        `
+      1v0^    2^BB  `
+3>        BB      1<`
+    BB  BB    0>    `
+  BB    5>  BB    0<`
+    ]]>
+  </level>
+  <level id="164">
+    <![CDATA[
+  BB  0v  BB      0<`
+              BB    `
+BB  0<    2^  0v    `
+      BBBB        2^`
+BB2>      BB        `
+      4>    5<  0>  `
+     ^    BB  1>  3v`
+1v        2>  2>    `
+    1>          4>  `
+  BB    0<  BB      `
+    ]]>
+  </level>
+  <level id="165">
+    <![CDATA[
+  BB    BB  5v      `
+    0<        1^  5v`
+0^    BB  BBBB      `
+  1>            BB  `
+    5v  1>  BB      `
+BB          0>  0>  `
+      0<0^    2>    `
+            BB    BB`
+  BB  BB  0v  BB    `
+      5<        1<  `
+    ]]>
+  </level>
+  <level id="166">
+    <![CDATA[
+  5>    BB          `
+              0^  0<`
+2>  BB3^    BB      `
+                2^  `
+  BB1v  BB          `
+        5v  5<  BBBB`
+  0>  BB            `
+      BB    BB  4>  `
+0^      3<  2>      `
+    2<  2>    1^  BB`
+    ]]>
+  </level>
+  <level id="167">
+    <![CDATA[
+  0v            BB  `
+      3^4^  0<      `
+  3>            BB  `
+BB  0v1>    BB  BB  `
+        BB2>      BB`
+1vBB          1<    `
+    BB  BB  5>      `
+  0^        4<    BB`
+        2v5>        `
+BB  0^        0>    `
+    ]]>
+  </level>
+  <level id="168">
+    <![CDATA[
+1v      BB  3v    BB`
+    4^  4>          `
+    5>        1vBB  `
+  0v    0v        2v`
+    BB4v            `
+BB1>    4>          `
+        2<  5v3>    `
+BB              BB  `
+        BBBB    0<  `
+                  BB`
+    ]]>
+  </level>
+  <level id="169">
+    <![CDATA[
+1>  1>            BB`
+          4>  BB2v  `
+  4<    BB          `
+  5v  BB  0^  3v    `
+1>    4>  5v      BB`
+                    `
+  BB1>      BB1>  0^`
+      BBBB          `
+  BBBB      BB      `
+1^      2>    0^  BB`
+    ]]>
+  </level>
+  <level id="170">
+    <![CDATA[
+0>    BB    BB    5v`
+              0v    `
+0^    2<4v      0^  `
+          0<        `
+    1v0^  BB  0<  5v`
+0^                  `
+    BB    0^  3<BB  `
+          4>        `
+3>  5^        3>  BB`
+    0>  BB    BB    `
+    ]]>
+  </level>
+  <level id="171">
+    <![CDATA[
+    2<        4<  BB`
+4v      0v  0^      `
+  3^4^          1<  `
+        5<  BB    3<`
+  BB      BB        `
+  3v  0v        2<  `
+          BB    0v  `
+    BBBB  4>        `
+                  2<`
+BB  1>  BB    BB    `
+    ]]>
+  </level>
+  <level id="172">
+    <![CDATA[
+              1<  BB`
+0^0v          1v    `
+      2^          BB`
+  5>  2v  3^        `
+                BB  `
+BB5v      0<        `
+    0v        5>  0v`
+          0v        `
+1v          4>      `
+    1>  BB    BB  0<`
+    ]]>
+  </level>
+  <level id="173">
+    <![CDATA[
+    4>              `
+  3<    BB  4v    BB`
+    BB              `
+      0>        BB1^`
+  2v        0v      `
+      5^3>          `
+                4<  `
+        4vBB    0v  `
+2^  1^      0^2>    `
+    0<          5<  `
+    ]]>
+  </level>
+  <level id="174">
+    <![CDATA[
+    BB              `
+        0<    0>  BB`
+  1>      BB2^  5^  `
+  5<  4>        5<  `
+            2>      `
+  3<BB  5>        BB`
+      0>    BB0v    `
+  1<  BB  2v      BB`
+        0<          `
+  0^        BB   ^  `
+    ]]>
+  </level>
+  <level id="175">
+    <![CDATA[
+4>            2<  BB`
+    2v  BB          `
+0v    BB    BB3^    `
+      4>            `
+            4<4v  BB`
+    5>    BB        `
+    5>           ^BB`
+          3<        `
+                5<  `
+      2^  0>    BB  `
+    ]]>
+  </level>
+  <level id="176">
+    <![CDATA[
+BB  0v          BB  `
+        BB  BB      `
+BB  4>        1^  BB`
+  0v    0<BB  0v    `
+      5>        BB  `
+  BB      5<  BB  BB`
+BB    BB0>  BB      `
+  0^        BB  4v  `
+  0v    0v3>        `
+              1<  0<`
+    ]]>
+  </level>
+  <level id="177">
+    <![CDATA[
+    BB  BB    BB    `
+    5>  BB      BB  `
+BB          2<      `
+      0<    BB  BBBB`
+  BB0v    3^        `
+4v    0<  5>  3^    `
+    0v              `
+  BB    1^  0<  0^  `
+            BB  4>  `
+  0>  BB  BB        `
+    ]]>
+  </level>
+  <level id="178">
+    <![CDATA[
+      5v  BB        `
+  2^            1v  `
+    BB    0<2^      `
+  1>    0>      BBBB`
+3>        BB        `
+  BB  BB  5v    2<  `
+    5>              `
+4>        BBBB      `
+      BB      4>  1^`
+  5>  1>            `
+    ]]>
+  </level>
+  <level id="179">
+    <![CDATA[
+  0>    BB    0<  BB`
+          BB        `
+  BB  BB            `
+5v        4^  0^  BB`
+        3>          `
+2v  2v      BB    0<`
+              BB    `
+  BB  3^          2<`
+          1^        `
+    1>          5>  `
+    ]]>
+  </level>
+  <level id="180">
+    <![CDATA[
+1v      5v      BB  `
+  BBBB    0>    BB  `
+      BB  4<        `
+              5<  0<`
+  BB  BB            `
+  3>      1<BB  0<BB`
+BB      1v          `
+      BB  BB  0^3>  `
+    1^    BB        `
+4>    0^      3<  BB`
+    ]]>
+  </level>
+  <level id="181">
+    <![CDATA[
+  5>        2>      `
+        BB        5v`
+1>            3<BB  `
+    BB  BB0^        `
+    BB       <4>    `
+0^1v    BB        5<`
+      5>  BB  0>    `
+  BB  0v            `
+            2^  BB  `
+BB  BB  BB  BB    BB`
+    ]]>
+  </level>
+  <level id="182">
+    <![CDATA[
+              4<    `
+BB  BB  BB  0>  3>  `
+          BB        `
+      0<        0v4^`
+        BB  1^      `
+    5>  BB          `
+          1v2v  5>  `
+  2^4v              `
+        BB    3>    `
+                    `
+    ]]>
+  </level>
+  <level id="183">
+    <![CDATA[
+BB  5>  3v        BB`
+            BBBB    `
+0>    2>          1^`
+                BB  `
+  0>  5^  BB  BB    `
+      BB          BB`
+    BB    BB2>      `
+  BB          4^    `
+    BB2^  4>      BB`
+BB        4<  5<    `
+    ]]>
+  </level>
+  <level id="184">
+    <![CDATA[
+                  4<`
+  2v    0<  5^      `
+      0^  BB        `
+1^                3<`
+    2v  BB    0v    `
+                  3<`
+0^    5v  BB  BB    `
+            4>      `
+    4v    BB    BB  `
+              3^    `
+    ]]>
+  </level>
+  <level id="185">
+    <![CDATA[
+1>  BB    BB        `
+        BB    1v  4v`
+  BB  1v            `
+4v      BB    5v    `
+            1^  BB  `
+  BB  BB  BB        `
+              3>    `
+5v  1^    0<      BB`
+                1<  `
+BB  0>      BB      `
+    ]]>
+  </level>
+  <level id="186">
+    <![CDATA[
+  5v  4v  BB  0v    `
+                  BB`
+    BB  5^    BB    `
+2v                  `
+      BB    0<  BB4^`
+    BB      0>      `
+    BB  BB5^        `
+  BB  BB          3<`
+      4v  BB  1^    `
+2>          BB    1^`
+    ]]>
+  </level>
+  <level id="187">
+    <![CDATA[
+          5<    1>  `
+BB    BB  2>        `
+    0^      4<  BB  `
+BB  BB  BB          `
+              5^    `
+  BBBB  BB5^  0<  BB`
+      4<            `
+5v    BB  0>    5^0v`
+    1>              `
+BB            BB  0<`
+    ]]>
+  </level>
+  <level id="188">
+    <![CDATA[
+      BB    1v    2<`
+BB            BB    `
+    5>      0>  BB  `
+2>      0^          `
+  BB      BB  BB    `
+        1<        5v`
+4>  2>        BB    `
+          5>      3<`
+    1>              `
+BB      BB    BB  0^`
+    ]]>
+  </level>
+  <level id="189">
+    <![CDATA[
+      5>  4>      BB`
+  BB  4>      BBBB  `
+          BB        `
+  BB  BB        0<BB`
+        BB  BB1v    `
+2^  4<    BB        `
+      BB  BB  5v  BB`
+BBBB                `
+      BB  BB  BB0^  `
+  5<              4<`
+    ]]>
+  </level>
+  <level id="190">
+    <![CDATA[
+    BB            BB`
+  BB    BB2>  0>    `
+    5<              `
+BB  5>  0>  3^  BB  `
+            BB    4<`
+BB      2<    BB    `
+  2v5>      1v    BB`
+                0>  `
+BBBB  BB  0^  BB    `
+      5>            `
+    ]]>
+  </level>
+  <level id="191">
+    <![CDATA[
+    BB    4v        `
+BB  BB      0^  0^0v`
+                    `
+BB  1>  BB  1>  BB  `
+                  5<`
+  3^  BB  BB  BB    `
+1^      BB        BB`
+    4>      BB      `
+  BB    BB  4<  2<  `
+  5<  BB        BB  `
+    ]]>
+  </level>
+  <level id="192">
+    <![CDATA[
+2>              BB  `
+      1>    BB      `
+  BB2v        BB0>  `
+            BB      `
+  BB  BB  5<    4>  `
+                5v  `
+      3>            `
+  2^    BB   <    BB`
+      BB            `
+2^    BB  BB  BB  5^`
+    ]]>
+  </level>
+  <level id="193">
+    <![CDATA[
+    BB            BB`
+    BB  BB  4^4v    `
+  0<              1<`
+      BB  5^BB      `
+  4^            1<  `
+  5v  2v        BB  `
+4>          BB      `
+                BB  `
+BB  0<  BB      BB  `
+              3^    `
+    ]]>
+  </level>
+  <level id="194">
+    <![CDATA[
+    1v  BB          `
+        3<  BB  BBBB`
+5^            2^    `
+    BB1v  2v  BB    `
+BB                  `
+  1<      BB0>  BB  `
+    5>              `
+0v        5<BB  5^  `
+        BB      BB  `
+            BB    BB`
+    ]]>
+  </level>
+  <level id="195">
+    <![CDATA[
+  BB    5v          `
+            0^2>  BB`
+  BBBB  1v1v        `
+BB                  `
+    0<  BB  BB  BBBB`
+    BB  4>          `
+BB              BB  `
+        4vBB  BB    `
+  1^  BB      5>    `
+    BB    BB      4^`
+    ]]>
+  </level>
+  <level id="196">
+    <![CDATA[
+BB  BB  1>    3v  1v`
+          5<        `
+BB    0^  5v  BBBB  `
+                    `
+BB4v          2<0v  `
+      BB            `
+          BB1^    5<`
+    BB              `
+3^    5^    BB  BB  `
+      1>          BB`
+    ]]>
+  </level>
+  <level id="197">
+    <![CDATA[
+1>      4v    BB  BB`
+  BBBB              `
+        BBBB  BB  BB`
+2^  BB      0v      `
+          0^    1>  `
+  BB  BBBB      BB  `
+          BBBB    BB`
+  4^  0^        0<  `
+              5^    `
+5^  BB    5^      BB`
+    ]]>
+  </level>
+  <level id="198">
+    <![CDATA[
+BB      0>    5>    `
+    0^              `
+    2<    1<5^  BB  `
+  BB    BB    2>    `
+    BB      5v  BB  `
+1^      BB        5v`
+    BB        3<    `
+BB  BB              `
+  5v  BB    BB  BBBB`
+          BB        `
+    ]]>
+  </level>
+  <level id="199">
+    <![CDATA[
+  0v  1>        0>  `
+                    `
+  BB1>      5^  3^  `
+        BB        3<`
+1>        1v    BB  `
+    BB2>            `
+  4^      BB  2>    `
+0>  BB2v      BB    `
+          BB      BB`
+  BB  BB  BB  0^    `
+    ]]>
+  </level>
+  <level id="200">
+    <![CDATA[
+        0<    BB  BB`
+BB  BB      BB      `
+      BB5^    BBBB  `
+    BB    BB        `
+2^    BB      4<BB  `
+        BB  BB      `
+BB  BB0v  BB  BB    `
+  5^      5<      4^`
+      2>      2>    `
+5>          BB    0^`
+    ]]>
+  </level>
+</levels>
+</puzzle>
