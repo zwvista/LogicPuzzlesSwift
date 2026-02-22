@@ -43,15 +43,6 @@ class UnreliableHintsGameScene: GameScene<UnreliableHintsGameState> {
         default: "arrow_cyan_left"
         }
     }
-    
-    func getHintSize(dir: Int) -> CGSize {
-        switch dir {
-        case 0: CGSize(width: gridNode.blockSize, height: gridNode.blockSize / 2)
-        case 1: CGSize(width: gridNode.blockSize / 2, height: gridNode.blockSize)
-        case 2: CGSize(width: gridNode.blockSize, height: gridNode.blockSize / 2)
-        default: CGSize(width: gridNode.blockSize / 2, height: gridNode.blockSize)
-        }
-    }
 
     override func levelInitialized(_ game: AnyObject, state: UnreliableHintsGameState, skView: SKView) {
         let game = game as! UnreliableHintsGame

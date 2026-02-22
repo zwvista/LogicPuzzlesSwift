@@ -43,15 +43,6 @@ class SnakeMazeGameScene: GameScene<SnakeMazeGameState> {
         default: "arrow_cyan_left"
         }
     }
-    
-    func getHintSize(dir: Int) -> CGSize {
-        switch dir {
-        case 0: CGSize(width: gridNode.blockSize, height: gridNode.blockSize / 2)
-        case 1: CGSize(width: gridNode.blockSize / 2, height: gridNode.blockSize)
-        case 2: CGSize(width: gridNode.blockSize, height: gridNode.blockSize / 2)
-        default: CGSize(width: gridNode.blockSize / 2, height: gridNode.blockSize)
-        }
-    }
 
     override func levelInitialized(_ game: AnyObject, state: SnakeMazeGameState, skView: SKView) {
         let game = game as! SnakeMazeGame
@@ -63,15 +54,26 @@ class SnakeMazeGameScene: GameScene<SnakeMazeGameState> {
         addGrid(gridNode: SnakeMazeGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
         // add Hints
-        for (p, hint) in game.pos2hint {
-            let dir2 = hint.dir, dir1 = (dir2 + 2) % 4
-            let point = gridNode.centerPoint(p: p)
-            let point1 = getCenterPoint(p: p, dir: dir1)
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let hintNodeName = "hint" + nodeNameSuffix
-            let arrowNodeName = "arrow" + nodeNameSuffix
-            addHint(n: hint.num, s: state.pos2stateHint[p]!, point: point1, nodeName: hintNodeName)
-            addImage(imageNamed: getImageName(dir: dir2), color: .red, colorBlendFactor: 0.0, point: point, nodeName: arrowNodeName)
+        for r in 0..<game.rows {
+            for c in 0..<game.cols {
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: p)
+                let nodeNameSuffix = "-\(r)-\(c)"
+                let tileNodeName = "tile" + nodeNameSuffix
+                switch state[p] {
+                case .forbidden:
+                    addDotMarker2(color: .red, point: point, nodeName: tileNodeName)
+                case .hint:
+                    let hint = game.pos2hint[p]!
+                    let dir2 = hint.dir, dir1 = (dir2 + 2) % 4
+                    let point = gridNode.centerPoint(p: p)
+                    let point1 = getCenterPoint(p: p, dir: dir1)
+                    addHint(n: hint.num, s: state.pos2stateHint[p]!, point: point1, nodeName: tileNodeName)
+                    addImage(imageNamed: getImageName(dir: dir2), color: .red, colorBlendFactor: 0.0, point: point, nodeName: "arrow")
+                default:
+                    break
+                }
+            }
         }
     }
     
@@ -81,42 +83,39 @@ class SnakeMazeGameScene: GameScene<SnakeMazeGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let shadedNodeName = "shaded" + nodeNameSuffix
-                let markerNodeName = "marker" + nodeNameSuffix
-                let hintNodeName = "hint" + nodeNameSuffix
-                let arrowNodeName = "arrow" + nodeNameSuffix
+                let tileNodeName = "tile" + nodeNameSuffix
+                let snakeNodeName = "snake" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
                 let (s3, s4) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
-                if o1 != o2 || s1 != s2 {
+                let isSnake1 = stateFrom.snakes.contains { $0.contains(p) }
+                let isSnake2 = stateTo.snakes.contains { $0.contains(p) }
+                if o1 != o2 || s1 != s2 || s3 != s4 {
                     switch o1 {
-                    case .shaded:
-                        removeNode(withName: shadedNodeName)
-                    case .marker:
-                        removeNode(withName: markerNodeName)
-                    default:
+                    case .empty:
                         break
+                    default:
+                        removeNode(withName: tileNodeName)
+                        if isSnake1 { removeNode(withName: snakeNodeName) }
                     }
                     switch o2 {
-                    case .shaded:
-                        let shadedNode = SKSpriteNode(color: .lightGray, size: coloredRectSize())
-                        shadedNode.position = point
-                        shadedNode.name = shadedNodeName
-                        gridNode.addChild(shadedNode)
+                    case .forbidden:
+                        addDotMarker2(color: .red, point: point, nodeName: tileNodeName)
                     case .marker:
-                        addCircleMarker(color: .white, point: point, nodeName: markerNodeName)
+                        addDotMarker(point: point, nodeName: tileNodeName)
+                    case .hint:
+                        let hint = stateFrom.game.pos2hint[p]!
+                        let dir2 = hint.dir, dir1 = (dir2 + 2) % 4
+                        let point1 = getCenterPoint(p: p, dir: dir1)
+                        addHint(n: hint.num, s: s4!, point: point1, nodeName: tileNodeName)
                     default:
-                        break
+                        if isSnake2 {
+                            addImage(imageNamed: "scales", color: .red, colorBlendFactor: s2 == .normal ? 0.0 : 0.5, point: point, nodeName: snakeNodeName)
+                        }
+                        if o2.isSnake {
+                            addLabel(text: String(o2.value), fontColor: .white, point: point, nodeName: tileNodeName)
+                        }
                     }
-                }
-                if s3 != s4 || s3 != nil && (o1 == .shaded || o2 == .shaded) {
-                    removeNode(withName: hintNodeName)
-                    removeNode(withName: arrowNodeName)
-                    let hint = stateFrom.game.pos2hint[p]!
-                    let dir2 = hint.dir, dir1 = (dir2 + 2) % 4
-                    let point1 = getCenterPoint(p: p, dir: dir1)
-                    addHint(n: hint.num, s: s4!, point: point1, nodeName: hintNodeName)
-                    addImage(imageNamed: getImageName(dir: dir2), color: .red, colorBlendFactor: 0.0, point: point, nodeName: arrowNodeName)
                 }
             }
         }

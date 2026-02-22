@@ -85,7 +85,7 @@ class LoopAndBlocksGameState: GridGameState<LoopAndBlocksGameMove> {
         //    four sides.
         // 4. Not all cells that must be shaded are given with a hint.
         for (p, n2) in game.pos2hint {
-            var n1 = LoopAndBlocksGame.offset.count { squares.contains(p + $0) }
+            let n1 = LoopAndBlocksGame.offset.count { squares.contains(p + $0) }
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             pos2stateHint[p] = s
             if s != .complete { isSolved = false }

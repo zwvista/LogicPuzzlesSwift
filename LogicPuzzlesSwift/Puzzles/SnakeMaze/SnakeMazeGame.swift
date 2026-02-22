@@ -25,7 +25,7 @@ class SnakeMazeGame: GridGame<SnakeMazeGameState> {
                 let s = str[c * 2...c * 2 + 1].trimmed()
                 guard !s.isEmpty else {continue}
                 let num = s[0].toInt!
-                let dir = YalooniqGame.chars.getIndexOf(s[1])!
+                let dir = SnakeMazeGame.chars.getIndexOf(s[1])!
                 pos2hint[Position(r, c)] = SnakeMazeHint(num: num, dir: dir)
             }
         }

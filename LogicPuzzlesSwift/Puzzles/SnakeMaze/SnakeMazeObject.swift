@@ -9,11 +9,17 @@
 import Foundation
 
 enum SnakeMazeObject: Int {
-    case normal, forbidden, marker, shaded
+    case empty, forbidden, hint, marker
+    case snake1, snake2, snake3, snake4, snake5
     init() {
-        self = .normal
+        self = .empty
     }
-    var isShaded: Bool { return self == .shaded }
+    var isSnake: Bool {
+        [.snake1, .snake2, .snake3, .snake4, .snake5].contains(self)
+    }
+    var value: Int {
+        isSnake ? rawValue - SnakeMazeObject.snake1.rawValue + 1 : 0
+    }
 }
 
 struct SnakeMazeHint {
@@ -25,4 +31,3 @@ struct SnakeMazeGameMove {
     var p = Position()
     var obj = SnakeMazeObject()
 }
-
