@@ -17,7 +17,14 @@ class MondrianLoopGame: GridGame<MondrianLoopGameState> {
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
-    
+    static let PUZ_UNKNOWN = -1
+    static let offset3 = [
+        Position(-1, -1),
+        Position(-1, 1),
+        Position(1, -1),
+        Position(1, 1),
+    ]
+
     var objArray = [GridDotObject]()
     var pos2hint = [Position: Int]()
     
@@ -33,8 +40,7 @@ class MondrianLoopGame: GridGame<MondrianLoopGameState> {
                 let p = Position(r, c)
                 let ch = str[c]
                 guard ch != " " else {continue}
-                let n = ch.toInt!
-                pos2hint[p] = n
+                pos2hint[p] = ch == "O" ? MondrianLoopGame.PUZ_UNKNOWN : ch.toInt!
             }
         }
         for r in 0..<rows - 1 {

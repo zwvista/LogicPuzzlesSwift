@@ -15,7 +15,7 @@ class MondrianLoopGameScene: GameScene<MondrianLoopGameState> {
     }
     
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+        addLabel(text: n == MondrianLoopGame.PUZ_UNKNOWN ? "?" : String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: MondrianLoopGameState, skView: SKView) {
@@ -32,6 +32,8 @@ class MondrianLoopGameScene: GameScene<MondrianLoopGameState> {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
+            let markerNodeName = "marker" + nodeNameSuffix
+            addCircleMarker(color: .white, point: point, nodeName: markerNodeName)
             addHint(n: n, s: state.pos2stateHint[p]!, point: point, nodeName: hintNodeName)
         }
         
@@ -69,19 +71,22 @@ class MondrianLoopGameScene: GameScene<MondrianLoopGameState> {
                     removeVertLine(objType: o1)
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
                 }
-                let hintNodeName = "hint" + nodeNameSuffix
-                func removeHint() { removeNode(withName: hintNodeName) }
-                let (s1, s2) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
-                if s1 != s2 {
-                    removeHint()
-                    addHint(n: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
+                let rectNodeName = "rect" + nodeNameSuffix
+                let b1 = stateFrom.rectangles.contains { $0.contains(p) }
+                let b2 = stateTo.rectangles.contains { $0.contains(p) }
+                if b1 != b2 {
+                    if b1 { removeNode(withName: rectNodeName) }
+                    if b2 { addImage(imageNamed: "lawn_background", color: .red, colorBlendFactor: 0.0, point: point, nodeName: rectNodeName) }
                 }
-                let shrubNodeName = "shrub" + nodeNameSuffix
-                let (b1, b2) = (stateFrom.shrubs.contains(p), stateTo.shrubs.contains(p))
-                let (s3, s4) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
-                if b1 != b2 || s3 != s4 {
-                    if b1 { removeNode(withName: shrubNodeName) }
-                    if b2 { addImage(imageNamed: "lawn_background", color: .red, colorBlendFactor: s4 == .normal ? 0.0 : 0.5, point: point, nodeName: shrubNodeName) }
+                let hintNodeName = "hint" + nodeNameSuffix
+                let markerNodeName = "marker" + nodeNameSuffix
+                let (s1, s2) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
+                if s1 != s2 || s1 != nil && b1 != b2 {
+                    removeNode(withName: markerNodeName)
+                    removeNode(withName: hintNodeName)
+                    addCircleMarker(color: .white, point: point, nodeName: markerNodeName)
+                    let n = stateFrom.game.pos2hint[p]!
+                    addHint(n: n, s: s2!, point: point, nodeName: hintNodeName)
                 }
             }
         }
