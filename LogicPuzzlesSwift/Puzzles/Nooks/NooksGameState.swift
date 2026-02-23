@@ -110,7 +110,7 @@ class NooksGameState: GridGameState<NooksGameMove> {
                     n1 += 1
                     p2 += os
                 }
-                let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+                let s: HintState = n2 == NooksGame.PUZ_UNKNOWN || n1 == n2 ? .complete : n1 < n2 ? .normal : .error
                 pos2state[p] = s
                 if s != .complete { isSolved = false }
             }

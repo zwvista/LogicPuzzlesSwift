@@ -11,6 +11,7 @@ import Foundation
 class NooksGame: GridGame<NooksGameState> {
     static let offset = Position.Directions4
     static let offset2 = Position.Square2x2Offset
+    static let PUZ_UNKNOWN = -1
 
     var pos2hint = [Position: Int]()
     
@@ -23,8 +24,8 @@ class NooksGame: GridGame<NooksGameState> {
             let str = layout[r]
             for c in 0..<cols {
                 let ch = str[c]
-                guard ch.isNumber else {continue}
-                pos2hint[Position(r, c)] = ch.toInt!
+                guard ch != " " else {continue}
+                pos2hint[Position(r, c)] = ch == "?" ? NooksGame.PUZ_UNKNOWN : ch.toInt!
             }
         }
         
