@@ -19,8 +19,6 @@ class FlowerOMinoGame: GridGame<FlowerOMinoGameState> {
     static let dirs = [1, 0, 3, 2]
     
     var objArray = [FlowerOMinoObject]()
-    var hedges = [Position]()
-    var flowers = [Position]()
     var dots: GridDots!
     
     init(layout: [String], delegate: FlowerOMinoGameViewController? = nil) {
@@ -34,10 +32,18 @@ class FlowerOMinoGame: GridGame<FlowerOMinoGameState> {
             let str = layout[r]
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                switch str[c] {
-                case "H":
-                    self[p] = .hedge
-                    hedges.append(p)
+                self[p] = switch str[c] {
+                case "=": .hedge
+                case "1": .center
+                case "2": .right
+                case "4": .bottom
+                case "3": .centerRight
+                case "5": .centerBottom
+                case "6": .rightBottom
+                case "7": .centerRightBottom
+                default: .empty
+                }
+                if self[p] == .hedge {
                     dots[r, c][2] = .line
                     dots[r + 1, c][0] = .line
                     dots[r, c + 1][2] = .line
@@ -46,11 +52,6 @@ class FlowerOMinoGame: GridGame<FlowerOMinoGameState> {
                     dots[r, c + 1][3] = .line
                     dots[r + 1, c][1] = .line
                     dots[r + 1, c + 1][3] = .line
-                case "F":
-                    self[p] = .flower
-                    flowers.append(p)
-                default:
-                    break
                 }
             }
         }

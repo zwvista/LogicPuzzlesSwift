@@ -13,6 +13,7 @@ class FlowerOMinoGameScene: GameScene<FlowerOMinoGameState> {
         get { getGridNode() as! FlowerOMinoGridNode }
         set { setGridNode(gridNode: newValue) }
     }
+    let flowerSize = CGSize(width: 50, height: 50)
     
     func addFlower(s: HintState, point: CGPoint, nodeName: String) {
         let flowerNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 3)
@@ -24,6 +25,20 @@ class FlowerOMinoGameScene: GameScene<FlowerOMinoGameState> {
         gridNode.addChild(flowerNode)
     }
     
+    func getRightFlowerPoint(p: Position) -> CGPoint {
+        let offset: CGFloat = 0.5
+        let x = CGFloat(p.col + 1) * gridNode.blockSize + offset
+        let y = -((CGFloat(p.row) + CGFloat(0.5)) * gridNode.blockSize + offset)
+        return CGPoint(x: x, y: y)
+    }
+    
+    func getBottomFlowerPoint(p: Position) -> CGPoint {
+        let offset: CGFloat = 0.5
+        let x = (CGFloat(p.col) + CGFloat(0.5)) * gridNode.blockSize + offset
+        let y = -(CGFloat(p.row + 1) * gridNode.blockSize + offset)
+        return CGPoint(x: x, y: y)
+    }
+    
     override func levelInitialized(_ game: AnyObject, state: FlowerOMinoGameState, skView: SKView) {
         let game = game as! FlowerOMinoGame
         removeAllChildren()
@@ -33,26 +48,31 @@ class FlowerOMinoGameScene: GameScene<FlowerOMinoGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: FlowerOMinoGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset))
         
-        for p in game.hedges {
-            let point = gridNode.centerPoint(p: p)
-            let hedgeNode = SKSpriteNode(color: .gray, size: coloredRectSize())
-            hedgeNode.position = point
-            hedgeNode.name = "hedge"
-            gridNode.addChild(hedgeNode)
-        }
-        for p in game.flowers {
-            let point = gridNode.centerPoint(p: p)
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let flowerNodeName = "flower" + nodeNameSuffix
-            addFlower(s: .normal, point: point, nodeName: flowerNodeName)
-        }
-
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
+                let nodeNameSuffix = "-\(r)-\(c)"
+                let flower1NodeName = "flower1" + nodeNameSuffix
+                let flower2NodeName = "flower2" + nodeNameSuffix
+                let flower4NodeName = "flower4" + nodeNameSuffix
                 if state[r, c][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
                 if state[r, c][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                let o = game[p]
+                if o == .hedge {
+                    addImage(imageNamed: "forest_lighter", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "hedge")
+                }
+                if o.hasCenter {
+                    addImage(imageNamed: "flower_orange", color: .red, colorBlendFactor: 0.0, point: point, nodeName: flower1NodeName, size: flowerSize)
+                }
+                if o.hasRight {
+                    let point2 = getRightFlowerPoint(p: p)
+                    addImage(imageNamed: "flower_pink", color: .red, colorBlendFactor: 0.0, point: point2, nodeName: flower2NodeName, size: flowerSize)
+                }
+                if o.hasBottom {
+                    let point4 = getBottomFlowerPoint(p: p)
+                    addImage(imageNamed: "flower_purple", color: .red, colorBlendFactor: 0.0, point: point4, nodeName: flower4NodeName, size: flowerSize)
+                }
             }
         }
     }
@@ -81,16 +101,14 @@ class FlowerOMinoGameScene: GameScene<FlowerOMinoGameState> {
                     removeVertLine(objType: o1)
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
                 }
-            }
-        }
-        for p in stateFrom.game.flowers {
-            let point = gridNode.centerPoint(p: p)
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let flowerNodeName = "flower" + nodeNameSuffix
-            let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
-            if s1 != s2 {
-                removeNode(withName: flowerNodeName)
-                addFlower(s: s2, point: point, nodeName: flowerNodeName)
+                let b1 = stateFrom.gardens.contains { $0.contains(p) }
+                let b2 = stateTo.gardens.contains { $0.contains(p) }
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                if b1 != b2 || s1 != s2 {
+                    let gardenNodeName = "garden" + nodeNameSuffix
+                    if b1 { removeNode(withName: gardenNodeName) }
+                    if b2 { addImage(imageNamed: "meadow_background", color: .red, colorBlendFactor: s2 == .normal ? 0.0 : 0.5, point: point, nodeName: gardenNodeName) }
+                }
             }
         }
     }

@@ -9,13 +9,20 @@
 import Foundation
 
 enum FlowerOMinoObject: Int {
-    case empty, hedge, flower
-}
-
-struct FlowerOMinoRect {
-    var area = [Position]()
-    var rows = 0
-    var cols = 0
+    case empty, hedge, center, right, bottom
+    case centerRight, centerBottom, rightBottom, centerRightBottom
+    init() {
+        self = .empty
+    }
+    var hasCenter: Bool {
+        [.center, .centerRight, .centerBottom, .centerRightBottom].contains(self)
+    }
+    var hasRight: Bool {
+        [.right, .centerRight, .rightBottom, .centerRightBottom].contains(self)
+    }
+    var hasBottom: Bool {
+        [.bottom, .centerBottom, .rightBottom, .centerRightBottom].contains(self)
+    }
 }
 
 struct FlowerOMinoGameMove {
