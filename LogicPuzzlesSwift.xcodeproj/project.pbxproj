@@ -1611,6 +1611,15 @@
 		8CA9D6312F4CAAFB00EDF793 /* SnakeominoGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D6242F4CAAFB00EDF793 /* SnakeominoGameScene.swift */; };
 		8CA9D6322F4CAAFB00EDF793 /* SnakeominoGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D6272F4CAAFB00EDF793 /* SnakeominoGridNode.swift */; };
 		8CA9D6332F4CAAFB00EDF793 /* Snakeomino.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CA9D6212F4CAAFB00EDF793 /* Snakeomino.xml */; };
+		8CA9D63E2F4CB86D00EDF793 /* FlowerOMinoGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D6382F4CB86D00EDF793 /* FlowerOMinoGameState.swift */; };
+		8CA9D63F2F4CB86D00EDF793 /* FlowerOMinoGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D63A2F4CB86D00EDF793 /* FlowerOMinoGridNode.swift */; };
+		8CA9D6402F4CB86D00EDF793 /* FlowerOMinoGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D6362F4CB86D00EDF793 /* FlowerOMinoGame.swift */; };
+		8CA9D6412F4CB86D00EDF793 /* FlowerOMinoGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D6392F4CB86D00EDF793 /* FlowerOMinoGameViewController.swift */; };
+		8CA9D6422F4CB86D00EDF793 /* FlowerOMinoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D6352F4CB86D00EDF793 /* FlowerOMinoDocument.swift */; };
+		8CA9D6432F4CB86D00EDF793 /* FlowerOMinoMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D63B2F4CB86D00EDF793 /* FlowerOMinoMainViewController.swift */; };
+		8CA9D6442F4CB86D00EDF793 /* FlowerOMinoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D63C2F4CB86D00EDF793 /* FlowerOMinoObject.swift */; };
+		8CA9D6452F4CB86D00EDF793 /* FlowerOMinoGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D6372F4CB86D00EDF793 /* FlowerOMinoGameScene.swift */; };
+		8CA9D6462F4CB86D00EDF793 /* FlowerOMino.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CA9D6342F4CB86D00EDF793 /* FlowerOMino.xml */; };
 		8CACC92F2E9BC56E00F53475 /* HidokuGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CACC9292E9BC56E00F53475 /* HidokuGameState.swift */; };
 		8CACC9302E9BC56E00F53475 /* HidokuGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CACC92B2E9BC56E00F53475 /* HidokuGridNode.swift */; };
 		8CACC9312E9BC56E00F53475 /* HidokuMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CACC92C2E9BC56E00F53475 /* HidokuMainViewController.swift */; };
@@ -3720,6 +3729,15 @@
 		8CA9D6272F4CAAFB00EDF793 /* SnakeominoGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeominoGridNode.swift; sourceTree = "<group>"; };
 		8CA9D6282F4CAAFB00EDF793 /* SnakeominoMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeominoMainViewController.swift; sourceTree = "<group>"; };
 		8CA9D6292F4CAAFB00EDF793 /* SnakeominoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeominoObject.swift; sourceTree = "<group>"; };
+		8CA9D6342F4CB86D00EDF793 /* FlowerOMino.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FlowerOMino.xml; sourceTree = "<group>"; };
+		8CA9D6352F4CB86D00EDF793 /* FlowerOMinoDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerOMinoDocument.swift; sourceTree = "<group>"; };
+		8CA9D6362F4CB86D00EDF793 /* FlowerOMinoGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerOMinoGame.swift; sourceTree = "<group>"; };
+		8CA9D6372F4CB86D00EDF793 /* FlowerOMinoGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerOMinoGameScene.swift; sourceTree = "<group>"; };
+		8CA9D6382F4CB86D00EDF793 /* FlowerOMinoGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerOMinoGameState.swift; sourceTree = "<group>"; };
+		8CA9D6392F4CB86D00EDF793 /* FlowerOMinoGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerOMinoGameViewController.swift; sourceTree = "<group>"; };
+		8CA9D63A2F4CB86D00EDF793 /* FlowerOMinoGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerOMinoGridNode.swift; sourceTree = "<group>"; };
+		8CA9D63B2F4CB86D00EDF793 /* FlowerOMinoMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerOMinoMainViewController.swift; sourceTree = "<group>"; };
+		8CA9D63C2F4CB86D00EDF793 /* FlowerOMinoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerOMinoObject.swift; sourceTree = "<group>"; };
 		8CACC9252E9BC56E00F53475 /* Hidoku.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Hidoku.xml; sourceTree = "<group>"; };
 		8CACC9262E9BC56E00F53475 /* HidokuDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidokuDocument.swift; sourceTree = "<group>"; };
 		8CACC9272E9BC56E00F53475 /* HidokuGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidokuGame.swift; sourceTree = "<group>"; };
@@ -5038,6 +5056,7 @@
 				8C263E912F13E06C00158A2C /* FloorPlan */,
 				8C1ACF812F2D7548004832E2 /* FlowerBeds */,
 				8C1ACF942F2DD1DB004832E2 /* FlowerbedShrubs */,
+				8CA9D63D2F4CB86D00EDF793 /* FlowerOMino */,
 				8C74745A1FBEFD5700C4112C /* FourMeNot */,
 				8C9BD5122F0A32CA00D1D915 /* FreePlanks */,
 				8C263F392F1D0DB100158A2C /* FunnyNumbers */,
@@ -7137,6 +7156,22 @@
 			path = Snakeomino;
 			sourceTree = "<group>";
 		};
+		8CA9D63D2F4CB86D00EDF793 /* FlowerOMino */ = {
+			isa = PBXGroup;
+			children = (
+				8CA9D6342F4CB86D00EDF793 /* FlowerOMino.xml */,
+				8CA9D6352F4CB86D00EDF793 /* FlowerOMinoDocument.swift */,
+				8CA9D6362F4CB86D00EDF793 /* FlowerOMinoGame.swift */,
+				8CA9D6372F4CB86D00EDF793 /* FlowerOMinoGameScene.swift */,
+				8CA9D6382F4CB86D00EDF793 /* FlowerOMinoGameState.swift */,
+				8CA9D6392F4CB86D00EDF793 /* FlowerOMinoGameViewController.swift */,
+				8CA9D63A2F4CB86D00EDF793 /* FlowerOMinoGridNode.swift */,
+				8CA9D63B2F4CB86D00EDF793 /* FlowerOMinoMainViewController.swift */,
+				8CA9D63C2F4CB86D00EDF793 /* FlowerOMinoObject.swift */,
+			);
+			path = FlowerOMino;
+			sourceTree = "<group>";
+		};
 		8CACC92E2E9BC56E00F53475 /* Hidoku */ = {
 			isa = PBXGroup;
 			children = (
@@ -8410,6 +8445,7 @@
 				8C8663FC2EA39DD00078CD64 /* flower_blue.png in Resources */,
 				8C8663FD2EA39DD00078CD64 /* forest_lighter.png in Resources */,
 				8C8663FE2EA39DD00078CD64 /* shoppingcart.png in Resources */,
+				8CA9D6462F4CB86D00EDF793 /* FlowerOMino.xml in Resources */,
 				8C8663FF2EA39DD00078CD64 /* swan.png in Resources */,
 				8C8664002EA39DD00078CD64 /* flower_orange.png in Resources */,
 				8C9BD5402F0A52B400D1D915 /* RunInALoop.xml in Resources */,
@@ -8901,6 +8937,14 @@
 				8C263F792F1E812D00158A2C /* DigitWormsGameScene.swift in Sources */,
 				8C263F7A2F1E812D00158A2C /* DigitWormsGameState.swift in Sources */,
 				8C3A37511EC88D4300A914A5 /* OrchardsDocument.swift in Sources */,
+				8CA9D63E2F4CB86D00EDF793 /* FlowerOMinoGameState.swift in Sources */,
+				8CA9D63F2F4CB86D00EDF793 /* FlowerOMinoGridNode.swift in Sources */,
+				8CA9D6402F4CB86D00EDF793 /* FlowerOMinoGame.swift in Sources */,
+				8CA9D6412F4CB86D00EDF793 /* FlowerOMinoGameViewController.swift in Sources */,
+				8CA9D6422F4CB86D00EDF793 /* FlowerOMinoDocument.swift in Sources */,
+				8CA9D6432F4CB86D00EDF793 /* FlowerOMinoMainViewController.swift in Sources */,
+				8CA9D6442F4CB86D00EDF793 /* FlowerOMinoObject.swift in Sources */,
+				8CA9D6452F4CB86D00EDF793 /* FlowerOMinoGameScene.swift in Sources */,
 				8CA042E31FDB878800AF85E1 /* FillominoGameState.swift in Sources */,
 				8C1D4F901F7D079F000D5FB3 /* Square100Object.swift in Sources */,
 				8C9F32421ED1FAD400E10965 /* BWTapaDocument.swift in Sources */,
