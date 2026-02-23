@@ -1,0 +1,2421 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Find Snakes by numbering them:
+2. A snake is a one-cell-wide path at least two cells long. A snake cannot touch itself, not even diagonally.
+3. A cell with a circle must be at one of the ends of a snake. A snake may contain one circled cell, two circled cells, or no circled cells at all.
+4. A cell with a number must be part of a snake with a length of exactly that number of cells.
+5. Two snakes of the same length must not be orthogonally adjacent.
+6. A cell with a cross cannot be an end of a snake.
+7. every cell in the board is part of a snake.
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+     O  `
+4O    3 `
+    2O  `
+4 4   4O`
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+  2O    `
+  2O3O  `
+6       `
+6 6   5O`
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+4O   O2O`
+  4     `
+      5 `
+  5O  2O`
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+     O2O`
+    6   `
+      6 `
+4O2O  6O`
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+    3 3 `
+    2 3O`
+        `
+4O    2O`
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+3   XX2O  `
+  3O  5   `
+ O  6     `
+  4   3   `
+2O4O3OXX6O`
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+  5   6 6O`
+6O  6     `
+        4O`
+6   2O    `
+6 6   4O  `
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+  6   2O2O`
+    6     `
+2O5       `
+5   2O  5 `
+5     3O5O`
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+4O3O  3O6O`
+    2O  6 `
+        5 `
+4O    3   `
+2   5   5 `
+    ]]>
+  </level>
+  <level id="10">
+    <![CDATA[
+  5     4 `
+   O O  4 `
+5O    2O  `
+  6O  4 6O`
+2O  6 6 6 `
+    ]]>
+  </level>
+  <level id="11">
+    <![CDATA[
+2O6 6O    `
+      4   `
+        4O`
+    2   2O`
+       O2O`
+    ]]>
+  </level>
+  <level id="12">
+    <![CDATA[
+6 5     5 `
+6   2   5O`
+    3O    `
+      2   `
+4    O   O`
+    ]]>
+  </level>
+  <level id="13">
+    <![CDATA[
+  2O    5 `
+ O     O  `
+3      O  `
+   O    2O`
+2O    6 2O`
+    ]]>
+  </level>
+  <level id="14">
+    <![CDATA[
+6O    5   `
+    5     `
+3O  5   4 `
+      4O O`
+3O      5 `
+    ]]>
+  </level>
+  <level id="15">
+    <![CDATA[
+  4O    6O`
+2OXX   O  `
+3O  6     `
+        2O`
+3O5O  5   `
+    ]]>
+  </level>
+  <level id="16">
+    <![CDATA[
+6O  5     `
+4         `
+    3O  5 `
+XXXX3     `
+      5O  `
+    ]]>
+  </level>
+  <level id="17">
+    <![CDATA[
+          `
+ O    5   `
+    6   4O`
+  2O  2O  `
+6O2 XX  4O`
+    ]]>
+  </level>
+  <level id="18">
+    <![CDATA[
+    5O5   `
+5   6     `
+        5O`
+2O  6O  4O`
+2O    3   `
+    ]]>
+  </level>
+  <level id="19">
+    <![CDATA[
+    6   6O`
+  3O  3O  `
+        4 `
+  2O   O  `
+XX  6   6O`
+    ]]>
+  </level>
+  <level id="20">
+    <![CDATA[
+3     2O  `
+3O  5     `
+  2O      `
+  2O   O2 `
+     O  2O`
+    ]]>
+  </level>
+  <level id="21">
+    <![CDATA[
+ O  3O4O    `
+   O       O`
+    4O    3O`
+3O      4O  `
+    6     3O`
+3O    4O  5O`
+    ]]>
+  </level>
+  <level id="22">
+    <![CDATA[
+  6 2O    5 `
+          5 `
+  6     5O  `
+    6O  6   `
+  5   5O  2O`
+2O  6O    2O`
+    ]]>
+  </level>
+  <level id="23">
+    <![CDATA[
+ O5O    5   `
+ O  4O  5O4 `
+3   3O   O  `
+   O  3O    `
+3O  5     XX`
+ OXX6O6 6   `
+    ]]>
+  </level>
+  <level id="24">
+    <![CDATA[
+5 5       2O`
+5O  2O6     `
+         O  `
+4O  4   6   `
+        5O  `
+2O4O  4     `
+    ]]>
+  </level>
+  <level id="25">
+    <![CDATA[
+2O6   6O4O4 `
+2       2O  `
+  6   3O  4 `
+4 2O2O    5 `
+    XX6   5 `
+4O6      O  `
+    ]]>
+  </level>
+  <level id="26">
+    <![CDATA[
+ O  3O      `
+  3O    4   `
+    2    O5O`
+4O  5   5O6O`
+  3   2 2   `
+2O3 6 6   6 `
+    ]]>
+  </level>
+  <level id="27">
+    <![CDATA[
+6      O  3 `
+   O6O    2O`
+    4O     O`
+5O O    4O3O`
+5  O2   3O  `
+  5       6O`
+    ]]>
+  </level>
+  <level id="28">
+    <![CDATA[
+4O    6   5O`
+4   4O      `
+ O5 6       `
+3   6 2O5 5 `
+3O  5       `
+2O2O       O`
+    ]]>
+  </level>
+  <level id="29">
+    <![CDATA[
+    4O      `
+6 6   5 5O  `
+3O  5   3O  `
+      2O  XX`
+    6O      `
+ O5 5   6O  `
+    ]]>
+  </level>
+  <level id="30">
+    <![CDATA[
+3O  3O2O2O3 `
+2 2O        `
+6O    6   2O`
+            `
+  6 2O2   5 `
+6O    5   5 `
+    ]]>
+  </level>
+  <level id="31">
+    <![CDATA[
+5 5O      5 `
+  4 4   6O  `
+    6       `
+ O O    2   `
+  2O4O  3   `
+   O       O`
+    ]]>
+  </level>
+  <level id="32">
+    <![CDATA[
+2O4       2O`
+    6O  6   `
+  3O  2O  6 `
+4           `
+      4O  2 `
+2O2O      2O`
+    ]]>
+  </level>
+  <level id="33">
+    <![CDATA[
+    6O4O    `
+  5     2O  `
+2   6     6O`
+      2O   O`
+     O     O`
+      5 4O  `
+    ]]>
+  </level>
+  <level id="34">
+    <![CDATA[
+    3 4     `
+4       XX4O`
+ O          `
+6  O  2O  5O`
+   O3       `
+6   6 4O   O`
+    ]]>
+  </level>
+  <level id="35">
+    <![CDATA[
+    4O     O`
+            `
+  4   3O    `
+4O5O3       `
+2       3O3 `
+2O3O      2 `
+    ]]>
+  </level>
+  <level id="36">
+    <![CDATA[
+3O    6   6 `
+    5     6O`
+3O  5O  5   `
+4O    3     `
+        4O  `
+   O  3     `
+    ]]>
+  </level>
+  <level id="37">
+    <![CDATA[
+3   3O    6O`
+2O      4  O`
+          3O`
+4 4O5       `
+          3O`
+         O2O`
+    ]]>
+  </level>
+  <level id="38">
+    <![CDATA[
+5O5     5 2 `
+        4   `
+6O        3O`
+5   3   4O  `
+  6   2  O3O`
+ O        6O`
+    ]]>
+  </level>
+  <level id="39">
+    <![CDATA[
+ O  6   2 2 `
+      6     `
+4   4   2O3O`
+  5       6 `
+  5   6O    `
+4O      2O6O`
+    ]]>
+  </level>
+  <level id="40">
+    <![CDATA[
+3 4   4   5O`
+  4O  6  O  `
+3   2       `
+2O      5O  `
+    5 6   3 `
+          3O`
+    ]]>
+  </level>
+  <level id="41">
+    <![CDATA[
+    6   6     `
+   O  4   6O  `
+3O  6     2O4O`
+4O      5O   O`
+4       6 5 2 `
+  5O    6O   O`
+4O  2 4       `
+    ]]>
+  </level>
+  <level id="42">
+    <![CDATA[
+2O    3O  2O  `
+  6     6O    `
+3   6     4 3 `
+3O O    4O  2 `
+  5  O        `
+2O5   4 XX  5 `
+5    O2O    3O`
+    ]]>
+  </level>
+  <level id="43">
+    <![CDATA[
+6O  4 5O  2O3O`
+      4O    3 `
+    XX        `
+2O  XX        `
+3O      4O  6O`
+  3O  5O3     `
+5O  5    O4 XX`
+    ]]>
+  </level>
+  <level id="44">
+    <![CDATA[
+4OXX6O    6 6 `
+2       XXXX  `
+  4 XX3   4O  `
+    5    O  4 `
+4     3   2   `
+  5         XX`
+     O2O  3 XX`
+    ]]>
+  </level>
+  <level id="45">
+    <![CDATA[
+5O4 2O  4O  5 `
+XX    5O  4 5 `
+  XX          `
+  XX  5   3O5O`
+5     2  O  4O`
+      3   4   `
+2O      6O    `
+    ]]>
+  </level>
+  <level id="46">
+    <![CDATA[
+    6   3O  3O`
+ O  5O  5O   O`
+ O4   6O5     `
+    5 4 4   3 `
+4O2O          `
+4 2 5 4   3O  `
+XX    2O3     `
+    ]]>
+  </level>
+  <level id="47">
+    <![CDATA[
+4O2       5 5 `
+    4O5   6   `
+5 XX     O    `
+3O  5 5O  6   `
+  6O    6O2O  `
+  6 6 4     4 `
+2 2O      4O  `
+    ]]>
+  </level>
+  <level id="48">
+    <![CDATA[
+ O5O    5   5O`
+      2   2O  `
+     O  5 2O6 `
+      3       `
+        2     `
+ O  6O4O      `
+5     5O4   6O`
+    ]]>
+  </level>
+  <level id="49">
+    <![CDATA[
+5O2     4O2O2O`
+5   4 5       `
+  6O    6O    `
+5     6 6   6O`
+2       5O O6 `
+4   4   2 2O  `
+  2           `
+    ]]>
+  </level>
+  <level id="50">
+    <![CDATA[
+5O5 5     3O2O`
+4     5O   O  `
+4   2O O5   6O`
+3O  4         `
+3       5O  6 `
+          3   `
+2O4   2O    6 `
+    ]]>
+  </level>
+  <level id="51">
+    <![CDATA[
+2O  6     2  O`
+  6 6         `
+      7     4O`
+5   7   7   4 `
+2O5O        3O`
+              `
+6O      5   3O`
+    ]]>
+  </level>
+  <level id="52">
+    <![CDATA[
+  2 3 4     4O`
+ O4     2O    `
+5O  4O    3   `
+5  O  3O      `
+          XX2O`
+4O2     5O4O  `
+      6 6     `
+    ]]>
+  </level>
+  <level id="53">
+    <![CDATA[
+2O     O   O4 `
+  6     5OXXXX`
+  6   4O6O  4O`
+    4  O      `
+6O  4     2   `
+ O3O       O  `
+  4     2O  4 `
+    ]]>
+  </level>
+  <level id="54">
+    <![CDATA[
+ O  6     5O3O`
+      2O      `
+    6O      2 `
+4        O  5 `
+2 3 6         `
+  6OXX    2   `
+4O  XX    2O5O`
+    ]]>
+  </level>
+  <level id="55">
+    <![CDATA[
+2 2O  4O  5   `
+6O  4         `
+            2 `
+3O      2O    `
+      2O    3O`
+4      O  4O  `
+  6 6     6   `
+    ]]>
+  </level>
+  <level id="56">
+    <![CDATA[
+5 5       5O  `
+  4 4O5     4 `
+5         3   `
+  4   3       `
+        3O6   `
+  4O      2O  `
+6   6   6O  6O`
+    ]]>
+  </level>
+  <level id="57">
+    <![CDATA[
+  5 5 2O  6 6 `
+5 4   2O   O  `
+  4         6 `
+4  O  5O  2O  `
+  6   2O5     `
+  6       2O  `
+3O2O  6 4    O`
+    ]]>
+  </level>
+  <level id="58">
+    <![CDATA[
+    5O  6     `
+          2 6O`
+  XX      4 3O`
+  5O3O  3O O  `
+4 6   6O O    `
+ O  5         `
+6O    6O6     `
+    ]]>
+  </level>
+  <level id="59">
+    <![CDATA[
+    4O    5 6O`
+5O            `
+  4O  5O  5 5 `
+              `
+2O  3       3 `
+  5 5         `
+    4O  5O  4O`
+    ]]>
+  </level>
+  <level id="60">
+    <![CDATA[
+2O2O6OXX    4O`
+              `
+  2O  4       `
+3 6   2O  5O  `
+2O       O   O`
+2O            `
+6 6   6O      `
+    ]]>
+  </level>
+  <level id="61">
+    <![CDATA[
+5O        6O2O`
+    3   3O    `
+      5       `
+3O          3 `
+   O       O  `
+3     3 5     `
+ O       O2 2O`
+    ]]>
+  </level>
+  <level id="62">
+    <![CDATA[
+ O3   2O4O4   `
+ O      2 2  O`
+6O  5  O      `
+6     4O      `
+     O        `
+  5O      2O  `
+6    O2O    4O`
+    ]]>
+  </level>
+  <level id="63">
+    <![CDATA[
+    5      O  `
+  3O        6 `
+5O  2   5   6 `
+    2 4 4O    `
+          4O  `
+3     5   5O  `
+2   6   5     `
+    ]]>
+  </level>
+  <level id="64">
+    <![CDATA[
+2O    5 5O OXX`
+  4     3 3O4 `
+ O     O      `
+3     5  O    `
+  5O          `
+2O    6O  2O  `
+4O  2O        `
+    ]]>
+  </level>
+  <level id="65">
+    <![CDATA[
+            3 `
+    2 6       `
+5  O          `
+  3O        5 `
+2O  5O   O5O  `
+          4 2O`
+4O6   4 4    O`
+    ]]>
+  </level>
+  <level id="66">
+    <![CDATA[
+2O  4   3   3O`
+              `
+2 3O      2   `
+    3O  6     `
+6     2O     O`
+  5 XX  5   6O`
+      3     2O`
+    ]]>
+  </level>
+  <level id="67">
+    <![CDATA[
+2 5         4O`
+   O   O    4 `
+4O      6     `
+5     6O    4O`
+      5       `
+    6     4   `
+ O O     O5O  `
+    ]]>
+  </level>
+  <level id="68">
+    <![CDATA[
+    2O5O    6O`
+5  O    5   6 `
+  4O    4O  6 `
+  5 3   2O    `
+    3O       O`
+2O    4       `
+    4       3O`
+    ]]>
+  </level>
+  <level id="69">
+    <![CDATA[
+3O  3     6 6 `
+5O        4  O`
+      4O     O`
+ O  3   6     `
+ O  3   5   4 `
+        2O    `
+     O    3O  `
+    ]]>
+  </level>
+  <level id="70">
+    <![CDATA[
+ O         O O`
+3        O  4 `
+  2   5O5 2   `
+  2       2O  `
+5 4O  2       `
+  5O        4O`
+ O     O4 2O2O`
+    ]]>
+  </level>
+  <level id="71">
+    <![CDATA[
+ O    3         `
+  5O3O   O4O    `
+               O`
+6 3O   O O   O  `
+   O4OXX        `
+4O      5O2   5 `
+  2O  4    O3   `
+    5O    3O  2O`
+    ]]>
+  </level>
+  <level id="72">
+    <![CDATA[
+  2O        5   `
+        5O    2O`
+4O5O      6O  5 `
+2O  6  O  5 4   `
+2O      6       `
+5O        4O    `
+4               `
+4O  2     4   3O`
+    ]]>
+  </level>
+  <level id="73">
+    <![CDATA[
+4           6 6 `
+      6   6 2O O`
+    4O  2O    3O`
+  3   6 3O      `
+    4  O    5   `
+       O2O4O  6O`
+    6  O4   5 6 `
+2O    3O      6 `
+    ]]>
+  </level>
+  <level id="74">
+    <![CDATA[
+6O      4O    5O`
+      3O        `
+3O    6 5   6   `
+  2O4       6   `
+3O4O  3O  XX   O`
+    3O      4   `
+   O4   4O    4 `
+    6O2O  3O  2 `
+    ]]>
+  </level>
+  <level id="75">
+    <![CDATA[
+2O              `
+ O3O O  2       `
+      4O2       `
+    3    O5  OXX`
+    4O4   5   3 `
+  6O  6O2O  5 5 `
+5     XX        `
+      6   5O  2 `
+    ]]>
+  </level>
+  <level id="76">
+    <![CDATA[
+3     4 5OXX  2 `
+              5O`
+2           3O  `
+  5O      4O  6 `
+    5       6 4O`
+  6 6   2   6   `
+2         4     `
+  6   5 5   5O4O`
+    ]]>
+  </level>
+  <level id="77">
+    <![CDATA[
+ O    6   4   4 `
+  5   5 6   6   `
+     O  6       `
+    6O    4     `
+6 6O      2     `
+5       5     6O`
+ O3O6O       O  `
+3O  5OXX  4O  XX`
+    ]]>
+  </level>
+  <level id="78">
+    <![CDATA[
+      2O  4O  4 `
+ O      6       `
+    5 4O     O  `
+  2O  4       3 `
+4   3O5O4       `
+ O  3        O  `
+   O3O  5 2O  4O`
+      6   3O  3O`
+    ]]>
+  </level>
+  <level id="79">
+    <![CDATA[
+ O     O6 6O OXX`
+  3O    XX  2 5 `
+    4O  4O O    `
+3O    6     3O6O`
+    6O    5O2   `
+3O6   5 5       `
+            6   `
+      5 3 3O    `
+    ]]>
+  </level>
+  <level id="80">
+    <![CDATA[
+2 5  O6       3 `
+ O  6   4O  5O3 `
+6O  5     XX    `
+       O    4   `
+ O       O5O  3O`
+3O5    O    3   `
+          4   6 `
+4     6O    6 6 `
+    ]]>
+  </level>
+  <level id="81">
+    <![CDATA[
+ O2O4 6   4O  4 `
+            2O  `
+  7        O7O  `
+ O  4O  6O   O  `
+          5     `
+  6O4   6O  7 3O`
+7            O  `
+ O    5   5    O`
+    ]]>
+  </level>
+  <level id="82">
+    <![CDATA[
+  5  OXX2 2     `
+  7 7O   O5O  4 `
+  7   5     6   `
+ O       O      `
+          6 6   `
+3 2O   O2O      `
+    4O    5O    `
+4     2     6O2O`
+    ]]>
+  </level>
+  <level id="83">
+    <![CDATA[
+2         5 5 7O`
+6 6 6O  5     XX`
+      2O  6  O  `
+    3O    4   7 `
+5O5   5         `
+      5O      2 `
+  4O7     2O    `
+      4O      3O`
+    ]]>
+  </level>
+  <level id="84">
+    <![CDATA[
+        5   2O4O`
+5O    2         `
+3   4O3       4 `
+  5     7     4O`
+ O7O    3O      `
+    7  O  6   2O`
+2O              `
+3O  2O2       6O`
+    ]]>
+  </level>
+  <level id="85">
+    <![CDATA[
+          5 5   `
+6O  2O  6O    5 `
+    4   6    O4O`
+6 4O  6       XX`
+  2           4 `
+6   3O  7     2 `
+6O        6     `
+  4   4O      6O`
+    ]]>
+  </level>
+  <level id="86">
+    <![CDATA[
+ O2O      3O  3O`
+    4O  6  O7 7O`
+   O    3O O  2O`
+4O    3O    7   `
+3 5 5         5 `
+      6         `
+3O      7     2O`
+      7   3   3O`
+    ]]>
+  </level>
+  <level id="87">
+    <![CDATA[
+    6 7O7   4O  `
+ O  6   2 7 7 4 `
+  5     6   7   `
+5   3O5       3O`
+            3   `
+4O  6         4O`
+2O  6   2 6     `
+ O6   3O  3O4O4 `
+    ]]>
+  </level>
+  <level id="88">
+    <![CDATA[
+  4O5O5         `
+                `
+  7     7   2 4O`
+   O4   4O     O`
+  4O    5    O  `
+6O    5 2   6 6 `
+  3       3O    `
+6     5O O    6O`
+    ]]>
+  </level>
+  <level id="89">
+    <![CDATA[
+  5     4     3O`
+    4O    2 3O  `
+          6   2O`
+  7 6O  5O     O`
+3             2 `
+  3O O          `
+2O O  5O  7     `
+        4   XX O`
+    ]]>
+  </level>
+  <level id="90">
+    <![CDATA[
+3O    5O    2O  `
+    3     5   3O`
+      6O       O`
+    4O      6O  `
+  5     4      O`
+ O  7 6O      5 `
+3O5 7           `
+    2O        5 `
+    ]]>
+  </level>
+  <level id="91">
+    <![CDATA[
+  5O7     7  O  `
+5               `
+     O  7 XX  4 `
+4O    4O5       `
+7O4   2       2O`
+7           5 4O`
+7 5O    3O  2O  `
+7   7  O      4 `
+    ]]>
+  </level>
+  <level id="92">
+    <![CDATA[
+     O  2O    2O`
+      3   4   4 `
+4O  6O     O   O`
+3   5O        2O`
+3   7 7 4O6   5 `
+3O     OXX      `
+      5     2O  `
+2 4     5 5O    `
+    ]]>
+  </level>
+  <level id="93">
+    <![CDATA[
+3O      2     4 `
+3     6   5     `
+  4             `
+  4O   O      7O`
+7   5 4   2O2O7 `
+7       6     7 `
+   O7 7 6   7   `
+3O  3 6         `
+    ]]>
+  </level>
+  <level id="94">
+    <![CDATA[
+2   3    O  2O7O`
+2O        4O6O  `
+     O          `
+6O   O O      7 `
+6       3O  5O  `
+  6   6O  XX    `
+ O  5       4   `
+              2O`
+    ]]>
+  </level>
+  <level id="95">
+    <![CDATA[
+5O   O7     6 4 `
+3O              `
+  3O  7     3O  `
+    2O    7O  6 `
+  7   5O    3O  `
+6 7         XX  `
+    4       6O  `
+6O O2 2O   O  4 `
+    ]]>
+  </level>
+  <level id="96">
+    <![CDATA[
+ O5O4     2O2O  `
+      6O        `
+5       7   4   `
+  6 7         3O`
+  6   2 6       `
+  5 5 5        O`
+    4O  XX      `
+ O5O    4  O    `
+    ]]>
+  </level>
+  <level id="97">
+    <![CDATA[
+        3O    3O`
+6   6O        3 `
+XX    2O  4O    `
+ O5 5O   O  6   `
+              7 `
+    6O    2O    `
+7       5O      `
+7               `
+    ]]>
+  </level>
+  <level id="98">
+    <![CDATA[
+ O  3O  3O7    O`
+4   5 5  O7     `
+        2O  6   `
+7   5O4O      6 `
+     O          `
+7     6   5   6O`
+  4O        5   `
+    7O  3 3     `
+    ]]>
+  </level>
+  <level id="99">
+    <![CDATA[
+3 7O  3O  3   6 `
+                `
+  6O3O    5     `
+                `
+6   2       5O  `
+  5 5 6   5O  6 `
+6O2           4O`
+              4 `
+    ]]>
+  </level>
+  <level id="100">
+    <![CDATA[
+6 5   2O2O    7O`
+       O      7 `
+       O  4     `
+      4 3   4   `
+6             7 `
+  7     4O  5   `
+              7O`
+      7O4   2O2O`
+    ]]>
+  </level>
+  <level id="101">
+    <![CDATA[
+7  O3O  3 2O    `
+            6O  `
+    3     5  O  `
+      4   5     `
+2             4O`
+5   4O6O    7   `
+        6       `
+5 4O  4   6     `
+    ]]>
+  </level>
+  <level id="102">
+    <![CDATA[
+  4     6       `
+  5O        7O  `
+    4O    3O  6O`
+    5           `
+  4O  6   4     `
+      2O6 4     `
+2O3          O  `
+            4O2O`
+    ]]>
+  </level>
+  <level id="103">
+    <![CDATA[
+3O3  O      7 7 `
+        5       `
+  6   4O   O4 4 `
+5       4   5   `
+     O   O      `
+  7   2     5   `
+5   3   3     2O`
+          2   4 `
+    ]]>
+  </level>
+  <level id="104">
+    <![CDATA[
+  5O  4     7 2 `
+     O          `
+   O4O          `
+  4O      6     `
+            7   `
+7   3   3 6     `
+     O    4O    `
+2             4 `
+    ]]>
+  </level>
+  <level id="105">
+    <![CDATA[
+   O          6O`
+  4 7       3O  `
+2     4   3O  6 `
+  6       6O   O`
+6               `
+  7   5  O      `
+6O  5   7   3   `
+7O    3         `
+    ]]>
+  </level>
+  <level id="106">
+    <![CDATA[
+        4O      `
+  5         6   `
+   O7O    5   4 `
+              4O`
+  4   7 7 7     `
+    3 3 2O  6 6 `
+    7   XX     O`
+2O    7 5   5   `
+    ]]>
+  </level>
+  <level id="107">
+    <![CDATA[
+  5      O      `
+   O    6O   O6 `
+    3O  5O      `
+        4O      `
+      5  O      `
+  7O2O          `
+      3O  2O  5 `
+2O        6O  2 `
+    ]]>
+  </level>
+  <level id="108">
+    <![CDATA[
+          4O    `
+5   7 7 6O      `
+3O        2O  6 `
+    7O       O  `
+          4   4O`
+7   2O2         `
+  5       5     `
+      7 5    O4O`
+    ]]>
+  </level>
+  <level id="109">
+    <![CDATA[
+  4O  4   7     `
+XX          6   `
+              4 `
+5           4   `
+5O  6O    2   2 `
+  4   4O        `
+        5 6 3O  `
+2 4  O5         `
+    ]]>
+  </level>
+  <level id="110">
+    <![CDATA[
+      3   3 2   `
+    7           `
+3O        7O4O  `
+4O  2O        6 `
+      6 3 4O  2 `
+    2O        7 `
+        6 2   7 `
+      6        O`
+    ]]>
+  </level>
+  <level id="111">
+    <![CDATA[
+5O3   3O    6 6O  `
+5           7 7O  `
+    7O  7        O`
+6O  4   5O5     6 `
+  6   3O    7     `
+      5O   O    6 `
+7     5   2O7  O  `
+   O            6O`
+    7 7   2   7   `
+    ]]>
+  </level>
+  <level id="112">
+    <![CDATA[
+    6O  4   4O O2O`
+6 5   5   6       `
+  5 4O  XX        `
+            7   4 `
+4O  4   2   5O  4O`
+          7O  2   `
+        XX6       `
+        2    O    `
+3 2       5       `
+    ]]>
+  </level>
+  <level id="113">
+    <![CDATA[
+4       5       5O`
+4 3    O    7O O  `
+ O  6 6       6O  `
+   O      6      O`
+     O    6    O  `
+6O      4O    3O  `
+    4O    7O    2O`
+ O  6   2         `
+      7     4    O`
+    ]]>
+  </level>
+  <level id="114">
+    <![CDATA[
+        2       2 `
+6O      7O    5   `
+  2O7     4     3O`
+7     7           `
+4O   O  2    O    `
+           O  3O  `
+  7       6    O  `
+        4O  6   5 `
+3           4O O5 `
+    ]]>
+  </level>
+  <level id="115">
+    <![CDATA[
+       O3   7O    `
+    5    O6 6 6 7 `
+  XX  3       6   `
+4O  6     5 4 6   `
+              4   `
+      5   4 5   5 `
+4             4O5 `
+          6O      `
+7 XX2O  3         `
+    ]]>
+  </level>
+  <level id="116">
+    <![CDATA[
+    6   6   2O    `
+5 3 6O    6O    5 `
+    XX4   3 5   6O`
+  5   5     2     `
+         O        `
+3     7       4 4O`
+  3O7   6O7       `
+    7  OXX  6O2   `
+7     XX    6   7 `
+    ]]>
+  </level>
+  <level id="117">
+    <![CDATA[
+  3           4O2O`
+      5     7O  2 `
+  3O    3O        `
+     O       O2O  `
+  4     3   2O    `
+4O        7O      `
+6  O  7 7 7 2O2O  `
+6     3O          `
+        2O7OXX2O2O`
+    ]]>
+  </level>
+  <level id="118">
+    <![CDATA[
+3O5  O  4O    5 2O`
+          4 2     `
+  6     XX      4O`
+       O      6O  `
+  7O          2O  `
+      7 XX        `
+2O  5O4O  7O  7   `
+    5           7 `
+        6      O7 `
+    ]]>
+  </level>
+  <level id="119">
+    <![CDATA[
+3    O          3O`
+  4O  2     7   2O`
+      4O  5O      `
+  5   6 6       5O`
+3O    5     2 7  O`
+    6O            `
+      4   5O      `
+  2O4O  2O    5   `
+6O  6 6   6O      `
+    ]]>
+  </level>
+  <level id="120">
+    <![CDATA[
+7O4   4O      7 7 `
+      6O      5O7 `
+        5O        `
+2O  6O O  6       `
+2O  6   5         `
+               O  `
+       O    3O  5 `
+  4O      5   3O  `
+5   5   3O  3O  XX`
+    ]]>
+  </level>
+  <level id="121">
+    <![CDATA[
+3O        7    O5O`
+    4O  4     XXXX`
+  XX   O4O6O      `
+2O O      4 6 5   `
+      7   4       `
+  3O  4       2   `
+4O      7O  6O    `
+  6 4O  3O        `
+              5   `
+    ]]>
+  </level>
+  <level id="122">
+    <![CDATA[
+  6O  5   5   4   `
+      7O    7    O`
+  2               `
+6 7O    3O  5 7   `
+    7   4O      3 `
+      7     4     `
+    3     5O  2O  `
+5     4O      6 6 `
+    4   5 3O      `
+    ]]>
+  </level>
+  <level id="123">
+    <![CDATA[
+3 2       6   7   `
+        4O  6O    `
+3O4 4O  4   7     `
+  4            O  `
+        2O        `
+    3O      6O    `
+3O    5      O4   `
+      6O  7       `
+2O  5    O  7O  4 `
+    ]]>
+  </level>
+  <level id="124">
+    <![CDATA[
+        3O5     2O`
+  6 5 2O  3       `
+      5           `
+  2O    4     2O  `
+      5O      6O3 `
+4 5O3O  4O    2O7O`
+            7     `
+  2O            5 `
+3   5       2   5O`
+    ]]>
+  </level>
+  <level id="125">
+    <![CDATA[
+2O          2O    `
+        4O        `
+4     7O        6 `
+  4     2   XX3O  `
+7    O  6         `
+4O    5O          `
+      4O6       2O`
+            6O  4 `
+4 6             4O`
+    ]]>
+  </level>
+  <level id="126">
+    <![CDATA[
+7O    6   4       `
+   O    2O4O    2O`
+7 5 5   7O  7     `
+     O           O`
+            2O    `
+    7 7O   O      `
+   O        3   4O`
+  3O    5      O  `
+    3O   O      2O`
+    ]]>
+  </level>
+  <level id="127">
+    <![CDATA[
+  5 6O      7   6O`
+      7     7   6 `
+  7     3   7   6 `
+      3           `
+ O  2   2         `
+      6       3 6O`
+5       4O  5O  3 `
+    5O      4O    `
+7O      XX     O  `
+    ]]>
+  </level>
+  <level id="128">
+    <![CDATA[
+      4O        5 `
+7 4 4     3O     O`
+  3         3   3O`
+       O  2O      `
+7       XX    5 6 `
+    7O    2 5 5   `
+5O O  4           `
+  7O        2     `
+2O      7   4O  XX`
+    ]]>
+  </level>
+  <level id="129">
+    <![CDATA[
+  5O    7O      5 `
+    4       2 7   `
+      4           `
+  2O7         4   `
+ O    XX  7 7O  6 `
+7         4O      `
+4 7     7O    3O  `
+  6O6  O   O  2O  `
+            3O  6 `
+    ]]>
+  </level>
+  <level id="130">
+    <![CDATA[
+ O      5O6      O`
+5O    6   6     2O`
+   O    2O        `
+      7 2   7   5O`
+                  `
+        4O7       `
+ O  5     7 5     `
+  6   4O        2 `
+            7O  3 `
+    ]]>
+  </level>
+  <level id="131">
+    <![CDATA[
+7O      3O  3     `
+5O        7     4 `
+  2O2             `
+            7O  2 `
+  7   3   5   5   `
+      3   5O     O`
+  4O    3         `
+  3     7O    7   `
+  3             5O`
+    ]]>
+  </level>
+  <level id="132">
+    <![CDATA[
+7 5   5       2   `
+                3 `
+7   2O        2   `
+        XX  3     `
+  7   3O  6O    6 `
+      5           `
+     O     O5 6   `
+5 6 4O    7       `
+5     3O    4     `
+    ]]>
+  </level>
+  <level id="133">
+    <![CDATA[
+2O        7O7     `
+7     6         6 `
+          3 5     `
+  5     7O3       `
+5     2     5     `
+  7           4   `
+                2 `
+  2O4O7 7O    5   `
+  2O          3   `
+    ]]>
+  </level>
+  <level id="134">
+    <![CDATA[
+6   7     7 4O    `
+    4       2 2O  `
+  4O  7 6 7O   O O`
+      7   6   7O  `
+  6 3             `
+  3O    3         `
+               O  `
+  2     6   3   6 `
+    7             `
+    ]]>
+  </level>
+  <level id="135">
+    <![CDATA[
+7     5O          `
+    4    O        `
+      7O      4 7 `
+    4       4   2O`
+    2O    6       `
+  5O  4O7         `
+        6     2O5 `
+      2O  6       `
+4O      XX  3   3O`
+    ]]>
+  </level>
+  <level id="136">
+    <![CDATA[
+        4O        `
+2         2O2O6   `
+4O4             6O`
+      2 3     4 2O`
+  4 5         3   `
+4O    6   5O2   3 `
+      6          O`
+        6     5O  `
+2   3O O      6   `
+    ]]>
+  </level>
+  <level id="137">
+    <![CDATA[
+  7       5       `
+        2 7       `
+ O      4O        `
+XX    6 6   4O3   `
+  3O7 7 6O      7 `
+              7   `
+  2     3   2     `
+6     4O5       7 `
+6       2     5   `
+    ]]>
+  </level>
+  <level id="138">
+    <![CDATA[
+2O4O      5   2 3 `
+    6   3    O    `
+      6           `
+  4       6   4   `
+    2           4O`
+    5 6     7 7 7 `
+7        O  2 2   `
+  7O    6   6     `
+XX3O  2O        5O`
+    ]]>
+  </level>
+  <level id="139">
+    <![CDATA[
+  6 7O  4       2O`
+              7 2 `
+3         4O      `
+      6         7O`
+5             5O5 `
+  2O    3 2   3O  `
+5                 `
+    5O    XX  3   `
+2O   O      5    O`
+    ]]>
+  </level>
+  <level id="140">
+    <![CDATA[
+ O7 5O  3   3O    `
+4   7         7   `
+            6     `
+    4     4       `
+4         6O5     `
+      3           `
+  7     4O        `
+5        O5O      `
+2           2     `
+    ]]>
+  </level>
+  <level id="141">
+    <![CDATA[
+2           3   2 `
+  4             5O`
+    2   4         `
+      5 6O6 6  O  `
+   O          3O  `
+2 5     4 7O  3   `
+  5   7   4O      `
+5O O             O`
+6         6       `
+    ]]>
+  </level>
+  <level id="142">
+    <![CDATA[
+  3O      7     7 `
+  3         6     `
+    6O        5   `
+      2O    7   7O`
+    7       4O  6 `
+4         6       `
+  5 4O           O`
+2         5       `
+  4     2O        `
+    ]]>
+  </level>
+  <level id="143">
+    <![CDATA[
+3   5O        2 7 `
+  7O        3O    `
+   O      4       `
+ O5   5           `
+  3O      3O      `
+4O  7   3       5 `
+  7       5O6     `
+    4O           O`
+          2O4     `
+    ]]>
+  </level>
+  <level id="144">
+    <![CDATA[
+  7O  5   7       `
+    5    O  5     `
+7   7          O  `
+      2O        6 `
+5O          2     `
+3 4 4O    6   3   `
+      3 2O      3 `
+              2   `
+6O      5O        `
+    ]]>
+  </level>
+  <level id="145">
+    <![CDATA[
+   O7O      2   4 `
+      5  O        `
+3               2O`
+            2O    `
+4     4           `
+      7     6     `
+4      O6 4 4     `
+3O  6 6           `
+    6   5     4   `
+    ]]>
+  </level>
+  <level id="146">
+    <![CDATA[
+3       6O        `
+    6   5   4O  XX`
+  2O2     6   2   `
+        6O      4 `
+7                 `
+  2O  7       7   `
+    5O  4O        `
+    5   7O  2    O`
+2 3       6       `
+    ]]>
+  </level>
+  <level id="147">
+    <![CDATA[
+  6    O O  3   7 `
+            6     `
+ O7         7 7   `
+3                 `
+2   2O4O       O6 `
+  5O    3O  5     `
+3  O2   2O    5   `
+  3               `
+ O  7 7   4       `
+    ]]>
+  </level>
+  <level id="148">
+    <![CDATA[
+7       3       2 `
+      4     4O   O`
+  4    O    4 7 5 `
+    6     7   4O  `
+                  `
+2         2       `
+      7 4       2 `
+        5O      6O`
+    4O2   XX  6   `
+    ]]>
+  </level>
+  <level id="149">
+    <![CDATA[
+      4       7   `
+4    O      2O    `
+  2   6   6       `
+   O    5O  3     `
+          3 3    O`
+    6   2 7       `
+  7         7     `
+        3   7   4O`
+  5   2O    2O    `
+    ]]>
+  </level>
+  <level id="150">
+    <![CDATA[
+  4       2O      `
+  7         2O    `
+6       4 6       `
+ O  4O        2   `
+        6       5 `
+3O      XX      4 `
+            4O    `
+4O O  6 4     7   `
+3     2         2O`
+    ]]>
+  </level>
+  <level id="151">
+    <![CDATA[
+3O O6O        4   4 `
+   O    7       7   `
+    3       3O  2O7 `
+  5  O3O4   5O      `
+  7O                `
+    6O              `
+            6     7 `
+  3           5 6   `
+    5O  6O6       2O`
+      2O  5         `
+    ]]>
+  </level>
+  <level id="152">
+    <![CDATA[
+6O          6O      `
+    2O    5   4     `
+       O3O    4     `
+   O         O  2   `
+  5O3  O3   3       `
+4O   O  7         2 `
+    6O  7   7   6   `
+2O  6   4   7O  6O  `
+      6   4         `
+3O    2     5     2 `
+    ]]>
+  </level>
+  <level id="153">
+    <![CDATA[
+4O5 3      O        `
+        4O      7   `
+    7O    4 4 2   7 `
+   O          6     `
+4O  3O          2O  `
+    6   4O    6   5 `
+2O        5      O  `
+           O       O`
+    4     7O  6     `
+2     4O    7       `
+    ]]>
+  </level>
+  <level id="154">
+    <![CDATA[
+    6O              `
+4O     O    6O2O  3 `
+2       7           `
+          5O7O      `
+ O        5   6     `
+5 7  O    7   2     `
+  XX      6     6   `
+        XX  3       `
+  7       2   3O  2O`
+  2O6O    7O    4 4O`
+    ]]>
+  </level>
+  <level id="155">
+    <![CDATA[
+  6   3   7 3O    4O`
+4O6   3             `
+              7  O3 `
+  2O  5O    6O      `
+        2O2    O4   `
+2O    4O7O      4   `
+  6       4         `
+    7           3O  `
+6O7       6O      2 `
+2O  4        O  6   `
+    ]]>
+  </level>
+  <level id="156">
+    <![CDATA[
+5                 4 `
+    6   2 3       6 `
+      4         5   `
+  3 3         6O    `
+5O        2   7O    `
+  5O              6 `
+        7 6O    4   `
+     O3O      4O    `
+  7   5     2O      `
+2O            6O2O  `
+    ]]>
+  </level>
+  <level id="157">
+    <![CDATA[
+2O   O    3         `
+  6 7           4   `
+    7   2O    3   7 `
+          6O        `
+ O  2O              `
+  7     7     7     `
+7     2     4O  7   `
+  6     3  OXX      `
+7O4O      3   2   6O`
+            3O O  3 `
+    ]]>
+  </level>
+  <level id="158">
+    <![CDATA[
+      7           3O`
+3     7O4     6  O  `
+7O         O      2O`
+  6   2     2O  3   `
+        3O          `
+          4O  5O    `
+6     2             `
+6   4O   O  3O O  2 `
+    6   7       3   `
+  7   XX5O  2O      `
+    ]]>
+  </level>
+  <level id="159">
+    <![CDATA[
+4     7O      5     `
+            5     3O`
+6     7       7 7O  `
+   O  3   2O        `
+    5   7         2 `
+      5     5O  6O  `
+        7     6   6 `
+  4O            2   `
+  5O        7       `
+    6O6 6     6     `
+    ]]>
+  </level>
+  <level id="160">
+    <![CDATA[
+2O6             6 2O`
+    4  O    4O      `
+            3     6O`
+5   3O7   2O        `
+              2     `
+          5O    5   `
+  4O  4O        5 7O`
+    XX    3   4O    `
+          7O    7   `
+2O6O6               `
+    ]]>
+  </level>
+  <level id="161">
+    <![CDATA[
+  2O4O4         2O2 `
+          7O7       `
+    6O7 2O          `
+              6 6 7 `
+  6O O7     7 4O6   `
+      5   2      O6O`
+    7 5 7 5       3O`
+                3   `
+      4 3 5 7       `
+        2O      4   `
+    ]]>
+  </level>
+  <level id="162">
+    <![CDATA[
+    7     2O5O      `
+          3         `
+4O  5               `
+    2O        3     `
+  7        O   O5   `
+    3   4O      6   `
+      2       7O  3 `
+  4 4O      2 3     `
+5               6O  `
+4O          6       `
+    ]]>
+  </level>
+  <level id="163">
+    <![CDATA[
+5             7   5O`
+                    `
+3 2O  4   7     2   `
+      6         4   `
+    5   6    O4O6   `
+  4                 `
+        7     4     `
+    6O        7     `
+  5O    7   4     2O`
+  XX  2       7 3O  `
+    ]]>
+  </level>
+  <level id="164">
+    <![CDATA[
+  5O    6O    7     `
+    3O  4           `
+    6 6O        2   `
+  4   5O    7 5   7 `
+            4O  XX  `
+ O    3   3O        `
+  5      O  4   6   `
+        2O   OXX    `
+  3           6O    `
+2O  7O      2   3 4O`
+    ]]>
+  </level>
+  <level id="165">
+    <![CDATA[
+  4O3 7           2 `
+2O    4            O`
+        7     5O    `
+  5O          6     `
+      7O    4   4   `
+  7       2         `
+2       6     6   4 `
+  3O2O      7     3O`
+3     6O  2O    3   `
+    5O              `
+    ]]>
+  </level>
+  <level id="166">
+    <![CDATA[
+        2         5O`
+5     4   XX        `
+    6O  4 5       7O`
+  7   3       2O O  `
+6     6 4 4         `
+            2   4 6 `
+        4O      6 6 `
+           O6       `
+        2           `
+     O3O    7     4O`
+    ]]>
+  </level>
+  <level id="167">
+    <![CDATA[
+4O        6 2       `
+    3               `
+6         7 6   2   `
+                3   `
+  2     3   2O      `
+    4O5O3 7   6     `
+4O3O              6 `
+   O  7   5O  3     `
+4     7         4O  `
+4   6     6O        `
+    ]]>
+  </level>
+  <level id="168">
+    <![CDATA[
+    5   3       5 7O`
+  2 3   2O  6 3     `
+7     5O            `
+            5       `
+      2           5 `
+2             2 4   `
+  5   3O2O  4O      `
+6O  4   2O   O6     `
+  6                 `
+2             4O    `
+    ]]>
+  </level>
+  <level id="169">
+    <![CDATA[
+      6   5       6O`
+    5   2O  6   5O  `
+6O  5   3O      2O5 `
+7                   `
+    4          O    `
+       O  7 2     7 `
+  7 7   2     3O    `
+4 4     6   7   7O  `
+3 4     XX    5   5 `
+      2O   O4O      `
+    ]]>
+  </level>
+  <level id="170">
+    <![CDATA[
+          6  O   O  `
+    7   7O     O O  `
+6 2O    7   3O      `
+    5 4       5O    `
+        6       4 2 `
+      4   2O  5     `
+6            O4O5O3 `
+                 O  `
+      4O    5   6 2 `
+2O  3O              `
+    ]]>
+  </level>
+  <level id="171">
+    <![CDATA[
+          7     4 3O`
+2     2O   O  6     `
+    7             4 `
+      4   2O2 3     `
+   O            6O  `
+4O5           7     `
+            2       `
+4   4           2O  `
+7O          7       `
+      6   5       4 `
+    ]]>
+  </level>
+  <level id="172">
+    <![CDATA[
+        6O4 5       `
+    3           6   `
+4O         O      2 `
+   O          4     `
+    5     2O2       `
+  2 2O  7 3  O7  O  `
+                  5 `
+4O5   5O  6 7   3   `
+      2O     O      `
+  5O     O      6   `
+    ]]>
+  </level>
+  <level id="173">
+    <![CDATA[
+    7 7     4O      `
+     O        2  O  `
+    3O4O          4O`
+7       3O  4   7 7 `
+2         2   6     `
+  7O          4     `
+   O5O  5       4   `
+  2   XX          6O`
+        5         6 `
+2O7               5O`
+    ]]>
+  </level>
+  <level id="174">
+    <![CDATA[
+5         XX      3 `
+    4   7           `
+  3O        3O2     `
+  2 3        O  5   `
+6O  4O      3      O`
+      6   3O O      `
+2O      4O         O`
+    6     7O        `
+4           4O  6   `
+            5   5O3O`
+    ]]>
+  </level>
+  <level id="175">
+    <![CDATA[
+          5O      2 `
+              2O7O  `
+5     5 6   3       `
+    4     3      O  `
+  7O    3           `
+5   5O    5 6O3     `
+          5O      5 `
+      7     6       `
+2   2   4O O    3   `
+   O    3         2 `
+    ]]>
+  </level>
+  <level id="176">
+    <![CDATA[
+  4O        6O      `
+                5   `
+    5O5 3          O`
+3 4O  7 7 4O      6 `
+  7O                `
+2 5     3O          `
+      2   5       5 `
+            5  O    `
+  3   7 2O      3   `
+    7       7O      `
+    ]]>
+  </level>
+  <level id="177">
+    <![CDATA[
+ O  3O  2 7O  6     `
+         O      6   `
+      6O      7     `
+            2   2 5O`
+7     7             `
+    2O  2O4O        `
+3O O    7       2O  `
+ O              6   `
+  6 2     4     3O  `
+              2O  6O`
+    ]]>
+  </level>
+  <level id="178">
+    <![CDATA[
+            4       `
+  5O5  O      7O    `
+  2   6     XX    7O`
+    7           5O  `
+          5O3O      `
+ O   O6 4     4O    `
+  4     4   5       `
+    7 4O  6         `
+3               2O  `
+2O   O            4O`
+    ]]>
+  </level>
+  <level id="179">
+    <![CDATA[
+    5O      6       `
+          7O      6 `
+7       2O    3     `
+            3O      `
+  2O    4     3O    `
+4O    7 7         5 `
+  6 5     7   3     `
+        3         6O`
+5                   `
+2       4 4O      4O`
+    ]]>
+  </level>
+  <level id="180">
+    <![CDATA[
+    5     3 2O O  XX`
+              7 3O  `
+          4 5O      `
+6     2O6O        6 `
+    6               `
+4O          7  O    `
+  2O4   5         7 `
+            5   6   `
+3 3  O    3         `
+3       2 5O        `
+    ]]>
+  </level>
+  <level id="181">
+    <![CDATA[
+4O    3   2   5O2   `
+               O    `
+4   2O  4   5       `
+6          O      5 `
+        7   7O3  O  `
+    4O  7O      7O  `
+          2O    2O  `
+    4     3         `
+2       6 6   3     `
+  5  O      6       `
+    ]]>
+  </level>
+  <level id="182">
+    <![CDATA[
+4     7   4     5   `
+3                 7 `
+  4   5      O  3   `
+              4O    `
+    7   7O   O      `
+  7           5O    `
+        4   2O  3O  `
+      3    O      4 `
+7O        5O        `
+    2   6       6 2 `
+    ]]>
+  </level>
+  <level id="183">
+    <![CDATA[
+6   5O    2O    4   `
+  5O      2   4     `
+                    `
+  4        O    6 6 `
+      2O  6     7O  `
+    4      O  4     `
+          6   5 2O  `
+    3       5 5   3 `
+7   4               `
+        4O    4O    `
+    ]]>
+  </level>
+  <level id="184">
+    <![CDATA[
+      2 6     4  O3 `
+7           2       `
+               O  3 `
+              2O  4O`
+5     7   6   5O   O`
+   O                `
+4O               O  `
+  2 4O  4      O    `
+  6O      7     4O5 `
+       O7         XX`
+    ]]>
+  </level>
+  <level id="185">
+    <![CDATA[
+      5O            `
+      2    O  6O5O  `
+6O      7 6O    5 6 `
+ O  7   2O          `
+    7 4O          3O`
+6         3O      3 `
+  5O  4O     O  7   `
+                4   `
+  7   3   7   7 2   `
+2                   `
+    ]]>
+  </level>
+  <level id="186">
+    <![CDATA[
+        6 XX2O    4 `
+7             5     `
+     O      7O  3   `
+  5   5 4         3O`
+              5   6 `
+      7O        2   `
+ O  4   3   7O O    `
+  3     XX    2     `
+  2 2 7O  XX    5O  `
+    6O              `
+    ]]>
+  </level>
+  <level id="187">
+    <![CDATA[
+   O    2 3 5O  5   `
+7                   `
+  7 3O   O  2       `
+      5O            `
+  2       5O   O  7 `
+      4    O    6O  `
+    6    O        3 `
+  5O      2O       O`
+4O   O  5 XX  3O O  `
+    7       3       `
+    ]]>
+  </level>
+  <level id="188">
+    <![CDATA[
+                    `
+    2   4   2   2   `
+      7O     O     O`
+    6O    5         `
+5       2           `
+      7         7O  `
+6O  7O  6         6 `
+6       4O  4 XX O  `
+6     2O    7       `
+ O    5         2 2O`
+    ]]>
+  </level>
+  <level id="189">
+    <![CDATA[
+    4O  3       5   `
+2                   `
+7       7   2 2   4 `
+  4       4     2   `
+            XX    6 `
+        5   XX3O    `
+2 7     5       3  O`
+    5     6       3 `
+      3         7   `
+  4O         O  5   `
+    ]]>
+  </level>
+  <level id="190">
+    <![CDATA[
+                  7O`
+4         4   2O    `
+  5 5O      7       `
+      5O    7O3 7O  `
+     O2O    6       `
+2 XX  2        O    `
+7     7   7   2O    `
+          2O     O  `
+6                   `
+      4       5OXX  `
+    ]]>
+  </level>
+  <level id="191">
+    <![CDATA[
+     O   O8       6 `
+7O                  `
+        8 8   2O    `
+5 5     8 2    O  3O`
+    4O            4 `
+        2     7     `
+            3O    2O`
+  6   6 3         8O`
+      6O        2O  `
+  5     2 2O7O      `
+    ]]>
+  </level>
+  <level id="192">
+    <![CDATA[
+    5 6O          7O`
+2       2O    2O    `
+      3 4O  6O     O`
+   O       O    5   `
+        2O  3O  5 4O`
+4O  7   2           `
+  3       2O      8O`
+            5   8 8 `
+  5O                `
+          6O    8   `
+    ]]>
+  </level>
+  <level id="193">
+    <![CDATA[
+ O6 8     8     6   `
+3O        6   2     `
+  3O                `
+                  4O`
+  2   7  O    4  O  `
+                7   `
+3 7   2        O    `
+ O   O        3 7O  `
+  2O3   6           `
+      7     8O    8 `
+    ]]>
+  </level>
+  <level id="194">
+    <![CDATA[
+                    `
+4O   O    6O      7 `
+            5O      `
+3O                  `
+8       8 7 5O    7O`
+8 7           3   7 `
+                  7 `
+8   6O4O  3   XX7   `
+     O  4O  5O    2 `
+  8               3 `
+    ]]>
+  </level>
+  <level id="195">
+    <![CDATA[
+8O3     XX8   2     `
+    8O8   4       7 `
+        2     7     `
+         O6         `
+  4   3O O         O`
+     OXX        6   `
+        5     5   8 `
+  7   7O        2   `
+ O  2O    2     2O  `
+4       4OXX        `
+    ]]>
+  </level>
+  <level id="196">
+    <![CDATA[
+    5O              `
+2   6 6   5O    3   `
+  4O    5     3O    `
+           O4       `
+8   4O  3    O      `
+  5     7         4 `
+  8         5 3     `
+  8 3O  8   5O  2   `
+          2O      7 `
+  6                 `
+    ]]>
+  </level>
+  <level id="197">
+    <![CDATA[
+8     7 7   6O      `
+      6O      7O    `
+5               3   `
+4         4         `
+  3O             O8 `
+      2   8 3 7O    `
+    7               `
+  6O  7           2 `
+          2O        `
+6O            7     `
+    ]]>
+  </level>
+  <level id="198">
+    <![CDATA[
+8O O  6     8O    8 `
+  4O    5       5   `
+          2O        `
+      7       5O    `
+            7     3 `
+          3     3   `
+    7             7 `
+5 2   4 8O          `
+     O    6         `
+3           6O    7 `
+    ]]>
+  </level>
+  <level id="199">
+    <![CDATA[
+  2O    7 8O3 2O  3O`
+                    `
+2 3       7   5O  3O`
+        7           `
+        7         5 `
+        2       6   `
+3   2 7     2O5     `
+  6   6O  6   6     `
+      8          O  `
+            7O3     `
+    ]]>
+  </level>
+  <level id="200">
+    <![CDATA[
+      2     8     4 `
+  8           2O    `
+  5   2   6 7       `
+         O    5   7O`
+  4             2   `
+    3O  4   6      O`
+    2           6   `
+  6   7         2   `
+  2O     O  8O    4 `
+     O            2 `
+    ]]>
+  </level>
+</levels>
+</puzzle>

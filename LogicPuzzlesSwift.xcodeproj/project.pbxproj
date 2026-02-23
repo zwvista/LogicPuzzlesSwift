@@ -1602,6 +1602,15 @@
 		8CA9D61E2F4A38B300EDF793 /* SnakeMazeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D6102F4A38B300EDF793 /* SnakeMazeGame.swift */; };
 		8CA9D61F2F4A38B300EDF793 /* SnakeMazeGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D6142F4A38B300EDF793 /* SnakeMazeGridNode.swift */; };
 		8CA9D6202F4A38B300EDF793 /* SnakeMaze.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CA9D60E2F4A38B300EDF793 /* SnakeMaze.xml */; };
+		8CA9D62B2F4CAAFB00EDF793 /* SnakeominoMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D6282F4CAAFB00EDF793 /* SnakeominoMainViewController.swift */; };
+		8CA9D62C2F4CAAFB00EDF793 /* SnakeominoGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D6252F4CAAFB00EDF793 /* SnakeominoGameState.swift */; };
+		8CA9D62D2F4CAAFB00EDF793 /* SnakeominoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D6292F4CAAFB00EDF793 /* SnakeominoObject.swift */; };
+		8CA9D62E2F4CAAFB00EDF793 /* SnakeominoDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D6222F4CAAFB00EDF793 /* SnakeominoDocument.swift */; };
+		8CA9D62F2F4CAAFB00EDF793 /* SnakeominoGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D6262F4CAAFB00EDF793 /* SnakeominoGameViewController.swift */; };
+		8CA9D6302F4CAAFB00EDF793 /* SnakeominoGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D6232F4CAAFB00EDF793 /* SnakeominoGame.swift */; };
+		8CA9D6312F4CAAFB00EDF793 /* SnakeominoGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D6242F4CAAFB00EDF793 /* SnakeominoGameScene.swift */; };
+		8CA9D6322F4CAAFB00EDF793 /* SnakeominoGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D6272F4CAAFB00EDF793 /* SnakeominoGridNode.swift */; };
+		8CA9D6332F4CAAFB00EDF793 /* Snakeomino.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CA9D6212F4CAAFB00EDF793 /* Snakeomino.xml */; };
 		8CACC92F2E9BC56E00F53475 /* HidokuGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CACC9292E9BC56E00F53475 /* HidokuGameState.swift */; };
 		8CACC9302E9BC56E00F53475 /* HidokuGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CACC92B2E9BC56E00F53475 /* HidokuGridNode.swift */; };
 		8CACC9312E9BC56E00F53475 /* HidokuMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CACC92C2E9BC56E00F53475 /* HidokuMainViewController.swift */; };
@@ -3702,6 +3711,15 @@
 		8CA9D6142F4A38B300EDF793 /* SnakeMazeGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeMazeGridNode.swift; sourceTree = "<group>"; };
 		8CA9D6152F4A38B300EDF793 /* SnakeMazeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeMazeMainViewController.swift; sourceTree = "<group>"; };
 		8CA9D6162F4A38B300EDF793 /* SnakeMazeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeMazeObject.swift; sourceTree = "<group>"; };
+		8CA9D6212F4CAAFB00EDF793 /* Snakeomino.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Snakeomino.xml; sourceTree = "<group>"; };
+		8CA9D6222F4CAAFB00EDF793 /* SnakeominoDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeominoDocument.swift; sourceTree = "<group>"; };
+		8CA9D6232F4CAAFB00EDF793 /* SnakeominoGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeominoGame.swift; sourceTree = "<group>"; };
+		8CA9D6242F4CAAFB00EDF793 /* SnakeominoGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeominoGameScene.swift; sourceTree = "<group>"; };
+		8CA9D6252F4CAAFB00EDF793 /* SnakeominoGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeominoGameState.swift; sourceTree = "<group>"; };
+		8CA9D6262F4CAAFB00EDF793 /* SnakeominoGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeominoGameViewController.swift; sourceTree = "<group>"; };
+		8CA9D6272F4CAAFB00EDF793 /* SnakeominoGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeominoGridNode.swift; sourceTree = "<group>"; };
+		8CA9D6282F4CAAFB00EDF793 /* SnakeominoMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeominoMainViewController.swift; sourceTree = "<group>"; };
+		8CA9D6292F4CAAFB00EDF793 /* SnakeominoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeominoObject.swift; sourceTree = "<group>"; };
 		8CACC9252E9BC56E00F53475 /* Hidoku.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Hidoku.xml; sourceTree = "<group>"; };
 		8CACC9262E9BC56E00F53475 /* HidokuDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidokuDocument.swift; sourceTree = "<group>"; };
 		8CACC9272E9BC56E00F53475 /* HidokuGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidokuGame.swift; sourceTree = "<group>"; };
@@ -5114,6 +5132,7 @@
 				8C3A35B41EC88D4200A914A5 /* Snail */,
 				8C506F021F6D2C9300BA4332 /* Snake */,
 				8CA9D6172F4A38B300EDF793 /* SnakeMaze */,
+				8CA9D62A2F4CAAFB00EDF793 /* Snakeomino */,
 				8C1D4F7A1F7D079F000D5FB3 /* Square100 */,
 				8C9BD5962F0A7DFF00D1D915 /* Stacks */,
 				8C263E1C2F11EC0200158A2C /* Steps */,
@@ -7102,6 +7121,22 @@
 			path = SnakeMaze;
 			sourceTree = "<group>";
 		};
+		8CA9D62A2F4CAAFB00EDF793 /* Snakeomino */ = {
+			isa = PBXGroup;
+			children = (
+				8CA9D6212F4CAAFB00EDF793 /* Snakeomino.xml */,
+				8CA9D6222F4CAAFB00EDF793 /* SnakeominoDocument.swift */,
+				8CA9D6232F4CAAFB00EDF793 /* SnakeominoGame.swift */,
+				8CA9D6242F4CAAFB00EDF793 /* SnakeominoGameScene.swift */,
+				8CA9D6252F4CAAFB00EDF793 /* SnakeominoGameState.swift */,
+				8CA9D6262F4CAAFB00EDF793 /* SnakeominoGameViewController.swift */,
+				8CA9D6272F4CAAFB00EDF793 /* SnakeominoGridNode.swift */,
+				8CA9D6282F4CAAFB00EDF793 /* SnakeominoMainViewController.swift */,
+				8CA9D6292F4CAAFB00EDF793 /* SnakeominoObject.swift */,
+			);
+			path = Snakeomino;
+			sourceTree = "<group>";
+		};
 		8CACC92E2E9BC56E00F53475 /* Hidoku */ = {
 			isa = PBXGroup;
 			children = (
@@ -8426,6 +8461,7 @@
 				8C8664252EA39DD00078CD64 /* elephant.png in Resources */,
 				8C8664262EA39DD00078CD64 /* shade_9.png in Resources */,
 				8C8664272EA39DD00078CD64 /* ship.png in Resources */,
+				8CA9D6332F4CAAFB00EDF793 /* Snakeomino.xml in Resources */,
 				8C8664282EA39DD00078CD64 /* token_red.png in Resources */,
 				8C8664292EA39DD00078CD64 /* lion.png in Resources */,
 				8C86642A2EA39DD00078CD64 /* note_plain_sand3.png in Resources */,
@@ -9781,6 +9817,14 @@
 				8C2963FB1FA20D620017A812 /* RobotCrosswordsGameScene.swift in Sources */,
 				8C3A37211EC88D4300A914A5 /* MiniLitsDocument.swift in Sources */,
 				8C6A362B1FAF9D8600D2804D /* NoughtsAndCrossesGameViewController.swift in Sources */,
+				8CA9D62B2F4CAAFB00EDF793 /* SnakeominoMainViewController.swift in Sources */,
+				8CA9D62C2F4CAAFB00EDF793 /* SnakeominoGameState.swift in Sources */,
+				8CA9D62D2F4CAAFB00EDF793 /* SnakeominoObject.swift in Sources */,
+				8CA9D62E2F4CAAFB00EDF793 /* SnakeominoDocument.swift in Sources */,
+				8CA9D62F2F4CAAFB00EDF793 /* SnakeominoGameViewController.swift in Sources */,
+				8CA9D6302F4CAAFB00EDF793 /* SnakeominoGame.swift in Sources */,
+				8CA9D6312F4CAAFB00EDF793 /* SnakeominoGameScene.swift in Sources */,
+				8CA9D6322F4CAAFB00EDF793 /* SnakeominoGridNode.swift in Sources */,
 				8C6A36271FAF9D8600D2804D /* NoughtsAndCrossesDocument.swift in Sources */,
 				8CE9C3131F7914B800134093 /* KakurasuGameState.swift in Sources */,
 				8C506F161F6D2C9300BA4332 /* SnakeMainViewController.swift in Sources */,
