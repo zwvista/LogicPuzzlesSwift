@@ -1,6 +1,6 @@
 #!/bin/bash
 # 自动生成的Swift拷贝XML脚本
-# 生成时间: 2026-02-23 23:19:24
+# 生成时间: 2026-02-25 01:20:00
 
 echo "开始拷贝XML文件到Swift项目..."
 
@@ -904,6 +904,15 @@ else
     echo "❌ 源文件不存在: ../PSL/PuzzlesF/Puzzles/FingerPointing.xml"
 fi
 
+# 拷贝 FlowerOMino (来自: PuzzlesF/Puzzles)
+mkdir -p LogicPuzzlesSwift/Puzzles/FlowerOMino
+if [ -f "../PSL/PuzzlesF/Puzzles/FlowerOMino.xml" ]; then
+    cp "../PSL/PuzzlesF/Puzzles/FlowerOMino.xml" "LogicPuzzlesSwift/Puzzles/FlowerOMino/FlowerOMino.xml"
+    echo "✓ 已拷贝到Swift: FlowerOMino"
+else
+    echo "❌ 源文件不存在: ../PSL/PuzzlesF/Puzzles/FlowerOMino.xml"
+fi
+
 # 拷贝 FunnyNumbers (来自: PuzzlesF/Puzzles)
 mkdir -p LogicPuzzlesSwift/Puzzles/FunnyNumbers
 if [ -f "../PSL/PuzzlesF/Puzzles/FunnyNumbers.xml" ]; then
@@ -1300,6 +1309,15 @@ else
     echo "❌ 源文件不存在: ../PSL/PuzzlesS/Puzzles/SlitherCorner.xml"
 fi
 
+# 拷贝 Snakeomino (来自: PuzzlesS/Puzzles)
+mkdir -p LogicPuzzlesSwift/Puzzles/Snakeomino
+if [ -f "../PSL/PuzzlesS/Puzzles/Snakeomino.xml" ]; then
+    cp "../PSL/PuzzlesS/Puzzles/Snakeomino.xml" "LogicPuzzlesSwift/Puzzles/Snakeomino/Snakeomino.xml"
+    echo "✓ 已拷贝到Swift: Snakeomino"
+else
+    echo "❌ 源文件不存在: ../PSL/PuzzlesS/Puzzles/Snakeomino.xml"
+fi
+
 # 拷贝 Sentinels (来自: PuzzlesS/Puzzles)
 mkdir -p LogicPuzzlesSwift/Puzzles/Sentinels
 if [ -f "../PSL/PuzzlesS/Puzzles/Sentinels.xml" ]; then
@@ -1678,4 +1696,4 @@ else
     echo "❌ 源文件不存在: ../PSL/PuzzlesU/Puzzles/Underground.xml"
 fi
 
-echo "\nSwift拷贝完成，共处理 186 个游戏"
+echo "\nSwift拷贝完成，共处理 188 个游戏"
