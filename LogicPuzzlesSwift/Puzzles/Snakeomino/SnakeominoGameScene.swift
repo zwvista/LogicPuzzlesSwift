@@ -35,10 +35,7 @@ class SnakeominoGameScene: GameScene<SnakeominoGameState> {
         
         for p in game.hedges {
             let point = gridNode.centerPoint(p: p)
-            let hedgeNode = SKSpriteNode(color: .gray, size: coloredRectSize())
-            hedgeNode.position = point
-            hedgeNode.name = "hedge"
-            gridNode.addChild(hedgeNode)
+            addBlock(color: .gray, point: point, nodeName: "hedge")
         }
         for p in game.flowers {
             let point = gridNode.centerPoint(p: p)

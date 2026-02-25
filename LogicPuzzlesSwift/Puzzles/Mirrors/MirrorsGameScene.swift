@@ -56,10 +56,7 @@ class MirrorsGameScene: GameScene<MirrorsGameState> {
                 let point = gridNode.centerPoint(p: p)
                 switch state[p] {
                 case .block:
-                    let blockNode = SKSpriteNode(color: .lightGray, size: coloredRectSize())
-                    blockNode.position = point
-                    blockNode.name = "block"
-                    gridNode.addChild(blockNode)
+                    addBlock(color: .lightGray, point: point, nodeName: "block")
                 case .spot:
                     let spotNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 2)
                     spotNode.position = point

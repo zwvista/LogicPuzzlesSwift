@@ -76,12 +76,7 @@ class LoopAndBlocksGameScene: GameScene<LoopAndBlocksGameState> {
                 let (s1, s2) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
                 if b1 != b2 || s1 != s2 {
                     if b1 { removeNode(withName: squareNodeName) }
-                    if b2 {
-                        let squareNode = SKSpriteNode(color: s2 == .error ? .red : .white, size: coloredRectSize())
-                        squareNode.position = point
-                        squareNode.name = squareNodeName
-                        gridNode.addChild(squareNode)
-                    }
+                    if b2 { addBlock(color: s2 == .error ? .red : .white, point: point, nodeName: squareNodeName) }
                 }
                 let (s3, s4) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
                 if s3 != s4 {

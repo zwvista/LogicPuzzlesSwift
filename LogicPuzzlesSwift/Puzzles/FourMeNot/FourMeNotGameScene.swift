@@ -42,10 +42,7 @@ class FourMeNotGameScene: GameScene<FourMeNotGameState> {
                     addFlower(s: s, point: point, nodeName: flowerNodeName)
                     addCircleMarker(color: .white, point: point, nodeName: "marker")
                 case .block:
-                    let blockNode = SKSpriteNode(color: .white, size: coloredRectSize())
-                    blockNode.position = point
-                    blockNode.name = "block"
-                    gridNode.addChild(blockNode)
+                    addBlock(color: .white, point: point, nodeName: "block")
                 case .forbidden:
                     addForbidden(point: point, nodeName: forbiddenNodeName)
                 default:

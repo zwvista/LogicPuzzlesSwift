@@ -14,13 +14,6 @@ class WallSentinelsGameScene: GameScene<WallSentinelsGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addWall(point: CGPoint, nodeName: String) {
-        let wallNode = SKSpriteNode(color: .purple, size: coloredRectSize())
-        wallNode.position = point
-        wallNode.name = nodeName
-        gridNode.addChild(wallNode)
-    }
-    
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
@@ -45,7 +38,7 @@ class WallSentinelsGameScene: GameScene<WallSentinelsGameState> {
                 case let .hintLand(n, s):
                     addHint(n: n, s: s, point: point, nodeName: hintNodeName)
                 case let .hintWall(n, s):
-                    addWall(point: point, nodeName: "wall")
+                    addBlock(color: .purple, point: point, nodeName: "wall")
                     addHint(n: n, s: s, point: point, nodeName: hintNodeName)
                 default:
                     break
@@ -77,7 +70,7 @@ class WallSentinelsGameScene: GameScene<WallSentinelsGameState> {
                 }
                 switch ot2 {
                 case .wall:
-                    addWall(point: point, nodeName: wallNodeName)
+                    addBlock(color: .purple, point: point, nodeName: wallNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
                 case let .hintLand(n, s):

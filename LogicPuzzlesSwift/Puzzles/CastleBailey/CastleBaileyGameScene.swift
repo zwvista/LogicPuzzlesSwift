@@ -76,10 +76,7 @@ class CastleBaileyGameScene: GameScene<CastleBaileyGameState> {
                 }
                 switch o2 {
                 case .wall:
-                    let wallNode = SKSpriteNode(color: .lightGray, size: coloredRectSize())
-                    wallNode.position = point
-                    wallNode.name = wallNodeName
-                    gridNode.addChild(wallNode)
+                    addBlock(color: .lightGray, point: point, nodeName: wallNodeName)
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case .marker:

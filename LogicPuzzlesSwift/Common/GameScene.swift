@@ -53,6 +53,14 @@ class GameScene<GS: GameStateBase>: SKScene, GameSceneBase {
         }
     }
     
+    func addBlock(color: SKColor, point: CGPoint, nodeName: String, size: CGSize? = nil) {
+        let size = size ?? coloredRectSize()
+        let blockNode = SKSpriteNode(color: color, size: coloredRectSize())
+        blockNode.position = point
+        blockNode.name = nodeName
+        gridNode.addChild(blockNode)
+    }
+    
     func addLabel(text: String, fontColor: SKColor, point: CGPoint, nodeName: String, size: CGSize, sampleText: String? = nil) {
         let labelNode = SKLabelNode(text: sampleText ?? text)
         labelNode.fontColor = fontColor

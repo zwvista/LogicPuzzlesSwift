@@ -14,13 +14,6 @@ class CloudsGameScene: GameScene<CloudsGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addCloud(color: SKColor, point: CGPoint, nodeName: String) {
-        let cloudNode = SKSpriteNode(color: color, size: coloredRectSize())
-        cloudNode.position = point
-        cloudNode.name = nodeName
-        gridNode.addChild(cloudNode)
-    }
-    
     func addHint(p: Position, n: Int, s: HintState) {
         let point = gridNode.centerPoint(p: p)
         guard n >= 0 else {return}
@@ -55,7 +48,7 @@ class CloudsGameScene: GameScene<CloudsGameState> {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let cloudNodeName = "cloud" + nodeNameSuffix
-            addCloud(color: .gray, point: point, nodeName: cloudNodeName)
+            addBlock(color: .gray, point: point, nodeName: cloudNodeName)
         }
         for r in 0..<game.rows {
             for c in 0..<game.cols {
@@ -121,7 +114,7 @@ class CloudsGameScene: GameScene<CloudsGameState> {
                 }
                 switch o2 {
                 case .cloud:
-                    addCloud(color: .white, point: point, nodeName: cloudNodeName)
+                    addBlock(color: .white, point: point, nodeName: cloudNodeName)
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case .marker:

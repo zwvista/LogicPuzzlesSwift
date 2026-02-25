@@ -90,10 +90,7 @@ class UnreliableHintsGameScene: GameScene<UnreliableHintsGameState> {
                     }
                     switch o2 {
                     case .shaded:
-                        let shadedNode = SKSpriteNode(color: .lightGray, size: coloredRectSize())
-                        shadedNode.position = point
-                        shadedNode.name = shadedNodeName
-                        gridNode.addChild(shadedNode)
+                        addBlock(color: .lightGray, point: point, nodeName: shadedNodeName)
                     case .marker:
                         addCircleMarker(color: .white, point: point, nodeName: markerNodeName)
                     default:

@@ -50,10 +50,7 @@ class RobotCrosswordsGameScene: GameScene<RobotCrosswordsGameState> {
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
                 if n == -1 {
-                    let squareNode = SKSpriteNode(color: .white, size: coloredRectSize())
-                    squareNode.position = point
-                    squareNode.name = "square"
-                    gridNode.addChild(squareNode)
+                    addBlock(color: .white, point: point, nodeName: "square")
                 } else if n > 0 {
                     addLabel(text: String(n), fontColor: .gray, point: point, nodeName: numberNodeName)
                     for i in 0..<2 {

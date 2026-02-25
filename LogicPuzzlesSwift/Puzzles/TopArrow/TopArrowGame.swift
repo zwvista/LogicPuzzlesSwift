@@ -17,12 +17,16 @@ class TopArrowGame: GridGame<TopArrowGameState> {
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
+    static let chars = "^>v<"
     static let PUZ_EMPTY = 0
+    static let PUZ_BLOCK = -1
+    static let PUZ_HINT = -2
 
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
     var dots: GridDots!
     var objArray = [Int]()
+    var pos2hint = [Position: Int]()
     
     init(layout: [String], delegate: TopArrowGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -50,7 +54,17 @@ class TopArrowGame: GridGame<TopArrowGameState> {
                 }
                 guard c < cols else {continue}
                 let ch2 = str[2 * c + 1]
-                self[r, c] = ch2 == " " ? TopArrowGame.PUZ_EMPTY : ch2.toInt!
+                guard ch2 != " " else {continue}
+                let p = Position(r, c)
+                if ch2 == "B" {
+                    self[p] = TopArrowGame.PUZ_BLOCK
+                } else if ch2.isNumber {
+                    self[p] = ch2.toInt!
+                } else {
+                    self[p] = TopArrowGame.PUZ_HINT
+                    let n = TopArrowGame.chars.getIndexOf(ch2)!
+                    pos2hint[p] = n
+                }
             }
         }
         let g = Graph()

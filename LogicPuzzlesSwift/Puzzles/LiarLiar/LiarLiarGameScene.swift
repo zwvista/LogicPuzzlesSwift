@@ -94,10 +94,7 @@ class LiarLiarGameScene: GameScene<LiarLiarGameState> {
                 case .hint(state: let s):
                     addHint(p: p, n: stateFrom.game.pos2hint[p]!, s: s)
                 case .marked(state: let s):
-                    let markedNode = SKSpriteNode(color: s == .error ? .red : .lightGray, size: coloredRectSize())
-                    markedNode.position = point
-                    markedNode.name = markedNodeName
-                    gridNode.addChild(markedNode)
+                    addBlock(color: s == .error ? .red : .lightGray, point: point, nodeName: markedNodeName)
                 case .marker:
                     addCircleMarker(color: .white, point: point, nodeName: markerNodeName)
                 default:

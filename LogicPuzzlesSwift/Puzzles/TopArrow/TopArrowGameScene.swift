@@ -13,6 +13,16 @@ class TopArrowGameScene: GameScene<TopArrowGameState> {
         get { getGridNode() as! TopArrowGridNode }
         set { setGridNode(gridNode: newValue) }
     }
+    
+    func addHint(d: Int, s: AllowedObjectState, point: CGPoint, nodeName: String) {
+        let imageName = switch d {
+        case 0: "arrow_green_up"
+        case 1: "arrow_green_right"
+        case 2: "arrow_green_down"
+        default: "arrow_green_left"
+        }
+        addImage(imageNamed: imageName, color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
+    }
 
     override func levelInitialized(_ game: AnyObject, state: TopArrowGameState, skView: SKView) {
         let game = game as! TopArrowGame
@@ -55,11 +65,17 @@ class TopArrowGameScene: GameScene<TopArrowGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
-                let n = game[p]
-                guard n != TopArrowGame.PUZ_EMPTY else {continue}
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let numberNodeName = "number" + nodeNameSuffix
-                addLabel(text: String(n), fontColor: .gray, point: point, nodeName: numberNodeName)
+                let hintNodeName = "hint" + nodeNameSuffix
+                let n = game[p]
+                if n == TopArrowGame.PUZ_BLOCK {
+                    addBlock(color: .darkGray, point: point, nodeName: "block")
+                } else if n == TopArrowGame.PUZ_HINT {
+                    addHint(d: game.pos2hint[p]!, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
+                } else if n != TopArrowGame.PUZ_EMPTY {
+                    addLabel(text: String(n), fontColor: .gray, point: point, nodeName: numberNodeName)
+                }
             }
         }
     }
@@ -71,13 +87,18 @@ class TopArrowGameScene: GameScene<TopArrowGameState> {
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
+                let hintNodeName = "hint" + nodeNameSuffix
                 let (n1, n2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
                 guard n1 != n2 || s1 != s2 else {continue}
-                if n1 != TopArrowGame.PUZ_EMPTY {
+                if n1 == TopArrowGame.PUZ_HINT {
+                    removeNode(withName: hintNodeName)
+                } else if n1 != TopArrowGame.PUZ_EMPTY {
                     removeNode(withName: numberNodeName)
                 }
-                if n2 != TopArrowGame.PUZ_EMPTY {
+                if n2 == TopArrowGame.PUZ_HINT {
+                    addHint(d: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
+                } else if n2 != TopArrowGame.PUZ_EMPTY {
                     addLabel(text: String(n2), fontColor: stateFrom.game[p] != TopArrowGame.PUZ_EMPTY ? .gray : s2 == .normal ? .white : .red, point: point, nodeName: numberNodeName)
                 }
             }

@@ -91,12 +91,7 @@ class PaintTheNurikabeGameScene: GameScene<PaintTheNurikabeGameState> {
                 let hintNodeName = "hint" + nodeNameSuffix
                 func addHint2() { addHint(n: stateFrom.game.pos2hint[p]!, s: stateTo.pos2state[p]!, point: point, nodeName: hintNodeName) }
                 func removeHint() { removeNode(withName: hintNodeName) }
-                func addPaintedCell() {
-                    let paintedCellNode = SKSpriteNode(color: .purple, size: coloredRectSize())
-                    paintedCellNode.position = point
-                    paintedCellNode.name = paintedCellNodeName
-                    gridNode.addChild(paintedCellNode)
-                }
+                func addPaintedCell() { addBlock(color: .purple, point: point, nodeName: paintedCellNodeName) }
                 func removePaintedCell() { removeNode(withName: paintedCellNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }

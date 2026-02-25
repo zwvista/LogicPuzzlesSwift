@@ -35,10 +35,7 @@ class NorthPoleFishingGameScene: GameScene<NorthPoleFishingGameState> {
         
         for p in game.blocks {
             let point = gridNode.centerPoint(p: p)
-            let blockNode = SKSpriteNode(color: .gray, size: coloredRectSize())
-            blockNode.position = point
-            blockNode.name = "block"
-            gridNode.addChild(blockNode)
+            addBlock(color: .gray, point: point, nodeName: "block")
         }
         for p in game.holes {
             let point = gridNode.centerPoint(p: p)

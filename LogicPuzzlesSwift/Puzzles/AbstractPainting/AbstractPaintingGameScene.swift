@@ -117,12 +117,7 @@ class AbstractPaintingGameScene: GameScene<AbstractPaintingGameState> {
                 let paintingNodeName = "painting" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                func addPainting() {
-                    let paintingNode = SKSpriteNode(color: .white, size: coloredRectSize())
-                    paintingNode.position = point
-                    paintingNode.name = paintingNodeName
-                    gridNode.addChild(paintingNode)
-                }
+                func addPainting() { addBlock(color: .white, point: point, nodeName: paintingNodeName) }
                 func removePainting() { removeNode(withName: paintingNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }

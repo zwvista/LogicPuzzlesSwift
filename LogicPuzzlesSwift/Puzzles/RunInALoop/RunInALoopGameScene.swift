@@ -30,10 +30,7 @@ class RunInALoopGameScene: GameScene<RunInALoopGameState> {
                 let ch = game[r, c]
                 guard ch != " " else {continue}
                 let point = gridNode.centerPoint(p: p)
-                let blockNode = SKSpriteNode(color: .lightGray, size: coloredRectSize())
-                blockNode.position = point
-                blockNode.name = "block"
-                gridNode.addChild(blockNode)
+                addBlock(color: .lightGray, point: point, nodeName: "block")
             }
         }
     }

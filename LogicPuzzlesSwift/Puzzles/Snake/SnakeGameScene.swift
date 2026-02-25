@@ -14,13 +14,6 @@ class SnakeGameScene: GameScene<SnakeGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addCloud(color: SKColor, point: CGPoint, nodeName: String) {
-        let snakeNode = SKSpriteNode(color: color, size: coloredRectSize())
-        snakeNode.position = point
-        snakeNode.name = nodeName
-        gridNode.addChild(snakeNode)
-    }
-    
     func addHint(p: Position, n: Int, s: HintState) {
         let point = gridNode.centerPoint(p: p)
         guard n >= 0 else {return}
@@ -55,7 +48,7 @@ class SnakeGameScene: GameScene<SnakeGameState> {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let snakeNodeName = "snake" + nodeNameSuffix
-            addCloud(color: .gray, point: point, nodeName: snakeNodeName)
+            addBlock(color: .gray, point: point, nodeName: snakeNodeName)
         }
         for r in 0..<game.rows {
             for c in 0..<game.cols {
@@ -121,7 +114,7 @@ class SnakeGameScene: GameScene<SnakeGameState> {
                 }
                 switch o2 {
                 case .snake:
-                    addCloud(color: .white, point: point, nodeName: snakeNodeName)
+                    addBlock(color: .white, point: point, nodeName: snakeNodeName)
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case .marker:

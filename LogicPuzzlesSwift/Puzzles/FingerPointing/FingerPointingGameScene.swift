@@ -35,10 +35,7 @@ class FingerPointingGameScene: GameScene<FingerPointingGameState> {
                 let hintNodeName = "hint" + nodeNameSuffix
                 switch state[p] {
                 case .block:
-                    let blockNode = SKSpriteNode(color: .white, size: coloredRectSize())
-                    blockNode.position = point
-                    blockNode.name = "block"
-                    gridNode.addChild(blockNode)
+                    addBlock(color: .white, point: point, nodeName: "block")
                 case .hint:
                     addHint(n: game.pos2hint[p]!, s: .normal, point: point, nodeName: hintNodeName)
                 default:

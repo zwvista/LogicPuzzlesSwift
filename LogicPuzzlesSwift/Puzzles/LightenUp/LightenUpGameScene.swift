@@ -34,10 +34,7 @@ class LightenUpGameScene: GameScene<LightenUpGameState> {
                 guard case let .wall(s) = state[p].objType else {continue}
                 let n = state.game.wall2Lightbulbs[p]!
                 let point = gridNode.centerPoint(p: p)
-                let wallNode = SKSpriteNode(color: .white, size: coloredRectSize())
-                wallNode.position = point
-                wallNode.name = "wall"
-                gridNode.addChild(wallNode)
+                addBlock(color: .white, point: point, nodeName: "wall")
                 guard n >= 0 else {continue}
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let wallNumberNodeName = "wallNumber" + nodeNameSuffix
@@ -56,12 +53,7 @@ class LightenUpGameScene: GameScene<LightenUpGameState> {
                 let markerNodeName = "marker" + nodeNameSuffix
                 let wallNumberNodeName = "wallNumber" + nodeNameSuffix
                 func removeWallNumber() { removeNode(withName: wallNumberNodeName) }
-                func addLightCell() {
-                    let lightCellNode = SKSpriteNode(color: .yellow, size: coloredRectSize())
-                    lightCellNode.position = point
-                    lightCellNode.name = lightCellNodeName
-                    gridNode.addChild(lightCellNode)
-                }
+                func addLightCell() { addBlock(color: .yellow, point: point, nodeName: lightCellNodeName) }
                 func removeLightCell() { removeNode(withName: lightCellNodeName) }
                 func addLightbulb(s: AllowedObjectState) {
                     addImage(imageNamed: "lightbulb_on", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.2, point: point, nodeName: lightbulbNodeName)

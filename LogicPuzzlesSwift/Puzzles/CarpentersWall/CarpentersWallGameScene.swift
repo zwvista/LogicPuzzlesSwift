@@ -75,10 +75,7 @@ class CarpentersWallGameScene: GameScene<CarpentersWallGameState> {
                 }
                 switch ot2 {
                 case .wall:
-                    let wallNode = SKSpriteNode(color: .white, size: coloredRectSize())
-                    wallNode.position = point
-                    wallNode.name = wallNodeName
-                    gridNode.addChild(wallNode)
+                    addBlock(color: .white, point: point, nodeName: wallNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
                 case let .corner(n, s):

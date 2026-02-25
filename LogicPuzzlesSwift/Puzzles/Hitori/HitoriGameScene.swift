@@ -92,12 +92,7 @@ class HitoriGameScene: GameScene<HitoriGameState> {
                 let markerNodeName = "marker" + nodeNameSuffix
                 func addNumber2() { addNumber(n: String(stateFrom.game[p]), s: .normal, point: point, nodeName: numberNodeName) }
                 func removeNumber() { removeNode(withName: numberNodeName) }
-                func addDarken() {
-                    let darkenNode = SKSpriteNode(color: .lightGray, size: coloredRectSize())
-                    darkenNode.position = point
-                    darkenNode.name = darkenNodeName
-                    gridNode.addChild(darkenNode)
-                }
+                func addDarken() { addBlock(color: .lightGray, point: point, nodeName: darkenNodeName) }
                 func removeDarken() { removeNode(withName: darkenNodeName) }
                 func addMarker() { addCircleMarker(color: .white, point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }

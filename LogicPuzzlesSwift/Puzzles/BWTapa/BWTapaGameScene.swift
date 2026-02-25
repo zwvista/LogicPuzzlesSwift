@@ -70,12 +70,7 @@ class BWTapaGameScene: GameScene<BWTapaGameState> {
                 let markerNodeName = "marker" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
                 func removeHint() { removeNode(withName: hintNodeName) }
-                func addWall() {
-                    let wallNode = SKSpriteNode(color: .white, size: coloredRectSize())
-                    wallNode.position = point
-                    wallNode.name = wallNodeName
-                    gridNode.addChild(wallNode)
-                }
+                func addWall() { addBlock(color: .white, point: point, nodeName: wallNodeName) }
                 func removeWall() { removeNode(withName: wallNodeName) }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 func removeMarker() { removeNode(withName: markerNodeName) }
