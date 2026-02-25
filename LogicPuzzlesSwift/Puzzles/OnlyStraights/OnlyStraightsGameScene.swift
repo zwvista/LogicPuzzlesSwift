@@ -13,7 +13,22 @@ class OnlyStraightsGameScene: GameScene<OnlyStraightsGameState> {
         get { getGridNode() as! OnlyStraightsGridNode }
         set { setGridNode(gridNode: newValue) }
     }
+    let townSize = CGSize(width: 50, height: 50)
     
+    func getRightTownPoint(p: Position) -> CGPoint {
+        let offset: CGFloat = 0.5
+        let x = CGFloat(p.col + 1) * gridNode.blockSize + offset
+        let y = -((CGFloat(p.row) + CGFloat(0.5)) * gridNode.blockSize + offset)
+        return CGPoint(x: x, y: y)
+    }
+    
+    func getBottomTownPoint(p: Position) -> CGPoint {
+        let offset: CGFloat = 0.5
+        let x = (CGFloat(p.col) + CGFloat(0.5)) * gridNode.blockSize + offset
+        let y = -(CGFloat(p.row + 1) * gridNode.blockSize + offset)
+        return CGPoint(x: x, y: y)
+    }
+
     override func levelInitialized(_ game: AnyObject, state: OnlyStraightsGameState, skView: SKView) {
         let game = game as! OnlyStraightsGame
         removeAllChildren()
@@ -27,10 +42,19 @@ class OnlyStraightsGameScene: GameScene<OnlyStraightsGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let ch = game[r, c]
-                guard ch != " " else {continue}
                 let point = gridNode.centerPoint(p: p)
-                addImage(imageNamed: "lodge", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "lodge")
+                let o = game[p]
+                if o.hasCenter {
+                    addImage(imageNamed: "lodge", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "town", size: townSize)
+                }
+                if o.hasRight {
+                    let point2 = getRightTownPoint(p: p)
+                    addImage(imageNamed: "lodge", color: .red, colorBlendFactor: 0.0, point: point2, nodeName: "town", size: townSize)
+                }
+                if o.hasBottom {
+                    let point4 = getBottomTownPoint(p: p)
+                    addImage(imageNamed: "lodge", color: .red, colorBlendFactor: 0.0, point: point4, nodeName: "town", size: townSize)
+                }
             }
         }
     }

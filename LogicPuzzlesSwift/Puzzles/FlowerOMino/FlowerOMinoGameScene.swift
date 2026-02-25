@@ -15,16 +15,6 @@ class FlowerOMinoGameScene: GameScene<FlowerOMinoGameState> {
     }
     let flowerSize = CGSize(width: 50, height: 50)
     
-    func addFlower(s: HintState, point: CGPoint, nodeName: String) {
-        let flowerNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 3)
-        flowerNode.position = point
-        flowerNode.name = nodeName
-        flowerNode.strokeColor = s == .normal ? .white : s == .complete ? .green : .red
-        flowerNode.glowWidth = 5.0
-        flowerNode.fillColor = .gray
-        gridNode.addChild(flowerNode)
-    }
-    
     func getRightFlowerPoint(p: Position) -> CGPoint {
         let offset: CGFloat = 0.5
         let x = CGFloat(p.col + 1) * gridNode.blockSize + offset

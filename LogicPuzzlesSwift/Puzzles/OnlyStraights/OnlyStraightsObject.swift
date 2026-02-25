@@ -10,6 +10,23 @@ import Foundation
 
 typealias OnlyStraightsObject = [Bool]
 
+enum OnlyStraightsTown: Int {
+    case empty, center, right, bottom
+    case centerRight, centerBottom, rightBottom, centerRightBottom
+    init() {
+        self = .empty
+    }
+    var hasCenter: Bool {
+        [.center, .centerRight, .centerBottom, .centerRightBottom].contains(self)
+    }
+    var hasRight: Bool {
+        [.right, .centerRight, .rightBottom, .centerRightBottom].contains(self)
+    }
+    var hasBottom: Bool {
+        [.bottom, .centerBottom, .rightBottom, .centerRightBottom].contains(self)
+    }
+}
+
 struct OnlyStraightsGameMove {
     var p = Position()
     var dir = 0

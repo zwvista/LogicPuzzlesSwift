@@ -67,15 +67,26 @@ class OnlyStraightsGameState: GridGameState<OnlyStraightsGameMove> {
     private func updateIsSolved() {
         isSolved = true
         var pos2dirs = [Position: [Int]]()
+        var towns = [Position]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let dirs = (0..<4).filter { self[p][$0] }
                 if dirs.count == 2 {
                     pos2dirs[p] = dirs
-                    if game[p] != " " {
-                        // 2. This time, you must go straight while passing a town.
+                    let o = game[p]
+                    // 2. This time, you must go straight while passing a town.
+                    if o.hasCenter {
                         guard dirs[1] - dirs[0] == 2 else { isSolved = false; return }
+                        towns.append(p)
+                    }
+                    if o.hasRight {
+                        guard dirs.contains(1) else { isSolved = false; return }
+                        towns.append(p)
+                    }
+                    if o.hasBottom {
+                        guard dirs.contains(2) else { isSolved = false; return }
+                        towns.append(p)
                     }
                 } else if !dirs.isEmpty {
                     // The loop cannot cross itself.
@@ -96,18 +107,22 @@ class OnlyStraightsGameState: GridGameState<OnlyStraightsGameMove> {
             guard p2 != p else {break}
         }
         // 3. Branches of a road coming off a town must be of equal length.
-        if !pos2dirs2.allSatisfy({ (p, dirs) in
-            func f(d: Int) -> Int {
+        if !towns.allSatisfy({ p in
+            let dirs = pos2dirs2[p]!
+            func f(p2: Position, d: Int) -> Int {
                 let os = OnlyStraightsGame.offset[d]
-                var p2 = p + os
+                var p3 = p2
                 var n = 0
-                while pos2dirs2[p2]!.contains(d) {
+                while pos2dirs2[p3]?.contains(d) ?? false {
                     n += 1
-                    p2 += os
+                    p3 += os
                 }
                 return n
             }
-            return game[p] == " " || f(d: dirs[0]) == f(d: dirs[1])
+            let o = game[p]
+            return o.hasCenter && (dirs.contains(1) && f(p2: p, d: 1) == f(p2: p, d: 3) || dirs.contains(2) && f(p2: p, d: 2) == f(p2: p, d: 0)) ||
+            o.hasRight && f(p2: p, d: 3) == f(p2: p + OnlyStraightsGame.offset[1], d: 1) ||
+            o.hasBottom && f(p2: p, d: 0) == f(p2: p + OnlyStraightsGame.offset[2], d: 2)
         }) { isSolved = false }
     }
 }
