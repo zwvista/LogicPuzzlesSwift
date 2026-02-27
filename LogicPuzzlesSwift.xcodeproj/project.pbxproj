@@ -1860,6 +1860,15 @@
 		8CDAE80E1F646C29000DE5AF /* BalancedTapasGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDAE8031F646C29000DE5AF /* BalancedTapasGridNode.swift */; };
 		8CDAE8101F646C29000DE5AF /* BalancedTapasMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDAE8051F646C29000DE5AF /* BalancedTapasMainViewController.swift */; };
 		8CDAE8111F646C29000DE5AF /* BalancedTapasObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDAE8061F646C29000DE5AF /* BalancedTapasObject.swift */; };
+		8CDC86162F521C5F0079019C /* FussyWaiter.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CDC860C2F521C5F0079019C /* FussyWaiter.xml */; };
+		8CDC86172F521C5F0079019C /* FussyWaiterGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC86122F521C5F0079019C /* FussyWaiterGridNode.swift */; };
+		8CDC86182F521C5F0079019C /* FussyWaiterDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC860D2F521C5F0079019C /* FussyWaiterDocument.swift */; };
+		8CDC86192F521C5F0079019C /* FussyWaiterGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC86112F521C5F0079019C /* FussyWaiterGameViewController.swift */; };
+		8CDC861A2F521C5F0079019C /* FussyWaiterObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC86142F521C5F0079019C /* FussyWaiterObject.swift */; };
+		8CDC861B2F521C5F0079019C /* FussyWaiterGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC860F2F521C5F0079019C /* FussyWaiterGameScene.swift */; };
+		8CDC861C2F521C5F0079019C /* FussyWaiterMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC86132F521C5F0079019C /* FussyWaiterMainViewController.swift */; };
+		8CDC861D2F521C5F0079019C /* FussyWaiterGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC86102F521C5F0079019C /* FussyWaiterGameState.swift */; };
+		8CDC861E2F521C5F0079019C /* FussyWaiterGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDC860E2F521C5F0079019C /* FussyWaiterGame.swift */; };
 		8CE43BD81FEE6C7B00DCCD91 /* FutoshikiMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE43BCC1FEE6C7B00DCCD91 /* FutoshikiMainViewController.swift */; };
 		8CE43BD91FEE6C7B00DCCD91 /* FutoshikiObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE43BCD1FEE6C7B00DCCD91 /* FutoshikiObject.swift */; };
 		8CE43BDA1FEE6C7B00DCCD91 /* FutoshikiGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE43BCE1FEE6C7B00DCCD91 /* FutoshikiGameViewController.swift */; };
@@ -3987,6 +3996,15 @@
 		8CDAE8031F646C29000DE5AF /* BalancedTapasGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalancedTapasGridNode.swift; sourceTree = "<group>"; };
 		8CDAE8051F646C29000DE5AF /* BalancedTapasMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalancedTapasMainViewController.swift; sourceTree = "<group>"; };
 		8CDAE8061F646C29000DE5AF /* BalancedTapasObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalancedTapasObject.swift; sourceTree = "<group>"; };
+		8CDC860C2F521C5F0079019C /* FussyWaiter.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = FussyWaiter.xml; sourceTree = "<group>"; };
+		8CDC860D2F521C5F0079019C /* FussyWaiterDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FussyWaiterDocument.swift; sourceTree = "<group>"; };
+		8CDC860E2F521C5F0079019C /* FussyWaiterGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FussyWaiterGame.swift; sourceTree = "<group>"; };
+		8CDC860F2F521C5F0079019C /* FussyWaiterGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FussyWaiterGameScene.swift; sourceTree = "<group>"; };
+		8CDC86102F521C5F0079019C /* FussyWaiterGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FussyWaiterGameState.swift; sourceTree = "<group>"; };
+		8CDC86112F521C5F0079019C /* FussyWaiterGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FussyWaiterGameViewController.swift; sourceTree = "<group>"; };
+		8CDC86122F521C5F0079019C /* FussyWaiterGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FussyWaiterGridNode.swift; sourceTree = "<group>"; };
+		8CDC86132F521C5F0079019C /* FussyWaiterMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FussyWaiterMainViewController.swift; sourceTree = "<group>"; };
+		8CDC86142F521C5F0079019C /* FussyWaiterObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FussyWaiterObject.swift; sourceTree = "<group>"; };
 		8CE43BCC1FEE6C7B00DCCD91 /* FutoshikiMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutoshikiMainViewController.swift; sourceTree = "<group>"; };
 		8CE43BCD1FEE6C7B00DCCD91 /* FutoshikiObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutoshikiObject.swift; sourceTree = "<group>"; };
 		8CE43BCE1FEE6C7B00DCCD91 /* FutoshikiGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutoshikiGameViewController.swift; sourceTree = "<group>"; };
@@ -5078,6 +5096,7 @@
 				8C74745A1FBEFD5700C4112C /* FourMeNot */,
 				8C9BD5122F0A32CA00D1D915 /* FreePlanks */,
 				8C263F392F1D0DB100158A2C /* FunnyNumbers */,
+				8CDC86152F521C5F0079019C /* FussyWaiter */,
 				8CE43BCB1FEE6C7B00DCCD91 /* Futoshiki */,
 				8C2973D51EE7284C0022A18A /* Galaxies */,
 				8C35E37E1FC2844E00A26EE3 /* Gardener */,
@@ -7607,6 +7626,22 @@
 			path = BalancedTapas;
 			sourceTree = "<group>";
 		};
+		8CDC86152F521C5F0079019C /* FussyWaiter */ = {
+			isa = PBXGroup;
+			children = (
+				8CDC860C2F521C5F0079019C /* FussyWaiter.xml */,
+				8CDC860D2F521C5F0079019C /* FussyWaiterDocument.swift */,
+				8CDC860E2F521C5F0079019C /* FussyWaiterGame.swift */,
+				8CDC860F2F521C5F0079019C /* FussyWaiterGameScene.swift */,
+				8CDC86102F521C5F0079019C /* FussyWaiterGameState.swift */,
+				8CDC86112F521C5F0079019C /* FussyWaiterGameViewController.swift */,
+				8CDC86122F521C5F0079019C /* FussyWaiterGridNode.swift */,
+				8CDC86132F521C5F0079019C /* FussyWaiterMainViewController.swift */,
+				8CDC86142F521C5F0079019C /* FussyWaiterObject.swift */,
+			);
+			path = FussyWaiter;
+			sourceTree = "<group>";
+		};
 		8CE43BCB1FEE6C7B00DCCD91 /* Futoshiki */ = {
 			isa = PBXGroup;
 			children = (
@@ -8384,6 +8419,7 @@
 				8CF17FD92F37732F000F1F7D /* bullet_ball_glass_red.png in Resources */,
 				8CF17FDA2F37732F000F1F7D /* bullet_square_green.png in Resources */,
 				8CF17FDB2F37732F000F1F7D /* bullet_triangle_yellow_flat.png in Resources */,
+				8CDC86162F521C5F0079019C /* FussyWaiter.xml in Resources */,
 				8C8663B72EA39DD00078CD64 /* arrow_cyan_down.png in Resources */,
 				8C8663B82EA39DD00078CD64 /* arrow_blue_dl.png in Resources */,
 				8C8663B92EA39DD00078CD64 /* road_vertical.png in Resources */,
@@ -8814,6 +8850,14 @@
 				8C3A36141EC88D4200A914A5 /* BootyIslandMainViewController.swift in Sources */,
 				8CA042F81FDB930A00AF85E1 /* CalcudokuGameScene.swift in Sources */,
 				8C3A37861EC88D4400A914A5 /* ProductSentinelsGridNode.swift in Sources */,
+				8CDC86172F521C5F0079019C /* FussyWaiterGridNode.swift in Sources */,
+				8CDC86182F521C5F0079019C /* FussyWaiterDocument.swift in Sources */,
+				8CDC86192F521C5F0079019C /* FussyWaiterGameViewController.swift in Sources */,
+				8CDC861A2F521C5F0079019C /* FussyWaiterObject.swift in Sources */,
+				8CDC861B2F521C5F0079019C /* FussyWaiterGameScene.swift in Sources */,
+				8CDC861C2F521C5F0079019C /* FussyWaiterMainViewController.swift in Sources */,
+				8CDC861D2F521C5F0079019C /* FussyWaiterGameState.swift in Sources */,
+				8CDC861E2F521C5F0079019C /* FussyWaiterGame.swift in Sources */,
 				8C263EEA2F1CA32100158A2C /* UnseenGameState.swift in Sources */,
 				8C263EEB2F1CA32100158A2C /* UnseenDocument.swift in Sources */,
 				8C263EEC2F1CA32100158A2C /* UnseenMainViewController.swift in Sources */,
