@@ -1024,7 +1024,7 @@ F       `
  E      `
   D     `
     C   `
-   IC    `
+   C    `
      A  `
     ]]>
   </level>
@@ -1120,7 +1120,7 @@ C       `
   B     `
       D `
     B   `
-   IC    `
+   C    `
      E  `
     ]]>
   </level>
@@ -1157,7 +1157,7 @@ A       `
 D       `
      A  `
   A     `
- C IC    `
+ C C    `
     ]]>
   </level>
   <level id="113">
@@ -1372,7 +1372,7 @@ B       `
 E       `
   E     `
       F `
-   IC    `
+   C    `
        D`
     ]]>
   </level>
@@ -1396,7 +1396,7 @@ C       `
  E      `
       A `
   D     `
-   IC    `
+   C    `
        F`
     ]]>
   </level>
@@ -1407,7 +1407,7 @@ E       `
     F   `
   A     `
  A      `
-   IC    `
+   C    `
       D `
        B`
     ]]>
@@ -1457,7 +1457,7 @@ C       `
       D `
  E      `
   E     `
-   IC    `
+   C    `
     ]]>
   </level>
   <level id="138">
@@ -2380,7 +2380,7 @@ C E       `
   </level>
   <level id="209">
     <![CDATA[
-G E      1`
+G E      I`
         H `
  K       D`
      C    `
@@ -2464,7 +2464,7 @@ D         `
   </level>
   <level id="215">
     <![CDATA[
-1     C C `
+I     C C `
   H       `
  H   G    `
     I    A`
@@ -2928,7 +2928,7 @@ F    B    `
     <![CDATA[
  D  A     `
      B  C `
- 1     E  `
+ I     E  `
     H     `
         C `
       G  F`
@@ -2991,7 +2991,7 @@ K   J      `
   K   I    `
        H   `
   F      H `
-     IC     `
+     C     `
 K         D`
  J     B   `
     ]]>
@@ -3185,7 +3185,7 @@ K         K`
   E        `
  B      L  `
    B I     `
-    IC    B `
+    C    B `
        G   `
  H      A  `
       J    `
@@ -3262,7 +3262,7 @@ E    H     `
          A `
           I`
 F          `
-     IC H   `
+     C H   `
   F        `
     ]]>
   </level>
@@ -3278,7 +3278,7 @@ F      J   `
        G E `
  C         `
    B     J `
- H  IC F    `
+ H  C F    `
     ]]>
   </level>
   <level id="272">
@@ -3396,7 +3396,7 @@ D       H  `
        K   `
       F    `
      G     `
- E  IC    H `
+ E  C    H `
 G  G  C   A`
         B  `
     ]]>
@@ -3443,7 +3443,7 @@ C          `
  H       J `
     F      `
    E  A    `
- C  IC      `
+ C  C      `
     ]]>
   </level>
   <level id="283">
@@ -3608,7 +3608,7 @@ I          `
   D        `
     H  J   `
       F    `
- G   IC     `
+ G   C     `
     ]]>
   </level>
   <level id="294">
@@ -3688,7 +3688,7 @@ C       D J`
   </level>
   <level id="299">
     <![CDATA[
-    F    I `
+    F     `
    H      E`
 B          `
    G       `
