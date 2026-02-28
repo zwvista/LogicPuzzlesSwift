@@ -74,11 +74,10 @@ class TentsGameState: GridGameState<TentsGameMove> {
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 1/Tents
+        iOS Game: 100 Logic Games/Puzzle Set 1/Tents
 
         Summary
-        Each camper wants to put his Tent under the shade of a Tree. But he also
-        wants his privacy!
+        Each camper wants his shade. But his privacy too!
 
         Description
         1. The board represents a camping field with many Trees. Campers want to set
@@ -88,8 +87,9 @@ class TentsGameState: GridGameState<TentsGameMove> {
            Tents near them, not even diagonally.
         3. The numbers on the borders tell you how many Tents there are in that row
            or column.
-        4. Finally, each Tree has at least one Tent touching it, horizontally or
-           vertically.
+        4. Finally, keep in mind these two rules:
+        5. Each Tree has at least one Tent touching it, horizontally or vertically.
+        6. There's the same exact numbers of Trees and Tents in the Camping Area.
     */
     private func updateIsSolved() {
         let allowedObjectsOnly = self.allowedObjectsOnly
@@ -121,6 +121,7 @@ class TentsGameState: GridGameState<TentsGameMove> {
                 if case .forbidden = self[r, c] { self[r, c] = .empty }
             }
         }
+        var nTree = 0, nTent = 0
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
@@ -140,6 +141,7 @@ class TentsGameState: GridGameState<TentsGameMove> {
                 }
                 switch self[p] {
                 case .tent:
+                    nTent += 1
                     // 1. The board represents a camping field with many Trees. Campers want to set
                     // their Tent in the shade, horizontally or vertically adjacent to a Tree(not
                     // diagonally).
@@ -149,8 +151,8 @@ class TentsGameState: GridGameState<TentsGameMove> {
                     self[p] = .tent(state: s)
                     if s == .error { isSolved = false }
                 case .tree:
-                    // 4. Finally, each Tree has at least one Tent touching it, horizontally or
-                    // vertically.
+                    nTree += 1
+                    // 5. Each Tree has at least one Tent touching it, horizontally or vertically.
                     let s: AllowedObjectState = hasTent(isTree: true) ? .normal : .error
                     self[p] = .tree(state: s)
                     if s == .error { isSolved = false }
@@ -162,5 +164,7 @@ class TentsGameState: GridGameState<TentsGameMove> {
                 }
             }
         }
+        // 6. There's the same exact numbers of Trees and Tents in the Camping Area.
+        if nTree != nTent { isSolved = false }
     }
 }
