@@ -11,6 +11,7 @@ import Foundation
 class TentsGame: GridGame<TentsGameState> {
     static let offset = Position.Directions4
     static let offset2 = Position.Directions8
+    static let PUZ_UNKNOWN = -1
 
     var row2hint = [Int]()
     var col2hint = [Int]()
@@ -28,18 +29,15 @@ class TentsGame: GridGame<TentsGameState> {
             for c in 0..<cols + 1 {
                 let p = Position(r, c)
                 let ch = str[c]
-                switch ch {
-                case "T":
+                if ch == "T" {
                     pos2tree.append(p)
-                case "0"..."9":
-                    let n = ch.toInt!
+                } else if (r == rows) != (c == cols) {
+                    let n = ch == " " ? TentsGame.PUZ_UNKNOWN : ch.toInt!
                     if r == rows {
                         col2hint[c] = n
                     } else if c == cols {
                         row2hint[r] = n
                     }
-                default:
-                    break
                 }
             }
         }

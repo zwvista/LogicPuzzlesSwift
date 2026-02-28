@@ -101,8 +101,9 @@ class TentsGameState: GridGameState<TentsGameMove> {
                 if case .tent = self[r, c] { n1 += 1 }
             }
             // 3. The numbers on the borders tell you how many Tents there are in that row.
-            row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 { isSolved = false }
+            let s: HintState = n2 == TentsGame.PUZ_UNKNOWN || n1 == n2 ? .complete : n1 < n2 ? .normal : .error
+            row2state[r] = s
+            if s != .complete { isSolved = false }
         }
         for c in 0..<cols {
             var n1 = 0
@@ -111,8 +112,9 @@ class TentsGameState: GridGameState<TentsGameMove> {
                 if case .tent = self[r, c] { n1 += 1 }
             }
             // 3. The numbers on the borders tell you how many Tents there are in that column.
-            col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            if n1 != n2 { isSolved = false }
+            let s: HintState = n2 == TentsGame.PUZ_UNKNOWN || n1 == n2 ? .complete : n1 < n2 ? .normal : .error
+            col2state[c] = s
+            if s != .complete { isSolved = false }
         }
         for r in 0..<rows {
             for c in 0..<cols {
@@ -154,7 +156,7 @@ class TentsGameState: GridGameState<TentsGameMove> {
                     if s == .error { isSolved = false }
                 case .empty, .marker:
                     guard allowedObjectsOnly else {break}
-                    if col2state[c] != .normal || row2state[r] != .normal || !hasTree() || hasTent(isTree: false) { self[p] = .forbidden }
+                    if col2state[c] != .normal && game.col2hint[c] != TentsGame.PUZ_UNKNOWN || row2state[r] != .normal && game.row2hint[r] != TentsGame.PUZ_UNKNOWN || !hasTree() || hasTent(isTree: false) { self[p] = .forbidden }
                 default:
                     break
                 }
