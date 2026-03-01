@@ -20,7 +20,7 @@
 32  `
     ]]>
   </level>
-  <level id="2">
+  <level id="2" NoBoardFill="1">
     <![CDATA[
 14  4`
     2`
@@ -739,7 +739,7 @@ A     6`
 9       `
     ]]>
   </level>
-  <level id="71">
+  <level id="71" NoBoardFill="1">
     <![CDATA[
         `
  1 53 4 `
