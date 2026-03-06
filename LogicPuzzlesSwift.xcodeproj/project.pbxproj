@@ -1342,6 +1342,15 @@
 		8C8E78002E89D557006BBF98 /* HiddenStars.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C8E77FF2E89D557006BBF98 /* HiddenStars.xml */; };
 		8C916CC61DAB1E6000D9E62B /* tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CC51DAB1E6000D9E62B /* tap.wav */; };
 		8C916CCE1DAB35FC00D9E62B /* solved.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8C916CCD1DAB35FC00D9E62B /* solved.wav */; };
+		8C9766C42F5B80BA00C7DC5A /* LandscapesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9766BB2F5B80BA00C7DC5A /* LandscapesDocument.swift */; };
+		8C9766C52F5B80BA00C7DC5A /* LandscapesGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9766C02F5B80BA00C7DC5A /* LandscapesGridNode.swift */; };
+		8C9766C62F5B80BA00C7DC5A /* LandscapesGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9766BD2F5B80BA00C7DC5A /* LandscapesGameScene.swift */; };
+		8C9766C72F5B80BA00C7DC5A /* LandscapesGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9766BE2F5B80BA00C7DC5A /* LandscapesGameState.swift */; };
+		8C9766C82F5B80BA00C7DC5A /* LandscapesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9766C12F5B80BA00C7DC5A /* LandscapesMainViewController.swift */; };
+		8C9766C92F5B80BA00C7DC5A /* LandscapesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9766BC2F5B80BA00C7DC5A /* LandscapesGame.swift */; };
+		8C9766CA2F5B80BA00C7DC5A /* LandscapesGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9766BF2F5B80BA00C7DC5A /* LandscapesGameViewController.swift */; };
+		8C9766CB2F5B80BA00C7DC5A /* LandscapesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9766C22F5B80BA00C7DC5A /* LandscapesObject.swift */; };
+		8C9766CC2F5B80BA00C7DC5A /* Landscapes.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C9766BA2F5B80BA00C7DC5A /* Landscapes.xml */; };
 		8C9BD4C62F09F2B700D1D915 /* WishSandwichObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4C42F09F2B700D1D915 /* WishSandwichObject.swift */; };
 		8C9BD4C72F09F2B700D1D915 /* WishSandwichGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4C02F09F2B700D1D915 /* WishSandwichGameState.swift */; };
 		8C9BD4C82F09F2B700D1D915 /* WishSandwichGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9BD4BF2F09F2B700D1D915 /* WishSandwichGameScene.swift */; };
@@ -3473,6 +3482,15 @@
 		8C8E77FF2E89D557006BBF98 /* HiddenStars.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HiddenStars.xml; sourceTree = "<group>"; };
 		8C916CC51DAB1E6000D9E62B /* tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tap.wav; sourceTree = "<group>"; };
 		8C916CCD1DAB35FC00D9E62B /* solved.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = solved.wav; sourceTree = "<group>"; };
+		8C9766BA2F5B80BA00C7DC5A /* Landscapes.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Landscapes.xml; sourceTree = "<group>"; };
+		8C9766BB2F5B80BA00C7DC5A /* LandscapesDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapesDocument.swift; sourceTree = "<group>"; };
+		8C9766BC2F5B80BA00C7DC5A /* LandscapesGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapesGame.swift; sourceTree = "<group>"; };
+		8C9766BD2F5B80BA00C7DC5A /* LandscapesGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapesGameScene.swift; sourceTree = "<group>"; };
+		8C9766BE2F5B80BA00C7DC5A /* LandscapesGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapesGameState.swift; sourceTree = "<group>"; };
+		8C9766BF2F5B80BA00C7DC5A /* LandscapesGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapesGameViewController.swift; sourceTree = "<group>"; };
+		8C9766C02F5B80BA00C7DC5A /* LandscapesGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapesGridNode.swift; sourceTree = "<group>"; };
+		8C9766C12F5B80BA00C7DC5A /* LandscapesMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapesMainViewController.swift; sourceTree = "<group>"; };
+		8C9766C22F5B80BA00C7DC5A /* LandscapesObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapesObject.swift; sourceTree = "<group>"; };
 		8C9BD4BC2F09F2B700D1D915 /* WishSandwich.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WishSandwich.xml; sourceTree = "<group>"; };
 		8C9BD4BD2F09F2B700D1D915 /* WishSandwichDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishSandwichDocument.swift; sourceTree = "<group>"; };
 		8C9BD4BE2F09F2B700D1D915 /* WishSandwichGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishSandwichGame.swift; sourceTree = "<group>"; };
@@ -5120,6 +5138,7 @@
 				8C6A9BD81F812742002A44FF /* Kropki */,
 				8C9BD54A2F0A5A6500D1D915 /* LakesAndMeadows */,
 				8CB722002EAC44D6001B25C5 /* Landscaper */,
+				8C9766C32F5B80BA00C7DC5A /* Landscapes */,
 				8CFB22452F076ED400E5F29D /* LiarLiar */,
 				8C3A34891EC88D4100A914A5 /* LightBattleShips */,
 				8C3A34961EC88D4100A914A5 /* LightenUp */,
@@ -6672,6 +6691,22 @@
 				8C916CC51DAB1E6000D9E62B /* tap.wav */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8C9766C32F5B80BA00C7DC5A /* Landscapes */ = {
+			isa = PBXGroup;
+			children = (
+				8C9766BA2F5B80BA00C7DC5A /* Landscapes.xml */,
+				8C9766BB2F5B80BA00C7DC5A /* LandscapesDocument.swift */,
+				8C9766BC2F5B80BA00C7DC5A /* LandscapesGame.swift */,
+				8C9766BD2F5B80BA00C7DC5A /* LandscapesGameScene.swift */,
+				8C9766BE2F5B80BA00C7DC5A /* LandscapesGameState.swift */,
+				8C9766BF2F5B80BA00C7DC5A /* LandscapesGameViewController.swift */,
+				8C9766C02F5B80BA00C7DC5A /* LandscapesGridNode.swift */,
+				8C9766C12F5B80BA00C7DC5A /* LandscapesMainViewController.swift */,
+				8C9766C22F5B80BA00C7DC5A /* LandscapesObject.swift */,
+			);
+			path = Landscapes;
 			sourceTree = "<group>";
 		};
 		8C9BD4C52F09F2B700D1D915 /* WishSandwich */ = {
@@ -8652,6 +8687,7 @@
 				8C3A36CC1EC88D4300A914A5 /* LineSweeper.xml in Resources */,
 				8CFAF9A8202615570095EFFC /* WallSentinels.xml in Resources */,
 				8C35E3BC1FC6DAE600A26EE3 /* NumberLink.xml in Resources */,
+				8C9766CC2F5B80BA00C7DC5A /* Landscapes.xml in Resources */,
 				8C1D16B01DB8DE930056D407 /* AnimatedExample.psd in Resources */,
 				8C3A37D41EC88D4400A914A5 /* Tatami.xml in Resources */,
 				8C2AF82D1ED5FB0000EC84AB /* NumberPath.xml in Resources */,
@@ -9251,6 +9287,14 @@
 				8C2AF8331ED5FB0000EC84AB /* NumberPathGridNode.swift in Sources */,
 				8CA042F31FDB930A00AF85E1 /* CalcudokuGameViewController.swift in Sources */,
 				8C2AF84E1ED6084300EC84AB /* PaintTheNurikabeObject.swift in Sources */,
+				8C9766C42F5B80BA00C7DC5A /* LandscapesDocument.swift in Sources */,
+				8C9766C52F5B80BA00C7DC5A /* LandscapesGridNode.swift in Sources */,
+				8C9766C62F5B80BA00C7DC5A /* LandscapesGameScene.swift in Sources */,
+				8C9766C72F5B80BA00C7DC5A /* LandscapesGameState.swift in Sources */,
+				8C9766C82F5B80BA00C7DC5A /* LandscapesMainViewController.swift in Sources */,
+				8C9766C92F5B80BA00C7DC5A /* LandscapesGame.swift in Sources */,
+				8C9766CA2F5B80BA00C7DC5A /* LandscapesGameViewController.swift in Sources */,
+				8C9766CB2F5B80BA00C7DC5A /* LandscapesObject.swift in Sources */,
 				8C3A36DA1EC88D4300A914A5 /* LitsGame.swift in Sources */,
 				8C3A37C91EC88D4400A914A5 /* SumscrapersDocument.swift in Sources */,
 				8C3A37A71EC88D4400A914A5 /* SkyscrapersGameScene.swift in Sources */,

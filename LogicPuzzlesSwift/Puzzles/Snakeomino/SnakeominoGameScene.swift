@@ -58,7 +58,7 @@ class SnakeominoGameScene: GameScene<SnakeominoGameState> {
                 if ch == SnakeominoGame.PUZ_END {
                     addCircleMarker(color: .white, point: point, nodeName: hintNodeName)
                 } else if ch == SnakeominoGame.PUZ_NOT_END {
-                    addLabel(text: "X", fontColor: .gray, point: point, nodeName: numberNodeName)
+                    addLabel(text: "X", fontColor: .gray, point: point, nodeName: hintNodeName)
                 }
             }
         }
