@@ -10,72 +10,41 @@ import Foundation
 
 class SnakeominoGame: GridGame<SnakeominoGameState> {
     static let offset = Position.Directions4
-    static let offset2 = [
-        Position(0, 0),
-        Position(1, 1),
-        Position(1, 1),
-        Position(0, 0),
-    ]
-    static let dirs = [1, 0, 3, 2]
+    static let PUZ_EMPTY = 0
+    static let PUZ_END: Character = "O"
+    static let PUZ_NOT_END: Character = "X"
     
-    var objArray = [SnakeominoObject]()
-    var hedges = [Position]()
-    var flowers = [Position]()
-    var dots: GridDots!
-    
+    var objArray = [Int]()
+    var pos2hint = [Position: Character]()
+    var nMax = 2
+
     init(layout: [String], delegate: SnakeominoGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count + 1, layout[0].length + 1)
-        dots = GridDots(rows: rows, cols: cols)
-        objArray = Array<SnakeominoObject>(repeating: .empty, count: rows * cols)
+        size = Position(layout.count, layout[0].length / 2)
+        objArray = Array<Int>(repeating: 0, count: rows * cols)
         
-        for r in 0..<rows - 1 {
+        for r in 0..<rows {
             let str = layout[r]
-            for c in 0..<cols - 1 {
+            for c in 0..<cols {
                 let p = Position(r, c)
-                switch str[c] {
-                case "H":
-                    self[p] = .hedge
-                    hedges.append(p)
-                    dots[r, c][2] = .line
-                    dots[r + 1, c][0] = .line
-                    dots[r, c + 1][2] = .line
-                    dots[r + 1, c + 1][0] = .line
-                    dots[r, c][1] = .line
-                    dots[r, c + 1][3] = .line
-                    dots[r + 1, c][1] = .line
-                    dots[r + 1, c + 1][3] = .line
-                case "F":
-                    self[p] = .flower
-                    flowers.append(p)
-                default:
-                    break
-                }
+                let (ch1, ch2) = (str[c * 2], str[c * 2 + 1])
+                let n = ch1 == " " ? SnakeominoGame.PUZ_EMPTY : ch1.toInt!
+                self[p] = n
+                if nMax < n { nMax = n }
+                if ch2 != " " { pos2hint[p] = ch2 }
             }
-        }
-        for r in 0..<rows - 1 {
-            dots[r, 0][2] = .line
-            dots[r + 1, 0][0] = .line
-            dots[r, cols - 1][2] = .line
-            dots[r + 1, cols - 1][0] = .line
-        }
-        for c in 0..<cols - 1 {
-            dots[0, c][1] = .line
-            dots[0, c + 1][3] = .line
-            dots[rows - 1, c][1] = .line
-            dots[rows - 1, c + 1][3] = .line
         }
         
         let state = SnakeominoGameState(game: self)
         levelInitialized(state: state)
     }
     
-    subscript(p: Position) -> SnakeominoObject {
+    subscript(p: Position) -> Int {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
     }
-    subscript(row: Int, col: Int) -> SnakeominoObject {
+    subscript(row: Int, col: Int) -> Int {
         get { objArray[row * cols + col] }
         set { objArray[row * cols + col] = newValue }
     }

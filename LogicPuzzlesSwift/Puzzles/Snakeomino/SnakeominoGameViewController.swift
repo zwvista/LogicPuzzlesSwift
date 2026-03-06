@@ -18,9 +18,8 @@ class SnakeominoGameViewController: GameGameViewController2<SnakeominoGameState,
         let touchLocationInScene = scene.convertPoint(fromView: touchLocation)
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
-        let (b, p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
-        guard b else {return}
-        var move = SnakeominoGameMove(p: p, dir: dir)
+        let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
+        var move = SnakeominoGameMove(p: p)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     

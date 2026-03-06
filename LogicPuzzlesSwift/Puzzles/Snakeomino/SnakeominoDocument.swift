@@ -13,11 +13,10 @@ class SnakeominoDocument: GameDocument<SnakeominoGameMove> {
     
     override func saveMove(_ move: SnakeominoGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.intValue1 = move.dir
-        rec.intValue2 = move.obj.rawValue
+        rec.intValue1 = move.obj
     }
     
     override func loadMove(from rec: MoveProgress) -> SnakeominoGameMove {
-        SnakeominoGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1, obj: GridLineObject(rawValue: rec.intValue2)!)
+        SnakeominoGameMove(p: Position(rec.row, rec.col), obj: rec.intValue1)
     }
 }

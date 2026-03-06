@@ -8,18 +8,7 @@
 
 import Foundation
 
-enum SnakeominoObject: Int {
-    case empty, hedge, flower
-}
-
-struct SnakeominoRect {
-    var area = [Position]()
-    var rows = 0
-    var cols = 0
-}
-
 struct SnakeominoGameMove {
     var p = Position()
-    var dir = 0
-    var obj = GridLineObject()
+    var obj = 0
 }

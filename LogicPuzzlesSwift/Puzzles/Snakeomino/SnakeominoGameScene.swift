@@ -27,29 +27,39 @@ class SnakeominoGameScene: GameScene<SnakeominoGameState> {
     override func levelInitialized(_ game: AnyObject, state: SnakeominoGameState, skView: SKView) {
         let game = game as! SnakeominoGame
         removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols - 1)
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
         
         // add Grid
         let offset:CGFloat = 0.5
-        addGrid(gridNode: SnakeominoGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset))
+        addGrid(gridNode: SnakeominoGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
-        for p in game.hedges {
-            let point = gridNode.centerPoint(p: p)
-            addBlock(color: .gray, point: point, nodeName: "hedge")
-        }
-        for p in game.flowers {
-            let point = gridNode.centerPoint(p: p)
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let flowerNodeName = "flower" + nodeNameSuffix
-            addFlower(s: .normal, point: point, nodeName: flowerNodeName)
-        }
-
-        for r in 0..<game.rows {
-            for c in 0..<game.cols {
+        for r in 0..<game.rows + 1 {
+            for c in 0..<game.cols + 1 {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
-                if state[r, c][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
-                if state[r, c][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                func f(p2: Position) -> Int {
+                    !game.isValid(p: p2) ? -1 : game[p2]
+                }
+                let o = f(p2: p)
+                func g(p2: Position) -> Bool {
+                    let o2 = f(p2: p2)
+                    return o != o2 && (o == -1 || o2 == -1 || o != 0 && o2 != 0)
+                }
+                if g(p2: Position(r - 1, c)) { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                if g(p2: Position(r, c - 1)) { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                guard r < game.rows && c < game.cols else {continue}
+                let nodeNameSuffix = "-\(r)-\(c)"
+                let numberNodeName = "number" + nodeNameSuffix
+                if o > 0 {
+                    addLabel(text: String(o), fontColor: .gray, point: point, nodeName: numberNodeName)
+                }
+                guard let ch = game.pos2hint[p] else {continue}
+                let hintNodeName = "hint" + nodeNameSuffix
+                if ch == SnakeominoGame.PUZ_END {
+                    addCircleMarker(color: .white, point: point, nodeName: hintNodeName)
+                } else if ch == SnakeominoGame.PUZ_NOT_END {
+                    addLabel(text: "X", fontColor: .gray, point: point, nodeName: numberNodeName)
+                }
             }
         }
     }
@@ -62,32 +72,32 @@ class SnakeominoGameScene: GameScene<SnakeominoGameState> {
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let horzLineNodeName = "horzLine" + nodeNameSuffix
                 let vertlineNodeName = "vertline" + nodeNameSuffix
-                func removeHorzLine(objType: GridLineObject) {
-                    if objType != .empty { removeNode(withName: horzLineNodeName) }
+                func f(state: SnakeominoGameState, p2: Position) -> Bool {
+                    let (o, o2) = (state[p], state[p2])
+                    return o != o2 && o != 0 && o2 != 0
                 }
-                func removeVertLine(objType: GridLineObject) {
-                    if objType != .empty { removeNode(withName: vertlineNodeName) }
+                if r > 0 {
+                    let p2 = Position(r - 1, c)
+                    let (b1, b2) = (f(state: stateFrom, p2: p2), f(state: stateTo, p2: p2))
+                    if b1 != b2 {
+                        if b1 { removeNode(withName: horzLineNodeName) }
+                        if b2 { addHorzLine(objType: .line, color: .yellow, point: point, nodeName: horzLineNodeName) }
+                    }
                 }
-                var (o1, o2) = (stateFrom[p][1], stateTo[p][1])
+                if (c > 0) {
+                    let p2 = Position(r, c - 1)
+                    let (b1, b2) = (f(state: stateFrom, p2: p2), f(state: stateTo, p2: p2))
+                    if b1 != b2 {
+                        if b1 { removeNode(withName: vertlineNodeName) }
+                        if b2 { addVertLine(objType: .line, color: .yellow, point: point, nodeName: vertlineNodeName) }
+                    }
+                }
+                let numberNodeName = "number" + nodeNameSuffix
+                let (o1, o2) = (stateFrom[p], stateTo[p])
                 if o1 != o2 {
-                    removeHorzLine(objType: o1)
-                    addHorzLine(objType: o2, color: .yellow, point: point, nodeName: horzLineNodeName)
+                    if o1 > 0 { removeNode(withName: numberNodeName) }
+                    if o2 > 0 { addLabel(text: String(o2), fontColor: .white, point: point, nodeName: numberNodeName) }
                 }
-                (o1, o2) = (stateFrom[p][2], stateTo[p][2])
-                if o1 != o2 {
-                    removeVertLine(objType: o1)
-                    addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
-                }
-            }
-        }
-        for p in stateFrom.game.flowers {
-            let point = gridNode.centerPoint(p: p)
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let flowerNodeName = "flower" + nodeNameSuffix
-            let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
-            if s1 != s2 {
-                removeNode(withName: flowerNodeName)
-                addFlower(s: s2, point: point, nodeName: flowerNodeName)
             }
         }
     }

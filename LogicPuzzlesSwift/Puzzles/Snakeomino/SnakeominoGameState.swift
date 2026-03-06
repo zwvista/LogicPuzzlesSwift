@@ -14,8 +14,9 @@ class SnakeominoGameState: GridGameState<SnakeominoGameMove> {
         set { setGame(game: newValue) }
     }
     override var gameDocument: GameDocumentBase { SnakeominoDocument.sharedInstance }
-    var objArray = [GridDotObject]()
+    var objArray = [Int]()
     var pos2state = [Position: HintState]()
+    var snakes = [[Position]]()
     
     override func copy() -> SnakeominoGameState {
         let v = SnakeominoGameState(game: game, isCopy: true)
@@ -30,129 +31,103 @@ class SnakeominoGameState: GridGameState<SnakeominoGameMove> {
     required init(game: SnakeominoGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = game.dots.objArray
+        objArray = game.objArray
         updateIsSolved()
     }
     
-    subscript(p: Position) -> GridDotObject {
+    subscript(p: Position) -> Int {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
     }
-    subscript(row: Int, col: Int) -> GridDotObject {
+    subscript(row: Int, col: Int) -> Int {
         get { objArray[row * cols + col] }
         set { objArray[row * cols + col] = newValue }
     }
     
     override func setObject(move: inout SnakeominoGameMove) -> GameOperationType {
-        var changed = false
-        func f(o1: inout GridLineObject, o2: inout GridLineObject) {
-            if o1 != move.obj {
-                changed = true
-                o1 = move.obj
-                o2 = move.obj
-                // updateIsSolved() cannot be called here
-                // self[p] will not be updated until the function returns
-            }
-        }
-        let dir = move.dir, dir2 = (dir + 2) % 4
-        let p = move.p, p2 = p + SnakeominoGame.offset[dir]
-        guard isValid(p: p2) && game.dots[p][dir] == .empty else { return .invalid }
-        f(o1: &self[p][dir], o2: &self[p2][dir2])
-        if changed { updateIsSolved() }
-        return changed ? .moveComplete : .invalid
+        let p = move.p
+        guard isValid(p: p) && game[p] == SnakeominoGame.PUZ_EMPTY && self[p] != move.obj else { return .invalid }
+        self[p] = move.obj
+        updateIsSolved()
+        return .moveComplete
     }
     
     override func switchObject(move: inout SnakeominoGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: markerOption)
-        let o = self[move.p][move.dir]
-        move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .line
-        case .line: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .line : .empty
-        default: o
-        }
+        let p = move.p
+        guard isValid(p: p) && game[p] == SnakeominoGame.PUZ_EMPTY else { return .invalid }
+        let o = self[p]
+        move.obj = o == SnakeominoGame.PUZ_EMPTY ? 2 : o == game.nMax ? SnakeominoGame.PUZ_EMPTY : o + 1
         return setObject(move: &move)
     }
     
     /*
-        iOS Game: 100 Logic Games 2/Puzzle Set 2/Flower Beds
+        iOS Game: 100 Logic Games 2/Puzzle Set 4/Snake-omino
 
         Summary
-        Reverse Gardener
+        Snakes on a Plain
 
         Description
-        1. The board represents a garden where flowers are scattered around.
-        2. Your task as a gardener is to divide the garden in rectangular (or square)
-           flower beds.
-        3. Each flower bed should contain exactly one flower.
-        4. Contiguous flower beds can't have the same area extension.
-        5. Green squares are hedges that can't be included in flower beds.
+        1. Find Snakes by numbering them:
+        2. A snake is a one-cell-wide path at least two cells long. A snake cannot touch itself,
+           not even diagonally.
+        3. A cell with a circle must be at one of the ends of a snake. A snake may contain one
+           circled cell, two circled cells, or no circled cells at all.
+        4. A cell with a number must be part of a snake with a length of exactly that number of cells.
+        5. Two snakes of the same length must not be orthogonally adjacent.
+        6. A cell with a cross cannot be an end of a snake.
+        7. every cell in the board is part of a snake.
     */
     private func updateIsSolved() {
         isSolved = true
-        var rects = [SnakeominoRect]()
-        var pos2rect = [Position: Int]()
         let g = Graph()
         var pos2node = [Position: Node]()
-        for r in 0..<rows - 1 {
-            for c in 0..<cols - 1 {
+        for r in 0..<rows {
+            for c in 0..<cols {
                 let p = Position(r, c)
-                // 5. Green squares are hedges that can't be included in flower beds.
-                guard game[p] != .hedge else {continue}
+                // 7. every cell in the board is part of a snake.
+                guard self[p] != SnakeominoGame.PUZ_EMPTY else { isSolved = false; continue }
                 pos2node[p] = g.addNode(p.description)
             }
         }
         for (p, node) in pos2node {
-            for i in 0..<4 {
-                guard self[p + SnakeominoGame.offset2[i]][SnakeominoGame.dirs[i]] != .line, let node2 = pos2node[p + SnakeominoGame.offset[i]] else {continue}
-                g.addEdge(node, neighbor: node2)
+            let o = self[p]
+            for os in SnakeominoGame.offset {
+                let p2 = p + os
+                guard isValid(p: p2) && self[p2] == o else {continue}
+                g.addEdge(node, neighbor: pos2node[p2]!)
             }
         }
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
+            let snake = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
-            let rng = area.filter { p in game.flowers.contains(p) }
-            // 2. Your task as a gardener is to divide the garden in rectangular (or square)
-            //    flower beds.
-            // 3. Each flower bed should contain exactly one flower.
-            if rng.count != 1 {
-                for p in rng {
-                    pos2state[p] = .normal
+            if ({
+                // 2. A snake is at least two cells long.
+                // 4. A cell with a number must be part of a snake with a length of exactly that number of cells.
+                if !(snake.count >= 2 && snake.count == self[snake[0]]) { return false }
+                var num2rng = [Int: [Position]]()
+                for p in snake {
+                    let cnt = SnakeominoGame.offset.count { snake.contains(p + $0) }
+                    num2rng[cnt, default: []].append(p)
                 }
-                isSolved = false; continue
-            }
-            let p2 = rng[0]
-            let n1 = area.count
-            var r2 = 0, r1 = rows, c2 = 0, c1 = cols
-            for p in area {
-                if r2 < p.row { r2 = p.row }
-                if r1 > p.row { r1 = p.row }
-                if c2 < p.col { c2 = p.col }
-                if c1 > p.col { c1 = p.col }
-            }
-            let rs = r2 - r1 + 1, cs = c2 - c1 + 1
-            let s: HintState = rs * cs == n1 ? .complete : .error
-            pos2state[p2] = s
-            if s == .complete {
-                let n = rects.count
-                rects.append(SnakeominoRect(area: area, rows: rs, cols: cs))
-                for p in area { pos2rect[p] = n }
+                // 2. A snake is a one-cell-wide path.
+                if (num2rng.contains { (num, _) in num > 2 }) { return false }
+                let (rng1, rng2) = (num2rng[1], num2rng[2])
+                // 2. A snake cannot touch itself, not even diagonally.
+                // 3. A cell with a circle must be at one of the ends of a snake. A snake may contain one
+                //   circled cell, two circled cells, or no circled cells at all.
+                // 6. A cell with a cross cannot be an end of a snake.
+                if (rng1?.contains {
+                    game.pos2hint[$0] == SnakeominoGame.PUZ_NOT_END
+                } ?? true || rng2?.contains {
+                    game.pos2hint[$0] == SnakeominoGame.PUZ_END
+                } ?? false) { return false }
+                return true
+            }()) {
+                snakes.append(snake)
             } else {
                 isSolved = false
             }
         }
-        guard isSolved else {return}
-        // 4. Contiguous flower beds can't have the same area extension.
-        if !((0..<rects.count).allSatisfy { n in
-            let rect = rects[n]
-            return rect.area.allSatisfy { p in
-                return SnakeominoGame.offset.allSatisfy {
-                    guard let n2 = pos2rect[p + $0], n2 != n else { return true }
-                    let rect2 = rects[n2]
-                    return !(rect.rows == rect2.rows && rect.cols == rect2.cols)
-                }
-            }
-        }) { isSolved = false }
     }
 }
