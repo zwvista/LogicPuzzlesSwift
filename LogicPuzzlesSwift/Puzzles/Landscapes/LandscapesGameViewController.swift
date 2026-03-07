@@ -24,6 +24,6 @@ class LandscapesGameViewController: GameGameViewController2<LandscapesGameState,
     }
    
     override func newGame(level: GameLevel) -> LandscapesGame {
-        LandscapesGame(layout: level.layout, sum: (level.settings["sum"] ?? "10").toInt()!, delegate: self)
+        LandscapesGame(layout: level.layout, delegate: self)
     }
 }

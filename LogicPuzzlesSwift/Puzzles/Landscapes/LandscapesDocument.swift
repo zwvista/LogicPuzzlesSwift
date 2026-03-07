@@ -13,10 +13,10 @@ class LandscapesDocument: GameDocument<LandscapesGameMove> {
     
     override func saveMove(_ move: LandscapesGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.intValue1 = move.obj
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> LandscapesGameMove {
-        LandscapesGameMove(p: Position(rec.row, rec.col), obj: rec.intValue1)
+        LandscapesGameMove(p: Position(rec.row, rec.col), obj: LandscapesObject(rawValue: rec.intValue1)!)
     }
 }

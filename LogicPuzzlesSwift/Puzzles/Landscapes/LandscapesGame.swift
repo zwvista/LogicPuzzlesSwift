@@ -17,30 +17,20 @@ class LandscapesGame: GridGame<LandscapesGameState> {
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
-    static let offset3 = [
-        Position(-1, -1),
-        Position(-1, 0),
-        Position(0, -1),
-        Position(0, 0),
-    ]
-    static let PUZ_EMPTY = -1
+    static let offset3 = Position.Directions8
 
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
     var dots: GridDots!
-    var objArray = [Int]()
     var area2areas = [[Int]]()
-    var crossroads = [Position]()
-    let sum: Int
+    var objArray = [LandscapesObject]()
 
-    init(layout: [String], sum: Int, delegate: LandscapesGameViewController? = nil) {
-        self.sum = sum
-
+    init(layout: [String], delegate: LandscapesGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count / 2, layout[0].length / 2)
         dots = GridDots(rows: rows + 1, cols: cols + 1)
-        objArray = Array<Int>(repeating: 0, count: rows * cols)
+        objArray = Array<LandscapesObject>(repeating: .empty, count: rows * cols)
         
         for r in 0..<rows + 1 {
             var str = layout[2 * r]
@@ -61,7 +51,13 @@ class LandscapesGame: GridGame<LandscapesGameState> {
                 }
                 guard c < cols else {continue}
                 let ch2 = str[2 * c + 1]
-                self[r, c] = ch2 == " " ? LandscapesGame.PUZ_EMPTY : ch2.toInt!
+                self[r, c] = switch (ch2) {
+                case "T": .tree
+                case "S": .sand
+                case "R": .rock
+                case "W": .water
+                default: .empty
+                }
             }
         }
         let g = Graph()
@@ -87,27 +83,14 @@ class LandscapesGame: GridGame<LandscapesGameState> {
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
             let n = areas.count
-            let p2 = area.first { self[$0] != LandscapesGame.PUZ_EMPTY }
-            for p in area {
-                pos2area[p] = n
-                if p2 != nil { self[p] = self[p2!] }
-            }
+            for p in area { pos2area[p] = n }
             areas.append(area)
-        }
-        
-        for r in 1..<rows {
-            for c in 1..<cols {
-                let p = Position(r, c)
-                if dots[p].allSatisfy({ $0 == .line }) {
-                    crossroads.append(p)
-                }
-            }
         }
         
         area2areas = Array(repeating: [Int](), count: areas.count)
         for (i, area) in areas.enumerated() {
             area2areas[i] = Array(Set(area
-                .flatMap { p in LandscapesGame.offset.map { p + $0 } }
+                .flatMap { p in LandscapesGame.offset3.map { p + $0 } }
                 .filter { isValid(p: $0) }
                 .map { pos2area[$0]! }))
                 .filter { $0 != i }
@@ -118,11 +101,11 @@ class LandscapesGame: GridGame<LandscapesGameState> {
         levelInitialized(state: state)
     }
     
-    subscript(p: Position) -> Int {
+    subscript(p: Position) -> LandscapesObject {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
     }
-    subscript(row: Int, col: Int) -> Int {
+    subscript(row: Int, col: Int) -> LandscapesObject {
         get { objArray[row * cols + col] }
         set { objArray[row * cols + col] = newValue }
     }

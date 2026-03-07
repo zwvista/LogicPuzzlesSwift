@@ -8,7 +8,14 @@
 
 import Foundation
 
+enum LandscapesObject: Int {
+    case empty, tree, sand, rock, water
+    init() {
+        self = .empty
+    }
+}
+
 struct LandscapesGameMove {
     var p = Position()
-    var obj = 0
+    var obj = LandscapesObject()
 }

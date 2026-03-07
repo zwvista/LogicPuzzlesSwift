@@ -13,6 +13,16 @@ class LandscapesGameScene: GameScene<LandscapesGameState> {
         get { getGridNode() as! LandscapesGridNode }
         set { setGridNode(gridNode: newValue) }
     }
+    
+    func addObject(o: LandscapesObject, s: AllowedObjectState, point: CGPoint, nodeName: String) {
+        let imageName = switch (o) {
+        case .tree: "forest"
+        case .sand: "sand3"
+        case .rock: "pebbles"
+        default: "sea"
+        }
+        addImage(imageNamed: imageName, color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
+    }
 
     override func levelInitialized(_ game: AnyObject, state: LandscapesGameState, skView: SKView) {
         let game = game as! LandscapesGame
@@ -56,15 +66,10 @@ class LandscapesGameScene: GameScene<LandscapesGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
-                let n = game[p]
-                if n != LandscapesGame.PUZ_EMPTY {
-                    let numberNodeName = "number" + nodeNameSuffix
-                    addLabel(text: String(n), fontColor: .gray, point: point, nodeName: numberNodeName)
-                }
-                if game.crossroads.contains(p) {
-                    let point = gridNode.cornerPoint(p: p)
-                    let invalidCrossroadsNodeName = "invalidCrossroads" + nodeNameSuffix
-                    addDotMarker2(color: state.invalidCrossroads.contains(p) ? .red : .green, point: point, nodeName: invalidCrossroadsNodeName)
+                let tileNodeName = "tile" + nodeNameSuffix
+                let o = game[p]
+                if o != .empty {
+                    addObject(o: o, s: state.pos2state[p]!, point: point, nodeName: tileNodeName)
                 }
             }
         }
@@ -76,24 +81,12 @@ class LandscapesGameScene: GameScene<LandscapesGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let numberNodeName = "number" + nodeNameSuffix
-                let invalidCrossroadsNodeName = "invalidCrossroads" + nodeNameSuffix
-                let (n1, n2) = (stateFrom[p], stateTo[p])
+                let tileNodeName = "tile" + nodeNameSuffix
+                let (o1, o2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
-                if n1 != n2 || s1 != s2 {
-                    if n1 != LandscapesGame.PUZ_EMPTY {
-                        removeNode(withName: numberNodeName)
-                    }
-                    if n2 != LandscapesGame.PUZ_EMPTY {
-                        addLabel(text: String(n2), fontColor: stateFrom.game[p] != LandscapesGame.PUZ_EMPTY ? .gray : s2 == .normal ? .white : .red, point: point, nodeName: numberNodeName)
-                    }
-                }
-                guard stateFrom.game.crossroads.contains(p) else {continue}
-                let (b1, b2) = (stateFrom.invalidCrossroads.contains(p), stateTo.invalidCrossroads.contains(p))
-                if b1 != b2 {
-                    let point = gridNode.cornerPoint(p: p)
-                    removeNode(withName: invalidCrossroadsNodeName)
-                    addDotMarker2(color: b2 ? .red : .green, point: point, nodeName: invalidCrossroadsNodeName)
+                if o1 != o2 || s1 != s2 {
+                    if o1 != .empty { removeNode(withName: tileNodeName) }
+                    if o2 != .empty { addObject(o: o2, s: s2!, point: point, nodeName: tileNodeName) }
                 }
             }
         }

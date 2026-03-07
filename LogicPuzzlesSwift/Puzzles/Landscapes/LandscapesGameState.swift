@@ -14,9 +14,8 @@ class LandscapesGameState: GridGameState<LandscapesGameMove> {
         set { setGame(game: newValue) }
     }
     override var gameDocument: GameDocumentBase { LandscapesDocument.sharedInstance }
-    var objArray = [Int]()
+    var objArray = [LandscapesObject]()
     var pos2state = [Position: AllowedObjectState]()
-    var invalidCrossroads = [Position]()
     
     override func copy() -> LandscapesGameState {
         let v = LandscapesGameState(game: game, isCopy: true)
@@ -35,18 +34,18 @@ class LandscapesGameState: GridGameState<LandscapesGameMove> {
         updateIsSolved()
     }
     
-    subscript(p: Position) -> Int {
+    subscript(p: Position) -> LandscapesObject {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
     }
-    subscript(row: Int, col: Int) -> Int {
+    subscript(row: Int, col: Int) -> LandscapesObject {
         get { objArray[row * cols + col] }
         set { objArray[row * cols + col] = newValue }
     }
     
     override func setObject(move: inout LandscapesGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] == LandscapesGame.PUZ_EMPTY && self[p] != move.obj else { return .invalid }
+        guard isValid(p: p) && game[p] == .empty && self[p] != move.obj else { return .invalid }
         for p2 in game.areas[game.pos2area[p]!] {
             self[p2] = move.obj
         }
@@ -56,47 +55,43 @@ class LandscapesGameState: GridGameState<LandscapesGameMove> {
     
     override func switchObject(move: inout LandscapesGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] == LandscapesGame.PUZ_EMPTY else { return .invalid }
+        guard isValid(p: p) && game[p] == .empty else { return .invalid }
         let o = self[p]
-        move.obj = o == 9 ? LandscapesGame.PUZ_EMPTY : o + 1
+        move.obj = switch (o) {
+        case .empty: .tree
+        case .tree: .sand
+        case .sand: .rock
+        case .rock: .water
+        case .water: .empty
+        }
         return setObject(move: &move)
     }
     
     /*
-        iOS Game: 100 Logic Games 3/Puzzle Set 5/Crossroads X
+        iOS Game: 100 Logic Games/Puzzle Set 16/Landscapes
 
         Summary
-        Cross at Ten
+        Forests, Deserts, Oceans, Mountains
 
         Description
-        1. Place a number in each region from 0 to 9.
-        2. When four regions borders intersect (a spot where four lines meet),
-           the sum of those 4 regions must be 10.
-        3. No two orthogonally adjacent regions can have the same number.
+        1. Identify the landscape in every region, choosing between trees, sand,
+           water and rocks.
+        2. Two regions can't have the same landscape if they touch, not even
+           diagonally.
     */
     private func updateIsSolved() {
         isSolved = true
-        // 2. When four regions borders intersect (a spot where four lines meet),
-        //    the sum of those 4 regions must be 10.
-        invalidCrossroads = game.crossroads.filter { p in
-            let rng = LandscapesGame.offset3.map { p + $0 }
-            return !(rng.allSatisfy({ self[$0] != LandscapesGame.PUZ_EMPTY }) && rng.reduce(0) { $0 + self[$1] } == game.sum)
-        }
-        if !invalidCrossroads.isEmpty { isSolved = false }
-        // 3. No two orthogonally adjacent regions can have the same number.
-        for (i, area) in game.areas.enumerated() {
-            let n = self[area[0]]
-            let areas = game.area2areas[i]
-                .map { self.game.areas[$0] }
-                .filter { self[$0[0]] == n }
-            if areas.isEmpty {
-                for p in area { pos2state[p] = .normal }
-            } else {
-                isSolved = false
-                for area2 in [area] + areas {
-                    for p in area2 { pos2state[p] = .error }
-                }
-            }
+        // 2. Two regions can't have the same landscape if they touch, not even
+        //    diagonally.
+        for (i, indexes) in game.area2areas.enumerated() {
+            let area = game.areas[i]
+            let o = self[area[0]]
+            guard o != .empty else { isSolved = false; continue }
+            let s: AllowedObjectState = (indexes.contains {
+                o == self[game.areas[$0][0]]
+            }) ? .error : .normal
+            for p in area { pos2state[p] = s }
+            if s == .error { isSolved = false }
         }
     }
 }
