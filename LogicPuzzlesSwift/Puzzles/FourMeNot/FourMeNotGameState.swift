@@ -15,6 +15,7 @@ class FourMeNotGameState: GridGameState<FourMeNotGameMove> {
     }
     override var gameDocument: GameDocumentBase { FourMeNotDocument.sharedInstance }
     var objArray = [FourMeNotObject]()
+    var pos2state = [Position: AllowedObjectState]()
     
     override func copy() -> FourMeNotGameState {
         let v = FourMeNotGameState(game: game, isCopy: true)
@@ -56,9 +57,9 @@ class FourMeNotGameState: GridGameState<FourMeNotGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .flower()
+        case .empty: markerOption == .markerFirst ? .marker : .flower
         case .flower: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .flower() : .empty
+        case .marker: markerOption == .markerFirst ? .flower : .empty
         default: o
         }
         return setObject(move: &move)
@@ -92,7 +93,7 @@ class FourMeNotGameState: GridGameState<FourMeNotGameMove> {
                 case .forbidden:
                     self[p] = .empty
                 case .flower:
-                    self[p] = .flower()
+                    pos2state[p] = .normal
                     pos2node[p] = g.addNode(p.description)
                 default:
                     break
@@ -119,10 +120,10 @@ class FourMeNotGameState: GridGameState<FourMeNotGameMove> {
             flowers.count > 3
         }
         func checkFlowers() {
-            if invalidFlowers() {
+            if flowers.count > 3 {
                 isSolved = false
                 for p in flowers {
-                    self[p] = .flower(state: .error)
+                    pos2state[p] = .error
                 }
             }
             flowers.removeAll()
@@ -133,12 +134,12 @@ class FourMeNotGameState: GridGameState<FourMeNotGameMove> {
                 let os = FourMeNotGame.offset[i]
                 var p2 = p + os
                 while isValid(p: p2) {
-                    guard case .flower = self[p2] else {break}
+                    guard self[p2] == .flower else {break}
                     flowers.append(p2)
                     p2 += os
                 }
             }
-            if invalidFlowers() { self[p] = .forbidden }
+            if flowers.count > 2 { self[p] = .forbidden }
             flowers.removeAll()
         }
         for r in 0..<rows {

@@ -13,10 +13,10 @@ class FourMeNotDocument: GameDocument<FourMeNotGameMove> {
     
     override func saveMove(_ move: FourMeNotGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> FourMeNotGameMove {
-        FourMeNotGameMove(p: Position(rec.row, rec.col), obj: FourMeNotObject.fromString(str: rec.strValue1!))
+        FourMeNotGameMove(p: Position(rec.row, rec.col), obj: FourMeNotObject(rawValue: rec.intValue1)!)
     }
 }

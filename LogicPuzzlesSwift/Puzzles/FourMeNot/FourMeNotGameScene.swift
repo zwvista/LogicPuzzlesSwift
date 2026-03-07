@@ -38,8 +38,8 @@ class FourMeNotGameScene: GameScene<FourMeNotGameState> {
                 let flowerNodeName = "flower" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 switch state[p] {
-                case let .flower(s):
-                    addFlower(s: s, point: point, nodeName: flowerNodeName)
+                case .flower:
+                    addFlower(s: state.pos2state[p]!, point: point, nodeName: flowerNodeName)
                     addCircleMarker(color: .white, point: point, nodeName: "marker")
                 case .block:
                     addBlock(color: .white, point: point, nodeName: "block")
@@ -66,7 +66,8 @@ class FourMeNotGameScene: GameScene<FourMeNotGameState> {
                 func removeMarker() { removeNode(withName: markerNodeName) }
                 func removeForbidden() { removeNode(withName: forbiddenNodeName) }
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                guard String(describing: o1) != String(describing: o2) else {continue}
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard o1 != o2 || s1 != s2 else {continue}
                 switch o1 {
                 case .forbidden:
                     removeForbidden()
@@ -80,8 +81,8 @@ class FourMeNotGameScene: GameScene<FourMeNotGameState> {
                 switch o2 {
                 case .forbidden:
                     addForbidden(point: point, nodeName: forbiddenNodeName)
-                case let .flower(s):
-                    addFlower(s: s, point: point, nodeName: flowerNodeName)
+                case .flower:
+                    addFlower(s: s2!, point: point, nodeName: flowerNodeName)
                 case .marker:
                     addMarker()
                 default:

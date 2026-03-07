@@ -8,34 +8,11 @@
 
 import Foundation
 
-enum FourMeNotObject {
-    case empty
-    case forbidden
-    case marker
-    case flower(state: AllowedObjectState = .normal)
-    case block
+enum FourMeNotObject: Int {
+    case empty, forbidden, marker
+    case flower, block
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .flower:
-            return "flower"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> FourMeNotObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "flower":
-            return .flower()
-        default:
-            return .empty
-        }
     }
 }
 
