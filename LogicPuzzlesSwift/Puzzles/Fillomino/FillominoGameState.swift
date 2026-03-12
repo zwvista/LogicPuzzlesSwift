@@ -64,7 +64,7 @@ class FillominoGameState: GridGameState<FillominoGameMove> {
     }
     
     /*
-        iOS Game: Logic Games/Puzzle Set 3/Fillomino
+        iOS Game: 100 Logic Games/Puzzle Set 3/Fillomino
 
         Summary
         Detect areas marked by their extension
@@ -76,18 +76,22 @@ class FillominoGameState: GridGameState<FillominoGameMove> {
            tile. Areas marked with '2' will consist of two (horizontally or
            vertically) adjacent tiles. Tiles numbered '3' will appear in a group
            of three and so on.
-        3. Two areas with the same areas can also be totally hidden at the start.
-     
+        3. Two areas with the same number can't be horizontally or vertically touching.
+        4. Lastly, please note that some areas can also be totally hidden at the start.
+           In the example you can see a '1' which wasn't hinted in the initial setup.
+
         Variation
-        4. Fillomino has several variants.
-        5. No Rectangles: Areas can't form Rectangles.
-        6. Only Rectangles: Areas can ONLY form Rectangles.
-        7. Non Consecutive: Areas can't touch another area which has +1 or -1
+        5. Fillomino has several variants.
+        6. No Rectangles: Areas can't form Rectangles.
+        7. Only Rectangles: Areas can ONLY form Rectangles.
+        8. Non Consecutive: Areas can't touch another area which has +1 or -1
            as number (orthogonally).
-        8. Consecutive: Areas MUST touch another area which has +1 or -1
+        9. Consecutive: Areas MUST touch another area which has +1 or -1
            as number (orthogonally).
-        9. All Odds: There are only odd numbers on the board.
-        10.All Evens: There are only even numbers on the board.
+        10.No Row or Column Repeats: Different areas with the same number
+           can't appear in the same column or row.
+        11.All Odds: There are only odd numbers on the board.
+        12.All Evens: There are only even numbers on the board.
     */
     private func updateIsSolved() {
         isSolved = true
