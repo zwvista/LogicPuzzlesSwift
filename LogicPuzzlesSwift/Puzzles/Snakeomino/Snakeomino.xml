@@ -413,8 +413,8 @@
     <![CDATA[
 6O  4 5O  2O3O`
       4O    3 `
-     X        `
-2O   X        `
+    2O        `
+2O  2         `
 3O      4O  6O`
   3O  5O3     `
 5O  5    O4  X`
@@ -423,20 +423,20 @@
   <level id="44">
     <![CDATA[
 4O X6O    6 6 `
-2        X X  `
+2       2O2O  `
   4  X3   4O  `
     5    O  4 `
 4     3   2   `
-  5          X`
-     O2O  3  X`
+  5         2O`
+     O2O  3 2O`
     ]]>
   </level>
   <level id="45">
     <![CDATA[
 5O4 2O  4O  5 `
  X    5O  4 5 `
-   X          `
-   X  5   3O5O`
+  2O          `
+  2O  5   3O5O`
 5     2  O  4O`
       3   4   `
 2O      6O    `
