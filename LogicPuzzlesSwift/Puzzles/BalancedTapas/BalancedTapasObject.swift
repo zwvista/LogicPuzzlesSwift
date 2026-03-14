@@ -8,33 +8,10 @@
 
 import Foundation
 
-enum BalancedTapasObject {
-    case empty
-    case hint(state: HintState = .normal)
-    case marker
-    case wall
+enum BalancedTapasObject: Int {
+    case empty, hint, marker, wall
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .wall:
-            return "wall"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> BalancedTapasObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "wall":
-            return .wall
-        default:
-            return .empty
-        }
     }
 }
 

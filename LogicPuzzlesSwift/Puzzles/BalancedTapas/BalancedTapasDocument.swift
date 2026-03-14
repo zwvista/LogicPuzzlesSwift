@@ -13,10 +13,10 @@ class BalancedTapasDocument: GameDocument<BalancedTapasGameMove> {
     
     override func saveMove(_ move: BalancedTapasGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> BalancedTapasGameMove {
-        BalancedTapasGameMove(p: Position(rec.row, rec.col), obj: BalancedTapasObject.fromString(str: rec.strValue1!))
+        BalancedTapasGameMove(p: Position(rec.row, rec.col), obj: BalancedTapasObject(rawValue: rec.intValue1)!)
     }
 }
