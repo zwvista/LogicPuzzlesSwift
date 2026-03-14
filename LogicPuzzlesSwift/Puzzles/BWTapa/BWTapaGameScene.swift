@@ -53,47 +53,42 @@ class BWTapaGameScene: GameScene<BWTapaGameState> {
         
         // add Hints
         for (p, arr) in game.pos2hint {
-            guard case let .hint(state: s) = state[p] else {continue}
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
-            addHint(arr: arr, s: s, point: point, nodeName: hintNodeName)
+            addHint(arr: arr, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
         }
     }
     
     override func levelUpdated(from stateFrom: BWTapaGameState, to stateTo: BWTapaGameState) {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
-                let point = gridNode.centerPoint(p: Position(r, c))
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let wallNodeName = "wall" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                func removeHint() { removeNode(withName: hintNodeName) }
-                func addWall() { addBlock(color: .white, point: point, nodeName: wallNodeName) }
-                func removeWall() { removeNode(withName: wallNodeName) }
-                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                let (ot1, ot2) = (stateFrom[r, c], stateTo[r, c])
-                guard String(describing: ot1) != String(describing: ot2) else {continue}
-                switch ot1 {
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard o1 != o2 || s1 != s2 else {continue}
+                switch o1 {
                 case .wall:
-                    removeWall()
+                    removeNode(withName: wallNodeName)
                 case .marker:
-                    removeMarker()
+                    removeNode(withName: markerNodeName)
                 case .hint:
-                    removeHint()
+                    removeNode(withName: hintNodeName)
                 default:
                     break
                 }
-                switch ot2 {
+                switch o2 {
                 case .wall:
-                    addWall()
+                    addBlock(color: .white, point: point, nodeName: wallNodeName)
                 case .marker:
-                    addMarker()
-                case let .hint(s):
-                    let arr = stateTo.game.pos2hint[Position(r, c)]!
-                    addHint(arr: arr, s: s, point: point, nodeName: hintNodeName)
+                    addDotMarker(point: point, nodeName: markerNodeName)
+                case .hint:
+                    addHint(arr: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
                 default:
                     break
                 }

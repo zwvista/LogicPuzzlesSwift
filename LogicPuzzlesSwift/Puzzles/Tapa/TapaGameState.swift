@@ -15,7 +15,8 @@ class TapaGameState: GridGameState<TapaGameMove> {
     }
     override var gameDocument: GameDocumentBase { TapaDocument.sharedInstance }
     var objArray = [TapaObject]()
-    
+    var pos2state = [Position: HintState]()
+
     override func copy() -> TapaGameState {
         let v = TapaGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -31,7 +32,7 @@ class TapaGameState: GridGameState<TapaGameMove> {
         guard !isCopy else {return}
         objArray = Array<TapaObject>(repeating: TapaObject(), count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint()
+            self[p] = .hint
         }
         updateIsSolved()
     }
@@ -47,24 +48,22 @@ class TapaGameState: GridGameState<TapaGameMove> {
     
     override func setObject(move: inout TapaGameMove) -> GameOperationType {
         let p = move.p
-        let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 { return .invalid }
-        guard String(describing: o1) != String(describing: o2) else { return .invalid }
-        self[p] = o2
+        guard isValid(p: p) && self[p] != .hint && self[p] != move.obj else { return .invalid }
+        self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }
     
     override func switchObject(move: inout TapaGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) else { return .invalid }
+        guard isValid(p: p) && self[p] != .hint else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
         case .empty: markerOption == .markerFirst ? .marker : .wall
         case .wall: markerOption == .markerLast ? .marker : .empty
         case .marker: markerOption == .markerFirst ? .wall : .empty
-        case .hint: o
+        default: o
         }
         return setObject(move: &move)
     }
@@ -133,7 +132,7 @@ class TapaGameState: GridGameState<TapaGameMove> {
             }
             let arr = computeHint(filled: filled)
             let s: HintState = arr == [0] ? .normal : isCompatible(computedHint: arr, givenHint: arr2) ? .complete : .error
-            self[p] = .hint(state: s)
+            pos2state[p] = s
             if s != .complete { isSolved = false }
         }
         guard isSolved else {return}

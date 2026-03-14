@@ -13,10 +13,10 @@ class TapaDocument: GameDocument<TapaGameMove> {
     
     override func saveMove(_ move: TapaGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> TapaGameMove {
-        TapaGameMove(p: Position(rec.row, rec.col), obj: TapaObject.fromString(str: rec.strValue1!))
+        TapaGameMove(p: Position(rec.row, rec.col), obj: TapaObject(rawValue: rec.intValue1)!)
     }
 }

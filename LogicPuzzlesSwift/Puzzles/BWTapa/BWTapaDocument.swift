@@ -13,10 +13,10 @@ class BWTapaDocument: GameDocument<BWTapaGameMove> {
     
     override func saveMove(_ move: BWTapaGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> BWTapaGameMove {
-        BWTapaGameMove(p: Position(rec.row, rec.col), obj: BWTapaObject.fromString(str: rec.strValue1!))
+        BWTapaGameMove(p: Position(rec.row, rec.col), obj: BWTapaObject(rawValue: rec.intValue1)!)
     }
 }

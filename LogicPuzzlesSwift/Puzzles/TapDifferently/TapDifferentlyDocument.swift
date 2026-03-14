@@ -13,10 +13,10 @@ class TapDifferentlyDocument: GameDocument<TapDifferentlyGameMove> {
     
     override func saveMove(_ move: TapDifferentlyGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> TapDifferentlyGameMove {
-        TapDifferentlyGameMove(p: Position(rec.row, rec.col), obj: TapDifferentlyObject.fromString(str: rec.strValue1!))
+        TapDifferentlyGameMove(p: Position(rec.row, rec.col), obj: TapDifferentlyObject(rawValue: rec.intValue1)!)
     }
 }
