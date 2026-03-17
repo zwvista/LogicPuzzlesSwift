@@ -23,10 +23,8 @@ class DesertDunesGame: GridGame<DesertDunesGameState> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let ch = str[c]
-                switch ch {
-                case "0"..."9": pos2hint[p] = ch.toInt!
-                case "A"..."Z": pos2hint[p] = Int(ch.asciiValue!) - Int(Character("A").asciiValue!) + 10
-                default: break
+                if ch != " " {
+                    pos2hint[p] = ch.isNumber ? ch.toInt! : Int(ch.asciiValue!) - Int(Character("A").asciiValue!) + 10
                 }
             }
         }
@@ -34,5 +32,4 @@ class DesertDunesGame: GridGame<DesertDunesGameState> {
         let state = DesertDunesGameState(game: self)
         levelInitialized(state: state)
     }
-    
 }

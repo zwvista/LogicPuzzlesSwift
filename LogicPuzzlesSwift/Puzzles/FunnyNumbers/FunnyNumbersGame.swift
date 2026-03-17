@@ -17,7 +17,6 @@ class FunnyNumbersGame: GridGame<FunnyNumbersGameState> {
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
-    static let PUZ_UNKNOWN = -1
 
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
@@ -58,12 +57,12 @@ class FunnyNumbersGame: GridGame<FunnyNumbersGameState> {
                         self[r, c] = ch2.toInt!
                     }
                 }
-                let ch2 = str[2 * cols + 1]
-                row2hint[r] = ch2 == " " ? FunnyNumbersGame.PUZ_UNKNOWN : ch2.toInt!
+                let s = str[2 * cols + 1...2 * cols + 2]
+                row2hint[r] = s == "  " ? 0 : s.toInt()!
             } else {
                 for c in 0..<cols {
-                    let ch2 = str[2 * c + 1]
-                    col2hint[c] = ch2 == " " ? FunnyNumbersGame.PUZ_UNKNOWN : ch2.toInt!
+                    let s = str[2 * c...2 * c + 1]
+                    col2hint[c] = s == "  " ? 0 : s.toInt()!
                 }
             }
         }

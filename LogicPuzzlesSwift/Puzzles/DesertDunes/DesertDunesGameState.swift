@@ -90,7 +90,7 @@ class DesertDunesGameState: GridGameState<DesertDunesGameMove> {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                if case .forbidden = self[r, c] {
+                if self[r, c] == .forbidden {
                     self[r, c] = .empty
                 }
             }
@@ -108,15 +108,15 @@ class DesertDunesGameState: GridGameState<DesertDunesGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard case .dune = self[p] else { continue }
+                guard self[p] == .dune else {continue}
+                pos2stateAllowed[p] = .normal
                 for os in DesertDunesGame.offset {
                     let p2 = p + os
-                    guard isValid(p: p2) else { continue }
+                    guard isValid(p: p2) else {continue}
                     switch self[p2] {
                     case .dune:
                         isSolved = false
                         pos2stateAllowed[p] = .error
-                        pos2stateAllowed[p2] = .error
                     case .empty:
                         if allowedObjectsOnly { self[p2] = .forbidden }
                     default:

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import OrderedCollections
 
 class FunnyNumbersGameState: GridGameState<FunnyNumbersGameMove> {
     var game: FunnyNumbersGame {
@@ -18,6 +17,7 @@ class FunnyNumbersGameState: GridGameState<FunnyNumbersGameMove> {
     var objArray = [Int]()
     var row2state = [HintState]()
     var col2state = [HintState]()
+    var pos2state = [Position: AllowedObjectState]()
 
     override func copy() -> FunnyNumbersGameState {
         let v = FunnyNumbersGameState(game: game, isCopy: true)
@@ -51,7 +51,7 @@ class FunnyNumbersGameState: GridGameState<FunnyNumbersGameMove> {
     
     override func setObject(move: inout FunnyNumbersGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -59,15 +59,9 @@ class FunnyNumbersGameState: GridGameState<FunnyNumbersGameMove> {
     
     override func switchObject(move: inout FunnyNumbersGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) else { return .invalid }
-        let markerOption = MarkerOptions(rawValue: markerOption)
+        guard isValid(p: p) && game[p] == 0 else { return .invalid }
         let o = self[p]
-        move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .water()
-        case .water: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .water() : .empty
-        default: o
-        }
+        move.obj = (o + 1) % (game.areas[game.pos2area[p]!].count + 1)
         return setObject(move: &move)
     }
     
@@ -83,54 +77,43 @@ class FunnyNumbersGameState: GridGameState<FunnyNumbersGameMove> {
         3. The numbers outside tell you the sum of the row or column.
     */
     private func updateIsSolved() {
-        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
-        for r in 0..<rows {
-            for c in 0..<cols {
-                if case .forbidden = self[r, c] { self[r, c] = .empty }
+        for area in game.areas {
+            // 2. Same numbers can't touch each other horizontally or vertically across regions.
+            for p in area {
+                let n = self[p]
+                pos2state[p] = n > 0 && (FunnyNumbersGame.offset.contains {
+                    let p2 = p + $0
+                    return isValid(p: p2) && self[p2] == n
+                }) ? .error : .normal
+            }
+            // 1. Fill each region with numbers 1 to X where the X is the region area.
+            let num2rng = Dictionary(grouping: area) { self[$0] }
+                .filter { num, rng in num != 0 && rng.count > 1 }
+            if !num2rng.isEmpty {
+                isSolved = false
+                for (_, rng) in num2rng {
+                    for p in rng { pos2state[p] = .error }
+                }
             }
         }
-        // 2. You have to fill some water in it, considering that water pours down
-        //    and levels itself like in reality.
-        // 3. Areas of the same level which are horizontally connected will have
-        //    the same water level.
-        for area in game.areas {
-            let row2rng = OrderedDictionary(grouping: area) { $0.row }
-            guard let rowNotFilled = row2rng.keys.reversed().first(where: {
-                row2rng[$0]!.contains { self[$0].toString() != "water" }
-            }) else {continue}
-            let rng = area.filter { self[$0].toString() == "water" }
-            let rngError = rng.filter { $0.row < rowNotFilled }
-            rng.forEach { self[$0] = .water() }
-            guard !rngError.isEmpty else {continue}
-            isSolved = false
-            rngError.forEach { self[$0] = .water(state: .error) }
-        }
-        // 4. The numbers on the border show you how many tiles of each row and
-        //    column are filled.
+        // 3. The numbers outside tell you the sum of the row or column.
         for r in 0..<rows {
             let n2 = game.row2hint[r]
-            guard n2 != FunnyNumbersGame.PUZ_UNKNOWN else {continue}
-            let n1 = (0..<cols).count { self[r, $0].toString() == "water" }
+            guard n2 > 0 else {continue}
+            let n1 = (0..<cols).reduce(0) { $0 + self[r, $1] }
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             row2state[r] = s
             if s != .complete { isSolved = false }
-            guard s != .normal && allowedObjectsOnly else {continue}
-            (0..<cols).filter { self[r, $0].toString() == "empty" }.forEach {
-                self[r, $0] = .forbidden
-            }
         }
+        // 3. The numbers outside tell you the sum of the row or column.
         for c in 0..<cols {
             let n2 = game.col2hint[c]
-            guard n2 != FunnyNumbersGame.PUZ_UNKNOWN else {continue}
-            let n1 = (0..<rows).count { self[$0, c].toString() == "water" }
+            guard n2 > 0 else {continue}
+            let n1 = (0..<rows).reduce(0) { $0 + self[$1, c] }
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             col2state[c] = s
             if s != .complete { isSolved = false }
-            guard s != .normal && allowedObjectsOnly else {continue}
-            (0..<rows).filter { self[$0, c].toString() == "empty" }.forEach {
-                self[$0, c] = .forbidden
-            }
         }
     }
 }

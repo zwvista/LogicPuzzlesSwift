@@ -69,6 +69,17 @@ class FunnyNumbersGameScene: GameScene<FunnyNumbersGameState> {
             let n = state.game.col2hint[c]
             addHint(p: p, n: n, s: state.col2state[c])
         }
+        for r in 0..<game.rows {
+            for c in 0..<game.cols {
+                let p = Position(r, c)
+                let n = state[p]
+                guard n > 0 else {continue}
+                let point = gridNode.centerPoint(p: p)
+                let nodeNameSuffix = "-\(r)-\(c)"
+                let numberNodeName = "number" + nodeNameSuffix
+                addLabel(text: String(n), fontColor: .gray, point: point, nodeName: numberNodeName)
+            }
+        }
     }
     
     override func levelUpdated(from stateFrom: FunnyNumbersGameState, to stateTo: FunnyNumbersGameState) {
@@ -96,33 +107,15 @@ class FunnyNumbersGameScene: GameScene<FunnyNumbersGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
+                guard stateFrom.game[p] == 0 else {continue}
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let waterNodeName = "water" + nodeNameSuffix
-                let markerNodeName = "marker" + nodeNameSuffix
-                let forbiddenNodeName = "forbidden" + nodeNameSuffix
+                let numberNodeName = "number" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                guard String(describing: o1) != String(describing: o2) else {continue}
-                switch o1 {
-                case .forbidden:
-                    removeNode(withName: forbiddenNodeName)
-                case .marker:
-                    removeNode(withName: markerNodeName)
-                case .water:
-                    removeNode(withName: waterNodeName)
-                default:
-                    break
-                }
-                switch o2 {
-                case .forbidden:
-                    addDotMarker2(color: .red, point: point, nodeName: forbiddenNodeName)
-                case .marker:
-                    addDotMarker(point: point, nodeName: markerNodeName)
-                case .water(state: let s):
-                    addImage(imageNamed: "sea", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: waterNodeName)
-                default:
-                    break
-                }
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard o1 != o2 || s1 != s2 else {continue}
+                if o1 > 0 { removeNode(withName: numberNodeName) }
+                if o2 > 0 { addLabel(text: String(o2), fontColor: s2 == .normal ? .white : .red, point: point, nodeName: numberNodeName) }
             }
         }
     }
