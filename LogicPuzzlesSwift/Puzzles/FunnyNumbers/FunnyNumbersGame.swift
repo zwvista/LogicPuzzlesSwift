@@ -24,6 +24,7 @@ class FunnyNumbersGame: GridGame<FunnyNumbersGameState> {
     var dots: GridDots!
     var row2hint = [Int]()
     var col2hint = [Int]()
+    var objArray = [Int]()
 
     init(layout: [String], delegate: FunnyNumbersGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -32,6 +33,7 @@ class FunnyNumbersGame: GridGame<FunnyNumbersGameState> {
         dots = GridDots(rows: rows + 1, cols: cols + 1)
         row2hint = Array<Int>(repeating: 0, count: rows)
         col2hint = Array<Int>(repeating: 0, count: cols)
+        objArray = Array<Int>(repeating: 0, count: rows * cols)
 
         for r in 0..<rows + 1 {
             var str = layout[2 * r]
@@ -49,6 +51,11 @@ class FunnyNumbersGame: GridGame<FunnyNumbersGameState> {
                     if ch == "|" {
                         dots[r, c][2] = .line
                         dots[r + 1, c][0] = .line
+                    }
+                    guard c < cols else {continue}
+                    let ch2 = str[2 * c + 1]
+                    if ch2.isNumber {
+                        self[r, c] = ch2.toInt!
                     }
                 }
                 let ch2 = str[2 * cols + 1]
@@ -91,5 +98,14 @@ class FunnyNumbersGame: GridGame<FunnyNumbersGameState> {
         
         let state = FunnyNumbersGameState(game: self)
         levelInitialized(state: state)
+    }
+    
+    subscript(p: Position) -> Int {
+        get { self[p.row, p.col] }
+        set { self[p.row, p.col] = newValue }
+    }
+    subscript(row: Int, col: Int) -> Int {
+        get { objArray[row * cols + col] }
+        set { objArray[row * cols + col] = newValue }
     }
 }

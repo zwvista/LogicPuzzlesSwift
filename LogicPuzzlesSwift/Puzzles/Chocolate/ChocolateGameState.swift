@@ -15,7 +15,8 @@ class ChocolateGameState: GridGameState<ChocolateGameMove> {
     }
     override var gameDocument: GameDocumentBase { ChocolateDocument.sharedInstance }
     var objArray = [ChocolateObject]()
-    var pos2state = [Position: HintState]()
+    var pos2stateHint = [Position: HintState]()
+    var pos2stateAllowed = [Position: AllowedObjectState]()
     
     override func copy() -> ChocolateGameState {
         let v = ChocolateGameState(game: game, isCopy: true)
@@ -45,7 +46,7 @@ class ChocolateGameState: GridGameState<ChocolateGameMove> {
     
     override func setObject(move: inout ChocolateGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p), String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p) && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -57,9 +58,9 @@ class ChocolateGameState: GridGameState<ChocolateGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .chocolate()
+        case .empty: markerOption == .markerFirst ? .marker : .chocolate
         case .chocolate: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .chocolate() : .empty
+        case .marker: markerOption == .markerFirst ? .chocolate : .empty
         default: o
         }
         return setObject(move: &move)
@@ -98,7 +99,7 @@ class ChocolateGameState: GridGameState<ChocolateGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard self[p].toString() == "chocolate" else {continue}
+                guard self[p] == .chocolate else {continue}
                 pos2node[p] = g.addNode(p.description)
             }
         }
@@ -122,7 +123,7 @@ class ChocolateGameState: GridGameState<ChocolateGameMove> {
             let rs = r2 - r1 + 1, cs = c2 - c1 + 1
             let s: AllowedObjectState = rs * cs == bar.count ? .normal : .error
             if s != .normal { isSolved = false }
-            for p in bar { self[p] = .chocolate(state: s) }
+            for p in bar { pos2stateAllowed[p] = s }
         }
         // 5. A tile with a number indicates how many tiles in the area must
         //    be chocolate.
@@ -130,12 +131,12 @@ class ChocolateGameState: GridGameState<ChocolateGameMove> {
         for area in game.areas {
             guard let pHint = area.first(where: { game.pos2hint[$0] != nil }) else {continue}
             let n2 = game.pos2hint[pHint]!
-            let n1 = area.filter { self[$0].toString() == "chocolate" }.count
+            let n1 = area.filter { self[$0] == .chocolate }.count
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if s != .complete { isSolved = false }
-            pos2state[pHint] = s
+            pos2stateHint[pHint] = s
             guard allowedObjectsOnly && s != .normal else {continue}
-            let empties = area.filter { self[$0].toString() == "empty" }
+            let empties = area.filter { self[$0] == .empty }
             for p in empties { self[p] = .forbidden }
         }
     }

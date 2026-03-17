@@ -15,6 +15,8 @@ class DesertDunesGameState: GridGameState<DesertDunesGameMove> {
     }
     override var gameDocument: GameDocumentBase { DesertDunesDocument.sharedInstance }
     var objArray = [DesertDunesObject]()
+    var pos2stateHint = [Position: HintState]()
+    var pos2stateAllowed = [Position: AllowedObjectState]()
     var invalid2x2Squares = [Position]()
     
     override func copy() -> DesertDunesGameState {
@@ -31,7 +33,9 @@ class DesertDunesGameState: GridGameState<DesertDunesGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<DesertDunesObject>(repeating: .empty, count: rows * cols)
-        for (p, _) in game.pos2hint { self[p] = .hint() }
+        for p in game.pos2hint.keys {
+            self[p] = .hint
+        }
         updateIsSolved()
     }
     
@@ -46,7 +50,7 @@ class DesertDunesGameState: GridGameState<DesertDunesGameMove> {
     
     override func setObject(move: inout DesertDunesGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p) && self[p] != .hint && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -54,13 +58,13 @@ class DesertDunesGameState: GridGameState<DesertDunesGameMove> {
     
     override func switchObject(move: inout DesertDunesGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil else { return .invalid }
+        guard isValid(p: p) && self[p] != .hint else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .dune()
+        case .empty: markerOption == .markerFirst ? .marker : .dune
         case .dune: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .dune() : .empty
+        case .marker: markerOption == .markerFirst ? .dune : .empty
         default: o
         }
         return setObject(move: &move)
@@ -96,7 +100,7 @@ class DesertDunesGameState: GridGameState<DesertDunesGameMove> {
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                let isEmptyOfDunes = DesertDunesGame.offset2.map { p + $0 }.allSatisfy { self[$0].toString() != "dune" }
+                let isEmptyOfDunes = DesertDunesGame.offset2.map { p + $0 }.allSatisfy { self[$0] != .dune }
                 if isEmptyOfDunes { invalid2x2Squares.append(p + Position.SouthEast); isSolved = false }
             }
         }
@@ -111,8 +115,8 @@ class DesertDunesGameState: GridGameState<DesertDunesGameMove> {
                     switch self[p2] {
                     case .dune:
                         isSolved = false
-                        self[p] = .dune(state: .error)
-                        self[p2] = .dune(state: .error)
+                        pos2stateAllowed[p] = .error
+                        pos2stateAllowed[p2] = .error
                     case .empty:
                         if allowedObjectsOnly { self[p2] = .forbidden }
                     default:
@@ -128,7 +132,7 @@ class DesertDunesGameState: GridGameState<DesertDunesGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard self[p].toString() != "dune" else {continue}
+                guard self[p] != .dune else {continue}
                 pos2node[p] = g.addNode(p.description)
             }
         }
@@ -150,17 +154,17 @@ class DesertDunesGameState: GridGameState<DesertDunesGameMove> {
             var hints = Set<Position>()
             // 3. Dwellers can move horizontally or vertically.
             DesertDunesGame.offset.map { p + $0 }
-                .filter { isValid(p: $0) && self[$0].toString() != "dune" }
+                .filter { isValid(p: $0) && self[$0] != .dune }
                 .forEach { g.addEdge(pos2node[p]!, neighbor: pos2node[$0]!) }
             let nodesExplored = breadthFirstSearch(g, source: pos2node[p]!)
             pos2node[p]!.neighbors = []
             pos2node
-                .filter { nodesExplored.contains($0.1.label) && self[$0.0].toString() == "hint"}
+                .filter { nodesExplored.contains($0.1.label) && self[$0.0] == .hint }
                 .map { $0.0 }.forEach { hints.insert($0) }
             hints.remove(p)
             let n1 = hints.count
             let s: HintState = n1 > n2 ? .normal : n1 == n2 ? .complete : .error
-            self[p] = .hint(state: s)
+            pos2stateHint[p] = s
             if s != .complete { isSolved = false }
             for node in g.nodes { node.visited = false }
         }

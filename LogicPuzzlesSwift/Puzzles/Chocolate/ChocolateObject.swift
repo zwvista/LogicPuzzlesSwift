@@ -8,35 +8,11 @@
 
 import Foundation
 
-enum ChocolateObject {
-    case empty
-    case marker
-    case forbidden
-    case chocolate(state: AllowedObjectState = .normal)
+enum ChocolateObject: Int {
+    case empty, forbidden, marker
+    case chocolate
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .chocolate:
-            return "chocolate"
-        case .marker:
-            return "marker"
-        case .forbidden:
-            return "forbidden"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> ChocolateObject {
-        switch str {
-        case "chocolate":
-            return .chocolate()
-        case "marker":
-            return .marker
-        default:
-            return .empty
-        }
     }
 }
 

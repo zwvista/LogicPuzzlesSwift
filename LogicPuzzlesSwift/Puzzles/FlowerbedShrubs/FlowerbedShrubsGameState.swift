@@ -16,9 +16,9 @@ class FlowerbedShrubsGameState: GridGameState<FlowerbedShrubsGameMove> {
     override var gameDocument: GameDocumentBase { FlowerbedShrubsDocument.sharedInstance }
     var objArray = [GridDotObject]()
     var pos2stateHint = [Position: HintState]()
-    var shrubs = Set<Position>()
     var pos2stateAllowed = [Position: AllowedObjectState]()
-    
+    var shrubs = Set<Position>()
+
     override func copy() -> FlowerbedShrubsGameState {
         let v = FlowerbedShrubsGameState(game: game, isCopy: true)
         return setup(v: v)

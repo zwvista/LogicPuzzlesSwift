@@ -59,7 +59,7 @@ class ChocolateGameScene: GameScene<ChocolateGameState> {
         
         // add Hints
         for (p, n) in game.pos2hint {
-            addHint(p: p, n: n, s: state.pos2state[p]!)
+            addHint(p: p, n: n, s: state.pos2stateHint[p]!)
         }
 
         for r in 0..<state.rows {
@@ -85,8 +85,9 @@ class ChocolateGameScene: GameScene<ChocolateGameState> {
                 let hintNodeName = "hint" + nodeNameSuffix
                 let chocolateNodeName = "chocolate" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
-                if String(describing: o1) != String(describing: o2) {
+                let (s1, s2) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
+                let (s3, s4) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
+                if o1 != o2 || s3 != s4 {
                     switch o1 {
                     case .forbidden:
                         removeNode(withName: forbiddenNodeName)
@@ -102,13 +103,13 @@ class ChocolateGameScene: GameScene<ChocolateGameState> {
                         addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                     case .marker:
                         addDotMarker(point: point, nodeName: markerNodeName)
-                    case let .chocolate(s):
-                        addImage(imageNamed: "chocolate_square", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: chocolateNodeName)
+                    case .chocolate:
+                        addImage(imageNamed: "chocolate_square", color: .red, colorBlendFactor: s4 == .normal ? 0.0 : 0.5, point: point, nodeName: chocolateNodeName)
                     default:
                         break
                     }
                 }
-                guard s1 != s2 || s2 != nil && o2.toString() == "chocolate" else {continue}
+                guard s1 != s2 || s2 != nil && o2 == .chocolate else {continue}
                 removeNode(withName: hintNodeName)
                 addHint(p: p, n: stateFrom.game.pos2hint[p]!, s: s2!)
             }

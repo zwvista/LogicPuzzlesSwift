@@ -90,9 +90,8 @@ class CarpentersWallGameState: GridGameState<CarpentersWallGameMove> {
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                if CarpentersWallGame.offset2.testAll({os in
-                    let o = self[p + os]
-                    if case .wall = o { return true } else { return false }
+                if CarpentersWallGame.offset2.testAll({
+                    self[p + $0] == .wall
                 }) { isSolved = false }
             }
         }

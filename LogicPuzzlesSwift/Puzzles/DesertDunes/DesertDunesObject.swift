@@ -8,38 +8,11 @@
 
 import Foundation
 
-enum DesertDunesObject {
-    case empty
-    case marker
-    case forbidden
-    case dune(state: AllowedObjectState = .normal)
-    case hint(state: HintState = .normal)
+enum DesertDunesObject: Int {
+    case empty, forbidden, hint, marker
+    case dune
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .dune:
-            return "dune"
-        case .marker:
-            return "marker"
-        case .hint:
-            return "hint"
-        case .forbidden:
-            return "forbidden"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> DesertDunesObject {
-        switch str {
-        case "dune":
-            return .dune()
-        case "marker":
-            return .marker
-        default:
-            return .empty
-        }
     }
 }
 

@@ -15,7 +15,7 @@ class FunnyNumbersGameState: GridGameState<FunnyNumbersGameMove> {
         set { setGame(game: newValue) }
     }
     override var gameDocument: GameDocumentBase { FunnyNumbersDocument.sharedInstance }
-    var objArray = [FunnyNumbersObject]()
+    var objArray = [Int]()
     var row2state = [HintState]()
     var col2state = [HintState]()
 
@@ -34,17 +34,17 @@ class FunnyNumbersGameState: GridGameState<FunnyNumbersGameMove> {
     required init(game: FunnyNumbersGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<FunnyNumbersObject>(repeating: FunnyNumbersObject(), count: rows * cols)
+        objArray = game.objArray
         row2state = Array<HintState>(repeating: .normal, count: rows)
         col2state = Array<HintState>(repeating: .normal, count: cols)
         updateIsSolved()
     }
     
-    subscript(p: Position) -> FunnyNumbersObject {
+    subscript(p: Position) -> Int {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
     }
-    subscript(row: Int, col: Int) -> FunnyNumbersObject {
+    subscript(row: Int, col: Int) -> Int {
         get { objArray[row * cols + col] }
         set { objArray[row * cols + col] = newValue }
     }

@@ -39,9 +39,8 @@ class DesertDunesGameScene: GameScene<DesertDunesGameState> {
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             addImage(imageNamed: "palmtree", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "palmtree")
-            if case .hint(let s) = state[p] {
-                addHint(n: n, s: s, point: point, nodeName: hintNodeName)
-            }
+            let s = state.pos2stateHint[p]!
+            addHint(n: n, s: s, point: point, nodeName: hintNodeName)
         }
         for p in state.invalid2x2Squares {
             let point = gridNode.cornerPoint(p: p)
@@ -63,7 +62,9 @@ class DesertDunesGameScene: GameScene<DesertDunesGameState> {
                 let hintNodeName = "hint" + nodeNameSuffix
                 let invalid2x2NodeName = "invalid2x2" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                if String(describing: o1) != String(describing: o2) {
+                let (s1, s2) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
+                let (s3, s4) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
+                if o1 != o2 || s1 != s2 || s3 != s4 {
                     switch o1 {
                     case .dune: removeNode(withName: duneNodeName)
                     case .forbidden: removeNode(withName: forbiddenNodeName)
@@ -72,12 +73,12 @@ class DesertDunesGameScene: GameScene<DesertDunesGameState> {
                     default: break
                     }
                     switch o2 {
-                    case .dune(let s):
-                        addImage(imageNamed: "dune", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: duneNodeName)
+                    case .dune:
+                        addImage(imageNamed: "dune", color: .red, colorBlendFactor: s4 == .normal ? 0.0 : 0.5, point: point, nodeName: duneNodeName)
                     case .forbidden:
                         addDotMarker2(color: .red, point: point, nodeName: forbiddenNodeName)
-                    case .hint(let s):
-                        addHint(n: stateFrom.game.pos2hint[p]!, s: s, point: point, nodeName: hintNodeName)
+                    case .hint:
+                        addHint(n: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
                     case .marker:
                         addDotMarker(point: point, nodeName: markerNodeName)
                     default:
