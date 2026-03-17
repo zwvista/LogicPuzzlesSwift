@@ -29,11 +29,10 @@ class BusySeasGameScene: GameScene<BusySeasGameState> {
         
         // add Hints
         for (p, n) in game.pos2hint {
-            guard case let .hint(state: s) = state[p] else {continue}
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
-            addHint(n: n, s: s, point: point, nodeName: hintNodeName)
+            addHint(n: n, s: state.pos2stateHint[p]!, point: point, nodeName: hintNodeName)
         }
         
         // addForbidden
@@ -59,39 +58,31 @@ class BusySeasGameScene: GameScene<BusySeasGameState> {
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                func removeHint() { removeNode(withName: hintNodeName) }
-                func addLighthouse(s: AllowedObjectState) {
-                    addImage(imageNamed: "lightbulb_on", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: lighthouseNodeName)
-                }
-                func removeLighthouse() { removeNode(withName: lighthouseNodeName) }
-                func addMarker() { addCircleMarker(color: .white, point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                func addForbidden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
-                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
-                let (ot1, ot2) = (stateFrom[r, c], stateTo[r, c])
-                guard String(describing: ot1) != String(describing: ot2) else {continue}
-                switch ot1 {
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
+                let (s3, s4) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
+                guard o1 != o2 || s1 != s2 || s3 != s4 else {continue}
+                switch o1 {
                 case .forbidden:
-                    removeForbidden()
+                    removeNode(withName: forbiddenNodeName)
                 case .lighthouse:
-                    removeLighthouse()
+                    removeNode(withName: lighthouseNodeName)
                 case .marker:
-                    removeMarker()
+                    removeNode(withName: markerNodeName)
                 case .hint:
-                    removeHint()
+                    removeNode(withName: hintNodeName)
                 default:
                     break
                 }
-                switch ot2 {
+                switch o2 {
                 case .forbidden:
-                    addForbidden()
-                case let .lighthouse(s):
-                    addLighthouse(s: s)
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
+                case .lighthouse:
+                    addImage(imageNamed: "lightbulb_on", color: .red, colorBlendFactor: s4 == .normal ? 0.0 : 0.5, point: point, nodeName: lighthouseNodeName)
                 case .marker:
-                    addMarker()
-                case let .hint(s):
-                    let n = stateTo.game.pos2hint[Position(r, c)]!
-                    addHint(n: n, s: s, point: point, nodeName: hintNodeName)
+                    addCircleMarker(color: .white, point: point, nodeName: markerNodeName)
+                case .hint:
+                    addHint(n: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
                 default:
                     break
                 }

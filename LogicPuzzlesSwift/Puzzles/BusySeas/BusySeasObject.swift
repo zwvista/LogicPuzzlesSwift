@@ -8,34 +8,11 @@
 
 import Foundation
 
-enum BusySeasObject {
-    case empty
-    case forbidden
-    case hint(state: HintState = .normal)
-    case marker
-    case lighthouse(state: AllowedObjectState = .normal)
+enum BusySeasObject: Int {
+    case empty, forbidden, hint, marker
+    case lighthouse
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .lighthouse:
-            return "lighthouse"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> BusySeasObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "lighthouse":
-            return .lighthouse()
-        default:
-            return .empty
-        }
     }
 }
 

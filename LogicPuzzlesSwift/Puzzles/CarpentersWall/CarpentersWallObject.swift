@@ -8,44 +8,17 @@
 
 import Foundation
 
-enum CarpentersWallObject {
-    case empty
-    case corner(tiles: Int, state: HintState)
-    case marker
-    case wall
-    case left(state: HintState = .normal)
-    case right(state: HintState = .normal)
-    case up(state: HintState = .normal)
-    case down(state: HintState = .normal)
+enum CarpentersWallObject: Int {
+    case empty, marker
+    case corner, wall
+    case left, right, up, down
     init() {
         self = .empty
     }
-    func toString() -> String {
+    var isHint: Bool {
         switch self {
-        case .marker:
-            return "marker"
-        case .wall:
-            return "wall"
-        default:
-            return "empty"
-        }
-    }
-    func isHint() -> Bool {
-        switch self {
-        case .corner, .up, .down, .left, .right:
-            return true
-        default:
-            return false
-        }
-    }
-    static func fromString(str: String) -> CarpentersWallObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "wall":
-            return .wall
-        default:
-            return .empty
+        case .corner, .up, .down, .left, .right: true
+        default: false
         }
     }
 }

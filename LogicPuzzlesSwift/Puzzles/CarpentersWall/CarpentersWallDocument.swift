@@ -13,10 +13,10 @@ class CarpentersWallDocument: GameDocument<CarpentersWallGameMove> {
     
     override func saveMove(_ move: CarpentersWallGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> CarpentersWallGameMove {
-        CarpentersWallGameMove(p: Position(rec.row, rec.col), obj: CarpentersWallObject.fromString(str: rec.strValue1!))
+        CarpentersWallGameMove(p: Position(rec.row, rec.col), obj: CarpentersWallObject(rawValue: rec.intValue1)!)
     }
 }

@@ -24,6 +24,6 @@ class BootyIslandGameViewController: GameGameViewController2<BootyIslandGameStat
     }
     
     override func newGame(level: GameLevel) -> BootyIslandGame {
-        BootyIslandGame(layout: level.layout, delegate: self)
+        BootyIslandGame(layout: level.layout, treasuresInEachArea: (level.settings["TreasuresInEachArea"] ?? "1").toInt()!, delegate: self)
     }
 }

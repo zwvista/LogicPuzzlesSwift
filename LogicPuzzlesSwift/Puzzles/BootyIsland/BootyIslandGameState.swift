@@ -15,6 +15,8 @@ class BootyIslandGameState: GridGameState<BootyIslandGameMove> {
     }
     override var gameDocument: GameDocumentBase { BootyIslandDocument.sharedInstance }
     var objArray = [BootyIslandObject]()
+    var pos2stateHint = [Position: HintState]()
+    var pos2stateAllowed = [Position: AllowedObjectState]()
     
     override func copy() -> BootyIslandGameState {
         let v = BootyIslandGameState(game: game, isCopy: true)
@@ -31,7 +33,7 @@ class BootyIslandGameState: GridGameState<BootyIslandGameMove> {
         guard !isCopy else {return}
         objArray = Array<BootyIslandObject>(repeating: .empty, count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint()
+            self[p] = .hint
         }
         updateIsSolved()
     }
@@ -47,23 +49,21 @@ class BootyIslandGameState: GridGameState<BootyIslandGameMove> {
     
     override func setObject(move: inout BootyIslandGameMove) -> GameOperationType {
         let p = move.p
-        let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 { return .invalid }
-        guard String(describing: o1) != String(describing: o2) else { return .invalid }
-        self[p] = o2
+        guard isValid(p: p) && self[p] == .hint && self[p] != move.obj else { return .invalid }
+        self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }
     
     override func switchObject(move: inout BootyIslandGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) else { return .invalid }
+        guard isValid(p: p) && self[p] == .hint else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .treasure()
+        case .empty: markerOption == .markerFirst ? .marker : .treasure
         case .treasure: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .treasure() : .empty
+        case .marker: markerOption == .markerFirst ? .treasure : .empty
         default: o
         }
         return setObject(move: &move)
@@ -101,7 +101,7 @@ class BootyIslandGameState: GridGameState<BootyIslandGameMove> {
                 case .forbidden:
                     self[p] = .empty
                 case .treasure:
-                    self[p] = .treasure()
+                    pos2stateAllowed[p] = .normal
                 default:
                     break
                 }
@@ -112,16 +112,15 @@ class BootyIslandGameState: GridGameState<BootyIslandGameMove> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 func hasNeighbor() -> Bool {
-                    for os in BootyIslandGame.offset {
-                        let p2 = p + os
-                        if isValid(p: p2), case .treasure = self[p2] { return true }
+                    BootyIslandGame.offset.contains {
+                        let p2 = p + $0
+                        return isValid(p: p2) && self[p2] == .treasure
                     }
-                    return false
                 }
                 switch self[p] {
-                case let .treasure(state):
-                    let s: AllowedObjectState = state == .normal && !hasNeighbor() ? .normal : .error
-                    self[p] = .treasure(state: s)
+                case .treasure:
+                    let s: AllowedObjectState = pos2stateAllowed[p] == .normal && !hasNeighbor() ? .normal : .error
+                    pos2stateAllowed[p] = s
                     if s == .error { isSolved = false }
                 case .empty, .marker:
                     if allowedObjectsOnly && hasNeighbor() { self[p] = .forbidden }
@@ -130,20 +129,21 @@ class BootyIslandGameState: GridGameState<BootyIslandGameMove> {
                 }
             }
         }
-        let n2 = 1
+        let n2 = game.treasuresInEachArea
         // 2. In fact there's only one Treasure for each row.
         for r in 0..<rows {
             var n1 = 0
             for c in 0..<cols {
-                if case .treasure = self[r, c] { n1 += 1 }
+                if self[r, c] == .treasure { n1 += 1 }
             }
             if n1 != n2 { isSolved = false }
             for c in 0..<cols {
-                switch self[r, c] {
-                case let .treasure(state):
-                    self[r, c] = .treasure(state: state == .normal && n1 <= n2 ? .normal : .error)
+                let p = Position(r, c)
+                switch self[p] {
+                case .treasure:
+                    pos2stateAllowed[p] = pos2stateAllowed[p] == .normal && n1 <= n2 ? .normal : .error
                 case .empty, .marker:
-                    if n1 == n2 && allowedObjectsOnly { self[r, c] = .forbidden }
+                    if n1 == n2 && allowedObjectsOnly { self[p] = .forbidden }
                 default:
                     break
                 }
@@ -153,15 +153,16 @@ class BootyIslandGameState: GridGameState<BootyIslandGameMove> {
         for c in 0..<cols {
             var n1 = 0
             for r in 0..<rows {
-                if case .treasure = self[r, c] { n1 += 1 }
+                if self[r, c] == .treasure { n1 += 1 }
             }
             if n1 != n2 { isSolved = false }
             for r in 0..<rows {
-                switch self[r, c] {
-                case let .treasure(state):
-                    self[r, c] = .treasure(state: state == .normal && n1 <= n2 ? .normal : .error)
+                let p = Position(r, c)
+                switch self[p] {
+                case .treasure:
+                    pos2stateAllowed[p] = pos2stateAllowed[p] == .normal && n1 <= n2 ? .normal : .error
                 case .empty, .marker:
-                    if n1 == n2 && allowedObjectsOnly { self[r, c] = .forbidden }
+                    if n1 == n2 && allowedObjectsOnly { self[p] = .forbidden }
                 default:
                     break
                 }
@@ -194,7 +195,7 @@ class BootyIslandGameState: GridGameState<BootyIslandGameMove> {
                 return possible ? .normal : .error
             }
             let s = f()
-            self[p] = .hint(state: s)
+            pos2stateHint[p] = s
             if s != .complete { isSolved = false }
         }
     }

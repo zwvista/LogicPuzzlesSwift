@@ -12,8 +12,11 @@ class BootyIslandGame: GridGame<BootyIslandGameState> {
     static let offset = Position.Directions8
 
     var pos2hint = [Position: Int]()
-    
-    init(layout: [String], delegate: BootyIslandGameViewController? = nil) {
+    let treasuresInEachArea: Int
+
+    init(layout: [String], treasuresInEachArea: Int, delegate: BootyIslandGameViewController? = nil) {
+        self.treasuresInEachArea = treasuresInEachArea
+
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length)

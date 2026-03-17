@@ -8,34 +8,11 @@
 
 import Foundation
 
-enum BootyIslandObject {
-    case empty
-    case forbidden
-    case hint(state: HintState = .normal)
-    case marker
-    case treasure(state: AllowedObjectState = .normal)
+enum BootyIslandObject: Int {
+    case empty, forbidden, hint, marker
+    case treasure
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .treasure:
-            return "treasure"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> BootyIslandObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "treasure":
-            return .treasure()
-        default:
-            return .empty
-        }
     }
 }
 

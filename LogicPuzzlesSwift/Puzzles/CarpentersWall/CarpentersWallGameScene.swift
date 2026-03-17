@@ -34,18 +34,20 @@ class CarpentersWallGameScene: GameScene<CarpentersWallGameState> {
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let hintNodeName = "hint" + nodeNameSuffix
+                let s = state.pos2state[p]
                 switch state[p] {
-                case let .corner(n, s):
+                case .corner:
+                    let n = game.pos2hint[p]!
                     addCircleMarker(color: .white, point: point, nodeName: "marker")
-                    addHint(text: n == 0 ? "?" : String(n), s: s, point: point, nodeName: hintNodeName)
-                case let .left(s):
-                    addHint(text: "<", s: s, point: point, nodeName: hintNodeName)
-                case let .up(s):
-                    addHint(text: "^", s: s, point: point, nodeName: hintNodeName)
-                case let .right(s):
-                    addHint(text: ">", s: s, point: point, nodeName: hintNodeName)
-                case let .down(s):
-                    addHint(text: "v", s: s, point: point, nodeName: hintNodeName)
+                    addHint(text: n == 0 ? "?" : String(n), s: s!, point: point, nodeName: hintNodeName)
+                case .left:
+                    addHint(text: "<", s: s!, point: point, nodeName: hintNodeName)
+                case .up:
+                    addHint(text: "^", s: s!, point: point, nodeName: hintNodeName)
+                case .right:
+                    addHint(text: ">", s: s!, point: point, nodeName: hintNodeName)
+                case .down:
+                    addHint(text: "v", s: s!, point: point, nodeName: hintNodeName)
                 default:
                     break
                 }
@@ -56,14 +58,16 @@ class CarpentersWallGameScene: GameScene<CarpentersWallGameState> {
     override func levelUpdated(from stateFrom: CarpentersWallGameState, to stateTo: CarpentersWallGameState) {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
-                let point = gridNode.centerPoint(p: Position(r, c))
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let wallNodeName = "wall" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                let (ot1, ot2) = (stateFrom[r, c], stateTo[r, c])
-                guard String(describing: ot1) != String(describing: ot2) else {continue}
-                switch ot1 {
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard o1 != o2 || s1 != s2 else {continue}
+                switch o1 {
                 case .wall:
                     removeNode(withName: wallNodeName)
                 case .marker:
@@ -73,21 +77,22 @@ class CarpentersWallGameScene: GameScene<CarpentersWallGameState> {
                 default:
                     break
                 }
-                switch ot2 {
+                switch o2 {
                 case .wall:
                     addBlock(color: .white, point: point, nodeName: wallNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
-                case let .corner(n, s):
-                    addHint(text: n == 0 ? "?" : String(n), s: s, point: point, nodeName: hintNodeName)
-                case let .left(s):
-                    addHint(text: "<", s: s, point: point, nodeName: hintNodeName)
-                case let .up(s):
-                    addHint(text: "^", s: s, point: point, nodeName: hintNodeName)
-                case let .right(s):
-                    addHint(text: ">", s: s, point: point, nodeName: hintNodeName)
-                case let .down(s):
-                    addHint(text: "v", s: s, point: point, nodeName: hintNodeName)
+                case .corner:
+                    let n = stateFrom.game.pos2hint[p]!
+                    addHint(text: n == 0 ? "?" : String(n), s: s2!, point: point, nodeName: hintNodeName)
+                case .left:
+                    addHint(text: "<", s: s2!, point: point, nodeName: hintNodeName)
+                case .up:
+                    addHint(text: "^", s: s2!, point: point, nodeName: hintNodeName)
+                case .right:
+                    addHint(text: ">", s: s2!, point: point, nodeName: hintNodeName)
+                case .down:
+                    addHint(text: "v", s: s2!, point: point, nodeName: hintNodeName)
                 default:
                     break
                 }

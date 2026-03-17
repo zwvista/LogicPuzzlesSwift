@@ -15,6 +15,7 @@ class CarpentersWallGameState: GridGameState<CarpentersWallGameMove> {
     }
     override var gameDocument: GameDocumentBase { CarpentersWallDocument.sharedInstance }
     var objArray = [CarpentersWallObject]()
+    var pos2state = [Position: HintState]()
     
     override func copy() -> CarpentersWallGameState {
         let v = CarpentersWallGameState(game: game, isCopy: true)
@@ -44,16 +45,15 @@ class CarpentersWallGameState: GridGameState<CarpentersWallGameMove> {
     
     override func setObject(move: inout CarpentersWallGameMove) -> GameOperationType {
         let p = move.p
-        let (o1, o2) = (self[p], move.obj)
-        guard !o1.isHint() && String(describing: o1) != String(describing: o2) else { return .invalid }
-        self[p] = o2
+        guard isValid(p: p) && !self[p].isHint && self[p] != move.obj else { return .invalid }
+        self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }
     
     override func switchObject(move: inout CarpentersWallGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && !self[p].isHint() else { return .invalid }
+        guard isValid(p: p) && !self[p].isHint else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
@@ -109,19 +109,8 @@ class CarpentersWallGameState: GridGameState<CarpentersWallGameMove> {
                 } else {
                     rngEmpty.append(p)
                 }
-                switch self[p] {
-                case let .corner(n, _):
-                    self[p] = .corner(tiles: n, state: .normal)
-                case .left:
-                    self[p] = .left()
-                case .up:
-                    self[p] = .up()
-                case .right:
-                    self[p] = .right()
-                case .down:
-                    self[p] = .down()
-                default:
-                    break
+                if (self[p].isHint) {
+                    pos2state[p] = .normal
                 }
             }
         }
@@ -154,7 +143,7 @@ class CarpentersWallGameState: GridGameState<CarpentersWallGameMove> {
             let node = pos2node[rngEmpty.first!]!
             let nodesExplored = breadthFirstSearch(g, source: node)
             let area = rngEmpty.filter { nodesExplored.contains($0.description) }
-            let rngHint = area.filter { self[$0].isHint() }
+            let rngHint = area.filter { self[$0].isHint }
             rngEmpty = rngEmpty.filter { !nodesExplored.contains($0.description) }
             let n1 = nodesExplored.count
             var r2 = 0, r1 = rows, c2 = 0, c1 = cols
@@ -179,36 +168,37 @@ class CarpentersWallGameState: GridGameState<CarpentersWallGameMove> {
                 f(cntR2, cntC2) ? 3 : -1 // ┘
             for p in rngHint {
                 switch self[p] {
-                case let .corner(n2, _):
+                case .corner:
                     // 3. The circled numbers on the board indicate the corner of the L.
                     // 4. When a number is inside the circle, that indicates the total number of
                     // squares occupied by the L.
+                    let n2 = game.pos2hint[p]!
                     let s: HintState = squareType == -1 ? .normal : !(n1 == n2 || n2 == 0) ? .error : squareType == 0 && p == Position(r1, c1) || squareType == 1 && p == Position(r1, c2) || squareType == 2 && p == Position(r2, c1) || squareType == 3 && p == Position(r2, c2) ? .complete : .error
-                    self[p] = .corner(tiles: n2, state: s)
+                    pos2state[p] = s
                     if s != .complete { isSolved = false }
                 case .left:
                     // 5. The arrow always sits at the end of an arm and points to the corner of
                     // an L.
                     let s: HintState = squareType == -1 ? .normal : squareType == 0 && p == Position(r1, c2) || squareType == 2 && p == Position(r2, c2) ? .complete : .error
-                    self[p] = .left(state: s)
+                    pos2state[p] = s
                     if s != .complete { isSolved = false }
                 case .up:
                     // 5. The arrow always sits at the end of an arm and points to the corner of
                     // an L.
                     let s: HintState = squareType == -1 ? .normal : squareType == 0 && p == Position(r2, c1) || squareType == 1 && p == Position(r2, c2) ? .complete : .error
-                    self[p] = .up(state: s)
+                    pos2state[p] = s
                     if s != .complete { isSolved = false }
                 case .right:
                     // 5. The arrow always sits at the end of an arm and points to the corner of
                     // an L.
                     let s: HintState = squareType == -1 ? .normal : squareType == 1 && p == Position(r1, c1) || squareType == 3 && p == Position(r2, c1) ? .complete : .error
-                    self[p] = .right(state: s)
+                    pos2state[p] = s
                     if s != .complete { isSolved = false }
                 case .down:
                     // 5. The arrow always sits at the end of an arm and points to the corner of
                     // an L.
                     let s: HintState = squareType == -1 ? .normal : squareType == 2 && p == Position(r1, c1) || squareType == 3 && p == Position(r1, c2) ? .complete : .error
-                    self[p] = .down(state: s)
+                    pos2state[p] = s
                     if s != .complete { isSolved = false }
                 default:
                     break

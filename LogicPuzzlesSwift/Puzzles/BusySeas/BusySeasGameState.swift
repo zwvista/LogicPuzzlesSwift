@@ -15,7 +15,9 @@ class BusySeasGameState: GridGameState<BusySeasGameMove> {
     }
     override var gameDocument: GameDocumentBase { BusySeasDocument.sharedInstance }
     var objArray = [BusySeasObject]()
-    
+    var pos2stateHint = [Position: HintState]()
+    var pos2stateAllowed = [Position: AllowedObjectState]()
+
     override func copy() -> BusySeasGameState {
         let v = BusySeasGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -31,7 +33,7 @@ class BusySeasGameState: GridGameState<BusySeasGameMove> {
         guard !isCopy else {return}
         objArray = Array<BusySeasObject>(repeating: .empty, count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint()
+            self[p] = .hint
         }
         updateIsSolved()
     }
@@ -61,9 +63,9 @@ class BusySeasGameState: GridGameState<BusySeasGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .lighthouse()
+        case .empty: markerOption == .markerFirst ? .marker : .lighthouse
         case .lighthouse: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .lighthouse() : .empty
+        case .marker: markerOption == .markerFirst ? .lighthouse : .empty
         default: o
         }
         return setObject(move: &move)
@@ -89,7 +91,7 @@ class BusySeasGameState: GridGameState<BusySeasGameMove> {
                 let p = Position(r, c)
                 switch self[p] {
                 case .lighthouse:
-                    self[p] = .lighthouse()
+                    pos2stateAllowed[p] = .normal
                 case .forbidden:
                     self[p] = .empty
                 default:
@@ -110,9 +112,9 @@ class BusySeasGameState: GridGameState<BusySeasGameMove> {
                     }
                     return false
                 }
-                if case let .lighthouse(state) = self[p] {
-                    let s: AllowedObjectState = state == .normal && hasLightedBoat() ? .normal : .error
-                    self[p] = .lighthouse(state: s)
+                if self[p] == .lighthouse {
+                    let s: AllowedObjectState = pos2stateAllowed[p] == .normal && hasLightedBoat() ? .normal : .error
+                    pos2stateAllowed[p] = s
                     if s == .error { isSolved = false }
                 }
             }
@@ -142,7 +144,7 @@ class BusySeasGameState: GridGameState<BusySeasGameMove> {
             let n1 = nums.reduce(0, +)
             // 2. Each boat has a number on it that tells you how many lighthouses are lighting it.
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            self[p] = .hint(state: s)
+            pos2stateHint[p] = s
             if s != .complete {
                 isSolved = false
             } else {

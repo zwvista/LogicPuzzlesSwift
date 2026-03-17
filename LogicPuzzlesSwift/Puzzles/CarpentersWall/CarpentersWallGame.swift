@@ -18,6 +18,7 @@ class CarpentersWallGame: GridGame<CarpentersWallGameState> {
     ]
 
     var objArray = [CarpentersWallObject]()
+    var pos2hint = [Position: Int]()
 
     init(layout: [String], delegate: CarpentersWallGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -30,14 +31,17 @@ class CarpentersWallGame: GridGame<CarpentersWallGameState> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let ch = str[c]
-                switch ch {
-                case "0"..."9": self[p] = .corner(tiles: ch.toInt!, state: .normal)
-                case "O": self[p] = .corner(tiles: 0, state: .normal)
-                case "^": self[p] = .up()
-                case "v": self[p] = .down()
-                case "<": self[p] = .left()
-                case ">": self[p] = .right()
-                default: break
+                if ch == "O" || ch.isNumber {
+                    pos2hint[p] = ch == "O" ? 0 : ch.toInt!
+                    self[p] = .corner
+                } else {
+                    self[p] = switch ch {
+                    case "^": .up
+                    case "v": .down
+                    case "<": .left
+                    case ">": .right
+                    default: .empty
+                    }
                 }
             }
         }
