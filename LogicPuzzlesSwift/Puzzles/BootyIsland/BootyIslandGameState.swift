@@ -49,7 +49,7 @@ class BootyIslandGameState: GridGameState<BootyIslandGameMove> {
     
     override func setObject(move: inout BootyIslandGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && self[p] == .hint && self[p] != move.obj else { return .invalid }
+        guard isValid(p: p) && self[p] != .hint && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -57,7 +57,7 @@ class BootyIslandGameState: GridGameState<BootyIslandGameMove> {
     
     override func switchObject(move: inout BootyIslandGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && self[p] == .hint else { return .invalid }
+        guard isValid(p: p) && self[p] != .hint else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
