@@ -15,7 +15,8 @@ class FussyWaiterGameState: GridGameState<FussyWaiterGameMove> {
     }
     override var gameDocument: GameDocumentBase { FussyWaiterDocument.sharedInstance }
     var objArray = [FussyWaiterObject]()
-    var pos2state = [Position: AllowedObjectState]()
+    var pos2stateFood = [Position: AllowedObjectState]()
+    var pos2stateDrink = [Position: AllowedObjectState]()
     
     override func copy() -> FussyWaiterGameState {
         let v = FussyWaiterGameState(game: game, isCopy: true)
@@ -87,17 +88,21 @@ class FussyWaiterGameState: GridGameState<FussyWaiterGameMove> {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                pos2state[Position(r, c)] = .normal
+                let p = Position(r, c)
+                pos2stateFood[p] = .normal
+                pos2stateDrink[p] = .normal
             }
         }
-        func f(arr: [(Position, Character)]) {
+        func f(arr: [(Position, Character)], pos2state: inout [Position: AllowedObjectState]) {
             var m = Dictionary(grouping: arr) { $0.1 }
             if m.keys.contains(" ") { isSolved = false }
-            m = m.filter { ch, arr in ch != " " && arr.count > 1 }
+            m = m.filter { ch, arr2 in ch != " " && arr2.count > 1 }
             if !m.isEmpty {
                 isSolved = false
-                for (p, ch) in arr {
-                    pos2state[p] = .error
+                for arr2 in m.values {
+                    for (p, _) in arr2 {
+                        pos2state[p] = .error
+                    }
                 }
             }
         }
@@ -109,8 +114,8 @@ class FussyWaiterGameState: GridGameState<FussyWaiterGameMove> {
                 foods.append((p, self[p].food))
                 drinks.append((p, self[p].drink))
             }
-            f(arr: foods)
-            f(arr: drinks)
+            f(arr: foods, pos2state: &pos2stateFood)
+            f(arr: drinks, pos2state: &pos2stateDrink)
         }
         for c in 0..<cols {
             var foods = [(Position, Character)]()
@@ -120,8 +125,8 @@ class FussyWaiterGameState: GridGameState<FussyWaiterGameMove> {
                 foods.append((p, self[p].food))
                 drinks.append((p, self[p].drink))
             }
-            f(arr: foods)
-            f(arr: drinks)
+            f(arr: foods, pos2state: &pos2stateFood)
+            f(arr: drinks, pos2state: &pos2stateDrink)
         }
     }
 }

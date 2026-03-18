@@ -11,7 +11,6 @@ import Foundation
 struct FussyWaiterObject {
     var food: Character = " "
     var drink: Character = " "
-    var str: String { "\(food)\(drink)" }
 }
 
 struct FussyWaiterGameMove {

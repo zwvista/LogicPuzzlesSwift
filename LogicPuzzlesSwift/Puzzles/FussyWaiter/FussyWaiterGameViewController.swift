@@ -19,7 +19,10 @@ class FussyWaiterGameViewController: GameGameViewController2<FussyWaiterGameStat
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = FussyWaiterGameMove(p: p)
+        let blockSize = scene.gridNode.blockSize!
+        let x = touchLocationInGrid.x - CGFloat(p.col) * blockSize
+        let y = -touchLocationInGrid.y - CGFloat(p.row) * blockSize
+        var move = FussyWaiterGameMove(p: p, obj: x + y < blockSize ? "a" : "A")
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
    

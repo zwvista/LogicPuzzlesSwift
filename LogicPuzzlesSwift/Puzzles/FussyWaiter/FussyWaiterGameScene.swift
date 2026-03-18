@@ -33,20 +33,20 @@ class FussyWaiterGameScene: GameScene<FussyWaiterGameState> {
         case "G": "lemonade_bottle"
         default: ""
         }
-        addImage(imageNamed: imageName, color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
+        addImage(imageNamed: imageName, color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName, size: CGSize(width: gridNode.blockSize /  2, height: gridNode.blockSize / 2))
     }
     
     func centerLeftPoint(p: Position) -> CGPoint {
         let offset: CGFloat = 0.5
         let x = (CGFloat(p.col) + CGFloat(0.25)) * gridNode.blockSize + offset
-        let y = -((CGFloat(p.row) + CGFloat(0.5)) * gridNode.blockSize + offset)
+        let y = -((CGFloat(p.row) + CGFloat(0.25)) * gridNode.blockSize + offset)
         return CGPoint(x: x, y: y)
     }
     
     func centerRightPoint(p: Position) -> CGPoint {
         let offset: CGFloat = 0.5
         let x = (CGFloat(p.col) + CGFloat(0.75)) * gridNode.blockSize + offset
-        let y = -((CGFloat(p.row) + CGFloat(0.5)) * gridNode.blockSize + offset)
+        let y = -((CGFloat(p.row) + CGFloat(0.75)) * gridNode.blockSize + offset)
         return CGPoint(x: x, y: y)
     }
 
@@ -83,8 +83,20 @@ class FussyWaiterGameScene: GameScene<FussyWaiterGameState> {
                 let foodNodeName = "food" + nodeNameSuffix
                 let drinkNodeName = "drink" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
-//                guard o1 != o2 || s1 != s2 else {continue}
+                let (s1, s2) = (stateFrom.pos2stateFood[p], stateTo.pos2stateFood[p])
+                let (s3, s4) = (stateFrom.pos2stateDrink[p], stateTo.pos2stateDrink[p])
+                if o1.food != o2.food || s1 != s2 {
+                    if o1.food != " " { removeNode(withName: foodNodeName) }
+                    if o2.food != " " {
+                        addFoodDrink(ch: o2.food, s: s2!, point: point1, nodeName: foodNodeName)
+                    }
+                }
+                if o1.drink != o2.drink || s3 != s4 {
+                    if o1.drink != " " { removeNode(withName: drinkNodeName) }
+                    if o2.drink != " " {
+                        addFoodDrink(ch: o2.drink, s: s4!, point: point2, nodeName: drinkNodeName)
+                    }
+                }
             }
         }
     }
