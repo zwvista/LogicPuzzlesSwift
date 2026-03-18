@@ -13,10 +13,10 @@ class FussyWaiterDocument: GameDocument<FussyWaiterGameMove> {
     
     override func saveMove(_ move: FussyWaiterGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.strValue1 = String(move.obj)
     }
     
     override func loadMove(from rec: MoveProgress) -> FussyWaiterGameMove {
-        FussyWaiterGameMove(p: Position(rec.row, rec.col), obj: FussyWaiterObject.fromString(str: rec.strValue1!))
+        FussyWaiterGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
     }
 }

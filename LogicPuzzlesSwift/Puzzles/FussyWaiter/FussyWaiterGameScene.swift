@@ -14,11 +14,41 @@ class FussyWaiterGameScene: GameScene<FussyWaiterGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addFlower(s: AllowedObjectState, point: CGPoint, nodeName: String) {
-        addImage(imageNamed: "flower_blue", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
+    func addFoodDrink(ch: Character, s: AllowedObjectState, point: CGPoint, nodeName: String) {
+        guard ch != " " else {return}
+        let imageName = switch ch {
+        case "a": "hamburger"
+        case "b": "pizza"
+        case "c": "fries"
+        case "d": "donut"
+        case "e": "fish"
+        case "f": "icecream"
+        case "g": "pig"
+        case "A": "drink_blue"
+        case "B": "cup"
+        case "C": "wine_red_glass"
+        case "D": "beer_glass"
+        case "E": "cocktail"
+        case "F": "wine_white_glass"
+        case "G": "lemonade_bottle"
+        default: ""
+        }
+        addImage(imageNamed: imageName, color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }
-
-    func addForbidden(point: CGPoint, nodeName: String) { addForbiddenMarker(point: point, nodeName: nodeName) }
+    
+    func centerLeftPoint(p: Position) -> CGPoint {
+        let offset: CGFloat = 0.5
+        let x = (CGFloat(p.col) + CGFloat(0.25)) * gridNode.blockSize + offset
+        let y = -((CGFloat(p.row) + CGFloat(0.5)) * gridNode.blockSize + offset)
+        return CGPoint(x: x, y: y)
+    }
+    
+    func centerRightPoint(p: Position) -> CGPoint {
+        let offset: CGFloat = 0.5
+        let x = (CGFloat(p.col) + CGFloat(0.75)) * gridNode.blockSize + offset
+        let y = -((CGFloat(p.row) + CGFloat(0.5)) * gridNode.blockSize + offset)
+        return CGPoint(x: x, y: y)
+    }
 
     override func levelInitialized(_ game: AnyObject, state: FussyWaiterGameState, skView: SKView) {
         let game = game as! FussyWaiterGame
@@ -33,21 +63,13 @@ class FussyWaiterGameScene: GameScene<FussyWaiterGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                let point = gridNode.centerPoint(p: p)
+                let (point1, point2) = (centerLeftPoint(p: p), centerRightPoint(p: p))
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let flowerNodeName = "flower" + nodeNameSuffix
-                let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                switch state[p] {
-                case let .flower(s):
-                    addFlower(s: s, point: point, nodeName: flowerNodeName)
-                    addCircleMarker(color: .white, point: point, nodeName: "marker")
-                case .block:
-                    addBlock(color: .white, point: point, nodeName: "block")
-                case .forbidden:
-                    addForbidden(point: point, nodeName: forbiddenNodeName)
-                default:
-                    break
-                }
+                let foodNodeName = "food" + nodeNameSuffix
+                let drinkNodeName = "drink" + nodeNameSuffix
+                let o = game[p]
+                addFoodDrink(ch: o.food, s: .normal, point: point1, nodeName: foodNodeName)
+                addFoodDrink(ch: o.drink, s: .normal, point: point2, nodeName: drinkNodeName)
             }
         }
     }
@@ -56,37 +78,13 @@ class FussyWaiterGameScene: GameScene<FussyWaiterGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.centerPoint(p: p)
+                let (point1, point2) = (centerLeftPoint(p: p), centerRightPoint(p: p))
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let flowerNodeName = "flower" + nodeNameSuffix
-                let markerNodeName = "marker" + nodeNameSuffix
-                let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                func removeFlower() { removeNode(withName: flowerNodeName) }
-                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
+                let foodNodeName = "food" + nodeNameSuffix
+                let drinkNodeName = "drink" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                guard String(describing: o1) != String(describing: o2) else {continue}
-                switch o1 {
-                case .forbidden:
-                    removeForbidden()
-                case .flower:
-                    removeFlower()
-                case .marker:
-                    removeMarker()
-                default:
-                    break
-                }
-                switch o2 {
-                case .forbidden:
-                    addForbidden(point: point, nodeName: forbiddenNodeName)
-                case let .flower(s):
-                    addFlower(s: s, point: point, nodeName: flowerNodeName)
-                case .marker:
-                    addMarker()
-                default:
-                    break
-                }
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+//                guard o1 != o2 || s1 != s2 else {continue}
             }
         }
     }

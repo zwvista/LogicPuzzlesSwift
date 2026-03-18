@@ -16,22 +16,14 @@ class FussyWaiterGame: GridGame<FussyWaiterGameState> {
     init(layout: [String], delegate: FussyWaiterGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count, layout[0].length)
-        objArray = Array<FussyWaiterObject>(repeating: .empty, count: rows * cols)
+        size = Position(layout.count, layout[0].length / 2)
+        objArray = Array<FussyWaiterObject>(repeating: FussyWaiterObject(), count: rows * cols)
         
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
-                let p = Position(r, c)
-                let ch = str[c]
-                switch ch {
-                case "F":
-                    self[p] = .flower()
-                case "B":
-                    self[p] = .block
-                default:
-                    break
-                }
+                let (ch1, ch2) = (str[c * 2], str[c * 2 + 1])
+                self[r, c] = FussyWaiterObject(food: ch1, drink: ch2)
             }
         }
 

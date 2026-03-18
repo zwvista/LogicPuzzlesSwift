@@ -8,38 +8,14 @@
 
 import Foundation
 
-enum FussyWaiterObject {
-    case empty
-    case forbidden
-    case marker
-    case flower(state: AllowedObjectState = .normal)
-    case block
-    init() {
-        self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .flower:
-            return "flower"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> FussyWaiterObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "flower":
-            return .flower()
-        default:
-            return .empty
-        }
-    }
+struct FussyWaiterObject {
+    var food: Character = " "
+    var drink: Character = " "
+    var str: String { "\(food)\(drink)" }
 }
 
 struct FussyWaiterGameMove {
     var p = Position()
-    var obj = FussyWaiterObject()
+    var obj: Character = " "
+    var isDrink: Bool { obj.isUppercase }
 }

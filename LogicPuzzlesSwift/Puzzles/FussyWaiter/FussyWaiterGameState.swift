@@ -15,6 +15,7 @@ class FussyWaiterGameState: GridGameState<FussyWaiterGameMove> {
     }
     override var gameDocument: GameDocumentBase { FussyWaiterDocument.sharedInstance }
     var objArray = [FussyWaiterObject]()
+    var pos2state = [Position: AllowedObjectState]()
     
     override func copy() -> FussyWaiterGameState {
         let v = FussyWaiterGameState(game: game, isCopy: true)
@@ -44,23 +45,23 @@ class FussyWaiterGameState: GridGameState<FussyWaiterGameMove> {
     
     override func setObject(move: inout FussyWaiterGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p), case .empty = game[p], String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
-        self[p] = move.obj
+        guard isValid(p: p) && (move.isDrink ? self[p].drink : self[p].food) != move.obj else { return .invalid }
+        if move.isDrink {
+            self[p].drink = move.obj
+        } else {
+            self[p].food = move.obj
+        }
         updateIsSolved()
         return .moveComplete
     }
     
     override func switchObject(move: inout FussyWaiterGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p), case .empty = game[p] else { return .invalid }
-        let markerOption = MarkerOptions(rawValue: markerOption)
-        let o = self[p]
-        move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .flower()
-        case .flower: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .flower() : .empty
-        default: o
-        }
+        guard isValid(p: p) && (move.isDrink ? game[p].drink : game[p].food) == " " else { return .invalid }
+        let chMin: Character = move.isDrink ? "A" : "a"
+        let chMax = Character(Unicode.Scalar(Int(chMin.asciiValue!) + game.rows)!)
+        let o = move.isDrink ? self[p].drink : self[p].food
+        move.obj = o == " " ? chMin : o == chMax ? " " : succ(ch: o)
         return setObject(move: &move)
     }
     
@@ -83,95 +84,44 @@ class FussyWaiterGameState: GridGameState<FussyWaiterGameMove> {
         5. He is indeed, very fussy.
     */
     private func updateIsSolved() {
-        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
-        let g = Graph()
-        var pos2node = [Position: Node]()
         for r in 0..<rows {
             for c in 0..<cols {
-                let p = Position(r, c)
-                switch self[p] {
-                case .forbidden:
-                    self[p] = .empty
-                case .flower:
-                    self[p] = .flower()
-                    pos2node[p] = g.addNode(p.description)
-                default:
-                    break
-                }
+                pos2state[Position(r, c)] = .normal
             }
         }
-        for (p, node) in pos2node {
-            for os in FussyWaiterGame.offset {
-                let p2 = p + os
-                guard let node2 = pos2node[p2] else {continue}
-                g.addEdge(node, neighbor: node2)
-            }
-        }
-        // 2. More exactly, you have to join the existing flowers by adding more of
-        // them, creating a single path of flowers touching horizontally or
-        // vertically.
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count { isSolved = false }
-        
-        var flowers = [Position]()
-        // 3. At the same time, you can't line up horizontally or vertically more
-        // than 3 flowers (thus Forbidden Four).
-        func invalidFlowers() -> Bool {
-            flowers.count > 3
-        }
-        func checkFlowers() {
-            if invalidFlowers() {
+        func f(arr: [(Position, Character)]) {
+            var m = Dictionary(grouping: arr) { $0.1 }
+            if m.keys.contains(" ") { isSolved = false }
+            m = m.filter { ch, arr in ch != " " && arr.count > 1 }
+            if !m.isEmpty {
                 isSolved = false
-                for p in flowers {
-                    self[p] = .flower(state: .error)
+                for (p, ch) in arr {
+                    pos2state[p] = .error
                 }
             }
-            flowers.removeAll()
-        }
-        func checkForbidden(p: Position, indexes: [Int]) {
-            guard allowedObjectsOnly else {return}
-            for i in indexes {
-                let os = FussyWaiterGame.offset[i]
-                var p2 = p + os
-                while isValid(p: p2) {
-                    guard case .flower = self[p2] else {break}
-                    flowers.append(p2)
-                    p2 += os
-                }
-            }
-            if invalidFlowers() { self[p] = .forbidden }
-            flowers.removeAll()
         }
         for r in 0..<rows {
+            var foods = [(Position, Character)]()
+            var drinks = [(Position, Character)]()
             for c in 0..<cols {
                 let p = Position(r, c)
-                switch self[p] {
-                case .flower:
-                    flowers.append(p)
-                case .empty, .marker:
-                    checkFlowers()
-                    checkForbidden(p: p, indexes: [1,3])
-                default:
-                    checkFlowers()
-                }
+                foods.append((p, self[p].food))
+                drinks.append((p, self[p].drink))
             }
-            checkFlowers()
+            f(arr: foods)
+            f(arr: drinks)
         }
         for c in 0..<cols {
+            var foods = [(Position, Character)]()
+            var drinks = [(Position, Character)]()
             for r in 0..<rows {
                 let p = Position(r, c)
-                switch self[p] {
-                case .flower:
-                    flowers.append(p)
-                case .empty, .marker:
-                    checkFlowers()
-                    checkForbidden(p: p, indexes: [0,2])
-                default:
-                    checkFlowers()
-                }
+                foods.append((p, self[p].food))
+                drinks.append((p, self[p].drink))
             }
-            checkFlowers()
+            f(arr: foods)
+            f(arr: drinks)
         }
     }
 }
