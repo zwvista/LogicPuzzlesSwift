@@ -34,7 +34,7 @@ class JoinMeGameState: GridGameState<JoinMeGameMove> {
     required init(game: JoinMeGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<JoinMeObject>(repeating: JoinMeObject(), count: rows * cols)
+        objArray = Array<JoinMeObject>(repeating: JoinMeObject(repeating: false, count: 4), count: rows * cols)
         row2state = Array<HintState>(repeating: .normal, count: rows)
         col2state = Array<HintState>(repeating: .normal, count: cols)
         updateIsSolved()
@@ -50,25 +50,13 @@ class JoinMeGameState: GridGameState<JoinMeGameMove> {
     }
     
     override func setObject(move: inout JoinMeGameMove) -> GameOperationType {
-        let p = move.p
-        guard isValid(p: p) && String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
-        self[p] = move.obj
+        let p = move.p, dir = move.dir
+        let p2 = p + JoinMeGame.offset[dir], dir2 = (dir + 2) % 4
+        guard isValid(p: p2) else { return .invalid }
+        self[p][dir].toggle()
+        self[p2][dir2].toggle()
         updateIsSolved()
         return .moveComplete
-    }
-    
-    override func switchObject(move: inout JoinMeGameMove) -> GameOperationType {
-        let p = move.p
-        guard isValid(p: p) else { return .invalid }
-        let markerOption = MarkerOptions(rawValue: markerOption)
-        let o = self[p]
-        move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .water()
-        case .water: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .water() : .empty
-        default: o
-        }
-        return setObject(move: &move)
     }
     
     /*
@@ -86,54 +74,6 @@ class JoinMeGameState: GridGameState<JoinMeGameMove> {
            to put between patches.
     */
     private func updateIsSolved() {
-        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
-        for r in 0..<rows {
-            for c in 0..<cols {
-                if case .forbidden = self[r, c] { self[r, c] = .empty }
-            }
-        }
-        // 2. You have to fill some water in it, considering that water pours down
-        //    and levels itself like in reality.
-        // 3. Areas of the same level which are horizontally connected will have
-        //    the same water level.
-        for area in game.areas {
-            let row2rng = OrderedDictionary(grouping: area) { $0.row }
-            guard let rowNotFilled = row2rng.keys.reversed().first(where: {
-                row2rng[$0]!.contains { self[$0].toString() != "water" }
-            }) else {continue}
-            let rng = area.filter { self[$0].toString() == "water" }
-            let rngError = rng.filter { $0.row < rowNotFilled }
-            rng.forEach { self[$0] = .water() }
-            guard !rngError.isEmpty else {continue}
-            isSolved = false
-            rngError.forEach { self[$0] = .water(state: .error) }
-        }
-        // 4. The numbers on the border show you how many tiles of each row and
-        //    column are filled.
-        for r in 0..<rows {
-            let n2 = game.row2hint[r]
-            guard n2 != JoinMeGame.PUZ_UNKNOWN else {continue}
-            let n1 = (0..<cols).count { self[r, $0].toString() == "water" }
-            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            row2state[r] = s
-            if s != .complete { isSolved = false }
-            guard s != .normal && allowedObjectsOnly else {continue}
-            (0..<cols).filter { self[r, $0].toString() == "empty" }.forEach {
-                self[r, $0] = .forbidden
-            }
-        }
-        for c in 0..<cols {
-            let n2 = game.col2hint[c]
-            guard n2 != JoinMeGame.PUZ_UNKNOWN else {continue}
-            let n1 = (0..<rows).count { self[$0, c].toString() == "water" }
-            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            col2state[c] = s
-            if s != .complete { isSolved = false }
-            guard s != .normal && allowedObjectsOnly else {continue}
-            (0..<rows).filter { self[$0, c].toString() == "empty" }.forEach {
-                self[$0, c] = .forbidden
-            }
-        }
     }
 }

@@ -24,8 +24,11 @@ class JoinMeGame: GridGame<JoinMeGameState> {
     var dots: GridDots!
     var row2hint = [Int]()
     var col2hint = [Int]()
+    let stitches: Int
 
-    init(layout: [String], delegate: JoinMeGameViewController? = nil) {
+    init(layout: [String], stitches: Int, delegate: JoinMeGameViewController? = nil) {
+        self.stitches = stitches
+        
         super.init(delegate: delegate)
         
         size = Position(layout.count / 2 - 1, layout[0].length / 2 - 1)

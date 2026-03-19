@@ -78,7 +78,7 @@ class GardenerGameScene: GameScene<GardenerGameState> {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
-            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
+            addHint(n: n, s: state.pos2stateHint[p]!, point: point, nodeName: hintNodeName)
         }
         for r in 0..<game.rows {
             for c in 0..<game.cols {
@@ -104,7 +104,7 @@ class GardenerGameScene: GameScene<GardenerGameState> {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
-            let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
+            let (s1, s2) = (stateFrom.pos2stateHint[p]!, stateTo.pos2stateHint[p]!)
             if s1 != s2 {
                 removeNode(withName: hintNodeName)
                 addHint(n: n, s: s2, point: point, nodeName: hintNodeName)
@@ -127,7 +127,8 @@ class GardenerGameScene: GameScene<GardenerGameState> {
                 }
                 func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                if String(describing: o1) != String(describing: o2) {
+                let (s1, s2) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
+                if o1 != o2 || s1 != s2 {
                     switch o1 {
                     case .forbidden:
                         removeNode(withName: forbiddenNodeName)
@@ -141,9 +142,9 @@ class GardenerGameScene: GameScene<GardenerGameState> {
                     switch o2 {
                     case .forbidden:
                         addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
-                    case let .flower(s):
+                    case .flower:
                         flowers.insert(p)
-                        addFllower(s: s)
+                        addFllower(s: s2!)
                     case .marker:
                         addMarker()
                     default:
@@ -166,7 +167,7 @@ class GardenerGameScene: GameScene<GardenerGameState> {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
-            let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
+            let (s1, s2) = (stateFrom.pos2stateHint[p]!, stateTo.pos2stateHint[p]!)
             if s1 != s2 || flowers.contains(p) {
                 removeNode(withName: hintNodeName)
                 addHint(n: n, s: s2, point: point, nodeName: hintNodeName)

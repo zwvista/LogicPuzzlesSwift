@@ -57,9 +57,10 @@ class HiddenStarsGameScene: GameScene<HiddenStarsGameState> {
                 switch state[p] {
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
-                case let .arrow(s):
+                case .arrow:
                     let point = gridNode.centerPoint(p: p)
                     let n = game.pos2arrow[p]!
+                    let s = state.pos2state[p]!
                     addArrow(n: n, s: s, point: point, nodeName: arrowNodeName)
                 default:
                     break
@@ -99,8 +100,9 @@ class HiddenStarsGameScene: GameScene<HiddenStarsGameState> {
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let arrowNodeName = "arrow" + nodeNameSuffix
-                let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
-                guard String(describing: o1) != String(describing: o2) else {continue}
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard o1 != o2 || s1 != s2 else {continue}
                 switch o1 {
                 case .forbidden:
                     removeNode(withName: forbiddenNodeName)
@@ -116,16 +118,16 @@ class HiddenStarsGameScene: GameScene<HiddenStarsGameState> {
                 switch o2 {
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
-                case let .star(s):
-                    addImage(imageNamed: "star_yellow", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: starNodeName)
-                case let .arrow(s):
+                case .star:
+                    addImage(imageNamed: "star_yellow", color: .red, colorBlendFactor: s2 == .normal ? 0.0 : 0.5, point: point, nodeName: starNodeName)
+                case .arrow:
                     let n = stateTo.game.pos2arrow[p]!
-                    addArrow(n: n, s: s, point: point, nodeName: arrowNodeName)
+                    addArrow(n: n, s: s2!, point: point, nodeName: arrowNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
                 default:
                     break
-                }                
+                }
             }
         }
     }

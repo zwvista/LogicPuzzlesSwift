@@ -15,7 +15,8 @@ class HiddenCloudsGameState: GridGameState<HiddenCloudsGameMove> {
     }
     override var gameDocument: GameDocumentBase { HiddenCloudsDocument.sharedInstance }
     var objArray = [HiddenCloudsObject]()
-    var pos2state = [Position: HintState]()
+    var pos2stateHint = [Position: HintState]()
+    var pos2stateAllowed = [Position: AllowedObjectState]()
 
     override func copy() -> HiddenCloudsGameState {
         let v = HiddenCloudsGameState(game: game, isCopy: true)
@@ -57,9 +58,9 @@ class HiddenCloudsGameState: GridGameState<HiddenCloudsGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .cloud()
+        case .empty: markerOption == .markerFirst ? .marker : .cloud
         case .cloud: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .cloud() : .empty
+        case .marker: markerOption == .markerFirst ? .cloud : .empty
         default: o
         }
         return setObject(move: &move)
@@ -98,7 +99,7 @@ class HiddenCloudsGameState: GridGameState<HiddenCloudsGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard self[p].toString() == "cloud" else {continue}
+                guard self[p] == .cloud else {continue}
                 pos2node[p] = g.addNode(p.description)
             }
         }
@@ -122,18 +123,18 @@ class HiddenCloudsGameState: GridGameState<HiddenCloudsGameMove> {
             let rs = r2 - r1 + 1, cs = c2 - c1 + 1
             let s: AllowedObjectState = rs * cs == cloud.count ? .normal : .error
             if s != .normal { isSolved = false }
-            for p in cloud { self[p] = .cloud(state: s) }
+            for p in cloud { pos2stateAllowed[p] = s }
         }
         // 4. Numbers indicate the total number of clouds tiles in the tile itself
         //    and in the four tiles around it (up down left right)
         for (p, n2) in game.pos2hint {
             let rng = HiddenCloudsGame.offset2.map { p + $0 }.filter { isValid(p: $0) }
-            let n1 = rng.filter { self[$0].toString() == "cloud" }.count
+            let n1 = rng.filter { self[$0] == .cloud }.count
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if s != .complete { isSolved = false }
-            pos2state[p] = s
+            pos2stateHint[p] = s
             guard allowedObjectsOnly && s != .normal else {continue}
-            let empties = rng.filter { self[$0].toString() == "empty" }
+            let empties = rng.filter { self[$0] == .empty }
             for p in empties { self[p] = .forbidden }
         }
     }

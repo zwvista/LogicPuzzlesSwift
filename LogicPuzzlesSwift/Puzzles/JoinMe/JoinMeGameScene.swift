@@ -97,31 +97,33 @@ class JoinMeGameScene: GameScene<JoinMeGameState> {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
-                let nodeNameSuffix = "-\(r)-\(c)"
-                let waterNodeName = "water" + nodeNameSuffix
-                let markerNodeName = "marker" + nodeNameSuffix
-                let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                let (o1, o2) = (stateFrom[p], stateTo[p])
-                guard String(describing: o1) != String(describing: o2) else {continue}
-                switch o1 {
-                case .forbidden:
-                    removeNode(withName: forbiddenNodeName)
-                case .marker:
-                    removeNode(withName: markerNodeName)
-                case .water:
-                    removeNode(withName: waterNodeName)
-                default:
-                    break
-                }
-                switch o2 {
-                case .forbidden:
-                    addDotMarker2(color: .red, point: point, nodeName: forbiddenNodeName)
-                case .marker:
-                    addDotMarker(point: point, nodeName: markerNodeName)
-                case .water(state: let s):
-                    addImage(imageNamed: "sea", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: waterNodeName)
-                default:
-                    break
+                for dir in 1...2 {
+                    let nodeNameSuffix = "-\(r)-\(c)-\(dir)"
+                    let lineNodeName = "line" + nodeNameSuffix
+                    func removeLine() { removeNode(withName: lineNodeName) }
+                    func addLine() {
+                        let pathToDraw = CGMutablePath()
+                        let lineNode = SKShapeNode(path:pathToDraw)
+                        lineNode.glowWidth = 8
+                        switch dir {
+                        case 1:
+                            pathToDraw.move(to: CGPoint(x: point.x, y: point.y))
+                            pathToDraw.addLine(to: CGPoint(x: point.x + gridNode.blockSize, y: point.y))
+                        case 2:
+                            pathToDraw.move(to: CGPoint(x: point.x, y: point.y))
+                            pathToDraw.addLine(to: CGPoint(x: point.x, y: point.y - gridNode.blockSize))
+                        default:
+                            break
+                        }
+                        lineNode.path = pathToDraw
+                        lineNode.strokeColor = .green
+                        lineNode.name = lineNodeName
+                        gridNode.addChild(lineNode)
+                    }
+                    let (o1, o2) = (stateFrom[p][dir], stateTo[p][dir])
+                    guard o1 != o2 else {continue}
+                    if o1 { removeLine() }
+                    if o2 { addLine() }
                 }
             }
         }

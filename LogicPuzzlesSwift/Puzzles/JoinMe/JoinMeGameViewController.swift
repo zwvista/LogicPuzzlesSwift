@@ -18,12 +18,12 @@ class JoinMeGameViewController: GameGameViewController2<JoinMeGameState, JoinMeG
         let touchLocationInScene = scene.convertPoint(fromView: touchLocation)
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
-        let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = JoinMeGameMove(p: p)
-        if game.switchObject(move: &move) { soundManager.playSoundTap() }
+        let (p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
+        var move = JoinMeGameMove(p: p, dir: dir)
+        if game.setObject(move: &move) { soundManager.playSoundTap() }
     }
    
     override func newGame(level: GameLevel) -> JoinMeGame {
-        JoinMeGame(layout: level.layout, delegate: self)
+        JoinMeGame(layout: level.layout, stitches: (level.settings["Stitches"] ?? "1").toInt()!, delegate: self)
     }
 }

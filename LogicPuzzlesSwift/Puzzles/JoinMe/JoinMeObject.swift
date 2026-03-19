@@ -8,37 +8,9 @@
 
 import Foundation
 
-enum JoinMeObject {
-    case empty
-    case forbidden
-    case marker
-    case water(state: AllowedObjectState = .normal)
-    init() {
-        self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .water:
-            return "water"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> JoinMeObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "water":
-            return .water()
-        default:
-            return .empty
-        }
-    }
-}
+typealias JoinMeObject = [Bool]
 
 struct JoinMeGameMove {
     var p = Position()
-    var obj = JoinMeObject()
+    var dir = 0
 }

@@ -17,6 +17,7 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
     var objArray = [HiddenStarsObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()
+    var pos2state = [Position: AllowedObjectState]()
     
     override func copy() -> HiddenStarsGameState {
         let v = HiddenStarsGameState(game: game, isCopy: true)
@@ -34,8 +35,8 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<HiddenStarsObject>(repeating: HiddenStarsObject(), count: rows * cols)
-        for (p, _) in game.pos2arrow {
-            self[p] = .arrow()
+        for p in game.pos2arrow.keys {
+            self[p] = .arrow
         }
         row2state = Array<HintState>(repeating: .normal, count: rows)
         col2state = Array<HintState>(repeating: .normal, count: cols)
@@ -53,7 +54,7 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
     
     override func setObject(move: inout HiddenStarsGameMove) -> GameOperationType {
         let p = move.p
-        guard String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p) && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -65,9 +66,9 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .star()
+        case .empty: markerOption == .markerFirst ? .marker : .star
         case .star: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .star() : .empty
+        case .marker: markerOption == .markerFirst ? .star : .empty
         default: o
         }
         return setObject(move: &move)
@@ -147,12 +148,12 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
                 case .star:
                     // 2. Each star is pointed at by at least one Arrow.
                     let s: AllowedObjectState = hasArrow() ? .normal : .error
-                    self[p] = .star(state: s)
+                    pos2state[p] = s
                     if s == .error { isSolved = false }
                 case .arrow:
                     // 2. Each Arrow points to at least one star.
                     let s: AllowedObjectState = hasStar() ? .normal : .error
-                    self[p] = .arrow(state: s)
+                    pos2state[p] = s
                     if s == .error { isSolved = false }
                 case .empty, .marker:
                     guard allowedObjectsOnly else {break}

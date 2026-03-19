@@ -15,7 +15,8 @@ class GardenerGameState: GridGameState<GardenerGameMove> {
     }
     override var gameDocument: GameDocumentBase { GardenerDocument.sharedInstance }
     var objArray = [GardenerObject]()
-    var pos2state = [Position: HintState]()
+    var pos2stateHint = [Position: HintState]()
+    var pos2stateAllowed = [Position: AllowedObjectState]()
     var invalidSpacesHorz = Set<Position>()
     var invalidSpacesVert = Set<Position>()
 
@@ -47,7 +48,7 @@ class GardenerGameState: GridGameState<GardenerGameMove> {
     
     override func setObject(move: inout GardenerGameMove) -> GameOperationType {
         let p = move.p
-        guard String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p) && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -59,9 +60,9 @@ class GardenerGameState: GridGameState<GardenerGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .flower()
+        case .empty: markerOption == .markerFirst ? .marker : .flower
         case .flower: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .flower() : .empty
+        case .marker: markerOption == .markerFirst ? .flower : .empty
         default: o
         }
         return setObject(move: &move)
@@ -94,7 +95,7 @@ class GardenerGameState: GridGameState<GardenerGameMove> {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                if case .forbidden = self[r, c] { self[r, c] = .empty }
+                if self[r, c] == .forbidden { self[r, c] = .empty }
             }
         }
         let g = Graph()
@@ -114,7 +115,7 @@ class GardenerGameState: GridGameState<GardenerGameMove> {
                 case .flower:
                     // 4. Flowers can't be horizontally or vertically touching.
                     let s: AllowedObjectState = !hasNeighbor() ? .normal : .error
-                    self[p] = .flower(state: s)
+                    pos2stateAllowed[p] = s
                     if s == .error { isSolved = false }
                 case .empty, .marker:
                     // 4. Flowers can't be horizontally or vertically touching.
@@ -147,7 +148,7 @@ class GardenerGameState: GridGameState<GardenerGameMove> {
                 if case .flower = self[p2] { n1 += 1 }
             }
             let s: HintState = n1 < n2 ? .normal : n1 == n2 || n2 == -1 ? .complete : .error
-            pos2state[p] = s
+            pos2stateHint[p] = s
             if s != .complete { isSolved = false }
             if s != .normal && allowedObjectsOnly {
                 for p2 in area {

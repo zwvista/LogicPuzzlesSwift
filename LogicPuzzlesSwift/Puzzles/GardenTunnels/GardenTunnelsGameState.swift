@@ -53,7 +53,6 @@ class GardenTunnelsGameState: GridGameState<GardenTunnelsGameMove> {
         return .moveComplete
     }
     
-    
     /*
         iOS Game: 100 Logic Games 3/Puzzle Set 4/Garden Tunnels
 

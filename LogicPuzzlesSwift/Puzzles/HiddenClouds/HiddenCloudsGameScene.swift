@@ -31,7 +31,7 @@ class HiddenCloudsGameScene: GameScene<HiddenCloudsGameState> {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
-            let s = state.pos2state[p]!
+            let s = state.pos2stateHint[p]!
             addHint(n: n, s: s, point: point, nodeName: hintNodeName)
         }
     }
@@ -47,8 +47,9 @@ class HiddenCloudsGameScene: GameScene<HiddenCloudsGameState> {
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
-                if String(describing: o1) != String(describing: o2) {
+                let (s1, s2) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
+                let (s3, s4) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
+                if o1 != o2 || s3 != s4 {
                     switch o1 {
                     case .cloud: removeNode(withName: cloudNodeName)
                     case .forbidden: removeNode(withName: forbiddenNodeName)
@@ -56,8 +57,8 @@ class HiddenCloudsGameScene: GameScene<HiddenCloudsGameState> {
                     default: break
                     }
                     switch o2 {
-                    case .cloud(let s):
-                        addImage(imageNamed: "cloud", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: cloudNodeName)
+                    case .cloud:
+                        addImage(imageNamed: "cloud", color: .red, colorBlendFactor: s4 == .normal ? 0.0 : 0.5, point: point, nodeName: cloudNodeName)
                     case .forbidden:
                         addDotMarker2(color: .red, point: point, nodeName: forbiddenNodeName)
                     case .marker:
@@ -66,7 +67,7 @@ class HiddenCloudsGameScene: GameScene<HiddenCloudsGameState> {
                         break
                     }
                 }
-                guard s1 != s2 || s2 != nil && o2.toString() == "cloud" else {continue}
+                guard s1 != s2 || s2 != nil && o2 == .cloud else {continue}
                 removeNode(withName: hintNodeName)
                 addHint(n: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
             }

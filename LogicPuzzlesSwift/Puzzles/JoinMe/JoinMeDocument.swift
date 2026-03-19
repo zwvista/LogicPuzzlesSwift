@@ -13,10 +13,10 @@ class JoinMeDocument: GameDocument<JoinMeGameMove> {
     
     override func saveMove(_ move: JoinMeGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.dir
     }
     
     override func loadMove(from rec: MoveProgress) -> JoinMeGameMove {
-        JoinMeGameMove(p: Position(rec.row, rec.col), obj: JoinMeObject.fromString(str: rec.strValue1!))
+        JoinMeGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1)
     }
 }
