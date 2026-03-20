@@ -59,7 +59,7 @@ class LiarLiarGameScene: GameScene<LiarLiarGameState> {
         
         // add Hints
         for (p, n) in game.pos2hint {
-            guard case .hint(state: let s) = state[p] else {continue}
+            let s = state.pos2stateHint[p]!
             addHint(p: p, n: n, s: s)
         }
     }
@@ -75,7 +75,9 @@ class LiarLiarGameScene: GameScene<LiarLiarGameState> {
                 let markedNodeName = "marked" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                guard String(describing: o1) != String(describing: o2) else {continue}
+                let (s1, s2) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
+                let (s3, s4) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
+                guard o1 != o2 || s1 != s2 || s3 != s4 else {continue}
                 switch o1 {
                 case .forbidden:
                     removeNode(withName: forbiddenNodeName)
@@ -91,10 +93,10 @@ class LiarLiarGameScene: GameScene<LiarLiarGameState> {
                 switch o2 {
                 case .forbidden:
                     addDotMarker2(color: .red, point: point, nodeName: forbiddenNodeName)
-                case .hint(state: let s):
-                    addHint(p: p, n: stateFrom.game.pos2hint[p]!, s: s)
-                case .marked(state: let s):
-                    addBlock(color: s == .error ? .red : .lightGray, point: point, nodeName: markedNodeName)
+                case .hint:
+                    addHint(p: p, n: stateFrom.game.pos2hint[p]!, s: s2!)
+                case .marked:
+                    addBlock(color: s4 == .error ? .red : .lightGray, point: point, nodeName: markedNodeName)
                 case .marker:
                     addCircleMarker(color: .white, point: point, nodeName: markerNodeName)
                 default:

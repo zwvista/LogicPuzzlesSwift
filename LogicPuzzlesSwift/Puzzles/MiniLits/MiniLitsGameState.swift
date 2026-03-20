@@ -22,7 +22,7 @@ class MiniLitsGameState: GridGameState<MiniLitsGameMove> {
     }
     override var gameDocument: GameDocumentBase { MiniLitsDocument.sharedInstance }
     var objArray = [MiniLitsObject]()
-    var pos2state = [Position: HintState]()
+    var pos2state = [Position: AllowedObjectState]()
     
     override func copy() -> MiniLitsGameState {
         let v = MiniLitsGameState(game: game, isCopy: true)
@@ -64,9 +64,9 @@ class MiniLitsGameState: GridGameState<MiniLitsGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .tree()
+        case .empty: markerOption == .markerFirst ? .marker : .tree
         case .tree: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .tree() : .empty
+        case .marker: markerOption == .markerFirst ? .tree : .empty
         default: o
         }
         return setObject(move: &move)
@@ -98,7 +98,7 @@ class MiniLitsGameState: GridGameState<MiniLitsGameMove> {
                 case .forbidden:
                     self[p] = .empty
                 case .tree:
-                    self[p] = .tree()
+                    pos2state[p] = .normal
                     pos2node[p] = g.addNode(p.description)
                 default:
                     break
@@ -123,7 +123,7 @@ class MiniLitsGameState: GridGameState<MiniLitsGameMove> {
         // 4. All the shaded cells should form a valid Nurikabe.
         if blocks.count != 1 { isSolved = false }
         // https://stackoverflow.com/questions/32921425/swift-creating-an-array-with-a-default-value-of-distinct-object-instances
-        let infos = game.areas.count.range.map { _ in MiniLitsAreaInfo() }
+        let infos = game.areas.indices.map { _ in MiniLitsAreaInfo() }
         for i in 0..<blocks.count {
             let block = blocks[i]
             for p in block {
@@ -147,7 +147,7 @@ class MiniLitsGameState: GridGameState<MiniLitsGameMove> {
         func notSolved(info: MiniLitsAreaInfo) {
             isSolved = false
             for p in info.trees {
-                self[p] = .tree(state: .error)
+                pos2state[p] = .error
             }
         }
         for i in 0..<infos.count {
@@ -194,7 +194,7 @@ class MiniLitsGameState: GridGameState<MiniLitsGameMove> {
             }
             isSolved = false
             for os in MiniLitsGame.offset3 {
-                self[p + os] = .tree(state: .error)
+                pos2state[p + os] = .error
             }
         }
     }

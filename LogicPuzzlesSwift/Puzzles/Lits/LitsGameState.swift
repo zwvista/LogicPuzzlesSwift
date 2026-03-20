@@ -22,8 +22,8 @@ class LitsGameState: GridGameState<LitsGameMove> {
     }
     override var gameDocument: GameDocumentBase { LitsDocument.sharedInstance }
     var objArray = [LitsObject]()
-    var pos2state = [Position: HintState]()
-    
+    var pos2state = [Position: AllowedObjectState]()
+
     override func copy() -> LitsGameState {
         let v = LitsGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -52,7 +52,7 @@ class LitsGameState: GridGameState<LitsGameMove> {
     
     override func setObject(move: inout LitsGameMove) -> GameOperationType {
         let p = move.p
-        guard String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p) && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -64,9 +64,9 @@ class LitsGameState: GridGameState<LitsGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .tree()
+        case .empty: markerOption == .markerFirst ? .marker : .tree
         case .tree: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .tree() : .empty
+        case .marker: markerOption == .markerFirst ? .tree : .empty
         default: o
         }
         return setObject(move: &move)
@@ -100,7 +100,7 @@ class LitsGameState: GridGameState<LitsGameMove> {
                 case .forbidden:
                     self[p] = .empty
                 case .tree:
-                    self[p] = .tree()
+                    pos2state[p] = .normal
                     pos2node[p] = g.addNode(p.description)
                 default:
                     break
@@ -147,7 +147,7 @@ class LitsGameState: GridGameState<LitsGameMove> {
         func notSolved(info: LitsAreaInfo) {
             isSolved = false
             for p in info.trees {
-                self[p] = .tree(state: .error)
+                pos2state[p] = .error
             }
         }
         for i in 0..<infos.count {
@@ -195,7 +195,7 @@ class LitsGameState: GridGameState<LitsGameMove> {
             }
             isSolved = false
             for os in LitsGame.offset3 {
-                self[p + os] = .tree(state: .error)
+                pos2state[p + os] = .error
             }
         }
     }

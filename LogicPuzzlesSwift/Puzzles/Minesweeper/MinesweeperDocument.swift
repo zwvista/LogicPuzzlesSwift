@@ -13,10 +13,10 @@ class MinesweeperDocument: GameDocument<MinesweeperGameMove> {
     
     override func saveMove(_ move: MinesweeperGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> MinesweeperGameMove {
-        MinesweeperGameMove(p: Position(rec.row, rec.col), obj: MinesweeperObject.fromString(str: rec.strValue1!))
+        MinesweeperGameMove(p: Position(rec.row, rec.col), obj: MinesweeperObject(rawValue: rec.intValue1)!)
     }
 }

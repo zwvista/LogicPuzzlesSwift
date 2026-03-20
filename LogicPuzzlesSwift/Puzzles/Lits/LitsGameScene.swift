@@ -61,33 +61,26 @@ class LitsGameScene: GameScene<LitsGameState> {
                 let treeNodeName = "tree" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                func addTree(s: AllowedObjectState) {
-                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: treeNodeName)
-                }
-                func removeTree() { removeNode(withName: treeNodeName) }
-                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                func addForbidden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
-                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                guard String(describing: o1) != String(describing: o2) else {continue}
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard o1 != o2 || s1 != s2 else {continue}
                 switch o1 {
                 case .forbidden:
-                    removeForbidden()
+                    removeNode(withName: forbiddenNodeName)
                 case .tree:
-                    removeTree()
+                    removeNode(withName: treeNodeName)
                 case .marker:
-                    removeMarker()
+                    removeNode(withName: markerNodeName)
                 default:
                     break
                 }
                 switch o2 {
                 case .forbidden:
-                    addForbidden()
-                case let .tree(s):
-                    addTree(s: s)
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
+                case .tree:
+                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: s2 == .normal ? 0.0 : 0.5, point: point, nodeName: treeNodeName)
                 case .marker:
-                    addMarker()
+                    addDotMarker(point: point, nodeName: markerNodeName)
                 default:
                     break
                 }

@@ -15,6 +15,8 @@ class LiarLiarGameState: GridGameState<LiarLiarGameMove> {
     }
     override var gameDocument: GameDocumentBase { LiarLiarDocument.sharedInstance }
     var objArray = [LiarLiarObject]()
+    var pos2stateHint = [Position: HintState]()
+    var pos2stateAllowed = [Position: AllowedObjectState]()
     
     override func copy() -> LiarLiarGameState {
         let v = LiarLiarGameState(game: game, isCopy: true)
@@ -44,7 +46,7 @@ class LiarLiarGameState: GridGameState<LiarLiarGameMove> {
     
     override func setObject(move: inout LiarLiarGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p) && game.pos2hint[p] == nil && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -56,9 +58,9 @@ class LiarLiarGameState: GridGameState<LiarLiarGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .marked()
+        case .empty: markerOption == .markerFirst ? .marker : .marked
         case .marked: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .marked() : .empty
+        case .marker: markerOption == .markerFirst ? .marked : .empty
         default: o
         }
         return setObject(move: &move)
@@ -85,7 +87,7 @@ class LiarLiarGameState: GridGameState<LiarLiarGameMove> {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                if case .forbidden = self[r, c] { self[r, c] = .empty }
+                if self[r, c] == .forbidden { self[r, c] = .empty }
             }
         }
         // 3. A number in a cell indicates how many marked cells must be placed.
@@ -93,18 +95,19 @@ class LiarLiarGameState: GridGameState<LiarLiarGameMove> {
         for (p, n1) in game.pos2hint {
             let n2 = LiarLiarGame.offset.count {
                 let p2 = p + $0
-                return isValid(p: p2) && self[p2].toString() == "marked"
+                return isValid(p: p2) && self[p2] == .marked
             }
             let s: HintState = n1 == n2 ? .complete : .error
-            self[p] = .hint(state: s)
+            pos2stateHint[p] = s
         }
         for area in game.areas {
             var nComplete = 0, nError = 0
             for p in area {
-                if case .hint(state: let s) = self[p] {
-                    switch s {
-                    case .complete: nComplete += 1
-                    default: nError += 1
+                if self[p] == .hint {
+                    if pos2stateHint[p] == .complete {
+                        nComplete += 1
+                    } else {
+                        nError += 1
                     }
                 }
             }
@@ -114,23 +117,23 @@ class LiarLiarGameState: GridGameState<LiarLiarGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard self[p].toString() == "marked" else {continue}
+                guard self[p] == .marked else {continue}
                 let rng = LiarLiarGame.offset.map { p + $0 }.filter { p in
-                    return isValid(p: p) && self[p].toString() == "marked"
+                    return isValid(p: p) && self[p] == .marked
                 }
                 if rng.isEmpty {
-                    self[p] = .marked()
+                    pos2stateAllowed[p] = .normal
                 } else {
                     isSolved = false
-                    self[p] = .marked(state: .error)
+                    pos2stateAllowed[p] = .error
                     for p in rng {
-                        self[p] = .marked(state: .error)
+                        pos2stateAllowed[p] = .error
                     }
                 }
                 guard allowedObjectsOnly else {continue}
                 for os in LiarLiarGame.offset {
                     let p2 = p + os
-                    guard isValid(p: p2), case .empty = self[p2] else {continue}
+                    guard isValid(p: p2) && self[p2] == .empty else {continue}
                     self[p2] = .forbidden
                 }
             }
@@ -142,7 +145,7 @@ class LiarLiarGameState: GridGameState<LiarLiarGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard self[p].toString() != "marked" else {continue}
+                guard self[p] != .marked else {continue}
                 let node = g.addNode(p.description)
                 pos2node[p] = node
             }

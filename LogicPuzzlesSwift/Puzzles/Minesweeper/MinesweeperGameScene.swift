@@ -29,10 +29,10 @@ class MinesweeperGameScene: GameScene<MinesweeperGameState> {
         
         // add Hints
         for (p, n) in game.pos2hint {
-            guard case let .hint(state: s) = state[p] else {continue}
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
+            let s = state.pos2state[p]!
             addHint(n: n, s: s, point: point, nodeName: hintNodeName)
         }
         
@@ -59,39 +59,31 @@ class MinesweeperGameScene: GameScene<MinesweeperGameState> {
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                func removeHint() { removeNode(withName: hintNodeName) }
-                func addMine() {
-                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: 0.0, point: point, nodeName: mineNodeName)
-                }
-                func removeMine() { removeNode(withName: mineNodeName) }
-                func addMarker() { addCircleMarker(color: .white, point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                func addForbidden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
-                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
-                let (ot1, ot2) = (stateFrom[r, c], stateTo[r, c])
-                guard String(describing: ot1) != String(describing: ot2) else {continue}
-                switch ot1 {
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard o1 != o2 || s1 != s2 else {continue}
+                switch o1 {
                 case .forbidden:
-                    removeForbidden()
+                    removeNode(withName: forbiddenNodeName)
                 case .mine:
-                    removeMine()
+                    removeNode(withName: mineNodeName)
                 case .marker:
-                    removeMarker()
+                    removeNode(withName: markerNodeName)
                 case .hint:
-                    removeHint()
+                    removeNode(withName: hintNodeName)
                 default:
                     break
                 }
-                switch ot2 {
+                switch o2 {
                 case .forbidden:
-                    addForbidden()
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case .mine:
-                    addMine()
+                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: 0.0, point: point, nodeName: mineNodeName)
                 case .marker:
-                    addMarker()
-                case let .hint(s):
-                    let n = stateTo.game.pos2hint[Position(r, c)]!
-                    addHint(n: n, s: s, point: point, nodeName: hintNodeName)
+                    addCircleMarker(color: .white, point: point, nodeName: markerNodeName)
+                case .hint:
+                    let n = stateTo.game.pos2hint[p]!
+                    addHint(n: n, s: s2!, point: point, nodeName: hintNodeName)
                 default:
                     break
                 }

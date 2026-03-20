@@ -8,33 +8,11 @@
 
 import Foundation
 
-enum MiniLitsObject {
-    case empty
-    case forbidden
-    case marker
-    case tree(state: AllowedObjectState = .normal)
+enum MiniLitsObject: Int {
+    case empty, forbidden, marker
+    case tree
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .tree:
-            return "tree"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> MiniLitsObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "tree":
-            return .tree()
-        default:
-            return .empty
-        }
     }
 }
 

@@ -15,7 +15,9 @@ class LighthousesGameState: GridGameState<LighthousesGameMove> {
     }
     override var gameDocument: GameDocumentBase { LighthousesDocument.sharedInstance }
     var objArray = [LighthousesObject]()
-    
+    var pos2stateHint = [Position: HintState]()
+    var pos2stateAllowed = [Position: AllowedObjectState]()
+
     override func copy() -> LighthousesGameState {
         let v = LighthousesGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -31,7 +33,7 @@ class LighthousesGameState: GridGameState<LighthousesGameMove> {
         guard !isCopy else {return}
         objArray = Array<LighthousesObject>(repeating: .empty, count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint()
+            self[p] = .hint
         }
         updateIsSolved()
     }
@@ -61,9 +63,9 @@ class LighthousesGameState: GridGameState<LighthousesGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .lighthouse()
+        case .empty: markerOption == .markerFirst ? .marker : .lighthouse
         case .lighthouse: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .lighthouse() : .empty
+        case .marker: markerOption == .markerFirst ? .lighthouse : .empty
         default: o
         }
         return setObject(move: &move)
@@ -91,7 +93,7 @@ class LighthousesGameState: GridGameState<LighthousesGameMove> {
                 let p = Position(r, c)
                 switch self[p] {
                 case .lighthouse:
-                    self[p] = .lighthouse()
+                    pos2stateAllowed[p] = .normal
                 case .forbidden:
                     self[p] = .empty
                 default:
@@ -116,10 +118,10 @@ class LighthousesGameState: GridGameState<LighthousesGameMove> {
                     return false
                 }
                 switch self[p] {
-                case let .lighthouse(state):
+                case .lighthouse:
                     // 4. Finally, no boat touches another boat or lighthouse, not even diagonally.
                     // No lighthouse touches another lighthouse as well.
-                    self[p] = .lighthouse(state: state == .normal && !hasNeighbor() ? .normal : .error)
+                    pos2stateAllowed[p] = pos2stateAllowed[p] == .normal && !hasNeighbor() ? .normal : .error
                 case .empty, .marker:
                     // 4. Finally, no boat touches another boat or lighthouse, not even diagonally.
                     // No lighthouse touches another lighthouse as well.
@@ -153,10 +155,8 @@ class LighthousesGameState: GridGameState<LighthousesGameMove> {
             }
             let n1 = nums.reduce(0, +)
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            self[p] = .hint(state: s)
-            if s != .complete {
-                isSolved = false
-            }
+            pos2stateHint[p] = s
+            if s != .complete { isSolved = false }
             if allowedObjectsOnly && s != .normal {
                 for p2 in rng {
                     self[p2] = .forbidden
