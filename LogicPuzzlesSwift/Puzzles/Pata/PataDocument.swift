@@ -13,10 +13,10 @@ class PataDocument: GameDocument<PataGameMove> {
     
     override func saveMove(_ move: PataGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> PataGameMove {
-        PataGameMove(p: Position(rec.row, rec.col), obj: PataObject.fromString(str: rec.strValue1!))
+        PataGameMove(p: Position(rec.row, rec.col), obj: PataObject(rawValue: rec.intValue1)!)
     }
 }

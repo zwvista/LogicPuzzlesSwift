@@ -110,7 +110,7 @@ class TapDifferentlyGameState: GridGameState<TapDifferentlyGameMove> {
         for (p, arr2) in game.pos2hint {
             let filled = [Int](0..<8).filter {
                 let p2 = p + TapDifferentlyGame.offset[$0]
-                return isValid(p: p2) && String(describing: self[p2]) == String(describing: TapDifferentlyObject.wall)
+                return isValid(p: p2) && self[p2] == .wall
             }
             let arr = computeHint(filled: filled)
             let s: HintState = arr == [0] ? .normal : isCompatible(computedHint: arr, givenHint: arr2) ? .complete : .error
@@ -123,9 +123,8 @@ class TapDifferentlyGameState: GridGameState<TapDifferentlyGameMove> {
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                if TapDifferentlyGame.offset2.allSatisfy({os in
-                    let o = self[p + os]
-                    if case .wall = o { return true } else { return false }
+                if TapDifferentlyGame.offset2.allSatisfy({
+                    self[p + $0] == .wall
                 }) { isSolved = false; return }
             }
         }

@@ -8,33 +8,11 @@
 
 import Foundation
 
-enum ParkLakesObject {
-    case empty
-    case marker
-    case lake(state: AllowedObjectState = .normal)
-    case hint(tiles: Int, state: HintState)
+enum ParkLakesObject: Int {
+    case empty, hint, marker
+    case lake
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .lake:
-            return "lake"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> ParkLakesObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "lake":
-            return .lake()
-        default:
-            return .empty
-        }
     }
 }
 

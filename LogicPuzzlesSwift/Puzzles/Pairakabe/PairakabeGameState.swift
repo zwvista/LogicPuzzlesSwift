@@ -15,6 +15,7 @@ class PairakabeGameState: GridGameState<PairakabeGameMove> {
     }
     override var gameDocument: GameDocumentBase { PairakabeDocument.sharedInstance }
     var objArray = [PairakabeObject]()
+    var pos2state = [Position: HintState]()
     
     override func copy() -> PairakabeGameState {
         let v = PairakabeGameState(game: game, isCopy: true)
@@ -31,7 +32,7 @@ class PairakabeGameState: GridGameState<PairakabeGameMove> {
         guard !isCopy else {return}
         objArray = Array<PairakabeObject>(repeating: PairakabeObject(), count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint()
+            self[p] = .hint
         }
         updateIsSolved()
     }
@@ -47,24 +48,22 @@ class PairakabeGameState: GridGameState<PairakabeGameMove> {
     
     override func setObject(move: inout PairakabeGameMove) -> GameOperationType {
         let p = move.p
-        let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 { return .invalid }
-        guard String(describing: o1) != String(describing: o2) else { return .invalid }
-        self[p] = o2
+        guard isValid(p: p) && self[p] != .hint && self[p] != move.obj else { return .invalid }
+        self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }
     
     override func switchObject(move: inout PairakabeGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) else { return .invalid }
+        guard isValid(p: p) && self[p] != .hint else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
         case .empty: markerOption == .markerFirst ? .marker : .wall
         case .wall: markerOption == .markerLast ? .marker : .empty
         case .marker: markerOption == .markerFirst ? .wall : .empty
-        case .hint: o
+        default: o
         }
         return setObject(move: &move)
     }
@@ -149,19 +148,19 @@ class PairakabeGameState: GridGameState<PairakabeGameMove> {
                 // hidden gardens.
                 isSolved = false
             case 1:
-                self[rng[0]] = .hint(state: .error)
+                pos2state[rng[0]] = .error
             case 2:
                 // 2. Instead of just one number, each 'garden' contains two numbers and
                 // the area of the garden is given by the sum of both.
                 let p1 = rng[0], p2 = rng[1]
                 let n1 = game.pos2hint[p1]! + game.pos2hint[p2]!
                 let s: HintState = n1 == n2 ? .complete : .error
-                self[p1] = .hint(state: s)
-                self[p2] = .hint(state: s)
+                pos2state[p1] = s
+                pos2state[p2] = s
                 if s != .complete { isSolved = false }
             default:
                 for p in rng {
-                    self[p] = .hint()
+                    pos2state[p] = .normal
                 }
                 isSolved = false
             }

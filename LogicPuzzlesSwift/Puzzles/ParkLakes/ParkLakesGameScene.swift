@@ -45,32 +45,28 @@ class ParkLakesGameScene: GameScene<ParkLakesGameState> {
                 let lakeNodeName = "lake" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                func addLake(s: AllowedObjectState) {
-                    addImage(imageNamed: "sea", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: lakeNodeName)
-                }
-                func removeLake() { removeNode(withName: lakeNodeName) }
-                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                func removeHint() { removeNode(withName: hintNodeName) }
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                guard String(describing: o1) != String(describing: o2) else {continue}
+                let (s1, s2) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
+                let (s3, s4) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
+                guard o1 != o2 || s1 != s2 || s3 != s4 else {continue}
                 switch o1 {
                 case .lake:
-                    removeLake()
+                    removeNode(withName: lakeNodeName)
                 case .hint:
-                    removeHint()
+                    removeNode(withName: hintNodeName)
                 case .marker:
-                    removeMarker()
+                    removeNode(withName: markerNodeName)
                 default:
                     break
                 }
                 switch o2 {
-                case let .lake(s):
-                    addLake(s: s)
-                case let .hint(n, s):
-                    addHint(p: p, n: n, s: s)
+                case .lake:
+                    addImage(imageNamed: "sea", color: .red, colorBlendFactor: s4 == .normal ? 0.0 : 0.5, point: point, nodeName: lakeNodeName)
+                case .hint:
+                    let n = stateFrom.game.pos2hint[p]!
+                    addHint(p: p, n: n, s: s2!)
                 case .marker:
-                    addMarker()
+                    addDotMarker(point: point, nodeName: markerNodeName)
                 default:
                     break
                 }

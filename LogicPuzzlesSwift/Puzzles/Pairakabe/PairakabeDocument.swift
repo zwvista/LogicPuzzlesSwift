@@ -13,10 +13,10 @@ class PairakabeDocument: GameDocument<PairakabeGameMove> {
     
     override func saveMove(_ move: PairakabeGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> PairakabeGameMove {
-        PairakabeGameMove(p: Position(rec.row, rec.col), obj: PairakabeObject.fromString(str: rec.strValue1!))
+        PairakabeGameMove(p: Position(rec.row, rec.col), obj: PairakabeObject(rawValue: rec.intValue1)!)
     }
 }

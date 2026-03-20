@@ -15,7 +15,7 @@ class ParksGameState: GridGameState<ParksGameMove> {
     }
     override var gameDocument: GameDocumentBase { ParksDocument.sharedInstance }
     var objArray = [ParksObject]()
-    var pos2state = [Position: HintState]()
+    var pos2state = [Position: AllowedObjectState]()
     
     override func copy() -> ParksGameState {
         let v = ParksGameState(game: game, isCopy: true)
@@ -45,7 +45,7 @@ class ParksGameState: GridGameState<ParksGameMove> {
     
     override func setObject(move: inout ParksGameMove) -> GameOperationType {
         let p = move.p
-        guard String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p) && self[p]) != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -57,9 +57,9 @@ class ParksGameState: GridGameState<ParksGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .tree()
+        case .empty: markerOption == .markerFirst ? .marker : .tree
         case .tree: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .tree() : .empty
+        case .marker: markerOption == .markerFirst ? .tree : .empty
         default: o
         }
         return setObject(move: &move)
@@ -103,7 +103,7 @@ class ParksGameState: GridGameState<ParksGameMove> {
                 switch self[p] {
                 case .tree:
                     let s: AllowedObjectState = !hasNeighbor() ? .normal : .error
-                    self[p] = .tree(state: s)
+                    pos2state[p] = s
                     if s == .error { isSolved = false }
                 case .empty, .marker:
                     if allowedObjectsOnly && hasNeighbor() { self[p] = .forbidden }
@@ -121,9 +121,10 @@ class ParksGameState: GridGameState<ParksGameMove> {
             }
             if n1 != n2 { isSolved = false }
             for c in 0..<cols {
-                switch self[r, c] {
-                case let .tree(state):
-                    self[r, c] = .tree(state: state == .normal && n1 <= n2 ? .normal : .error)
+                let p = Position(r, c)
+                switch self[p] {
+                case .tree:
+                    pos2state[p] = pos2state[p] == .normal && n1 <= n2 ? .normal : .error
                 case .empty, .marker:
                     if n1 >= n2 && allowedObjectsOnly { self[r, c] = .forbidden }
                 default:
@@ -139,9 +140,10 @@ class ParksGameState: GridGameState<ParksGameMove> {
             }
             if n1 != n2 { isSolved = false }
             for r in 0..<rows {
-                switch self[r, c] {
-                case let .tree(state):
-                    self[r, c] = .tree(state: state == .normal && n1 <= n2 ? .normal : .error)
+                let p = Position(r, c)
+                switch self[p] {
+                case .tree:
+                    pos2state[p] = pos2state[p] == .normal && n1 <= n2 ? .normal : .error
                 case .empty, .marker:
                     if n1 >= n2 && allowedObjectsOnly { self[r, c] = .forbidden }
                 default:
@@ -158,8 +160,8 @@ class ParksGameState: GridGameState<ParksGameMove> {
             if n1 != n2 { isSolved = false }
             for p in a {
                 switch self[p] {
-                case let .tree(state):
-                    self[p] = .tree(state: state == .normal && n1 <= n2 ? .normal : .error)
+                case .tree:
+                    pos2state[p] = pos2state[p] == .normal && n1 <= n2 ? .normal : .error
                 case .empty, .marker:
                     if n1 >= n2 && allowedObjectsOnly { self[p] = .forbidden }
                 default:

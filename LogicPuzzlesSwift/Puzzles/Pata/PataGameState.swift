@@ -15,7 +15,8 @@ class PataGameState: GridGameState<PataGameMove> {
     }
     override var gameDocument: GameDocumentBase { PataDocument.sharedInstance }
     var objArray = [PataObject]()
-    
+    var pos2state = [Position: HintState]()
+
     override func copy() -> PataGameState {
         let v = PataGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -31,7 +32,7 @@ class PataGameState: GridGameState<PataGameMove> {
         guard !isCopy else {return}
         objArray = Array<PataObject>(repeating: PataObject(), count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint()
+            self[p] = .hint
         }
         updateIsSolved()
     }
@@ -47,24 +48,22 @@ class PataGameState: GridGameState<PataGameMove> {
     
     override func setObject(move: inout PataGameMove) -> GameOperationType {
         let p = move.p
-        let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 { return .invalid }
-        guard String(describing: o1) != String(describing: o2) else { return .invalid }
-        self[p] = o2
+        guard isValid(p: p) && self[p] != .hint && self[p] != move.obj else { return .invalid }
+        self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }
     
     override func switchObject(move: inout PataGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) else { return .invalid }
+        guard isValid(p: p) && self[p] != .hint else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
         case .empty: markerOption == .markerFirst ? .marker : .wall
         case .wall: markerOption == .markerLast ? .marker : .empty
         case .marker: markerOption == .markerFirst ? .wall : .empty
-        case .hint: o
+        default: o
         }
         return setObject(move: &move)
     }
@@ -123,11 +122,11 @@ class PataGameState: GridGameState<PataGameMove> {
             let arr = computeHint(emptied: emptied)
             let filled = [Int](0..<8).filter {
                 let p2 = p + PataGame.offset[$0]
-                if isValid(p: p2), case .wall = self[p2] { return true } else { return false }
+                return isValid(p: p2) && self[p2] == .wall
             }
             let arr3 = computeHint(emptied: filled)
             let s: HintState = arr3 == [0] ? .normal : isCompatible(computedHint: arr, givenHint: arr2) ? .complete : .error
-            self[p] = .hint(state: s)
+            pos2state[p] = s
             if s != .complete { isSolved = false }
         }
         guard isSolved else {return}
@@ -135,9 +134,8 @@ class PataGameState: GridGameState<PataGameMove> {
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                if PataGame.offset2.allSatisfy({os in
-                    let o = self[p + os]
-                    if case .wall = o { return true } else { return false }
+                if PataGame.offset2.allSatisfy({
+                    self[p + $0] == .wall
                 }) { isSolved = false; return }
             }
         }

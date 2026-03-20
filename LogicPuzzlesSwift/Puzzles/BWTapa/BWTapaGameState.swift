@@ -110,7 +110,7 @@ class BWTapaGameState: GridGameState<BWTapaGameMove> {
         for (p, arr2) in game.pos2hint {
             let filled = [Int](0..<8).filter {
                 let p2 = p + BWTapaGame.offset[$0]
-                return isValid(p: p2) && String(describing: self[p2]) == String(describing: BWTapaObject.wall)
+                return isValid(p: p2) && self[p2] == .wall
             }
             let arr = computeHint(filled: filled)
             let s: HintState = arr == [0] ? .normal : isCompatible(computedHint: arr, givenHint: arr2) ? .complete : .error
@@ -122,12 +122,11 @@ class BWTapaGameState: GridGameState<BWTapaGameMove> {
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                if BWTapaGame.offset2.allSatisfy({os in
-                    let o = self[p + os]
-                    if case .wall = o { return true } else { return false }
-                }) || BWTapaGame.offset2.allSatisfy({os in
-                    let o = self[p + os]
-                    if case .empty = o, case .hint = o { return true } else { return false }
+                if BWTapaGame.offset2.allSatisfy({
+                    self[p + $0] == .wall
+                }) || BWTapaGame.offset2.allSatisfy({
+                    let o = self[p + $0]
+                    return o == .empty || o == .hint
                 }) { isSolved = false; return }
             }
         }

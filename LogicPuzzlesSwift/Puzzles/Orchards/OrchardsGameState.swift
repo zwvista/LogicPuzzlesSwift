@@ -15,7 +15,7 @@ class OrchardsGameState: GridGameState<OrchardsGameMove> {
     }
     override var gameDocument: GameDocumentBase { OrchardsDocument.sharedInstance }
     var objArray = [OrchardsObject]()
-    var pos2state = [Position: HintState]()
+    var pos2state = [Position: AllowedObjectState]()
     
     override func copy() -> OrchardsGameState {
         let v = OrchardsGameState(game: game, isCopy: true)
@@ -57,9 +57,9 @@ class OrchardsGameState: GridGameState<OrchardsGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .tree()
+        case .empty: markerOption == .markerFirst ? .marker : .tree
         case .tree: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .tree() : .empty
+        case .marker: markerOption == .markerFirst ? .tree : .empty
         default: o
         }
         return setObject(move: &move)
@@ -93,7 +93,7 @@ class OrchardsGameState: GridGameState<OrchardsGameMove> {
                 case .forbidden:
                     self[p] = .empty
                 case .tree:
-                    self[p] = .tree()
+                    pos2state[p] = .normal
                     pos2node[p] = g.addNode(p.description)
                 default:
                     break
@@ -118,7 +118,7 @@ class OrchardsGameState: GridGameState<OrchardsGameMove> {
             // more contiguous Trees.
             if trees.count > 2 {
                 for p in trees {
-                    self[p] = .tree(state: .error)
+                    pos2state[p] = .error
                 }
             }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
@@ -135,8 +135,8 @@ class OrchardsGameState: GridGameState<OrchardsGameMove> {
             if n1 != n2 { isSolved = false }
             for p in a {
                 switch self[p] {
-                case let .tree(state):
-                    self[p] = .tree(state: state == .normal && n1 <= n2 ? .normal : .error)
+                case .tree:
+                    pos2state[p] = pos2state[p] == .normal && n1 <= n2 ? .normal : .error
                 case .empty, .marker:
                     if n1 == n2 && allowedObjectsOnly { self[p] = .forbidden }
                 default:

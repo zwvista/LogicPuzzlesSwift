@@ -8,33 +8,11 @@
 
 import Foundation
 
-enum PataObject {
-    case empty
-    case hint(state: HintState = .normal)
-    case marker
+enum PataObject: Int {
+    case empty, hint, marker
     case wall
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .wall:
-            return "wall"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> PataObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "wall":
-            return .wall
-        default:
-            return .empty
-        }
     }
 }
 
