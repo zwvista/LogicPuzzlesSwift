@@ -15,7 +15,9 @@ class SentinelsGameState: GridGameState<SentinelsGameMove> {
     }
     override var gameDocument: GameDocumentBase { SentinelsDocument.sharedInstance }
     var objArray = [SentinelsObject]()
-    
+    var pos2stateHint = [Position: HintState]()
+    var pos2stateAllowed = [Position: AllowedObjectState]()
+
     override func copy() -> SentinelsGameState {
         let v = SentinelsGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -31,7 +33,7 @@ class SentinelsGameState: GridGameState<SentinelsGameMove> {
         guard !isCopy else {return}
         objArray = Array<SentinelsObject>(repeating: .empty, count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint()
+            self[p] = .hint
         }
         updateIsSolved()
     }
@@ -47,23 +49,21 @@ class SentinelsGameState: GridGameState<SentinelsGameMove> {
     
     override func setObject(move: inout SentinelsGameMove) -> GameOperationType {
         let p = move.p
-        let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 { return .invalid }
-        guard String(describing: o1) != String(describing: o2) else { return .invalid }
-        self[p] = o2
+        guard isValid(p: p) && self[p] != .hint && self[p] != move.obj else { return .invalid }
+        self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }
     
     override func switchObject(move: inout SentinelsGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) else { return .invalid }
+        guard isValid(p: p) && self[p] != .hint else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .tower()
+        case .empty: markerOption == .markerFirst ? .marker : .tower
         case .tower: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .tower() : .empty
+        case .marker: markerOption == .markerFirst ? .tower : .empty
         default: o
         }
         return setObject(move: &move)
@@ -98,7 +98,7 @@ class SentinelsGameState: GridGameState<SentinelsGameMove> {
                 let p = Position(r, c)
                 switch self[p] {
                 case .tower:
-                    self[p] = .tower()
+                    pos2stateAllowed[p] = .normal
                 case .forbidden:
                     self[p] = .empty
                     fallthrough
@@ -112,16 +112,15 @@ class SentinelsGameState: GridGameState<SentinelsGameMove> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 func hasNeighbor() -> Bool {
-                    for os in SentinelsGame.offset {
-                        let p2 = p + os
-                        if isValid(p: p2), case .tower = self[p2] { return true }
+                    SentinelsGame.offset.contains {
+                        let p2 = p + $0
+                        return isValid(p: p2) && self[p2] == .tower
                     }
-                    return false
                 }
                 switch self[p] {
-                case let .tower(state):
-                    let s: AllowedObjectState = state == .normal && !hasNeighbor() ? .normal : .error
-                    self[p] = .tower(state: s)
+                case .tower:
+                    let s: AllowedObjectState = pos2stateAllowed[p] == .normal && !hasNeighbor() ? .normal : .error
+                    pos2stateAllowed[p] = s
                     if s == .error { isSolved = false }
                 case .empty, .marker:
                     guard allowedObjectsOnly && hasNeighbor() else {continue}
@@ -155,7 +154,7 @@ class SentinelsGameState: GridGameState<SentinelsGameMove> {
             }
             let n1 = nums[0] + nums[1] + nums[2] + nums[3] + 1
             let s: HintState = n1 > n2 ? .normal : n1 == n2 ? .complete : .error
-            self[p] = .hint(state: s)
+            pos2stateHint[p] = s
             if s != .complete {
                 isSolved = false
             } else {

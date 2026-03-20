@@ -13,10 +13,10 @@ class PowerGridDocument: GameDocument<PowerGridGameMove> {
     
     override func saveMove(_ move: PowerGridGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> PowerGridGameMove {
-        PowerGridGameMove(p: Position(rec.row, rec.col), obj: PowerGridObject.fromString(str: rec.strValue1!))
+        PowerGridGameMove(p: Position(rec.row, rec.col), obj: PowerGridObject(rawValue: rec.intValue1)!)
     }
 }

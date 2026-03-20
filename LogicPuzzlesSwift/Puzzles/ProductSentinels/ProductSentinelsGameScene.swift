@@ -29,10 +29,10 @@ class ProductSentinelsGameScene: GameScene<ProductSentinelsGameState> {
         
         // add Hints
         for (p, n) in game.pos2hint {
-            guard case let .hint(state: s) = state[p] else {continue}
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
+            let s = state.pos2stateHint[p]!
             addHint(n: n, s: s, point: point, nodeName: hintNodeName)
         }
         
@@ -59,39 +59,32 @@ class ProductSentinelsGameScene: GameScene<ProductSentinelsGameState> {
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                func removeHint() { removeNode(withName: hintNodeName) }
-                func addTower(s: AllowedObjectState) {
-                    addImage(imageNamed: "tower", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: towerNodeName)
-                }
-                func removeTower() { removeNode(withName: towerNodeName) }
-                func addMarker() { addCircleMarker(color: .white, point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                func addForbidden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
-                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
-                let (ot1, ot2) = (stateFrom[r, c], stateTo[r, c])
-                guard String(describing: ot1) != String(describing: ot2) else {continue}
-                switch ot1 {
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
+                let (s3, s4) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
+                guard o1 != o2 || s1 != s2 || s3 != s4 else {continue}
+                switch o1 {
                 case .forbidden:
-                    removeForbidden()
+                    removeNode(withName: forbiddenNodeName)
                 case .tower:
-                    removeTower()
+                    removeNode(withName: towerNodeName)
                 case .marker:
-                    removeMarker()
+                    removeNode(withName: markerNodeName)
                 case .hint:
-                    removeHint()
+                    removeNode(withName: hintNodeName)
                 default:
                     break
                 }
-                switch ot2 {
+                switch o2 {
                 case .forbidden:
-                    addForbidden()
-                case let .tower(s):
-                    addTower(s: s)
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
+                case .tower:
+                    addImage(imageNamed: "tower", color: .red, colorBlendFactor: s4 == .normal ? 0.0 : 0.5, point: point, nodeName: towerNodeName)
                 case .marker:
-                    addMarker()
-                case let .hint(s):
-                    let n = stateTo.game.pos2hint[Position(r, c)]!
-                    addHint(n: n, s: s, point: point, nodeName: hintNodeName)
+                    addCircleMarker(color: .white, point: point, nodeName: markerNodeName)
+                case .hint:
+                    let n = stateTo.game.pos2hint[p]!
+                    addHint(n: n, s: s2!, point: point, nodeName: hintNodeName)
                 default:
                     break
                 }

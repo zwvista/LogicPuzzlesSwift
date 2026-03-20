@@ -74,33 +74,26 @@ class PowerGridGameScene: GameScene<PowerGridGameState> {
                 let postNodeName = "post" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                func addPost(s: AllowedObjectState) {
-                    addImage(imageNamed: "telegraph", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: postNodeName)
-                }
-                func removePost() { removeNode(withName: postNodeName) }
-                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                func addForbidden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
-                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
-                let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
-                guard String(describing: o1) != String(describing: o2) else {continue}
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard o1 != o2 || s1 != s2 else {continue}
                 switch o1 {
                 case .forbidden:
-                    removeForbidden()
+                    removeNode(withName: forbiddenNodeName)
                 case .marker:
-                    removeMarker()
+                    removeNode(withName: markerNodeName)
                 case .post:
-                    removePost()
+                    removeNode(withName: postNodeName)
                 default:
                     break
                 }
                 switch o2 {
                 case .forbidden:
-                    addForbidden()
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case .marker:
-                    addMarker()
-                case let .post(s):
-                    addPost(s: s)
+                    addDotMarker(point: point, nodeName: markerNodeName)
+                case .post:
+                    addImage(imageNamed: "telegraph", color: .red, colorBlendFactor: s2 == .normal ? 0.0 : 0.5, point: point, nodeName: postNodeName)
                 default:
                     break
                 }                

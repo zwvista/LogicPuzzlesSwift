@@ -8,39 +8,11 @@
 
 import Foundation
 
-enum RabbitsObject {
-    case empty
-    case forbidden
-    case hint(state: HintState = .normal)
-    case marker
-    case rabbit(state: AllowedObjectState = .normal)
-    case tree(state: AllowedObjectState = .normal)
+enum RabbitsObject: Int {
+    case empty, forbidden, hint, marker
+    case rabbit, tree
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .rabbit:
-            return "rabbit"
-        case .tree:
-            return "tree"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> RabbitsObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "rabbit":
-            return .rabbit()
-        case "tree":
-            return .tree()
-        default:
-            return .empty
-        }
     }
 }
 

@@ -29,10 +29,10 @@ class RabbitsGameScene: GameScene<RabbitsGameState> {
         
         // add Hints
         for (p, n) in game.pos2hint {
-            guard case let .hint(state: s) = state[p] else {continue}
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
+            let s = state.pos2stateHint[p]!
             addHint(n: n, s: s, point: point, nodeName: hintNodeName)
         }
         
@@ -60,9 +60,11 @@ class RabbitsGameScene: GameScene<RabbitsGameState> {
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                let (ot1, ot2) = (stateFrom[r, c], stateTo[r, c])
-                guard String(describing: ot1) != String(describing: ot2) else {continue}
-                switch ot1 {
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
+                let (s3, s4) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
+                guard o1 != o2 || s1 != s2 || s3 != s4 else {continue}
+                switch o1 {
                 case .forbidden:
                     removeNode(withName: forbiddenNodeName)
                 case .rabbit:
@@ -76,18 +78,18 @@ class RabbitsGameScene: GameScene<RabbitsGameState> {
                 default:
                     break
                 }
-                switch ot2 {
+                switch o2 {
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
-                case let .rabbit(s):
-                    addImage(imageNamed: "rabbit", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: rabbitNodeName)
-                case let .tree(s):
-                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: treeNodeName)
+                case .rabbit:
+                    addImage(imageNamed: "rabbit", color: .red, colorBlendFactor: s4 == .normal ? 0.0 : 0.5, point: point, nodeName: rabbitNodeName)
+                case .tree:
+                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: s4 == .normal ? 0.0 : 0.5, point: point, nodeName: treeNodeName)
                 case .marker:
                     addCircleMarker(color: .white, point: point, nodeName: markerNodeName)
-                case let .hint(s):
-                    let n = stateTo.game.pos2hint[Position(r, c)]!
-                    addHint(n: n, s: s, point: point, nodeName: hintNodeName)
+                case .hint:
+                    let n = stateTo.game.pos2hint[p]!
+                    addHint(n: n, s: s2!, point: point, nodeName: hintNodeName)
                 default:
                     break
                 }

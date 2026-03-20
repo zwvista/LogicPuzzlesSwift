@@ -17,6 +17,7 @@ class PowerGridGameState: GridGameState<PowerGridGameMove> {
     var objArray = [PowerGridObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()
+    var pos2state = [Position: AllowedObjectState]()
     
     override func copy() -> PowerGridGameState {
         let v = PowerGridGameState(game: game, isCopy: true)
@@ -50,9 +51,8 @@ class PowerGridGameState: GridGameState<PowerGridGameMove> {
     
     override func setObject(move: inout PowerGridGameMove) -> GameOperationType {
         let p = move.p
-        let (o1, o2) = (self[p], move.obj)
-        guard String(describing: o1) != String(describing: o2) else { return .invalid }
-        self[p] = o2
+        guard isValid(p: p) && self[p] != move.obj else { return .invalid }
+        self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }
@@ -63,9 +63,9 @@ class PowerGridGameState: GridGameState<PowerGridGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .post()
+        case .empty: markerOption == .markerFirst ? .marker : .post
         case .post: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .post() : .empty
+        case .marker: markerOption == .markerFirst ? .post : .empty
         default: o
         }
         return setObject(move: &move)
@@ -99,7 +99,7 @@ class PowerGridGameState: GridGameState<PowerGridGameMove> {
                 case .forbidden:
                     self[p] = .empty
                 case .post:
-                    self[p] = .post()
+                    pos2state[p] = .normal
                 default:
                     break
                 }
@@ -109,7 +109,7 @@ class PowerGridGameState: GridGameState<PowerGridGameMove> {
             var posts = [Position]()
             for c in 0..<cols {
                 let p = Position(r, c)
-                if case .post = self[p] { posts.append(p) }
+                if self[p] == .post { posts.append(p) }
             }
             let n1 = posts.count, n2 = game.row2hint[r] + 1
             // 2. There are two Posts in each Row.
@@ -120,12 +120,12 @@ class PowerGridGameState: GridGameState<PowerGridGameMove> {
             if s != .complete { isSolved = false }
             if s == .error {
                 for p in posts {
-                    self[p] = .post(state: .error)
+                    pos2state[p] = .error
                 }
             }
             guard allowedObjectsOnly && n1 > 0 else {continue}
             for c in 0..<cols {
-                if case .empty = self[r, c], n1 > 1 || n1 == 1 && n2 != abs(posts[0].col - c) {
+                if self[r, c] == .empty && (n1 > 1 || n2 != abs(posts[0].col - c)) {
                     self[r, c] = .forbidden
                 }
             }
@@ -145,12 +145,12 @@ class PowerGridGameState: GridGameState<PowerGridGameMove> {
             if s != .complete { isSolved = false }
             if s == .error {
                 for p in posts {
-                    self[p] = .post(state: .error)
+                    pos2state[p] = .error
                 }
             }
             guard allowedObjectsOnly && n1 > 0 else {continue}
             for r in 0..<rows {
-                if case .empty = self[r, c], n1 > 1 || n1 == 1 && n2 != abs(posts[0].row - r) {
+                if self[r, c] == .empty && (n1 > 1 || n2 != abs(posts[0].row - r)) {
                     self[r, c] = .forbidden
                 }
             }

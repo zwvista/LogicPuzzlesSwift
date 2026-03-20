@@ -8,34 +8,11 @@
 
 import Foundation
 
-enum SentinelsObject {
-    case empty
-    case forbidden
-    case hint(state: HintState = .normal)
-    case marker
-    case tower(state: AllowedObjectState = .normal)
+enum SentinelsObject: Int {
+    case empty, forbidden, hint, marker
+    case tower
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .tower:
-            return "tower"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> SentinelsObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "tower":
-            return .tower()
-        default:
-            return .empty
-        }
     }
 }
 

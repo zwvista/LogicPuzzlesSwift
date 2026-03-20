@@ -102,7 +102,8 @@ class PouringWaterGameScene: GameScene<PouringWaterGameState> {
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                guard String(describing: o1) != String(describing: o2) else {continue}
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard o1 != o2 || s1 != s2 else {continue}
                 switch o1 {
                 case .forbidden:
                     removeNode(withName: forbiddenNodeName)
@@ -118,8 +119,8 @@ class PouringWaterGameScene: GameScene<PouringWaterGameState> {
                     addDotMarker2(color: .red, point: point, nodeName: forbiddenNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
-                case .water(state: let s):
-                    addImage(imageNamed: "sea", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: waterNodeName)
+                case .water:
+                    addImage(imageNamed: "sea", color: .red, colorBlendFactor: s2 == .normal ? 0.0 : 0.5, point: point, nodeName: waterNodeName)
                 default:
                     break
                 }

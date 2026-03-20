@@ -18,6 +18,7 @@ class PouringWaterGameState: GridGameState<PouringWaterGameMove> {
     var objArray = [PouringWaterObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()
+    var pos2state = [Position: AllowedObjectState]()
 
     override func copy() -> PouringWaterGameState {
         let v = PouringWaterGameState(game: game, isCopy: true)
@@ -51,7 +52,7 @@ class PouringWaterGameState: GridGameState<PouringWaterGameMove> {
     
     override func setObject(move: inout PouringWaterGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p) && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -63,9 +64,9 @@ class PouringWaterGameState: GridGameState<PouringWaterGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .water()
+        case .empty: markerOption == .markerFirst ? .marker : .water
         case .water: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .water() : .empty
+        case .marker: markerOption == .markerFirst ? .water : .empty
         default: o
         }
         return setObject(move: &move)
@@ -101,38 +102,38 @@ class PouringWaterGameState: GridGameState<PouringWaterGameMove> {
         for area in game.areas {
             let row2rng = OrderedDictionary(grouping: area) { $0.row }
             guard let rowNotFilled = row2rng.keys.reversed().first(where: {
-                row2rng[$0]!.contains { self[$0].toString() != "water" }
+                row2rng[$0]!.contains { self[$0] != .water }
             }) else {continue}
-            let rng = area.filter { self[$0].toString() == "water" }
+            let rng = area.filter { self[$0] == .water }
             let rngError = rng.filter { $0.row < rowNotFilled }
-            rng.forEach { self[$0] = .water() }
+            rng.forEach { pos2state[$0] = .normal }
             guard !rngError.isEmpty else {continue}
             isSolved = false
-            rngError.forEach { self[$0] = .water(state: .error) }
+            rngError.forEach { pos2state[$0] = .error }
         }
         // 4. The numbers on the border show you how many tiles of each row and
         //    column are filled.
         for r in 0..<rows {
             let n2 = game.row2hint[r]
             guard n2 != PouringWaterGame.PUZ_UNKNOWN else {continue}
-            let n1 = (0..<cols).count { self[r, $0].toString() == "water" }
+            let n1 = (0..<cols).count { self[r, $0] == .water }
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             row2state[r] = s
             if s != .complete { isSolved = false }
             guard s != .normal && allowedObjectsOnly else {continue}
-            (0..<cols).filter { self[r, $0].toString() == "empty" }.forEach {
+            (0..<cols).filter { self[r, $0] == .empty }.forEach {
                 self[r, $0] = .forbidden
             }
         }
         for c in 0..<cols {
             let n2 = game.col2hint[c]
             guard n2 != PouringWaterGame.PUZ_UNKNOWN else {continue}
-            let n1 = (0..<rows).count { self[$0, c].toString() == "water" }
+            let n1 = (0..<rows).count { self[$0, c] == .water }
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             col2state[c] = s
             if s != .complete { isSolved = false }
             guard s != .normal && allowedObjectsOnly else {continue}
-            (0..<rows).filter { self[$0, c].toString() == "empty" }.forEach {
+            (0..<rows).filter { self[$0, c] == .empty }.forEach {
                 self[$0, c] = .forbidden
             }
         }

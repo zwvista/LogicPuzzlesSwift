@@ -95,5 +95,4 @@ class RippleEffectGame: GridGame<RippleEffectGameState> {
         get { objArray[row * cols + col] }
         set { objArray[row * cols + col] = newValue }
     }
-    
 }

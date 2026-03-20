@@ -8,33 +8,11 @@
 
 import Foundation
 
-enum PowerGridObject {
-    case empty
-    case forbidden
-    case marker
-    case post(state: AllowedObjectState = .normal)
+enum PowerGridObject: Int {
+    case empty, forbidden, marker
+    case post
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .post:
-            return "post"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> PowerGridObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "post":
-            return .post()
-        default:
-            return .empty
-        }
     }
 }
 

@@ -15,7 +15,9 @@ class RabbitsGameState: GridGameState<RabbitsGameMove> {
     }
     override var gameDocument: GameDocumentBase { RabbitsDocument.sharedInstance }
     var objArray = [RabbitsObject]()
-    
+    var pos2stateHint = [Position: HintState]()
+    var pos2stateAllowed = [Position: AllowedObjectState]()
+
     override func copy() -> RabbitsGameState {
         let v = RabbitsGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -31,7 +33,7 @@ class RabbitsGameState: GridGameState<RabbitsGameMove> {
         guard !isCopy else {return}
         objArray = Array<RabbitsObject>(repeating: .empty, count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint()
+            self[p] = .hint
         }
         updateIsSolved()
     }
@@ -47,24 +49,22 @@ class RabbitsGameState: GridGameState<RabbitsGameMove> {
     
     override func setObject(move: inout RabbitsGameMove) -> GameOperationType {
         let p = move.p
-        let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 { return .invalid }
-        guard String(describing: o1) != String(describing: o2) else { return .invalid }
-        self[p] = o2
+        guard isValid(p: p) && self[p] != .hint && self[p] != move.obj else { return .invalid }
+        self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }
     
     override func switchObject(move: inout RabbitsGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) else { return .invalid }
+        guard isValid(p: p) && self[p] != .hint else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .rabbit()
-        case .rabbit: .tree()
+        case .empty: markerOption == .markerFirst ? .marker : .rabbit
+        case .rabbit: .tree
         case .tree: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .rabbit() : .empty
+        case .marker: markerOption == .markerFirst ? .rabbit : .empty
         default: o
         }
         return setObject(move: &move)
@@ -91,10 +91,8 @@ class RabbitsGameState: GridGameState<RabbitsGameMove> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 switch self[p] {
-                case .rabbit:
-                    self[p] = .rabbit()
-                case .tree:
-                    self[p] = .tree()
+                case .rabbit, .tree:
+                    pos2stateAllowed[p] = .normal
                 case .forbidden:
                     self[p] = .empty
                 default:
@@ -104,18 +102,18 @@ class RabbitsGameState: GridGameState<RabbitsGameMove> {
         }
         // 4. Each row and column has exactly one Tree and one Rabbit.
         func f(rng: [Position]) {
-            let rngRabbit = rng.filter { self[$0].toString() == "rabbit" }
+            let rngRabbit = rng.filter { self[$0] == .rabbit }
             if rngRabbit.count != 1 {
                 isSolved = false
-                for p in rngRabbit { self[p] = .rabbit(state: .error) }
+                for p in rngRabbit { pos2stateAllowed[p] = .error }
             }
-            let rngTree = rng.filter { self[$0].toString() == "tree" }
+            let rngTree = rng.filter { self[$0] == .tree }
             if rngTree.count != 1 {
                 isSolved = false
-                for p in rngTree { self[p] = .tree(state: .error) }
+                for p in rngTree { pos2stateAllowed[p] = .error }
             }
-            guard allowedObjectsOnly && rngRabbit.count >= 1 && rngTree.count >= 1 else {return}
-            let rngEmpty = rng.filter { self[$0].toString() == "empty" }
+            guard allowedObjectsOnly && !rngRabbit.isEmpty && !rngTree.isEmpty else {return}
+            let rngEmpty = rng.filter { self[$0] == .empty }
             for p in rngEmpty { self[p] = .forbidden }
         }
         for r in 0..<rows {
@@ -143,7 +141,7 @@ class RabbitsGameState: GridGameState<RabbitsGameMove> {
                 }
             }
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            self[p] = .hint(state: s)
+            pos2stateHint[p] = s
             if s != .complete { isSolved = false }
         }
     }

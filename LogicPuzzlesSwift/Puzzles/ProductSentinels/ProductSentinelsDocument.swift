@@ -13,10 +13,10 @@ class ProductSentinelsDocument: GameDocument<ProductSentinelsGameMove> {
     
     override func saveMove(_ move: ProductSentinelsGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> ProductSentinelsGameMove {
-        ProductSentinelsGameMove(p: Position(rec.row, rec.col), obj: ProductSentinelsObject.fromString(str: rec.strValue1!))
+        ProductSentinelsGameMove(p: Position(rec.row, rec.col), obj: ProductSentinelsObject(rawValue: rec.intValue1)!)
     }
 }

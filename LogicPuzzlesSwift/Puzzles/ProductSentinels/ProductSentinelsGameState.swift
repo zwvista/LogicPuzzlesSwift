@@ -15,7 +15,9 @@ class ProductSentinelsGameState: GridGameState<ProductSentinelsGameMove> {
     }
     override var gameDocument: GameDocumentBase { ProductSentinelsDocument.sharedInstance }
     var objArray = [ProductSentinelsObject]()
-    
+    var pos2stateHint = [Position: HintState]()
+    var pos2stateAllowed = [Position: AllowedObjectState]()
+
     override func copy() -> ProductSentinelsGameState {
         let v = ProductSentinelsGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -31,7 +33,7 @@ class ProductSentinelsGameState: GridGameState<ProductSentinelsGameMove> {
         guard !isCopy else {return}
         objArray = Array<ProductSentinelsObject>(repeating: .empty, count: rows * cols)
         for p in game.pos2hint.keys {
-            self[p] = .hint()
+            self[p] = .hint
         }
         updateIsSolved()
     }
@@ -61,9 +63,9 @@ class ProductSentinelsGameState: GridGameState<ProductSentinelsGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .tower()
+        case .empty: markerOption == .markerFirst ? .marker : .tower
         case .tower: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .tower() : .empty
+        case .marker: markerOption == .markerFirst ? .tower : .empty
         default: o
         }
         return setObject(move: &move)
@@ -98,7 +100,7 @@ class ProductSentinelsGameState: GridGameState<ProductSentinelsGameMove> {
                 let p = Position(r, c)
                 switch self[p] {
                 case .tower:
-                    self[p] = .tower()
+                    pos2stateAllowed[p] = .normal
                 case .forbidden:
                     self[p] = .empty
                     fallthrough
@@ -120,15 +122,14 @@ class ProductSentinelsGameState: GridGameState<ProductSentinelsGameMove> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 func hasNeighbor() -> Bool {
-                    for os in ProductSentinelsGame.offset {
-                        let p2 = p + os
-                        if isValid(p: p2), case .tower = self[p2] { return true }
+                    ProductSentinelsGame.offset.contains {
+                        let p2 = p + $0
+                        return isValid(p: p2) && self[p2] == .tower
                     }
-                    return false
                 }
                 switch self[p] {
-                case let .tower(state):
-                    self[p] = .tower(state: state == .normal && !hasNeighbor() ? .normal : .error)
+                case .tower:
+                    pos2stateAllowed[p] = pos2stateAllowed[p] == .normal && !hasNeighbor() ? .normal : .error
                 case .empty, .marker:
                     guard allowedObjectsOnly && hasNeighbor() else {continue}
                     self[p] = .forbidden
@@ -161,7 +162,7 @@ class ProductSentinelsGameState: GridGameState<ProductSentinelsGameMove> {
             }
             let n1 = (nums[0] + nums[2] + 1) * (nums[1] + nums[3] + 1)
             let s: HintState = n1 > n2 ? .normal : n1 == n2 ? .complete : .error
-            self[p] = .hint(state: s)
+            pos2stateHint[p] = s
             if s != .complete {
                 isSolved = false
             } else {
