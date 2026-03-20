@@ -29,10 +29,10 @@ class PairakabeGameScene: GameScene<PairakabeGameState> {
         
         // add Hints
         for (p, n) in game.pos2hint {
-            guard case let .hint(state: s) = state[p] else {continue}
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
+            let s = state.pos2state[p]!
             addHint(n: n, s: s, point: point, nodeName: hintNodeName)
         }
     }

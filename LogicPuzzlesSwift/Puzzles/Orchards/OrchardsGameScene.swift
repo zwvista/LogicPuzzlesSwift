@@ -78,7 +78,7 @@ class OrchardsGameScene: GameScene<OrchardsGameState> {
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case .tree:
-                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: s2 == .normal ? 0.0 : 0.5, point: point, nodeName: treeNodeName)
+                    addImage(imageNamed: "tree_apple", color: .red, colorBlendFactor: s2 == .normal ? 0.0 : 0.5, point: point, nodeName: treeNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
                 default:

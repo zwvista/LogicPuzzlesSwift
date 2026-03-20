@@ -842,6 +842,7 @@
 		8C610F28204159110087C545 /* NorthPoleFishingGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C610F1C204159110087C545 /* NorthPoleFishingGameState.swift */; };
 		8C64A2681DD8089700AB6C09 /* GameGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D31DC42FA40052202C /* GameGameViewController.swift */; };
 		8C64A2EC1DE0891000AB6C09 /* GameTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64A2EB1DE0891000AB6C09 /* GameTables.swift */; };
+		8C6757ED2F6D821100C66D49 /* tree_apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C6757EC2F6D821100C66D49 /* tree_apple.png */; };
 		8C6A35DF1FAF4FFD00D2804D /* Mathrax.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C6A35D31FAF4FFD00D2804D /* Mathrax.xml */; };
 		8C6A35E01FAF4FFD00D2804D /* MathraxDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A35D41FAF4FFD00D2804D /* MathraxDocument.swift */; };
 		8C6A35E11FAF4FFD00D2804D /* MathraxGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6A35D51FAF4FFD00D2804D /* MathraxGame.swift */; };
@@ -2979,6 +2980,7 @@
 		8C610F1B204159110087C545 /* NorthPoleFishingGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorthPoleFishingGridNode.swift; sourceTree = "<group>"; };
 		8C610F1C204159110087C545 /* NorthPoleFishingGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorthPoleFishingGameState.swift; sourceTree = "<group>"; };
 		8C64A2EB1DE0891000AB6C09 /* GameTables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameTables.swift; sourceTree = "<group>"; };
+		8C6757EC2F6D821100C66D49 /* tree_apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree_apple.png; sourceTree = "<group>"; };
 		8C6A35D31FAF4FFD00D2804D /* Mathrax.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Mathrax.xml; sourceTree = "<group>"; };
 		8C6A35D41FAF4FFD00D2804D /* MathraxDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathraxDocument.swift; sourceTree = "<group>"; };
 		8C6A35D51FAF4FFD00D2804D /* MathraxGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathraxGame.swift; sourceTree = "<group>"; };
@@ -6627,6 +6629,7 @@
 				8C86631A2EA39DD00078CD64 /* tower_wall2.png */,
 				8C263E732F1282C500158A2C /* trebuchet.png */,
 				8C86631B2EA39DD00078CD64 /* tree.png */,
+				8C6757EC2F6D821100C66D49 /* tree_apple.png */,
 				8C86631C2EA39DD00078CD64 /* turnips.png */,
 				8C86631D2EA39DD00078CD64 /* turtle.png */,
 				8C86631E2EA39DD00078CD64 /* walk_no.png */,
@@ -8327,6 +8330,7 @@
 				8C8663562EA39DD00078CD64 /* road_horizontal.png in Resources */,
 				8CF180012F37832A000F1F7D /* ZenSolitaire.xml in Resources */,
 				8C2F28652F40FE29004B3C93 /* CloudsAndClears.xml in Resources */,
+				8C6757ED2F6D821100C66D49 /* tree_apple.png in Resources */,
 				8C8663572EA39DD00078CD64 /* thermometer3B.png in Resources */,
 				8C8663582EA39DD00078CD64 /* wood vertical.png in Resources */,
 				8C8663592EA39DD00078CD64 /* C4.png in Resources */,

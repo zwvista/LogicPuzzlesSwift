@@ -45,7 +45,7 @@ class ParksGameState: GridGameState<ParksGameMove> {
     
     override func setObject(move: inout ParksGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && self[p]) != move.obj else { return .invalid }
+        guard isValid(p: p) && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
