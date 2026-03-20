@@ -32,6 +32,9 @@ class LiarLiarGameState: GridGameState<LiarLiarGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<LiarLiarObject>(repeating: LiarLiarObject(), count: rows * cols)
+        for p in game.pos2hint.keys {
+            self[p] = .hint
+        }
         updateIsSolved()
     }
     
@@ -92,8 +95,8 @@ class LiarLiarGameState: GridGameState<LiarLiarGameMove> {
         }
         // 3. A number in a cell indicates how many marked cells must be placed.
         //    adjacent to its four sides.
-        for (p, n1) in game.pos2hint {
-            let n2 = LiarLiarGame.offset.count {
+        for (p, n2) in game.pos2hint {
+            let n1 = LiarLiarGame.offset.count {
                 let p2 = p + $0
                 return isValid(p: p2) && self[p2] == .marked
             }

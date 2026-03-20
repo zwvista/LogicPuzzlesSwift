@@ -78,7 +78,7 @@ class MinesweeperGameScene: GameScene<MinesweeperGameState> {
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case .mine:
-                    addImage(imageNamed: "tree", color: .red, colorBlendFactor: 0.0, point: point, nodeName: mineNodeName)
+                    addImage(imageNamed: "bomb", color: .red, colorBlendFactor: 0.0, point: point, nodeName: mineNodeName)
                 case .marker:
                     addCircleMarker(color: .white, point: point, nodeName: markerNodeName)
                 case .hint:

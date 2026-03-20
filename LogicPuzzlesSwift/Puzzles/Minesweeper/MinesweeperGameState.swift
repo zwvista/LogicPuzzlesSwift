@@ -85,7 +85,7 @@ class MinesweeperGameState: GridGameState<MinesweeperGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if case .forbidden = self[p] { self[p] = .empty }
+                if self[p] == .forbidden { self[p] = .empty }
             }
         }
         for (p, n2) in game.pos2hint {

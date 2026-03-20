@@ -63,12 +63,8 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         
         selectedRow = gameNames.firstIndex(of: gameDocument.gameProgress.gameName!)!
         let indexPath = IndexPath(row: selectedRow, section: 0)
-        // https://stackoverflow.com/questions/2685548/uitableview-scrolling-to-specific-position
         tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
-        var point = tableView.contentOffset
-        let offset = (navBar!.frame.height + tableView.rowHeight) / 2 + navBar!.frame.height
-        if point.y >= offset { point.y += offset }
-        tableView.contentOffset = point
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
