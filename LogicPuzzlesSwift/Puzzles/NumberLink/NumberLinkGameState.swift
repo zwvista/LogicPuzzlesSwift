@@ -131,7 +131,7 @@ class NumberLinkGameState: GridGameState<NumberLinkGameMove> {
             let rng1 = area.filter { game.pos2hint[$0] != nil }
             guard !rng1.isEmpty else { isSolved = false; continue }
             let rng2 = game.hint2rng[game.pos2hint[rng1[0]]!]!
-            let (b1, b2, b3) = (rng1.difference(rng2).isEmpty, rng2.difference(rng1).isEmpty, area.testAll { self.pos2state[$0] != .error })
+            let (b1, b2, b3) = (rng1.difference(rng2).isEmpty, rng2.difference(rng1).isEmpty, area.allSatisfy { self.pos2state[$0] != .error })
             // 3. Lines must originate on a number and must end in the other equal
             // number.
             // 4. At the end of the puzzle, you must have covered ALL the squares with

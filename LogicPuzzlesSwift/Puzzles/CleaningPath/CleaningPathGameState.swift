@@ -104,6 +104,6 @@ class CleaningPathGameState: GridGameState<CleaningPathGameMove> {
         }
         // 1. You are a Roomba! And this is office floor you have to clean tonight.
         // 2. The floor is divided in rooms. You can enter (and exit) the room only once.
-        if !(area2count.count == game.areas.count && area2count.testAll { $1 == 1 }) { isSolved = false }
+        if !(area2count.count == game.areas.count && area2count.allSatisfy { $1 == 1 }) { isSolved = false }
     }
 }

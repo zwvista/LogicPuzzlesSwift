@@ -137,7 +137,7 @@ class WallSentinelsGameState: GridGameState<WallSentinelsGameMove> {
                 case .wall, .hintWall:
                     pos2node[p] = g.addNode(p.description)
                     // 7. The Wall cannot contain 2*2 Wall tiles.
-                    if WallSentinelsGame.offset2.testAll({os in
+                    if WallSentinelsGame.offset2.allSatisfy({os in
                         let p2 = p + os
                         if !self.isValid(p: p2) { return false }
                         switch self[p2] {

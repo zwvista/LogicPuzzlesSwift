@@ -25,6 +25,7 @@ class JoinMeGame: GridGame<JoinMeGameState> {
     var row2hint = [Int]()
     var col2hint = [Int]()
     let stitches: Int
+    var area2areas = [[Int]]()
 
     init(layout: [String], stitches: Int, delegate: JoinMeGameViewController? = nil) {
         self.stitches = stitches
@@ -54,12 +55,12 @@ class JoinMeGame: GridGame<JoinMeGameState> {
                         dots[r + 1, c][0] = .line
                     }
                 }
-                let ch2 = str[2 * cols + 1]
-                row2hint[r] = ch2 == " " ? JoinMeGame.PUZ_UNKNOWN : ch2.toInt!
+                let s = str[2 * cols + 1...2 * cols + 2].trimmed()
+                row2hint[r] = s.isEmpty ? JoinMeGame.PUZ_UNKNOWN : s.toInt()!
             } else {
                 for c in 0..<cols {
-                    let ch2 = str[2 * c + 1]
-                    col2hint[c] = ch2 == " " ? JoinMeGame.PUZ_UNKNOWN : ch2.toInt!
+                    let s = str[2 * c...2 * c + 1].trimmed()
+                    col2hint[c] = s.isEmpty ? JoinMeGame.PUZ_UNKNOWN : s.toInt()!
                 }
             }
         }
@@ -92,6 +93,16 @@ class JoinMeGame: GridGame<JoinMeGameState> {
             areas.append(area)
         }
         
+        area2areas = Array(repeating: [Int](), count: areas.count)
+        for (i, area) in areas.enumerated() {
+            area2areas[i] = Array(Set(area
+                .flatMap { p in JoinMeGame.offset.map { p + $0 } }
+                .filter { isValid(p: $0) }
+                .map { pos2area[$0]! }))
+                .filter { $0 != i }
+                .sorted()
+        }
+
         let state = JoinMeGameState(game: self)
         levelInitialized(state: state)
     }

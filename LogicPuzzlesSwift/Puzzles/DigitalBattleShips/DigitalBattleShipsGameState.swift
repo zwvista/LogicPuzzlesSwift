@@ -168,9 +168,9 @@ class DigitalBattleShipsGameState: GridGameState<DigitalBattleShipsGameMove> {
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }.sorted()
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
             guard area.count == 1 && self[area.first!] == .battleShipUnit || 2...4 ~= area.count && (
-                area.testAll({ $0.row == area.first!.row }) && self[area.first!] == .battleShipLeft && self[area.last!] == .battleShipRight ||
-                area.testAll({ $0.col == area.first!.col }) && self[area.first!] == .battleShipTop && self[area.last!] == .battleShipBottom) &&
-                [Int](1..<area.count - 1).testAll({ self[area[$0]] == .battleShipMiddle }) else { isSolved = false; continue }
+                area.allSatisfy({ $0.row == area.first!.row }) && self[area.first!] == .battleShipLeft && self[area.last!] == .battleShipRight ||
+                area.allSatisfy({ $0.col == area.first!.col }) && self[area.first!] == .battleShipTop && self[area.last!] == .battleShipBottom) &&
+                [Int](1..<area.count - 1).allSatisfy({ self[area[$0]] == .battleShipMiddle }) else { isSolved = false; continue }
             for p in area {
                 for os in DigitalBattleShipsGame.offset2 {
                     // 4. A ship or piece of ship can't touch another, not even diagonally.

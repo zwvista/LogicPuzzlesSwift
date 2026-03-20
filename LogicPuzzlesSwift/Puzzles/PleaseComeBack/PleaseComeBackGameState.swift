@@ -105,6 +105,6 @@ class PleaseComeBackGameState: GridGameState<PleaseComeBackGameMove> {
         // 1. Draw a single path which passes in each area exactly twice.
         // 2. Every square in the board must be passed through, except for brown
         //    areas, which are to be avoided entirely.
-        if !(area2count.count == game.areas.count && area2count.testAll { $1 == 2 }) { isSolved = false }
+        if !(area2count.count == game.areas.count && area2count.allSatisfy { $1 == 2 }) { isSolved = false }
     }
 }

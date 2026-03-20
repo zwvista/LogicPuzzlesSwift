@@ -122,10 +122,10 @@ class BWTapaGameState: GridGameState<BWTapaGameMove> {
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                if BWTapaGame.offset2.testAll({os in
+                if BWTapaGame.offset2.allSatisfy({os in
                     let o = self[p + os]
                     if case .wall = o { return true } else { return false }
-                }) || BWTapaGame.offset2.testAll({os in
+                }) || BWTapaGame.offset2.allSatisfy({os in
                     let o = self[p + os]
                     if case .empty = o, case .hint = o { return true } else { return false }
                 }) { isSolved = false; return }

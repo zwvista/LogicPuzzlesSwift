@@ -60,7 +60,7 @@ class FussyWaiterGameState: GridGameState<FussyWaiterGameMove> {
         let p = move.p
         guard isValid(p: p) && (move.isDrink ? game[p].drink : game[p].food) == " " else { return .invalid }
         let chMin: Character = move.isDrink ? "A" : "a"
-        let chMax = Character(Unicode.Scalar(Int(chMin.asciiValue!) + game.rows)!)
+        let chMax = Character(Unicode.Scalar(Int(chMin.asciiValue!) + rows)!)
         let o = move.isDrink ? self[p].drink : self[p].food
         move.obj = o == " " ? chMin : o == chMax ? " " : succ(ch: o)
         return setObject(move: &move)

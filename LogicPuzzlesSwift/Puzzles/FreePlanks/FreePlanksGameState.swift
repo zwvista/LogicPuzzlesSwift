@@ -137,7 +137,7 @@ class FreePlanksGameState: GridGameState<FreePlanksGameMove> {
         for plank in planks {
             if !FreePlanksGame.offset.contains(where: { os in
                 let area = plank.map { $0 + os }
-                return area.testAll { [unowned self] in plank.contains($0) || isValidWood(p: $0) && !woods.contains($0) }
+                return area.allSatisfy { [unowned self] in plank.contains($0) || isValidWood(p: $0) && !woods.contains($0) }
             }) { isSolved = false }
         }
     }

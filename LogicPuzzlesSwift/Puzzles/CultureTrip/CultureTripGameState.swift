@@ -129,8 +129,8 @@ class CultureTripGameState: GridGameState<CultureTripGameMove> {
         //    you leave it.
         // 5. In a neighborhood, you either visit All Museums or All Monuments.
         // 6. If you visit Monuments, you can't pass over Museums and vice-versa.
-        if !(area2count.count == game.areas.count && area2count.testAll { $1 == 1 } &&
-             area2chars.count == game.areas.count && area2chars.testAll { (area, chars) in
+        if !(area2count.count == game.areas.count && area2count.allSatisfy { $1 == 1 } &&
+             area2chars.count == game.areas.count && area2chars.allSatisfy { (area, chars) in
             let s = Set(chars)
             if s.count != 1 { return false }
             let ch = s.first!

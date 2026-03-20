@@ -122,7 +122,7 @@ class DigitalPathGameState: GridGameState<DigitalPathGameMove> {
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                if DigitalPathGame.offset3.testAll({ self[p + $0] > 0 }) {
+                if DigitalPathGame.offset3.allSatisfy({ self[p + $0] > 0 }) {
                     isSolved = false
                     for os in DigitalPathGame.offset3 {
                         pos2state[p + os] = .error

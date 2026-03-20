@@ -135,7 +135,7 @@ class GalaxiesGameState: GridGameState<GalaxiesGameMove> {
                 // means that rotating the shape of the Galaxy by 180 degrees (half a
                 // full turn) around the center, will result in an identical shape.
                 let galaxy = rng.first!
-                let b = area.testAll { p in area.contains(Position(galaxy.row - p.row - 1, galaxy.col - p.col - 1)) }
+                let b = area.allSatisfy { p in area.contains(Position(galaxy.row - p.row - 1, galaxy.col - p.col - 1)) }
                 pos2state[galaxy] = b ? .complete : .error
                 if !b { isSolved = false }
             }

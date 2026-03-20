@@ -121,7 +121,7 @@ class PathOnTheHillsGameState: GridGameState<PathOnTheHillsGameMove> {
         //    each Field just once.
         // 4. A Field with no number can be passed through in any number of tiles,
         //    at least one.
-        if !(area2count.count == game.areas.count && area2count.testAll { $1 == 1 }) { isSolved = false; return }
+        if !(area2count.count == game.areas.count && area2count.allSatisfy { $1 == 1 }) { isSolved = false; return }
         // 5. If you avoid two adjacent tiles in your path, they should be in the
         //    same Fields.
         // 6. Or in other words, two adjacent empty tiles cannot be in two different

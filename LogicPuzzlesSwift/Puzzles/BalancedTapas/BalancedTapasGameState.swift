@@ -118,7 +118,7 @@ class BalancedTapasGameState: GridGameState<BalancedTapasGameMove> {
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                if BalancedTapasGame.offset2.testAll({os in
+                if BalancedTapasGame.offset2.allSatisfy({os in
                     let o = self[p + os]
                     if case .wall = o { return true } else { return false }
                 }) { isSolved = false; return }

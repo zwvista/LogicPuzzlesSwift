@@ -137,7 +137,7 @@ class DirectionalPlanksGameState: GridGameState<DirectionalPlanksGameMove> {
             let n2 = game.pos2hint[pHint]!
             let n1 = DirectionalPlanksGame.offset.count { os in
                 let area = plank.map { $0 + os }
-                return area.testAll { [unowned self] in plank.contains($0) || isValidWood(p: $0) && !woods.contains($0) }
+                return area.allSatisfy { [unowned self] in plank.contains($0) || isValidWood(p: $0) && !woods.contains($0) }
             }
             let s: HintState = n1 == n2 ? .complete : .error
             pos2state[pHint] = s
