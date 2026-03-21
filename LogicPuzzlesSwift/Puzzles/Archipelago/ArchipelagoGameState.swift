@@ -102,7 +102,7 @@ class ArchipelagoGameState: GridGameState<ArchipelagoGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if case .water = self[p] {continue}
+                if self[p] == .water {continue}
                 pos2node[p] = g.addNode(p.description)
             }
         }

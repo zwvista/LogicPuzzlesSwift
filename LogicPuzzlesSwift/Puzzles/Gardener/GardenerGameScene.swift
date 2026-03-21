@@ -86,7 +86,7 @@ class GardenerGameScene: GameScene<GardenerGameState> {
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                if case .forbidden = state[p] {
+                if state[p] == .forbidden {
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 }
                 if state.invalidSpacesHorz.contains(p) {

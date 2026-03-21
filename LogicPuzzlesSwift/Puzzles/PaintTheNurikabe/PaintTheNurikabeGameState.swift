@@ -88,7 +88,7 @@ class PaintTheNurikabeGameState: GridGameState<PaintTheNurikabeGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if case .forbidden = self[p] { self[p] = .empty }
+                if self[p] == .forbidden { self[p] = .empty }
             }
         }
         // 2. A number indicates how many painted tiles are adjacent to it.

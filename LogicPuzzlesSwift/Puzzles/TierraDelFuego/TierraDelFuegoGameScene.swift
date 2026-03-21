@@ -49,7 +49,7 @@ class TierraDelFuegoGameScene: GameScene<TierraDelFuegoGameState> {
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
                 let (s3, s4) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
-                guard String(describing: o1) != String(describing: o2) else {continue}
+                guard o1 != o2 || s1 != s2 || s3 != s4 else {continue}
                 switch o1 {
                 case .forbidden:
                     removeNode(withName: forbiddenNodeName)

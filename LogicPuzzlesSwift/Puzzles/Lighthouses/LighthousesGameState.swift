@@ -50,7 +50,7 @@ class LighthousesGameState: GridGameState<LighthousesGameMove> {
     override func setObject(move: inout LighthousesGameMove) -> GameOperationType {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 { return .invalid }
+        if o1 == .hint { return .invalid }
         guard String(describing: o1) != String(describing: o2) else { return .invalid }
         self[p] = o2
         updateIsSolved()

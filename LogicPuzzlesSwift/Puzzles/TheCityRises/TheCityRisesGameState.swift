@@ -74,7 +74,7 @@ class TheCityRisesGameState: GridGameState<TheCityRisesGameMove> {
 
         Description
         1. The board represents a piece of land where a new town should be built.
-        2. Each area describes a section of land, where the town concil has decided
+        2. Each area describes a section of land, where the town council has decided
            to place as many city blocks as the number in it.
         3. Town blocks inside an area are horizontally or vertically contiguous.
         4. Blocks in different areas cannot touch horizontally or vertically.
@@ -89,7 +89,7 @@ class TheCityRisesGameState: GridGameState<TheCityRisesGameMove> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 pos2stateHint[p] = .normal
-                if case .forbidden = self[p] {
+                if self[p] == .forbidden {
                     self[p] = .empty
                 }
             }
@@ -117,12 +117,10 @@ class TheCityRisesGameState: GridGameState<TheCityRisesGameMove> {
             // 4. Blocks in different areas cannot touch horizontally or vertically.
             let cnt = Set(blocks.map { game.pos2area[$0]! }).count
             let s: AllowedObjectState = cnt == 1 ? .normal : .error
-            if s == .error {
-                isSolved = false
-                for p in blocks { pos2stateAllowed[p] = s }
-            }
+            for p in blocks { pos2stateAllowed[p] = s }
+            if s == .error { isSolved = false }
             guard s == .normal else {continue}
-            // 2. Each area describes a section of land, where the town concil has decided
+            // 2. Each area describes a section of land, where the town council has decided
             //    to place as many city blocks as the number in it.
             let nArea = game.pos2area[blocks[0]]!
             let area = game.areas[nArea]

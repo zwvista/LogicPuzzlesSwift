@@ -103,7 +103,7 @@ class CarpentersWallGameState: GridGameState<CarpentersWallGameMove> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 pos2node[p] = g.addNode(p.description)
-                if case .wall = self[p] {
+                if self[p] == .wall {
                     rngWalls.append(p)
                 } else {
                     rngEmpty.append(p)

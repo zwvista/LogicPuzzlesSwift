@@ -152,7 +152,7 @@ class BalancedTapasGameState: GridGameState<BalancedTapasGameMove> {
             var n = 0
             for c in from..<to {
                 for r in 0..<rows {
-                    if case .wall = self[r, c] { n += 1 }
+                    if self[r, c] == .wall { n += 1 }
                 }
             }
             return n

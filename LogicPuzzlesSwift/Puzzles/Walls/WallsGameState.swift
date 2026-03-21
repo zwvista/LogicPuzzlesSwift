@@ -103,14 +103,14 @@ class WallsGameState: GridGameState<WallsGameMove> {
                         while isValid(p: p2) {
                             if i % 2 == 0 {
                                 // 3. Wall pieces have two ways to be put, horizontally or vertically.
-                                if case .vert = self[p2] {
+                                if self[p2] == .vert {
                                     n1 += 1
                                 } else {
                                     break
                                 }
                             } else {
                                 // 3. Wall pieces have two ways to be put, horizontally or vertically.
-                                if case .horz = self[p2] {
+                                if self[p2] == .horz {
                                     n1 += 1
                                 } else {
                                     break

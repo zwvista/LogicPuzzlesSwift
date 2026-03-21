@@ -127,7 +127,7 @@ class OrchardsGameState: GridGameState<OrchardsGameMove> {
             var trees = [Position]()
             let n2 = 2
             for p in a {
-                if case .tree = self[p] { trees.append(p) }
+                if self[p] == .tree { trees.append(p) }
             }
             let n1 = trees.count
             // 4. At the same time, like in Parks, every country area must have exactly

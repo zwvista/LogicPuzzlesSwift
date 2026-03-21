@@ -106,7 +106,7 @@ class GardenerGameState: GridGameState<GardenerGameMove> {
                 func hasNeighbor() -> Bool {
                     for os in GardenerGame.offset {
                         let p2 = p + os
-                        if isValid(p: p2), case .flower = self[p2] { return true }
+                        if isValid(p: p2), self[p2] == .flower { return true }
                     }
                     return false
                 }
@@ -145,7 +145,7 @@ class GardenerGameState: GridGameState<GardenerGameMove> {
             let area = game.areas[i]
             var n1 = 0
             for p2 in area {
-                if case .flower = self[p2] { n1 += 1 }
+                if self[p2] == .flower { n1 += 1 }
             }
             let s: HintState = n1 < n2 ? .normal : n1 == n2 || n2 == -1 ? .complete : .error
             pos2stateHint[p] = s
@@ -181,7 +181,7 @@ class GardenerGameState: GridGameState<GardenerGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if case .flower = self[p] {
+                if self[p] == .flower {
                     checkSpaces(isHorz: true)
                 } else {
                     spaces.append(p)
@@ -192,7 +192,7 @@ class GardenerGameState: GridGameState<GardenerGameMove> {
         for c in 0..<cols {
             for r in 0..<rows {
                 let p = Position(r, c)
-                if case .flower = self[p] {
+                if self[p] == .flower {
                     checkSpaces(isHorz: false)
                 } else {
                     spaces.append(p)

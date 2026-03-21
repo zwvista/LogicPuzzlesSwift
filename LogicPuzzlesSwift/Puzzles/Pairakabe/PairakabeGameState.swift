@@ -85,9 +85,8 @@ class PairakabeGameState: GridGameState<PairakabeGameMove> {
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                if PairakabeGame.offset2.allSatisfy({os in
-                    let o = self[p + os]
-                    if case .wall = o { return true } else { return false }
+                if PairakabeGame.offset2.allSatisfy({
+                    self[p + $0] == .wall
                 }) { isSolved = false }
             }
         }

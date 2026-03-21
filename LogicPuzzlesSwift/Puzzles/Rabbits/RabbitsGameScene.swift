@@ -40,7 +40,7 @@ class RabbitsGameScene: GameScene<RabbitsGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                guard case .forbidden = state[p] else {continue}
+                guard state[p] == .forbidden else {continue}
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix

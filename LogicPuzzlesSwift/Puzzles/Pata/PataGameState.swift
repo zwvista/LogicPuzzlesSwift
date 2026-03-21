@@ -144,7 +144,7 @@ class PataGameState: GridGameState<PataGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if case .wall = self[p] { pos2node[p] = g.addNode(p.description) }
+                if self[p] == .wall { pos2node[p] = g.addNode(p.description) }
             }
         }
         for (p, node) in pos2node {

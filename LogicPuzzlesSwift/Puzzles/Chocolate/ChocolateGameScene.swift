@@ -66,7 +66,7 @@ class ChocolateGameScene: GameScene<ChocolateGameState> {
             for c in 0..<state.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
-                guard case .forbidden = state[p] else {continue}
+                guard state[p] == .forbidden else {continue}
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 addForbiddenMarker(point: point, nodeName: forbiddenNodeName)

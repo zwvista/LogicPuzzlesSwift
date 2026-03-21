@@ -50,7 +50,7 @@ class BusySeasGameState: GridGameState<BusySeasGameMove> {
     override func setObject(move: inout BusySeasGameMove) -> GameOperationType {
         let p = move.p
         let (o1, o2) = (self[p], move.obj)
-        if case .hint = o1 { return .invalid }
+        if o1 == .hint { return .invalid }
         guard String(describing: o1) != String(describing: o2) else { return .invalid }
         self[p] = o2
         updateIsSolved()
@@ -106,7 +106,7 @@ class BusySeasGameState: GridGameState<BusySeasGameMove> {
                     for os in BusySeasGame.offset {
                         var p2 = p + os
                         while game.isValid(p: p2) {
-                            if case .hint = self[p2] { return true }
+                            if self[p2] == .hint { return true }
                             p2 += os
                         }
                     }

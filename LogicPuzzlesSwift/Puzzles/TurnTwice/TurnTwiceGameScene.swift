@@ -28,15 +28,12 @@ class TurnTwiceGameScene: GameScene<TurnTwiceGameState> {
         addGrid(gridNode: TurnTwiceGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
         // add Hints
-        for r in 0..<game.rows {
-            for c in 0..<game.cols {
-                let p = Position(r, c)
-                let point = gridNode.centerPoint(p: p)
-                let nodeNameSuffix = "-\(r)-\(c)"
-                let signpostNodeName = "signpost" + nodeNameSuffix
-                let s = state.pos2state[p]!
-                addsignpost(s: s, point: point, nodeName: signpostNodeName)
-            }
+        for p in game.signposts {
+            let point = gridNode.centerPoint(p: p)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let signpostNodeName = "signpost" + nodeNameSuffix
+            let s = state.pos2state[p]!
+            addsignpost(s: s, point: point, nodeName: signpostNodeName)
         }
     }
     

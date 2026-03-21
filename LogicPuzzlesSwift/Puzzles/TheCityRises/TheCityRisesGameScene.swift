@@ -17,16 +17,8 @@ class TheCityRisesGameScene: GameScene<TheCityRisesGameState> {
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
-
-    override func levelInitialized(_ game: AnyObject, state: TheCityRisesGameState, skView: SKView) {
-        let game = game as! TheCityRisesGame
-        removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
-        
-        // add Grid
-        let offset:CGFloat = 0.5
-        addGrid(gridNode: TheCityRisesGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
-        
+    
+    func addLines(game: TheCityRisesGame) {
         let pathToDraw = CGMutablePath()
         let lineNode = SKShapeNode(path: pathToDraw)
         for r in 0..<game.rows + 1 {
@@ -53,6 +45,18 @@ class TheCityRisesGameScene: GameScene<TheCityRisesGameState> {
         lineNode.path = pathToDraw
         lineNode.name = "line"
         gridNode.addChild(lineNode)
+    }
+
+    override func levelInitialized(_ game: AnyObject, state: TheCityRisesGameState, skView: SKView) {
+        let game = game as! TheCityRisesGame
+        removeAllChildren()
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
+        
+        // add Grid
+        let offset:CGFloat = 0.5
+        addGrid(gridNode: TheCityRisesGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
+
+        addLines(game: game)
         
         // add Hints
         for (p, n) in game.pos2hint {
@@ -66,7 +70,7 @@ class TheCityRisesGameScene: GameScene<TheCityRisesGameState> {
             for c in 0..<state.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
-                guard case .forbidden = state[p] else {continue}
+                guard state[p] == .forbidden else {continue}
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
@@ -115,5 +119,8 @@ class TheCityRisesGameScene: GameScene<TheCityRisesGameState> {
                 addHint(n: n, s: s2!, point: point, nodeName: hintNodeName)
             }
         }
+
+        removeNode(withName: "line")
+        addLines(game: stateFrom.game)
     }
 }

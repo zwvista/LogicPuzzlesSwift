@@ -93,7 +93,7 @@ class MineShipsGameState: GridGameState<MineShipsGameMove> {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                if case .forbidden = self[r, c] { self[r, c] = .empty }
+                if self[r, c] == .forbidden { self[r, c] = .empty }
             }
         }
         // 3. A number tells you how many pieces of ship are around it.

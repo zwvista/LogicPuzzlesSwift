@@ -133,7 +133,7 @@ class TapDifferentlyGameState: GridGameState<TapDifferentlyGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if case .wall = self[p] { pos2node[p] = g.addNode(p.description) }
+                if self[p] == .wall { pos2node[p] = g.addNode(p.description) }
             }
         }
         for (p, node) in pos2node {
@@ -152,7 +152,7 @@ class TapDifferentlyGameState: GridGameState<TapDifferentlyGameMove> {
         for r in 0..<rows {
             var n = 0
             for c in 0..<cols {
-                if case .wall = self[r, c] { n += 1 }
+                if self[r, c] == .wall { n += 1 }
             }
             nums.insert(n)
         }
@@ -162,7 +162,7 @@ class TapDifferentlyGameState: GridGameState<TapDifferentlyGameMove> {
         for c in 0..<cols {
             var n = 0
             for r in 0..<rows {
-                if case .wall = self[r, c] { n += 1 }
+                if self[r, c] == .wall { n += 1 }
             }
             nums.insert(n)
         }

@@ -98,7 +98,7 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
             var n1 = 0
             let n2 = game.row2hint[r]
             for c in 0..<cols {
-                if case .star = self[r, c] { n1 += 1 }
+                if self[r, c] == .star { n1 += 1 }
             }
             // 3. The numbers on the borders tell you how many Stars there are on that row.
             row2state[r] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
@@ -108,7 +108,7 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
             var n1 = 0
             let n2 = game.col2hint[c]
             for r in 0..<rows {
-                if case .star = self[r, c] { n1 += 1 }
+                if self[r, c] == .star { n1 += 1 }
             }
             // 3. The numbers on the borders tell you how many Stars there are on that column.
             col2state[c] = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
@@ -116,7 +116,7 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
         }
         for r in 0..<rows {
             for c in 0..<cols {
-                if case .forbidden = self[r, c] { self[r, c] = .empty }
+                if self[r, c] == .forbidden { self[r, c] = .empty }
             }
         }
         for r in 0..<rows {
@@ -128,7 +128,7 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
                         let os = HiddenStarsGame.offset2[i]
                         var p2 = p + os
                         while isValid(p: p2) {
-                            if case .arrow = self[p2], (game.pos2arrow[p2]! + 4) % 8 == i { n += 1 }
+                            if self[p2] == .arrow, (game.pos2arrow[p2]! + 4) % 8 == i { n += 1 }
                             p2 += os
                         }
                     }
@@ -139,7 +139,7 @@ class HiddenStarsGameState: GridGameState<HiddenStarsGameMove> {
                     let os = HiddenStarsGame.offset2[game.pos2arrow[p]!]
                     var p2 = p + os
                     while isValid(p: p2) {
-                        if case .star = self[p2] { n += 1 }
+                        if self[p2] == .star { n += 1 }
                         p2 += os
                     }
                     return game.onlyOneArrow && n == 1 || n >= 1

@@ -86,7 +86,7 @@ class ParksGameState: GridGameState<ParksGameMove> {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                if case .forbidden = self[r, c] { self[r, c] = .empty }
+                if self[r, c] == .forbidden { self[r, c] = .empty }
             }
         }
         // 3. A Tree can't touch another Tree, not even diagonally.
@@ -96,7 +96,7 @@ class ParksGameState: GridGameState<ParksGameMove> {
                 func hasNeighbor() -> Bool {
                     for os in ParksGame.offset {
                         let p2 = p + os
-                        if isValid(p: p2), case .tree = self[p2] { return true }
+                        if isValid(p: p2), self[p2] == .tree { return true }
                     }
                     return false
                 }
@@ -117,7 +117,7 @@ class ParksGameState: GridGameState<ParksGameMove> {
         for r in 0..<rows {
             var n1 = 0
             for c in 0..<cols {
-                if case .tree = self[r, c] { n1 += 1 }
+                if self[r, c] == .tree { n1 += 1 }
             }
             if n1 != n2 { isSolved = false }
             for c in 0..<cols {
@@ -136,7 +136,7 @@ class ParksGameState: GridGameState<ParksGameMove> {
         for c in 0..<cols {
             var n1 = 0
             for r in 0..<rows {
-                if case .tree = self[r, c] { n1 += 1 }
+                if self[r, c] == .tree { n1 += 1 }
             }
             if n1 != n2 { isSolved = false }
             for r in 0..<rows {
@@ -155,7 +155,7 @@ class ParksGameState: GridGameState<ParksGameMove> {
         for a in game.areas {
             var n1 = 0
             for p in a {
-                if case .tree = self[p] { n1 += 1 }
+                if self[p] == .tree { n1 += 1 }
             }
             if n1 != n2 { isSolved = false }
             for p in a {

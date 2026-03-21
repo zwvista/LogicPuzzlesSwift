@@ -105,7 +105,7 @@ class ParkLakesGameState: GridGameState<ParkLakesGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard case .lake = self[p] else {continue}
+                guard self[p] == .lake else {continue}
                 pos2node[p] = g.addNode(p.description)
             }
         }
@@ -157,7 +157,7 @@ class ParkLakesGameState: GridGameState<ParkLakesGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if case .lake = self[p] {continue}
+                if self[p] == .lake {continue}
                 pos2node[p] = g.addNode(p.description)
             }
         }

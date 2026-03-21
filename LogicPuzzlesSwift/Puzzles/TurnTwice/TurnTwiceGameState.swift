@@ -84,7 +84,7 @@ class TurnTwiceGameState: GridGameState<TurnTwiceGameMove> {
     */
     private func updateIsSolved() {
         func isEmpty(p: Position) -> Bool {
-            if case .wall = self[p] { return false }
+            if self[p] == .wall { return false }
             return true
         }
         

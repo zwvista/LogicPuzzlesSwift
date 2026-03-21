@@ -109,7 +109,7 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
         }
         for (p, node) in pos2node {
             var b1 = false
-            if case .water = self[p] { b1 = true }
+            if self[p] == .water { b1 = true }
             for os in TierraDelFuegoGame.offset {
                 let p2 = p + os
                 guard let node2 = pos2node[p2] else {continue}
@@ -147,7 +147,7 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
                 }
                 if area.count > 2 {
                     for p in area {
-                        if case .water = self[p] {
+                        if self[p] == .water {
                             pos2stateAllowed[p] = .error
                         }
                     }

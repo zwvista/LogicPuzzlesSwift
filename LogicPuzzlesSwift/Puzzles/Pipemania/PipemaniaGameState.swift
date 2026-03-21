@@ -44,7 +44,7 @@ class PipemaniaGameState: GridGameState<PipemaniaGameMove> {
     
     override func setObject(move: inout PipemaniaGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p), case .empty = game[p], String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p), game[p] == .empty, String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete

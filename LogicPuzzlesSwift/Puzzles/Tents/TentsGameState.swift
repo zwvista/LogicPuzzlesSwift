@@ -99,7 +99,7 @@ class TentsGameState: GridGameState<TentsGameMove> {
             var n1 = 0
             let n2 = game.row2hint[r]
             for c in 0..<cols {
-                if case .tent = self[r, c] { n1 += 1 }
+                if self[r, c] == .tent { n1 += 1 }
             }
             // 3. The numbers on the borders tell you how many Tents there are in that row.
             let s: HintState = n2 == TentsGame.PUZ_UNKNOWN || n1 == n2 ? .complete : n1 < n2 ? .normal : .error
@@ -110,7 +110,7 @@ class TentsGameState: GridGameState<TentsGameMove> {
             var n1 = 0
             let n2 = game.col2hint[c]
             for r in 0..<rows {
-                if case .tent = self[r, c] { n1 += 1 }
+                if self[r, c] == .tent { n1 += 1 }
             }
             // 3. The numbers on the borders tell you how many Tents there are in that column.
             let s: HintState = n2 == TentsGame.PUZ_UNKNOWN || n1 == n2 ? .complete : n1 < n2 ? .normal : .error
@@ -119,7 +119,7 @@ class TentsGameState: GridGameState<TentsGameMove> {
         }
         for r in 0..<rows {
             for c in 0..<cols {
-                if case .forbidden = self[r, c] { self[r, c] = .empty }
+                if self[r, c] == .forbidden { self[r, c] = .empty }
             }
         }
         var nTree = 0, nTent = 0
@@ -127,18 +127,16 @@ class TentsGameState: GridGameState<TentsGameMove> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 func hasTree() -> Bool {
-                    for os in TentsGame.offset {
-                        let p2 = p + os
-                        if isValid(p: p2), case .tree = self[p2] { return true }
+                    TentsGame.offset.contains {
+                        let p2 = p + $0
+                        return isValid(p: p2) && self[p2] == .tree
                     }
-                    return false
                 }
                 func hasTent(isTree: Bool) -> Bool {
-                    for os in isTree ? TentsGame.offset : TentsGame.offset2 {
-                        let p2 = p + os
-                        if isValid(p: p2), case .tent = self[p2] { return true }
+                    (isTree ? TentsGame.offset : TentsGame.offset2).contains {
+                        let p2 = p + $0
+                        return isValid(p: p2) && self[p2] == .tent
                     }
-                    return false
                 }
                 switch self[p] {
                 case .tent:

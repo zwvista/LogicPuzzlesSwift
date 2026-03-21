@@ -58,7 +58,7 @@ class ThermometersGameScene: GameScene<ThermometersGameState> {
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let thermometerNodeName = "thermometer" + nodeNameSuffix
                 addThermometer(ch: game[p], filled: false, s: .normal, point: point, nodeName: thermometerNodeName)
-                if case .forbidden = state[p] {
+                if state[p] == .forbidden {
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 }
             }
@@ -88,7 +88,7 @@ class ThermometersGameScene: GameScene<ThermometersGameState> {
             }
         }
         func isFilled(o: ThermometersObject) -> Bool {
-            if case .filled = o {return true}
+            if o == .filled {return true}
             return false
         }
         for r in 0..<stateFrom.rows {

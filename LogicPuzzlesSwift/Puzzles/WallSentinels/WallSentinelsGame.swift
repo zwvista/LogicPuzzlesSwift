@@ -35,8 +35,10 @@ class WallSentinelsGame: GridGame<WallSentinelsGameState> {
                 let p = Position(r, c)
                 let n = s[1].toInt!
                 if s[0] == "." {
+                    self[p] = .hintLand
                     pos2hintLand[p] = n
                 } else {
+                    self[p] = .hintWall
                     pos2hintWall[p] = n
                 }
             }

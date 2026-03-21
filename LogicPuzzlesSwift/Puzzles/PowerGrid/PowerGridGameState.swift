@@ -134,7 +134,7 @@ class PowerGridGameState: GridGameState<PowerGridGameMove> {
             var posts = [Position]()
             for r in 0..<rows {
                 let p = Position(r, c)
-                if case .post = self[p] { posts.append(p) }
+                if self[p] == .post { posts.append(p) }
             }
             let n1 = posts.count, n2 = game.col2hint[c] + 1
             // 2. There are two Posts in each Column.

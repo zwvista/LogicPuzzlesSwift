@@ -12,6 +12,7 @@ class TurnTwiceGame: GridGame<TurnTwiceGameState> {
     static let offset = Position.Directions4
 
     var objArray = [TurnTwiceObject]()
+    var signposts = [Position]()
     // two signposts and the shortest path between them
     var paths = [(Position, Position, [Position])]()
 
@@ -21,14 +22,13 @@ class TurnTwiceGame: GridGame<TurnTwiceGameState> {
         size = Position(layout.count, layout[0].length)
         objArray = Array<TurnTwiceObject>(repeating: .empty, count: rows * cols)
         
-        var signposts = [Position]()
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
                 let p = Position(r, c)
                 let ch = str[c]
                 if ch == "S" {
-                    self[p] = .signpost()
+                    self[p] = .signpost
                     signposts.append(p)
                 }
             }
@@ -51,7 +51,7 @@ class TurnTwiceGame: GridGame<TurnTwiceGameState> {
                             let os = k == 0 && os1 != os0 || k == 1 && os2 == os0 ? os1 : os2
                             p += os
                             if p == p2 { return true }
-                            if case .empty = self[p] {
+                            if self[p] == .empty {
                                 path.append(p)
                             } else {
                                 return false

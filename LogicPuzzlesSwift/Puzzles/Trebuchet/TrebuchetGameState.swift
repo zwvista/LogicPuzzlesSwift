@@ -98,7 +98,8 @@ class TrebuchetGameState: GridGameState<TrebuchetGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard case .target = self[p] else { continue }
+                guard self[p] == .target else { continue }
+                pos2stateAllowed[p] = .normal
                 targets.insert(p)
                 for os in TrebuchetGame.offset {
                     let p2 = p + os
@@ -107,7 +108,6 @@ class TrebuchetGameState: GridGameState<TrebuchetGameMove> {
                     case .target:
                         isSolved = false
                         pos2stateAllowed[p] = .error
-                        pos2stateAllowed[p2] = .error
                     case .empty:
                         if allowedObjectsOnly { self[p2] = .forbidden }
                     default:
