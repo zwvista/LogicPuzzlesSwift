@@ -108,13 +108,11 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
             }
         }
         for (p, node) in pos2node {
-            var b1 = false
-            if self[p] == .water { b1 = true }
+            let b1 = self[p] == .water
             for os in TierraDelFuegoGame.offset {
                 let p2 = p + os
                 guard let node2 = pos2node[p2] else {continue}
-                var b2 = false
-                if self[p2] == .water { b2 = true }
+                let b2 = self[p2] == .water
                 if b1 == b2 {
                     g.addEdge(node, neighbor: node2)
                 }

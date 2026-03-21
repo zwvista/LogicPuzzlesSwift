@@ -97,11 +97,8 @@ class WallSentinelsGameState: GridGameState<WallSentinelsGameMove> {
                     for os in WallSentinelsGame.offset {
                         var p2 = p + os
                         while isValid(p: p2) {
-                            var isWall2 = false
-                            switch self[p2] {
-                            case .wall, .hintWall: isWall2 = true
-                            default: break
-                            }
+                            let o2 = self[p2]
+                            let isWall2 = o2 == .wall || o2 == .hintWall
                             if isWall2 != isWall {break}
                             n1 += 1
                             p2 += os
