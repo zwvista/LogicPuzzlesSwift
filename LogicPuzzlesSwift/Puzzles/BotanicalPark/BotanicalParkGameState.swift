@@ -48,7 +48,7 @@ class BotanicalParkGameState: GridGameState<BotanicalParkGameMove> {
     
     override func setObject(move: inout BotanicalParkGameMove) -> GameOperationType {
         let p = move.p
-        guard String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p) && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete

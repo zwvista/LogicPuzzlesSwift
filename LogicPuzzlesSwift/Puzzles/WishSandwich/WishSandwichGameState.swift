@@ -51,9 +51,8 @@ class WishSandwichGameState: GridGameState<WishSandwichGameMove> {
     
     override func setObject(move: inout WishSandwichGameMove) -> GameOperationType {
         let p = move.p
-        let (o1, o2) = (self[p], move.obj)
-        guard String(describing: o1) != String(describing: o2) else { return .invalid }
-        self[p] = o2
+        guard isValid(p: p) && self[p] != move.obj else { return .invalid }
+        self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }

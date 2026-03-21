@@ -49,17 +49,15 @@ class BusySeasGameState: GridGameState<BusySeasGameMove> {
     
     override func setObject(move: inout BusySeasGameMove) -> GameOperationType {
         let p = move.p
-        let (o1, o2) = (self[p], move.obj)
-        if o1 == .hint { return .invalid }
-        guard String(describing: o1) != String(describing: o2) else { return .invalid }
-        self[p] = o2
+        guard isValid(p: p) && self[p] != .hint && self[p] != move.obj else { return .invalid }
+        self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }
     
     override func switchObject(move: inout BusySeasGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) else { return .invalid }
+        guard isValid(p: p) && self[p] != .hint else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {

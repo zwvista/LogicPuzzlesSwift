@@ -9,7 +9,8 @@
 import Foundation
 
 enum PondCampingObject: Int {
-    case empty, forbidden, marker, forest, hint
+    case empty, forbidden, hint, marker
+    case forest
     init() {
         self = .empty
     }

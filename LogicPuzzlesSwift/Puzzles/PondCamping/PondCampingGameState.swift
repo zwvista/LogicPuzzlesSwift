@@ -31,7 +31,7 @@ class PondCampingGameState: GridGameState<PondCampingGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<PondCampingObject>(repeating: .empty, count: rows * cols)
-        for (p, _) in game.pos2hint {
+        for p in game.pos2hint.keys {
             self[p] = .hint
         }
         updateIsSolved()
@@ -48,7 +48,7 @@ class PondCampingGameState: GridGameState<PondCampingGameMove> {
     
     override func setObject(move: inout PondCampingGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p) && self[p] != .hint && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -56,7 +56,7 @@ class PondCampingGameState: GridGameState<PondCampingGameMove> {
     
     override func switchObject(move: inout PondCampingGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil else { return .invalid }
+        guard isValid(p: p) && self[p] != .hint else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {

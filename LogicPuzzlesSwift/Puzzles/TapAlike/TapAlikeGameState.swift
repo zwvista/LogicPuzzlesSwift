@@ -156,7 +156,7 @@ class TapAlikeGameState: GridGameState<TapAlikeGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let (o1, o2) = (self[r, c], self[rows - 1 - r, cols - 1 - c])
-                if (String(describing: o1) == String(describing: TapAlikeObject.wall)) == (String(describing: o2) == String(describing: TapAlikeObject.wall)) {
+                if (o1 == .wall) == (o2 == .wall) {
                     isSolved = false; return
                 }
             }
