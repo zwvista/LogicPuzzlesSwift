@@ -15,7 +15,7 @@ class TentsGame: GridGame<TentsGameState> {
 
     var row2hint = [Int]()
     var col2hint = [Int]()
-    var pos2tree = [Position]()
+    var trees = [Position]()
     
     init(layout: [String], delegate: TentsGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -30,7 +30,7 @@ class TentsGame: GridGame<TentsGameState> {
                 let p = Position(r, c)
                 let ch = str[c]
                 if ch == "T" {
-                    pos2tree.append(p)
+                    trees.append(p)
                 } else if (r == rows) != (c == cols) {
                     let n = ch == " " ? TentsGame.PUZ_UNKNOWN : ch.toInt!
                     if r == rows {

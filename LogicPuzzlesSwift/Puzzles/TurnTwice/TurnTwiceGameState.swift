@@ -15,6 +15,7 @@ class TurnTwiceGameState: GridGameState<TurnTwiceGameMove> {
     }
     override var gameDocument: GameDocumentBase { TurnTwiceDocument.sharedInstance }
     var objArray = [TurnTwiceObject]()
+    var pos2state = [Position: AllowedObjectState]()
     
     override func copy() -> TurnTwiceGameState {
         let v = TurnTwiceGameState(game: game, isCopy: true)
@@ -44,7 +45,7 @@ class TurnTwiceGameState: GridGameState<TurnTwiceGameMove> {
     
     override func setObject(move: inout TurnTwiceGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p), case .empty = game[p], String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p) && game[p] == .empty && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -52,13 +53,13 @@ class TurnTwiceGameState: GridGameState<TurnTwiceGameMove> {
     
     override func switchObject(move: inout TurnTwiceGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p), case .empty = game[p] else { return .invalid }
+        guard isValid(p: p) && game[p] == .empty else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .wall()
+        case .empty: markerOption == .markerFirst ? .marker : .wall
         case .wall: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .signpost() : .empty
+        case .marker: markerOption == .markerFirst ? .signpost : .empty
         default: o
         }
         return setObject(move: &move)
@@ -99,9 +100,9 @@ class TurnTwiceGameState: GridGameState<TurnTwiceGameMove> {
                 case .forbidden:
                     self[p] = .empty
                 case .signpost:
-                    self[p] = .signpost()
+                    pos2state[p] = .normal
                 case .wall:
-                    self[p] = .wall()
+                    pos2state[p] = .normal
                     walls.append(p)
                 default:
                     break
@@ -128,8 +129,8 @@ class TurnTwiceGameState: GridGameState<TurnTwiceGameMove> {
         for (p1, p2, path) in game.paths {
             if path.allSatisfy({ isEmpty(p: $0) }) {
                 isSolved = false
-                self[p1] = .signpost(state: .error)
-                self[p2] = .signpost(state: .error)
+                pos2state[p1] = .error
+                pos2state[p2] = .error
             }
         }
         
@@ -141,8 +142,8 @@ class TurnTwiceGameState: GridGameState<TurnTwiceGameMove> {
                 switch self[p2] {
                 case .wall:
                     isSolved = false
-                    self[p] = .wall(state: .error)
-                    self[p2] = .wall(state: .error)
+                    pos2state[p] = .error
+                    pos2state[p2] = .error
                 case .empty:
                     if allowedObjectsOnly {
                         self[p2] = .forbidden

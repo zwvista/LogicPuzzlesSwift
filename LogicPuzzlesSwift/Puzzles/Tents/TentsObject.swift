@@ -8,34 +8,11 @@
 
 import Foundation
 
-enum TentsObject {
-    case empty
-    case forbidden
-    case marker
-    case tent(state: AllowedObjectState = .normal)
-    case tree(state: AllowedObjectState = .normal)
+enum TentsObject: Int {
+    case empty, forbidden, marker
+    case tent, tree
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .tent:
-            return "tent"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> TentsObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "tent":
-            return .tent()
-        default:
-            return .empty
-        }
     }
 }
 
@@ -43,4 +20,3 @@ struct TentsGameMove {
     var p = Position()
     var obj = TentsObject()
 }
-

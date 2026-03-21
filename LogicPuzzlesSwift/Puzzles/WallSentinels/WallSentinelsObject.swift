@@ -8,34 +8,11 @@
 
 import Foundation
 
-enum WallSentinelsObject {
-    case empty
-    case hintWall(tiles: Int, state: HintState)
-    case hintLand(tiles: Int, state: HintState)
-    case marker
-    case wall
+enum WallSentinelsObject: Int {
+    case empty, marker
+    case hintWall, hintLand, wall
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .wall:
-            return "wall"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> WallSentinelsObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "wall":
-            return .wall
-        default:
-            return .empty
-        }
     }
 }
 

@@ -8,33 +8,11 @@
 
 import Foundation
 
-enum WallsObject {
-    case empty
-    case horz
-    case vert
-    case hint(state: HintState = .normal)
+enum WallsObject: Int {
+    case empty, hint
+    case horz, vert
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .horz:
-            return "horz"
-        case .vert:
-            return "vert"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> WallsObject {
-        switch str {
-        case "horz":
-            return .horz
-        case "vert":
-            return .vert
-        default:
-            return .empty
-        }
     }
 }
 

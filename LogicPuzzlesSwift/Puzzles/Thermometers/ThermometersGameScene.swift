@@ -99,8 +99,9 @@ class ThermometersGameScene: GameScene<ThermometersGameState> {
                 let thermometerNodeName = "thermometer" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
-                guard String(describing: o1) != String(describing: o2) else {continue}
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard o1 != o2 || s1 != s2 else {continue}
                 let (isFilled1, isFilled2) = (isFilled(o: o1), isFilled(o: o2))
                 if isFilled1 != isFilled2 { removeNode(withName: thermometerNodeName) }
                 switch o1 {
@@ -113,8 +114,8 @@ class ThermometersGameScene: GameScene<ThermometersGameState> {
                 }
                 if isFilled1 != isFilled2 && !isFilled2 { addThermometer(ch: stateFrom.game[p], filled: false, s: .normal, point: point, nodeName: thermometerNodeName) }
                 switch o2 {
-                case let .filled(s):
-                    addThermometer(ch: stateFrom.game[p], filled: true, s: s, point: point, nodeName: thermometerNodeName)
+                case .filled:
+                    addThermometer(ch: stateFrom.game[p], filled: true, s: s2!, point: point, nodeName: thermometerNodeName)
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case .marker:

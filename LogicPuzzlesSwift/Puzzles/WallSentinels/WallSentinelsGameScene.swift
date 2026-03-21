@@ -35,9 +35,13 @@ class WallSentinelsGameScene: GameScene<WallSentinelsGameState> {
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let hintNodeName = "hint" + nodeNameSuffix
                 switch state[p] {
-                case let .hintLand(n, s):
+                case .hintLand:
+                    let n = game.pos2hintLand[p]!
+                    let s = state.pos2state[p]!
                     addHint(n: n, s: s, point: point, nodeName: hintNodeName)
-                case let .hintWall(n, s):
+                case .hintWall:
+                    let n = game.pos2hintWall[p]!
+                    let s = state.pos2state[p]!
                     addBlock(color: .purple, point: point, nodeName: "wall")
                     addHint(n: n, s: s, point: point, nodeName: hintNodeName)
                 default:
@@ -56,9 +60,10 @@ class WallSentinelsGameScene: GameScene<WallSentinelsGameState> {
                 let wallNodeName = "wall" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                let (ot1, ot2) = (stateFrom[r, c], stateTo[r, c])
-                guard String(describing: ot1) != String(describing: ot2) else {continue}
-                switch ot1 {
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard o1 != o2 || s1 != s2 else {continue}
+                switch o1 {
                 case .wall:
                     removeNode(withName: wallNodeName)
                 case .marker:
@@ -68,15 +73,17 @@ class WallSentinelsGameScene: GameScene<WallSentinelsGameState> {
                 default:
                     break
                 }
-                switch ot2 {
+                switch o2 {
                 case .wall:
                     addBlock(color: .purple, point: point, nodeName: wallNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
-                case let .hintLand(n, s):
-                    addHint(n: n, s: s, point: point, nodeName: hintNodeName)
-                case let .hintWall(n, s):
-                    addHint(n: n, s: s, point: point, nodeName: hintNodeName)
+                case .hintLand:
+                    let n = stateFrom.game.pos2hintLand[p]!
+                    addHint(n: n, s: s2!, point: point, nodeName: hintNodeName)
+                case .hintWall:
+                    let n = stateFrom.game.pos2hintWall[p]!
+                    addHint(n: n, s: s2!, point: point, nodeName: hintNodeName)
                 default:
                     break
                 }

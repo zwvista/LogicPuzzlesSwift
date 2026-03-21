@@ -57,8 +57,8 @@ class TentsGameScene: GameScene<TentsGameState> {
                 switch state[p] {
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
-                case let .tree(s):
-                    let point = gridNode.centerPoint(p: p)
+                case .tree:
+                    let s = state.pos2state[p]!
                     addTree(s: s, point: point, nodeName: treeNodeName)
                 default:
                     break
@@ -98,8 +98,9 @@ class TentsGameScene: GameScene<TentsGameState> {
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let treeNodeName = "tree" + nodeNameSuffix
-                let (o1, o2) = (stateFrom[r, c], stateTo[r, c])
-                guard String(describing: o1) != String(describing: o2) else {continue}
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard o1 != o2 || s1 != s2 else {continue}
                 switch o1 {
                 case .forbidden:
                     removeNode(withName: forbiddenNodeName)
@@ -115,10 +116,10 @@ class TentsGameScene: GameScene<TentsGameState> {
                 switch o2 {
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
-                case let .tent(s):
-                    addImage(imageNamed: "tent", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: tentNodeName)
-                case let .tree(s):
-                    addTree(s: s, point: point, nodeName: treeNodeName)
+                case .tent:
+                    addImage(imageNamed: "tent", color: .red, colorBlendFactor: s2 == .normal ? 0.0 : 0.5, point: point, nodeName: tentNodeName)
+                case .tree:
+                    addTree(s: s2!, point: point, nodeName: treeNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
                 default:

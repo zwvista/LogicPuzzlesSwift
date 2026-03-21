@@ -13,10 +13,10 @@ class TentsDocument: GameDocument<TentsGameMove> {
     
     override func saveMove(_ move: TentsGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> TentsGameMove {
-        TentsGameMove(p: Position(rec.row, rec.col), obj: TentsObject.fromString(str: rec.strValue1!))
+        TentsGameMove(p: Position(rec.row, rec.col), obj: TentsObject(rawValue: rec.intValue1)!)
     }
 }

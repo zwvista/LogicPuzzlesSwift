@@ -15,8 +15,9 @@ class TheCityRisesGameState: GridGameState<TheCityRisesGameMove> {
     }
     override var gameDocument: GameDocumentBase { TheCityRisesDocument.sharedInstance }
     var objArray = [TheCityRisesObject]()
-    var pos2state = [Position: HintState]()
-    
+    var pos2stateHint = [Position: HintState]()
+    var pos2stateAllowed = [Position: AllowedObjectState]()
+
     override func copy() -> TheCityRisesGameState {
         let v = TheCityRisesGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -45,7 +46,7 @@ class TheCityRisesGameState: GridGameState<TheCityRisesGameMove> {
     
     override func setObject(move: inout TheCityRisesGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p), String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p) && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -57,9 +58,9 @@ class TheCityRisesGameState: GridGameState<TheCityRisesGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .block()
+        case .empty: markerOption == .markerFirst ? .marker : .block
         case .block: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .block() : .empty
+        case .marker: markerOption == .markerFirst ? .block : .empty
         default: o
         }
         return setObject(move: &move)
@@ -87,7 +88,7 @@ class TheCityRisesGameState: GridGameState<TheCityRisesGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                pos2state[p] = .normal
+                pos2stateHint[p] = .normal
                 if case .forbidden = self[p] {
                     self[p] = .empty
                 }
@@ -99,7 +100,7 @@ class TheCityRisesGameState: GridGameState<TheCityRisesGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard self[p].toString() == "block" else {continue}
+                guard self[p] == .block else {continue}
                 pos2node[p] = g.addNode(p.description)
             }
         }
@@ -118,7 +119,7 @@ class TheCityRisesGameState: GridGameState<TheCityRisesGameMove> {
             let s: AllowedObjectState = cnt == 1 ? .normal : .error
             if s == .error {
                 isSolved = false
-                for p in blocks { self[p] = .block(state: s) }
+                for p in blocks { pos2stateAllowed[p] = s }
             }
             guard s == .normal else {continue}
             // 2. Each area describes a section of land, where the town concil has decided
@@ -131,14 +132,14 @@ class TheCityRisesGameState: GridGameState<TheCityRisesGameMove> {
             let n2 = game.pos2hint[pHint]!
             let s2: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             if s2 != .complete { isSolved = false }
-            pos2state[pHint] = s2
+            pos2stateHint[pHint] = s2
             guard allowedObjectsOnly && s2 != .normal else {continue}
-            area.filter { self[$0].toString() == "empty" }.forEach {
+            area.filter { self[$0] == .empty }.forEach {
                 self[$0] = .forbidden
             }
         }
         guard isSolved else {return}
-        let area2blocks = game.areas.map { $0.filter { self[$0].toString() == "block" }.count }
+        let area2blocks = game.areas.map { $0.filter { self[$0] == .block }.count }
         // 5. There can't be empty areas.
         if area2blocks.contains(where: { $0 == 0 }) { isSolved = false }
         // 6. Lastly, two neighbouring areas can't have the same number of blocks in them.
@@ -149,7 +150,7 @@ class TheCityRisesGameState: GridGameState<TheCityRisesGameMove> {
             isSolved = false
             for nArea in [i] + areas {
                 guard let pHint = game.area2hint[nArea] else {continue}
-                pos2state[pHint] = .error
+                pos2stateHint[pHint] = .error
             }
         }
    }

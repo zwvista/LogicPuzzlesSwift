@@ -15,7 +15,9 @@ class TrebuchetGameState: GridGameState<TrebuchetGameMove> {
     }
     override var gameDocument: GameDocumentBase { TrebuchetDocument.sharedInstance }
     var objArray = [TrebuchetObject]()
-    
+    var pos2stateHint = [Position: HintState]()
+    var pos2stateAllowed = [Position: AllowedObjectState]()
+
     override func copy() -> TrebuchetGameState {
         let v = TrebuchetGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -30,7 +32,9 @@ class TrebuchetGameState: GridGameState<TrebuchetGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<TrebuchetObject>(repeating: .empty, count: rows * cols)
-        for (p, _) in game.pos2hint { self[p] = .hint() }
+        for p in game.pos2hint.keys {
+            self[p] = .hint
+        }
         updateIsSolved()
     }
     
@@ -45,7 +49,7 @@ class TrebuchetGameState: GridGameState<TrebuchetGameMove> {
     
     override func setObject(move: inout TrebuchetGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p) && self[p] != .hint && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -53,13 +57,13 @@ class TrebuchetGameState: GridGameState<TrebuchetGameMove> {
     
     override func switchObject(move: inout TrebuchetGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil else { return .invalid }
+        guard isValid(p: p) && self[p] != .hint else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .target()
+        case .empty: markerOption == .markerFirst ? .marker : .target
         case .target: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .target() : .empty
+        case .marker: markerOption == .markerFirst ? .target : .empty
         default: o
         }
         return setObject(move: &move)
@@ -84,7 +88,7 @@ class TrebuchetGameState: GridGameState<TrebuchetGameMove> {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                if case .forbidden = self[r, c] {
+                if self[r, c] == .forbidden {
                     self[r, c] = .empty
                 }
             }
@@ -102,8 +106,8 @@ class TrebuchetGameState: GridGameState<TrebuchetGameMove> {
                     switch self[p2] {
                     case .target:
                         isSolved = false
-                        self[p] = .target(state: .error)
-                        self[p2] = .target(state: .error)
+                        pos2stateAllowed[p] = .error
+                        pos2stateAllowed[p2] = .error
                     case .empty:
                         if allowedObjectsOnly { self[p2] = .forbidden }
                     default:
@@ -118,7 +122,7 @@ class TrebuchetGameState: GridGameState<TrebuchetGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard self[p].toString() != "target" else {continue}
+                guard self[p] != .target else {continue}
                 pos2node[p] = g.addNode(p.description)
             }
         }
@@ -139,19 +143,19 @@ class TrebuchetGameState: GridGameState<TrebuchetGameMove> {
         // 5. Please note you can't target other trebuchets (yes it's a pointless war maybe)
         for (p, _) in game.pos2hint {
             let possibleTargets = game.pos2targets[p]!
-            let realTargets = possibleTargets.filter { self[$0].toString() == "target" }
-            let emptyTargets = possibleTargets.filter { self[$0].toString() == "empty" }
+            let realTargets = possibleTargets.filter { self[$0] == .target }
+            let emptyTargets = possibleTargets.filter { self[$0] == .empty }
             let n1 = realTargets.count
             let s: HintState = n1 < 1 ? .normal : n1 == 1 ? .complete : .error
             if s != .complete {
                 isSolved = false
-                for p2 in realTargets { self[p2] = .target(state: .error) }
+                for p2 in realTargets { pos2stateAllowed[p2] = .error }
             }
-            self[p] = .hint(state: s)
+            pos2stateHint[p] = s
             for p2 in realTargets { targets.remove(p2) }
             guard allowedObjectsOnly && s != .normal else {continue}
             for p2 in emptyTargets { self[p2] = .forbidden }
         }
-        for p in targets { self[p] = .target(state: .error) }
+        for p in targets { pos2stateAllowed[p] = .error }
     }
 }

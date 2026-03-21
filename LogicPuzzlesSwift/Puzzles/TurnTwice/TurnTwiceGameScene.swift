@@ -34,9 +34,8 @@ class TurnTwiceGameScene: GameScene<TurnTwiceGameState> {
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let signpostNodeName = "signpost" + nodeNameSuffix
-                if case .signpost(let s) = state[p] {
-                    addsignpost(s: s, point: point, nodeName: signpostNodeName)
-                }
+                let s = state.pos2state[p]!
+                addsignpost(s: s, point: point, nodeName: signpostNodeName)
             }
         }
     }
@@ -52,7 +51,8 @@ class TurnTwiceGameScene: GameScene<TurnTwiceGameState> {
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let wallNodeName = "wall" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                guard String(describing: o1) != String(describing: o2) else {continue}
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard o1 != o2 || s1 != s2 else {continue}
                 switch o1 {
                 case .forbidden:
                     removeNode(withName: forbiddenNodeName)
@@ -70,10 +70,10 @@ class TurnTwiceGameScene: GameScene<TurnTwiceGameState> {
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
-                case let .signpost(s):
-                    addsignpost(s: s, point: point, nodeName: signpostNodeName)
-                case let .wall(s):
-                    addImage(imageNamed: "tower_wall", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: wallNodeName)
+                case .signpost:
+                    addsignpost(s: s2!, point: point, nodeName: signpostNodeName)
+                case .wall:
+                    addImage(imageNamed: "tower_wall", color: .red, colorBlendFactor: s2 == .normal ? 0.0 : 0.5, point: point, nodeName: wallNodeName)
                 default:
                     break
                 }

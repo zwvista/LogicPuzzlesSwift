@@ -15,7 +15,9 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
     }
     override var gameDocument: GameDocumentBase { TierraDelFuegoDocument.sharedInstance }
     var objArray = [TierraDelFuegoObject]()
-    
+    var pos2stateHint = [Position: HintState]()
+    var pos2stateAllowed = [Position: AllowedObjectState]()
+
     override func copy() -> TierraDelFuegoGameState {
         let v = TierraDelFuegoGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -30,8 +32,8 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<TierraDelFuegoObject>(repeating: .empty, count: rows * cols)
-        for (p, ch) in game.pos2hint {
-            self[p] = .hint(id: ch, state: .normal)
+        for p in game.pos2hint.keys {
+            self[p] = .hint
         }
         updateIsSolved()
     }
@@ -47,7 +49,7 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
     
     override func setObject(move: inout TierraDelFuegoGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p) && self[p] != .hint && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -55,13 +57,13 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
     
     override func switchObject(move: inout TierraDelFuegoGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil else { return .invalid }
+        guard isValid(p: p) && self[p] != .hint else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .water()
+        case .empty: markerOption == .markerFirst ? .marker : .water
         case .water: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .water() : .empty
+        case .marker: markerOption == .markerFirst ? .water : .empty
         default: o
         }
         return setObject(move: &move)
@@ -97,9 +99,9 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
                 case .forbidden:
                     self[p] = .empty
                 case .water:
-                    self[p] = .water()
-                case let .hint(id, _):
-                    self[p] = .hint(id: id, state: .normal)
+                    pos2stateAllowed[p] = .normal
+                case .hint:
+                    pos2stateHint[p] = .normal
                 default:
                     break
                 }
@@ -112,7 +114,7 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
                 let p2 = p + os
                 guard let node2 = pos2node[p2] else {continue}
                 var b2 = false
-                if case .water = self[p2] { b2 = true }
+                if self[p2] == .water { b2 = true }
                 if b1 == b2 {
                     g.addEdge(node, neighbor: node2)
                 }
@@ -123,7 +125,7 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
             let nodesExplored = breadthFirstSearch(g, source: kv.value)
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
-            if case .water = self[kv.key] {
+            if self[kv.key] == .water {
                 // 3. The archipelago is peculiar because all bodies of water separating the
                 // islands are identical in shape and occupied a 2*1 or 1*2 space.
                 // 4. These bodies of water can only touch diagonally.
@@ -146,7 +148,7 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
                 if area.count > 2 {
                     for p in area {
                         if case .water = self[p] {
-                            self[p] = .water(state: .error)
+                            pos2stateAllowed[p] = .error
                         }
                     }
                 }
@@ -155,14 +157,14 @@ class TierraDelFuegoGameState: GridGameState<TierraDelFuegoGameMove> {
                 // has occupied an island in the archipelago.
                 var ids = Set<Character>()
                 for p in area {
-                    if case let .hint(id, _) = self[p] {
+                    if let id = game.pos2hint[p] {
                         ids.insert(id)
                     }
                 }
                 if ids.count == 1 {
                     for p in area {
-                        if case let .hint(id, _) = self[p] {
-                            self[p] = .hint(id: id, state: .complete)
+                        if self[p] == .hint {
+                            pos2stateHint[p] = .complete
                         }
                     }
                 } else {

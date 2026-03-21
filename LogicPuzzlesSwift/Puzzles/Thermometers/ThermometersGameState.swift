@@ -17,6 +17,7 @@ class ThermometersGameState: GridGameState<ThermometersGameMove> {
     var objArray = [ThermometersObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()
+    var pos2state = [Position: AllowedObjectState]()
     
     override func copy() -> ThermometersGameState {
         let v = ThermometersGameState(game: game, isCopy: true)
@@ -50,7 +51,7 @@ class ThermometersGameState: GridGameState<ThermometersGameMove> {
     
     override func setObject(move: inout ThermometersGameMove) -> GameOperationType {
         let p = move.p
-        guard String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p) && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -62,9 +63,9 @@ class ThermometersGameState: GridGameState<ThermometersGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .filled()
+        case .empty: markerOption == .markerFirst ? .marker : .filled
         case .filled: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .filled() : .empty
+        case .marker: markerOption == .markerFirst ? .filled : .empty
         default: o
         }
         return setObject(move: &move)
@@ -93,14 +94,14 @@ class ThermometersGameState: GridGameState<ThermometersGameMove> {
         for thermometer in game.thermometers {
             var canbeFilled = true
             for p in thermometer {
-                if case .filled = self[p] {
+                if self[p] == .filled {
                     let s: AllowedObjectState = canbeFilled ? .normal : .error
                     if s == .error { isSolved = false }
-                    self[p] = .filled(state: s)
+                    pos2state[p] = s
                 } else {
                     if allowedObjectsOnly && !canbeFilled {
                         self[p] = .forbidden
-                    } else if case .forbidden = self[p] {
+                    } else if self[p] == .forbidden {
                         self[p] = .empty
                     }
                     canbeFilled = false
@@ -111,7 +112,7 @@ class ThermometersGameState: GridGameState<ThermometersGameMove> {
             var n1 = 0
             let n2 = game.row2hint[r]
             for c in 0..<cols {
-                if case .filled = self[r, c] { n1 += 1 }
+                if self[r, c] == .filled { n1 += 1 }
             }
             // 4. The numbers on the border tell you how many filled cells are present
             // on that Row.
@@ -119,8 +120,7 @@ class ThermometersGameState: GridGameState<ThermometersGameMove> {
             if n1 != n2 { isSolved = false }
             if n1 == n2 && allowedObjectsOnly {
                 for c in 0..<cols {
-                    if case .filled = self[r, c] {
-                    } else {
+                    if self[r, c] != .filled {
                         self[r, c] = .forbidden
                     }
                 }
@@ -130,7 +130,7 @@ class ThermometersGameState: GridGameState<ThermometersGameMove> {
             var n1 = 0
             let n2 = game.col2hint[c]
             for r in 0..<rows {
-                if case .filled = self[r, c] { n1 += 1 }
+                if self[r, c] == .filled { n1 += 1 }
             }
             // 4. The numbers on the border tell you how many filled cells are present
             // on that Column.
@@ -138,8 +138,7 @@ class ThermometersGameState: GridGameState<ThermometersGameMove> {
             if n1 != n2 { isSolved = false }
             if n1 == n2 && allowedObjectsOnly {
                 for r in 0..<rows {
-                    if case .filled = self[r, c] {
-                    } else {
+                    if self[r, c] != .filled {
                         self[r, c] = .forbidden
                     }
                 }

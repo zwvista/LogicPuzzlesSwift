@@ -13,10 +13,10 @@ class ThermometersDocument: GameDocument<ThermometersGameMove> {
     
     override func saveMove(_ move: ThermometersGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> ThermometersGameMove {
-        ThermometersGameMove(p: Position(rec.row, rec.col), obj: ThermometersObject.fromString(str: rec.strValue1!))
+        ThermometersGameMove(p: Position(rec.row, rec.col), obj: ThermometersObject(rawValue: rec.intValue1)!)
     }
 }

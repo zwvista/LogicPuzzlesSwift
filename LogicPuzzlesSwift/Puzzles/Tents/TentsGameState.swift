@@ -17,6 +17,7 @@ class TentsGameState: GridGameState<TentsGameMove> {
     var objArray = [TentsObject]()
     var row2state = [HintState]()
     var col2state = [HintState]()
+    var pos2state = [Position: AllowedObjectState]()
     
     override func copy() -> TentsGameState {
         let v = TentsGameState(game: game, isCopy: true)
@@ -34,8 +35,8 @@ class TentsGameState: GridGameState<TentsGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<TentsObject>(repeating: TentsObject(), count: rows * cols)
-        for p in game.pos2tree {
-            self[p] = .tree()
+        for p in game.trees {
+            self[p] = .tree
         }
         row2state = Array<HintState>(repeating: .normal, count: rows)
         col2state = Array<HintState>(repeating: .normal, count: cols)
@@ -53,7 +54,7 @@ class TentsGameState: GridGameState<TentsGameMove> {
     
     override func setObject(move: inout TentsGameMove) -> GameOperationType {
         let p = move.p
-        guard String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p) && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -65,9 +66,9 @@ class TentsGameState: GridGameState<TentsGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .tent()
+        case .empty: markerOption == .markerFirst ? .marker : .tent
         case .tent: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .tent() : .empty
+        case .marker: markerOption == .markerFirst ? .tent : .empty
         default: o
         }
         return setObject(move: &move)
@@ -148,13 +149,13 @@ class TentsGameState: GridGameState<TentsGameMove> {
                     // 2. At the same time they need their privacy, so a Tent can't have any other
                     // Tents near them, not even diagonally.
                     let s: AllowedObjectState = hasTree() && !hasTent(isTree: false) ? .normal : .error
-                    self[p] = .tent(state: s)
+                    pos2state[p] = s
                     if s == .error { isSolved = false }
                 case .tree:
                     nTree += 1
                     // 5. Each Tree has at least one Tent touching it, horizontally or vertically.
                     let s: AllowedObjectState = hasTent(isTree: true) ? .normal : .error
-                    self[p] = .tree(state: s)
+                    pos2state[p] = s
                     if s == .error { isSolved = false }
                 case .empty, .marker:
                     guard allowedObjectsOnly else {break}

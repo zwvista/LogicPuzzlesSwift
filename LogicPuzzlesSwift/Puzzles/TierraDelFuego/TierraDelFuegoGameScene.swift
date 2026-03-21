@@ -46,38 +46,32 @@ class TierraDelFuegoGameScene: GameScene<TierraDelFuegoGameState> {
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                func addWater(s: AllowedObjectState) {
-                    addImage(imageNamed: "sea", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: waterNodeName)
-                }
-                func removeWater() { removeNode(withName: waterNodeName) }
-                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                func addForbidden() { addForbiddenMarker(point: point, nodeName: forbiddenNodeName) }
-                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
-                func removeHint() { removeNode(withName: hintNodeName) }
                 let (o1, o2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
+                let (s3, s4) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
                 guard String(describing: o1) != String(describing: o2) else {continue}
                 switch o1 {
                 case .forbidden:
-                    removeForbidden()
+                    removeNode(withName: forbiddenNodeName)
                 case .water:
-                    removeWater()
+                    removeNode(withName: waterNodeName)
                 case .hint:
-                    removeHint()
+                    removeNode(withName: hintNodeName)
                 case .marker:
-                    removeMarker()
+                    removeNode(withName: markerNodeName)
                 default:
                     break
                 }
                 switch o2 {
                 case .forbidden:
-                    addForbidden()
-                case let .water(s):
-                    addWater(s: s)
-                case let .hint(id, s):
-                    addHint(p: p, ch: id, s: s)
+                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
+                case .water:
+                    addImage(imageNamed: "sea", color: .red, colorBlendFactor: s4 == .normal ? 0.0 : 0.5, point: point, nodeName: waterNodeName)
+                case .hint:
+                    let id = stateFrom.game.pos2hint[p]!
+                    addHint(p: p, ch: id, s: s2!)
                 case .marker:
-                    addMarker()
+                    addDotMarker(point: point, nodeName: markerNodeName)
                 default:
                     break
                 }

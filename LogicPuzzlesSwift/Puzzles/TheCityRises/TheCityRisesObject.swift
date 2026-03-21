@@ -8,35 +8,11 @@
 
 import Foundation
 
-enum TheCityRisesObject {
-    case empty
-    case marker
-    case forbidden
-    case block(state: AllowedObjectState = .normal)
+enum TheCityRisesObject: Int {
+    case empty, forbidden, marker
+    case block
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .block:
-            return "block"
-        case .marker:
-            return "marker"
-        case .forbidden:
-            return "forbidden"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> TheCityRisesObject {
-        switch str {
-        case "block":
-            return .block()
-        case "marker":
-            return .marker
-        default:
-            return .empty
-        }
     }
 }
 

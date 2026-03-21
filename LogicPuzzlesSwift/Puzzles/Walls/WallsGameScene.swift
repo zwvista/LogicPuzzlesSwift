@@ -31,7 +31,7 @@ class WallsGameScene: GameScene<WallsGameState> {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
-            addHint(n: n, s: .normal, point: point, nodeName: hintNodeName)
+            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
         }
     }
     
@@ -44,11 +44,9 @@ class WallsGameScene: GameScene<WallsGameState> {
                 let horzNodeName = "horz" + nodeNameSuffix
                 let vertNodeName = "vert" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                func addWall(isHorz: Bool) {
-                    addImage(imageNamed: isHorz ? "wall_horizontal" : "wall_vertical", color: .red, colorBlendFactor: 0.0, point: point, nodeName: isHorz ? horzNodeName : vertNodeName)
-                }
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                guard String(describing: o1) != String(describing: o2) else {continue}
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard o1 != o2 || s1 != s2 else {continue}
                 switch o1 {
                 case .hint:
                     removeNode(withName: hintNodeName)
@@ -60,12 +58,12 @@ class WallsGameScene: GameScene<WallsGameState> {
                     break
                 }
                 switch o2 {
-                case let .hint(s):
-                    addHint(n: stateTo.game.pos2hint[p]!, s: s, point: point, nodeName: hintNodeName)
+                case .hint:
+                    addHint(n: stateTo.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
                 case .horz:
-                    addWall(isHorz: true)
+                    addImage(imageNamed: "wall_horizontal", color: .red, colorBlendFactor: 0.0, point: point, nodeName: horzNodeName)
                 case .vert:
-                    addWall(isHorz: false)
+                    addImage(imageNamed: "wall_vertical", color: .red, colorBlendFactor: 0.0, point: point, nodeName: vertNodeName)
                 default:
                     break
                 }

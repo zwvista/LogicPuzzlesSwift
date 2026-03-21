@@ -8,38 +8,11 @@
 
 import Foundation
 
-enum TurnTwiceObject {
-    case empty
-    case forbidden
-    case marker
-    case signpost(state: AllowedObjectState = .normal)
-    case wall(state: AllowedObjectState = .normal)
+enum TurnTwiceObject: Int {
+    case empty, forbidden, marker
+    case signpost, wall
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .signpost:
-            return "signpost"
-        case .wall:
-            return "wall"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> TurnTwiceObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "signpost":
-            return .signpost()
-        case "wall":
-            return .wall()
-        default:
-            return .empty
-        }
     }
 }
 

@@ -59,7 +59,7 @@ class TheCityRisesGameScene: GameScene<TheCityRisesGameState> {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
-            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
+            addHint(n: n, s: state.pos2stateHint[p]!, point: point, nodeName: hintNodeName)
         }
 
         for r in 0..<state.rows {
@@ -85,8 +85,9 @@ class TheCityRisesGameScene: GameScene<TheCityRisesGameState> {
                 let hintNodeName = "hint" + nodeNameSuffix
                 let blockNodeName = "block" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
-                if String(describing: o1) != String(describing: o2) {
+                let (s1, s2) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
+                let (s3, s4) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
+                if o1 != o2 || s3 != s4 {
                     switch o1 {
                     case .forbidden:
                         removeNode(withName: forbiddenNodeName)
@@ -102,16 +103,16 @@ class TheCityRisesGameScene: GameScene<TheCityRisesGameState> {
                         addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                     case .marker:
                         addDotMarker(point: point, nodeName: markerNodeName)
-                    case let .block(s):
-                        addImage(imageNamed: "tower_wall_noborder", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: blockNodeName)
+                    case .block:
+                        addImage(imageNamed: "tower_wall_noborder", color: .red, colorBlendFactor: s4 == .normal ? 0.0 : 0.5, point: point, nodeName: blockNodeName)
                     default:
                         break
                     }
                 }
                 guard let n = stateFrom.game.pos2hint[p] else {continue}
-                guard s1 != s2 || o2.toString() == "block" else {continue}
+                guard s1 != s2 || o2 == .block else {continue}
                 removeNode(withName: hintNodeName)
-                addHint(n: n, s: s2, point: point, nodeName: hintNodeName)
+                addHint(n: n, s: s2!, point: point, nodeName: hintNodeName)
             }
         }
     }

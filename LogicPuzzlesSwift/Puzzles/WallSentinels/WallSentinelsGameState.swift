@@ -15,6 +15,7 @@ class WallSentinelsGameState: GridGameState<WallSentinelsGameMove> {
     }
     override var gameDocument: GameDocumentBase { WallSentinelsDocument.sharedInstance }
     var objArray = [WallSentinelsObject]()
+    var pos2state = [Position: HintState]()
     
     override func copy() -> WallSentinelsGameState {
         let v = WallSentinelsGameState(game: game, isCopy: true)
@@ -44,20 +45,15 @@ class WallSentinelsGameState: GridGameState<WallSentinelsGameMove> {
     
     override func setObject(move: inout WallSentinelsGameMove) -> GameOperationType {
         let p = move.p
-        let (o1, o2) = (self[p], move.obj)
-        switch o1 {
-        case .hintLand, .hintWall: return .invalid
-        default: break
-        }
-        guard String(describing: o1) != String(describing: o2) else { return .invalid }
-        self[p] = o2
+        guard isValid(p: p) && self[p] != .hintLand && self[p] != .hintWall && self[p] != move.obj else { return .invalid }
+        self[p] = move.obj
         updateIsSolved()
         return .moveComplete
     }
     
     override func switchObject(move: inout WallSentinelsGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) else { return .invalid }
+        guard isValid(p: p) && self[p] != .hintLand && self[p] != .hintWall else { return .invalid }
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
@@ -114,14 +110,14 @@ class WallSentinelsGameState: GridGameState<WallSentinelsGameMove> {
                     // 3. The number tells you how many tiles that Sentinel can control (see)
                     // from there vertically and horizontally - of his type of tile.
                     let s: HintState = (isWall ? n1 < n2 : n1 > n2) ? .normal : n1 == n2 ? .complete : .error
-                    self[p] = isWall ? .hintWall(tiles: n2, state: s) : .hintLand(tiles: n2, state: s)
+                    pos2state[p] = s
                     if s != .complete { isSolved = false }
                 }
                 switch self[p] {
-                case let .hintLand(n2, _):
-                    f(isWall: false, n2: n2)
-                case let .hintWall(n2, _):
-                    f(isWall: true, n2: n2)
+                case .hintLand:
+                    f(isWall: false, n2: game.pos2hintLand[p]!)
+                case .hintWall:
+                    f(isWall: true, n2: game.pos2hintWall[p]!)
                 default:
                     break
                 }

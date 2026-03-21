@@ -8,34 +8,11 @@
 
 import Foundation
 
-enum TierraDelFuegoObject {
-    case empty
-    case forbidden
-    case marker
-    case water(state: AllowedObjectState = .normal)
-    case hint(id: Character, state: HintState)
+enum TierraDelFuegoObject: Int {
+    case empty, forbidden, hint, marker
+    case water
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .marker:
-            return "marker"
-        case .water:
-            return "water"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> TierraDelFuegoObject {
-        switch str {
-        case "marker":
-            return .marker
-        case "water":
-            return .water()
-        default:
-            return .empty
-        }
     }
 }
 

@@ -18,6 +18,8 @@ class WallSentinelsGame: GridGame<WallSentinelsGameState> {
     ]
 
     var objArray = [WallSentinelsObject]()
+    var pos2hintLand = [Position: Int]()
+    var pos2hintWall = [Position: Int]()
 
     init(layout: [String], delegate: WallSentinelsGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -30,8 +32,13 @@ class WallSentinelsGame: GridGame<WallSentinelsGameState> {
             for c in 0..<cols {
                 let s = str[c * 2...c * 2 + 1]
                 guard s != "  " else {continue}
+                let p = Position(r, c)
                 let n = s[1].toInt!
-                self[r, c] = s[0] == "." ? .hintLand(tiles: n, state: .normal) : .hintWall(tiles: n, state: .normal)
+                if s[0] == "." {
+                    pos2hintLand[p] = n
+                } else {
+                    pos2hintWall[p] = n
+                }
             }
         }
         

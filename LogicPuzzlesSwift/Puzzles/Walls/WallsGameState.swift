@@ -15,6 +15,7 @@ class WallsGameState: GridGameState<WallsGameMove> {
     }
     override var gameDocument: GameDocumentBase { WallsDocument.sharedInstance }
     var objArray = [WallsObject]()
+    var pos2state = [Position: HintState]()
     
     override func copy() -> WallsGameState {
         let v = WallsGameState(game: game, isCopy: true)
@@ -30,8 +31,8 @@ class WallsGameState: GridGameState<WallsGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<WallsObject>(repeating: .empty, count: rows * cols)
-        for (p, _) in game.pos2hint {
-            self[p] = .hint()
+        for p in game.pos2hint.keys {
+            self[p] = .hint
         }
         updateIsSolved()
     }
@@ -47,7 +48,7 @@ class WallsGameState: GridGameState<WallsGameMove> {
     
     override func setObject(move: inout WallsGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil, String(describing: self[p]) != String(describing: move.obj) else { return .invalid }
+        guard isValid(p: p) && self[p] != .hint && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -55,7 +56,7 @@ class WallsGameState: GridGameState<WallsGameMove> {
     
     override func switchObject(move: inout WallsGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p), game.pos2hint[p] == nil else { return .invalid }
+        guard isValid(p: p) && self[p] != .hint else { return .invalid }
         let o = self[p]
         move.obj = switch o {
         case .empty: .horz
@@ -122,7 +123,7 @@ class WallsGameState: GridGameState<WallsGameMove> {
                     // connected to it.
                     let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
                     if s != .complete { isSolved = false }
-                    self[p] = .hint(state: s)
+                    pos2state[p] = s
                 default:
                     break
                 }

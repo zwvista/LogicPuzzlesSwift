@@ -13,10 +13,10 @@ class TheCityRisesDocument: GameDocument<TheCityRisesGameMove> {
     
     override func saveMove(_ move: TheCityRisesGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.obj.toString()
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> TheCityRisesGameMove {
-        TheCityRisesGameMove(p: Position(rec.row, rec.col), obj: TheCityRisesObject.fromString(str: rec.strValue1!))
+        TheCityRisesGameMove(p: Position(rec.row, rec.col), obj: TheCityRisesObject(rawValue: rec.intValue1)!)
     }
 }

@@ -7962,8 +7962,8 @@
 				8CFAF99E202615560095EFFC /* WallSentinelsGameState.swift */,
 				8CFAF997202615560095EFFC /* WallSentinelsGameViewController.swift */,
 				8CFAF9A0202615560095EFFC /* WallSentinelsGridNode.swift */,
-				8CFAF998202615560095EFFC /* WallSentinelsObject.swift */,
 				8CFAF999202615560095EFFC /* WallSentinelsMainViewController.swift */,
+				8CFAF998202615560095EFFC /* WallSentinelsObject.swift */,
 			);
 			path = WallSentinels;
 			sourceTree = "<group>";
