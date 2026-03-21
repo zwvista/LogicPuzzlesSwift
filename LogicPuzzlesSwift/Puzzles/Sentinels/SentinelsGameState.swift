@@ -157,7 +157,7 @@ class SentinelsGameState: GridGameState<SentinelsGameMove> {
             pos2stateHint[p] = s
             if s != .complete {
                 isSolved = false
-            } else {
+            } else if allowedObjectsOnly {
                 for p2 in rng {
                     self[p2] = .forbidden
                 }

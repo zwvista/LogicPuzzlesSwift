@@ -92,7 +92,7 @@ class PouringWaterGameState: GridGameState<PouringWaterGameMove> {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                if case .forbidden = self[r, c] { self[r, c] = .empty }
+                if self[r, c] == .forbidden { self[r, c] = .empty }
             }
         }
         // 2. You have to fill some water in it, considering that water pours down
@@ -100,13 +100,13 @@ class PouringWaterGameState: GridGameState<PouringWaterGameMove> {
         // 3. Areas of the same level which are horizontally connected will have
         //    the same water level.
         for area in game.areas {
+            let rng = area.filter { self[$0] == .water }
+            rng.forEach { pos2state[$0] = .normal }
             let row2rng = OrderedDictionary(grouping: area) { $0.row }
-            guard let rowNotFilled = row2rng.keys.reversed().first(where: {
+            guard let rowNotFilled = (row2rng.keys.reversed().first {
                 row2rng[$0]!.contains { self[$0] != .water }
             }) else {continue}
-            let rng = area.filter { self[$0] == .water }
             let rngError = rng.filter { $0.row < rowNotFilled }
-            rng.forEach { pos2state[$0] = .normal }
             guard !rngError.isEmpty else {continue}
             isSolved = false
             rngError.forEach { pos2state[$0] = .error }

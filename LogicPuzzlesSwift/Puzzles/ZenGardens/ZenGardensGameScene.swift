@@ -18,7 +18,7 @@ class ZenGardensGameScene: GameScene<ZenGardensGameState> {
         addImage(imageNamed: o == .empty ? "C2" : o == .stone ? "C3" : "C4", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }
     
-    func addLine(game: ZenGardensGame) {
+    func addLines(game: ZenGardensGame) {
         let pathToDraw = CGMutablePath()
         let lineNode = SKShapeNode(path: pathToDraw)
         for r in 0..<game.rows + 1 {
@@ -66,7 +66,7 @@ class ZenGardensGameScene: GameScene<ZenGardensGameState> {
             }
         }
         
-        addLine(game: game)
+        addLines(game: game)
     }
     
     override func levelUpdated(from stateFrom: ZenGardensGameState, to stateTo: ZenGardensGameState) {
@@ -85,6 +85,6 @@ class ZenGardensGameScene: GameScene<ZenGardensGameState> {
         }
 
         removeNode(withName: "line")
-        addLine(game: stateFrom.game)
+        addLines(game: stateFrom.game)
     }
 }

@@ -21,16 +21,8 @@ class PouringWaterGameScene: GameScene<PouringWaterGameState> {
         let hintNodeName = "hint" + nodeNameSuffix
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: hintNodeName)
     }
-
-    override func levelInitialized(_ game: AnyObject, state: PouringWaterGameState, skView: SKView) {
-        let game = game as! PouringWaterGame
-        removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols + 1)
-        
-        // add Grid
-        let offset:CGFloat = 0.5
-        addGrid(gridNode: PouringWaterGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols + 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows + 1) / 2 + offset))
-        
+    
+    func addLines(game: PouringWaterGame) {
         let pathToDraw = CGMutablePath()
         let lineNode = SKShapeNode(path: pathToDraw)
         for r in 0..<game.rows + 1 {
@@ -57,7 +49,19 @@ class PouringWaterGameScene: GameScene<PouringWaterGameState> {
         lineNode.path = pathToDraw
         lineNode.name = "line"
         gridNode.addChild(lineNode)
+    }
+
+    override func levelInitialized(_ game: AnyObject, state: PouringWaterGameState, skView: SKView) {
+        let game = game as! PouringWaterGame
+        removeAllChildren()
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols + 1)
         
+        // add Grid
+        let offset:CGFloat = 0.5
+        addGrid(gridNode: PouringWaterGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols + 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows + 1) / 2 + offset))
+        
+        addLines(game: game)
+
         // add Hints
         for r in 0..<game.rows {
             let p = Position(r, game.cols)
@@ -126,5 +130,8 @@ class PouringWaterGameScene: GameScene<PouringWaterGameState> {
                 }
             }
         }
+
+        removeNode(withName: "line")
+        addLines(game: stateFrom.game)
     }
 }
