@@ -31,13 +31,14 @@ class LightenUpGameScene: GameScene<LightenUpGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                guard case let .wall(s) = state[p].objType else {continue}
-                let n = state.game.wall2Lightbulbs[p]!
+                guard state[p].objType == .wall else {continue}
+                let n = game.pos2hint[p]!
                 let point = gridNode.centerPoint(p: p)
                 addBlock(color: .white, point: point, nodeName: "wall")
                 guard n >= 0 else {continue}
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let wallNumberNodeName = "wallNumber" + nodeNameSuffix
+                let s = state.pos2stateHint[p]!
                 addWallNumber(n: n, s: s, point: point, nodeName: wallNumberNodeName)
             }
         }
@@ -46,47 +47,41 @@ class LightenUpGameScene: GameScene<LightenUpGameState> {
     override func levelUpdated(from stateFrom: LightenUpGameState, to stateTo: LightenUpGameState) {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
-                let point = gridNode.centerPoint(p: Position(r, c))
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let lightCellNodeName = "lightCell" + nodeNameSuffix
                 let lightbulbNodeName = "lightbulb" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
                 let wallNumberNodeName = "wallNumber" + nodeNameSuffix
-                func removeWallNumber() { removeNode(withName: wallNumberNodeName) }
-                func addLightCell() { addBlock(color: .yellow, point: point, nodeName: lightCellNodeName) }
-                func removeLightCell() { removeNode(withName: lightCellNodeName) }
-                func addLightbulb(s: AllowedObjectState) {
-                    addImage(imageNamed: "lightbulb_on", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.2, point: point, nodeName: lightbulbNodeName)
-                }
-                func removeLightbulb() { removeNode(withName: lightbulbNodeName) }
-                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                let (x, y) = (stateFrom[r, c].lightness, stateTo[r, c].lightness)
+                let (x, y) = (stateFrom[p].lightness, stateTo[p].lightness)
                 if x > 0 && y == 0 {
-                    removeLightCell()
+                    removeNode(withName: lightCellNodeName)
                 } else if x == 0 && y > 0 {
-                    addLightCell()
+                    addBlock(color: .yellow, point: point, nodeName: lightCellNodeName)
                 }
-                let (ot1, ot2) = (stateFrom[r, c].objType, stateTo[r, c].objType)
-                guard String(describing: ot1) != String(describing: ot2) else {continue}
-                switch ot1 {
+                let (o1, o2) = (stateFrom[p].objType, stateTo[p].objType)
+                let (s1, s2) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
+                let (s3, s4) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
+                guard o1 != o2 || s1 != s2 || s3 != s4 else {continue}
+                switch o1 {
                 case .lightbulb:
-                    removeLightbulb()
+                    removeNode(withName: lightbulbNodeName)
                 case .marker:
-                    removeMarker()
+                    removeNode(withName: markerNodeName)
                 case .wall:
-                    removeWallNumber()
+                    removeNode(withName: wallNumberNodeName)
                 default:
                     break
                 }
-                switch ot2 {
-                case let .lightbulb(s):
-                    addLightbulb(s: s)
+                switch o2 {
+                case .lightbulb:
+                    addImage(imageNamed: "lightbulb_on", color: .red, colorBlendFactor: s4 == .normal ? 0.0 : 0.2, point: point, nodeName: lightbulbNodeName)
                 case .marker:
-                    addMarker()
-                case let .wall(s):
-                    let n = stateTo.game.wall2Lightbulbs[Position(r, c)]!
-                    addWallNumber(n: n, s: s, point: point, nodeName: wallNumberNodeName)
+                    addDotMarker(point: point, nodeName: markerNodeName)
+                case .wall:
+                    let n = stateTo.game.pos2hint[p]!
+                    addWallNumber(n: n, s: s2!, point: point, nodeName: wallNumberNodeName)
                 default:
                     break
                 }

@@ -8,33 +8,11 @@
 
 import Foundation
 
-enum LightenUpObjectType {
-    case empty
-    case lightbulb(state: AllowedObjectState = .normal)
-    case marker
-    case wall(state: HintState)
+enum LightenUpObjectType: Int {
+    case empty, marker
+    case lightbulb, wall
     init() {
         self = .empty
-    }
-    func toString() -> String {
-        switch self {
-        case .lightbulb:
-            return "lightbulb"
-        case .marker:
-            return "marker"
-        default:
-            return "empty"
-        }
-    }
-    static func fromString(str: String) -> LightenUpObjectType {
-        switch str {
-        case "lightbulb":
-            return .lightbulb()
-        case "marker":
-            return .marker
-        default:
-            return .empty
-        }
     }
 }
 
@@ -47,4 +25,3 @@ struct LightenUpGameMove {
     var p = Position()
     var objType = LightenUpObjectType()
 }
-

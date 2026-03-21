@@ -11,28 +11,22 @@ import Foundation
 class LightenUpGame: GridGame<LightenUpGameState> {
     static let offset = Position.Directions4
 
-    var wall2Lightbulbs = [Position: Int]()
+    var pos2hint = [Position: Int]()
     
     init(layout: [String], delegate: LightenUpGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length)
-        
-        func addWall(row: Int, col: Int, lightbulbs: Int) {
-            wall2Lightbulbs[Position(row, col)] = lightbulbs
-        }
-        
+
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
                 let ch = str[c]
-                switch ch {
-                case "W":
-                    addWall(row: r, col: c, lightbulbs: -1)
-                case "0"..."9":
-                    addWall(row: r, col: c, lightbulbs: ch.toInt!)
-                default:
-                    break
+                let p = Position(r, c)
+                if ch == "W" {
+                    pos2hint[p] = -1
+                } else if ch.isNumber {
+                    pos2hint[p] = ch.toInt!
                 }
             }
         }

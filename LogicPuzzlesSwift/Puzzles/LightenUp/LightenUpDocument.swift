@@ -13,10 +13,10 @@ class LightenUpDocument: GameDocument<LightenUpGameMove> {
     
     override func saveMove(_ move: LightenUpGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = move.objType.toString()
+        rec.intValue1 = move.objType.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> LightenUpGameMove {
-        LightenUpGameMove(p: Position(rec.row, rec.col), objType: LightenUpObjectType.fromString(str: rec.strValue1!))
+        LightenUpGameMove(p: Position(rec.row, rec.col), objType: LightenUpObjectType(rawValue: rec.intValue1)!)
     }
 }
