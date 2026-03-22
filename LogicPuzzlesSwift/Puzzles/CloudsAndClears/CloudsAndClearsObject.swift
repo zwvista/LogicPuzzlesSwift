@@ -21,4 +21,3 @@ struct CloudsAndClearsGameMove {
     var p = Position()
     var obj = CloudsAndClearsObject()
 }
-

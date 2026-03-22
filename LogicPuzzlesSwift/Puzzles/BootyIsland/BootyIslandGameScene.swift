@@ -27,11 +27,19 @@ class BootyIslandGameScene: GameScene<BootyIslandGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: BootyIslandGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
+        for r in 0..<state.rows {
+            for c in 0..<state.cols {
+                let point = gridNode.centerPoint(p: Position(r, c))
+                addImage(imageNamed: "sand3", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "background")
+            }
+        }
+
         // add Hints
         for (p, n) in game.pos2hint {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
+            addImage(imageNamed: "note_plain_sand3", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "background")
             addHint(n: n, s: state.pos2stateHint[p]!, point: point, nodeName: hintNodeName)
         }
     }

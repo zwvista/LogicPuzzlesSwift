@@ -20,16 +20,8 @@ class ChocolateGameScene: GameScene<ChocolateGameState> {
         let hintNodeName = "hint" + nodeNameSuffix
         addLabel(text: String(n), fontColor: s == .complete ? .green : .white, point: point, nodeName: hintNodeName)
     }
-
-    override func levelInitialized(_ game: AnyObject, state: ChocolateGameState, skView: SKView) {
-        let game = game as! ChocolateGame
-        removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
-        
-        // add Grid
-        let offset:CGFloat = 0.5
-        addGrid(gridNode: ChocolateGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
-        
+    
+    func addLines(game: ChocolateGame) {
         let pathToDraw = CGMutablePath()
         let lineNode = SKShapeNode(path: pathToDraw)
         for r in 0..<game.rows + 1 {
@@ -56,6 +48,18 @@ class ChocolateGameScene: GameScene<ChocolateGameState> {
         lineNode.path = pathToDraw
         lineNode.name = "line"
         gridNode.addChild(lineNode)
+    }
+
+    override func levelInitialized(_ game: AnyObject, state: ChocolateGameState, skView: SKView) {
+        let game = game as! ChocolateGame
+        removeAllChildren()
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
+        
+        // add Grid
+        let offset:CGFloat = 0.5
+        addGrid(gridNode: ChocolateGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
+        
+        addLines(game: game)
         
         // add Hints
         for (p, n) in game.pos2hint {
@@ -114,5 +118,8 @@ class ChocolateGameScene: GameScene<ChocolateGameState> {
                 addHint(p: p, n: stateFrom.game.pos2hint[p]!, s: s2!)
             }
         }
+
+        removeNode(withName: "line")
+        addLines(game: stateFrom.game)
     }
 }
