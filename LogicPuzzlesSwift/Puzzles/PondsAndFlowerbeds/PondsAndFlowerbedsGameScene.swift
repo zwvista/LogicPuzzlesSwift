@@ -14,6 +14,17 @@ class PondsAndFlowerbedsGameScene: GameScene<PondsAndFlowerbedsGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
+    func addLines(game: PondsAndFlowerbedsGame) {
+        for r in 0..<game.rows {
+            for c in 0..<game.cols {
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: p)
+                if game[p][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                if game[p][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
+            }
+        }
+    }
+
     override func levelInitialized(_ game: AnyObject, state: PondsAndFlowerbedsGameState, skView: SKView) {
         let game = game as! PondsAndFlowerbedsGame
         removeAllChildren()
@@ -32,18 +43,30 @@ class PondsAndFlowerbedsGameScene: GameScene<PondsAndFlowerbedsGameState> {
             addImage(imageNamed: "forest", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "forest")
         }
         
-        for r in 0..<game.rows {
-            for c in 0..<game.cols {
-                let p = Position(r, c)
-                let point = gridNode.centerPoint(p: p)
-                if game[p][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
-                if game[p][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
-            }
-        }
+        addLines(game: game)
     }
     
     override func levelUpdated(from stateFrom: PondsAndFlowerbedsGameState, to stateTo: PondsAndFlowerbedsGameState) {
         let game = stateFrom.game
+        var rng = Set<Position>()
+        for r in 0..<stateFrom.rows {
+            for c in 0..<stateFrom.cols {
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: p)
+                let nodeNameSuffix = "-\(r)-\(c)"
+                let pondNodeName = "pond" + nodeNameSuffix
+                let (b1, b2) = (stateFrom.ponds.contains { $0.contains(p) }, stateTo.ponds.contains { $0.contains(p) })
+                if b1 != b2 {
+                    if b1 { removeNode(withName: pondNodeName) }
+                    if b2 {
+                        addImage(imageNamed: "sea", color: .red, colorBlendFactor: 0.0, point: point, nodeName: pondNodeName)
+                        for os in PondsAndFlowerbedsGame.offset3 {
+                            rng.insert(p + os)
+                        }
+                    }
+                }
+            }
+        }
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -61,13 +84,17 @@ class PondsAndFlowerbedsGameScene: GameScene<PondsAndFlowerbedsGameState> {
                     removeVertLine(objType: o1, nodeName: vertlineNodeName)
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
                 }
-                let pondNodeName = "pond" + nodeNameSuffix
+            }
+        }
+
+        removeNode(withName: "line")
+        addLines(game: game)
+        for r in 0..<stateFrom.rows {
+            for c in 0..<stateFrom.cols {
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: p)
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let invalid2x2NodeName = "invalid2x2" + nodeNameSuffix
-                let (b1, b2) = (stateFrom.ponds.contains { $0.contains(p) }, stateTo.ponds.contains { $0.contains(p) })
-                if b1 != b2 {
-                    if b1 { removeNode(withName: pondNodeName) }
-                    if b2 { addImage(imageNamed: "sea", color: .red, colorBlendFactor: 0.0, point: point, nodeName: pondNodeName) }
-                }
                 let (b3, b4) = (stateFrom.invalid2x2Squares.contains(p), stateTo.invalid2x2Squares.contains(p))
                 if b3 != b4 {
                     let point = gridNode.cornerPoint(p: p)
