@@ -18,6 +18,17 @@ class FreePlanksGameScene: GameScene<FreePlanksGameState> {
         addImage(imageNamed: "nail_head", color: .red, colorBlendFactor: 0.0, point: point, nodeName: nodeName)
     }
     
+    func addLines(game: FreePlanksGame) {
+        for r in 0..<game.rows {
+            for c in 0..<game.cols {
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: p)
+                if game[p][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                if game[p][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
+            }
+        }
+    }
+
     override func levelInitialized(_ game: AnyObject, state: FreePlanksGameState, skView: SKView) {
         let game = game as! FreePlanksGame
         removeAllChildren()
@@ -35,37 +46,19 @@ class FreePlanksGameScene: GameScene<FreePlanksGameState> {
             addNail(point: point, nodeName: nailNodeName)
         }
         
-        for r in 0..<game.rows {
-            for c in 0..<game.cols {
-                let p = Position(r, c)
-                let point = gridNode.centerPoint(p: p)
-                if game[p][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
-                if game[p][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
-            }
-        }
+        addLines(game: game)
     }
     
     override func levelUpdated(from stateFrom: FreePlanksGameState, to stateTo: FreePlanksGameState) {
         let game = stateFrom.game
+        var rng = Set<Position>()
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let horzLineNodeName = "horzLine" + nodeNameSuffix
-                let vertlineNodeName = "vertline" + nodeNameSuffix
                 let nailNodeName = "nail" + nodeNameSuffix
                 let plankNodeName = "plank" + nodeNameSuffix
-                var (o1, o2) = (stateFrom[p][1], stateTo[p][1])
-                if o1 != o2 {
-                    removeHorzLine(objType: o1, nodeName: horzLineNodeName)
-                    addHorzLine(objType: o2, color: .yellow, point: point, nodeName: horzLineNodeName)
-                }
-                (o1, o2) = (stateFrom[p][2], stateTo[p][2])
-                if o1 != o2 {
-                    removeVertLine(objType: o1, nodeName: vertlineNodeName)
-                    addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
-                }
                 let (b1, b2) = (stateFrom.woods.contains(p), stateTo.woods.contains(p))
                 let isNail = game.nails.contains(p)
                 if b1 != b2 {
@@ -74,9 +67,34 @@ class FreePlanksGameScene: GameScene<FreePlanksGameState> {
                         if isNail { removeNode(withName: nailNodeName) }
                         addImage(imageNamed: "wood horizontal", color: .red, colorBlendFactor: 0.0, point: point, nodeName: plankNodeName)
                         if isNail { addNail(point: point, nodeName: nailNodeName) }
+                        for os in FreePlanksGame.offset3 {
+                            rng.insert(p + os)
+                        }
                     }
                 }
             }
         }
+        for r in 0..<stateFrom.rows {
+            for c in 0..<stateFrom.cols {
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: p)
+                let nodeNameSuffix = "-\(r)-\(c)"
+                let horzLineNodeName = "horzLine" + nodeNameSuffix
+                let vertlineNodeName = "vertline" + nodeNameSuffix
+                var (o1, o2) = (stateFrom[p][1], stateTo[p][1])
+                if o1 != o2 || rng.contains(p) && game[p][1] != .line {
+                    removeHorzLine(objType: o1, nodeName: horzLineNodeName)
+                    addHorzLine(objType: o2, color: .yellow, point: point, nodeName: horzLineNodeName)
+                }
+                (o1, o2) = (stateFrom[p][2], stateTo[p][2])
+                if o1 != o2 || rng.contains(p) && game[p][2] != .line {
+                    removeVertLine(objType: o1, nodeName: vertlineNodeName)
+                    addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
+                }
+            }
+        }
+
+        removeNode(withName: "line")
+        addLines(game: game)
     }
 }

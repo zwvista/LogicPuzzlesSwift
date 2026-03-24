@@ -67,9 +67,9 @@ class PlanksGameScene: GameScene<PlanksGameState> {
                         if isNail { removeNode(withName: nailNodeName) }
                         addImage(imageNamed: "wood \(e2 ? "horizontal" : "vertical")", color: .red, colorBlendFactor: 0.0, point: point, nodeName: plankNodeName)
                         if isNail { addNail(point: point, nodeName: nailNodeName) }
-                    }
-                    for os in PlanksGame.offset3 {
-                        rng.insert(p + os)
+                        for os in PlanksGame.offset3 {
+                            rng.insert(p + os)
+                        }
                     }
                 }
             }
