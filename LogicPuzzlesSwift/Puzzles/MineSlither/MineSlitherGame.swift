@@ -22,11 +22,11 @@ class MineSlitherGame: GridGame<MineSlitherGameState> {
     init(layout: [String], delegate: MineSlitherGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count - 1, layout[0].length - 1)
+        size = Position(layout.count, layout[0].length)
 
-        for r in 0..<rows + 1 {
+        for r in 0..<rows {
             let str = layout[r]
-            for c in 0..<cols + 1 {
+            for c in 0..<cols {
                 let ch = str[c]
                 let p = Position(r, c)
                 if ch != " " { pos2hint[p] = ch.toInt! }

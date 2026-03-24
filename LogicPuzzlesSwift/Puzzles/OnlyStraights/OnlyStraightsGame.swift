@@ -30,7 +30,6 @@ class OnlyStraightsGame: GridGame<OnlyStraightsGameState> {
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
-                let ch = str[c]
                 self[r, c] = switch str[c] {
                 case "1": .center
                 case "2": .right

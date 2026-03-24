@@ -23,15 +23,17 @@ class TetrominoPegsGameScene: GameScene<TetrominoPegsGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: TetrominoPegsGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset))
         
+        for p in game.pegs {
+            let point = gridNode.centerPoint(p: p)
+            addImage(imageNamed: "wood vertical", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "peg")
+        }
+        
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 if game[r, c][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
                 if game[r, c][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
-                if game.pegs.contains(p) {
-                    addImage(imageNamed: "wood vertical", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "peg")
-                }
             }
         }
     }

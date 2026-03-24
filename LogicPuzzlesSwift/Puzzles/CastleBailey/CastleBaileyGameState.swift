@@ -96,7 +96,7 @@ class CastleBaileyGameState: GridGameState<CastleBaileyGameMove> {
         for (p, n2) in game.pos2hint {
             var n1 = 0
             var rng = [Position]()
-            for os  in CastleBaileyGame.offset2 {
+            for os in CastleBaileyGame.offset2 {
                 let p2 = p + os
                 guard isValid(p: p2) else {continue}
                 switch self[p2] {
