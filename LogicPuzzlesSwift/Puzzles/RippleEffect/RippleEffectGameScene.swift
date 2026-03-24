@@ -70,6 +70,7 @@ class RippleEffectGameScene: GameScene<RippleEffectGameState> {
     }
     
     override func levelUpdated(from stateFrom: RippleEffectGameState, to stateTo: RippleEffectGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -83,7 +84,7 @@ class RippleEffectGameScene: GameScene<RippleEffectGameState> {
                         removeNode(withName: numberNodeName)
                     }
                     if (n2 != 0) {
-                        addNumber(n: n2, s: stateTo.pos2state[p] ?? .normal, isFixed: stateTo.game[p] != 0, point: point, nodeName: numberNodeName)
+                        addNumber(n: n2, s: stateTo.pos2state[p] ?? .normal, isFixed: game[p] != 0, point: point, nodeName: numberNodeName)
                     }
                 }
             }

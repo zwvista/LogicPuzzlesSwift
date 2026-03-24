@@ -37,6 +37,7 @@ class ArchipelagoGameScene: GameScene<ArchipelagoGameState> {
     }
     
     override func levelUpdated(from stateFrom: ArchipelagoGameState, to stateTo: ArchipelagoGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -61,7 +62,7 @@ class ArchipelagoGameScene: GameScene<ArchipelagoGameState> {
                     }
                     switch o2 {
                     case .hint:
-                        addHint(n: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
+                        addHint(n: game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
                     case .marker:
                         addDotMarker(point: point, nodeName: markerNodeName)
                     case .water:

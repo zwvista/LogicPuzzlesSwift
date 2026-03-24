@@ -42,6 +42,7 @@ class TennerGridGameScene: GameScene<TennerGridGameState> {
     }
     
     override func levelUpdated(from stateFrom: TennerGridGameState, to stateTo: TennerGridGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -53,7 +54,7 @@ class TennerGridGameScene: GameScene<TennerGridGameState> {
                 let (s1, s2) = (stateFrom.pos2state[p] ?? .normal, stateTo.pos2state[p] ?? .normal)
                 guard n1 != n2 || s1 != s2 else {continue}
                 if (n1 != -1) { removeNumber() }
-                if (n2 != -1) { addNumber(n: n2, s: s2, isFixed: stateFrom.game[r, c] != -1, point: point, nodeName: numberNodeName) }
+                if (n2 != -1) { addNumber(n: n2, s: s2, isFixed: game[r, c] != -1, point: point, nodeName: numberNodeName) }
             }
         }
     }

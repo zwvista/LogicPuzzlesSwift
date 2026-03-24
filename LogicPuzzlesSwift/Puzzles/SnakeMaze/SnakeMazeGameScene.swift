@@ -78,6 +78,7 @@ class SnakeMazeGameScene: GameScene<SnakeMazeGameState> {
     }
     
     override func levelUpdated(from stateFrom: SnakeMazeGameState, to stateTo: SnakeMazeGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -104,7 +105,7 @@ class SnakeMazeGameScene: GameScene<SnakeMazeGameState> {
                     case .marker:
                         addDotMarker(point: point, nodeName: tileNodeName)
                     case .hint:
-                        let hint = stateFrom.game.pos2hint[p]!
+                        let hint = game.pos2hint[p]!
                         let dir2 = hint.dir, dir1 = (dir2 + 2) % 4
                         let point1 = getCenterPoint(p: p, dir: dir1)
                         addHint(n: hint.num, s: s4!, point: point1, nodeName: tileNodeName)

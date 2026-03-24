@@ -36,7 +36,8 @@ class MineSlitherGameScene: GameScene<MineSlitherGameState> {
     }
     
     override func levelUpdated(from stateFrom: MineSlitherGameState, to stateTo: MineSlitherGameState) {
-        for (p, n) in stateFrom.game.pos2hint {
+        let game = stateFrom.game
+        for (p, n) in game.pos2hint {
             let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
             guard s1 != s2 else {continue}
             let point = gridNode.centerPoint(p: p)

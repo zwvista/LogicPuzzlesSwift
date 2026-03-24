@@ -60,6 +60,7 @@ class NumberCrosswordsGameScene: GameScene<NumberCrosswordsGameState> {
     }
     
     override func levelUpdated(from stateFrom: NumberCrosswordsGameState, to stateTo: NumberCrosswordsGameState) {
+        let game = stateFrom.game
         func removeHint(p: Position) {
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
@@ -70,7 +71,7 @@ class NumberCrosswordsGameScene: GameScene<NumberCrosswordsGameState> {
             let s = stateTo.row2state[r]
             if stateFrom.row2state[r] != s {
                 removeHint(p: p)
-                addHint(p: p, n: stateFrom.game[r, stateFrom.cols - 1], s: s)
+                addHint(p: p, n: game[r, stateFrom.cols - 1], s: s)
             }
         }
         for c in 0..<stateFrom.cols - 1 {
@@ -78,7 +79,7 @@ class NumberCrosswordsGameScene: GameScene<NumberCrosswordsGameState> {
             let s = stateTo.col2state[c]
             if stateFrom.col2state[c] != s {
                 removeHint(p: p)
-                addHint(p: p, n: stateFrom.game[stateFrom.rows - 1, c], s: s)
+                addHint(p: p, n: game[stateFrom.rows - 1, c], s: s)
             }
         }
         for r in 0..<stateFrom.rows {
@@ -89,7 +90,7 @@ class NumberCrosswordsGameScene: GameScene<NumberCrosswordsGameState> {
                 let numberNodeName = "number" + nodeNameSuffix
                 let darkenNodeName = "darken" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
-                func addNumber2() { addNumber(n: String(stateFrom.game[p]), s: .normal, point: point, nodeName: numberNodeName) }
+                func addNumber2() { addNumber(n: String(game[p]), s: .normal, point: point, nodeName: numberNodeName) }
                 func removeNumber() { removeNode(withName: numberNodeName) }
                 func addDarken() { addBlock(color: .lightGray, point: point, nodeName: darkenNodeName) }
                 func removeDarken() { removeNode(withName: darkenNodeName) }

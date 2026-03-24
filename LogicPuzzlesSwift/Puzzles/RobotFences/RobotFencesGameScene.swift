@@ -102,6 +102,7 @@ class RobotFencesGameScene: GameScene<RobotFencesGameState> {
     }
     
     override func levelUpdated(from stateFrom: RobotFencesGameState, to stateTo: RobotFencesGameState) {
+        let game = stateFrom.game
         func removeHint(p: Position, isHorz: Bool) {
             let nodeNameSuffix = "-\(p.row)-\(p.col)-" + (isHorz ? "h" : "v")
             let hintNodeName = "hint" + nodeNameSuffix
@@ -128,12 +129,12 @@ class RobotFencesGameScene: GameScene<RobotFencesGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                guard stateFrom.game[p] == 0 else {continue}
+                guard game[p] == 0 else {continue}
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
                 let (n1, n2) = (stateFrom[p], stateTo[p])
-                let i = stateFrom.game.pos2area[p]!
+                let i = game.pos2area[p]!
                 let (s1, s2) = (stateFrom.area2state[i], stateTo.area2state[i])
                 if n1 != n2 || s1 != s2 {
                     if n1 != 0 { removeNode(withName: numberNodeName) }

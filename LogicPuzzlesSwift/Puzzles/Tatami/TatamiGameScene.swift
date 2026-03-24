@@ -70,6 +70,7 @@ class TatamiGameScene: GameScene<TatamiGameState> {
     }
     
     override func levelUpdated(from stateFrom: TatamiGameState, to stateTo: TatamiGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -83,7 +84,7 @@ class TatamiGameScene: GameScene<TatamiGameState> {
                         removeNode(withName: charNodeName)
                     }
                     if (ch2 != " ") {
-                        addCharacter(ch: ch2, s: stateTo.pos2state[p] ?? .normal, isHint: stateTo.game[p] != " ", point: point, nodeName: charNodeName)
+                        addCharacter(ch: ch2, s: stateTo.pos2state[p] ?? .normal, isHint: game[p] != " ", point: point, nodeName: charNodeName)
                     }
                 }
             }

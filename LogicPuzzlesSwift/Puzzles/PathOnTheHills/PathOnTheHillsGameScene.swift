@@ -64,7 +64,8 @@ class PathOnTheHillsGameScene: GameScene<PathOnTheHillsGameState> {
     }
     
     override func levelUpdated(from stateFrom: PathOnTheHillsGameState, to stateTo: PathOnTheHillsGameState) {
-        for (p, n) in stateFrom.game.pos2hint {
+        let game = stateFrom.game
+        for (p, n) in game.pos2hint {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix

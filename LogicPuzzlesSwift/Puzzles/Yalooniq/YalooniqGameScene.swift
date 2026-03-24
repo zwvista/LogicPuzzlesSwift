@@ -85,6 +85,7 @@ class YalooniqGameScene: GameScene<YalooniqGameState> {
     }
     
     override func levelUpdated(from stateFrom: YalooniqGameState, to stateTo: YalooniqGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -129,7 +130,7 @@ class YalooniqGameScene: GameScene<YalooniqGameState> {
                 let (s3, s4) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
                 if s3 != s4 {
                     removeNode(withName: hintNodeName)
-                    addHint(n: stateFrom.game.pos2hint[p]!.num, s: s4!, point: getHintPoint(p: p), nodeName: hintNodeName)
+                    addHint(n: game.pos2hint[p]!.num, s: s4!, point: getHintPoint(p: p), nodeName: hintNodeName)
                 }
             }
         }

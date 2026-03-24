@@ -38,6 +38,7 @@ class PairakabeGameScene: GameScene<PairakabeGameState> {
     }
     
     override func levelUpdated(from stateFrom: PairakabeGameState, to stateTo: PairakabeGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -65,7 +66,7 @@ class PairakabeGameScene: GameScene<PairakabeGameState> {
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
                 case .hint:
-                    let n = stateTo.game.pos2hint[Position(r, c)]!
+                    let n = game.pos2hint[Position(r, c)]!
                     addHint(n: n, s: s2!, point: point, nodeName: hintNodeName)
                 default:
                     break

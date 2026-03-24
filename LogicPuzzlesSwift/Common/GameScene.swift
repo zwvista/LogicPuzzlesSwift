@@ -173,4 +173,12 @@ class GameScene<GS: GameStateBase>: SKScene, GameSceneBase {
         lineNode.name = nodeName
         gridNode.addChild(lineNode)
     }
+
+    func removeHorzLine(objType: GridLineObject, nodeName: String) {
+        if objType != .empty { removeNode(withName: nodeName) }
+    }
+
+    func removeVertLine(objType: GridLineObject, nodeName: String) {
+        if objType != .empty { removeNode(withName: nodeName) }
+    }
 }

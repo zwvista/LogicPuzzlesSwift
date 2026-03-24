@@ -41,13 +41,14 @@ class FencingSheepGameScene: GameScene<FencingSheepGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
-                if game[r, c][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
-                if game[r, c][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                if game[p][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                if game[p][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
             }
         }
     }
     
     override func levelUpdated(from stateFrom: FencingSheepGameState, to stateTo: FencingSheepGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -55,20 +56,14 @@ class FencingSheepGameScene: GameScene<FencingSheepGameState> {
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let horzLineNodeName = "horzLine" + nodeNameSuffix
                 let vertlineNodeName = "vertline" + nodeNameSuffix
-                func removeHorzLine(objType: GridLineObject) {
-                    if objType != .empty { removeNode(withName: horzLineNodeName) }
-                }
-                func removeVertLine(objType: GridLineObject) {
-                    if objType != .empty { removeNode(withName: vertlineNodeName) }
-                }
                 var (o1, o2) = (stateFrom[p][1], stateTo[p][1])
                 if o1 != o2 {
-                    removeHorzLine(objType: o1)
+                    removeHorzLine(objType: o1, nodeName: horzLineNodeName)
                     addHorzLine(objType: o2, color: .yellow, point: point, nodeName: horzLineNodeName)
                 }
                 (o1, o2) = (stateFrom[p][2], stateTo[p][2])
                 if o1 != o2 {
-                    removeVertLine(objType: o1)
+                    removeVertLine(objType: o1, nodeName: vertlineNodeName)
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
                 }
             }

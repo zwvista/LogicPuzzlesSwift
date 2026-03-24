@@ -79,6 +79,7 @@ class ChocolateGameScene: GameScene<ChocolateGameState> {
     }
     
     override func levelUpdated(from stateFrom: ChocolateGameState, to stateTo: ChocolateGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -115,11 +116,11 @@ class ChocolateGameScene: GameScene<ChocolateGameState> {
                 }
                 guard s1 != s2 || s2 != nil && o2 == .chocolate else {continue}
                 removeNode(withName: hintNodeName)
-                addHint(p: p, n: stateFrom.game.pos2hint[p]!, s: s2!)
+                addHint(p: p, n: game.pos2hint[p]!, s: s2!)
             }
         }
 
         removeNode(withName: "line")
-        addLines(game: stateFrom.game)
+        addLines(game: game)
     }
 }

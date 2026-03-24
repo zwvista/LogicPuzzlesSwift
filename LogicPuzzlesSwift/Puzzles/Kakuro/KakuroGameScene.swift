@@ -69,6 +69,7 @@ class KakuroGameScene: GameScene<KakuroGameState> {
     }
     
     override func levelUpdated(from stateFrom: KakuroGameState, to stateTo: KakuroGameState) {
+        let game = stateFrom.game
         func undateHint(p: Position, n: Int, isHorz: Bool, s1: HintState, s2: HintState) {
             let nodeNameSuffix = "-\(p.row)-\(p.col)" + (isHorz ? "h" : "v")
             let nodeName = "hint" + nodeNameSuffix
@@ -77,10 +78,10 @@ class KakuroGameScene: GameScene<KakuroGameState> {
                 addHint(p: p, n: n, isHorz: isHorz, s: s2)
             }
         }
-        for (p, n) in stateFrom.game.pos2vertHint {
+        for (p, n) in game.pos2vertHint {
             undateHint(p: p, n: n, isHorz: false, s1: stateFrom.pos2vertState[p]!, s2: stateTo.pos2vertState[p]!)
         }
-        for (p, n) in stateFrom.game.pos2horzHint {
+        for (p, n) in game.pos2horzHint {
             undateHint(p: p, n: n, isHorz: true, s1: stateFrom.pos2horzState[p]!, s2: stateTo.pos2horzState[p]!)
         }
         for p in stateFrom.pos2num.keys {

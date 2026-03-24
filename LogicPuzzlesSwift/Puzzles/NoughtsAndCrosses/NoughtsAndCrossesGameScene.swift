@@ -80,6 +80,7 @@ class NoughtsAndCrossesGameScene: GameScene<NoughtsAndCrossesGameState> {
     }
     
     override func levelUpdated(from stateFrom: NoughtsAndCrossesGameState, to stateTo: NoughtsAndCrossesGameState) {
+        let game = stateFrom.game
         func removeHint(p: Position, isHorz: Bool) {
             let nodeNameSuffix = "-\(p.row)-\(p.col)-" + (isHorz ? "h" : "v")
             let hintNodeName = "hint" + nodeNameSuffix
@@ -106,7 +107,7 @@ class NoughtsAndCrossesGameScene: GameScene<NoughtsAndCrossesGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                guard stateFrom.game[p] == " " else {continue}
+                guard game[p] == " " else {continue}
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix

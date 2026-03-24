@@ -80,6 +80,7 @@ class PaintTheNurikabeGameScene: GameScene<PaintTheNurikabeGameState> {
     }
     
     override func levelUpdated(from stateFrom: PaintTheNurikabeGameState, to stateTo: PaintTheNurikabeGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -89,7 +90,7 @@ class PaintTheNurikabeGameScene: GameScene<PaintTheNurikabeGameState> {
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                func addHint2() { addHint(n: stateFrom.game.pos2hint[p]!, s: stateTo.pos2state[p]!, point: point, nodeName: hintNodeName) }
+                func addHint2() { addHint(n: game.pos2hint[p]!, s: stateTo.pos2state[p]!, point: point, nodeName: hintNodeName) }
                 func removeHint() { removeNode(withName: hintNodeName) }
                 func addPaintedCell() { addBlock(color: .purple, point: point, nodeName: paintedCellNodeName) }
                 func removePaintedCell() { removeNode(withName: paintedCellNodeName) }
@@ -108,7 +109,7 @@ class PaintTheNurikabeGameScene: GameScene<PaintTheNurikabeGameState> {
                     }
                     switch o2 {
                     case .painted:
-                        let b = stateFrom.game.pos2hint[p] != nil
+                        let b = game.pos2hint[p] != nil
                         if b { removeHint() }
                         addPaintedCell()
                         if b { addHint2() }

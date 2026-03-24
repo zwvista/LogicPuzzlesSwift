@@ -65,6 +65,7 @@ class SnakeominoGameScene: GameScene<SnakeominoGameState> {
     }
     
     override func levelUpdated(from stateFrom: SnakeominoGameState, to stateTo: SnakeominoGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)

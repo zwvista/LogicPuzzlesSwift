@@ -63,6 +63,7 @@ class RobotCrosswordsGameScene: GameScene<RobotCrosswordsGameState> {
     }
     
     override func levelUpdated(from stateFrom: RobotCrosswordsGameState, to stateTo: RobotCrosswordsGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -70,7 +71,7 @@ class RobotCrosswordsGameScene: GameScene<RobotCrosswordsGameState> {
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
                 let (n1, n2) = (stateFrom[r, c], stateTo[r, c])
-                if stateFrom.game[p] == 0 && n1 != n2 {
+                if game[p] == 0 && n1 != n2 {
                     if n1 != 0 { removeNode(withName: numberNodeName) }
                     if n2 != 0 { addLabel(text: String(n2), fontColor: .white, point: point, nodeName: numberNodeName) }
                 }

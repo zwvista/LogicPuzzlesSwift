@@ -53,6 +53,7 @@ class MiniLitsGameScene: GameScene<MiniLitsGameState> {
     }
     
     override func levelUpdated(from stateFrom: MiniLitsGameState, to stateTo: MiniLitsGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)

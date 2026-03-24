@@ -65,6 +65,7 @@ class StacksGameScene: GameScene<StacksGameState> {
     }
     
     override func levelUpdated(from stateFrom: StacksGameState, to stateTo: StacksGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -78,7 +79,7 @@ class StacksGameScene: GameScene<StacksGameState> {
                     removeNode(withName: numberNodeName)
                 }
                 if n2 != StacksGame.PUZ_EMPTY {
-                    addLabel(text: String(n2), fontColor: stateFrom.game[p] != StacksGame.PUZ_EMPTY ? .gray : s2 == .normal ? .white : .red, point: point, nodeName: numberNodeName)
+                    addLabel(text: String(n2), fontColor: game[p] != StacksGame.PUZ_EMPTY ? .gray : s2 == .normal ? .white : .red, point: point, nodeName: numberNodeName)
                 }
             }
         }

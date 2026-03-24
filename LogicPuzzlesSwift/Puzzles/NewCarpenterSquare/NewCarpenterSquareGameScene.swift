@@ -47,13 +47,14 @@ class NewCarpenterSquareGameScene: GameScene<NewCarpenterSquareGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
-                if game[r, c][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
-                if game[r, c][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                if game[p][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                if game[p][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
             }
         }
     }
     
     override func levelUpdated(from stateFrom: NewCarpenterSquareGameState, to stateTo: NewCarpenterSquareGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -73,7 +74,7 @@ class NewCarpenterSquareGameScene: GameScene<NewCarpenterSquareGameState> {
                 }
             }
         }
-        for (p, h) in stateFrom.game.pos2hint {
+        for (p, h) in game.pos2hint {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix

@@ -55,6 +55,7 @@ class FlowerBedsGameScene: GameScene<FlowerBedsGameState> {
     }
     
     override func levelUpdated(from stateFrom: FlowerBedsGameState, to stateTo: FlowerBedsGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -62,25 +63,19 @@ class FlowerBedsGameScene: GameScene<FlowerBedsGameState> {
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let horzLineNodeName = "horzLine" + nodeNameSuffix
                 let vertlineNodeName = "vertline" + nodeNameSuffix
-                func removeHorzLine(objType: GridLineObject) {
-                    if objType != .empty { removeNode(withName: horzLineNodeName) }
-                }
-                func removeVertLine(objType: GridLineObject) {
-                    if objType != .empty { removeNode(withName: vertlineNodeName) }
-                }
                 var (o1, o2) = (stateFrom[p][1], stateTo[p][1])
                 if o1 != o2 {
-                    removeHorzLine(objType: o1)
+                    removeHorzLine(objType: o1, nodeName: horzLineNodeName)
                     addHorzLine(objType: o2, color: .yellow, point: point, nodeName: horzLineNodeName)
                 }
                 (o1, o2) = (stateFrom[p][2], stateTo[p][2])
                 if o1 != o2 {
-                    removeVertLine(objType: o1)
+                    removeVertLine(objType: o1, nodeName: vertlineNodeName)
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
                 }
             }
         }
-        for p in stateFrom.game.flowers {
+        for p in game.flowers {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let flowerNodeName = "flower" + nodeNameSuffix

@@ -52,6 +52,7 @@ class WallSentinelsGameScene: GameScene<WallSentinelsGameState> {
     }
     
     override func levelUpdated(from stateFrom: WallSentinelsGameState, to stateTo: WallSentinelsGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -79,10 +80,10 @@ class WallSentinelsGameScene: GameScene<WallSentinelsGameState> {
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
                 case .hintLand:
-                    let n = stateFrom.game.pos2hintLand[p]!
+                    let n = game.pos2hintLand[p]!
                     addHint(n: n, s: s2!, point: point, nodeName: hintNodeName)
                 case .hintWall:
-                    let n = stateFrom.game.pos2hintWall[p]!
+                    let n = game.pos2hintWall[p]!
                     addHint(n: n, s: s2!, point: point, nodeName: hintNodeName)
                 default:
                     break

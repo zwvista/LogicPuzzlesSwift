@@ -68,6 +68,7 @@ class FlowerOMinoGameScene: GameScene<FlowerOMinoGameState> {
     }
     
     override func levelUpdated(from stateFrom: FlowerOMinoGameState, to stateTo: FlowerOMinoGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -75,20 +76,14 @@ class FlowerOMinoGameScene: GameScene<FlowerOMinoGameState> {
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let horzLineNodeName = "horzLine" + nodeNameSuffix
                 let vertlineNodeName = "vertline" + nodeNameSuffix
-                func removeHorzLine(objType: GridLineObject) {
-                    if objType != .empty { removeNode(withName: horzLineNodeName) }
-                }
-                func removeVertLine(objType: GridLineObject) {
-                    if objType != .empty { removeNode(withName: vertlineNodeName) }
-                }
                 var (o1, o2) = (stateFrom[p][1], stateTo[p][1])
                 if o1 != o2 {
-                    removeHorzLine(objType: o1)
+                    removeHorzLine(objType: o1, nodeName: horzLineNodeName)
                     addHorzLine(objType: o2, color: .yellow, point: point, nodeName: horzLineNodeName)
                 }
                 (o1, o2) = (stateFrom[p][2], stateTo[p][2])
                 if o1 != o2 {
-                    removeVertLine(objType: o1)
+                    removeVertLine(objType: o1, nodeName: vertlineNodeName)
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
                 }
                 let b1 = stateFrom.gardens.contains { $0.contains(p) }

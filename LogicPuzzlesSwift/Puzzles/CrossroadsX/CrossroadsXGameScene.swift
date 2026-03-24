@@ -71,6 +71,7 @@ class CrossroadsXGameScene: GameScene<CrossroadsXGameState> {
     }
     
     override func levelUpdated(from stateFrom: CrossroadsXGameState, to stateTo: CrossroadsXGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -85,10 +86,10 @@ class CrossroadsXGameScene: GameScene<CrossroadsXGameState> {
                         removeNode(withName: numberNodeName)
                     }
                     if n2 != CrossroadsXGame.PUZ_EMPTY {
-                        addLabel(text: String(n2), fontColor: stateFrom.game[p] != CrossroadsXGame.PUZ_EMPTY ? .gray : s2 == .normal ? .white : .red, point: point, nodeName: numberNodeName)
+                        addLabel(text: String(n2), fontColor: game[p] != CrossroadsXGame.PUZ_EMPTY ? .gray : s2 == .normal ? .white : .red, point: point, nodeName: numberNodeName)
                     }
                 }
-                guard stateFrom.game.crossroads.contains(p) else {continue}
+                guard game.crossroads.contains(p) else {continue}
                 let (b1, b2) = (stateFrom.invalidCrossroads.contains(p), stateTo.invalidCrossroads.contains(p))
                 if b1 != b2 {
                     let point = gridNode.cornerPoint(p: p)

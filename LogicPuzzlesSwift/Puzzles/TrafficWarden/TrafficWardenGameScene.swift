@@ -39,7 +39,8 @@ class TrafficWardenGameScene: GameScene<TrafficWardenGameState> {
     }
     
     override func levelUpdated(from stateFrom: TrafficWardenGameState, to stateTo: TrafficWardenGameState) {
-        for (p, hint) in stateFrom.game.pos2hint {
+        let game = stateFrom.game
+        for (p, hint) in game.pos2hint {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix

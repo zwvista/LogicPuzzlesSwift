@@ -77,6 +77,7 @@ class SnailGameScene: GameScene<SnailGameState> {
     }
     
     override func levelUpdated(from stateFrom: SnailGameState, to stateTo: SnailGameState) {
+        let game = stateFrom.game
         func removeHint(p: Position) {
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix

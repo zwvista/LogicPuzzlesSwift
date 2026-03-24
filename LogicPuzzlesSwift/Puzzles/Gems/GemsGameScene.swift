@@ -42,13 +42,14 @@ class GemsGameScene: GameScene<GemsGameState> {
     }
     
     override func levelUpdated(from stateFrom: GemsGameState, to stateTo: GemsGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let tileNodeName = "tile" + nodeNameSuffix
-                let n = stateFrom.game.pos2hint[p]
+                let n = game.pos2hint[p]
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
                 let (s3, s4) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])

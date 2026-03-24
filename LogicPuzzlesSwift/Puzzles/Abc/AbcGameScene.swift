@@ -43,6 +43,7 @@ class AbcGameScene: GameScene<AbcGameState> {
     }
     
     override func levelUpdated(from stateFrom: AbcGameState, to stateTo: AbcGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -64,7 +65,7 @@ class AbcGameScene: GameScene<AbcGameState> {
                 if ch2 == "." {
                     addMarker()
                 } else if (ch2 != " ") {
-                    addCharacter(ch: ch2, s: s2, isHint: !stateFrom.game.isValid(p: p), point: point, nodeName: charNodeName)
+                    addCharacter(ch: ch2, s: s2, isHint: !game.isValid(p: p), point: point, nodeName: charNodeName)
                 }
             }
         }

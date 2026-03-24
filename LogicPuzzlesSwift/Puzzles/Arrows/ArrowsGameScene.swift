@@ -45,15 +45,16 @@ class ArrowsGameScene: GameScene<ArrowsGameState> {
     }
     
     override func levelUpdated(from stateFrom: ArrowsGameState, to stateTo: ArrowsGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                if stateFrom.game.isCorner(p: p) {continue}
+                if game.isCorner(p: p) {continue}
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let hintNodeName = "hint" + nodeNameSuffix
                 let arrowNodeName = "arrow" + nodeNameSuffix
-                if stateFrom.game.isBorder(p: p) {
+                if game.isBorder(p: p) {
                     let (n1, n2) = (stateFrom[p], stateTo[p])
                     let (s1, s2) = (stateFrom.arrow2state[p]!, stateTo.arrow2state[p]!)
                     if n1 != n2 || s1 != s2 {

@@ -65,6 +65,7 @@ class LiarLiarGameScene: GameScene<LiarLiarGameState> {
     }
     
     override func levelUpdated(from stateFrom: LiarLiarGameState, to stateTo: LiarLiarGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -94,7 +95,7 @@ class LiarLiarGameScene: GameScene<LiarLiarGameState> {
                 case .forbidden:
                     addDotMarker2(color: .red, point: point, nodeName: forbiddenNodeName)
                 case .hint:
-                    addHint(p: p, n: stateFrom.game.pos2hint[p]!, s: s2!)
+                    addHint(p: p, n: game.pos2hint[p]!, s: s2!)
                 case .marked:
                     addBlock(color: s4 == .error ? .red : .lightGray, point: point, nodeName: markedNodeName)
                 case .marker:

@@ -87,6 +87,7 @@ class FillominoGameScene: GameScene<FillominoGameState> {
     }
     
     override func levelUpdated(from stateFrom: FillominoGameState, to stateTo: FillominoGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows + 1 {
             for c in 0..<stateFrom.cols + 1 {
                 let p = Position(r, c)
@@ -101,7 +102,7 @@ class FillominoGameScene: GameScene<FillominoGameState> {
                             removeNode(withName: charNodeName)
                         }
                         if (ch2 != " ") {
-                            addCharacter(ch: ch2, s: stateTo.pos2state[p] ?? .normal, isHint: stateTo.game[p] != " ", point: point, nodeName: charNodeName)
+                            addCharacter(ch: ch2, s: stateTo.pos2state[p] ?? .normal, isHint: game[p] != " ", point: point, nodeName: charNodeName)
                         }
                     }
                 }

@@ -36,6 +36,7 @@ class WallsGameScene: GameScene<WallsGameState> {
     }
     
     override func levelUpdated(from stateFrom: WallsGameState, to stateTo: WallsGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -59,7 +60,7 @@ class WallsGameScene: GameScene<WallsGameState> {
                 }
                 switch o2 {
                 case .hint:
-                    addHint(n: stateTo.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
+                    addHint(n: game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
                 case .horz:
                     addImage(imageNamed: "wall_horizontal", color: .red, colorBlendFactor: 0.0, point: point, nodeName: horzNodeName)
                 case .vert:

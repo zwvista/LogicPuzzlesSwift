@@ -61,6 +61,7 @@ class BalancedTapasGameScene: GameScene<BalancedTapasGameState> {
     }
     
     override func levelUpdated(from stateFrom: BalancedTapasGameState, to stateTo: BalancedTapasGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -88,7 +89,7 @@ class BalancedTapasGameScene: GameScene<BalancedTapasGameState> {
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
                 case .hint:
-                    addHint(arr: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
+                    addHint(arr: game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
                 default:
                     break
                 }
@@ -99,9 +100,9 @@ class BalancedTapasGameScene: GameScene<BalancedTapasGameState> {
         let pathToDraw = CGMutablePath()
         let lineNode = SKShapeNode(path: pathToDraw)
         for r in 0..<stateFrom.rows {
-            let c = stateFrom.game.left
+            let c = game.left
             let point = gridNode.centerPoint(p: Position(r, c))
-            let x = point.x - gridNode.blockSize / 2 - (c > stateFrom.game.right ? gridNode.blockSize / 2 : 0)
+            let x = point.x - gridNode.blockSize / 2 - (c > game.right ? gridNode.blockSize / 2 : 0)
             pathToDraw.move(to: CGPoint(x: x, y: point.y + gridNode.blockSize / 2))
             pathToDraw.addLine(to: CGPoint(x: x, y: point.y - gridNode.blockSize / 2))
         }

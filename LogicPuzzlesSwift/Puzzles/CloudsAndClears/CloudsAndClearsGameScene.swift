@@ -36,6 +36,7 @@ class CloudsAndClearsGameScene: GameScene<CloudsAndClearsGameState> {
     }
     
     override func levelUpdated(from stateFrom: CloudsAndClearsGameState, to stateTo: CloudsAndClearsGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -66,7 +67,7 @@ class CloudsAndClearsGameScene: GameScene<CloudsAndClearsGameState> {
                 }
                 if s1 != s2 || s1 != nil && o1 != o2 {
                     removeNode(withName: hintNodeName)
-                    addHint(n: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
+                    addHint(n: game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
                 }
             }
         }

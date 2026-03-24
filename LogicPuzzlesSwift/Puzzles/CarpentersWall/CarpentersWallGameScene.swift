@@ -56,6 +56,7 @@ class CarpentersWallGameScene: GameScene<CarpentersWallGameState> {
     }
     
     override func levelUpdated(from stateFrom: CarpentersWallGameState, to stateTo: CarpentersWallGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -83,7 +84,7 @@ class CarpentersWallGameScene: GameScene<CarpentersWallGameState> {
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
                 case .corner:
-                    let n = stateFrom.game.pos2hint[p]!
+                    let n = game.pos2hint[p]!
                     addHint(text: n == 0 ? "?" : String(n), s: s2!, point: point, nodeName: hintNodeName)
                 case .left:
                     addHint(text: "<", s: s2!, point: point, nodeName: hintNodeName)

@@ -37,6 +37,7 @@ class HolidayIslandGameScene: GameScene<HolidayIslandGameState> {
     }
     
     override func levelUpdated(from stateFrom: HolidayIslandGameState, to stateTo: HolidayIslandGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -67,7 +68,7 @@ class HolidayIslandGameScene: GameScene<HolidayIslandGameState> {
                 case .water:
                     addImage(imageNamed: "sea", color: .red, colorBlendFactor: 0.0, point: point, nodeName: waterNodeName)
                 case .hint:
-                    addHint(n: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
+                    addHint(n: game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
                 default:

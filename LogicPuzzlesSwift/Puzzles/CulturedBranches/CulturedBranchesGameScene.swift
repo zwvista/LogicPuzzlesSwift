@@ -37,6 +37,7 @@ class CulturedBranchesGameScene: GameScene<CulturedBranchesGameState> {
     }
 
     override func levelUpdated(from stateFrom: CulturedBranchesGameState, to stateTo: CulturedBranchesGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -59,7 +60,7 @@ class CulturedBranchesGameScene: GameScene<CulturedBranchesGameState> {
                 case .up, .right, .down, .left, .horizontal, .vertical:
                     addImage(imageNamed: "branch_" + String(describing: o2), color: .red, colorBlendFactor: 0.0, point: point, nodeName: branchNodeName)
                 case .hint:
-                    addHint(ch: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
+                    addHint(ch: game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
                 default:
                     break
                 }

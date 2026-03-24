@@ -60,6 +60,7 @@ class Square100GameScene: GameScene<Square100GameState> {
     }
     
     override func levelUpdated(from stateFrom: Square100GameState, to stateTo: Square100GameState) {
+        let game = stateFrom.game
         func removeHint(p: Position) {
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix

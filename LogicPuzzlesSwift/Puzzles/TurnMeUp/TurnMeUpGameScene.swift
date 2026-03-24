@@ -36,6 +36,7 @@ class TurnMeUpGameScene: GameScene<TurnMeUpGameState> {
     }
     
     override func levelUpdated(from stateFrom: TurnMeUpGameState, to stateTo: TurnMeUpGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)

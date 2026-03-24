@@ -100,7 +100,8 @@ class GardenerGameScene: GameScene<GardenerGameState> {
     }
     
     override func levelUpdated(from stateFrom: GardenerGameState, to stateTo: GardenerGameState) {
-        for (p, (n, _)) in stateFrom.game.pos2hint {
+        let game = stateFrom.game
+        for (p, (n, _)) in game.pos2hint {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
@@ -163,7 +164,7 @@ class GardenerGameScene: GameScene<GardenerGameState> {
                 }
             }
         }
-        for (p, (n, _)) in stateFrom.game.pos2hint {
+        for (p, (n, _)) in game.pos2hint {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix

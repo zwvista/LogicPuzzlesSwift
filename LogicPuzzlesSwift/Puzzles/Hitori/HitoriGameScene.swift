@@ -61,6 +61,7 @@ class HitoriGameScene: GameScene<HitoriGameState> {
     }
     
     override func levelUpdated(from stateFrom: HitoriGameState, to stateTo: HitoriGameState) {
+        let game = stateFrom.game
         func removeHint(p: Position) {
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
@@ -90,7 +91,7 @@ class HitoriGameScene: GameScene<HitoriGameState> {
                 let numberNodeName = "number" + nodeNameSuffix
                 let darkenNodeName = "darken" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
-                func addNumber2() { addNumber(n: String(stateFrom.game[p]), s: .normal, point: point, nodeName: numberNodeName) }
+                func addNumber2() { addNumber(n: String(game[p]), s: .normal, point: point, nodeName: numberNodeName) }
                 func removeNumber() { removeNode(withName: numberNodeName) }
                 func addDarken() { addBlock(color: .lightGray, point: point, nodeName: darkenNodeName) }
                 func removeDarken() { removeNode(withName: darkenNodeName) }

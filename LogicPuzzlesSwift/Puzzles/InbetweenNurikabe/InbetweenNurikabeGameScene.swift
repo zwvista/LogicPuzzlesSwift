@@ -37,6 +37,7 @@ class InbetweenNurikabeGameScene: GameScene<InbetweenNurikabeGameState> {
     }
     
     override func levelUpdated(from stateFrom: InbetweenNurikabeGameState, to stateTo: InbetweenNurikabeGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -61,7 +62,7 @@ class InbetweenNurikabeGameScene: GameScene<InbetweenNurikabeGameState> {
                     }
                     switch o2 {
                     case .hint:
-                        let n = stateTo.game.pos2hint[Position(r, c)]!
+                        let n = game.pos2hint[Position(r, c)]!
                         addHint(n: n, s: s2!, point: point, nodeName: hintNodeName)
                     case .marker:
                         addDotMarker(point: point, nodeName: markerNodeName)

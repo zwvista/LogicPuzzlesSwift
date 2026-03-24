@@ -37,6 +37,7 @@ class LoopAndBlocksGameScene: GameScene<LoopAndBlocksGameState> {
     }
     
     override func levelUpdated(from stateFrom: LoopAndBlocksGameState, to stateTo: LoopAndBlocksGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -81,7 +82,7 @@ class LoopAndBlocksGameScene: GameScene<LoopAndBlocksGameState> {
                 let (s3, s4) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
                 if s3 != s4 {
                     removeNode(withName: hintNodeName)
-                    addHint(n: stateFrom.game.pos2hint[p]!, s: s4!, point: point, nodeName: hintNodeName)
+                    addHint(n: game.pos2hint[p]!, s: s4!, point: point, nodeName: hintNodeName)
                 }
             }
         }

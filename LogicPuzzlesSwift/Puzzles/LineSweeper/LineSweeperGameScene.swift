@@ -37,6 +37,7 @@ class LineSweeperGameScene: GameScene<LineSweeperGameState> {
     }
     
     override func levelUpdated(from stateFrom: LineSweeperGameState, to stateTo: LineSweeperGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -74,7 +75,7 @@ class LineSweeperGameScene: GameScene<LineSweeperGameState> {
                     guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
                     if s1 != s2 {
                         removeHint()
-                        addHint(n: stateFrom.game.pos2hint[p]!, s: s2, point: point, nodeName: hintNodeName)
+                        addHint(n: game.pos2hint[p]!, s: s2, point: point, nodeName: hintNodeName)
                     }
                 }
             }

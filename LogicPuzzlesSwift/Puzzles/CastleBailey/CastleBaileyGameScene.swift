@@ -43,6 +43,7 @@ class CastleBaileyGameScene: GameScene<CastleBaileyGameState> {
     }
     
     override func levelUpdated(from stateFrom: CastleBaileyGameState, to stateTo: CastleBaileyGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -75,11 +76,11 @@ class CastleBaileyGameScene: GameScene<CastleBaileyGameState> {
                 }
             }
         }
-        for (p, n) in stateFrom.game.pos2hint {
+        for (p, n) in game.pos2hint {
             let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
             guard s1 != s2 || (CastleBaileyGame.offset2.contains {
                 let p2 = p + $0
-                return stateFrom.game.isValid(p: p2) && stateFrom[p2] == .empty && stateTo[p2] == .wall
+                return game.isValid(p: p2) && stateFrom[p2] == .empty && stateTo[p2] == .wall
             }) else {continue}
             let point = gridNode.cornerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"

@@ -70,6 +70,7 @@ class DigitalPathGameScene: GameScene<DigitalPathGameState> {
     }
     
     override func levelUpdated(from stateFrom: DigitalPathGameState, to stateTo: DigitalPathGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -83,7 +84,7 @@ class DigitalPathGameScene: GameScene<DigitalPathGameState> {
                         removeNode(withName: numberNodeName)
                     }
                     if (n2 != DigitalPathGame.PUZ_EMPTY) {
-                        addNumber(n: n2, s: stateTo.pos2state[p] ?? .normal, isHint: stateTo.game[p] != DigitalPathGame.PUZ_EMPTY, point: point, nodeName: numberNodeName)
+                        addNumber(n: n2, s: stateTo.pos2state[p] ?? .normal, isHint: game[p] != DigitalPathGame.PUZ_EMPTY, point: point, nodeName: numberNodeName)
                     }
                 }
             }

@@ -36,6 +36,7 @@ class ShopAndGasGameScene: GameScene<ShopAndGasGameState> {
     }
     
     override func levelUpdated(from stateFrom: ShopAndGasGameState, to stateTo: ShopAndGasGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)

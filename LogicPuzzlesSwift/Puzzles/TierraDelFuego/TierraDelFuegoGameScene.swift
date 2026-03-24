@@ -37,6 +37,7 @@ class TierraDelFuegoGameScene: GameScene<TierraDelFuegoGameState> {
     }
     
     override func levelUpdated(from stateFrom: TierraDelFuegoGameState, to stateTo: TierraDelFuegoGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -68,7 +69,7 @@ class TierraDelFuegoGameScene: GameScene<TierraDelFuegoGameState> {
                 case .water:
                     addImage(imageNamed: "sea", color: .red, colorBlendFactor: s4 == .normal ? 0.0 : 0.5, point: point, nodeName: waterNodeName)
                 case .hint:
-                    let id = stateFrom.game.pos2hint[p]!
+                    let id = game.pos2hint[p]!
                     addHint(p: p, ch: id, s: s2!)
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)

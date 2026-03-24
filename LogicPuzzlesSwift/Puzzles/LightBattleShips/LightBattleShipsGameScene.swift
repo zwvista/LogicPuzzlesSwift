@@ -105,6 +105,7 @@ class LightBattleShipsGameScene: GameScene<LightBattleShipsGameState> {
     }
     
     override func levelUpdated(from stateFrom: LightBattleShipsGameState, to stateTo: LightBattleShipsGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -138,7 +139,7 @@ class LightBattleShipsGameScene: GameScene<LightBattleShipsGameState> {
                 case .marker:
                     addMarker()
                 case .hint:
-                    let n = stateTo.game.pos2hint[Position(r, c)]!
+                    let n = game.pos2hint[Position(r, c)]!
                     addHint(n: n, s: s2!, point: point, nodeName: hintNodeName)
                 default:
                     if o2.isShipPiece { addBattleShip(color: .white, point: point, obj: o2, nodeName: battleShipNodeName) }

@@ -76,6 +76,7 @@ class PouringWaterGameScene: GameScene<PouringWaterGameState> {
     }
     
     override func levelUpdated(from stateFrom: PouringWaterGameState, to stateTo: PouringWaterGameState) {
+        let game = stateFrom.game
         func removeHint(p: Position) {
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
@@ -83,7 +84,7 @@ class PouringWaterGameScene: GameScene<PouringWaterGameState> {
         }
         for r in 0..<stateFrom.rows {
             let p = Position(r, stateFrom.cols)
-            let n = stateFrom.game.row2hint[r]
+            let n = game.row2hint[r]
             if stateFrom.row2state[r] != stateTo.row2state[r] {
                 removeHint(p: p)
                 addHint(p: p, n: n, s: stateTo.row2state[r])
@@ -91,7 +92,7 @@ class PouringWaterGameScene: GameScene<PouringWaterGameState> {
         }
         for c in 0..<stateFrom.cols {
             let p = Position(stateFrom.rows, c)
-            let n = stateFrom.game.col2hint[c]
+            let n = game.col2hint[c]
             if stateFrom.col2state[c] != stateTo.col2state[c] {
                 removeHint(p: p)
                 addHint(p: p, n: n, s: stateTo.col2state[c])
@@ -132,6 +133,6 @@ class PouringWaterGameScene: GameScene<PouringWaterGameState> {
         }
 
         removeNode(withName: "line")
-        addLines(game: stateFrom.game)
+        addLines(game: game)
     }
 }

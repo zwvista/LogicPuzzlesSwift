@@ -44,7 +44,8 @@ class BentBridgesGameScene: GameScene<BentBridgesGameState> {
     }
     
     override func levelUpdated(from stateFrom: BentBridgesGameState, to stateTo: BentBridgesGameState) {
-        for (p, info) in stateFrom.game.islandsInfo {
+        let game = stateFrom.game
+        for (p, info) in game.islandsInfo {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let bridgesNodeName = { (dir: Int) in "bridges" + nodeNameSuffix + "-\(dir)" }

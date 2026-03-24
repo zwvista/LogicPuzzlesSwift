@@ -56,6 +56,7 @@ class KakurasuGameScene: GameScene<KakurasuGameState> {
     }
     
     override func levelUpdated(from stateFrom: KakurasuGameState, to stateTo: KakurasuGameState) {
+        let game = stateFrom.game
         func removeHint(p: Position) {
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
@@ -63,7 +64,7 @@ class KakurasuGameScene: GameScene<KakurasuGameState> {
         }
         for r in 1..<stateFrom.rows - 1 {
             let p = Position(r, 0)
-            let n = stateFrom.game.row2hint[r * 2]
+            let n = game.row2hint[r * 2]
             if stateFrom.row2state[r * 2] != stateTo.row2state[r * 2] {
                 removeHint(p: p)
                 addHint(p: p, n: n, s: stateTo.row2state[r * 2])
@@ -71,7 +72,7 @@ class KakurasuGameScene: GameScene<KakurasuGameState> {
         }
         for c in 1..<stateFrom.cols - 1 {
             let p = Position(0, c)
-            let n = stateFrom.game.col2hint[c * 2]
+            let n = game.col2hint[c * 2]
             if stateFrom.col2state[c * 2] != stateTo.col2state[c * 2] {
                 removeHint(p: p)
                 addHint(p: p, n: n, s: stateTo.col2state[c * 2])

@@ -61,6 +61,7 @@ class TapARowGameScene: GameScene<TapARowGameState> {
     }
     
     override func levelUpdated(from stateFrom: TapARowGameState, to stateTo: TapARowGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -88,7 +89,7 @@ class TapARowGameScene: GameScene<TapARowGameState> {
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
                 case .hint:
-                    addHint(arr: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
+                    addHint(arr: game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
                 default:
                     break
                 }

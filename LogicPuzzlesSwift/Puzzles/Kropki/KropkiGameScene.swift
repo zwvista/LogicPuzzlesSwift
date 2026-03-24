@@ -86,6 +86,7 @@ class KropkiGameScene: GameScene<KropkiGameState> {
     }
     
     override func levelUpdated(from stateFrom: KropkiGameState, to stateTo: KropkiGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -98,10 +99,10 @@ class KropkiGameScene: GameScene<KropkiGameState> {
                     if n2 != 0 { addLabel(text: String(n2), fontColor: .white, point: point, nodeName: numberNodeName) }
                 }
                 for i in 0..<2 {
-                    guard i == 0 && c != stateFrom.game.cols - 1 || i == 1 && r != stateFrom.game.rows - 1 else {continue}
+                    guard i == 0 && c != game.cols - 1 || i == 1 && r != game.rows - 1 else {continue}
                     let nodeNameSuffix = "-\(p.row)-\(p.col)-" + (i == 0 ? "h" : "v")
                     let hintNodeName = "hint" + nodeNameSuffix
-                    let kh = (i == 0 ? stateFrom.game.pos2horzHint : stateFrom.game.pos2vertHint)[p]!
+                    let kh = (i == 0 ? game.pos2horzHint : game.pos2vertHint)[p]!
                     guard kh != .none else {continue}
                     let (s1, s2) = ((i == 0 ? stateFrom.pos2horzState : stateFrom.pos2vertState)[p] ?? .normal, (i == 0 ? stateTo.pos2horzState : stateTo.pos2vertState)[p] ?? .normal)
                     if s1 != s2 {

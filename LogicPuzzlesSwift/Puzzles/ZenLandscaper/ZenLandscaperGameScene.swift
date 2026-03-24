@@ -42,6 +42,7 @@ class ZenLandscaperGameScene: GameScene<ZenLandscaperGameState> {
     }
     
     override func levelUpdated(from stateFrom: ZenLandscaperGameState, to stateTo: ZenLandscaperGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -52,7 +53,7 @@ class ZenLandscaperGameScene: GameScene<ZenLandscaperGameState> {
                 let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
                 guard o1 != o2 || s1 != s2 else {continue}
                 removeNode(withName: tileNodeName)
-                addTile(ch: o2, fixed: stateFrom.game[p] != " ", s: s2, point: point, nodeName: tileNodeName)
+                addTile(ch: o2, fixed: game[p] != " ", s: s2, point: point, nodeName: tileNodeName)
             }
         }
     }

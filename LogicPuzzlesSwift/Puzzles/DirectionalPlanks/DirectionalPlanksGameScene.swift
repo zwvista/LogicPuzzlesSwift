@@ -39,13 +39,14 @@ class DirectionalPlanksGameScene: GameScene<DirectionalPlanksGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
-                if game[r, c][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
-                if game[r, c][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                if game[p][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                if game[p][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
             }
         }
     }
     
     override func levelUpdated(from stateFrom: DirectionalPlanksGameState, to stateTo: DirectionalPlanksGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -55,20 +56,14 @@ class DirectionalPlanksGameScene: GameScene<DirectionalPlanksGameState> {
                 let vertlineNodeName = "vertline" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
                 let plankNodeName = "plank" + nodeNameSuffix
-                func removeHorzLine(objType: GridLineObject) {
-                    if objType != .empty { removeNode(withName: horzLineNodeName) }
-                }
-                func removeVertLine(objType: GridLineObject) {
-                    if objType != .empty { removeNode(withName: vertlineNodeName) }
-                }
                 var (o1, o2) = (stateFrom[p][1], stateTo[p][1])
                 if o1 != o2 {
-                    removeHorzLine(objType: o1)
+                    removeHorzLine(objType: o1, nodeName: horzLineNodeName)
                     addHorzLine(objType: o2, color: .yellow, point: point, nodeName: horzLineNodeName)
                 }
                 (o1, o2) = (stateFrom[p][2], stateTo[p][2])
                 if o1 != o2 {
-                    removeVertLine(objType: o1)
+                    removeVertLine(objType: o1, nodeName: vertlineNodeName)
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
                 }
                 let (b1, b2) = (stateFrom.woods.contains(p), stateTo.woods.contains(p))
@@ -77,7 +72,7 @@ class DirectionalPlanksGameScene: GameScene<DirectionalPlanksGameState> {
                 if b1 != b2 && b1 { removeNode(withName: plankNodeName) }
                 if b1 != b2 && isHint || s1 != s2 { removeNode(withName: hintNodeName) }
                 if b1 != b2 && b2 { addImage(imageNamed: "wood horizontal", color: .red, colorBlendFactor: 0.0, point: point, nodeName: plankNodeName) }
-                if b1 != b2 && isHint || s1 != s2 { addHint(n: stateFrom.game.pos2hint[p]!, s: stateTo.pos2state[p]!, point: point, nodeName: hintNodeName) }
+                if b1 != b2 && isHint || s1 != s2 { addHint(n: game.pos2hint[p]!, s: stateTo.pos2state[p]!, point: point, nodeName: hintNodeName) }
             }
         }
     }

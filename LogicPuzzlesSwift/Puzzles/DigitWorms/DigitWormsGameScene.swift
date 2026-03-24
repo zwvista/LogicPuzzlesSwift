@@ -65,6 +65,7 @@ class DigitWormsGameScene: GameScene<DigitWormsGameState> {
     }
     
     override func levelUpdated(from stateFrom: DigitWormsGameState, to stateTo: DigitWormsGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -78,7 +79,7 @@ class DigitWormsGameScene: GameScene<DigitWormsGameState> {
                     removeNode(withName: numberNodeName)
                 }
                 if n2 != DigitWormsGame.PUZ_EMPTY {
-                    addLabel(text: String(n2), fontColor: stateFrom.game[p] != DigitWormsGame.PUZ_EMPTY ? .gray : s2 == .normal ? .white : s2 == .complete ? .green : .red, point: point, nodeName: numberNodeName)
+                    addLabel(text: String(n2), fontColor: game[p] != DigitWormsGame.PUZ_EMPTY ? .gray : s2 == .normal ? .white : s2 == .complete ? .green : .red, point: point, nodeName: numberNodeName)
                 }
             }
         }

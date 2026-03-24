@@ -47,6 +47,7 @@ class FloorPlanGameScene: GameScene<FloorPlanGameState> {
     }
     
     override func levelUpdated(from stateFrom: FloorPlanGameState, to stateTo: FloorPlanGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)

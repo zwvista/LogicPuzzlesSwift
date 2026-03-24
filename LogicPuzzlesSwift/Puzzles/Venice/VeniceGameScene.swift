@@ -37,6 +37,7 @@ class VeniceGameScene: GameScene<VeniceGameState> {
     }
     
     override func levelUpdated(from stateFrom: VeniceGameState, to stateTo: VeniceGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -67,7 +68,7 @@ class VeniceGameScene: GameScene<VeniceGameState> {
                     }
                     switch o2 {
                     case .hint:
-                        addHint(n: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
+                        addHint(n: game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
                     case .marker:
                         addCircleMarker(color: .white, point: point, nodeName: markerNodeName)
                     case .water:

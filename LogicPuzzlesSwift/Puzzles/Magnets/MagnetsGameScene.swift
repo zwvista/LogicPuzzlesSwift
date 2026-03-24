@@ -84,6 +84,7 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
     }
     
     override func levelUpdated(from stateFrom: MagnetsGameState, to stateTo: MagnetsGameState) {
+        let game = stateFrom.game
         func removeHint(p: Position) {
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
@@ -93,7 +94,7 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
             for c in 0..<2 {
                 let p = Position(r, stateFrom.cols + c)
                 let id = r * 2 + c
-                let n = stateFrom.game.row2hint[id]
+                let n = game.row2hint[id]
                 if stateFrom.row2state[id] != stateTo.row2state[id] {
                     removeHint(p: p)
                     addHint(p: p, n: n, s: stateTo.row2state[id])
@@ -104,7 +105,7 @@ class MagnetsGameScene: GameScene<MagnetsGameState> {
             for r in 0..<2 {
                 let p = Position(stateFrom.rows + r, c)
                 let id = c * 2 + r
-                let n = stateFrom.game.col2hint[id]
+                let n = game.col2hint[id]
                 if stateFrom.col2state[id] != stateTo.col2state[id] {
                     removeHint(p: p)
                     addHint(p: p, n: n, s: stateTo.col2state[id])

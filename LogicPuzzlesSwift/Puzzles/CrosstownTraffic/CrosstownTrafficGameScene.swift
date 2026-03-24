@@ -42,6 +42,7 @@ class CrosstownTrafficGameScene: GameScene<CrosstownTrafficGameState> {
     }
     
     override func levelUpdated(from stateFrom: CrosstownTrafficGameState, to stateTo: CrosstownTrafficGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -56,7 +57,7 @@ class CrosstownTrafficGameScene: GameScene<CrosstownTrafficGameState> {
                 case .empty:
                     break
                 case .hint:
-                    addHint(n: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: tileNodeName)
+                    addHint(n: game.pos2hint[p]!, s: s2!, point: point, nodeName: tileNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: tileNodeName)
                 default:

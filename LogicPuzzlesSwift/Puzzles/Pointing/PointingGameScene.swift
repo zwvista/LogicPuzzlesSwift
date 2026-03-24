@@ -40,6 +40,7 @@ class PointingGameScene: GameScene<PointingGameState> {
     }
     
     override func levelUpdated(from stateFrom: PointingGameState, to stateTo: PointingGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -50,7 +51,7 @@ class PointingGameScene: GameScene<PointingGameState> {
                 let (b3, b4) = (stateFrom.nonPointingArrows.contains(p), stateTo.nonPointingArrows.contains(p))
                 if b1 != b2 || b3 != b4 {
                     removeNode(withName: arrowNodeName)
-                    addArrow(n: stateFrom.game[p], isBW: !b2, s: b4 ? .error : .normal, point: point, nodeName: arrowNodeName)
+                    addArrow(n: game[p], isBW: !b2, s: b4 ? .error : .normal, point: point, nodeName: arrowNodeName)
                 }
             }
         }

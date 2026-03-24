@@ -67,6 +67,7 @@ class UnreliableHintsGameScene: GameScene<UnreliableHintsGameState> {
     }
     
     override func levelUpdated(from stateFrom: UnreliableHintsGameState, to stateTo: UnreliableHintsGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -100,7 +101,7 @@ class UnreliableHintsGameScene: GameScene<UnreliableHintsGameState> {
                 if s3 != s4 || s3 != nil && (o1 == .shaded || o2 == .shaded) {
                     removeNode(withName: hintNodeName)
                     removeNode(withName: arrowNodeName)
-                    let hint = stateFrom.game.pos2hint[p]!
+                    let hint = game.pos2hint[p]!
                     let dir2 = hint.dir, dir1 = (dir2 + 2) % 4
                     let point1 = getCenterPoint(p: p, dir: dir1)
                     addHint(n: hint.num, s: s4!, point: point1, nodeName: hintNodeName)

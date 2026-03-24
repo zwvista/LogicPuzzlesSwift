@@ -46,6 +46,7 @@ class FingerPointingGameScene: GameScene<FingerPointingGameState> {
     }
     
     override func levelUpdated(from stateFrom: FingerPointingGameState, to stateTo: FingerPointingGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -68,7 +69,7 @@ class FingerPointingGameScene: GameScene<FingerPointingGameState> {
                 case .empty, .block:
                     break
                 case .hint:
-                    let n = stateTo.game.pos2hint[Position(r, c)]!
+                    let n = game.pos2hint[Position(r, c)]!
                     addHint(n: n, s: s2!, point: point, nodeName: hintNodeName)
                 default:
                     addImage(imageNamed: "finger_" + (o2 == .up ? "up" : o2 == .right ? "right" : o2 == .down ? "down" : "left"), color: .red, colorBlendFactor: s2 == .normal ? 0.0 : 0.5, point: point, nodeName: imageNodeName)

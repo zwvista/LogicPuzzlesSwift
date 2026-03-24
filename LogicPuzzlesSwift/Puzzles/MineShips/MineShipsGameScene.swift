@@ -93,6 +93,7 @@ class MineShipsGameScene: GameScene<MineShipsGameState> {
     }
     
     override func levelUpdated(from stateFrom: MineShipsGameState, to stateTo: MineShipsGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -126,7 +127,7 @@ class MineShipsGameScene: GameScene<MineShipsGameState> {
                 case .marker:
                     addMarker()
                 case .hint:
-                    let n = stateTo.game.pos2hint[Position(r, c)]!
+                    let n = game.pos2hint[Position(r, c)]!
                     addHint(n: n, s: s2!, point: point, nodeName: hintNodeName)
                 default:
                     if o2.isShipPiece { addBattleShip(color: .white, point: point, obj: o2, nodeName: battleShipNodeName) }

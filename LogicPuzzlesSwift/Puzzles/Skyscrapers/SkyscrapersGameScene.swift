@@ -43,6 +43,7 @@ class SkyscrapersGameScene: GameScene<SkyscrapersGameState> {
     }
     
     override func levelUpdated(from stateFrom: SkyscrapersGameState, to stateTo: SkyscrapersGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -54,7 +55,7 @@ class SkyscrapersGameScene: GameScene<SkyscrapersGameState> {
                 let (s1, s2) = (stateFrom.pos2state(row: r, col: c), stateTo.pos2state(row: r, col: c))
                 guard n1 != n2 || s1 != s2 else {continue}
                 if (n1 != 0) { removeNumber() }
-                if (n2 != 0) { addNumber(n: n2, s: s2, isHint: !stateFrom.game.isValid(p: p), point: point, nodeName: numNodeName) }
+                if (n2 != 0) { addNumber(n: n2, s: s2, isHint: !game.isValid(p: p), point: point, nodeName: numNodeName) }
             }
         }
     }

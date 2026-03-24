@@ -61,6 +61,7 @@ class TapAlikeGameScene: GameScene<TapAlikeGameState> {
     }
     
     override func levelUpdated(from stateFrom: TapAlikeGameState, to stateTo: TapAlikeGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -88,7 +89,7 @@ class TapAlikeGameScene: GameScene<TapAlikeGameState> {
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
                 case .hint:
-                    addHint(arr: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
+                    addHint(arr: game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
                 default:
                     break
                 }

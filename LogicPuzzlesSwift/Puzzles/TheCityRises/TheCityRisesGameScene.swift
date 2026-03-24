@@ -79,6 +79,7 @@ class TheCityRisesGameScene: GameScene<TheCityRisesGameState> {
     }
     
     override func levelUpdated(from stateFrom: TheCityRisesGameState, to stateTo: TheCityRisesGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -113,7 +114,7 @@ class TheCityRisesGameScene: GameScene<TheCityRisesGameState> {
                         break
                     }
                 }
-                guard let n = stateFrom.game.pos2hint[p] else {continue}
+                guard let n = game.pos2hint[p] else {continue}
                 guard s1 != s2 || o2 == .block else {continue}
                 removeNode(withName: hintNodeName)
                 addHint(n: n, s: s2!, point: point, nodeName: hintNodeName)
@@ -121,6 +122,6 @@ class TheCityRisesGameScene: GameScene<TheCityRisesGameState> {
         }
 
         removeNode(withName: "line")
-        addLines(game: stateFrom.game)
+        addLines(game: game)
     }
 }

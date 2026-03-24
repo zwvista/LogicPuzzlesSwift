@@ -51,6 +51,7 @@ class DesertDunesGameScene: GameScene<DesertDunesGameState> {
     }
     
     override func levelUpdated(from stateFrom: DesertDunesGameState, to stateTo: DesertDunesGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -78,7 +79,7 @@ class DesertDunesGameScene: GameScene<DesertDunesGameState> {
                     case .forbidden:
                         addDotMarker2(color: .red, point: point, nodeName: forbiddenNodeName)
                     case .hint:
-                        addHint(n: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
+                        addHint(n: game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
                     case .marker:
                         addDotMarker(point: point, nodeName: markerNodeName)
                     default:

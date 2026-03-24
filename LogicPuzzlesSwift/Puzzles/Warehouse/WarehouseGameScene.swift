@@ -40,13 +40,14 @@ class WarehouseGameScene: GameScene<WarehouseGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
-                if game[r, c][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
-                if game[r, c][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                if game[p][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                if game[p][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
             }
         }
     }
     
     override func levelUpdated(from stateFrom: WarehouseGameState, to stateTo: WarehouseGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -56,25 +57,19 @@ class WarehouseGameScene: GameScene<WarehouseGameState> {
                 let vertlineNodeName = "vertline" + nodeNameSuffix
                 let symbolNodeName = "symbol" + nodeNameSuffix
                 let dotNodeName = "dot" + nodeNameSuffix
-                func removeHorzLine(objType: GridLineObject) {
-                    if objType != .empty { removeNode(withName: horzLineNodeName) }
-                }
-                func removeVertLine(objType: GridLineObject) {
-                    if objType != .empty { removeNode(withName: vertlineNodeName) }
-                }
                 var (o1, o2) = (stateFrom[p][1], stateTo[p][1])
                 if o1 != o2 {
-                    removeHorzLine(objType: o1)
+                    removeHorzLine(objType: o1, nodeName: horzLineNodeName)
                     addHorzLine(objType: o2, color: .yellow, point: point, nodeName: horzLineNodeName)
                 }
                 (o1, o2) = (stateFrom[p][2], stateTo[p][2])
                 if o1 != o2 {
-                    removeVertLine(objType: o1)
+                    removeVertLine(objType: o1, nodeName: vertlineNodeName)
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
                 }
                 if let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p], s1 != s2 {
                     removeNode(withName: symbolNodeName)
-                    addSymbol(ch: stateFrom.game.pos2symbol[p]!, s: s2, point: point, nodeName: symbolNodeName)
+                    addSymbol(ch: game.pos2symbol[p]!, s: s2, point: point, nodeName: symbolNodeName)
                 }
                 if 1..<stateFrom.rows - 1 ~= r, 1..<stateFrom.cols - 1 ~= c {
                     let (o3, o4) = (stateFrom.dot2state[p]!, stateTo.dot2state[p]!)

@@ -69,6 +69,7 @@ class StepsGameScene: GameScene<StepsGameState> {
     }
     
     override func levelUpdated(from stateFrom: StepsGameState, to stateTo: StepsGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -92,7 +93,7 @@ class StepsGameScene: GameScene<StepsGameState> {
                 } else if n2 == StepsGame.PUZ_FORBIDDEN {
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 } else if n2 != StepsGame.PUZ_EMPTY {
-                    addLabel(text: String(n2), fontColor: stateFrom.game[p] != StepsGame.PUZ_EMPTY ? .gray : s2 == .normal ? .white : s2 == .complete ? .green : .red, point: point, nodeName: numberNodeName)
+                    addLabel(text: String(n2), fontColor: game[p] != StepsGame.PUZ_EMPTY ? .gray : s2 == .normal ? .white : s2 == .complete ? .green : .red, point: point, nodeName: numberNodeName)
                 }
             }
         }

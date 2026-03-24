@@ -43,6 +43,7 @@ class LandscaperGameScene: GameScene<LandscaperGameState> {
     }
     
     override func levelUpdated(from stateFrom: LandscaperGameState, to stateTo: LandscaperGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)

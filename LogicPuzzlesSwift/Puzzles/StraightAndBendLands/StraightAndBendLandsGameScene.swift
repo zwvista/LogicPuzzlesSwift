@@ -63,6 +63,7 @@ class StraightAndBendLandsGameScene: GameScene<StraightAndBendLandsGameState> {
     }
     
     override func levelUpdated(from stateFrom: StraightAndBendLandsGameState, to stateTo: StraightAndBendLandsGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)

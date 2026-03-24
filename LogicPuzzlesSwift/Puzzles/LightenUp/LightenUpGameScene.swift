@@ -45,6 +45,7 @@ class LightenUpGameScene: GameScene<LightenUpGameState> {
     }
     
     override func levelUpdated(from stateFrom: LightenUpGameState, to stateTo: LightenUpGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -80,7 +81,7 @@ class LightenUpGameScene: GameScene<LightenUpGameState> {
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
                 case .wall:
-                    let n = stateTo.game.pos2hint[p]!
+                    let n = game.pos2hint[p]!
                     addWallNumber(n: n, s: s2!, point: point, nodeName: wallNumberNodeName)
                 default:
                     break

@@ -47,6 +47,7 @@ class BotanicalParkGameScene: GameScene<BotanicalParkGameState> {
     }
     
     override func levelUpdated(from stateFrom: BotanicalParkGameState, to stateTo: BotanicalParkGameState) {
+        let game = stateFrom.game
         func removeHint(p: Position) {
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
@@ -82,7 +83,7 @@ class BotanicalParkGameScene: GameScene<BotanicalParkGameState> {
                 case .plant:
                     addImage(imageNamed: "tree", color: .red, colorBlendFactor: s2 == .normal ? 0.0 : 0.5, point: point, nodeName: plantNodeName)
                 case .arrow:
-                    addArrow(n: stateFrom.game.pos2arrow[p]!, s: s2!, point: point, nodeName: arrowNodeName)
+                    addArrow(n: game.pos2arrow[p]!, s: s2!, point: point, nodeName: arrowNodeName)
                 case .marker:
                     addDotMarker(point: point, nodeName: markerNodeName)
                 default:

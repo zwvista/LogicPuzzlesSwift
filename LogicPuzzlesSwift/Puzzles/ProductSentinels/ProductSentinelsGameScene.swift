@@ -50,6 +50,7 @@ class ProductSentinelsGameScene: GameScene<ProductSentinelsGameState> {
     }
     
     override func levelUpdated(from stateFrom: ProductSentinelsGameState, to stateTo: ProductSentinelsGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -83,7 +84,7 @@ class ProductSentinelsGameScene: GameScene<ProductSentinelsGameState> {
                 case .marker:
                     addCircleMarker(color: .white, point: point, nodeName: markerNodeName)
                 case .hint:
-                    let n = stateTo.game.pos2hint[p]!
+                    let n = game.pos2hint[p]!
                     addHint(n: n, s: s2!, point: point, nodeName: hintNodeName)
                 default:
                     break

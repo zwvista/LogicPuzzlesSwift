@@ -70,6 +70,7 @@ class ZenGardensGameScene: GameScene<ZenGardensGameState> {
     }
     
     override func levelUpdated(from stateFrom: ZenGardensGameState, to stateTo: ZenGardensGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -85,6 +86,6 @@ class ZenGardensGameScene: GameScene<ZenGardensGameState> {
         }
 
         removeNode(withName: "line")
-        addLines(game: stateFrom.game)
+        addLines(game: game)
     }
 }

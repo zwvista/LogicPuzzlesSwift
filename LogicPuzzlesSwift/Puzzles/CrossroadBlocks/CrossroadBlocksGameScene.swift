@@ -36,6 +36,7 @@ class CrossroadBlocksGameScene: GameScene<CrossroadBlocksGameState> {
     }
     
     override func levelUpdated(from stateFrom: CrossroadBlocksGameState, to stateTo: CrossroadBlocksGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)

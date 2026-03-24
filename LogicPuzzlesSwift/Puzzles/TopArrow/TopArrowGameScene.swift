@@ -81,6 +81,7 @@ class TopArrowGameScene: GameScene<TopArrowGameState> {
     }
     
     override func levelUpdated(from stateFrom: TopArrowGameState, to stateTo: TopArrowGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -97,9 +98,9 @@ class TopArrowGameScene: GameScene<TopArrowGameState> {
                     removeNode(withName: numberNodeName)
                 }
                 if n2 == TopArrowGame.PUZ_HINT {
-                    addHint(d: stateFrom.game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
+                    addHint(d: game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
                 } else if n2 != TopArrowGame.PUZ_EMPTY {
-                    addLabel(text: String(n2), fontColor: stateFrom.game[p] != TopArrowGame.PUZ_EMPTY ? .gray : s2 == .normal ? .white : .red, point: point, nodeName: numberNodeName)
+                    addLabel(text: String(n2), fontColor: game[p] != TopArrowGame.PUZ_EMPTY ? .gray : s2 == .normal ? .white : .red, point: point, nodeName: numberNodeName)
                 }
             }
         }

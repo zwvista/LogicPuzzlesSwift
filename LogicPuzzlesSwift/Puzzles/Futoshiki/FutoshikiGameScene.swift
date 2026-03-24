@@ -84,6 +84,7 @@ class FutoshikiGameScene: GameScene<FutoshikiGameState> {
     }
     
     override func levelUpdated(from stateFrom: FutoshikiGameState, to stateTo: FutoshikiGameState) {
+        let game = stateFrom.game
         func removeHint(p: Position, isHorz: Bool) {
             let nodeNameSuffix = "-\(p.row)-\(p.col)-" + (isHorz ? "h" : "v")
             let hintNodeName = "hint" + nodeNameSuffix
@@ -120,7 +121,7 @@ class FutoshikiGameScene: GameScene<FutoshikiGameState> {
                 }
             }
         }
-        for (p, h) in stateFrom.game.pos2hint {
+        for (p, h) in game.pos2hint {
             let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
             guard s1 != s2 else {continue}
             let point = gridNode.centerPoint(p: p)

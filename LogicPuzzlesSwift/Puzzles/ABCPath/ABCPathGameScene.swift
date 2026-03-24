@@ -43,6 +43,7 @@ class ABCPathGameScene: GameScene<ABCPathGameState> {
     }
     
     override func levelUpdated(from stateFrom: ABCPathGameState, to stateTo: ABCPathGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -53,7 +54,7 @@ class ABCPathGameScene: GameScene<ABCPathGameState> {
                 let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
                 guard ch1 != ch2 || s1 != s2 else {continue}
                 if ch1 != " " { removeNode(withName: charNodeName) }
-                if ch2 != " " { addCharacter(ch: ch2, s: s2, isHint: stateFrom.game[p] != " ", point: point, nodeName: charNodeName) }
+                if ch2 != " " { addCharacter(ch: ch2, s: s2, isHint: game[p] != " ", point: point, nodeName: charNodeName) }
             }
         }
     }

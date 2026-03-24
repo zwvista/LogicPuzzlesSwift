@@ -36,6 +36,7 @@ class TraceNumbersGameScene: GameScene<TraceNumbersGameState> {
     }
     
     override func levelUpdated(from stateFrom: TraceNumbersGameState, to stateTo: TraceNumbersGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)

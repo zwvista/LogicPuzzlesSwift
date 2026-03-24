@@ -68,6 +68,7 @@ class SuspendedGravityGameScene: GameScene<SuspendedGravityGameState> {
     }
     
     override func levelUpdated(from stateFrom: SuspendedGravityGameState, to stateTo: SuspendedGravityGameState) {
+        let game = stateFrom.game
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -93,7 +94,7 @@ class SuspendedGravityGameScene: GameScene<SuspendedGravityGameState> {
                 }
                 if s3 != nil { removeNode(withName: hintNodeName) }
                 if o2 == .stone { addImage(imageNamed: "tower_wall2", color: .red, colorBlendFactor: s2 == .normal ? 0.0 : 0.5, point: point, nodeName: stoneNodeName) }
-                if s4 != nil { addHint(n: stateFrom.game.pos2hint[p]!, s: s4!, point: point, nodeName: hintNodeName) }
+                if s4 != nil { addHint(n: game.pos2hint[p]!, s: s4!, point: point, nodeName: hintNodeName) }
                 switch o2 {
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
@@ -106,6 +107,6 @@ class SuspendedGravityGameScene: GameScene<SuspendedGravityGameState> {
         }
 
         removeNode(withName: "line")
-        addLines(game: stateFrom.game)
+        addLines(game: game)
     }
 }
