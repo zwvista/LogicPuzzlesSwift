@@ -113,7 +113,7 @@ class MasyuGameState: GridGameState<MasyuGameMove> {
             let ch = game[p]
             guard ch != " " else { return true }
             let turns = dirs.reduce(0) { acc, d in
-                let dirs2 = pos2dirs[p + MasyuGame.offset[d]]!
+                let dirs2 = pos2dirs2[p + MasyuGame.offset[d]]!
                 return acc + (dirs2[1] - dirs2[0] != 2 ? 1 : 0)
             }
             return ch == MasyuGame.PUZ_BLACK_PEARL && turns == 0 || ch == MasyuGame.PUZ_WHITE_PEARL && turns > 0

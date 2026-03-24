@@ -109,8 +109,8 @@ class CrosstownTrafficGameState: GridGameState<CrosstownTrafficGameMove> {
             }
         }
         // 1. Draw a circuit (looping road)
-        for r in 0..<rows {
-            for c in 0..<cols {
+        for r in 1..<rows - 1 {
+            for c in 1..<cols - 1 {
                 let p = Position(r, c)
                 let dirs = pos2dirs[p]!
                 guard (dirs.allSatisfy {
