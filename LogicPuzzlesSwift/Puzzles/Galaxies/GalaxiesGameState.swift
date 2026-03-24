@@ -142,6 +142,6 @@ class GalaxiesGameState: GridGameState<GalaxiesGameMove> {
             n1 += area.count
         }
         // 3. In the end, all the space must be included in Galaxies
-        if n1 != rows * cols { isSolved = false }
+        if n1 != (rows - 1) * (cols - 1) { isSolved = false }
     }
 }

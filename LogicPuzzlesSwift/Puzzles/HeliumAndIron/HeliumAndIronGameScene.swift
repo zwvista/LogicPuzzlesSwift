@@ -32,6 +32,18 @@ class HeliumAndIronGameScene: GameScene<HeliumAndIronGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: HeliumAndIronGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
+        for r in 0..<game.rows {
+            for c in 0..<game.cols {
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: p)
+                let nodeNameSuffix = "-\(r)-\(c)"
+                let objectNodeName = "object" + nodeNameSuffix
+                let o = state[p]
+                guard o != .empty else {continue}
+                addObject(o: o, s: state.pos2state[p] ?? .normal, point: point, nodeName: objectNodeName)
+            }
+        }
+
         let pathToDraw = CGMutablePath()
         let lineNode = SKShapeNode(path: pathToDraw)
         for r in 0..<game.rows + 1 {
@@ -58,18 +70,6 @@ class HeliumAndIronGameScene: GameScene<HeliumAndIronGameState> {
         lineNode.path = pathToDraw
         lineNode.name = "line"
         gridNode.addChild(lineNode)
-        
-        for r in 0..<game.rows {
-            for c in 0..<game.cols {
-                let p = Position(r, c)
-                let point = gridNode.centerPoint(p: p)
-                let nodeNameSuffix = "-\(r)-\(c)"
-                let objectNodeName = "object" + nodeNameSuffix
-                let o = state[p]
-                guard o != .empty else {continue}
-                addObject(o: o, s: state.pos2state[p] ?? .normal, point: point, nodeName: objectNodeName)
-            }
-        }
     }
     
     override func levelUpdated(from stateFrom: HeliumAndIronGameState, to stateTo: HeliumAndIronGameState) {
