@@ -139,7 +139,7 @@ class TapAlikeGameState: GridGameState<TapAlikeGameMove> {
             }
         }
         for (p, node) in pos2node {
-            for os in TapAlikeGame.offset {
+            for os in TapAlikeGame.offset3 {
                 let p2 = p + os
                 guard let node2 = pos2node[p2] else {continue}
                 g.addEdge(node, neighbor: node2)

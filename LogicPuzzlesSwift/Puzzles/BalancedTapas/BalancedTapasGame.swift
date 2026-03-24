@@ -16,6 +16,7 @@ class BalancedTapasGame: GridGame<BalancedTapasGameState> {
         Position(1, 0),
         Position(1, 1),
     ]
+    static let offset3 = Position.Directions4
 
     var pos2hint = [Position: [Int]]()
     var left = 0, right = 0

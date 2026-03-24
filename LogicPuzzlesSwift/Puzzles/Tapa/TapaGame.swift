@@ -16,6 +16,7 @@ class TapaGame: GridGame<TapaGameState> {
         Position(1, 0),
         Position(1, 1),
     ]
+    static let offset3 = Position.Directions4
 
     var pos2hint = [Position: [Int]]()
     

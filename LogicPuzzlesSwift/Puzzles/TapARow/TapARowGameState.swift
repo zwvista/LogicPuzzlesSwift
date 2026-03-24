@@ -138,7 +138,7 @@ class TapARowGameState: GridGameState<TapARowGameMove> {
             }
         }
         for (p, node) in pos2node {
-            for os in TapARowGame.offset {
+            for os in TapARowGame.offset3 {
                 let p2 = p + os
                 guard let node2 = pos2node[p2] else {continue}
                 g.addEdge(node, neighbor: node2)

@@ -139,7 +139,7 @@ class BalancedTapasGameState: GridGameState<BalancedTapasGameMove> {
             }
         }
         for p in rngWalls {
-            for os in BalancedTapasGame.offset {
+            for os in BalancedTapasGame.offset3 {
                 let p2 = p + os
                 if rngWalls.contains(p2) {
                     g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)

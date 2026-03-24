@@ -155,7 +155,7 @@ class TapaGameState: GridGameState<TapaGameMove> {
             }
         }
         for (p, node) in pos2node {
-            for os in TapaGame.offset {
+            for os in TapaGame.offset3 {
                 let p2 = p + os
                 guard let node2 = pos2node[p2] else {continue}
                 g.addEdge(node, neighbor: node2)

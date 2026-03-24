@@ -147,7 +147,7 @@ class TapaIslandsGameState: GridGameState<TapaIslandsGameMove> {
             }
         }
         for p in rngWalls {
-            for os in TapaIslandsGame.offset {
+            for os in TapaIslandsGame.offset3 {
                 let p2 = p + os
                 if rngWalls.contains(p2) {
                     g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
@@ -155,7 +155,7 @@ class TapaIslandsGameState: GridGameState<TapaIslandsGameMove> {
             }
         }
         for p in rngEmpty {
-            for os in TapaIslandsGame.offset {
+            for os in TapaIslandsGame.offset3 {
                 let p2 = p + os
                 if rngEmpty.contains(p2) {
                     g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)

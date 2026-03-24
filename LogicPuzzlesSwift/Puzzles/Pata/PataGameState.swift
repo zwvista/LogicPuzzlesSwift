@@ -148,7 +148,7 @@ class PataGameState: GridGameState<PataGameMove> {
             }
         }
         for (p, node) in pos2node {
-            for os in PataGame.offset {
+            for os in PataGame.offset3 {
                 let p2 = p + os
                 guard let node2 = pos2node[p2] else {continue}
                 g.addEdge(node, neighbor: node2)
