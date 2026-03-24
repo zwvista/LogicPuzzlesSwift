@@ -18,6 +18,17 @@ class MondrianLoopGameScene: GameScene<MondrianLoopGameState> {
         addLabel(text: n == MondrianLoopGame.PUZ_UNKNOWN ? "?" : String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
+    func addLines(game: MondrianLoopGame) {
+        for r in 0..<game.rows {
+            for c in 0..<game.cols {
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: p)
+                if game[p][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                if game[p][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
+            }
+        }
+    }
+
     override func levelInitialized(_ game: AnyObject, state: MondrianLoopGameState, skView: SKView) {
         let game = game as! MondrianLoopGame
         removeAllChildren()
@@ -37,41 +48,28 @@ class MondrianLoopGameScene: GameScene<MondrianLoopGameState> {
             addHint(n: n, s: state.pos2stateHint[p]!, point: point, nodeName: hintNodeName)
         }
         
-        for r in 0..<game.rows {
-            for c in 0..<game.cols {
-                let p = Position(r, c)
-                let point = gridNode.centerPoint(p: p)
-                if game[p][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
-                if game[p][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
-            }
-        }
+        addLines(game: game)
     }
     
     override func levelUpdated(from stateFrom: MondrianLoopGameState, to stateTo: MondrianLoopGameState) {
         let game = stateFrom.game
+        var rng = Set<Position>()
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let horzLineNodeName = "horzLine" + nodeNameSuffix
-                let vertlineNodeName = "vertline" + nodeNameSuffix
-                var (o1, o2) = (stateFrom[p][1], stateTo[p][1])
-                if o1 != o2 {
-                    removeHorzLine(objType: o1, nodeName: horzLineNodeName)
-                    addHorzLine(objType: o2, color: .yellow, point: point, nodeName: horzLineNodeName)
-                }
-                (o1, o2) = (stateFrom[p][2], stateTo[p][2])
-                if o1 != o2 {
-                    removeVertLine(objType: o1, nodeName: vertlineNodeName)
-                    addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
-                }
                 let rectNodeName = "rect" + nodeNameSuffix
                 let b1 = stateFrom.rectangles.contains { $0.contains(p) }
                 let b2 = stateTo.rectangles.contains { $0.contains(p) }
                 if b1 != b2 {
                     if b1 { removeNode(withName: rectNodeName) }
-                    if b2 { addImage(imageNamed: "lawn_background", color: .red, colorBlendFactor: 0.0, point: point, nodeName: rectNodeName) }
+                    if b2 {
+                        addImage(imageNamed: "lawn_background", color: .red, colorBlendFactor: 0.0, point: point, nodeName: rectNodeName)
+                        for os in MondrianLoopGame.offset4 {
+                            rng.insert(p + os)
+                        }
+                    }
                 }
                 let hintNodeName = "hint" + nodeNameSuffix
                 let markerNodeName = "marker" + nodeNameSuffix
@@ -85,5 +83,27 @@ class MondrianLoopGameScene: GameScene<MondrianLoopGameState> {
                 }
             }
         }
+        for r in 0..<stateFrom.rows {
+            for c in 0..<stateFrom.cols {
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: p)
+                let nodeNameSuffix = "-\(r)-\(c)"
+                let horzLineNodeName = "horzLine" + nodeNameSuffix
+                let vertlineNodeName = "vertline" + nodeNameSuffix
+                var (o1, o2) = (stateFrom[p][1], stateTo[p][1])
+                if o1 != o2 || rng.contains(p) && game[p][1] != .line {
+                    removeHorzLine(objType: o1, nodeName: horzLineNodeName)
+                    addHorzLine(objType: o2, color: .yellow, point: point, nodeName: horzLineNodeName)
+                }
+                (o1, o2) = (stateFrom[p][2], stateTo[p][2])
+                if o1 != o2 || rng.contains(p) && game[p][2] != .line {
+                    removeVertLine(objType: o1, nodeName: vertlineNodeName)
+                    addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
+                }
+            }
+        }
+
+        removeNode(withName: "line")
+        addLines(game: game)
     }
 }

@@ -23,16 +23,8 @@ class LandscapesGameScene: GameScene<LandscapesGameState> {
         }
         addImage(imageNamed: imageName, color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }
-
-    override func levelInitialized(_ game: AnyObject, state: LandscapesGameState, skView: SKView) {
-        let game = game as! LandscapesGame
-        removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
-        
-        // add Grid
-        let offset:CGFloat = 0.5
-        addGrid(gridNode: LandscapesGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
-        
+    
+    func addLines(game: LandscapesGame) {
         let pathToDraw = CGMutablePath()
         let lineNode = SKShapeNode(path: pathToDraw)
         for r in 0..<game.rows + 1 {
@@ -59,8 +51,18 @@ class LandscapesGameScene: GameScene<LandscapesGameState> {
         lineNode.path = pathToDraw
         lineNode.name = "line"
         gridNode.addChild(lineNode)
+    }
+
+    override func levelInitialized(_ game: AnyObject, state: LandscapesGameState, skView: SKView) {
+        let game = game as! LandscapesGame
+        removeAllChildren()
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
         
-        // add Numbers
+        // add Grid
+        let offset:CGFloat = 0.5
+        addGrid(gridNode: LandscapesGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
+        
+        // add Tiles
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
@@ -73,6 +75,8 @@ class LandscapesGameScene: GameScene<LandscapesGameState> {
                 }
             }
         }
+        
+        addLines(game: game)
     }
     
     override func levelUpdated(from stateFrom: LandscapesGameState, to stateTo: LandscapesGameState) {
@@ -91,5 +95,8 @@ class LandscapesGameScene: GameScene<LandscapesGameState> {
                 }
             }
         }
+
+        removeNode(withName: "line")
+        addLines(game: game)
     }
 }

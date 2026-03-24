@@ -18,6 +18,17 @@ class FlowerbedShrubsGameScene: GameScene<FlowerbedShrubsGameState> {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
+    func addLines(game: FlowerbedShrubsGame) {
+        for r in 0..<game.rows {
+            for c in 0..<game.cols {
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: p)
+                if game[p][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
+                if game[p][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
+            }
+        }
+    }
+
     override func levelInitialized(_ game: AnyObject, state: FlowerbedShrubsGameState, skView: SKView) {
         let game = game as! FlowerbedShrubsGame
         removeAllChildren()
@@ -35,18 +46,31 @@ class FlowerbedShrubsGameScene: GameScene<FlowerbedShrubsGameState> {
             addHint(n: n, s: state.pos2stateHint[p]!, point: point, nodeName: hintNodeName)
         }
         
-        for r in 0..<game.rows {
-            for c in 0..<game.cols {
-                let p = Position(r, c)
-                let point = gridNode.centerPoint(p: p)
-                if game[p][1] == .line { addHorzLine(objType: .line, color: .white, point: point, nodeName: "line") }
-                if game[p][2] == .line { addVertLine(objType: .line, color: .white, point: point, nodeName: "line") }
-            }
-        }
+        addLines(game: game)
     }
     
     override func levelUpdated(from stateFrom: FlowerbedShrubsGameState, to stateTo: FlowerbedShrubsGameState) {
         let game = stateFrom.game
+        var rng = Set<Position>()
+        for r in 0..<stateFrom.rows {
+            for c in 0..<stateFrom.cols {
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: p)
+                let nodeNameSuffix = "-\(r)-\(c)"
+                let shrubNodeName = "shrub" + nodeNameSuffix
+                let (b1, b2) = (stateFrom.shrubs.contains(p), stateTo.shrubs.contains(p))
+                let (s3, s4) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
+                if b1 != b2 || s3 != s4 {
+                    if b1 { removeNode(withName: shrubNodeName) }
+                    if b2 {
+                        addImage(imageNamed: "lawn_background", color: .red, colorBlendFactor: s4 == .normal ? 0.0 : 0.5, point: point, nodeName: shrubNodeName)
+                        for os in FlowerbedShrubsGame.offset3 {
+                            rng.insert(p + os)
+                        }
+                    }
+                }
+            }
+        }
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
@@ -55,12 +79,12 @@ class FlowerbedShrubsGameScene: GameScene<FlowerbedShrubsGameState> {
                 let horzLineNodeName = "horzLine" + nodeNameSuffix
                 let vertlineNodeName = "vertline" + nodeNameSuffix
                 var (o1, o2) = (stateFrom[p][1], stateTo[p][1])
-                if o1 != o2 {
+                if o1 != o2 || rng.contains(p) && game[p][1] != .line {
                     removeHorzLine(objType: o1, nodeName: horzLineNodeName)
                     addHorzLine(objType: o2, color: .yellow, point: point, nodeName: horzLineNodeName)
                 }
                 (o1, o2) = (stateFrom[p][2], stateTo[p][2])
-                if o1 != o2 {
+                if o1 != o2 || rng.contains(p) && game[p][2] != .line {
                     removeVertLine(objType: o1, nodeName: vertlineNodeName)
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
                 }
@@ -71,14 +95,10 @@ class FlowerbedShrubsGameScene: GameScene<FlowerbedShrubsGameState> {
                     removeHint()
                     addHint(n: game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
                 }
-                let shrubNodeName = "shrub" + nodeNameSuffix
-                let (b1, b2) = (stateFrom.shrubs.contains(p), stateTo.shrubs.contains(p))
-                let (s3, s4) = (stateFrom.pos2stateAllowed[p], stateTo.pos2stateAllowed[p])
-                if b1 != b2 || s3 != s4 {
-                    if b1 { removeNode(withName: shrubNodeName) }
-                    if b2 { addImage(imageNamed: "lawn_background", color: .red, colorBlendFactor: s4 == .normal ? 0.0 : 0.5, point: point, nodeName: shrubNodeName) }
-                }
             }
         }
+
+        removeNode(withName: "line")
+        addLines(game: game)
     }
 }

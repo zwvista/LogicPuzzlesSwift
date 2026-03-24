@@ -17,7 +17,8 @@ class FlowerOMinoGame: GridGame<FlowerOMinoGameState> {
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
-    
+    static let offset3 = Position.Square2x2Offset
+
     var objArray = [FlowerOMinoObject]()
     var dots: GridDots!
     

@@ -24,6 +24,7 @@ class MondrianLoopGame: GridGame<MondrianLoopGameState> {
         Position(1, -1),
         Position(1, 1),
     ]
+    static let offset4 = Position.Square2x2Offset
 
     var objArray = [GridDotObject]()
     var pos2hint = [Position: Int]()

@@ -15,7 +15,7 @@ class DisconnectFourGameScene: GameScene<DisconnectFourGameState> {
     }
     
     func addToken(isY: Bool, s: AllowedObjectState, point: CGPoint, nodeName: String) {
-        addImage(imageNamed: isY ? "token_red" : "token_yellow", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
+        addImage(imageNamed: isY ? "token_yellow" : "token_red", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }
 
     override func levelInitialized(_ game: AnyObject, state: DisconnectFourGameState, skView: SKView) {
