@@ -18,7 +18,8 @@ class MineSlitherGameViewController: GameGameViewController2<MineSlitherGameStat
         let touchLocationInScene = scene.convertPoint(fromView: touchLocation)
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
-        let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
+        let (isCorner, p) = scene.gridNode.cornerPosition(point: touchLocationInGrid)
+        guard isCorner else {return}
         var move = MineSlitherGameMove(p: p)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }

@@ -35,7 +35,7 @@ class CastleBaileyGameScene: GameScene<CastleBaileyGameState> {
         addGrid(gridNode: CastleBaileyGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
                 
         for (p, n) in game.pos2hint {
-            var point = gridNode.cornerPoint(p: p)
+            let point = gridNode.cornerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
@@ -79,12 +79,9 @@ class CastleBaileyGameScene: GameScene<CastleBaileyGameState> {
             let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
             guard s1 != s2 || (CastleBaileyGame.offset2.contains {
                 let p2 = p + $0
-                if !stateFrom.game.isValid(p: p2) { return false }
-                let (o1, o2) = (stateFrom[p2], stateTo[p2])
-                return o1 == .empty && o2 == .wall
+                return stateFrom.game.isValid(p: p2) && stateFrom[p2] == .empty && stateTo[p2] == .wall
             }) else {continue}
-            var point = gridNode.centerPoint(p: p)
-            point.x -= gridNode.blockSize / 2; point.y += gridNode.blockSize / 2
+            let point = gridNode.cornerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             removeNode(withName: hintNodeName)

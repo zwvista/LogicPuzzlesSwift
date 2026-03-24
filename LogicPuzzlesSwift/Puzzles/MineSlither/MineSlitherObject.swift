@@ -10,7 +10,7 @@ import Foundation
 
 enum MineSlitherObject: Int {
     case empty, forbidden, marker
-    case wall
+    case mine
     init() {
         self = .empty
     }

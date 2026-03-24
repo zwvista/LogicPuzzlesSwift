@@ -57,9 +57,9 @@ class MineSlitherGameState: GridGameState<MineSlitherGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .wall
-        case .wall: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .wall : .empty
+        case .empty: markerOption == .markerFirst ? .marker : .mine
+        case .mine: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .mine : .empty
         default: o
         }
         return setObject(move: &move)
@@ -86,23 +86,19 @@ class MineSlitherGameState: GridGameState<MineSlitherGameMove> {
         for (p, n2) in game.pos2hint {
             var n1 = 0
             var rng = [Position]()
-            for os  in MineSlitherGame.offset2 {
+            for os in MineSlitherGame.offset2 {
                 let p2 = p + os
                 guard isValid(p: p2) else {continue}
                 switch self[p2] {
                 case .empty, .marker:
                     rng.append(os)
-                case .wall:
+                case .mine:
                     n1 += 1
                 default:
                     break
                 }
             }
-            // 3. The number tells you how many pieces (squares) of wall it touches.
-            // 4. So the number can go from 0 (no walls around the tower) to 4 (tower
-            // entirely surrounded by walls).
-            // 5. Board borders don't count as walls, so there you'll have two walls
-            // at most (or one in corners).
+            // 1. A number tells you how many mines are around that tile.
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             pos2state[p] = s
             if s != .complete { isSolved = false }
@@ -112,26 +108,5 @@ class MineSlitherGameState: GridGameState<MineSlitherGameMove> {
                 }
             }
         }
-        if !isSolved {return}
-        let g = Graph()
-        var pos2node = [Position: Node]()
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                if self[p] != .wall { pos2node[p] = g.addNode(p.description) }
-            }
-        }
-        for (p, node) in pos2node {
-            for os in MineSlitherGame.offset {
-                let p2 = p + os
-                if let node2 = pos2node[p2] {
-                    g.addEdge(node, neighbor: node2)
-                }
-            }
-        }
-        // 6. To facilitate movement in the castle, the Bailey must have a single
-        // continuous area (Garden).
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if pos2node.count != nodesExplored.count { isSolved = false }
     }
 }

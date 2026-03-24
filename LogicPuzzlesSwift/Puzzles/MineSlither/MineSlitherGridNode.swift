@@ -18,4 +18,14 @@ class MineSlitherGridNode: GridNode {
         self.rows = rows
         self.cols = cols
     }
+    
+    func cornerPosition(point: CGPoint) -> (Bool, Position) {
+        let offset = 20.0
+        let row = Int((-point.y + offset) / blockSize)
+        let col = Int((point.x + offset) / blockSize)
+        let x = point.x - CGFloat(col) * blockSize
+        let y = -point.y - CGFloat(row) * blockSize
+        let isCorner = abs(x) < offset && abs(y) < offset
+        return (isCorner, Position(row, col))
+    }
 }

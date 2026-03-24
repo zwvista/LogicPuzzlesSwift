@@ -18,4 +18,10 @@ class FussyWaiterGridNode: GridNode {
         self.rows = rows
         self.cols = cols
     }
+    
+    func moveObject(p: Position, point: CGPoint) -> Character {
+        let x = point.x - CGFloat(p.col) * blockSize
+        let y = -point.y - CGFloat(p.row) * blockSize
+        return x + y < blockSize ? "a" : "A"
+    }
 }
