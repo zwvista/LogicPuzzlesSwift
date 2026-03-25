@@ -121,8 +121,8 @@ class PaintTheNurikabeGameState: GridGameState<PaintTheNurikabeGameMove> {
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                if PaintTheNurikabeGame.offset2.allSatisfy({ self[p + $0] == .painted }) ||
-                   PaintTheNurikabeGame.offset2.allSatisfy({ self[p + $0] == .empty }) {
+                if PaintTheNurikabeGame.offset3.allSatisfy({ self[p + $0] == .painted }) ||
+                   PaintTheNurikabeGame.offset3.allSatisfy({ self[p + $0] == .empty }) {
                     isSolved = false; return
                 }
             }

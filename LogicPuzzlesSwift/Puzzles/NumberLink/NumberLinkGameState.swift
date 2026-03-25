@@ -82,15 +82,16 @@ class NumberLinkGameState: GridGameState<NumberLinkGameMove> {
         isSolved = true
         let g = Graph()
         var pos2node = [Position: Node]()
-        var pos2indexes = [Position: [Int]]()
+        var pos2dirs = [Position: [Int]]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                let n = self[p].filter { $0 }.count
+                let dirs = (0..<4).filter { self[p][$0] }
+                let n = dirs.count
                 let b = game.pos2hint[p] != nil
                 pos2node[p] = g.addNode(p.description)
                 if b && n == 1 || !b && n == 2 {
-                    pos2indexes[p] = (0..<4).filter { self[p][$0] }
+                    pos2dirs[p] = dirs
                 } else {
                     // 3. Lines must originate on a number and must end in the other equal
                     // number.
@@ -100,23 +101,22 @@ class NumberLinkGameState: GridGameState<NumberLinkGameMove> {
         }
         for (p, node) in pos2node {
             pos2state[p] = .normal
-            guard let indexes = pos2indexes[p] else {continue}
-            for i in indexes {
+            guard let dirs = pos2dirs[p] else {continue}
+            for i in dirs {
                 let p2 = p + NumberLinkGame.offset[i]
                 let node2 = pos2node[p2]!
                 g.addEdge(node, neighbor: node2)
             }
-            guard indexes.count == 2 else {continue}
-            let (i1, i2) = (indexes[0], indexes[1])
+            guard dirs.count == 2 else {continue}
+            let (i1, i2) = (dirs[0], dirs[1])
             // 4. At the end of the puzzle, no line can cover a 2*2 area (like a 180 degree turn).
             // 5. In other words you can't turn right and immediately right again. The
             // same happens on the left, obviously. Be careful not to miss this rule.
             func f(i: Int, isRight: Bool) {
                 let p2 = p + NumberLinkGame.offset[i]
-                guard var indexes2 = pos2indexes[p2], indexes2.count == 2 else {return}
+                guard let dirs2 = pos2dirs[p2], dirs2.count == 2 else {return}
                 let i3 = (i + 2) % 4
-                indexes2.removeFirst(i1)
-                let i4 = indexes2[0]
+                let i4 = dirs2.first { $0 != i1 }
                 if isRight && (i3 + 3) % 4 == i4 || !isRight && (i3 + 1) % 4 == i4 { pos2state[p] = .error; isSolved = false }
             }
             if (i1 + 3) % 4 == i2 { f(i: i2, isRight: true) }
