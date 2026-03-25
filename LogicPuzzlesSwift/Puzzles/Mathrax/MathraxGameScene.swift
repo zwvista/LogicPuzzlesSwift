@@ -73,7 +73,7 @@ class MathraxGameScene: GameScene<MathraxGameState> {
             let r = game.rows - 1
             let p = Position(r, c)
             let point = gridNode.centerPoint(p: p)
-            addHint(p: Position(r, game.cols), isHorz: false, s: s, point: point)
+            addHint(p: Position(game.rows, c), isHorz: false, s: s, point: point)
         }
         for (p, h) in game.pos2hint {
             var point = gridNode.centerPoint(p: p)

@@ -101,25 +101,25 @@ class MathraxGameState: GridGameState<MathraxGameMove> {
             func g(n1: Int, n2: Int) -> HintState {
                 if n1 == 0 || n2 == 0 { return .normal }
                 let n = h.result
-                switch h.op {
                 // 3. The tiny numbers and sign in the intersections tell you the result of
                 // the operation between the two opposite diagonal tiles.
+                return switch h.op {
                 case "+":
-                    return n1 + n2 == n ? .complete : .error
+                    n1 + n2 == n ? .complete : .error
                 case "-":
-                    return n1 - n2 == n || n2 - n1 == n ? .complete : .error
+                    n1 - n2 == n || n2 - n1 == n ? .complete : .error
                 case "*":
-                    return n1 * n2 == n ? .complete : .error
+                    n1 * n2 == n ? .complete : .error
                 case "/":
-                    return n1 / n2 * n2 == n * n2 || n2 / n1 * n1 == n * n1 ? .complete : .error
+                    n1 / n2 * n2 == n * n2 || n2 / n1 * n1 == n * n1 ? .complete : .error
                 // 4. In some puzzles, there will be 'E' or 'O' as hint. This means that all
                 // four tiles are either (E)ven or (O)dd numbers.
                 case "O":
-                    return n1 % 2 == 1 && n2 % 2 == 1 ? .complete : .error
+                    n1 % 2 == 1 && n2 % 2 == 1 ? .complete : .error
                 case "E":
-                    return n1 % 2 == 0 && n2 % 2 == 0 ? .complete : .error
+                    n1 % 2 == 0 && n2 % 2 == 0 ? .complete : .error
                 default:
-                    return .normal
+                    .normal
                 }
             }
             let nums = MathraxGame.offset2.map { self[p + $0] }
