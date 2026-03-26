@@ -49,7 +49,6 @@ class TataminoGameScene: GameScene<TataminoGameState> {
                 }
             }
         }
-
     }
     
     override func levelUpdated(from stateFrom: TataminoGameState, to stateTo: TataminoGameState) {

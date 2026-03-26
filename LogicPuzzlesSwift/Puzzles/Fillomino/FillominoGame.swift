@@ -10,17 +10,7 @@ import Foundation
 
 class FillominoGame: GridGame<FillominoGameState> {
     static let offset = Position.Directions4
-    static let offset2 = [
-        Position(0, 0),
-        Position(0, 1),
-        Position(1, 0),
-        Position(0, 0),
-    ]
-    static let dirs = [1, 2, 1, 2]
 
-    var areas = [[Position]]()
-    var pos2area = [Position: Int]()
-    var dots: GridDots!
     var objArray = [Character]()
     var chMax: Character!
 
@@ -28,7 +18,6 @@ class FillominoGame: GridGame<FillominoGameState> {
         super.init(delegate: delegate)
         
         size = Position(layout.count, layout[0].length)
-        dots = GridDots(rows: rows + 1, cols: cols + 1)
         objArray = Array<Character>(repeating: " ", count: rows * cols)
         chMax = String(rows)[0]
         
@@ -37,14 +26,6 @@ class FillominoGame: GridGame<FillominoGameState> {
             for c in 0..<cols {
                 self[r, c] = str[c]
             }
-        }
-        for r in 0..<rows {
-            dots[r, 0][2] = .line
-            dots[r, cols][2] = .line
-        }
-        for c in 0..<cols {
-            dots[0, c][1] = .line
-            dots[rows, c][1] = .line
         }
 
         let state = FillominoGameState(game: self)

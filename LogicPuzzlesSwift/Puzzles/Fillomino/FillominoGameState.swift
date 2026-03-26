@@ -15,7 +15,6 @@ class FillominoGameState: GridGameState<FillominoGameMove> {
     }
     override var gameDocument: GameDocumentBase { FillominoDocument.sharedInstance }
     var objArray = [Character]()
-    var dots: GridDots!
     var pos2state = [Position: HintState]()
     
     override func copy() -> FillominoGameState {
@@ -107,20 +106,14 @@ class FillominoGameState: GridGameState<FillominoGameMove> {
                 }
             }
         }
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                let ch = self[p]
-                guard ch != " " else {continue}
-                for os in FillominoGame.offset {
-                    let p2 = p + os
-                    if isValid(p: p2) && self[p2] == ch {
-                        g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
-                    }
-                }
+        for (p, node) in pos2node {
+            let ch = self[p]
+            for os in FillominoGame.offset {
+                let p2 = p + os
+                guard isValid(p: p2) && self[p2] == ch else {continue}
+                g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
             }
         }
-        dots = GridDots(x: game.dots)
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
@@ -128,16 +121,7 @@ class FillominoGameState: GridGameState<FillominoGameMove> {
             let ch = self[area[0]]
             let (n1, n2) = (area.count, ch.toInt!)
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            for p in area {
-                pos2state[p] = s
-                for i in 0..<4 {
-                    let p2 = p + FillominoGame.offset[i]
-                    let ch2 = !isValid(p: p2) ? "." : self[p2]
-                    if ch2 != ch && (n1 <= n2 || ch2 != " ") {
-                        dots[p + FillominoGame.offset2[i]][FillominoGame.dirs[i]] = .line
-                    }
-                }
-            }
+            for p in area { pos2state[p] = s }
             if s != .complete { isSolved = false }
         }
     }
