@@ -14,16 +14,6 @@ class SnakeominoGameScene: GameScene<SnakeominoGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addFlower(s: HintState, point: CGPoint, nodeName: String) {
-        let flowerNode = SKShapeNode(circleOfRadius: gridNode.blockSize / 3)
-        flowerNode.position = point
-        flowerNode.name = nodeName
-        flowerNode.strokeColor = s == .normal ? .white : s == .complete ? .green : .red
-        flowerNode.glowWidth = 5.0
-        flowerNode.fillColor = .gray
-        gridNode.addChild(flowerNode)
-    }
-    
     override func levelInitialized(_ game: AnyObject, state: SnakeominoGameState, skView: SKView) {
         let game = game as! SnakeominoGame
         removeAllChildren()

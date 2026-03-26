@@ -85,8 +85,11 @@ class SnakeominoGameState: GridGameState<SnakeominoGameMove> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 // 7. every cell in the board is part of a snake.
-                guard self[p] != SnakeominoGame.PUZ_EMPTY else { isSolved = false; continue }
-                pos2node[p] = g.addNode(p.description)
+                if self[p] == SnakeominoGame.PUZ_EMPTY {
+                    isSolved = false
+                } else {
+                    pos2node[p] = g.addNode(p.description)
+                }
             }
         }
         for (p, node) in pos2node {
