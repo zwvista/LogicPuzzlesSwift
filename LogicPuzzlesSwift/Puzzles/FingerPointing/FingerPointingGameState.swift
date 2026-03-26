@@ -98,7 +98,7 @@ class FingerPointingGameState: GridGameState<FingerPointingGameMove> {
                 while true {
                     rng2.append(p2)
                     p2 += FingerPointingGame.offset[o.rawValue - FingerPointingObject.up.rawValue]
-                    guard isValid(p: p2) else {break}
+                    guard isValid(p: p2) && !rng2.contains(p2) else {break}
                     o = self[p2]
                     if o == .empty { isSolved = false; break }
                     if o == .block {break}
