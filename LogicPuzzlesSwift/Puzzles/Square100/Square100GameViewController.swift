@@ -18,8 +18,8 @@ class Square100GameViewController: GameGameViewController2<Square100GameState, S
         let touchLocationInScene = scene.convertPoint(fromView: touchLocation)
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
-        let (p, _) = scene.gridNode.tapPosition(point: touchLocationInGrid)
-        var move = Square100GameMove(p: p)
+        let (p, isRightPart) = scene.gridNode.tapPosition(point: touchLocationInGrid)
+        var move = Square100GameMove(p: p, isRightPart: isRightPart)
         if game.switchObject(move: &move) { soundManager.playSoundTap() }
     }
     

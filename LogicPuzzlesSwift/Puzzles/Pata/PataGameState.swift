@@ -103,12 +103,14 @@ class PataGameState: GridGameState<PataGameMove> {
             return hint.sorted()
         }
         func isCompatible(computedHint: [Int], givenHint: [Int]) -> Bool {
-            if computedHint == givenHint { return true }
             if computedHint.count != givenHint.count { return false }
-            let h1 = Set(computedHint)
-            var h2 = Set(givenHint)
-            h2.remove(-1)
-            return h2.isSubset(of: h1)
+            let h1 = computedHint.sorted()
+            var h2 = givenHint.sorted()
+            h2.removeAll(-1)
+            let (n1, n2) = (h1.count, h2.count)
+            return (0...(n1 - n2)).contains { i in
+                return Array(h1[i..<i + n2]) == h2
+            }
         }
         for (p, arr2) in game.pos2hint {
             let emptied = [Int](0..<8).filter {

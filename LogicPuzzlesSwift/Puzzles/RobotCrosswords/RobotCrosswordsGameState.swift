@@ -75,13 +75,14 @@ class RobotCrosswordsGameState: GridGameState<RobotCrosswordsGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        for i in 0..<game.areas.count {
-            let a = game.areas[i]
+        for (i, a) in game.areas.enumerated() {
             let nums = a.map { self[$0] }
             let nums2 = Set<Int>(nums).sorted()
             // 2. Each 'word' is formed by an uninterrupted sequence of numbers,
             // but in any order.
-            let s: HintState = nums2.first! == 0 ? .normal : nums2.count == nums.count ? .complete : .error
+            let s: HintState = nums2.first! == 0 ? .normal : nums2.count == nums.count && ((0..<nums2.count - 1).allSatisfy { i in
+                nums2[i + 1] - nums2[i] == 1
+            }) ? .complete : .error
             for p in a {
                 if i < game.horzAreaCount {
                     pos2horzState[p] = s

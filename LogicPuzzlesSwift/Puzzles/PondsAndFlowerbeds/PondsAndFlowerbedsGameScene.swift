@@ -75,12 +75,12 @@ class PondsAndFlowerbedsGameScene: GameScene<PondsAndFlowerbedsGameState> {
                 let horzLineNodeName = "horzLine" + nodeNameSuffix
                 let vertlineNodeName = "vertline" + nodeNameSuffix
                 var (o1, o2) = (stateFrom[p][1], stateTo[p][1])
-                if o1 != o2 {
+                if o1 != o2 || rng.contains(p) && game[p][1] != .line {
                     removeHorzLine(objType: o1, nodeName: horzLineNodeName)
                     addHorzLine(objType: o2, color: .yellow, point: point, nodeName: horzLineNodeName)
                 }
                 (o1, o2) = (stateFrom[p][2], stateTo[p][2])
-                if o1 != o2 {
+                if o1 != o2 || rng.contains(p) && game[p][2] != .line {
                     removeVertLine(objType: o1, nodeName: vertlineNodeName)
                     addVertLine(objType: o2, color: .yellow, point: point, nodeName: vertlineNodeName)
                 }

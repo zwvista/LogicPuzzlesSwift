@@ -118,12 +118,13 @@ class SumscrapersGameState: GridGameState<SumscrapersGameMove> {
             if s1 != .complete || s2 != .complete { isSolved = false }
             if nums.count != game.intMax { isSolved = false }
             // 5. Each row and column can't have similar Skyscrapers.
-            if numss.contains(where: { $0 == nums }) {
+            if (numss.contains { $0 == nums }) {
                 isSolved = false
             } else {
                 numss.append(nums)
             }
         }
+        numss = []
         for c in 1..<cols - 1 {
             let (h1, h2) = (self[0, c], self[rows - 1, c])
             var (n1, n2) = (0, 0)
@@ -149,7 +150,7 @@ class SumscrapersGameState: GridGameState<SumscrapersGameMove> {
             if s1 != .complete || s2 != .complete { isSolved = false }
             if nums.count != game.intMax { isSolved = false }
             // 5. Each row and column can't have similar Skyscrapers.
-            if numss.contains(where: { $0 == nums }) {
+            if (numss.contains { $0 == nums }) {
                 isSolved = false
             } else {
                 numss.append(nums)
