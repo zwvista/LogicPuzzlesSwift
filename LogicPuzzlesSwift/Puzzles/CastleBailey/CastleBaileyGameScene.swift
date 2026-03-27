@@ -66,7 +66,7 @@ class CastleBaileyGameScene: GameScene<CastleBaileyGameState> {
                 }
                 switch o2 {
                 case .wall:
-                    addBlock(color: .lightGray, point: point, nodeName: wallNodeName)
+                    addImage(imageNamed: "tower_wall2", color: .red, colorBlendFactor: 0.0, point: point, nodeName: wallNodeName)
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
                 case .marker:
