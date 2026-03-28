@@ -125,12 +125,12 @@ class CastlePatrolGameState: GridGameState<CastlePatrolGameMove> {
                 let area = rngWE.filter { nodesExplored.contains($0.description) }
                 let rng = area.filter { self[$0].isHint() }
                 rngWE = rngWE.filter { !nodesExplored.contains($0.description) }
-                let n2 = nodesExplored.count
+                let n1 = nodesExplored.count
                 if rng.count == 1 && self[rng[0]] == hint {
                     // 1. Divide the grid into walls and empty areas. Every area contains one number.
                     let p = rng[0]
-                    let n1 = game.pos2hint[p]!
-                    let s: HintState = n1 == n2 ? .complete : .error
+                    let n2 = game.pos2hint[p]!
+                    let s: HintState = hint == .wallHint && n1 < n2 ? .normal : n1 == n2 ? .complete : .error
                     pos2state[p] = s
                     if s != .complete { isSolved = false }
                     let n = areas.count
@@ -138,7 +138,7 @@ class CastlePatrolGameState: GridGameState<CastlePatrolGameMove> {
                     for p in area { pos2area[p] = n }
                 } else {
                     isSolved = false
-                    for p in rng { pos2state[p] = .normal }
+                    for p in rng { pos2state[p] = hint == .wallHint ? .error : .normal }
                 }
             }
         }
