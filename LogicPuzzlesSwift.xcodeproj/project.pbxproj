@@ -369,6 +369,15 @@
 		8C2AF84B1ED6084300EC84AB /* PaintTheNurikabeGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8401ED6084300EC84AB /* PaintTheNurikabeGridNode.swift */; };
 		8C2AF84D1ED6084300EC84AB /* PaintTheNurikabeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8421ED6084300EC84AB /* PaintTheNurikabeMainViewController.swift */; };
 		8C2AF84E1ED6084300EC84AB /* PaintTheNurikabeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2AF8431ED6084300EC84AB /* PaintTheNurikabeObject.swift */; };
+		8C2BCB572F7FFCC0002D6D84 /* SnakeIslands.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2BCB4D2F7FFCC0002D6D84 /* SnakeIslands.xml */; };
+		8C2BCB582F7FFCC0002D6D84 /* SnakeIslandsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2BCB532F7FFCC0002D6D84 /* SnakeIslandsGridNode.swift */; };
+		8C2BCB592F7FFCC0002D6D84 /* SnakeIslandsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2BCB4E2F7FFCC0002D6D84 /* SnakeIslandsDocument.swift */; };
+		8C2BCB5A2F7FFCC0002D6D84 /* SnakeIslandsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2BCB502F7FFCC0002D6D84 /* SnakeIslandsGameScene.swift */; };
+		8C2BCB5B2F7FFCC0002D6D84 /* SnakeIslandsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2BCB4F2F7FFCC0002D6D84 /* SnakeIslandsGame.swift */; };
+		8C2BCB5C2F7FFCC0002D6D84 /* SnakeIslandsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2BCB512F7FFCC0002D6D84 /* SnakeIslandsGameState.swift */; };
+		8C2BCB5D2F7FFCC0002D6D84 /* SnakeIslandsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2BCB542F7FFCC0002D6D84 /* SnakeIslandsMainViewController.swift */; };
+		8C2BCB5E2F7FFCC0002D6D84 /* SnakeIslandsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2BCB552F7FFCC0002D6D84 /* SnakeIslandsObject.swift */; };
+		8C2BCB5F2F7FFCC0002D6D84 /* SnakeIslandsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2BCB522F7FFCC0002D6D84 /* SnakeIslandsGameViewController.swift */; };
 		8C2F116B2E9CEFA100D00078 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 8C2F116A2E9CEFA100D00078 /* OrderedCollections */; };
 		8C2F28492F4093F4004B3C93 /* ParkingLotGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F28452F4093F4004B3C93 /* ParkingLotGridNode.swift */; };
 		8C2F284A2F4093F4004B3C93 /* ParkingLotGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2F28432F4093F4004B3C93 /* ParkingLotGameState.swift */; };
@@ -2511,6 +2520,15 @@
 		8C2AF8401ED6084300EC84AB /* PaintTheNurikabeGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintTheNurikabeGridNode.swift; sourceTree = "<group>"; };
 		8C2AF8421ED6084300EC84AB /* PaintTheNurikabeMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintTheNurikabeMainViewController.swift; sourceTree = "<group>"; };
 		8C2AF8431ED6084300EC84AB /* PaintTheNurikabeObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaintTheNurikabeObject.swift; sourceTree = "<group>"; };
+		8C2BCB4D2F7FFCC0002D6D84 /* SnakeIslands.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SnakeIslands.xml; sourceTree = "<group>"; };
+		8C2BCB4E2F7FFCC0002D6D84 /* SnakeIslandsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeIslandsDocument.swift; sourceTree = "<group>"; };
+		8C2BCB4F2F7FFCC0002D6D84 /* SnakeIslandsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeIslandsGame.swift; sourceTree = "<group>"; };
+		8C2BCB502F7FFCC0002D6D84 /* SnakeIslandsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeIslandsGameScene.swift; sourceTree = "<group>"; };
+		8C2BCB512F7FFCC0002D6D84 /* SnakeIslandsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeIslandsGameState.swift; sourceTree = "<group>"; };
+		8C2BCB522F7FFCC0002D6D84 /* SnakeIslandsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeIslandsGameViewController.swift; sourceTree = "<group>"; };
+		8C2BCB532F7FFCC0002D6D84 /* SnakeIslandsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeIslandsGridNode.swift; sourceTree = "<group>"; };
+		8C2BCB542F7FFCC0002D6D84 /* SnakeIslandsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeIslandsMainViewController.swift; sourceTree = "<group>"; };
+		8C2BCB552F7FFCC0002D6D84 /* SnakeIslandsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeIslandsObject.swift; sourceTree = "<group>"; };
 		8C2F283F2F4093F4004B3C93 /* ParkingLot.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ParkingLot.xml; sourceTree = "<group>"; };
 		8C2F28402F4093F4004B3C93 /* ParkingLotDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLotDocument.swift; sourceTree = "<group>"; };
 		8C2F28412F4093F4004B3C93 /* ParkingLotGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingLotGame.swift; sourceTree = "<group>"; };
@@ -4948,6 +4966,22 @@
 			path = PaintTheNurikabe;
 			sourceTree = "<group>";
 		};
+		8C2BCB562F7FFCC0002D6D84 /* SnakeIslands */ = {
+			isa = PBXGroup;
+			children = (
+				8C2BCB4D2F7FFCC0002D6D84 /* SnakeIslands.xml */,
+				8C2BCB4E2F7FFCC0002D6D84 /* SnakeIslandsDocument.swift */,
+				8C2BCB4F2F7FFCC0002D6D84 /* SnakeIslandsGame.swift */,
+				8C2BCB502F7FFCC0002D6D84 /* SnakeIslandsGameScene.swift */,
+				8C2BCB512F7FFCC0002D6D84 /* SnakeIslandsGameState.swift */,
+				8C2BCB522F7FFCC0002D6D84 /* SnakeIslandsGameViewController.swift */,
+				8C2BCB532F7FFCC0002D6D84 /* SnakeIslandsGridNode.swift */,
+				8C2BCB542F7FFCC0002D6D84 /* SnakeIslandsMainViewController.swift */,
+				8C2BCB552F7FFCC0002D6D84 /* SnakeIslandsObject.swift */,
+			);
+			path = SnakeIslands;
+			sourceTree = "<group>";
+		};
 		8C2F28482F4093F4004B3C93 /* ParkingLot */ = {
 			isa = PBXGroup;
 			children = (
@@ -5210,6 +5244,7 @@
 				8C3A35A71EC88D4200A914A5 /* SlitherLink */,
 				8C3A35B41EC88D4200A914A5 /* Snail */,
 				8C506F021F6D2C9300BA4332 /* Snake */,
+				8C2BCB562F7FFCC0002D6D84 /* SnakeIslands */,
 				8CA9D6172F4A38B300EDF793 /* SnakeMaze */,
 				8CA9D62A2F4CAAFB00EDF793 /* Snakeomino */,
 				8C1D4F7A1F7D079F000D5FB3 /* Square100 */,
@@ -8294,6 +8329,7 @@
 				8C8663442EA39DD00078CD64 /* add.png in Resources */,
 				8C8663452EA39DD00078CD64 /* road_leftup.png in Resources */,
 				8C8663462EA39DD00078CD64 /* thermometer3A.png in Resources */,
+				8C2BCB572F7FFCC0002D6D84 /* SnakeIslands.xml in Resources */,
 				8C263F552F1D169F00158A2C /* JoinMe.xml in Resources */,
 				8C8663472EA39DD00078CD64 /* shade_8.png in Resources */,
 				8C8663482EA39DD00078CD64 /* tower.png in Resources */,
@@ -9578,6 +9614,14 @@
 				8C1ACF752F2D6322004832E2 /* NewCarpenterSquareGridNode.swift in Sources */,
 				8C1ACF762F2D6322004832E2 /* NewCarpenterSquareGameViewController.swift in Sources */,
 				8C3A376D1EC88D4300A914A5 /* ParksGameViewController.swift in Sources */,
+				8C2BCB582F7FFCC0002D6D84 /* SnakeIslandsGridNode.swift in Sources */,
+				8C2BCB592F7FFCC0002D6D84 /* SnakeIslandsDocument.swift in Sources */,
+				8C2BCB5A2F7FFCC0002D6D84 /* SnakeIslandsGameScene.swift in Sources */,
+				8C2BCB5B2F7FFCC0002D6D84 /* SnakeIslandsGame.swift in Sources */,
+				8C2BCB5C2F7FFCC0002D6D84 /* SnakeIslandsGameState.swift in Sources */,
+				8C2BCB5D2F7FFCC0002D6D84 /* SnakeIslandsMainViewController.swift in Sources */,
+				8C2BCB5E2F7FFCC0002D6D84 /* SnakeIslandsObject.swift in Sources */,
+				8C2BCB5F2F7FFCC0002D6D84 /* SnakeIslandsGameViewController.swift in Sources */,
 				8C3A36BE1EC88D4300A914A5 /* LightenUpObject.swift in Sources */,
 				8C9F32611ED1FAF600E10965 /* PataObject.swift in Sources */,
 				8CFAF9B920381D870095EFFC /* CastleBaileyMainViewController.swift in Sources */,

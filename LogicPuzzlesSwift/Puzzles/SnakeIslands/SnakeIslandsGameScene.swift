@@ -1,0 +1,79 @@
+//
+//  SnakeIslandsGameScene.swift
+//  LogicPuzzlesSwift
+//
+//  Created by 趙偉 on 2016/09/09.
+//  Copyright © 2016年 趙偉. All rights reserved.
+//
+
+import SpriteKit
+
+class SnakeIslandsGameScene: GameScene<SnakeIslandsGameState> {
+    var gridNode: SnakeIslandsGridNode {
+        get { getGridNode() as! SnakeIslandsGridNode }
+        set { setGridNode(gridNode: newValue) }
+    }
+    
+    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
+        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+    }
+
+    override func levelInitialized(_ game: AnyObject, state: SnakeIslandsGameState, skView: SKView) {
+        let game = game as! SnakeIslandsGame
+        removeAllChildren()
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
+        
+        // add Grid
+        let offset:CGFloat = 0.5
+        addGrid(gridNode: SnakeIslandsGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
+        
+        // add Hints
+        for (p, n) in game.pos2hint {
+            let point = gridNode.centerPoint(p: p)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let hintNodeName = "hint" + nodeNameSuffix
+            if game.pos2obj[p] == .wallHint {
+                addImage(imageNamed: "tower_wall2", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "wall")
+            }
+            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
+        }
+    }
+    
+    override func levelUpdated(from stateFrom: SnakeIslandsGameState, to stateTo: SnakeIslandsGameState) {
+        let game = stateFrom.game
+        for r in 0..<stateFrom.rows {
+            for c in 0..<stateFrom.cols {
+                let p = Position(r, c)
+                let point = gridNode.centerPoint(p: Position(r, c))
+                let nodeNameSuffix = "-\(r)-\(c)"
+                let wallNodeName = "wall" + nodeNameSuffix
+                let markerNodeName = "marker" + nodeNameSuffix
+                let hintNodeName = "hint" + nodeNameSuffix
+                let (o1, o2) = (stateFrom[p], stateTo[p])
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                if o1 != o2 || s1 != s2 {
+                    switch o1 {
+                    case .emptyHint, .wallHint:
+                        removeNode(withName: hintNodeName)
+                    case .marker:
+                        removeNode(withName: markerNodeName)
+                    case .wall:
+                        removeNode(withName: wallNodeName)
+                    default:
+                        break
+                    }
+                    switch o2 {
+                    case .emptyHint, .wallHint:
+                        addHint(n: game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
+                    case .marker:
+                        addDotMarker(point: point, nodeName: markerNodeName)
+                    case .wall:
+                        addImage(imageNamed: "tower_wall2", color: .red, colorBlendFactor: 0.0, point: point, nodeName: wallNodeName)
+                    default:
+                        break
+                    }
+                }
+            }
+        }
+    }
+}
