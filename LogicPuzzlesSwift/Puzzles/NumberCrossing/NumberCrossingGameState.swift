@@ -82,6 +82,14 @@ class NumberCrossingGameState: GridGameState<NumberCrossingGameMove> {
         let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         for r in 1..<rows - 1 {
+            for c in 1..<cols - 1 {
+                pos2state[Position(r, c)] = .normal
+                if self[r, c] == NumberCrossingGame.PUZ_FORBIDDEN {
+                    self[r, c] = NumberCrossingGame.PUZ_UNKNOWN
+                }
+            }
+        }
+        for r in 1..<rows - 1 {
             let p1 = Position(r, 0), p2 = Position(r, cols - 1)
             let (h1, h2) = (self[p1], self[p2])
             var (n1, n2) = (0, 0)
@@ -90,7 +98,6 @@ class NumberCrossingGameState: GridGameState<NumberCrossingGameMove> {
                 let o = self[p]
                 guard o > 0 else {continue}
                 n1 += 1; n2 += o
-                pos2state[p] = .normal
                 // 2. Numbers cannot touch each other, not even diagonally.
                 for os in NumberCrossingGame.offset {
                     let p2 = p + os
@@ -98,7 +105,6 @@ class NumberCrossingGameState: GridGameState<NumberCrossingGameMove> {
                     let o2 = self[p2]
                     if o2 > 0 {
                         pos2state[p] = .error
-                        pos2state[p2] = .error
                         isSolved = false
                     } else if allowedObjectsOnly && o2 == NumberCrossingGame.PUZ_UNKNOWN {
                         self[p2] = NumberCrossingGame.PUZ_FORBIDDEN
@@ -109,11 +115,12 @@ class NumberCrossingGameState: GridGameState<NumberCrossingGameMove> {
             //    column or row.
             // 4. On the bottom and right of the grid, you're given the sum of the numbers
             //    on that column or row.
-            let s1: HintState = n1 < h1 ? .normal : n1 == h1 ? .complete : .error
-            let s2: HintState = n2 < h2 ? .normal : n2 == h2 ? .complete : .error
+            let s1: HintState = h1 == NumberCrossingGame.PUZ_UNKNOWN || n1 == h1 ? .complete : n1 < h1 ? .normal : .error
+            let s2: HintState = h2 == NumberCrossingGame.PUZ_UNKNOWN || n2 == h2 ? .complete : n2 < h2 ? .normal : .error
             pos2state[p1] = s1; pos2state[p2] = s2
             if s1 != .complete || s2 != .complete { isSolved = false }
-            if allowedObjectsOnly && (s1 != .normal || s2 != .normal) {
+            if allowedObjectsOnly && (h1 != NumberCrossingGame.PUZ_UNKNOWN && s1 != .normal ||
+                                      h2 != NumberCrossingGame.PUZ_UNKNOWN && s2 != .normal) {
                 for c in 1..<cols - 1 {
                     if self[r, c] == NumberCrossingGame.PUZ_UNKNOWN {
                         self[r, c] = NumberCrossingGame.PUZ_FORBIDDEN
@@ -130,7 +137,6 @@ class NumberCrossingGameState: GridGameState<NumberCrossingGameMove> {
                 let o = self[p]
                 guard o > 0 else {continue}
                 n1 += 1; n2 += o
-                pos2state[p] = .normal
                 // 2. Numbers cannot touch each other, not even diagonally.
                 for os in NumberCrossingGame.offset {
                     let p2 = p + os
@@ -138,7 +144,6 @@ class NumberCrossingGameState: GridGameState<NumberCrossingGameMove> {
                     let o2 = self[p2]
                     if o2 > 0 {
                         pos2state[p] = .error
-                        pos2state[p2] = .error
                         isSolved = false
                     } else if allowedObjectsOnly && o2 == NumberCrossingGame.PUZ_UNKNOWN {
                         self[p2] = NumberCrossingGame.PUZ_FORBIDDEN
@@ -149,11 +154,12 @@ class NumberCrossingGameState: GridGameState<NumberCrossingGameMove> {
             //    column or row.
             // 4. On the bottom and right of the grid, you're given the sum of the numbers
             //    on that column or row.
-            let s1: HintState = n1 < h1 ? .normal : n1 == h1 ? .complete : .error
-            let s2: HintState = n2 < h2 ? .normal : n2 == h2 ? .complete : .error
+            let s1: HintState = h1 == NumberCrossingGame.PUZ_UNKNOWN || n1 == h1 ? .complete : n1 < h1 ? .normal : .error
+            let s2: HintState = h2 == NumberCrossingGame.PUZ_UNKNOWN || n2 == h2 ? .complete : n2 < h2 ? .normal : .error
             pos2state[p1] = s1; pos2state[p2] = s2
             if s1 != .complete || s2 != .complete { isSolved = false }
-            if allowedObjectsOnly && (s1 != .normal || s2 != .normal) {
+            if allowedObjectsOnly && (h1 != NumberCrossingGame.PUZ_UNKNOWN && s1 != .normal ||
+                                      h2 != NumberCrossingGame.PUZ_UNKNOWN && s2 != .normal) {
                 for r in 1..<rows - 1 {
                     if self[r, c] == NumberCrossingGame.PUZ_UNKNOWN {
                         self[r, c] = NumberCrossingGame.PUZ_FORBIDDEN
