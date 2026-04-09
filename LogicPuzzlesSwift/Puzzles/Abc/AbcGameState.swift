@@ -113,8 +113,8 @@ class AbcGameState: GridGameState<AbcGameMove> {
                 }
             }
             // 3. The letters on the borders tell you what letter you see from there.
-            let s1: HintState = ch11 == " " ? .normal : ch11 == h1 ? .complete : .error
-            let s2: HintState = ch21 == " " ? .normal : ch21 == h2 ? .complete : .error
+            let s1: HintState = h1 == " " || ch11 == h1 ? .complete : ch11 == " " ? .normal : .error
+            let s2: HintState = h2 == " " || ch21 == h2 ? .complete : ch21 == " " ? .normal : .error
             row2state[r * 2] = s1; row2state[r * 2 + 1] = s2
             if s1 != .complete || s2 != .complete { isSolved = false }
             // 2. Each letter appears once in every row.
@@ -137,8 +137,8 @@ class AbcGameState: GridGameState<AbcGameMove> {
                 }
             }
             // 3. The letters on the borders tell you what letter you see from there.
-            let s1: HintState = ch11 == " " ? .normal : ch11 == h1 ? .complete : .error
-            let s2: HintState = ch21 == " " ? .normal : ch21 == h2 ? .complete : .error
+            let s1: HintState = h1 == " " || ch11 == h1 ? .complete : ch11 == " " ? .normal : .error
+            let s2: HintState = h2 == " " || ch21 == h2 ? .complete : ch21 == " " ? .normal : .error
             col2state[c * 2] = s1; col2state[c * 2 + 1] = s2
             if s1 != .complete || s2 != .complete { isSolved = false }
             // 2. Each letter appears once in every column.
