@@ -10,6 +10,7 @@ import Foundation
 
 class CrosstownTrafficGame: GridGame<CrosstownTrafficGameState> {
     static let offset = Position.Directions4
+    static let PUZ_UNKNOWN = -1
 
     override func isValid(row: Int, col: Int) -> Bool {
         1..<rows - 1 ~= row && 1..<cols - 1 ~= col
@@ -24,11 +25,9 @@ class CrosstownTrafficGame: GridGame<CrosstownTrafficGameState> {
 
         for r in 0..<rows {
             let str = layout[r]
-            for c in 0..<cols {
+            for c in 0..<cols where (r == 0 || r == rows - 1) != (c == 0 || c == cols - 1) {
                 let ch = str[c]
-                guard ch.isNumber else {continue}
-                let n = ch.toInt!
-                pos2hint[Position(r, c)] = n
+                pos2hint[Position(r, c)] = ch.isNumber ? ch.toInt! : CrosstownTrafficGame.PUZ_UNKNOWN
             }
         }
         

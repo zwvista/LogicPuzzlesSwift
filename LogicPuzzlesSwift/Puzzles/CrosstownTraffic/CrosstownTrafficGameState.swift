@@ -113,11 +113,11 @@ class CrosstownTrafficGameState: GridGameState<CrosstownTrafficGameMove> {
             for c in 1..<cols - 1 {
                 let p = Position(r, c)
                 let dirs = pos2dirs[p]!
-                guard (dirs.allSatisfy {
+                if (!dirs.allSatisfy {
                     let p2 = p + CrosstownTrafficGame.offset[$0]
                     guard let dirs2 = pos2dirs[p2] else { return false }
                     return dirs2.contains(($0 + 2) % 4)
-                }) else { isSolved = false; return }
+                }) { isSolved = false }
             }
         }
         // 3. The numbers along the edge indicate the stretch of the nearest section
@@ -138,7 +138,7 @@ class CrosstownTrafficGameState: GridGameState<CrosstownTrafficGameMove> {
                     break
                 }
             }
-            var s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            var s: HintState = n2 == CrosstownTrafficGame.PUZ_UNKNOWN || n1 == n2 ? .complete : n1 < n2 ? .normal : .error
             pos2state[pHint] = s
             if s != .complete { isSolved = false }
             n1 = 0
@@ -156,7 +156,7 @@ class CrosstownTrafficGameState: GridGameState<CrosstownTrafficGameMove> {
                     break
                 }
             }
-            s = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            s = n2 == CrosstownTrafficGame.PUZ_UNKNOWN || n1 == n2 ? .complete : n1 < n2 ? .normal : .error
             pos2state[pHint] = s
             if s != .complete { isSolved = false }
         }
@@ -176,7 +176,7 @@ class CrosstownTrafficGameState: GridGameState<CrosstownTrafficGameMove> {
                     break
                 }
             }
-            var s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            var s: HintState = n2 == CrosstownTrafficGame.PUZ_UNKNOWN || n1 == n2 ? .complete : n1 < n2 ? .normal : .error
             pos2state[pHint] = s
             if s != .complete { isSolved = false }
             n1 = 0
@@ -194,7 +194,7 @@ class CrosstownTrafficGameState: GridGameState<CrosstownTrafficGameMove> {
                     break
                 }
             }
-            s = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            s = n2 == CrosstownTrafficGame.PUZ_UNKNOWN || n1 == n2 ? .complete : n1 < n2 ? .normal : .error
             pos2state[pHint] = s
             if s != .complete { isSolved = false }
         }
