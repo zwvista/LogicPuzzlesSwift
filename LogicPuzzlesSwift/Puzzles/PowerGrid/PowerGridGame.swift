@@ -10,6 +10,7 @@ import Foundation
 
 class PowerGridGame: GridGame<PowerGridGameState> {
     static let offset = Position.Directions4
+    static let PUZ_UNKNOWN = -1
 
     var row2hint = [Int]()
     var col2hint = [Int]()
@@ -28,7 +29,7 @@ class PowerGridGame: GridGame<PowerGridGameState> {
                 let isHintRow = r == rows, isHintCol = c == cols
                 guard isHintRow != isHintCol else { continue }
                 let ch = str[c]
-                let n = ch == " " ? -1 : ch.toInt!
+                let n = ch == " " ? PowerGridGame.PUZ_UNKNOWN : ch.toInt!
                 if isHintRow {
                     col2hint[c] = n
                 } else {

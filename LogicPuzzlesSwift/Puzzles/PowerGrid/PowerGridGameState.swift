@@ -115,7 +115,7 @@ class PowerGridGameState: GridGameState<PowerGridGameMove> {
             // 2. There are two Posts in each Row.
             // 3. The numbers on the side tell you the length of the cables between
             // the two Posts (in that Row).
-            let s: HintState = n1 < 2 ? .normal : n1 == 2 && n2 == posts[1].col - posts[0].col ? .complete : .error
+            let s: HintState = n1 < 2 ? .normal : n1 == 2 && (n2 == PowerGridGame.PUZ_UNKNOWN + 1 || n2 == posts[1].col - posts[0].col) ? .complete : .error
             row2state[r] = s
             if s != .complete { isSolved = false }
             if s == .error {
@@ -125,7 +125,7 @@ class PowerGridGameState: GridGameState<PowerGridGameMove> {
             }
             guard allowedObjectsOnly && n1 > 0 else {continue}
             for c in 0..<cols {
-                if self[r, c] == .empty && (n1 > 1 || n2 != abs(posts[0].col - c)) {
+                if self[r, c] == .empty && (n1 > 1 || n2 != PowerGridGame.PUZ_UNKNOWN + 1 && n2 != abs(posts[0].col - c)) {
                     self[r, c] = .forbidden
                 }
             }
@@ -140,7 +140,7 @@ class PowerGridGameState: GridGameState<PowerGridGameMove> {
             // 2. There are two Posts in each Column.
             // 3. The numbers on the side tell you the length of the cables between
             // the two Posts (in that Column).
-            let s: HintState = n1 < 2 ? .normal : n1 == 2 && n2 == posts[1].row - posts[0].row ? .complete : .error
+            let s: HintState = n1 < 2 ? .normal : n1 == 2 && (n2 == PowerGridGame.PUZ_UNKNOWN + 1 || n2 == posts[1].row - posts[0].row) ? .complete : .error
             col2state[c] = s
             if s != .complete { isSolved = false }
             if s == .error {
@@ -150,7 +150,7 @@ class PowerGridGameState: GridGameState<PowerGridGameMove> {
             }
             guard allowedObjectsOnly && n1 > 0 else {continue}
             for r in 0..<rows {
-                if self[r, c] == .empty && (n1 > 1 || n2 != abs(posts[0].row - r)) {
+                if self[r, c] == .empty && (n1 > 1 || n2 != PowerGridGame.PUZ_UNKNOWN + 1 && n2 != abs(posts[0].row - r)) {
                     self[r, c] = .forbidden
                 }
             }
