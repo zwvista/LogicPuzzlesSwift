@@ -14,8 +14,8 @@ class SumscrapersGameScene: GameScene<SumscrapersGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addNumber(n: Int, s: HintState, isHint: Bool, point: CGPoint, nodeName: String) {
-        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+    func addNumber(n: Int, s: HintState, isFixed: Bool, point: CGPoint, nodeName: String) {
+        addLabel(text: String(n), fontColor: isFixed ? .gray : s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
     override func levelInitialized(_ game: AnyObject, state: SumscrapersGameState, skView: SKView) {
@@ -37,7 +37,7 @@ class SumscrapersGameScene: GameScene<SumscrapersGameState> {
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let numNodeName = "num" + nodeNameSuffix
                 let s = state.pos2state(row: r, col: c)
-                addNumber(n: n, s: s, isHint: !game.isValid(p: p), point: point, nodeName: numNodeName)
+                addNumber(n: n, s: s, isFixed: game.isValid(p: p) && game[p] != 0, point: point, nodeName: numNodeName)
             }
         }
     }
@@ -55,7 +55,7 @@ class SumscrapersGameScene: GameScene<SumscrapersGameState> {
                 let (s1, s2) = (stateFrom.pos2state(row: r, col: c), stateTo.pos2state(row: r, col: c))
                 guard n1 != n2 || s1 != s2 else {continue}
                 if (n1 != 0) { removeNumber() }
-                if (n2 != 0) { addNumber(n: n2, s: s2, isHint: !game.isValid(p: p), point: point, nodeName: numNodeName) }
+                if (n2 != 0) { addNumber(n: n2, s: s2, isFixed: game.isValid(p: p) && game[p] != 0, point: point, nodeName: numNodeName) }
             }
         }
     }

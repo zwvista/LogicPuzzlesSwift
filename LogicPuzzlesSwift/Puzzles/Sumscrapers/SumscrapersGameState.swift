@@ -58,7 +58,7 @@ class SumscrapersGameState: GridGameState<SumscrapersGameMove> {
     
     override func setObject(move: inout SumscrapersGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else { return .invalid }
+        guard isValid(p: p) && game[p] == 0 && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -66,7 +66,7 @@ class SumscrapersGameState: GridGameState<SumscrapersGameMove> {
     
     override func switchObject(move: inout SumscrapersGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) else { return .invalid }
+        guard isValid(p: p) && game[p] == 0 else { return .invalid }
         let o = self[p]
         move.obj = (o + 1) % (game.intMax + 1)
         return setObject(move: &move)
@@ -112,8 +112,8 @@ class SumscrapersGameState: GridGameState<SumscrapersGameMove> {
             // 4. The numbers on the boarders tell you the SUM of the heights skyscrapers
             // you see from there, keeping mind that a higher skyscraper hides a lower one.
             // Skyscrapers are numbered from 1(lowest) to the grid size(highest).
-            let s1: HintState = n1 == 0 ? .normal : n1 == h1 ? .complete : .error
-            let s2: HintState = n2 == 0 ? .normal : n2 == h2 ? .complete : .error
+            let s1: HintState = h1 == 0 || n1 == h1 ? .complete : n1 == 0 ? .normal : .error
+            let s2: HintState = h2 == 0 || n2 == h2 ? .complete : n2 == 0 ? .normal : .error
             row2state[r * 2] = s1; row2state[r * 2 + 1] = s2
             if s1 != .complete || s2 != .complete { isSolved = false }
             if nums.count != game.intMax { isSolved = false }
@@ -144,8 +144,8 @@ class SumscrapersGameState: GridGameState<SumscrapersGameMove> {
             // 4. The numbers on the boarders tell you the SUM of the heights skyscrapers
             // you see from there, keeping mind that a higher skyscraper hides a lower one.
             // Skyscrapers are numbered from 1(lowest) to the grid size(highest).
-            let s1: HintState = n1 == 0 ? .normal : n1 == h1 ? .complete : .error
-            let s2: HintState = n2 == 0 ? .normal : n2 == h2 ? .complete : .error
+            let s1: HintState = h1 == 0 || n1 == h1 ? .complete : n1 == 0 ? .normal : .error
+            let s2: HintState = h2 == 0 || n2 == h2 ? .complete : n2 == 0 ? .normal : .error
             col2state[c * 2] = s1; col2state[c * 2 + 1] = s2
             if s1 != .complete || s2 != .complete { isSolved = false }
             if nums.count != game.intMax { isSolved = false }
