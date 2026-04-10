@@ -92,24 +92,24 @@ class PouringWaterGameState: GridGameState<PouringWaterGameMove> {
         isSolved = true
         for r in 0..<rows {
             for c in 0..<cols {
-                if self[r, c] == .forbidden { self[r, c] = .empty }
+                let p = Position(r, c)
+                if self[p] == .forbidden { self[p] = .empty }
+                pos2state[p] = .normal
             }
         }
         // 2. You have to fill some water in it, considering that water pours down
         //    and levels itself like in reality.
         // 3. Areas of the same level which are horizontally connected will have
         //    the same water level.
-        for area in game.areas {
-            let rng = area.filter { self[$0] == .water }
-            rng.forEach { pos2state[$0] = .normal }
-            let row2rng = OrderedDictionary(grouping: area) { $0.row }
-            guard let rowNotFilled = (row2rng.keys.reversed().first {
-                row2rng[$0]!.contains { self[$0] != .water }
-            }) else {continue}
-            let rngError = rng.filter { $0.row < rowNotFilled }
-            guard !rngError.isEmpty else {continue}
-            isSolved = false
-            rngError.forEach { pos2state[$0] = .error }
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                guard self[p] == .water else {continue}
+                if !([1, 2, 3].allSatisfy { i in
+                    game.dots[p + PouringWaterGame.offset2[i]][PouringWaterGame.dirs[i]] == .line ||
+                    self[p + PouringWaterGame.offset[i]] == .water
+                }) { pos2state[p] = .error; isSolved = false }
+            }
         }
         // 4. The numbers on the border show you how many tiles of each row and
         //    column are filled.
