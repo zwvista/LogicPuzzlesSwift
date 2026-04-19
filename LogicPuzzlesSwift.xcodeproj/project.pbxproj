@@ -1593,6 +1593,16 @@
 		8CA043261FDBE77B00AF85E1 /* CarpentersSquareGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA043101FDBE77700AF85E1 /* CarpentersSquareGame.swift */; };
 		8CA043271FDBE77B00AF85E1 /* CarpentersSquareGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA043111FDBE77700AF85E1 /* CarpentersSquareGameState.swift */; };
 		8CA043281FDBE77B00AF85E1 /* CarpentersSquareDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA043121FDBE77700AF85E1 /* CarpentersSquareDocument.swift */; };
+		8CA1D8042F95486700A654D4 /* chest_treasure.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CA1D8032F95486700A654D4 /* chest_treasure.png */; };
+		8CA1D8102F954AF500A654D4 /* TheGreyLabyrinthGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA1D80C2F954AF500A654D4 /* TheGreyLabyrinthGridNode.swift */; };
+		8CA1D8112F954AF500A654D4 /* TheGreyLabyrinthDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA1D8072F954AF500A654D4 /* TheGreyLabyrinthDocument.swift */; };
+		8CA1D8122F954AF500A654D4 /* TheGreyLabyrinthGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA1D8092F954AF500A654D4 /* TheGreyLabyrinthGameScene.swift */; };
+		8CA1D8132F954AF500A654D4 /* TheGreyLabyrinthGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA1D80B2F954AF500A654D4 /* TheGreyLabyrinthGameViewController.swift */; };
+		8CA1D8142F954AF500A654D4 /* TheGreyLabyrinthObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA1D80E2F954AF500A654D4 /* TheGreyLabyrinthObject.swift */; };
+		8CA1D8152F954AF500A654D4 /* TheGreyLabyrinthGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA1D80A2F954AF500A654D4 /* TheGreyLabyrinthGameState.swift */; };
+		8CA1D8162F954AF500A654D4 /* TheGreyLabyrinthMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA1D80D2F954AF500A654D4 /* TheGreyLabyrinthMainViewController.swift */; };
+		8CA1D8172F954AF500A654D4 /* TheGreyLabyrinthGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA1D8082F954AF500A654D4 /* TheGreyLabyrinthGame.swift */; };
+		8CA1D8182F954AF500A654D4 /* TheGreyLabyrinth.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CA1D8062F954AF500A654D4 /* TheGreyLabyrinth.xml */; };
 		8CA646241FF3EEB0004707E5 /* music1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8CA646211FF3EEAF004707E5 /* music1.wav */; };
 		8CA646251FF3EEB0004707E5 /* music2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8CA646231FF3EEB0004707E5 /* music2.wav */; };
 		8CA9D5F12F49C26A00EDF793 /* BentBridgesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D5EE2F49C26A00EDF793 /* BentBridgesMainViewController.swift */; };
@@ -3749,6 +3759,16 @@
 		8CA043101FDBE77700AF85E1 /* CarpentersSquareGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarpentersSquareGame.swift; sourceTree = "<group>"; };
 		8CA043111FDBE77700AF85E1 /* CarpentersSquareGameState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarpentersSquareGameState.swift; sourceTree = "<group>"; };
 		8CA043121FDBE77700AF85E1 /* CarpentersSquareDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarpentersSquareDocument.swift; sourceTree = "<group>"; };
+		8CA1D8032F95486700A654D4 /* chest_treasure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chest_treasure.png; sourceTree = "<group>"; };
+		8CA1D8062F954AF500A654D4 /* TheGreyLabyrinth.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TheGreyLabyrinth.xml; sourceTree = "<group>"; };
+		8CA1D8072F954AF500A654D4 /* TheGreyLabyrinthDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheGreyLabyrinthDocument.swift; sourceTree = "<group>"; };
+		8CA1D8082F954AF500A654D4 /* TheGreyLabyrinthGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheGreyLabyrinthGame.swift; sourceTree = "<group>"; };
+		8CA1D8092F954AF500A654D4 /* TheGreyLabyrinthGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheGreyLabyrinthGameScene.swift; sourceTree = "<group>"; };
+		8CA1D80A2F954AF500A654D4 /* TheGreyLabyrinthGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheGreyLabyrinthGameState.swift; sourceTree = "<group>"; };
+		8CA1D80B2F954AF500A654D4 /* TheGreyLabyrinthGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheGreyLabyrinthGameViewController.swift; sourceTree = "<group>"; };
+		8CA1D80C2F954AF500A654D4 /* TheGreyLabyrinthGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheGreyLabyrinthGridNode.swift; sourceTree = "<group>"; };
+		8CA1D80D2F954AF500A654D4 /* TheGreyLabyrinthMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheGreyLabyrinthMainViewController.swift; sourceTree = "<group>"; };
+		8CA1D80E2F954AF500A654D4 /* TheGreyLabyrinthObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheGreyLabyrinthObject.swift; sourceTree = "<group>"; };
 		8CA646211FF3EEAF004707E5 /* music1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music1.wav; sourceTree = "<group>"; };
 		8CA646231FF3EEB0004707E5 /* music2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music2.wav; sourceTree = "<group>"; };
 		8CA9D5E72F49C26A00EDF793 /* BentBridges.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BentBridges.xml; sourceTree = "<group>"; };
@@ -5265,6 +5285,7 @@
 				8C3A35DB1EC88D4200A914A5 /* Tents */,
 				8CF1808D2F3D4040000F1F7D /* TetrominoPegs */,
 				8C263EBF2F15072900158A2C /* TheCityRises */,
+				8CA1D80F2F954AF500A654D4 /* TheGreyLabyrinth */,
 				8C6A36031FAF97AF00D2804D /* TheOddBrick */,
 				8C8661C02EA115FA0078CD64 /* Thermometers */,
 				8C2319E21FB88E3F0021C680 /* TierraDelFuego */,
@@ -6477,6 +6498,7 @@
 				8C8662702EA39DD00078CD64 /* carrot.png */,
 				8C8662712EA39DD00078CD64 /* cauliflower.png */,
 				8C8662722EA39DD00078CD64 /* cherries.png */,
+				8CA1D8032F95486700A654D4 /* chest_treasure.png */,
 				8C8662732EA39DD00078CD64 /* chick.png */,
 				8C8662742EA39DD00078CD64 /* chocolate_square.png */,
 				8C8662752EA39DD00078CD64 /* city.png */,
@@ -7204,6 +7226,22 @@
 				8CA043081FDBE77700AF85E1 /* CarpentersSquareObject.swift */,
 			);
 			path = CarpentersSquare;
+			sourceTree = "<group>";
+		};
+		8CA1D80F2F954AF500A654D4 /* TheGreyLabyrinth */ = {
+			isa = PBXGroup;
+			children = (
+				8CA1D8062F954AF500A654D4 /* TheGreyLabyrinth.xml */,
+				8CA1D8072F954AF500A654D4 /* TheGreyLabyrinthDocument.swift */,
+				8CA1D8082F954AF500A654D4 /* TheGreyLabyrinthGame.swift */,
+				8CA1D8092F954AF500A654D4 /* TheGreyLabyrinthGameScene.swift */,
+				8CA1D80A2F954AF500A654D4 /* TheGreyLabyrinthGameState.swift */,
+				8CA1D80B2F954AF500A654D4 /* TheGreyLabyrinthGameViewController.swift */,
+				8CA1D80C2F954AF500A654D4 /* TheGreyLabyrinthGridNode.swift */,
+				8CA1D80D2F954AF500A654D4 /* TheGreyLabyrinthMainViewController.swift */,
+				8CA1D80E2F954AF500A654D4 /* TheGreyLabyrinthObject.swift */,
+			);
+			path = TheGreyLabyrinth;
 			sourceTree = "<group>";
 		};
 		8CA9D5F02F49C26A00EDF793 /* BentBridges */ = {
@@ -8331,6 +8369,7 @@
 				8C8663462EA39DD00078CD64 /* thermometer3A.png in Resources */,
 				8C2BCB572F7FFCC0002D6D84 /* SnakeIslands.xml in Resources */,
 				8C263F552F1D169F00158A2C /* JoinMe.xml in Resources */,
+				8CA1D8042F95486700A654D4 /* chest_treasure.png in Resources */,
 				8C8663472EA39DD00078CD64 /* shade_8.png in Resources */,
 				8C8663482EA39DD00078CD64 /* tower.png in Resources */,
 				8CF180962F3D4040000F1F7D /* TetrominoPegs.xml in Resources */,
@@ -8344,6 +8383,7 @@
 				8C263F1C2F1D042F00158A2C /* mountains.png in Resources */,
 				8C86634D2EA39DD00078CD64 /* beer_glass.png in Resources */,
 				8C86634E2EA39DD00078CD64 /* donut.png in Resources */,
+				8CA1D8182F954AF500A654D4 /* TheGreyLabyrinth.xml in Resources */,
 				8C86634F2EA39DD00078CD64 /* raspberry.png in Resources */,
 				8C9BD59F2F0A7DFF00D1D915 /* Stacks.xml in Resources */,
 				8C8663502EA39DD00078CD64 /* arrow1.png in Resources */,
@@ -9758,6 +9798,14 @@
 				8C35E3901FC2844F00A26EE3 /* GardenerGameViewController.swift in Sources */,
 				8CFB220E2EF771C100E5F29D /* RomeGameState.swift in Sources */,
 				8C263F272F1D08A700158A2C /* DirectionalPlanksGameScene.swift in Sources */,
+				8CA1D8102F954AF500A654D4 /* TheGreyLabyrinthGridNode.swift in Sources */,
+				8CA1D8112F954AF500A654D4 /* TheGreyLabyrinthDocument.swift in Sources */,
+				8CA1D8122F954AF500A654D4 /* TheGreyLabyrinthGameScene.swift in Sources */,
+				8CA1D8132F954AF500A654D4 /* TheGreyLabyrinthGameViewController.swift in Sources */,
+				8CA1D8142F954AF500A654D4 /* TheGreyLabyrinthObject.swift in Sources */,
+				8CA1D8152F954AF500A654D4 /* TheGreyLabyrinthGameState.swift in Sources */,
+				8CA1D8162F954AF500A654D4 /* TheGreyLabyrinthMainViewController.swift in Sources */,
+				8CA1D8172F954AF500A654D4 /* TheGreyLabyrinthGame.swift in Sources */,
 				8CF17FB02F373DB6000F1F7D /* PondsAndFlowerbedsObject.swift in Sources */,
 				8CF17FB12F373DB6000F1F7D /* PondsAndFlowerbedsGridNode.swift in Sources */,
 				8CF17FB22F373DB6000F1F7D /* PondsAndFlowerbedsGameViewController.swift in Sources */,
