@@ -1603,6 +1603,15 @@
 		8CA1D8162F954AF500A654D4 /* TheGreyLabyrinthMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA1D80D2F954AF500A654D4 /* TheGreyLabyrinthMainViewController.swift */; };
 		8CA1D8172F954AF500A654D4 /* TheGreyLabyrinthGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA1D8082F954AF500A654D4 /* TheGreyLabyrinthGame.swift */; };
 		8CA1D8182F954AF500A654D4 /* TheGreyLabyrinth.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CA1D8062F954AF500A654D4 /* TheGreyLabyrinth.xml */; };
+		8CA1D8232F9A6D1400A654D4 /* AbstractMirrorPaintingObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA1D8212F9A6D1400A654D4 /* AbstractMirrorPaintingObject.swift */; };
+		8CA1D8242F9A6D1400A654D4 /* AbstractMirrorPaintingGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA1D81E2F9A6D1400A654D4 /* AbstractMirrorPaintingGameViewController.swift */; };
+		8CA1D8252F9A6D1400A654D4 /* AbstractMirrorPaintingGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA1D81B2F9A6D1400A654D4 /* AbstractMirrorPaintingGame.swift */; };
+		8CA1D8262F9A6D1400A654D4 /* AbstractMirrorPaintingGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA1D81C2F9A6D1400A654D4 /* AbstractMirrorPaintingGameScene.swift */; };
+		8CA1D8272F9A6D1400A654D4 /* AbstractMirrorPaintingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA1D8202F9A6D1400A654D4 /* AbstractMirrorPaintingMainViewController.swift */; };
+		8CA1D8282F9A6D1400A654D4 /* AbstractMirrorPaintingGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA1D81F2F9A6D1400A654D4 /* AbstractMirrorPaintingGridNode.swift */; };
+		8CA1D8292F9A6D1400A654D4 /* AbstractMirrorPaintingDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA1D81A2F9A6D1400A654D4 /* AbstractMirrorPaintingDocument.swift */; };
+		8CA1D82A2F9A6D1400A654D4 /* AbstractMirrorPaintingGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA1D81D2F9A6D1400A654D4 /* AbstractMirrorPaintingGameState.swift */; };
+		8CA1D82B2F9A6D1400A654D4 /* AbstractMirrorPainting.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CA1D8192F9A6D1400A654D4 /* AbstractMirrorPainting.xml */; };
 		8CA646241FF3EEB0004707E5 /* music1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8CA646211FF3EEAF004707E5 /* music1.wav */; };
 		8CA646251FF3EEB0004707E5 /* music2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8CA646231FF3EEB0004707E5 /* music2.wav */; };
 		8CA9D5F12F49C26A00EDF793 /* BentBridgesMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9D5EE2F49C26A00EDF793 /* BentBridgesMainViewController.swift */; };
@@ -3769,6 +3778,15 @@
 		8CA1D80C2F954AF500A654D4 /* TheGreyLabyrinthGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheGreyLabyrinthGridNode.swift; sourceTree = "<group>"; };
 		8CA1D80D2F954AF500A654D4 /* TheGreyLabyrinthMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheGreyLabyrinthMainViewController.swift; sourceTree = "<group>"; };
 		8CA1D80E2F954AF500A654D4 /* TheGreyLabyrinthObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheGreyLabyrinthObject.swift; sourceTree = "<group>"; };
+		8CA1D8192F9A6D1400A654D4 /* AbstractMirrorPainting.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AbstractMirrorPainting.xml; sourceTree = "<group>"; };
+		8CA1D81A2F9A6D1400A654D4 /* AbstractMirrorPaintingDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractMirrorPaintingDocument.swift; sourceTree = "<group>"; };
+		8CA1D81B2F9A6D1400A654D4 /* AbstractMirrorPaintingGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractMirrorPaintingGame.swift; sourceTree = "<group>"; };
+		8CA1D81C2F9A6D1400A654D4 /* AbstractMirrorPaintingGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractMirrorPaintingGameScene.swift; sourceTree = "<group>"; };
+		8CA1D81D2F9A6D1400A654D4 /* AbstractMirrorPaintingGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractMirrorPaintingGameState.swift; sourceTree = "<group>"; };
+		8CA1D81E2F9A6D1400A654D4 /* AbstractMirrorPaintingGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractMirrorPaintingGameViewController.swift; sourceTree = "<group>"; };
+		8CA1D81F2F9A6D1400A654D4 /* AbstractMirrorPaintingGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractMirrorPaintingGridNode.swift; sourceTree = "<group>"; };
+		8CA1D8202F9A6D1400A654D4 /* AbstractMirrorPaintingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractMirrorPaintingMainViewController.swift; sourceTree = "<group>"; };
+		8CA1D8212F9A6D1400A654D4 /* AbstractMirrorPaintingObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractMirrorPaintingObject.swift; sourceTree = "<group>"; };
 		8CA646211FF3EEAF004707E5 /* music1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music1.wav; sourceTree = "<group>"; };
 		8CA646231FF3EEB0004707E5 /* music2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = music2.wav; sourceTree = "<group>"; };
 		8CA9D5E72F49C26A00EDF793 /* BentBridges.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BentBridges.xml; sourceTree = "<group>"; };
@@ -5119,6 +5137,7 @@
 			children = (
 				8C3A33B91EC88D4100A914A5 /* Abc */,
 				8C355CD41FE586F8002FC9D6 /* ABCPath */,
+				8CA1D8222F9A6D1400A654D4 /* AbstractMirrorPainting */,
 				8C3A33C61EC88D4100A914A5 /* AbstractPainting */,
 				8CB722132EAC8261001B25C5 /* Archipelago */,
 				8CAFBFC62E9D9FE500C27D7C /* Arrows */,
@@ -7244,6 +7263,22 @@
 			path = TheGreyLabyrinth;
 			sourceTree = "<group>";
 		};
+		8CA1D8222F9A6D1400A654D4 /* AbstractMirrorPainting */ = {
+			isa = PBXGroup;
+			children = (
+				8CA1D8192F9A6D1400A654D4 /* AbstractMirrorPainting.xml */,
+				8CA1D81A2F9A6D1400A654D4 /* AbstractMirrorPaintingDocument.swift */,
+				8CA1D81B2F9A6D1400A654D4 /* AbstractMirrorPaintingGame.swift */,
+				8CA1D81C2F9A6D1400A654D4 /* AbstractMirrorPaintingGameScene.swift */,
+				8CA1D81D2F9A6D1400A654D4 /* AbstractMirrorPaintingGameState.swift */,
+				8CA1D81E2F9A6D1400A654D4 /* AbstractMirrorPaintingGameViewController.swift */,
+				8CA1D81F2F9A6D1400A654D4 /* AbstractMirrorPaintingGridNode.swift */,
+				8CA1D8202F9A6D1400A654D4 /* AbstractMirrorPaintingMainViewController.swift */,
+				8CA1D8212F9A6D1400A654D4 /* AbstractMirrorPaintingObject.swift */,
+			);
+			path = AbstractMirrorPainting;
+			sourceTree = "<group>";
+		};
 		8CA9D5F02F49C26A00EDF793 /* BentBridges */ = {
 			isa = PBXGroup;
 			children = (
@@ -8483,6 +8518,7 @@
 				8C8663912EA39DD00078CD64 /* toucan.png in Resources */,
 				8C8663922EA39DD00078CD64 /* arrow_yellow_up.png in Resources */,
 				8C8663932EA39DD00078CD64 /* camel.png in Resources */,
+				8CA1D82B2F9A6D1400A654D4 /* AbstractMirrorPainting.xml in Resources */,
 				8C8663942EA39DD00078CD64 /* pepper.png in Resources */,
 				8C8663952EA39DD00078CD64 /* acorn.png in Resources */,
 				8C8663962EA39DD00078CD64 /* arrow_red2_right.png in Resources */,
@@ -9237,6 +9273,14 @@
 				8CFB22392EF8FF1000E5F29D /* DigitalPathDocument.swift in Sources */,
 				8CFB223A2EF8FF1000E5F29D /* DigitalPathGameViewController.swift in Sources */,
 				8CFB223B2EF8FF1000E5F29D /* DigitalPathMainViewController.swift in Sources */,
+				8CA1D8232F9A6D1400A654D4 /* AbstractMirrorPaintingObject.swift in Sources */,
+				8CA1D8242F9A6D1400A654D4 /* AbstractMirrorPaintingGameViewController.swift in Sources */,
+				8CA1D8252F9A6D1400A654D4 /* AbstractMirrorPaintingGame.swift in Sources */,
+				8CA1D8262F9A6D1400A654D4 /* AbstractMirrorPaintingGameScene.swift in Sources */,
+				8CA1D8272F9A6D1400A654D4 /* AbstractMirrorPaintingMainViewController.swift in Sources */,
+				8CA1D8282F9A6D1400A654D4 /* AbstractMirrorPaintingGridNode.swift in Sources */,
+				8CA1D8292F9A6D1400A654D4 /* AbstractMirrorPaintingDocument.swift in Sources */,
+				8CA1D82A2F9A6D1400A654D4 /* AbstractMirrorPaintingGameState.swift in Sources */,
 				8C3A37C11EC88D4400A914A5 /* SnailGameViewController.swift in Sources */,
 				8C3A37361EC88D4300A914A5 /* MosaikObject.swift in Sources */,
 				8C3A36581EC88D4200A914A5 /* CloudsGameState.swift in Sources */,
