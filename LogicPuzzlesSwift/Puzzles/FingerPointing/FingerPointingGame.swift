@@ -10,7 +10,8 @@ import Foundation
 
 class FingerPointingGame: GridGame<FingerPointingGameState> {
     static let offset = Position.Directions4
-    static let PUZ_BLOCK: Character = "O"
+    static let chars = "^>v<"
+    static let PUZ_BLOCK: Character = "@"
 
     var objArray = [FingerPointingObject]()
     var pos2hint = [Position: Int]()
@@ -28,6 +29,8 @@ class FingerPointingGame: GridGame<FingerPointingGameState> {
                 let ch = str[c]
                 if ch == FingerPointingGame.PUZ_BLOCK {
                     self[p] = .block
+                } else if let dir = FingerPointingGame.chars.getIndexOf(ch) {
+                    self[p] = FingerPointingObject(rawValue: dir + FingerPointingObject.up.rawValue)!
                 } else if ch != " " {
                     self[p] = .hint
                     pos2hint[p] = ch.isNumber ? ch.toInt! : Int(ch.asciiValue!) - Int(Character("A").asciiValue!) + 10

@@ -45,7 +45,7 @@ class FingerPointingGameState: GridGameState<FingerPointingGameMove> {
     
     override func setObject(move: inout FingerPointingGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] != .block && game[p] != .hint && self[p] != move.obj else { return .invalid }
+        guard isValid(p: p) && game[p] == .empty && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -53,7 +53,7 @@ class FingerPointingGameState: GridGameState<FingerPointingGameMove> {
     
     override func switchObject(move: inout FingerPointingGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] != .block && game[p] != .hint else { return .invalid }
+        guard isValid(p: p) && game[p] == .empty else { return .invalid }
         let o = self[p]
         move.obj =
             o == .empty ? .up :

@@ -17,6 +17,10 @@ class FingerPointingGameScene: GameScene<FingerPointingGameState> {
     func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
+    
+    func addFinger(o: FingerPointingObject, s: HintState, point: CGPoint, nodeName: String) {
+        addImage(imageNamed: "finger_" + (o == .up ? "up" : o == .right ? "right" : o == .down ? "down" : "left"), color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
+    }
 
     override func levelInitialized(_ game: AnyObject, state: FingerPointingGameState, skView: SKView) {
         let game = game as! FingerPointingGame
@@ -33,13 +37,17 @@ class FingerPointingGameScene: GameScene<FingerPointingGameState> {
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let hintNodeName = "hint" + nodeNameSuffix
-                switch state[p] {
+                let imageNodeName = "image" + nodeNameSuffix
+                let o = state[p]
+                switch o {
                 case .block:
                     addBlock(color: .white, point: point, nodeName: "block")
                 case .hint:
                     addHint(n: game.pos2hint[p]!, s: .normal, point: point, nodeName: hintNodeName)
-                default:
+                case .empty:
                     break
+                default:
+                    addFinger(o: o, s: .normal, point: point, nodeName: imageNodeName)
                 }
             }
         }
@@ -72,7 +80,7 @@ class FingerPointingGameScene: GameScene<FingerPointingGameState> {
                     let n = game.pos2hint[Position(r, c)]!
                     addHint(n: n, s: s2!, point: point, nodeName: hintNodeName)
                 default:
-                    addImage(imageNamed: "finger_" + (o2 == .up ? "up" : o2 == .right ? "right" : o2 == .down ? "down" : "left"), color: .red, colorBlendFactor: s2 == .normal ? 0.0 : 0.5, point: point, nodeName: imageNodeName)
+                    addFinger(o: o2, s: s2!, point: point, nodeName: imageNodeName)
                 }
             }
         }
