@@ -26,11 +26,11 @@ class FingerPointingGame: GridGame<FingerPointingGameState> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let ch = str[c]
-                if ch.isNumber {
-                    self[p] = .hint
-                    pos2hint[p] = ch.toInt!
-                } else if ch == FingerPointingGame.PUZ_BLOCK {
+                if ch == FingerPointingGame.PUZ_BLOCK {
                     self[p] = .block
+                } else if ch != " " {
+                    self[p] = .hint
+                    pos2hint[p] = ch.isNumber ? ch.toInt! : Int(ch.asciiValue!) - Int(Character("A").asciiValue!) + 10
                 }
             }
         }
