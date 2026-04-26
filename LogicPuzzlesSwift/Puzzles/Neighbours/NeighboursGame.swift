@@ -17,7 +17,8 @@ class NeighboursGame: GridGame<NeighboursGameState> {
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
-    
+    static let PUZ_UNKNOWN = -1
+
     var objArray = [GridDotObject]()
     var pos2hint = [Position: Int]()
     var areaSize = 0
@@ -34,7 +35,7 @@ class NeighboursGame: GridGame<NeighboursGameState> {
                 let p = Position(r, c)
                 let ch = str[c]
                 guard ch != " " else {continue}
-                let n = ch.toInt!
+                let n = ch == "?" ? NeighboursGame.PUZ_UNKNOWN : ch.toInt!
                 pos2hint[p] = n
             }
         }
