@@ -103,8 +103,8 @@ class MagnetsGameState: GridGameState<MagnetsGameMove> {
                 }
             }
             row2state[r * 2] = np2 == MagnetsGame.PUZ_UNKNOWN || np1 == np2 ? .complete : np1 < np2 ? .normal : .error
-            row2state[r * 2 + 1] = np1 == MagnetsGame.PUZ_UNKNOWN || nn1 == nn2 ? .complete : nn1 < nn2 ? .normal : .error
-            if np1 != np2 || nn1 != nn2 { isSolved = false }
+            row2state[r * 2 + 1] = nn2 == MagnetsGame.PUZ_UNKNOWN || nn1 == nn2 ? .complete : nn1 < nn2 ? .normal : .error
+            if row2state[r * 2] != .complete || row2state[r * 2 + 1] != .complete { isSolved = false }
         }
         // 3. The number on the board tells you how many positive and negative poles
         // you can see from there in a straight line.
@@ -122,8 +122,8 @@ class MagnetsGameState: GridGameState<MagnetsGameMove> {
                 }
             }
             col2state[c * 2] = np2 == MagnetsGame.PUZ_UNKNOWN || np1 == np2 ? .complete : np1 < np2 ? .normal : .error
-            col2state[c * 2 + 1] = np1 == MagnetsGame.PUZ_UNKNOWN || nn1 == nn2 ? .complete : nn1 < nn2 ? .normal : .error
-            if np1 != np2 || nn1 != nn2 { isSolved = false }
+            col2state[c * 2 + 1] = nn2 == MagnetsGame.PUZ_UNKNOWN || nn1 == nn2 ? .complete : nn1 < nn2 ? .normal : .error
+            if col2state[c * 2] != .complete || col2state[c * 2 + 1] != .complete { isSolved = false }
         }
         guard isSolved else {return}
         // 2. Every rectangle can either contain a Magnet or be empty.
