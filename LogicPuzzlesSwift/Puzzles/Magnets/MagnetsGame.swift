@@ -10,6 +10,7 @@ import Foundation
 
 class MagnetsGame: GridGame<MagnetsGameState> {
     static let offset = Position.Directions4
+    static let PUZ_UNKNOWN = -1
 
     var row2hint = [Int]()
     var col2hint = [Int]()
@@ -20,8 +21,8 @@ class MagnetsGame: GridGame<MagnetsGameState> {
         super.init(delegate: delegate)
         
         size = Position(layout.count - 2, layout[0].length - 2)
-        row2hint = Array<Int>(repeating: 0, count: rows * 2)
-        col2hint = Array<Int>(repeating: 0, count: cols * 2)
+        row2hint = Array<Int>(repeating: MagnetsGame.PUZ_UNKNOWN, count: rows * 2)
+        col2hint = Array<Int>(repeating: MagnetsGame.PUZ_UNKNOWN, count: cols * 2)
         
         for r in 0..<rows + 2 {
             let str = layout[r]

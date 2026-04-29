@@ -102,8 +102,8 @@ class MagnetsGameState: GridGameState<MagnetsGameMove> {
                     break
                 }
             }
-            row2state[r * 2] = np1 < np2 ? .normal : np1 == np2 ? .complete : .error
-            row2state[r * 2 + 1] = nn1 < nn2 ? .normal : nn1 == nn2 ? .complete : .error
+            row2state[r * 2] = np2 == MagnetsGame.PUZ_UNKNOWN || np1 == np2 ? .complete : np1 < np2 ? .normal : .error
+            row2state[r * 2 + 1] = np1 == MagnetsGame.PUZ_UNKNOWN || nn1 == nn2 ? .complete : nn1 < nn2 ? .normal : .error
             if np1 != np2 || nn1 != nn2 { isSolved = false }
         }
         // 3. The number on the board tells you how many positive and negative poles
@@ -121,8 +121,8 @@ class MagnetsGameState: GridGameState<MagnetsGameMove> {
                     break
                 }
             }
-            col2state[c * 2] = np1 < np2 ? .normal : np1 == np2 ? .complete : .error
-            col2state[c * 2 + 1] = nn1 < nn2 ? .normal : nn1 == nn2 ? .complete : .error
+            col2state[c * 2] = np2 == MagnetsGame.PUZ_UNKNOWN || np1 == np2 ? .complete : np1 < np2 ? .normal : .error
+            col2state[c * 2 + 1] = np1 == MagnetsGame.PUZ_UNKNOWN || nn1 == nn2 ? .complete : nn1 < nn2 ? .normal : .error
             if np1 != np2 || nn1 != nn2 { isSolved = false }
         }
         guard isSolved else {return}
