@@ -29,7 +29,7 @@ class SnakeMazeGame: GridGame<SnakeMazeGameState> {
                 pos2hint[Position(r, c)] = SnakeMazeHint(num: num, dir: dir)
             }
         }
-                
+
         let state = SnakeMazeGameState(game: self)
         levelInitialized(state: state)
     }
