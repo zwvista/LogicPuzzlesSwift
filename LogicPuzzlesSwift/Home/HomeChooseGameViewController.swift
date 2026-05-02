@@ -13,6 +13,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
     var gameNames: [String]!
     let name2title = [
         "ABCPath": "ABC Path",
+        "ADifferentFarmer": "A different Farmer",
         "BWTapa": "B&W Tapa",
         "CarpentersSquare": "Carpenter's Square",
         "CarpentersWall": "Carpenter's Wall",

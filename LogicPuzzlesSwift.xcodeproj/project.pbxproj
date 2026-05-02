@@ -333,6 +333,15 @@
 		8C277E002FA6B7900071E605 /* FarmerGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277DF62FA6B7900071E605 /* FarmerGridNode.swift */; };
 		8C277E012FA6B7900071E605 /* FarmerGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277DF32FA6B7900071E605 /* FarmerGameScene.swift */; };
 		8C277E022FA6B7900071E605 /* Farmer.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C277DF02FA6B7900071E605 /* Farmer.xml */; };
+		8C277E0E2FA6B9410071E605 /* ADifferentFarmerGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E082FA6B9410071E605 /* ADifferentFarmerGameState.swift */; };
+		8C277E0F2FA6B9410071E605 /* ADifferentFarmerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E062FA6B9410071E605 /* ADifferentFarmerGame.swift */; };
+		8C277E102FA6B9410071E605 /* ADifferentFarmerGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E092FA6B9410071E605 /* ADifferentFarmerGameViewController.swift */; };
+		8C277E112FA6B9410071E605 /* ADifferentFarmerMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E0B2FA6B9410071E605 /* ADifferentFarmerMainViewController.swift */; };
+		8C277E122FA6B9410071E605 /* ADifferentFarmerGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E072FA6B9410071E605 /* ADifferentFarmerGameScene.swift */; };
+		8C277E132FA6B9410071E605 /* ADifferentFarmerDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E052FA6B9410071E605 /* ADifferentFarmerDocument.swift */; };
+		8C277E142FA6B9410071E605 /* ADifferentFarmerGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E0A2FA6B9410071E605 /* ADifferentFarmerGridNode.swift */; };
+		8C277E152FA6B9410071E605 /* ADifferentFarmerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E0C2FA6B9410071E605 /* ADifferentFarmerObject.swift */; };
+		8C277E162FA6B9410071E605 /* ADifferentFarmer.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C277E042FA6B9410071E605 /* ADifferentFarmer.xml */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -2512,6 +2521,15 @@
 		8C277DF62FA6B7900071E605 /* FarmerGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmerGridNode.swift; sourceTree = "<group>"; };
 		8C277DF72FA6B7900071E605 /* FarmerMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmerMainViewController.swift; sourceTree = "<group>"; };
 		8C277DF82FA6B7900071E605 /* FarmerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarmerObject.swift; sourceTree = "<group>"; };
+		8C277E042FA6B9410071E605 /* ADifferentFarmer.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ADifferentFarmer.xml; sourceTree = "<group>"; };
+		8C277E052FA6B9410071E605 /* ADifferentFarmerDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADifferentFarmerDocument.swift; sourceTree = "<group>"; };
+		8C277E062FA6B9410071E605 /* ADifferentFarmerGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADifferentFarmerGame.swift; sourceTree = "<group>"; };
+		8C277E072FA6B9410071E605 /* ADifferentFarmerGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADifferentFarmerGameScene.swift; sourceTree = "<group>"; };
+		8C277E082FA6B9410071E605 /* ADifferentFarmerGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADifferentFarmerGameState.swift; sourceTree = "<group>"; };
+		8C277E092FA6B9410071E605 /* ADifferentFarmerGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADifferentFarmerGameViewController.swift; sourceTree = "<group>"; };
+		8C277E0A2FA6B9410071E605 /* ADifferentFarmerGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADifferentFarmerGridNode.swift; sourceTree = "<group>"; };
+		8C277E0B2FA6B9410071E605 /* ADifferentFarmerMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADifferentFarmerMainViewController.swift; sourceTree = "<group>"; };
+		8C277E0C2FA6B9410071E605 /* ADifferentFarmerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADifferentFarmerObject.swift; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -4955,6 +4973,22 @@
 			path = Farmer;
 			sourceTree = "<group>";
 		};
+		8C277E0D2FA6B9410071E605 /* ADifferentFarmer */ = {
+			isa = PBXGroup;
+			children = (
+				8C277E042FA6B9410071E605 /* ADifferentFarmer.xml */,
+				8C277E052FA6B9410071E605 /* ADifferentFarmerDocument.swift */,
+				8C277E062FA6B9410071E605 /* ADifferentFarmerGame.swift */,
+				8C277E072FA6B9410071E605 /* ADifferentFarmerGameScene.swift */,
+				8C277E082FA6B9410071E605 /* ADifferentFarmerGameState.swift */,
+				8C277E092FA6B9410071E605 /* ADifferentFarmerGameViewController.swift */,
+				8C277E0A2FA6B9410071E605 /* ADifferentFarmerGridNode.swift */,
+				8C277E0B2FA6B9410071E605 /* ADifferentFarmerMainViewController.swift */,
+				8C277E0C2FA6B9410071E605 /* ADifferentFarmerObject.swift */,
+			);
+			path = ADifferentFarmer;
+			sourceTree = "<group>";
+		};
 		8C2963D51FA20D620017A812 /* RobotFences */ = {
 			isa = PBXGroup;
 			children = (
@@ -5173,6 +5207,7 @@
 				8C355CD41FE586F8002FC9D6 /* ABCPath */,
 				8CA1D8222F9A6D1400A654D4 /* AbstractMirrorPainting */,
 				8C3A33C61EC88D4100A914A5 /* AbstractPainting */,
+				8C277E0D2FA6B9410071E605 /* ADifferentFarmer */,
 				8CB722132EAC8261001B25C5 /* Archipelago */,
 				8CAFBFC62E9D9FE500C27D7C /* Arrows */,
 				8C1ACFCC2F2E45AC004832E2 /* AssemblyInstructions */,
@@ -8729,6 +8764,7 @@
 				8C86640E2EA39DD00078CD64 /* navigate_plus_red.png in Resources */,
 				8C86640F2EA39DD00078CD64 /* balloon (1).png in Resources */,
 				8C8664102EA39DD00078CD64 /* flower_red.png in Resources */,
+				8C277E162FA6B9410071E605 /* ADifferentFarmer.xml in Resources */,
 				8C8664112EA39DD00078CD64 /* cherries.png in Resources */,
 				8C8664122EA39DD00078CD64 /* recycle.png in Resources */,
 				8C8664132EA39DD00078CD64 /* tower_wall_noborder.png in Resources */,
@@ -10536,6 +10572,14 @@
 				8C3A37771EC88D4300A914A5 /* PowerGridGameScene.swift in Sources */,
 				8CA043171FDBE77B00AF85E1 /* CarpentersWallObject.swift in Sources */,
 				8C3A36F31EC88D4300A914A5 /* MagnetsGameScene.swift in Sources */,
+				8C277E0E2FA6B9410071E605 /* ADifferentFarmerGameState.swift in Sources */,
+				8C277E0F2FA6B9410071E605 /* ADifferentFarmerGame.swift in Sources */,
+				8C277E102FA6B9410071E605 /* ADifferentFarmerGameViewController.swift in Sources */,
+				8C277E112FA6B9410071E605 /* ADifferentFarmerMainViewController.swift in Sources */,
+				8C277E122FA6B9410071E605 /* ADifferentFarmerGameScene.swift in Sources */,
+				8C277E132FA6B9410071E605 /* ADifferentFarmerDocument.swift in Sources */,
+				8C277E142FA6B9410071E605 /* ADifferentFarmerGridNode.swift in Sources */,
+				8C277E152FA6B9410071E605 /* ADifferentFarmerObject.swift in Sources */,
 				8C2963F61FA20D620017A812 /* RobotFencesObject.swift in Sources */,
 				8C3A36A61EC88D4200A914A5 /* HitoriObject.swift in Sources */,
 				8CDAE8091F646C29000DE5AF /* BalancedTapasDocument.swift in Sources */,
