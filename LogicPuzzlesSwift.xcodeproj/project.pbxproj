@@ -351,6 +351,15 @@
 		8C277E272FA6BAC50071E605 /* TheMagicNumberMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E1E2FA6BAC50071E605 /* TheMagicNumberMainViewController.swift */; };
 		8C277E282FA6BAC50071E605 /* TheMagicNumberGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E1B2FA6BAC50071E605 /* TheMagicNumberGameState.swift */; };
 		8C277E292FA6BAC50071E605 /* TheMagicNumber.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C277E172FA6BAC50071E605 /* TheMagicNumber.xml */; };
+		8C277E342FA6BBBB0071E605 /* PlanetsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E322FA6BBBB0071E605 /* PlanetsObject.swift */; };
+		8C277E352FA6BBBB0071E605 /* PlanetsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E2D2FA6BBBB0071E605 /* PlanetsGameScene.swift */; };
+		8C277E362FA6BBBB0071E605 /* PlanetsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E312FA6BBBB0071E605 /* PlanetsMainViewController.swift */; };
+		8C277E372FA6BBBB0071E605 /* PlanetsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E302FA6BBBB0071E605 /* PlanetsGridNode.swift */; };
+		8C277E382FA6BBBB0071E605 /* PlanetsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E2F2FA6BBBB0071E605 /* PlanetsGameViewController.swift */; };
+		8C277E392FA6BBBB0071E605 /* PlanetsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E2C2FA6BBBB0071E605 /* PlanetsGame.swift */; };
+		8C277E3A2FA6BBBB0071E605 /* PlanetsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E2B2FA6BBBB0071E605 /* PlanetsDocument.swift */; };
+		8C277E3B2FA6BBBB0071E605 /* PlanetsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E2E2FA6BBBB0071E605 /* PlanetsGameState.swift */; };
+		8C277E3C2FA6BBBB0071E605 /* Planets.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C277E2A2FA6BBBB0071E605 /* Planets.xml */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -2548,6 +2557,15 @@
 		8C277E1D2FA6BAC50071E605 /* TheMagicNumberGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMagicNumberGridNode.swift; sourceTree = "<group>"; };
 		8C277E1E2FA6BAC50071E605 /* TheMagicNumberMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMagicNumberMainViewController.swift; sourceTree = "<group>"; };
 		8C277E1F2FA6BAC50071E605 /* TheMagicNumberObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMagicNumberObject.swift; sourceTree = "<group>"; };
+		8C277E2A2FA6BBBB0071E605 /* Planets.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Planets.xml; sourceTree = "<group>"; };
+		8C277E2B2FA6BBBB0071E605 /* PlanetsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsDocument.swift; sourceTree = "<group>"; };
+		8C277E2C2FA6BBBB0071E605 /* PlanetsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsGame.swift; sourceTree = "<group>"; };
+		8C277E2D2FA6BBBB0071E605 /* PlanetsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsGameScene.swift; sourceTree = "<group>"; };
+		8C277E2E2FA6BBBB0071E605 /* PlanetsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsGameState.swift; sourceTree = "<group>"; };
+		8C277E2F2FA6BBBB0071E605 /* PlanetsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsGameViewController.swift; sourceTree = "<group>"; };
+		8C277E302FA6BBBB0071E605 /* PlanetsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsGridNode.swift; sourceTree = "<group>"; };
+		8C277E312FA6BBBB0071E605 /* PlanetsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsMainViewController.swift; sourceTree = "<group>"; };
+		8C277E322FA6BBBB0071E605 /* PlanetsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsObject.swift; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -5023,6 +5041,22 @@
 			path = TheMagicNumber;
 			sourceTree = "<group>";
 		};
+		8C277E332FA6BBBB0071E605 /* Planets */ = {
+			isa = PBXGroup;
+			children = (
+				8C277E2A2FA6BBBB0071E605 /* Planets.xml */,
+				8C277E2B2FA6BBBB0071E605 /* PlanetsDocument.swift */,
+				8C277E2C2FA6BBBB0071E605 /* PlanetsGame.swift */,
+				8C277E2D2FA6BBBB0071E605 /* PlanetsGameScene.swift */,
+				8C277E2E2FA6BBBB0071E605 /* PlanetsGameState.swift */,
+				8C277E2F2FA6BBBB0071E605 /* PlanetsGameViewController.swift */,
+				8C277E302FA6BBBB0071E605 /* PlanetsGridNode.swift */,
+				8C277E312FA6BBBB0071E605 /* PlanetsMainViewController.swift */,
+				8C277E322FA6BBBB0071E605 /* PlanetsObject.swift */,
+			);
+			path = Planets;
+			sourceTree = "<group>";
+		};
 		8C2963D51FA20D620017A812 /* RobotFences */ = {
 			isa = PBXGroup;
 			children = (
@@ -5363,6 +5397,7 @@
 				8CB418402F23AC3D005C7FDF /* PathOnTheHills */,
 				8C263F112F1CEA2700158A2C /* PathOnTheMountains */,
 				8C263E692F11F53000158A2C /* Pipemania */,
+				8C277E332FA6BBBB0071E605 /* Planets */,
 				8CB721C62EAAE62D001B25C5 /* Planks */,
 				8C263F982F2084FE00158A2C /* PleaseComeBack */,
 				8C263E562F11F2A100158A2C /* PlugItIn */,
@@ -8734,6 +8769,7 @@
 				8C8663E02EA39DD00078CD64 /* C5.png in Resources */,
 				8C8663E12EA39DD00078CD64 /* flag_checkered.png in Resources */,
 				8C8663E22EA39DD00078CD64 /* hippopotamus.png in Resources */,
+				8C277E3C2FA6BBBB0071E605 /* Planets.xml in Resources */,
 				8C8663E32EA39DD00078CD64 /* pomegranate.png in Resources */,
 				8C8663E42EA39DD00078CD64 /* arrow_cyan_left.png in Resources */,
 				8CB721F62EAB6C54001B25C5 /* BotanicalPark.xml in Resources */,
@@ -9437,6 +9473,14 @@
 				8C3A37661EC88D4300A914A5 /* PairakabeObject.swift in Sources */,
 				8C3A36251EC88D4200A914A5 /* BoxItAroundDocument.swift in Sources */,
 				8C3A37B51EC88D4400A914A5 /* SlitherLinkGameViewController.swift in Sources */,
+				8C277E342FA6BBBB0071E605 /* PlanetsObject.swift in Sources */,
+				8C277E352FA6BBBB0071E605 /* PlanetsGameScene.swift in Sources */,
+				8C277E362FA6BBBB0071E605 /* PlanetsMainViewController.swift in Sources */,
+				8C277E372FA6BBBB0071E605 /* PlanetsGridNode.swift in Sources */,
+				8C277E382FA6BBBB0071E605 /* PlanetsGameViewController.swift in Sources */,
+				8C277E392FA6BBBB0071E605 /* PlanetsGame.swift in Sources */,
+				8C277E3A2FA6BBBB0071E605 /* PlanetsDocument.swift in Sources */,
+				8C277E3B2FA6BBBB0071E605 /* PlanetsGameState.swift in Sources */,
 				8CDAE7F01F5BFBD8000DE5AF /* OverUnderDocument.swift in Sources */,
 				8C64A2EC1DE0891000AB6C09 /* GameTables.swift in Sources */,
 				8C6A9BE91F812743002A44FF /* KropkiGameState.swift in Sources */,
