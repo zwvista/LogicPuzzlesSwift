@@ -342,6 +342,15 @@
 		8C277E142FA6B9410071E605 /* ADifferentFarmerGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E0A2FA6B9410071E605 /* ADifferentFarmerGridNode.swift */; };
 		8C277E152FA6B9410071E605 /* ADifferentFarmerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E0C2FA6B9410071E605 /* ADifferentFarmerObject.swift */; };
 		8C277E162FA6B9410071E605 /* ADifferentFarmer.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C277E042FA6B9410071E605 /* ADifferentFarmer.xml */; };
+		8C277E212FA6BAC50071E605 /* TheMagicNumberGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E1D2FA6BAC50071E605 /* TheMagicNumberGridNode.swift */; };
+		8C277E222FA6BAC50071E605 /* TheMagicNumberDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E182FA6BAC50071E605 /* TheMagicNumberDocument.swift */; };
+		8C277E232FA6BAC50071E605 /* TheMagicNumberObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E1F2FA6BAC50071E605 /* TheMagicNumberObject.swift */; };
+		8C277E242FA6BAC50071E605 /* TheMagicNumberGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E1C2FA6BAC50071E605 /* TheMagicNumberGameViewController.swift */; };
+		8C277E252FA6BAC50071E605 /* TheMagicNumberGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E1A2FA6BAC50071E605 /* TheMagicNumberGameScene.swift */; };
+		8C277E262FA6BAC50071E605 /* TheMagicNumberGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E192FA6BAC50071E605 /* TheMagicNumberGame.swift */; };
+		8C277E272FA6BAC50071E605 /* TheMagicNumberMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E1E2FA6BAC50071E605 /* TheMagicNumberMainViewController.swift */; };
+		8C277E282FA6BAC50071E605 /* TheMagicNumberGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C277E1B2FA6BAC50071E605 /* TheMagicNumberGameState.swift */; };
+		8C277E292FA6BAC50071E605 /* TheMagicNumber.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C277E172FA6BAC50071E605 /* TheMagicNumber.xml */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -2530,6 +2539,15 @@
 		8C277E0A2FA6B9410071E605 /* ADifferentFarmerGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADifferentFarmerGridNode.swift; sourceTree = "<group>"; };
 		8C277E0B2FA6B9410071E605 /* ADifferentFarmerMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADifferentFarmerMainViewController.swift; sourceTree = "<group>"; };
 		8C277E0C2FA6B9410071E605 /* ADifferentFarmerObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADifferentFarmerObject.swift; sourceTree = "<group>"; };
+		8C277E172FA6BAC50071E605 /* TheMagicNumber.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TheMagicNumber.xml; sourceTree = "<group>"; };
+		8C277E182FA6BAC50071E605 /* TheMagicNumberDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMagicNumberDocument.swift; sourceTree = "<group>"; };
+		8C277E192FA6BAC50071E605 /* TheMagicNumberGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMagicNumberGame.swift; sourceTree = "<group>"; };
+		8C277E1A2FA6BAC50071E605 /* TheMagicNumberGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMagicNumberGameScene.swift; sourceTree = "<group>"; };
+		8C277E1B2FA6BAC50071E605 /* TheMagicNumberGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMagicNumberGameState.swift; sourceTree = "<group>"; };
+		8C277E1C2FA6BAC50071E605 /* TheMagicNumberGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMagicNumberGameViewController.swift; sourceTree = "<group>"; };
+		8C277E1D2FA6BAC50071E605 /* TheMagicNumberGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMagicNumberGridNode.swift; sourceTree = "<group>"; };
+		8C277E1E2FA6BAC50071E605 /* TheMagicNumberMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMagicNumberMainViewController.swift; sourceTree = "<group>"; };
+		8C277E1F2FA6BAC50071E605 /* TheMagicNumberObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMagicNumberObject.swift; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -4989,6 +5007,22 @@
 			path = ADifferentFarmer;
 			sourceTree = "<group>";
 		};
+		8C277E202FA6BAC50071E605 /* TheMagicNumber */ = {
+			isa = PBXGroup;
+			children = (
+				8C277E172FA6BAC50071E605 /* TheMagicNumber.xml */,
+				8C277E182FA6BAC50071E605 /* TheMagicNumberDocument.swift */,
+				8C277E192FA6BAC50071E605 /* TheMagicNumberGame.swift */,
+				8C277E1A2FA6BAC50071E605 /* TheMagicNumberGameScene.swift */,
+				8C277E1B2FA6BAC50071E605 /* TheMagicNumberGameState.swift */,
+				8C277E1C2FA6BAC50071E605 /* TheMagicNumberGameViewController.swift */,
+				8C277E1D2FA6BAC50071E605 /* TheMagicNumberGridNode.swift */,
+				8C277E1E2FA6BAC50071E605 /* TheMagicNumberMainViewController.swift */,
+				8C277E1F2FA6BAC50071E605 /* TheMagicNumberObject.swift */,
+			);
+			path = TheMagicNumber;
+			sourceTree = "<group>";
+		};
 		8C2963D51FA20D620017A812 /* RobotFences */ = {
 			isa = PBXGroup;
 			children = (
@@ -5375,6 +5409,7 @@
 				8CF1808D2F3D4040000F1F7D /* TetrominoPegs */,
 				8C263EBF2F15072900158A2C /* TheCityRises */,
 				8CA1D80F2F954AF500A654D4 /* TheGreyLabyrinth */,
+				8C277E202FA6BAC50071E605 /* TheMagicNumber */,
 				8C6A36031FAF97AF00D2804D /* TheOddBrick */,
 				8C8661C02EA115FA0078CD64 /* Thermometers */,
 				8C2319E21FB88E3F0021C680 /* TierraDelFuego */,
@@ -8444,6 +8479,7 @@
 				8C86632D2EA39DD00078CD64 /* balloon_green.png in Resources */,
 				8C86632E2EA39DD00078CD64 /* arrow_cyan_up.png in Resources */,
 				8C86632F2EA39DD00078CD64 /* gates.png in Resources */,
+				8C277E292FA6BAC50071E605 /* TheMagicNumber.xml in Resources */,
 				8C8663302EA39DD00078CD64 /* lemur.png in Resources */,
 				8C8663312EA39DD00078CD64 /* chocolate_square.png in Resources */,
 				8C8663322EA39DD00078CD64 /* arrow_bw_right.png in Resources */,
@@ -9607,6 +9643,14 @@
 				8CF180802F3D3E5A000F1F7D /* YalooniqGame.swift in Sources */,
 				8CF180812F3D3E5A000F1F7D /* YalooniqGameState.swift in Sources */,
 				8CF180822F3D3E5A000F1F7D /* YalooniqMainViewController.swift in Sources */,
+				8C277E212FA6BAC50071E605 /* TheMagicNumberGridNode.swift in Sources */,
+				8C277E222FA6BAC50071E605 /* TheMagicNumberDocument.swift in Sources */,
+				8C277E232FA6BAC50071E605 /* TheMagicNumberObject.swift in Sources */,
+				8C277E242FA6BAC50071E605 /* TheMagicNumberGameViewController.swift in Sources */,
+				8C277E252FA6BAC50071E605 /* TheMagicNumberGameScene.swift in Sources */,
+				8C277E262FA6BAC50071E605 /* TheMagicNumberGame.swift in Sources */,
+				8C277E272FA6BAC50071E605 /* TheMagicNumberMainViewController.swift in Sources */,
+				8C277E282FA6BAC50071E605 /* TheMagicNumberGameState.swift in Sources */,
 				8CF180472F3CF080000F1F7D /* WildlifeParkGridNode.swift in Sources */,
 				8CF180482F3CF080000F1F7D /* WildlifeParkObject.swift in Sources */,
 				8CF180492F3CF080000F1F7D /* WildlifeParkMainViewController.swift in Sources */,
