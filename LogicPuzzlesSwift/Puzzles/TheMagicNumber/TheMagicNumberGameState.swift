@@ -57,10 +57,10 @@ class TheMagicNumberGameState: GridGameState<TheMagicNumberGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .flower
-        case .flower: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .flower : .empty
-        default: o
+        case .empty: .fv1
+        case .fv1: .fv2
+        case .fv2: .fv3
+        case .fv3: .empty
         }
         return setObject(move: &move)
     }
@@ -82,93 +82,62 @@ class TheMagicNumberGameState: GridGameState<TheMagicNumberGameMove> {
     private func updateIsSolved() {
         let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
-        let g = Graph()
-        var pos2node = [Position: Node]()
         for r in 0..<rows {
             for c in 0..<cols {
-                let p = Position(r, c)
-                switch self[p] {
-                case .forbidden:
-                    self[p] = .empty
-                case .flower:
-                    pos2state[p] = .normal
-                    pos2node[p] = g.addNode(p.description)
-                default:
-                    break
+                pos2state[Position(r, c)] = .normal
+            }
+        }
+        // 2. On side-6 boards there will be 2 of each on any row or column.
+        // 3. On side-9 boards there will be 3 of each on any row or column.
+        // 4. On side-12 boards there will be 4 of each on any row or column.
+        func checkSymbols(symbol2range: [TheMagicNumberObject: [Position]]) {
+            for (_, range) in symbol2range {
+                let cnt = range.count
+                if cnt != game.symbolCountPerRowCol {
+                    isSolved = false
+                    if cnt > game.symbolCountPerRowCol {
+                        for p in range { pos2state[p] = .error }
+                    }
                 }
             }
-        }
-        for (p, node) in pos2node {
-            for os in TheMagicNumberGame.offset {
-                let p2 = p + os
-                guard let node2 = pos2node[p2] else {continue}
-                g.addEdge(node, neighbor: node2)
-            }
-        }
-        // 2. More exactly, you have to join the existing flowers by adding more of
-        // them, creating a single path of flowers touching horizontally or
-        // vertically.
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count { isSolved = false }
-        
-        var flowers = [Position]()
-        // 3. At the same time, you can't line up horizontally or vertically more
-        // than 3 flowers (thus Forbidden Four).
-        func invalidFlowers() -> Bool {
-            flowers.count > 3
-        }
-        func checkFlowers() {
-            if flowers.count > 3 {
-                isSolved = false
-                for p in flowers {
-                    pos2state[p] = .error
-                }
-            }
-            flowers.removeAll()
-        }
-        func checkForbidden(p: Position, indexes: [Int]) {
-            guard allowedObjectsOnly else {return}
-            for i in indexes {
-                let os = TheMagicNumberGame.offset[i]
-                var p2 = p + os
-                while isValid(p: p2) {
-                    guard self[p2] == .flower else {break}
-                    flowers.append(p2)
-                    p2 += os
-                }
-            }
-            if flowers.count > 2 { self[p] = .forbidden }
-            flowers.removeAll()
         }
         for r in 0..<rows {
+            var symbol2range = [TheMagicNumberObject: [Position]]()
             for c in 0..<cols {
                 let p = Position(r, c)
-                switch self[p] {
-                case .flower:
-                    flowers.append(p)
-                case .empty, .marker:
-                    checkFlowers()
-                    checkForbidden(p: p, indexes: [1,3])
-                default:
-                    checkFlowers()
-                }
+                let o = self[p]
+                guard o != .empty else { isSolved = false; continue }
+                symbol2range[o, default: []].append(p)
             }
-            checkFlowers()
+            checkSymbols(symbol2range: symbol2range)
         }
         for c in 0..<cols {
+            var symbol2range = [TheMagicNumberObject: [Position]]()
             for r in 0..<rows {
                 let p = Position(r, c)
-                switch self[p] {
-                case .flower:
-                    flowers.append(p)
-                case .empty, .marker:
-                    checkFlowers()
-                    checkForbidden(p: p, indexes: [0,2])
-                default:
-                    checkFlowers()
+                let o = self[p]
+                if (o == .empty) {
+                    isSolved = false
+                } else {
+                    symbol2range[o, default: []].append(p)
                 }
             }
-            checkFlowers()
+            checkSymbols(symbol2range: symbol2range)
+        }
+        // 5. When a tile has a shaded background, the symbols around it must
+        //    be different.
+        for p in game.shaded {
+            let o = self[p]
+            guard o != .empty else {continue}
+            for os in TheMagicNumberGame.offset {
+                let p2 = p + os
+                guard isValid(p: p2) else {continue}
+                if self[p2] == o {
+                    isSolved = false
+                    pos2state[p] = .error
+                    pos2state[p2] = .error
+                }
+            }
         }
     }
 }

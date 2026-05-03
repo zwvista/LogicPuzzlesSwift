@@ -87,14 +87,14 @@ class ADifferentFarmerGameState: GridGameState<ADifferentFarmerGameMove> {
         // 2. He places exactly one of each of the three fruits or vegetables in each field
         //    (marked area).
         for area in game.areas {
-            var obj2range = [ADifferentFarmerObject: [Position]]()
+            var symbol2range = [ADifferentFarmerObject: [Position]]()
             for p in area {
                 let o = self[p]
                 if o == .empty {continue}
-                obj2range[o, default: []].append(p)
+                symbol2range[o, default: []].append(p)
             }
-            if obj2range.count != 3 { isSolved = false }
-            for (o, range) in obj2range where range.count > 1 {
+            if symbol2range.count != 3 { isSolved = false }
+            for (o, range) in symbol2range where range.count > 1 {
                 isSolved = false
                 for p in range { pos2state[p] = .error }
             }

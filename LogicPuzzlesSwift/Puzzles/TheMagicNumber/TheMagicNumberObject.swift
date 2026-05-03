@@ -9,8 +9,7 @@
 import Foundation
 
 enum TheMagicNumberObject: Int {
-    case empty, forbidden, marker
-    case flower, block
+    case empty, fv1, fv2, fv3
     init() {
         self = .empty
     }
