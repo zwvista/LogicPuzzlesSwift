@@ -16,11 +16,10 @@ class ADifferentFarmerGameScene: GameScene<ADifferentFarmerGameState> {
     
     func addObject(o: ADifferentFarmerObject, s: AllowedObjectState, point: CGPoint, nodeName: String) {
         let imageName = switch o {
-        case .up: "arrow_bw_up"
-        case .right: "arrow_bw_right"
-        case .down: "arrow_bw_down"
-        case .left: "arrow_bw_left"
-        default: "rome"
+        case .fv1: "fv (1)"
+        case .fv2: "fv (2)"
+        case .fv3: "fv (3)"
+        default: "fv (1)"
         }
         addImage(imageNamed: imageName, color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }

@@ -56,12 +56,10 @@ class ADifferentFarmerGameState: GridGameState<ADifferentFarmerGameMove> {
         guard isValid(p: p), game[p] == .empty else { return .invalid }
         let o = self[p]
         move.obj = switch o {
-        case .empty: .up
-        case .up: .right
-        case .right: .down
-        case .down: .left
-        case .left: .empty
-        default: o
+        case .empty: .fv1
+        case .fv1: .fv2
+        case .fv2: .fv3
+        case .fv3: .empty
         }
         return setObject(move: &move)
     }
@@ -86,45 +84,56 @@ class ADifferentFarmerGameState: GridGameState<ADifferentFarmerGameMove> {
                 pos2state[Position(r, c)] = .normal
             }
         }
-        // 3. Arrows in an area should all be different, i.e. there can't be two
-        //    similar arrows in an area.
+        // 2. He places exactly one of each of the three fruits or vegetables in each field
+        //    (marked area).
         for area in game.areas {
-            var symbol2range = [ADifferentFarmerObject: [Position]]()
-            for p in area { symbol2range[self[p], default: []].append(p) }
-            for (_, range) in symbol2range where range.count > 1 {
+            var obj2range = [ADifferentFarmerObject: [Position]]()
+            for p in area {
+                let o = self[p]
+                if o == .empty {continue}
+                obj2range[o, default: []].append(p)
+            }
+            if obj2range.count != 3 { isSolved = false }
+            for (o, range) in obj2range where range.count > 1 {
                 isSolved = false
                 for p in range { pos2state[p] = .error }
             }
-            if symbol2range.keys.contains(ADifferentFarmerObject.empty) { isSolved = false }
         }
-        guard isSolved else {return}
-        // 1. All the roads lead to ADifferentFarmer.
-        // 2. Hence you should fill the remaining spaces with arrows and in the
-        //    end, starting at any tile and following the arrows, you should get
-        //    at the ADifferentFarmer icon.
-        var validRange = Set<Position>()
-        var invalidRange = Set<Position>()
+        // 3. The same plant cannot be placed in adjacent tiles, not even diagonally.
         for r in 0..<rows {
             for c in 0..<cols {
-                var p = Position(r, c)
-                var range = Set<Position>()
-                while true {
-                    let o = self[p]
-                    if o == .rome || validRange.contains(p) {
-                        for p2 in range { validRange.insert(p2) }
-                        break
-                    }
-                    if !isValid(p: p) || invalidRange.contains(p) || range.contains(p) {
+                let p = Position(r, c)
+                let o = self[p]
+                guard o != .empty else {continue}
+                for os in ADifferentFarmerGame.offset3 {
+                    let p2 = p + os
+                    guard isValid(p: p2) else {continue}
+                    if self[p2] == o {
                         isSolved = false
-                        for p2 in range { invalidRange.insert(p2) }
-                        break
+                        pos2state[p] = .error
                     }
-                    range.insert(p)
-                    let os = ADifferentFarmerGame.offset[o.rawValue - 2]
-                    p += os
                 }
             }
         }
-        for p in invalidRange { pos2state[p] = .error }
+        guard isSolved else {return}
+        // 4. All the plants must be connected horizontally or vertically.
+        let g = Graph()
+        var pos2node = [Position: Node]()
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                guard self[p] != .empty else {continue}
+                pos2node[p] = g.addNode(p.description)
+            }
+        }
+        for (p, node) in pos2node {
+            for os in ArchipelagoGame.offset {
+                let p2 = p + os
+                guard let node2 = pos2node[p2] else {continue}
+                g.addEdge(node, neighbor: node2)
+            }
+        }
+        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+        if nodesExplored.count != pos2node.count { isSolved = false }
     }
 }

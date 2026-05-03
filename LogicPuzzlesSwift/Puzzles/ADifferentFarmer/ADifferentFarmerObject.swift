@@ -9,7 +9,7 @@
 import Foundation
 
 enum ADifferentFarmerObject: Int {
-    case empty, rome, up, right, down, left
+    case empty, fv1, fv2, fv3
     init() {
         self = .empty
     }
