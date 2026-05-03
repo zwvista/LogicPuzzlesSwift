@@ -14,11 +14,23 @@ class PlanetsGameScene: GameScene<PlanetsGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addFlower(s: AllowedObjectState, point: CGPoint, nodeName: String) {
-        addImage(imageNamed: "flower_blue", color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
+    func addObject(o: PlanetsObject, s: AllowedObjectState, point: CGPoint, nodeName: String) {
+        let imageName = switch o {
+        case .none: "planet_none"
+        case .north: "planet_north"
+        case .northEast: "planet_north_east"
+        case .northWest: "planet_north_west"
+        case .east: "planet_east"
+        case .west: "planet_west"
+        case .south: "planet_south"
+        case .southEast: "planet_south_east"
+        case .southWest: "planet_south_west"
+        case .sun: "sun"
+        case .nebula: "nebula"
+        default: "planet_none"
+        }
+        addImage(imageNamed: imageName, color: .red, colorBlendFactor: s == .normal ? 0.0 : 0.5, point: point, nodeName: nodeName)
     }
-
-    func addForbidden(point: CGPoint, nodeName: String) { addForbiddenMarker(point: point, nodeName: nodeName) }
 
     override func levelInitialized(_ game: AnyObject, state: PlanetsGameState, skView: SKView) {
         let game = game as! PlanetsGame
@@ -35,18 +47,10 @@ class PlanetsGameScene: GameScene<PlanetsGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let flowerNodeName = "flower" + nodeNameSuffix
-                let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                switch state[p] {
-                case .flower:
-                    addFlower(s: state.pos2state[p]!, point: point, nodeName: flowerNodeName)
-                    addCircleMarker(color: .white, point: point, nodeName: "marker")
-                case .block:
-                    addBlock(color: .white, point: point, nodeName: "block")
-                case .forbidden:
-                    addForbidden(point: point, nodeName: forbiddenNodeName)
-                default:
-                    break
+                let tileNodeName = "tile" + nodeNameSuffix
+                let o = state[p]
+                if o != .empty {
+                    addObject(o: o, s: state.pos2state[p]!, point: point, nodeName: tileNodeName)
                 }
             }
         }
@@ -59,35 +63,20 @@ class PlanetsGameScene: GameScene<PlanetsGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let flowerNodeName = "flower" + nodeNameSuffix
-                let markerNodeName = "marker" + nodeNameSuffix
-                let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                func removeFlower() { removeNode(withName: flowerNodeName) }
-                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
+                let tileNodeName = "tile" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
                 guard o1 != o2 || s1 != s2 else {continue}
-                switch o1 {
-                case .forbidden:
-                    removeForbidden()
-                case .flower:
-                    removeFlower()
-                case .marker:
-                    removeMarker()
-                default:
-                    break
-                }
+                if o1 != .empty { removeNode(withName: tileNodeName) }
                 switch o2 {
-                case .forbidden:
-                    addForbidden(point: point, nodeName: forbiddenNodeName)
-                case .flower:
-                    addFlower(s: s2!, point: point, nodeName: flowerNodeName)
-                case .marker:
-                    addMarker()
-                default:
+                case .empty:
                     break
+                case .forbidden:
+                    addForbiddenMarker(point: point, nodeName: tileNodeName)
+                case .marker:
+                    addDotMarker(point: point, nodeName: tileNodeName)
+                default:
+                    addObject(o: o2, s: s2!, point: point, nodeName: tileNodeName)
                 }
             }
         }

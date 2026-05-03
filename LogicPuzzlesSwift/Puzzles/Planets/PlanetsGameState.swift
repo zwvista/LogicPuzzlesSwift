@@ -57,9 +57,10 @@ class PlanetsGameState: GridGameState<PlanetsGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .flower
-        case .flower: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .flower : .empty
+        case .empty: markerOption == .markerFirst ? .marker : .sun
+        case .sun: .nebula
+        case .nebula: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .sun : .empty
         default: o
         }
         return setObject(move: &move)
@@ -88,93 +89,95 @@ class PlanetsGameState: GridGameState<PlanetsGameMove> {
     private func updateIsSolved() {
         let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
-        let g = Graph()
-        var pos2node = [Position: Node]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                switch self[p] {
-                case .forbidden:
+                pos2state[p] = .normal
+                if self[p] == .forbidden {
                     self[p] = .empty
-                case .flower:
-                    pos2state[p] = .normal
-                    pos2node[p] = g.addNode(p.description)
+                }
+            }
+        }
+        func checkSymbols(suns: [Position], nebulae: [Position], empties: [Position]) {
+            // 3. You should place one Sun on each row and column, according to how
+            //    the Planets are lit.
+            if suns.count != 1 {
+                isSolved = false
+                for p in suns { pos2state[p] = .error }
+            }
+            // 4. You should also place one Nebula on each row and column.
+            if nebulae.count != 1 {
+                isSolved = false
+                for p in nebulae { pos2state[p] = .error }
+            }
+            if allowedObjectsOnly && !suns.isEmpty && !nebulae.isEmpty {
+                for p in empties { self[p] = .forbidden }
+            }
+        }
+        for r in 0..<rows {
+            var suns = [Position]()
+            var nebulae = [Position]()
+            var empties = [Position]()
+            for c in 0..<cols {
+                let p = Position(r, c)
+                switch self[p] {
+                case .sun:
+                    suns.append(p)
+                case .nebula:
+                    nebulae.append(p)
+                case .empty, .marker:
+                    empties.append(p)
                 default:
                     break
                 }
             }
-        }
-        for (p, node) in pos2node {
-            for os in PlanetsGame.offset {
-                let p2 = p + os
-                guard let node2 = pos2node[p2] else {continue}
-                g.addEdge(node, neighbor: node2)
-            }
-        }
-        // 2. More exactly, you have to join the existing flowers by adding more of
-        // them, creating a single path of flowers touching horizontally or
-        // vertically.
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count { isSolved = false }
-        
-        var flowers = [Position]()
-        // 3. At the same time, you can't line up horizontally or vertically more
-        // than 3 flowers (thus Forbidden Four).
-        func invalidFlowers() -> Bool {
-            flowers.count > 3
-        }
-        func checkFlowers() {
-            if flowers.count > 3 {
-                isSolved = false
-                for p in flowers {
-                    pos2state[p] = .error
-                }
-            }
-            flowers.removeAll()
-        }
-        func checkForbidden(p: Position, indexes: [Int]) {
-            guard allowedObjectsOnly else {return}
-            for i in indexes {
-                let os = PlanetsGame.offset[i]
-                var p2 = p + os
-                while isValid(p: p2) {
-                    guard self[p2] == .flower else {break}
-                    flowers.append(p2)
-                    p2 += os
-                }
-            }
-            if flowers.count > 2 { self[p] = .forbidden }
-            flowers.removeAll()
-        }
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                switch self[p] {
-                case .flower:
-                    flowers.append(p)
-                case .empty, .marker:
-                    checkFlowers()
-                    checkForbidden(p: p, indexes: [1,3])
-                default:
-                    checkFlowers()
-                }
-            }
-            checkFlowers()
+            checkSymbols(suns: suns, nebulae: nebulae, empties: empties)
         }
         for c in 0..<cols {
+            var suns = [Position]()
+            var nebulae = [Position]()
+            var empties = [Position]()
             for r in 0..<rows {
                 let p = Position(r, c)
                 switch self[p] {
-                case .flower:
-                    flowers.append(p)
+                case .sun:
+                    suns.append(p)
+                case .nebula:
+                    nebulae.append(p)
                 case .empty, .marker:
-                    checkFlowers()
-                    checkForbidden(p: p, indexes: [0,2])
+                    empties.append(p)
                 default:
-                    checkFlowers()
+                    break
                 }
             }
-            checkFlowers()
+            checkSymbols(suns: suns, nebulae: nebulae, empties: empties)
+        }
+        // 3. You should place one Sun on each row and column, according to how
+        //    the Planets are lit.
+        // 5. Nebulas block sunlight, so if there is a Nebula between a Sun and
+        //    a Planet, the Planet won't be lit.
+        // 6. Finally, Planets block sunlight too. So if there is a Planet
+        //    between a Sun and another Planet, the further Planet won't be lit
+        //    by that Sun.
+        for p in game.planets {
+            let o = self[p]
+            var isLit = [Int]()
+            for i in 0..<4 {
+                let os = PlanetsGame.offset[i]
+                var p2 = p + os
+                while isValid(p: p2) {
+                    let o2 = self[p2]
+                    if o2 == .sun {
+                        isLit.append(i); break
+                    }
+                    if o2 != .empty, o2 != .marker {break}
+                    p2 += os
+                }
+            }
+            if PlanetsGame.isLitDict[isLit] != o {
+                isSolved = false
+                pos2state[p] = .error
+            }
         }
     }
 }

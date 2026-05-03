@@ -9,8 +9,10 @@
 import Foundation
 
 enum PlanetsObject: Int {
-    case empty, forbidden, marker
-    case flower, block
+    case empty
+    case none, north, northEast, northWest, east, west, south, southEast, southWest
+    case forbidden, marker
+    case sun, nebula
     init() {
         self = .empty
     }

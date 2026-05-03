@@ -363,6 +363,17 @@
 		8C277E402FA6C72E0071E605 /* fv (3).png in Resources */ = {isa = PBXBuildFile; fileRef = 8C277E3F2FA6C72E0071E605 /* fv (3).png */; };
 		8C277E412FA6C72E0071E605 /* fv (2).png in Resources */ = {isa = PBXBuildFile; fileRef = 8C277E3E2FA6C72E0071E605 /* fv (2).png */; };
 		8C277E422FA6C72E0071E605 /* fv (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 8C277E3D2FA6C72E0071E605 /* fv (1).png */; };
+		8C277E4C2FA70AB60071E605 /* planet_north_west.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C277E472FA70AB60071E605 /* planet_north_west.png */; };
+		8C277E4D2FA70AB60071E605 /* planet_south_west.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C277E4A2FA70AB60071E605 /* planet_south_west.png */; };
+		8C277E4E2FA70AB60071E605 /* planet_south.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C277E482FA70AB60071E605 /* planet_south.png */; };
+		8C277E4F2FA70AB60071E605 /* planet_none.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C277E442FA70AB60071E605 /* planet_none.png */; };
+		8C277E502FA70AB60071E605 /* planet_north.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C277E452FA70AB60071E605 /* planet_north.png */; };
+		8C277E512FA70AB60071E605 /* planet_west.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C277E4B2FA70AB60071E605 /* planet_west.png */; };
+		8C277E522FA70AB60071E605 /* planet_north_east.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C277E462FA70AB60071E605 /* planet_north_east.png */; };
+		8C277E532FA70AB60071E605 /* planet_south_east.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C277E492FA70AB60071E605 /* planet_south_east.png */; };
+		8C277E542FA70AB60071E605 /* planet_east.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C277E432FA70AB60071E605 /* planet_east.png */; };
+		8C277E562FA70E470071E605 /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C277E552FA70E470071E605 /* sun.png */; };
+		8C277E582FA70E550071E605 /* nebula.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C277E572FA70E550071E605 /* nebula.png */; };
 		8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C2963D61FA20D620017A812 /* RobotFences.xml */; };
 		8C2963EE1FA20D620017A812 /* RobotFencesDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */; };
 		8C2963EF1FA20D620017A812 /* RobotFencesGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2963D81FA20D620017A812 /* RobotFencesGame.swift */; };
@@ -2572,6 +2583,17 @@
 		8C277E3D2FA6C72E0071E605 /* fv (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fv (1).png"; sourceTree = "<group>"; };
 		8C277E3E2FA6C72E0071E605 /* fv (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fv (2).png"; sourceTree = "<group>"; };
 		8C277E3F2FA6C72E0071E605 /* fv (3).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fv (3).png"; sourceTree = "<group>"; };
+		8C277E432FA70AB60071E605 /* planet_east.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planet_east.png; sourceTree = "<group>"; };
+		8C277E442FA70AB60071E605 /* planet_none.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planet_none.png; sourceTree = "<group>"; };
+		8C277E452FA70AB60071E605 /* planet_north.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planet_north.png; sourceTree = "<group>"; };
+		8C277E462FA70AB60071E605 /* planet_north_east.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planet_north_east.png; sourceTree = "<group>"; };
+		8C277E472FA70AB60071E605 /* planet_north_west.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planet_north_west.png; sourceTree = "<group>"; };
+		8C277E482FA70AB60071E605 /* planet_south.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planet_south.png; sourceTree = "<group>"; };
+		8C277E492FA70AB60071E605 /* planet_south_east.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planet_south_east.png; sourceTree = "<group>"; };
+		8C277E4A2FA70AB60071E605 /* planet_south_west.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planet_south_west.png; sourceTree = "<group>"; };
+		8C277E4B2FA70AB60071E605 /* planet_west.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planet_west.png; sourceTree = "<group>"; };
+		8C277E552FA70E470071E605 /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
+		8C277E572FA70E550071E605 /* nebula.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nebula.png; sourceTree = "<group>"; };
 		8C2963D61FA20D620017A812 /* RobotFences.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RobotFences.xml; sourceTree = "<group>"; };
 		8C2963D71FA20D620017A812 /* RobotFencesDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesDocument.swift; sourceTree = "<group>"; };
 		8C2963D81FA20D620017A812 /* RobotFencesGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotFencesGame.swift; sourceTree = "<group>"; };
@@ -6760,6 +6782,7 @@
 				8C8662C12EA39DD00078CD64 /* navigate_right.png */,
 				8C8662C22EA39DD00078CD64 /* navigate_up.png */,
 				8C8662C32EA39DD00078CD64 /* navigate_up_down.png */,
+				8C277E572FA70E550071E605 /* nebula.png */,
 				8C8662C42EA39DD00078CD64 /* note_plain_sand3.png */,
 				8C8662C52EA39DD00078CD64 /* office_building.png */,
 				8C8662C62EA39DD00078CD64 /* palmtree.png */,
@@ -6783,6 +6806,15 @@
 				8C8662D82EA39DD00078CD64 /* pipe_horizontal.png */,
 				8C8662D92EA39DD00078CD64 /* pipe_vertical.png */,
 				8C8662DA2EA39DD00078CD64 /* pizza.png */,
+				8C277E432FA70AB60071E605 /* planet_east.png */,
+				8C277E442FA70AB60071E605 /* planet_none.png */,
+				8C277E452FA70AB60071E605 /* planet_north.png */,
+				8C277E462FA70AB60071E605 /* planet_north_east.png */,
+				8C277E472FA70AB60071E605 /* planet_north_west.png */,
+				8C277E482FA70AB60071E605 /* planet_south.png */,
+				8C277E492FA70AB60071E605 /* planet_south_east.png */,
+				8C277E4A2FA70AB60071E605 /* planet_south_west.png */,
+				8C277E4B2FA70AB60071E605 /* planet_west.png */,
 				8C8662DB2EA39DD00078CD64 /* plum.png */,
 				8C8662DC2EA39DD00078CD64 /* pomegranate.png */,
 				8C263EDE2F1C92ED00158A2C /* rabbit.png */,
@@ -6828,6 +6860,7 @@
 				8C8662FE2EA39DD00078CD64 /* step.png */,
 				8C8662FF2EA39DD00078CD64 /* stop.png */,
 				8C8663002EA39DD00078CD64 /* strawberry.png */,
+				8C277E552FA70E470071E605 /* sun.png */,
 				8C8663012EA39DD00078CD64 /* swan.png */,
 				8C8663022EA39DD00078CD64 /* sweetcorn.png */,
 				8C8663032EA39DD00078CD64 /* target.png */,
@@ -8483,6 +8516,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C277E562FA70E470071E605 /* sun.png in Resources */,
 				8C2963ED1FA20D620017A812 /* RobotFences.xml in Resources */,
 				8C263F422F1D0DB100158A2C /* FunnyNumbers.xml in Resources */,
 				8C263EDF2F1C92ED00158A2C /* rabbit.png in Resources */,
@@ -8838,6 +8872,7 @@
 				8C8664052EA39DD00078CD64 /* dumbbell (2).png in Resources */,
 				8C8664062EA39DD00078CD64 /* flower_light_blue.png in Resources */,
 				8C8664072EA39DD00078CD64 /* fish.png in Resources */,
+				8C277E582FA70E550071E605 /* nebula.png in Resources */,
 				8C8664082EA39DD00078CD64 /* car_bottom.png in Resources */,
 				8CB722092EAC44D6001B25C5 /* Landscaper.xml in Resources */,
 				8C8664092EA39DD00078CD64 /* branch_left.png in Resources */,
@@ -8916,6 +8951,15 @@
 				8C8664442EA39DD00078CD64 /* arrow_red_left.png in Resources */,
 				8C8664452EA39DD00078CD64 /* B2-f.png in Resources */,
 				8C8664462EA39DD00078CD64 /* cloud.png in Resources */,
+				8C277E4C2FA70AB60071E605 /* planet_north_west.png in Resources */,
+				8C277E4D2FA70AB60071E605 /* planet_south_west.png in Resources */,
+				8C277E4E2FA70AB60071E605 /* planet_south.png in Resources */,
+				8C277E4F2FA70AB60071E605 /* planet_none.png in Resources */,
+				8C277E502FA70AB60071E605 /* planet_north.png in Resources */,
+				8C277E512FA70AB60071E605 /* planet_west.png in Resources */,
+				8C277E522FA70AB60071E605 /* planet_north_east.png in Resources */,
+				8C277E532FA70AB60071E605 /* planet_south_east.png in Resources */,
+				8C277E542FA70AB60071E605 /* planet_east.png in Resources */,
 				8C263F8E2F20425300158A2C /* PondCamping.xml in Resources */,
 				8CB7221C2EAC8261001B25C5 /* Archipelago.xml in Resources */,
 				8C263E742F1282C500158A2C /* trebuchet.png in Resources */,

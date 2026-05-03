@@ -127,7 +127,7 @@ class ADifferentFarmerGameState: GridGameState<ADifferentFarmerGameMove> {
             }
         }
         for (p, node) in pos2node {
-            for os in ArchipelagoGame.offset {
+            for os in ADifferentFarmerGame.offset {
                 let p2 = p + os
                 guard let node2 = pos2node[p2] else {continue}
                 g.addEdge(node, neighbor: node2)
