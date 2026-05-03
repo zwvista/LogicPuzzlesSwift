@@ -17,7 +17,7 @@ class FarmerGame: GridGame<FarmerGameState> {
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
-    static let chars = " R^>v<"
+    static let chars = " ABC"
 
     var areas = [[Position]]()
     var pos2area = [Position: Int]()

@@ -1,6 +1,6 @@
 #!/bin/bash
 # 自动生成的Swift拷贝XML脚本
-# 生成时间: 2026-05-03 06:59:29
+# 生成时间: 2026-05-03 08:12:34
 
 echo "开始拷贝XML文件到Swift项目..."
 
@@ -110,6 +110,15 @@ if [ -f "../PSL/PuzzlesP/Puzzles/PlugItIn.xml" ]; then
     echo "✓ 已拷贝到Swift: PlugItIn"
 else
     echo "❌ 源文件不存在: ../PSL/PuzzlesP/Puzzles/PlugItIn.xml"
+fi
+
+# 拷贝 Planets (来自: PuzzlesP/Puzzles)
+mkdir -p LogicPuzzlesSwift/Puzzles/Planets
+if [ -f "../PSL/PuzzlesP/Puzzles/Planets.xml" ]; then
+    cp "../PSL/PuzzlesP/Puzzles/Planets.xml" "LogicPuzzlesSwift/Puzzles/Planets/Planets.xml"
+    echo "✓ 已拷贝到Swift: Planets"
+else
+    echo "❌ 源文件不存在: ../PSL/PuzzlesP/Puzzles/Planets.xml"
 fi
 
 # 拷贝 Pata (来自: PuzzlesP/Puzzles)
@@ -823,6 +832,15 @@ else
     echo "❌ 源文件不存在: ../PSL/PuzzlesA/Puzzles/AbstractMirrorPainting.xml"
 fi
 
+# 拷贝 ADifferentFarmer (来自: PuzzlesA/Puzzles)
+mkdir -p LogicPuzzlesSwift/Puzzles/ADifferentFarmer
+if [ -f "../PSL/PuzzlesA/Puzzles/ADifferentFarmer.xml" ]; then
+    cp "../PSL/PuzzlesA/Puzzles/ADifferentFarmer.xml" "LogicPuzzlesSwift/Puzzles/ADifferentFarmer/ADifferentFarmer.xml"
+    echo "✓ 已拷贝到Swift: ADifferentFarmer"
+else
+    echo "❌ 源文件不存在: ../PSL/PuzzlesA/Puzzles/ADifferentFarmer.xml"
+fi
+
 # 拷贝 AssemblyInstructions (来自: PuzzlesA/Puzzles)
 mkdir -p LogicPuzzlesSwift/Puzzles/AssemblyInstructions
 if [ -f "../PSL/PuzzlesA/Puzzles/AssemblyInstructions.xml" ]; then
@@ -866,6 +884,15 @@ if [ -f "../PSL/PuzzlesF/Puzzles/FenceSentinels.xml" ]; then
     echo "✓ 已拷贝到Swift: FenceSentinels"
 else
     echo "❌ 源文件不存在: ../PSL/PuzzlesF/Puzzles/FenceSentinels.xml"
+fi
+
+# 拷贝 Farmer (来自: PuzzlesF/Puzzles)
+mkdir -p LogicPuzzlesSwift/Puzzles/Farmer
+if [ -f "../PSL/PuzzlesF/Puzzles/Farmer.xml" ]; then
+    cp "../PSL/PuzzlesF/Puzzles/Farmer.xml" "LogicPuzzlesSwift/Puzzles/Farmer/Farmer.xml"
+    echo "✓ 已拷贝到Swift: Farmer"
+else
+    echo "❌ 源文件不存在: ../PSL/PuzzlesF/Puzzles/Farmer.xml"
 fi
 
 # 拷贝 FlowerBeds (来自: PuzzlesF/Puzzles)
@@ -1217,6 +1244,15 @@ if [ -f "../PSL/PuzzlesT/Puzzles/TapAlike.xml" ]; then
     echo "✓ 已拷贝到Swift: TapAlike"
 else
     echo "❌ 源文件不存在: ../PSL/PuzzlesT/Puzzles/TapAlike.xml"
+fi
+
+# 拷贝 TheMagicNumber (来自: PuzzlesT/Puzzles)
+mkdir -p LogicPuzzlesSwift/Puzzles/TheMagicNumber
+if [ -f "../PSL/PuzzlesT/Puzzles/TheMagicNumber.xml" ]; then
+    cp "../PSL/PuzzlesT/Puzzles/TheMagicNumber.xml" "LogicPuzzlesSwift/Puzzles/TheMagicNumber/TheMagicNumber.xml"
+    echo "✓ 已拷贝到Swift: TheMagicNumber"
+else
+    echo "❌ 源文件不存在: ../PSL/PuzzlesT/Puzzles/TheMagicNumber.xml"
 fi
 
 # 拷贝 TrafficWardenRevenge (来自: PuzzlesT/Puzzles)
@@ -1750,4 +1786,4 @@ else
     echo "❌ 源文件不存在: ../PSL/PuzzlesU/Puzzles/Underground.xml"
 fi
 
-echo "\nSwift拷贝完成，共处理 194 个游戏"
+echo "\nSwift拷贝完成，共处理 198 个游戏"
