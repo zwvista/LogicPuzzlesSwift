@@ -1727,6 +1727,15 @@
 		8CACC9352E9BC56E00F53475 /* HidokuGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CACC9282E9BC56E00F53475 /* HidokuGameScene.swift */; };
 		8CACC9362E9BC56E00F53475 /* HidokuDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CACC9262E9BC56E00F53475 /* HidokuDocument.swift */; };
 		8CACC9372E9BC56E00F53475 /* Hidoku.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CACC9252E9BC56E00F53475 /* Hidoku.xml */; };
+		8CAEAF0B2FAA7C1A003F40B8 /* HedgeMaze.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CAEAF012FAA7C1A003F40B8 /* HedgeMaze.xml */; };
+		8CAEAF0C2FAA7C1A003F40B8 /* HedgeMazeGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEAF052FAA7C1A003F40B8 /* HedgeMazeGameState.swift */; };
+		8CAEAF0D2FAA7C1A003F40B8 /* HedgeMazeGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEAF042FAA7C1A003F40B8 /* HedgeMazeGameScene.swift */; };
+		8CAEAF0E2FAA7C1A003F40B8 /* HedgeMazeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEAF032FAA7C1A003F40B8 /* HedgeMazeGame.swift */; };
+		8CAEAF0F2FAA7C1A003F40B8 /* HedgeMazeGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEAF072FAA7C1A003F40B8 /* HedgeMazeGridNode.swift */; };
+		8CAEAF102FAA7C1A003F40B8 /* HedgeMazeGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEAF062FAA7C1A003F40B8 /* HedgeMazeGameViewController.swift */; };
+		8CAEAF112FAA7C1A003F40B8 /* HedgeMazeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEAF092FAA7C1A003F40B8 /* HedgeMazeObject.swift */; };
+		8CAEAF122FAA7C1A003F40B8 /* HedgeMazeDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEAF022FAA7C1A003F40B8 /* HedgeMazeDocument.swift */; };
+		8CAEAF132FAA7C1A003F40B8 /* HedgeMazeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEAF082FAA7C1A003F40B8 /* HedgeMazeMainViewController.swift */; };
 		8CAFBFC72E9D9FE500C27D7C /* ArrowsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFBE2E9D9FE500C27D7C /* ArrowsDocument.swift */; };
 		8CAFBFC82E9D9FE500C27D7C /* ArrowsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFC32E9D9FE500C27D7C /* ArrowsGridNode.swift */; };
 		8CAFBFC92E9D9FE500C27D7C /* ArrowsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFC52E9D9FE500C27D7C /* ArrowsObject.swift */; };
@@ -3952,6 +3961,15 @@
 		8CACC92B2E9BC56E00F53475 /* HidokuGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidokuGridNode.swift; sourceTree = "<group>"; };
 		8CACC92C2E9BC56E00F53475 /* HidokuMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidokuMainViewController.swift; sourceTree = "<group>"; };
 		8CACC92D2E9BC56E00F53475 /* HidokuObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidokuObject.swift; sourceTree = "<group>"; };
+		8CAEAF012FAA7C1A003F40B8 /* HedgeMaze.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HedgeMaze.xml; sourceTree = "<group>"; };
+		8CAEAF022FAA7C1A003F40B8 /* HedgeMazeDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HedgeMazeDocument.swift; sourceTree = "<group>"; };
+		8CAEAF032FAA7C1A003F40B8 /* HedgeMazeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HedgeMazeGame.swift; sourceTree = "<group>"; };
+		8CAEAF042FAA7C1A003F40B8 /* HedgeMazeGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HedgeMazeGameScene.swift; sourceTree = "<group>"; };
+		8CAEAF052FAA7C1A003F40B8 /* HedgeMazeGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HedgeMazeGameState.swift; sourceTree = "<group>"; };
+		8CAEAF062FAA7C1A003F40B8 /* HedgeMazeGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HedgeMazeGameViewController.swift; sourceTree = "<group>"; };
+		8CAEAF072FAA7C1A003F40B8 /* HedgeMazeGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HedgeMazeGridNode.swift; sourceTree = "<group>"; };
+		8CAEAF082FAA7C1A003F40B8 /* HedgeMazeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HedgeMazeMainViewController.swift; sourceTree = "<group>"; };
+		8CAEAF092FAA7C1A003F40B8 /* HedgeMazeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HedgeMazeObject.swift; sourceTree = "<group>"; };
 		8CAFBFBD2E9D9FE500C27D7C /* Arrows.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Arrows.xml; sourceTree = "<group>"; };
 		8CAFBFBE2E9D9FE500C27D7C /* ArrowsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowsDocument.swift; sourceTree = "<group>"; };
 		8CAFBFBF2E9D9FE500C27D7C /* ArrowsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowsGame.swift; sourceTree = "<group>"; };
@@ -5364,6 +5382,7 @@
 				8CB4187A2F23B21B005C7FDF /* GardenTunnels */,
 				8C81BBFB2EA4A04F0083B936 /* Gems */,
 				8CF17FC22F375E0F000F1F7D /* Guesstris */,
+				8CAEAF0A2FAA7C1A003F40B8 /* HedgeMaze */,
 				8CFB221F2EF87D8E00E5F29D /* HeliumAndIron */,
 				8C263E302F11EE2B00158A2C /* HiddenClouds */,
 				7DF1B04E2E8A7EB6006008A3 /* HiddenPath */,
@@ -7573,6 +7592,22 @@
 			path = Hidoku;
 			sourceTree = "<group>";
 		};
+		8CAEAF0A2FAA7C1A003F40B8 /* HedgeMaze */ = {
+			isa = PBXGroup;
+			children = (
+				8CAEAF012FAA7C1A003F40B8 /* HedgeMaze.xml */,
+				8CAEAF022FAA7C1A003F40B8 /* HedgeMazeDocument.swift */,
+				8CAEAF032FAA7C1A003F40B8 /* HedgeMazeGame.swift */,
+				8CAEAF042FAA7C1A003F40B8 /* HedgeMazeGameScene.swift */,
+				8CAEAF052FAA7C1A003F40B8 /* HedgeMazeGameState.swift */,
+				8CAEAF062FAA7C1A003F40B8 /* HedgeMazeGameViewController.swift */,
+				8CAEAF072FAA7C1A003F40B8 /* HedgeMazeGridNode.swift */,
+				8CAEAF082FAA7C1A003F40B8 /* HedgeMazeMainViewController.swift */,
+				8CAEAF092FAA7C1A003F40B8 /* HedgeMazeObject.swift */,
+			);
+			path = HedgeMaze;
+			sourceTree = "<group>";
+		};
 		8CAFBFC62E9D9FE500C27D7C /* Arrows */ = {
 			isa = PBXGroup;
 			children = (
@@ -8941,6 +8976,7 @@
 				8C86643D2EA39DD00078CD64 /* wood1.png in Resources */,
 				8C86643E2EA39DD00078CD64 /* cow_face.png in Resources */,
 				8CB4190A2F25EC73005C7FDF /* InbetweenNurikabe.xml in Resources */,
+				8CAEAF0B2FAA7C1A003F40B8 /* HedgeMaze.xml in Resources */,
 				8C86643F2EA39DD00078CD64 /* arrow_blue_ul.png in Resources */,
 				8C8664402EA39DD00078CD64 /* step.png in Resources */,
 				8C8664412EA39DD00078CD64 /* navigate_right.png in Resources */,
@@ -9582,6 +9618,14 @@
 				8C263E6F2F11F53000158A2C /* PipemaniaDocument.swift in Sources */,
 				8C263E702F11F53000158A2C /* PipemaniaGameScene.swift in Sources */,
 				8C263E712F11F53000158A2C /* PipemaniaGameState.swift in Sources */,
+				8CAEAF0C2FAA7C1A003F40B8 /* HedgeMazeGameState.swift in Sources */,
+				8CAEAF0D2FAA7C1A003F40B8 /* HedgeMazeGameScene.swift in Sources */,
+				8CAEAF0E2FAA7C1A003F40B8 /* HedgeMazeGame.swift in Sources */,
+				8CAEAF0F2FAA7C1A003F40B8 /* HedgeMazeGridNode.swift in Sources */,
+				8CAEAF102FAA7C1A003F40B8 /* HedgeMazeGameViewController.swift in Sources */,
+				8CAEAF112FAA7C1A003F40B8 /* HedgeMazeObject.swift in Sources */,
+				8CAEAF122FAA7C1A003F40B8 /* HedgeMazeDocument.swift in Sources */,
+				8CAEAF132FAA7C1A003F40B8 /* HedgeMazeMainViewController.swift in Sources */,
 				8CB721F52EAB6C54001B25C5 /* BotanicalParkGameScene.swift in Sources */,
 				8C8E77FC2E89D537006BBF98 /* HiddenStarsGridNode.swift in Sources */,
 				8C8E77FD2E89D537006BBF98 /* HiddenStarsGameState.swift in Sources */,

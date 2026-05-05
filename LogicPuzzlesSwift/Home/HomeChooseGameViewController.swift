@@ -39,6 +39,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         "RunInALoop": "Run in a Loop",
         "SheepAndWolves": "Sheep & Wolves",
         "ShopAndGas": "Shop & Gas",
+        "SlitherArrowLink": "SlitherArrowLink",
         "SlitherCorner": "SlitherCorner",
         "SlitherLink": "SlitherLink",
         "Snakeomino": "Snake-omino",
