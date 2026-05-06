@@ -25,6 +25,8 @@ class HedgeMazeGame: GridGame<HedgeMazeGameState> {
     var dots: GridDots!
     var objArray = [HedgeMazeObject]()
     var iconlessAreas = [Int]()
+    var gates = [Position]()
+    var steps = [Position]()
 
     init(layout: [String], delegate: HedgeMazeGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -52,7 +54,14 @@ class HedgeMazeGame: GridGame<HedgeMazeGameState> {
                 }
                 guard c < cols else {continue}
                 let ch2 = str[2 * c + 1]
-                self[r, c] = HedgeMazeObject(rawValue: HedgeMazeGame.chars.getIndexOf(ch2)!)!
+                let o = HedgeMazeObject(rawValue: HedgeMazeGame.chars.getIndexOf(ch2)!)!
+                let p = Position(r, c)
+                self[p] = o
+                if o == .gate {
+                    gates.append(p)
+                } else if o == .step {
+                    steps.append(p)
+                }
             }
         }
         let g = Graph()

@@ -57,7 +57,6 @@ class HedgeMazeGameScene: GameScene<HedgeMazeGameState> {
     func addInvalid2x2(state: HedgeMazeGameState) {
         for p in state.invalid2x2Squares {
             let point = gridNode.cornerPoint(p: p)
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
             addDotMarker2(color: .red, point: point, nodeName: "invalid2x2")
         }
     }

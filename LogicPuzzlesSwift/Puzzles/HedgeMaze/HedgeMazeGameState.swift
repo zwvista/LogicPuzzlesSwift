@@ -82,17 +82,79 @@ class HedgeMazeGameState: GridGameState<HedgeMazeGameMove> {
         5. Tiles with any icon count as empty and cannot be filled with hedges.
     */
     private func updateIsSolved() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
         // 4. On the board there can't be a 2x2 area all made of hedges or all without hedges (empty).
+        // 5. Tiles with any icon count as empty and cannot be filled with hedges.
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                if (HedgeMazeGame.offset3.map { p + $0 }.allSatisfy { self[$0] == .hedge } ||
-                    HedgeMazeGame.offset3.map { p + $0 }.allSatisfy { self[$0] != .hedge }) {
+                var hedgeAreas = Set<Int>()
+                var iconAreas = Set<Int>()
+                var emptyAreas = Set<Int>()
+                for os in HedgeMazeGame.offset3 {
+                    let p2 = p + os
+                    let id = game.pos2area[p2]!
+                    let o = self[p2]
+                    if o == .hedge {
+                        hedgeAreas.insert(id)
+                    } else if !game.iconlessAreas.contains(id) {
+                        iconAreas.insert(id)
+                    } else {
+                        emptyAreas.insert(id)
+                    }
+                }
+                if hedgeAreas.isEmpty || iconAreas.isEmpty && emptyAreas.isEmpty {
                     invalid2x2Squares.append(p + Position.SouthEast); isSolved = false
+                } else if allowedObjectsOnly && iconAreas.isEmpty && emptyAreas.count == 1 {
+                    let area = game.areas[emptyAreas.first!]
+                    for p2 in area { self[p2] = .forbidden }
                 }
             }
         }
         guard isSolved else {return}
+        // 2. The maze should be one tile wide. It can branch itself, but not close in a loop.
+        var rng = Set<Position>()
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                if self[p] != .hedge {
+                    rng.insert(p)
+                }
+            }
+        }
+        var moves = Set<Position>()
+        func dfs(p: Position, n: Int) -> Bool {
+            guard moves.insert(p).inserted else { return false }
+            for i in 0..<4 {
+                if i == n {continue}
+                let p2 = p + HedgeMazeGame.offset[i]
+                guard rng.contains(p2) else {continue}
+                guard dfs(p: p2, n: (i + 2) % 4) else { return false }
+            }
+            return true
+        }
+        guard dfs(p: rng.first!, n: -1) && moves.count == rng.count else { isSolved = false; return }
+        // 3. There should be a path between the two gates. This path should pass on
+        //    all the steps and not on any fountain.
+        let gate1 = game.gates[0], gate2 = game.gates[1]
+        moves.removeAll()
+        func dfs2(p: Position, n: Int) -> Bool {
+            let o = self[p]
+            guard o != .fountain else { return false }
+            moves.insert(p)
+            if p == gate2 { return true }
+            for i in 0..<4 {
+                if i == n {continue}
+                let p2 = p + HedgeMazeGame.offset[i]
+                guard rng.contains(p2) else {continue}
+                if dfs2(p: p2, n: (i + 2) % 4) { return true }
+            }
+            moves.remove(p)
+            return false
+        }
+        if !(dfs2(p: gate1, n: -1) && game.steps.allSatisfy {
+            moves.contains($0)
+        }) { isSolved = false }
     }
 }
