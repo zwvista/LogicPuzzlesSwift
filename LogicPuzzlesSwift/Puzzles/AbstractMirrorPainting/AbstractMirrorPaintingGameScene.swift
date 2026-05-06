@@ -32,7 +32,7 @@ class AbstractMirrorPaintingGameScene: GameScene<AbstractMirrorPaintingGameState
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
-            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
+            addHint(n: n, s: state.pos2stateHint[p]!, point: point, nodeName: hintNodeName)
         }
 
         for r in 0..<game.rows {
@@ -90,7 +90,7 @@ class AbstractMirrorPaintingGameScene: GameScene<AbstractMirrorPaintingGameState
                 let markerNodeName = "marker" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                func addHint2() { addHint(n: game.pos2hint[p]!, s: stateTo.pos2state[p]!, point: point, nodeName: hintNodeName) }
+                func addHint2() { addHint(n: game.pos2hint[p]!, s: stateTo.pos2stateHint[p]!, point: point, nodeName: hintNodeName) }
                 func removeHint() { removeNode(withName: hintNodeName) }
                 func addPaintedCell() { addBlock(color: .purple, point: point, nodeName: paintedCellNodeName) }
                 func removePaintedCell() { removeNode(withName: paintedCellNodeName) }
@@ -119,7 +119,7 @@ class AbstractMirrorPaintingGameScene: GameScene<AbstractMirrorPaintingGameState
                         break
                     }
                 }
-                guard let s1 = stateFrom.pos2state[p], let s2 = stateTo.pos2state[p] else {continue}
+                guard let s1 = stateFrom.pos2stateHint[p], let s2 = stateTo.pos2stateHint[p] else {continue}
                 if s1 != s2 {
                     removeHint()
                     addHint2()

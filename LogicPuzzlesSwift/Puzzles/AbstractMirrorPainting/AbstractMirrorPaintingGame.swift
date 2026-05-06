@@ -17,13 +17,13 @@ class AbstractMirrorPaintingGame: GridGame<AbstractMirrorPaintingGameState> {
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
-    static let offset3 = Position.Square2x2Offset
 
     var pos2hint = [Position: Int]()
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
     var dots: GridDots!
-    
+    var mirrors = [AbstractMirrorPaintingMirror]()
+
     init(layout: [String], delegate: AbstractMirrorPaintingGameViewController? = nil) {
         super.init(delegate: delegate)
         
@@ -81,7 +81,21 @@ class AbstractMirrorPaintingGame: GridGame<AbstractMirrorPaintingGameState> {
             }
             areas.append(area)
         }
-        
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p1 = Position(r, c)
+                let areaId1 = pos2area[p1]!
+                for i in [1, 2] {
+                    let p2 = p1 + AbstractMirrorPaintingGame.offset[i]
+                    guard let areaId2 = pos2area[p2], areaId1 != areaId2 else {continue}
+                    if areaId1 < areaId2 {
+                        mirrors.append(AbstractMirrorPaintingMirror(p1: p1, p2: p2, areaId1: areaId1, areaId2: areaId2))
+                    } else {
+                        mirrors.append(AbstractMirrorPaintingMirror(p1: p2, p2: p1, areaId1: areaId2, areaId2: areaId1))
+                    }
+                }
+            }
+        }
         let state = AbstractMirrorPaintingGameState(game: self)
         levelInitialized(state: state)
     }

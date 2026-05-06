@@ -15,8 +15,12 @@ enum AbstractMirrorPaintingObject: Int {
     }
 }
 
+struct AbstractMirrorPaintingMirror {
+    let p1, p2: Position
+    let areaId1, areaId2: Int
+}
+
 struct AbstractMirrorPaintingGameMove {
     var p = Position()
     var obj = AbstractMirrorPaintingObject()
 }
-
