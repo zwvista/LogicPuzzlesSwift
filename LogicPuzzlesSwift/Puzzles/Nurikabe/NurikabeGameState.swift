@@ -95,7 +95,8 @@ class NurikabeGameState: GridGameState<NurikabeGameMove> {
         for r in 0..<rows - 1 {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                if NurikabeGame.offset2.map({ p + $0 }).allSatisfy({ self[$0] == .wall }) { invalid2x2Squares.append(p + Position.SouthEast); isSolved = false
+                if (NurikabeGame.offset2.map { p + $0 }.allSatisfy { self[$0] == .wall }) {
+                    invalid2x2Squares.append(p + Position.SouthEast); isSolved = false
                 }
             }
         }

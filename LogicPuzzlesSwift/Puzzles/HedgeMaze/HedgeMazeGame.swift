@@ -17,12 +17,14 @@ class HedgeMazeGame: GridGame<HedgeMazeGameState> {
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
-    static let chars = " R^>v<"
+    static let offset3 = Position.Square2x2Offset
+    static let chars = " GSF"
 
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
     var dots: GridDots!
     var objArray = [HedgeMazeObject]()
+    var iconlessAreas = [Int]()
 
     init(layout: [String], delegate: HedgeMazeGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -81,6 +83,8 @@ class HedgeMazeGame: GridGame<HedgeMazeGameState> {
             }
             areas.append(area)
         }
+        
+        iconlessAreas = areas.indices.filter { areas[$0].allSatisfy { self[$0] == .empty } }
 
         let state = HedgeMazeGameState(game: self)
         levelInitialized(state: state)

@@ -9,7 +9,8 @@
 import Foundation
 
 enum HedgeMazeObject: Int {
-    case empty, rome, up, right, down, left
+    case empty, gate, step, fountain
+    case forbidden, marker, hedge
     init() {
         self = .empty
     }

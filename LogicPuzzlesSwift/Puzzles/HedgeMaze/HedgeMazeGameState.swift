@@ -15,7 +15,7 @@ class HedgeMazeGameState: GridGameState<HedgeMazeGameMove> {
     }
     override var gameDocument: GameDocumentBase { HedgeMazeDocument.sharedInstance }
     var objArray = [HedgeMazeObject]()
-    var pos2state = [Position: AllowedObjectState]()
+    var invalid2x2Squares = [Position]()
 
     override func copy() -> HedgeMazeGameState {
         let v = HedgeMazeGameState(game: game, isCopy: true)
@@ -45,22 +45,23 @@ class HedgeMazeGameState: GridGameState<HedgeMazeGameMove> {
     
     override func setObject(move: inout HedgeMazeGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p), game[p] == .empty, self[p] != move.obj else { return .invalid }
-        self[p] = move.obj
+        guard isValid(p: p), game.iconlessAreas.contains(game.pos2area[p]!), self[p] != move.obj else { return .invalid }
+        for p2 in game.areas[game.pos2area[p]!] {
+            self[p2] = move.obj
+        }
         updateIsSolved()
         return .moveComplete
     }
     
     override func switchObject(move: inout HedgeMazeGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p), game[p] == .empty else { return .invalid }
+        guard isValid(p: p), game.iconlessAreas.contains(game.pos2area[p]!) else { return .invalid }
+        let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: .up
-        case .up: .right
-        case .right: .down
-        case .down: .left
-        case .left: .empty
+        case .empty: markerOption == .markerFirst ? .marker : .hedge
+        case .hedge: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .hedge : .empty
         default: o
         }
         return setObject(move: &move)
@@ -82,50 +83,16 @@ class HedgeMazeGameState: GridGameState<HedgeMazeGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        for r in 0..<rows {
-            for c in 0..<cols {
-                pos2state[Position(r, c)] = .normal
-            }
-        }
-        // 3. Arrows in an area should all be different, i.e. there can't be two
-        //    similar arrows in an area.
-        for area in game.areas {
-            var symbol2range = [HedgeMazeObject: [Position]]()
-            for p in area { symbol2range[self[p], default: []].append(p) }
-            for (_, range) in symbol2range where range.count > 1 {
-                isSolved = false
-                for p in range { pos2state[p] = .error }
-            }
-            if symbol2range.keys.contains(HedgeMazeObject.empty) { isSolved = false }
-        }
-        guard isSolved else {return}
-        // 1. All the roads lead to HedgeMaze.
-        // 2. Hence you should fill the remaining spaces with arrows and in the
-        //    end, starting at any tile and following the arrows, you should get
-        //    at the HedgeMaze icon.
-        var validRange = Set<Position>()
-        var invalidRange = Set<Position>()
-        for r in 0..<rows {
-            for c in 0..<cols {
-                var p = Position(r, c)
-                var range = Set<Position>()
-                while true {
-                    let o = self[p]
-                    if o == .rome || validRange.contains(p) {
-                        for p2 in range { validRange.insert(p2) }
-                        break
-                    }
-                    if !isValid(p: p) || invalidRange.contains(p) || range.contains(p) {
-                        isSolved = false
-                        for p2 in range { invalidRange.insert(p2) }
-                        break
-                    }
-                    range.insert(p)
-                    let os = HedgeMazeGame.offset[o.rawValue - 2]
-                    p += os
+        // 4. On the board there can't be a 2x2 area all made of hedges or all without hedges (empty).
+        for r in 0..<rows - 1 {
+            for c in 0..<cols - 1 {
+                let p = Position(r, c)
+                if (HedgeMazeGame.offset3.map { p + $0 }.allSatisfy { self[$0] == .hedge } ||
+                    HedgeMazeGame.offset3.map { p + $0 }.allSatisfy { self[$0] != .hedge }) {
+                    invalid2x2Squares.append(p + Position.SouthEast); isSolved = false
                 }
             }
         }
-        for p in invalidRange { pos2state[p] = .error }
+        guard isSolved else {return}
     }
 }
