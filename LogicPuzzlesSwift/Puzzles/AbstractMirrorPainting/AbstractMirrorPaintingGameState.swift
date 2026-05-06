@@ -97,7 +97,9 @@ class AbstractMirrorPaintingGameState: GridGameState<AbstractMirrorPaintingGameM
             if s != .complete { isSolved = false }
             pos2stateHint[p] = s
             if allowedObjectsOnly && s != .normal {
-                for p2 in area { self[p2] = .forbidden }
+                for p2 in area where self[p2] == .empty || self[p2] == .marker {
+                    self[p2] = .forbidden
+                }
             }
         }
         // 2. You should paint areas that span two adjacent regions. The area is symmetrical with respect
@@ -121,6 +123,25 @@ class AbstractMirrorPaintingGameState: GridGameState<AbstractMirrorPaintingGameM
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
             let painting = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
+            let areaSet = Set(painting.map { game.pos2area[$0]! }).sorted()
+            if areaSet.count != 2 {
+                isSolved = false
+                for p in painting { pos2stateAllowed[p] = .error }
+            } else {
+                let (areaId1, areaId2) = (areaSet.first!, areaSet.last!)
+                let painting1 = painting.filter { game.pos2area[$0] == areaId1 }
+                let painting2 = painting.filter { game.pos2area[$0] == areaId2 }
+                let mirrors = game.mirrors.filter { $0.areaId1 == areaId1 && $0.areaId2 == areaId2 }
+                if (!mirrors.contains {
+                    let (p1, p2) = ($0.p1, $0.p2)
+                    return painting1.allSatisfy {
+                        painting2.contains($0 - p1 + p2)
+                    }
+                }) {
+                    isSolved = false
+                    for p in painting { pos2stateAllowed[p] = .error }
+                }
+            }
         }
     }
 }

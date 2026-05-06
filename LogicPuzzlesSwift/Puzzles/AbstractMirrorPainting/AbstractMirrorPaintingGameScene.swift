@@ -18,38 +18,7 @@ class AbstractMirrorPaintingGameScene: GameScene<AbstractMirrorPaintingGameState
         addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
     }
     
-    override func levelInitialized(_ game: AnyObject, state: AbstractMirrorPaintingGameState, skView: SKView) {
-        let game = game as! AbstractMirrorPaintingGame
-        removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
-        
-        // add Grid
-        let offset:CGFloat = 0.5
-        addGrid(gridNode: AbstractMirrorPaintingGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
-        
-        // add Hints
-        for (p, n) in game.pos2hint {
-            let point = gridNode.centerPoint(p: p)
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let hintNodeName = "hint" + nodeNameSuffix
-            addHint(n: n, s: state.pos2stateHint[p]!, point: point, nodeName: hintNodeName)
-        }
-
-        for r in 0..<game.rows {
-            for c in 0..<game.cols {
-                let p = Position(r, c)
-                let point = gridNode.centerPoint(p: p)
-                let nodeNameSuffix = "-\(r)-\(c)"
-                let forbiddenNodeName = "forbidden" + nodeNameSuffix
-                switch state[p] {
-                case .forbidden:
-                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
-                default:
-                    break
-                }
-            }
-        }
-        
+    func addLines(game: AbstractMirrorPaintingGame) {
         let pathToDraw = CGMutablePath()
         let lineNode = SKShapeNode(path: pathToDraw)
         for r in 0..<game.rows + 1 {
@@ -78,6 +47,26 @@ class AbstractMirrorPaintingGameScene: GameScene<AbstractMirrorPaintingGameState
         lineNode.name = "line"
         gridNode.addChild(lineNode)
     }
+
+    override func levelInitialized(_ game: AnyObject, state: AbstractMirrorPaintingGameState, skView: SKView) {
+        let game = game as! AbstractMirrorPaintingGame
+        removeAllChildren()
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
+        
+        // add Grid
+        let offset:CGFloat = 0.5
+        addGrid(gridNode: AbstractMirrorPaintingGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
+        
+        // add Hints
+        for (p, n) in game.pos2hint {
+            let point = gridNode.centerPoint(p: p)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let hintNodeName = "hint" + nodeNameSuffix
+            addHint(n: n, s: state.pos2stateHint[p]!, point: point, nodeName: hintNodeName)
+        }
+        
+        addLines(game: game)
+    }
     
     override func levelUpdated(from stateFrom: AbstractMirrorPaintingGameState, to stateTo: AbstractMirrorPaintingGameState) {
         let game = stateFrom.game
@@ -86,45 +75,24 @@ class AbstractMirrorPaintingGameScene: GameScene<AbstractMirrorPaintingGameState
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let paintedCellNodeName = "paintedCell" + nodeNameSuffix
-                let markerNodeName = "marker" + nodeNameSuffix
-                let forbiddenNodeName = "forbidden" + nodeNameSuffix
+                let tileNodeName = "tile" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
-                func addHint2() { addHint(n: game.pos2hint[p]!, s: stateTo.pos2stateHint[p]!, point: point, nodeName: hintNodeName) }
-                func removeHint() { removeNode(withName: hintNodeName) }
-                func addPaintedCell() { addBlock(color: .purple, point: point, nodeName: paintedCellNodeName) }
-                func removePaintedCell() { removeNode(withName: paintedCellNodeName) }
-                func addMarker() { addDotMarker(point: point, nodeName: markerNodeName) }
-                func removeMarker() { removeNode(withName: markerNodeName) }
-                func removeForbidden() { removeNode(withName: forbiddenNodeName) }
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                if o1 != o2 {
-                    switch o1 {
-                    case .painted:
-                        removePaintedCell()
-                    case .marker:
-                        removeMarker()
-                    default:
-                        break
-                    }
-                    switch o2 {
-                    case .painted:
-                        let b = game.pos2hint[p] != nil
-                        if b { removeHint() }
-                        addPaintedCell()
-                        if b { addHint2() }
-                    case .marker:
-                        addMarker()
-                    default:
-                        break
-                    }
-                }
-                guard let s1 = stateFrom.pos2stateHint[p], let s2 = stateTo.pos2stateHint[p] else {continue}
-                if s1 != s2 {
-                    removeHint()
-                    addHint2()
+                let (s1, s2) = (stateFrom.pos2stateHint[p], stateTo.pos2stateHint[p])
+                guard o1 != o2 || s1 != s2 else {continue}
+                if o1 != .empty { removeNode(withName: tileNodeName) }
+                if s1 != nil { removeNode(withName: hintNodeName) }
+                if o2 == .painted { addBlock(color: .purple, point: point, nodeName: tileNodeName) }
+                if s2 != nil { addHint(n: game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName) }
+                if o2 == .forbidden {
+                    addForbiddenMarker(point: point, nodeName: tileNodeName)
+                } else if o2 == .marker {
+                    addDotMarker(point: point, nodeName: tileNodeName)
                 }
             }
         }
+
+        removeNode(withName: "line")
+        addLines(game: game)
     }
 }
