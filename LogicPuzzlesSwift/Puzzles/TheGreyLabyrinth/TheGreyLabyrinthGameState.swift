@@ -59,7 +59,7 @@ class TheGreyLabyrinthGameState: GridGameState<TheGreyLabyrinthGameMove> {
         move.obj = switch o {
         case .empty: markerOption == .markerFirst ? .marker : .wall
         case .wall: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .signpost : .empty
+        case .marker: markerOption == .markerFirst ? .wall : .empty
         default: o
         }
         return setObject(move: &move)
@@ -79,15 +79,8 @@ class TheGreyLabyrinthGameState: GridGameState<TheGreyLabyrinthGameMove> {
         5. You must follow the arrows, where present.
     */
     private func updateIsSolved() {
-        func isEmpty(p: Position) -> Bool {
-            if self[p] == .wall { return false }
-            return true
-        }
-        
         let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
-        let g = Graph()
-        var pos2node = [Position: Node]()
         var walls = [Position]()
         for r in 0..<rows {
             for c in 0..<cols {
@@ -95,42 +88,15 @@ class TheGreyLabyrinthGameState: GridGameState<TheGreyLabyrinthGameMove> {
                 switch self[p] {
                 case .forbidden:
                     self[p] = .empty
-                case .signpost:
-                    pos2state[p] = .normal
                 case .wall:
                     pos2state[p] = .normal
                     walls.append(p)
                 default:
                     break
                 }
-                if isEmpty(p: p) {
-                    pos2node[p] = g.addNode(p.description)
-                }
             }
         }
-        for (p, node) in pos2node {
-            for os in TheGreyLabyrinthGame.offset {
-                let p2 = p + os
-                guard let node2 = pos2node[p2] else {continue}
-                g.addEdge(node, neighbor: node2)
-            }
-        }
-        // 5. All the signposts and empty spaces must form an orthogonally continuous
-        // area.
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count { isSolved = false }
-        
-        // 3. In order to go from one signpost to the other, you have to turn at least
-        // twice.
-        for (p1, p2, path) in game.paths {
-            if path.allSatisfy({ isEmpty(p: $0) }) {
-                isSolved = false
-                pos2state[p1] = .error
-                pos2state[p2] = .error
-            }
-        }
-        
-        // 4. Walls can't touch horizontally or vertically.
+        // 3. Walls can't touch each other orthogonally.
         for p in walls {
             for os in TheGreyLabyrinthGame.offset {
                 let p2 = p + os
@@ -139,12 +105,11 @@ class TheGreyLabyrinthGameState: GridGameState<TheGreyLabyrinthGameMove> {
                 case .wall:
                     isSolved = false
                     pos2state[p] = .error
-                    pos2state[p2] = .error
                 case .empty:
                     if allowedObjectsOnly {
                         self[p2] = .forbidden
                     }
-                default :
+                default:
                     break
                 }
             }

@@ -84,8 +84,7 @@ class TurnTwiceGameState: GridGameState<TurnTwiceGameMove> {
     */
     private func updateIsSolved() {
         func isEmpty(p: Position) -> Bool {
-            if self[p] == .wall { return false }
-            return true
+            self[p] != .wall
         }
         
         let allowedObjectsOnly = self.allowedObjectsOnly
@@ -148,7 +147,7 @@ class TurnTwiceGameState: GridGameState<TurnTwiceGameMove> {
                     if allowedObjectsOnly {
                         self[p2] = .forbidden
                     }
-                default :
+                default:
                     break
                 }
             }

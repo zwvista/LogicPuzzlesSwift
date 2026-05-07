@@ -9,8 +9,8 @@
 import Foundation
 
 enum TheGreyLabyrinthObject: Int {
-    case empty, forbidden, marker
-    case signpost, wall
+    case empty, treasure, up, right, down, left
+    case forbidden, marker, wall
     init() {
         self = .empty
     }
