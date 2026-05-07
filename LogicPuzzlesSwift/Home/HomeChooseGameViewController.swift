@@ -21,6 +21,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         "FenceLits": "FenceLits",
         "FlowerOMino": "Flower-O-Mino",
         "FourMeNot": "Four-Me-Not",
+        "GuessTheLabyrinth": "Guess the Labyrinth",
         "JoinMe": "Join Me!",
         "LakesAndMeadows": "Lakes and Meadows",
         "LineSweeper": "LineSweeper",
