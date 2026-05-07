@@ -83,7 +83,7 @@ class CrossroadBlocksGameState: GridGameState<CrossroadBlocksGameMove> {
                 if dirs.count == 2 {
                     // 1. Draw a loop that runs through all tiles.
                     pos2dirs[p] = dirs
-                } else if !(dirs.isEmpty && game.pos2hint[p] == nil) {
+                } else if !dirs.isEmpty {
                     // 2. The loop cannot cross itself.
                     isSolved = false
                 }
@@ -91,6 +91,17 @@ class CrossroadBlocksGameState: GridGameState<CrossroadBlocksGameMove> {
         }
         for (p, hint) in game.pos2hint {
             let (isBlack, n2, dir) = (hint.isBlack, hint.num, hint.dir)
+            if isBlack != {
+                let os = CrossroadBlocksGame.offset[0]
+                var n1 = 0, n3 = 0
+                var p2 = p + os
+                while isValid(p: p2) {
+                    if self[p2][1] { n1 += 1 }
+                    if self[p2][3] { n3 += 1 }
+                    p2 += os
+                }
+                return min(n1, n3) % 2 == 1
+            }() { isSolved = false }
             guard n2 != CrossroadBlocksGame.PUZ_UNKNOWN else {continue}
             var n1 = 0
             let os = CrossroadBlocksGame.offset[dir]
