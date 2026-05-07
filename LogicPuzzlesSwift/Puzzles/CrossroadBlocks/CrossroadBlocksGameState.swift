@@ -15,7 +15,8 @@ class CrossroadBlocksGameState: GridGameState<CrossroadBlocksGameMove> {
     }
     override var gameDocument: GameDocumentBase { CrossroadBlocksDocument.sharedInstance }
     var objArray = [CrossroadBlocksObject]()
-    
+    var pos2state = [Position: HintState]()
+
     override func copy() -> CrossroadBlocksGameState {
         let v = CrossroadBlocksGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -45,7 +46,7 @@ class CrossroadBlocksGameState: GridGameState<CrossroadBlocksGameMove> {
     override func setObject(move: inout CrossroadBlocksGameMove) -> GameOperationType {
         let p = move.p, dir = move.dir
         let p2 = p + CrossroadBlocksGame.offset[dir], dir2 = (dir + 2) % 4
-        guard isValid(p: p2) && game[p] != CrossroadBlocksGame.PUZ_BLOCK && game[p2] != CrossroadBlocksGame.PUZ_BLOCK else { return .invalid }
+        guard isValid(p: p2) && game.pos2hint[p] == nil && game.pos2hint[p2] == nil else { return .invalid }
         self[p][dir].toggle()
         self[p2][dir2].toggle()
         updateIsSolved()
@@ -82,12 +83,16 @@ class CrossroadBlocksGameState: GridGameState<CrossroadBlocksGameMove> {
                 if dirs.count == 2 {
                     // 1. Draw a loop that runs through all tiles.
                     pos2dirs[p] = dirs
-                } else if !(dirs.isEmpty && game[p] == CrossroadBlocksGame.PUZ_BLOCK) {
+                } else if !(dirs.isEmpty && game.pos2hint[p] == nil) {
                     // 2. The loop cannot cross itself.
-                    isSolved = false; return
+                    isSolved = false
                 }
             }
         }
+        for (p, hint) in game.pos2hint {
+            pos2state[p] = .normal
+        }
+        guard isSolved else {return}
         // Check the loop
         let p = pos2dirs.keys.first!
         var p2 = p, n = -1

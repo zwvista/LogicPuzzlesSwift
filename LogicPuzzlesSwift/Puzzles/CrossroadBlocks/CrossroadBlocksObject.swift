@@ -10,6 +10,12 @@ import Foundation
 
 typealias CrossroadBlocksObject = [Bool]
 
+struct CrossroadBlocksHint {
+    let isBlack: Bool
+    let num: Int
+    let dir: Int
+}
+
 struct CrossroadBlocksGameMove {
     var p = Position()
     var dir = 0
