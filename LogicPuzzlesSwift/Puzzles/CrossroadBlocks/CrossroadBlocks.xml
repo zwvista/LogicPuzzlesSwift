@@ -29,6 +29,78 @@ W              `
                `
     ]]>
   </level>
+  <level id="3">
+    <![CDATA[
+               `
+   B2v         `
+         B1^   `
+W2^   B1^      `
+            W2<`
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+W3>            `
+               `
+   B2>         `
+      B1>      `
+W2^         W2<`
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+W2v         W2<`
+      B1<      `
+         B2<   `
+               `
+            W2^`
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+            W2v`
+      B1<      `
+W1>      B1v   `
+               `
+            W3<`
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+W3v         W  `
+      B2v   W  `
+               `
+         B0<   `
+               `
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+            W3<`
+            W2<`
+               `
+      B0^      `
+W3^         W1^`
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+W3v         W3v`
+      B1<      `
+         B1v   `
+               `
+      W1^      `
+    ]]>
+  </level>
+  <level id="10">
+    <![CDATA[
+         W1vW  `
+            W2v`
+      W1^      `
+               `
+               `
+    ]]>
+  </level>
   <level id="11">
     <![CDATA[
       W1>      `
@@ -36,6 +108,3577 @@ W              `
    B     B     `
       B1<      `
 W3^         W2<`
+    ]]>
+  </level>
+  <level id="12">
+    <![CDATA[
+W2>         W2v`
+      B1v      `
+   B1^         `
+               `
+W3>            `
+    ]]>
+  </level>
+  <level id="13">
+    <![CDATA[
+            W3<`
+      B1<      `
+W1>      B1v   `
+               `
+            W3<`
+    ]]>
+  </level>
+  <level id="14">
+    <![CDATA[
+      W1<      `
+               `
+         B1v   `
+      B1^      `
+W2>         W3^`
+    ]]>
+  </level>
+  <level id="15">
+    <![CDATA[
+W2v         W2v`
+      B1v      `
+   B1v         `
+               `
+W3>            `
+    ]]>
+  </level>
+  <level id="16">
+    <![CDATA[
+W  W           `
+         B0v   `
+   B2>         `
+               `
+W3>            `
+    ]]>
+  </level>
+  <level id="17">
+    <![CDATA[
+W3>            `
+               `
+   B1>      W1^`
+      B1^      `
+W3>            `
+    ]]>
+  </level>
+  <level id="18">
+    <![CDATA[
+   W2>         `
+W2v            `
+      W0v      `
+               `
+               `
+    ]]>
+  </level>
+  <level id="19">
+    <![CDATA[
+            W2<`
+W2v            `
+         B2<   `
+               `
+      W1>      `
+    ]]>
+  </level>
+  <level id="20">
+    <![CDATA[
+W           W3v`
+      B2v      `
+               `
+   B2^         `
+               `
+    ]]>
+  </level>
+  <level id="21">
+    <![CDATA[
+               W3<`
+   B1>            `
+                  `
+W1v   B2^   B1^   `
+                  `
+         W1>      `
+    ]]>
+  </level>
+  <level id="22">
+    <![CDATA[
+W4>               `
+W3v   B1v         `
+                  `
+   B2>            `
+            B2<   `
+      W1^         `
+    ]]>
+  </level>
+  <level id="23">
+    <![CDATA[
+W2>      W1>      `
+                  `
+                  `
+   B2>         W1v`
+                  `
+W4>               `
+    ]]>
+  </level>
+  <level id="24">
+    <![CDATA[
+W3v            W3<`
+      B1>      W  `
+   B2>            `
+         W1<      `
+                  `
+                  `
+    ]]>
+  </level>
+  <level id="25">
+    <![CDATA[
+      W2v         `
+            B1v   `
+         B1<      `
+   B2^         W2<`
+                  `
+W4>               `
+    ]]>
+  </level>
+  <level id="26">
+    <![CDATA[
+W3v            W3v`
+         B1<      `
+   B1>      B1^   `
+                  `
+                  `
+W3>               `
+    ]]>
+  </level>
+  <level id="27">
+    <![CDATA[
+W1v            W1v`
+      B1<         `
+               W3<`
+W1^      B1^      `
+      B1>         `
+                  `
+    ]]>
+  </level>
+  <level id="28">
+    <![CDATA[
+         W1>      `
+   B2>            `
+         B1>      `
+W1^            W2<`
+      B1<        <`
+               W4<`
+    ]]>
+  </level>
+  <level id="29">
+    <![CDATA[
+               W3<`
+         B1v      `
+                  `
+            W2<   `
+      B1<         `
+W4^            W3<`
+    ]]>
+  </level>
+  <level id="30">
+    <![CDATA[
+                  `
+         B1<      `
+   B1^         W2<`
+                  `
+W2>         B1^   `
+   W  W2^         `
+    ]]>
+  </level>
+  <level id="31">
+    <![CDATA[
+W2>         W1vW3v`
+                  `
+                  `
+   B2>            `
+                  `
+W3^               `
+    ]]>
+  </level>
+  <level id="32">
+    <![CDATA[
+W4>               `
+            B2<   `
+   B1>            `
+               W1v`
+                  `
+W4>               `
+    ]]>
+  </level>
+  <level id="33">
+    <![CDATA[
+   W1v         W1v`
+         B2<      `
+      B1^         `
+W1v               `
+         B1^      `
+               W4<`
+    ]]>
+  </level>
+  <level id="34">
+    <![CDATA[
+         W2<      `
+                  `
+      B1<         `
+   B1v      B2^   `
+                  `
+      W2^      W2<`
+    ]]>
+  </level>
+  <level id="35">
+    <![CDATA[
+W2>         W1vW  `
+                  `
+   B2v            `
+                  `
+            B1<   `
+      W2^         `
+    ]]>
+  </level>
+  <level id="36">
+    <![CDATA[
+W2>      W1<      `
+W1>               `
+      B1^         `
+   B1>      B1v   `
+                  `
+      W7<      W2<`
+    ]]>
+  </level>
+  <level id="37">
+    <![CDATA[
+W4>               `
+      B1<         `
+               W3<`
+W1v      B1<      `
+      B2>         `
+            W3<   `
+    ]]>
+  </level>
+  <level id="38">
+    <![CDATA[
+W3>            W1v`
+      B1vB0v      `
+                  `
+         W1<      `
+   B2^           <`
+                  `
+    ]]>
+  </level>
+  <level id="39">
+    <![CDATA[
+   W2>            `
+            B3<   `
+                  `
+                  `
+            B3<   `
+W  W1^W1^         `
+    ]]>
+  </level>
+  <level id="40">
+    <![CDATA[
+W4>               `
+      B2>         `
+               W3<`
+   W              `
+            B3<   `
+                  `
+    ]]>
+  </level>
+  <level id="41">
+    <![CDATA[
+W4v               W4<`
+                     `
+   B1^               `
+         W1<         `
+      W1<            `
+            B3<      `
+                  W4^`
+    ]]>
+  </level>
+  <level id="42">
+    <![CDATA[
+W                 W5v`
+            B2<      `
+W     W1v      B1^   `
+         W1^         `
+   B1^      W0v      `
+      B1<            `
+W5>                  `
+    ]]>
+  </level>
+  <level id="43">
+    <![CDATA[
+W3v                  `
+      B2v            `
+         B1v      W1^`
+W2v         B1v      `
+               B2^   `
+   B1^               `
+         W2^      W3<`
+    ]]>
+  </level>
+  <level id="44">
+    <![CDATA[
+W3>         W1>      `
+      B2v            `
+   B1^         B1<   `
+         W1v         `
+W0v               W1v`
+            B1>      `
+W2^   W2^            `
+    ]]>
+  </level>
+  <level id="45">
+    <![CDATA[
+   W2v   W0<         `
+               B4<   `
+                     `
+W3>                  `
+               B2<   `
+      B1>            `
+W3>         W3^      `
+    ]]>
+  </level>
+  <level id="46">
+    <![CDATA[
+      W2>            `
+      W        B1v   `
+                     `
+   B1v            W1<`
+            B1v      `
+W3^            B1^   `
+   W9>   W3^         `
+    ]]>
+  </level>
+  <level id="47">
+    <![CDATA[
+         W1>      W3v`
+   B4v               `
+      B1>      B1v   `
+W                    `
+W                 W2<`
+            B0<      `
+W                    `
+    ]]>
+  </level>
+  <level id="48">
+    <![CDATA[
+      W0v            `
+            B2v      `
+                  W2v`
+      W3>            `
+            B2<      `
+         B1>         `
+W5^               W3^`
+    ]]>
+  </level>
+  <level id="49">
+    <![CDATA[
+W3>         W2v      `
+      B1<            `
+   B1>   B0<         `
+                     `
+W2>         B2<   W2<`
+      B2>            `
+W4>                  `
+    ]]>
+  </level>
+  <level id="50">
+    <![CDATA[
+            W1>      `
+      B1<   W        `
+W                    `
+   W     B1>         `
+W              B2<   `
+      B2^            `
+            W0>   W3<`
+    ]]>
+  </level>
+  <level id="51">
+    <![CDATA[
+W4>                  `
+      B2>         W3v`
+            W2<      `
+W1v      W0<         `
+               B3<   `
+      B1>   B1>      `
+W4>               W3^`
+    ]]>
+  </level>
+  <level id="52">
+    <![CDATA[
+         W2v         `
+W              B2<   `
+W3>         B1^      `
+                     `
+   B0v         B1v   `
+            B2^      `
+      W           W4^`
+    ]]>
+  </level>
+  <level id="53">
+    <![CDATA[
+                     `
+            W        `
+   B1^      W        `
+         W2^         `
+      W2^      B1<   `
+            B2<      `
+                  W5^`
+    ]]>
+  </level>
+  <level id="54">
+    <![CDATA[
+W2>      W1>      W4v`
+                     `
+   B2>               `
+         W1v   B1<   `
+      W1>            `
+            B3^      `
+                  W5<`
+    ]]>
+  </level>
+  <level id="55">
+    <![CDATA[
+         W2<      W3v`
+                     `
+      B3v      B2v   `
+            B2^      `
+      W1^         W1<`
+W3^                  `
+W5>                  `
+    ]]>
+  </level>
+  <level id="56">
+    <![CDATA[
+      W1<            `
+            B1<      `
+                  W2v`
+         W0<         `
+   B1>         B2^   `
+            B2^      `
+W5^               W4<`
+    ]]>
+  </level>
+  <level id="57">
+    <![CDATA[
+      W4v            `
+            B2v      `
+   B3v            W1^`
+         W2v         `
+W3^            B2^   `
+W           B2^      `
+                  W3<`
+    ]]>
+  </level>
+  <level id="58">
+    <![CDATA[
+      W2>         W4v`
+            B2v      `
+                     `
+   B2^      W0>      `
+      B1^            `
+            B1>      `
+W4^   W1^         W2<`
+    ]]>
+  </level>
+  <level id="59">
+    <![CDATA[
+W4>                  `
+      B0v      B4v   `
+            B1v      `
+W  W1^            W  `
+                     `
+            B2^   W  `
+      W1<            `
+    ]]>
+  </level>
+  <level id="60">
+    <![CDATA[
+   W2>      W1<      `
+W2v                  `
+   W0>               `
+W0^      B1>         `
+      B1<      B1v   `
+   B2>               `
+         W2<      W5^`
+    ]]>
+  </level>
+  <level id="61">
+    <![CDATA[
+W2v               W4<`
+      B1>   B2v      `
+   B1^               `
+         W0^      W2<`
+   W1v               `
+W3>         B1>      `
+                  W2^`
+    ]]>
+  </level>
+  <level id="62">
+    <![CDATA[
+         W1>      W3<`
+                     `
+W3v            B2v   `
+         W1<         `
+   B1v               `
+                     `
+         W1^   W  W4^`
+    ]]>
+  </level>
+  <level id="63">
+    <![CDATA[
+W3vW              W  `
+         B1v      W4v`
+   B2v               `
+         W1<         `
+               B1v   `
+      B1<            `
+W3>         W2^      `
+    ]]>
+  </level>
+  <level id="64">
+    <![CDATA[
+                  W1v`
+            B0>      `
+      B1v         W2<`
+                  W4<`
+W2^W2>            W  `
+W3>      B1<         `
+W                    `
+    ]]>
+  </level>
+  <level id="65">
+    <![CDATA[
+                  W4v`
+      W1>   B2v      `
+               B1v   `
+   B0>   W2^         `
+               B1v   `
+            B1>      `
+   W3^            W2<`
+    ]]>
+  </level>
+  <level id="66">
+    <![CDATA[
+                     `
+   B3v      B1>      `
+      B2v         W1^`
+W1v      B1^         `
+               B1^   `
+                     `
+W2>      W1>      W3^`
+    ]]>
+  </level>
+  <level id="67">
+    <![CDATA[
+W2v               W4<`
+      B1<            `
+               B3v   `
+W1>      W1>         `
+            W2^      `
+      B2^            `
+W4>                  `
+    ]]>
+  </level>
+  <level id="68">
+    <![CDATA[
+W4>               W3v`
+            B3v      `
+   B1^               `
+         W0>      W1^`
+                     `
+      W2^      B1<   `
+      W1<W2^         `
+    ]]>
+  </level>
+  <level id="69">
+    <![CDATA[
+W4>               W3v`
+            B3v      `
+                     `
+   B1>   W1^         `
+               B1<   `
+      B3^            `
+W4^         W3^   W2<`
+    ]]>
+  </level>
+  <level id="70">
+    <![CDATA[
+W3>         W1>      `
+      B1<            `
+               B1v   `
+         W1<         `
+   B2>      W1>      `
+      B1<         W2<`
+W3^            W3<   `
+    ]]>
+  </level>
+  <level id="71">
+    <![CDATA[
+   W3v            W5v`
+            B2<      `
+      W0<            `
+            W1v      `
+   B1>               `
+                     `
+W5>                  `
+    ]]>
+  </level>
+  <level id="72">
+    <![CDATA[
+W2v               W2v`
+      B1>            `
+   B3v         B3v   `
+         W1>         `
+                     `
+W1>         B1<   W  `
+                  W4<`
+    ]]>
+  </level>
+  <level id="73">
+    <![CDATA[
+                  W5<`
+            B2<      `
+                     `
+                  W1^`
+   B1^               `
+            B1<      `
+      W3^         W2^`
+    ]]>
+  </level>
+  <level id="74">
+    <![CDATA[
+                  W5<`
+            B1v      `
+      W0<      B1^   `
+         W1<         `
+   B1v            W1v`
+      B1<   B1>      `
+W5>                  `
+    ]]>
+  </level>
+  <level id="75">
+    <![CDATA[
+                     `
+      B1v      B2v   `
+W4>                  `
+                  W2^`
+         B2^         `
+                     `
+W3^      W1<      W2<`
+    ]]>
+  </level>
+  <level id="76">
+    <![CDATA[
+W3v      W2v      W2<`
+                     `
+   B1v      B1>      `
+      B2^         W  `
+W2>            W     `
+         B1>         `
+                     `
+    ]]>
+  </level>
+  <level id="77">
+    <![CDATA[
+W2>         W3v   W2v`
+      B1<            `
+   B1^            W0^`
+         W1>         `
+      W0v      B1<   `
+            B1>      `
+                  W5<`
+    ]]>
+  </level>
+  <level id="78">
+    <![CDATA[
+W3v      W2v      W3v`
+                     `
+   B1>      B1^      `
+                  W1^`
+      W1^            `
+W3>                  `
+                     `
+    ]]>
+  </level>
+  <level id="79">
+    <![CDATA[
+W5v         W0>      `
+      B2>         W3v`
+   B1^               `
+         W0>   B1^   `
+   B1v               `
+                     `
+               W3<W  `
+    ]]>
+  </level>
+  <level id="80">
+    <![CDATA[
+                  W2v`
+            B2v      `
+      W1^            `
+         W0>      W1v`
+   B3^               `
+                     `
+W5^               W4<`
+    ]]>
+  </level>
+  <level id="81">
+    <![CDATA[
+                  W4<`
+                     `
+      W1v      B0<   `
+            B1>      `
+   B3^            W1v`
+            B2<      `
+W5^   W0<            `
+    ]]>
+  </level>
+  <level id="82">
+    <![CDATA[
+W5>                  `
+      B2>            `
+   B1^            W1^`
+         W2v         `
+W1>            B2^   `
+            B1>      `
+                  W4<`
+    ]]>
+  </level>
+  <level id="83">
+    <![CDATA[
+W3>            W     `
+                     `
+      B0^   W1>      `
+W2>                  `
+         W0>   B1<   `
+   B3^               `
+                  W3^`
+    ]]>
+  </level>
+  <level id="84">
+    <![CDATA[
+W3>         W3v      `
+      B1<            `
+               B1^   `
+         W0<         `
+   B3>               `
+                     `
+W2>      W1>      W5^`
+    ]]>
+  </level>
+  <level id="85">
+    <![CDATA[
+W3v               W4v`
+         B1<B2v      `
+                     `
+W2>                  `
+            W2<      `
+   B3>               `
+                  W4<`
+    ]]>
+  </level>
+  <level id="86">
+    <![CDATA[
+                  W5<`
+                     `
+         W1<   B1^   `
+   B1^               `
+      B1^         W  `
+W2>      B1<         `
+   W3>            W  `
+    ]]>
+  </level>
+  <level id="87">
+    <![CDATA[
+W3v         W3v      `
+      B1<            `
+         B2<         `
+W1>                  `
+      B1<      B2<   `
+   B2>               `
+         W2^      W5^`
+    ]]>
+  </level>
+  <level id="88">
+    <![CDATA[
+W4v         W3v      `
+      B2>            `
+   B1^               `
+         W0v         `
+               B2^   `
+         B2<         `
+               W4<W4^`
+    ]]>
+  </level>
+  <level id="89">
+    <![CDATA[
+W3>      W1<         `
+                     `
+   B1>      W1<      `
+         W1v         `
+      W1>      B2^   `
+            B2^      `
+                  W5^`
+    ]]>
+  </level>
+  <level id="90">
+    <![CDATA[
+         W3v         `
+      W3v      B1<   `
+                     `
+         B2v      W2<`
+   B3^      B1v      `
+                  W  `
+W2>                  `
+    ]]>
+  </level>
+  <level id="91">
+    <![CDATA[
+                  W3<`
+                     `
+               B2v   `
+W1v         B1v      `
+         B1^         `
+      B2^            `
+W1^         W3^      `
+    ]]>
+  </level>
+  <level id="92">
+    <![CDATA[
+W4v                  `
+      B2>            `
+            W0^      `
+   B1v   W2v         `
+               B1<   `
+      B2^            `
+W2>         W        `
+    ]]>
+  </level>
+  <level id="93">
+    <![CDATA[
+W4>               W3v`
+            B2<      `
+   B1v               `
+            W0v      `
+   B2>            W1v`
+      B2^   B0^      `
+W4^                  `
+    ]]>
+  </level>
+  <level id="94">
+    <![CDATA[
+W4v               W2v`
+            B2<      `
+   B2>               `
+         W1^      W1<`
+      W1<            `
+            B3<      `
+                  W5<`
+    ]]>
+  </level>
+  <level id="95">
+    <![CDATA[
+W3v         W3v      `
+      B4v            `
+   B2>               `
+         W0>         `
+W2^                  `
+                     `
+         W1>      W5^`
+    ]]>
+  </level>
+  <level id="96">
+    <![CDATA[
+W  W                 `
+         B1v         `
+   B2v         B2<   `
+         W1v         `
+      W1<         W3^`
+W3>         B3^      `
+                     `
+    ]]>
+  </level>
+  <level id="97">
+    <![CDATA[
+         W4v      W2v`
+                     `
+      W1^      B2v   `
+                     `
+   B1v            W2^`
+                     `
+W3>            W3^   `
+    ]]>
+  </level>
+  <level id="98">
+    <![CDATA[
+W3v                  `
+      B1>            `
+            W1^      `
+W1^      W0<         `
+               B3^   `
+            B2<      `
+      W2>         W5^`
+    ]]>
+  </level>
+  <level id="99">
+    <![CDATA[
+               W  W  `
+   B3>               `
+         W0^         `
+W1>            B2v   `
+            B2<      `
+                     `
+   W2^   W1>      W  `
+    ]]>
+  </level>
+  <level id="100">
+    <![CDATA[
+W     W3>            `
+            B1v      `
+                  W2<`
+         W1<         `
+   B1v         W0v   `
+      B1<            `
+W2^                  `
+    ]]>
+  </level>
+  <level id="101">
+    <![CDATA[
+            W1>      `
+      B3v            `
+W1^            B1^   `
+         W0v         `
+   B2>         W     `
+         B1<         `
+                  W4<`
+    ]]>
+  </level>
+  <level id="102">
+    <![CDATA[
+W4>               W3v`
+         B1<         `
+               B1^   `
+W1v   B2>            `
+               W1<   `
+      B3>            `
+W5>                  `
+    ]]>
+  </level>
+  <level id="103">
+    <![CDATA[
+W3>         W2v      `
+W     B1v            `
+         B1<         `
+   W2>               `
+      W           W1v`
+            B3<      `
+                     `
+    ]]>
+  </level>
+  <level id="104">
+    <![CDATA[
+                  W4<`
+W2v         B1v      `
+   W  W        B2v   `
+W2v                  `
+      B2>            `
+            B1^      `
+      W1<         W4^`
+    ]]>
+  </level>
+  <level id="105">
+    <![CDATA[
+W4v               W4<`
+                     `
+   B1^   W0^         `
+               B2<   `
+            B2<      `
+      B2^         W3<`
+W2>         W0>      `
+    ]]>
+  </level>
+  <level id="106">
+    <![CDATA[
+               W4<   `
+         B1v         `
+            B2v   W0^`
+      W0<            `
+         W1^   B2^   `
+   B2^               `
+                  W5<`
+    ]]>
+  </level>
+  <level id="107">
+    <![CDATA[
+                  W5<`
+         B2<B2v      `
+W2v      B1v         `
+      B1<            `
+            W1>      `
+                  W3<`
+               W4<   `
+    ]]>
+  </level>
+  <level id="108">
+    <![CDATA[
+         W2v      W2<`
+                     `
+W0^            B2v   `
+      B2>            `
+            W0>      `
+   W                 `
+W1^W  W3^W3>         `
+    ]]>
+  </level>
+  <level id="109">
+    <![CDATA[
+      W1<            `
+                     `
+      B0>            `
+W2v      B1<         `
+               B1v   `
+            B3^      `
+      W1<         W5^`
+    ]]>
+  </level>
+  <level id="110">
+    <![CDATA[
+      W3>            `
+            B3v      `
+   B1^            W3v`
+         W1<         `
+W1>            B2^   `
+      B1<            `
+            W3<      `
+    ]]>
+  </level>
+  <level id="111">
+    <![CDATA[
+               W4<      `
+         B2>            `
+            B1^   B1^   `
+      W1<               `
+         W1^         W1<`
+   B2^                  `
+      B1<         B3<   `
+W5^         W3^         `
+    ]]>
+  </level>
+  <level id="112">
+    <![CDATA[
+W3v      W1<         W3v`
+               B3<      `
+            B0<         `
+                     W4<`
+W2^      W0<   B1>      `
+                        `
+      B1>               `
+W3>               W3^   `
+    ]]>
+  </level>
+  <level id="113">
+    <![CDATA[
+W4v         W1>         `
+      B1<               `
+   B3v         B3v      `
+         W2^         W2<`
+W2^                     `
+            B2<         `
+                  B4^   `
+            W2<         `
+    ]]>
+  </level>
+  <level id="114">
+    <![CDATA[
+W3v                  W4<`
+               B1>      `
+   B1^   W0<      B1<   `
+            W2v         `
+W1v   B3^            W1<`
+               B2^      `
+                        `
+W4>            W3<      `
+    ]]>
+  </level>
+  <level id="115">
+    <![CDATA[
+      W5vW2>            `
+W2v                     `
+            B1>         `
+               B1<      `
+W3>                  W3^`
+            B2<         `
+   B2>         B1>      `
+         W2<         W4<`
+    ]]>
+  </level>
+  <level id="116">
+    <![CDATA[
+            W1>      W3<`
+                        `
+      B1v         B1<   `
+                  B2<   `
+W2>      W1<   B1<      `
+                     W5<`
+      B2^B2^            `
+W6>                     `
+    ]]>
+  </level>
+  <level id="117">
+    <![CDATA[
+W3v         W3v         `
+         W2v      B2v   `
+   B2>         B1^      `
+                     W2v`
+W3>         B2^         `
+      B3^               `
+                        `
+W4>         W2>         `
+    ]]>
+  </level>
+  <level id="118">
+    <![CDATA[
+         W  W           `
+   B3v            B2<   `
+      B2>      B1^      `
+W4>                     `
+         W2>         W2<`
+               B1^      `
+   B3^            B2^   `
+         W  W           `
+    ]]>
+  </level>
+  <level id="119">
+    <![CDATA[
+W3>      W2v            `
+                        `
+            B2>         `
+                        `
+            W1>         `
+   B1^   W1>      B2^   `
+               B1>      `
+W5>                  W5^`
+    ]]>
+  </level>
+  <level id="120">
+    <![CDATA[
+W5>                  W3v`
+      B2v      B2<      `
+                        `
+W1^   W0^         W     `
+   W0v      B2v         `
+         B2>            `
+   B1^            B1<   `
+                        `
+    ]]>
+  </level>
+  <level id="121">
+    <![CDATA[
+W5>                  W4v`
+      B3>               `
+                  B4<   `
+   W1v   W1v            `
+W5>                     `
+      B1<      B2^   W1v`
+   B3>                  `
+         W              `
+    ]]>
+  </level>
+  <level id="122">
+    <![CDATA[
+         W2>         W4<`
+   B3>         B4v      `
+      B1^               `
+W2>                     `
+                  B3<   `
+      B2^   W2^   B0<   `
+                        `
+W3>      W2>         W5^`
+    ]]>
+  </level>
+  <level id="123">
+    <![CDATA[
+W3v            W        `
+      B2>               `
+         B1>      B3<   `
+   W1^                  `
+         W1^         W2<`
+               B3<      `
+      B2>         B3<   `
+            W3^         `
+    ]]>
+  </level>
+  <level id="124">
+    <![CDATA[
+W4v         W2v      W3<`
+      B3v               `
+         B2v      B2v   `
+               B2<      `
+                     W3<`
+   B2^                  `
+               B2<      `
+W3>      W1<         W3^`
+    ]]>
+  </level>
+  <level id="125">
+    <![CDATA[
+      W1<      W     W1<`
+                        `
+               B1>      `
+      B1^            W3<`
+W5>                     `
+         B2<      B1^   `
+      B2>               `
+W4^         W2<      W3<`
+    ]]>
+  </level>
+  <level id="126">
+    <![CDATA[
+         W2v            `
+   B3v            B3<   `
+                        `
+W2^      W2v         W2v`
+               B2^      `
+      B3^         B1^   `
+               B2<      `
+W4^      W1<         W4^`
+    ]]>
+  </level>
+  <level id="127">
+    <![CDATA[
+   W  W3>               `
+W3>         B1>      W3<`
+                        `
+   B1v         B1>      `
+      B1^            W2v`
+W1v         W           `
+                  B3^   `
+            W           `
+    ]]>
+  </level>
+  <level id="128">
+    <![CDATA[
+      W1<            W4<`
+               B1<      `
+         B3>            `
+   B3>         W0^      `
+                        `
+W1v      B1v      B2^   `
+      B2>               `
+            W1>      W4^`
+    ]]>
+  </level>
+  <level id="129">
+    <![CDATA[
+W3v                  W4<`
+      B2>               `
+   B1^      W1^   B1^   `
+                        `
+W3>      B1^            `
+                        `
+      B2^               `
+W3>         W3^      W5^`
+    ]]>
+  </level>
+  <level id="130">
+    <![CDATA[
+W4v      W2v         W3<`
+               B2v      `
+   B1^      B1^         `
+                        `
+         W2^   B1<      `
+   B2^               W2^`
+      B1<   B1>         `
+W5>                  W2^`
+    ]]>
+  </level>
+  <level id="131">
+    <![CDATA[
+W4v      W           W3v`
+               B1<      `
+   B2v            B2<   `
+                        `
+W3>                  W3<`
+            B2>         `
+   B3>         B2^      `
+         W2>         W4<`
+    ]]>
+  </level>
+  <level id="132">
+    <![CDATA[
+W4>                  W3v`
+               B1>      `
+   B1^   W2>            `
+                     W1^`
+W3>            B2<      `
+         B2^      B2^   `
+      B4^               `
+W3^         W4^      W3<`
+    ]]>
+  </level>
+  <level id="133">
+    <![CDATA[
+W3>         W2v         `
+         W2v      B2v   `
+   B3>                  `
+               B2^      `
+W4>                     `
+                     W3<`
+               B2^      `
+      W1<               `
+    ]]>
+  </level>
+  <level id="134">
+    <![CDATA[
+                     W6<`
+      B1<               `
+            W2v   B1^   `
+         W2>            `
+               B2^   W3<`
+W3>      B1<            `
+      B1>         B2<   `
+            W3<         `
+    ]]>
+  </level>
+  <level id="135">
+    <![CDATA[
+W5v         W2<         `
+      B3v         B3<   `
+   B1^         B1>      `
+         W1^         W1v`
+               W3<      `
+   B2^                  `
+            B2^         `
+W3>                  W  `
+    ]]>
+  </level>
+  <level id="136">
+    <![CDATA[
+W4>         W2>         `
+      B1<               `
+   B1^         B2v   W4v`
+         W1<            `
+            W2<   B2<   `
+                        `
+               W        `
+W5^            W        `
+    ]]>
+  </level>
+  <level id="137">
+    <![CDATA[
+   W2v   W3>            `
+                  B4v   `
+      B0^               `
+W2v            B1^   W3<`
+         W0v            `
+   B3>               W3<`
+               B1>      `
+W4>      W3>            `
+    ]]>
+  </level>
+  <level id="138">
+    <![CDATA[
+W3v                  W4<`
+      B3v      B2<      `
+         B2<            `
+W2v            W2<      `
+      B1^   W2v         `
+                  B3<   `
+         W1<   B1>      `
+                     W4<`
+    ]]>
+  </level>
+  <level id="139">
+    <![CDATA[
+W4v         W2v         `
+      B1<         B4v   `
+            B0^         `
+      W1<               `
+               B3<   W0v`
+         B1v            `
+      B1<            W2^`
+            W3<      W4<`
+    ]]>
+  </level>
+  <level id="140">
+    <![CDATA[
+      W2v            W4v`
+               B2<      `
+      B1<   B1<         `
+W3>                  W3<`
+            W1>         `
+   B2^            B1v   `
+                        `
+W3>      W1<            `
+    ]]>
+  </level>
+  <level id="141">
+    <![CDATA[
+            W3<      W  `
+      B2v               `
+               B3v      `
+         W2<            `
+   W1^            B3^   `
+         B1^            `
+      B1>            W  `
+W3^         W2^         `
+    ]]>
+  </level>
+  <level id="142">
+    <![CDATA[
+                  W5<   `
+                        `
+W3v            W3v      `
+            W2<         `
+   B3>            B2^   `
+                        `
+                        `
+W3>      W2>            `
+    ]]>
+  </level>
+  <level id="143">
+    <![CDATA[
+W4v                  W5<`
+               B3<      `
+   B2v   W1v      B1<   `
+            W2<         `
+W3>                  W3<`
+               B3<      `
+   B3>                  `
+         W2>         W3^`
+    ]]>
+  </level>
+  <level id="144">
+    <![CDATA[
+      W1<               `
+                  B3<   `
+                        `
+   B1v         B1v   W2<`
+         W1v            `
+                  B1v   `
+               B1>      `
+      W2^            W4<`
+    ]]>
+  </level>
+  <level id="145">
+    <![CDATA[
+W4v         W3v      W3<`
+      B2v               `
+         B1<      B2<   `
+               B1v      `
+W3>         B1>      W1v`
+      B1^               `
+   B2>         B3^      `
+         W3^         W4<`
+    ]]>
+  </level>
+  <level id="146">
+    <![CDATA[
+            W3v   W     `
+W4>   B0<               `
+                        `
+W2vW                 W2<`
+               B3<      `
+                  B3<   `
+      B2>               `
+            W3^      W3^`
+    ]]>
+  </level>
+  <level id="147">
+    <![CDATA[
+W4v                  W5<`
+                        `
+   B2v   B3>            `
+                     W1^`
+W2>            B1>      `
+                  B3<   `
+   B3>                  `
+         W2^         W4<`
+    ]]>
+  </level>
+  <level id="148">
+    <![CDATA[
+W4>                     `
+      B1>      W        `
+   B2>                  `
+                        `
+W1v               B3^   `
+                  B4<   `
+         B3^            `
+W5>                  W6^`
+    ]]>
+  </level>
+  <level id="149">
+    <![CDATA[
+      W  W3vW2v         `
+W4v               B2v   `
+      B4>               `
+               W2<      `
+         B1<            `
+                  B3<   `
+                        `
+            W2<      W3<`
+    ]]>
+  </level>
+  <level id="150">
+    <![CDATA[
+W4>                  W3v`
+      B2>      B2<      `
+   B1^                  `
+                     W3<`
+      W1v      B1>      `
+                  B2^   `
+   B3^      W3^         `
+         W4^         W3<`
+    ]]>
+  </level>
+  <level id="151">
+    <![CDATA[
+W6>                        `
+         B3v      B0>      `
+   B1^                  W4<`
+                           `
+            B0^            `
+      B1^            W2<   `
+   B2^      W0^         W0^`
+                  B1>      `
+W5>      W4>               `
+    ]]>
+  </level>
+  <level id="152">
+    <![CDATA[
+W2v                     W4v`
+      B2>                  `
+W2v         W1^   B0^      `
+                        W1^`
+   B2^                     `
+         W3^   W0>         `
+            W1v      B1v   `
+W2^   B3>                  `
+               W3^      W4<`
+    ]]>
+  </level>
+  <level id="153">
+    <![CDATA[
+W4>         W4v            `
+                           `
+W2>      B2v         B3v   `
+                           `
+   B2^      W2^         W2<`
+      B1v      W3^         `
+         B2>         B3<   `
+W4>                        `
+W4>                     W5^`
+    ]]>
+  </level>
+  <level id="154">
+    <![CDATA[
+   W                    W4<`
+W3>                        `
+      B1>                  `
+         B1>      B3<      `
+                           `
+                        W2v`
+         B3^   W1v         `
+W3^                  B3<   `
+      W  W                 `
+    ]]>
+  </level>
+  <level id="155">
+    <![CDATA[
+                  W3v      `
+      B2>                  `
+            B1>      B2v   `
+W        B2>      B2<      `
+      B1v                  `
+   B3^         W1<         `
+                     W     `
+W1>      B2^               `
+                        W6<`
+    ]]>
+  </level>
+  <level id="156">
+    <![CDATA[
+W4>               W4<   W4v`
+      B1<                  `
+            W0^      B2<   `
+               W1>         `
+W           W0^         W2^`
+      B1<      W1>         `
+   B2^      W1>      B2^   `
+                  B4<      `
+W3^                     W6<`
+    ]]>
+  </level>
+  <level id="157">
+    <![CDATA[
+W3>      W1<         W3<   `
+               B3<      W4<`
+   B5>                     `
+         W0^         B1v   `
+      B2v      B2>         `
+W3>         B1v            `
+                        W  `
+   B3^         B1>         `
+                        W6<`
+    ]]>
+  </level>
+  <level id="158">
+    <![CDATA[
+W5>                     W6v`
+      B2>                  `
+            W2<            `
+W2>                  B1v   `
+         B0v               `
+               W2^         `
+                     B6<   `
+         B1<               `
+W3^            W1>      W4<`
+    ]]>
+  </level>
+  <level id="159">
+    <![CDATA[
+W4>         W2<         W3v`
+      B2>         B2<      `
+   B3v         B2>         `
+                        W3<`
+                     W     `
+               W2>         `
+      B2^   W0v      B1<   `
+                  B2^      `
+W6^                     W6<`
+    ]]>
+  </level>
+  <level id="160">
+    <![CDATA[
+      W              W5v   `
+            B3<         W5<`
+   B2v                     `
+               W2v         `
+W3v                  W     `
+      W1<      B2<      W  `
+         W0v            W  `
+   B2>                     `
+                           `
+    ]]>
+  </level>
+  <level id="161">
+    <![CDATA[
+W5>         W2<            `
+                  B2v      `
+   B3>                  W3v`
+      B1>      B1v   W2<   `
+W6>                        `
+         W1v               `
+   B2>                     `
+      B1<                  `
+W4^         W2<         W4^`
+    ]]>
+  </level>
+  <level id="162">
+    <![CDATA[
+               W2<         `
+   B5v      W1v      B1<   `
+                  B1v      `
+      B1>      B0>      W1<`
+W3>         B2>            `
+                           `
+W3>                     W3^`
+                  B2<      `
+W7>                        `
+    ]]>
+  </level>
+  <level id="163">
+    <![CDATA[
+W4>         W2>         W3v`
+      B3v         B2<      `
+                           `
+         W1>   B1>      W2<`
+   B3>            B1v      `
+      B2^   W2>            `
+                           `
+            B3^B2^         `
+W3^                     W6<`
+    ]]>
+  </level>
+  <level id="164">
+    <![CDATA[
+      W1<      W1>      W3<`
+                           `
+                  B2vB1v   `
+      W1v      B0^         `
+         W1<               `
+                           `
+W1v   B0v   B2^            `
+                  B3<      `
+            W3<         W3^`
+    ]]>
+  </level>
+  <level id="165">
+    <![CDATA[
+               W4<         `
+      B3v                  `
+W4>               B1v      `
+   W1^      B0<            `
+W1^                        `
+                  W2<      `
+   B1^      B1<         W4^`
+                  B1>      `
+   W5>                     `
+    ]]>
+  </level>
+  <level id="166">
+    <![CDATA[
+   W1v            W  W3v   `
+         B2<            W  `
+   B5>                     `
+         W1>         B1^   `
+            W1^   B1v      `
+            W1v         W2<`
+         W0<               `
+                           `
+W6^                     W5<`
+    ]]>
+  </level>
+  <level id="167">
+    <![CDATA[
+         W2<         W4<   `
+               B2v         `
+      B1^         B1>      `
+            W2v         W4<`
+        <                  `
+                        W4<`
+   B3>                     `
+                           `
+W4>         W2>         W2^`
+    ]]>
+  </level>
+  <level id="168">
+    <![CDATA[
+W3v      W1v            W3<`
+                           `
+      B1^   B3v         W0^`
+W2v               B2v      `
+         W1<         B3^   `
+            W2>            `
+      B3^         B3^   W2<`
+         B2<               `
+   W4^         W2>         `
+    ]]>
+  </level>
+  <level id="169">
+    <![CDATA[
+W4v         W2>         W4<`
+      B3>                  `
+                           `
+               B0v      W1^`
+                           `
+W              W3<   B3<   `
+                           `
+                  B2^   W3^`
+      W2^                  `
+    ]]>
+  </level>
+  <level id="170">
+    <![CDATA[
+W6>                     W4v`
+W              B1v         `
+         B1v         B1v   `
+W     B3>      W2>         `
+                     W  W  `
+   B2v         B2<         `
+                           `
+      B2^B2>               `
+               W2>         `
+    ]]>
+  </level>
+  <level id="171">
+    <![CDATA[
+W4v         W2>         W4<`
+      B3v                  `
+   B3v         B1^         `
+         W2^      B2v   W1^`
+W2>         W2^            `
+      B1v               W4<`
+   B3^            B1^      `
+            W2^      B5^   `
+W4>            W2<         `
+    ]]>
+  </level>
+  <level id="172">
+    <![CDATA[
+         W2>               `
+   B2>         B3v         `
+                           `
+W5>                     W  `
+         W2>      B1v      `
+   B4>         B1^         `
+      B2^               W1^`
+            W2<   B4^      `
+         W2<W3>            `
+    ]]>
+  </level>
+  <level id="173">
+    <![CDATA[
+W4v         W1v      W  W4v`
+      B3v                  `
+   B2>      B1<      B2<   `
+                           `
+W2v               B1>      `
+      B1<      B2^B1>      `
+                           `
+                  B1>      `
+         W3>            W5<`
+    ]]>
+  </level>
+  <level id="174">
+    <![CDATA[
+            W2v         W2<`
+W3>      W2v      B1v      `
+               B2>         `
+   B2v      B1^         W  `
+      B2v         W1>      `
+            W2>            `
+                     B4<   `
+               B3<         `
+         W3>            W5<`
+    ]]>
+  </level>
+  <level id="175">
+    <![CDATA[
+               W3<      W4v`
+W6>                        `
+            B3>            `
+         B1>      B0^      `
+   B2^                     `
+         W1<         B2v   `
+W2^         W  W           `
+      B0>      W        W1<`
+                           `
+    ]]>
+  </level>
+  <level id="176">
+    <![CDATA[
+W4v               W1>      `
+      B2>                  `
+               W2<   B3v   `
+         B3>               `
+   W1>      B0>         W3^`
+W2v                        `
+      B1v         B2<      `
+   B2>                     `
+            W           W5^`
+    ]]>
+  </level>
+  <level id="177">
+    <![CDATA[
+W4v                     W6v`
+                  B3<      `
+            W2v            `
+   B2v               B3<   `
+               B2<         `
+         W1<         B3<   `
+            W1^            `
+W4^               B1>      `
+      W4^               W3<`
+    ]]>
+  </level>
+  <level id="178">
+    <![CDATA[
+         W0<W3>            `
+      W2>         B1>      `
+W5>                        `
+W              W1^         `
+                           `
+      W0<         B0v      `
+         W1<   B0>   B1v   `
+   B3>            B1>      `
+                        W6^`
+    ]]>
+  </level>
+  <level id="179">
+    <![CDATA[
+W4v            W3<      W4<`
+                           `
+               B0>   B1^   `
+W3v                        `
+            W1v   W053>      `
+   B3^                  W5<`
+      B2>   B1v            `
+                     B2^   `
+W4>      W0^               `
+    ]]>
+  </level>
+  <level id="180">
+    <![CDATA[
+W5>                        `
+      B1>      W013>   B3v   `
+                           `
+                  B4<   W3v`
+   B3>      W1<            `
+         W0v               `
+W2^                        `
+      B1<                  `
+                        W7<`
+    ]]>
+  </level>
+  <level id="181">
+    <![CDATA[
+      W0<            W3v   `
+               W2<W        `
+W2>      B1<               `
+                     B2v   `
+      B1^                  `
+            B0v   W1^      `
+   B3^                  W3<`
+      B1<         B1^      `
+W5>         W3>            `
+    ]]>
+  </level>
+  <level id="182">
+    <![CDATA[
+W4>            W2<         `
+      B3v   W5v      B2<   `
+   B2v                     `
+               B1>         `
+W                       W3<`
+W4>                        `
+      B1v                  `
+   B3^                     `
+         W2<            W4^`
+    ]]>
+  </level>
+  <level id="183">
+    <![CDATA[
+W4v                     W6<`
+            B3v            `
+   B2v               B1^   `
+            W2>            `
+W2^               B2<      `
+               B2>         `
+   B1v                     `
+                           `
+W4>               W3<      `
+    ]]>
+  </level>
+  <level id="184">
+    <![CDATA[
+W3>      W3v               `
+                        W4<`
+      B1^   B1<            `
+               B2v         `
+                        W2v`
+W2^                        `
+      B3>            B1^   `
+                  B5<      `
+   W4^      W           W2<`
+    ]]>
+  </level>
+  <level id="185">
+    <![CDATA[
+W4v   W2>         W3v   W  `
+            B4v         W  `
+                           `
+W1^                  B1v   `
+      B3>                  `
+   B4^                     `
+   B2>         B3^         `
+      B0^                  `
+W2>         W0>   W0>   W4^`
+    ]]>
+  </level>
+  <level id="186">
+    <![CDATA[
+W4v         W4v      W3<   `
+                           `
+      B1<      B3v   W     `
+W3v                        `
+         W3^      B0>   W3v`
+   B3>                     `
+   B1v      B0>      B1v   `
+                           `
+W3>               W        `
+    ]]>
+  </level>
+  <level id="187">
+    <![CDATA[
+W3v      W1v            W4<`
+                  B3<      `
+                     B1^   `
+            B1<            `
+W2^               W1^      `
+   W3>   W3>               `
+W1v            B3<   B1v   `
+      B1^         B1^      `
+            W3<         W6^`
+    ]]>
+  </level>
+  <level id="188">
+    <![CDATA[
+W4v                  W5<   `
+      B1>               W2<`
+   B1v      B2v            `
+                  B1>      `
+W2^            W1v         `
+      B1v                  `
+                           `
+         B3^      B2^      `
+                        W7<`
+    ]]>
+  </level>
+  <level id="189">
+    <![CDATA[
+W3v            W4v         `
+      B1<   W3>            `
+                  B1>      `
+      B1v               W0v`
+            B3<      W3<   `
+   W2^                     `
+W2>               B2^      `
+      B1<                  `
+               W4<      W5<`
+    ]]>
+  </level>
+  <level id="190">
+    <![CDATA[
+W4>         W4v         W4v`
+      B1<                  `
+   B2v            B1<      `
+               B1v      W3<`
+      B2v                  `
+W4>                        `
+            W3^      B3^   `
+   B3^                     `
+         W5^            W5<`
+    ]]>
+  </level>
+  <level id="191">
+    <![CDATA[
+W4v                     W4v`
+      B1<         B2<      `
+   B2>      W2v            `
+         W2^            W3v`
+W3>                        `
+      B2^   W1v            `
+                           `
+               B4^         `
+   W4^   W2>         W4^   `
+    ]]>
+  </level>
+  <level id="192">
+    <![CDATA[
+W5>                     W5v`
+                           `
+   B1^         B2<         `
+         B1^      B2v      `
+W6>                        `
+      W1<               W2v`
+            B2^            `
+                     B2<   `
+W5>            W1^         `
+    ]]>
+  </level>
+  <level id="193">
+    <![CDATA[
+                           `
+   B3>         B4v         `
+                        W3<`
+      B3>                  `
+W1v      B0>         B2v   `
+                           `
+      B0v         B2<   W2<`
+W4>         W3^            `
+   W3^W2>                  `
+    ]]>
+  </level>
+  <level id="194">
+    <![CDATA[
+W4v            W           `
+      B3v   W3v            `
+   B2>                     `
+         W2^      B1>      `
+W2v            B2^      W3^`
+            B2>            `
+                           `
+               B1>         `
+W3>      W2>            W5^`
+    ]]>
+  </level>
+  <level id="195">
+    <![CDATA[
+W4v         W4v         W4<`
+                  B4v      `
+   B2vB1>            B1^   `
+                           `
+W3>                        `
+         B1v   W3^      W2<`
+                           `
+                  B4^      `
+            W3<         W4^`
+    ]]>
+  </level>
+  <level id="196">
+    <![CDATA[
+W3>      W1v      W2v      `
+                           `
+                     B1<   `
+               B3v         `
+W1>      W0<               `
+            W1>            `
+   B3^            B0>   W5^`
+                           `
+W5>            W3<         `
+    ]]>
+  </level>
+  <level id="197">
+    <![CDATA[
+                        W5<`
+W3>      B1v      B2<      `
+               B2v         `
+         W1v            W2v`
+   B2>      W1<   B1<      `
+      B1<                  `
+               B1<      W1v`
+         B0<      B2^      `
+   W3^                     `
+    ]]>
+  </level>
+  <level id="198">
+    <![CDATA[
+W4v         W5v         W4<`
+      B2>         B2<      `
+   B1>         B1<   B2v   `
+         W2>               `
+W3>               W1>      `
+      B0<            W1v   `
+               B3^      W3<`
+   B4^   W3^      B1^      `
+            W2<            `
+    ]]>
+  </level>
+  <level id="199">
+    <![CDATA[
+   W2>         W0<         `
+W3v                  B3v   `
+                           `
+                  B1^      `
+            W2<            `
+W2>   B0^      W0v         `
+                     B4<   `
+   B4>                     `
+                  W2^      `
+    ]]>
+  </level>
+  <level id="200">
+    <![CDATA[
+W2vW           W2v      W7v`
+         B1<               `
+                     B1<   `
+W0^         B1^            `
+                  W1^      `
+      B2^      W1v         `
+   B3>               B3^   `
+         W3^               `
+W3>               W1>      `
+    ]]>
+  </level>
+  <level id="201">
+    <![CDATA[
+W5v            W2>         `
+      B1v                  `
+            B2>            `
+      B3>         B2^      `
+            W2>         W2^`
+   B4>            W1>      `
+      B1<                  `
+W4>               B2^      `
+   W2>   W2^            W4^`
+    ]]>
+  </level>
+  <level id="202">
+    <![CDATA[
+W4v            W2<         `
+         B2>               `
+   B0^            B1^   W1^`
+            W2>            `
+W1>   B0<            B2^   `
+                           `
+         B2^   B3^B3^   W  `
+      B3>                  `
+W3>         W2<      W  W  `
+    ]]>
+  </level>
+  <level id="203">
+    <![CDATA[
+W4v            W2v      W3<`
+      B2>                  `
+         B2<   W0>         `
+W                    B1^   `
+                     B2v   `
+               W1<         `
+   B1v                     `
+                  B1<      `
+W3>         W           W6^`
+    ]]>
+  </level>
+  <level id="204">
+    <![CDATA[
+W5>                        `
+      B5v      B1>         `
+   B3>            B2<      `
+                        W2<`
+W2^            W1>         `
+                     B3<   `
+   B2>                     `
+         W4^      B4^      `
+W4^         W           W3<`
+    ]]>
+  </level>
+  <level id="205">
+    <![CDATA[
+                  W3<      `
+W5v                        `
+            B1^      B2<   `
+      W1^                  `
+                        W2v`
+                           `
+                     B2<   `
+               B6^         `
+W3>      W4^         W     `
+    ]]>
+  </level>
+  <level id="206">
+    <![CDATA[
+                           `
+   B3>                     `
+         B2>      B3<      `
+            B2v         W4<`
+      B2^                  `
+                     B3<   `
+         B2>               `
+               B4^         `
+W5>                     W5^`
+    ]]>
+  </level>
+  <level id="207">
+    <![CDATA[
+               W3v         `
+      B3>            B2v   `
+W1^                        `
+         W1^   W3v   W     `
+   B2^                     `
+         B2<      B0v      `
+W1v      B0>            W1v`
+      B1<         B2<      `
+            W2^            `
+    ]]>
+  </level>
+  <level id="208">
+    <![CDATA[
+W4>            W1>      W6v`
+         B3>               `
+                     B1<   `
+            B3v            `
+      B1v                  `
+   W2^         W0>         `
+W2>      B1<               `
+      B2>         B5^      `
+            W3<         W5<`
+    ]]>
+  </level>
+  <level id="209">
+    <![CDATA[
+         W2v   W2>         `
+W3>                  B2v   `
+               B2<         `
+   B1^      B1>      W     `
+                  W0v      `
+      W1<                  `
+            B2^   B3<      `
+   B3>                     `
+         W3>            W5^`
+    ]]>
+  </level>
+  <level id="210">
+    <![CDATA[
+               W2<         `
+   B4v               B2<   `
+            W2v            `
+W1>                     W2^`
+            W0<            `
+W1>            W3^   B1<   `
+                           `
+   B2>         B1>      W4^`
+         W2<         W2^   `
+    ]]>
+  </level>
+  <level id="211">
+    <![CDATA[
+W6v                        W2v`
+            B1>   B1<B2v      `
+   B5>                  B1^   `
+            W1v               `
+W2^      W2v               W0v`
+            W                 `
+      B1v            B1v   W1<`
+   B3^         W3^            `
+         B1<               W2^`
+                     W5<      `
+    ]]>
+  </level>
+  <level id="212">
+    <![CDATA[
+      W2>         W2vW2v   W4v`
+            B2v               `
+   B4v                        `
+            W2v         W2v   `
+W3^               B1v      W3<`
+                     B2<      `
+               W2>            `
+W6>                           `
+      B0^         B2>         `
+            W3<               `
+    ]]>
+  </level>
+  <level id="213">
+    <![CDATA[
+W6>                           `
+            B3v         B1<   `
+   B4>                        `
+               W2^         W2^`
+         B3>         B1>      `
+   W2^      B4>               `
+            B3<         W     `
+                  B4^         `
+         B4>                  `
+W3>               W        W  `
+    ]]>
+  </level>
+  <level id="214">
+    <![CDATA[
+W4v      W2>         W3v   W  `
+               B5v            `
+      B1^            B1>      `
+                        B3<   `
+      B1<         W2^         `
+W2v                        W3<`
+                     B2<      `
+   B3>                  B0v   `
+         B4^      W4^         `
+   W2>         W0>            `
+    ]]>
+  </level>
+  <level id="215">
+    <![CDATA[
+W2v      W4v                  `
+               B0>            `
+      B1v            B4v   W  `
+W1v         W0v               `
+      B1^                  W2v`
+                              `
+            W2^         B2<   `
+      B4>                     `
+         B0>         B1<      `
+   W5^                        `
+    ]]>
+  </level>
+  <level id="216">
+    <![CDATA[
+W  W           W4v            `
+         B1<         B1>      `
+W           B1^            W  `
+                  W1>         `
+   B0^                  W     `
+            B1>            W3<`
+      W3^                  W  `
+W3^                           `
+                     B3<      `
+               W4^         W2^`
+    ]]>
+  </level>
+  <level id="217">
+    <![CDATA[
+         W  W        W        `
+                              `
+               B1^         W0^`
+   B2v   W3>         B1^      `
+               W3<      B2^   `
+W6>                           `
+                        W5<   `
+   B0^   B0<      B0<         `
+      B1<               B3<   `
+W4^            W  W           `
+    ]]>
+  </level>
+  <level id="218">
+    <![CDATA[
+   W4>            W  W3v      `
+         B0v                  `
+W                             `
+         W0^            B0^   `
+   B0^         B2<            `
+      B2>   B0v      W1v      `
+W1v               W0v      W4<`
+                              `
+            B2^      B1>      `
+W7>                        W6^`
+    ]]>
+  </level>
+  <level id="219">
+    <![CDATA[
+   W5v            W5v         `
+W        B3>                  `
+W3>   B1^      B0^            `
+                     B1>      `
+   B1>         W1>         W3v`
+         W  W                 `
+                              `
+W2^         B1v         B1v   `
+                     B5^      `
+               W2<         W5^`
+    ]]>
+  </level>
+  <level id="220">
+    <![CDATA[
+W4v               W4v   W4v   `
+                           W5v`
+      B0^            B1<      `
+W4>                     B4^   `
+         W2<      W2<         `
+   B1v                     W2^`
+      B1<      B5^            `
+W1v         B3^      B1<      `
+         B2<   B2<            `
+                     W6<      `
+    ]]>
+  </level>
+  <level id="221">
+    <![CDATA[
+W4v                  W0>   W4<`
+      B4>   B1<               `
+   B1^                  B4<   `
+                  W0^         `
+W     B1>   W                 `
+               W        B0^   `
+         W1v         B2v      `
+               B3<         W5^`
+   B3>      B2^               `
+                  W4<         `
+    ]]>
+  </level>
+  <level id="222">
+    <![CDATA[
+W6>                        W4v`
+      B3>            B3<      `
+   B3v      B1^         B1<   `
+                     B2v      `
+W2>      W2^            B2<   `
+      W2^         W0v         `
+            B3^            W0v`
+   B3^            B0v         `
+         W3>                  `
+W5^         W     W        W2<`
+    ]]>
+  </level>
+  <level id="223">
+    <![CDATA[
+W4v      W3>      W2<         `
+                  W3v   B3<   `
+   B1v                        `
+            B0>      B0>   W4v`
+                              `
+                        B5<   `
+         W2^                  `
+W4>                           `
+      B1<                     `
+            W3<      W4^      `
+    ]]>
+  </level>
+  <level id="224">
+    <![CDATA[
+W4>   W3v               W  W  `
+            B1>               `
+   B3v                     W0^`
+                     B2^      `
+W3v         W1<   B2>         `
+      B3>                  W1^`
+   B1v         W2<   B1>      `
+                              `
+         B2^            W2<   `
+W5^                     W5<   `
+    ]]>
+  </level>
+  <level id="225">
+    <![CDATA[
+      W1<               W5<   `
+            B2v   B2<      W3<`
+                     B0>      `
+W3v            W2>            `
+      B0^         W3<   B3<   `
+                              `
+   W2>         B1v      W2<   `
+         B0v      B1>      W1v`
+   B3^               B4^      `
+         W     W              `
+    ]]>
+  </level>
+  <level id="226">
+    <![CDATA[
+W4v                           `
+            W1<   B1<         `
+                              `
+W3v            W1<         W2<`
+      B1<            B3<      `
+                              `
+W3>                  W2^   W2^`
+      B3>   B1<               `
+   B4>                  B2^   `
+         W2<      W2>         `
+    ]]>
+  </level>
+  <level id="227">
+    <![CDATA[
+W           W2v   W3v         `
+      B5v               B3<   `
+W2v         B1<      B1v      `
+                           W3<`
+                              `
+W2>      W                 W2v`
+                              `
+      B1>         B0^   B2<   `
+   B3>               B2^      `
+               W3<         W5<`
+    ]]>
+  </level>
+  <level id="228">
+    <![CDATA[
+W3>      W                 W4v`
+                     B1>      `
+      B2>   B0^         B2<   `
+                  W3<         `
+                              `
+            W              W3<`
+   B4>            W1^         `
+            B0^               `
+      B5^         B3<         `
+W6>         W4>               `
+    ]]>
+  </level>
+  <level id="229">
+    <![CDATA[
+W7v                        W4v`
+            B1>   B3v         `
+   B4>   B3v                  `
+               W3v         W3v`
+      W3>                     `
+            W2^   B2v         `
+      B0^            B1v   W2^`
+         B2^   W0<            `
+                        B4<   `
+W5>               W2>         `
+    ]]>
+  </level>
+  <level id="230">
+    <![CDATA[
+               W              `
+      B4v               B5v   `
+            B2v               `
+                     B2^      `
+   B3^         B2^            `
+         W1v                  `
+W2^         W1>            W4^`
+      B1v         B3<         `
+   B4^                        `
+         W3^      W1^      W3<`
+    ]]>
+  </level>
+  <level id="231">
+    <![CDATA[
+W4>               W3<      W5v`
+                              `
+                        B3<   `
+W2v         B1^      B1<      `
+                           W3<`
+   B3>   W2v                  `
+            W1>      B3^      `
+W2>   B0v         B4^   B1v   `
+            B2^               `
+   W5^            W4^      W3<`
+    ]]>
+  </level>
+  <level id="232">
+    <![CDATA[
+      W           W2>         `
+         W              B2<   `
+   B3>                        `
+                     B1<   W2v`
+                              `
+   B3>         W4^   B2<      `
+         W1>               W1v`
+W1v                           `
+            B2>               `
+                           W8<`
+    ]]>
+  </level>
+  <level id="233">
+    <![CDATA[
+W6>                  W4v      `
+               B4v            `
+         B3>         B2<      `
+      B2v      W4v         W2^`
+   B4v            W2<         `
+         W1^                  `
+                  W2^         `
+         B2>                  `
+      B0<            B2<      `
+W4^         W3>            W6^`
+    ]]>
+  </level>
+  <level id="234">
+    <![CDATA[
+                           W4v`
+         B2>         B4v      `
+W3>      B3v                  `
+      B0^         W1>         `
+W1v                     B2^   `
+         W3>                  `
+   W1v      W1>            W1v`
+W1v                  B3<      `
+      B0^                     `
+                  W2^      W5<`
+    ]]>
+  </level>
+  <level id="235">
+    <![CDATA[
+         W2>                  `
+   B4>         B3v         W4<`
+         B0^                  `
+W4v   B1>               B1v   `
+            W3>               `
+   B2^   W2>               W2v`
+               B1^            `
+   B0^               B1<      `
+      B3^               B2^   `
+W6^         W     W           `
+    ]]>
+  </level>
+  <level id="236">
+    <![CDATA[
+W5v      W2>         W3<      `
+               B3v      W2<   `
+   B3v   W0<               W2v`
+            W3v      B3<      `
+      B2>         B1v      W2v`
+                              `
+               W2<      B3<   `
+W1v      B1<         B1v      `
+      B2>         B1>      W  `
+            W3<               `
+    ]]>
+  </level>
+  <level id="237">
+    <![CDATA[
+W6v      W3>         W3<      `
+               B2v            `
+   B2v   B2v                  `
+                     W1>      `
+      B1v         W1>      W3v`
+W3^                           `
+      W2>                     `
+            B2^   B2<   B2<   `
+   B3^                        `
+         W2<      W3<      W4<`
+    ]]>
+  </level>
+  <level id="238">
+    <![CDATA[
+W3v            W2>         W4<`
+      B4>            B3<      `
+W3v                           `
+               W0^      B0<   `
+W4>      W1^                  `
+      W2^      B1v            `
+            B1>      W0>      `
+                  W1<         `
+               W1^      B3^   `
+W6>                           `
+    ]]>
+  </level>
+  <level id="239">
+    <![CDATA[
+W7>                        W4v`
+      B3v         B5v         `
+   B2v                  B5<   `
+                  W3<         `
+            B4v            W3<`
+   B2^   B2v         B1>      `
+      B2v      W0v            `
+   B1>                     W1<`
+                     B2^      `
+W5>                           `
+    ]]>
+  </level>
+  <level id="240">
+    <![CDATA[
+   W4v                     W5<`
+            B4v      B2<      `
+         B1^            B4<   `
+   B0^         W1<            `
+                  W1v         `
+            B2<         B1v   `
+W0v                           `
+         W     B2>            `
+         W4>                  `
+                  W        W5^`
+    ]]>
+  </level>
+  <level id="241">
+    <![CDATA[
+      W3>         W3<      W4<`
+                              `
+               B1>      B1^   `
+      B1^            B1v      `
+W3^            B1<         W2^`
+         W0v                  `
+   B2>         W              `
+         B1<   W     B0vB1v   `
+      B3^                     `
+               W4<         W5^`
+    ]]>
+  </level>
+  <level id="242">
+    <![CDATA[
+W5v                        W7<`
+      B2v                     `
+               B1<B3v         `
+         W0<         B1<   W1^`
+            W2v               `
+                           W6<`
+W1v                  B0>      `
+         B1>                  `
+                     B1^      `
+W5>            W3<         W2^`
+    ]]>
+  </level>
+  <level id="243">
+    <![CDATA[
+            W2<W3v      W4v   `
+                           W7<`
+      B3>                     `
+            W2<               `
+      W4>               B5<   `
+   W2^                        `
+W3^                  W1>      `
+      B1^                     `
+   B3^      W     B1>         `
+         W              W     `
+    ]]>
+  </level>
+  <level id="244">
+    <![CDATA[
+W3v      W2>            W3<   `
+               B2<         W  `
+      B3v         B1^      W6v`
+                              `
+W1^            B1^   W1^      `
+                              `
+            B1<   W3^         `
+W2^                           `
+      B2>      B2>            `
+                     W3^      `
+    ]]>
+  </level>
+  <level id="245">
+    <![CDATA[
+W5>      W1<               W3v`
+                              `
+   B1v      B1<               `
+         B4>                  `
+W1v            W1>      W2<   `
+      W2>         W1<         `
+            B3<            W  `
+               B1>         W  `
+                     B3^      `
+W5>         W4^W              `
+    ]]>
+  </level>
+  <level id="246">
+    <![CDATA[
+W5>         W4v               `
+                  B1>         `
+               B1<      B2<   `
+W1^                           `
+         B1<      W4v   B2<   `
+               W3<            `
+                     B4^   W4<`
+                              `
+               W1>            `
+W5^      W2>               W3<`
+    ]]>
+  </level>
+  <level id="247">
+    <![CDATA[
+            W2<            W6v`
+      B2v                     `
+                              `
+   B4v      W0^               `
+      B1^      W013>   B3v      `
+W2^                           `
+            B0>   W2<      W2<`
+W2>   B1v                     `
+                        B3^   `
+         W3>      W3^         `
+    ]]>
+  </level>
+  <level id="248">
+    <![CDATA[
+W3>      W2>         W     W4v`
+               B3v            `
+      B3>            B0^      `
+            W1>               `
+      W1^                     `
+            B2<            W3<`
+W4^                           `
+      B1v      W2<      B2<   `
+         B3>                  `
+                  W3^      W4<`
+    ]]>
+  </level>
+  <level id="249">
+    <![CDATA[
+      W4>               W3v   `
+                           W3<`
+   B4>                     W  `
+                  W0^         `
+               W3v      B3<   `
+                     B4<      `
+W5^         W2^      B2<      `
+      B1^               B1v   `
+                              `
+W6^               W2^      W5<`
+    ]]>
+  </level>
+  <level id="250">
+    <![CDATA[
+W6v         W0>               `
+                  W2v      W3v`
+            B1<               `
+W5v      B1v         B2v   W0^`
+      B0^      W1v            `
+   B4>                  B3^   `
+         W2^                  `
+                           W3<`
+   B4^   W                    `
+         W        W2^         `
+    ]]>
+  </level>
+  <level id="251">
+    <![CDATA[
+W5v         W2<      W1>      `
+                              `
+   B4v   W2>            B2<   `
+                  W0^         `
+            B3v      W2v      `
+   B3>         B0v         W3<`
+                  B0>         `
+W5^   B1v      B2^         W0v`
+                     B0>      `
+W3>         W1<            W4^`
+    ]]>
+  </level>
+  <level id="252">
+    <![CDATA[
+               W4<         W6<`
+                     B2<      `
+W3v                           `
+               W3<            `
+   B3v      W1v               `
+                  B4^   W2v   `
+W3^                           `
+                  W1>         `
+            B2>               `
+W6>                        W3^`
+    ]]>
+  </level>
+  <level id="253">
+    <![CDATA[
+W5>      W7v               W6v`
+                              `
+      B0v                     `
+W2v         W0<            W1<`
+                  B2>         `
+               B1<            `
+W1>                           `
+                  W1v   B2^   `
+            B2>               `
+   W5^               W3<      `
+    ]]>
+  </level>
+  <level id="254">
+    <![CDATA[
+W5v      W2>               W3<`
+               W3<   B2v      `
+      B3v                     `
+   B1^                        `
+            W2<               `
+W2v                        W3^`
+         B1^   W1<            `
+                     B1^      `
+            B2>               `
+   W3>            W5^      W5^`
+    ]]>
+  </level>
+  <level id="255">
+    <![CDATA[
+W5>               W1>         `
+      B1v   B1<               `
+         B0^         B1^      `
+W3>   B3>      W3v            `
+                  W3v   B3<   `
+                              `
+W2^                        W4<`
+         B3>                  `
+   B4^               B2<      `
+               W2>         W3^`
+    ]]>
+  </level>
+  <level id="256">
+    <![CDATA[
+W6v                           `
+                  W4v   B3v   `
+                              `
+               W2^   B2^   W2^`
+         W1v                  `
+               B1>            `
+W4^                           `
+            W2^            W4<`
+   B4^               B2<      `
+         W  W                 `
+    ]]>
+  </level>
+  <level id="257">
+    <![CDATA[
+W4v         W3>            W5v`
+      B4v            B0v      `
+   B2>                        `
+                           W1^`
+W4>                  W0^      `
+                              `
+W2^   B3>                     `
+                     B0^      `
+   B4^         B3>            `
+         W3^         W  W3^   `
+    ]]>
+  </level>
+  <level id="258">
+    <![CDATA[
+W6v         W3>            W6v`
+                     B3v      `
+         B1>                  `
+               W4v            `
+            W2v               `
+   B2>                        `
+                     B3<      `
+W1v      B0<               W5^`
+      B3>                     `
+            W3<               `
+    ]]>
+  </level>
+  <level id="259">
+    <![CDATA[
+W5v                        W7<`
+                     B2<      `
+                        B3v   `
+      B1<         W           `
+W3v               W        W3v`
+         W3>                  `
+               B0v      B1<   `
+                              `
+               B2<            `
+W                          W7<`
+    ]]>
+  </level>
+  <level id="260">
+    <![CDATA[
+         W              W5v   `
+                  B1>         `
+   B1^               B2<   W  `
+               W1^            `
+                     B3<      `
+      W3>      B2>         W1^`
+W3^W                 W1>      `
+W3>         W2^               `
+      B1<         B1>         `
+                           W3^`
+    ]]>
+  </level>
+  <level id="261">
+    <![CDATA[
+      W4>            W4<      `
+               B2>            `
+         B2v                  `
+   W2v         W0>            `
+                              `
+W2v   B2>                     `
+            W1>            W3<`
+   B4>                        `
+               B0^            `
+   W4>   W3^               W6^`
+    ]]>
+  </level>
+  <level id="262">
+    <![CDATA[
+                           W5<`
+   B2>               B1<      `
+         B1^   W              `
+      B1^                     `
+W2^      B0<      B1<         `
+            B2<               `
+W0vW4>            W2^         `
+         B3>            B2^   `
+                              `
+W5>      W4>               W6^`
+    ]]>
+  </level>
+  <level id="263">
+    <![CDATA[
+W3v      W4>               W5<`
+                              `
+      B1<               B2v   `
+W3>         W2<      B3<  >   `
+   W     W        B4^   B >   `
+                           W3^`
+      B0v            B1^      `
+W1v            B1>      B2^   `
+      B2>   B3^               `
+                  W3^      W6<`
+    ]]>
+  </level>
+  <level id="264">
+    <![CDATA[
+W5v                        W4v`
+         B1>      B1<         `
+                        B1^   `
+                              `
+W3v                  B1v   W2<`
+                           W5<`
+                              `
+   B1v   W3^   B1>   B1^      `
+                        B4<   `
+W5>         W3^               `
+    ]]>
+  </level>
+  <level id="265">
+    <![CDATA[
+W3>               W4v         `
+               W1<      B2v   `
+W3v   B1^            B2v      `
+               W3v            `
+   B3^                  B4<   `
+                              `
+W4>                        W2v`
+                     B2<      `
+         B2^            B2^   `
+W6>               W4^         `
+    ]]>
+  </level>
+  <level id="266">
+    <![CDATA[
+   W3>         W1v         W5v`
+                     B3<      `
+         B1v                  `
+      B0<      W0^      B2<   `
+W2v                           `
+         B3>                  `
+               W3<            `
+   B1v                     W5^`
+      B3^   B4^   B3^         `
+W2^                     W3^   `
+    ]]>
+  </level>
+  <level id="267">
+    <![CDATA[
+                  W4<W1>      `
+         B1<   W4vW           `
+         B4v            B3<   `
+      B2v                     `
+W3v               W1^      W1<`
+         W3>                  `
+                     B3<      `
+                              `
+      B3>         B2<         `
+W4>         W2<            W5^`
+    ]]>
+  </level>
+  <level id="268">
+    <![CDATA[
+W3>            W4vW        W4v`
+      B5>                     `
+   B3>         B2<   B1^      `
+         W3>               W1^`
+W3v         W1^               `
+                        B3<   `
+         B1>                  `
+                           W1v`
+                              `
+W6>               W4<         `
+    ]]>
+  </level>
+  <level id="269">
+    <![CDATA[
+W5v                     W6<   `
+            B2>   B2>         `
+   B2>               B1<      `
+         B0^               W1^`
+   W3>            W2<         `
+W2^      W1>            B1v   `
+               B2<            `
+   B3>                     W3<`
+            B2^      B2<      `
+      W6>                     `
+    ]]>
+  </level>
+  <level id="270">
+    <![CDATA[
+               W3<            `
+         B4v            B3v   `
+      B0<         B5v         `
+   B1^      W0<      B1^   W2^`
+      B0v      W2<            `
+W4^                           `
+            B3<            W3^`
+      B1<            B2^      `
+                              `
+            W3^            W5<`
+    ]]>
+  </level>
+  <level id="271">
+    <![CDATA[
+   W5>               W1>      `
+         B3v   B1<            `
+                        B4<   `
+   B5v            W0v         `
+            W1<               `
+W4>                        W4^`
+            W1>      W        `
+W5>                           `
+            B2>         B2<   `
+W3^               W1^         `
+    ]]>
+  </level>
+  <level id="272">
+    <![CDATA[
+W5v            W2>         W5v`
+                     B3v      `
+   B1^      B1>         B2<   `
+                  W2v         `
+W1>   W0<                  W1<`
+         W1^         B2<      `
+                              `
+      B3>               B4<   `
+            B5^               `
+      W5>                  W6<`
+    ]]>
+  </level>
+  <level id="273">
+    <![CDATA[
+   W3v      W1<            W3v`
+W5v               B1>         `
+      B4v      B1<         W  `
+                              `
+         W0>                  `
+   B2v            W           `
+            B1>               `
+W2>               W2<   B2<   `
+      B5^      W1>            `
+            W5^   W1^         `
+    ]]>
+  </level>
+  <level id="274">
+    <![CDATA[
+W3v                        W4v`
+                     B1<      `
+               W1<      B2<   `
+W3>   B2v                     `
+            W2>            W2v`
+   B3v   W1^      B1<         `
+                     B4<      `
+      B0>   B4^            W3^`
+         B0<                  `
+W6>            W3<            `
+    ]]>
+  </level>
+  <level id="275">
+    <![CDATA[
+W3v                        W8v`
+      B1>      B1>   B4v      `
+   B3v   B0^            B2v   `
+      B2v                     `
+            W1<         B4^   `
+         W1^                  `
+                     W3^      `
+W        B1^                  `
+      B0^      W        B3^   `
+            W3^   W           `
+    ]]>
+  </level>
+  <level id="276">
+    <![CDATA[
+      W3>         W3<      W6v`
+            B3>               `
+                        B1^   `
+   B3v         W4v            `
+                     W4<      `
+W4^   B1^         W0v         `
+            W2>         B2v   `
+   B3^                        `
+      B0^         B1^      W2<`
+W5>         W3>               `
+    ]]>
+  </level>
+  <level id="277">
+    <![CDATA[
+         W0<                  `
+W3v               B1>         `
+      B3>               B3v   `
+         B4^                  `
+   W2>         W2^   B0>      `
+W5>                        W3^`
+                  B2<         `
+   B4>         B2<            `
+            B3^         B2<   `
+W3^               W2>         `
+    ]]>
+  </level>
+  <level id="278">
+    <![CDATA[
+W5>         W3>               `
+                     B3v   W3<`
+         B3>                  `
+   B5>                  W3v   `
+                     W1<      `
+      B1^         W1>         `
+W3>            W2<      B3<   `
+                     B5<      `
+   B3^         B1>            `
+         W2<                  `
+    ]]>
+  </level>
+  <level id="279">
+    <![CDATA[
+W4v      W1v   W3v   W1>      `
+                  W4<         `
+      B1<               B2v   `
+            W2<      B1^      `
+   B3>            B2<         `
+      B1<                     `
+W1v            W3^         W3<`
+                     B3^      `
+      B2>         B3^         `
+W6>                        W4^`
+    ]]>
+  </level>
+  <level id="280">
+    <![CDATA[
+W7v            W2<         W4<`
+                     B3v      `
+         B1^            B4v   `
+      B2v         W2<         `
+            W1^               `
+                           W3<`
+   B3>         B2>            `
+   B2>                     W3^`
+      B1<   B3^               `
+W5>               W4<         `
+    ]]>
+  </level>
+  <level id="281">
+    <![CDATA[
+W5v      W1<      W2<         `
+                        B3<   `
+                  W1<         `
+W1^         B0<               `
+               B3<            `
+         W0<                  `
+               W0v      B3^   `
+                     B2<      `
+               B3<         W5<`
+W3>      W1<         W6^      `
+    ]]>
+  </level>
+  <level id="282">
+    <![CDATA[
+W5>         W3>            W4v`
+      B3v            B3<      `
+         B2v                  `
+      B3v         B1^   W2<   `
+            W1^            W3v`
+W2v      W5>                  `
+                        B2<   `
+   B3^      B1v               `
+         B2>         B2^      `
+W5^            W3<         W5<`
+    ]]>
+  </level>
+  <level id="283">
+    <![CDATA[
+   W2v         W2>         W4<`
+W6v      B2>         B2v      `
+            B2<         B1^   `
+   B2>                        `
+               W2<            `
+                           W3^`
+            W1<      B1>      `
+   B1v                  B3^   `
+                              `
+W6^               W6^      W5^`
+    ]]>
+  </level>
+  <level id="284">
+    <![CDATA[
+         W1<         W3v      `
+               B2>         W2v`
+      B0<         B1>         `
+W3v                        W2<`
+      B0>      W3v   B0>      `
+                              `
+                              `
+W2^      B5^      B1>         `
+      B3^               B5^   `
+            W4^               `
+    ]]>
+  </level>
+  <level id="285">
+    <![CDATA[
+      W2>         W1v      W2v`
+            B1<               `
+         B5>                  `
+                           W1^`
+   B7>                        `
+                              `
+            W1<            W2^`
+         W0<      B1<   W     `
+               B0^            `
+W8^                  W0>      `
+    ]]>
+  </level>
+  <level id="286">
+    <![CDATA[
+                  W0>         `
+         B2>   W0<            `
+                              `
+      W1v   B1v         B2<   `
+                  B0v         `
+      B1v                  W2v`
+W5^         W4>               `
+      B1v                     `
+   B6^                        `
+         W2<               W4^`
+    ]]>
+  </level>
+  <level id="287">
+    <![CDATA[
+         W2<         W1>      `
+   B4>                        `
+                        B3<   `
+         B4>                  `
+   W1^                     W3<`
+                     B2^      `
+      B4^   W3^               `
+                  B3<   B2^   `
+   B3^   W3^         B1>      `
+                           W6<`
+    ]]>
+  </level>
+  <level id="288">
+    <![CDATA[
+   W5>               W4<      `
+                              `
+         B1<                  `
+      B0<                     `
+                  B1<         `
+   B1^   W1v         B2^   W  `
+               W0^            `
+W5^               W2<   B3^   `
+      B5^                     `
+               W2>         W6<`
+    ]]>
+  </level>
+  <level id="289">
+    <![CDATA[
+W2v                     W5v   `
+         B2<                  `
+   B3v         W1>         W  `
+                     B3v      `
+            B2^               `
+                           W6<`
+                     B3^      `
+            B1<            W  `
+W2^      B3^      W2<         `
+   W3>         W3^         W3<`
+    ]]>
+  </level>
+  <level id="290">
+    <![CDATA[
+W4>      W3>         W3<      `
+               B1<            `
+W3v   B2>                     `
+                  W           `
+   B3v   W0>      W2v         `
+                              `
+W2^   B0v         W1^         `
+            B1<               `
+         B1<         B1>      `
+W3^            W2>         W5<`
+    ]]>
+  </level>
+  <level id="291">
+    <![CDATA[
+W5v               W5v         `
+      B1>   B2v         B4v   `
+   B2v                        `
+                  W2<      W2^`
+W3v                           `
+         B2^            B2^   `
+      B2>      W1>   B1>      `
+   B0^                     W4^`
+         B2>         B3^      `
+W6>            W3<            `
+    ]]>
+  </level>
+  <level id="292">
+    <![CDATA[
+            W2<               `
+W4v   B0>                     `
+            W0>            W0^`
+   B4>                        `
+      B0v               B5<   `
+W6>                  B5<      `
+      W2>      W1>            `
+                              `
+      B5>                     `
+W4^         W0>   W0>   W6^   `
+    ]]>
+  </level>
+  <level id="293">
+    <![CDATA[
+W3v      W1<               W8v`
+                     B2v      `
+         B1>                  `
+W1>            W1^      B4^   `
+      B1<            B2v      `
+            B1>         B3<   `
+W1v               W4^         `
+      B2>      W3^            `
+         B4^            B3<   `
+W6>               W4<         `
+    ]]>
+  </level>
+  <level id="294">
+    <![CDATA[
+W5>         W2<               `
+      B1<         B2v         `
+                              `
+      W0^                     `
+         W1<      W0>         `
+   B3v                        `
+            B1v         B2<   `
+W4^               W0v         `
+      B0<                     `
+W2>            W4^   W1^   W8^`
+    ]]>
+  </level>
+  <level id="295">
+    <![CDATA[
+W5>      W2v                  `
+                              `
+                     B1>      `
+         B1>   W2v         W1<`
+   B1^                        `
+            W1v         W2^   `
+   B4>            W3<      W2^`
+            B1v               `
+W1>            B3^   B4^      `
+         W2^               W5<`
+    ]]>
+  </level>
+  <level id="296">
+    <![CDATA[
+W2v      W1<               W5<`
+                  B2<         `
+   B1^      B2v               `
+                  W3<      W4<`
+W5>                           `
+                     B2v      `
+W3>            W1>            `
+      B0v         W1^   B1<   `
+         B2^                  `
+               W2>         W5^`
+    ]]>
+  </level>
+  <level id="297">
+    <![CDATA[
+W6v                     W6<   `
+                  B3v      W3<`
+               B5v            `
+                              `
+            W0>   B2v   B1v   `
+W3v      W1<                  `
+      W1<               B1^   `
+            B3^   W1v         `
+   B3^                        `
+         W2<               W5^`
+    ]]>
+  </level>
+  <level id="298">
+    <![CDATA[
+         W2<   W3v      W2<   `
+   B7>                        `
+               B1>            `
+W2^               B1>         `
+                              `
+   B2^      W0^W     B2^      `
+                           W3^`
+W4^         B4>               `
+      B6^               B4<   `
+                  W2>         `
+    ]]>
+  </level>
+  <level id="299">
+    <![CDATA[
+                  W5<         `
+         B1<B1v               `
+                     B0^      `
+            W1<            W  `
+W1>               W2^         `
+         W223^                  `
+                  W2^      W1^`
+   B2>                        `
+      B3^   B1<         B3<   `
+W5^                           `
+    ]]>
+  </level>
+  <level id="300">
+    <![CDATA[
+W4>         W2<      W4v      `
+      B3>                     `
+         B3v                  `
+                        B2v   `
+            W1>               `
+W3^                  W2<      `
+      B1<                  W2v`
+            W1v   B2>         `
+      B1<                     `
+W5>            W6^            `
     ]]>
   </level>
 </levels>
