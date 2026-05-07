@@ -90,7 +90,18 @@ class CrossroadBlocksGameState: GridGameState<CrossroadBlocksGameMove> {
             }
         }
         for (p, hint) in game.pos2hint {
-            pos2state[p] = .normal
+            let (isBlack, n2, dir) = (hint.isBlack, hint.num, hint.dir)
+            guard n2 != CrossroadBlocksGame.PUZ_UNKNOWN else {continue}
+            var n1 = 0
+            let os = CrossroadBlocksGame.offset[dir]
+            var p2 = p + os
+            while isValid(p: p2) {
+                if self[p2][dir] { n1 += 1 }
+                p2 += os
+            }
+            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            if s != .complete { isSolved = false }
+            pos2state[p] = s
         }
         guard isSolved else {return}
         // Check the loop

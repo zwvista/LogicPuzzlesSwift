@@ -14,8 +14,8 @@ class CrossroadBlocksGameScene: GameScene<CrossroadBlocksGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName, size: CGSize(width: gridNode.blockSize, height: gridNode.blockSize / 2))
+    func addHint(n: Int, isBlack: Bool, s: HintState, point: CGPoint, nodeName: String) {
+        addLabel(text: String(n), fontColor: s == .normal ? isBlack ? .white : .black : s == .complete ? .green : .red, point: point, nodeName: nodeName, size: CGSize(width: gridNode.blockSize, height: gridNode.blockSize / 2))
     }
     
     func getHintPoint(p: Position) -> CGPoint {
@@ -25,7 +25,7 @@ class CrossroadBlocksGameScene: GameScene<CrossroadBlocksGameState> {
         return CGPoint(x: x, y: y)
     }
     
-    func addTriangle(in rect: CGRect, dir: Int) {
+    func addTriangle(in rect: CGRect, dir: Int, color: UIColor) {
         let cx = rect.midX
         let cy = rect.midY
         let w = rect.width
@@ -61,7 +61,7 @@ class CrossroadBlocksGameScene: GameScene<CrossroadBlocksGameState> {
         path.closeSubpath()
         
         let triangle = SKShapeNode(path: path)
-        triangle.fillColor = .lightGray
+        triangle.fillColor = color
         gridNode.addChild(triangle)
     }
 
@@ -76,11 +76,24 @@ class CrossroadBlocksGameScene: GameScene<CrossroadBlocksGameState> {
         
         // add Hints
         for (p, hint) in game.pos2hint {
+            let (isBlack, n, dir) = (hint.isBlack, hint.num, hint.dir)
+            let point2 = gridNode.centerPoint(p: p)
+            if isBlack {
+                let rectNode = SKShapeNode(rectOf: coloredRectSize())
+                rectNode.name = "block"
+                rectNode.position = point2
+                rectNode.strokeColor = .lightGray
+                rectNode.lineWidth = 4
+                gridNode.addChild(rectNode)
+            } else {
+                addBlock(color: .white, point: point2, nodeName: "block")
+            }
+            guard n != CrossroadBlocksGame.PUZ_UNKNOWN else {continue}
             let point = getHintPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
-            addHint(n: hint.num, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
-            addTriangle(in: CGRect(x: point.x + blockSize / 4, y: point.y - blockSize / 2, w: blockSize / 2, h: blockSize), dir: hint.dir)
+            addHint(n: n, isBlack: isBlack, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
+            addTriangle(in: CGRect(x: point.x + blockSize / 4, y: point.y - blockSize / 2, w: blockSize / 2, h: blockSize), dir: dir, color: isBlack ? .white : .black)
         }
     }
     
@@ -122,8 +135,9 @@ class CrossroadBlocksGameScene: GameScene<CrossroadBlocksGameState> {
                 let hintNodeName = "hint" + nodeNameSuffix
                 let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
                 if s1 != s2 {
+                    let hint = game.pos2hint[p]!
                     removeNode(withName: hintNodeName)
-                    addHint(n: game.pos2hint[p]!.num, s: s2!, point: getHintPoint(p: p), nodeName: hintNodeName)
+                    addHint(n: hint.num, isBlack: hint.isBlack, s: s2!, point: getHintPoint(p: p), nodeName: hintNodeName)
                 }
             }
         }
