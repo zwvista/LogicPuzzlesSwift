@@ -114,5 +114,37 @@ class TheGreyLabyrinthGameState: GridGameState<TheGreyLabyrinthGameMove> {
                 }
             }
         }
+        guard isSolved else {return}
+        // 4. From any location, there must only be one route to the treasure.
+        var rng = Set<Position>()
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                if self[p] != .wall {
+                    rng.insert(p)
+                }
+            }
+        }
+        var moves = Set<Position>()
+        func dfs(p: Position, n: Int) -> Bool {
+            guard moves.insert(p).inserted else { return false }
+            // 5. You must follow the arrows, where present.
+            let n2 = switch self[p] {
+            case .up: 0
+            case .right: 1
+            case .down: 2
+            case .left: 3
+            default: -1
+            }
+            if n2 != -1 && n2 != n { return false }
+            for i in 0..<4 {
+                if i == n {continue}
+                let p2 = p + TheGreyLabyrinthGame.offset[i]
+                guard rng.contains(p2) else {continue}
+                guard dfs(p: p2, n: (i + 2) % 4) else { return false }
+            }
+            return true
+        }
+        if !(dfs(p: game.treasure, n: -1) && moves.count == rng.count) { isSolved = false }
     }
 }

@@ -43,7 +43,9 @@ class TheGreyLabyrinthGameScene: GameScene<TheGreyLabyrinthGameState> {
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(p.row)-\(p.col)"
                 let tileNodeName = "tile" + nodeNameSuffix
-                addObject(o: game[p], s: state.pos2state[p]!, point: point, nodeName: tileNodeName)
+                let o = game[p]
+                guard o != .empty else {continue}
+                addObject(o: o, s: .normal, point: point, nodeName: tileNodeName)
             }
         }
     }
@@ -61,6 +63,8 @@ class TheGreyLabyrinthGameScene: GameScene<TheGreyLabyrinthGameState> {
                 guard o1 != o2 || s1 != s2 else {continue}
                 if o1 != .empty { removeNode(withName: tileNodeName) }
                 switch o2 {
+                case .empty:
+                    break
                 case .forbidden:
                     addForbiddenMarker(point: point, nodeName: tileNodeName)
                 case .marker:
