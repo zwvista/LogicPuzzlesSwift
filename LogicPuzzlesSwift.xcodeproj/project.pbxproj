@@ -1736,6 +1736,15 @@
 		8CAEAF112FAA7C1A003F40B8 /* HedgeMazeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEAF092FAA7C1A003F40B8 /* HedgeMazeObject.swift */; };
 		8CAEAF122FAA7C1A003F40B8 /* HedgeMazeDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEAF022FAA7C1A003F40B8 /* HedgeMazeDocument.swift */; };
 		8CAEAF132FAA7C1A003F40B8 /* HedgeMazeMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEAF082FAA7C1A003F40B8 /* HedgeMazeMainViewController.swift */; };
+		8CAEAF232FAD95BF003F40B8 /* GuessTheLabyrinth.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CAEAF192FAD95BE003F40B8 /* GuessTheLabyrinth.xml */; };
+		8CAEAF242FAD95BF003F40B8 /* GuessTheLabyrinthGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEAF1C2FAD95BE003F40B8 /* GuessTheLabyrinthGameScene.swift */; };
+		8CAEAF252FAD95BF003F40B8 /* GuessTheLabyrinthGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEAF1F2FAD95BE003F40B8 /* GuessTheLabyrinthGridNode.swift */; };
+		8CAEAF262FAD95BF003F40B8 /* GuessTheLabyrinthGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEAF1B2FAD95BE003F40B8 /* GuessTheLabyrinthGame.swift */; };
+		8CAEAF272FAD95BF003F40B8 /* GuessTheLabyrinthDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEAF1A2FAD95BE003F40B8 /* GuessTheLabyrinthDocument.swift */; };
+		8CAEAF282FAD95BF003F40B8 /* GuessTheLabyrinthMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEAF202FAD95BE003F40B8 /* GuessTheLabyrinthMainViewController.swift */; };
+		8CAEAF292FAD95BF003F40B8 /* GuessTheLabyrinthGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEAF1D2FAD95BE003F40B8 /* GuessTheLabyrinthGameState.swift */; };
+		8CAEAF2A2FAD95BF003F40B8 /* GuessTheLabyrinthObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEAF212FAD95BE003F40B8 /* GuessTheLabyrinthObject.swift */; };
+		8CAEAF2B2FAD95BF003F40B8 /* GuessTheLabyrinthGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEAF1E2FAD95BE003F40B8 /* GuessTheLabyrinthGameViewController.swift */; };
 		8CAFBFC72E9D9FE500C27D7C /* ArrowsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFBE2E9D9FE500C27D7C /* ArrowsDocument.swift */; };
 		8CAFBFC82E9D9FE500C27D7C /* ArrowsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFC32E9D9FE500C27D7C /* ArrowsGridNode.swift */; };
 		8CAFBFC92E9D9FE500C27D7C /* ArrowsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFBFC52E9D9FE500C27D7C /* ArrowsObject.swift */; };
@@ -3970,6 +3979,15 @@
 		8CAEAF072FAA7C1A003F40B8 /* HedgeMazeGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HedgeMazeGridNode.swift; sourceTree = "<group>"; };
 		8CAEAF082FAA7C1A003F40B8 /* HedgeMazeMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HedgeMazeMainViewController.swift; sourceTree = "<group>"; };
 		8CAEAF092FAA7C1A003F40B8 /* HedgeMazeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HedgeMazeObject.swift; sourceTree = "<group>"; };
+		8CAEAF192FAD95BE003F40B8 /* GuessTheLabyrinth.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = GuessTheLabyrinth.xml; sourceTree = "<group>"; };
+		8CAEAF1A2FAD95BE003F40B8 /* GuessTheLabyrinthDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheLabyrinthDocument.swift; sourceTree = "<group>"; };
+		8CAEAF1B2FAD95BE003F40B8 /* GuessTheLabyrinthGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheLabyrinthGame.swift; sourceTree = "<group>"; };
+		8CAEAF1C2FAD95BE003F40B8 /* GuessTheLabyrinthGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheLabyrinthGameScene.swift; sourceTree = "<group>"; };
+		8CAEAF1D2FAD95BE003F40B8 /* GuessTheLabyrinthGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheLabyrinthGameState.swift; sourceTree = "<group>"; };
+		8CAEAF1E2FAD95BE003F40B8 /* GuessTheLabyrinthGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheLabyrinthGameViewController.swift; sourceTree = "<group>"; };
+		8CAEAF1F2FAD95BE003F40B8 /* GuessTheLabyrinthGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheLabyrinthGridNode.swift; sourceTree = "<group>"; };
+		8CAEAF202FAD95BE003F40B8 /* GuessTheLabyrinthMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheLabyrinthMainViewController.swift; sourceTree = "<group>"; };
+		8CAEAF212FAD95BE003F40B8 /* GuessTheLabyrinthObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessTheLabyrinthObject.swift; sourceTree = "<group>"; };
 		8CAFBFBD2E9D9FE500C27D7C /* Arrows.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Arrows.xml; sourceTree = "<group>"; };
 		8CAFBFBE2E9D9FE500C27D7C /* ArrowsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowsDocument.swift; sourceTree = "<group>"; };
 		8CAFBFBF2E9D9FE500C27D7C /* ArrowsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowsGame.swift; sourceTree = "<group>"; };
@@ -5381,6 +5399,7 @@
 				8C35E37E1FC2844E00A26EE3 /* Gardener */,
 				8CB4187A2F23B21B005C7FDF /* GardenTunnels */,
 				8C81BBFB2EA4A04F0083B936 /* Gems */,
+				8CAEAF222FAD95BE003F40B8 /* GuessTheLabyrinth */,
 				8CF17FC22F375E0F000F1F7D /* Guesstris */,
 				8CAEAF0A2FAA7C1A003F40B8 /* HedgeMaze */,
 				8CFB221F2EF87D8E00E5F29D /* HeliumAndIron */,
@@ -7608,6 +7627,22 @@
 			path = HedgeMaze;
 			sourceTree = "<group>";
 		};
+		8CAEAF222FAD95BE003F40B8 /* GuessTheLabyrinth */ = {
+			isa = PBXGroup;
+			children = (
+				8CAEAF192FAD95BE003F40B8 /* GuessTheLabyrinth.xml */,
+				8CAEAF1A2FAD95BE003F40B8 /* GuessTheLabyrinthDocument.swift */,
+				8CAEAF1B2FAD95BE003F40B8 /* GuessTheLabyrinthGame.swift */,
+				8CAEAF1C2FAD95BE003F40B8 /* GuessTheLabyrinthGameScene.swift */,
+				8CAEAF1D2FAD95BE003F40B8 /* GuessTheLabyrinthGameState.swift */,
+				8CAEAF1E2FAD95BE003F40B8 /* GuessTheLabyrinthGameViewController.swift */,
+				8CAEAF1F2FAD95BE003F40B8 /* GuessTheLabyrinthGridNode.swift */,
+				8CAEAF202FAD95BE003F40B8 /* GuessTheLabyrinthMainViewController.swift */,
+				8CAEAF212FAD95BE003F40B8 /* GuessTheLabyrinthObject.swift */,
+			);
+			path = GuessTheLabyrinth;
+			sourceTree = "<group>";
+		};
 		8CAFBFC62E9D9FE500C27D7C /* Arrows */ = {
 			isa = PBXGroup;
 			children = (
@@ -9008,6 +9043,7 @@
 				8CA9D5F92F49C26A00EDF793 /* BentBridges.xml in Resources */,
 				8C86644D2EA39DD00078CD64 /* arrow_yellow_down.png in Resources */,
 				8C86644E2EA39DD00078CD64 /* arrow_green_up.png in Resources */,
+				8CAEAF232FAD95BF003F40B8 /* GuessTheLabyrinth.xml in Resources */,
 				8C86644F2EA39DD00078CD64 /* target.png in Resources */,
 				8C3A37441EC88D4300A914A5 /* Nurikabe.xml in Resources */,
 				8CF17FCB2F375E0F000F1F7D /* Guesstris.xml in Resources */,
@@ -9358,6 +9394,14 @@
 				8C9BD5EA2F0C0D2A00D1D915 /* InbetweenSumscrapersObject.swift in Sources */,
 				8C9BD5EB2F0C0D2A00D1D915 /* InbetweenSumscrapersGameScene.swift in Sources */,
 				8C3A37B81EC88D4400A914A5 /* SlitherLinkMainViewController.swift in Sources */,
+				8CAEAF242FAD95BF003F40B8 /* GuessTheLabyrinthGameScene.swift in Sources */,
+				8CAEAF252FAD95BF003F40B8 /* GuessTheLabyrinthGridNode.swift in Sources */,
+				8CAEAF262FAD95BF003F40B8 /* GuessTheLabyrinthGame.swift in Sources */,
+				8CAEAF272FAD95BF003F40B8 /* GuessTheLabyrinthDocument.swift in Sources */,
+				8CAEAF282FAD95BF003F40B8 /* GuessTheLabyrinthMainViewController.swift in Sources */,
+				8CAEAF292FAD95BF003F40B8 /* GuessTheLabyrinthGameState.swift in Sources */,
+				8CAEAF2A2FAD95BF003F40B8 /* GuessTheLabyrinthObject.swift in Sources */,
+				8CAEAF2B2FAD95BF003F40B8 /* GuessTheLabyrinthGameViewController.swift in Sources */,
 				8C3A36051EC88D4200A914A5 /* BattleShipsGameViewController.swift in Sources */,
 				8C64A2681DD8089700AB6C09 /* GameGameViewController.swift in Sources */,
 				8C6A35E11FAF4FFD00D2804D /* MathraxGame.swift in Sources */,
