@@ -18,12 +18,8 @@ class GuessTheLabyrinthGame: GridGame<GuessTheLabyrinthGameState> {
     ]
     static let dirs = [1, 0, 3, 2]
     static let PUZ_POST: Character = "O"
-    static let PUZ_SHEEP: Character = "S"
-    static let PUZ_WOLF: Character = "W"
     
     var objArray = [GridDotObject]()
-    var wolves = [Position]()
-    var sheep = [Position]()
     var posts = [Position]()
     
     init(layout: [String], delegate: GuessTheLabyrinthGameViewController? = nil) {
@@ -53,13 +49,6 @@ class GuessTheLabyrinthGame: GridGame<GuessTheLabyrinthGameState> {
                 if ch == "|" {
                     self[r, c][2] = .line
                     self[r + 1, c][0] = .line
-                }
-                guard c < cols - 1 else {continue}
-                let p = Position(r, c)
-                switch str[2 * c + 1] {
-                case GuessTheLabyrinthGame.PUZ_WOLF: wolves.append(p)
-                case GuessTheLabyrinthGame.PUZ_SHEEP: sheep.append(p)
-                default: break
                 }
             }
         }

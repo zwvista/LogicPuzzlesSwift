@@ -22,16 +22,7 @@ class GuessTheLabyrinthGameScene: GameScene<GuessTheLabyrinthGameState> {
         // add Grid
         let offset:CGFloat = 0.5
         addGrid(gridNode: GuessTheLabyrinthGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset))
-        
-        // add Images
-        for p in game.wolves {
-            let point = gridNode.centerPoint(p: p)
-            addImage(imageNamed: "wolf2", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "wolf")
-        }
-        for p in game.sheep {
-            let point = gridNode.centerPoint(p: p)
-            addImage(imageNamed: "sheep2", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "sheep")
-        }
+
         for p in game.posts {
             let point = gridNode.cornerPoint(p: p)
             addDotMarker2(color: .white, point: point, nodeName: "post")
