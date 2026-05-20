@@ -742,7 +742,7 @@
     1 1 `
 4 4  4 2`
 ]]></level>
-		<level id="8-8"><![CDATA[
+        <level id="8-8"><![CDATA[
 2 3 6 3 `
    1   1`
     5 3 `
@@ -751,6 +751,15 @@
    2  2 `
        1`
 3 3 4 4 `
+]]></level>
+		<level id="nikoli1"><![CDATA[
+4 3 3 3`
+ 2   4 `
+3  3  3`
+       `
+2  8 4 `
+    1 3`
+ 1 4 1 `
 ]]></level>
 </levels>
 </puzzle>
