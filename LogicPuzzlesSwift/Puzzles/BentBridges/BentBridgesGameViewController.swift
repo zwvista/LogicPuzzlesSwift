@@ -13,6 +13,21 @@ class BentBridgesGameViewController: GameGameViewController2<BentBridgesGameStat
     override func getGameDocument() -> GameDocumentBase { BentBridgesDocument.sharedInstance }
     var pLast: Position?
     
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        true
+    }
+    
+    override func handleTap(_ sender: UITapGestureRecognizer) {
+        guard !game.isSolved else {return}
+        let touchLocation = sender.location(in: sender.view)
+        let touchLocationInScene = scene.convertPoint(fromView: touchLocation)
+        guard scene.gridNode.contains(touchLocationInScene) else {return}
+        let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
+        let (p, dir) = scene.gridNode.linePosition(point: touchLocationInGrid)
+        var move = BentBridgesGameMove(p: p, dir: dir)
+        if game.setObject(move: &move) { soundManager.playSoundTap() }
+    }
+    
     override func handlePan(_ sender: UIPanGestureRecognizer) {
         guard !game.isSolved else {return}
         let touchLocation = sender.location(in: sender.view)
@@ -20,24 +35,21 @@ class BentBridgesGameViewController: GameGameViewController2<BentBridgesGameStat
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        let isI = game.isIsland(p: p)
         let f = { self.soundManager.playSoundTap() }
         switch sender.state {
         case .began:
-            guard isI else {break}
             pLast = p; f()
         case .changed:
-            guard isI && pLast != nil && pLast != p else {break}
-            var move = BentBridgesGameMove(pFrom: pLast!, pTo: p)
-            _ = game.switchBentBridges(move: &move)
-            pLast = p; f()
-        case .ended:
-            pLast = nil
+            guard pLast != p else {break}
+            defer { pLast = p }
+            guard let dir = BentBridgesGame.offset.firstIndex(of: p - pLast!) else {break}
+            var move = BentBridgesGameMove(p: pLast!, dir: dir)
+            if game.setObject(move: &move) { f() }
         default:
             break
         }
     }
-    
+
     override func newGame(level: GameLevel) -> BentBridgesGame {
         BentBridgesGame(layout: level.layout, delegate: self)
     }

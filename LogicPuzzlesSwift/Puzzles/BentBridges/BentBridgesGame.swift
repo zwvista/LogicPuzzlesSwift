@@ -11,8 +11,7 @@ import Foundation
 class BentBridgesGame: GridGame<BentBridgesGameState> {
     static let offset = Position.Directions4
     
-    var islandsInfo = [Position: BentBridgesIslandInfo]()
-    func isIsland(p: Position) -> Bool { islandsInfo[p] != nil }
+    var pos2hint = [Position: Int]()
     
     init(layout: [String], delegate: BentBridgesGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -24,38 +23,11 @@ class BentBridgesGame: GridGame<BentBridgesGameState> {
             for c in 0..<cols {
                 let ch = str[c]
                 guard ch.isNumber else {continue}
-                islandsInfo[Position(r, c)] = BentBridgesIslandInfo(b: ch.toInt!)
-            }
-        }
-        for (p, info) in islandsInfo {
-            for i in 0..<4 {
-                let os = BentBridgesGame.offset[i]
-                var p2 = p + os
-                while isValid(p: p2) {
-                    if let _ = islandsInfo[p2] {
-                        info.neighbors[i] = p2
-                        break
-                    }
-                    p2 += os
-                }
+                pos2hint[Position(r, c)] = ch.toInt!
             }
         }
         
         let state = BentBridgesGameState(game: self)
         levelInitialized(state: state)
-    }
-    
-    func switchBentBridges(move: inout BentBridgesGameMove) -> Bool {
-        var pFrom = move.pFrom, pTo = move.pTo
-        guard let o = islandsInfo[pFrom], let _ = o.neighbors.filter({ $0 == pTo }).first else { return false }
-        return changeObject(move: &move) { state, move in
-            if pTo < pFrom { swap(&pFrom, &pTo) }
-            let move = BentBridgesGameMove(pFrom: pFrom, pTo: pTo)
-            return state.switchBentBridges(move: move)
-        }
-    }
-
-    override func setObject(move: inout BentBridgesGameMove) -> Bool {
-        switchBentBridges(move: &move)
     }
 }

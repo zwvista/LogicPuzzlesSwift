@@ -14,7 +14,7 @@ class CaffelatteGameState: GridGameState<CaffelatteGameMove> {
         set { setGame(game: newValue) }
     }
     override var gameDocument: GameDocumentBase { CaffelatteDocument.sharedInstance }
-    var rng = [CaffelatteObject]()
+    var objArray = [CaffelatteObject]()
     
     override func copy() -> CaffelatteGameState {
         let v = CaffelatteGameState(game: game, isCopy: true)
@@ -22,14 +22,14 @@ class CaffelatteGameState: GridGameState<CaffelatteGameMove> {
     }
     func setup(v: CaffelatteGameState) -> CaffelatteGameState {
         _ = super.setup(v: v)
-        v.rng = rng
+        v.objArray = objArray
         return v
     }
     
     required init(game: CaffelatteGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        rng = Array<CaffelatteObject>(repeating: CaffelatteObject(repeating: false, count: 4), count: rows * cols)
+        objArray = Array<CaffelatteObject>(repeating: CaffelatteObject(repeating: false, count: 4), count: rows * cols)
         updateIsSolved()
     }
     
@@ -38,8 +38,8 @@ class CaffelatteGameState: GridGameState<CaffelatteGameMove> {
         set { self[p.row, p.col] = newValue }
     }
     subscript(row: Int, col: Int) -> CaffelatteObject {
-        get { rng[row * cols + col] }
-        set { rng[row * cols + col] = newValue }
+        get { objArray[row * cols + col] }
+        set { objArray[row * cols + col] = newValue }
     }
     
     override func setObject(move: inout CaffelatteGameMove) -> GameOperationType {

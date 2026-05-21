@@ -8,24 +8,9 @@
 
 import Foundation
 
-enum BentBridgesObject {
-    case empty
-    case island(state: HintState, bridges: [Int])
-    case bridge
-    init() {
-        self = .empty
-    }
-}
-
-class BentBridgesIslandInfo {
-    var bridges = 0
-    var neighbors: [Position?] = [nil, nil, nil, nil]
-    init(b: Int) {
-        bridges = b
-    }
-}
+typealias BentBridgesObject = [Bool]
 
 struct BentBridgesGameMove {
-    var pFrom = Position()
-    var pTo = Position()
+    var p = Position()
+    var dir = 0
 }

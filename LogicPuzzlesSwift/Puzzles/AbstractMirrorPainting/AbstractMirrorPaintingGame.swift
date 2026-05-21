@@ -99,5 +99,4 @@ class AbstractMirrorPaintingGame: GridGame<AbstractMirrorPaintingGameState> {
         let state = AbstractMirrorPaintingGameState(game: self)
         levelInitialized(state: state)
     }
-    
 }
