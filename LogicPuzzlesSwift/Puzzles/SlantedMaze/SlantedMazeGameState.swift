@@ -52,15 +52,13 @@ class SlantedMazeGameState: GridGameState<SlantedMazeGameMove> {
     }
     
     override func switchObject(move: inout SlantedMazeGameMove) -> GameOperationType {
-        let markerOption = MarkerOptions(rawValue: markerOption)
         let p = move.p
         guard isValid(p: p) else { return .invalid }
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .wall
-        case .wall: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .wall : .empty
-        default: o
+        case .empty: .forward
+        case .forward: .backward
+        case .backward: .empty
         }
         return setObject(move: &move)
     }
@@ -83,63 +81,56 @@ class SlantedMazeGameState: GridGameState<SlantedMazeGameMove> {
            This also means very big loops, not just 2*2.
     */
     private func updateIsSolved() {
-        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
+        var matrix = [Position: [Position]]()
+        var rng = Set<Position>()
+        // 1. Fill the board with diagonal lines (Slants), following the hints at
+        //    the intersections.
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                if self[p] == .forbidden { self[p] = .empty }
-            }
-        }
-        for (p, n2) in game.pos2hint {
-            var n1 = 0
-            var rng = [Position]()
-            for os in SlantedMazeGame.offset2 {
-                let p2 = p + os
-                guard isValid(p: p2) else {continue}
-                switch self[p2] {
-                case .empty, .marker:
-                    rng.append(os)
-                case .wall:
-                    n1 += 1
-                default:
-                    break
+                func addSlash(p1: Position, p2: Position) {
+                    matrix[p1, default: []].append(p2)
+                    matrix[p2, default: []].append(p1)
+                    rng.insert(p1)
+                    rng.insert(p2)
+                }
+                switch self[p] {
+                case .forward:
+                    addSlash(p1: p, p2: p + SlantedMazeGame.offset2[3])
+                case .backward:
+                    addSlash(p1: p + SlantedMazeGame.offset2[1], p2: p + SlantedMazeGame.offset2[2])
+                case .empty:
+                    isSolved = false
                 }
             }
-            // 3. The number tells you how many pieces (squares) of wall it touches.
-            // 4. So the number can go from 0 (no walls around the tower) to 4 (tower
-            // entirely surrounded by walls).
-            // 5. Board borders don't count as walls, so there you'll have two walls
-            // at most (or one in corners).
+        }
+        // 2. Every number tells you how many Slants (diagonal lines) touch that
+        //    point. So, for example, a 4 designates an X pattern around it.
+        for (p, n2) in game.pos2hint {
+            let n1 = matrix[p, default: []].count
             let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
             pos2state[p] = s
             if s != .complete { isSolved = false }
-            if s != .normal && allowedObjectsOnly {
-                for p2 in rng {
-                    self[p2] = .forbidden
-                }
-            }
         }
         if !isSolved {return}
-        let g = Graph()
-        var pos2node = [Position: Node]()
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                if self[p] != .wall { pos2node[p] = g.addNode(p.description) }
-            }
-        }
-        for (p, node) in pos2node {
-            for os in SlantedMazeGame.offset {
-                let p2 = p + os
-                if let node2 = pos2node[p2] {
-                    g.addEdge(node, neighbor: node2)
+        // 3. The Mazes or paths the Slants will form will usually branch off many
+        //    times, but can also end abruptly. Also all the Slants don't need to
+        //    be all connected.
+        // 4. However, you must ensure that they don't form a closed loop anywhere.
+        //    This also means very big loops, not just 2*2.
+        while !rng.isEmpty {
+            var moves = Set<Position>()
+            func dfs(p: Position, pLast: Position) -> Bool {
+                guard moves.insert(p).inserted else { return false }
+                for p2 in matrix[p]! {
+                    if p2 == pLast {continue}
+                    guard dfs(p: p2, pLast: p) else { return false }
                 }
+                return true
             }
+            guard dfs(p: rng.first!, pLast: Position(-1, -1)) else { isSolved = false; return }
+            for p in moves { rng.remove(p) }
         }
-        // 6. To facilitate movement in the castle, the Bailey must have a single
-        // continuous area (Garden).
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if pos2node.count != nodesExplored.count { isSolved = false }
     }
 }

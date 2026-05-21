@@ -47,41 +47,35 @@ class SlantedMazeGameScene: GameScene<SlantedMazeGameState> {
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.centerPoint(p: p)
+                let point = gridNode.cornerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let wallNodeName = "wall" + nodeNameSuffix
-                let markerNodeName = "marker" + nodeNameSuffix
-                let forbiddenNodeName = "forbidden" + nodeNameSuffix
+                let slashNodeName = "slash" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 guard o1 != o2 else {continue}
-                switch o1 {
-                case .wall:
-                    removeNode(withName: wallNodeName)
-                case .forbidden:
-                    removeNode(withName: forbiddenNodeName)
-                case .marker:
-                    removeNode(withName: markerNodeName)
-                default:
-                    break
+                if o1 != .empty { removeNode(withName: slashNodeName) }
+                func addSlash(p1: Position, p2: Position) {
+                    let pathToDraw = CGMutablePath()
+                    pathToDraw.move(to: gridNode.cornerPoint(p: p1))
+                    pathToDraw.addLine(to: gridNode.cornerPoint(p: p2))
+                    let slashNode = SKShapeNode(path:pathToDraw)
+                    slashNode.strokeColor = .green
+                    slashNode.lineWidth = 4
+                    slashNode.name = slashNodeName
+                    gridNode.addChild(slashNode)
                 }
                 switch o2 {
-                case .wall:
-                    addImage(imageNamed: "tower_wall2", color: .red, colorBlendFactor: 0.0, point: point, nodeName: wallNodeName)
-                case .forbidden:
-                    addForbiddenMarker(point: point, nodeName: forbiddenNodeName)
-                case .marker:
-                    addDotMarker(point: point, nodeName: markerNodeName)
-                default:
+                case .forward:
+                    addSlash(p1: p, p2: p + SlantedMazeGame.offset2[3])
+                case .backward:
+                    addSlash(p1: p + SlantedMazeGame.offset2[1], p2: p + SlantedMazeGame.offset2[2])
+                case .empty:
                     break
                 }
             }
         }
         for (p, n) in game.pos2hint {
             let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
-            guard s1 != s2 || (SlantedMazeGame.offset2.contains {
-                let p2 = p + $0
-                return game.isValid(p: p2) && stateFrom[p2] == .empty && stateTo[p2] == .wall
-            }) else {continue}
+            guard s1 != s2 else {continue}
             let point = gridNode.cornerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
