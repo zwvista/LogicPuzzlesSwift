@@ -44,10 +44,10 @@ class SlantedMazeGameScene: GameScene<SlantedMazeGameState> {
     
     override func levelUpdated(from stateFrom: SlantedMazeGameState, to stateTo: SlantedMazeGameState) {
         let game = stateFrom.game
+        var rng = Set<Position>()
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
-                let point = gridNode.cornerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
                 let slashNodeName = "slash" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
@@ -62,6 +62,8 @@ class SlantedMazeGameScene: GameScene<SlantedMazeGameState> {
                     slashNode.lineWidth = 4
                     slashNode.name = slashNodeName
                     gridNode.addChild(slashNode)
+                    rng.insert(p1)
+                    rng.insert(p2)
                 }
                 switch o2 {
                 case .forward:
@@ -75,7 +77,7 @@ class SlantedMazeGameScene: GameScene<SlantedMazeGameState> {
         }
         for (p, n) in game.pos2hint {
             let (s1, s2) = (stateFrom.pos2state[p]!, stateTo.pos2state[p]!)
-            guard s1 != s2 else {continue}
+            guard s1 != s2 || rng.contains(p) else {continue}
             let point = gridNode.cornerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
