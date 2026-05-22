@@ -8,17 +8,7 @@
 
 import Foundation
 
-enum PicnicObject: Int {
-    case empty, hint, marker
-    case hedge
-    init() {
-        self = .empty
-    }
-    var isHedge: Bool { self == .hedge }
-    var isEmpty: Bool { self != .hedge }
-}
-
 struct PicnicGameMove {
     var p = Position()
-    var obj = PicnicObject()
+    var dir = 0
 }

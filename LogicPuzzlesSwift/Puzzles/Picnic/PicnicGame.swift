@@ -10,8 +10,7 @@ import Foundation
 
 class PicnicGame: GridGame<PicnicGameState> {
     static let offset = Position.Directions4
-    static let offset2 = Position.Square2x2Offset
-    static let PUZ_UNKNOWN = -1
+    static let PUZ_CANCEL_MOVE = -1
 
     var pos2hint = [Position: Int]()
     
@@ -25,7 +24,7 @@ class PicnicGame: GridGame<PicnicGameState> {
             for c in 0..<cols {
                 let ch = str[c]
                 guard ch != " " else {continue}
-                pos2hint[Position(r, c)] = ch == "?" ? PicnicGame.PUZ_UNKNOWN : ch.toInt!
+                pos2hint[Position(r, c)] = ch.toInt!
             }
         }
         

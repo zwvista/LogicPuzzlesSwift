@@ -13,10 +13,6 @@ class PicnicGameScene: GameScene<PicnicGameState> {
         get { getGridNode() as! PicnicGridNode }
         set { setGridNode(gridNode: newValue) }
     }
-    
-    func addHint(n: Int, s: HintState, point: CGPoint, nodeName: String) {
-        addLabel(text: n == PicnicGame.PUZ_UNKNOWN ? "?" : String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
-    }
 
     override func levelInitialized(_ game: AnyObject, state: PicnicGameState, skView: SKView) {
         let game = game as! PicnicGame
@@ -30,59 +26,26 @@ class PicnicGameScene: GameScene<PicnicGameState> {
         for (p, n) in game.pos2hint {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let hintNodeName = "hint" + nodeNameSuffix
-            addImage(imageNamed: "hide", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "hide")
-            addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
-        }
-        for p in state.invalid2x2Squares {
-            let point = gridNode.cornerPoint(p: p)
-            let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let invalid2x2NodeName = "invalid2x2" + nodeNameSuffix
-            addDotMarker2(color: .red, point: point, nodeName: invalid2x2NodeName)
+            let blanketNodeName = "blanket" + nodeNameSuffix
+            addLabel(text: String(n), fontColor: .white, point: point, nodeName: blanketNodeName)
         }
     }
     
     override func levelUpdated(from stateFrom: PicnicGameState, to stateTo: PicnicGameState) {
         let game = stateFrom.game
-        for r in 0..<stateFrom.rows {
-            for c in 0..<stateFrom.cols {
-                let p = Position(r, c)
-                let point = gridNode.centerPoint(p: p)
-                let nodeNameSuffix = "-\(r)-\(c)"
-                let hedgeNodeName = "hedge" + nodeNameSuffix
-                let markerNodeName = "marker" + nodeNameSuffix
-                let hintNodeName = "hint" + nodeNameSuffix
-                let invalid2x2NodeName = "invalid2x2" + nodeNameSuffix
-                let (o1, o2) = (stateFrom[p], stateTo[p])
-                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
-                if o1 != o2 || s1 != s2 {
-                    switch o1 {
-                    case .hedge:
-                        removeNode(withName: hedgeNodeName)
-                    case .hint:
-                        removeNode(withName: hintNodeName)
-                    case .marker:
-                        removeNode(withName: markerNodeName)
-                    default:
-                        break
-                    }
-                    switch o2 {
-                    case .hedge:
-                        addImage(imageNamed: "forest_lighter", color: .red, colorBlendFactor: 0.0, point: point, nodeName: hedgeNodeName)
-                    case .hint:
-                        addHint(n: game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
-                    case .marker:
-                        addDotMarker(point: point, nodeName: markerNodeName)
-                    default:
-                        break
-                    }
-                }
-                let (b1, b2) = (stateFrom.invalid2x2Squares.contains(p), stateTo.invalid2x2Squares.contains(p))
-                if b1 != b2 {
-                    let point = gridNode.cornerPoint(p: p)
-                    if b1 { removeNode(withName: invalid2x2NodeName) }
-                    if b2 { addDotMarker2(color: .red, point: point, nodeName: invalid2x2NodeName) }
-                }
+        for (p, n) in game.pos2hint {
+            let (p1, p2) = (stateFrom.hint2blanket[p]!, stateTo.hint2blanket[p]!)
+            let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+            let point = gridNode.centerPoint(p: p)
+            let point2 = gridNode.centerPoint(p: p2)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let blanketNodeName = "blanket" + nodeNameSuffix
+            guard p1 != p2 || s1 != s2 else {continue}
+            removeNode(withName: blanketNodeName)
+            if p == p2 {
+                addLabel(text: String(n), fontColor: .white, point: point, nodeName: blanketNodeName)
+            } else {
+                addBlock(color: .gray, point: point2, nodeName: blanketNodeName)
             }
         }
     }

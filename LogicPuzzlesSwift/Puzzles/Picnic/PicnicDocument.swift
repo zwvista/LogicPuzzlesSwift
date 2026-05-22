@@ -13,10 +13,10 @@ class PicnicDocument: GameDocument<PicnicGameMove> {
     
     override func saveMove(_ move: PicnicGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.intValue1 = move.obj.rawValue
+        rec.intValue1 = move.dir
     }
     
     override func loadMove(from rec: MoveProgress) -> PicnicGameMove {
-        PicnicGameMove(p: Position(rec.row, rec.col), obj: PicnicObject(rawValue: rec.intValue1)!)
+        PicnicGameMove(p: Position(rec.row, rec.col), dir: rec.intValue1)
     }
 }
