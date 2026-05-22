@@ -45,7 +45,7 @@ class BentBridgesGameState: GridGameState<BentBridgesGameMove> {
     
     override func setObject(move: inout BentBridgesGameMove) -> GameOperationType {
         let p = move.p, dir = move.dir
-        let p2 = p + CaffelatteGame.offset[dir], dir2 = (dir + 2) % 4
+        let p2 = p + BentBridgesGame.offset[dir], dir2 = (dir + 2) % 4
         guard isValid(p: p2) else { return .invalid }
         self[p][dir].toggle()
         self[p2][dir2].toggle()
