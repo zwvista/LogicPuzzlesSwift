@@ -1917,6 +1917,15 @@
 		8CB7222D2EACF705001B25C5 /* SheepAndWolvesGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB722212EACF705001B25C5 /* SheepAndWolvesGameState.swift */; };
 		8CB7222E2EACF705001B25C5 /* SheepAndWolvesGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB722232EACF705001B25C5 /* SheepAndWolvesGridNode.swift */; };
 		8CB7222F2EACF705001B25C5 /* SheepAndWolves.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB7221D2EACF705001B25C5 /* SheepAndWolves.xml */; };
+		8CB974F32FC01FD500E526DA /* PicnicMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB974F02FC01FD500E526DA /* PicnicMainViewController.swift */; };
+		8CB974F42FC01FD500E526DA /* PicnicDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB974EA2FC01FD500E526DA /* PicnicDocument.swift */; };
+		8CB974F52FC01FD500E526DA /* PicnicGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB974EB2FC01FD500E526DA /* PicnicGame.swift */; };
+		8CB974F62FC01FD500E526DA /* PicnicGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB974EC2FC01FD500E526DA /* PicnicGameScene.swift */; };
+		8CB974F72FC01FD500E526DA /* PicnicGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB974EE2FC01FD500E526DA /* PicnicGameViewController.swift */; };
+		8CB974F82FC01FD500E526DA /* PicnicGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB974ED2FC01FD500E526DA /* PicnicGameState.swift */; };
+		8CB974F92FC01FD500E526DA /* PicnicObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB974F12FC01FD500E526DA /* PicnicObject.swift */; };
+		8CB974FA2FC01FD500E526DA /* PicnicGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB974EF2FC01FD500E526DA /* PicnicGridNode.swift */; };
+		8CB974FB2FC01FD500E526DA /* Picnic.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB974E92FC01FD500E526DA /* Picnic.xml */; };
 		8CC25CC21F87BB5A005560F7 /* Kakuro.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CC25CB61F87BB5A005560F7 /* Kakuro.xml */; };
 		8CC25CC31F87BB5A005560F7 /* KakuroDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CB71F87BB5A005560F7 /* KakuroDocument.swift */; };
 		8CC25CC41F87BB5A005560F7 /* KakuroGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CB81F87BB5A005560F7 /* KakuroGame.swift */; };
@@ -4169,6 +4178,15 @@
 		8CB722232EACF705001B25C5 /* SheepAndWolvesGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheepAndWolvesGridNode.swift; sourceTree = "<group>"; };
 		8CB722242EACF705001B25C5 /* SheepAndWolvesMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheepAndWolvesMainViewController.swift; sourceTree = "<group>"; };
 		8CB722252EACF705001B25C5 /* SheepAndWolvesObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheepAndWolvesObject.swift; sourceTree = "<group>"; };
+		8CB974E92FC01FD500E526DA /* Picnic.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Picnic.xml; sourceTree = "<group>"; };
+		8CB974EA2FC01FD500E526DA /* PicnicDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicnicDocument.swift; sourceTree = "<group>"; };
+		8CB974EB2FC01FD500E526DA /* PicnicGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicnicGame.swift; sourceTree = "<group>"; };
+		8CB974EC2FC01FD500E526DA /* PicnicGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicnicGameScene.swift; sourceTree = "<group>"; };
+		8CB974ED2FC01FD500E526DA /* PicnicGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicnicGameState.swift; sourceTree = "<group>"; };
+		8CB974EE2FC01FD500E526DA /* PicnicGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicnicGameViewController.swift; sourceTree = "<group>"; };
+		8CB974EF2FC01FD500E526DA /* PicnicGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicnicGridNode.swift; sourceTree = "<group>"; };
+		8CB974F02FC01FD500E526DA /* PicnicMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicnicMainViewController.swift; sourceTree = "<group>"; };
+		8CB974F12FC01FD500E526DA /* PicnicObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicnicObject.swift; sourceTree = "<group>"; };
 		8CC25CB61F87BB5A005560F7 /* Kakuro.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kakuro.xml; sourceTree = "<group>"; };
 		8CC25CB71F87BB5A005560F7 /* KakuroDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroDocument.swift; sourceTree = "<group>"; };
 		8CC25CB81F87BB5A005560F7 /* KakuroGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroGame.swift; sourceTree = "<group>"; };
@@ -5480,6 +5498,7 @@
 				8C9F324C1ED1FAF600E10965 /* Pata */,
 				8CB418402F23AC3D005C7FDF /* PathOnTheHills */,
 				8C263F112F1CEA2700158A2C /* PathOnTheMountains */,
+				8CB974F22FC01FD500E526DA /* Picnic */,
 				8C263E692F11F53000158A2C /* Pipemania */,
 				8C277E332FA6BBBB0071E605 /* Planets */,
 				8CB721C62EAAE62D001B25C5 /* Planks */,
@@ -7966,6 +7985,22 @@
 			path = SheepAndWolves;
 			sourceTree = "<group>";
 		};
+		8CB974F22FC01FD500E526DA /* Picnic */ = {
+			isa = PBXGroup;
+			children = (
+				8CB974E92FC01FD500E526DA /* Picnic.xml */,
+				8CB974EA2FC01FD500E526DA /* PicnicDocument.swift */,
+				8CB974EB2FC01FD500E526DA /* PicnicGame.swift */,
+				8CB974EC2FC01FD500E526DA /* PicnicGameScene.swift */,
+				8CB974ED2FC01FD500E526DA /* PicnicGameState.swift */,
+				8CB974EE2FC01FD500E526DA /* PicnicGameViewController.swift */,
+				8CB974EF2FC01FD500E526DA /* PicnicGridNode.swift */,
+				8CB974F02FC01FD500E526DA /* PicnicMainViewController.swift */,
+				8CB974F12FC01FD500E526DA /* PicnicObject.swift */,
+			);
+			path = Picnic;
+			sourceTree = "<group>";
+		};
 		8CC25CB51F87BB5A005560F7 /* Kakuro */ = {
 			isa = PBXGroup;
 			children = (
@@ -8824,6 +8859,7 @@
 				8CCFC4492F262F5000546A04 /* FingerPointing.xml in Resources */,
 				8C86639F2EA39DD00078CD64 /* flower_white.png in Resources */,
 				8C8663A02EA39DD00078CD64 /* exhibition.png in Resources */,
+				8CB974FB2FC01FD500E526DA /* Picnic.xml in Resources */,
 				8C8663A12EA39DD00078CD64 /* thermometer1B.png in Resources */,
 				8C8663A22EA39DD00078CD64 /* fountain.png in Resources */,
 				8C8663A32EA39DD00078CD64 /* A5.png in Resources */,
@@ -9870,6 +9906,14 @@
 				8CF1807B2F3D3E5A000F1F7D /* YalooniqDocument.swift in Sources */,
 				8CF1807C2F3D3E5A000F1F7D /* YalooniqGridNode.swift in Sources */,
 				8CF1807D2F3D3E5A000F1F7D /* YalooniqObject.swift in Sources */,
+				8CB974F32FC01FD500E526DA /* PicnicMainViewController.swift in Sources */,
+				8CB974F42FC01FD500E526DA /* PicnicDocument.swift in Sources */,
+				8CB974F52FC01FD500E526DA /* PicnicGame.swift in Sources */,
+				8CB974F62FC01FD500E526DA /* PicnicGameScene.swift in Sources */,
+				8CB974F72FC01FD500E526DA /* PicnicGameViewController.swift in Sources */,
+				8CB974F82FC01FD500E526DA /* PicnicGameState.swift in Sources */,
+				8CB974F92FC01FD500E526DA /* PicnicObject.swift in Sources */,
+				8CB974FA2FC01FD500E526DA /* PicnicGridNode.swift in Sources */,
 				8CF1807E2F3D3E5A000F1F7D /* YalooniqGameViewController.swift in Sources */,
 				8CF1807F2F3D3E5A000F1F7D /* YalooniqGameScene.swift in Sources */,
 				8CF180802F3D3E5A000F1F7D /* YalooniqGame.swift in Sources */,
