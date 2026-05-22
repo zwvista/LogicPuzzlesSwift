@@ -72,31 +72,78 @@ class BentBridgesGameState: GridGameState<BentBridgesGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-//        let g = Graph()
-//        var pos2node = [Position: Node]()
-//        // 3. The number on each island tells you how many BentBridges are touching
-//        // that island.
-//        for (p, info) in game.islandsInfo {
-//            guard case .island(var state, let bridges) = self[p] else {continue}
-//            let n1 = bridges.reduce(0, +)
-//            let n2 = info.bridges
-//            state = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-//            if state != .complete { isSolved = false }
-//            self[p] = .island(state: state, bridges: bridges)
-//            pos2node[p] = g.addNode(p.description)
-//        }
-//        guard isSolved else {return}
-//        for (p, info) in game.islandsInfo {
-//            guard case .island(_, let bridges) = self[p] else {continue}
-//            for i in 0..<4  {
-//                // if the neighbor is not nil
-//                guard let p2 = info.neighbors[i], bridges[i] > 0 else {continue}
-//                g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
-//            }
-//        }
-//        // 2. You must connect all the islands with BentBridges, making sure every
-//        // island is connected to each other with a BentBridges path.
-//        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-//        if nodesExplored.count != pos2node.count { isSolved = false }
+        var islands = Set<Position>()
+        var pos2dirs = [Position: [Int]]()
+        let g = Graph()
+        var pos2node = [Position: Node]()
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                let dirs = (0..<4).filter { self[p][$0] }
+                let cnt = dirs.count
+                if game.pos2hint[p] == nil {
+                    if cnt == 2 {
+                        // 1. Connect all the islands together with bridges.
+                        pos2dirs[p] = dirs
+                    } else if !dirs.isEmpty {
+                        isSolved = false
+                    }
+                } else {
+                    pos2state[p] = .normal
+                    pos2node[p] = g.addNode(p.description)
+                    if !dirs.isEmpty {
+                        islands.insert(p)
+                        pos2dirs[p] = dirs
+                    } else {
+                        // 1. Connect all the islands together with bridges.
+                        isSolved = false
+                    }
+                }
+            }
+        }
+        // 3. The number on the island tells you how many bridges connect to that island.
+        while !islands.isEmpty {
+            let p = islands.first!
+            let n2 = game.pos2hint[p]!
+            var n1 = 0
+            let dirs = pos2dirs[p]!
+            for d in dirs {
+                var i = d
+                var os = BentBridgesGame.offset[i]
+                var p2 = p + os
+                var turns = 0
+                while true {
+                    let j = (i + 2) % 4
+                    guard game.pos2hint[p2] == nil else {break}
+                    guard var dirs = pos2dirs[p2] else {break}
+                    dirs = dirs.filter { $0 != j }
+                    guard !dirs.isEmpty else {break}
+                    let k = dirs.first!
+                    if k != i {
+                        turns += 1
+                        i = k
+                    }
+                    os = BentBridgesGame.offset[i]
+                    p2 += os
+                }
+                let n3 = game.pos2hint[p2]
+                // 4. A bridge can turn once by 90 degrees between islands.
+                if n3 != nil && turns < 2 {
+                    n1 += 1
+                    g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
+                } else {
+                    isSolved = false
+                }
+            }
+            islands.remove(p)
+            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            pos2state[p] = s
+            if s != .complete { isSolved = false }
+        }
+        guard isSolved else {return}
+        // 1. Connect all the islands together with bridges.
+        // 2. You should be able to go from any island to any other island in the end.
+        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+        if nodesExplored.count != pos2node.count { isSolved = false }
     }
 }

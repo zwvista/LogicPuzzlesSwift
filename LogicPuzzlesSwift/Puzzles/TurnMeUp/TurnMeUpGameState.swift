@@ -118,14 +118,14 @@ class TurnMeUpGameState: GridGameState<TurnMeUpGameMove> {
                 p2 += os
             }
             let ch2 = game[p2]
+            circles.remove(p)
             if ch2 == " " {
-                circles.remove(p)
                 isSolved = false
             } else {
                 let s: HintState = ch1 == TurnMeUpGame.PUZ_QM || ch2 == TurnMeUpGame.PUZ_QM || ch1 == ch2 && ch1.toInt! == turns ? .complete : .error
                 pos2state[p] = s; pos2state[p2] = s
                 if s != .complete { isSolved = false }
-                circles.remove(p); circles.remove(p2)
+                circles.remove(p2)
             }
         }
     }
