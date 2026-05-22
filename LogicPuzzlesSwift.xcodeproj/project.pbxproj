@@ -1926,6 +1926,15 @@
 		8CB974F92FC01FD500E526DA /* PicnicObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB974F12FC01FD500E526DA /* PicnicObject.swift */; };
 		8CB974FA2FC01FD500E526DA /* PicnicGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB974EF2FC01FD500E526DA /* PicnicGridNode.swift */; };
 		8CB974FB2FC01FD500E526DA /* Picnic.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB974E92FC01FD500E526DA /* Picnic.xml */; };
+		8CB975072FC10D4900E526DA /* BanquetObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB975052FC10D4900E526DA /* BanquetObject.swift */; };
+		8CB975082FC10D4900E526DA /* BanquetGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB975022FC10D4900E526DA /* BanquetGameViewController.swift */; };
+		8CB975092FC10D4900E526DA /* BanquetGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB975002FC10D4900E526DA /* BanquetGameScene.swift */; };
+		8CB9750A2FC10D4900E526DA /* BanquetGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB975012FC10D4900E526DA /* BanquetGameState.swift */; };
+		8CB9750B2FC10D4900E526DA /* BanquetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB974FF2FC10D4900E526DA /* BanquetGame.swift */; };
+		8CB9750C2FC10D4900E526DA /* BanquetGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB975032FC10D4900E526DA /* BanquetGridNode.swift */; };
+		8CB9750D2FC10D4900E526DA /* BanquetDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB974FE2FC10D4900E526DA /* BanquetDocument.swift */; };
+		8CB9750E2FC10D4900E526DA /* BanquetMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB975042FC10D4900E526DA /* BanquetMainViewController.swift */; };
+		8CB9750F2FC10D4900E526DA /* Banquet.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB974FD2FC10D4900E526DA /* Banquet.xml */; };
 		8CC25CC21F87BB5A005560F7 /* Kakuro.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CC25CB61F87BB5A005560F7 /* Kakuro.xml */; };
 		8CC25CC31F87BB5A005560F7 /* KakuroDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CB71F87BB5A005560F7 /* KakuroDocument.swift */; };
 		8CC25CC41F87BB5A005560F7 /* KakuroGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CB81F87BB5A005560F7 /* KakuroGame.swift */; };
@@ -4187,6 +4196,15 @@
 		8CB974EF2FC01FD500E526DA /* PicnicGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicnicGridNode.swift; sourceTree = "<group>"; };
 		8CB974F02FC01FD500E526DA /* PicnicMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicnicMainViewController.swift; sourceTree = "<group>"; };
 		8CB974F12FC01FD500E526DA /* PicnicObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicnicObject.swift; sourceTree = "<group>"; };
+		8CB974FD2FC10D4900E526DA /* Banquet.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Banquet.xml; sourceTree = "<group>"; };
+		8CB974FE2FC10D4900E526DA /* BanquetDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanquetDocument.swift; sourceTree = "<group>"; };
+		8CB974FF2FC10D4900E526DA /* BanquetGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanquetGame.swift; sourceTree = "<group>"; };
+		8CB975002FC10D4900E526DA /* BanquetGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanquetGameScene.swift; sourceTree = "<group>"; };
+		8CB975012FC10D4900E526DA /* BanquetGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanquetGameState.swift; sourceTree = "<group>"; };
+		8CB975022FC10D4900E526DA /* BanquetGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanquetGameViewController.swift; sourceTree = "<group>"; };
+		8CB975032FC10D4900E526DA /* BanquetGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanquetGridNode.swift; sourceTree = "<group>"; };
+		8CB975042FC10D4900E526DA /* BanquetMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanquetMainViewController.swift; sourceTree = "<group>"; };
+		8CB975052FC10D4900E526DA /* BanquetObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanquetObject.swift; sourceTree = "<group>"; };
 		8CC25CB61F87BB5A005560F7 /* Kakuro.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kakuro.xml; sourceTree = "<group>"; };
 		8CC25CB71F87BB5A005560F7 /* KakuroDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroDocument.swift; sourceTree = "<group>"; };
 		8CC25CB81F87BB5A005560F7 /* KakuroGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroGame.swift; sourceTree = "<group>"; };
@@ -5380,6 +5398,7 @@
 				8CAFBFC62E9D9FE500C27D7C /* Arrows */,
 				8C1ACFCC2F2E45AC004832E2 /* AssemblyInstructions */,
 				8CDAE7FC1F646C29000DE5AF /* BalancedTapas */,
+				8CB975062FC10D4900E526DA /* Banquet */,
 				8C3A33D31EC88D4100A914A5 /* BattleShips */,
 				8CA9D5F02F49C26A00EDF793 /* BentBridges */,
 				8C3A33E01EC88D4100A914A5 /* BootyIsland */,
@@ -8001,6 +8020,22 @@
 			path = Picnic;
 			sourceTree = "<group>";
 		};
+		8CB975062FC10D4900E526DA /* Banquet */ = {
+			isa = PBXGroup;
+			children = (
+				8CB974FD2FC10D4900E526DA /* Banquet.xml */,
+				8CB974FE2FC10D4900E526DA /* BanquetDocument.swift */,
+				8CB974FF2FC10D4900E526DA /* BanquetGame.swift */,
+				8CB975002FC10D4900E526DA /* BanquetGameScene.swift */,
+				8CB975012FC10D4900E526DA /* BanquetGameState.swift */,
+				8CB975022FC10D4900E526DA /* BanquetGameViewController.swift */,
+				8CB975032FC10D4900E526DA /* BanquetGridNode.swift */,
+				8CB975042FC10D4900E526DA /* BanquetMainViewController.swift */,
+				8CB975052FC10D4900E526DA /* BanquetObject.swift */,
+			);
+			path = Banquet;
+			sourceTree = "<group>";
+		};
 		8CC25CB51F87BB5A005560F7 /* Kakuro */ = {
 			isa = PBXGroup;
 			children = (
@@ -9051,6 +9086,7 @@
 				8C8664212EA39DD00078CD64 /* arrow_blue_right.png in Resources */,
 				8C8664222EA39DD00078CD64 /* arrow_red2_left.png in Resources */,
 				8C8664232EA39DD00078CD64 /* mushroom3.png in Resources */,
+				8CB9750F2FC10D4900E526DA /* Banquet.xml in Resources */,
 				8C8664242EA39DD00078CD64 /* arrow9.png in Resources */,
 				8C9BD5B22F0A7FC200D1D915 /* LoopAndBlocks.xml in Resources */,
 				8C8664252EA39DD00078CD64 /* elephant.png in Resources */,
@@ -9992,6 +10028,14 @@
 				8C263F412F1D0DB100158A2C /* FunnyNumbersGameState.swift in Sources */,
 				8CB721C72EAAE62D001B25C5 /* PlanksGameScene.swift in Sources */,
 				8CB721C82EAAE62D001B25C5 /* PlanksGameViewController.swift in Sources */,
+				8CB975072FC10D4900E526DA /* BanquetObject.swift in Sources */,
+				8CB975082FC10D4900E526DA /* BanquetGameViewController.swift in Sources */,
+				8CB975092FC10D4900E526DA /* BanquetGameScene.swift in Sources */,
+				8CB9750A2FC10D4900E526DA /* BanquetGameState.swift in Sources */,
+				8CB9750B2FC10D4900E526DA /* BanquetGame.swift in Sources */,
+				8CB9750C2FC10D4900E526DA /* BanquetGridNode.swift in Sources */,
+				8CB9750D2FC10D4900E526DA /* BanquetDocument.swift in Sources */,
+				8CB9750E2FC10D4900E526DA /* BanquetMainViewController.swift in Sources */,
 				8CB721C92EAAE62D001B25C5 /* PlanksObject.swift in Sources */,
 				8CB721CA2EAAE62D001B25C5 /* PlanksGame.swift in Sources */,
 				8CB721CB2EAAE62D001B25C5 /* PlanksMainViewController.swift in Sources */,
