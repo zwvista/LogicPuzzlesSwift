@@ -13,6 +13,7 @@ class BanquetGame: GridGame<BanquetGameState> {
     static let PUZ_CANCEL_MOVE = -1
 
     var pos2hint = [Position: Int]()
+    var fixedTables = Set<Position>()
     
     init(layout: [String], delegate: BanquetGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -24,7 +25,13 @@ class BanquetGame: GridGame<BanquetGameState> {
             for c in 0..<cols {
                 let ch = str[c]
                 guard ch != " " else {continue}
-                pos2hint[Position(r, c)] = ch.toInt!
+                let n = ch.toInt!
+                let p = Position(r, c)
+                if n == 0 {
+                    fixedTables.insert(p)
+                } else {
+                    pos2hint[p] = n
+                }
             }
         }
         

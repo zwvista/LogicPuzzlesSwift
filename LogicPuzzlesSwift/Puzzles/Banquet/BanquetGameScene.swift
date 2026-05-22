@@ -26,26 +26,26 @@ class BanquetGameScene: GameScene<BanquetGameState> {
         for (p, n) in game.pos2hint {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let blanketNodeName = "blanket" + nodeNameSuffix
-            addLabel(text: String(n), fontColor: .white, point: point, nodeName: blanketNodeName)
+            let tableNodeName = "table" + nodeNameSuffix
+            addLabel(text: String(n), fontColor: .white, point: point, nodeName: tableNodeName)
         }
     }
     
     override func levelUpdated(from stateFrom: BanquetGameState, to stateTo: BanquetGameState) {
         let game = stateFrom.game
         for (p, n) in game.pos2hint {
-            let (p1, p2) = (stateFrom.hint2blanket[p]!, stateTo.hint2blanket[p]!)
+            let (p1, p2) = (stateFrom.hint2table[p]!, stateTo.hint2table[p]!)
             let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
             let point = gridNode.centerPoint(p: p)
             let point2 = gridNode.centerPoint(p: p2)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
-            let blanketNodeName = "blanket" + nodeNameSuffix
+            let tableNodeName = "table" + nodeNameSuffix
             guard p1 != p2 || s1 != s2 else {continue}
-            removeNode(withName: blanketNodeName)
+            removeNode(withName: tableNodeName)
             if p == p2 {
-                addLabel(text: String(n), fontColor: .white, point: point, nodeName: blanketNodeName)
+                addLabel(text: String(n), fontColor: .white, point: point, nodeName: tableNodeName)
             } else {
-                addBlock(color: .gray, point: point2, nodeName: blanketNodeName)
+                addBlock(color: .gray, point: point2, nodeName: tableNodeName)
             }
         }
     }

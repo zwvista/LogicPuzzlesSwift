@@ -40,9 +40,9 @@ class BanquetGameViewController: GameGameViewController2<BanquetGameState, Banqu
         case .began:
             pLast = p; f()
         case .changed:
-            guard pLast != p else {break}
+            guard pLast != p && pLast != nil else {break}
             defer { pLast = nil }
-            guard let dir = BentBridgesGame.offset.firstIndex(of: p - pLast!) else {break}
+            guard let dir = BanquetGame.offset.firstIndex(of: p - pLast!) else {break}
             var move = BanquetGameMove(p: pLast!, dir: dir)
             if game.setObject(move: &move) { f() }
         default:

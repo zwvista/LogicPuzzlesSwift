@@ -14,8 +14,8 @@ class BanquetGameState: GridGameState<BanquetGameMove> {
         set { setGame(game: newValue) }
     }
     override var gameDocument: GameDocumentBase { BanquetDocument.sharedInstance }
-    var hint2blanket = [Position: Position]()
-    var blanket2hint = [Position: Position]()
+    var hint2table = [Position: Position]()
+    var table2hint = [Position: Position]()
     var pos2state = [Position: AllowedObjectState]()
 
     override func copy() -> BanquetGameState {
@@ -24,8 +24,8 @@ class BanquetGameState: GridGameState<BanquetGameMove> {
     }
     func setup(v: BanquetGameState) -> BanquetGameState {
         _ = super.setup(v: v)
-        v.hint2blanket = hint2blanket
-        v.blanket2hint = blanket2hint
+        v.hint2table = hint2table
+        v.table2hint = table2hint
         return v
     }
     
@@ -33,32 +33,33 @@ class BanquetGameState: GridGameState<BanquetGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         for p in game.pos2hint.keys {
-            hint2blanket[p] = p
-            blanket2hint[p] = p
+            hint2table[p] = p
+            table2hint[p] = p
         }
         updateIsSolved()
     }
     
     override func setObject(move: inout BanquetGameMove) -> GameOperationType {
         let p = move.p
-        guard let pHint = blanket2hint[p] else { return .invalid }
-        blanket2hint.removeValue(forKey: p)
+        guard let pHint = table2hint[p] else { return .invalid }
+        table2hint.removeValue(forKey: p)
         if p != pHint {
-            hint2blanket[pHint] = pHint
-            blanket2hint[pHint] = pHint
+            hint2table[pHint] = pHint
+            table2hint[pHint] = pHint
         } else {
-            // 6. The number on top of the basket shows you how many tiles the basket must
-            //    be flung.
+            // 2. The number on the table tells you how many tiles it must be moved.
+            //    Tables without numbers must stay put.
             let os = BanquetGame.offset[move.dir]
             let n = game.pos2hint[p]!
-            var pBlanket = p
+            var pTable = p
             for _ in 0..<n {
-                pBlanket += os
-                guard isValid(p: pBlanket) else { return .invalid }
+                pTable += os
+                // 3. Tables can't cross other tables, nor cross other tables paths after
+                //    they moved.
+                guard isValid(p: pTable) && table2hint[pTable] == nil else { return .invalid }
             }
-            guard blanket2hint[pBlanket] == nil else { return .invalid }
-            hint2blanket[pHint] = pBlanket
-            blanket2hint[pBlanket] = pHint
+            hint2table[pHint] = pTable
+            table2hint[pTable] = pHint
         }
         updateIsSolved()
         return .moveComplete
@@ -82,34 +83,29 @@ class BanquetGameState: GridGameState<BanquetGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        var blankets = Set<Position>()
-        for (pBlanket, pHint) in blanket2hint {
-            if pBlanket == pHint {
+        var tables = Set<Position>()
+        for (pTable, pHint) in table2hint {
+            if pTable == pHint {
                 isSolved = false
             } else {
-                blankets.insert(pBlanket)
+                tables.insert(pTable)
             }
         }
-        // 4. find a way to lay every picnic basket so that no blanket touches another
-        //    one, horizontally or vertically.
-        for p in blankets {
-            let s: AllowedObjectState = BanquetGame.offset.allSatisfy {
-                !blankets.contains(p + $0)
-            } ? .normal : .error
-            pos2state[p] = s
-            if s != .normal { isSolved = false }
-        }
-        guard isSolved else {return}
-        // 5. Also the remaining park should be accessible to everyone, so empty grass
-        //    spaces should form a single continuous area.
+        // 1. Join the tables in order to form "banquets" of at least two tables.
+        // 4. Banquets cannot touch each other horizontally or vertically
+        //    (they can touch diagonally).
+        // 5. Banquets can't be L-shaped but can be more than one table wide.
         let g = Graph()
         var pos2node = [Position: Node]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard !blankets.contains(p) else {continue}
+                guard tables.contains(p) else {continue}
                 pos2node[p] = g.addNode(p.description)
             }
+        }
+        for p in game.fixedTables {
+            pos2node[p] = g.addNode(p.description)
         }
         for (p, node) in pos2node {
             for os in BanquetGame.offset {
@@ -117,7 +113,22 @@ class BanquetGameState: GridGameState<BanquetGameMove> {
                 if let node2 = pos2node[p2] { g.addEdge(node, neighbor: node2) }
             }
         }
-        let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-        if nodesExplored.count != pos2node.count { isSolved = false }
+        while !pos2node.isEmpty {
+            let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+            let banquet = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
+            pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
+            let n1 = banquet.count
+            var r2 = 0, r1 = rows, c2 = 0, c1 = cols
+            for p in banquet {
+                if r2 < p.row { r2 = p.row }
+                if r1 > p.row { r1 = p.row }
+                if c2 < p.col { c2 = p.col }
+                if c1 > p.col { c1 = p.col }
+            }
+            let rs = r2 - r1 + 1, cs = c2 - c1 + 1
+            let s: AllowedObjectState = rs * cs == n1 && n1 > 1 ? .normal : .error
+            if s != .normal { isSolved = false }
+            for p in banquet { pos2state[p] = s }
+        }
     }
 }
