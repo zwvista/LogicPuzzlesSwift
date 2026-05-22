@@ -15,7 +15,8 @@ class TurnMeUpGameState: GridGameState<TurnMeUpGameMove> {
     }
     override var gameDocument: GameDocumentBase { TurnMeUpDocument.sharedInstance }
     var objArray = [TurnMeUpObject]()
-    
+    var pos2state = [Position: HintState]()
+
     override func copy() -> TurnMeUpGameState {
         let v = TurnMeUpGameState(game: game, isCopy: true)
         return setup(v: v)
@@ -74,27 +75,28 @@ class TurnMeUpGameState: GridGameState<TurnMeUpGameMove> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let o = self[p]
-                let ch = game[p]
                 let dirs = (0..<4).filter { o[$0] }
+                let cnt = dirs.count
                 // 2. The number on the circle tells you how many turns the connection
                 //    does between circles.
-                switch dirs.count {
-                case 1:
-                    guard ch != " " else { isSolved = false; return }
-                    circles.insert(p)
-                    pos2dirs[p] = dirs
-                case 2:
-                    guard ch == " " else { isSolved = false; return }
-                    pos2dirs[p] = dirs
-                default:
-                    // 4. All tiles on the board must be used
-                    isSolved = false; return
+                if game[p] == " " {
+                    if cnt == 2 {
+                        pos2dirs[p] = dirs
+                    } else {
+                        // 4. All tiles on the board must be used
+                        isSolved = false
+                    }
+                } else{
+                    pos2state[p] = .normal
+                    if cnt == 1 {
+                        circles.insert(p)
+                        pos2dirs[p] = dirs
+                    } else {
+                        isSolved = false
+                    }
                 }
             }
         }
-        // 2. You should draw as many lines into the grid as number sets:
-        //    a line starts with the number 1, goes through the numbers in
-        //    order up to the highest, where it ends.
         while !circles.isEmpty {
             let p = circles.first!
             let ch1 = game[p]
@@ -104,7 +106,7 @@ class TurnMeUpGameState: GridGameState<TurnMeUpGameMove> {
             var turns = 0
             while true {
                 let j = (i + 2) % 4
-                var dirs = pos2dirs[p2]!
+                guard var dirs = pos2dirs[p2] else {break}
                 dirs = dirs.filter { $0 != j }
                 guard !dirs.isEmpty else {break}
                 let k = dirs.first!
@@ -116,8 +118,15 @@ class TurnMeUpGameState: GridGameState<TurnMeUpGameMove> {
                 p2 += os
             }
             let ch2 = game[p2]
-            guard ch1 == TurnMeUpGame.PUZ_QM || ch2 == TurnMeUpGame.PUZ_QM || ch1 == ch2 && ch1.toInt! == turns else { isSolved = false; return }
-            circles.remove(p); circles.remove(p2)
+            if ch2 == " " {
+                circles.remove(p)
+                isSolved = false
+            } else {
+                let s: HintState = ch1 == TurnMeUpGame.PUZ_QM || ch2 == TurnMeUpGame.PUZ_QM || ch1 == ch2 && ch1.toInt! == turns ? .complete : .error
+                pos2state[p] = s; pos2state[p2] = s
+                if s != .complete { isSolved = false }
+                circles.remove(p); circles.remove(p2)
+            }
         }
     }
 }

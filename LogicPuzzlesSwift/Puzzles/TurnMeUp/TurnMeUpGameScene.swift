@@ -14,6 +14,10 @@ class TurnMeUpGameScene: GameScene<TurnMeUpGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
+    func addHint(ch: Character, s: HintState, point: CGPoint, nodeName: String) {
+        addLabel(text: String(ch), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+    }
+
     override func levelInitialized(_ game: AnyObject, state: TurnMeUpGameState, skView: SKView) {
         let game = game as! TurnMeUpGame
         removeAllChildren()
@@ -30,7 +34,9 @@ class TurnMeUpGameScene: GameScene<TurnMeUpGameState> {
                 let ch = game[r, c]
                 guard ch != " " else {continue}
                 let point = gridNode.centerPoint(p: p)
-                addLabel(text: String(ch), fontColor: .white, point: point, nodeName: "number")
+                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let hintNodeName = "hint" + nodeNameSuffix
+                addHint(ch: ch, s: .normal, point: point, nodeName: hintNodeName)
             }
         }
     }
@@ -69,6 +75,12 @@ class TurnMeUpGameScene: GameScene<TurnMeUpGameState> {
                     if o1 { removeLine() }
                     if o2 { addLine() }
                 }
+                let nodeNameSuffix = "-\(r)-\(c)"
+                let hintNodeName = "hint" + nodeNameSuffix
+                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+                guard s1 != s2 else {continue}
+                removeNode(withName: hintNodeName)
+                addHint(ch: game[p], s: s2!, point: point, nodeName: hintNodeName)
             }
         }
     }
