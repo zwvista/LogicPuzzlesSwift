@@ -10,7 +10,7 @@ import Foundation
 
 class PicnicGame: GridGame<PicnicGameState> {
     static let offset = Position.Directions4
-    static let PUZ_CANCEL_MOVE = -1
+    static let PUZ_TAP_MOVE = -1
 
     var pos2hint = [Position: Int]()
     

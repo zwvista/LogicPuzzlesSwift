@@ -32,34 +32,28 @@ class PicnicGameState: GridGameState<PicnicGameMove> {
     required init(game: PicnicGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        for p in game.pos2hint.keys {
-            hint2blanket[p] = p
-            blanket2hint[p] = p
-        }
         updateIsSolved()
     }
     
     override func setObject(move: inout PicnicGameMove) -> GameOperationType {
-        let p = move.p
-        guard let pHint = blanket2hint[p] else { return .invalid }
-        blanket2hint.removeValue(forKey: p)
-        if p != pHint {
-            hint2blanket[pHint] = pHint
-            blanket2hint[pHint] = pHint
-        } else {
+        let p = move.p, dir = move.dir
+        if let pHint = blanket2hint[p], dir == PicnicGame.PUZ_TAP_MOVE {
+            blanket2hint.removeValue(forKey: p)
+            hint2blanket.removeValue(forKey: pHint)
+        } else if game.pos2hint[p] != nil, dir != PicnicGame.PUZ_TAP_MOVE {
             // 6. The number on top of the basket shows you how many tiles the basket must
             //    be flung.
-            let os = PicnicGame.offset[move.dir]
+            let os = PicnicGame.offset[dir]
             let n = game.pos2hint[p]!
             var pBlanket = p
             for _ in 0..<n {
                 pBlanket += os
                 guard isValid(p: pBlanket) else { return .invalid }
             }
-            guard blanket2hint[pBlanket] == nil else { return .invalid }
-            hint2blanket[pHint] = pBlanket
-            blanket2hint[pBlanket] = pHint
-        }
+            guard blanket2hint[pBlanket] == nil && (game.pos2hint[pBlanket] == nil || hint2blanket[pBlanket] != nil) else { return .invalid }
+            hint2blanket[p] = pBlanket
+            blanket2hint[pBlanket] = p
+        } else { return .invalid }
         updateIsSolved()
         return .moveComplete
     }
@@ -85,19 +79,12 @@ class PicnicGameState: GridGameState<PicnicGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        var blankets = Set<Position>()
-        for (pBlanket, pHint) in blanket2hint {
-            if pBlanket == pHint {
-                isSolved = false
-            } else {
-                blankets.insert(pBlanket)
-            }
-        }
+        if blanket2hint.count != game.pos2hint.count { isSolved = false }
         // 4. find a way to lay every picnic basket so that no blanket touches another
         //    one, horizontally or vertically.
-        for p in blankets {
+        for p in blanket2hint.keys {
             let s: AllowedObjectState = PicnicGame.offset.allSatisfy {
-                !blankets.contains(p + $0)
+                blanket2hint[p + $0] == nil
             } ? .normal : .error
             pos2state[p] = s
             if s != .normal { isSolved = false }
@@ -110,7 +97,7 @@ class PicnicGameState: GridGameState<PicnicGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard !blankets.contains(p) else {continue}
+                guard blanket2hint[p] == nil else {continue}
                 pos2node[p] = g.addNode(p.description)
             }
         }

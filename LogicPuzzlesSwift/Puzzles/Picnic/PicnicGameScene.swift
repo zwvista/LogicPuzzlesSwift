@@ -34,17 +34,18 @@ class PicnicGameScene: GameScene<PicnicGameState> {
     override func levelUpdated(from stateFrom: PicnicGameState, to stateTo: PicnicGameState) {
         let game = stateFrom.game
         for (p, n) in game.pos2hint {
-            let (p1, p2) = (stateFrom.hint2blanket[p]!, stateTo.hint2blanket[p]!)
-            let (s1, s2) = (stateFrom.pos2state[p1], stateTo.pos2state[p2])
+            let (p1, p2) = (stateFrom.hint2blanket[p], stateTo.hint2blanket[p])
+            let s1 = p1 == nil ? .normal : stateFrom.pos2state[p1!]
+            let s2 = p2 == nil ? .normal : stateTo.pos2state[p2!]
+            guard p1 != p2 || s1 != s2 else {continue}
             let point = gridNode.centerPoint(p: p)
-            let point2 = gridNode.centerPoint(p: p2)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let blanketNodeName = "blanket" + nodeNameSuffix
-            guard p1 != p2 || s1 != s2 else {continue}
             removeNode(withName: blanketNodeName)
-            if p == p2 {
+            if p2 == nil {
                 addLabel(text: String(n), fontColor: .white, point: point, nodeName: blanketNodeName)
             } else {
+                let point2 = gridNode.centerPoint(p: p2!)
                 addImage(imageNamed: "mat", color: .red, colorBlendFactor: s2 == .normal ? 0.0 : 0.5, point: point2, nodeName: blanketNodeName)
                 let pathToDraw = CGMutablePath()
                 let lineNode = SKShapeNode(path:pathToDraw)

@@ -24,7 +24,7 @@ class PicnicGameViewController: GameGameViewController2<PicnicGameState, PicnicG
         guard scene.gridNode.contains(touchLocationInScene) else {return}
         let touchLocationInGrid = scene.convert(touchLocationInScene, to: scene.gridNode)
         let p = scene.gridNode.cellPosition(point: touchLocationInGrid)
-        var move = PicnicGameMove(p: p, dir: PicnicGame.PUZ_CANCEL_MOVE)
+        var move = PicnicGameMove(p: p, dir: PicnicGame.PUZ_TAP_MOVE)
         if game.setObject(move: &move) { soundManager.playSoundTap() }
     }
     
