@@ -55,6 +55,7 @@ class PicnicGameScene: GameScene<PicnicGameState> {
                 lineNode.strokeColor = .green
                 lineNode.name = blanketNodeName
                 gridNode.addChild(lineNode)
+                addDotMarker2(color: .green, point: point, nodeName: blanketNodeName)
             }
         }
     }

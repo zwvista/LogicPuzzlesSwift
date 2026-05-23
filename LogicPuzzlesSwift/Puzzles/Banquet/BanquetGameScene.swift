@@ -55,6 +55,7 @@ class BanquetGameScene: GameScene<BanquetGameState> {
                 lineNode.strokeColor = .green
                 lineNode.name = tableNodeName
                 gridNode.addChild(lineNode)
+                addDotMarker2(color: .green, point: point, nodeName: tableNodeName)
             }
         }
     }
