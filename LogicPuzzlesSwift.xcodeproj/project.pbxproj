@@ -1936,6 +1936,15 @@
 		8CB9750E2FC10D4900E526DA /* BanquetMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB975042FC10D4900E526DA /* BanquetMainViewController.swift */; };
 		8CB9750F2FC10D4900E526DA /* Banquet.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB974FD2FC10D4900E526DA /* Banquet.xml */; };
 		8CB975112FC11EF200E526DA /* mat.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CB975102FC11EF200E526DA /* mat.png */; };
+		8CB9751C2FC17E2C00E526DA /* SukrokuroGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB975172FC17E2C00E526DA /* SukrokuroGameViewController.swift */; };
+		8CB9751D2FC17E2C00E526DA /* SukrokuroGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB975182FC17E2C00E526DA /* SukrokuroGridNode.swift */; };
+		8CB9751E2FC17E2C00E526DA /* SukrokuroMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB975192FC17E2C00E526DA /* SukrokuroMainViewController.swift */; };
+		8CB9751F2FC17E2C00E526DA /* SukrokuroDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB975132FC17E2C00E526DA /* SukrokuroDocument.swift */; };
+		8CB975202FC17E2C00E526DA /* SukrokuroGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB975162FC17E2C00E526DA /* SukrokuroGameState.swift */; };
+		8CB975212FC17E2C00E526DA /* SukrokuroObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB9751A2FC17E2C00E526DA /* SukrokuroObject.swift */; };
+		8CB975222FC17E2C00E526DA /* SukrokuroGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB975142FC17E2C00E526DA /* SukrokuroGame.swift */; };
+		8CB975232FC17E2C00E526DA /* SukrokuroGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB975152FC17E2C00E526DA /* SukrokuroGameScene.swift */; };
+		8CB975242FC17E2C00E526DA /* Sukrokuro.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB975122FC17E2C00E526DA /* Sukrokuro.xml */; };
 		8CC25CC21F87BB5A005560F7 /* Kakuro.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CC25CB61F87BB5A005560F7 /* Kakuro.xml */; };
 		8CC25CC31F87BB5A005560F7 /* KakuroDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CB71F87BB5A005560F7 /* KakuroDocument.swift */; };
 		8CC25CC41F87BB5A005560F7 /* KakuroGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CB81F87BB5A005560F7 /* KakuroGame.swift */; };
@@ -4207,6 +4216,15 @@
 		8CB975042FC10D4900E526DA /* BanquetMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanquetMainViewController.swift; sourceTree = "<group>"; };
 		8CB975052FC10D4900E526DA /* BanquetObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanquetObject.swift; sourceTree = "<group>"; };
 		8CB975102FC11EF200E526DA /* mat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mat.png; sourceTree = "<group>"; };
+		8CB975122FC17E2C00E526DA /* Sukrokuro.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Sukrokuro.xml; sourceTree = "<group>"; };
+		8CB975132FC17E2C00E526DA /* SukrokuroDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SukrokuroDocument.swift; sourceTree = "<group>"; };
+		8CB975142FC17E2C00E526DA /* SukrokuroGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SukrokuroGame.swift; sourceTree = "<group>"; };
+		8CB975152FC17E2C00E526DA /* SukrokuroGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SukrokuroGameScene.swift; sourceTree = "<group>"; };
+		8CB975162FC17E2C00E526DA /* SukrokuroGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SukrokuroGameState.swift; sourceTree = "<group>"; };
+		8CB975172FC17E2C00E526DA /* SukrokuroGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SukrokuroGameViewController.swift; sourceTree = "<group>"; };
+		8CB975182FC17E2C00E526DA /* SukrokuroGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SukrokuroGridNode.swift; sourceTree = "<group>"; };
+		8CB975192FC17E2C00E526DA /* SukrokuroMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SukrokuroMainViewController.swift; sourceTree = "<group>"; };
+		8CB9751A2FC17E2C00E526DA /* SukrokuroObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SukrokuroObject.swift; sourceTree = "<group>"; };
 		8CC25CB61F87BB5A005560F7 /* Kakuro.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kakuro.xml; sourceTree = "<group>"; };
 		8CC25CB71F87BB5A005560F7 /* KakuroDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroDocument.swift; sourceTree = "<group>"; };
 		8CC25CB81F87BB5A005560F7 /* KakuroGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroGame.swift; sourceTree = "<group>"; };
@@ -5555,6 +5573,7 @@
 				8C263E1C2F11EC0200158A2C /* Steps */,
 				8CB418DB2F251C7E005C7FDF /* StraightAndBendLands */,
 				8C9BD5CF2F0A830A00D1D915 /* StraightAndTurn */,
+				8CB9751B2FC17E2C00E526DA /* Sukrokuro */,
 				8C3A35C11EC88D4200A914A5 /* Sumscrapers */,
 				8CB419142F25F396005C7FDF /* SuspendedGravity */,
 				8C9F321D1ECF06BF00E10965 /* Tapa */,
@@ -8039,6 +8058,22 @@
 			path = Banquet;
 			sourceTree = "<group>";
 		};
+		8CB9751B2FC17E2C00E526DA /* Sukrokuro */ = {
+			isa = PBXGroup;
+			children = (
+				8CB975122FC17E2C00E526DA /* Sukrokuro.xml */,
+				8CB975132FC17E2C00E526DA /* SukrokuroDocument.swift */,
+				8CB975142FC17E2C00E526DA /* SukrokuroGame.swift */,
+				8CB975152FC17E2C00E526DA /* SukrokuroGameScene.swift */,
+				8CB975162FC17E2C00E526DA /* SukrokuroGameState.swift */,
+				8CB975172FC17E2C00E526DA /* SukrokuroGameViewController.swift */,
+				8CB975182FC17E2C00E526DA /* SukrokuroGridNode.swift */,
+				8CB975192FC17E2C00E526DA /* SukrokuroMainViewController.swift */,
+				8CB9751A2FC17E2C00E526DA /* SukrokuroObject.swift */,
+			);
+			path = Sukrokuro;
+			sourceTree = "<group>";
+		};
 		8CC25CB51F87BB5A005560F7 /* Kakuro */ = {
 			isa = PBXGroup;
 			children = (
@@ -8928,6 +8963,7 @@
 				8C8663B32EA39DD00078CD64 /* icecube.png in Resources */,
 				8CA9D6592F4E08BD00EDF793 /* TopArrow.xml in Resources */,
 				8C8663B42EA39DD00078CD64 /* A4.png in Resources */,
+				8CB975242FC17E2C00E526DA /* Sukrokuro.xml in Resources */,
 				8C8663B52EA39DD00078CD64 /* A4-stone.png in Resources */,
 				8C263F7B2F1E812D00158A2C /* DigitWorms.xml in Resources */,
 				8C8663B62EA39DD00078CD64 /* arrow_red2_down.png in Resources */,
@@ -10098,6 +10134,14 @@
 				8C6A36281FAF9D8600D2804D /* NoughtsAndCrossesGame.swift in Sources */,
 				8C1ACFCD2F2E45AC004832E2 /* AssemblyInstructionsGameScene.swift in Sources */,
 				8C1ACFCE2F2E45AC004832E2 /* AssemblyInstructionsObject.swift in Sources */,
+				8CB9751C2FC17E2C00E526DA /* SukrokuroGameViewController.swift in Sources */,
+				8CB9751D2FC17E2C00E526DA /* SukrokuroGridNode.swift in Sources */,
+				8CB9751E2FC17E2C00E526DA /* SukrokuroMainViewController.swift in Sources */,
+				8CB9751F2FC17E2C00E526DA /* SukrokuroDocument.swift in Sources */,
+				8CB975202FC17E2C00E526DA /* SukrokuroGameState.swift in Sources */,
+				8CB975212FC17E2C00E526DA /* SukrokuroObject.swift in Sources */,
+				8CB975222FC17E2C00E526DA /* SukrokuroGame.swift in Sources */,
+				8CB975232FC17E2C00E526DA /* SukrokuroGameScene.swift in Sources */,
 				8C1ACFCF2F2E45AC004832E2 /* AssemblyInstructionsGame.swift in Sources */,
 				8C1ACFD02F2E45AC004832E2 /* AssemblyInstructionsMainViewController.swift in Sources */,
 				8C1ACFD12F2E45AC004832E2 /* AssemblyInstructionsGridNode.swift in Sources */,
