@@ -34,40 +34,37 @@ class BanquetGameState: GridGameState<BanquetGameMove> {
     required init(game: BanquetGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        for p in game.pos2hint.keys {
-            hint2table[p] = p
-            table2hint[p] = p
-        }
         updateIsSolved()
     }
     
     override func setObject(move: inout BanquetGameMove) -> GameOperationType {
-        let p = move.p
-        guard let pHint = table2hint[p] else { return .invalid }
-        table2hint.removeValue(forKey: p)
-        if p != pHint {
-            hint2table[pHint] = pHint
-            table2hint[pHint] = pHint
-        } else {
+        let p = move.p, dir = move.dir
+        if let pHint = table2hint[p], dir == BanquetGame.PUZ_TAP_MOVE {
+            table2hint.removeValue(forKey: p)
+            hint2table.removeValue(forKey: pHint)
+        } else if game.pos2hint[p] != nil {
             // 2. The number on the table tells you how many tiles it must be moved.
             //    Tables without numbers must stay put.
-            let os = BanquetGame.offset[move.dir]
-            let n = game.pos2hint[p]!
             var pTable = p
-            for i in 0..<n {
-                pTable += os
-                // 3. Tables can't cross other tables, nor cross other tables paths after
-                //    they moved.
-                guard isValid(p: pTable) && table2hint[pTable] == nil && !tablePath.contains(pTable) else { return .invalid }
+            let n = game.pos2hint[p]!
+            guard (n == 0) == (dir == BanquetGame.PUZ_TAP_MOVE) else { return .invalid }
+            if n > 0 {
+                let os = BanquetGame.offset[dir]
+                for _ in 0..<n {
+                    pTable += os
+                    // 3. Tables can't cross other tables, nor cross other tables paths after
+                    //    they moved.
+                    guard isValid(p: pTable) && table2hint[pTable] == nil && (game.pos2hint[pTable] == nil || hint2table[pTable] != nil) && !tablePath.contains(pTable) else { return .invalid }
+                }
+                pTable = p
+                for i in 0..<n {
+                    pTable += os
+                    if i < n - 1 { tablePath.insert(pTable) }
+                }
             }
-            pTable = p
-            for i in 0..<n {
-                pTable += os
-                if i < n - 1 { tablePath.insert(pTable) }
-            }
-            hint2table[pHint] = pTable
-            table2hint[pTable] = pHint
-        }
+            hint2table[p] = pTable
+            table2hint[pTable] = p
+        } else { return .invalid }
         updateIsSolved()
         return .moveComplete
     }
@@ -90,14 +87,7 @@ class BanquetGameState: GridGameState<BanquetGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        var tables = Set<Position>()
-        for (pTable, pHint) in table2hint {
-            if pTable == pHint {
-                isSolved = false
-            } else {
-                tables.insert(pTable)
-            }
-        }
+        if table2hint.count != game.pos2hint.count { isSolved = false }
         // 1. Join the tables in order to form "banquets" of at least two tables.
         // 4. Banquets cannot touch each other horizontally or vertically
         //    (they can touch diagonally).
@@ -107,12 +97,9 @@ class BanquetGameState: GridGameState<BanquetGameMove> {
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                guard tables.contains(p) else {continue}
+                guard table2hint[p] != nil else {continue}
                 pos2node[p] = g.addNode(p.description)
             }
-        }
-        for p in game.fixedTables {
-            pos2node[p] = g.addNode(p.description)
         }
         for (p, node) in pos2node {
             for os in BanquetGame.offset {
