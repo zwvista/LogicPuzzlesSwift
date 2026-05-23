@@ -16,6 +16,7 @@ class BanquetGameState: GridGameState<BanquetGameMove> {
     override var gameDocument: GameDocumentBase { BanquetDocument.sharedInstance }
     var hint2table = [Position: Position]()
     var table2hint = [Position: Position]()
+    var tablePath = Set<Position>()
     var pos2state = [Position: AllowedObjectState]()
 
     override func copy() -> BanquetGameState {
@@ -26,6 +27,7 @@ class BanquetGameState: GridGameState<BanquetGameMove> {
         _ = super.setup(v: v)
         v.hint2table = hint2table
         v.table2hint = table2hint
+        v.tablePath = tablePath
         return v
     }
     
@@ -52,11 +54,16 @@ class BanquetGameState: GridGameState<BanquetGameMove> {
             let os = BanquetGame.offset[move.dir]
             let n = game.pos2hint[p]!
             var pTable = p
-            for _ in 0..<n {
+            for i in 0..<n {
                 pTable += os
                 // 3. Tables can't cross other tables, nor cross other tables paths after
                 //    they moved.
-                guard isValid(p: pTable) && table2hint[pTable] == nil else { return .invalid }
+                guard isValid(p: pTable) && table2hint[pTable] == nil && !tablePath.contains(pTable) else { return .invalid }
+            }
+            pTable = p
+            for i in 0..<n {
+                pTable += os
+                if i < n - 1 { tablePath.insert(pTable) }
             }
             hint2table[pHint] = pTable
             table2hint[pTable] = pHint
