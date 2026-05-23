@@ -9,12 +9,9 @@
 import Foundation
 
 enum SnakeIslandsObject: Int {
-    case empty, marker, wall, emptyHint, wallHint
+    case empty, marker, wall, hint
     init() {
         self = .empty
-    }
-    func isHint() -> Bool {
-        self == .emptyHint || self == .wallHint
     }
 }
 

@@ -32,9 +32,6 @@ class SnakeIslandsGameScene: GameScene<SnakeIslandsGameState> {
             let point = gridNode.centerPoint(p: p)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
-            if game.pos2obj[p] == .wallHint {
-                addImage(imageNamed: "tower_wall2", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "wall")
-            }
             addHint(n: n, s: state.pos2state[p]!, point: point, nodeName: hintNodeName)
         }
     }
@@ -53,7 +50,7 @@ class SnakeIslandsGameScene: GameScene<SnakeIslandsGameState> {
                 let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
                 if o1 != o2 || s1 != s2 {
                     switch o1 {
-                    case .emptyHint, .wallHint:
+                    case .hint:
                         removeNode(withName: hintNodeName)
                     case .marker:
                         removeNode(withName: markerNodeName)
@@ -63,7 +60,7 @@ class SnakeIslandsGameScene: GameScene<SnakeIslandsGameState> {
                         break
                     }
                     switch o2 {
-                    case .emptyHint, .wallHint:
+                    case .hint:
                         addHint(n: game.pos2hint[p]!, s: s2!, point: point, nodeName: hintNodeName)
                     case .marker:
                         addDotMarker(point: point, nodeName: markerNodeName)

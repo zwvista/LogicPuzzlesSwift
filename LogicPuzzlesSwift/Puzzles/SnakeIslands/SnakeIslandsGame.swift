@@ -11,35 +11,39 @@ import Foundation
 class SnakeIslandsGame: GridGame<SnakeIslandsGameState> {
     static let offset = Position.Directions4
 
-    var pos2obj = [Position: SnakeIslandsObject]()
+    var objArray = [SnakeIslandsObject]()
     var pos2hint = [Position: Int]()
     
     init(layout: [String], delegate: SnakeIslandsGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count, layout[0].length / 2)
+        size = Position(layout.count, layout[0].length)
+        objArray = Array<SnakeIslandsObject>(repeating: .empty, count: rows * cols)
 
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
-                let (ch1, ch2) = (str[c * 2], str[c * 2 + 1])
+                let ch = str[c]
                 let p = Position(r, c)
-                func f(obj: SnakeIslandsObject) {
-                    pos2obj[p] = obj
-                    pos2hint[p] = ch1.isNumber ? ch1.toInt! : Int(ch1.asciiValue!) - Int(Character("A").asciiValue!) + 10
-                }
-                switch ch2 {
-                case ".":
-                    f(obj: .emptyHint)
-                case "W":
-                    f(obj: .wallHint)
-                default:
-                    break
+                if ch == "S" {
+                    self[p] = .wall
+                } else if ch != " " {
+                    pos2hint[p] = ch.isNumber ? ch.toInt! : Int(ch.asciiValue!) - Int(Character("A").asciiValue!) + 10
+                    self[p] = .hint
                 }
             }
         }
         
         let state = SnakeIslandsGameState(game: self)
         levelInitialized(state: state)
+    }
+    
+    subscript(p: Position) -> SnakeIslandsObject {
+        get { self[p.row, p.col] }
+        set { self[p.row, p.col] = newValue }
+    }
+    subscript(row: Int, col: Int) -> SnakeIslandsObject {
+        get { objArray[row * cols + col] }
+        set { objArray[row * cols + col] = newValue }
     }
 }
