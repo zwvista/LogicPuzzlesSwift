@@ -35,7 +35,7 @@ class BanquetGameScene: GameScene<BanquetGameState> {
         let game = stateFrom.game
         for (p, n) in game.pos2hint {
             let (p1, p2) = (stateFrom.hint2table[p]!, stateTo.hint2table[p]!)
-            let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
+            let (s1, s2) = (stateFrom.pos2state[p1], stateTo.pos2state[p2])
             let point = gridNode.centerPoint(p: p)
             let point2 = gridNode.centerPoint(p: p2)
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
@@ -45,7 +45,16 @@ class BanquetGameScene: GameScene<BanquetGameState> {
             if p == p2 {
                 addLabel(text: String(n), fontColor: .white, point: point, nodeName: tableNodeName)
             } else {
-                addBlock(color: .gray, point: point2, nodeName: tableNodeName)
+                addImage(imageNamed: "wood vertical", color: .red, colorBlendFactor: s2 == .normal ? 0.0 : 0.5, point: point2, nodeName: tableNodeName)
+                let pathToDraw = CGMutablePath()
+                let lineNode = SKShapeNode(path:pathToDraw)
+                lineNode.glowWidth = 4
+                pathToDraw.move(to: CGPoint(x: point.x, y: point.y))
+                pathToDraw.addLine(to: CGPoint(x: point2.x, y: point2.y))
+                lineNode.path = pathToDraw
+                lineNode.strokeColor = .green
+                lineNode.name = tableNodeName
+                gridNode.addChild(lineNode)
             }
         }
     }

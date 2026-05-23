@@ -1935,6 +1935,7 @@
 		8CB9750D2FC10D4900E526DA /* BanquetDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB974FE2FC10D4900E526DA /* BanquetDocument.swift */; };
 		8CB9750E2FC10D4900E526DA /* BanquetMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB975042FC10D4900E526DA /* BanquetMainViewController.swift */; };
 		8CB9750F2FC10D4900E526DA /* Banquet.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB974FD2FC10D4900E526DA /* Banquet.xml */; };
+		8CB975112FC11EF200E526DA /* mat.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CB975102FC11EF200E526DA /* mat.png */; };
 		8CC25CC21F87BB5A005560F7 /* Kakuro.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CC25CB61F87BB5A005560F7 /* Kakuro.xml */; };
 		8CC25CC31F87BB5A005560F7 /* KakuroDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CB71F87BB5A005560F7 /* KakuroDocument.swift */; };
 		8CC25CC41F87BB5A005560F7 /* KakuroGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CB81F87BB5A005560F7 /* KakuroGame.swift */; };
@@ -4205,6 +4206,7 @@
 		8CB975032FC10D4900E526DA /* BanquetGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanquetGridNode.swift; sourceTree = "<group>"; };
 		8CB975042FC10D4900E526DA /* BanquetMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanquetMainViewController.swift; sourceTree = "<group>"; };
 		8CB975052FC10D4900E526DA /* BanquetObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanquetObject.swift; sourceTree = "<group>"; };
+		8CB975102FC11EF200E526DA /* mat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mat.png; sourceTree = "<group>"; };
 		8CC25CB61F87BB5A005560F7 /* Kakuro.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kakuro.xml; sourceTree = "<group>"; };
 		8CC25CB71F87BB5A005560F7 /* KakuroDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroDocument.swift; sourceTree = "<group>"; };
 		8CC25CB81F87BB5A005560F7 /* KakuroGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroGame.swift; sourceTree = "<group>"; };
@@ -6856,6 +6858,7 @@
 				8C8662B22EA39DD00078CD64 /* lion.png */,
 				8CB418AA2F23C875005C7FDF /* lodge.png */,
 				8C8662B32EA39DD00078CD64 /* loopy_background.png */,
+				8CB975102FC11EF200E526DA /* mat.png */,
 				8C8662B42EA39DD00078CD64 /* meadow_background.png */,
 				8C6757F12F7221D800C66D49 /* mine2.png */,
 				8C8662B52EA39DD00078CD64 /* monkey.png */,
@@ -8783,6 +8786,7 @@
 				8C8663502EA39DD00078CD64 /* arrow1.png in Resources */,
 				8CB418A92F23C552005C7FDF /* OnlyStraights.xml in Resources */,
 				8C9BD5792F0A608A00D1D915 /* Chocolate.xml in Resources */,
+				8CB975112FC11EF200E526DA /* mat.png in Resources */,
 				8C1ACF4F2F2A31DA004832E2 /* nav_plain_yellow.png in Resources */,
 				8C1ACF502F2A31DA004832E2 /* nav_plain_red.png in Resources */,
 				8C1ACF512F2A31DA004832E2 /* nav_plain_green.png in Resources */,

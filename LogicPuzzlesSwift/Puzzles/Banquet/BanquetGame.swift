@@ -10,6 +10,7 @@ import Foundation
 
 class BanquetGame: GridGame<BanquetGameState> {
     static let offset = Position.Directions4
+    static let PUZ_UNKNOWN = -1
     static let PUZ_CANCEL_MOVE = -1
 
     var pos2hint = [Position: Int]()
@@ -25,7 +26,7 @@ class BanquetGame: GridGame<BanquetGameState> {
             for c in 0..<cols {
                 let ch = str[c]
                 guard ch != " " else {continue}
-                let n = ch.toInt!
+                let n = ch == "?" ? BanquetGame.PUZ_UNKNOWN : ch.toInt!
                 let p = Position(r, c)
                 if n == 0 {
                     fixedTables.insert(p)
