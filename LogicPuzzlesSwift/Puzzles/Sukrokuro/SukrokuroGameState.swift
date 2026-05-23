@@ -17,6 +17,8 @@ class SukrokuroGameState: GridGameState<SukrokuroGameMove> {
     var pos2num = [Position: Int]()
     var pos2horzState = [Position: HintState]()
     var pos2vertState = [Position: HintState]()
+    var dotsVertState = [Position: HintState]()
+    var dotsHorzState = [Position: HintState]()
 
     override func copy() -> SukrokuroGameState {
         let v = SukrokuroGameState(game: game, isCopy: true)
@@ -114,6 +116,18 @@ class SukrokuroGameState: GridGameState<SukrokuroGameMove> {
             // the sum of the numbers in that column.
             let s: HintState = n1 == 0 ? .normal : n1 == n2 ? .complete : .error
             pos2vertState[p] = s
+            if s != .complete { isSolved = false }
+        }
+        for p in game.dotsVert {
+            let (n1, n2) = (pos2num[p]!, pos2num[p + Position.South]!)
+            let s: HintState = n1 == 0 || n2 == 0 ? .normal : abs(n1 - n2) == 1 ? .complete : .error
+            dotsVertState[p] = s
+            if s != .complete { isSolved = false }
+        }
+        for p in game.dotsHorz {
+            let (n1, n2) = (pos2num[p]!, pos2num[p + Position.East]!)
+            let s: HintState = n1 == 0 || n2 == 0 ? .normal : abs(n1 - n2) == 1 ? .complete : .error
+            dotsHorzState[p] = s
             if s != .complete { isSolved = false }
         }
     }

@@ -48,12 +48,14 @@ class SukrokuroGameScene: GameScene<SukrokuroGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 if game.pos2num[p] != nil {
-//                    addDotMarker2(color: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+                    let nodeNameSuffix = "-\(p.row)-\(p.col)"
                     if game.dotsVert.contains(p) {
-                        addDotMarker2(color: .white, point: gridNode.vertPosition(p: p), nodeName: "dots")
+                        let nodeName = "dots" + nodeNameSuffix + "-vert"
+                        addDotMarker2(color: .white, point: gridNode.vertPosition(p: p), nodeName: nodeName)
                     }
                     if game.dotsHorz.contains(p) {
-                        addDotMarker2(color: .white, point: gridNode.horzPosition(p: p), nodeName: "dots")
+                        let nodeName = "dots" + nodeNameSuffix + "-horz"
+                        addDotMarker2(color: .white, point: gridNode.horzPosition(p: p), nodeName: nodeName)
                     }
                 } else {
                     let point = gridNode.centerPoint(p: p)
@@ -102,6 +104,22 @@ class SukrokuroGameScene: GameScene<SukrokuroGameState> {
                 if n1 != 0 { removeNode(withName: nodeName) }
                 if n2 != 0 { addLabel(text: String(n2), fontColor: .white, point: point, nodeName: nodeName) }
             }
+        }
+        for p in game.dotsVert {
+            let (s1, s2) = (stateFrom.dotsVertState[p]!, stateTo.dotsVertState[p]!)
+            guard s1 != s2 else {continue}
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let nodeName = "dots" + nodeNameSuffix + "-vert"
+            removeNode(withName: nodeName)
+            addDotMarker2(color: s2 == .normal ? .white : s2 == .complete ? .green : .red, point: gridNode.vertPosition(p: p), nodeName: nodeName)
+        }
+        for p in game.dotsHorz {
+            let (s1, s2) = (stateFrom.dotsHorzState[p]!, stateTo.dotsHorzState[p]!)
+            guard s1 != s2 else {continue}
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            let nodeName = "dots" + nodeNameSuffix + "-horz"
+            removeNode(withName: nodeName)
+            addDotMarker2(color: s2 == .normal ? .white : s2 == .complete ? .green : .red, point: gridNode.horzPosition(p: p), nodeName: nodeName)
         }
     }
 }
