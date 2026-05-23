@@ -14,6 +14,8 @@ class SukrokuroGame: GridGame<SukrokuroGameState> {
     var pos2horzHint = [Position: Int]()
     var pos2vertHint = [Position: Int]()
     var pos2num = [Position: Int]()
+    var dotsVert = Set<Position>()
+    var dotsHorz = Set<Position>()
 
     init(layout: [String], delegate: SukrokuroGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -24,11 +26,13 @@ class SukrokuroGame: GridGame<SukrokuroGameState> {
             let str = layout[r]
             for c in 0..<cols {
                 let p = Position(r, c)
-                let s = str[c * 4..<c * 4 + 4]
-                if s == "    " {
+                let s1 = str[c * 4..<c * 4 + 2]
+                let s2 = str[c * 4 + 2..<c * 4 + 4]
+                if s1[0] == " " {
                     pos2num[p] = 0
+                    if s1 == " ." { dotsVert.insert(p) }
+                    if s2 == " ." { dotsHorz.insert(p) }
                 } else {
-                    let (s1, s2) = (s[0..<2], s[2..<4])
                     if s1 != "00" { pos2vertHint[p] = s1.toInt()! }
                     if s2 != "00" { pos2horzHint[p] = s2.toInt()! }
                 }

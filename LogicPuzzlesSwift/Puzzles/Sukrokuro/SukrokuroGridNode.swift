@@ -18,4 +18,16 @@ class SukrokuroGridNode: GridNode {
         self.rows = rows
         self.cols = cols
     }
+    
+    func vertPosition(p: Position) -> CGPoint {
+        var point = centerPoint(p: p)
+        point = CGPoint(x: point.x, y: point.y - blockSize / 2)
+        return point
+    }
+    
+    func horzPosition(p: Position) -> CGPoint {
+        var point = centerPoint(p: p)
+        point = CGPoint(x: point.x + blockSize / 2, y: point.y)
+        return point
+    }
 }

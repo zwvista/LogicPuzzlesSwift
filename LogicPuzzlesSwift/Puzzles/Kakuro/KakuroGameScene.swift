@@ -25,7 +25,7 @@ class KakuroGameScene: GameScene<KakuroGameState> {
         labelNode.fontName = labelNode.fontName! + "-Bold"
         // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
         let scalingFactor = min(size.width / labelNode.frame.width, size.height / labelNode.frame.height)
-        labelNode.fontSize *= scalingFactor * 0.08
+        labelNode.fontSize *= scalingFactor * 0.04
         labelNode.verticalAlignmentMode = .center
         labelNode.position = point
         labelNode.name = nodeName

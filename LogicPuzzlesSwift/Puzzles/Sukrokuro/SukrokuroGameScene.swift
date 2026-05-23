@@ -25,7 +25,7 @@ class SukrokuroGameScene: GameScene<SukrokuroGameState> {
         labelNode.fontName = labelNode.fontName! + "-Bold"
         // http://stackoverflow.com/questions/32144666/resize-a-sklabelnode-font-size-to-fit
         let scalingFactor = min(size.width / labelNode.frame.width, size.height / labelNode.frame.height)
-        labelNode.fontSize *= scalingFactor * 0.08
+        labelNode.fontSize *= scalingFactor * 0.04
         labelNode.verticalAlignmentMode = .center
         labelNode.position = point
         labelNode.name = nodeName
@@ -47,19 +47,28 @@ class SukrokuroGameScene: GameScene<SukrokuroGameState> {
         for r in 0..<game.rows {
             for c in 0..<game.cols {
                 let p = Position(r, c)
-                guard game.pos2num[p] == nil else {continue}
-                let point = gridNode.centerPoint(p: p)
-                let borderNode = SKShapeNode(rectOf: CGSize(width: blockSize - 4, height: blockSize - 4))
-                borderNode.position = point
-                borderNode.fillColor = .lightGray
-                gridNode.addChild(borderNode)
-                pathToDraw.move(to: CGPoint(x: point.x - blockSize, y: point.y + blockSize))
-                pathToDraw.addLine(to: CGPoint(x: point.x + blockSize, y: point.y - blockSize))
-                if let n = game.pos2vertHint[p] {
-                    addHint(p: p, n: n, isHorz: false, s: .normal)
-                }
-                if let n = game.pos2horzHint[p] {
-                    addHint(p: p, n: n, isHorz: true, s: .normal)
+                if game.pos2num[p] != nil {
+//                    addDotMarker2(color: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: nodeName)
+                    if game.dotsVert.contains(p) {
+                        addDotMarker2(color: .white, point: gridNode.vertPosition(p: p), nodeName: "dots")
+                    }
+                    if game.dotsHorz.contains(p) {
+                        addDotMarker2(color: .white, point: gridNode.horzPosition(p: p), nodeName: "dots")
+                    }
+                } else {
+                    let point = gridNode.centerPoint(p: p)
+                    let borderNode = SKShapeNode(rectOf: CGSize(width: blockSize - 4, height: blockSize - 4))
+                    borderNode.position = point
+                    borderNode.fillColor = .lightGray
+                    gridNode.addChild(borderNode)
+                    pathToDraw.move(to: CGPoint(x: point.x - blockSize, y: point.y + blockSize))
+                    pathToDraw.addLine(to: CGPoint(x: point.x + blockSize, y: point.y - blockSize))
+                    if let n = game.pos2vertHint[p] {
+                        addHint(p: p, n: n, isHorz: false, s: .normal)
+                    }
+                    if let n = game.pos2horzHint[p] {
+                        addHint(p: p, n: n, isHorz: true, s: .normal)
+                    }
                 }
             }
         }
