@@ -1946,6 +1946,7 @@
 		8CB975232FC17E2C00E526DA /* SukrokuroGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB975152FC17E2C00E526DA /* SukrokuroGameScene.swift */; };
 		8CB975242FC17E2C00E526DA /* Sukrokuro.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CB975122FC17E2C00E526DA /* Sukrokuro.xml */; };
 		8CBC85E52FC928B7008286EE /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 8C9BD52A2F0A4D1A00D1D915 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		8CBC85E82FC92BDD008286EE /* music3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8CBC85E72FC92BDD008286EE /* music3.mp3 */; };
 		8CC25CC21F87BB5A005560F7 /* Kakuro.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CC25CB61F87BB5A005560F7 /* Kakuro.xml */; };
 		8CC25CC31F87BB5A005560F7 /* KakuroDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CB71F87BB5A005560F7 /* KakuroDocument.swift */; };
 		8CC25CC41F87BB5A005560F7 /* KakuroGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC25CB81F87BB5A005560F7 /* KakuroGame.swift */; };
@@ -4240,6 +4241,7 @@
 		8CB975182FC17E2C00E526DA /* SukrokuroGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SukrokuroGridNode.swift; sourceTree = "<group>"; };
 		8CB975192FC17E2C00E526DA /* SukrokuroMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SukrokuroMainViewController.swift; sourceTree = "<group>"; };
 		8CB9751A2FC17E2C00E526DA /* SukrokuroObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SukrokuroObject.swift; sourceTree = "<group>"; };
+		8CBC85E72FC92BDD008286EE /* music3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = music3.mp3; sourceTree = "<group>"; };
 		8CC25CB61F87BB5A005560F7 /* Kakuro.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Kakuro.xml; sourceTree = "<group>"; };
 		8CC25CB71F87BB5A005560F7 /* KakuroDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroDocument.swift; sourceTree = "<group>"; };
 		8CC25CB81F87BB5A005560F7 /* KakuroGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KakuroGame.swift; sourceTree = "<group>"; };
@@ -7083,6 +7085,7 @@
 				8C886C451D9E8B72004A42BF /* LogicPuzzlesSwift-Bridging-Header.h */,
 				8CA646211FF3EEAF004707E5 /* music1.wav */,
 				8CA646231FF3EEB0004707E5 /* music2.wav */,
+				8CBC85E72FC92BDD008286EE /* music3.mp3 */,
 				8C916CCD1DAB35FC00D9E62B /* solved.wav */,
 				8C916CC51DAB1E6000D9E62B /* tap.wav */,
 			);
@@ -9215,6 +9218,7 @@
 				8C3A37201EC88D4300A914A5 /* MiniLits.xml in Resources */,
 				8C3A36301EC88D4200A914A5 /* BoxItUp.xml in Resources */,
 				8C2AF8451ED6084300EC84AB /* PaintTheNurikabe.xml in Resources */,
+				8CBC85E82FC92BDD008286EE /* music3.mp3 in Resources */,
 				8C3A36481EC88D4200A914A5 /* BusySeas.xml in Resources */,
 				8C1D16B11DB8DE930056D407 /* TraversalTree.graffle in Resources */,
 				8C9F43E41D771915000139FC /* Assets.xcassets in Resources */,
