@@ -33,7 +33,7 @@ class SoundManager: NSObject, AVAudioPlayerDelegate {
     func playCurrentMusic() {
         let musicFiles = try! FileManager.default.contentsOfDirectory(atPath: Bundle.main.bundlePath)
             .filter { $0.starts(with: "music") }
-        let index = Int(arc4random_uniform(UInt32(musicFiles.count)))
+        let index = Int.random(in: 0..<musicFiles.count)
         let url = Bundle.main.url(forResource: musicFiles[index], withExtension: nil)!
         apMusic = try! AVAudioPlayer(contentsOf: url)
         apMusic.prepareToPlay()
