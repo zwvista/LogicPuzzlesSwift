@@ -890,6 +890,15 @@
 		8C506F171F6D2C9300BA4332 /* SnakeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C506F0C1F6D2C9300BA4332 /* SnakeObject.swift */; };
 		8C508BEE1DFBD13700D99A09 /* GridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D41DC42FA40052202C /* GridNode.swift */; };
 		8C5368841EA1DFCC0071D475 /* GridObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5368831EA1DFCC0071D475 /* GridObject.swift */; };
+		8C5FDCBF2FE00D2100409939 /* Scissors.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C5FDCB52FE00D2100409939 /* Scissors.xml */; };
+		8C5FDCC02FE00D2100409939 /* ScissorsGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5FDCBA2FE00D2100409939 /* ScissorsGameViewController.swift */; };
+		8C5FDCC12FE00D2100409939 /* ScissorsGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5FDCB72FE00D2100409939 /* ScissorsGame.swift */; };
+		8C5FDCC22FE00D2100409939 /* ScissorsMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5FDCBC2FE00D2100409939 /* ScissorsMainViewController.swift */; };
+		8C5FDCC32FE00D2100409939 /* ScissorsGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5FDCBB2FE00D2100409939 /* ScissorsGridNode.swift */; };
+		8C5FDCC42FE00D2100409939 /* ScissorsDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5FDCB62FE00D2100409939 /* ScissorsDocument.swift */; };
+		8C5FDCC52FE00D2100409939 /* ScissorsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5FDCBD2FE00D2100409939 /* ScissorsObject.swift */; };
+		8C5FDCC62FE00D2100409939 /* ScissorsGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5FDCB82FE00D2100409939 /* ScissorsGameScene.swift */; };
+		8C5FDCC72FE00D2100409939 /* ScissorsGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5FDCB92FE00D2100409939 /* ScissorsGameState.swift */; };
 		8C610F1F204159110087C545 /* NorthPoleFishingDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C610F13204159110087C545 /* NorthPoleFishingDocument.swift */; };
 		8C610F21204159110087C545 /* NorthPoleFishingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C610F15204159110087C545 /* NorthPoleFishingMainViewController.swift */; };
 		8C610F22204159110087C545 /* NorthPoleFishingObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C610F16204159110087C545 /* NorthPoleFishingObject.swift */; };
@@ -3179,6 +3188,15 @@
 		8C506F0B1F6D2C9300BA4332 /* SnakeMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeMainViewController.swift; sourceTree = "<group>"; };
 		8C506F0C1F6D2C9300BA4332 /* SnakeObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeObject.swift; sourceTree = "<group>"; };
 		8C5368831EA1DFCC0071D475 /* GridObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridObject.swift; sourceTree = "<group>"; };
+		8C5FDCB52FE00D2100409939 /* Scissors.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Scissors.xml; sourceTree = "<group>"; };
+		8C5FDCB62FE00D2100409939 /* ScissorsDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScissorsDocument.swift; sourceTree = "<group>"; };
+		8C5FDCB72FE00D2100409939 /* ScissorsGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScissorsGame.swift; sourceTree = "<group>"; };
+		8C5FDCB82FE00D2100409939 /* ScissorsGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScissorsGameScene.swift; sourceTree = "<group>"; };
+		8C5FDCB92FE00D2100409939 /* ScissorsGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScissorsGameState.swift; sourceTree = "<group>"; };
+		8C5FDCBA2FE00D2100409939 /* ScissorsGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScissorsGameViewController.swift; sourceTree = "<group>"; };
+		8C5FDCBB2FE00D2100409939 /* ScissorsGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScissorsGridNode.swift; sourceTree = "<group>"; };
+		8C5FDCBC2FE00D2100409939 /* ScissorsMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScissorsMainViewController.swift; sourceTree = "<group>"; };
+		8C5FDCBD2FE00D2100409939 /* ScissorsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScissorsObject.swift; sourceTree = "<group>"; };
 		8C610F13204159110087C545 /* NorthPoleFishingDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorthPoleFishingDocument.swift; sourceTree = "<group>"; };
 		8C610F15204159110087C545 /* NorthPoleFishingMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorthPoleFishingMainViewController.swift; sourceTree = "<group>"; };
 		8C610F16204159110087C545 /* NorthPoleFishingObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NorthPoleFishingObject.swift; sourceTree = "<group>"; };
@@ -5573,6 +5591,7 @@
 				8CFB220C2EF771C100E5F29D /* Rome */,
 				8C3A35801EC88D4200A914A5 /* Rooms */,
 				8C9BD5372F0A52B400D1D915 /* RunInALoop */,
+				8C5FDCBE2FE00D2100409939 /* Scissors */,
 				8C3A358D1EC88D4200A914A5 /* Sentinels */,
 				8CB722262EACF705001B25C5 /* SheepAndWolves */,
 				8CF17F9C2F37291A000F1F7D /* ShopAndGas */,
@@ -6337,6 +6356,22 @@
 				8C506F0C1F6D2C9300BA4332 /* SnakeObject.swift */,
 			);
 			path = Snake;
+			sourceTree = "<group>";
+		};
+		8C5FDCBE2FE00D2100409939 /* Scissors */ = {
+			isa = PBXGroup;
+			children = (
+				8C5FDCB52FE00D2100409939 /* Scissors.xml */,
+				8C5FDCB62FE00D2100409939 /* ScissorsDocument.swift */,
+				8C5FDCB72FE00D2100409939 /* ScissorsGame.swift */,
+				8C5FDCB82FE00D2100409939 /* ScissorsGameScene.swift */,
+				8C5FDCB92FE00D2100409939 /* ScissorsGameState.swift */,
+				8C5FDCBA2FE00D2100409939 /* ScissorsGameViewController.swift */,
+				8C5FDCBB2FE00D2100409939 /* ScissorsGridNode.swift */,
+				8C5FDCBC2FE00D2100409939 /* ScissorsMainViewController.swift */,
+				8C5FDCBD2FE00D2100409939 /* ScissorsObject.swift */,
+			);
+			path = Scissors;
 			sourceTree = "<group>";
 		};
 		8C610F11204159100087C545 /* NorthPoleFishing */ = {
@@ -9066,6 +9101,7 @@
 				8C8663F02EA39DD00078CD64 /* meadow_background.png in Resources */,
 				8C8663F12EA39DD00078CD64 /* sand_background.png in Resources */,
 				8C8663F22EA39DD00078CD64 /* wood horizontal.png in Resources */,
+				8C5FDCBF2FE00D2100409939 /* Scissors.xml in Resources */,
 				8C8663F32EA39DD00078CD64 /* arrow_green_left.png in Resources */,
 				8C8663F42EA39DD00078CD64 /* zebra.png in Resources */,
 				8C263EAD2F13E29500158A2C /* Underground.xml in Resources */,
@@ -10370,6 +10406,14 @@
 				8C263F2E2F1D08A700158A2C /* DirectionalPlanksMainViewController.swift in Sources */,
 				8CFB220F2EF771C100E5F29D /* RomeObject.swift in Sources */,
 				8CFB22102EF771C100E5F29D /* RomeGameViewController.swift in Sources */,
+				8C5FDCC02FE00D2100409939 /* ScissorsGameViewController.swift in Sources */,
+				8C5FDCC12FE00D2100409939 /* ScissorsGame.swift in Sources */,
+				8C5FDCC22FE00D2100409939 /* ScissorsMainViewController.swift in Sources */,
+				8C5FDCC32FE00D2100409939 /* ScissorsGridNode.swift in Sources */,
+				8C5FDCC42FE00D2100409939 /* ScissorsDocument.swift in Sources */,
+				8C5FDCC52FE00D2100409939 /* ScissorsObject.swift in Sources */,
+				8C5FDCC62FE00D2100409939 /* ScissorsGameScene.swift in Sources */,
+				8C5FDCC72FE00D2100409939 /* ScissorsGameState.swift in Sources */,
 				8CFB22112EF771C100E5F29D /* RomeGame.swift in Sources */,
 				8CFB22122EF771C100E5F29D /* RomeMainViewController.swift in Sources */,
 				8CFB22132EF771C100E5F29D /* RomeGameScene.swift in Sources */,
