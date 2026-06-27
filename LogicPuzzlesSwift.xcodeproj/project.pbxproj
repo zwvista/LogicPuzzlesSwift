@@ -26,6 +26,15 @@
 		8C04671E1F8BA2BE00B5DE41 /* TataminoGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0467121F8BA2BD00B5DE41 /* TataminoGridNode.swift */; };
 		8C0467201F8BA2BE00B5DE41 /* TataminoMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0467141F8BA2BD00B5DE41 /* TataminoMainViewController.swift */; };
 		8C0467211F8BA2BE00B5DE41 /* TataminoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C0467151F8BA2BD00B5DE41 /* TataminoObject.swift */; };
+		8C19BDA62FEFD348005EC605 /* ProofOfQuilt.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C19BD9C2FEFD347005EC605 /* ProofOfQuilt.xml */; };
+		8C19BDA72FEFD348005EC605 /* ProofOfQuiltGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19BDA22FEFD347005EC605 /* ProofOfQuiltGridNode.swift */; };
+		8C19BDA82FEFD348005EC605 /* ProofOfQuiltGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19BD9F2FEFD347005EC605 /* ProofOfQuiltGameScene.swift */; };
+		8C19BDA92FEFD348005EC605 /* ProofOfQuiltDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19BD9D2FEFD347005EC605 /* ProofOfQuiltDocument.swift */; };
+		8C19BDAA2FEFD348005EC605 /* ProofOfQuiltGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19BDA02FEFD347005EC605 /* ProofOfQuiltGameState.swift */; };
+		8C19BDAB2FEFD348005EC605 /* ProofOfQuiltMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19BDA32FEFD347005EC605 /* ProofOfQuiltMainViewController.swift */; };
+		8C19BDAC2FEFD348005EC605 /* ProofOfQuiltObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19BDA42FEFD347005EC605 /* ProofOfQuiltObject.swift */; };
+		8C19BDAD2FEFD348005EC605 /* ProofOfQuiltGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19BD9E2FEFD347005EC605 /* ProofOfQuiltGame.swift */; };
+		8C19BDAE2FEFD348005EC605 /* ProofOfQuiltGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19BDA12FEFD347005EC605 /* ProofOfQuiltGameViewController.swift */; };
 		8C1ACF432F2A2AAD004832E2 /* TrafficWardenGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF3E2F2A2AAD004832E2 /* TrafficWardenGameViewController.swift */; };
 		8C1ACF442F2A2AAD004832E2 /* TrafficWardenDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF3A2F2A2AAD004832E2 /* TrafficWardenDocument.swift */; };
 		8C1ACF452F2A2AAD004832E2 /* TrafficWardenGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1ACF3C2F2A2AAD004832E2 /* TrafficWardenGameScene.swift */; };
@@ -2321,6 +2330,15 @@
 		8C0467121F8BA2BD00B5DE41 /* TataminoGridNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TataminoGridNode.swift; sourceTree = "<group>"; };
 		8C0467141F8BA2BD00B5DE41 /* TataminoMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TataminoMainViewController.swift; sourceTree = "<group>"; };
 		8C0467151F8BA2BD00B5DE41 /* TataminoObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TataminoObject.swift; sourceTree = "<group>"; };
+		8C19BD9C2FEFD347005EC605 /* ProofOfQuilt.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ProofOfQuilt.xml; sourceTree = "<group>"; };
+		8C19BD9D2FEFD347005EC605 /* ProofOfQuiltDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofOfQuiltDocument.swift; sourceTree = "<group>"; };
+		8C19BD9E2FEFD347005EC605 /* ProofOfQuiltGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofOfQuiltGame.swift; sourceTree = "<group>"; };
+		8C19BD9F2FEFD347005EC605 /* ProofOfQuiltGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofOfQuiltGameScene.swift; sourceTree = "<group>"; };
+		8C19BDA02FEFD347005EC605 /* ProofOfQuiltGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofOfQuiltGameState.swift; sourceTree = "<group>"; };
+		8C19BDA12FEFD347005EC605 /* ProofOfQuiltGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofOfQuiltGameViewController.swift; sourceTree = "<group>"; };
+		8C19BDA22FEFD347005EC605 /* ProofOfQuiltGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofOfQuiltGridNode.swift; sourceTree = "<group>"; };
+		8C19BDA32FEFD347005EC605 /* ProofOfQuiltMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofOfQuiltMainViewController.swift; sourceTree = "<group>"; };
+		8C19BDA42FEFD347005EC605 /* ProofOfQuiltObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProofOfQuiltObject.swift; sourceTree = "<group>"; };
 		8C1ACF392F2A2AAD004832E2 /* TrafficWarden.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TrafficWarden.xml; sourceTree = "<group>"; };
 		8C1ACF3A2F2A2AAD004832E2 /* TrafficWardenDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenDocument.swift; sourceTree = "<group>"; };
 		8C1ACF3B2F2A2AAD004832E2 /* TrafficWardenGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficWardenGame.swift; sourceTree = "<group>"; };
@@ -4630,6 +4648,22 @@
 			path = Tatamino;
 			sourceTree = "<group>";
 		};
+		8C19BDA52FEFD347005EC605 /* ProofOfQuilt */ = {
+			isa = PBXGroup;
+			children = (
+				8C19BD9C2FEFD347005EC605 /* ProofOfQuilt.xml */,
+				8C19BD9D2FEFD347005EC605 /* ProofOfQuiltDocument.swift */,
+				8C19BD9E2FEFD347005EC605 /* ProofOfQuiltGame.swift */,
+				8C19BD9F2FEFD347005EC605 /* ProofOfQuiltGameScene.swift */,
+				8C19BDA02FEFD347005EC605 /* ProofOfQuiltGameState.swift */,
+				8C19BDA12FEFD347005EC605 /* ProofOfQuiltGameViewController.swift */,
+				8C19BDA22FEFD347005EC605 /* ProofOfQuiltGridNode.swift */,
+				8C19BDA32FEFD347005EC605 /* ProofOfQuiltMainViewController.swift */,
+				8C19BDA42FEFD347005EC605 /* ProofOfQuiltObject.swift */,
+			);
+			path = ProofOfQuilt;
+			sourceTree = "<group>";
+		};
 		8C1ACF422F2A2AAD004832E2 /* TrafficWarden */ = {
 			isa = PBXGroup;
 			children = (
@@ -5584,6 +5618,7 @@
 				8CFB22582F0772C100E5F29D /* PouringWater */,
 				8C3A35661EC88D4100A914A5 /* PowerGrid */,
 				8C3A35731EC88D4200A914A5 /* ProductSentinels */,
+				8C19BDA52FEFD347005EC605 /* ProofOfQuilt */,
 				8C263ED22F1C85DD00158A2C /* Rabbits */,
 				8C32D8CF1FC92B5F00BA2D07 /* RippleEffect */,
 				8C2963E11FA20D620017A812 /* RobotCrosswords */,
@@ -9331,6 +9366,7 @@
 				8C76090B1EC61A8A00DFCD7B /* Game.storyboard in Resources */,
 				8C9F32E31ED1FCFF00E10965 /* TapAlike.xml in Resources */,
 				8C3A36781EC88D4200A914A5 /* FenceItUp.xml in Resources */,
+				8C19BDA62FEFD348005EC605 /* ProofOfQuilt.xml in Resources */,
 				8C0467181F8BA2BE00B5DE41 /* Tatamino.xml in Resources */,
 				8CE9C30F1F7914B800134093 /* Kakurasu.xml in Resources */,
 				8C2963F81FA20D620017A812 /* RobotCrosswords.xml in Resources */,
@@ -10486,6 +10522,14 @@
 				8C7474401FBDEAD100C4112C /* HolidayIslandGridNode.swift in Sources */,
 				8C9F32F71ED1FCFF00E10965 /* TapARowObject.swift in Sources */,
 				8C3A37261EC88D4300A914A5 /* MiniLitsGridNode.swift in Sources */,
+				8C19BDA72FEFD348005EC605 /* ProofOfQuiltGridNode.swift in Sources */,
+				8C19BDA82FEFD348005EC605 /* ProofOfQuiltGameScene.swift in Sources */,
+				8C19BDA92FEFD348005EC605 /* ProofOfQuiltDocument.swift in Sources */,
+				8C19BDAA2FEFD348005EC605 /* ProofOfQuiltGameState.swift in Sources */,
+				8C19BDAB2FEFD348005EC605 /* ProofOfQuiltMainViewController.swift in Sources */,
+				8C19BDAC2FEFD348005EC605 /* ProofOfQuiltObject.swift in Sources */,
+				8C19BDAD2FEFD348005EC605 /* ProofOfQuiltGame.swift in Sources */,
+				8C19BDAE2FEFD348005EC605 /* ProofOfQuiltGameViewController.swift in Sources */,
 				8C35E3C01FC6DAE600A26EE3 /* NumberLinkMainViewController.swift in Sources */,
 				8C2319EF1FB88E3F0021C680 /* TierraDelFuegoObject.swift in Sources */,
 				8C3A37531EC88D4300A914A5 /* OrchardsGameScene.swift in Sources */,
