@@ -14,7 +14,7 @@ class ScissorsGameState: GridGameState<ScissorsGameMove> {
         set { setGame(game: newValue) }
     }
     override var gameDocument: GameDocumentBase { ScissorsDocument.sharedInstance }
-    var objArray = [ScissorsObject]()
+    var objArray = [Character]()
     var pos2state = [Position: HintState]()
     
     override func copy() -> ScissorsGameState {
@@ -30,22 +30,22 @@ class ScissorsGameState: GridGameState<ScissorsGameMove> {
     required init(game: ScissorsGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<ScissorsObject>(repeating: .empty, count: rows * cols)
+        objArray = game.objArray
         updateIsSolved()
     }
     
-    subscript(p: Position) -> ScissorsObject {
+    subscript(p: Position) -> Character {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
     }
-    subscript(row: Int, col: Int) -> ScissorsObject {
+    subscript(row: Int, col: Int) -> Character {
         get { objArray[row * cols + col] }
         set { objArray[row * cols + col] = newValue }
     }
     
     override func setObject(move: inout ScissorsGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && self[p] != move.obj else { return .invalid }
+        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -53,12 +53,13 @@ class ScissorsGameState: GridGameState<ScissorsGameMove> {
     
     override func switchObject(move: inout ScissorsGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) else { return .invalid }
+        guard isValid(p: p) && game[p] == " " else { return .invalid }
         let o = self[p]
         move.obj = switch o {
-        case .empty: .forward
-        case .forward: .backward
-        case .backward: .empty
+        case " ": ScissorsGame.PUZ_BACK_SLASH
+        case ScissorsGame.PUZ_BACK_SLASH: ScissorsGame.PUZ_FRONT_SLASH
+        case ScissorsGame.PUZ_FRONT_SLASH: " "
+        default: o
         }
         return setObject(move: &move)
     }
@@ -76,55 +77,48 @@ class ScissorsGameState: GridGameState<ScissorsGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-        var matrix = [Position: [Position]]()
-        var rng = Set<Position>()
-        // 1. Fill the board with diagonal lines (Slants), following the hints at
-        //    the intersections.
+        let g = Graph()
+        var pos2node = [ScissorsPosition: Node]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
-                func addSlash(p1: Position, p2: Position) {
-                    matrix[p1, default: []].append(p2)
-                    matrix[p2, default: []].append(p1)
-                    rng.insert(p1)
-                    rng.insert(p2)
-                }
                 switch self[p] {
-                case .forward:
-                    addSlash(p1: p, p2: p + ScissorsGame.offset2[3])
-                case .backward:
-                    addSlash(p1: p + ScissorsGame.offset2[1], p2: p + ScissorsGame.offset2[2])
-                case .empty:
-                    isSolved = false
+                case ScissorsGame.PUZ_BACK_SLASH:
+                    let (sp1, sp2) = (ScissorsPosition(p: p, n: 3), ScissorsPosition(p: p, n: 12))
+                    pos2node[sp1] = g.addNode(sp1.description)
+                    pos2node[sp2] = g.addNode(sp2.description)
+                case ScissorsGame.PUZ_FRONT_SLASH:
+                    let (sp1, sp2) = (ScissorsPosition(p: p, n: 6), ScissorsPosition(p: p, n: 9))
+                    pos2node[sp1] = g.addNode(sp1.description)
+                    pos2node[sp2] = g.addNode(sp2.description)
+                default:
+                    let sp1 = ScissorsPosition(p: p, n: 15)
+                    pos2node[sp1] = g.addNode(sp1.description)
                 }
             }
         }
-        // 2. Every number tells you how many Slants (diagonal lines) touch that
-        //    point. So, for example, a 4 designates an X pattern around it.
-        for (p, n2) in game.pos2hint {
-            let n1 = matrix[p, default: []].count
-            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            pos2state[p] = s
+        for (sp, node) in pos2node {
+            for i in 0..<4 {
+                guard sp.n & (1 << i) != 0 else {continue}
+                let p2 = sp.p + ScissorsGame.offset[i], j = (i + 2) % 4
+                guard let sp2 = (pos2node.keys.first { $0.p == p2 && $0.n & (1 << j) != 0 }) else {continue}
+                g.addEdge(node, neighbor: pos2node[sp2]!)
+            }
+        }
+        while !pos2node.isEmpty {
+            let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+            let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }.filter { $0.n == 15 }.map { $0.p }
+            pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
+            var num2rng = [Character: [Position]]()
+            for p in area {
+                let ch = self[p]
+                if ch.isNumber { num2rng[ch, default:[]].append(p) }
+            }
+            let n = num2rng.values.first?.count ?? 0
+            let hasNumbers = num2rng.keys.sorted() == game.numbers && num2rng.allSatisfy { $1.count == n }
+            let s: HintState = !hasNumbers ? .error : n == 1 ? .complete : .normal
             if s != .complete { isSolved = false }
-        }
-        if !isSolved {return}
-        // 3. The Mazes or paths the Slants will form will usually branch off many
-        //    times, but can also end abruptly. Also all the Slants don't need to
-        //    be all connected.
-        // 4. However, you must ensure that they don't form a closed loop anywhere.
-        //    This also means very big loops, not just 2*2.
-        while !rng.isEmpty {
-            var moves = Set<Position>()
-            func dfs(p: Position, pLast: Position) -> Bool {
-                guard moves.insert(p).inserted else { return false }
-                for p2 in matrix[p]! {
-                    if p2 == pLast {continue}
-                    guard dfs(p: p2, pLast: p) else { return false }
-                }
-                return true
-            }
-            guard dfs(p: rng.first!, pLast: Position(-1, -1)) else { isSolved = false; return }
-            for p in moves { rng.remove(p) }
+            for p in area { pos2state[p] = s }
         }
     }
 }

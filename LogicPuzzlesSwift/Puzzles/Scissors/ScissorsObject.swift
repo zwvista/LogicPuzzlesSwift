@@ -8,15 +8,21 @@
 
 import Foundation
 
-enum ScissorsObject: Int {
-    case empty, forward, backward
-    init() {
-        self = .empty
+struct ScissorsPosition: Hashable {
+    let p: Position
+    let n: Int
+    
+    var description: String {
+        "(\(p.row),\(p.col),\(n))"
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(p)
+        hasher.combine(n)
     }
 }
 
 struct ScissorsGameMove {
     var p = Position()
-    var obj = ScissorsObject()
+    var obj: Character = " "
 }
-

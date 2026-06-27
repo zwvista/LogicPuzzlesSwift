@@ -37,6 +37,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         "PlugItIn": "Plug it in",
         "PondsAndFlowerbeds": "Ponds and Flowerbeds",
         "PondCamping": "Pond camping",
+        "ProofOfQuilt": "Proof of Quilt",
         "RunInALoop": "Run in a Loop",
         "SheepAndWolves": "Sheep & Wolves",
         "ShopAndGas": "Shop & Gas",
@@ -114,7 +115,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         return result
     }
 
-    // Cannot parse regular expression: lookbehind is not currently supported
+// Cannot parse regular expression: lookbehind is not currently supported
 //    func splitAndJoinWords2(input: String) -> String {
 //        let pattern = /(?<=[a-z])(?=[A-Z])/
 //        let result = input.replacing(pattern, with: " ")

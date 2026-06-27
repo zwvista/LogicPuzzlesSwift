@@ -11,22 +11,38 @@ import Foundation
 class ScissorsGame: GridGame<ScissorsGameState> {
     static let offset = Position.Directions4
     static let offset2 = Position.Square2x2Offset
+    static let PUZ_BACK_SLASH: Character = "\\"
+    static let PUZ_FRONT_SLASH: Character = "/"
 
-    var pos2hint = [Position: Int]()
-    
+    var objArray = [Character]()
+    var chMax: Character = "1"
+    var numbers = [Character]()
+    subscript(p: Position) -> Character {
+        get { self[p.row, p.col] }
+        set { self[p.row, p.col] = newValue }
+    }
+    subscript(row: Int, col: Int) -> Character {
+        get { objArray[row * cols + col] }
+        set { objArray[row * cols + col] = newValue }
+    }
+
     init(layout: [String], delegate: ScissorsGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count - 1, layout[0].length - 1)
+        size = Position(layout.count, layout[0].length)
+        objArray = Array<Character>(repeating: " ", count: rows * cols)
 
-        for r in 0..<rows + 1 {
+        for r in 0..<rows {
             let str = layout[r]
-            for c in 0..<cols + 1 {
+            for c in 0..<cols {
                 let ch = str[c]
-                let p = Position(r, c)
-                if ch != " " { pos2hint[p] = ch.toInt! }
+                self[r, c] = ch
+                if chMax < ch { chMax = ch }
             }
         }
+
+        let nMax = Int(chMax.asciiValue! - Character("0").asciiValue!)
+        numbers = (1...nMax).map { Character("\($0)") }
 
         let state = ScissorsGameState(game: self)
         levelInitialized(state: state)
