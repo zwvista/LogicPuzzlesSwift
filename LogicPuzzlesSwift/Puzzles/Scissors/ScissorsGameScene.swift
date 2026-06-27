@@ -57,7 +57,7 @@ class ScissorsGameScene: GameScene<ScissorsGameState> {
                     pathToDraw.move(to: gridNode.cornerPoint(p: p1))
                     pathToDraw.addLine(to: gridNode.cornerPoint(p: p2))
                     let slashNode = SKShapeNode(path:pathToDraw)
-                    slashNode.strokeColor = .green
+                    slashNode.strokeColor = .magenta
                     slashNode.lineWidth = 4
                     slashNode.name = tileNodeName
                     gridNode.addChild(slashNode)
@@ -66,9 +66,9 @@ class ScissorsGameScene: GameScene<ScissorsGameState> {
                 }
                 switch o2 {
                 case ScissorsGame.PUZ_BACK_SLASH:
-                    addSlash(p1: p + ScissorsGame.offset2[1], p2: p + ScissorsGame.offset2[2])
-                case ScissorsGame.PUZ_FRONT_SLASH:
                     addSlash(p1: p, p2: p + ScissorsGame.offset2[3])
+                case ScissorsGame.PUZ_FRONT_SLASH:
+                    addSlash(p1: p + ScissorsGame.offset2[1], p2: p + ScissorsGame.offset2[2])
                 case " ":
                     break
                 default:

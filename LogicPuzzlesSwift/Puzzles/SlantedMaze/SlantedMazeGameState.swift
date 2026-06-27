@@ -56,9 +56,9 @@ class SlantedMazeGameState: GridGameState<SlantedMazeGameMove> {
         guard isValid(p: p) else { return .invalid }
         let o = self[p]
         move.obj = switch o {
-        case .empty: .forward
-        case .forward: .backward
-        case .backward: .empty
+        case .empty: .backward
+        case .backward: .forward
+        case .forward: .empty
         }
         return setObject(move: &move)
     }
@@ -96,9 +96,9 @@ class SlantedMazeGameState: GridGameState<SlantedMazeGameMove> {
                     rng.insert(p2)
                 }
                 switch self[p] {
-                case .forward:
-                    addSlash(p1: p, p2: p + SlantedMazeGame.offset2[3])
                 case .backward:
+                    addSlash(p1: p, p2: p + SlantedMazeGame.offset2[3])
+                case .forward:
                     addSlash(p1: p + SlantedMazeGame.offset2[1], p2: p + SlantedMazeGame.offset2[2])
                 case .empty:
                     isSolved = false

@@ -66,9 +66,9 @@ class SlantedMazeGameScene: GameScene<SlantedMazeGameState> {
                     rng.insert(p2)
                 }
                 switch o2 {
-                case .forward:
-                    addSlash(p1: p, p2: p + SlantedMazeGame.offset2[3])
                 case .backward:
+                    addSlash(p1: p, p2: p + SlantedMazeGame.offset2[3])
+                case .forward:
                     addSlash(p1: p + SlantedMazeGame.offset2[1], p2: p + SlantedMazeGame.offset2[2])
                 case .empty:
                     break

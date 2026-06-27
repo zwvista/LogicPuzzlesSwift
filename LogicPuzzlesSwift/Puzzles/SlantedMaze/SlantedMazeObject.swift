@@ -9,7 +9,7 @@
 import Foundation
 
 enum SlantedMazeObject: Int {
-    case empty, forward, backward
+    case empty, backward, forward
     init() {
         self = .empty
     }
