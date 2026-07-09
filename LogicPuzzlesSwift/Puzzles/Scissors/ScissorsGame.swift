@@ -15,7 +15,6 @@ class ScissorsGame: GridGame<ScissorsGameState> {
     static let PUZ_FRONT_SLASH: Character = "/"
 
     var objArray = [Character]()
-    var chMax: Character = "1"
     var numbers = [Character]()
     subscript(p: Position) -> Character {
         get { self[p.row, p.col] }
@@ -32,6 +31,7 @@ class ScissorsGame: GridGame<ScissorsGameState> {
         size = Position(layout.count, layout[0].length)
         objArray = Array<Character>(repeating: " ", count: rows * cols)
 
+        var chMax: Character = "1"
         for r in 0..<rows {
             let str = layout[r]
             for c in 0..<cols {
