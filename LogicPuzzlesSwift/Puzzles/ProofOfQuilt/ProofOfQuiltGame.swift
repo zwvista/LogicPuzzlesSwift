@@ -12,7 +12,7 @@ class ProofOfQuiltGame: GridGame<ProofOfQuiltGameState> {
     static let offset = Position.Directions4
 
     var pos2hint = [Position: Int]()
-    var patterns = [[Position: ProofOfQuiltObject]]()
+    var patterns = [ProofOfQuiltPattern]()
     var allPositions = Set<Position>()
     var objArray = [ProofOfQuiltObject]()
     subscript(p: Position) -> ProofOfQuiltObject {
@@ -35,7 +35,7 @@ class ProofOfQuiltGame: GridGame<ProofOfQuiltGameState> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 let ch = str[c]
-                if ch != " " {
+                if ch == " " {
                     allPositions.insert(p)
                 } else {
                     self[p] = .filled
@@ -43,6 +43,30 @@ class ProofOfQuiltGame: GridGame<ProofOfQuiltGameState> {
                 }
             }
         }
+        //    (j,k) = 1,1
+        //    A B
+        //    C D
+        //
+        //    (j,k) = 1,2    (j,k) = 2,1
+        //    A B .          . A B
+        //    C . B          A . D
+        //    . C D          C D .
+        //
+        //    (j,k) = 1,3    (j,k) = 2,2   (j,k) = 3,1
+        //    A B . .        . A B .       . . A B
+        //    C . B .        A . . B       . A . D
+        //    . C . B        C . . D       A . D .
+        //    . . C D        . C D .       C D . .
+        //
+        //    (j,k) = 1,4    (j,k) = 2,3   (j,k) = 3,2    (j,k) = 4,1
+        //    A B . . .      . A B . .     . . A B .      . . . A B
+        //    C . B . .      A . . B .     . A . . B      . . A . D
+        //    . C . B .      C . . . B     A . . . D      . A . D .
+        //    . . C . B      . C . . D     C . . D .      A . D . .
+        //    . . . C D      . . C D .     . C D . .      C D . . .
+        //
+        // Find all tilted quilts
+        // A tilted quilt has a circumscribed square
         for i in 2...rows {
             for j in 1..<i {
                 let k = i - j
@@ -82,7 +106,7 @@ class ProofOfQuiltGame: GridGame<ProofOfQuiltGameState> {
                         }
                     }
                 }
-                patterns.append(pattern)
+                patterns.append(ProofOfQuiltPattern(len: i, pattern: pattern))
             }
         }
 

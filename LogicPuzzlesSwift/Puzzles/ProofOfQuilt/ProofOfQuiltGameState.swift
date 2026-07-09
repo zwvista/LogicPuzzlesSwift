@@ -91,7 +91,7 @@ class ProofOfQuiltGameState: GridGameState<ProofOfQuiltGameMove> {
     private func updateIsSolved() {
         let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
-        var triangles = [Position]()
+        var triangleAs = [Position]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
@@ -99,7 +99,7 @@ class ProofOfQuiltGameState: GridGameState<ProofOfQuiltGameMove> {
                 case .forbidden:
                     self[p] = .empty
                 case .triangleA:
-                    triangles.append(p)
+                    triangleAs.append(p)
                 default:
                     break
                 }
@@ -150,5 +150,21 @@ class ProofOfQuiltGameState: GridGameState<ProofOfQuiltGameMove> {
             let rs = r2 - r1 + 1, cs = c2 - c1 + 1
             if rs * cs != blanks.count { isSolved = false; return }
         }
+        outer: for p in triangleAs {
+            for o in game.patterns {
+                if p.row + o.len < rows && p.col + o.len < cols &&
+                    (o.pattern.allSatisfy { (dp, o2) in
+                    self[p + dp] == o2
+                }) {
+                    let area = o.pattern.map { p + $0.key }
+                    for p2 in area {
+                        allPositions.remove(p2)
+                    }
+                    continue outer
+                }
+            }
+            isSolved = false; return
+        }
+        if !allPositions.isEmpty { isSolved = false }
     }
 }

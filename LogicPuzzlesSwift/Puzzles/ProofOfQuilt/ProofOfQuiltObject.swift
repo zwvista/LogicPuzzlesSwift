@@ -22,6 +22,11 @@ enum ProofOfQuiltObject: Int {
     }
 }
 
+struct ProofOfQuiltPattern {
+    let len: Int
+    let pattern: [Position: ProofOfQuiltObject]
+}
+
 struct ProofOfQuiltGameMove {
     var p = Position()
     var obj = ProofOfQuiltObject()

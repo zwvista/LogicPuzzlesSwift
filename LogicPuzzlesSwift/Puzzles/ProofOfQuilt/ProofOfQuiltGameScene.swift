@@ -59,16 +59,19 @@ class ProofOfQuiltGameScene: GameScene<ProofOfQuiltGameState> {
                 let (o1, o2) = (stateFrom[p], stateTo[p])
                 guard o1 != o2 else {continue}
                 if o1 != .empty { removeNode(withName: tileNodeName) }
-                let v1 = CGPoint(x: point.x - blockSize / 2, y: point.y + blockSize / 2)
-                let v2 = CGPoint(x: point.x + blockSize / 2, y: point.y + blockSize / 2)
-                let v3 = CGPoint(x: point.x - blockSize / 2, y: point.y - blockSize / 2)
-                let v4 = CGPoint(x: point.x + blockSize / 2, y: point.y - blockSize / 2)
+                let left = point.x - blockSize / 2 + 2
+                let right = point.x + blockSize / 2 - 2
+                let top = point.y + blockSize / 2 - 2
+                let bottom = point.y - blockSize / 2 + 2
+                let v1 = CGPoint(x: left, y: top)
+                let v2 = CGPoint(x: right, y: top)
+                let v3 = CGPoint(x: left, y: bottom)
+                let v4 = CGPoint(x: right, y: bottom)
                 func addTriangle(v1: CGPoint, v2: CGPoint, v3: CGPoint) {
                     let path = CGMutablePath()
                     path.move(to: v1)
                     path.addLine(to: v2)
                     path.addLine(to: v3)
-                    path.addLine(to: v1)
                     path.closeSubpath()
                     let triangle = SKShapeNode(path: path)
                     triangle.name = tileNodeName
