@@ -152,7 +152,7 @@ class ProofOfQuiltGameState: GridGameState<ProofOfQuiltGameMove> {
         }
         outer: for p in triangleAs {
             for o in game.patterns {
-                if p.row + o.len < rows && p.col + o.len < cols &&
+                if p.row + o.len <= rows && p.col + o.len <= cols &&
                     (o.pattern.allSatisfy { (dp, o2) in
                     self[p + dp] == o2
                 }) {
