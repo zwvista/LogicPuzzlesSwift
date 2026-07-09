@@ -65,7 +65,7 @@ class TopArrowGameScene: GameScene<TopArrowGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
                 let hintNodeName = "hint" + nodeNameSuffix
                 let n = game[p]

@@ -33,7 +33,7 @@ class CrosstownTrafficGameScene: GameScene<CrosstownTrafficGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 guard let n = game.pos2hint[p], n >= 0 else {continue}
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let tileNodeName = "tile" + nodeNameSuffix
                 addHint(n: n, s: .normal, point: point, nodeName: tileNodeName)
             }

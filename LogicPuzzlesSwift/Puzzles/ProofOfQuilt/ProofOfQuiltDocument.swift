@@ -13,10 +13,10 @@ class ProofOfQuiltDocument: GameDocument<ProofOfQuiltGameMove> {
     
     override func saveMove(_ move: ProofOfQuiltGameMove, to rec: MoveProgress) {
         (rec.row, rec.col) = move.p.destructured
-        rec.strValue1 = String(move.obj)
+        rec.intValue1 = move.obj.rawValue
     }
     
     override func loadMove(from rec: MoveProgress) -> ProofOfQuiltGameMove {
-        ProofOfQuiltGameMove(p: Position(rec.row, rec.col), obj: rec.strValue1![0])
+        ProofOfQuiltGameMove(p: Position(rec.row, rec.col), obj: ProofOfQuiltObject(rawValue: rec.intValue1)!)
     }
 }

@@ -48,7 +48,7 @@ class SukrokuroGameScene: GameScene<SukrokuroGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 if game.pos2num[p] != nil {
-                    let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                    let nodeNameSuffix = "-\(r)-\(c)"
                     if game.dotsVert.contains(p) {
                         let nodeName = "dots" + nodeNameSuffix + "-vert"
                         addDotMarker2(color: .white, point: gridNode.vertPosition(p: p), nodeName: nodeName)

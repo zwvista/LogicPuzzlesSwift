@@ -34,7 +34,7 @@ class TurnMeUpGameScene: GameScene<TurnMeUpGameState> {
                 let ch = game[r, c]
                 guard ch != " " else {continue}
                 let point = gridNode.centerPoint(p: p)
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let hintNodeName = "hint" + nodeNameSuffix
                 addHint(ch: ch, s: .normal, point: point, nodeName: hintNodeName)
             }

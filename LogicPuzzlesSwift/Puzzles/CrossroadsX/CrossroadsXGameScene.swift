@@ -55,7 +55,7 @@ class CrossroadsXGameScene: GameScene<CrossroadsXGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let n = game[p]
                 if n != CrossroadsXGame.PUZ_EMPTY {
                     let numberNodeName = "number" + nodeNameSuffix

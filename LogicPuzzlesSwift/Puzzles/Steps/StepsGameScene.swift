@@ -56,7 +56,7 @@ class StepsGameScene: GameScene<StepsGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let n = state[p]
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 if n == StepsGame.PUZ_FORBIDDEN {
                     let forbiddenNodeName = "forbidden" + nodeNameSuffix
                     addForbiddenMarker(point: point, nodeName: forbiddenNodeName)

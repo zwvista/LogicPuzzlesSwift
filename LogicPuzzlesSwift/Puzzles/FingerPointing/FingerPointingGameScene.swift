@@ -35,7 +35,7 @@ class FingerPointingGameScene: GameScene<FingerPointingGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let hintNodeName = "hint" + nodeNameSuffix
                 let imageNodeName = "image" + nodeNameSuffix
                 let o = state[p]

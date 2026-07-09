@@ -33,7 +33,7 @@ class NumberCrossingGameScene: GameScene<NumberCrossingGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let n = state[p]
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let numNodeName = "num" + nodeNameSuffix
                 let forbiddenNodeName = "forbidden" + nodeNameSuffix
                 if n == NumberCrossingGame.PUZ_FORBIDDEN {

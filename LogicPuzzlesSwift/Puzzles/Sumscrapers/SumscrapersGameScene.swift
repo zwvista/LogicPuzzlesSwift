@@ -34,7 +34,7 @@ class SumscrapersGameScene: GameScene<SumscrapersGameState> {
                 let point = gridNode.centerPoint(p: p)
                 let n = state[p]
                 guard n != 0 else {continue}
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let numNodeName = "num" + nodeNameSuffix
                 let s = state.pos2state(row: r, col: c)
                 addNumber(n: n, s: s, isFixed: game.isValid(p: p) && game[p] != 0, point: point, nodeName: numNodeName)

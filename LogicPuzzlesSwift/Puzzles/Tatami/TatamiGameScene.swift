@@ -61,7 +61,7 @@ class TatamiGameScene: GameScene<TatamiGameState> {
                 let point = gridNode.centerPoint(p: p)
                 let ch = game[p]
                 guard ch != " " else {continue}
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let charNodeName = "char" + nodeNameSuffix
                 addCharacter(ch: ch, s: state.pos2state[p] ?? .normal, isHint: game[p] != " ", point: point, nodeName: charNodeName)
             }

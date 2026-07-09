@@ -34,7 +34,7 @@ class GemsGameScene: GameScene<GemsGameState> {
                 let point = gridNode.centerPoint(p: p)
                 let n = game.pos2hint[p]
                 guard let n else {continue}
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let tileNodeName = "tile" + nodeNameSuffix
                 addHint(n: n, s: .normal, point: point, nodeName: tileNodeName)
             }

@@ -31,7 +31,7 @@ class ScissorsGameScene: GameScene<ScissorsGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let tileNodeName = "tile" + nodeNameSuffix
                 let ch = game[p]
                 guard ch != " " else {continue}

@@ -41,7 +41,7 @@ class TheGreyLabyrinthGameScene: GameScene<TheGreyLabyrinthGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let tileNodeName = "tile" + nodeNameSuffix
                 let o = game[p]
                 guard o != .empty else {continue}

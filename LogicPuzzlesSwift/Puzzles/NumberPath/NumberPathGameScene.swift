@@ -33,7 +33,7 @@ class NumberPathGameScene: GameScene<NumberPathGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let n = state.game[p]
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
                 addNumber(n: String(n), s: .normal, point: point, nodeName: numberNodeName)
             }

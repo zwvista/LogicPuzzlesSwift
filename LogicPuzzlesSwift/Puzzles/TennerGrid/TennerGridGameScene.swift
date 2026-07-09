@@ -34,7 +34,7 @@ class TennerGridGameScene: GameScene<TennerGridGameState> {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let n = state.game[p]
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
                 addNumber(n: n, s: state.pos2state[p] ?? .normal, isFixed: game[r, c] != -1, point: point, nodeName: numberNodeName)
             }

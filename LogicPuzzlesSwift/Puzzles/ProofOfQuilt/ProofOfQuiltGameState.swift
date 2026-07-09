@@ -14,7 +14,7 @@ class ProofOfQuiltGameState: GridGameState<ProofOfQuiltGameMove> {
         set { setGame(game: newValue) }
     }
     override var gameDocument: GameDocumentBase { ProofOfQuiltDocument.sharedInstance }
-    var objArray = [Character]()
+    var objArray = [ProofOfQuiltObject]()
     var pos2state = [Position: HintState]()
     
     override func copy() -> ProofOfQuiltGameState {
@@ -34,18 +34,18 @@ class ProofOfQuiltGameState: GridGameState<ProofOfQuiltGameMove> {
         updateIsSolved()
     }
     
-    subscript(p: Position) -> Character {
+    subscript(p: Position) -> ProofOfQuiltObject {
         get { self[p.row, p.col] }
         set { self[p.row, p.col] = newValue }
     }
-    subscript(row: Int, col: Int) -> Character {
+    subscript(row: Int, col: Int) -> ProofOfQuiltObject {
         get { objArray[row * cols + col] }
         set { objArray[row * cols + col] = newValue }
     }
     
     override func setObject(move: inout ProofOfQuiltGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " && self[p] != move.obj else { return .invalid }
+        guard isValid(p: p) && game[p] == .empty && self[p] != move.obj else { return .invalid }
         self[p] = move.obj
         updateIsSolved()
         return .moveComplete
@@ -53,12 +53,16 @@ class ProofOfQuiltGameState: GridGameState<ProofOfQuiltGameMove> {
     
     override func switchObject(move: inout ProofOfQuiltGameMove) -> GameOperationType {
         let p = move.p
-        guard isValid(p: p) && game[p] == " " else { return .invalid }
+        guard isValid(p: p) && game[p] == .empty else { return .invalid }
+        let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case " ": ProofOfQuiltGame.PUZ_BACK_SLASH
-        case ProofOfQuiltGame.PUZ_BACK_SLASH: ProofOfQuiltGame.PUZ_FRONT_SLASH
-        case ProofOfQuiltGame.PUZ_FRONT_SLASH: " "
+        case .empty: markerOption == .markerFirst ? .marker : .triangleA
+        case .triangleA: .triangleB
+        case .triangleB: .triangleC
+        case .triangleC: .triangleD
+        case .triangleD: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .triangleA : .empty
         default: o
         }
         return setObject(move: &move)
@@ -85,49 +89,66 @@ class ProofOfQuiltGameState: GridGameState<ProofOfQuiltGameMove> {
          8. Rectangles or squares can't touch orthogonally, but can touch diagonally
     */
     private func updateIsSolved() {
+        let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
-        let g = Graph()
-        var pos2node = [ProofOfQuiltPosition: Node]()
+        var triangles = [Position]()
         for r in 0..<rows {
             for c in 0..<cols {
                 let p = Position(r, c)
                 switch self[p] {
-                case ProofOfQuiltGame.PUZ_BACK_SLASH:
-                    let (sp1, sp2) = (ProofOfQuiltPosition(p: p, n: 3), ProofOfQuiltPosition(p: p, n: 12))
-                    pos2node[sp1] = g.addNode(sp1.description)
-                    pos2node[sp2] = g.addNode(sp2.description)
-                case ProofOfQuiltGame.PUZ_FRONT_SLASH:
-                    let (sp1, sp2) = (ProofOfQuiltPosition(p: p, n: 6), ProofOfQuiltPosition(p: p, n: 9))
-                    pos2node[sp1] = g.addNode(sp1.description)
-                    pos2node[sp2] = g.addNode(sp2.description)
+                case .forbidden:
+                    self[p] = .empty
+                case .triangleA:
+                    triangles.append(p)
                 default:
-                    let sp1 = ProofOfQuiltPosition(p: p, n: 15)
-                    pos2node[sp1] = g.addNode(sp1.description)
+                    break
                 }
             }
         }
-        for (sp, node) in pos2node {
-            for i in 0..<4 {
-                guard sp.n & (1 << i) != 0 else {continue}
-                let p2 = sp.p + ProofOfQuiltGame.offset[i], j = (i + 2) % 4
-                guard let sp2 = (pos2node.keys.first { $0.p == p2 && $0.n & (1 << j) != 0 }) else {continue}
-                g.addEdge(node, neighbor: pos2node[sp2]!)
+        for (p, n2) in game.pos2hint {
+            let area = ProofOfQuiltGame.offset.map { p + $0 }.filter { isValid(p: $0) }
+            let n1 = area.count { self[$0].isTriangle }
+            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+            if s != .complete { isSolved = false }
+            pos2state[p] = s
+            if allowedObjectsOnly && s != .normal {
+                for p2 in area where self[p2] == .empty || self[p2] == .marker {
+                    self[p2] = .forbidden
+                }
+            }
+        }
+        guard isSolved else {return}
+        var allPositions = game.allPositions
+        let g = Graph()
+        var pos2node = [Position: Node]()
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                guard self[p].isBlank else {continue}
+                pos2node[p] = g.addNode(p.description)
+            }
+        }
+        for (p, node) in pos2node {
+            for os in ProofOfQuiltGame.offset {
+                let p2 = p + os
+                guard let node2 = pos2node[p2] else {continue}
+                g.addEdge(node, neighbor: node2)
             }
         }
         while !pos2node.isEmpty {
             let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
-            let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }.filter { $0.n == 15 }.map { $0.p }
+            let blanks = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
-            var num2rng = [Character: [Position]]()
-            for p in area {
-                let ch = self[p]
-                if ch.isNumber { num2rng[ch, default:[]].append(p) }
+            var r2 = 0, r1 = rows, c2 = 0, c1 = cols
+            for p in blanks {
+                if r2 < p.row { r2 = p.row }
+                if r1 > p.row { r1 = p.row }
+                if c2 < p.col { c2 = p.col }
+                if c1 > p.col { c1 = p.col }
+                allPositions.remove(p)
             }
-            let n = num2rng.values.first?.count ?? 0
-            let hasNumbers = num2rng.keys.sorted() == game.numbers && num2rng.allSatisfy { $1.count == n }
-            let s: HintState = !hasNumbers ? .error : n == 1 ? .complete : .normal
-            if s != .complete { isSolved = false }
-            for p in area { pos2state[p] = s }
+            let rs = r2 - r1 + 1, cs = c2 - c1 + 1
+            if rs * cs != blanks.count { isSolved = false; return }
         }
     }
 }

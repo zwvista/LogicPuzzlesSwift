@@ -36,7 +36,7 @@ class HiddenPathGameScene: GameScene<HiddenPathGameState> {
             for c in 0..<game.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let arrowNodeName = "arrow" + nodeNameSuffix
                 let hint = game.pos2hint[p]!
                 let pointImage = CGPoint(x: point.x + blockSize / 4, y: point.y - blockSize / 4)

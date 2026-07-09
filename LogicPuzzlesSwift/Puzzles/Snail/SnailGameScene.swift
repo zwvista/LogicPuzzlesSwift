@@ -59,7 +59,7 @@ class SnailGameScene: GameScene<SnailGameState> {
                 let point = gridNode.centerPoint(p: p)
                 let ch = game[p]
                 guard ch != " " else {continue}
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let charNodeName = "char" + nodeNameSuffix
                 addLabel(text: String(ch), fontColor: .gray, point: point, nodeName: charNodeName)
                 if state.pos2state[p] == .complete { addSnailMarker(p: p) }

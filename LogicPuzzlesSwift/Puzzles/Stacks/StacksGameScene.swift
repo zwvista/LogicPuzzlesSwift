@@ -57,7 +57,7 @@ class StacksGameScene: GameScene<StacksGameState> {
                 let point = gridNode.centerPoint(p: p)
                 let n = game[p]
                 guard n != StacksGame.PUZ_EMPTY else {continue}
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
                 addLabel(text: String(n), fontColor: .gray, point: point, nodeName: numberNodeName)
             }

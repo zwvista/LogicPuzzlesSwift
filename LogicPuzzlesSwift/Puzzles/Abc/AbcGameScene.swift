@@ -34,7 +34,7 @@ class AbcGameScene: GameScene<AbcGameState> {
                 let point = gridNode.centerPoint(p: p)
                 let ch = state[p]
                 guard ch != " " else {continue}
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let charNodeName = "char" + nodeNameSuffix
                 let s = state.pos2state(row: r, col: c)
                 addCharacter(ch: ch, s: s, isHint: !game.isValid(p: p), point: point, nodeName: charNodeName)

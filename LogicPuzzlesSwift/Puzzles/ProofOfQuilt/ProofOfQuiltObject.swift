@@ -8,21 +8,21 @@
 
 import Foundation
 
-struct ProofOfQuiltPosition: Hashable {
-    let p: Position
-    let n: Int
-    
-    var description: String {
-        "(\(p.row),\(p.col),\(n))"
+enum ProofOfQuiltObject: Int {
+    case empty, filled, forbidden, marker
+    case triangleA, triangleB, triangleC, triangleD
+    init() {
+        self = .empty
     }
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(p)
-        hasher.combine(n)
+    var isBlank: Bool {
+        [.empty, .forbidden, .marker].contains(self)
+    }
+    var isTriangle: Bool {
+        [.triangleA, .triangleB, .triangleC, .triangleD].contains(self)
     }
 }
 
 struct ProofOfQuiltGameMove {
     var p = Position()
-    var obj: Character = " "
+    var obj = ProofOfQuiltObject()
 }

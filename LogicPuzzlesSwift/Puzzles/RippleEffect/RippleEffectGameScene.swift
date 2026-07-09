@@ -61,7 +61,7 @@ class RippleEffectGameScene: GameScene<RippleEffectGameState> {
                 let point = gridNode.centerPoint(p: p)
                 let n = game[p]
                 guard n != 0 else {continue}
-                let nodeNameSuffix = "-\(p.row)-\(p.col)"
+                let nodeNameSuffix = "-\(r)-\(c)"
                 let numberNodeName = "number" + nodeNameSuffix
                 addNumber(n: n, s: state.pos2state[p] ?? .normal, isFixed: game[p] != 0, point: point, nodeName: numberNodeName)
             }
