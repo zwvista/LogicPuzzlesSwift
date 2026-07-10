@@ -65,8 +65,8 @@ class ProofOfQuiltGame: GridGame<ProofOfQuiltGameState> {
         //    . . C . B      . C . . D     C . . D .      A . D . .
         //    . . . C D      . . C D .     . C D . .      C D . . .
         //
-        // Find all tilted quilts
-        // A tilted quilt has a circumscribed square
+        // Find all patterns
+        // A pattern has a circumscribed square
         for i in 2...rows {
             for j in 1..<i {
                 let k = i - j
@@ -106,7 +106,7 @@ class ProofOfQuiltGame: GridGame<ProofOfQuiltGameState> {
                         }
                     }
                 }
-                patterns.append(ProofOfQuiltPattern(len: i, pattern: pattern))
+                patterns.append(ProofOfQuiltPattern(j: j, k: k, pattern: pattern))
             }
         }
 

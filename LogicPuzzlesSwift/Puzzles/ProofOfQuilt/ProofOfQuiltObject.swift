@@ -23,7 +23,8 @@ enum ProofOfQuiltObject: Int {
 }
 
 struct ProofOfQuiltPattern {
-    let len: Int
+    let j: Int
+    let k: Int
     let pattern: [Position: ProofOfQuiltObject]
 }
 

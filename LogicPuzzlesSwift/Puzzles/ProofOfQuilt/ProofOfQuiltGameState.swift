@@ -59,9 +59,9 @@ class ProofOfQuiltGameState: GridGameState<ProofOfQuiltGameMove> {
         move.obj = switch o {
         case .empty: markerOption == .markerFirst ? .marker : .triangleA
         case .triangleA: .triangleB
-        case .triangleB: .triangleC
-        case .triangleC: .triangleD
-        case .triangleD: markerOption == .markerLast ? .marker : .empty
+        case .triangleB: .triangleD
+        case .triangleD: .triangleC
+        case .triangleC: markerOption == .markerLast ? .marker : .empty
         case .marker: markerOption == .markerFirst ? .triangleA : .empty
         default: o
         }
@@ -150,15 +150,18 @@ class ProofOfQuiltGameState: GridGameState<ProofOfQuiltGameMove> {
             let rs = r2 - r1 + 1, cs = c2 - c1 + 1
             if rs * cs != blanks.count { isSolved = false; return }
         }
-        outer: for p in triangleAs {
+        outer: while !triangleAs.isEmpty {
+            let (r, c) = triangleAs[0].destructured
             for o in game.patterns {
-                if p.row + o.len <= rows && p.col + o.len <= cols &&
-                    (o.pattern.allSatisfy { (dp, o2) in
-                    self[p + dp] == o2
+                let p0 = Position(r, c - o.j + 1)
+                let p1 = Position(r + o.j + o.k - 1, c + o.k)
+                if isValid(p: p0) && isValid(p: p1) && (o.pattern.allSatisfy { (dp, o2) in
+                    self[p0 + dp] == o2
                 }) {
-                    let area = o.pattern.map { p + $0.key }
+                    let area = o.pattern.map { p0 + $0.key }
                     for p2 in area {
                         allPositions.remove(p2)
+                        triangleAs.removeAll(p2)
                     }
                     continue outer
                 }
