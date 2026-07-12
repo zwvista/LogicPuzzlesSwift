@@ -1997,6 +1997,15 @@
 		8CCFC46C2F27660A00546A04 /* MineSlitherGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC45F2F27660A00546A04 /* MineSlitherGameState.swift */; };
 		8CCFC46D2F27660A00546A04 /* MineSlitherGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCFC45D2F27660A00546A04 /* MineSlitherGame.swift */; };
 		8CD1558B1DD77C3400786F34 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD1558A1DD77C3400786F34 /* Extensions.swift */; };
+		8CD2871330034F5500EAC30A /* MirrorsExtended.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CD2870930034F5500EAC30A /* MirrorsExtended.xml */; };
+		8CD2871430034F5500EAC30A /* MirrorsExtendedGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD2870C30034F5500EAC30A /* MirrorsExtendedGameScene.swift */; };
+		8CD2871530034F5500EAC30A /* MirrorsExtendedGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD2870F30034F5500EAC30A /* MirrorsExtendedGridNode.swift */; };
+		8CD2871630034F5500EAC30A /* MirrorsExtendedDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD2870A30034F5500EAC30A /* MirrorsExtendedDocument.swift */; };
+		8CD2871730034F5500EAC30A /* MirrorsExtendedGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD2870B30034F5500EAC30A /* MirrorsExtendedGame.swift */; };
+		8CD2871830034F5500EAC30A /* MirrorsExtendedGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD2870E30034F5500EAC30A /* MirrorsExtendedGameViewController.swift */; };
+		8CD2871930034F5500EAC30A /* MirrorsExtendedGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD2870D30034F5500EAC30A /* MirrorsExtendedGameState.swift */; };
+		8CD2871A30034F5500EAC30A /* MirrorsExtendedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD2871130034F5500EAC30A /* MirrorsExtendedObject.swift */; };
+		8CD2871B30034F5500EAC30A /* MirrorsExtendedMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD2871030034F5500EAC30A /* MirrorsExtendedMainViewController.swift */; };
 		8CDAE7EF1F5BFBD8000DE5AF /* OverUnder.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CDAE7E41F5BFBD8000DE5AF /* OverUnder.xml */; };
 		8CDAE7F01F5BFBD8000DE5AF /* OverUnderDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDAE7E51F5BFBD8000DE5AF /* OverUnderDocument.swift */; };
 		8CDAE7F11F5BFBD9000DE5AF /* OverUnderGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDAE7E61F5BFBD8000DE5AF /* OverUnderGame.swift */; };
@@ -4310,6 +4319,15 @@
 		8CCFC4622F27660A00546A04 /* MineSlitherMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineSlitherMainViewController.swift; sourceTree = "<group>"; };
 		8CCFC4632F27660A00546A04 /* MineSlitherObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineSlitherObject.swift; sourceTree = "<group>"; };
 		8CD1558A1DD77C3400786F34 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		8CD2870930034F5500EAC30A /* MirrorsExtended.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MirrorsExtended.xml; sourceTree = "<group>"; };
+		8CD2870A30034F5500EAC30A /* MirrorsExtendedDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorsExtendedDocument.swift; sourceTree = "<group>"; };
+		8CD2870B30034F5500EAC30A /* MirrorsExtendedGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorsExtendedGame.swift; sourceTree = "<group>"; };
+		8CD2870C30034F5500EAC30A /* MirrorsExtendedGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorsExtendedGameScene.swift; sourceTree = "<group>"; };
+		8CD2870D30034F5500EAC30A /* MirrorsExtendedGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorsExtendedGameState.swift; sourceTree = "<group>"; };
+		8CD2870E30034F5500EAC30A /* MirrorsExtendedGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorsExtendedGameViewController.swift; sourceTree = "<group>"; };
+		8CD2870F30034F5500EAC30A /* MirrorsExtendedGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorsExtendedGridNode.swift; sourceTree = "<group>"; };
+		8CD2871030034F5500EAC30A /* MirrorsExtendedMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorsExtendedMainViewController.swift; sourceTree = "<group>"; };
+		8CD2871130034F5500EAC30A /* MirrorsExtendedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorsExtendedObject.swift; sourceTree = "<group>"; };
 		8CDAE7E41F5BFBD8000DE5AF /* OverUnder.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = OverUnder.xml; sourceTree = "<group>"; };
 		8CDAE7E51F5BFBD8000DE5AF /* OverUnderDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverUnderDocument.swift; sourceTree = "<group>"; };
 		8CDAE7E61F5BFBD8000DE5AF /* OverUnderGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverUnderGame.swift; sourceTree = "<group>"; };
@@ -5581,6 +5599,7 @@
 				8C3A34FE1EC88D4100A914A5 /* Minesweeper */,
 				8C3A350B1EC88D4100A914A5 /* MiniLits */,
 				8CF180672F3D3B49000F1F7D /* Mirrors */,
+				8CD2871230034F5500EAC30A /* MirrorsExtended */,
 				8C9BD4EC2F0A092700D1D915 /* MixedTatamis */,
 				8CF180542F3D312C000F1F7D /* MondrianLoop */,
 				8C3A35181EC88D4100A914A5 /* Mosaik */,
@@ -8210,6 +8229,22 @@
 			path = MineSlither;
 			sourceTree = "<group>";
 		};
+		8CD2871230034F5500EAC30A /* MirrorsExtended */ = {
+			isa = PBXGroup;
+			children = (
+				8CD2870930034F5500EAC30A /* MirrorsExtended.xml */,
+				8CD2870A30034F5500EAC30A /* MirrorsExtendedDocument.swift */,
+				8CD2870B30034F5500EAC30A /* MirrorsExtendedGame.swift */,
+				8CD2870C30034F5500EAC30A /* MirrorsExtendedGameScene.swift */,
+				8CD2870D30034F5500EAC30A /* MirrorsExtendedGameState.swift */,
+				8CD2870E30034F5500EAC30A /* MirrorsExtendedGameViewController.swift */,
+				8CD2870F30034F5500EAC30A /* MirrorsExtendedGridNode.swift */,
+				8CD2871030034F5500EAC30A /* MirrorsExtendedMainViewController.swift */,
+				8CD2871130034F5500EAC30A /* MirrorsExtendedObject.swift */,
+			);
+			path = MirrorsExtended;
+			sourceTree = "<group>";
+		};
 		8CDAE7E31F5BFBD8000DE5AF /* OverUnder */ = {
 			isa = PBXGroup;
 			children = (
@@ -8907,6 +8942,7 @@
 				8C86634F2EA39DD00078CD64 /* raspberry.png in Resources */,
 				8C9BD59F2F0A7DFF00D1D915 /* Stacks.xml in Resources */,
 				8C8663502EA39DD00078CD64 /* arrow1.png in Resources */,
+				8CD2871330034F5500EAC30A /* MirrorsExtended.xml in Resources */,
 				8CB418A92F23C552005C7FDF /* OnlyStraights.xml in Resources */,
 				8C9BD5792F0A608A00D1D915 /* Chocolate.xml in Resources */,
 				8CB975112FC11EF200E526DA /* mat.png in Resources */,
@@ -9598,6 +9634,14 @@
 				8CFB22492F076ED400E5F29D /* LiarLiarGameScene.swift in Sources */,
 				8CFB224A2F076ED400E5F29D /* LiarLiarGameViewController.swift in Sources */,
 				8CFB224B2F076ED400E5F29D /* LiarLiarGridNode.swift in Sources */,
+				8CD2871430034F5500EAC30A /* MirrorsExtendedGameScene.swift in Sources */,
+				8CD2871530034F5500EAC30A /* MirrorsExtendedGridNode.swift in Sources */,
+				8CD2871630034F5500EAC30A /* MirrorsExtendedDocument.swift in Sources */,
+				8CD2871730034F5500EAC30A /* MirrorsExtendedGame.swift in Sources */,
+				8CD2871830034F5500EAC30A /* MirrorsExtendedGameViewController.swift in Sources */,
+				8CD2871930034F5500EAC30A /* MirrorsExtendedGameState.swift in Sources */,
+				8CD2871A30034F5500EAC30A /* MirrorsExtendedObject.swift in Sources */,
+				8CD2871B30034F5500EAC30A /* MirrorsExtendedMainViewController.swift in Sources */,
 				8CFB224C2F076ED400E5F29D /* LiarLiarGameState.swift in Sources */,
 				8CFB224D2F076ED400E5F29D /* LiarLiarObject.swift in Sources */,
 				8CFB224E2F076ED400E5F29D /* LiarLiarGame.swift in Sources */,

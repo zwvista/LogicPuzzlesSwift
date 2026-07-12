@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. On the border there are some lasers, marked with the letter and number.
+2. The letter tells you where that laser beam will start and end (it is paired with the same letter somewhere else).
+3. The number tells you how many mirrors the laser beam will bounce off before reaching the other letter.
+4. Each area contains one mirror.
+5. Each mirror reflects at least one laser beam.
+  ]]>
+</help>
+<levels>
+  <level id="2">
+    <![CDATA[
+  B3C2       `
+   - - - -   `
+  |   |   |  `
+     - - -   `
+B3| |   | |  `
+     -       `
+  | | | | |  `
+   -   -     `
+A1|   |   |  `
+   - - - -   `
+    A1C2     `
+    ]]>
+  </level>
+</levels>
+</puzzle>
