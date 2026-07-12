@@ -1,6 +1,6 @@
 #!/bin/bash
 # 自动生成的Swift拷贝XML脚本
-# 生成时间: 2026-07-12 07:16:57
+# 生成时间: 2026-07-12 13:35:51
 
 echo "开始拷贝XML文件到Swift项目..."
 
@@ -614,6 +614,15 @@ if [ -f "../PSL/PuzzlesM/Puzzles/MakeTheDifference.xml" ]; then
     echo "✓ 已拷贝到Swift: MakeTheDifference"
 else
     echo "❌ 源文件不存在: ../PSL/PuzzlesM/Puzzles/MakeTheDifference.xml"
+fi
+
+# 拷贝 MirrorsExtended (来自: PuzzlesM/Puzzles)
+mkdir -p LogicPuzzlesSwift/Puzzles/MirrorsExtended
+if [ -f "../PSL/PuzzlesM/Puzzles/MirrorsExtended.xml" ]; then
+    cp "../PSL/PuzzlesM/Puzzles/MirrorsExtended.xml" "LogicPuzzlesSwift/Puzzles/MirrorsExtended/MirrorsExtended.xml"
+    echo "✓ 已拷贝到Swift: MirrorsExtended"
+else
+    echo "❌ 源文件不存在: ../PSL/PuzzlesM/Puzzles/MirrorsExtended.xml"
 fi
 
 # 拷贝 MixedTatamis (来自: PuzzlesM/Puzzles)
@@ -1858,4 +1867,4 @@ else
     echo "❌ 源文件不存在: ../PSL/PuzzlesU/Puzzles/Underground.xml"
 fi
 
-echo "\nSwift拷贝完成，共处理 206 个游戏"
+echo "\nSwift拷贝完成，共处理 207 个游戏"
