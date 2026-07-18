@@ -99,7 +99,7 @@ class MirrorsExtendedGameScene: GameScene<MirrorsExtendedGameState> {
                     pathToDraw.move(to: gridNode.cornerPoint(p: p1))
                     pathToDraw.addLine(to: gridNode.cornerPoint(p: p2))
                     let slashNode = SKShapeNode(path:pathToDraw)
-                    slashNode.strokeColor = .green
+                    slashNode.strokeColor = .magenta
                     slashNode.lineWidth = 4
                     slashNode.name = tileNodeName
                     gridNode.addChild(slashNode)
