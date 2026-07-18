@@ -31,7 +31,7 @@ class MirrorsExtendedGameState: GridGameState<MirrorsExtendedGameMove> {
     required init(game: MirrorsExtendedGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<MirrorsExtendedObject>(repeating: MirrorsExtendedObject(), count: rows * cols)
+        objArray = game.objArray
         updateIsSolved()
     }
     
@@ -85,52 +85,59 @@ class MirrorsExtendedGameState: GridGameState<MirrorsExtendedGameMove> {
     private func updateIsSolved() {
         let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
-//        for r in 0..<rows {
-//            for c in 0..<cols {
-//                let p = Position(r, c)
-//                if self[p] == .forbidden { self[p] = .empty }
-//                pos2state[p] = .normal
-//            }
-//        }
-//        // 2. You have to fill some water in it, considering that water pours down
-//        //    and levels itself like in reality.
-//        // 3. Areas of the same level which are horizontally connected will have
-//        //    the same water level.
-//        for r in 0..<rows {
-//            for c in 0..<cols {
-//                let p = Position(r, c)
-//                guard self[p] == .water else {continue}
-//                if !([1, 2, 3].allSatisfy { i in
-//                    game.dots[p + MirrorsExtendedGame.offset2[i]][MirrorsExtendedGame.dirs[i]] == .line ||
-//                    self[p + MirrorsExtendedGame.offset[i]] == .water
-//                }) { pos2state[p] = .error; isSolved = false }
-//            }
-//        }
-//        // 4. The numbers on the border show you how many tiles of each row and
-//        //    column are filled.
-//        for r in 0..<rows {
-//            let n2 = game.row2hint[r]
-//            guard n2 != MirrorsExtendedGame.PUZ_UNKNOWN else {continue}
-//            let n1 = (0..<cols).count { self[r, $0] == .water }
-//            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-//            row2state[r] = s
-//            if s != .complete { isSolved = false }
-//            guard s != .normal && allowedObjectsOnly else {continue}
-//            (0..<cols).filter { self[r, $0] == .empty }.forEach {
-//                self[r, $0] = .forbidden
-//            }
-//        }
-//        for c in 0..<cols {
-//            let n2 = game.col2hint[c]
-//            guard n2 != MirrorsExtendedGame.PUZ_UNKNOWN else {continue}
-//            let n1 = (0..<rows).count { self[$0, c] == .water }
-//            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-//            col2state[c] = s
-//            if s != .complete { isSolved = false }
-//            guard s != .normal && allowedObjectsOnly else {continue}
-//            (0..<rows).filter { self[$0, c] == .empty }.forEach {
-//                self[$0, c] = .forbidden
-//            }
-//        }
+        var dot2dot = [MirrorsExtendedLaserDot: MirrorsExtendedLaserDot]()
+        for r in 1..<rows - 1 {
+            for c in 1..<cols - 1 {
+                let p = Position(r, c)
+                let o = self[p]
+                switch o {
+                case .forbidden:
+                    self[p] = .empty
+                case .forward, .backward:
+                    let md = MirrorsExtendedGame.mirrorDirs[o == .forward ? 0 : 1]
+                    for i in 0..<4 {
+                        let d = md[i]
+                        dot2dot[MirrorsExtendedLaserDot(p: p, dir: i)] = MirrorsExtendedLaserDot(p: p + MirrorsExtendedGame.offset[d], dir: d)
+                    }
+                default:
+                    break
+                }
+            }
+        }
+        for area in game.areas {
+            let rng = area.filter { self[$0].isMirror }
+            if rng.count != 1 { isSolved = false }
+            if !rng.isEmpty && allowedObjectsOnly {
+                for p in area where !self[p].isMirror {
+                    self[p] = .forbidden
+                }
+            }
+        }
+        for (ch, o) in game.letter2laser {
+            var dt = o.dots[0]
+            let p2 = o.dots[1].p
+            var n1 = 0
+            let n2 = o.number
+            while true {
+                if let dt2 = dot2dot[dt] {
+                    dt = dt2
+                    n1 += 1
+                } else {
+                    dt = MirrorsExtendedLaserDot(p: dt.p + MirrorsExtendedGame.offset[dt.dir], dir: dt.dir)
+                }
+                let p = dt.p
+                let o2 = self[p]
+                if o2 == .boundary {
+                    letter2state[ch] = .normal
+                    isSolved = false
+                    break
+                } else if o2 == .hint {
+                    let s: HintState = p == p2 && n1 == n2 ? .complete : .error
+                    letter2state[ch] = s
+                    if s != .complete { isSolved = false }
+                    break
+                }
+            }
+        }
     }
 }

@@ -65,7 +65,7 @@ class MirrorsExtendedGameScene: GameScene<MirrorsExtendedGameState> {
         // add Hints
         for (ch, o) in game.letter2laser {
             for o2 in o.dots {
-                addHint(p: o2.p, ch: ch, n: o.number, s: .normal)
+                addHint(p: o2.p, ch: ch, n: o.number, s: state.letter2state[ch]!)
             }
         }
     }
@@ -76,6 +76,14 @@ class MirrorsExtendedGameScene: GameScene<MirrorsExtendedGameState> {
             let nodeNameSuffix = "-\(p.row)-\(p.col)"
             let hintNodeName = "hint" + nodeNameSuffix
             removeNode(withName: hintNodeName)
+        }
+        for (ch, o) in game.letter2laser {
+            for o2 in o.dots {
+                let (s1, s2) = (stateFrom.letter2state[ch]!, stateTo.letter2state[ch]!)
+                guard s1 != s2 else {continue}
+                removeHint(p: o2.p)
+                addHint(p: o2.p, ch: ch, n: o.number, s: s2)
+            }
         }
         for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {

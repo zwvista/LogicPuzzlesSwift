@@ -9,14 +9,17 @@
 import Foundation
 
 enum MirrorsExtendedObject: Int {
-    case empty, forbidden, marker
+    case empty, forbidden, marker, boundary, hint
     case backward, forward
     init() {
         self = .empty
     }
+    var isMirror: Bool {
+        [.backward, .forward].contains(self)
+    }
 }
 
-struct MirrorsExtendedLaserDot {
+struct MirrorsExtendedLaserDot: Hashable {
     let p: Position
     let dir: Int
 }

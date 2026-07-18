@@ -18,10 +18,25 @@ class MirrorsExtendedGame: GridGame<MirrorsExtendedGameState> {
     ]
     static let dirs = [1, 0, 3, 2]
     static let offset3 = Position.Square2x2Offset
-    static let PUZ_UNKNOWN = -1
+    static let mirrorDirs = [
+        // front slash '/'
+        [ 1, 0, 3, 2 ],
+        // back slash  '\'
+        [ 3, 2, 1, 0 ],
+    ]
 
     override func isValid(row: Int, col: Int) -> Bool {
         1..<rows - 1 ~= row && 1..<cols - 1 ~= col
+    }
+
+    var objArray = [MirrorsExtendedObject]()
+    subscript(p: Position) -> MirrorsExtendedObject {
+        get { self[p.row, p.col] }
+        set { self[p.row, p.col] = newValue }
+    }
+    subscript(row: Int, col: Int) -> MirrorsExtendedObject {
+        get { objArray[row * cols + col] }
+        set { objArray[row * cols + col] = newValue }
     }
 
     var areas = [[Position]]()
@@ -34,6 +49,7 @@ class MirrorsExtendedGame: GridGame<MirrorsExtendedGameState> {
         
         size = Position(layout.count / 2 + 1, layout[0].length / 2)
         dots = GridDots(rows: rows + 1, cols: cols + 1)
+        objArray = Array<MirrorsExtendedObject>(repeating: .empty, count: rows * cols)
 
         for r in 1..<rows {
             var str = layout[2 * r - 1]
@@ -88,9 +104,13 @@ class MirrorsExtendedGame: GridGame<MirrorsExtendedGameState> {
             let str = layout[2 * r]
             let c2 = 2 * c + (c == cols - 1 ? 1 : 0)
             let (ch1, ch2) = (str[c2], str[c2 + 1])
-            guard ch1 != " " else {return}
-            let n = ch2.isNumber ? ch2.toInt! : Int(ch2.asciiValue!) - Int(Character("A").asciiValue!) + 10
-            letter2laser[ch1, default: MirrorsExtendedLaser(n: n)].dots.append(MirrorsExtendedLaserDot(p: p, dir: d))
+            if ch1 == " " {
+                self[p] = .boundary
+            } else {
+                self[p] = .hint
+                let n = ch2.isNumber ? ch2.toInt! : Int(ch2.asciiValue!) - Int(Character("A").asciiValue!) + 10
+                letter2laser[ch1, default: MirrorsExtendedLaser(n: n)].dots.append(MirrorsExtendedLaserDot(p: p, dir: d))
+            }
         }
         for i in 0..<rows {
             f(r: 0, c: i, d: 2)
