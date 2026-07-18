@@ -54,11 +54,11 @@ class MirrorsExtendedGameScene: GameScene<MirrorsExtendedGameState> {
     override func levelInitialized(_ game: AnyObject, state: MirrorsExtendedGameState, skView: SKView) {
         let game = game as! MirrorsExtendedGame
         removeAllChildren()
-        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols + 1)
+        let blockSize = CGFloat(skView.bounds.size.width) / CGFloat(game.cols)
         
         // add Grid
         let offset:CGFloat = 0.5
-        addGrid(gridNode: MirrorsExtendedGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols + 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows + 1) / 2 + offset))
+        addGrid(gridNode: MirrorsExtendedGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
         addLines(game: game)
 

@@ -19,6 +19,10 @@ class MirrorsExtendedGame: GridGame<MirrorsExtendedGameState> {
     static let dirs = [1, 0, 3, 2]
     static let PUZ_UNKNOWN = -1
 
+    override func isValid(row: Int, col: Int) -> Bool {
+        1..<rows - 1 ~= row && 1..<cols - 1 ~= col
+    }
+
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
     var dots: GridDots!
@@ -28,48 +32,40 @@ class MirrorsExtendedGame: GridGame<MirrorsExtendedGameState> {
     init(layout: [String], delegate: MirrorsExtendedGameViewController? = nil) {
         super.init(delegate: delegate)
         
-        size = Position(layout.count / 2 - 1, layout[0].length / 2 - 1)
+        size = Position(layout.count / 2 + 1, layout[0].length / 2)
         dots = GridDots(rows: rows + 1, cols: cols + 1)
         row2hint = Array<Int>(repeating: 0, count: rows)
         col2hint = Array<Int>(repeating: 0, count: cols)
 
-        for r in 0..<rows + 1 {
-            var str = layout[2 * r]
-            for c in 0..<cols {
+        for r in 1..<rows {
+            var str = layout[2 * r - 1]
+            for c in 1..<cols - 1 {
                 let ch = str[2 * c + 1]
                 if ch == "-" {
                     dots[r, c][1] = .line
                     dots[r, c + 1][3] = .line
                 }
             }
-            str = layout[2 * r + 1]
-            if r < rows {
-                for c in 0..<cols + 1 {
-                    let ch = str[2 * c]
-                    if ch == "|" {
-                        dots[r, c][2] = .line
-                        dots[r + 1, c][0] = .line
-                    }
-                }
-                let ch2 = str[2 * cols + 1]
-                row2hint[r] = ch2 == " " ? MirrorsExtendedGame.PUZ_UNKNOWN : ch2.toInt!
-            } else {
-                for c in 0..<cols {
-                    let ch2 = str[2 * c + 1]
-                    col2hint[c] = ch2 == " " ? MirrorsExtendedGame.PUZ_UNKNOWN : ch2.toInt!
+            if r == rows {break}
+            str = layout[2 * r]
+            for c in 1..<cols {
+                let ch = str[2 * c]
+                if ch == "|" {
+                    dots[r, c][2] = .line
+                    dots[r + 1, c][0] = .line
                 }
             }
         }
         let g = Graph()
         var pos2node = [Position: Node]()
-        for r in 0..<rows {
-            for c in 0..<cols {
+        for r in 1..<rows - 1 {
+            for c in 1..<cols - 1 {
                 let p = Position(r, c)
                 pos2node[p] = g.addNode(p.description)
             }
         }
-        for r in 0..<rows {
-            for c in 0..<cols {
+        for r in 1..<rows - 1 {
+            for c in 1..<cols - 1 {
                 let p = Position(r, c)
                 for i in 0..<4 {
                     if dots[p + MirrorsExtendedGame.offset2[i]][MirrorsExtendedGame.dirs[i]] != .line {
