@@ -15,6 +15,7 @@ class HomeChooseGameViewController: UITableViewController, HomeMixin {
         "ABCPath": "ABC Path",
         "ADifferentFarmer": "A different Farmer",
         "BWTapa": "B&W Tapa",
+        "BlackAndWhiteChocolate": "Black and White Chocolate",
         "CarpentersSquare": "Carpenter's Square",
         "CarpentersWall": "Carpenter's Wall",
         "CloudsAndClears": "Clouds and Clears",

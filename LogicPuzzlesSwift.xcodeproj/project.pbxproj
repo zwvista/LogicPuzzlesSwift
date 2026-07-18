@@ -974,6 +974,15 @@
 		8C6D37FB1DC5ACDB0052202C /* Copyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37EC1DC5A2F50052202C /* Copyable.swift */; };
 		8C6D37FC1DC5B4DC0052202C /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D01DC42FA40052202C /* Game.swift */; };
 		8C6D37FE1DC5B4EB0052202C /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D37D21DC42FA40052202C /* GameState.swift */; };
+		8C6F2207300BFAC300404F22 /* BlackAndWhiteChocolateObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6F2205300BFAC300404F22 /* BlackAndWhiteChocolateObject.swift */; };
+		8C6F2208300BFAC300404F22 /* BlackAndWhiteChocolateGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6F2201300BFAC300404F22 /* BlackAndWhiteChocolateGameState.swift */; };
+		8C6F2209300BFAC300404F22 /* BlackAndWhiteChocolateMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6F2204300BFAC300404F22 /* BlackAndWhiteChocolateMainViewController.swift */; };
+		8C6F220A300BFAC300404F22 /* BlackAndWhiteChocolateGridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6F2203300BFAC300404F22 /* BlackAndWhiteChocolateGridNode.swift */; };
+		8C6F220B300BFAC300404F22 /* BlackAndWhiteChocolateGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6F21FF300BFAC300404F22 /* BlackAndWhiteChocolateGame.swift */; };
+		8C6F220C300BFAC300404F22 /* BlackAndWhiteChocolateGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6F2200300BFAC300404F22 /* BlackAndWhiteChocolateGameScene.swift */; };
+		8C6F220D300BFAC300404F22 /* BlackAndWhiteChocolateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6F2202300BFAC300404F22 /* BlackAndWhiteChocolateGameViewController.swift */; };
+		8C6F220E300BFAC300404F22 /* BlackAndWhiteChocolateDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6F21FE300BFAC300404F22 /* BlackAndWhiteChocolateDocument.swift */; };
+		8C6F220F300BFAC300404F22 /* BlackAndWhiteChocolate.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C6F21FD300BFAC300404F22 /* BlackAndWhiteChocolate.xml */; };
 		8C71CA152F46B27B00A74B7B /* Nooks.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8C71CA0B2F46B27B00A74B7B /* Nooks.xml */; };
 		8C71CA162F46B27B00A74B7B /* NooksDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71CA0C2F46B27B00A74B7B /* NooksDocument.swift */; };
 		8C71CA172F46B27B00A74B7B /* NooksGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C71CA0E2F46B27B00A74B7B /* NooksGameScene.swift */; };
@@ -3291,6 +3300,15 @@
 		8C6D37EC1DC5A2F50052202C /* Copyable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Copyable.swift; sourceTree = "<group>"; };
 		8C6D37F21DC5AC310052202C /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		8C6D37F41DC5AC520052202C /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
+		8C6F21FD300BFAC300404F22 /* BlackAndWhiteChocolate.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BlackAndWhiteChocolate.xml; sourceTree = "<group>"; };
+		8C6F21FE300BFAC300404F22 /* BlackAndWhiteChocolateDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackAndWhiteChocolateDocument.swift; sourceTree = "<group>"; };
+		8C6F21FF300BFAC300404F22 /* BlackAndWhiteChocolateGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackAndWhiteChocolateGame.swift; sourceTree = "<group>"; };
+		8C6F2200300BFAC300404F22 /* BlackAndWhiteChocolateGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackAndWhiteChocolateGameScene.swift; sourceTree = "<group>"; };
+		8C6F2201300BFAC300404F22 /* BlackAndWhiteChocolateGameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackAndWhiteChocolateGameState.swift; sourceTree = "<group>"; };
+		8C6F2202300BFAC300404F22 /* BlackAndWhiteChocolateGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackAndWhiteChocolateGameViewController.swift; sourceTree = "<group>"; };
+		8C6F2203300BFAC300404F22 /* BlackAndWhiteChocolateGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackAndWhiteChocolateGridNode.swift; sourceTree = "<group>"; };
+		8C6F2204300BFAC300404F22 /* BlackAndWhiteChocolateMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackAndWhiteChocolateMainViewController.swift; sourceTree = "<group>"; };
+		8C6F2205300BFAC300404F22 /* BlackAndWhiteChocolateObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackAndWhiteChocolateObject.swift; sourceTree = "<group>"; };
 		8C71CA0B2F46B27B00A74B7B /* Nooks.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Nooks.xml; sourceTree = "<group>"; };
 		8C71CA0C2F46B27B00A74B7B /* NooksDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NooksDocument.swift; sourceTree = "<group>"; };
 		8C71CA0D2F46B27B00A74B7B /* NooksGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NooksGame.swift; sourceTree = "<group>"; };
@@ -5508,6 +5526,7 @@
 				8CB975062FC10D4900E526DA /* Banquet */,
 				8C3A33D31EC88D4100A914A5 /* BattleShips */,
 				8CA9D5F02F49C26A00EDF793 /* BentBridges */,
+				8C6F2206300BFAC300404F22 /* BlackAndWhiteChocolate */,
 				8C3A33E01EC88D4100A914A5 /* BootyIsland */,
 				8CB721ED2EAB6C54001B25C5 /* BotanicalPark */,
 				8C3A33ED1EC88D4100A914A5 /* BoxItAgain */,
@@ -6550,6 +6569,22 @@
 				8C7609191EC7EB1C00DFCD7B /* SelfSizingTableViewCell.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		8C6F2206300BFAC300404F22 /* BlackAndWhiteChocolate */ = {
+			isa = PBXGroup;
+			children = (
+				8C6F21FD300BFAC300404F22 /* BlackAndWhiteChocolate.xml */,
+				8C6F21FE300BFAC300404F22 /* BlackAndWhiteChocolateDocument.swift */,
+				8C6F21FF300BFAC300404F22 /* BlackAndWhiteChocolateGame.swift */,
+				8C6F2200300BFAC300404F22 /* BlackAndWhiteChocolateGameScene.swift */,
+				8C6F2201300BFAC300404F22 /* BlackAndWhiteChocolateGameState.swift */,
+				8C6F2202300BFAC300404F22 /* BlackAndWhiteChocolateGameViewController.swift */,
+				8C6F2203300BFAC300404F22 /* BlackAndWhiteChocolateGridNode.swift */,
+				8C6F2204300BFAC300404F22 /* BlackAndWhiteChocolateMainViewController.swift */,
+				8C6F2205300BFAC300404F22 /* BlackAndWhiteChocolateObject.swift */,
+			);
+			path = BlackAndWhiteChocolate;
 			sourceTree = "<group>";
 		};
 		8C71CA142F46B27B00A74B7B /* Nooks */ = {
@@ -9208,6 +9243,7 @@
 				8C9BD5402F0A52B400D1D915 /* RunInALoop.xml in Resources */,
 				8C8664012EA39DD00078CD64 /* bomb.png in Resources */,
 				8C8664022EA39DD00078CD64 /* rome.png in Resources */,
+				8C6F220F300BFAC300404F22 /* BlackAndWhiteChocolate.xml in Resources */,
 				8C8664032EA39DD00078CD64 /* thermometer2B.png in Resources */,
 				8C9BD4E22F0A036B00D1D915 /* WallHints.xml in Resources */,
 				8C8664042EA39DD00078CD64 /* cranberries.png in Resources */,
@@ -9940,6 +9976,14 @@
 				8C9BD5012F0A178300D1D915 /* InsaneTatamisDocument.swift in Sources */,
 				8C9BD5022F0A178300D1D915 /* InsaneTatamisGameState.swift in Sources */,
 				8C9BD5032F0A178300D1D915 /* InsaneTatamisGame.swift in Sources */,
+				8C6F2207300BFAC300404F22 /* BlackAndWhiteChocolateObject.swift in Sources */,
+				8C6F2208300BFAC300404F22 /* BlackAndWhiteChocolateGameState.swift in Sources */,
+				8C6F2209300BFAC300404F22 /* BlackAndWhiteChocolateMainViewController.swift in Sources */,
+				8C6F220A300BFAC300404F22 /* BlackAndWhiteChocolateGridNode.swift in Sources */,
+				8C6F220B300BFAC300404F22 /* BlackAndWhiteChocolateGame.swift in Sources */,
+				8C6F220C300BFAC300404F22 /* BlackAndWhiteChocolateGameScene.swift in Sources */,
+				8C6F220D300BFAC300404F22 /* BlackAndWhiteChocolateGameViewController.swift in Sources */,
+				8C6F220E300BFAC300404F22 /* BlackAndWhiteChocolateDocument.swift in Sources */,
 				8C9BD5042F0A178300D1D915 /* InsaneTatamisGameScene.swift in Sources */,
 				8C9BD5052F0A178300D1D915 /* InsaneTatamisGridNode.swift in Sources */,
 				8C9BD5062F0A178300D1D915 /* InsaneTatamisMainViewController.swift in Sources */,

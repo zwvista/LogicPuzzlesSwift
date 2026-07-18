@@ -1,0 +1,4975 @@
+<?xml version="1.0" ?>
+<puzzle>
+<help>
+  <![CDATA[
+1. Your chocolate factory made a mess. Instead of pouring dark and white chocolate in the neat usual rectangle shapes, everything got mixed up.
+2. Your brand policy is equality, so you have to sell chocolate bars with have equally dark and white chocolate in it.
+3. Divide the board in chocolate 'bars' that contain the same number of dark and white chocolate.
+4. Also the shape of the dark chocolate in an area must be the same as the white one, although it can be mirrored and/or rotated.
+5. The number on a square tells you how big is that dark or white shape. Obviosly in a single shape there must be the same number.
+6. A chocolate 'bar' can have any shape
+7. but it must contain equal number of dark and white squares
+8. which can be indicated on the squares themselves
+9. the shape of the dark squares must be the same of the white ones, possibly rotated or mirrored.
+10.Not every bar of dark/white chocolate is marked by numbers
+11.Big numbers indicate a big chocolate 'bar', so look for them first. For example a 6 indicates an area of 12 !
+  ]]>
+</help>
+<levels>
+  <level id="1">
+    <![CDATA[
+W B4B B B B2`
+W4W B1B4W2W `
+W W4W B B5B `
+W1W5W5B5B W1`
+B W W B5W B1`
+    ]]>
+  </level>
+  <level id="2">
+    <![CDATA[
+W B1B1W B2B `
+W2W2W W B W1`
+B2B W W4W W2`
+B B B W2B B2`
+B1W B4W W1B1`
+    ]]>
+  </level>
+  <level id="3">
+    <![CDATA[
+W3W W B4W B2`
+B3W W4B4W2B2`
+B B1W B B W `
+B W4W W W B1`
+B1W1B B2W B1`
+    ]]>
+  </level>
+  <level id="4">
+    <![CDATA[
+W1B B W B2B1`
+W W4B W2B W1`
+W4W B4B W2W `
+W B1W W B2W `
+B1W B2B2B B1`
+    ]]>
+  </level>
+  <level id="5">
+    <![CDATA[
+W B6B B6B6B1`
+W6W6W6B W1W `
+W W W B6B B `
+W B B2W W W `
+B1W1B2B2W B1`
+    ]]>
+  </level>
+  <level id="6">
+    <![CDATA[
+W2B W B W1B `
+W B2W2B W W `
+W3W W W3W3B1`
+B B3B B W B1`
+W1W W2B3B W1`
+B B2B2B W1B1`
+    ]]>
+  </level>
+  <level id="7">
+    <![CDATA[
+W5W W W5B B1`
+B W W1W B2W `
+B5B5B W2W B4`
+B W W B3W B4`
+B B1W3B3W4B `
+B1W W3B W4B `
+    ]]>
+  </level>
+  <level id="8">
+    <![CDATA[
+W B4B1B W2B2`
+W B4W B W2B `
+W4B B B6B2B2`
+W4B W B6W W `
+W W B6B6W1B1`
+B W6W W6W6W `
+    ]]>
+  </level>
+  <level id="9">
+    <![CDATA[
+W1B W3B B3B `
+W W W3W1B3W1`
+B1B1W B1W B `
+B B B6W W3B `
+B B W W6W3B3`
+B6W6W6W W1B `
+    ]]>
+  </level>
+  <level id="10">
+    <![CDATA[
+W B W5B5B B5`
+W W2W W B1B `
+W1B W5W5W B5`
+B1B2W B W1B `
+W W5W B5B B `
+B W1W B5W1B1`
+    ]]>
+  </level>
+  <level id="11">
+    <![CDATA[
+W2W W1B W1B `
+B W3W W B B1`
+B B3B B3B W1`
+W1B W2W2W2W2`
+W B B W3W3W `
+B1B B3B3W B `
+    ]]>
+  </level>
+  <level id="12">
+    <![CDATA[
+W W3W3B3B B3`
+B3W B1W W3W3`
+B W W B W4W `
+B3B1W4W W B1`
+W2W2B B B W1`
+B2B B1W1B B1`
+    ]]>
+  </level>
+  <level id="13">
+    <![CDATA[
+W5B B B5B B `
+W W1B1B W3W1`
+W5W5W B W3B `
+W W W B3W3B `
+W1B W3B3B3B `
+B B2W W3W B1`
+    ]]>
+  </level>
+  <level id="14">
+    <![CDATA[
+W2W W1B1W B `
+B W B W W2W `
+B2W B2B B B1`
+B W5W W5W3B `
+B5B5W W5W B3`
+B5B5B1W W3B `
+    ]]>
+  </level>
+  <level id="15">
+    <![CDATA[
+W8W8W8W W B1`
+B8W8W1W8B W `
+B B B1W W1B1`
+B8W B W W W `
+B8B B B2W2B `
+B8W B1B W B2`
+    ]]>
+  </level>
+  <level id="16">
+    <![CDATA[
+W W2B4B B6B6`
+B2B B4W6B B `
+W4B B W W6B `
+W W W4W W W `
+W1W2B W2W W1`
+B1W B2B B B1`
+    ]]>
+  </level>
+  <level id="17">
+    <![CDATA[
+W4W W4W W4B `
+B B4B B W B4`
+W2B B2W W B4`
+W W3B B W4B `
+W1W B W B2B `
+B W3B3W2W B1`
+    ]]>
+  </level>
+  <level id="18">
+    <![CDATA[
+W5W5W W W B1`
+B W W1B1W W1`
+B B1W W B B `
+B5W2W B2B W1`
+B B W2B W W `
+B5B2W B2B B2`
+    ]]>
+  </level>
+  <level id="19">
+    <![CDATA[
+W B4W W4W W4`
+W4B B B4B B `
+W4B W5B B5B `
+W B W B W B2`
+W5W W5B W B2`
+B1W1B W1W1B `
+    ]]>
+  </level>
+  <level id="20">
+    <![CDATA[
+W6B B6B B B1`
+W W6B B6W W1`
+W W W1B1B B `
+W6W B B B4W `
+W4W4W B4W W2`
+B1W B1W B2B `
+    ]]>
+  </level>
+  <level id="21">
+    <![CDATA[
+W5W W5B B2B `
+B W5W B2W2W `
+B5B W1W W W1`
+B B B W1B B1`
+W W4W W4W B `
+B1W1B4B B4B `
+    ]]>
+  </level>
+  <level id="22">
+    <![CDATA[
+W W2W W6W W6`
+B2W W6W B W `
+B B B B B B1`
+B6B W B2B2W `
+B W W2W B1B `
+B2W2W1B1W B1`
+    ]]>
+  </level>
+  <level id="23">
+    <![CDATA[
+W1W1B B1W B `
+B W B6B B B6`
+B W6W B6W W `
+W1W B4B B4W `
+W W6W W2B W4`
+B1W1B B W1B `
+    ]]>
+  </level>
+  <level id="24">
+    <![CDATA[
+W W W5W5W2B `
+B5B W W5W B2`
+B B W3W W B1`
+B5B W B B2W `
+B B5W4W W W4`
+B1W B B4B B4`
+    ]]>
+  </level>
+  <level id="25">
+    <![CDATA[
+W4B B4B B B4`
+W4W4B W B W1`
+W4B W W4B B `
+B W W W W W2`
+W3W W B2B2W `
+B3B3B W1B B1`
+    ]]>
+  </level>
+  <level id="26">
+    <![CDATA[
+W B W1B W1W B1`
+W5B W B5B B4B `
+W B5W5B W4B W `
+W B5W B W B B1`
+W5B W5B W W4W1`
+B W1W B5W1B B1`
+    ]]>
+  </level>
+  <level id="27">
+    <![CDATA[
+W W9W W W9W B2`
+B9W W9W W W2B `
+B B9W W4W B B `
+B9B B W B4B W1`
+B9B W B1B W2B `
+B9W B1B1W W B2`
+    ]]>
+  </level>
+  <level id="28">
+    <![CDATA[
+W1B W B1B W1B `
+W W B6B B B B8`
+W W1B B8B8B B `
+W6B B6W W W W8`
+W W B6B6W W W8`
+B1W1B W W8W B1`
+    ]]>
+  </level>
+  <level id="29">
+    <![CDATA[
+W4B B B B6W B1`
+W B4W B6B B6W `
+W W W B W B3B1`
+W6W W0B6W B3W `
+W W W W W3B B1`
+B1B2B W1B W B1`
+    ]]>
+  </level>
+  <level id="30">
+    <![CDATA[
+W W2W3W W W2B `
+B2B B B B3W B2`
+W W8W8W B B8B `
+B1W W W B8B B8`
+W1W W8W W B B8`
+B1B W B2B W1B `
+    ]]>
+  </level>
+  <level id="31">
+    <![CDATA[
+W1B B4W1B1B B `
+W W4B B W2B W1`
+W4B B W W W2W `
+W W B6B B6B W `
+W W B6W B B B1`
+B1W6W W6B6W B1`
+    ]]>
+  </level>
+  <level id="32">
+    <![CDATA[
+W W5W5W W W1B `
+B5B B B B5W W2`
+W2W W5W W5B2B2`
+B B W W5B5W B `
+B W2B W B B W1`
+B2W B2W B5B B1`
+    ]]>
+  </level>
+  <level id="33">
+    <![CDATA[
+W1B W B1W B1B `
+W W B2W W W W1`
+B1W2B B8W W8W `
+B B B8B W8W3B `
+W2W B B8W W3B `
+B2B2B W B1W B3`
+    ]]>
+  </level>
+  <level id="34">
+    <![CDATA[
+W3B W B3B B3B `
+W3B W3B W3W W `
+W B3W B3B B B3`
+W W2W1B W3W W `
+B2B2W W3W W2W `
+B W1B B B3B B2`
+    ]]>
+  </level>
+  <level id="35">
+    <![CDATA[
+W2B2B W8B W1W8`
+W W W W W W8W `
+B B8B8B B8B W `
+B2W B W2B2B B1`
+B W2W W B W2B `
+B1W B1B W1W B `
+    ]]>
+  </level>
+  <level id="36">
+    <![CDATA[
+W3W W3W1B W1B `
+B W4B B B B W1`
+B W W W2W B B1`
+B3W B2W B1W B `
+W W B W W2W B3`
+B1W1B B2B W B3`
+    ]]>
+  </level>
+  <level id="37">
+    <![CDATA[
+W5W W5W B1W W0`
+B B2B W5W W W `
+B5W W W0W W0B `
+B W1B1B B B W1`
+B5B W2W2W B B1`
+B W1B B B B6B `
+    ]]>
+  </level>
+  <level id="38">
+    <![CDATA[
+W7W W7W W7B2B `
+B B W W W W W2`
+B W1B B1W B1W `
+B7B B W B B2B `
+B W2B W W2B B `
+B W2W1B W2W B1`
+    ]]>
+  </level>
+  <level id="39">
+    <![CDATA[
+W2B2B B2W B B1`
+W B W2W2W3B W `
+W0W B B W B B1`
+W W0B B W3B W1`
+W W B W3W W B `
+B W6B B B3B W1`
+    ]]>
+  </level>
+  <level id="40">
+    <![CDATA[
+W1W W1B1B B5B5`
+B W4B W B5W W `
+W4W W W5B B B2`
+B B B W W W W1`
+B4W B1W W W3B `
+B W1B B3B W B `
+    ]]>
+  </level>
+  <level id="41">
+    <![CDATA[
+W B4W B W1B B1`
+W4B W W1B W5W `
+W B W B W5W B5`
+W4B W B W5B B `
+W3W W B3W B W `
+B W1B B3B B5B1`
+    ]]>
+  </level>
+  <level id="42">
+    <![CDATA[
+W2W W B1W B1B `
+B W3W W3W B W1`
+B2B B B W2B2B `
+W B W4B B B W `
+W4W W B W W3W `
+B1W B1W1B3B B3`
+    ]]>
+  </level>
+  <level id="43">
+    <![CDATA[
+W B W1B B4W B1`
+W W B2W B B4B `
+B1W2B W4W W W1`
+B B B3W B W3B `
+W1B2W W3B W3W `
+B B W2W B3W B1`
+    ]]>
+  </level>
+  <level id="44">
+    <![CDATA[
+W B2B B6W B B1`
+W2W B6B B B W `
+W W0W B B6W W4`
+W6W W B1W W W4`
+W B2W W B4B B `
+B1B W2B B W1B4`
+    ]]>
+  </level>
+  <level id="45">
+    <![CDATA[
+W W2W B W2W B1`
+B2B B6B W B B `
+W W B B6B6B W1`
+W W0W W W W5B `
+W1W W5B B5B B `
+B W6W B B W1B5`
+    ]]>
+  </level>
+  <level id="46">
+    <![CDATA[
+W W2W B7B W B `
+B2B2B B B B7W1`
+B W W B7W B B `
+B4W W W W W3B3`
+B W4W W W1W B `
+B4W4W B1B W B3`
+    ]]>
+  </level>
+  <level id="47">
+    <![CDATA[
+W3W W B1W B3B1`
+B B B3W B B W `
+W B2W W W3W W `
+B1B2W2W W B W1`
+B B W W B2B B `
+B1W W2B1B W B1`
+    ]]>
+  </level>
+  <level id="48">
+    <![CDATA[
+W W W0W W W0B `
+B6B B B6B B W1`
+W W B4B W4W B `
+B2B B B W W4W `
+W W3W W B2W W2`
+B3B B3W2B B2B `
+    ]]>
+  </level>
+  <level id="49">
+    <![CDATA[
+W6B B B6B B3B `
+W W0B6B W3W W `
+W W W B6W B1W `
+B W3B W3W W B1`
+B3W W B B B3W `
+B W B1W B1W B1`
+    ]]>
+  </level>
+  <level id="50">
+    <![CDATA[
+W B B7B B W3B `
+W W7B B7B W B3`
+W W W1W B W3B `
+W7W7B W B3W B `
+W W3W W3B W B3`
+B1W B3B B W3B `
+    ]]>
+  </level>
+  <level id="51">
+    <![CDATA[
+W B1W4B B B B B2`
+W2W W B W B5W2W `
+W B2W W4W B5B W3`
+B B W1W W5B W W3`
+B W1B W1W B B3B `
+B2B W2B B W1B W1`
+B1W W W1B1W B1B `
+    ]]>
+  </level>
+  <level id="52">
+    <![CDATA[
+W3B B B2W3W W B1`
+W B W2W W W W5W `
+W B3W B3B W5B B5`
+W2W W1B W1B B5B `
+B W B W3B B B5W `
+B2B W W3B B1W B1`
+W1B W1B W1B W1B `
+    ]]>
+  </level>
+  <level id="53">
+    <![CDATA[
+W B5B B5B B5W B1`
+W5W B W B2W W5W `
+W W3B W B B5W W5`
+W5W B3B B5B5W B3`
+W W B5B B B W B3`
+W5W B5B B2W W3B `
+W W5W B B2W W B1`
+    ]]>
+  </level>
+  <level id="54">
+    <![CDATA[
+W6W W6B2W W6W B1`
+B W6W B W W B6W `
+B6B W W6W W6B6B `
+B B B6W B B6B W1`
+W W5W W5B W2W B `
+W5B B B B5W B2W `
+B W1B1W B B1B B1`
+    ]]>
+  </level>
+  <level id="55">
+    <![CDATA[
+W1W B B3B W1B1B `
+B W W4B B B W W1`
+W W3W W B4B B B4`
+B1W4W W4B4W4B4B `
+W B W W B W W B4`
+B W2W2W B W4W W2`
+B1W1B B W1B B2B `
+    ]]>
+  </level>
+  <level id="56">
+    <![CDATA[
+W W4W W B2B2W B1`
+B4B4B B4W W W3W `
+B W W4W W B3B3W3`
+B2W W W B B B3W `
+W B1W1B1B W B B1`
+B W3W3W B W2B W `
+B1W B B3B W1B B1`
+    ]]>
+  </level>
+  <level id="57">
+    <![CDATA[
+W1W2B W B6W B1B `
+B1W B W6B6B B6W `
+B W W6W B B6B B6`
+W1B W W B6W B6B `
+B1W W W6B6W6W W6`
+W W4B4W B W W W `
+B1W B4B4B B W1B1`
+    ]]>
+  </level>
+  <level id="58">
+    <![CDATA[
+W B3W W2W B1W5W `
+W3B B2W B W W W5`
+W B B W3B3B B5W `
+B W3W3W B B5B B `
+W1W B B W1B B5W `
+B W2B W B1W1B B1`
+B2W W1B1W B W1B `
+    ]]>
+  </level>
+  <level id="59">
+    <![CDATA[
+W5W W5W W1B W1B1`
+B W1W W B W B W `
+B5B B4B B4B4W4W4`
+B B5W W W W B W4`
+B5W W W3W B4B B4`
+W B3B B B1W B2B `
+B1W B B W W2W B1`
+    ]]>
+  </level>
+  <level id="60">
+    <![CDATA[
+W5B B5B B5W B1B1`
+W W B5W W W W W `
+W5B B7B W7W7B B3`
+W B7B W3W W W3B3`
+W1B W3W B W7W B `
+B B B B W1B W W1`
+B1W B3W1B W B1B `
+    ]]>
+  </level>
+  <level id="61">
+    <![CDATA[
+W B2B2B B B4W B1`
+W2W B B4W B B4B `
+W W W4B W8W W W4`
+B W1W W W B B8W `
+W1W8W B8B8B8W W4`
+B W8B B8W B B W1`
+B1W B W B1B W1B1`
+    ]]>
+  </level>
+  <level id="62">
+    <![CDATA[
+W1B1W1B W B1W B1`
+W W W5W W5W W W `
+B B B B B5B B3B `
+W2W B W1B B W W3`
+B B W7W W B3W3W1`
+W7W7W W7B7B7B B1`
+B W B7B B B W1B `
+    ]]>
+  </level>
+  <level id="63">
+    <![CDATA[
+W2B2W B1W8W W1B1`
+W B W8W W W8B B `
+W1B B B W8W W2W `
+B1B B8B W B1B W1`
+W2W B W2B B B4B `
+W B2B8W W4B4B W1`
+B1B W B1W W W4B `
+    ]]>
+  </level>
+  <level id="64">
+    <![CDATA[
+W7W W W7W W7W B1`
+B B7B7B B7B B7W `
+B3B W W W B B B3`
+W B3W W1W B7B B3`
+B B W1B W7B W B `
+W W2W W W7B W3W1`
+B1B2B W7W B7W B `
+    ]]>
+  </level>
+  <level id="65">
+    <![CDATA[
+W1W W1B1W B1B2B2`
+B1W W B3B B W2W `
+W B B3W W W3B B `
+B1B3W B W6B B6W `
+W W W3W W B B B6`
+B W3B W W6W W2W `
+B1W B3B3W B B B2`
+    ]]>
+  </level>
+  <level id="66">
+    <![CDATA[
+W3B B1W W2B W3B `
+W B3W W4W B W3B `
+W B W B B4B W B3`
+B1W W B4W B4B B `
+B B4W B4W W W W1`
+W B W4W B W B1B `
+B4B4W W4W B W B1`
+    ]]>
+  </level>
+  <level id="67">
+    <![CDATA[
+W B B4B W W1B B1`
+W4W4B W W3B W W `
+W B W B1W B3W3B `
+W1B W5W B B W B3`
+B B W W2B2W B1B `
+B B5W W W W3W W `
+B1W B1W B B3B B1`
+    ]]>
+  </level>
+  <level id="68">
+    <![CDATA[
+W B1W B B3B B3B `
+W3W W W1W W3W W `
+B B B3B W B1B B `
+W2B B W7W W W W2`
+W2W W W W W2W B `
+W B7B7B B7W B W1`
+B1B W B7B B7B2B `
+    ]]>
+  </level>
+  <level id="69">
+    <![CDATA[
+W4W4W W4B W1B B1`
+B B B4B W B B W `
+W1W5W W4W B B2B `
+B W B B W B6W W2`
+B1W W5B W B B6W `
+W W5B B4W W W W6`
+B5B B5B W B1W B `
+    ]]>
+  </level>
+  <level id="70">
+    <![CDATA[
+W3B W3W3W W1B B1`
+W B B W B B B W1`
+W3B B B1W B2B B `
+W3W B W W2W B5W1`
+W B3W B1W W5B B1`
+W B B B2W2W W B2`
+B1W B1B W W W B `
+    ]]>
+  </level>
+  <level id="71">
+    <![CDATA[
+W1W B B6B B B B1`
+B W B6B W3B3B W `
+W W6W B6W W W W2`
+W W W6W B B2B B `
+B2B W W W7W W7W `
+B W B B7B W7W W7`
+B2W B7B B7B W1B `
+    ]]>
+  </level>
+  <level id="72">
+    <![CDATA[
+W1W W1B W1B1W B1`
+B W B W4W W B B1`
+W1B1B B B4W B4W `
+B B W2B W W4B B4`
+W2W W B B1W W W4`
+B B2W W W B B2W `
+B W B2B2W W1B B1`
+    ]]>
+  </level>
+  <level id="73">
+    <![CDATA[
+W W W5W W5B B3B `
+B B B B5B W W W3`
+B1W B2B W B B B `
+W W4W W4W W3W W3`
+B4B B4B W7B W1B1`
+B W W W7W B7B B `
+B2W2W W W7B B7B `
+    ]]>
+  </level>
+  <level id="74">
+    <![CDATA[
+W6W W W6W W6W B1`
+B B B6B B B B4B `
+W1B W W W4W B W `
+B W1B B2W W4B B1`
+W1B W1B1W W B2W `
+B W4W W W4W B B `
+B1W B1W B B4B B4`
+    ]]>
+  </level>
+  <level id="75">
+    <![CDATA[
+W5W W5W W1B W1B `
+B W B2B W8W W8W `
+B5B W W W W1W B `
+B5W B W W8B W B1`
+B B8W B B W1B1W `
+W1B B1B W2B W W2`
+B B8B B8W B B B `
+    ]]>
+  </level>
+  <level id="76">
+    <![CDATA[
+W4B W1B1W B W1B1`
+W4B B B B3W B B `
+W B W W3W W4W4W `
+W B4W W2B W W B1`
+W4W W W B W4B W `
+W B W1B W2W B4B `
+B1B B4B B B2B B4`
+    ]]>
+  </level>
+  <level id="77">
+    <![CDATA[
+W B W2W B B W2B `
+W4B W B2B2W W B `
+W B B1W B B B B5`
+W4B W W1W B5W W2`
+W B1W B W5B B2B `
+B1W W3W W W W5W `
+B1W1B B B3W B B1`
+    ]]>
+  </level>
+  <level id="78">
+    <![CDATA[
+W2B B2W9W W W5W5`
+W W W W9W W W W `
+B1B W W W9B B5W `
+W B9B B W1B B B `
+B9B B9W3W W3B W1`
+B B9B W B B B3B `
+B1W B9B W B1W B `
+    ]]>
+  </level>
+  <level id="79">
+    <![CDATA[
+W1B1W W W4W W2B `
+W W W W4B B W2B2`
+B4B B4W W B4B B `
+B W6W W W6B W2W `
+W B B6B B W B B4`
+B1B B B1W W B4W `
+B W1B W W4W B B1`
+    ]]>
+  </level>
+  <level id="80">
+    <![CDATA[
+W3W W W W B1W B `
+B B B3W B3B B3B1`
+W W6W W W3W3W W `
+B6B B6B6W W W B2`
+B W6W W W W W2B `
+B B B6B B6W2B W `
+B1W B W B B B2B1`
+    ]]>
+  </level>
+  <level id="81">
+    <![CDATA[
+W W W4B W1B W B `
+B4B4W W B B9B B `
+B W9B B B9B B W1`
+B W9W B B B9W W6`
+W W W9W6W W W6W `
+W9W W B B6B B6B6`
+W W1B1W W B W B `
+B1W B B2W1B W1B1`
+    ]]>
+  </level>
+  <level id="82">
+    <![CDATA[
+W B B5B W W6W W6`
+W5W B B5W B B6W `
+W W W W W3B W W `
+W W2B3W B B B B2`
+W1B B W9W B B6B9`
+B B2B W B B9B B9`
+W W W9W9B9B W B2`
+B1W W W9B B W2B `
+    ]]>
+  </level>
+  <level id="83">
+    <![CDATA[
+W1B W W8W W8W B1`
+W1B B8W B W W W1`
+B B8B B B8B W B `
+B B B B7B W7W3B3`
+W B4B7B W7W W B `
+B1B B W4W W W W2`
+W B4W W W W B2W `
+B B1W B1W W7B B `
+    ]]>
+  </level>
+  <level id="84">
+    <![CDATA[
+W4B4B W B B9W B1`
+W B B B2W1B B9B `
+W4B W2W B B B B9`
+W B W W W9W B9W `
+W4W W9W W W B B1`
+W B B B4W B3W B1`
+W4B W2W W3B B3W `
+B W1B2B W W3W B `
+    ]]>
+  </level>
+  <level id="85">
+    <![CDATA[
+W B4W W W1B W1B `
+W4B W B B W2B B1`
+W B4W B2B W B2W `
+W4B W2B W1B W W2`
+W B1W W6W W6B B `
+B1W W W B6B B W `
+B W B6B B W B1B1`
+B2W W1B W B1W B `
+    ]]>
+  </level>
+  <level id="86">
+    <![CDATA[
+W8B B8B B8W W W3`
+W W8B B B B B3B `
+W8W8W B1B8W B W1`
+W W W8W B W W2B1`
+B1W B W W B2B W `
+W W W6W B1W B B1`
+W W B B6B B6W W `
+B1W1B W B6B B2B2`
+    ]]>
+  </level>
+  <level id="87">
+    <![CDATA[
+W B W1B W B1B B2`
+W2W2W B W4W W2W2`
+B B W2B W W B B `
+W4B B B4W B4B4B `
+W B W6B B6B W B1`
+W W4W B6W W W4W `
+B1W W B B4B B B4`
+W6W W6B W B W1B `
+    ]]>
+  </level>
+  <level id="88">
+    <![CDATA[
+W B2W W B W B B `
+W B2B W8B B8B W1`
+B1W W W W B W1B `
+W W8B B8B B8B W1`
+B4W W8B W7B W B `
+B4B W4W W B7B7W `
+B W4W W W B7B W1`
+B1W W W7W7B B B1`
+    ]]>
+  </level>
+  <level id="89">
+    <![CDATA[
+W B3B B3W B B3B `
+W W4W W W4W B W1`
+W B4B B4B W3B3W `
+B1W B1B W W W W5`
+B W2W B5B B B W `
+B2W B1W B B5W W5`
+W W W B B W B W `
+B3B B3B W1W3W B1`
+    ]]>
+  </level>
+  <level id="90">
+    <![CDATA[
+W3B W1B1W B5W B2`
+W B3B W W5B W2B `
+W3B W W W B W W1`
+W W6W W6W B5W B `
+B6B B B W B W B3`
+B W2W W B1W B1B `
+B6B B2W W W W B `
+B W1B B B4B W1B1`
+    ]]>
+  </level>
+  <level id="91">
+    <![CDATA[
+W3W W B2W W1B B1`
+B3B B B W2B W W `
+W W7W B7B B W5B `
+B1W W B B B7W B5`
+W1W W W7W W W5B `
+B B2B2W B2B W B5`
+W1W W W W W3W B `
+B B B2B B3B W B1`
+    ]]>
+  </level>
+  <level id="92">
+    <![CDATA[
+W5B B W B1B B B1`
+W B5W B5W B4W W1`
+W5B W B W B B1W `
+W B5W B W W W W `
+W5B W B5W W B3B `
+W W W B5B B2B W1`
+W1B2W W B1W B1B `
+B B2W B1W B1W B1`
+    ]]>
+  </level>
+  <level id="93">
+    <![CDATA[
+W4W W4B W1B5W B1`
+B W W B2B B B W `
+B B W B B W B B1`
+B4W W W3W5W W1B `
+B3B B W4W W5W W `
+B W B4B W4W W B1`
+B W2W B4W W2B2B `
+B1W B B W1B W B1`
+    ]]>
+  </level>
+  <level id="94">
+    <![CDATA[
+W W6W W6W B2B1B `
+B6W W W6W B W1B `
+B B6B W B1W B B4`
+B W B W4W W W W4`
+B6B W4W B B W1B `
+B B4B W4W B B B6`
+W1B B W1W W B6B `
+B W1B1W W6W6W B1`
+    ]]>
+  </level>
+  <level id="95">
+    <![CDATA[
+W B1W1B B1W2W B1`
+W4W W W6W W B B `
+B4B W W W W6W B1`
+W1B W6W B B B8B `
+B B B B6W B8B W1`
+B6B6B6W B8B B B `
+B W B W8W W B8W1`
+B2W W8W W W8W B `
+    ]]>
+  </level>
+  <level id="96">
+    <![CDATA[
+W B1W B1B B B5B `
+W1W B2W B B B W `
+B W2B W5B W W2B `
+W W W3W W W5B W1`
+W1B B B W4B B W `
+B W W2W W B4W W `
+W B2W W4B4B B W `
+B1B B W B B W1B `
+    ]]>
+  </level>
+  <level id="97">
+    <![CDATA[
+W1B1B B5W B W3B3`
+W W B W W W3W B `
+W1W B5B B B W3B `
+B W B B2W W B W `
+W W W B B1W2B2B1`
+B W W W3B B3W B `
+W1B W W B W W3B `
+B B W1B W1B W B3`
+    ]]>
+  </level>
+  <level id="98">
+    <![CDATA[
+W W W7W W7W W B1`
+B B7B B B B B W `
+B W B B7B7W W7W7`
+W4W B B W W7W W `
+W B B7B B1W W W4`
+W B4B B B W B4W `
+B W W W B B4B W `
+B2W B2B W1B W B1`
+    ]]>
+  </level>
+  <level id="99">
+    <![CDATA[
+W B6B B W B1W B1`
+W6B W2W W2W B B `
+W B W1B W2B B W1`
+W B6B B B W W5W `
+W6B W W3W3B W W `
+W B W B B B W2W2`
+W B2W W1B B B W `
+B1B W2B W1B B2B1`
+    ]]>
+  </level>
+  <level id="100">
+    <![CDATA[
+W W6W W B B2W B1`
+B W W W6W W B B `
+B B B1W B B5B B5`
+B6W B W B2W W5W `
+B B W2B2W B W W `
+W2W W B W1W B2B `
+W B2B W B1W W B `
+B1W B1B W B1W B2`
+    ]]>
+  </level>
+  <level id="101">
+    <![CDATA[
+W4W W4W B B4W B1`
+B B4B B W B B4B `
+W3B B3B B B W W4`
+W W1W B B W1B7W `
+W B W2B W W3W W4`
+W2W B W W1W B W `
+B B2B W B W W2B `
+B W B W3B B2W B1`
+    ]]>
+  </level>
+  <level id="102">
+    <![CDATA[
+W8B B B8B W W B1`
+W W8B B B W2W W `
+W W W B1B B W5B `
+W8W W W B1B W B5`
+W W W4W W2W W B `
+W B B B B B1B B5`
+W B4W W2W B B B `
+B1B B2B W3W W B1`
+    ]]>
+  </level>
+  <level id="103">
+    <![CDATA[
+W3B W4W W W2B B1`
+W B3B B W4W B2W `
+W B B W W W B B `
+W2W B4B W1W B3B `
+B B W B B W3B W2`
+B1W B W7W W W W `
+W B B7B W W7W W1`
+B1B B B7B W B1B `
+    ]]>
+  </level>
+  <level id="104">
+    <![CDATA[
+W6W W6W W B1W B1`
+B W W6W W4B W B `
+B B1W W W W W B3`
+B6B B B4B B W3B `
+B B6B W B B B B8`
+W W W8W W B8W B `
+B W W W W1B B8W `
+B1W B1W B1W B B1`
+    ]]>
+  </level>
+  <level id="105">
+    <![CDATA[
+W W W W1B B7W B1`
+B W W6W W B B7B `
+B B W W W W7B B7`
+B B B6W W7W W7B `
+B B6W B1W W2W W `
+B3W B1B W B W B1`
+B W3W W W3B B W `
+B3W B B B B1W B `
+    ]]>
+  </level>
+  <level id="106">
+    <![CDATA[
+W3B B4B B B1W B3`
+W B W W B4W W3B `
+W B W4B B B1W B3`
+W4W W W2W W B4B `
+W B4W B W4B B W `
+W4B B B4W W4W B1`
+W W W3B W1W B W `
+B W1B B B W B B1`
+    ]]>
+  </level>
+  <level id="107">
+    <![CDATA[
+W4B B4B W B1W B1`
+W B W W5W W W W `
+W4W B5B B B5B B1`
+W W W W2B W W2W `
+B W B3W B B B B1`
+B3W B B W B1W B `
+B W W2B B2W W2W `
+B W3W W B B2B B1`
+    ]]>
+  </level>
+  <level id="108">
+    <![CDATA[
+W B2B B B3W B6B `
+W B2W W W W B W `
+W4W W W2B W B B1`
+B B W4W B W6B6W `
+B4W B W W3W B B1`
+B W2W2B W W B6W `
+W B B3B W B2B W `
+B B2B W W2W B B1`
+    ]]>
+  </level>
+  <level id="109">
+    <![CDATA[
+W2B B W B W B B `
+W W2B B2W W W W1`
+W1W W4W B B B3B `
+B B4B W W W W B `
+W2W B4W B B2W W1`
+W B B W1B W W2B `
+B1B W W W B2B W1`
+B W B3B B3W B1B `
+    ]]>
+  </level>
+  <level id="110">
+    <![CDATA[
+W B4W W4W W4W B1`
+W4B B4B B4B W W `
+W B4W W B W W5W `
+W B B W W2B W B1`
+W3W W3B B B B5B `
+B3B B B3W B5W B `
+B B2W B W W W B3`
+B1W W B W3B W B `
+    ]]>
+  </level>
+  <level id="111">
+    <![CDATA[
+W B3B B B1W W B2`
+W W B W2B W W B `
+W W W2W B2W B2B `
+B B W B1W B B B3`
+W1B W1W W W1W B `
+B W4W B W3B W B2`
+W W B4B B W W2W `
+B1W B W B1B B B1`
+    ]]>
+  </level>
+  <level id="112">
+    <![CDATA[
+W B W6W W1B W B1`
+W1W W W W W3W W `
+B B B W B B W1B `
+B B B6B W1B B B1`
+W1W W W B W B W `
+B B B4W W W B B5`
+B W2B B W W5B W `
+B W B4B W2W B B1`
+    ]]>
+  </level>
+  <level id="113">
+    <![CDATA[
+W B5B W B W B B1`
+W5B B B B B B1W `
+W B W B6B W W W5`
+W5B W W W W6W W `
+W B W B B W W W5`
+W W3W B3W B1W W `
+B3B B B B B B5W `
+B W B W B1W B B1`
+    ]]>
+  </level>
+  <level id="114">
+    <![CDATA[
+W2W W B2B B4W B1`
+B B W B B W B B `
+W W W3W B4W W B2`
+B B B W W B W2B `
+B4W W W4W W3W W3`
+B W B1W W B B B `
+B W4W B W W W W `
+B4W B B2B B3B B1`
+    ]]>
+  </level>
+  <level id="115">
+    <![CDATA[
+W4B W W W1B W B1`
+W B W3B B B W1B `
+W4B W B W B B B `
+W B W3W B1W1B B5`
+W1B W B B B W B `
+W W W2W B W W W5`
+B2B W1B B3W W5W `
+B1W B B B W3W B1`
+    ]]>
+  </level>
+  <level id="116">
+    <![CDATA[
+W4W W B W B6W B1`
+B B4W B B B W W `
+B4W W B6W W W W6`
+B B W6B B B6B B `
+B W W W W W B W1`
+B2W B5W W6B B6B `
+B B B W W W5W W `
+B W B5W5W B B B2`
+    ]]>
+  </level>
+  <level id="117">
+    <![CDATA[
+W1B W B1W B2W B1`
+W W B B W B W7W `
+B W2W B B B W B `
+W W W W7W W W W `
+W B W B B B7B B1`
+W B B W4W W B7W `
+B B1W B W4W B B7`
+B1W B B4B B1W B `
+    ]]>
+  </level>
+  <level id="118">
+    <![CDATA[
+W4B B4B B W W B `
+W W B W B W B2B `
+W W B3W W W5W W5`
+W W3B B5B B B B `
+W4B W W W W3W W `
+W B B5W W B B3B `
+W B4B B5W W W W `
+W4B B B B3B B B1`
+    ]]>
+  </level>
+  <level id="119">
+    <![CDATA[
+W W W W2W B W2B `
+B4B W4W B B9W B2`
+B W3W W3B B B B `
+B B B B W B B B `
+B B B4W W9W W B `
+W B W W W W W B9`
+B B1W W B2W W9W `
+B W B W1B W W B1`
+    ]]>
+  </level>
+  <level id="120">
+    <![CDATA[
+W B4B B4B3B B3B `
+W4W B B W W3W W `
+W W W W W W W5B `
+B B B B5B W1W B `
+B2B W B W B W B3`
+B W W W W W W3B `
+B2W W W5B B B W `
+B W1B W B1W B5B `
+    ]]>
+  </level>
+  <level id="121">
+    <![CDATA[
+W B B3B B W2W B `
+W3B W W W W B B1`
+W B3W B2B B B W `
+B4W W3W B W W B3`
+B W W B2W B2W B `
+B W4W B W2B W B3`
+B W W W W W W W `
+B1W B5B B5B B5B `
+    ]]>
+  </level>
+  <level id="122">
+    <![CDATA[
+W3B W1B W1B W B1`
+W B3W B B W B2W `
+W B W2W B W B B `
+W W W W B B6B B `
+B B W2W B W W W5`
+B1W W B W B5W B `
+W W3W B B B W5W `
+B3B B3B W1B W B1`
+    ]]>
+  </level>
+  <level id="123">
+    <![CDATA[
+W W W6W W1B W1B `
+B W W W W W W W `
+B2B B6W B B B W4`
+B B6B B6W B W3B `
+W1W W W B B W B3`
+B W W5B W B1W B `
+W1B W B B B W2W `
+B B W1B B1W B B `
+    ]]>
+  </level>
+  <level id="124">
+    <![CDATA[
+W1W B2B B8B B B `
+B W W B8B W W3W `
+W W8W B B B8W B `
+B1W W W8B W B W `
+W W W8W B W3B B `
+B2B W B1W W W B1`
+W W3W B B W B W `
+B B B B3W B W B1`
+    ]]>
+  </level>
+  <level id="125">
+    <![CDATA[
+W W W W W3W W B `
+B B4B B W B3B W `
+W5W W5W W B W B1`
+W B5B B5B B5B B `
+B W W B B B W2B `
+W B W4B W B1W W1`
+B W4W W W4W W4B `
+B W B4B B B W B1`
+    ]]>
+  </level>
+  <level id="126">
+    <![CDATA[
+W B5W B W4B B2B `
+W5B W4W W4W W W1`
+W B B B W B B B `
+W B5B W W B3W W2`
+W5B B B4W B B B2`
+B W W B W B1W W `
+B W W2B W W W W4`
+B W3W B1B B4B B `
+    ]]>
+  </level>
+  <level id="127">
+    <![CDATA[
+W1B W B2B W1B B1`
+W B6W W W W W W1`
+B1B B B6W W B B `
+B W1W B B W6W W `
+W W B B W W W3B `
+B B2B B B3W B B `
+B W B W W W B B `
+B2W B2W W W5W B1`
+    ]]>
+  </level>
+  <level id="128">
+    <![CDATA[
+W B B W1B W B2B `
+W3B W1W W W3W W `
+W B W W B3W B W1`
+B B B W4B B W B `
+W B B B B W1B W1`
+B1W B W1B W W B `
+W W4B W W B2W W2`
+B1W W4B B2B B B `
+    ]]>
+  </level>
+  <level id="129">
+    <![CDATA[
+W3B B B3B B B B3`
+W B W W B4W W W `
+W B W W B B W B `
+W W W W B4W W3W `
+W B B W4B W3B B3`
+B W W2W B1B B1B `
+W1B W B W B2W W `
+B W1B B2W W B B1`
+    ]]>
+  </level>
+  <level id="130">
+    <![CDATA[
+W2W B B3B B W B2`
+B W B W W3W W B `
+B2W B4B W W W W9`
+W W W B B9W W W `
+W1B B B9B W9W W3`
+B W W B B W B W `
+B2W B B B B B W1`
+B W2B W1B W B1B `
+    ]]>
+  </level>
+  <level id="131">
+    <![CDATA[
+W3B B B3W B B B5`
+W W B W W W B W `
+W3W B B B2W B B `
+W W B B W W B W1`
+B W5B W W W W1B `
+W1W B B W W6B W `
+B W W6W W6B B B1`
+B W B B B B W B `
+    ]]>
+  </level>
+  <level id="132">
+    <![CDATA[
+W W W W B3B B B1`
+B4B B B W W3W W `
+W B W W W W W W `
+B B4B B4W B B2B `
+W2W B1W W B W B `
+B B W W W B B4W `
+W2W B W1B W B B `
+B B2W B W B W B1`
+    ]]>
+  </level>
+  <level id="133">
+    <![CDATA[
+W W W W B1B W B `
+B4B W B W W B1B `
+B W B W W W7W B `
+B4W B3B W W B7B `
+W W B W B W B B7`
+B1W B B3W W B B `
+W W B W W W W W `
+B1W B B B B4W B1`
+    ]]>
+  </level>
+  <level id="134">
+    <![CDATA[
+W1B B W3B W B B1`
+W W B2W B B2B W `
+B B W W B W W B `
+W B W W4W W1B W1`
+B1B W W W2B W B `
+W B2B W W B2W B2`
+B B W1B W W W W `
+B1W B B4B B W B1`
+    ]]>
+  </level>
+  <level id="135">
+    <![CDATA[
+W B W B W B W3B `
+W W5W W W5W W W `
+B B B B B B3W B1`
+B W1B B W B B3W `
+W W W1B B6B W B `
+B B2B B6B W W W6`
+W W W W W B W W `
+B B5B B B W1B W `
+    ]]>
+  </level>
+  <level id="136">
+    <![CDATA[
+W B B6B B W B1B `
+W W6B B W B B W1`
+W W W W W B1B W `
+W6B B B W W B W `
+W B W B W B B5W `
+B B5W B W B W W5`
+W W W6B B W B2W `
+B W6W B B6W B B `
+    ]]>
+  </level>
+  <level id="137">
+    <![CDATA[
+W B9B B B W B1B `
+W W B B9B B W W `
+W9W W B W W B B1`
+W W W1B W B B W `
+W W B B7W B W B `
+B B B B W7W B W1`
+W W2B B W W7W B `
+B2B W B1W W W B `
+    ]]>
+  </level>
+  <level id="138">
+    <![CDATA[
+W B B B B B5W B `
+W W W W W W W W `
+W B B W B W W6B `
+W B W B6B W2W W `
+W B3B B B6B W W2`
+B W B W B B B2B `
+B B B W5W W W B `
+B1W B W W1B W B2`
+    ]]>
+  </level>
+  <level id="139">
+    <![CDATA[
+W W W W1B B3B B3`
+B W W B B W W W `
+B4B W W W W W B1`
+B W1B B B B3W W `
+B2W W1B B B B W6`
+B W B B W2W B W `
+W3W W3B B W W W `
+B B3B B W B W1B `
+    ]]>
+  </level>
+  <level id="140">
+    <![CDATA[
+W W3W B W W5W W `
+B B B W1W B B B1`
+W B B W B B5W W `
+W W B B B B B W `
+W4W W4B W B W W `
+B W1B W2B W B B `
+W2W B W W B1B W `
+B B B W B B W1B `
+    ]]>
+  </level>
+  <level id="141">
+    <![CDATA[
+W2B W B B W B B1`
+W B B6B B W B2W `
+W6W B6B W B B B1`
+W W6W B W2W B5W `
+W W W W W W B B1`
+B W B B B2W B W `
+W B2B2W W W B B5`
+B B W W W1B W B `
+    ]]>
+  </level>
+  <level id="142">
+    <![CDATA[
+W3B W W W W W B `
+W B W B B W B B `
+W3B W W1B W B W1`
+W B W B B7W B B `
+B W B B7B W W W1`
+W B W6B B B W2B `
+B W W B6B W B B `
+W W W6B W B W B1`
+    ]]>
+  </level>
+  <level id="143">
+    <![CDATA[
+W6B B W B W B1B `
+W B W7B W1B B W `
+W B6W B B B W2W `
+W6B W7W W B7B B `
+W B W W B W W W `
+W B B W W B B3B `
+B W W B W W W W `
+B W2B1B B4B W B1`
+    ]]>
+  </level>
+  <level id="144">
+    <![CDATA[
+W1W B W B B7B B7`
+B B6W B B7B B B `
+W B B6B W W W W `
+W W W B B W W W `
+B4W W6W W W B W1`
+B W B W1B W W2B `
+B W W W B2B W W2`
+B4W B B2W B B B `
+    ]]>
+  </level>
+  <level id="145">
+    <![CDATA[
+W4B B2B B B B B `
+W B W W W B W W2`
+W4B W1W B W2W W `
+W B B W1W B W B1`
+B W1B B W3B W B `
+B B B W6W B B B `
+W1B B W W W W W `
+B B W W W W B B `
+    ]]>
+  </level>
+  <level id="146">
+    <![CDATA[
+W B B B B5B W B1`
+W5W B W2B B W3W `
+W W W W B B3W B1`
+W B W B W1B B W `
+W B W3W2B W B2B `
+B1W W W B W W B2`
+W B3W B1W B W W `
+B B B W B W1B B `
+    ]]>
+  </level>
+  <level id="147">
+    <![CDATA[
+W B W W B1W W B `
+W W5W W W W5W W `
+B5B B B B5B W B `
+W B W B5B W B B `
+B W B W B W6B W `
+W B B B W W B6B `
+B B B W W6W W B6`
+B1W W W W B B2B `
+    ]]>
+  </level>
+  <level id="148">
+    <![CDATA[
+W4W W W W B B4B `
+B W3W W W W B W1`
+B4B B3B W W B B `
+B W W W W6W B4B `
+B B B6B B W W B4`
+W B W B B W W B `
+B B W2B1W B1W W `
+B W B W B1W W B `
+    ]]>
+  </level>
+  <level id="149">
+    <![CDATA[
+W W W W W2W B1B `
+B4B B B W B B W `
+W B W W B B B B2`
+W B B B W2B W W `
+W4B W B W W1B W1`
+W B W3B W B W5B `
+W B5W W W W W W `
+B1B B B B5W B1B `
+    ]]>
+  </level>
+  <level id="150">
+    <![CDATA[
+W W6W W W6W W B3`
+B6B B B B B W3B `
+B B3W B W1W W B `
+B W1W W W B B5B `
+W B W B B W5B B `
+B W B4B B W W5B `
+W4W W B W W5W W `
+B W B W B B W B1`
+    ]]>
+  </level>
+  <level id="151">
+    <![CDATA[
+W W W5W W B1W W B1`
+B W B B B5B W W W `
+W2B B W1B W6W W B3`
+W B W W B6B B W3B `
+B W B2B W B B6W B3`
+W W W B B W B W W `
+W1W W W6W B B B B1`
+B B1W B B6B B6W B `
+    ]]>
+  </level>
+  <level id="152">
+    <![CDATA[
+W W W B1W B B1W B `
+B3W W2W B5B B B W1`
+B B2W B B W B B B `
+B B W W5W W8W B B8`
+W W W W W W B8B W `
+W B B W W W W W1B `
+W W B4W B W2W B W `
+B B2B B1W B B2B B1`
+    ]]>
+  </level>
+  <level id="153">
+    <![CDATA[
+W1W W3W B W1B W B1`
+B W B B W B B B3B `
+W2W B3W B2B W W W `
+B B W W2W W W W W `
+W W B W B W W6B B `
+B2B B3B B B W B2W1`
+W B3B W B B6B W W `
+B B W W W3W B1B B2`
+    ]]>
+  </level>
+  <level id="154">
+    <![CDATA[
+W B W W W W4B W B1`
+B7W B B3B W B4B B `
+W W W1B B B B B5W `
+B1W B W W W5W W W5`
+W B5B B5W W W W3B `
+B1B W B B W2W W B3`
+W B3W W W B B W3B `
+B1B W3B B2W B1W B `
+    ]]>
+  </level>
+  <level id="155">
+    <![CDATA[
+W1B W1B W B W B B6`
+W W5W W W W B B B `
+B B B B5B W6W B B6`
+W2W W2W W W W W2W `
+B B2B B2B B W B B `
+B1W B W B3W W3W B `
+W W W W W B1W W W1`
+B5B B B5B B B W1B `
+    ]]>
+  </level>
+  <level id="156">
+    <![CDATA[
+W1W B W1B B7B W B `
+B W W W W B B7B B7`
+W1B B B3W W W W B `
+B W W5W W W5W W7W `
+B5B B B5B B B W B1`
+W W B B B W3B W3W `
+B B2B B W2W W2B B `
+B W B W1W W W W B `
+    ]]>
+  </level>
+  <level id="157">
+    <![CDATA[
+W W B B4B W B2B B1`
+B W B4B W2W B B5W `
+W W W B6W B W B B `
+B W6B B B6B W5W B `
+W W W B B W B W W1`
+W1W W B B B W W5B `
+B W W W W1B B W B2`
+B W W4W B W1B W2B `
+    ]]>
+  </level>
+  <level id="158">
+    <![CDATA[
+W3W W3B B B B4W B1`
+B B3B W W4W W B2B `
+B2W B W W W W W W `
+B W2B B W5B W B B6`
+B2B B W W B B6B W `
+W W B B W W1B B B `
+W W W W6W W W W W `
+B3B B3W W7B B3B B `
+    ]]>
+  </level>
+  <level id="159">
+    <![CDATA[
+W W W3W B W B1W B1`
+B3B B W3B B B B4B `
+W W4W W B3W W W W4`
+W4B B W4B B B W1B `
+W W B4W W B W3W W `
+B B2B W W W B W B `
+W W W3B B W B3W W2`
+B B B W B1B B B B `
+    ]]>
+  </level>
+  <level id="160">
+    <![CDATA[
+W2B B W B W B W2B `
+W W B B3W W2W W B2`
+W W W B B2B W W B `
+B2W B1W W B1W B4B `
+B W W B B W B B B `
+B2W B W5B B5W B3B `
+B W W5W B B W B W `
+B W1W W5B W W3W B1`
+    ]]>
+  </level>
+  <level id="161">
+    <![CDATA[
+W B W B W3W B W B1`
+W3B W W W W B2B B `
+W B W B3B B2B W2W `
+W B B B B5W W2W B `
+B W B B B B B W B5`
+W5W B5W W5W W5W B `
+W W5B B5W W W W5B `
+B1W B W B B2B W B5`
+    ]]>
+  </level>
+  <level id="162">
+    <![CDATA[
+W1B W B1W B W1B B `
+W W W4W B B3B B W `
+W4B B W W2W W3B B3`
+W B4W W3B B W W3B `
+B B B1W B B B2B W `
+B2W W W5B B W W B1`
+B W2W W B W3W W3W `
+B W B W1B B B3W B1`
+    ]]>
+  </level>
+  <level id="163">
+    <![CDATA[
+W8B B B B B1W B7B `
+W W B B W B B B W1`
+W8W W8B B8W B7B B `
+W W W W7W W W B7W `
+W B1W B W W7W B B1`
+B W W B B W B W B `
+W W7W B B7W W W W `
+B1W W B7B B3B B B `
+    ]]>
+  </level>
+  <level id="164">
+    <![CDATA[
+W4B W B2W B B1W B `
+W B W2B B W7W B B2`
+W B W B W1W W W B `
+W B4W W7W W W B W `
+B7B B B B W B B8B `
+W B W W W8W W B W `
+B7B W8W W W W1B B1`
+B W B B2W B1B B8B `
+    ]]>
+  </level>
+  <level id="165">
+    <![CDATA[
+W5B W W5W W B W1B `
+W B W5W W B W1B W `
+W B B B B5W W W B1`
+W5B B5B B B3B W W `
+W B W B5B W1B B W4`
+W W W B B5B W B W `
+B W5W B W B B1B W1`
+B1W B W1W B2W B B `
+    ]]>
+  </level>
+  <level id="166">
+    <![CDATA[
+W2W W B1W B B3B B3`
+B W2W B B B W W W `
+B B W5B B5W B W B `
+W1B W W W W W6W B3`
+B W W W B6W W W3B `
+B B B B B W W B W1`
+W1B W B B W3W W3B `
+B W1B W B B B W B1`
+    ]]>
+  </level>
+  <level id="167">
+    <![CDATA[
+W W2B W W W B1W B1`
+B2B W W B3B W B3B `
+W W B W5B W3W B W `
+B W W W W W W W B1`
+B B W5W W3B B3B W `
+W B5B B W B B B3B `
+B7B W6W W6W W W W `
+B B6B B B B6W B B1`
+    ]]>
+  </level>
+  <level id="168">
+    <![CDATA[
+W W W5W B B4B B4B `
+B W W W W W W W W1`
+B B W5W W W B W1B `
+B5B B W B B1W W W `
+W W2B B5B W W B5B `
+B2B B W W W W B W1`
+W W B5B W W5W B B `
+B2B B B B5W B1B B5`
+    ]]>
+  </level>
+  <level id="169">
+    <![CDATA[
+W6B B6B W1B W B B1`
+W W6B B B W B B1W `
+W6W W B2B B1B W B1`
+W W W W W W B B W `
+B7B W B2W B B5W B2`
+W B W B W W W W B `
+B B W W B W W2B B2`
+B B5W W5B W W W1B `
+    ]]>
+  </level>
+  <level id="170">
+    <![CDATA[
+W5B B B5B B5B B3B `
+W W B7B B7B W W W `
+W W W B B W W W W4`
+W W W W B B B4B B `
+W W W7W W7W W W7W `
+B B B B B B7B W B1`
+B2W W B4B B W4W W `
+B W2B B W B4W W B1`
+    ]]>
+  </level>
+  <level id="171">
+    <![CDATA[
+W W B2B B B B W B1`
+B W2B W2W B6W W W `
+W2W W B B B B6W B1`
+B B W W1B B B W4B `
+W1W W6W W W W1W B `
+B W W W W6W W W B `
+W B1B B6B B W B B `
+B B W B B W B W B `
+    ]]>
+  </level>
+  <level id="172">
+    <![CDATA[
+W7B W B W B B6B B6`
+W B B W B B6B B B `
+W B W1W W4W W W6W `
+W B7B W4B B4W W W6`
+W B B2W B B B B W `
+W7B W W2B W3W W B1`
+W B W2B W W3W W W `
+B W W B B B B B B2`
+    ]]>
+  </level>
+  <level id="173">
+    <![CDATA[
+W1W W7W W3W W B W `
+B W7W W7W B B W W `
+B7B W W B B W5W W `
+B B7B B W B B B B `
+B7B W B B B B5W B `
+B W2W W W B W B B `
+B W W B2B W3W B W `
+B1W W B W7B W B1B `
+    ]]>
+  </level>
+  <level id="174">
+    <![CDATA[
+W2W W W W1B B W B `
+B B W6W W W6W B B `
+W1B B B W B W W2B `
+B B B W1W W4B B B `
+B B W6W W6W B B W1`
+W B B W W W W W B `
+B B6B W B W B W W `
+B W B B6B B4B W6W `
+    ]]>
+  </level>
+  <level id="175">
+    <![CDATA[
+W W B W1B B W W B2`
+B2B B4B B B B2W B `
+B W B W W1W W W B `
+B W W W W B2B W2B `
+B W B W2W1B B B B `
+B4W W W B B W5W W `
+W W W W W7W W W1W `
+B B B7B B B B7B W `
+    ]]>
+  </level>
+  <level id="176">
+    <![CDATA[
+W W W W W W B1W B1`
+B B B B B5B B B9B `
+W W W B2B W3B B W `
+B1W W1B W W B9B B1`
+W B W B B W B W B `
+B W W B3W W W W W `
+B3B B1W W9W B3B B `
+B B W W W W W W B `
+    ]]>
+  </level>
+  <level id="177">
+    <![CDATA[
+W8W W W B W1B B B1`
+B W8W W8W B B B W `
+B8B W W B B B W W `
+B B B W2B B B B8B `
+B8B B8W W B8W B W1`
+B W B W W8W W W B `
+W B2W W1W W W3W W `
+B B W B W8W B B B3`
+    ]]>
+  </level>
+  <level id="178">
+    <![CDATA[
+W B W B1W B W W B `
+W B W W W W6W B5W `
+W3B B6W W W W5B B1`
+B B B B W B1W B W `
+W W B6W W3W W B B `
+B2B B B B B W W4B `
+B W B4B W4W W B B `
+B2W B B W W4W B B4`
+    ]]>
+  </level>
+  <level id="179">
+    <![CDATA[
+W9W W W9W W W9W W `
+B B B B B B B B B9`
+B W3W W W W W3B W `
+B W B3B B W B B W1`
+B W W B B W B W B `
+B1W W B2W1W W3B W1`
+W B2W W W W B B B `
+B B W B3B B3B W B1`
+    ]]>
+  </level>
+  <level id="180">
+    <![CDATA[
+W W W4W B5B B5B B `
+B4B B B W W5W W W `
+B B4B W4W W B B B `
+B W B W W W W B5B `
+B W W4W W B W2B B `
+B W W B2B W W W1B `
+B W W W B1B W3W W `
+B5W W1B W B B B B3`
+    ]]>
+  </level>
+  <level id="181">
+    <![CDATA[
+W8W W W W W W W B `
+B B8B B B B8B B W `
+W B W W6W W W6W B `
+B W B6B B6B W W3B `
+W B W B W B W6W B `
+B W W W4B B W B2B `
+B4B B W W1B W W W `
+B W B1W B W B1B B2`
+    ]]>
+  </level>
+  <level id="182">
+    <![CDATA[
+W1B W B B B B2B B1`
+W W W W4B W W W W `
+W1B W3W B W B2W2B `
+B B W W B4B B W B `
+B3W W2B B W3B B W `
+B W3W W W W B3W B `
+B W W1B W W W B W `
+B1W B B B B W1B B `
+    ]]>
+  </level>
+  <level id="183">
+    <![CDATA[
+W2B W W4W W1B W B `
+W B W B B B W W W3`
+W W W B4W B B3B B `
+B4W W W W3W W W B `
+B B B3B B W W W W `
+B B W W2B B B5W B `
+W1B B2W B B5W B2W `
+B B W B W7B W B B `
+    ]]>
+  </level>
+  <level id="184">
+    <![CDATA[
+W W W W B1W B1B B `
+B W1W W7W B B W W2`
+B7B W W W W5W W2B `
+B B B1W W W W B W `
+B7B B B5B B B B B4`
+B W W B B W W4W W `
+B W B B W W5W W5W `
+B3W B B B5B B5W B `
+    ]]>
+  </level>
+  <level id="185">
+    <![CDATA[
+W3B W2B W B B1W B `
+W B3W B B W B W W `
+W B B B W1W B2W B `
+W B4W W B2B B W B3`
+W B W2W W B W B B `
+W4B W W3W W B W1B `
+W B4B B B W3W W W `
+B1W B1W B B B W B1`
+    ]]>
+  </level>
+  <level id="186">
+    <![CDATA[
+W W W W B3B B B B2`
+B W W W6W W W W2W `
+B B6B W B B W2B W `
+B6W B B1B W W B B1`
+B B W B B B B W2W `
+W W W9W B W B9B W1`
+B W2W W B B B B B `
+B W W9W W W B1W B1`
+    ]]>
+  </level>
+  <level id="187">
+    <![CDATA[
+W B B B8B W B W B1`
+W B1W B B B W1B W `
+W W W B W B W W W `
+W8W W B B5B B4B B `
+W W W W5B B W W B `
+B1W W W W W W5W B3`
+W B W B B B5B W B `
+B B W1B B5W B W B `
+    ]]>
+  </level>
+  <level id="188">
+    <![CDATA[
+W B B B B B B W3B `
+W W B6W W B W1W B `
+W B W B B W B W3B `
+W B W W B6B W B B1`
+W B W3W W B B B6W `
+B W3B W W W W W B1`
+B W W3W W W B2B W `
+B3W B B3B W2W B B1`
+    ]]>
+  </level>
+  <level id="189">
+    <![CDATA[
+W1B B B W B W B B1`
+W W B7B B7W W W4W `
+W W W B7B B W W B4`
+B W W W W W W W B `
+B W W7B B W W7W B `
+B1B W B7B B1W B B `
+W B W2B W2W W B2W `
+B W1B B B B W1B B1`
+    ]]>
+  </level>
+  <level id="190">
+    <![CDATA[
+W W5W W5W W4W W W `
+B5B B5B B B B4B B4`
+B W W W W3B W W B `
+B B1B B B B W W4B `
+B W W W W5B W4W B `
+B B W4W B B W W4B `
+W W W W B B B W B2`
+B W B1W B5W B W B `
+    ]]>
+  </level>
+  <level id="191">
+    <![CDATA[
+W1B W B B B4B B B2`
+W W W W W W W W W `
+B B W B7W B W1B W `
+B B B W B1W W W B `
+B4B W4W W B B3B W `
+B W4W W B B4B B4B `
+W W W W B W B B W1`
+B2B B W W4W W B B `
+    ]]>
+  </level>
+  <level id="192">
+    <![CDATA[
+W W W B3W W2B W B1`
+B3W B B W W B W W `
+B W W W W5W W W3B `
+B W1B B W B1B B W `
+W W W B B B B W B `
+B B B2B W W W W B1`
+B2W B W B4W B B W `
+B W B B4B W B3W B `
+    ]]>
+  </level>
+  <level id="193">
+    <![CDATA[
+W W W6W B B3B W B2`
+B6W W W6W W W W B `
+B B B W W W W B3B `
+B W B B W1W W B W `
+B B W1B B W W B W `
+B W B B B B6W W3W `
+W W3W B W B B B W `
+B W B B3B B W1B B `
+    ]]>
+  </level>
+  <level id="194">
+    <![CDATA[
+W B B4B W6W B W B `
+W B W W W W W B B `
+W W B B B B6B W B `
+B3W B W B W W B4B `
+B W W1B W B W4W W `
+B W B W W W3B W B `
+W B B3B W4B B W W2`
+B B W W4W W B B B `
+    ]]>
+  </level>
+  <level id="195">
+    <![CDATA[
+W4B B W B1W B W B1`
+W B W B W B W B B `
+W B B B B B B7B W1`
+W B W4W W B W B W `
+B B W W W B B7W W `
+W2W W W W B B B W `
+B B2B W1W W W B3B `
+B W W W W B2B W B `
+    ]]>
+  </level>
+  <level id="196">
+    <![CDATA[
+W W W W3W W B B B2`
+B3B B B B B B2W W `
+B W W B B B5W W B `
+B2W W B W1W B B7B `
+W W W B B W W B B7`
+W W W W W W W W B `
+W W B6B B B6W B W `
+B W1B W B B W2B B1`
+    ]]>
+  </level>
+  <level id="197">
+    <![CDATA[
+W2W B3B B B B1W B1`
+B W W W W B W B B `
+B2B W7W W B B B W `
+W W W W7W W7W B B `
+B B W W W W W W B `
+B B B W W B W W B3`
+B B B B W W B W W `
+B1W B B W B W B B `
+    ]]>
+  </level>
+  <level id="198">
+    <![CDATA[
+W2B W4W W W W B B `
+W B B B B4B B2B W `
+B W1B W W B W W W `
+B B B B1W W B W W3`
+W1W B W B W W B B `
+B W W4W W W B B B1`
+B2W W W W5W B B W `
+B W B W1B B B B B5`
+    ]]>
+  </level>
+  <level id="199">
+    <![CDATA[
+W3W W W B W B B B2`
+B B B W B2W B W2W `
+W W2W B W W B3B W `
+W B W W2B W3B B B1`
+B B B B W B W1W2W `
+B W W W W W B W1B `
+B3W W W W7B B B W1`
+B W B1W B B7B B B `
+    ]]>
+  </level>
+  <level id="200">
+    <![CDATA[
+W B2B B W B W W B `
+W W B B B9W W W W `
+W W W B B B B W W `
+B1W W9B B9B B B2B `
+W W W W1B W B W W `
+W W2W B W1B W W5W `
+B B B2W B B B B W `
+B1W B W B1W B B B `
+    ]]>
+  </level>
+  <level id="201">
+    <![CDATA[
+W2W W W B W B B B5`
+B W5W W W B1W B W `
+B B W B7B B W B B `
+B B B W B B W B W `
+B B W B B W W W1B `
+W W W B W W W5B B `
+W W W W W B B B5W `
+W7W B W B B1W B B `
+    ]]>
+  </level>
+  <level id="202">
+    <![CDATA[
+W W W W4B B B W B `
+B3B B3W W B W W W4`
+W B W W W B B B W `
+B1W W5W B B4W B2W `
+W W B B B W W B B `
+B W B W W W5W W W `
+B2W B B B B B B2B `
+B W W B1B W B W B `
+    ]]>
+  </level>
+  <level id="203">
+    <![CDATA[
+W W W W W W3W W B `
+B B5B B B B B B W1`
+W W W W W W W W W `
+B2B W1B W B B B B8`
+W W B B W8B W W B `
+W B2B W W B B W2B `
+B B W W W B W W W `
+B W1B B B3B B3B B `
+    ]]>
+  </level>
+  <level id="204">
+    <![CDATA[
+W W7W W7W W B W1B `
+B W W7W B B W1B B `
+B B W W B B B W5B `
+B7B W W W B W W B `
+B W W W W W B W B `
+B B B B4B B1W W B `
+W W W W W W B1W W `
+B W B B B B6B B B `
+    ]]>
+  </level>
+  <level id="205">
+    <![CDATA[
+W3W W W1W B W B B1`
+B B B3B W B2W B W `
+B1W W W W W W B3W `
+B B B B W W6W B W2`
+B W B2W B W W B B `
+B B B W W B W5B B `
+B W2B W2W B3W B5W `
+B W B W W B W B B `
+    ]]>
+  </level>
+  <level id="206">
+    <![CDATA[
+W B6W W W B B2W B1`
+W6B W B4B W W B B `
+W B W B B W1B W2W `
+W B W W B B W B B `
+W B W B W B B B W `
+W B W B W W6W B6B `
+W W3W B W W W W W `
+B3B B B4B B2B W B `
+    ]]>
+  </level>
+  <level id="207">
+    <![CDATA[
+W1B B2B W B W B B `
+W2W W W4B W B B W `
+B B W W B W B2W B5`
+W B1W W B B W B B `
+W1B B W W W W5W B5`
+B W B W W4W B W2B `
+W B1B W W W3B W W `
+B1W B B B B W1B B1`
+    ]]>
+  </level>
+  <level id="208">
+    <![CDATA[
+W B B B W B2W B B `
+W4B W W W B W B W `
+W W B W B B1W B3B `
+B W B W W2W B B W `
+B W5W B W B5B W B1`
+B W B B W W B B5W `
+B W W W W W4W W W `
+B5W B1W B1B B B B `
+    ]]>
+  </level>
+  <level id="209">
+    <![CDATA[
+W5W W W B B B W B `
+B W W W B5W W W W `
+B B1W W B B B B B4`
+B5B B1W W W B5W B `
+B W B B W W B B B5`
+W1W W W B1W W W B `
+B W W4B B W B1W W `
+B W B B W B1W B B `
+    ]]>
+  </level>
+  <level id="210">
+    <![CDATA[
+W2W W1B B B W B B1`
+B W W W B B W W W `
+B B W B6B W W B B `
+W1B W W W B3B B W `
+B B W W W6B W B B `
+W W2B W B B W B W `
+W1B W W W B2W W B2`
+B B B2B W B W1W B `
+    ]]>
+  </level>
+  <level id="211">
+    <![CDATA[
+W7W W7W B B3W B W B1`
+B B W W W B B W B1B `
+B W W7W W B B B5B W1`
+B7B B W W W B1B W5W `
+W B B B W B B W W W `
+B1W W W4W W B3B W5B `
+B B B4B W W3W W W W1`
+W2W B W B B W1B B2B `
+B B B W W5W W W W W1`
+B1W B3W B B B B B B `
+    ]]>
+  </level>
+  <level id="212">
+    <![CDATA[
+W2W B4W B B1W B B B2`
+B W4B B B W W W W W `
+B2W W W4W W W6W W1B `
+B W B B B B6B B W W `
+W B W B B W B W W W `
+B W B2B W W B B5B B5`
+W1B W B W2W W B B W `
+B W2B B W B W B2W B `
+W1W W W4W W W B B W `
+B B B B B4W B1B W1B `
+    ]]>
+  </level>
+  <level id="213">
+    <![CDATA[
+W1W B W3W B1W B1W B1`
+B W B2W B B B W B5B `
+B W B W3W W W W B W1`
+B1B W W B W5W B5B B `
+W W B B1B W B1W W W `
+B B7B B B7W W W B2B `
+B B B W B W W B2W B `
+B W B W B W W B B2W `
+W2W B W W7W W1W B B `
+B B2B W W W7B W W B `
+    ]]>
+  </level>
+  <level id="214">
+    <![CDATA[
+W B B B3W B W B1W B `
+W B B3W B1B B B B W `
+W B W W3B W W3W W3W `
+W B6W W W B5B W B W `
+W B B W B5B W1B W W `
+W B6W W B W B B4B B `
+W W W W B1W B W B W `
+B1W B W1W W B B1B B `
+W B1W W W W6W W B W `
+B B W B B B B6B B B `
+    ]]>
+  </level>
+  <level id="215">
+    <![CDATA[
+W1W W W W W7W B W B `
+B B B B4B W B7B B B7`
+B W3B W W W W B7W B `
+B W W B1W W7W B B B1`
+B3W B1B W W W B B W `
+W W W W3W W W B B7B `
+B B B B W W W B7W W6`
+W B W B3B W W W W W `
+B W W3W B B B B B W `
+B1W B B3B W B1B B B1`
+    ]]>
+  </level>
+  <level id="216">
+    <![CDATA[
+W1W B W B1W B B W B1`
+B W1W2B B B B3B B B `
+W B W B W3W W W4W B `
+B W B B B W B1B W W1`
+W W W8W W W W W W B `
+B W B W B1W W B B3W `
+W2W B B8W W W1B B B `
+B B2B W B W2W B W W3`
+W2W B B B B W B B3W `
+B B B W1B B W W W B1`
+    ]]>
+  </level>
+  <level id="217">
+    <![CDATA[
+W W B1W B4B B B W B1`
+B W B2B W W W W4W W `
+W W B B W W W4W W B `
+B W B W4W W B B4B W1`
+W4W B B B B B W B1B `
+B W W B W2W B W3B B `
+W W B B5B B2W1W B3W `
+W W B W B2W B W B B1`
+W1B B5W B B W W W W `
+B W1B W B B3B B W B1`
+    ]]>
+  </level>
+  <level id="218">
+    <![CDATA[
+W W2W B1W B B B4B B4`
+B W B1W W2B W W W4W `
+B W W W W W B W B W `
+B B B5B W1B W1B W B1`
+W2W B W B W1B W B B `
+B B2W B B B W B W W `
+W W W B W B2W W W W4`
+B B2W B B1B B4B W B `
+W B W B B W4B W W W3`
+B B W B W W W4B B B `
+    ]]>
+  </level>
+  <level id="219">
+    <![CDATA[
+W B B B B6W B W1B B1`
+W B4W B B B B B B1W `
+W W W6B W7B B B W B `
+W W W B W B B W B W `
+W W B W1W B7W W W B `
+B W3W W W B B W W5W `
+W W B W W B B W1B B `
+B W B B W B1W B B W1`
+W B W3B B W W B W2W `
+B W3W B W B W B1B B2`
+    ]]>
+  </level>
+  <level id="220">
+    <![CDATA[
+W4B B B W B1W B1W B `
+W W B B4B B W B B2W `
+W4W W7B B7B B W3B B `
+W W W B W B1W W W B3`
+B W7W W B W B1W B W `
+W2W W W W4W W B W B1`
+B B B B B W B W W W `
+B W B W3B W4W B B B `
+B W3B W W B B B W W `
+B W B W W2B W1B B B1`
+    ]]>
+  </level>
+  <level id="221">
+    <![CDATA[
+W B1W W W B2B B W B2`
+W B B W W W W B W B `
+B B B5W W1B W B4B B `
+W W B B1W W W4W W4W `
+W B W B B B2W B B B4`
+W B5B B B W1W W B W `
+W5B W2B W B W W2B B `
+W B2W W B2B W2W B W1`
+B1B W1B B W W B W B `
+    ]]>
+  </level>
+  <level id="222">
+    <![CDATA[
+W B4B B W B1B W W B1`
+W W B B W W B W B3B `
+W4W W1B W B B W B W `
+B W W W6W B5W B1B B `
+B B B W B W W5W B W `
+B W B B W1B W W W B1`
+B W2W W W W1B W1B W `
+B B B3B W W W W W2W `
+B W B B B B4W B1B B2`
+    ]]>
+  </level>
+  <level id="223">
+    <![CDATA[
+W8W W W8B B B B W B1`
+B W8W W W W W4W B W `
+B B W W8W W W W3B B1`
+B B B W W W B1W B3W `
+B B B B W B W W W B `
+W W W B3B W8W W W W `
+W B B3B B B B B8B B `
+B W1B B W B B B W1W `
+B1W B W B W B W B B1`
+    ]]>
+  </level>
+  <level id="224">
+    <![CDATA[
+W8W W W8W B W1B B B `
+B W W W W8W B W W W2`
+B B W W7W W W W B2B `
+B B B B B B B B7W W `
+B B B W W W W6W W W6`
+W B8W W5B B B B B B `
+B1B B5W W W W W5W W `
+W W B B B B B B B W `
+B2B B W1B W1B W B B `
+    ]]>
+  </level>
+  <level id="225">
+    <![CDATA[
+W3B B B W1B B W1B B `
+W W W W5W W W W B W `
+W B5W W B1W B B B7B `
+B B W4B B B B W B B `
+W B W W4B W B4W W7B `
+B1B W W B B W W7W W1`
+W W W2W B2W B W W B `
+B B B W W B W B W W1`
+B1W B2B W B B W B1B `
+    ]]>
+  </level>
+  <level id="226">
+    <![CDATA[
+W5B B B5B B1W B B6B `
+W W B B W B B B B W1`
+W W W B1W W1B B W W `
+W W W W W W B6W W W `
+W B2B B4B W B B6W W `
+B1B W B W W6B W W B `
+B W B W2W W B6W B B4`
+B W W1B W W B W B W `
+B3W B B2B W6W B B4B `
+    ]]>
+  </level>
+  <level id="227">
+    <![CDATA[
+W W5W W W4W W W W B1`
+B5W W W W B B W B B `
+B W4W B W6B W W W3B `
+B5W B W W B B B B W `
+B B B W6W B B B W1B `
+W B4B W B B B6W B W `
+B W W W4W B1W B B4B `
+B B B W W W W4W B W `
+B4W B1B W B W B1B B1`
+    ]]>
+  </level>
+  <level id="228">
+    <![CDATA[
+W B B W W B B B6B B `
+W B4W W W B B B W W `
+W B W W7W B B6W W W `
+W B4W W W B3W W W W4`
+W B B7W W W W W W W `
+B1B B B W B W W B B4`
+B B7W B B B B B3B W `
+W1B W2B W B1B W B4B `
+B W B W1B B W B1W B1`
+    ]]>
+  </level>
+  <level id="229">
+    <![CDATA[
+W W3W W7W W B W B1B `
+B B B W B B B W3B W `
+B W1W W W B W W B3B `
+W B B W B B B W3B W `
+B1B B B W5B W W W4B `
+B W W W W W1B W W W1`
+B W B W W B B B1W W `
+B3W W W W W B B B W1`
+B W1B B3B B3W B B2B `
+    ]]>
+  </level>
+  <level id="230">
+    <![CDATA[
+W1B W4B B B3B B B B4`
+W W4W W W W W W W W `
+W B B4B W W W W W B3`
+B B4B B B W W W7W B `
+B W B7B B B W B W3B `
+B B W W5W W W W B W1`
+B B W5W B W B3B W1B `
+W1B W B B B B B B W1`
+B W W5W W B1W B W1B `
+    ]]>
+  </level>
+  <level id="231">
+    <![CDATA[
+W1B W1B B B B B W B2`
+B W9B B W B9B W1W B `
+W W W B B1B W B B3B `
+B W W W B B B1W W W `
+W9W W9W W1B W B B W1`
+B W W W B W B1W W2B `
+B W W W W5B B B5B W `
+B3W B2B W B W B B B1`
+B W1W W5W B W3W W B `
+    ]]>
+  </level>
+  <level id="232">
+    <![CDATA[
+W9B B9B B B2B B W B `
+W W B B B9W W2B B2W `
+W9W B W1B W B W W B `
+W W9W W B9B W W1B W `
+W W W W5W W1W B B B1`
+W1B W B B B W W W W `
+B B W B W W9W W9W W9`
+W B2W B B B B B B B `
+B B W2B W B9B B W B `
+    ]]>
+  </level>
+  <level id="233">
+    <![CDATA[
+W3B B B3W B1W B B B `
+W W W5W B1W W W B W `
+W B W W W B3B B B B `
+B B W W6W W B W1B B6`
+B W1B W W W B6B W B `
+B5B B B1W B B B6W B `
+W W B6B W W W W W6W `
+B B2B B W W W W6W W `
+B W B W B W B1W B B2`
+    ]]>
+  </level>
+  <level id="234">
+    <![CDATA[
+W W3W W1B W1B W2B B `
+B3B B3W W B B W B2W `
+W W W W W W W W8W B4`
+B W8B B B W W W W8B `
+B1W B B W B W8W B B `
+W B B B B B W W W W `
+B W1B W W2B B W B B2`
+W W B B B B B8W W W `
+B2B B W B1W B W B B2`
+    ]]>
+  </level>
+  <level id="235">
+    <![CDATA[
+W W W B W W B1W B B `
+B B4W B4W W W W W W `
+B4W B B W W B5B B B `
+B W3B B W B9B W W W `
+W W B B B B W B3B B `
+B W B B9B W B1W B1B `
+W9W W9B B B W B1B W `
+W W W W B1W B W B3B `
+B W W9W B W W3W W B `
+    ]]>
+  </level>
+  <level id="236">
+    <![CDATA[
+W W W4W W B W B W1B `
+B4W B W B W1B B B B3`
+B W B2W2B W W W W3W `
+B4W W3W W W W W2W B1`
+B B B B B5W B1W B B `
+B B B4W B B W W B B `
+B B W W4B B5B W4B W `
+W B W1W W W B2W B B1`
+B W B W B2B W W4W B `
+    ]]>
+  </level>
+  <level id="237">
+    <![CDATA[
+W5B B B W3B W1B B B1`
+W W B B W B W2B B2W `
+W5W W2B W3B W B W W `
+B W3W B2W B3B3B B B `
+B3W W W W B W W3W W `
+B W B B2W B W W W3B `
+W W W B1B B B B B W `
+B W B2B W W2W B2W B `
+B W2W B1W B W2B W B2`
+    ]]>
+  </level>
+  <level id="238">
+    <![CDATA[
+W8W W W W8W B B W B `
+B B8W W8W W2B B B W1`
+B B W B W B W B W2B `
+B8B B4W B W B B W B `
+B W B B B4B W B B W6`
+B W W4W W W W W W W `
+B B4W B2B W W W W W `
+B W W W W B W B W W1`
+B4B W B B7B B7B B B `
+    ]]>
+  </level>
+  <level id="239">
+    <![CDATA[
+W1W B W B W3B W W B `
+B W6W W W3W B2W W4B `
+B B B W B W1B B2W B4`
+W2W B W B B W2B W B `
+B B2B W B1W W W B B1`
+B2W B W B B4B W2B W `
+B W W4W W1B W B W2W `
+B B2W W B W B2W B B `
+B1W W B W W B B W B1`
+    ]]>
+  </level>
+  <level id="240">
+    <![CDATA[
+W1B W B B W B W B1B `
+W W W W B B6B B6B W1`
+B B B4B W W W W W4B `
+B W5B B3B W B W W1W `
+W5W B W W W B B B B1`
+W W B B W W B W B1W `
+B W5B B W W W B1W W `
+W1W W B W3W B B B2W `
+B B2B B W W W1B B B1`
+    ]]>
+  </level>
+  <level id="241">
+    <![CDATA[
+W3B B1W B1B W B W B `
+W B W B5B B B W B B `
+W B W W W W5W W W B `
+W B2B W B B W W W6B `
+B W B W2W W W B W B6`
+B W W B B B W W2W B `
+B1B B1B B1W B B W B `
+W B2W W1W W W W W W `
+B1W W2B W B4B B4B B `
+    ]]>
+  </level>
+  <level id="242">
+    <![CDATA[
+W W2W B B W2B B1B B1`
+B B W B W W B W B W `
+W W W6B B6B B B W W `
+B B2W B W B2B B7B B `
+W W B W7W B W W W1B `
+W1B B W W W1B W B W1`
+B B B W7W W W W W7B `
+B W B7W W B2B W W W `
+B2W B W B W B1W B B `
+    ]]>
+  </level>
+  <level id="243">
+    <![CDATA[
+W W W W W B W W5W B1`
+B B2W W W3W W W B5B `
+B W B B B B W B B B5`
+W B B W8W W8W W3B W `
+B B B B B W W W B B1`
+W1B B W B3W W8W B3W `
+B B B8W B W2W W B B1`
+W W W W B B W W W W `
+B B3B B1W B B3B B B `
+    ]]>
+  </level>
+  <level id="244">
+    <![CDATA[
+W B3B B W B1W B B2B `
+W3B W2W B B B3B W W2`
+W B3W W W W W W1W W `
+W2W W W B B B2B W B `
+B B W W4W B W W2W B `
+W1B B B W3B W B W B `
+B W W B4W B B2W B2B `
+W W B4W B W B W B B4`
+B W B B B W W B W1B `
+    ]]>
+  </level>
+  <level id="245">
+    <![CDATA[
+W1B W2W W B1W B B B2`
+W2W B B B1W B B1W W `
+B B W B1W W B W B B `
+W W W W W W4W B W2W `
+B B B3B B W B B B B `
+B B2W B W5W W5W W1B `
+W2W W B4W W W W5B W1`
+W B2B W B W W B B B `
+B B B5B B5B W3W W B `
+    ]]>
+  </level>
+  <level id="246">
+    <![CDATA[
+W2B W W B W1B W W B1`
+W B2B W B6B B B W W `
+B W B W W W W B W B4`
+B W B B B W W6W B B `
+B3W W B B6W W W6B B `
+B2W B1B W W6W W B2B `
+B W W W B W B1W W B1`
+B W W B4W B W W W W `
+B2W W B B4B B B4B B4`
+    ]]>
+  </level>
+  <level id="247">
+    <![CDATA[
+W W W3W W W B W W B1`
+B B B W4B B B1W B B `
+W W W7W W B W W W W2`
+W W7W W B1B B W B2W `
+B2W B B7B B7W W9B B `
+B W B B B7W W W B B2`
+W B W B1W B W W W2W `
+B1B2W B B B W W B W1`
+B W B W B B9B B B B `
+    ]]>
+  </level>
+  <level id="248">
+    <![CDATA[
+W B W2W W B B2B W B `
+W B4B W1B B W W B B `
+W B B W W B B W1B W `
+W B W B2B B B7B B B4`
+B2W B W B B W B W W `
+B W W W W W W7W B2W `
+W W W W W W W W B W4`
+B B B B W7B W2B W2B `
+B1W B5B W B2W B W B2`
+    ]]>
+  </level>
+  <level id="249">
+    <![CDATA[
+W2B B2B B W B W5W B1`
+W B2W W2W W W5W B W `
+W4W W W B W B B B B `
+B W W B1W W2B W B W4`
+B B B3W B W B W4W W `
+B4W B B W B B B B B4`
+B W W W B W B W B B `
+W W W W B B W4W W W `
+B2B W W B5B B B B B4`
+    ]]>
+  </level>
+  <level id="250">
+    <![CDATA[
+W W W B B B B2W B1B `
+B B W4B B5W W W W W1`
+B W2B B W W W W W B `
+B W B W W5W B5B W W `
+W3W W B W B8B B5W W `
+B B B3B W B B W W W `
+B B B B3W B B8B W W8`
+W3W W B W1B B W B W `
+B W1B W1B W1B B1W B1`
+    ]]>
+  </level>
+  <level id="251">
+    <![CDATA[
+W W W W5B W B W1B B `
+B W W3B W B W B W W1`
+B B W B B B B5B B1B `
+B W W B W W W W W W `
+B B W W W W5W W B W3`
+W W2B W W B W4W W W `
+W B B5W B2B2B W B B `
+B1B B B B B B W B W1`
+B W B W B W B W B B `
+    ]]>
+  </level>
+  <level id="252">
+    <![CDATA[
+W W W W1B B W B B B1`
+B3B B W B W B W4B W `
+W W W W B3B B W B B4`
+B3B B W B W B W W4W `
+W B W B W B W W W B `
+B W9W B9B B B W B1W `
+W W W B B W2W B B B `
+B1W W B W B W B W W `
+W W9W B B B W2W B1B `
+    ]]>
+  </level>
+  <level id="253">
+    <![CDATA[
+W3B W B W B W8W W B `
+W B B W1B B W W8W W1`
+W B3W B W B W B W B `
+W W B B W B W B W2B `
+B W5B W W W B B B B `
+W W B B B B W B B B `
+W5W B B W W2B B B B3`
+W W B W4W W W W3W W `
+B W B B B B W B W B `
+    ]]>
+  </level>
+  <level id="254">
+    <![CDATA[
+W1W B B W B W W W B3`
+B W B W W W1W W W B `
+W4W B B B W B W W B `
+B W5W B3W W W W B B1`
+W1W B W B3B B B B W `
+W W W B W B W B B B6`
+B B B B W B3W B B6B `
+W B W B W B W W W W1`
+B1B W W1B W B B2B B `
+    ]]>
+  </level>
+  <level id="255">
+    <![CDATA[
+W B W W W B W B W B `
+B1B B B B3W W W6W B1`
+W B4W W6W W W W B W `
+W B B6W W6W W W B2B `
+W W B B6W B B B B W `
+W B1B B B B W B W B `
+B W B W B B B6W B W `
+W W W B W B6B B B B `
+B B B2W W W W6W W B `
+    ]]>
+  </level>
+  <level id="256">
+    <![CDATA[
+W2B B W B B B3B B3B `
+W W B B B6B W W W W1`
+W W W W B B B W B B `
+B W4W W W W W1B B W `
+W B W W W W W W W1B `
+B1B B W B W4B B B W1`
+B B W B B B B B2B2B `
+W W W6B B W B1W W W `
+W W W B W B W B W B1`
+    ]]>
+  </level>
+  <level id="257">
+    <![CDATA[
+W W W3B W B1W B W B `
+B B B W B B B7W B B1`
+W1W W4W B7B W W B W `
+B B W W7B W B3B W W `
+W B B W B B B B W B `
+B1B W W B B3B W W B3`
+W W W W W1B W1B W B `
+B W B W W W W W B W `
+B W1B B W1B W W2B B1`
+    ]]>
+  </level>
+  <level id="258">
+    <![CDATA[
+W9B B B B B B W W B `
+W W W B B W B2W W B2`
+W W9W B B W B W W W `
+W W W B B B W6W W B1`
+W B W B W1B B B6W W `
+W5W W B B W B B B2B `
+B W W W W6B B W W B3`
+W W W W B B B B W B `
+B B1W B B B W1B W B `
+    ]]>
+  </level>
+  <level id="259">
+    <![CDATA[
+W2B B B B W B W B B `
+W B W W3W B W B W W `
+W1B W2W B B B W W B `
+W W B B2W W W4B W6B `
+B2B W3W W W B B W B `
+B B B W B4B B W W B `
+B B4W W W B W B W B `
+W B W W W W B W B B6`
+B4B W W W B1W B W B `
+    ]]>
+  </level>
+  <level id="260">
+    <![CDATA[
+W B2W W W3B W W1B B `
+W B B B B W1W B B W `
+B W W W W B B B W W2`
+B4W B W W B1W B B B `
+B W4W B W4W W4W W4W1`
+B4W B W W B B B B B `
+W W W B W B W W W W1`
+B B3B B2W B B B W B `
+B W B W B1B W B1W B1`
+    ]]>
+  </level>
+  <level id="261">
+    <![CDATA[
+W1B W W W W W W B B1`
+W W W W B W W B B W `
+B B B B W B W5B B B `
+B3W B B7B W B W B5W `
+B W W B B9B B B W B2`
+B W W W B W B B W B `
+B W W B W1B B9B B3B `
+W W W W9W W1B W W W `
+B B W1W W B W B W B `
+    ]]>
+  </level>
+  <level id="262">
+    <![CDATA[
+W3W W W B B W2B W B `
+B B B W3B W W B B2W `
+W B W W B B B B B W4`
+B W W W W B5B B B W `
+W B W1B1W W W B W W `
+B B3B B W W W W B W `
+W1B B W W2B W B W W `
+B B4B W4W W B B3B W1`
+B1W B W W B B W B3B `
+    ]]>
+  </level>
+  <level id="263">
+    <![CDATA[
+W B B8B B B W1B W W `
+W8W B B B B B W W5W `
+W W W B W B B6B B W `
+W W W B W W B B5B B `
+B W2W B2W W6W W B B `
+B W W W W W B W1W B2`
+W B2W W W W B B W W `
+B B W B7B B B W B B `
+B W W2B B B W B W B `
+    ]]>
+  </level>
+  <level id="264">
+    <![CDATA[
+W2B W B B W W B3B B `
+W B B B W1W W W W W `
+W W B W2W W5B B B B `
+W W B2B W1W B B5W W `
+B B W W B W W B B W `
+W B W B W W W W W3W `
+B B W3B B B5W W B B `
+W B2W W1B W B3B B3W `
+B B W B B5B B W1B B1`
+    ]]>
+  </level>
+  <level id="265">
+    <![CDATA[
+W W W W W W6W B1W B1`
+B B B B B B B5B B B `
+B B W2W W W B W W W3`
+B W W W2W W B B B W `
+W W4W W B W W W B B1`
+B B B B B2W W W W W `
+W2W B1W B B B5B W B `
+W B2W W W5W B B B W `
+B B W B W B B B B B `
+    ]]>
+  </level>
+  <level id="266">
+    <![CDATA[
+W6W W W W W6W B2B B1`
+B B B B B B W B B5W `
+W W W W W B B B B B1`
+B1W B W W6W W W W W `
+B B B6W W W W4W W B `
+W B B B W W B B W W `
+B B B B3W B W B4W W `
+W B W W W W B1B B2W `
+B B B4B W B W B B B `
+    ]]>
+  </level>
+  <level id="267">
+    <![CDATA[
+W W B2B W B1B B W B2`
+B2W1W W B2B B B W B `
+B B W W W W B W B B `
+B B B B B4W B W B2W `
+W B B7W B W W6W W W `
+W W B W7W W1B W W6W `
+B2B B W W7W W B W W `
+W B7B B W B B2W B2B `
+B B W W W W B1B W B `
+    ]]>
+  </level>
+  <level id="268">
+    <![CDATA[
+W1W B W B B5B W B B `
+B W W B B B B5W B2W `
+W W W W5W B5W W W W2`
+B W B W W W W5W B B `
+B B B B2W B B B5W W `
+B5W W W W W B W W4W `
+B B B W3W B B B B B `
+W W2B W W W B B W2W `
+B2B B W B2B W B1B B `
+    ]]>
+  </level>
+  <level id="269">
+    <![CDATA[
+W B B B6B B B B4B B1`
+W W B W B W W W W4W `
+W W B B W4W W W2W B1`
+W6W W W B B W B B W `
+B B B W B W B3B B B `
+W W2B W B W W B B W `
+B2B W1W W W3B W B B `
+W W B W B B B W B W `
+B B2W W5B W B W3W B `
+    ]]>
+  </level>
+  <level id="270">
+    <![CDATA[
+W B W W W W B W B B `
+W2B W W W W W W W W `
+W W B7B W W B W B B `
+W B2B B B2B W1W B W `
+B B B B7W B3B W W B `
+W W2W B W B W W W W `
+B W B2W W B B B B B `
+W1B B B W W B6B W B `
+B B W1B B B W B W B2`
+    ]]>
+  </level>
+  <level id="271">
+    <![CDATA[
+W B W7B W B W B2B B `
+W W W B B W W W W W1`
+B W7W B7B B3B B B B `
+B W W B W B W7B B W `
+B2W W B7B W W B B B `
+B W B W W B W B B W `
+B W W B W W W B B B `
+B3W B B2W W W W B B `
+B W1B W W W W W W1B `
+    ]]>
+  </level>
+  <level id="272">
+    <![CDATA[
+W W4B B B W W1B W3B `
+B W B W B1W B B W B `
+W4W W3W W B2B1B W B `
+B W B W3W B W B B B `
+W B B W B B B2B B W7`
+B W W W W7W W B W W `
+B B7B B W W7W W7W W7`
+B B W B B B W3W W W `
+B W1W B W B B B W B `
+    ]]>
+  </level>
+  <level id="273">
+    <![CDATA[
+W B W W3W W1B B W B `
+B3B B3W W W B B W W `
+B W B B3B W2B W W B `
+B B W W W W W B W3B `
+W W W W B W B W B B `
+W B1W W2B B W W3W W `
+W W B B W B B B B B1`
+W B B B4B W B W W W `
+B1W B W B W2B B3B B3`
+    ]]>
+  </level>
+  <level id="274">
+    <![CDATA[
+W B4B W B W B W W B `
+W B W B W B B W W W `
+W B B W B B B2W W B `
+W B W B B B B B W B `
+W4W W4W W7W W W7W B5`
+B W3B B B W W W B B `
+B4W W W3B W1B B W W2`
+B W B W B3W W B B W `
+B W B W B B2B W B1B `
+    ]]>
+  </level>
+  <level id="275">
+    <![CDATA[
+W B B W B B7B B2B B `
+W B W B B B W W B2W `
+W3B W W W B B W2W W7`
+W W W W B W B B W W `
+B1W W B W1W W W W7W `
+W W B1W B B B B7W B `
+W B B B B7B W W W W1`
+W B B W B B B B W4B `
+B B W B W B4W B W B `
+    ]]>
+  </level>
+  <level id="276">
+    <![CDATA[
+W3B B3B W B W B W4B `
+W W1W B B1W B W4W W `
+W B W W3W B B W W B `
+B1W B W B B6W W W B4`
+B B3B W B B B W B B `
+W W W W W B B B B B `
+B W W W6B W B B B B `
+W W W W B B B6W W W3`
+B W W W B B W B W B `
+    ]]>
+  </level>
+  <level id="277">
+    <![CDATA[
+W W W W4W B B4B W1B `
+B B B B W B W W W W8`
+W W W W W W4B W W W `
+B W B B B B B B W W `
+W W B5B W B B B B B `
+W W B B5W B B B W3B `
+B1B2W W W8B B8W W B3`
+W B W W8W B B B W3B `
+B W W8W W B1B B W B `
+    ]]>
+  </level>
+  <level id="278">
+    <![CDATA[
+W4W W4B B B B7B B B1`
+B B W W W W3B B B W `
+B W B B W B B B7W W `
+B W B2W B B8B W W W `
+B B W W W B B B W7W `
+B B W W B B W3W W W `
+W B W W W W8B B B3B `
+B B W W W W W W2W W `
+B7B W W W8W B B B B `
+    ]]>
+  </level>
+  <level id="279">
+    <![CDATA[
+W W W W8W B1W B W B `
+B W1W W B B B3B B3W `
+B B W W W W B W W W `
+B8B B8W B7B W1B W B `
+B W B B B W B B B W `
+B B8B W B B B7B W W `
+W W W W B W B W W2W `
+W B W W W2B W B W B `
+B1B W2W W B B1B W2B `
+    ]]>
+  </level>
+  <level id="280">
+    <![CDATA[
+W5B W W W1B W B1W B `
+W B W W B W1B W B B `
+W5B B B W B W3W W B `
+W B B W B4W B W B W `
+W5B W B B B W B W B1`
+B W B W B W B B W B `
+B W W4W W B W B B B `
+B W4W W W W5W B B W `
+B W B B3B W W B W B `
+    ]]>
+  </level>
+  <level id="281">
+    <![CDATA[
+W B W1B W B B W W B `
+W B B B B B B B W B `
+W B B2W2W W3W W W3B `
+W5B W W W B W W W W `
+W B W B3W B B W W W6`
+W B W B W B4B W B2W `
+W B W B W B B B B W1`
+W B B B4B W B6B B B `
+W B4B W B4W W W W B `
+    ]]>
+  </level>
+  <level id="282">
+    <![CDATA[
+W B W B W B B B B4B `
+W B B B W B2W W W W `
+W B W B B B B7B W B `
+W B B W W B B B B B `
+W B W B W W B W B B `
+W B W B W W W B7B W `
+W B7W B W W W W W7B `
+W W W W B W B1W W W `
+B B2W B W B1W B W B `
+    ]]>
+  </level>
+  <level id="283">
+    <![CDATA[
+W2B B W W B W B W B `
+W W W W B B3B W W B `
+W1B W2B W W W W B W `
+B B W B W2B W3W B B `
+B B W B W B W W B5W `
+B B2W W W B W B B B `
+W W W B B W B B W W `
+W B W B4W B B B B2W `
+B1B W2B W W W B B B `
+    ]]>
+  </level>
+  <level id="284">
+    <![CDATA[
+W3B B B B W B2W B B1`
+W W2W W B W B W W5W `
+W B B W B B W W W B `
+B W W W W1B B W W W2`
+B B W W1B W B5B B2B `
+B W1W B W B1B W W W `
+W W B W B W B B B3B `
+W1B W W W W W1W B B `
+B B2B B4B B B W W B1`
+    ]]>
+  </level>
+  <level id="285">
+    <![CDATA[
+W W W W B W1B B4W B `
+B W W W4W2B B1B B B `
+B B W B W B W W W W `
+W B B B3B W B W2B W `
+B B W B W B W1B B W `
+W W W W B W B W B1B `
+B W W4W W W W4W W2W `
+B B B W4B W W B2W B `
+B B W1B B B B B W B2`
+    ]]>
+  </level>
+  <level id="286">
+    <![CDATA[
+W W W W W7W W W W1B `
+B B B B B B7B W W B `
+B W W W3W W B2W B B `
+B4W B B B3W B W B B `
+B W W B2W W B W3B W `
+B W W B B W B8W B B `
+B W W W W W B B B B `
+B2W W B2B W B W B B `
+B W1W W B W8B W W B1`
+    ]]>
+  </level>
+  <level id="287">
+    <![CDATA[
+W B W B W B W1B W B `
+W B2W W B B W B4W B3`
+B3W W3W B2W W B W B `
+B B W W W B2W B B B `
+B W2B W W B W B B W `
+B W B B1W W B B B B `
+B1B B1W B W2W B B B `
+W B W W W W W W B1B `
+B W W B W1W W W W B1`
+    ]]>
+  </level>
+  <level id="288">
+    <![CDATA[
+W B B B W B1B W W1B `
+W B W W B B B W B B `
+W4W B W W B W B W1B `
+W B W W W W W W5W B `
+B W B W B B B B W B `
+W B1W W W B W B W B `
+B B B5B W W B W1W B4`
+B B B W2B W2W W W W `
+B W B W B W B B2W B `
+    ]]>
+  </level>
+  <level id="289">
+    <![CDATA[
+W B W B W1B B B3B B `
+W W B W2B W B W W W `
+B W2B W B W B B B B `
+B1W B W W W W B8B W `
+B B B W2W W W W B B `
+B5B W W W W B W1B B `
+B W W W W W W B W B `
+W B1W W5W B B B W B2`
+B1B W B W B W B4W B `
+    ]]>
+  </level>
+  <level id="290">
+    <![CDATA[
+W W W6W W W W B W1B `
+B B B B B B W B B W `
+B W B2W B W W W W7W `
+B B2B W B W2W W W W `
+W W W B W B B B W B `
+W W W W B B B W B W `
+B W W B B W W B W W `
+W W B B B B B2B B3W `
+B B W B B7B W B1B B `
+    ]]>
+  </level>
+  <level id="291">
+    <![CDATA[
+W B B B B6B W B W B1`
+W W B W B W W W B B `
+W6W B B W W W W W2W `
+W W W B B B B W B W `
+B W B B B W W B6W B `
+W B W W W B W B B W `
+B1B B W3B B W B B B `
+B W2W W B W W B B W `
+B2W B W B3W W W B B `
+    ]]>
+  </level>
+  <level id="292">
+    <![CDATA[
+W1W B4B B W B2W W B1`
+B W B W W W7B W B B `
+W W W B W W W W W B `
+B B B B W W B W W2B `
+B W B B B W W W W W `
+B W W W W B B6B B B `
+B W B W W W B B W B `
+B W5B B W W W W W B `
+B W B6B B B B3B W B3`
+    ]]>
+  </level>
+  <level id="293">
+    <![CDATA[
+W B2B B5B B W B1W B1`
+W B W B W B B B B W `
+W W W B W B B5B B B1`
+W W W W W W W W W B `
+W B2W B2W B W B W W `
+B B W B W1W B B W B `
+W B1W B B W W B B W `
+B1B B B W W3W W B B `
+B W W W W4W B B W B `
+    ]]>
+  </level>
+  <level id="294">
+    <![CDATA[
+W B B B B W B W B B `
+W W1B W W B W B B W `
+W W W5W W W B W B B `
+W B B B5B W B2W W4B `
+B W B W W W W B W W1`
+W1B W B W B B W2B B `
+B W2W B3W B W W B B `
+B W B B W B B W B W `
+B2W B2W W B5W B W B `
+    ]]>
+  </level>
+  <level id="295">
+    <![CDATA[
+W B B W B B W B W B `
+W W3W W3W W W B W W1`
+W B W B B W B B W B `
+B B B B W B B W B B `
+W B W B B W B B W W `
+B W W4B W W B B W B `
+B W W B2W W5W W W W `
+B W W2B B B B B W B `
+B3W W W B B W B1W B2`
+    ]]>
+  </level>
+  <level id="296">
+    <![CDATA[
+W B W6W W6W B2B W B `
+W B B W W W W W B W `
+W B6B B1W W W W B B `
+W B B B B3B B W B W `
+W B6B B W B W1W W B `
+W B W B W W B W B W `
+W B W B B W W W3B B `
+B B B W B W B B W W `
+B W B W W3B B W B B `
+    ]]>
+  </level>
+  <level id="297">
+    <![CDATA[
+W W4W W B W B B B B7`
+B B B B W W1B B B W `
+B W4B W W B B B W W `
+B W W B2W W1B W W W `
+B W B B W B W W W W `
+B W W B B6B B B2B1W `
+B W W B6B B3B B W B `
+W W W B W W W B W2W `
+W W B W1B W1B W B1B `
+    ]]>
+  </level>
+  <level id="298">
+    <![CDATA[
+W7B B B B B B B B B3`
+W W B B B7W B W W W `
+W7W W B7W B B B B B `
+W W B W W W W B B W `
+B W W W W W W B9W B1`
+W W W W W B W W B3B `
+B B B3W B B3W W B W `
+W B B B W W W W W B `
+B B B B B B W1W W B `
+    ]]>
+  </level>
+  <level id="299">
+    <![CDATA[
+W W W W W W B B B B3`
+B4B B B W W B4W W W `
+B W4W W B W B B W B `
+B W W2B W W W B W W `
+B B W B W W W W W B `
+B W4W B B B B W W W `
+B W B W B6B B B B B `
+B W W B W B4B B4W B `
+B W B W W4W B4B W B2`
+    ]]>
+  </level>
+  <level id="300">
+    <![CDATA[
+W1B B B B B B6B B B `
+W W W W W W W W W W2`
+W B B B W B1B W B1W `
+B W B B6B W B4B B B `
+W W W B B W4W W B2B `
+W W W B W B W B W W `
+B W W W W B B W B B `
+B W B W W6B B W B2W `
+B W3B W W B W B W B `
+    ]]>
+  </level>
+  <level id="301">
+    <![CDATA[
+W B B B5B B3B W W1B `
+W W B B W W W W W W `
+W W W2B B B W6W W B `
+W W W B W W2B B B W `
+W B B W1B W B B B B1`
+B W W W W W B2B W B `
+W1B B B W B1W W W W `
+B B W W W W B B3B B1`
+B B B W B B W B W B `
+    ]]>
+  </level>
+  <level id="302">
+    <![CDATA[
+W W W W3B B B8B B B `
+B B B3W B W B B B W `
+W W W W B W B W B W `
+W B B B B6W B W2B W `
+W B W W3W W W W W W `
+W B B B B W W W B B4`
+W W B3W W2W B W B W `
+W1B B W3B B B W B B `
+B B2B W B B B5W W W `
+    ]]>
+  </level>
+  <level id="303">
+    <![CDATA[
+W B W W W B B2B W B `
+W4B B W B2B B W W B `
+W B B2W B B W B B2W `
+W B W B W B B W W B `
+B1W W W W B W W1B W `
+W W W W W W1B W W W `
+B W6W B W B W W W W `
+B W B B B B B7B B W `
+B W2B B B W B B B B `
+    ]]>
+  </level>
+  <level id="304">
+    <![CDATA[
+W B B B W B W B W B `
+W B W5W W5W W W B W `
+W4W B B B B B W B2B1`
+B W5W W W W4W B W B `
+B W W B B B B W W B4`
+B W B W W B W B W B `
+B5W W B W1B W W1W B `
+B W B B2B B W3B W B2`
+B W B W B W1B W W B `
+    ]]>
+  </level>
+  <level id="305">
+    <![CDATA[
+W1W B B6B B B B6W B `
+B W W W W W W W W5W `
+W W B B W B B B B W `
+B W B W6W W B2W B W `
+W W B B B W B B W W4`
+B W W B B W W W B B `
+W W2B2B W B W1B B W `
+B B W W W W W B B B1`
+B1W B2B B W B B W B `
+    ]]>
+  </level>
+  <level id="306">
+    <![CDATA[
+W B W B W2B W W W1B `
+W W B6B W B W W B W `
+W W6B B W6W W5B B B1`
+W W6B B W W B B B W `
+W W W W W B W W B1B `
+B3B B B B B W W W W `
+W W W B B W W6W W B `
+B3B B B B B6W B1B W `
+B W B W B B B6W B B `
+    ]]>
+  </level>
+  <level id="307">
+    <![CDATA[
+W B W B W B W9W B B `
+W W W W B B W W W W `
+B B3B W W9W W W B B `
+B3W B B B W9W W W W `
+B W W2W B B W W B B `
+B W B B B B9B W B W `
+W B W B B9W W W B B `
+B W W3W B B W1B B5W `
+B W1B B3B W B W B B `
+    ]]>
+  </level>
+  <level id="308">
+    <![CDATA[
+W B4B B B4B B W1B B `
+W W B B B W B B W W `
+W W W B B6B W W B B `
+W4W W W1B W B W B W `
+W W2W B W B W B W B `
+B B W B B3W B W B B `
+W W W W W W W W W W1`
+W1B B B B B W B3B B `
+B W B B W W W B W B `
+    ]]>
+  </level>
+  <level id="309">
+    <![CDATA[
+W W W W W B W B W B `
+B W B B B B B B4B B `
+B4W W B B W6B B B W `
+B W W W W W B B W W `
+B W6W B W W B W B W `
+W W B B3W W W B B B `
+W1B W B W W W B B W `
+B B B B3W B W B W2W `
+B W B W W6W W B B B6`
+    ]]>
+  </level>
+  <level id="310">
+    <![CDATA[
+W B W B B W B W B B `
+W W W W W B2B W B W1`
+B4B B B B W B B W W `
+W W W W W W W6W B2B `
+B W5W W W W6B B W W `
+B B B3B B3W B B B W `
+B W2B W W W B B W B `
+B W B B W W B W W W `
+B W B3B W B B B W4B `
+    ]]>
+  </level>
+  <level id="311">
+    <![CDATA[
+W W4W W B W W W W B `
+B4W B W B1W B2W W B `
+B W W4W W W B W B W `
+B B W B B B3B B B5B `
+B4B W W B B B B B W1`
+W B W W6W B W W W B `
+B B W6W B B B W W W6`
+W W W W B B B6B W B `
+B1B W5W W W5W W W2W `
+B B B B5B W B1B B B1`
+    ]]>
+  </level>
+  <level id="312">
+    <![CDATA[
+W B W W7W W W B W B `
+W B B7B W W1W B3W W1`
+W B B W B B W B W W `
+W B B B W W2B W W W `
+W5B B W B B W W4W W `
+B W1B B B4B B W W W `
+W W W W1W B B B W W1`
+B4B W B B B W B B B `
+W B B W2B B B B8W W `
+B B B W W B B W B2B `
+    ]]>
+  </level>
+  <level id="313">
+    <![CDATA[
+W B W B2W W1B B B B3`
+W B B1B W B B W W W `
+W B W B W2W B4B W1B `
+W6B W B B B6B B B W `
+W B W6W B1B B W W B `
+W B6W W W B W B W W `
+W2W W W1B W B6B W B `
+B B W W W W W B B B `
+B1W W1B W W W W W2B `
+B W B B2W B B B3W B `
+    ]]>
+  </level>
+  <level id="314">
+    <![CDATA[
+W6B B B6B W B1W W B1`
+W W B6B W B1W W2B B `
+W W W B W B W B B W `
+W W B W B B4B W W B `
+W W B W4B W B1B W W `
+B W3B W W B B B7W W `
+W1W W W8B B B W W2W `
+B W W B B B W B B W1`
+W W W B8B W B W B1B `
+B1W B8B B B W1B W B `
+    ]]>
+  </level>
+  <level id="315">
+    <![CDATA[
+W W W W W1B W1B W B `
+B W W W7W B W W W B4`
+B B W W W W7W W W B `
+B B B W B B B B W B `
+B B B B1W B B7B W B `
+W W2B3W B W B W W4W `
+B1B W B W B W W W B `
+W B B1W B1W W W W W `
+B B W B B B B B B7W `
+B1W W2B W B B W1B B `
+    ]]>
+  </level>
+  <level id="316">
+    <![CDATA[
+W B W B1W B1W B B2B `
+W B5W W W W B2B W W `
+W B W W6W W W W B2W `
+W B B B W B B B2B B `
+W B B B6W B1W B1W W `
+W W B B W2B B1B B B2`
+W B B B W B W B W W `
+W B4W W5W W5B W W B1`
+B W B W W B B W1B W `
+B B B B W W3W B W B `
+    ]]>
+  </level>
+  <level id="317">
+    <![CDATA[
+W B6B B B W W B2W B2`
+W W B B W W W B W B `
+W W W1B B W1B W B B `
+W6B B W B3B W B B3W `
+B W B W W W3W B3W W2`
+B W W B3W W W W B2B `
+B W W B B B W B W B `
+B W W B3W W W B3W B2`
+B W B W B B3B B W W `
+B W6B W2W B B W B B2`
+    ]]>
+  </level>
+  <level id="318">
+    <![CDATA[
+W W W B1W W B1W W B3`
+B B3B B2B W2B B W B `
+B B W4W W B W1B W B3`
+B W W W W B4B W B B `
+B B W W W B W B W W1`
+B B B W W W4W B W B `
+W1W B4W W4W W3B W4B `
+B B W W3W B W B1W B `
+W W2B W B3W B W B B `
+B B B W B B W B W B1`
+    ]]>
+  </level>
+  <level id="319">
+    <![CDATA[
+W W W4W W2B W1B B B `
+B B B B W B W W B W `
+W B B B B W W W6B B `
+W4W B1W B B W6W B W1`
+W B W W W B W W B B `
+W W W B4B B4B W W B `
+W1B W B W1B W B W W2`
+B W W W5B W B W B B `
+W W5B B B W1B B W B `
+B1W B W B B W B W B2`
+    ]]>
+  </level>
+  <level id="320">
+    <![CDATA[
+W1W W B B W1B W B B `
+B B2B W B B W B B W `
+W5W B1W W W3W W W B `
+W B B W W2W W B3B W `
+W B W B B W B W B B `
+W B W B W B1W B B W1`
+W B W B B3W B W B B `
+B W B B B W W5W B B `
+W W4W W B W W W W W2`
+B W B B4B B4W B B B `
+    ]]>
+  </level>
+  <level id="321">
+    <![CDATA[
+W B W B W B W B W B `
+B W3W B B W B W2B B1`
+B W B W W2W B3W B W `
+B W W W3W W B W B B1`
+W W B B B W W W B W `
+W B W B1W W W W W W `
+W B B3B B W W W4B B `
+B W1B W B B W B B W `
+W B B W1B B B B W B `
+B1B W1B W B W B W B2`
+    ]]>
+  </level>
+  <level id="322">
+    <![CDATA[
+W W4W W B W B W B B `
+B B B W W B B B W W `
+W B W3W W W2B B W B `
+B B B W3B B B W W6W `
+W B B W B B W W W B2`
+B1W W W W1B W B W B `
+W W B W B B B5W B W `
+B1B B2W W6W W W6W B `
+W W B B B B B W W W2`
+B1B W B6W B W B B2B `
+    ]]>
+  </level>
+  <level id="323">
+    <![CDATA[
+W B B B B B8W B1W B `
+W W B8W B8W B W W W `
+W W B B1B W W W W B `
+W W W B B7B B B W B `
+W8W B B B B W W W B `
+W W W B B W W1B W B5`
+W W4B W B B1B B W B `
+B W W W W W W W3W W `
+B B B W B B2W B B B `
+B4W B1W B W B B W B `
+    ]]>
+  </level>
+  <level id="324">
+    <![CDATA[
+W2W W B W B B B W B `
+B W2W W1B W B W W W `
+B2B W2B W W B B B B `
+W B W B B1W B B3W W `
+B W W W3W W W5W W B `
+W B B W B W1B B B B3`
+B B B W B W W B3W B `
+B3W B W W B B W W W1`
+B W B W B B W B2W B `
+B3W B W3W B W B W B1`
+    ]]>
+  </level>
+  <level id="325">
+    <![CDATA[
+W1B W B W W W3W B B `
+W B5W B B2B W B B W `
+W B B W B W1W B W B `
+W B W1B W1B W W W B `
+W B B B B B W B W B3`
+W B W W W W W B B B `
+W B2B W5W B2B B B4W `
+W W B B W W W B B B `
+W W B W W B B2W B4W `
+B W B2B W B W W W B1`
+    ]]>
+  </level>
+  <level id="326">
+    <![CDATA[
+W W W W W1B B2B W B2`
+B W W B1W B W W W2B `
+B W B W B W B B2B B `
+B B W B B5W B2W W W `
+B W B W B B B B B B `
+W W2B W W B W4W W W `
+B W B B W B5W B W B3`
+W W3B W W5W B W W B `
+W W W3B W W W B W B `
+B B B W B B B3B W1B `
+    ]]>
+  </level>
+  <level id="327">
+    <![CDATA[
+W B W B3B B W B W B `
+W B W W B W B B W B `
+W5B W W1B W2W B1W B2`
+W B W B B B B B B B `
+W B W B W B1W W3W W1`
+W W W4W B1B B B W B `
+B W2W B W W W3W W W `
+B1B W B W B B2W W W `
+W B W B B B5B B B5W `
+W5W W W1B B W B B B1`
+    ]]>
+  </level>
+  <level id="328">
+    <![CDATA[
+W1B W B W B1B B B B `
+W B2B W B B W B B W `
+W W B B3W B B W W W5`
+W W W1B W1B B B4W W `
+W W B W W W B W W1B `
+B2B W B W B6W W W W `
+W W B B W B B W W B `
+W B B2B W B B2B B W `
+B B W W W B6W B3B B `
+B W1B W W B W3W W B1`
+    ]]>
+  </level>
+  <level id="329">
+    <![CDATA[
+W B B W1B W W W W B `
+W W B1W W B4B W B W `
+B W B W W B W B2B B4`
+W W B W W B4W B B W `
+B W B7W B3B B W B B `
+W W B B W B B5B B B `
+B W B W5W W B W B W `
+W1W B W W B W1B W B `
+B B W2B W W W W W W5`
+B W W B W B B B B B `
+    ]]>
+  </level>
+  <level id="330">
+    <![CDATA[
+W B B2W B W1B B W1B `
+W W W W B2W B W W B1`
+B4B W W B B B B B W `
+W B B W B B B W B4B `
+B W W W W6B W B4B W `
+W1B W W W W W W W B `
+B W W W B W1W W B W1`
+B5B B W B B B1B W B `
+W W B W W B1W B B3W `
+B2B B W B1W W B1W B `
+    ]]>
+  </level>
+  <level id="331">
+    <![CDATA[
+W B B B B B W1B W1B `
+W B6W B W3B B W2B B `
+W W B2W W B W W B2W `
+W W B B W B B2B W B `
+W W W B B B W W2W B2`
+W W W B5B B B W B1B `
+B W W W B B W1B W B3`
+B W W W B B W B W B `
+W W W W B B B5B W W `
+W W W W5B W B W B1B `
+    ]]>
+  </level>
+  <level id="332">
+    <![CDATA[
+W B7W W W5W B B1W B `
+B B B W5W W2B W W6W `
+W B B B W2W W B1W B `
+W B B B B W B2W W B `
+W B W W1B W B B W B `
+W B B B W W W B W6B `
+W B W B B W W4B B B `
+W W B4B B2W W B W B `
+W B W B W B W B1B W `
+B W B B4W W4W B W B `
+    ]]>
+  </level>
+  <level id="333">
+    <![CDATA[
+W W W W W B B W1B B2`
+B1B W W W W B B W W `
+W W9W W W3W W B B B4`
+B9B B B B B B W W W `
+B W1B B B B9W B1W B `
+W W B B W B B9W W B `
+B2B W W9W B B B W B `
+W B W W W B B B W B `
+B1B W2W W B9W B W W `
+B W B W W W B1W B B `
+    ]]>
+  </level>
+  <level id="334">
+    <![CDATA[
+W W W W6B B B B W B `
+B3B B W W B B W B2B `
+B B W W6W W6B W W W `
+B W W W W W W W W W5`
+B B W W W W5B B B B `
+B B5B B B5W B W2B W `
+W B W W B W1B W W B `
+B W B1B W W W W B W `
+W B B W W B5B B B B `
+B W B B W B W1B W B `
+    ]]>
+  </level>
+  <level id="335">
+    <![CDATA[
+W B5W W W W B1W B B1`
+W B B W W5B W B B1W `
+W B B B W B B B W B `
+W B B B W5W W B B4W `
+W B W W B W W W4B B `
+B1W B1B B B2W W W B `
+B B B W W2W W W B W `
+B B W W5W B W B W B1`
+B W W W W W W W B B `
+B W2B W B W B B B B `
+    ]]>
+  </level>
+  <level id="336">
+    <![CDATA[
+W2B W6W W W W B W1B `
+W B B W W W B B W B `
+W2W B6B W B B B B6W `
+B B B B W W B W1B W `
+W W B W W W B B W W `
+W B2W B W W W B3B W `
+B B B1W B B B B W B `
+W2W W W W B W B B W `
+B B W B2B W W B4B B `
+B1W W2B B W W B W B `
+    ]]>
+  </level>
+  <level id="337">
+    <![CDATA[
+W B B3B B W B B B B1`
+W B B W B B W W3W W `
+W7B W W W1W B W W W `
+W B B W3B B B4B W B `
+W B7W W B B B B1W W `
+W B B W2B B W W W B `
+W B B B B B B B W B `
+W B B B5W W W7W W B `
+W5W W5W W W W W2B B `
+W W1B B3B B W W W B `
+    ]]>
+  </level>
+  <level id="338">
+    <![CDATA[
+W W W W B B B B5B B5`
+B2B B W5B W W W W W `
+W W W3W B B1W B3W B `
+W1W B W B W W B W W2`
+B B B W B B W B B B `
+B W B W W B3W B W B `
+W W W B W3B W B W2B `
+B W3B B W W W B4W W2`
+B2W B W B B W B B2W `
+B W2W B W B W1B B B `
+    ]]>
+  </level>
+  <level id="339">
+    <![CDATA[
+W6W W W W2B B3B B B `
+B W W W W B W W W W `
+B B B W1B W1B W1B B1`
+B W B W B W W B W W `
+B6B W B B W W B B B `
+W W W W B W B4B W B `
+B B W B B W W B4W W `
+B W W W W W B W W2B `
+B B1W B2W W W B B W1`
+B B W2B B3B B W B1B `
+    ]]>
+  </level>
+  <level id="340">
+    <![CDATA[
+W B B B B B W B B6B `
+W W B7B B W1B B B W `
+W W W B W B B W1W B2`
+W W W B W W6W B W B `
+W W W B4B W B W B W `
+B1W B W W W6W W W B `
+W W B W B B W W W B `
+W W5B B5B B5B B B W1`
+B W B W W B B W B B `
+B1W B B B W W3W W B `
+    ]]>
+  </level>
+  <level id="341">
+    <![CDATA[
+W1B W1B W2B W B W B `
+B B W B W B W W W2B `
+W B6B W W W6W W W W `
+W B B B2W B B B B6B `
+W W W B B W B6B W B `
+W W B B W1B W W W W `
+B W B1B2W W1B W W2B `
+W2W W B W B B B B B `
+W B W W4W W B3W W W `
+B1B B B B B B B W1B `
+    ]]>
+  </level>
+  <level id="342">
+    <![CDATA[
+W W W W B W B B W1B `
+B W W W W B B W1W W `
+B B B B3W W B3B W B `
+B W W9W W W W W W5W `
+B B W W W2B W B B B `
+W B B B W B W B W W `
+B B W W W W B B B B2`
+B B B W W W B1W B B `
+W B B B W B W B B W `
+B B B W1B W W B W B `
+    ]]>
+  </level>
+  <level id="343">
+    <![CDATA[
+W W W W6W W B W B B `
+B B B W W W W W W W `
+B W B2W W W B B W B `
+B W B B4B B B2W W B `
+B W B W B B W B B2B `
+B W B W B2B W W2W W `
+W W B3W B B B B B B `
+B W W W B W W W W B `
+B W W5B W B W5W B W `
+B W2W B B B B B W B `
+    ]]>
+  </level>
+  <level id="344">
+    <![CDATA[
+W B B B B6B W B B B1`
+W W B W W W5W W W2W `
+W W1W B B B B5W W W6`
+W B B B W W W W W B `
+W W B B B B2B W B W `
+W W3B W1W W B B W B1`
+B B W2B B B2B B B B `
+B W W B W W W B W2W `
+W W3W B W2W B4W B W `
+B B B B1W W4B B B B `
+    ]]>
+  </level>
+  <level id="345">
+    <![CDATA[
+W B W B W B W W2B B `
+W B B B B3W W W B B `
+W B3W W W B B W B B `
+W3W W W2B B W B W B `
+B B B W B W B B5W B `
+B W W W W W B W W W `
+B W B W W B B B W5B `
+B4W W W B W B W W W `
+B W B B1W B W W W3B `
+B1W B1W B B3B B W B1`
+    ]]>
+  </level>
+  <level id="346">
+    <![CDATA[
+W W W W W B1W B W B `
+B B3B W B B B B W2B `
+W W W W B B1B W B B `
+W W W B B7W W W W B `
+B B B1W B W W4W B W `
+B B W B W B W B B B `
+W W W3W B W B W B1W `
+B B W W4B B W B W W `
+W B8B W B W W W W W `
+B B B B B B W B W B `
+    ]]>
+  </level>
+  <level id="347">
+    <![CDATA[
+W3W W B W B B B W B `
+B B B W B B W B W2B `
+W B2B B W B1B B B W1`
+W W B B B W W B B7B `
+W8W W B B B B W W W `
+W W W W B B W B W B `
+B W1W W B B B B8W W `
+B B W W W B W B W W `
+W B W W W B B W W W `
+B1W W W W B W B B B3`
+    ]]>
+  </level>
+  <level id="348">
+    <![CDATA[
+W B2B W W B W B W B1`
+W W W1W B2B W3B B B `
+W B B B W B W B W W2`
+B W W B B W W W B W `
+W B W W B B B2B B B `
+B W B W B B B4B B B `
+W W W W W W W B B B `
+B B B B B3B W W W B `
+W W B2W W W W W W W `
+B1B W B W B W W W9B `
+    ]]>
+  </level>
+  <level id="349">
+    <![CDATA[
+W W W W1B W B B W B `
+B W B W W B W B B B6`
+B W W W W W B B B B `
+B B W B3B B B1W W W `
+B B W W W W W B W W `
+W B B7B W B W3B B1W `
+B1B W B B4W W B W B1`
+B W1W B W B B B B W `
+W W W B4B B W B W B `
+B W B W B W W W W6W `
+    ]]>
+  </level>
+  <level id="350">
+    <![CDATA[
+W B B B W B W B W B `
+W W B1B B B W3W W B2`
+W W W W2W W3W W B B `
+W W B W W B W B B2W `
+B W6B B W B B W1W B2`
+W W W B B W W B W B `
+W W B B W B B1W W W `
+W B B W B B B B4W B `
+B1B B5B W B W2B W W `
+B W B W B1B W W B B `
+    ]]>
+  </level>
+  <level id="351">
+    <![CDATA[
+W4W W W B B B B W B `
+B B B B W W B W W B `
+W W W W3W B W W W B `
+B B B B W W4B B W B `
+B B5B W W B B W W B `
+B B W W5W W W B1W B `
+B1W W W W B B B W7B `
+B B B W B W W B4W W1`
+B B W5W W1B B2W W B `
+B1W W W B B W B W B `
+    ]]>
+  </level>
+  <level id="352">
+    <![CDATA[
+W4W W B B B B B B B `
+B B W W W6W W W W W1`
+B W W W3W W W W B B `
+B B W B B B3B W W W `
+W B W B B3B B W B1B `
+B B W B4W W W B W W2`
+W W W B B W W B B2B `
+B1W B B W B W2B W B `
+B B B B7W W W W W B `
+B1W B B W W W B W B3`
+    ]]>
+  </level>
+  <level id="353">
+    <![CDATA[
+W2B W B W B W B W B `
+W B W B1W W W B B2B `
+W W B4B W B B B B B6`
+W W B B W W B W W W `
+W1W W W B B W2B2W W `
+B W W B B W W B B W `
+B2W B B B B B W W W `
+B W B5B W B W B2B B `
+W3W W W3W W B W B W `
+B B3B B W B W B W B `
+    ]]>
+  </level>
+  <level id="354">
+    <![CDATA[
+W B W4B B B W B W B `
+W W W W B B W W B B `
+B1B W W W W W W B5W `
+W B W B B B5B W B B `
+B W W B W B W W B B `
+B B W W W5W W W W W `
+W B W W5B B B5W B2W `
+B B5W W B W W B B B `
+W B B W B B W W B B `
+B B W1B B B4W W W1B `
+    ]]>
+  </level>
+  <level id="355">
+    <![CDATA[
+W B B B B W B B1W B `
+W W W B8B B8B B B W `
+W B W W B B W B W W7`
+W W W W W B W W W W `
+W B1W W W W B W W B `
+B W W W W8W B B W W `
+W1B W8W W B B B B1B `
+B B B B B B B W B B `
+W W B8B W B W W B W `
+B B B B W2B W4B W B `
+    ]]>
+  </level>
+  <level id="356">
+    <![CDATA[
+W W W W B W W2B W B `
+B B4B B W W W B W2B `
+W2W B W B W B B B B `
+B B W1W B5B W B B W `
+B W2B W W B B B B B `
+B W B W W W W B B W `
+W W4W B W W W4B W B `
+W B B B W W W B B B `
+W B2W B W W W7B B W `
+B B W2W B W W W B1B `
+    ]]>
+  </level>
+  <level id="357">
+    <![CDATA[
+W B3W B W B W3W W1B `
+W B B4B B B W B B W `
+W B W W4W W B B B B `
+W W B4B W B W B W B `
+W W B B W W B1B B W `
+W B B B7B W W B B B `
+B B B W B W B W W W `
+B B W1W W W W W W W `
+W B B W W W W W W W6`
+B B B B B B7W B W B `
+    ]]>
+  </level>
+  <level id="358">
+    <![CDATA[
+W B B B B W1W W W B `
+W W W W B W B W B B1`
+W B W5W W B B4W B W `
+B B W W W W1B W B4B `
+B B B W W W B W B B `
+B W B B1W B W W W W `
+W B6B B W5B W W B1W `
+B W W B W B W B2W B1`
+W W B4W W B B B B W `
+B W4B B B W B W B B `
+    ]]>
+  </level>
+  <level id="359">
+    <![CDATA[
+W B B B W B B B W B `
+W3W W W W B B W6W W `
+W B W B B B B W W B `
+W B W B W W W W W B `
+B B W B W W W W W B `
+W B W B W B B W B W `
+B W W B B7W B B B B `
+W W W B W B B8W B B `
+W1B W W B B8B W5W W `
+B B B1B W B B W W B `
+    ]]>
+  </level>
+  <level id="360">
+    <![CDATA[
+W5W W W W W B B W1W `
+B B5B B B W W W W W6`
+B W B6B B B B W4W W `
+W2W B W W W B B W W `
+B1B B W2B B1B B W B `
+W B W W W W W B B W `
+B2W W W W W B W B B `
+B W W6B B B B B W B `
+W W B W2B B B W W3B `
+B2B B W B W B B1W B `
+    ]]>
+  </level>
+  <level id="361">
+    <![CDATA[
+W3B B2B B W B W W B `
+W B W W B W B1W B2B `
+W B W W W W B B B W `
+B W B W W W W W W3B `
+B W W W W W B2W B W `
+B W B8W B B B W2B B1`
+B4W B B B B W W W B `
+B B B B W B B B B B `
+W2W B B W B W3W W W `
+W W7W W W B B B W B `
+    ]]>
+  </level>
+  <level id="362">
+    <![CDATA[
+W5W W W W W B W B B `
+B B B B B W W B W W `
+B B W W W W B2B W B `
+W B B W B5B W W2W B3`
+B1W W4W B W B W2B B `
+W B1W W B W B2W B W1`
+B W W B B W B B B B `
+W B1W W W3W B W B B `
+B B W B B W W W B B `
+B W B W B B W W W B `
+    ]]>
+  </level>
+  <level id="363">
+    <![CDATA[
+W B B6B B W B B B B1`
+W W B B W B B B B W `
+W W B W B W B W W W `
+W W B B B W2B B W W `
+W W B B W W1B W B2W `
+W W W B W W W B B B `
+W W B W6W W6W W W W `
+W B B6B B B W W W W5`
+B B W B B B B B B W `
+B W B1W B W B B W B `
+    ]]>
+  </level>
+  <level id="364">
+    <![CDATA[
+W W W W B B B B1B B `
+B6W W W W W3W W W2W `
+B B W W B W B B W W5`
+B B6B W1W B W B B2W `
+B B W B W B2W W W W `
+B W3B W B W B B B B `
+B W W B B B6B B B B `
+B W W B W2W W B B4W `
+B W W6B B B B W B B4`
+W6W W W B W W W W B `
+    ]]>
+  </level>
+  <level id="365">
+    <![CDATA[
+W B4B B B B B1B W B `
+W B W W W W4W B B W `
+W B B B B B B W B B `
+W B B B W B W B W W `
+W1B W W8B W B W B W `
+B W W W W B W B W W2`
+B W W W B W B W B B `
+B3W W W W B W B W B1`
+W W2W W3B B B W3W W `
+B B W W B B1W B B B `
+    ]]>
+  </level>
+  <level id="366">
+    <![CDATA[
+W B W1B W B W B W B `
+W B W B B B B B B B1`
+W B5W W2B B B W B W `
+W B W W W B B B B B `
+W B W W W W W B W W `
+B W B B W2W W B B6W `
+B W B W3W W W B B W `
+B W4B W W W B W B W `
+B W B3W B B B W W4B `
+B W1B W B W B W W B `
+    ]]>
+  </level>
+  <level id="367">
+    <![CDATA[
+W6B B B B B W B1W B `
+W W B B W4B B B W2B `
+W W W6B W W B W W W `
+W W B W1W W W W W W `
+W B B B W B6B B B W `
+B W6W W B B W B B B `
+W W W B B B W W W2W `
+B W W2B B B W W B W `
+W2W W B W B B W B B `
+B B W1B B B B4B W1B `
+    ]]>
+  </level>
+  <level id="368">
+    <![CDATA[
+W B B B B W B B B B2`
+W W B B W B W B W W `
+W5W W W2B B W B W B2`
+B W B B B B W W W B `
+B W W B B9B B W B B `
+B3W W W W W W4B B B `
+B W1W W W W4W B4B B `
+W B2W W B W W B W B `
+B B W W W2B B W W W `
+B W W B B B W1W W4B `
+    ]]>
+  </level>
+  <level id="369">
+    <![CDATA[
+W B B B B B B B W1B `
+W W B6B W B B B6B B3`
+W W W W W W B W B3B `
+W B W B W W B W W W `
+B W W W W W B W W B `
+B W W W W W2B B B1W `
+B W4B W2B W B B W B `
+B W B3W B W B B3W W1`
+W W B W B W B2B W B `
+B B2W B W1B W B W B `
+    ]]>
+  </level>
+  <level id="370">
+    <![CDATA[
+W W W W W B W B W2B `
+B4W W W3W W1W B W W `
+B B W4W W B W B2B B `
+B4B B B B W W W B2W `
+B B W B B B3B B W W `
+B B5W W W B W B B W `
+W B W W B2W W W B W `
+B B W W B B B B2W B `
+W B W B W W B W B1W `
+B B W B B W B B W B `
+    ]]>
+  </level>
+  <level id="371">
+    <![CDATA[
+W4W W W B B3B W B B `
+B B B B W W W B B W `
+B W W B B B B W B B `
+W W W B B W W W B W `
+B8W W W W W W W B B `
+B B B B W W W W W W `
+B B W B W W W W B W `
+B W B W B W W B W W `
+W W W B B B B B B W `
+B3B B B B B W B W B `
+    ]]>
+  </level>
+  <level id="372">
+    <![CDATA[
+W7W W W W B W B W B `
+B W W W B W W W W W `
+B B W W B B B B W5B `
+B B B W B W W B W B `
+B W B B1W W W W W W `
+W B W B B B7B B B B `
+B W B B7B B W1W W3W `
+B W W B B B B B B B `
+W W W W B1B W W2W B2`
+B W W W W B1B B W2B `
+    ]]>
+  </level>
+  <level id="373">
+    <![CDATA[
+W3B W B B B B5B W B `
+W B W W W W W W B2B `
+W B W W1B B B B W W `
+W W W W B W B W B B `
+B B B B6B B B B B W `
+B W W W W W W W W B `
+B B W W B W W W B B `
+B B B W W B W W8W B `
+W W W2W B W B1W W W `
+B B B W B4B B B1W B `
+    ]]>
+  </level>
+  <level id="374">
+    <![CDATA[
+W W W W B W B B W B2`
+B3B B B W W3W W1W B `
+W W W B B B B B B B `
+B1B W5B B B W B B8W `
+B W2W W W W W B B B `
+B W W B W W W B W W `
+B W B W W W W W W B `
+W B W B B W B B B W `
+B W2W B W B4B W B B `
+B1W B B W B W W W B `
+    ]]>
+  </level>
+  <level id="375">
+    <![CDATA[
+W W W B W B W B W B `
+B W W W W6W B B W W5`
+B B W W W B B W W W `
+B5B B W W B B B B W `
+W B B B W W6W B W W `
+B W B B W W W B B W `
+W B W5B B W B W B B `
+B B W B W B B W B W `
+W W W B B W B W B B `
+B W W B B B B W4W B `
+    ]]>
+  </level>
+  <level id="376">
+    <![CDATA[
+W4W W W W B W B W B `
+B W W W B B B B B B5`
+B B1W W W B3W W W W `
+B B B W1B W B W W1B `
+W W B B W B B B W B2`
+W7B W B B B B B W B `
+W B B B B W B B B B `
+W W W W W W W7W W B `
+W W B2B B W W W W W `
+B W B W B W B W B B `
+    ]]>
+  </level>
+  <level id="377">
+    <![CDATA[
+W W B W W W W B W B `
+B W W W W W B W B W `
+B B W W W B W B1W W `
+B B W W W B5B B B3B `
+B B B W W B B B2B W `
+W B B B W B W W W4W `
+B B B W3B B B B B W `
+W B W W W B B W B W `
+B B W W W1B B2W B W `
+B W W W B W B W B B `
+    ]]>
+  </level>
+  <level id="378">
+    <![CDATA[
+W W W W B B W B W B1`
+B4W W3W W W B2B W3B `
+B B B B B W W W W B `
+B W W W W W W W W B `
+W B4W W B B B5B B B `
+B B B W B W W B B W `
+W B B W B B W W B B `
+B W W B B W B W W B `
+W W B B B B W1W W5W `
+W6W B B B W B B W B `
+    ]]>
+  </level>
+  <level id="379">
+    <![CDATA[
+W4W W W W B B B8B B `
+B B B B W B W B W B `
+W W2W W W W W B W B2`
+W B W W W B B B B9B `
+B B B B2W W B B B W `
+B W B W W W B B W B `
+W B W W W W B W B W `
+B W W W W W W B W B `
+W W W W W B2B B B W `
+B W B W B B B B B B `
+    ]]>
+  </level>
+  <level id="380">
+    <![CDATA[
+W B W2B W W W W W B `
+W B3W B W B B B B W `
+W B W B B B5B W W B `
+W W W B W1W B B1B W `
+B B B W W W W B W B `
+B4W B B W W W W B W `
+W W W B B4B B B B B `
+W2W B W1W B2W W B B `
+W B B B W B B W W W `
+B W B W B W B W B B `
+    ]]>
+  </level>
+  <level id="381">
+    <![CDATA[
+W W3W B B W B B B B2`
+B B B W W W W B W W `
+B W W B W5B B B B W `
+B B W W W W B B B B `
+B B W W W W W4B W B `
+W B W B W W B W2B B `
+W B W5W B W6B W W W `
+W W W B W W B B B W `
+W B4B4B W W B B B B1`
+B B B W W W W B W B `
+    ]]>
+  </level>
+  <level id="382">
+    <![CDATA[
+W W W5W W W1W W W B `
+B B B B B B W B3B W `
+W6W W1B W W B1B W B `
+W B W B B B2W B B B `
+W B B B B B W B B W `
+W W3W W W W W B5W B `
+W B B B B W W B B W `
+B B B B B W6W W W W `
+W B B W B B W1W B2W `
+B W W W W B B W B B `
+    ]]>
+  </level>
+  <level id="383">
+    <![CDATA[
+W W1W B B W B B B B `
+B B W W W W B W W2B `
+B B B W6W W W B B B `
+B W B B W B B W B B `
+W B W W W W W B1W B `
+B W W B B W W B W B `
+W B2B W W W W W W W `
+B B B B B B W W W B `
+W W B7B W W W W W W `
+B B W B B4B B B W B `
+    ]]>
+  </level>
+  <level id="384">
+    <![CDATA[
+W B3W B B B W B B B2`
+W B W W B4W W B W W `
+W B W W2W B2B W B B `
+B W B B B W5B B B W `
+B W2B B1W W W B W B `
+W B B W W W W W1B B `
+B B5W W W W B1B W W `
+B2W W W B B W B W B `
+B W W W B W B W B B `
+B W W4W B B W B W B `
+    ]]>
+  </level>
+  <level id="385">
+    <![CDATA[
+W W W W B B W B W B `
+B W W W W B B B B B `
+B B B B4B B W B B W `
+B W W W W W W W B B `
+W B W W W B W W B B `
+B B B W B B W W B W `
+W B B W W W W W B B6`
+B B6W W W W1W W W B `
+B W B1B W B W B W W `
+B2W B B4B W B W B B `
+    ]]>
+  </level>
+  <level id="386">
+    <![CDATA[
+W3W W W W B W W4W B `
+B B B B W W W B B W `
+B W W W W W B W B B `
+W B B B W B W B1B W `
+B W W2B B W B W B B `
+W B B B W2B W3W W B `
+B B4B B W W B B B W `
+W2W B W W W B B B5B `
+B B B W W W W2B B W `
+B1W W W B W W W B B `
+    ]]>
+  </level>
+  <level id="387">
+    <![CDATA[
+W B W W W B B W W B `
+W B2W B B W B W W W `
+W W W W B W5W W W B `
+B B B B3W W W W B B `
+B W B B B W W3W B6B `
+W B W B B B B B B W `
+B W B B2W W1B B W B `
+W W B W B B W B W W `
+B B W B B W B W B B `
+B W B W B W W W W B1`
+    ]]>
+  </level>
+  <level id="388">
+    <![CDATA[
+W1B B W W B B B W B `
+W B W W W B W W B W `
+W3B W W W B3B W2B B `
+W B W W2B B W B2B W `
+W W B B W B B W W B `
+B1B2B W W W3B B B B4`
+W B B B W W B W W W `
+B5B B B W W W B W W `
+W W W W W W W W B W `
+B B B B3B B B W B B `
+    ]]>
+  </level>
+  <level id="389">
+    <![CDATA[
+W W W W5W B B5B W B1`
+B W W W W B B B W B `
+B B B B B B W W W W `
+B B W B W B3B W W B `
+B B W W W W W W W6W `
+B B W W B B B B W B `
+W B W6W W W4B B W B `
+B W2W B2B W B B W W `
+W B W W W W B W B2B `
+B B B3B B W B W W B `
+    ]]>
+  </level>
+  <level id="390">
+    <![CDATA[
+W W B3W B B B B B B1`
+B W B B B W W W W3W `
+W W B B B B B W W B `
+B W B B B W W W B W `
+W B4W B W B B B B B `
+W B W B W4B W B6B B `
+W B W W W W W W W B `
+W B W6W B W W B B B `
+B W W W B W B W W3W `
+B2W W W B4B W B W B `
+    ]]>
+  </level>
+  <level id="391">
+    <![CDATA[
+W B W B W B W1B W B2`
+W B W W W W5W B2W B `
+W B W B B B W B W B `
+W4B W B W5B B1B W2B `
+B W B B W B W W B B `
+B B W B W B W W W2W `
+B W W W W B W W B B `
+B B W W W W B W B B `
+W B B W W W W B B W `
+B W B B B5W B B W B `
+    ]]>
+  </level>
+  <level id="392">
+    <![CDATA[
+W W W W W B B2B W B `
+B W W W B B W W W2B `
+B7B W W B B B B7B B `
+B B W W W W W B B W `
+B W W B W W W W B B5`
+B B W B B1W W W W W `
+W W W B B6B B3B W B `
+B W W B W W W W B W `
+W B W B B B1W B B B `
+B W B W B W B B W B `
+    ]]>
+  </level>
+  <level id="393">
+    <![CDATA[
+W W W W B W B B5W B `
+B W1W W B B B B B B `
+B B W5B W2W W W W W `
+B B B W W W4B B W W `
+W B B B W W B5W B B `
+B W B W W W B W W B `
+W B W B B1W B W B W `
+W W B W W W W W B B `
+W B B W B W B W5B W `
+B B W B B B3W B B B `
+    ]]>
+  </level>
+  <level id="394">
+    <![CDATA[
+W W W6W W B W B W2B `
+B W W W W W W B W B `
+B B B W W W6W B2W W `
+B W B B W W W W W B `
+B B B B B B5B B B B `
+W W W B B W W W B W `
+W W B W W6W W B W W `
+W B B B B B B W W W `
+B6B B B B B1W B B B1`
+B W B W B W B B W B `
+    ]]>
+  </level>
+  <level id="395">
+    <![CDATA[
+W B W W W W W B W B `
+W B B W W W W W B2W `
+B1B B6B B W W W B B `
+W W B B W B B2B W B `
+W B4B B B W B B B B `
+W B W B W W W W B6W `
+W W B W W W W B B B `
+W W W B W W B W B B `
+W B5B B B W2B W W W `
+B1B B W B W B W B B `
+    ]]>
+  </level>
+  <level id="396">
+    <![CDATA[
+W W W W W B3B B2W B `
+B W W W W B W W2W W `
+B B4B W4W B W B W4B `
+B B B B W W W B1W B `
+B W W B W W W6W B B `
+W W W B W B B B W B `
+B W W B5B B B W B W `
+W B W B B W B B W B `
+B B W W W W W W B W `
+B W B W B5B B B B B `
+    ]]>
+  </level>
+  <level id="397">
+    <![CDATA[
+W B1B B4B B B B3B B `
+W W B B B W W W B W `
+W W W B B B B B B B `
+W W W B W B B B W B `
+W W W6W W W W B W B `
+W B5B W W W W2B W B `
+W B B B B W W W W B6`
+W W W W W W W4W W B `
+B B B4W B B B B W W `
+B1W B W B B W B W B `
+    ]]>
+  </level>
+  <level id="398">
+    <![CDATA[
+W B B B B B B B B B1`
+W W1B W2W W3W W B W `
+W W W W W W W W W W `
+B B2B W6B W W W W W1`
+W B B B B W W W W B `
+B B W B B B W B B B `
+B2B B B B W B4B B W `
+W W B5B B W W B W W `
+B B B B W W W B B B2`
+B W W W W W W B1W B1`
+    ]]>
+  </level>
+  <level id="399">
+    <![CDATA[
+W2B W B B B B B B B6`
+W B W B W W W W W W `
+W W W B B B B W B W `
+W W6W B1B W W B W B `
+B W W W W B B B W B `
+W B W W B B B B B B2`
+B W W1B B5B W W W W `
+W B B W W B B W6W B `
+B W W B W2W B1W W B `
+B W B B W B W B W2B `
+    ]]>
+  </level>
+  <level id="400">
+    <![CDATA[
+W8B B B B B B B B B4`
+W W B W B B W W W W `
+W W B B W B B W W B `
+W W W B W W1B W B2B `
+W W W B2W B W W W B `
+B W B W B B B3W W W `
+W W W B B W3B W W W `
+B W B B2W W B B B W `
+W B B W B B W B B B `
+B B W B W B W W W B `
+    ]]>
+  </level>
+</levels>
+</puzzle>

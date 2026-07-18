@@ -1,0 +1,159 @@
+//
+//  BlackAndWhiteChocolateGameState.swift
+//  LogicPuzzlesSwift
+//
+//  Created by 趙偉 on 2016/09/19.
+//  Copyright © 2016年 趙偉. All rights reserved.
+//
+
+import Foundation
+
+class BlackAndWhiteChocolateGameState: GridGameState<BlackAndWhiteChocolateGameMove> {
+    var game: BlackAndWhiteChocolateGame {
+        get { getGame() as! BlackAndWhiteChocolateGame }
+        set { setGame(game: newValue) }
+    }
+    override var gameDocument: GameDocumentBase { BlackAndWhiteChocolateDocument.sharedInstance }
+    var objArray = [GridDotObject]()
+    var pos2state = [Position: HintState]()
+    
+    override func copy() -> BlackAndWhiteChocolateGameState {
+        let v = BlackAndWhiteChocolateGameState(game: game, isCopy: true)
+        return setup(v: v)
+    }
+    func setup(v: BlackAndWhiteChocolateGameState) -> BlackAndWhiteChocolateGameState {
+        _ = super.setup(v: v)
+        v.objArray = objArray
+        return v
+    }
+    
+    required init(game: BlackAndWhiteChocolateGame, isCopy: Bool = false) {
+        super.init(game: game)
+        guard !isCopy else {return}
+        objArray = game.objArray
+        updateIsSolved()
+    }
+    
+    subscript(p: Position) -> GridDotObject {
+        get { self[p.row, p.col] }
+        set { self[p.row, p.col] = newValue }
+    }
+    subscript(row: Int, col: Int) -> GridDotObject {
+        get { objArray[row * cols + col] }
+        set { objArray[row * cols + col] = newValue }
+    }
+    
+    override func setObject(move: inout BlackAndWhiteChocolateGameMove) -> GameOperationType {
+        var changed = false
+        func f(o1: inout GridLineObject, o2: inout GridLineObject) {
+            if o1 != move.obj {
+                changed = true
+                o1 = move.obj
+                o2 = move.obj
+                // updateIsSolved() cannot be called here
+                // self[p] will not be updated until the function returns
+            }
+        }
+        let dir = move.dir, dir2 = (dir + 2) % 4
+        let p = move.p, p2 = p + BlackAndWhiteChocolateGame.offset[dir]
+        guard isValid(p: p2) && game[p][dir] == .empty else { return .invalid }
+        f(o1: &self[p][dir], o2: &self[p2][dir2])
+        if changed { updateIsSolved() }
+        return changed ? .moveComplete : .invalid
+    }
+    
+    override func switchObject(move: inout BlackAndWhiteChocolateGameMove) -> GameOperationType {
+        let markerOption = MarkerOptions(rawValue: markerOption)
+        let o = self[move.p][move.dir]
+        move.obj = switch o {
+        case .empty: markerOption == .markerFirst ? .marker : .line
+        case .line: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .line : .empty
+        default: o
+        }
+        return setObject(move: &move)
+    }
+    
+    /*
+        iOS Game: 100 Logic Games 4/Puzzle Set 2/Black and White Chocolate
+
+        Summary
+        Yummy !!
+
+        Description
+         1. Your chocolate factory made a mess. Instead of pouring dark and white chocolate
+            in the neat usual rectangle shapes, everything got mixed up.
+         2. Your brand policy is equality, so you have to sell chocolate bars with have
+            equally dark and white chocolate in it.
+         3. Divide the board in chocolate 'bars' that contain the same number of dark
+            and white chocolate.
+         4. Also the shape of the dark chocolate in an area must be the same as the white
+            one, although it can be mirrored and/or rotated.
+         5. The number on a square tells you how big is that dark or white shape.
+            Obviosly in a single shape there must be the same number.
+         6. A chocolate 'bar' can have any shape
+         7. but it must contain equal number of dark and white squares
+         8. which can be indicated on the squares themselves
+         9. the shape of the dark squares must be the same of the white ones,
+            possibly rotated or mirrored.
+         10.Not every bar of dark/white chocolate is marked by numbers
+         11.Big numbers indicate a big chocolate 'bar', so look for them first.
+            For example a 6 indicates an area of 12 !
+    */
+    private func updateIsSolved() {
+        isSolved = true
+        let g = Graph()
+        var pos2node = [Position: Node]()
+        for r in 0..<rows - 1 {
+            for c in 0..<cols - 1 {
+                let p = Position(r, c)
+                pos2node[p] = g.addNode(p.description)
+            }
+        }
+        for r in 0..<rows - 1 {
+            for c in 0..<cols - 1 {
+                let p = Position(r, c)
+                for i in 0..<4 {
+                    guard self[p + BlackAndWhiteChocolateGame.offset2[i]][BoxItUpGame.dirs[i]] != .line else {continue}
+                    g.addEdge(pos2node[p]!, neighbor: pos2node[p + BlackAndWhiteChocolateGame.offset[i]]!)
+                }
+            }
+        }
+        while !pos2node.isEmpty {
+            let nodesExplored = breadthFirstSearch(g, source: pos2node.first!.value)
+            let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
+            pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
+            let rng = area.filter { p in game.pos2hint[p] != nil }
+            // 2. Each Box must contain one number.
+            if rng.count != 1 {
+                for p in rng {
+                    pos2state[p] = .normal
+                }
+                isSolved = false; continue
+            }
+            let p2 = rng[0]
+            let n1 = area.count, n2 = game.pos2hint[p2]!
+            var r2 = 0, r1 = rows, c2 = 0, c1 = cols
+            for p in area {
+                if r2 < p.row { r2 = p.row }
+                if r1 > p.row { r1 = p.row }
+                if c2 < p.col { c2 = p.col }
+                if c1 > p.col { c1 = p.col }
+            }
+            let rs = r2 - r1 + 1, cs = c2 - c1 + 1
+            func hasLine() -> Bool {
+                for r in r1...r2 {
+                    for c in c1...c2 {
+                        let dotObj = self[r + 1, c + 1]
+                        if r < r2 && dotObj[3] == .line || c < c2 && dotObj[0] == .line { return true }
+                    }
+                }
+                return false
+            }
+            // 1. A simple puzzle where you have to divide the Board in Boxes (Rectangles).
+            // 2. The number represents the sum of the width and the height of that Box.
+            pos2state[p2] = rs * cs == n1 && rs + cs == n2 && !hasLine() ? .complete : .error
+            if pos2state[p2] != .complete { isSolved = false }
+        }
+    }
+}
