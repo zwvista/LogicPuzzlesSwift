@@ -10,9 +10,22 @@ import Foundation
 
 enum MirrorsExtendedObject: Int {
     case empty, forbidden, marker
-    case water
+    case backward, forward
     init() {
         self = .empty
+    }
+}
+
+struct MirrorsExtendedLaserDot {
+    let p: Position
+    let dir: Int
+}
+
+struct MirrorsExtendedLaser {
+    var dots = [MirrorsExtendedLaserDot]()
+    let number: Int
+    init(n: Int) {
+        number = n
     }
 }
 

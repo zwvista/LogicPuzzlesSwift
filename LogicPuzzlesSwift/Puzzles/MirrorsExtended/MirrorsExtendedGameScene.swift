@@ -14,12 +14,12 @@ class MirrorsExtendedGameScene: GameScene<MirrorsExtendedGameState> {
         set { setGridNode(gridNode: newValue) }
     }
     
-    func addHint(p: Position, n: Int, s: HintState) {
+    func addHint(p: Position, ch: Character, n: Int, s: HintState) {
         let point = gridNode.centerPoint(p: p)
         guard n >= 0 else {return}
         let nodeNameSuffix = "-\(p.row)-\(p.col)"
         let hintNodeName = "hint" + nodeNameSuffix
-        addLabel(text: String(n), fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: hintNodeName)
+        addLabel(text: "\(ch)\(n)", fontColor: s == .normal ? .white : s == .complete ? .green : .red, point: point, nodeName: hintNodeName)
     }
     
     func addLines(game: MirrorsExtendedGame) {
@@ -63,15 +63,10 @@ class MirrorsExtendedGameScene: GameScene<MirrorsExtendedGameState> {
         addLines(game: game)
 
         // add Hints
-        for r in 0..<game.rows {
-            let p = Position(r, game.cols)
-            let n = state.game.row2hint[r]
-            addHint(p: p, n: n, s: state.row2state[r])
-        }
-        for c in 0..<game.cols {
-            let p = Position(game.rows, c)
-            let n = state.game.col2hint[c]
-            addHint(p: p, n: n, s: state.col2state[c])
+        for (ch, o) in game.letter2laser {
+            for o2 in o.dots {
+                addHint(p: o2.p, ch: ch, n: o.number, s: .normal)
+            }
         }
     }
     
@@ -83,49 +78,33 @@ class MirrorsExtendedGameScene: GameScene<MirrorsExtendedGameState> {
             removeNode(withName: hintNodeName)
         }
         for r in 0..<stateFrom.rows {
-            let p = Position(r, stateFrom.cols)
-            let n = game.row2hint[r]
-            if stateFrom.row2state[r] != stateTo.row2state[r] {
-                removeHint(p: p)
-                addHint(p: p, n: n, s: stateTo.row2state[r])
-            }
-        }
-        for c in 0..<stateFrom.cols {
-            let p = Position(stateFrom.rows, c)
-            let n = game.col2hint[c]
-            if stateFrom.col2state[c] != stateTo.col2state[c] {
-                removeHint(p: p)
-                addHint(p: p, n: n, s: stateTo.col2state[c])
-            }
-        }
-        for r in 0..<stateFrom.rows {
             for c in 0..<stateFrom.cols {
                 let p = Position(r, c)
                 let point = gridNode.centerPoint(p: p)
                 let nodeNameSuffix = "-\(r)-\(c)"
-                let waterNodeName = "water" + nodeNameSuffix
-                let markerNodeName = "marker" + nodeNameSuffix
-                let forbiddenNodeName = "forbidden" + nodeNameSuffix
+                let tileNodeName = "tile" + nodeNameSuffix
                 let (o1, o2) = (stateFrom[p], stateTo[p])
-                let (s1, s2) = (stateFrom.pos2state[p], stateTo.pos2state[p])
-                guard o1 != o2 || s1 != s2 else {continue}
-                switch o1 {
-                case .forbidden:
-                    removeNode(withName: forbiddenNodeName)
-                case .marker:
-                    removeNode(withName: markerNodeName)
-                case .water:
-                    removeNode(withName: waterNodeName)
-                default:
-                    break
+                guard o1 != o2 else {continue}
+                if o1 != .empty { removeNode(withName: tileNodeName) }
+                func addSlash(p1: Position, p2: Position) {
+                    let pathToDraw = CGMutablePath()
+                    pathToDraw.move(to: gridNode.cornerPoint(p: p1))
+                    pathToDraw.addLine(to: gridNode.cornerPoint(p: p2))
+                    let slashNode = SKShapeNode(path:pathToDraw)
+                    slashNode.strokeColor = .green
+                    slashNode.lineWidth = 4
+                    slashNode.name = tileNodeName
+                    gridNode.addChild(slashNode)
                 }
                 switch o2 {
                 case .forbidden:
-                    addDotMarker2(color: .red, point: point, nodeName: forbiddenNodeName)
+                    addDotMarker2(color: .red, point: point, nodeName: tileNodeName)
                 case .marker:
-                    addDotMarker(point: point, nodeName: markerNodeName)
-                case .water:
-                    addImage(imageNamed: "sea", color: .red, colorBlendFactor: s2 == .normal ? 0.0 : 0.5, point: point, nodeName: waterNodeName)
+                    addDotMarker(point: point, nodeName: tileNodeName)
+                case .backward:
+                    addSlash(p1: p, p2: p + MirrorsExtendedGame.offset3[3])
+                case .forward:
+                    addSlash(p1: p + MirrorsExtendedGame.offset3[1], p2: p + MirrorsExtendedGame.offset3[2])
                 default:
                     break
                 }

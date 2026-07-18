@@ -17,6 +17,7 @@ class MirrorsExtendedGame: GridGame<MirrorsExtendedGameState> {
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
+    static let offset3 = Position.Square2x2Offset
     static let PUZ_UNKNOWN = -1
 
     override func isValid(row: Int, col: Int) -> Bool {
@@ -26,16 +27,13 @@ class MirrorsExtendedGame: GridGame<MirrorsExtendedGameState> {
     var areas = [[Position]]()
     var pos2area = [Position: Int]()
     var dots: GridDots!
-    var row2hint = [Int]()
-    var col2hint = [Int]()
+    var letter2laser = [Character: MirrorsExtendedLaser]()
 
     init(layout: [String], delegate: MirrorsExtendedGameViewController? = nil) {
         super.init(delegate: delegate)
         
         size = Position(layout.count / 2 + 1, layout[0].length / 2)
         dots = GridDots(rows: rows + 1, cols: cols + 1)
-        row2hint = Array<Int>(repeating: 0, count: rows)
-        col2hint = Array<Int>(repeating: 0, count: cols)
 
         for r in 1..<rows {
             var str = layout[2 * r - 1]
@@ -83,6 +81,22 @@ class MirrorsExtendedGame: GridGame<MirrorsExtendedGameState> {
                 pos2area[p] = n
             }
             areas.append(area)
+        }
+
+        func f(r: Int, c: Int, d: Int) {
+            let p = Position(r, c)
+            let str = layout[2 * r]
+            let c2 = 2 * c + (c == cols - 1 ? 1 : 0)
+            let (ch1, ch2) = (str[c2], str[c2 + 1])
+            guard ch1 != " " else {return}
+            let n = ch2.isNumber ? ch2.toInt! : Int(ch2.asciiValue!) - Int(Character("A").asciiValue!) + 10
+            letter2laser[ch1, default: MirrorsExtendedLaser(n: n)].dots.append(MirrorsExtendedLaserDot(p: p, dir: d))
+        }
+        for i in 0..<rows {
+            f(r: 0, c: i, d: 2)
+            f(r: rows - 1, c: i, d: 0)
+            f(r: i, c: 0, d: 1)
+            f(r: i, c: cols - 1, d: 3)
         }
         
         let state = MirrorsExtendedGameState(game: self)

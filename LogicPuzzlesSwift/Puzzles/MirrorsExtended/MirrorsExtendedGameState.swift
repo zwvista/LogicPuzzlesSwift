@@ -16,9 +16,7 @@ class MirrorsExtendedGameState: GridGameState<MirrorsExtendedGameMove> {
     }
     override var gameDocument: GameDocumentBase { MirrorsExtendedDocument.sharedInstance }
     var objArray = [MirrorsExtendedObject]()
-    var row2state = [HintState]()
-    var col2state = [HintState]()
-    var pos2state = [Position: AllowedObjectState]()
+    var letter2state = [Character: HintState]()
 
     override func copy() -> MirrorsExtendedGameState {
         let v = MirrorsExtendedGameState(game: game, isCopy: true)
@@ -27,8 +25,6 @@ class MirrorsExtendedGameState: GridGameState<MirrorsExtendedGameMove> {
     func setup(v: MirrorsExtendedGameState) -> MirrorsExtendedGameState {
         _ = super.setup(v: v)
         v.objArray = objArray
-        v.row2state = row2state
-        v.col2state = col2state
         return v
     }
     
@@ -36,8 +32,6 @@ class MirrorsExtendedGameState: GridGameState<MirrorsExtendedGameMove> {
         super.init(game: game)
         guard !isCopy else {return}
         objArray = Array<MirrorsExtendedObject>(repeating: MirrorsExtendedObject(), count: rows * cols)
-        row2state = Array<HintState>(repeating: .normal, count: rows)
-        col2state = Array<HintState>(repeating: .normal, count: cols)
         updateIsSolved()
     }
     
@@ -64,9 +58,10 @@ class MirrorsExtendedGameState: GridGameState<MirrorsExtendedGameMove> {
         let markerOption = MarkerOptions(rawValue: markerOption)
         let o = self[p]
         move.obj = switch o {
-        case .empty: markerOption == .markerFirst ? .marker : .water
-        case .water: markerOption == .markerLast ? .marker : .empty
-        case .marker: markerOption == .markerFirst ? .water : .empty
+        case .empty: markerOption == .markerFirst ? .marker : .backward
+        case .backward: .forward
+        case .forward: markerOption == .markerLast ? .marker : .empty
+        case .marker: markerOption == .markerFirst ? .backward : .empty
         default: o
         }
         return setObject(move: &move)
@@ -90,52 +85,52 @@ class MirrorsExtendedGameState: GridGameState<MirrorsExtendedGameMove> {
     private func updateIsSolved() {
         let allowedObjectsOnly = self.allowedObjectsOnly
         isSolved = true
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                if self[p] == .forbidden { self[p] = .empty }
-                pos2state[p] = .normal
-            }
-        }
-        // 2. You have to fill some water in it, considering that water pours down
-        //    and levels itself like in reality.
-        // 3. Areas of the same level which are horizontally connected will have
-        //    the same water level.
-        for r in 0..<rows {
-            for c in 0..<cols {
-                let p = Position(r, c)
-                guard self[p] == .water else {continue}
-                if !([1, 2, 3].allSatisfy { i in
-                    game.dots[p + MirrorsExtendedGame.offset2[i]][MirrorsExtendedGame.dirs[i]] == .line ||
-                    self[p + MirrorsExtendedGame.offset[i]] == .water
-                }) { pos2state[p] = .error; isSolved = false }
-            }
-        }
-        // 4. The numbers on the border show you how many tiles of each row and
-        //    column are filled.
-        for r in 0..<rows {
-            let n2 = game.row2hint[r]
-            guard n2 != MirrorsExtendedGame.PUZ_UNKNOWN else {continue}
-            let n1 = (0..<cols).count { self[r, $0] == .water }
-            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            row2state[r] = s
-            if s != .complete { isSolved = false }
-            guard s != .normal && allowedObjectsOnly else {continue}
-            (0..<cols).filter { self[r, $0] == .empty }.forEach {
-                self[r, $0] = .forbidden
-            }
-        }
-        for c in 0..<cols {
-            let n2 = game.col2hint[c]
-            guard n2 != MirrorsExtendedGame.PUZ_UNKNOWN else {continue}
-            let n1 = (0..<rows).count { self[$0, c] == .water }
-            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-            col2state[c] = s
-            if s != .complete { isSolved = false }
-            guard s != .normal && allowedObjectsOnly else {continue}
-            (0..<rows).filter { self[$0, c] == .empty }.forEach {
-                self[$0, c] = .forbidden
-            }
-        }
+//        for r in 0..<rows {
+//            for c in 0..<cols {
+//                let p = Position(r, c)
+//                if self[p] == .forbidden { self[p] = .empty }
+//                pos2state[p] = .normal
+//            }
+//        }
+//        // 2. You have to fill some water in it, considering that water pours down
+//        //    and levels itself like in reality.
+//        // 3. Areas of the same level which are horizontally connected will have
+//        //    the same water level.
+//        for r in 0..<rows {
+//            for c in 0..<cols {
+//                let p = Position(r, c)
+//                guard self[p] == .water else {continue}
+//                if !([1, 2, 3].allSatisfy { i in
+//                    game.dots[p + MirrorsExtendedGame.offset2[i]][MirrorsExtendedGame.dirs[i]] == .line ||
+//                    self[p + MirrorsExtendedGame.offset[i]] == .water
+//                }) { pos2state[p] = .error; isSolved = false }
+//            }
+//        }
+//        // 4. The numbers on the border show you how many tiles of each row and
+//        //    column are filled.
+//        for r in 0..<rows {
+//            let n2 = game.row2hint[r]
+//            guard n2 != MirrorsExtendedGame.PUZ_UNKNOWN else {continue}
+//            let n1 = (0..<cols).count { self[r, $0] == .water }
+//            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+//            row2state[r] = s
+//            if s != .complete { isSolved = false }
+//            guard s != .normal && allowedObjectsOnly else {continue}
+//            (0..<cols).filter { self[r, $0] == .empty }.forEach {
+//                self[r, $0] = .forbidden
+//            }
+//        }
+//        for c in 0..<cols {
+//            let n2 = game.col2hint[c]
+//            guard n2 != MirrorsExtendedGame.PUZ_UNKNOWN else {continue}
+//            let n1 = (0..<rows).count { self[$0, c] == .water }
+//            let s: HintState = n1 < n2 ? .normal : n1 == n2 ? .complete : .error
+//            col2state[c] = s
+//            if s != .complete { isSolved = false }
+//            guard s != .normal && allowedObjectsOnly else {continue}
+//            (0..<rows).filter { self[$0, c] == .empty }.forEach {
+//                self[$0, c] = .forbidden
+//            }
+//        }
     }
 }
