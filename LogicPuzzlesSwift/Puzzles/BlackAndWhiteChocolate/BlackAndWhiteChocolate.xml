@@ -296,7 +296,7 @@ B1W1B W W8W B1`
 W4B B B B6W B1`
 W B4W B6B B6W `
 W W W B W B3B1`
-W6W W0B6W B3W `
+W6W W6B6W B3W `
 W W W W W3B B1`
 B1B2B W1B W B1`
     ]]>
@@ -373,9 +373,9 @@ B1W1B B2B W B3`
   </level>
   <level id="37">
     <![CDATA[
-W5W W5W B1W W0`
+W5W W5W B1W W6`
 B B2B W5W W W `
-B5W W W0W W0B `
+B5W W W6W W6B `
 B W1B1B B B W1`
 B5B W2W2W B B1`
 B W1B B B B6B `
@@ -395,8 +395,8 @@ B W2W1B W2W B1`
     <![CDATA[
 W2B2B B2W B B1`
 W B W2W2W3B W `
-W0W B B W B B1`
-W W0B B W3B W1`
+W6W B B W B B1`
+W W6B B W3B W1`
 W W B W3W W B `
 B W6B B B3B W1`
     ]]>
@@ -445,7 +445,7 @@ B B W2W B3W B1`
     <![CDATA[
 W B2B B6W B B1`
 W2W B6B B B W `
-W W0W B B6W W4`
+W W6W B B6W W4`
 W6W W B1W W W4`
 W B2W W B4B B `
 B1B W2B B W1B4`
@@ -456,7 +456,7 @@ B1B W2B B W1B4`
 W W2W B W2W B1`
 B2B B6B W B B `
 W W B B6B6B W1`
-W W0W W W W5B `
+W W6W W W W5B `
 W1W W5B B5B B `
 B W6W B B W1B5`
     ]]>
@@ -483,7 +483,7 @@ B1W W2B1B W B1`
   </level>
   <level id="48">
     <![CDATA[
-W W W0W W W0B `
+W W W6W W W6B `
 B6B B B6B B W1`
 W W B4B W4W B `
 B2B B B W W4W `
@@ -494,7 +494,7 @@ B3B B3W2B B2B `
   <level id="49">
     <![CDATA[
 W6B B B6B B3B `
-W W0B6B W3W W `
+W W6B6B W3W W `
 W W W B6W B1W `
 B W3B W3W W B1`
 B3W W B B B3W `
@@ -1086,7 +1086,7 @@ B1W B1B W B1W B2`
 W4W W4W B B4W B1`
 B B4B B W B B4B `
 W3B B3B B B W W4`
-W W1W B B W1B7W `
+W W1W B B W1B1W `
 W B W2B W W3W W4`
 W2W B W W1W B W `
 B B2B W B W W2B `
@@ -1720,7 +1720,7 @@ B B W W W3W B1B B2`
   <level id="154">
     <![CDATA[
 W B W W W W4B W B1`
-B7W B B3B W B4B B `
+B1W B B3B W B4B B `
 W W W1B B B B B5W `
 B1W B W W W5W W W5`
 W B5B B5W W W W3B `
@@ -1774,7 +1774,7 @@ B W2B B W5B W B B6`
 B2B B W W B B6B W `
 W W B B W W1B B B `
 W W W W6W W W W W `
-B3B B3W W7B B3B B `
+B3B B3W W1B B3B B `
     ]]>
   </level>
   <level id="159">
@@ -1845,7 +1845,7 @@ W B W B W1W W W B `
 W B4W W7W W W B W `
 B7B B B B W B B8B `
 W B W W W8W W B W `
-B7B W8W W W W1B B1`
+B1B W8W W W W1B B1`
 B W B B2W B1B B8B `
     ]]>
   </level>
@@ -1881,7 +1881,7 @@ W W B W5B W3W B W `
 B W W W W W W W B1`
 B B W5W W3B B3B W `
 W B5B B W B B B3B `
-B7B W6W W6W W W W `
+B1B W6W W6W W W W `
 B B6B B B B6W B B1`
     ]]>
   </level>
@@ -1903,7 +1903,7 @@ W6B B6B W1B W B B1`
 W W6B B B W B B1W `
 W6W W B2B B1B W B1`
 W W W W W W B B W `
-B7B W B2W B B5W B2`
+B1B W B2W B B5W B2`
 W B W B W W W W B `
 B B W W B W W2B B2`
 B B5W W5B W W W1B `
@@ -1954,7 +1954,7 @@ B B7B B W B B B B `
 B7B W B B B B5W B `
 B W2W W W B W B B `
 B W W B2B W3W B W `
-B1W W B W7B W B1B `
+B1W W B W1B W B1B `
     ]]>
   </level>
   <level id="174">
@@ -2074,7 +2074,7 @@ B4W W W W3W W W B `
 B B B3B B W W W W `
 B B W W2B B B5W B `
 W1B B2W B B5W B2W `
-B B W B W7B W B B `
+B B W B W1B W B B `
     ]]>
   </level>
   <level id="184">
@@ -2165,7 +2165,7 @@ B W B1W B5W B W B `
     <![CDATA[
 W1B W B B B4B B B2`
 W W W W W W W W W `
-B B W B7W B W1B W `
+B B W B1W B W1B W `
 B B B W B1W W W B `
 B4B W4W W B B3B W `
 B W4W W B B4B B4B `
@@ -2285,7 +2285,7 @@ B1W B W B1W B B B `
     <![CDATA[
 W2W W W B W B B B5`
 B W5W W W B1W B W `
-B B W B7B B W B B `
+B B W B1B B W B B `
 B B B W B B W B W `
 B B W B B W W W1B `
 W W W B W W W5B B `

@@ -55,7 +55,7 @@ class GameScene<GS: GameStateBase>: SKScene, GameSceneBase {
     
     func addBlock(color: SKColor, point: CGPoint, nodeName: String, size: CGSize? = nil) {
         let size = size ?? coloredRectSize()
-        let blockNode = SKSpriteNode(color: color, size: coloredRectSize())
+        let blockNode = SKSpriteNode(color: color, size: size)
         blockNode.position = point
         blockNode.name = nodeName
         gridNode.addChild(blockNode)
