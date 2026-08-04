@@ -65,8 +65,8 @@ class GardenTunnelsGame: GridGame<GardenTunnelsGameState> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 for i in 0..<4 {
-                    if dots[p + TatamiGame.offset2[i]][TatamiGame.dirs[i]] != .line {
-                        g.addEdge(pos2node[p]!, neighbor: pos2node[p + TatamiGame.offset[i]]!)
+                    if dots[p + GardenTunnelsGame.offset2[i]][GardenTunnelsGame.dirs[i]] != .line {
+                        g.addEdge(pos2node[p]!, neighbor: pos2node[p + GardenTunnelsGame.offset[i]]!)
                     }
                 }
             }

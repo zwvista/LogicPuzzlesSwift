@@ -65,8 +65,8 @@ class FarmerGame: GridGame<FarmerGameState> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 for i in 0..<4 {
-                    if dots[p + RippleEffectGame.offset2[i]][RippleEffectGame.dirs[i]] != .line {
-                        g.addEdge(pos2node[p]!, neighbor: pos2node[p + RippleEffectGame.offset[i]]!)
+                    if dots[p + FarmerGame.offset2[i]][FarmerGame.dirs[i]] != .line {
+                        g.addEdge(pos2node[p]!, neighbor: pos2node[p + FarmerGame.offset[i]]!)
                     }
                 }
             }

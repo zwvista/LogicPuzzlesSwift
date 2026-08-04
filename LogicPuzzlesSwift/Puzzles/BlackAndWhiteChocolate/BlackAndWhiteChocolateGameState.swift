@@ -114,7 +114,7 @@ class BlackAndWhiteChocolateGameState: GridGameState<BlackAndWhiteChocolateGameM
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
                 for i in 0..<4 {
-                    guard self[p + BlackAndWhiteChocolateGame.offset2[i]][BoxItUpGame.dirs[i]] != .line else {continue}
+                    guard self[p + BlackAndWhiteChocolateGame.offset2[i]][BlackAndWhiteChocolateGame.dirs[i]] != .line else {continue}
                     g.addEdge(pos2node[p]!, neighbor: pos2node[p + BlackAndWhiteChocolateGame.offset[i]]!)
                 }
             }
@@ -124,36 +124,53 @@ class BlackAndWhiteChocolateGameState: GridGameState<BlackAndWhiteChocolateGameM
             let area = pos2node.filter { nodesExplored.contains($0.1.label) }.map { $0.0 }
             pos2node = pos2node.filter { !nodesExplored.contains($0.1.label) }
             let rng = area.filter { p in game.pos2hint[p] != nil }
-            // 2. Each Box must contain one number.
-            if rng.count != 1 {
-                for p in rng {
-                    pos2state[p] = .normal
-                }
-                isSolved = false; continue
-            }
-            let p2 = rng[0]
-            let n1 = area.count, n2 = game.pos2hint[p2]!
-            var r2 = 0, r1 = rows, c2 = 0, c1 = cols
-            for p in area {
-                if r2 < p.row { r2 = p.row }
-                if r1 > p.row { r1 = p.row }
-                if c2 < p.col { c2 = p.col }
-                if c1 > p.col { c1 = p.col }
-            }
-            let rs = r2 - r1 + 1, cs = c2 - c1 + 1
+            for p in rng { pos2state[p] = .normal }
+            let area1 = area.filter { game.pos2color[$0] == BlackAndWhiteChocolateGame.PUZ_BLACK }
+            let area2 = area.filter { game.pos2color[$0] == BlackAndWhiteChocolateGame.PUZ_WHITE }
             func hasLine() -> Bool {
-                for r in r1...r2 {
-                    for c in c1...c2 {
-                        let dotObj = self[r + 1, c + 1]
-                        if r < r2 && dotObj[3] == .line || c < c2 && dotObj[0] == .line { return true }
+                !area.allSatisfy { p in
+                    (0..<4).allSatisfy { i in
+                        (self[p + BlackAndWhiteChocolateGame.offset2[i]][BlackAndWhiteChocolateGame.dirs[i]] == .line) != area.contains(p + BlackAndWhiteChocolateGame.offset[i])
                     }
                 }
-                return false
             }
-            // 1. A simple puzzle where you have to divide the Board in Boxes (Rectangles).
-            // 2. The number represents the sum of the width and the height of that Box.
-            pos2state[p2] = rs * cs == n1 && rs + cs == n2 && !hasLine() ? .complete : .error
-            if pos2state[p2] != .complete { isSolved = false }
+            if area1.count != area2.count || hasLine() { isSolved = false; continue }
+            let s: HintState = rng.allSatisfy { game.pos2hint[$0] == area1.count } ? .complete : .error
+            for p in rng { pos2state[p] = s }
+            if s != .complete { isSolved = false; continue }
+            func f(a: [Position]) -> ([Position], Position) {
+                var r2 = 0, r1 = rows, c2 = 0, c1 = cols
+                for p in area {
+                    if r2 < p.row { r2 = p.row }
+                    if r1 > p.row { r1 = p.row }
+                    if c2 < p.col { c2 = p.col }
+                    if c1 > p.col { c1 = p.col }
+                }
+                let p1 = Position(r1, c1)
+                let rs = r2 - r1 + 1, cs = c2 - c1 + 1
+                return (a.map { $0 - p1 }, Position(rs, cs))
+            }
+            let (area3, size1) = f(a: area1)
+            let (area4, size2) = f(a: area2)
+            let (rs, cs) = size1.destructured
+            let size3 = Position(cs, rs)
+            if !((0..<8).contains { i in
+                size2 == (i % 2 == 0 ? size1 : size3) &&
+                area3.allSatisfy { p in
+                    let (r3, c3) = p.destructured
+                    let p2 = switch i {
+                    case 1: Position(c3, rs - 1 - r3)
+                    case 2: Position(rs - 1 - r3, cs - 1 - c3)
+                    case 3: Position(cs - 1 - c3, r3)
+                    case 4: Position(r3, cs - 1 - c3)
+                    case 5: Position(cs - 1 - c3, rs - 1 - r3)
+                    case 6: Position(rs - 1 - r3, c3)
+                    case 7: Position(c3, r3)
+                    default: p
+                    }
+                    return area4.contains(p2)
+                }
+            }) { isSolved = false }
         }
     }
 }

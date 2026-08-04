@@ -64,8 +64,8 @@ class HeliumAndIronGame: GridGame<HeliumAndIronGameState> {
             for c in 0..<cols {
                 let p = Position(r, c)
                 for i in 0..<4 {
-                    if dots[p + RippleEffectGame.offset2[i]][RippleEffectGame.dirs[i]] != .line {
-                        g.addEdge(pos2node[p]!, neighbor: pos2node[p + RippleEffectGame.offset[i]]!)
+                    if dots[p + HeliumAndIronGame.offset2[i]][HeliumAndIronGame.dirs[i]] != .line {
+                        g.addEdge(pos2node[p]!, neighbor: pos2node[p + HeliumAndIronGame.offset[i]]!)
                     }
                 }
             }

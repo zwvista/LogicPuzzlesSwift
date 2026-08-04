@@ -99,7 +99,7 @@ class BoxItAroundGameState: GridGameState<BoxItAroundGameMove> {
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
                 for i in 0..<4 {
-                    guard self[p + BoxItAroundGame.offset2[i]][BoxItUpGame.dirs[i]] != .line else {continue}
+                    guard self[p + BoxItAroundGame.offset2[i]][BoxItAroundGame.dirs[i]] != .line else {continue}
                     g.addEdge(pos2node[p]!, neighbor: pos2node[p + BoxItAroundGame.offset[i]]!)
                 }
             }
