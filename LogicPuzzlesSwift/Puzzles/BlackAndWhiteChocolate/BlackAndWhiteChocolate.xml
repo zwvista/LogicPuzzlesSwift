@@ -3,16 +3,13 @@
 <help>
   <![CDATA[
 1. Your chocolate factory made a mess. Instead of pouring dark and white chocolate in the neat usual rectangle shapes, everything got mixed up.
-2. Your brand policy is equality, so you have to sell chocolate bars with have equally dark and white chocolate in it.
+2. Your brand policy is equality, so you have to sell chocolate bars with equally dark and white chocolate in it.
 3. Divide the board in chocolate 'bars' that contain the same number of dark and white chocolate.
 4. Also the shape of the dark chocolate in an area must be the same as the white one, although it can be mirrored and/or rotated.
-5. The number on a square tells you how big is that dark or white shape. Obviosly in a single shape there must be the same number.
-6. A chocolate 'bar' can have any shape
-7. but it must contain equal number of dark and white squares
-8. which can be indicated on the squares themselves
-9. the shape of the dark squares must be the same of the white ones, possibly rotated or mirrored.
-10.Not every bar of dark/white chocolate is marked by numbers
-11.Big numbers indicate a big chocolate 'bar', so look for them first. For example a 6 indicates an area of 12 !
+5. The number on a square tells you how big is that dark or white shape. Obviously in a single shape there must be the same number.
+6. A chocolate 'bar' can have any shape, but it must contain equal number of dark and white squares, which can be indicated on the squares themselves
+7. The shape of the dark squares must be the same of the white ones, possibly rotated or mirrored.
+8. Not every bar of dark/white chocolate is marked by numbers
   ]]>
 </help>
 <levels>
