@@ -1754,6 +1754,7 @@
 		8CACC9352E9BC56E00F53475 /* HidokuGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CACC9282E9BC56E00F53475 /* HidokuGameScene.swift */; };
 		8CACC9362E9BC56E00F53475 /* HidokuDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CACC9262E9BC56E00F53475 /* HidokuDocument.swift */; };
 		8CACC9372E9BC56E00F53475 /* Hidoku.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CACC9252E9BC56E00F53475 /* Hidoku.xml */; };
+		8CAE3E8B3021FD1900DA8E32 /* chocolate_square_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CAE3E8A3021FD1800DA8E32 /* chocolate_square_white.png */; };
 		8CAEAF0B2FAA7C1A003F40B8 /* HedgeMaze.xml in Resources */ = {isa = PBXBuildFile; fileRef = 8CAEAF012FAA7C1A003F40B8 /* HedgeMaze.xml */; };
 		8CAEAF0C2FAA7C1A003F40B8 /* HedgeMazeGameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEAF052FAA7C1A003F40B8 /* HedgeMazeGameState.swift */; };
 		8CAEAF0D2FAA7C1A003F40B8 /* HedgeMazeGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEAF042FAA7C1A003F40B8 /* HedgeMazeGameScene.swift */; };
@@ -4086,6 +4087,7 @@
 		8CACC92B2E9BC56E00F53475 /* HidokuGridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidokuGridNode.swift; sourceTree = "<group>"; };
 		8CACC92C2E9BC56E00F53475 /* HidokuMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidokuMainViewController.swift; sourceTree = "<group>"; };
 		8CACC92D2E9BC56E00F53475 /* HidokuObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidokuObject.swift; sourceTree = "<group>"; };
+		8CAE3E8A3021FD1800DA8E32 /* chocolate_square_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chocolate_square_white.png; sourceTree = "<group>"; };
 		8CAEAF012FAA7C1A003F40B8 /* HedgeMaze.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HedgeMaze.xml; sourceTree = "<group>"; };
 		8CAEAF022FAA7C1A003F40B8 /* HedgeMazeDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HedgeMazeDocument.swift; sourceTree = "<group>"; };
 		8CAEAF032FAA7C1A003F40B8 /* HedgeMazeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HedgeMazeGame.swift; sourceTree = "<group>"; };
@@ -6945,6 +6947,7 @@
 				8CA1D8032F95486700A654D4 /* chest_treasure.png */,
 				8C8662732EA39DD00078CD64 /* chick.png */,
 				8C8662742EA39DD00078CD64 /* chocolate_square.png */,
+				8CAE3E8A3021FD1800DA8E32 /* chocolate_square_white.png */,
 				8C8662752EA39DD00078CD64 /* city.png */,
 				8C8662762EA39DD00078CD64 /* cloud.png */,
 				8C8662772EA39DD00078CD64 /* cocktail.png */,
@@ -9356,6 +9359,7 @@
 				8C86644F2EA39DD00078CD64 /* target.png in Resources */,
 				8C3A37441EC88D4300A914A5 /* Nurikabe.xml in Resources */,
 				8CF17FCB2F375E0F000F1F7D /* Guesstris.xml in Resources */,
+				8CAE3E8B3021FD1900DA8E32 /* chocolate_square_white.png in Resources */,
 				8C3A36841EC88D4200A914A5 /* FenceLits.xml in Resources */,
 				8C3A36E41EC88D4300A914A5 /* Loopy.xml in Resources */,
 				8C3A37201EC88D4300A914A5 /* MiniLits.xml in Resources */,

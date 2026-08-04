@@ -17,8 +17,11 @@ class BlackAndWhiteChocolateGame: GridGame<BlackAndWhiteChocolateGameState> {
         Position(0, 0),
     ]
     static let dirs = [1, 0, 3, 2]
+    static let PUZ_BLACK: Character = "B"
+    static let PUZ_WHITE: Character = "W"
 
     var objArray = [GridDotObject]()
+    var pos2color = [Position: Character]()
     var pos2hint = [Position: Int]()
     
     init(layout: [String], delegate: BlackAndWhiteChocolateGameViewController? = nil) {
@@ -31,9 +34,10 @@ class BlackAndWhiteChocolateGame: GridGame<BlackAndWhiteChocolateGameState> {
             let str = layout[r]
             for c in 0..<cols - 1 {
                 let p = Position(r, c)
-                let s = str[c * 2...c * 2 + 1]
-                guard s != "  " else {continue}
-                let n = s.toInt()!
+                let (ch1, ch2) = (str[c * 2], str[c * 2 + 1])
+                pos2color[p] = ch1
+                guard ch2 != " " else {continue}
+                let n = ch2.toInt!
                 pos2hint[p] = n
             }
         }

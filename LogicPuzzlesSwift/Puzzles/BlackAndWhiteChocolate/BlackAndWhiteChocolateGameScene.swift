@@ -27,6 +27,11 @@ class BlackAndWhiteChocolateGameScene: GameScene<BlackAndWhiteChocolateGameState
         let offset:CGFloat = 0.5
         addGrid(gridNode: BlackAndWhiteChocolateGridNode(blockSize: blockSize, rows: game.rows - 1, cols: game.cols - 1), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols - 1) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows - 1) / 2 + offset))
         
+        for (p, ch) in game.pos2color {
+            let point = gridNode.centerPoint(p: p)
+            addImage(imageNamed: ch == BlackAndWhiteChocolateGame.PUZ_BLACK ? "chocolate_square" : "chocolate_square_white", color: .red, colorBlendFactor: 0.0, point: point, nodeName: "bar")
+        }
+        
         // add Hints
         for (p, n) in game.pos2hint {
             let point = gridNode.centerPoint(p: p)
