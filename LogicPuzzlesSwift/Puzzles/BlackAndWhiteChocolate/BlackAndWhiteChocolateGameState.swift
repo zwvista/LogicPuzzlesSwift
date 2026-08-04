@@ -134,13 +134,18 @@ class BlackAndWhiteChocolateGameState: GridGameState<BlackAndWhiteChocolateGameM
                     }
                 }
             }
-            if area1.count != area2.count || hasLine() { isSolved = false; continue }
-            let s: HintState = rng.allSatisfy { game.pos2hint[$0] == area1.count } ? .complete : .error
+            let cnt = area1.count
+            if area2.count != cnt || hasLine() || (!rng.isEmpty && !rng.allSatisfy {
+                game.pos2hint[$0] == game.pos2hint[rng[0]]
+            }) {
+                isSolved = false; continue
+            }
+            let s: HintState = rng.allSatisfy { game.pos2hint[$0] == cnt } ? .complete : .error
             for p in rng { pos2state[p] = s }
             if s != .complete { isSolved = false; continue }
             func f(a: [Position]) -> ([Position], Position) {
                 var r2 = 0, r1 = rows, c2 = 0, c1 = cols
-                for p in area {
+                for p in a {
                     if r2 < p.row { r2 = p.row }
                     if r1 > p.row { r1 = p.row }
                     if c2 < p.col { c2 = p.col }
