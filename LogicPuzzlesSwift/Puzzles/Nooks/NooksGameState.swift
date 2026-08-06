@@ -136,7 +136,7 @@ class NooksGameState: GridGameState<NooksGameMove> {
             }
         }
         for (p, node) in pos2node {
-            for os in DesertDunesGame.offset {
+            for os in NooksGame.offset {
                 let p2 = p + os
                 if let node2 = pos2node[p2] { g.addEdge(node, neighbor: node2) }
             }

@@ -101,7 +101,7 @@ class CastlePatrolGameState: GridGameState<CastlePatrolGameMove> {
             }
         }
         for p in rngWalls {
-            for os in NurikabeGame.offset {
+            for os in CastlePatrolGame.offset {
                 let p2 = p + os
                 if rngWalls.contains(p2) {
                     g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
@@ -109,7 +109,7 @@ class CastlePatrolGameState: GridGameState<CastlePatrolGameMove> {
             }
         }
         for p in rngEmpty {
-            for os in NurikabeGame.offset {
+            for os in CastlePatrolGame.offset {
                 let p2 = p + os
                 if rngEmpty.contains(p2) {
                     g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)

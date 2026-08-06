@@ -127,7 +127,7 @@ class GardenerGameState: GridGameState<GardenerGameMove> {
             }
         }
         for (p, node) in pos2node {
-            for os in FourMeNotGame.offset {
+            for os in GardenerGame.offset {
                 let p2 = p + os
                 guard let node2 = pos2node[p2] else {continue}
                 g.addEdge(node, neighbor: node2)

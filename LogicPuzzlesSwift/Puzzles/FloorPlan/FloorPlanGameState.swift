@@ -57,9 +57,9 @@ class FloorPlanGameState: GridGameState<FloorPlanGameMove> {
         let o = self[p]
         let markerOption = MarkerOptions(rawValue: markerOption)
         move.obj =
-            o == DigitalPathGame.PUZ_EMPTY ? markerOption == .markerFirst ? DigitalPathGame.PUZ_MARKER : 1 :
-            o == DigitalPathGame.PUZ_MARKER ? markerOption == .markerFirst ? 1 : DigitalPathGame.PUZ_EMPTY :
-            o == 4 ? markerOption == .markerLast ? DigitalPathGame.PUZ_MARKER : DigitalPathGame.PUZ_EMPTY :
+            o == FloorPlanGame.PUZ_EMPTY ? markerOption == .markerFirst ? FloorPlanGame.PUZ_MARKER : 1 :
+            o == FloorPlanGame.PUZ_MARKER ? markerOption == .markerFirst ? 1 : FloorPlanGame.PUZ_EMPTY :
+            o == 4 ? markerOption == .markerLast ? FloorPlanGame.PUZ_MARKER : FloorPlanGame.PUZ_EMPTY :
             o + 1
         return setObject(move: &move)
     }

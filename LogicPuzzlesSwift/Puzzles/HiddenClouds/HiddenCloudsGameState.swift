@@ -104,7 +104,7 @@ class HiddenCloudsGameState: GridGameState<HiddenCloudsGameMove> {
             }
         }
         for (p, node) in pos2node {
-            for os in ChocolateGame.offset {
+            for os in HiddenCloudsGame.offset {
                 let p2 = p + os
                 if let node2 = pos2node[p2] { g.addEdge(node, neighbor: node2) }
             }

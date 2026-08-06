@@ -73,7 +73,7 @@ class ZenSolitaireGameState: GridGameState<ZenSolitaireGameMove> {
                 guard self[p3] != ZenSolitaireGame.PUZ_STONE else { return (false, -1) }
                 p3 += os
             }
-            let dir = ZenGardensGame.offset.indexes(of: os).first!
+            let dir = ZenSolitaireGame.offset.indexes(of: os).first!
             return (true, dir)
         }
         // 2. You can start at any stone and pick it up (just to click on it and it will be numbered
