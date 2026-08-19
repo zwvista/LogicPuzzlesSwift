@@ -14,6 +14,7 @@ class SnakeIslandsGame: GridGame<SnakeIslandsGameState> {
 
     var objArray = [SnakeIslandsObject]()
     var pos2hint = [Position: Int]()
+    var snakeEnds = [Position]()
     
     init(layout: [String], delegate: SnakeIslandsGameViewController? = nil) {
         super.init(delegate: delegate)
@@ -28,6 +29,7 @@ class SnakeIslandsGame: GridGame<SnakeIslandsGameState> {
                 let p = Position(r, c)
                 if ch == "S" {
                     self[p] = .wall
+                    snakeEnds.append(p)
                 } else if ch != " " {
                     pos2hint[p] = ch.isNumber ? ch.toInt! : Int(ch.asciiValue!) - Int(Character("A").asciiValue!) + 10
                     self[p] = .hint

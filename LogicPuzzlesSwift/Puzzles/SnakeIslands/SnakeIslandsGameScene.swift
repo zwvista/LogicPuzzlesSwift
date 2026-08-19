@@ -27,6 +27,14 @@ class SnakeIslandsGameScene: GameScene<SnakeIslandsGameState> {
         let offset:CGFloat = 0.5
         addGrid(gridNode: SnakeIslandsGridNode(blockSize: blockSize, rows: game.rows, cols: game.cols), point: CGPoint(x: skView.frame.midX - blockSize * CGFloat(game.cols) / 2 - offset, y: skView.frame.midY + blockSize * CGFloat(game.rows) / 2 + offset))
         
+        // add walls
+        for p in game.snakeEnds {
+            let point = gridNode.centerPoint(p: p)
+            let nodeNameSuffix = "-\(p.row)-\(p.col)"
+            addBlock(color: .white, point: point, nodeName: "wall")
+            addCircleMarker(color: .blue, point: point, nodeName: "wall")
+        }
+        
         // add Hints
         for (p, n) in game.pos2hint {
             let point = gridNode.centerPoint(p: p)
@@ -66,7 +74,7 @@ class SnakeIslandsGameScene: GameScene<SnakeIslandsGameState> {
                     case .marker:
                         addDotMarker(point: point, nodeName: markerNodeName)
                     case .wall:
-                        addImage(imageNamed: "tower_wall2", color: .red, colorBlendFactor: 0.0, point: point, nodeName: wallNodeName)
+                        addBlock(color: .white, point: point, nodeName: wallNodeName)
                     default:
                         break
                     }
