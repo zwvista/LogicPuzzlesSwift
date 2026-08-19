@@ -16,6 +16,7 @@ class SnakeIslandsGameState: GridGameState<SnakeIslandsGameMove> {
     override var gameDocument: GameDocumentBase { SnakeIslandsDocument.sharedInstance }
     var objArray = [SnakeIslandsObject]()
     var pos2state = [Position: HintState]()
+    var invalid2x2Squares = [Position]()
 
     override func copy() -> SnakeIslandsGameState {
         let v = SnakeIslandsGameState(game: game, isCopy: true)
@@ -94,80 +95,80 @@ class SnakeIslandsGameState: GridGameState<SnakeIslandsGameMove> {
     */
     private func updateIsSolved() {
         isSolved = true
-//        let g = Graph()
-//        var pos2node = [Position: Node]()
-//        var rngWalls = [Position]()
-//        var rngEmpty = [Position]()
-//        for r in 0..<rows {
-//            for c in 0..<cols {
-//                let p = Position(r, c)
-//                pos2node[p] = g.addNode(p.description)
-//                switch self[p] {
-//                case .wall, .wallHint:
-//                    rngWalls.append(p)
-//                case .empty, .emptyHint:
-//                    rngEmpty.append(p)
-//                default:
-//                    break
-//                }
-//            }
-//        }
-//        for p in rngWalls {
-//            for os in .SnakeIslandsGame.offset {
-//                let p2 = p + os
-//                if rngWalls.contains(p2) {
-//                    g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
-//                }
-//            }
-//        }
-//        for p in rngEmpty {
-//            for os in .SnakeIslandsGame.offset {
-//                let p2 = p + os
-//                if rngEmpty.contains(p2) {
-//                    g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
-//                }
-//            }
-//        }
-//        var areas = [[Position]]()
-//        var pos2area = [Position: Int]()
-//        func f(rngWE: inout [Position], hint: SnakeIslandsObject) {
-//            while !rngWE.isEmpty {
-//                let node = pos2node[rngWE.first!]!
-//                let nodesExplored = breadthFirstSearch(g, source: node)
-//                let area = rngWE.filter { nodesExplored.contains($0.description) }
-//                let rng = area.filter { self[$0].isHint() }
-//                rngWE = rngWE.filter { !nodesExplored.contains($0.description) }
-//                let n1 = nodesExplored.count
-//                if rng.count == 1 && self[rng[0]] == hint {
-//                    // 1. Divide the grid into walls and empty areas. Every area contains one number.
-//                    let p = rng[0]
-//                    let n2 = game.pos2hint[p]!
-//                    let s: HintState = hint == .wallHint && n1 < n2 ? .normal : n1 == n2 ? .complete : .error
-//                    pos2state[p] = s
-//                    if s != .complete { isSolved = false }
-//                    let n = areas.count
-//                    areas.append(area)
-//                    for p in area { pos2area[p] = n }
-//                } else {
-//                    isSolved = false
-//                    for p in rng { pos2state[p] = hint == .wallHint ? .error : .normal }
-//                }
-//            }
-//        }
-//        f(rngWE: &rngWalls, hint: .wallHint)
-//        f(rngWE: &rngEmpty, hint: .emptyHint)
-//        guard isSolved else {return}
-//        // 3. Areas of the same type cannot share an edge.
-//        if !areas.allSatisfy({ area in
-//            let p0 = area[0]
-//            let n = pos2area[p0]!
-//            let obj = self[p0]
-//            return area.allSatisfy({ p in
-//                return SnakeIslandsGame.offset.allSatisfy({
-//                    guard let n2 = pos2area[p + $0], n2 != n else { return true }
-//                    return self[areas[n2][0]] != obj
-//                })
-//            })
-//        }) { isSolved = false }
+        // 6. The wall can't form 2x2 squares.
+        for r in 0..<rows - 1 {
+            for c in 0..<cols - 1 {
+                let p = Position(r, c)
+                if (SnakeIslandsGame.offset2.map { p + $0 }.allSatisfy { self[$0] == .wall }) {
+                    invalid2x2Squares.append(p + Position.SouthEast); isSolved = false
+                }
+            }
+        }
+        let g = Graph()
+        var pos2node = [Position: Node]()
+        var rngWalls = [Position]()
+        var rngEmpty = [Position]()
+        for r in 0..<rows {
+            for c in 0..<cols {
+                let p = Position(r, c)
+                pos2node[p] = g.addNode(p.description)
+                if self[p] == .wall {
+                    rngWalls.append(p)
+                } else {
+                    rngEmpty.append(p)
+                }
+            }
+        }
+        for p in rngWalls {
+            for os in NurikabeGame.offset {
+                let p2 = p + os
+                if rngWalls.contains(p2) {
+                    g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
+                }
+            }
+        }
+        for p in rngEmpty {
+            for os in NurikabeGame.offset {
+                let p2 = p + os
+                if rngEmpty.contains(p2) {
+                    g.addEdge(pos2node[p]!, neighbor: pos2node[p2]!)
+                }
+            }
+        }
+        if rngWalls.isEmpty {
+            isSolved = false
+        } else {
+            // 3. The garden is separated by a single continuous wall. This means all
+            //    wall tiles on the board must be connected horizontally or vertically.
+            //    There can't be isolated walls.
+            let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
+            if rngWalls.count != nodesExplored.count { isSolved = false }
+        }
+        while !rngEmpty.isEmpty {
+            let node = pos2node[rngEmpty.first!]!
+            let nodesExplored = breadthFirstSearch(g, source: node)
+            rngEmpty = rngEmpty.filter { !nodesExplored.contains($0.description) }
+            let n2 = nodesExplored.count
+            var rng = [Position]()
+            for p in game.pos2hint.keys {
+                if nodesExplored.contains(p.description) {
+                    rng.append(p)
+                }
+            }
+            if rng.count == 1 {
+                // 1. Each number on the grid indicates a garden, occupying as many tiles
+                //    as the number itself.
+                let p = rng[0]
+                let n1 = game.pos2hint[p]!
+                let s: HintState = n1 == n2 ? .complete : .error
+                pos2state[p] = s
+                if s != .complete { isSolved = false }
+            } else {
+                // 5. All the gardens in the puzzle are numbered at the start, there are no
+                //    hidden gardens.
+                isSolved = false
+                for p in rng { pos2state[p] = .normal }
+            }
+        }
     }
 }
