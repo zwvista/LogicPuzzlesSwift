@@ -1032,6 +1032,7 @@
 		8C7609101EC627E900DFCD7B /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C76090F1EC627E900DFCD7B /* Global.swift */; };
 		8C7609181EC7778100DFCD7B /* GameHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7609171EC7778100DFCD7B /* GameHelpViewController.swift */; };
 		8C76091A1EC7EB1C00DFCD7B /* SelfSizingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7609191EC7EB1C00DFCD7B /* SelfSizingTableViewCell.swift */; };
+		8C7D6EB9305AF0D800E806FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7D6EB8305AF0D800E806FC /* SceneDelegate.swift */; };
 		8C7E4B441F793C9800B57C60 /* TennerGridDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7E4B391F793A6100B57C60 /* TennerGridDocument.swift */; };
 		8C7E4B451F793C9800B57C60 /* TennerGridGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7E4B3A1F793A6100B57C60 /* TennerGridGame.swift */; };
 		8C7E4B461F793C9800B57C60 /* TennerGridGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7E4B3B1F793A6100B57C60 /* TennerGridGameScene.swift */; };
@@ -3359,6 +3360,7 @@
 		8C76090F1EC627E900DFCD7B /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		8C7609171EC7778100DFCD7B /* GameHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHelpViewController.swift; sourceTree = "<group>"; };
 		8C7609191EC7EB1C00DFCD7B /* SelfSizingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfSizingTableViewCell.swift; sourceTree = "<group>"; };
+		8C7D6EB8305AF0D800E806FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8C7E4B381F793A6100B57C60 /* TennerGrid.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TennerGrid.xml; sourceTree = "<group>"; };
 		8C7E4B391F793A6100B57C60 /* TennerGridDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennerGridDocument.swift; sourceTree = "<group>"; };
 		8C7E4B3A1F793A6100B57C60 /* TennerGridGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennerGridGame.swift; sourceTree = "<group>"; };
@@ -7598,6 +7600,7 @@
 		8C9F43D91D771915000139FC /* LogicPuzzlesSwift */ = {
 			isa = PBXGroup;
 			children = (
+				8C7D6EB8305AF0D800E806FC /* SceneDelegate.swift */,
 				8C9F43DA1D771915000139FC /* AppDelegate.swift */,
 				8C9F43E31D771915000139FC /* Assets.xcassets */,
 				8C6D37CE1DC42FA40052202C /* Common */,
@@ -10863,6 +10866,7 @@
 				8C263F522F1D169F00158A2C /* JoinMeObject.swift in Sources */,
 				8C263F532F1D169F00158A2C /* JoinMeDocument.swift in Sources */,
 				8C263F542F1D169F00158A2C /* JoinMeGameViewController.swift in Sources */,
+				8C7D6EB9305AF0D800E806FC /* SceneDelegate.swift in Sources */,
 				8C9BD4ED2F0A092700D1D915 /* MixedTatamisGridNode.swift in Sources */,
 				8C9BD4EE2F0A092700D1D915 /* MixedTatamisGame.swift in Sources */,
 				8C9BD4EF2F0A092700D1D915 /* MixedTatamisGameState.swift in Sources */,
@@ -11409,6 +11413,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = U259NHMY78;
 				INFOPLIST_FILE = LogicPuzzlesSwift/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.puzzle-games";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -11432,6 +11437,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = U259NHMY78;
 				INFOPLIST_FILE = LogicPuzzlesSwift/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.puzzle-games";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
