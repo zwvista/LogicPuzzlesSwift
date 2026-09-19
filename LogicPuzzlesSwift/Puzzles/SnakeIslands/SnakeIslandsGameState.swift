@@ -138,9 +138,9 @@ class SnakeIslandsGameState: GridGameState<SnakeIslandsGameMove> {
         if rngWalls.isEmpty {
             isSolved = false
         } else {
-            // 3. The garden is separated by a single continuous wall. This means all
+            // 4. The gardens are separated by a single, continuous wall. This means all
             //    wall tiles on the board must be connected horizontally or vertically.
-            //    There can't be isolated walls.
+            //    There can't be isolated walls
             let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
             if rngWalls.count != nodesExplored.count { isSolved = false }
         }
@@ -156,19 +156,56 @@ class SnakeIslandsGameState: GridGameState<SnakeIslandsGameMove> {
                 }
             }
             if rng.count == 1 {
-                // 1. Each number on the grid indicates a garden, occupying as many tiles
-                //    as the number itself.
+                // 2. Each number on the grid indicates a garden, occupying
+                //    as many tiles as the number itself.
                 let p = rng[0]
                 let n1 = game.pos2hint[p]!
                 let s: HintState = n1 == n2 ? .complete : .error
                 pos2state[p] = s
                 if s != .complete { isSolved = false }
-            } else {
-                // 5. All the gardens in the puzzle are numbered at the start, there are no
-                //    hidden gardens.
+            } else if rng.count > 1 {
+                // 5. Additionally, not all the gardens in the puzzle may be numbered at the
+                //    start. There could be some hidden gardens.
                 isSolved = false
                 for p in rng { pos2state[p] = .normal }
             }
         }
+        guard isSolved else {return}
+        func dfs(rngEnds: [Position], rngWalls: [Position], p: Position?) -> Bool {
+            var p = p, rngEnds = rngEnds, rngWalls = rngWalls
+            while true {
+                let p2: Position
+                if p == nil {
+                    if rngEnds.isEmpty {
+                        return rngWalls.isEmpty
+                    }
+                    // start with a new snake
+                    p2 = rngEnds.first!
+                    rngEnds.removeObject(p2)
+                } else {
+                    // continue with the current snake
+                    p2 = p!
+                }
+                rngWalls.removeObject(p2)
+                if p != nil && rngEnds.contains(p2) {
+                    // meet another snake end
+                    rngEnds.removeObject(p2)
+                    p = nil
+                } else {
+                    let rng = SnakeIslandsGame.offset.map { p2 + $0 }.filter { rngWalls.contains($0) }
+                    if rng.isEmpty {
+                        // cant meet a snake end
+                        return false
+                    } else if rng.count == 1 {
+                        // continue with the current snake
+                        p = rng.first
+                    } else {
+                        // find other snake ends
+                        return rng.contains { dfs(rngEnds: rngEnds, rngWalls: rngWalls, p: $0) }
+                    }
+                }
+            }
+        }
+        if !dfs(rngEnds: game.snakeEnds, rngWalls: rngWalls, p: nil) { isSolved = false }
     }
 }
