@@ -31,7 +31,7 @@ class SnakeIslandsGameState: GridGameState<SnakeIslandsGameMove> {
     required init(game: SnakeIslandsGame, isCopy: Bool = false) {
         super.init(game: game)
         guard !isCopy else {return}
-        objArray = Array<SnakeIslandsObject>(repeating: SnakeIslandsObject(), count: rows * cols)
+        objArray = game.objArray
         for p in game.pos2hint.keys {
             self[p] = .hint
         }
