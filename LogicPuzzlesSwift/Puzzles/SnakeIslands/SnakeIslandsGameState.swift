@@ -135,27 +135,23 @@ class SnakeIslandsGameState: GridGameState<SnakeIslandsGameMove> {
                 }
             }
         }
-        if rngWalls.isEmpty {
-            isSolved = false
-        } else {
-            // 4. The gardens are separated by a single, continuous wall. This means all
-            //    wall tiles on the board must be connected horizontally or vertically.
-            //    There can't be isolated walls
-            let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
-            if rngWalls.count != nodesExplored.count { isSolved = false }
-        }
+        // 4. The gardens are separated by a single, continuous wall. This means all
+        //    wall tiles on the board must be connected horizontally or vertically.
+        //    There can't be isolated walls
+        let nodesExplored = breadthFirstSearch(g, source: pos2node[rngWalls.first!]!)
+        if rngWalls.count != nodesExplored.count { isSolved = false }
+        // 3. Gardens can have any form, extending horizontally and vertically but
+        //    can't extend diagonally.
         while !rngEmpty.isEmpty {
             let node = pos2node[rngEmpty.first!]!
             let nodesExplored = breadthFirstSearch(g, source: node)
             rngEmpty = rngEmpty.filter { !nodesExplored.contains($0.description) }
             let n2 = nodesExplored.count
-            var rng = [Position]()
-            for p in game.pos2hint.keys {
-                if nodesExplored.contains(p.description) {
-                    rng.append(p)
-                }
-            }
-            if rng.count == 1 {
+            let rng = game.pos2hint.keys.filter { nodesExplored.contains($0.description) }
+            if rng.isEmpty {
+                // 5. Additionally, not all the gardens in the puzzle may be numbered at the
+                //    start. There could be some hidden gardens.
+            } else if rng.count == 1 {
                 // 2. Each number on the grid indicates a garden, occupying
                 //    as many tiles as the number itself.
                 let p = rng[0]
@@ -163,9 +159,7 @@ class SnakeIslandsGameState: GridGameState<SnakeIslandsGameMove> {
                 let s: HintState = n1 == n2 ? .complete : .error
                 pos2state[p] = s
                 if s != .complete { isSolved = false }
-            } else if rng.count > 1 {
-                // 5. Additionally, not all the gardens in the puzzle may be numbered at the
-                //    start. There could be some hidden gardens.
+            } else {
                 isSolved = false
                 for p in rng { pos2state[p] = .normal }
             }
@@ -176,10 +170,8 @@ class SnakeIslandsGameState: GridGameState<SnakeIslandsGameMove> {
             while true {
                 let p2: Position
                 if p == nil {
-                    if rngEnds.isEmpty {
-                        return rngWalls.isEmpty
-                    }
-                    // start with a new snake
+                    if rngEnds.isEmpty { return rngWalls.isEmpty }
+                    // start with a new snake end
                     p2 = rngEnds.first!
                     rngEnds.removeObject(p2)
                 } else {
@@ -188,13 +180,13 @@ class SnakeIslandsGameState: GridGameState<SnakeIslandsGameMove> {
                 }
                 rngWalls.removeObject(p2)
                 if p != nil && rngEnds.contains(p2) {
-                    // meet another snake end
+                    // found another snake end
                     rngEnds.removeObject(p2)
                     p = nil
                 } else {
                     let rng = SnakeIslandsGame.offset.map { p2 + $0 }.filter { rngWalls.contains($0) }
                     if rng.isEmpty {
-                        // cant meet a snake end
+                        // cannot find another snake end
                         return false
                     } else if rng.count == 1 {
                         // continue with the current snake
